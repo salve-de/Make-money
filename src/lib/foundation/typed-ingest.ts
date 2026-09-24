@@ -159,6 +159,69 @@ function humanObservationText(observation: JsonObject): string {
   return summary || canonicalJson(observation);
 }
 
+function explicitEntityIds(value: JsonObject): string[] {
+  const ids = new Set<string>();
+  for (const key of [
+    'entity_id',
+    'subject_entity_id',
+    'object_entity_id',
+    'payer_entity_id',
+    'receiver_entity_id',
+    'subject_ref',
+  ]) {
+    const candidate = stringValue(value, key);
+    if (candidate && /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(candidate)) ids.add(candidate);
+  }
+  const many = value.entity_ids;
+  if (Array.isArray(many)) {
+    for (const candidate of many) {
+      if (typeof candidate === 'string' && /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(candidate)) {
+        ids.add(candidate);
+      }
+    }
+  }
+  return [...ids];
+}
+
+function observationEntityIds(observation: JsonObject, entities: JsonObject[]): string[] {
+  const available = new Set(
+    entities
+      .map((entity) => stringValue(entity, 'entity_id'))
+      .filter((value): value is string => Boolean(value)),
+  );
+  const associated = new Set<string>();
+
+  for (const id of explicitEntityIds(observation)) {
+    if (available.has(id)) associated.add(id);
+  }
+  const payload = isObject(observation.payload) ? observation.payload : null;
+  if (payload) {
+    for (const id of explicitEntityIds(payload)) {
+      if (available.has(id)) associated.add(id);
+    }
+  }
+
+  const evidenceIds = new Set(
+    Array.isArray(observation.evidence_ids)
+      ? observation.evidence_ids.filter((value): value is string => typeof value === 'string')
+      : [],
+  );
+  if (evidenceIds.size > 0) {
+    for (const entity of entities) {
+      const entityId = stringValue(entity, 'entity_id');
+      const entityEvidence = Array.isArray(entity.evidence_ids)
+        ? entity.evidence_ids.filter((value): value is string => typeof value === 'string')
+        : [];
+      if (entityId && entityEvidence.some((id) => evidenceIds.has(id))) associated.add(entityId);
+    }
+  }
+
+  if (associated.size === 0 && available.size === 1) {
+    associated.add([...available][0]);
+  }
+  return [...associated].sort();
+}
+
 function transportObservationId(blobSha: string, subjectRef: string): string {
   return `obs_${sha256Sync(`transport|${blobSha}|${subjectRef}|${TYPED_PROJECTOR_VERSION}`).slice(0, 24)}`;
 }
@@ -191,6 +254,9 @@ export function projectTypedRecordSetV4(
   const typedObservations = Array.isArray(typedRecordSet.observations)
     ? typedRecordSet.observations.filter(isObject)
     : [];
+  const typedEntities = Array.isArray(typedRecordSet.entities)
+    ? typedRecordSet.entities.filter(isObject)
+    : [];
 
   const observations: JsonObject[] = [
     {
@@ -209,8 +275,10 @@ export function projectTypedRecordSetV4(
       const observationChannel =
         stringValue(observation, 'collection_channel') || collectionChannel;
       const observer = stringValue(observation, 'observer') || agentName;
+      const entityIds = observationEntityIds(observation, typedEntities);
       return {
         ...cloneJson(observation),
+        ...(entityIds.length > 0 ? { entity_ids: entityIds } : {}),
         collection_channel: observationChannel,
         observer,
         text: humanObservationText(observation),
