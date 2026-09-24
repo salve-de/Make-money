@@ -76,7 +76,7 @@ This release predates the new granular rights gate. It must be audited separatel
 - [x] Add the same public gate to legacy Foundation ingest route.
 - [x] Add unit tests for missing policy, approved policy, conditional policy and UNVERIFIED facts.
 - [ ] Run Make-Money test/type/build checks and repair any failures.
-- [ ] Audit the 3,085 existing catalog records and write a durable report.
+- [x] Run and document the preliminary 3,085-record registry/lineage audit.\n- [ ] Run the per-dossier R2 Evidence/public-rights audit.
 - [ ] Quarantine/exclude existing catalog records that cannot prove a public rights basis.
 - [ ] Prove one real typed sidecar can ingest canonically while public view is RIGHTS_HELD.
 - [ ] Prove one approved-policy fixture reaches the public projection.
@@ -92,3 +92,11 @@ Another chat/agent must:
 3. inspect branch/PR `rights-publication-gate-20260924`;
 4. continue from the first unchecked item;
 5. append concrete test/audit/PR evidence here before stopping.
+
+
+## Preliminary 3,085-record audit evidence
+
+Reproducible report: `reports/commercial-rights-catalog-audit-20260924.md`
+Script: `scripts/audit-commercial-rights-lineage.mjs`
+
+Result: 3,085/3,085 release IDs match the registry; 761 use eBizFacts lineage IDs and 1,150 belong to IndieHackers-named batches. Both source families' current official terms materially restrict commercial/scraping reuse. This is a review-priority signal only; current R2 Evidence must be audited before a public dossier is quarantined.
