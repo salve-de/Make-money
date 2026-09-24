@@ -324,6 +324,7 @@ export function readableObservationText(text: string | null | undefined): string
   if (!text) return null;
   const trimmed = text.trim();
   if (!trimmed) return null;
+  if (trimmed === 'typed-record-set.v1 transport payload') return null;
   if (!trimmed.startsWith('{') && !trimmed.startsWith('[')) return trimmed;
 
   try {
