@@ -79,6 +79,7 @@ type PublicObservationFieldRule = {
   sourcePath: readonly string[];
   publicPath?: readonly string[];
   kind: 'finite_number' | 'currency_code' | 'boolean';
+  required?: boolean;
 };
 
 type PublicObservationTypePolicy = {
@@ -101,8 +102,8 @@ export const PUBLIC_OBSERVATION_TYPE_POLICIES: Readonly<
 > = Object.freeze({
   'business_model.revenue_signal': Object.freeze({
     fields: Object.freeze([
-      Object.freeze({ sourcePath: Object.freeze(['amount']), kind: 'finite_number' as const }),
-      Object.freeze({ sourcePath: Object.freeze(['currency']), kind: 'currency_code' as const }),
+      Object.freeze({ sourcePath: Object.freeze(['amount']), kind: 'finite_number' as const, required: true }),
+      Object.freeze({ sourcePath: Object.freeze(['currency']), kind: 'currency_code' as const, required: true }),
     ]),
   }),
 });
@@ -148,7 +149,7 @@ function projectPublicObservationField(
   }
   if (kind === 'currency_code') {
     if (typeof value !== 'string' || value !== value.trim()) return undefined;
-    return /^[A-Z0-9]{2,12}$/.test(value) ? value : undefined;
+    return /^[A-Z]{3}$/.test(value) ? value : undefined;
   }
   return undefined;
 }
@@ -167,7 +168,10 @@ function buildPublicObservationPayload(
       readPath(input, field.sourcePath),
       field.kind,
     );
-    if (projected === undefined) continue;
+    if (projected === undefined) {
+      if (field.required) return null;
+      continue;
+    }
     writePath(publicPayload, field.publicPath || field.sourcePath, projected);
   }
 
