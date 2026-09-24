@@ -6,6 +6,7 @@ import {
   prepareFoundationTypedIngest,
 } from '../src/lib/foundation/typed-ingest';
 import {
+  buildBatchRemoteProductionPreflight,
   buildBundleProductionPreflight,
   buildMakeMoneyReplayStatePreflight,
   buildTypedProductionPreflight,
@@ -296,4 +297,94 @@ test('replay preflight fails closed when R2 says truncated but omits the continu
   assert.deepEqual(report.listing_error, [
     'projection_progress_truncated_without_cursor',
   ]);
+});
+
+
+test('batch remote preflight aggregates the whole backlog without writes', async () => {
+  const report = await buildBatchRemoteProductionPreflight(
+    {
+      typed_requests: [
+        { id: 'typed-a', request: { a: 1 } },
+        { id: 'typed-b', request: { b: 2 } },
+      ],
+      legacy_bundles: [
+        { id: 'legacy-a', bundle: { run_id: 'run_legacy_a' } },
+      ],
+    },
+    {
+      typed: async (value: unknown) => {
+        const marker = value && typeof value === 'object' && !Array.isArray(value)
+          ? Object.keys(value as Record<string, unknown>)[0]
+          : 'unknown';
+        return {
+          planned_writes: {
+            objects: [{
+              preflight_status: marker === 'b' ? 'EXISTS_CONFLICT' : 'ABSENT',
+            }],
+          },
+          safe_to_write: marker !== 'b',
+          conflicts: marker === 'b' ? [{ key: 'conflict' }] : [],
+        } as never;
+      },
+      bundle: async () => ({
+        planned_writes: {
+          objects: [{ preflight_status: 'EXISTS_IDENTICAL' }],
+        },
+        safe_to_write: true,
+        conflicts: [],
+      } as never),
+    },
+  );
+
+  assert.equal(report.mode, 'READ_ONLY_REMOTE_R2');
+  assert.equal(report.r2_mutations, 0);
+  assert.equal(report.queue_mutations, 0);
+  assert.equal(report.typed_count, 2);
+  assert.equal(report.legacy_count, 1);
+  assert.equal(report.typed_failed, 0);
+  assert.equal(report.legacy_failed, 0);
+  assert.equal(report.conflict_entry_count, 1);
+  assert.equal(report.safe_to_write_all, false);
+  assert.deepEqual(report.planned_write_status_counts, {
+    ABSENT: 1,
+    EXISTS_CONFLICT: 1,
+    EXISTS_IDENTICAL: 1,
+  });
+  assert.deepEqual(report.typed.map((row) => row.id), ['typed-a', 'typed-b']);
+  assert.deepEqual(report.legacy.map((row) => row.id), ['legacy-a']);
+});
+
+test('batch remote preflight fails closed on one malformed entry without stopping the audit', async () => {
+  const report = await buildBatchRemoteProductionPreflight(
+    {
+      typed_requests: [
+        { id: 'typed-ok', request: { ok: true } },
+        { id: 'typed-bad', request: { bad: true } },
+      ],
+    },
+    {
+      typed: async (value: unknown) => {
+        if (
+          value &&
+          typeof value === 'object' &&
+          !Array.isArray(value) &&
+          'bad' in value
+        ) {
+          throw new Error('invalid typed input');
+        }
+        return {
+          planned_writes: { objects: [] },
+          safe_to_write: true,
+          conflicts: [],
+        } as never;
+      },
+    },
+  );
+
+  assert.equal(report.typed_count, 2);
+  assert.equal(report.typed_failed, 1);
+  assert.equal(report.safe_to_write_all, false);
+  assert.equal(report.typed[0].ok, true);
+  assert.equal(report.typed[1].ok, false);
+  assert.equal(report.typed[1].error, 'invalid typed input');
 });
