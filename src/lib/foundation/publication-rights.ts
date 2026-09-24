@@ -75,6 +75,161 @@ function stringArray(value: unknown): string[] {
     : [];
 }
 
+const PUBLIC_OBSERVATION_STRING_FIELDS = new Set([
+  'currency',
+  'unit',
+  'basis',
+  'scope',
+  'status',
+  'category',
+  'code',
+  'country',
+  'region',
+  'market',
+  'segment',
+  'period',
+  'period_start',
+  'period_end',
+  'point_in_time',
+  'as_of',
+  'date',
+  'year',
+  'month',
+  'quarter',
+  'frequency',
+]);
+
+const PUBLIC_OBSERVATION_MAX_DEPTH = 4;
+const PUBLIC_OBSERVATION_MAX_KEYS = 64;
+const PUBLIC_OBSERVATION_MAX_ARRAY_ITEMS = 50;
+const PUBLIC_OBSERVATION_MAX_STRING_LENGTH = 80;
+const PUBLIC_OBSERVATION_MAX_BYTES = 12 * 1024;
+const PUBLIC_OBSERVATION_INTERNAL_FIELD =
+  /(^|_)(raw|secret|private|internal|transport|observer|prompt|schema|source|url|uri|html|markdown|content|text|summary|description|title|excerpt|quote|transcript)(_|$)/i;
+
+function normalizedFieldName(value: string): string {
+  return value
+    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+    .replace(/[-\s]+/g, '_')
+    .toLowerCase();
+}
+
+function publicObservationString(key: string, value: string): string | undefined {
+  const normalized = normalizedFieldName(key);
+  if (!PUBLIC_OBSERVATION_STRING_FIELDS.has(normalized)) return undefined;
+  const trimmed = value.trim();
+  if (
+    !trimmed ||
+    trimmed.length > PUBLIC_OBSERVATION_MAX_STRING_LENGTH ||
+    /[\r\n\t]/.test(trimmed) ||
+    /[.!?。！？]/.test(trimmed)
+  ) return undefined;
+  if (normalized === 'currency' && !/^[A-Za-z0-9._+-]{2,12}$/.test(trimmed)) return undefined;
+  return trimmed;
+}
+
+function projectPublicObservationValue(
+  value: unknown,
+  key: string,
+  depth: number,
+): unknown | undefined {
+  const normalized = normalizedFieldName(key);
+  if (
+    normalized === 'public_payload' ||
+    PUBLIC_OBSERVATION_INTERNAL_FIELD.test(normalized)
+  ) return undefined;
+
+  if (value === null) return null;
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : undefined;
+  if (typeof value === 'string') return publicObservationString(key, value);
+  if (depth >= PUBLIC_OBSERVATION_MAX_DEPTH) return undefined;
+
+  if (Array.isArray(value)) {
+    if (value.length > PUBLIC_OBSERVATION_MAX_ARRAY_ITEMS) return undefined;
+    const projected = value
+      .map((item) => projectPublicObservationValue(item, key, depth + 1))
+      .filter((item) => item !== undefined);
+    return projected.length > 0 ? projected : undefined;
+  }
+
+  const object = objectValue(value);
+  if (!object) return undefined;
+  const entries = Object.entries(object);
+  if (entries.length > PUBLIC_OBSERVATION_MAX_KEYS) return undefined;
+
+  const projected: JsonObject = {};
+  for (const [childKey, childValue] of entries) {
+    const publicValue = projectPublicObservationValue(childValue, childKey, depth + 1);
+    if (publicValue !== undefined) projected[childKey] = publicValue;
+  }
+  return Object.keys(projected).length > 0 ? projected : undefined;
+}
+
+function buildPublicObservationPayload(value: unknown): JsonObject | null {
+  const input = objectValue(value);
+  if (!input) return null;
+  const projected = projectPublicObservationValue(input, 'payload', 0);
+  const publicPayload = objectValue(projected);
+  if (!publicPayload || Object.keys(publicPayload).length === 0) return null;
+  const bytes = new TextEncoder().encode(JSON.stringify(publicPayload)).byteLength;
+  return bytes <= PUBLIC_OBSERVATION_MAX_BYTES ? publicPayload : null;
+}
+
+function compactPublicObservationText(
+  observationType: string,
+  publicPayload: JsonObject,
+): string {
+  const parts = Object.entries(publicPayload).slice(0, 4).map(([key, value]) => {
+    const rendered = value !== null && typeof value === 'object'
+      ? JSON.stringify(value)
+      : String(value);
+    return `${key}=${rendered}`;
+  });
+  return [observationType, ...parts].join(' · ').slice(0, 240);
+}
+
+function buildCommercialPublicObservation(
+  value: JsonObject,
+  allowed: Set<string>,
+): JsonObject | null {
+  if (!recordUsesOnlyAllowedEvidence(value, allowed)) return null;
+
+  const observationId = text(value.observation_id);
+  const observationType = text(value.observation_type);
+  const originType = text(value.origin_type);
+  const observedAt = text(value.observed_at);
+  const evidenceIds = stringArray(value.evidence_ids);
+  const publicPayload = buildPublicObservationPayload(value.payload);
+
+  if (
+    !observationId ||
+    !observationType ||
+    observationType === 'transport.typed_record_set_v1' ||
+    !originType ||
+    !observedAt ||
+    !publicPayload
+  ) return null;
+
+  const projected: JsonObject = {
+    observation_id: observationId,
+    observation_type: observationType,
+    origin_type: originType,
+    verification_status: 'SUPPORTED',
+    observed_at: observedAt,
+    evidence_ids: evidenceIds,
+    text: compactPublicObservationText(observationType, publicPayload),
+    public_payload: publicPayload,
+  };
+
+  const entityId = text(value.entity_id);
+  const entityIds = stringArray(value.entity_ids);
+  if (entityId) projected.entity_id = entityId;
+  if (entityIds.length > 0) projected.entity_ids = entityIds;
+
+  return projected;
+}
+
 function isSupported(value: JsonObject): boolean {
   return text(value.verification_status)?.toUpperCase() === 'SUPPORTED';
 }
@@ -196,7 +351,8 @@ function filterRecords(
  * Canonical private R2 retains the full validated bundle. This projection:
  * - requires an explicitly auto-approved registered rights policy;
  * - requires SUPPORTED records backed only by approved Evidence;
- * - drops free-form observations and derived text;
+ * - emits Observation only as a newly built fact-only public DTO;
+ * - never copies raw payload, collector metadata, source prose, or derived text;
  * - never treats metadata_only as publication permission by itself.
  */
 export function buildCommercialPublicFactProjection(
@@ -243,9 +399,15 @@ export function buildCommercialPublicFactProjection(
   const moneySignals = filterRecords(bundle, 'money_signals', allowed);
   const events = filterRecords(bundle, 'events', allowed);
   const relationships = filterRecords(bundle, 'relationships', allowed);
+  const observations = (Array.isArray(bundle.observations) ? bundle.observations : [])
+    .map(objectValue)
+    .filter((value): value is JsonObject => Boolean(value))
+    .map((value) => buildCommercialPublicObservation(value, allowed))
+    .filter((value): value is JsonObject => Boolean(value));
 
   const factualCount =
-    claims.length + metrics.length + moneySignals.length + events.length + relationships.length;
+    claims.length + metrics.length + moneySignals.length + events.length +
+    relationships.length + observations.length;
   // Record-only enrichment bundles may legitimately contain no Entity object
   // while SUPPORTED records reference an already canonical entity. The
   // Make-Money projector resolves those target IDs from the retained factual
@@ -273,7 +435,7 @@ export function buildCommercialPublicFactProjection(
     money_signals: moneySignals,
     events,
     relationships,
-    observations: [],
+    observations,
     derived: [],
     quality: {
       ...quality,

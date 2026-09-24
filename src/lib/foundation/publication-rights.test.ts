@@ -69,10 +69,25 @@ function bundle(
     relationships: [],
     observations: [{
       observation_id: 'obs_1234567890abcdef12345678',
+      observation_type: 'business_model.revenue_signal',
       text: 'Free-form source-derived narrative must not enter public fact projection.',
       origin_type: 'reported',
       verification_status: 'SUPPORTED',
+      observed_at: '2026-09-24T00:00:00Z',
+      collection_channel: 'web',
+      observer: 'DISCOVERY',
+      payload_schema_ref: 'urn:test:private-schema',
       evidence_ids: ['ev_1234567890abcdef12345678'],
+      payload: {
+        summary: 'Free-form source-derived narrative must not enter public fact projection.',
+        amount: 123000000,
+        currency: 'USD',
+        internal_note: 'must-not-leak',
+        structured: {
+          customer_count: 42,
+          narrative: 'must-not-leak-either',
+        },
+      },
     }],
     derived: [],
     quality: { unknowns: [], conflicts: [], warnings: [], schema_validation: 'PASS' },
@@ -99,11 +114,50 @@ describe('commercial publication rights gate', () => {
     expect(assessment.reasons).toContain('evidence lacks rights_policy_id');
   });
 
-  it('admits supported factual records for an auto-approved policy and drops free-form observations', () => {
+  it('admits an approved Observation only as an explicit fact-only public DTO', () => {
     const projected = buildCommercialPublicFactProjection(bundle('rights.e-stat.v1'));
     expect(projected.assessment.status).toBe('ALLOWED');
     expect(projected.bundle).not.toBeNull();
     expect(projected.bundle?.claims).toHaveLength(1);
+    expect(projected.bundle?.observations).toEqual([{
+      observation_id: 'obs_1234567890abcdef12345678',
+      observation_type: 'business_model.revenue_signal',
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      observed_at: '2026-09-24T00:00:00Z',
+      evidence_ids: ['ev_1234567890abcdef12345678'],
+      text: 'business_model.revenue_signal · amount=123000000 · currency=USD · structured={"customer_count":42}',
+      public_payload: {
+        amount: 123000000,
+        currency: 'USD',
+        structured: {
+          customer_count: 42,
+        },
+      },
+    }]);
+
+    const serialized = JSON.stringify(projected.bundle?.observations);
+    expect(serialized).not.toContain('Free-form source-derived narrative');
+    expect(serialized).not.toContain('must-not-leak');
+    expect(serialized).not.toContain('DISCOVERY');
+    expect(serialized).not.toContain('urn:test:private-schema');
+    expect(serialized).not.toContain('"payload"');
+  });
+
+  it('allows an approved structured Observation to be the only surviving public fact', () => {
+    const input = bundle('rights.e-stat.v1');
+    input.claims = [];
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    expect(projected.bundle?.claims).toEqual([]);
+    expect(projected.bundle?.observations).toHaveLength(1);
+  });
+
+  it('drops an UNVERIFIED Observation even when the source policy is approved', () => {
+    const input = bundle('rights.e-stat.v1');
+    input.observations[0].verification_status = 'UNVERIFIED';
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
     expect(projected.bundle?.observations).toEqual([]);
   });
 

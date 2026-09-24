@@ -40,9 +40,10 @@ Behavior:
 2. public projection requires an explicit registered `rights_policy_id`;
 3. only policies explicitly safe for automatic commercial fact display are auto-admitted;
 4. records must be `SUPPORTED` and depend only on allowed Evidence;
-5. free-form `observations` and `derived` text are excluded from the public fact projection;
-6. if nothing survives, API returns canonical success with `view_projection.status=RIGHTS_HELD`;
-7. held bundles do not enter Make-Money view or New Arrivals.
+5. rights-cleared Observations may enter only as newly built fact-only public DTOs: raw `payload`, source prose, collector metadata, observer/schema/transport fields are never copied; unknown textual fields fail closed;
+6. `derived` text remains excluded from the public projection;
+7. if nothing survives, API returns canonical success with `view_projection.status=RIGHTS_HELD`;
+8. held bundles do not enter Make-Money view or New Arrivals.
 
 Starter auto-approved policies are deliberately narrow: `rights.e-stat.v1` and `rights.bls.v1`. Conditional policies (Gビズインフォ, EIA, Eurostat, Companies House) remain held until their exception/attribution conditions can be mechanically proven per record/dataset.
 
@@ -75,6 +76,7 @@ This release predates the new granular rights gate. It must be audited separatel
 - [x] Add fail-closed fact-only rights projection to typed ingest route.
 - [x] Add the same public gate to legacy Foundation ingest route.
 - [x] Add unit tests for missing policy, approved policy, conditional policy and UNVERIFIED facts.
+- [x] Add producer-side public Observation DTO projection for rights-approved structured facts; raw payload/prose/internal metadata remain private. Consumer carriage/rendering depends on Make-Money PR #71.
 - [ ] Run Make-Money test/type/build checks and repair any failures. Current PR #67 CI history: first run exposed the expected legacy E2E assumption; second run proved the RIGHTS_HELD path but found two fixture/code typos (old constant name and claim ID prefix). Both are fixed in the next commit; rerun pending.
 - [x] Run and document the preliminary 3,085-record registry/lineage audit.
 - [ ] Run the per-dossier R2 Evidence/public-rights audit.
