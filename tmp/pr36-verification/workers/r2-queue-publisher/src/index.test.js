@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { createHmac } from 'node:crypto';
 import test from 'node:test';
 import { __test } from './index.js';
+import { createCostMeter } from '../../shared/cost-meter.js';
 
 const FIVE_MINUTES = 5 * 60 * 1000;
 
@@ -121,6 +122,7 @@ test('typed HOLD marker is create-only, read-back verified, and idempotent', asy
     },
   };
   const telemetry = __test.createTelemetry();
+  telemetry.cost = createCostMeter({ service: 'publisher-hold-unit-test' });
   const env = {
     GITHUB_OWNER: 'salve-de',
     GITHUB_REPO: 'universal-foundation',
