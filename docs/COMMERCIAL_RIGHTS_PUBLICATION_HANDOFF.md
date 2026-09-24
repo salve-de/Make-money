@@ -75,7 +75,7 @@ This release predates the new granular rights gate. It must be audited separatel
 - [x] Add fail-closed fact-only rights projection to typed ingest route.
 - [x] Add the same public gate to legacy Foundation ingest route.
 - [x] Add unit tests for missing policy, approved policy, conditional policy and UNVERIFIED facts.
-- [ ] Run Make-Money test/type/build checks and repair any failures. Current PR #67 CI: lint PASS, typecheck PASS; first unit run found the expected legacy E2E assumption and is being updated for RIGHTS_HELD/public-policy cases.
+- [ ] Run Make-Money test/type/build checks and repair any failures. Current PR #67 CI history: first run exposed the expected legacy E2E assumption; second run proved the RIGHTS_HELD path but found two fixture/code typos (old constant name and claim ID prefix). Both are fixed in the next commit; rerun pending.
 - [x] Run and document the preliminary 3,085-record registry/lineage audit.
 - [ ] Run the per-dossier R2 Evidence/public-rights audit.
 - [ ] Quarantine/exclude existing catalog records that cannot prove a public rights basis.

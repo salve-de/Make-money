@@ -99,7 +99,7 @@ export function assessCommercialPublicProjection(
     } else {
       heldEvidenceIds.push(evidenceId);
       if (!policyId) reasons.add('evidence lacks rights_policy_id');
-      else if (!AUTO_PUBLIC_FACT_POLICY_IDS.has(policyId)) {
+      else if (!AUTO_PUBLIC_FACT_POLICIES.has(policyId)) {
         reasons.add(`policy is not auto-approved for commercial fact display: ${policyId}`);
       } else if (!sourceId || policyBySource.get(sourceId) !== policyId) {
         reasons.add('evidence/source rights policy mismatch');

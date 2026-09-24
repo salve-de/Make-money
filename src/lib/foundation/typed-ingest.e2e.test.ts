@@ -207,7 +207,7 @@ function typedRecordSet(
       evidence_ids: [evidenceId],
     }],
     claims: publicPolicy ? [{
-      claim_id: 'clm_1234567890abcdef12345678',
+      claim_id: 'cl_1234567890abcdef12345678',
       entity_ids: [entityId],
       statement: 'Typed E2E Company reports annual revenue of $123 million.',
       origin_type: 'reported',
@@ -355,11 +355,12 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(listResponse.status).toBe(200);
       expect(list.data.some((row: { id?: string }) => row.id === entityId)).toBe(true);
 
+      const firstCanonical = canonicalKeys(r2);
       const second = await postTyped(requestFor('SUPPORTED', true));
       const secondBody = await second.json();
       expect(second.status).toBe(200);
       expect(secondBody.success).toBe(true);
-      expect(canonicalKeys(r2)).toEqual(canonicalKeys(r2));
+      expect(canonicalKeys(r2)).toEqual(firstCanonical);
     });
   });
 
