@@ -151,6 +151,39 @@ export interface FoundationDerivedRecord {
   supportingEvidenceIds: string[];
 }
 
+export interface FoundationSourceMetadata {
+  id: string;
+  providerName: string;
+  sourceType: string;
+  canonicalUrl: string | null;
+  sourceStrength: string | null;
+  rightsStatus: string | null;
+  rightsPolicyId: string | null;
+}
+
+export interface FoundationEvidenceMetadata {
+  id: string;
+  sourceId: string | null;
+  sourceUrl: string | null;
+  sourceTitle: string | null;
+  sourceType: string | null;
+  publisherOrSpeaker: string | null;
+  publishedAt: string | null;
+  retrievedAt: string | null;
+  sourceStrength: string | null;
+  rightsStatus: string | null;
+  rightsPolicyId: string | null;
+  summary: string | null;
+  extractedFacts: string[];
+}
+
+export interface FoundationQualityMetadata {
+  unknowns: string[];
+  conflicts: string[];
+  warnings: string[];
+  schemaValidation: string | null;
+}
+
 export interface FoundationBusinessCase extends FoundationEntitySummary {
   claims: FoundationClaim[];
   metrics: FoundationMetricSignal[];
@@ -159,6 +192,10 @@ export interface FoundationBusinessCase extends FoundationEntitySummary {
   relationships: FoundationRelationship[];
   observations: FoundationObservation[];
   derived: FoundationDerivedRecord[];
+  /** Public-safe metadata retained from the rights-filtered bundle. */
+  sources?: FoundationSourceMetadata[];
+  evidence?: FoundationEvidenceMetadata[];
+  quality?: FoundationQualityMetadata;
   valueProfile: FoundationValueProfile;
   bundlesScanned: number;
   bundleObjectsListed: number;
@@ -258,6 +295,50 @@ function normalizeSummary(value: JsonObject): FoundationEntitySummary | null {
     status: stringValue(value, 'status') || 'unknown',
     observedAt: stringValue(value, 'observed_at'),
     evidenceIds: stringArray(value, 'evidence_ids'),
+  };
+}
+
+function normalizeSourceMetadata(value: JsonObject): FoundationSourceMetadata | null {
+  const id = stringValue(value, 'source_id');
+  if (!id) return null;
+  return {
+    id,
+    providerName: stringValue(value, 'provider_name') || id,
+    sourceType: stringValue(value, 'source_type') || 'unknown',
+    canonicalUrl: stringValue(value, 'canonical_url'),
+    sourceStrength: stringValue(value, 'source_strength'),
+    rightsStatus: stringValue(value, 'rights_status'),
+    rightsPolicyId: stringValue(value, 'rights_policy_id'),
+  };
+}
+
+function normalizeEvidenceMetadata(value: JsonObject): FoundationEvidenceMetadata | null {
+  const id = stringValue(value, 'evidence_id');
+  if (!id) return null;
+  return {
+    id,
+    sourceId: stringValue(value, 'source_id'),
+    sourceUrl: stringValue(value, 'source_url'),
+    sourceTitle: stringValue(value, 'source_title'),
+    sourceType: stringValue(value, 'source_type'),
+    publisherOrSpeaker: stringValue(value, 'publisher_or_speaker'),
+    publishedAt: stringValue(value, 'published_at'),
+    retrievedAt: stringValue(value, 'retrieved_at'),
+    sourceStrength: stringValue(value, 'source_strength'),
+    rightsStatus: stringValue(value, 'rights_status'),
+    rightsPolicyId: stringValue(value, 'rights_policy_id'),
+    summary: stringValue(value, 'summary'),
+    extractedFacts: stringArray(value, 'extracted_facts'),
+  };
+}
+
+function normalizeQualityMetadata(bundle: JsonObject): FoundationQualityMetadata {
+  const quality = objectValue(bundle.quality) || {};
+  return {
+    unknowns: stringArray(quality, 'unknowns'),
+    conflicts: stringArray(quality, 'conflicts'),
+    warnings: stringArray(quality, 'warnings'),
+    schemaValidation: stringValue(quality, 'schema_validation'),
   };
 }
 
