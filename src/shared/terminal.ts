@@ -290,6 +290,10 @@ export interface UniversalObservation {
   sourceUrl?: string;
   observedAt?: string;
   author?: string;
+  // Public semantic Observation identity preserved through the active inspector path.
+  observationType?: string;
+  // Bounded public-only payload. Raw/internal payload is never carried here.
+  publicPayload?: unknown;
   sourceClass?: SourceClass; // 出典の独立性
   evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }

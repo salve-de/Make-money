@@ -1,6 +1,7 @@
 'use client';
 
 import { FinancialEntity,UniversalObservation } from '@/shared/terminal';
+import { StructuredObservationPayload } from './StructuredObservationPayload';
 import {
 AlertCircle,
 CheckCircle2,
@@ -401,6 +402,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                   <p className="text-zinc-200 text-[11px] leading-relaxed font-sans">
                     {obs.text}
                   </p>
+                  <StructuredObservationPayload observation={obs} />
                 </div>
               );
             })}

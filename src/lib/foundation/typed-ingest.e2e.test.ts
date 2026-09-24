@@ -1,9 +1,14 @@
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { NextRequest } from 'next/server';
 import { POST as ingestTyped } from '@/app/api/foundation/ingest/typed/route';
 import { GET as getBusinesses } from '@/app/api/businesses/route';
 import { withCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
 import { gitBlobSha1 } from './typed-ingest';
+import { adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
+import type { FoundationBusinessCase } from './business-reader';
+import { UniversalIntelligenceStream } from '@/features/company-inspector/ui/UniversalIntelligenceStream';
 
 type StoredObject = {
   body: Uint8Array;
@@ -105,6 +110,7 @@ const sourceRunId = 'run_discovery_typed_e2e_001';
 const subjectRef = 'case:typed-e2e-company:2026';
 const entityId = 'ent_organization_1234567890abcdef1234';
 const evidenceId = 'ev_1234567890abcdef12345678';
+const unresolvedEntityId = 'ent_organization_deadbeefdeadbeefdead';
 const typedPath =
   `staging/automation/typed-records/DISCOVERY/2026/09/24/${sourceRunId}/typed-e2e-company-typed-record-set-v1.json`;
 const artifactPath =
@@ -131,6 +137,7 @@ function sourceArtifact() {
 function typedRecordSet(
   verificationStatus: string = 'SUPPORTED',
   publicPolicy = false,
+  includeUnresolvedReference = false,
 ) {
   const sourceId = publicPolicy ? 'src.e-stat' : 'src.test.primary';
   const policyId = publicPolicy ? 'rights.e-stat.v1' : null;
@@ -206,16 +213,28 @@ function typedRecordSet(
       observed_at: '2026-09-24T13:29:00Z',
       evidence_ids: [evidenceId],
     }],
-    claims: publicPolicy ? [{
-      claim_id: 'cl_1234567890abcdef12345678',
-      entity_ids: [entityId],
-      statement: 'Typed E2E Company reports annual revenue of $123 million.',
-      origin_type: 'reported',
-      verification_status: 'SUPPORTED',
-      confidence: 1,
-      occurred_at: '2026-09-24T13:00:00Z',
-      evidence_ids: [evidenceId],
-    }] : [],
+    claims: [
+      ...(publicPolicy ? [{
+        claim_id: 'cl_1234567890abcdef12345678',
+        entity_ids: [entityId],
+        statement: 'Typed E2E Company reports annual revenue of $123 million.',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 1,
+        occurred_at: '2026-09-24T13:00:00Z',
+        evidence_ids: [evidenceId],
+      }] : []),
+      ...(includeUnresolvedReference ? [{
+        claim_id: 'cl_deadbeefdeadbeefdeadbeef',
+        entity_ids: [entityId, unresolvedEntityId],
+        statement: 'Typed E2E Company references an entity that is not yet materialized.',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 1,
+        occurred_at: null,
+        evidence_ids: [evidenceId],
+      }] : []),
+    ],
     metrics: [],
     money_signals: [],
     events: [],
@@ -252,9 +271,10 @@ function typedRecordSet(
 function requestFor(
   verificationStatus: string = 'SUPPORTED',
   publicPolicy = false,
+  includeUnresolvedReference = false,
 ) {
   const artifactText = JSON.stringify(sourceArtifact());
-  const typed = typedRecordSet(verificationStatus, publicPolicy);
+  const typed = typedRecordSet(verificationStatus, publicPolicy, includeUnresolvedReference);
   typed.source_artifact.blob_sha = gitBlobSha1(artifactText);
   const typedText = JSON.stringify(typed);
   return {
@@ -413,6 +433,7 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       const firstBody = await first.json();
       expect(first.status).toBe(200);
       expect(firstBody.success).toBe(true);
+      expect(firstBody.mapper_version).toBe('r2-queue-mapper-v6');
       expect(firstBody.view_projection.status).toMatch(/^PASS/);
       expect(r2.keys()).toContain(`views/make-money/v1/entities/${entityId}.json`);
 
@@ -425,7 +446,49 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(detail.data.id).toBe(entityId);
       const detailText = JSON.stringify(detail.data);
       expect(detailText).toContain('annual revenue of $123 million');
+      const structuredObservation = detail.data.observations.find(
+        (item: { kind?: string }) => item.kind === 'business_model.revenue_signal',
+      );
+      expect(structuredObservation).toMatchObject({
+        kind: 'business_model.revenue_signal',
+        publicPayload: {
+          amount: 123000000,
+          currency: 'USD',
+        },
+      });
+      expect(structuredObservation).not.toHaveProperty('payload');
+      expect(structuredObservation).not.toHaveProperty('observer');
+      expect(structuredObservation).not.toHaveProperty('payloadSchemaRef');
       expect(detailText).not.toContain('structured_only_field');
+      expect(detailText).not.toContain('must_survive_transport');
+      expect(detailText).not.toContain('urn:test:typed-e2e:v1');
+      expect(detailText).not.toContain('DISCOVERY');
+
+      const uiEntity = adaptFoundationDetailToFinancialEntity(
+        detail.data as FoundationBusinessCase,
+      );
+      const uiHtml = renderToStaticMarkup(createElement(
+        UniversalIntelligenceStream,
+        { entity: uiEntity, currency: 'USD' },
+      ));
+      expect(uiHtml).toContain('構造化データ');
+      expect(uiHtml).toContain('business_model.revenue_signal');
+      expect(uiHtml).toContain('123000000');
+      expect(uiHtml).toContain('USD');
+      expect(uiHtml).not.toContain('structured_only_field');
+      expect(uiHtml).not.toContain('must_survive_transport');
+      expect(uiHtml).not.toContain('urn:test:typed-e2e:v1');
+      expect(uiHtml).not.toContain('DISCOVERY');
+
+      const canonicalObject = await r2.get(canonicalKeys(r2)[0]);
+      expect(canonicalObject).toBeTruthy();
+      const canonicalBody = canonicalObject
+        ? new Uint8Array(await canonicalObject.arrayBuffer())
+        : new Uint8Array();
+      const canonicalText = new TextDecoder().decode(canonicalBody);
+      expect(canonicalText).toContain('must_survive_transport');
+      expect(canonicalText).toContain('urn:test:typed-e2e:v1');
+      expect(canonicalText).toContain('DISCOVERY');
 
       const listResponse = await getBusinesses(
         new Request('http://localhost/api/businesses?foundationOnly=true&limit=100'),
@@ -440,6 +503,35 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(second.status).toBe(200);
       expect(secondBody.success).toBe(true);
       expect(canonicalKeys(r2)).toEqual(firstCanonical);
+    });
+  });
+
+  it('does not report success while a rights-cleared UI projection target remains unresolved', async () => {
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const response = await postTyped(requestFor('SUPPORTED', true, true));
+      const body = await response.json();
+
+      expect(response.status).toBe(202);
+      expect(body.success).toBe(false);
+      expect(body.partial).toBe(true);
+      expect(body.retryable).toBe(true);
+      expect(body.view_projection.status).toBe('UNRESOLVED');
+      expect(body.view_projection.complete).toBe(false);
+      expect(body.view_projection.unresolved_entity_ids).toContain(unresolvedEntityId);
+      expect(canonicalKeys(r2)).toHaveLength(1);
+
+      const retry = await postTyped(requestFor('SUPPORTED', true, true));
+      const retryBody = await retry.json();
+      expect(retry.status).toBe(202);
+      expect(retryBody.success).toBe(false);
+      expect(retryBody.canonical_ingest).toBe('ALREADY_COMMITTED');
+      expect(retryBody.view_projection.unresolved_entity_ids).toContain(unresolvedEntityId);
+      expect(canonicalKeys(r2)).toHaveLength(1);
     });
   });
 
