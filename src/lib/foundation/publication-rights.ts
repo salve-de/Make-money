@@ -1,3 +1,5 @@
+import rightsSnapshot from '../../../data/foundation-public-rights-snapshot.json';
+
 type JsonObject = Record<string, unknown>;
 
 export type CommercialPublicProjectionStatus = 'ALLOWED' | 'RIGHTS_HELD';
@@ -22,10 +24,26 @@ export interface AutoPublicFactPolicy {
   allowedHostSuffixes: string[];
 }
 
-export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>([
-  ['rights.e-stat.v1', { sourceId: 'src.e-stat', allowedHostSuffixes: ['e-stat.go.jp'] }],
-  ['rights.bls.v1', { sourceId: 'src.bls-api', allowedHostSuffixes: ['bls.gov'] }],
-]);
+export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
+  rightsSnapshot.records
+    .filter((record) =>
+      record.policy.status === 'approved' &&
+      record.policy.commercial_use === 'allowed' &&
+      record.policy.public_fact_display === 'allowed' &&
+      record.source.status === 'active' &&
+      record.source.source_id === record.policy.source_id &&
+      record.source.rights_policy_ids.includes(record.policy.policy_id) &&
+      /^[a-f0-9]{40}$/.test(record.policy.blob_sha) &&
+      /^[a-f0-9]{40}$/.test(record.source.blob_sha)
+    )
+    .map((record) => [
+      record.policy.policy_id,
+      {
+        sourceId: record.source.source_id,
+        allowedHostSuffixes: [...record.allowed_host_suffixes],
+      },
+    ]),
+);
 
 function objectValue(value: unknown): JsonObject | null {
   return typeof value === 'object' && value !== null && !Array.isArray(value)

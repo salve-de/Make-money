@@ -80,6 +80,19 @@ function bundle(
 }
 
 describe('commercial publication rights gate', () => {
+  it('uses a commit-pinned Universal Foundation rights/source snapshot', async () => {
+    const snapshot = (await import('../../../data/foundation-public-rights-snapshot.json')).default;
+    expect(snapshot.source_repository).toBe('salve-de/universal-foundation');
+    expect(snapshot.source_commit_sha).toMatch(/^[a-f0-9]{40}$/);
+    expect(snapshot.records.length).toBeGreaterThan(0);
+    for (const record of snapshot.records) {
+      expect(record.policy.source_id).toBe(record.source.source_id);
+      expect(record.source.rights_policy_ids).toContain(record.policy.policy_id);
+      expect(record.policy.blob_sha).toMatch(/^[a-f0-9]{40}$/);
+      expect(record.source.blob_sha).toMatch(/^[a-f0-9]{40}$/);
+    }
+  });
+
   it('holds evidence with no registered public rights policy', () => {
     const assessment = assessCommercialPublicProjection(bundle(null));
     expect(assessment.status).toBe('RIGHTS_HELD');

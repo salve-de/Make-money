@@ -150,3 +150,25 @@ Default report:
 `reports/runtime/commercial-rights-r2-audit-latest.json`
 
 A future chat/Codex running on the user's configured Mac should execute this command, inspect the full JSON, then commit an immutable dated summary/report. Do not claim the R2 audit is complete before that actual command succeeds.
+
+
+## Commit-pinned consumer rights snapshot
+
+The Make-Money runtime no longer invents an allowlist independently. It consumes:
+
+`data/foundation-public-rights-snapshot.json`
+
+The snapshot is derived from and pins Universal Foundation commit
+`dd53262fb24ea51a824a9c14b8d4c939fed820a4`, with the exact policy/source registry paths and Git blob SHAs for each auto-public source.
+
+Runtime admission requires all of:
+- registry policy status = approved;
+- commercial_use = allowed;
+- public_fact_display = allowed;
+- source status = active;
+- policy.source_id = source.source_id;
+- source.rights_policy_ids contains the policy;
+- exact source ID match in the research bundle;
+- Source.canonical_url and Evidence.source_url inside the snapshot's approved host suffixes.
+
+Adding another automatic public source therefore requires an auditable Universal Foundation registry change plus an explicit Make-Money snapshot update; arbitrary bundle-supplied policy IDs cannot grant publication.
