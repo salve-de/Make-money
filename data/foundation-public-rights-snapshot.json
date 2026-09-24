@@ -1,0 +1,58 @@
+{
+  "schema_version": "make-money-public-rights-snapshot.v1",
+  "source_repository": "salve-de/universal-foundation",
+  "source_commit_sha": "dd53262fb24ea51a824a9c14b8d4c939fed820a4",
+  "generated_at": "2026-09-24T15:22:00Z",
+  "records": [
+    {
+      "policy": {
+        "policy_id": "rights.e-stat.v1",
+        "source_id": "src.e-stat",
+        "status": "approved",
+        "commercial_use": "allowed",
+        "public_fact_display": "allowed",
+        "reviewed_at": "2026-09-24T14:40:00Z",
+        "path": "registry/rights/policy.e-stat.v1.json",
+        "blob_sha": "78703886cc503daa63acc5a7faf5d0431c62846e"
+      },
+      "source": {
+        "source_id": "src.e-stat",
+        "status": "active",
+        "provider_url": "https://www.e-stat.go.jp/",
+        "rights_policy_ids": [
+          "rights.e-stat.v1"
+        ],
+        "path": "registry/sources/source.e-stat.v1.json",
+        "blob_sha": "65b2acbf79da2e9b00a339dddeea943fdb60a948"
+      },
+      "allowed_host_suffixes": [
+        "e-stat.go.jp"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.bls.v1",
+        "source_id": "src.bls-api",
+        "status": "approved",
+        "commercial_use": "allowed",
+        "public_fact_display": "allowed",
+        "reviewed_at": "2026-09-24T14:40:00Z",
+        "path": "registry/rights/policy.bls.v1.json",
+        "blob_sha": "4d7deee83005b6f576220225da705b6360f737e1"
+      },
+      "source": {
+        "source_id": "src.bls-api",
+        "status": "active",
+        "provider_url": "https://www.bls.gov/developers/",
+        "rights_policy_ids": [
+          "rights.bls.v1"
+        ],
+        "path": "registry/sources/source.bls-api.v1.json",
+        "blob_sha": "c3e13bf705a0819f4f209d1bca022b3f04d0014e"
+      },
+      "allowed_host_suffixes": [
+        "bls.gov"
+      ]
+    }
+  ]
+}

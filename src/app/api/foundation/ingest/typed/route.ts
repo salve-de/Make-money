@@ -23,6 +23,7 @@ import {
 import { buildNewArrivalsContribution } from '@/lib/foundation/new-arrivals';
 import { persistNewArrivalsContribution } from '@/lib/foundation/new-arrivals-index';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
+import { buildCommercialPublicFactProjection } from '@/lib/foundation/publication-rights';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -94,7 +95,15 @@ export async function POST(request: NextRequest) {
       entities?: unknown;
     };
 
-    const resumeCheck = await canResumeMakeMoneyProjection(bundle);
+    const publicProjection = buildCommercialPublicFactProjection(prepared.bundle);
+    const publicBundle = publicProjection.bundle as {
+      run_id: string;
+      retrieved_at: string;
+      entities?: unknown;
+    } | null;
+    const resumeCheck = publicBundle
+      ? await canResumeMakeMoneyProjection(publicBundle, bundle)
+      : { can_resume: false, run_id: bundle.run_id, get_object_calls: 0 };
     const canResume = resumeCheck.can_resume;
 
     const report = canResume
@@ -136,7 +145,22 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      const viewProjection = await materializeMakeMoneyViews(bundle);
+      if (!publicBundle) {
+        return NextResponse.json({
+          success: true,
+          input_kind: 'typed_sidecar',
+          mapper_version: prepared.mapperVersion,
+          coverage_assessment: prepared.coverageAssessment,
+          source: prepared.source,
+          ...report,
+          new_arrivals: null,
+          view_projection: {
+            status: 'RIGHTS_HELD',
+            commercial_publication: publicProjection.assessment,
+          },
+        });
+      }
+      const viewProjection = await materializeMakeMoneyViews(publicBundle);
       const needsMoreProjection =
         !viewProjection.complete &&
         viewProjection.next_index < viewProjection.total_targets;
@@ -161,12 +185,12 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const entityIds = bundleEntityIds(bundle);
+      const entityIds = bundleEntityIds(publicBundle);
       const contribution = entityIds.length > 0
         ? buildNewArrivalsContribution({
-            queueRunId: bundle.run_id,
+            queueRunId: publicBundle.run_id,
             entityIds,
-            assignedAt: bundle.retrieved_at,
+            assignedAt: publicBundle.retrieved_at,
           })
         : null;
       const newArrivals = contribution

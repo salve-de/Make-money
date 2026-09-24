@@ -151,6 +151,7 @@ describe('typed sidecar ingest projection', () => {
     const observations = first.bundle.observations as Array<Record<string, unknown>>;
     expect(observations[0].transport_typed_record_set_v1).toEqual(first.typedRecordSet);
     expect(observations[1].text).toBe('Human-readable summary from the typed observation.');
+    expect(observations[1].entity_ids).toEqual(['ent_organization_1234567890abcdef1234']);
     expect((first.bundle.quality as Record<string, unknown>).schema_validation).toBe('PASS');
   });
 

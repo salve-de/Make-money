@@ -304,19 +304,82 @@ const TERM_TRANSLATIONS: Array<[RegExp, string]> = [
 /**
  * 英語のメトリクスキーを直感的な日本語ラベルへ変換
  */
+function structuredPayloadText(payload: Record<string, unknown>): string | null {
+  const parts: string[] = [];
+
+  const scalarText = (value: unknown): string | null => {
+    if (value === null) return 'null';
+    if (typeof value === 'string') {
+      const normalized = value.trim().replace(/\s+/g, ' ');
+      return normalized ? normalized.slice(0, 240) : null;
+    }
+    if (typeof value === 'number' || typeof value === 'boolean') return String(value);
+    return null;
+  };
+
+  const visit = (value: unknown, path: string, depth: number): void => {
+    if (parts.length >= 24 || depth > 6) return;
+
+    const scalar = scalarText(value);
+    if (scalar !== null) {
+      if (path) parts.push(`${path}=${scalar}`);
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      const scalars = value
+        .map(scalarText)
+        .filter((item): item is string => item !== null);
+      if (scalars.length === value.length && scalars.length > 0) {
+        parts.push(`${path}=[${scalars.slice(0, 8).join(', ')}]`);
+        return;
+      }
+      value.slice(0, 8).forEach((item, index) => visit(item, `${path}[${index}]`, depth + 1));
+      return;
+    }
+
+    if (!value || typeof value !== 'object') return;
+    for (const key of Object.keys(value as Record<string, unknown>).sort()) {
+      const childPath = path ? `${path}.${key}` : key;
+      visit((value as Record<string, unknown>)[key], childPath, depth + 1);
+      if (parts.length >= 24) break;
+    }
+  };
+
+  visit(payload, '', 0);
+  if (parts.length === 0) return null;
+  const joined = parts.join('; ');
+  return joined.length > 1600 ? `${joined.slice(0, 1597)}...` : joined;
+}
+
 export function readableObservationText(text: string | null | undefined): string | null {
   if (!text) return null;
   const trimmed = text.trim();
-  if (!trimmed) return null;
+  if (!trimmed || trimmed === 'typed-record-set.v1 transport payload') return null;
   if (!trimmed.startsWith('{') && !trimmed.startsWith('[')) return trimmed;
 
   try {
     const parsed = JSON.parse(trimmed) as unknown;
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
-    const payload = (parsed as Record<string, unknown>).payload;
+    const record = parsed as Record<string, unknown>;
+    if (
+      record.observation_type === 'transport.typed_record_set_v1' ||
+      'transport_typed_record_set_v1' in record
+    ) {
+      return null;
+    }
+    const payload = record.payload;
     if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return null;
     const summary = (payload as Record<string, unknown>).summary;
-    return typeof summary === 'string' && summary.trim() ? summary.trim() : null;
+    if (typeof summary === 'string' && summary.trim()) return summary.trim();
+
+    const fallback = structuredPayloadText(payload as Record<string, unknown>);
+    if (!fallback) return null;
+    const observationType =
+      typeof record.observation_type === 'string' && record.observation_type.trim()
+        ? record.observation_type.trim()
+        : null;
+    return observationType ? `${observationType}: ${fallback}` : fallback;
   } catch {
     return null;
   }
