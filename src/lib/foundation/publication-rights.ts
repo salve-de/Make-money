@@ -280,12 +280,21 @@ type ResolvedSourcePolicy = {
 function resolveSourcePolicies(bundle: JsonObject): Map<string, ResolvedSourcePolicy> {
   const result = new Map<string, ResolvedSourcePolicy>();
   const sources = Array.isArray(bundle.sources) ? bundle.sources : [];
+  const sourceIdCounts = new Map<string, number>();
+
+  for (const item of sources) {
+    const source = objectValue(item);
+    const localSourceId = source ? text(source.source_id) : null;
+    if (!localSourceId) continue;
+    sourceIdCounts.set(localSourceId, (sourceIdCounts.get(localSourceId) || 0) + 1);
+  }
 
   for (const item of sources) {
     const source = objectValue(item);
     if (!source) continue;
     const localSourceId = text(source.source_id);
     if (!localSourceId) continue;
+    if (sourceIdCounts.get(localSourceId) !== 1) continue;
 
     const sourceStatus = text(source.rights_status);
     if (sourceStatus === 'blocked') continue;
@@ -352,7 +361,9 @@ export function assessCommercialPublicProjection(
     );
     const statusEligible = resolved?.resolution === 'registry'
       ? storageStatus === 'pending_review' || storageStatus === 'metadata_only'
-      : storageStatus === 'metadata_only';
+      : storageStatus === 'metadata_only' ||
+        storageStatus === 'allowed_private_raw' ||
+        storageStatus === 'restricted_private_raw';
 
     const allowed =
       Boolean(sourceId) &&
