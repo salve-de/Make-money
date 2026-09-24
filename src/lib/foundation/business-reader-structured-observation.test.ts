@@ -27,6 +27,7 @@ describe('structured Foundation observations', () => {
       observations: [{
         observation_id: 'obs_1234567890abcdef12345678',
         observation_type: 'business_model.revenue_signal',
+        entity_ids: [entityId],
         origin_type: 'reported',
         verification_status: 'SUPPORTED',
         observed_at: '2026-09-24T13:29:00Z',
