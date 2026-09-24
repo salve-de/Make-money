@@ -1,4 +1,10 @@
-import { isPublishableEntity, publicEntity, publicFoundationData, publicSummaryEntity } from '@/lib/company-access/public-entity';
+import {
+  isPublishableEntity,
+  publicEntity,
+  publicFoundationBusinessCase,
+  publicFoundationData,
+  publicSummaryEntity,
+} from '@/lib/company-access/public-entity';
 import { findCachedPublishableEntity, readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
@@ -383,7 +389,7 @@ export async function GET(request: Request) {
               // Keep the transport contract canonical. The client owns the
               // Make-Money FinancialEntity adaptation, so it can re-project
               // newer Foundation fields without changing this API shape.
-              data: publicFoundationData(parsed),
+              data: publicFoundationData(publicFoundationBusinessCase(parsed)),
               dossierHash: actualHash,
               sourceRevision: revision,
               isStale: false,

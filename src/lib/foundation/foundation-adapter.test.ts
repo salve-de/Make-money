@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { adaptFoundationSummaryToFinancialEntity, isFoundationDossierReady } from './foundation-adapter';
-import type { FoundationValueSummary } from './business-reader';
+import {
+  adaptFoundationDetailToFinancialEntity,
+  adaptFoundationSummaryToFinancialEntity,
+  isFoundationDossierReady,
+} from './foundation-adapter';
+import type { FoundationBusinessCase, FoundationValueSummary } from './business-reader';
 
 function summary(overrides: Partial<FoundationValueSummary> = {}): FoundationValueSummary {
   return {
@@ -134,6 +138,104 @@ describe('Foundation display boundary', () => {
     expect(adapted.tags).not.toContain('SaaS・ツール');
   });
 
+
+  it('preserves only explicit public structured payloads on the active FinancialEntity path', () => {
+    const base = summary({
+      evidenceIds: ['ev_structured'],
+      valueProfile: {
+        ...summary().valueProfile,
+        counts: {
+          ...summary().valueProfile.counts,
+          observations: 1,
+          evidence: 1,
+        },
+      },
+    });
+    const detail: FoundationBusinessCase = {
+      ...base,
+      claims: [],
+      metrics: [],
+      moneySignals: [],
+      events: [],
+      relationships: [],
+      observations: [{
+        id: 'obs_structured',
+        kind: 'business_model.revenue_signal',
+        text: 'Structured revenue signal',
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+        observedAt: '2026-09-24T13:29:00Z',
+        publicPayload: {
+          amount: 123000000,
+          currency: 'USD',
+          nested: { must_survive: true },
+        },
+        evidenceIds: ['ev_structured'],
+      }],
+      derived: [],
+      bundlesScanned: 1,
+      bundleObjectsListed: 1,
+      bundleScanComplete: true,
+    };
+
+    const adapted = adaptFoundationDetailToFinancialEntity(detail);
+    expect(adapted.observationsStream).toContainEqual(expect.objectContaining({
+      id: 'obs_structured',
+      observationType: 'business_model.revenue_signal',
+      publicPayload: {
+        amount: 123000000,
+        currency: 'USD',
+        nested: { must_survive: true },
+      },
+    }));
+    const structured = adapted.observationsStream?.find((item) => item.id === 'obs_structured');
+    expect(structured).not.toHaveProperty('payload');
+    expect(structured).not.toHaveProperty('observer');
+    expect(structured).not.toHaveProperty('payloadSchemaRef');
+  });
+
+  it('drops an oversized public payload instead of truncating it', () => {
+    const base = summary({
+      evidenceIds: ['ev_structured'],
+      valueProfile: {
+        ...summary().valueProfile,
+        counts: {
+          ...summary().valueProfile.counts,
+          observations: 1,
+          evidence: 1,
+        },
+      },
+    });
+    const detail: FoundationBusinessCase = {
+      ...base,
+      claims: [],
+      metrics: [],
+      moneySignals: [],
+      events: [],
+      relationships: [],
+      observations: [{
+        id: 'obs_oversized',
+        kind: 'business_model.revenue_signal',
+        text: 'Oversized structured signal',
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+        observedAt: '2026-09-24T13:29:00Z',
+        publicPayload: {
+          tooLong: 'x'.repeat(4097),
+        },
+        evidenceIds: ['ev_structured'],
+      }],
+      derived: [],
+      bundlesScanned: 1,
+      bundleObjectsListed: 1,
+      bundleScanComplete: true,
+    };
+
+    const adapted = adaptFoundationDetailToFinancialEntity(detail);
+    const observation = adapted.observationsStream?.find((item) => item.id === 'obs_oversized');
+    expect(observation).toBeTruthy();
+    expect(observation).not.toHaveProperty('publicPayload');
+  });
 
   it('does not treat a low-evidence high-signal label as complete', () => {
     expect(isFoundationDossierReady(summary({

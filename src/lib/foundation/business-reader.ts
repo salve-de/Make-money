@@ -23,6 +23,7 @@ import {
   extractScheduledExplicitFields,
   resolveScheduledEntityName,
 } from './scheduled-explicit-fields';
+import { sanitizePublicObservationPayload } from './public-observation';
 
 type JsonObject = Record<string, unknown>;
 
@@ -133,8 +134,10 @@ export interface FoundationObservation {
   originType: string;
   verificationStatus: FoundationVerificationStatus;
   observedAt: string | null;
-  collectionTier: string | null;
-  collectionChannel: string | null;
+  collectionTier?: string | null;
+  collectionChannel?: string | null;
+  // Explicitly public, bounded structured payload. Raw payload is never read here.
+  publicPayload?: unknown;
   evidenceIds: string[];
 }
 
@@ -527,7 +530,9 @@ function filteredRecords(bundle: JsonObject, key: string, entityId: string): Jso
   return values
     .map(objectValue)
     .filter((value): value is JsonObject => Boolean(
-      value && (
+      value &&
+      !(key === 'observations' && stringValue(value, 'observation_type') === 'transport.typed_record_set_v1') &&
+      (
         recordMentionsEntity(value, entityId) ||
         (allowBundleScoped && !recordHasExplicitEntityReference(value))
       )
@@ -635,15 +640,18 @@ function fallbackRecordId(prefix: string, value: JsonObject): string {
 }
 
 function normalizeObservation(value: JsonObject): FoundationObservation {
+  const publicPayloadInput = value.public_payload ?? value.publicPayload;
+  const publicPayload = sanitizePublicObservationPayload(publicPayloadInput);
   return {
     id: stringValue(value, 'observation_id') || stringValue(value, 'id') || fallbackRecordId('observation', value),
-    kind: stringValue(value, 'kind'),
+    kind: stringValue(value, 'observation_type') || stringValue(value, 'kind'),
     text: stringValue(value, 'text') || '観測内容未確認',
     originType: stringValue(value, 'origin_type') || 'unknown',
     verificationStatus: verificationStatus(value),
     observedAt: stringValue(value, 'observed_at'),
     collectionTier: stringValue(value, 'collection_tier'),
     collectionChannel: stringValue(value, 'collection_channel'),
+    ...(publicPayload ? { publicPayload: publicPayload.value } : {}),
     evidenceIds: stringArray(value, 'evidence_ids'),
   };
 }
