@@ -136,7 +136,7 @@ export interface FoundationObservation {
   observedAt: string | null;
   collectionTier?: string | null;
   collectionChannel?: string | null;
-  /** Explicitly public, bounded structured payload. Raw payload is never read here. */
+  // Explicitly public, bounded structured payload. Raw payload is never read here.
   publicPayload?: unknown;
   evidenceIds: string[];
 }
