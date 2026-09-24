@@ -129,22 +129,22 @@ export interface FoundationRelationship {
 export interface FoundationObservation {
   id: string;
   kind: string | null;
-  observationType: string | null;
+  observationType?: string | null;
   text: string;
   originType: string;
   verificationStatus: FoundationVerificationStatus;
   observedAt: string | null;
   collectionTier: string | null;
   collectionChannel: string | null;
-  observer: string | null;
-  payloadSchemaRef: string | null;
-  payload: Record<string, unknown> | null;
+  observer?: string | null;
+  payloadSchemaRef?: string | null;
+  payload?: Record<string, unknown> | null;
   /**
    * Lossless consumer projection of the original observation object.
    * Canonical ownership remains in Foundation R2; this field exists so
    * product views never silently discard unknown/future observation fields.
    */
-  structuredData: Record<string, unknown>;
+  structuredData?: Record<string, unknown>;
   evidenceIds: string[];
 }
 
