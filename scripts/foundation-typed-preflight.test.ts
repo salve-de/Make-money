@@ -151,6 +151,9 @@ test('replay preflight does not block when rebuild is complete and next progress
 
   assert.equal(report.state, 'NO_PENDING_UNRESOLVED_REPLAY');
   assert.equal(report.blocks_reconcile, false);
+  assert.equal(report.listing_complete, true);
+  assert.equal(report.pages_scanned, 1);
+  assert.equal(report.projection_progress_objects_scanned, 1);
   assert.equal(report.control_state_update_expected, true);
   assert.deepEqual(report.pending_unresolved_runs, []);
   assert.equal(report.r2_mutations, 0);
@@ -198,4 +201,99 @@ test('replay preflight blocks only when the actual next replay page contains unr
     run_id: 'run_b',
     unresolved_entity_ids: ['ent_organization_1234567890abcdef1234'],
   }]);
+});
+
+
+test('replay preflight follows truncated cursors and catches unresolved IDs on later pages', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: null,
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: null,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_projection-progress/run_a.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_a',
+      unresolved_entity_ids: [],
+    })],
+    ['views/make-money/v1/_projection-progress/run_c.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_c',
+      unresolved_entity_ids: ['ent_organization_abcdefabcdefabcdefabcd'],
+    })],
+  ]);
+  let calls = 0;
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async (input) => {
+      calls += 1;
+      assert.ok(input);
+      assert.equal(input.limit, 5);
+      if (calls === 1) {
+        assert.equal(input.cursor, undefined);
+        return {
+          objects: [{ key: 'views/make-money/v1/_projection-progress/run_a.json' }],
+          truncated: true,
+          cursor: 'next-1',
+        };
+      }
+      assert.equal(input.cursor, 'next-1');
+      return {
+        objects: [{ key: 'views/make-money/v1/_projection-progress/run_c.json' }],
+        truncated: false,
+      };
+    },
+  });
+
+  assert.equal(calls, 2);
+  assert.equal(report.listing_complete, true);
+  assert.equal(report.pages_scanned, 2);
+  assert.equal(report.state, 'UNRESOLVED_REPLAY_PENDING');
+  assert.equal(report.blocks_reconcile, true);
+  assert.deepEqual(report.pending_unresolved_runs, [{
+    run_id: 'run_c',
+    unresolved_entity_ids: ['ent_organization_abcdefabcdefabcdefabcd'],
+  }]);
+});
+
+test('replay preflight fails closed when R2 says truncated but omits the continuation cursor', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: null,
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: null,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+  ]);
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async () => ({
+      objects: [],
+      truncated: true,
+    }),
+  });
+
+  assert.equal(report.listing_complete, false);
+  assert.equal(report.state, 'UNRESOLVED_REPLAY_AUDIT_INCOMPLETE');
+  assert.equal(report.blocks_reconcile, true);
+  assert.deepEqual(report.listing_error, [
+    'projection_progress_truncated_without_cursor',
+  ]);
 });
