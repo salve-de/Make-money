@@ -21,6 +21,12 @@ import { defaultIncomingMoneySignalFields } from '@/lib/foundation/money-signal-
 import { buildNewArrivalsContribution } from '@/lib/foundation/new-arrivals';
 import { persistNewArrivalsContribution } from '@/lib/foundation/new-arrivals-index';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
+import {
+  filterBundleForPublication,
+  makeFailClosedPublicationGate,
+  persistPublicationGate,
+  verifyPublicationGateSignature,
+} from '@/lib/foundation/publication-gate';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -101,6 +107,13 @@ export async function POST(request: NextRequest) {
       retrieved_at: string;
       entities?: unknown;
     };
+    const verifiedPublicationGate = verifyPublicationGateSignature(
+      preparedRequest.publication_gate,
+      preparedRequest.publication_gate_signature,
+      expectedToken,
+      bundle.run_id,
+    );
+    const publicationGate = verifiedPublicationGate || makeFailClosedPublicationGate(bundle.run_id);
     const resumeCheck = await canResumeMakeMoneyProjection(bundle);
     const rawResumeCheck = resumeCheck.can_resume
       ? await verifyFoundationRawEvidenceAlreadyCommitted(preparedRequest.bundle, preparedRequest.raw_evidence)
@@ -149,7 +162,36 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      const viewProjection = await materializeMakeMoneyViews(bundle);
+      const publicationGateWrite = await persistPublicationGate(publicationGate);
+      const publicBundle = filterBundleForPublication(bundle, publicationGate);
+      const publicEntityIds = publicBundle ? bundleEntityIds(publicBundle) : [];
+
+      if (!publicBundle || publicEntityIds.length === 0) {
+        return NextResponse.json({
+          success: true,
+          ...report,
+          new_arrivals: null,
+          publication_gate: {
+            decision: publicationGate.decision,
+            signature_verified: Boolean(verifiedPublicationGate),
+            allowed_evidence_count: publicationGate.allowed_evidence_ids.length,
+            held_evidence_count: publicationGate.held_evidence.length,
+            persisted: publicationGateWrite,
+          },
+          view_projection: {
+            status: 'RIGHTS_HELD',
+            source_run_id: bundle.run_id,
+            attempted: 0,
+            created: 0,
+            updated: 0,
+            unchanged: 0,
+            unresolved_entity_ids: [],
+            complete: true,
+          },
+        });
+      }
+
+      const viewProjection = await materializeMakeMoneyViews(publicBundle);
       const needsMoreProjection =
         !viewProjection.complete &&
         viewProjection.next_index < viewProjection.total_targets;
@@ -175,7 +217,7 @@ export async function POST(request: NextRequest) {
       // Writer used to create, so the three daily UI editions remain available
       // after the redundant Writer is disabled. Retries are create-only/CAS
       // safe and therefore do not duplicate a run.
-      const entityIds = bundleEntityIds(bundle);
+      const entityIds = publicEntityIds;
       const contribution = entityIds.length > 0
         ? buildNewArrivalsContribution({
             queueRunId: bundle.run_id,
@@ -190,6 +232,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         ...report,
+        publication_gate: {
+          decision: publicationGate.decision,
+          signature_verified: Boolean(verifiedPublicationGate),
+          allowed_evidence_count: publicationGate.allowed_evidence_ids.length,
+          held_evidence_count: publicationGate.held_evidence.length,
+          persisted: publicationGateWrite,
+        },
         new_arrivals: contribution
           ? {
               release_id: contribution.release_id,

@@ -129,6 +129,9 @@ export interface FoundationIngestRequest {
   write_authorized: true;
   bundle: unknown;
   raw_evidence?: unknown;
+  /** Signed by the Universal Foundation Publisher; canonical ingest remains private even when public display is held. */
+  publication_gate?: unknown;
+  publication_gate_signature?: string;
 }
 
 export type PlannedWriteLogicalRole =
