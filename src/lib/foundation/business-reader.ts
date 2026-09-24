@@ -530,7 +530,9 @@ function filteredRecords(bundle: JsonObject, key: string, entityId: string): Jso
   return values
     .map(objectValue)
     .filter((value): value is JsonObject => Boolean(
-      value && (
+      value &&
+      !(key === 'observations' && stringValue(value, 'observation_type') === 'transport.typed_record_set_v1') &&
+      (
         recordMentionsEntity(value, entityId) ||
         (allowBundleScoped && !recordHasExplicitEntityReference(value))
       )
