@@ -11,7 +11,7 @@ import { defaultIncomingMoneySignalFields } from './money-signal-null-defaults';
 type JsonObject = Record<string, unknown>;
 
 export const TYPED_SOURCE_REPOSITORY = 'salve-de/universal-foundation';
-export const TYPED_PROJECTOR_VERSION = 'r2-queue-mapper-v4';
+export const TYPED_PROJECTOR_VERSION = 'r2-queue-mapper-v6';
 export const TYPED_COVERAGE_ASSESSMENT = 'UNASSESSED' as const;
 
 export interface FoundationTypedSourceDescriptor {
@@ -130,6 +130,36 @@ function collectKnownEntityIds(
   }
 }
 
+function collectPayloadStrings(value: unknown, output: string[], depth = 0): void {
+  if (depth > 8) return;
+  if (typeof value === 'string') {
+    const normalized = value.trim();
+    if (normalized) output.push(normalized);
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) collectPayloadStrings(item, output, depth + 1);
+    return;
+  }
+  if (!isObject(value)) return;
+  for (const child of Object.values(value)) {
+    collectPayloadStrings(child, output, depth + 1);
+  }
+}
+
+function entityMentionTokens(entity: JsonObject): string[] {
+  const candidates = [
+    stringValue(entity, 'canonical_name'),
+    ...stringArray(entity, 'aliases'),
+  ];
+  return [...new Set(
+    candidates
+      .filter((item): item is string => Boolean(item))
+      .map((item) => item.trim().toLocaleLowerCase())
+      .filter((item) => item.length >= 4),
+  )];
+}
+
 function observationEntityIds(
   observation: JsonObject,
   typedRecordSet: JsonObject,
@@ -146,14 +176,14 @@ function observationEntityIds(
   collectKnownEntityIds(observation.payload, knownEntityIds, resolved);
   if (resolved.size > 0) return [...resolved].sort();
 
-  const observationEvidenceIds = new Set(stringArray(observation, 'evidence_ids'));
-  if (observationEvidenceIds.size > 0) {
+  const payloadStrings: string[] = [];
+  collectPayloadStrings(observation.payload, payloadStrings);
+  const payloadText = payloadStrings.join('\n').toLocaleLowerCase();
+  if (payloadText) {
     for (const entity of entities) {
       const entityId = stringValue(entity, 'entity_id');
-      if (
-        entityId &&
-        stringArray(entity, 'evidence_ids').some((evidenceId) => observationEvidenceIds.has(evidenceId))
-      ) {
+      if (!entityId) continue;
+      if (entityMentionTokens(entity).some((token) => payloadText.includes(token))) {
         resolved.add(entityId);
       }
     }
