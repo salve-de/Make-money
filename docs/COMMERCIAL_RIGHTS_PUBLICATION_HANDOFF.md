@@ -130,3 +130,23 @@ The automatic allowlist now binds `policy-ID -> source-ID -> official-host suffi
 ### Regression coverage
 
 Added mixed-rights retry E2E: one immutable canonical bundle contains one approved entity/fact and one held entity/fact. The first call may materialize only the approved target; the second identical call must resume the filtered projection against the original canonical bundle without rewriting canonical R2 or exposing the held target.
+
+
+## Production R2 full audit command
+
+This chat runtime has no Cloudflare/R2 account connector, so it cannot truthfully enumerate production R2 directly. The repository now contains a production-R2 audit that uses the existing macOS Keychain credential wrapper:
+
+```bash
+pnpm foundation:rights:audit
+```
+
+Implementation: `scripts/audit-commercial-rights-r2.ts`
+
+It performs two audits:
+1. Foundation materialized views: maps every `source_run_id` back to canonical research bundles and runs the same commercial-publication rights assessment; any missing/held contributing run makes the view non-SAFE.
+2. Legacy 3,085 release dossiers: reads every immutable dossier from R2, extracts evidence/source URLs, combines them with registry lineage, and classifies SAFE / NEEDS_RIGHTS_REVIEW / INTERNAL_ONLY conservatively.
+
+Default report:
+`reports/runtime/commercial-rights-r2-audit-latest.json`
+
+A future chat/Codex running on the user's configured Mac should execute this command, inspect the full JSON, then commit an immutable dated summary/report. Do not claim the R2 audit is complete before that actual command succeeds.
