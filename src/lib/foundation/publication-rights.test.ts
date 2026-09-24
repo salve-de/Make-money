@@ -4,7 +4,12 @@ import {
   buildCommercialPublicFactProjection,
 } from './publication-rights';
 
-function bundle(policyId: string | null, status = 'metadata_only', verification = 'SUPPORTED') {
+function bundle(
+  policyId: string | null,
+  status = 'metadata_only',
+  verification = 'SUPPORTED',
+  sourceId = 'src.e-stat',
+) {
   return {
     schema_version: 'research-bundle.v1',
     run_id: 'run_test',
@@ -13,7 +18,7 @@ function bundle(policyId: string | null, status = 'metadata_only', verification 
     agent: { name: 'test' },
     retrieved_at: '2026-09-24T00:00:00Z',
     sources: [{
-      source_id: 'src.e-stat',
+      source_id: sourceId,
       provider_name: 'e-Stat',
       source_type: 'official_statistics',
       canonical_url: 'https://www.e-stat.go.jp/',
@@ -23,7 +28,7 @@ function bundle(policyId: string | null, status = 'metadata_only', verification 
     }],
     evidence: [{
       evidence_id: 'ev_1234567890abcdef12345678',
-      source_id: 'src.e-stat',
+      source_id: sourceId,
       source_url: 'https://www.e-stat.go.jp/',
       source_title: 'Official stats',
       source_type: 'official_statistics',
@@ -86,6 +91,15 @@ describe('commercial publication rights gate', () => {
     expect(projected.bundle).not.toBeNull();
     expect(projected.bundle?.claims).toHaveLength(1);
     expect(projected.bundle?.observations).toEqual([]);
+  });
+
+  it('holds a policy/source mismatch even when the policy itself is approved', () => {
+    const projected = buildCommercialPublicFactProjection(
+      bundle('rights.e-stat.v1', 'metadata_only', 'SUPPORTED', 'src.not-e-stat'),
+    );
+    expect(projected.bundle).toBeNull();
+    expect(projected.assessment.status).toBe('RIGHTS_HELD');
+    expect(projected.assessment.reasons).toContain('evidence/source rights policy mismatch');
   });
 
   it('does not auto-admit a conditional/restricted provider policy', () => {

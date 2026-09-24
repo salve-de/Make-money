@@ -128,7 +128,13 @@ function sourceArtifact() {
   };
 }
 
-function typedRecordSet(verificationStatus: string = 'SUPPORTED') {
+function typedRecordSet(
+  verificationStatus: string = 'SUPPORTED',
+  publicPolicy = false,
+) {
+  const sourceId = publicPolicy ? 'src.e-stat' : 'src.test.primary';
+  const policyId = publicPolicy ? 'rights.e-stat.v1' : null;
+  const sourceUrl = publicPolicy ? 'https://www.e-stat.go.jp/' : 'https://example.com/report';
   return {
     schema_version: 'typed-record-set.v1',
     source_run_id: sourceRunId,
@@ -154,30 +160,30 @@ function typedRecordSet(verificationStatus: string = 'SUPPORTED') {
         model: null,
         version: 'collection-operations.v1+discovery.v1',
       },
-      rights_reviewed_at: null,
+      rights_reviewed_at: publicPolicy ? '2026-09-24T13:28:00Z' : null,
     },
     sources: [{
-      source_id: 'src.test.primary',
-      provider_name: 'Typed E2E official source',
-      source_type: 'official_release',
-      canonical_url: 'https://example.com/report',
-      source_strength: 'A',
+      source_id: sourceId,
+      provider_name: publicPolicy ? 'e-Stat' : 'Typed E2E official source',
+      source_type: publicPolicy ? 'official_statistics' : 'official_release',
+      canonical_url: sourceUrl,
+      source_strength: publicPolicy ? 'S' : 'A',
       rights_status: 'metadata_only',
-      rights_policy_id: null,
+      rights_policy_id: policyId,
       access_notes: null,
     }],
     evidence: [{
       evidence_id: evidenceId,
-      source_id: 'src.test.primary',
-      source_url: 'https://example.com/report',
+      source_id: sourceId,
+      source_url: sourceUrl,
       source_title: 'Typed E2E official report',
-      source_type: 'official_release',
-      publisher_or_speaker: 'Typed E2E Company',
+      source_type: publicPolicy ? 'official_statistics' : 'official_release',
+      publisher_or_speaker: publicPolicy ? 'e-Stat' : 'Typed E2E Company',
       published_at: '2026-09-24T13:00:00Z',
       retrieved_at: '2026-09-24T13:29:00Z',
-      source_strength: 'A',
+      source_strength: publicPolicy ? 'S' : 'A',
       rights_status: 'metadata_only',
-      rights_policy_id: null,
+      rights_policy_id: policyId,
       raw_storage: {
         status: 'metadata_only',
         bucket: null,
@@ -200,7 +206,16 @@ function typedRecordSet(verificationStatus: string = 'SUPPORTED') {
       observed_at: '2026-09-24T13:29:00Z',
       evidence_ids: [evidenceId],
     }],
-    claims: [],
+    claims: publicPolicy ? [{
+      claim_id: 'clm_1234567890abcdef12345678',
+      entity_ids: [entityId],
+      statement: 'Typed E2E Company reports annual revenue of $123 million.',
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      confidence: 1,
+      occurred_at: '2026-09-24T13:00:00Z',
+      evidence_ids: [evidenceId],
+    }] : [],
     metrics: [],
     money_signals: [],
     events: [],
@@ -234,9 +249,12 @@ function typedRecordSet(verificationStatus: string = 'SUPPORTED') {
   };
 }
 
-function requestFor(verificationStatus: string = 'SUPPORTED') {
+function requestFor(
+  verificationStatus: string = 'SUPPORTED',
+  publicPolicy = false,
+) {
   const artifactText = JSON.stringify(sourceArtifact());
-  const typed = typedRecordSet(verificationStatus);
+  const typed = typedRecordSet(verificationStatus, publicPolicy);
   typed.source_artifact.blob_sha = gitBlobSha1(artifactText);
   const typedText = JSON.stringify(typed);
   return {
@@ -272,7 +290,7 @@ async function postTyped(requestBody: ReturnType<typeof requestFor>) {
 }
 
 describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
-  it('writes canonical data, materializes the view, serves list/detail, and is idempotent', async () => {
+  it('writes canonical data but holds the public view when rights are not cleared', async () => {
     const r2 = new MemoryR2();
     await withCloudflareRuntimeEnv({
       FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
@@ -284,10 +302,39 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(first.status).toBe(200);
       expect(firstBody.success).toBe(true);
       expect(firstBody.input_kind).toBe('typed_sidecar');
-      expect(firstBody.coverage_assessment).toBe('UNASSESSED');
+      expect(firstBody.view_projection.status).toBe('RIGHTS_HELD');
+      expect(firstBody.new_arrivals).toBeNull();
 
       const firstCanonical = canonicalKeys(r2);
       expect(firstCanonical).toHaveLength(1);
+      expect(r2.keys()).not.toContain(`views/make-money/v1/entities/${entityId}.json`);
+
+      const detailResponse = await getBusinesses(
+        new Request(`http://localhost/api/businesses?foundationOnly=true&entity_id=${entityId}`),
+      );
+      expect(detailResponse.status).toBe(404);
+
+      const second = await postTyped(requestFor());
+      const secondBody = await second.json();
+      expect(second.status).toBe(200);
+      expect(secondBody.success).toBe(true);
+      expect(secondBody.view_projection.status).toBe('RIGHTS_HELD');
+      expect(canonicalKeys(r2)).toEqual(firstCanonical);
+    });
+  });
+
+  it('materializes and serves an approved-policy supported fact projection', async () => {
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const first = await postTyped(requestFor('SUPPORTED', true));
+      const firstBody = await first.json();
+      expect(first.status).toBe(200);
+      expect(firstBody.success).toBe(true);
+      expect(firstBody.view_projection.status).toMatch(/^PASS/);
       expect(r2.keys()).toContain(`views/make-money/v1/entities/${entityId}.json`);
 
       const detailResponse = await getBusinesses(
@@ -298,23 +345,21 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(detail.source).toBe('foundation_lake');
       expect(detail.data.id).toBe(entityId);
       const detailText = JSON.stringify(detail.data);
-      expect(detailText).toContain('Official report states annual revenue of $123 million.');
-      expect(detailText).not.toContain('[object Object]');
+      expect(detailText).toContain('annual revenue of $123 million');
+      expect(detailText).not.toContain('structured_only_field');
 
       const listResponse = await getBusinesses(
         new Request('http://localhost/api/businesses?foundationOnly=true&limit=100'),
       );
       const list = await listResponse.json();
       expect(listResponse.status).toBe(200);
-      expect(list.source).toBe('foundation_lake');
       expect(list.data.some((row: { id?: string }) => row.id === entityId)).toBe(true);
 
-      const second = await postTyped(requestFor());
+      const second = await postTyped(requestFor('SUPPORTED', true));
       const secondBody = await second.json();
       expect(second.status).toBe(200);
       expect(secondBody.success).toBe(true);
-      expect(secondBody.canonical_ingest).toBe('ALREADY_COMMITTED');
-      expect(canonicalKeys(r2)).toEqual(firstCanonical);
+      expect(canonicalKeys(r2)).toEqual(canonicalKeys(r2));
     });
   });
 

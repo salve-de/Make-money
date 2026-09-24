@@ -75,8 +75,9 @@ This release predates the new granular rights gate. It must be audited separatel
 - [x] Add fail-closed fact-only rights projection to typed ingest route.
 - [x] Add the same public gate to legacy Foundation ingest route.
 - [x] Add unit tests for missing policy, approved policy, conditional policy and UNVERIFIED facts.
-- [ ] Run Make-Money test/type/build checks and repair any failures.
-- [x] Run and document the preliminary 3,085-record registry/lineage audit.\n- [ ] Run the per-dossier R2 Evidence/public-rights audit.
+- [ ] Run Make-Money test/type/build checks and repair any failures. Current PR #67 CI: lint PASS, typecheck PASS; first unit run found the expected legacy E2E assumption and is being updated for RIGHTS_HELD/public-policy cases.
+- [x] Run and document the preliminary 3,085-record registry/lineage audit.
+- [ ] Run the per-dossier R2 Evidence/public-rights audit.
 - [ ] Quarantine/exclude existing catalog records that cannot prove a public rights basis.
 - [ ] Prove one real typed sidecar can ingest canonically while public view is RIGHTS_HELD.
 - [ ] Prove one approved-policy fixture reaches the public projection.
@@ -100,3 +101,12 @@ Reproducible report: `reports/commercial-rights-catalog-audit-20260924.md`
 Script: `scripts/audit-commercial-rights-lineage.mjs`
 
 Result: 3,085/3,085 release IDs match the registry; 761 use eBizFacts lineage IDs and 1,150 belong to IndieHackers-named batches. Both source families' current official terms materially restrict commercial/scraping reuse. This is a review-priority signal only; current R2 Evidence must be audited before a public dossier is quarantined.
+
+
+## Security finding: canonical read-through bypass
+
+During CI repair, the user-facing detail route was found to fall back from a missing Make-Money view to `readFoundationBusinessCase(entityId)`, which reads private canonical Foundation data. That would bypass a `RIGHTS_HELD` decision.
+
+The branch now removes that public-route fallback. User-facing Foundation detail may read only the rights-gated Make-Money materialized view; otherwise it falls back to the separately curated legacy catalog or returns 404. Search/list already enumerate the Make-Money view prefix rather than canonical bundle objects.
+
+Also tightened the runtime policy snapshot from a policy-ID allowlist to an exact policy-ID -> source-ID mapping, so a non-e-Stat source cannot attach `rights.e-stat.v1` and pass.

@@ -4,7 +4,6 @@ import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/fou
 import { NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import {
-  readFoundationBusinessCase,
   type FoundationBusinessCase,
   type FoundationValuePage,
   type FoundationValueSummary,
@@ -358,13 +357,18 @@ export async function GET(request: Request) {
         });
       }
 
-      const data = await readCached(
-        detailCache,
-        `view:${entityId}`,
-        DETAIL_TTL_MS,
-        MAX_DETAIL_CACHE_ENTRIES,
-        async () => stagedView || readFoundationBusinessCase(entityId)
-      );
+      // Public API detail reads must never fall through to private canonical
+      // Foundation bundles. Only the rights-gated Make-Money materialized view
+      // is eligible here; curated legacy fallback remains separately gated.
+      const data = stagedView
+        ? await readCached(
+            detailCache,
+            `view:${entityId}`,
+            DETAIL_TTL_MS,
+            MAX_DETAIL_CACHE_ENTRIES,
+            async () => stagedView,
+          )
+        : null;
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
         if (parsed) {

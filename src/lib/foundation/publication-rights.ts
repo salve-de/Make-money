@@ -17,9 +17,9 @@ export interface CommercialPublicProjectionAssessment {
  * intentionally NOT auto-admitted here. They can be added only after the
  * exact condition can be proven mechanically.
  */
-export const AUTO_PUBLIC_FACT_POLICY_IDS = new Set([
-  'rights.e-stat.v1',
-  'rights.bls.v1',
+export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, string>([
+  ['rights.e-stat.v1', 'src.e-stat'],
+  ['rights.bls.v1', 'src.bls-api'],
 ]);
 
 function objectValue(value: unknown): JsonObject | null {
@@ -50,7 +50,8 @@ function sourcePolicyMap(bundle: JsonObject): Map<string, string> {
     if (!source) continue;
     const sourceId = text(source.source_id);
     const policyId = text(source.rights_policy_id);
-    if (sourceId && policyId && AUTO_PUBLIC_FACT_POLICY_IDS.has(policyId)) {
+    const expectedSourceId = policyId ? AUTO_PUBLIC_FACT_POLICIES.get(policyId) : undefined;
+    if (sourceId && policyId && expectedSourceId === sourceId) {
       result.set(sourceId, policyId);
     }
   }
@@ -89,7 +90,7 @@ export function assessCommercialPublicProjection(
       Boolean(sourceId) &&
       Boolean(policyId) &&
       policyBySource.get(sourceId!) === policyId &&
-      AUTO_PUBLIC_FACT_POLICY_IDS.has(policyId!) &&
+      AUTO_PUBLIC_FACT_POLICIES.get(policyId!) === sourceId &&
       storageStatus !== 'pending_review' &&
       storageStatus !== 'blocked';
 
