@@ -4,6 +4,7 @@ import {
   gitBlobSha1,
   prepareFoundationTypedIngest,
 } from './typed-ingest';
+import { readableObservationText } from './text-cleaner';
 
 const typedPath =
   'staging/automation/typed-records/DISCOVERY/2026/09/24/run_discovery_1e74e968e095440244da1b9d01171d3f/gentherm-modine-performance-technologies-rmt-2026-typed-record-set-v1.json';
@@ -67,6 +68,14 @@ describe('real scheduled Web ChatGPT typed sidecar fixture', () => {
         currency: 'USD',
       },
     });
+    expect(reported?.entity_ids).toEqual(expect.arrayContaining([
+      'ent_organization_9339d47c7e362613f8d2',
+      'ent_organization_a1964fb04b1ac2226973',
+    ]));
+    const readable = readableObservationText(reported?.text as string);
+    expect(readable).toContain('special_dividend.aggregate_amount=58350533');
+    expect(readable).toContain('exchange_ratio_adjustment.spinco_cash_distribution_current_estimate=159000000');
+    expect(readableObservationText(transport?.text as string)).toBeNull();
 
     const conflicts = (prepared.bundle.quality as { conflicts?: string[] }).conflicts || [];
     expect(conflicts.some((value) => value.includes('special_dividend_record_date'))).toBe(true);
