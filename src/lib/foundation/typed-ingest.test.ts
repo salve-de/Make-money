@@ -154,6 +154,31 @@ describe('typed sidecar ingest projection', () => {
     expect((first.bundle.quality as Record<string, unknown>).schema_validation).toBe('PASS');
   });
 
+  it('defaults an entity-valued subject_ref to that entity in a multi-entity sidecar', () => {
+    const typed = sidecar();
+    const subjectEntityId = typed.entities[0].entity_id;
+    typed.subject_ref = subjectEntityId;
+    typed.subject.query = 'Subject entity test';
+    typed.subject.candidate_name = '';
+    typed.subject.candidate_domain = '';
+    typed.observations[0].payload.subject_ref = '';
+    typed.entities.push({
+      ...typed.entities[0],
+      entity_id: 'ent_organization_abcdef1234567890abcd',
+      canonical_name: 'Other Company',
+      aliases: ['Other Company'],
+      domain: 'other.example',
+    });
+    const artifact = sourceArtifact();
+    artifact.recorded_items = [{ subject_ref: subjectEntityId }];
+
+    const prepared = prepareFoundationTypedIngest(requestFor(typed, artifact));
+    const observations = prepared.bundle.observations as Array<Record<string, unknown>>;
+    expect(observations[1].entity_ids).toEqual([subjectEntityId]);
+    expect((prepared.bundle.entities as Array<Record<string, unknown>>)
+      .filter((entity) => entity.entity_type === 'case')).toHaveLength(0);
+  });
+
   it('keeps the legacy coverage gate closed and allows only the internal typed coverage mode', () => {
     const prepared = prepareFoundationTypedIngest(requestFor(sidecar(), sourceArtifact()));
 

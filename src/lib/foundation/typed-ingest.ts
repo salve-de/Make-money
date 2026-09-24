@@ -1,6 +1,5 @@
 import { createHash } from 'node:crypto';
-import Ajv2020 from 'ajv/dist/2020.js';
-import addFormats from 'ajv-formats';
+import { Validator, type Schema } from '@cfworker/json-schema';
 import researchBundleSchema from './schemas/research-bundle.v1.schema.json';
 import typedRecordSetSchema from './schemas/typed-record-set.v1.schema.json';
 import collectionRunSchema from './schemas/collection-run.v1.schema.json';
@@ -62,14 +61,18 @@ export class FoundationTypedIngestValidationError extends Error {
   }
 }
 
-const ajv = new Ajv2020({ allErrors: true, strict: false });
-addFormats(ajv);
-ajv.addSchema(researchBundleSchema);
-ajv.addSchema(evidenceCaptureRequestSchema);
-ajv.addSchema(workItemSchema);
-const validateTypedRecordSet = ajv.compile(typedRecordSetSchema);
-const validateCollectionRun = ajv.compile(collectionRunSchema);
-const validateResearchBundleSchema = ajv.compile(researchBundleSchema);
+function workerValidator(schema: object, dependencies: object[] = []): Validator {
+  const validator = new Validator(schema as Schema, '2020-12', false);
+  for (const dependency of dependencies) validator.addSchema(dependency as Schema);
+  return validator;
+}
+
+const validateTypedRecordSet = workerValidator(typedRecordSetSchema, [researchBundleSchema]);
+const validateCollectionRun = workerValidator(collectionRunSchema, [
+  evidenceCaptureRequestSchema,
+  workItemSchema,
+]);
+const validateResearchBundleSchema = workerValidator(researchBundleSchema);
 
 function isObject(value: unknown): value is JsonObject {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -81,11 +84,11 @@ function stringValue(value: JsonObject, key: string): string | null {
 }
 
 function schemaErrors(
-  validator: { errors?: Array<{ instancePath?: string; message?: string }> | null },
+  result: { errors?: Array<{ instanceLocation?: string; keyword?: string }> | null },
 ): string[] {
-  return (validator.errors || [])
+  return (result.errors || [])
     .slice(0, 20)
-    .map((error) => `${error.instancePath || '/'} ${error.message || 'invalid'}`);
+    .map((error) => `${error.instanceLocation || '#'} ${error.keyword || 'invalid'}`);
 }
 
 function parseJsonObject(text: string, reasonCode: 'SOURCE_JSON_INVALID' | 'REQUEST_INVALID', label: string): JsonObject {
@@ -156,6 +159,99 @@ function humanObservationText(observation: JsonObject): string {
   return summary || canonicalJson(observation);
 }
 
+function explicitEntityIds(value: JsonObject): string[] {
+  const ids = new Set<string>();
+  for (const key of [
+    'entity_id',
+    'subject_entity_id',
+    'object_entity_id',
+    'payer_entity_id',
+    'receiver_entity_id',
+    'subject_ref',
+  ]) {
+    const candidate = stringValue(value, key);
+    if (candidate && /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(candidate)) ids.add(candidate);
+  }
+  const many = value.entity_ids;
+  if (Array.isArray(many)) {
+    for (const candidate of many) {
+      if (typeof candidate === 'string' && /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(candidate)) {
+        ids.add(candidate);
+      }
+    }
+  }
+  return [...ids];
+}
+
+function caseEntityForTypedSubject(
+  typedRecordSet: JsonObject,
+  subjectRef: string,
+  recordedAt: string,
+): JsonObject | null {
+  if (/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(subjectRef)) return null;
+  const subject = isObject(typedRecordSet.subject) ? typedRecordSet.subject : {};
+  const canonicalName =
+    stringValue(subject, 'candidate_name') ||
+    stringValue(subject, 'query') ||
+    subjectRef;
+  const evidenceIds = new Set<string>();
+  const observations = Array.isArray(typedRecordSet.observations)
+    ? typedRecordSet.observations.filter(isObject)
+    : [];
+  for (const observation of observations) {
+    const ids = Array.isArray(observation.evidence_ids)
+      ? observation.evidence_ids.filter((value): value is string => typeof value === 'string')
+      : [];
+    ids.forEach((id) => evidenceIds.add(id));
+  }
+  return {
+    entity_id: `ent_case_${sha256Sync(`case|${subjectRef}|${TYPED_PROJECTOR_VERSION}`).slice(0, 20)}`,
+    entity_type: 'case',
+    canonical_name: canonicalName,
+    aliases: [],
+    canonical_identifier: subjectRef,
+    domain: stringValue(subject, 'candidate_domain'),
+    status: null,
+    observed_at: recordedAt,
+    evidence_ids: [...evidenceIds].sort(),
+  };
+}
+
+function observationEntityIds(
+  observation: JsonObject,
+  entities: JsonObject[],
+  caseEntityId: string | null,
+  subjectEntityId: string | null,
+): string[] {
+  const available = new Set(
+    entities
+      .map((entity) => stringValue(entity, 'entity_id'))
+      .filter((value): value is string => Boolean(value)),
+  );
+  const associated = new Set<string>();
+
+  for (const id of explicitEntityIds(observation)) {
+    if (available.has(id)) associated.add(id);
+  }
+  const payload = isObject(observation.payload) ? observation.payload : null;
+  if (payload) {
+    for (const id of explicitEntityIds(payload)) {
+      if (available.has(id)) associated.add(id);
+    }
+  }
+
+  if (associated.size === 0 && subjectEntityId && available.has(subjectEntityId)) {
+    associated.add(subjectEntityId);
+  }
+  if (associated.size === 0 && caseEntityId && available.has(caseEntityId)) {
+    associated.add(caseEntityId);
+  }
+  if (associated.size === 0 && available.size === 1) {
+    associated.add([...available][0]);
+  }
+  return [...associated].sort();
+}
+
 function transportObservationId(blobSha: string, subjectRef: string): string {
   return `obs_${sha256Sync(`transport|${blobSha}|${subjectRef}|${TYPED_PROJECTOR_VERSION}`).slice(0, 24)}`;
 }
@@ -188,6 +284,17 @@ export function projectTypedRecordSetV4(
   const typedObservations = Array.isArray(typedRecordSet.observations)
     ? typedRecordSet.observations.filter(isObject)
     : [];
+  const typedEntities = Array.isArray(typedRecordSet.entities)
+    ? typedRecordSet.entities.filter(isObject)
+    : [];
+  const subjectEntityId = /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(subjectRef)
+    ? subjectRef
+    : null;
+  const caseEntity = typedEntities.length > 1
+    ? caseEntityForTypedSubject(typedRecordSet, subjectRef, recordedAt)
+    : null;
+  const projectedEntities = caseEntity ? [...typedEntities, caseEntity] : typedEntities;
+  const caseEntityId = caseEntity ? stringValue(caseEntity, 'entity_id') : null;
 
   const observations: JsonObject[] = [
     {
@@ -206,8 +313,15 @@ export function projectTypedRecordSetV4(
       const observationChannel =
         stringValue(observation, 'collection_channel') || collectionChannel;
       const observer = stringValue(observation, 'observer') || agentName;
+      const entityIds = observationEntityIds(
+        observation,
+        projectedEntities,
+        caseEntityId,
+        subjectEntityId,
+      );
       return {
         ...cloneJson(observation),
+        ...(entityIds.length > 0 ? { entity_ids: entityIds } : {}),
         collection_channel: observationChannel,
         observer,
         text: humanObservationText(observation),
@@ -229,7 +343,7 @@ export function projectTypedRecordSetV4(
     retrieved_at: retrievedAt,
     sources: cloneJson(Array.isArray(typedRecordSet.sources) ? typedRecordSet.sources : []),
     evidence: cloneJson(Array.isArray(typedRecordSet.evidence) ? typedRecordSet.evidence : []),
-    entities: cloneJson(Array.isArray(typedRecordSet.entities) ? typedRecordSet.entities : []),
+    entities: cloneJson(projectedEntities),
     claims: cloneJson(Array.isArray(typedRecordSet.claims) ? typedRecordSet.claims : []),
     metrics: cloneJson(Array.isArray(typedRecordSet.metrics) ? typedRecordSet.metrics : []),
     money_signals: cloneJson(Array.isArray(typedRecordSet.money_signals) ? typedRecordSet.money_signals : []),
@@ -250,8 +364,9 @@ export function projectTypedRecordSetV4(
 
   const normalizedBundle = defaultIncomingMoneySignalFields(bundle).bundle;
 
-  if (!validateResearchBundleSchema(normalizedBundle)) {
-    const issues = schemaErrors(validateResearchBundleSchema);
+  const projectedValidation = validateResearchBundleSchema.validate(normalizedBundle);
+  if (!projectedValidation.valid) {
+    const issues = schemaErrors(projectedValidation);
     throw new FoundationTypedIngestValidationError(
       'PROJECTION_SCHEMA_INVALID',
       `projected research-bundle.v1 is invalid: ${issues.join('; ')}`,
@@ -328,8 +443,9 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'typed_record_set_text',
   );
-  if (!validateTypedRecordSet(typedRecordSet)) {
-    const issues = schemaErrors(validateTypedRecordSet);
+  const typedValidation = validateTypedRecordSet.validate(typedRecordSet);
+  if (!typedValidation.valid) {
+    const issues = schemaErrors(typedValidation);
     throw new FoundationTypedIngestValidationError(
       'SOURCE_SCHEMA_INVALID',
       `typed-record-set.v1 schema validation failed: ${issues.join('; ')}`,
@@ -342,8 +458,9 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'source_artifact_text',
   );
-  if (!validateCollectionRun(sourceArtifact)) {
-    const issues = schemaErrors(validateCollectionRun);
+  const collectionValidation = validateCollectionRun.validate(sourceArtifact);
+  if (!collectionValidation.valid) {
+    const issues = schemaErrors(collectionValidation);
     throw new FoundationTypedIngestValidationError(
       'SOURCE_SCHEMA_INVALID',
       `collection-run.v1 schema validation failed: ${issues.join('; ')}`,
