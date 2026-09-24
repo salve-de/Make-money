@@ -151,39 +151,6 @@ export interface FoundationDerivedRecord {
   supportingEvidenceIds: string[];
 }
 
-export interface FoundationSourceMetadata {
-  id: string;
-  providerName: string;
-  sourceType: string;
-  canonicalUrl: string | null;
-  sourceStrength: string | null;
-  rightsStatus: string | null;
-  rightsPolicyId: string | null;
-}
-
-export interface FoundationEvidenceMetadata {
-  id: string;
-  sourceId: string | null;
-  sourceUrl: string | null;
-  sourceTitle: string | null;
-  sourceType: string | null;
-  publisherOrSpeaker: string | null;
-  publishedAt: string | null;
-  retrievedAt: string | null;
-  sourceStrength: string | null;
-  rightsStatus: string | null;
-  rightsPolicyId: string | null;
-  summary: string | null;
-  extractedFacts: string[];
-}
-
-export interface FoundationQualityMetadata {
-  unknowns: string[];
-  conflicts: string[];
-  warnings: string[];
-  schemaValidation: string | null;
-}
-
 export interface FoundationBusinessCase extends FoundationEntitySummary {
   claims: FoundationClaim[];
   metrics: FoundationMetricSignal[];
@@ -192,10 +159,6 @@ export interface FoundationBusinessCase extends FoundationEntitySummary {
   relationships: FoundationRelationship[];
   observations: FoundationObservation[];
   derived: FoundationDerivedRecord[];
-  /** Public-safe metadata retained from the rights-filtered bundle. */
-  sources?: FoundationSourceMetadata[];
-  evidence?: FoundationEvidenceMetadata[];
-  quality?: FoundationQualityMetadata;
   valueProfile: FoundationValueProfile;
   bundlesScanned: number;
   bundleObjectsListed: number;
@@ -295,50 +258,6 @@ function normalizeSummary(value: JsonObject): FoundationEntitySummary | null {
     status: stringValue(value, 'status') || 'unknown',
     observedAt: stringValue(value, 'observed_at'),
     evidenceIds: stringArray(value, 'evidence_ids'),
-  };
-}
-
-function normalizeSourceMetadata(value: JsonObject): FoundationSourceMetadata | null {
-  const id = stringValue(value, 'source_id');
-  if (!id) return null;
-  return {
-    id,
-    providerName: stringValue(value, 'provider_name') || id,
-    sourceType: stringValue(value, 'source_type') || 'unknown',
-    canonicalUrl: stringValue(value, 'canonical_url'),
-    sourceStrength: stringValue(value, 'source_strength'),
-    rightsStatus: stringValue(value, 'rights_status'),
-    rightsPolicyId: stringValue(value, 'rights_policy_id'),
-  };
-}
-
-function normalizeEvidenceMetadata(value: JsonObject): FoundationEvidenceMetadata | null {
-  const id = stringValue(value, 'evidence_id');
-  if (!id) return null;
-  return {
-    id,
-    sourceId: stringValue(value, 'source_id'),
-    sourceUrl: stringValue(value, 'source_url'),
-    sourceTitle: stringValue(value, 'source_title'),
-    sourceType: stringValue(value, 'source_type'),
-    publisherOrSpeaker: stringValue(value, 'publisher_or_speaker'),
-    publishedAt: stringValue(value, 'published_at'),
-    retrievedAt: stringValue(value, 'retrieved_at'),
-    sourceStrength: stringValue(value, 'source_strength'),
-    rightsStatus: stringValue(value, 'rights_status'),
-    rightsPolicyId: stringValue(value, 'rights_policy_id'),
-    summary: stringValue(value, 'summary'),
-    extractedFacts: stringArray(value, 'extracted_facts'),
-  };
-}
-
-function normalizeQualityMetadata(bundle: JsonObject): FoundationQualityMetadata {
-  const quality = objectValue(bundle.quality) || {};
-  return {
-    unknowns: stringArray(quality, 'unknowns'),
-    conflicts: stringArray(quality, 'conflicts'),
-    warnings: stringArray(quality, 'warnings'),
-    schemaValidation: stringValue(quality, 'schema_validation'),
   };
 }
 
@@ -989,14 +908,6 @@ function mergeRecordAccumulators(
   pushUnique(target.relationships, incoming.relationships);
   pushUnique(target.observations, incoming.observations);
   pushUnique(target.derived, incoming.derived);
-  pushUnique(target.sources, incoming.sources);
-  pushUnique(target.evidence, incoming.evidence);
-  target.quality = {
-    unknowns: [...new Set([...target.quality.unknowns, ...incoming.quality.unknowns])],
-    conflicts: [...new Set([...target.quality.conflicts, ...incoming.quality.conflicts])],
-    warnings: [...new Set([...target.quality.warnings, ...incoming.quality.warnings])],
-    schemaValidation: incoming.quality.schemaValidation || target.quality.schemaValidation,
-  };
 }
 
 function collectScheduledReadThrough(
@@ -1245,9 +1156,6 @@ interface FoundationRecordAccumulator {
   relationships: FoundationRelationship[];
   observations: FoundationObservation[];
   derived: FoundationDerivedRecord[];
-  sources: FoundationSourceMetadata[];
-  evidence: FoundationEvidenceMetadata[];
-  quality: FoundationQualityMetadata;
 }
 
 function createRecordAccumulator(): FoundationRecordAccumulator {
@@ -1259,14 +1167,6 @@ function createRecordAccumulator(): FoundationRecordAccumulator {
     relationships: [],
     observations: [],
     derived: [],
-    sources: [],
-    evidence: [],
-    quality: {
-      unknowns: [],
-      conflicts: [],
-      warnings: [],
-      schemaValidation: null,
-    },
   };
 }
 
@@ -1278,40 +1178,6 @@ function collectBundleRecords(bundle: JsonObject, entityId: string, target: Foun
   pushUnique(target.relationships, filteredRecords(bundle, 'relationships', entityId).map(normalizeRelationship).filter((item): item is FoundationRelationship => Boolean(item)));
   pushUnique(target.observations, filteredRecords(bundle, 'observations', entityId).map(normalizeObservation));
   pushUnique(target.derived, filteredRecords(bundle, 'derived', entityId).map(normalizeDerived).filter((item): item is FoundationDerivedRecord => Boolean(item)));
-
-  const relevantEvidenceIds = new Set<string>([
-    ...(bundleEntitySummary(bundle, entityId)?.evidenceIds || []),
-    ...target.claims.flatMap((item) => item.evidenceIds),
-    ...target.metrics.flatMap((item) => item.evidenceIds),
-    ...target.moneySignals.flatMap((item) => item.evidenceIds),
-    ...target.events.flatMap((item) => item.evidenceIds),
-    ...target.relationships.flatMap((item) => item.evidenceIds),
-    ...target.observations.flatMap((item) => item.evidenceIds),
-    ...target.derived.flatMap((item) => item.supportingEvidenceIds),
-  ]);
-
-  const evidence = (Array.isArray(bundle.evidence) ? bundle.evidence : [])
-    .map(objectValue)
-    .filter((item): item is JsonObject => Boolean(item))
-    .map(normalizeEvidenceMetadata)
-    .filter((item): item is FoundationEvidenceMetadata => Boolean(item && relevantEvidenceIds.has(item.id)));
-  pushUnique(target.evidence, evidence);
-
-  const sourceIds = new Set(target.evidence.map((item) => item.sourceId).filter((value): value is string => Boolean(value)));
-  const sources = (Array.isArray(bundle.sources) ? bundle.sources : [])
-    .map(objectValue)
-    .filter((item): item is JsonObject => Boolean(item))
-    .map(normalizeSourceMetadata)
-    .filter((item): item is FoundationSourceMetadata => Boolean(item && sourceIds.has(item.id)));
-  pushUnique(target.sources, sources);
-
-  const quality = normalizeQualityMetadata(bundle);
-  target.quality = {
-    unknowns: [...new Set([...target.quality.unknowns, ...quality.unknowns])],
-    conflicts: [...new Set([...target.quality.conflicts, ...quality.conflicts])],
-    warnings: [...new Set([...target.quality.warnings, ...quality.warnings])],
-    schemaValidation: quality.schemaValidation || target.quality.schemaValidation,
-  };
 }
 
 /**
