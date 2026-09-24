@@ -21,8 +21,12 @@ describe('public Observation payload limits', () => {
     ['string', { value: 'x'.repeat(PUBLIC_OBSERVATION_LIMITS.maxStringBytes + 1) }],
     ['array', Array.from({ length: PUBLIC_OBSERVATION_LIMITS.maxArrayItems + 1 }, (_, index) => index)],
     ['keys', Object.fromEntries(Array.from({ length: PUBLIC_OBSERVATION_LIMITS.maxObjectKeys + 1 }, (_, index) => [`k${index}`, index]))],
-    ['depth', { a: { b: { c: { d: { e: { f: { g: true } } } } } } } }],
   ])('drops the whole public payload when the %s limit is exceeded', (_label, input) => {
+    expect(sanitizePublicObservationPayload(input)).toBeNull();
+  });
+
+  it('drops the whole public payload when nesting exceeds depth 6', () => {
+    const input = { a: { b: { c: { d: { e: { f: { g: true } } } } } } };
     expect(sanitizePublicObservationPayload(input)).toBeNull();
   });
 
