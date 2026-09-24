@@ -173,7 +173,7 @@ function RawEvent({ item }: { item: FoundationEvent }) {
   );
 }
 
-function RawObservation({ item }: { item: FoundationObservation }) {
+export function RawObservation({ item }: { item: FoundationObservation }) {
   const statusInfo = humanizeVerificationStatus(item.verificationStatus);
   const cleanText = cleanIntelligenceText(item.text);
   const structuredPayload = item.payload === null || item.payload === undefined
