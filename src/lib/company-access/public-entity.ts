@@ -6,6 +6,14 @@ import {
 import { sha256Sync } from '@/shared/sha256';
 import { resolveFoundationEvidence, verifyRawPayload } from '@/lib/foundation/evidence-store';
 import { verifyClaimSupport } from './claim-support';
+import type {
+  FoundationBusinessCase,
+  FoundationObservation,
+} from '@/lib/foundation/business-reader';
+import {
+  canAdmitPublicPayload,
+  sanitizePublicObservationPayload,
+} from '@/lib/foundation/public-observation';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
@@ -329,6 +337,58 @@ export function publicSummaryEntity(entity: FinancialEntity): PublicSummaryEntit
     latestDossierHash: entity.latestDossierHash,
     sourceRevision: entity.sourceRevision ?? 1,
     batchId: entity.batchId,
+  };
+}
+
+export interface PublicFoundationObservation {
+  id: string;
+  kind: string | null;
+  text: string;
+  originType: string;
+  verificationStatus: FoundationObservation['verificationStatus'];
+  observedAt: string | null;
+  evidenceIds: string[];
+  publicPayload?: unknown;
+}
+
+/**
+ * Explicit public wire allowlist for Foundation Observations.
+ * Internal collection metadata and raw payload fields are intentionally absent.
+ */
+export function publicFoundationObservations(
+  observations: readonly FoundationObservation[],
+): PublicFoundationObservation[] {
+  let usedEntityPayloadBytes = 0;
+  return observations
+    .filter((item) => item.kind !== 'transport.typed_record_set_v1')
+    .map((item) => {
+      const projected: PublicFoundationObservation = {
+        id: item.id,
+        kind: item.kind,
+        text: item.text,
+        originType: item.originType,
+        verificationStatus: item.verificationStatus,
+        observedAt: item.observedAt,
+        evidenceIds: [...item.evidenceIds],
+      };
+      const payload = sanitizePublicObservationPayload(item.publicPayload);
+      if (
+        payload &&
+        canAdmitPublicPayload(usedEntityPayloadBytes, payload.bytes)
+      ) {
+        projected.publicPayload = payload.value;
+        usedEntityPayloadBytes += payload.bytes;
+      }
+      return projected;
+    });
+}
+
+export function publicFoundationBusinessCase(
+  value: FoundationBusinessCase,
+): FoundationBusinessCase {
+  return {
+    ...value,
+    observations: publicFoundationObservations(value.observations),
   };
 }
 
