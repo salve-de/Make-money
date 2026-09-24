@@ -11,6 +11,7 @@ Sparkles,
 Zap
 } from 'lucide-react';
 import React from 'react';
+import { StructuredObservationData } from './StructuredObservationData';
 
 interface UniversalIntelligenceStreamProps {
   entity: FinancialEntity;
@@ -401,6 +402,15 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                   <p className="text-zinc-200 text-[11px] leading-relaxed font-sans">
                     {obs.text}
                   </p>
+                  <div className="flex flex-wrap gap-1.5 font-mono text-[9px] text-zinc-600">
+                    {obs.observationType && <span>{obs.observationType}</span>}
+                    {obs.collectionChannel && <span>・ {obs.collectionChannel}</span>}
+                    {obs.evidenceIds && obs.evidenceIds.length > 0 && <span>・ 根拠 {obs.evidenceIds.length}件</span>}
+                  </div>
+                  <StructuredObservationData
+                    value={obs.structuredData}
+                    schemaRef={obs.payloadSchemaRef}
+                  />
                 </div>
               );
             })}
