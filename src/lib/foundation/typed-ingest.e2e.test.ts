@@ -1,9 +1,11 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { NextRequest } from 'next/server';
 import { POST as ingestTyped } from '@/app/api/foundation/ingest/typed/route';
 import { GET as getBusinesses } from '@/app/api/businesses/route';
 import { withCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
 import { gitBlobSha1 } from './typed-ingest';
+import { adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
 
 type StoredObject = {
   body: Uint8Array;
@@ -315,6 +317,82 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(secondBody.success).toBe(true);
       expect(secondBody.canonical_ingest).toBe('ALREADY_COMMITTED');
       expect(canonicalKeys(r2)).toEqual(firstCanonical);
+    });
+  });
+
+
+  it('serves a real multi-entity scheduled sidecar as one case without false company attribution', async () => {
+    const r2 = new MemoryR2();
+    const realTypedPath =
+      'staging/automation/typed-records/DISCOVERY/2026/09/24/run_discovery_1e74e968e095440244da1b9d01171d3f/gentherm-modine-performance-technologies-rmt-2026-typed-record-set-v1.json';
+    const realArtifactPath =
+      'staging/automation/discovery/2026/09/24/20260924T221200JST-discovery-run_discovery_1e74e968e095440244da1b9d01171d3f.json';
+    const typedText = readFileSync(
+      'src/lib/foundation/fixtures/real-gentherm-modine-typed-record-set-v1.json',
+      'utf8',
+    );
+    const artifactText = readFileSync(
+      'src/lib/foundation/fixtures/real-gentherm-modine-collection-run-v1.json',
+      'utf8',
+    );
+
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const response = await ingestTyped(new NextRequest('http://localhost/api/foundation/ingest/typed', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          'x-foundation-ingest-token': 'typed-e2e-token',
+        },
+        body: JSON.stringify({
+          write_authorized: true,
+          source: {
+            repository: 'salve-de/universal-foundation',
+            source_ref: 'main',
+            source_commit_sha: 'a85596d6e7de6aba66047df383724577055c2fad',
+            typed_record_set_path: realTypedPath,
+            typed_record_set_blob_sha: gitBlobSha1(typedText),
+            source_artifact_path: realArtifactPath,
+            source_artifact_blob_sha: gitBlobSha1(artifactText),
+          },
+          typed_record_set_text: typedText,
+          source_artifact_text: artifactText,
+        }),
+      }));
+      expect(response.status).toBe(200);
+
+      const searchResponse = await getBusinesses(new Request(
+        'http://localhost/api/businesses?foundationOnly=true&q=Reverse%20Morris%20Trust&limit=100',
+      ));
+      const search = await searchResponse.json();
+      expect(searchResponse.status).toBe(200);
+      const caseRow = (search.data as Array<{ id: string; name: string }>).find(
+        (row) => row.name.includes('Reverse Morris Trust'),
+      );
+      expect(caseRow).toBeTruthy();
+
+      const detailResponse = await getBusinesses(
+        new Request(`http://localhost/api/businesses?foundationOnly=true&entity_id=${caseRow!.id}`),
+      );
+      const detail = await detailResponse.json();
+      expect(detailResponse.status).toBe(200);
+      expect(detail.source).toBe('foundation_lake');
+      expect(detail.data.entityType).toBe('case');
+
+      const projected = adaptFoundationDetailToFinancialEntity(detail.data);
+      const projectedText = JSON.stringify(projected.observationsStream);
+      expect(projectedText).toContain('58350533');
+      expect(projectedText).toContain('spinco cash distribution current estimate');
+      expect(projectedText).not.toContain('typed-record-set.v1 transport payload');
+
+      const genthermDetail = await getBusinesses(new Request(
+        'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_organization_a1964fb04b1ac2226973',
+      ));
+      const gentherm = await genthermDetail.json();
+      expect(JSON.stringify(gentherm.data || {})).not.toContain('58350533');
     });
   });
 
