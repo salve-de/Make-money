@@ -991,6 +991,17 @@ export function mergeFoundationBusinessCasesForView(
   const relationships = mergeById(recordOlder.relationships, recordNewer.relationships);
   const observations = mergeById(recordOlder.observations, recordNewer.observations);
   const derived = mergeById(recordOlder.derived, recordNewer.derived);
+  const sources = mergeById(recordOlder.sources || [], recordNewer.sources || []);
+  const evidence = mergeById(recordOlder.evidence || [], recordNewer.evidence || []);
+  const quality = {
+    unknowns: uniqueStrings(recordOlder.quality?.unknowns, recordNewer.quality?.unknowns),
+    conflicts: uniqueStrings(recordOlder.quality?.conflicts, recordNewer.quality?.conflicts),
+    warnings: uniqueStrings(recordOlder.quality?.warnings, recordNewer.quality?.warnings),
+    schemaValidation:
+      recordNewer.quality?.schemaValidation ||
+      recordOlder.quality?.schemaValidation ||
+      null,
+  };
   const issues = uniqueStrings(existing.issues, incoming.issues);
 
   const entitySummary = {
@@ -1016,6 +1027,9 @@ export function mergeFoundationBusinessCasesForView(
     relationships,
     observations,
     derived,
+    sources,
+    evidence,
+    quality,
     valueProfile: buildFoundationValueProfile(entitySummary, {
       claims,
       metrics,
@@ -1037,11 +1051,17 @@ export function excludeViewEvidence(detail: FoundationBusinessCase, excludedIds:
   const excluded = new Set(excludedIds);
   const keep = (ids: string[]) => ids.filter(id => !excluded.has(id));
   const filter = <T extends { evidenceIds: string[] }>(rows: T[]): T[] => rows.map(row => ({ ...row, evidenceIds: keep(row.evidenceIds) }));
+  const nextEvidence = (detail.evidence || []).filter((row) => !excluded.has(row.id));
+  const remainingSourceIds = new Set(
+    nextEvidence.map((row) => row.sourceId).filter((value): value is string => Boolean(value))
+  );
   const next = {
     ...detail, evidenceIds: keep(detail.evidenceIds),
     claims: filter(detail.claims), metrics: filter(detail.metrics), moneySignals: filter(detail.moneySignals),
     events: filter(detail.events), relationships: filter(detail.relationships), observations: filter(detail.observations),
     derived: detail.derived.map(row => ({ ...row, supportingEvidenceIds: keep(row.supportingEvidenceIds) })),
+    evidence: nextEvidence,
+    sources: (detail.sources || []).filter((row) => remainingSourceIds.has(row.id)),
   };
   next.valueProfile = buildFoundationValueProfile(next, next);
   return next;
