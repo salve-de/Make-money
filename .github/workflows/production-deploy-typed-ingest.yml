@@ -1,0 +1,37 @@
+name: Production deploy typed ingest
+
+on:
+  push:
+    branches:
+      - codex/production-deploy-typed-ingest-20260924
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy-make-money
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN || secrets.CF_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || secrets.CF_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 238483101d1966fee8a0dbf9f9ac6eb408bc0395
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Require Cloudflare credentials
+        run: test -n "$CLOUDFLARE_API_TOKEN" && test -n "$CLOUDFLARE_ACCOUNT_ID"
+      - run: pnpm install --frozen-lockfile
+      - name: Build production worker
+        run: pnpm workers:build
+      - name: Deploy exact merged Make-Money worker
+        run: pnpm exec opennextjs-cloudflare deploy
