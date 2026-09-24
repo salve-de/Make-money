@@ -989,6 +989,14 @@ function mergeRecordAccumulators(
   pushUnique(target.relationships, incoming.relationships);
   pushUnique(target.observations, incoming.observations);
   pushUnique(target.derived, incoming.derived);
+  pushUnique(target.sources, incoming.sources);
+  pushUnique(target.evidence, incoming.evidence);
+  target.quality = {
+    unknowns: [...new Set([...target.quality.unknowns, ...incoming.quality.unknowns])],
+    conflicts: [...new Set([...target.quality.conflicts, ...incoming.quality.conflicts])],
+    warnings: [...new Set([...target.quality.warnings, ...incoming.quality.warnings])],
+    schemaValidation: incoming.quality.schemaValidation || target.quality.schemaValidation,
+  };
 }
 
 function collectScheduledReadThrough(
@@ -1237,6 +1245,9 @@ interface FoundationRecordAccumulator {
   relationships: FoundationRelationship[];
   observations: FoundationObservation[];
   derived: FoundationDerivedRecord[];
+  sources: FoundationSourceMetadata[];
+  evidence: FoundationEvidenceMetadata[];
+  quality: FoundationQualityMetadata;
 }
 
 function createRecordAccumulator(): FoundationRecordAccumulator {
@@ -1248,6 +1259,14 @@ function createRecordAccumulator(): FoundationRecordAccumulator {
     relationships: [],
     observations: [],
     derived: [],
+    sources: [],
+    evidence: [],
+    quality: {
+      unknowns: [],
+      conflicts: [],
+      warnings: [],
+      schemaValidation: null,
+    },
   };
 }
 
@@ -1259,6 +1278,40 @@ function collectBundleRecords(bundle: JsonObject, entityId: string, target: Foun
   pushUnique(target.relationships, filteredRecords(bundle, 'relationships', entityId).map(normalizeRelationship).filter((item): item is FoundationRelationship => Boolean(item)));
   pushUnique(target.observations, filteredRecords(bundle, 'observations', entityId).map(normalizeObservation));
   pushUnique(target.derived, filteredRecords(bundle, 'derived', entityId).map(normalizeDerived).filter((item): item is FoundationDerivedRecord => Boolean(item)));
+
+  const relevantEvidenceIds = new Set<string>([
+    ...(bundleEntitySummary(bundle, entityId)?.evidenceIds || []),
+    ...target.claims.flatMap((item) => item.evidenceIds),
+    ...target.metrics.flatMap((item) => item.evidenceIds),
+    ...target.moneySignals.flatMap((item) => item.evidenceIds),
+    ...target.events.flatMap((item) => item.evidenceIds),
+    ...target.relationships.flatMap((item) => item.evidenceIds),
+    ...target.observations.flatMap((item) => item.evidenceIds),
+    ...target.derived.flatMap((item) => item.supportingEvidenceIds),
+  ]);
+
+  const evidence = (Array.isArray(bundle.evidence) ? bundle.evidence : [])
+    .map(objectValue)
+    .filter((item): item is JsonObject => Boolean(item))
+    .map(normalizeEvidenceMetadata)
+    .filter((item): item is FoundationEvidenceMetadata => Boolean(item && relevantEvidenceIds.has(item.id)));
+  pushUnique(target.evidence, evidence);
+
+  const sourceIds = new Set(target.evidence.map((item) => item.sourceId).filter((value): value is string => Boolean(value)));
+  const sources = (Array.isArray(bundle.sources) ? bundle.sources : [])
+    .map(objectValue)
+    .filter((item): item is JsonObject => Boolean(item))
+    .map(normalizeSourceMetadata)
+    .filter((item): item is FoundationSourceMetadata => Boolean(item && sourceIds.has(item.id)));
+  pushUnique(target.sources, sources);
+
+  const quality = normalizeQualityMetadata(bundle);
+  target.quality = {
+    unknowns: [...new Set([...target.quality.unknowns, ...quality.unknowns])],
+    conflicts: [...new Set([...target.quality.conflicts, ...quality.conflicts])],
+    warnings: [...new Set([...target.quality.warnings, ...quality.warnings])],
+    schemaValidation: quality.schemaValidation || target.quality.schemaValidation,
+  };
 }
 
 /**
