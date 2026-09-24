@@ -7,6 +7,7 @@ import {
 } from '../src/lib/foundation/typed-ingest';
 import {
   buildBundleProductionPreflight,
+  buildMakeMoneyReplayStatePreflight,
   buildTypedProductionPreflight,
 } from './foundation-typed-preflight';
 
@@ -102,4 +103,94 @@ test('generic bundle production preflight uses exact legacy planner without R2 o
   assert.equal(report.invariants.all_create_only, true);
   assert.equal(report.invariants.overwrite_forbidden, true);
   assert.equal(report.invariants.legacy_mutation_forbidden, true);
+});
+
+
+function fakeObject(value: unknown) {
+  const body = new TextEncoder().encode(JSON.stringify(value));
+  return {
+    exists: true as const,
+    body,
+    size: body.byteLength,
+  };
+}
+
+test('replay preflight does not block when rebuild is complete and next progress page has no unresolved IDs', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: null,
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: null,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_projection-progress/run_a.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_a',
+      unresolved_entity_ids: [],
+    })],
+  ]);
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async () => ({
+      objects: [{ key: 'views/make-money/v1/_projection-progress/run_a.json' }],
+      truncated: false,
+    }),
+  });
+
+  assert.equal(report.state, 'NO_PENDING_UNRESOLVED_REPLAY');
+  assert.equal(report.blocks_reconcile, false);
+  assert.equal(report.control_state_update_expected, true);
+  assert.deepEqual(report.pending_unresolved_runs, []);
+  assert.equal(report.r2_mutations, 0);
+  assert.equal(report.queue_mutations, 0);
+});
+
+test('replay preflight blocks only when the actual next replay page contains unresolved IDs', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: 'cursor-1',
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: 'cursor-1',
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_projection-progress/run_b.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_b',
+      unresolved_entity_ids: ['ent_organization_1234567890abcdef1234'],
+    })],
+  ]);
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async (input) => {
+      assert.equal(input.cursor, 'cursor-1');
+      assert.equal(input.limit, 5);
+      return {
+        objects: [{ key: 'views/make-money/v1/_projection-progress/run_b.json' }],
+        truncated: false,
+      };
+    },
+  });
+
+  assert.equal(report.state, 'UNRESOLVED_REPLAY_PENDING');
+  assert.equal(report.blocks_reconcile, true);
+  assert.deepEqual(report.pending_unresolved_runs, [{
+    run_id: 'run_b',
+    unresolved_entity_ids: ['ent_organization_1234567890abcdef1234'],
+  }]);
 });
