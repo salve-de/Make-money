@@ -3,6 +3,9 @@ import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import researchBundleSchema from './schemas/research-bundle.v1.schema.json';
 import typedRecordSetSchema from './schemas/typed-record-set.v1.schema.json';
+import collectionRunSchema from './schemas/collection-run.v1.schema.json';
+import evidenceCaptureRequestSchema from './schemas/evidence-capture-request.v1.schema.json';
+import workItemSchema from './schemas/work-item.v1.schema.json';
 import { sha256Sync } from '@/shared/sha256';
 import { defaultIncomingMoneySignalFields } from './money-signal-null-defaults';
 
@@ -62,7 +65,10 @@ export class FoundationTypedIngestValidationError extends Error {
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
 ajv.addSchema(researchBundleSchema);
+ajv.addSchema(evidenceCaptureRequestSchema);
+ajv.addSchema(workItemSchema);
 const validateTypedRecordSet = ajv.compile(typedRecordSetSchema);
+const validateCollectionRun = ajv.compile(collectionRunSchema);
 const validateResearchBundleSchema = ajv.compile(researchBundleSchema);
 
 function isObject(value: unknown): value is JsonObject {
@@ -336,6 +342,14 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'source_artifact_text',
   );
+  if (!validateCollectionRun(sourceArtifact)) {
+    const issues = schemaErrors(validateCollectionRun);
+    throw new FoundationTypedIngestValidationError(
+      'SOURCE_SCHEMA_INVALID',
+      `collection-run.v1 schema validation failed: ${issues.join('; ')}`,
+      issues,
+    );
+  }
 
   const sourceArtifactRef = isObject(typedRecordSet.source_artifact)
     ? typedRecordSet.source_artifact
