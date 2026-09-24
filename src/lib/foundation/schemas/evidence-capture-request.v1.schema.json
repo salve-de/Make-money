@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/evidence-capture-request.v1.schema.json",
+  "title": "Evidence Capture Request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "request_id",
+    "originating_run_id",
+    "evidence_id",
+    "source_id",
+    "request_url",
+    "capture_mode",
+    "requested_at",
+    "rights_state"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "evidence-capture-request.v1"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^req_[A-Za-z0-9._:-]+$",
+      "minLength": 8
+    },
+    "originating_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "canonical_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "capture_mode": {
+      "enum": [
+        "http",
+        "api",
+        "browser",
+        "metadata_only"
+      ]
+    },
+    "requested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "rights_state": {
+      "enum": [
+        "allowed_private_raw",
+        "restricted_private_raw",
+        "metadata_only",
+        "blocked",
+        "pending_review"
+      ]
+    },
+    "rights_policy_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expected_content_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "locator": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "unevaluatedProperties": true
+    },
+    "excerpt_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
