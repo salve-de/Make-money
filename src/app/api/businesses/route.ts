@@ -4,7 +4,6 @@ import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/fou
 import { NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import {
-  readFoundationBusinessCase,
   type FoundationBusinessCase,
   type FoundationValuePage,
   type FoundationValueSummary,
@@ -358,13 +357,9 @@ export async function GET(request: Request) {
         });
       }
 
-      const data = await readCached(
-        detailCache,
-        `view:${entityId}`,
-        DETAIL_TTL_MS,
-        MAX_DETAIL_CACHE_ENTRIES,
-        async () => stagedView || readFoundationBusinessCase(entityId)
-      );
+      // Public detail never falls through to the private canonical lake.
+      // A Foundation-only entity must have a rights-cleared Make-Money view.
+      const data = stagedView;
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
         if (parsed) {

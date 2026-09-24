@@ -11,6 +11,10 @@ import {
   type FoundationValueSummary,
 } from '@/lib/foundation/business-reader';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
+import {
+  filterBundleForPublication,
+  readPublicationGate,
+} from '@/lib/foundation/publication-gate';
 import { buildFoundationValueProfile } from '@/lib/foundation/value-projection';
 import {
   getFoundationBucketAsync,
@@ -1638,7 +1642,10 @@ async function replayUnresolvedProjectionPage(
       throw new Error(`Canonical research bundle disappeared during unresolved replay: ${progress.bundle_key}`);
     }
     const bundle = JSON.parse(text) as unknown;
-    const report = await materializeMakeMoneyViews(bundle, maxTargets);
+    const gate = await readPublicationGate(progress.run_id);
+    const publicBundle = gate ? filterBundleForPublication(bundle, gate) : null;
+    if (!publicBundle) continue;
+    const report = await materializeMakeMoneyViews(publicBundle, maxTargets);
     replayed += report.attempted;
   }
 
@@ -1737,10 +1744,20 @@ export async function rebuildMakeMoneyViewsPage(limit = 20): Promise<MakeMoneyVi
     const text = await getFromR2(item.key, bucket);
     if (!text) throw new Error(`Canonical research bundle disappeared during rebuild: ${item.key}`);
     const bundle = JSON.parse(text) as unknown;
-    const report = await materializeMakeMoneyViews(bundle, boundedLimit);
-    materializedEntities += report.attempted;
-    bundleInitialScanComplete = report.next_index >= report.total_targets;
-    if (bundleInitialScanComplete) processed = 1;
+    const runId = objectValue(bundle)?.run_id;
+    const gate = typeof runId === 'string' ? await readPublicationGate(runId) : null;
+    const publicBundle = gate ? filterBundleForPublication(bundle, gate) : null;
+    if (!publicBundle) {
+      // Legacy/no-policy or explicitly held bundles remain private canonical
+      // records. Rebuild advances without materializing a public view.
+      bundleInitialScanComplete = true;
+      processed = 1;
+    } else {
+      const report = await materializeMakeMoneyViews(publicBundle, boundedLimit);
+      materializedEntities += report.attempted;
+      bundleInitialScanComplete = report.next_index >= report.total_targets;
+      if (bundleInitialScanComplete) processed = 1;
+    }
   }
 
   const nextCursor = bundleInitialScanComplete && page.truncated && page.cursor
