@@ -40,7 +40,7 @@ Behavior:
 2. public projection requires an explicit registered `rights_policy_id`;
 3. only policies explicitly safe for automatic commercial fact display are auto-admitted;
 4. records must be `SUPPORTED` and depend only on allowed Evidence;
-5. rights-cleared Observations may enter only as newly built fact-only public DTOs: raw `payload`, source prose, collector metadata, observer/schema/transport fields are never copied; unknown textual fields fail closed;
+5. rights-cleared Observations may enter only as newly built fact-only public DTOs: the exact `observation_type` must have an explicit reviewed field contract and only fields named in that contract are projected; unknown types/fields (including numeric fields) fail closed. Raw `payload`, source prose, collector metadata, observer/schema/transport fields are never copied;
 6. `derived` text remains excluded from the public projection;
 7. if nothing survives, API returns canonical success with `view_projection.status=RIGHTS_HELD`;
 8. held bundles do not enter Make-Money view or New Arrivals.
