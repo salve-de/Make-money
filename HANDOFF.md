@@ -1,4 +1,4 @@
-> **Commercial-rights publication work (2026-09-24):** before changing scheduled Foundation ingestion/publication, read [docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md](docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md). It is the resume SSOT for commercial-use/public-display gating and the 3,085-record retrospective audit.
+> **Commercial-rights publication work (2026-09-25 current):** read [docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md](docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md) first. Rights/source registries and the stronger Public Fact consumer are already on main; old PR #67 is superseded. The next unfinished step is the real production R2 audit (`pnpm foundation:rights:audit`) on the configured Mac, followed by public-projection quarantine/rebuild based on that evidence.
 
 # Make-Money 引継ぎ入口（2026-09-24 最新正本）
 
