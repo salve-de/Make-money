@@ -177,6 +177,102 @@ describe('commercial publication rights gate', () => {
     expect(assessment.allowedEvidenceIds).toEqual([]);
   });
 
+  it('keeps SEC EDGAR evidence held while the upstream rights policy is still pending review', () => {
+    const input = bundle(
+      null,
+      'pending_review',
+      'SUPPORTED',
+      'src.sec.starwood_fixture',
+      'https://www.sec.gov/Archives/edgar/data/1711929/example.htm',
+    );
+    input.sources[0].provider_name = 'U.S. Securities and Exchange Commission';
+    input.sources[0].source_type = 'regulatory_filing';
+    input.evidence[0].source_type = 'regulatory_filing';
+
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('RIGHTS_HELD');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+  });
+
+  it('does not registry-resolve a SEC URL outside the reviewed EDGAR archive path', () => {
+    const input = bundle(
+      null,
+      'pending_review',
+      'SUPPORTED',
+      'src.sec.non_edgar',
+      'https://www.sec.gov/newsroom/press-releases/example',
+    );
+    input.sources[0].provider_name = 'U.S. Securities and Exchange Commission';
+    input.sources[0].source_type = 'regulatory_filing';
+    input.evidence[0].source_type = 'regulatory_filing';
+
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('RIGHTS_HELD');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+  });
+
+  it('keeps the Starwood/Apollo Observation private until its SEC policy is formally approved', () => {
+    const input = bundle(
+      null,
+      'pending_review',
+      'SUPPORTED',
+      'src.sec.starwood_fixture',
+      'https://www.sec.gov/Archives/edgar/data/1711929/example.htm',
+    );
+    input.sources[0].provider_name = 'U.S. Securities and Exchange Commission';
+    input.sources[0].source_type = 'regulatory_filing';
+    input.evidence[0].source_type = 'regulatory_filing';
+    const observation = input.observations[0] as unknown as Record<string, unknown>;
+    observation.observation_type =
+      'starwood_apollo.minority_equity_recapitalization.v1';
+    observation.payload = {
+      apollo_investment: { equity_interest_percent: 41.5 },
+      starwood_position: { equity_interest_percent: 58.5 },
+    };
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).toBeNull();
+    expect(projected.assessment.status).toBe('RIGHTS_HELD');
+  });
+
+  it('records the Starwood display contract as SEC-policy-bound and percentage-only', async () => {
+    const registry = (await import('../../../data/foundation-public-observation-contracts.json')).default;
+    const starwood = registry.contracts.find(
+      (contract) => contract.observation_type ===
+        'starwood_apollo.minority_equity_recapitalization.v1',
+    );
+    expect(starwood?.status).toBe('approved');
+    expect('allowed_policy_ids' in (starwood || {}) ? starwood?.allowed_policy_ids : []).toEqual([
+      'rights.sec-edgar-public-facts.v1',
+    ]);
+    expect(starwood?.fields).toEqual([
+      {
+        source_path: ['apollo_investment', 'equity_interest_percent'],
+        public_path: ['apollo_equity_interest_percent'],
+        kind: 'percentage',
+        required: true,
+      },
+      {
+        source_path: ['starwood_position', 'equity_interest_percent'],
+        public_path: ['starwood_equity_interest_percent'],
+        kind: 'percentage',
+        required: true,
+      },
+    ]);
+    expect('display' in (starwood || {}) ? starwood?.display?.facts : []).toEqual([
+      {
+        public_path: ['apollo_equity_interest_percent'],
+        label: 'Apollo-managed funds / affiliates',
+        suffix: '%',
+      },
+      {
+        public_path: ['starwood_equity_interest_percent'],
+        label: 'Starwood SREIT',
+        suffix: '%',
+      },
+    ]);
+  });
+
   it('uses a data-driven approved Observation contract registry', async () => {
     const registry = (await import('../../../data/foundation-public-observation-contracts.json')).default;
     expect(registry.schema_version).toBe('make-money-public-observation-contracts.v1');

@@ -349,6 +349,7 @@ export interface PublicFoundationObservation {
   observedAt: string | null;
   evidenceIds: string[];
   publicPayload?: unknown;
+  publicDisplay?: FoundationObservation['publicDisplay'];
 }
 
 /**
@@ -378,6 +379,13 @@ export function publicFoundationObservations(
       ) {
         projected.publicPayload = payload.value;
         usedEntityPayloadBytes += payload.bytes;
+      }
+      if (item.publicDisplay) {
+        projected.publicDisplay = {
+          ...item.publicDisplay,
+          facts: item.publicDisplay.facts.map((fact) => ({ ...fact })),
+          sourceUrls: [...item.publicDisplay.sourceUrls],
+        };
       }
       return projected;
     });

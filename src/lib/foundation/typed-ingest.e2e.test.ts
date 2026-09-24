@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
@@ -115,6 +116,14 @@ const typedPath =
   `staging/automation/typed-records/DISCOVERY/2026/09/24/${sourceRunId}/typed-e2e-company-typed-record-set-v1.json`;
 const artifactPath =
   `staging/automation/discovery/2026/09/24/20260924T223000JST-discovery-${sourceRunId}.json`;
+
+const realSecTypedPath =
+  'staging/automation/typed-records/DISCOVERY/2026/09/24/run_discovery_c9f08f33d29b6e83f303f9f77eae91c5/starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization-2026-typed-record-set-v1.json';
+const realSecArtifactPath =
+  'staging/automation/discovery/2026/09/24/20260924T031000JST-discovery-run_discovery_c9f08f33d29b6e83f303f9f77eae91c5.json';
+const realSecTypedBlob = '8df9b73060b67e75612a143a886dee96a66065c9';
+const realSecArtifactBlob = 'dc1f5bfcbfe89f6b8e9d3083a30de13eaf833f53';
+const realSecApolloEntityId = 'ent_org_4a819d424adf6b2a118f';
 
 function sourceArtifact() {
   return {
@@ -372,6 +381,31 @@ function requestForMixedRights() {
   };
 }
 
+function requestForRealSecFixture() {
+  const typedText = readFileSync(
+    'src/lib/foundation/fixtures/real-starwood-apollo-sec-typed-record-set-v1.json',
+    'utf8',
+  );
+  const artifactText = readFileSync(
+    'src/lib/foundation/fixtures/real-starwood-apollo-sec-collection-run-v1.json',
+    'utf8',
+  );
+  return {
+    write_authorized: true as const,
+    source: {
+      repository: 'salve-de/universal-foundation',
+      source_ref: 'main',
+      source_commit_sha: 'c271502e34c6772759c02048ca690403da51fcf1',
+      typed_record_set_path: realSecTypedPath,
+      typed_record_set_blob_sha: gitBlobSha1(typedText),
+      source_artifact_path: realSecArtifactPath,
+      source_artifact_blob_sha: gitBlobSha1(artifactText),
+    },
+    typed_record_set_text: typedText,
+    source_artifact_text: artifactText,
+  };
+}
+
 function canonicalKeys(r2: MemoryR2): string[] {
   return r2.keys().filter((key) =>
     key.startsWith('datasets/ds.business.research-bundles.derived/v1/'));
@@ -503,6 +537,47 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(second.status).toBe(200);
       expect(secondBody.success).toBe(true);
       expect(canonicalKeys(r2)).toEqual(firstCanonical);
+    });
+  });
+
+  it('keeps the exact real SEC Starwood/Apollo sidecar held until upstream rights review is merged', async () => {
+    const request = requestForRealSecFixture();
+    expect(request.source.typed_record_set_blob_sha).toBe(realSecTypedBlob);
+    expect(request.source.source_artifact_blob_sha).toBe(realSecArtifactBlob);
+
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const first = await postTyped(request);
+      const firstBody = await first.json();
+
+      expect(first.status).toBe(200);
+      expect(firstBody.success).toBe(true);
+      expect(firstBody.mapper_version).toBe('r2-queue-mapper-v6');
+      expect(firstBody.view_projection.status).toBe('RIGHTS_HELD');
+      expect(r2.keys()).not.toContain(
+        `views/make-money/v1/entities/${realSecApolloEntityId}.json`,
+      );
+
+      const detailResponse = await getBusinesses(
+        new Request(
+          `http://localhost/api/businesses?foundationOnly=true&entity_id=${realSecApolloEntityId}`,
+        ),
+      );
+      expect(detailResponse.status).toBe(404);
+
+      const canonicalObject = await r2.get(canonicalKeys(r2)[0]);
+      expect(canonicalObject).toBeTruthy();
+      const canonicalBody = canonicalObject
+        ? new Uint8Array(await canonicalObject.arrayBuffer())
+        : new Uint8Array();
+      const canonicalText = new TextDecoder().decode(canonicalBody);
+      expect(canonicalText).toContain('$1.02 billion');
+      expect(canonicalText).toContain('Class B Common Units');
+      expect(canonicalText).toContain('redeemable noncontrolling interest');
     });
   });
 

@@ -549,6 +549,9 @@
           ]
         },
         "publicPayload": {},
+        "publicDisplay": {
+          "$ref": "#/definitions/FoundationObservationPublicDisplay"
+        },
         "evidenceIds": {
           "type": "array",
           "items": {
@@ -564,6 +567,64 @@
         "verificationStatus",
         "observedAt",
         "evidenceIds"
+      ]
+    },
+    "FoundationObservationPublicDisplay": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationObservationPublicFact"
+          }
+        },
+        "sourceLabel": {
+          "type": "string"
+        },
+        "sourceUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "subject",
+        "facts",
+        "sourceLabel",
+        "sourceUrls"
+      ]
+    },
+    "FoundationObservationPublicFact": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "suffix": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "value"
       ]
     },
     "FoundationDerivedRecord": {

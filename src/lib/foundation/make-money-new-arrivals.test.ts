@@ -50,7 +50,7 @@ function viewDocument(id: string, name: string) {
 }
 
 describe('edition before product-view projection', () => {
-  it('keeps canonical new arrivals visible while their product views are pending', async () => {
+  it('does not expose private canonical new arrivals while their public views are pending', async () => {
     state.release.mockResolvedValue({ entityIds: ['ent_new'], count: 1 });
     state.entity.mockResolvedValue({
       id: 'ent_new', name: 'New business', entityType: 'business', aliases: [],
@@ -58,9 +58,8 @@ describe('edition before product-view projection', () => {
       observedAt: '2026-09-21T00:00:00Z', evidenceIds: ['ev_source'],
     });
     const page = await readMakeMoneyValuePage();
-    expect(page.data).toHaveLength(1);
-    expect(page.data[0]).toMatchObject({ id: 'ent_new', isNew: true });
-    expect(page.data[0].valueProfile.moneySignal).toBeNull();
+    expect(page.data).toEqual([]);
+    expect(state.entity).not.toHaveBeenCalled();
   });
 
   it('does not invent a row when both canonical record and view are missing', async () => {
@@ -101,25 +100,15 @@ describe('edition before product-view projection', () => {
     expect((await readMakeMoneyValuePage()).data).toEqual([]);
   });
 
-  it('bounds first-page new-arrival promotion to keep R2 reads within Worker limits', async () => {
+  it('bounds first-page new-arrival view checks without canonical identity reads', async () => {
     const ids = Array.from({ length: 100 }, (_, index) => `ent_arrival_${index}`);
     state.release.mockResolvedValue({ entityIds: ids, count: ids.length });
-    state.entity.mockImplementation(async (id: string) => ({
-      id,
-      name: id,
-      entityType: 'business',
-      aliases: [],
-      canonicalIdentifier: null,
-      domain: null,
-      status: 'ACTIVE',
-      observedAt: '2026-09-21T00:00:00Z',
-      evidenceIds: [],
-    }));
 
     const page = await readMakeMoneyValuePage();
 
-    expect(page.data).toHaveLength(10);
-    expect(state.entity).toHaveBeenCalledTimes(10);
+    expect(page.data).toEqual([]);
+    expect(state.entity).not.toHaveBeenCalled();
+    expect(state.read.mock.calls.length).toBeLessThanOrEqual(10);
   });
 
   it('filters known arrivals before applying the promotion cap', () => {
@@ -153,6 +142,33 @@ describe('edition before product-view projection', () => {
 
     const second = await readMakeMoneyValuePage({ cursor: first.nextCursor || undefined, limit: 2 });
     expect(second.data.map((item) => item.id)).toEqual([laterId]);
+  });
+
+  it('does not repair an id-only public summary from private canonical entity storage', async () => {
+    const id = 'ent_company_0123456789abcdef0123';
+    const document = viewDocument(id, id);
+    state.list.mockResolvedValue({
+      objects: [{ key: `views/make-money/v1/entities/${id}.json` }],
+      truncated: false,
+      cursor: null,
+    });
+    state.read.mockResolvedValue({ body: new TextEncoder().encode(JSON.stringify(document)) });
+    state.entity.mockResolvedValue({
+      id,
+      name: 'Private canonical name',
+      entityType: 'business',
+      aliases: [],
+      canonicalIdentifier: null,
+      domain: null,
+      status: 'ACTIVE',
+      observedAt: '2026-09-21T00:00:00Z',
+      evidenceIds: [],
+    });
+
+    const page = await readMakeMoneyValuePage({ limit: 1 });
+
+    expect(page.data).toEqual([]);
+    expect(state.entity).not.toHaveBeenCalled();
   });
 
   it('serves a list row from its persisted summary without parsing the detail graph', async () => {

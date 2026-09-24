@@ -73,6 +73,35 @@ describe('structured Foundation observations', () => {
     expect(detail.observations[0]).not.toHaveProperty('payloadSchemaRef');
   });
 
+  it('reads only validated explicit public_display metadata', () => {
+    const detail = buildFoundationBusinessCaseForEntity(baseBundle({
+      observation_id: 'obs_displaydisplaydisplay12',
+      observation_type: 'business_model.revenue_signal',
+      entity_ids: [entityId],
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      observed_at: '2026-09-24T13:29:00Z',
+      evidence_ids: [evidenceId],
+      text: 'Reviewed fact',
+      public_payload: { amount: 10, currency: 'USD' },
+      public_display: {
+        title: 'Reviewed fact',
+        subject: 'Reviewed subject',
+        facts: [{ label: 'Amount', value: 10 }],
+        source_label: 'Official source',
+        source_urls: ['https://example.com/source'],
+      },
+    }), baseSummary);
+
+    expect(detail.observations[0].publicDisplay).toEqual({
+      title: 'Reviewed fact',
+      subject: 'Reviewed subject',
+      facts: [{ label: 'Amount', value: 10 }],
+      sourceLabel: 'Official source',
+      sourceUrls: ['https://example.com/source'],
+    });
+  });
+
   it('reads only an explicit bounded public_payload', () => {
     const detail = buildFoundationBusinessCaseForEntity(baseBundle({
       observation_id: 'obs_abcdefabcdefabcdefabcdef',

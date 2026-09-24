@@ -1131,6 +1131,9 @@
           "type": "string"
         },
         "publicPayload": {},
+        "publicDisplay": {
+          "$ref": "#/definitions/UniversalObservationPublicDisplay"
+        },
         "sourceClass": {
           "$ref": "#/definitions/SourceClass"
         },
@@ -1140,6 +1143,64 @@
       },
       "required": [
         "text"
+      ]
+    },
+    "UniversalObservationPublicDisplay": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UniversalObservationPublicFact"
+          }
+        },
+        "sourceLabel": {
+          "type": "string"
+        },
+        "sourceUrls": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "title",
+        "subject",
+        "facts",
+        "sourceLabel",
+        "sourceUrls"
+      ]
+    },
+    "UniversalObservationPublicFact": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "suffix": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "value"
       ]
     },
     "LootBlueprint": {

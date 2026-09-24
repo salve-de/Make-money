@@ -36,6 +36,31 @@ describe('Foundation Observation public wire projection', () => {
     expect(projected).toHaveLength(5);
   });
 
+  it('allowlists reviewed public display metadata without exposing raw fields', () => {
+    const projected = publicFoundationObservations([{
+      ...observation('obs_display', { visible: true }),
+      publicDisplay: {
+        title: 'JV ownership',
+        subject: 'Starwood affordable-housing JV',
+        note: 'Apollo-managed funds / affiliates, not a direct Apollo corporate holding.',
+        facts: [{ label: 'Apollo-managed funds / affiliates', value: 41.5, suffix: '%' }],
+        sourceLabel: 'SEC filing',
+        sourceUrls: ['https://www.sec.gov/Archives/edgar/data/1711929/example.htm'],
+      },
+      payload: { raw_secret: true },
+    } as FoundationObservation & Record<string, unknown>]);
+
+    expect(projected[0]).toMatchObject({
+      publicPayload: { visible: true },
+      publicDisplay: {
+        title: 'JV ownership',
+        facts: [{ label: 'Apollo-managed funds / affiliates', value: 41.5, suffix: '%' }],
+        sourceLabel: 'SEC filing',
+      },
+    });
+    expect(projected[0]).not.toHaveProperty('payload');
+  });
+
   it('never emits collection-only or raw/internal Observation fields', () => {
     const projected = publicFoundationObservations([{
       ...observation('obs_internal', { visible: true }),

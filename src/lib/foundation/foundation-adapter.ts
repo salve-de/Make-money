@@ -584,6 +584,13 @@ export function adaptFoundationDetailToFinancialEntity(
       observedAt: obs.observedAt || undefined,
       observationType: obs.kind || undefined,
       ...(canCarryPublicPayload ? { publicPayload: publicPayload!.value } : {}),
+      ...(obs.publicDisplay ? {
+        publicDisplay: {
+          ...obs.publicDisplay,
+          facts: obs.publicDisplay.facts.map((fact) => ({ ...fact })),
+          sourceUrls: [...obs.publicDisplay.sourceUrls],
+        },
+      } : {}),
     });
     if (canCarryPublicPayload) publicPayloadBytes += publicPayload!.bytes;
   }

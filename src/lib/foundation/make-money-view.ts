@@ -3,7 +3,6 @@ import {
   buildFoundationBusinessCasesFromBundle,
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
-  readFoundationBusinessCase,
   readFoundationEntitySummaryById,
   readLatestNewArrivalsRelease,
   type FoundationBusinessCase,
@@ -316,13 +315,6 @@ function isBusinessCase(value: unknown): value is FoundationBusinessCase {
 
 function isStoredEntityIdName(value: string): boolean {
   return /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(value);
-}
-
-function needsScheduledReadThrough(value: FoundationValueSummary | FoundationBusinessCase): boolean {
-  if (isStoredEntityIdName(value.name)) return true;
-  const counts = value.valueProfile.counts;
-  return counts.observations > 0 && counts.claims === 0 && counts.metrics === 0 &&
-    counts.moneySignals === 0 && counts.events === 0 && counts.derived === 0;
 }
 
 function decodeJson(body: Uint8Array): unknown {
@@ -1437,9 +1429,11 @@ export async function readMakeMoneyViewDetail(entityId: string): Promise<Foundat
   const bucket = await getFoundationBucketAsync('lake');
   const document = await readCorrectedViewDocument(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`);
   if (!document) return null;
-  if (!needsScheduledReadThrough(document.detail)) return document.detail;
-  const fallback = await readFoundationBusinessCase(entityId).catch(() => null);
-  return fallback ? mergeFoundationBusinessCasesForView(document.detail, fallback) : document.detail;
+
+  // Public detail is a rights-gated materialized view. Never merge private
+  // canonical Foundation bundles at read time: doing so can reintroduce
+  // rights-held observation text or overwrite explicit publicPayload fields.
+  return document.detail;
 }
 
 async function readMakeMoneyViewSummary(
@@ -1479,29 +1473,10 @@ async function readMakeMoneyViewSummary(
     }
   }
 
-  // A normal persisted summary already contains its display identity. Only
-  // repair legacy rows whose name is still the generated entity ID; the
-  // observation-only fallback was an unnecessary extra R2 read per page.
-  if (!isStoredEntityIdName(summary.name)) return summary;
-  // A list request must stay bounded. The old read-through scanned up to 96
-  // immutable research bundles for legacy rows with sparse summaries. That
-  // made an otherwise ordinary cursor page capable of hitting the Worker CPU
-  // limit (1102). Resolve only the canonical entity identity here; the detail
-  // route still performs the full bundle read when the user opens a row.
-  const fallback = await readFoundationEntitySummaryById(summary.id).catch(() => null);
-  return fallback
-    ? {
-        ...summary,
-        id: fallback.id,
-        name: fallback.name,
-        entityType: fallback.entityType,
-        aliases: fallback.aliases,
-        canonicalIdentifier: fallback.canonicalIdentifier,
-        domain: fallback.domain,
-        status: fallback.status,
-        observedAt: fallback.observedAt,
-      }
-    : summary;
+  // Public list serving never repairs a materialized row from private
+  // canonical entity storage. If the rights-gated view does not carry a
+  // display identity yet, fail closed and wait for a corrected public view.
+  return isStoredEntityIdName(summary.name) ? null : summary;
 }
 
 /** Bound remote R2 reads while retaining input order and failure visibility. */
@@ -1559,16 +1534,10 @@ export async function readMakeMoneyValuePage(options: {
       async (id) => {
         const detail = await readMakeMoneyViewDetail(id).catch(() => null);
         if (detail) return foundationBusinessCaseToValueSummary(detail);
-        // The hourly writer can publish an edition before the product view
-        // is rebuilt. Keep those canonical records visible as partial rows.
-        const entity = await readFoundationEntitySummaryById(id).catch(() => null);
-        return entity ? {
-          ...entity,
-          valueProfile: buildFoundationValueProfile(entity, {
-            claims: [], metrics: [], moneySignals: [], events: [],
-            observations: [], derived: [], relationships: [],
-          }),
-      } : null;
+        // New Arrivals is public serving metadata, not permission to read
+        // through to private canonical identity. Wait for a rights-gated
+        // materialized view instead of exposing a partial canonical row.
+        return null;
     });
     const validPromoted = promoted.filter((item): item is FoundationValueSummary => Boolean(item));
     promotedIds = validPromoted.map((item) => item.id);
