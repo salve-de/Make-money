@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { adaptFoundationSummaryToFinancialEntity, isFoundationDossierReady } from './foundation-adapter';
-import type { FoundationValueSummary } from './business-reader';
+import {
+  adaptFoundationDetailToFinancialEntity,
+  adaptFoundationSummaryToFinancialEntity,
+  isFoundationDossierReady,
+} from './foundation-adapter';
+import type { FoundationBusinessCase, FoundationValueSummary } from './business-reader';
 
 function summary(overrides: Partial<FoundationValueSummary> = {}): FoundationValueSummary {
   return {
@@ -134,6 +138,63 @@ describe('Foundation display boundary', () => {
     expect(adapted.tags).not.toContain('SaaS・ツール');
   });
 
+
+  it('preserves structured Foundation observation fields on the active FinancialEntity path', () => {
+    const base = summary({
+      evidenceIds: ['ev_structured'],
+      valueProfile: {
+        ...summary().valueProfile,
+        counts: {
+          ...summary().valueProfile.counts,
+          observations: 1,
+          evidence: 1,
+        },
+      },
+    });
+    const detail: FoundationBusinessCase = {
+      ...base,
+      claims: [],
+      metrics: [],
+      moneySignals: [],
+      events: [],
+      relationships: [],
+      observations: [{
+        id: 'obs_structured',
+        kind: 'business_model.revenue_signal',
+        text: '{"payload":{"amount":123000000}}',
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+        observedAt: '2026-09-24T13:29:00Z',
+        collectionTier: null,
+        collectionChannel: 'web',
+        observer: 'DISCOVERY',
+        payloadSchemaRef: 'urn:test:structured:v1',
+        payload: {
+          amount: 123000000,
+          currency: 'USD',
+          nested: { must_survive: true },
+        },
+        evidenceIds: ['ev_structured'],
+      }],
+      derived: [],
+      bundlesScanned: 1,
+      bundleObjectsListed: 1,
+      bundleScanComplete: true,
+    };
+
+    const adapted = adaptFoundationDetailToFinancialEntity(detail);
+    expect(adapted.observationsStream).toContainEqual(expect.objectContaining({
+      id: 'obs_structured',
+      observationType: 'business_model.revenue_signal',
+      payloadSchemaRef: 'urn:test:structured:v1',
+      observer: 'DISCOVERY',
+      payload: {
+        amount: 123000000,
+        currency: 'USD',
+        nested: { must_survive: true },
+      },
+    }));
+  });
 
   it('does not treat a low-evidence high-signal label as complete', () => {
     expect(isFoundationDossierReady(summary({
