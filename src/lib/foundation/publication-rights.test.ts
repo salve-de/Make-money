@@ -126,13 +126,10 @@ describe('commercial publication rights gate', () => {
       verification_status: 'SUPPORTED',
       observed_at: '2026-09-24T00:00:00Z',
       evidence_ids: ['ev_1234567890abcdef12345678'],
-      text: 'business_model.revenue_signal · amount=123000000 · currency=USD · structured={"customer_count":42}',
+      text: 'business_model.revenue_signal · amount=123000000 · currency=USD',
       public_payload: {
         amount: 123000000,
         currency: 'USD',
-        structured: {
-          customer_count: 42,
-        },
       },
     }]);
 
@@ -142,6 +139,50 @@ describe('commercial publication rights gate', () => {
     expect(serialized).not.toContain('DISCOVERY');
     expect(serialized).not.toContain('urn:test:private-schema');
     expect(serialized).not.toContain('"payload"');
+    expect(serialized).not.toContain('customer_count');
+  });
+
+  it('fails closed for an unknown numeric field even with approved Evidence', () => {
+    const input = bundle('rights.e-stat.v1');
+    input.observations[0].payload = {
+      account_number: 123456789012,
+      currency: 'USD',
+    };
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    expect(projected.bundle?.observations).toHaveLength(1);
+    expect(projected.bundle?.observations[0].public_payload).toEqual({
+      currency: 'USD',
+    });
+
+    const serialized = JSON.stringify(projected.bundle?.observations);
+    expect(serialized).not.toContain('account_number');
+    expect(serialized).not.toContain('123456789012');
+  });
+
+  it('drops an Observation when only unknown fields remain after type projection', () => {
+    const input = bundle('rights.e-stat.v1');
+    input.observations[0].payload = {
+      account_number: 123456789012,
+    };
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    expect(projected.bundle?.observations).toEqual([]);
+  });
+
+  it('fails closed for an unregistered Observation type', () => {
+    const input = bundle('rights.e-stat.v1');
+    input.observations[0].observation_type = 'business_model.future_unknown';
+    input.observations[0].payload = {
+      amount: 999,
+      currency: 'USD',
+    };
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    expect(projected.bundle?.observations).toEqual([]);
   });
 
   it('allows an approved structured Observation to be the only surviving public fact', () => {
