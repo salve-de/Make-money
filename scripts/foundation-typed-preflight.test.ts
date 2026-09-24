@@ -1,8 +1,14 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
-import { gitBlobSha1 } from '../src/lib/foundation/typed-ingest';
-import { buildTypedProductionPreflight } from './foundation-typed-preflight';
+import {
+  gitBlobSha1,
+  prepareFoundationTypedIngest,
+} from '../src/lib/foundation/typed-ingest';
+import {
+  buildBundleProductionPreflight,
+  buildTypedProductionPreflight,
+} from './foundation-typed-preflight';
 
 const typedPath =
   'staging/automation/typed-records/DISCOVERY/2026/09/24/run_discovery_1e74e968e095440244da1b9d01171d3f/gentherm-modine-performance-technologies-rmt-2026-typed-record-set-v1.json';
@@ -35,7 +41,9 @@ function request() {
 }
 
 test('offline typed production preflight uses the exact production planner without touching R2', async () => {
-  const report = await buildTypedProductionPreflight(request());
+  const input = request();
+  assert.equal(input.write_authorized, true);
+  const report = await buildTypedProductionPreflight(input);
 
   assert.equal(report.schema_version, 'foundation-typed-production-preflight.v1');
   assert.equal(report.mode, 'READ_ONLY_OFFLINE');
@@ -43,6 +51,7 @@ test('offline typed production preflight uses the exact production planner witho
   assert.equal(report.r2_mutations, 0);
   assert.equal(report.queue_mutations, 0);
   assert.equal(report.coverage_assessment, 'UNASSESSED');
+  assert.equal(report.request_write_authorized, true);
 
   assert.equal(report.planned_writes.write_authorized, false);
   assert.equal(report.planned_write_count, 5);
@@ -71,4 +80,26 @@ test('offline typed production preflight uses the exact production planner witho
 
   assert.equal(report.entity_ids.length, 4);
   assert.ok(report.public_rights_structure.policy_reference_blockers.length > 0);
+});
+
+
+test('generic bundle production preflight uses exact legacy planner without R2 or Queue mutations', async () => {
+  const input = request();
+  const prepared = prepareFoundationTypedIngest(input);
+  const report = await buildBundleProductionPreflight(prepared.bundle);
+
+  assert.equal(report.schema_version, 'foundation-bundle-production-preflight.v1');
+  assert.equal(report.mode, 'READ_ONLY_OFFLINE');
+  assert.equal(report.r2_provider_calls, 0);
+  assert.equal(report.r2_mutations, 0);
+  assert.equal(report.queue_mutations, 0);
+  assert.equal(report.planned_writes.write_authorized, false);
+  assert.equal(report.planned_write_count, 5);
+  assert.deepEqual(report.planned_write_counts_by_role, {
+    entity: 4,
+    research_bundle: 1,
+  });
+  assert.equal(report.invariants.all_create_only, true);
+  assert.equal(report.invariants.overwrite_forbidden, true);
+  assert.equal(report.invariants.legacy_mutation_forbidden, true);
 });
