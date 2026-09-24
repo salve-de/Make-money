@@ -1,3 +1,4 @@
+import observationContracts from '../../../data/foundation-public-observation-contracts.json';
 import rightsSnapshot from '../../../data/foundation-public-rights-snapshot.json';
 
 type JsonObject = Record<string, unknown>;
@@ -21,6 +22,8 @@ export interface CommercialPublicProjectionAssessment {
  */
 export interface AutoPublicFactPolicy {
   sourceId: string;
+  providerName: string;
+  allowedSourceTypes: string[];
   allowedHostSuffixes: string[];
 }
 
@@ -40,6 +43,8 @@ export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
       record.policy.policy_id,
       {
         sourceId: record.source.source_id,
+        providerName: record.source.provider_name,
+        allowedSourceTypes: [...record.source.source_types],
         allowedHostSuffixes: [...record.allowed_host_suffixes],
       },
     ]),
@@ -86,27 +91,38 @@ type PublicObservationTypePolicy = {
   fields: readonly PublicObservationFieldRule[];
 };
 
+function publicObservationPolicies(): Readonly<Record<string, PublicObservationTypePolicy>> {
+  const result: Record<string, PublicObservationTypePolicy> = {};
+  for (const contract of observationContracts.contracts) {
+    if (contract.status !== 'approved') continue;
+    if (!contract.observation_type || result[contract.observation_type]) continue;
+    const fields = (contract.fields as Array<{
+      source_path: string[];
+      public_path?: string[];
+      kind: PublicObservationFieldRule['kind'];
+      required?: boolean;
+    }>).map((field) => ({
+      sourcePath: [...field.source_path],
+      ...(field.public_path ? { publicPath: [...field.public_path] } : {}),
+      kind: field.kind,
+      ...(field.required ? { required: true } : {}),
+    })) as PublicObservationFieldRule[];
+    if (fields.length === 0) continue;
+    result[contract.observation_type] = Object.freeze({
+      fields: Object.freeze(fields.map((field) => Object.freeze(field))),
+    });
+  }
+  return Object.freeze(result);
+}
+
 /**
  * Public Observation DTOs are schema-projected, never payload-sanitized.
  *
- * Rights approval proves the source/evidence may support commercial public
- * facts. It does not prove that every arbitrary field in an Observation
- * payload is itself a public fact. Only fields explicitly registered for the
- * exact Observation type may cross this boundary.
- *
- * Additions to this registry require their own review/test. Unknown
- * Observation types and unknown fields fail closed.
+ * The contract registry is data-driven so a reviewed Observation type can be
+ * added without changing executable publication code. Unknown types and
+ * unknown fields remain fail-closed.
  */
-export const PUBLIC_OBSERVATION_TYPE_POLICIES: Readonly<
-  Record<string, PublicObservationTypePolicy>
-> = Object.freeze({
-  'business_model.revenue_signal': Object.freeze({
-    fields: Object.freeze([
-      Object.freeze({ sourcePath: Object.freeze(['amount']), kind: 'finite_number' as const, required: true }),
-      Object.freeze({ sourcePath: Object.freeze(['currency']), kind: 'currency_code' as const, required: true }),
-    ]),
-  }),
-});
+export const PUBLIC_OBSERVATION_TYPE_POLICIES = publicObservationPolicies();
 
 const PUBLIC_OBSERVATION_MAX_BYTES = 12 * 1024;
 
@@ -240,25 +256,64 @@ function isSupported(value: JsonObject): boolean {
   return text(value.verification_status)?.toUpperCase() === 'SUPPORTED';
 }
 
-function sourcePolicyMap(bundle: JsonObject): Map<string, string> {
-  const result = new Map<string, string>();
+function normalizeIdentity(value: unknown): string | null {
+  const raw = text(value);
+  return raw ? raw.toLowerCase().replace(/\s+/g, ' ').trim() : null;
+}
+
+function sourceTypeMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean {
+  const sourceType = text(value);
+  return Boolean(sourceType && policy.allowedSourceTypes.includes(sourceType));
+}
+
+function sourceMatchesRegisteredIdentity(source: JsonObject, policy: AutoPublicFactPolicy): boolean {
+  return normalizeIdentity(source.provider_name) === normalizeIdentity(policy.providerName) &&
+    sourceTypeMatchesPolicy(source.source_type, policy) &&
+    urlMatchesPolicy(source.canonical_url, policy);
+}
+
+type ResolvedSourcePolicy = {
+  policyId: string;
+  resolution: 'explicit' | 'registry';
+};
+
+function resolveSourcePolicies(bundle: JsonObject): Map<string, ResolvedSourcePolicy> {
+  const result = new Map<string, ResolvedSourcePolicy>();
   const sources = Array.isArray(bundle.sources) ? bundle.sources : [];
+
   for (const item of sources) {
     const source = objectValue(item);
     if (!source) continue;
-    const sourceId = text(source.source_id);
-    const policyId = text(source.rights_policy_id);
-    const policy = policyId ? AUTO_PUBLIC_FACT_POLICIES.get(policyId) : undefined;
-    if (
-      sourceId &&
-      policyId &&
-      policy &&
-      policy.sourceId === sourceId &&
-      urlMatchesPolicy(source.canonical_url, policy)
-    ) {
-      result.set(sourceId, policyId);
+    const localSourceId = text(source.source_id);
+    if (!localSourceId) continue;
+
+    const sourceStatus = text(source.rights_status);
+    if (sourceStatus === 'blocked') continue;
+
+    const explicitPolicyId = text(source.rights_policy_id);
+    if (explicitPolicyId) {
+      const explicitPolicy = AUTO_PUBLIC_FACT_POLICIES.get(explicitPolicyId);
+      if (
+        explicitPolicy &&
+        explicitPolicy.sourceId === localSourceId &&
+        sourceTypeMatchesPolicy(source.source_type, explicitPolicy) &&
+        urlMatchesPolicy(source.canonical_url, explicitPolicy)
+      ) {
+        result.set(localSourceId, { policyId: explicitPolicyId, resolution: 'explicit' });
+      }
+      // A conflicting explicit policy is never silently replaced by registry inference.
+      continue;
+    }
+
+    if (sourceStatus !== 'pending_review' && sourceStatus !== 'metadata_only') continue;
+
+    const matches = [...AUTO_PUBLIC_FACT_POLICIES.entries()]
+      .filter(([, policy]) => sourceMatchesRegisteredIdentity(source, policy));
+    if (matches.length === 1) {
+      result.set(localSourceId, { policyId: matches[0][0], resolution: 'registry' });
     }
   }
+
   return result;
 }
 
@@ -275,7 +330,7 @@ export function assessCommercialPublicProjection(
     };
   }
 
-  const policyBySource = sourcePolicyMap(bundle);
+  const policyBySource = resolveSourcePolicies(bundle);
   const allowedEvidenceIds: string[] = [];
   const heldEvidenceIds: string[] = [];
   const reasons = new Set<string>();
@@ -287,35 +342,49 @@ export function assessCommercialPublicProjection(
     const evidenceId = text(row.evidence_id);
     if (!evidenceId) continue;
     const sourceId = text(row.source_id);
-    const policyId = text(row.rights_policy_id);
+    const explicitPolicyId = text(row.rights_policy_id);
     const storageStatus = text(row.rights_status);
+    const resolved = sourceId ? policyBySource.get(sourceId) : undefined;
+    const policy = resolved ? AUTO_PUBLIC_FACT_POLICIES.get(resolved.policyId) : undefined;
+
+    const explicitConflict = Boolean(
+      explicitPolicyId && resolved && explicitPolicyId !== resolved.policyId
+    );
+    const statusEligible = resolved?.resolution === 'registry'
+      ? storageStatus === 'pending_review' || storageStatus === 'metadata_only'
+      : storageStatus === 'metadata_only';
 
     const allowed =
       Boolean(sourceId) &&
-      Boolean(policyId) &&
-      policyBySource.get(sourceId!) === policyId &&
-      AUTO_PUBLIC_FACT_POLICIES.get(policyId!)?.sourceId === sourceId &&
-      urlMatchesPolicy(row.source_url, AUTO_PUBLIC_FACT_POLICIES.get(policyId!)!) &&
-      storageStatus !== 'pending_review' &&
-      storageStatus !== 'blocked';
+      Boolean(resolved) &&
+      Boolean(policy) &&
+      !explicitConflict &&
+      statusEligible &&
+      sourceTypeMatchesPolicy(row.source_type, policy!) &&
+      urlMatchesPolicy(row.source_url, policy!);
 
     if (allowed) {
       allowedEvidenceIds.push(evidenceId);
     } else {
       heldEvidenceIds.push(evidenceId);
-      if (!policyId) reasons.add('evidence lacks rights_policy_id');
-      else if (!AUTO_PUBLIC_FACT_POLICIES.has(policyId)) {
-        reasons.add(`policy is not auto-approved for commercial fact display: ${policyId}`);
-      } else if (
-        !sourceId ||
-        policyBySource.get(sourceId) !== policyId ||
-        AUTO_PUBLIC_FACT_POLICIES.get(policyId)?.sourceId !== sourceId
-      ) {
+      if (storageStatus === 'blocked') {
+        reasons.add('rights_status is blocked');
+      } else if (!statusEligible && resolved) {
+        reasons.add(`rights_status is not eligible for ${resolved.resolution} policy resolution: ${storageStatus || 'unknown'}`);
+      } else if (explicitConflict) {
         reasons.add('evidence/source rights policy mismatch');
-      } else if (!urlMatchesPolicy(row.source_url, AUTO_PUBLIC_FACT_POLICIES.get(policyId)!)) {
+      } else if (!resolved) {
+        if (explicitPolicyId && !AUTO_PUBLIC_FACT_POLICIES.has(explicitPolicyId)) {
+          reasons.add(`policy is not auto-approved for commercial fact display: ${explicitPolicyId}`);
+        } else {
+          reasons.add('evidence source has no uniquely resolved approved rights policy');
+        }
+      } else if (!policy || !sourceTypeMatchesPolicy(row.source_type, policy)) {
+        reasons.add('evidence source type is outside the approved source contract');
+      } else if (!urlMatchesPolicy(row.source_url, policy)) {
         reasons.add('evidence URL is outside the registered policy host scope');
       } else {
-        reasons.add(`rights_status does not permit public projection: ${storageStatus || 'unknown'}`);
+        reasons.add('evidence is not eligible for public projection');
       }
     }
   }
@@ -355,7 +424,7 @@ function filterRecords(
  * Build a fact-only public projection.
  *
  * Canonical private R2 retains the full validated bundle. This projection:
- * - requires an explicitly auto-approved registered rights policy;
+ * - requires an explicit or uniquely registry-resolved auto-approved rights policy;
  * - requires SUPPORTED records backed only by approved Evidence;
  * - emits Observation only as a newly built fact-only public DTO;
  * - an exact Observation-type/field registry decides which structured values may cross;
