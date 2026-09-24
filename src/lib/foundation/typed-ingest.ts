@@ -1,6 +1,5 @@
 import { createHash } from 'node:crypto';
-import Ajv2020 from 'ajv/dist/2020.js';
-import addFormats from 'ajv-formats';
+import { Validator, type Schema } from '@cfworker/json-schema';
 import researchBundleSchema from './schemas/research-bundle.v1.schema.json';
 import typedRecordSetSchema from './schemas/typed-record-set.v1.schema.json';
 import collectionRunSchema from './schemas/collection-run.v1.schema.json';
@@ -62,14 +61,18 @@ export class FoundationTypedIngestValidationError extends Error {
   }
 }
 
-const ajv = new Ajv2020({ allErrors: true, strict: false });
-addFormats(ajv);
-ajv.addSchema(researchBundleSchema);
-ajv.addSchema(evidenceCaptureRequestSchema);
-ajv.addSchema(workItemSchema);
-const validateTypedRecordSet = ajv.compile(typedRecordSetSchema);
-const validateCollectionRun = ajv.compile(collectionRunSchema);
-const validateResearchBundleSchema = ajv.compile(researchBundleSchema);
+function workerValidator(schema: object, dependencies: object[] = []): Validator {
+  const validator = new Validator(schema as Schema, '2020-12', false);
+  for (const dependency of dependencies) validator.addSchema(dependency as Schema);
+  return validator;
+}
+
+const validateTypedRecordSet = workerValidator(typedRecordSetSchema, [researchBundleSchema]);
+const validateCollectionRun = workerValidator(collectionRunSchema, [
+  evidenceCaptureRequestSchema,
+  workItemSchema,
+]);
+const validateResearchBundleSchema = workerValidator(researchBundleSchema);
 
 function isObject(value: unknown): value is JsonObject {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -81,11 +84,11 @@ function stringValue(value: JsonObject, key: string): string | null {
 }
 
 function schemaErrors(
-  validator: { errors?: Array<{ instancePath?: string; message?: string }> | null },
+  result: { errors?: Array<{ instanceLocation?: string; keyword?: string }> | null },
 ): string[] {
-  return (validator.errors || [])
+  return (result.errors || [])
     .slice(0, 20)
-    .map((error) => `${error.instancePath || '/'} ${error.message || 'invalid'}`);
+    .map((error) => `${error.instanceLocation || '#'} ${error.keyword || 'invalid'}`);
 }
 
 function parseJsonObject(text: string, reasonCode: 'SOURCE_JSON_INVALID' | 'REQUEST_INVALID', label: string): JsonObject {
@@ -250,8 +253,9 @@ export function projectTypedRecordSetV4(
 
   const normalizedBundle = defaultIncomingMoneySignalFields(bundle).bundle;
 
-  if (!validateResearchBundleSchema(normalizedBundle)) {
-    const issues = schemaErrors(validateResearchBundleSchema);
+  const projectedValidation = validateResearchBundleSchema.validate(normalizedBundle);
+  if (!projectedValidation.valid) {
+    const issues = schemaErrors(projectedValidation);
     throw new FoundationTypedIngestValidationError(
       'PROJECTION_SCHEMA_INVALID',
       `projected research-bundle.v1 is invalid: ${issues.join('; ')}`,
@@ -328,8 +332,9 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'typed_record_set_text',
   );
-  if (!validateTypedRecordSet(typedRecordSet)) {
-    const issues = schemaErrors(validateTypedRecordSet);
+  const typedValidation = validateTypedRecordSet.validate(typedRecordSet);
+  if (!typedValidation.valid) {
+    const issues = schemaErrors(typedValidation);
     throw new FoundationTypedIngestValidationError(
       'SOURCE_SCHEMA_INVALID',
       `typed-record-set.v1 schema validation failed: ${issues.join('; ')}`,
@@ -342,8 +347,9 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'source_artifact_text',
   );
-  if (!validateCollectionRun(sourceArtifact)) {
-    const issues = schemaErrors(validateCollectionRun);
+  const collectionValidation = validateCollectionRun.validate(sourceArtifact);
+  if (!collectionValidation.valid) {
+    const issues = schemaErrors(collectionValidation);
     throw new FoundationTypedIngestValidationError(
       'SOURCE_SCHEMA_INVALID',
       `collection-run.v1 schema validation failed: ${issues.join('; ')}`,
