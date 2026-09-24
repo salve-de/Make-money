@@ -10,6 +10,9 @@ import type {
   FoundationMoneySignal,
   FoundationObservation,
   FoundationRelationship,
+  type FoundationEvidenceMetadata,
+  type FoundationQualityMetadata,
+  type FoundationSourceMetadata,
 } from '@/lib/foundation/business-reader';
 import {
   buildFoundationDossierProjection,
@@ -139,6 +142,102 @@ function EmptyModules({ text }: { text: string }) {
   return (
     <div className="rounded-md border border-white/[0.06] bg-white/[0.02] p-4 text-[11px] leading-relaxed text-zinc-500">
       {text}
+    </div>
+  );
+}
+
+export function FoundationEvidenceContext({
+  sources = [],
+  evidence = [],
+  quality,
+}: {
+  sources?: FoundationSourceMetadata[];
+  evidence?: FoundationEvidenceMetadata[];
+  quality?: FoundationQualityMetadata;
+}) {
+  const hasQuality = Boolean(
+    quality && (
+      quality.unknowns.length > 0 ||
+      quality.conflicts.length > 0 ||
+      quality.warnings.length > 0 ||
+      quality.schemaValidation
+    )
+  );
+  if (sources.length + evidence.length === 0 && !hasQuality) return null;
+
+  return (
+    <div className="space-y-4">
+      {evidence.length > 0 && (
+        <section className="space-y-2">
+          <h3 className="font-mono text-[10px] font-bold tracking-widest text-zinc-400">EVIDENCE METADATA</h3>
+          <div className="divide-y divide-white/[0.05] rounded border border-white/[0.07] bg-[#0A0C10]">
+            {evidence.map((item) => (
+              <div key={item.id} className="px-3 py-2.5">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="font-mono text-[9px] text-zinc-500">{item.id}</span>
+                  {item.sourceStrength && <Badge tone="zinc">{item.sourceStrength}</Badge>}
+                  {item.rightsStatus && <Badge tone={item.rightsStatus === 'pending_review' ? 'amber' : 'zinc'}>{item.rightsStatus}</Badge>}
+                </div>
+                <div className="mt-1 text-[11px] font-medium text-zinc-200">{item.sourceTitle || item.sourceType || 'Evidence'}</div>
+                {item.summary && <div className="mt-1 text-[10px] leading-relaxed text-zinc-400">{cleanIntelligenceText(item.summary)}</div>}
+                {item.extractedFacts.length > 0 && (
+                  <div className="mt-1.5 space-y-1">
+                    {item.extractedFacts.map((fact, index) => (
+                      <div key={index} className="font-mono text-[9px] leading-relaxed text-zinc-500">• {cleanIntelligenceText(fact)}</div>
+                    ))}
+                  </div>
+                )}
+                <div className="mt-1.5 flex flex-wrap items-center gap-2 font-mono text-[8px] text-zinc-600">
+                  {item.publisherOrSpeaker && <span>{item.publisherOrSpeaker}</span>}
+                  {item.publishedAt && <span>{dateValue(item.publishedAt)}</span>}
+                  {item.rightsPolicyId && <span>{item.rightsPolicyId}</span>}
+                  {item.sourceUrl && (
+                    <a href={item.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-0.5 text-cyan-400/70 hover:text-cyan-300">
+                      source <ExternalLink className="h-2.5 w-2.5" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {sources.length > 0 && (
+        <section className="space-y-2">
+          <h3 className="font-mono text-[10px] font-bold tracking-widest text-zinc-400">SOURCES</h3>
+          <div className="divide-y divide-white/[0.05] rounded border border-white/[0.07] bg-[#0A0C10]">
+            {sources.map((item) => (
+              <div key={item.id} className="flex items-center justify-between gap-3 px-3 py-2 font-mono text-[9px]">
+                <div className="min-w-0">
+                  <div className="truncate text-zinc-300">{item.providerName}</div>
+                  <div className="truncate text-zinc-600">{item.sourceType} ・ {item.id}</div>
+                </div>
+                <div className="flex shrink-0 items-center gap-1.5">
+                  {item.rightsStatus && <Badge tone={item.rightsStatus === 'pending_review' ? 'amber' : 'zinc'}>{item.rightsStatus}</Badge>}
+                  {item.canonicalUrl && (
+                    <a href={item.canonicalUrl} target="_blank" rel="noreferrer" className="text-cyan-400/70 hover:text-cyan-300">
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {hasQuality && quality && (
+        <section className="space-y-2">
+          <h3 className="font-mono text-[10px] font-bold tracking-widest text-zinc-400">QUALITY / UNCERTAINTY</h3>
+          <div className="rounded border border-white/[0.07] bg-[#0A0C10] p-3 font-mono text-[9px] leading-relaxed">
+            {quality.conflicts.map((item, index) => <div key={`c-${index}`} className="text-red-300/80">CONFLICT ・ {cleanIntelligenceText(item)}</div>)}
+            {quality.unknowns.map((item, index) => <div key={`u-${index}`} className="text-amber-300/80">UNKNOWN ・ {cleanIntelligenceText(item)}</div>)}
+            {quality.warnings.map((item, index) => <div key={`w-${index}`} className="text-zinc-500">WARN ・ {cleanIntelligenceText(item)}</div>)}
+            {quality.schemaValidation && <div className="mt-1 text-zinc-600">schema {quality.schemaValidation}</div>}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
@@ -384,6 +483,8 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
                   <div className="rounded border border-white/[0.05] bg-white/[0.02] p-2"><div className="text-[9px] text-zinc-600">Bundles</div><div className="mt-1 text-sm font-bold text-zinc-300">{entity.bundleScanComplete ? entity.bundlesScanned : `${entity.bundlesScanned}/${entity.bundleObjectsListed} 範囲`}</div></div>
                 </div>
               </section>
+
+              <FoundationEvidenceContext sources={entity.sources} evidence={entity.evidence} quality={entity.quality} />
 
               {entity.metrics.length > 0 && <section className="space-y-2"><h3 className="font-mono text-[10px] font-bold tracking-widest text-zinc-400">METRICS</h3>{entity.metrics.map((item) => <RawMetric key={item.id} item={item} />)}</section>}
               {entity.moneySignals.length > 0 && <section className="space-y-2"><h3 className="font-mono text-[10px] font-bold tracking-widest text-zinc-400">MONEY SIGNALS</h3>{entity.moneySignals.map((item) => <RawMoney key={item.id} item={item} />)}</section>}
