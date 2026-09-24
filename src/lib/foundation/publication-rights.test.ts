@@ -193,10 +193,10 @@ describe('commercial publication rights gate', () => {
     expect(projected.bundle?.claims).toHaveLength(1);
   });
 
-  it('requires SUPPORTED facts even when source rights are approved', () => {
-    const projected = buildCommercialPublicFactProjection(
-      bundle('rights.e-stat.v1', 'metadata_only', 'UNVERIFIED'),
-    );
+  it('requires at least one SUPPORTED public fact even when source rights are approved', () => {
+    const input = bundle('rights.e-stat.v1', 'metadata_only', 'UNVERIFIED');
+    input.observations[0].verification_status = 'UNVERIFIED';
+    const projected = buildCommercialPublicFactProjection(input);
     expect(projected.bundle).toBeNull();
     expect(projected.assessment.reasons).toContain(
       'no SUPPORTED fact record remains after commercial-rights filtering',
