@@ -336,10 +336,12 @@ export function readableObservationText(text: string | null | undefined): string
       record.transport_typed_record_set_v1
     ) return null;
 
+    if (!Object.prototype.hasOwnProperty.call(record, 'payload')) return null;
     const payload = record.payload;
-    if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return null;
-    const summary = (payload as Record<string, unknown>).summary;
-    if (typeof summary === 'string' && summary.trim()) return summary.trim();
+    if (payload && typeof payload === 'object' && !Array.isArray(payload)) {
+      const summary = (payload as Record<string, unknown>).summary;
+      if (typeof summary === 'string' && summary.trim()) return summary.trim();
+    }
 
     const fallback = compactStructuredValue(payload).trim();
     return fallback ? fallback.slice(0, 1800) : null;
