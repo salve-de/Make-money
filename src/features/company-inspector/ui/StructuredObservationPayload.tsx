@@ -12,10 +12,10 @@ function safeJson(value: unknown): string | null {
 }
 
 export function StructuredObservationPayload({ observation }: { observation: UniversalObservation }) {
-  const json = safeJson(observation.payload);
+  const json = safeJson(observation.publicPayload);
   const hasMetadata = Boolean(
     observation.observationType ||
-    observation.payloadSchemaRef ||
+    observation.publicPayloadSchemaRef ||
     observation.observer
   );
 
@@ -28,7 +28,7 @@ export function StructuredObservationPayload({ observation }: { observation: Uni
       </summary>
       <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[8px] text-zinc-600">
         {observation.observationType && <span>type {observation.observationType}</span>}
-        {observation.payloadSchemaRef && <span>schema {observation.payloadSchemaRef}</span>}
+        {observation.publicPayloadSchemaRef && <span>schema {observation.publicPayloadSchemaRef}</span>}
         {observation.observer && <span>observer {observation.observer}</span>}
       </div>
       {json && (
