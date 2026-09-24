@@ -23,6 +23,7 @@ import {
   extractScheduledExplicitFields,
   resolveScheduledEntityName,
 } from './scheduled-explicit-fields';
+import { sanitizePublicObservationPayload } from './public-observation';
 
 type JsonObject = Record<string, unknown>;
 
@@ -133,11 +134,10 @@ export interface FoundationObservation {
   originType: string;
   verificationStatus: FoundationVerificationStatus;
   observedAt: string | null;
-  collectionTier: string | null;
-  collectionChannel: string | null;
-  observer?: string | null;
-  payloadSchemaRef?: string | null;
-  payload?: unknown;
+  collectionTier?: string | null;
+  collectionChannel?: string | null;
+  /** Explicitly public, bounded structured payload. Raw payload is never read here. */
+  publicPayload?: unknown;
   evidenceIds: string[];
 }
 
@@ -640,9 +640,8 @@ function fallbackRecordId(prefix: string, value: JsonObject): string {
 }
 
 function normalizeObservation(value: JsonObject): FoundationObservation {
-  const payload = value.payload === undefined
-    ? null
-    : JSON.parse(JSON.stringify(value.payload));
+  const publicPayloadInput = value.public_payload ?? value.publicPayload;
+  const publicPayload = sanitizePublicObservationPayload(publicPayloadInput);
   return {
     id: stringValue(value, 'observation_id') || stringValue(value, 'id') || fallbackRecordId('observation', value),
     kind: stringValue(value, 'observation_type') || stringValue(value, 'kind'),
@@ -652,9 +651,7 @@ function normalizeObservation(value: JsonObject): FoundationObservation {
     observedAt: stringValue(value, 'observed_at'),
     collectionTier: stringValue(value, 'collection_tier'),
     collectionChannel: stringValue(value, 'collection_channel'),
-    observer: stringValue(value, 'observer'),
-    payloadSchemaRef: stringValue(value, 'payload_schema_ref'),
-    payload,
+    ...(publicPayload ? { publicPayload: publicPayload.value } : {}),
     evidenceIds: stringArray(value, 'evidence_ids'),
   };
 }
