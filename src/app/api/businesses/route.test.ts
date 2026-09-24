@@ -107,9 +107,9 @@ describe('Foundation detail public Observation wire boundary', () => {
     mocks.readThroughDetail.mockReset();
   });
 
-  function detailWithObservation(observation: Record<string, unknown>) {
+  function detailWithObservation(entityId: string, observation: Record<string, unknown>) {
     return {
-      ...summary('ent_wire_boundary', 'Wire Boundary Company'),
+      ...summary(entityId, 'Wire Boundary Company'),
       evidenceIds: ['ev_wire'],
       claims: [],
       metrics: [],
@@ -125,7 +125,7 @@ describe('Foundation detail public Observation wire boundary', () => {
   }
 
   it('does not put raw payload, observer, schema ref, transport metadata, or collection metadata on the API wire', async () => {
-    mocks.readThroughDetail.mockResolvedValue(detailWithObservation({
+    mocks.readThroughDetail.mockResolvedValue(detailWithObservation('ent_wire_raw', {
       id: 'obs_raw_only',
       kind: 'business_model.raw',
       text: 'Raw-only semantic text',
@@ -141,7 +141,7 @@ describe('Foundation detail public Observation wire boundary', () => {
       transport_typed_record_set_v1: { secret: true },
     }));
 
-    const response = await GET(new Request('http://localhost/api/businesses?entity_id=ent_wire_boundary'));
+    const response = await GET(new Request('http://localhost/api/businesses?entity_id=ent_wire_raw'));
     const body = await response.json();
     expect(response.status).toBe(200);
     const observation = body.data.observations[0];
@@ -161,7 +161,7 @@ describe('Foundation detail public Observation wire boundary', () => {
   });
 
   it('returns only an explicit bounded publicPayload and omits internal metadata', async () => {
-    mocks.readThroughDetail.mockResolvedValue(detailWithObservation({
+    mocks.readThroughDetail.mockResolvedValue(detailWithObservation('ent_wire_public', {
       id: 'obs_public',
       kind: 'business_model.public',
       text: 'Public semantic text',
@@ -200,7 +200,7 @@ describe('Foundation detail public Observation wire boundary', () => {
   });
 
   it('drops an oversized publicPayload from the API wire instead of truncating canonical data', async () => {
-    mocks.readThroughDetail.mockResolvedValue(detailWithObservation({
+    mocks.readThroughDetail.mockResolvedValue(detailWithObservation('ent_wire_large', {
       id: 'obs_too_large',
       kind: 'business_model.public',
       text: 'Public text survives',
