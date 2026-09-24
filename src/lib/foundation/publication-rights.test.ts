@@ -163,6 +163,31 @@ describe('commercial publication rights gate', () => {
     expect(serialized).not.toContain('123456789012');
   });
 
+  it('fails closed for unknown boolean and string fields on a registered Observation type', () => {
+    const input = bundle('rights.e-stat.v1');
+    const observation = input.observations[0] as unknown as Record<string, unknown>;
+    observation.payload = {
+      amount: 123,
+      currency: 'USD',
+      is_private_customer: true,
+      customer_name: 'Secret Customer',
+    };
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    const observations = projected.bundle?.observations as Array<Record<string, unknown>>;
+    expect(observations).toHaveLength(1);
+    expect(observations[0].public_payload).toEqual({
+      amount: 123,
+      currency: 'USD',
+    });
+
+    const serialized = JSON.stringify(projected.bundle?.observations);
+    expect(serialized).not.toContain('is_private_customer');
+    expect(serialized).not.toContain('customer_name');
+    expect(serialized).not.toContain('Secret Customer');
+  });
+
   it('drops an Observation when only unknown fields remain after type projection', () => {
     const input = bundle('rights.e-stat.v1');
     const observation = input.observations[0] as unknown as Record<string, unknown>;
