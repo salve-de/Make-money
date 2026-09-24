@@ -578,7 +578,8 @@ async function readProjectionProgress(
 }
 
 export async function canResumeMakeMoneyProjection(
-  bundleInput: unknown
+  bundleInput: unknown,
+  canonicalBundleInput: unknown = bundleInput,
 ): Promise<{ can_resume: boolean; run_id: string | null; get_object_calls: number }> {
   const bundle = objectValue(bundleInput);
   const runId = bundle ? stringValue(bundle, 'run_id') : null;
@@ -612,8 +613,15 @@ export async function canResumeMakeMoneyProjection(
   }
   // Canonical research bundles use the same JSON serialization contract as
   // ingest.jsonBytes(): JSON.stringify(value) followed by a trailing newline.
-  const expectedCanonical = `${JSON.stringify(bundleInput)}\n`;
-  if (canonical !== expectedCanonical && !projectionRetryMatchesCanonical(canonical, bundleInput)) {
+  // Projection target bookkeeping may use a rights-filtered public bundle,
+  // while the immutable canonical R2 object is the full private research
+  // bundle. Validate canonical bytes against that original input, not the
+  // smaller public projection.
+  const expectedCanonical = `${JSON.stringify(canonicalBundleInput)}\n`;
+  if (
+    canonical !== expectedCanonical &&
+    !projectionRetryMatchesCanonical(canonical, canonicalBundleInput)
+  ) {
     throw new Error(`Canonical research bundle does not match projection retry for ${runId}`);
   }
 

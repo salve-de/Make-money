@@ -95,7 +95,15 @@ export async function POST(request: NextRequest) {
       entities?: unknown;
     };
 
-    const resumeCheck = await canResumeMakeMoneyProjection(bundle);
+    const publicProjection = buildCommercialPublicFactProjection(prepared.bundle);
+    const publicBundle = publicProjection.bundle as {
+      run_id: string;
+      retrieved_at: string;
+      entities?: unknown;
+    } | null;
+    const resumeCheck = publicBundle
+      ? await canResumeMakeMoneyProjection(publicBundle, bundle)
+      : { can_resume: false, run_id: bundle.run_id, get_object_calls: 0 };
     const canResume = resumeCheck.can_resume;
 
     const report = canResume
@@ -137,8 +145,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      const publicProjection = buildCommercialPublicFactProjection(prepared.bundle);
-      if (!publicProjection.bundle) {
+      if (!publicBundle) {
         return NextResponse.json({
           success: true,
           input_kind: 'typed_sidecar',
@@ -153,11 +160,6 @@ export async function POST(request: NextRequest) {
           },
         });
       }
-      const publicBundle = publicProjection.bundle as {
-        run_id: string;
-        retrieved_at: string;
-        entities?: unknown;
-      };
       const viewProjection = await materializeMakeMoneyViews(publicBundle);
       const needsMoreProjection =
         !viewProjection.complete &&

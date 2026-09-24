@@ -110,3 +110,13 @@ During CI repair, the user-facing detail route was found to fall back from a mis
 The branch now removes that public-route fallback. User-facing Foundation detail may read only the rights-gated Make-Money materialized view; otherwise it falls back to the separately curated legacy catalog or returns 404. Search/list already enumerate the Make-Money view prefix rather than canonical bundle objects.
 
 Also tightened the runtime policy snapshot from a policy-ID allowlist to an exact policy-ID -> source-ID mapping, so a non-e-Stat source cannot attach `rights.e-stat.v1` and pass.
+
+
+## Review fixes before merge
+
+PR #67 code review found three P1 concerns:
+1. policy/source spoofing — fixed by exact policy-ID -> source-ID mapping;
+2. mixed-rights retry bookkeeping — fixed by letting projection resume validate target/progress against the filtered public bundle while validating immutable canonical bytes against the original private bundle;
+3. record-only enrichment — fixed by allowing SUPPORTED rights-cleared facts to project even when `entities=[]`; target IDs are derived from factual record references and the projector hydrates canonical identity.
+
+The public API canonical read-through bypass found during CI repair is also closed.

@@ -196,7 +196,12 @@ export function buildCommercialPublicFactProjection(
 
   const factualCount =
     claims.length + metrics.length + moneySignals.length + events.length + relationships.length;
-  if (entities.length === 0 || factualCount === 0) {
+  // Record-only enrichment bundles may legitimately contain no Entity object
+  // while SUPPORTED records reference an already canonical entity. The
+  // Make-Money projector resolves those target IDs from the retained factual
+  // records and hydrates the stable identity from the canonical entity store.
+  // Requiring entities[] here would incorrectly hold valid enrichment.
+  if (factualCount === 0) {
     return {
       bundle: null,
       assessment: {

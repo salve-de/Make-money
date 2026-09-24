@@ -108,6 +108,15 @@ describe('commercial publication rights gate', () => {
     expect(projected.assessment.status).toBe('RIGHTS_HELD');
   });
 
+  it('allows a rights-cleared record-only enrichment bundle to reach the projector', () => {
+    const input = bundle('rights.e-stat.v1');
+    input.entities = [];
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    expect(projected.bundle?.entities).toEqual([]);
+    expect(projected.bundle?.claims).toHaveLength(1);
+  });
+
   it('requires SUPPORTED facts even when source rights are approved', () => {
     const projected = buildCommercialPublicFactProjection(
       bundle('rights.e-stat.v1', 'metadata_only', 'UNVERIFIED'),
