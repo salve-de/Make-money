@@ -255,6 +255,24 @@ function requestFor(verificationStatus: string = 'SUPPORTED') {
   };
 }
 
+function requestForUnresolvedEntity() {
+  const request = requestFor();
+  const typed = JSON.parse(request.typed_record_set_text);
+  typed.claims = [{
+    claim_id: 'cl_abcdefabcdefabcdefabcdef',
+    entity_ids: [entityId, 'ent_organization_abcdefabcdefabcdefabcd'],
+    statement: 'A supported fact references one entity whose core is not present.',
+    origin_type: 'reported',
+    verification_status: 'SUPPORTED',
+    confidence: 0.9,
+    evidence_ids: [evidenceId],
+    occurred_at: '2026-09-24T13:00:00Z',
+  }];
+  request.typed_record_set_text = JSON.stringify(typed);
+  request.source.typed_record_set_blob_sha = gitBlobSha1(request.typed_record_set_text);
+  return request;
+}
+
 function canonicalKeys(r2: MemoryR2): string[] {
   return r2.keys().filter((key) =>
     key.startsWith('datasets/ds.business.research-bundles.derived/v1/'));
@@ -283,6 +301,7 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       const firstBody = await first.json();
       expect(first.status).toBe(200);
       expect(firstBody.success).toBe(true);
+      expect(firstBody.publication_ready).toBe(true);
       expect(firstBody.input_kind).toBe('typed_sidecar');
       expect(firstBody.coverage_assessment).toBe('UNASSESSED');
 
@@ -301,6 +320,25 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(detailText).toContain('Official report states annual revenue of $123 million.');
       expect(detailText).not.toContain('[object Object]');
 
+      const structuredObservation = detail.data.observations.find(
+        (item: { id?: string }) => item.id === 'obs_1234567890abcdef12345678',
+      );
+      expect(structuredObservation).toBeTruthy();
+      expect(structuredObservation.observationType).toBe('business_model.revenue_signal');
+      expect(structuredObservation.payload.structured_only_field.must_survive_transport).toBe(true);
+      expect(
+        structuredObservation.structuredData.payload.structured_only_field.must_survive_transport,
+      ).toBe(true);
+
+      const transportObservation = detail.data.observations.find(
+        (item: { observationType?: string }) =>
+          item.observationType === 'transport.typed_record_set_v1',
+      );
+      expect(transportObservation).toBeTruthy();
+      expect(
+        transportObservation.structuredData.transport_typed_record_set_v1.quality.unknowns[0].field,
+      ).toBe('margin');
+
       const listResponse = await getBusinesses(
         new Request('http://localhost/api/businesses?foundationOnly=true&limit=100'),
       );
@@ -313,8 +351,44 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       const secondBody = await second.json();
       expect(second.status).toBe(200);
       expect(secondBody.success).toBe(true);
+      expect(secondBody.publication_ready).toBe(true);
       expect(secondBody.canonical_ingest).toBe('ALREADY_COMMITTED');
       expect(canonicalKeys(r2)).toEqual(firstCanonical);
+    });
+  });
+
+  it('keeps canonical success separate from UI publication readiness while unresolved entities remain', async () => {
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const response = await postTyped(requestForUnresolvedEntity());
+      const body = await response.json();
+
+      expect(response.status).toBe(202);
+      expect(body.success).toBe(true);
+      expect(body.publication_ready).toBe(false);
+      expect(body.partial).toBe(true);
+      expect(body.retryable).toBe(true);
+      expect(body.view_projection.status).toBe('PENDING_UNRESOLVED_REPLAY');
+      expect(body.view_projection.unresolved_entity_ids).toContain(
+        'ent_organization_abcdefabcdefabcdefabcd',
+      );
+      expect(canonicalKeys(r2)).toHaveLength(1);
+      expect(r2.keys()).toContain(`views/make-money/v1/entities/${entityId}.json`);
+
+      const detailResponse = await getBusinesses(
+        new Request(`http://localhost/api/businesses?foundationOnly=true&entity_id=${entityId}`),
+      );
+      const detail = await detailResponse.json();
+      expect(detailResponse.status).toBe(200);
+      expect(
+        detail.data.claims.some(
+          (claim: { id?: string }) => claim.id === 'cl_abcdefabcdefabcdefabcdef',
+        ),
+      ).toBe(true);
     });
   });
 
