@@ -330,6 +330,11 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
           },
         },
       });
+      expect(
+        detail.data.observations.some(
+          (item: { kind?: string }) => item.kind === 'transport.typed_record_set_v1',
+        ),
+      ).toBe(false);
 
       const listResponse = await getBusinesses(
         new Request('http://localhost/api/businesses?foundationOnly=true&limit=100'),
