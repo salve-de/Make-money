@@ -97,7 +97,7 @@ Completed:
 - [x] VERIFY_RECONCILE Public Fact v1 consumer path added with fail-closed type registry.
 - [x] Make-Money Quality CI passed on the merged #78 implementation.
 - [x] Preliminary 3,085-record registry/lineage audit documented.
-- [x] Production R2 commercial-rights audit command implemented.
+- [x] Production R2 commercial-rights audit command implemented and hardened to record-level SAFE semantics; legacy dossiers are never auto-SAFE.
 
 Still required before claiming legacy catalog/publication is fully cleared:
 - [ ] Execute `pnpm foundation:rights:audit` on the configured Mac with actual R2 credentials.
@@ -122,9 +122,9 @@ Another chat/agent must begin here:
    pnpm foundation:rights:audit
    ```
    Run it on the user's configured Mac where the existing Keychain R2 credentials are available.
-5. Inspect `reports/runtime/commercial-rights-r2-audit-latest.json`.
-6. Commit a dated immutable audit summary with exact counts and affected entity IDs.
-7. Only then decide which existing public projections must be quarantined/rebuilt.
+5. Inspect `reports/runtime/commercial-rights-r2-audit-latest.json`. The audit is fail-closed: Foundation `SAFE` now requires exact record-level reconstruction from the current rights-cleared public projection plus a rights-cleared public Entity identity. Legacy dossiers are **never auto-SAFE** because their old format lacks field-level evidence bindings.
+6. Commit a dated immutable audit summary with exact counts, entity IDs, unbound records and held-evidence records.
+7. `INTERNAL_ONLY` is a strong public-quarantine candidate. `NEEDS_RIGHTS_REVIEW` must remain under review/re-sourcing; do not treat an apparently safe hostname as publication proof.
 8. Never infer `SAFE` merely from lineage, public accessibility, `metadata_only`, or ChatGPT-generated text.
 9. Do not alter collection schedules/prompts to solve rights.
 10. Before stopping, append exact SHA/PR/test/audit evidence to this file.
@@ -239,3 +239,19 @@ Publication authority is therefore separated from collector output:
 6. Observation payloads require an approved data-driven public Observation contract. Unknown types and unknown fields remain private. Adding a reviewed contract changes registry data, not executable projection logic.
 
 This follow-up does not approve any new provider, does not retroactively rewrite existing sidecars, and does not write production R2/Queue.
+
+
+## Audit SAFE semantics (2026-09-25 hardening)
+
+The first retrospective audit version was too permissive: a Foundation bundle with at least one allowed Evidence could be labeled ALLOWED even if it also contained held Evidence, and a legacy dossier could appear SAFE merely because all extracted URLs used an approved hostname.
+
+That is not enough to make a public-retention decision.
+
+`scripts/audit-commercial-rights-r2.ts` now uses schema `make-money-commercial-rights-r2-audit.v2`:
+
+- Foundation `SAFE` requires every currently displayed record to exactly match a record reconstructed by the **current** rights-cleared public projection, including its Evidence bindings.
+- The displayed entity identity must also match a rights-cleared public Entity row.
+- A displayed record/entity that references Evidence held under the current rights gate is `INTERNAL_ONLY`.
+- Missing/unreconstructable records or identity remain `NEEDS_RIGHTS_REVIEW`.
+- Legacy immutable dossiers are **never automatically SAFE** because their old representation does not prove field-level Evidence -> displayed-field bindings. Approved hostnames are only a review-priority signal.
+- Do not retain a legacy/public row merely because its audit URLs look safe.
