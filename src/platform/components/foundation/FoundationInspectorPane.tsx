@@ -22,7 +22,7 @@ import {
   cleanIntelligenceText,
   formatHumanMoney,
 } from '@/lib/foundation/text-cleaner';
-import { StructuredObservationData } from '@/features/company-inspector/ui/StructuredObservationData';
+import { StructuredObservationData } from '@/shared/components/StructuredObservationData';
 
 interface FoundationInspectorPaneProps {
   entity: FoundationBusinessCase | null;
