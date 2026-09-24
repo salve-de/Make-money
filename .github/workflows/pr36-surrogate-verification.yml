@@ -1,0 +1,22 @@
+name: PR36 surrogate verification
+
+on:
+  push:
+    branches:
+      - codex/pr36-surrogate-verification-20260924
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Syntax check exact PR36 bytes
+        run: node --check tmp/pr36-verification/workers/r2-queue-publisher/src/index.js
+      - name: Unit test exact PR36 bytes
+        run: node --test tmp/pr36-verification/workers/r2-queue-publisher/src/index.test.js
