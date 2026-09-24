@@ -269,8 +269,8 @@ function validateSourceDescriptor(source: unknown): FoundationTypedSourceDescrip
   if (repository !== TYPED_SOURCE_REPOSITORY) {
     throw new FoundationTypedIngestValidationError('REQUEST_INVALID', 'unexpected source repository');
   }
-  if (!sourceRef) {
-    throw new FoundationTypedIngestValidationError('REQUEST_INVALID', 'source_ref is required');
+  if (sourceRef !== 'main') {
+    throw new FoundationTypedIngestValidationError('REQUEST_INVALID', 'source_ref must be main');
   }
   assertGitSha(sourceCommitSha, 'source_commit_sha');
   assertGitSha(typedBlob, 'typed_record_set_blob_sha');
@@ -345,7 +345,6 @@ export function prepareFoundationTypedIngest(
     !sourceRunId ||
     !subjectRef ||
     !lane ||
-    source.typed_record_set_path !== source.typed_record_set_path ||
     source.source_artifact_path !== stringValue(sourceArtifactRef, 'path') ||
     source.source_artifact_blob_sha !== stringValue(sourceArtifactRef, 'blob_sha') ||
     !source.typed_record_set_path.startsWith(`staging/automation/typed-records/${lane}/`) ||
