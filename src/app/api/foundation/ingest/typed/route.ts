@@ -4,7 +4,7 @@ import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
 import {
   FoundationBundleValidationError,
   FoundationIngestAuthorizationError,
-  ingestFoundationResearch,
+  ingestFoundationTypedProjection,
 } from '@/lib/foundation/ingest';
 import {
   FoundationTypedIngestValidationError,
@@ -126,15 +126,10 @@ export async function POST(request: NextRequest) {
             bucket_or_config: 0 as const,
           },
         }
-      : await ingestFoundationResearch(
-          {
-            write_authorized: true,
-            bundle: prepared.bundle,
-          },
-          {
-            makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
-          },
-        );
+      : await ingestFoundationTypedProjection({
+          write_authorized: true,
+          bundle: prepared.bundle,
+        });
 
     if (!canResume) {
       report.provider_calls.get_object += resumeCheck.get_object_calls;
