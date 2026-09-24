@@ -68,10 +68,12 @@ describe('real scheduled Web ChatGPT typed sidecar fixture', () => {
         currency: 'USD',
       },
     });
-    expect(reported?.entity_ids).toEqual(expect.arrayContaining([
-      'ent_organization_9339d47c7e362613f8d2',
-      'ent_organization_a1964fb04b1ac2226973',
-    ]));
+    const caseEntity = (prepared.bundle.entities as Array<Record<string, unknown>>)
+      .find((item) => item.entity_type === 'case');
+    expect(caseEntity?.canonical_identifier).toBe(
+      'case:gentherm-modine-performance-technologies-rmt:2026',
+    );
+    expect(reported?.entity_ids).toEqual([caseEntity?.entity_id]);
 
     const readable = readableObservationText(String(reported?.text || ''));
     expect(readable).toContain('special dividend');
