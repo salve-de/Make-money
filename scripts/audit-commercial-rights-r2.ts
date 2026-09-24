@@ -10,7 +10,6 @@ import { getDossierStoragePath } from '../src/lib/foundation/dossier-projection'
 import { buildCommercialPublicFactProjection } from '../src/lib/foundation/publication-rights';
 import {
   buildFoundationBusinessCaseForEntity,
-  type FoundationBusinessCase,
   type FoundationEntitySummary,
 } from '../src/lib/foundation/business-reader';
 
