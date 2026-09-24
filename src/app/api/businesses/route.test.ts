@@ -178,7 +178,7 @@ describe('Foundation detail public Observation wire boundary', () => {
       evidenceIds: ['ev_wire'],
     }));
 
-    const response = await GET(new Request('http://localhost/api/businesses?entity_id=ent_wire_boundary'));
+    const response = await GET(new Request('http://localhost/api/businesses?entity_id=ent_wire_public'));
     const body = await response.json();
     expect(response.status).toBe(200);
     expect(body.data.observations[0]).toEqual({
@@ -211,7 +211,7 @@ describe('Foundation detail public Observation wire boundary', () => {
       evidenceIds: ['ev_wire'],
     }));
 
-    const response = await GET(new Request('http://localhost/api/businesses?entity_id=ent_wire_boundary'));
+    const response = await GET(new Request('http://localhost/api/businesses?entity_id=ent_wire_large'));
     const body = await response.json();
     expect(response.status).toBe(200);
     expect(body.data.observations[0].text).toBe('Public text survives');
