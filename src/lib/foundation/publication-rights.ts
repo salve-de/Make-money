@@ -1,4 +1,5 @@
 import observationContracts from '../../../data/foundation-public-observation-contracts.json';
+import { projectTypedPublicFacts } from './public-fact';
 import rightsSnapshot from '../../../data/foundation-public-rights-snapshot.json';
 
 type JsonObject = Record<string, unknown>;
@@ -556,6 +557,8 @@ function filterRecords(
  */
 export function buildCommercialPublicFactProjection(
   bundleInput: unknown,
+  typedRecordSetInput?: unknown,
+  existingPublicEntityIdentities: readonly unknown[] = [],
 ): { bundle: JsonObject | null; assessment: CommercialPublicProjectionAssessment } {
   const bundle = objectValue(bundleInput);
   const assessment = assessCommercialPublicProjection(bundleInput);
@@ -624,6 +627,22 @@ export function buildCommercialPublicFactProjection(
       policyIdByEvidenceId,
     ))
     .filter((value): value is JsonObject => Boolean(value));
+
+  const publicFactIdentityPool = [
+    ...entities,
+    ...existingPublicEntityIdentities
+      .map(objectValue)
+      .filter((value): value is JsonObject => Boolean(value)),
+  ];
+  const publicFactObservations = typedRecordSetInput
+    ? projectTypedPublicFacts({
+        typedRecordSet: typedRecordSetInput,
+        allowedEvidenceIds: allowed,
+        sourceUrlByEvidenceId,
+        publicEntities: publicFactIdentityPool,
+      })
+    : [];
+  observations.push(...publicFactObservations);
 
   const factualCount =
     claims.length + metrics.length + moneySignals.length + events.length +

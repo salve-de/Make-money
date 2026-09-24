@@ -1,0 +1,8 @@
+{
+  "schema_version": "make-money-public-fact-types-snapshot.v1",
+  "source_repository": "salve-de/universal-foundation",
+  "source_commit_sha": "c271502e34c6772759c02048ca690403da51fcf1",
+  "generated_at": "2026-09-25T05:00:00+09:00",
+  "records": [],
+  "notes": "No runtime-approved Public Fact types yet. PR #46 is Draft and must be reviewed/merged to upstream main before an approved fact type can be pinned here."
+}

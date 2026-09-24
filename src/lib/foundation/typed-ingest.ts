@@ -2,6 +2,8 @@ import { createHash } from 'node:crypto';
 import { Validator, type Schema } from '@cfworker/json-schema';
 import researchBundleSchema from './schemas/research-bundle.v1.schema.json';
 import typedRecordSetSchema from './schemas/typed-record-set.v1.schema.json';
+import publicFactSchema from './schemas/public-fact.v1.schema.json';
+import publicFactOutputSchema from './schemas/public-fact-output.v1.schema.json';
 import collectionRunSchema from './schemas/collection-run.v1.schema.json';
 import evidenceCaptureRequestSchema from './schemas/evidence-capture-request.v1.schema.json';
 import workItemSchema from './schemas/work-item.v1.schema.json';
@@ -11,6 +13,8 @@ import { defaultIncomingMoneySignalFields } from './money-signal-null-defaults';
 type JsonObject = Record<string, unknown>;
 
 export const TYPED_SOURCE_REPOSITORY = 'salve-de/universal-foundation';
+export const TYPED_SOURCE_REFS = ['main', 'automation-research'] as const;
+const TYPED_SOURCE_REF_SET = new Set<string>(TYPED_SOURCE_REFS);
 export const TYPED_PROJECTOR_VERSION = 'r2-queue-mapper-v6';
 export const TYPED_COVERAGE_ASSESSMENT = 'UNASSESSED' as const;
 
@@ -22,6 +26,8 @@ export interface FoundationTypedSourceDescriptor {
   typed_record_set_blob_sha: string;
   source_artifact_path: string;
   source_artifact_blob_sha: string;
+  receipt_path?: string;
+  receipt_blob_sha?: string;
 }
 
 export interface FoundationTypedIngestRequest {
@@ -67,6 +73,13 @@ const validateTypedRecordSet = new Validator(
   false,
 );
 validateTypedRecordSet.addSchema(researchBundleSchema as Schema);
+
+const validatePublicFactOutput = new Validator(
+  publicFactOutputSchema as unknown as Schema,
+  '2020-12',
+  false,
+);
+validatePublicFactOutput.addSchema(publicFactSchema as unknown as Schema);
 
 const validateCollectionRun = new Validator(
   collectionRunSchema as Schema,
@@ -388,18 +401,39 @@ function validateSourceDescriptor(source: unknown): FoundationTypedSourceDescrip
   const typedBlob = stringValue(source, 'typed_record_set_blob_sha');
   const artifactPath = stringValue(source, 'source_artifact_path');
   const artifactBlob = stringValue(source, 'source_artifact_blob_sha');
+  const receiptPath = stringValue(source, 'receipt_path');
+  const receiptBlob = stringValue(source, 'receipt_blob_sha');
 
   if (repository !== TYPED_SOURCE_REPOSITORY) {
     throw new FoundationTypedIngestValidationError('REQUEST_INVALID', 'unexpected source repository');
   }
-  if (sourceRef !== 'main') {
-    throw new FoundationTypedIngestValidationError('REQUEST_INVALID', 'source_ref must be main');
+  if (!sourceRef || !TYPED_SOURCE_REF_SET.has(sourceRef)) {
+    throw new FoundationTypedIngestValidationError(
+      'REQUEST_INVALID',
+      'source_ref must be one of the approved typed-source refs',
+    );
   }
   assertGitSha(sourceCommitSha, 'source_commit_sha');
   assertGitSha(typedBlob, 'typed_record_set_blob_sha');
   assertGitSha(artifactBlob, 'source_artifact_blob_sha');
   assertSafeRepoPath(typedPath, 'typed_record_set_path');
   assertSafeRepoPath(artifactPath, 'source_artifact_path');
+  if (sourceRef === 'automation-research') {
+    if (!receiptPath || !receiptBlob) {
+      throw new FoundationTypedIngestValidationError(
+        'REQUEST_INVALID',
+        'automation-research source_ref requires receipt_path and receipt_blob_sha',
+      );
+    }
+    assertSafeRepoPath(receiptPath, 'receipt_path');
+    assertGitSha(receiptBlob, 'receipt_blob_sha');
+    if (!receiptPath.startsWith('staging/automation/receipts/')) {
+      throw new FoundationTypedIngestValidationError(
+        'REQUEST_INVALID',
+        'receipt_path must be inside staging/automation/receipts/',
+      );
+    }
+  }
 
   return {
     repository,
@@ -409,6 +443,9 @@ function validateSourceDescriptor(source: unknown): FoundationTypedSourceDescrip
     typed_record_set_blob_sha: typedBlob,
     source_artifact_path: artifactPath,
     source_artifact_blob_sha: artifactBlob,
+    ...(receiptPath && receiptBlob
+      ? { receipt_path: receiptPath, receipt_blob_sha: receiptBlob }
+      : {}),
   };
 }
 
@@ -452,6 +489,19 @@ export function prepareFoundationTypedIngest(
     );
   }
 
+  const extensions = isObject(typedRecordSet.extensions) ? typedRecordSet.extensions : null;
+  const publicFactOutput = extensions?.['public_facts.v1'];
+  if (publicFactOutput !== undefined) {
+    const publicFactIssues = schemaErrors(validatePublicFactOutput, publicFactOutput);
+    if (publicFactIssues.length > 0) {
+      throw new FoundationTypedIngestValidationError(
+        'SOURCE_SCHEMA_INVALID',
+        `public-fact-output.v1 schema validation failed: ${publicFactIssues.join('; ')}`,
+        publicFactIssues,
+      );
+    }
+  }
+
   const sourceArtifact = parseJsonObject(
     request.source_artifact_text,
     'SOURCE_JSON_INVALID',
@@ -473,6 +523,13 @@ export function prepareFoundationTypedIngest(
   const sourceRunId = stringValue(typedRecordSet, 'source_run_id');
   const subjectRef = stringValue(typedRecordSet, 'subject_ref');
   const lane = stringValue(sourceArtifactRef, 'lane');
+
+  if (publicFactOutput !== undefined && lane !== 'VERIFY_RECONCILE') {
+    throw new FoundationTypedIngestValidationError(
+      'IDENTITY_MISMATCH',
+      'public_facts.v1 is accepted only from VERIFY_RECONCILE sidecars',
+    );
+  }
 
   if (
     !sourceRunId ||

@@ -3,7 +3,6 @@ import {
   buildFoundationBusinessCasesFromBundle,
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
-  readFoundationEntitySummaryById,
   readLatestNewArrivalsRelease,
   type FoundationBusinessCase,
   type FoundationValuePage,
@@ -11,6 +10,11 @@ import {
 } from '@/lib/foundation/business-reader';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import { buildFoundationValueProfile } from '@/lib/foundation/value-projection';
+import {
+  buildCommercialPublicFactProjection,
+  type CommercialPublicProjectionAssessment,
+} from '@/lib/foundation/publication-rights';
+import { publicFactReferencedEntityIds } from '@/lib/foundation/public-fact';
 import {
   getFoundationBucketAsync,
   getFromR2,
@@ -909,16 +913,27 @@ async function hydratePendingHistoryForEntity(
     };
   }
 
-  const summary = await readFoundationEntitySummaryById(entityId);
-  if (!summary) {
-    throw new Error(`Foundation entity core disappeared during unresolved hydration: ${entityId}`);
-  }
+  // Pending public-history hydration inherits the already rights-cleared/public
+  // identity of the current base detail. Never read private canonical entity
+  // identity during public view construction.
+  const summary = {
+    id: baseDetail.id,
+    name: baseDetail.name,
+    entityType: baseDetail.entityType,
+    aliases: [...baseDetail.aliases],
+    canonicalIdentifier: baseDetail.canonicalIdentifier,
+    domain: baseDetail.domain,
+    status: baseDetail.status,
+    observedAt: baseDetail.observedAt,
+    evidenceIds: [...baseDetail.evidenceIds],
+  };
 
   const slices: Array<{
     retrievedAt: string;
     detail: FoundationBusinessCase;
     pending: PendingUnresolvedEntityRecord;
   }> = [];
+  let rightsHeldPending = 0;
   for (const item of chunk.records) {
     const text = await getFromR2(item.record.bundle_key, bucket);
     if (!text) {
@@ -926,10 +941,22 @@ async function hydratePendingHistoryForEntity(
         `Canonical research bundle disappeared during unresolved hydration: ${item.record.bundle_key}`
       );
     }
-    const bundle = JSON.parse(text) as unknown;
+    const canonicalBundle = JSON.parse(text) as unknown;
+    const publicProjection = await buildMakeMoneyPublicProjection(
+      canonicalBundle,
+      undefined,
+      bucket,
+    );
+    if (!publicProjection.bundle) {
+      rightsHeldPending += 1;
+      continue;
+    }
     slices.push({
       retrievedAt: item.record.retrieved_at,
-      detail: buildFoundationBusinessCaseForEntity(bundle, summary),
+      detail: buildFoundationBusinessCaseForEntity(
+        publicProjection.bundle,
+        summary,
+      ),
       pending: item,
     });
   }
@@ -944,7 +971,7 @@ async function hydratePendingHistoryForEntity(
     pending: slices.map((slice) => slice.pending),
     stateObject: chunk.stateObject,
     nextCursor: chunk.nextCursor,
-    complete: chunk.complete,
+    complete: chunk.complete && rightsHeldPending === 0,
   };
 }
 
@@ -1209,7 +1236,14 @@ export async function materializeMakeMoneyViews(
   };
 
   for (const entityId of chunkIds) {
-    const summary = await readFoundationEntitySummaryById(entityId);
+    const bundleIdentity = rightsClearedBundleIdentity(bundleInput, entityId);
+    const publicViewIdentity = bundleIdentity
+      ? null
+      : await readMakeMoneyViewSummary(
+          bucket,
+          `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`,
+        );
+    const summary = bundleIdentity || publicViewIdentity;
     if (!summary) {
       unresolved.add(entityId);
       await recordUnresolvedEntityReference({
@@ -1425,6 +1459,15 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
   throw new Error('Correction CAS retries exhausted');
 }
 
+function rightsClearedBundleIdentity(
+  bundleInput: unknown,
+  entityId: string,
+): FoundationBusinessCase | null {
+  const match = buildFoundationBusinessCasesFromBundle(bundleInput)
+    .find((row) => row.id === entityId);
+  return match && !isStoredEntityIdName(match.name) ? match : null;
+}
+
 export async function readMakeMoneyViewDetail(entityId: string): Promise<FoundationBusinessCase | null> {
   const bucket = await getFoundationBucketAsync('lake');
   const document = await readCorrectedViewDocument(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`);
@@ -1434,6 +1477,57 @@ export async function readMakeMoneyViewDetail(entityId: string): Promise<Foundat
   // canonical Foundation bundles at read time: doing so can reintroduce
   // rights-held observation text or overwrite explicit publicPayload fields.
   return document.detail;
+}
+
+function typedRecordSetFromCanonicalBundle(bundleInput: unknown): unknown | undefined {
+  const bundle = objectValue(bundleInput);
+  const observations = bundle && Array.isArray(bundle.observations)
+    ? bundle.observations.map(objectValue).filter((value): value is Record<string, unknown> => Boolean(value))
+    : [];
+  const transports = observations.filter(
+    (value) => stringValue(value, 'observation_type') === 'transport.typed_record_set_v1'
+      && objectValue(value.transport_typed_record_set_v1),
+  );
+  return transports.length === 1
+    ? transports[0].transport_typed_record_set_v1
+    : undefined;
+}
+
+export async function buildMakeMoneyPublicProjection(
+  bundleInput: unknown,
+  typedRecordSetInput?: unknown,
+  bucketOverride?: string,
+): Promise<{
+  bundle: Record<string, unknown> | null;
+  assessment: CommercialPublicProjectionAssessment;
+}> {
+  const typedRecordSet = typedRecordSetInput ?? typedRecordSetFromCanonicalBundle(bundleInput);
+  const referencedEntityIds = typedRecordSet
+    ? publicFactReferencedEntityIds(typedRecordSet)
+    : [];
+  const bucket = bucketOverride || await getFoundationBucketAsync('lake');
+
+  const existingPublicEntityIdentities = (
+    await Promise.all(
+      referencedEntityIds.map(async (entityId) => {
+        const summary = await readMakeMoneyViewSummary(
+          bucket,
+          `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`,
+        ).catch(() => null);
+        return summary
+          ? { entity_id: summary.id, canonical_name: summary.name }
+          : null;
+      }),
+    )
+  ).filter(
+    (value): value is { entity_id: string; canonical_name: string } => Boolean(value),
+  );
+
+  return buildCommercialPublicFactProjection(
+    bundleInput,
+    typedRecordSet,
+    existingPublicEntityIdentities,
+  );
 }
 
 async function readMakeMoneyViewSummary(
@@ -1477,6 +1571,17 @@ async function readMakeMoneyViewSummary(
   // canonical entity storage. If the rights-gated view does not carry a
   // display identity yet, fail closed and wait for a corrected public view.
   return isStoredEntityIdName(summary.name) ? null : summary;
+}
+
+export async function readMakeMoneyPublicEntitySummaryById(
+  entityId: string,
+): Promise<FoundationValueSummary | null> {
+  if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
+  const bucket = await getFoundationBucketAsync('lake');
+  return readMakeMoneyViewSummary(
+    bucket,
+    `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`,
+  );
 }
 
 /** Bound remote R2 reads while retaining input order and failure visibility. */
@@ -1614,8 +1719,14 @@ async function replayUnresolvedProjectionPage(
     if (!text) {
       throw new Error(`Canonical research bundle disappeared during unresolved replay: ${progress.bundle_key}`);
     }
-    const bundle = JSON.parse(text) as unknown;
-    const report = await materializeMakeMoneyViews(bundle, maxTargets);
+    const canonicalBundle = JSON.parse(text) as unknown;
+    const publicProjection = await buildMakeMoneyPublicProjection(
+      canonicalBundle,
+      undefined,
+      bucket,
+    );
+    if (!publicProjection.bundle) continue;
+    const report = await materializeMakeMoneyViews(publicProjection.bundle, maxTargets);
     replayed += report.attempted;
   }
 
@@ -1671,7 +1782,12 @@ export async function isMakeMoneyViewBackfillComplete(): Promise<boolean> {
 }
 
 /**
- * Incrementally rebuild all Make-Money views from canonical research bundles.
+ * Incrementally rebuild Make-Money public views from private canonical research bundles.
+ *
+ * Canonical bundles are only immutable inputs. Every rebuild/replay re-runs
+ * the current commercial/publication projection before materialization; a
+ * canonical bundle is never publication authority by itself.
+ *
  * The cursor lives inside the rebuildable view namespace, so a worker can call
  * this repeatedly without maintaining external state.
  */
@@ -1713,11 +1829,27 @@ export async function rebuildMakeMoneyViewsPage(limit = 20): Promise<MakeMoneyVi
   if (item) {
     const text = await getFromR2(item.key, bucket);
     if (!text) throw new Error(`Canonical research bundle disappeared during rebuild: ${item.key}`);
-    const bundle = JSON.parse(text) as unknown;
-    const report = await materializeMakeMoneyViews(bundle, boundedLimit);
-    materializedEntities += report.attempted;
-    bundleInitialScanComplete = report.next_index >= report.total_targets;
-    if (bundleInitialScanComplete) processed = 1;
+    const canonicalBundle = JSON.parse(text) as unknown;
+    const publicProjection = await buildMakeMoneyPublicProjection(
+      canonicalBundle,
+      undefined,
+      bucket,
+    );
+    if (!publicProjection.bundle) {
+      // Rights-held/private canonical bundles are valid rebuild inputs but
+      // produce no public view. Mark the scan item complete so rebuild does
+      // not loop forever on permanently held data.
+      bundleInitialScanComplete = true;
+      processed = 1;
+    } else {
+      const report = await materializeMakeMoneyViews(
+        publicProjection.bundle,
+        boundedLimit,
+      );
+      materializedEntities += report.attempted;
+      bundleInitialScanComplete = report.next_index >= report.total_targets;
+      if (bundleInitialScanComplete) processed = 1;
+    }
   }
 
   const nextCursor = bundleInitialScanComplete && page.truncated && page.cursor

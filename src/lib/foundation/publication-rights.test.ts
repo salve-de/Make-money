@@ -177,7 +177,7 @@ describe('commercial publication rights gate', () => {
     expect(assessment.allowedEvidenceIds).toEqual([]);
   });
 
-  it('keeps SEC EDGAR evidence held while the upstream rights policy is still pending review', () => {
+  it('allows SEC EDGAR evidence after the pinned upstream policy is approved', () => {
     const input = bundle(
       null,
       'pending_review',
@@ -190,8 +190,8 @@ describe('commercial publication rights gate', () => {
     input.evidence[0].source_type = 'regulatory_filing';
 
     const assessment = assessCommercialPublicProjection(input);
-    expect(assessment.status).toBe('RIGHTS_HELD');
-    expect(assessment.allowedEvidenceIds).toEqual([]);
+    expect(assessment.status).toBe('ALLOWED');
+    expect(assessment.allowedEvidenceIds).toEqual(['ev_1234567890abcdef12345678']);
   });
 
   it('does not registry-resolve a SEC URL outside the reviewed EDGAR archive path', () => {
@@ -211,7 +211,7 @@ describe('commercial publication rights gate', () => {
     expect(assessment.allowedEvidenceIds).toEqual([]);
   });
 
-  it('keeps the Starwood/Apollo Observation private until its SEC policy is formally approved', () => {
+  it('publishes only the approved Starwood/Apollo percentage fields after SEC approval', () => {
     const input = bundle(
       null,
       'pending_review',
@@ -231,8 +231,18 @@ describe('commercial publication rights gate', () => {
     };
 
     const projected = buildCommercialPublicFactProjection(input);
-    expect(projected.bundle).toBeNull();
-    expect(projected.assessment.status).toBe('RIGHTS_HELD');
+    expect(projected.assessment.status).toBe('ALLOWED');
+    expect(projected.bundle).not.toBeNull();
+    const projectedObservations = projected.bundle?.observations as unknown[] | undefined;
+    expect(projectedObservations).toHaveLength(1);
+    expect(projectedObservations?.[0]).toMatchObject({
+      observation_type: 'starwood_apollo.minority_equity_recapitalization.v1',
+      public_payload: {
+        apollo_equity_interest_percent: 41.5,
+        starwood_equity_interest_percent: 58.5,
+      },
+    });
+    expect(JSON.stringify(projected.bundle)).not.toContain('internal_note');
   });
 
   it('records the Starwood display contract as SEC-policy-bound and percentage-only', async () => {

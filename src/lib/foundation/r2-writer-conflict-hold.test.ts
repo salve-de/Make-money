@@ -1,11 +1,20 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
 const project = vi.hoisted(() => vi.fn());
-vi.mock('./make-money-view', () => ({ materializeMakeMoneyViews: project }));
+const publicProject = vi.hoisted(() => vi.fn());
+vi.mock('./make-money-view', () => ({
+  buildMakeMoneyPublicProjection: publicProject,
+  materializeMakeMoneyViews: project,
+}));
 import worker, { materializeScheduledR2Handoff } from '../../../r2-writer/worker';
 
 type Row = Record<string, unknown>;
-afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); project.mockReset(); });
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+  project.mockReset();
+  publicProject.mockReset();
+});
 const encode = (value: unknown) => new TextEncoder().encode(JSON.stringify(value) + '\n');
 
 async function fixture(count = 2) {
@@ -46,6 +55,10 @@ async function fixture(count = 2) {
     }
     return files.has(path) ? Response.json({ sha: blobSha(files.get(path)), encoding: 'base64', content: Buffer.from(JSON.stringify(files.get(path))).toString('base64') })
       : new Response(null, { status: 404 });
+  }));
+  publicProject.mockImplementation(async (bundle) => ({
+    bundle,
+    assessment: { status: 'ALLOWED', allowedEvidenceIds: [], heldEvidenceIds: [], reasons: [] },
   }));
   project.mockResolvedValue({ complete: true, unresolved_entity_ids: [] });
   const log = vi.spyOn(console, 'log').mockImplementation(() => {});

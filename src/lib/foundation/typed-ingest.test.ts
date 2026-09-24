@@ -134,6 +134,74 @@ function sourceArtifact() {
   };
 }
 
+
+function publicFactOutput() {
+  return {
+    schema_version: 'public-fact-output.v1',
+    producer_lane: 'VERIFY_RECONCILE',
+    facts: [{
+      schema_version: 'public-fact.v1',
+      fact_id: 'pf_1234567890abcdef12345678',
+      fact_type_id: 'fact.ownership_interest_percent.v1',
+      subject_ref: subjectRef,
+      target_entity_id: 'ent_organization_1234567890abcdef1234',
+      context: {
+        scope_type: 'joint_venture',
+        scope_ref: subjectRef,
+        actor_relation: 'direct_entity',
+        related_entity_id: 'ent_organization_1234567890abcdef1234',
+      },
+      value: { kind: 'percentage', value: 58.5 },
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      observed_at: '2026-09-24T00:00:00Z',
+      evidence_ids: ['ev_1234567890abcdef12345678'],
+    }],
+  };
+}
+
+function verifyRequest() {
+  const runId = 'run_verify_test_001';
+  const verifyArtifactPath =
+    'staging/automation/verify-reconcile/2026/09/24/test-run.json';
+  const verifyTypedPath =
+    'staging/automation/typed-records/VERIFY_RECONCILE/2026/09/24/run_verify_test_001/test-company-typed-record-set-v1.json';
+  const typed = sidecar() as ReturnType<typeof sidecar> & Record<string, unknown>;
+  typed.source_run_id = runId;
+  typed.source_artifact = {
+    path: verifyArtifactPath,
+    blob_sha: '',
+    lane: 'VERIFY_RECONCILE',
+  };
+  typed.extensions = { 'public_facts.v1': publicFactOutput() };
+
+  const artifact = {
+    ...sourceArtifact(),
+    lane: 'VERIFY_RECONCILE',
+    run_id: runId,
+  };
+  const artifactText = JSON.stringify(artifact);
+  const artifactBlob = gitBlobSha1(artifactText);
+  (typed.source_artifact as { blob_sha: string }).blob_sha = artifactBlob;
+  const typedText = JSON.stringify(typed);
+  const typedBlob = gitBlobSha1(typedText);
+
+  return {
+    write_authorized: true as const,
+    source: {
+      repository: 'salve-de/universal-foundation',
+      source_ref: 'main',
+      source_commit_sha: 'a'.repeat(40),
+      typed_record_set_path: verifyTypedPath,
+      typed_record_set_blob_sha: typedBlob,
+      source_artifact_path: verifyArtifactPath,
+      source_artifact_blob_sha: artifactBlob,
+    },
+    typed_record_set_text: typedText,
+    source_artifact_text: artifactText,
+  };
+}
+
 describe('typed sidecar ingest projection', () => {
   it('projects a valid typed sidecar losslessly and deterministically without collection coverage', () => {
     const firstRequest = requestFor(sidecar(), sourceArtifact());
@@ -162,6 +230,52 @@ describe('typed sidecar ingest projection', () => {
     expect(() => validateTypedProjectionBundle(prepared.bundle)).not.toThrow();
   });
 
+  it('accepts only main or the dedicated automation-research source ref', () => {
+    const inboxRequest = requestFor(sidecar(), sourceArtifact());
+    inboxRequest.source.source_ref = 'automation-research';
+    Object.assign(inboxRequest.source, {
+      receipt_path:
+        'staging/automation/receipts/discovery/2026/09/24/' +
+        '20260924T000100Z-discovery-run_discovery_test_001-receipt.json',
+      receipt_blob_sha: 'c'.repeat(40),
+    });
+    expect(() => prepareFoundationTypedIngest(inboxRequest)).not.toThrow();
+
+    const missingReceiptProof = requestFor(sidecar(), sourceArtifact());
+    missingReceiptProof.source.source_ref = 'automation-research';
+    expect(() => prepareFoundationTypedIngest(missingReceiptProof)).toThrowError(
+      FoundationTypedIngestValidationError,
+    );
+
+    const badReceiptPath = requestFor(sidecar(), sourceArtifact());
+    badReceiptPath.source.source_ref = 'automation-research';
+    Object.assign(badReceiptPath.source, {
+      receipt_path: 'staging/automation/typed-records/fake-receipt.json',
+      receipt_blob_sha: 'c'.repeat(40),
+    });
+    expect(() => prepareFoundationTypedIngest(badReceiptPath)).toThrowError(
+      FoundationTypedIngestValidationError,
+    );
+
+    for (const rejectedRef of [
+      'automation/monitor-20260925-032205',
+      'feature/untrusted-data',
+      'refs/heads/main',
+    ]) {
+      const request = requestFor(sidecar(), sourceArtifact());
+      request.source.source_ref = rejectedRef;
+      expect(() => prepareFoundationTypedIngest(request)).toThrowError(
+        FoundationTypedIngestValidationError,
+      );
+      try {
+        prepareFoundationTypedIngest(request);
+      } catch (error) {
+        expect((error as FoundationTypedIngestValidationError).reasonCode)
+          .toBe('REQUEST_INVALID');
+      }
+    }
+  });
+
   it('fails closed when the supplied sidecar bytes do not match the Git blob SHA', () => {
     const request = requestFor(sidecar(), sourceArtifact());
     request.source.typed_record_set_blob_sha = 'b'.repeat(40);
@@ -188,6 +302,52 @@ describe('typed sidecar ingest projection', () => {
     } catch (error) {
       expect((error as FoundationTypedIngestValidationError).reasonCode)
         .toBe('SOURCE_SCHEMA_INVALID');
+    }
+  });
+
+  it('accepts a schema-valid Public Fact extension only from VERIFY_RECONCILE', () => {
+    const prepared = prepareFoundationTypedIngest(verifyRequest());
+    const extensions = prepared.typedRecordSet.extensions as Record<string, unknown>;
+
+    expect(extensions['public_facts.v1']).toEqual(publicFactOutput());
+    const observations = prepared.bundle.observations as Array<Record<string, unknown>>;
+    expect(
+      (observations[0].transport_typed_record_set_v1 as Record<string, unknown>).extensions,
+    ).toEqual(extensions);
+  });
+
+  it('fails closed when public_facts.v1 is malformed', () => {
+    const request = verifyRequest();
+    const typed = JSON.parse(request.typed_record_set_text) as Record<string, unknown>;
+    ((typed.extensions as Record<string, unknown>)['public_facts.v1'] as Record<string, unknown>)
+      .producer_lane = 'DISCOVERY';
+    request.typed_record_set_text = JSON.stringify(typed);
+    request.source.typed_record_set_blob_sha = gitBlobSha1(request.typed_record_set_text);
+
+    expect(() => prepareFoundationTypedIngest(request)).toThrowError(
+      FoundationTypedIngestValidationError,
+    );
+    try {
+      prepareFoundationTypedIngest(request);
+    } catch (error) {
+      expect((error as FoundationTypedIngestValidationError).reasonCode)
+        .toBe('SOURCE_SCHEMA_INVALID');
+    }
+  });
+
+  it('rejects a valid Public Fact extension attached to a non-VERIFY source lane', () => {
+    const typed = sidecar() as ReturnType<typeof sidecar> & Record<string, unknown>;
+    typed.extensions = { 'public_facts.v1': publicFactOutput() };
+    const request = requestFor(typed as ReturnType<typeof sidecar>, sourceArtifact());
+
+    expect(() => prepareFoundationTypedIngest(request)).toThrowError(
+      FoundationTypedIngestValidationError,
+    );
+    try {
+      prepareFoundationTypedIngest(request);
+    } catch (error) {
+      expect((error as FoundationTypedIngestValidationError).reasonCode)
+        .toBe('IDENTITY_MISMATCH');
     }
   });
 });

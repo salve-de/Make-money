@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/public-fact.v1.schema.json",
+  "title": "Universal Public Fact Candidate v1",
+  "description": "A semantic, evidence-linked public-fact candidate emitted by VERIFY_RECONCILE. This record never grants publication rights by itself; downstream rights policy resolution remains mandatory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "fact_id",
+    "fact_type_id",
+    "subject_ref",
+    "target_entity_id",
+    "context",
+    "value",
+    "origin_type",
+    "verification_status",
+    "observed_at",
+    "evidence_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "public-fact.v1"
+    },
+    "fact_id": {
+      "type": "string",
+      "pattern": "^pf_[a-f0-9]{24}$"
+    },
+    "fact_type_id": {
+      "type": "string",
+      "pattern": "^fact\\.[a-z0-9][a-z0-9._-]*\\.v[0-9]+$"
+    },
+    "subject_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope_type",
+        "scope_ref",
+        "actor_relation",
+        "related_entity_id"
+      ],
+      "properties": {
+        "scope_type": {
+          "enum": [
+            "company",
+            "transaction",
+            "joint_venture",
+            "product",
+            "market",
+            "other"
+          ]
+        },
+        "scope_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "actor_relation": {
+          "enum": [
+            "direct_entity",
+            "managed_funds_or_affiliates",
+            "counterparty",
+            "issuer",
+            "owner",
+            "beneficiary",
+            "other",
+            "unknown"
+          ]
+        },
+        "related_entity_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "value": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "percentage"
+            },
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "amount",
+            "currency"
+          ],
+          "properties": {
+            "kind": {
+              "const": "money"
+            },
+            "amount": {
+              "type": "number"
+            },
+            "currency": {
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value",
+            "unit_code"
+          ],
+          "properties": {
+            "kind": {
+              "const": "number"
+            },
+            "value": {
+              "type": "number"
+            },
+            "unit_code": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "count"
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "date"
+            },
+            "value": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "value"
+          ],
+          "properties": {
+            "kind": {
+              "const": "boolean"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "origin_type": {
+      "enum": [
+        "reported",
+        "observed",
+        "estimated",
+        "inferred",
+        "unknown"
+      ]
+    },
+    "verification_status": {
+      "const": "SUPPORTED"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^ev_[a-f0-9]{24}$"
+      }
+    },
+    "qualifiers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "period_start": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "period_end": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "point_in_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "scope_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z0-9_.-]{1,48}$"
+        }
+      }
+    },
+    "target_entity_id": {
+      "type": "string",
+      "pattern": "^ent_[a-z0-9]+_[a-f0-9]{20}$",
+      "description": "Make-Money/public-view attachment target. This is distinct from context.related_entity_id."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/public-fact-output.v1.schema.json",
+  "title": "Universal Public Fact Output v1",
+  "description": "Optional VERIFY_RECONCILE semantic extension. Presence never grants publication rights.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "producer_lane",
+    "facts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "public-fact-output.v1"
+    },
+    "producer_lane": {
+      "const": "VERIFY_RECONCILE"
+    },
+    "facts": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "$ref": "public-fact.v1.schema.json"
+      }
+    }
+  }
+}

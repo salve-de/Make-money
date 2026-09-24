@@ -6,10 +6,15 @@ import { NextRequest } from 'next/server';
 import { POST as ingestTyped } from '@/app/api/foundation/ingest/typed/route';
 import { GET as getBusinesses } from '@/app/api/businesses/route';
 import { withCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
-import { gitBlobSha1 } from './typed-ingest';
+import { gitBlobSha1, prepareFoundationTypedIngest } from './typed-ingest';
 import { adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
 import type { FoundationBusinessCase } from './business-reader';
 import { UniversalIntelligenceStream } from '@/features/company-inspector';
+import {
+  materializeMakeMoneyViews,
+  readMakeMoneyViewDetail,
+  rebuildMakeMoneyViewsPage,
+} from './make-money-view';
 
 type StoredObject = {
   body: Uint8Array;
@@ -110,6 +115,7 @@ class MemoryR2 {
 const sourceRunId = 'run_discovery_typed_e2e_001';
 const subjectRef = 'case:typed-e2e-company:2026';
 const entityId = 'ent_organization_1234567890abcdef1234';
+const recordOnlyEntityId = 'ent_organization_cccccccccccccccccccc';
 const evidenceId = 'ev_1234567890abcdef12345678';
 const unresolvedEntityId = 'ent_organization_deadbeefdeadbeefdead';
 const typedPath =
@@ -422,6 +428,139 @@ async function postTyped(requestBody: ReturnType<typeof requestFor>) {
   }));
 }
 
+
+function privateCanonicalBundle(input: {
+  runId: string;
+  retrievedAt: string;
+  entityId?: string;
+}) {
+  const privateEvidenceId = 'ev_privateprivateprivateprivate';
+  const targetEntityId = input.entityId || entityId;
+  return {
+    schema_version: 'research-bundle.v1',
+    run_id: input.runId,
+    retrieved_at: input.retrievedAt,
+    sources: [{
+      source_id: 'src.private',
+      provider_name: 'Unreviewed Private Source',
+      source_type: 'secondary_reporting',
+      canonical_url: 'https://example.com/private',
+      rights_status: 'pending_review',
+      rights_policy_id: null,
+    }],
+    evidence: [{
+      evidence_id: privateEvidenceId,
+      source_id: 'src.private',
+      source_url: 'https://example.com/private',
+      source_type: 'secondary_reporting',
+      rights_status: 'pending_review',
+      rights_policy_id: null,
+    }],
+    entities: [{
+      entity_id: targetEntityId,
+      entity_type: 'organization',
+      canonical_name: 'PRIVATE ENTITY MUST NOT LEAK',
+      aliases: ['PRIVATE ALIAS MUST NOT LEAK'],
+      canonical_identifier: null,
+      domain: 'private.example',
+      status: 'active',
+      observed_at: input.retrievedAt,
+      evidence_ids: [privateEvidenceId],
+    }],
+    claims: [{
+      claim_id: 'cl_privateprivateprivateprivate',
+      entity_ids: [targetEntityId],
+      statement: 'PRIVATE CLAIM MUST NOT LEAK',
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      confidence: 1,
+      occurred_at: input.retrievedAt,
+      evidence_ids: [privateEvidenceId],
+    }],
+    metrics: [],
+    money_signals: [],
+    events: [],
+    relationships: [],
+    observations: [{
+      observation_id: 'obs_privateprivateprivatepriv',
+      observation_type: 'private.raw_observation.v1',
+      entity_id: targetEntityId,
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      observed_at: input.retrievedAt,
+      evidence_ids: [privateEvidenceId],
+      text: 'PRIVATE OBSERVATION MUST NOT LEAK',
+      payload: {
+        secret: 'PRIVATE RAW PAYLOAD MUST NOT LEAK',
+      },
+    }],
+    derived: [],
+    quality: {
+      unknowns: [],
+      conflicts: [],
+      warnings: [],
+      schema_validation: 'PASS',
+    },
+  };
+}
+
+function canonicalBundleKey(runId: string, retrievedAt: string): string {
+  const date = new Date(retrievedAt);
+  const year = String(date.getUTCFullYear()).padStart(4, '0');
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  return `datasets/ds.business.research-bundles.derived/v1/${year}/${month}/${day}/${runId}.json`;
+}
+
+function publicMaterializationBundle(input: {
+  runId: string;
+  retrievedAt: string;
+  includeEntity?: boolean;
+  observationId?: string;
+}) {
+  return {
+    schema_version: 'research-bundle.v1',
+    run_id: input.runId,
+    retrieved_at: input.retrievedAt,
+    sources: [],
+    evidence: [],
+    entities: input.includeEntity ? [{
+      entity_id: recordOnlyEntityId,
+      entity_type: 'organization',
+      canonical_name: 'Existing Public Company',
+      aliases: [],
+      canonical_identifier: null,
+      domain: 'example.com',
+      status: 'active',
+      observed_at: input.retrievedAt,
+      evidence_ids: [],
+    }] : [],
+    claims: [],
+    metrics: [],
+    money_signals: [],
+    events: [],
+    relationships: [],
+    observations: input.observationId ? [{
+      observation_id: input.observationId,
+      observation_type: 'public_fact.v1',
+      entity_id: recordOnlyEntityId,
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      observed_at: input.retrievedAt,
+      evidence_ids: [],
+      text: 'Public enrichment fact',
+      public_payload: { value: 1 },
+    }] : [],
+    derived: [],
+    quality: {
+      unknowns: [],
+      conflicts: [],
+      warnings: [],
+      schema_validation: 'PASS',
+    },
+  };
+}
+
 describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
   it('writes canonical data but holds the public view when rights are not cleared', async () => {
     const r2 = new MemoryR2();
@@ -540,7 +679,7 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
     });
   });
 
-  it('keeps the exact real SEC Starwood/Apollo sidecar held until upstream rights review is merged', async () => {
+  it('publishes the exact real SEC Starwood/Apollo sidecar after upstream rights approval', async () => {
     const request = requestForRealSecFixture();
     expect(request.source.typed_record_set_blob_sha).toBe(realSecTypedBlob);
     expect(request.source.source_artifact_blob_sha).toBe(realSecArtifactBlob);
@@ -557,8 +696,8 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(first.status).toBe(200);
       expect(firstBody.success).toBe(true);
       expect(firstBody.mapper_version).toBe('r2-queue-mapper-v6');
-      expect(firstBody.view_projection.status).toBe('RIGHTS_HELD');
-      expect(r2.keys()).not.toContain(
+      expect(firstBody.view_projection.status).toBe('PASS');
+      expect(r2.keys()).toContain(
         `views/make-money/v1/entities/${realSecApolloEntityId}.json`,
       );
 
@@ -567,7 +706,23 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
           `http://localhost/api/businesses?foundationOnly=true&entity_id=${realSecApolloEntityId}`,
         ),
       );
-      expect(detailResponse.status).toBe(404);
+      expect(detailResponse.status).toBe(200);
+      const detailBody = await detailResponse.json();
+      const detail = detailBody.data as FoundationBusinessCase;
+      expect(JSON.stringify(detail)).toContain('41.5');
+      expect(JSON.stringify(detail)).toContain('58.5');
+      expect(JSON.stringify(detail)).not.toContain('$1.02 billion');
+      expect(JSON.stringify(detail)).not.toContain('redeemable noncontrolling interest');
+
+      const uiEntity = adaptFoundationDetailToFinancialEntity(detail);
+      const uiHtml = renderToStaticMarkup(createElement(
+        UniversalIntelligenceStream,
+        { entity: uiEntity, currency: 'USD' },
+      ));
+      expect(uiHtml).toContain('41.5');
+      expect(uiHtml).toContain('58.5');
+      expect(uiHtml).not.toContain('$1.02 billion');
+      expect(uiHtml).not.toContain('redeemable noncontrolling interest');
 
       const canonicalObject = await r2.get(canonicalKeys(r2)[0]);
       expect(canonicalObject).toBeTruthy();
@@ -652,6 +807,345 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(body.terminal).toBe(true);
       expect(body.reason_code).toBe('SOURCE_SCHEMA_INVALID');
       expect(canonicalKeys(r2)).toEqual(before);
+    });
+  });
+});
+
+
+describe('public identity for record-only materialization', () => {
+  it('updates an existing public entity view from a record-only enrichment bundle', async () => {
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const seed = await materializeMakeMoneyViews(publicMaterializationBundle({
+        runId: 'run_public_identity_seed',
+        retrievedAt: '2026-09-24T10:00:00Z',
+        includeEntity: true,
+      }));
+      expect(seed.complete).toBe(true);
+      expect(seed.unresolved_entity_ids).toEqual([]);
+
+      const enrichment = await materializeMakeMoneyViews(publicMaterializationBundle({
+        runId: 'run_public_identity_enrichment',
+        retrievedAt: '2026-09-24T11:00:00Z',
+        observationId: 'obs_aaaaaaaaaaaaaaaaaaaaaaaa',
+      }));
+      expect(enrichment.complete).toBe(true);
+      expect(enrichment.unresolved_entity_ids).toEqual([]);
+
+      const detail = await readMakeMoneyViewDetail(recordOnlyEntityId);
+      expect(detail).not.toBeNull();
+      expect(detail?.name).toBe('Existing Public Company');
+      expect(detail?.observations).toEqual(expect.arrayContaining([
+        expect.objectContaining({
+          id: 'obs_aaaaaaaaaaaaaaaaaaaaaaaa',
+          kind: 'public_fact.v1',
+        }),
+      ]));
+    });
+  });
+
+  it('does not merge rights-held pending canonical history into an existing public view', async () => {
+    const r2 = new MemoryR2();
+    const privateRunId = 'run_private_pending_history_001';
+    const privateRetrievedAt = '2026-09-24T13:00:00Z';
+    const privateBundle = privateCanonicalBundle({
+      runId: privateRunId,
+      retrievedAt: privateRetrievedAt,
+      entityId: recordOnlyEntityId,
+    });
+    const privateBundleKey = canonicalBundleKey(
+      privateRunId,
+      privateRetrievedAt,
+    );
+
+    await r2.put(
+      privateBundleKey,
+      new TextEncoder().encode(`${JSON.stringify(privateBundle)}\n`),
+    );
+    await r2.put(
+      `views/make-money/v1/_unresolved-by-entity/${encodeURIComponent(recordOnlyEntityId)}/${encodeURIComponent(privateRunId)}.json`,
+      new TextEncoder().encode(JSON.stringify({
+        schema_version: 'make-money-unresolved-entity.v1',
+        entity_id: recordOnlyEntityId,
+        run_id: privateRunId,
+        bundle_key: privateBundleKey,
+        retrieved_at: privateRetrievedAt,
+        status: 'PENDING',
+        resolved_at: null,
+        updated_at: '2026-09-24T13:01:00Z',
+      })),
+    );
+
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const seed = await materializeMakeMoneyViews(publicMaterializationBundle({
+        runId: 'run_safe_public_seed',
+        retrievedAt: '2026-09-24T14:00:00Z',
+        includeEntity: true,
+      }));
+      expect(seed.complete).toBe(false);
+      expect(seed.unresolved_entity_ids).toContain(recordOnlyEntityId);
+
+      const detail = await readMakeMoneyViewDetail(recordOnlyEntityId);
+      expect(detail).not.toBeNull();
+      const serialized = JSON.stringify(detail);
+      expect(serialized).not.toContain('PRIVATE ENTITY MUST NOT LEAK');
+      expect(serialized).not.toContain('PRIVATE CLAIM MUST NOT LEAK');
+      expect(serialized).not.toContain('PRIVATE OBSERVATION MUST NOT LEAK');
+      expect(serialized).not.toContain('PRIVATE RAW PAYLOAD MUST NOT LEAK');
+
+      const unresolvedObject = await r2.get(
+        `views/make-money/v1/_unresolved-by-entity/${encodeURIComponent(recordOnlyEntityId)}/${encodeURIComponent(privateRunId)}.json`,
+      );
+      expect(unresolvedObject).toBeTruthy();
+      const unresolvedBody = unresolvedObject
+        ? new Uint8Array(await unresolvedObject.arrayBuffer())
+        : new Uint8Array();
+      expect(JSON.parse(new TextDecoder().decode(unresolvedBody)).status)
+        .toBe('PENDING');
+    });
+  });
+
+  it('keeps record-only enrichment unresolved when only private canonical identity exists', async () => {
+    const r2 = new MemoryR2();
+    await r2.put(
+      `datasets/ds.business.entities.core/v1/entities/${recordOnlyEntityId}.json`,
+      new TextEncoder().encode(JSON.stringify({
+        entity_id: recordOnlyEntityId,
+        entity_type: 'organization',
+        canonical_name: 'Private Canonical Company',
+        aliases: [],
+        canonical_identifier: null,
+        domain: 'private.example',
+        status: 'active',
+        observed_at: '2026-09-24T09:00:00Z',
+        evidence_ids: [],
+      })),
+    );
+
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const report = await materializeMakeMoneyViews(publicMaterializationBundle({
+        runId: 'run_private_identity_must_not_cross',
+        retrievedAt: '2026-09-24T12:00:00Z',
+        observationId: 'obs_bbbbbbbbbbbbbbbbbbbbbbbb',
+      }));
+
+      expect(report.complete).toBe(false);
+      expect(report.unresolved_entity_ids).toEqual([recordOnlyEntityId]);
+      expect(r2.keys()).not.toContain(
+        `views/make-money/v1/entities/${recordOnlyEntityId}.json`,
+      );
+    });
+  });
+});
+
+
+describe('rights parity across normal ingest, unresolved replay and rebuild', () => {
+  it('rebuild materializes only the current rights-approved projection from private canonical', async () => {
+    const request = requestFor('SUPPORTED', true);
+    const prepared = prepareFoundationTypedIngest(request);
+    const bundle = prepared.bundle as Record<string, unknown>;
+    const runId = String(bundle.run_id);
+    const retrievedAt = String(bundle.retrieved_at);
+    const key = canonicalBundleKey(runId, retrievedAt);
+    const r2 = new MemoryR2();
+    await r2.put(
+      key,
+      new TextEncoder().encode(`${JSON.stringify(bundle)}\n`),
+    );
+
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const report = await rebuildMakeMoneyViewsPage(5);
+      expect(report.processed_this_run).toBe(1);
+      expect(report.materialized_entities).toBe(1);
+      expect(r2.keys()).toContain(
+        `views/make-money/v1/entities/${entityId}.json`,
+      );
+
+      const detailResponse = await getBusinesses(
+        new Request(
+          `http://localhost/api/businesses?foundationOnly=true&entity_id=${entityId}`,
+        ),
+      );
+      const detail = await detailResponse.json();
+      const serialized = JSON.stringify(detail.data);
+      expect(detailResponse.status).toBe(200);
+      expect(serialized).toContain('annual revenue of $123 million');
+      expect(serialized).not.toContain('must_survive_transport');
+      expect(serialized).not.toContain('urn:test:typed-e2e:v1');
+      expect(serialized).not.toContain('DISCOVERY');
+    });
+  });
+
+  it('unresolved replay materializes an approved projection, not the private canonical bundle', async () => {
+    const request = requestFor('SUPPORTED', true);
+    const prepared = prepareFoundationTypedIngest(request);
+    const bundle = prepared.bundle as Record<string, unknown>;
+    const runId = String(bundle.run_id);
+    const retrievedAt = String(bundle.retrieved_at);
+    const bundleKey = canonicalBundleKey(runId, retrievedAt);
+    const r2 = new MemoryR2();
+
+    await r2.put(
+      bundleKey,
+      new TextEncoder().encode(`${JSON.stringify(bundle)}\n`),
+    );
+    await r2.put(
+      'views/make-money/v1/_rebuild-state.json',
+      new TextEncoder().encode(JSON.stringify({
+        schema_version: 'make-money-view-rebuild-state.v1',
+        complete: true,
+        cursor: null,
+        processed_bundles: 1,
+        updated_at: '2026-09-24T18:01:00Z',
+      })),
+    );
+    await r2.put(
+      `views/make-money/v1/_projection-progress/${encodeURIComponent(runId)}.json`,
+      new TextEncoder().encode(JSON.stringify({
+        schema_version: 'make-money-view-projection-progress.v2',
+        run_id: runId,
+        bundle_key: bundleKey,
+        retrieved_at: retrievedAt,
+        next_index: 1,
+        total_targets: 1,
+        complete: false,
+        unresolved_entity_ids: [entityId],
+        updated_at: '2026-09-24T18:01:00Z',
+      })),
+    );
+
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const report = await rebuildMakeMoneyViewsPage(5);
+      expect(report.unresolved_replayed).toBe(1);
+      expect(r2.keys()).toContain(
+        `views/make-money/v1/entities/${entityId}.json`,
+      );
+
+      const detailResponse = await getBusinesses(
+        new Request(
+          `http://localhost/api/businesses?foundationOnly=true&entity_id=${entityId}`,
+        ),
+      );
+      const detail = await detailResponse.json();
+      const serialized = JSON.stringify(detail.data);
+      expect(detailResponse.status).toBe(200);
+      expect(serialized).not.toContain('must_survive_transport');
+      expect(serialized).not.toContain('urn:test:typed-e2e:v1');
+      expect(serialized).not.toContain('DISCOVERY');
+    });
+  });
+
+
+  it('rebuild re-applies rights and never materializes a private canonical bundle', async () => {
+    const r2 = new MemoryR2();
+    const runId = 'run_private_rebuild_001';
+    const retrievedAt = '2026-09-24T16:00:00Z';
+    const bundle = privateCanonicalBundle({ runId, retrievedAt });
+    const key = canonicalBundleKey(runId, retrievedAt);
+    await r2.put(
+      key,
+      new TextEncoder().encode(`${JSON.stringify(bundle)}\n`),
+    );
+
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const report = await rebuildMakeMoneyViewsPage(5);
+
+      expect(report.processed_this_run).toBe(1);
+      expect(report.materialized_entities).toBe(0);
+      expect(r2.keys()).not.toContain(
+        `views/make-money/v1/entities/${entityId}.json`,
+      );
+
+      const publicText = r2.keys()
+        .filter((candidate) => candidate.startsWith('views/make-money/v1/entities/'))
+        .join('\n');
+      expect(publicText).not.toContain('PRIVATE');
+    });
+  });
+
+  it('unresolved replay re-applies rights and never materializes private canonical content', async () => {
+    const r2 = new MemoryR2();
+    const runId = 'run_private_unresolved_replay_001';
+    const retrievedAt = '2026-09-24T17:00:00Z';
+    const bundle = privateCanonicalBundle({ runId, retrievedAt });
+    const bundleKey = canonicalBundleKey(runId, retrievedAt);
+
+    await r2.put(
+      bundleKey,
+      new TextEncoder().encode(`${JSON.stringify(bundle)}\n`),
+    );
+    await r2.put(
+      'views/make-money/v1/_rebuild-state.json',
+      new TextEncoder().encode(JSON.stringify({
+        schema_version: 'make-money-view-rebuild-state.v1',
+        complete: true,
+        cursor: null,
+        processed_bundles: 1,
+        updated_at: '2026-09-24T17:01:00Z',
+      })),
+    );
+    await r2.put(
+      `views/make-money/v1/_projection-progress/${encodeURIComponent(runId)}.json`,
+      new TextEncoder().encode(JSON.stringify({
+        schema_version: 'make-money-view-projection-progress.v2',
+        run_id: runId,
+        bundle_key: bundleKey,
+        retrieved_at: retrievedAt,
+        next_index: 1,
+        total_targets: 1,
+        complete: false,
+        unresolved_entity_ids: [entityId],
+        updated_at: '2026-09-24T17:01:00Z',
+      })),
+    );
+
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const report = await rebuildMakeMoneyViewsPage(5);
+
+      expect(report.complete).toBe(true);
+      expect(report.unresolved_replayed).toBe(0);
+      expect(r2.keys()).not.toContain(
+        `views/make-money/v1/entities/${entityId}.json`,
+      );
+    });
+  });
+
+  it('normal typed ingest remains rights-held for the same unreviewed source class', async () => {
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const response = await postTyped(requestFor());
+      const body = await response.json();
+
+      expect(response.status).toBe(200);
+      expect(body.view_projection.status).toBe('RIGHTS_HELD');
+      expect(r2.keys()).not.toContain(
+        `views/make-money/v1/entities/${entityId}.json`,
+      );
     });
   });
 });
