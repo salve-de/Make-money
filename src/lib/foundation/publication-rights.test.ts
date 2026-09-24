@@ -152,11 +152,7 @@ describe('commercial publication rights gate', () => {
 
     const projected = buildCommercialPublicFactProjection(input);
     expect(projected.bundle).not.toBeNull();
-    const observations = projected.bundle?.observations as Array<Record<string, unknown>>;
-    expect(observations).toHaveLength(1);
-    expect(observations[0].public_payload).toEqual({
-      currency: 'USD',
-    });
+    expect(projected.bundle?.observations).toEqual([]);
 
     const serialized = JSON.stringify(projected.bundle?.observations);
     expect(serialized).not.toContain('account_number');
@@ -186,6 +182,22 @@ describe('commercial publication rights gate', () => {
     expect(serialized).not.toContain('is_private_customer');
     expect(serialized).not.toContain('customer_name');
     expect(serialized).not.toContain('Secret Customer');
+  });
+
+  it('drops a revenue Observation with a non-currency code even when amount is present', () => {
+    const input = bundle('rights.e-stat.v1');
+    const observation = input.observations[0] as unknown as Record<string, unknown>;
+    observation.payload = {
+      amount: 123000000,
+      currency: '123456789012',
+    };
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    expect(projected.bundle?.observations).toEqual([]);
+
+    const serialized = JSON.stringify(projected.bundle?.observations);
+    expect(serialized).not.toContain('123456789012');
   });
 
   it('drops an Observation when only unknown fields remain after type projection', () => {
