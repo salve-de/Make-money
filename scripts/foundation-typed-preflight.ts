@@ -311,6 +311,111 @@ export async function buildBundleProductionPreflight(bundle: unknown) {
   };
 }
 
+
+type BatchEntry = {
+  id?: unknown;
+  request?: unknown;
+  bundle?: unknown;
+};
+
+function batchEntryId(value: unknown, fallback: string): string {
+  return isObject(value) && typeof value.id === 'string' && value.id.trim()
+    ? value.id.trim()
+    : fallback;
+}
+
+function plannedStatusCounts(reports: Array<{ ok: boolean; report?: unknown }>) {
+  const counts: Record<string, number> = {};
+  for (const row of reports) {
+    const report = isObject(row.report) ? row.report : null;
+    const manifest = report && isObject(report.planned_writes) ? report.planned_writes : null;
+    const objects = manifest && Array.isArray(manifest.objects) ? manifest.objects : [];
+    for (const object of objects) {
+      if (!isObject(object)) continue;
+      const status = typeof object.preflight_status === 'string'
+        ? object.preflight_status
+        : 'NOT_CHECKED';
+      counts[status] = (counts[status] || 0) + 1;
+    }
+  }
+  return counts;
+}
+
+export async function buildBatchRemoteProductionPreflight(
+  input: unknown,
+  runners: {
+    typed?: typeof buildTypedRemoteProductionPreflight;
+    bundle?: typeof buildBundleRemoteProductionPreflight;
+  } = {},
+) {
+  if (!isObject(input)) throw new Error('batch preflight input must be an object');
+  const typedRunner = runners.typed || buildTypedRemoteProductionPreflight;
+  const bundleRunner = runners.bundle || buildBundleRemoteProductionPreflight;
+  const typedEntries = Array.isArray(input.typed_requests) ? input.typed_requests : [];
+  const legacyEntries = Array.isArray(input.legacy_bundles) ? input.legacy_bundles : [];
+
+  const typed: Array<{ id: string; ok: boolean; report?: unknown; error?: string }> = [];
+  for (const [index, entry] of typedEntries.entries()) {
+    const row = isObject(entry) ? entry as BatchEntry : {};
+    const id = batchEntryId(entry, `typed:${index}`);
+    try {
+      typed.push({
+        id,
+        ok: true,
+        report: await typedRunner(row.request as FoundationTypedIngestRequest),
+      });
+    } catch (error) {
+      typed.push({
+        id,
+        ok: false,
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
+
+  const legacy: Array<{ id: string; ok: boolean; report?: unknown; error?: string }> = [];
+  for (const [index, entry] of legacyEntries.entries()) {
+    const row = isObject(entry) ? entry as BatchEntry : {};
+    const id = batchEntryId(entry, `legacy:${index}`);
+    try {
+      legacy.push({
+        id,
+        ok: true,
+        report: await bundleRunner(row.bundle),
+      });
+    } catch (error) {
+      legacy.push({
+        id,
+        ok: false,
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
+
+  const all = [...typed, ...legacy];
+  const conflictRows = all.filter((row) => {
+    const report = isObject(row.report) ? row.report : null;
+    return report && Array.isArray(report.conflicts) && report.conflicts.length > 0;
+  });
+
+  return {
+    schema_version: 'foundation-production-batch-preflight.v1',
+    mode: 'READ_ONLY_REMOTE_R2',
+    r2_mutations: 0,
+    queue_mutations: 0,
+    typed_count: typed.length,
+    legacy_count: legacy.length,
+    typed_failed: typed.filter((row) => !row.ok).length,
+    legacy_failed: legacy.filter((row) => !row.ok).length,
+    conflict_entry_count: conflictRows.length,
+    planned_write_status_counts: plannedStatusCounts(all),
+    safe_to_write_all:
+      all.every((row) => row.ok && (!isObject(row.report) || row.report.safe_to_write !== false)),
+    typed,
+    legacy,
+  };
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const mode = args[0]?.startsWith('--') ? args[0] : '--typed';
@@ -320,10 +425,23 @@ async function main() {
     return;
   }
 
+  if (mode === '--batch-remote') {
+    const inputPath = args[1];
+    if (!inputPath) {
+      console.error('Usage: pnpm foundation:typed:preflight --batch-remote <batch-input.json>');
+      process.exitCode = 2;
+      return;
+    }
+    const input = JSON.parse(readFileSync(resolve(inputPath), 'utf8'));
+    const report = await buildBatchRemoteProductionPreflight(input);
+    process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
+    return;
+  }
+
   const inputPath = mode === '--typed' ? args[0] : args[1];
   if (!inputPath) {
     console.error(
-      'Usage: pnpm foundation:typed:preflight [--bundle|--remote|--bundle-remote] <input.json> | --view-replay',
+      'Usage: pnpm foundation:typed:preflight [--bundle|--remote|--bundle-remote|--batch-remote] <input.json> | --view-replay',
     );
     process.exitCode = 2;
     return;
