@@ -72,10 +72,17 @@ function decodeJsonObject(body: Uint8Array): Record<string, unknown> | null {
   }
 }
 
-export async function buildMakeMoneyReplayStatePreflight() {
-  const bucket = getFoundationBucket('lake');
-  const rebuildObject = await readR2Object(bucket, REBUILD_STATE_KEY);
-  const unresolvedReplayObject = await readR2Object(bucket, UNRESOLVED_REPLAY_STATE_KEY);
+export async function buildMakeMoneyReplayStatePreflight(adapters: {
+  getBucket?: () => string;
+  readObject?: typeof readR2Object;
+  listObjects?: typeof listR2Objects;
+} = {}) {
+  const getBucket = adapters.getBucket || (() => getFoundationBucket('lake'));
+  const readObject = adapters.readObject || readR2Object;
+  const listObjects = adapters.listObjects || listR2Objects;
+  const bucket = getBucket();
+  const rebuildObject = await readObject(bucket, REBUILD_STATE_KEY);
+  const unresolvedReplayObject = await readObject(bucket, UNRESOLVED_REPLAY_STATE_KEY);
   const rebuildState = rebuildObject ? decodeJsonObject(rebuildObject.body) : null;
   const unresolvedReplayState = unresolvedReplayObject
     ? decodeJsonObject(unresolvedReplayObject.body)
@@ -101,7 +108,7 @@ export async function buildMakeMoneyReplayStatePreflight() {
     unresolvedReplayState && typeof unresolvedReplayState.cursor === 'string'
       ? unresolvedReplayState.cursor
       : undefined;
-  const page = await listR2Objects({
+  const page = await listObjects({
     bucket,
     prefix: PROJECTION_PROGRESS_PREFIX,
     cursor,
@@ -110,7 +117,7 @@ export async function buildMakeMoneyReplayStatePreflight() {
 
   const progressRows: Array<Record<string, unknown>> = [];
   for (const item of page.objects.filter((candidate) => candidate.key.endsWith('.json'))) {
-    const object = await readR2Object(bucket, item.key);
+    const object = await readObject(bucket, item.key);
     if (!object) continue;
     const parsed = decodeJsonObject(object.body);
     if (parsed) progressRows.push(parsed);
