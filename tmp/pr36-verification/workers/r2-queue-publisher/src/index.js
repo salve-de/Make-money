@@ -1110,6 +1110,10 @@ async function ingestTypedSidecar(env, telemetry, prepared) {
   return serviceFetch(env, telemetry, TYPED_INGEST_PATH, prepared.request_body);
 }
 
+function isTerminalTypedIngestReject(result) {
+  return result?.response?.status === 422 && result?.payload?.terminal === true;
+}
+
 async function candidateQuarantineKey(file) {
   const identity = await sha256Hex(`${file.path}\u0000${file.sha}`);
   return `${CANDIDATE_QUARANTINE_PREFIX}${identity}.json`;
@@ -2189,7 +2193,7 @@ async function runPublisher(env, triggerTime, rotationCycleOffset = 0, queueDeli
 
       try {
         const result = await ingestTypedSidecar(env, telemetry, prepared);
-        if (result.response.status === 422 && result.payload?.terminal === true) {
+        if (isTerminalTypedIngestReject(result)) {
           const reasonCode =
             typeof result.payload?.reason_code === 'string'
               ? result.payload.reason_code
@@ -2544,6 +2548,10 @@ export const __test = {
   legacyCandidateSourceBlob,
   typedHoldKey,
   typedCompleteKey,
+  readTypedInputHold,
+  writeTypedInputHold,
+  createTelemetry,
+  isTerminalTypedIngestReject,
   parseCandidateFile,
   candidateQuarantineKey,
   normalizedJsonText,
