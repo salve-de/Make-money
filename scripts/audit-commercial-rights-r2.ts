@@ -93,7 +93,7 @@ async function listAll(bucket: string, prefix: string) {
   let cursor: string | undefined;
   for (let page = 0; page < 10000; page += 1) {
     const result = await listR2Objects({ bucket, prefix, cursor, limit: 1000 });
-    objects.push(...result.objects.map((item) => ({ key: item.key, size: item.size })));
+    objects.push(...result.objects.map((item) => ({ key: item.key, size: item.size ?? 0 })));
     if (!result.truncated || !result.cursor) return objects;
     cursor = result.cursor;
   }
