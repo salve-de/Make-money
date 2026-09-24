@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/collection-run.v1.schema.json",
+  "title": "Universal Collection Run v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lane",
+    "run_id",
+    "started_at",
+    "finished_at",
+    "contract_ref",
+    "input_snapshot",
+    "source_attempts",
+    "recorded_items",
+    "coverage_delta",
+    "audit",
+    "checkpoint",
+    "final_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "collection-run.v1"
+    },
+    "lane": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finished_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "contract_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_snapshot": {
+      "type": "object"
+    },
+    "source_attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fetch_key",
+          "result",
+          "attempted_at",
+          "retryable"
+        ],
+        "properties": {
+          "fetch_key": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "source_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "canonical_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "purpose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "attempted_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "result": {
+            "type": "string"
+          },
+          "failure_class": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "retryable": {
+            "type": "boolean"
+          },
+          "attempt_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "next_retry_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "terminal_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reused_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "volatility_class": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "unevaluatedProperties": true
+      }
+    },
+    "recorded_items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "observation_type",
+          "payload"
+        ],
+        "properties": {
+          "observation_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "payload": {},
+          "payload_schema_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "unevaluatedProperties": true
+      }
+    },
+    "coverage_delta": {
+      "type": "object"
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "audit": {
+      "type": "object"
+    },
+    "checkpoint": {
+      "type": "object"
+    },
+    "final_status": {
+      "enum": [
+        "SUCCESS",
+        "PARTIAL",
+        "FAILED",
+        "BLOCKED",
+        "NO_CHANGE"
+      ]
+    },
+    "evidence_capture_requests": {
+      "type": "array",
+      "items": {
+        "$ref": "https://github.com/salve-de/universal-foundation/schemas/foundation/evidence-capture-request.v1.schema.json"
+      }
+    },
+    "consumed_work_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^wrk_[a-f0-9]{32}$"
+      },
+      "uniqueItems": true
+    },
+    "emitted_work_items": {
+      "type": "array",
+      "items": {
+        "$ref": "https://github.com/salve-de/universal-foundation/schemas/foundation/work-item.v1.schema.json"
+      }
+    }
+  },
+  "unevaluatedProperties": true
+}

@@ -28,6 +28,7 @@ import {
   cleanMetricLabel,
   formatHumanMoney,
   cleanMoneyLabel,
+  readableObservationText,
 } from './text-cleaner';
 
 /**
@@ -561,11 +562,13 @@ export function adaptFoundationDetailToFinancialEntity(
   const observationsStream: UniversalObservation[] = [];
 
   for (const obs of observations) {
+    const readable = readableObservationText(obs.text);
+    if (!readable) continue;
     observationsStream.push({
       id: obs.id,
       category: 'MARKET_DISTORTION',
       categoryLabel: '現場観測事実',
-      text: cleanIntelligenceText(obs.text),
+      text: cleanIntelligenceText(readable),
       originType: normalizeObservationOrigin(obs.originType),
       verificationStatus: normalizeObservationStatus(obs.verificationStatus),
       observedAt: obs.observedAt || undefined,
@@ -690,7 +693,10 @@ export function adaptFoundationDetailToFinancialEntity(
 
   // 9. 一言急所と概要（サニタイズ適用）
   const firstClaim = claims.find(hasSupportedEvidence)?.statement ? cleanIntelligenceText(claims.find(hasSupportedEvidence)!.statement) : '';
-  const firstObs = observations.find(hasSupportedEvidence)?.text ? cleanIntelligenceText(observations.find(hasSupportedEvidence)!.text) : '';
+  const firstSupportedObservation = observations.find(hasSupportedEvidence);
+  const firstObs = firstSupportedObservation
+    ? cleanIntelligenceText(readableObservationText(firstSupportedObservation.text) || '')
+    : '';
   let tagline = firstClaim || firstObs || `${entity.name}の事業モデル・公開情報観測データ`;
   if (/^創業者・運営者:/.test(tagline) && claims[2]?.statement) {
     tagline = cleanIntelligenceText(claims[2].statement);

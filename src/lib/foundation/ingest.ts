@@ -617,7 +617,14 @@ function validateDerived(records: JsonObject[], issues: string[]): void {
   });
 }
 
-export function validateResearchBundle(input: unknown): ResearchBundle {
+interface FoundationBundleValidationOptions {
+  makeMoneyCoverage?: 'REQUIRED' | 'UNASSESSED_TYPED_PROJECTION';
+}
+
+function validateResearchBundleWithOptions(
+  input: unknown,
+  options: FoundationBundleValidationOptions = {},
+): ResearchBundle {
   const issues: string[] = [];
   if (!isObject(input)) {
     throw new FoundationBundleValidationError(['bundle must be a JSON object']);
@@ -691,9 +698,24 @@ export function validateResearchBundle(input: unknown): ResearchBundle {
     throw new FoundationBundleValidationError(issues);
   }
 
-  if (input.purpose === 'make_money') assessCoverage(input);
+  if (
+    input.purpose === 'make_money' &&
+    options.makeMoneyCoverage !== 'UNASSESSED_TYPED_PROJECTION'
+  ) {
+    assessCoverage(input);
+  }
 
   return input as ResearchBundle;
+}
+
+export function validateResearchBundle(input: unknown): ResearchBundle {
+  return validateResearchBundleWithOptions(input);
+}
+
+export function validateTypedProjectionBundle(input: unknown): ResearchBundle {
+  return validateResearchBundleWithOptions(input, {
+    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+  });
 }
 
 function dateParts(value: string): { year: string; month: string; day: string } {
@@ -1645,14 +1667,15 @@ export async function prepareFoundationResearch(bundleInput: unknown, rawInput?:
   return buildPlannedWrites(await buildPlan(bundle, raw), bundle.run_id, false);
 }
 
-export async function ingestFoundationResearch(
-  request: FoundationIngestRequest
+async function ingestFoundationResearchWithOptions(
+  request: FoundationIngestRequest,
+  options: FoundationBundleValidationOptions,
 ): Promise<FoundationIngestReport> {
   if (!isObject(request) || request.write_authorized !== true) {
     throw new FoundationIngestAuthorizationError();
   }
 
-  const bundle = validateResearchBundle(request.bundle);
+  const bundle = validateResearchBundleWithOptions(request.bundle, options);
   const rawEvidence = parseRawEvidence(request.raw_evidence, bundle);
   const plan = await buildPlan(bundle, rawEvidence);
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
@@ -1863,4 +1886,18 @@ export async function ingestFoundationResearch(
       bucket_or_config: 0,
     },
   };
+}
+
+export async function ingestFoundationResearch(
+  request: FoundationIngestRequest
+): Promise<FoundationIngestReport> {
+  return ingestFoundationResearchWithOptions(request, {});
+}
+
+export async function ingestFoundationTypedProjection(
+  request: FoundationIngestRequest
+): Promise<FoundationIngestReport> {
+  return ingestFoundationResearchWithOptions(request, {
+    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+  });
 }

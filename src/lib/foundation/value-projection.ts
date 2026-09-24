@@ -13,6 +13,7 @@ import {
   cleanIntelligenceText,
   cleanMetricLabel,
   formatHumanMoney,
+  readableObservationText,
 } from './text-cleaner';
 
 /**
@@ -296,13 +297,18 @@ function textRecords(
       originType: item.originType,
       date: item.occurredAt,
     })),
-    ...observations.map((item) => ({
-      text: item.text,
-      evidenceIds: item.evidenceIds,
-      verificationStatus: item.verificationStatus,
-      originType: item.originType,
-      date: item.observedAt,
-    })),
+    ...observations.flatMap((item) => {
+      const text = readableObservationText(item.text);
+      return text
+        ? [{
+            text,
+            evidenceIds: item.evidenceIds,
+            verificationStatus: item.verificationStatus,
+            originType: item.originType,
+            date: item.observedAt,
+          }]
+        : [];
+    }),
     ...events.map((item) => ({
       text: item.description,
       evidenceIds: item.evidenceIds,

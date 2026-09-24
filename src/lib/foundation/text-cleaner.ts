@@ -304,6 +304,24 @@ const TERM_TRANSLATIONS: Array<[RegExp, string]> = [
 /**
  * 英語のメトリクスキーを直感的な日本語ラベルへ変換
  */
+export function readableObservationText(text: string | null | undefined): string | null {
+  if (!text) return null;
+  const trimmed = text.trim();
+  if (!trimmed) return null;
+  if (!trimmed.startsWith('{') && !trimmed.startsWith('[')) return trimmed;
+
+  try {
+    const parsed = JSON.parse(trimmed) as unknown;
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+    const payload = (parsed as Record<string, unknown>).payload;
+    if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return null;
+    const summary = (payload as Record<string, unknown>).summary;
+    return typeof summary === 'string' && summary.trim() ? summary.trim() : null;
+  } catch {
+    return null;
+  }
+}
+
 export function cleanMetricLabel(metricType: string): string {
   const normalized = metricType.toLowerCase().trim();
   if (METRIC_LABELS[normalized]) return METRIC_LABELS[normalized];

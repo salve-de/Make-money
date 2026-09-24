@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/work-item.v1.schema.json",
+  "title": "Collection Work Item v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "work_id",
+    "work_fingerprint",
+    "recommended_lane",
+    "subject_ref",
+    "objective_type",
+    "objective",
+    "rule_version",
+    "input_watermark",
+    "created_at",
+    "priority",
+    "selection_reason"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "collection-work-item.v1"
+    },
+    "work_id": {
+      "type": "string",
+      "pattern": "^wrk_[a-f0-9]{32}$"
+    },
+    "work_fingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "recommended_lane": {
+      "enum": [
+        "DISCOVERY",
+        "BACKFILL",
+        "MONITOR",
+        "VERIFY_RECONCILE",
+        "SOURCE_DISCOVERY",
+        "EVOLVE"
+      ]
+    },
+    "subject_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "object",
+      "unevaluatedProperties": true
+    },
+    "rule_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_watermark": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "not_before": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "priority": {
+      "type": "number"
+    },
+    "selection_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "freshness_requirement": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "originating_run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "depends_on_work_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^wrk_[a-f0-9]{32}$"
+      }
+    }
+  }
+}

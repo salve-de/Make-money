@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/typed-record-set.v1.schema.json",
+  "title": "Universal Typed Record Set v1",
+  "description": "Semantic sidecar emitted from a collection run. It is the collection meaning authority; research-bundle.v1 is only the current compatible transport projection. Preserve future semantics in observations or namespaced extensions, and version the sidecar when a recurring record family cannot be represented without loss.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_run_id",
+    "source_artifact",
+    "purpose",
+    "subject_ref",
+    "subject",
+    "provenance",
+    "sources",
+    "evidence",
+    "entities",
+    "claims",
+    "metrics",
+    "money_signals",
+    "events",
+    "relationships",
+    "observations",
+    "quality"
+  ],
+  "properties": {
+    "schema_version": { "const": "typed-record-set.v1" },
+    "source_run_id": { "type": "string", "minLength": 1 },
+    "source_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "blob_sha", "lane"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "blob_sha": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "lane": { "type": "string", "minLength": 1 }
+      }
+    },
+    "purpose": {
+      "type": "string",
+      "enum": ["make_money", "idea_spark", "goldmine", "investrader", "general_research", "future_product"]
+    },
+    "subject_ref": { "type": "string", "minLength": 1 },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query"],
+      "properties": {
+        "query": { "type": "string", "minLength": 1 },
+        "candidate_name": { "type": ["string", "null"] },
+        "candidate_domain": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["retrieved_at", "recorded_at", "collection_channel", "agent"],
+      "properties": {
+        "retrieved_at": { "type": "string", "format": "date-time" },
+        "recorded_at": { "type": "string", "format": "date-time" },
+        "collection_channel": { "type": "string", "minLength": 1 },
+        "agent": { "$ref": "research-bundle.v1.schema.json#/properties/agent" },
+        "rights_reviewed_at": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "sources": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/source" } },
+    "evidence": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/evidence" } },
+    "entities": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/entity" } },
+    "claims": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/claim" } },
+    "metrics": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/metric" } },
+    "money_signals": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/moneySignal" } },
+    "events": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/event" } },
+    "relationships": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/relationship" } },
+    "derived": { "type": "array", "items": { "$ref": "research-bundle.v1.schema.json#/$defs/derived" } },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["observation_id", "observation_type", "origin_type", "verification_status", "observed_at", "payload"],
+        "properties": {
+          "observation_id": { "type": "string", "pattern": "^obs_[a-f0-9]{24}$" },
+          "observation_type": { "type": "string", "minLength": 1 },
+          "origin_type": { "$ref": "research-bundle.v1.schema.json#/$defs/originType" },
+          "verification_status": { "$ref": "research-bundle.v1.schema.json#/$defs/verificationStatus" },
+          "observed_at": { "type": "string", "format": "date-time" },
+          "collection_channel": { "type": ["string", "null"] },
+          "observer": { "type": ["string", "null"] },
+          "evidence_ids": { "type": "array", "items": { "type": "string" } },
+          "payload_schema_ref": { "type": ["string", "null"] },
+          "payload": {}
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mapping_status", "unknowns", "conflicts", "warnings"],
+      "properties": {
+        "mapping_status": { "enum": ["READY_FOR_BUNDLE_V1", "REQUIRES_BUNDLE_V2", "PARTIAL", "BLOCKED"] },
+        "unknowns": { "type": "array", "items": { "type": "object" } },
+        "conflicts": { "type": "array", "items": { "type": "object" } },
+        "warnings": { "type": "array", "items": { "type": "string" } },
+        "schema_validation": { "enum": ["PASS", "FAIL", "NOT_RUN"] }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced future fields. Adding an extension must not reinterpret an existing field.",
+      "additionalProperties": true
+    }
+  }
+}
