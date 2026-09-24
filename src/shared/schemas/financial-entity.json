@@ -1127,6 +1127,16 @@
         "author": {
           "type": "string"
         },
+        "observationType": {
+          "type": "string"
+        },
+        "payloadSchemaRef": {
+          "type": "string"
+        },
+        "observer": {
+          "type": "string"
+        },
+        "payload": {},
         "sourceClass": {
           "$ref": "#/definitions/SourceClass"
         },
