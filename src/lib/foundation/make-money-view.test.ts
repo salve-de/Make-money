@@ -28,6 +28,7 @@ describe('serving page guard', () => {
   });
 });
 
+
 describe('bounded serving-view reads', () => {
   it('reads every row in order with at most two remote reads in flight', async () => {
     let active = 0; let peak = 0;

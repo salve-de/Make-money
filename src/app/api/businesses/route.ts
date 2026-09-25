@@ -43,6 +43,7 @@ const MAX_R2_CURSOR_LENGTH = 2048;
 const FOUNDATION_SEARCH_OBJECT_PAGE_SIZE = 100;
 const FOUNDATION_VIEW_PREFIX = 'views/make-money/v1/entities/';
 const FOUNDATION_READ_RETRY_DELAY_MS = 150;
+const FOUNDATION_LIST_PAGE_LIMIT = 12;
 
 type CacheEntry<T> = {
   expiresAt: number;
@@ -469,6 +470,7 @@ export async function GET(request: Request) {
   if (cursor && cursor.length > MAX_R2_CURSOR_LENGTH) {
     return response({ error: 'Invalid cursor' }, 400);
   }
+  const foundationListLimit = foundationOnly ? Math.min(limit, FOUNDATION_LIST_PAGE_LIMIT) : limit;
   const foundationQuery = (url.searchParams.get('q') || '').trim();
   if (foundationQuery.length > 200) {
     return response({ error: 'Invalid foundation query' }, 400);
@@ -480,7 +482,7 @@ export async function GET(request: Request) {
       const searchPage = await readFoundationSearchPage({
         query: foundationQuery,
         cursor: searchCursor,
-        limit,
+        limit: foundationListLimit,
       });
       return response({
         source: 'foundation_lake',
@@ -503,7 +505,7 @@ export async function GET(request: Request) {
     // Do not retain catalog pages in a Worker isolate. A long browser scroll
     // should release every page after its response; R2 range reads are cheap
     // enough that reliability is more important than a first-page cache hit.
-    const page = await retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }));
+    const page = await retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit: foundationListLimit }));
     assertMakeMoneyValuePage(page);
 
     // The product view is already a FoundationValuePage. Use FinancialEntity
