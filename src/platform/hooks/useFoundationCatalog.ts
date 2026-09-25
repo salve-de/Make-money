@@ -443,6 +443,15 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     };
   }, [loadFoundationPage]);
 
+  const foundationEntityIds = useMemo(
+    () => new Set(foundationRows.map((row) => row.id.toLowerCase())),
+    [foundationRows],
+  );
+  const curatedEntityIds = useMemo(
+    () => new Set(coreEntities.map((entity) => entity.id.toLowerCase())),
+    [coreEntities],
+  );
+
   // オンデマンド詳細読み込み関数
   const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return;
@@ -451,8 +460,13 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     const hashParam = latestDossierHash
       ? `&dossier_hash=${encodeURIComponent(latestDossierHash)}`
       : '';
+    const normalizedTargetId = targetId.toLowerCase();
+    const foundationOnlyParam =
+      foundationEntityIds.has(normalizedTargetId) && !curatedEntityIds.has(normalizedTargetId)
+        ? '&foundationOnly=true'
+        : '';
 
-    void fetch(`/api/businesses?entity_id=${encodeURIComponent(targetId)}${hashParam}`)
+    void fetch(`/api/businesses?entity_id=${encodeURIComponent(targetId)}${hashParam}${foundationOnlyParam}`)
       .then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: unknown = await res.json();
@@ -477,7 +491,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
       .finally(() => {
         detailFetchInProgress.current.delete(targetId);
       });
-  }, [detailedEntities]);
+  }, [curatedEntityIds, detailedEntities, foundationEntityIds]);
 
   return {
     entities,
