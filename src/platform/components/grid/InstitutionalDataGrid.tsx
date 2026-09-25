@@ -7,8 +7,8 @@ import { Bookmark } from 'lucide-react';
 
 const PAGE_SIZE = 250;
 
-export function shouldLoadMoreGridPage(visibleCount: number, entityCount: number, hasMore: boolean): boolean {
-  return visibleCount >= entityCount && hasMore;
+export function shouldLoadMoreGridPage(visibleCount: number, entityCount: number, hasMore: boolean, retryAvailable = false): boolean {
+  return visibleCount >= entityCount && hasMore && !retryAvailable;
 }
 
 export function shouldRenderGridContinuation(visibleCount: number, entityCount: number, hasMore: boolean): boolean {
@@ -71,7 +71,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting && !isLoadingMore) {
-          if (shouldLoadMoreGridPage(visibleCount, entities.length, hasMore) && onLoadMore) {
+          if (shouldLoadMoreGridPage(visibleCount, entities.length, hasMore, retryAvailable) && onLoadMore) {
             onLoadMore();
             return;
           }
