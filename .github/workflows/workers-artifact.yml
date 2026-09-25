@@ -1,0 +1,65 @@
+name: Workers artifact
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Exact main commit to build
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Require exact current main SHA
+        env:
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          test "$DEFAULT_BRANCH" = "main"
+          test "$SOURCE_SHA" = "4154c3d5d433f6e962b08d21572efa847f8aea8b"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 1
+
+      - name: Verify checked out source
+        env:
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm bundle:workers
+
+      - name: Write artifact provenance
+        env:
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          test -f .open-next/worker.js
+          test -d .open-next/assets
+          test -n "$(find .open-next/assets -type f -print -quit)"
+          printf '%s\n' "$SOURCE_SHA" > .open-next/SOURCE_SHA
+          sha256sum .open-next/worker.js > .open-next/worker.js.sha256
+          cat .open-next/SOURCE_SHA
+          cat .open-next/worker.js.sha256
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: open-next-4154c3d5
+          path: .open-next/
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 1
