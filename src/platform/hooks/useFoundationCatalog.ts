@@ -366,8 +366,13 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     }
     foundationRequestedCursors.current.add(cursor);
     void loadFoundationPage(cursor).catch((error) => {
-      setFoundationHasMore(false);
-      setDataSource('保存済み台帳（追加取得に失敗）');
+      // A cursor is consumed only after a successful page response. Transient
+      // Worker/R2 failures (including CPU 1102 surfaced as HTTP failure) must
+      // leave the same continuation retryable instead of permanently stopping
+      // the Foundation stream at that page.
+      foundationRequestedCursors.current.delete(cursor);
+      setFoundationHasMore(true);
+      setDataSource('保存済み台帳（追加取得に失敗 / 再試行可能）');
       console.warn('[TerminalShell] Additional Foundation page failed:', error);
     });
   }, [foundationNextCursor, loadFoundationPage]);
