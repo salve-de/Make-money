@@ -8,15 +8,55 @@ import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-sch
 import { isPublishableEntity } from './public-entity';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { DiscoveryDataset } from '@/features/discover';
-import { compileParser } from '@/shared/validate-json';
-import discoverySchema from './schemas/discovery-dataset.json';
 
-const parseDiscovery = compileParser<DiscoveryDataset>(discoverySchema, 'DiscoveryDataset');
+function isDiscoveryCase(value: unknown): boolean {
+  if (!isRecord(value)) return false;
+  return typeof value.id === 'string' && value.id.length > 0
+    && typeof value.name === 'string' && value.name.length > 0
+    && typeof value.tagline === 'string'
+    && typeof value.sector === 'string'
+    && typeof value.resultLabel === 'string'
+    && typeof value.resultValue === 'string'
+    && (value.resultAmountJpy === null || typeof value.resultAmountJpy === 'number')
+    && typeof value.startLine === 'string'
+    && typeof value.criticalInsight === 'string'
+    && typeof value.whyMoneyMoved === 'string'
+    && typeof value.leverage === 'string'
+    && isRecord(value.mechanism)
+    && typeof value.mechanism.id === 'string'
+    && typeof value.mechanism.label === 'string'
+    && typeof value.mechanismCount === 'number'
+    && typeof value.currentLabel === 'string'
+    && typeof value.currentDetail === 'string'
+    && ['isCurrent', 'isFailure', 'isSolo', 'lowCapital', 'lowWork'].every((key) => typeof value[key] === 'boolean')
+    && typeof value.evidenceCount === 'number'
+    && Array.isArray(value.descriptors)
+    && Array.isArray(value.related)
+    && isRecord(value.scores);
+}
+
+export function parseDiscoveryRelease(value: unknown): DiscoveryDataset {
+  if (!isRecord(value)
+    || !Number.isInteger(value.sourceCount) || Number(value.sourceCount) < 0
+    || !Number.isInteger(value.visibleCount) || Number(value.visibleCount) < 0
+    || !Array.isArray(value.cases) || !value.cases.every(isDiscoveryCase)
+    || Number(value.visibleCount) !== value.cases.length
+    || !Array.isArray(value.mechanisms)
+    || !value.mechanisms.every((item) => isRecord(item)
+      && typeof item.id === 'string'
+      && typeof item.label === 'string'
+      && Number.isInteger(item.count) && Number(item.count) >= 0)
+    || !Array.isArray(value.highlights) || !value.highlights.every(isDiscoveryCase)) {
+    throw new Error('Invalid discovery release');
+  }
+  return value as unknown as DiscoveryDataset;
+}
+
 let discovery: Promise<DiscoveryDataset> | undefined;
 export async function readReleaseDiscovery(): Promise<DiscoveryDataset> {
   if (!discovery) {
     discovery = readArtifact(manifest.discovery.key, manifest.discovery.hash)
-      .then((value) => parseDiscovery(value))
+      .then(parseDiscoveryRelease)
       .catch((error) => { discovery = undefined; throw error; });
   }
   return discovery;
