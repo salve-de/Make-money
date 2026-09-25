@@ -505,8 +505,11 @@ export async function GET(request: Request) {
     // rights-gated rows may be served. On continuation pages avoid the extra
     // rebuild-state R2 read/parse; the first page still reports the exact state.
     const materializedViewReady = cursor
-      ? true
+      ? null
       : await retryFoundationRead(() => isMakeMoneyViewBackfillComplete());
+    const projection = materializedViewReady === false
+      ? 'make-money.v1-backfill-in-progress'
+      : 'make-money.v1';
     // Do not retain catalog pages in a Worker isolate. A long browser scroll
     // should release every page after its response; R2 range reads are cheap
     // enough that reliability is more important than a first-page cache hit.
@@ -530,7 +533,7 @@ export async function GET(request: Request) {
           .map(publicSummaryEntity);
         return response({
           source: 'foundation_lake',
-          projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
+          projection,
           count: summaries.length,
           data: publicFoundationData(summaries),
           nextCursor: page.nextCursor,
@@ -540,7 +543,7 @@ export async function GET(request: Request) {
 
       return response({
         source: 'foundation_lake',
-        projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
+        projection,
         count: publishableSummaries.length,
         data: publicFoundationData(publishableSummaries),
         nextCursor: page.nextCursor,
