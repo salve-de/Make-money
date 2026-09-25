@@ -16,7 +16,8 @@ export function businessDetailRequestUrls(input: BusinessDetailRequestInput): st
   if (input.knownFoundation) return [foundationOnly];
 
   // A deep link can run before either catalog has loaded. Try the cheap
-  // Foundation path first; only a definitive 404 may fall through to curated.
+  // Foundation path first; if Foundation is absent or unavailable in this
+  // environment, allow one normal lookup so curated deep links still resolve.
   return [foundationOnly, normal];
 }
 
@@ -26,9 +27,13 @@ export async function fetchBusinessDetailResponse(
 ): Promise<Response> {
   const urls = businessDetailRequestUrls(input);
   let response: Response | null = null;
-  for (const url of urls) {
-    response = await fetcher(url);
-    if (response.ok || response.status !== 404) return response;
+  for (let index = 0; index < urls.length; index += 1) {
+    response = await fetcher(urls[index]);
+    if (response.ok) return response;
+    const mayTryNormalFallback =
+      index + 1 < urls.length &&
+      (response.status === 404 || response.status === 503);
+    if (!mayTryNormalFallback) return response;
   }
   if (!response) throw new Error('Business detail request plan was empty');
   return response;
