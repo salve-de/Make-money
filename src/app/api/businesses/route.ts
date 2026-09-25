@@ -486,7 +486,7 @@ export async function GET(request: Request) {
       });
       return response({
         source: 'foundation_lake',
-        projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
+        projection: cursor || materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
         count: searchPage.data.length,
         total: searchPage.total,
         searchComplete: searchPage.complete,
