@@ -49,6 +49,8 @@ jobs:
           SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           test -f .open-next/worker.js
+          test -d .open-next/assets
+          test -n "$(find .open-next/assets -type f -print -quit)"
           printf '%s\n' "$SOURCE_SHA" > .open-next/SOURCE_SHA
           sha256sum .open-next/worker.js > .open-next/worker.js.sha256
           cat .open-next/SOURCE_SHA
