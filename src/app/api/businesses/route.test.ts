@@ -6,6 +6,9 @@ const mocks = vi.hoisted(() => ({
   viewReady: vi.fn(),
   readThroughDetail: vi.fn(),
   dossierReady: vi.fn(),
+  parseBusinessCase: vi.fn((value: unknown) => value),
+  adaptDetail: vi.fn((value: unknown) => value),
+  computeHash: vi.fn(() => 'hash'),
   curatedFind: vi.fn(),
   curatedList: vi.fn(),
 }));
@@ -17,7 +20,7 @@ vi.mock('@/lib/foundation/make-money-view', () => ({
 }));
 
 vi.mock('@/lib/foundation/schema', () => ({
-  parseFoundationBusinessCase: (value: unknown) => value,
+  parseFoundationBusinessCase: mocks.parseBusinessCase,
   parseFoundationValuePage: (value: unknown) => value,
 }));
 
@@ -33,7 +36,7 @@ vi.mock('@/lib/company-access/public-entity', async (importOriginal) => {
 });
 
 vi.mock('@/lib/foundation/foundation-adapter', () => ({
-  adaptFoundationDetailToFinancialEntity: (value: unknown) => value,
+  adaptFoundationDetailToFinancialEntity: mocks.adaptDetail,
   adaptFoundationSummaryToFinancialEntity: (value: unknown) => value,
   isFoundationDossierReady: mocks.dossierReady,
 }));
@@ -56,7 +59,7 @@ vi.mock('@/lib/foundation/immutable-dossier-pipeline', () => ({
 }));
 
 vi.mock('@/lib/foundation/dossier-projection', () => ({
-  computeDossierContentHash: () => 'hash',
+  computeDossierContentHash: mocks.computeHash,
   getDossierStoragePath: () => 'path',
 }));
 
@@ -110,6 +113,12 @@ describe('Foundation detail public Observation wire boundary', () => {
     mocks.readThroughDetail.mockReset();
     mocks.dossierReady.mockReset();
     mocks.dossierReady.mockReturnValue(false);
+    mocks.parseBusinessCase.mockReset();
+    mocks.parseBusinessCase.mockImplementation((value: unknown) => value);
+    mocks.adaptDetail.mockReset();
+    mocks.adaptDetail.mockImplementation((value: unknown) => value);
+    mocks.computeHash.mockReset();
+    mocks.computeHash.mockReturnValue('hash');
     mocks.curatedFind.mockReset();
     mocks.curatedFind.mockResolvedValue(null);
     mocks.curatedList.mockReset();
@@ -233,6 +242,12 @@ describe('Foundation detail CPU boundary', () => {
     mocks.readThroughDetail.mockReset();
     mocks.dossierReady.mockReset();
     mocks.dossierReady.mockReturnValue(false);
+    mocks.parseBusinessCase.mockReset();
+    mocks.parseBusinessCase.mockImplementation((value: unknown) => value);
+    mocks.adaptDetail.mockReset();
+    mocks.adaptDetail.mockImplementation((value: unknown) => value);
+    mocks.computeHash.mockReset();
+    mocks.computeHash.mockReturnValue('hash');
     mocks.curatedFind.mockReset();
     mocks.curatedFind.mockResolvedValue(null);
     mocks.curatedList.mockReset();
@@ -291,6 +306,77 @@ describe('Foundation detail CPU boundary', () => {
     expect(response.status).toBe(503);
     expect(mocks.curatedFind).not.toHaveBeenCalled();
     expect(mocks.curatedList).not.toHaveBeenCalled();
+  });
+
+  it('falls back to curated once when normal detail parsing throws', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_parse_failure'));
+    mocks.parseBusinessCase.mockImplementationOnce(() => {
+      throw new Error('invalid Foundation projection');
+    });
+    mocks.curatedFind.mockResolvedValue({
+      id: 'ent_parse_failure',
+      name: 'Curated Parse Fallback',
+      latestDossierHash: 'b'.repeat(64),
+      sourceRevision: 2,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?entity_id=ent_parse_failure'
+    ));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('local_fallback');
+    expect(mocks.curatedFind).toHaveBeenCalledTimes(1);
+  });
+
+  it('returns 503 on foundationOnly parsing failure without curated fallback', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_parse_failure_only'));
+    mocks.parseBusinessCase.mockImplementationOnce(() => {
+      throw new Error('invalid Foundation projection');
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_parse_failure_only'
+    ));
+
+    expect(response.status).toBe(503);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+  });
+
+  it('falls back to curated once when ready Foundation response generation throws', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_hash_failure'));
+    mocks.dossierReady.mockReturnValue(true);
+    mocks.computeHash.mockImplementationOnce(() => {
+      throw new Error('hash generation failure');
+    });
+    mocks.curatedFind.mockResolvedValue({
+      id: 'ent_hash_failure',
+      name: 'Curated Hash Fallback',
+      latestDossierHash: 'c'.repeat(64),
+      sourceRevision: 3,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?entity_id=ent_hash_failure'
+    ));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('local_fallback');
+    expect(mocks.curatedFind).toHaveBeenCalledTimes(1);
+  });
+
+  it('returns 503 on foundationOnly response-generation failure without curated fallback', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_hash_failure_only'));
+    mocks.computeHash.mockImplementationOnce(() => {
+      throw new Error('hash generation failure');
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_hash_failure_only'
+    ));
+
+    expect(response.status).toBe(503);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
   });
 
   it('skips curated lookup when Foundation dossier is already ready', async () => {
