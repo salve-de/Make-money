@@ -5,6 +5,12 @@ const mocks = vi.hoisted(() => ({
   readObject: vi.fn(),
   viewReady: vi.fn(),
   readThroughDetail: vi.fn(),
+  dossierReady: vi.fn(),
+  parseBusinessCase: vi.fn((value: unknown) => value),
+  adaptDetail: vi.fn((value: unknown) => value),
+  computeHash: vi.fn(() => 'hash'),
+  curatedFind: vi.fn(),
+  curatedList: vi.fn(),
 }));
 
 vi.mock('@/lib/foundation/make-money-view', () => ({
@@ -14,7 +20,7 @@ vi.mock('@/lib/foundation/make-money-view', () => ({
 }));
 
 vi.mock('@/lib/foundation/schema', () => ({
-  parseFoundationBusinessCase: (value: unknown) => value,
+  parseFoundationBusinessCase: mocks.parseBusinessCase,
   parseFoundationValuePage: (value: unknown) => value,
 }));
 
@@ -30,14 +36,14 @@ vi.mock('@/lib/company-access/public-entity', async (importOriginal) => {
 });
 
 vi.mock('@/lib/foundation/foundation-adapter', () => ({
-  adaptFoundationDetailToFinancialEntity: (value: unknown) => value,
+  adaptFoundationDetailToFinancialEntity: mocks.adaptDetail,
   adaptFoundationSummaryToFinancialEntity: (value: unknown) => value,
-  isFoundationDossierReady: () => false,
+  isFoundationDossierReady: mocks.dossierReady,
 }));
 
 vi.mock('@/lib/company-access/local-entity-index', () => ({
-  findCachedPublishableEntity: vi.fn(),
-  readCachedLocalPublishableEntities: vi.fn(),
+  findCachedPublishableEntity: mocks.curatedFind,
+  readCachedLocalPublishableEntities: mocks.curatedList,
 }));
 
 vi.mock('@/lib/foundation/business-reader', () => ({
@@ -53,7 +59,7 @@ vi.mock('@/lib/foundation/immutable-dossier-pipeline', () => ({
 }));
 
 vi.mock('@/lib/foundation/dossier-projection', () => ({
-  computeDossierContentHash: () => 'hash',
+  computeDossierContentHash: mocks.computeHash,
   getDossierStoragePath: () => 'path',
 }));
 
@@ -105,6 +111,18 @@ describe('Foundation detail public Observation wire boundary', () => {
     mocks.listObjects.mockReset();
     mocks.readObject.mockReset();
     mocks.readThroughDetail.mockReset();
+    mocks.dossierReady.mockReset();
+    mocks.dossierReady.mockReturnValue(false);
+    mocks.parseBusinessCase.mockReset();
+    mocks.parseBusinessCase.mockImplementation((value: unknown) => value);
+    mocks.adaptDetail.mockReset();
+    mocks.adaptDetail.mockImplementation((value: unknown) => value);
+    mocks.computeHash.mockReset();
+    mocks.computeHash.mockReturnValue('hash');
+    mocks.curatedFind.mockReset();
+    mocks.curatedFind.mockResolvedValue(null);
+    mocks.curatedList.mockReset();
+    mocks.curatedList.mockResolvedValue([]);
   });
 
   function detailWithObservation(entityId: string, observation: Record<string, unknown>) {
@@ -216,6 +234,197 @@ describe('Foundation detail public Observation wire boundary', () => {
     expect(response.status).toBe(200);
     expect(body.data.observations[0].text).toBe('Public text survives');
     expect(body.data.observations[0]).not.toHaveProperty('publicPayload');
+  });
+});
+
+describe('Foundation detail CPU boundary', () => {
+  beforeEach(() => {
+    mocks.readThroughDetail.mockReset();
+    mocks.dossierReady.mockReset();
+    mocks.dossierReady.mockReturnValue(false);
+    mocks.parseBusinessCase.mockReset();
+    mocks.parseBusinessCase.mockImplementation((value: unknown) => value);
+    mocks.adaptDetail.mockReset();
+    mocks.adaptDetail.mockImplementation((value: unknown) => value);
+    mocks.computeHash.mockReset();
+    mocks.computeHash.mockReturnValue('hash');
+    mocks.curatedFind.mockReset();
+    mocks.curatedFind.mockResolvedValue(null);
+    mocks.curatedList.mockReset();
+    mocks.curatedList.mockResolvedValue([]);
+  });
+
+  function businessCase(id: string, name = 'Foundation Company') {
+    return {
+      ...summary(id, name),
+      claims: [],
+      metrics: [],
+      moneySignals: [],
+      events: [],
+      relationships: [],
+      observations: [],
+      derived: [],
+      bundlesScanned: 1,
+      bundleObjectsListed: 1,
+      bundleScanComplete: true,
+    };
+  }
+
+  it('serves foundationOnly detail without touching curated lookup', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_foundation_only'));
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_foundation_only'
+    ));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.source).toBe('foundation_lake');
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+    expect(mocks.curatedList).not.toHaveBeenCalled();
+  });
+
+  it('returns 404 for missing foundationOnly detail without loading curated fallback', async () => {
+    mocks.readThroughDetail.mockResolvedValue(null);
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_missing'
+    ));
+
+    expect(response.status).toBe(404);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+    expect(mocks.curatedList).not.toHaveBeenCalled();
+  });
+
+  it('returns 503 on foundationOnly R2 failure without touching curated fallback', async () => {
+    mocks.readThroughDetail.mockRejectedValue(new Error('R2 transient failure'));
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_r2_error'
+    ));
+
+    expect(response.status).toBe(503);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+    expect(mocks.curatedList).not.toHaveBeenCalled();
+  });
+
+  it('falls back to curated once when normal detail parsing throws', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_parse_failure'));
+    mocks.parseBusinessCase.mockImplementationOnce(() => {
+      throw new Error('invalid Foundation projection');
+    });
+    mocks.curatedFind.mockResolvedValue({
+      id: 'ent_parse_failure',
+      name: 'Curated Parse Fallback',
+      latestDossierHash: 'b'.repeat(64),
+      sourceRevision: 2,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?entity_id=ent_parse_failure'
+    ));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('local_fallback');
+    expect(mocks.curatedFind).toHaveBeenCalledTimes(1);
+  });
+
+  it('returns 503 on foundationOnly parsing failure without curated fallback', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_parse_failure_only'));
+    mocks.parseBusinessCase.mockImplementationOnce(() => {
+      throw new Error('invalid Foundation projection');
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_parse_failure_only'
+    ));
+
+    expect(response.status).toBe(503);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+  });
+
+  it('falls back to curated once when ready Foundation response generation throws', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_hash_failure'));
+    mocks.dossierReady.mockReturnValue(true);
+    mocks.computeHash.mockImplementationOnce(() => {
+      throw new Error('hash generation failure');
+    });
+    mocks.curatedFind.mockResolvedValue({
+      id: 'ent_hash_failure',
+      name: 'Curated Hash Fallback',
+      latestDossierHash: 'c'.repeat(64),
+      sourceRevision: 3,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?entity_id=ent_hash_failure'
+    ));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('local_fallback');
+    expect(mocks.curatedFind).toHaveBeenCalledTimes(1);
+  });
+
+  it('returns 503 on foundationOnly response-generation failure without curated fallback', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_hash_failure_only'));
+    mocks.computeHash.mockImplementationOnce(() => {
+      throw new Error('hash generation failure');
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_hash_failure_only'
+    ));
+
+    expect(response.status).toBe(503);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+  });
+
+  it('skips curated lookup when Foundation dossier is already ready', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_ready'));
+    mocks.dossierReady.mockReturnValue(true);
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?entity_id=ent_ready'
+    ));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('foundation_lake');
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+  });
+
+  it('preserves curated precedence for a partial Foundation dossier and looks it up once', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_overlap', 'Foundation Partial'));
+    mocks.dossierReady.mockReturnValue(false);
+    mocks.curatedFind.mockResolvedValue({
+      id: 'ent_overlap',
+      name: 'Curated Entity',
+      latestDossierHash: 'a'.repeat(64),
+      sourceRevision: 7,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?entity_id=ent_overlap'
+    ));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.source).toBe('local_fallback');
+    expect(mocks.curatedFind).toHaveBeenCalledTimes(1);
+    expect(mocks.curatedFind).toHaveBeenCalledWith('ent_overlap');
+  });
+
+  it('falls back to a publishable partial Foundation dossier after one curated miss', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_partial'));
+    mocks.dossierReady.mockReturnValue(false);
+    mocks.curatedFind.mockResolvedValue(null);
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?entity_id=ent_partial'
+    ));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('foundation_lake');
+    expect(mocks.curatedFind).toHaveBeenCalledTimes(1);
   });
 });
 

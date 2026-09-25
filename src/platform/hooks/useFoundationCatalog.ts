@@ -2,23 +2,14 @@
 
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
-import type {
-  FoundationValuePage,
-  FoundationValueSummary,
-} from '@/lib/foundation/business-reader';
-import {
-  parseFoundationPageResponse,
-  parseFoundationDetailResponse,
-} from '@/lib/foundation/schema';
-import {
-  adaptFoundationSummaryToFinancialEntity,
-  adaptFoundationDetailToFinancialEntity,
-  isFoundationDossierReady,
-} from '@/lib/foundation/foundation-adapter';
+import type { FoundationValuePage, FoundationValueSummary } from '@/lib/foundation/business-reader';
+import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/lib/foundation/schema';
+import { adaptFoundationSummaryToFinancialEntity, adaptFoundationDetailToFinancialEntity, isFoundationDossierReady } from '@/lib/foundation/foundation-adapter';
 import { getNextNewArrivalsReleaseAt } from '@/lib/foundation/new-arrivals';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
 import { useCuratedCatalog } from './useCuratedCatalog';
+import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
@@ -448,12 +439,16 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return;
 
     detailFetchInProgress.current.add(targetId);
-    const hashParam = latestDossierHash
-      ? `&dossier_hash=${encodeURIComponent(latestDossierHash)}`
-      : '';
+    const normalizedTargetId = targetId.toLowerCase();
+    const knownFoundation = foundationRows.some((row) => row.id.toLowerCase() === normalizedTargetId);
+    const knownCurated = coreEntities.some((entity) => entity.id.toLowerCase() === normalizedTargetId);
 
-    void fetch(`/api/businesses?entity_id=${encodeURIComponent(targetId)}${hashParam}`)
-      .then(async (res) => {
+    void fetchBusinessDetailResponse(fetch, {
+      targetId,
+      latestDossierHash,
+      knownCurated,
+      knownFoundation,
+    }).then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: unknown = await res.json();
         if (json && typeof json === 'object') {
@@ -477,7 +472,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
       .finally(() => {
         detailFetchInProgress.current.delete(targetId);
       });
-  }, [detailedEntities]);
+  }, [coreEntities, detailedEntities, foundationRows]);
 
   return {
     entities,
