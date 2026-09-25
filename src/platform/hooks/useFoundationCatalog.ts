@@ -2,19 +2,9 @@
 
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
-import type {
-  FoundationValuePage,
-  FoundationValueSummary,
-} from '@/lib/foundation/business-reader';
-import {
-  parseFoundationPageResponse,
-  parseFoundationDetailResponse,
-} from '@/lib/foundation/schema';
-import {
-  adaptFoundationSummaryToFinancialEntity,
-  adaptFoundationDetailToFinancialEntity,
-  isFoundationDossierReady,
-} from '@/lib/foundation/foundation-adapter';
+import type { FoundationValuePage, FoundationValueSummary } from '@/lib/foundation/business-reader';
+import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/lib/foundation/schema';
+import { adaptFoundationSummaryToFinancialEntity, adaptFoundationDetailToFinancialEntity, isFoundationDossierReady } from '@/lib/foundation/foundation-adapter';
 import { getNextNewArrivalsReleaseAt } from '@/lib/foundation/new-arrivals';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
