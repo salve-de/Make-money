@@ -644,6 +644,27 @@ describe('Foundation bounded search', () => {
     expect(mocks.readPublicSummary).not.toHaveBeenCalled();
   });
 
+  it('bounds latest public summary reads to ten IDs', async () => {
+    const ids = Array.from({ length: 12 }, (_, index) =>
+      `ent_org_${index.toString(16).padStart(20, '0')}`
+    );
+    mocks.readLatestRelease.mockResolvedValue({
+      releaseId: '20260925-15',
+      releaseAt: '2026-09-25T15:00:00.000Z',
+      entityIds: ids,
+      contributionCount: ids.length,
+    });
+    mocks.readPublicSummary.mockImplementation(async (id: string) => summary(id, 'No Match'));
+    mocks.listObjects.mockResolvedValue({ objects: [], truncated: false, cursor: null });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&q=Apollo'
+    ));
+
+    expect(response.status).toBe(200);
+    expect(mocks.readPublicSummary).toHaveBeenCalledTimes(10);
+  });
+
   it('marks latest index read failure incomplete even when archive finishes', async () => {
     mocks.readLatestRelease.mockRejectedValue(new Error('latest index unavailable'));
     mocks.listObjects.mockResolvedValue({
