@@ -100,7 +100,14 @@ it('list and detail remain corrected even if an older deployed projector rewrite
   expect(detail?.evidenceIds).toEqual(['ev_good', 'ev_other']);
   expect(detail?.claims.find(row => row.id === 'cl_original')?.evidenceIds).toEqual(['ev_good']);
   expect(detail?.claims.map(row => row.id)).toContain('cl_other');
-  state.list.mockImplementation(async ({prefix: p}: {prefix: string}) => ({objects: p.endsWith('/entities/') ? [{key: viewKey}] : [], truncated: false}));
+  state.list.mockImplementation(async ({prefix: p}: {prefix: string}) => ({
+    objects: p.endsWith('/entities/')
+      ? [{key: viewKey}]
+      : p.endsWith('/_evidence-corrections/')
+        ? [{key: controlKey}]
+        : [],
+    truncated: false,
+  }));
   const page = await readMakeMoneyValuePage();
   expect(page.data[0].evidenceIds).not.toContain('ev_wrong');
 });
