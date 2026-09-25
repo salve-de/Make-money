@@ -298,6 +298,25 @@ describe('Foundation detail CPU boundary', () => {
     expect(mocks.curatedList).not.toHaveBeenCalled();
   });
 
+  it('does not serve a stale cached Foundation detail across requests', async () => {
+    mocks.readThroughDetail
+      .mockResolvedValueOnce(businessCase('ent_fresh_detail', 'First Name'))
+      .mockResolvedValueOnce(businessCase('ent_fresh_detail', 'Updated Name'));
+
+    const first = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_fresh_detail'
+    ));
+    const second = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_fresh_detail'
+    ));
+
+    expect(first.status).toBe(200);
+    expect(second.status).toBe(200);
+    expect((await first.json()).data.name).toBe('First Name');
+    expect((await second.json()).data.name).toBe('Updated Name');
+    expect(mocks.readThroughDetail).toHaveBeenCalledTimes(2);
+  });
+
   it('returns 404 for missing foundationOnly detail without loading curated fallback', async () => {
     mocks.readThroughDetail.mockResolvedValue(null);
 
