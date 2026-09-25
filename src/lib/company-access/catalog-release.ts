@@ -9,8 +9,22 @@ import { isPublishableEntity } from './public-entity';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { DiscoveryDataset } from '@/features/discover';
 
+const DISCOVERY_SCORE_KEYS = ['SURPRISE', 'BIG_CASH', 'LOW_CAPITAL', 'SOLO', 'LOW_WORK', 'CURRENT', 'FAILURE'] as const;
+
 function isDiscoveryCase(value: unknown): boolean {
   if (!isRecord(value)) return false;
+  const descriptorsValid = Array.isArray(value.descriptors)
+    && value.descriptors.every((item) => isRecord(item)
+      && typeof item.label === 'string'
+      && typeof item.value === 'string');
+  const relatedValid = Array.isArray(value.related)
+    && value.related.every((item) => isRecord(item)
+      && typeof item.id === 'string' && item.id.length > 0
+      && typeof item.name === 'string' && item.name.length > 0
+      && typeof item.resultValue === 'string');
+  const scoresValid = isRecord(value.scores)
+    && DISCOVERY_SCORE_KEYS.every((key) => typeof value.scores[key] === 'number'
+      && Number.isFinite(value.scores[key] as number));
   return typeof value.id === 'string' && value.id.length > 0
     && typeof value.name === 'string' && value.name.length > 0
     && typeof value.tagline === 'string'
@@ -30,9 +44,9 @@ function isDiscoveryCase(value: unknown): boolean {
     && typeof value.currentDetail === 'string'
     && ['isCurrent', 'isFailure', 'isSolo', 'lowCapital', 'lowWork'].every((key) => typeof value[key] === 'boolean')
     && typeof value.evidenceCount === 'number'
-    && Array.isArray(value.descriptors)
-    && Array.isArray(value.related)
-    && isRecord(value.scores);
+    && descriptorsValid
+    && relatedValid
+    && scoresValid;
 }
 
 export function parseDiscoveryRelease(value: unknown): DiscoveryDataset {
