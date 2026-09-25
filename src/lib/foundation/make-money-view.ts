@@ -468,35 +468,6 @@ async function hasEvidenceCorrectionControl(bucket: string, entityId: string): P
   return head.exists;
 }
 
-export async function listEvidenceCorrectionEntityIds(
-  bucket: string,
-  listObjects: typeof listR2Objects = listR2Objects,
-): Promise<Set<string>> {
-  const ids = new Set<string>();
-  let cursor: string | undefined;
-  do {
-    const page = await listObjects({
-      bucket,
-      prefix: EVIDENCE_CORRECTION_PREFIX,
-      cursor,
-      limit: 1000,
-    });
-    for (const item of page.objects) {
-      if (!item.key.endsWith('.json')) continue;
-      const encoded = item.key.slice(EVIDENCE_CORRECTION_PREFIX.length, -'.json'.length);
-      if (!encoded) continue;
-      try {
-        ids.add(decodeURIComponent(encoded));
-      } catch {
-        throw new Error('Invalid evidence correction key');
-      }
-    }
-    cursor = page.truncated && page.cursor ? page.cursor : undefined;
-    if (page.truncated && !cursor) throw new Error('Evidence correction listing truncated without cursor');
-  } while (cursor);
-  return ids;
-}
-
 function applyEvidenceCorrectionControl(document: MakeMoneyViewDocument, control: ViewEvidenceCorrectionControl): MakeMoneyViewDocument {
   const detail = { ...document.detail };
   for (const group of RECORD_GROUPS) {
@@ -1562,7 +1533,6 @@ export async function buildMakeMoneyPublicProjection(
 async function readMakeMoneyViewSummary(
   bucket: string,
   key: string,
-  correctionEntityIds?: ReadonlySet<string>,
 ): Promise<FoundationValueSummary | null> {
   let object = await readR2ObjectRange(bucket, key, { offset: 0, length: VIEW_SUMMARY_PREFIX_BYTES });
   if (!object) return null;
@@ -1589,10 +1559,7 @@ async function readMakeMoneyViewSummary(
   // Evidence corrections are rare and require the full detail graph to
   // reconstruct the corrected summary. Keep that exceptional path intact,
   // but do not make every ordinary list row pay its cost.
-  const hasCorrection = correctionEntityIds
-    ? correctionEntityIds.has(summary.id)
-    : await hasEvidenceCorrectionControl(bucket, summary.id);
-  if (hasCorrection) {
+  if (await hasEvidenceCorrectionControl(bucket, summary.id)) {
     const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
     if (control) {
       const document = await readCorrectedViewDocument(bucket, key, control);
@@ -1650,19 +1617,11 @@ export async function readMakeMoneyValuePage(options: {
     limit: Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100),
   });
 
-  // Do not HEAD one correction-control key per row. At limit=25 that turns
-  // one list + 25 range reads + 25 HEADs into 51 R2 subrequests before the
-  // optional release metadata is read, which can exceed a Worker request
-  // budget on a cold isolate. Corrections are sparse, so enumerate their
-  // rebuildable control keys once and keep the same fail-closed correction
-  // semantics for matching rows.
-  const correctionEntityIds = await listEvidenceCorrectionEntityIds(bucket);
-
   const data = (
     await mapServingReads(
       page.objects
         .filter((item) => item.key.endsWith('.json')),
-        async (item) => readMakeMoneyViewSummary(bucket, item.key, correctionEntityIds)
+        async (item) => readMakeMoneyViewSummary(bucket, item.key)
       )
   ).filter((value): value is FoundationValueSummary => Boolean(value))
     .filter((value) => !servingCursor.excludedIds.includes(value.id));
