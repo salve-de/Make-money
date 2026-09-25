@@ -1,8 +1,35 @@
 {
   "schema_version": "make-money-public-fact-types-snapshot.v1",
   "source_repository": "salve-de/universal-foundation",
-  "source_commit_sha": "c271502e34c6772759c02048ca690403da51fcf1",
-  "generated_at": "2026-09-25T05:00:00+09:00",
-  "records": [],
-  "notes": "No runtime-approved Public Fact types yet. PR #46 is Draft and must be reviewed/merged to upstream main before an approved fact type can be pinned here."
+  "source_commit_sha": "7fd16e70af0b9fc97303cfeadb7ac4e9c21747a2",
+  "generated_at": "2026-09-25T14:25:00+09:00",
+  "records": [
+    {
+      "fact_type_id": "fact.ownership_interest_percent.v1",
+      "status": "approved",
+      "value_kind": "percentage",
+      "allowed_scope_types": [
+        "company",
+        "transaction",
+        "joint_venture"
+      ],
+      "allowed_actor_relations": [
+        "direct_entity",
+        "managed_funds_or_affiliates",
+        "owner"
+      ],
+      "display": {
+        "title": "Ownership interest",
+        "relation_labels": {
+          "direct_entity": "Direct interest — {target_entity}",
+          "managed_funds_or_affiliates": "Funds / affiliates managed by {related_entity}",
+          "owner": "Owner interest"
+        },
+        "suffix": "%"
+      },
+      "path": "registry/public-facts/fact.ownership-interest-percent.v1.json",
+      "blob_sha": "3cccc7c2db7eb3a09e733c7e842806ec0d4f62ca"
+    }
+  ],
+  "notes": "Runtime-approved Public Fact types pinned from Universal Foundation main. Fact-type approval does not grant publication rights; evidence remains subject to the independent rights snapshot and publication gate."
 }
