@@ -468,11 +468,14 @@ async function hasEvidenceCorrectionControl(bucket: string, entityId: string): P
   return head.exists;
 }
 
-async function listEvidenceCorrectionEntityIds(bucket: string): Promise<Set<string>> {
+export async function listEvidenceCorrectionEntityIds(
+  bucket: string,
+  listObjects: typeof listR2Objects = listR2Objects,
+): Promise<Set<string>> {
   const ids = new Set<string>();
   let cursor: string | undefined;
   do {
-    const page = await listR2Objects({
+    const page = await listObjects({
       bucket,
       prefix: EVIDENCE_CORRECTION_PREFIX,
       cursor,
