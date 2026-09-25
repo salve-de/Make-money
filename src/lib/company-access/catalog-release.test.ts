@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { gzipSync } from 'node:zlib';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
-import { decodeCatalogArtifact, parseCatalogSummaryRows, usesCatalogRelease } from './catalog-release';
+import { decodeCatalogArtifact, parseCatalogSummaryRows, parseDiscoveryRelease, usesCatalogRelease } from './catalog-release';
 
 vi.mock('@/lib/runtime/cloudflare', () => ({ getCloudflareRuntimeEnv: vi.fn() }));
 afterEach(() => { vi.unstubAllEnvs(); vi.resetAllMocks(); });
@@ -30,6 +30,21 @@ describe('immutable catalog release', () => {
   it('rejects corrupt compressed content', () => {
     expect(() => decodeCatalogArtifact(new Uint8Array([1, 2, 3]), 'a'.repeat(64))).toThrow();
   });
+  it('keeps the discovery release boundary cheap but fail-closed', () => {
+    const item = {
+      id: 'case-1', name: 'Case', tagline: '', sector: 'AI', resultLabel: 'MRR', resultValue: '¥1万',
+      resultAmountJpy: 10000, startLine: '1人開始', criticalInsight: 'Move', whyMoneyMoved: 'Pain',
+      leverage: 'Code', mechanism: { id: 'asset', label: 'Asset' }, mechanismCount: 1,
+      currentLabel: 'Current', currentDetail: 'Detail', isCurrent: true, isFailure: false,
+      isSolo: true, lowCapital: true, lowWork: false, evidenceCount: 1,
+      descriptors: [], related: [], scores: { SURPRISE: 1 },
+    };
+    const dataset = { sourceCount: 1, visibleCount: 1, cases: [item], mechanisms: [{ id: 'asset', label: 'Asset', count: 1 }], highlights: [item] };
+    expect(parseDiscoveryRelease(dataset)).toBe(dataset);
+    expect(() => parseDiscoveryRelease({ ...dataset, visibleCount: 2 })).toThrow('Invalid discovery release');
+    expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, id: null }] })).toThrow('Invalid discovery release');
+  });
+
   it('keeps the production summary boundary cheap but fail-closed', () => {
     const row = {
       id: 'ent_example',
