@@ -525,15 +525,21 @@ describe('Foundation bounded search', () => {
     expect(mocks.readObject).toHaveBeenCalledTimes(2);
   });
 
-  it('accepts the raw cursor form used by the existing Foundation client', async () => {
-    const firstResponse = await GET(new Request('http://localhost/api/businesses?foundationOnly=true&q=target'));
-    const firstBody = await firstResponse.json();
-    const rawCursor = firstBody.nextCursor.replace(/^foundation-search-v1:/, '');
+  it('accepts legacy raw and v1 cursor forms used by existing Foundation clients', async () => {
+    const rawResponse = await GET(new Request(
+      `http://localhost/api/businesses?foundationOnly=true&q=target&cursor=${encodeURIComponent('page-2')}`
+    ));
+    const rawBody = await rawResponse.json();
+    expect(rawResponse.status).toBe(200);
+    expect(rawBody.data.map((row: { id: string }) => row.id)).toEqual(['ent_target']);
 
-    const response = await GET(new Request(`http://localhost/api/businesses?foundationOnly=true&q=target&cursor=${encodeURIComponent(rawCursor)}`));
-    const body = await response.json();
-    expect(response.status).toBe(200);
-    expect(body.data.map((row: { id: string }) => row.id)).toEqual(['ent_target']);
+    const v1Cursor = `foundation-search-v1:${encodeURIComponent('page-2')}`;
+    const v1Response = await GET(new Request(
+      `http://localhost/api/businesses?foundationOnly=true&q=target&cursor=${encodeURIComponent(v1Cursor)}`
+    ));
+    const v1Body = await v1Response.json();
+    expect(v1Response.status).toBe(200);
+    expect(v1Body.data.map((row: { id: string }) => row.id)).toEqual(['ent_target']);
   });
 
   it('bounds the R2 object page to the response limit so matching rows are not skipped', async () => {
