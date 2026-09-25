@@ -15,6 +15,7 @@ const mocks = vi.hoisted(() => ({
 }));
 
 vi.mock('@/lib/foundation/make-money-view', () => ({
+  assertMakeMoneyValuePage: vi.fn(),
   isMakeMoneyViewBackfillComplete: mocks.viewReady,
   readMakeMoneyValuePage: mocks.readValuePage,
   readMakeMoneyViewDetail: mocks.readThroughDetail,
