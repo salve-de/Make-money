@@ -13,7 +13,6 @@ import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
-export function markFailedFoundationCursor(requested: Set<string>, cursor: string) { requested.delete(cursor); return cursor; }
 const FOUNDATION_PAGE_REQUEST_LIMIT = 12;
 
 function parseApprovedIds(payload: unknown): string[] {
@@ -369,7 +368,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     }
     foundationRequestedCursors.current.add(cursor);
     void loadFoundationPage(cursor).catch((error) => {
-      setFoundationRetryCursor(markFailedFoundationCursor(foundationRequestedCursors.current, cursor));
+      foundationRequestedCursors.current.delete(cursor);
+      setFoundationRetryCursor(cursor);
       setFoundationHasMore(false);
       setDataSource('保存済み台帳（追加取得に失敗 / 手動再試行可能）');
       console.warn('[TerminalShell] Additional Foundation page failed:', error);
