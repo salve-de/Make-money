@@ -148,6 +148,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       <div className="flex items-center gap-3 shrink-0 mr-2 sm:mr-4">
         <Link
           href="/"
+          prefetch={false}
           className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-zinc-100 hover:text-white transition-colors"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -171,6 +172,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             <Link
               key={item.id}
               href={item.href}
+              prefetch={false}
               onClick={(e) => handleNavClick(e, item)}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono transition-all whitespace-nowrap shrink-0 ${
                 isActive
@@ -264,6 +266,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             {activeSection !== 'LEDGER' && !onOpenPro && (
               <Link
                 href="/"
+                prefetch={false}
                 className="text-xs font-mono text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-white/[0.04] transition-colors whitespace-nowrap"
               >
                 <span>台帳 ↗</span>
