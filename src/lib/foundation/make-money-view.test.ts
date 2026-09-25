@@ -34,6 +34,7 @@ describe('evidence-correction serving index', () => {
   it('returns an empty set when no correction controls exist', async () => {
     const calls: Array<Record<string, unknown>> = [];
     const ids = await listEvidenceCorrectionEntityIds('foundation-lake', async input => {
+      if (!input) throw new Error('missing list input');
       calls.push(input);
       return { objects: [], truncated: false };
     });
@@ -62,6 +63,7 @@ describe('evidence-correction serving index', () => {
   it('follows every correction-key page and preserves all targets', async () => {
     const cursors: Array<string | undefined> = [];
     const ids = await listEvidenceCorrectionEntityIds('foundation-lake', async input => {
+      if (!input) throw new Error('missing list input');
       cursors.push(input.cursor);
       if (!input.cursor) {
         return {
