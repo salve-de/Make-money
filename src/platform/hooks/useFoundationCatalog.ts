@@ -13,6 +13,7 @@ import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
+const FOUNDATION_PAGE_REQUEST_LIMIT = 12;
 
 function parseApprovedIds(payload: unknown): string[] {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Invalid approval overlay');
@@ -298,7 +299,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     foundationLoadingRef.current = true;
     setFoundationLoading(true);
     try {
-      const params = new URLSearchParams({ limit: '25', foundationOnly: 'true' });
+      const params = new URLSearchParams({ limit: String(FOUNDATION_PAGE_REQUEST_LIMIT), foundationOnly: 'true' });
       if (requestQuery.trim()) params.set('q', requestQuery.trim());
       if (effectiveCursor) params.set('cursor', effectiveCursor);
       let payload: unknown;
