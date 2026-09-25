@@ -37,7 +37,9 @@ describe('immutable catalog release', () => {
       leverage: 'Code', mechanism: { id: 'asset', label: 'Asset' }, mechanismCount: 1,
       currentLabel: 'Current', currentDetail: 'Detail', isCurrent: true, isFailure: false,
       isSolo: true, lowCapital: true, lowWork: false, evidenceCount: 1,
-      descriptors: [], related: [], scores: { SURPRISE: 1 },
+      descriptors: [], related: [], scores: {
+        SURPRISE: 1, BIG_CASH: 2, LOW_CAPITAL: 3, SOLO: 4, LOW_WORK: 5, CURRENT: 6, FAILURE: 7,
+      },
     };
     const dataset = { sourceCount: 1, visibleCount: 1, cases: [item], mechanisms: [{ id: 'asset', label: 'Asset', count: 1 }], highlights: [item] };
     expect(parseDiscoveryRelease(dataset)).toBe(dataset);
