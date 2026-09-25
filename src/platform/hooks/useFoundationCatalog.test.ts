@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from 'vitest';
-import { restoreFailedFoundationCursor } from './useFoundationCatalog';
+import { describe, expect, it } from 'vitest';
+import { markFailedFoundationCursor } from './useFoundationCatalog';
 
 describe('Foundation cursor retry recovery', () => {
   it('removes a failed cursor from the consumed set and keeps continuation available', () => {
