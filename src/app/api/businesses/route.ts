@@ -24,9 +24,13 @@ import {
 import {
   assertMakeMoneyValuePage,
   isMakeMoneyViewBackfillComplete,
+  mapServingReads,
+  readMakeMoneyPublicEntitySummaryById,
   readMakeMoneyValuePage,
   readMakeMoneyViewDetail,
+  selectNewArrivalPromotionIds,
 } from '@/lib/foundation/make-money-view';
+import { readIndexedNewArrivalsRelease } from '@/lib/foundation/new-arrivals-index';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 import { getFoundationBucketAsync, listR2Objects, readR2Object } from '@/lib/storage/r2';
@@ -36,21 +40,14 @@ const gunzip = promisify(gunzipCb);
 export const dynamic = 'force-dynamic';
 
 const CACHE_CONTROL = 'private, max-age=30, stale-while-revalidate=300';
-const DETAIL_TTL_MS = 60_000;
-const MAX_DETAIL_CACHE_ENTRIES = 128;
 const MAX_ENTITY_ID_LENGTH = 200;
 const MAX_R2_CURSOR_LENGTH = 2048;
+const MAX_FOUNDATION_SEARCH_CURSOR_LENGTH = 8192;
+const MAX_FOUNDATION_SEARCH_EXCLUDED_IDS = 10;
 const FOUNDATION_SEARCH_OBJECT_PAGE_SIZE = 100;
 const FOUNDATION_VIEW_PREFIX = 'views/make-money/v1/entities/';
 const FOUNDATION_READ_RETRY_DELAY_MS = 150;
 const FOUNDATION_LIST_PAGE_LIMIT = 12;
-
-type CacheEntry<T> = {
-  expiresAt: number;
-  value: T | Promise<T>;
-};
-
-const detailCache = new Map<string, CacheEntry<FoundationBusinessCase>>();
 
 function foundationSummarySearchText(summary: FoundationValueSummary): string {
   return [
@@ -94,29 +91,97 @@ function summaryFromFoundationDetail(detail: FoundationBusinessCase): Foundation
   };
 }
 
-function parseFoundationSearchCursor(cursor: string | undefined): string | undefined {
-  if (!cursor) return undefined;
-  // The client parser historically passes the underlying R2 cursor through
-  // unchanged, while this bounded search route prefixes its own cursor so it
-  // cannot be confused with an ordinary Foundation page cursor. Accept both
-  // forms to preserve the existing read-only cursor contract.
-  const encoded = cursor.startsWith('foundation-search-v1:')
-    ? cursor.slice('foundation-search-v1:'.length)
+type FoundationSearchCursorState = {
+  r2Cursor?: string;
+  excludedIds: string[];
+};
+
+const FOUNDATION_SEARCH_CURSOR_V1_PREFIX = 'foundation-search-v1:';
+const FOUNDATION_SEARCH_CURSOR_V2_PREFIX = 'foundation-search-v2:';
+const FOUNDATION_ENTITY_ID_PATTERN = /^ent_[a-z0-9]+_[a-f0-9]{20}$/;
+
+function validateFoundationSearchR2Cursor(value: unknown): string {
+  if (typeof value !== 'string' || !value || value.length > MAX_R2_CURSOR_LENGTH) {
+    throw new Error('Invalid foundation search cursor');
+  }
+  return value;
+}
+
+function parseFoundationSearchCursor(cursor: string | undefined): FoundationSearchCursorState {
+  if (!cursor) return { r2Cursor: undefined, excludedIds: [] };
+  if (cursor.length > MAX_FOUNDATION_SEARCH_CURSOR_LENGTH) {
+    throw new Error('Invalid foundation search cursor');
+  }
+
+  if (cursor.startsWith(FOUNDATION_SEARCH_CURSOR_V2_PREFIX)) {
+    const encoded = cursor.slice(FOUNDATION_SEARCH_CURSOR_V2_PREFIX.length);
+    if (!encoded) throw new Error('Invalid foundation search cursor');
+
+    let payload: unknown;
+    try {
+      payload = JSON.parse(decodeURIComponent(encoded));
+    } catch {
+      throw new Error('Invalid foundation search cursor');
+    }
+
+    if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+      throw new Error('Invalid foundation search cursor');
+    }
+    const object = payload as Record<string, unknown>;
+    if (object.version !== 2) throw new Error('Invalid foundation search cursor');
+
+    const r2Cursor = validateFoundationSearchR2Cursor(object.r2Cursor);
+    if (
+      !Array.isArray(object.excludedIds) ||
+      object.excludedIds.length > MAX_FOUNDATION_SEARCH_EXCLUDED_IDS ||
+      !object.excludedIds.every((id) => typeof id === 'string' && FOUNDATION_ENTITY_ID_PATTERN.test(id))
+    ) {
+      throw new Error('Invalid foundation search cursor');
+    }
+
+    return {
+      r2Cursor,
+      excludedIds: [...new Set(object.excludedIds as string[])],
+    };
+  }
+
+  // Legacy v1 and raw R2 cursors remain valid so already-rendered clients can
+  // continue a bounded search after this deployment.
+  const encoded = cursor.startsWith(FOUNDATION_SEARCH_CURSOR_V1_PREFIX)
+    ? cursor.slice(FOUNDATION_SEARCH_CURSOR_V1_PREFIX.length)
     : cursor;
   if (!encoded) throw new Error('Invalid foundation search cursor');
+
   let decoded: string;
   try {
     decoded = decodeURIComponent(encoded);
   } catch {
     throw new Error('Invalid foundation search cursor');
   }
-  if (!decoded || decoded.length > MAX_R2_CURSOR_LENGTH) throw new Error('Invalid foundation search cursor');
-  return decoded;
+  return {
+    r2Cursor: validateFoundationSearchR2Cursor(decoded),
+    excludedIds: [],
+  };
+}
+
+function encodeFoundationSearchCursor(r2Cursor: string, excludedIds: readonly string[]): string {
+  const uniqueExcludedIds = [...new Set(excludedIds)]
+    .filter((id) => FOUNDATION_ENTITY_ID_PATTERN.test(id))
+    .slice(0, MAX_FOUNDATION_SEARCH_EXCLUDED_IDS);
+  const encoded = `${FOUNDATION_SEARCH_CURSOR_V2_PREFIX}${encodeURIComponent(JSON.stringify({
+    version: 2,
+    r2Cursor: validateFoundationSearchR2Cursor(r2Cursor),
+    excludedIds: uniqueExcludedIds,
+  }))}`;
+  if (encoded.length > MAX_FOUNDATION_SEARCH_CURSOR_LENGTH) {
+    throw new Error('Invalid foundation search cursor');
+  }
+  return encoded;
 }
 
 async function readFoundationSearchPage(options: {
   query: string;
-  cursor?: string;
+  cursor: FoundationSearchCursorState;
   limit: number;
 }): Promise<{
   data: FoundationValueSummary[];
@@ -124,43 +189,111 @@ async function readFoundationSearchPage(options: {
   nextCursor: string | null;
   complete: boolean;
   newArrivals: FoundationValuePage['newArrivals'];
+  latestRetryable: boolean;
+  archiveRetryable: boolean;
 }> {
-  const newArrivals: FoundationValuePage['newArrivals'] = null;
   const matches: FoundationValueSummary[] = [];
-  const seenIds = new Set<string>();
-  const bucket = await getFoundationBucketAsync('lake');
+  const seenIds = new Set(options.cursor.excludedIds);
+  const promotedMatchIds: string[] = [];
+  let newArrivals: FoundationValuePage['newArrivals'] = null;
+  let latestRetryable = false;
 
-  const objectPage = await listR2Objects({
-    bucket,
-    prefix: FOUNDATION_VIEW_PREFIX,
-    cursor: options.cursor,
-    // The R2 cursor advances by object, not by matching row. Never scan more
-    // objects than this response can return, otherwise matches after the
-    // output slice would be skipped permanently when the cursor advances.
-    limit: Math.min(Math.max(Math.floor(options.limit), 1), FOUNDATION_SEARCH_OBJECT_PAGE_SIZE),
-  });
-  const summaries = await mapBoundedFoundationSearchReads(bucket, objectPage.objects, options.query);
-  for (const summary of summaries) {
-    if (!matchesFoundationQuery(summary, options.query)) continue;
-    if (!isPublishableEntity(adaptFoundationSummaryToFinancialEntity(summary))) continue;
-    if (seenIds.has(summary.id)) continue;
-    seenIds.add(summary.id);
-    matches.push(summary);
+  // The latest public release is a tiny rebuildable read index. Search it
+  // before the bounded archive so newly published records are immediately
+  // discoverable without scanning the historical view namespace.
+  if (!options.cursor.r2Cursor) {
+    try {
+      newArrivals = await readIndexedNewArrivalsRelease();
+      if (newArrivals) {
+        const candidateIds = selectNewArrivalPromotionIds(
+          newArrivals.entityIds,
+          new Set(options.cursor.excludedIds),
+        );
+        const latestReads = await mapServingReads(candidateIds, async (entityId) => {
+          try {
+            const summary = await readMakeMoneyPublicEntitySummaryById(entityId);
+            return { entityId, summary, failed: !summary };
+          } catch (error) {
+            logFoundationFailure(
+              `[businesses] Latest Foundation summary read failed for ${entityId}:`,
+              error,
+            );
+            return { entityId, summary: null, failed: true };
+          }
+        });
+
+        for (const item of latestReads) {
+          if (item.failed || !item.summary) {
+            latestRetryable = true;
+            continue;
+          }
+          const summary = item.summary;
+          if (!matchesFoundationQuery(summary, options.query)) continue;
+          if (!isPublishableEntity(adaptFoundationSummaryToFinancialEntity(summary))) continue;
+          if (seenIds.has(summary.id)) continue;
+          seenIds.add(summary.id);
+          promotedMatchIds.push(summary.id);
+          matches.push({ ...summary, isNew: true });
+        }
+      }
+    } catch (error) {
+      latestRetryable = true;
+      logFoundationFailure('[businesses] Latest Foundation release index read failed:', error);
+    }
   }
 
-  const data = matches.slice(0, options.limit);
-  return {
-    data,
-    // A search page is intentionally bounded. The UI must not present the
-    // scanned page size as the full Foundation total until a separate index
-    // exists; curated catalog totals remain exact via /api/catalog.
-    total: null,
-    nextCursor: objectPage.truncated && objectPage.cursor
-      ? `foundation-search-v1:${encodeURIComponent(objectPage.cursor)}`
-      : null,
-    complete: !objectPage.truncated,
-    newArrivals,
-  };
+  try {
+    const bucket = await getFoundationBucketAsync('lake');
+    const objectPage = await listR2Objects({
+      bucket,
+      prefix: FOUNDATION_VIEW_PREFIX,
+      cursor: options.cursor.r2Cursor,
+      // The R2 cursor advances by object, not by matching row. Never scan more
+      // objects than this bounded response can account for.
+      limit: Math.min(Math.max(Math.floor(options.limit), 1), FOUNDATION_SEARCH_OBJECT_PAGE_SIZE),
+    });
+    const summaries = await mapBoundedFoundationSearchReads(bucket, objectPage.objects, options.query);
+    for (const summary of summaries) {
+      if (!matchesFoundationQuery(summary, options.query)) continue;
+      if (!isPublishableEntity(adaptFoundationSummaryToFinancialEntity(summary))) continue;
+      if (seenIds.has(summary.id)) continue;
+      seenIds.add(summary.id);
+      matches.push(summary);
+    }
+
+    const excludedIds = [...options.cursor.excludedIds, ...promotedMatchIds];
+    const nextCursor = objectPage.truncated && objectPage.cursor
+      ? encodeFoundationSearchCursor(objectPage.cursor, excludedIds)
+      : null;
+
+    return {
+      data: matches,
+      // Search is intentionally bounded. Do not claim an exact Foundation
+      // total until a separate rebuildable search index exists.
+      total: null,
+      nextCursor,
+      complete: !objectPage.truncated && !latestRetryable,
+      newArrivals,
+      latestRetryable,
+      archiveRetryable: false,
+    };
+  } catch (error) {
+    // A continuation failure preserves the exact v2 cursor for an explicit UI
+    // retry. On the initial page, however, keep any successful latest-public
+    // matches visible and mark the result incomplete instead of turning the
+    // entire search into a terminal 503.
+    if (options.cursor.r2Cursor) throw error;
+    logFoundationFailure('[businesses] Initial Foundation archive search failed:', error);
+    return {
+      data: matches,
+      total: null,
+      nextCursor: null,
+      complete: false,
+      newArrivals,
+      latestRetryable,
+      archiveRetryable: true,
+    };
+  }
 }
 
 async function mapBoundedFoundationSearchReads(
@@ -218,34 +351,6 @@ async function mapBoundedFoundationSearchReads(
     }
   }));
   return results.filter((value): value is FoundationValueSummary => Boolean(value));
-}
-
-async function readCached<T>(
-  cache: Map<string, CacheEntry<T>>,
-  key: string,
-  ttlMs: number,
-  maxEntries: number,
-  loader: () => Promise<T>
-): Promise<T> {
-  const hit = cache.get(key);
-  if (hit && hit.expiresAt > Date.now()) return hit.value;
-  if (hit) cache.delete(key);
-
-  const pending = loader();
-  cache.set(key, { expiresAt: Date.now() + ttlMs, value: pending });
-  while (cache.size > maxEntries) {
-    const oldest = cache.keys().next().value;
-    if (!oldest) break;
-    cache.delete(oldest);
-  }
-  try {
-    const value = await pending;
-    cache.set(key, { expiresAt: Date.now() + ttlMs, value });
-    return value;
-  } catch (error) {
-    if (cache.get(key)?.value === pending) cache.delete(key);
-    throw error;
-  }
 }
 
 async function retryFoundationRead<T>(loader: () => Promise<T>): Promise<T> {
@@ -380,18 +485,11 @@ export async function GET(request: Request) {
     let stagedViewMissing = false;
 
     try {
-      const stagedView = await readMakeMoneyViewDetail(entityId);
+      const stagedView = await retryFoundationRead(() => readMakeMoneyViewDetail(entityId));
       if (!stagedView) {
         stagedViewMissing = true;
       } else {
-        const data = await readCached(
-          detailCache,
-          `view:${entityId}`,
-          DETAIL_TTL_MS,
-          MAX_DETAIL_CACHE_ENTRIES,
-          async () => stagedView,
-        );
-        parsedFoundation = parseFoundationBusinessCase(data);
+        parsedFoundation = parseFoundationBusinessCase(stagedView);
         if (parsedFoundation) {
           foundationReady = isFoundationDossierReady(parsedFoundation);
           if (foundationOnly || foundationReady) {
@@ -467,22 +565,29 @@ export async function GET(request: Request) {
     ? Math.min(Math.max(Math.floor(requestedLimit), 1), 100)
     : 100;
   const cursor = url.searchParams.get('cursor') || undefined;
-  if (cursor && cursor.length > MAX_R2_CURSOR_LENGTH) {
-    return response({ error: 'Invalid cursor' }, 400);
-  }
   const foundationListLimit = foundationOnly ? Math.min(limit, FOUNDATION_LIST_PAGE_LIMIT) : limit;
   const foundationQuery = (url.searchParams.get('q') || '').trim();
   if (foundationQuery.length > 200) {
     return response({ error: 'Invalid foundation query' }, 400);
   }
   if (foundationQuery && foundationOnly) {
+    let searchCursor: FoundationSearchCursorState;
     try {
-      const materializedViewReady = await isMakeMoneyViewBackfillComplete();
-      const searchCursor = parseFoundationSearchCursor(cursor);
+      // Validate the client-controlled cursor before any R2/backfill read.
+      searchCursor = parseFoundationSearchCursor(cursor);
+    } catch {
+      return response({ error: 'Invalid foundation search cursor' }, 400);
+    }
+
+    try {
       const searchPage = await readFoundationSearchPage({
         query: foundationQuery,
         cursor: searchCursor,
         limit: foundationListLimit,
+      });
+      const materializedViewReady = await isMakeMoneyViewBackfillComplete().catch((error) => {
+        logFoundationFailure('[businesses] Foundation projection readiness read failed:', error);
+        return false;
       });
       return response({
         source: 'foundation_lake',
@@ -490,15 +595,20 @@ export async function GET(request: Request) {
         count: searchPage.data.length,
         total: searchPage.total,
         searchComplete: searchPage.complete,
+        latestRetryable: searchPage.latestRetryable,
+        archiveRetryable: searchPage.archiveRetryable,
         data: publicFoundationData(searchPage.data),
         nextCursor: searchPage.nextCursor,
         hasMore: Boolean(searchPage.nextCursor),
         newArrivals: searchPage.newArrivals,
       });
     } catch (error) {
-      logFoundationFailure('[businesses] Foundation bounded search failed:', error);
+      logFoundationFailure('[businesses] Foundation bounded search continuation failed:', error);
       return response({ error: 'Foundation catalog temporarily unavailable' }, 503);
     }
+  }
+  if (cursor && cursor.length > MAX_R2_CURSOR_LENGTH) {
+    return response({ error: 'Invalid cursor' }, 400);
   }
   try {
     const materializedViewReady = await retryFoundationRead(() => isMakeMoneyViewBackfillComplete());
