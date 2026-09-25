@@ -59,4 +59,5 @@ jobs:
           name: open-next-4154c3d5
           path: .open-next/
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 1
