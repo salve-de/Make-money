@@ -13,10 +13,7 @@ import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
-export function restoreFailedFoundationCursor(requested: Set<string>, cursor: string, setHasMore: (value: boolean) => void) {
-  requested.delete(cursor);
-  setHasMore(true);
-}
+export function restoreFailedFoundationCursor(requested: Set<string>, cursor: string, setHasMore: (value: boolean) => void) { requested.delete(cursor); setHasMore(true); }
 const FOUNDATION_PAGE_REQUEST_LIMIT = 12;
 
 function parseApprovedIds(payload: unknown): string[] {
