@@ -501,7 +501,12 @@ export async function GET(request: Request) {
     }
   }
   try {
-    const materializedViewReady = await retryFoundationRead(() => isMakeMoneyViewBackfillComplete());
+    // Projection readiness is informational and does not affect which
+    // rights-gated rows may be served. On continuation pages avoid the extra
+    // rebuild-state R2 read/parse; the first page still reports the exact state.
+    const materializedViewReady = cursor
+      ? true
+      : await retryFoundationRead(() => isMakeMoneyViewBackfillComplete());
     // Do not retain catalog pages in a Worker isolate. A long browser scroll
     // should release every page after its response; R2 range reads are cheap
     // enough that reliability is more important than a first-page cache hit.
