@@ -66,17 +66,26 @@ function text(value: unknown): string | null {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
 }
 
-function urlMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean {
+function urlHostMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean {
   const raw = text(value);
   if (!raw) return false;
   try {
     const url = new URL(raw);
     const hostname = url.hostname.toLowerCase().replace(/\.$/, '');
-    const hostAllowed = policy.allowedHostSuffixes.some((suffix) => {
+    return policy.allowedHostSuffixes.some((suffix) => {
       const normalized = suffix.toLowerCase().replace(/^\./, '');
       return hostname === normalized || hostname.endsWith(`.${normalized}`);
     });
-    if (!hostAllowed) return false;
+  } catch {
+    return false;
+  }
+}
+
+function urlMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean {
+  const raw = text(value);
+  if (!raw || !urlHostMatchesPolicy(raw, policy)) return false;
+  try {
+    const url = new URL(raw);
     return policy.allowedPathPrefixes.length === 0 ||
       policy.allowedPathPrefixes.some((prefix) => url.pathname.startsWith(prefix));
   } catch {
@@ -381,7 +390,7 @@ function sourceTypeMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): 
 function sourceMatchesRegisteredIdentity(source: JsonObject, policy: AutoPublicFactPolicy): boolean {
   return normalizeIdentity(source.provider_name) === normalizeIdentity(policy.providerName) &&
     sourceTypeMatchesPolicy(source.source_type, policy) &&
-    urlMatchesPolicy(source.canonical_url, policy);
+    urlHostMatchesPolicy(source.canonical_url, policy);
 }
 
 type ResolvedSourcePolicy = {
@@ -418,7 +427,7 @@ function resolveSourcePolicies(bundle: JsonObject): Map<string, ResolvedSourcePo
         explicitPolicy &&
         explicitPolicy.sourceId === localSourceId &&
         sourceTypeMatchesPolicy(source.source_type, explicitPolicy) &&
-        urlMatchesPolicy(source.canonical_url, explicitPolicy)
+        urlHostMatchesPolicy(source.canonical_url, explicitPolicy)
       ) {
         result.set(localSourceId, { policyId: explicitPolicyId, resolution: 'explicit' });
       }

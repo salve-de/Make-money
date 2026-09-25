@@ -1,0 +1,225 @@
+{
+  "schema_version": "typed-record-set.v1",
+  "source_run_id": "run_verify_canary_starwood_20260925044005",
+  "source_artifact": {
+    "path": "staging/automation/verify/2026/09/25/20260925T044200Z-verify_reconcile-run_verify_canary_starwood_20260925044005.json",
+    "blob_sha": "c77a9184c631ea84be7e3e262f93af96241e6103",
+    "lane": "VERIFY_RECONCILE"
+  },
+  "purpose": "make_money",
+  "subject_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+  "subject": {
+    "candidate_name": "Starwood Real Estate Income Trust × Apollo affordable-housing JV recapitalization",
+    "candidate_domain": null,
+    "query": "Starwood Apollo JV ownership 41.5 58.5 SEC 2026",
+    "notes": "Isolated VERIFY public E2E canary; exact JV and Apollo investing legal entities remain unresolved."
+  },
+  "provenance": {
+    "agent": {
+      "name": "ChatGPT VERIFY_RECONCILE one-shot validator",
+      "model": "GPT-5.6 Sol",
+      "version": null
+    },
+    "collection_channel": "sec_edgar_public_fact_verification",
+    "retrieved_at": "2026-09-25T04:42:00Z",
+    "recorded_at": "2026-09-25T04:42:00Z",
+    "rights_reviewed_at": "2026-09-25T04:18:00+09:00"
+  },
+  "sources": [
+    {
+      "source_id": "src.sec-edgar",
+      "provider_name": "U.S. Securities and Exchange Commission",
+      "source_type": "regulatory_filing",
+      "canonical_url": "https://www.sec.gov/",
+      "source_strength": "UNRATED",
+      "rights_status": "metadata_only",
+      "rights_policy_id": "rights.sec-edgar-public-facts.v1",
+      "access_notes": "Public SEC/EDGAR filing facts; attribution required; prose/excerpt/media publication remains restricted."
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_7cce2783f40d59a93ec718ff",
+      "source_id": "src.sec-edgar",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm",
+      "source_title": "Form 8-K — Starwood Real Estate Income Trust, Inc.",
+      "source_type": "regulatory_filing",
+      "publisher_or_speaker": "Starwood Real Estate Income Trust, Inc. / U.S. Securities and Exchange Commission",
+      "published_at": null,
+      "retrieved_at": "2026-09-25T04:42:00Z",
+      "summary": "SEC filing reports Apollo managed funds/affiliates at 41.5% Class B equity and Starwood at 58.5% Class A equity in the joint venture.",
+      "extracted_facts": [
+        "Apollo managed funds and affiliates hold 41.5% Class B equity.",
+        "Starwood holds 58.5% Class A equity."
+      ],
+      "source_strength": "UNRATED",
+      "rights_status": "metadata_only",
+      "rights_policy_id": "rights.sec-edgar-public-facts.v1",
+      "raw_storage": {
+        "status": "metadata_only"
+      }
+    },
+    {
+      "evidence_id": "ev_7ae5d69d366464c6d71875e3",
+      "source_id": "src.sec-edgar",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1711929/000119312526332795/ck0001711929-20260804.htm",
+      "source_title": "Form 424B3 — Starwood Real Estate Income Trust, Inc.",
+      "source_type": "regulatory_filing",
+      "publisher_or_speaker": "Starwood Real Estate Income Trust, Inc. / U.S. Securities and Exchange Commission",
+      "published_at": null,
+      "retrieved_at": "2026-09-25T04:42:00Z",
+      "summary": "SEC prospectus supplement independently repeats the 41.5% Apollo / 58.5% Starwood ownership split.",
+      "extracted_facts": [
+        "Apollo managed funds and affiliates hold 41.5% Class B equity.",
+        "Starwood holds 58.5% Class A equity."
+      ],
+      "source_strength": "UNRATED",
+      "rights_status": "metadata_only",
+      "rights_policy_id": "rights.sec-edgar-public-facts.v1",
+      "raw_storage": {
+        "status": "metadata_only"
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "ent_org_0e1d9b556075d9fc7f36",
+      "entity_type": "organization",
+      "canonical_name": "Starwood Real Estate Income Trust, Inc.",
+      "aliases": [
+        "Starwood Real Estate Income Trust",
+        "SREIT"
+      ],
+      "canonical_identifier": "SEC CIK 0001711929",
+      "domain": null,
+      "status": null,
+      "observed_at": "2026-09-25T04:42:00Z",
+      "evidence_ids": [
+        "ev_7cce2783f40d59a93ec718ff",
+        "ev_7ae5d69d366464c6d71875e3"
+      ]
+    },
+    {
+      "entity_id": "ent_org_4a819d424adf6b2a118f",
+      "entity_type": "organization",
+      "canonical_name": "Apollo Global Management",
+      "aliases": [
+        "Apollo"
+      ],
+      "canonical_identifier": null,
+      "domain": null,
+      "status": "Manager/affiliate umbrella; exact investing legal entities unresolved.",
+      "observed_at": "2026-09-25T04:42:00Z",
+      "evidence_ids": [
+        "ev_7cce2783f40d59a93ec718ff",
+        "ev_7ae5d69d366464c6d71875e3"
+      ]
+    }
+  ],
+  "claims": [],
+  "metrics": [],
+  "money_signals": [],
+  "events": [],
+  "relationships": [],
+  "derived": [],
+  "observations": [
+    {
+      "observation_id": "obs_62caf68d0af2a7f659bf0b5a",
+      "observation_type": "starwood_apollo.verify_reconcile.core_transaction_and_return_terms.v1",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "observed_at": "2026-09-25T04:42:00Z",
+      "collection_channel": "sec_edgar_public_fact_verification",
+      "observer": "ChatGPT VERIFY_RECONCILE one-shot validator",
+      "evidence_ids": [
+        "ev_7cce2783f40d59a93ec718ff",
+        "ev_7ae5d69d366464c6d71875e3"
+      ],
+      "payload_schema_ref": null,
+      "payload": {
+        "apollo_equity_interest_percent": 41.5,
+        "starwood_equity_interest_percent": 58.5,
+        "scope": "joint venture",
+        "exact_jv_legal_name": null,
+        "exact_apollo_investing_entities": null
+      }
+    }
+  ],
+  "quality": {
+    "schema_validation": "PASS",
+    "mapping_status": "READY_FOR_BUNDLE_V1",
+    "unknowns": [
+      {
+        "field": "exact_joint_venture_legal_name",
+        "state": "unknown",
+        "note": "Not established in reviewed filing passages."
+      },
+      {
+        "field": "exact_apollo_investing_entities",
+        "state": "unknown",
+        "note": "SEC filings identify funds managed by and affiliates of Apollo, not exact legal investors."
+      }
+    ],
+    "conflicts": [],
+    "warnings": [
+      "PublicFact candidates do not grant rights; downstream rights policy resolution remains mandatory.",
+      "Only structured ownership facts are public candidates; SEC prose/excerpts/media remain restricted."
+    ]
+  },
+  "extensions": {
+    "public_facts.v1": {
+      "schema_version": "public-fact-output.v1",
+      "facts": [
+        {
+          "schema_version": "public-fact.v1",
+          "fact_id": "pf_62877c1fb7ba35b14d80ff33",
+          "fact_type_id": "fact.ownership_interest_percent.v1",
+          "subject_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+          "target_entity_id": "ent_org_4a819d424adf6b2a118f",
+          "context": {
+            "scope_type": "joint_venture",
+            "scope_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+            "actor_relation": "managed_funds_or_affiliates",
+            "related_entity_id": "ent_org_4a819d424adf6b2a118f"
+          },
+          "value": {
+            "kind": "percentage",
+            "value": 41.5
+          },
+          "origin_type": "reported",
+          "verification_status": "SUPPORTED",
+          "observed_at": "2026-09-25T04:42:00Z",
+          "evidence_ids": [
+            "ev_7ae5d69d366464c6d71875e3",
+            "ev_7cce2783f40d59a93ec718ff"
+          ]
+        },
+        {
+          "schema_version": "public-fact.v1",
+          "fact_id": "pf_f4ae5d042c95d5c1c607cd85",
+          "fact_type_id": "fact.ownership_interest_percent.v1",
+          "subject_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+          "target_entity_id": "ent_org_0e1d9b556075d9fc7f36",
+          "context": {
+            "scope_type": "joint_venture",
+            "scope_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+            "actor_relation": "owner",
+            "related_entity_id": null
+          },
+          "value": {
+            "kind": "percentage",
+            "value": 58.5
+          },
+          "origin_type": "reported",
+          "verification_status": "SUPPORTED",
+          "observed_at": "2026-09-25T04:42:00Z",
+          "evidence_ids": [
+            "ev_7ae5d69d366464c6d71875e3",
+            "ev_7cce2783f40d59a93ec718ff"
+          ]
+        }
+      ],
+      "producer_lane": "VERIFY_RECONCILE"
+    }
+  }
+}

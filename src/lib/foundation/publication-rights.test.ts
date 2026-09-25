@@ -194,6 +194,24 @@ describe('commercial publication rights gate', () => {
     expect(assessment.allowedEvidenceIds).toEqual(['ev_1234567890abcdef12345678']);
   });
 
+  it('allows explicit SEC policy with provider-root source identity when evidence is inside the reviewed EDGAR path', () => {
+    const input = bundle(
+      'rights.sec-edgar-public-facts.v1',
+      'metadata_only',
+      'SUPPORTED',
+      'src.sec-edgar',
+      'https://www.sec.gov/Archives/edgar/data/1711929/example.htm',
+    );
+    input.sources[0].provider_name = 'U.S. Securities and Exchange Commission';
+    input.sources[0].source_type = 'regulatory_filing';
+    input.sources[0].canonical_url = 'https://www.sec.gov/';
+    input.evidence[0].source_type = 'regulatory_filing';
+
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('ALLOWED');
+    expect(assessment.allowedEvidenceIds).toEqual(['ev_1234567890abcdef12345678']);
+  });
+
   it('does not registry-resolve a SEC URL outside the reviewed EDGAR archive path', () => {
     const input = bundle(
       null,

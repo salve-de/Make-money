@@ -77,8 +77,16 @@ function project(
 }
 
 describe('Public Fact v1 consumer projection', () => {
-  it('keeps the runtime fact-type registry empty until an upstream approved type is pinned', () => {
-    expect(APPROVED_PUBLIC_FACT_TYPE_POLICIES.size).toBe(0);
+  it('loads only the upstream-approved ownership fact type pinned in the runtime snapshot', () => {
+    expect(APPROVED_PUBLIC_FACT_TYPE_POLICIES.size).toBe(1);
+    expect(APPROVED_PUBLIC_FACT_TYPE_POLICIES.get('fact.ownership_interest_percent.v1')).toMatchObject({
+      factTypeId: 'fact.ownership_interest_percent.v1',
+      valueKind: 'percentage',
+      allowedScopeTypes: ['company', 'transaction', 'joint_venture'],
+      allowedActorRelations: ['direct_entity', 'managed_funds_or_affiliates', 'owner'],
+      title: 'Ownership interest',
+      suffix: '%',
+    });
   });
 
   it('projects an evidence-cleared verified ownership fact into a bounded public Observation DTO', () => {
