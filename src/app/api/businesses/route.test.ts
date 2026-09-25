@@ -5,6 +5,7 @@ const mocks = vi.hoisted(() => ({
   readObject: vi.fn(),
   viewReady: vi.fn(),
   readThroughDetail: vi.fn(),
+  readValuePage: vi.fn(),
   dossierReady: vi.fn(),
   parseBusinessCase: vi.fn((value: unknown) => value),
   adaptDetail: vi.fn((value: unknown) => value),
@@ -15,7 +16,7 @@ const mocks = vi.hoisted(() => ({
 
 vi.mock('@/lib/foundation/make-money-view', () => ({
   isMakeMoneyViewBackfillComplete: mocks.viewReady,
-    readMakeMoneyValuePage: vi.fn(),
+  readMakeMoneyValuePage: mocks.readValuePage,
   readMakeMoneyViewDetail: mocks.readThroughDetail,
 }));
 
@@ -111,6 +112,7 @@ describe('Foundation detail public Observation wire boundary', () => {
     mocks.listObjects.mockReset();
     mocks.readObject.mockReset();
     mocks.readThroughDetail.mockReset();
+    mocks.readValuePage.mockReset();
     mocks.dossierReady.mockReset();
     mocks.dossierReady.mockReturnValue(false);
     mocks.parseBusinessCase.mockReset();
@@ -425,6 +427,53 @@ describe('Foundation detail CPU boundary', () => {
     expect(response.status).toBe(200);
     expect((await response.json()).source).toBe('foundation_lake');
     expect(mocks.curatedFind).toHaveBeenCalledTimes(1);
+  });
+});
+
+
+describe('Foundation list page resource bound', () => {
+  beforeEach(() => {
+    mocks.viewReady.mockResolvedValue(true);
+    mocks.readValuePage.mockReset();
+    mocks.curatedList.mockReset();
+    mocks.curatedList.mockResolvedValue([]);
+  });
+
+  it('caps foundationOnly list pages at 12 while preserving the serving cursor', async () => {
+    mocks.readValuePage.mockResolvedValue({
+      data: Array.from({ length: 12 }, (_, index) => summary(`ent_page_${index}`, `Company ${index}`)),
+      nextCursor: 'make-money-serving-v2:next',
+      hasMore: true,
+      newArrivals: null,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&limit=25&cursor=existing-cursor'
+    ));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(mocks.readValuePage).toHaveBeenCalledWith({ cursor: 'existing-cursor', limit: 12 });
+    expect(body.count).toBe(12);
+    expect(body.nextCursor).toBe('make-money-serving-v2:next');
+    expect(body.hasMore).toBe(true);
+    expect(mocks.curatedList).not.toHaveBeenCalled();
+  });
+
+  it('keeps a smaller caller limit unchanged', async () => {
+    mocks.readValuePage.mockResolvedValue({
+      data: Array.from({ length: 5 }, (_, index) => summary(`ent_small_${index}`, `Small ${index}`)),
+      nextCursor: null,
+      hasMore: false,
+      newArrivals: null,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&limit=5'
+    ));
+
+    expect(response.status).toBe(200);
+    expect(mocks.readValuePage).toHaveBeenCalledWith({ cursor: undefined, limit: 5 });
   });
 });
 
