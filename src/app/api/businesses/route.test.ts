@@ -6,6 +6,8 @@ const mocks = vi.hoisted(() => ({
   viewReady: vi.fn(),
   readThroughDetail: vi.fn(),
   readValuePage: vi.fn(),
+  readLatestRelease: vi.fn(),
+  readPublicSummary: vi.fn(),
   dossierReady: vi.fn(),
   parseBusinessCase: vi.fn((value: unknown) => value),
   adaptDetail: vi.fn((value: unknown) => value),
@@ -17,8 +19,17 @@ const mocks = vi.hoisted(() => ({
 vi.mock('@/lib/foundation/make-money-view', () => ({
   assertMakeMoneyValuePage: vi.fn(),
   isMakeMoneyViewBackfillComplete: mocks.viewReady,
+  mapServingReads: async <T, R>(items: readonly T[], read: (item: T) => Promise<R>) =>
+    Promise.all(items.map((item) => read(item))),
+  readMakeMoneyPublicEntitySummaryById: mocks.readPublicSummary,
   readMakeMoneyValuePage: mocks.readValuePage,
   readMakeMoneyViewDetail: mocks.readThroughDetail,
+  selectNewArrivalPromotionIds: (ids: readonly string[], known: ReadonlySet<string>) =>
+    ids.filter((id) => !known.has(id)).slice(0, 10),
+}));
+
+vi.mock('@/lib/foundation/new-arrivals-index', () => ({
+  readIndexedNewArrivalsRelease: mocks.readLatestRelease,
 }));
 
 vi.mock('@/lib/foundation/schema', () => ({
@@ -480,7 +491,12 @@ describe('Foundation list page resource bound', () => {
 
 describe('Foundation bounded search', () => {
   beforeEach(() => {
+    mocks.viewReady.mockReset();
     mocks.viewReady.mockResolvedValue(true);
+    mocks.readLatestRelease.mockReset();
+    mocks.readLatestRelease.mockResolvedValue(null);
+    mocks.readPublicSummary.mockReset();
+    mocks.readPublicSummary.mockResolvedValue(null);
     mocks.readThroughDetail.mockClear();
     mocks.readThroughDetail.mockResolvedValue(null);
     mocks.listObjects.mockImplementation(async ({ cursor }: { cursor?: string }) => cursor
@@ -573,5 +589,168 @@ describe('Foundation bounded search', () => {
     const response = await GET(new Request(`http://localhost/api/businesses?foundationOnly=true&q=${'x'.repeat(201)}`));
     expect(response.status).toBe(400);
     expect(mocks.listObjects).not.toHaveBeenCalled();
+  });
+
+  it('returns a latest public match before the bounded archive completes', async () => {
+    const apollo = summary('ent_org_aaaaaaaaaaaaaaaaaaaa', 'Apollo Global Management');
+    mocks.readLatestRelease.mockResolvedValue({
+      releaseId: '20260925-15',
+      releaseAt: '2026-09-25T15:00:00.000Z',
+      entityIds: [apollo.id],
+      contributionCount: 1,
+    });
+    mocks.readPublicSummary.mockResolvedValue(apollo);
+    mocks.listObjects.mockResolvedValue({
+      objects: [{ key: 'views/make-money/v1/entities/other.json' }],
+      truncated: true,
+      cursor: 'page-2',
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&q=Apollo'
+    ));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.data.map((row: { id: string }) => row.id)).toContain(apollo.id);
+    expect(body.searchComplete).toBe(false);
+    expect(body.nextCursor).toMatch(/^foundation-search-v2:/);
+    expect(mocks.readPublicSummary).toHaveBeenCalledTimes(1);
+  });
+
+  it('rejects a malformed v2 cursor before any R2 or readiness read', async () => {
+    mocks.listObjects.mockClear();
+    mocks.readObject.mockClear();
+    mocks.viewReady.mockClear();
+    mocks.readLatestRelease.mockClear();
+    mocks.readPublicSummary.mockClear();
+
+    const badCursor = 'foundation-search-v2:%7B%22version%22%3A2%2C%22r2Cursor%22%3A%22x%22%2C%22excludedIds%22%3A%5B%22bad-id%22%5D%7D';
+    const response = await GET(new Request(
+      `http://localhost/api/businesses?foundationOnly=true&q=Apollo&cursor=${encodeURIComponent(badCursor)}`
+    ));
+
+    expect(response.status).toBe(400);
+    expect(mocks.listObjects).not.toHaveBeenCalled();
+    expect(mocks.readObject).not.toHaveBeenCalled();
+    expect(mocks.viewReady).not.toHaveBeenCalled();
+    expect(mocks.readLatestRelease).not.toHaveBeenCalled();
+    expect(mocks.readPublicSummary).not.toHaveBeenCalled();
+  });
+
+  it('marks latest index read failure incomplete even when archive finishes', async () => {
+    mocks.readLatestRelease.mockRejectedValue(new Error('latest index unavailable'));
+    mocks.listObjects.mockResolvedValue({
+      objects: [{ key: 'views/make-money/v1/entities/other.json' }],
+      truncated: false,
+      cursor: null,
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&q=Apollo'
+    ));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.latestRetryable).toBe(true);
+    expect(body.archiveRetryable).toBe(false);
+    expect(body.searchComplete).toBe(false);
+  });
+
+  it('keeps successful latest rows visible when the initial archive read fails', async () => {
+    const apollo = summary('ent_org_bbbbbbbbbbbbbbbbbbbb', 'Apollo Global Management');
+    mocks.readLatestRelease.mockResolvedValue({
+      releaseId: '20260925-15',
+      releaseAt: '2026-09-25T15:00:00.000Z',
+      entityIds: [apollo.id],
+      contributionCount: 1,
+    });
+    mocks.readPublicSummary.mockResolvedValue(apollo);
+    mocks.listObjects.mockRejectedValue(new Error('archive unavailable'));
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&q=Apollo'
+    ));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.data.map((row: { id: string }) => row.id)).toEqual([apollo.id]);
+    expect(body.archiveRetryable).toBe(true);
+    expect(body.searchComplete).toBe(false);
+    expect(body.nextCursor).toBe(null);
+  });
+
+  it('keeps a latest match when readiness metadata fails after search', async () => {
+    const apollo = summary('ent_org_cccccccccccccccccccc', 'Apollo Global Management');
+    mocks.readLatestRelease.mockResolvedValue({
+      releaseId: '20260925-15',
+      releaseAt: '2026-09-25T15:00:00.000Z',
+      entityIds: [apollo.id],
+      contributionCount: 1,
+    });
+    mocks.readPublicSummary.mockResolvedValue(apollo);
+    mocks.listObjects.mockResolvedValue({ objects: [], truncated: false, cursor: null });
+    mocks.viewReady.mockRejectedValue(new Error('readiness unavailable'));
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&q=Apollo'
+    ));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.data.map((row: { id: string }) => row.id)).toEqual([apollo.id]);
+    expect(body.projection).toBe('make-money.v1-backfill-in-progress');
+    expect(mocks.readPublicSummary.mock.invocationCallOrder[0])
+      .toBeLessThan(mocks.viewReady.mock.invocationCallOrder[0]);
+  });
+
+  it('carries latest promoted IDs in v2 cursor so later archive pages cannot duplicate them', async () => {
+    const apollo = summary('ent_org_dddddddddddddddddddd', 'Apollo Global Management');
+    const otherApollo = summary('ent_org_eeeeeeeeeeeeeeeeeeee', 'Apollo Portfolio Company');
+    mocks.readLatestRelease.mockResolvedValue({
+      releaseId: '20260925-15',
+      releaseAt: '2026-09-25T15:00:00.000Z',
+      entityIds: [apollo.id],
+      contributionCount: 1,
+    });
+    mocks.readPublicSummary.mockResolvedValue(apollo);
+    mocks.listObjects.mockImplementation(async ({ cursor }: { cursor?: string }) => {
+      if (!cursor) {
+        return {
+          objects: [{ key: 'views/make-money/v1/entities/first.json' }],
+          truncated: true,
+          cursor: 'page-2',
+        };
+      }
+      return {
+        objects: [
+          { key: 'views/make-money/v1/entities/apollo-duplicate.json' },
+          { key: 'views/make-money/v1/entities/apollo-other.json' },
+        ],
+        truncated: false,
+        cursor: null,
+      };
+    });
+    mocks.readObject.mockImplementation(async (_bucket: string, key: string) => ({
+      body: new TextEncoder().encode(JSON.stringify({
+        summary: key.endsWith('/apollo-duplicate.json')
+          ? apollo
+          : key.endsWith('/apollo-other.json')
+            ? otherApollo
+            : summary('ent_other_ffffffffffffffffffff', 'Other Company'),
+      })),
+    }));
+
+    const first = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&q=Apollo'
+    ));
+    const firstBody = await first.json();
+    const second = await GET(new Request(
+      `http://localhost/api/businesses?foundationOnly=true&q=Apollo&cursor=${encodeURIComponent(firstBody.nextCursor)}`
+    ));
+    const secondBody = await second.json();
+
+    expect(second.status).toBe(200);
+    expect(secondBody.data.map((row: { id: string }) => row.id)).toEqual([otherApollo.id]);
   });
 });
