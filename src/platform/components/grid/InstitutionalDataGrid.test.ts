@@ -7,6 +7,10 @@ describe('InstitutionalDataGrid continuation boundary', () => {
     expect(shouldLoadMoreGridPage(250, 0, true)).toBe(true);
   });
 
+  it('does not auto-request while an explicit retry is pending', () => {
+    expect(shouldLoadMoreGridPage(250, 0, true, true)).toBe(false);
+  });
+
   it('does not request another page after the cursor is exhausted', () => {
     expect(shouldRenderGridContinuation(0, 0, false)).toBe(false);
     expect(shouldLoadMoreGridPage(250, 0, false)).toBe(false);
