@@ -12,8 +12,14 @@ import { compileParser } from '@/shared/validate-json';
 import discoverySchema from './schemas/discovery-dataset.json';
 
 const parseDiscovery = compileParser<DiscoveryDataset>(discoverySchema, 'DiscoveryDataset');
+let discovery: Promise<DiscoveryDataset> | undefined;
 export async function readReleaseDiscovery(): Promise<DiscoveryDataset> {
-  return parseDiscovery(await readArtifact(manifest.discovery.key, manifest.discovery.hash));
+  if (!discovery) {
+    discovery = readArtifact(manifest.discovery.key, manifest.discovery.hash)
+      .then((value) => parseDiscovery(value))
+      .catch((error) => { discovery = undefined; throw error; });
+  }
+  return discovery;
 }
 
 export async function usesCatalogRelease(): Promise<boolean> {
