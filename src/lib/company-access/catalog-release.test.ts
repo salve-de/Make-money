@@ -43,6 +43,13 @@ describe('immutable catalog release', () => {
     expect(parseDiscoveryRelease(dataset)).toBe(dataset);
     expect(() => parseDiscoveryRelease({ ...dataset, visibleCount: 2 })).toThrow('Invalid discovery release');
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, id: null }] })).toThrow('Invalid discovery release');
+    expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, descriptors: null }] })).toThrow('Invalid discovery release');
+    expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, descriptors: [{ label: '体制', value: null }] }] })).toThrow('Invalid discovery release');
+    expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, related: [{ id: 'related', name: null, resultValue: '¥1万' }] }] })).toThrow('Invalid discovery release');
+    expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, scores: { ...item.scores, FAILURE: undefined } }] })).toThrow('Invalid discovery release');
+    expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, scores: {
+      SURPRISE: 1, BIG_CASH: 2, LOW_CAPITAL: 3, SOLO: 4, LOW_WORK: 5, CURRENT: 6, FAILURE: Number.NaN,
+    } }] })).toThrow('Invalid discovery release');
   });
 
   it('keeps the production summary boundary cheap but fail-closed', () => {
