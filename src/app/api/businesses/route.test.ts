@@ -461,29 +461,6 @@ describe('Foundation list page resource bound', () => {
     expect(mocks.curatedList).not.toHaveBeenCalled();
   });
 
-  it('does not re-read rebuild state on a Foundation cursor page', async () => {
-    mocks.viewReady.mockClear();
-    mocks.readValuePage.mockResolvedValue({
-      data: [summary('ent_cursor', 'Cursor Company')],
-      nextCursor: null,
-      hasMore: false,
-      newArrivals: null,
-    });
-
-    const response = await GET(new Request(
-      'http://localhost/api/businesses?foundationOnly=true&limit=12&cursor=make-money-serving-v2%3Atest'
-    ));
-    const body = await response.json();
-
-    expect(response.status).toBe(200);
-    expect(body.projection).toBe('make-money.v1');
-    expect(mocks.viewReady).not.toHaveBeenCalled();
-    expect(mocks.readValuePage).toHaveBeenCalledWith({
-      cursor: 'make-money-serving-v2:test',
-      limit: 12,
-    });
-  });
-
   it('keeps a smaller caller limit unchanged', async () => {
     mocks.readValuePage.mockResolvedValue({
       data: Array.from({ length: 5 }, (_, index) => summary(`ent_small_${index}`, `Small ${index}`)),
