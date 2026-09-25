@@ -83,6 +83,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
       {/* パートナー (30%還元) */}
       <Link
         href="/partners"
+        prefetch={false}
         className="flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono text-zinc-500 hover:text-amber-300 transition-colors"
       >
         <Handshake className="w-3.5 h-3.5 mb-0.5" />

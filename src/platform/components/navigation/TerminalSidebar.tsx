@@ -173,6 +173,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
           <div className="relative group w-full flex justify-center">
             <Link
               href="/partners"
+              prefetch={false}
               aria-label="パートナープログラム"
               className="w-9 h-9 flex items-center justify-center rounded-md transition-colors text-zinc-500 hover:text-amber-300 hover:bg-white/[0.04] cursor-pointer"
             >
