@@ -310,6 +310,20 @@ describe('Foundation detail CPU boundary', () => {
     expect(mocks.curatedList).not.toHaveBeenCalled();
   });
 
+  it('retries one transient foundationOnly detail read before failing over', async () => {
+    mocks.readThroughDetail
+      .mockRejectedValueOnce(new Error('transient R2 failure'))
+      .mockResolvedValueOnce(businessCase('ent_retry_detail'));
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&entity_id=ent_retry_detail'
+    ));
+
+    expect(response.status).toBe(200);
+    expect(mocks.readThroughDetail).toHaveBeenCalledTimes(2);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+  });
+
   it('returns 503 on foundationOnly R2 failure without touching curated fallback', async () => {
     mocks.readThroughDetail.mockRejectedValue(new Error('R2 transient failure'));
 
