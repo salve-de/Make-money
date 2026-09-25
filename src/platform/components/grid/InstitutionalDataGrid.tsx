@@ -86,7 +86,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     return () => {
       observer.unobserve(target);
     };
-  }, [entities.length, hasMore, isLoadingMore, onLoadMore, visibleCount]);
+  }, [entities.length, hasMore, isLoadingMore, onLoadMore, retryAvailable, visibleCount]);
 
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
