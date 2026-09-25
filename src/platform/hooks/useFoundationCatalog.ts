@@ -13,7 +13,7 @@ import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
-export function restoreFailedFoundationCursor(requested: Set<string>, cursor: string, setHasMore: (value: boolean) => void) { requested.delete(cursor); setHasMore(true); }
+export function markFailedFoundationCursor(requested: Set<string>, cursor: string) { requested.delete(cursor); return cursor; }
 const FOUNDATION_PAGE_REQUEST_LIMIT = 12;
 
 function parseApprovedIds(payload: unknown): string[] {
@@ -61,6 +61,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
   const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
   const [foundationLoading, setFoundationLoading] = useState(false);
+  const [foundationRetryCursor, setFoundationRetryCursor] = useState<string | null>(null);
   const [newArrivalsRelease, setNewArrivalsRelease] = useState<FoundationValuePage['newArrivals']>(null);
   const foundationLoadingRef = useRef(false);
   const foundationRequestedCursors = useRef(new Set<string>());
@@ -346,6 +347,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         const nextCursor = page.nextCursor && page.nextCursor !== effectiveCursor ? page.nextCursor : null;
         setFoundationNextCursor(nextCursor);
         setFoundationHasMore(page.hasMore && Boolean(nextCursor));
+        setFoundationRetryCursor(null);
         return page;
       }
       return null;
@@ -367,11 +369,19 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     }
     foundationRequestedCursors.current.add(cursor);
     void loadFoundationPage(cursor).catch((error) => {
-      restoreFailedFoundationCursor(foundationRequestedCursors.current, cursor, setFoundationHasMore);
-      setDataSource('保存済み台帳（追加取得に失敗 / 再試行可能）');
+      setFoundationRetryCursor(markFailedFoundationCursor(foundationRequestedCursors.current, cursor));
+      setFoundationHasMore(false);
+      setDataSource('保存済み台帳（追加取得に失敗 / 手動再試行可能）');
       console.warn('[TerminalShell] Additional Foundation page failed:', error);
     });
   }, [foundationNextCursor, loadFoundationPage]);
+
+  const retryFoundationPage = useCallback(() => {
+    if (!foundationRetryCursor || foundationLoadingRef.current) return;
+    setFoundationNextCursor(foundationRetryCursor);
+    setFoundationHasMore(true);
+    setFoundationRetryCursor(null);
+  }, [foundationRetryCursor]);
 
   useEffect(() => {
     let cancelled = false;
@@ -485,6 +495,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     dataSource: catalog.error || dataSource,
     macroData,
     foundationHasMore: foundationHasMore || catalog.hasMore, foundationLoading, catalogLoading: catalog.loading,
+    foundationRetryAvailable: Boolean(foundationRetryCursor),
     newArrivalsRelease,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
@@ -492,6 +503,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     setApprovedIds,
     setCatalogFilters,
     loadMoreFoundation: () => { loadMoreFoundation(); catalog.loadMore(); },
+    retryFoundationPage,
     fetchEntityDetailOnDemand,
   };
 }
