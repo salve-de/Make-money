@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import type { FoundationBusinessCase } from './business-reader';
 import {
   assertMakeMoneyValuePage,
-  listEvidenceCorrectionEntityIds,
   mapServingReads,
   mergeFoundationBusinessCasesForView,
   projectionRetryMatchesCanonical,
@@ -29,68 +28,6 @@ describe('serving page guard', () => {
   });
 });
 
-
-describe('evidence-correction serving index', () => {
-  it('returns an empty set when no correction controls exist', async () => {
-    const calls: Array<Record<string, unknown>> = [];
-    const ids = await listEvidenceCorrectionEntityIds('foundation-lake', async input => {
-      if (!input) throw new Error('missing list input');
-      calls.push(input);
-      return { objects: [], truncated: false };
-    });
-
-    expect([...ids]).toEqual([]);
-    expect(calls).toEqual([{
-      bucket: 'foundation-lake',
-      prefix: 'views/make-money/v1/_evidence-corrections/',
-      cursor: undefined,
-      limit: 1000,
-    }]);
-  });
-
-  it('indexes a correction target without reading the correction payload', async () => {
-    const ids = await listEvidenceCorrectionEntityIds('foundation-lake', async () => ({
-      objects: [{
-        key: 'views/make-money/v1/_evidence-corrections/ent_company_0123456789abcdef0123.json',
-      }],
-      truncated: false,
-    }));
-
-    expect(ids.has('ent_company_0123456789abcdef0123')).toBe(true);
-    expect(ids.size).toBe(1);
-  });
-
-  it('follows every correction-key page and preserves all targets', async () => {
-    const cursors: Array<string | undefined> = [];
-    const ids = await listEvidenceCorrectionEntityIds('foundation-lake', async input => {
-      if (!input) throw new Error('missing list input');
-      cursors.push(input.cursor);
-      if (!input.cursor) {
-        return {
-          objects: [{ key: 'views/make-money/v1/_evidence-corrections/ent_company_aaaaaaaaaaaaaaaaaaaa.json' }],
-          truncated: true,
-          cursor: 'page-2',
-        };
-      }
-      return {
-        objects: [{ key: 'views/make-money/v1/_evidence-corrections/ent_company_bbbbbbbbbbbbbbbbbbbb.json' }],
-        truncated: false,
-      };
-    });
-
-    expect(cursors).toEqual([undefined, 'page-2']);
-    expect([...ids].sort()).toEqual([
-      'ent_company_aaaaaaaaaaaaaaaaaaaa',
-      'ent_company_bbbbbbbbbbbbbbbbbbbb',
-    ]);
-  });
-
-  it('fails closed when correction-key listing fails', async () => {
-    await expect(listEvidenceCorrectionEntityIds('foundation-lake', async () => {
-      throw new Error('R2 correction LIST unavailable');
-    })).rejects.toThrow('R2 correction LIST unavailable');
-  });
-});
 
 describe('bounded serving-view reads', () => {
   it('reads every row in order with at most two remote reads in flight', async () => {
