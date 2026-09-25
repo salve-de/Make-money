@@ -1530,14 +1530,25 @@ export async function buildMakeMoneyPublicProjection(
   );
 }
 
+type MakeMoneySummaryReadStats = {
+  rows: number;
+  fallback64k: number;
+  fullReads: number;
+  correctionHeads: number;
+  correctionHits: number;
+};
+
 async function readMakeMoneyViewSummary(
   bucket: string,
   key: string,
+  stats?: MakeMoneySummaryReadStats,
 ): Promise<FoundationValueSummary | null> {
+  if (stats) stats.rows += 1;
   let object = await readR2ObjectRange(bucket, key, { offset: 0, length: VIEW_SUMMARY_PREFIX_BYTES });
   if (!object) return null;
   let summary = parseViewSummaryPrefix(object.body);
   if (!summary && VIEW_SUMMARY_FALLBACK_PREFIX_BYTES > VIEW_SUMMARY_PREFIX_BYTES) {
+    if (stats) stats.fallback64k += 1;
     // Most summaries fit in the small range. Preserve the old 64 KiB ceiling
     // for the exceptional large row instead of silently dropping it.
     object = await readR2ObjectRange(bucket, key, {
@@ -1547,6 +1558,7 @@ async function readMakeMoneyViewSummary(
     summary = object ? parseViewSummaryPrefix(object.body) : null;
   }
   if (!summary) {
+    if (stats) stats.fullReads += 1;
     // A valid summary can grow beyond the bounded prefix as source runs and
     // evidence IDs accumulate. Read the complete document only for this rare
     // exceptional path so valid rows are not silently skipped by the cursor.
@@ -1559,7 +1571,9 @@ async function readMakeMoneyViewSummary(
   // Evidence corrections are rare and require the full detail graph to
   // reconstruct the corrected summary. Keep that exceptional path intact,
   // but do not make every ordinary list row pay its cost.
+  if (stats) stats.correctionHeads += 1;
   if (await hasEvidenceCorrectionControl(bucket, summary.id)) {
+    if (stats) stats.correctionHits += 1;
     const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
     if (control) {
       const document = await readCorrectedViewDocument(bucket, key, control);
@@ -1617,11 +1631,18 @@ export async function readMakeMoneyValuePage(options: {
     limit: Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100),
   });
 
+  const stats: MakeMoneySummaryReadStats = {
+    rows: 0,
+    fallback64k: 0,
+    fullReads: 0,
+    correctionHeads: 0,
+    correctionHits: 0,
+  };
   const data = (
     await mapServingReads(
       page.objects
         .filter((item) => item.key.endsWith('.json')),
-        async (item) => readMakeMoneyViewSummary(bucket, item.key)
+        async (item) => readMakeMoneyViewSummary(bucket, item.key, stats)
       )
   ).filter((value): value is FoundationValueSummary => Boolean(value))
     .filter((value) => !servingCursor.excludedIds.includes(value.id));
@@ -1647,6 +1668,9 @@ export async function readMakeMoneyValuePage(options: {
     const validPromoted = promoted.filter((item): item is FoundationValueSummary => Boolean(item));
     promotedIds = validPromoted.map((item) => item.id);
     data.unshift(...validPromoted);
+  }
+  if (servingCursor.r2Cursor && (stats.fallback64k > 0 || stats.fullReads > 0 || stats.correctionHits > 0)) {
+    console.info('[make-money-view] cursor summary read stats', stats);
   }
   const nextCursor = page.truncated && page.cursor
     ? encodeMakeMoneyServingCursor(page.cursor, uniqueStrings(servingCursor.excludedIds, promotedIds))

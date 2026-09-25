@@ -7,8 +7,8 @@ import { Bookmark } from 'lucide-react';
 
 const PAGE_SIZE = 250;
 
-export function shouldLoadMoreGridPage(visibleCount: number, entityCount: number, hasMore: boolean): boolean {
-  return visibleCount >= entityCount && hasMore;
+export function shouldLoadMoreGridPage(visibleCount: number, entityCount: number, hasMore: boolean, retryAvailable = false): boolean {
+  return visibleCount >= entityCount && hasMore && !retryAvailable;
 }
 
 export function shouldRenderGridContinuation(visibleCount: number, entityCount: number, hasMore: boolean): boolean {
@@ -28,6 +28,8 @@ interface InstitutionalDataGridProps {
   onLoadMore?: () => void;
   hasMore?: boolean;
   isLoadingMore?: boolean;
+  retryAvailable?: boolean;
+  onRetry?: () => void;
 }
 
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
@@ -43,6 +45,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   onLoadMore,
   hasMore = false,
   isLoadingMore = false,
+  retryAvailable = false,
+  onRetry,
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const observerTargetRef = useRef<HTMLDivElement>(null);
@@ -67,7 +71,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting && !isLoadingMore) {
-          if (shouldLoadMoreGridPage(visibleCount, entities.length, hasMore) && onLoadMore) {
+          if (shouldLoadMoreGridPage(visibleCount, entities.length, hasMore, retryAvailable) && onLoadMore) {
             onLoadMore();
             return;
           }
@@ -82,7 +86,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     return () => {
       observer.unobserve(target);
     };
-  }, [entities.length, hasMore, isLoadingMore, onLoadMore, visibleCount]);
+  }, [entities.length, hasMore, isLoadingMore, onLoadMore, retryAvailable, visibleCount]);
 
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
@@ -348,10 +352,18 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
       )}
 
       {/* 1000件スケール時・無限スクロール感知トリガー */}
-      {shouldRenderGridContinuation(visibleCount, entities.length, hasMore) && (
+      {(shouldRenderGridContinuation(visibleCount, entities.length, hasMore) || retryAvailable) && (
         <div ref={observerTargetRef} className="py-4 text-center text-[10px] text-zinc-500 font-mono" aria-live="polite">
           {isLoadingMore ? (
             <span>R2から追加取得中...（現在 {entities.length.toLocaleString()}件）</span>
+          ) : retryAvailable && onRetry ? (
+            <button
+              type="button"
+              onClick={onRetry}
+              className="rounded border border-amber-500/30 bg-amber-500/[0.08] px-3 py-1.5 text-amber-300 transition-colors hover:bg-amber-500/[0.15]"
+            >
+              追加取得を再試行
+            </button>
           ) : visibleCount < entities.length ? (
             <button
               type="button"

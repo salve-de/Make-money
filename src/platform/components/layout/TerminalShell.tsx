@@ -58,6 +58,7 @@ export const TerminalShell: React.FC<{
     foundationHasMore,
     foundationLoading,
     catalogLoading,
+    foundationRetryAvailable,
     catalogLoadedCount,
     catalogTotal,
     foundationLoadedCount,
@@ -68,6 +69,7 @@ export const TerminalShell: React.FC<{
     setApprovedIds,
     setCatalogFilters,
     loadMoreFoundation,
+    retryFoundationPage,
     fetchEntityDetailOnDemand,
   } = useFoundationCatalog(initialEntities, searchQuery);
 
@@ -273,7 +275,9 @@ export const TerminalShell: React.FC<{
               onToggleTag={handleToggleTag}
               onLoadMore={loadMoreFoundation}
               hasMore={foundationHasMore}
-              isLoadingMore={catalogLoading}
+              isLoadingMore={foundationLoading || catalogLoading}
+              retryAvailable={foundationRetryAvailable}
+              onRetry={retryFoundationPage}
             />
           </div>
         )}

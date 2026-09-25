@@ -60,6 +60,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
   const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
   const [foundationLoading, setFoundationLoading] = useState(false);
+  const [foundationRetryCursor, setFoundationRetryCursor] = useState<string | null>(null);
   const [newArrivalsRelease, setNewArrivalsRelease] = useState<FoundationValuePage['newArrivals']>(null);
   const foundationLoadingRef = useRef(false);
   const foundationRequestedCursors = useRef(new Set<string>());
@@ -68,10 +69,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
 
-  // Source research is immutable. Approved IDs are a separate persisted editorial overlay.
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [approvalProjectionEpoch, setApprovalProjectionEpoch] = useState(0);
-  // Negative results expire. Positive approvals are monotonic and live in approvedIds.
   const negativeApprovalCheckedAt = useRef(new Map<string, number>());
 
   useEffect(() => {
@@ -98,8 +97,6 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         return;
       }
 
-      // A hidden tab may have missed approvals. Reconcile once immediately on
-      // return, then resume the bounded 20-second cadence only while visible.
       setApprovalProjectionEpoch((value) => value + 1);
       startPolling();
     };
@@ -112,9 +109,6 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     };
   }, []);
 
-  // Partial Foundation rows remain visible as standalone records. Readiness is
-  // used only when deciding whether a Foundation row may replace an already
-  // curated local dossier with the same identity.
   const foundationEntries = useMemo(() => {
     return foundationRows.map((summary) => ({
       summary,
@@ -164,10 +158,6 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
           const approved = new Set(ids);
           ids.forEach((id) => approvedThisRun.add(id));
 
-          // Only successful reads get a negative timestamp. Aborted/failed chunks
-          // remain immediately eligible for the replacement effect. A negative is
-          // revalidated after the short TTL so another admin's later approval is
-          // discovered without a full page reload.
           const checkedAt = Date.now();
           chunk.forEach((id) => {
             if (approved.has(id)) negativeApprovalCheckedAt.current.delete(id);
@@ -179,9 +169,6 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
           console.warn('[TerminalShell] Approval projection read failed; source data remains unchanged:', error);
         }
       } finally {
-        // Publish positives once per projection run. Updating approvedIds inside the
-        // chunk loop would retrigger this effect, abort the next chunk, and duplicate
-        // bounded D1 reads. Completed chunks remain useful even if a later chunk aborts.
         if (approvedThisRun.size > 0) {
           setApprovedIds((current) => {
             let changed = false;
@@ -345,6 +332,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         const nextCursor = page.nextCursor && page.nextCursor !== effectiveCursor ? page.nextCursor : null;
         setFoundationNextCursor(nextCursor);
         setFoundationHasMore(page.hasMore && Boolean(nextCursor));
+        setFoundationRetryCursor(null);
         return page;
       }
       return null;
@@ -366,11 +354,20 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     }
     foundationRequestedCursors.current.add(cursor);
     void loadFoundationPage(cursor).catch((error) => {
+      foundationRequestedCursors.current.delete(cursor);
+      setFoundationRetryCursor(cursor);
       setFoundationHasMore(false);
-      setDataSource('保存済み台帳（追加取得に失敗）');
+      setDataSource('保存済み台帳（追加取得に失敗 / 手動再試行可能）');
       console.warn('[TerminalShell] Additional Foundation page failed:', error);
     });
   }, [foundationNextCursor, loadFoundationPage]);
+
+  const retryFoundationPage = useCallback(() => {
+    if (!foundationRetryCursor || foundationLoadingRef.current) return;
+    setFoundationNextCursor(foundationRetryCursor);
+    setFoundationHasMore(true);
+    setFoundationRetryCursor(null);
+  }, [foundationRetryCursor]);
 
   useEffect(() => {
     let cancelled = false;
@@ -484,6 +481,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     dataSource: catalog.error || dataSource,
     macroData,
     foundationHasMore: foundationHasMore || catalog.hasMore, foundationLoading, catalogLoading: catalog.loading,
+    foundationRetryAvailable: Boolean(foundationRetryCursor),
     newArrivalsRelease,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
@@ -491,6 +489,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     setApprovedIds,
     setCatalogFilters,
     loadMoreFoundation: () => { loadMoreFoundation(); catalog.loadMore(); },
+    retryFoundationPage,
     fetchEntityDetailOnDemand,
   };
 }
