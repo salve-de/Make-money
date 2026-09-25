@@ -22,9 +22,10 @@ function isDiscoveryCase(value: unknown): boolean {
       && typeof item.id === 'string' && item.id.length > 0
       && typeof item.name === 'string' && item.name.length > 0
       && typeof item.resultValue === 'string');
-  const scoresValid = isRecord(value.scores)
-    && DISCOVERY_SCORE_KEYS.every((key) => typeof value.scores[key] === 'number'
-      && Number.isFinite(value.scores[key] as number));
+  const scores = isRecord(value.scores) ? value.scores : null;
+  const scoresValid = scores !== null
+    && DISCOVERY_SCORE_KEYS.every((key) => typeof scores[key] === 'number'
+      && Number.isFinite(scores[key] as number));
   return typeof value.id === 'string' && value.id.length > 0
     && typeof value.name === 'string' && value.name.length > 0
     && typeof value.tagline === 'string'
