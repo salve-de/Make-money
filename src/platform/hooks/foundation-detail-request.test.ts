@@ -44,9 +44,49 @@ describe('Foundation detail request planning', () => {
     );
   });
 
-  it('does not fall through to the heavy path when Foundation returns a transient 503', async () => {
+  it('lets an unresolved deep link try the normal detail path when Foundation returns 503', async () => {
+    const fetcher = vi.fn()
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ error: 'Foundation detail temporarily unavailable' }), { status: 503 }),
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ source: 'local_fallback' }), { status: 200 }),
+      );
+
+    const response = await fetchBusinessDetailResponse(fetcher, {
+      targetId: 'ent_deep_link',
+      knownCurated: false,
+      knownFoundation: false,
+    });
+
+    expect(response.status).toBe(200);
+    expect(fetcher).toHaveBeenCalledTimes(2);
+    expect(fetcher.mock.calls[1]?.[0]).toBe(
+      '/api/businesses?entity_id=ent_deep_link',
+    );
+  });
+
+  it('does not fall through on 503 for a known Foundation-only entity', async () => {
     const fetcher = vi.fn().mockResolvedValue(
       new Response(JSON.stringify({ error: 'Foundation detail temporarily unavailable' }), { status: 503 }),
+    );
+
+    const response = await fetchBusinessDetailResponse(fetcher, {
+      targetId: 'ent_known_foundation',
+      knownCurated: false,
+      knownFoundation: true,
+    });
+
+    expect(response.status).toBe(503);
+    expect(fetcher).toHaveBeenCalledTimes(1);
+    expect(fetcher.mock.calls[0]?.[0]).toBe(
+      '/api/businesses?entity_id=ent_known_foundation&foundationOnly=true',
+    );
+  });
+
+  it('does not mask a non-404/503 Foundation failure with normal fallback', async () => {
+    const fetcher = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ error: 'Bad projection' }), { status: 500 }),
     );
 
     const response = await fetchBusinessDetailResponse(fetcher, {
@@ -55,7 +95,7 @@ describe('Foundation detail request planning', () => {
       knownFoundation: false,
     });
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(500);
     expect(fetcher).toHaveBeenCalledTimes(1);
   });
 });
