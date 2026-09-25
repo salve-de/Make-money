@@ -392,8 +392,10 @@ export async function GET(request: Request) {
         );
         parsedFoundation = parseFoundationBusinessCase(data);
         if (parsedFoundation) {
-          foundationResponse = foundationDetailResponse(parsedFoundation);
           foundationReady = isFoundationDossierReady(parsedFoundation);
+          if (foundationOnly || foundationReady) {
+            foundationResponse = foundationDetailResponse(parsedFoundation);
+          }
         }
       }
     } catch (error) {
@@ -444,7 +446,17 @@ export async function GET(request: Request) {
 
     // Foundation-only entities remain usable even when their dossier is still
     // partial, provided the public publication gate accepts the materialized view.
-    if (foundationResponse) return foundationResponse;
+    if (parsedFoundation) {
+      try {
+        const partial = foundationResponse || foundationDetailResponse(parsedFoundation);
+        if (partial) return partial;
+      } catch (error) {
+        // Preserve the legacy contract: a malformed/expensive Foundation
+        // projection must not turn a normal detail request into an uncaught 500
+        // after curated fallback has already missed.
+        logFoundationFailure('[businesses] Partial Foundation detail projection failed:', error);
+      }
+    }
 
     return response({ error: 'Entity not found', entity_id: entityId }, 404);
   }
