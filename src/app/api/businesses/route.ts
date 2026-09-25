@@ -373,43 +373,54 @@ export async function GET(request: Request) {
       }
     }
 
-    let stagedView: FoundationBusinessCase | null = null;
-    try {
-      stagedView = await readMakeMoneyViewDetail(entityId);
-    } catch (error) {
-      logFoundationFailure('[businesses] Foundation detail read failed:', error);
-      if (foundationOnly) {
-        return response({ error: 'Foundation detail temporarily unavailable', entity_id: entityId }, 503);
-      }
-    }
+    let parsedFoundation: FoundationBusinessCase | null = null;
+    let foundationResponse: NextResponse | null = null;
+    let foundationReady = false;
+    let stagedViewMissing = false;
 
-    const data = stagedView
-      ? await readCached(
+    try {
+      const stagedView = await readMakeMoneyViewDetail(entityId);
+      if (!stagedView) {
+        stagedViewMissing = true;
+      } else {
+        const data = await readCached(
           detailCache,
           `view:${entityId}`,
           DETAIL_TTL_MS,
           MAX_DETAIL_CACHE_ENTRIES,
-          async () => stagedView as FoundationBusinessCase,
-        )
-      : null;
-    const parsedFoundation = data ? parseFoundationBusinessCase(data) : null;
+          async () => stagedView,
+        );
+        parsedFoundation = parseFoundationBusinessCase(data);
+        if (parsedFoundation) {
+          foundationResponse = foundationDetailResponse(parsedFoundation);
+          foundationReady = isFoundationDossierReady(parsedFoundation);
+        }
+      }
+    } catch (error) {
+      logFoundationFailure('[businesses] Foundation detail projection failed:', error);
+      if (foundationOnly) {
+        return response({ error: 'Foundation detail temporarily unavailable', entity_id: entityId }, 503);
+      }
+      parsedFoundation = null;
+      foundationResponse = null;
+      foundationReady = false;
+    }
 
     // Foundation-only detail is the hot path for collected cases. It must not
     // load the multi-megabyte curated catalog/static fallback graph into a cold
     // Worker isolate. The rights-gated materialized view is the only authority.
     if (foundationOnly) {
-      if (!parsedFoundation) {
+      if (stagedViewMissing || !parsedFoundation) {
         return response({ error: 'Entity not found', entity_id: entityId }, 404);
       }
-      return foundationDetailResponse(parsedFoundation)
+      return foundationResponse
         || response({ error: 'Entity not publishable', entity_id: entityId }, 404);
     }
 
     // Preserve the existing replacement rule without paying curated lookup
     // cost when the Foundation dossier is already ready to replace it.
-    if (parsedFoundation && isFoundationDossierReady(parsedFoundation)) {
-      const ready = foundationDetailResponse(parsedFoundation);
-      if (ready) return ready;
+    if (foundationReady && foundationResponse) {
+      return foundationResponse;
     }
 
     // Load the curated graph only when it can still win the precedence rule,
@@ -433,10 +444,7 @@ export async function GET(request: Request) {
 
     // Foundation-only entities remain usable even when their dossier is still
     // partial, provided the public publication gate accepts the materialized view.
-    if (parsedFoundation) {
-      const partial = foundationDetailResponse(parsedFoundation);
-      if (partial) return partial;
-    }
+    if (foundationResponse) return foundationResponse;
 
     return response({ error: 'Entity not found', entity_id: entityId }, 404);
   }
