@@ -193,7 +193,11 @@ function publicFactFingerprint(payload) {
     ? payload.data.observations
     : [];
   const publicFacts = observations.filter((observation) => observation?.kind === 'public_fact.v1');
-  assert.ok(publicFacts.length > 0, 'public_fact.v1 must reach the API');
+  assert.equal(
+    publicFacts.length,
+    1,
+    `expected exactly one public_fact.v1, got ${publicFacts.length}`,
+  );
   const ids = publicFacts.map((observation) => observation.id);
   assert.equal(new Set(ids).size, ids.length, 'public_fact.v1 IDs must be unique');
   return {
