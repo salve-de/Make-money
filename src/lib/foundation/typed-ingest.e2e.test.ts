@@ -913,6 +913,24 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
           (observation) => observation.kind === 'public_fact.v1',
         );
         expect(publicFactsForEntity.length).toBeGreaterThan(0);
+        expect(publicFactsForEntity).toEqual(expect.arrayContaining([
+          expect.objectContaining({
+            publicRights: {
+              commercialUse: 'allowed',
+              publicFactDisplay: 'allowed',
+              projectionMode: 'fact_only',
+              sourceContentPublicDisplay: 'restricted',
+              sourceContentRedistribution: 'restricted',
+              publicExcerptDisplay: 'restricted',
+              publicMediaDisplay: 'blocked',
+              providers: ['U.S. Securities and Exchange Commission'],
+              attribution: [
+                'Cite the SEC/EDGAR filing URL and identify the filing source; do not imply SEC endorsement.',
+              ],
+              reviewedAt: ['2026-09-25T04:18:00+09:00'],
+            },
+          }),
+        ]));
         const serializedDetail = JSON.stringify(detail);
         expect(serializedDetail).toMatch(/41\.5|58\.5/);
         expect(serializedDetail).not.toContain('rights.sec-edgar-public-facts.v1');
