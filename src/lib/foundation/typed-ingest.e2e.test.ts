@@ -145,8 +145,6 @@ const real20260926ArtifactPath =
   'staging/automation/verify/2026/09/26/20260926T072824JST-verify-run_verify_20260926T072824JST_cfdf4cf4_retry.json';
 const real20260926TypedBlob = '37eed9f48d341cf2c4fc37fbeeb14242708050f6';
 const real20260926ArtifactBlob = '5ba60f80ab626cef329bf616b7310e8ca697925c';
-const real20260926ExpectedRunId = 'run_handoff_aeaa51394b04bf63114c1b51ebf522be';
-const real20260926ObservationId = 'obs_3b978269d9ec6eba82dc1f9b';
 const real20260926StarwoodEntityId = 'ent_org_0e1d9b556075d9fc7f36';
 const real20260926ApolloEntityId = 'ent_org_4a819d424adf6b2a118f';
 
@@ -955,10 +953,13 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
     });
   });
 
-  it('publishes the exact 2026-09-26 operational sidecar through typed ingest to both API/UI views', async () => {
+  it('rejects the exact 2026-09-26 operational sidecar when its automation-research receipt provenance is absent', async () => {
     const request = requestForReal20260926Fixture();
     expect(request.source.typed_record_set_blob_sha).toBe(real20260926TypedBlob);
     expect(request.source.source_artifact_blob_sha).toBe(real20260926ArtifactBlob);
+    expect(request.source.source_ref).toBe('automation-research');
+    expect(request.source).not.toHaveProperty('receipt_path');
+    expect(request.source).not.toHaveProperty('receipt_blob_sha');
 
     const r2 = new MemoryR2();
     await withCloudflareRuntimeEnv({
@@ -966,149 +967,16 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
       FOUNDATION_R2_LAKE: r2,
     }, async () => {
-      const first = await postTyped(request);
-      const firstBody = await first.json();
+      const before = r2.keys();
+      const response = await postTyped(request);
+      const body = await response.json();
 
-      expect(first.status).toBe(200);
-      expect(firstBody.success).toBe(true);
-      expect(firstBody.run_id).toBe(real20260926ExpectedRunId);
-      expect(firstBody.mapper_version).toBe('r2-queue-mapper-v6');
-      expect(firstBody.view_projection.status).toBe('PASS');
-      expect(firstBody.view_projection.commercial_publication.status).toBe('ALLOWED');
-      expect(firstBody.view_projection.commercial_publication.allowedEvidenceIds).toEqual([
-        'ev_8ab84a0f3b532a7171d1a6d4',
-        'ev_f841248a66756d400605f3ac',
-      ]);
-      expect(firstBody.view_projection.complete).toBe(true);
-      expect(firstBody.view_projection.unresolved_entity_ids).toEqual([]);
-
-      for (const entityId of [
-        real20260926StarwoodEntityId,
-        real20260926ApolloEntityId,
-      ]) {
-        expect(r2.keys()).toContain(
-          `views/make-money/v1/entities/${entityId}.json`,
-        );
-
-        const detailResponse = await getBusinesses(
-          new Request(
-            `http://localhost/api/businesses?foundationOnly=true&entity_id=${entityId}`,
-          ),
-        );
-        expect(detailResponse.status).toBe(200);
-        const detailBody = await detailResponse.json();
-        const detail = detailBody.data as FoundationBusinessCase;
-        const target = detail.observations.find(
-          (observation) => observation.id === real20260926ObservationId,
-        );
-        expect(target).toBeTruthy();
-        expect(target?.publicDisplay?.title).toBe(
-          'Starwood SREIT / Apollo affordable-housing JV terms',
-        );
-        expect(target?.publicDisplay?.facts).toEqual(expect.arrayContaining([
-          expect.objectContaining({
-            label: 'Reported ownership — Apollo-managed funds / affiliates',
-            value: 41.5,
-            suffix: '%',
-          }),
-          expect.objectContaining({
-            label: 'Reported ownership — Starwood SREIT',
-            value: 58.5,
-            suffix: '%',
-          }),
-          expect.objectContaining({
-            label: 'Reported Apollo investment (USD)',
-            value: 1020000000,
-          }),
-          expect.objectContaining({
-            label: 'Reported properties (approx.)',
-            value: 120,
-          }),
-          expect.objectContaining({
-            label: 'Call-option IRR cap (years 5–10)',
-            value: 7,
-            suffix: '%',
-          }),
-          expect.objectContaining({
-            label: 'Starwood asset management / operational control',
-            value: true,
-          }),
-          expect.objectContaining({
-            label: 'Proceeds repay credit facilities',
-            value: true,
-          }),
-        ]));
-        expect(target?.publicDisplay?.sourceUrls).toEqual([
-          'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm',
-          'https://www.sec.gov/Archives/edgar/data/1711929/000119312526351388/ck0001711929-20260813.htm',
-        ]);
-        expect(target?.publicRights).toEqual({
-          commercialUse: 'allowed',
-          publicFactDisplay: 'allowed',
-          projectionMode: 'fact_only',
-          sourceContentPublicDisplay: 'restricted',
-          sourceContentRedistribution: 'restricted',
-          publicExcerptDisplay: 'restricted',
-          publicMediaDisplay: 'blocked',
-          providers: ['U.S. Securities and Exchange Commission'],
-          attribution: [
-            'Cite the SEC/EDGAR filing URL and identify the filing source; do not imply SEC endorsement.',
-          ],
-          reviewedAt: ['2026-09-25T04:18:00+09:00'],
-        });
-
-        const serializedDetail = JSON.stringify(detail);
-        expect(serializedDetail).not.toContain('rising_minimum_yield_guarantee');
-        expect(serializedDetail).not.toContain('exact_joint_venture_legal_name');
-        expect(serializedDetail).not.toContain('exact_apollo_investing_legal_entities');
-
-        const uiEntity = adaptFoundationDetailToFinancialEntity(detail);
-        const uiHtml = renderToStaticMarkup(createElement(
-          UniversalIntelligenceStream,
-          { entity: uiEntity, currency: 'USD' },
-        ));
-        expect(uiHtml).toContain('Starwood SREIT / Apollo affordable-housing JV terms');
-        expect(uiHtml).toContain('41.5%');
-        expect(uiHtml).toContain('58.5%');
-        expect(uiHtml).toContain('1020000000');
-        expect(uiHtml).toContain('120');
-        expect(uiHtml).toContain('7%');
-        expect(uiHtml).toContain('Starwood asset management / operational control');
-        expect(uiHtml).toContain('Proceeds repay credit facilities');
-        expect(uiHtml).toContain('https://www.sec.gov/Archives/edgar/');
-        expect(uiHtml).toContain('公開・権利');
-        expect(uiHtml).toContain('商用表示: 許可');
-        expect(uiHtml).toContain('公開方式: 事実のみ');
-        expect(uiHtml).toContain('原文・表現の公開: 制限あり');
-        expect(uiHtml).toContain('原文再配布: 制限あり');
-        expect(uiHtml).toContain('画像・メディア: 非公開');
-        expect(uiHtml).toContain('U.S. Securities and Exchange Commission');
-        expect(uiHtml).toContain('Cite the SEC/EDGAR filing URL');
-        expect(uiHtml).toContain('権利確認: 2026-09-25');
-        expect(uiHtml).not.toContain('rising_minimum_yield_guarantee');
-        expect(uiHtml).not.toContain('exact_joint_venture_legal_name');
-        expect(uiHtml).not.toContain('exact_apollo_investing_legal_entities');
-      }
-
-      const canonicalObject = await r2.get(canonicalKeys(r2)[0]);
-      expect(canonicalObject).toBeTruthy();
-      const canonicalBody = canonicalObject
-        ? new Uint8Array(await canonicalObject.arrayBuffer())
-        : new Uint8Array();
-      const canonicalText = new TextDecoder().decode(canonicalBody);
-      expect(canonicalText).toContain('rising_minimum_yield_guarantee');
-      expect(canonicalText).toContain('exact_joint_venture_legal_name');
-      expect(canonicalText).toContain('exact_apollo_investing_legal_entities');
-      expect(canonicalText).toContain('rights.sec-edgar-public-facts.v1');
-      expect(canonicalText).toContain('"rights_status":"metadata_only"');
-
-      const firstCanonical = canonicalKeys(r2);
-      const second = await postTyped(request);
-      const secondBody = await second.json();
-      expect(second.status).toBe(200);
-      expect(secondBody.success).toBe(true);
-      expect(secondBody.canonical_ingest).toBe('ALREADY_COMMITTED');
-      expect(canonicalKeys(r2)).toEqual(firstCanonical);
+      expect(response.status).toBe(422);
+      expect(body.reason_code).toBe('REQUEST_INVALID');
+      expect(body.error).toBe(
+        'automation-research source_ref requires receipt_path and receipt_blob_sha',
+      );
+      expect(r2.keys()).toEqual(before);
     });
   });
 
