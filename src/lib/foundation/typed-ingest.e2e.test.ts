@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { NextRequest } from 'next/server';
 import { POST as ingestTyped } from '@/app/api/foundation/ingest/typed/route';
+import { POST as ingestBundle } from '@/app/api/foundation/ingest/route';
 import { GET as getBusinesses } from '@/app/api/businesses/route';
 import { withCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
 import { gitBlobSha1, prepareFoundationTypedIngest } from './typed-ingest';
@@ -130,6 +131,13 @@ const realSecArtifactPath =
 const realSecTypedBlob = '8df9b73060b67e75612a143a886dee96a66065c9';
 const realSecArtifactBlob = 'dc1f5bfcbfe89f6b8e9d3083a30de13eaf833f53';
 const realSecApolloEntityId = 'ent_org_4a819d424adf6b2a118f';
+
+const c9eCandidateRunId = 'run_handoff_c9e926361e9472f5085323dc727be7ff';
+const c9eCandidateBlob = 'c808a3352de85880f31c3ff647e394127d0aca10';
+const c9eTypedBlob = '649614315bd75857b6421d3139eafd1f2d0d6fd4';
+const c9eSourceRunBlob = 'c77a9184c631ea84be7e3e262f93af96241e6103';
+const c9eSourceRunId = 'run_verify_canary_starwood_20260925044005';
+const c9eObservedAt = '2026-09-25T04:42:00Z';
 
 const real20260926TypedPath =
   'staging/automation/typed-records/VERIFY_RECONCILE/2026/09/26/run_verify_20260926T072824JST_cfdf4cf4_retry/starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization-2026-typed-record-set-v1.json';
@@ -421,6 +429,60 @@ function requestForRealSecFixture() {
     typed_record_set_text: typedText,
     source_artifact_text: artifactText,
   };
+}
+
+function canonicalizeForTest(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(canonicalizeForTest);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>)
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([key, item]) => [key, canonicalizeForTest(item)]),
+    );
+  }
+  return value;
+}
+
+function c9eExactFixture() {
+  const candidateText = readFileSync(
+    'src/lib/foundation/fixtures/real-starwood-apollo-c9e-candidate-r2-queue-mapper-v4.json',
+    'utf8',
+  );
+  const typedText = readFileSync(
+    'src/lib/foundation/fixtures/real-starwood-apollo-c9e-typed-record-set-v1.json',
+    'utf8',
+  );
+  const sourceRunText = readFileSync(
+    'src/lib/foundation/fixtures/real-starwood-apollo-c9e-source-run-v1.json',
+    'utf8',
+  );
+  return {
+    candidateText,
+    candidate: JSON.parse(candidateText) as Record<string, unknown>,
+    typedText,
+    typed: JSON.parse(typedText) as Record<string, unknown>,
+    sourceRunText,
+    sourceRun: JSON.parse(sourceRunText) as Record<string, unknown>,
+  };
+}
+
+function c9eCandidateRequest() {
+  const fixture = c9eExactFixture();
+  return {
+    write_authorized: true as const,
+    bundle: fixture.candidate,
+  };
+}
+
+async function postBundle(requestBody: ReturnType<typeof c9eCandidateRequest>) {
+  return ingestBundle(new NextRequest('http://localhost/api/foundation/ingest', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'x-foundation-ingest-token': 'typed-e2e-token',
+    },
+    body: JSON.stringify(requestBody),
+  }));
 }
 
 function requestForReal20260926Fixture() {
@@ -769,6 +831,127 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(canonicalText).toContain('$1.02 billion');
       expect(canonicalText).toContain('Class B Common Units');
       expect(canonicalText).toContain('redeemable noncontrolling interest');
+    });
+  });
+
+  it('preserves the exact c9e candidate lineage and serves its reviewed PublicFacts through the normal bundle path', async () => {
+    const fixture = c9eExactFixture();
+    expect(gitBlobSha1(fixture.candidateText)).toBe(c9eCandidateBlob);
+    expect(gitBlobSha1(fixture.typedText)).toBe(c9eTypedBlob);
+    expect(gitBlobSha1(fixture.sourceRunText)).toBe(c9eSourceRunBlob);
+
+    expect(fixture.candidate.run_id).toBe(c9eCandidateRunId);
+    expect(fixture.candidate.retrieved_at).toBe(c9eObservedAt);
+    expect(fixture.sourceRun.run_id).toBe(c9eSourceRunId);
+    expect(fixture.sourceRun.lane).toBe('VERIFY_RECONCILE');
+    expect(fixture.sourceRun.finished_at).toBe(c9eObservedAt);
+    expect(fixture.sourceRun.final_status).toBe('SUCCESS');
+
+    const candidateObservations = Array.isArray(fixture.candidate.observations)
+      ? fixture.candidate.observations as Array<Record<string, unknown>>
+      : [];
+    const transport = candidateObservations.find(
+      (observation) => observation.observation_type === 'transport.typed_record_set_v1',
+    ) as Record<string, unknown> | undefined;
+    const embeddedTyped = transport?.transport_typed_record_set_v1 as Record<string, unknown> | undefined;
+    expect(embeddedTyped).toBeTruthy();
+    expect(canonicalizeForTest(embeddedTyped)).toEqual(canonicalizeForTest(fixture.typed));
+    expect(fixture.typed.source_run_id).toBe(c9eSourceRunId);
+    expect(fixture.typed.source_artifact).toEqual({
+      path: 'staging/automation/verify/2026/09/25/20260925T044200Z-verify_reconcile-run_verify_canary_starwood_20260925044005.json',
+      blob_sha: c9eSourceRunBlob,
+      lane: 'VERIFY_RECONCILE',
+    });
+
+    const extensions = fixture.typed.extensions as Record<string, unknown>;
+    const publicFactOutput = extensions['public_facts.v1'] as Record<string, unknown>;
+    const publicFacts = publicFactOutput.facts as Array<Record<string, unknown>>;
+    expect(publicFacts).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        fact_id: 'pf_62877c1fb7ba35b14d80ff33',
+        fact_type_id: 'fact.ownership_interest_percent.v1',
+        target_entity_id: real20260926ApolloEntityId,
+        observed_at: c9eObservedAt,
+        value: { kind: 'percentage', value: 41.5 },
+      }),
+      expect.objectContaining({
+        fact_id: 'pf_f4ae5d042c95d5c1c607cd85',
+        fact_type_id: 'fact.ownership_interest_percent.v1',
+        target_entity_id: real20260926StarwoodEntityId,
+        observed_at: c9eObservedAt,
+        value: { kind: 'percentage', value: 58.5 },
+      }),
+    ]));
+
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const first = await postBundle(c9eCandidateRequest());
+      const firstBody = await first.json();
+
+      expect(first.status).toBe(200);
+      expect(firstBody.success).toBe(true);
+      expect(firstBody.run_id).toBe(c9eCandidateRunId);
+      expect(firstBody.view_projection.status).toBe('PASS');
+      expect(firstBody.view_projection.complete).toBe(true);
+      expect(firstBody.view_projection.unresolved_entity_ids).toEqual([]);
+
+      for (const entityId of [
+        real20260926StarwoodEntityId,
+        real20260926ApolloEntityId,
+      ]) {
+        const detailResponse = await getBusinesses(
+          new Request(
+            `http://localhost/api/businesses?foundationOnly=true&entity_id=${entityId}`,
+          ),
+        );
+        expect(detailResponse.status).toBe(200);
+        const detailBody = await detailResponse.json();
+        const detail = detailBody.data as FoundationBusinessCase;
+        const publicFactsForEntity = detail.observations.filter(
+          (observation) => observation.kind === 'public_fact.v1',
+        );
+        expect(publicFactsForEntity.length).toBeGreaterThan(0);
+        const serializedDetail = JSON.stringify(detail);
+        expect(serializedDetail).toMatch(/41\.5|58\.5/);
+        expect(serializedDetail).not.toContain('rights.sec-edgar-public-facts.v1');
+        expect(serializedDetail).not.toContain('exact_jv_legal_name');
+        expect(serializedDetail).not.toContain('exact_apollo_investing_entities');
+
+        const uiEntity = adaptFoundationDetailToFinancialEntity(detail);
+        const uiHtml = renderToStaticMarkup(createElement(
+          UniversalIntelligenceStream,
+          { entity: uiEntity, currency: 'USD' },
+        ));
+        expect(uiHtml).toMatch(/41\.5%|58\.5%/);
+        expect(uiHtml).toContain('公開・権利');
+        expect(uiHtml).toContain('商用表示: 許可');
+        expect(uiHtml).toContain('U.S. Securities and Exchange Commission');
+        expect(uiHtml).not.toContain('exact_jv_legal_name');
+        expect(uiHtml).not.toContain('exact_apollo_investing_entities');
+      }
+
+      const canonicalObject = await r2.get(canonicalKeys(r2)[0]);
+      expect(canonicalObject).toBeTruthy();
+      const canonicalBytes = canonicalObject
+        ? new Uint8Array(await canonicalObject.arrayBuffer())
+        : new Uint8Array();
+      const canonicalText = new TextDecoder().decode(canonicalBytes);
+      expect(canonicalText).toContain(c9eCandidateRunId);
+      expect(canonicalText).toContain('rights.sec-edgar-public-facts.v1');
+      expect(canonicalText).toContain(c9eSourceRunId);
+      expect(canonicalText).toContain('exact_jv_legal_name');
+
+      const beforeRetry = canonicalKeys(r2);
+      const second = await postBundle(c9eCandidateRequest());
+      const secondBody = await second.json();
+      expect(second.status).toBe(200);
+      expect(secondBody.success).toBe(true);
+      expect(secondBody.canonical_ingest).toBe('ALREADY_COMMITTED');
+      expect(canonicalKeys(r2)).toEqual(beforeRetry);
     });
   });
 
