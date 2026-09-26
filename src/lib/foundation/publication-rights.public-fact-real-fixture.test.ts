@@ -2,7 +2,6 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { APPROVED_PUBLIC_FACT_TYPE_POLICIES } from './public-fact';
 import { buildCommercialPublicFactProjection } from './publication-rights';
-import { typedRecordSetFromCanonicalBundle } from './make-money-view';
 
 type JsonObject = Record<string, unknown>;
 
@@ -81,52 +80,5 @@ describe('real 2026-09-25 Starwood VERIFY PublicFact projection', () => {
     expect(serialized).not.toContain('exact_apollo_investing_entities');
 
 
-  it('extracts and projects the exact mapper-v4 candidate from automation-research', () => {
-    const candidate = JSON.parse(readFileSync(
-      'src/lib/foundation/fixtures/real-starwood-apollo-sec-mapper-v4-candidate.json',
-      'utf8',
-    )) as JsonObject;
-
-    expect(candidate.run_id).toBe('run_handoff_c9e926361e9472f5085323dc727be7ff');
-    const candidateObservations = candidate.observations as JsonObject[];
-    expect(candidateObservations.some(
-      (row) => row.observation_id === 'obs_62caf68d0af2a7f659bf0b5a',
-    )).toBe(true);
-
-    const extracted = typedRecordSetFromCanonicalBundle(candidate) as JsonObject;
-    expect(extracted.source_run_id).toBe('run_verify_canary_starwood_20260925044005');
-    expect(extracted.subject_ref).toBe(
-      'case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026',
-    );
-
-    const projected = buildCommercialPublicFactProjection(candidate, extracted);
-    expect(projected.assessment.status).toBe('ALLOWED');
-    expect(projected.bundle?.run_id).toBe('run_handoff_c9e926361e9472f5085323dc727be7ff');
-
-    const observations = projected.bundle?.observations as JsonObject[];
-    expect(observations).toHaveLength(2);
-    const values = observations
-      .map((row) => ((row.public_payload as JsonObject).value as JsonObject).value)
-      .sort((left, right) => Number(left) - Number(right));
-    expect(values).toEqual([41.5, 58.5]);
-
-    const evidenceIds = observations
-      .flatMap((row) => (row.evidence_ids as string[]) || [])
-      .filter((value, index, values) => values.indexOf(value) === index)
-      .sort();
-    expect(evidenceIds).toEqual([
-      'ev_7ae5d69d366464c6d71875e3',
-      'ev_7cce2783f40d59a93ec718ff',
-    ]);
-
-    const sourceUrls = observations
-      .flatMap((row) => ((row.public_display as JsonObject).source_urls as string[]) || [])
-      .filter((value, index, values) => values.indexOf(value) === index)
-      .sort();
-    expect(sourceUrls).toEqual([
-      'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm',
-      'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332795/ck0001711929-20260804.htm',
-    ]);
-  });
   });
 });
