@@ -11,8 +11,15 @@ function safeJson(value: unknown): string | null {
   }
 }
 
+function rightsLabel(value: 'allowed' | 'restricted' | 'blocked'): string {
+  if (value === 'allowed') return '許可';
+  if (value === 'restricted') return '制限あり';
+  return '非公開';
+}
+
 export function StructuredObservationPayload({ observation }: { observation: UniversalObservation }) {
   const display = observation.publicDisplay;
+  const rights = observation.publicRights;
   if (display) {
     return (
       <div className="mt-2 rounded border border-white/[0.07] bg-black/20 px-3 py-2.5">
@@ -50,6 +57,26 @@ export function StructuredObservationPayload({ observation }: { observation: Uni
             </a>
           ))}
         </div>
+        {rights && (
+          <div className="mt-2 border-t border-white/[0.05] pt-2 text-[9px] leading-relaxed text-zinc-500">
+            <div className="font-mono font-bold text-zinc-400">公開・権利</div>
+            <div className="mt-1 grid gap-0.5">
+              <div>商用表示: 許可</div>
+              <div>公開方式: 事実のみ</div>
+              <div>原文・表現の公開: {rightsLabel(rights.sourceContentPublicDisplay)}</div>
+              <div>原文再配布: {rightsLabel(rights.sourceContentRedistribution)}</div>
+              <div>本文抜粋: {rightsLabel(rights.publicExcerptDisplay)}</div>
+              <div>画像・メディア: {rightsLabel(rights.publicMediaDisplay)}</div>
+              <div>出典: {rights.providers.join(' / ')}</div>
+            </div>
+            {rights.attribution.map((item) => (
+              <div key={item} className="mt-1">帰属: {item}</div>
+            ))}
+            <div className="mt-1">
+              権利確認: {rights.reviewedAt.map((item) => item.slice(0, 10)).join(' / ')}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
