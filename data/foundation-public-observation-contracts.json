@@ -133,7 +133,7 @@
           "required": true
         }
       ],
-      "notes": "SEC EDGAR fact-only contract for the 2026-09-26 VERIFY material-transaction observation. Publishes only reviewed scalar facts. rising_minimum_yield_guarantee, unresolved legal names, source prose, transport metadata and every unlisted field remain private.",
+      "notes": "Reviewed fact-only exception for the immutable 2026-09-26 VERIFY material-transaction Observation. It exists so already-collected typed data can be projected safely without rewriting the source. It is not a template for future Observation types: reusable meanings should move to approved PublicFact types when those types exist. Publishes only reviewed scalar facts. rising_minimum_yield_guarantee, unresolved legal names, source prose, transport metadata and every unlisted field remain private.",
       "display": {
         "title": "Starwood SREIT / Apollo affordable-housing JV terms",
         "subject": "Verified transaction terms reported in Starwood SEC filings",
@@ -203,7 +203,8 @@
           }
         ],
         "require_exact_evidence_set": true
-      }
+      },
+      "publication_strategy": "reviewed_observation_exception"
     }
   ]
 }
