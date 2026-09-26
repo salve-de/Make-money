@@ -78,7 +78,5 @@ describe('real 2026-09-25 Starwood VERIFY PublicFact projection', () => {
     expect(serialized).not.toContain('starwood_apollo.verify_reconcile.core_transaction_and_return_terms.v1');
     expect(serialized).not.toContain('typed-record-set.v1 transport envelope');
     expect(serialized).not.toContain('exact_apollo_investing_entities');
-
-
   });
 });
