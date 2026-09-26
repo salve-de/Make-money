@@ -61,6 +61,7 @@ for (const target of cases) {
     const stream = page.locator('#section-stream');
     await expect(stream).toBeVisible();
     await expect(stream).toContainText(target.percent);
+    await expect(stream.getByText(target.percent, { exact: true })).toHaveCount(1);
     await expect(stream).toContainText('公開・権利');
     await expect(stream).toContainText('商用表示: 許可');
     await expect(stream).toContainText('公開方式: 事実のみ');
