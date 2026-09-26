@@ -22,6 +22,8 @@ const CANONICAL_KEY =
   'datasets/ds.business.research-bundles.derived/v1/2026/09/25/' +
   TARGET_RUN + '.json';
 const R2_OBJECT = 'foundation-lake-local-e2e/' + CANONICAL_KEY;
+const EXPECTED_CANONICAL_BYTES = 42_477;
+const EXPECTED_CANONICAL_SHA256 = '27b3649cf56cb1ce4fbe4e5a151b1edb05a93f8377b2b9a3c98aed931ecc47fc';
 const WRANGLER_BIN = resolve(process.cwd(), 'node_modules/.bin/wrangler');
 
 const entities = [
@@ -230,6 +232,7 @@ function publicFactFingerprint(payload) {
 
 function assertPublicSafe(payload, expectedPercent) {
   assert.equal(payload?.source, 'foundation_lake');
+  assert.equal(payload?.isStale, false, 'foundation API must return fresh local canonical data');
   const serialized = JSON.stringify(payload);
   assert.ok(serialized.includes(String(expectedPercent)));
   assert.ok(serialized.includes('U.S. Securities and Exchange Commission'));
@@ -251,6 +254,8 @@ function assertPublicSafe(payload, expectedPercent) {
 }
 
 function assertCanonicalPrivate(canonical) {
+  assert.equal(canonical.bytes.byteLength, EXPECTED_CANONICAL_BYTES, 'c9e canonical byte length drifted');
+  assert.equal(canonical.hash, EXPECTED_CANONICAL_SHA256, 'c9e canonical SHA-256 drifted');
   assert.equal(canonical.json.run_id, TARGET_RUN);
   assert.equal(canonical.json.retrieved_at, OBSERVED_AT);
   const text = canonical.bytes.toString('utf8');
@@ -386,6 +391,8 @@ async function main() {
         sha256_first: firstCanonical.hash,
         sha256_second: secondCanonical.hash,
         bytes: firstCanonical.bytes.byteLength,
+        expected_bytes: EXPECTED_CANONICAL_BYTES,
+        expected_sha256: EXPECTED_CANONICAL_SHA256,
         unchanged_after_replay: true,
       },
       api: firstApi.map((item, index) => ({
