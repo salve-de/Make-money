@@ -262,8 +262,6 @@ the Starwood/Apollo records, and capture Network + rendered evidence.
 
 ### Make-Money local config
 
-### Make-Money local config
-
 Current `foundation:local-e2e` setup supplies local R2/D1 bindings for the product Worker but not the Publisher Queue.
 
 ### Universal Foundation Publisher local config
