@@ -552,6 +552,9 @@
         "publicDisplay": {
           "$ref": "#/definitions/FoundationObservationPublicDisplay"
         },
+        "publicRights": {
+          "$ref": "#/definitions/FoundationObservationPublicRights"
+        },
         "evidenceIds": {
           "type": "array",
           "items": {
@@ -625,6 +628,85 @@
       "required": [
         "label",
         "value"
+      ]
+    },
+    "FoundationObservationPublicRights": {
+      "type": "object",
+      "properties": {
+        "commercialUse": {
+          "type": "string",
+          "const": "allowed"
+        },
+        "publicFactDisplay": {
+          "type": "string",
+          "const": "allowed"
+        },
+        "projectionMode": {
+          "type": "string",
+          "const": "fact_only"
+        },
+        "sourceContentPublicDisplay": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "restricted",
+            "blocked"
+          ]
+        },
+        "sourceContentRedistribution": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "restricted",
+            "blocked"
+          ]
+        },
+        "publicExcerptDisplay": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "restricted",
+            "blocked"
+          ]
+        },
+        "publicMediaDisplay": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "restricted",
+            "blocked"
+          ]
+        },
+        "providers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attribution": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewedAt": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "commercialUse",
+        "publicFactDisplay",
+        "projectionMode",
+        "sourceContentPublicDisplay",
+        "sourceContentRedistribution",
+        "publicExcerptDisplay",
+        "publicMediaDisplay",
+        "providers",
+        "attribution",
+        "reviewedAt"
       ]
     },
     "FoundationDerivedRecord": {
