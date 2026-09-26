@@ -21,6 +21,8 @@ export interface CommercialPublicProjectionAssessment {
  * intentionally NOT auto-admitted here. They can be added only after the
  * exact condition can be proven mechanically.
  */
+type PublicRightsDisposition = 'allowed' | 'restricted' | 'blocked';
+
 export interface AutoPublicFactPolicy {
   sourceId: string;
   providerName: string;
@@ -35,37 +37,63 @@ export interface AutoPublicFactPolicy {
   attribution: string;
 }
 
+function publicRightsDisposition(value: unknown): PublicRightsDisposition | null {
+  return value === 'allowed' || value === 'restricted' || value === 'blocked'
+    ? value
+    : null;
+}
+
+type RightsSnapshotRecord = (typeof rightsSnapshot.records)[number];
+
+function autoPublicFactPolicyEntry(
+  record: RightsSnapshotRecord,
+): [string, AutoPublicFactPolicy] | null {
+  const sourceContentPublicDisplay = publicRightsDisposition(record.policy.public_display);
+  const sourceContentRedistribution = publicRightsDisposition(record.policy.redistribution);
+  const publicExcerptDisplay = publicRightsDisposition(record.policy.public_excerpt_display);
+  const publicMediaDisplay = publicRightsDisposition(record.policy.public_media_display);
+  if (
+    record.policy.status !== 'approved' ||
+    record.policy.commercial_use !== 'allowed' ||
+    record.policy.public_fact_display !== 'allowed' ||
+    record.source.status !== 'active' ||
+    record.source.source_id !== record.policy.source_id ||
+    !record.source.rights_policy_ids.includes(record.policy.policy_id) ||
+    !/^[a-f0-9]{40}$/.test(record.policy.blob_sha) ||
+    !/^[a-f0-9]{40}$/.test(record.source.blob_sha) ||
+    !sourceContentPublicDisplay ||
+    !sourceContentRedistribution ||
+    !publicExcerptDisplay ||
+    !publicMediaDisplay
+  ) {
+    return null;
+  }
+
+  return [
+    record.policy.policy_id,
+    {
+      sourceId: record.source.source_id,
+      providerName: record.source.provider_name,
+      allowedSourceTypes: [...record.source.source_types],
+      allowedHostSuffixes: [...record.allowed_host_suffixes],
+      allowedPathPrefixes: 'allowed_path_prefixes' in record &&
+        Array.isArray(record.allowed_path_prefixes)
+        ? [...record.allowed_path_prefixes]
+        : [],
+      reviewedAt: record.policy.reviewed_at,
+      sourceContentPublicDisplay,
+      sourceContentRedistribution,
+      publicExcerptDisplay,
+      publicMediaDisplay,
+      attribution: record.policy.attribution,
+    },
+  ];
+}
+
 export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
   rightsSnapshot.records
-    .filter((record) =>
-      record.policy.status === 'approved' &&
-      record.policy.commercial_use === 'allowed' &&
-      record.policy.public_fact_display === 'allowed' &&
-      record.source.status === 'active' &&
-      record.source.source_id === record.policy.source_id &&
-      record.source.rights_policy_ids.includes(record.policy.policy_id) &&
-      /^[a-f0-9]{40}$/.test(record.policy.blob_sha) &&
-      /^[a-f0-9]{40}$/.test(record.source.blob_sha)
-    )
-    .map((record) => [
-      record.policy.policy_id,
-      {
-        sourceId: record.source.source_id,
-        providerName: record.source.provider_name,
-        allowedSourceTypes: [...record.source.source_types],
-        allowedHostSuffixes: [...record.allowed_host_suffixes],
-        allowedPathPrefixes: 'allowed_path_prefixes' in record &&
-          Array.isArray(record.allowed_path_prefixes)
-          ? [...record.allowed_path_prefixes]
-          : [],
-        reviewedAt: record.policy.reviewed_at,
-        sourceContentPublicDisplay: record.policy.public_display,
-        sourceContentRedistribution: record.policy.redistribution,
-        publicExcerptDisplay: record.policy.public_excerpt_display,
-        publicMediaDisplay: record.policy.public_media_display,
-        attribution: record.policy.attribution,
-      },
-    ]),
+    .map(autoPublicFactPolicyEntry)
+    .filter((entry): entry is [string, AutoPublicFactPolicy] => entry !== null),
 );
 
 function objectValue(value: unknown): JsonObject | null {
@@ -376,8 +404,6 @@ function compactPublicObservationText(
   });
   return [observationType, ...parts].join(' · ').slice(0, 240);
 }
-
-type PublicRightsDisposition = 'allowed' | 'restricted' | 'blocked';
 
 function mostRestrictiveRightsDisposition(
   values: readonly PublicRightsDisposition[],
@@ -878,15 +904,16 @@ export function buildCommercialPublicFactProjection(
         allowedEvidenceIds: allowed,
         sourceUrlByEvidenceId,
         publicEntities: publicFactIdentityPool,
-      })
-        .map((observation) => {
-          const publicRights = buildPublicRightsMetadata(
-            stringArray(observation.evidence_ids),
-            policyIdByEvidenceId,
-          );
-          return publicRights ? { ...observation, public_rights: publicRights } : null;
-        })
-        .filter((observation): observation is JsonObject => Boolean(observation))
+      }).reduce<JsonObject[]>((result, observation) => {
+        const publicRights = buildPublicRightsMetadata(
+          stringArray(observation.evidence_ids),
+          policyIdByEvidenceId,
+        );
+        if (publicRights) {
+          result.push({ ...observation, public_rights: publicRights });
+        }
+        return result;
+      }, [])
     : [];
   observations.push(...publicFactObservations);
 
