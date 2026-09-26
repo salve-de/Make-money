@@ -120,10 +120,22 @@ type PublicObservationDisplayPolicy = {
   facts: readonly PublicObservationDisplayFactRule[];
 };
 
+type PublicObservationAssociationEntityPolicy = {
+  entityId: string;
+  canonicalName: string;
+};
+
+type PublicObservationAssociationPolicy = {
+  subjectRef: string;
+  entities: readonly PublicObservationAssociationEntityPolicy[];
+  requireExactEvidenceSet: boolean;
+};
+
 type PublicObservationTypePolicy = {
   fields: readonly PublicObservationFieldRule[];
   allowedPolicyIds: readonly string[];
   display?: PublicObservationDisplayPolicy;
+  association?: PublicObservationAssociationPolicy;
 };
 
 function publicObservationPolicies(): Readonly<Record<string, PublicObservationTypePolicy>> {
@@ -170,6 +182,46 @@ function publicObservationPolicies(): Readonly<Record<string, PublicObservationT
           }))),
         })
       : undefined;
+    const associationInput = 'association' in contract && contract.association
+      ? contract.association as {
+          subject_ref?: unknown;
+          entities?: unknown;
+          require_exact_evidence_set?: unknown;
+        }
+      : null;
+    let association: PublicObservationAssociationPolicy | undefined;
+    if (
+      associationInput &&
+      typeof associationInput.subject_ref === 'string' &&
+      associationInput.subject_ref.length > 0 &&
+      Array.isArray(associationInput.entities) &&
+      associationInput.entities.length > 0 &&
+      associationInput.entities.length <= 8
+    ) {
+      const associationEntities = associationInput.entities
+        .map((entry) => objectValue(entry))
+        .map((entry) => entry && typeof entry.entity_id === 'string' &&
+          entry.entity_id.length > 0 &&
+          typeof entry.canonical_name === 'string' &&
+          entry.canonical_name.length > 0
+          ? {
+              entityId: entry.entity_id,
+              canonicalName: entry.canonical_name,
+            }
+          : null);
+      const validEntities = associationEntities
+        .filter((entry): entry is PublicObservationAssociationEntityPolicy => Boolean(entry));
+      if (
+        validEntities.length === associationInput.entities.length &&
+        new Set(validEntities.map((entry) => entry.entityId)).size === validEntities.length
+      ) {
+        association = Object.freeze({
+          subjectRef: associationInput.subject_ref,
+          entities: Object.freeze(validEntities.map((entry) => Object.freeze(entry))),
+          requireExactEvidenceSet: associationInput.require_exact_evidence_set === true,
+        });
+      }
+    }
     const allowedPolicyIds = 'allowed_policy_ids' in contract && Array.isArray(contract.allowed_policy_ids)
       ? contract.allowed_policy_ids.filter((value): value is string => typeof value === 'string' && value.length > 0)
       : [];
@@ -177,6 +229,7 @@ function publicObservationPolicies(): Readonly<Record<string, PublicObservationT
       fields: Object.freeze(fields.map((field) => Object.freeze(field))),
       allowedPolicyIds: Object.freeze([...allowedPolicyIds]),
       ...(display ? { display } : {}),
+      ...(association ? { association } : {}),
     });
   }
   return Object.freeze(result);
@@ -312,11 +365,105 @@ function compactPublicObservationText(
   return [observationType, ...parts].join(' · ').slice(0, 240);
 }
 
+function sameStringSet(left: readonly string[], right: readonly string[]): boolean {
+  if (left.length !== right.length) return false;
+  const leftSet = new Set(left);
+  const rightSet = new Set(right);
+  if (leftSet.size !== rightSet.size) return false;
+  for (const value of leftSet) {
+    if (!rightSet.has(value)) return false;
+  }
+  return true;
+}
+
+function resolvePublicObservationAssociationEntityIds(
+  value: JsonObject,
+  contract: PublicObservationTypePolicy,
+  bundle: JsonObject,
+  typedRecordSetInput: unknown,
+  allowed: ReadonlySet<string>,
+): string[] | null | undefined {
+  const association = contract.association;
+  if (!association) return undefined;
+
+  const typedRecordSet = objectValue(typedRecordSetInput);
+  if (!typedRecordSet || text(typedRecordSet.subject_ref) !== association.subjectRef) {
+    return null;
+  }
+
+  const evidenceIds = stringArray(value.evidence_ids);
+  if (evidenceIds.length === 0 || evidenceIds.some((id) => !allowed.has(id))) {
+    return null;
+  }
+
+  const observationId = text(value.observation_id);
+  const observationType = text(value.observation_type);
+  const typedObservations = (Array.isArray(typedRecordSet.observations)
+    ? typedRecordSet.observations
+    : [])
+    .map(objectValue)
+    .filter((row): row is JsonObject => Boolean(row))
+    .filter((row) =>
+      text(row.observation_id) === observationId &&
+      text(row.observation_type) === observationType
+    );
+  if (
+    typedObservations.length !== 1 ||
+    !sameStringSet(stringArray(typedObservations[0].evidence_ids), evidenceIds)
+  ) {
+    return null;
+  }
+
+  const expectedIds = association.entities.map((entry) => entry.entityId);
+  const explicitIds = [
+    ...(text(value.entity_id) ? [text(value.entity_id)!] : []),
+    ...stringArray(value.entity_ids),
+  ];
+  if (explicitIds.length > 0 && !sameStringSet(explicitIds, expectedIds)) {
+    return null;
+  }
+
+  const matchesEntity = (
+    row: JsonObject,
+    expected: PublicObservationAssociationEntityPolicy,
+  ): boolean => {
+    if (
+      text(row.entity_id) !== expected.entityId ||
+      text(row.canonical_name) !== expected.canonicalName
+    ) {
+      return false;
+    }
+    const entityEvidenceIds = stringArray(row.evidence_ids);
+    return association.requireExactEvidenceSet
+      ? sameStringSet(entityEvidenceIds, evidenceIds)
+      : evidenceIds.every((id) => entityEvidenceIds.includes(id));
+  };
+
+  const collections = [
+    Array.isArray(bundle.entities) ? bundle.entities : [],
+    Array.isArray(typedRecordSet.entities) ? typedRecordSet.entities : [],
+  ];
+  for (const collection of collections) {
+    const rows = collection
+      .map(objectValue)
+      .filter((row): row is JsonObject => Boolean(row));
+    for (const expected of association.entities) {
+      if (rows.filter((row) => matchesEntity(row, expected)).length !== 1) {
+        return null;
+      }
+    }
+  }
+
+  return [...expectedIds];
+}
+
 function buildCommercialPublicObservation(
   value: JsonObject,
   allowed: Set<string>,
   sourceUrlByEvidenceId: ReadonlyMap<string, string>,
   policyIdByEvidenceId: ReadonlyMap<string, string>,
+  bundle: JsonObject,
+  typedRecordSetInput?: unknown,
 ): JsonObject | null {
   if (!recordUsesOnlyAllowedEvidence(value, allowed)) return null;
 
@@ -351,6 +498,17 @@ function buildCommercialPublicObservation(
     !publicPayload
   ) return null;
 
+  const associationEntityIds = contract
+    ? resolvePublicObservationAssociationEntityIds(
+        value,
+        contract,
+        bundle,
+        typedRecordSetInput,
+        allowed,
+      )
+    : undefined;
+  if (associationEntityIds === null) return null;
+
   const projected: JsonObject = {
     observation_id: observationId,
     observation_type: observationType,
@@ -367,8 +525,12 @@ function buildCommercialPublicObservation(
 
   const entityId = text(value.entity_id);
   const entityIds = stringArray(value.entity_ids);
-  if (entityId) projected.entity_id = entityId;
-  if (entityIds.length > 0) projected.entity_ids = entityIds;
+  if (associationEntityIds && associationEntityIds.length > 0) {
+    projected.entity_ids = associationEntityIds;
+  } else {
+    if (entityId) projected.entity_id = entityId;
+    if (entityIds.length > 0) projected.entity_ids = entityIds;
+  }
 
   return projected;
 }
@@ -634,6 +796,8 @@ export function buildCommercialPublicFactProjection(
       allowed,
       sourceUrlByEvidenceId,
       policyIdByEvidenceId,
+      bundle,
+      typedRecordSetInput,
     ))
     .filter((value): value is JsonObject => Boolean(value));
 
