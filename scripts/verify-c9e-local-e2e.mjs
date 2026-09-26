@@ -154,6 +154,20 @@ function localR2Get(outputPath, allowMissing = false) {
   };
 }
 
+async function assertPublisherHealth() {
+  const response = await fetch(new URL('/health', PUBLISHER_ORIGIN));
+  const text = await response.text();
+  assert.equal(response.status, 200, `publisher health failed: ${response.status} ${text}`);
+  const health = JSON.parse(text);
+  assert.equal(health.service, 'foundation-r2-queue-publisher');
+  assert.equal(
+    health.direct_fallback_on_queue_daily_limit,
+    false,
+    'LOCAL_E2E_MODE must forbid direct Publisher fallback so Queue consumer is mandatory',
+  );
+  return health;
+}
+
 async function triggerScheduled(scheduledTime) {
   const url = new URL('/cdn-cgi/local/scheduled', PUBLISHER_ORIGIN);
   url.searchParams.set('cron', CRON);
@@ -291,6 +305,7 @@ async function main() {
     'c9e canonical already exists. Stop local workers, run pnpm foundation:local-e2e:reset, restart both workers, then rerun this proof.',
   );
 
+  const publisherHealth = await assertPublisherHealth();
   const selection = await discoverNormalScheduledTime();
   const firstTrigger = await triggerScheduled(selection.scheduledTime);
   const firstCanonical = await waitForCanonical('/tmp/c9e-canonical-first.json');
@@ -298,6 +313,7 @@ async function main() {
   await assertSelectionStable(selection);
 
   const secondTrigger = await triggerScheduled(selection.scheduledTime);
+  await new Promise((resolvePromise) => setTimeout(resolvePromise, 2500));
   const secondCanonical = await waitForCanonical('/tmp/c9e-canonical-second.json');
   const secondApi = await waitForPublicApi();
   await assertSelectionStable(selection);
@@ -343,6 +359,11 @@ async function main() {
       candidate_count: selection.candidateCount,
       target_index_zero_based: selection.targetIndex,
       target_path: selection.targetPath,
+    },
+    publisher_health: {
+      service: publisherHealth.service,
+      version: publisherHealth.version,
+      direct_fallback_on_queue_daily_limit: publisherHealth.direct_fallback_on_queue_daily_limit,
     },
     scheduled_event: {
       cron: CRON,
