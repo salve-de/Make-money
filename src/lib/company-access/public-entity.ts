@@ -350,6 +350,7 @@ export interface PublicFoundationObservation {
   evidenceIds: string[];
   publicPayload?: unknown;
   publicDisplay?: FoundationObservation['publicDisplay'];
+  publicRights?: FoundationObservation['publicRights'];
 }
 
 /**
@@ -385,6 +386,20 @@ export function publicFoundationObservations(
           ...item.publicDisplay,
           facts: item.publicDisplay.facts.map((fact) => ({ ...fact })),
           sourceUrls: [...item.publicDisplay.sourceUrls],
+        };
+      }
+      if (item.publicRights) {
+        projected.publicRights = {
+          commercialUse: item.publicRights.commercialUse,
+          publicFactDisplay: item.publicRights.publicFactDisplay,
+          projectionMode: item.publicRights.projectionMode,
+          sourceContentPublicDisplay: item.publicRights.sourceContentPublicDisplay,
+          sourceContentRedistribution: item.publicRights.sourceContentRedistribution,
+          publicExcerptDisplay: item.publicRights.publicExcerptDisplay,
+          publicMediaDisplay: item.publicRights.publicMediaDisplay,
+          providers: [...item.publicRights.providers],
+          attribution: [...item.publicRights.attribution],
+          reviewedAt: [...item.publicRights.reviewedAt],
         };
       }
       return projected;
