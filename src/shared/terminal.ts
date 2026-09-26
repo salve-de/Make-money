@@ -295,6 +295,19 @@ export interface UniversalObservationPublicDisplay {
   sourceUrls: string[];
 }
 
+export interface UniversalObservationPublicRights {
+  commercialUse: 'allowed';
+  publicFactDisplay: 'allowed';
+  projectionMode: 'fact_only';
+  sourceContentPublicDisplay: 'allowed' | 'restricted' | 'blocked';
+  sourceContentRedistribution: 'allowed' | 'restricted' | 'blocked';
+  publicExcerptDisplay: 'allowed' | 'restricted' | 'blocked';
+  publicMediaDisplay: 'allowed' | 'restricted' | 'blocked';
+  providers: string[];
+  attribution: string[];
+  reviewedAt: string[];
+}
+
 export interface UniversalObservation {
   id?: string;
   category?: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
@@ -311,6 +324,8 @@ export interface UniversalObservation {
   publicPayload?: unknown;
   // Reviewed human-readable presentation metadata from the public projection.
   publicDisplay?: UniversalObservationPublicDisplay;
+  // Public-safe rights summary. Private policy internals never flow through this type.
+  publicRights?: UniversalObservationPublicRights;
   sourceClass?: SourceClass; // 出典の独立性
   evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }
