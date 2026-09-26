@@ -104,3 +104,11 @@
 - **地雷組検死（業種・規模不問、巨額炎上・即死・規約変更死）**: Humane Ai Pin（過熱即死ハードウェア）、Fast（180億調達・月商60万即死フィンテック）、Quibi（2,000億炎上短尺動画）等
 
 
+
+## c9e local source-to-UI acceptance status
+
+The active c9e acceptance target is the exact 2026-09-25 corrected run `run_handoff_c9e926361e9472f5085323dc727be7ff` / candidate blob `c808a3352de85880f31c3ff647e394127d0aca10` through normal Publisher scheduled handler -> Queue consumer -> canonical local R2 -> Make-Money `foundationOnly` API -> live browser UI.
+
+Independent local proof already established canonical 42,477 bytes / SHA-256 `27b3649cf56cb1ce4fbe4e5a151b1edb05a93f8377b2b9a3c98aed931ecc47fc`, replay byte/hash identity, API HTTP 200 with `source=foundation_lake` and `isStale=false`, Apollo 41.5%, Starwood SREIT 58.5%, SEC evidence and public-safe rights. The checked-in verifier now pins that exact byte length/hash and fresh API status. The Playwright test performs a real `foundationOnly` request from the page and requires each percentage once, one SEC link, public-safe rights UI and no private fields.
+
+Do not modify production/deploy, collection prompt/schedule, 2050/V0/EDINET/raw originals, or shared dirty checkout to finish this proof. Remaining physical acceptance: start both isolated local Workers from the current candidate heads and run `pnpm foundation:local-e2e:accept`; browser success is the final unobserved leg.
