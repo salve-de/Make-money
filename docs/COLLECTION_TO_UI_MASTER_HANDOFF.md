@@ -8,6 +8,65 @@ Cross-project authority: `salve-de/universal-foundation/docs/COLLECTION_KNOWLEDG
 
 This file explains how Make-Money consumes that Foundation pipeline. It is not allowed to redefine collection scope, provenance semantics, rights truth, or canonical history.
 
+## 0. Make-Money収集北極星 — Foundationをどう消費するか
+
+Make-Money側で「収集が完全」とは、現在の画面や現在の事例項目が埋まっていることではない。
+
+> **一度集めたFoundationのSource / Evidence / provenance / canonical knowledgeを、将来まだ存在しないrights・tag・分類・関係性・score・AI/human review・analysis axis・UIへ再利用でき、既存canonicalを書き換えたり全件再収集したりせずに、versioned extensionを過去へbackfillして再表示できること。**
+
+横断意味論の完全な北極星は Universal Foundation `docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md` Section 0 が正本。Make-Moneyはそれを商品側で壊してはならない。
+
+### 0.1 Make-Moneyが守ること
+
+- 現在のUI項目をFoundationの収集上限にしない。
+- current product schemaに無い有用情報を捨てさせない。
+- 新しいproduct fieldのためにcollection prompt/scheduleを狭めたり作り直したりしない。
+- canonical/privateを表示都合で書き換えない。
+- 新しい解釈・tag・score・rights判断はversioned Annotation/Enrichmentとして追加する。
+- 既存Evidenceで足りるならhistorical backfillし、再収集しない。
+- 新しい外部事実が必要な時だけ通常Source/Evidence経路で追加調査する。
+- public API/UIはrights/quality-cleared projectionだけを読む。
+- view/indexはcanonical + extensionから再構築可能にする。
+- retry/backfill/rebuildを何度実行しても二重表示しない。
+
+### 0.2 任意の後付け要求Xに対する標準処理
+
+**既存Evidenceで足りる場合:**
+
+```text
+X definition/version
+ -> generic Annotation / Enrichment
+ -> historical backfill
+ -> index/view rebuild
+ -> API/UIの必要部分だけ公開
+```
+
+**新しい外部Evidenceが必要な場合:**
+
+```text
+new Source / Evidence
+ -> canonical append
+ -> generic Annotation / Enrichment
+ -> view rebuild
+ -> rights-safe API/UI
+```
+
+rightsだけ、tagだけ、scoreだけの専用後付け処理を増殖させるのではなく、共通のextension mechanismへ収束させる。
+
+### 0.3 Make-Money側から見た「完全」の停止条件
+
+次のどれかが残る間は、収集基盤全体を「完全」と言わない。
+
+- Universal Foundationの汎用Annotation/Enrichmentが文書だけで、任意軸をregister/write/backfill/replay/index/rebuildできる実装になっていない。
+- 新しい項目のたびに個別migration・全再収集・canonical rewriteが必要。
+- 過去全件backfillが手作業。
+- provenance/rights/historyを辿れない。
+- repeat実行で重複する。
+- public projectionがprivate canonicalへfallbackできる。
+- scheduled real-data pathがPublisher/Queue/R2/API/UIまで物理的に未証明。
+
+現在のc9e E2Eは最後の項目である「通常配管の物理証明」を閉じる作業であり、汎用extensibility全体の完成証明ではない。
+
 ## 1. Product objective
 
 Make-Money must receive the same real data produced by scheduled Web ChatGPT research through the normal deterministic delivery path:
