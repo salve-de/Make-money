@@ -143,7 +143,11 @@ This release predates the new granular rights gate. It must be audited separatel
 
 ## Current c9e publication-path status — 2026-09-26
 
-The designated real c9e lineage is not yet a completed API/UI proof. Independent isolated testing of implementation checkpoint `cb9dbf81fe2dce0dcf52ce78e534bba845a164d3` found 19/20 selected tests passing; the remaining failure occurs because c9e API detail contains zero `public_fact.v1` observations before the rights UI assertion is reached. The rights gate must not be relaxed. Fix the Fact-loss boundary first, then rerun the full local Publisher/Queue -> local R2 -> API -> browser proof described in the master handoff.
+The designated real c9e lineage is `run_handoff_c9e926361e9472f5085323dc727be7ff`, observed at `2026-09-25T04:42:00Z`.
+
+Independent isolated testing of Make-Money implementation checkpoint `8f9cd97395259506c9576383b85531c4fe8f98b4` passed the selected 20/20 tests. The earlier zero-`public_fact.v1` failure was caused by a stale redundant 60-second API detail cache replacing the current materialized R2 view; it was not a rights-gate or Fact-generation failure. The cache was removed without weakening publication policy.
+
+Remaining acceptance is physical local Publisher/Queue -> shared local R2 -> Make-Money API -> browser proof described in the master handoff.
 
 The separate 2026-09-26 `automation-research` direct-typed fixture has no matching required receipt and must remain HTTP 422 / no-write. Do not fabricate provenance to convert it into a success case.
 
