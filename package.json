@@ -52,7 +52,7 @@
     "foundation:typed:preflight": "node --import tsx scripts/foundation-typed-preflight.ts",
     "foundation:rights:audit": "node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/audit-commercial-rights-r2.ts",
     "foundation:local-e2e:check": "node scripts/architecture/check-foundation-local-e2e-safety.mjs",
-    "foundation:local-e2e:dev": "pnpm foundation:local-e2e:check && pnpm workers:build && wrangler dev --local --config wrangler.foundation-local-e2e.jsonc --port 3111 --persist-to .wrangler/foundation-local-e2e"
+    "foundation:local-e2e:dev": "pnpm foundation:local-e2e:check && pnpm workers:build && wrangler dev --local --config wrangler.foundation-local-e2e.jsonc --port 3211 --persist-to /tmp/make-money-c9e-local-e2e"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",
