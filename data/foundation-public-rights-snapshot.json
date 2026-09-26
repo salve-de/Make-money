@@ -13,7 +13,12 @@
         "public_fact_display": "allowed",
         "reviewed_at": "2026-09-24T14:40:00Z",
         "path": "registry/rights/policy.e-stat.v1.json",
-        "blob_sha": "78703886cc503daa63acc5a7faf5d0431c62846e"
+        "blob_sha": "78703886cc503daa63acc5a7faf5d0431c62846e",
+        "public_display": "allowed",
+        "redistribution": "allowed",
+        "public_excerpt_display": "allowed",
+        "public_media_display": "restricted",
+        "attribution": "Source attribution required; indicate editing/processing when applicable."
       },
       "source": {
         "source_id": "src.e-stat",
@@ -43,7 +48,12 @@
         "public_fact_display": "allowed",
         "reviewed_at": "2026-09-24T14:40:00Z",
         "path": "registry/rights/policy.bls.v1.json",
-        "blob_sha": "4d7deee83005b6f576220225da705b6360f737e1"
+        "blob_sha": "4d7deee83005b6f576220225da705b6360f737e1",
+        "public_display": "allowed",
+        "redistribution": "allowed",
+        "public_excerpt_display": "restricted",
+        "public_media_display": "restricted",
+        "attribution": "Attribute BLS/source program where appropriate."
       },
       "source": {
         "source_id": "src.bls-api",
@@ -73,7 +83,12 @@
         "public_fact_display": "allowed",
         "reviewed_at": "2026-09-25T04:18:00+09:00",
         "path": "registry/rights/policy.sec-edgar-public-facts.v1.json",
-        "blob_sha": "f33fbbcb5355a1fdf9e77eaf043ac0900089d101"
+        "blob_sha": "f33fbbcb5355a1fdf9e77eaf043ac0900089d101",
+        "public_display": "restricted",
+        "redistribution": "restricted",
+        "public_excerpt_display": "restricted",
+        "public_media_display": "blocked",
+        "attribution": "Cite the SEC/EDGAR filing URL and identify the filing source; do not imply SEC endorsement."
       },
       "source": {
         "source_id": "src.sec-edgar",
