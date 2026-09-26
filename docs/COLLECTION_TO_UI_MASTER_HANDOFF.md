@@ -71,28 +71,25 @@ Canonical/private must still contain the exact source lineage, unknown legal ide
 
 ## 5. Current c9e test state
 
-Independent isolated-clone audit of Make-Money checkpoint `cb9dbf81fe2dce0dcf52ce78e534bba845a164d3`:
+Independent isolated-clone audit of Make-Money implementation checkpoint
+`8f9cd97395259506c9576383b85531c4fe8f98b4`:
 
 - selected 3 test files: 20 tests;
-- 19 PASS;
-- 1 FAIL;
-- failure occurs in `src/lib/foundation/typed-ingest.e2e.test.ts` before the UI-rights assertion;
-- API detail contains zero `public_fact.v1` observations for c9e.
+- 20 PASS;
+- exact c9e lineage/blob assertions pass;
+- 41.5% / 58.5% PublicFacts reach the API projection;
+- public-safe rights DTO reaches adapter/UI rendering;
+- private policy ID and unknown legal-identity fields remain excluded;
+- the separate unreceipted 2026-09-26 direct-typed fixture remains HTTP 422 / no-write.
 
-Therefore the current candidate does **not** yet prove c9e PublicFact delivery to API/UI.
+The prior 19/20 failure was not PublicFact generation. `/api/businesses` read the
+current R2 materialized view and then replaced it with a stale process-local
+60-second detail cache for the same entity. Removing that redundant cache fixed
+the real publication freshness defect without changing the rights gate.
 
-The next implementation task is to locate exactly where the generated PublicFact disappears between:
-
-```text
-projectTypedPublicFacts
- -> buildCommercialPublicFactProjection
- -> materializeMakeMoneyViews
- -> buildFoundationBusinessCaseForEntity
- -> publicFoundationBusinessCase
- -> /api/businesses
-```
-
-Do not modify the rights allowlist to bypass this.
+The code-level c9e MemoryR2/API/UI contract is therefore green. Remaining
+acceptance is physical local Worker/Queue/R2/API/browser execution; MemoryR2
+tests alone are still not the final source-to-UI proof.
 
 ## 6. Public-rights DTO boundary already identified
 
@@ -195,6 +192,61 @@ Useful fields include:
 Do not manufacture a free-form "source" string that cannot be traced to stored evidence.
 
 ## 11. Local E2E topology
+
+Checked-in local ports/state:
+
+- Make-Money Worker: `127.0.0.1:3211`;
+- Publisher Worker: `127.0.0.1:3212`;
+- shared local persistence: `/tmp/make-money-c9e-local-e2e`;
+- unrelated localhost:3111 is not used.
+
+Start Make-Money first:
+
+```bash
+pnpm foundation:local-e2e:dev
+```
+
+Then from `universal-foundation/workers/r2-queue-publisher` start the Publisher:
+
+```bash
+pnpm dev:local-e2e
+```
+
+Trigger one local scheduled event, which enqueues through the configured local
+Queue and invokes its consumer:
+
+```bash
+curl -fsS "http://127.0.0.1:3212/__scheduled?cron=50+23,5,11+*+*+*"
+```
+
+The Publisher local config is candidate-only and pins the exact c9e candidate
+Git blob `c808a3352de85880f31c3ff647e394127d0aca10`. It still enumerates the
+public `automation-research` candidate tree and uses the normal five-minute
+rotation selector; local mode computes the rotation offset needed to put the
+target first. Direct-typed delivery is skipped only for this isolated
+legacy-candidate proof so the separate 9/26 fixture cannot contaminate the run.
+
+After publication, inspect canonical local R2 with the same persistence path:
+
+```bash
+pnpm exec wrangler r2 object get \
+  foundation-lake-local-e2e/datasets/ds.business.research-bundles.derived/v1/2026/09/25/run_handoff_c9e926361e9472f5085323dc727be7ff.json \
+  --local \
+  --persist-to /tmp/make-money-c9e-local-e2e \
+  --file /tmp/c9e-canonical.json
+```
+
+Then verify API detail for both entities:
+
+```bash
+curl -fsS "http://127.0.0.1:3211/api/businesses?foundationOnly=true&entity_id=ent_org_0e1d9b556075d9fc7f36"
+curl -fsS "http://127.0.0.1:3211/api/businesses?foundationOnly=true&entity_id=ent_org_4a819d424adf6b2a118f"
+```
+
+Finally open `http://127.0.0.1:3211/` in the browser, use the real UI to open
+the Starwood/Apollo records, and capture Network + rendered evidence.
+
+### Make-Money local config
 
 ### Make-Money local config
 
