@@ -142,6 +142,19 @@ export interface FoundationObservationPublicDisplay {
   sourceUrls: string[];
 }
 
+export interface FoundationObservationPublicRights {
+  commercialUse: 'allowed';
+  publicFactDisplay: 'allowed';
+  projectionMode: 'fact_only';
+  sourceContentPublicDisplay: 'allowed' | 'restricted' | 'blocked';
+  sourceContentRedistribution: 'allowed' | 'restricted' | 'blocked';
+  publicExcerptDisplay: 'allowed' | 'restricted' | 'blocked';
+  publicMediaDisplay: 'allowed' | 'restricted' | 'blocked';
+  providers: string[];
+  attribution: string[];
+  reviewedAt: string[];
+}
+
 export interface FoundationObservation {
   id: string;
   kind: string | null;
@@ -155,6 +168,8 @@ export interface FoundationObservation {
   publicPayload?: unknown;
   // Reviewed display metadata emitted by the public projection only.
   publicDisplay?: FoundationObservationPublicDisplay;
+  // Public-safe rights summary emitted only after the downstream rights gate.
+  publicRights?: FoundationObservationPublicRights;
   evidenceIds: string[];
 }
 
@@ -719,11 +734,71 @@ function normalizePublicObservationDisplay(
   };
 }
 
+function normalizePublicObservationRights(
+  value: unknown,
+): FoundationObservationPublicRights | undefined {
+  const input = objectValue(value);
+  if (!input) return undefined;
+
+  const commercialUse = stringValue(input, 'commercial_use');
+  const publicFactDisplay = stringValue(input, 'public_fact_display');
+  const projectionMode = stringValue(input, 'projection_mode');
+  const sourceContentPublicDisplay = stringValue(input, 'source_content_public_display');
+  const sourceContentRedistribution = stringValue(input, 'source_content_redistribution');
+  const publicExcerptDisplay = stringValue(input, 'public_excerpt_display');
+  const publicMediaDisplay = stringValue(input, 'public_media_display');
+  const disposition = (candidate: string | null): candidate is 'allowed' | 'restricted' | 'blocked' =>
+    candidate === 'allowed' || candidate === 'restricted' || candidate === 'blocked';
+
+  const arrayOfText = (key: string, maxItems: number, maxLength: number): string[] | null => {
+    const raw = input[key];
+    if (!Array.isArray(raw) || raw.length === 0 || raw.length > maxItems) return null;
+    const values = raw.filter((item): item is string =>
+      typeof item === 'string' && item.trim().length > 0 && item.length <= maxLength
+    );
+    return values.length === raw.length ? [...new Set(values)] : null;
+  };
+
+  const providers = arrayOfText('providers', 8, 160);
+  const attribution = arrayOfText('attribution', 8, 320);
+  const reviewedAt = arrayOfText('reviewed_at', 8, 64);
+
+  if (
+    commercialUse !== 'allowed' ||
+    publicFactDisplay !== 'allowed' ||
+    projectionMode !== 'fact_only' ||
+    !disposition(sourceContentPublicDisplay) ||
+    !disposition(sourceContentRedistribution) ||
+    !disposition(publicExcerptDisplay) ||
+    !disposition(publicMediaDisplay) ||
+    !providers ||
+    !attribution ||
+    !reviewedAt ||
+    reviewedAt.some((item) => Number.isNaN(Date.parse(item)))
+  ) return undefined;
+
+  return {
+    commercialUse,
+    publicFactDisplay,
+    projectionMode,
+    sourceContentPublicDisplay,
+    sourceContentRedistribution,
+    publicExcerptDisplay,
+    publicMediaDisplay,
+    providers,
+    attribution,
+    reviewedAt,
+  };
+}
+
 function normalizeObservation(value: JsonObject): FoundationObservation {
   const publicPayloadInput = value.public_payload ?? value.publicPayload;
   const publicPayload = sanitizePublicObservationPayload(publicPayloadInput);
   const publicDisplay = normalizePublicObservationDisplay(
     value.public_display ?? value.publicDisplay,
+  );
+  const publicRights = normalizePublicObservationRights(
+    value.public_rights ?? value.publicRights,
   );
   return {
     id: stringValue(value, 'observation_id') || stringValue(value, 'id') || fallbackRecordId('observation', value),
@@ -736,6 +811,7 @@ function normalizeObservation(value: JsonObject): FoundationObservation {
     collectionChannel: stringValue(value, 'collection_channel'),
     ...(publicPayload ? { publicPayload: publicPayload.value } : {}),
     ...(publicDisplay ? { publicDisplay } : {}),
+    ...(publicRights ? { publicRights } : {}),
     evidenceIds: stringArray(value, 'evidence_ids'),
   };
 }
