@@ -791,6 +791,11 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(firstBody.run_id).toBe(real20260926ExpectedRunId);
       expect(firstBody.mapper_version).toBe('r2-queue-mapper-v6');
       expect(firstBody.view_projection.status).toBe('PASS');
+      expect(firstBody.view_projection.commercial_publication.status).toBe('ALLOWED');
+      expect(firstBody.view_projection.commercial_publication.allowedEvidenceIds).toEqual([
+        'ev_8ab84a0f3b532a7171d1a6d4',
+        'ev_f841248a66756d400605f3ac',
+      ]);
       expect(firstBody.view_projection.complete).toBe(true);
       expect(firstBody.view_projection.unresolved_entity_ids).toEqual([]);
 
