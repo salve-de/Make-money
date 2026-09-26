@@ -55,7 +55,8 @@
     "foundation:local-e2e:dev": "pnpm foundation:local-e2e:check && pnpm workers:build && wrangler dev --local --config wrangler.foundation-local-e2e.jsonc --port 3211 --inspector-port 9231 --persist-to /tmp/make-money-c9e-local-e2e",
     "foundation:local-e2e:browser": "playwright test -c playwright.foundation-local-e2e.config.ts",
     "foundation:local-e2e:reset": "node -e \"require('fs').rmSync('/tmp/make-money-c9e-local-e2e',{recursive:true,force:true})\"",
-    "foundation:local-e2e:verify": "node scripts/verify-c9e-local-e2e.mjs"
+    "foundation:local-e2e:verify": "node scripts/verify-c9e-local-e2e.mjs",
+    "foundation:local-e2e:accept": "pnpm foundation:local-e2e:verify && pnpm foundation:local-e2e:browser"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",
