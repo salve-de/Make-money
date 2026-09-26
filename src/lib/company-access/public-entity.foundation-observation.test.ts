@@ -47,6 +47,19 @@ describe('Foundation Observation public wire projection', () => {
         sourceLabel: 'SEC filing',
         sourceUrls: ['https://www.sec.gov/Archives/edgar/data/1711929/example.htm'],
       },
+      publicRights: {
+        commercialUse: 'allowed',
+        publicFactDisplay: 'allowed',
+        projectionMode: 'fact_only',
+        sourceContentPublicDisplay: 'restricted',
+        sourceContentRedistribution: 'restricted',
+        publicExcerptDisplay: 'restricted',
+        publicMediaDisplay: 'blocked',
+        providers: ['U.S. Securities and Exchange Commission'],
+        attribution: ['Cite SEC/EDGAR filing URL.'],
+        reviewedAt: ['2026-09-25T04:18:00+09:00'],
+        internal_policy_id: 'must-not-cross-wire',
+      },
       payload: { raw_secret: true },
     } as FoundationObservation & Record<string, unknown>]);
 
@@ -57,8 +70,21 @@ describe('Foundation Observation public wire projection', () => {
         facts: [{ label: 'Apollo-managed funds / affiliates', value: 41.5, suffix: '%' }],
         sourceLabel: 'SEC filing',
       },
+      publicRights: {
+        commercialUse: 'allowed',
+        publicFactDisplay: 'allowed',
+        projectionMode: 'fact_only',
+        sourceContentPublicDisplay: 'restricted',
+        sourceContentRedistribution: 'restricted',
+        publicExcerptDisplay: 'restricted',
+        publicMediaDisplay: 'blocked',
+        providers: ['U.S. Securities and Exchange Commission'],
+        attribution: ['Cite SEC/EDGAR filing URL.'],
+        reviewedAt: ['2026-09-25T04:18:00+09:00'],
+      },
     });
     expect(projected[0]).not.toHaveProperty('payload');
+    expect(projected[0]?.publicRights).not.toHaveProperty('internal_policy_id');
   });
 
   it('never emits collection-only or raw/internal Observation fields', () => {
