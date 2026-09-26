@@ -43,14 +43,17 @@ For the current local proof:
 
 ## 3. Current working branches
 
-Fetch live heads before work; do not trust the SHA below as the latest after later documentation/test commits.
+Always fetch live heads before execution; documentation SHA values are checkpoints, not permission to skip a fresh fetch.
 
-Implementation checkpoint before this handoff update:
+Current documentation checkpoint:
 
 - Make-Money branch: `codex/scheduled-research-ui-direct-20260926`;
-- implementation checkpoint: `cb9dbf81fe2dce0dcf52ce78e534bba845a164d3`;
+- Make-Money HEAD at this documentation update: `844f933f8b114269dc461dc27882ed7124e00bd2`;
+- c9e code-level implementation that independently passed 20/20 selected tests: `8f9cd97395259506c9576383b85531c4fe8f98b4`;
 - Universal Foundation branch: `codex/scheduled-research-ui-direct-20260926`;
-- Publisher implementation checkpoint before the documentation consolidation: `d8013e20987a4887de53531a30424dff29abe96e`.
+- Universal Foundation HEAD at this documentation update: `a52aba8d2cea68aeee3833f38f133ab4f4032e15`.
+
+Later documentation/test commits may advance these heads. Never infer current branch state from this paragraph alone.
 
 ## 4. Designated exact c9e lineage
 
@@ -385,3 +388,168 @@ Every continuation should report:
 - single next blocking step.
 
 Do not use "implemented" as a substitute for executed evidence.
+
+
+## 19. Flexible collection / later enrichment contract for Make-Money
+
+Make-Money must **not** assume that today's fields, tags, rights decisions, source labels, rankings, or UI sections are final.
+
+Future requests may add, among other things:
+
+- "where was this information found?";
+- source/provider type;
+- source quality / officialness;
+- commercial-use rights;
+- public-display rights;
+- redistribution/excerpt/media rights;
+- rights review date/version;
+- business-model tags;
+- industry/sub-industry;
+- B2B/B2C;
+- pricing/revenue model;
+- acquisition/distribution model;
+- market/risk/opportunity/change signals;
+- competition intensity;
+- pricing power;
+- switching cost;
+- AI exposure;
+- automation potential;
+- source confidence;
+- evidence density;
+- freshness/staleness;
+- new relationship types;
+- later human/AI review notes;
+- new product filters/sorts/rankings;
+- new consumer-specific presentation metadata.
+
+These are **not reasons to rewrite or recollect everything by default**.
+
+Use the Universal Foundation master decision:
+
+### A. Existing canonical evidence is enough
+Derive a versioned annotation/facet/classification, backfill old records, rebuild views/indexes, then expose the public-safe portion.
+
+### B. New external evidence is required
+Perform additional collection through the normal Source/Evidence/Observation/Claim path first, then derive the new annotation/right/classification.
+
+Do not hide new external facts inside Make-Money-only tags.
+
+## 20. Make-Money responsibilities when a new later-added axis is requested
+
+### If it is reusable across products
+The definition belongs in Universal Foundation.
+
+Examples:
+- rights;
+- source quality;
+- business model taxonomy;
+- general opportunity/risk/change signal;
+- reusable relationship type;
+- provenance/source classification.
+
+Make-Money should consume the registered/versioned result.
+
+### If it is purely product presentation
+It may remain in Make-Money.
+
+Examples:
+- Japanese display label;
+- UI grouping;
+- table sort preference;
+- visual emphasis;
+- product-only explanatory copy.
+
+It must still be derivable from public-safe inputs and must not become factual authority.
+
+## 21. Product-side GitHub update map
+
+When a cross-project enrichment becomes visible in Make-Money, update only the layers that actually need it.
+
+| Change | Make-Money files/areas to review |
+| --- | --- |
+| New public-safe annotation/facet | public DTO allowlist, adapter, search/filter/index code, UI tests |
+| New rights field | pinned rights snapshot, publication projection, API allowlist, rights UI/tests |
+| New source/provenance display | public source DTO, adapter/UI, link/attribution tests |
+| New canonical fact type | public projection contract, business-reader/adapter, UI rendering |
+| New Observation public contract | `data/foundation-public-observation-contracts.json`, projection tests, UI component |
+| New tag/filter | serving view/index/search path + UI, never canonical rewrite |
+| New ranking | versioned methodology/input projection + UI label; never store ranking as raw fact |
+| Correction/supersession | current-view rebuild behavior + history display if exposed |
+| New product-only label | UI/projection only |
+| New source/provider rights | refresh pinned Foundation rights/source snapshot, run release checker, rerun rights tests |
+| New external evidence for old item | no product shortcut; wait for normal Foundation Source/Evidence append, then rebuild |
+
+## 22. What must never happen when adding a new field
+
+Do not:
+
+- add a new field directly to old canonical JSON merely because the UI wants it;
+- mutate old evidence URLs or timestamps;
+- erase unknown/conflict history;
+- convert "unknown" to false/zero;
+- treat AI inference as source evidence;
+- treat a public URL as publication permission;
+- expose internal rights policy IDs just to explain why something is public;
+- copy source prose into UI when only public-fact display is authorized;
+- make a Make-Money tag the only record of an important business fact;
+- change scheduled collection prompts just because a new UI filter was added;
+- require recollection when an old canonical record already contains enough evidence;
+- skip new evidence collection when the old canonical record does **not** contain enough evidence.
+
+## 23. Complete future-agent decision sequence
+
+When the user says "collect this too", "add this tag", "add rights later", "show where this came from", or equivalent:
+
+1. read the Universal Foundation lifecycle master;
+2. decide whether this is **new evidence** or **new interpretation/metadata**;
+3. identify the authoritative target IDs;
+4. check whether existing Source/Evidence/canonical data is sufficient;
+5. if sufficient, define/version the annotation/facet/rule and backfill;
+6. if insufficient, collect new external evidence through normal Foundation lanes;
+7. keep the old canonical/history unchanged;
+8. attach producer/method/version/input/provenance;
+9. run rights/publication evaluation;
+10. rebuild Make-Money public serving views;
+11. expose only public-safe DTO fields;
+12. test API + UI + failure/held case;
+13. update both master handoffs if lifecycle/acceptance changed;
+14. record exact branch SHA/test evidence before stopping.
+
+## 24. Single-source-of-truth summary for another AI
+
+A new AI should understand the whole system as:
+
+```text
+COLLECT BROADLY
+    |
+    v
+Source + Evidence + provenance + time + uncertainty + rights hints
+    |
+    v
+immutable / append-only canonical private knowledge
+    |
+    +--> later new external evidence ----------+
+    |                                          |
+    +--> versioned annotation/enrichment <-----+
+             |
+             +--> tags / facets / classifications
+             +--> source/where-found metadata
+             +--> rights reviews
+             +--> risk/opportunity/change
+             +--> relationships
+             +--> human/model review
+             +--> future unknown axes
+                       |
+                       v
+             rights + quality publication gate
+                       |
+                       v
+             rebuildable Make-Money view
+                       |
+                       v
+                    API / UI
+```
+
+The invariant is:
+
+**Preserve what was actually learned; keep where/how/when it was learned; add new interpretations beside it; recollect only missing evidence; never let today's UI become tomorrow's collection schema.**
