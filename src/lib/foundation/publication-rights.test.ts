@@ -331,6 +331,20 @@ describe('commercial publication rights gate', () => {
         amount: 123000000,
         currency: 'USD',
       },
+      public_rights: {
+        commercial_use: 'allowed',
+        public_fact_display: 'allowed',
+        projection_mode: 'fact_only',
+        source_content_public_display: 'allowed',
+        source_content_redistribution: 'allowed',
+        public_excerpt_display: 'allowed',
+        public_media_display: 'restricted',
+        providers: ['e-Stat'],
+        attribution: [
+          'Source attribution required; indicate editing/processing when applicable.',
+        ],
+        reviewed_at: ['2026-09-24T14:40:00Z'],
+      },
     }]);
 
     const serialized = JSON.stringify(projected.bundle?.observations);
@@ -340,6 +354,9 @@ describe('commercial publication rights gate', () => {
     expect(serialized).not.toContain('urn:test:private-schema');
     expect(serialized).not.toContain('"payload"');
     expect(serialized).not.toContain('customer_count');
+    expect(serialized).not.toContain('rights.e-stat.v1');
+    expect(serialized).not.toContain('transport.typed_record_set_v1');
+    expect(serialized).not.toContain('rights_policy_id');
   });
 
   it('fails closed for an unknown numeric field even with approved Evidence', () => {
