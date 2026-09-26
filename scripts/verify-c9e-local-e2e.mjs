@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
+import { resolve } from 'node:path';
 
 const TARGET_RUN = 'run_handoff_c9e926361e9472f5085323dc727be7ff';
 const TARGET_BLOB = 'c808a3352de85880f31c3ff647e394127d0aca10';
@@ -20,6 +21,7 @@ const CANONICAL_KEY =
   'datasets/ds.business.research-bundles.derived/v1/2026/09/25/' +
   TARGET_RUN + '.json';
 const R2_OBJECT = 'foundation-lake-local-e2e/' + CANONICAL_KEY;
+const WRANGLER_BIN = resolve(process.cwd(), 'node_modules/.bin/wrangler');
 
 const entities = [
   {
@@ -119,10 +121,8 @@ async function assertSelectionStable(expected) {
 function localR2Get(outputPath, allowMissing = false) {
   rmSync(outputPath, { force: true });
   const result = spawnSync(
-    'pnpm',
+    WRANGLER_BIN,
     [
-      'exec',
-      'wrangler',
       'r2',
       'object',
       'get',
