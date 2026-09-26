@@ -28,6 +28,65 @@ A source being public, searchable, or stored as `metadata_only` does not authori
 - Public UI must not expose source article text, screenshots/media, or free-form source-derived summaries merely because canonical research contains them.
 - Existing 3,085 released records require a separate retrospective rights audit.
 
+## Public rights visibility and local E2E boundary — 2026-09-26 candidate
+
+The public product must make the publication basis understandable without exposing
+private/canonical research or internal hold reasons.
+
+For a rights-cleared published Observation/PublicFact, the public projection may
+carry only a bounded public-rights summary derived from the pinned Universal
+Foundation rights policy:
+
+- commercial use = allowed;
+- public fact display = allowed;
+- product projection mode = fact-only;
+- source-content public-display / redistribution / excerpt / media disposition;
+- provider name;
+- required attribution text;
+- rights review timestamp.
+
+The public API/UI must not expose raw `rights_policy_id`, collector-only rights
+hints, private source payload, or internal HOLD diagnostics merely to explain a
+publication decision.
+
+`RIGHTS_HELD` remains fail-closed:
+
+- canonical/private research stays preserved;
+- no Make-Money public entity view is created for the held-only target;
+- `/api/businesses` must not read through to private canonical data;
+- held content, policy internals and private evidence do not appear in the user
+  response;
+- a public UI may show only already-cleared records from a mixed-rights bundle.
+
+The public-rights summary is not independent legal advice or a new grant of
+rights. Its values must match the exact commit-pinned Universal Foundation
+policy blob. The upstream release checker validates those copied metadata fields
+against the pinned blob before deployment.
+
+### Zero-production-write local E2E
+
+Do not use the normal production `wrangler.jsonc` for Foundation write-path
+browser E2E because its Foundation R2 bindings are configured as remote
+production resources.
+
+Use only:
+
+```bash
+pnpm foundation:local-e2e:dev
+```
+
+That command first validates `wrangler.foundation-local-e2e.jsonc`, builds the
+Worker, then starts Wrangler with `--local`. The local config:
+
+- uses only `*-local-e2e` R2/D1 names;
+- sets all supported storage bindings to `remote:false`;
+- sets `ENVIRONMENT=development`;
+- has no production triggers;
+- persists state only under `.wrangler/foundation-local-e2e`.
+
+This is the required browser-E2E environment for tests that POST to Foundation
+ingest. Production R2 is not part of local acceptance.
+
 ## Current implementation / current main
 
 Authoritative Make-Money state is now **main**, not the old PR #67 branch.
