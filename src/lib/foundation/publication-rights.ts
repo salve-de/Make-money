@@ -27,6 +27,12 @@ export interface AutoPublicFactPolicy {
   allowedSourceTypes: string[];
   allowedHostSuffixes: string[];
   allowedPathPrefixes: string[];
+  reviewedAt: string;
+  sourceContentPublicDisplay: 'allowed' | 'restricted' | 'blocked';
+  sourceContentRedistribution: 'allowed' | 'restricted' | 'blocked';
+  publicExcerptDisplay: 'allowed' | 'restricted' | 'blocked';
+  publicMediaDisplay: 'allowed' | 'restricted' | 'blocked';
+  attribution: string;
 }
 
 export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
@@ -52,6 +58,12 @@ export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
           Array.isArray(record.allowed_path_prefixes)
           ? [...record.allowed_path_prefixes]
           : [],
+        reviewedAt: record.policy.reviewed_at,
+        sourceContentPublicDisplay: record.policy.public_display,
+        sourceContentRedistribution: record.policy.redistribution,
+        publicExcerptDisplay: record.policy.public_excerpt_display,
+        publicMediaDisplay: record.policy.public_media_display,
+        attribution: record.policy.attribution,
       },
     ]),
 );
@@ -365,6 +377,55 @@ function compactPublicObservationText(
   return [observationType, ...parts].join(' · ').slice(0, 240);
 }
 
+type PublicRightsDisposition = 'allowed' | 'restricted' | 'blocked';
+
+function mostRestrictiveRightsDisposition(
+  values: readonly PublicRightsDisposition[],
+): PublicRightsDisposition {
+  if (values.includes('blocked')) return 'blocked';
+  if (values.includes('restricted')) return 'restricted';
+  return 'allowed';
+}
+
+function buildPublicRightsMetadata(
+  evidenceIds: readonly string[],
+  policyIdByEvidenceId: ReadonlyMap<string, string>,
+): JsonObject | null {
+  if (evidenceIds.length === 0) return null;
+
+  const policies = evidenceIds.map((evidenceId) => {
+    const policyId = policyIdByEvidenceId.get(evidenceId);
+    return policyId ? AUTO_PUBLIC_FACT_POLICIES.get(policyId) || null : null;
+  });
+  if (policies.some((policy) => !policy)) return null;
+
+  const resolved = policies.filter((policy): policy is AutoPublicFactPolicy => Boolean(policy));
+  const providers = [...new Set(resolved.map((policy) => policy.providerName))].sort();
+  const attribution = [...new Set(resolved.map((policy) => policy.attribution))].sort();
+  const reviewedAt = [...new Set(resolved.map((policy) => policy.reviewedAt))].sort();
+
+  return {
+    commercial_use: 'allowed',
+    public_fact_display: 'allowed',
+    projection_mode: 'fact_only',
+    source_content_public_display: mostRestrictiveRightsDisposition(
+      resolved.map((policy) => policy.sourceContentPublicDisplay),
+    ),
+    source_content_redistribution: mostRestrictiveRightsDisposition(
+      resolved.map((policy) => policy.sourceContentRedistribution),
+    ),
+    public_excerpt_display: mostRestrictiveRightsDisposition(
+      resolved.map((policy) => policy.publicExcerptDisplay),
+    ),
+    public_media_display: mostRestrictiveRightsDisposition(
+      resolved.map((policy) => policy.publicMediaDisplay),
+    ),
+    providers,
+    attribution,
+    reviewed_at: reviewedAt,
+  };
+}
+
 function sameStringSet(left: readonly string[], right: readonly string[]): boolean {
   if (left.length !== right.length) return false;
   const leftSet = new Set(left);
@@ -509,6 +570,9 @@ function buildCommercialPublicObservation(
     : undefined;
   if (associationEntityIds === null) return null;
 
+  const publicRights = buildPublicRightsMetadata(evidenceIds, policyIdByEvidenceId);
+  if (!publicRights) return null;
+
   const projected: JsonObject = {
     observation_id: observationId,
     observation_type: observationType,
@@ -520,6 +584,7 @@ function buildCommercialPublicObservation(
       ? publicDisplay.title
       : compactPublicObservationText(observationType, publicPayload),
     public_payload: publicPayload,
+    public_rights: publicRights,
     ...(publicDisplay ? { public_display: publicDisplay } : {}),
   };
 
@@ -814,6 +879,14 @@ export function buildCommercialPublicFactProjection(
         sourceUrlByEvidenceId,
         publicEntities: publicFactIdentityPool,
       })
+        .map((observation) => {
+          const publicRights = buildPublicRightsMetadata(
+            stringArray(observation.evidence_ids),
+            policyIdByEvidenceId,
+          );
+          return publicRights ? { ...observation, public_rights: publicRights } : null;
+        })
+        .filter((observation): observation is JsonObject => Boolean(observation))
     : [];
   observations.push(...publicFactObservations);
 
