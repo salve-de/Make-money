@@ -1,14 +1,14 @@
 > **2026-09-26 現行の収集→公開→UI正本:** 収集・出典追跡・後付けタグ/分類・後からの権利調査・過去データbackfill・Publisher/Queue・canonical R2・API/UIに触る場合は、まず [docs/COLLECTION_TO_UI_MASTER_HANDOFF.md](docs/COLLECTION_TO_UI_MASTER_HANDOFF.md) を読む。横断意味論の正本は `salve-de/universal-foundation/docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`。旧 `docs/DATA_COLLECTION_MASTER_GUIDE.md` は歴史的なMake-Money商品形状/事故録であり、現行Foundation収集方式を上書きしない。新しい項目を追加したい時は収集を狭めず、既存canonicalで足りればversioned annotation/enrichmentとして過去全件へbackfillし、足りない時だけ通常Source/Evidence経路で追加調査する。
 
-> **LEGACY NOTE — 2026-09-14 product-shaped collection workflow:** ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
+> **LEGACY NOTE — 2026-09-14 product-shaped collection workflow:** `docs/DATA_COLLECTION_MASTER_GUIDE.md`, `docs/GOLDEN_INGEST_SCHEMA.md`, CLAIMED_TARGETS/incoming-file運用は、過去のMake-Money商品形状・意図・事故録を保存するために残している。**現在の収集入口ではない。** 有効な要件は現行Foundation primitivesへ読み替え、`docs/COLLECTION_TO_UI_MASTER_HANDOFF.md` と Universal Foundation lifecycle master を優先する。
 
 # 金鉱録 (KIN-ROKOKU / Universal Business Foundation)
 
 開発・保存先の入口: [データとコードの置き場所](docs/architecture/STORAGE.md)。担当者・AIは変更前に参照してください。
 
-新規データ収集を依頼されたAIは、最初に [全プロジェクト共通自律データ収集プロトコル](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md) および [黄金収集仕様](docs/GOLDEN_INGEST_SCHEMA.md) を読むこと。
+新規データ収集を依頼されたAIは、最初に [現行 Collection -> UI Master Handoff](docs/COLLECTION_TO_UI_MASTER_HANDOFF.md) と Universal Foundation の `COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md` を読むこと。その後、必要な詳細仕様として `docs/MAKE_MONEY_COLLECTION_SCOPE.md`、保存/実装文書、各registry/schemaを参照する。
 
-何を集めるかの完全な目録は [Make-Money / business-case 収集対象の完全目録](docs/MAKE_MONEY_COLLECTION_SCOPE.md) に固定している。GitHubとR2だけを渡されたAIも、入口文書・この目録・Universal Foundationの正本を突き合わせてから収集を開始すること。
+`docs/MAKE_MONEY_COLLECTION_SCOPE.md` は重要な調査目録だが、Foundationの保存allow-listではない。型外でも有益な情報はObservationとして保持し、後から新しいタグ・権利・分類・分析軸を追加できる構造を優先する。
 
 > **【絶対北極星（The Ultimate North Star）】**  
 > **「世に溢れる『努力・理念・綺麗事』という欺瞞の煙幕を完全に焼き払い、**  
