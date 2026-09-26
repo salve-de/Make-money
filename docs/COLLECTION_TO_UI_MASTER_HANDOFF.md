@@ -616,3 +616,71 @@ Rules:
 ## 26. Minimal handoff to another Make-Money AI
 
 > Read `AGENTS.md`, `docs/COLLECTION_TO_UI_MASTER_HANDOFF.md`, and the Universal Foundation `docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`. Collection stays broad. Source/Evidence/provenance/canonical history stay intact. Later tags, rights reviews, source attributes and analyses are versioned enrichment/backfill when possible; missing external evidence uses the normal Foundation collection path. Make-Money only publishes rights-cleared public-safe projections. Do not revive legacy giant-JSON/incoming-file workflows or use the current UI as the collection schema.
+
+
+## 27. Legacy 97-section rights/collection handoff is fully superseded
+
+The previous 2026-09-26 document titled **"Make-Money 定期収集・R2・商用利用・権利・公開経路 完全引継ぎ"** is no longer required as an operational dependency.
+
+Its useful content is now split intentionally by authority:
+
+- reusable collection/provenance/enrichment/rights/history -> Universal Foundation `docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`, especially its legacy migration ledger;
+- current Make-Money source-to-UI work -> this file;
+- detailed publication-rights logic and retrospective production audit -> `docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md`;
+- provider/source rights facts -> Universal Foundation `registry/rights/` + `registry/sources/`;
+- schemas -> registered Foundation/Make-Money schema files;
+- preliminary legacy catalog audit -> existing immutable/report artifacts and the migration ledger;
+- exact current implementation state -> live branch HEAD + tests/evidence, never old prose SHAs.
+
+### What was preserved from the old handoff
+
+The migration explicitly retains:
+
+- broad discovery / separate publication principle;
+- granular rights dimensions;
+- raw/private/public R2 separation;
+- provider/source identity binding;
+- registry-driven rights resolution;
+- mixed-rights behavior;
+- private-canonical public API bypass prohibition;
+- record-only enrichment rules;
+- Public Observation contract;
+- Public Fact consumer;
+- SEC EDGAR public-fact policy;
+- preliminary 3,085-record audit counts;
+- 26-sidecar and 179-sidecar historical audit snapshots;
+- provider-specific historical rights findings;
+- old PR/merge lineage;
+- production R2 rights-audit command and unfinished status;
+- prohibition on using lineage alone to delete/quarantine records;
+- SAFE / NEEDS_RIGHTS_REVIEW / INTERNAL_ONLY audit semantics.
+
+### What was intentionally not preserved as current truth
+
+The following remain history only and must be freshly read from live state when needed:
+
+- old schedule times;
+- old main/candidate SHAs;
+- old R2_QUEUE blocked counts;
+- old Public Fact approved-type counts;
+- old lane/object totals;
+- old "next task" statements.
+
+### Current priority
+
+For the current task, do **not** switch to the retrospective production catalog audit.
+
+The current blocking acceptance remains:
+
+```text
+exact 2026-09-25 c9e candidate
+ -> normal scheduled Publisher
+ -> local Queue consumer
+ -> canonical local R2
+ -> Make-Money API
+ -> real browser UI
+ -> replay identical scheduled event
+ -> prove no duplicate/overwrite/double display
+```
+
+Production rights audit remains a separate later track unless explicitly selected.
