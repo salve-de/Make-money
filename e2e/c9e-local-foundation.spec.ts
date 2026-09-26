@@ -41,6 +41,7 @@ for (const target of cases) {
     expect(detailResponse.status()).toBe(200);
     const detailPayload = await detailResponse.json();
     expect(detailPayload?.source).toBe('foundation_lake');
+    expect(detailPayload?.isStale).toBe(false);
     if (target.id === 'ent_org_4a819d424adf6b2a118f') {
       expect(detailPayload?.data?.canonicalIdentifier).toBeNull();
     }
@@ -83,8 +84,9 @@ for (const target of cases) {
     await expect(stream).toContainText('公開方式: 事実のみ');
     await expect(stream).toContainText('U.S. Securities and Exchange Commission');
 
-    const secLink = stream.locator('a[href^="https://www.sec.gov/Archives/edgar/data/1711929/"]').first();
-    await expect(secLink).toBeVisible();
+    const secLinks = stream.locator('a[href^="https://www.sec.gov/Archives/edgar/data/1711929/"]');
+    await expect(secLinks).toHaveCount(1);
+    await expect(secLinks.first()).toBeVisible();
     for (const forbidden of forbiddenPublicStrings) {
       await expect(stream).not.toContainText(forbidden);
     }
