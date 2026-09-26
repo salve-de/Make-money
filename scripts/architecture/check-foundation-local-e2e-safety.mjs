@@ -36,6 +36,9 @@ if (!devCommand.includes('wrangler dev --local')) {
 if (!devCommand.includes('--port 3211')) {
   errors.push('foundation:local-e2e:dev must use isolated port 3211');
 }
+if (!devCommand.includes('--inspector-port 9231')) {
+  errors.push('foundation:local-e2e:dev must use isolated inspector port 9231');
+}
 if (devCommand.includes('--port 3111')) {
   errors.push('foundation:local-e2e:dev must not use the unrelated 3111 port');
 }
