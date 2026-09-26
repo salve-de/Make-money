@@ -200,12 +200,15 @@ Checked-in local ports/state:
 
 - Make-Money Worker: `127.0.0.1:3211`;
 - Publisher Worker: `127.0.0.1:3212`;
+- Make-Money inspector: `9231`;
+- Publisher inspector: `9232`;
 - shared local persistence: `/tmp/make-money-c9e-local-e2e`;
 - unrelated localhost:3111 is not used.
 
-Start Make-Money first:
+Reset only the isolated local state, then start Make-Money first:
 
 ```bash
+pnpm foundation:local-e2e:reset
 pnpm foundation:local-e2e:dev
 ```
 
@@ -215,19 +218,27 @@ Then from `universal-foundation/workers/r2-queue-publisher` start the Publisher:
 pnpm dev:local-e2e
 ```
 
-Trigger one local scheduled event, which enqueues through the configured local
-Queue and invokes its consumer:
+Do not manually inject the candidate. From the Make-Money repo run:
 
 ```bash
-curl -fsS "http://127.0.0.1:3212/__scheduled?cron=50+23,5,11+*+*+*"
+pnpm foundation:local-e2e:verify
 ```
 
-The Publisher local config is candidate-only and pins the exact c9e candidate
-Git blob `c808a3352de85880f31c3ff647e394127d0aca10`. It still enumerates the
-public `automation-research` candidate tree and uses the normal five-minute
-rotation selector; local mode computes the rotation offset needed to put the
-target first. Direct-typed delivery is skipped only for this isolated
-legacy-candidate proof so the separate 9/26 fixture cannot contaminate the run.
+The verifier anonymously reads the current public `automation-research`
+candidate tree, locates exact blob
+`c808a3352de85880f31c3ff647e394127d0aca10`, computes a fixed
+`scheduledTime` that makes the ordinary `selectCandidateFiles()` rotation
+select it first, and calls Wrangler's standard
+`/cdn-cgi/local/scheduled?cron=...&time=...` endpoint twice with the same
+time. Publisher parsing, validation, rights, Queue consumption and Make-Money
+ingest remain the normal code path. The local scan budget is one bundle, so a
+replay cannot advance to a second candidate after c9e is already committed.
+
+After the R2/API verifier passes, run the real browser proof:
+
+```bash
+pnpm foundation:local-e2e:browser
+```
 
 After publication, inspect canonical local R2 with the same persistence path:
 
