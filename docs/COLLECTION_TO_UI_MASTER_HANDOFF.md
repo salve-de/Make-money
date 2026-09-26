@@ -48,10 +48,10 @@ Always fetch live heads before execution; documentation SHA values are checkpoin
 Current documentation checkpoint:
 
 - Make-Money branch: `codex/scheduled-research-ui-direct-20260926`;
-- Make-Money HEAD at this documentation update: `844f933f8b114269dc461dc27882ed7124e00bd2`;
+- Make-Money HEAD at this documentation update: `222d44b7c8de464ba06205ff5c15ffa3affb8ad5`;
 - c9e code-level implementation that independently passed 20/20 selected tests: `8f9cd97395259506c9576383b85531c4fe8f98b4`;
 - Universal Foundation branch: `codex/scheduled-research-ui-direct-20260926`;
-- Universal Foundation HEAD at this documentation update: `a52aba8d2cea68aeee3833f38f133ab4f4032e15`.
+- Universal Foundation documentation checkpoint referenced by this product handoff: `75af89207577e7f89763b706d70c30d0cf00c421`.
 
 Later documentation/test commits may advance these heads. Never infer current branch state from this paragraph alone.
 
