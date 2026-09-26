@@ -859,6 +859,20 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
           'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm',
           'https://www.sec.gov/Archives/edgar/data/1711929/000119312526351388/ck0001711929-20260813.htm',
         ]);
+        expect(target?.publicRights).toEqual({
+          commercialUse: 'allowed',
+          publicFactDisplay: 'allowed',
+          projectionMode: 'fact_only',
+          sourceContentPublicDisplay: 'restricted',
+          sourceContentRedistribution: 'restricted',
+          publicExcerptDisplay: 'restricted',
+          publicMediaDisplay: 'blocked',
+          providers: ['U.S. Securities and Exchange Commission'],
+          attribution: [
+            'Cite the SEC/EDGAR filing URL and identify the filing source; do not imply SEC endorsement.',
+          ],
+          reviewedAt: ['2026-09-25T04:18:00+09:00'],
+        });
 
         const serializedDetail = JSON.stringify(detail);
         expect(serializedDetail).not.toContain('rising_minimum_yield_guarantee');
@@ -879,6 +893,15 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
         expect(uiHtml).toContain('Starwood asset management / operational control');
         expect(uiHtml).toContain('Proceeds repay credit facilities');
         expect(uiHtml).toContain('https://www.sec.gov/Archives/edgar/');
+        expect(uiHtml).toContain('公開・権利');
+        expect(uiHtml).toContain('商用表示: 許可');
+        expect(uiHtml).toContain('公開方式: 事実のみ');
+        expect(uiHtml).toContain('原文・表現の公開: 制限あり');
+        expect(uiHtml).toContain('原文再配布: 制限あり');
+        expect(uiHtml).toContain('画像・メディア: 非公開');
+        expect(uiHtml).toContain('U.S. Securities and Exchange Commission');
+        expect(uiHtml).toContain('Cite the SEC/EDGAR filing URL');
+        expect(uiHtml).toContain('権利確認: 2026-09-25');
         expect(uiHtml).not.toContain('rising_minimum_yield_guarantee');
         expect(uiHtml).not.toContain('exact_joint_venture_legal_name');
         expect(uiHtml).not.toContain('exact_apollo_investing_legal_entities');
@@ -893,6 +916,8 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(canonicalText).toContain('rising_minimum_yield_guarantee');
       expect(canonicalText).toContain('exact_joint_venture_legal_name');
       expect(canonicalText).toContain('exact_apollo_investing_legal_entities');
+      expect(canonicalText).toContain('rights.sec-edgar-public-facts.v1');
+      expect(canonicalText).toContain('"rights_status":"metadata_only"');
 
       const firstCanonical = canonicalKeys(r2);
       const second = await postTyped(request);
@@ -1314,6 +1339,17 @@ describe('rights parity across normal ingest, unresolved replay and rebuild', ()
       expect(r2.keys()).not.toContain(
         `views/make-money/v1/entities/${entityId}.json`,
       );
+
+      const detailResponse = await getBusinesses(
+        new Request(
+          `http://localhost/api/businesses?foundationOnly=true&entity_id=${entityId}`,
+        ),
+      );
+      expect(detailResponse.status).toBe(404);
+      const publicBody = JSON.stringify(await detailResponse.json());
+      expect(publicBody).not.toContain('rights_policy_id');
+      expect(publicBody).not.toContain('rights_status');
+      expect(publicBody).not.toContain('must_survive_transport');
     });
   });
 });
