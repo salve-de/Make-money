@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { resolve } from 'node:path';
+import { join, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
 
 const TARGET_RUN = 'run_handoff_c9e926361e9472f5085323dc727be7ff';
 const TARGET_BLOB = 'c808a3352de85880f31c3ff647e394127d0aca10';
@@ -48,7 +49,7 @@ function sha256(bytes) {
 }
 
 async function githubJson(path) {
-  const endpoint = path.replace(/^\\/+/, '');
+  const endpoint = path.replace(/^\/+/, '');
   const result = spawnSync('gh', ['api', endpoint], {
     cwd: process.cwd(),
     encoding: 'utf8',
@@ -304,96 +305,101 @@ async function waitForCanonical(outputPath, timeoutMs = 60_000) {
 }
 
 async function main() {
-  const preexisting = localR2Get('/tmp/c9e-preexisting.json', true);
-  assert.equal(
-    preexisting,
-    null,
-    'c9e canonical already exists. Stop local workers, run pnpm foundation:local-e2e:reset, restart both workers, then rerun this proof.',
-  );
+  const scratchDir = mkdtempSync(join(tmpdir(), 'make-money-c9e-'));
+  try {
+    const preexisting = localR2Get(join(scratchDir, 'preexisting.json'), true);
+    assert.equal(
+      preexisting,
+      null,
+      'c9e canonical already exists. Stop local workers, run pnpm foundation:local-e2e:reset, restart both workers, then rerun this proof.',
+    );
 
-  const publisherHealth = await assertPublisherHealth();
-  const selection = await discoverNormalScheduledTime();
-  const firstTrigger = await triggerScheduled(selection.scheduledTime);
-  const firstCanonical = await waitForCanonical('/tmp/c9e-canonical-first.json');
-  const firstApi = await waitForPublicApi();
-  await assertSelectionStable(selection);
+    const publisherHealth = await assertPublisherHealth();
+    const selection = await discoverNormalScheduledTime();
+    const firstTrigger = await triggerScheduled(selection.scheduledTime);
+    const firstCanonical = await waitForCanonical(join(scratchDir, 'canonical-first.json'));
+    const firstApi = await waitForPublicApi();
+    await assertSelectionStable(selection);
 
-  const secondTrigger = await triggerScheduled(selection.scheduledTime);
-  await new Promise((resolvePromise) => setTimeout(resolvePromise, 2500));
-  const secondCanonical = await waitForCanonical('/tmp/c9e-canonical-second.json');
-  const secondApi = await waitForPublicApi();
-  await assertSelectionStable(selection);
+    const secondTrigger = await triggerScheduled(selection.scheduledTime);
+    await new Promise((resolvePromise) => setTimeout(resolvePromise, 2500));
+    const secondCanonical = await waitForCanonical(join(scratchDir, 'canonical-second.json'));
+    const secondApi = await waitForPublicApi();
+    await assertSelectionStable(selection);
 
-  assert.equal(
-    secondCanonical.hash,
-    firstCanonical.hash,
-    'canonical bytes changed after replaying the same scheduled event',
-  );
-  assert.equal(
-    secondCanonical.bytes.equals(firstCanonical.bytes),
-    true,
-    'canonical object was overwritten after replay',
-  );
-
-  for (let index = 0; index < firstApi.length; index += 1) {
-    assert.deepEqual(
-      secondApi[index].fingerprint.ids,
-      firstApi[index].fingerprint.ids,
-      'public_fact observation IDs changed after replay',
+    assert.equal(
+      secondCanonical.hash,
+      firstCanonical.hash,
+      'canonical bytes changed after replaying the same scheduled event',
     );
     assert.equal(
-      secondApi[index].fingerprint.count,
-      firstApi[index].fingerprint.count,
-      'public_fact count changed after replay',
+      secondCanonical.bytes.equals(firstCanonical.bytes),
+      true,
+      'canonical object was overwritten after replay',
     );
-    assert.equal(
-      secondApi[index].fingerprint.serialized,
-      firstApi[index].fingerprint.serialized,
-      'public_fact payload changed after replay',
-    );
+
+    for (let index = 0; index < firstApi.length; index += 1) {
+      assert.deepEqual(
+        secondApi[index].fingerprint.ids,
+        firstApi[index].fingerprint.ids,
+        'public_fact observation IDs changed after replay',
+      );
+      assert.equal(
+        secondApi[index].fingerprint.count,
+        firstApi[index].fingerprint.count,
+        'public_fact count changed after replay',
+      );
+      assert.equal(
+        secondApi[index].fingerprint.serialized,
+        firstApi[index].fingerprint.serialized,
+        'public_fact payload changed after replay',
+      );
+    }
+
+    console.log(JSON.stringify({
+      status: 'PASS_C9E_LOCAL_E2E_API_R2_IDEMPOTENCY',
+      exact_candidate: {
+        run_id: TARGET_RUN,
+        candidate_blob_sha: TARGET_BLOB,
+        observed_at: OBSERVED_AT,
+        source_run_id: SOURCE_RUN,
+        source_commit_sha: selection.sourceCommitSha,
+        tree_sha: selection.treeSha,
+        candidate_count: selection.candidateCount,
+        target_index_zero_based: selection.targetIndex,
+        target_path: selection.targetPath,
+      },
+      publisher_health: {
+        service: publisherHealth.service,
+        version: publisherHealth.version,
+        direct_fallback_on_queue_daily_limit: publisherHealth.direct_fallback_on_queue_daily_limit,
+      },
+      scheduled_event: {
+        cron: CRON,
+        scheduled_time_ms: selection.scheduledTime,
+        scheduled_time_iso: selection.scheduledIso,
+        first_trigger: firstTrigger,
+        second_trigger: secondTrigger,
+      },
+      canonical: {
+        key: CANONICAL_KEY,
+        sha256_first: firstCanonical.hash,
+        sha256_second: secondCanonical.hash,
+        bytes: firstCanonical.bytes.byteLength,
+        unchanged_after_replay: true,
+      },
+      api: firstApi.map((item, index) => ({
+        entity_id: item.id,
+        expected_percent: item.percent,
+        public_fact_count_first: item.fingerprint.count,
+        public_fact_count_second: secondApi[index].fingerprint.count,
+        public_fact_ids: item.fingerprint.ids,
+        unchanged_after_replay: true,
+      })),
+    }, null, 2));
+  } finally {
+    rmSync(scratchDir, { recursive: true, force: true });
   }
-
-  console.log(JSON.stringify({
-    status: 'PASS_C9E_LOCAL_E2E_API_R2_IDEMPOTENCY',
-    exact_candidate: {
-      run_id: TARGET_RUN,
-      candidate_blob_sha: TARGET_BLOB,
-      observed_at: OBSERVED_AT,
-      source_run_id: SOURCE_RUN,
-      source_commit_sha: selection.sourceCommitSha,
-      tree_sha: selection.treeSha,
-      candidate_count: selection.candidateCount,
-      target_index_zero_based: selection.targetIndex,
-      target_path: selection.targetPath,
-    },
-    publisher_health: {
-      service: publisherHealth.service,
-      version: publisherHealth.version,
-      direct_fallback_on_queue_daily_limit: publisherHealth.direct_fallback_on_queue_daily_limit,
-    },
-    scheduled_event: {
-      cron: CRON,
-      scheduled_time_ms: selection.scheduledTime,
-      scheduled_time_iso: selection.scheduledIso,
-      first_trigger: firstTrigger,
-      second_trigger: secondTrigger,
-    },
-    canonical: {
-      key: CANONICAL_KEY,
-      sha256_first: firstCanonical.hash,
-      sha256_second: secondCanonical.hash,
-      bytes: firstCanonical.bytes.byteLength,
-      unchanged_after_replay: true,
-    },
-    api: firstApi.map((item, index) => ({
-      entity_id: item.id,
-      expected_percent: item.percent,
-      public_fact_count_first: item.fingerprint.count,
-      public_fact_count_second: secondApi[index].fingerprint.count,
-      public_fact_ids: item.fingerprint.ids,
-      unchanged_after_replay: true,
-    })),
-  }, null, 2));
 }
 
 main().catch((error) => {
