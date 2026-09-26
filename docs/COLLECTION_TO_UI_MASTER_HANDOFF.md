@@ -553,3 +553,36 @@ immutable / append-only canonical private knowledge
 The invariant is:
 
 **Preserve what was actually learned; keep where/how/when it was learned; add new interpretations beside it; recollect only missing evidence; never let today's UI become tomorrow's collection schema.**
+
+
+## 25. Make-Money collection-document map and governance
+
+A future AI should not rediscover which product documents matter.
+
+| File | Use |
+| --- | --- |
+| `AGENTS.md` | product-local implementation guardrails |
+| `docs/COLLECTION_TO_UI_MASTER_HANDOFF.md` | first product-side entrypoint for collection/provenance/enrichment/rights/Publisher/R2/API/UI |
+| `HANDOFF.md` | recovery/current-task routing |
+| `docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md` | detailed rights/public publication behavior |
+| `docs/FOUNDATION_UI_READ_PATH.md` | detailed Foundation serving/read path |
+| `data/foundation-public-rights-snapshot.json` | pinned runtime rights snapshot |
+| `data/foundation-public-fact-types.json` | public Fact type registry |
+| `data/foundation-public-observation-contracts.json` | public Observation DTO registry |
+| `docs/DATA_COLLECTION_MASTER_GUIDE.md` | **legacy** product-shaped history/incident guide only |
+| `docs/GOLDEN_INGEST_SCHEMA.md` | historical/product dossier reference only where still useful; not Universal Foundation canonical shape |
+
+Rules:
+
+1. Do not create another competing "highest collection spec" inside Make-Money.
+2. Reusable semantics go upstream to Universal Foundation.
+3. Product-only projection/UI behavior stays here.
+4. If a new collection-related Make-Money document is created, link it from this section in the same change.
+5. If a legacy document conflicts with the current master, mark the legacy document at its top rather than relying on agents to infer precedence.
+6. If public DTO semantics change, update the allowlist/registry, tests, this handoff, and the upstream lifecycle master when the cross-project contract changes.
+7. If only UI wording/layout changes, do not mutate Foundation schemas or recollect data.
+8. If a new axis becomes useful across multiple consumers, migrate its definition upstream instead of duplicating product-local taxonomies.
+
+## 26. Minimal handoff to another Make-Money AI
+
+> Read `AGENTS.md`, `docs/COLLECTION_TO_UI_MASTER_HANDOFF.md`, and the Universal Foundation `docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`. Collection stays broad. Source/Evidence/provenance/canonical history stay intact. Later tags, rights reviews, source attributes and analyses are versioned enrichment/backfill when possible; missing external evidence uses the normal Foundation collection path. Make-Money only publishes rights-cleared public-safe projections. Do not revive legacy giant-JSON/incoming-file workflows or use the current UI as the collection schema.
