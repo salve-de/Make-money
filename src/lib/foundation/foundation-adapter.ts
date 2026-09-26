@@ -591,6 +591,14 @@ export function adaptFoundationDetailToFinancialEntity(
           sourceUrls: [...obs.publicDisplay.sourceUrls],
         },
       } : {}),
+      ...(obs.publicRights ? {
+        publicRights: {
+          ...obs.publicRights,
+          providers: [...obs.publicRights.providers],
+          attribution: [...obs.publicRights.attribution],
+          reviewedAt: [...obs.publicRights.reviewedAt],
+        },
+      } : {}),
     });
     if (canCarryPublicPayload) publicPayloadBytes += publicPayload!.bytes;
   }
