@@ -19,7 +19,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 保存先・ファイル配置・責務・設計理由・他プロジェクトへの適用は [データとコードの置き場所](docs/architecture/STORAGE.md) を正本とする。D1へユーザーと決済状態、非公開R2へ添付・原本・バックアップを置く。Neonを新規の実行時依存にしない。移行途中の実装を完成形と誤認せず、同文書の現在地と実コードを確認する。保存先や境界を変えたら、関連するschema/migration・テスト・この正本を同じ変更で更新する。
 
 
-## 新規データ収集の入口（最高正本）
+## 新規データ収集の入口（現行正本はCollection Master）
 
 > **【全エージェント必読：最もメタ的・最高視座の収集本質】**:
 > **我々が収集したいのは特定の企業データではなく、綺麗事（努力・理念）を完全に剥ぎ取った後に残る【資本主義における『富の不可逆な移転メカニズム（物理法則）』のログ】そのものである。**
@@ -41,10 +41,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > 4. **裏アフィリエイト・キックバック配管（フッター, ASP, Rewardful等）**: 表のLPには出ない「売上の30〜50%永久キックバック」「紹介報酬」という、広告費ゼロで広げている真の集客エンジン。
 > 5. **解約怨嗟・悪評（Trustpilot, Reddit, G2等）**: 公式のサクラ事例ではなく、「解約できない」「データが人質」「他社に移れず泣く泣く払っている」という、高収益を支える理不尽な監禁（スイッチングコスト）の実態。
 
-「MAKEMONEYに必要なデータを集めて」と依頼されたら、以下の3大正本を必ず順番に読め：
-1. **出力JSONフォーマット・収集仕様**: [`docs/GOLDEN_INGEST_SCHEMA.md`](docs/GOLDEN_INGEST_SCHEMA.md) （10大属性、円換算P&L、略奪転用方程式LOOT_BLUEPRINT必須、完全体JSON定義）
-2. **調査目録・スコープ**: [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](docs/MAKE_MONEY_COLLECTION_SCOPE.md) （9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、お金のウォーターフォール）
-3. **保存先・R2完璧構造**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md) （原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）
+「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず以下を読む：
+1. **現行Product Master**: [`docs/COLLECTION_TO_UI_MASTER_HANDOFF.md`](docs/COLLECTION_TO_UI_MASTER_HANDOFF.md)
+2. **横断Foundation Master**: `salve-de/universal-foundation/docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`
+3. **詳細調査目録**: [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](docs/MAKE_MONEY_COLLECTION_SCOPE.md)
+4. **保存/実装詳細**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md) と現行Foundation registry/schema
+
+`docs/GOLDEN_INGEST_SCHEMA.md` は商品出力・過去事故を理解する参考に限定し、Foundationのcanonical shapeや後付けannotation/enrichmentを制限しない。
 
 【絶対遵守ルール】:
 - **3大収集モードへの即時自走分岐（一言で判定・限定は一切排除）**:
