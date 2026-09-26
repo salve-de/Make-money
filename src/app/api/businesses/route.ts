@@ -36,21 +36,12 @@ const gunzip = promisify(gunzipCb);
 export const dynamic = 'force-dynamic';
 
 const CACHE_CONTROL = 'private, max-age=30, stale-while-revalidate=300';
-const DETAIL_TTL_MS = 60_000;
-const MAX_DETAIL_CACHE_ENTRIES = 128;
 const MAX_ENTITY_ID_LENGTH = 200;
 const MAX_R2_CURSOR_LENGTH = 2048;
 const FOUNDATION_SEARCH_OBJECT_PAGE_SIZE = 100;
 const FOUNDATION_VIEW_PREFIX = 'views/make-money/v1/entities/';
 const FOUNDATION_READ_RETRY_DELAY_MS = 150;
 const FOUNDATION_LIST_PAGE_LIMIT = 12;
-
-type CacheEntry<T> = {
-  expiresAt: number;
-  value: T | Promise<T>;
-};
-
-const detailCache = new Map<string, CacheEntry<FoundationBusinessCase>>();
 
 function foundationSummarySearchText(summary: FoundationValueSummary): string {
   return [
@@ -220,34 +211,6 @@ async function mapBoundedFoundationSearchReads(
   return results.filter((value): value is FoundationValueSummary => Boolean(value));
 }
 
-async function readCached<T>(
-  cache: Map<string, CacheEntry<T>>,
-  key: string,
-  ttlMs: number,
-  maxEntries: number,
-  loader: () => Promise<T>
-): Promise<T> {
-  const hit = cache.get(key);
-  if (hit && hit.expiresAt > Date.now()) return hit.value;
-  if (hit) cache.delete(key);
-
-  const pending = loader();
-  cache.set(key, { expiresAt: Date.now() + ttlMs, value: pending });
-  while (cache.size > maxEntries) {
-    const oldest = cache.keys().next().value;
-    if (!oldest) break;
-    cache.delete(oldest);
-  }
-  try {
-    const value = await pending;
-    cache.set(key, { expiresAt: Date.now() + ttlMs, value });
-    return value;
-  } catch (error) {
-    if (cache.get(key)?.value === pending) cache.delete(key);
-    throw error;
-  }
-}
-
 async function retryFoundationRead<T>(loader: () => Promise<T>): Promise<T> {
   let lastError: unknown;
   for (let attempt = 0; attempt < 2; attempt += 1) {
@@ -384,14 +347,11 @@ export async function GET(request: Request) {
       if (!stagedView) {
         stagedViewMissing = true;
       } else {
-        const data = await readCached(
-          detailCache,
-          `view:${entityId}`,
-          DETAIL_TTL_MS,
-          MAX_DETAIL_CACHE_ENTRIES,
-          async () => stagedView,
-        );
-        parsedFoundation = parseFoundationBusinessCase(data);
+        // readMakeMoneyViewDetail already fetched the current materialized R2 view.
+        // Replacing it with a process-local TTL cache can serve an older run after
+        // a successful projection for the same entity, hiding newly published
+        // PublicFacts until the cache expires. Parse the exact view just read.
+        parsedFoundation = parseFoundationBusinessCase(stagedView);
         if (parsedFoundation) {
           foundationReady = isFoundationDossierReady(parsedFoundation);
           if (foundationOnly || foundationReady) {
