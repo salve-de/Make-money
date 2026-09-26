@@ -41,6 +41,9 @@ for (const target of cases) {
     expect(detailResponse.status()).toBe(200);
     const detailPayload = await detailResponse.json();
     expect(detailPayload?.source).toBe('foundation_lake');
+    if (target.id === 'ent_org_4a819d424adf6b2a118f') {
+      expect(detailPayload?.data?.canonicalIdentifier).toBeNull();
+    }
 
     const observations = Array.isArray(detailPayload?.data?.observations)
       ? detailPayload.data.observations
@@ -64,6 +67,11 @@ for (const target of cases) {
     await expect(page.getByRole('heading', { name: target.name, exact: true })).toBeVisible({
       timeout: 60_000,
     });
+    if (target.id === 'ent_org_4a819d424adf6b2a118f') {
+      await expect(
+        page.getByText('Manager/affiliate umbrella; exact investing legal entities unresolved.', { exact: true }),
+      ).toHaveCount(0);
+    }
     await page.getByRole('button', { name: '証拠', exact: true }).click();
 
     const stream = page.locator('#section-stream');
