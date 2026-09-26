@@ -2,7 +2,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync, rmSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 const TARGET_RUN = 'run_handoff_c9e926361e9472f5085323dc727be7ff';
