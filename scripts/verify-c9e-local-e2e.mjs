@@ -48,17 +48,23 @@ function sha256(bytes) {
 }
 
 async function githubJson(path) {
-  const response = await fetch('https://api.github.com' + path, {
-    headers: {
-      accept: 'application/vnd.github+json',
-      'user-agent': 'make-money-c9e-local-proof',
-      'x-github-api-version': '2022-11-28',
+  const endpoint = path.replace(/^\\/+/, '');
+  const result = spawnSync('gh', ['api', endpoint], {
+    cwd: process.cwd(),
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    env: {
+      ...process.env,
+      GH_PROMPT_DISABLED: '1',
     },
+    maxBuffer: 8 * 1024 * 1024,
   });
-  if (!response.ok) {
-    throw new Error(`GitHub ${response.status}: ${await response.text()}`);
+  if (result.status !== 0) {
+    throw new Error(
+      'Authenticated GitHub read failed. Use an existing GitHub CLI login with read access to salve-de/universal-foundation; the verifier never needs the token value itself.',
+    );
   }
-  return response.json();
+  return JSON.parse(result.stdout);
 }
 
 async function discoverNormalScheduledTime() {
