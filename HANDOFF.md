@@ -1,3 +1,5 @@
+> **2026-09-26 collection -> UI master entrypoint:** For scheduled Web ChatGPT research, provenance, later tagging/enrichment, rights, Publisher/Queue, canonical R2, API/UI or local E2E, read [docs/COLLECTION_TO_UI_MASTER_HANDOFF.md](docs/COLLECTION_TO_UI_MASTER_HANDOFF.md) first. Cross-project semantics are owned by `salve-de/universal-foundation/docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`. Do not use legacy product JSON guides to narrow or redefine Foundation collection.
+
 > **Commercial-rights publication work (2026-09-25 current):** read [docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md](docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md) first. Rights/source registries and the stronger Public Fact consumer are already on main; old PR #67 is superseded. The next unfinished step is the real production R2 audit (`pnpm foundation:rights:audit`) on the configured Mac, followed by public-projection quarantine/rebuild based on that evidence.
 
 # Make-Money 引継ぎ入口（2026-09-24 最新正本）
