@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import type { FoundationBusinessCase } from './business-reader';
+import { buildCommercialPublicFactProjection } from './publication-rights';
 import {
   assertMakeMoneyValuePage,
   mapServingReads,
@@ -81,6 +82,28 @@ describe('exact Starwood mapper-v4 candidate transport', () => {
       'pf_62877c1fb7ba35b14d80ff33',
       'pf_f4ae5d042c95d5c1c607cd85',
     ].sort());
+
+    const projected = buildCommercialPublicFactProjection(candidate, typed);
+    expect(projected.assessment.status).toBe('ALLOWED');
+    expect(projected.bundle?.run_id).toBe('run_handoff_c9e926361e9472f5085323dc727be7ff');
+
+    const publicObservations = projected.bundle?.observations as Array<Record<string, unknown>>;
+    expect(publicObservations).toHaveLength(2);
+    expect(publicObservations.every((row) => row.observation_type === 'public_fact.v1')).toBe(true);
+
+    const publicValues = publicObservations
+      .map((row) => ((row.public_payload as Record<string, unknown>).value as Record<string, unknown>).value)
+      .sort();
+    expect(publicValues).toEqual([41.5, 58.5]);
+
+    const sourceUrls = publicObservations
+      .flatMap((row) => ((row.public_display as Record<string, unknown>).source_urls as string[]) || [])
+      .filter((value, index, values) => values.indexOf(value) === index)
+      .sort();
+    expect(sourceUrls).toEqual([
+      'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm',
+      'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332795/ck0001711929-20260804.htm',
+    ]);
   });
 });
 
