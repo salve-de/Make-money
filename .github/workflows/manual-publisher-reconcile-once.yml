@@ -1,0 +1,50 @@
+name: Manual Publisher Reconcile Once
+
+on:
+  push:
+    branches:
+      - ops/starwood-e2e-reconcile-20260926
+    paths:
+      - .github/workflows/manual-publisher-reconcile-once.yml
+
+permissions:
+  contents: read
+
+jobs:
+  enqueue:
+    runs-on: ubuntu-latest
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      QUEUE_NAME: foundation-publisher-events
+    steps:
+      - name: Require existing Cloudflare credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${CF_TOKEN:-}" ]; then echo "BLOCKED_CLOUDFLARE_API_TOKEN_MISSING"; exit 21; fi
+          if [ -z "${CF_ACCOUNT:-}" ]; then echo "BLOCKED_CLOUDFLARE_ACCOUNT_ID_MISSING"; exit 22; fi
+          echo "Cloudflare credentials present (values withheld)."
+      - name: Resolve existing publisher queue
+        id: queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          response="$(curl --fail-with-body -sS -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/queues")"
+          [ "$(jq -r '.success // false' <<<"$response")" = "true" ] || { echo "CLOUDFLARE_QUEUE_LIST_FAILED"; exit 23; }
+          queue_id="$(jq -r --arg q "$QUEUE_NAME" '.result[] | select(.queue_name==$q) | .queue_id' <<<"$response" | head -n1)"
+          [ -n "$queue_id" ] || { echo "PUBLISHER_QUEUE_NOT_FOUND"; exit 24; }
+          echo "queue_id=$queue_id" >> "$GITHUB_OUTPUT"
+          echo "Resolved existing queue $QUEUE_NAME."
+      - name: Push one reconcile event
+        shell: bash
+        run: |
+          set -euo pipefail
+          now="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          stamp="$(date -u +%Y%m%dT%H%M%SZ)"
+          batch="batch_manual_e2e_$stamp"
+          event="$(jq -nc --arg now "$now" --arg batch "$batch" --arg sha "$GITHUB_SHA" '{schema_version:"foundation-publisher-event.v1",type:"reconcile",delivery_id:("manual-e2e:"+$batch),received_at:$now,before:null,after:null,reason:"manual_e2e_reconcile",batch_id:$batch,idempotency_key:("publisher:"+$batch),input_watermark:$sha,continuation_depth:0,cycle_offset:0,historical_coverage:0,typed_cycle_offset:0,typed_historical_coverage:0}')"
+          payload="$(jq -nc --argjson body "$event" '{body:$body,content_type:"json"}')"
+          response="$(curl --fail-with-body -sS -X POST -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/queues/${{ steps.queue.outputs.queue_id }}/messages" --data "$payload")"
+          [ "$(jq -r '.success // false' <<<"$response")" = "true" ] || { echo "CLOUDFLARE_QUEUE_PUSH_FAILED"; exit 25; }
+          echo "PUBLISHER_RECONCILE_ENQUEUED batch=$batch"
