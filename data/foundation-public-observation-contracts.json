@@ -77,6 +77,133 @@
       "allowed_policy_ids": [
         "rights.sec-edgar-public-facts.v1"
       ]
+    },
+    {
+      "contract_id": "public-observation.starwood_apollo.material_transaction_terms.v1",
+      "status": "approved",
+      "observation_type": "starwood_apollo.verify_reconcile.material_transaction_terms.v1",
+      "fields": [
+        {
+          "source_path": [
+            "apollo_equity_percent"
+          ],
+          "kind": "percentage",
+          "required": true
+        },
+        {
+          "source_path": [
+            "starwood_equity_percent"
+          ],
+          "kind": "percentage",
+          "required": true
+        },
+        {
+          "source_path": [
+            "apollo_investment_usd"
+          ],
+          "kind": "finite_number",
+          "required": true
+        },
+        {
+          "source_path": [
+            "properties_approx"
+          ],
+          "kind": "finite_number",
+          "required": true
+        },
+        {
+          "source_path": [
+            "call_option_irr_cap_percent_years_5_to_10"
+          ],
+          "kind": "percentage",
+          "required": true
+        },
+        {
+          "source_path": [
+            "starwood_asset_management_and_operational_control"
+          ],
+          "kind": "boolean",
+          "required": true
+        },
+        {
+          "source_path": [
+            "proceeds_repay_credit_facilities"
+          ],
+          "kind": "boolean",
+          "required": true
+        }
+      ],
+      "notes": "SEC EDGAR fact-only contract for the 2026-09-26 VERIFY material-transaction observation. Publishes only reviewed scalar facts. rising_minimum_yield_guarantee, unresolved legal names, source prose, transport metadata and every unlisted field remain private.",
+      "display": {
+        "title": "Starwood SREIT / Apollo affordable-housing JV terms",
+        "subject": "Verified transaction terms reported in Starwood SEC filings",
+        "note": "The 41.5% interest is reported for funds managed by and affiliates of Apollo Global Management; it is not presented as a direct corporate holding of Apollo Global Management.",
+        "facts": [
+          {
+            "public_path": [
+              "apollo_equity_percent"
+            ],
+            "label": "Reported ownership — Apollo-managed funds / affiliates",
+            "suffix": "%"
+          },
+          {
+            "public_path": [
+              "starwood_equity_percent"
+            ],
+            "label": "Reported ownership — Starwood SREIT",
+            "suffix": "%"
+          },
+          {
+            "public_path": [
+              "apollo_investment_usd"
+            ],
+            "label": "Reported Apollo investment (USD)"
+          },
+          {
+            "public_path": [
+              "properties_approx"
+            ],
+            "label": "Reported properties (approx.)"
+          },
+          {
+            "public_path": [
+              "call_option_irr_cap_percent_years_5_to_10"
+            ],
+            "label": "Call-option IRR cap (years 5–10)",
+            "suffix": "%"
+          },
+          {
+            "public_path": [
+              "starwood_asset_management_and_operational_control"
+            ],
+            "label": "Starwood asset management / operational control"
+          },
+          {
+            "public_path": [
+              "proceeds_repay_credit_facilities"
+            ],
+            "label": "Proceeds repay credit facilities"
+          }
+        ],
+        "source_label": "SEC filing"
+      },
+      "allowed_policy_ids": [
+        "rights.sec-edgar-public-facts.v1"
+      ],
+      "association": {
+        "subject_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+        "entities": [
+          {
+            "entity_id": "ent_org_0e1d9b556075d9fc7f36",
+            "canonical_name": "Starwood Real Estate Income Trust, Inc."
+          },
+          {
+            "entity_id": "ent_org_4a819d424adf6b2a118f",
+            "canonical_name": "Apollo Global Management"
+          }
+        ],
+        "require_exact_evidence_set": true
+      }
     }
   ]
 }
