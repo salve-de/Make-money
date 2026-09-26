@@ -1,38 +1,23 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { buildCommercialPublicFactProjection } from './publication-rights';
-import { prepareFoundationTypedIngest, gitBlobSha1 } from './typed-ingest';
+import { gitBlobSha1, projectTypedRecordSetV4 } from './typed-ingest';
 
 type JsonObject = Record<string, unknown>;
 
 const typedFixture =
   'src/lib/foundation/fixtures/real-starwood-apollo-2026-09-26-typed-record-set-v1.json';
-const runFixture =
-  'src/lib/foundation/fixtures/real-starwood-apollo-2026-09-26-collection-run-v1.json';
-
 const starwoodId = 'ent_org_0e1d9b556075d9fc7f36';
 const apolloId = 'ent_org_4a819d424adf6b2a118f';
 const observationId = 'obs_3b978269d9ec6eba82dc1f9b';
 
 function preparedFixture() {
   const typedText = readFileSync(typedFixture, 'utf8');
-  const artifactText = readFileSync(runFixture, 'utf8');
-  return prepareFoundationTypedIngest({
-    write_authorized: true,
-    source: {
-      repository: 'salve-de/universal-foundation',
-      source_ref: 'automation-research',
-      source_commit_sha: 'f72f4bbd01a055834134e9a3c141f32909510b53',
-      typed_record_set_path:
-        'staging/automation/typed-records/VERIFY_RECONCILE/2026/09/26/run_verify_20260926T072824JST_cfdf4cf4_retry/starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization-2026-typed-record-set-v1.json',
-      typed_record_set_blob_sha: gitBlobSha1(typedText),
-      source_artifact_path:
-        'staging/automation/verify/2026/09/26/20260926T072824JST-verify-run_verify_20260926T072824JST_cfdf4cf4_retry.json',
-      source_artifact_blob_sha: gitBlobSha1(artifactText),
-    },
-    typed_record_set_text: typedText,
-    source_artifact_text: artifactText,
-  });
+  const typedRecordSet = JSON.parse(typedText) as JsonObject;
+  return {
+    bundle: projectTypedRecordSetV4(typedRecordSet, gitBlobSha1(typedText)),
+    typedRecordSet,
+  };
 }
 
 function deepClone<T>(value: T): T {
