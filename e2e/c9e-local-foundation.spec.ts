@@ -42,6 +42,14 @@ for (const target of cases) {
     const detailPayload = await detailResponse.json();
     expect(detailPayload?.source).toBe('foundation_lake');
 
+    const observations = Array.isArray(detailPayload?.data?.observations)
+      ? detailPayload.data.observations
+      : [];
+    const publicFacts = observations.filter(
+      (observation: { kind?: unknown }) => observation?.kind === 'public_fact.v1',
+    );
+    expect(publicFacts).toHaveLength(1);
+
     const serialized = JSON.stringify(detailPayload);
     expect(serialized).toContain(target.percent.replace('%', ''));
     expect(serialized).toContain('U.S. Securities and Exchange Commission');
