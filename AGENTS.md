@@ -1,6 +1,6 @@
 > **2026-09-26 現行COLLECTION MASTER — 全AI必読:** 収集・provenance・後付けannotation/enrichment・権利再調査/backfill・R2 delivery・API/UIに関する作業は [docs/COLLECTION_TO_UI_MASTER_HANDOFF.md](docs/COLLECTION_TO_UI_MASTER_HANDOFF.md) から開始し、横断正本 `salve-de/universal-foundation/docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md` に従う。旧 `docs/DATA_COLLECTION_MASTER_GUIDE.md` の巨大FinancialEntity JSON、CLAIMED_TARGETS、incoming-file方式はlegacyであり現行Foundation正本を上書きしない。新しい切り口は「既存証拠で再計算できるか / 新しい外部証拠が必要か」を先に判定し、canonicalを上書きせずversionedに追加する。
 
-> **LEGACY NOTE — 2026-09-14 product-shaped collection workflow:** ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録（為替逆数、100倍誤爆、ID衝突、未確認フラグ、SaaS誤爆、#01〜#04手抜き・非表示等）の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。追加質問・手戻りゼロで自走完遂せよ。
+> **LEGACY NOTE — 2026-09-14 product-shaped collection workflow:** 旧 `docs/DATA_COLLECTION_MASTER_GUIDE.md` / `docs/GOLDEN_INGEST_SCHEMA.md` / CLAIMED_TARGETS / incoming-file方式は、過去の要件・事故・商品表現を参照するためだけに残す。**現行の収集・保存・handoff・後付けenrichmentの権威ではない。** 再利用可能な要件は現行Foundation contractへ移し替えて扱う。
 
 
 
