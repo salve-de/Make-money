@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import type { FoundationBusinessCase } from './business-reader';
 import {
@@ -5,6 +6,7 @@ import {
   mapServingReads,
   mergeFoundationBusinessCasesForView,
   projectionRetryMatchesCanonical,
+  typedRecordSetFromCanonicalBundle,
 } from './make-money-view';
 
 describe('serving page guard', () => {
@@ -44,6 +46,41 @@ describe('bounded serving-view reads', () => {
   it('does not hide read failures or invent empty rows', async () => {
     await expect(mapServingReads([1], async () => { throw new Error('R2 unavailable'); })).rejects.toThrow('R2 unavailable');
     expect(await mapServingReads([], async v => v)).toEqual([]);
+  });
+});
+
+describe('exact Starwood mapper-v4 candidate transport', () => {
+  it('extracts the same typed source run and public facts from the immutable candidate blob', () => {
+    const candidate = JSON.parse(readFileSync(
+      'src/lib/foundation/fixtures/real-starwood-apollo-sec-mapper-v4-candidate.json',
+      'utf8',
+    )) as Record<string, unknown>;
+
+    expect(candidate.run_id).toBe('run_handoff_c9e926361e9472f5085323dc727be7ff');
+
+    const candidateObservations = candidate.observations as Array<Record<string, unknown>>;
+    expect(candidateObservations.some(
+      (row) => row.observation_id === 'obs_62caf68d0af2a7f659bf0b5a',
+    )).toBe(true);
+
+    const typed = typedRecordSetFromCanonicalBundle(candidate) as Record<string, unknown>;
+    expect(typed.source_run_id).toBe('run_verify_canary_starwood_20260925044005');
+    expect(typed.subject_ref).toBe(
+      'case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026',
+    );
+
+    const extensions = typed.extensions as Record<string, unknown>;
+    const publicFactsOutput = extensions['public_facts.v1'] as Record<string, unknown>;
+    expect(publicFactsOutput.producer_lane).toBe('VERIFY_RECONCILE');
+
+    const facts = publicFactsOutput.facts as Array<Record<string, unknown>>;
+    expect(facts).toHaveLength(2);
+    expect(facts.map((fact) => (fact.value as Record<string, unknown>).value).sort())
+      .toEqual([41.5, 58.5]);
+    expect(facts.map((fact) => fact.fact_id).sort()).toEqual([
+      'pf_62877c1fb7ba35b14d80ff33',
+      'pf_f4ae5d042c95d5c1c607cd85',
+    ].sort());
   });
 });
 
