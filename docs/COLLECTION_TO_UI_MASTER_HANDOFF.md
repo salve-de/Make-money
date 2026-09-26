@@ -45,13 +45,19 @@ For the current local proof:
 
 Always fetch live heads before execution; documentation SHA values are checkpoints, not permission to skip a fresh fetch.
 
-Current documentation checkpoint:
+Current verified checkpoint:
 
 - Make-Money branch: `codex/scheduled-research-ui-direct-20260926`;
-- Make-Money HEAD at this documentation update: `222d44b7c8de464ba06205ff5c15ffa3affb8ad5`;
-- c9e code-level implementation that independently passed 20/20 selected tests: `8f9cd97395259506c9576383b85531c4fe8f98b4`;
+- Make-Money verified code SHA: `2c6326021cbddabab9c04c1408973bdb0a5d8f8a`;
+- GitHub Actions Quality run: `36242943089` — **SUCCESS**;
+- lint: PASS;
+- typecheck: PASS;
+- unit/full test: PASS;
+- build + OpenNext Worker bundle: PASS;
+- ordinary Playwright E2E smoke: PASS;
+- Foundation local-E2E safety check: PASS inside the same full test run;
 - Universal Foundation branch: `codex/scheduled-research-ui-direct-20260926`;
-- Universal Foundation documentation checkpoint referenced by this product handoff: `75af89207577e7f89763b706d70c30d0cf00c421`.
+- Universal Foundation local-E2E target SHA: `645653f9f9d5ef538aa4684b7966646f9b4f0adb` — requires independent `npm test && npm run check` and physical local execution before final acceptance.
 
 Later documentation/test commits may advance these heads. Never infer current branch state from this paragraph alone.
 
@@ -74,16 +80,28 @@ Canonical/private must still contain the exact source lineage, unknown legal ide
 
 ## 5. Current c9e test state
 
-Independent isolated-clone audit of Make-Money implementation checkpoint
-`8f9cd97395259506c9576383b85531c4fe8f98b4`:
+Make-Money code-level verification is now green at
+`2c6326021cbddabab9c04c1408973bdb0a5d8f8a`.
 
-- selected 3 test files: 20 tests;
-- 20 PASS;
-- exact c9e lineage/blob assertions pass;
-- 41.5% / 58.5% PublicFacts reach the API projection;
-- public-safe rights DTO reaches adapter/UI rendering;
-- private policy ID and unknown legal-identity fields remain excluded;
-- the separate unreceipted 2026-09-26 direct-typed fixture remains HTTP 422 / no-write.
+GitHub Actions Quality run `36242943089` completed successfully across all five jobs:
+- lint PASS;
+- typecheck PASS;
+- unit test PASS;
+- build PASS;
+- ordinary E2E smoke PASS.
+
+The unit job executed the complete Vitest suite with **109 files / 795 tests PASS** and also executed `foundation:local-e2e:check` successfully.
+
+Relevant c9e/publication tests on this SHA include:
+- `src/lib/foundation/publication-rights.test.ts`: 27/27 PASS;
+- `src/lib/foundation/publication-rights.starwood-20260926.test.ts`: 6/6 PASS;
+- `src/lib/foundation/typed-ingest.e2e.test.ts`: 16/16 PASS;
+- `src/lib/company-access/public-entity.foundation-observation.test.ts`: 3/3 PASS;
+- `src/features/company-inspector/ui/StructuredObservationPayload.test.tsx`: 1/1 PASS.
+
+The unreceipted 2026-09-26 direct-typed fixture still intentionally reaches the fail-closed 422/no-write path.
+
+The build job also completed `pnpm build && pnpm bundle:workers`, including TypeScript and OpenNext Worker generation. The earlier `publication-rights.ts` TypeScript failures are therefore resolved on this SHA without weakening the rights gate.
 
 The prior 19/20 failure was not PublicFact generation. `/api/businesses` read the
 current R2 materialized view and then replaced it with a stale process-local
