@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 
 const configPath = resolve(process.cwd(), 'wrangler.foundation-local-e2e.jsonc');
 const config = JSON.parse(readFileSync(configPath, 'utf8'));
+const packageJson = JSON.parse(readFileSync(resolve(process.cwd(), 'package.json'), 'utf8'));
 const errors = [];
 
 if (config.name !== 'make-money-app-foundation-local-e2e') {
@@ -27,6 +28,20 @@ for (const database of config.d1_databases || []) {
   }
 }
 if (config.triggers) errors.push('local E2E config must not define production triggers');
+
+const devCommand = packageJson.scripts?.['foundation:local-e2e:dev'] || '';
+if (!devCommand.includes('wrangler dev --local')) {
+  errors.push('foundation:local-e2e:dev must use wrangler dev --local');
+}
+if (!devCommand.includes('--port 3211')) {
+  errors.push('foundation:local-e2e:dev must use isolated port 3211');
+}
+if (devCommand.includes('--port 3111')) {
+  errors.push('foundation:local-e2e:dev must not use the unrelated 3111 port');
+}
+if (!devCommand.includes('--persist-to /tmp/make-money-c9e-local-e2e')) {
+  errors.push('foundation:local-e2e:dev must use the shared isolated c9e persistence path');
+}
 
 if (errors.length) {
   console.error(['Foundation local E2E safety check failed:', ...errors].join('\n'));
