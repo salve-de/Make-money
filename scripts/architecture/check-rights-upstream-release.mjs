@@ -30,6 +30,51 @@ export function resolveGitHubToken(options = {}) {
   }
 }
 
+function decodeGitHubFile(body, label) {
+  if (!body || body.encoding !== 'base64' || typeof body.content !== 'string') {
+    throw new Error(`${label} is not a base64 GitHub file`);
+  }
+  return JSON.parse(
+    Buffer.from(body.content.replace(/\s/g, ''), 'base64').toString('utf8')
+  );
+}
+
+function compareSnapshotPolicyMetadata(snapshotPolicy, upstreamPolicy) {
+  const errors = [];
+  const expected = {
+    reviewed_at: upstreamPolicy?.reviewed_at,
+    public_display: upstreamPolicy?.decisions?.public_display,
+    redistribution: upstreamPolicy?.decisions?.redistribution,
+    public_excerpt_display: upstreamPolicy?.decisions?.public_excerpt_display,
+    public_media_display: upstreamPolicy?.decisions?.public_media_display,
+    attribution: upstreamPolicy?.decisions?.attribution,
+  };
+  for (const [field, value] of Object.entries(expected)) {
+    if (snapshotPolicy?.[field] !== value) {
+      errors.push(`policy public-rights metadata mismatch: ${snapshotPolicy?.path || 'unknown'} field=${field}`);
+    }
+  }
+  return errors;
+}
+
+function compareSnapshotSourceMetadata(snapshotSource, upstreamSource) {
+  const errors = [];
+  const scalarFields = ['source_id', 'provider_name', 'provider_url', 'status'];
+  for (const field of scalarFields) {
+    if (snapshotSource?.[field] !== upstreamSource?.[field]) {
+      errors.push(`source metadata mismatch: ${snapshotSource?.path || 'unknown'} field=${field}`);
+    }
+  }
+  for (const field of ['source_types', 'rights_policy_ids']) {
+    const left = Array.isArray(snapshotSource?.[field]) ? [...snapshotSource[field]].sort() : [];
+    const right = Array.isArray(upstreamSource?.[field]) ? [...upstreamSource[field]].sort() : [];
+    if (JSON.stringify(left) !== JSON.stringify(right)) {
+      errors.push(`source metadata mismatch: ${snapshotSource?.path || 'unknown'} field=${field}`);
+    }
+  }
+  return errors;
+}
+
 export async function rightsUpstreamReleaseErrors(options = {}) {
   const fetchImpl = options.fetchImpl || globalThis.fetch;
   const snapshot = options.snapshot || JSON.parse(readFileSync(SNAPSHOT_PATH, 'utf8'));
@@ -82,7 +127,7 @@ export async function rightsUpstreamReleaseErrors(options = {}) {
   }
 
   for (const record of snapshot.records || []) {
-    for (const entry of [record?.policy, record?.source]) {
+    for (const [kind, entry] of [['policy', record?.policy], ['source', record?.source]]) {
       if (!entry?.path || !/^[a-f0-9]{40}$/.test(entry?.blob_sha || '')) {
         errors.push('rights snapshot record is missing a path or blob_sha');
         continue;
@@ -97,6 +142,21 @@ export async function rightsUpstreamReleaseErrors(options = {}) {
         const body = await response.json();
         if (body?.sha !== entry.blob_sha) {
           errors.push(`upstream rights blob mismatch for ${entry.path}`);
+          continue;
+        }
+
+        let upstream;
+        try {
+          upstream = decodeGitHubFile(body, entry.path);
+        } catch (error) {
+          errors.push(`cannot decode upstream rights blob ${entry.path}: ${error instanceof Error ? error.message : String(error)}`);
+          continue;
+        }
+
+        if (kind === 'policy') {
+          errors.push(...compareSnapshotPolicyMetadata(entry, upstream));
+        } else {
+          errors.push(...compareSnapshotSourceMetadata(entry, upstream));
         }
       } catch (error) {
         errors.push(`cannot verify upstream rights blob ${entry.path}: ${error instanceof Error ? error.message : String(error)}`);
