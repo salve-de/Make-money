@@ -1,0 +1,56 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "make-money-app-foundation-local-e2e",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-08",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "r2_buckets": [
+    {
+      "binding": "FOUNDATION_R2_RAW",
+      "bucket_name": "foundation-raw-local-e2e",
+      "remote": false
+    },
+    {
+      "binding": "FOUNDATION_R2_LAKE",
+      "bucket_name": "foundation-lake-local-e2e",
+      "remote": false
+    },
+    {
+      "binding": "FOUNDATION_R2_RESTRICTED",
+      "bucket_name": "foundation-restricted-local-e2e",
+      "remote": false
+    },
+    {
+      "binding": "FOUNDATION_R2_PUBLIC",
+      "bucket_name": "foundation-public-local-e2e",
+      "remote": false
+    },
+    {
+      "binding": "APP_R2",
+      "bucket_name": "make-money-local-e2e",
+      "remote": false
+    }
+  ],
+  "vars": {
+    "ENVIRONMENT": "development",
+    "PROJECT_ID": "make-money-local-e2e",
+    "APP_R2_BUCKET": "make-money-local-e2e",
+    "FIREBASE_PROJECT_ID": "make-money-local-e2e",
+    "FOUNDATION_INGEST_TOKEN": "local-e2e-only"
+  },
+  "d1_databases": [
+    {
+      "binding": "APP_DB",
+      "database_name": "make-money-local-e2e",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "migrations/d1",
+      "remote": false
+    }
+  ]
+}
