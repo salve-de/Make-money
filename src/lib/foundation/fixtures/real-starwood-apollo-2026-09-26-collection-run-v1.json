@@ -1,0 +1,42 @@
+{
+  "schema_version": "collection-run.v1",
+  "lane": "VERIFY_RECONCILE",
+  "run_id": "run_verify_20260926T072824JST_cfdf4cf4_retry",
+  "started_at": "2026-09-25T22:28:24Z",
+  "finished_at": "2026-09-25T22:28:24Z",
+  "contract_ref": "docs/COLLECTION_OS_V3.md",
+  "input_snapshot": {
+    "work_id": "wrk_cfdf4cf4778d2ffe1d5d4a60916dda0e",
+    "claim_blob_sha": "a98c56825226041bee8187477caa0775fdd57670",
+    "operational_ref": "automation-research"
+  },
+  "source_attempts": [],
+  "recorded_items": [
+    {
+      "subject_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+      "verification_state": "SUPPORTED",
+      "supported_claim_count": 7,
+      "unresolved_identity_fields": 2
+    }
+  ],
+  "coverage_delta": {
+    "supported_claims": 7,
+    "unresolved_identity_fields": 2
+  },
+  "unknowns": [
+    "exact_joint_venture_legal_name",
+    "exact_apollo_investing_legal_entities"
+  ],
+  "conflicts": [],
+  "audit": {
+    "claim_readback_verified": true
+  },
+  "checkpoint": {
+    "work_id": "wrk_cfdf4cf4778d2ffe1d5d4a60916dda0e",
+    "follow_up_work_id": "wrk_cbc8ee3733ba8dd055b3b62b7deef05d"
+  },
+  "final_status": "PARTIAL",
+  "consumed_work_ids": [
+    "wrk_cfdf4cf4778d2ffe1d5d4a60916dda0e"
+  ]
+}
