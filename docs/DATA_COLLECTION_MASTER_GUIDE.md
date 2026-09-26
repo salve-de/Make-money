@@ -1,3 +1,5 @@
+> **LEGACY PRODUCT-SHAPED GUIDE — NOT THE CURRENT FOUNDATION COLLECTION SSOT (2026-09-26):** This document preserves historical Make-Money collection intent, examples and past incidents, but its giant FinancialEntity JSON/output workflow, CLAIMED_TARGETS/incoming-file mechanics, old branch links and fixed product fields do **not** override the current Universal Foundation collection system. For all new scheduled collection, provenance, R2 handoff, later annotation/enrichment, rights and API/UI work, start with [COLLECTION_TO_UI_MASTER_HANDOFF.md](COLLECTION_TO_UI_MASTER_HANDOFF.md) and `salve-de/universal-foundation/docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`. Preserve broad research meaning; use Source/Evidence/Entity/Claim/Observation/Metric/MoneySignal/Event/Relationship plus versioned derived annotations rather than forcing all future knowledge into this historical product JSON.
+
 # 【最高正本】資本主義の裏帳簿：完全自律データ収集マスターガイド ＆ 歴代事故・フィードバック全集 (Data Collection Master Guide & Post-Mortem Ledger)
 
 > **最高運用契約（ゼロプロンプト宣言）**:
