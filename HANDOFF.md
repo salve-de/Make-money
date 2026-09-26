@@ -1,8 +1,8 @@
 > **2026-09-26 collection -> UI master entrypoint:** For scheduled Web ChatGPT research, provenance, later tagging/enrichment, rights, Publisher/Queue, canonical R2, API/UI or local E2E, read [docs/COLLECTION_TO_UI_MASTER_HANDOFF.md](docs/COLLECTION_TO_UI_MASTER_HANDOFF.md) first. Cross-project semantics are owned by `salve-de/universal-foundation/docs/COLLECTION_KNOWLEDGE_LIFECYCLE_MASTER_HANDOFF.md`. Do not use legacy product JSON guides to narrow or redefine Foundation collection.
 
-> **Commercial-rights publication work (2026-09-25 current):** read [docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md](docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md) first. Rights/source registries and the stronger Public Fact consumer are already on main; old PR #67 is superseded. The next unfinished step is the real production R2 audit (`pnpm foundation:rights:audit`) on the configured Mac, followed by public-projection quarantine/rebuild based on that evidence.
+> **Commercial-rights legacy-catalog track:** read [docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md](docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md) for the separate retrospective production-R2 audit. For the current scheduled-research delivery task, the priority is the c9e local Publisher/Queue -> local R2 -> API/UI proof documented in [docs/COLLECTION_TO_UI_MASTER_HANDOFF.md](docs/COLLECTION_TO_UI_MASTER_HANDOFF.md). Do not mix the two tracks.
 
-# Make-Money 引継ぎ入口（2026-09-24 最新正本）
+# Make-Money 引継ぎ入口（2026-09-26）
 
 > **2026-09-19 First Dollar 実行レイヤー追加**: MAKE MONEY は情報DBだけで終わらせず、企業事例から `FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN` を進め、実売上の最初の1円まで追う。企業詳細の `この稼ぎ方を実行` から `/execute/[id]` へ入り、未ログインは端末保存、ログイン時は D1 同期。仕様正本は [docs/FIRST_DOLLAR_EXECUTION.md](docs/FIRST_DOLLAR_EXECUTION.md)。今後の機能判断では Time to First Dollar を主要基準にする。
 
