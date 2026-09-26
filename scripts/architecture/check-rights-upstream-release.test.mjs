@@ -6,17 +6,58 @@ import {
   rightsUpstreamReleaseErrors,
 } from './check-rights-upstream-release.mjs';
 
+const upstreamPolicy = {
+  reviewed_at: '2026-09-25T00:00:00Z',
+  decisions: {
+    public_display: 'restricted',
+    redistribution: 'restricted',
+    public_excerpt_display: 'restricted',
+    public_media_display: 'blocked',
+    attribution: 'Cite the source.',
+  },
+};
+
+const upstreamSource = {
+  source_id: 'src.test',
+  provider_name: 'Test Provider',
+  provider_url: 'https://example.com/',
+  status: 'active',
+  source_types: ['official'],
+  rights_policy_ids: ['rights.test.v1'],
+};
+
 const snapshot = {
   source_repository: 'salve-de/universal-foundation',
   source_commit_sha: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
   records: [{
-    policy: { path: 'registry/rights/policy.test.json', blob_sha: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' },
-    source: { path: 'registry/sources/source.test.json', blob_sha: 'cccccccccccccccccccccccccccccccccccccccc' },
+    policy: {
+      path: 'registry/rights/policy.test.json',
+      blob_sha: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
+      reviewed_at: upstreamPolicy.reviewed_at,
+      public_display: upstreamPolicy.decisions.public_display,
+      redistribution: upstreamPolicy.decisions.redistribution,
+      public_excerpt_display: upstreamPolicy.decisions.public_excerpt_display,
+      public_media_display: upstreamPolicy.decisions.public_media_display,
+      attribution: upstreamPolicy.decisions.attribution,
+    },
+    source: {
+      path: 'registry/sources/source.test.json',
+      blob_sha: 'cccccccccccccccccccccccccccccccccccccccc',
+      ...upstreamSource,
+    },
   }],
 };
 
 function response(body, ok = true, status = 200) {
   return { ok, status, async json() { return body; } };
+}
+
+function githubFile(sha, value) {
+  return {
+    sha,
+    encoding: 'base64',
+    content: Buffer.from(JSON.stringify(value), 'utf8').toString('base64'),
+  };
 }
 
 const credential = { token: 'test-secret-token', source: 'test' };
@@ -119,8 +160,12 @@ test('checks exact upstream registry blob identities after commit ancestry passe
     fetchImpl: async (url, options) => {
       calls.push({ url: String(url), authorization: options?.headers?.Authorization });
       if (String(url).includes('/compare/')) return response({ status: 'ahead' });
-      if (String(url).includes('policy.test.json')) return response({ sha: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' });
-      if (String(url).includes('source.test.json')) return response({ sha: 'cccccccccccccccccccccccccccccccccccccccc' });
+      if (String(url).includes('policy.test.json')) {
+        return response(githubFile('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', upstreamPolicy));
+      }
+      if (String(url).includes('source.test.json')) {
+        return response(githubFile('cccccccccccccccccccccccccccccccccccccccc', upstreamSource));
+      }
       return response({}, false, 404);
     },
   });
@@ -139,4 +184,23 @@ test('fails closed on registry blob mismatch', async () => {
     },
   });
   assert.ok(errors.some((error) => /blob mismatch/.test(error)));
+});
+
+test('fails closed when public rights metadata drifts from the pinned policy blob', async () => {
+  const drifted = JSON.parse(JSON.stringify(snapshot));
+  drifted.records[0].policy.attribution = 'Invented attribution text';
+
+  const errors = await rightsUpstreamReleaseErrors({
+    snapshot: drifted,
+    credential,
+    fetchImpl: async (url) => {
+      if (String(url).includes('/compare/')) return response({ status: 'identical' });
+      if (String(url).includes('policy.test.json')) {
+        return response(githubFile('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', upstreamPolicy));
+      }
+      return response(githubFile('cccccccccccccccccccccccccccccccccccccccc', upstreamSource));
+    },
+  });
+
+  assert.ok(errors.some((error) => /public-rights metadata mismatch/.test(error)));
 });
