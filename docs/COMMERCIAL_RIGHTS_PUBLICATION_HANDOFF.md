@@ -2,7 +2,7 @@
 
 # Commercial Rights / Public Publication Handoff
 
-Updated: 2026-09-25 JST
+Updated: 2026-09-26 JST
 
 ## Final objective
 
