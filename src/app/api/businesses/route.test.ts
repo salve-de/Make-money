@@ -126,6 +126,20 @@ describe('Foundation bounded search', () => {
     expect(mocks.readObject).toHaveBeenCalledTimes(2);
   });
 
+  it('caps oversized Foundation-only search reads at 12 rows', async () => {
+    mocks.listObjects.mockImplementation(async ({ limit }: { limit: number }) => {
+      expect(limit).toBe(12);
+      return { objects: [], truncated: false, cursor: null };
+    });
+
+    const response = await GET(new Request(
+      'http://localhost/api/businesses?foundationOnly=true&q=target&limit=25'
+    ));
+
+    expect(response.status).toBe(200);
+    expect(mocks.listObjects).toHaveBeenCalledTimes(1);
+  });
+
   it('accepts the raw cursor form used by the existing Foundation client', async () => {
     const firstResponse = await GET(new Request('http://localhost/api/businesses?foundationOnly=true&q=target'));
     const firstBody = await firstResponse.json();
