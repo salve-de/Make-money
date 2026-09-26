@@ -183,6 +183,7 @@ export async function POST(request: NextRequest) {
               status: viewProjection.next_index < viewProjection.total_targets
                 ? 'PARTIAL'
                 : 'UNRESOLVED',
+              commercial_publication: publicProjection.assessment,
               ...viewProjection,
             },
           },
@@ -221,6 +222,7 @@ export async function POST(request: NextRequest) {
           : null,
         view_projection: {
           status: 'PASS',
+          commercial_publication: publicProjection.assessment,
           ...viewProjection,
         },
       });
@@ -238,6 +240,7 @@ export async function POST(request: NextRequest) {
           ...report,
           view_projection: {
             status: 'FAILED',
+            commercial_publication: publicProjection.assessment,
             error: projectionError instanceof Error
               ? projectionError.message
               : 'Make-Money typed view projection failed',
