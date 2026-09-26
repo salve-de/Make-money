@@ -1,3 +1,5 @@
+> **Lifecycle context:** Read [COLLECTION_TO_UI_MASTER_HANDOFF.md](COLLECTION_TO_UI_MASTER_HANDOFF.md) for the complete collection -> provenance -> canonical -> enrichment -> rights -> API/UI flow. This file remains the detailed rights/publication contract and must not be used to narrow collection scope.
+
 # Commercial Rights / Public Publication Handoff
 
 Updated: 2026-09-25 JST
@@ -138,6 +140,12 @@ Current release manifest:
 - publishedCount: 3,085
 
 This release predates the new granular rights gate. It must be audited separately rather than silently grandfathered.
+
+## Current c9e publication-path status — 2026-09-26
+
+The designated real c9e lineage is not yet a completed API/UI proof. Independent isolated testing of implementation checkpoint `cb9dbf81fe2dce0dcf52ce78e534bba845a164d3` found 19/20 selected tests passing; the remaining failure occurs because c9e API detail contains zero `public_fact.v1` observations before the rights UI assertion is reached. The rights gate must not be relaxed. Fix the Fact-loss boundary first, then rerun the full local Publisher/Queue -> local R2 -> API -> browser proof described in the master handoff.
+
+The separate 2026-09-26 `automation-research` direct-typed fixture has no matching required receipt and must remain HTTP 422 / no-write. Do not fabricate provenance to convert it into a success case.
 
 ## Work status
 
