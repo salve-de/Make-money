@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 
 const TARGET_RUN = 'run_handoff_c9e926361e9472f5085323dc727be7ff';
 const TARGET_BLOB = 'c808a3352de85880f31c3ff647e394127d0aca10';
+const TARGET_PATH = 'staging/r2-queue/candidates/v2/649614315bd75857b6421d3139eafd1f2d0d6fd4/starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization-2026-coverage-repair-r2-queue-mapper-v4.json';
 const OBSERVED_AT = '2026-09-25T04:42:00Z';
 const SOURCE_RUN = 'run_verify_canary_starwood_20260925044005';
 const PERSIST = '/tmp/make-money-c9e-local-e2e';
@@ -93,6 +94,7 @@ async function discoverNormalScheduledTime() {
 
   assert.equal(selectedIndex, targetIndex);
   assert.equal(files[selectedIndex].sha, TARGET_BLOB);
+  assert.equal(files[selectedIndex].path, TARGET_PATH, 'c9e candidate path/blob pairing changed');
 
   return {
     sourceCommitSha: branch.commit.sha,
@@ -103,6 +105,15 @@ async function discoverNormalScheduledTime() {
     scheduledTime,
     scheduledIso: new Date(scheduledTime).toISOString(),
   };
+}
+
+async function assertSelectionStable(expected) {
+  const current = await discoverNormalScheduledTime();
+  assert.equal(current.sourceCommitSha, expected.sourceCommitSha, 'automation-research moved during proof');
+  assert.equal(current.treeSha, expected.treeSha, 'candidate tree changed during proof');
+  assert.equal(current.candidateCount, expected.candidateCount, 'candidate count changed during proof');
+  assert.equal(current.targetIndex, expected.targetIndex, 'c9e candidate rotation index changed during proof');
+  assert.equal(current.targetPath, expected.targetPath, 'c9e candidate path changed during proof');
 }
 
 function localR2Get(outputPath, allowMissing = false) {
@@ -158,6 +169,9 @@ async function triggerScheduled(scheduledTime) {
     body = text ? JSON.parse(text) : null;
   } catch {
     body = text;
+  }
+  if (body && typeof body === 'object' && 'outcome' in body) {
+    assert.equal(body.outcome, 'ok', `scheduled handler outcome was not ok: ${text}`);
   }
   return { status: response.status, body, url: String(url) };
 }
@@ -277,10 +291,12 @@ async function main() {
   const firstTrigger = await triggerScheduled(selection.scheduledTime);
   const firstCanonical = await waitForCanonical('/tmp/c9e-canonical-first.json');
   const firstApi = await waitForPublicApi();
+  await assertSelectionStable(selection);
 
   const secondTrigger = await triggerScheduled(selection.scheduledTime);
   const secondCanonical = await waitForCanonical('/tmp/c9e-canonical-second.json');
   const secondApi = await waitForPublicApi();
+  await assertSelectionStable(selection);
 
   assert.equal(
     secondCanonical.hash,
