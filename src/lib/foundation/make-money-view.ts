@@ -1479,7 +1479,7 @@ export async function readMakeMoneyViewDetail(entityId: string): Promise<Foundat
   return document.detail;
 }
 
-function typedRecordSetFromCanonicalBundle(bundleInput: unknown): unknown | undefined {
+export function typedRecordSetFromCanonicalBundle(bundleInput: unknown): unknown | undefined {
   const bundle = objectValue(bundleInput);
   const observations = bundle && Array.isArray(bundle.observations)
     ? bundle.observations.map(objectValue).filter((value): value is Record<string, unknown> => Boolean(value))
