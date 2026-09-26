@@ -292,24 +292,27 @@ Use different loopback ports from the unrelated existing 3111 process.
 
 ## 12. GitHub read in local Publisher E2E
 
-Do not require a broad PAT simply to read the public Universal Foundation repository.
+The Universal Foundation repository is private, so local proof must authenticate
+GitHub reads without persisting or exposing a token.
 
-Target implementation for `LOCAL_E2E_MODE`:
+Current `LOCAL_E2E_MODE` design:
 
-- `githubJson` may perform an anonymous request only for explicit allowlisted public GitHub GETs required by the local fixture;
-- no `Authorization` header in this mode;
-- method must be GET;
-- repository/host/path must be narrowly allowlisted;
+- Publisher GitHub access remains GET-only and repo/ref/path allowlisted;
+- `FOUNDATION_GITHUB_TOKEN` is declared as a local Wrangler secret, never a plain `vars` value;
+- the Publisher launcher uses an existing process secret when explicitly supplied, otherwise reads the already-authorized GitHub CLI/keychain credential with `gh auth token`;
+- the credential exists only in process memory and the Wrangler child environment;
+- no token is written to repo/config/`.env`/`.dev.vars`, command-line arguments, GitHub, or logs;
+- Make-Money/Publisher verifier reads use `gh api`, so verifier code never handles the token value;
+- wrong repo/ref/path fails before provider fetch;
 - all GitHub mutations remain impossible;
 - all other non-loopback origins remain denied;
-- production R2/Queue/external ingest origins remain denied;
-- normal/non-local mode retains existing token requirements.
+- production R2/Queue/external ingest origins remain denied.
 
-Add tests proving:
-- allowed public GET succeeds without auth;
-- mutation/non-GET is rejected;
-- wrong repo/origin is rejected;
-- no token is sent;
+Tests must prove:
+- allowed private GET sends the ephemeral Authorization header;
+- missing local secret fails closed;
+- wrong repo/ref/path is rejected before fetch;
+- local config stores only the secret name, never its value;
 - safety failure occurs before any provider write.
 
 ## 13. Deterministically selecting c9e for local Publisher proof
