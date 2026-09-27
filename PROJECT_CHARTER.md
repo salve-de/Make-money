@@ -67,6 +67,13 @@ Make-Moneyの最終目的は、情報サイト、AI Builder、Marketplaceのど�
 - 「何を作りたいか」だけでなく、「月いくら収入を増やしたいか」というユーザーの経済目標から、必要販売数・必要顧客数・必要単価等へ逆算できる層を将来追加する。
 - これは3〜4問の適職診断へ退行するものではない。全市場を見渡せるTerminalを維持したまま、個人の目標と実行可能な取引候補を結ぶ補助レイヤーとする。
 
+**統合判断（2026-09-28）**:
+- MLMを独立プロダクト・独立タブ・別事業として新設しない。
+- Make-Money既存のDistribution Marketplaceを本体とし、その内部にDistributor referral graph、Buyer→Distributor転換、Personal Storefront、実売上連動network override、AI Distribution Assistantを吸収する。
+- ユーザーから見た主語は「MLMに参加する」ではなく、**商品を作る／売る／他人にも売ってもらう／自分の販売網を持つ**で統一する。
+- したがって長期プロダクト定義は、情報DB・Builder・Affiliateの寄せ集めではなく、**Opportunity → Build → Marketplace → Distribution → Network Distribution → Transaction → Revenue Feedback** を一つの経済ループとして閉じることに置く。
+- 今後Distributionを設計・実装する際は、単発affiliateだけを完成形と誤認せず、販売者・購入者・Creatorが循環し、供給と販売網の両方が内部増殖することを完成条件とする。
+
 **North Star**:
 - PV、登録者数、生成回数だけを成功指標にしない。
 - 最重要の実需指標は、権利・品質・返金等の条件を満たした**実取引量、取引継続、ユーザー側の実収益・成果**である。
