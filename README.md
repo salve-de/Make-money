@@ -68,9 +68,11 @@ Make-Moneyの長期形は、情報DBやAI Builder単体ではない。**商品�
 
 既存のMake-Money自身のパートナープログラムとは別に、将来は**商品単位の紹介/販売、単発・継続commission、Stripe Connect型分配、返金調整、商品 × 販売者 × チャネルの成果計測**を持つDistribution Marketplaceを構築する。
 
-また、「月いくら収入を増やしたいか」から必要販売数・必要顧客数へ逆算するGoal LayerをTerminal上に追加し、最終的に **Opportunity → Ownership → Distribution → Transaction → Revenue Feedback** を閉じる。
+さらにDistribution Marketplaceは、単なる1段階affiliateで止めない。**販売者が別の販売者を招待し、その下位販売者が第三者Buyerへ実販売した場合だけ小さなnetwork overrideを得られる自己増殖型Distribution Network**へ拡張する。人を登録させただけでは報酬を発生させず、直接販売報酬を常にnetwork報酬より優先する。Buyerは購入後にDistributorへ転換でき、各Distributorは自分のStorefrontを持ち、自作商品と第三者商品を同じ販売面で扱えるようにする。AIは投稿・比較ページ・LP・動画台本等の販売支援を行い、最終的に **Product × Distributor × Audience × Channel × Creative** の実績データを蓄積する。
 
-詳細正本は [PROJECT_CHARTER.md](./PROJECT_CHARTER.md) と [docs/OPPORTUNITY_BUILDER.md](./docs/OPPORTUNITY_BUILDER.md) を参照。
+また、「月いくら収入を増やしたいか」から必要販売数・必要顧客数へ逆算するGoal LayerをTerminal上に追加し、最終的に **Opportunity → Ownership → Distribution → Network Distribution → Transaction → Revenue Feedback** を閉じる。
+
+詳細正本は [PROJECT_CHARTER.md](./PROJECT_CHARTER.md)、[docs/OPPORTUNITY_BUILDER.md](./docs/OPPORTUNITY_BUILDER.md)、[docs/DISTRIBUTION_NETWORK_STRATEGY.md](./docs/DISTRIBUTION_NETWORK_STRATEGY.md) を参照。
 
 
 ### 【優等生AI（ChatGPT / Gemini）の完全無力化 ＆ 4大禁忌データの独占】
