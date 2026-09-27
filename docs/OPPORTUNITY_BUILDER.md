@@ -392,6 +392,126 @@ Revenue Feedbackは単に「何が売れたか」だけでは足りない。規�
 
 Make-Moneyの長期的な差別化は生成AIそのものではなく、**実際に何が作られ、誰がどう売り、どの取引が継続したかという実取引データ**に置く。
 
+## 7.2 Network Distribution — 販売者そのものを自己増殖させる
+
+Distribution Marketplaceに不足していたのは、商品を売るDistributorが**次のDistributorを生み、その下位販売者の実販売によって販売網自体が増殖する仕組み**である。
+
+### 基本ループ
+
+```
+Creator / Provider
+  ↓
+商品をMarketplaceへ掲載
+  ↓
+Distributor A が販売
+  ↓
+Buyerが購入
+  ├─ Buyerのまま利用
+  └─ Distributorへ転換
+          ↓
+      新しいBuyerを獲得
+```
+
+Distributor AがDistributor Bを紹介した場合も、Bの登録だけでは報酬を発生させない。
+
+```
+Distributor A
+  ↓ Bを紹介
+Distributor B
+  ↓ 第三者Buyerへ販売
+settled revenue
+  ├─ B: direct commission
+  ├─ A: small network override
+  ├─ Provider: seller revenue
+  └─ Make-Money: Platform fee
+```
+
+### 報酬原則
+
+- `Direct seller reward > Network override`
+- 初期は1-level overrideを本命とする
+- 2-level以上は法務・unit economics・fraudデータ確認後まで導入しない
+- recruitment自体への報酬は出さない
+- network overrideは元注文と同じorder lineageへ紐付ける
+- refund / chargeback / fraud確定時はdirect commissionと同様にVOID / REVERSEDできる
+
+### Personal Storefront
+
+各Distributorは自分の販売面を持ち、自分が作った商品と他者商品を同じStoreで扱える。
+
+```
+@user Store
+├─ 自作SaaS
+├─ 他者のAI SaaS
+├─ Template
+├─ Service
+└─ Other approved products
+```
+
+Storefrontは単なるlink一覧ではなく、比較、Collection、Bundle、対象顧客別の並び替え等へ拡張可能にする。
+
+### ロールは循環する
+
+```
+Buyer
+  ↓
+Distributor
+  ↓
+Builderで自分の商品を作る
+  ↓
+Creator / Provider
+  ↓
+他Distributorへ販売を開放
+```
+
+これによりMake-Moneyは供給側と販売側の両方を内部で増やす。
+
+### AI Distribution Assistant
+
+Distributorの「何を、どこで、どう売るか分からない」を減らすため、商品と実販売データを基に以下を生成する。
+
+- X投稿
+- 長文記事
+- 比較ページ
+- Landing Page
+- Short video / YouTube script
+- Email / Newsletter
+- FAQ
+- Store description
+- buyer persona別訴求
+
+最終的には **Product × Distributor × Audience × Channel × Creative** の成果を蓄積し、売れやすい組み合わせを推薦する。
+
+### 成長指標
+
+紹介人数ではなく、以下を主要指標とする。
+
+- third-party Buyer由来のSettled GMV
+- Distributor activation / first-sale conversion
+- Buyer → Distributor conversion
+- Revenue per active Distributor
+- Direct vs network-derived GMV
+- Refund / chargeback / fraud rate
+- Distributor retention
+- Product × Distributor × Channel conversion
+
+### 導入順序
+
+1. Direct Distribution
+2. Marketplace transaction / payout ledger
+3. Storefront
+4. Buyer → Distributor onboarding
+5. Referral graph記録
+6. Unit economics / fraud / refund実測
+7. 対象国の法務・税務・KYC / payout確認
+8. 条件を満たす商品だけ1-level network override
+9. AI Distribution Assistant
+10. Product × Distributor × Channel matching
+
+高額入会金、mandatory inventory、自己購入義務、報酬受領資格だけを買わせるpaid qualificationを前提にしない。法的区分は名称ではなく実態・契約・勧誘・報酬条件で決まるため、本番導入前に対象国ごとの専門家レビューを行う。
+
+詳細は [DISTRIBUTION_NETWORK_STRATEGY.md](./DISTRIBUTION_NETWORK_STRATEGY.md) を参照。
+
 
 ## 8. 現行MVPで確定した流れ
 
