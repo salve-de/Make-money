@@ -2,18 +2,16 @@
 
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
-import type { FoundationValuePage, FoundationValueSummary } from '@/lib/foundation/business-reader';
-import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/lib/foundation/schema';
+import { parseFoundationDetailResponse } from '@/lib/foundation/schema';
 import { adaptFoundationSummaryToFinancialEntity, adaptFoundationDetailToFinancialEntity, isFoundationDossierReady } from '@/lib/foundation/foundation-adapter';
-import { getNextNewArrivalsReleaseAt } from '@/lib/foundation/new-arrivals';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
 import { useCuratedCatalog } from './useCuratedCatalog';
+import { useFoundationPaging } from './useFoundationPaging';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
-const FOUNDATION_PAGE_REQUEST_LIMIT = 12;
 
 function parseApprovedIds(payload: unknown): string[] {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Invalid approval overlay');
@@ -43,28 +41,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
   const [catalogFilters, setCatalogFilters] = useState('');
   const catalog = useCuratedCatalog(initialEntities, searchQuery, catalogFilters);
   const coreEntities = catalog.entities;
-  const latestSearchQuery = useRef(searchQuery);
-  const foundationRequestId = useRef(0);
-  const [foundationSearchQuery, setFoundationSearchQuery] = useState(searchQuery);
-
-  useEffect(() => {
-    latestSearchQuery.current = searchQuery;
-    foundationRequestId.current += 1;
-    const timer = window.setTimeout(() => setFoundationSearchQuery(searchQuery), 250);
-    return () => window.clearTimeout(timer);
-  }, [searchQuery]);
-
-  const [dataSource, setDataSource] = useState('取得状態を確認中');
-  const [foundationRows, setFoundationRows] = useState<FoundationValueSummary[]>([]);
-  const [foundationTotal, setFoundationTotal] = useState<number | null>(null);
-  const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
-  const [foundationHasMore, setFoundationHasMore] = useState(false);
-  const [foundationLoading, setFoundationLoading] = useState(false);
-  const [foundationRetryCursor, setFoundationRetryCursor] = useState<string | null>(null);
-  const [newArrivalsRelease, setNewArrivalsRelease] = useState<FoundationValuePage['newArrivals']>(null);
-  const foundationLoadingRef = useRef(false);
-  const foundationRequestedCursors = useRef(new Set<string>());
-  const foundationLoadedQuery = useRef<string | null>(null);
+  const foundation = useFoundationPaging(searchQuery, catalog.hasMore);
+  const foundationRows = foundation.rows;
 
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
@@ -246,192 +224,6 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     return aggregateMacroIntelligence(entities);
   }, [entities]);
 
-  const mergeFoundationRows = useCallback((incoming: FoundationValueSummary[], replace = false) => {
-    setFoundationRows((current) => {
-      const next = replace ? [] : [...current];
-      const seen = new Set(next.map((item) => item.id));
-      for (const item of incoming) {
-        if (!seen.has(item.id)) {
-          next.push(item);
-          seen.add(item.id);
-        }
-      }
-      return next;
-    });
-  }, []);
-
-  const loadFoundationPage = useCallback(async (cursor?: string, signal?: AbortSignal): Promise<FoundationValuePage | null> => {
-    const queryChanged = foundationLoadedQuery.current !== foundationSearchQuery;
-    const effectiveCursor = queryChanged ? undefined : cursor;
-    if (effectiveCursor && foundationLoadingRef.current) return null;
-    const requestQuery = foundationSearchQuery;
-    const requestId = foundationRequestId.current + 1;
-    foundationRequestId.current = requestId;
-    const isCurrentRequest = () => foundationRequestId.current === requestId &&
-      foundationLoadedQuery.current === requestQuery &&
-      latestSearchQuery.current === requestQuery;
-    if (!effectiveCursor) {
-      foundationLoadedQuery.current = requestQuery;
-      foundationRequestedCursors.current.clear();
-      if (queryChanged) {
-        // A new search must not reuse the previous Foundation page cursor. The
-        // source remains immutable; only this read-through projection is reset.
-        setFoundationRows([]);
-        setFoundationTotal(null);
-        setFoundationNextCursor(null);
-        setFoundationHasMore(false);
-        setNewArrivalsRelease(null);
-      }
-    }
-    foundationLoadingRef.current = true;
-    setFoundationLoading(true);
-    try {
-      const params = new URLSearchParams({ limit: String(FOUNDATION_PAGE_REQUEST_LIMIT), foundationOnly: 'true' });
-      if (requestQuery.trim()) params.set('q', requestQuery.trim());
-      if (effectiveCursor) params.set('cursor', effectiveCursor);
-      let payload: unknown;
-      let lastError: unknown = null;
-      for (let attempt = 0; attempt < 2; attempt += 1) {
-        try {
-          const requestSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(60_000)]) : AbortSignal.timeout(60_000);
-          const res = await fetch(`/api/businesses?${params.toString()}`, { signal: requestSignal });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          payload = await res.json();
-          break;
-        } catch (cause) {
-          lastError = cause;
-          if (attempt === 1 || signal?.aborted) throw cause;
-          await new Promise<void>((resolve) => window.setTimeout(resolve, 350));
-        }
-      }
-      if (payload === undefined) throw lastError instanceof Error ? lastError : new Error('Invalid Foundation page');
-      const source = payload && typeof payload === 'object' && !Array.isArray(payload) && typeof (payload as { source?: unknown }).source === 'string'
-        ? (payload as { source: string }).source
-        : undefined;
-      const page = parseFoundationPageResponse(payload);
-      // A cursor request from the previous query may finish after the new
-      // query has started. Its rows and cursor must never overwrite the new
-      // query's read-through state.
-      if (!isCurrentRequest() || signal?.aborted) return null;
-      const reportedTotal = payload && typeof payload === 'object' && !Array.isArray(payload)
-        ? (payload as { total?: unknown }).total
-        : undefined;
-      setFoundationTotal(Number.isSafeInteger(reportedTotal) && (reportedTotal as number) >= 0
-        ? reportedTotal as number
-        : null);
-      setDataSource(source === 'foundation_lake'
-        ? '保存済み台帳 + Foundation R2'
-        : source === 'local_fallback'
-          ? '保存済み台帳（ローカル予備）'
-          : source === 'static_fallback'
-            ? '保存済み台帳（静的予備）'
-            : '保存済み台帳（外部取得なし）');
-      if (page) {
-        mergeFoundationRows(page.data, !effectiveCursor);
-        if (page.newArrivals || !effectiveCursor) setNewArrivalsRelease(page.newArrivals);
-        const nextCursor = page.nextCursor && page.nextCursor !== effectiveCursor ? page.nextCursor : null;
-        setFoundationNextCursor(nextCursor);
-        setFoundationHasMore(page.hasMore && Boolean(nextCursor));
-        setFoundationRetryCursor(null);
-        return page;
-      }
-      return null;
-    } finally {
-      if (isCurrentRequest()) {
-        foundationLoadingRef.current = false;
-        setFoundationLoading(false);
-      }
-    }
-  }, [foundationSearchQuery, mergeFoundationRows]);
-
-  const loadMoreFoundation = useCallback(() => {
-    const cursor = foundationNextCursor;
-    if (!cursor || foundationLoadingRef.current) return;
-    if (foundationRequestedCursors.current.has(cursor)) {
-      setFoundationNextCursor(null);
-      setFoundationHasMore(false);
-      return;
-    }
-    foundationRequestedCursors.current.add(cursor);
-    void loadFoundationPage(cursor).catch((error) => {
-      foundationRequestedCursors.current.delete(cursor);
-      setFoundationRetryCursor(cursor);
-      setFoundationHasMore(false);
-      setDataSource('保存済み台帳（追加取得に失敗 / 手動再試行可能）');
-      console.warn('[TerminalShell] Additional Foundation page failed:', error);
-    });
-  }, [foundationNextCursor, loadFoundationPage]);
-
-  const retryFoundationPage = useCallback(() => {
-    if (!foundationRetryCursor || foundationLoadingRef.current) return;
-    setFoundationNextCursor(foundationRetryCursor);
-    setFoundationHasMore(true);
-    setFoundationRetryCursor(null);
-  }, [foundationRetryCursor]);
-
-  useEffect(() => {
-    let cancelled = false;
-    let timer: number | null = null;
-    let activeController: AbortController | null = null;
-
-    const clearRefreshTimer = () => {
-      if (timer !== null) {
-        window.clearTimeout(timer);
-        timer = null;
-      }
-    };
-
-    const scheduleNextEditionRefresh = () => {
-      if (cancelled || document.visibilityState !== 'visible') return;
-      clearRefreshTimer();
-      const nextReleaseAt = getNextNewArrivalsReleaseAt(new Date());
-      // Give the scheduled writer a short propagation/readback margin after
-      // the public boundary. The writer itself still runs hourly.
-      const delay = Math.max(30_000, nextReleaseAt.getTime() - Date.now() + 30_000);
-      timer = window.setTimeout(() => {
-        timer = null;
-        void refresh();
-      }, delay);
-    };
-
-    const refresh = async () => {
-      if (cancelled || document.visibilityState !== 'visible') return;
-      activeController?.abort();
-      const controller = new AbortController();
-      activeController = controller;
-      try {
-        await loadFoundationPage(undefined, controller.signal);
-      } catch (error) {
-        if ((error as { name?: string })?.name !== 'AbortError') {
-          // Foundation is an optional read-through path. Keep the accepted
-          // curated catalog usable when the local R2/API bridge is temporarily
-          // unavailable, and state the actual boundary instead of presenting
-          // the whole ledger as failed.
-          setDataSource('保存済み台帳（curated継続 / Foundation追加経路は一時利用不可）');
-          console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
-        }
-      } finally {
-        if (activeController === controller) activeController = null;
-        scheduleNextEditionRefresh();
-      }
-    };
-
-    const handleVisibilityChange = () => {
-      clearRefreshTimer();
-      if (document.visibilityState === 'visible') void refresh();
-    };
-
-    void refresh();
-    scheduleNextEditionRefresh();
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => {
-      cancelled = true;
-      clearRefreshTimer();
-      activeController?.abort();
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, [loadFoundationPage]);
-
   // オンデマンド詳細読み込み関数
   const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return;
@@ -477,19 +269,29 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     catalogLoadedCount: catalog.loadedCount,
     catalogTotal: catalog.totalCount,
     foundationLoadedCount: foundationRows.length,
-    foundationTotal,
-    dataSource: catalog.error || dataSource,
+    foundationTotal: foundation.total,
+    dataSource: catalog.error || foundation.dataSource,
     macroData,
-    foundationHasMore: foundationHasMore || catalog.hasMore, foundationLoading, catalogLoading: catalog.loading,
-    foundationRetryAvailable: Boolean(foundationRetryCursor),
-    newArrivalsRelease,
+    foundationHasMore: foundation.gridHasMore,
+    foundationLoading: foundation.loading,
+    catalogLoading: catalog.loading,
+    foundationRetryAvailable: foundation.gridRetryAvailable,
+    foundationSearchIncomplete: foundation.searchIncomplete,
+    foundationSearchContinuationAvailable: foundation.searchContinuationAvailable,
+    foundationSearchContinuationFailed: foundation.searchContinuationFailed,
+    foundationSearchRetryMessage: foundation.searchRetryMessage,
+    newArrivalsRelease: foundation.newArrivalsRelease,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
     approvedIds,
     setApprovedIds,
     setCatalogFilters,
-    loadMoreFoundation: () => { loadMoreFoundation(); catalog.loadMore(); },
-    retryFoundationPage,
+    loadMoreFoundation: () => {
+      foundation.loadMore();
+      catalog.loadMore();
+    },
+    continueFoundationSearch: foundation.continueSearch,
+    retryFoundationPage: foundation.retryPage,
     fetchEntityDetailOnDemand,
   };
 }

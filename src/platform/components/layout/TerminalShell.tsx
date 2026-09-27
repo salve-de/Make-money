@@ -15,6 +15,7 @@ import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { NewArrivalsBanner } from '../foundation/NewArrivalsBanner';
+import { FoundationSearchContinuation } from '../foundation/FoundationSearchContinuation';
 import { CompanyInspectorPane } from '@/features/company-inspector';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
@@ -59,6 +60,9 @@ export const TerminalShell: React.FC<{
     foundationLoading,
     catalogLoading,
     foundationRetryAvailable,
+    foundationSearchContinuationAvailable,
+    foundationSearchContinuationFailed,
+    foundationSearchRetryMessage,
     catalogLoadedCount,
     catalogTotal,
     foundationLoadedCount,
@@ -69,6 +73,7 @@ export const TerminalShell: React.FC<{
     setApprovedIds,
     setCatalogFilters,
     loadMoreFoundation,
+    continueFoundationSearch,
     retryFoundationPage,
     fetchEntityDetailOnDemand,
   } = useFoundationCatalog(initialEntities, searchQuery);
@@ -262,6 +267,14 @@ export const TerminalShell: React.FC<{
               {' '}・Foundation読込済み {foundationLoadedCount.toLocaleString()}件{foundationTotal === null ? '' : ` / 検索対象 ${foundationTotal.toLocaleString()}件`}{foundationLoading || catalogLoading ? ' ・追加取得中' : foundationHasMore ? ' ・追加読み込みあり' : ''}
               {' '}（別経路の件数はcurated総数へ加算しません）
             </p>
+
+            <FoundationSearchContinuation
+              available={foundationSearchContinuationAvailable}
+              failed={foundationSearchContinuationFailed}
+              loading={foundationLoading}
+              retryMessage={foundationSearchRetryMessage}
+              onContinue={continueFoundationSearch}
+            />
 
             <InstitutionalDataGrid
               entities={filteredEntities}
