@@ -57,6 +57,22 @@ Preview / 修正 / ソースExport
 - 生成ソース・本番Hosting・DB・Domain・顧客データ・商品/事業は原則ユーザー所有へ寄せる。本番継続原価までMake-Moneyが無制限に負担しない。
 - 詳細な経緯・採用/不採用理由・費用/所有権・実装境界は [docs/OPPORTUNITY_BUILDER.md](./docs/OPPORTUNITY_BUILDER.md) を正本とする。
 
+### 【Transaction & Distribution Strategy】作る市場から、売る市場・取引市場へ
+
+Make-Moneyの長期形は、情報DBやAI Builder単体ではない。**商品提供者・販売者/紹介者・購入者を接続し、実取引が発生する経済インフラ**へ進化させる。
+
+- Creator / Provider: 商品・SaaS・サービス・コード・事業を提供
+- Distributor / Partner: 許可された第三者商品を紹介・販売し成果報酬を得る
+- Buyer: 課題を解決する商品を購入
+- Make-Money: 発見、Marketplace、attribution、決済・分配、Platform fee、成果データ還流を接続
+
+既存のMake-Money自身のパートナープログラムとは別に、将来は**商品単位の紹介/販売、単発・継続commission、Stripe Connect型分配、返金調整、商品 × 販売者 × チャネルの成果計測**を持つDistribution Marketplaceを構築する。
+
+また、「月いくら収入を増やしたいか」から必要販売数・必要顧客数へ逆算するGoal LayerをTerminal上に追加し、最終的に **Opportunity → Ownership → Distribution → Transaction → Revenue Feedback** を閉じる。
+
+詳細正本は [PROJECT_CHARTER.md](./PROJECT_CHARTER.md) と [docs/OPPORTUNITY_BUILDER.md](./docs/OPPORTUNITY_BUILDER.md) を参照。
+
+
 ### 【優等生AI（ChatGPT / Gemini）の完全無力化 ＆ 4大禁忌データの独占】
 世の優等生AIやビジネス書は「社会的価値・顧客への誠実さ」という道徳と綺麗事（セーフティの呪い）に縛られ、現実の資本主義で金が動く生々しい事実を1ミリも出力できない。本プラットフォームは、優等生が口封じされている【4大禁忌データ】を独占提供する。
 

@@ -1,5 +1,91 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-28 【戦略追記】Distribution Marketplace — 「作る市場」から「販売力と実取引を握る市場」へ
+
+### 1. 今回確定した根本目的
+- Make-Moneyの最終目的は、情報サイト、AI Builder、Marketplaceのいずれか単体ではない。
+- **人が収入を作るための取引インフラを所有し、実取引量とともにMake-Moneyの収益・データ資産も強くなる構造**を長期形とする。
+- 従来の「資本主義の裏帳簿」「マネーの関所」という北極星を、情報の関所から**実取引の関所**へ具体化する。
+
+### 2. 既存設計からの差分
+従来は主に次の閉ループだった。
+
+```
+Opportunity
+  ↓
+Build
+  ↓
+Publish
+  ↓
+Creator自身がMarketplaceでSell
+  ↓
+Revenue Feedback
+```
+
+今回、Creatorと販売者を分離できる構造を正式追加する。
+
+```
+Creator / Provider
+       ↓
+      商品
+       ↓
+   Make-Money
+   ↙    ↓    ↘
+Distributor / Partner
+       ↓
+      Buyer
+       ↓
+    Transaction
+       ↓
+Creator + Distributor + Make-Money
+```
+
+### 3. 4者モデル
+1. Creator / Provider: 商品・SaaS・サービス・コード・事業を提供。
+2. Distributor / Partner: 許可された商品を紹介・販売して成果報酬を得る。
+3. Buyer: 商品を購入。
+4. Make-Money: 発見、掲載、マッチング、attribution、決済・分配、取引データ還流を担う。
+
+### 4. 実装上の将来要件
+- 商品単位commission
+- 単発 / 継続報酬
+- attribution
+- refund / chargeback連動
+- seller onboarding / Stripe Connect型分配
+- Platform fee
+- 販売者実績・不正検知
+- 商品 × 販売者 × チャネルの成果データ
+- 規制領域用policy gate
+
+既存のMake-Money自身の30%紹介パートナー制度は、このDistribution Marketplaceとは別レイヤーとして維持する。
+
+### 5. Goal Layer
+- 「何を作りたいか」だけでなく、「月いくら増やしたいか」から必要単価・販売数・顧客数へ逆算する補助レイヤーを将来追加する。
+- ただし、全貌を見渡すTerminalを簡易診断へ置換しない。
+
+### 6. 長期的なMoat
+Make-Moneyが最終的に蓄積すべきデータは「何がBuildされたか」「何が売れたか」だけではない。
+
+- 誰が売ったか
+- どの商品を売ったか
+- どのチャネルで売れたか
+- どの価格・報酬条件だったか
+- conversion / refund / 継続
+- 商品 × 販売者 × チャネルの適合
+
+これにより、生成AIそのものではなく、**実際の商取引から得られるDistribution Intelligence**を独自資産にする。
+
+### 7. 今回変更しないもの
+- データ収集対象・schema・rights/quality gate
+- R2 / Foundation契約
+- 現行スケジュール
+- 実装コード
+- 現在のMarketplace/Stripe Connectを「実装済み」と扱うこと
+
+本追記は戦略正本の更新であり、未実装機能は未実装のまま明記する。
+
+---
+
 
 ## 2026-09-24 【設計確定・main実装済み】Opportunity Builder創設 — 「金脈を見る」から「その場で事業を作る」への進化（Phase 209）
 

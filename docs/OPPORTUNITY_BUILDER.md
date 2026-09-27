@@ -346,6 +346,53 @@ Builderの価値は「コードを生成できる」ことではない。
 
 ---
 
+## 7.1 Distribution Marketplace — 販売力そのものを市場化する
+
+現行のMarketplace構想は「ユーザーが自分で作った商品・SaaS・コード・事業を売る」までを定義している。将来はここを一段拡張し、**商品を作る人と、売る人を分離できるDistribution Marketplace**へ進化させる。
+
+### 4者の責務
+
+| 主体 | 将来の役割 |
+|---|---|
+| Creator / Provider | 商品・サービスを掲載し、価格、販売可否、紹介報酬条件を設定 |
+| Distributor / Partner | 許可された商品を選び、専用attributionで紹介・販売 |
+| Buyer | 商品・サービスを購入 |
+| Make-Money | 発見、掲載、マッチング、attribution、決済・分配、台帳、成果データ還流 |
+
+### 将来の必須仕様
+
+- 商品単位の紹介・販売可否
+- 単発commission / 継続commission
+- attribution window / source / channel
+- click → conversion → refund → payout の一貫台帳
+- Stripe Connect等によるseller onboarding / split / Platform fee
+- 返金・chargeback時のcommission調整
+- 販売者ごとの実績・継続率・不正検知
+- 商品 × 販売者 × チャネルごとの成果集計
+- 規制領域を一般商品から分離するpolicy gate
+
+### 既存パートナー制度との違い
+
+既存の `/partners` は**Make-Money自身を紹介する制度**である。Distribution Marketplaceは、**Make-Money上に存在する第三者の商品を別ユーザーが販売するための市場**であり、別レイヤーとして扱う。
+
+### Goal Layerとの接続
+
+将来は「何を作りたいか」だけではなく、「月いくら増やしたいか」から、価格・commission・必要成約数・必要顧客数を逆算して候補へ接続する。ただし全貌を見せるTerminalを廃止して簡易診断サイトへ退行させない。
+
+### 成果データをMoatにする
+
+Revenue Feedbackは単に「何が売れたか」だけでは足りない。規約・同意・法令の範囲で、少なくとも以下を集計できる設計へ進める。
+
+- どの商品が売れたか
+- 誰が販売したか
+- どのチャネルから成約したか
+- 価格・commission条件
+- conversion / refund / 継続
+- 商品 × 販売者 × チャネルの相性
+
+Make-Moneyの長期的な差別化は生成AIそのものではなく、**実際に何が作られ、誰がどう売り、どの取引が継続したかという実取引データ**に置く。
+
+
 ## 8. 現行MVPで確定した流れ
 
 ```
