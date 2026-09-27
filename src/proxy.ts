@@ -24,5 +24,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!api/build/preview/).*)',
+  matcher: '/((?!api/build/preview/|_next/).*)',
 };
