@@ -280,6 +280,21 @@ export interface DynamicMoats {
 }
 
 // 【Layer 3: 万能救済ストリーム型】（型に収まらない全観測データを1文字も捨てずにカード化）
+export interface UniversalObservationPublicFact {
+  label: string;
+  value: string | number | boolean;
+  suffix?: string;
+}
+
+export interface UniversalObservationPublicDisplay {
+  title: string;
+  subject: string;
+  note?: string;
+  facts: UniversalObservationPublicFact[];
+  sourceLabel: string;
+  sourceUrls: string[];
+}
+
 export interface UniversalObservation {
   id?: string;
   category?: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
@@ -290,6 +305,10 @@ export interface UniversalObservation {
   sourceUrl?: string;
   observedAt?: string;
   author?: string;
+  // Public semantic identity and reviewed display metadata only.
+  // Raw/internal observation payloads do not cross this boundary.
+  observationType?: string;
+  publicDisplay?: UniversalObservationPublicDisplay;
   sourceClass?: SourceClass; // 出典の独立性
   evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }
