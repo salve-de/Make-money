@@ -569,6 +569,14 @@ export function adaptFoundationDetailToFinancialEntity(
       originType: normalizeObservationOrigin(obs.originType),
       verificationStatus: normalizeObservationStatus(obs.verificationStatus),
       observedAt: obs.observedAt || undefined,
+      observationType: obs.kind || undefined,
+      ...(obs.publicDisplay ? {
+        publicDisplay: {
+          ...obs.publicDisplay,
+          facts: obs.publicDisplay.facts.map((fact) => ({ ...fact })),
+          sourceUrls: [...obs.publicDisplay.sourceUrls],
+        },
+      } : {}),
     });
   }
 
