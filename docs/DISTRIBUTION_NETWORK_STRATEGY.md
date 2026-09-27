@@ -618,6 +618,53 @@ Revenue feedback
 
 ---
 
+## 17.1 最終統合判断 — MLMは別物ではなくMake-Money本体へ吸収する
+
+2026-09-28時点の最終判断:
+
+**この構想を「MLM機能」「MLMサービス」として独立させない。**
+
+Make-Moneyにはすでに、Opportunity発見、Builder、Marketplace、第三者商品のDistribution、Transaction、Revenue Feedbackが存在する。今回の検討で不足が判明したのは、Distributionが1段階affiliateで止まっており、**販売者そのものが次の販売者を生む成長ループ**まで定義されていなかった点である。
+
+したがって追加関係は、
+
+```text
+Make-Money
+└─ Distribution Marketplace
+   ├─ Direct Distribution
+   ├─ Recurring Commission
+   ├─ Personal Storefront
+   ├─ Buyer → Distributor
+   ├─ Distributor → Distributor referral graph
+   ├─ Settled-sale-based Network Override
+   ├─ AI Distribution Assistant
+   └─ Revenue Feedback / Matching
+```
+
+とする。
+
+ユーザー体験としても「MLMへ参加する」を入口にしない。
+
+```text
+稼げる機会を見つける
+↓
+自分で作る、または既存商品を選ぶ
+↓
+売る
+↓
+他人にも売ってもらう
+↓
+購入者や販売者が次の販売者になる
+↓
+自分の販売網と商品供給が育つ
+```
+
+を一つのMake-Money体験として扱う。
+
+**完成条件は、商品数だけでも販売者数だけでもない。Creator・Distributor・Buyerが役割を循環し、第三者Buyer由来の実取引によって供給と販売網の両方が増えること。**
+
+---
+
 ## 18. 最終定義
 
 Make-Moneyが作るべきものは「MLMサイト」ではない。
