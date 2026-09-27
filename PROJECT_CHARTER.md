@@ -52,6 +52,17 @@ Make-Moneyの最終目的は、情報サイト、AI Builder、Marketplaceのど�
 - 将来の推奨は「何が売れそうか」という推測だけでなく、実取引データから **商品 × 販売者 × チャネル** の適合を改善する方向へ進化させる。
 - 金融・投資・保険・職業紹介その他の規制領域は一般商品と同一ロジックで扱わず、地域・資格・広告・勧誘・報酬規制を満たす場合だけ個別に接続する。
 
+**Network Distribution原則**:
+- Distribution Marketplaceは単なる1段階affiliateで終わらせず、販売者が次の販売者を招待できるreferral graphを持つ。
+- ただし**人を登録・勧誘したこと自体には報酬を出さない**。下位Distributorが第三者Buyerへ実販売し、その売上がsettledになった場合だけ、紹介元Distributorへ小さなnetwork overrideを発生させる。
+- 直接販売者の報酬をnetwork overrideより常に優先し、初期設計は**1-level override**を本命とする。深い多段階報酬は法務・unit economics・不正率の実データが揃うまで導入しない。
+- Buyerは購入後にDistributorへ転換できる導線を持ち、顧客獲得が同時に次の販売網獲得へつながる **Buyer → Distributor loop** を形成する。
+- DistributorはPersonal Storefrontを持ち、自作商品と許可された第三者商品を同じ販売面で扱える。Creator / Distributor / Buyerは固定ロールにせず、同一ユーザーが行き来できる。
+- AI Distribution AssistantはX投稿、記事、比較ページ、LP、動画台本、FAQ等の販売materialを生成する。ただし虚偽実績・なりすまし・無差別大量送信・規約違反を許容しない。
+- Network rewardのKPIは紹介人数ではなく、**第三者Buyer由来のsettled GMV、Buyer→Distributor転換、Distributor初回販売率、返金・chargeback・fraud率、商品×販売者×チャネルの成約・継続**で測る。
+- 高額入会金、mandatory inventory、自己購入義務、paid qualificationを経済原資にしない。基本はDistributor登録0円とし、実態として第三者Buyerへの販売で経済が成立する設計にする。
+- 詳細な報酬原則、Storefront、不正防止、データモデル、段階導入は [docs/DISTRIBUTION_NETWORK_STRATEGY.md](./docs/DISTRIBUTION_NETWORK_STRATEGY.md) を補助正本とする。
+
 **Goal Layer原則**:
 - 「何を作りたいか」だけでなく、「月いくら収入を増やしたいか」というユーザーの経済目標から、必要販売数・必要顧客数・必要単価等へ逆算できる層を将来追加する。
 - これは3〜4問の適職診断へ退行するものではない。全市場を見渡せるTerminalを維持したまま、個人の目標と実行可能な取引候補を結ぶ補助レイヤーとする。
