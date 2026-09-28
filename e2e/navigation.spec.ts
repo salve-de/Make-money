@@ -81,7 +81,9 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   await page.getByRole('button', { name: '初期の顧客獲得', exact: true }).click();
   await page.getByRole('link', { name: '参考事例: Nomad List', exact: true }).first().click();
   await expect(page).toHaveURL(/entity=ent_nomadlist/, { timeout: 15000 });
-  await expect(page.getByRole('heading', { level: 2, name: /Nomad List/ })).toBeVisible();
+  await expect(page.getByRole('status')).toContainText('Nomad List：詳細の公開確認が完了していない');
+  await expect(page.getByRole('heading', { name: 'Nomad List', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Nomad Listを参考に計画を作る' })).toHaveAttribute('href', '/execute/ent_nomadlist');
   await page.goto('/playbook');
   await page.getByRole('link', { name: 'Make Money', exact: true }).click();
   await page.waitForURL(/\/$/);

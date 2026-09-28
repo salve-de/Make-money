@@ -36,7 +36,7 @@ test('company dossier becomes a persistent First Dollar execution project', asyn
   await expect(page.getByLabel('販売価格（円）')).toHaveValue('3000');
 
   await page.goto('/execute');
-  await expect(page.getByRole('heading', { level: 1, name: '実行中', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: '実行計画', exact: true })).toBeVisible();
   await expect(page.getByRole('link').filter({ hasText: 'E2E First Dollar Offer' })).toHaveCount(1);
 
   expect(errors).toEqual([]);
