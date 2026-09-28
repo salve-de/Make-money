@@ -111,11 +111,11 @@ describe('D1 API persistence and input boundaries', () => {
   });
 });
 describe('strategy owner isolation and honest persistence', () => {
-  it('keeps fallback advice within the legal and evidence boundary', async () => {
+  it('requests a case instead of inventing fallback advice without context', async () => {
     const response = await strategy(request({ action: 'CHAT', messages: [{ role: 'user', content: '集客の手順を教えて' }] }, false, false));
     const body = await response.json();
     expect(response.status).toBe(200);
-    expect(body.message.content).toContain('法令・各サービス規約');
+    expect(body.message.content).toContain('相談する事例を選択してください');
     expect(body.message.content).not.toMatch(/自演|なりすまし|DM爆撃|不正スクレイピング|直取引.{0,4}(封鎖|妨害|禁止)/iu);
   });
 

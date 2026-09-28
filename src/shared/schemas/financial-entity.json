@@ -1082,6 +1082,13 @@
         "id": {
           "type": "string"
         },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Source evidence IDs retained for independent-source counts in projections."
+        },
         "category": {
           "type": "string",
           "enum": [

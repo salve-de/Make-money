@@ -207,7 +207,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                     : 'bg-white/[0.02] text-zinc-400 border-white/[0.04] hover:text-zinc-200'
                 }`}
               >
-                ★保存 ({bookmarkedIds.length})
+                保存 ({bookmarkedIds.length})
               </button>
             </div>
           </div>

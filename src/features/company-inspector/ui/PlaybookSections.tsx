@@ -17,7 +17,9 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
           {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
           {/* ------------------------------------------------------- */}
           <div className="space-y-8">
-            {/* 高収益事業の真実：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
+            <p className="text-[11px] leading-relaxed text-zinc-400">
+              以下は台帳の登録内容です。出典カードがある場合は、数値・時期・企業との関連を個別に確認してください。
+            </p>
             {entity.exposureAudit && (
               <div className={`rounded-lg overflow-hidden border shadow-xl ${
                 isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
@@ -43,7 +45,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                         isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
-                        {isHazardMode ? '失敗に至った客観的な記録' : '初期に客を集めた手口とリアルな原価'}
+                        {isHazardMode ? '事業継続に関する登録内容' : '初期の集客経路と費用に関する登録内容'}
                       </h3>
                     </div>
                   </div>
@@ -52,7 +54,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       ? 'text-red-300 bg-red-950/60 border-red-500/30 font-bold'
                       : 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
                   }`}>
-                    {isHazardMode ? '失敗要因' : '確認済'}
+                    登録情報
                   </span>
                 </div>
 
@@ -64,7 +66,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>01.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '初期の過熱と数字の錯覚' : '創業初期の集客手口'}
+                        {isHazardMode ? '初期の過熱と数字の変化' : '創業初期の集客経路'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -77,7 +79,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>02.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? 'プラットフォーム規約への過度な依存' : 'プラットフォームの隙間・規約の穴'}
+                        {isHazardMode ? 'プラットフォーム規約への依存' : 'プラットフォーム利用条件と市場背景'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -103,7 +105,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>04.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '想定外にかさんだコスト・固定費' : '実際に使っていたツールと原価の内訳'}
+                        {isHazardMode ? '登録されたコスト・固定費の内訳' : '登録されたツール・費用の内訳'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -268,7 +270,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <h3 className={`text-xs font-mono font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
-                      {isHazardMode ? '事業が立ち行かなくなった4つの根本原因' : '高収益を維持し続ける4つの仕組み'}
+                      {isHazardMode ? '事業継続に影響した4つの登録項目' : '収益構造として登録された4項目'}
                     </h3>
                   </div>
                 </div>
@@ -296,7 +298,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
                       <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>01.</span>
-                      <span>{isHazardMode ? '大手の直接参入と市場の奪取' : '大手が手を出せない理由（大手のジレンマ）'}</span>
+                      <span>{isHazardMode ? '大企業の参入と市場環境' : '大企業との競争条件に関する登録情報'}</span>
                     </div>
                     <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
                       <div><strong className="text-zinc-200 font-mono">大手のジレンマ:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
@@ -356,12 +358,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="flex flex-col items-center justify-center bg-black/80 rounded gap-2.5 p-4 text-center">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                       <KeyRound className={`w-4 h-4 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-                      <span>{isHazardMode ? '事業が失敗・撤退に至った「4つの根本原因」' : '大手が参入できず、客が離れない「4つの高収益構造」'}</span>
+                      <span>{isHazardMode ? '事業継続に影響した登録情報' : '収益構造に関する登録情報'}</span>
                     </div>
                     <p className="text-xs text-zinc-300 max-w-sm font-sans leading-normal">
                       {isHazardMode
-                        ? 'なぜ競合に敗れたのか、どこで資金が尽きたのか、事業が崩壊した内訳をすべて公開'
-                        : '高い利益率を維持できる理由、顧客が乗り換えない理由、手元に現金が残る仕組みをすべて公開'}
+                        ? '事業の経過、費用、資金繰りに関する登録内容を確認できます。'
+                        : '価格、顧客継続、資金繰りに関する登録内容を確認できます。'}
                     </p>
                     <button
                       onClick={onOpenPro}

@@ -52,7 +52,7 @@ export const MobileFeedView: React.FC<MobileFeedViewProps> = ({
             onClick={() => onSelectCompany(company.id)}
             className="p-3.5 hover:bg-white/[0.03] active:bg-white/[0.06] transition-colors cursor-pointer space-y-2"
           >
-            {/* 上段：ランク・ロゴ・社名・月商 */}
+            {/* 上段：ランク・ロゴ・社名・月額換算売上 */}
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 min-w-0">
                 <span className="font-mono text-[10px] text-zinc-400 font-bold w-4 text-center shrink-0">
@@ -75,9 +75,9 @@ export const MobileFeedView: React.FC<MobileFeedViewProps> = ({
                 </div>
               </div>
 
-              {/* 月商実額 */}
+              {/* 月額換算売上 */}
               <div className="text-right shrink-0 font-mono">
-                <span className="text-[10px] text-zinc-400 block -mb-0.5 font-sans">月商</span>
+                <span className="text-[10px] text-zinc-400 block -mb-0.5 font-sans">売上（月額換算）</span>
                 <span className="text-xs font-black text-zinc-100 tabular-nums">
                   {rev > 0 ? formatShortAmount(Math.round(rev / 12)) : '非公開'}
                 </span>

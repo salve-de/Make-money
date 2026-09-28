@@ -63,7 +63,7 @@ describe('estimated financial presentation', () => {
       <EstimatedCashSummary entity={entity} formatMoney={(value) => `MONEY-${value}`} />,
     );
 
-    expect(html).toContain('推計月商');
+    expect(html).toContain('推計売上（月額換算）');
     expect(html).toContain('推計売上原価');
     expect(html).toContain('推計販管費');
     expect(html).toContain('推計営業利益');

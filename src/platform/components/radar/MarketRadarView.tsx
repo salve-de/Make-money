@@ -9,13 +9,10 @@ import {
   RadarCategory,
 } from '@/platform/data/marketRadarData';
 import {
-  Flame,
-  Skull,
-  TrendingUp,
-  Activity,
   ArrowRight,
-  Sparkles
 } from 'lucide-react';
+import { radarTrendGuide, radarTrendTitle } from './radarLabels';
+import { RADAR_LANDMINE_GUIDES } from './radarLandmineGuides';
 
 interface MarketRadarViewProps {
   onSelectEntity?: (entityId: string) => void;
@@ -24,7 +21,7 @@ interface MarketRadarViewProps {
 type ViewMode = 'OPPORTUNITIES' | 'LANDMINES' | 'DUAL';
 
 export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
-  const [viewMode, setViewMode] = useState<ViewMode>('DUAL');
+  const [viewMode, setViewMode] = useState<ViewMode>('OPPORTUNITIES');
   const [selectedCategory, setSelectedCategory] = useState<RadarCategory>('ALL');
 
   // フィルタリングされたチャンス一覧
@@ -34,77 +31,55 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
   }, [selectedCategory]);
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#060709] text-zinc-100 overflow-y-auto font-sans select-none">
-      {/* ─── 1. 最上部ヘッダー ─── */}
-      <header className="border-b border-white/[0.06] bg-[#090A0F] px-4 sm:px-6 py-4 shrink-0">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div>
-            <div className="flex items-center gap-2 text-[10px] font-mono font-bold tracking-widest text-emerald-400 uppercase">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>MARKET ANOMALY RADAR // OPPORTUNITY & GRAVEYARD MAP</span>
-            </div>
-            <h1 className="text-lg sm:text-xl font-bold text-white tracking-tight mt-0.5">
-              市場傾向 ＆ マネー攻略・地雷検死レーダー
-            </h1>
-            <p className="text-xs text-zinc-400 mt-0.5">
-              個別企業の辞書ではなく、「いま金が集まっている急所（攻め）」と「9割が即死する禁止領域（守り）」を鳥瞰して攻略する
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href="/"
-              className="px-3 py-1.5 rounded bg-white/[0.05] hover:bg-white/[0.1] text-xs font-mono text-zinc-300 border border-white/[0.1] transition-colors flex items-center gap-1.5"
-            >
-              <span>← 全銘柄台帳 (Ledger)</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+    <div className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto bg-background font-sans text-foreground">
+      <h1 className="sr-only">市場の動きと事業リスク</h1>
 
       {/* ─── 2. 攻守モード切替バー ─── */}
-      <div className="border-b border-white/[0.06] bg-[#0A0D14] px-4 sm:px-6 py-2.5 sticky top-0 z-20 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div className="sticky top-0 z-20 border-b border-white/[0.14] bg-surface px-3 py-1.5 sm:px-5">
+        <div className="mx-auto flex w-full max-w-screen-2xl flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
           {/* 大枠モード切替 */}
-          <div className="flex items-center gap-1 bg-black/40 p-1 rounded-lg border border-white/[0.08]">
+          <div role="tablist" aria-label="表示する市場情報" className="flex items-center gap-4">
             <button
+              type="button"
               onClick={() => setViewMode('DUAL')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+              aria-pressed={viewMode === 'DUAL'}
+              className={`flex min-h-10 shrink-0 items-center gap-2 border-b-2 px-1 text-sm font-medium transition-colors ${
                 viewMode === 'DUAL'
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  ? 'border-sky-300 text-sky-200'
+                  : 'border-transparent text-zinc-300 hover:text-white'
               }`}
             >
-              <Activity className="w-3.5 h-3.5 text-cyan-400" />
-              <span>攻守対照ビュー</span>
+              <span>比較</span>
             </button>
 
             <button
+              type="button"
               onClick={() => setViewMode('OPPORTUNITIES')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+              aria-pressed={viewMode === 'OPPORTUNITIES'}
+              className={`flex min-h-10 shrink-0 items-center gap-2 border-b-2 px-1 text-sm font-medium transition-colors ${
                 viewMode === 'OPPORTUNITIES'
-                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  ? 'border-sky-300 text-sky-200'
+                  : 'border-transparent text-zinc-300 hover:text-white'
               }`}
             >
-              <Flame className="w-3.5 h-3.5 text-emerald-400" />
-              <span>儲かりチャンス・傾向</span>
-              <span className="px-1.5 py-0.2 rounded text-[10px] font-mono bg-emerald-500/30 text-emerald-200">
+              <span>事業テーマ</span>
+              <span className="text-xs tabular-nums text-zinc-400">
                 {MARKET_RADAR_TRENDS.length}
               </span>
             </button>
 
             <button
+              type="button"
               onClick={() => setViewMode('LANDMINES')}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+              aria-pressed={viewMode === 'LANDMINES'}
+              className={`flex min-h-10 shrink-0 items-center gap-2 border-b-2 px-1 text-sm font-medium transition-colors ${
                 viewMode === 'LANDMINES'
-                  ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  ? 'border-sky-300 text-sky-200'
+                  : 'border-transparent text-zinc-300 hover:text-white'
               }`}
             >
-              <Skull className="w-3.5 h-3.5 text-rose-400" />
-              <span>地雷・参入禁止領域</span>
-              <span className="px-1.5 py-0.2 rounded text-[10px] font-mono bg-rose-500/30 text-rose-200">
+              <span>失敗要因</span>
+              <span className="text-xs tabular-nums text-zinc-400">
                 {MARKET_RADAR_LANDMINES.length}
               </span>
             </button>
@@ -112,86 +87,60 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
 
           {/* チャンス表示時のカテゴリフィルター */}
           {viewMode !== 'LANDMINES' && (
-            <div className="flex items-center gap-1.5 overflow-x-auto py-0.5 max-w-full">
-              {RADAR_CATEGORIES.map((cat) => (
-                <button
-                  key={cat.key}
-                  onClick={() => setSelectedCategory(cat.key)}
-                  className={`px-2.5 py-1 rounded text-[11px] font-mono whitespace-nowrap transition-colors flex items-center gap-1 ${
-                    selectedCategory === cat.key
-                      ? 'bg-white/[0.12] text-white border border-white/[0.2] font-semibold'
-                      : 'bg-white/[0.03] text-zinc-400 hover:text-zinc-200 border border-white/[0.05]'
-                  }`}
-                >
-                  <span>{cat.icon}</span>
-                  <span>{cat.label}</span>
-                </button>
-              ))}
-            </div>
+            <label className="flex min-w-0 items-center gap-2 text-xs text-zinc-400 sm:w-60">
+              <span className="shrink-0">分野</span>
+              <select
+                aria-label="事業テーマの分野"
+                value={selectedCategory}
+                onChange={(event) => setSelectedCategory(event.target.value as RadarCategory)}
+                className="h-9 min-w-0 flex-1 rounded border border-white/[0.16] bg-[#18232d] px-2 text-sm text-zinc-100"
+              >
+                {RADAR_CATEGORIES.map((cat) => <option key={cat.key} value={cat.key}>{cat.label}</option>)}
+              </select>
+            </label>
           )}
         </div>
       </div>
 
       {/* ─── 3. メインコンテンツ領域 ─── */}
-      <div className="max-w-7xl mx-auto w-full p-4 sm:p-6 space-y-8 flex-1">
+      <div className="mx-auto w-full max-w-screen-2xl flex-1 space-y-4 px-3 py-3 sm:px-5">
 
         {/* ═══════════════════════════════════════════════════════════════════
             【セクションA】儲かりチャンス・傾向カタログ（一覧グリッド）
            ═══════════════════════════════════════════════════════════════════ */}
         {(viewMode === 'OPPORTUNITIES' || viewMode === 'DUAL') && (
-          <section className="space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-emerald-400 tracking-wider">
-                <TrendingUp className="w-4 h-4" />
-                <span>OPPORTUNITY CATALOG // 資本主義で今お金が集まっている8大急上昇トレンド</span>
-              </div>
-              <span className="text-[11px] font-mono text-zinc-500">
-                表示中: {filteredTrends.length}件 / 全{MARKET_RADAR_TRENDS.length}件（クリックで攻略本へ遷移）
+          <section className="space-y-3" aria-labelledby="radar-opportunities-heading">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h2 id="radar-opportunities-heading" className="text-sm font-semibold tracking-tight text-white">
+                事業テーマ
+              </h2>
+              <span className="text-sm text-zinc-400 tabular-nums">
+                {filteredTrends.length}件
               </span>
             </div>
 
-            {/* チャンスカードの複数グリッド：各カードが専用ページへのLink */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="grid gap-2 md:grid-cols-2">
               {filteredTrends.map((trend) => {
                 return (
                   <Link
                     key={trend.id}
                     href={`/radar/${trend.id}`}
-                    className="text-left p-4 rounded-lg border border-white/[0.08] bg-[#090B10] hover:border-emerald-500/60 hover:bg-[#0D1418] hover:shadow-lg hover:shadow-emerald-500/10 transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between group"
+                    className="group relative grid gap-1 rounded-md border border-white/[0.16] bg-[#101721] px-3 py-2.5 sm:px-4 sm:py-3 transition-colors hover:border-sky-300/40 hover:bg-[#17232e]"
                   >
-                    <div className="space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-white/[0.06] text-zinc-300 border border-white/[0.1]">
-                          {trend.badge}
-                        </span>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.2 rounded border border-emerald-500/20">
-                            {trend.growthRate}
-                          </span>
-                          <span className="text-[10px] font-mono text-cyan-400 font-semibold">
-                            🔥{trend.heatScore}
-                          </span>
-                        </div>
-                      </div>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pr-6">
+                      <span className="text-xs font-medium text-accent-strong">{radarTrendGuide(trend.id)?.category ?? trend.categoryLabel}</span>
+                    </div>
 
-                      <h3 className="text-xs font-bold text-white leading-snug group-hover:text-emerald-300 transition-colors">
-                        {trend.title}
+                    <div className="min-w-0">
+                      <h3 className="text-base font-semibold leading-snug text-white transition-colors group-hover:text-sky-200">
+                        {radarTrendTitle(trend.id, trend.categoryLabel)}
                       </h3>
-
-                      <p className="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed">
-                        {trend.subtitle}
+                      <p className="mt-1 text-sm text-zinc-400 line-clamp-2 leading-5">
+                        {radarTrendGuide(trend.id)?.summary ?? trend.macroContext.heading}
                       </p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[10px] font-mono">
-                      <span className="text-emerald-400 font-bold">
-                        {trend.estimatedMonthlyProfit}
-                      </span>
-                      <span className="text-emerald-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-1 font-semibold">
-                        <span>攻略本を開く</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
+                    <ArrowRight aria-hidden="true" className="absolute right-4 top-3.5 h-4 w-4 text-zinc-500 transition-transform group-hover:translate-x-0.5 group-hover:text-sky-200" />
                   </Link>
                 );
               })}
@@ -203,54 +152,36 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
             【セクションB】地雷・参入禁止領域カタログ（一覧グリッド）
            ═══════════════════════════════════════════════════════════════════ */}
         {(viewMode === 'LANDMINES' || viewMode === 'DUAL') && (
-          <section className="space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-rose-400 tracking-wider">
-                <Skull className="w-4 h-4" />
-                <span>FATAL GRAVEYARDS // 9割が即死する5大参入禁止領域（検死カルテ）</span>
-              </div>
-              <span className="text-[11px] font-mono text-zinc-500">
-                全{MARKET_RADAR_LANDMINES.length}領域（死亡率85%〜95% / クリックで検死書へ遷移）
+          <section className="space-y-3" aria-labelledby="radar-landmines-heading">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h2 id="radar-landmines-heading" className="text-sm font-semibold tracking-tight text-white">失敗要因</h2>
+              <span className="text-sm text-zinc-400 tabular-nums">
+                {MARKET_RADAR_LANDMINES.length}件
               </span>
             </div>
 
-            {/* 地雷カードの複数グリッド：各カードが専用ページへのLink */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
+            <div className="grid gap-2 md:grid-cols-2">
               {MARKET_RADAR_LANDMINES.map((mine) => {
                 return (
                   <Link
                     key={mine.id}
                     href={`/radar/${mine.id}`}
-                    className="text-left p-4 rounded-lg border border-rose-950/50 bg-[#0E080A] hover:border-rose-500/60 hover:bg-[#160A0D] hover:shadow-lg hover:shadow-rose-500/10 transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between group"
+                    className="group relative grid gap-1 rounded-md border border-white/[0.16] bg-[#101721] px-3 py-2.5 sm:px-4 sm:py-3 transition-colors hover:border-sky-300/40 hover:bg-[#17232e]"
                   >
-                    <div className="space-y-2.5">
-                      <div className="flex items-center justify-between">
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                          {mine.badge}
-                        </span>
-                        <span className="text-[10px] font-mono font-bold text-rose-400 bg-rose-500/10 px-1.5 py-0.2 rounded border border-rose-500/20">
-                          {mine.fatalityRate}
-                        </span>
-                      </div>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 pr-6">
+                      <span className="text-xs font-medium text-rose-200">{RADAR_LANDMINE_GUIDES[mine.id]?.category ?? mine.fatalCategory}</span>
+                    </div>
 
-                      <h3 className="text-xs font-bold text-rose-100 leading-snug group-hover:text-rose-300 transition-colors">
-                        {mine.title}
+                    <div className="min-w-0">
+                      <h3 className="text-base font-semibold leading-snug text-white transition-colors group-hover:text-sky-200">
+                        {RADAR_LANDMINE_GUIDES[mine.id]?.title ?? mine.title}
                       </h3>
-
-                      <p className="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed">
-                        {mine.subtitle}
+                      <p className="mt-1 text-sm text-zinc-400 line-clamp-2 leading-5">
+                        {RADAR_LANDMINE_GUIDES[mine.id]?.summary ?? mine.deadlyReason.heading}
                       </p>
                     </div>
 
-                    <div className="mt-4 pt-3 border-t border-rose-900/30 flex items-center justify-between text-[10px] font-mono">
-                      <span className="text-rose-400 font-bold">
-                        危険度 {mine.burnRiskScore}/100
-                      </span>
-                      <span className="text-rose-400 group-hover:translate-x-0.5 transition-transform flex items-center gap-1 font-semibold">
-                        <span>死因解剖</span>
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
+                    <ArrowRight aria-hidden="true" className="absolute right-4 top-3.5 h-4 w-4 text-zinc-500 transition-transform group-hover:translate-x-0.5 group-hover:text-sky-200" />
                   </Link>
                 );
               })}
@@ -258,14 +189,9 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
           </section>
         )}
 
-        {/* ─── 案内フッターバナー ─── */}
-        <div className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-xs font-mono text-zinc-400">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span>カードをクリックすると、対象領域の「3段ピラミッド攻略本」または「検死解剖書」の専用個別URLへ遷移します</span>
-          </div>
-          <Link href="/" className="text-zinc-300 hover:text-white underline">
-            全銘柄台帳へ戻る →
+        <div className="flex justify-end border-t border-white/[0.12] pt-3 text-sm">
+          <Link href="/" className="shrink-0 font-medium text-sky-200 hover:underline">
+            事例一覧へ
           </Link>
         </div>
 

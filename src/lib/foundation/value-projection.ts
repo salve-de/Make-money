@@ -14,6 +14,7 @@ import {
   cleanMetricLabel,
   formatHumanMoney,
   readableObservationText,
+  formatObservedMetricValue,
 } from './text-cleaner';
 
 /**
@@ -238,7 +239,7 @@ function chooseText(records: TextRecord[], terms: string[], excludeFinancial = f
 
 function valueText(value: number | string | null, currency: string | null, unit: string | null): string | null {
   if (value === null || value === '') return null;
-  return formatHumanMoney(value, currency, unit);
+  return formatObservedMetricValue('observation', value, currency, unit);
 }
 
 function periodText(item: { periodStart?: string | null; periodEnd?: string | null; pointInTime?: string | null }): string | null {
@@ -252,7 +253,7 @@ function periodText(item: { periodStart?: string | null; periodEnd?: string | nu
 
 function metricText(item: FoundationMetricSignal): TextRecord & { isMoney: boolean } {
   const label = cleanMetricLabel(item.metricType);
-  const amount = formatHumanMoney(item.value, item.currency, item.unit);
+  const amount = formatObservedMetricValue(item.metricType, item.value, item.currency, item.unit);
   const statusStr = item.verificationStatus === 'SUPPORTED' ? '確認済' : item.verificationStatus === 'UNVERIFIED' ? '未確認' : item.verificationStatus || '';
   return {
     text: `${label}: ${amount}${periodText(item) ? ` (${periodText(item)})` : ''}${statusStr ? ` ・ ${statusStr}` : ''}`,

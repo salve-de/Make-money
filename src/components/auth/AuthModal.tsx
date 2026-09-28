@@ -1,8 +1,10 @@
 "use client";
 
+import { useModalFocus } from '@/platform/hooks/useModalFocus';
+
 import React, { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { X, Lock, Mail, ArrowRight } from "lucide-react";
+import { X, Mail, ArrowRight } from "lucide-react";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -21,6 +23,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+
+  const { dialogRef, onKeyDown } = useModalFocus(isOpen, onClose);
 
   if (!isOpen) return null;
 
@@ -65,30 +69,23 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
       <div
-        className="relative w-full max-w-md bg-[#0D0E12] border border-zinc-800 rounded-xl shadow-2xl p-6 text-zinc-100"
+        role="dialog" aria-modal="true" aria-labelledby="auth-title"
+        ref={dialogRef} onKeyDown={onKeyDown}
+        className="relative max-h-[90dvh] w-full max-w-md overflow-y-auto bg-[#101721] border border-white/[0.18] rounded-lg shadow-2xl p-4 text-zinc-100"
         onClick={(e) => e.stopPropagation()}
       >
         {/* 閉じるボタン */}
         <button
+          type="button" aria-label="ログイン画面を閉じる"
           onClick={onClose}
-          className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-200 transition-colors"
+          className="absolute top-2 right-2 flex h-10 w-10 items-center justify-center text-zinc-500 hover:text-zinc-200 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* ヘッダー */}
-        <div className="mb-6 text-center">
-          <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center mx-auto mb-3">
-            <Lock className="w-5 h-5 text-zinc-300" />
-          </div>
-          <h2 className="text-lg font-semibold tracking-tight text-white">
-            {isSignUp ? "金鉱録 アカウント作成" : "金鉱録 ログイン"}
-          </h2>
-          <p className="text-xs text-zinc-400 mt-1">
-            {isSignUp
-              ? "高収益ビジネス台帳の保存・PRO機能を利用するための登録"
-              : "保存した財務台帳や非公開インサイトにアクセス"}
-          </p>
+        <div className="mb-4 border-b border-white/[0.14] pb-3 pr-10">
+          <h2 id="auth-title" className="text-base font-semibold text-white">{isSignUp ? "アカウント作成" : "ログイン"}</h2>
         </div>
 
         {/* エラー表示 */}
@@ -131,19 +128,19 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             <div className="w-full border-t border-zinc-800" />
           </div>
           <div className="relative flex justify-center text-[10px] uppercase">
-            <span className="bg-[#0D0E12] px-2 text-zinc-500 font-mono">またはメールアドレス</span>
+            <span className="bg-[#101721] px-2 text-zinc-500 font-mono">またはメールアドレス</span>
           </div>
         </div>
 
         {/* メールログインフォーム */}
         <form onSubmit={handleEmailSubmit} className="space-y-3">
           <div>
-            <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+            <label htmlFor="auth-email" className="block text-[11px] font-medium text-zinc-400 mb-1">
               メールアドレス
             </label>
             <div className="relative">
               <input
-                type="email"
+                id="auth-email" autoComplete="email" type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="founder@example.com"
@@ -155,11 +152,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           </div>
 
           <div>
-            <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+            <label htmlFor="auth-password" className="block text-[11px] font-medium text-zinc-400 mb-1">
               パスワード
             </label>
             <input
-              type="password"
+              id="auth-password" autoComplete={isSignUp ? "new-password" : "current-password"} type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"

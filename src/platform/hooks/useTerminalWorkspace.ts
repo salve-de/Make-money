@@ -47,6 +47,7 @@ export function useTerminalWorkspace() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (modeParam) setWorkspaceMode(modeParam);
     else if (topicParam) setWorkspaceMode('DEEP_DIVE');
+    else setWorkspaceMode('LEDGER');
 
     if (topicParam && INTELLIGENCE_DOSSIERS.some((d) => d.id === topicParam)) {
       setActiveTopicId(topicParam);

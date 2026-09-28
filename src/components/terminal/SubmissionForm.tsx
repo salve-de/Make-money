@@ -79,22 +79,22 @@ export const SubmissionForm: React.FC = () => {
   };
 
   return (
-    <section id="submit" className="p-6 sm:p-8 rounded bg-[#0D1117] text-white border border-white/[0.08] space-y-5">
+    <section id="submit" className="rounded-lg border border-white/[0.12] bg-surface p-5 text-white sm:p-6">
       <div className="space-y-2">
-        <div className="text-[10px] font-mono tracking-widest text-zinc-500">CASE INTAKE / 掲載申請</div>
-        <h2 className="text-xl sm:text-2xl font-black tracking-tight">あなたの事業を台帳へ申請する</h2>
-        <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-3xl">
+        <div className="text-sm font-medium text-accent">掲載申請</div>
+        <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">事業事例の掲載を申請する</h2>
+        <p className="max-w-3xl text-sm leading-6 text-zinc-400">
           申請内容は照合審査の対象です。申請しただけで公開・掲載済みにはなりません。URLと月次の実績値を確認できる範囲で入力してください。
         </p>
       </div>
 
       {submissionId ? (
-        <div className="rounded border border-emerald-500/30 bg-emerald-950/30 p-4 text-sm text-emerald-200" role="status">
+        <div className="rounded-md border border-accent/30 bg-background p-4 text-sm text-zinc-200" role="status">
           <div className="flex items-center gap-2 font-semibold text-white">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+            <CheckCircle2 aria-hidden="true" className="h-4 w-4 text-accent" />
             掲載申請を受け付けました
           </div>
-          <p className="mt-2 text-xs text-zinc-300">受付ID: <span className="font-mono text-emerald-300">{submissionId}</span> / 照合審査後に掲載可否を判断します。</p>
+          <p className="mt-2 text-sm leading-6 text-zinc-400">受付ID: <span className="font-mono text-accent-strong">{submissionId}</span> / 内容を確認した後、掲載可否を判断します。</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -122,10 +122,10 @@ export const SubmissionForm: React.FC = () => {
             </Field>
           </div>
           {errorMessage && <p className="md:col-span-2 text-xs text-rose-300" role="alert">{errorMessage}</p>}
-          <div className="md:col-span-2 flex items-center justify-between gap-3 pt-1">
-            <span className="text-[10px] text-zinc-500">ログインなしでも申請できます（匿名申請にはレート制限があります）。</span>
-            <button type="submit" disabled={isSubmitting} className="inline-flex items-center gap-2 rounded bg-white px-4 py-2 text-xs font-bold text-black hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50">
-              <Send className="h-3.5 w-3.5" />
+          <div className="md:col-span-2 flex flex-col items-start justify-between gap-3 pt-1 sm:flex-row sm:items-center">
+            <span className="text-sm leading-6 text-zinc-500">入力された情報は、掲載内容の確認に使用します。</span>
+            <button type="submit" disabled={isSubmitting} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-accent-strong px-4 text-sm font-semibold text-[#10151a] transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-50">
+              <Send aria-hidden="true" className="h-4 w-4" />
               {isSubmitting ? '送信中...' : '掲載申請を送る'}
             </button>
           </div>
@@ -135,11 +135,11 @@ export const SubmissionForm: React.FC = () => {
   );
 };
 
-const inputClass = 'w-full rounded border border-white/[0.1] bg-[#080A0F] px-3 py-2 text-xs text-white placeholder-zinc-600 outline-none focus:border-white/[0.3]';
+const inputClass = 'min-h-12 w-full rounded-md border border-white/[0.14] bg-background px-3.5 text-sm text-white placeholder-zinc-500 outline-none focus:border-accent';
 
 function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
   return (
-    <label className="space-y-1.5 text-[11px] text-zinc-400">
+    <label className="block space-y-1.5 text-sm text-zinc-300">
       <span>{label}{required ? <span className="ml-1 text-rose-400">*</span> : null}</span>
       {children}
     </label>

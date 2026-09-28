@@ -112,7 +112,7 @@ const ProfitNode = ({ data }: ProfitNodeProps) => (
     </div>
     <div className="space-y-1 mb-2 font-mono">
       <div className="flex justify-between items-baseline">
-        <span className="text-[10px] text-zinc-400">月商規模:</span>
+        <span className="text-[10px] text-zinc-400">売上（月額換算）:</span>
         <span className="text-xs font-bold text-zinc-100">{data.formattedRev}</span>
       </div>
       <div className="flex justify-between items-baseline">
@@ -123,7 +123,7 @@ const ProfitNode = ({ data }: ProfitNodeProps) => (
       </div>
     </div>
     <div className="pt-2 border-t border-white/[0.08] flex items-baseline justify-between font-mono">
-      <span className="text-[10px] text-zinc-400">月間営業利益:</span>
+      <span className="text-[10px] text-zinc-400">営業利益（月額換算）:</span>
       <span className={`text-sm font-black ${data.isHazardMode ? 'text-red-400' : 'text-emerald-300'}`}>
         {data.formattedProfit}
       </span>
@@ -148,7 +148,7 @@ export function VisualPipelineSection({
 
   const targetCustomer = entity.essence?.targetCustomer || '特定セグメントの顧客層';
   const painRelief = entity.essence?.painRelief || entity.targetPainWallet || '構造的ペイン・代替不能な損失回避';
-  const architecturePattern = entity.architecturePattern || '相見積もりを即死させる独自構造';
+  const architecturePattern = entity.architecturePattern || '競争上の差別化に関する登録情報';
   const moat = legacyText(entity.strategy, 'moat') || '他社が追随できない構造的参入障壁';
 
   const nodes: Node[] = [

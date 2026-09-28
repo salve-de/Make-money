@@ -17,7 +17,7 @@ describe('playbook data and rendering contract', () => {
   });
   it('renders the default tool radar rather than an error boundary', () => {
     const html = renderToStaticMarkup(createElement(PlaybookIntelligenceView, { data: aggregateMacroIntelligence([]) }));
-    expect(html).toContain('ツール構成と乗り換えの参考例');
+    expect(html).toContain('id="tool-category"');
     expect(html).toContain('Cloudflare');
   });
 });

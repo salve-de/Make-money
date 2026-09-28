@@ -32,7 +32,7 @@ test('batch deep links survive reload and removed URL parameters reset', async (
 
 test('anonymous users never see the editorial bulk approval action', async ({ page }) => {
   await page.goto('/');
-  const collectedInbox = page.getByRole('button', { name: /収集事例/ }).first();
+  const collectedInbox = page.getByRole('button', { name: /新着事例/ }).first();
   await expect(collectedInbox).toBeVisible();
   const filteredPage = page.waitForResponse((response) => {
     const url = new URL(response.url());

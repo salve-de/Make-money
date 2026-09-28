@@ -16,13 +16,13 @@ interface DynamicEvidenceDeckProps {
 type EvidenceKind = { label: string; hazardLabel?: string };
 
 export const evidenceRegistry = {
-  THE_CRIME: { label: '稼ぎの核心', hazardLabel: '失敗前提' },
-  SMOKING_GUN: { label: '現場証拠' },
-  DIRTY_GENESIS: { label: '初期獲得' },
+  THE_CRIME: { label: '収益の仕組み', hazardLabel: '事業上の要因' },
+  SMOKING_GUN: { label: '根拠' },
+  DIRTY_GENESIS: { label: '立ち上げ初期' },
   ASYMMETRIC_LEVERAGE: { label: '利益構造' },
-  INCUMBENT_TRAP: { label: '競合障壁' },
-  FATAL_BLEED: { label: '破綻要因' },
-  LOOT_BLUEPRINT: { label: '再現設計' },
+  INCUMBENT_TRAP: { label: '競争上の条件' },
+  FATAL_BLEED: { label: '損失の要因' },
+  LOOT_BLUEPRINT: { label: '事業モデル' },
   UNKNOWN_AUDIT: { label: '未確認' },
 } satisfies Record<DynamicEvidenceCardType, EvidenceKind>;
 
@@ -34,13 +34,13 @@ function getCardLabel(type: DynamicEvidenceCardType, isHazard?: boolean): string
 function statusMeta(status: EvidenceStatus): { label: string; dot: string; text: string } {
   switch (status) {
     case 'VERIFIED':
-      return { label: '一次確認済', dot: 'bg-emerald-400', text: 'text-emerald-300' };
+      return { label: '一次資料', dot: 'bg-emerald-400', text: 'text-emerald-300' };
     case 'REPORTED':
-      return { label: '創業者公表', dot: 'bg-zinc-300', text: 'text-zinc-200' };
+      return { label: '公表・報道', dot: 'bg-zinc-300', text: 'text-zinc-200' };
     case 'ESTIMATED':
-      return { label: '逆算推計', dot: 'bg-amber-400', text: 'text-amber-300' };
+      return { label: '推計', dot: 'bg-amber-400', text: 'text-amber-300' };
     case 'POST_MORTEM':
-      return { label: '撤退・失敗の検証', dot: 'bg-red-400', text: 'text-red-300' };
+      return { label: '事後資料', dot: 'bg-red-400', text: 'text-red-300' };
     case 'UNKNOWN':
       return { label: '未確認', dot: 'bg-zinc-500', text: 'text-zinc-400' };
   }
@@ -62,7 +62,9 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
         const rowId = `${card.id || 'card'}-${idx}`;
         const expanded = expandedId === rowId;
         const label = getCardLabel(card.type, isHazardMode);
-        const status = statusMeta(card.evidenceStatus);
+        const status = /https?:\/\/\S+/i.test(card.sourceNote || '')
+          ? statusMeta(card.evidenceStatus)
+          : { label: '出典リンクなし', dot: 'bg-zinc-500', text: 'text-zinc-400' };
         const detailCount = card.details?.length || 0;
         const metricCount = card.metrics?.length || 0;
         const hasCode = Boolean(card.codeSnippet);
@@ -73,7 +75,7 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
               type="button"
               onClick={() => setExpandedId(expanded ? null : rowId)}
               aria-expanded={expanded}
-              className="grid w-full grid-cols-[36px_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-white/[0.025] focus-visible:outline-none sm:grid-cols-[40px_100px_minmax(0,1fr)_auto]"
+              className="grid w-full grid-cols-[20px_minmax(0,1fr)_auto] items-start gap-2 px-2 py-3 sm:items-center sm:gap-3 sm:px-4 sm:py-3.5 text-left transition-colors hover:bg-white/[0.025] focus-visible:outline-none sm:grid-cols-[40px_100px_minmax(0,1fr)_auto]"
             >
               {/* 番号 */}
               <span className="font-mono text-xs tabular-nums text-zinc-400 font-semibold">
@@ -90,7 +92,7 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
               {/* タイトルとパンチライン */}
               <span className="min-w-0">
                 <span className="flex min-w-0 items-center gap-2">
-                  <span className="truncate text-xs sm:text-[13px] font-bold text-zinc-100">
+                  <span className="line-clamp-2 text-xs sm:text-[13px] font-bold text-zinc-100">
                     {card.title}
                   </span>
                   {card.badge && (
@@ -101,22 +103,25 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
                   {hasCode && (
                     <span className="hidden shrink-0 items-center gap-1 rounded border border-cyan-500/30 bg-cyan-950/40 px-1.5 py-0.5 font-mono text-[10px] text-cyan-300 md:inline-flex">
                       <Code2 className="w-3 h-3" />
-                      LOGIC
+                      コード
                     </span>
                   )}
                 </span>
-                <span className="mt-0.5 block truncate text-[11px] sm:text-xs text-zinc-400" title={card.punchline}>
+                <span className="mt-1 line-clamp-2 text-xs leading-relaxed text-zinc-300" title={card.punchline}>
                   {card.punchline}
+                </span>
+                <span className={`mt-1.5 flex items-center gap-1.5 text-[11px] sm:hidden ${status.text}`}>
+                  <span className={`h-1.5 w-1.5 rounded-full ${status.dot}`} />{status.label}
                 </span>
               </span>
 
               {/* 右側ステータスと開閉 */}
               <span className="flex shrink-0 items-center gap-3">
                 <span className="hidden items-center gap-2 font-mono text-[10px] text-zinc-400 md:flex">
-                  {detailCount > 0 && <span>事実 {detailCount}</span>}
+                  {detailCount > 0 && <span>詳細 {detailCount}</span>}
                   {metricCount > 0 && <span>数値 {metricCount}</span>}
                 </span>
-                <span className={`inline-flex items-center gap-1.5 font-mono text-[11px] ${status.text}`}>
+                <span className={`hidden items-center gap-1.5 font-mono text-[11px] sm:inline-flex ${status.text}`}>
                   <span className={`h-1.5 w-1.5 rounded-full ${status.dot}`} />
                   {status.label}
                 </span>
@@ -172,10 +177,10 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
                   <div className="rounded-lg border border-white/[0.08] bg-[#07090e] p-3 overflow-x-auto">
                     <div className="text-[10px] font-mono text-zinc-400 mb-1.5 flex items-center gap-1.5">
                       <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>現場ロジック / 試算アルゴリズム</span>
+                      <span>コード例・計算手順</span>
                     </div>
                     <pre className="font-mono text-[11px] leading-relaxed text-zinc-300">
-                      <code>{card.codeSnippet}</code>
+                      <code>{card.codeSnippet.replace(/\p{Extended_Pictographic}|\uFE0F/gu, '')}</code>
                     </pre>
                   </div>
                 )}

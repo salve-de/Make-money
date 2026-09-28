@@ -20,6 +20,7 @@ export interface CompanyInspectorPaneProps {
   isPro?: boolean;
   isBookmarked?: boolean;
   onToggleBookmark?: (e: React.MouseEvent) => void;
+  mobileOpen?: boolean;
 }
 
 export type TabType = 'EVIDENCE' | 'FINANCIALS' | 'PLAYBOOK' | 'STREAM' | 'NOTES' | 'ALL';

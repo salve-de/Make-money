@@ -2,22 +2,20 @@
 
 import React from 'react';
 import { FinancialEntity } from '../../types/terminal';
-import { UserInterestProfile } from '../../utils/userProfile';
 import { 
   CheckSquare, 
   Square, 
   FileText,
-  Cpu,
-  Sparkles
+  Cpu
 } from 'lucide-react';
 
 interface SynthesisEntitiesSidebarProps {
+  mobileHidden?: boolean;
   savedEntities: FinancialEntity[];
   selectedEntityIds: Set<string>;
   toggleSelectEntity: (id: string) => void;
   activeEditingEntityId: string;
   setActiveEditingEntityId: (id: string) => void;
-  userProfile: UserInterestProfile;
   notes: Record<string, { entityId: string; content: string; updatedAt: string }>;
   onSaveNote: (entityId: string, content: string) => void;
   formatMoney: (yen: number) => string;
@@ -25,13 +23,24 @@ interface SynthesisEntitiesSidebarProps {
   isSynthesizing: boolean;
 }
 
+function financialStatusLabel(entity: FinancialEntity): string | null {
+  if (entity.pnl.financialStatus === 'UNAVAILABLE' || entity.pnl.isRevenueUnconfirmed) return null;
+  switch (entity.pnl.financialStatus) {
+    case 'VERIFIED': return '一次資料';
+    case 'REPORTED': return '報告値';
+    case 'ESTIMATED': return '推計';
+    case 'POST_MORTEM': return '事後記録';
+    default: return null;
+  }
+}
+
 export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> = ({
+  mobileHidden = false,
   savedEntities,
   selectedEntityIds,
   toggleSelectEntity,
   activeEditingEntityId,
   setActiveEditingEntityId,
-  userProfile,
   notes,
   onSaveNote,
   formatMoney,
@@ -39,55 +48,36 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
   isSynthesizing,
 }) => {
   return (
-    <div className="w-full md:w-[380px] lg:w-[420px] shrink-0 border-b md:border-b-0 md:border-r border-white/[0.08] flex flex-col bg-[#07080B] overflow-hidden">
+    <div className={`w-full min-h-0 flex-1 flex-col overflow-hidden border-b border-white/[0.08] bg-[#10151a] md:max-h-none md:w-[34%] md:min-w-[300px] md:max-w-[460px] md:flex-none md:border-b-0 md:border-r lg:w-[32%] ${mobileHidden ? 'hidden md:flex' : 'flex'}`}>
       {/* ヘッダー */}
-      <div className="p-3 border-b border-white/[0.06] bg-[#090A0E] flex items-center justify-between shrink-0">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-400" />
-          <span className="font-mono text-xs font-bold text-white tracking-wider">
-            INPUT_ASSETS: 保存銘柄 ＆ 考察
+      <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/[0.1] bg-[#171e25] px-4 py-3">
+        <div className="min-w-0">
+          <span className="text-sm font-semibold text-zinc-100">
+            保存した事例とメモ
           </span>
         </div>
-        <span className="font-mono text-[10px] text-zinc-500">
-          {selectedEntityIds.size} / {savedEntities.length} 選択中
+        <span className="shrink-0 text-xs tabular-nums text-zinc-400">
+          {selectedEntityIds.size}件選択 / {savedEntities.length}件
         </span>
       </div>
 
-      {/* ユーザー関心プロファイル（AI学習済みの好み・蓄積データ） */}
-      <div className="px-3 py-2 bg-[#0A0C11] border-b border-white/[0.05] space-y-1 shrink-0">
-        <div className="flex items-center justify-between text-[10px] font-mono">
-          <span className="text-zinc-300 flex items-center gap-1.5">
-            <Sparkles className="w-3 h-3 text-amber-400" />
-            <span>AI学習済みプロファイル (あなたの好み):</span>
-          </span>
-          <span className="text-emerald-400 font-bold">
-            保存 {userProfile.bookmarkedCount}社 / 閲覧 {userProfile.viewedCount}社
-          </span>
-        </div>
-        <p className="text-[10px] text-zinc-400 line-clamp-2 leading-relaxed font-sans">
-          {userProfile.profileSummary}
-        </p>
-      </div>
-
       {/* 銘柄一覧 ＆ メモ入力 */}
-      <div className="flex-1 overflow-y-auto p-3 space-y-3 scrollbar-thin scrollbar-thumb-white/10">
-        <div className="text-[11px] text-zinc-400 leading-relaxed font-sans pb-1">
-          保存した銘柄の財務・戦略データに独自の着眼点（メモ）を掛け合わせることで、AIが競合の死角を突く独自ビジネスモデルを抽出します。
-        </div>
-
+      <div className="flex-1 space-y-3 overflow-y-auto p-3 scrollbar-thin scrollbar-thumb-white/10">
         {savedEntities.map((ent) => {
           const isSelected = selectedEntityIds.has(ent.id);
           const isFocused = activeEditingEntityId === ent.id;
           const currentNote = notes[ent.id]?.content || '';
+          const profitKnown = !ent.pnl.isRevenueUnconfirmed && !ent.pnl.isOperatingProfitUnconfirmed && ent.pnl.financialStatus !== 'UNAVAILABLE';
+          const marginKnown = !ent.pnl.isRevenueUnconfirmed && !ent.pnl.isMarginUnconfirmed && ent.pnl.financialStatus !== 'UNAVAILABLE';
+          const hasSnapshotPeriod = Boolean(ent.pnl.dataSnapshotPeriod);
 
           return (
-            <div
+            <article
               key={ent.id}
-              onClick={() => setActiveEditingEntityId(ent.id)}
-              className={`p-3 rounded border transition-all cursor-pointer ${
+              className={`rounded-md border p-3 transition-colors ${
                 isFocused
-                  ? 'bg-[#0E1017] border-white/[0.2] shadow-lg ring-1 ring-white/10'
-                  : 'bg-[#0A0B0F] border-white/[0.06] hover:border-white/[0.12]'
+                  ? 'border-sky-300/45 bg-[#0E1017] ring-1 ring-inset ring-sky-300/15'
+                  : 'border-white/[0.12] bg-[#0A0B0F] hover:border-white/[0.2]'
               }`}
             >
               {/* 銘柄ヘッダー */}
@@ -95,68 +85,112 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
                 <div className="flex items-center gap-2 min-w-0">
                   <button
                     type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleSelectEntity(ent.id);
-                    }}
-                    className="text-zinc-400 hover:text-white transition-colors"
+                    onClick={() => toggleSelectEntity(ent.id)}
+                    aria-label={isSelected ? `${ent.name}の企画対象から外す` : `${ent.name}を企画対象にする`}
+                    aria-pressed={isSelected}
+                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
                   >
                     {isSelected ? (
-                      <CheckSquare className="w-4 h-4 text-emerald-400" />
+                      <CheckSquare aria-hidden="true" className="w-4 h-4 text-sky-200" />
                     ) : (
-                      <Square className="w-4 h-4 text-zinc-600" />
+                      <Square aria-hidden="true" className="w-4 h-4 text-zinc-400" />
                     )}
                   </button>
-                  <span className="text-xs font-semibold text-white truncate">
+                  <button
+                    type="button"
+                    onClick={() => setActiveEditingEntityId(ent.id)}
+                    aria-pressed={isFocused}
+                    className="min-h-10 min-w-0 truncate rounded px-1 text-left text-sm font-semibold text-white hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                  >
                     {ent.name}
-                  </span>
+                  </button>
                 </div>
-                <span className="font-mono text-[10px] text-emerald-400 font-bold shrink-0">
-                  月利{formatMoney(ent.pnl.operatingProfit)} (率{ent.pnl.operatingMargin}%)
-                </span>
+                {financialStatusLabel(ent) && <span className="shrink-0 text-xs text-zinc-300">{financialStatusLabel(ent)}</span>}
               </div>
 
-              {/* 突いた盲点 */}
-              <div className="text-[10px] font-mono text-zinc-500 mb-2 truncate">
-                盲点: {ent.strategy.blindspot}
-              </div>
+              {ent.tagline && <p className="mb-3 text-sm leading-6 text-zinc-300">{ent.tagline}</p>}
+
+              {(profitKnown || marginKnown || hasSnapshotPeriod) && <dl className="grid grid-cols-2 gap-x-3 gap-y-2 border-t border-white/[0.1] py-2.5 text-xs sm:grid-cols-3">
+                {profitKnown && <div>
+                  <dt className="text-zinc-400">営業利益</dt>
+                  <dd className="mt-0.5 font-medium tabular-nums text-zinc-100">
+                    {formatMoney(ent.pnl.operatingProfit)}
+                  </dd>
+                </div>}
+                {marginKnown && <div>
+                  <dt className="text-zinc-400">利益率</dt>
+                  <dd className="mt-0.5 font-medium tabular-nums text-zinc-100">
+                    {ent.pnl.operatingMargin}%
+                  </dd>
+                </div>}
+                {hasSnapshotPeriod && <div>
+                  <dt className="text-zinc-400">対象時期</dt>
+                  <dd className="mt-0.5 truncate font-medium text-zinc-100">
+                    {ent.pnl.dataSnapshotPeriod}
+                  </dd>
+                </div>}
+              </dl>}
+
+              {ent.strategy.blindspot && ent.strategy.blindspot !== '金額・費用の裏付けは未確認。' && <div className="mb-2 truncate text-xs text-zinc-300">
+                着眼点: {ent.strategy.blindspot}
+              </div>}
+
+              {(ent.essence?.whatItDoes || ent.pricing?.pricePoint || ent.strategy?.initialTraction || ent.operations?.toolStack?.length > 0) && (
+                <details className="mt-2 border-t border-white/[0.1] pt-2">
+                  <summary className="min-h-8 cursor-pointer text-xs text-sky-200">事業内容・料金・運営</summary>
+                  <dl className="space-y-3 py-2 text-sm leading-6 text-zinc-300">
+                    {[
+                      ['事業内容', ent.essence?.whatItDoes],
+                      ['顧客', ent.essence?.targetCustomer],
+                      ['解決する課題', ent.essence?.painRelief],
+                      ['料金', ent.pricing?.pricePoint],
+                      ['初期の顧客獲得', ent.strategy?.initialTraction?.join(' / ')],
+                    ].filter(([, value]) => value && value !== 'UNKNOWN' && value !== '未確認').map(([label, value]) => (
+                      <div key={label}><dt className="text-xs text-zinc-400">{label}</dt><dd>{value}</dd></div>
+                    ))}
+                    {ent.operations?.toolStack?.length > 0 && <div><dt className="text-xs text-zinc-400">利用ツール</dt><dd>{ent.operations.toolStack.map((tool) => tool.name).join(' / ')}</dd></div>}
+                  </dl>
+                </details>
+              )}
 
               {/* アナリスト極秘メモ入力欄 */}
-              <div className="mt-2" onClick={(e) => e.stopPropagation()}>
-                <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 mb-1">
-                  <span className="flex items-center gap-1">
-                    <FileText className="w-3 h-3 text-zinc-400" />
-                    独自考察メモ（任意・空欄でも照合可能）
+              <details className="mt-2 border-t border-white/[0.1] pt-2" open={currentNote ? true : undefined}>
+                <summary className="flex min-h-8 cursor-pointer items-center justify-between gap-2 text-xs">
+                  <span className="flex items-center gap-1.5 text-zinc-200">
+                    <FileText aria-hidden="true" className="h-3.5 w-3.5 text-zinc-400" />
+                    考察メモ（任意）
                   </span>
                   {currentNote && (
-                    <span className="text-emerald-400/80 text-[9px]">保存済</span>
+                    <span className="shrink-0 text-xs text-emerald-200">保存済み</span>
                   )}
-                </div>
+                </summary>
                 <textarea
                   rows={isFocused ? 3 : 2}
                   value={currentNote}
+                  onFocus={() => setActiveEditingEntityId(ent.id)}
                   onChange={(e) => onSaveNote(ent.id, e.target.value)}
-                  placeholder="例: このAPIラッパーを士業の契約書レビューに応用できないか？ 初期の自演集客手法をXで再現する..."
-                  className="w-full bg-[#060709] border border-white/[0.08] focus:border-white/[0.25] rounded p-2 text-[11px] font-mono text-zinc-200 placeholder-zinc-600 focus:outline-none transition-colors resize-none leading-relaxed"
+                  aria-label={`${ent.name}の考察メモ`}
+                  placeholder="気づいたことを記録"
+                  className="min-h-11 w-full resize-y rounded-md border border-white/[0.16] bg-[#0d1217] p-2.5 text-sm leading-5 text-zinc-100 placeholder:text-zinc-400 focus:border-sky-300/60 focus:outline-none focus:ring-2 focus:ring-sky-300/15"
                 />
-              </div>
-            </div>
+              </details>
+            </article>
           );
         })}
       </div>
 
       {/* 下部アクションバー: 合成トリガー */}
-      <div className="p-3 border-t border-white/[0.08] bg-[#090A0E] shrink-0">
+      <div className="shrink-0 border-t border-white/[0.1] bg-[#171e25] p-3 md:hidden">
         <button
           onClick={handleSynthesize}
           disabled={isSynthesizing || selectedEntityIds.size === 0}
-          className="w-full py-2.5 px-4 rounded bg-white/[0.1] hover:bg-white/[0.16] border border-white/[0.2] text-white font-mono text-xs font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-[0.99]"
+          className="flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-sky-200 px-4 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-45"
         >
-          <Cpu className="w-4 h-4 text-emerald-400" />
+          {isSynthesizing && <Cpu className="h-4 w-4 animate-pulse" />}
           {isSynthesizing ? (
-            <span>多次元アイデアを合成中...</span>
+            <span>企画案を作成中…</span>
           ) : (
-            <span>選択 {selectedEntityIds.size} 銘柄とメモから独自アイデアを合成</span>
+            <span>企画案を作る（{selectedEntityIds.size}件選択）</span>
           )}
         </button>
       </div>

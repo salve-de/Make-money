@@ -2,13 +2,11 @@
 
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { FinancialEntity, SynthesizedIdea, StrategyChatMessage } from '../types/terminal';
-import { buildUserInterestProfile, UserInterestProfile } from '../utils/userProfile';
 import { useAuth } from '@/context/AuthContext';
 
 interface UseStrategySynthesisProps {
   allEntities: FinancialEntity[];
   bookmarkedIds: Set<string>;
-  viewedEntityIds?: string[];
   notes: Record<string, { entityId: string; content: string; updatedAt: string }>;
   currency: 'JPY' | 'USD';
   initialContextEntityId?: string | null;
@@ -17,7 +15,6 @@ interface UseStrategySynthesisProps {
 export function useStrategySynthesis({
   allEntities,
   bookmarkedIds,
-  viewedEntityIds = [],
   notes,
   currency,
   initialContextEntityId,
@@ -25,17 +22,12 @@ export function useStrategySynthesis({
   const { token } = useAuth();
   const [conversationId] = useState<string>(() => `conv_${Date.now()}`);
 
-  // ユーザーの保存銘柄 ＆ 閲覧履歴から「好み・関心傾向」を自動プロファイリング
-  const userProfile = useMemo<UserInterestProfile>(() => {
-    return buildUserInterestProfile(allEntities, bookmarkedIds, viewedEntityIds);
-  }, [allEntities, bookmarkedIds, viewedEntityIds]);
-
   // 保存銘柄（もし保存がなければ代表的3社をデフォルト表示）
   const savedEntities = useMemo(() => {
-    const list = allEntities.filter((e) => bookmarkedIds.has(e.id));
-    if (list.length > 0) return list;
+    const list = allEntities.filter((e) => bookmarkedIds.has(e.id) || e.id === initialContextEntityId);
+    if (bookmarkedIds.size > 0 || initialContextEntityId) return list;
     return allEntities.slice(0, 3);
-  }, [allEntities, bookmarkedIds]);
+  }, [allEntities, bookmarkedIds, initialContextEntityId]);
 
   // 合成対象としてチェックされている企業ID群
   const [selectedEntityIds, setSelectedEntityIds] = useState<Set<string>>(() => {
@@ -51,25 +43,22 @@ export function useStrategySynthesis({
     initialContextEntityId || savedEntities[0]?.id || allEntities[0]?.id
   );
 
+  const touchedSelection = useRef(false);
+  useEffect(() => {
+    if (touchedSelection.current) return;
+    setSelectedEntityIds(new Set([
+      ...savedEntities.map((entity) => entity.id),
+      ...(initialContextEntityId ? [initialContextEntityId] : []),
+    ]));
+  }, [savedEntities, initialContextEntityId]);
+
   // 合成アイデア一覧
   const [synthesizedIdeas, setSynthesizedIdeas] = useState<SynthesizedIdea[]>([]);
   const [isSynthesizing, setIsSynthesizing] = useState<boolean>(false);
   const [activeConsoleTab, setActiveConsoleTab] = useState<'IDEAS' | 'CHAT'>('IDEAS');
 
   // チャットログ
-  const [chatMessages, setChatMessages] = useState<StrategyChatMessage[]>([
-    {
-      id: 'init_1',
-      role: 'assistant',
-      content: '実在企業の財務・戦略データ（売上原価・手残り率・現場ツール・大手の盲点）をスタンバイしました。\n\nいま考えている事業アイデア（例: ○○業界向けSaaS、○○の自動化代行など）を1行投げてみてください。大手の自爆構造に巻き込まれないか、利益率80%を叩き出す勝ち筋、月数千円で組める最小稼働インフラを冷徹に検証します。',
-      timestamp: new Date().toISOString(),
-      suggestedActionPrompts: [
-        '町工場の受発注・紙図面をLINEとOCRで自動化する代行モデル',
-        '士業向けに契約書の定型チェックをAPIラッピングで提供するマイクロSaaS',
-        '不動産会社向けに図面をノーコードで自動補正するツール'
-      ],
-    }
-  ]);
+  const [chatMessages, setChatMessages] = useState<StrategyChatMessage[]>([]);
   const [chatInput, setChatInput] = useState<string>('');
   const [ideaInput, setIdeaInput] = useState<string>('');
   const [isChatSending, setIsChatSending] = useState<boolean>(false);
@@ -82,6 +71,7 @@ export function useStrategySynthesis({
   }, [chatMessages]);
 
   const toggleSelectEntity = (id: string) => {
+    touchedSelection.current = true;
     setSelectedEntityIds((prev) => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
@@ -117,7 +107,6 @@ export function useStrategySynthesis({
           action: 'SYNTHESIZE',
           selectedEntityIds: Array.from(selectedEntityIds),
           notes,
-          userProfile,
         }),
       });
       const data: unknown = await res.json();
@@ -125,7 +114,8 @@ export function useStrategySynthesis({
       if (!data || typeof data !== 'object' || !('ideas' in data) || !Array.isArray(data.ideas)) {
         throw new Error('アイデア合成の応答形式を確認できません');
       }
-      setSynthesizedIdeas(data.ideas as SynthesizedIdea[]);
+      const ideas = data.ideas as SynthesizedIdea[];
+      setSynthesizedIdeas(ideas);
       setActiveConsoleTab('IDEAS');
       // チャットにも報告を追加
       setChatMessages((prev) => [
@@ -133,12 +123,12 @@ export function useStrategySynthesis({
         {
           id: `msg_${Date.now()}`,
           role: 'assistant',
-          content: `【多次元アイデア合成完了】\n選択された${selectedEntityIds.size}銘柄の財務構造と、あなたの閲覧・保存傾向（${userProfile.profileSummary.slice(0, 50)}...）を掛け合わせ、3つの別次元アプローチ（本能工夫型／構造胴元型／逆張り型）を抽出しました。「アイデア調書」タブにて損益見込・ツール構成・初動手順を確認してください。`,
+          content: `選択した事例${selectedEntityIds.size}件をもとに、企画案を${ideas.length}件作成しました。案に表示する利益・費用・手順は実績ではなく、検証前の仮説です。「着想元」から参照した事例を開いて、情報の時点や根拠を確認できます。`,
           timestamp: new Date().toISOString(),
           suggestedActionPrompts: [
-            'この中で一番初期費用が安く初動が速いアイデアはどれか？',
-            '本能工夫型アイデアの初動手順をさらに具体化せよ',
-            '構造・胴元型モデルで決済手数料を抜く際の法的注意点は？'
+            'この案の利益や費用は、何をもとにした数字？',
+            '利用者がこの課題をどう解決しているか、最初に何を確かめる？',
+            '小さく試す場合の費用と、続けないと決める条件を整理して'
           ]
         }
       ]);
@@ -183,7 +173,6 @@ export function useStrategySynthesis({
           contextEntityId: activeEditingEntityId,
           synthesizedIdeas,
           notes,
-          userProfile,
         }),
       });
       const data: unknown = await res.json();
@@ -196,15 +185,10 @@ export function useStrategySynthesis({
       const message = error instanceof Error ? error.message : 'アナリストとの通信に失敗しました';
       console.error('Chat error:', error);
       setRequestError(message);
-      setChatMessages((prev) => [
-        ...prev,
-        {
-          id: `err_${Date.now()}`,
-          role: 'assistant',
-          content: `【分析エラー】${message}\n接続設定または保存先を確認して、もう一度送信してください。`,
-          timestamp: new Date().toISOString(),
-        }
-      ]);
+      // Keep a failed request editable; it is not an assistant response or
+      // part of the successfully submitted conversation history.
+      setChatMessages((prev) => prev.filter((entry) => entry.id !== userMsg.id));
+      setChatInput((current) => current || textToSend.trim());
     } finally {
       setIsChatSending(false);
     }
@@ -213,14 +197,13 @@ export function useStrategySynthesis({
   // 特定アイデアを深掘りチャットに持ち込む
   const handleDrilldownIdea = (idea: SynthesizedIdea) => {
     setActiveConsoleTab('CHAT');
-    const prompt = `「${idea.title}」（${idea.dimensionLabel}）について深掘りしたい。人質にする財布「${idea.targetPainWallet}」に対し、大手が真似できない理由と、最初の3件を有料成約させる泥臭い実録ステップを冷徹に指南せよ。`;
+    const prompt = `「${idea.title}」について検討したい。想定する利用者の課題、現在の代替手段、費用と収入の前提、最初にできる小規模な確認方法、うまくいかない条件を整理してください。選択した事例から分かること、一般的な推測、まだ分からないことを分け、根拠がない場合は断定しないでください。`;
     handleSendMessage(prompt);
   };
 
   const activeEntity = allEntities.find((e) => e.id === activeEditingEntityId) || savedEntities[0];
 
   return {
-    userProfile,
     savedEntities,
     selectedEntityIds,
     toggleSelectEntity,

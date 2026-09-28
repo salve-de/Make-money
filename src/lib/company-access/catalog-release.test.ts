@@ -34,6 +34,7 @@ describe('immutable catalog release', () => {
     const item = {
       id: 'case-1', name: 'Case', tagline: '', sector: 'AI', resultLabel: 'MRR', resultValue: '¥1万',
       resultAmountJpy: 10000, startLine: '1人開始', criticalInsight: 'Move', whyMoneyMoved: 'Pain',
+      resultEvidenceLabel: '資料区分: 一次資料', resultPeriod: null, resultSource: null, resultPeriodNote: null,
       leverage: 'Code', mechanism: { id: 'asset', label: 'Asset' }, mechanismCount: 1,
       currentLabel: 'Current', currentDetail: 'Detail', isCurrent: true, isFailure: false,
       isSolo: true, lowCapital: true, lowWork: false, evidenceCount: 1,
@@ -43,6 +44,13 @@ describe('immutable catalog release', () => {
     };
     const dataset = { sourceCount: 1, visibleCount: 1, cases: [item], mechanisms: [{ id: 'asset', label: 'Asset', count: 1 }], highlights: [item] };
     expect(parseDiscoveryRelease(dataset)).toBe(dataset);
+    for (const field of ['resultEvidenceLabel', 'resultPeriod', 'resultSource', 'resultPeriodNote']) {
+      for (const invalid of [undefined, 42, {}]) {
+        const invalidItem = { ...item, [field]: invalid };
+        expect(() => parseDiscoveryRelease({ ...dataset, cases: [invalidItem] })).toThrow('Invalid discovery release');
+        expect(() => parseDiscoveryRelease({ ...dataset, highlights: [invalidItem] })).toThrow('Invalid discovery release');
+      }
+    }
     expect(() => parseDiscoveryRelease({ ...dataset, visibleCount: 2 })).toThrow('Invalid discovery release');
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, id: null }] })).toThrow('Invalid discovery release');
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, descriptors: null }] })).toThrow('Invalid discovery release');

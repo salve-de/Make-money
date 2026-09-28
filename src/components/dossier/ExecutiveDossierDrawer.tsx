@@ -181,7 +181,7 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
           {/* 4連キースペックリボン */}
           <div className="grid grid-cols-4 gap-2 pt-2 border-t border-white/[0.06] font-mono text-center">
             <div className="p-2 bg-white/[0.02] rounded border border-white/[0.04]">
-              <div className="text-[9px] text-zinc-500 font-sans">直近月商</div>
+              <div className="text-[9px] text-zinc-500 font-sans">直近の売上（月額換算）</div>
               <div className="text-xs font-bold text-zinc-100 tabular-nums">
                 {rev > 0 ? formatShortAmount(Math.round(rev / 12)) : '非公開'}
               </div>

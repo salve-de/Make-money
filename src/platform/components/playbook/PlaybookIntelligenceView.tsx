@@ -3,17 +3,9 @@
 import React from 'react';
 import {
   MacroIntelligenceData,
+  TOOL_CATEGORIES,
+  ToolCategoryKey,
 } from '@/lib/intelligence/macro-aggregator';
-import {
-  Wrench,
-  TrendingUp,
-  Skull,
-  Flame,
-  AlertTriangle,
-  Zap,
-  Radio,
-} from 'lucide-react';
-import Link from 'next/link';
 import { usePlaybookNavigation, PlaybookTabKey } from '../../hooks/usePlaybookNavigation';
 import { ToolRadarSection } from './ToolRadarSection';
 import { DeathTrapsSection } from './DeathTrapsSection';
@@ -44,133 +36,112 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
     activeCategoryMeta,
     activeTrap,
     activeWave,
-    getCategoryIcon,
   } = usePlaybookNavigation(data);
 
   return (
-    <div className="flex-1 flex flex-col min-w-0 bg-[#060709] text-zinc-100 overflow-hidden font-sans select-text">
-      {/* ─── 1. 週次資本主義気象レーダーHUD（タイムスタンプ・差分速報） ─── */}
-      <header className="border-b border-white/[0.08] bg-[#08090D] px-4 py-2.5 shrink-0">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-          {/* 週次ステータスアンカー */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-2.5 py-1 bg-cyan-500/10 border border-cyan-500/25 rounded">
-              <Radio className="w-3.5 h-3.5 text-cyan-400 " />
-              <span className="text-[11px] font-mono font-bold text-cyan-400 tracking-wider">
-                REFERENCE PLAYBOOK / {data.weeklyMeta.weekLabel}
-              </span>
-            </div>
-            <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
-              事業・ツールの参考プレイブック
-              <span className="text-xs text-zinc-400 font-normal hidden sm:inline font-mono">
-                / {data.weeklyMeta.sampleSizeLabel}
-              </span>
-            </h1>
+    <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-background text-foreground font-sans">
+      <header className="shrink-0 border-b border-white/[0.14] bg-surface px-3 py-1.5 sm:px-5">
+        <div className="mx-auto flex w-full max-w-screen-2xl flex-col">
+          <h1 className="sr-only">事業・ツールの参考例</h1>
+
+          <div className="flex items-center gap-2 py-1 sm:hidden">
+            <select
+              aria-label="参考資料の種類"
+              value={activeTab}
+              onChange={(event) => setActiveTab(event.target.value as PlaybookTabKey)}
+              className="h-9 min-w-0 flex-1 rounded border border-white/[0.16] bg-[#18232d] px-2 text-sm text-zinc-100"
+            >
+              <option value="TOOL_RADAR">ツール構成</option>
+              <option value="SHELF_LIFE_DOWNGRADES">失敗と見直し</option>
+              <option value="CURRENT_PLAYS">事業の型</option>
+              <option value="DIRTY_GENESIS">初期の顧客獲得</option>
+              <option value="GOLDEN_RECIPES">技術構成の参考</option>
+            </select>
+            {activeTab === 'TOOL_RADAR' && <>
+              <label htmlFor="mobile-tool-category" className="sr-only">ツールの用途</label>
+              <select
+                id="mobile-tool-category"
+                value={selectedToolCategory}
+                onChange={(event) => setSelectedToolCategory(event.target.value as ToolCategoryKey)}
+                className="h-9 min-w-0 flex-1 rounded border border-white/[0.16] bg-[#18232d] px-2 text-sm text-zinc-100"
+              >
+                {TOOL_CATEGORIES.map((cat) => <option key={cat.key} value={cat.key}>{cat.label
+                  .replace('デプロイ・ホスティング', 'ホスティング')
+                  .replace('AI・推論エンジン', 'AI・推論')
+                  .replace('データベース・基盤', 'データベース')
+                  .replace('決済・サブスク課金', '決済・課金')
+                  .replace('集客・CRM・配信', '集客・配信')
+                  .replace('フロント・ノーコード', 'フロント制作')}</option>)}
+              </select>
+            </>}
           </div>
-
-          {/* 直近差分メトリクスストリップ */}
-          <div className="flex items-center gap-2 sm:gap-3 text-xs font-mono overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
-            <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 " />
-              <span className="text-emerald-300 font-bold">参考観測例: {data.weeklyMeta.newObservationsCount}件</span>
-            </div>
-            <div className="flex items-center gap-1.5 bg-rose-500/10 border border-rose-500/20 px-2.5 py-1 rounded shrink-0">
-              <AlertTriangle className="w-3 h-3 text-rose-400" />
-              <span className="text-rose-300 font-bold">見直し例: {data.weeklyMeta.downgradeAlertsCount}件</span>
-            </div>
-            <div className="flex items-center gap-1.5 bg-white/[0.03] border border-white/[0.06] px-2.5 py-1 rounded shrink-0">
-              <span className="text-zinc-500">乗り換え参考例:</span>
-              <span className="text-cyan-400 font-semibold">{data.weeklyMeta.topRisingTool}</span>
-            </div>
-          </div>
-        </div>
-
-        <p className="mt-2 text-xs text-amber-300" role="note">参考サンプル・一次証跡未確認。数値・費用・企業事例・判定は現在の実測や推奨ではありません。</p>
-
-        {/* ─── 2. 5大ナレッジ切り替えタブ ─── */}
-        <div className="flex items-center gap-1.5 mt-3 border-t border-white/[0.06] pt-2.5 overflow-x-auto scrollbar-none">
-          {/* タブ1: ツールの勢力図推移＆乗り換え動向 ★核心 */}
+          <nav aria-label="参考資料の種類" className="hidden gap-1 sm:flex sm:flex-wrap">
+          {/* ツールの構成・乗り換え */}
           <button
             onClick={() => setActiveTab('TOOL_RADAR')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all shrink-0 cursor-pointer ${
+            type="button"
+            aria-pressed={activeTab === 'TOOL_RADAR'}
+            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
               activeTab === 'TOOL_RADAR'
-                ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/35 shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
+                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
+                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
             }`}
           >
-            <TrendingUp className="w-3.5 h-3.5 text-cyan-400" />
-            <span>ツール勢力図・乗り換え推移 (Stack Migration)</span>
-            <span className="px-1.5 py-0.2 text-[10px] font-mono rounded bg-cyan-400/20 text-cyan-300">
-              月次推移チャート
-            </span>
+            <span>ツール構成</span>
           </button>
 
-          {/* タブ2: 賞味期限アラート＆即死検死録 */}
           <button
             onClick={() => setActiveTab('SHELF_LIFE_DOWNGRADES')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all shrink-0 cursor-pointer ${
+            type="button"
+            aria-pressed={activeTab === 'SHELF_LIFE_DOWNGRADES'}
+            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
               activeTab === 'SHELF_LIFE_DOWNGRADES'
-                ? 'bg-rose-500/15 text-rose-300 border border-rose-500/35 shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
+                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
+                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
             }`}
           >
-            <Skull className="w-3.5 h-3.5 text-rose-400" />
-            <span>賞味期限アラート ＆ 即死検死録 (Downgrades)</span>
-            <span className="px-1.5 py-0.2 text-[10px] font-mono rounded bg-rose-400/20 text-rose-300">
-              {data.shelfLifeAlerts.length}件警告
-            </span>
+            <span>失敗と見直し</span>
           </button>
 
-          {/* タブ3: 稼ぎの型の参考例 */}
           <button
             onClick={() => setActiveTab('CURRENT_PLAYS')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all shrink-0 cursor-pointer ${
+            type="button"
+            aria-pressed={activeTab === 'CURRENT_PLAYS'}
+            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
               activeTab === 'CURRENT_PLAYS'
-                ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/35 shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
+                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
+                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
             }`}
           >
-            <Flame className="w-3.5 h-3.5 text-emerald-400" />
-            <span>稼ぎの型の参考例 (Active Plays)</span>
-            <span className="px-1.5 py-0.2 text-[10px] font-mono rounded bg-emerald-400/20 text-emerald-300">
-              実践レシピ
-            </span>
+            <span>事業の型</span>
           </button>
 
-          {/* タブ4: 初動突破ゲリラ戦録 */}
           <button
             onClick={() => setActiveTab('DIRTY_GENESIS')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all shrink-0 cursor-pointer ${
+            type="button"
+            aria-pressed={activeTab === 'DIRTY_GENESIS'}
+            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
               activeTab === 'DIRTY_GENESIS'
-                ? 'bg-amber-500/15 text-amber-300 border border-amber-500/35 shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
+                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
+                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
             }`}
           >
-            <Zap className="w-3.5 h-3.5 text-amber-400" />
-            <span>初動突破ゲリラ戦録 (First 100)</span>
+            <span>初期の顧客獲得</span>
           </button>
 
-          {/* タブ5: 黄金スタックレシピ */}
           <button
             onClick={() => setActiveTab('GOLDEN_RECIPES')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all shrink-0 cursor-pointer ${
+            type="button"
+            aria-pressed={activeTab === 'GOLDEN_RECIPES'}
+            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
               activeTab === 'GOLDEN_RECIPES'
-                ? 'bg-purple-500/15 text-purple-300 border border-purple-500/35 shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04]'
+                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
+                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
             }`}
           >
-            <Wrench className="w-3.5 h-3.5 text-purple-400" />
-            <span>黄金スタックレシピ (Golden Stack)</span>
+            <span>技術構成の参考</span>
           </button>
-
-          <div className="ml-auto shrink-0 pl-2">
-            <Link
-              href="/"
-              className="text-xs text-zinc-400 hover:text-zinc-200 flex items-center gap-1 font-mono transition-colors"
-            >
-              <span>← 個別企業台帳 (Ledger)</span>
-            </Link>
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -182,7 +153,6 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
             setSelectedToolCategory={setSelectedToolCategory}
             activeCategoryRadar={activeCategoryRadar}
             activeCategoryMeta={activeCategoryMeta}
-            getCategoryIcon={getCategoryIcon}
             onSelectEntity={onSelectEntity}
           />
         )}

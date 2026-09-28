@@ -21,6 +21,7 @@ import {
   cleanMetricLabel,
   cleanIntelligenceText,
   formatHumanMoney,
+  formatObservedMetricValue,
 } from '@/lib/foundation/text-cleaner';
 
 interface FoundationInspectorPaneProps {
@@ -203,7 +204,7 @@ function RawRelationship({ item }: { item: FoundationRelationship }) {
 function RawMetric({ item }: { item: FoundationMetricSignal }) {
   const statusInfo = humanizeVerificationStatus(item.verificationStatus);
   const label = cleanMetricLabel(item.metricType);
-  const money = item.currency ? formatHumanMoney(item.value, item.currency, item.unit) : `${display(item.value)} ${display(item.unit)}`;
+  const money = formatObservedMetricValue(item.metricType, item.value, item.currency, item.unit);
   return (
     <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2.5">
       <div className="flex items-start justify-between gap-3">
@@ -294,9 +295,9 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
 
           <div className="flex border-t border-white/[0.05] text-[10px] font-mono">
             {([
-              { id: 'CORE', label: '基本・急所' },
+              { id: 'CORE', label: '事業概要' },
               { id: 'FINANCIALS', label: '財務・収益' },
-              { id: 'PLAYBOOK', label: '攻略手口' },
+              { id: 'PLAYBOOK', label: '事業の進め方' },
               { id: 'STREAM', label: '時系列・観測' },
               { id: 'EVIDENCE', label: '検証データ' },
             ] as Array<{ id: Tab; label: string }>).map((tab) => (

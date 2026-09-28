@@ -1,15 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   ArrowLeft,
   Check,
   CircleDollarSign,
   ExternalLink,
-  Rocket,
   Save,
-  Target,
 } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
@@ -22,34 +20,31 @@ import {
   executionPendingClaimKey,
   executionProgress,
   executionStorageKey,
-  firstIncompleteStep,
   isExecutionGenerationCurrent,
   normalizeExecutionProject,
   type ExecutionProject,
   type ExecutionStepId,
 } from '@/shared/execution';
 
-const INPUT_CLASS = 'w-full rounded-lg border border-white/[0.1] bg-black/20 px-3 py-2 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-emerald-400/50';
+const INPUT_CLASS = 'w-full rounded-lg border border-white/[0.18] bg-black/20 px-3 py-2 text-sm text-zinc-100 outline-none placeholder:text-zinc-400 focus:border-emerald-400/70';
 
-const STEP_LABELS: Record<ExecutionStepId, { label: string; en: string }> = {
-  FIND: { label: '勝ち筋を固定', en: 'FIND' },
-  BUILD: { label: '最小商品を作る', en: 'BUILD' },
-  LIST: { label: '売れる形にする', en: 'LIST' },
-  DISTRIBUTE: { label: '最初の客へ出す', en: 'DISTRIBUTE' },
-  SELL: { label: '決済を通す', en: 'SELL' },
-  EARN: { label: '最初の売上を記録', en: 'EARN' },
+const STEP_LABELS: Record<ExecutionStepId, { label: string }> = {
+  FIND: { label: '売る相手と内容を決める' },
+  BUILD: { label: '最小の商品を作る' },
+  LIST: { label: '販売ページを用意する' },
+  DISTRIBUTE: { label: '見込み客に案内する' },
+  SELL: { label: '支払いを受け付ける' },
+  EARN: { label: '売上を記録する' },
 };
 
 function createDefaultProject(entity: ExecutionSource, generation = 0): ExecutionProject {
-  const suggestedOffer = (entity.essence?.whatItDoes || entity.tagline || '').slice(0, 300);
-  const targetCustomer = (entity.essence?.targetCustomer || entity.targetPainWallet || '').slice(0, 2000);
   return {
     entityId: entity.id,
     sourceName: entity.name,
-    offerName: suggestedOffer,
-    targetCustomer,
+    offerName: '',
+    targetCustomer: '',
     targetPriceJpy: 0,
-    firstDollarTargetJpy: 1000,
+    firstDollarTargetJpy: 0,
     completedSteps: [],
     buildUrl: '',
     launchUrl: '',
@@ -421,84 +416,50 @@ function ExecutionWorkspace({
 
   const editingDisabled = Boolean(userId) && !generationHydrated;
   const progress = executionProgress(project);
-  const currentStep = firstIncompleteStep(project);
-  const blueprint = entity.lootBlueprint;
-  const firstActions = blueprint?.executionChecklist?.length
-    ? blueprint.executionChecklist
-    : entity.strategy.actionPlaybook;
-  const acquisitionHints = entity.strategy.initialTraction?.length
-    ? entity.strategy.initialTraction
-    : entity.acquisition?.tactics ?? [];
   const reachedFirstDollar = project.revenueJpy > 0;
 
-  const nextAction = useMemo(() => {
-    if (!currentStep) return '全工程完了。売上の再現と拡大へ進む。';
-    const fallback: Record<ExecutionStepId, string> = {
-      FIND: '誰のどの痛みに、何を売るかを1行で固定する。',
-      BUILD: '販売に必要な最小機能だけを作り、制作URLを残す。',
-      LIST: '価格を決め、ユーザーが見られる公開URLを用意する。',
-      DISTRIBUTE: '最初の見込み客がいる場所へ実際に出す。',
-      SELL: '支払える決済URLを接続する。',
-      EARN: '最初の売上が出たら実額を記録する。',
-    };
-    return fallback[currentStep];
-  }, [currentStep]);
 
   return (
     <div className="flex min-h-screen flex-col bg-[#07080B] text-zinc-100">
       <GlobalHeader currentSection="EXECUTION" />
 
-      <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-5 px-4 py-5 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+      <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-3 px-4 py-2 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2">
           <Link
             href={'/?entity=' + encodeURIComponent(entity.id)}
-            className="inline-flex items-center gap-1.5 text-xs text-zinc-400 transition-colors hover:text-white"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-md px-2 text-sm text-zinc-300 transition-colors hover:bg-white/[0.06] hover:text-white"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            台帳へ戻る
+            <span className="min-w-0"><span className="block text-[11px] text-zinc-400">実行計画</span><span className="block max-w-36 truncate text-sm font-semibold">{entity.name}</span></span>
           </Link>
 
           <div className="flex items-center gap-2">
             {!userId && (
               <button
                 type="button"
+                aria-label="ログインして同期"
                 onClick={() => void signInAndClaim()}
-                className="rounded-md border border-white/[0.1] bg-white/[0.04] px-3 py-2 text-xs text-zinc-300 transition-colors hover:bg-white/[0.08]"
+                className="min-h-11 rounded-md border border-white/[0.14] bg-white/[0.04] px-3 text-sm text-zinc-200 transition-colors hover:bg-white/[0.08]"
               >
-                ログインして同期
+                同期
               </button>
             )}
             <button
               type="button"
               onClick={() => void save()}
               disabled={editingDisabled || saveState === 'saving' || saveState === 'conflict'}
-              className="inline-flex items-center gap-1.5 rounded-md bg-emerald-400 px-3 py-2 text-xs font-bold text-zinc-950 transition-colors hover:bg-emerald-300 disabled:opacity-60"
+              aria-label={token ? 'クラウドに保存' : '端末に保存'}
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-md bg-emerald-300 px-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-emerald-200 disabled:opacity-60"
             >
               <Save className="h-3.5 w-3.5" />
-              {saveState === 'saving' ? '保存中' : token ? 'クラウド保存' : '端末に保存'}
+              {saveState === 'saving' ? '保存中' : '保存'}
             </button>
           </div>
         </div>
 
-        <section className="grid gap-4 border-b border-white/[0.08] pb-5 lg:grid-cols-[1.6fr_1fr]">
-          <div>
-            <div className="mb-2 flex items-center gap-2 text-[11px] font-mono text-emerald-300">
-              <Rocket className="h-4 w-4" />
-              MAKE MONEY EXECUTION
-            </div>
-            <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              見つけた勝ち筋を、最初の売上まで運ぶ
-            </h1>
-            <p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-400">
-              元事例: <strong className="text-zinc-200">{entity.name}</strong>。
-              情報を読むだけで終わらせず、FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN を1本で進める。
-            </p>
-            {entity.contextUnavailable && <p className="mt-2 text-sm text-amber-300">
-              元事例の詳細を公開確認できないため、未確認の財務・手口は引き継いでいません。事業名だけを起点に、ご自身の計画を入力できます。
-            </p>}
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] p-3">
+        <section className="flex flex-wrap items-end justify-between gap-3 border-b border-white/[0.14] pb-3">
+          <h1 className="sr-only">{entity.name}の実行計画</h1>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <Metric label="進捗" value={String(progress) + '%'} />
             <Metric
               label="初回売上"
@@ -537,7 +498,7 @@ function ExecutionWorkspace({
 
         {saveState === 'conflict' && (
           <section className="rounded-xl border border-amber-400/25 bg-amber-400/[0.06] p-4">
-            <div className="text-[10px] font-bold tracking-[0.18em] text-amber-300">SAVE CONFLICT</div>
+            <div className="text-sm font-semibold text-amber-200">保存内容の競合</div>
             <h2 className="mt-2 text-sm font-semibold text-zinc-100">別端末またはクラウド側にも変更があります</h2>
             <p className="mt-1 text-xs leading-5 text-zinc-400">
               勝手に上書きしません。クラウド版を採用するか、この端末の内容で明示的に上書きするかを選んでください。
@@ -562,103 +523,54 @@ function ExecutionWorkspace({
           </section>
         )}
 
-        <section className="rounded-xl border border-emerald-400/20 bg-emerald-400/[0.06] p-4">
-          <div className="text-[10px] font-bold tracking-[0.18em] text-emerald-300">NEXT ACTION</div>
-          <div className="mt-2 flex items-start gap-3">
-            <Target className="mt-0.5 h-5 w-5 shrink-0 text-emerald-300" />
-            <div>
-              <div className="text-sm font-semibold text-white">
-                {currentStep ? STEP_LABELS[currentStep].label : '初回売上ループを回す'}
-              </div>
-              <p className="mt-1 text-sm leading-6 text-zinc-300">{nextAction}</p>
-            </div>
-          </div>
-        </section>
+        <ExecutionReference entity={entity} />
 
-        <fieldset disabled={editingDisabled} className="grid gap-5 xl:grid-cols-[1.55fr_0.85fr] disabled:opacity-70">
-          <section className="space-y-3">
+        <fieldset disabled={editingDisabled} className="grid min-w-0 w-full gap-4 disabled:opacity-70">
+          <section className="grid min-w-0 gap-3 xl:grid-cols-2">
             {EXECUTION_STEP_IDS.map((step, index) => {
               const done = project.completedSteps.includes(step);
               return (
                 <article
                   key={step}
-                  className={'rounded-xl border p-4 transition-colors ' + (
+                  className={'min-w-0 overflow-hidden rounded-md border transition-colors ' + (
                     done
                       ? 'border-emerald-400/20 bg-emerald-400/[0.035]'
-                      : 'border-white/[0.08] bg-[#0b0f15]'
+                      : 'border-white/[0.16] bg-[#101721]'
                   )}
                 >
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-center gap-2 border-b border-white/[0.12] bg-[#1a2530] px-3">
                     <button
                       type="button"
                       onClick={() => toggleStep(step)}
                       aria-pressed={done}
-                      className={'mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-colors ' + (
+                      aria-label={done ? `${STEP_LABELS[step].label}を未完了にする` : `${STEP_LABELS[step].label}を完了にする`}
+                      className="-ml-1 mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-transparent transition-colors hover:bg-white/[0.05]"
+                    >
+                      <span className={'flex h-6 w-6 items-center justify-center rounded-full border transition-colors ' + (
                         done
                           ? 'border-emerald-300 bg-emerald-300 text-zinc-950'
-                          : 'border-white/[0.18] bg-white/[0.03] text-transparent hover:border-emerald-300/60'
-                      )}
-                    >
-                      <Check className="h-3.5 w-3.5" />
+                          : 'border-white/[0.22] bg-white/[0.03] text-transparent'
+                      )}>
+                        <Check className="h-3.5 w-3.5" />
+                      </span>
                     </button>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-baseline gap-2">
+                    <div className="min-w-0 flex flex-1 flex-wrap items-baseline gap-2">
                         <span className="font-mono text-[10px] text-zinc-500">{String(index + 1).padStart(2, '0')}</span>
                         <h2 className="text-sm font-semibold text-zinc-100">{STEP_LABELS[step].label}</h2>
-                        <span className="font-mono text-[10px] text-emerald-400/80">{STEP_LABELS[step].en}</span>
-                      </div>
+                    </div>
+                  </div>
+                  <div className="px-4 pb-4">
                       <StepBody
                         step={step}
-                        entity={entity}
                         project={project}
                         updateProject={updateProject}
-                        firstActions={firstActions}
-                        acquisitionHints={acquisitionHints}
                       />
-                    </div>
                   </div>
                 </article>
               );
             })}
           </section>
 
-          <aside className="space-y-4">
-            <section className="rounded-xl border border-white/[0.08] bg-[#0b0f15] p-4">
-              <h2 className="text-xs font-bold tracking-wide text-zinc-200">元事例から持ってくるもの</h2>
-              <dl className="mt-3 space-y-3 text-xs">
-                <Fact label="狙う財布" value={entity.targetPainWallet || entity.essence?.targetCustomer || '未整理'} />
-                <Fact label="構造の型" value={entity.architecturePattern || '未整理'} />
-                <Fact label="配管" value={entity.pipelineStack || '未整理'} />
-                <Fact label="価格" value={entity.pricing?.pricePoint || entity.pricing?.model || '未確認'} />
-                <Fact label="最初の集客" value={entity.acquisition?.primaryFunnel || acquisitionHints[0] || '未確認'} />
-              </dl>
-            </section>
-
-            {blueprint && (
-              <section className="rounded-xl border border-white/[0.08] bg-[#0b0f15] p-4">
-                <h2 className="text-xs font-bold tracking-wide text-zinc-200">転用の急所</h2>
-                <dl className="mt-3 space-y-3 text-xs">
-                  <Fact label="標的" value={blueprint.targetPrey} />
-                  <Fact label="歪み" value={blueprint.structuralFlaw} />
-                  <Fact label="侵入口" value={blueprint.stealthEntry} />
-                  <Fact label="関所" value={blueprint.tollGateSetup} />
-                </dl>
-              </section>
-            )}
-
-            <section className="rounded-xl border border-white/[0.08] bg-[#0b0f15] p-4">
-              <label className="text-xs font-bold text-zinc-200" htmlFor="execution-notes">実行メモ</label>
-              <textarea
-                id="execution-notes"
-                value={project.notes}
-                onChange={(event) => updateProject({ notes: event.target.value.slice(0, MAX_EXECUTION_NOTES_LENGTH) })}
-                rows={8}
-                maxLength={MAX_EXECUTION_NOTES_LENGTH}
-                placeholder="やること、詰まった点、顧客の反応など"
-                className="mt-3 w-full resize-y rounded-lg border border-white/[0.1] bg-black/20 px-3 py-2 text-xs leading-5 text-zinc-200 outline-none placeholder:text-zinc-600 focus:border-emerald-400/50"
-              />
-            </section>
-          </aside>
         </fieldset>
       </main>
     </div>
@@ -667,39 +579,34 @@ function ExecutionWorkspace({
 
 function StepBody({
   step,
-  entity,
   project,
   updateProject,
-  firstActions,
-  acquisitionHints,
 }: {
   step: ExecutionStepId;
-  entity: ExecutionSource;
   project: ExecutionProject;
   updateProject: (patch: Partial<ExecutionProject>) => void;
-  firstActions: string[];
-  acquisitionHints: string[];
 }) {
   if (step === 'FIND') {
     return (
       <div className="mt-3 grid gap-3 md:grid-cols-2">
         <Field label="売るもの">
-          <input
+          <textarea
             value={project.offerName}
             onChange={(event) => updateProject({ offerName: event.target.value.slice(0, 300) })}
             placeholder="誰に何を売るか"
-            className={INPUT_CLASS}
+            rows={2}
+            className={INPUT_CLASS + ' [field-sizing:content] min-h-20 resize-y leading-relaxed'}
           />
         </Field>
         <Field label="最初の顧客">
-          <input
+          <textarea
             value={project.targetCustomer}
             onChange={(event) => updateProject({ targetCustomer: event.target.value.slice(0, 2000) })}
             placeholder="最初に金を払う人"
-            className={INPUT_CLASS}
+            rows={3}
+            className={INPUT_CLASS + ' [field-sizing:content] min-h-20 resize-y leading-relaxed'}
           />
         </Field>
-        <Hint text={entity.opportunityJudgment?.oneLineReason || entity.strategy.blindspot} />
       </div>
     );
   }
@@ -716,9 +623,6 @@ function StepBody({
             className={INPUT_CLASS}
           />
         </Field>
-        {firstActions.slice(0, 3).map((action, index) => (
-          <Hint key={String(index) + action} text={action} />
-        ))}
       </div>
     );
   }
@@ -746,7 +650,6 @@ function StepBody({
             className={INPUT_CLASS}
           />
         </Field>
-        <Hint text={entity.pricing ? entity.pricing.model + ' / ' + entity.pricing.pricePoint : 'まず1つの価格だけに絞る。'} />
       </div>
     );
   }
@@ -754,12 +657,16 @@ function StepBody({
   if (step === 'DISTRIBUTE') {
     return (
       <div className="mt-3 space-y-2">
-        {(acquisitionHints.length ? acquisitionHints : entity.operations.primaryChannels).slice(0, 4).map((hint, index) => (
-          <Hint key={String(index) + hint} text={hint} />
-        ))}
-        {!acquisitionHints.length && !entity.operations.primaryChannels.length && (
-          <Hint text="最初の見込み客がすでに集まっている場所を1つ選び、公開URLを出す。" />
-        )}
+        <Field label="実行メモ">
+          <textarea
+            value={project.notes}
+            onChange={(event) => updateProject({ notes: event.target.value.slice(0, MAX_EXECUTION_NOTES_LENGTH) })}
+            placeholder="案内先、日付、返答、次に確かめることなど"
+            rows={3}
+            maxLength={MAX_EXECUTION_NOTES_LENGTH}
+            className={INPUT_CLASS + ' resize-y'}
+          />
+        </Field>
       </div>
     );
   }
@@ -808,42 +715,27 @@ function StepBody({
           />
         </div>
       </Field>
-      <Field label="First Dollarの目標額（円）">
+      <Field label="初回売上の目標（円）">
         <input
           type="number"
           min={0}
           step={100}
           value={project.firstDollarTargetJpy || ''}
           onChange={(event) => updateProject({ firstDollarTargetJpy: safeMoney(event.target.value) })}
-          placeholder="1000"
+          placeholder="目標額を入力"
           className={INPUT_CLASS}
         />
       </Field>
-      <Hint text="ここは予測ではなく実額だけを入れる。1円でも売上が発生した時点で、情報探索から事業実行へ状態が変わる。" />
     </div>
   );
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <label className="block text-[11px] text-zinc-500">
+    <label className="block text-xs text-zinc-300">
       <span className="mb-1.5 block">{label}</span>
       {children}
     </label>
-  );
-}
-
-function Hint({ text }: { text: string }) {
-  if (!text) return null;
-  return <div className="rounded-lg border border-white/[0.07] bg-white/[0.025] px-3 py-2 text-xs leading-5 text-zinc-400 md:col-span-2">{text}</div>;
-}
-
-function Fact({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <dt className="text-[10px] font-mono text-zinc-600">{label}</dt>
-      <dd className="mt-1 leading-5 text-zinc-300">{value}</dd>
-    </div>
   );
 }
 
@@ -858,9 +750,9 @@ function Metric({
 }) {
   const toneClass = tone === 'green' ? 'text-emerald-300' : tone === 'red' ? 'text-red-300' : 'text-zinc-100';
   return (
-    <div className="rounded-lg border border-white/[0.06] bg-black/20 p-2.5">
-      <div className="text-[10px] text-zinc-600">{label}</div>
-      <div className={'mt-1 font-mono text-sm font-semibold ' + toneClass}>{value}</div>
+    <div className="border-l border-white/[0.14] pl-3 first:border-l-0 first:pl-0">
+      <span className="text-[11px] text-zinc-400">{label} </span>
+      <span className={'font-mono text-sm font-semibold ' + toneClass}>{value}</span>
     </div>
   );
 }
@@ -958,4 +850,23 @@ function executionRequestBody(project: ExecutionProject) {
     revision: project.revision,
     generation: project.generation,
   };
+}
+
+export function ExecutionReference({ entity }: { entity: ExecutionSource }) {
+  const rows = [
+    ['事業内容', entity.essence?.whatItDoes || entity.tagline],
+    ['顧客', entity.essence?.targetCustomer || entity.targetPainWallet],
+    ['事業構造', entity.architecturePattern], ['提供経路', entity.pipelineStack],
+    ['料金', [entity.pricing?.model, entity.pricing?.pricePoint].filter(Boolean).join(' / ')],
+    ['集客', entity.acquisition?.primaryFunnel || entity.strategy.initialTraction.join(' / ')],
+    ['着眼点', entity.strategy.blindspot], ['参入の切り口', entity.lootBlueprint?.stealthEntry],
+    ['提供の仕組み', entity.lootBlueprint?.tollGateSetup],
+  ].filter(([, value]) => value && value !== 'UNKNOWN');
+  if (entity.contextUnavailable || rows.length === 0) return null;
+  return <details className="rounded-md border border-white/[0.16] bg-[#101721] px-4 pb-1">
+    <summary className="cursor-pointer py-3 text-sm font-medium text-sky-200">参考事例: {entity.name}</summary>
+    <dl className="divide-y divide-white/[0.1] text-sm leading-6">{rows.map(([label, value]) => <div key={label} className="grid gap-1 py-3 sm:grid-cols-[120px_minmax(0,1fr)]"><dt className="text-xs text-zinc-400">{label}</dt><dd className="whitespace-pre-wrap break-words text-zinc-200">{value}</dd></div>)}</dl>
+    {entity.strategy.actionPlaybook.length > 0 && <ol className="list-decimal space-y-2 border-t border-white/[0.1] py-3 pl-5 text-sm leading-6 text-zinc-200">{entity.strategy.actionPlaybook.map((step, index) => <li key={index}>{step}</li>)}</ol>}
+    <Link href={`/?entity=${encodeURIComponent(entity.id)}`} className="inline-block py-3 text-sm text-sky-200">事例の詳細を見る</Link>
+  </details>;
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { entityDescription } from '@/platform/utils/entityDescription';
 import React, { useState, useEffect, useRef } from 'react';
 import { FinancialEntity } from '../../types/terminal';
 import { Search, X } from 'lucide-react';
@@ -103,10 +104,26 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
     return `¥${yen.toLocaleString()}`;
   };
 
+  const financialEvidenceLabel = (status?: FinancialEntity['pnl']['financialStatus']) => {
+    switch (status) {
+      case 'VERIFIED': return '一次資料';
+      case 'REPORTED': return '報告値';
+      case 'ESTIMATED': return '推定';
+      case 'POST_MORTEM': return '事後記録';
+      default: return '未確認';
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-24 px-4 bg-black/75 backdrop-blur-xs select-none">
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-24 px-4 bg-black/75 backdrop-blur-xs"
+      onClick={onClose}
+    >
       <div 
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="事例検索"
         className="w-full max-w-xl bg-[#090A0D] border border-white/[0.08] rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[70vh]"
       >
         {/* 検索入力 */}
@@ -116,19 +133,22 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
             ref={inputRef}
             type="text"
             value={query}
+            aria-label="会社名・事例名・ティッカー・事業内容で検索"
             onChange={(e) => {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDownList}
-            placeholder="銘柄名、ティッカー、突いた盲点で即座にジャンプ..."
-            className="flex-1 bg-transparent text-sm text-white placeholder-zinc-600 outline-none"
+            placeholder="会社名・事例名・ティッカー・事業内容を検索"
+            className="min-h-11 flex-1 bg-transparent text-sm text-white placeholder:text-zinc-400 outline-none"
           />
           <button
+            type="button"
             onClick={onClose}
-            className="p-1 text-zinc-500 hover:text-white"
+            aria-label="検索を閉じる"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-zinc-300 hover:bg-white/[0.07] hover:text-white"
           >
-            <X className="w-3.5 h-3.5" />
+            <X aria-hidden="true" className="w-4 h-4" />
           </button>
         </div>
 
@@ -137,17 +157,19 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
           {filtered.map((item, idx) => {
             const isSelected = idx === selectedIndex;
             return (
-              <div
+              <button
                 key={item.id}
+                type="button"
                 onClick={() => {
                   onSelectEntity(item.id);
                   onClose();
                 }}
                 onMouseEnter={() => setSelectedIndex(idx)}
-                className={`p-2.5 rounded cursor-pointer flex items-center justify-between transition-colors ${
+                aria-pressed={isSelected}
+                className={`w-full rounded-md p-3 text-left flex items-center justify-between gap-3 transition-colors ${
                   isSelected 
-                    ? 'bg-white/[0.08]' 
-                    : 'hover:bg-white/[0.03]'
+                    ? 'bg-sky-300/[0.14] ring-1 ring-inset ring-sky-300/30'
+                    : 'hover:bg-white/[0.05]'
                 }`}
               >
                 <div className="min-w-0 pr-3">
@@ -155,27 +177,32 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
                     <span className="text-xs font-semibold text-white truncate">
                       {item.name}
                     </span>
+                    <span className="shrink-0 rounded border border-white/[0.12] px-1.5 py-0.5 text-[10px] text-zinc-300">
+                      {financialEvidenceLabel(item.pnl.financialStatus)}
+                    </span>
                   </div>
-                  <p className="text-[11px] text-zinc-400 line-clamp-1 mt-0.5 font-sans">
-                    {item.strategy.blindspot}
+                  <p className="text-xs text-zinc-300 line-clamp-2 mt-1 font-sans">
+                    {entityDescription(item)}
                   </p>
                 </div>
 
-                <div className="text-right shrink-0 font-mono text-[11px]">
-                  <div className="text-white tabular-nums">
-                    {formatMoney(item.pnl.monthlyRevenue)}
+                <div className="shrink-0 text-right text-xs">
+                  <div className="text-zinc-400">売上（月額換算）</div>
+                  <div className="font-mono font-semibold tabular-nums text-white">
+                    {item.pnl.isRevenueUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? '未確認' : formatMoney(item.pnl.monthlyRevenue)}
                   </div>
-                  <div className="text-zinc-400 text-[10px] tabular-nums">
-                    営利 {item.pnl.operatingMargin}%
+                  <div className="mt-1 text-zinc-400">営業利益率</div>
+                  <div className="font-mono tabular-nums text-zinc-200">
+                    {item.pnl.isMarginUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? '未確認' : `${item.pnl.operatingMargin}%`}
                   </div>
                 </div>
-              </div>
+              </button>
             );
           })}
 
           {filtered.length === 0 && (
-            <div className="p-8 text-center text-xs text-zinc-600 font-mono">
-              一致する銘柄が見つかりません
+            <div className="p-8 text-center text-sm text-zinc-300">
+              一致する事例が見つかりません
             </div>
           )}
         </div>

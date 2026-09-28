@@ -1,40 +1,89 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0B0E14;
-  --foreground: #f3f4f6;
+  color-scheme: dark;
+  --background: #080d12;
+  --foreground: #f2f0eb;
+  --surface: #101820;
+  --surface-raised: #18232d;
+  --surface-overlay: #22303b;
+  --line: rgba(210, 218, 220, 0.16);
+  --accent: #e9a526;
+  --accent-strong: #ffd06a;
+  --positive: #71c69a;
+  --warning: #efb94f;
+  --danger: #e87972;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-positive: var(--positive);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 body {
-  background: #0B0E14;
-  color: #f3f4f6;
+  background: var(--background);
+  color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.011em;
+  letter-spacing: normal;
+  font-size: 16px;
+  line-height: 1.55;
 }
 
-/* スクロールバーの洗練（プロ用端末規格） */
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+/* Keep page-specific depth, type scale, and separators intact. */
+body .text-zinc-500 { color: #98a5ad; }
+body .text-zinc-600 { color: #8997a1; }
+
+.terminal-section-heading {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.65rem 0;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.terminal-data-value {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(188, 204, 218, 0.24);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(188, 204, 218, 0.4);
 }
 
 @keyframes ticker-slide {
@@ -61,4 +110,25 @@ body {
 
 .ticker-wrapper:hover .ticker-track {
   animation-play-state: paused;
+}
+
+::selection {
+  color: #08121d;
+  background: rgba(116, 180, 247, 0.78);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

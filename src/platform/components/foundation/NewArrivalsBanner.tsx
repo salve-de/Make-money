@@ -52,7 +52,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, o
 
   return (
     <div
-      className={`flex items-center justify-between gap-3 border-b px-3 py-2 text-xs ${
+      className={`flex min-h-9 items-center justify-between gap-3 border-b px-3 py-1.5 text-xs ${
         unread
           ? 'border-cyan-400/20 bg-cyan-500/[0.08] text-cyan-100'
           : 'border-white/[0.06] bg-white/[0.02] text-zinc-400'

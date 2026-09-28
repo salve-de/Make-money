@@ -1,11 +1,13 @@
 'use client';
 
+import { useModalFocus } from '@/platform/hooks/useModalFocus';
+
 import { legacyText } from '../model/legacy-fields';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Check,
-  Copy,
   Link2,
   X
 } from 'lucide-react';
@@ -43,18 +45,16 @@ export function getCleanShareText(
     cleaned = `『${cleaned}』`;
   }
 
-  const rev = entity.pnl?.monthlyRevenue || 0;
-  const profit = entity.pnl?.operatingProfit ?? 0;
-  const margin = entity.pnl?.operatingMargin ?? (rev > 0 ? Math.round((profit / rev) * 100) : 0);
+  const revenueKnown = !isFinancialUnavailable && entity.pnl?.financialStatus !== 'UNAVAILABLE' && !entity.pnl?.isRevenueUnconfirmed;
+  const profitKnown = !isFinancialUnavailable && entity.pnl?.financialStatus !== 'UNAVAILABLE' && !entity.pnl?.isOperatingProfitUnconfirmed;
+  const marginKnown = !isFinancialUnavailable && entity.pnl?.financialStatus !== 'UNAVAILABLE' && !entity.pnl?.isMarginUnconfirmed && Number.isFinite(entity.pnl?.operatingMargin) && (entity.pnl?.monthlyRevenue ?? 0) > 0;
+  const financials = [
+    revenueKnown ? `売上（月額換算）${formatMoney(entity.pnl.monthlyRevenue)}` : null,
+    profitKnown ? `営業利益（月額換算）${formatMoney(entity.pnl.operatingProfit)}` : null,
+    marginKnown ? `利益率 ${entity.pnl.operatingMargin}%` : null,
+  ].filter(Boolean);
 
-  const revText = isFinancialUnavailable ? '未確認' : formatMoney(rev);
-  const profitText = isFinancialUnavailable ? '未確認' : formatMoney(profit);
-
-  return `${cleaned}
-
-■ 対象: ${entity.name}${entity.country ? ` (${entity.country})` : ''}
-■ 財務: 月商${revText} / 純手残り${profitText}（利益率${margin}%）
-#KIN_KOROKU #資本主義の裏帳簿`;
+  return [entity.name, cleaned, financials.join(' / ')].filter(Boolean).join('\n\n');
 }
 
 async function safeCopyText(text: string): Promise<boolean> {
@@ -92,43 +92,36 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   isFinancialUnavailable
 }) => {
   const [copiedSection, setCopiedSection] = useState<'FULL' | 'TEXT' | 'URL' | 'INSTA' | 'TIKTOK' | null>(null);
-  const [partnerId, setPartnerId] = useState<string>('p_guest');
-
-  // パートナーIDの取得・生成
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      try {
-        const stored = localStorage.getItem('makemoney_partner_id');
-        if (stored) {
-          setPartnerId(stored);
-        } else {
-          const generated = 'p_' + Math.random().toString(36).substring(2, 9);
-          localStorage.setItem('makemoney_partner_id', generated);
-          setPartnerId(generated);
-        }
-      } catch {
-        // ignore local storage restriction
-      }
-    }, 0);
-    return () => clearTimeout(timer);
-  }, []);
+  const [copyFailed, setCopyFailed] = useState(false);
+  const { dialogRef, onKeyDown } = useModalFocus(isOpen, onClose);
 
   if (!isOpen) return null;
 
-  // 招待コード（ref）を最初から自動結合したURLを生成
-  const getReferralUrl = () => {
-    if (typeof window === 'undefined') return `https://make-money.app/?company=${encodeURIComponent(entity.id)}&ref=${partnerId}`;
-    const base = window.location.origin;
-    return `${base}/?company=${encodeURIComponent(entity.id)}&ref=${partnerId}`;
+  // 台帳側で解釈されるentityパラメーターを使い、未実装の紹介追跡IDは付与しない。
+  const getShareUrl = () => {
+    if (typeof window === 'undefined') return `https://make-money.app/?entity=${encodeURIComponent(entity.id)}`;
+    return `${window.location.origin}/?entity=${encodeURIComponent(entity.id)}`;
   };
 
-  const shareUrl = getReferralUrl();
+  const shareUrl = getShareUrl();
   const shareText = getCleanShareText(entity, formatMoney, isFinancialUnavailable);
   
-  // SNS投稿用の完全体メッセージ（文面 ＋ 紹介URL）
-  const fullMessageWithUrl = `${shareText}\n\n👇 詳細な裏帳簿・P&Lはこちら\n${shareUrl}`;
+  // SNS投稿用の文面と事例リンク
+  const fullMessageWithUrl = `${shareText}\n\n事例の詳細はこちら\n${shareUrl}`;
 
-  // 1. X (Twitter) - 文面と紹介URLを最初から完全合体して下書き直通
+  const copyAndReport = async (
+    text: string,
+    section: NonNullable<typeof copiedSection>,
+    resetAfterMs: number
+  ) => {
+    const success = await safeCopyText(text);
+    setCopyFailed(!success);
+    setCopiedSection(success ? section : null);
+    if (success) setTimeout(() => setCopiedSection(null), resetAfterMs);
+    return success;
+  };
+
+  // 1. X (Twitter) - 文面と事例リンクを下書きに渡す
   const handleShareX = () => {
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
     window.open(tweetUrl, '_blank', 'noopener,noreferrer');
@@ -146,252 +139,71 @@ export const ShareModal: React.FC<ShareModalProps> = ({
     window.open(lineUrl, '_blank', 'noopener,noreferrer');
   };
 
-  // 4. Instagram - 文面＋紹介URLを一括コピーして開く
+  // 4. Instagram - 文面と事例リンクをコピーして開く
   const handleShareInstagram = async () => {
-    await safeCopyText(fullMessageWithUrl);
-    setCopiedSection('INSTA');
-    setTimeout(() => setCopiedSection(null), 2500);
+    await copyAndReport(fullMessageWithUrl, 'INSTA', 2500);
     window.open('https://www.instagram.com', '_blank', 'noopener,noreferrer');
   };
 
-  // 5. TikTok - 文面＋紹介URLを一括コピーして開く
+  // 5. TikTok - 文面と事例リンクをコピーして開く
   const handleShareTikTok = async () => {
-    await safeCopyText(fullMessageWithUrl);
-    setCopiedSection('TIKTOK');
-    setTimeout(() => setCopiedSection(null), 2500);
+    await copyAndReport(fullMessageWithUrl, 'TIKTOK', 2500);
     window.open('https://www.tiktok.com', '_blank', 'noopener,noreferrer');
   };
 
   // 6. 文面のみコピー
   const handleCopyTextOnly = async () => {
-    await safeCopyText(shareText);
-    setCopiedSection('TEXT');
-    setTimeout(() => setCopiedSection(null), 2000);
+    await copyAndReport(shareText, 'TEXT', 2000);
   };
 
-  // 7. 最重要：文面と紹介URLを一括コピー（そのままSNSやブログに貼れる）
+  // 7. 文面と事例リンクを一括コピー
   const handleCopyFullBundle = async () => {
-    await safeCopyText(fullMessageWithUrl);
-    setCopiedSection('FULL');
-    setTimeout(() => setCopiedSection(null), 2500);
+    await copyAndReport(fullMessageWithUrl, 'FULL', 2500);
   };
 
   // 8. URLのみコピー
   const handleCopyUrlOnly = async () => {
-    await safeCopyText(shareUrl);
-    setCopiedSection('URL');
-    setTimeout(() => setCopiedSection(null), 2000);
+    await copyAndReport(shareUrl, 'URL', 2000);
   };
 
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xs animate-in fade-in duration-150"
-      onClick={onClose}
-    >
-      <div
-        className="bg-[#080B10] border border-white/[0.14] rounded-xl shadow-2xl max-w-md w-full overflow-hidden text-white relative animate-in zoom-in-95 duration-150"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* モーダルヘッダー */}
-        <div className="px-4 py-3 border-b border-white/[0.08] flex items-center justify-between bg-white/[0.02]">
-          <div className="flex items-center gap-2">
-            <h3 className="text-sm font-bold text-white tracking-tight flex items-center gap-1.5 font-sans">
-              <span>裏帳簿を共有</span>
-              <span className="text-[10px] font-mono font-normal text-zinc-400">({entity.name})</span>
-            </h3>
-            <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 font-bold">
-              ● 30%還元URL自動適用中
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="p-1 text-zinc-400 hover:text-white rounded-md hover:bg-white/[0.08] transition-colors cursor-pointer"
-            title="閉じる (Esc)"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="p-4 space-y-4">
-          {/* 文面プレビュー（「正体」単語なし） */}
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-              <span>共有テキスト（正体文面）</span>
-              <button
-                type="button"
-                onClick={handleCopyTextOnly}
-                className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 cursor-pointer font-bold"
-              >
-                {copiedSection === 'TEXT' ? (
-                  <>
-                    <Check className="w-3 h-3 text-emerald-400" />
-                    <span className="text-emerald-400">文面コピー完了</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3 h-3" />
-                    <span>文面のみコピー</span>
-                  </>
-                )}
-              </button>
-            </div>
-            <div className="bg-[#040609] border border-white/[0.08] rounded-lg p-2.5 text-[11px] text-zinc-300 font-sans leading-relaxed max-h-28 overflow-y-auto whitespace-pre-wrap select-all [scrollbar-width:thin]">
-              {shareText}
-            </div>
-          </div>
-
-          {/* SNS共有先グリッド */}
-          <div className="space-y-2">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 font-bold">共有先を選択（文面＋紹介URL直通）</span>
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-              {/* X (Twitter) */}
-              <button
-                type="button"
-                onClick={handleShareX}
-                className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.10] border border-white/[0.08] text-white transition-all cursor-pointer text-left group"
-              >
-                <div className="w-6 h-6 rounded bg-black flex items-center justify-center font-bold text-[13px] border border-white/[0.2] shrink-0">
-                  𝕏
-                </div>
-                <div className="min-w-0">
-                  <div className="font-bold text-xs truncate">X (Twitter)</div>
-                  <div className="text-[10px] text-zinc-400 truncate">文面＋URLでポスト直通</div>
-                </div>
-              </button>
-
-              {/* Threads */}
-              <button
-                type="button"
-                onClick={handleShareThreads}
-                className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.10] border border-white/[0.08] text-white transition-all cursor-pointer text-left group"
-              >
-                <div className="w-6 h-6 rounded bg-black flex items-center justify-center font-bold text-[11px] border border-white/[0.2] shrink-0">
-                  @
-                </div>
-                <div className="min-w-0">
-                  <div className="font-bold text-xs truncate">Threads</div>
-                  <div className="text-[10px] text-zinc-400 truncate">文面＋URLでスレッド直通</div>
-                </div>
-              </button>
-
-              {/* Instagram */}
-              <button
-                type="button"
-                onClick={handleShareInstagram}
-                className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.10] border border-white/[0.08] text-white transition-all cursor-pointer text-left group"
-              >
-                <div className="w-6 h-6 rounded bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center font-bold text-[11px] text-white shrink-0">
-                  IG
-                </div>
-                <div className="min-w-0">
-                  <div className="font-bold text-xs truncate">
-                    {copiedSection === 'INSTA' ? 'コピー完了！' : 'Instagram'}
-                  </div>
-                  <div className="text-[10px] text-zinc-400 truncate">文面＋URLコピー＆開く</div>
-                </div>
-              </button>
-
-              {/* TikTok */}
-              <button
-                type="button"
-                onClick={handleShareTikTok}
-                className="flex items-center gap-2.5 p-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.10] border border-white/[0.08] text-white transition-all cursor-pointer text-left group"
-              >
-                <div className="w-6 h-6 rounded bg-black flex items-center justify-center font-bold text-[11px] text-cyan-400 border border-cyan-500/40 shrink-0">
-                  TT
-                </div>
-                <div className="min-w-0">
-                  <div className="font-bold text-xs truncate">
-                    {copiedSection === 'TIKTOK' ? 'コピー完了！' : 'TikTok'}
-                  </div>
-                  <div className="text-[10px] text-zinc-400 truncate">文面＋URLコピー＆開く</div>
-                </div>
-              </button>
-
-              {/* LINE */}
-              <button
-                type="button"
-                onClick={handleShareLine}
-                className="col-span-2 flex items-center gap-2.5 p-2.5 rounded-lg bg-emerald-950/30 hover:bg-emerald-900/40 border border-emerald-500/30 text-white transition-all cursor-pointer text-left group"
-              >
-                <div className="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center font-black text-[10px] text-white shrink-0">
-                  LINE
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="font-bold text-xs text-emerald-300 truncate">LINE で友だち・グループに送る</div>
-                  <div className="text-[10px] text-zinc-400 truncate">文面＋紹介URLプラグインを開く</div>
-                </div>
-              </button>
-            </div>
-          </div>
-
-          {/* 区切り線 */}
-          <div className="h-[1px] bg-white/[0.08]" />
-
-          {/* 最下部アクション */}
-          <div className="space-y-2">
-            {/* メインアクション：文面と紹介URLを一括コピー */}
-            <button
-              type="button"
-              onClick={handleCopyFullBundle}
-              className={`w-full py-2.5 px-4 rounded-lg font-mono text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 border shadow-lg ${
-                copiedSection === 'FULL'
-                  ? 'bg-emerald-500 text-black border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.3)]'
-                  : 'bg-white text-black hover:bg-zinc-200 border-white'
-              }`}
-            >
-              {copiedSection === 'FULL' ? (
-                <>
-                  <Check className="w-4 h-4 text-black" />
-                  <span>文面と紹介URLを一括コピーしました！</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 text-black" />
-                  <span>文面と紹介URLを一括コピー（SNSに貼るだけ）</span>
-                </>
-              )}
-            </button>
-
-            {/* サブアクション：紹介URLのみコピー */}
-            <button
-              type="button"
-              onClick={handleCopyUrlOnly}
-              className={`w-full py-2 px-3 rounded-lg font-mono text-[11px] font-semibold transition-all cursor-pointer flex items-center justify-center gap-1.5 border ${
-                copiedSection === 'URL'
-                  ? 'bg-white/[0.1] text-emerald-300 border-emerald-500/40'
-                  : 'bg-white/[0.03] text-zinc-400 hover:text-white hover:bg-white/[0.07] border-white/[0.08]'
-              }`}
-            >
-              {copiedSection === 'URL' ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>紹介URLをコピーしました</span>
-                </>
-              ) : (
-                <>
-                  <Link2 className="w-3.5 h-3.5" />
-                  <span>紹介URLのみコピー</span>
-                </>
-              )}
+  return createPortal(
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-3" onClick={onClose}>
+      <div role="dialog" aria-modal="true" aria-labelledby="share-title" ref={dialogRef} onKeyDown={onKeyDown}
+        className="max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-lg border border-white/[0.18] bg-[#101721] text-white shadow-2xl" onClick={(event) => event.stopPropagation()}>
+        <header className="flex items-center justify-between gap-3 border-b border-white/[0.14] bg-[#1a2530] px-4 py-2">
+          <div className="min-w-0"><h2 id="share-title" className="text-sm font-semibold">事例を共有</h2><p className="truncate text-xs text-zinc-400">{entity.name}</p></div>
+          <button type="button" onClick={onClose} aria-label="共有を閉じる" className="flex h-10 w-10 shrink-0 items-center justify-center rounded hover:bg-white/10"><X className="h-4 w-4" /></button>
+        </header>
+        <div className="space-y-4 p-4">
+          <div className="flex items-center gap-2 rounded border border-white/[0.14] bg-black/20 p-2">
+            <input aria-label="共有リンク" readOnly value={shareUrl} className="min-w-0 flex-1 bg-transparent text-xs text-zinc-300 outline-none" />
+            <button type="button" onClick={handleCopyUrlOnly} className="inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded bg-sky-200 px-3 text-sm font-medium text-slate-950">
+              {copiedSection === 'URL' ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}{copiedSection === 'URL' ? 'コピー済み' : 'コピー'}
             </button>
           </div>
-
-          {/* パートナー紹介還元プログラム詳細案内 */}
-          <div className="pt-1 pb-0.5 text-center">
-            <a
-              href="/partners"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[11px] font-mono text-zinc-400 hover:text-amber-300 transition-colors group cursor-pointer py-1 px-2 rounded hover:bg-white/[0.04]"
-            >
-              <span>🎁 毎月30%の継続パートナー報酬について詳しく見る</span>
-              <span className="group-hover:translate-x-0.5 transition-transform text-amber-400">➔</span>
-            </a>
+          <details className="rounded border border-white/[0.14]">
+            <summary className="cursor-pointer px-3 py-3 text-sm text-zinc-200">紹介文もコピー</summary>
+            <div className="space-y-3 border-t border-white/[0.12] p-3">
+              <p className="max-h-40 overflow-y-auto whitespace-pre-wrap text-xs leading-6 text-zinc-300">{shareText}</p>
+              <div className="grid grid-cols-2 gap-2">
+                <button type="button" onClick={handleCopyTextOnly} className="min-h-10 rounded border border-white/[0.16] px-2 text-xs">{copiedSection === 'TEXT' ? 'コピー済み' : '文面のみ'}</button>
+                <button type="button" onClick={handleCopyFullBundle} className="min-h-10 rounded border border-white/[0.16] px-2 text-xs">{copiedSection === 'FULL' ? 'コピー済み' : '文面＋リンク'}</button>
+              </div>
+            </div>
+          </details>
+          <div className="grid grid-cols-3 gap-2 border-t border-white/[0.12] pt-3">
+            {[
+              {name: 'X', action: handleShareX},
+              {name: 'Threads', action: handleShareThreads},
+              {name: 'LINE', action: handleShareLine},
+              {name: copiedSection === 'INSTA' ? 'コピー済み' : 'Instagram', action: handleShareInstagram},
+              {name: copiedSection === 'TIKTOK' ? 'コピー済み' : 'TikTok', action: handleShareTikTok},
+            ].map((item, index) => <button key={index} type="button" onClick={item.action} className="min-h-10 rounded border border-white/[0.14] px-2 text-xs text-zinc-200 hover:bg-white/[0.06]">{item.name}</button>)}
           </div>
+          {copyFailed && <p role="status" className="text-xs text-amber-200">コピーできませんでした。共有リンクを選択してコピーしてください。</p>}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };

@@ -62,16 +62,16 @@ export interface MarketRadarTrendItem {
   };
 }
 
-export const RADAR_CATEGORIES: { key: RadarCategory; label: string; icon: string }[] = [
-  { key: 'ALL', label: 'すべての傾向', icon: '🔥' },
-  { key: 'AI_INFRA', label: 'AI配管・データ', icon: '⚡' },
-  { key: 'UNBUNDLED_SAAS', label: '外資SaaS解体', icon: '✂️' },
-  { key: 'PLATFORM_PARASITE', label: 'SNS規約寄生', icon: '📦' },
-  { key: 'VERTICAL_COMPLIANCE', label: '地方・法規制SaaS', icon: '⚖️' },
-  { key: 'BORING_BUSINESS', label: '退屈な実業関所', icon: '🛠️' },
-  { key: 'DATA_AS_A_SERVICE', label: 'スクレイピングDaaS', icon: '📊' },
-  { key: 'CREATOR_PIPELINE', label: 'メディア自動化', icon: '🎬' },
-  { key: 'OSS_INTEGRATION', label: 'OSS社内導入代行', icon: '🚀' },
+export const RADAR_CATEGORIES: { key: RadarCategory; label: string }[] = [
+  { key: 'ALL', label: 'すべての傾向' },
+  { key: 'AI_INFRA', label: 'AI・データ基盤' },
+  { key: 'UNBUNDLED_SAAS', label: 'SaaSの分業化' },
+  { key: 'PLATFORM_PARASITE', label: 'プラットフォーム周辺' },
+  { key: 'VERTICAL_COMPLIANCE', label: '地域・規制対応' },
+  { key: 'BORING_BUSINESS', label: '地域の実業' },
+  { key: 'DATA_AS_A_SERVICE', label: 'データサービス' },
+  { key: 'CREATOR_PIPELINE', label: 'メディア運営' },
+  { key: 'OSS_INTEGRATION', label: 'OSS導入支援' },
 ];
 
 export const MARKET_RADAR_TRENDS: MarketRadarTrendItem[] = [
@@ -601,4 +601,3 @@ export const MARKET_RADAR_LANDMINES: MarketRadarLandmineItem[] = [
     },
   },
 ];
-

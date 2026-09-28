@@ -81,6 +81,27 @@
             "null"
           ]
         },
+        "resultEvidenceLabel": {
+          "type": "string"
+        },
+        "resultPeriod": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resultSource": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resultPeriodNote": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "startLine": {
           "type": "string"
         },
@@ -207,6 +228,10 @@
         "resultLabel",
         "resultValue",
         "resultAmountJpy",
+        "resultEvidenceLabel",
+        "resultPeriod",
+        "resultSource",
+        "resultPeriodNote",
         "startLine",
         "criticalInsight",
         "whyMoneyMoved",

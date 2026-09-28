@@ -6,14 +6,14 @@ test('company list opens financials and evidence, then closes and reopens the in
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
   await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
-  await page.getByTitle('閉じる (Esc)', { exact: true }).click();
+  await page.getByRole('button', { name: '閉じる', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toHaveCount(0);
-  await page.getByPlaceholder(/銘柄名/).first().fill('Jasper');
+  await page.getByPlaceholder(/会社名・ティッカー/).first().fill('Jasper');
   const row = page.getByRole('row').filter({ hasText: 'Jasper.ai (旧 Jarvis)' }).filter({ visible: true });
   await expect(row).toHaveCount(1);
   await row.click();
   await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: /^0[23]\s*損益$/ }).click();
+  await page.locator('#section-cash-anatomy').scrollIntoViewIfNeeded();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
   await expect(financials).toContainText('売上高');
@@ -25,13 +25,14 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(financials).not.toContainText('通帳引き算バー');
   await expect(financials.locator('canvas')).toHaveCount(0);
   await expect(financials).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
-  await page.getByRole('button', { name: /根拠/ }).click();
+  await page.locator('#section-evidence').scrollIntoViewIfNeeded();
   const evidence = page.locator('#section-evidence');
   await expect(evidence).toBeInViewport();
-  await expect(evidence).toContainText(/失敗・撤退の事実ログ|致命的特異点・死因物証保全ファイル/);
+  await expect(evidence).toContainText(/撤退・破綻に関する記録/);
   await expect(evidence).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
-  await page.getByRole('button', { name: '証拠', exact: true }).click();
-  await expect(page.getByText('保存済み観測を表示', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: '出典・記録', exact: true }).click();
+  await page.getByText('登録メモを見る', { exact: true }).click();
+  await expect(page.locator('#section-stream')).toBeVisible();
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toHaveCount(0);
@@ -65,8 +66,8 @@ test('malformed Foundation response cannot replace the usable core list', async 
   await expect.poll(() => warnings.some((warning) => warning.includes('Foundation Lake read failed'))).toBe(true);
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.getByText('Invalid remote company', { exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: /^0[23]\s*損益$/ }).click();
-  await expect(page.locator('#section-cash-anatomy')).toContainText('未確認');
+  await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
+  await expect(page.locator('#section-summary')).not.toContainText('¥0');
   expect(errors).toEqual([]);
 });
 
@@ -89,7 +90,7 @@ test('sparse Foundation candidate cannot replace a curated dossier with the same
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Photo AI (候補)', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: /根拠/ }).click();
+  await page.locator('#section-evidence').scrollIntoViewIfNeeded();
   await expect(page.locator('#section-evidence')).toContainText('継続MRRではない');
   expect(detailRequests).toBe(0);
   expect(errors).toEqual([]);
@@ -101,9 +102,9 @@ test('existing hazard dossier keeps its loss label and dynamic evidence', async 
   await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
   const heading = page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true });
   await expect(heading).toBeVisible();
-  await expect(page.locator('#section-evidence')).toContainText(/失敗・撤退の事実ログ|致命的特異点・死因物証保全ファイル/);
+  await expect(page.locator('#section-evidence')).toContainText(/撤退・破綻に関する記録/);
   await expect(page.locator('#section-evidence')).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
-  await page.getByRole('button', { name: /^0[23]\s*損益$/ }).click();
+  await page.locator('#section-cash-anatomy').scrollIntoViewIfNeeded();
   const inspector = page.getByRole('complementary').filter({ has: heading });
   await expect(inspector).toContainText('営業利益');
   await expect(inspector).not.toContainText('赤字出血');
@@ -192,7 +193,7 @@ test('remote revenue-only detail leaves profit unknown and does not invent a wat
   await page.goto('/?entity=ent_smoke_revenue_only');
   await expect.poll(() => detailReturned).toBe(true);
   await expect(page.getByRole('heading', { name: '境界確認企業', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: /^0[23]\s*損益$/ }).click();
+  await page.locator('#section-cash-anatomy').scrollIntoViewIfNeeded();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toContainText('¥12万');
   await expect(financials).toContainText('未確認');
@@ -201,14 +202,11 @@ test('remote revenue-only detail leaves profit unknown and does not invent a wat
   expect(errors).toEqual([]);
 });
 
-test('unconfirmed financials have an honest label and a working navigation target', async ({ page }) => {
+test('unconfirmed financials omit the result card without fabricating zero values', async ({ page }) => {
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
-  const jump = page.getByRole('button', { name: /^0[23]\s*損益$/ });
-  await expect(jump).toBeVisible();
-  await jump.click();
-  const section = page.locator('#section-cash-anatomy');
-  await expect(section).toBeInViewport();
-  await expect(section).toContainText(/財務データ.*(未確認|非公開)/);
-  await expect(section).not.toContainText('¥0');
+  await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
+  await expect(page.locator('#section-summary')).not.toContainText('¥0');
+  await page.getByRole('button', { name: '出典・記録', exact: true }).click();
+  await expect(page.locator('#section-sources')).toBeVisible();
 });

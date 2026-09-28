@@ -49,33 +49,16 @@ export function CashAnatomySection({
   const grossProfitUnknown = Boolean(entity.pnl.isGrossProfitUnconfirmed || entity.pnl.isGrossMarginUnconfirmed || cogsUnknown);
 
   const statusLabel = {
-    VERIFIED: '一次確認済',
-    REPORTED: '創業者公表',
-    ESTIMATED: '逆算推計',
-    POST_MORTEM: '撤退・失敗の検証',
+    VERIFIED: '一次資料',
+    REPORTED: '報道・取材',
+    ESTIMATED: '推計',
+    POST_MORTEM: '事後資料',
     UNAVAILABLE: '未確認',
   }[entity.pnl.financialStatus || 'UNAVAILABLE'];
 
   // 財務データがない場合
   if (isFinancialUnavailable || rev <= 0 || entity.pnl.isRevenueUnconfirmed) {
-    return (
-      <InspectorSectionCard
-        id="section-cash-anatomy"
-        index="02"
-        categoryEn="FINANCIAL DOSSIER"
-        titleJa="財務データ・損益状況"
-        badge={
-          <span className="rounded border border-white/[0.10] bg-white/[0.04] px-2 py-0.5 text-zinc-400 font-mono text-[11px]">
-            未確認
-          </span>
-        }
-        isHazardMode={isHazardMode}
-      >
-        <div className="p-4 sm:p-5 text-zinc-400 text-xs leading-relaxed">
-          財務数値は未公開です。定性的な事業モデル・現場証拠を優先して検証しています。
-        </div>
-      </InspectorSectionCard>
-    );
+    return null;
   }
 
   const badgeElement = (
@@ -91,31 +74,15 @@ export function CashAnatomySection({
     </div>
   );
 
-  const leadText = isHazardMode
-    ? '見栄の売上成長の裏で、毎月いくらの現金が流出し破綻に至ったかの【致命的出血点（ユニットエコノミクスの崩壊）】を解剖する。'
-    : '見栄の売上ではなく、売上原価および販管費（API・インフラ・広告・外注）を差し引いた後の【創業者個人の手残り現金実額（営業利益）】を解剖する。';
-
   return (
     <InspectorSectionCard
       id="section-cash-anatomy"
       index="02"
       categoryEn="FINANCIAL DOSSIER"
-      titleJa={isHazardMode ? '月次損益・致死出血点' : '月次損益計算書 (P&L)'}
+      titleJa={isHazardMode ? '損失と撤退要因' : '損益（月額換算）'}
       badge={badgeElement}
       isHazardMode={isHazardMode}
     >
-      {/* セクション・リード文 */}
-      <div className="px-4 py-3 sm:px-5 sm:py-3.5 bg-white/[0.02] border-b border-white/[0.06] text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-sans">
-        <span className={`text-[10px] font-mono uppercase tracking-wider font-bold px-1.5 py-0.5 rounded border mr-2 ${
-          isHazardMode
-            ? 'bg-red-500/10 text-red-300 border-red-500/30'
-            : 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30'
-        }`}>
-          {isHazardMode ? 'BURN RATE / 出血解剖' : 'CASH WATERFALL / 手残り構造'}
-        </span>
-        {leadText}
-      </div>
-
       {/* 4大財務サマリー */}
       <div className="grid grid-cols-2 sm:grid-cols-4 border-b border-white/[0.07] bg-[#090d13]">
         <div className="p-3.5 sm:px-4 sm:py-3">

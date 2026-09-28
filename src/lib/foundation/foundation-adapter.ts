@@ -31,14 +31,16 @@ import {
   cleanIntelligenceText,
   cleanMetricLabel,
   formatHumanMoney,
+  formatObservedMetricValue,
   cleanMoneyLabel,
   readableObservationText,
 } from './text-cleaner';
 
 /**
- * Only high-density, evidence-backed Foundation projections enter the main
- * ledger. Candidate summaries remain available through the read API and can
- * be opened directly, but they must not replace a curated local dossier.
+ * Only high-density, evidence-backed Foundation projections may replace an
+ * already-curated local dossier. Candidate summaries remain available as
+ * clearly labelled read-only records so incomplete evidence is not silently
+ * discarded.
  */
 export function isFoundationDossierReady(summary: FoundationValueSummary): boolean {
   const profile = summary.valueProfile;
@@ -101,7 +103,9 @@ export function inferArchitecturePattern(entityType: string, text?: string): str
   if (/restaurant|food service|飲食/i.test(combined)) return '飲食事業';
   if (/local service|salon|clinic|agency|サービス|美容|診療|代理店/i.test(combined)) return '地域サービス';
   if (/hardware|equipment|physical asset|real estate|ハードウェア|設備|不動産/i.test(combined)) return '物理資産型';
-  if (/ai|人工知能/i.test(combined)) return 'AI特化SaaS';
+  // Match AI as a term, not as a substring (for example, "remains" must not
+  // turn an offline closure record into an AI business).
+  if (/\bai\b|artificial[\s-]+intelligence|人工知能/i.test(combined)) return 'AI特化SaaS';
   if (/saas|software|ツール|プロダクト/i.test(combined)) return 'B2B SaaS';
   return '事業型未確認';
 }
@@ -405,6 +409,7 @@ export function adaptFoundationSummaryToFinancialEntity(
   // タグ構成（捏造を排除）
   const tags: string[] = [];
   if (summary.isNew) tags.push('新着');
+  if (vp.tier === 'CANDIDATE') tags.push('未精査候補');
   if (!isUnconfirmed && monthlyJpy > 0) tags.push('収益確認済');
   tags.push(sectorTagLabel(sector));
 
@@ -576,6 +581,7 @@ export function adaptFoundationDetailToFinancialEntity(
     if (!readable && !canCarryPublicPayload) continue;
     observationsStream.push({
       id: obs.id,
+      evidenceIds: obs.evidenceIds,
       category: 'MARKET_DISTORTION',
       categoryLabel: '現場観測事実',
       text: cleanIntelligenceText(readable || obs.kind || '構造化観測データ'),
@@ -609,6 +615,7 @@ export function adaptFoundationDetailToFinancialEntity(
   for (const cl of claims) {
     observationsStream.push({
       id: cl.id,
+      evidenceIds: cl.evidenceIds,
       category: 'FOUNDER_HACK',
       categoryLabel: '公表ファクト・財務・戦略データ',
       text: cleanIntelligenceText(cl.statement),
@@ -625,9 +632,10 @@ export function adaptFoundationDetailToFinancialEntity(
   for (const metric of metrics) {
     observationsStream.push({
       id: `${metric.id}_metric`,
+      evidenceIds: metric.evidenceIds,
       category: metric.verificationStatus === 'SUPPORTED' ? 'TECH_VERIFICATION' : 'RESEARCH_LIMIT',
       categoryLabel: metric.verificationStatus === 'SUPPORTED' ? '財務・価格記録' : '未検証財務候補',
-      text: cleanIntelligenceText(`${cleanMetricLabel(metric.metricType)}: ${formatHumanMoney(metric.value, metric.currency, metric.unit)}${metric.periodStart || metric.periodEnd ? ` (${metric.periodStart || '?'}–${metric.periodEnd || '?'})` : ''}`),
+      text: cleanIntelligenceText(`${cleanMetricLabel(metric.metricType)}: ${formatObservedMetricValue(metric.metricType, metric.value, metric.currency, metric.unit)}${metric.periodStart || metric.periodEnd ? ` (${metric.periodStart || '?'}–${metric.periodEnd || '?'})` : ''}`),
       originType: normalizeObservationOrigin(metric.originType),
       verificationStatus: normalizeObservationStatus(metric.verificationStatus),
       observedAt: metric.pointInTime || metric.periodEnd || metric.periodStart || undefined,
@@ -637,6 +645,7 @@ export function adaptFoundationDetailToFinancialEntity(
   for (const money of moneySignals) {
     observationsStream.push({
       id: `${money.id}_money`,
+      evidenceIds: money.evidenceIds,
       category: money.verificationStatus === 'SUPPORTED' ? 'TECH_VERIFICATION' : 'RESEARCH_LIMIT',
       categoryLabel: money.verificationStatus === 'SUPPORTED' ? '財務・価格記録' : '未検証財務候補',
       text: cleanIntelligenceText(`${cleanMetricLabel(money.moneyType)}: ${formatHumanMoney(money.amount, money.currency, money.unit, money.amountLabel)}${money.periodStart || money.periodEnd ? ` (${money.periodStart || '?'}–${money.periodEnd || '?'})` : ''}`),
@@ -652,6 +661,7 @@ export function adaptFoundationDetailToFinancialEntity(
   for (const relationship of relationships) {
     observationsStream.push({
       id: `${relationship.id}_relationship`,
+      evidenceIds: relationship.evidenceIds,
       category: relationship.verificationStatus === 'SUPPORTED' ? 'MARKET_DISTORTION' : 'RESEARCH_LIMIT',
       categoryLabel: relationship.verificationStatus === 'SUPPORTED' ? '関係記録' : '未検証関係候補',
       text: cleanIntelligenceText(`${relationship.predicate}: ${relationship.object || '対象未確認'}${relationship.validFrom || relationship.validTo ? ` (${relationship.validFrom || '?'}–${relationship.validTo || '?'})` : ''}`),
@@ -664,6 +674,7 @@ export function adaptFoundationDetailToFinancialEntity(
   for (const dr of derived) {
     observationsStream.push({
       id: dr.id,
+      evidenceIds: dr.supportingEvidenceIds,
       category: 'INCUMBENT_DILEMMA',
       categoryLabel: '構造解剖インサイト',
       text: cleanIntelligenceText(dr.text),
@@ -680,6 +691,7 @@ export function adaptFoundationDetailToFinancialEntity(
     if (hasSupportedEvidence(ev)) continue;
     observationsStream.push({
       id: `${ev.id}_event`,
+      evidenceIds: ev.evidenceIds,
       category: 'RESEARCH_LIMIT',
       categoryLabel: '未検証タイムライン候補',
       text: cleanIntelligenceText(`${ev.eventType}: ${ev.description}`),
@@ -743,6 +755,9 @@ export function adaptFoundationDetailToFinancialEntity(
 
   // 12. タグ構成（客観ファクトのみ、捏造厳禁）
   const tags = new Set<string>();
+  if (detail.valueProfile.tier === 'CANDIDATE') {
+    tags.add('未精査候補');
+  }
   if (headcountMetric && headcountMetric.value === 1) {
     tags.add('完全1人');
   } else if (hasTeamSize && teamSize <= 5) {

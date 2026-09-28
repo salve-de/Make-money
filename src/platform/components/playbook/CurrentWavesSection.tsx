@@ -1,13 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  MacroIntelligenceData,
-} from '@/lib/intelligence/macro-aggregator';
-import {
-  Flame,
-  Zap,
-} from 'lucide-react';
+import type { MacroIntelligenceData } from '@/lib/intelligence/macro-aggregator';
 
 interface CurrentWavesSectionProps {
   currentWaves: MacroIntelligenceData['currentWaves'];
@@ -16,114 +10,95 @@ interface CurrentWavesSectionProps {
   activeWave?: MacroIntelligenceData['currentWaves'][number];
 }
 
-export const CurrentWavesSection: React.FC<CurrentWavesSectionProps> = ({
-  currentWaves,
-  selectedWaveId,
-  setSelectedWaveId,
-  activeWave,
-}) => {
+type ModelGuide = { title: string; summary: string; customer: string; offer: string; revenue: string; verify: string };
+
+const MODELS: Record<string, ModelGuide> = {
+  'wave-saas-boilerplate': {
+    title: 'アプリ開発用テンプレートの販売',
+    summary: '認証、決済、通知など繰り返し作る部分をまとめて提供する案。',
+    customer: '新しいWebサービスを立ち上げる開発者や小規模チーム。',
+    offer: '動くコード、導入手順、更新時の互換性情報。',
+    revenue: 'ライセンス販売と継続更新・サポート。',
+    verify: '買い手が自作をやめてまで使いたい部分と、保守に必要な時間。',
+  },
+  'wave-privacy-b2b': {
+    title: 'シンプルなアクセス解析',
+    summary: 'サイトの利用状況を、必要な項目に絞って見せる案。',
+    customer: '専門の分析担当がいないサイト運営者。',
+    offer: '訪問、流入、主要な操作を確認できる画面。',
+    revenue: 'サイト数や利用量に応じた継続利用料。',
+    verify: '利用者が本当に見る指標、取得への同意、既存ツールからの移行負担。',
+  },
+  'wave-b2b-expense-ai': {
+    title: '組織向けプロフィール写真の制作',
+    summary: '複数人の写真制作と更新を、組織として管理できるようにする案。',
+    customer: '社員紹介や営業資料の写真をそろえたい事業者。',
+    offer: '撮影・編集の受付、確認、納品、利用許諾の管理。',
+    revenue: '人数・制作回数に応じた料金、または年間契約。',
+    verify: '本人の同意、肖像の利用範囲、品質基準、修正対応。',
+  },
+  'wave-faceless-commerce': {
+    title: '商品の実演動画制作',
+    summary: '顔出しを前提にせず、使用場面が伝わる短い動画を作る案。',
+    customer: '商品の使い方を画面上で説明したい販売者。',
+    offer: '構成、撮影、編集、掲載先に合わせた動画データ。',
+    revenue: '動画ごとの制作費用や継続制作契約。',
+    verify: '商品の実物確認、広告表示のルール、動画経由の販売結果。',
+  },
+};
+
+const ModelDetail: React.FC<{ guide: ModelGuide; wave: CurrentWavesSectionProps["currentWaves"][number] }> = ({ guide, wave }) => (
+  <div className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
+    <h3 className="hidden border-b border-white/[0.12] bg-[#1a2530] px-4 py-3 text-base font-semibold text-white lg:block">{guide.title}</h3>
+    <dl className="divide-y divide-white/[0.1] px-4 text-sm leading-6">
+      {[
+        ['想定する顧客', guide.customer],
+        ['提供するもの', guide.offer],
+        ['収益の取り方', guide.revenue],
+        ['成立を確かめる点', guide.verify],
+      ].map(([label, value]) => (
+        <div key={label} className="grid gap-0.5 py-2 sm:py-2.5 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-4">
+          <dt className="text-xs font-medium text-sky-200">{label}</dt>
+          <dd className="text-zinc-200">{value}</dd>
+        </div>
+      ))}
+    </dl>
+    <details className="border-t border-white/[0.12] px-4 pb-3">
+      <summary className="cursor-pointer py-3 text-sm font-medium text-sky-200">背景・手順の資料</summary>
+      <div className="space-y-3 text-sm leading-6 text-zinc-200">
+        <p>{wave.whyItWinsNow}</p><p>{wave.shelfLifeAnalysis}</p>
+        <h4 className="font-medium">{wave.lootBlueprint.headline}</h4>
+        <ol className="list-decimal space-y-2 pl-5">{wave.lootBlueprint.steps.map((step, index) => <li key={index}>{step}</li>)}</ol>
+        {wave.proofEntities.length > 0 && <section className="border-t border-white/[0.1] pt-3"><h4 className="text-xs font-medium text-zinc-400">資料内の参考例</h4>{wave.proofEntities.map((entity) => <p key={entity.id} className="mt-2"><span className="font-medium">{entity.name}</span> — {entity.tagline}</p>)}</section>}
+      </div>
+    </details>
+  </div>
+);
+
+export const CurrentWavesSection: React.FC<CurrentWavesSectionProps> = ({ currentWaves, selectedWaveId, setSelectedWaveId }) => {
+  const selected = currentWaves.find((wave) => wave.id === selectedWaveId) ?? currentWaves[0];
   return (
-    <div className="p-4 sm:p-6 max-w-7xl mx-auto space-y-6">
-      <div className="bg-[#090A0F] border border-emerald-500/20 rounded-lg p-4 sm:p-5">
-        <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono font-semibold tracking-wider uppercase mb-1">
-          <Flame className="w-3.5 h-3.5" />
-          <span>Actionable Playbook Directory</span>
-        </div>
-        <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-          事業の組み立てを考える参考プレイブック
-        </h2>
-        <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-          顧客が支払う理由と事業の組み立て方の参考例。利益額や現在の有効性は未確認です。
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-5 space-y-3">
-          {currentWaves.map((wave) => {
-            const isSelected = selectedWaveId === wave.id;
-            return (
-              <div
-                key={wave.id}
-                onClick={() => setSelectedWaveId(wave.id)}
-                className={`p-4 rounded-lg border transition-all cursor-pointer ${
-                  isSelected
-                    ? 'bg-emerald-500/10 border-emerald-500/40 text-white shadow-lg'
-                    : 'bg-[#08090D] border-white/[0.06] text-zinc-300 hover:border-white/[0.15]'
-                }`}
-              >
-                <div className="flex items-center justify-between text-xs font-mono mb-1.5">
-                  <span className="text-emerald-400 font-bold">{wave.badge}</span>
-                  <span className="text-zinc-500">回収: {wave.paybackDays}</span>
-                </div>
-                <h3 className="text-sm font-bold text-white tracking-tight mb-1.5 leading-snug">{wave.title}</h3>
-                <div className="flex items-center gap-3 text-xs font-mono text-zinc-400 mb-1.5">
-                  <span>月商: 約{(wave.medianRevenueJpy / 10000).toLocaleString()}万円</span>
-                  <span>粗利: {wave.marginPercent}%</span>
-                </div>
-                <p className="text-xs text-zinc-400 line-clamp-2">{wave.targetPainWallet}</p>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="lg:col-span-7">
-          {activeWave && (
-            <div className="bg-[#08090D] border border-white/[0.08] rounded-lg p-5 sm:p-6 space-y-4 sticky top-4">
-              <div>
-                <span className="px-2 py-0.5 rounded text-xs font-mono bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
-                  {activeWave.viabilityLabel}
-                </span>
-                <h3 className="text-lg font-bold text-white tracking-tight mt-2">{activeWave.title}</h3>
-                <div className="text-xs text-zinc-400 font-mono mt-1">
-                  月商 約{(activeWave.medianRevenueJpy / 10000).toLocaleString()}万円 | 営業利益率 {activeWave.marginPercent}%
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="text-xs font-mono text-zinc-400 font-semibold">【顧客が思わずお金を払う切実な理由】</div>
-                <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed bg-white/[0.02] border border-white/[0.04] p-3 rounded">
-                  {activeWave.targetPainWallet}
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <div className="text-xs font-mono text-cyan-400 font-semibold">【なぜ今勝てるのか】</div>
-                <p className="text-xs text-zinc-300 leading-relaxed">{activeWave.whyItWinsNow}</p>
-              </div>
-
-              <div className="bg-amber-950/20 border border-amber-500/20 p-3 rounded text-xs space-y-1">
-                <div className="text-amber-400 font-mono font-bold">【賞味期限・後発参入の冷酷判定】</div>
-                <p className="text-zinc-300 leading-relaxed">{activeWave.shelfLifeAnalysis}</p>
-              </div>
-
-              <div className="space-y-2 pt-2 border-t border-white/[0.06]">
-                <div className="text-xs font-mono font-semibold text-emerald-400 flex items-center gap-1">
-                  <Zap className="w-3.5 h-3.5" />
-                  <span>【今夜別業界で同じズルを使って稼ぐ3ステップ】</span>
-                </div>
-                <div className="text-xs font-bold text-white">{activeWave.lootBlueprint.headline}</div>
-                <div className="space-y-1.5">
-                  {activeWave.lootBlueprint.steps.map((step, idx) => (
-                    <div key={idx} className="bg-white/[0.02] border border-white/[0.06] p-2.5 rounded text-xs text-zinc-200 leading-relaxed">
-                      {step}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-2 border-t border-white/[0.06]">
-                <div className="text-[11px] font-mono text-zinc-400 mb-1">【裏付け実在企業】:</div>
-                {activeWave.proofEntities.map((ent) => (
-                  <div key={ent.id} className="flex items-center justify-between text-xs bg-white/[0.02] border border-white/[0.04] px-3 py-1.5 rounded">
-                    <span className="font-bold text-white">{ent.name}</span>
-                    <span className="text-emerald-400 font-mono">月商 約{(ent.monthlyRevenueJpy / 10000).toLocaleString()}万円</span>
-                  </div>
-                ))}
-              </div>
+    <div className="mx-auto grid max-w-7xl gap-3 p-3 sm:p-5 lg:grid-cols-[minmax(260px,36%)_minmax(0,1fr)]">
+      <div className="space-y-2">
+        {currentWaves.map((wave) => {
+          const guide = waveGuide(wave);
+          const isSelected = selected?.id === wave.id;
+          return (
+            <div key={wave.id}>
+              <button type="button" onClick={() => setSelectedWaveId(wave.id)} aria-pressed={isSelected} className={`w-full rounded-md border-l-[3px] px-3 py-3 text-left transition-colors ${isSelected ? 'border-sky-300 bg-[#1a2530]' : 'border-transparent bg-[#101721] hover:bg-[#18212b]'}`}>
+                <span className="block text-sm font-semibold text-white">{guide.title}</span>
+                <span className="mt-1 block text-sm leading-5 text-zinc-300">{guide.summary}</span>
+              </button>
+              {isSelected && <div className="mt-2 lg:hidden"><ModelDetail guide={guide} wave={wave} /></div>}
             </div>
-          )}
-        </div>
+          );
+        })}
       </div>
+      <div className="hidden lg:block">{selected && <ModelDetail guide={waveGuide(selected)} wave={selected} />}</div>
     </div>
   );
 };
+
+function waveGuide(wave: CurrentWavesSectionProps['currentWaves'][number]): ModelGuide {
+  return MODELS[wave.id] ?? { title: wave.title, summary: wave.targetPainWallet, customer: wave.targetPainWallet, offer: wave.lootBlueprint.headline, revenue: wave.whyItWinsNow, verify: wave.shelfLifeAnalysis };
+}
