@@ -1,17 +1,25 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { ArrowRight, Plus } from 'lucide-react';
 
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
-import { listPublishedMarketplaceListings } from '@/lib/marketplace/listing-store';
+import { listPublishedMarketplaceListings, parseMarketplaceOffset, MARKETPLACE_PAGE_SIZE } from '@/lib/marketplace/listing-store';
 import { MARKETPLACE_CATEGORY_LABELS } from '@/shared/marketplace-listing';
 
 export const dynamic = 'force-dynamic';
 
-export default async function MarketplacePage() {
+export default async function MarketplacePage({ searchParams }: {
+  searchParams: Promise<{ offset?: string | string[] }>;
+}) {
+  let offset: number;
+  try { offset = parseMarketplaceOffset((await searchParams).offset); } catch { notFound(); }
   let listings = null;
+  let nextOffset: number | null = null;
   let unavailable = false;
   try {
-    listings = await listPublishedMarketplaceListings();
+    const page = await listPublishedMarketplaceListings(MARKETPLACE_PAGE_SIZE, offset);
+    listings = page.listings;
+    nextOffset = page.nextOffset;
   } catch {
     unavailable = true;
   }
@@ -40,7 +48,7 @@ export default async function MarketplacePage() {
           <section className="mt-8 rounded-xl border border-amber-400/20 bg-amber-400/[0.04] p-6 text-sm text-amber-100/80">掲載サービスを読み込めませんでした。時間をおいて再読み込みしてください。</section>
         ) : listings?.length === 0 ? (
           <section className="mt-8 rounded-xl border border-dashed border-white/[0.12] bg-white/[0.02] p-8 text-center">
-            <h2 className="text-sm font-semibold text-zinc-200">まだ掲載サービスはありません</h2>
+            <h2 className="text-sm font-semibold text-zinc-200">{offset > 0 ? 'このページに掲載サービスはありません' : 'まだ掲載サービスはありません'}</h2>
             <p className="mx-auto mt-2 max-w-lg text-xs leading-5 text-zinc-500">Builderでも外部ツールでも、サービスを公開したら掲載ページを作れます。</p>
           </section>
         ) : (
@@ -57,6 +65,12 @@ export default async function MarketplacePage() {
               </Link>
             ))}
           </section>
+        )}
+        {!unavailable && (offset > 0 || nextOffset !== null) && (
+          <nav aria-label="掲載サービスのページ" className="mt-4 flex items-center justify-between text-sm">
+            {offset > 0 ? <Link href={`/marketplace?offset=${Math.max(0, offset - MARKETPLACE_PAGE_SIZE)}`} className="rounded-md border border-white/15 px-3 py-2 hover:bg-white/5">前へ</Link> : <span />}
+            {nextOffset !== null && <Link href={`/marketplace?offset=${nextOffset}`} className="rounded-md border border-white/15 px-3 py-2 hover:bg-white/5">次へ</Link>}
+          </nav>
         )}
         <details className="mt-6 text-xs text-zinc-400"><summary className="cursor-pointer">掲載情報について</summary><p className="mt-2">掲載者が登録した内容です。申込み・決済は各サービスのサイトで行います。</p></details>
       </main>

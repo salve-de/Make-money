@@ -118,13 +118,33 @@ export async function getOwnedMarketplaceListingById(userId: string, listingId: 
   return rows[0] ? toOwned(rows[0]) : null;
 }
 
-export async function listPublishedMarketplaceListings(limit = 60): Promise<PublicMarketplaceListing[]> {
+export const MARKETPLACE_PAGE_SIZE = 60;
+export const MAX_MARKETPLACE_OFFSET = 2_147_483_000;
+
+export function parseMarketplaceOffset(value: string | string[] | undefined): number {
+  if (value === undefined) return 0;
+  if (typeof value !== 'string' || !/^(0|[1-9]\d*)$/.test(value)) throw new Error('Invalid marketplace offset');
+  const offset = Number(value);
+  if (!Number.isSafeInteger(offset) || offset > MAX_MARKETPLACE_OFFSET) throw new Error('Invalid marketplace offset');
+  return offset;
+}
+
+export async function listPublishedMarketplaceListings(limit = MARKETPLACE_PAGE_SIZE, offset = 0): Promise<{
+  listings: PublicMarketplaceListing[];
+  hasMore: boolean;
+  nextOffset: number | null;
+}> {
+  if (!Number.isSafeInteger(limit) || limit < 1 || limit > 100
+    || !Number.isSafeInteger(offset) || offset < 0 || offset > MAX_MARKETPLACE_OFFSET) {
+    throw new Error('Invalid marketplace pagination');
+  }
   const rows = await queryD1(
-    `${SELECT} WHERE status='published' AND product_url IS NOT NULL ORDER BY updated_at DESC LIMIT ?`,
-    [Math.max(1, Math.min(100, Math.floor(limit)))],
+    `${SELECT} WHERE status='published' AND product_url IS NOT NULL ORDER BY updated_at DESC, id ASC LIMIT ? OFFSET ?`,
+    [limit + 1, offset],
     parseRow,
   );
-  return rows.map(toPublic);
+  const hasMore = rows.length > limit;
+  return { listings: rows.slice(0, limit).map(toPublic), hasMore, nextOffset: hasMore ? offset + limit : null };
 }
 
 export async function getPublishedMarketplaceListing(slug: string): Promise<PublicMarketplaceListing | null> {
