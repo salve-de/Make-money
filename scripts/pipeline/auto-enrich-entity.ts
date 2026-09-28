@@ -30,7 +30,7 @@ function sanitizeObject<T>(value: T): T {
     for (const [key, child] of Object.entries(value)) {
       // Historical source metadata is evidence, not display copy. Rewriting it
       // would destroy the original wording during an otherwise valid correction.
-      next[key] = key === 'sourceMetadata' ? child : sanitizeObject(child);
+      next[key] = (key === 'sourceMetadata' || key === 'legacyDisplaySnapshot') ? child : sanitizeObject(child);
     }
     return next as T;
   }

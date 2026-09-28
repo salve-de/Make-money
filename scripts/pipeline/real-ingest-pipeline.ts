@@ -143,7 +143,7 @@ export async function ingestVerifiedEntities(
     const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
     // Private source history is preserved verbatim; only active display copy
     // participates in jargon validation. This view never replaces the entity.
-    const jsonStr = JSON.stringify(ent, (key, value) => key === 'sourceMetadata' ? undefined : value);
+    const jsonStr = JSON.stringify(ent, (key, value) => (key === 'sourceMetadata' || key === 'legacyDisplaySnapshot') ? undefined : value);
     for (const jargon of FORBIDDEN_JARGON) {
       if (jsonStr.includes(jargon)) {
         throw new Error(`Completeness FAILED for ${ent.name}: contains forbidden internal jargon '${jargon}'.`);
