@@ -162,6 +162,10 @@ export const TerminalShell: React.FC<{
     if (mode === 'DEEP_DIVE') setActiveTopicId(null);
 
     const params = new URLSearchParams(window.location.search);
+    if (mode !== 'DEEP_DIVE') {
+      params.delete('topic');
+      setActiveTopicId(null);
+    }
     if (mode === 'LEDGER') params.delete('mode');
     else params.set('mode', mode);
     if (entityId) params.set('entity', entityId);

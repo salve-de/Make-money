@@ -31,7 +31,6 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   onResetScreener,
   activeTags = [],
   onToggleTag,
-  newlyCollectedCount = 0,
   onApproveAllCollected,
   selectedBatch = 'ALL',
   onSelectBatch,
@@ -153,7 +152,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             </select>
           </label>
 
-          {onToggleTag && (newlyCollectedCount > 0 || activeTags.includes('収集事例')) && (
+          {onToggleTag && (
             <button
               type="button"
               onClick={() => onToggleTag('収集事例')}
@@ -166,7 +165,6 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               }`}
             >
               <span>新着事例</span>
-              <span className="tabular-nums text-zinc-400">{newlyCollectedCount}件</span>
             </button>
           )}
 

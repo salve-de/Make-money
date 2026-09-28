@@ -31,16 +31,6 @@ test('batch deep links survive reload and removed URL parameters reset', async (
 });
 
 test('anonymous users never see the editorial bulk approval action', async ({ page }) => {
-  // The initial catalog page need not contain an unapproved collection record.
-  // Seed one public-shaped fixture so the conditional inbox control is exercised.
-  await page.route('**/api/catalog*', async (route) => {
-    const response = await route.fetch();
-    const body = await response.json();
-    if (Array.isArray(body.data) && body.data.length > 0) {
-      body.data.push({ ...body.data[0], id: 'ent_e2e_collected', name: 'E2E collected case', tags: ['収集事例'] });
-    }
-    await route.fulfill({ response, json: body });
-  });
   await page.goto('/');
   const collectedInbox = page.getByRole('button', { name: /新着事例/ }).first();
   await expect(collectedInbox).toBeVisible();

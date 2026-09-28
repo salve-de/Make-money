@@ -33,6 +33,8 @@ function isDiscoveryCase(value: unknown): boolean {
     && typeof value.resultLabel === 'string'
     && typeof value.resultValue === 'string'
     && (value.resultAmountJpy === null || typeof value.resultAmountJpy === 'number')
+    && typeof value.resultEvidenceLabel === 'string'
+    && ['resultPeriod', 'resultSource', 'resultPeriodNote'].every((key) => value[key] === null || typeof value[key] === 'string')
     && typeof value.startLine === 'string'
     && typeof value.criticalInsight === 'string'
     && typeof value.whyMoneyMoved === 'string'

@@ -128,3 +128,13 @@ for (const raw of ['null', '{}', '[null,42,"ent_photoai"]']) {
     expect(errors).toEqual([]);
   });
 }
+
+
+test('leaving a topic for the ledger clears topic routing and survives reload', async ({ page }) => {
+  await page.goto('/?topic=solo_empire');
+  await page.getByRole('navigation', { name: '主要ナビゲーション', exact: true }).getByRole('link', { name: '事例一覧', exact: true }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole('region', { name: '事例を検索・絞り込み' })).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole('region', { name: '事例を検索・絞り込み' })).toBeVisible();
+});
