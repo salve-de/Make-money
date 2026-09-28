@@ -17,6 +17,12 @@ export interface RawArtifact {
 export interface IngestEntityInput {
   entity: FinancialEntity;
   rawArtifacts?: RawArtifact[];
+  /** Supplied by the actual reviewer; omission must not invent an identity. */
+  review?: {
+    reviewer: string;
+    reviewedAt: string;
+    sourceUrls: string[];
+  };
 }
 
 async function putStorageObject(bucket: string, key: string, body: string, contentType: string, metadata: Record<string, string>) {
@@ -59,9 +65,10 @@ export async function ingestVerifiedEntities(
   });
 
   console.log('--- [0/4] Sanitizing Entities (No synthetic template generation) ---');
-  const sanitizedInputs = normalizedInputs.map(({ entity, rawArtifacts }) => ({
+  const sanitizedInputs = normalizedInputs.map(({ entity, rawArtifacts, review }) => ({
     entity: autoEnrichEntityBeforeIngest(entity),
-    rawArtifacts: rawArtifacts ?? []
+    rawArtifacts: rawArtifacts ?? [],
+    review,
   }));
 
   console.log('--- [1/4] Validating Schema, Financial Arithmetic & Zero-Duplication Integrity ---');
@@ -79,7 +86,21 @@ export async function ingestVerifiedEntities(
   const batchSeenNorms = new Map<string, string>();
   const batchSeenIds = new Map<string, string>();
 
-  for (const { entity: ent } of sanitizedInputs) {
+  for (const { entity: ent, review } of sanitizedInputs) {
+    if (review) {
+      const validDate = typeof review.reviewedAt === 'string'
+        && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(review.reviewedAt)
+        && Number.isFinite(Date.parse(review.reviewedAt))
+        && new Date(review.reviewedAt).toISOString() === (review.reviewedAt.includes('.') ? review.reviewedAt : review.reviewedAt.replace(/Z$/, '.000Z'));
+      if (typeof review.reviewer !== 'string' || !review.reviewer.trim() || !validDate
+        || !Array.isArray(review.sourceUrls) || review.sourceUrls.some(url => {
+          if (typeof url !== 'string') return true;
+          try { const parsed = new URL(url); return !['http:', 'https:'].includes(parsed.protocol) || Boolean(parsed.username || parsed.password); }
+          catch { return true; }
+        })) {
+        throw new Error(`[INGEST REJECTED: INVALID REVIEW] ${ent.id}`);
+      }
+    }
     const idLower = ent.id.toLowerCase().trim();
     const norm = normalizeForDedup(ent.name);
 
@@ -120,7 +141,9 @@ export async function ingestVerifiedEntities(
     }
 
     const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
-    const jsonStr = JSON.stringify(ent);
+    // Private source history is preserved verbatim; only active display copy
+    // participates in jargon validation. This view never replaces the entity.
+    const jsonStr = JSON.stringify(ent, (key, value) => key === 'sourceMetadata' ? undefined : value);
     for (const jargon of FORBIDDEN_JARGON) {
       if (jsonStr.includes(jargon)) {
         throw new Error(`Completeness FAILED for ${ent.name}: contains forbidden internal jargon '${jargon}'.`);
@@ -240,7 +263,7 @@ export async function ingestVerifiedEntities(
   const lakeBucket = getFoundationBucket('lake');
   const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '/') + `/${batchName}`;
 
-  for (const { entity: ent } of sanitizedInputs) {
+  for (const { entity: ent, review } of sanitizedInputs) {
     const journalKey = `journal/v1/${dateStr}/${ent.id}.json`;
     const linkedRawEvidence = rawEvidenceMap.get(ent.id) || [];
 
@@ -250,12 +273,11 @@ export async function ingestVerifiedEntities(
       recorded_at: new Date().toISOString(),
       entity: ent,
       source_provenance: {
-        method: 'DEEP_DIRECT_RESEARCH',
-        researcher: 'Antigravity Core Analyst',
-        verified_sources: [
-          ent.url,
-          ent.pnl.sourceDoc
-        ],
+        method: review ? 'REVIEWED_COLLECTION' : 'UNSPECIFIED',
+        researcher: review?.reviewer ?? null,
+        reviewed_at: review?.reviewedAt ?? null,
+        // This records the supplied review, not independent proof of accuracy.
+        verified_sources: review ? [...new Set(review.sourceUrls)] : [],
         raw_evidence: linkedRawEvidence
       }
     }, null, 2);
