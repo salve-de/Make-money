@@ -94,6 +94,22 @@
         }
       }
     },
+    "collection_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["dimension", "status", "note"],
+        "properties": {
+          "dimension": { "type": "string", "minLength": 1 },
+          "status": {
+            "enum": ["found", "attempted_unavailable", "not_attempted", "not_applicable", "unknown"]
+          },
+          "note": { "type": "string", "minLength": 1 },
+          "attempts": { "type": "array", "items": { "type": "string" } },
+          "record_refs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
     "quality": {
       "type": "object",
       "additionalProperties": false,

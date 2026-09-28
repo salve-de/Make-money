@@ -190,6 +190,9 @@ R2ストレージは、人間の感情による物理フォルダ整理を永久
 5. **スキーマ必須型の欠落**:
    - **事故**: `operations` 内の `weeklyHours`, `initialCapitalRequired`, `automationLevel` や、`evidenceCards` 内の `evidenceStatus`（`REPORTED` / `POST_MORTEM`）、`observations` と `observationsStream` の分離が漏れて型エラーになった。
    - **防止策**: `docs/GOLDEN_INGEST_SCHEMA.md` の完全体JSONスキーマを1文字たりとも漏らさず満たせ。
+6. **型は正しいのに意味を壊す単位・分類の誤変換**:
+   - **事故**: `owner_tenure=25, unit=years, currency=null` を `$25 / 年` と表示し、`remains` の部分文字列 `ai` からAI事業と誤分類した。
+   - **防止策**: 収集値は `metricType`・`value`・`unit`・`currency` を分離して保持する。通貨未確認をUSDに補完せず、金額でないmetricを金額formatterへ渡さない。業種・AI分類は根拠付きの独立語だけで判定し、根拠がなければ `UNKNOWN` とする。
 
 ---
 
@@ -205,4 +208,3 @@ R2ストレージは、人間の感情による物理フォルダ整理を永久
    - 中央台帳（`data/entities-index.json`）を外部チャットから直接編集・上書きすることを禁止する（Git衝突・マージ破綻の防止）。
    - 成果物は `data/incoming/batch_[チャット識別名]_[タイムスタンプ].json` に完全体JSON配列（`FinancialEntity[]`）として保存せよ。
    - 指揮官エージェントが定期的に `data/incoming/` をスキャンし、R2保管庫への原本格納および中央台帳への安全なアトミック統合を自律完遂する。
-

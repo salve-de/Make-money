@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { readableObservationText } from './text-cleaner';
+import { cleanMetricLabel, readableObservationText } from './text-cleaner';
+
+describe('cleanMetricLabel', () => {
+  it('uses a period-neutral label for generic revenue metrics', () => {
+    expect(cleanMetricLabel('revenue')).toBe('売上');
+  });
+
+  it('keeps an annual label for annual revenue metrics', () => {
+    expect(cleanMetricLabel('annual_revenue')).toBe('年間売上');
+  });
+});
 
 describe('readableObservationText', () => {
   it('suppresses the typed transport envelope from human-facing projections', () => {

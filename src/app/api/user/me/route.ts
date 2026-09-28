@@ -7,7 +7,7 @@ import { executionOwnerKey } from '@/lib/execution/generation-store';
 export const dynamic = 'force-dynamic';
 const json = (body: unknown, init: { status?: number } = {}) => NextResponse.json(body, { ...init, headers: { 'Cache-Control': 'private, no-store', Vary: 'Authorization' } });
 interface UserRow { id: string; email: string; display_name: string | null; role: string }
-interface DeletionReadback { users: number; execution_projects: number; execution_generation: number }
+interface DeletionReadback { users: number; execution_projects: number; marketplace_listings: number; execution_generation: number }
 export async function GET(req: NextRequest) {
   const auth = req.headers.get('authorization');
   const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
@@ -31,6 +31,13 @@ export async function DELETE(req: NextRequest) {
   const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
   if (!user) return json({ error: 'Unauthorized' }, { status: 401 });
   try {
+    // A checkout can run before migration 0011 is applied. Older databases
+    // have no listings to delete; do not break their existing account deletion.
+    const [schema] = await queryD1<{ available: number }>(
+      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available",
+    );
+    if (!schema || (schema.available !== 0 && schema.available !== 1)) throw new Error('Invalid schema readback');
+    const hasListings = schema.available === 1;
     const resetAt = new Date().toISOString();
     const ownerKey = executionOwnerKey(user.uid);
     await batchD1([
@@ -38,6 +45,7 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM analyst_notes WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM chat_messages WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM synthesized_ideas WHERE user_id = ?', params: [user.uid] },
+      ...(hasListings ? [{ sql: 'DELETE FROM marketplace_listings WHERE user_id = ?', params: [user.uid] }] : []),
       { sql: 'DELETE FROM build_sessions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM submissions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM newsletter_subscribers WHERE user_id = ?', params: [user.uid] },
@@ -47,10 +55,11 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM users WHERE id = ?', params: [user.uid] },
     ]);
     const [remaining] = await queryD1<DeletionReadback>(
-      'SELECT (SELECT COUNT(*) FROM users WHERE id = ?) AS users, (SELECT COUNT(*) FROM execution_projects WHERE user_id = ?) AS execution_projects, (SELECT generation FROM execution_resets WHERE owner_key = ?) AS execution_generation',
-      [user.uid, user.uid, ownerKey],
+      `SELECT (SELECT COUNT(*) FROM users WHERE id = ?) AS users, (SELECT COUNT(*) FROM execution_projects WHERE user_id = ?) AS execution_projects, ${hasListings ? '(SELECT COUNT(*) FROM marketplace_listings WHERE user_id = ?)' : '0'} AS marketplace_listings, (SELECT generation FROM execution_resets WHERE owner_key = ?) AS execution_generation`,
+      [user.uid, user.uid, ...(hasListings ? [user.uid] : []), ownerKey],
     );
     if (!remaining || Number(remaining.users) !== 0 || Number(remaining.execution_projects) !== 0
+      || Number(remaining.marketplace_listings) !== 0
       || !Number.isSafeInteger(Number(remaining.execution_generation)) || Number(remaining.execution_generation) < 1) {
       throw new Error('User deletion readback failed');
     }

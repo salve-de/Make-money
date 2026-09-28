@@ -9,9 +9,11 @@ New scheduled research should reach the Make-Money UI without editing static Typ
 ```text
 ChatGPT scheduled collection
   -> salve-de/universal-foundation@automation-research
-  -> staging/r2-queue/.../candidates/*.json
-  -> GitHub signed push webhook
-  -> foundation-r2-queue-publisher (Cloudflare Queue consumer)
+  -> R2_QUEUE batched handoff (08:45 / 14:45 / 20:45 JST)
+  -> staging/r2-queue/candidates/v2/<typed-sidecar-sha>/
+  -> Publisher edition reconciliation (08:50 / 14:50 / 20:50 JST)
+  -> foundation-publisher-events Cloudflare Queue
+  -> foundation-r2-queue-publisher queue consumer
   -> /api/foundation/ingest (authenticated HTTPS)
   -> canonical Foundation R2 datasets
   -> views/make-money/v1/entities/<entity_id>.json
@@ -27,8 +29,8 @@ ChatGPT scheduled collection
 The former `make-money-r2-writer` hourly trigger consumed the same scheduled
 queue artifacts directly from GitHub. That was a redundant second data plane.
 Production now leaves its Cron Trigger empty and
-`FOUNDATION_R2_WRITER_ENABLED=false`; the event-driven Publisher is the sole
-normal R2 writer.
+`FOUNDATION_R2_WRITER_ENABLED=false`; the scheduled-edition Publisher and its
+Queue consumer are the sole normal R2 writer.
 
 The Publisher writes the immutable contribution for the current public edition
 and a CAS-protected rebuildable release index. The UI reads that index instead
@@ -92,20 +94,23 @@ No application redeploy is required when a new R2 bundle/view is written.
 
 ## Publisher
 
-The publisher Worker lives in:
+The publisher Worker source lives in:
 
 `salve-de/universal-foundation/workers/r2-queue-publisher/`
 
-It has no Cron Trigger. A signed GitHub `push` webhook for
-`universal-foundation@automation-research` enqueues one reconciliation event.
-The queue consumer then calls this application's public HTTPS origin with the
+The source configuration on `universal-foundation/main` has edition Cron
+`50 23,5,11 * * *` UTC (08:50 / 14:50 / 20:50 JST). Its `scheduled()` handler
+enqueues one reconciliation message; the Queue consumer scans the deterministic
+candidate tree and calls this application's public HTTPS origin with the
 server-only `FOUNDATION_INGEST_TOKEN`. The publisher intentionally does not use
 a Cloudflare Service Binding, so this hop does not require a Service Binding/
 Workers Standard dependency.
 
-Each event reconciles the current candidate tree, so a later successful push
-also recovers candidates left behind by a previously missed webhook. Large
-backlogs are drained by bounded queue continuations rather than periodic polling.
+The GitHub `push` webhook endpoint performs signature/reachability checks; it
+does not enqueue publication. Large backlogs are drained by bounded queue
+continuations. The cited source configuration is not proof that the same
+configuration is currently deployed; verify Cloudflare runtime state separately
+before claiming production operation.
 
 ## Failure semantics
 

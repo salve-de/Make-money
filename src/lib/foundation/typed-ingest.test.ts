@@ -1,12 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { validateResearchBundle, validateTypedProjectionBundle } from './ingest';
+import collectionRunSchema from './schemas/collection-run.v1.schema.json';
 import {
+  buildLegacyCollectionRunCompatibilitySchema,
   FoundationTypedIngestValidationError,
+  SOURCE_ARTIFACT_COMPATIBILITY_LEGACY,
+  SOURCE_ARTIFACT_COMPATIBILITY_STRICT,
   TYPED_PROJECTOR_VERSION,
   gitBlobSha1,
   prepareFoundationTypedIngest,
   typedProjectionRunId,
 } from './typed-ingest';
+import { DIMENSIONS } from './coverage';
 
 const sourceRunId = 'run_discovery_test_001';
 const subjectRef = 'case:test-company:2026';
@@ -134,6 +139,48 @@ function sourceArtifact() {
   };
 }
 
+function legacySourceArtifact() {
+  return {
+    ...sourceArtifact(),
+    source_attempts: [
+      {
+        source_id: 'src.sec-edgar',
+        canonical_url:
+          'https://www.sec.gov/Archives/example-test-document.htm',
+        result: 'SUCCESS',
+        evidence_ids: ['ev_1234567890abcdef12345678'],
+        rights_policy_id: 'rights.sec-edgar-public-facts.v1',
+      },
+    ],
+  };
+}
+
+function sourceCoverageWithPartialResearch() {
+  return DIMENSIONS.map((dimension) => {
+    if (dimension === 'identity') {
+      return {
+        dimension,
+        status: 'found',
+        note: 'Entity identity is retained in the typed sidecar.',
+        record_refs: ['entities/0'],
+      };
+    }
+    if (dimension === 'additional_observations') {
+      return {
+        dimension,
+        status: 'found',
+        note: 'The sourced observation is retained in the typed sidecar.',
+        record_refs: ['observations/0'],
+      };
+    }
+    return {
+      dimension,
+      status: 'not_attempted',
+      note: 'Not attempted in this partial collection.',
+    };
+  });
+}
+
 
 function publicFactOutput() {
   return {
@@ -208,6 +255,8 @@ describe('typed sidecar ingest projection', () => {
     const first = prepareFoundationTypedIngest(firstRequest);
     const second = prepareFoundationTypedIngest(firstRequest);
 
+    expect(first.sourceArtifactCompatibility)
+      .toBe(SOURCE_ARTIFACT_COMPATIBILITY_STRICT);
     expect(first.mapperVersion).toBe(TYPED_PROJECTOR_VERSION);
     expect(first.coverageAssessment).toBe('UNASSESSED');
     expect(first.bundle).toEqual(second.bundle);
@@ -221,6 +270,247 @@ describe('typed sidecar ingest projection', () => {
     expect(observations[1].text).toBe('Human-readable summary from the typed observation.');
     expect(observations[1].entity_ids).toEqual(['ent_organization_1234567890abcdef1234']);
     expect((first.bundle.quality as Record<string, unknown>).schema_validation).toBe('PASS');
+  });
+
+  it('accepts only the known legacy source_attempt omissions without mutating source artifact data', () => {
+    const request = requestFor(sidecar(), legacySourceArtifact());
+    const sourceArtifactTextBefore = request.source_artifact_text;
+    const sourceArtifactBlobBefore = request.source.source_artifact_blob_sha;
+
+    const prepared = prepareFoundationTypedIngest(request);
+
+    expect(prepared.sourceArtifactCompatibility)
+      .toBe(SOURCE_ARTIFACT_COMPATIBILITY_LEGACY);
+    expect(prepared.sourceArtifact)
+      .toEqual(JSON.parse(sourceArtifactTextBefore));
+    expect(gitBlobSha1(sourceArtifactTextBefore))
+      .toBe(sourceArtifactBlobBefore);
+
+    const attempts = prepared.sourceArtifact.source_attempts as
+      Array<Record<string, unknown>>;
+    expect(attempts).toHaveLength(1);
+    expect(attempts[0]).not.toHaveProperty('fetch_key');
+    expect(attempts[0]).not.toHaveProperty('attempted_at');
+    expect(attempts[0]).not.toHaveProperty('retryable');
+    expect(attempts[0].result).toBe('SUCCESS');
+  });
+
+  it('rejects another required source_attempt omission even when legacy audit fields are absent', () => {
+    const artifact = legacySourceArtifact();
+    const attempts = artifact.source_attempts as
+      Array<Record<string, unknown>>;
+    delete attempts[0].result;
+
+    expect(() => prepareFoundationTypedIngest(
+      requestFor(sidecar(), artifact),
+    )).toThrowError(FoundationTypedIngestValidationError);
+  });
+
+  it('rejects partial omissions of the three legacy audit fields', () => {
+    const partialFields: Array<{ field: string; value: unknown }> = [
+      { field: 'fetch_key', value: 'a'.repeat(64) },
+      { field: 'attempted_at', value: '2026-09-24T00:02:00Z' },
+      { field: 'retryable', value: false },
+    ];
+
+    for (const { field, value } of partialFields) {
+      const artifact = legacySourceArtifact();
+      const attempts = artifact.source_attempts as Array<Record<string, unknown>>;
+      attempts[0][field] = value;
+      let caught: unknown;
+      try {
+        prepareFoundationTypedIngest(requestFor(sidecar(), artifact));
+      } catch (error) {
+        caught = error;
+      }
+
+      expect(caught).toBeInstanceOf(FoundationTypedIngestValidationError);
+      expect((caught as FoundationTypedIngestValidationError).reasonCode)
+        .toBe('SOURCE_SCHEMA_INVALID');
+    }
+
+    const mixedAttempts = legacySourceArtifact();
+    const attempts = mixedAttempts.source_attempts as Array<Record<string, unknown>>;
+    attempts.push({ result: 'SUCCESS', retryable: false });
+    expect(() => prepareFoundationTypedIngest(
+      requestFor(sidecar(), mixedAttempts),
+    )).toThrowError(FoundationTypedIngestValidationError);
+  });
+
+  it('rejects an invalid type for a present legacy-optional source_attempt field', () => {
+    const artifact = legacySourceArtifact();
+    const attempts = artifact.source_attempts as
+      Array<Record<string, unknown>>;
+    attempts[0].retryable = 'false';
+
+    expect(() => prepareFoundationTypedIngest(
+      requestFor(sidecar(), artifact),
+    )).toThrowError(FoundationTypedIngestValidationError);
+  });
+
+  it('fails closed on collection-run schema drift without mutating the canonical schema', () => {
+    const canonicalBefore = JSON.stringify(collectionRunSchema);
+    const drifted = JSON.parse(canonicalBefore) as
+      Record<string, unknown>;
+    const properties = drifted.properties as
+      Record<string, unknown>;
+    const sourceAttempts = properties.source_attempts as
+      Record<string, unknown>;
+    const items = sourceAttempts.items as
+      Record<string, unknown>;
+    const required = items.required as string[];
+    items.required = required.filter((field) => field !== 'fetch_key');
+
+    expect(buildLegacyCollectionRunCompatibilitySchema(drifted))
+      .toBeNull();
+    expect(JSON.stringify(collectionRunSchema)).toBe(canonicalBefore);
+    expect(() => prepareFoundationTypedIngest(
+      requestFor(sidecar(), sourceArtifact()),
+    )).not.toThrow();
+  });
+
+  it('disables only legacy compatibility when any canonical schema constraint changes', () => {
+    const unrelatedDrift = JSON.parse(JSON.stringify(collectionRunSchema)) as
+      Record<string, unknown>;
+    const unrelatedProperties = unrelatedDrift.properties as
+      Record<string, unknown>;
+    const finalStatus = unrelatedProperties.final_status as
+      Record<string, unknown>;
+    (finalStatus.enum as string[]).push('NEW_STATUS');
+
+    const sourceAttemptDrift = JSON.parse(JSON.stringify(collectionRunSchema)) as
+      Record<string, unknown>;
+    const sourceAttemptProperties = sourceAttemptDrift.properties as
+      Record<string, unknown>;
+    const sourceAttempts = sourceAttemptProperties.source_attempts as
+      Record<string, unknown>;
+    const items = sourceAttempts.items as Record<string, unknown>;
+    const itemProperties = items.properties as Record<string, unknown>;
+    (itemProperties.result as Record<string, unknown>).type = 'boolean';
+
+    expect(buildLegacyCollectionRunCompatibilitySchema(unrelatedDrift)).toBeNull();
+    expect(buildLegacyCollectionRunCompatibilitySchema(sourceAttemptDrift)).toBeNull();
+    expect(() => prepareFoundationTypedIngest(
+      requestFor(sidecar(), sourceArtifact()),
+    )).not.toThrow();
+  });
+
+  it('rejects a source artifact checkpoint bound to another subject', () => {
+    const artifact = legacySourceArtifact();
+    artifact.checkpoint = { subject_ref: 'case:other-company:2026' };
+
+    try {
+      prepareFoundationTypedIngest(requestFor(sidecar(), artifact));
+      throw new Error('expected SOURCE_ARTIFACT_MISMATCH');
+    } catch (error) {
+      expect(error).toBeInstanceOf(FoundationTypedIngestValidationError);
+      expect((error as FoundationTypedIngestValidationError).reasonCode)
+        .toBe('SOURCE_ARTIFACT_MISMATCH');
+    }
+  });
+
+  it('requires a positive subject binding only for legacy source artifacts', () => {
+    const legacyArtifact = legacySourceArtifact();
+    legacyArtifact.checkpoint = {};
+    legacyArtifact.recorded_items = [];
+
+    let caught: unknown;
+    try {
+      prepareFoundationTypedIngest(requestFor(sidecar(), legacyArtifact));
+    } catch (error) {
+      caught = error;
+    }
+
+    expect(caught).toBeInstanceOf(FoundationTypedIngestValidationError);
+    expect((caught as FoundationTypedIngestValidationError).reasonCode)
+      .toBe('SOURCE_ARTIFACT_MISMATCH');
+
+    expect(() => prepareFoundationTypedIngest(
+      requestFor(sidecar(), sourceArtifact()),
+    )).not.toThrow();
+  });
+
+  it('retains valid partial source coverage and remaps observation references after the private transport row', () => {
+    const typed = Object.assign(sidecar(), {
+      collection_coverage: sourceCoverageWithPartialResearch(),
+    });
+    const request = requestFor(typed, sourceArtifact());
+    const prepared = prepareFoundationTypedIngest(request);
+
+    expect(prepared.coverageAssessment).toBe('PARTIAL');
+    expect(() => validateTypedProjectionBundle(prepared.bundle)).not.toThrow();
+    expect(() => validateResearchBundle(prepared.bundle)).not.toThrow();
+    expect(prepared.bundle.collection_coverage).toEqual(
+      sourceCoverageWithPartialResearch().map((row) => ({
+        ...row,
+        ...(row.dimension === 'additional_observations'
+          ? { record_refs: ['observations/1'] }
+          : {}),
+      })),
+    );
+    expect((prepared.bundle.quality as { warnings: string[] }).warnings).toContain(
+      'Source collection coverage is partial; unattempted dimensions remain explicitly unattempted.',
+    );
+
+    const observations = prepared.bundle.observations as Array<Record<string, unknown>>;
+    expect(observations[0].transport_typed_record_set_v1).toEqual(prepared.typedRecordSet);
+    expect((observations[0].transport_typed_record_set_v1 as Record<string, unknown>).collection_coverage)
+      .toEqual(sourceCoverageWithPartialResearch());
+  });
+
+  it('does not apply Make-Money coverage dimensions to other typed research purposes', () => {
+    const typed = Object.assign(sidecar(), {
+      purpose: 'general_research',
+      collection_coverage: sourceCoverageWithPartialResearch(),
+    });
+    const prepared = prepareFoundationTypedIngest(
+      requestFor(typed, sourceArtifact()),
+    );
+
+    expect(prepared.coverageAssessment).toBe('UNASSESSED');
+    expect(prepared.bundle.collection_coverage).toBeUndefined();
+    expect((prepared.bundle.observations as Array<Record<string, unknown>>)[0]
+      .transport_typed_record_set_v1).toEqual(prepared.typedRecordSet);
+  });
+
+  it('does not promote source coverage with an unknown dimension or reject the factual record', () => {
+    const coverage = [
+      ...sourceCoverageWithPartialResearch(),
+      {
+        dimension: 'future_fake_dimension',
+        status: 'not_attempted',
+        note: 'Unknown dimensions are not part of the current Make-Money contract.',
+      },
+    ];
+    const typed = Object.assign(sidecar(), { collection_coverage: coverage });
+    const prepared = prepareFoundationTypedIngest(
+      requestFor(typed, sourceArtifact()),
+    );
+
+    expect(prepared.coverageAssessment).toBe('SOURCE_PROVIDED_INVALID');
+    expect(prepared.bundle.collection_coverage).toBeUndefined();
+    expect((prepared.bundle.observations as Array<Record<string, unknown>>)[0]
+      .transport_typed_record_set_v1).toEqual(prepared.typedRecordSet);
+  });
+
+  it('keeps factual records when coverage dimensions are incomplete but rejects schema-invalid coverage', () => {
+    const incompleteTyped = Object.assign(sidecar(), {
+      collection_coverage: sourceCoverageWithPartialResearch().slice(1),
+    });
+    const incomplete = prepareFoundationTypedIngest(
+      requestFor(incompleteTyped, sourceArtifact()),
+    );
+    expect(incomplete.coverageAssessment).toBe('SOURCE_PROVIDED_INVALID');
+    expect(incomplete.bundle.collection_coverage).toBeUndefined();
+    expect((incomplete.bundle.observations as Array<Record<string, unknown>>)[0]
+      .transport_typed_record_set_v1).toEqual(incomplete.typedRecordSet);
+
+    const malformedTyped = Object.assign(sidecar(), {
+      collection_coverage: [{ dimension: 'identity', status: 'made_up', note: 'invalid enum' }],
+    });
+    expect(() => prepareFoundationTypedIngest(
+      requestFor(malformedTyped, sourceArtifact()),
+    )).toThrow(/typed-record-set\.v1 schema validation failed/);
   });
 
   it('keeps the legacy coverage gate closed and allows only the internal typed coverage mode', () => {

@@ -14,6 +14,7 @@ import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
+import { FoundationSearchContinuation } from '../foundation/FoundationSearchContinuation';
 import { NewArrivalsBanner } from '../foundation/NewArrivalsBanner';
 import { CompanyInspectorPane } from '@/features/company-inspector';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
@@ -63,6 +64,10 @@ export const TerminalShell: React.FC<{
     foundationHasMore,
     catalogLoading,
     foundationRetryAvailable,
+    foundationSearchContinuationAvailable,
+    foundationSearchContinuationFailed,
+    foundationSearchRetryMessage,
+    continueFoundationSearch,
     foundationLoading,
     catalogTotal,
     newArrivalsRelease,
@@ -279,6 +284,7 @@ export const TerminalShell: React.FC<{
               catalogTotal={catalogTotal}
             />
             <NewArrivalsBanner release={newArrivalsRelease} onOpen={openNewArrivals} />
+            <FoundationSearchContinuation available={foundationSearchContinuationAvailable} failed={foundationSearchContinuationFailed} loading={foundationLoading} retryMessage={foundationSearchRetryMessage} onContinue={continueFoundationSearch} />
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}

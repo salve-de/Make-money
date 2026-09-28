@@ -65,7 +65,8 @@ const mdContent = `# 収集済み企業・サービス一覧リスト (Collected
 > - 第3期 今回収集: ${batchGroups["batch-03-2026-09-14-capitalism100"].items.length} 社
 > - 第2期 前回収集: ${batchGroups["batch-02-2026-09-13-expansion101"].items.length} 社
 > - 第1期 初期コア: ${batchGroups["batch-01-core-foundation134"].items.length} 社
-> **Raw URL**: https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/COLLECTED_ENTITIES.md
+> - その他バッチ: ${batchGroups["other"].items.length} 社
+> **Raw URL**: https://raw.githubusercontent.com/salve-de/Make-money/main/docs/COLLECTED_ENTITIES.md
 > **用途**: 外部AIへの「重複除外ブラックリスト」として使用。ここに記載された企業はすでに収集済みのため、絶対に取りに行くな。
 
 ---

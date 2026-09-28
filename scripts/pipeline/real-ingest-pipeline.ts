@@ -230,18 +230,10 @@ export async function ingestVerifiedEntities(
     }
     rawEvidenceMap.set(ent.id, savedEvidenceList);
 
-    if (savedEvidenceList.length > 0 && ent.evidenceCards && ent.evidenceCards.length > 0) {
-      ent.evidenceCards.forEach((card, idx) => {
-        const matchingRaw = savedEvidenceList[idx] || savedEvidenceList[0];
-        card.id = matchingRaw.evidence_id;
-        if (!card.evidenceLocator) {
-          card.evidenceLocator = {
-            type: 'html',
-            cssSelector: 'meta[name="author"], title, meta[name="description"]'
-          };
-        }
-      });
-    }
+    // Raw captures belong to source_provenance.raw_evidence. Card IDs identify
+    // claims, not files: array order cannot establish which capture supports a
+    // claim. Preserve supplied card IDs, source notes and precise locators.
+
   }
 
   console.log('\n--- [3/4] Materializing to Cloudflare R2 (foundation-lake) ---');

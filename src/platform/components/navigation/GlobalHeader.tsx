@@ -8,6 +8,7 @@ import {
   Bookmark,
   MoreHorizontal,
   Rocket,
+  Store,
 } from 'lucide-react';
 import type { BookmarkSyncStatus } from '../../hooks/useEntityFilter';
 
@@ -20,6 +21,7 @@ export type GlobalNavSection =
   | 'SYNTHESIS'
   | 'BUILDER'
   | 'EXECUTION'
+  | 'MARKETPLACE'
   | 'WELCOME';
 
 type LocalWorkspaceMode = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS';
@@ -53,6 +55,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const activeSection: GlobalNavSection = currentSection || (() => {
     if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
+    if (pathname?.startsWith('/marketplace')) return 'MARKETPLACE';
     if (pathname?.startsWith('/build')) return 'BUILDER';
     if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
     if (pathname?.startsWith('/radar')) return 'RADAR';
@@ -112,6 +115,12 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   };
 
   const secondaryNavItems = [
+    {
+      id: 'MARKETPLACE' as const,
+      label: 'サービス一覧',
+      href: '/marketplace',
+      icon: Store,
+    },
     {
       id: 'EXECUTION' as const,
       label: '実行中',
@@ -237,7 +246,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
                   href={item.href}
                   onClick={(event) => handleLocalNavigation(event, item.id)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`${hideMobilePrimaryNav && !compactMobileNav && item.id !== 'DISCOVER' && item.id !== 'EXECUTION' ? 'hidden md:flex' : 'flex'} min-h-11 items-center gap-2 rounded-md px-3 text-sm transition-colors ${
+                  className={`${hideMobilePrimaryNav && !compactMobileNav && Boolean(localModeBySection[item.id]) ? 'hidden md:flex' : 'flex'} min-h-11 items-center gap-2 rounded-md px-3 text-sm transition-colors ${
                     isActive ? 'bg-amber-300/[0.1] text-amber-100 ring-1 ring-inset ring-amber-300/30' : 'text-zinc-300 hover:bg-white/[0.06] hover:text-white'
                   }`}
                 >

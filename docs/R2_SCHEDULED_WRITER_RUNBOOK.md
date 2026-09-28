@@ -3,13 +3,15 @@
 ## What changes
 
 The scheduled collection remains the control plane in `salve-de/universal-foundation`.
-The event-driven `foundation-r2-queue-publisher` Worker is the single data-plane writer:
+The scheduled-edition `foundation-r2-queue-publisher` Worker and its Queue consumer
+are the single data-plane writer:
 
 ```text
 hourly discovery/monitor/evolve
-  -> hourly R2_QUEUE staging artifact
-  -> GitHub push webhook -> Cloudflare Queue
-  -> scheduled-r2-handoff.v1 materialization
+  -> R2_QUEUE batch (08:45 / 14:45 / 20:45 JST)
+  -> staging/r2-queue/candidates/v2/<typed-sidecar-sha>/
+  -> Publisher edition Cron (08:50 / 14:50 / 20:50 JST)
+  -> Cloudflare Queue -> scheduled-r2-handoff.v1 materialization
   -> research-bundle.v1 + journal-entry.v1 validation
   -> all-key preflight
   -> R2 create-only PUT
@@ -25,9 +27,15 @@ legacy `universal` mutation is performed.
 ## Schedule and cost
 
 - Collection schedules may remain hourly so source work is captured promptly.
+- The declared R2_QUEUE handoff cadence is **08:45, 14:45, and 20:45 JST**.
+- The Publisher source configuration declares edition reconciliation at
+  **08:50, 14:50, and 20:50 JST**; each run enqueues work for its Queue consumer.
+- GitHub push webhooks do not enqueue publication in the current Publisher source;
+  they perform signature/reachability checks. The edition Cron is the normal
+  reconciliation trigger.
 - The legacy `make-money-r2-writer` Cron is disabled in production. It is not a
-  second R2 writer and must not be re-enabled while the event-driven Publisher
-  is active.
+  second R2 writer and must not be re-enabled while the scheduled-edition
+  Publisher is active.
 - The user-facing catalog is released in three JST editions: **09:00, 15:00, and 21:00**.
 - Each successful Publisher batch is assigned to the first edition at or after
   its stable source timestamp, and the catalog shows that edition only after
@@ -44,15 +52,19 @@ legacy `universal` mutation is performed.
 
 The legacy scheduled Writer is fail-closed with
 `FOUNDATION_R2_WRITER_ENABLED=false` and no Cron Trigger. Do not activate it
-alongside the event-driven Publisher; doing so creates a redundant consumer of
+alongside the scheduled-edition Publisher; doing so creates a redundant consumer of
 the same GitHub queue artifacts.
+
+The above Publisher cadence describes source configuration, not live deployment
+proof. Confirm the deployed Worker schedule and Queue bindings independently;
+do not infer that they are active from this repository alone.
 
 ```sh
 pnpm exec wrangler deploy --config wrangler.r2-writer.jsonc --var FOUNDATION_R2_WRITER_ENABLED:false
 ```
 
 After deployment, verify `/health` shows `enabled:false`. Normal receipts are
-recorded by the event-driven Publisher under its Foundation journal path.
+recorded by the Publisher under its Foundation journal path.
 
 ```text
 The old Writer receipts under

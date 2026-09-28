@@ -36,7 +36,7 @@ beforeEach(() => {
   state.user = { uid: 'owner-a' };
   state.batch.mockReset().mockResolvedValue([]);
   state.execute.mockReset();
-  state.query.mockReset().mockResolvedValue([{ users: 0, execution_projects: 0, execution_generation: 1 }]);
+  state.query.mockReset().mockImplementation(async (sql: string) => sql.includes('sqlite_master') ? [{ available: 1 }] : [{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
 });
 
 describe('DELETE /api/user/me', () => {
@@ -50,21 +50,37 @@ describe('DELETE /api/user/me', () => {
     const statements = state.batch.mock.calls[0]?.[0] as Array<{ sql: string; params: unknown[] }>;
     expect(statements).toEqual(expect.arrayContaining([
       { sql: 'DELETE FROM execution_projects WHERE user_id = ?', params: ['owner-a'] },
+      { sql: 'DELETE FROM marketplace_listings WHERE user_id = ?', params: ['owner-a'] },
       expect.objectContaining({ sql: expect.stringContaining('execution_resets'), params: [executionOwnerKey('owner-a'), expect.any(String)] }),
       { sql: 'DELETE FROM users WHERE id = ?', params: ['owner-a'] },
     ]));
     expect(state.query).toHaveBeenCalledWith(
-      expect.stringContaining('COUNT(*) FROM execution_projects WHERE user_id = ?'),
-      ['owner-a', 'owner-a', executionOwnerKey('owner-a')],
+      expect.stringContaining('COUNT(*) FROM marketplace_listings WHERE user_id = ?'),
+      ['owner-a', 'owner-a', 'owner-a', executionOwnerKey('owner-a')],
     );
   });
 
   it('fails closed when execution data remains after deletion', async () => {
-    state.query.mockResolvedValue([{ users: 0, execution_projects: 1, execution_generation: 1 }]);
+    state.query.mockResolvedValueOnce([{ available: 1 }]).mockResolvedValueOnce([{ users: 0, execution_projects: 1, marketplace_listings: 0, execution_generation: 1 }]);
 
     const response = await DELETE(request());
 
     expect(response.status).toBe(503);
+  });
+
+  it('preserves account deletion before marketplace migration', async () => {
+    state.query.mockResolvedValueOnce([{ available: 0 }]);
+    const response = await DELETE(request());
+    expect(response.status).toBe(200);
+    const statements = state.batch.mock.calls[0][0] as Array<{ sql: string }>;
+    expect(statements.some(({ sql }) => sql.includes('marketplace_listings'))).toBe(false);
+    expect(state.query.mock.calls[1][0]).not.toContain('FROM marketplace_listings');
+  });
+
+  it('does not mutate data when schema inspection fails', async () => {
+    state.query.mockRejectedValueOnce(new Error('database unavailable'));
+    expect((await DELETE(request())).status).toBe(503);
+    expect(state.batch).not.toHaveBeenCalled();
   });
 
   it('does not touch application data without authentication', async () => {

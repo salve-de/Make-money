@@ -489,6 +489,9 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
             </div>
             {isReady && (
               <div className="flex shrink-0 items-center gap-1 sm:gap-3">
+                {!isPublicDemo && session && (
+                  <Link href={`/marketplace/new?sessionId=${encodeURIComponent(session.id)}`} className="inline-flex min-h-11 items-center px-2 text-sm text-zinc-300 hover:text-white">掲載</Link>
+                )}
                 <button
                   type="button"
                   onClick={() => void exportSource()}

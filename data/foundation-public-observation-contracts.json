@@ -77,6 +77,109 @@
       "allowed_policy_ids": [
         "rights.sec-edgar-public-facts.v1"
       ]
+    },
+    {
+      "contract_id": "public-observation.starwood_apollo.material_transaction_terms.v1",
+      "status": "approved",
+      "observation_type": "starwood_apollo.verify_reconcile.material_transaction_terms.v1",
+      "fields": [
+        {
+          "source_path": ["apollo_equity_percent"],
+          "public_path": ["apollo_managed_funds_equity_percent"],
+          "kind": "percentage",
+          "required": true
+        },
+        {
+          "source_path": ["starwood_equity_percent"],
+          "public_path": ["starwood_sreit_equity_percent"],
+          "kind": "percentage",
+          "required": true
+        },
+        {
+          "source_path": ["apollo_investment_usd"],
+          "public_path": ["apollo_investment_usd"],
+          "kind": "finite_number"
+        },
+        {
+          "source_path": ["properties_approx"],
+          "public_path": ["approximate_property_count"],
+          "kind": "finite_number"
+        },
+        {
+          "source_path": ["call_option_irr_cap_percent_years_5_to_10"],
+          "public_path": ["call_option_irr_cap_percent_years_5_to_10"],
+          "kind": "percentage"
+        },
+        {
+          "source_path": ["starwood_asset_management_and_operational_control"],
+          "public_path": ["starwood_retains_asset_management_and_operational_control"],
+          "kind": "boolean"
+        },
+        {
+          "source_path": ["proceeds_repay_credit_facilities"],
+          "public_path": ["proceeds_intended_to_repay_credit_facilities"],
+          "kind": "boolean"
+        }
+      ],
+      "notes": "SEC EDGAR fact-only contract. Publishes only the allowlisted transaction facts. Apollo's reported interest is held by funds managed by and affiliates of Apollo Global Management, not a direct parent-company holding. The proceeds field describes the reported intended use, not a completed repayment. Rising minimum-yield terms, legal names, source prose and unknown fields remain private.",
+      "display": {
+        "title": "Starwood SREIT / Apollo affordable-housing JV terms",
+        "subject": "Reported ownership and transaction terms for the affordable-housing joint venture",
+        "note": "The Apollo interest is reported for Apollo-managed funds and affiliates, not as a direct Apollo parent-company holding. Credit-facility repayment is a reported intended use of proceeds, not confirmation that repayment was completed.",
+        "facts": [
+          {
+            "public_path": ["apollo_managed_funds_equity_percent"],
+            "label": "Apollo-managed funds / affiliates equity interest",
+            "suffix": "%"
+          },
+          {
+            "public_path": ["starwood_sreit_equity_percent"],
+            "label": "Starwood SREIT equity interest",
+            "suffix": "%"
+          },
+          {
+            "public_path": ["apollo_investment_usd"],
+            "label": "Apollo investment (USD)",
+            "suffix": "USD"
+          },
+          {
+            "public_path": ["approximate_property_count"],
+            "label": "Approximate properties",
+            "suffix": "properties"
+          },
+          {
+            "public_path": ["call_option_irr_cap_percent_years_5_to_10"],
+            "label": "Call-option IRR cap (years 5–10)",
+            "suffix": "%"
+          },
+          {
+            "public_path": ["starwood_retains_asset_management_and_operational_control"],
+            "label": "Starwood retains asset management and operational control"
+          },
+          {
+            "public_path": ["proceeds_intended_to_repay_credit_facilities"],
+            "label": "Proceeds intended to repay credit facilities"
+          }
+        ],
+        "source_label": "SEC filing"
+      },
+      "allowed_policy_ids": [
+        "rights.sec-edgar-public-facts.v1"
+      ],
+      "entity_association": {
+        "typed_subject_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026",
+        "evidence_binding": "exact",
+        "entities": [
+          {
+            "entity_id": "ent_org_0e1d9b556075d9fc7f36",
+            "canonical_name": "Starwood Real Estate Income Trust, Inc."
+          },
+          {
+            "entity_id": "ent_org_4a819d424adf6b2a118f",
+            "canonical_name": "Apollo Global Management"
+          }
+        ]
+      }
     }
   ]
 }
