@@ -3,8 +3,6 @@ import { expect, type Page } from '@playwright/test';
 /** Use the visible product controls; keep persistence assertions in each test. */
 export async function openNotes(page: Page) {
   await page.getByRole('button', { name: '出典・記録', exact: true }).click();
-  const notes = page.locator('details').filter({ has: page.locator('#section-notes') });
-  if ((await notes.getAttribute('open')) === null) await notes.locator('summary').click();
   await expect(page.locator('#section-notes textarea')).toBeVisible();
 }
 

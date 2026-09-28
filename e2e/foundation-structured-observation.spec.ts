@@ -75,7 +75,6 @@ async function openEvidence(page: Page) {
   await page.goto(`/?entity=${entityId}`);
   await expect(page.getByRole('heading', { name: 'Structured Foundation Demo', exact: true })).toBeVisible();
   await page.getByRole('button', { name: '出典・記録', exact: true }).click();
-  await page.getByText('登録メモを見る', { exact: true }).click();
   const stream = page.locator('#section-stream');
   await stream.scrollIntoViewIfNeeded();
   await expect(stream).toBeInViewport();

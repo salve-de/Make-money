@@ -31,7 +31,6 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(evidence).toContainText(/撤退・破綻に関する記録/);
   await expect(evidence).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
   await page.getByRole('button', { name: '出典・記録', exact: true }).click();
-  await page.getByText('登録メモを見る', { exact: true }).click();
   await expect(page.locator('#section-stream')).toBeVisible();
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
   await page.keyboard.press('Escape');
