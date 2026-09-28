@@ -25,8 +25,11 @@ r2.dev公開アクセス無効、カスタムドメインなしを現時点で�
 | `history-final.bundle` | 111498819 | `9ad0985d6a38c85637bc23cc0c1058b19802bc074acef412e96c9b40324c631c` |
 | `reflog-history.bundle` | 113083484 | `0bdb88b631bf963a9251f7921db7929f418ad1bab3137588be7bbe0f0e1cde81` |
 
+| `runtime-databases.tar.gz` | 12500 | `83dc19478e6a7b4781fde1cb3e6bd005e527f180da980b004233f32cc851aa94` |
+
 ## 何が入っているか
 
+- `runtime-databases.tar.gz`: .wranglerのD1/R2/KV開発状態。31個のSQLiteをbackup APIで整合したスナップショットにし、remote readback後に全31DBのintegrity_check成功。WAL/SHM単体のコピーに依存しない。
 - `reflog-history.bundle`: refs全体とreflogのGit履歴。公開main外の過去作業・研究snapshotも含む。非公開のまま扱う。
 - `history-final.bundle`: 上記より前の追加保全世代。
 - `previous-recovery.tar.gz`: 前回の差分保全一式。432 archive memberのSHAを検証済み。

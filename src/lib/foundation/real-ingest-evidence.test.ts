@@ -14,9 +14,11 @@ vi.mock('../storage/r2', () => ({
 }));
 vi.mock('@/shared/financial-entity-schema', () => ({ parseFinancialEntity: vi.fn() }));
 vi.mock('@/shared/financial-integrity', () => ({ inspectFinancialIntegrity: () => ({}) }));
-vi.mock('../../../scripts/pipeline/auto-enrich-entity', () => ({
-  autoEnrichEntityBeforeIngest: (entity: FinancialEntity) => structuredClone(entity),
-}));
+vi.mock('../../../scripts/pipeline/auto-enrich-entity', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../../../scripts/pipeline/auto-enrich-entity')>();
+  return { ...actual, autoEnrichEntityBeforeIngest: vi.fn(actual.autoEnrichEntityBeforeIngest) };
+});
+import { autoEnrichEntityBeforeIngest } from '../../../scripts/pipeline/auto-enrich-entity';
 import { ingestVerifiedEntities } from '../../../scripts/pipeline/real-ingest-pipeline';
 
 beforeEach(() => vi.clearAllMocks());
@@ -79,5 +81,37 @@ it.each([
   // JSON callers do not inherit the TypeScript input contract.
   const input = JSON.parse(JSON.stringify({ entity, review }));
   await expect(ingestVerifiedEntities([input], 'invalid-review')).rejects.toThrow('INVALID REVIEW');
+  expect(mocks.writes).not.toHaveBeenCalled();
+});
+
+it('ingests original private jargon unchanged while normalizing active copy', async () => {
+  const sourceMetadata = { original: 'サバンナOS', nested: [{ text: '略奪転用方程式' }] };
+  const entity = {
+    id: 'ent_private_history', name: 'History Example', url: 'https://example.com',
+    tagline: 'サバンナOS', sourceMetadata,
+    pnl: { monthlyRevenue: 0, operatingMargin: 0, sourceDoc: 'https://example.com' },
+    operations: { toolStack: [] },
+    evidenceCards: [{ id: 'history-claim', title: '記録', sourceNote: 'https://example.com', sourceMetadata: { original: '地雷検死' } }],
+  };
+  const before = structuredClone(entity);
+  await ingestVerifiedEntities([JSON.parse(JSON.stringify(entity))], 'original-history');
+  const journalWrite = mocks.writes.mock.calls.find(([path]) => String(path).includes('/journal/v1/'));
+  expect(journalWrite).toBeDefined();
+  const saved = JSON.parse(journalWrite![1]).entity;
+  expect(saved.sourceMetadata).toEqual(sourceMetadata);
+  expect(saved.evidenceCards[0].sourceMetadata).toEqual({ original: '地雷検死' });
+  expect(saved.tagline).toBe('人間の本能・心理の急所');
+  const catalogWrite = mocks.writes.mock.calls.find(([path]) => String(path).endsWith('/data/entities-index.json'));
+  expect(JSON.parse(catalogWrite![1])[0].sourceMetadata).toEqual(sourceMetadata);
+  expect(entity).toEqual(before);
+});
+
+it('still rejects jargon outside private history before writes', async () => {
+  vi.mocked(autoEnrichEntityBeforeIngest).mockImplementationOnce((entity) => structuredClone(entity));
+  const entity = JSON.parse(JSON.stringify({
+    id: 'ent_unsanitized', name: 'Unsanitized Example', tagline: 'サバンナOS',
+    sourceMetadata: { original: '略奪転用方程式' }, pnl: {},
+  }));
+  await expect(ingestVerifiedEntities([entity], 'unsanitized')).rejects.toThrow('forbidden internal jargon');
   expect(mocks.writes).not.toHaveBeenCalled();
 });
