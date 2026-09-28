@@ -13,9 +13,9 @@ import { readReleaseDiscovery, usesCatalogRelease } from '@/lib/company-access/c
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: 'MAKEMONEY DISCOVER | 金を作った「決定的な一手」',
+  title: '事例を探す | Make Money',
   description:
-    '実在する事業・成功・失敗事例から、何が結果を変えたのか、他でも再現されたのか、今も生きているのかを一画面で掘る。',
+    '登録されている事業事例を、出典・時点・確認状況とあわせて探せます。',
 };
 
 async function getDiscoveryDataset() {

@@ -1,112 +1,53 @@
 'use client';
 
 import React from 'react';
-import { ExternalLink, Database, FileCheck, Globe } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
-export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'>) {
-  // エビデンスカードや財務データから一次情報源・出典を網羅集約
-  const sourceNotes: string[] = [];
-  if (entity.evidenceCards) {
-    for (const card of entity.evidenceCards) {
-      if (card.sourceNote && !sourceNotes.includes(card.sourceNote)) {
-        sourceNotes.push(card.sourceNote);
-      }
-    }
+function httpUrl(value: string): string | null {
+  const match = value.match(/https?:\/\/[^\s<>）)]+/u);
+  if (!match) return null;
+  try {
+    const url = new URL(match[0]);
+    return url.protocol === 'https:' || url.protocol === 'http:' ? url.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
+export function SourcesSection({ entity }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'>) {
+  const references = new Set<string>();
+  for (const card of entity.evidenceCards || []) {
+    const url = httpUrl(card.sourceNote || '');
+    if (url) references.add(url);
   }
 
-  // 決算ステータスや一次検証情報
-  const hasClaims = Array.isArray(entity.claimBindings) && entity.claimBindings.length > 0;
+  const links = [
+    ...(entity.url ? [{ label: '公式サイト', href: httpUrl(entity.url) }] : []),
+    ...[...references].map((href) => ({ label: new URL(href).hostname, href })),
+  ].filter((link): link is { label: string; href: string } => Boolean(link.href));
+  const uniqueLinks = links.filter((link, index) => links.findIndex((item) => item.href === link.href) === index);
+
+  const sourceNotes = [...new Set((entity.evidenceCards || []).map((card) => card.sourceNote?.trim()).filter((note): note is string => Boolean(note)))];
+  if (uniqueLinks.length === 0 && sourceNotes.length === 0) return null;
 
   return (
-    <section
-      id="section-sources"
-      className={`rounded-lg overflow-hidden border shadow-xl ${
-        isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
-      } scroll-mt-4`}
-    >
-      {/* セクションヘッダー */}
-      <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
-        isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
-      }`}>
-        <div className="flex items-center gap-2.5">
-          <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
-          <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
-            isHazardMode
-              ? 'text-red-300 bg-red-900/40 border-red-500/40'
-              : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
-          }`}>
-            #14
-          </span>
-          <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-            isHazardMode ? 'text-red-200' : 'text-zinc-100'
-          }`}>
-            情報源 ＆ 出典ログ (SOURCES & REFERENCES)
-          </h3>
-        </div>
-        <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-          最下部集約
-        </span>
-      </div>
-
-      <div className="p-4 space-y-4 bg-[#0E131F] divide-y divide-white/[0.06]">
-        {/* 1. 公式サイト・公式Web原本 */}
-        <div className="pt-2 first:pt-0 space-y-2">
-          <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-zinc-300">
-            <Globe className="w-3.5 h-3.5 text-zinc-400" />
-            <span>公式サイト ＆ 企業Webドメイン</span>
-          </div>
-          {entity.url ? (
-            <div className="flex items-center justify-between p-2.5 rounded bg-white/[0.02] border border-white/[0.06] text-xs">
-              <span className="text-zinc-300 font-mono truncate max-w-[320px]">{entity.url}</span>
-              <a
-                href={entity.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-[11px] font-mono text-zinc-200 hover:text-white transition-colors cursor-pointer shrink-0"
-              >
-                <span>公式Webを開く</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-          ) : (
-            <p className="text-xs text-zinc-500 font-mono">※公式ドメイン未登録（オフラインまたは匿名事業）</p>
-          )}
-        </div>
-
-        {/* 2. 一次証拠・出典ログ（カードから集約） */}
-        <div className="pt-3 space-y-2">
-          <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-zinc-300">
-            <FileCheck className="w-3.5 h-3.5 text-zinc-400" />
-            <span>証拠データ・財務数値の一次出典</span>
-          </div>
-          {sourceNotes.length > 0 ? (
-            <ul className="space-y-1.5 font-mono text-xs">
-              {sourceNotes.map((note, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-zinc-300 p-2 rounded bg-white/[0.02] border border-white/[0.04]">
-                  <span className="text-zinc-500 font-bold shrink-0">[{String(idx + 1).padStart(2, '0')}]</span>
-                  <span className="leading-relaxed">{note}</span>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-xs text-zinc-400 font-mono">
-              この事例の出典メモは未登録です。一次情報の確認済みを意味しません。
-            </p>
-          )}
-        </div>
-
-        {/* 出典の記録と原本ファイルの保存証明を混同しない。 */}
-        <div className="pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[10px] font-mono text-zinc-400">
-          <div className="flex items-center gap-2">
-            <Database className="w-3 h-3 text-zinc-400 shrink-0" />
-            <span>出典URLの記録と原本ファイルの保存は別です。この画面では原本保存を確認できません。</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-zinc-400">
-            <span>{hasClaims ? '主張と出典の対応あり' : '主張と出典の対応未登録'}</span>
-          </div>
-        </div>
-      </div>
+    <section id="section-sources" className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721] scroll-mt-4">
+      <h3 className="border-b border-white/[0.12] bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">参照先</h3>
+      <ul className="divide-y divide-white/[0.1]">
+        {uniqueLinks.map((link) => (
+          <li key={link.href}>
+            <a href={link.href} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center justify-between gap-3 px-4 py-2 text-sm text-sky-200 hover:bg-white/[0.05]">
+              <span className="min-w-0 truncate">{link.label}</span>
+              <ExternalLink aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+            </a>
+          </li>
+        ))}
+      </ul>
+      {sourceNotes.length > 0 && <details className="border-t border-white/10 px-4 py-2.5">
+        <summary className="cursor-pointer text-sm text-sky-200">資料名・出典メモ</summary>
+        <ul className="mt-2 space-y-2 text-xs leading-5 text-zinc-300">{sourceNotes.map((note) => <li key={note} className="break-words">{note}</li>)}</ul>
+      </details>}
     </section>
   );
 }

@@ -81,21 +81,16 @@ export function LootBlueprintSection({
     });
   }
 
-  const checklist = (loot?.executionChecklist || []).filter(Boolean);
-  const hasAnyContent = steps.length > 0 || checklist.length > 0 || tools.length > 0;
+  const hasAnyContent = steps.length > 0 || tools.length > 0 || Boolean(entity.strategy?.initialTraction?.some((text) => cleanText(text)));
 
   if (!hasAnyContent) return null;
 
   const badgeElement = (
-    <div className="flex items-center gap-3 font-mono text-[11px] text-zinc-400">
-      {hasKnownTeamSize && <span>TEAM {teamSize.toLocaleString()}名</span>}
-      {hasKnownInitialCapital && <span>CAPITAL ¥{initialCapital.toLocaleString()}</span>}
+    <div className="flex items-center gap-3 text-xs text-zinc-400">
+      {hasKnownTeamSize && <span>チーム {teamSize.toLocaleString()}名</span>}
+      {hasKnownInitialCapital && <span>初期資本 ¥{initialCapital.toLocaleString()}</span>}
     </div>
   );
-
-  const leadText = isHazardMode
-    ? '同じ過ちを犯さないための再発防止の実行手順と、損失を回避するための撤退条件。'
-    : '今夜使える不公正なカンニングペーパー。創業者が実際に打った初動のズル、自動で現金を吸い上げる関所配管、現場で稼働している実兵器を完全公開する。';
 
   const initialTraction = (entity.strategy?.initialTraction || []).filter(Boolean);
 
@@ -103,36 +98,17 @@ export function LootBlueprintSection({
     <InspectorSectionCard
       id="section-loot-blueprint"
       index="04"
-      categoryEn={isHazardMode ? 'FAILURE PLAYBOOK' : 'REPLICATION PLAYBOOK'}
-      titleJa={isHazardMode ? '再発防止の実行順 ＆ 教訓' : '参考にするべき箇所（盗むべき急所）'}
+      categoryEn={isHazardMode ? '再発防止' : '事業モデル'}
+      titleJa={isHazardMode ? '撤退要因と再発防止' : '事業モデル'}
       badge={badgeElement}
       isHazardMode={isHazardMode}
     >
-      {/* セクション・リード文 */}
-      <div className="px-4 py-3 sm:px-5 sm:py-3.5 bg-white/[0.02] border-b border-white/[0.06] text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-sans">
-        <span className={`text-[10px] font-mono uppercase tracking-wider font-bold px-1.5 py-0.5 rounded border mr-2 ${
-          isHazardMode
-            ? 'bg-red-500/10 text-red-300 border-red-500/30'
-            : 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30'
-        }`}>
-          {isHazardMode ? 'LESSONS LEARNED / 敗因と教訓' : 'KEY PLAYBOOK / 参考にするべき急所'}
-        </span>
-        {leadText}
-      </div>
-
-      {/* 初動突破の泥臭い事実ログ（INITIAL TRACTION） */}
       {initialTraction.length > 0 && (
-        <div className={`p-4 sm:p-5 border-b border-white/[0.07] ${
-          isHazardMode ? 'bg-red-950/15' : 'bg-cyan-950/15'
-        }`}>
-          <div className="mb-2.5 flex items-center gap-2">
-            <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
-              isHazardMode ? 'text-red-300' : 'text-cyan-300'
-            }`}>
-              {isHazardMode ? 'CRITICAL MISTAKES / 初動で踏み抜いた地雷' : 'INITIAL TRACTION / 創業者が打った初期の泥臭い事実'}
-            </span>
-          </div>
-          <div className="space-y-2">
+        <details className="border-b border-white/[0.07] px-4 py-3 sm:px-5">
+          <summary className="cursor-pointer text-xs font-medium text-zinc-300">
+            {isHazardMode ? '初期の判断とつまずき' : '立ち上げ初期の動き'}
+          </summary>
+          <div className="space-y-2 pt-3">
             {initialTraction.map((item, idx) => (
               <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-zinc-200 leading-relaxed">
                 <span className={`font-mono text-xs font-bold shrink-0 mt-0.5 ${
@@ -144,32 +120,25 @@ export function LootBlueprintSection({
               </div>
             ))}
           </div>
-        </div>
+        </details>
       )}
 
       {/* 再現ステップ（アコーディオン） */}
       {steps.length > 0 && (
         <div className="divide-y divide-white/[0.06]">
           {steps.map((step) => (
-            <details key={step.index} open className="group bg-[#0c1017]">
-              <summary className="grid cursor-pointer list-none grid-cols-[36px_72px_minmax(0,1fr)_auto] items-center gap-2.5 px-4 py-3.5 transition-colors hover:bg-white/[0.02] focus-visible:outline-none sm:grid-cols-[40px_84px_minmax(0,1fr)_auto] sm:px-5">
-                <span className="font-mono text-xs tabular-nums text-cyan-400 font-bold">
-                  {step.index}
-                </span>
-                <span className={`text-[11px] font-mono font-semibold ${
-                  isHazardMode ? 'text-red-400' : 'text-zinc-300'
-                }`}>
-                  {step.label}
-                </span>
-                <span className="min-w-0">
-                  <span className="block truncate text-xs sm:text-[13px] font-bold text-zinc-100">
-                    {step.title}
+            <details key={step.index} className="group bg-[#0c1017]">
+              <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 hover:bg-white/[0.02] sm:px-5">
+                <span className="min-w-0 flex-1">
+                  <span className="mb-1 flex items-center gap-2 text-xs font-semibold text-sky-200">
+                    <span className="font-mono tabular-nums">{step.index}</span>{step.label}
                   </span>
+                  <span className="line-clamp-2 text-[13px] leading-relaxed text-zinc-200">{step.text}</span>
                 </span>
-                <ChevronDown className="h-4 w-4 text-zinc-400 transition-transform group-open:rotate-180 shrink-0" />
+                <ChevronDown className="h-4 w-4 shrink-0 text-zinc-400 transition-transform group-open:rotate-180" />
               </summary>
 
-              <div className="border-t border-white/[0.05] bg-[#090d13] px-4 py-3.5 sm:pl-[134px] sm:pr-6 space-y-2">
+              <div className="border-t border-white/[0.05] bg-[#090d13] px-4 py-3.5 sm:px-5 space-y-2">
                 <p className="text-xs sm:text-[13px] leading-relaxed text-zinc-200">
                   {step.text}
                 </p>
@@ -189,53 +158,31 @@ export function LootBlueprintSection({
         </div>
       )}
 
-      {/* 初動アクションチェックリスト */}
-      {checklist.length > 0 && (
-        <div className="border-t border-white/[0.07] bg-[#090d13] px-4 py-4 sm:px-5">
-          <div className="mb-2.5 text-[10px] font-mono font-bold tracking-wider uppercase text-zinc-400">
-            NEXT ACTIONS（初動チェックリスト）
-          </div>
-          <div className="divide-y divide-white/[0.05]">
-            {checklist.map((item, index) => (
-              <div
-                key={index}
-                className="grid grid-cols-[28px_minmax(0,1fr)] gap-2 py-2.5 text-xs sm:text-[13px] leading-relaxed"
-              >
-                <span className="font-mono tabular-nums text-cyan-400 font-bold">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className="text-zinc-200 font-medium">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* 実行基盤 / ツールスタック（存在する場合のみ表形式で描画） */}
       {tools.length > 0 && (
         <div className="border-t border-white/[0.07] px-4 py-4 sm:px-5">
           <div className="mb-3 flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <Wrench className="w-3.5 h-3.5 text-zinc-400" />
-              <span className="text-[10px] font-mono font-bold tracking-wider uppercase text-zinc-400">
-                TECH STACK / 実行基盤
+                <span className="text-xs font-medium text-zinc-400">
+                利用ツール
               </span>
             </div>
             <span className="font-mono text-[10px] tabular-nums text-zinc-400">
-              {tools.length} items
+              {tools.length}件
             </span>
           </div>
 
           <div className="overflow-x-auto rounded-lg border border-white/[0.08] bg-[#090d13]">
-            <table role="presentation" className="w-full min-w-[500px] border-collapse text-left text-xs font-sans">
-              <thead>
+            <table role="presentation" className="block w-full table-fixed border-collapse text-left text-xs font-sans sm:table">
+              <thead className="hidden sm:table-header-group">
                 <tr role="presentation" className="border-b border-white/[0.07] bg-white/[0.02] text-[10px] font-mono text-zinc-400">
-                  <th className="px-3.5 py-2 font-semibold">ツール・インフラ名称</th>
+                  <th className="w-1/4 px-3.5 py-2 font-semibold">ツール・インフラ名称</th>
                   <th className="px-3.5 py-2 font-semibold w-24">区分</th>
                   <th className="px-3.5 py-2 font-semibold">役割・目的</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/[0.05]">
+              <tbody className="block sm:table-row-group divide-y divide-white/[0.05]">
                 {tools.map((toolItem, index) => {
                   const toolName = typeof toolItem === 'string'
                     ? toolItem
@@ -248,10 +195,10 @@ export function LootBlueprintSection({
                     : '—';
 
                   return (
-                    <tr role="presentation" key={`${toolName}-${index}`} className="hover:bg-white/[0.02] transition-colors">
-                      <td className="px-3.5 py-2.5 font-bold text-zinc-100">{toolName}</td>
-                      <td className="px-3.5 py-2.5 text-zinc-400 font-mono text-[11px]">{toolCategory}</td>
-                      <td className="px-3.5 py-2.5 text-zinc-300 text-xs">{toolPurpose}</td>
+                    <tr role="presentation" key={`${toolName}-${index}`} className="grid grid-cols-2 sm:table-row hover:bg-white/[0.02] transition-colors">
+                      <td className="break-words px-3.5 py-2.5 align-top font-bold text-zinc-100">{toolName}</td>
+                      <td className="break-words px-3.5 py-2.5 align-top text-zinc-400 font-mono text-[11px]">{toolCategory}</td>
+                      <td className="col-span-2 whitespace-normal break-words px-3.5 pb-3 pt-0 align-top sm:py-2.5 text-zinc-300 text-xs">{toolPurpose}</td>
                     </tr>
                   );
                 })}

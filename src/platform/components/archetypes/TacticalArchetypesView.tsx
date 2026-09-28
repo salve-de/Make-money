@@ -1,25 +1,9 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { FinancialEntity } from '../../types/terminal';
-import { MarketAnomaly } from '../../types/terminal';
+import React, { useMemo, useState } from 'react';
+import type { FinancialEntity } from '../../types/terminal';
 import { MARKET_ANOMALIES } from '../../data/marketAnomaliesData';
-import {
-  TrendingUp,
-  Flame,
-  ArrowRight,
-  ArrowLeft,
-  Sparkles,
-  Search,
-  ShieldAlert,
-  Zap,
-  X,
-  Target,
-  Wrench,
-  BookOpen,
-  Database,
-} from 'lucide-react';
-import { selectTrendResults } from './trend-results';
+import { ArrowLeft, Search } from 'lucide-react';
 
 interface TacticalArchetypesViewProps {
   allEntities: FinancialEntity[];
@@ -28,411 +12,217 @@ interface TacticalArchetypesViewProps {
   initialAnomalyId?: string | null;
 }
 
-export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
-  allEntities,
-  onOpenEntityInLedger,
-  onOpenSynthesisWithEntity,
-  initialAnomalyId,
-}) => {
-  // 選択中の歪みID（初期値は指定されたID、または最初の1件）
-  const [selectedAnomalyId, setSelectedAnomalyId] = useState<string>(
-    initialAnomalyId || MARKET_ANOMALIES[0]?.id || ''
-  );
-  const [searchQuery, setSearchQuery] = useState('');
-  // モバイル用カルテモーダル表示フラグ（初期IDが指定されていた場合はモバイルでも自動オープン）
-  const [isMobileDetailOpen, setIsMobileDetailOpen] = useState(Boolean(initialAnomalyId));
+type PatternGuide = {
+  title: string;
+  category: string;
+  summary: string;
+  opportunity: string;
+  customer: string;
+  deliverable: string;
+  revenueModel: string;
+  firstStep: string;
+  checks: string[];
+};
 
-  // 外部からの initialAnomalyId 変更に追従
-  const [previousInitialAnomalyId, setPreviousInitialAnomalyId] = useState(initialAnomalyId);
-  if (previousInitialAnomalyId !== initialAnomalyId) {
-    setPreviousInitialAnomalyId(initialAnomalyId);
-    if (initialAnomalyId) {
-      setSelectedAnomalyId(initialAnomalyId);
-      setIsMobileDetailOpen(true);
+// The underlying records include unsourced prices, legal outcomes and company
+// associations. Keep them in storage, but do not present them as observed facts.
+const PATTERN_GUIDES: Record<string, PatternGuide> = {
+  anom_portrait_collapse: {
+    title: 'プロフィール写真の更新支援',
+    category: '制作・更新',
+    summary: '撮影、編集、納品までの手間を減らすサービス案。',
+    opportunity: '写真を更新したい人が、撮影予約や編集を負担に感じる場面を探す。',
+    customer: '顔写真をWebサイトや営業資料で使う個人事業者・小規模事業者。',
+    deliverable: '用途別の写真データ、修正対応、利用範囲の記録。',
+    revenueModel: '撮影・編集ごとの制作費、または定期更新の契約。',
+    firstStep: '利用者に現在の写真の用途と更新時の負担を聞く。',
+    checks: ['本人の同意と画像の利用範囲', '撮影と画像編集で求められる品質の違い', '納品後の修正・削除への対応'],
+  },
+  anom_trucking_compliance: {
+    title: '荷待ち時間の記録支援',
+    category: '業務記録',
+    summary: '現場での記録と管理者への共有を簡単にするサービス案。',
+    opportunity: '運転者が記録しやすく、管理者が後から確認しやすい方法を考える。',
+    customer: '運行の記録を集める必要がある運送事業者。',
+    deliverable: '現場入力画面、時刻付きの記録、管理者向けの確認・出力画面。',
+    revenueModel: '事業所または利用人数に応じた継続利用料。',
+    firstStep: '現行の記録方法を観察し、入力と転記にかかる手間を測る。',
+    checks: ['対象業務に適用される現行のルール', '現場での入力負担と通信環境', '記録の保存・訂正・提出の要件'],
+  },
+  anom_machining_drawing: {
+    title: '紙図面のデータ化支援',
+    category: '製造・承継',
+    summary: '紙の図面や加工メモを検索・共有できる形に整えるサービス案。',
+    opportunity: '図面の所在や版が分からず、再利用に時間がかかる工程を探す。',
+    customer: '紙図面を保管する加工会社や発注元の技術部門。',
+    deliverable: '検索可能な図面データと、原本に戻れる索引。',
+    revenueModel: '図面ごとの変換費用と保管・更新の継続利用料。',
+    firstStep: '実際の図面を少数預かり、検索と照合の手順を確かめる。',
+    checks: ['寸法・公差を人が確認する工程', '機密図面の取扱い', '納品形式と元図面との照合'],
+  },
+  anom_sier_legacy_unbundle: {
+    title: '既存システムとSaaSの連携',
+    category: '業務連携',
+    summary: '二重入力や手作業のデータ転記を減らすサービス案。',
+    opportunity: '既存システムと新しいツールの間で、同じ情報を繰り返し入力している業務を探す。',
+    customer: '複数の業務システムを併用する事業者の運用担当。',
+    deliverable: 'データ連携、失敗時の再送、差分を確認できる運用画面。',
+    revenueModel: '初期設定費用と監視・保守の継続利用料。',
+    firstStep: '転記元・転記先・頻度・失敗時の対応を一つの業務で確認する。',
+    checks: ['連携元・連携先のAPIと権限', '障害時の再送と重複防止', '保守担当と運用費用'],
+  },
+  anom_reddit_ugc_hijack: {
+    title: '口コミと一次情報の整理',
+    category: '情報整理',
+    summary: '利用者の質問や評価を集め、事業者が改善点を見つけるサービス案。',
+    opportunity: '公開された声を、製品改善や回答に使える単位で整理する。',
+    customer: '多くの質問やレビューに対応する製品担当・顧客対応担当。',
+    deliverable: '話題別の整理、原文への参照、対応状況の記録。',
+    revenueModel: '利用する事業者への継続利用料。',
+    firstStep: '許可された情報源から、手作業で見逃している質問を探す。',
+    checks: ['投稿元の利用規約と引用条件', '重複・自動投稿の判別', '本人や事業者への不当な評価を避ける方法'],
+  },
+  anom_invoice_audit_terror: {
+    title: '請求書の登録番号確認',
+    category: '経理',
+    summary: '請求書の入力時に必要な項目を確認しやすくするサービス案。',
+    opportunity: '経理担当者が毎回手作業で照合している項目を特定する。',
+    customer: '請求書の受領・登録件数が多い経理部門。',
+    deliverable: '照合結果と例外一覧、担当者による修正履歴。',
+    revenueModel: '処理件数または事業所単位の継続利用料。',
+    firstStep: '現行の受領から入力までを観察し、確認漏れが起きる箇所を調べる。',
+    checks: ['現在の公的な制度と照合方法', '誤判定時の訂正手順', '取引先情報の保存とアクセス権'],
+  },
+  anom_dental_selfpay_simulator: {
+    title: '自費診療の説明資料',
+    category: '医療の説明',
+    summary: '患者が治療の選択肢や費用を理解するための資料を整える案。',
+    opportunity: '説明に時間がかかる点や、患者が比較しづらい点を確認する。',
+    customer: '治療内容の説明資料を整備したい医療機関。',
+    deliverable: '医療者が確認・更新できる説明資料と費用・リスクの表示。',
+    revenueModel: '資料制作費用と更新・管理の継続利用料。',
+    firstStep: '医療者と患者の説明場面を確認し、理解しづらい項目を特定する。',
+    checks: ['医療広告・個人情報に関する現行のルール', '治療の判断を医療者が行うこと', '費用・リスク・代替案の示し方'],
+  },
+  anom_appstore_aso_gap: {
+    title: '小規模アプリの見つけやすさ',
+    category: 'アプリ配信',
+    summary: 'ストア内で、必要な人がアプリの機能を理解しやすくする案。',
+    opportunity: '説明文、画面例、レビューで伝わっていない機能を探す。',
+    customer: 'アプリの紹介ページを改善したい開発者・運営者。',
+    deliverable: '説明文と画面例の改善案、変更前後の閲覧・利用指標の記録。',
+    revenueModel: 'ページ改善の制作費用、または継続的な運用支援料。',
+    firstStep: '現在の説明と実際の機能を比較し、初見で分からない点を記録する。',
+    checks: ['ストアの現行ガイドライン', '検索流入とインストール後の利用', '誇張のない機能説明'],
+  },
+};
+
+export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ initialAnomalyId, allEntities, onOpenEntityInLedger, onOpenSynthesisWithEntity }) => {
+  const [selectedId, setSelectedId] = useState(initialAnomalyId && MARKET_ANOMALIES.some((record) => record.id === initialAnomalyId) ? initialAnomalyId : MARKET_ANOMALIES[0]?.id ?? '');
+  const [query, setQuery] = useState('');
+  const [mobileDetailOpen, setMobileDetailOpen] = useState(Boolean(initialAnomalyId));
+  const [previousInitialId, setPreviousInitialId] = useState(initialAnomalyId);
+  if (previousInitialId !== initialAnomalyId) {
+    setPreviousInitialId(initialAnomalyId);
+    if (initialAnomalyId && MARKET_ANOMALIES.some((record) => record.id === initialAnomalyId)) {
+      setSelectedId(initialAnomalyId);
+      setMobileDetailOpen(true);
     }
   }
 
-  const { filteredAnomalies, activeAnomaly, avgMargin, hotCount, latestUpdatedAt } = useMemo(
-    () => selectTrendResults(MARKET_ANOMALIES, searchQuery, selectedAnomalyId),
-    [searchQuery, selectedAnomalyId],
-  );
-
-  // 選択中歪みの裏付け実在銘柄
-  const matchedEntities = useMemo(() => {
-    if (!activeAnomaly) return [];
-    return allEntities.filter((ent) => activeAnomaly.proofEntityIds.includes(ent.id));
-  }, [activeAnomaly, allEntities]);
+  const guides = useMemo(() => MARKET_ANOMALIES
+    .map((record) => ({ id: record.id, record, guide: patternGuide(record) }))
+    .filter(({ guide }) => `${guide.title} ${guide.category} ${guide.summary}`.toLocaleLowerCase().includes(query.toLocaleLowerCase().trim())), [query]);
+  const activeEntry = guides.find(({ id }) => id === selectedId) ?? guides[0];
+  const active = activeEntry?.guide;
+  const related = activeEntry ? allEntities.filter((entity) => activeEntry.record.proofEntityIds.includes(entity.id)) : [];
+  const extra = activeEntry ? <details className="rounded-md border border-white/[0.16] bg-[#101721] px-4 pb-3">
+    <summary className="cursor-pointer py-3 text-sm font-medium text-sky-200">背景・初動の資料</summary>
+    <div className="space-y-3 text-sm leading-6 text-zinc-200">
+      <p>{activeEntry.record.signalData}</p><p>{activeEntry.record.incumbentTrap}</p><p>{activeEntry.record.trendingPlaybook}</p><p>{activeEntry.record.guerrillaTractionLog}</p>
+      {activeEntry.record.techStack.length > 0 && <p>構成例: {activeEntry.record.techStack.join(' / ')}</p>}
+      {related.length > 0 && <div className="flex flex-wrap gap-2">{related.map((entity) => <button key={entity.id} type="button" onClick={() => onOpenEntityInLedger(entity.id)} className="rounded border border-white/[0.16] px-3 py-2 text-sky-200">{entity.name}</button>)}</div>}
+      {related[0] && onOpenSynthesisWithEntity && <button type="button" onClick={() => onOpenSynthesisWithEntity(related[0].id)} className="rounded border border-white/[0.16] px-3 py-2 text-sky-200">関連事例から企画する</button>}
+    </div>
+  </details> : null;
 
   return (
-    <div className="flex-1 flex flex-col min-w-0 bg-[#060709] text-zinc-100 overflow-hidden font-sans select-text">
-      {/* ─── 最上部 戦略HUDストリップ（ピル完全切除・極薄プロ仕様） ─── */}
-      <header className="border-b border-white/[0.06] bg-[#090A0E] px-3 sm:px-4 py-2 shrink-0">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          {/* タイトルとコンセプト */}
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
-              <Flame className="w-3 h-3 text-emerald-400 " />
-              TRENDS & ANOMALIES
-            </span>
-            <h1 className="text-xs sm:text-sm font-semibold text-white tracking-wide truncate">
-              市場の歪み ＆ トレンド参考資料
-            </h1>
-            <span className="text-[10px] text-zinc-500 font-mono hidden md:inline shrink-0">
-              ({filteredAnomalies.length}件表示 / 参考利益率の平均 {avgMargin === null ? '—' : `${avgMargin}%`})
-            </span>
+    <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-background text-foreground">
+      <header className="shrink-0 border-b border-white/[0.14] bg-surface px-3 py-2 sm:px-5">
+        <div className="flex items-center gap-3">
+          <h1 className="shrink-0 text-base font-semibold text-white sm:text-lg">事業パターン</h1>
+          <div className="relative min-w-0 flex-1 sm:max-w-sm">
+            <Search aria-hidden="true" className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+            <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="事業パターンを検索" placeholder="テーマを検索" className="h-10 w-full rounded-md border border-white/[0.16] bg-background pl-8 pr-3 text-sm text-white placeholder:text-zinc-500 focus:border-sky-300 focus:outline-none" />
           </div>
-
-          {/* 検索窓 ＆ KPI */}
-          <div className="flex items-center gap-2 shrink-0">
-            <div className="relative w-full sm:w-56 md:w-64">
-              <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="歪み・手口・大手の弱点を検索..."
-                className="w-full bg-[#050608] border border-white/[0.08] focus:border-emerald-500/50 rounded pl-8 pr-3 py-1 text-xs text-zinc-200 placeholder-zinc-600 focus:outline-none transition-colors"
-              />
-            </div>
-            <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono text-zinc-500">
-              <span className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.05] text-rose-400 font-bold">
-                注目例 {hotCount}件
-              </span>
-            </div>
-          </div>
+          <span className="shrink-0 text-xs tabular-nums text-zinc-400">{guides.length}件</span>
         </div>
-        <p className="mt-2 text-xs text-amber-300" role="note">
-          固定の参考資料・一次証跡未確認。検索結果の資料更新日: {latestUpdatedAt ?? '該当なし'}。現在の有効性・数値は未確認です。
-        </p>
       </header>
 
-      {/* ─── メイン領域: 2ペイン（左: 歪み一覧 / 右: 完全解剖カルテ） ─── */}
-      <div className="flex-1 flex min-h-0 overflow-hidden relative">
-        {/* 【左ペイン】歪み・トレンド一覧 (デスクトップでは常時、スマホでは全幅表示) */}
-        <aside className="w-full md:w-[360px] lg:w-[400px] xl:w-[440px] border-r border-white/[0.06] bg-[#07080B] flex flex-col shrink-0 overflow-hidden">
-          <div className="p-2 sm:p-2.5 border-b border-white/[0.04] bg-white/[0.01] flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-zinc-500">
-            <span>検知された市場の歪み ({filteredAnomalies.length}件)</span>
-            <span>鮮度・熱狂度順</span>
+      <div className="flex min-h-0 flex-1 overflow-hidden">
+        <aside aria-label="事業パターン一覧" className="min-h-0 w-full overflow-y-auto border-r border-white/[0.14] bg-surface pb-24 lg:w-[36%] lg:max-w-[480px] lg:pb-0">
+          <div className="space-y-2 p-2">
+            {guides.map(({ id, guide }) => (
+              <button key={id} type="button" aria-pressed={activeEntry?.id === id} onClick={() => { setSelectedId(id); setMobileDetailOpen(true); }} className={`w-full rounded-md border border-l-2 px-3 py-2.5 text-left transition-colors ${activeEntry?.id === id ? 'border-sky-300/40 border-l-sky-300 bg-sky-300/[0.08]' : 'border-white/[0.12] bg-background/40 hover:bg-white/[0.04]'}`}>
+                <span className="text-xs text-sky-200">{guide.category}</span>
+                <strong className="mt-1 block text-sm font-semibold text-white">{guide.title}</strong>
+                <span className="mt-1 block text-sm leading-5 text-zinc-300">{guide.summary}</span>
+              </button>
+            ))}
           </div>
-
-          <div className="flex-1 overflow-y-auto divide-y divide-white/[0.04] pb-28 md:pb-4">
-            {filteredAnomalies.map((anomaly) => {
-              const isSelected = activeAnomaly?.id === anomaly.id;
-              return (
-                <div
-                  key={anomaly.id}
-                  onClick={() => {
-                    setSelectedAnomalyId(anomaly.id);
-                    setIsMobileDetailOpen(true);
-                  }}
-                  className={`p-3 sm:p-3.5 cursor-pointer transition-all duration-150 relative group ${
-                    isSelected
-                      ? 'bg-emerald-950/20 border-l-2 border-l-emerald-500'
-                      : 'hover:bg-white/[0.02] border-l-2 border-l-transparent'
-                  }`}
-                >
-                  {/* バッジ行: シグナル + 上昇率 + 熱狂度 */}
-                  <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className={`px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold ${
-                        anomaly.isHot
-                          ? 'bg-rose-500/15 text-rose-400 border border-rose-500/30'
-                          : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                      }`}>
-                        {anomaly.growthRate ? `${anomaly.growthRate} ` : ''}{anomaly.signalBadge}
-                      </span>
-                      <span className="text-[9px] sm:text-[10px] font-mono text-zinc-500">
-                        {anomaly.categoryLabel}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 text-[9px] sm:text-[10px] font-mono text-zinc-500 shrink-0">
-                      <span className="flex items-center gap-0.5 text-amber-400 font-semibold">
-                        <Flame className="w-2.5 h-2.5" />
-                        {anomaly.heatScore}
-                      </span>
-                      <span className="text-zinc-600 hidden sm:inline">{anomaly.updatedAt}</span>
-                    </div>
-                  </div>
-
-                  {/* タイトル ＆ サブタイトル */}
-                  <h3 className={`text-xs font-semibold leading-snug mb-1 transition-colors ${
-                    isSelected ? 'text-white' : 'text-zinc-200 group-hover:text-white'
-                  }`}>
-                    {anomaly.title}
-                  </h3>
-                  <p className="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed mb-2">
-                    {anomaly.subtitle}
-                  </p>
-
-                  {/* フッター情報: 想定月商 ＆ 参考利益率 */}
-                  <div className="flex items-center justify-between pt-1.5 border-t border-white/[0.04] text-[10px] font-mono">
-                    <span className="text-zinc-500 truncate max-w-[180px] sm:max-w-[220px]">
-                      {anomaly.expectedRevenue}
-                    </span>
-                    <div className="flex items-center gap-1 shrink-0">
-                      <span className="text-zinc-500">参考利益率:</span>
-                      <span className="text-emerald-400 font-bold">
-                        {anomaly.netMarginPercent}%
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-
-            {filteredAnomalies.length === 0 && (
-              <div className="p-8 text-center text-zinc-600 text-xs font-mono">
-                条件に合致する市場の歪みは見つかりませんでした。
-              </div>
-            )}
-          </div>
+          {guides.length === 0 && <p className="p-4 text-sm text-zinc-400">該当するテーマはありません。</p>}
         </aside>
 
-        {/* 【右ペイン】選択した歪みの完全解剖カルテ (デスクトップで常時表示) */}
-        <main className="hidden md:flex flex-1 flex-col min-w-0 bg-[#060709] overflow-y-auto">
-          {activeAnomaly ? (
-            <AnomalyDossierView
-              anomaly={activeAnomaly}
-              matchedEntities={matchedEntities}
-              onOpenEntityInLedger={onOpenEntityInLedger}
-              onOpenSynthesisWithEntity={onOpenSynthesisWithEntity}
-            />
-          ) : (
-            <div className="flex-1 flex items-center justify-center text-zinc-600 text-xs font-mono">
-              左ペインから歪みを選択してください
-            </div>
-          )}
-        </main>
+        <section aria-label="選択した事業パターンの詳細" className="hidden min-w-0 flex-1 overflow-y-auto lg:block">
+          {active && <PatternDetail extra={extra} guide={active} />}
+        </section>
       </div>
 
-      {/* ─── モバイル用 フルスクリーン解剖カルテ（スマホ専用・極上の操作性） ─── */}
-      {isMobileDetailOpen && activeAnomaly && (
-        <div className="fixed inset-0 z-50 bg-[#060709] flex flex-col md:hidden animate-in fade-in duration-150">
-          {/* モバイルヘッダー */}
-          <div className="p-3 border-b border-white/[0.08] bg-[#0A0B10] flex items-center justify-between shrink-0">
-            <button
-              onClick={() => setIsMobileDetailOpen(false)}
-              className="flex items-center gap-1 text-xs font-mono text-zinc-300 hover:text-white px-2 py-1 rounded bg-white/[0.05]"
-            >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>一覧に戻る</span>
-            </button>
-            <span className="text-xs font-mono text-emerald-400 font-semibold flex items-center gap-1">
-              <Sparkles className="w-3.5 h-3.5" />
-              歪み解剖カルテ
-            </span>
-            <button
-              onClick={() => setIsMobileDetailOpen(false)}
-              className="p-1 rounded bg-white/[0.05] text-zinc-400 hover:text-white"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* モバイル詳細ボディ */}
-          <div className="flex-1 overflow-y-auto pb-32">
-            <AnomalyDossierView
-              anomaly={activeAnomaly}
-              matchedEntities={matchedEntities}
-              onOpenEntityInLedger={(id) => {
-                setIsMobileDetailOpen(false);
-                onOpenEntityInLedger(id);
-              }}
-              onOpenSynthesisWithEntity={(id) => {
-                setIsMobileDetailOpen(false);
-                onOpenSynthesisWithEntity?.(id);
-              }}
-            />
-          </div>
+      {mobileDetailOpen && active && (
+        <div role="dialog" aria-modal="true" aria-label={`${active.title}の詳細`} className="fixed inset-0 z-50 flex flex-col bg-background lg:hidden">
+          <div className="min-h-0 flex-1 overflow-y-auto pb-8"><PatternDetail extra={extra} guide={active} onBack={() => setMobileDetailOpen(false)} /></div>
         </div>
       )}
     </div>
   );
 };
 
-// ─── 歪みの完全解剖カルテ (Master-Detailコンポーネント) ───
-interface AnomalyDossierViewProps {
-  anomaly: MarketAnomaly;
-  matchedEntities: FinancialEntity[];
-  onOpenEntityInLedger: (entityId: string) => void;
-  onOpenSynthesisWithEntity?: (entityId: string) => void;
-}
-
-const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
-  anomaly,
-  matchedEntities,
-  onOpenEntityInLedger,
-  onOpenSynthesisWithEntity,
-}) => {
-  return (
-    <div className="p-4 sm:p-6 max-w-4xl space-y-4 sm:space-y-6 select-text">
-      {/* ─── カルテヘッダー ─── */}
-      <div className="border-b border-white/[0.08] pb-4 sm:pb-5">
-        <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 mb-2">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              {anomaly.categoryLabel}
-            </span>
-            <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-rose-500/15 text-rose-300 border border-rose-500/30">
-              {anomaly.growthRate ? `${anomaly.growthRate} ` : ''}{anomaly.signalBadge}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2 sm:gap-3 text-[11px] font-mono text-zinc-500">
-            <span>検知日: {anomaly.updatedAt}</span>
-            <span className="flex items-center gap-1 text-amber-400 font-semibold">
-              <Flame className="w-3.5 h-3.5" />
-              熱狂度 {anomaly.heatScore}/100
-            </span>
-          </div>
-        </div>
-
-        <h2 className="text-base sm:text-xl font-bold text-white tracking-tight leading-snug break-words">
-          {anomaly.title}
-        </h2>
-        <p className="text-xs sm:text-sm text-zinc-400 mt-1 leading-relaxed break-words">
-          {anomaly.subtitle}
-        </p>
-
-<p className="mt-2 text-xs text-amber-300">参考資料・一次証跡未確認 / 資料更新日: {anomaly.updatedAt}</p>
-
-        {/* 財務サマリーバー */}
-        <div className="mt-3 sm:mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg bg-[#0B0D13] border border-white/[0.06]">
-          <div>
-            <span className="text-[9px] sm:text-[10px] font-mono text-zinc-500 uppercase block">想定月商レンジ</span>
-            <span className="text-xs sm:text-sm font-mono font-bold text-white mt-0.5 block">
-              {anomaly.expectedRevenue}
-            </span>
-          </div>
-          <div>
-            <span className="text-[9px] sm:text-[10px] font-mono text-zinc-500 uppercase block">参考利益率</span>
-            <span className="text-xs sm:text-sm font-mono font-bold text-emerald-400 mt-0.5 block">
-              {anomaly.netMarginPercent}%
-            </span>
-          </div>
-          <div className="col-span-2 sm:col-span-1">
-            <span className="text-[9px] sm:text-[10px] font-mono text-zinc-500 uppercase block">大手の対抗可能性</span>
-            <span className="text-xs sm:text-sm font-mono font-bold text-rose-400 mt-0.5 block">
-              未確認
-            </span>
-          </div>
-        </div>
+const PatternDetail: React.FC<{ guide: PatternGuide; extra?: React.ReactNode; onBack?: () => void }> = ({ guide, onBack, extra }) => (
+  <div className="mx-auto max-w-5xl space-y-3 p-4 sm:p-6">
+    <header className="border-b border-white/[0.16] pb-3">
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-xs font-medium text-sky-200">{guide.category} · 事業案</p>
+        {onBack && <button type="button" onClick={onBack} className="inline-flex min-h-10 items-center gap-1 rounded px-2 text-sm text-zinc-300 hover:bg-white/[0.06]"><ArrowLeft aria-hidden="true" className="h-4 w-4" />一覧へ</button>}
       </div>
-
-      {/* ─── 4大解剖ブロック（Trends.vc + Exploding Topics + CB Insights融合） ─── */}
-      <div className="grid grid-cols-1 gap-3 sm:gap-4">
-        {/* ① いま起きている予兆 (Signal & Momentum) */}
-        {anomaly.signalData && (
-          <div className="p-3.5 sm:p-4 rounded-lg bg-emerald-950/15 border border-emerald-500/25 space-y-1">
-            <div className="flex items-center gap-1.5 text-emerald-400 font-mono text-xs font-semibold">
-              <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
-              <span>1. いま起きている予兆データ (Signal & Momentum)</span>
-            </div>
-            <p className="text-xs text-zinc-200 leading-relaxed font-sans pl-5 break-words">
-              {anomaly.signalData}
-            </p>
-          </div>
-        )}
-
-        {/* ② 狙う痛みの財布 (人間の防衛本能・衝動) */}
-        <div className="p-3.5 sm:p-4 rounded-lg bg-rose-950/10 border border-rose-500/20 space-y-1">
-          <div className="flex items-center gap-1.5 text-rose-400 font-mono text-xs font-semibold">
-            <Target className="w-3.5 h-3.5 text-rose-400" />
-            <span>2. 思わず買ってしまう人間の心理（保身・不安・切実な悩み）</span>
-          </div>
-          <p className="text-xs text-zinc-200 leading-relaxed font-sans pl-5 break-words">
-            {anomaly.targetPainWallet}
-          </p>
-        </div>
-
-        {/* ③ 大手・既存産業の自爆構造 (Why it matters / 既存事業の共食い障壁) */}
-        <div className="p-3.5 sm:p-4 rounded-lg bg-amber-950/10 border border-amber-500/20 space-y-1">
-          <div className="flex items-center gap-1.5 text-amber-400 font-mono text-xs font-semibold">
-            <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
-            <span>3. 大企業が真似できない理由（大手が手を出せない事情）</span>
-          </div>
-          <p className="text-xs text-zinc-200 leading-relaxed font-sans pl-5 break-words">
-            {anomaly.incumbentTrap}
-          </p>
-        </div>
-
-        {/* ④ いま現場で流行っている抜き方・手口 (How to Profit) */}
-        <div className="p-3.5 sm:p-4 rounded-lg bg-cyan-950/10 border border-cyan-500/20 space-y-1">
-          <div className="flex items-center gap-1.5 text-cyan-400 font-mono text-xs font-semibold">
-            <Zap className="w-3.5 h-3.5 text-cyan-400" />
-            <span>4. いま現場で流行っている抜き方・手口 (How to Profit)</span>
-          </div>
-          <p className="text-xs text-zinc-200 leading-relaxed font-sans pl-5 break-words">
-            {anomaly.trendingPlaybook}
-          </p>
-        </div>
-
-        {/* ⑤ 初動突破の客観事実ログ (Guerrilla Traction) */}
-        <div className="p-3.5 sm:p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] space-y-1">
-          <div className="flex items-center gap-1.5 text-zinc-300 font-mono text-xs font-semibold">
-            <BookOpen className="w-3.5 h-3.5 text-zinc-400" />
-            <span>5. 初動突破の客観事実ログ (最初の10人を仕留めた実録)</span>
-          </div>
-          <p className="text-[11px] sm:text-xs text-zinc-300 leading-relaxed font-mono pl-5 bg-black/20 p-2.5 rounded border border-white/[0.04] break-words">
-            {anomaly.guerrillaTractionLog}
-          </p>
-        </div>
-      </div>
-
-      {/* ─── 現場の構築ツール・原価配管 (Tech Stack) ─── */}
-      <div className="p-3.5 sm:p-4 rounded-lg bg-white/[0.02] border border-white/[0.06] space-y-2">
-        <div className="flex items-center gap-1.5 text-zinc-300 font-mono text-xs font-semibold">
-          <Wrench className="w-3.5 h-3.5 text-zinc-400" />
-          <span>実際の構築ツール・原価配管 (Tech Stack)</span>
-        </div>
-        <div className="flex flex-wrap gap-1.5 pl-5 pt-0.5">
-          {anomaly.techStack.map((tool, idx) => (
-            <span
-              key={idx}
-              className="px-2 py-0.5 rounded bg-[#07080B] text-[11px] font-mono text-zinc-300 border border-white/[0.08]"
-            >
-              {tool}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ─── 相互直通ワームホール: 実在企業DB検証 ＆ AI壁打ち連携 ─── */}
-      <div className="p-3.5 sm:p-4 rounded-lg bg-[#0B0D13] border border-white/[0.08] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-        {/* 実在企業の財務・戦略データリンク（DBへ一瞬でワープ） */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-          <span className="text-[11px] sm:text-xs font-mono text-zinc-400 shrink-0 flex items-center gap-1">
-            <Database className="w-3.5 h-3.5 text-emerald-400" />
-            裏付け実在企業 (Receipts):
-          </span>
-          <div className="flex flex-wrap items-center gap-1.5">
-            {matchedEntities.map((ent) => (
-              <button
-                key={ent.id}
-                onClick={() => onOpenEntityInLedger(ent.id)}
-                className="px-2.5 py-1 rounded bg-emerald-500/10 hover:bg-emerald-500/20 text-xs font-mono text-emerald-300 border border-emerald-500/30 hover:border-emerald-500/50 transition-all flex items-center gap-1 group cursor-pointer"
-                title="クリックでDB財務カルテ・通帳を検証"
-              >
-                <span>{ent.name}</span>
-                <span className="text-[10px] text-zinc-400 font-normal">({ent.pnl.operatingMargin}%)</span>
-                <ArrowRight className="w-3 h-3 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* AI壁打ち連携ボタン */}
-        {matchedEntities[0] && onOpenSynthesisWithEntity && (
-          <button
-            onClick={() => onOpenSynthesisWithEntity(matchedEntities[0].id)}
-            className="px-3.5 py-2 rounded bg-white/[0.06] hover:bg-white/[0.1] text-zinc-200 hover:text-white border border-white/[0.1] font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shrink-0"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-            <span>この歪みから作戦を立案</span>
-          </button>
-        )}
-      </div>
+      <h2 className="mt-1 text-xl font-semibold text-white">{guide.title}</h2>
+      <p className="mt-1 text-sm text-zinc-300">{guide.summary}</p>
+    </header>
+    <div className="grid gap-3 xl:grid-cols-2">
+      <section className="rounded-md border border-white/[0.16] bg-[#101721]">
+        <h3 className="border-b border-white/[0.12] bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">事業の形</h3>
+        <dl className="divide-y divide-white/[0.1] px-4 text-sm leading-6">
+          <div className="py-2"><dt className="text-xs text-sky-200">想定する顧客</dt><dd className="text-zinc-200">{guide.customer}</dd></div>
+          <div className="py-2"><dt className="text-xs text-sky-200">提供するもの</dt><dd className="text-zinc-200">{guide.deliverable}</dd></div>
+          <div className="py-2"><dt className="text-xs text-sky-200">収益の取り方</dt><dd className="text-zinc-200">{guide.revenueModel}</dd></div>
+        </dl>
+      </section>
+      <section className="rounded-md border border-white/[0.16] bg-[#101721]">
+        <h3 className="border-b border-white/[0.12] bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">最初に確かめること</h3>
+        <p className="border-b border-white/[0.1] px-4 py-2.5 text-sm leading-6 text-zinc-200">{guide.firstStep}</p>
+        <ul className="divide-y divide-white/[0.1] px-4 text-sm leading-6 text-zinc-200">
+          {guide.checks.map((check) => <li key={check} className="py-2">{check}</li>)}
+        </ul>
+      </section>
     </div>
-  );
-};
+    {extra}
+  </div>
+);
+
+function patternGuide(record: (typeof MARKET_ANOMALIES)[number]): PatternGuide {
+  return PATTERN_GUIDES[record.id] ?? {
+    title: record.title, category: record.categoryLabel, summary: record.subtitle,
+    opportunity: record.signalData || '', customer: record.targetPainWallet,
+    deliverable: record.trendingPlaybook, revenueModel: record.incumbentTrap,
+    firstStep: record.guerrillaTractionLog, checks: record.techStack,
+  };
+}

@@ -12,7 +12,11 @@ function makeEntity(
     revenue?: number;
     capital?: number;
     team?: number;
+    initialTeam?: number;
     hours?: number;
+    scale?: FinancialEntity['scale'];
+    financialStatus?: FinancialEntity['pnl']['financialStatus'];
+    snapshotPeriod?: string;
     viability?: "ACTIVE_PLAYBOOK" | "HISTORICAL_WINDOW";
   } = {},
 ): FinancialEntity {
@@ -22,7 +26,7 @@ function makeEntity(
     name: "Case " + id,
     tagline: "検証用事例",
     sector: "NICHE_SAAS",
-    scale: "SOLO",
+    scale: options.scale || "SOLO",
     founder: "Founder",
     country: "JP",
     url: "https://example.com/" + id,
@@ -47,13 +51,15 @@ function makeEntity(
       operatingProfit: options.profit ?? 1_700_000,
       operatingMargin: 85,
       estimatedAnnualNetProfit: 20_400_000,
+      financialStatus: options.financialStatus,
+      dataSnapshotPeriod: options.snapshotPeriod,
       isRevenueUnconfirmed: false,
       isOperatingProfitUnconfirmed: false,
       isMarginUnconfirmed: false,
     },
     operations: {
       teamSize: options.team ?? 1,
-      initialTeamSize: options.team ?? 1,
+      initialTeamSize: options.initialTeam ?? options.team ?? 1,
       currentTeamSize: options.team ?? 1,
       weeklyHours: options.hours ?? 8,
       initialCapitalRequired: options.capital ?? 30_000,
@@ -131,7 +137,7 @@ describe("discovery model", () => {
     ]);
 
     const recurring = dataset.cases.find((item) => item.id === "a");
-    expect(recurring?.mechanism.label).toBe("継続課金で積み上げる");
+    expect(recurring?.mechanism.label).toBe("継続課金");
     expect(recurring?.mechanismCount).toBe(2);
   });
 
@@ -149,5 +155,34 @@ describe("discovery model", () => {
     expect(current.isSolo).toBe(true);
     expect(current.lowWork).toBe(true);
     expect(current.isCurrent).toBe(true);
+  });
+
+  it("does not classify an enterprise placeholder as a one-person, low-capital start", () => {
+    const item = deriveDiscoveryDataset([
+      makeEntity("enterprise", {
+        scale: "ENTERPRISE",
+        team: 16_000,
+        initialTeam: 1,
+        capital: 10_000,
+        hours: 8,
+      }),
+    ]).cases[0];
+
+    expect(item.startLine).not.toContain("1人開始");
+    expect(item.isSolo).toBe(false);
+    expect(item.lowCapital).toBe(false);
+    expect(item.lowWork).toBe(false);
+  });
+
+  it("shows record status and annual-period caveat beside a monthly ledger value", () => {
+    const item = deriveDiscoveryDataset([
+      makeEntity("annual", {
+        financialStatus: "ESTIMATED",
+        snapshotPeriod: "FY2025 (2025年12月31日終了)",
+      }),
+    ]).cases[0];
+
+    expect(item.resultEvidenceLabel).toBe("資料区分: 推定");
+    expect(item.resultPeriodNote).toBe("年次資料の月次換算条件は未記載");
   });
 });

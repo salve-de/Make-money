@@ -15,8 +15,5 @@ export default async function PlaybookPage() {
   const entities = await getEntities();
   const macroData = aggregateMacroIntelligence(entities.map(publicEntity));
 
-  // Macro intelligence needs the full server-side catalog, but the client
-  // ticker renders only a small visible window. Keep the large dossier data
-  // out of the static RSC/HTML payload.
-  return <PlaybookClientShell macroData={macroData} entities={entities.slice(0, 12).map(publicEntity)} />;
+  return <PlaybookClientShell macroData={macroData} />;
 }

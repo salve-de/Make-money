@@ -22,6 +22,10 @@ export interface DiscoveryCase {
   resultLabel: string;
   resultValue: string;
   resultAmountJpy: number | null;
+  resultEvidenceLabel: string;
+  resultPeriod: string | null;
+  resultSource: string | null;
+  resultPeriodNote: string | null;
   startLine: string;
   criticalInsight: string;
   whyMoneyMoved: string;
@@ -62,37 +66,37 @@ const SECTOR_LABELS: Record<string, string> = {
 const MECHANISMS: Array<{ id: string; label: string; re: RegExp }> = [
   {
     id: 'toll',
-    label: '他人の取引から取る',
+    label: '取引手数料・仲介',
     re: /手数料|仲介|中抜き|通行税|marketplace|マーケットプレイス|決済|紹介料|送客|broker|仲介料/iu,
   },
   {
     id: 'recurring',
-    label: '継続課金で積み上げる',
+    label: '継続課金',
     re: /サブスク|月額|年額|継続課金|subscription|ARR|MRR|リカーリング/iu,
   },
   {
     id: 'automation',
-    label: '高額な人力を技術で低原価化',
+    label: '自動化・業務効率化',
     re: /人力|手作業|省人|無人|自動化|自動納品|外注.{0,12}自動|自動.{0,12}外注|原価.{0,12}(?:削減|低下)|AI.{0,12}(?:代替|置換|自動化)/iu,
   },
   {
     id: 'direct',
-    label: '流通を飛ばして直接取る',
+    label: '直販',
     re: /直販|D2C|中間業者|相見積|代理店.*飛ば|direct/iu,
   },
   {
     id: 'audience',
-    label: '人を集めて別の財布から取る',
+    label: '広告・紹介',
     re: /広告|メディア|newsletter|ニュースレター|affiliate|アフィリ|スポンサー|掲載料/iu,
   },
   {
     id: 'asset',
-    label: '一度作った資産を繰り返し売る',
+    label: 'コンテンツ・ソフトウェア販売',
     re: /テンプレ|デジタル商品|ライセンス|ソフトウェア|SaaS|コンテンツ|教材|プラグイン|extension/iu,
   },
   {
     id: 'scarcity',
-    label: '希少性・独占で価格決定力を持つ',
+    label: '供給制約・ブランド',
     re: /独占|希少|ブランド|monopoly|cornered|限定|供給制約/iu,
   },
 ];
@@ -121,21 +125,24 @@ function resultOf(entity: FinancialEntity): {
   amount: number | null;
 } {
   const pnl = entity.pnl;
+  if (pnl.financialStatus === 'UNAVAILABLE') {
+    return { label: '金額', value: '未確認', amount: null };
+  }
   if (
     pnl.financialStatus === 'POST_MORTEM' ||
     (!pnl.isOperatingProfitUnconfirmed && pnl.operatingProfit < 0)
   ) {
     if (!pnl.isOperatingProfitUnconfirmed && pnl.operatingProfit !== 0) {
-      return { label: '月間営業損失', value: formatJpy(pnl.operatingProfit), amount: pnl.operatingProfit };
+      return { label: '営業損失（月額換算・登録値）', value: formatJpy(pnl.operatingProfit), amount: pnl.operatingProfit };
     }
     return { label: '結果', value: '失敗・撤退', amount: null };
   }
 
   if (!pnl.isOperatingProfitUnconfirmed && pnl.operatingProfit > 0) {
-    return { label: '月間営業利益', value: formatJpy(pnl.operatingProfit), amount: pnl.operatingProfit };
+    return { label: '営業利益（月額換算・登録値）', value: formatJpy(pnl.operatingProfit), amount: pnl.operatingProfit };
   }
   if (!pnl.isRevenueUnconfirmed && pnl.monthlyRevenue > 0) {
-    return { label: '月商', value: formatJpy(pnl.monthlyRevenue), amount: pnl.monthlyRevenue };
+    return { label: '売上（月額換算・登録値）', value: formatJpy(pnl.monthlyRevenue), amount: pnl.monthlyRevenue };
   }
   if (pnl.revenueLabel) return { label: '売上', value: pnl.revenueLabel, amount: null };
   return { label: '結果', value: '金額未確認', amount: null };
@@ -159,8 +166,33 @@ function mechanismOf(entity: FinancialEntity): DiscoveryMechanism {
 
   return {
     id: `sector:${entity.sector}`,
-    label: `${SECTOR_LABELS[entity.sector] || 'その他'}で金を作る`,
+    label: `${SECTOR_LABELS[entity.sector] || 'その他'}の事例`,
   };
+}
+
+function resultEvidenceLabel(entity: FinancialEntity): string {
+  switch (entity.pnl.financialStatus) {
+    case 'VERIFIED':
+      return '資料区分: 一次資料';
+    case 'REPORTED':
+      return '資料区分: 報道・取材';
+    case 'ESTIMATED':
+      return '資料区分: 推定';
+    case 'POST_MORTEM':
+      return '資料区分: 事後資料';
+    case 'UNAVAILABLE':
+      return '資料区分: 未確認';
+    default:
+      return '資料区分: 未設定';
+  }
+}
+
+function resultPeriodNote(entity: FinancialEntity): string | null {
+  const period = entity.pnl.dataSnapshotPeriod || '';
+  if (/FY\s*\d{4}|\d{4}年.*(?:期|通期|終了年度)|52週|通期/iu.test(period)) {
+    return '年次資料の月次換算条件は未記載';
+  }
+  return null;
 }
 
 function viability(status: ViabilityStatus | undefined, label?: string, detail?: string) {
@@ -183,11 +215,11 @@ function viability(status: ViabilityStatus | undefined, label?: string, detail?:
 function startLineOf(entity: FinancialEntity): string {
   const parts: string[] = [];
   const ops = entity.operations;
-  if (!ops.isTeamSizeUnconfirmed) {
-    const team = ops.initialTeamSize ?? ops.teamSize;
-    if (Number.isFinite(team) && team > 0) parts.push(team === 1 ? '1人開始' : `${team}人開始`);
+  if (entity.scale !== 'ENTERPRISE' && !ops.isTeamSizeUnconfirmed) {
+    const team = ops.initialTeamSize;
+    if (typeof team === 'number' && Number.isFinite(team) && team > 0) parts.push(team === 1 ? '1人開始' : `${team}人開始`);
   }
-  if (!ops.isCapitalUnconfirmed && Number.isFinite(ops.initialCapitalRequired)) {
+  if (entity.scale !== 'ENTERPRISE' && !ops.isCapitalUnconfirmed && Number.isFinite(ops.initialCapitalRequired)) {
     parts.push(`初期 ${formatJpy(ops.initialCapitalRequired)}`);
   }
   if (entity.temporal?.foundedYear && entity.temporal.foundedYear > 0) {
@@ -231,9 +263,9 @@ function shockBase(entity: FinancialEntity, resultAmount: number | null): number
   const result = Math.max(0, resultAmount || 0);
   let score = result > 0 ? Math.log10(result + 1) * 11 : 0;
 
-  if (!ops.isTeamSizeUnconfirmed && (ops.initialTeamSize ?? ops.teamSize) === 1) score += 16;
-  if (!ops.isCapitalUnconfirmed && ops.initialCapitalRequired <= 100_000) score += 14;
-  if (!ops.isWeeklyHoursUnconfirmed && ops.weeklyHours > 0 && ops.weeklyHours <= 10) score += 14;
+  if (entity.scale !== 'ENTERPRISE' && !ops.isTeamSizeUnconfirmed && ops.initialTeamSize === 1) score += 16;
+  if (entity.scale !== 'ENTERPRISE' && !ops.isCapitalUnconfirmed && ops.initialCapitalRequired <= 100_000) score += 14;
+  if (entity.scale !== 'ENTERPRISE' && !ops.isWeeklyHoursUnconfirmed && ops.weeklyHours > 0 && ops.weeklyHours <= 10) score += 14;
   if (!entity.pnl.isMarginUnconfirmed && entity.pnl.operatingMargin >= 50) score += 8;
   if ((entity.evidenceCards?.length || 0) >= 2) score += 5;
   if (entity.temporal?.viabilityStatus === 'ACTIVE_PLAYBOOK' || entity.temporal?.viabilityStatus === 'RISING_WAVE') score += 5;
@@ -272,12 +304,12 @@ function lensScores(
     SURPRISE: base,
     BIG_CASH: (amount && amount > 0 ? Math.log10(amount + 1) * 20 : 0) + base * 0.2,
     LOW_CAPITAL:
-      (!ops.isCapitalUnconfirmed ? Math.max(0, 30 - Math.log10(ops.initialCapitalRequired + 1) * 5) : 0) +
+      (entity.scale !== 'ENTERPRISE' && !ops.isCapitalUnconfirmed ? Math.max(0, 30 - Math.log10(ops.initialCapitalRequired + 1) * 5) : 0) +
       base * 0.35,
     SOLO:
-      (!ops.isTeamSizeUnconfirmed && (ops.initialTeamSize ?? ops.teamSize) === 1 ? 45 : 0) + base * 0.35,
+      (entity.scale !== 'ENTERPRISE' && !ops.isTeamSizeUnconfirmed && ops.initialTeamSize === 1 ? 45 : 0) + base * 0.35,
     LOW_WORK:
-      (!ops.isWeeklyHoursUnconfirmed && ops.weeklyHours > 0
+      (entity.scale !== 'ENTERPRISE' && !ops.isWeeklyHoursUnconfirmed && ops.weeklyHours > 0
         ? Math.max(0, 45 - ops.weeklyHours * 1.5)
         : 0) + base * 0.3,
     CURRENT: (current ? 50 : 0) + base * 0.3,
@@ -314,7 +346,7 @@ export function deriveDiscoveryDataset(
       entity.pnl.financialStatus === 'POST_MORTEM' ||
       entity.opportunityJudgment?.verdict === 'HAZARD_REJECT' ||
       (!entity.pnl.isOperatingProfitUnconfirmed && entity.pnl.operatingProfit < 0);
-    const team = entity.operations.initialTeamSize ?? entity.operations.teamSize;
+    const team = entity.operations.initialTeamSize;
 
     return {
       entity,
@@ -323,9 +355,10 @@ export function deriveDiscoveryDataset(
       current,
       base,
       isFailure,
-      isSolo: !entity.operations.isTeamSizeUnconfirmed && team === 1,
-      lowCapital: !entity.operations.isCapitalUnconfirmed && entity.operations.initialCapitalRequired <= 100_000,
+      isSolo: entity.scale !== 'ENTERPRISE' && !entity.operations.isTeamSizeUnconfirmed && team === 1,
+      lowCapital: entity.scale !== 'ENTERPRISE' && !entity.operations.isCapitalUnconfirmed && entity.operations.initialCapitalRequired <= 100_000,
       lowWork:
+        entity.scale !== 'ENTERPRISE' &&
         !entity.operations.isWeeklyHoursUnconfirmed &&
         entity.operations.weeklyHours > 0 &&
         entity.operations.weeklyHours <= 10,
@@ -357,6 +390,10 @@ export function deriveDiscoveryDataset(
         resultLabel: result.label,
         resultValue: result.value,
         resultAmountJpy: result.amount,
+        resultEvidenceLabel: resultEvidenceLabel(entity),
+        resultPeriod: compact(entity.pnl.dataSnapshotPeriod, 50) || null,
+        resultSource: compact(entity.pnl.sourceDoc, 70) || null,
+        resultPeriodNote: resultPeriodNote(entity),
         startLine: startLineOf(entity),
         criticalInsight: criticalInsightOf(entity),
         whyMoneyMoved: whyMoneyMovedOf(entity),

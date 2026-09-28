@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, CircleDollarSign, Database, Rocket } from 'lucide-react';
+import { ArrowRight, CircleDollarSign, Database } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
 import {
@@ -130,41 +130,45 @@ export function ExecutionHubClient() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8">
-      <section className="border-b border-white/[0.08] pb-6">
-        <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-300">
-          <Rocket className="h-4 w-4" />
-          EXECUTION PIPELINE
+    <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-3 sm:px-6 lg:px-8">
+      <section className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-white/[0.1] pb-3">
+        <div>
+          <h1 className="text-lg font-semibold tracking-tight text-zinc-50">実行計画</h1>
         </div>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">実行中</h1>
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-zinc-400">
-          保存した事例を眺める場所ではなく、最初の売上まで進めている案件だけを置く。
-        </p>
-      </section>
-
-      <section className="mt-5 grid gap-3 sm:grid-cols-3">
-        <Metric label="実行プロジェクト" value={String(projects.length)} />
-        <Metric label="First Dollar達成" value={String(firstDollarCount)} />
-        <Metric label="記録済み売上" value={'¥' + totalRevenue.toLocaleString()} />
+        {projects.length > 0 && <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm">
+          <SummaryItem label="案件" value={String(projects.length)} />
+          <SummaryItem label="初回売上" value={`${firstDollarCount}件`} />
+          <SummaryItem label="記録売上" value={`¥${totalRevenue.toLocaleString()}`} />
+        </div>}
       </section>
 
       {projects.length === 0 ? (
-        <section className="mt-8 rounded-xl border border-dashed border-white/[0.12] bg-white/[0.02] p-8 text-center">
-          <Database className="mx-auto h-8 w-8 text-zinc-600" />
-          <h2 className="mt-3 text-sm font-semibold text-zinc-200">まだ実行中の案件はない</h2>
-          <p className="mx-auto mt-2 max-w-lg text-xs leading-5 text-zinc-500">
-            財務台帳で事例を開き、「この稼ぎ方を実行」を押すとここに追加される。
-          </p>
-          <Link
-            href="/"
-            className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-emerald-400 px-3 py-2 text-xs font-bold text-zinc-950 hover:bg-emerald-300"
-          >
-            稼ぎ方を探す
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
+        <section className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-md border border-white/[0.14] bg-surface px-4 py-4">
+          <div className="flex min-w-0 items-start gap-3">
+            <Database aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-accent-strong" />
+            <div className="min-w-0">
+              <h2 className="text-base font-semibold text-zinc-100">
+                {token && remoteState === 'loading' ? '保存した計画を読み込んでいます' : '実行計画はまだありません'}
+              </h2>
+              <p className="mt-1 max-w-xl text-sm leading-6 text-zinc-300">
+                {token && remoteState === 'loading'
+                  ? 'クラウドとこの端末に保存された計画を確認しています。'
+                  : '台帳で事例を開き、「計画を作成」から追加できます。'}
+              </p>
+              {!(token && remoteState === 'loading') && (
+                <Link
+                  href="/"
+                  className="mt-2 inline-flex min-h-10 shrink-0 items-center gap-2 text-sm font-semibold text-accent-strong transition-colors hover:text-amber-200"
+                >
+                  台帳で事例を探す
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
+            </div>
+          </div>
         </section>
       ) : (
-        <section className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <section className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,22rem),1fr))] gap-3">
           {projects.map((project) => {
             const progress = executionProgress(project);
             const earned = project.revenueJpy > 0;
@@ -172,14 +176,14 @@ export function ExecutionHubClient() {
               <Link
                 key={project.entityId}
                 href={'/execute/' + encodeURIComponent(project.entityId)}
-                className="group rounded-xl border border-white/[0.08] bg-[#0b0f15] p-4 transition-colors hover:border-emerald-400/25 hover:bg-white/[0.035]"
+                className="group rounded-md border border-white/[0.16] bg-[#101721] p-4 transition-colors hover:border-emerald-400/25 hover:bg-white/[0.035]"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <div className="truncate text-[10px] font-mono text-zinc-600">{project.sourceName}</div>
-                    <h2 className="mt-1 line-clamp-2 text-sm font-semibold text-zinc-100">
-                      {project.offerName || '商品をまだ固定していない'}
-                    </h2>
+                    <h2 className="line-clamp-2 text-base font-semibold text-zinc-100">{project.sourceName}</h2>
+                    {project.offerName && project.offerName !== '金額・費用の裏付けは未確認。' && (
+                      <p className="mt-1 line-clamp-2 text-sm text-zinc-300">{project.offerName}</p>
+                    )}
                     {conflictIds.has(project.entityId) && (
                       <span className="mt-1.5 inline-flex rounded border border-amber-400/25 bg-amber-400/[0.08] px-1.5 py-0.5 text-[9px] font-mono text-amber-300">
                         端末下書きとクラウドが競合
@@ -213,11 +217,11 @@ export function ExecutionHubClient() {
   );
 }
 
-function Metric({ label, value }: { label: string; value: string }) {
+function SummaryItem({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] p-4">
-      <div className="text-[10px] text-zinc-600">{label}</div>
-      <div className="mt-1 font-mono text-lg font-semibold text-zinc-100">{value}</div>
+    <div className="flex items-baseline gap-1.5">
+      <span className="text-xs text-zinc-400">{label}</span>
+      <span className="font-mono text-sm font-semibold tabular-nums text-zinc-100">{value}</span>
     </div>
   );
 }

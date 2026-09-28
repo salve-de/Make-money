@@ -22,21 +22,22 @@ for (const [id, name, hazard] of entities) {
     if (['ent_pdf_ai_65', 'ent_disco_6146_jp', 'ent_keyence'].includes(id)) {
       await expect(page.getByRole('status')).toContainText(`${name}：詳細の公開確認が完了していない`);
       await expect(page.getByRole('heading', { name, exact: true })).toHaveCount(0);
-      await expect(page.getByRole('link', { name: `${name}の稼ぎ方を実行する（空の計画から開始）` })).toHaveAttribute('href', `/execute/${id}`);
+      await expect(page.getByRole('link', { name: `${name}を参考に計画を作る` })).toHaveAttribute('href', `/execute/${id}`);
       expect(errors).toEqual([]);
       return;
     }
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
     await expect(page.locator('#section-summary')).toHaveCount(1);
-    await expect(page.locator('#section-cash-anatomy')).toHaveCount(1);
+    // Uncollected financials no longer occupy a result card; the summary must not fabricate zeros.
+    await expect(page.locator('#section-summary')).not.toContainText('¥0');
     await expect(page.locator('#section-flywheel')).toHaveCount(0);
     await expect(page.locator('#section-loot-blueprint')).toHaveCount(1);
-    await expect(page.locator('#section-evidence')).toContainText(hazard ? '失敗・撤退の事実ログ' : '儲けのウラ側');
+    await expect(page.locator('#section-evidence')).toContainText(hazard ? '撤退・破綻に関する記録' : '根拠となる記録');
     expect(await page.locator('#section-evidence article').count()).toBeGreaterThanOrEqual(2);
     for (const phrase of ['サバンナOS', 'サバンナ OS', '略奪転用方程式', '身も蓋もない真実', 'カニバリズム障壁']) {
       await expect(page.locator('body')).not.toContainText(phrase);
     }
-    await page.getByRole('button', { name: '証拠', exact: true }).click();
+    await page.getByRole('button', { name: '出典・記録', exact: true }).click();
     await expect(page.locator('#section-sources')).toHaveCount(1);
     await expect(page.locator('#section-stream')).toHaveCount(1);
     await expect(page.locator('#section-notes textarea')).toHaveCount(1);

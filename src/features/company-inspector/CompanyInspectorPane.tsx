@@ -35,6 +35,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   isPro = false,
   isBookmarked = false,
   onToggleBookmark,
+  mobileOpen = true,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -114,20 +115,20 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
       <button
         type="button"
         onClick={onClose}
-        className="fixed inset-0 z-30 bg-black/60 backdrop-blur-xs md:hidden"
+        className={mobileOpen ? 'fixed inset-0 z-30 bg-black/60 backdrop-blur-xs xl:hidden' : 'hidden'}
         aria-label="企業事例インスペクターを閉じる"
       />
 
       <aside
         aria-label={`${entity.name}の企業事例インスペクター`}
-        className="fixed inset-x-0 bottom-0 z-40 flex h-full max-h-[92vh] w-full shrink-0 flex-col overflow-hidden border-t border-white/[0.08] bg-[#090d13] shadow-2xl md:static md:max-h-none md:min-w-[480px] md:flex-1 md:shrink md:border-l md:border-t-0"
+        className={`fixed inset-x-0 bottom-0 z-40 h-full max-h-[92dvh] w-full shrink-0 flex-col overflow-hidden border-t border-white/[0.08] bg-[#10161f] shadow-2xl xl:static xl:max-h-none xl:min-w-[520px] xl:flex-1 xl:shrink xl:border-l xl:border-t-0 ${mobileOpen ? 'flex' : 'hidden xl:flex'}`}
       >
         <CompanyHeader {...sectionProps} />
 
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="relative flex-1 space-y-5 overflow-y-auto bg-[#0b0f15] p-4 text-xs font-sans scroll-smooth [scrollbar-color:rgba(255,255,255,0.2)_rgba(11,15,21,1)] [scrollbar-gutter:stable] [scrollbar-width:thin] sm:p-5"
+          className="relative flex-1 space-y-5 overflow-y-auto bg-[#0c1016] px-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-4 text-sm font-sans scroll-smooth [scrollbar-color:rgba(255,255,255,0.2)_rgba(12,16,22,1)] [scrollbar-gutter:stable] [scrollbar-width:thin] sm:p-5"
         >
           {mainTab === 'LEDGER' ? (
             <>
@@ -141,13 +142,19 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
               <EvidenceDeckSection {...sectionProps} />
               <LootBlueprintSection {...sectionProps} />
+              <RelatedResearch {...sectionProps} />
             </>
           ) : (
             <>
               <SourcesSection {...sectionProps} />
-              <EvidenceStream {...sectionProps} />
-              <AnalystNotes {...sectionProps} />
-              <RelatedResearch {...sectionProps} />
+              <details className="rounded-md border border-white/[0.12] bg-[#101721]">
+                <summary className="cursor-pointer px-4 py-2.5 text-sm font-medium text-zinc-200">登録メモを見る</summary>
+                <EvidenceStream {...sectionProps} />
+              </details>
+              <details className="rounded-md border border-white/[0.10] bg-[#101720]">
+                <summary className="cursor-pointer px-4 py-2.5 text-sm font-medium text-zinc-200">自分のメモ</summary>
+                <AnalystNotes {...sectionProps} />
+              </details>
             </>
           )}
         </div>

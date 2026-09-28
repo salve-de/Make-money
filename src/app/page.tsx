@@ -80,7 +80,7 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
     <Suspense fallback={<div className="min-h-screen bg-[#060709]" />}>
       {unavailable ? <aside role="status" className="bg-amber-950 p-4 text-sm text-amber-100">
         {unavailable.name}：詳細の公開確認が完了していないため、未確認の財務・分析は表示していません。
-        <Link className="ml-3 underline" href={`/execute/${encodeURIComponent(unavailable.id)}`}>{unavailable.name}の稼ぎ方を実行する（空の計画から開始）</Link>
+        <Link className="ml-3 underline" href={`/execute/${encodeURIComponent(unavailable.id)}`}>{unavailable.name}を参考に計画を作る</Link>
       </aside> : null}
       <TerminalShell initialEntities={optimizedEntities} entityAliases={entityAliases}
         catalogTags={productionCatalog ? [] : [...new Set(entities.flatMap((entity) => entity.tags ?? []))].sort()}

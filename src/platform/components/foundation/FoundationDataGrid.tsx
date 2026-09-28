@@ -137,7 +137,7 @@ export const FoundationDataGrid: React.FC<FoundationDataGridProps> = ({
           <thead>
             <tr className="h-9 border-b border-white/[0.08] bg-[#090A0D] text-[10px] text-zinc-500">
               <th className="w-[5%] px-3 py-2 font-medium">#</th>
-              <th className="w-[49%] px-3 py-2 font-medium">CASE / 事業の正体と急所</th>
+              <th className="w-[49%] px-3 py-2 font-medium">CASE / 事業と収益構造</th>
               <th className="w-[28%] px-3 py-2 font-medium">STRONGEST SIGNAL / 収益・初動</th>
               <th className="w-[18%] px-3 py-2 font-medium text-right">QUALITY / 確度</th>
             </tr>

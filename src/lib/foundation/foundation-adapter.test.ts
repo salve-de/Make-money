@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   adaptFoundationDetailToFinancialEntity,
   adaptFoundationSummaryToFinancialEntity,
+  inferArchitecturePattern,
   isFoundationDossierReady,
 } from './foundation-adapter';
 import type { FoundationBusinessCase, FoundationValueSummary } from './business-reader';
@@ -34,6 +35,11 @@ function summary(overrides: Partial<FoundationValueSummary> = {}): FoundationVal
 }
 
 describe('Foundation display boundary', () => {
+  it('does not classify the substring "ai" inside an unrelated word as AI', () => {
+    expect(inferArchitecturePattern('company', 'The franchise remains open after the closure.')).toBe('事業型未確認');
+    expect(inferArchitecturePattern('company', 'AI-powered scheduling software')).toBe('AI自動予約');
+  });
+
   it.each(['Equityfinancing: equity_financing=25M USD [2026-09-20] ・ 確認済', 'Seriesd: series_D=114M USD ・ 確認済', 'Primaryseriesf: primary_series_f=233000000 USD ・ 確認済', 'Acquisition price: $10M', 'Valuation: $100M'])('does not turn a non-revenue money signal into monthly sales: %s', moneySignal => {
     const adapted=adaptFoundationSummaryToFinancialEntity(summary({valueProfile:{...summary().valueProfile,moneySignal}}));
     expect(adapted.pnl.isRevenueUnconfirmed).toBe(true);
@@ -43,6 +49,10 @@ describe('Foundation display boundary', () => {
   });
   it('keeps candidate summaries out of the main ledger', () => {
     expect(isFoundationDossierReady(summary())).toBe(false);
+  });
+
+  it('marks visible candidate summaries so they cannot be mistaken for confirmed dossiers', () => {
+    expect(adaptFoundationSummaryToFinancialEntity(summary()).tags).toContain('未精査候補');
   });
 
   it('requires a high-density, evidence-backed projection before replacement', () => {

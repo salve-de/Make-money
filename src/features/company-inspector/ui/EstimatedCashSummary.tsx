@@ -41,7 +41,7 @@ export function EstimatedCashSummary({
 
   const rows = [
     {
-      label: '推計月商',
+      label: '推計売上（月額換算）',
       value: confirmedEstimate(pnl.isRevenueUnconfirmed, pnl.monthlyRevenue, formatMoney),
     },
     {
@@ -53,7 +53,7 @@ export function EstimatedCashSummary({
       value: confirmedEstimate(pnl.isCostsUnconfirmed, totalOpex, formatMoney),
     },
     {
-      label: '推計営業利益',
+      label: '推計営業利益（月額換算）',
       value: confirmedEstimate(pnl.isOperatingProfitUnconfirmed, pnl.operatingProfit, formatMoney),
     },
   ];

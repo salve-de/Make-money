@@ -1,14 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  MacroIntelligenceData,
-} from '@/lib/intelligence/macro-aggregator';
-import {
-  AlertTriangle,
-  Skull,
-  CheckCircle2,
-} from 'lucide-react';
+import type { MacroIntelligenceData } from '@/lib/intelligence/macro-aggregator';
 
 interface DeathTrapsSectionProps {
   shelfLifeAlerts: MacroIntelligenceData['shelfLifeAlerts'];
@@ -18,163 +11,99 @@ interface DeathTrapsSectionProps {
   activeTrap?: MacroIntelligenceData['deathTraps'][number];
 }
 
-export const DeathTrapsSection: React.FC<DeathTrapsSectionProps> = ({
-  shelfLifeAlerts,
-  deathTraps,
-  selectedTrapId,
-  setSelectedTrapId,
-  activeTrap,
-}) => {
+type RiskGuide = { title: string; summary: string; signal: string; impact: string; response: string };
+
+const RISKS: Record<string, RiskGuide> = {
+  'trap-api-wrapper': {
+    title: '基盤サービスへの依存',
+    summary: '提供価値の大部分が外部APIの機能そのものになっている。',
+    signal: '利用者が元のサービスへ直接移っても、成果や手間がほとんど変わらない。',
+    impact: 'APIの価格・機能・提供条件が変わると、利益と差別化を同時に失う。',
+    response: '特定の業務手順、データ整備、導入支援など、自分たちが継続して担う価値を確認する。',
+  },
+  'trap-temporary-windfall': {
+    title: '一時的な需要への固定費投資',
+    summary: '短期の需要を前提に、長く残る費用を増やしてしまう。',
+    signal: '特定のイベントや制度変更の間だけ注文が増え、継続利用が見えていない。',
+    impact: '需要が戻った後も人件費や契約費用が残る。',
+    response: '継続率を確認できるまで、変動費で対応できる範囲を見極める。',
+  },
+  'trap-regulatory-shortcut': {
+    title: '規制・許認可の確認不足',
+    summary: '事業を始める前に必要な条件や責任範囲を確かめていない。',
+    signal: '販売方法や担当者の権限を、公式資料や専門家の確認なしで決めている。',
+    impact: '提供停止や顧客への影響が、売上より大きくなる場合がある。',
+    response: '対象地域と業務に適用される現行ルール、許認可、記録義務を先に確認する。',
+  },
+  'trap-ignoring-savannah-os': {
+    title: '需要確認前の過大投資',
+    summary: '顧客が買う理由を確かめる前に、製作や広告に資金を使う。',
+    signal: '利用者の課題や支払意思より、完成品の仕様が先に決まっている。',
+    impact: '商品が完成しても販売経路と継続需要が見つからない。',
+    response: '小さな試作品で、使用と支払いの両方を確認してから固定費を増やす。',
+  },
+  'trap-cannibalism-direct-hit': {
+    title: '強い販売網との正面競争',
+    summary: '商品だけを比べ、既存事業者の流通や調達の強さを見落とす。',
+    signal: '自社の価格・品質が少し良いだけで、同じ売り場で勝てると考えている。',
+    impact: '販売場所や仕入れ条件で不利になり、顧客に届く前に費用が増える。',
+    response: '別の購入場面や販路で、顧客に届く方法を具体的に確かめる。',
+  },
+};
+
+const RiskDetail: React.FC<{ guide: RiskGuide; trap: DeathTrapsSectionProps["deathTraps"][number] }> = ({ guide, trap }) => (
+  <div className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
+    <h3 className="hidden border-b border-white/[0.12] bg-[#1a2530] px-4 py-3 text-base font-semibold text-white lg:block">{guide.title}</h3>
+    <dl className="divide-y divide-white/[0.1] px-4 text-sm leading-6">
+      {[
+        ['見つける兆候', guide.signal],
+        ['起こり得ること', guide.impact],
+        ['見直し方', guide.response],
+      ].map(([label, value]) => (
+        <div key={label} className="grid gap-0.5 py-2 sm:py-2.5 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-4">
+          <dt className="text-xs font-medium text-amber-200">{label}</dt>
+          <dd className="text-zinc-200">{value}</dd>
+        </div>
+      ))}
+    </dl>
+    <details className="border-t border-white/[0.12] px-4 pb-3">
+      <summary className="cursor-pointer py-3 text-sm font-medium text-amber-200">原因・対応の資料</summary>
+      <div className="space-y-3 text-sm leading-6 text-zinc-200"><p>{trap.mechanism}</p>
+      <ul className="list-disc space-y-2 pl-5">{trap.warningSigns.map((sign, index) => <li key={index}>{sign}</li>)}</ul>
+      <p>{trap.antidote}</p>
+      {trap.victimEntities.length > 0 && <section className="border-t border-white/[0.1] pt-3"><h4 className="text-xs font-medium text-zinc-400">資料内の参考例</h4>{trap.victimEntities.map((entity) => <article key={entity.id} className="mt-3 space-y-1"><h5 className="font-medium">{entity.name}</h5><p>{entity.headline}</p><p>{entity.punchline}</p><ul className="list-disc pl-5">{entity.details.map((detail, index) => <li key={index}>{detail}</li>)}</ul></article>)}</section>}</div>
+    </details>
+  </div>
+);
+
+export const DeathTrapsSection: React.FC<DeathTrapsSectionProps> = ({ deathTraps, shelfLifeAlerts, selectedTrapId, setSelectedTrapId }) => {
+  const selected = deathTraps.find((trap) => trap.id === selectedTrapId) ?? deathTraps[0];
   return (
-    <div className="p-4 sm:p-6 max-w-7xl mx-auto space-y-6">
-      {/* 週次即死アラートバナー */}
-      <div className="bg-[#0A0709] border border-rose-500/25 rounded-lg p-4 sm:p-5">
-        <div className="flex items-center gap-2 text-rose-400 text-xs font-mono font-semibold tracking-wider uppercase mb-1">
-          <AlertTriangle className="w-3.5 h-3.5 text-rose-400 animate-bounce" />
-          <span>This Week&apos;s Shelf-Life Downgrade Alerts</span>
-        </div>
-        <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-          先週まで動いていた手法の「即死判定格下げアラート」
-        </h2>
-        <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-          手法の有効性を見直すための参考事例。判定は固定サンプルであり、現在の規約・価格・有効性は未確認です。
-        </p>
+    <div className="mx-auto grid max-w-7xl gap-3 p-3 sm:p-5 lg:grid-cols-[minmax(260px,36%)_minmax(0,1fr)]">
+      <div className="space-y-2">
+        {deathTraps.map((trap) => {
+          const guide = riskGuide(trap);
+          const isSelected = selected?.id === trap.id;
+          return (
+            <div key={trap.id}>
+              <button type="button" onClick={() => setSelectedTrapId(trap.id)} aria-pressed={isSelected} className={`w-full rounded-md border-l-[3px] px-3 py-3 text-left transition-colors ${isSelected ? 'border-amber-300 bg-[#1a2530]' : 'border-transparent bg-[#101721] hover:bg-[#18212b]'}`}>
+                <span className="block text-sm font-semibold text-white">{guide.title}</span>
+                <span className="mt-1 block text-sm leading-5 text-zinc-300">{guide.summary}</span>
+              </button>
+              {isSelected && <div className="mt-2 lg:hidden"><RiskDetail guide={guide} trap={trap} /></div>}
+            </div>
+          );
+        })}
       </div>
-
-      {/* 直近の格下げ警告カード */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {shelfLifeAlerts.map((alert) => (
-          <div
-            key={alert.id}
-            className="bg-[#09080B] border border-rose-500/30 rounded-lg p-5 space-y-3 relative overflow-hidden"
-          >
-            <div className="flex items-center justify-between text-xs font-mono">
-              <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 font-bold">
-                {alert.badge} ({alert.downgradeDate})
-              </span>
-              <span className="text-zinc-500">
-                {alert.previousStatus} ➔ <span className="text-rose-400 font-bold">{alert.currentStatus}</span>
-              </span>
-            </div>
-
-            <h3 className="text-base font-bold text-white tracking-tight">{alert.playbookName}</h3>
-
-            <div className="space-y-1.5 text-xs">
-              <div className="text-rose-400 font-mono font-semibold">【判定降格のトリガー】:</div>
-              <p className="text-zinc-300 leading-relaxed bg-white/[0.02] border border-white/[0.04] p-2.5 rounded">
-                {alert.triggerEvent}
-              </p>
-            </div>
-
-            <div className="space-y-1.5 text-xs">
-              <div className="text-zinc-400 font-mono font-semibold">【死因のメカニズム】:</div>
-              <p className="text-zinc-300 leading-relaxed">{alert.fatalReason}</p>
-            </div>
-
-            <div className="bg-emerald-950/20 border border-emerald-500/20 p-3 rounded text-xs space-y-1">
-              <div className="text-emerald-400 font-mono font-bold flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>【生き残るための方向転換（Pivot）】</span>
-              </div>
-              <p className="text-zinc-200 leading-relaxed">{alert.survivalPivot}</p>
-            </div>
-
-            <div className="text-[11px] font-mono text-zinc-500 pt-2 border-t border-white/[0.06]">
-              犠牲事例: <span className="text-zinc-300">{alert.victimExample}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* 恒久的な即死アンチパターン検死録 */}
-      <div className="pt-6 border-t border-white/[0.08] space-y-4">
-        <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider flex items-center gap-1.5">
-          <Skull className="w-3.5 h-3.5 text-rose-400" />
-          <span>Historical Post-Mortem Registry / 過去の爆死解剖カルテ</span>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-5 space-y-3">
-            {deathTraps.map((trap) => {
-              const isSelected = selectedTrapId === trap.id;
-              return (
-                <div
-                  key={trap.id}
-                  onClick={() => setSelectedTrapId(trap.id)}
-                  className={`p-4 rounded-lg border transition-all cursor-pointer ${
-                    isSelected
-                      ? 'bg-rose-500/10 border-rose-500/40 text-white shadow-lg'
-                      : 'bg-[#08090D] border-white/[0.06] text-zinc-300 hover:border-white/[0.15]'
-                  }`}
-                >
-                  <div className="flex items-center justify-between text-xs font-mono mb-1.5">
-                    <span className="text-rose-400 font-bold">{trap.badge}</span>
-                    <span className="text-zinc-500">損失: {trap.lossScale.split('/')[0]}</span>
-                  </div>
-                  <h4 className="text-sm font-bold text-white tracking-tight mb-1.5 leading-snug">
-                    {trap.title}
-                  </h4>
-                  <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">{trap.mechanism}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="lg:col-span-7">
-            {activeTrap && (
-              <div className="bg-[#08090D] border border-white/[0.08] rounded-lg p-5 sm:p-6 space-y-4 sticky top-4">
-                <div>
-                  <span className="px-2 py-0.5 rounded text-xs font-mono bg-rose-500/15 text-rose-300 border border-rose-500/30">
-                    {activeTrap.badge}
-                  </span>
-                  <h3 className="text-lg font-bold text-white tracking-tight mt-2">{activeTrap.title}</h3>
-                  <div className="text-xs text-zinc-400 font-mono mt-1">被害規模: {activeTrap.lossScale}</div>
-                </div>
-
-                <div className="space-y-1">
-                  <div className="text-xs font-mono text-zinc-400 font-semibold">【死因解剖メカニズム】</div>
-                  <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed bg-white/[0.02] border border-white/[0.04] p-3 rounded">
-                    {activeTrap.mechanism}
-                  </p>
-                </div>
-
-                <div className="space-y-1.5">
-                  <div className="text-xs font-mono text-amber-400 font-semibold">【前兆サイン】</div>
-                  <ul className="space-y-1">
-                    {activeTrap.warningSigns.map((sign, i) => (
-                      <li key={i} className="text-xs text-zinc-300 flex items-start gap-2">
-                        <span className="text-rose-400 font-bold shrink-0">✕</span>
-                        <span>{sign}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="bg-emerald-950/20 border border-emerald-500/20 p-3 rounded text-xs space-y-1">
-                  <div className="text-emerald-400 font-mono font-bold flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>【生存の解毒剤】</span>
-                  </div>
-                  <p className="text-zinc-200 leading-relaxed">{activeTrap.antidote}</p>
-                </div>
-
-                <div className="pt-3 border-t border-white/[0.06] space-y-2">
-                  <div className="text-[11px] font-mono text-zinc-400">【この罠で爆死した実在企業】:</div>
-                  {activeTrap.victimEntities.map((v) => (
-                    <div key={v.id} className="bg-white/[0.02] border border-white/[0.06] p-3 rounded text-xs space-y-1">
-                      <div className="font-bold text-white">
-                        <span>{v.name}</span>
-                      </div>
-                      <div className="text-rose-300 font-semibold text-[11px]">{v.headline}</div>
-                      <div className="text-zinc-400 text-[11px]">{v.punchline}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+      {shelfLifeAlerts.length > 0 && <details className="rounded-md border border-white/[0.16] bg-[#101721] p-4 lg:col-span-2 lg:order-last">
+        <summary className="cursor-pointer text-sm font-medium text-amber-200">環境変化の資料（{shelfLifeAlerts.length}件）</summary>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">{shelfLifeAlerts.map((alert) => <article key={alert.id} className="space-y-2 rounded border border-white/[0.1] p-3 text-sm leading-6 text-zinc-200"><h3 className="font-semibold">{alert.playbookName}</h3><p className="text-xs text-zinc-400">{alert.downgradeDate}</p><p>{alert.triggerEvent}</p><p>{alert.fatalReason}</p><p>{alert.survivalPivot}</p></article>)}</div>
+      </details>}
+      <div className="hidden lg:block">{selected && <RiskDetail guide={riskGuide(selected)} trap={selected} />}</div>
     </div>
   );
 };
+
+function riskGuide(trap: DeathTrapsSectionProps['deathTraps'][number]): RiskGuide {
+  return RISKS[trap.id] ?? { title: trap.title, summary: trap.mechanism, signal: trap.warningSigns.join(' / '), impact: trap.mechanism, response: trap.antidote };
+}

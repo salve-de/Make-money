@@ -235,12 +235,12 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                         <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                           isHazardMode ? 'text-red-200' : 'text-zinc-100'
                         }`}>
-                          {isHazardMode ? '大手に一撃で圧殺された理由' : '大企業が手を出せない理由'}
+                          {isHazardMode ? '大企業との競争環境' : '大企業との競争条件に関する登録分析'}
                         </h3>
                       </div>
                     </div>
                     <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                      カニバリズム
+                      登録情報
                     </span>
                   </div>
                   <div className="p-3.5 space-y-2.5 bg-[#0E131F]">

@@ -76,46 +76,46 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
           badgeClass: 'text-zinc-200 bg-white/[0.06] border-white/[0.12]',
           iconColor: 'text-zinc-300',
           titleColor: 'text-zinc-100',
-          title: '財務損益計器盤 (EXECUTIVE AUDIT & CASH FLOW)',
+          title: '損益の内訳',
           tagClass: 'bg-white/[0.04] text-zinc-300 border-white/[0.10]',
-          tagLabel: '確定開示 (VERIFIED)',
+          tagLabel: '一次資料の登録あり',
         };
       case 'REPORTED':
         return {
           badgeClass: 'text-zinc-300 bg-white/[0.04] border-white/[0.08]',
           iconColor: 'text-zinc-400',
           titleColor: 'text-zinc-200',
-          title: '報道・取材損益計器盤 (REPORTED CASH FLOW)',
+          title: '損益の内訳',
           tagClass: 'bg-white/[0.04] text-zinc-400 border-white/[0.08]',
-          tagLabel: '報道・取材 (REPORTED)',
+          tagLabel: '報道・取材資料あり',
         };
       case 'POST_MORTEM':
         return {
           badgeClass: 'text-red-400 bg-red-950/30 border-red-500/30',
           iconColor: 'text-red-400',
           titleColor: 'text-red-300',
-          title: '出血・逆流レントゲン (BURN RATE & CASH DRAIN)',
+          title: '過去の損益',
           tagClass: 'bg-red-950/40 text-red-300 border-red-500/30',
-          tagLabel: '死因出血逆算 (POST-MORTEM)',
+          tagLabel: '事後資料あり',
         };
       case 'UNAVAILABLE':
         return {
           badgeClass: 'text-zinc-500 bg-zinc-900 border-zinc-700',
           iconColor: 'text-zinc-500',
           titleColor: 'text-zinc-400',
-          title: '財務損益計器盤 (UNAVAILABLE)',
+          title: '財務情報は未確認',
           tagClass: 'bg-zinc-900 text-zinc-500 border-zinc-700',
-          tagLabel: '未確認 (UNAVAILABLE)',
+          tagLabel: '未確認',
         };
       case 'ESTIMATED':
       default:
         return {
-          badgeClass: 'text-zinc-400 bg-white/[0.04] border-white/[0.08]',
-          iconColor: 'text-zinc-400',
-          titleColor: 'text-zinc-300',
-          title: '推定損益計器盤 (ESTIMATED CASH FLOW)',
-          tagClass: 'bg-white/[0.04] text-zinc-400 border-white/[0.08]',
-          tagLabel: '推測値 (ESTIMATED)',
+          badgeClass: 'text-amber-200 bg-amber-300/[0.06] border-amber-300/25',
+          iconColor: 'text-amber-200',
+          titleColor: 'text-amber-100',
+          title: '損益の推定',
+          tagClass: 'bg-amber-300/[0.06] text-amber-200 border-amber-300/25',
+          tagLabel: '推定',
         };
     }
   };

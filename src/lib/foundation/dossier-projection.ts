@@ -14,6 +14,7 @@ import {
   cleanIntelligenceText,
   cleanMetricLabel,
   formatHumanMoney,
+  formatObservedMetricValue,
 } from './text-cleaner';
 
 export type DossierCaseLevel = 'FULL_DOSSIER' | 'FOCUSED_CASE' | 'SIGNAL' | 'RELATED_ENTITY';
@@ -191,7 +192,7 @@ function formatNumber(value: number): string {
 
 function formatMetric(item: FoundationMetricSignal): string {
   if (item.value === null || item.value === undefined) return '未確認';
-  return formatHumanMoney(item.value, item.currency, item.unit);
+  return formatObservedMetricValue(item.metricType, item.value, item.currency, item.unit);
 }
 
 function formatMoneySignal(item: FoundationMoneySignal): string {
@@ -944,4 +945,3 @@ export function getDossierStoragePath(entityId: string, contentHash: string): st
 export function canUpdateDossierPointer(currentRevision: number, newRevision: number): boolean {
   return newRevision > currentRevision;
 }
-

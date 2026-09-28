@@ -297,6 +297,8 @@ export interface UniversalObservationPublicDisplay {
 
 export interface UniversalObservation {
   id?: string;
+  /** Source evidence IDs retained for independent-source counts in projections. */
+  evidenceIds?: string[];
   category?: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
   categoryLabel?: string; // 例: "市場の歪み", "大手の自爆", "顧客の本能・衝動の急所", "現場の泥臭い工夫", "調査限界"
   text: string;

@@ -498,6 +498,31 @@ function addMetricValue(record: JsonObject, path: string, issues: string[]): voi
   }
 }
 
+const DURATION_METRIC_PATTERN = /(^|[_\s-])(age|tenure|duration|lifespan|years?|months?|weeks?|days?|hours?)([_\s-]|$)|在籍|経営年数|運営年数|存続期間|期間/i;
+const DURATION_UNIT_PATTERN = /^(year|years|yr|yrs|month|months|mo|mos|week|weeks|day|days|hour|hours|年|年間|月|ヶ月|週|週間|日|時間)$/i;
+
+/**
+ * Keep the collection boundary semantic, not merely syntactic. A missing
+ * currency is valid and must remain null, but a duration metric carrying a
+ * currency is a type error that would later render as money (for example
+ * owner_tenure=25 becoming "$25 / year").
+ */
+function validateMetricSemantics(record: JsonObject, path: string, issues: string[]): void {
+  const metricType = getString(record, 'metric_type');
+  if (!metricType) return;
+
+  const unit = getString(record, 'unit');
+  const currency = getString(record, 'currency');
+  if (!DURATION_METRIC_PATTERN.test(metricType)) return;
+
+  if (currency) {
+    issues.push(`${path}.currency must be null for duration metric types; preserve duration values without money coercion`);
+  }
+  if (unit && !DURATION_UNIT_PATTERN.test(unit)) {
+    issues.push(`${path}.unit must be a duration unit for duration metric types`);
+  }
+}
+
 function validateMetrics(records: JsonObject[], issues: string[]): void {
   records.forEach((record, index) => {
     const path = `metrics[${index}]`;
@@ -513,6 +538,7 @@ function validateMetrics(records: JsonObject[], issues: string[]): void {
     addRequiredNullableDateTime(record, 'point_in_time', path, issues);
     addRequiredStringOrNull(record, 'basis', path, issues);
     addRequiredStringOrNull(record, 'scope', path, issues);
+    validateMetricSemantics(record, path, issues);
     addEnum(record, 'origin_type', path, ORIGIN_TYPES, issues);
     addConfidence(record, path, issues);
     addArrayOfStrings(record, 'evidence_ids', path, issues);

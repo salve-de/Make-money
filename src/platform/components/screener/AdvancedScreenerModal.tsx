@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { X, Check, RefreshCw } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Check, RefreshCw, X } from 'lucide-react';
 import { BusinessScale, MoatType } from '../../types/terminal';
 
 interface AdvancedScreenerModalProps {
@@ -21,6 +21,16 @@ export interface ScreenerFilterState {
   selectedTags?: string[];
 }
 
+const optionClass = (selected: boolean) => `
+  flex min-h-11 w-full items-center justify-between gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080e13]
+  ${selected
+    ? 'border-[#5aa8f5] bg-[#193b56] text-white'
+    : 'border-white/[0.14] bg-white/[0.035] text-zinc-300 hover:border-white/[0.25] hover:bg-white/[0.07] hover:text-white'}
+`;
+
+const fieldsetClass = 'space-y-3 border-b border-white/[0.12] pb-5';
+
 export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   isOpen,
   onClose,
@@ -34,9 +44,11 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   const [maxCapital, setMaxCapital] = useState<number | null>(initialFilters?.maxCapital ?? null);
   const [moats, setMoats] = useState<MoatType[]>(initialFilters?.moats || []);
   const [selectedTags, setSelectedTags] = useState<string[]>(initialFilters?.selectedTags || []);
-
-  // initialFilters同期
+  const [tagQuery, setTagQuery] = useState('');
   const [previousInputs, setPreviousInputs] = useState({ initialFilters, isOpen });
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   if (previousInputs.initialFilters !== initialFilters || previousInputs.isOpen !== isOpen) {
     setPreviousInputs({ initialFilters, isOpen });
     if (initialFilters) {
@@ -54,18 +66,27 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
     }
   }
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    closeButtonRef.current?.focus();
+    return () => {
+      if (previousFocus?.isConnected) previousFocus.focus();
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
-  const toggleScale = (s: BusinessScale) => {
-    setScales((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
+  const toggleScale = (scale: BusinessScale) => {
+    setScales((previous) => previous.includes(scale) ? previous.filter((value) => value !== scale) : [...previous, scale]);
   };
 
-  const toggleMoat = (m: MoatType) => {
-    setMoats((prev) => prev.includes(m) ? prev.filter((x) => x !== m) : [...prev, m]);
+  const toggleMoat = (moat: MoatType) => {
+    setMoats((previous) => previous.includes(moat) ? previous.filter((value) => value !== moat) : [...previous, moat]);
   };
 
-  const toggleTag = (t: string) => {
-    setSelectedTags((prev) => prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]);
+  const toggleTag = (tag: string) => {
+    setSelectedTags((previous) => previous.includes(tag) ? previous.filter((value) => value !== tag) : [...previous, tag]);
   };
 
   const handleReset = () => {
@@ -81,209 +102,248 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
     onClose();
   };
 
+  const handleDialogKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      event.stopPropagation();
+      onClose();
+      return;
+    }
+    if (event.key !== 'Tab' || !dialogRef.current) return;
+
+    const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs select-none">
-      <div className="w-full max-w-lg bg-[#090A0D] border border-white/[0.08] rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
-        {/* ヘッダー */}
-        <div className="p-3 border-b border-white/[0.06] bg-[#07080A] flex items-center justify-between">
-          <span className="text-xs font-medium text-white font-mono">
-            多条件 詳細スクリーナー
-          </span>
-          <button onClick={onClose} className="p-1 text-zinc-500 hover:text-white">
-            <X className="w-4 h-4" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-0 sm:p-4">
+      <button
+        type="button"
+        tabIndex={-1}
+        aria-label="条件選択を閉じる"
+        onClick={onClose}
+        className="absolute inset-0 cursor-default bg-black/75 backdrop-blur-[2px]"
+      />
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="advanced-screener-title"
+        tabIndex={-1}
+        onKeyDown={handleDialogKeyDown}
+        className="relative z-10 flex max-h-[92dvh] w-full max-w-2xl flex-col overflow-hidden border border-white/[0.18] bg-[#101820] shadow-2xl sm:rounded-xl"
+      >
+        <header className="flex min-h-16 items-center justify-between gap-4 border-b border-white/[0.14] bg-[#192630] px-4 py-3 sm:px-5">
+          <div>
+            <h2 id="advanced-screener-title" className="text-base font-semibold text-white sm:text-lg">
+              事例を条件で絞り込む
+            </h2>
+
+          </div>
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onClose}
+            aria-label="閉じる"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff]"
+          >
+            <X className="h-5 w-5" aria-hidden="true" />
           </button>
-        </div>
+        </header>
 
-        {/* フィルター項目 */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans">
-          {/* 事業規模 */}
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-medium text-zinc-400 font-mono">
-              事業規模 (SCALE)
-            </label>
-            <div className="grid grid-cols-2 gap-1.5">
+        <div className="flex-1 space-y-5 overflow-y-auto px-4 py-5 sm:px-5">
+          <fieldset className={fieldsetClass}>
+            <legend className="mb-3 w-full text-sm font-semibold text-white">
+              事業の規模 <span className="ml-2 text-xs font-normal text-zinc-400">複数選択可</span>
+            </legend>
+            <div className="grid grid-cols-2 gap-2">
               {[
-                { id: 'SOLO' as BusinessScale, label: '完全1人 (ソロ)' },
-                { id: 'SMALL_TEAM' as BusinessScale, label: '少数精鋭 (2〜10人)' },
-                { id: 'SCALEUP' as BusinessScale, label: '急成長 (11〜100人)' },
-                { id: 'ENTERPRISE' as BusinessScale, label: '巨大独占 (100人超)' },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => toggleScale(item.id)}
-                  className={`p-2 rounded border text-left transition-colors flex items-center justify-between ${
-                    scales.includes(item.id)
-                      ? 'bg-white/[0.08] border-white/[0.2] text-white font-medium'
-                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-white'
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {scales.includes(item.id) && <Check className="w-3 h-3 text-white" />}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 営業利益率の下限 */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between items-center">
-              <label className="text-[11px] font-medium text-zinc-400 font-mono">
-                最小営業利益率 (OPERATING MARGIN)
-              </label>
-              <span className="font-mono text-zinc-200">{minMargin}% 以上</span>
-            </div>
-            <div className="grid grid-cols-4 gap-1.5 font-mono text-[11px]">
-              {[0, 30, 50, 80].map((val) => (
-                <button
-                  key={val}
-                  onClick={() => setMinMargin(val)}
-                  className={`py-1.5 rounded border transition-colors ${
-                    minMargin === val
-                      ? 'bg-white/[0.1] border-white/[0.2] text-white font-medium'
-                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-500 hover:text-white'
-                  }`}
-                >
-                  {val === 0 ? '指定なし' : `${val}%+`}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 初期投下資本 */}
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-medium text-zinc-400 font-mono">
-              初期投下資本の上限 (CAPITAL)
-            </label>
-            <div className="grid grid-cols-3 gap-1.5 font-mono text-[11px]">
-              {[
-                { val: 0, label: '0円 (元手ゼロ)' },
-                { val: 1000000, label: '100万円以内' },
-                { val: null, label: '制限なし' },
-              ].map((item) => (
-                <button
-                  key={String(item.val)}
-                  onClick={() => setMaxCapital(item.val)}
-                  className={`py-1.5 rounded border transition-colors ${
-                    maxCapital === item.val
-                      ? 'bg-white/[0.1] border-white/[0.2] text-white font-medium'
-                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-500 hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 7 Powers Moat */}
-          <div className="space-y-1.5">
-            <label className="text-[11px] font-medium text-zinc-400 font-mono">
-              参入障壁の正体 (7 POWERS MOAT)
-            </label>
-            <div className="grid grid-cols-2 gap-1.5 text-[11px]">
-              {[
-                { id: 'COUNTER_POSITIONING' as MoatType, label: 'カウンターポジショニング' },
-                { id: 'SWITCHING_COST' as MoatType, label: '高スイッチングコスト' },
-                { id: 'NETWORK_EFFECT' as MoatType, label: 'ネットワーク効果' },
-                { id: 'CORNERED_RESOURCE' as MoatType, label: '独自資源・職人独占' },
-                { id: 'SCALE_ECONOMIES' as MoatType, label: '規模の経済' },
-                { id: 'PROCESS_POWER' as MoatType, label: 'プロセスパワー (業務独占)' },
-              ].map((m) => (
-                <button
-                  key={m.id}
-                  onClick={() => toggleMoat(m.id)}
-                  className={`p-1.5 rounded border text-left truncate transition-colors flex items-center justify-between ${
-                    moats.includes(m.id)
-                      ? 'bg-white/[0.08] border-white/[0.2] text-white font-medium'
-                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-white'
-                  }`}
-                >
-                  <span className="truncate">{m.label}</span>
-                  {moats.includes(m.id) && <Check className="w-3 h-3 text-white shrink-0" />}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 特徴タグ (TAGS - 複数選択可能) */}
-          {availableTags.length > 0 && (
-            <div className="space-y-1.5">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-1.5">
-                  <label className="text-[11px] font-medium text-zinc-400 font-mono">
-                    特徴タグ (TAGS・複数選択可／件数は読込済み)
-                  </label>
-                  {selectedTags.length > 0 && (
-                    <span className="font-mono text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-semibold">
-                      {selectedTags.length}個 選択中
-                    </span>
-                  )}
-                </div>
-                {selectedTags.length > 0 && (
+                { id: 'SOLO' as BusinessScale, label: '一人で運営' },
+                { id: 'SMALL_TEAM' as BusinessScale, label: '2〜10人' },
+                { id: 'SCALEUP' as BusinessScale, label: '11〜100人' },
+                { id: 'ENTERPRISE' as BusinessScale, label: '101人以上' },
+              ].map((item) => {
+                const selected = scales.includes(item.id);
+                return (
                   <button
+                    key={item.id}
                     type="button"
-                    onClick={() => setSelectedTags([])}
-                    className="text-[10px] font-mono text-zinc-500 hover:text-zinc-300 transition-colors"
+                    aria-pressed={selected}
+                    onClick={() => toggleScale(item.id)}
+                    className={optionClass(selected)}
                   >
-                    タグ全解除
+                    <span>{item.label}</span>
+                    {selected && <Check className="h-4 w-4 shrink-0 text-[#a1ceff]" aria-hidden="true" />}
                   </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <fieldset className={fieldsetClass}>
+            <legend className="mb-3 flex w-full items-center justify-between gap-3 text-sm font-semibold text-white">
+              <span>営業利益率の下限</span>
+              <span className="text-xs font-normal text-zinc-300">{minMargin === 0 ? '指定なし' : `${minMargin}%以上`}</span>
+            </legend>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {[0, 30, 50, 80].map((value) => {
+                const selected = minMargin === value;
+                return (
+                  <button
+                    key={value}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setMinMargin(value)}
+                    className={`${optionClass(selected)} justify-center text-center`}
+                  >
+                    {value === 0 ? '指定なし' : `${value}%以上`}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <fieldset className={fieldsetClass}>
+            <legend className="mb-3 flex w-full items-center justify-between gap-3 text-sm font-semibold text-white">
+              <span>初期資金の上限</span>
+              <span className="text-xs font-normal text-zinc-300">{maxCapital === null ? '上限なし' : maxCapital === 0 ? '0円' : '100万円以内'}</span>
+            </legend>
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { value: 0, label: '0円' },
+                { value: 1000000, label: '100万円以内' },
+                { value: null, label: '上限なし' },
+              ].map((item) => {
+                const selected = maxCapital === item.value;
+                return (
+                  <button
+                    key={String(item.value)}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setMaxCapital(item.value)}
+                    className={`${optionClass(selected)} justify-center text-center`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <fieldset className={fieldsetClass}>
+            <legend className="mb-3 w-full text-sm font-semibold text-white">
+              事業の参入障壁 <span className="ml-2 text-xs font-normal text-zinc-400">複数選択可</span>
+            </legend>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { id: 'COUNTER_POSITIONING' as MoatType, label: '競合と異なる土俵' },
+                { id: 'SWITCHING_COST' as MoatType, label: '乗り換えにくさ' },
+                { id: 'NETWORK_EFFECT' as MoatType, label: '利用者が増えるほど価値が増す' },
+                { id: 'CORNERED_RESOURCE' as MoatType, label: '独自の資源' },
+                { id: 'SCALE_ECONOMIES' as MoatType, label: '規模の経済' },
+                { id: 'PROCESS_POWER' as MoatType, label: '独自の業務プロセス' },
+              ].map((item) => {
+                const selected = moats.includes(item.id);
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => toggleMoat(item.id)}
+                    className={optionClass(selected)}
+                  >
+                    <span>{item.label}</span>
+                    {selected && <Check className="h-4 w-4 shrink-0 text-[#a1ceff]" aria-hidden="true" />}
+                  </button>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          {availableTags.length > 0 && (
+            <fieldset className="space-y-3 pb-1">
+              <legend className="mb-3 flex w-full flex-wrap items-center justify-between gap-2 text-sm font-semibold text-white">
+                <span>事例の特徴 <span className="ml-2 text-xs font-normal text-zinc-400">複数選択可</span></span>
+                {selectedTags.length > 0 && (
+                  <span className="rounded border border-[#5aa8f5]/50 bg-[#193b56] px-2 py-1 text-xs font-medium text-[#d9ecff]">
+                    {selectedTags.length}件選択中
+                  </span>
                 )}
-              </div>
-              <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1.5 bg-white/[0.01] rounded border border-white/[0.04]">
-                {availableTags.map((tag) => {
-                  const isSelected = selectedTags.includes(tag);
+              </legend>
+              <input type="search" aria-label="特徴タグを検索" placeholder="特徴タグを検索" value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-10 w-full rounded-md border border-white/[0.16] bg-black/20 px-3 text-sm text-white outline-none focus:border-sky-300" />
+              <div className="flex max-h-48 flex-wrap gap-2 overflow-y-auto rounded-md border border-white/[0.14] bg-black/10 p-2">
+                {availableTags.filter((tag) => tag.toLowerCase().includes(tagQuery.trim().toLowerCase())).map((tag) => {
+                  const selected = selectedTags.includes(tag);
                   const count = tagCounts[tag];
                   return (
                     <button
                       key={tag}
                       type="button"
+                      aria-pressed={selected}
                       onClick={() => toggleTag(tag)}
-                      className={`text-[11px] font-mono px-2 py-1 rounded transition-all border flex items-center gap-1.5 ${
-                        isSelected
-                          ? 'bg-emerald-500/20 text-emerald-300 font-semibold border-emerald-500/50 shadow-xs ring-1 ring-emerald-500/30'
-                          : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                      className={`flex min-h-10 items-center gap-2 rounded-md border px-3 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff] ${
+                        selected
+                          ? 'border-[#5aa8f5] bg-[#193b56] font-medium text-white'
+                          : 'border-white/[0.14] bg-white/[0.035] text-zinc-300 hover:border-white/[0.25] hover:bg-white/[0.07] hover:text-white'
                       }`}
-                      title={`#${tag}${count ? ` (${count}件)` : ''}`}
                     >
-                      <span>#{tag}</span>
-                      {count !== undefined && (
-                        <span className={`text-[9px] tabular-nums ${isSelected ? 'text-emerald-400' : 'text-zinc-600'}`}>
-                          {count}
-                        </span>
-                      )}
-                      {isSelected && <Check className="w-2.5 h-2.5 text-emerald-400 shrink-0" />}
+                      <span>{tag}</span>
+                      {count !== undefined && <span className="tabular-nums text-xs text-zinc-300">{count}件</span>}
+                      {selected && <Check className="h-4 w-4 shrink-0 text-[#a1ceff]" aria-hidden="true" />}
                     </button>
                   );
                 })}
               </div>
-            </div>
+              {selectedTags.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedTags([])}
+                  className="min-h-10 rounded px-2 text-sm text-zinc-300 underline decoration-white/30 underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff]"
+                >
+                  特徴タグをすべて解除
+                </button>
+              )}
+            </fieldset>
           )}
         </div>
 
-        {/* フッター */}
-        <div className="p-3 border-t border-white/[0.06] bg-[#07080A] flex items-center justify-between">
+        <footer className="flex items-center justify-between gap-2 border-t border-white/[0.14] bg-[#192630] p-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
           <button
+            type="button"
             onClick={handleReset}
-            className="flex items-center gap-1 text-xs text-zinc-500 hover:text-white"
+            aria-label="条件をリセット"
+            className="flex min-h-11 items-center justify-center gap-2 rounded-md px-3 text-sm text-zinc-300 transition-colors hover:bg-white/[0.07] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff] sm:justify-start"
           >
-            <RefreshCw className="w-3 h-3" />
-            <span>リセット</span>
+            <RefreshCw className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden sm:inline">条件をリセット</span>
           </button>
-          <div className="flex items-center gap-2">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center">
             <button
+              type="button"
               onClick={onClose}
-              className="text-xs px-3 py-1 text-zinc-500 hover:text-white"
+              className="min-h-11 rounded-md border border-white/[0.18] px-4 text-sm font-medium text-zinc-200 transition-colors hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff]"
             >
-              閉じる
+              キャンセル
             </button>
             <button
+              type="button"
               onClick={handleApply}
-              className="text-xs bg-white hover:bg-zinc-200 text-zinc-950 font-medium px-4 py-1.5 rounded transition-colors"
+              className="min-h-11 rounded-md bg-[#5aa8f5] px-4 text-sm font-semibold text-[#08121b] transition-colors hover:bg-[#a1ceff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#192630]"
             >
-              条件適用
+              条件を適用
             </button>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
   );

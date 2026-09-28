@@ -2,9 +2,9 @@ import { expect, test } from '@playwright/test';
 
 test('a known case with unavailable financial verification can start a blank plan', async ({ page }) => {
   await page.goto('/?entity=ent_keyence');
-  await page.getByRole('link', { name: /キーエンス.*の稼ぎ方を実行する/ }).click();
-  await expect(page.getByRole('heading', { level: 1, name: '見つけた勝ち筋を、最初の売上まで運ぶ' })).toBeVisible({ timeout: 15_000 });
-  await expect(page.getByText('事業名だけを起点に、ご自身の計画を入力できます。', { exact: false })).toBeVisible();
+  await page.getByRole('link', { name: /キーエンス.*を参考に計画を作る/ }).click();
+  await expect(page.getByRole('heading', { level: 1, name: /の実行計画$/ })).toBeVisible({ timeout: 15_000 });
+  await expect(page).toHaveURL(/\/execute\/ent_keyence$/);
   await expect(page.getByLabel('売るもの')).toHaveValue('');
 });
 
@@ -15,9 +15,9 @@ test('company dossier becomes a persistent First Dollar execution project', asyn
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { level: 2, name: 'Photo AI', exact: true })).toBeVisible();
 
-  await page.getByRole('link', { name: /Photo AIの稼ぎ方を実行する/ }).click();
+  await page.getByRole('link', { name: /Photo AIをもとに計画を作成/ }).click();
   await expect(page).toHaveURL(/\/execute\/ent_photoai$/);
-  await expect(page.getByRole('heading', { level: 1, name: '見つけた勝ち筋を、最初の売上まで運ぶ' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /の実行計画$/ })).toBeVisible();
 
   const offer = page.getByLabel('売るもの');
   await offer.fill('E2E First Dollar Offer');

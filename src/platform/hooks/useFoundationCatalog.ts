@@ -434,14 +434,14 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   // オンデマンド詳細読み込み関数
   const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
-    if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return;
+    if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
 
     detailFetchInProgress.current.add(targetId);
     const normalizedTargetId = targetId.toLowerCase();
     const knownFoundation = foundationRows.some((row) => row.id.toLowerCase() === normalizedTargetId);
     const knownCurated = coreEntities.some((entity) => entity.id.toLowerCase() === normalizedTargetId);
 
-    void fetchBusinessDetailResponse(fetch, {
+    return fetchBusinessDetailResponse(fetch, {
       targetId,
       latestDossierHash,
       knownCurated,

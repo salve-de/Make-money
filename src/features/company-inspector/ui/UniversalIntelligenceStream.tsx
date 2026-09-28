@@ -3,13 +3,11 @@
 import { FinancialEntity,UniversalObservation } from '@/shared/terminal';
 import { StructuredObservationPayload } from './StructuredObservationPayload';
 import {
-AlertCircle,
-CheckCircle2,
-Clock,
-HelpCircle,
-History,
-Sparkles,
-Zap
+  AlertCircle,
+  Clock,
+  ChevronDown,
+  HelpCircle,
+  History,
 } from 'lucide-react';
 import React from 'react';
 
@@ -79,10 +77,10 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
         };
       case 'MARKET_DISTORTION':
         return {
-          label: customLabel || '市場の歪み',
-          border: 'border-emerald-500/30',
-          bg: 'bg-emerald-950/20',
-          text: 'text-emerald-300',
+          label: customLabel || '市場構造',
+          border: 'border-white/[0.12]',
+          bg: 'bg-white/[0.03]',
+          text: 'text-zinc-300',
         };
       case 'FOUNDER_HACK':
         return {
@@ -118,41 +116,18 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
 
   return (
     <div className="space-y-6">
-
-      {/* ========================================================= */}
-      {/* 監査ステータスバッジ（法的安全性 ＆ 保存済み観測の範囲） */}
-      {/* ========================================================= */}
-      <div className="p-3 rounded-md bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[10px] font-mono">
-        <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1 text-emerald-400 font-bold">
-            <CheckCircle2 className="w-3 h-3" />
-            保存済み観測を表示
-          </span>
-          <span className="text-zinc-600">|</span>
-          <span className="text-zinc-400">万能救済ストリーム稼働中</span>
-        </div>
-        <div className="flex items-center gap-1.5 text-zinc-500">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>合法的金融リサーチのみ収録</span>
-        </div>
-      </div>
       {/* ========================================================= */}
       {/* 時系列インテリジェンス ＆ 手口の賞味期限（Temporal Radar） */}
       {/* ========================================================= */}
       {entity.temporal && (
         <section className="space-y-2.5 border border-white/[0.08] rounded-md bg-[#0A0C10] p-4">
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[9px] font-bold text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 px-1.5 py-0.5 rounded flex items-center gap-1">
-                <Clock className="w-2.5 h-2.5" />
-                TEMPORAL
-              </span>
-              <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
-                時系列インテリジェンス ＆ 手口の賞味期限
-              </span>
+            <div className="flex min-w-0 items-center gap-2">
+              <Clock className="h-4 w-4 shrink-0 text-zinc-400" />
+              <span className="text-sm font-semibold text-zinc-100">事業の変化と現在の評価</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
+              <span className={`text-xs font-medium px-2 py-1 rounded border ${
                 entity.temporal.viabilityStatus === 'ACTIVE_PLAYBOOK' ? 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40' :
                 entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'bg-cyan-950/40 text-cyan-300 border-cyan-500/40 animate-pulse' :
                 entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'bg-amber-950/40 text-amber-300 border-amber-500/40' :
@@ -160,7 +135,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 entity.temporal.viabilityStatus === 'EVOLVING_BARRIER' ? 'bg-purple-950/40 text-purple-300 border-purple-500/40' :
                 'bg-zinc-900 text-zinc-400 border-zinc-700'
               }`}>
-                ● {entity.temporal.viabilityLabel}
+                {entity.temporal.viabilityLabel}
               </span>
             </div>
           </div>
@@ -195,7 +170,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
             <div className="bg-white/[0.01] border border-white/[0.04] p-2.5 rounded space-y-1">
               <span className="font-mono text-[10px] text-zinc-400 font-bold flex items-center gap-1">
                 <AlertCircle className="w-3 h-3 text-amber-400" />
-                今から同じ手口で勝てるか？（冷徹な根拠判定）:
+                現在の再現可能性（登録情報）:
               </span>
               <p className="text-zinc-300 leading-relaxed text-[11px]">
                 {entity.temporal.currentViabilityAnalysis}
@@ -235,13 +210,9 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       {(hasDynamicMoats || hasExposureAudit) && (
         <section className="space-y-3">
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[9px] font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-1.5 py-0.5 rounded">
-                FEATURE
-              </span>
-              <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-emerald-400" />
-                独自の強み・事業構造の特徴
+            <div className="flex min-w-0 items-center gap-2">
+              <span className="text-sm font-semibold text-zinc-100">
+                事業構造の特徴
               </span>
             </div>
             <span className="text-[10px] font-mono text-zinc-500">
@@ -358,17 +329,13 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       {/* ========================================================= */}
       <section className="space-y-3">
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-[9px] font-bold text-zinc-300 bg-white/[0.08] border border-white/[0.1] px-1.5 py-0.5 rounded">
-              LOGS
-            </span>
-            <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
-              全量調査ログ・取材メモ
+            <div className="flex items-center gap-2">
+            <span className="text-sm font-semibold text-zinc-100">
+              調査メモ
             </span>
           </div>
-          <span className="text-[10px] font-mono text-zinc-400">
-            {effectiveObservations.length} 件の観測レコード
+            <span className="text-xs text-zinc-400">
+            {effectiveObservations.length}件
           </span>
         </div>
 
@@ -455,10 +422,10 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
 
         {/* カバレッジ監査ログ */}
         {coverageAudit && coverageAudit.length > 0 && (
-          <details className="border border-white/[0.04] rounded-md bg-black/40 p-2.5 text-[10px] font-mono text-zinc-500 group">
-            <summary className="cursor-pointer hover:text-zinc-300 flex items-center justify-between">
-              <span>調査項目チェックリスト ({coverageAudit.length} 項目確認済み)</span>
-              <span className="text-[9px] text-zinc-600 group-open:rotate-90 transition-transform">▶</span>
+          <details className="group rounded-md border border-white/[0.1] bg-white/[0.025] p-3 text-sm text-zinc-300">
+            <summary className="flex cursor-pointer items-center justify-between gap-3 hover:text-white">
+              <span>調査範囲を見る（{coverageAudit.length}項目）</span>
+              <ChevronDown className="h-4 w-4 shrink-0 text-zinc-400 transition-transform group-open:rotate-180" />
             </summary>
             <div className="mt-2.5 pt-2 border-t border-white/[0.04] space-y-1.5 max-h-48 overflow-y-auto">
               {coverageAudit.map((item, idx) => (

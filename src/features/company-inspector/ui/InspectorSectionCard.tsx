@@ -24,44 +24,33 @@ export const InspectorSectionCard: React.FC<InspectorSectionCardProps> = ({
   return (
     <section
       id={id}
-      className={`scroll-mt-4 overflow-hidden rounded-xl border bg-[#0c1017] shadow-sm transition-colors ${
-        isHazardMode ? 'border-red-500/25 bg-[#0d090b]' : 'border-white/[0.09]'
+      data-section-index={index}
+      className={`scroll-mt-4 overflow-hidden rounded-md border bg-[#0e151d] transition-colors ${
+        isHazardMode ? 'border-rose-300/30' : 'border-white/[0.16]'
       } ${className}`}
     >
-      {/* 統一セクションヘッダー */}
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.07] bg-white/[0.015] px-4 py-3 sm:px-5">
+      <div className={`flex min-h-11 flex-wrap items-center justify-between gap-2 border-b px-3 py-2 sm:px-4 ${
+        isHazardMode ? 'border-rose-300/20 bg-rose-950/30' : 'border-white/[0.12] bg-[#192632]'
+      }`}>
         <div className="flex items-center gap-2.5 min-w-0">
-          {/* 連番インデックスバッジ */}
-          <span
-            className={`font-mono text-[11px] font-bold px-2 py-0.5 rounded border shrink-0 ${
-              isHazardMode
-                ? 'bg-red-950/60 text-red-400 border-red-500/30'
-                : 'bg-cyan-950/60 text-cyan-400 border-cyan-500/30'
-            }`}
-          >
-            {index}
-          </span>
+          <span aria-hidden="true" className={`h-4 w-0.5 shrink-0 ${isHazardMode ? 'bg-rose-300' : 'bg-sky-300'}`} />
           <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
-                {categoryEn}
-              </span>
-            </div>
-            <h3 className="text-sm font-bold text-zinc-100 truncate">
+            <span aria-hidden="true" className="sr-only">{categoryEn}</span>
+            <h3 className="text-sm font-semibold text-zinc-50 sm:text-[15px]">
               {titleJa}
             </h3>
           </div>
         </div>
 
         {badge && (
-          <div className="flex items-center gap-2 text-xs font-mono shrink-0">
+          <div className="flex shrink-0 items-center gap-2 text-xs">
             {badge}
           </div>
         )}
       </div>
 
       {/* セクション本体 */}
-      <div>{children}</div>
+      <div className="px-3 sm:px-4">{children}</div>
     </section>
   );
 };

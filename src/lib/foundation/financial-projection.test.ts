@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { parseRevenueToMonthlyJpy, projectProfitMetrics, adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
-import { cleanIntelligenceText, formatHumanMoney } from './text-cleaner';
+import { cleanIntelligenceText, formatHumanMoney, formatObservedMetricValue } from './text-cleaner';
 import { buildFoundationValueProfile } from './value-projection';
 import type { FoundationMetricSignal, FoundationEntitySummary, FoundationBusinessCase, FoundationMoneySignal } from './business-reader';
 
@@ -75,6 +75,13 @@ it('retains source numbers and unmatched English observations', () => {
   expect(cleanIntelligenceText('金額シグナルとして、公開情報は 250000 USD_annual_revenue を示す。')).toContain('250000');
   expect(cleanIntelligenceText('Revenue fell from $40M to $20M in 2025.')).toContain('$40M');
   expect(cleanIntelligenceText('Revenue fell from $40M to $20M in 2025.')).toContain('$20M');
+});
+
+it('preserves typed non-money metrics and does not default missing currency to USD', () => {
+  expect(formatObservedMetricValue('owner_tenure', 25, null, 'years')).toBe('25年');
+  expect(formatObservedMetricValue('headcount', 7, null, 'people')).toBe('7人');
+  expect(formatObservedMetricValue('annual_revenue', 25000, null, 'annual')).toBe('25,000 / 年（通貨未確認）');
+  expect(formatHumanMoney(25, null, 'years')).toBe('25 / 年（通貨未確認）');
 });
 
 it('does not turn an unrelated observation into all scoring dimensions', () => {

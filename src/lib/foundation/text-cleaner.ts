@@ -43,6 +43,7 @@ const METRIC_LABELS: Record<string, string> = {
   podcast_sponsorship_revenue: 'ポッドキャスト広告収入',
   first_sale: '初売上達成',
   first_customer: '初期顧客獲得',
+  owner_tenure: 'オーナー経営年数',
 };
 
 // 業態・キーワードの日本語対応表
@@ -470,7 +471,15 @@ export function formatHumanMoney(
     return '金額未確認';
   }
 
-  const cur = (currency || 'USD').toUpperCase();
+  // A missing currency is not USD. Preserve the fact without inventing a
+  // currency; callers that have a typed non-money metric should use
+  // formatObservedMetricValue below.
+  if (!currency) {
+    const unitStr = unit ? formatUnit(unit) : '';
+    return `${num.toLocaleString()}${unitStr}（通貨未確認）`;
+  }
+
+  const cur = currency.toUpperCase();
 
   // 米ドルの場合
   if (cur === 'USD' || cur === '$') {
@@ -519,6 +528,44 @@ function formatUnit(unit: string): string {
   if (norm.includes('month') || norm.includes('/month')) return ' / 月';
   if (norm.includes('year') || norm.includes('annual') || norm.includes('/year')) return ' / 年';
   return ` ${unit}`;
+}
+
+/**
+ * Format a Foundation metric without turning an untyped observation into
+ * money. The source metric type and unit remain authoritative; a missing
+ * currency stays missing instead of silently becoming USD.
+ */
+export function formatObservedMetricValue(
+  metricType: string,
+  value: number | string | null | undefined,
+  currency: string | null | undefined,
+  unit: string | null | undefined,
+): string {
+  if (value === null || value === undefined || value === '') return '値未確認';
+  if (currency) return formatHumanMoney(value, currency, unit);
+
+  if (typeof value === 'string' && !/^[-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?$/.test(value.trim())) {
+    return cleanMoneyLabel(value);
+  }
+
+  const numeric = typeof value === 'number' ? value : Number(value.replaceAll(',', ''));
+  if (!Number.isFinite(numeric)) return '値未確認';
+  const formatted = numeric.toLocaleString();
+  const normalizedMetric = metricType.toLowerCase();
+  const normalizedUnit = (unit || '').toLowerCase().trim();
+
+  if (normalizedUnit === '%' || normalizedUnit.includes('percent')) return `${formatted}%`;
+
+  const isDuration = /tenure|duration|age|経営年数|在籍年数|期間/.test(normalizedMetric);
+  if (isDuration && normalizedUnit.includes('year')) return `${formatted}年`;
+  if (isDuration && normalizedUnit.includes('month')) return `${formatted}か月`;
+  if (normalizedUnit.includes('hour')) return `${formatted}時間`;
+  if (normalizedUnit.includes('day')) return `${formatted}日`;
+  if (normalizedUnit.includes('person') || normalizedUnit.includes('people')) return `${formatted}人`;
+
+  const unitLabel = unit ? formatUnit(unit) : '';
+  const isMoneyMetric = /revenue|profit|margin|mrr|arr|price|pricing|cost|sales|funding|valuation|cash|income|salary|fee|売上|利益|粗利|価格|費用|収益/.test(normalizedMetric);
+  return `${formatted}${unitLabel}${isMoneyMetric ? '（通貨未確認）' : ''}`;
 }
 
 /**

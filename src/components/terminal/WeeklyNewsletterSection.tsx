@@ -1,49 +1,38 @@
 'use client';
 
-import React, { useState } from 'react';
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import { useState, type FormEvent } from 'react';
 import { useAuth } from '@/context/AuthContext';
 
-export const WeeklyNewsletterSection: React.FC = () => {
+export const WeeklyNewsletterSection = () => {
   const { token } = useAuth();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  const [showSample, setShowSample] = useState(false);
   const [unsubscribeToken, setUnsubscribeToken] = useState<string | null>(null);
   const [unsubscribing, setUnsubscribing] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !email.includes('@')) {
-      setErrorMsg('有効なメールアドレスを入力してください');
-      return;
-    }
-
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setLoading(true);
     setErrorMsg('');
 
     try {
-      const res = await fetch('/api/newsletter/subscribe', {
+      const response = await fetch('/api/newsletter/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, source: 'web_portal' }),
       });
-
-      const data: unknown = await res.json();
-      if (!res.ok) {
-        throw new Error(readNewsletterError(data, '購読処理に失敗しました'));
-      }
-      if (!data || typeof data !== 'object' || !('success' in data) || data.success !== true) {
-        throw new Error('購読受付の応答を確認できませんでした');
+      const payload: unknown = await response.json();
+      if (!response.ok) throw new Error(readNewsletterError(payload, '登録できませんでした。時間をおいて再度お試しください。'));
+      if (!payload || typeof payload !== 'object' || !('success' in payload) || payload.success !== true) {
+        throw new Error('登録受付の応答を確認できませんでした。');
       }
 
       setSubscribed(true);
-      setUnsubscribeToken('unsubscribeToken' in data && typeof data.unsubscribeToken === 'string' ? data.unsubscribeToken : null);
-      setShowSample(true);
-    } catch (err: unknown) {
-      setErrorMsg(err instanceof Error ? err.message : '通信エラーが発生しました');
+      setUnsubscribeToken('unsubscribeToken' in payload && typeof payload.unsubscribeToken === 'string' ? payload.unsubscribeToken : null);
+    } catch (error) {
+      setErrorMsg(error instanceof Error ? error.message : '通信に失敗しました。');
     } finally {
       setLoading(false);
     }
@@ -55,168 +44,71 @@ export const WeeklyNewsletterSection: React.FC = () => {
     try {
       const headers: HeadersInit = { 'Content-Type': 'application/json' };
       if (token) headers.Authorization = `Bearer ${token}`;
-      const res = await fetch('/api/newsletter/subscribe', {
+      const response = await fetch('/api/newsletter/subscribe', {
         method: 'DELETE',
         headers,
         body: token ? undefined : JSON.stringify({ unsubscribeToken }),
       });
-      const data: unknown = await res.json();
-      if (!res.ok) throw new Error(readNewsletterError(data, '購読解除に失敗しました'));
+      const payload: unknown = await response.json();
+      if (!response.ok) throw new Error(readNewsletterError(payload, '解除できませんでした。'));
       setSubscribed(false);
       setUnsubscribeToken(null);
-      setShowSample(false);
-    } catch (err: unknown) {
-      setErrorMsg(err instanceof Error ? err.message : '購読解除に失敗しました');
+    } catch (error) {
+      setErrorMsg(error instanceof Error ? error.message : '購読解除に失敗しました。');
     } finally {
       setUnsubscribing(false);
     }
   };
 
   return (
-    <section className="p-6 sm:p-8 rounded bg-[#0D1117] text-white border border-white/[0.08] space-y-6">
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-        <div className="space-y-2 max-w-2xl">
-          <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded bg-emerald-950/70 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-800/60">
-              WEEKLY DISPATCH
-            </span>
-            <span className="text-[11px] font-mono text-zinc-400">
-              配信登録（無料）
-            </span>
-          </div>
-
-          <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-            週刊事業財務インサイト速報
-          </h2>
-
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-            保存済みの事業・財務観測を、出典と確認状態を明記して1通にまとめます。未確認の数字は推定・未確認として扱い、登録後もいつでも解除できます。
-          </p>
-
-          <div className="flex items-center gap-4 text-[11px] font-mono text-zinc-500 pt-1 flex-wrap">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>購読者数は非公開</span>
-            </span>
-            <span>•</span>
-            <span>常時解約可能</span>
-          </div>
-        </div>
-
-        {/* 購読フォーム */}
-        <div className="lg:w-96 shrink-0">
-          {!subscribed ? (
-            <form onSubmit={handleSubmit} className="space-y-2.5">
-              <div className="space-y-1.5">
-                <div className="flex rounded overflow-hidden border border-white/[0.1] bg-[#161B22] focus-within:border-emerald-400 transition-colors">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@company.com"
-                    className="w-full px-3.5 py-2.5 bg-transparent text-xs text-zinc-100 placeholder-zinc-500 focus:outline-hidden font-mono"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs font-black shrink-0 transition-colors disabled:opacity-50 cursor-pointer"
-                  >
-                    {loading ? '登録中...' : '無料で購読'}
-                  </button>
-                </div>
-                {errorMsg && (
-                  <p className="text-[11px] text-rose-400 font-sans">{errorMsg}</p>
-                )}
-              </div>
-            </form>
-          ) : (
-            <div className="p-4 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 space-y-2 font-sans text-xs">
-              <div className="flex items-center gap-2 font-bold text-white text-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>購読登録が完了しました</span>
-              </div>
-              <p className="text-[11px] text-slate-300 leading-relaxed">
-                登録受付が完了しました。実際の配信開始時期は運用設定により変わります。下部にサンプルレポートを表示しています。
-              </p>
-              <button
-                type="button"
-                onClick={handleUnsubscribe}
-                disabled={unsubscribing || (!token && !unsubscribeToken)}
-                className="text-[10px] text-zinc-400 underline hover:text-white disabled:no-underline disabled:opacity-50"
-              >
-                {unsubscribing ? '解除中...' : '購読を解除する'}
-              </button>
-            </div>
-          )}
-        </div>
+    <section aria-labelledby="newsletter-heading" className="rounded-lg border border-white/[0.12] bg-surface p-5 text-white sm:p-6">
+      <div className="max-w-xl">
+        <p className="text-sm font-medium text-accent">メール更新</p>
+        <h2 id="newsletter-heading" className="mt-2 text-xl font-semibold tracking-tight sm:text-2xl">
+          事業・財務の更新を受け取る
+        </h2>
+        <p className="mt-2 text-sm leading-6 text-zinc-400">
+          台帳に追加・更新された内容をメールでお知らせします。登録受付後、配信の開始時期は運用状況により変わる場合があります。
+        </p>
       </div>
 
-      {/* 最新号サンプル速報のプレビューアコーディオン */}
-      <div className="border-t border-slate-800 pt-4">
-        <button
-          type="button"
-          onClick={() => setShowSample(!showSample)}
-          className="flex items-center justify-between w-full text-left text-xs font-mono text-slate-400 hover:text-white transition-colors cursor-pointer"
-        >
-          <span className="flex items-center gap-2">
-            <span className="text-emerald-400 font-bold">SAMPLE:</span>
-            <span>【直近速報サンプル】米29歳開発者が48時間で2,000万円の売上を達成した入札型サービスの収益解剖</span>
-          </span>
-          <span className="text-slate-500 text-[11px] flex items-center gap-1">
-            {showSample ? (
-              <>
-                <ChevronUp size={13} />
-                <span>レポートを閉じる</span>
-              </>
-            ) : (
-              <>
-                <ChevronDown size={13} />
-                <span>サンプルを開封して読む</span>
-              </>
-            )}
-          </span>
-        </button>
-
-        {showSample && (
-          <div className="mt-4 p-5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3.5 text-xs font-sans text-slate-300 animate-fadeIn">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-              <span className="text-[10px] font-mono text-emerald-400 font-bold">
-                ISSUE #48 / 配信実例（抜粋）
-              </span>
-              <span className="text-[10px] font-mono text-slate-500">編集サンプル・未検証</span>
-            </div>
-
-            <div className="space-y-1.5">
-              <h4 className="text-sm font-bold text-white">
-                「ProductHuntの自作自演に激怒した男が作った、金で順位を買うオークションサイト」
-              </h4>
-              <p className="text-slate-300 leading-relaxed text-[11px]">
-                ドイツの29歳ソフトウェア開発者ジョナサン・ヴィルケ氏は、無料プロダクト投票サイトの不正票に嫌気が差し、1.8ドルのドメインを取得。「一番金を払った奴を1位にする」という露骨なオークションサイト（outbid.lol）を3時間で実装。Xに1行動画を投稿したところ、起業家同士の虚栄心と負けず嫌いが着火し、開始48時間で入札額が2,000万円（利益率97%）を突破した。
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 font-mono text-[11px]">
-              <div className="p-2.5 bg-slate-950 rounded border border-slate-800">
-                <span className="text-slate-500 block text-[9px]">初週着金総額</span>
-                <span className="text-white font-black">¥20,000,000</span>
-              </div>
-              <div className="p-2.5 bg-slate-950 rounded border border-slate-800">
-                <span className="text-slate-500 block text-[9px]">初期開発原価</span>
-                <span className="text-emerald-400 font-black">¥280 (ドメイン代のみ)</span>
-              </div>
-              <div className="p-2.5 bg-slate-950 rounded border border-slate-800">
-                <span className="text-slate-500 block text-[9px]">捉えた中核ニーズ</span>
-                <span className="text-amber-400 font-sans font-bold">事業者の認知・比較優位性の証明</span>
-              </div>
-            </div>
-
-            <div className="text-[11px] text-slate-400 border-t border-slate-800 pt-2 flex items-center justify-between">
-              <span className="font-mono text-slate-500">WEEKLY MONDAY 08:00 JST</span>
-              <span className="font-mono text-slate-500">NO SPAM GUARANTEE</span>
-            </div>
+      <div className="mt-5">
+        {!subscribed ? (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:flex-row">
+            <label className="sr-only" htmlFor="newsletter-email">メールアドレス</label>
+            <input
+              id="newsletter-email"
+              type="email"
+              autoComplete="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="name@example.com"
+              className="min-h-12 min-w-0 flex-1 rounded-md border border-white/[0.16] bg-background px-3.5 text-sm text-white placeholder:text-zinc-500 focus:border-accent focus:outline-none"
+              required
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="min-h-12 shrink-0 rounded-md bg-accent-strong px-5 text-sm font-semibold text-[#10151a] transition-colors hover:bg-white disabled:cursor-wait disabled:opacity-60"
+            >
+              {loading ? '登録中…' : '登録する'}
+            </button>
+          </form>
+        ) : (
+          <div className="rounded-md border border-accent/30 bg-background p-4" role="status">
+            <p className="text-sm font-semibold text-white">登録を受け付けました</p>
+            <p className="mt-1 text-sm leading-6 text-zinc-400">配信を停止する場合は、ここから手続きできます。</p>
+            <button
+              type="button"
+              onClick={handleUnsubscribe}
+              disabled={unsubscribing || (!token && !unsubscribeToken)}
+              className="mt-3 min-h-10 rounded px-2 text-sm text-zinc-300 underline underline-offset-4 hover:text-white disabled:cursor-not-allowed disabled:no-underline disabled:opacity-50"
+            >
+              {unsubscribing ? '解除中…' : '配信を停止する'}
+            </button>
           </div>
         )}
+        {errorMsg && <p className="mt-2 text-sm text-rose-300" role="alert">{errorMsg}</p>}
       </div>
     </section>
   );

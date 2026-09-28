@@ -1,16 +1,18 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { SynthesizedIdea } from '../../types/terminal';
+import { FinancialEntity, SynthesizedIdea } from '../../types/terminal';
 import { 
-  Layers, 
   ArrowRight, 
   RotateCcw,
-  Hammer
+  Hammer,
 } from 'lucide-react';
 
 interface SynthesisIdeasDossierProps {
+  entities: FinancialEntity[];
+  selectedEntityIds: Set<string>;
   synthesizedIdeas: SynthesizedIdea[];
   handleSynthesize: () => void;
   isSynthesizing: boolean;
@@ -18,7 +20,20 @@ interface SynthesisIdeasDossierProps {
   handleDrilldownIdea: (idea: SynthesizedIdea) => void;
 }
 
+function sourceEvidenceLabel(entity: FinancialEntity): string {
+  if (entity.pnl.financialStatus === 'UNAVAILABLE' || entity.pnl.isRevenueUnconfirmed) return '未確認';
+  switch (entity.pnl.financialStatus) {
+    case 'VERIFIED': return '一次資料';
+    case 'REPORTED': return '報告値';
+    case 'ESTIMATED': return '推計';
+    case 'POST_MORTEM': return '事後記録';
+    default: return '根拠未登録';
+  }
+}
+
 export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
+  entities,
+  selectedEntityIds,
   synthesizedIdeas,
   handleSynthesize,
   isSynthesizing,
@@ -26,76 +41,105 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
   handleDrilldownIdea,
 }) => {
   const router = useRouter();
+  const entityById = React.useMemo(() => new Map(entities.map((entity) => [entity.id, entity])), [entities]);
 
   return (
-    <div className="h-full overflow-y-auto p-4 md:p-6 space-y-6 scrollbar-thin scrollbar-thumb-white/10">
+    <div className="h-full overflow-y-auto p-4 md:p-6 space-y-5 scrollbar-thin scrollbar-thumb-white/10">
       {synthesizedIdeas.length === 0 ? (
-        <div className="h-full flex flex-col items-center justify-center text-center p-8 max-w-md mx-auto">
-          <div className="w-12 h-12 rounded bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-zinc-500 mb-4">
-            <Layers className="w-6 h-6 text-zinc-400" />
-          </div>
-          <h3 className="font-mono text-sm font-bold text-white mb-2">
-            独自アイデアは未生成です
-          </h3>
-          <p className="text-xs text-zinc-400 leading-relaxed font-sans mb-6">
-            上部の検証バーから事業アイデアを1行投げるか、左ペインの保存銘柄を選んで「独自アイデアを合成」を実行してください。本能工夫・構造胴元・逆張りの3次元から即時抽出されます。
-          </p>
+        <section className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
+          <header className="flex items-center justify-between gap-3 border-b border-white/[0.12] bg-[#1a2530] px-4 py-3">
+            <h2 className="text-sm font-semibold text-zinc-100">選択した事例から企画案を作成</h2>
+            <span className="shrink-0 text-xs text-zinc-400">{selectedEntityIds.size}件</span>
+          </header>
+          <div className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center">
+          {selectedEntityIds.size === 0 ? <p className="text-sm text-zinc-300">保存した事例を選ぶと、収益の仕組みや自分のメモをもとに企画案を作れます。</p> : (
+            <div className="flex min-w-0 flex-1 flex-wrap gap-2">
+              {[...selectedEntityIds].map((id) => {
+                const entity = entityById.get(id);
+                return entity ? <Link key={id} href={`/?entity=${encodeURIComponent(id)}&mode=LEDGER`} className="rounded border border-white/[0.14] px-3 py-2 text-sm text-sky-100 hover:bg-white/[0.06]">{entity.name}</Link> : null;
+              })}
+            </div>
+          )}
           <button
             onClick={handleSynthesize}
-            disabled={isSynthesizing}
-            className="py-2 px-4 rounded bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.15] text-white font-mono text-xs transition-colors cursor-pointer"
+            disabled={isSynthesizing || selectedEntityIds.size === 0}
+            className="inline-flex min-h-10 shrink-0 items-center justify-center self-start rounded-md bg-sky-200 px-3 py-2 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-45"
           >
-            今すぐデフォルト銘柄から合成する
+            {isSynthesizing ? '企画案を作成中…' : '企画案を作る'}
           </button>
-        </div>
+          </div>
+        </section>
       ) : (
-        <div className="space-y-6 max-w-4xl mx-auto">
-          <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+        <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-700 pb-3">
             <div>
-              <h3 className="font-mono text-sm font-bold text-white">
-                SYNTHESIZED_ARBITRAGE_DOSSIERS
+              <h3 className="text-lg font-semibold text-white">
+                企画案
               </h3>
-              <span className="text-[11px] text-zinc-500 font-mono">
-                保存企業の財務データ × あなたの考察メモから抽出された多次元ビジネスモデル
-              </span>
+
             </div>
             <button
               onClick={handleSynthesize}
               disabled={isSynthesizing}
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white transition-colors"
+              className="inline-flex min-h-11 items-center justify-center gap-2 px-3 rounded-lg border border-slate-600 text-sm text-slate-100 hover:bg-slate-800 transition-colors disabled:opacity-50"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              再合成
+              <RotateCcw className="w-4 h-4" />
+              案を作り直す
             </button>
           </div>
 
-          {synthesizedIdeas.map((idea) => (
-            <div
+          {synthesizedIdeas.map((idea) => {
+            const sourceIds = Array.isArray(idea.sourceEntityIds) ? [...new Set(idea.sourceEntityIds)] : [];
+            const sourceEntities = sourceIds
+              .map((id) => entityById.get(id))
+              .filter((entity): entity is FinancialEntity => entity !== undefined);
+            const unresolvedSourceCount = sourceIds.length - sourceEntities.length;
+
+            return (
+            <article
               key={idea.id}
-              className="bg-[#090A0E] border border-white/[0.08] rounded p-5 space-y-4 shadow-xl"
+              className="space-y-5 rounded-lg border border-slate-600 bg-slate-900 p-4 sm:p-5"
             >
               {/* アイデア上部ヘッダー */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3">
-                <div>
-                  <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.06] px-2 py-0.5 rounded border border-white/[0.08] inline-block mb-1.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700 pb-4">
+                  <div>
+                  <span className="text-xs text-slate-200 bg-slate-800 px-2.5 py-1 rounded border border-slate-600 inline-block mb-2">
                     {idea.dimensionLabel}
                   </span>
-                  <h4 className="text-sm font-bold text-white font-sans">
+                  <h4 className="text-base md:text-lg font-semibold text-white font-sans">
                     {idea.title}
                   </h4>
+                  <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="font-medium text-slate-300">着想元</span>
+                    {sourceEntities.length > 0 ? sourceEntities.map((entity) => (
+                      <Link
+                        key={entity.id}
+                        href={`/?entity=${encodeURIComponent(entity.id)}`}
+                        className="inline-flex min-h-8 items-center gap-2 rounded border border-slate-500/60 bg-slate-800 px-2 text-slate-100 hover:border-sky-300/60 hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                      >
+                        <span>{entity.name}</span>
+                        <span className="text-slate-300">{sourceEvidenceLabel(entity)}</span>
+                      </Link>
+                    )) : (
+                      <span className="text-amber-200">参照元は案に記録されていません</span>
+                    )}
+                    {unresolvedSourceCount > 0 && (
+                      <span className="text-amber-200">台帳で確認できない参照元 {unresolvedSourceCount}件</span>
+                    )}
+                  </div>
                 </div>
 
                 {/* 財務サマリー */}
-                <div className="flex items-center gap-3 shrink-0 font-mono">
-                  <div className="text-right">
-                    <span className="text-[9px] text-zinc-500 block">想定月次手残り</span>
-                    <span className="text-xs font-bold text-emerald-400 tabular-nums">
+                <div className="grid grid-cols-2 gap-4 sm:min-w-64 shrink-0">
+                  <div className="rounded-lg bg-slate-950/70 border border-slate-700 p-3">
+                    <span className="text-xs text-slate-300 block">月間利益の仮説</span>
+                    <span className="text-base font-semibold text-amber-300 tabular-nums mt-1 block">
                       {formatMoney(idea.projectedMonthlyProfitJpy)}
                     </span>
                   </div>
-                  <div className="text-right">
-                    <span className="text-[9px] text-zinc-500 block">想定営業利益率</span>
-                    <span className="text-xs font-bold text-zinc-200 tabular-nums">
+                  <div className="rounded-lg bg-slate-950/70 border border-slate-700 p-3">
+                    <span className="text-xs text-slate-300 block">利益率の仮説</span>
+                    <span className="text-base font-semibold text-slate-100 tabular-nums mt-1 block">
                       {idea.operatingMargin}%
                     </span>
                   </div>
@@ -103,20 +147,20 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
               </div>
 
               {/* 狙う財布 ＆ 構造的歪み */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                <div className="bg-[#060709] p-3 rounded border border-white/[0.04]">
-                  <span className="font-mono text-[10px] text-zinc-500 block mb-1">
-                    痛みの財布（切実な保身・損失回避コスト）
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                <div className="bg-slate-950/60 p-4 rounded-lg border border-slate-700">
+                  <span className="text-xs font-semibold text-slate-200 block mb-2">
+                    想定する利用者と課題
                   </span>
-                  <p className="text-zinc-300 text-[11px] leading-relaxed">
+                  <p className="text-slate-200 leading-relaxed">
                     {idea.targetPainWallet}
                   </p>
                 </div>
-                <div className="bg-[#060709] p-3 rounded border border-white/[0.04]">
-                  <span className="font-mono text-[10px] text-zinc-500 block mb-1">
-                    突く市場の歪み・大手の自爆（既存事業の共食い障壁）
+                <div className="bg-slate-950/60 p-4 rounded-lg border border-slate-700">
+                  <span className="text-xs font-semibold text-slate-200 block mb-2">
+                    参考にした事例の構造
                   </span>
-                  <p className="text-zinc-300 text-[11px] leading-relaxed">
+                  <p className="text-slate-200 leading-relaxed">
                     {idea.structuralArbitrage}
                   </p>
                 </div>
@@ -124,18 +168,18 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
 
               {/* 推奨ツールスタック */}
               <div>
-                <span className="font-mono text-[10px] text-zinc-500 block mb-1.5">
-                  最小稼働インフラ（現場配管ツール）
+                <span className="text-sm font-semibold text-slate-100 block mb-2">
+                  使用候補と月額費用の目安
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {idea.requiredTools.map((tool, tIdx) => (
                     <div
                       key={tIdx}
-                      className="bg-white/[0.02] border border-white/[0.04] p-2 rounded text-[11px] font-mono"
+                      className="bg-slate-950/60 border border-slate-700 p-3 rounded-lg text-sm"
                     >
-                      <div className="text-white font-bold truncate">{tool.name}</div>
-                      <div className="text-zinc-500 text-[10px] truncate">{tool.purpose}</div>
-                      <div className="text-emerald-400/80 text-[10px] mt-0.5">
+                      <div className="text-white font-semibold">{tool.name}</div>
+                      <div className="text-slate-300 mt-1">{tool.purpose}</div>
+                      <div className="text-slate-200 text-xs mt-2">
                         月{formatMoney(tool.monthlyCostJpy)}
                       </div>
                     </div>
@@ -143,16 +187,16 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
                 </div>
               </div>
 
-              {/* 初動100人実録手順 */}
+              {/* 仮説の検証手順 */}
               <div>
-                <span className="font-mono text-[10px] text-zinc-500 block mb-1.5">
-                  初動100人獲得の客観的実録ステップ
+                <span className="text-sm font-semibold text-slate-100 block mb-2">
+                  最初に試す検証手順（案）
                 </span>
-                <ul className="space-y-1 text-[11px] text-zinc-400 font-sans">
+                <ul className="space-y-2 text-sm text-slate-200 font-sans">
                   {idea.first100TractionPlaybook.map((step, sIdx) => (
                     <li key={sIdx} className="flex items-start gap-2">
-                      <span className="font-mono text-[10px] text-zinc-500 shrink-0">
-                        0{sIdx + 1}.
+                      <span className="text-xs font-medium text-slate-400 shrink-0 pt-0.5">
+                        {sIdx + 1}.
                       </span>
                       <span>{step}</span>
                     </li>
@@ -161,32 +205,33 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
               </div>
 
               {/* アクション: 深掘り or そのままMVP生成 */}
-              <div className="pt-2 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <span className="text-[10px] font-mono text-zinc-500 truncate">
-                  着眼点: {idea.userNoteInspiration || '保存銘柄データ'}
+              <div className="pt-3 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <span className="text-sm text-slate-300">
+                  参考にした内容: {idea.userNoteInspiration || '選択した事例'}
                 </span>
-                <div className="flex items-center gap-2 self-end sm:self-auto">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                   <button
                     onClick={() => handleDrilldownIdea(idea)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] text-xs font-mono text-white transition-colors cursor-pointer"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-sm font-medium text-white transition-colors cursor-pointer"
                   >
-                    <span>精査・壁打ち</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-zinc-400" />
+                    <span>内容を相談する</span>
+                    <ArrowRight className="w-4 h-4 text-slate-300" />
                   </button>
                   <button
                     onClick={() => {
                       try { sessionStorage.setItem(`mm_build_idea:${idea.id}`, JSON.stringify(idea)); } catch { /* navigation still works for already-persisted ideas */ }
                       router.push(`/build/${encodeURIComponent(idea.id)}`);
                     }}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-emerald-500 hover:bg-emerald-400 border border-emerald-400/60 text-xs font-mono font-bold text-zinc-950 transition-colors cursor-pointer"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 px-3 rounded-lg bg-cyan-700 hover:bg-cyan-600 border border-cyan-600 text-sm font-semibold text-white transition-colors cursor-pointer"
                   >
                     <Hammer className="w-3.5 h-3.5" />
-                    <span>この事業を作る</span>
+                    <span>試作品を作る</span>
                   </button>
                 </div>
               </div>
-            </div>
-          ))}
+            </article>
+            );
+          })}
         </div>
       )}
     </div>

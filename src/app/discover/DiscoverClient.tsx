@@ -4,9 +4,8 @@
 import Link from "next/link";
 import React, { useMemo, useState } from "react";
 import {
-  ArrowUpRight,
+  ChevronDown,
   Database,
-  ExternalLink,
   Loader2,
   LogIn,
   MessageSquareText,
@@ -28,40 +27,77 @@ interface ChatLine {
 }
 
 const LENSES: Array<{ id: DiscoveryLens; label: string; hint: string }> = [
-  { id: "SURPRISE", label: "まず見る", hint: "持っていたものに対して結果が大きい順" },
-  { id: "BIG_CASH", label: "大きい金", hint: "確認できる金額が大きい順" },
-  { id: "LOW_CAPITAL", label: "少資本", hint: "初期資金が小さい事例を前へ" },
-  { id: "SOLO", label: "一人", hint: "一人開始・一人運営を前へ" },
-  { id: "LOW_WORK", label: "少労働", hint: "週の稼働時間が短い事例を前へ" },
-  { id: "CURRENT", label: "今も生きている", hint: "現在も有効・上昇中の事例を前へ" },
-  { id: "FAILURE", label: "失敗から見る", hint: "失敗・撤退から境界線を見る" },
+  { id: "SURPRISE", label: "注目順", hint: "登録金額と開始条件を組み合わせて並べる。推定を含む" },
+  { id: "BIG_CASH", label: "金額順", hint: "台帳の金額が大きい順。推定・報道を含む" },
+  { id: "LOW_CAPITAL", label: "初期資金", hint: "台帳に記録された初期資金が少ない順" },
+  { id: "SOLO", label: "初期体制", hint: "開始人数が1人と登録された例を前へ" },
+  { id: "LOW_WORK", label: "稼働時間", hint: "週の稼働時間が短いと登録された例を前へ" },
+  { id: "CURRENT", label: "現行性", hint: "台帳上の現行性判定を前へ。出典未照合" },
+  { id: "FAILURE", label: "撤退事例", hint: "失敗・撤退として登録された事例を前へ" },
 ];
 
 function buildContext(item: DiscoveryCase): string {
   return [
     "事例: " + item.name,
     "結果: " + item.resultLabel + " " + item.resultValue,
+    "資料区分: " + item.resultEvidenceLabel,
+    "対象時期: " + (item.resultPeriod || "未設定"),
+    "出典表示: " + (item.resultSource || "未設定"),
     "開始条件: " + item.startLine,
-    "急所: " + item.criticalInsight,
-    "なぜ金が動いた: " + item.whyMoneyMoved,
-    "レバレッジ: " + item.leverage,
+    "着眼点: " + item.criticalInsight,
+    "顧客が対価を払う理由: " + item.whyMoneyMoved,
+    "規模を伸ばす仕組み: " + item.leverage,
     "近い構造: " + item.mechanism.label + " / " + item.mechanismCount + "件",
     "現在性: " + item.currentLabel + " / " + item.currentDetail,
   ].join("\n");
 }
 
+function formatResultValue(value: string): string {
+  return value.replace(/¥\s*(\d{4,})(億|兆|万)/g, (_match, digits: string, unit: string) =>
+    `¥${Number(digits).toLocaleString("ja-JP")}${unit}`,
+  );
+}
+
 function ResultBlock({ item }: { item: DiscoveryCase }) {
+  const evidenceTone = item.resultEvidenceLabel.includes('推定')
+    ? 'text-amber-200'
+    : item.resultEvidenceLabel.includes('未設定') || item.resultEvidenceLabel.includes('未確認')
+      ? 'text-zinc-200'
+      : item.resultEvidenceLabel.includes('報道')
+        ? 'text-sky-200'
+        : item.resultEvidenceLabel.includes('一次資料')
+          ? 'text-emerald-200'
+          : 'text-zinc-300';
+
   return (
-    <div className="min-w-[150px] text-right">
-      <div className="text-[10px] font-mono text-zinc-500">{item.resultLabel}</div>
+    <div className="w-[120px] shrink-0 text-right sm:w-[158px]">
+      <div className="text-[11px] text-zinc-400">{item.resultLabel}</div>
       <div
         className={[
           "text-base sm:text-lg font-semibold tabular-nums tracking-tight",
-          item.isFailure ? "text-rose-300" : "text-white",
+          item.resultEvidenceLabel.includes('未設定')
+            ? "text-zinc-200"
+            : item.resultEvidenceLabel.includes('推定')
+              ? "text-amber-100"
+              : item.resultEvidenceLabel.includes('報道')
+                ? "text-sky-100"
+            : item.isFailure ? "text-rose-300" : "text-white",
         ].join(" ")}
       >
-        {item.resultValue}
+        {formatResultValue(item.resultValue)}
       </div>
+      <div className={`mt-0.5 text-[11px] leading-tight ${evidenceTone}`}>
+        {item.resultEvidenceLabel}
+      </div>
+    </div>
+  );
+}
+
+function MemoRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="grid gap-1 py-3 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-4">
+      <div className="text-xs font-medium text-zinc-400">{label}</div>
+      <p className="text-sm leading-relaxed text-zinc-300">{value}</p>
     </div>
   );
 }
@@ -75,41 +111,55 @@ function DiscoveryRow({
   selected: boolean;
   onSelect: () => void;
 }) {
+  const compactResultLabel = item.resultLabel.replace(/\s*（月額換算・登録値）$/, "");
+
   return (
     <button
       type="button"
       onClick={onSelect}
       className={[
-        "w-full text-left border-b border-white/[0.055] px-3 sm:px-4 py-3 transition-colors",
+        "w-full text-left border-b border-white/[0.1] px-3 py-2.5 sm:px-4 transition-colors",
         selected
           ? "bg-white/[0.07] border-l-2 border-l-emerald-400"
           : "hover:bg-white/[0.035] border-l-2 border-l-transparent",
       ].join(" ")}
     >
-      <div className="flex items-start gap-3">
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-500 mb-1">
-            <span>{item.startLine}</span>
-            <span className="text-zinc-700">/</span>
-            <span>{item.sector}</span>
-            {item.isCurrent && (
-              <>
-                <span className="text-zinc-700">/</span>
-                <span className="text-emerald-400">現在も有効</span>
-              </>
-            )}
+      <div>
+        <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-zinc-400">
+          <span>{item.startLine}</span>
+          <span className="text-zinc-600">·</span>
+          <span>{item.sector}</span>
+        </div>
+
+        <div className="text-[15px] font-semibold leading-snug text-zinc-50 line-clamp-2">
+          {item.name}
+        </div>
+        {item.criticalInsight && (
+          <p className="mt-1 line-clamp-2 text-xs leading-5 text-zinc-300">{item.criticalInsight}</p>
+        )}
+
+        <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3 border-t border-white/[0.08] pt-2">
+          <div className="min-w-0">
+            <div className="text-[10px] font-medium text-zinc-400">収益パターン候補</div>
+            <div className="mt-0.5 text-xs leading-snug text-zinc-100 line-clamp-2">
+              {item.mechanism.label}
+            </div>
           </div>
-          <div className="text-sm font-semibold text-zinc-100 truncate">{item.name}</div>
-          <div className="mt-1 text-xs sm:text-[13px] text-zinc-300 leading-relaxed line-clamp-2">
-            {item.criticalInsight}
-          </div>
-          <div className="mt-2 flex items-center gap-2 text-[10px] font-mono text-zinc-500">
-            <span className="text-cyan-300/90">{item.mechanism.label}</span>
-            <span>近い急所 {item.mechanismCount}件</span>
-            {item.evidenceCount > 0 && <span>根拠カード {item.evidenceCount}</span>}
+          <div className="min-w-[112px] max-w-[48%] text-right">
+            <div className="text-[10px] leading-tight text-zinc-400">{compactResultLabel}</div>
+            <div className="mt-0.5 text-base font-semibold tabular-nums tracking-tight text-zinc-50">
+              {formatResultValue(item.resultValue)}
+            </div>
           </div>
         </div>
-        <ResultBlock item={item} />
+
+        <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] leading-snug">
+          <span className="text-amber-100">{item.resultEvidenceLabel.replace('資料区分: ', '')}</span>
+          <span className="text-zinc-500">
+            {item.resultPeriod || "時期不明"}
+          </span>
+        </div>
+
       </div>
     </button>
   );
@@ -117,11 +167,9 @@ function DiscoveryRow({
 
 function DetailPane({
   item,
-  sourceCount,
   onCloseMobile,
 }: {
   item: DiscoveryCase;
-  sourceCount: number;
   onCloseMobile?: () => void;
 }) {
   const { token, user, loading, signInWithGoogle } = useAuth();
@@ -130,10 +178,10 @@ function DetailPane({
   const [isSending, setIsSending] = useState(false);
 
   const quickPrompts = [
-    "この成功の本当に持ち運べる部分だけを3つに絞って",
-    "似た失敗例と比べて、成立条件の境界線を出して",
-    "この急所を日本の別業界へ移植する候補を出して",
-    "この急所から最小のMVPに落とすなら何を作る？",
+    { label: "収益の仕組み", question: "この事例で確認できる収益の仕組みを整理して" },
+    { label: "成立条件", question: "成立条件と、条件が変わると成り立たない点を分けて" },
+    { label: "顧客の獲得", question: "初期顧客の獲得方法と、必要な資源をまとめて" },
+    { label: "自分への応用", question: "自分の状況と比べるために確認すべき点を挙げて" },
   ];
 
   const send = async (prompt?: string) => {
@@ -165,7 +213,7 @@ function DetailPane({
         buildContext(item) +
         "\n\n質問: " +
         question +
-        "\n\nこの事例の表示済み事実と根拠の範囲を起点に、成功保証や架空の数字を足さず、重要な急所・別事例との比較・別市場への転用可能性を日本語で具体的に答えてください。";
+        "\n\n表示済み情報のうち、確認できる事実・推定・未確認を分けて質問に直接答えてください。利用者が求めていない比較や転用を持ち込まず、公開情報で分からない点は未確認としてください。";
 
       const response = await fetch("/api/strategy-chat", {
         method: "POST",
@@ -184,7 +232,7 @@ function DetailPane({
           notes: {},
           userProfile: {
             profileSummary:
-              "金を増やす方法を広く探索し、成功の決定的な急所・再現条件・失敗境界・別市場への転用を重視。",
+              "利用者の目的は未指定です。選択された事例と今回の質問を起点にし、予算・収益目標・運営条件を推測しないでください。",
           },
         }),
       });
@@ -227,23 +275,24 @@ function DetailPane({
   };
 
   return (
-    <div data-testid="discover-detail" className="h-full flex flex-col bg-[#07080B]">
+    <div data-testid="discover-detail" className="h-full flex flex-col bg-surface">
       <div className="shrink-0 border-b border-white/[0.07] px-4 sm:px-6 py-4">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
-            <div className="text-[10px] font-mono text-zinc-500 mb-1">{item.startLine}</div>
-            <h2 className="text-lg sm:text-xl font-semibold tracking-tight text-white truncate">
+            <h2 className="text-base sm:text-xl font-semibold tracking-tight text-white break-words">
               {item.name}
             </h2>
-            <div className="mt-1 text-xs text-zinc-500">{item.tagline}</div>
+            <div className="mt-1 text-sm leading-6 text-zinc-300">
+              {item.sector} · {item.startLine}
+            </div>
           </div>
-          <div className="flex items-start gap-2">
+          <div className="flex shrink-0 items-start gap-2">
             <ResultBlock item={item} />
             {onCloseMobile && (
               <button
                 type="button"
                 onClick={onCloseMobile}
-                className="md:hidden p-1.5 text-zinc-400 hover:text-white"
+                className="lg:hidden p-1.5 text-zinc-400 hover:text-white"
                 aria-label="詳細を閉じる"
               >
                 <X className="w-4 h-4" />
@@ -254,40 +303,53 @@ function DetailPane({
       </div>
 
       <div className="flex-1 min-h-0 overflow-y-auto">
-        <section className="px-4 sm:px-6 py-5 border-b border-white/[0.06]">
-          <div className="text-[10px] font-mono tracking-[0.18em] text-emerald-400 mb-2">
-            THE CRITICAL MOVE
+        <details className="border-b border-white/[0.12]">
+          <summary className="cursor-pointer px-4 py-2 text-xs text-zinc-400 sm:px-6">数値の出典・対象時期</summary>
+          <div className="grid grid-cols-2">
+          <div className="min-w-0 px-4 sm:px-6 py-3 border-r border-white/[0.06]">
+            <div className="text-xs text-zinc-400">資料区分</div>
+            <div className="mt-1 text-sm font-medium text-zinc-100">{item.resultEvidenceLabel.replace('資料区分: ', '')}</div>
+            <div className="mt-0.5 max-w-full truncate text-xs text-zinc-400" title={item.resultSource || undefined}>
+              {item.resultSource || '出典表示なし'}
+            </div>
           </div>
-          <div className="text-xl sm:text-2xl leading-snug font-semibold tracking-tight text-white">
-            {item.criticalInsight}
+          <div className="px-4 sm:px-6 py-3">
+            <div className="text-xs text-zinc-400">対象時期</div>
+            <div className="mt-1 text-sm font-medium text-zinc-100">{item.resultPeriod || '未設定'}</div>
+            <div className="mt-0.5 text-xs text-zinc-400">
+              {item.resultPeriodNote || '数値が示す期間'}
+            </div>
+          </div>
+          </div>
+        </details>
+
+        <section className="border-b border-white/[0.12] bg-[#1a2530] px-4 sm:px-6 py-3">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+            <div className="text-sm font-medium text-zinc-100">{item.mechanism.label}</div>
+            <div className="text-xs text-zinc-400">同じ分類 {item.mechanismCount.toLocaleString()}件</div>
           </div>
         </section>
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 border-b border-white/[0.06]">
-          <div className="px-4 sm:px-6 py-5 lg:border-r border-white/[0.06]">
-            <div className="text-[10px] font-mono text-zinc-500 mb-2">なぜ金が動いた？</div>
-            <p className="text-sm text-zinc-200 leading-relaxed">{item.whyMoneyMoved}</p>
+        <details open className="m-3 rounded-md border border-white/[0.16] bg-[#101721]">
+          <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 sm:px-6 text-sm text-zinc-200 hover:bg-white/[0.025]">
+            <span>事業の説明・分析</span>
+            <span className="flex items-center gap-2 text-xs text-amber-200">
+              <ChevronDown aria-hidden="true" className="h-4 w-4 text-zinc-300" />
+            </span>
+          </summary>
+          <div className="divide-y divide-white/[0.06] px-4 sm:px-6">
+            {item.tagline && (
+              <MemoRow label="登録説明" value={item.tagline} />
+            )}
+            <MemoRow label="事業の要点" value={item.criticalInsight} />
+            <MemoRow label="支払理由の分析" value={item.whyMoneyMoved} />
+            <MemoRow label="規模を伸ばす分析" value={item.leverage} />
           </div>
-          <div className="px-4 sm:px-6 py-5 border-t lg:border-t-0 border-white/[0.06]">
-            <div className="text-[10px] font-mono text-zinc-500 mb-2">どこで出力が跳ねた？</div>
-            <p className="text-sm text-zinc-200 leading-relaxed">{item.leverage}</p>
-          </div>
-        </section>
+        </details>
 
-        <section className="px-4 sm:px-6 py-5 border-b border-white/[0.06]">
-          <div className="flex items-end justify-between gap-4 mb-3">
-            <div>
-              <div className="text-[10px] font-mono text-zinc-500">こいつだけ？</div>
-              <div className="mt-1 text-base font-semibold text-white">
-                「{item.mechanism.label}」に近い記録が {item.mechanismCount.toLocaleString()}件
-              </div>
-            </div>
-            <div className="text-[10px] font-mono text-zinc-600">
-              全 {sourceCount.toLocaleString()} 事例を横断
-            </div>
-          </div>
+        {item.related.length > 0 && <section className="m-3 rounded-md border border-white/[0.16] bg-[#101721] px-4 py-3">
+          <h3 className="mb-2 text-sm font-semibold text-zinc-100">関連事例</h3>
 
-          {item.related.length > 0 ? (
             <div className="divide-y divide-white/[0.05] border-y border-white/[0.05]">
               {item.related.map((related) => (
                 <Link
@@ -298,37 +360,30 @@ function DetailPane({
                   <span className="text-zinc-300 group-hover:text-white truncate">
                     {related.name}
                   </span>
-                  <span className="font-mono text-zinc-500 shrink-0">{related.resultValue}</span>
+                  <span className="text-zinc-400 shrink-0">{related.resultValue}</span>
                 </Link>
               ))}
             </div>
-          ) : (
-            <div className="text-xs text-zinc-500">
-              近い急所の公開事例はこの表示範囲では未確認です。
-            </div>
-          )}
-        </section>
+        </section>}
 
-        <section className="grid grid-cols-1 lg:grid-cols-2 border-b border-white/[0.06]">
+        <details className="m-3 rounded-md border border-white/[0.16] bg-[#101721]">
+          <summary className="cursor-pointer px-4 py-3 text-sm font-medium text-zinc-200">運営情報・現行性</summary>
+          <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="px-4 sm:px-6 py-5 lg:border-r border-white/[0.06]">
-            <div className="text-[10px] font-mono text-zinc-500 mb-2">今も使える？</div>
+            <div className="mb-2 text-sm font-semibold text-zinc-200">現在性の登録判定</div>
             <div
               className={[
                 "text-sm font-semibold",
-                item.isCurrent
-                  ? "text-emerald-300"
-                  : item.isFailure
-                    ? "text-rose-300"
-                    : "text-zinc-200",
+                "text-zinc-200",
               ].join(" ")}
             >
               {item.currentLabel}
             </div>
-            <p className="mt-2 text-xs text-zinc-400 leading-relaxed">{item.currentDetail}</p>
+            <p className="mt-2 text-sm text-zinc-300 leading-6">{item.currentDetail}</p>
           </div>
           <div className="px-4 sm:px-6 py-5 border-t lg:border-t-0 border-white/[0.06]">
             <div className="text-[10px] font-mono text-zinc-500 mb-2">
-              これは「原因」ではなく特徴
+              運営情報
             </div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-3">
               {item.descriptors.length > 0 ? (
@@ -343,30 +398,25 @@ function DetailPane({
               )}
             </div>
           </div>
-        </section>
-
-        <section className="px-4 sm:px-6 py-5 border-b border-white/[0.06]">
-          <div className="flex items-center justify-between gap-3 mb-3">
-            <div>
-              <div className="text-[10px] font-mono tracking-[0.16em] text-cyan-400">
-                ASK / TRANSFER
-              </div>
-              <h3 className="text-sm font-semibold text-white mt-1">
-                この急所を、自分の金儲けまで進める
-              </h3>
-            </div>
-            <MessageSquareText className="w-4 h-4 text-zinc-500" />
           </div>
+        </details>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+        <details className="group m-3 rounded-md border border-white/[0.16] bg-[#101721]">
+          <summary className="flex cursor-pointer list-none items-center gap-2 px-4 py-3 text-sm font-medium text-zinc-200 hover:bg-white/[0.04] [&::-webkit-details-marker]:hidden">
+            <MessageSquareText className="h-4 w-4 text-accent" />
+            この事例について質問
+            <ChevronDown aria-hidden="true" className="ml-auto h-4 w-4 text-zinc-500 group-open:rotate-180" />
+          </summary>
+          <div className="border-t border-white/[0.08] p-3">
+          <div className="mb-3 flex flex-wrap gap-1.5">
             {quickPrompts.map((prompt) => (
               <button
-                key={prompt}
+                key={prompt.label}
                 type="button"
-                onClick={() => void send(prompt)}
-                className="text-left text-xs text-zinc-300 hover:text-white border border-white/[0.08] hover:border-white/[0.18] bg-white/[0.02] hover:bg-white/[0.05] px-3 py-2.5 transition-colors"
+                onClick={() => setChatInput(prompt.question)}
+                className="rounded border border-white/[0.12] px-2 py-1.5 text-xs text-zinc-300 hover:border-white/30 hover:text-white"
               >
-                {prompt}
+                {prompt.label}
               </button>
             ))}
           </div>
@@ -399,7 +449,7 @@ function DetailPane({
               className="mb-3 inline-flex items-center gap-1.5 text-xs text-zinc-300 hover:text-white"
             >
               <LogIn className="w-3.5 h-3.5" />
-              AI深掘りを使うためGoogleで接続
+              Googleでログインして質問する
             </button>
           )}
 
@@ -411,9 +461,10 @@ function DetailPane({
             className="flex gap-2"
           >
             <input
+              aria-label="事例についての質問"
               value={chatInput}
               onChange={(event) => setChatInput(event.target.value)}
-              placeholder="例：この急所を商品を作らずに使うなら？"
+              placeholder="例：この価格設定が成り立つ条件は？"
               className="flex-1 min-w-0 bg-[#050608] border border-white/[0.09] focus:border-white/[0.22] px-3 py-2.5 text-xs text-white placeholder-zinc-600 outline-none"
             />
             <button
@@ -424,33 +475,27 @@ function DetailPane({
               聞く
             </button>
           </form>
-        </section>
+          </div>
+        </details>
 
-        <section className="px-4 sm:px-6 py-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+        <section className="grid grid-cols-3 items-center gap-2 px-3 py-3 text-xs">
           <Link
             href={`/execute/${encodeURIComponent(item.id)}`}
-            className="inline-flex items-center gap-1.5 rounded border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 font-semibold text-emerald-300 hover:bg-emerald-500/15 hover:text-emerald-200"
+            className="inline-flex items-center justify-center gap-1 rounded border border-emerald-500/30 bg-emerald-500/10 px-1 py-2 font-semibold text-emerald-300 hover:bg-emerald-500/15 hover:text-emerald-200"
           >
             <Rocket className="w-3.5 h-3.5" />
-            この事例を実行OSへ
-            <ArrowUpRight className="w-3 h-3" />
+            計画を作成
           </Link>
           <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
-            className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-white"
+            className="inline-flex items-center justify-center gap-1 text-zinc-300 hover:text-white"
           >
             <Database className="w-3.5 h-3.5" />
-            元事例の全データ
-            <ExternalLink className="w-3 h-3 text-zinc-600" />
+            事例の詳細
           </Link>
-          <span className="text-zinc-700">/</span>
-          <Link href="/?mode=SYNTHESIS" className="text-zinc-400 hover:text-white">
-            事業壁打ちで自分の案に落とす
+          <Link href="/?mode=SYNTHESIS" className="text-center text-zinc-400 hover:text-white">
+            事業を検討
           </Link>
-          <span className="text-zinc-700">/</span>
-          <span className="text-zinc-500">
-            金額未確認・推定・歴史限定は元データの表示区分を引き継ぎます。
-          </span>
         </section>
       </div>
     </div>
@@ -496,7 +541,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
 
   const choose = (id: string) => {
     setSelectedId(id);
-    if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) {
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches) {
       setMobileDetailOpen(true);
     }
   };
@@ -504,110 +549,60 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
   return (
     <div className="h-dvh w-full bg-[#060709] text-zinc-100 overflow-hidden flex flex-col">
       <GlobalHeader currentSection="DISCOVER" />
-      <header className="shrink-0 border-b border-white/[0.07] bg-[#07080B]">
-        <div className="h-12 px-3 sm:px-5 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-            <span className="font-mono text-[11px] font-bold tracking-[0.18em] text-white">
-              DISCOVER
-            </span>
-            <span className="text-[10px] font-mono text-zinc-600 hidden sm:inline">
-              / 決定的な一手
-            </span>
-          </div>
-          <div className="flex items-center gap-3 text-[10px] font-mono text-zinc-500">
-            <span>{dataset.sourceCount.toLocaleString()}事例を横断</span>
-            <Link href="/" className="text-zinc-400 hover:text-white inline-flex items-center gap-1">
-              事例DB
-              <ArrowUpRight className="w-3 h-3" />
-            </Link>
-          </div>
-        </div>
+      <h1 className="sr-only">事例を探す</h1>
 
-        <div className="px-3 sm:px-5 py-4 sm:py-5 border-t border-white/[0.04]">
-          <div className="max-w-5xl">
-            <div className="text-[10px] font-mono tracking-[0.2em] text-emerald-400 mb-2">
-              WHAT ACTUALLY MADE THE MONEY
-            </div>
-            <h1 className="text-2xl sm:text-4xl font-semibold tracking-[-0.035em] leading-tight text-white">
-              金を作った「決定的な一手」だけ。
-            </h1>
-            <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-3xl">
-              誰がすごかったかではなく、何が結果を変えたか。特殊例か、他でも起きたか、今も生きているかまで一気に見る。
-            </p>
-          </div>
-        </div>
-
-        {dataset.highlights.length > 0 && (
-          <div className="hidden lg:grid grid-cols-3 border-t border-white/[0.06]">
-            {dataset.highlights.map((item) => (
-              <button
-                type="button"
-                key={item.id}
-                onClick={() => choose(item.id)}
-                className="text-left px-5 py-3 border-r last:border-r-0 border-white/[0.06] hover:bg-white/[0.035] transition-colors"
-              >
-                <div className="flex items-baseline justify-between gap-3">
-                  <span className="text-[10px] font-mono text-zinc-500 truncate">
-                    {item.startLine}
-                  </span>
-                  <span className="text-sm font-semibold text-white shrink-0">{item.resultValue}</span>
-                </div>
-                <div className="mt-1.5 text-xs text-zinc-300 leading-relaxed line-clamp-2">
-                  {item.criticalInsight}
-                </div>
-              </button>
-            ))}
-          </div>
-        )}
-      </header>
-
-      <div className="shrink-0 bg-[#08090C] border-b border-white/[0.06] px-3 sm:px-4 py-2">
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-          <div className="relative min-w-[190px] sm:min-w-[240px] max-w-xs flex-1">
+      <div className="shrink-0 bg-[#08090C] border-b border-white/[0.1] px-3 py-2 sm:px-4">
+        <div className="flex items-center gap-2">
+          <div className="relative min-w-0 flex-1 sm:min-w-[240px] sm:max-w-xs">
             <Search className="w-3.5 h-3.5 text-zinc-600 absolute left-2.5 top-1/2 -translate-y-1/2" />
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="人物・急所・金の取り方を検索"
-              className="w-full bg-[#050608] border border-white/[0.07] focus:border-white/[0.18] pl-8 pr-3 py-1.5 text-xs text-zinc-200 placeholder-zinc-600 outline-none"
+              aria-label="人物・業種・仕組みで検索"
+              placeholder="事例名・業種・収益の仕組みで検索"
+              className="h-10 w-full rounded-md border border-white/[0.14] bg-surface-raised pl-8 pr-3 text-sm text-zinc-100 placeholder:text-zinc-400 outline-none focus:border-accent"
             />
           </div>
 
-          <span className="text-[10px] font-mono text-zinc-600 shrink-0 hidden sm:inline">
-            見方を変える
-          </span>
+          <select
+            aria-label="事例の並び順"
+            value={lens}
+            onChange={(event) => setLens(event.target.value as DiscoveryLens)}
+            className="h-10 w-28 shrink-0 rounded-md border border-white/[0.18] bg-surface-raised px-2 text-sm text-white outline-none focus:border-accent lg:hidden"
+          >
+            {LENSES.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
+          </select>
+          <div className="hidden min-w-0 gap-1.5 lg:flex lg:flex-1 lg:flex-wrap">
           {LENSES.map((item) => (
             <button
               key={item.id}
               type="button"
               title={item.hint}
               onClick={() => setLens(item.id)}
+              aria-pressed={lens === item.id}
               className={[
-                "shrink-0 px-2.5 py-1.5 text-[11px] border transition-colors",
+                "min-h-10 shrink-0 rounded px-2.5 text-xs border transition-colors sm:text-sm",
                 lens === item.id
-                  ? "bg-white/[0.09] text-white border-white/[0.16]"
-                  : "bg-transparent text-zinc-500 border-white/[0.05] hover:text-zinc-300 hover:border-white/[0.1]",
+                  ? "bg-sky-300/[0.16] text-sky-50 border-sky-300/55 ring-1 ring-inset ring-sky-300/20"
+                  : "bg-transparent text-zinc-300 border-white/[0.14] hover:text-white hover:border-white/[0.24] hover:bg-white/[0.04]",
               ].join(" ")}
             >
               {item.label}
             </button>
           ))}
+          </div>
         </div>
       </div>
 
       <main className="flex-1 min-h-0 flex overflow-hidden">
-        <section data-testid="discover-list" className="w-full md:w-[44%] lg:w-[42%] xl:w-[40%] min-w-0 border-r border-white/[0.06] bg-[#07080B] flex flex-col">
-          <div className="shrink-0 px-3 sm:px-4 py-2 border-b border-white/[0.05] flex items-center justify-between text-[10px] font-mono text-zinc-600">
-            <span>
-              {query
-                ? "検索結果 " + visibleCases.length + "件"
-                : dataset.visibleCount +
-                  "件を表示 / 全" +
-                  dataset.sourceCount.toLocaleString() +
-                  "件から抽出"}
+        <section data-testid="discover-list" className="w-full lg:w-[46%] xl:w-[44%] min-w-0 border-r border-white/[0.06] bg-[#07080B] flex flex-col">
+          <div className="shrink-0 px-3 py-2 sm:px-4 border-b border-white/[0.1] flex items-center justify-between gap-3 text-sm text-zinc-300">
+            <span className="font-medium tabular-nums">
+              {query ? `検索結果 ${visibleCases.length}件` : `${dataset.visibleCount}件を表示`}
             </span>
-            <span>{LENSES.find((item) => item.id === lens)?.hint}</span>
+            <span className="text-right text-[11px] text-zinc-500">
+              {query ? `全${dataset.sourceCount.toLocaleString()}件から` : `全${dataset.sourceCount.toLocaleString()}件 · ${LENSES.find((item) => item.id === lens)?.label}`}
+            </span>
           </div>
 
           <div className="flex-1 min-h-0 overflow-y-auto">
@@ -635,9 +630,9 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
           </div>
         </section>
 
-        <section className="hidden md:block flex-1 min-w-0">
+        <section className="hidden lg:block flex-1 min-w-0">
           {selected ? (
-            <DetailPane item={selected} sourceCount={dataset.sourceCount} />
+            <DetailPane item={selected} />
           ) : (
             <div className="h-full grid place-items-center text-xs text-zinc-600">
               表示できる事例がありません。
@@ -647,10 +642,10 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
       </main>
 
       {mobileDetailOpen && selected && (
-        <div className="fixed inset-0 z-50 md:hidden bg-[#07080B]">
+        <div className="fixed inset-0 z-50 lg:hidden bg-[#07080B]">
           <DetailPane
             item={selected}
-            sourceCount={dataset.sourceCount}
+
             onCloseMobile={() => setMobileDetailOpen(false)}
           />
         </div>

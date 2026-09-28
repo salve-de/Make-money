@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { SlidersHorizontal, Search, X, Layers } from 'lucide-react';
+import { Check, Layers, Search, SlidersHorizontal, X } from 'lucide-react';
 import { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { KNOWN_INGEST_BATCHES } from '@/shared/terminal';
 
@@ -38,41 +38,29 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   batchCounts = {},
   catalogTotal = null,
 }) => {
-  // バッチの選択肢一覧（既知のバッチ＋動的バッチ）
   const batchOptions = React.useMemo(() => {
-    const knownMap = new Map(KNOWN_INGEST_BATCHES.map((b) => [b.id, b]));
-    const list: Array<{ id: string; label: string; count: number }> = [];
+    const knownMap = new Map(KNOWN_INGEST_BATCHES.map((batch) => [batch.id, batch]));
+    const options = KNOWN_INGEST_BATCHES.map((batch) => ({
+      id: batch.id,
+      label: batch.shortLabel,
+      count: batchCounts[batch.id] || 0,
+    }));
 
-    // 既知のバッチを優先順に配置
-    for (const kb of KNOWN_INGEST_BATCHES) {
-      list.push({
-        id: kb.id,
-        label: kb.shortLabel,
-        count: batchCounts[kb.id] || 0,
-      });
-    }
-
-    // 未知の新規バッチがあれば追加
     for (const [id, count] of Object.entries(batchCounts)) {
       if (!knownMap.has(id) && id !== 'ALL') {
-        list.push({
-          id,
-          label: id.replace(/^batch-/, ''),
-          count,
-        });
+        options.push({ id, label: id.replace(/^batch-/, ''), count });
       }
     }
 
-    return list;
+    return options;
   }, [batchCounts]);
 
   const totalAllBatches = React.useMemo(() => {
     if (catalogTotal !== null) return catalogTotal;
-    const sum = Object.values(batchCounts).reduce((acc, n) => acc + n, 0);
+    const sum = Object.values(batchCounts).reduce((total, count) => total + count, 0);
     return sum > 0 ? sum : totalCount;
   }, [batchCounts, catalogTotal, totalCount]);
 
-  // スクリーナーの適用条件数を計算
   const activeScreenerCount = React.useMemo(() => {
     if (!screenerFilters) return 0;
     let count = 0;
@@ -80,164 +68,138 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
     if (screenerFilters.minMargin > 0) count += 1;
     if (screenerFilters.maxCapital !== null) count += 1;
     if (screenerFilters.moats.length > 0) count += screenerFilters.moats.length;
-    if (screenerFilters.selectedTags && screenerFilters.selectedTags.length > 0) count += screenerFilters.selectedTags.length;
+    if (screenerFilters.selectedTags?.length) count += screenerFilters.selectedTags.length;
     return count;
   }, [screenerFilters]);
 
   const hasActiveScreener = activeScreenerCount > 0;
 
   return (
-    <div className="bg-[#08090C] border-b border-white/[0.06] px-3 py-2 select-none">
-      <div className="flex items-center gap-2 text-xs">
-        {/* 1. 多条件スクリーニングボタン（左端固定：インスペクター開閉時も位置が1ミリもブレない） */}
-        <div className="flex items-center gap-1 shrink-0">
-          <button
-            onClick={onOpenScreener}
-            className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded transition-colors border cursor-pointer ${
-              hasActiveScreener
-                ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300 font-medium'
-                : 'bg-white/[0.03] hover:bg-white/[0.06] border-white/[0.08] text-zinc-300 hover:text-white'
-            }`}
-            title="複数条件で詳細スクリーニング"
-          >
-            <SlidersHorizontal className={`w-3 h-3 ${hasActiveScreener ? 'text-emerald-400' : 'text-zinc-400'}`} />
-            <span>多条件スクリーニング</span>
-            {hasActiveScreener && (
-              <span className="text-[10px] font-mono px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-300 ml-0.5">
-                {activeScreenerCount}
-              </span>
+    <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-white/[0.12] bg-surface px-3 py-2 sm:px-4">
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-2">
+          <div className="relative min-w-0 flex-1">
+            <label htmlFor="company-search" className="sr-only">会社名、ティッカー、事業の特徴で検索</label>
+            <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+            <input
+              id="company-search"
+              type="search"
+              value={searchQuery}
+              onChange={(event) => onSearchChange(event.target.value)}
+              placeholder="会社名・ティッカー・事業の特徴で検索"
+              className="[&::-webkit-search-cancel-button]:appearance-none h-11 w-full rounded-md border border-white/[0.12] bg-[#0b1016] pl-10 pr-9 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none transition-colors focus:border-sky-300/60 focus:ring-2 focus:ring-sky-300/15 sm:pr-16"
+            />
+            {!searchQuery ? (
+              <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded border border-white/[0.1] bg-white/[0.04] px-1.5 py-0.5 text-[11px] text-zinc-400 sm:inline-flex">
+                ⌘ K
+              </kbd>
+            ) : (
+              <button
+                type="button"
+                onClick={() => onSearchChange('')}
+                aria-label="検索語を消去"
+                className="absolute right-1.5 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded text-zinc-400 transition-colors hover:bg-white/[0.06] hover:text-white"
+              >
+                <X className="h-4 w-4" />
+              </button>
             )}
-          </button>
+          </div>
 
-          {hasActiveScreener && onResetScreener && (
+          <div className="flex shrink-0 items-center gap-2">
             <button
-              onClick={onResetScreener}
-              className="p-1 rounded text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04] transition-colors cursor-pointer"
-              title="スクリーナー条件を解除"
+              type="button"
+              onClick={onOpenScreener}
+              aria-label={hasActiveScreener ? `条件を絞る、現在${activeScreenerCount}件の条件` : '条件を絞る'}
+              className={`inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-md border px-3 text-sm font-medium transition-colors sm:flex-none ${
+                hasActiveScreener
+                  ? 'border-sky-300/55 bg-sky-300/[0.16] text-sky-50 ring-1 ring-inset ring-sky-300/20'
+                  : 'border-white/[0.16] bg-white/[0.045] text-zinc-100 hover:border-white/[0.24] hover:bg-white/[0.08]'
+              }`}
+              title="業種や規模などの条件を設定"
             >
-              <X className="w-3 h-3" />
+              <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
+              <span className="sm:hidden">絞込</span><span className="hidden sm:inline">条件を絞る</span>
+              {hasActiveScreener && <span className="tabular-nums text-sky-200">{activeScreenerCount}</span>}
             </button>
-          )}
+            {hasActiveScreener && onResetScreener && (
+              <button
+                type="button"
+                onClick={onResetScreener}
+                aria-label="絞り込み条件をすべて解除"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/[0.12] text-zinc-400 transition-colors hover:bg-white/[0.06] hover:text-white"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </div>
         </div>
 
-        {/* 1.2 収集世代（チャンク）セレクター */}
-        <div className="flex items-center gap-1 shrink-0">
-          <div className={`flex items-center gap-1.5 px-2 py-1 rounded transition-colors border text-xs ${
-            selectedBatch !== 'ALL'
-              ? 'bg-cyan-950/40 border-cyan-500/40 text-cyan-300 font-medium'
-              : 'bg-white/[0.03] hover:bg-white/[0.06] border-white/[0.08] text-zinc-300 hover:text-white'
-          }`}>
-            <Layers className={`w-3 h-3 shrink-0 ${selectedBatch !== 'ALL' ? 'text-cyan-400' : 'text-zinc-400'}`} />
+        <div className="flex flex-wrap items-center gap-2">
+          <label className="inline-flex min-h-9 min-w-0 flex-1 items-center gap-2 rounded-md border border-white/[0.1] bg-white/[0.025] px-2.5 text-xs text-zinc-400 sm:flex-none">
+            <Layers aria-hidden="true" className="h-3.5 w-3.5" />
+            <span className="hidden shrink-0 whitespace-nowrap sm:inline">登録回</span>
             <select
+              aria-label="登録回で絞り込み"
               value={selectedBatch}
-              onChange={(e) => onSelectBatch && onSelectBatch(e.target.value)}
-              className="bg-transparent text-xs font-mono outline-none cursor-pointer text-inherit pr-0.5"
-              title="収集世代（チャンク・バージョン）で切り替え"
+              onChange={(event) => onSelectBatch?.(event.target.value)}
+              className="min-w-0 w-full max-w-40 bg-transparent text-xs text-zinc-100 outline-none sm:max-w-48"
             >
-              <option value="ALL" className="bg-[#0c0d12] text-zinc-200">
-                📦 全世代 ({catalogTotal === null ? '確認中' : totalAllBatches.toLocaleString()})
-              </option>
-              {batchOptions.map((b) => (
-                <option key={b.id} value={b.id} className="bg-[#0c0d12] text-cyan-200">
-                  {b.label} ({b.count}社)
+              <option value="ALL" className="bg-[#111821] text-zinc-100">すべて ({catalogTotal === null ? '確認中' : totalAllBatches.toLocaleString()})</option>
+              {batchOptions.map((batch) => (
+                <option key={batch.id} value={batch.id} className="bg-[#111821] text-zinc-100">
+                  {batch.label} ({batch.count}件)
                 </option>
               ))}
             </select>
-            {selectedBatch !== 'ALL' && (
-              <button
-                onClick={() => onSelectBatch && onSelectBatch('ALL')}
-                className="p-0.5 rounded text-cyan-400 hover:text-white hover:bg-white/[0.1] transition-colors cursor-pointer ml-0.5"
-                title="全世代表示に戻す"
-              >
-                <X className="w-2.5 h-2.5" />
-              </button>
-            )}
-          </div>
-        </div>
+          </label>
 
-        {/* 1.5 新着収集事例クイックトグルボタン（未承認事例の専用インボックス） */}
-        {/* 未読ページに候補があっても入口を失わない。件数は取得済み分だけ。 */}
-        {onToggleTag && (
-          <div className="flex items-center gap-1.5 shrink-0">
+          {onToggleTag && (newlyCollectedCount > 0 || activeTags.includes('収集事例')) && (
             <button
-              onClick={() => onToggleTag && onToggleTag('収集事例')}
-              className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded transition-all border cursor-pointer shrink-0 font-mono ${
+              type="button"
+              onClick={() => onToggleTag('収集事例')}
+              aria-pressed={activeTags.includes('収集事例')}
+              title="新しく登録された事例を表示"
+              className={`inline-flex min-h-9 items-center gap-2 rounded-md border px-2.5 text-xs transition-colors ${
                 activeTags.includes('収集事例')
-                  ? 'bg-amber-500/20 border-amber-500/50 text-amber-300 font-bold shadow-[0_0_12px_rgba(245,158,11,0.25)]'
-                  : 'bg-amber-500/10 hover:bg-amber-500/20 border-amber-500/30 text-amber-400 hover:text-amber-200'
+                  ? 'border-sky-300/55 bg-sky-300/[0.16] text-sky-50 ring-1 ring-inset ring-sky-300/20'
+                  : 'border-white/[0.14] bg-white/[0.04] text-zinc-200 hover:border-white/[0.22] hover:bg-white/[0.07]'
               }`}
-              title="新しく集めた未承認の収集事例のみを絞り込み表示"
             >
-              <span className="text-xs">📥</span>
-              <span>収集事例</span>
-              <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded font-bold ${
-                activeTags.includes('収集事例')
-                  ? 'bg-amber-400 text-black'
-                  : 'bg-amber-500/25 text-amber-300'
-              }`}>
-                取得済み {newlyCollectedCount}
-              </span>
-            </button>
-
-            {/* 一括承認ボタン（収集事例表示時のみ出現） */}
-            {activeTags.includes('収集事例') && onApproveAllCollected && (
-              <button
-                onClick={onApproveAllCollected}
-                className="flex items-center gap-1 text-xs px-2.5 py-1 rounded border border-emerald-500/60 bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 hover:text-white font-semibold transition-all cursor-pointer shadow-[0_0_10px_rgba(16,185,129,0.25)]"
-                title="表示中の収集事例を全件承認し、本台帳に保管します"
-              >
-                <span>✓</span>
-                <span>一括承認（全部オッケー）</span>
-              </button>
-            )}
-          </div>
-        )}
-
-        {/* 2. 検索窓（スクリーナーボタンの直後に固定配置、残余幅に合わせて伸縮） */}
-        <div className="relative flex-1 min-w-[140px] max-w-sm">
-          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-600" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="銘柄名・ビジネスモデル・タグ・特徴を検索..."
-            className="w-full bg-[#050608] border border-white/[0.06] focus:border-white/[0.15] rounded pl-8 pr-12 py-1 text-zinc-200 placeholder-zinc-600 outline-none text-xs transition-colors"
-          />
-          {!searchQuery ? (
-            <kbd className="hidden sm:inline-flex items-center absolute right-2 top-1/2 -translate-y-1/2 text-[9px] bg-white/[0.04] border border-white/[0.06] px-1 rounded text-zinc-500 font-mono pointer-events-none">
-              ⌘K
-            </kbd>
-          ) : (
-            <button
-              onClick={() => onSearchChange('')}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 cursor-pointer"
-            >
-              <X className="w-3.5 h-3.5" />
+              <span>新着事例</span>
+              <span className="tabular-nums text-zinc-400">{newlyCollectedCount}件</span>
             </button>
           )}
-        </div>
 
-        {/* 3. 右側: 複数選択中タグ解除バッジ & 件数表示 */}
-        <div className="flex items-center gap-1.5 shrink-0 ml-auto overflow-x-auto scrollbar-none max-w-xs">
-          {/* 選択中タグ一覧バッジ (各タグをワンクリックで個別解除可能) */}
-          {activeTags.map((tag) => (
+          {activeTags.filter((tag) => tag !== '収集事例').map((tag) => (
             <button
               key={tag}
-              onClick={() => onToggleTag && onToggleTag(tag)}
-              className="inline-flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors cursor-pointer shrink-0"
-              title={`#${tag} を解除`}
+              type="button"
+              onClick={() => onToggleTag?.(tag)}
+              aria-label={`${tag}の絞り込みを解除`}
+              className="inline-flex min-h-9 items-center gap-1.5 rounded-md border border-sky-300/35 bg-sky-300/[0.1] px-2.5 text-xs text-sky-50 transition-colors hover:border-sky-300/55 hover:bg-sky-300/[0.16]"
             >
-              <span>#{tag}</span>
-              <X className="w-2.5 h-2.5 text-emerald-400" />
+              <span>{tag}</span>
+              <X aria-hidden="true" className="h-3.5 w-3.5" />
             </button>
           ))}
 
-          {/* 件数表示 */}
-          <div className="font-mono text-zinc-500 text-[11px] pl-1 border-l border-white/[0.06] shrink-0">
-            <span className="text-zinc-200 font-medium tabular-nums">{totalCount}</span> 件
-          </div>
+          {activeTags.includes('収集事例') && onApproveAllCollected && (
+            <button
+              type="button"
+              onClick={onApproveAllCollected}
+              className="inline-flex min-h-9 items-center gap-1.5 rounded-md border border-white/[0.12] px-2.5 text-xs text-zinc-200 transition-colors hover:bg-white/[0.06]"
+              title="表示中の事例を台帳に登録"
+            >
+              <Check aria-hidden="true" className="h-3.5 w-3.5" />
+              表示中を登録
+            </button>
+          )}
+
+          <p className="ml-auto shrink-0 whitespace-nowrap text-xs tabular-nums text-zinc-400" aria-live="polite">
+            <span className="font-semibold text-sky-100">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

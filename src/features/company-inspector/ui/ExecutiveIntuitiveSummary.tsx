@@ -91,7 +91,7 @@ function buildExecutiveLead(
       parts.push(cleanPain);
     }
   } else if (targetPain && !parts.some((p) => p.includes(targetPain.slice(0, 15))) && !headline.includes(targetPain.slice(0, 15))) {
-    parts.push(targetPain.endsWith('。') ? targetPain : `狙う急所: ${targetPain}。`);
+    parts.push(targetPain.endsWith('。') ? targetPain : `顧客の課題: ${targetPain}。`);
   }
 
   if (secretInsight) {
@@ -102,7 +102,7 @@ function buildExecutiveLead(
   }
 
   if (parts.length === 0 && targetPain) {
-    parts.push(`狙う急所: ${targetPain}。`);
+    parts.push(`顧客の課題: ${targetPain}。`);
   }
 
   const combined = parts.join(' ').trim();
@@ -129,32 +129,29 @@ export function ExecutiveIntuitiveSummary({
     ? entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null
     : null;
 
-  // 1人あたり月利
-  const perCapitaProfit = teamSize && profitKnown && teamSize > 0
-    ? Math.round(entity.pnl.operatingProfit / teamSize)
-    : null;
-
-  // 4大KPI
   const metrics = [
     {
-      label: '月商規模',
-      value: revenueKnown ? formatMoney(entity.pnl.monthlyRevenue) : '非公開',
+      label: '売上（月額換算）',
+      value: revenueKnown ? formatMoney(entity.pnl.monthlyRevenue) : '未確認',
+      known: revenueKnown,
       tone: revenueKnown ? 'neutral' : 'muted',
     },
     {
-      label: '営業利益（純手残り）',
-      value: profitKnown ? formatMoney(entity.pnl.operatingProfit) : '非公開',
-      sub: perCapitaProfit && perCapitaProfit > 0 ? `月利 ${formatMoney(perCapitaProfit)}/人` : null,
+      label: '営業利益（月額換算）',
+      value: profitKnown ? formatMoney(entity.pnl.operatingProfit) : '未確認',
+      known: profitKnown,
       tone: profitKnown && entity.pnl.operatingProfit < 0 ? 'negative' : profitKnown ? 'positive' : 'muted',
     },
     {
       label: '営業利益率',
-      value: marginKnown ? `${entity.pnl.operatingMargin.toFixed(1)}%` : '非公開',
+      value: marginKnown ? `${entity.pnl.operatingMargin.toFixed(1)}%` : '未確認',
+      known: marginKnown,
       tone: marginKnown && entity.pnl.operatingMargin < 0 ? 'negative' : marginKnown ? 'positive' : 'muted',
     },
     {
       label: '組織規模',
-      value: teamSize ? `${teamSize.toLocaleString()}名` : '少数精鋭',
+      value: teamSize ? `${teamSize.toLocaleString()}名` : '未確認',
+      known: Boolean(teamSize),
       sub: entity.operations?.weeklyHours ? `週稼働 ${entity.operations.weeklyHours}h` : null,
       tone: 'neutral',
     },
@@ -174,12 +171,13 @@ export function ExecutiveIntuitiveSummary({
   const pricePoint = cleanValue(entity.pricing?.pricePoint);
   const psychoTrigger = cleanValue(entity.pricing?.psychologicalTrigger);
 
+
   // 表示する有効な項目だけを構築（未確認・カス表示は1つも入れない）
   const infoRows: Array<{ label: string; value: string }> = [];
 
   if (targetPain) {
     infoRows.push({
-      label: isHazardMode ? '致命的出血点' : '仕留める痛みの財布',
+      label: isHazardMode ? '事業継続の課題' : '顧客の課題',
       value: targetPain,
     });
   } else if (targetCustomer) {
@@ -188,21 +186,21 @@ export function ExecutiveIntuitiveSummary({
 
   if (blindspot) {
     infoRows.push({
-      label: '業界の盲点・欠陥',
+      label: '業界の見立て',
       value: blindspot.replace(/^【.*?】/g, '').trim(),
     });
   }
 
   if (secretInsight && (!leadParagraph || !leadParagraph.includes(secretInsight.slice(0, 20)))) {
     infoRows.push({
-      label: '儲けの本質・裏の急所',
+      label: '収益の仕組み',
       value: secretInsight,
     });
   }
 
   if (incumbentDilemma) {
     infoRows.push({
-      label: isHazardMode ? '破綻の構造要因' : '競合の死角・参入障壁',
+      label: isHazardMode ? '撤退・破綻の要因' : '競争上の特徴',
       value: incumbentDilemma.replace(/^【.*?】/g, '').trim(),
     });
   }
@@ -211,10 +209,10 @@ export function ExecutiveIntuitiveSummary({
     const pricingParts = [
       pricingModel,
       pricePoint && `単価: ${pricePoint}`,
-      psychoTrigger && `心理動機: ${psychoTrigger}`,
+      psychoTrigger && `利用のきっかけ: ${psychoTrigger}`,
     ].filter(Boolean);
     infoRows.push({
-      label: '課金・値付けの手口',
+      label: '価格・利用動機',
       value: pricingParts.join(' / '),
     });
   }
@@ -223,47 +221,18 @@ export function ExecutiveIntuitiveSummary({
     <InspectorSectionCard
       id="section-summary"
       index="01"
-      categoryEn={isHazardMode ? 'FAILURE THESIS' : 'INVESTMENT THESIS'}
-      titleJa={isHazardMode ? '破綻要因・死因の核心' : '事業仮説・核心の正体'}
+      categoryEn={isHazardMode ? '事業の経緯' : '主要データ'}
+      titleJa={isHazardMode ? '撤退・破綻の要因' : '事業の概要'}
       isHazardMode={isHazardMode}
     >
-      {/* 核心の正体（大見出しタグライン） */}
-      {headline && (
-        <div className={`p-4 sm:p-5 border-b border-white/[0.07] ${
-          isHazardMode ? 'bg-red-950/20' : 'bg-white/[0.015]'
-        }`}>
-          <div className="flex items-start gap-3">
-            <div className={`w-1 h-5 rounded-full shrink-0 mt-0.5 ${
-              isHazardMode ? 'bg-red-400' : 'bg-cyan-400'
-            }`} />
-            <p className="text-sm sm:text-base font-bold text-white leading-relaxed">
-              {headline}
-            </p>
-          </div>
+      {(headline || leadParagraph) && (
+        <div className="space-y-1.5 border-b border-white/[0.1] py-3">
+          {headline && <p className="text-sm font-medium leading-6 text-zinc-100 break-words">{headline}</p>}
+          {leadParagraph && <p className="text-sm leading-6 text-zinc-300 break-words">{leadParagraph}</p>}
         </div>
       )}
-
-      {/* エグゼクティブ・リード文（読者が1秒で理解できる要約文章） */}
-      {leadParagraph && (
-        <div className="px-4 py-3.5 sm:px-5 sm:py-4 bg-white/[0.02] border-b border-white/[0.06]">
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className={`text-[10px] font-mono uppercase tracking-wider font-bold px-1.5 py-0.5 rounded border ${
-              isHazardMode
-                ? 'bg-red-500/10 text-red-300 border-red-500/30'
-                : 'bg-blue-500/10 text-blue-300 border-blue-500/30'
-            }`}>
-              {isHazardMode ? 'CASE OVERVIEW / 事例の全体像' : 'EXECUTIVE BRIEFING / 事業概要と儲けの急所'}
-            </span>
-          </div>
-          <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-sans">
-            {leadParagraph}
-          </p>
-        </div>
-      )}
-
-      {/* 4大KPIメトリクスグリッド */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 border-b border-white/[0.07] bg-[#090d13]">
-        {metrics.map((metric, index) => {
+      <dl className="flex flex-wrap items-stretch border-b border-white/[0.1]">
+        {metrics.filter((metric) => metric.known).map((metric) => {
           const toneClass = metric.tone === 'positive'
             ? 'text-emerald-400'
             : metric.tone === 'negative'
@@ -274,41 +243,30 @@ export function ExecutiveIntuitiveSummary({
           return (
             <div
               key={metric.label}
-              className={`p-3.5 sm:px-4 sm:py-3 ${
-                index > 0 ? 'border-l border-white/[0.06]' : ''
-              } ${index >= 2 ? 'border-t border-white/[0.06] sm:border-t-0' : ''}`}
+              className="min-w-[130px] flex-1 border-r border-white/[0.08] py-2 pr-3 last:border-r-0 sm:py-3"
             >
-              <div className="text-[11px] font-mono text-zinc-400 font-medium">{metric.label}</div>
-              <div className={`mt-1 font-mono text-sm sm:text-base font-bold tabular-nums ${toneClass}`}>
+              <dt className="text-xs text-zinc-400">{metric.label}</dt>
+              <dd className={`mt-1 font-mono text-sm font-semibold tabular-nums sm:text-base ${toneClass}`}>
                 {metric.value}
-              </div>
+              </dd>
               {metric.sub && (
-                <div className="mt-0.5 text-[10px] font-mono text-zinc-500 tabular-nums">
+                <dd className="mt-0.5 text-xs text-zinc-500">
                   {metric.sub}
-                </div>
+                </dd>
               )}
             </div>
           );
         })}
-      </div>
-
-      {/* 生々しい構造ファクト行（有効なものだけ表示・未確認ゼロ） */}
+      </dl>
       {infoRows.length > 0 && (
-        <div className="divide-y divide-white/[0.06] px-4 sm:px-5">
+        <dl className="divide-y divide-white/[0.08]">
           {infoRows.map((row) => (
-            <div
-              key={row.label}
-              className="grid gap-1.5 py-3 sm:grid-cols-[140px_minmax(0,1fr)] sm:gap-4 items-baseline"
-            >
-              <div className="text-[11px] font-mono font-semibold text-zinc-400">
-                {row.label}
-              </div>
-              <div className="text-xs sm:text-[13px] leading-relaxed text-zinc-200">
-                {row.value}
-              </div>
+            <div key={row.label} className="grid gap-1 py-2.5 sm:grid-cols-[120px_minmax(0,1fr)] sm:gap-3">
+              <dt className="text-xs font-medium text-sky-200">{row.label}</dt>
+              <dd className="min-w-0 break-words text-sm leading-6 text-zinc-200">{row.value}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       )}
     </InspectorSectionCard>
   );

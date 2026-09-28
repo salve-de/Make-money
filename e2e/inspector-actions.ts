@@ -2,14 +2,15 @@ import { expect, type Page } from '@playwright/test';
 
 /** Use the visible product controls; keep persistence assertions in each test. */
 export async function openNotes(page: Page) {
-  await page.getByRole('button', { name: '証拠', exact: true }).click();
-  await page.getByRole('button', { name: /^03\s*考察メモ$/ }).click();
+  await page.getByRole('button', { name: '出典・記録', exact: true }).click();
+  const notes = page.locator('details').filter({ has: page.locator('#section-notes') });
+  if ((await notes.getAttribute('open')) === null) await notes.locator('summary').click();
   await expect(page.locator('#section-notes textarea')).toBeVisible();
 }
 
 export async function selectCompany(page: Page, name: string) {
   const notesWereOpen = await page.locator('#section-notes textarea').isVisible();
-  const search = page.getByPlaceholder(/銘柄名/).first();
+  const search = page.getByPlaceholder(/会社名・ティッカー/).first();
   const previousQuery = await search.inputValue();
   // The grid is virtualized: a company outside its rendered window has no DOM row.
   // Search via the real input rather than assuming every company is mounted.

@@ -4,15 +4,15 @@ import React from 'react';
 import { IntelligenceDossier, IntelligenceTopicId, FinancialEntity } from '../../types/terminal';
 import {
   ArrowLeft,
+  AlertTriangle,
   ExternalLink,
   ShieldAlert,
   Cpu,
-  Sparkles,
   TrendingUp,
   Wallet,
   CreditCard,
   Building,
-  CheckCircle2,
+  FileText,
 } from 'lucide-react';
 
 interface IntelligenceDeepDiveViewProps {
@@ -85,15 +85,15 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
               {dossier.badge}
             </span>
             <span className="text-[10px] font-mono text-zinc-500">
-              公開: {dossier.publishedDate}
+              資料内の日付: {dossier.publishedDate}
             </span>
             <span className="text-[10px] font-mono text-zinc-600">
               • {dossier.readTime}
             </span>
 
             {dossier.highlightMetric && (
-              <span className="ml-auto text-[11px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">
-                {dossier.highlightMetric.label}: {dossier.highlightMetric.value}
+              <span className="ml-auto text-[11px] font-mono text-amber-100 bg-amber-300/[0.06] px-2.5 py-0.5 rounded border border-amber-300/20">
+                資料内の参考値 · 未照合: {dossier.highlightMetric.label} {dossier.highlightMetric.value}
               </span>
             )}
           </div>
@@ -105,8 +105,8 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
           {/* EXECUTIVE SUMMARY */}
           <div className="p-4 rounded-lg bg-[#08090C] border-l-2 border-amber-500/80 border border-white/[0.04]">
             <div className="text-[10px] font-mono uppercase tracking-widest text-amber-500/90 mb-1.5 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500/90" />
-              EXECUTIVE SUMMARY（急所サマリー）
+              <FileText className="w-3.5 h-3.5 text-amber-500/90" />
+              資料内の要約 · 未照合
             </div>
             <p className="text-xs md:text-sm text-zinc-200 leading-relaxed font-sans">
               {dossier.punchline}
@@ -114,12 +114,17 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
           </div>
         </div>
 
-        {/* 3. マネーフロー構造レントゲン（資金移動図解） */}
+        <p role="note" className="flex items-start gap-2 rounded-md border border-amber-300/25 bg-amber-200/[0.05] p-3 text-sm leading-6 text-amber-100">
+          <AlertTriangle aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>この固定資料の数値、企業との関連付け、収益要因、実行案は出典を照合していません。確認済みの事実や成果保証として扱わないでください。</span>
+        </p>
+
+        {/* 3. 収益と費用の流れ */}
         {dossier.moneyFlow && (
           <div className="space-y-3">
             <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
               <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
-              マネーフロー構造レントゲン（資金の移動ルート）
+              収益と費用の流れ · 資料内の仮説
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3 p-4 rounded-lg bg-[#08090C] border border-white/[0.06]">
@@ -127,7 +132,7 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
               <div className="p-3 rounded bg-white/[0.02] border border-white/[0.04] space-y-1.5">
                 <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-500">
                   <Wallet className="w-3 h-3 text-amber-400" />
-                  01. 人質にした痛みの財布
+                  01. 支払う人と課題の仮説
                 </div>
                 <p className="text-xs text-zinc-300 font-sans leading-relaxed">
                   {dossier.moneyFlow.payer}
@@ -138,7 +143,7 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
               <div className="p-3 rounded bg-white/[0.02] border border-white/[0.04] space-y-1.5">
                 <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-500">
                   <CreditCard className="w-3 h-3 text-sky-400" />
-                  02. 集金・中抜きの仕掛け
+                  02. 料金と収益の仕組み
                 </div>
                 <p className="text-xs text-zinc-300 font-sans leading-relaxed">
                   {dossier.moneyFlow.takeMethod}
@@ -149,20 +154,20 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
               <div className="p-3 rounded bg-white/[0.02] border border-white/[0.04] space-y-1.5">
                 <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-500">
                   <Cpu className="w-3 h-3 text-red-400" />
-                  03. 仕入れ原価・流出先
+                  03. 主な費用・支払先
                 </div>
                 <p className="text-xs text-zinc-300 font-sans leading-relaxed">
                   {dossier.moneyFlow.costCogs}
                 </p>
               </div>
 
-              {/* ④ 実効手残り純益 */}
-              <div className="p-3 rounded bg-emerald-500/[0.04] border border-emerald-500/20 space-y-1.5">
-                <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 font-bold">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                  04. 創業者口座の手残り
+              {/* ④ 資料内の手残り見立て */}
+              <div className="p-3 rounded bg-white/[0.02] border border-white/[0.04] space-y-1.5">
+                <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 font-medium">
+                  <Wallet className="w-3 h-3 text-zinc-400" />
+                  04. 資料内の手残り見立て · 未照合
                 </div>
-                <p className="text-xs text-emerald-300 font-sans leading-relaxed font-medium">
+                <p className="text-xs text-zinc-300 font-sans leading-relaxed">
                   {dossier.moneyFlow.netRetained}
                 </p>
               </div>
@@ -176,7 +181,7 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
           <div className="space-y-2">
             <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
               <ShieldAlert className="w-3.5 h-3.5 text-amber-500" />
-              市場の構造的歪み ＆ 大手の自爆（既存売上の共食い死角）
+              市場・競争環境についての仮説 · 未照合
             </div>
             <div className="bg-[#08090C] p-4 rounded-lg border border-white/[0.06] text-xs text-zinc-300 leading-relaxed font-sans space-y-2">
               <p>{dossier.macroArbitrage}</p>
@@ -187,7 +192,7 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
           <div className="space-y-2">
             <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5 text-zinc-400" />
-              {dossier.costStructureTeardown.title}
+              {dossier.costStructureTeardown.title} · 資料内の未照合値
             </div>
             <div className="bg-[#08090C] p-4 rounded-lg border border-white/[0.06] space-y-3">
               <p className="text-[11px] text-zinc-400 leading-normal font-sans">
@@ -206,7 +211,7 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
                       <div
                         className={`h-full rounded-full ${
                           idx === dossier.costStructureTeardown.breakdownItems.length - 1
-                            ? 'bg-emerald-400'
+                            ? 'bg-zinc-400'
                             : 'bg-zinc-600'
                         }`}
                         style={{ width: `${Math.min(item.percentage, 100)}%` }}
@@ -222,8 +227,8 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
         {/* 5. 参入・実行の急所ステップ (Playbook) */}
         <div className="space-y-3">
           <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
-            参入・実行の急所ステップ (Playbook)
+            <FileText className="w-3.5 h-3.5 text-zinc-400" />
+            資料に登録された実行案 · 未検証
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {dossier.operationalPlaybook.map((step, idx) => (
@@ -245,10 +250,10 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
           <div className="flex items-center justify-between">
             <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
               <Building className="w-3.5 h-3.5 text-zinc-400" />
-              この手口で抜いている代表銘柄 ({targetEntities.length}社)
+              資料に関連付けられた企業 ({targetEntities.length}社)
             </div>
             <div className="text-[10px] font-mono text-zinc-500">
-              ※クリックで財務台帳（DB）を開き、コールドメールやツールスタックを検証
+              関連付けと指標は未照合です。クリックすると財務台帳を開きます。
             </div>
           </div>
 
@@ -279,9 +284,9 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
                     </div>
 
                     <div className="text-right shrink-0">
-                      <div className="text-[10px] font-mono text-zinc-500">営業利益率</div>
-                      <div className="text-sm font-mono font-bold text-emerald-400">
-                        {profitRate}%
+                      <div className="text-[10px] font-mono text-zinc-500">営業利益率 · 登録値</div>
+                      <div className="text-sm font-mono font-medium text-zinc-200">
+                        {entity.pnl.isMarginUnconfirmed || entity.pnl.financialStatus === 'UNAVAILABLE' ? '未確認' : `${profitRate}% · 未照合`}
                       </div>
                     </div>
                   </div>
@@ -289,14 +294,14 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
                   {/* 急所スペック（配管・人質にした財布） */}
                   <div className="space-y-2 text-xs">
                     <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.04] space-y-1">
-                      <div className="text-[10px] font-mono text-zinc-500">現場の配管ツール:</div>
+                      <div className="text-[10px] font-mono text-zinc-500">登録されたツール構成:</div>
                       <div className="text-zinc-200 font-mono text-[11px] truncate">
                         {entity.pipelineStack}
                       </div>
                     </div>
 
                     <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.04] space-y-1">
-                      <div className="text-[10px] font-mono text-zinc-500">人質にした痛みの財布:</div>
+                      <div className="text-[10px] font-mono text-zinc-500">登録された顧客課題:</div>
                       <div className="text-zinc-300 line-clamp-2">
                         {entity.targetPainWallet}
                       </div>
@@ -308,7 +313,7 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
                     onClick={() => onOpenEntityInLedger(entity.id)}
                     className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded bg-white/[0.04] hover:bg-white/[0.08] text-xs font-mono text-zinc-200 hover:text-white transition-colors border border-white/[0.06] group"
                   >
-                    <span>この銘柄の財務カルテ・コールドメールをDBで検証</span>
+                    <span>台帳の登録情報を開く</span>
                     <ExternalLink className="w-3.5 h-3.5 text-zinc-400 group-hover:text-emerald-400 transition-colors" />
                   </button>
                 </div>

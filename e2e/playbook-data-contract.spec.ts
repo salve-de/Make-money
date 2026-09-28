@@ -6,10 +6,13 @@ test('server-provided category data survives hydration and every tool category r
   try {
     const response = await page.goto('/playbook', { waitUntil: 'networkidle' });
     expect(response?.ok()).toBe(true);
-    await expect(page.getByRole('heading', { name: 'ツール構成と乗り換えの参考例', exact: true })).toBeVisible();
+    await expect(page.getByLabel('用途', { exact: true })).toBeVisible();
     for (const category of ['AI・推論エンジン', 'データベース・基盤', '決済・サブスク課金', '集客・CRM・配信', 'フロント・ノーコード', 'デプロイ・ホスティング']) {
-      await page.getByRole('button', { name: new RegExp(category) }).click();
-      await expect(page.getByRole('heading', { name: new RegExp(`${category} における採用シェア推移`) })).toBeVisible();
+      await page.getByLabel('用途', { exact: true }).selectOption({ label: category });
+      const section = page.getByRole('region', { name: `${category}のツール`, exact: true });
+      await expect(section).toBeVisible();
+      expect(await section.locator('article').count()).toBeGreaterThan(0);
+      await expect(section.getByRole('link', { name: '公式資料を開く ↗' }).first()).toHaveAttribute('href', /^https:\/\//);
     }
     expect(errors).toEqual([]);
   } finally {

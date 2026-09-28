@@ -4,7 +4,6 @@ import React from 'react';
 import { CompanyRecord } from '@/types/terminal';
 import { DOSSIER_COLLECTIONS } from '@/data/portalDossiers';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
-import { SparklineChart } from '@/components/terminal/SparklineChart';
 
 interface SpecialCollectionsViewProps {
   companies: CompanyRecord[];
@@ -22,10 +21,10 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
   const collectionList = Object.values(DOSSIER_COLLECTIONS);
 
   return (
-    <div className="flex-1 bg-[#0B0E14] overflow-y-auto font-sans text-zinc-100 select-none">
+    <div className="flex-1 bg-[#0B0E14] overflow-y-auto font-sans text-zinc-100">
       {/* 上部パンくず＆ヘッダー */}
-      <div className="border-b border-white/[0.08] bg-[#0D1117] px-6 py-8">
-        <div className="max-w-6xl mx-auto space-y-4">
+      <div className="border-b border-white/[0.08] bg-[#0D1117] px-6 py-4">
+        <div className="max-w-6xl mx-auto space-y-3">
           <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
             <button
               onClick={onBackToPortal}
@@ -39,22 +38,18 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
           </div>
 
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-white/[0.1] text-zinc-200 border border-white/[0.15]">
-              SPECIAL DOSSIER ARCHIVE
-            </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              特集分析：高収益ビジネスモデルを体系解剖する3大アーキテクチャ
+            <h1 className="text-lg sm:text-xl font-semibold text-white tracking-tight">
+              事業モデルの資料と関連企業
             </h1>
-            <p className="text-xs sm:text-sm text-zinc-300 max-w-3xl leading-relaxed font-normal">
-              高い資本効率と利益率を実証したビジネスモデルを「自律稼働SaaS」「AI推論高付加価値化」「地方実業DX」の3類型に体系化。
-              各事業モデルの市場環境、収益構造、実戦立ち上げロードマップを詳細解説。
+            <p className="text-xs text-zinc-300 max-w-3xl leading-relaxed">
+              3種類の事業モデル資料と、台帳上で関連付けられた企業を確認できます。資料内の数値や関連付けは出典・対象時期を照合してください。
             </p>
           </div>
         </div>
       </div>
 
       {/* メインコンテンツ */}
-      <div className="max-w-6xl mx-auto px-6 py-10 space-y-10">
+      <div className="max-w-6xl mx-auto px-6 py-6 space-y-6">
         <div className="grid grid-cols-1 gap-8">
           {collectionList.map((col, idx) => {
             const related = companies.filter((c) => col.relatedCompanyIds.includes(c.id));
@@ -86,7 +81,7 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                   </div>
 
                   <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-3 shrink-0">
-                    <SparklineChart trend="up" width={80} height={28} />
+                    <span className="text-[11px] font-mono text-zinc-400">関連企業 {related.length}社</span>
                     <button
                       onClick={() => onOpenDossier(col.id)}
                       className="h-9 px-4 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors border border-white/[0.12] cursor-pointer"
@@ -108,8 +103,8 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                     <p className="text-zinc-300 font-normal line-clamp-2">{col.moneyFlow.profitTrap}</p>
                   </div>
                   <div className="py-2 md:py-0 md:pl-4 space-y-1">
-                    <span className="text-[10px] font-mono text-emerald-400 font-bold block">実効手残り率:</span>
-                    <p className="text-emerald-400 font-bold font-mono text-sm">{col.moneyFlow.takeHomeRate}</p>
+                    <span className="text-[10px] font-mono text-zinc-400 font-semibold block">資料内の参考値 · 未照合:</span>
+                    <p className="text-zinc-200 font-medium font-mono text-sm">{col.moneyFlow.takeHomeRate}</p>
                   </div>
                 </div>
 
@@ -117,19 +112,20 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                 <div className="space-y-3 pt-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-zinc-300 uppercase">
-                      該当実在企業 財務台帳アーカイブ
+                      関連付けられた企業
                     </span>
                     <span className="text-[11px] font-mono text-zinc-400">
-                      計{related.length}社 収録
+                      {related.length}社を登録
                     </span>
                   </div>
 
                   <div className="border border-white/[0.08] rounded divide-y divide-white/[0.04] overflow-hidden bg-[#090C10]">
                     {related.map((c) => (
-                      <div
+                      <button
+                        type="button"
                         key={c.id}
                         onClick={() => onSelectCompany(c.id)}
-                        className="p-3.5 hover:bg-white/[0.03] transition-colors cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
+                        className="w-full p-3.5 text-left hover:bg-white/[0.03] transition-colors cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-3 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-zinc-300"
                       >
                         <div className="flex items-center gap-3 min-w-0">
                           <CompanyLogo name={c.name} size="sm" category={c.category} />
@@ -151,8 +147,10 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                         <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0 font-mono text-xs">
                           <div className="text-right">
                             <span className="text-[10px] text-zinc-400 block font-sans">純利益率</span>
-                            <span className="text-emerald-400 font-bold tabular-nums">
-                              {c.financials[c.financials.length - 1]?.operatingMarginPercent ? Math.round(c.financials[c.financials.length - 1].operatingMarginPercent) : 80}%
+                            <span className="text-zinc-200 font-medium tabular-nums">
+                              {c.financials[c.financials.length - 1]?.operatingMarginPercent != null
+                                ? `${Math.round(c.financials[c.financials.length - 1].operatingMarginPercent)}% · 未照合`
+                                : '未登録'}
                             </span>
                           </div>
                           <span className="text-xs font-mono text-emerald-400 font-bold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
@@ -160,7 +158,7 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                             <span>→</span>
                           </span>
                         </div>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 </div>

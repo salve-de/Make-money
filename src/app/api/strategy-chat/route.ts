@@ -168,58 +168,44 @@ function generateFallbackSynthesis(
 function generateFallbackChatResponse(
   userQuery: string,
   contextEntityId?: string,
-  notes?: Record<string, { content: string; updatedAt: string }>
 ): { content: string; suggestedActionPrompts: string[] } {
-  const entity = findInstitutionalEntity(contextEntityId || '') || INSTITUTIONAL_ENTITIES[0];
-  const userNote = contextEntityId && notes ? notes[contextEntityId]?.content : '';
+  const entity = findInstitutionalEntity(contextEntityId || '');
+  const prompts = ['収益の仕組みを教えて', '利用ツールと費用を教えて', '初期の顧客獲得を教えて', '競争上の特徴を教えて'];
+  if (!entity) return { content: '相談する事例を選択してください。', suggestedActionPrompts: [] };
 
   const q = userQuery.toLowerCase();
+  const sections: string[] = [];
+  const add = (label: string, value?: string) => {
+    if (value?.trim() && !/^(unknown|unavailable)$/i.test(value.trim())) {
+      sections.push(`${label}\n${sanitizeGeneratedText(value.trim())}`);
+    }
+  };
 
-  let reply = '';
-  let prompts = [
-    '初期100人の集客を元手0円で完結させる具体的な手順は？',
-    '大手が同じ機能をローンチしてきた場合の防衛線は？',
-    'このビジネスモデルの月額固定費を1万円以下に抑える配管構成は？'
-  ];
-
-  if (q.includes('集客') || q.includes('顧客') || q.includes('マーケ') || q.includes('トラクション')) {
-    reply = `広告の前に、${entity.name}の初動（${sanitizeGeneratedText(entity.strategy.initialTraction[0] || '公開記録にある初期施策')}）を出発点に、告知が許可された正規の接点を絞って検証します。広告費を固定で抱えず、反応と成約を測れる小規模な提案から始めるのが安全です。\n\n` +
-      `やることはシンプルです。${sanitizeGeneratedText(entity.targetPainWallet || '困り果てている見込み客')}が日常的に不満を述べる場所を、掲載規則と連絡の同意条件まで確認して選び、「その面倒な作業を肩代わりする提案」を明確に伝えます。\n\n` +
-      `最初の3件で、成約率・提供時間・原価を記録します。数字が再現すれば、同じ許可済み経路を少しずつ広げられます。\n\n` +
-      `いま想定しているターゲット客は、具体的にどんな場所にいそうな人たちですか？`;
-    prompts = [
-      '直接アプローチで返信率を跳ね上げる最初の1行の作り方は？',
-      '初期のお客さんに熱烈なファンになってもらう仕掛けは？',
-      '最初の3人に買ってもらうための価格設定はどう決める？'
-    ];
-  } else if (q.includes('競合') || q.includes('真似') || q.includes('大手') || q.includes('防壁') || q.includes('moat')) {
-    reply = `競合や大手への備えは、真似されないと決めつけず、${entity.name}の防壁（${sanitizeGeneratedText(entity.strategy.moatDescription)}）を検証可能な要素へ分解することです。\n\n` +
-      `それは、「お客さんの過去データや日々の業務の記録」を握ってしまうことです。使い込むほどデータが溜まり、他社へ乗り換えること自体が面倒になる仕組みを最初から仕込んでおけば、後から真似されてもお客さんは逃げられません。\n\n` +
-      `真似されることを恐れるより、お客さんが「もうこれなしでは仕事にならない」と感じるポイントを1つ作ることに集中してください。\n\n` +
-      `いま考えているアイデアで、お客さんが手放せなくなる核になりそうな部分はどこですか？`;
-    prompts = [
-      'お客さんが二度と手放せなくなる仕掛けの具体例は？',
-      '大手が絶対に参入できない「ニッチな隙間」の見つけ方は？',
-      '後から真似されても負けないためのスピード勝負のやり方は？'
-    ];
-  } else if (q.includes('費用') || q.includes('コスト') || q.includes('ツール') || q.includes('原価') || q.includes('スタック')) {
-    reply = `固定費は、実際の利用量と契約条件を確認しながら小さく始めます。${entity.name}の公開数値（粗利率${entity.pnl.grossMargin}%、営業利益率${entity.pnl.operatingMargin}%）は対象期間と範囲を確認してから参考にしてください。\n\n` +
-      `無料枠・従量課金・決済手数料を並べ、1件あたりの原価と月間固定費を分けて表にします。料金や利用量が未確認なら推定値と明記し、売れた時だけ費用が発生する構成でも、サポート・返金・税金を含めて損益を確認します。\n\n` +
-      `最初から大きく作らず、上限を決めた検証予算で需要と原価を同時に測るのが現実的です。\n\n` +
-      `いまのアイデアで、一番お金がかかりそうだと心配している部分はどこですか？`;
-    prompts = [
-      '決済手数料以外にかかる隠れコストをゼロにする方法は？',
-      '年間一括払いで前金をまとめて回収する料金プランは？',
-      '最初から黒字を維持するための価格設定のコツは？'
-    ];
+  if (/費用|コスト|ツール|原価|スタック/.test(q)) {
+    for (const tool of entity.operations.toolStack) {
+      const cost = !tool.isCostUnconfirmed && Number.isFinite(tool.monthlyCost) && tool.monthlyCost > 0
+        ? `（記録上の月額費用 ¥${tool.monthlyCost.toLocaleString('ja-JP')}）` : '';
+      add(`${tool.name}${cost}`, tool.purpose || tool.category);
+    }
+    if (!sections.length) add('利用構成', entity.pipelineStack);
+  } else if (/競合|真似|大手|防壁|moat|競争/.test(q)) {
+    add('競争上の特徴', entity.strategy.moatDescription);
+    add('競合の対応が難しい点', entity.strategy.blindspot);
+  } else if (/集客|顧客獲得|マーケ|トラクション/.test(q)) {
+    add('顧客との接点', entity.operations.primaryChannels.join('・'));
+    add('初期の顧客獲得', entity.strategy.initialTraction.join('\n'));
   } else {
-    reply = `面白い着眼点です。需要の強さは、${sanitizeGeneratedText(entity.targetPainWallet || 'お客さんが日々抱えている切実な面倒や損')}を、実際に何人がどの頻度で解決したいかで確かめます。\n\n` +
-      `大掛かりな開発を急がず、既存の道具を2〜3個組み合わせた試作品を小さく出し、価格・成約・提供時間・原価を記録します。損失上限を先に決め、未確認の売上や利益は実績として扱いません。\n\n` +
-      `${userNote ? '保存メモは入力値として参照しました。具体的な手順は許可済みの正規チャネルで検証します。' : ''}\n\n` +
-      `いま考えているイメージは、まずは自分の手で泥臭く小さく始める形ですか？ それとも最初から自動で回る仕組みを目指していますか？`;
+    add('事業の概要', entity.tagline);
+    add('課金方式', entity.pricing?.model);
+    add('価格帯', entity.pricing?.pricePoint);
+    add('収益構造', entity.architecturePattern);
   }
 
-  return { content: `${reply.trim()}\n\n${SAFETY_BOUNDARY_NOTICE}`, suggestedActionPrompts: prompts.map(sanitizeGeneratedText) };
+  const period = entity.temporal?.dataSnapshotPeriod;
+  return {
+    content: `${entity.name}の事例記録${period ? `（${period}）` : ''}\n\n${sections.length ? sections.join('\n\n') : 'この項目の記録はありません。'}`,
+    suggestedActionPrompts: prompts,
+  };
 }
 
 interface GeminiApiResponse {
@@ -338,7 +324,7 @@ export async function POST(req: NextRequest) {
             selectedEntityIds.includes(e.id)
           );
           const prompt = `
-あなたは冷徹な金融アナリスト兼最高技術責任者（CTO）です。起業ポエムや綺麗事、ワークシートを100%排除し、実在企業のP&L・手口とユーザーメモから独自の高収益ビジネスアイデアを3つ生成してください。
+あなたは事業調査を支援するアナリストです。選ばれた事例と利用者のメモから、根拠の範囲を保った企画仮説を3つ作ってください。利用者の目的や条件が明示されていない場合は、予算・運営人数・利益目標を勝手に設定しないでください。
 
 【対象企業データ】:
 ${JSON.stringify(entitiesData.map(e => ({ name: e.name, ticker: e.ticker, profit: e.pnl.operatingProfit, margin: e.pnl.operatingMargin, moat: e.strategy.moatDescription, blindspot: e.strategy.blindspot, tools: e.operations.toolStack, traction: e.strategy.initialTraction })), null, 2)}
@@ -346,8 +332,8 @@ ${JSON.stringify(entitiesData.map(e => ({ name: e.name, ticker: e.ticker, profit
 【ユーザーのアナリストメモ（考察）】:
 ${JSON.stringify(notes, null, 2)}
 
-【ユーザーの好み・関心プロファイル（保存・閲覧履歴より自動算出）】:
-${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデルに関心'}
+【利用者の目的・条件】:
+このリクエストでは明示されていません。保存・閲覧履歴から好みや目的を推定せず、今回の依頼、選択した事例、入力されたメモだけを起点にしてください。予算、運営人数、利益目標も勝手に補わないでください。
 
 【出力要件】:
 以下の3つの次元でアイデアをJSON配列として返してください。Markdownコードブロックは不要、純粋なJSONのみ。
@@ -425,15 +411,14 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
           const allNotesContext = [clientNote, dbAccumulatedNotes].filter(Boolean).join('\n\n');
 
           const prompt = `
-あなたは世界最高峰の頭脳を持つ、頼もしい事業パートナーです。
-難しいカタカナ用語（ROI、LTV、セグメント等）や小難しい熟語は一切使わず、誰でも1秒でわかる平易な日本語で、曖昧に濁さずズバッと核心を言い切ってください。
+あなたは事業調査を支援するアナリストです。自然で読みやすい日本語で、利用者の質問に直接答えてください。必要な専門用語は短く説明し、判断に使える情報を具体的に整理してください。
 
 【対話スタンス】
-1. 「どこが面白いと思ったの？」のようなオウム返しや質問返し（思考停止のカウンセラーごっこ）は完全厳禁です。
-2. ユーザーのアイデアを否定したり、特定の型（大手の打倒など）に無理やり押し込めないでください。
-3. ユーザーの発言を受け取ったら、即座に「その着眼点がなぜ素晴らしいのか」を平易な言葉で言語化し、一段深い視点や具体的な突破口を足して、1歩進めたボールを打ち返してください。
-4. メガネをクイクイさせて「リスクがあります」「慎重に」と冷や水を浴びせる減点パトロールは厳禁です。どうやれば手堅く勝てるかの活路を力強く示してください。
-5. 「【結論: ...】」などのロボット定型句は不要です。頼りがいと確信に満ちたプロフェッショナルとして自然に対話してください。
+1. 利用者が明示した目的・条件を優先し、書かれていない目標や事情を推測で固定しないでください。
+2. 公開事実、報告値、推定、未確認を区別し、数字や成功可能性を根拠なしに断定しないでください。
+3. 推奨を出すときは、根拠・成立条件・主要な代替案を添えてください。証拠が弱い場合も、結論を放棄せず暫定案と撤回条件を示してください。
+4. 不足情報が結論を大きく変える場合に限って、短い確認質問を一つしてください。それ以外は前提を明記して進めてください。
+5. お世辞や成功保証を使わず、自然で率直な文体にしてください。
 ${enableSearch ? '6. Google検索から得られた最新の市場・競合・トレンド情報を自然に織り交ぜて回答してください。' : ''}
 
 【安全と根拠の境界】
@@ -445,8 +430,8 @@ ${entity ? JSON.stringify({ name: entity.name, pnl: entity.pnl, moat: entity.str
 【DBおよび直近から蓄積されたアナリストメモ（ユーザーの視点）】:
 ${allNotesContext || '特記事項なし'}
 
-【ユーザーの好み・関心プロファイル（保存・閲覧履歴より自動算出）】:
-${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデルに関心'}
+【利用者の目的・条件】:
+このリクエストでは明示されていません。保存・閲覧履歴から好みや目的を推定せず、今回の依頼、選択した事例、入力されたメモだけを起点にしてください。予算、運営人数、利益目標も勝手に補わないでください。
 
 【これまでの対話履歴】:
 ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
@@ -459,9 +444,9 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
           const promptLines = parts[1]
             ? parts[1].split('\n').map(l => sanitizeGeneratedText(l.replace(/^[0-9\.\-\*\s]+/, '').trim())).filter(Boolean)
             : [
-                '初期100人の集客を元手0円で完結させる具体的な手順は？',
-                '大手が同じ機能をローンチしてきた場合の防衛線は？',
-                'このビジネスモデルの月額固定費を1万円以下に抑える配管構成は？'
+                'この案を支える登録情報と、確認できていない点を分けてください。',
+                '想定する顧客や運営条件が変わると、どこを見直す必要がありますか？',
+                '最小の試し方と、続けるか見直すかの判断材料を整理してください。'
               ];
 
           const assistantMsg: StrategyChatMessage = {
@@ -489,7 +474,7 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
       }
 
       // フォールバック推論エンジン
-      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId, notes);
+      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId);
       const assistantMsg: StrategyChatMessage = {
         id: `msg_${Date.now()}`,
         role: 'assistant',

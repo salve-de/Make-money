@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'KIN-KOROKU | 高収益スモールビジネス財務・構造データベース',
-  description: '誰が、どこで、どうやって利益を生み出しているのか。公的決算書・決済データ・一次情報に基づく、高収益事業の財務構造データベース。',
+  title: 'Make Money | 事業事例データベース',
+  description: '事業の収益構造や登録情報を、出典・時点・確認状況とあわせて閲覧できるデータベース。',
 };
 
 import { Providers } from './providers';
