@@ -23,4 +23,27 @@ describe('private research history public boundary', () => {
     expect(publicFoundationData({ items: [{ sourceMetadata: { previous: 'private' }, title: 'visible' }] }))
       .toEqual({ items: [{ title: 'visible' }] });
   });
+
+  it('never exposes superseded audit snapshots as current public facts', () => {
+    const stored = {
+      id: 'reaudit-history-test',
+      reaudit: {
+        auditDate: '2026-09-29',
+        sources: [{ url: 'https://example.org/source' }],
+        legacyDisplaySnapshot: {
+          priorPnl: { monthlyRevenue: 1200000, isRevenueUnconfirmed: false },
+          priorReportedMetrics: [{ context: 'superseded source expression' }],
+        },
+      },
+      evidenceCards: [{ sourceNote: 'https://example.org/source' }],
+    };
+    const before = JSON.stringify(stored);
+    const result = publicEntity(stored as unknown as FinancialEntity);
+    expect(result).not.toHaveProperty('reaudit.legacyDisplaySnapshot');
+    expect(result).toHaveProperty('reaudit.auditDate', '2026-09-29');
+    expect(result).toHaveProperty('reaudit.sources', stored.reaudit.sources);
+    expect(result.evidenceCards).toEqual(stored.evidenceCards);
+    expect(JSON.stringify(stored)).toBe(before);
+    expect(publicFoundationData({ items: [stored] })).not.toHaveProperty('items.0.reaudit.legacyDisplaySnapshot');
+  });
 });

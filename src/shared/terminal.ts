@@ -395,7 +395,14 @@ export interface DynamicEvidenceCard {
   evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }
 
+/** Historical display fields are opaque evidence, never current public facts. */
+export interface ReauditMetadata {
+  legacyDisplaySnapshot?: Record<string, unknown>;
+  [field: string]: unknown;
+}
+
 export interface FinancialEntity {
+  reaudit?: ReauditMetadata;
   id: string;
   ticker: string; // 例: "KEYENCE", "STRIPE", "PHOTOAI"
   name: string;

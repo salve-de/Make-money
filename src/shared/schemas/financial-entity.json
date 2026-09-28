@@ -5,6 +5,9 @@
     "FinancialEntity": {
       "type": "object",
       "properties": {
+        "reaudit": {
+          "$ref": "#/definitions/ReauditMetadata"
+        },
         "id": {
           "type": "string"
         },
@@ -176,6 +179,17 @@
         "targetPainWallet",
         "tags"
       ]
+    },
+    "ReauditMetadata": {
+      "type": "object",
+      "properties": {
+        "legacyDisplaySnapshot": {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      },
+      "additionalProperties": {},
+      "description": "Historical display fields are opaque evidence, never current public facts."
     },
     "SectorCategory": {
       "type": "string",

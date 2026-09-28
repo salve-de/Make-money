@@ -344,3 +344,10 @@ The authority may add previously unknown durable identifiers/domain information,
 The operational description is also maintained in `docs/architecture/AUTO_PUBLISH_TO_UI.md`. Both documents must use the same namespace/version.
 
 Evidence-only corrections keep the existing `make-money-view.v2` entity document and may add `excluded_source_run_ids` / `excluded_evidence_ids` control metadata. The operator repair verifies exact immutable original/corrected bundle hashes, resolves all other contributing runs from existing projection-progress records, and CAS-rebuilds the entity view without overwriting canonical records. The independent per-entity control uses `make-money-view-evidence-correction.v1` under `_evidence-corrections/` and is applied by local list/detail readers and updated projectors, so an older writer cannot erase the correction by rewriting the ordinary entity view. The control stores a rebuildable consumer projection, not new canonical facts. Loss of both view and control requires reapplying the correction from the immutable corrected bundle, Journal lineage and repair receipt. See `AUTO_PUBLISH_TO_UI.md` for dry-run, failure, single-correction and history bounds.
+
+
+### 2026-09-29 再監査時の旧表示スナップショット
+
+`FinancialEntity.reaudit.legacyDisplaySnapshot` は旧表示フィールドをそのまま残す非公開の監査履歴オブジェクト。`ReauditMetadata` と生成済みFinancialEntityスキーマで定義する。値は任意の旧フィールドを持つオブジェクトであり、null・配列・スカラーは受け付けない。`parseFinancialEntity` はこのキーをエンティティ直下の `reaudit` 以外に置いた入力を拒否する。原出典 `sourceMetadata` と正規位置のスナップショット内部は不透明な原物として保持し、再帰的な位置検査の対象外とする。
+
+保存先は従来のJournal・目録のエンティティ内で、別DBや新しいR2領域を追加しない。表示文の正規化とjargon検査ではこの原物を変更・判定しない。公開応答では防御的にキーを全階層で除去する。監査日・出典などの通常の `reaudit` フィールドは既存の公開規則に従う。旧数値は現在の数値・検証済み事実・公開承認へ昇格しない。

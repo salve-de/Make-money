@@ -400,11 +400,12 @@ export function publicFoundationBusinessCase(
   };
 }
 
-/** Keep private ingestion history and paid fields out of public responses. */
+/** Keep private ingestion history, superseded audit snapshots and paid fields out of public responses. */
 export function publicFoundationData<T>(value: T): T {
   if (Array.isArray(value)) return value.map(publicFoundationData) as T;
   if (value && typeof value === 'object') {
-    return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'meta' && key !== 'sourceMetadata')
+    return Object.fromEntries(Object.entries(value).filter(([key]) =>
+      key !== 'meta' && key !== 'sourceMetadata' && key !== 'legacyDisplaySnapshot')
       .map(([key, item]) => [key, publicFoundationData(item)])) as T;
   }
   return value;
