@@ -2,7 +2,32 @@ import type { FinancialEntity } from './terminal';
 import schema from './schemas/financial-entity.json';
 import { compileParser } from './validate-json';
 
-export const parseFinancialEntity = compileParser<FinancialEntity>(schema, 'FinancialEntity');
+const parseEntitySchema = compileParser<FinancialEntity>(schema, 'FinancialEntity');
+
+/** Only the entity's reaudit object owns active audit snapshots. */
+export function assertAuditSnapshotBoundary(input: unknown, path: string[] = []): void {
+  if (Array.isArray(input)) {
+    input.forEach((item, index) => assertAuditSnapshotBoundary(item, [...path, String(index)]));
+  } else if (input !== null && typeof input === 'object') {
+    for (const [key, value] of Object.entries(input)) {
+      // Opaque original evidence may itself contain historical field names.
+      if (key === 'sourceMetadata') continue;
+      if (key === 'legacyDisplaySnapshot') {
+        if (path.length !== 1 || path[0] !== 'reaudit' || value === null ||
+          typeof value !== 'object' || Array.isArray(value)) {
+          throw new Error('Invalid FinancialEntity audit snapshot boundary');
+        }
+        continue;
+      }
+      assertAuditSnapshotBoundary(value, [...path, key]);
+    }
+  }
+}
+
+export function parseFinancialEntity(input: unknown): FinancialEntity {
+  assertAuditSnapshotBoundary(input);
+  return parseEntitySchema(input);
+}
 
 export function parseFinancialEntities(input: unknown): FinancialEntity[] {
   if (!Array.isArray(input)) throw new Error('Invalid FinancialEntity list');

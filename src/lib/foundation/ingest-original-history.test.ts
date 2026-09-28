@@ -1,4 +1,5 @@
 import { expect, it } from 'vitest';
+import { assertAuditSnapshotBoundary } from '@/shared/financial-entity-schema';
 import type { FinancialEntity } from '@/platform/types/terminal';
 import { autoEnrichEntityBeforeIngest } from '../../../scripts/pipeline/auto-enrich-entity';
 
@@ -22,4 +23,22 @@ it('preserves original source metadata while sanitizing active display copy', ()
 it('does not add source metadata when the input has none', () => {
   const output = autoEnrichEntityBeforeIngest({ id: 'ent_test', name: 'Test', tags: [] } as unknown as FinancialEntity);
   expect(output).not.toHaveProperty('sourceMetadata');
+});
+
+it('accepts typed opaque snapshots only inside reaudit', () => {
+  const reaudit = { legacyDisplaySnapshot: { priorDescription: 'original' } } satisfies NonNullable<FinancialEntity['reaudit']>;
+  expect(() => assertAuditSnapshotBoundary({ reaudit })).not.toThrow();
+  expect(() => assertAuditSnapshotBoundary({ sourceMetadata: { legacyDisplaySnapshot: 'original source value' } })).not.toThrow();
+});
+
+it.each([null, [], 'text', 42])('rejects malformed audit snapshot %j', (legacyDisplaySnapshot) => {
+  expect(() => assertAuditSnapshotBoundary({ reaudit: { legacyDisplaySnapshot } })).toThrow('audit snapshot boundary');
+});
+
+it.each([
+  { legacyDisplaySnapshot: {} },
+  { evidenceCards: [{ legacyDisplaySnapshot: {} }] },
+  { other: { reaudit: { legacyDisplaySnapshot: {} } } },
+])('rejects misplaced snapshots', (input) => {
+  expect(() => assertAuditSnapshotBoundary(input)).toThrow('audit snapshot boundary');
 });
