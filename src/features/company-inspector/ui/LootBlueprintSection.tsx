@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
 import { legacyText } from '../model/legacy-fields';
+import { formatYen } from '@/platform/utils/moneyDisplay';
 
 function cleanText(value: string | null | undefined): string | null {
   if (!value) return null;
@@ -90,7 +91,7 @@ export function LootBlueprintSection({
   const badgeElement = (
     <div className="flex items-center gap-3 text-xs text-zinc-400">
       {hasKnownTeamSize && <span>チーム {teamSize.toLocaleString()}名</span>}
-      {hasKnownInitialCapital && <span>初期資本 ¥{initialCapital.toLocaleString()}</span>}
+      {hasKnownInitialCapital && <span>初期資本 {formatYen(initialCapital)}</span>}
     </div>
   );
 
@@ -106,7 +107,7 @@ export function LootBlueprintSection({
       isHazardMode={isHazardMode}
     >
       {initialTraction.length > 0 && (
-        <details open className="border-b border-white/[0.07] px-4 py-3 sm:px-5">
+        <details open className="border-b border-term-line-soft px-4 py-3 sm:px-5">
           <summary className="cursor-pointer text-xs font-medium text-zinc-300">
             {isHazardMode ? '初期の判断とつまずき' : '立ち上げ初期の動き'}
           </summary>
@@ -114,7 +115,7 @@ export function LootBlueprintSection({
             {initialTraction.map((item, idx) => (
               <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-zinc-200 leading-relaxed">
                 <span className={`font-mono text-xs font-bold shrink-0 mt-0.5 ${
-                  isHazardMode ? 'text-red-400' : 'text-cyan-400'
+                  isHazardMode ? 'text-term-danger' : 'text-term-fg'
                 }`}>
                   #{idx + 1}
                 </span>
@@ -127,12 +128,12 @@ export function LootBlueprintSection({
 
       {/* 再現ステップ（アコーディオン） */}
       {steps.length > 0 && (
-        <div className="divide-y divide-white/[0.06]">
+        <div className="divide-y divide-term-line-soft">
           {steps.map((step) => (
-            <details key={step.index} open className="group bg-[#0c1017]">
-              <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 hover:bg-white/[0.02] sm:px-5">
+            <details key={step.index} open className="group bg-term-panel">
+              <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 hover:bg-term-head sm:px-5">
                 <span className="min-w-0 flex-1">
-                  <span className="mb-1 flex items-center gap-2 text-xs font-semibold text-sky-200">
+                  <span className="mb-1 flex items-center gap-2 text-xs font-semibold text-term-fg">
                     <span className="font-mono tabular-nums">{step.index}</span>{step.label}
                   </span>
                   <span className="text-[13px] leading-relaxed text-zinc-200">{step.title}</span>
@@ -140,13 +141,13 @@ export function LootBlueprintSection({
                 <ChevronDown className="h-4 w-4 shrink-0 text-zinc-400 transition-transform group-open:rotate-180" />
               </summary>
 
-              <div className="border-t border-white/[0.05] bg-[#090d13] px-4 py-3.5 sm:px-5 space-y-2">
+              <div className="border-t border-term-line-soft bg-term-bg px-4 py-3.5 sm:px-5 space-y-2">
                 <p className="text-xs sm:text-[13px] leading-relaxed text-zinc-200">
                   {step.text}
                 </p>
                 {step.extra && step.extraLabel && (
-                  <div className="mt-2.5 flex items-start gap-2 border-l-2 border-white/[0.12] pl-3 py-0.5">
-                    <span className="text-[10px] font-mono text-zinc-400 font-semibold shrink-0">
+                  <div className="mt-2.5 flex items-start gap-2 border-l-2 border-term-line pl-3 py-0.5">
+                    <span className="text-xs font-mono text-zinc-400 font-semibold shrink-0">
                       {step.extraLabel}:
                     </span>
                     <span className="text-xs text-zinc-300 leading-relaxed">

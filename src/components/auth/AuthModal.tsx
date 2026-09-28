@@ -4,7 +4,6 @@ import { useModalFocus } from '@/platform/hooks/useModalFocus';
 
 import React, { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { X, Mail, ArrowRight } from "lucide-react";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -67,30 +66,28 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-3">
       <div
         role="dialog" aria-modal="true" aria-labelledby="auth-title"
         ref={dialogRef} onKeyDown={onKeyDown}
-        className="relative max-h-[90dvh] w-full max-w-md overflow-y-auto bg-[#101721] border border-white/[0.18] rounded-lg shadow-2xl p-4 text-zinc-100"
+        className="relative max-h-[90dvh] w-full max-w-md overflow-y-auto border border-term-line bg-term-panel text-term-fg shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* 閉じるボタン */}
-        <button
-          type="button" aria-label="ログイン画面を閉じる"
-          onClick={onClose}
-          className="absolute top-2 right-2 flex h-10 w-10 items-center justify-center text-zinc-500 hover:text-zinc-200 transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        {/* ヘッダー */}
-        <div className="mb-4 border-b border-white/[0.14] pb-3 pr-10">
-          <h2 id="auth-title" className="text-base font-semibold text-white">{isSignUp ? "アカウント作成" : "ログイン"}</h2>
+        <div className="term-panel-title">
+          <h2 id="auth-title" className="term-panel-name text-xs">{isSignUp ? "アカウント作成" : "ログイン"}</h2>
+          <button
+            type="button" aria-label="ログイン画面を閉じる"
+            onClick={onClose}
+            className="ml-auto flex min-h-11 items-center px-2 text-xs text-term-muted hover:text-term-fg-strong lg:min-h-6"
+          >
+            閉じる
+          </button>
         </div>
+        <div className="p-4">
 
         {/* エラー表示 */}
         {error && (
-          <div className="mb-4 p-2.5 bg-red-950/40 border border-red-800/50 rounded-lg text-xs text-red-300 leading-relaxed">
+          <div className="mb-4 border border-term-danger p-2.5 text-xs leading-relaxed text-term-danger">
             {error}
           </div>
         )}
@@ -99,7 +96,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         <button
           onClick={handleGoogleSignIn}
           disabled={loading}
-          className="w-full flex items-center justify-center gap-2.5 py-2.5 px-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 rounded-lg text-xs font-medium text-white transition-all disabled:opacity-50 cursor-pointer"
+          className="flex min-h-11 w-full cursor-pointer items-center justify-center gap-2.5 rounded-sm border border-term-line bg-transparent px-4 text-sm text-term-fg hover:bg-term-head disabled:opacity-50"
         >
           <svg className="w-4 h-4" viewBox="0 0 24 24">
             <path
@@ -125,34 +122,33 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* 区切り線 */}
         <div className="relative my-4">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-zinc-800" />
+            <div className="w-full border-t border-term-line" />
           </div>
-          <div className="relative flex justify-center text-[10px] uppercase">
-            <span className="bg-[#101721] px-2 text-zinc-500 font-mono">またはメールアドレス</span>
+          <div className="relative flex justify-center text-xs">
+            <span className="bg-term-panel px-2 text-term-label">またはメールアドレス</span>
           </div>
         </div>
 
         {/* メールログインフォーム */}
         <form onSubmit={handleEmailSubmit} className="space-y-3">
           <div>
-            <label htmlFor="auth-email" className="block text-[11px] font-medium text-zinc-400 mb-1">
+            <label htmlFor="auth-email" className="mb-1 block text-xs text-term-label">
               メールアドレス
             </label>
-            <div className="relative">
+            <div>
               <input
                 id="auth-email" autoComplete="email" type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="founder@example.com"
                 required
-                className="w-full bg-zinc-900/90 border border-zinc-800 rounded-lg pl-8 pr-3 py-2 text-xs text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
+                className="min-h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-sm text-term-fg placeholder:text-term-dim focus:border-term-muted focus:outline-none"
               />
-              <Mail className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-2.5" />
             </div>
           </div>
 
           <div>
-            <label htmlFor="auth-password" className="block text-[11px] font-medium text-zinc-400 mb-1">
+            <label htmlFor="auth-password" className="mb-1 block text-xs text-term-label">
               パスワード
             </label>
             <input
@@ -161,29 +157,28 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               required
-              className="w-full bg-zinc-900/90 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500 transition-colors"
+              className="min-h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-sm text-term-fg placeholder:text-term-dim focus:border-term-muted focus:outline-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-2 py-2.5 px-4 bg-white hover:bg-zinc-200 text-black font-semibold text-xs rounded-lg transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50 cursor-pointer"
+            className="mt-2 flex min-h-11 w-full cursor-pointer items-center justify-center rounded-sm border border-term-accent text-sm font-semibold text-term-accent hover:bg-term-head disabled:opacity-50"
           >
             {loading ? "処理中..." : isSignUp ? "登録を完了する" : "ログイン"}
-            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </form>
 
         {/* 切り替え */}
-        <div className="mt-4 pt-3 border-t border-zinc-900 text-center text-xs text-zinc-500">
+        <div className="mt-4 border-t border-term-line pt-3 text-center text-xs text-term-label">
           {isSignUp ? (
             <span>
               アカウントをお持ちですか？{" "}
               <button
                 type="button"
                 onClick={() => setIsSignUp(false)}
-                className="text-zinc-300 hover:text-white underline ml-1 cursor-pointer"
+                className="ml-1 inline-flex min-h-11 cursor-pointer items-center text-term-fg underline hover:text-term-fg-strong"
               >
                 ログイン
               </button>
@@ -194,12 +189,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               <button
                 type="button"
                 onClick={() => setIsSignUp(true)}
-                className="text-zinc-300 hover:text-white underline ml-1 cursor-pointer"
+                className="ml-1 inline-flex min-h-11 cursor-pointer items-center text-term-fg underline hover:text-term-fg-strong"
               >
                 新規登録
               </button>
             </span>
           )}
+        </div>
         </div>
       </div>
     </div>

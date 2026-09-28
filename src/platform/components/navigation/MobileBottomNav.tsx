@@ -1,83 +1,140 @@
 'use client';
 
-import React from 'react';
-import { BookOpen, Cpu, Database, Layers, TrendingUp } from 'lucide-react';
-import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import {
+  GlobalNavSection,
+  LOCAL_MODE_BY_SECTION,
+  LocalWorkspaceMode,
+  PRIMARY_NAV_ITEMS,
+  PRO_HREF,
+  SAVED_HREF,
+  SECONDARY_NAV_ITEMS,
+} from './navigationItems';
 
 interface MobileBottomNavProps {
-  workspaceMode: WorkspaceMode;
-  onSelectMode: (mode: WorkspaceMode) => void;
-  currentFilter: GridFilterOption;
-  onSelectFilter: (filter: GridFilterOption) => void;
+  activeSection: GlobalNavSection;
+  bookmarkCount?: number;
+  onOpenPro?: () => void;
+  onSelectLocalMode?: (mode: LocalWorkspaceMode) => void;
 }
 
+const MAIN_CELLS: { id: GlobalNavSection; label: string; href: string }[] = [
+  { id: 'LEDGER', label: '事例', href: '/' },
+  { id: 'RADAR', label: '市場', href: '/radar' },
+  { id: 'ARCHETYPES', label: 'パターン', href: '/?mode=ARCHETYPES' },
+  { id: 'SYNTHESIS', label: '保存', href: SAVED_HREF },
+];
+
+const SHEET_ITEMS = [
+  ...PRIMARY_NAV_ITEMS.filter((item) => ['DISCOVER', 'PLAYBOOK', 'SYNTHESIS'].includes(item.id)),
+  ...SECONDARY_NAV_ITEMS,
+];
+
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
-  workspaceMode,
-  onSelectMode,
-  currentFilter,
-  onSelectFilter,
+  activeSection,
+  bookmarkCount,
+  onOpenPro,
+  onSelectLocalMode,
 }) => {
-  const itemClass = (active: boolean) => `flex h-14 min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-md border text-xs transition-colors ${
-    active ? 'border-sky-300/35 bg-sky-300/[0.12] text-sky-100' : 'border-transparent text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-100'
-  }`;
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const mainIds = MAIN_CELLS.map((cell) => cell.id);
+  const isOtherActive = !mainIds.includes(activeSection);
+
+  const handleLocal = (event: React.MouseEvent<HTMLAnchorElement>, id: GlobalNavSection) => {
+    setSheetOpen(false);
+    const mode = LOCAL_MODE_BY_SECTION[id];
+    if (!mode || !onSelectLocalMode) return;
+    event.preventDefault();
+    onSelectLocalMode(mode);
+  };
+
+  const cellBase =
+    'relative flex h-full min-w-0 flex-1 items-center justify-center gap-1 border-r border-term-line px-1 text-sm last:border-r-0';
+  const cellState = (active: boolean) =>
+    active
+      ? 'bg-[var(--surface-overlay)] text-term-fg-strong shadow-[inset_0_2px_0_var(--term-accent)]'
+      : 'text-term-muted hover:bg-term-head';
 
   return (
-    <nav
-      aria-label="メインメニュー"
-      className="fixed inset-x-0 bottom-0 z-30 flex h-[calc(3.5rem+env(safe-area-inset-bottom))] items-start border-t border-white/[0.14] bg-surface/95 px-1 pb-[env(safe-area-inset-bottom)] md:hidden"
-    >
-      <button
-        type="button"
-        onClick={() => {
-          onSelectMode('LEDGER');
-          onSelectFilter('ALL');
-        }}
-        aria-pressed={workspaceMode === 'LEDGER' && currentFilter === 'ALL'}
-        className={itemClass(workspaceMode === 'LEDGER' && currentFilter === 'ALL')}
+    <>
+      {sheetOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setSheetOpen(false)}>
+          <div
+            role="dialog"
+            aria-label="その他のメニュー"
+            onClick={(event) => event.stopPropagation()}
+            className="absolute inset-x-0 bottom-[calc(56px+env(safe-area-inset-bottom))] border-t border-term-line bg-term-panel shadow-lg"
+          >
+            <div className="term-panel-title"><span className="term-panel-name">その他</span></div>
+            <ul>
+              {SHEET_ITEMS.map((item) => (
+                <li key={item.id} className="border-b border-term-line-soft">
+                  <Link
+                    href={item.href}
+                    prefetch={false}
+                    onClick={(event) => handleLocal(event, item.id)}
+                    aria-current={activeSection === item.id ? 'page' : undefined}
+                    className={`flex min-h-11 items-center px-3 text-sm hover:bg-term-head ${
+                      activeSection === item.id ? 'bg-term-select text-term-fg-strong' : 'text-term-fg'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                {onOpenPro ? (
+                  <button
+                    type="button"
+                    onClick={() => { setSheetOpen(false); onOpenPro(); }}
+                    className="flex min-h-11 w-full items-center px-3 text-left text-sm font-semibold text-term-accent hover:bg-term-head"
+                  >
+                    PRO
+                  </button>
+                ) : (
+                  <Link
+                    href={PRO_HREF}
+                    prefetch={false}
+                    onClick={() => setSheetOpen(false)}
+                    className="flex min-h-11 items-center px-3 text-sm font-semibold text-term-accent hover:bg-term-head"
+                  >
+                    PRO
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+      <nav
+        aria-label="メインメニュー"
+        className="term-bottom-nav fixed inset-x-0 bottom-0 z-40 flex h-[calc(56px+env(safe-area-inset-bottom))] items-stretch border-t border-term-line bg-term-panel pb-[env(safe-area-inset-bottom)] lg:hidden"
       >
-        <Database aria-hidden="true" className="h-4 w-4" />
-        <span>事例</span>
-      </button>
-
-      <button
-        type="button"
-        onClick={() => onSelectMode('PLAYBOOK')}
-        aria-pressed={workspaceMode === 'PLAYBOOK'}
-        className={itemClass(workspaceMode === 'PLAYBOOK')}
-      >
-        <BookOpen aria-hidden="true" className="h-4 w-4" />
-        <span>収益構造</span>
-      </button>
-
-      <button
-        type="button"
-        onClick={() => onSelectMode('ARCHETYPES')}
-        aria-pressed={workspaceMode === 'ARCHETYPES'}
-        className={itemClass(workspaceMode === 'ARCHETYPES')}
-      >
-        <Layers aria-hidden="true" className="h-4 w-4" />
-        <span>パターン</span>
-      </button>
-
-      <button
-        type="button"
-        onClick={() => onSelectMode('RADAR')}
-        aria-pressed={workspaceMode === 'RADAR'}
-        className={itemClass(workspaceMode === 'RADAR')}
-      >
-        <TrendingUp aria-hidden="true" className="h-4 w-4" />
-        <span>市場動向</span>
-      </button>
-
-      <button
-        type="button"
-        onClick={() => onSelectMode('SYNTHESIS')}
-        aria-pressed={workspaceMode === 'SYNTHESIS'}
-        className={itemClass(workspaceMode === 'SYNTHESIS')}
-      >
-        <Cpu aria-hidden="true" className="h-4 w-4" />
-        <span>検討</span>
-      </button>
-    </nav>
+        {MAIN_CELLS.map((cell) => (
+          <Link
+            key={cell.id}
+            href={cell.href}
+            prefetch={false}
+            onClick={(event) => handleLocal(event, cell.id)}
+            aria-current={activeSection === cell.id ? 'page' : undefined}
+            className={`${cellBase} ${cellState(activeSection === cell.id)}`}
+          >
+            <span>{cell.label}</span>
+            {cell.id === 'SYNTHESIS' && typeof bookmarkCount === 'number' && bookmarkCount > 0 && (
+              <span className="term-num text-xs text-term-accent">{bookmarkCount}</span>
+            )}
+          </Link>
+        ))}
+        <button
+          type="button"
+          onClick={() => setSheetOpen((open) => !open)}
+          aria-expanded={sheetOpen}
+          className={`${cellBase} ${cellState(isOtherActive || sheetOpen)}`}
+        >
+          その他
+        </button>
+      </nav>
+    </>
   );
 };

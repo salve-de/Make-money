@@ -3,18 +3,11 @@
 
 import Link from "next/link";
 import React, { useMemo, useState } from "react";
-import {
-  ChevronDown,
-  Database,
-  Loader2,
-  LogIn,
-  MessageSquareText,
-  Rocket,
-  Search,
-  X,
-} from "lucide-react";
+import { Loader2, Search, X } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { GlobalHeader } from "@/platform/components/navigation/GlobalHeader";
+import { SquareTabs } from "@/platform/components/playbook/SquareTabs";
+import { formatYen } from "@/platform/utils/moneyDisplay";
 import type {
   DiscoveryCase,
   DiscoveryDataset,
@@ -52,115 +45,101 @@ function buildContext(item: DiscoveryCase): string {
   ].join("\n");
 }
 
-function formatResultValue(value: string): string {
-  return value.replace(/¥\s*(\d{4,})(億|兆|万)/g, (_match, digits: string, unit: string) =>
-    `¥${Number(digits).toLocaleString("ja-JP")}${unit}`,
-  );
+const YEN_UNIT: Record<string, number> = { 兆: 1_000_000_000_000, 億: 100_000_000, 万: 10_000 };
+
+/** 登録された文字列中の円金額を、共通の金額表記（moneyDisplay）へそろえる。 */
+function normalizeYenText(value: string): string {
+  return value.replace(/(-?)¥\s*([\d,.]+)(兆|億|万)?/g, (_match, minus: string, digits: string, unit?: string) => {
+    const amount = Number(digits.replace(/,/g, "")) * (unit ? YEN_UNIT[unit] : 1);
+    if (!Number.isFinite(amount)) return _match;
+    return formatYen(minus ? -amount : amount);
+  });
 }
 
-function ResultBlock({ item }: { item: DiscoveryCase }) {
-  const evidenceTone = item.resultEvidenceLabel.includes('推定')
-    ? 'text-amber-200'
-    : item.resultEvidenceLabel.includes('未設定') || item.resultEvidenceLabel.includes('未確認')
-      ? 'text-zinc-200'
-      : item.resultEvidenceLabel.includes('報道')
-        ? 'text-sky-200'
-        : item.resultEvidenceLabel.includes('一次資料')
-          ? 'text-emerald-200'
-          : 'text-zinc-300';
+function displayResult(item: DiscoveryCase): string {
+  return item.resultAmountJpy !== null ? formatYen(item.resultAmountJpy) : normalizeYenText(item.resultValue);
+}
 
+/** 金額の種類（列見出しを兼ねる短い表記） */
+function resultKind(item: DiscoveryCase): string {
+  if (item.resultLabel.startsWith("営業損失")) return "損失";
+  if (item.resultLabel.startsWith("営業利益")) return "利益";
+  if (item.resultLabel.startsWith("売上")) return "売上";
+  return "";
+}
+
+function evidenceShort(item: DiscoveryCase): string {
+  return item.resultEvidenceLabel.replace("資料区分: ", "");
+}
+
+function evidenceTone(label: string): string {
+  if (label.includes("推定") || label.includes("推計")) return "text-term-accent";
+  if (label.includes("未設定") || label.includes("未確認")) return "text-term-dim";
+  return "text-term-muted";
+}
+
+function valueTone(item: DiscoveryCase): string {
+  const label = item.resultEvidenceLabel;
+  if (label.includes("未設定") || label.includes("未確認") || item.resultAmountJpy === null) return "text-term-dim";
+  if (label.includes("推定") || label.includes("推計")) return "text-term-accent";
+  return item.isFailure ? "text-term-danger" : "text-term-fg-strong";
+}
+
+const ROW_GRID = "lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)_128px_64px] xl:grid-cols-[minmax(0,1.4fr)_88px_minmax(0,1fr)_128px_64px]";
+
+function ResultBlock({ item }: { item: DiscoveryCase }) {
   return (
-    <div className="w-[120px] shrink-0 text-right sm:w-[158px]">
-      <div className="text-[11px] text-zinc-400">{item.resultLabel}</div>
-      <div
-        className={[
-          "text-base sm:text-lg font-semibold tabular-nums tracking-tight",
-          item.resultEvidenceLabel.includes('未設定')
-            ? "text-zinc-200"
-            : item.resultEvidenceLabel.includes('推定')
-              ? "text-amber-100"
-              : item.resultEvidenceLabel.includes('報道')
-                ? "text-sky-100"
-            : item.isFailure ? "text-rose-300" : "text-white",
-        ].join(" ")}
-      >
-        {formatResultValue(item.resultValue)}
-      </div>
-      <div className={`mt-0.5 text-[11px] leading-tight ${evidenceTone}`}>
-        {item.resultEvidenceLabel}
-      </div>
+    <div className="shrink-0 text-right">
+      <div className="text-xs text-term-label">{item.resultLabel}</div>
+      <div className={`term-num text-lg ${valueTone(item)}`}>{displayResult(item)}</div>
+      <div className={`text-xs ${evidenceTone(evidenceShort(item))}`}>{evidenceShort(item)}</div>
     </div>
   );
 }
 
 function MemoRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid gap-1 py-3 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-4">
-      <div className="text-xs font-medium text-zinc-400">{label}</div>
-      <p className="text-sm leading-relaxed text-zinc-300">{value}</p>
+    <div className="grid gap-0.5 border-b border-term-line-soft px-3 py-2 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-4">
+      <div className="text-xs text-term-label sm:pt-0.5">{label}</div>
+      <p className="text-sm leading-relaxed text-term-fg">{value}</p>
     </div>
   );
 }
 
 function DiscoveryRow({
   item,
+  index,
   selected,
   onSelect,
 }: {
   item: DiscoveryCase;
+  index: number;
   selected: boolean;
   onSelect: () => void;
 }) {
-  const compactResultLabel = item.resultLabel.replace(/\s*（月額換算・登録値）$/, "");
-
+  const kind = resultKind(item);
+  const status = evidenceShort(item);
   return (
     <button
       type="button"
       onClick={onSelect}
-      className={[
-        "w-full text-left border-b border-white/[0.1] px-3 py-2.5 sm:px-4 transition-colors",
-        selected
-          ? "bg-white/[0.07] border-l-2 border-l-emerald-400"
-          : "hover:bg-white/[0.035] border-l-2 border-l-transparent",
-      ].join(" ")}
+      aria-pressed={selected}
+      className={`grid min-h-11 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 border-b border-term-line-soft px-3 py-1.5 text-left text-sm lg:min-h-[29px] lg:py-1 ${ROW_GRID} ${
+        selected ? "bg-term-select text-term-fg-strong" : index % 2 ? "bg-term-row-alt hover:bg-term-head" : "hover:bg-term-head"
+      }`}
     >
-      <div>
-        <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-zinc-400">
-          <span>{item.startLine}</span>
-          <span className="text-zinc-600">·</span>
-          <span>{item.sector}</span>
-        </div>
-
-        <div className="text-[15px] font-semibold leading-snug text-zinc-50 line-clamp-2">
-          {item.name}
-        </div>
-        {item.criticalInsight && (
-          <p className="mt-1 line-clamp-2 text-xs leading-5 text-zinc-300">{item.criticalInsight}</p>
-        )}
-
-        <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3 border-t border-white/[0.08] pt-2">
-          <div className="min-w-0">
-            <div className="text-[10px] font-medium text-zinc-400">収益パターン候補</div>
-            <div className="mt-0.5 text-xs leading-snug text-zinc-100 line-clamp-2">
-              {item.mechanism.label}
-            </div>
-          </div>
-          <div className="min-w-[112px] max-w-[48%] text-right">
-            <div className="text-[10px] leading-tight text-zinc-400">{compactResultLabel}</div>
-            <div className="mt-0.5 text-base font-semibold tabular-nums tracking-tight text-zinc-50">
-              {formatResultValue(item.resultValue)}
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] leading-snug">
-          <span className="text-amber-100">{item.resultEvidenceLabel.replace('資料区分: ', '')}</span>
-          <span className="text-zinc-500">
-            {item.resultPeriod || "時期不明"}
-          </span>
-        </div>
-
-      </div>
+      <span className="min-w-0">
+        <span className="block truncate font-semibold text-term-fg-strong">{item.name}</span>
+        <span className="block truncate text-xs text-term-label lg:hidden">{item.sector} · {item.mechanism.label}</span>
+      </span>
+      <span className="hidden truncate text-term-muted xl:block">{item.sector}</span>
+      <span className="hidden truncate text-term-sub lg:block">{item.mechanism.label}</span>
+      <span className="text-right">
+        <span className={`term-num ${valueTone(item)}`}>{displayResult(item)}</span>
+        {kind && <span className="ml-1 text-xs text-term-label">{kind}</span>}
+        <span className={`block text-xs lg:hidden ${evidenceTone(status)}`}>{status}</span>
+      </span>
+      <span className={`hidden truncate text-xs lg:block ${evidenceTone(status)}`}>{status}</span>
     </button>
   );
 }
@@ -274,226 +253,186 @@ function DetailPane({
     }
   };
 
+  const actionBtn = "inline-flex min-h-11 items-center justify-center rounded-sm border px-3 text-sm lg:min-h-8";
   return (
-    <div data-testid="discover-detail" className="h-full flex flex-col bg-surface">
-      <div className="shrink-0 border-b border-white/[0.07] px-4 sm:px-6 py-4">
-        <div className="flex items-start justify-between gap-4">
-          <div className="min-w-0">
-            <h2 className="text-base sm:text-xl font-semibold tracking-tight text-white break-words">
-              {item.name}
-            </h2>
-            <div className="mt-1 text-sm leading-6 text-zinc-300">
-              {item.sector} · {item.startLine}
-            </div>
-          </div>
-          <div className="flex shrink-0 items-start gap-2">
-            <ResultBlock item={item} />
-            {onCloseMobile && (
-              <button
-                type="button"
-                onClick={onCloseMobile}
-                className="lg:hidden p-1.5 text-zinc-400 hover:text-white"
-                aria-label="詳細を閉じる"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
-          </div>
-        </div>
+    <div data-testid="discover-detail" className="flex h-full flex-col bg-term-bg">
+      <div className="term-panel-title shrink-0">
+        <span className="term-panel-name">事例の詳細</span>
+        <span className="truncate">{item.sector} · {item.startLine}</span>
+        {onCloseMobile && (
+          <button
+            type="button"
+            onClick={onCloseMobile}
+            className="ml-auto inline-flex min-h-11 items-center gap-1 px-2 text-sm text-term-sub hover:text-term-fg-strong lg:hidden"
+            aria-label="詳細を閉じる"
+          >
+            <X aria-hidden="true" className="h-4 w-4" />閉じる
+          </button>
+        )}
+      </div>
+      <div className="flex shrink-0 items-start justify-between gap-4 border-b border-term-line px-3 py-3">
+        <h2 className="min-w-0 break-words text-lg font-semibold text-term-fg-strong">{item.name}</h2>
+        <ResultBlock item={item} />
       </div>
 
-      <div className="flex-1 min-h-0 overflow-y-auto">
-        <details className="border-b border-white/[0.12]">
-          <summary className="cursor-pointer px-4 py-2 text-xs text-zinc-400 sm:px-6">数値の出典・対象時期</summary>
-          <div className="grid grid-cols-2">
-          <div className="min-w-0 px-4 sm:px-6 py-3 border-r border-white/[0.06]">
-            <div className="text-xs text-zinc-400">資料区分</div>
-            <div className="mt-1 text-sm font-medium text-zinc-100">{item.resultEvidenceLabel.replace('資料区分: ', '')}</div>
-            <div className="mt-0.5 max-w-full truncate text-xs text-zinc-400" title={item.resultSource || undefined}>
-              {item.resultSource || '出典表示なし'}
+      <div className="min-h-0 flex-1 overflow-y-auto">
+        <details className="border-b border-term-line">
+          <summary className="min-h-11 cursor-pointer px-3 py-3 text-xs text-term-label lg:min-h-0 lg:py-1.5">数値の出典・対象時期</summary>
+          <dl className="grid grid-cols-2 border-t border-term-line-soft">
+            <div className="min-w-0 border-r border-term-line-soft px-3 py-2">
+              <dt className="text-xs text-term-label">資料区分</dt>
+              <dd className="text-sm text-term-fg-strong">{evidenceShort(item)}</dd>
+              <dd className="max-w-full truncate text-xs text-term-label" title={item.resultSource || undefined}>
+                {item.resultSource || "出典表示なし"}
+              </dd>
             </div>
-          </div>
-          <div className="px-4 sm:px-6 py-3">
-            <div className="text-xs text-zinc-400">対象時期</div>
-            <div className="mt-1 text-sm font-medium text-zinc-100">{item.resultPeriod || '未設定'}</div>
-            <div className="mt-0.5 text-xs text-zinc-400">
-              {item.resultPeriodNote || '数値が示す期間'}
+            <div className="px-3 py-2">
+              <dt className="text-xs text-term-label">対象時期</dt>
+              <dd className="term-num text-sm text-term-fg-strong">{item.resultPeriod || "未設定"}</dd>
+              <dd className="text-xs text-term-label">{item.resultPeriodNote || "数値が示す期間"}</dd>
             </div>
-          </div>
-          </div>
+          </dl>
         </details>
 
-        <section className="border-b border-white/[0.12] bg-[#1a2530] px-4 sm:px-6 py-3">
-          <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-            <div className="text-sm font-medium text-zinc-100">{item.mechanism.label}</div>
-            <div className="text-xs text-zinc-400">同じ分類 {item.mechanismCount.toLocaleString()}件</div>
-          </div>
+        <section className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-term-line bg-term-head px-3 py-2">
+          <div className="text-sm text-term-fg-strong">{item.mechanism.label}</div>
+          <div className="term-num text-xs text-term-label">同じ分類 {item.mechanismCount.toLocaleString()}件</div>
         </section>
 
-        <details open className="m-3 rounded-md border border-white/[0.16] bg-[#101721]">
-          <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 sm:px-6 text-sm text-zinc-200 hover:bg-white/[0.025]">
-            <span>事業の説明・分析</span>
-            <span className="flex items-center gap-2 text-xs text-amber-200">
-              <ChevronDown aria-hidden="true" className="h-4 w-4 text-zinc-300" />
-            </span>
-          </summary>
-          <div className="divide-y divide-white/[0.06] px-4 sm:px-6">
-            {item.tagline && (
-              <MemoRow label="登録説明" value={item.tagline} />
-            )}
+        <details open className="border-b border-term-line">
+          <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg lg:min-h-8">事業の説明・分析</summary>
+          <div className="border-t border-term-line-soft">
+            {item.tagline && <MemoRow label="登録説明" value={item.tagline} />}
             <MemoRow label="事業の要点" value={item.criticalInsight} />
             <MemoRow label="支払理由の分析" value={item.whyMoneyMoved} />
             <MemoRow label="規模を伸ばす分析" value={item.leverage} />
           </div>
         </details>
 
-        {item.related.length > 0 && <section className="m-3 rounded-md border border-white/[0.16] bg-[#101721] px-4 py-3">
-          <h3 className="mb-2 text-sm font-semibold text-zinc-100">関連事例</h3>
-
-            <div className="divide-y divide-white/[0.05] border-y border-white/[0.05]">
-              {item.related.map((related) => (
-                <Link
-                  key={related.id}
-                  href={"/?entity=" + encodeURIComponent(related.id) + "&mode=LEDGER"}
-                  className="flex items-center justify-between gap-3 py-2.5 text-xs group"
-                >
-                  <span className="text-zinc-300 group-hover:text-white truncate">
-                    {related.name}
-                  </span>
-                  <span className="text-zinc-400 shrink-0">{related.resultValue}</span>
-                </Link>
-              ))}
-            </div>
+        {item.related.length > 0 && <section className="border-b border-term-line">
+          <h3 className="border-b border-term-line-soft bg-term-head px-3 py-1 text-xs text-term-label">関連事例</h3>
+          {item.related.map((related) => (
+            <Link
+              key={related.id}
+              href={"/?entity=" + encodeURIComponent(related.id) + "&mode=LEDGER"}
+              className="flex min-h-11 items-center justify-between gap-3 border-b border-term-line-soft px-3 text-sm hover:bg-term-select lg:min-h-[29px]"
+            >
+              <span className="truncate text-term-fg">{related.name}</span>
+              <span className="term-num shrink-0 text-term-muted">{normalizeYenText(related.resultValue)}</span>
+            </Link>
+          ))}
         </section>}
 
-        <details className="m-3 rounded-md border border-white/[0.16] bg-[#101721]">
-          <summary className="cursor-pointer px-4 py-3 text-sm font-medium text-zinc-200">運営情報・現行性</summary>
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="px-4 sm:px-6 py-5 lg:border-r border-white/[0.06]">
-            <div className="mb-2 text-sm font-semibold text-zinc-200">現在性の登録判定</div>
-            <div
-              className={[
-                "text-sm font-semibold",
-                "text-zinc-200",
-              ].join(" ")}
-            >
-              {item.currentLabel}
+        <details className="border-b border-term-line">
+          <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg lg:min-h-8">運営情報・現行性</summary>
+          <div className="grid grid-cols-1 border-t border-term-line-soft lg:grid-cols-2">
+            <div className="px-3 py-3 lg:border-r lg:border-term-line-soft">
+              <div className="mb-1 text-xs text-term-label">現在性の登録判定</div>
+              <div className="text-sm text-term-fg-strong">{item.currentLabel}</div>
+              <p className="mt-1 text-sm leading-6 text-term-sub">{item.currentDetail}</p>
             </div>
-            <p className="mt-2 text-sm text-zinc-300 leading-6">{item.currentDetail}</p>
-          </div>
-          <div className="px-4 sm:px-6 py-5 border-t lg:border-t-0 border-white/[0.06]">
-            <div className="text-[10px] font-mono text-zinc-500 mb-2">
-              運営情報
+            <div className="border-t border-term-line-soft px-3 py-3 lg:border-t-0">
+              <div className="mb-1 text-xs text-term-label">運営情報</div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                {item.descriptors.length > 0 ? (
+                  item.descriptors.map((fact) => (
+                    <div key={fact.label}>
+                      <div className="text-xs text-term-label">{fact.label}</div>
+                      <div className="term-num text-sm text-term-fg">{fact.value}</div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-2 text-sm text-term-dim">運営特性は未確認</div>
+                )}
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-              {item.descriptors.length > 0 ? (
-                item.descriptors.map((fact) => (
-                  <div key={fact.label}>
-                    <div className="text-[10px] text-zinc-600">{fact.label}</div>
-                    <div className="text-xs font-mono text-zinc-300 mt-0.5">{fact.value}</div>
-                  </div>
-                ))
-              ) : (
-                <div className="text-xs text-zinc-500 col-span-2">運営特性は未確認です。</div>
-              )}
-            </div>
-          </div>
           </div>
         </details>
 
-        <details className="group m-3 rounded-md border border-white/[0.16] bg-[#101721]">
-          <summary className="flex cursor-pointer list-none items-center gap-2 px-4 py-3 text-sm font-medium text-zinc-200 hover:bg-white/[0.04] [&::-webkit-details-marker]:hidden">
-            <MessageSquareText className="h-4 w-4 text-accent" />
+        <details className="group border-b border-term-line">
+          <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg lg:min-h-8">
             この事例について質問
-            <ChevronDown aria-hidden="true" className="ml-auto h-4 w-4 text-zinc-500 group-open:rotate-180" />
           </summary>
-          <div className="border-t border-white/[0.08] p-3">
-          <div className="mb-3 flex flex-wrap gap-1.5">
-            {quickPrompts.map((prompt) => (
-              <button
-                key={prompt.label}
-                type="button"
-                onClick={() => setChatInput(prompt.question)}
-                className="rounded border border-white/[0.12] px-2 py-1.5 text-xs text-zinc-300 hover:border-white/30 hover:text-white"
-              >
-                {prompt.label}
-              </button>
-            ))}
-          </div>
-
-          {chatLines.length > 0 && (
-            <div className="mb-3 max-h-72 overflow-y-auto border-y border-white/[0.06] divide-y divide-white/[0.05]">
-              {chatLines.map((line, index) => (
-                <div key={line.role + "_" + index} className="py-3">
-                  <div className="text-[9px] font-mono text-zinc-600 mb-1">
-                    {line.role === "user" ? "YOU" : "ANALYST"}
-                  </div>
-                  <div className="text-xs text-zinc-300 whitespace-pre-wrap leading-relaxed">
-                    {line.content}
-                  </div>
-                </div>
+          <div className="border-t border-term-line-soft p-3">
+            <div className="mb-3 flex flex-wrap gap-2">
+              {quickPrompts.map((prompt) => (
+                <button
+                  key={prompt.label}
+                  type="button"
+                  onClick={() => setChatInput(prompt.question)}
+                  className="min-h-11 rounded-sm border border-term-line px-3 text-sm text-term-fg hover:bg-term-head lg:min-h-8"
+                >
+                  {prompt.label}
+                </button>
               ))}
-              {isSending && (
-                <div className="py-3 flex items-center gap-2 text-xs text-zinc-500">
-                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                  分析中
-                </div>
-              )}
             </div>
-          )}
 
-          {!loading && !user && (
-            <button
-              type="button"
-              onClick={() => void signInWithGoogle()}
-              className="mb-3 inline-flex items-center gap-1.5 text-xs text-zinc-300 hover:text-white"
-            >
-              <LogIn className="w-3.5 h-3.5" />
-              Googleでログインして質問する
-            </button>
-          )}
+            {chatLines.length > 0 && (
+              <div className="mb-3 max-h-72 overflow-y-auto border-y border-term-line-soft">
+                {chatLines.map((line, index) => (
+                  <div key={line.role + "_" + index} className="border-b border-term-line-soft py-2 last:border-b-0">
+                    <div className="mb-0.5 text-xs text-term-label">{line.role === "user" ? "あなた" : "回答"}</div>
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-term-fg">{line.content}</div>
+                  </div>
+                ))}
+                {isSending && (
+                  <div className="flex items-center gap-2 py-2 text-sm text-term-label">
+                    <Loader2 aria-hidden="true" className="h-3.5 w-3.5 animate-spin" />
+                    分析中
+                  </div>
+                )}
+              </div>
+            )}
 
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              void send();
-            }}
-            className="flex gap-2"
-          >
-            <input
-              aria-label="事例についての質問"
-              value={chatInput}
-              onChange={(event) => setChatInput(event.target.value)}
-              placeholder="例：この価格設定が成り立つ条件は？"
-              className="flex-1 min-w-0 bg-[#050608] border border-white/[0.09] focus:border-white/[0.22] px-3 py-2.5 text-xs text-white placeholder-zinc-600 outline-none"
-            />
-            <button
-              type="submit"
-              disabled={!chatInput.trim() || isSending}
-              className="shrink-0 px-3 py-2.5 text-xs font-semibold bg-zinc-100 text-zinc-950 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white transition-colors"
+            {!loading && !user && (
+              <button
+                type="button"
+                onClick={() => void signInWithGoogle()}
+                className={`${actionBtn} mb-3 border-term-line text-term-fg hover:bg-term-head`}
+              >
+                Googleでログインして質問する
+              </button>
+            )}
+
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                void send();
+              }}
+              className="flex gap-2"
             >
-              聞く
-            </button>
-          </form>
+              <input
+                aria-label="事例についての質問"
+                value={chatInput}
+                onChange={(event) => setChatInput(event.target.value)}
+                placeholder="例：この価格設定が成り立つ条件は？"
+                className="min-h-11 min-w-0 flex-1 rounded-sm border border-term-line bg-term-bg px-3 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:min-h-8"
+              />
+              <button
+                type="submit"
+                disabled={!chatInput.trim() || isSending}
+                className={`${actionBtn} shrink-0 border-term-accent bg-transparent text-term-accent hover:bg-term-head disabled:cursor-not-allowed disabled:opacity-30`}
+              >
+                聞く
+              </button>
+            </form>
           </div>
         </details>
 
-        <section className="grid grid-cols-3 items-center gap-2 px-3 py-3 text-xs">
+        <section className="flex flex-wrap items-center gap-2 px-3 py-3">
           <Link
             href={`/execute/${encodeURIComponent(item.id)}`}
-            className="inline-flex items-center justify-center gap-1 rounded border border-emerald-500/30 bg-emerald-500/10 px-1 py-2 font-semibold text-emerald-300 hover:bg-emerald-500/15 hover:text-emerald-200"
+            className={`${actionBtn} border-term-accent text-term-accent hover:bg-term-head`}
           >
-            <Rocket className="w-3.5 h-3.5" />
             計画を作成
           </Link>
           <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
-            className="inline-flex items-center justify-center gap-1 text-zinc-300 hover:text-white"
+            className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}
           >
-            <Database className="w-3.5 h-3.5" />
             事例の詳細
           </Link>
-          <Link href="/?mode=SYNTHESIS" className="text-center text-zinc-400 hover:text-white">
+          <Link href="/?mode=SYNTHESIS" className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}>
             事業を検討
           </Link>
         </section>
@@ -546,21 +485,29 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
     }
   };
 
+  const lensTabs = LENSES.map((item) => ({ key: item.id, label: item.label }));
   return (
-    <div className="h-dvh w-full bg-[#060709] text-zinc-100 overflow-hidden flex flex-col">
+    <div className="flex h-dvh w-full flex-col overflow-hidden bg-term-bg text-term-fg">
       <GlobalHeader currentSection="DISCOVER" />
       <h1 className="sr-only">事例を探す</h1>
 
-      <div className="shrink-0 bg-[#08090C] border-b border-white/[0.1] px-3 py-2 sm:px-4">
-        <div className="flex items-center gap-2">
-          <div className="relative min-w-0 flex-1 sm:min-w-[240px] sm:max-w-xs">
-            <Search className="w-3.5 h-3.5 text-zinc-600 absolute left-2.5 top-1/2 -translate-y-1/2" />
+      <div className="shrink-0 border-b border-term-line bg-term-panel">
+        <div className="term-panel-title">
+          <span className="term-panel-name">事例を探す</span>
+          <span className="term-num">
+            {query ? `検索結果 ${visibleCases.length}件 / 全${dataset.sourceCount.toLocaleString()}件` : `${dataset.visibleCount.toLocaleString()}件を表示 / 全${dataset.sourceCount.toLocaleString()}件`}
+          </span>
+          <span className="ml-auto hidden xl:inline">並び順: {LENSES.find((item) => item.id === lens)?.hint}</span>
+        </div>
+        <div className="flex items-center gap-2 p-2">
+          <div className="relative min-w-0 flex-1 sm:max-w-sm">
+            <Search aria-hidden="true" className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-term-label" />
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               aria-label="人物・業種・仕組みで検索"
               placeholder="事例名・業種・収益の仕組みで検索"
-              className="h-10 w-full rounded-md border border-white/[0.14] bg-surface-raised pl-8 pr-3 text-sm text-zinc-100 placeholder:text-zinc-400 outline-none focus:border-accent"
+              className="h-11 w-full rounded-sm border border-term-line bg-term-bg pl-8 pr-3 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-7"
             />
           </div>
 
@@ -568,60 +515,49 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
             aria-label="事例の並び順"
             value={lens}
             onChange={(event) => setLens(event.target.value as DiscoveryLens)}
-            className="h-10 w-28 shrink-0 rounded-md border border-white/[0.18] bg-surface-raised px-2 text-sm text-white outline-none focus:border-accent lg:hidden"
+            className="h-11 w-28 shrink-0 rounded-sm border border-term-line bg-term-bg px-2 text-sm text-term-fg-strong outline-none focus:border-term-accent lg:hidden"
           >
             {LENSES.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}
           </select>
-          <div className="hidden min-w-0 gap-1.5 lg:flex lg:flex-1 lg:flex-wrap">
-          {LENSES.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              title={item.hint}
-              onClick={() => setLens(item.id)}
-              aria-pressed={lens === item.id}
-              className={[
-                "min-h-10 shrink-0 rounded px-2.5 text-xs border transition-colors sm:text-sm",
-                lens === item.id
-                  ? "bg-sky-300/[0.16] text-sky-50 border-sky-300/55 ring-1 ring-inset ring-sky-300/20"
-                  : "bg-transparent text-zinc-300 border-white/[0.14] hover:text-white hover:border-white/[0.24] hover:bg-white/[0.04]",
-              ].join(" ")}
-            >
-              {item.label}
-            </button>
-          ))}
-          </div>
+          <SquareTabs
+            ariaLabel="並び順"
+            tabs={lensTabs}
+            value={lens}
+            onChange={setLens}
+            className="hidden border-l border-term-line lg:flex"
+          />
         </div>
       </div>
 
-      <main className="flex-1 min-h-0 flex overflow-hidden">
-        <section data-testid="discover-list" className="w-full lg:w-[46%] xl:w-[44%] min-w-0 border-r border-white/[0.06] bg-[#07080B] flex flex-col">
-          <div className="shrink-0 px-3 py-2 sm:px-4 border-b border-white/[0.1] flex items-center justify-between gap-3 text-sm text-zinc-300">
-            <span className="font-medium tabular-nums">
-              {query ? `検索結果 ${visibleCases.length}件` : `${dataset.visibleCount}件を表示`}
-            </span>
-            <span className="text-right text-[11px] text-zinc-500">
-              {query ? `全${dataset.sourceCount.toLocaleString()}件から` : `全${dataset.sourceCount.toLocaleString()}件 · ${LENSES.find((item) => item.id === lens)?.label}`}
-            </span>
+      <main className="flex min-h-0 flex-1 overflow-hidden">
+        <section data-testid="discover-list" className="flex min-w-0 w-full flex-col border-r border-term-line bg-term-bg lg:w-[58%] xl:w-[56%]">
+          <div className={`hidden h-[26px] shrink-0 items-center gap-x-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label lg:grid ${ROW_GRID}`}>
+            <span>事例</span>
+            <span className="hidden xl:block">分野</span>
+            <span>収益パターン</span>
+            <span className="text-right">営業利益 / 月商</span>
+            <span>状態</span>
           </div>
 
-          <div className="flex-1 min-h-0 overflow-y-auto">
-            {visibleCases.map((item) => (
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            {visibleCases.map((item, index) => (
               <DiscoveryRow
                 key={item.id}
                 item={item}
+                index={index}
                 selected={selected?.id === item.id}
                 onSelect={() => choose(item.id)}
               />
             ))}
 
             {visibleCases.length === 0 && (
-              <div className="p-8 text-center">
-                <div className="text-sm text-zinc-400">一致する事例がありません。</div>
+              <div className="px-3 py-4 text-sm">
+                <div className="text-term-fg-strong">一致する事例がありません。</div>
+                <p className="mt-1 text-term-sub">検索語を短くするか、検索を解除して全件に戻してください。</p>
                 <button
                   type="button"
                   onClick={() => setQuery("")}
-                  className="mt-2 text-xs text-zinc-500 hover:text-white"
+                  className="mt-3 inline-flex min-h-11 items-center rounded-sm border border-term-accent px-4 text-sm text-term-accent hover:bg-term-head lg:min-h-8"
                 >
                   検索を解除
                 </button>
@@ -630,24 +566,18 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
           </div>
         </section>
 
-        <section className="hidden lg:block flex-1 min-w-0">
+        <section className="hidden min-w-0 flex-1 lg:block">
           {selected ? (
             <DetailPane item={selected} />
           ) : (
-            <div className="h-full grid place-items-center text-xs text-zinc-600">
-              表示できる事例がありません。
-            </div>
+            <div className="px-3 py-4 text-sm text-term-label">表示できる事例がありません。</div>
           )}
         </section>
       </main>
 
       {mobileDetailOpen && selected && (
-        <div className="fixed inset-0 z-50 lg:hidden bg-[#07080B]">
-          <DetailPane
-            item={selected}
-
-            onCloseMobile={() => setMobileDetailOpen(false)}
-          />
+        <div className="fixed inset-0 z-50 bg-term-bg lg:hidden">
+          <DetailPane item={selected} onCloseMobile={() => setMobileDetailOpen(false)} />
         </div>
       )}
     </div>

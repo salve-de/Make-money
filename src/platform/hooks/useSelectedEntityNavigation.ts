@@ -44,6 +44,7 @@ export function useSelectedEntityNavigation({
 
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
   const appliedNavigation = useRef<string | null>(null);
+  const previousEntityParam = useRef<string | null>(entityParam ?? null);
 
   // オンデマンド詳細読み込み
   useEffect(() => {
@@ -76,7 +77,10 @@ export function useSelectedEntityNavigation({
       }
     } else {
       appliedNavigation.current = navigationKey;
+      // 戻る操作などで ?entity= が消えたら詳細を閉じる
+      if (previousEntityParam.current) setSelectedEntityId(null);
     }
+    previousEntityParam.current = entityParam ?? null;
   }, [entityParam, queryParam, entities, entityAliases]);
 
   // 閲覧履歴の自動追跡

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { MARKET_RADAR_TRENDS, MARKET_RADAR_LANDMINES } from '@/platform/data/marketRadarData';
-import { AlertTriangle, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { RadarOpportunityDetail } from './RadarOpportunityDetail';
 import { RadarLandmineDetail } from './RadarLandmineDetail';
 
@@ -19,12 +19,12 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id }) 
 
   if (!trend && !landmine) {
     return (
-      <div className="grid flex-1 place-items-center bg-background p-6 text-zinc-300">
-        <div className="max-w-md rounded-lg border border-white/[0.12] bg-surface p-6 text-center">
-          <AlertTriangle aria-hidden="true" className="mx-auto h-7 w-7 text-amber-200" />
-          <h2 className="mt-3 text-lg font-semibold text-white">項目が見つかりません</h2>
-          <p className="mt-2 text-sm leading-6 text-zinc-300">リンク先の資料は削除されたか、URLが正しくありません。</p>
-          <Link href="/radar" className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-md border border-white/[0.14] bg-surface-raised px-4 text-sm text-zinc-100">
+      <div className="flex-1 bg-term-bg text-term-fg">
+        <div className="term-panel-title"><span className="term-panel-name">市場動向</span></div>
+        <div className="px-3 py-4 text-sm">
+          <h2 className="text-base font-semibold text-term-fg-strong">項目が見つかりません</h2>
+          <p className="mt-1 text-term-sub">リンク先の資料は削除されたか、URLが正しくありません。一覧から選び直してください。</p>
+          <Link href="/radar" className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-sm border border-term-accent px-4 text-sm text-term-accent hover:bg-term-head lg:min-h-8">
             <ArrowLeft aria-hidden="true" className="h-4 w-4" />
             市場動向の一覧へ
           </Link>
@@ -34,11 +34,14 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id }) 
   }
 
   return (
-    <div className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto bg-background text-foreground">
-      <div className="mx-auto w-full max-w-5xl flex-1 space-y-3 px-4 pb-4 sm:px-6 sm:pb-6">
-        <Link href="/radar" className="inline-flex min-h-10 items-center gap-2 text-xs text-zinc-400 hover:text-white">
-          <ArrowLeft aria-hidden="true" className="h-3.5 w-3.5" />市場動向
+    <div className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto bg-term-bg text-term-fg">
+      <div className="term-panel-title">
+        <span className="term-panel-name">市場動向</span>
+        <Link href="/radar" className="inline-flex min-h-6 items-center gap-1 text-term-sub hover:text-term-fg-strong">
+          <ArrowLeft aria-hidden="true" className="h-3.5 w-3.5" />一覧へ戻る
         </Link>
+      </div>
+      <div className="w-full max-w-6xl flex-1">
         {trend && <RadarOpportunityDetail trend={trend} />}
         {landmine && <RadarLandmineDetail landmine={landmine} />}
       </div>

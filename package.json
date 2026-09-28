@@ -50,7 +50,8 @@
     "workers:build": "node scripts/architecture/build-workers.mjs",
     "bundle:workers": "pnpm workers:build -- --skipNextBuild",
     "foundation:typed:preflight": "node --import tsx scripts/foundation-typed-preflight.ts",
-    "foundation:rights:audit": "node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/audit-commercial-rights-r2.ts"
+    "foundation:rights:audit": "node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/audit-commercial-rights-r2.ts",
+    "ui:audit": "node scripts/ui-audit/capture.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",

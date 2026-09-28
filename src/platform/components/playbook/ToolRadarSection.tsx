@@ -182,65 +182,59 @@ interface ToolRadarSectionProps {
   onSelectEntity?: (entityId: string) => void;
 }
 
+const TOOL_GRID = 'lg:grid-cols-[180px_minmax(0,1.4fr)_minmax(0,1.2fr)_minmax(0,1.2fr)_110px]';
+
 export const ToolRadarSection: React.FC<ToolRadarSectionProps> = ({
   selectedToolCategory,
   setSelectedToolCategory,
   activeCategoryRadar,
   activeCategoryMeta,
   onSelectEntity,
-}) => (
-  <div className="mx-auto max-w-7xl space-y-3 px-3 py-3 sm:px-7 sm:py-5">
-    <section aria-label="ツールの用途を選択" className="hidden items-center gap-3 border-b border-white/[0.12] pb-3 sm:flex">
-      <label htmlFor="tool-category" className="shrink-0 text-xs text-zinc-400">用途</label>
-      <select
-        id="tool-category"
-        value={selectedToolCategory}
-        onChange={(event) => setSelectedToolCategory(event.target.value as ToolCategoryKey)}
-        className="h-10 min-w-0 w-full max-w-sm rounded-md border border-white/[0.2] bg-[#18232d] px-3 text-sm font-medium text-white outline-none focus:border-accent"
-      >
-        {TOOL_CATEGORIES.map((cat) => <option key={cat.key} value={cat.key}>{cat.label}</option>)}
-      </select>
-    </section>
+}) => {
+  const guides = activeCategoryRadar.tools.flatMap((tool) => {
+    const first = TOOL_GUIDES[tool.name];
+    const additional = ADDITIONAL_GUIDES[tool.name];
+    return first ? [{ ...first, title: first.title ?? tool.name }, ...(additional ? [additional] : [])] : [];
+  });
+  const unguided = activeCategoryRadar.tools.filter((tool) => !TOOL_GUIDES[tool.name]);
+  return (
+    <div className="w-full">
+      <section aria-label="ツールの用途を選択" className="flex items-center gap-3 border-b border-term-line px-3 py-2">
+        <label htmlFor="tool-category" className="shrink-0 text-xs text-term-label">用途</label>
+        <select
+          id="tool-category"
+          value={selectedToolCategory}
+          onChange={(event) => setSelectedToolCategory(event.target.value as ToolCategoryKey)}
+          className="h-11 min-w-0 w-full max-w-sm rounded-sm border border-term-line bg-term-bg px-2 text-sm text-term-fg-strong outline-none focus:border-term-accent lg:h-8"
+        >
+          {TOOL_CATEGORIES.map((cat) => <option key={cat.key} value={cat.key}>{cat.label}</option>)}
+        </select>
+        <span className="term-num ml-auto hidden text-xs text-term-label sm:inline">{guides.length + unguided.length}件</span>
+      </section>
 
-    <section aria-label={`${activeCategoryMeta.label}のツール`} className="grid gap-3 xl:grid-cols-2">
-      {activeCategoryRadar.tools.flatMap((tool) => {
-        const first = TOOL_GUIDES[tool.name];
-        const additional = ADDITIONAL_GUIDES[tool.name];
-        return first ? [{ ...first, title: first.title ?? tool.name }, ...(additional ? [additional] : [])] : [];
-      }).map((guide) => {
-        return (
-          <article key={guide.officialUrl} className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-            <div className="border-b border-white/[0.08] bg-[#1a2530] px-3 py-2.5">
-              <h3 className="text-base font-semibold leading-snug text-white">{guide.title}</h3>
-              <p className="mt-0.5 text-sm leading-5 text-zinc-200">{guide.description}</p>
-            </div>
-            <dl className="grid gap-2 px-3 py-2.5 text-sm leading-5 sm:grid-cols-2">
-              <div>
-                <dt className="text-xs font-medium text-zinc-400">向く用途</dt>
-                <dd className="mt-0.5 text-zinc-200">{guide.suitableFor}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-medium text-zinc-400">導入前に確認</dt>
-                <dd className="mt-0.5 text-zinc-300">{guide.check}</dd>
-              </div>
-            </dl>
-            <div className="border-t border-white/[0.08] px-3 py-1.5">
-              <a href={guide.officialUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-8 items-center text-sm text-accent-strong hover:text-white">公式資料を開く ↗</a>
-            </div>
-          </article>
-        );
-      })}
-    </section>
-    {activeCategoryRadar.tools.filter((tool) => !TOOL_GUIDES[tool.name]).map((tool) => (
-      <article key={tool.name} className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-        <h3 className="bg-[#1a2530] px-3 py-2.5 text-base font-semibold text-white">{tool.name}</h3>
-        <div className="space-y-2 px-3 py-3 text-sm leading-6 text-zinc-200">
-          {tool.whyMigrating && <p>{tool.whyMigrating}</p>}
-          {tool.estimatedCost && <p><span className="text-zinc-400">費用目安 </span>{tool.estimatedCost}</p>}
-          {tool.proofQuote && <details><summary className="cursor-pointer text-sky-200">収集記録</summary><p className="mt-2">{tool.proofQuote}</p>{tool.detectionMethod && <p className="text-xs text-zinc-400">{tool.detectionMethod}</p>}</details>}
-          {tool.usedByEntities.length > 0 && <div className="flex flex-wrap gap-2">{tool.usedByEntities.map((entity) => onSelectEntity ? <button key={entity.id} type="button" onClick={() => onSelectEntity(entity.id)} className="min-h-9 rounded border border-white/15 px-2 text-sky-200">{entity.name}</button> : <span key={entity.id}>{entity.name}</span>)}</div>}
+      <section aria-label={`${activeCategoryMeta.label}のツール`}>
+        <div className={`hidden h-[26px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label lg:grid ${TOOL_GRID}`}>
+          <span>名前</span><span>何をするか</span><span>向く用途</span><span>導入前に確認</span><span>公式資料</span>
         </div>
-      </article>
-    ))}
-  </div>
-);
+        {guides.map((guide, index) => (
+          <article key={guide.officialUrl} className={`grid gap-x-3 gap-y-1 border-b border-term-line-soft px-3 py-2.5 text-sm leading-5 lg:items-start lg:py-1.5 ${TOOL_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}>
+            <h3 className="font-semibold text-term-fg-strong">{guide.title}</h3>
+            <p className="text-term-sub">{guide.description}</p>
+            <p className="text-term-fg"><span className="mr-2 text-xs text-term-label lg:hidden">向く用途</span>{guide.suitableFor}</p>
+            <p className="text-term-muted"><span className="mr-2 text-xs text-term-label lg:hidden">導入前に確認</span>{guide.check}</p>
+            <a href={guide.officialUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0">公式資料を開く ↗</a>
+          </article>
+        ))}
+      </section>
+      {unguided.map((tool) => (
+        <article key={tool.name} className="border-b border-term-line-soft px-3 py-2.5 text-sm leading-6 text-term-fg">
+          <h3 className="font-semibold text-term-fg-strong">{tool.name}</h3>
+          {tool.whyMigrating && <p className="text-term-sub">{tool.whyMigrating}</p>}
+          {tool.estimatedCost && <p><span className="text-xs text-term-label">費用目安 </span>{tool.estimatedCost}</p>}
+          {tool.proofQuote && <details><summary className="min-h-11 cursor-pointer text-term-select-fg lg:min-h-0">収集記録</summary><p className="mt-2">{tool.proofQuote}</p>{tool.detectionMethod && <p className="text-xs text-term-label">{tool.detectionMethod}</p>}</details>}
+          {tool.usedByEntities.length > 0 && <div className="flex flex-wrap gap-2">{tool.usedByEntities.map((entity) => onSelectEntity ? <button key={entity.id} type="button" onClick={() => onSelectEntity(entity.id)} className="min-h-11 rounded-sm border border-term-line px-2 text-term-select-fg hover:bg-term-head lg:min-h-8">{entity.name}</button> : <span key={entity.id}>{entity.name}</span>)}</div>}
+        </article>
+      ))}
+    </div>
+  );
+};

@@ -73,23 +73,27 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
 
   const hasActiveScreener = activeScreenerCount > 0;
 
+  const btn = 'inline-flex items-center gap-1.5 rounded-sm border px-2.5 text-xs transition-colors';
+  const btnOff = 'border-term-line bg-transparent text-term-fg hover:bg-term-head';
+  const btnOn = 'border-term-accent text-term-accent';
+
   return (
-    <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-white/[0.12] bg-surface px-3 py-2 sm:px-4">
-      <div className="flex flex-col gap-2">
+    <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-term-line bg-term-panel px-3 py-2 lg:px-2.5 lg:py-1.5">
+      <div className="flex flex-col gap-2 lg:gap-1.5">
         <div className="flex items-center gap-2">
           <div className="relative min-w-0 flex-1">
             <label htmlFor="company-search" className="sr-only">会社名、ティッカー、事業の特徴で検索</label>
-            <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
+            <Search aria-hidden="true" className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
             <input
               id="company-search"
               type="search"
               value={searchQuery}
               onChange={(event) => onSearchChange(event.target.value)}
               placeholder="会社名・ティッカー・事業の特徴で検索"
-              className="[&::-webkit-search-cancel-button]:appearance-none h-11 w-full rounded-md border border-white/[0.12] bg-[#0b1016] pl-10 pr-9 text-sm text-zinc-100 placeholder:text-zinc-500 outline-none transition-colors focus:border-sky-300/60 focus:ring-2 focus:ring-sky-300/15 sm:pr-16"
+              className="[&::-webkit-search-cancel-button]:appearance-none h-11 w-full rounded-sm border border-term-line bg-term-bg pl-9 pr-9 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8 lg:text-[13px] sm:pr-14"
             />
             {!searchQuery ? (
-              <kbd className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded border border-white/[0.1] bg-white/[0.04] px-1.5 py-0.5 text-[11px] text-zinc-400 sm:inline-flex">
+              <kbd className="term-num pointer-events-none absolute right-2.5 top-1/2 hidden -translate-y-1/2 border border-term-line px-1 text-xs text-term-label sm:inline-flex">
                 ⌘ K
               </kbd>
             ) : (
@@ -97,7 +101,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
                 type="button"
                 onClick={() => onSearchChange('')}
                 aria-label="検索語を消去"
-                className="absolute right-1.5 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded text-zinc-400 transition-colors hover:bg-white/[0.06] hover:text-white"
+                className="absolute right-1 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-sm text-term-muted hover:bg-term-head hover:text-term-fg-strong"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -109,23 +113,19 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               type="button"
               onClick={onOpenScreener}
               aria-label={hasActiveScreener ? `条件を絞る、現在${activeScreenerCount}件の条件` : '条件を絞る'}
-              className={`inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-md border px-3 text-sm font-medium transition-colors sm:flex-none ${
-                hasActiveScreener
-                  ? 'border-sky-300/55 bg-sky-300/[0.16] text-sky-50 ring-1 ring-inset ring-sky-300/20'
-                  : 'border-white/[0.16] bg-white/[0.045] text-zinc-100 hover:border-white/[0.24] hover:bg-white/[0.08]'
-              }`}
+              className={`${btn} min-h-11 flex-1 justify-center text-sm sm:flex-none lg:min-h-8 lg:text-xs ${hasActiveScreener ? btnOn : btnOff}`}
               title="業種や規模などの条件を設定"
             >
               <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
               <span className="sm:hidden">絞込</span><span className="hidden sm:inline">条件を絞る</span>
-              {hasActiveScreener && <span className="tabular-nums text-sky-200">{activeScreenerCount}</span>}
+              {hasActiveScreener && <span className="term-num">{activeScreenerCount}</span>}
             </button>
             {hasActiveScreener && onResetScreener && (
               <button
                 type="button"
                 onClick={onResetScreener}
                 aria-label="絞り込み条件をすべて解除"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/[0.12] text-zinc-400 transition-colors hover:bg-white/[0.06] hover:text-white"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-term-line text-term-muted hover:bg-term-head hover:text-term-fg-strong lg:h-8 lg:w-8"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -134,18 +134,18 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <label className="inline-flex min-h-9 min-w-0 flex-1 items-center gap-2 rounded-md border border-white/[0.1] bg-white/[0.025] px-2.5 text-xs text-zinc-400 sm:flex-none">
+          <label className="inline-flex min-h-9 min-w-0 flex-1 items-center gap-2 rounded-sm border border-term-line px-2.5 text-xs text-term-label sm:flex-none lg:min-h-7">
             <Layers aria-hidden="true" className="h-3.5 w-3.5" />
             <span className="hidden shrink-0 whitespace-nowrap sm:inline">登録回</span>
             <select
               aria-label="登録回で絞り込み"
               value={selectedBatch}
               onChange={(event) => onSelectBatch?.(event.target.value)}
-              className="min-w-0 w-full max-w-40 bg-transparent text-xs text-zinc-100 outline-none sm:max-w-48"
+              className="min-w-0 w-full max-w-40 bg-transparent text-xs text-term-fg outline-none sm:max-w-48"
             >
-              <option value="ALL" className="bg-[#111821] text-zinc-100">すべて ({catalogTotal === null ? '確認中' : totalAllBatches.toLocaleString()})</option>
+              <option value="ALL" className="bg-term-panel text-term-fg">すべて ({catalogTotal === null ? '確認中' : totalAllBatches.toLocaleString()})</option>
               {batchOptions.map((batch) => (
-                <option key={batch.id} value={batch.id} className="bg-[#111821] text-zinc-100">
+                <option key={batch.id} value={batch.id} className="bg-term-panel text-term-fg">
                   {batch.label} ({batch.count}件)
                 </option>
               ))}
@@ -158,11 +158,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               onClick={() => onToggleTag('収集事例')}
               aria-pressed={activeTags.includes('収集事例')}
               title="新しく登録された事例を表示"
-              className={`inline-flex min-h-9 items-center gap-2 rounded-md border px-2.5 text-xs transition-colors ${
-                activeTags.includes('収集事例')
-                  ? 'border-sky-300/55 bg-sky-300/[0.16] text-sky-50 ring-1 ring-inset ring-sky-300/20'
-                  : 'border-white/[0.14] bg-white/[0.04] text-zinc-200 hover:border-white/[0.22] hover:bg-white/[0.07]'
-              }`}
+              className={`${btn} min-h-9 lg:min-h-7 ${activeTags.includes('収集事例') ? btnOn : btnOff}`}
             >
               <span>新着事例</span>
             </button>
@@ -174,7 +170,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               type="button"
               onClick={() => onToggleTag?.(tag)}
               aria-label={`${tag}の絞り込みを解除`}
-              className="inline-flex min-h-9 items-center gap-1.5 rounded-md border border-sky-300/35 bg-sky-300/[0.1] px-2.5 text-xs text-sky-50 transition-colors hover:border-sky-300/55 hover:bg-sky-300/[0.16]"
+              className={`${btn} min-h-9 lg:min-h-7 ${btnOn}`}
             >
               <span>{tag}</span>
               <X aria-hidden="true" className="h-3.5 w-3.5" />
@@ -185,7 +181,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             <button
               type="button"
               onClick={onApproveAllCollected}
-              className="inline-flex min-h-9 items-center gap-1.5 rounded-md border border-white/[0.12] px-2.5 text-xs text-zinc-200 transition-colors hover:bg-white/[0.06]"
+              className={`${btn} ${btnOff} min-h-9 lg:min-h-7`}
               title="表示中の事例を台帳に登録"
             >
               <Check aria-hidden="true" className="h-3.5 w-3.5" />
@@ -193,8 +189,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             </button>
           )}
 
-          <p className="ml-auto shrink-0 whitespace-nowrap text-xs tabular-nums text-zinc-400" aria-live="polite">
-            <span className="font-semibold text-sky-100">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件
+          <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label" aria-live="polite">
+            <span className="text-term-fg">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件
           </p>
         </div>
       </div>

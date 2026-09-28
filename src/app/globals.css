@@ -228,3 +228,7 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* 下部固定メニュー（term-bottom-nav）の分だけ本文の下に余白を空ける */
+body:has(.term-bottom-nav) { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
+@media (min-width: 1024px) { body:has(.term-bottom-nav) { padding-bottom: 0; } }

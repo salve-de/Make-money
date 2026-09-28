@@ -64,7 +64,7 @@ export const SparklineChart: React.FC<SparklineChartProps> = ({
         />
       </svg>
       {growthRate && (
-        <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/80 tabular-nums">
+        <span className="text-xs font-mono font-bold text-term-positive px-1.5 py-0.5 rounded border border-term-line tabular-nums">
           {growthRate}
         </span>
       )}

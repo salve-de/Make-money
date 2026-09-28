@@ -22,14 +22,16 @@ export interface ScreenerFilterState {
 }
 
 const optionClass = (selected: boolean) => `
-  flex min-h-11 w-full items-center justify-between gap-2 rounded-md border px-3 py-2 text-left text-sm transition-colors
-  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff] focus-visible:ring-offset-2 focus-visible:ring-offset-[#080e13]
+  flex min-h-11 w-full items-center justify-between gap-2 rounded-sm border px-3 py-1.5 text-left text-[13px] lg:min-h-8
+  focus-visible:outline-1 focus-visible:outline-term-accent
   ${selected
-    ? 'border-[#5aa8f5] bg-[#193b56] text-white'
-    : 'border-white/[0.14] bg-white/[0.035] text-zinc-300 hover:border-white/[0.25] hover:bg-white/[0.07] hover:text-white'}
+    ? 'border-term-accent bg-term-select text-term-fg-strong'
+    : 'border-term-line bg-transparent text-term-fg hover:bg-term-head'}
 `;
 
-const fieldsetClass = 'space-y-3 border-b border-white/[0.12] pb-5';
+const fieldsetClass = 'space-y-2 border-b border-term-line-soft pb-4';
+const legendClass = 'mb-2 flex w-full items-center justify-between gap-3 text-xs text-term-accent';
+const hintClass = 'ml-2 text-xs font-normal text-term-label';
 
 export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   isOpen,
@@ -132,7 +134,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
         tabIndex={-1}
         aria-label="条件選択を閉じる"
         onClick={onClose}
-        className="absolute inset-0 cursor-default bg-black/75 backdrop-blur-[2px]"
+        className="absolute inset-0 cursor-default bg-term-bg/80"
       />
       <div
         ref={dialogRef}
@@ -141,11 +143,11 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
         aria-labelledby="advanced-screener-title"
         tabIndex={-1}
         onKeyDown={handleDialogKeyDown}
-        className="relative z-10 flex max-h-[92dvh] w-full max-w-2xl flex-col overflow-hidden border border-white/[0.18] bg-[#101820] shadow-2xl sm:rounded-xl"
+        className="relative z-10 flex max-h-[92dvh] w-full max-w-2xl flex-col overflow-hidden border border-term-line bg-term-panel shadow-2xl"
       >
-        <header className="flex min-h-16 items-center justify-between gap-4 border-b border-white/[0.14] bg-[#192630] px-4 py-3 sm:px-5">
+        <header className="flex min-h-9 items-center justify-between gap-4 border-b border-term-line bg-term-head pl-3 lg:min-h-6">
           <div>
-            <h2 id="advanced-screener-title" className="text-base font-semibold text-white sm:text-lg">
+            <h2 id="advanced-screener-title" className="text-sm font-semibold text-term-accent lg:text-xs">
               事例を条件で絞り込む
             </h2>
 
@@ -155,16 +157,16 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="閉じる"
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff]"
+            className="flex h-11 w-11 shrink-0 items-center justify-center text-term-muted hover:bg-term-line hover:text-term-fg-strong lg:h-6 lg:w-8"
           >
-            <X className="h-5 w-5" aria-hidden="true" />
+            <X className="h-4 w-4" aria-hidden="true" />
           </button>
         </header>
 
-        <div className="flex-1 space-y-5 overflow-y-auto px-4 py-5 sm:px-5">
+        <div className="flex-1 space-y-4 overflow-y-auto px-3 py-3 sm:px-4">
           <fieldset className={fieldsetClass}>
-            <legend className="mb-3 w-full text-sm font-semibold text-white">
-              事業の規模 <span className="ml-2 text-xs font-normal text-zinc-400">複数選択可</span>
+            <legend className={legendClass}>
+              事業の規模 <span className={hintClass}>複数選択可</span>
             </legend>
             <div className="grid grid-cols-2 gap-2">
               {[
@@ -183,7 +185,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                     className={optionClass(selected)}
                   >
                     <span>{item.label}</span>
-                    {selected && <Check className="h-4 w-4 shrink-0 text-[#a1ceff]" aria-hidden="true" />}
+                    {selected && <Check className="h-4 w-4 shrink-0 text-term-accent" aria-hidden="true" />}
                   </button>
                 );
               })}
@@ -191,9 +193,9 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           </fieldset>
 
           <fieldset className={fieldsetClass}>
-            <legend className="mb-3 flex w-full items-center justify-between gap-3 text-sm font-semibold text-white">
+            <legend className={legendClass}>
               <span>営業利益率の下限</span>
-              <span className="text-xs font-normal text-zinc-300">{minMargin === 0 ? '指定なし' : `${minMargin}%以上`}</span>
+              <span className="term-num text-xs font-normal text-term-muted">{minMargin === 0 ? '指定なし' : `${minMargin}%以上`}</span>
             </legend>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {[0, 30, 50, 80].map((value) => {
@@ -214,9 +216,9 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           </fieldset>
 
           <fieldset className={fieldsetClass}>
-            <legend className="mb-3 flex w-full items-center justify-between gap-3 text-sm font-semibold text-white">
+            <legend className={legendClass}>
               <span>初期資金の上限</span>
-              <span className="text-xs font-normal text-zinc-300">{maxCapital === null ? '上限なし' : maxCapital === 0 ? '0円' : '100万円以内'}</span>
+              <span className="term-num text-xs font-normal text-term-muted">{maxCapital === null ? '上限なし' : maxCapital === 0 ? '0円' : '100万円以内'}</span>
             </legend>
             <div className="grid grid-cols-3 gap-2">
               {[
@@ -241,8 +243,8 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           </fieldset>
 
           <fieldset className={fieldsetClass}>
-            <legend className="mb-3 w-full text-sm font-semibold text-white">
-              事業の参入障壁 <span className="ml-2 text-xs font-normal text-zinc-400">複数選択可</span>
+            <legend className={legendClass}>
+              事業の参入障壁 <span className={hintClass}>複数選択可</span>
             </legend>
             <div className="grid grid-cols-2 gap-2">
               {[
@@ -263,7 +265,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                     className={optionClass(selected)}
                   >
                     <span>{item.label}</span>
-                    {selected && <Check className="h-4 w-4 shrink-0 text-[#a1ceff]" aria-hidden="true" />}
+                    {selected && <Check className="h-4 w-4 shrink-0 text-term-accent" aria-hidden="true" />}
                   </button>
                 );
               })}
@@ -272,16 +274,16 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
 
           {availableTags.length > 0 && (
             <fieldset className="space-y-3 pb-1">
-              <legend className="mb-3 flex w-full flex-wrap items-center justify-between gap-2 text-sm font-semibold text-white">
-                <span>事例の特徴 <span className="ml-2 text-xs font-normal text-zinc-400">複数選択可</span></span>
+              <legend className={`${legendClass} flex-wrap`}>
+                <span>事例の特徴 <span className={hintClass}>複数選択可</span></span>
                 {selectedTags.length > 0 && (
-                  <span className="rounded border border-[#5aa8f5]/50 bg-[#193b56] px-2 py-1 text-xs font-medium text-[#d9ecff]">
+                  <span className="term-num border border-term-accent px-2 py-0.5 text-xs text-term-accent">
                     {selectedTags.length}件選択中
                   </span>
                 )}
               </legend>
-              <input type="search" aria-label="特徴タグを検索" placeholder="特徴タグを検索" value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-10 w-full rounded-md border border-white/[0.16] bg-black/20 px-3 text-sm text-white outline-none focus:border-sky-300" />
-              <div className="flex max-h-48 flex-wrap gap-2 overflow-y-auto rounded-md border border-white/[0.14] bg-black/10 p-2">
+              <input type="search" aria-label="特徴タグを検索" placeholder="特徴タグを検索" value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-[13px] text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8" />
+              <div className="flex max-h-48 flex-wrap gap-1.5 overflow-y-auto border border-term-line-soft p-1.5">
                 {availableTags.filter((tag) => tag.toLowerCase().includes(tagQuery.trim().toLowerCase())).map((tag) => {
                   const selected = selectedTags.includes(tag);
                   const count = tagCounts[tag];
@@ -291,15 +293,15 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                       type="button"
                       aria-pressed={selected}
                       onClick={() => toggleTag(tag)}
-                      className={`flex min-h-10 items-center gap-2 rounded-md border px-3 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff] ${
+                      className={`flex min-h-11 items-center gap-2 rounded-sm border px-2.5 py-1 text-[13px] focus-visible:outline-1 focus-visible:outline-term-accent lg:min-h-7 ${
                         selected
-                          ? 'border-[#5aa8f5] bg-[#193b56] font-medium text-white'
-                          : 'border-white/[0.14] bg-white/[0.035] text-zinc-300 hover:border-white/[0.25] hover:bg-white/[0.07] hover:text-white'
+                          ? 'border-term-accent bg-term-select text-term-fg-strong'
+                          : 'border-term-line bg-transparent text-term-fg hover:bg-term-head'
                       }`}
                     >
                       <span>{tag}</span>
-                      {count !== undefined && <span className="tabular-nums text-xs text-zinc-300">{count}件</span>}
-                      {selected && <Check className="h-4 w-4 shrink-0 text-[#a1ceff]" aria-hidden="true" />}
+                      {count !== undefined && <span className="term-num text-xs text-term-label">{count}件</span>}
+                      {selected && <Check className="h-4 w-4 shrink-0 text-term-accent" aria-hidden="true" />}
                     </button>
                   );
                 })}
@@ -308,7 +310,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedTags([])}
-                  className="min-h-10 rounded px-2 text-sm text-zinc-300 underline decoration-white/30 underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff]"
+                  className="min-h-11 px-1 text-xs text-term-muted underline underline-offset-4 hover:text-term-fg-strong lg:min-h-7"
                 >
                   特徴タグをすべて解除
                 </button>
@@ -317,12 +319,12 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           )}
         </div>
 
-        <footer className="flex items-center justify-between gap-2 border-t border-white/[0.14] bg-[#192630] p-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+        <footer className="flex items-center justify-between gap-2 border-t border-term-line bg-term-head px-3 py-2">
           <button
             type="button"
             onClick={handleReset}
             aria-label="条件をリセット"
-            className="flex min-h-11 items-center justify-center gap-2 rounded-md px-3 text-sm text-zinc-300 transition-colors hover:bg-white/[0.07] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff] sm:justify-start"
+            className="flex min-h-11 items-center justify-center gap-2 rounded-sm px-2 text-xs text-term-muted hover:bg-term-line hover:text-term-fg-strong sm:justify-start lg:min-h-8"
           >
             <RefreshCw className="h-4 w-4" aria-hidden="true" />
             <span className="hidden sm:inline">条件をリセット</span>
@@ -331,14 +333,14 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="min-h-11 rounded-md border border-white/[0.18] px-4 text-sm font-medium text-zinc-200 transition-colors hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a1ceff]"
+              className="min-h-11 rounded-sm border border-term-line px-4 text-[13px] text-term-fg hover:bg-term-line lg:min-h-8"
             >
               キャンセル
             </button>
             <button
               type="button"
               onClick={handleApply}
-              className="min-h-11 rounded-md bg-[#5aa8f5] px-4 text-sm font-semibold text-[#08121b] transition-colors hover:bg-[#a1ceff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#192630]"
+              className="min-h-11 rounded-sm border border-term-accent px-4 text-[13px] text-term-accent hover:bg-term-accent-bg lg:min-h-8"
             >
               条件を適用
             </button>

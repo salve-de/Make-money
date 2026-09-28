@@ -1,6 +1,7 @@
 import { INTELLIGENCE_DOSSIERS } from '@/platform/data/intelligenceDossiers';
 import { MARKET_ANOMALIES } from '@/platform/data/marketAnomaliesData';
 import type { FinancialEntity } from '@/shared/terminal';
+import { formatYen } from '@/platform/utils/moneyDisplay';
 export function parsePunchline(text: string): { punchline: string; detail: string } {
   const match = text.match(/^【(.*?)】([\s\S]*)$/);
   if (match) {
@@ -18,9 +19,7 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
       if (usd >= 1000) return `$${(usd / 1000).toFixed(0)}k`;
       return `$${usd}`;
     }
-    if (yen >= 100000000) return `¥${(yen / 100000000).toFixed(1)}億`;
-    if (yen >= 10000) return `¥${Math.round(yen / 10000)}万`;
-    return `¥${yen.toLocaleString()}`;
+    return formatYen(yen);
   };
 
   // 損益流出比率の計算（ウォーターフォール）
@@ -70,53 +69,19 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
 
   // 財務ステータス別のバッジ・タイトル・タグ設定（冷徹モノトーン仕様）
   const getFinancialBadgeMeta = () => {
+    const quiet = 'text-term-muted border-term-line';
     switch (financialStatus) {
       case 'VERIFIED':
-        return {
-          badgeClass: 'text-zinc-200 bg-white/[0.06] border-white/[0.12]',
-          iconColor: 'text-zinc-300',
-          titleColor: 'text-zinc-100',
-          title: '損益の内訳',
-          tagClass: 'bg-white/[0.04] text-zinc-300 border-white/[0.10]',
-          tagLabel: '一次資料の登録あり',
-        };
+        return { badgeClass: quiet, iconColor: 'text-term-muted', titleColor: 'text-term-fg-strong', title: '損益の内訳', tagClass: quiet, tagLabel: '一次資料の登録あり' };
       case 'REPORTED':
-        return {
-          badgeClass: 'text-zinc-300 bg-white/[0.04] border-white/[0.08]',
-          iconColor: 'text-zinc-400',
-          titleColor: 'text-zinc-200',
-          title: '損益の内訳',
-          tagClass: 'bg-white/[0.04] text-zinc-400 border-white/[0.08]',
-          tagLabel: '報道・取材資料あり',
-        };
+        return { badgeClass: quiet, iconColor: 'text-term-muted', titleColor: 'text-term-fg', title: '損益の内訳', tagClass: quiet, tagLabel: '報道・取材資料あり' };
       case 'POST_MORTEM':
-        return {
-          badgeClass: 'text-red-400 bg-red-950/30 border-red-500/30',
-          iconColor: 'text-red-400',
-          titleColor: 'text-red-300',
-          title: '過去の損益',
-          tagClass: 'bg-red-950/40 text-red-300 border-red-500/30',
-          tagLabel: '事後資料あり',
-        };
+        return { badgeClass: 'text-term-danger border-term-line', iconColor: 'text-term-danger', titleColor: 'text-term-danger', title: '過去の損益', tagClass: 'text-term-danger border-term-line', tagLabel: '事後資料あり' };
       case 'UNAVAILABLE':
-        return {
-          badgeClass: 'text-zinc-500 bg-zinc-900 border-zinc-700',
-          iconColor: 'text-zinc-500',
-          titleColor: 'text-zinc-400',
-          title: '財務情報は未確認',
-          tagClass: 'bg-zinc-900 text-zinc-500 border-zinc-700',
-          tagLabel: '未確認',
-        };
+        return { badgeClass: 'text-term-dim border-term-line', iconColor: 'text-term-dim', titleColor: 'text-term-muted', title: '財務情報は未確認', tagClass: 'text-term-dim border-term-line', tagLabel: '未確認' };
       case 'ESTIMATED':
       default:
-        return {
-          badgeClass: 'text-amber-200 bg-amber-300/[0.06] border-amber-300/25',
-          iconColor: 'text-amber-200',
-          titleColor: 'text-amber-100',
-          title: '損益の推定',
-          tagClass: 'bg-amber-300/[0.06] text-amber-200 border-amber-300/25',
-          tagLabel: '推定',
-        };
+        return { badgeClass: 'text-term-accent border-term-accent-line', iconColor: 'text-term-accent', titleColor: 'text-term-accent', title: '損益の推定', tagClass: 'text-term-accent border-term-accent-line', tagLabel: '推定' };
     }
   };
 

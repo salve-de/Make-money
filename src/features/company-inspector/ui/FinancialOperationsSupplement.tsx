@@ -57,15 +57,15 @@ export function FinancialOperationsSupplement({ entity, formatMoney, isHazardMod
     {rows.some(([, value]) => value !== null) && <dl className="grid grid-cols-2 gap-x-4 gap-y-3 py-3 sm:grid-cols-3">
       {rows.filter(([, value]) => value !== null).map(([label, value]) => <div key={label} className="min-w-0"><dt className="text-xs text-zinc-400">{label}</dt><dd className={`mt-1 break-words text-sm tabular-nums ${value === null ? 'text-zinc-500' : 'font-medium text-zinc-100'}`}>{value ?? '—'}</dd></div>)}
     </dl>}
-    {standalone.length > 0 && <dl className="grid grid-cols-2 gap-3 border-t border-white/10 py-3 sm:grid-cols-3">
+    {standalone.length > 0 && <dl className="grid grid-cols-2 gap-3 border-t border-term-line py-3 sm:grid-cols-3">
       {standalone.map(([label, value]) => <div key={label}><dt className="text-xs text-zinc-400">{label}</dt><dd className="mt-1 text-sm tabular-nums text-zinc-100">{formatMoney(value!)}</dd></div>)}
     </dl>}
-    {tools.length > 0 && <div className="border-t border-white/10 py-3">
+    {tools.length > 0 && <div className="border-t border-term-line py-3">
       <div className="mb-2 flex flex-wrap justify-between gap-2 text-xs"><span className="text-zinc-300">ツール別月額費用</span><span className="tabular-nums text-zinc-300">合計 {total !== null && Number.isFinite(total) ? formatMoney(total) : '—'}</span></div>
       <ul className="divide-y divide-white/10">{tools.map((tool, index) => {
         const url = sourceUrl(tool.url);
         return <li key={`${tool.name}-${index}`} className="flex items-start justify-between gap-3 py-2 text-xs">
-          <div className="min-w-0 break-words text-zinc-200"><span>{url ? <a href={url} target="_blank" rel="noopener noreferrer" className="underline decoration-zinc-600 underline-offset-4 hover:text-sky-200">{tool.name}</a> : tool.name}</span>
+          <div className="min-w-0 break-words text-zinc-200"><span>{url ? <a href={url} target="_blank" rel="noopener noreferrer" className="underline decoration-zinc-600 underline-offset-4 hover:text-term-fg">{tool.name}</a> : tool.name}</span>
           {tool.category && <span className="ml-2 text-zinc-400">{tool.category}</span>}
           {tool.purpose && <p className="mt-1 whitespace-pre-wrap leading-5 text-zinc-300">{tool.purpose}</p>}
           {tool.replacementDifficulty && <p className="mt-1 text-zinc-400">切替難易度: {{LOW: '低', MEDIUM: '中', HIGH: '高'}[tool.replacementDifficulty]}</p>}
@@ -74,7 +74,7 @@ export function FinancialOperationsSupplement({ entity, formatMoney, isHazardMod
         </li>;
       })}</ul>
     </div>}
-    {financialContext && <details className="border-t border-white/10 py-3 text-xs">
+    {financialContext && <details className="border-t border-term-line py-3 text-xs">
       <summary className="cursor-pointer text-zinc-300">財務の対象期間・算定根拠</summary>
       <dl className="mt-2 space-y-2 break-words leading-5 text-zinc-300">
         {pnl.dataSnapshotPeriod && <div><dt className="text-zinc-400">対象期間</dt><dd>{pnl.dataSnapshotPeriod}</dd></div>}

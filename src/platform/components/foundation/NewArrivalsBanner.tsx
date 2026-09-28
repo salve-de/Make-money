@@ -52,22 +52,20 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, o
 
   return (
     <div
-      className={`flex min-h-9 items-center justify-between gap-3 border-b px-3 py-1.5 text-xs ${
-        unread
-          ? 'border-cyan-400/20 bg-cyan-500/[0.08] text-cyan-100'
-          : 'border-white/[0.06] bg-white/[0.02] text-zinc-400'
+      className={`flex min-h-7 items-center justify-between gap-3 border-b border-term-line-soft px-2.5 text-xs ${
+        unread ? 'bg-term-accent-bg text-term-fg' : 'bg-term-panel text-term-muted'
       }`}
       aria-live={unread ? 'polite' : undefined}
     >
       <div className="flex min-w-0 items-center gap-2">
-        <span className="shrink-0 rounded border border-cyan-400/30 px-1.5 py-0.5 font-mono text-[10px] text-cyan-300">
-          {unread ? 'NEW' : '確認済み'}
+        <span className={`shrink-0 ${unread ? 'text-term-accent' : 'text-term-dim'}`}>
+          {unread ? '新着' : '確認済み'}
         </span>
         <span className="truncate">
-          <strong className="font-semibold">新着公開便</strong>
-          <span className="mx-1.5 text-zinc-500">·</span>
-          <span>{release.count}件</span>
-          <span className="mx-1.5 text-zinc-500">·</span>
+          <span className="text-term-fg-strong">新着公開便</span>
+          <span className="mx-1.5 text-term-dim">・</span>
+          <span className="term-num">{release.count}件</span>
+          <span className="mx-1.5 text-term-dim">・</span>
           <span>{release.label}</span>
         </span>
       </div>
@@ -77,7 +75,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, o
           markSeen();
           onOpen();
         }}
-        className="shrink-0 rounded border border-cyan-400/30 px-2.5 py-1 font-medium text-cyan-200 transition-colors hover:border-cyan-300/60 hover:bg-cyan-400/10 hover:text-white"
+        className="h-[22px] shrink-0 rounded-sm border border-term-line px-2 text-xs text-term-fg hover:bg-term-head hover:text-term-fg-strong"
       >
         新着を見る
       </button>

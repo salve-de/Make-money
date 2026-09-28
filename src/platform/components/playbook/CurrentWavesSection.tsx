@@ -48,28 +48,28 @@ const MODELS: Record<string, ModelGuide> = {
 };
 
 const ModelDetail: React.FC<{ guide: ModelGuide; wave: CurrentWavesSectionProps["currentWaves"][number] }> = ({ guide, wave }) => (
-  <div className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-    <h3 className="hidden border-b border-white/[0.12] bg-[#1a2530] px-4 py-3 text-base font-semibold text-white lg:block">{guide.title}</h3>
-    <dl className="divide-y divide-white/[0.1] px-4 text-sm leading-6">
+  <div>
+    <h3 className="hidden border-b border-term-line px-3 py-2 text-base font-semibold text-term-fg-strong lg:block">{guide.title}</h3>
+    <dl className="text-sm leading-6">
       {[
         ['想定する顧客', guide.customer],
         ['提供するもの', guide.offer],
         ['収益の取り方', guide.revenue],
         ['成立を確かめる点', guide.verify],
       ].map(([label, value]) => (
-        <div key={label} className="grid gap-0.5 py-2 sm:py-2.5 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-4">
-          <dt className="text-xs font-medium text-sky-200">{label}</dt>
-          <dd className="text-zinc-200">{value}</dd>
+        <div key={label} className="grid gap-0.5 border-b border-term-line-soft px-3 py-2 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-4">
+          <dt className="text-xs text-term-label">{label}</dt>
+          <dd className="text-term-fg">{value}</dd>
         </div>
       ))}
     </dl>
-    <details className="border-t border-white/[0.12] px-4 pb-3">
-      <summary className="cursor-pointer py-3 text-sm font-medium text-sky-200">背景・手順の資料</summary>
-      <div className="space-y-3 text-sm leading-6 text-zinc-200">
+    <details className="border-b border-term-line px-3">
+      <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">背景・手順の資料</summary>
+      <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg">
         <p>{wave.whyItWinsNow}</p><p>{wave.shelfLifeAnalysis}</p>
-        <h4 className="font-medium">{wave.lootBlueprint.headline}</h4>
+        <h4 className="font-medium text-term-fg-strong">{wave.lootBlueprint.headline}</h4>
         <ol className="list-decimal space-y-2 pl-5">{wave.lootBlueprint.steps.map((step, index) => <li key={index}>{step}</li>)}</ol>
-        {wave.proofEntities.length > 0 && <section className="border-t border-white/[0.1] pt-3"><h4 className="text-xs font-medium text-zinc-400">資料内の参考例</h4>{wave.proofEntities.map((entity) => <p key={entity.id} className="mt-2"><span className="font-medium">{entity.name}</span> — {entity.tagline}</p>)}</section>}
+        {wave.proofEntities.length > 0 && <section className="border-t border-term-line pt-3"><h4 className="text-xs text-term-label">資料内の参考例</h4>{wave.proofEntities.map((entity) => <p key={entity.id} className="mt-2"><span className="font-medium text-term-fg-strong">{entity.name}</span> — {entity.tagline}</p>)}</section>}
       </div>
     </details>
   </div>
@@ -78,23 +78,27 @@ const ModelDetail: React.FC<{ guide: ModelGuide; wave: CurrentWavesSectionProps[
 export const CurrentWavesSection: React.FC<CurrentWavesSectionProps> = ({ currentWaves, selectedWaveId, setSelectedWaveId }) => {
   const selected = currentWaves.find((wave) => wave.id === selectedWaveId) ?? currentWaves[0];
   return (
-    <div className="mx-auto grid max-w-7xl gap-3 p-3 sm:p-5 lg:grid-cols-[minmax(260px,36%)_minmax(0,1fr)]">
-      <div className="space-y-2">
-        {currentWaves.map((wave) => {
+    <div className="grid w-full lg:grid-cols-[minmax(280px,36%)_minmax(0,1fr)]">
+      <div className="lg:border-r lg:border-term-line">
+        <div className="term-panel-title"><span className="term-panel-name">事業の型</span><span className="term-num">{currentWaves.length}件</span></div>
+        {currentWaves.map((wave, index) => {
           const guide = waveGuide(wave);
           const isSelected = selected?.id === wave.id;
           return (
             <div key={wave.id}>
-              <button type="button" onClick={() => setSelectedWaveId(wave.id)} aria-pressed={isSelected} className={`w-full rounded-md border-l-[3px] px-3 py-3 text-left transition-colors ${isSelected ? 'border-sky-300 bg-[#1a2530]' : 'border-transparent bg-[#101721] hover:bg-[#18212b]'}`}>
-                <span className="block text-sm font-semibold text-white">{guide.title}</span>
-                <span className="mt-1 block text-sm leading-5 text-zinc-300">{guide.summary}</span>
+              <button type="button" onClick={() => setSelectedWaveId(wave.id)} aria-pressed={isSelected} className={`block min-h-11 w-full border-b border-term-line-soft px-3 py-2 text-left ${isSelected ? 'bg-term-select text-term-fg-strong' : index % 2 ? 'bg-term-row-alt hover:bg-term-head' : 'hover:bg-term-head'}`}>
+                <span className="block text-sm font-semibold text-term-fg-strong">{guide.title}</span>
+                <span className={`mt-0.5 block text-sm leading-5 ${isSelected ? 'text-term-select-fg' : 'text-term-sub'}`}>{guide.summary}</span>
               </button>
-              {isSelected && <div className="mt-2 lg:hidden"><ModelDetail guide={guide} wave={wave} /></div>}
+              {isSelected && <div className="border-b border-term-line lg:hidden"><ModelDetail guide={guide} wave={wave} /></div>}
             </div>
           );
         })}
       </div>
-      <div className="hidden lg:block">{selected && <ModelDetail guide={waveGuide(selected)} wave={selected} />}</div>
+      <div className="hidden lg:block">
+        <div className="term-panel-title"><span className="term-panel-name">詳細</span></div>
+        {selected && <ModelDetail guide={waveGuide(selected)} wave={selected} />}
+      </div>
     </div>
   );
 };

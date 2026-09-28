@@ -42,18 +42,18 @@ it('does not render unknown costs and profits as observed zeros or a waterfall',
     isMarginUnconfirmed: true, isGrossMarginUnconfirmed: true, isCostsUnconfirmed: true,
     financialStatus: 'REPORTED' as const } };
   const html = renderToStaticMarkup(createElement(FinancialSection, { entity, ...buildInspectorModel(entity, 'JPY') }));
-  expect(html).toContain('¥12万');
+  expect(html).toContain('12万円');
   expect(html).toContain('未確認');
   expect(html).not.toContain('100%基準');
-  expect(html).not.toContain('¥0');
+  expect(html).not.toMatch(/(^|[^\d])0円/);
 });
 
 it('shows the discrepancy instead of silently balancing the recorded profit', () => {
   const entity = normalizeFinancialEntity(SOURCE_INSTITUTIONAL_ENTITIES.find((entry) => entry.name.startsWith('Acquire.com'))!);
   const html = renderToStaticMarkup(createElement(FinancialSection, { entity, ...buildInspectorModel(entity, 'JPY') }));
   expect(html).toContain('財務データ要照合');
-  expect(html).toContain('¥4200万');
-  expect(html).toContain('¥3600万');
+  expect(html).toContain('4,200万円');
+  expect(html).toContain('3,600万円');
   expect(html).toContain('その他営業経費');
   expect(html).not.toContain('100%基準');
 });
@@ -68,8 +68,8 @@ it('shows known COGS and gross profit even when OPEX and gross margin are unknow
     financialStatus: 'REPORTED' as const,
   } };
   const html = renderToStaticMarkup(createElement(FinancialSection, { entity, ...buildInspectorModel(entity, 'JPY') }));
-  expect(html).toContain('-¥3万');
-  expect(html).toContain('¥7万');
+  expect(html).toContain('-3万円');
+  expect(html).toContain('7万円');
   expect(html).toContain('粗利益');
   expect(html).not.toContain('粗利益 (Gross Profit: 未確認)');
   expect(html).not.toContain('粗利率 0%');
@@ -79,6 +79,6 @@ it('does not render unconfirmed tool costs as zero-cost infrastructure', () => {
   const entity = INSTITUTIONAL_ENTITIES.find((entry) => entry.name === 'Photo AI')!;
   const html = renderToStaticMarkup(createElement(ToolsSection, { entity, ...buildInspectorModel(entity, 'JPY') }));
   expect(html).toContain('費用未確認');
-  expect(html).not.toContain('¥0');
-  expect(html).not.toContain('月額計: ¥');
+  expect(html).not.toMatch(/(^|[^\d])0円/);
+  expect(html).not.toMatch(/月額計: [\d−-]/);
 });

@@ -48,97 +48,82 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
   isSynthesizing,
 }) => {
   return (
-    <div className={`w-full min-h-0 flex-1 flex-col overflow-hidden border-b border-white/[0.08] bg-[#10151a] md:max-h-none md:w-[34%] md:min-w-[300px] md:max-w-[460px] md:flex-none md:border-b-0 md:border-r lg:w-[32%] ${mobileHidden ? 'hidden md:flex' : 'flex'}`}>
-      {/* ヘッダー */}
-      <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/[0.1] bg-[#171e25] px-4 py-3">
-        <div className="min-w-0">
-          <span className="text-sm font-semibold text-zinc-100">
-            保存した事例とメモ
-          </span>
-        </div>
-        <span className="shrink-0 text-xs tabular-nums text-zinc-400">
-          {selectedEntityIds.size}件選択 / {savedEntities.length}件
-        </span>
+    <div className={`w-full min-h-0 flex-1 flex-col overflow-hidden border-b border-term-line bg-term-bg md:max-h-none md:w-[34%] md:min-w-[300px] md:max-w-[460px] md:flex-none md:border-b-0 md:border-r lg:w-[32%] ${mobileHidden ? 'hidden md:flex' : 'flex'}`}>
+      <div className="term-panel-title shrink-0">
+        <span className="term-panel-name">保存した事例とメモ</span>
+        <span className="term-num ml-auto">{selectedEntityIds.size}件選択 / {savedEntities.length}件</span>
       </div>
 
-      {/* 銘柄一覧 ＆ メモ入力 */}
-      <div className="flex-1 space-y-3 overflow-y-auto p-3 scrollbar-thin scrollbar-thumb-white/10">
-        {savedEntities.map((ent) => {
+      <div className="flex-1 overflow-y-auto">
+        {savedEntities.length === 0 && (
+          <div className="px-3 py-4 text-sm">
+            <p className="text-term-fg-strong">保存した事例がここに並びます</p>
+            <p className="mt-1 text-term-sub">事例一覧で気になる事例を保存すると、企画案の材料に選べます。</p>
+          </div>
+        )}
+        {savedEntities.map((ent, index) => {
           const isSelected = selectedEntityIds.has(ent.id);
           const isFocused = activeEditingEntityId === ent.id;
           const currentNote = notes[ent.id]?.content || '';
           const profitKnown = !ent.pnl.isRevenueUnconfirmed && !ent.pnl.isOperatingProfitUnconfirmed && ent.pnl.financialStatus !== 'UNAVAILABLE';
           const marginKnown = !ent.pnl.isRevenueUnconfirmed && !ent.pnl.isMarginUnconfirmed && ent.pnl.financialStatus !== 'UNAVAILABLE';
           const hasSnapshotPeriod = Boolean(ent.pnl.dataSnapshotPeriod);
+          const rowBg = isFocused ? 'bg-term-select' : index % 2 ? 'bg-term-row-alt' : '';
 
           return (
-            <article
-              key={ent.id}
-              className={`rounded-md border p-3 transition-colors ${
-                isFocused
-                  ? 'border-sky-300/45 bg-[#0E1017] ring-1 ring-inset ring-sky-300/15'
-                  : 'border-white/[0.12] bg-[#0A0B0F] hover:border-white/[0.2]'
-              }`}
-            >
-              {/* 銘柄ヘッダー */}
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <div className="flex items-center gap-2 min-w-0">
+            <article key={ent.id} className={`border-b border-term-line-soft px-3 py-1.5 ${rowBg}`}>
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex min-w-0 items-center gap-1">
                   <button
                     type="button"
                     onClick={() => toggleSelectEntity(ent.id)}
                     aria-label={isSelected ? `${ent.name}の企画対象から外す` : `${ent.name}を企画対象にする`}
                     aria-pressed={isSelected}
-                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center text-term-muted hover:text-term-fg-strong lg:h-8 lg:w-8"
                   >
                     {isSelected ? (
-                      <CheckSquare aria-hidden="true" className="w-4 h-4 text-sky-200" />
+                      <CheckSquare aria-hidden="true" className="h-4 w-4 text-term-accent" />
                     ) : (
-                      <Square aria-hidden="true" className="w-4 h-4 text-zinc-400" />
+                      <Square aria-hidden="true" className="h-4 w-4 text-term-label" />
                     )}
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveEditingEntityId(ent.id)}
                     aria-pressed={isFocused}
-                    className="min-h-10 min-w-0 truncate rounded px-1 text-left text-sm font-semibold text-white hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                    className="min-h-11 min-w-0 truncate px-1 text-left text-sm font-semibold text-term-fg-strong hover:underline lg:min-h-8"
                   >
                     {ent.name}
                   </button>
                 </div>
-                {financialStatusLabel(ent) && <span className="shrink-0 text-xs text-zinc-300">{financialStatusLabel(ent)}</span>}
+                {financialStatusLabel(ent) && <span className="shrink-0 text-xs text-term-muted">{financialStatusLabel(ent)}</span>}
               </div>
 
-              {ent.tagline && <p className="mb-3 text-sm leading-6 text-zinc-300">{ent.tagline}</p>}
+              {ent.tagline && <p className="pl-1 text-sm leading-6 text-term-sub lg:pl-9">{ent.tagline}</p>}
 
-              {(profitKnown || marginKnown || hasSnapshotPeriod) && <dl className="grid grid-cols-2 gap-x-3 gap-y-2 border-t border-white/[0.1] py-2.5 text-xs sm:grid-cols-3">
-                {profitKnown && <div>
-                  <dt className="text-zinc-400">営業利益</dt>
-                  <dd className="mt-0.5 font-medium tabular-nums text-zinc-100">
-                    {formatMoney(ent.pnl.operatingProfit)}
-                  </dd>
+              {(profitKnown || marginKnown || hasSnapshotPeriod) && <dl className="mt-1 grid grid-cols-2 border-t border-term-line-soft text-xs sm:grid-cols-3">
+                {profitKnown && <div className="py-1.5 pr-2">
+                  <dt className="text-term-label">営業利益</dt>
+                  <dd className="term-num text-sm text-term-fg-strong">{formatMoney(ent.pnl.operatingProfit)}</dd>
                 </div>}
-                {marginKnown && <div>
-                  <dt className="text-zinc-400">利益率</dt>
-                  <dd className="mt-0.5 font-medium tabular-nums text-zinc-100">
-                    {ent.pnl.operatingMargin}%
-                  </dd>
+                {marginKnown && <div className="py-1.5 pr-2">
+                  <dt className="text-term-label">利益率</dt>
+                  <dd className="term-num text-sm text-term-fg-strong">{ent.pnl.operatingMargin}%</dd>
                 </div>}
-                {hasSnapshotPeriod && <div>
-                  <dt className="text-zinc-400">対象時期</dt>
-                  <dd className="mt-0.5 truncate font-medium text-zinc-100">
-                    {ent.pnl.dataSnapshotPeriod}
-                  </dd>
+                {hasSnapshotPeriod && <div className="py-1.5">
+                  <dt className="text-term-label">対象時期</dt>
+                  <dd className="term-num truncate text-sm text-term-fg">{ent.pnl.dataSnapshotPeriod}</dd>
                 </div>}
               </dl>}
 
-              {ent.strategy.blindspot && ent.strategy.blindspot !== '金額・費用の裏付けは未確認。' && <div className="mb-2 truncate text-xs text-zinc-300">
+              {ent.strategy.blindspot && ent.strategy.blindspot !== '金額・費用の裏付けは未確認。' && <div className="truncate text-xs text-term-sub">
                 着眼点: {ent.strategy.blindspot}
               </div>}
 
               {(ent.essence?.whatItDoes || ent.pricing?.pricePoint || ent.strategy?.initialTraction || ent.operations?.toolStack?.length > 0) && (
-                <details className="mt-2 border-t border-white/[0.1] pt-2">
-                  <summary className="min-h-8 cursor-pointer text-xs text-sky-200">事業内容・料金・運営</summary>
-                  <dl className="space-y-3 py-2 text-sm leading-6 text-zinc-300">
+                <details className="mt-1 border-t border-term-line-soft">
+                  <summary className="flex min-h-11 cursor-pointer items-center text-xs text-term-select-fg lg:min-h-8">事業内容・料金・運営</summary>
+                  <dl className="space-y-2 pb-2 text-sm leading-6 text-term-sub">
                     {[
                       ['事業内容', ent.essence?.whatItDoes],
                       ['顧客', ent.essence?.targetCustomer],
@@ -146,22 +131,21 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
                       ['料金', ent.pricing?.pricePoint],
                       ['初期の顧客獲得', ent.strategy?.initialTraction?.join(' / ')],
                     ].filter(([, value]) => value && value !== 'UNKNOWN' && value !== '未確認').map(([label, value]) => (
-                      <div key={label}><dt className="text-xs text-zinc-400">{label}</dt><dd>{value}</dd></div>
+                      <div key={label}><dt className="text-xs text-term-label">{label}</dt><dd>{value}</dd></div>
                     ))}
-                    {ent.operations?.toolStack?.length > 0 && <div><dt className="text-xs text-zinc-400">利用ツール</dt><dd>{ent.operations.toolStack.map((tool) => tool.name).join(' / ')}</dd></div>}
+                    {ent.operations?.toolStack?.length > 0 && <div><dt className="text-xs text-term-label">利用ツール</dt><dd>{ent.operations.toolStack.map((tool) => tool.name).join(' / ')}</dd></div>}
                   </dl>
                 </details>
               )}
 
-              {/* アナリスト極秘メモ入力欄 */}
-              <details className="mt-2 border-t border-white/[0.1] pt-2" open={currentNote ? true : undefined}>
-                <summary className="flex min-h-8 cursor-pointer items-center justify-between gap-2 text-xs">
-                  <span className="flex items-center gap-1.5 text-zinc-200">
-                    <FileText aria-hidden="true" className="h-3.5 w-3.5 text-zinc-400" />
+              <details className="border-t border-term-line-soft" open={currentNote ? true : undefined}>
+                <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-2 text-xs lg:min-h-8">
+                  <span className="flex items-center gap-1.5 text-term-fg">
+                    <FileText aria-hidden="true" className="h-3.5 w-3.5 text-term-label" />
                     考察メモ（任意）
                   </span>
                   {currentNote && (
-                    <span className="shrink-0 text-xs text-emerald-200">保存済み</span>
+                    <span className="shrink-0 text-xs text-term-muted">保存済み</span>
                   )}
                 </summary>
                 <textarea
@@ -171,7 +155,7 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
                   onChange={(e) => onSaveNote(ent.id, e.target.value)}
                   aria-label={`${ent.name}の考察メモ`}
                   placeholder="気づいたことを記録"
-                  className="min-h-11 w-full resize-y rounded-md border border-white/[0.16] bg-[#0d1217] p-2.5 text-sm leading-5 text-zinc-100 placeholder:text-zinc-400 focus:border-sky-300/60 focus:outline-none focus:ring-2 focus:ring-sky-300/15"
+                  className="mb-1 min-h-11 w-full resize-y rounded-sm border border-term-line bg-term-bg p-2 text-sm leading-5 text-term-fg-strong placeholder:text-term-dim focus:border-term-accent focus:outline-none"
                 />
               </details>
             </article>
@@ -179,14 +163,13 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
         })}
       </div>
 
-      {/* 下部アクションバー: 合成トリガー */}
-      <div className="shrink-0 border-t border-white/[0.1] bg-[#171e25] p-3 md:hidden">
+      <div className="shrink-0 border-t border-term-line bg-term-panel p-2 md:hidden">
         <button
           onClick={handleSynthesize}
           disabled={isSynthesizing || selectedEntityIds.size === 0}
-          className="flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-sky-200 px-4 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-45"
+          className="flex min-h-11 w-full items-center justify-center gap-2 rounded-sm border border-term-accent bg-transparent px-4 text-sm text-term-accent hover:bg-term-head disabled:cursor-not-allowed disabled:opacity-45"
         >
-          {isSynthesizing && <Cpu className="h-4 w-4 animate-pulse" />}
+          {isSynthesizing && <Cpu aria-hidden="true" className="h-4 w-4 animate-pulse" />}
           {isSynthesizing ? (
             <span>企画案を作成中…</span>
           ) : (

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Calculator, FileSearch, ShieldAlert } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
+import { InspectorSectionCard } from './InspectorSectionCard';
+import { MoneyText } from './MoneyText';
 
 function statusLabel(sourceClass: string | undefined): string {
   if (sourceClass === 'PRIMARY') return '一次情報を入力に含む推計';
@@ -59,71 +60,50 @@ export function EstimatedCashSummary({
   ];
 
   return (
-    <section
+    <InspectorSectionCard
       id="section-cash-anatomy"
-      className="rounded-xl border border-amber-500/25 bg-[#0A0D14] p-4 sm:p-5 shadow-2xl space-y-4"
+      index="02"
+      categoryEn="ESTIMATED P&L"
+      titleJa="推計P&L：確認できた入力からの逆算"
+      badge={<span className="text-term-accent">ESTIMATED</span>}
     >
-      <div className="flex items-start gap-3 border-b border-white/[0.08] pb-3">
-        <div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/20 shrink-0">
-          <Calculator className="w-4 h-4 text-amber-300" />
-        </div>
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-2 mb-1">
-            <h3 className="text-xs font-mono font-bold tracking-wider text-zinc-100">
-              推計P&amp;L：確認できた入力からの逆算
-            </h3>
-            <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-amber-500/30 bg-amber-500/10 text-amber-300">
-              ESTIMATED
-            </span>
-          </div>
-          <p className="text-[11px] text-zinc-400 leading-relaxed">
-            これは推計P&amp;Lです。通帳着金・創業者の個人手取り・実際の口座残高を意味しません。
-          </p>
-        </div>
-      </div>
+      <p className="border-b border-term-line-soft py-1.5 text-xs leading-5 text-term-label">
+        これは推計P&amp;Lです。通帳着金・創業者の個人手取り・実際の口座残高を意味しません。
+      </p>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+      <dl>
         {rows.map((row) => (
-          <div key={row.label} className="rounded-lg border border-white/[0.06] bg-black/25 p-3">
-            <div className="text-[10px] font-mono text-zinc-500 mb-1">{row.label}</div>
-            <div className="text-xs font-mono font-bold text-zinc-100 tabular-nums">{row.value}</div>
+          <div key={row.label} className="flex min-h-[30px] items-center justify-between gap-3 border-b border-term-line-soft py-1">
+            <dt className="text-xs text-term-label">{row.label}</dt>
+            <dd className={`term-num text-[15px] ${row.value === '未確認' ? 'text-term-dim' : 'text-term-accent'}`}>
+              {row.value === '未確認' ? <span className="font-sans text-xs">未確認</span> : <MoneyText text={row.value} />}
+            </dd>
           </div>
         ))}
-      </div>
+      </dl>
 
-      <div className="rounded-lg border border-white/[0.07] bg-[#0D1118] p-3.5 space-y-2.5">
-        <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-zinc-300">
-          <FileSearch className="w-3.5 h-3.5 text-zinc-400" />
-          <span>推計の根拠・観測条件</span>
-        </div>
-        <dl className="grid grid-cols-[90px_1fr] gap-x-3 gap-y-2 text-[11px] leading-relaxed">
-          <dt className="text-zinc-500 font-mono">区分</dt>
-          <dd className="text-zinc-300">{statusLabel(pnl.sourceClass)}</dd>
-          <dt className="text-zinc-500 font-mono">観測時点</dt>
-          <dd className="text-zinc-300">{pnl.dataSnapshotPeriod || '未確認'}</dd>
-          <dt className="text-zinc-500 font-mono">参照資料</dt>
-          <dd className="text-zinc-300">{pnl.sourceDoc || '未確認'}</dd>
-          <dt className="text-zinc-500 font-mono">計算ロジック</dt>
-          <dd className="text-zinc-300 whitespace-pre-wrap">{pnl.estimationLogic || '推計ロジックの詳細は未登録'}</dd>
-          {confidence && (
-            <>
-              <dt className="text-zinc-500 font-mono">確信度</dt>
-              <dd className="text-zinc-300">{confidence}</dd>
-            </>
-          )}
-          {range && (
-            <>
-              <dt className="text-zinc-500 font-mono">推計レンジ</dt>
-              <dd className="text-zinc-300">{range}</dd>
-            </>
-          )}
+      <div className="py-1.5">
+        <div className="mb-1 text-xs text-term-accent">推計の根拠・観測条件</div>
+        <dl className="text-xs leading-5">
+          {[
+            ['区分', statusLabel(pnl.sourceClass)],
+            ['観測時点', pnl.dataSnapshotPeriod || '未確認'],
+            ['参照資料', pnl.sourceDoc || '未確認'],
+            ['計算ロジック', pnl.estimationLogic || '推計ロジックの詳細は未登録'],
+            ...(confidence ? [['確信度', confidence]] : []),
+            ...(range ? [['推計レンジ', range]] : []),
+          ].map(([label, value]) => (
+            <div key={label} className="grid grid-cols-[84px_minmax(0,1fr)] gap-3 border-b border-term-line-soft py-1 last:border-b-0">
+              <dt className="text-term-label">{label}</dt>
+              <dd className={`whitespace-pre-wrap break-words ${value === '未確認' || value === '推計ロジックの詳細は未登録' ? 'text-term-dim' : 'text-term-fg'}`}>{value}</dd>
+            </div>
+          ))}
         </dl>
       </div>
 
-      <div className="flex items-start gap-2 text-[10px] leading-relaxed text-zinc-500">
-        <ShieldAlert className="w-3.5 h-3.5 shrink-0 mt-0.5 text-amber-400" />
-        <p>推計値は意思決定の仮説材料です。VERIFIED / REPORTED の実績値と同列には扱いません。</p>
-      </div>
-    </section>
+      <p className="border-t border-term-line-soft py-1.5 text-xs leading-5 text-term-label">
+        推計値は意思決定の仮説材料です。VERIFIED / REPORTED の実績値と同列には扱いません。
+      </p>
+    </InspectorSectionCard>
   );
 }

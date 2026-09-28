@@ -167,40 +167,40 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-3" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-term-bg/80 p-3" onClick={onClose}>
       <div role="dialog" aria-modal="true" aria-labelledby="share-title" ref={dialogRef} onKeyDown={onKeyDown}
-        className="max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-lg border border-white/[0.18] bg-[#101721] text-white shadow-2xl" onClick={(event) => event.stopPropagation()}>
-        <header className="flex items-center justify-between gap-3 border-b border-white/[0.14] bg-[#1a2530] px-4 py-2">
+        className="max-h-[90dvh] w-full max-w-md overflow-y-auto rounded-sm border border-term-line bg-term-panel text-term-fg-strong" onClick={(event) => event.stopPropagation()}>
+        <header className="flex items-center justify-between gap-3 border-b border-term-line bg-term-head px-4 py-2">
           <div className="min-w-0"><h2 id="share-title" className="text-sm font-semibold">事例を共有</h2><p className="truncate text-xs text-zinc-400">{entity.name}</p></div>
-          <button type="button" onClick={onClose} aria-label="共有を閉じる" className="flex h-10 w-10 shrink-0 items-center justify-center rounded hover:bg-white/10"><X className="h-4 w-4" /></button>
+          <button type="button" onClick={onClose} aria-label="共有を閉じる" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm hover:bg-term-line"><X className="h-4 w-4" /></button>
         </header>
         <div className="space-y-4 p-4">
-          <div className="flex items-center gap-2 rounded border border-white/[0.14] bg-black/20 p-2">
+          <div className="flex items-center gap-2 rounded-sm border border-term-line bg-term-bg/80 p-2">
             <input aria-label="共有リンク" readOnly value={shareUrl} className="min-w-0 flex-1 bg-transparent text-xs text-zinc-300 outline-none" />
-            <button type="button" onClick={handleCopyUrlOnly} className="inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded bg-sky-200 px-3 text-sm font-medium text-slate-950">
+            <button type="button" onClick={handleCopyUrlOnly} className="inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-sm border border-term-accent px-3 text-sm text-term-accent hover:bg-term-accent-bg">
               {copiedSection === 'URL' ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}{copiedSection === 'URL' ? 'コピー済み' : 'コピー'}
             </button>
           </div>
-          <details className="rounded border border-white/[0.14]">
+          <details className="rounded-sm border border-term-line">
             <summary className="cursor-pointer px-3 py-3 text-sm text-zinc-200">紹介文もコピー</summary>
-            <div className="space-y-3 border-t border-white/[0.12] p-3">
+            <div className="space-y-3 border-t border-term-line p-3">
               <p className="max-h-40 overflow-y-auto whitespace-pre-wrap text-xs leading-6 text-zinc-300">{shareText}</p>
               <div className="grid grid-cols-2 gap-2">
-                <button type="button" onClick={handleCopyTextOnly} className="min-h-10 rounded border border-white/[0.16] px-2 text-xs">{copiedSection === 'TEXT' ? 'コピー済み' : '文面のみ'}</button>
-                <button type="button" onClick={handleCopyFullBundle} className="min-h-10 rounded border border-white/[0.16] px-2 text-xs">{copiedSection === 'FULL' ? 'コピー済み' : '文面＋リンク'}</button>
+                <button type="button" onClick={handleCopyTextOnly} className="min-h-10 rounded-sm border border-term-line px-2 text-xs">{copiedSection === 'TEXT' ? 'コピー済み' : '文面のみ'}</button>
+                <button type="button" onClick={handleCopyFullBundle} className="min-h-10 rounded-sm border border-term-line px-2 text-xs">{copiedSection === 'FULL' ? 'コピー済み' : '文面＋リンク'}</button>
               </div>
             </div>
           </details>
-          <div className="grid grid-cols-3 gap-2 border-t border-white/[0.12] pt-3">
+          <div className="grid grid-cols-3 gap-2 border-t border-term-line pt-3">
             {[
               {name: 'X', action: handleShareX},
               {name: 'Threads', action: handleShareThreads},
               {name: 'LINE', action: handleShareLine},
               {name: copiedSection === 'INSTA' ? 'コピー済み' : 'Instagram', action: handleShareInstagram},
               {name: copiedSection === 'TIKTOK' ? 'コピー済み' : 'TikTok', action: handleShareTikTok},
-            ].map((item, index) => <button key={index} type="button" onClick={item.action} className="min-h-10 rounded border border-white/[0.14] px-2 text-xs text-zinc-200 hover:bg-white/[0.06]">{item.name}</button>)}
+            ].map((item, index) => <button key={index} type="button" onClick={item.action} className="min-h-10 rounded-sm border border-term-line px-2 text-xs text-zinc-200 hover:bg-term-head">{item.name}</button>)}
           </div>
-          {copyFailed && <p role="status" className="text-xs text-amber-200">コピーできませんでした。共有リンクを選択してコピーしてください。</p>}
+          {copyFailed && <p role="status" className="text-xs text-term-accent">コピーできませんでした。共有リンクを選択してコピーしてください。</p>}
         </div>
       </div>
     </div>,

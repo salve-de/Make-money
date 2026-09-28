@@ -38,34 +38,37 @@ interface GenesisSectionProps {
 }
 
 export const GenesisSection: React.FC<GenesisSectionProps> = ({ genesisTactics }) => (
-  <div className="mx-auto grid max-w-7xl gap-3 p-3 sm:grid-cols-2 sm:p-5">
-    {genesisTactics.map((tactic) => {
+  <div className="w-full">
+    <div className="term-panel-title"><span className="term-panel-name">初期の顧客獲得</span><span className="term-num">{genesisTactics.length}件</span></div>
+    <div className="grid sm:grid-cols-2">
+    {genesisTactics.map((tactic, index) => {
       const guide = ACQUISITION[tactic.id];
       return (
-        <article key={tactic.id} className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-          <h2 className="border-b border-white/[0.08] bg-[#1a2530] px-4 py-3 text-base font-semibold text-white">{guide?.title || tactic.tacticName}</h2>
-          <div className="px-4 py-3">
-            <p className="text-sm leading-6 text-zinc-200">{tactic.summary}</p>
-            <Link href={`/?entity=${encodeURIComponent(tactic.proofEntity.id)}&mode=LEDGER`} className="mt-2 inline-block text-xs text-sky-200 hover:underline">参考事例: {tactic.proofEntity.name}</Link>
+        <article key={tactic.id} className={`border-b border-term-line ${index % 2 === 0 ? 'sm:border-r' : ''}`}>
+          <h2 className="border-b border-term-line-soft bg-term-head px-3 py-2 text-sm font-semibold text-term-fg-strong">{guide?.title || tactic.tacticName}</h2>
+          <div className="px-3 py-2">
+            <p className="text-sm leading-6 text-term-fg">{tactic.summary}</p>
+            <Link href={`/?entity=${encodeURIComponent(tactic.proofEntity.id)}&mode=LEDGER`} className="mt-1 inline-flex min-h-11 items-center text-xs text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0">参考事例: {tactic.proofEntity.name}</Link>
           </div>
-          {tactic.executionSteps.length > 0 && <details className="border-t border-white/[0.08] px-4">
-            <summary className="cursor-pointer py-2.5 text-sm font-medium text-zinc-200">具体的な手順</summary>
-            <ol className="list-decimal space-y-2 pb-3 pl-5 text-sm leading-6 text-zinc-300">
-              {tactic.executionSteps.map((step, index) => <li key={index}>{step}</li>)}
+          {tactic.executionSteps.length > 0 && <details className="border-t border-term-line-soft px-3">
+            <summary className="min-h-11 cursor-pointer py-2.5 text-sm text-term-select-fg lg:min-h-0">具体的な手順</summary>
+            <ol className="list-decimal space-y-2 pb-3 pl-5 text-sm leading-6 text-term-sub">
+              {tactic.executionSteps.map((step, i) => <li key={i}>{step}</li>)}
             </ol>
           </details>}
-          {guide && <dl className="divide-y divide-white/[0.06] border-t border-white/[0.08] px-4 text-sm leading-6">
+          {guide && <dl className="border-t border-term-line-soft text-sm leading-6">
             {[
               ['向く場面', guide.useFor],
               ['進め方', guide.method],
               ['見る指標', guide.measure],
             ].map(([label, value]) => (
-              <div key={label} className="py-2 sm:py-2.5"><dt className="text-xs font-medium text-sky-200">{label}</dt><dd className="text-zinc-200">{value}</dd></div>
+              <div key={label} className="grid gap-0.5 border-b border-term-line-soft px-3 py-2 last:border-b-0 sm:grid-cols-[80px_minmax(0,1fr)] sm:gap-3"><dt className="text-xs text-term-label">{label}</dt><dd className="text-term-fg">{value}</dd></div>
             ))}
           </dl>}
         </article>
       );
     })}
+    </div>
   </div>
 );
 
@@ -97,36 +100,38 @@ interface GoldenStackSectionProps {
 }
 
 export const GoldenStackSection: React.FC<GoldenStackSectionProps> = ({ goldenStackRecipes }) => (
-  <div className="mx-auto grid max-w-7xl gap-3 p-3 md:grid-cols-2 sm:p-5 xl:grid-cols-3">
+  <div className="w-full">
+    <div className="term-panel-title"><span className="term-panel-name">技術構成の参考</span><span className="term-num">{goldenStackRecipes.length}件</span></div>
+    <div className="grid md:grid-cols-2 xl:grid-cols-3">
     {goldenStackRecipes.map((recipe) => {
       const guide = STACKS[recipe.id];
       return (
-        <article key={recipe.id} className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-          <div className="border-b border-white/[0.08] bg-[#1a2530] px-4 py-3">
-            <h2 className="text-base font-semibold text-white">{guide?.title || recipe.name}</h2>
-            <p className="mt-1 text-sm leading-5 text-zinc-300">{guide?.useFor || recipe.description}</p>
+        <article key={recipe.id} className="border-b border-term-line md:border-r">
+          <div className="border-b border-term-line-soft bg-term-head px-3 py-2">
+            <h2 className="text-sm font-semibold text-term-fg-strong">{guide?.title || recipe.name}</h2>
+            <p className="mt-0.5 text-sm leading-5 text-term-sub">{guide?.useFor || recipe.description}</p>
           </div>
-          <dl className="divide-y divide-white/[0.06] px-4 text-sm leading-6">
+          <dl className="text-sm leading-6">
             {recipe.tools.map((tool) => (
-              <div key={`${tool.category}-${tool.toolName}`} className="py-2.5">
-                <dt className="text-xs font-medium text-sky-200">{tool.category}</dt>
-                <dd className="mt-0.5 font-medium text-zinc-100">{tool.toolName}</dd>
-                {tool.role && <dd className="mt-0.5 text-xs leading-5 text-zinc-300">{tool.role}</dd>}
+              <div key={`${tool.category}-${tool.toolName}`} className="grid grid-cols-[100px_minmax(0,1fr)] gap-3 border-b border-term-line-soft px-3 py-1.5">
+                <dt className="text-xs leading-6 text-term-label">{tool.category}</dt>
+                <dd><span className="font-medium text-term-fg-strong">{tool.toolName}</span>{tool.role && <span className="block text-xs leading-5 text-term-sub">{tool.role}</span>}</dd>
               </div>
             ))}
           </dl>
-          <details className="border-t border-white/[0.08] px-4">
-            <summary className="cursor-pointer py-2.5 text-sm font-medium text-zinc-200">構成案の前提・費用</summary>
-            <dl className="space-y-2 pb-3 text-sm leading-6 text-zinc-300">
-              <div><dt className="text-xs text-sky-200">構成の考え方</dt><dd>{recipe.description}</dd></div>
-              <div><dt className="text-xs text-sky-200">想定する規模</dt><dd>{recipe.targetScale}</dd></div>
-              <div><dt className="text-xs text-sky-200">固定費の想定</dt><dd>{recipe.monthlyFixedCost}</dd></div>
-              <div><dt className="text-xs text-sky-200">利益率の目標</dt><dd>{recipe.marginTarget}</dd></div>
+          <details className="border-t border-term-line-soft px-3">
+            <summary className="min-h-11 cursor-pointer py-2.5 text-sm text-term-select-fg lg:min-h-0">構成案の前提・費用</summary>
+            <dl className="space-y-2 pb-3 text-sm leading-6 text-term-sub">
+              <div><dt className="text-xs text-term-label">構成の考え方</dt><dd>{recipe.description}</dd></div>
+              <div><dt className="text-xs text-term-label">想定する規模</dt><dd>{recipe.targetScale}</dd></div>
+              <div><dt className="text-xs text-term-label">固定費の想定</dt><dd>{recipe.monthlyFixedCost}</dd></div>
+              <div><dt className="text-xs text-term-label">利益率の目標</dt><dd>{recipe.marginTarget}</dd></div>
             </dl>
           </details>
-          {guide && <p className="border-t border-white/[0.08] px-4 py-3 text-sm leading-5 text-zinc-400">{guide.check}</p>}
+          {guide && <p className="border-t border-term-line-soft px-3 py-2 text-sm leading-5 text-term-muted">{guide.check}</p>}
         </article>
       );
     })}
+    </div>
   </div>
 );

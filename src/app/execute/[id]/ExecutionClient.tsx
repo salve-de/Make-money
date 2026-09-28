@@ -2,16 +2,11 @@
 
 import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-  ArrowLeft,
-  Check,
-  CircleDollarSign,
-  ExternalLink,
-  Save,
-} from 'lucide-react';
+import { ArrowLeft, Check, ExternalLink, Save } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
+import { formatYen } from '@/platform/utils/moneyDisplay';
 import type { ExecutionSource } from '@/shared/execution-source';
 import {
   EXECUTION_STEP_IDS,
@@ -26,7 +21,8 @@ import {
   type ExecutionStepId,
 } from '@/shared/execution';
 
-const INPUT_CLASS = 'w-full rounded-lg border border-white/[0.18] bg-black/20 px-3 py-2 text-sm text-zinc-100 outline-none placeholder:text-zinc-400 focus:border-emerald-400/70';
+const INPUT_CLASS = 'w-full rounded-sm border border-term-line bg-term-bg px-3 py-2 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent';
+const BTN = 'inline-flex min-h-11 items-center justify-center gap-1.5 rounded-sm border bg-transparent px-3 text-sm hover:bg-term-head disabled:opacity-60 lg:min-h-8';
 
 const STEP_LABELS: Record<ExecutionStepId, { label: string }> = {
   FIND: { label: '売る相手と内容を決める' },
@@ -63,10 +59,11 @@ export function ExecutionClient({ entity }: { entity: ExecutionSource }) {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen flex-col bg-[#07080B] text-zinc-100">
+      <div className="flex min-h-screen flex-col bg-term-bg text-term-fg">
         <GlobalHeader currentSection="EXECUTION" />
-        <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 text-sm text-zinc-500 sm:px-6 lg:px-8">
-          実行状態を読み込み中…
+        <main className="w-full flex-1">
+          <div className="term-panel-title"><span className="term-panel-name">実行計画</span>読み込み中</div>
+          <p className="px-3 py-3 text-sm text-term-label">実行状態を読み込み中…</p>
         </main>
       </div>
     );
@@ -419,27 +416,28 @@ function ExecutionWorkspace({
   const reachedFirstDollar = project.revenueJpy > 0;
 
 
+  const saveLabel = saveState === 'saved' ? 'クラウド' : saveState === 'conflict' ? '競合あり' : saveState === 'error' ? '要再保存' : 'この端末';
   return (
-    <div className="flex min-h-screen flex-col bg-[#07080B] text-zinc-100">
+    <div className="flex min-h-screen flex-col bg-term-bg text-term-fg">
       <GlobalHeader currentSection="EXECUTION" />
 
-      <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-3 px-4 py-2 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-2">
+      <main className="flex w-full flex-1 flex-col">
+        <div className="term-panel-title">
+          <span className="term-panel-name">実行計画</span>
           <Link
             href={'/?entity=' + encodeURIComponent(entity.id)}
-            className="inline-flex min-h-11 items-center gap-1.5 rounded-md px-2 text-sm text-zinc-300 transition-colors hover:bg-white/[0.06] hover:text-white"
+            className="inline-flex min-h-11 min-w-0 items-center gap-1.5 text-term-sub hover:text-term-fg-strong lg:min-h-6"
           >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            <span className="min-w-0"><span className="block text-[11px] text-zinc-400">実行計画</span><span className="block max-w-36 truncate text-sm font-semibold">{entity.name}</span></span>
+            <ArrowLeft aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
+            <span className="max-w-[16rem] truncate text-term-fg-strong">{entity.name}</span>
           </Link>
-
-          <div className="flex items-center gap-2">
+          <div className="ml-auto flex items-center gap-2 py-0.5">
             {!userId && (
               <button
                 type="button"
                 aria-label="ログインして同期"
                 onClick={() => void signInAndClaim()}
-                className="min-h-11 rounded-md border border-white/[0.14] bg-white/[0.04] px-3 text-sm text-zinc-200 transition-colors hover:bg-white/[0.08]"
+                className={`${BTN} border-term-line text-term-fg`}
               >
                 同期
               </button>
@@ -449,34 +447,24 @@ function ExecutionWorkspace({
               onClick={() => void save()}
               disabled={editingDisabled || saveState === 'saving' || saveState === 'conflict'}
               aria-label={token ? 'クラウドに保存' : '端末に保存'}
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-md bg-emerald-300 px-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-emerald-200 disabled:opacity-60"
+              className={`${BTN} border-term-accent text-term-accent`}
             >
-              <Save className="h-3.5 w-3.5" />
+              <Save aria-hidden="true" className="h-3.5 w-3.5" />
               {saveState === 'saving' ? '保存中' : '保存'}
             </button>
           </div>
         </div>
 
-        <section className="flex flex-wrap items-end justify-between gap-3 border-b border-white/[0.14] pb-3">
-          <h1 className="sr-only">{entity.name}の実行計画</h1>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <Metric label="進捗" value={String(progress) + '%'} />
-            <Metric
-              label="初回売上"
-              value={reachedFirstDollar ? '¥' + project.revenueJpy.toLocaleString() : '未達'}
-              tone={reachedFirstDollar ? 'green' : 'neutral'}
-            />
-            <Metric label="完了工程" value={String(project.completedSteps.length) + '/6'} />
-            <Metric
-              label="保存"
-              value={saveState === 'saved' ? 'クラウド' : saveState === 'conflict' ? '競合あり' : saveState === 'error' ? '要再保存' : 'この端末'}
-              tone={saveState === 'error' || saveState === 'conflict' ? 'red' : 'neutral'}
-            />
-          </div>
-        </section>
+        <h1 className="sr-only">{entity.name}の実行計画</h1>
+        <dl className="grid grid-cols-2 border-b border-term-line sm:grid-cols-4">
+          <Metric label="進捗" value={String(progress) + '%'} />
+          <Metric label="初回売上" value={reachedFirstDollar ? formatYen(project.revenueJpy) : '未達'} dim={!reachedFirstDollar} />
+          <Metric label="完了工程" value={String(project.completedSteps.length) + '/6'} />
+          <Metric label="保存" value={saveLabel} danger={saveState === 'error' || saveState === 'conflict'} />
+        </dl>
 
         {editingDisabled && (
-          <section className="rounded-xl border border-blue-400/20 bg-blue-400/[0.05] px-4 py-3 text-xs text-zinc-400">
+          <section className="border-b border-term-line px-3 py-2 text-sm text-term-sub">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <span>
                 {saveState === 'error'
@@ -487,7 +475,7 @@ function ExecutionWorkspace({
                 <button
                   type="button"
                   onClick={() => void retryGenerationHydration()}
-                  className="rounded-md border border-blue-300/25 bg-blue-300/10 px-3 py-1.5 text-[11px] font-semibold text-blue-200 hover:bg-blue-300/15"
+                  className={`${BTN} border-term-line text-term-fg`}
                 >
                   再接続
                 </button>
@@ -497,25 +485,21 @@ function ExecutionWorkspace({
         )}
 
         {saveState === 'conflict' && (
-          <section className="rounded-xl border border-amber-400/25 bg-amber-400/[0.06] p-4">
-            <div className="text-sm font-semibold text-amber-200">保存内容の競合</div>
-            <h2 className="mt-2 text-sm font-semibold text-zinc-100">別端末またはクラウド側にも変更があります</h2>
-            <p className="mt-1 text-xs leading-5 text-zinc-400">
+          <section className="border-b border-term-line px-3 py-3">
+            <div className="text-xs text-term-danger">保存内容の競合</div>
+            <h2 className="mt-1 text-sm font-semibold text-term-fg-strong">別端末またはクラウド側にも変更があります</h2>
+            <p className="mt-1 text-sm leading-5 text-term-sub">
               勝手に上書きしません。クラウド版を採用するか、この端末の内容で明示的に上書きするかを選んでください。
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={acceptCloudConflict}
-                className="rounded-md border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-200 hover:bg-white/[0.08]"
-              >
+              <button type="button" onClick={acceptCloudConflict} className={`${BTN} border-term-line text-term-fg`}>
                 クラウド版を採用
               </button>
               <button
                 type="button"
                 onClick={() => void overwriteCloudConflict()}
                 disabled={!token}
-                className="rounded-md border border-amber-300/30 bg-amber-300 px-3 py-2 text-xs font-bold text-zinc-950 hover:bg-amber-200 disabled:opacity-50"
+                className={`${BTN} border-term-accent text-term-accent`}
               >
                 この端末版で上書き
               </button>
@@ -525,52 +509,40 @@ function ExecutionWorkspace({
 
         <ExecutionReference entity={entity} />
 
-        <fieldset disabled={editingDisabled} className="grid min-w-0 w-full gap-4 disabled:opacity-70">
-          <section className="grid min-w-0 gap-3 xl:grid-cols-2">
+        <fieldset disabled={editingDisabled} className="min-w-0 w-full disabled:opacity-70">
+          <div className="term-panel-title"><span className="term-panel-name">6つの工程</span></div>
+          <section className="grid min-w-0 xl:grid-cols-2">
             {EXECUTION_STEP_IDS.map((step, index) => {
               const done = project.completedSteps.includes(step);
               return (
-                <article
-                  key={step}
-                  className={'min-w-0 overflow-hidden rounded-md border transition-colors ' + (
-                    done
-                      ? 'border-emerald-400/20 bg-emerald-400/[0.035]'
-                      : 'border-white/[0.16] bg-[#101721]'
-                  )}
-                >
-                  <div className="flex items-center gap-2 border-b border-white/[0.12] bg-[#1a2530] px-3">
+                <article key={step} className="min-w-0 border-b border-term-line xl:odd:border-r">
+                  <div className="flex items-center gap-1 border-b border-term-line-soft bg-term-head px-1">
                     <button
                       type="button"
                       onClick={() => toggleStep(step)}
                       aria-pressed={done}
                       aria-label={done ? `${STEP_LABELS[step].label}を未完了にする` : `${STEP_LABELS[step].label}を完了にする`}
-                      className="-ml-1 mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-transparent transition-colors hover:bg-white/[0.05]"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center hover:bg-term-select lg:h-8 lg:w-8"
                     >
-                      <span className={'flex h-6 w-6 items-center justify-center rounded-full border transition-colors ' + (
-                        done
-                          ? 'border-emerald-300 bg-emerald-300 text-zinc-950'
-                          : 'border-white/[0.22] bg-white/[0.03] text-transparent'
+                      <span className={'flex h-4 w-4 items-center justify-center border ' + (
+                        done ? 'border-term-fg-strong bg-term-fg-strong text-term-bg' : 'border-term-label text-transparent'
                       )}>
-                        <Check className="h-3.5 w-3.5" />
+                        <Check aria-hidden="true" className="h-3 w-3" />
                       </span>
                     </button>
-                    <div className="min-w-0 flex flex-1 flex-wrap items-baseline gap-2">
-                        <span className="font-mono text-[10px] text-zinc-500">{String(index + 1).padStart(2, '0')}</span>
-                        <h2 className="text-sm font-semibold text-zinc-100">{STEP_LABELS[step].label}</h2>
+                    <div className="flex min-w-0 flex-1 flex-wrap items-baseline gap-2">
+                      <span className="term-num text-xs text-term-label">{String(index + 1).padStart(2, '0')}</span>
+                      <h2 className="text-sm font-semibold text-term-fg-strong">{STEP_LABELS[step].label}</h2>
+                      <span className="text-xs text-term-muted">{done ? '完了' : '未完了'}</span>
                     </div>
                   </div>
-                  <div className="px-4 pb-4">
-                      <StepBody
-                        step={step}
-                        project={project}
-                        updateProject={updateProject}
-                      />
+                  <div className="px-3 pb-3">
+                    <StepBody step={step} project={project} updateProject={updateProject} />
                   </div>
                 </article>
               );
             })}
           </section>
-
         </fieldset>
       </main>
     </div>
@@ -689,10 +661,10 @@ function StepBody({
             href={checkoutHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-emerald-300 hover:text-emerald-200"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0"
           >
             決済導線を実機確認
-            <ExternalLink className="h-3 w-3" />
+            <ExternalLink aria-hidden="true" className="h-3 w-3" />
           </a>
         )}
       </div>
@@ -702,18 +674,15 @@ function StepBody({
   return (
     <div className="mt-3 grid gap-3 md:grid-cols-2">
       <Field label="実際に発生した売上（円）">
-        <div className="relative">
-          <CircleDollarSign className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-zinc-500" />
-          <input
-            type="number"
-            min={0}
-            step={1}
-            value={project.revenueJpy || ''}
-            onChange={(event) => updateProject({ revenueJpy: safeMoney(event.target.value) })}
-            placeholder="1000"
-            className={INPUT_CLASS + ' pl-9'}
-          />
-        </div>
+        <input
+          type="number"
+          min={0}
+          step={1}
+          value={project.revenueJpy || ''}
+          onChange={(event) => updateProject({ revenueJpy: safeMoney(event.target.value) })}
+          placeholder="1000"
+          className={INPUT_CLASS}
+        />
       </Field>
       <Field label="初回売上の目標（円）">
         <input
@@ -732,8 +701,8 @@ function StepBody({
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <label className="block text-xs text-zinc-300">
-      <span className="mb-1.5 block">{label}</span>
+    <label className="block text-xs text-term-label">
+      <span className="mb-1 block">{label}</span>
       {children}
     </label>
   );
@@ -742,17 +711,19 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 function Metric({
   label,
   value,
-  tone = 'neutral',
+  dim = false,
+  danger = false,
 }: {
   label: string;
   value: string;
-  tone?: 'neutral' | 'green' | 'red';
+  dim?: boolean;
+  danger?: boolean;
 }) {
-  const toneClass = tone === 'green' ? 'text-emerald-300' : tone === 'red' ? 'text-red-300' : 'text-zinc-100';
+  const tone = danger ? 'text-term-danger' : dim ? 'text-term-dim' : 'text-term-fg-strong';
   return (
-    <div className="border-l border-white/[0.14] pl-3 first:border-l-0 first:pl-0">
-      <span className="text-[11px] text-zinc-400">{label} </span>
-      <span className={'font-mono text-sm font-semibold ' + toneClass}>{value}</span>
+    <div className="border-b border-r border-term-line-soft px-3 py-1.5 last:border-r-0 sm:border-b-0">
+      <dt className="text-xs text-term-label">{label}</dt>
+      <dd className={'term-num text-sm ' + tone}>{value}</dd>
     </div>
   );
 }
@@ -863,10 +834,10 @@ export function ExecutionReference({ entity }: { entity: ExecutionSource }) {
     ['提供の仕組み', entity.lootBlueprint?.tollGateSetup],
   ].filter(([, value]) => value && value !== 'UNKNOWN');
   if (entity.contextUnavailable || rows.length === 0) return null;
-  return <details className="rounded-md border border-white/[0.16] bg-[#101721] px-4 pb-1">
-    <summary className="cursor-pointer py-3 text-sm font-medium text-sky-200">参考事例: {entity.name}</summary>
-    <dl className="divide-y divide-white/[0.1] text-sm leading-6">{rows.map(([label, value]) => <div key={label} className="grid gap-1 py-3 sm:grid-cols-[120px_minmax(0,1fr)]"><dt className="text-xs text-zinc-400">{label}</dt><dd className="whitespace-pre-wrap break-words text-zinc-200">{value}</dd></div>)}</dl>
-    {entity.strategy.actionPlaybook.length > 0 && <ol className="list-decimal space-y-2 border-t border-white/[0.1] py-3 pl-5 text-sm leading-6 text-zinc-200">{entity.strategy.actionPlaybook.map((step, index) => <li key={index}>{step}</li>)}</ol>}
-    <Link href={`/?entity=${encodeURIComponent(entity.id)}`} className="inline-block py-3 text-sm text-sky-200">事例の詳細を見る</Link>
+  return <details className="border-b border-term-line px-3">
+    <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-8 lg:py-1.5">参考事例: {entity.name}</summary>
+    <dl className="border-t border-term-line-soft text-sm leading-6">{rows.map(([label, value]) => <div key={label} className="grid gap-0.5 border-b border-term-line-soft py-2 sm:grid-cols-[120px_minmax(0,1fr)]"><dt className="text-xs text-term-label sm:pt-0.5">{label}</dt><dd className="whitespace-pre-wrap break-words text-term-fg">{value}</dd></div>)}</dl>
+    {entity.strategy.actionPlaybook.length > 0 && <ol className="list-decimal space-y-2 py-3 pl-5 text-sm leading-6 text-term-fg">{entity.strategy.actionPlaybook.map((step, index) => <li key={index}>{step}</li>)}</ol>}
+    <Link href={`/?entity=${encodeURIComponent(entity.id)}`} className="inline-flex min-h-11 items-center text-sm text-term-select-fg underline underline-offset-2 lg:min-h-8">事例の詳細を見る</Link>
   </details>;
 }

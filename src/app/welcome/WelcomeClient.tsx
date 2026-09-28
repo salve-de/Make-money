@@ -3,11 +3,12 @@
 import { entityDescription } from '@/platform/utils/entityDescription';
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { AuthModal } from '@/components/auth/AuthModal';
 import { SubmissionForm } from '@/components/terminal/SubmissionForm';
 import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
 import { useAuth } from '@/context/AuthContext';
+import { formatYen } from '@/platform/utils/moneyDisplay';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import type { FinancialEntity } from '@/shared/terminal';
 
@@ -16,10 +17,7 @@ function formatMonthlyRevenue(entity: FinancialEntity): string {
   if (entity.pnl.isRevenueUnconfirmed || entity.pnl.financialStatus === 'UNAVAILABLE') {
     return entity.pnl.revenueLabel || '未確認';
   }
-  const yen = entity.pnl.monthlyRevenue;
-  if (yen >= 100_000_000) return `¥${(yen / 100_000_000).toFixed(1)}億`;
-  if (yen >= 10_000) return `¥${Math.round(yen / 10_000)}万`;
-  return `¥${yen.toLocaleString()}`;
+  return formatYen(entity.pnl.monthlyRevenue, { approx: entity.pnl.financialStatus === 'ESTIMATED' });
 }
 
 function financialStatusLabel(entity: FinancialEntity): string {
@@ -39,22 +37,33 @@ function teamSizeLabel(entity: FinancialEntity): string {
   return `${operations.teamSize.toLocaleString()}人`;
 }
 
-export default function WelcomeClient({ entities }: { entities: FinancialEntity[] }) {
+const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_120px_90px_90px_110px]';
+
+export default function WelcomeClient({
+  entities,
+  publishedCount,
+  collectedCount,
+}: {
+  entities: FinancialEntity[];
+  publishedCount: number;
+  collectedCount: number;
+}) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user } = useAuth();
   const examples = entities.filter((entity) => ['ent_photoai', 'ent_keyence'].includes(entity.id));
+  const btn = 'inline-flex min-h-11 items-center rounded-sm border px-4 text-sm lg:min-h-8 lg:px-3';
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-term-bg text-term-fg">
       <GlobalHeader
         currentSection="WELCOME"
         rightContent={user ? (
-          <span className="max-w-40 truncate text-sm text-zinc-300">{user.email}</span>
+          <span className="max-w-40 truncate text-sm text-term-sub">{user.email}</span>
         ) : (
           <button
             type="button"
             onClick={() => setIsAuthModalOpen(true)}
-            className="min-h-11 rounded-md px-3 text-sm text-zinc-300 transition-colors hover:bg-white/[0.06] hover:text-white"
+            className="min-h-11 px-3 text-sm text-term-sub hover:text-term-fg-strong"
           >
             ログイン
           </button>
@@ -62,109 +71,104 @@ export default function WelcomeClient({ entities }: { entities: FinancialEntity[
       />
 
       <main>
-        <section className="mx-auto max-w-6xl px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,26rem)] lg:items-center lg:gap-8">
-            <div className="max-w-3xl">
-              <h1 className="text-lg font-semibold tracking-tight text-white">事業事例データベース</h1>
-            </div>
-            <div className="space-y-2">
-              <form action="/" method="get" role="search" className="flex min-w-0 items-center gap-2 rounded-md border border-white/[0.16] bg-surface px-3 focus-within:border-accent/70 focus-within:ring-2 focus-within:ring-accent/20">
-                <Search aria-hidden="true" className="h-4 w-4 shrink-0 text-zinc-400" />
-                <label htmlFor="welcome-company-search" className="sr-only">会社名・ティッカー・事業の特徴で検索</label>
-                <input
-                  id="welcome-company-search"
-                  name="q"
-                  type="search"
-                  autoComplete="off"
-                  enterKeyHint="search"
-                  placeholder="会社名・ティッカー・事業の特徴で検索"
-                  className="min-h-11 min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-zinc-400"
-                />
-                <button type="submit" className="min-h-9 shrink-0 rounded px-3 text-sm font-medium text-accent-strong hover:bg-white/[0.06] hover:text-white">
-                  検索
-                </button>
+        <section aria-labelledby="welcome-title" className="border-b border-term-line">
+          <div className="term-panel-title"><span className="term-panel-name">事業事例データベース</span></div>
+          <div className="grid gap-4 px-3 py-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-8">
+            <div>
+              <h1 id="welcome-title" className="text-xl font-semibold leading-snug text-term-fg-strong sm:text-2xl">
+                事業の売上・やり方・出典を、事例ごとに一覧で確認できます
+              </h1>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-term-sub">
+                登録された事業事例について、売上や利益、収益の仕組み、使っているツール、初期の顧客獲得の方法を、出典と対象時期つきで並べています。確認できていない数値は「未確認」と表示し、推定は「約」を付けています。
+              </p>
+              <form action="/" method="get" role="search" className="mt-3 flex max-w-xl items-center gap-2">
+                <div className="relative min-w-0 flex-1">
+                  <Search aria-hidden="true" className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
+                  <label htmlFor="welcome-company-search" className="sr-only">会社名・ティッカー・事業の特徴で検索</label>
+                  <input
+                    id="welcome-company-search"
+                    name="q"
+                    type="search"
+                    autoComplete="off"
+                    enterKeyHint="search"
+                    placeholder="会社名・ティッカー・事業の特徴で検索"
+                    className="h-11 w-full rounded-sm border border-term-line bg-term-bg pl-9 pr-3 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8"
+                  />
+                </div>
+                <button type="submit" className={`${btn} shrink-0 border-term-accent text-term-accent hover:bg-term-head`}>検索</button>
               </form>
             </div>
+            <dl className="grid grid-cols-2 self-start border border-term-line">
+              <div className="border-b border-r border-term-line px-3 py-2">
+                <dt className="text-xs text-term-label">公開している事例</dt>
+                <dd className="term-num text-xl text-term-fg-strong">{publishedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
+              </div>
+              <div className="border-b border-term-line px-3 py-2">
+                <dt className="text-xs text-term-label">収集済みの事例</dt>
+                <dd className="term-num text-xl text-term-fg-strong">{collectedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
+              </div>
+              <div className="col-span-2 px-3 py-2 text-xs leading-5 text-term-label">
+                収集済みのうち、出典の確認が済んだものを公開しています。
+              </div>
+            </dl>
           </div>
-
         </section>
 
-        <section className="border-y border-white/[0.12] bg-surface/70">
-          <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
-            <div className="flex items-center justify-between gap-3">
-              <h2 className="text-sm font-semibold text-zinc-200">事例ピックアップ</h2>
-              <Link href="/" className="inline-flex min-h-10 items-center gap-2 text-sm text-accent-strong hover:text-white">
-                全件を見る <ArrowRight aria-hidden="true" className="h-4 w-4" />
-              </Link>
-            </div>
+        <section aria-labelledby="welcome-picks" className="border-b border-term-line">
+          <div className="term-panel-title">
+            <h2 id="welcome-picks" className="term-panel-name">事例ピックアップ</h2>
+            <Link href="/" className="ml-auto inline-flex min-h-6 items-center text-term-select-fg hover:text-term-fg-strong">全件を見る</Link>
+          </div>
 
           {examples.length > 0 ? (
-            <div className="mt-2 grid gap-3 md:grid-cols-2">
-              {examples.map((entity) => (
-                <Link
-                  key={entity.id}
-                  href={`/?entity=${encodeURIComponent(entity.id)}`}
-                  className="group rounded-lg border border-white/[0.16] bg-background p-4 transition-colors hover:border-accent/55 hover:bg-surface-raised sm:p-5"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="text-base font-semibold text-white">{entity.name}</h3>
-                      <p className="mt-1 line-clamp-2 text-sm leading-5 text-zinc-300">{entityDescription(entity)}</p>
-                    </div>
-                    <ArrowRight aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-zinc-500 transition-transform group-hover:translate-x-0.5 group-hover:text-accent" />
-                  </div>
-                  <dl className="mt-4 grid grid-cols-2 gap-3 border-t border-white/[0.12] pt-3">
-                    <div>
-                      <dt className="text-xs text-zinc-400">売上（月額換算）</dt>
-                      <dd className="mt-0.5 font-mono text-sm font-semibold tabular-nums text-zinc-100">{formatMonthlyRevenue(entity)}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-xs text-zinc-400">運営規模</dt>
-                      <dd className="mt-0.5 text-sm text-zinc-100">{teamSizeLabel(entity)}</dd>
-                    </div>
-                  </dl>
-                  <div className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs">
-                    <span className={
-                      entity.pnl.financialStatus === 'ESTIMATED' ? 'text-warning'
-                        : entity.pnl.financialStatus === 'VERIFIED' ? 'text-positive'
-                          : entity.pnl.financialStatus === 'REPORTED' ? 'text-sky-200'
-                            : entity.pnl.financialStatus === 'POST_MORTEM' ? 'text-rose-200'
-                              : 'text-zinc-300'
-                    }>
-                      {financialStatusLabel(entity)}
-                    </span>
-                    <span className="text-zinc-400">{entity.pnl.dataSnapshotPeriod || '時点未登録'}</span>
-                  </div>
-                </Link>
-              ))}
+            <div>
+              <div className={`hidden h-[26px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label md:grid ${SAMPLE_GRID}`}>
+                <span>事例</span><span>事業内容</span><span className="text-right">売上（月額換算）</span><span className="text-right">運営規模</span><span>資料区分</span><span>対象時期</span>
+              </div>
+              {examples.map((entity, index) => {
+                const status = financialStatusLabel(entity);
+                return (
+                  <Link
+                    key={entity.id}
+                    href={`/?entity=${encodeURIComponent(entity.id)}`}
+                    className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select md:min-h-[29px] md:items-center md:py-1 ${SAMPLE_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
+                  >
+                    <span className="font-semibold text-term-fg-strong">{entity.name}</span>
+                    <span className="line-clamp-2 text-term-sub md:line-clamp-1">{entityDescription(entity)}</span>
+                    <span className="term-num text-term-fg-strong md:text-right"><span className="mr-2 text-xs text-term-label md:hidden">売上（月額換算）</span>{formatMonthlyRevenue(entity)}</span>
+                    <span className="term-num text-term-fg md:text-right"><span className="mr-2 text-xs text-term-label md:hidden">運営規模</span>{teamSizeLabel(entity)}</span>
+                    <span className={`text-xs md:text-sm ${status === '推計' ? 'text-term-accent' : status === '未確認' ? 'text-term-dim' : 'text-term-muted'}`}>{status}</span>
+                    <span className="term-num text-xs text-term-label md:text-sm">{entity.pnl.dataSnapshotPeriod || '時点未登録'}</span>
+                  </Link>
+                );
+              })}
             </div>
           ) : (
-            <p className="mt-6 rounded-lg border border-white/[0.12] bg-surface p-5 text-sm text-zinc-400">
-              事例を読み込めませんでした。台帳ページから登録内容をご確認ください。
-            </p>
+            <div className="px-3 py-4 text-sm">
+              <p className="text-term-fg-strong">事例を読み込めませんでした。</p>
+              <p className="mt-1 text-term-sub">事例一覧から登録内容を確認してください。</p>
+            </div>
           )}
-          </div>
         </section>
 
-        <section className="mx-auto grid max-w-6xl items-start gap-2 px-4 py-4 sm:grid-cols-2 sm:px-6 lg:px-8">
-          <details className="rounded-md border border-white/[0.14] bg-surface">
-            <summary className="cursor-pointer px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white">新着をメールで受け取る</summary>
-            <div className="border-t border-white/[0.1] p-4"><WeeklyNewsletterSection /></div>
+        <section aria-label="更新の受け取りと事例の投稿" className="grid lg:grid-cols-2">
+          <details className="border-b border-term-line lg:border-r">
+            <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg hover:bg-term-head">新着をメールで受け取る</summary>
+            <div className="border-t border-term-line"><WeeklyNewsletterSection /></div>
           </details>
-          <details className="rounded-md border border-white/[0.14] bg-surface">
-            <summary className="cursor-pointer px-4 py-3 text-sm font-medium text-zinc-300 hover:text-white">事例を投稿する</summary>
-            <div className="border-t border-white/[0.1] p-4"><SubmissionForm /></div>
+          <details className="border-b border-term-line">
+            <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg hover:bg-term-head">事例を投稿する</summary>
+            <div className="border-t border-term-line"><SubmissionForm /></div>
           </details>
         </section>
       </main>
 
-      <footer className="border-t border-white/[0.1] px-4 py-6 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+      <footer className="px-3 py-4">
+        <div className="flex flex-col gap-3 text-sm text-term-label sm:flex-row sm:items-center sm:justify-between">
           <span>Make Money</span>
-          <nav aria-label="フッターナビゲーション" className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link href="/" className="hover:text-white">事例一覧</Link>
-            <Link href="/registry" className="hover:text-white">収集レジストリ</Link>
-            {!user && <button type="button" onClick={() => setIsAuthModalOpen(true)} className="text-left hover:text-white">ログイン</button>}
+          <nav aria-label="フッターナビゲーション" className="flex flex-wrap gap-x-5">
+            <Link href="/" className="inline-flex min-h-11 items-center hover:text-term-fg-strong">事例一覧</Link>
+            {!user && <button type="button" onClick={() => setIsAuthModalOpen(true)} className="min-h-11 text-left hover:text-term-fg-strong">ログイン</button>}
           </nav>
         </div>
       </footer>

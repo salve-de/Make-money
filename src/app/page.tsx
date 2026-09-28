@@ -77,10 +77,10 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   });
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#060709]" />}>
-      {unavailable ? <aside role="status" className="bg-amber-950 p-4 text-sm text-amber-100">
+    <Suspense fallback={<div className="min-h-screen bg-term-bg" />}>
+      {unavailable ? <aside role="status" className="border-b border-term-line bg-term-panel p-3 text-sm text-term-fg">
         {unavailable.name}：詳細の公開確認が完了していないため、未確認の財務・分析は表示していません。
-        <Link className="ml-3 underline" href={`/execute/${encodeURIComponent(unavailable.id)}`}>{unavailable.name}を参考に計画を作る</Link>
+        <Link className="ml-3 text-term-accent underline" href={`/execute/${encodeURIComponent(unavailable.id)}`}>{unavailable.name}を参考に計画を作る</Link>
       </aside> : null}
       <TerminalShell initialEntities={optimizedEntities} entityAliases={entityAliases}
         catalogTags={productionCatalog ? [] : [...new Set(entities.flatMap((entity) => entity.tags ?? []))].sort()}

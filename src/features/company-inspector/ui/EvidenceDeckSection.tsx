@@ -22,7 +22,7 @@ export function EvidenceDeckSection({
       categoryEn="出典に基づく記録"
       titleJa={isHazardMode ? '撤退・破綻に関する記録' : '根拠となる記録'}
       badge={
-        <span className="rounded border border-white/[0.10] bg-white/[0.04] px-2 py-0.5 text-zinc-400 font-mono text-[11px]">
+        <span className="rounded-sm border border-term-line bg-term-head px-2 py-0.5 text-zinc-400 font-mono text-xs">
           {sourceCount > 0 ? `出典 ${sourceCount}件 / 記録 ${cards.length}件` : linkedCards.length > 0 ? `参照先あり ${linkedCards.length}件` : `${cards.length}件`}
         </span>
       }

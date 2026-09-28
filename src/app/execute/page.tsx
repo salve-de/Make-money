@@ -5,7 +5,7 @@ import { ExecutionHubClient } from './ExecutionHubClient';
 
 export default function ExecutionHubPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#07080B] text-zinc-100">
+    <div className="flex min-h-screen flex-col bg-term-bg text-term-fg">
       <GlobalHeader currentSection="EXECUTION" />
       <ExecutionHubClient />
     </div>
