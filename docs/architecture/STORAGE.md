@@ -290,6 +290,8 @@ ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading�
 
 ## 検証と変更の記録
 
+2026-09-29 作業版: 既存 `ingestVerifiedEntities` の入力は任意の `review { reviewer, reviewedAt, sourceUrls }` を受け取り、Journalの `source_provenance` に実際に渡された監査者・監査日時・URLを記録する。未指定なら担当者/日時はnull、確認済み出典配列は空、methodはUNSPECIFIEDとし、固定担当者名や企業URLだけから監査済みとしない。これは入力された監査記録の保存であり、内容の正しさ・利用許諾・UI公開承認を自動的に証明しない。既存の原出典メタデータ `sourceMetadata` は表示文の置換処理から除外し、原文を保持する。保存場所・schema version・公開可否は変更していない。検証項目は原文保持・公開応答からの内部履歴除外・監査記録の保存・不正な型/日時/URLに対する書込み前拒否。実R2への適用は未確認。
+
 `pnpm lint`、`pnpm typecheck`、`pnpm test`、`pnpm build`、`pnpm test:e2e`を実行します。認可・保存先・決済を変えた場合は、実際の対象環境で保存と読み戻しまで確認します。ローカル成功、本番設定、データ移行、main反映は別々に記録します。
 
 関連する正本:

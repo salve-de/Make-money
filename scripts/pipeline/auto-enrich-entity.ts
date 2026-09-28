@@ -27,7 +27,11 @@ function sanitizeObject<T>(value: T): T {
   if (Array.isArray(value)) return value.map((item) => sanitizeObject(item)) as T;
   if (value !== null && typeof value === 'object') {
     const next: Record<string, unknown> = {};
-    for (const [key, child] of Object.entries(value)) next[key] = sanitizeObject(child);
+    for (const [key, child] of Object.entries(value)) {
+      // Historical source metadata is evidence, not display copy. Rewriting it
+      // would destroy the original wording during an otherwise valid correction.
+      next[key] = key === 'sourceMetadata' ? child : sanitizeObject(child);
+    }
     return next as T;
   }
   return value;

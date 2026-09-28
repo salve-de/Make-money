@@ -18,7 +18,7 @@ import {
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
   const { meta, ...publicFields } = entity;
-  return { ...publicFields, hasPremiumAnalysis: Boolean(meta) };
+  return publicFoundationData({ ...publicFields, hasPremiumAnalysis: Boolean(meta) });
 }
 
 /**
@@ -400,11 +400,11 @@ export function publicFoundationBusinessCase(
   };
 }
 
-/** Foundation observations may carry nested raw dossiers. Never return their paid field. */
+/** Keep private ingestion history and paid fields out of public responses. */
 export function publicFoundationData<T>(value: T): T {
   if (Array.isArray(value)) return value.map(publicFoundationData) as T;
   if (value && typeof value === 'object') {
-    return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'meta')
+    return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'meta' && key !== 'sourceMetadata')
       .map(([key, item]) => [key, publicFoundationData(item)])) as T;
   }
   return value;
