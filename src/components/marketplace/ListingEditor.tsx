@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ExternalLink, LoaderCircle, Store } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
@@ -52,6 +52,11 @@ export function ListingEditor(props: { sessionId: string; listingId: string }) {
 
 function ListingEditorForm({ sessionId, listingId: initialListingId }: { sessionId: string; listingId: string }) {
   const router = useRouter();
+  const active = useRef(true);
+  useEffect(() => {
+    active.current = true;
+    return () => { active.current = false; };
+  }, []);
   const { user, token, loading: authLoading, signInWithGoogle } = useAuth();
   const [form, setForm] = useState<ListingForm>(EMPTY_FORM);
   const [sourceType, setSourceType] = useState<MarketplaceListingSource>(sessionId ? 'builder' : 'external');
@@ -131,6 +136,7 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
         }),
       });
       const data = await responseJson(response);
+      if (!active.current) return;
       if (!response.ok) throw new Error(typeof data.error === 'string' ? data.error : '掲載情報を保存できませんでした');
       const listing = data.listing as OwnedMarketplaceListing;
       setForm({
@@ -149,9 +155,9 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
         router.replace(`/marketplace/new?listingId=${encodeURIComponent(listing.listingId)}`);
       }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : '掲載情報を保存できませんでした');
+      if (active.current) setError(cause instanceof Error ? cause.message : '掲載情報を保存できませんでした');
     } finally {
-      setSaving(false);
+      if (active.current) setSaving(false);
     }
   };
 
