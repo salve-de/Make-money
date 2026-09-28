@@ -246,7 +246,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
                   href={item.href}
                   onClick={(event) => handleLocalNavigation(event, item.id)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`${hideMobilePrimaryNav && !compactMobileNav && item.id !== 'DISCOVER' && item.id !== 'EXECUTION' ? 'hidden md:flex' : 'flex'} min-h-11 items-center gap-2 rounded-md px-3 text-sm transition-colors ${
+                  className={`${hideMobilePrimaryNav && !compactMobileNav && Boolean(localModeBySection[item.id]) ? 'hidden md:flex' : 'flex'} min-h-11 items-center gap-2 rounded-md px-3 text-sm transition-colors ${
                     isActive ? 'bg-amber-300/[0.1] text-amber-100 ring-1 ring-inset ring-amber-300/30' : 'text-zinc-300 hover:bg-white/[0.06] hover:text-white'
                   }`}
                 >

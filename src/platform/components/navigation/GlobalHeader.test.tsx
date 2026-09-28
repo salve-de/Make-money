@@ -16,5 +16,6 @@ describe('GlobalHeader responsive workspace navigation', () => {
     expect((menu.match(/class="hidden md:flex min-h-11/g) || []).length).toBe(5);
     expect(menu).toMatch(/href="\/discover"[^>]*class="flex min-h-11/);
     expect(menu).toMatch(/href="\/execute"[^>]*class="flex min-h-11/);
+    expect(menu).toMatch(/href="\/marketplace"[^>]*class="flex min-h-11/);
   });
 });

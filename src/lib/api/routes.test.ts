@@ -173,7 +173,7 @@ describe('strategy owner isolation and honest persistence', () => {
   });
   it('deletes owned state and anonymizes retained payment facts atomically', async () => {
     state.batch.mockResolvedValue([]);
-    state.query.mockResolvedValue([{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
+    state.query.mockResolvedValueOnce([{ available: 1 }]).mockResolvedValue([{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
     const response = await deleteUser(request(null, false, true));
     expect(response.status).toBe(200);
     expect(await response.json()).toMatchObject({ scope: 'application_data' });
