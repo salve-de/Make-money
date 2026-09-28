@@ -13,7 +13,7 @@ export function EvidenceDeckSection({
 
   const sourceCount = new Set((entity.observationsStream || []).flatMap((item) => item.evidenceIds ?? [])).size;
   const linkedCards = cards.filter((card) => /https?:\/\/\S+/i.test(card.sourceNote || ''));
-  const otherCards = cards.filter((card) => !/https?:\/\/\S+/i.test(card.sourceNote || ''));
+
 
   return (
     <InspectorSectionCard
@@ -28,15 +28,7 @@ export function EvidenceDeckSection({
       }
       isHazardMode={isHazardMode}
     >
-      {linkedCards.length > 0 && <DynamicEvidenceDeck cards={linkedCards} isHazardMode={isHazardMode} />}
-      {otherCards.length > 0 && (
-        <details className="border-t border-white/[0.08] bg-[#0c1017]">
-          <summary className="cursor-pointer px-4 py-3 text-xs font-medium text-zinc-300">
-            補足記録 ({otherCards.length}件)
-          </summary>
-          <DynamicEvidenceDeck cards={otherCards} isHazardMode={isHazardMode} />
-        </details>
-      )}
+      <DynamicEvidenceDeck cards={cards} isHazardMode={isHazardMode} />
     </InspectorSectionCard>
   );
 }

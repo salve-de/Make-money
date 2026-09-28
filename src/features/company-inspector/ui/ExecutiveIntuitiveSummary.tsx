@@ -152,7 +152,7 @@ export function ExecutiveIntuitiveSummary({
       label: '組織規模',
       value: teamSize ? `${teamSize.toLocaleString()}名` : '未確認',
       known: Boolean(teamSize),
-      sub: entity.operations?.weeklyHours ? `週稼働 ${entity.operations.weeklyHours}h` : null,
+      sub: entity.operations?.isWeeklyHoursUnconfirmed === false && entity.operations?.weeklyHours ? `週稼働 ${entity.operations.weeklyHours}h` : null,
       tone: 'neutral',
     },
   ];
@@ -161,12 +161,6 @@ export function ExecutiveIntuitiveSummary({
   const targetCustomer = cleanValue(entity.essence?.targetCustomer);
   const blindspot = cleanValue(entity.strategy?.blindspot);
   const secretInsight = cleanValue(entity.strategy?.secretInsight);
-  const incumbentDilemma = cleanValue(
-    entity.meta?.incumbentDilemma?.cannibalizationBarrier ||
-    entity.strategy?.incumbentDilemma ||
-    entity.strategy?.moatDescription ||
-    legacyText(entity.strategy, 'moat')
-  );
   const pricingModel = cleanValue(entity.pricing?.model);
   const pricePoint = cleanValue(entity.pricing?.pricePoint);
   const psychoTrigger = cleanValue(entity.pricing?.psychologicalTrigger);
@@ -180,7 +174,8 @@ export function ExecutiveIntuitiveSummary({
       label: isHazardMode ? '事業継続の課題' : '顧客の課題',
       value: targetPain,
     });
-  } else if (targetCustomer) {
+  }
+  if (targetCustomer) {
     infoRows.push({ label: '対象顧客', value: targetCustomer });
   }
 
@@ -198,11 +193,13 @@ export function ExecutiveIntuitiveSummary({
     });
   }
 
-  if (incumbentDilemma) {
-    infoRows.push({
-      label: isHazardMode ? '撤退・破綻の要因' : '競争上の特徴',
-      value: incumbentDilemma.replace(/^【.*?】/g, '').trim(),
-    });
+  for (const [label, value] of [
+    ['競争優位', entity.strategy?.moatDescription],
+    ['大手との競争条件', entity.strategy?.incumbentDilemma],
+    ['競争上の補足', legacyText(entity.strategy, 'moat')],
+  ]) {
+    const content = cleanValue(value);
+    if (content && !infoRows.some((row) => row.value === content)) infoRows.push({ label: label!, value: content });
   }
 
   if (pricingModel || pricePoint || psychoTrigger) {

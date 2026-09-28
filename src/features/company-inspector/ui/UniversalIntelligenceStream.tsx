@@ -1,15 +1,39 @@
 'use client';
 
 import { FinancialEntity,UniversalObservation } from '@/shared/terminal';
+import { httpUrl } from './SourcesSection';
 import { StructuredObservationPayload } from './StructuredObservationPayload';
 import {
   AlertCircle,
   Clock,
-  ChevronDown,
   HelpCircle,
   History,
 } from 'lucide-react';
 import React from 'react';
+
+export function mergeInspectorObservations(entity: { observationsStream?: UniversalObservation[]; observations?: readonly unknown[] }): UniversalObservation[] {
+  const structured = entity.observationsStream || [];
+  const texts = new Set(structured.map((item) => item.text.trim()));
+  const supplemental: UniversalObservation[] = [];
+  for (const [index, value] of (entity.observations || []).entries()) {
+    const text = typeof value === 'string' ? value : value && typeof value === 'object' && 'text' in value && typeof value.text === 'string' ? value.text : '';
+    if (!text.trim() || texts.has(text.trim())) continue;
+    texts.add(text.trim());
+    const record: UniversalObservation = { id: `supplemental-${index}`, categoryLabel: '補足記録', text };
+    // Historical objects may contain private transport payloads. Copy only
+    // explicit public text/provenance fields, never spread the source object.
+    if (value && typeof value === 'object') {
+      if ('sourceUrl' in value && typeof value.sourceUrl === 'string') record.sourceUrl = httpUrl(value.sourceUrl) || undefined;
+      if ('observedAt' in value && typeof value.observedAt === 'string') record.observedAt = value.observedAt;
+      if ('author' in value && typeof value.author === 'string') record.author = value.author;
+      if ('categoryLabel' in value && typeof value.categoryLabel === 'string') record.categoryLabel = value.categoryLabel;
+      if ('originType' in value && (value.originType === 'observed' || value.originType === 'inferred' || value.originType === 'reported' || value.originType === 'estimated' || value.originType === 'unknown')) record.originType = value.originType;
+      if ('verificationStatus' in value && (value.verificationStatus === 'SUPPORTED' || value.verificationStatus === 'UNVERIFIED' || value.verificationStatus === 'REFUTED')) record.verificationStatus = value.verificationStatus;
+    }
+    supplemental.push(record);
+  }
+  return [...structured, ...supplemental];
+}
 
 interface UniversalIntelligenceStreamProps {
   entity: FinancialEntity;
@@ -19,28 +43,8 @@ interface UniversalIntelligenceStreamProps {
 export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamProps> = ({
   entity,
 }) => {
-  const { dynamicMoats, observationsStream, timelineEvents, coverageAudit, unknownsNotes, exposureAudit } = entity;
-  const effectiveObservations: UniversalObservation[] = React.useMemo(() => {
-    if (observationsStream && observationsStream.length > 0) {
-      return observationsStream;
-    }
-    if (entity.observations && entity.observations.length > 0) {
-      return entity.observations.map((obs: unknown, i) => {
-        if (typeof obs === 'object' && obs !== null && 'text' in obs) {
-          return obs as UniversalObservation;
-        }
-        return {
-          id: `obs-str-${i}`,
-          category: 'MARKET_DISTORTION' as const,
-          categoryLabel: '現場メモ',
-          text: String(obs),
-          originType: 'observed' as const,
-          verificationStatus: 'SUPPORTED' as const,
-        };
-      });
-    }
-    return [];
-  }, [observationsStream, entity.observations]);
+  const { dynamicMoats, timelineEvents, coverageAudit, unknownsNotes, exposureAudit } = entity;
+  const effectiveObservations = mergeInspectorObservations(entity);
 
   // Layer 2 特異点ブロックの存在判定
   const hasDynamicMoats = dynamicMoats && (
@@ -124,12 +128,12 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
             <div className="flex min-w-0 items-center gap-2">
               <Clock className="h-4 w-4 shrink-0 text-zinc-400" />
-              <span className="text-sm font-semibold text-zinc-100">事業の変化と現在の評価</span>
+              <h3 className="text-sm font-semibold text-zinc-100">事業の変化と現在の評価</h3>
             </div>
             <div className="flex items-center gap-1.5">
               <span className={`text-xs font-medium px-2 py-1 rounded border ${
                 entity.temporal.viabilityStatus === 'ACTIVE_PLAYBOOK' ? 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40' :
-                entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'bg-cyan-950/40 text-cyan-300 border-cyan-500/40 animate-pulse' :
+                entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'bg-cyan-950/40 text-cyan-300 border-cyan-500/40 ' :
                 entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'bg-amber-950/40 text-amber-300 border-amber-500/40' :
                 entity.temporal.viabilityStatus === 'HISTORICAL_WINDOW' ? 'bg-red-950/40 text-red-300 border-red-500/40' :
                 entity.temporal.viabilityStatus === 'EVOLVING_BARRIER' ? 'bg-purple-950/40 text-purple-300 border-purple-500/40' :
@@ -140,7 +144,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 text-[10px] font-mono py-1">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-mono py-1">
             <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
               <span className="text-zinc-500 block">創業・ローンチ時期</span>
               <span className="text-zinc-200 font-bold text-[11px]">
@@ -188,15 +192,15 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           <div className="flex items-center gap-2 border-b border-white/[0.06] pb-1.5">
             <History className="w-3.5 h-3.5 text-zinc-400" />
             <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
-              重要タイムライン・特異点ログ (TIMELINE MILESTONES)
+              沿革・主な出来事
             </span>
           </div>
           <div className="space-y-2 pt-1 font-mono text-[11px]">
-            {timelineEvents.map((evt, idx) => (
+            {timelineEvents.filter((evt, index, all) => all.findIndex((item) => item.occurredAt === evt.occurredAt && item.eventType === evt.eventType && item.description === evt.description) === index).map((evt, idx) => (
               <div key={idx} className="flex items-start gap-2.5 text-zinc-300 border-l-2 border-zinc-700 pl-2.5 py-0.5">
                 <span className="text-[10px] text-cyan-400 shrink-0 font-bold">{evt.occurredAt || '時期不詳'}</span>
                 <span className="text-zinc-500">|</span>
-                <span className="text-[11px] leading-relaxed text-zinc-300">{evt.description}</span>
+                <span className="text-[11px] leading-relaxed text-zinc-300">{evt.eventType && <span className="mr-2 text-zinc-400">{evt.eventType}</span>}{evt.description}</span>
               </div>
             ))}
           </div>
@@ -207,17 +211,15 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       {/* Layer 2: 【事業構造の特徴・独自の強み】 */}
       {/* データが存在するブロックだけが自動展開・最上位化 */}
       {/* ========================================================= */}
-      {(hasDynamicMoats || hasExposureAudit) && (
+      {hasDynamicMoats && (
         <section className="space-y-3">
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
             <div className="flex min-w-0 items-center gap-2">
-              <span className="text-sm font-semibold text-zinc-100">
+              <h3 className="text-sm font-semibold text-zinc-100">
                 事業構造の特徴
-              </span>
+              </h3>
             </div>
-            <span className="text-[10px] font-mono text-zinc-500">
-              ※ 該当するデータが存在する項目のみ表示
-            </span>
+
           </div>
 
           <div className="grid grid-cols-1 gap-2.5">
@@ -323,6 +325,15 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           </div>
         </section>
       )}
+      {hasExposureAudit && <section className="rounded-md border border-white/[0.12] bg-[#101721] overflow-hidden">
+        <h3 className="bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">初期獲得・事業転換・運営の記録</h3>
+        <dl className="divide-y divide-white/10">{([
+          ['初期の顧客獲得', exposureAudit?.guerrillaTraction],
+          ['プラットフォームの活用', exposureAudit?.platformGlitch],
+          ['事業転換', exposureAudit?.pivotSnapshot],
+          ['運営構成・費用', exposureAudit?.hiddenStackCost],
+        ] as const).filter(([, value]) => value).map(([label, value]) => <div className="px-4 py-3" key={label}><dt className="text-xs font-semibold text-sky-200">{label}</dt><dd className="mt-1 text-sm leading-6 text-zinc-300">{value}</dd></div>)}</dl>
+      </section>}
       {/* ========================================================= */}
       {/* Layer 3: 【全量調査ログ・取材メモ】 */}
       {/* 保存済み観測を根拠・権利・公開範囲を保ったまま表示可能な範囲で描画 */}
@@ -330,9 +341,9 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       <section className="space-y-3">
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
             <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-zinc-100">
+            <h3 className="text-sm font-semibold text-zinc-100">
               調査メモ
-            </span>
+            </h3>
           </div>
             <span className="text-xs text-zinc-400">
             {effectiveObservations.length}件
@@ -356,19 +367,23 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                       </span>
                       {obs.originType && (
                         <span className="text-zinc-500">
-                          [{obs.originType === 'observed' ? '確定観測' : obs.originType === 'inferred' ? '構造推論' : obs.originType}]
+                          [{obs.originType === 'observed' ? '観測' : obs.originType === 'inferred' ? '構造推論' : obs.originType}]
                         </span>
                       )}
                     </div>
                     {obs.verificationStatus && (
                       <span className={`text-[9px] ${obs.verificationStatus === 'SUPPORTED' ? 'text-emerald-400/80' : 'text-zinc-500'}`}>
-                        {obs.verificationStatus === 'SUPPORTED' ? '✓ 検証完了' : '※ 推定値'}
+                        {obs.verificationStatus === 'SUPPORTED' ? '根拠あり' : obs.verificationStatus === 'REFUTED' ? '反証あり' : '未検証'}
                       </span>
                     )}
                   </div>
                   <p className="text-zinc-200 text-[11px] leading-relaxed font-sans">
                     {obs.text}
                   </p>
+                  {(obs.observedAt || obs.author || obs.sourceUrl) && <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-zinc-400">
+                    {obs.observedAt && <span>{obs.observedAt}</span>}{obs.author && <span>{obs.author}</span>}
+                    {obs.sourceUrl && httpUrl(obs.sourceUrl) && <a href={httpUrl(obs.sourceUrl)!} target="_blank" rel="noopener noreferrer" className="text-sky-200 underline">出典</a>}
+                  </div>}
                   <StructuredObservationPayload observation={obs} />
                 </div>
               );
@@ -377,29 +392,6 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
         ) : (
           <div className="p-4 rounded-md border border-white/[0.04] bg-white/[0.01] text-center text-zinc-500 text-xs font-mono">
             現在、追加の観測レコードはありません。
-          </div>
-        )}
-
-        {/* タイムライン・重要イベント */}
-        {timelineEvents && timelineEvents.length > 0 && (
-          <div className="border border-white/[0.06] rounded-md bg-[#090A0E] p-3.5 space-y-2.5">
-            <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-zinc-300">
-              <Clock className="w-3.5 h-3.5 text-zinc-400" />
-              <span>主要な沿革・タイムライン</span>
-            </div>
-            <div className="space-y-2 pl-2 border-l border-white/[0.08]">
-              {timelineEvents.map((evt, idx) => (
-                <div key={idx} className="relative pl-3 space-y-0.5 text-[11px]">
-                  <span className="absolute -left-[13px] top-1.5 w-1.5 h-1.5 rounded-full bg-zinc-500" />
-                  <div className="text-[10px] font-mono text-zinc-400">
-                    {evt.occurredAt} ・ {evt.eventType}
-                  </div>
-                  <div className="text-zinc-300 font-sans leading-snug">
-                    {evt.description}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         )}
 
@@ -422,22 +414,19 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
 
         {/* カバレッジ監査ログ */}
         {coverageAudit && coverageAudit.length > 0 && (
-          <details className="group rounded-md border border-white/[0.1] bg-white/[0.025] p-3 text-sm text-zinc-300">
-            <summary className="flex cursor-pointer items-center justify-between gap-3 hover:text-white">
-              <span>調査範囲を見る（{coverageAudit.length}項目）</span>
-              <ChevronDown className="h-4 w-4 shrink-0 text-zinc-400 transition-transform group-open:rotate-180" />
-            </summary>
-            <div className="mt-2.5 pt-2 border-t border-white/[0.04] space-y-1.5 max-h-48 overflow-y-auto">
+          <section className="rounded-md border border-white/[0.1] bg-white/[0.025] p-3 text-sm text-zinc-300">
+            <h4 className="font-semibold text-zinc-100">調査範囲</h4>
+            <div className="mt-2.5 pt-2 border-t border-white/[0.04] space-y-1.5">
               {coverageAudit.map((item, idx) => (
                 <div key={idx} className="flex items-start justify-between gap-2 py-0.5 border-b border-white/[0.02]">
                   <span className="text-zinc-400 shrink-0">{item.dimension}:</span>
-                  <span className="text-right truncate text-zinc-400 font-sans">
-                    {item.note || item.status}
+                  <span className="min-w-0 text-right break-words text-zinc-400 font-sans">
+                    {item.note || item.status}{item.attempts?.map((attempt, i) => <span className="block" key={i}>{attempt}</span>)}
                   </span>
                 </div>
               ))}
             </div>
-          </details>
+          </section>
         )}
       </section>
 

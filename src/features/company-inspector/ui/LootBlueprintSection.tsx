@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ChevronDown, Wrench } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
 import { legacyText } from '../model/legacy-fields';
@@ -24,19 +24,19 @@ function cleanText(value: string | null | undefined): string | null {
 export function LootBlueprintSection({
   entity,
   isHazardMode,
-}: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'>) {
+  isPro,
+}: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'isPro'>) {
   const loot = entity.lootBlueprint;
-  const tools = entity.operations?.toolStack || [];
   const teamSize = entity.operations?.teamSize;
   const initialCapital = entity.operations?.initialCapitalRequired;
 
-  const stealthEntry = cleanText(loot?.stealthEntry) || cleanText(entity.acquisition?.primaryFunnel);
+  const stealthEntry = cleanText(loot?.stealthEntry);
   const tollGateSetup = cleanText(loot?.tollGateSetup) || cleanText(entity.architecturePattern);
-  const incumbentBarrier = cleanText(entity.meta?.incumbentDilemma?.cannibalizationBarrier)
+  const incumbentBarrier = (isPro ? cleanText(entity.meta?.incumbentDilemma?.cannibalizationBarrier) : null)
     || cleanText(legacyText(entity.strategy, 'moat'));
 
   const hasKnownTeamSize = !entity.operations?.isTeamSizeUnconfirmed && typeof teamSize === 'number' && teamSize > 0;
-  const hasKnownInitialCapital = !entity.operations?.isCapitalUnconfirmed
+  const hasKnownInitialCapital = entity.operations?.isCapitalUnconfirmed === false
     && typeof initialCapital === 'number'
     && initialCapital >= 0;
 
@@ -81,7 +81,9 @@ export function LootBlueprintSection({
     });
   }
 
-  const hasAnyContent = steps.length > 0 || tools.length > 0 || Boolean(entity.strategy?.initialTraction?.some((text) => cleanText(text)));
+  if (cleanText(loot?.targetPrey) && !stealthEntry) steps.push({ index: String(steps.length + 1).padStart(2, '0'), label: '対象顧客', title: '狙う顧客', text: cleanText(loot?.targetPrey)! });
+  if (cleanText(loot?.structuralFlaw) && !tollGateSetup) steps.push({ index: String(steps.length + 1).padStart(2, '0'), label: '業界の摩擦', title: '既存の構造上の課題', text: cleanText(loot?.structuralFlaw)! });
+  const hasAnyContent = steps.length > 0 || Boolean(entity.strategy?.initialTraction?.some((text) => cleanText(text)));
 
   if (!hasAnyContent) return null;
 
@@ -104,7 +106,7 @@ export function LootBlueprintSection({
       isHazardMode={isHazardMode}
     >
       {initialTraction.length > 0 && (
-        <details className="border-b border-white/[0.07] px-4 py-3 sm:px-5">
+        <details open className="border-b border-white/[0.07] px-4 py-3 sm:px-5">
           <summary className="cursor-pointer text-xs font-medium text-zinc-300">
             {isHazardMode ? '初期の判断とつまずき' : '立ち上げ初期の動き'}
           </summary>
@@ -127,13 +129,13 @@ export function LootBlueprintSection({
       {steps.length > 0 && (
         <div className="divide-y divide-white/[0.06]">
           {steps.map((step) => (
-            <details key={step.index} className="group bg-[#0c1017]">
+            <details key={step.index} open className="group bg-[#0c1017]">
               <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 hover:bg-white/[0.02] sm:px-5">
                 <span className="min-w-0 flex-1">
                   <span className="mb-1 flex items-center gap-2 text-xs font-semibold text-sky-200">
                     <span className="font-mono tabular-nums">{step.index}</span>{step.label}
                   </span>
-                  <span className="line-clamp-2 text-[13px] leading-relaxed text-zinc-200">{step.text}</span>
+                  <span className="text-[13px] leading-relaxed text-zinc-200">{step.title}</span>
                 </span>
                 <ChevronDown className="h-4 w-4 shrink-0 text-zinc-400 transition-transform group-open:rotate-180" />
               </summary>
@@ -158,55 +160,6 @@ export function LootBlueprintSection({
         </div>
       )}
 
-      {/* 実行基盤 / ツールスタック（存在する場合のみ表形式で描画） */}
-      {tools.length > 0 && (
-        <div className="border-t border-white/[0.07] px-4 py-4 sm:px-5">
-          <div className="mb-3 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <Wrench className="w-3.5 h-3.5 text-zinc-400" />
-                <span className="text-xs font-medium text-zinc-400">
-                利用ツール
-              </span>
-            </div>
-            <span className="font-mono text-[10px] tabular-nums text-zinc-400">
-              {tools.length}件
-            </span>
-          </div>
-
-          <div className="overflow-x-auto rounded-lg border border-white/[0.08] bg-[#090d13]">
-            <table role="presentation" className="block w-full table-fixed border-collapse text-left text-xs font-sans sm:table">
-              <thead className="hidden sm:table-header-group">
-                <tr role="presentation" className="border-b border-white/[0.07] bg-white/[0.02] text-[10px] font-mono text-zinc-400">
-                  <th className="w-1/4 px-3.5 py-2 font-semibold">ツール・インフラ名称</th>
-                  <th className="px-3.5 py-2 font-semibold w-24">区分</th>
-                  <th className="px-3.5 py-2 font-semibold">役割・目的</th>
-                </tr>
-              </thead>
-              <tbody className="block sm:table-row-group divide-y divide-white/[0.05]">
-                {tools.map((toolItem, index) => {
-                  const toolName = typeof toolItem === 'string'
-                    ? toolItem
-                    : (toolItem as { name?: string })?.name || '名称不明';
-                  const toolCategory = typeof toolItem === 'object' && toolItem && 'category' in toolItem
-                    ? (toolItem as { category?: string }).category || '—'
-                    : '—';
-                  const toolPurpose = typeof toolItem === 'object' && toolItem && 'purpose' in toolItem
-                    ? (toolItem as { purpose?: string }).purpose || '—'
-                    : '—';
-
-                  return (
-                    <tr role="presentation" key={`${toolName}-${index}`} className="grid grid-cols-2 sm:table-row hover:bg-white/[0.02] transition-colors">
-                      <td className="break-words px-3.5 py-2.5 align-top font-bold text-zinc-100">{toolName}</td>
-                      <td className="break-words px-3.5 py-2.5 align-top text-zinc-400 font-mono text-[11px]">{toolCategory}</td>
-                      <td className="col-span-2 whitespace-normal break-words px-3.5 pb-3 pt-0 align-top sm:py-2.5 text-zinc-300 text-xs">{toolPurpose}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
     </InspectorSectionCard>
   );
 }

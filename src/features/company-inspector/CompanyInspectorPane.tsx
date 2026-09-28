@@ -5,6 +5,9 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { buildInspectorModel } from './model/inspector-model';
 import type { CompanyInspectorPaneProps, InspectorMainTab, InspectorViewMode } from './model/section-props';
+import { BusinessAnalysisSections } from './ui/BusinessAnalysisSections';
+import { FinancialOperationsSupplement } from './ui/FinancialOperationsSupplement';
+import { BusinessVisualSummary } from './ui/BusinessVisualSummary';
 import { AnalystNotes } from './ui/AnalystNotes';
 import { CashAnatomySection } from './ui/CashAnatomySection';
 import { CompanyHeader } from './ui/CompanyHeader';
@@ -142,19 +145,16 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
               <EvidenceDeckSection {...sectionProps} />
               <LootBlueprintSection {...sectionProps} />
+              <BusinessAnalysisSections {...sectionProps} />
+              <FinancialOperationsSupplement {...sectionProps} />
+              <BusinessVisualSummary {...sectionProps} />
               <RelatedResearch {...sectionProps} />
             </>
           ) : (
             <>
               <SourcesSection {...sectionProps} />
-              <details className="rounded-md border border-white/[0.12] bg-[#101721]">
-                <summary className="cursor-pointer px-4 py-2.5 text-sm font-medium text-zinc-200">登録メモを見る</summary>
-                <EvidenceStream {...sectionProps} />
-              </details>
-              <details className="rounded-md border border-white/[0.10] bg-[#101720]">
-                <summary className="cursor-pointer px-4 py-2.5 text-sm font-medium text-zinc-200">自分のメモ</summary>
-                <AnalystNotes {...sectionProps} />
-              </details>
+              <EvidenceStream {...sectionProps} />
+              <AnalystNotes {...sectionProps} />
             </>
           )}
         </div>

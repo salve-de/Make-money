@@ -14,6 +14,9 @@ import { ShareModal } from './ShareModal';
 export function CompanyHeader({
   entity,
   onClose,
+  onPrevEntity,
+  onNextEntity,
+  onApproveEntity,
   activeTags = [],
   onToggleTag,
   isScrolled,
@@ -28,6 +31,9 @@ export function CompanyHeader({
   InspectorSectionProps,
   | 'entity'
   | 'onClose'
+  | 'onPrevEntity'
+  | 'onNextEntity'
+  | 'onApproveEntity'
   | 'activeTags'
   | 'onToggleTag'
   | 'isScrolled'
@@ -145,6 +151,11 @@ export function CompanyHeader({
           )}
         </div>
 
+        {(onPrevEntity || onNextEntity || onApproveEntity) && <div className="flex items-center justify-end gap-2 px-3 pb-1 text-xs sm:px-4">
+          {onPrevEntity && <button type="button" onClick={onPrevEntity} className="rounded px-2 py-1.5 text-zinc-300 hover:bg-white/10" aria-label="前の事例">前へ</button>}
+          {onNextEntity && <button type="button" onClick={onNextEntity} className="rounded px-2 py-1.5 text-zinc-300 hover:bg-white/10" aria-label="次の事例">次へ</button>}
+          {onApproveEntity && <button type="button" onClick={() => onApproveEntity(entity.id)} className="rounded px-2 py-1.5 text-sky-200 hover:bg-white/10">収集事例を承認</button>}
+        </div>}
         <div className="flex min-h-10 items-center justify-between gap-2 px-3 sm:px-4">
           <div className="flex min-w-0 items-center gap-0.5 text-xs" role="tablist" aria-label="事例の表示内容">
             <TabButton active={mainTab === 'LEDGER'} onClick={() => setMainTab?.('LEDGER')} label="概要・損益" />
