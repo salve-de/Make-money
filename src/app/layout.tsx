@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -8,14 +9,22 @@ export const metadata: Metadata = {
 
 import { Providers } from './providers';
 
+// 数値・コード表示専用の等幅書体。本文は OS の日本語書体を使う。
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#0B0E14] text-zinc-100 font-sans">
+    <html lang="ja" className={`h-full antialiased ${jetbrainsMono.variable}`}>
+      <body className="min-h-full flex flex-col bg-term-bg text-term-fg font-sans">
         <Providers>{children}</Providers>
       </body>
     </html>

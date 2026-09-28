@@ -1,18 +1,44 @@
 @import "tailwindcss";
 
+/*
+ * Terminal design tokens (A案: プロ用端末).
+ * 色は「背景3段・罫線2段・文字5段・アクセント橙1色・選択の青」だけ。
+ * 画面では必ずこのトークン（bg-term-* / text-term-* / border-term-*）を使い、16進の直書きはしない。
+ */
 :root {
   color-scheme: dark;
-  --background: #080d12;
-  --foreground: #f2f0eb;
-  --surface: #101820;
-  --surface-raised: #18232d;
-  --surface-overlay: #22303b;
-  --line: rgba(210, 218, 220, 0.16);
-  --accent: #e9a526;
-  --accent-strong: #ffd06a;
-  --positive: #71c69a;
-  --warning: #efb94f;
-  --danger: #e87972;
+  --term-bg: #0a0b0c;
+  --term-panel: #111214;
+  --term-head: #16171a;
+  --term-row-alt: #0d0e10;
+  --term-line: #26282c;
+  --term-line-soft: #1c1e21;
+  --term-fg-strong: #ffffff;
+  --term-fg: #d6d8db;
+  --term-sub: #b4b8be;
+  --term-muted: #9ea3aa;
+  --term-label: #7d828a;
+  --term-dim: #5d6168;
+  --term-accent: #ff9f1a;
+  --term-accent-bg: #140f06;
+  --term-accent-line: #3a2a10;
+  --term-select: #1b2a3d;
+  --term-select-fg: #c4ccd6;
+  --term-positive: #3fb950;
+  --term-danger: #f06a5f;
+
+  /* 旧トークン名は新しい値へ寄せる（既存コードの互換用） */
+  --background: var(--term-bg);
+  --foreground: var(--term-fg);
+  --surface: var(--term-panel);
+  --surface-raised: var(--term-head);
+  --surface-overlay: #1d1f23;
+  --line: var(--term-line);
+  --accent: var(--term-accent);
+  --accent-strong: #ffb84d;
+  --positive: var(--term-positive);
+  --warning: var(--term-accent);
+  --danger: var(--term-danger);
 }
 
 @theme inline {
@@ -26,19 +52,66 @@
   --color-positive: var(--positive);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-term-bg: var(--term-bg);
+  --color-term-panel: var(--term-panel);
+  --color-term-head: var(--term-head);
+  --color-term-row-alt: var(--term-row-alt);
+  --color-term-line: var(--term-line);
+  --color-term-line-soft: var(--term-line-soft);
+  --color-term-fg-strong: var(--term-fg-strong);
+  --color-term-fg: var(--term-fg);
+  --color-term-sub: var(--term-sub);
+  --color-term-muted: var(--term-muted);
+  --color-term-label: var(--term-label);
+  --color-term-dim: var(--term-dim);
+  --color-term-accent: var(--term-accent);
+  --color-term-accent-bg: var(--term-accent-bg);
+  --color-term-accent-line: var(--term-accent-line);
+  --color-term-select: var(--term-select);
+  --color-term-select-fg: var(--term-select-fg);
+  --color-term-positive: var(--term-positive);
+  --color-term-danger: var(--term-danger);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/*
+ * 既存画面の zinc 系グレーを端末用のグレーへ置き換える。
+ * 角丸は端末らしく最小限にする（丸いピルは rounded-full のみ残る）。
+ */
+@theme {
+  --color-zinc-50: #f5f6f7;
+  --color-zinc-100: #e9eaec;
+  --color-zinc-200: #d6d8db;
+  --color-zinc-300: #b4b8be;
+  --color-zinc-400: #9ea3aa;
+  --color-zinc-500: #7d828a;
+  --color-zinc-600: #5d6168;
+  --color-zinc-700: #3a3d42;
+  --color-zinc-800: #26282c;
+  --color-zinc-900: #16171a;
+  --color-zinc-950: #0a0b0c;
+
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  --radius-xl: 3px;
+  --radius-2xl: 4px;
+  --radius-3xl: 4px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  background: var(--term-bg);
+  color: var(--term-fg);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: normal;
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 @layer base {
@@ -50,23 +123,46 @@ body {
   }
 }
 
-/* Keep page-specific depth, type scale, and separators intact. */
-body .text-zinc-500 { color: #98a5ad; }
-body .text-zinc-600 { color: #8997a1; }
+/* パネル見出しバー（端末の各パネル上端に付ける 24px の帯） */
+.term-panel-title {
+  display: flex;
+  min-height: 1.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0.625rem;
+  background: var(--term-head);
+  border-bottom: 1px solid var(--term-line);
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  color: var(--term-muted);
+}
+.term-panel-title > .term-panel-name {
+  color: var(--term-accent);
+  font-weight: 600;
+}
+
+/* 数値は等幅・桁ぞろえ */
+.term-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
 
 .terminal-section-heading {
   display: flex;
-  min-height: 2.75rem;
+  min-height: 1.75rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-bottom: 1px solid var(--line);
-  padding: 0.65rem 0;
-  color: var(--foreground);
+  border-bottom: 1px solid var(--term-line);
+  padding: 0.25rem 0;
+  color: var(--term-accent);
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
 .terminal-data-value {
+  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
 }
@@ -79,11 +175,11 @@ body .text-zinc-600 { color: #8997a1; }
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(188, 204, 218, 0.24);
-  border-radius: 9999px;
+  background: var(--term-line);
+  border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(188, 204, 218, 0.4);
+  background: var(--term-dim);
 }
 
 @keyframes ticker-slide {
@@ -113,13 +209,13 @@ body .text-zinc-600 { color: #8997a1; }
 }
 
 ::selection {
-  color: #08121d;
-  background: rgba(116, 180, 247, 0.78);
+  color: var(--term-fg-strong);
+  background: var(--term-select);
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: 1px solid var(--term-accent);
+  outline-offset: 1px;
 }
 
 @media (prefers-reduced-motion: reduce) {
