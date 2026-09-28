@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import { parseFinancialEntities } from '@/shared/financial-entity-schema';
+import { isValidCatalogPageProgress } from '@/lib/company-access/catalog-page';
 
 type Page = { key: string; nextOffset: number | null; generation?: string; total: number | null };
 export function mergeKnownCatalogEntities(initial: FinancialEntity[], rows: FinancialEntity[]): FinancialEntity[] {
@@ -61,13 +62,13 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
       }
       if (!payload) throw lastError instanceof Error ? lastError : new Error('Invalid catalog page');
       const data = parseFinancialEntities(payload.data);
-      if (
-        typeof payload.generation !== 'string' ||
-        !Number.isSafeInteger(payload.total) ||
-        payload.total < 0 ||
-        payload.total < offset + data.length ||
-        (payload.nextOffset !== null && (!Number.isSafeInteger(payload.nextOffset) || payload.nextOffset <= offset))
-      ) throw new Error('Invalid catalog page');
+      if (!isValidCatalogPageProgress({
+        offset,
+        dataLength: data.length,
+        generation: payload.generation,
+        total: payload.total,
+        nextOffset: payload.nextOffset,
+      })) throw new Error('Invalid catalog page');
       // Ignore a previous search or page request after the query has changed.
       if (controller.signal.aborted || active.current !== controller) return;
       setRows((current) => offset === 0

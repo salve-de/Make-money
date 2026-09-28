@@ -1,10 +1,12 @@
 # Commercial Rights / Public Publication Handoff
 
-Updated: 2026-09-25 JST
+Updated: 2026-09-28 JST
 
 ## Final objective
 
-Keep Make-Money's scheduled Web ChatGPT research broad, but make monetized user-facing publication fail closed.
+Build a valuable Make-Money catalog by researching business facts, writing original fact-based presentations, and displaying the commercially usable facts in the UI with evidence and source history attached. Prefer sources with clear reusable terms, but do not treat the absence of an open-license label by itself as proof that a factual claim cannot be commercially displayed.
+
+Rights review is both a **source-selection and re-sourcing strategy** and a publication safeguard; it is not a project whose goal is merely to hide existing records. Keep the subject matter and research scope broad. Japanese copyright guidance distinguishes unprotected facts/data from protected creative expression; therefore, review the actual use rather than requiring every fact-source to carry a blanket commercial license. When a source restricts the access method, bulk extraction, or reuse of its expression/media, find a permitted way to verify the fact or hold only the affected material. Do not assume that an online URL, citation, AI rewrite, or OpenAI output transfers rights in the underlying source.
 
 Private/canonical research and public product publication are separate:
 
@@ -17,15 +19,33 @@ scheduled discovery / verification
   -> New Arrivals / API / UI
 ```
 
-A source being public, searchable, or stored as `metadata_only` does not authorize commercial display.
+A source being public, searchable, or stored as `metadata_only` does not by itself authorize copying its article, images, database, or restricted API output. Conversely, absence of an explicit open-license label does not automatically prohibit an independently stated fact; the documented legal basis and the intended use still need review.
+
+## Commercial-use interpretation — 2026-09-28
+
+The collection goal is **commercially usable information**, not “only records carrying an open-license badge” and not “hide everything with uncertain status.” Apply rights to each use and published claim:
+
+1. **Factual claims / original summaries:** Japanese Agency for Cultural Affairs guidance says mere facts and data are not copyright works. Collect verifiable business facts, bind each to evidence, and present them in Make-Money's own structure and wording. Do not copy article prose, distinctive phrasing, charts, or a source's selection/arrangement. No-open-license alone is not a rejection reason; check access terms, any database/bulk-use restrictions, privacy/personality and other relevant rights. If an actual restriction or material uncertainty remains, re-source the fact or hold that claim—not unrelated cleared claims.
+2. **OpenAI / AI-generated copy:** OpenAI's individual Terms assign Output to the user as between user and OpenAI, to the extent applicable law permits, but third-party search content remains subject to third-party terms and Output may not be unique. The consumer Terms prohibit automatic/programmatic extraction from the service; do not scrape ChatGPT Web. For product automation, use the contracted API or a specifically authorized integration. OpenAI API Web Search results shown to end users require visible, clickable inline citations. Review factual accuracy and clearly disclose AI's role in published first-party text under the current OpenAI Sharing & Publication Policy.
+3. **Images, charts, logos, people:** Do not copy random web images or charts. Use a verified commercial license/permission or an original asset; record author, asset URL, license/version, attribution and relevant release/brand limits. A license for an image does not automatically clear the depicted person's likeness/privacy or a logo/trademark. Prefer a text name or original generic illustration when the image adds no essential value.
+4. **Source/use ledger:** Keep collection/access, raw retention, factual display, verbatim quotation, and media rights separate. Preserve source/evidence URL, publisher, publication/as-of date, retrieval time, precise locator, claim IDs, terms/license URL and version, reviewed date, attribution instructions, rights decision, scope, and reason. If the canonical schema cannot represent a permission, do not invent `allowed`; identify the missing policy/schema and resolve it through the registered Universal Foundation process.
+5. **Display rule:** Show each claim/media item that has evidence, an applicable use basis, and the required attribution. Exclude or replace only held claims/media; do not suppress unrelated rights-cleared facts merely because another field or image is held. A case can have honest `UNKNOWN`/not-found fields and still display its supported facts.
+
+This interpretation is grounded in the current repository's collection master guide and official references reviewed 2026-09-28: [Agency for Cultural Affairs: using other people's works](https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/chosakukensha_fumei/), [Agency for Cultural Affairs: AI and copyright](https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html), [PPC FAQ](https://www.ppc.go.jp/personalinfo/faq/APPI_QA/), [OpenAI Terms of Use](https://openai.com/policies/terms-of-use/), [OpenAI Services Agreement](https://openai.com/policies/may-2025-business-terms/), [OpenAI Sharing & Publication Policy](https://openai.com/policies/sharing-publication-policy/), [OpenAI Web Search citation requirements](https://developers.openai.com/api/docs/guides/tools-web-search), and [Creative Commons license guidance](https://creativecommons.org/share-your-work/licensing-considerations/version4/). This is an operational policy, not legal advice for a particular disputed use.
+
+### Important implementation boundary
+
+This policy update does **not** grant a blanket license or change runtime publication behavior. `src/lib/foundation/publication-rights.ts` still auto-admits only exact policies in `data/foundation-public-rights-snapshot.json`; the current snapshot contains three source-policy entries. A source outside that snapshot may therefore remain `RIGHTS_HELD` in the application even when the missing open-license label alone would not establish a legal prohibition on an independently presented fact. That is an **automation-policy gap**, not a legal finding that every held fact is unlawful. To publish additional source families automatically, review the actual source/access terms and add a source-scoped fact-display policy through the Universal Foundation rights/source registry, refresh this repository's pinned snapshot, and test that only the reviewed claim types/hosts/paths pass. Do not solve the gap with a generic host allowlist or by trusting a collector-supplied `allowed` flag.
 
 ## User intent / constraints
 
-- Keep discovery broad; do not restrict research to only commercially reusable websites.
+- Keep business/case discovery broad; do not narrow the kinds of businesses, facts, or analysis collected. Prefer clear reusable sources, while allowing independently stated facts to proceed to a documented use-specific review when the source has no explicit open-license label.
+- Do not infer either blanket permission or blanket prohibition from a public URL or missing license notice. Review the actual acquisition and display method; re-source or hold only the affected claim/media when a restriction applies or a material issue remains unresolved.
+- Record terms by use mode: collection/API access, raw-source retention, derived factual display, quotation/text, images/media, attribution, and any limits; include the terms URL/version and review date. Do not infer all permissions from a public URL or a provider hostname.
 - Do not change collection schedules/prompts as a shortcut.
 - Preserve internal leads and provenance where permitted.
-- News/social/community sources may discover opportunities but must be re-sourced before their facts become public if their terms do not permit monetized reuse.
-- Public UI must not expose source article text, screenshots/media, or free-form source-derived summaries merely because canonical research contains them.
+- News/social/community sources may be leads. Their factual claims may be independently verified and rewritten where the method and applicable rules permit; do not republish their protected wording, scraped database, or media when not licensed.
+- Public UI may show independently written fact-based summaries when each claim is supported and cleared for that use. It must not expose copied article text, unlicensed screenshots/media, or unsupported source-derived assertions merely because canonical research contains them.
 - Existing 3,085 released records require a separate retrospective rights audit.
 
 ## Current implementation / current main
@@ -68,9 +88,9 @@ The policy/source SSOT remains Universal Foundation `main`.
 - Do not discard useful internal research.
 - Do not pretend copyright-analysis permission equals website ToS permission.
 - Do not pretend raw-storage permission equals publication permission.
-- Do not publish a mixed bundle just because one Evidence item is safe.
+- Do not publish unsupported/held claims just because another Evidence item is safe; equally, do not suppress independently cleared facts solely because a different claim or image is held.
 - Prefer structured facts over article-like summaries.
-- Default to hold when policy identity or conditions are unknown.
+- When the automated policy identity or conditions are unresolved, keep that item out of automated public projection until the use basis is resolved. This is an automation gate, not a conclusion that the underlying fact is legally unusable.
 
 ## Existing catalog
 
@@ -81,6 +101,8 @@ Current release manifest:
 This release predates the new granular rights gate. It must be audited separately rather than silently grandfathered.
 
 ## Work status
+
+Objective clarification added 2026-09-28: the desired outcome is a catalog populated with commercially reusable, source-backed business information—not an empty catalog produced by applying a rights gate. Existing records should be audited, and useful held facts should be re-sourced from permitted material wherever possible. A case may still contain explicitly unknown or unavailable facts; completeness means every displayed assertion is supported and permitted, and coverage gaps are honestly recorded, not that every field is filled.
 
 Completed:
 - [x] External official terms review for representative allowed/restricted source families.
@@ -100,10 +122,10 @@ Completed:
 - [x] Production R2 commercial-rights audit command implemented and hardened to record-level SAFE semantics; legacy dossiers are never auto-SAFE.
 
 Still required before claiming legacy catalog/publication is fully cleared:
-- [ ] Execute `pnpm foundation:rights:audit` on the configured Mac with actual R2 credentials.
+- [x] Execute `pnpm foundation:rights:audit` on the configured Mac with actual R2 credentials. The read-only run completed 2026-09-28; results are recorded below and in `reports/runtime/commercial-rights-r2-audit-20260928.json`.
 - [ ] Commit an immutable dated summary of that real R2 audit.
 - [ ] For legacy/current public records classified `INTERNAL_ONLY` or unresolved `NEEDS_RIGHTS_REVIEW`, remove/rebuild the **public projection only**; do not delete canonical research merely because publication is held.
-- [ ] Re-source important held facts from approved official/API/registry sources where possible.
+- [ ] Re-source important held facts where useful; register any newly reviewed source-specific fact-display basis in Universal Foundation before automatic publication.
 - [ ] Deploy the merged main build through the existing production process when authorized.
 - [ ] Verify production R2 readback -> API -> UI does not expose pending/blocked/private material.
 - [ ] Update this file with the production evidence.
@@ -255,3 +277,21 @@ That is not enough to make a public-retention decision.
 - Missing/unreconstructable records or identity remain `NEEDS_RIGHTS_REVIEW`.
 - Legacy immutable dossiers are **never automatically SAFE** because their old representation does not prove field-level Evidence -> displayed-field bindings. Approved hostnames are only a review-priority signal.
 - Do not retain a legacy/public row merely because its audit URLs look safe.
+
+
+## Latest observed R2 audit — 2026-09-28
+
+The configured-Mac command completed a read-only audit against `foundation-lake` from Make-Money HEAD `221d0e4e66c649aa0de5c72b9f2c52eeb3f8104e`.
+
+| Scope | Audited | SAFE | NEEDS_RIGHTS_REVIEW | INTERNAL_ONLY |
+|---|---:|---:|---:|---:|
+| Foundation materialized views | 1,772 | 4 | 1 | 1,767 |
+| Legacy published dossiers | 3,085 | 0 | 1,173 | 1,912 |
+
+The legacy result is not a legal finding that every dossier is prohibited. `INTERNAL_ONLY` means the dossier includes an evidence URL in a currently restricted source family; `NEEDS_RIGHTS_REVIEW` means the legacy dossier cannot bind every displayed fact to current rights-cleared evidence. The legacy format is never automatically `SAFE` because hostnames do not prove which source supports each displayed field.
+
+Lineage triage counts: 761 eBizFacts-ID records, 1,150 IndieHackers-named batches, and 16 eBizFacts-named batches. These are review signals, not proof of exclusive sourcing and not counts to sum.
+
+The full machine report is `reports/runtime/commercial-rights-r2-audit-20260928.json` (SHA-256 `dc1740a7c2b78839bd046997eef0b2865ebf18cfdb0e171544c0f721b7f20ff3`). Run time was `2026-09-28T13:18:22.652Z`–`2026-09-28T13:25:56.640Z`. The command listed/read R2 objects and wrote only this local report; it did not modify R2, catalog publication, API, UI, or deployment state.
+
+This rights triage is not the separate per-case factual/coverage audit. Commercial permission, raw-storage permission, and public factual display remain distinct decisions; the legacy release still has no record-level proof that every displayed fact has passed both factual audit and commercial-publication review.

@@ -1,0 +1,441 @@
+{
+  "schema_version": "research-bundle.v1",
+  "run_id": "run_handoff_47d2d5f4f3ad149af957f5f2dbbc7625",
+  "purpose": "make_money",
+  "subject": {
+    "candidate_domain": null,
+    "candidate_name": "Starwood SREIT × Apollo JV",
+    "notes": "Two legal identity fields remain unknown.",
+    "query": "Starwood Apollo joint venture terms"
+  },
+  "agent": {
+    "model": "GPT-5.6 Sol",
+    "name": "ChatGPT VERIFY_RECONCILE",
+    "version": null
+  },
+  "retrieved_at": "2026-09-25T22:28:24Z",
+  "collection_coverage": [
+    {
+      "dimension": "identity",
+      "note": "Two organization identities present; two legal sub-identity fields remain unknown.",
+      "record_refs": [
+        "entities/0",
+        "entities/1"
+      ],
+      "status": "found"
+    },
+    {
+      "dimension": "founders",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "location",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "status",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "team_history",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "timeline",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "revenue",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "peak_revenue",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "mrr_arr",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "gmv",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "gross_profit",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "operating_profit",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "net_profit",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "costs",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "cost_breakdown",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "margin",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "owner_take_home",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "pricing",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "pricing_history",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "refunds",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "retention_churn",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "funding",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "exit_value",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "payer_receiver_purpose",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "customers",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "customer_pain",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "substitutes",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "first_customers",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "initial_channel",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "breakout",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "current_channels",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "founder_background",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "prior_failures",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "workload",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "support_burden",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "outsourcing",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "automation",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "capital_required",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "technology",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "competitors",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "dependencies",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "regulation",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "dimension": "why_now",
+      "note": "Not attempted in this VERIFY run.",
+      "status": "not_attempted"
+    },
+    {
+      "attempts": [
+        "SEC 8-K success",
+        "SEC 10-Q success"
+      ],
+      "dimension": "provenance_rights",
+      "note": "Two SEC filing evidences use the approved metadata-only rights state.",
+      "record_refs": [
+        "sources/0",
+        "evidence/0",
+        "evidence/1"
+      ],
+      "status": "found"
+    },
+    {
+      "attempts": [
+        "SEC 8-K success",
+        "SEC 10-Q success"
+      ],
+      "dimension": "conflicts",
+      "note": "No contradiction in the two reviewed filings.",
+      "record_refs": [
+        "evidence/0",
+        "evidence/1"
+      ],
+      "status": "found"
+    },
+    {
+      "dimension": "additional_observations",
+      "note": "One supported structured observation.",
+      "record_refs": [
+        "observations/0"
+      ],
+      "status": "found"
+    }
+  ],
+  "sources": [
+    {
+      "access_notes": null,
+      "canonical_url": "https://www.sec.gov/",
+      "provider_name": "U.S. Securities and Exchange Commission",
+      "rights_policy_id": "rights.sec-edgar-public-facts.v1",
+      "rights_status": "metadata_only",
+      "source_id": "src.sec-edgar",
+      "source_strength": "UNRATED",
+      "source_type": "regulatory_filing"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_8ab84a0f3b532a7171d1a6d4",
+      "published_at": null,
+      "publisher_or_speaker": "Starwood Real Estate Income Trust, Inc. / SEC",
+      "raw_storage": {
+        "status": "metadata_only"
+      },
+      "retrieved_at": "2026-09-25T22:28:24Z",
+      "rights_policy_id": "rights.sec-edgar-public-facts.v1",
+      "rights_status": "metadata_only",
+      "source_id": "src.sec-edgar",
+      "source_strength": "UNRATED",
+      "source_title": "Starwood 8-K",
+      "source_type": "regulatory_filing",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm",
+      "summary": "Supports the assigned transaction terms."
+    },
+    {
+      "evidence_id": "ev_f841248a66756d400605f3ac",
+      "published_at": null,
+      "publisher_or_speaker": "Starwood Real Estate Income Trust, Inc. / SEC",
+      "raw_storage": {
+        "status": "metadata_only"
+      },
+      "retrieved_at": "2026-09-25T22:28:24Z",
+      "rights_policy_id": "rights.sec-edgar-public-facts.v1",
+      "rights_status": "metadata_only",
+      "source_id": "src.sec-edgar",
+      "source_strength": "UNRATED",
+      "source_title": "Starwood quarterly filing",
+      "source_type": "regulatory_filing",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1711929/000119312526351388/ck0001711929-20260813.htm",
+      "summary": "Cross-checks the assigned transaction terms."
+    }
+  ],
+  "entities": [
+    {
+      "aliases": [
+        "SREIT"
+      ],
+      "canonical_identifier": "SEC CIK 0001711929",
+      "canonical_name": "Starwood Real Estate Income Trust, Inc.",
+      "domain": null,
+      "entity_id": "ent_org_0e1d9b556075d9fc7f36",
+      "entity_type": "organization",
+      "evidence_ids": [
+        "ev_8ab84a0f3b532a7171d1a6d4",
+        "ev_f841248a66756d400605f3ac"
+      ],
+      "observed_at": "2026-09-25T22:28:24Z",
+      "status": null
+    },
+    {
+      "aliases": [
+        "Apollo"
+      ],
+      "canonical_identifier": null,
+      "canonical_name": "Apollo Global Management",
+      "domain": null,
+      "entity_id": "ent_org_4a819d424adf6b2a118f",
+      "entity_type": "organization",
+      "evidence_ids": [
+        "ev_8ab84a0f3b532a7171d1a6d4",
+        "ev_f841248a66756d400605f3ac"
+      ],
+      "observed_at": "2026-09-25T22:28:24Z",
+      "status": "Exact investing legal entities unresolved."
+    }
+  ],
+  "claims": [],
+  "metrics": [],
+  "money_signals": [],
+  "events": [],
+  "relationships": [],
+  "observations": [
+    {
+      "collection_channel": "sec_edgar_verify",
+      "evidence_ids": [
+        "ev_8ab84a0f3b532a7171d1a6d4",
+        "ev_f841248a66756d400605f3ac"
+      ],
+      "observation_id": "obs_3b978269d9ec6eba82dc1f9b",
+      "observation_type": "starwood_apollo.verify_reconcile.material_transaction_terms.v1",
+      "observed_at": "2026-09-25T22:28:24Z",
+      "observer": "ChatGPT VERIFY_RECONCILE",
+      "origin_type": "reported",
+      "payload": {
+        "apollo_equity_percent": 41.5,
+        "apollo_investment_usd": 1020000000,
+        "call_option_irr_cap_percent_years_5_to_10": 7,
+        "exact_apollo_investing_legal_entities": null,
+        "exact_joint_venture_legal_name": null,
+        "proceeds_repay_credit_facilities": true,
+        "properties_approx": 120,
+        "rising_minimum_yield_guarantee": true,
+        "starwood_asset_management_and_operational_control": true,
+        "starwood_equity_percent": 58.5
+      },
+      "payload_schema_ref": null,
+      "text": "starwood_apollo.verify_reconcile.material_transaction_terms.v1",
+      "transport_typed_observation_v1": {
+        "collection_channel": "sec_edgar_verify",
+        "evidence_ids": [
+          "ev_8ab84a0f3b532a7171d1a6d4",
+          "ev_f841248a66756d400605f3ac"
+        ],
+        "observation_id": "obs_3b978269d9ec6eba82dc1f9b",
+        "observation_type": "starwood_apollo.verify_reconcile.material_transaction_terms.v1",
+        "observed_at": "2026-09-25T22:28:24Z",
+        "observer": "ChatGPT VERIFY_RECONCILE",
+        "origin_type": "reported",
+        "payload": {
+          "apollo_equity_percent": 41.5,
+          "apollo_investment_usd": 1020000000,
+          "call_option_irr_cap_percent_years_5_to_10": 7,
+          "exact_apollo_investing_legal_entities": null,
+          "exact_joint_venture_legal_name": null,
+          "proceeds_repay_credit_facilities": true,
+          "properties_approx": 120,
+          "rising_minimum_yield_guarantee": true,
+          "starwood_asset_management_and_operational_control": true,
+          "starwood_equity_percent": 58.5
+        },
+        "payload_schema_ref": null,
+        "verification_status": "SUPPORTED"
+      },
+      "verification_status": "SUPPORTED"
+    },
+    {
+      "observation_id": "obs_8be09275f184ba7ec502e557",
+      "observation_type": "transport.typed_record_set_v1",
+      "origin_type": "observed",
+      "verification_status": "UNVERIFIED",
+      "observed_at": "2026-09-25T22:28:24Z",
+      "collection_channel": "sec_edgar_verify",
+      "observer": "ChatGPT VERIFY_RECONCILE",
+      "text": "typed-record-set.v1 transport envelope",
+      "transport_typed_record_set_v1": {
+        "schema_version": "typed-record-set.v1",
+        "subject_ref": "case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026"
+      }
+    }
+  ],
+  "derived": [],
+  "quality": {
+    "conflicts": [],
+    "schema_validation": "PASS",
+    "unknowns": [
+      "{\"field\":\"exact_apollo_investing_legal_entities\",\"state\":\"unknown\"}",
+      "{\"field\":\"exact_joint_venture_legal_name\",\"state\":\"unknown\"}"
+    ],
+    "warnings": [
+      "No new PublicFact emitted; the ownership facts already exist as immutable prior candidates and the remaining verified terms have no approved fact type."
+    ]
+  }
+}

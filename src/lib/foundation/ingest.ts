@@ -647,6 +647,12 @@ interface FoundationBundleValidationOptions {
   makeMoneyCoverage?: 'REQUIRED' | 'UNASSESSED_TYPED_PROJECTION';
 }
 
+function typedProjectionValidationOptions(input: unknown): FoundationBundleValidationOptions {
+  return isObject(input) && Object.hasOwn(input, 'collection_coverage')
+    ? { makeMoneyCoverage: 'REQUIRED' }
+    : { makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION' };
+}
+
 function validateResearchBundleWithOptions(
   input: unknown,
   options: FoundationBundleValidationOptions = {},
@@ -739,9 +745,7 @@ export function validateResearchBundle(input: unknown): ResearchBundle {
 }
 
 export function validateTypedProjectionBundle(input: unknown): ResearchBundle {
-  return validateResearchBundleWithOptions(input, {
-    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
-  });
+  return validateResearchBundleWithOptions(input, typedProjectionValidationOptions(input));
 }
 
 function dateParts(value: string): { year: string; month: string; day: string } {
@@ -1733,9 +1737,10 @@ export async function preflightFoundationResearch(bundleInput: unknown) {
  * Keeps the dedicated UNASSESSED coverage boundary and never mutates R2.
  */
 export async function preflightFoundationTypedProjectionResearch(bundleInput: unknown) {
-  return preflightFoundationResearchWithOptions(bundleInput, {
-    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
-  });
+  return preflightFoundationResearchWithOptions(
+    bundleInput,
+    typedProjectionValidationOptions(bundleInput),
+  );
 }
 
 export async function verifyFoundationRawEvidenceAlreadyCommitted(
@@ -1801,9 +1806,10 @@ export async function prepareFoundationResearch(bundleInput: unknown, rawInput?:
  * authorizes a write.
  */
 export async function prepareFoundationTypedProjectionResearch(bundleInput: unknown) {
-  const bundle = validateResearchBundleWithOptions(bundleInput, {
-    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
-  });
+  const bundle = validateResearchBundleWithOptions(
+    bundleInput,
+    typedProjectionValidationOptions(bundleInput),
+  );
   return buildPlannedWrites(await buildPlan(bundle, []), bundle.run_id, false);
 }
 
@@ -2037,7 +2043,8 @@ export async function ingestFoundationResearch(
 export async function ingestFoundationTypedProjection(
   request: FoundationIngestRequest
 ): Promise<FoundationIngestReport> {
-  return ingestFoundationResearchWithOptions(request, {
-    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
-  });
+  return ingestFoundationResearchWithOptions(
+    request,
+    typedProjectionValidationOptions(request.bundle),
+  );
 }

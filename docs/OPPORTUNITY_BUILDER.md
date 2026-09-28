@@ -518,3 +518,8 @@ wrangler secret put V0_API_KEY
 - SaaS/ソースコード/事業M&Aの販売フロー
 
 これらは「生成できるか」を確認した後の第二段階。MVPでは外部builderへ離脱せず、Make-Money内で生成・preview・修正まで成立させる。
+
+
+## 掲載機能の統合（2026-09-29）
+
+`/marketplace` に公開サービス一覧、`/marketplace/new` に本人の掲載編集、`/marketplace/[slug]` に公開紹介ページを統合した。Builderの完成セッションと外部制作サービスを区別し、認証UIDで所有者を確認する。申込み・決済は掲載者の外部サイトで行う。購入計測、販売手数料、報酬分配を実装済みとは扱わない。D1 migration 0011の本番適用と公開運用は、このGit統合では実施していない。保存境界は `docs/architecture/STORAGE.md` を参照。

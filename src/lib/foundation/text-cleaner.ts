@@ -10,7 +10,7 @@
 // 英語メトリクスキーの日本語対応表
 const METRIC_LABELS: Record<string, string> = {
   advertising_revenue: '年間広告収入',
-  revenue: '年間売上',
+  revenue: '売上',
   annual_revenue: '年間売上',
   mrr: 'MRR (月間経常収益)',
   arr: 'ARR (年間経常収益)',

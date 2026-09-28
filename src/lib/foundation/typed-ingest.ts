@@ -9,6 +9,7 @@ import evidenceCaptureRequestSchema from './schemas/evidence-capture-request.v1.
 import workItemSchema from './schemas/work-item.v1.schema.json';
 import { sha256Sync } from '@/shared/sha256';
 import { defaultIncomingMoneySignalFields } from './money-signal-null-defaults';
+import { assessCoverage } from './coverage';
 
 type JsonObject = Record<string, unknown>;
 
@@ -17,6 +18,18 @@ export const TYPED_SOURCE_REFS = ['main', 'automation-research'] as const;
 const TYPED_SOURCE_REF_SET = new Set<string>(TYPED_SOURCE_REFS);
 export const TYPED_PROJECTOR_VERSION = 'r2-queue-mapper-v6';
 export const TYPED_COVERAGE_ASSESSMENT = 'UNASSESSED' as const;
+export const SOURCE_ARTIFACT_COMPATIBILITY_STRICT = 'STRICT' as const;
+export const SOURCE_ARTIFACT_COMPATIBILITY_LEGACY =
+  'LEGACY_SOURCE_ATTEMPTS_MISSING_AUDIT_FIELDS' as const;
+export type SourceArtifactCompatibility =
+  | typeof SOURCE_ARTIFACT_COMPATIBILITY_STRICT
+  | typeof SOURCE_ARTIFACT_COMPATIBILITY_LEGACY;
+type TypedCoverageAssessment =
+  | typeof TYPED_COVERAGE_ASSESSMENT
+  | 'PARTIAL'
+  | 'REVIEW_REQUIRED'
+  | 'RECONCILED_WITHIN_SCOPE'
+  | 'SOURCE_PROVIDED_INVALID';
 
 export interface FoundationTypedSourceDescriptor {
   repository: string;
@@ -43,7 +56,8 @@ export interface PreparedFoundationTypedIngest {
   sourceArtifact: JsonObject;
   source: FoundationTypedSourceDescriptor;
   mapperVersion: typeof TYPED_PROJECTOR_VERSION;
-  coverageAssessment: typeof TYPED_COVERAGE_ASSESSMENT;
+  sourceArtifactCompatibility: SourceArtifactCompatibility;
+  coverageAssessment: TypedCoverageAssessment;
 }
 
 export class FoundationTypedIngestValidationError extends Error {
@@ -99,6 +113,106 @@ function isObject(value: unknown): value is JsonObject {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
+const LEGACY_OPTIONAL_SOURCE_ATTEMPT_REQUIRED_FIELDS = [
+  'fetch_key',
+  'attempted_at',
+  'retryable',
+] as const;
+const LEGACY_COLLECTION_RUN_SCHEMA_FINGERPRINT =
+  '82be4c3584f190b684f69ac1292105c2126964cbe8b44d824a405225f953a857';
+
+function canonicalizeJson(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(canonicalizeJson);
+  if (!isObject(value)) return value;
+
+  return Object.fromEntries(
+    Object.keys(value)
+      .sort()
+      .map((key) => [key, canonicalizeJson(value[key])]),
+  );
+}
+
+/**
+ * Build a validation-only compatibility schema for immutable historical
+ * collection-run.v1 artifacts. The canonical schema is never mutated.
+ *
+ * If the schema shape drifts from the expected contract, return null so only
+ * the compatibility path is disabled; strict validation and module startup
+ * remain available.
+ */
+export function buildLegacyCollectionRunCompatibilitySchema(
+  schemaInput: unknown,
+): Schema | null {
+  if (!isObject(schemaInput)) return null;
+
+  let schema: JsonObject;
+  try {
+    schema = JSON.parse(JSON.stringify(schemaInput)) as JsonObject;
+  } catch {
+    return null;
+  }
+
+  const fingerprint = createHash('sha256')
+    .update(JSON.stringify(canonicalizeJson(schema)))
+    .digest('hex');
+  if (fingerprint !== LEGACY_COLLECTION_RUN_SCHEMA_FINGERPRINT) return null;
+
+  const properties = isObject(schema.properties) ? schema.properties : null;
+  const sourceAttempts =
+    properties && isObject(properties.source_attempts)
+      ? properties.source_attempts
+      : null;
+  const items =
+    sourceAttempts && isObject(sourceAttempts.items)
+      ? sourceAttempts.items
+      : null;
+  if (!items) return null;
+  const required = items.required;
+
+  if (
+    !Array.isArray(required) ||
+    required.some((item) => typeof item !== 'string')
+  ) {
+    return null;
+  }
+
+  const requiredFields = required as string[];
+  if (
+    !requiredFields.includes('result') ||
+    !LEGACY_OPTIONAL_SOURCE_ATTEMPT_REQUIRED_FIELDS.every(
+      (field) => requiredFields.includes(field),
+    )
+  ) {
+    return null;
+  }
+
+  const relaxed = new Set<string>(
+    LEGACY_OPTIONAL_SOURCE_ATTEMPT_REQUIRED_FIELDS,
+  );
+  items.required = requiredFields.filter((field) => !relaxed.has(field));
+
+  return schema as Schema;
+}
+
+function buildLegacyCollectionRunCompatibilityValidator(): Validator | null {
+  const schema = buildLegacyCollectionRunCompatibilitySchema(
+    collectionRunSchema,
+  );
+  if (!schema) return null;
+
+  try {
+    const validator = new Validator(schema, '2020-12', false);
+    validator.addSchema(evidenceCaptureRequestSchema as Schema);
+    validator.addSchema(workItemSchema as Schema);
+    return validator;
+  } catch {
+    return null;
+  }
+}
+
+const validateLegacyCollectionRun =
+  buildLegacyCollectionRunCompatibilityValidator();
+
 function stringValue(value: JsonObject, key: string): string | null {
   const candidate = value[key];
   return typeof candidate === 'string' && candidate.trim() ? candidate.trim() : null;
@@ -113,6 +227,64 @@ function schemaErrors(
   return result.errors
     .slice(0, 20)
     .map((error) => `${error.instanceLocation || '#'} ${error.keyword || 'invalid'}`);
+}
+
+function hasKnownLegacySourceAttemptGap(
+  sourceArtifact: JsonObject,
+): boolean {
+  const attempts = sourceArtifact.source_attempts;
+  if (!Array.isArray(attempts) || attempts.length === 0) return false;
+
+  return attempts.every((attempt) => {
+    if (!isObject(attempt)) return false;
+    return LEGACY_OPTIONAL_SOURCE_ATTEMPT_REQUIRED_FIELDS.every(
+      (field) => !Object.hasOwn(attempt, field),
+    );
+  });
+}
+
+type CollectionRunSourceArtifactValidation =
+  | {
+      valid: true;
+      compatibility: SourceArtifactCompatibility;
+    }
+  | {
+      valid: false;
+      issues: string[];
+    };
+
+function validateCollectionRunSourceArtifact(
+  sourceArtifact: JsonObject,
+): CollectionRunSourceArtifactValidation {
+  const strictIssues = schemaErrors(validateCollectionRun, sourceArtifact);
+  if (strictIssues.length === 0) {
+    return {
+      valid: true,
+      compatibility: SOURCE_ARTIFACT_COMPATIBILITY_STRICT,
+    };
+  }
+
+  if (
+    !validateLegacyCollectionRun ||
+    !hasKnownLegacySourceAttemptGap(sourceArtifact)
+  ) {
+    return { valid: false, issues: strictIssues };
+  }
+
+  // This validator differs only by making the three legacy fields optional;
+  // every other required field and schema constraint still applies.
+  const compatibilityIssues = schemaErrors(
+    validateLegacyCollectionRun,
+    sourceArtifact,
+  );
+  if (compatibilityIssues.length > 0) {
+    return { valid: false, issues: strictIssues };
+  }
+
+  return {
+    valid: true,
+    compatibility: SOURCE_ARTIFACT_COMPATIBILITY_LEGACY,
+  };
 }
 
 function stringArray(value: JsonObject, key: string): string[] {
@@ -264,6 +436,77 @@ export function canonicalJson(value: unknown): string {
 
 function cloneJson<T>(value: T): T {
   return JSON.parse(JSON.stringify(value)) as T;
+}
+
+const COLLECTION_COVERAGE_UNASSESSED_WARNING =
+  'typed-record-set.v1 preserved losslessly in transport observation; collection coverage is unassessed by this projection';
+
+function replaceCoverageWarning(bundle: JsonObject, message: string | null): void {
+  const quality = isObject(bundle.quality) ? bundle.quality : {};
+  const warnings = Array.isArray(quality.warnings)
+    ? quality.warnings.filter((item): item is string => typeof item === 'string')
+    : [];
+  quality.warnings = [
+    ...warnings.filter((item) => item !== COLLECTION_COVERAGE_UNASSESSED_WARNING),
+    ...(message ? [message] : []),
+  ];
+  bundle.quality = quality;
+}
+
+function remapSourceCoverageForBundle(value: unknown): JsonObject[] {
+  return (cloneJson(value) as JsonObject[]).map((row) => {
+    if (!isObject(row) || !Array.isArray(row.record_refs)) return row;
+    return {
+      ...row,
+      record_refs: row.record_refs.map((reference) => {
+        if (typeof reference !== 'string') return reference;
+        const observationReference = /^observations\/(\d+)$/.exec(reference);
+        return observationReference
+          ? `observations/${Number(observationReference[1]) + 1}`
+          : reference;
+      }),
+    };
+  });
+}
+
+function promoteSourceCoverageIfValid(
+  bundle: JsonObject,
+  typedRecordSet: JsonObject,
+): TypedCoverageAssessment {
+  if (!Object.hasOwn(typedRecordSet, 'collection_coverage')) {
+    return TYPED_COVERAGE_ASSESSMENT;
+  }
+  if (typedRecordSet.purpose !== 'make_money') {
+    return TYPED_COVERAGE_ASSESSMENT;
+  }
+
+  bundle.collection_coverage = remapSourceCoverageForBundle(typedRecordSet.collection_coverage);
+  try {
+    const assessment = assessCoverage(bundle);
+    if (assessment.status === 'PARTIAL') {
+      replaceCoverageWarning(
+        bundle,
+        'Source collection coverage is partial; unattempted dimensions remain explicitly unattempted.',
+      );
+      return 'PARTIAL';
+    }
+    if (assessment.status === 'RECONCILED_WITHIN_SCOPE') {
+      replaceCoverageWarning(bundle, null);
+      return 'RECONCILED_WITHIN_SCOPE';
+    }
+    replaceCoverageWarning(
+      bundle,
+      'Source collection coverage is retained, but its declared research scope requires review.',
+    );
+    return 'REVIEW_REQUIRED';
+  } catch {
+    delete bundle.collection_coverage;
+    replaceCoverageWarning(
+      bundle,
+      'Source collection coverage was not promoted because its references or dimensions failed validation; the original sidecar is retained in the private transport observation.',
+    );
+    return 'SOURCE_PROVIDED_INVALID';
+  }
 }
 
 function stableQualityStrings(value: unknown): string[] {
@@ -479,6 +722,9 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'typed_record_set_text',
   );
+  // collection_coverage is optional in the upstream schema. Schema-invalid
+  // sidecars remain terminal input errors; semantically incomplete coverage
+  // is handled separately so it cannot discard otherwise valid factual data.
   const typedRecordSetIssues = schemaErrors(validateTypedRecordSet, typedRecordSet);
   if (typedRecordSetIssues.length > 0) {
     const issues = typedRecordSetIssues;
@@ -507,9 +753,10 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'source_artifact_text',
   );
-  const collectionRunIssues = schemaErrors(validateCollectionRun, sourceArtifact);
-  if (collectionRunIssues.length > 0) {
-    const issues = collectionRunIssues;
+  const collectionRunValidation =
+    validateCollectionRunSourceArtifact(sourceArtifact);
+  if (!collectionRunValidation.valid) {
+    const issues = collectionRunValidation.issues;
     throw new FoundationTypedIngestValidationError(
       'SOURCE_SCHEMA_INVALID',
       `collection-run.v1 schema validation failed: ${issues.join('; ')}`,
@@ -557,12 +804,39 @@ export function prepareFoundationTypedIngest(
     );
   }
 
+  const checkpoint = isObject(sourceArtifact.checkpoint)
+    ? sourceArtifact.checkpoint
+    : null;
+  const checkpointSubjectRef = checkpoint
+    ? stringValue(checkpoint, 'subject_ref')
+    : null;
+  if (checkpointSubjectRef && checkpointSubjectRef !== subjectRef) {
+    throw new FoundationTypedIngestValidationError(
+      'SOURCE_ARTIFACT_MISMATCH',
+      'source artifact checkpoint subject_ref does not match the typed sidecar',
+    );
+  }
+
   const recordedItems = Array.isArray(sourceArtifact.recorded_items)
     ? sourceArtifact.recorded_items.filter(isObject)
     : [];
   const recordedSubjectRefs = recordedItems
     .map((item) => stringValue(item, 'subject_ref'))
     .filter((item): item is string => Boolean(item));
+  if (
+    collectionRunValidation.compatibility ===
+      SOURCE_ARTIFACT_COMPATIBILITY_LEGACY &&
+    (
+      !checkpointSubjectRef &&
+      !recordedSubjectRefs.includes(subjectRef)
+      || recordedSubjectRefs.some((recordedSubjectRef) => recordedSubjectRef !== subjectRef)
+    )
+  ) {
+    throw new FoundationTypedIngestValidationError(
+      'SOURCE_ARTIFACT_MISMATCH',
+      'legacy source artifact must positively bind only the typed sidecar subject_ref',
+    );
+  }
   if (recordedSubjectRefs.length > 0 && !recordedSubjectRefs.includes(subjectRef)) {
     throw new FoundationTypedIngestValidationError(
       'SOURCE_ARTIFACT_MISMATCH',
@@ -570,12 +844,16 @@ export function prepareFoundationTypedIngest(
     );
   }
 
+  const bundle = projectTypedRecordSetV4(typedRecordSet, source.typed_record_set_blob_sha);
+  const coverageAssessment = promoteSourceCoverageIfValid(bundle, typedRecordSet);
+
   return {
-    bundle: projectTypedRecordSetV4(typedRecordSet, source.typed_record_set_blob_sha),
+    bundle,
     typedRecordSet,
     sourceArtifact,
     source,
     mapperVersion: TYPED_PROJECTOR_VERSION,
-    coverageAssessment: TYPED_COVERAGE_ASSESSMENT,
+    sourceArtifactCompatibility: collectionRunValidation.compatibility,
+    coverageAssessment,
   };
 }

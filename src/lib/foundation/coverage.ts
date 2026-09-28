@@ -17,10 +17,17 @@ export function assessCoverage(bundle: Record<string, unknown>) {
   const entries = bundle.collection_coverage;
   if (!Array.isArray(entries)) throw new Error('collection_coverage required; use one row per DIMENSIONS entry');
   const allowed = new Set(['found', 'attempted_unavailable', 'not_attempted', 'not_applicable', 'unknown']);
+  const allowedDimensions = new Set<string>(DIMENSIONS);
   const seen = new Set<string>();
   const pending: string[] = [];
   for (const row of entries) {
-    if (!row || typeof row.dimension !== 'string' || seen.has(row.dimension) || !allowed.has(row.status)) {
+    if (
+      !row ||
+      typeof row.dimension !== 'string' ||
+      !allowedDimensions.has(row.dimension) ||
+      seen.has(row.dimension) ||
+      !allowed.has(row.status)
+    ) {
       throw new Error('Invalid or duplicate collection coverage row');
     }
     seen.add(row.dimension);

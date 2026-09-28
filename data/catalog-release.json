@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "sourceHash": "5b9ecc23f47150534032b4bc1d8a6651938c0d2a978e55b871c36597b1c1ebd4",
+  "sourceHash": "d12e152869dc2307fe7fb25a690391cfee0c4c3a2055f0721af4f4435522b07f",
   "sourceCount": 3341,
   "publishedCount": 3085,
   "summaries": {
-    "hash": "ed36e8115eab4a1f6377643dd26f9515945f61fea43024a7af2a33b352526b6d",
-    "key": "views/make-money/catalog-v1/objects/ed36e8115eab4a1f6377643dd26f9515945f61fea43024a7af2a33b352526b6d.json.gz"
+    "hash": "ed5a205bb9a9a2fc02b64f6f538c5353fd995dab8d900ea6bb5467305c5a7c1a",
+    "key": "views/make-money/catalog-v1/objects/ed5a205bb9a9a2fc02b64f6f538c5353fd995dab8d900ea6bb5467305c5a7c1a.json.gz"
   },
   "discovery": {
-    "hash": "bd8ce549ab2e594526c57fb1152e63eedb3e934a016eb7d10908c64a75260885",
-    "key": "views/make-money/catalog-v1/objects/bd8ce549ab2e594526c57fb1152e63eedb3e934a016eb7d10908c64a75260885.json.gz"
+    "hash": "3a73e97cfa9a854413f0897416d7c96f3f635577705e1e53a78288a2e92d2e75",
+    "key": "views/make-money/catalog-v1/objects/3a73e97cfa9a854413f0897416d7c96f3f635577705e1e53a78288a2e92d2e75.json.gz"
   },
   "details": {
-    "ent_ebizfacts_stevehanovmultiplesaas10kmonthcheapstack_5425bcdb3286": "0629efb4e6a7b61dcf7416ff128a97eb3d5d44776fb8d2f135d22d94a18ddd41",
+    "ent_ebizfacts_stevehanovmultiplesaas10kmonthcheapstack_5425bcdb3286": "27a3453260cb1e50e1d58eb2f829563f7da3c52ebbae055282f0076db03efb6d",
     "ent_ebizfacts_thomashammondretailarbitrage40kmonthamazon_710304c85d0e": "cdb09198b55e2980fbe4b297e32625ac7ecb5e873ca88fbbeb89c6bbacc188d4",
     "ent_ebizfacts_kevinhardin3dprintedebikepart550month_83a1a437ae33": "46527be1ef370642a7e48af2ebb779c85f74349e838c013c35df56b1f4293aed",
     "ent_ebizfacts_johnmuscarelloamazoninfluencer30kmonthproduc_5a6adfda5159": "2f572ca6e88c2b88ea019ea4afb33105b3af101822f2d9e9f57e73097a2fd903",

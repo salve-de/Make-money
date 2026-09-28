@@ -29076,7 +29076,7 @@
     "ticker": "COSTCO",
     "domain": "costco.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29086,7 +29086,7 @@
     "ticker": "TSMC",
     "domain": "tsmc.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29096,7 +29096,7 @@
     "ticker": "VISA",
     "domain": "visa.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29106,7 +29106,7 @@
     "ticker": "ADOBE",
     "domain": "adobe.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29116,7 +29116,7 @@
     "ticker": "UNIQLO",
     "domain": "fastretailing.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29126,7 +29126,7 @@
     "ticker": "RYANAIR",
     "domain": "ryanair.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29136,7 +29136,7 @@
     "ticker": "SHOPIFY",
     "domain": "shopify.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29146,7 +29146,7 @@
     "ticker": "AMAZON",
     "domain": "amazon.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29156,7 +29156,7 @@
     "ticker": "BOOKING",
     "domain": "bookingholdings.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29166,7 +29166,7 @@
     "ticker": "MCDONALD",
     "domain": "corporate.mcdonalds.com",
     "sector": "LOCAL_SERVICES",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29176,7 +29176,7 @@
     "ticker": "NETFLIX",
     "domain": "netflix.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29186,7 +29186,7 @@
     "ticker": "AIRBNB",
     "domain": "airbnb.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29196,7 +29196,7 @@
     "ticker": "MAILCHIMP",
     "domain": "mailchimp.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "UNAVAILABLE",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29206,7 +29206,7 @@
     "ticker": "37SIGNALS",
     "domain": "37signals.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "UNAVAILABLE",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29266,7 +29266,7 @@
     "ticker": "PAYPAL",
     "domain": "paypal.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29276,7 +29276,7 @@
     "ticker": "BLOCK",
     "domain": "block.xyz",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29286,7 +29286,7 @@
     "ticker": "PLAID",
     "domain": "plaid.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "UNAVAILABLE",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29296,7 +29296,7 @@
     "ticker": "COINBASE",
     "domain": "coinbase.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29306,7 +29306,7 @@
     "ticker": "MELI",
     "domain": "mercadolibre.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29316,7 +29316,7 @@
     "ticker": "APPLE",
     "domain": "apple.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29326,7 +29326,7 @@
     "ticker": "MSFT",
     "domain": "microsoft.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29336,7 +29336,7 @@
     "ticker": "INTUIT",
     "domain": "intuit.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29346,7 +29346,7 @@
     "ticker": "TEAM",
     "domain": "atlassian.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29356,7 +29356,7 @@
     "ticker": "NOWCO",
     "domain": "servicenow.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29366,7 +29366,7 @@
     "ticker": "NINTENDO",
     "domain": "nintendo.co.jp",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29376,7 +29376,7 @@
     "ticker": "SONY",
     "domain": "sony.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29386,7 +29386,7 @@
     "ticker": "CAPCOM",
     "domain": "capcom.co.jp",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29396,7 +29396,7 @@
     "ticker": "SPOTIFY",
     "domain": "spotify.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29406,7 +29406,7 @@
     "ticker": "ROBLOX",
     "domain": "roblox.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29466,7 +29466,7 @@
     "ticker": "CRMCO",
     "domain": "salesforce.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29476,7 +29476,7 @@
     "ticker": "HUBSPOT",
     "domain": "hubspot.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29486,7 +29486,7 @@
     "ticker": "ZOOM",
     "domain": "zoom.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29496,7 +29496,7 @@
     "ticker": "CLOUDFL",
     "domain": "cloudflare.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29506,7 +29506,7 @@
     "ticker": "DATADOG",
     "domain": "datadog.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29516,7 +29516,7 @@
     "ticker": "COKE",
     "domain": "coca-colacompany.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29526,7 +29526,7 @@
     "ticker": "PEPSI",
     "domain": "pepsico.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29536,7 +29536,7 @@
     "ticker": "PROCTER",
     "domain": "us.pg.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29546,7 +29546,7 @@
     "ticker": "LVMH",
     "domain": "lvmh.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29556,7 +29556,7 @@
     "ticker": "HERMES",
     "domain": "hermes.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29566,7 +29566,7 @@
     "ticker": "TOYOTA",
     "domain": "global.toyota",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29576,7 +29576,7 @@
     "ticker": "ASML",
     "domain": "asml.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29586,7 +29586,7 @@
     "ticker": "NVIDIA",
     "domain": "nvidia.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29596,7 +29596,7 @@
     "ticker": "AMDCO",
     "domain": "amd.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29606,7 +29606,7 @@
     "ticker": "SAMSUNG",
     "domain": "samsung.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29616,7 +29616,7 @@
     "ticker": "UBER",
     "domain": "uber.com",
     "sector": "LOCAL_SERVICES",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29626,7 +29626,7 @@
     "ticker": "DASH",
     "domain": "doordash.com",
     "sector": "LOCAL_SERVICES",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29636,7 +29636,7 @@
     "ticker": "ETSY",
     "domain": "etsy.com",
     "sector": "LOCAL_SERVICES",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29646,7 +29646,7 @@
     "ticker": "EBAY",
     "domain": "ebay.com",
     "sector": "LOCAL_SERVICES",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29656,7 +29656,7 @@
     "ticker": "EXPEDIA",
     "domain": "expediagroup.com",
     "sector": "LOCAL_SERVICES",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29666,7 +29666,7 @@
     "ticker": "HONEYW",
     "domain": "honeywell.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29676,7 +29676,7 @@
     "ticker": "CATCO",
     "domain": "caterpillar.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29686,7 +29686,7 @@
     "ticker": "UNIONPAC",
     "domain": "up.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29696,7 +29696,7 @@
     "ticker": "FEDEX",
     "domain": "fedex.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29706,7 +29706,7 @@
     "ticker": "LOCKHEED",
     "domain": "lockheedmartin.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29716,7 +29716,7 @@
     "ticker": "TWILIO",
     "domain": "twilio.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29726,7 +29726,7 @@
     "ticker": "OKTA",
     "domain": "okta.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29736,7 +29736,7 @@
     "ticker": "CRWD",
     "domain": "crowdstrike.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29746,7 +29746,7 @@
     "ticker": "PANW",
     "domain": "paloaltonetworks.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29756,7 +29756,7 @@
     "ticker": "MONGODB",
     "domain": "mongodb.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29766,7 +29766,7 @@
     "ticker": "WALMART",
     "domain": "corporate.walmart.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29776,7 +29776,7 @@
     "ticker": "HOMEDEPOT",
     "domain": "corporate.homedepot.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29786,7 +29786,7 @@
     "ticker": "NIKECO",
     "domain": "about.nike.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29796,7 +29796,7 @@
     "ticker": "STARBUCKS",
     "domain": "starbucks.com",
     "sector": "LOCAL_SERVICES",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29806,7 +29806,7 @@
     "ticker": "DISNEY",
     "domain": "thewaltdisneycompany.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29866,7 +29866,7 @@
     "ticker": "HOYACO",
     "domain": "hoya.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29876,7 +29876,7 @@
     "ticker": "DAIKIN",
     "domain": "daikin.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29886,7 +29886,7 @@
     "ticker": "RECRUIT",
     "domain": "recruit-holdings.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29896,7 +29896,7 @@
     "ticker": "MONOTARO",
     "domain": "corp.monotaro.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29906,7 +29906,7 @@
     "ticker": "ZOZOCO",
     "domain": "corp.zozo.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29916,7 +29916,7 @@
     "ticker": "TENCENT",
     "domain": "tencent.com",
     "sector": "CONTENT_MEDIA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29926,7 +29926,7 @@
     "ticker": "ALIBABA",
     "domain": "alibabagroup.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29936,7 +29936,7 @@
     "ticker": "JDCOM",
     "domain": "jd.com",
     "sector": "PHYSICAL_ASSET",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29946,7 +29946,7 @@
     "ticker": "SEALTD",
     "domain": "sea.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29956,7 +29956,7 @@
     "ticker": "BAIDU",
     "domain": "baidu.com",
     "sector": "AI_AUTOMATION",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29966,7 +29966,7 @@
     "ticker": "FERRARI",
     "domain": "ferrari.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29976,7 +29976,7 @@
     "ticker": "LOREAL",
     "domain": "loreal.com",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29986,7 +29986,7 @@
     "ticker": "ADYEN",
     "domain": "adyen.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -29996,7 +29996,7 @@
     "ticker": "ROBINHD",
     "domain": "robinhood.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
@@ -30056,7 +30056,7 @@
     "ticker": "SCRNSTD",
     "domain": "screen.studio",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "UNAVAILABLE",
     "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
@@ -31156,7 +31156,7 @@
     "ticker": "DISCO.6146",
     "domain": "disco.co.jp",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "VERIFIED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31196,7 +31196,7 @@
     "ticker": "6861.T",
     "domain": "keyence.co.jp",
     "sector": "MONOPOLY_MFG",
-    "status": "REPORTED",
+    "status": "VERIFIED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31206,7 +31206,7 @@
     "ticker": "STRIPE",
     "domain": "stripe.com",
     "sector": "FINTECH_INFRA",
-    "status": "REPORTED",
+    "status": "ESTIMATED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31436,7 +31436,7 @@
     "ticker": "KLAVIYO",
     "domain": "klaviyo.com",
     "sector": "NICHE_SAAS",
-    "status": "REPORTED",
+    "status": "VERIFIED",
     "batchId": "batch-01-core-foundation134"
   },
   {

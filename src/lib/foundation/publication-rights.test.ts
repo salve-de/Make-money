@@ -1,5 +1,7 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
+  PUBLIC_OBSERVATION_TYPE_POLICIES,
   assessCommercialPublicProjection,
   buildCommercialPublicFactProjection,
 } from './publication-rights';
@@ -299,6 +301,178 @@ describe('commercial publication rights gate', () => {
         suffix: '%',
       },
     ]);
+  });
+
+  it('projects the verified material transaction facts without exposing unknowns or source prose', async () => {
+    const eightKUrl =
+      'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm';
+    const quarterlyUrl =
+      'https://www.sec.gov/Archives/edgar/data/1711929/000119312526351388/ck0001711929-20260813.htm';
+    const input = JSON.parse(readFileSync(
+      'src/lib/foundation/fixtures/real-starwood-apollo-2026-09-26-research-bundle-v1.json',
+      'utf8',
+    )) as Record<string, unknown>;
+    const inputObservations = input.observations as Record<string, unknown>[];
+    const transport = inputObservations.find(
+      (row) => row.observation_type === 'transport.typed_record_set_v1',
+    );
+    const typedRecordSet = transport?.transport_typed_record_set_v1 as Record<string, unknown>;
+
+    const projected = buildCommercialPublicFactProjection(input, typedRecordSet);
+    expect(projected.assessment.status).toBe('ALLOWED');
+    const projectedObservations = projected.bundle?.observations as unknown[] | undefined;
+    expect(projectedObservations).toHaveLength(1);
+    expect(projectedObservations?.[0]).toMatchObject({
+      observation_id: 'obs_3b978269d9ec6eba82dc1f9b',
+      observation_type: 'starwood_apollo.verify_reconcile.material_transaction_terms.v1',
+      entity_ids: [
+        'ent_org_0e1d9b556075d9fc7f36',
+        'ent_org_4a819d424adf6b2a118f',
+      ],
+      public_payload: {
+        apollo_managed_funds_equity_percent: 41.5,
+        starwood_sreit_equity_percent: 58.5,
+        apollo_investment_usd: 1020000000,
+        approximate_property_count: 120,
+        call_option_irr_cap_percent_years_5_to_10: 7,
+        starwood_retains_asset_management_and_operational_control: true,
+        proceeds_intended_to_repay_credit_facilities: true,
+      },
+      public_display: {
+        source_label: 'SEC filing',
+        source_urls: [eightKUrl, quarterlyUrl],
+      },
+    });
+
+    const serialized = JSON.stringify(projected.bundle?.observations);
+    expect(serialized).not.toContain('rising_minimum_yield_guarantee');
+    expect(serialized).not.toContain('exact_joint_venture_legal_name');
+    expect(serialized).not.toContain('exact_apollo_investing_legal_entities');
+    expect(serialized).not.toContain('Private source prose');
+    expect(serialized).not.toContain('source_prose');
+    expect(serialized).not.toContain('currency');
+  });
+
+  it('fails closed when the exact typed subject, either target entity, or evidence binding differs', async () => {
+    const fixturePath =
+      'src/lib/foundation/fixtures/real-starwood-apollo-2026-09-26-research-bundle-v1.json';
+    const base = JSON.parse(readFileSync(fixturePath, 'utf8')) as Record<string, unknown>;
+    const observations = base.observations as Record<string, unknown>[];
+    const transport = observations.find(
+      (row) => row.observation_type === 'transport.typed_record_set_v1',
+    )!;
+    const typedRecordSet = transport.transport_typed_record_set_v1 as Record<string, unknown>;
+
+    const wrongSubject = structuredClone(typedRecordSet);
+    wrongSubject.subject_ref = 'case:unrelated';
+    expect(buildCommercialPublicFactProjection(base, wrongSubject).bundle).toBeNull();
+
+    const missingEntity = structuredClone(base);
+    missingEntity.entities = (missingEntity.entities as Record<string, unknown>[])
+      .filter((entity) => entity.entity_id !== 'ent_org_4a819d424adf6b2a118f');
+    expect(buildCommercialPublicFactProjection(missingEntity, typedRecordSet).bundle).toBeNull();
+
+    const mismatchedEvidence = structuredClone(base);
+    const apollo = (mismatchedEvidence.entities as Record<string, unknown>[])
+      .find((entity) => entity.entity_id === 'ent_org_4a819d424adf6b2a118f')!;
+    apollo.evidence_ids = ['ev_8ab84a0f3b532a7171d1a6d4'];
+    expect(buildCommercialPublicFactProjection(mismatchedEvidence, typedRecordSet).bundle).toBeNull();
+    // Repeated IDs cannot masquerade as the complete two-source evidence set.
+    apollo.evidence_ids = ['ev_8ab84a0f3b532a7171d1a6d4', 'ev_8ab84a0f3b532a7171d1a6d4'];
+    expect(buildCommercialPublicFactProjection(mismatchedEvidence, typedRecordSet).bundle).toBeNull();
+    // Compare original evidence before public-rights filtering can erase a mismatch.
+    apollo.evidence_ids = [
+      'ev_8ab84a0f3b532a7171d1a6d4', 'ev_f841248a66756d400605f3ac', 'ev_unapproved',
+    ];
+    expect(buildCommercialPublicFactProjection(mismatchedEvidence, typedRecordSet).bundle).toBeNull();
+
+  });
+
+  it('associates only the two contract-named entities, never an unrelated third entity', async () => {
+    const input = JSON.parse(readFileSync(
+      'src/lib/foundation/fixtures/real-starwood-apollo-2026-09-26-research-bundle-v1.json',
+      'utf8',
+    )) as Record<string, unknown>;
+    const evidenceIds = [
+      'ev_8ab84a0f3b532a7171d1a6d4',
+      'ev_f841248a66756d400605f3ac',
+    ];
+    (input.entities as Record<string, unknown>[]).push({
+      entity_id: 'ent_org_aaaaaaaaaaaaaaaaaaaa',
+      entity_type: 'organization',
+      canonical_name: 'Unrelated Organization',
+      aliases: [],
+      canonical_identifier: null,
+      domain: null,
+      status: null,
+      observed_at: '2026-09-25T22:28:24Z',
+      evidence_ids: evidenceIds,
+    });
+    const transport = (input.observations as Record<string, unknown>[]).find(
+      (row) => row.observation_type === 'transport.typed_record_set_v1',
+    )!;
+    const typedRecordSet = transport.transport_typed_record_set_v1 as Record<string, unknown>;
+
+    const projected = buildCommercialPublicFactProjection(input, typedRecordSet);
+    const observation = (projected.bundle?.observations as Record<string, unknown>[])[0];
+    expect(observation.entity_ids).toEqual([
+      'ent_org_0e1d9b556075d9fc7f36',
+      'ent_org_4a819d424adf6b2a118f',
+    ]);
+    expect(observation.entity_ids).not.toContain('ent_org_aaaaaaaaaaaaaaaaaaaa');
+  });
+
+  it('withholds material transaction terms when a required ownership percentage is invalid', () => {
+    const input = bundle(
+      'rights.sec-edgar-public-facts.v1',
+      'metadata_only',
+      'SUPPORTED',
+      'src.sec-edgar',
+      'https://www.sec.gov/Archives/edgar/data/1711929/000119312526332741/ck0001711929-20260803.htm',
+    );
+    input.sources[0].provider_name = 'U.S. Securities and Exchange Commission';
+    input.sources[0].source_type = 'regulatory_filing';
+    input.evidence[0].source_type = 'regulatory_filing';
+    const observation = input.observations[0] as unknown as Record<string, unknown>;
+    observation.observation_type =
+      'starwood_apollo.verify_reconcile.material_transaction_terms.v1';
+    observation.payload = {
+      apollo_equity_percent: 101,
+      starwood_equity_percent: 58.5,
+      apollo_investment_usd: 1020000000,
+    };
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle?.observations).toEqual([]);
+  });
+
+  it('registers the new material transaction contract only for the approved SEC policy', async () => {
+    const registry = (await import('../../../data/foundation-public-observation-contracts.json')).default;
+    const contract = registry.contracts.find(
+      (entry) => entry.observation_type ===
+        'starwood_apollo.verify_reconcile.material_transaction_terms.v1',
+    );
+    expect(contract?.status).toBe('approved');
+    expect('allowed_policy_ids' in (contract || {}) ? contract?.allowed_policy_ids : []).toEqual([
+      'rights.sec-edgar-public-facts.v1',
+    ]);
+    expect(contract?.fields).toHaveLength(7);
+    expect(contract?.fields.slice(0, 2).every((field) => field.required)).toBe(true);
+    expect(PUBLIC_OBSERVATION_TYPE_POLICIES[
+      'starwood_apollo.verify_reconcile.material_transaction_terms.v1'
+    ]?.entityAssociation).toEqual({
+      typedSubjectRef: 'case:starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization:2026',
+      entities: [
+        {
+          entityId: 'ent_org_0e1d9b556075d9fc7f36',
+          canonicalName: 'Starwood Real Estate Income Trust, Inc.',
+        },
+        {
+          entityId: 'ent_org_4a819d424adf6b2a118f',
+          canonicalName: 'Apollo Global Management',
+        },
+      ],
+    });
   });
 
   it('uses a data-driven approved Observation contract registry', async () => {

@@ -7,6 +7,7 @@ import { POST as ingestTyped } from '@/app/api/foundation/ingest/typed/route';
 import { GET as getBusinesses } from '@/app/api/businesses/route';
 import { withCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
 import { gitBlobSha1, prepareFoundationTypedIngest } from './typed-ingest';
+import { DIMENSIONS } from './coverage';
 import { adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
 import type { FoundationBusinessCase } from './business-reader';
 import { UniversalIntelligenceStream } from '@/features/company-inspector';
@@ -130,6 +131,13 @@ const realSecArtifactPath =
 const realSecTypedBlob = '8df9b73060b67e75612a143a886dee96a66065c9';
 const realSecArtifactBlob = 'dc1f5bfcbfe89f6b8e9d3083a30de13eaf833f53';
 const realSecApolloEntityId = 'ent_org_4a819d424adf6b2a118f';
+const coverageRepairStarwoodEntityId = 'ent_org_0e1d9b556075d9fc7f36';
+const coverageRepairTypedPath =
+  'staging/automation/typed-records/VERIFY_RECONCILE/2026/09/25/run_verify_canary_starwood_20260925044005/starwood-sreit-apollo-affordable-housing-jv-liquidity-recapitalization-2026-coverage-repair-typed-record-set-v1.json';
+const coverageRepairArtifactPath =
+  'staging/automation/verify/2026/09/25/20260925T044200Z-verify_reconcile-run_verify_canary_starwood_20260925044005.json';
+const coverageRepairTypedBlob = '649614315bd75857b6421d3139eafd1f2d0d6fd4';
+const coverageRepairArtifactBlob = 'c77a9184c631ea84be7e3e262f93af96241e6103';
 
 function sourceArtifact() {
   return {
@@ -308,6 +316,32 @@ function requestFor(
   };
 }
 
+function requestForWithPartialCoverage() {
+  const request = requestFor('SUPPORTED', true);
+  const typed = JSON.parse(request.typed_record_set_text) as Record<string, unknown>;
+  typed.collection_coverage = DIMENSIONS.map((dimension) => dimension === 'identity'
+    ? {
+        dimension,
+        status: 'found',
+        note: 'Entity identity is retained in the sidecar.',
+        record_refs: ['entities/0'],
+      }
+    : {
+        dimension,
+        status: 'not_attempted',
+        note: 'Not attempted in this partial collection.',
+      });
+  const typedText = JSON.stringify(typed);
+  return {
+    ...request,
+    source: {
+      ...request.source,
+      typed_record_set_blob_sha: gitBlobSha1(typedText),
+    },
+    typed_record_set_text: typedText,
+  };
+}
+
 function requestForMixedRights() {
   const artifactText = JSON.stringify(sourceArtifact());
   const typed = typedRecordSet('SUPPORTED', true);
@@ -405,6 +439,34 @@ function requestForRealSecFixture() {
       typed_record_set_path: realSecTypedPath,
       typed_record_set_blob_sha: gitBlobSha1(typedText),
       source_artifact_path: realSecArtifactPath,
+      source_artifact_blob_sha: gitBlobSha1(artifactText),
+    },
+    typed_record_set_text: typedText,
+    source_artifact_text: artifactText,
+  };
+}
+
+function requestForRealCoverageRepairFixture() {
+  // apply_patch adds a final newline when creating text fixtures. Restore the
+  // exact upstream Git blob bytes: the sidecar has one final newline and the
+  // paired collection-run artifact has none.
+  const typedText = readFileSync(
+    'src/lib/foundation/fixtures/real-starwood-apollo-coverage-repair-typed-record-set-v1.json',
+    'utf8',
+  ).replace(/\n\n$/, '\n');
+  const artifactText = readFileSync(
+    'src/lib/foundation/fixtures/real-starwood-apollo-coverage-repair-collection-run-v1.json',
+    'utf8',
+  ).replace(/\n$/, '');
+  return {
+    write_authorized: true as const,
+    source: {
+      repository: 'salve-de/universal-foundation',
+      source_ref: 'main',
+      source_commit_sha: '80e8f62b5241128aee2af26bc4576d0c241d72d2',
+      typed_record_set_path: coverageRepairTypedPath,
+      typed_record_set_blob_sha: gitBlobSha1(typedText),
+      source_artifact_path: coverageRepairArtifactPath,
       source_artifact_blob_sha: gitBlobSha1(artifactText),
     },
     typed_record_set_text: typedText,
@@ -597,16 +659,18 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
 
   it('materializes and serves an approved-policy supported fact projection', async () => {
     const r2 = new MemoryR2();
+    const partialCoverageRequest = requestForWithPartialCoverage();
     await withCloudflareRuntimeEnv({
       FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
       FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
       FOUNDATION_R2_LAKE: r2,
     }, async () => {
-      const first = await postTyped(requestFor('SUPPORTED', true));
+      const first = await postTyped(partialCoverageRequest);
       const firstBody = await first.json();
       expect(first.status).toBe(200);
       expect(firstBody.success).toBe(true);
       expect(firstBody.mapper_version).toBe('r2-queue-mapper-v6');
+      expect(firstBody.coverage_assessment).toBe('PARTIAL');
       expect(firstBody.view_projection.status).toMatch(/^PASS/);
       expect(r2.keys()).toContain(`views/make-money/v1/entities/${entityId}.json`);
 
@@ -636,6 +700,9 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(detailText).not.toContain('must_survive_transport');
       expect(detailText).not.toContain('urn:test:typed-e2e:v1');
       expect(detailText).not.toContain('DISCOVERY');
+      expect(detailText).not.toContain('collection_coverage');
+      expect(detailText).not.toContain('not_attempted');
+      expect(detailText).not.toContain('Source collection coverage is partial');
 
       const uiEntity = adaptFoundationDetailToFinancialEntity(
         detail.data as FoundationBusinessCase,
@@ -652,6 +719,7 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(uiHtml).not.toContain('must_survive_transport');
       expect(uiHtml).not.toContain('urn:test:typed-e2e:v1');
       expect(uiHtml).not.toContain('DISCOVERY');
+      expect(uiHtml).not.toContain('Source collection coverage is partial');
 
       const canonicalObject = await r2.get(canonicalKeys(r2)[0]);
       expect(canonicalObject).toBeTruthy();
@@ -662,6 +730,8 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(canonicalText).toContain('must_survive_transport');
       expect(canonicalText).toContain('urn:test:typed-e2e:v1');
       expect(canonicalText).toContain('DISCOVERY');
+      expect(canonicalText).toContain('collection_coverage');
+      expect(canonicalText).toContain('not_attempted');
 
       const listResponse = await getBusinesses(
         new Request('http://localhost/api/businesses?foundationOnly=true&limit=100'),
@@ -671,7 +741,7 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(list.data.some((row: { id?: string }) => row.id === entityId)).toBe(true);
 
       const firstCanonical = canonicalKeys(r2);
-      const second = await postTyped(requestFor('SUPPORTED', true));
+      const second = await postTyped(partialCoverageRequest);
       const secondBody = await second.json();
       expect(second.status).toBe(200);
       expect(secondBody.success).toBe(true);
@@ -733,6 +803,116 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(canonicalText).toContain('$1.02 billion');
       expect(canonicalText).toContain('Class B Common Units');
       expect(canonicalText).toContain('redeemable noncontrolling interest');
+    });
+  });
+
+  it('passes the exact 2026-09-25 coverage-repair sidecar through MemoryR2 to the public UI path', async () => {
+    const request = requestForRealCoverageRepairFixture();
+    expect(request.source.typed_record_set_blob_sha).toBe(coverageRepairTypedBlob);
+    expect(request.source.source_artifact_blob_sha).toBe(coverageRepairArtifactBlob);
+
+    const r2 = new MemoryR2();
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const first = await postTyped(request);
+      const firstBody = await first.json();
+      expect(first.status).toBe(200);
+      expect(firstBody.success).toBe(true);
+      expect(firstBody.coverage_assessment).toBe('PARTIAL');
+      expect(firstBody.source_artifact_compatibility)
+        .toBe('LEGACY_SOURCE_ATTEMPTS_MISSING_AUDIT_FIELDS');
+      expect(firstBody.view_projection.status).toBe('PASS');
+
+      const canonicalObject = await r2.get(canonicalKeys(r2)[0]);
+      expect(canonicalObject).toBeTruthy();
+      const canonicalBody = canonicalObject
+        ? new Uint8Array(await canonicalObject.arrayBuffer())
+        : new Uint8Array();
+      const canonical = JSON.parse(new TextDecoder().decode(canonicalBody));
+      expect(canonical.collection_coverage).toHaveLength(46);
+      expect(canonical.collection_coverage.find(
+        (row: { dimension?: string }) => row.dimension === 'additional_observations',
+      )).toMatchObject({ status: 'found', record_refs: ['observations/1'] });
+      const transport = canonical.observations.find(
+        (row: { observation_type?: string }) => row.observation_type === 'transport.typed_record_set_v1',
+      );
+      expect(transport.transport_typed_record_set_v1.collection_coverage).toHaveLength(46);
+      expect(transport.transport_typed_record_set_v1.collection_coverage.find(
+        (row: { dimension?: string }) => row.dimension === 'additional_observations',
+      )).toMatchObject({ status: 'found', record_refs: ['observations/0'] });
+
+      const detailResponse = await getBusinesses(new Request(
+        `http://localhost/api/businesses?foundationOnly=true&entity_id=${realSecApolloEntityId}`,
+      ));
+      const detailBody = await detailResponse.json();
+      expect(detailResponse.status).toBe(200);
+      const detailText = JSON.stringify(detailBody.data);
+      expect(detailText).toContain('41.5');
+      expect(detailText).not.toContain('58.5');
+      expect(detailText).not.toContain('collection_coverage');
+      expect(detailText).not.toContain('not_attempted');
+      expect(detailText).not.toContain(
+        'LEGACY_SOURCE_ATTEMPTS_MISSING_AUDIT_FIELDS',
+      );
+      expect(detailText).not.toContain('fetch_key');
+      expect(detailText).not.toContain('Source collection coverage is partial');
+
+      const uiEntity = adaptFoundationDetailToFinancialEntity(
+        detailBody.data as FoundationBusinessCase,
+      );
+      const uiHtml = renderToStaticMarkup(createElement(
+        UniversalIntelligenceStream,
+        { entity: uiEntity, currency: 'USD' },
+      ));
+      expect(uiHtml).toContain('41.5');
+      expect(uiHtml).not.toContain('58.5');
+      expect(uiHtml).not.toContain('collection_coverage');
+      expect(uiHtml).not.toContain('not_attempted');
+      expect(uiHtml).not.toContain(
+        'LEGACY_SOURCE_ATTEMPTS_MISSING_AUDIT_FIELDS',
+      );
+
+      const starwoodResponse = await getBusinesses(new Request(
+        `http://localhost/api/businesses?foundationOnly=true&entity_id=${coverageRepairStarwoodEntityId}`,
+      ));
+      const starwoodBody = await starwoodResponse.json();
+      expect(starwoodResponse.status).toBe(200);
+      const starwoodText = JSON.stringify(starwoodBody.data);
+      expect(starwoodText).toContain('58.5');
+      expect(starwoodText).not.toContain('41.5');
+      expect(starwoodText).not.toContain('collection_coverage');
+      expect(starwoodText).not.toContain('not_attempted');
+      expect(starwoodText).not.toContain(
+        'LEGACY_SOURCE_ATTEMPTS_MISSING_AUDIT_FIELDS',
+      );
+
+      const starwoodUiEntity = adaptFoundationDetailToFinancialEntity(
+        starwoodBody.data as FoundationBusinessCase,
+      );
+      const starwoodUiHtml = renderToStaticMarkup(createElement(
+        UniversalIntelligenceStream,
+        { entity: starwoodUiEntity, currency: 'USD' },
+      ));
+      expect(starwoodUiHtml).toContain('58.5');
+      expect(starwoodUiHtml).not.toContain('41.5');
+      expect(starwoodUiHtml).not.toContain('collection_coverage');
+      expect(starwoodUiHtml).not.toContain('not_attempted');
+      expect(starwoodUiHtml).not.toContain(
+        'LEGACY_SOURCE_ATTEMPTS_MISSING_AUDIT_FIELDS',
+      );
+
+      const firstCanonical = canonicalKeys(r2);
+      const second = await postTyped(request);
+      const secondBody = await second.json();
+      expect(second.status).toBe(200);
+      expect(secondBody.success).toBe(true);
+      expect(secondBody.coverage_assessment).toBe('PARTIAL');
+      expect(secondBody.source_artifact_compatibility)
+        .toBe('LEGACY_SOURCE_ATTEMPTS_MISSING_AUDIT_FIELDS');
+      expect(canonicalKeys(r2)).toEqual(firstCanonical);
     });
   });
 

@@ -154,6 +154,8 @@ export async function POST(request: NextRequest) {
           input_kind: 'typed_sidecar',
           mapper_version: prepared.mapperVersion,
           coverage_assessment: prepared.coverageAssessment,
+          source_artifact_compatibility:
+            prepared.sourceArtifactCompatibility,
           source: prepared.source,
           ...report,
           new_arrivals: null,
@@ -177,6 +179,8 @@ export async function POST(request: NextRequest) {
             input_kind: 'typed_sidecar',
             mapper_version: prepared.mapperVersion,
             coverage_assessment: prepared.coverageAssessment,
+            source_artifact_compatibility:
+              prepared.sourceArtifactCompatibility,
             source: prepared.source,
             ...report,
             view_projection: {
@@ -207,6 +211,8 @@ export async function POST(request: NextRequest) {
         input_kind: 'typed_sidecar',
         mapper_version: prepared.mapperVersion,
         coverage_assessment: prepared.coverageAssessment,
+        source_artifact_compatibility:
+          prepared.sourceArtifactCompatibility,
         source: prepared.source,
         ...report,
         new_arrivals: contribution
@@ -234,6 +240,8 @@ export async function POST(request: NextRequest) {
           input_kind: 'typed_sidecar',
           mapper_version: prepared.mapperVersion,
           coverage_assessment: prepared.coverageAssessment,
+          source_artifact_compatibility:
+            prepared.sourceArtifactCompatibility,
           source: prepared.source,
           ...report,
           view_projection: {

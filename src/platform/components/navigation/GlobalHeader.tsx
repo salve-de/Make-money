@@ -8,6 +8,7 @@ import {
   Bookmark,
   MoreHorizontal,
   Rocket,
+  Store,
 } from 'lucide-react';
 import type { BookmarkSyncStatus } from '../../hooks/useEntityFilter';
 
@@ -20,6 +21,7 @@ export type GlobalNavSection =
   | 'SYNTHESIS'
   | 'BUILDER'
   | 'EXECUTION'
+  | 'MARKETPLACE'
   | 'WELCOME';
 
 type LocalWorkspaceMode = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS';
@@ -53,6 +55,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const activeSection: GlobalNavSection = currentSection || (() => {
     if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
+    if (pathname?.startsWith('/marketplace')) return 'MARKETPLACE';
     if (pathname?.startsWith('/build')) return 'BUILDER';
     if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
     if (pathname?.startsWith('/radar')) return 'RADAR';
@@ -112,6 +115,12 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   };
 
   const secondaryNavItems = [
+    {
+      id: 'MARKETPLACE' as const,
+      label: 'サービス一覧',
+      href: '/marketplace',
+      icon: Store,
+    },
     {
       id: 'EXECUTION' as const,
       label: '実行中',
