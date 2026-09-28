@@ -37,7 +37,7 @@ const RadarTable: React.FC<{ label: string; rows: RadarRow[] }> = ({ label, rows
       <Link
         key={row.id}
         href={`/radar/${row.id}`}
-        className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select md:min-h-[29px] md:items-center md:py-1 ${RADAR_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
+        className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select lg:min-h-[29px] lg:items-center lg:py-1 ${RADAR_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
       >
         <span className="text-xs text-term-label md:text-sm md:text-term-muted">{row.category}</span>
         <span className="font-semibold text-term-fg-strong md:truncate">{row.title}</span>

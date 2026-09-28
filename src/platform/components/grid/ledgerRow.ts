@@ -7,17 +7,17 @@ export function isRevenueUnknown(entity: FinancialEntity): boolean {
   return entity.pnl.isRevenueUnconfirmed === true || entity.pnl.financialStatus === 'UNAVAILABLE';
 }
 
-/** 確認 列の文字。確認済み=確認、未確認=未確認、推定/ピーク=アクセント。 */
+/** 確認 列の文字。一次資料=確認、公表値=報告値、売上不明=未確認、推定/ピーク=アクセント。 */
 export function confirmStatus(entity: FinancialEntity): { label: string; tone: ConfirmTone } {
   if (isRevenueUnknown(entity)) return { label: '未確認', tone: 'dim' };
   if (entity.pnl.dataSnapshotPeriod?.includes('ピーク')) return { label: 'ピーク', tone: 'accent' };
   switch (entity.pnl.financialStatus) {
     case 'ESTIMATED': return { label: '推定', tone: 'accent' };
     case 'VERIFIED':
-    case 'REPORTED':
     case 'POST_MORTEM':
       return { label: '確認', tone: 'muted' };
-    default: return { label: '未確認', tone: 'dim' };
+    // 本人・媒体が公表した数値（第三者の裏付けは未登録）。一覧の取得結果では区分が省かれることがある。
+    default: return { label: '報告値', tone: 'muted' };
   }
 }
 
@@ -47,3 +47,8 @@ export function monthlyRevenueParts(entity: FinancialEntity, currency: 'JPY' | '
 }
 
 export { yenParts };
+
+/** 一覧の概要は、月商列と重なる先頭の【月商150万円】のような見出しを外して出す（データは変えない）。 */
+export function listDescription(text: string | null | undefined): string {
+  return (text ?? '').replace(/^\s*【[^】]{1,40}】\s*/, '');
+}

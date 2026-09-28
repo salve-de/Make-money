@@ -8,6 +8,8 @@ import { KNOWN_INGEST_BATCHES } from '@/shared/terminal';
 interface DataGridToolbarProps {
   searchQuery: string;
   onSearchChange: (q: string) => void;
+  /** ヘッダーの検索欄で絞り込むときは、この欄を出さない（検索欄の重複を避ける）。 */
+  hideSearch?: boolean;
   totalCount: number;
   onOpenScreener: () => void;
   screenerFilters?: ScreenerFilterState | null;
@@ -25,6 +27,7 @@ interface DataGridToolbarProps {
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   searchQuery,
   onSearchChange,
+  hideSearch = false,
   totalCount,
   onOpenScreener,
   screenerFilters,
@@ -81,6 +84,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
     <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-term-line bg-term-panel px-3 py-2 lg:px-2.5 lg:py-1.5">
       <div className="flex flex-col gap-2 lg:gap-1.5">
         <div className="flex items-center gap-2">
+          {hideSearch ? <div className="min-w-0 flex-1" /> : (
           <div className="relative min-w-0 flex-1">
             <label htmlFor="company-search" className="sr-only">会社名、ティッカー、事業の特徴で検索</label>
             <Search aria-hidden="true" className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
@@ -107,6 +111,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               </button>
             )}
           </div>
+          )}
 
           <div className="flex shrink-0 items-center gap-2">
             <button
@@ -134,14 +139,14 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
-          <label className="inline-flex min-h-9 min-w-0 flex-1 items-center gap-2 rounded-sm border border-term-line px-2.5 text-xs text-term-label sm:flex-none lg:min-h-7">
+          <label className="inline-flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-sm border border-term-line px-2.5 text-xs text-term-label sm:flex-none lg:min-h-7">
             <Layers aria-hidden="true" className="h-3.5 w-3.5" />
             <span className="hidden shrink-0 whitespace-nowrap sm:inline">登録回</span>
             <select
               aria-label="登録回で絞り込み"
               value={selectedBatch}
               onChange={(event) => onSelectBatch?.(event.target.value)}
-              className="min-w-0 w-full max-w-40 bg-transparent text-xs text-term-fg outline-none sm:max-w-48"
+              className="min-h-11 min-w-0 w-full max-w-40 bg-transparent text-xs text-term-fg outline-none sm:max-w-48 lg:min-h-6"
             >
               <option value="ALL" className="bg-term-panel text-term-fg">すべて ({catalogTotal === null ? '確認中' : totalAllBatches.toLocaleString()})</option>
               {batchOptions.map((batch) => (

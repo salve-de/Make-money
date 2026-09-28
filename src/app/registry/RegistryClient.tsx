@@ -101,8 +101,8 @@ export default function RegistryClient() {
         <span className="term-num">
           {loading ? '読み込み中' : errorMessage ? '取得失敗' : `${shown.length.toLocaleString()}件表示 / ${query.trim() ? '検索結果' : '全'}${filtered.length.toLocaleString()}件`}
         </span>
-        <span className="ml-auto text-term-label">閲覧のみ</span>
-        <Link href="/" className="inline-flex min-h-6 items-center text-term-sub hover:text-term-fg-strong">事例一覧へ戻る</Link>
+        <span className="ml-auto hidden text-term-label sm:inline">閲覧のみ</span>
+        <Link href="/" className="ml-auto inline-flex min-h-6 items-center text-term-sub hover:text-term-fg-strong sm:ml-0">事例一覧へ</Link>
       </div>
 
       <section className="border-b border-term-line p-3">

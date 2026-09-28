@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
-import { CONFIRM_TONE_CLASS, confirmStatus, monthlyRevenueParts, teamSizeText } from './ledgerRow';
+import { CONFIRM_TONE_CLASS, confirmStatus, monthlyRevenueParts, teamSizeText, listDescription } from './ledgerRow';
 import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { entityDescription } from '@/platform/utils/entityDescription';
@@ -148,7 +148,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               const revenue = monthlyRevenueParts(entity, currency);
               const team = teamSizeText(entity);
               const status = confirmStatus(entity);
-              const description = entityDescription(entity);
+              const description = listDescription(entityDescription(entity));
               return (
                 <tr
                   key={entity.id}
@@ -214,13 +214,13 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             <button
               type="button"
               onClick={() => setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, entities.length))}
-              className="h-8 rounded-sm border border-term-line px-3 text-term-fg hover:bg-term-head"
+              className="h-11 rounded-sm border border-term-line px-3 text-term-fg hover:bg-term-head lg:h-8"
             >
               次の{Math.min(PAGE_SIZE, entities.length - visibleCount).toLocaleString('ja-JP')}件を表示
               <span className="ml-1 text-term-label">（{visibleCount.toLocaleString('ja-JP')} / {entities.length.toLocaleString('ja-JP')}件）</span>
             </button>
           ) : hasMore && onLoadMore ? (
-            <button type="button" onClick={onLoadMore} className="h-8 rounded-sm border border-term-line px-3 text-term-fg hover:bg-term-head">
+            <button type="button" onClick={onLoadMore} className="h-11 rounded-sm border border-term-line px-3 text-term-fg hover:bg-term-head lg:h-8">
               次のデータを読み込む
               <span className="ml-1 text-term-label">（現在 {entities.length.toLocaleString('ja-JP')}件）</span>
             </button>

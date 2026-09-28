@@ -99,7 +99,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
           type="button"
           onClick={() => onChangeFilters(null)}
           disabled={!filters}
-          className="ml-auto text-xs text-term-muted hover:text-term-fg-strong disabled:text-term-dim"
+          className="ml-auto h-6 px-1 text-xs text-term-muted hover:text-term-fg-strong disabled:text-term-dim"
         >
           解除
         </button>

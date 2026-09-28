@@ -5,7 +5,7 @@ import type { FinancialEntity } from '../../types/terminal';
 import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { entityDescription } from '@/platform/utils/entityDescription';
-import { CONFIRM_TONE_CLASS, confirmStatus, monthlyRevenueParts, teamSizeText } from './ledgerRow';
+import { CONFIRM_TONE_CLASS, confirmStatus, monthlyRevenueParts, teamSizeText, listDescription } from './ledgerRow';
 
 interface MobileFeedCardProps {
   entity: FinancialEntity;
@@ -30,7 +30,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   const revenue = monthlyRevenueParts(entity, currency);
   const team = teamSizeText(entity);
   const status = confirmStatus(entity);
-  const description = entityDescription(entity);
+  const description = listDescription(entityDescription(entity));
 
   return (
     <article data-entity-id={entity.id} className={`relative border-b border-term-line-soft ${isSelected ? 'bg-term-select' : zebra ? 'bg-term-row-alt' : ''}`}>

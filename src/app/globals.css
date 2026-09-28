@@ -136,6 +136,13 @@ body {
   line-height: 1.5rem;
   color: var(--term-muted);
 }
+.term-panel-title {
+  overflow: hidden;
+}
+.term-panel-title > * {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 .term-panel-title > .term-panel-name {
   color: var(--term-accent);
   font-weight: 600;

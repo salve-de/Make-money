@@ -238,6 +238,7 @@ export const TerminalShell: React.FC<{
         }
         onOpenPro={() => setIsProModalOpen(true)}
         onSelectLocalMode={selectWorkspaceMode}
+        {...(workspaceMode === 'LEDGER' ? { searchValue: searchQuery, onSearchChange: setSearchQuery } : {})}
         bookmarkCount={bookmarkedIds.size}
         bookmarkSyncStatus={bookmarkSyncStatus}
         onSelectBookmark={() => {
@@ -297,6 +298,7 @@ export const TerminalShell: React.FC<{
             <DataGridToolbar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
+              hideSearch
               totalCount={filteredEntities.length}
               onOpenScreener={() => setIsScreenerOpen(true)}
               screenerFilters={screenerFilters}

@@ -81,7 +81,8 @@ function evidenceTone(label: string): string {
 function valueTone(item: DiscoveryCase): string {
   const label = item.resultEvidenceLabel;
   if (label.includes("未設定") || label.includes("未確認") || item.resultAmountJpy === null) return "text-term-dim";
-  if (label.includes("推定") || label.includes("推計")) return "text-term-accent";
+  // 一覧では推定の数値そのものは色を付けず、横の「推定」表示だけを橙にする（強調色を増やさない）
+  if (label.includes("推定") || label.includes("推計")) return "text-term-fg";
   return item.isFailure ? "text-term-danger" : "text-term-fg-strong";
 }
 

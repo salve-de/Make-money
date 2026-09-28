@@ -28,6 +28,9 @@ interface GlobalHeaderProps {
   /** 互換用。下部メニューは常に全ページ共通のため何も変わらない */
   hideMobilePrimaryNav?: boolean;
   onSelectLocalMode?: (mode: LocalWorkspaceMode) => void;
+  /** 渡すと検索欄が一覧をその場で絞り込む（台帳画面用）。渡さなければ送信で /?q= へ移動する。 */
+  searchValue?: string;
+  onSearchChange?: (query: string) => void;
 }
 
 const SYNC_LABEL: Record<BookmarkSyncStatus, string> = {
@@ -35,7 +38,8 @@ const SYNC_LABEL: Record<BookmarkSyncStatus, string> = {
   saving: '保存中',
   loading: '確認中',
   synced: '同期済',
-  local: 'ローカル',
+  // この端末だけに保存している通常状態は表示しない
+  local: '',
 };
 
 function isTypingTarget(target: EventTarget | null): boolean {
@@ -86,6 +90,8 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   isBookmarkActive,
   bookmarkSyncStatus,
   onSelectLocalMode,
+  searchValue,
+  onSearchChange,
 }) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -139,6 +145,10 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
 
   const submitSearch = (event: React.FormEvent) => {
     event.preventDefault();
+    if (onSearchChange) {
+      searchRef.current?.blur();
+      return;
+    }
     const text = searchText.trim();
     router.push(text ? `/?q=${encodeURIComponent(text)}` : '/');
     searchRef.current?.blur();
@@ -183,7 +193,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       <header className="sticky top-0 z-40 flex w-full shrink-0 flex-wrap items-stretch border-b border-term-line bg-term-panel lg:h-9 lg:flex-nowrap">
         {/* ロゴ */}
         <div className="flex h-10 items-center pl-3 lg:h-full lg:border-r lg:border-term-line lg:pr-4">
-          <Link href="/" prefetch={false} className="font-mono text-[13px] font-bold text-term-accent">
+          <Link href="/" prefetch={false} className="inline-flex min-h-11 items-center font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
             MAKE MONEY
           </Link>
         </div>
@@ -212,8 +222,8 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           <input
             ref={searchRef}
             type="text"
-            value={searchText}
-            onChange={(event) => setSearchText(event.target.value)}
+            value={onSearchChange ? searchValue ?? '' : searchText}
+            onChange={(event) => (onSearchChange ? onSearchChange(event.target.value) : setSearchText(event.target.value))}
             aria-label="事例を検索"
             placeholder="会社名・事業を検索"
             className="h-full min-w-0 flex-1 bg-transparent text-sm text-term-fg outline-none placeholder:text-term-dim lg:text-[13px]"
@@ -273,7 +283,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         {/* PC: 右端 */}
         <div className="ml-auto hidden h-full items-stretch lg:flex">
           {rightContent !== undefined && <div className="flex items-center px-2">{rightContent}</div>}
-          {bookmarkSyncStatus && (
+          {bookmarkSyncStatus && SYNC_LABEL[bookmarkSyncStatus] && (
             <span
               aria-live="polite"
               className={`flex items-center px-2 text-xs ${
