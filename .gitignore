@@ -74,3 +74,5 @@ __pycache__/
 /data/incoming/reaudit-*.json
 /reports/reaudit-*
 /reports/paused-handoff-*
+# Media asset staging (fetched images and provenance manifests; local only, see docs/MEDIA_ASSETS_AND_PROVENANCE.md)
+/data/media-staging/
