@@ -195,8 +195,8 @@ describe('POST /api/verification/stripe: access and input', () => {
 
 describe('POST /api/verification/stripe: the key', () => {
   it.each([
-    ['a secret key', 'sk_live_51AbCdEfGhIjKlMnOpQrStUvWxYz0123456789'],
-    ['a test secret key', 'sk_test_51AbCdEfGhIjKlMnOpQrStUvWxYz0123456789'],
+    ['a secret key', 'sk_live_' + '51AbCdEfGhIjKlMnOpQrStUvWxYz0123456789'],
+    ['a test secret key', 'sk_test_' + '51AbCdEfGhIjKlMnOpQrStUvWxYz0123456789'],
     ['a publishable key', 'pk_live_51AbCdEfGhIjKlMnOpQrStUvWxYz0123456789'],
     ['something else', 'hello'],
     ['a key with a restricted-looking word inside', 'my_rk_test_51AbCdEfGhIjKlMnOpQrStUvWxYz0123456789'],
