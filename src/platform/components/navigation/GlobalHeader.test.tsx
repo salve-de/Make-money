@@ -2,6 +2,8 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import { GlobalHeader } from './GlobalHeader';
+import { TAB_SECTION_IDS } from './MobileMenu';
+import { MOBILE_MENU_GROUPS } from './navigationItems';
 
 vi.mock('next/navigation', () => ({ usePathname: () => '/', useRouter: () => ({ push: () => {} }) }));
 vi.mock('next/link', () => ({ default: ({ children, prefetch: _prefetch, ...props }: React.PropsWithChildren<React.AnchorHTMLAttributes<HTMLAnchorElement> & { prefetch?: boolean }>) => { void _prefetch; return <a {...props}>{children}</a>; } }));
@@ -31,5 +33,15 @@ describe('GlobalHeader terminal navigation', () => {
     for (const label of ['事例', '発見', '市場', '保存']) expect(bottom).toContain(label);
     expect(bottom).not.toContain('その他');
     expect(html).toContain('aria-label="メニューを開く"');
+  });
+
+  it('groups the drawer by task and never repeats a screen that is already a bottom tab', () => {
+    const html = renderToStaticMarkup(<GlobalHeader />);
+    expect(html).not.toContain('MAKE MONEY</h2>');
+    const items = MOBILE_MENU_GROUPS.flatMap((group) => group.items);
+    expect(MOBILE_MENU_GROUPS.map((group) => group.label)).toEqual(['調べる', '自分の記録', '売り買い']);
+    expect(items.map((item) => item.href)).toContain('/marketplace/businesses');
+    for (const item of items) expect(TAB_SECTION_IDS).not.toContain(item.id);
+    expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
   });
 });

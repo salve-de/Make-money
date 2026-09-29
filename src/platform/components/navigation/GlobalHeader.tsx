@@ -104,6 +104,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const activeSection: GlobalNavSection = currentSection || (() => {
     if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
+    if (pathname?.startsWith('/marketplace/businesses')) return 'BUSINESSES';
     if (pathname?.startsWith('/marketplace')) return 'MARKETPLACE';
     if (pathname?.startsWith('/compare')) return 'COMPARE';
     if (pathname?.startsWith('/alerts')) return 'ALERTS';

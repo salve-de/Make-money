@@ -17,7 +17,7 @@ export function BusinessSalePage({ name, aside, srHeading, children }: {
 }) {
   return (
     <div className="flex term-page flex-col bg-term-bg text-term-fg">
-      <GlobalHeader currentSection="MARKETPLACE" />
+      <GlobalHeader currentSection="BUSINESSES" />
       <main className="w-full flex-1">
         <div className="term-panel-title">
           <span className="term-panel-name">{name}</span>
