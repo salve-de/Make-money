@@ -104,6 +104,7 @@ export const TerminalShell: React.FC<{
     filteredEntities,
     handleApproveEntity,
     handleApproveAllCollected,
+    catalogFilters,
   } = useEntityFilter({
     entities,
     searchQuery,
@@ -305,6 +306,7 @@ export const TerminalShell: React.FC<{
               onSelectBatch={setSelectedBatch} showBatchFilter={canApproveEntities}
               batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
               catalogTotal={catalogTotal}
+              savedSearchDraft={{ query: searchQuery, filters: catalogFilters }}
             />
             <NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} onOpenEntity={openEntity} />
             <FoundationSearchContinuation available={foundationSearchContinuationAvailable} failed={foundationSearchContinuationFailed} loading={foundationLoading} retryMessage={foundationSearchRetryMessage} onContinue={continueFoundationSearch} />

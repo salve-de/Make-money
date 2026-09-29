@@ -9,6 +9,7 @@ export type GlobalNavSection =
   | 'EXECUTION'
   | 'MARKETPLACE'
   | 'COMPARE'
+  | 'ALERTS'
   | 'WELCOME';
 
 export type LocalWorkspaceMode = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS';
@@ -32,6 +33,7 @@ export const PRIMARY_NAV_ITEMS: NavItem[] = [
 /** 「その他」の中身 */
 export const SECONDARY_NAV_ITEMS: NavItem[] = [
   { id: 'COMPARE', label: '事例の比較', href: '/compare' },
+  { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
   { id: 'MARKETPLACE', label: 'サービス一覧', href: '/marketplace' },
   { id: 'EXECUTION', label: '実行計画', href: '/execute' },
 ];

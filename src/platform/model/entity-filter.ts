@@ -25,11 +25,56 @@ export function parseGridFilter(value: string | null | undefined): GridFilterOpt
   return GRID_FILTERS.find((filter) => filter === value) ?? 'ALL';
 }
 
+type ScreenerQuery = NonNullable<CatalogFilters['screener']>;
+
+/** `?tags=a,b` を最大50件・各200文字までの重複なしの配列にする。 */
+function parseTagsParam(value: string | null | undefined): string[] {
+  if (!value) return [];
+  const tags: string[] = [];
+  for (const part of value.split(',')) {
+    const tag = part.trim();
+    if (tag && tag.length <= 200 && !tags.includes(tag)) tags.push(tag);
+    if (tags.length >= 50) break;
+  }
+  return tags;
+}
+
+/** `?screener={...}` を検証して読む。形が違えば条件なし（null）として扱う。 */
+function parseScreenerParam(value: string | null | undefined): ScreenerQuery | null {
+  if (!value || value.length > 5000) return null;
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (!parsed || typeof parsed !== 'object') return null;
+    const s = parsed as Record<string, unknown>;
+    const strings = (items: unknown): items is string[] => Array.isArray(items) && items.length <= 50 && items.every((item) => typeof item === 'string' && item.length <= 200);
+    if (!strings(s.scales) || !strings(s.moats) || typeof s.minMargin !== 'number' || !Number.isFinite(s.minMargin)) return null;
+    if (s.maxCapital !== null && (typeof s.maxCapital !== 'number' || !Number.isFinite(s.maxCapital))) return null;
+    if (s.selectedTags !== undefined && !strings(s.selectedTags)) return null;
+    return { scales: s.scales, minMargin: s.minMargin, maxCapital: s.maxCapital as number | null, moats: s.moats, ...(s.selectedTags ? { selectedTags: s.selectedTags } : {}) };
+  } catch {
+    return null;
+  }
+}
+
 export function readEntityFilterQuery(params: Pick<URLSearchParams, 'get'> | null) {
   return {
     filter: parseGridFilter(params?.get('filter')),
     batch: params?.get('batch') || 'ALL',
+    tags: parseTagsParam(params?.get('tags')),
+    screener: parseScreenerParam(params?.get('screener')),
   };
+}
+
+/** 検索語と絞り込みを、一覧で同じ条件を開くURLにする（既定値は省く）。保存した条件を開くときに使う。 */
+export function catalogQueryHref(query: string, filters: Pick<CatalogFilters, 'filter' | 'batch' | 'tags' | 'screener'>): string {
+  const params = new URLSearchParams();
+  if (query.trim()) params.set('q', query.trim());
+  if (filters.filter !== 'ALL' && filters.filter !== 'BOOKMARKED') params.set('filter', filters.filter);
+  if (filters.batch !== 'ALL') params.set('batch', filters.batch);
+  if (filters.tags.length > 0) params.set('tags', filters.tags.join(','));
+  if (filters.screener) params.set('screener', JSON.stringify(filters.screener));
+  const text = params.toString();
+  return text ? `/?${text}` : '/';
 }
 
 export function matchesGridFilter(

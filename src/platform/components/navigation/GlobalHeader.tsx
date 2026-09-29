@@ -105,6 +105,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
     if (pathname?.startsWith('/marketplace')) return 'MARKETPLACE';
     if (pathname?.startsWith('/compare')) return 'COMPARE';
+    if (pathname?.startsWith('/alerts')) return 'ALERTS';
     if (pathname?.startsWith('/build')) return 'BUILDER';
     if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
     if (pathname?.startsWith('/radar')) return 'RADAR';

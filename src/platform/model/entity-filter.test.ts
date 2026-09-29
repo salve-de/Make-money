@@ -37,11 +37,11 @@ describe('PR20 filter behavior contract', () => {
     expect(matchesGridFilter(candidate, 'BOOKMARKED', new Set([candidate.id]))).toBe(true);
   });
   it('restores filters and batch from shareable URLs', () => {
-    expect(readEntityFilterQuery(new URLSearchParams('filter=SOLO&batch=batch_02'))).toEqual({ filter: 'SOLO', batch: 'batch_02' });
-    expect(readEntityFilterQuery(new URLSearchParams('filter=HIGH_MARGIN&batch=batch_01'))).toEqual({ filter: 'HIGH_MARGIN', batch: 'batch_01' });
+    expect(readEntityFilterQuery(new URLSearchParams('filter=SOLO&batch=batch_02'))).toEqual({ filter: 'SOLO', batch: 'batch_02', tags: [], screener: null });
+    expect(readEntityFilterQuery(new URLSearchParams('filter=HIGH_MARGIN&batch=batch_01'))).toEqual({ filter: 'HIGH_MARGIN', batch: 'batch_01', tags: [], screener: null });
   });
   it.each(['', 'filter=invalid', 'filter=__proto__', 'filter=constructor&batch='])('resets absent/invalid URL values: %s', (query) => {
-    expect(readEntityFilterQuery(new URLSearchParams(query))).toEqual({ filter: 'ALL', batch: 'ALL' });
+    expect(readEntityFilterQuery(new URLSearchParams(query))).toEqual({ filter: 'ALL', batch: 'ALL', tags: [], screener: null });
   });
   it('approves only collected entities from the rows already visible to the user', () => {
     const visible = [
