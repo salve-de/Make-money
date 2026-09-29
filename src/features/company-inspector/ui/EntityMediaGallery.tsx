@@ -2,7 +2,15 @@
 
 import React, { useState } from 'react';
 import { useEntityMedia } from '@/platform/hooks/useEntityMedia';
-import { mediaKindLabel, pickGalleryAssets, type PublicMediaAsset } from '@/shared/media-display';
+import {
+  MEDIA_ICON_MAX_PX,
+  MEDIA_THUMBNAIL_MAX_PX,
+  isMediaIconKind,
+  mediaKindLabel,
+  mediaOriginLabel,
+  pickGalleryAssets,
+  type PublicMediaAsset,
+} from '@/shared/media-display';
 import { InspectorSectionCard } from './InspectorSectionCard';
 
 /**
@@ -45,12 +53,29 @@ export function EntityMediaGalleryView({
                 decoding="async"
                 referrerPolicy="no-referrer"
                 onError={() => setFailed((current) => new Set(current).add(asset.assetId))}
-                style={asset.width && asset.height ? { aspectRatio: `${asset.width} / ${asset.height}` } : undefined}
-                className="block h-auto w-full rounded border border-white/[0.14] bg-white object-cover"
+                // Size caps (art. 47-5 minor use): icons 128px, previews and store images 480px on the long side.
+                style={{
+                  ...(asset.width && asset.height ? { aspectRatio: `${asset.width} / ${asset.height}` } : {}),
+                  maxWidth: isMediaIconKind(asset.kind) ? MEDIA_ICON_MAX_PX : MEDIA_THUMBNAIL_MAX_PX,
+                  maxHeight: isMediaIconKind(asset.kind) ? MEDIA_ICON_MAX_PX : MEDIA_THUMBNAIL_MAX_PX,
+                }}
+                className="block h-auto w-full rounded border border-white/[0.14] bg-white object-contain"
               />
               <figcaption className="mt-1.5 space-y-0.5 text-[11px] leading-snug text-zinc-400">
-                <span className="block font-medium text-zinc-200">{mediaKindLabel(asset.kind)}</span>
+                <span className="block font-medium text-zinc-200">
+                  {mediaKindLabel(asset.kind)}
+                  <span data-testid="media-gallery-origin" className="ml-1.5 font-normal text-zinc-400">［{mediaOriginLabel(asset.kind)}］</span>
+                </span>
                 <span data-testid="media-gallery-attribution" className="block break-words">{asset.attribution}</span>
+                <a
+                  data-testid="media-gallery-source-link"
+                  href={asset.sourcePageUrl}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="block break-all text-zinc-300 underline underline-offset-2"
+                >
+                  出典ページを開く
+                </a>
               </figcaption>
             </figure>
           </li>

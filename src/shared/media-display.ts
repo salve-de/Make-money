@@ -50,15 +50,32 @@ export function isMediaEntityId(value: unknown): value is string {
 }
 
 /** Kinds the UI may show as the small logo in a list row, best first. */
-export const MEDIA_LOGO_KINDS: readonly MediaAssetKind[] = ['logo', 'favicon', 'og_image'];
-/** Kinds shown in the inspector gallery, in display order. */
-export const MEDIA_GALLERY_KINDS: readonly MediaAssetKind[] = ['screenshot_home', 'screenshot_pricing', 'og_image'];
+export const MEDIA_LOGO_KINDS: readonly MediaAssetKind[] = ['logo', 'app_icon', 'favicon', 'og_image'];
+/** Kinds shown in the inspector gallery, in display order (newest one of each; store screenshots up to MEDIA_STORE_SCREENSHOT_LIMIT). */
+export const MEDIA_GALLERY_KINDS: readonly MediaAssetKind[] = ['screenshot_home', 'screenshot_pricing', 'og_image', 'app_icon'];
+
+/**
+ * Display size caps (Copyright Act art. 47-5, "minor use": small, for identification and explanation only).
+ * Enforced by CSS in the gallery and the list logo, never by re-encoding the stored original.
+ * Icons: 128px on the long side. Preview images and store images: 480px on the long side.
+ */
+export const MEDIA_ICON_MAX_PX = 128;
+export const MEDIA_THUMBNAIL_MAX_PX = 480;
+/** At most this many store screenshots are shown per entity. */
+export const MEDIA_STORE_SCREENSHOT_LIMIT = 3;
+
+/** Kinds whose display box is the small icon box. */
+export function isMediaIconKind(kind: MediaAssetKind): boolean {
+  return kind === 'app_icon' || kind === 'favicon' || kind === 'logo';
+}
 
 /** Same list as MEDIA_ASSET_KINDS in media-asset-schema.ts (a test keeps them equal). */
 const KNOWN_KINDS: ReadonlySet<string> = new Set<MediaAssetKind>([
   'logo',
   'favicon',
   'og_image',
+  'app_icon',
+  'store_screenshot',
   'screenshot_home',
   'screenshot_pricing',
   'screenshot_product',
@@ -73,12 +90,19 @@ const KIND_LABELS: Partial<Record<MediaAssetKind, string>> = {
   logo: 'ロゴ',
   favicon: 'ロゴ',
   og_image: '公式サイトの紹介画像',
+  app_icon: 'App Store 掲載のアイコン',
+  store_screenshot: 'App Store 掲載のスクリーンショット',
   screenshot_home: '公式サイトのトップページ',
   screenshot_pricing: '公式サイトの料金ページ',
 };
 
 export function mediaKindLabel(kind: MediaAssetKind): string {
   return KIND_LABELS[kind] ?? '公式画像';
+}
+
+/** Where the image comes from, shown next to it: 公式サイト or App Store 掲載画像. */
+export function mediaOriginLabel(kind: MediaAssetKind): string {
+  return kind === 'app_icon' || kind === 'store_screenshot' ? 'App Store 掲載画像' : '公式サイト';
 }
 
 /** The newest asset of each requested kind, in the order of `kinds`. */
@@ -99,9 +123,14 @@ export function pickEntityLogo(assets: readonly PublicMediaAsset[] | undefined):
   return assets ? (newestPerKind(assets, MEDIA_LOGO_KINDS)[0] ?? null) : null;
 }
 
-/** The images for the inspector gallery: newest home screenshot, pricing screenshot, og:image. */
+/** The images for the inspector gallery: newest home / pricing screenshot, og:image, app icon, then up to three store screenshots. */
 export function pickGalleryAssets(assets: readonly PublicMediaAsset[] | undefined): PublicMediaAsset[] {
-  return assets ? newestPerKind(assets, MEDIA_GALLERY_KINDS) : [];
+  if (!assets) return [];
+  const store = assets
+    .filter((asset) => asset.kind === 'store_screenshot')
+    .sort((a, b) => Date.parse(b.retrievedAt) - Date.parse(a.retrievedAt) || a.assetId.localeCompare(b.assetId))
+    .slice(0, MEDIA_STORE_SCREENSHOT_LIMIT);
+  return [...newestPerKind(assets, MEDIA_GALLERY_KINDS), ...store];
 }
 
 /** `?entity_id=a&entity_id=b` for a batch of valid ids (invalid ids are dropped, duplicates removed). */

@@ -1,12 +1,13 @@
 # 画像素材の取得と出所台帳（Media Assets & Provenance）
 
 更新日: 2026-09-29
-状態: v2。実装済みは「ローカルへの取得」「台帳スキーマ」「判定ログ（`decisions.jsonl`）とレビューCLI」「R2アップロードCLI」「画面表示（一覧のロゴ、インスペクターの画像ギャラリー）」。R2アップロードは `--dry-run` とテスト用の疑似ストアまで検証済みで、**R2への実書込み、公開ドメインの設定、本番の画面での表示確認はまだ行っていない**（オーナーが実行する。第5章・第11章）。
+状態: v3（2026-09-29 #2）。v3 の追加は「画像は必須で、取れるものは取る」「App Store 掲載画像（`app_icon` / `store_screenshot`）の取得」「規則による自動判定 `auto-rule-v3`」「表示サイズの上限」（第2章・第6.2節・第7.2節・第9章・第11章）。v2 までの実装済みは「ローカルへの取得」「台帳スキーマ」「判定ログ（`decisions.jsonl`）とレビューCLI」「R2アップロードCLI」「画面表示（一覧のロゴ、インスペクターの画像ギャラリー）」。R2アップロードは `--dry-run` とテスト用の疑似ストアまで検証済みで、**R2への実書込み、公開ドメインの設定、本番の画面での表示確認はまだ行っていない**（オーナーが実行する。第5章・第11章）。
 
 ## 0. 先に読む3行
 
+0. **画像は必須。取れるものは取る**（オーナー決定 2026-09-29 #2: アイコン、プレビュー画像（og:image）、ストア画像は取る）。ただし取る先は公式サイトと App Store の掲載画像だけで、下の1〜3は変わらない。
 1. 画像は1枚ずつ「どこから取ったか（出所）」と「何を根拠に見せてよいか（権利根拠）」を台帳に残す。台帳に無い画像、有効な判定が `allowed` でない画像は表示しない。
-2. 自動取得した画像は必ず `decision=held`（保留）で始まり、`manifest.json` は取得時点の記録として書き換えない。表示してよいのは、人が目視して `review-assets` で判定ログ `decisions.jsonl` に追記し、**有効な判定が `allowed` かつ `subjectIsPerson=false`** になった画像だけ。スキーマと判定ログの検査がそれ以外を拒否する。
+2. 自動取得した画像は必ず `decision=held`（保留）で始まり、`manifest.json` は取得時点の記録として書き換えない。表示してよいのは、人が目視して `review-assets` で、または規則による自動判定 `auto-review`（reviewer `auto-rule-v3`、第7.2節）で判定ログ `decisions.jsonl` に追記し、**有効な判定が `allowed` かつ `subjectIsPerson=false`** になった画像だけ。スキーマと判定ログの検査がそれ以外を拒否する。
 3. ランダムなWeb画像、人物写真、他人のチャート、SNS投稿の画像は取らない。迷ったら取らずに文字で表示する。
 
 ## 1. 目的
@@ -33,10 +34,21 @@
 |---|---|---|---|
 | 1 | 自前生成: 確定済みの事実から描画したチャート、AI生成イラスト | `owned` | `generated_chart` / `generated_illustration` |
 | 2 | 公式プレスキット・ブランド素材ページ（メディア利用条件を明記しているもの） | `provider_press_terms` | `press_kit`（`logo` / `product_image` も可） |
-| 3 | 公式サイト・アプリストアの製品スクリーンショット、製品画像を当方が取得。製品の識別・説明に使い、公式ページを出典として明記し、削除依頼に応じる | `official_marketing_material` | `screenshot_home` / `screenshot_pricing` / `screenshot_product` / `product_image` / `og_image` / `favicon` |
+| 3 | 公式サイト・アプリストアの製品スクリーンショット、製品画像を当方が取得。製品の識別・説明に使い、公式ページを出典として明記し、削除依頼に応じる | `official_marketing_material` | `screenshot_home` / `screenshot_pricing` / `screenshot_product` / `product_image` / `og_image` / `favicon` / `app_icon` / `store_screenshot` |
 | 4 | CC0 / CC BY / パブリックドメイン。ライセンス名と版、帰属表示を記録 | `open_licence` | `open_licence_image` |
 
-取得CLIが自動で取るのは優先3のうち `favicon` / `og_image` / `screenshot_home` / `screenshot_pricing` の4種だけ。優先1・2・4と `screenshot_product` / `product_image` / `logo` は、今は人が取得して台帳に書く（CLI未対応）。
+取得CLIが自動で取るのは優先3のうち、公式サイトの `favicon` / `og_image` / `screenshot_home` / `screenshot_pricing`（`fetch-official-assets`）と、App Store の `app_icon` / `store_screenshot`（`fetch-app-store-assets`、第6.2節）だけ。優先1・2・4と `screenshot_product` / `product_image` / `logo` は、今は人が取得して台帳に書く（CLI未対応）。
+
+### 2.1 取得元の範囲（v3）
+
+| 取得元 | 扱い |
+|---|---|
+| 公式サイト（登録可能ドメインが公式と同じもの） | 取る。robots・bot対策は第3章のとおり順守 |
+| App Store | 取る。Apple の公開 iTunes Lookup / Search API（`https://itunes.apple.com/lookup`, `/search`）を使う。アフィリエイト向けにアートワーク表示を想定した公式 API。HTML のスクレイピングはしない |
+| Google Play | **対象外**。公式 API が無く、HTML の取得は規約上グレー |
+| SNS、第三者サイト、ニュース記事、公式ドメイン外のCDN（例 `storage.ghost.io`） | 取らない（`skipped_off_domain`）。Apple の画像CDN（`*.mzstatic.com`）だけは、API の応答が示した URL に限って取る |
+
+ストア画像の権利区分は `official_marketing_material`（開発者自身がストアに掲載した販促素材）。用途は識別・説明の目的に限り、小さく表示し、出典リンクを付け、削除依頼に応じる。この区分は提供元ごとの許諾ではなくオーナーの決定であり、登録簿とは食い違う（第9章）。
 
 ## 3. 禁止事項
 
@@ -68,11 +80,11 @@
 |---|---|---|---|
 | `assetId` | `ma_` + 24桁hex | ファイルのSHA-256の先頭24桁。`sha256` と食い違えば不正 | 自動 |
 | `entityId` | `ent_...` | `data/entities-index.json` の id | 指定した id |
-| `kind` | 列挙 | `logo` `favicon` `og_image` `screenshot_home` `screenshot_pricing` `screenshot_product` `product_image` `press_kit` `generated_chart` `generated_illustration` `open_licence_image` | 4種 |
+| `kind` | 列挙 | `logo` `favicon` `og_image` `app_icon` `store_screenshot` `screenshot_home` `screenshot_pricing` `screenshot_product` `product_image` `press_kit` `generated_chart` `generated_illustration` `open_licence_image` | 4種 |
 | `sourcePageUrl` | URL | 見つけた、または描画したページ（リダイレクト後、`#` なし） | 自動 |
-| `assetUrl` | URL または null | ファイルの取得元。当方が描画したスクリーンショットと生成物は null | favicon/og は元URL。`data:` のfaviconは null |
+| `assetUrl` | URL または null | ファイルの取得元。当方が描画したスクリーンショットと生成物は null | favicon/og は元URL。`data:` のfaviconは null。`app_icon` / `store_screenshot` は Apple の画像CDNのURL |
 | `retrievedAt` | ISO 8601 | 取得時刻 | 自動 |
-| `capturedBy` | 文字列 | 取得ジョブID | `media-fetch-YYYYMMDD`（UTCの日付） |
+| `capturedBy` | 文字列 | 取得ジョブID | `media-fetch-YYYYMMDD`（UTCの日付）。App Store は `media-appstore-YYYYMMDD` |
 | `sha256` / `bytes` | hex64 / 整数 | 保存したバイト列のハッシュとサイズ | 自動 |
 | `contentType` | `image/*` | **バイト列から判定した種類**（HTTPヘッダは信用しない） | PNG/JPEG/GIF/WebP/AVIF/ICO/SVG |
 | `width` / `height` | 整数 または null | 画像サイズ。どちらかだけ null は不可 | 読めたとき |
@@ -97,7 +109,7 @@
 - `storage.publicKey` は `allowed` のときだけ設定でき、`media/<entityId>/` の下にある
 - `generated_*` は `basis=owned` かつ `assetUrl=null`。`owned` は `generated_*` だけが使える
 - `press_kit` は `provider_press_terms`（決定前は `unknown`）、`open_licence_image` は `open_licence`（同）
-- `screenshot_home` / `screenshot_pricing` は `assetUrl=null`。`og_image` / `press_kit` / `open_licence_image` は `assetUrl` 必須
+- `screenshot_home` / `screenshot_pricing` は `assetUrl=null`。`og_image` / `app_icon` / `store_screenshot` / `press_kit` / `open_licence_image` は `assetUrl` 必須
 - 未知のキーは不可（`rights.decison` のような綴り誤りを通さない）。`manifest.json` の中で `assetId` は重複不可、`entityId` は1種類のみ
 
 ### 4.3 判定ログ `decisions.jsonl`
@@ -184,6 +196,9 @@ node --import tsx scripts/media/fetch-official-assets.ts --ids ent_photoai,ent_k
 | `--out` | 出力先（既定 `data/media-staging`） |
 | `--index` | 読み込むindex（既定 `data/entities-index.json`。テスト用） |
 | `--validate` | 取得せず、手で編集した `manifest.json` をスキーマと実ファイル（サイズ・SHA-256）に照らして検査する。`--ids` を省くと全件。問題があれば終了コード1 |
+| `--kinds` | 実行する項目。`favicon,og_image,screenshot_home,screenshot_pricing` から選ぶ（既定は4つ全部）。一括取得は `--kinds favicon,og_image` でスクリーンショットを省く（v3） |
+| `--skip-processed` | `<out>/progress.jsonl`（エンティティが終わるごとに1行追記）にあるidを飛ばす。途中で止めても再開できる（v3） |
+| `--concurrency N` | 同時に処理するエンティティ数（既定1、最大8）。同じ登録可能ドメインのエンティティは同時に処理しない（v3） |
 
 取得するもの（1エンティティ、公式サイトのみ）:
 
@@ -218,6 +233,23 @@ node --import tsx scripts/media/fetch-official-assets.ts --ids ent_photoai,ent_k
 
 項目（`favicon` `og_image` `screenshot_home` `screenshot_pricing`）のステータス: `captured` `already_in_manifest` `skipped_duplicate`（同じバイト列を別kindで取得済み）`not_found` `skipped_robots` `skipped_off_domain` `not_attempted` `failed`。
 
+### 6.2 App Store の画像取得（v3）
+
+```sh
+node --import tsx scripts/media/fetch-app-store-assets.ts [--limit N] [--ids ent_a,ent_b] [--interval-ms 1100] [--out data/media-staging]
+```
+
+対象は `data/catalog-release.json` の公開記録。次のどちらかを満たすものだけ処理する。
+
+1. 記録の `reaudit.sources[].url` か `officialUrl` に `apps.apple.com` のアプリURL（`…/id123456789`）がある。国コードはURLの `/jp/` などから取り、無ければ `us`。`lookup?id=` で引く。
+2. 1が無く `officialUrl` がある。社名（括弧書きを除く）で `search?entity=software` を引き、**`sellerUrl` の登録可能ドメインが `officialUrl` のドメインと一致した最初の結果だけ**を採る。一致しなければ skip し、理由を `appstore-progress.jsonl` に残す。`artistViewUrl` は Apple の開発者ページで開発者サイトではないため辿らない。
+
+取るのはアイコン1枚（`artworkUrl512`）とスクリーンショット最大3枚（`screenshotUrls`、無ければ iPad 用）。画像は API の応答が示した Apple の画像CDN（`*.mzstatic.com`, https）からだけ取り、中身が画像か・サイズ上限（6MiB）を検査する。台帳には `kind=app_icon` / `store_screenshot`、`basis=official_marketing_material`、`decision=held`、`sourcePageUrl=trackViewUrl`、`assetUrl`=画像URL、`attribution=出典: <名前> App Store 掲載画像 (<trackViewUrl>)` で追記する（既存の記録は書き換えない）。
+
+- API は既定で1.1秒に1回（最短1秒）。403/429 は30秒から倍々で待って再試行し、3回続いたら実行全体を止める（`AppStoreRateLimited`、終了コード2）。止まったエンティティは未完了のまま残る
+- 再開: 進捗は `data/media-staging/appstore-progress.jsonl`。`captured` / `nothing_new` / `skipped` は完了として飛ばし、`error`（HTTPエラー、画像が取れない）は次の実行で再試行する
+- ローカルのみ。R2へは第5章のアップロードCLIで出す（オーナーが実行）
+
 ## 7. 許可（allowed）にするまで
 
 1. 取得した画像を1枚ずつ開いて見る（`data/media-staging/<entityId>/`）。`review-assets --list` で、いまの有効な判定を一覧できる
@@ -250,6 +282,25 @@ node --import tsx scripts/media/review-assets.ts --list [--entity ent_photoai]
    - 撮り直す場合も、古い記録は残して `blocked` にする
 4. `node --import tsx scripts/media/fetch-official-assets.ts --validate --ids <id>` で `manifest.json` と実ファイルを検査する。判定ログは `review-assets` が追記のたびに検査し、`--list` の `PROBLEM` 行にも出る
 5. R2へ出すのは第5章のアップロードコマンド。画面に出るのは、公開側の一覧に載ってから（第11章）
+
+### 7.2 規則による自動判定（v3、reviewer `auto-rule-v3`）
+
+人手の代わりに規則で `decisions.jsonl` へ追記する。
+
+```sh
+node --import tsx scripts/media/auto-review.ts [--entity ent_a,ent_b] [--dry-run]
+```
+
+| 結果 | 条件 |
+|---|---|
+| `allowed`（`subjectIsPerson=false`） | ①`kind` が `favicon` / `app_icon` / `og_image` / `store_screenshot` / `logo`、②バイト列から画像として読める、③顔が検出されない、④ファイルのSHA-256が台帳と一致 — の**すべて** |
+| `blocked`（`subjectIsPerson=true`） | 顔を検出した |
+| 何も追記しない（`held` のまま） | 検査できなかった（Vision が読めない画像＝SVGや壊れたファイル、ファイル欠落・不一致）／`screenshot_home` `screenshot_pricing`（同意バナーの写り込みがあるので自動では `allowed` にしない）／その他の `kind` |
+
+- `note` に検査した内容（画像として読める、SHA-256一致、Vision の顔検出で何件か）を書く。バナーや文言の目視はしていない旨も書く
+- すでに判定行がある資産（人手の判定、以前の自動判定）は触らない。再実行しても増えない
+- 顔検出は macOS の Vision（`VNDetectFaceRectanglesRequest`）。この機械には Swift の開発ツールが入っていなかったため、同じ Vision を macOS 標準の JavaScript for Automation から呼ぶ `scripts/media/detect-faces.js`（`osascript -l JavaScript`）で実装した。Swift が使える環境なら同じ要求を Swift に置き換えてよい
+- 限界: 顔検出は写真の顔だけを見る。イラストの人物、横顔・小さな顔、文字だけのバナー、他社ロゴの羅列は検出しない。だから対象を「公式が自分で出した小さな識別・紹介素材」の kind に限り、表示サイズにも上限を置く（第11章）
 
 2026-09-29の取得で見つかった実例と、その後の判定:
 
@@ -295,6 +346,7 @@ node --import tsx scripts/media/review-assets.ts --list [--entity ent_photoai]
 
 - 固定スナップショット `data/foundation-public-rights-snapshot.json` は UF commit 7e14b5e4 から再生成済みで、方針ごとに `public_media_display` を持つ。公式サイト方針 `rights.official-company-website.v1` は `restricted`（「提供元が再利用向けに公開している素材に限り、資産ごとの条件を記録したうえで表示」）。プレス配信も `restricted`。アプリストア・GitHub・SEC と Tier 2 の全提供元は `blocked`。
 - 取得器 `scripts/media/fetch-official-assets.ts` は `src/shared/media-fetch-policy.ts` により、その entity の公式ドメイン（とサブドメイン）からしか取得しない。したがって台帳に載る資産はすべて公式サイト方針の対象で、`restricted` が要求する「資産ごとの人手確認と条件の記録」が、まさに `review-assets --allow --note` の判定行である。`blocked` の提供元（SNS のスクリーンショット、第三者の図表、有料記事）の素材は取得段階で台帳に入らない。
+- **食い違い（v3）**: 上のスナップショットでアプリストアの `public_media_display` は `blocked` だが、オーナー決定（2026-09-29 #2）により App Store の掲載画像（アイコンとストア画像）は `official_marketing_material` として取得・表示する。**登録簿とこの実装は食い違っている**。実装は台帳の判定（1枚ごとの `allowed`）で表示を決め、登録簿の値を読まない。登録簿（UF `registry/rights/policy.*.v1.json`）の更新は UF 側の作業で、オーナーに渡す（このリポジトリからは行わない）。更新されるまで、App Store 由来の画像は「登録簿では blocked、オーナー決定で例外」として扱う。
 - 以前の版（v1）が想定した「登録簿の `public_media_display` を AND する」機械的判定（表示時に `sourcePageUrl` から方針を解決し、entity の公式ドメインと突合する）は未実装。現状は取得時のドメイン制限と人手判定で同じ条件を満たしているが、公式ドメイン以外の取得経路を将来追加する場合は、この AND を `isMediaDisplayable` の手前に実装してから追加すること。
 
 ## 10. 既知の制約・未実装
@@ -338,7 +390,8 @@ node --import tsx scripts/media/review-assets.ts --list [--entity ent_photoai]
 ### 画面
 
 - **一覧の各行**（`InstitutionalDataGrid`、モバイルカードも）: 社名の前に20px角の画像を出す。優先順は `logo` → `favicon` → `og_image`（同じ種類が複数あれば最新）。画像が無い行は何も出さない。表示中の行のidをまとめて（40件ずつ）APIに聞く。出典はツールチップ
-- **インスペクター**（`EntityMediaGallery`）: 「事業の概要」の直下に「製品画像」。対象は `screenshot_home` → `screenshot_pricing` → `og_image`（各種類の最新1枚）。**各画像の下に、必ず出典（`attribution`）を出す**。遅延読み込み。画像が読めなければ、その画像と出典ごと隠す。画像が1枚も無い事例には、セクション自体を出さない
+- **インスペクター**（`EntityMediaGallery`）: 「事業の概要」の直下に「製品画像」。対象は `screenshot_home` → `screenshot_pricing` → `og_image` → `app_icon`（各種類の最新1枚）と、`store_screenshot`（新しい順に最大3枚）。**各画像の下に、必ず出典（`attribution`）、出典ページへのリンク（`sourcePageUrl`、新しいタブ・`noopener noreferrer nofollow`）、由来の表記（`［公式サイト］` または `［App Store 掲載画像］`）を出す**（v3）。遅延読み込み。画像が読めなければ、その画像と出典ごと隠す。画像が1枚も無い事例には、セクション自体を出さない
+- **表示サイズの上限（v3）**: 著作権法47条の5（軽微利用）の考え方に倣い、識別・説明に足りる小ささに限る。アイコン（`app_icon` / `favicon` / `logo`）は長辺128px以下、プレビュー（`og_image`、スクリーンショット）とストア画像は長辺480px以下のサムネイル。**守り方は表示側のCSS**（`EntityMediaGallery` が `maxWidth` / `maxHeight` を 128 / 480 に固定、`object-fit: contain`。一覧のロゴは20px）で、保存する原本とR2の公開コピーは縮小しない（公開コピーは原本と同じキー・同じバイト列という第5章の不変条件を保つため）。定数は `src/shared/media-display.ts` の `MEDIA_ICON_MAX_PX` / `MEDIA_THUMBNAIL_MAX_PX`。ストア画像は1事例3枚まで（`MEDIA_STORE_SCREENSHOT_LIMIT`）
 - `kind` を足すときは `src/shared/media-display.ts` の `MEDIA_LOGO_KINDS` / `MEDIA_GALLERY_KINDS` を直す
 
 ### 確認手順

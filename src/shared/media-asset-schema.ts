@@ -22,6 +22,8 @@ export const MEDIA_ASSET_KINDS = [
   'logo',
   'favicon',
   'og_image',
+  'app_icon',
+  'store_screenshot',
   'screenshot_home',
   'screenshot_pricing',
   'screenshot_product',
@@ -60,7 +62,7 @@ const GENERATED_KINDS: ReadonlySet<MediaAssetKind> = new Set(['generated_chart',
 /** Kinds rendered by our own browser: there is no asset URL to point at. */
 const RENDERED_KINDS: ReadonlySet<MediaAssetKind> = new Set(['screenshot_home', 'screenshot_pricing']);
 /** Kinds that are downloaded and therefore must say where from. */
-const DOWNLOADED_KINDS: ReadonlySet<MediaAssetKind> = new Set(['og_image', 'press_kit', 'open_licence_image']);
+const DOWNLOADED_KINDS: ReadonlySet<MediaAssetKind> = new Set(['og_image', 'app_icon', 'store_screenshot', 'press_kit', 'open_licence_image']);
 
 export function mediaAssetIdFromSha256(sha256: string): string {
   return `ma_${sha256.slice(0, 24)}`;

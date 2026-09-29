@@ -54,4 +54,19 @@ describe('EntityMediaGalleryView', () => {
   it('does not show the favicon in the gallery (it is the list logo)', () => {
     expect(render(pickGalleryAssets([asset('favicon', 'f')]))).toBe('');
   });
+
+  it('gives every image a source link and an origin label, and caps the display size', () => {
+    const storeAsset = { ...asset('store_screenshot', 's'), sourcePageUrl: 'https://apps.apple.com/us/app/photo-app/id111222333', attribution: '出典: Photo App App Store 掲載画像 (https://apps.apple.com/us/app/photo-app/id111222333)' };
+    const iconAsset = { ...asset('app_icon', 'i'), sourcePageUrl: 'https://apps.apple.com/us/app/photo-app/id111222333', width: 512, height: 512 };
+    const html = render(pickGalleryAssets([asset('og_image', 'a'), iconAsset, storeAsset]));
+    expect((html.match(/data-testid="media-gallery-source-link"/g) ?? []).length).toBe(3);
+    expect(html).toContain('href="https://apps.apple.com/us/app/photo-app/id111222333"');
+    expect(html).toContain('href="https://www.keyence.co.jp/"');
+    expect(html).toContain('rel="noopener noreferrer nofollow"');
+    expect(html).toContain('［公式サイト］');
+    expect(html).toContain('［App Store 掲載画像］');
+    // 128px for the icon, 480px for previews and store images
+    expect(html).toContain('max-width:128px');
+    expect(html).toContain('max-width:480px');
+  });
 });

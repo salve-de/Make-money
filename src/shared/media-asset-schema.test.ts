@@ -111,6 +111,19 @@ describe('MediaAssetManifestSchema', () => {
     expect(issuePaths(screenshot)).toEqual(['rights.basis']);
   });
 
+  it('accepts App Store icons and screenshots as official marketing material, and requires their download URL', () => {
+    for (const kind of ['app_icon', 'store_screenshot']) {
+      const record = freshCapture();
+      record.kind = kind;
+      record.sourcePageUrl = 'https://apps.apple.com/us/app/photo-app/id111222333';
+      expect(issuePaths(record)).toEqual(['assetUrl']);
+      record.assetUrl = 'https://is1-ssl.mzstatic.com/image/thumb/Purple/icon/512x512bb.jpg';
+      expect(MediaAssetManifestSchema.safeParse(record).success).toBe(true);
+      record.rights.basis = 'owned';
+      expect(issuePaths(record)).toEqual(['rights.basis']);
+    }
+  });
+
   it('requires a reason for blocked assets and the evidence that each basis needs', () => {
     const blocked = freshCapture();
     blocked.rights.decision = 'blocked';

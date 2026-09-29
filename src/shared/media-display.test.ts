@@ -10,6 +10,8 @@ import {
   parsePublicMediaResponse,
   pickEntityLogo,
   pickGalleryAssets,
+  mediaOriginLabel,
+  isMediaIconKind,
   type PublicMediaAsset,
 } from './media-display';
 
@@ -55,6 +57,13 @@ describe('pickEntityLogo', () => {
     expect(pickEntityLogo(undefined)).toBeNull();
   });
 
+  it('prefers the app icon over the favicon', () => {
+    const favicon = asset('favicon', 'b');
+    const icon = asset('app_icon', 'c');
+    expect(pickEntityLogo([favicon, icon])).toBe(icon);
+    expect(pickEntityLogo([favicon, icon, asset('logo', 'd')])?.kind).toBe('logo');
+  });
+
   it('takes the newest image when a kind was captured twice', () => {
     const older = asset('favicon', 'a', '2026-09-01T00:00:00.000Z');
     const newer = asset('favicon', 'b', '2026-09-29T00:00:00.000Z');
@@ -69,6 +78,23 @@ describe('pickGalleryAssets', () => {
     expect(pickGalleryAssets(items).map((item) => item.kind)).toEqual(['screenshot_home', 'screenshot_pricing', 'og_image']);
     expect(pickGalleryAssets([asset('favicon', '1')])).toEqual([]);
     expect(pickGalleryAssets(undefined)).toEqual([]);
+  });
+});
+
+describe('App Store images in the gallery', () => {
+  it('adds the app icon and at most three store screenshots after the site images, newest first', () => {
+    const shots = [1, 2, 3, 4, 5].map((n) => asset('store_screenshot', `s${n}`, `2026-09-2${n}T00:00:00.000Z`));
+    const picked = pickGalleryAssets([...shots, asset('app_icon', 'i'), asset('og_image', 'o')]);
+    expect(picked.map((item) => item.kind)).toEqual(['og_image', 'app_icon', 'store_screenshot', 'store_screenshot', 'store_screenshot']);
+    expect(picked.slice(2).map((item) => item.assetId)).toEqual([shots[4].assetId, shots[3].assetId, shots[2].assetId]);
+  });
+
+  it('labels the origin of each image and knows which kinds use the small icon box', () => {
+    expect(mediaOriginLabel('app_icon')).toBe('App Store 掲載画像');
+    expect(mediaOriginLabel('store_screenshot')).toBe('App Store 掲載画像');
+    expect(mediaOriginLabel('og_image')).toBe('公式サイト');
+    expect(isMediaIconKind('app_icon')).toBe(true);
+    expect(isMediaIconKind('store_screenshot')).toBe(false);
   });
 });
 

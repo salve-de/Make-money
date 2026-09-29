@@ -13,7 +13,7 @@
  *   - every asset starts as rights.decision = "held" (basis official_marketing_material).
  */
 import { createHash } from 'node:crypto';
-import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises';
+import { appendFile, mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium, type Browser, type BrowserContext, type Page } from '@playwright/test';
@@ -33,6 +33,7 @@ import {
   isSameSite,
   isTrackerHost,
   pickPricingLink,
+  registrableDomain,
   robotsAllows,
   robotsPolicyFromFetch,
   sniffImage,
@@ -46,6 +47,7 @@ const DEFAULT_OUT = join(REPO_ROOT, 'data/media-staging');
 const RAW_BUCKET = 'foundation-raw';
 
 const VIEWPORT = { width: 1280, height: 800 };
+const PROGRESS_FILE = 'progress.jsonl';
 const NAVIGATION_TIMEOUT_MS = 20_000;
 const LOAD_SETTLE_MS = 8_000;
 const IDLE_SETTLE_MS = 4_000;
@@ -126,6 +128,12 @@ interface CliOptions {
   index: string;
   validate: boolean;
   help: boolean;
+  /** Steps to run (default: all four). `--kinds favicon,og_image` skips the screenshots. */
+  kinds: StepKind[];
+  /** Skip ids that an earlier run already recorded in progress.jsonl (resume). */
+  skipProcessed: boolean;
+  /** Entities processed at the same time; two entities of the same site are never processed together. */
+  concurrency: number;
 }
 
 /** A refusal or failure that is expected and recorded per step, not a crash. */
@@ -144,6 +152,7 @@ interface RunContext {
   userAgent: string;
   robots: RobotsCache;
   browser: Browser;
+  kinds: StepKind[];
 }
 
 interface EntityContext {
@@ -187,11 +196,13 @@ function withoutHash(url: URL): string {
   return copy.href;
 }
 
-const STEP_KINDS: StepKind[] = ['favicon', 'og_image', 'screenshot_home', 'screenshot_pricing'];
 
 // ---------------------------------------------------------------------------
 // CLI
 // ---------------------------------------------------------------------------
+
+const ALL_STEP_KINDS: StepKind[] = ['favicon', 'og_image', 'screenshot_home', 'screenshot_pricing'];
+const STEP_KINDS = ALL_STEP_KINDS;
 
 const USAGE = `Usage: node --import tsx scripts/media/fetch-official-assets.ts --ids <id1,id2,...> [--limit N] [--out data/media-staging]
        node --import tsx scripts/media/fetch-official-assets.ts --validate [--ids <id1,id2,...>] [--out data/media-staging]
@@ -201,10 +212,13 @@ const USAGE = `Usage: node --import tsx scripts/media/fetch-official-assets.ts -
   --out       Staging directory (default: data/media-staging)
   --validate  Do not fetch: check hand-edited manifest.json files against the schema and the files on disk
   --index     Entity index to read (default: data/entities-index.json; for tests)
+  --kinds     Comma separated steps to run: favicon,og_image,screenshot_home,screenshot_pricing (default: all)
+  --skip-processed  Skip ids already recorded in <out>/progress.jsonl (one line is appended per finished entity)
+  --concurrency N   Entities in parallel (default 1, max 8); never two of the same registrable domain at once
 `;
 
 function parseArgs(argv: string[]): CliOptions {
-  const options: CliOptions = { ids: [], limit: null, out: DEFAULT_OUT, index: DEFAULT_INDEX, validate: false, help: false };
+  const options: CliOptions = { ids: [], limit: null, out: DEFAULT_OUT, index: DEFAULT_INDEX, validate: false, help: false, kinds: [...ALL_STEP_KINDS], skipProcessed: false, concurrency: 1 };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     const equals = arg.startsWith('--') ? arg.indexOf('=') : -1;
@@ -234,6 +248,22 @@ function parseArgs(argv: string[]): CliOptions {
       case '--validate':
         options.validate = true;
         break;
+      case '--kinds': {
+        const kinds = [...new Set(value().split(',').map((kind) => kind.trim()).filter(Boolean))];
+        const unknown = kinds.filter((kind) => !ALL_STEP_KINDS.includes(kind as StepKind));
+        if (unknown.length > 0 || kinds.length === 0) throw new Error(`--kinds accepts ${ALL_STEP_KINDS.join(',')} (got ${unknown.join(',') || 'nothing'})`);
+        options.kinds = ALL_STEP_KINDS.filter((kind) => kinds.includes(kind));
+        break;
+      }
+      case '--skip-processed':
+        options.skipProcessed = true;
+        break;
+      case '--concurrency': {
+        const concurrency = Number(value());
+        if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 8) throw new Error('--concurrency must be an integer from 1 to 8');
+        options.concurrency = concurrency;
+        break;
+      }
       case '--help':
       case '-h':
         options.help = true;
@@ -772,10 +802,11 @@ async function runBrowserCapture(ec: EntityContext, context: BrowserContext, res
       result.steps.push({ kind, status: error instanceof FetchProblem ? error.kind : 'failed', detail: describeError(error) });
     }
   };
-  await attempt('screenshot_home', () => captureScreenshot(ec, page, 'screenshot_home', home.url));
-  await attempt('favicon', () => captureFavicon(ec, home.facts, home.url));
-  await attempt('og_image', () => captureOgImage(ec, home.facts, home.url));
-  await attempt('screenshot_pricing', () => capturePricing(ec, page, home.facts, home.url, offSite));
+  const wanted = (kind: StepKind) => ec.run.kinds.includes(kind);
+  if (wanted('screenshot_home')) await attempt('screenshot_home', () => captureScreenshot(ec, page, 'screenshot_home', home.url));
+  if (wanted('favicon')) await attempt('favicon', () => captureFavicon(ec, home.facts, home.url));
+  if (wanted('og_image')) await attempt('og_image', () => captureOgImage(ec, home.facts, home.url));
+  if (wanted('screenshot_pricing')) await attempt('screenshot_pricing', () => capturePricing(ec, page, home.facts, home.url, offSite));
   return true;
 }
 
@@ -882,7 +913,7 @@ async function processEntity(run: RunContext, entityId: string, entities: Map<st
     result.error = describeError(error);
   } finally {
     await context?.close().catch(() => undefined);
-    for (const kind of STEP_KINDS) {
+    for (const kind of run.kinds) {
       if (!result.steps.some((step) => step.kind === kind)) result.steps.push({ kind, status: 'not_attempted', detail: result.error ?? 'not reached' });
     }
     result.steps.sort((a, b) => STEP_KINDS.indexOf(a.kind) - STEP_KINDS.indexOf(b.kind));
@@ -969,6 +1000,27 @@ async function validateManifests(outDir: string, ids: string[]): Promise<boolean
   return allValid;
 }
 
+async function readProgressIds(path: string): Promise<Set<string>> {
+  const ids = new Set<string>();
+  let text: string;
+  try {
+    text = await readFile(path, 'utf8');
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return ids;
+    throw error;
+  }
+  for (const line of text.split('\n')) {
+    if (!line.trim()) continue;
+    try {
+      const entityId = (JSON.parse(line) as { entityId?: unknown }).entityId;
+      if (typeof entityId === 'string') ids.add(entityId);
+    } catch {
+      // a half-written line (killed run) is ignored; that entity is simply processed again
+    }
+  }
+  return ids;
+}
+
 async function main(): Promise<void> {
   const options = parseArgs(process.argv.slice(2));
   if (options.help) {
@@ -988,21 +1040,49 @@ async function main(): Promise<void> {
   const browser = await chromium.launch({ headless: true });
   const chromeVersion = browser.version();
   const userAgent = `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${chromeVersion} Safari/537.36 ${MEDIA_FETCH_PRODUCT_TOKEN}/1.0`;
-  const run: RunContext = { capturedBy, outDir: options.out, userAgent, robots: new RobotsCache(userAgent), browser };
+  const run: RunContext = { capturedBy, outDir: options.out, userAgent, robots: new RobotsCache(userAgent), browser, kinds: options.kinds };
 
-  log(`media-fetch ${capturedBy}: ${options.ids.length} entit${options.ids.length === 1 ? 'y' : 'ies'} -> ${options.out}`);
+  const progressPath = join(options.out, PROGRESS_FILE);
+  const done = options.skipProcessed ? await readProgressIds(progressPath) : new Set<string>();
+  const queue = options.ids.filter((id) => !done.has(id));
+  log(`media-fetch ${capturedBy}: ${queue.length} entit${queue.length === 1 ? 'y' : 'ies'} (${options.ids.length - queue.length} already processed) kinds=${options.kinds.join(',')} concurrency=${options.concurrency} -> ${options.out}`);
   const results: EntityResult[] = [];
-  try {
-    for (const [position, entityId] of options.ids.entries()) {
-      log(`[${position + 1}/${options.ids.length}] ${entityId}`);
-      if (!run.browser.isConnected()) {
-        log('  browser crashed earlier in this run; launching a new one');
-        run.browser = await chromium.launch({ headless: true });
+  const inFlightSites = new Set<string>();
+  let finishedCount = 0;
+  // Two entities of the same registrable domain never run together (one request stream per host).
+  const siteOf = (entityId: string): string => {
+    const url = parsePublicHttpUrl(entities.get(entityId)?.officialUrl ?? entities.get(entityId)?.url ?? '');
+    return url ? registrableDomain(url.hostname) : `id:${entityId}`;
+  };
+  const worker = async () => {
+    for (;;) {
+      if (queue.length === 0) return;
+      const pickIndex = queue.findIndex((id) => !inFlightSites.has(siteOf(id)));
+      if (pickIndex < 0) {
+        await sleep(200);
+        continue;
       }
-      const result = await processEntity(run, entityId, entities);
-      results.push(result);
-      printEntity(result);
+      const [entityId] = queue.splice(pickIndex, 1);
+      const site = siteOf(entityId);
+      inFlightSites.add(site);
+      try {
+        if (!run.browser.isConnected()) {
+          log('  browser crashed earlier in this run; launching a new one');
+          run.browser = await chromium.launch({ headless: true });
+        }
+        const result = await processEntity(run, entityId, entities);
+        results.push(result);
+        finishedCount += 1;
+        log(`[${finishedCount}/${finishedCount + queue.length}] ${entityId}`);
+        printEntity(result);
+        await appendFile(progressPath, `${JSON.stringify({ entityId, status: result.status, kinds: options.kinds, at: isoNow(), captured: result.steps.filter((step) => step.status === 'captured').length })}\n`);
+      } finally {
+        inFlightSites.delete(site);
+      }
     }
+  };
+  try {
+    await Promise.all(Array.from({ length: Math.min(options.concurrency, Math.max(queue.length, 1)) }, worker));
   } finally {
     await run.browser.close().catch(() => undefined);
   }
