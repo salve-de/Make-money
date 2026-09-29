@@ -152,5 +152,58 @@
     ],
     "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
     "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_silentwealthglobal_a8b5f60b498e",
+    "name": "Silent Wealth Global",
+    "reasonCode": "SUSPECTED_SANCTIONS_EVASION",
+    "reason": "制裁対象者や政治的に影響力を持つ人物に向けて、名義管理・匿名の資産保有構造を案内している。資格・適法性は確認できず、制裁回避を助ける恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://silentwealthglobal.org",
+        "observation": "公式サイトが制裁対象者向けサービスと名義・資産保有構造の設計を案内（2026-09-29 観測）"
+      },
+      {
+        "url": "https://www.indiehackers.com/product/silent-wealth-global-2",
+        "observation": "IH掲載は立ち上げ告知と同日に月$200,000の収益を入力。運営者と実績は未確認"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_jaiclubofficial_216747b4766b",
+    "name": "JAI CLUB OFFICIAL",
+    "reasonCode": "SUSPECTED_UNLICENSED_GAMBLING",
+    "reason": "入金・賭けに連動する報酬と紹介報酬を宣伝している。運営主体・許認可は確認できず、公式サイトにも到達できないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/product/jai-club-official",
+        "observation": "2026-03-23の掲載でゲーム・入金・賭け連動の報酬と紹介報酬を宣伝（2026-09-29 観測）"
+      },
+      {
+        "url": "https://jai-club.co.in/",
+        "observation": "公式URLに到達できない（2026-09-29）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_fashiondiffusion_38a2182d31ef",
+    "name": "Fashion Diffusion",
+    "reasonCode": "SUSPECTED_NCII_TOOL_PROMOTION",
+    "reason": "公式サイトのフッターから、服の除去や透視をうたうツールへ誘導している。本人の同意のない性的画像の生成につながる恐れがあるため、掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.fashiondiffusion.ai/",
+        "observation": "公式フッターに服の除去・透視をうたう名称のツールへの導線（2026-09-29 観測、機能は実行していない）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
   }
 ]
