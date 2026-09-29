@@ -3,6 +3,32 @@ import { sha256Sync } from '@/shared/sha256';
 
 type JsonObject = Record<string, unknown>;
 
+/** Fact type whose figures were stated by the subject itself; display must say so (本人申告). */
+export const SELF_REPORTED_FACT_TYPE_ID = 'fact.self_reported_business_metric.v1';
+
+/**
+ * One display attribution for a fact or observation. Only Tier 2 (facts-only) evidence
+ * produces one; Tier 1 evidence needs no extra display condition.
+ */
+export function mergePublicAttributions(attributions: readonly JsonObject[]): JsonObject | null {
+  const factsOnly = attributions.filter((item) => item.display_tier === 'facts_only');
+  if (factsOnly.length === 0) return null;
+  const providerNames = [...new Set(
+    factsOnly.map((item) => text(item.provider_name)).filter((name): name is string => Boolean(name)),
+  )];
+  if (providerNames.length === 0) return null;
+  const firstText = (field: string) =>
+    factsOnly.map((item) => text(item[field])).find((value): value is string => Boolean(value)) ?? null;
+  const rule = firstText('rule');
+  return {
+    display_tier: 'facts_only',
+    provider_name: providerNames.join(' / ').slice(0, 80),
+    published_at: firstText('published_at'),
+    retrieved_at: firstText('retrieved_at'),
+    ...(rule ? { rule: rule.slice(0, 320) } : {}),
+  };
+}
+
 export interface PublicFactTypePolicy {
   factTypeId: string;
   valueKind: 'percentage' | 'money' | 'number' | 'count' | 'date' | 'boolean';
@@ -36,6 +62,8 @@ export interface PublicFactProjectionInput {
   typedRecordSet: unknown;
   allowedEvidenceIds: ReadonlySet<string>;
   sourceUrlByEvidenceId: ReadonlyMap<string, string>;
+  /** Per-evidence attribution built by the rights gate (display_tier, provider_name, dates, rule). */
+  attributionByEvidenceId?: ReadonlyMap<string, JsonObject>;
   publicEntities: readonly JsonObject[];
   policies?: ReadonlyMap<string, PublicFactTypePolicy>;
 }
@@ -286,6 +314,24 @@ export function projectTypedPublicFacts(input: PublicFactProjectionInput): JsonO
     if (!projectedValue) continue;
     const sourceUrls = sourceUrlsFor(evidenceIds, input.sourceUrlByEvidenceId);
     if (sourceUrls.length === 0) continue;
+    const evidenceAttributions = evidenceIds
+      .map((id) => input.attributionByEvidenceId?.get(id))
+      .filter((item): item is JsonObject => Boolean(item));
+    const selfReported = factTypeId === SELF_REPORTED_FACT_TYPE_ID;
+    const mergedAttribution = mergePublicAttributions(evidenceAttributions);
+    // A self-reported figure is labeled even when its source is Tier 1 (e.g. the subject's own site).
+    const attribution: JsonObject | null = mergedAttribution
+      ? { ...mergedAttribution, self_reported: selfReported }
+      : selfReported
+        ? {
+            display_tier: 'automatic',
+            provider_name: text(evidenceAttributions[0]?.provider_name) ?? 'Source',
+            published_at: text(evidenceAttributions[0]?.published_at),
+            retrieved_at: text(evidenceAttributions[0]?.retrieved_at),
+            self_reported: true,
+          }
+        : null;
+    const sourceLabel = mergedAttribution ? String(mergedAttribution.provider_name) : 'Source';
 
     const publicPayload: JsonObject = {
       fact_type_id: factTypeId,
@@ -320,8 +366,9 @@ export function projectTypedPublicFacts(input: PublicFactProjectionInput): JsonO
           value: projectedValue.displayValue,
           ...(displaySuffix ? { suffix: displaySuffix } : {}),
         }],
-        source_label: 'Source',
+        source_label: sourceLabel,
         source_urls: sourceUrls,
+        ...(attribution ? { attribution } : {}),
       },
     });
   }

@@ -71,4 +71,16 @@ describe('all public case records remain reachable', () => {
     expect(html).toContain('https://example.com/source'); expect(html).toContain('https://example.com/second');
     expect(html).not.toContain('DO_NOT_RENDER'); expect(html).not.toContain('<details');
   });
+  it('lists re-audit sources with publisher, dates, display tier and self-report label, without duplicate plain links', () => {
+    const entity = base(); entity.url = 'https://foo.com'; entity.evidenceCards = [];
+    entity.reaudit = { sources: [
+      { url: 'https://foo.com', publisher: 'Foo 公式サイト', checkedAt: '2026-09-29', displayTier: 'automatic', claimStatus: 'PRICING_CONFIRMED' },
+      { url: 'https://www.indiehackers.com/product/foo', publisher: 'Indie Hackers', publicationDate: '2021-04-01', checkedAt: '2026-09-29', displayTier: 'facts_only', claimStatus: 'FOUNDER_SELF_REPORT_RECORDED', rawStoredPrivately: true },
+    ] };
+    const html = renderToStaticMarkup(<SourcesSection entity={entity} isHazardMode={false} />);
+    expect(html).toContain('data-testid="audited-sources"');
+    expect(html).toContain('Indie Hackers'); expect(html).toContain('掲載 2021-04-01'); expect(html).toContain('確認 2026-09-29');
+    expect(html).toContain('事実のみ・出典表示必須'); expect(html).toContain('出典表示で掲載可'); expect(html).toContain('本人申告（独立確認なし）');
+    expect(html).not.toContain('>公式サイト<'); expect(html).not.toContain('rawStoredPrivately');
+  });
 });

@@ -126,7 +126,7 @@ export interface ClaimEvidenceBinding {
 
 export type PublishabilityStatus =
   | 'PUBLISHABLE'       // 審査通過・確定公開可能（一般検索インデックスへ投影）
-  | 'PARTIAL'           // 一部欠損・作業中（内部保管、公開面へは未投影）
+  | 'PARTIAL'           // 一部未確認（根拠のある事実のみ表示し、未確認は未確認と表示する。2026-09-29表示契約）
   | 'RAW'               // 未加工ログ（Universal Raw / Lake）
   | 'ARCHIVED'          // アーカイブ済み
   | 'REJECTED_AS_CASE'; // 事例としては不採用（Foundationには保全するが公開しない）
@@ -286,6 +286,16 @@ export interface UniversalObservationPublicFact {
   suffix?: string;
 }
 
+/** 出典表示（Tier 2「事実のみ」出典では表示必須。本人申告の数値は selfReported=true）。 */
+export interface UniversalObservationPublicAttribution {
+  displayTier: 'automatic' | 'facts_only';
+  providerName: string;
+  publishedAt?: string;
+  retrievedAt?: string;
+  rule?: string;
+  selfReported: boolean;
+}
+
 export interface UniversalObservationPublicDisplay {
   title: string;
   subject: string;
@@ -293,6 +303,7 @@ export interface UniversalObservationPublicDisplay {
   facts: UniversalObservationPublicFact[];
   sourceLabel: string;
   sourceUrls: string[];
+  attribution?: UniversalObservationPublicAttribution;
 }
 
 export interface UniversalObservation {

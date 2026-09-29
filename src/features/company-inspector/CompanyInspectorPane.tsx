@@ -13,6 +13,7 @@ import { CashAnatomySection } from './ui/CashAnatomySection';
 import { CompanyHeader } from './ui/CompanyHeader';
 import { EstimatedCashSummary } from './ui/EstimatedCashSummary';
 import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
+import { EntityMediaGallery } from './ui/EntityMediaGallery';
 import { EvidenceStream } from './ui/EvidenceStream';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
 import { LootBlueprintSection } from './ui/LootBlueprintSection';
@@ -136,6 +137,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {mainTab === 'LEDGER' ? (
             <>
               <ExecutiveIntuitiveSummary {...sectionProps} />
+              <EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />
 
               {entity.pnl.financialStatus === 'ESTIMATED' ? (
                 <EstimatedCashSummary {...sectionProps} />

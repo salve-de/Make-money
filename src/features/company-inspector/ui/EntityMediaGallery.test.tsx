@@ -1,0 +1,57 @@
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { describe, expect, it } from 'vitest';
+import { pickGalleryAssets, type PublicMediaAsset } from '@/shared/media-display';
+import { EntityMediaGalleryView } from './EntityMediaGallery';
+
+function asset(kind: PublicMediaAsset['kind'], suffix: string, attribution = '出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)'): PublicMediaAsset {
+  return {
+    assetId: `ma_${suffix.padEnd(24, '0')}`,
+    kind,
+    url: `https://assets.example.com/media/ent_keyence/${suffix}.png`,
+    contentType: 'image/png',
+    width: 1200,
+    height: 630,
+    attribution,
+    sourcePageUrl: 'https://www.keyence.co.jp/',
+    retrievedAt: '2026-09-29T00:38:11.808Z',
+  };
+}
+
+const render = (assets: PublicMediaAsset[]) => renderToStaticMarkup(<EntityMediaGalleryView entityName="キーエンス (KEYENCE)" assets={assets} />);
+
+describe('EntityMediaGalleryView', () => {
+  it('renders nothing when the case has no displayable image', () => {
+    expect(render([])).toBe('');
+  });
+
+  it('shows every image lazily, with its source text under it and a description of what it is', () => {
+    const html = render(pickGalleryAssets([asset('screenshot_pricing', 'b', '出典: Photo AI 公式サイト (https://photoai.com/pricing)'), asset('og_image', 'a'), asset('favicon', 'f')]));
+    expect(html).toContain('id="section-media"');
+    expect(html).toContain('製品画像');
+    expect((html.match(/data-testid="media-gallery-image"/g) ?? []).length).toBe(2);
+    expect((html.match(/loading="lazy"/g) ?? []).length).toBe(2);
+    expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの料金ページ"');
+    expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの紹介画像"');
+    expect(html).toContain('出典: Photo AI 公式サイト (https://photoai.com/pricing)');
+    expect(html).toContain('出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)');
+    expect(html).toContain('aspect-ratio:1200 / 630');
+    expect(html).toContain('referrerPolicy="no-referrer"');
+    // every caption sits in the same figure as its image, after it
+    const figures = html.split('<figure').slice(1);
+    expect(figures).toHaveLength(2);
+    for (const figure of figures) expect(figure.indexOf('<img')).toBeLessThan(figure.indexOf('media-gallery-attribution'));
+  });
+
+  it('gives a single image a readable width and several images a grid', () => {
+    expect(render([asset('og_image', 'a')])).toContain('max-w-[30rem]');
+    expect(render([asset('og_image', 'a')])).not.toContain('grid-cols-2');
+    const several = render([asset('screenshot_home', 'b'), asset('og_image', 'a')]);
+    expect(several).toContain('sm:grid-cols-2');
+    expect(several).not.toContain('max-w-[30rem]');
+  });
+
+  it('does not show the favicon in the gallery (it is the list logo)', () => {
+    expect(render(pickGalleryAssets([asset('favicon', 'f')]))).toBe('');
+  });
+});

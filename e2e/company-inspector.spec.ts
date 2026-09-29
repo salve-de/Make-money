@@ -1,6 +1,7 @@
 import { openNotes, selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
 
+// 2026-09-29 正直化: Jasper.ai は出典の無い損失値と物語カードを取り下げた PARTIAL 記録。財務は「未確認」、証跡は出典カードと「調査限界」カードを持つ。
 test('company list opens financials and evidence, then closes and reopens the inspector', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -13,23 +14,22 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(row).toHaveCount(1);
   await row.click();
   await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
-  await page.locator('#section-cash-anatomy').scrollIntoViewIfNeeded();
-  const financials = page.locator('#section-cash-anatomy');
-  await expect(financials).toBeInViewport();
-  await expect(financials).toContainText('売上高');
-  await expect(financials).toContainText('営業利益');
-  await expect(financials).not.toContainText('純手残り');
-  await expect(financials).not.toContainText('損益ブリッジ');
-  await expect(financials).not.toContainText('資金フロー');
-  await expect(financials).not.toContainText('現金の滝');
-  await expect(financials).not.toContainText('通帳引き算バー');
-  await expect(financials.locator('canvas')).toHaveCount(0);
-  await expect(financials).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
+  // 売上が未確認の記録は損益セクションを描画しない（CashAnatomySection は null を返す）。捏造値も旧グラフも出ない。
+  const inspector = page.getByRole('complementary').filter({ has: page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true }) });
+  await expect(inspector.getByTestId('reaudit-partial-notice')).toContainText('再監査中');
+  await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
+  await expect(inspector).not.toContainText('純手残り');
+  await expect(inspector).not.toContainText('損益ブリッジ');
+  await expect(inspector).not.toContainText('資金フロー');
+  await expect(inspector).not.toContainText('現金の滝');
+  await expect(inspector).not.toContainText('通帳引き算バー');
+  await expect(inspector).not.toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
   await page.locator('#section-evidence').scrollIntoViewIfNeeded();
   const evidence = page.locator('#section-evidence');
   await expect(evidence).toBeInViewport();
   await expect(evidence).toContainText(/撤退・破綻に関する記録/);
-  await expect(evidence).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
+  await expect(evidence).toContainText(/調査限界/);
+  await expect(evidence).not.toContainText(/ChatGPT/);
   await page.getByRole('button', { name: '出典・記録', exact: true }).click();
   await expect(page.locator('#section-stream')).toBeVisible();
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
@@ -95,19 +95,20 @@ test('sparse Foundation candidate cannot replace a curated dossier with the same
   expect(errors).toEqual([]);
 });
 
-test('existing hazard dossier keeps its loss label and dynamic evidence', async ({ page }) => {
+test('existing hazard dossier keeps its hazard label and honest evidence after the re-audit demotion', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
   const heading = page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true });
   await expect(heading).toBeVisible();
   await expect(page.locator('#section-evidence')).toContainText(/撤退・破綻に関する記録/);
-  await expect(page.locator('#section-evidence')).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
-  await page.locator('#section-cash-anatomy').scrollIntoViewIfNeeded();
+  await expect(page.locator('#section-evidence')).toContainText(/調査限界/);
+  await expect(page.locator('#section-evidence')).not.toContainText(/ChatGPT/);
   const inspector = page.getByRole('complementary').filter({ has: heading });
-  await expect(inspector).toContainText('営業利益');
+  await expect(inspector.getByTestId('reaudit-partial-notice')).toContainText('再監査中');
+  await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
   await expect(inspector).not.toContainText('赤字出血');
-  await expect(page.locator('#section-cash-anatomy')).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
+  await expect(inspector).not.toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
   expect(errors).toEqual([]);
 });
 

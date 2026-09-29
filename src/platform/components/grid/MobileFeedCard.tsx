@@ -5,9 +5,13 @@ import type { FinancialEntity } from '../../types/terminal';
 import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { entityDescription } from '@/platform/utils/entityDescription';
+import type { PublicMediaAsset } from '@/shared/media-display';
+import { EntityLogo } from './EntityLogo';
 
 interface MobileFeedCardProps {
   entity: FinancialEntity;
+  /** 許可済みの公式ロゴ。無ければ何も出さない。 */
+  logo?: PublicMediaAsset | null;
   isSelected: boolean;
   onSelect: () => void;
   currency: 'JPY' | 'USD';
@@ -71,6 +75,7 @@ function Metric({ label, value, secondary }: { label: string; value: string; sec
 
 export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   entity,
+  logo = null,
   isSelected,
   onSelect,
   currency,
@@ -110,7 +115,8 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           aria-label={`${entity.name}の事例を開く`}
           className="min-w-0 flex-1 rounded-md px-1 py-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
         >
-          <div className="flex min-w-0 items-center gap-3 pr-9">
+          <div className="flex min-w-0 items-center gap-2 pr-9">
+            <EntityLogo asset={logo} />
             <h2 className="min-w-0 truncate text-[15px] font-semibold text-zinc-100">{entity.name}</h2>
           </div>
 

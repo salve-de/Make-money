@@ -37,6 +37,24 @@ export function StructuredObservationPayload({ observation }: { observation: Uni
             {display.note}
           </p>
         )}
+        {display.attribution && (
+          <div
+            className="mt-2 border-t border-white/[0.05] pt-2 font-mono text-[9px] leading-relaxed text-zinc-500"
+            data-testid="public-display-attribution"
+          >
+            <span className="text-zinc-400">出典: {display.attribution.providerName}</span>
+            {display.attribution.publishedAt && <span> · 掲載 {display.attribution.publishedAt.slice(0, 10)}</span>}
+            {!display.attribution.publishedAt && display.attribution.retrievedAt && (
+              <span> · 取得 {display.attribution.retrievedAt.slice(0, 10)}</span>
+            )}
+            {display.attribution.selfReported && (
+              <span className="ml-2 rounded border border-amber-400/40 px-1 text-amber-300/90">本人申告・独立確認なし</span>
+            )}
+            {display.attribution.displayTier === 'facts_only' && (
+              <span className="ml-2 text-zinc-600">事実のみ表示（原文・画像は転載しない）</span>
+            )}
+          </div>
+        )}
         <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[9px] font-mono">
           {display.sourceUrls.map((url, index) => (
             <a

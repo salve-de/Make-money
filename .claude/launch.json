@@ -4,8 +4,24 @@
     {
       "name": "make-money-dev",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["dev", "-p", "3050"],
+      "runtimeArgs": [
+        "dev",
+        "-p",
+        "3050"
+      ],
       "port": 3050
+    },
+    {
+      "name": "make-money-dev-worktree",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "/Users/satoushinya/project/Make-Money/.worktrees/honest-catalog",
+        "dev",
+        "-p",
+        "3051"
+      ],
+      "port": 3051
     }
   ]
 }

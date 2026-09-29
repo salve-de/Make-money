@@ -3,7 +3,7 @@ import type { FinancialEntity } from '@/platform/types/terminal';
 
 const mocks = vi.hoisted(() => ({ writes: vi.fn(), exec: vi.fn() }));
 vi.mock('node:fs/promises', () => ({
-  readFile: vi.fn(async () => '[]'), writeFile: mocks.writes, mkdir: vi.fn(),
+  readFile: vi.fn(async () => '[]'), writeFile: mocks.writes, mkdir: vi.fn(), rename: vi.fn(),
 }));
 vi.mock('node:child_process', () => ({ execSync: mocks.exec }));
 vi.mock('../storage/r2', () => ({
@@ -21,7 +21,22 @@ vi.mock('../../../scripts/pipeline/auto-enrich-entity', async (importOriginal) =
 import { autoEnrichEntityBeforeIngest } from '../../../scripts/pipeline/auto-enrich-entity';
 import { ingestVerifiedEntities } from '../../../scripts/pipeline/real-ingest-pipeline';
 
-beforeEach(() => vi.clearAllMocks());
+beforeEach(() => {
+  vi.clearAllMocks();
+  // 2026-09-29: R2 未設定時は明示的に許可しない限り ingest が中断する契約。このテストはローカルミラー（モック fs）を明示的に許可する。
+  vi.stubEnv('ALLOW_LOCAL_R2_FALLBACK', '1');
+});
+
+it('aborts instead of silently writing a local mirror when R2 is not configured and the fallback is not allowed', async () => {
+  vi.stubEnv('ALLOW_LOCAL_R2_FALLBACK', '0');
+  const entity = {
+    id: 'ent_test_abort', name: 'Abort Example', url: 'https://example.com',
+    pnl: { monthlyRevenue: 0, operatingMargin: 0, sourceDoc: 'https://example.com' },
+    operations: { toolStack: [] }, evidenceCards: [{ id: 'claim-abort', sourceNote: 'https://example.com' }],
+  } as unknown as FinancialEntity;
+  await expect(ingestVerifiedEntities([{ entity }], 'test')).rejects.toThrow('[INGEST ABORTED: R2 NOT CONFIGURED]');
+  expect(mocks.writes.mock.calls.some(([path]) => String(path).includes('/data/entities-index.json'))).toBe(false);
+});
 
 it.each(['one capture', 'reversed captures', 'metadata only'])('preserves claim identity and source bindings with %s', async (scenario) => {
   const cards = [
@@ -43,7 +58,7 @@ it.each(['one capture', 'reversed captures', 'metadata only'])('preserves claim 
     sourceUrls: ['https://new.example', 'https://new.example'],
   } : undefined;
   await ingestVerifiedEntities([{ entity, rawArtifacts, review }], 'test');
-  const catalogWrite = mocks.writes.mock.calls.find(([path]) => String(path).endsWith('/data/entities-index.json'));
+  const catalogWrite = mocks.writes.mock.calls.find(([path]) => String(path).includes('/data/entities-index.json'));
   expect(catalogWrite).toBeDefined();
   expect(JSON.parse(catalogWrite![1])[0].evidenceCards).toEqual(cards);
   expect(entity.evidenceCards).toEqual(cards);
@@ -101,7 +116,7 @@ it('ingests original private jargon unchanged while normalizing active copy', as
   expect(saved.sourceMetadata).toEqual(sourceMetadata);
   expect(saved.evidenceCards[0].sourceMetadata).toEqual({ original: '地雷検死' });
   expect(saved.tagline).toBe('人間の本能・心理の急所');
-  const catalogWrite = mocks.writes.mock.calls.find(([path]) => String(path).endsWith('/data/entities-index.json'));
+  const catalogWrite = mocks.writes.mock.calls.find(([path]) => String(path).includes('/data/entities-index.json'));
   expect(JSON.parse(catalogWrite![1])[0].sourceMetadata).toEqual(sourceMetadata);
   expect(entity).toEqual(before);
 });
@@ -114,4 +129,26 @@ it('still rejects jargon outside private history before writes', async () => {
   }));
   await expect(ingestVerifiedEntities([entity], 'unsanitized')).rejects.toThrow('forbidden internal jargon');
   expect(mocks.writes).not.toHaveBeenCalled();
+});
+
+it('replaces an existing catalog record in place and prepends only new ids', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const existingCatalog = JSON.stringify([
+    { id: 'ent_first', name: 'First Co', url: 'https://first.example' }, { id: 'ent_test', name: 'Old Name', url: 'https://example.com' }, { id: 'ent_last', name: 'Last Co', url: 'https://last.example' },
+  ]);
+  // 索引の読み取りだけ既存カタログを返す（パイプラインは他のファイルも readFile する）。
+  vi.mocked(readFile).mockImplementation(async (path) => (String(path).includes('/data/entities-index.json') ? existingCatalog : '[]'));
+  const cards = [{ id: 'claim-1', sourceNote: 'https://example.com' }];
+  const existingEntity = {
+    id: 'ent_test', name: 'Replaced In Place', url: 'https://example.com',
+    pnl: { monthlyRevenue: 0, operatingMargin: 0, sourceDoc: 'https://example.com' },
+    operations: { toolStack: [] }, evidenceCards: cards,
+  } as unknown as FinancialEntity;
+  const newEntity = { ...existingEntity, id: 'ent_new', name: 'Brand New' } as unknown as FinancialEntity;
+  await ingestVerifiedEntities([{ entity: newEntity }, { entity: existingEntity }], 'test');
+  const catalogWrite = mocks.writes.mock.calls.find(([path]) => String(path).includes('/data/entities-index.json'));
+  const written = JSON.parse(catalogWrite![1]) as Array<{ id: string; name?: string }>;
+  expect(written.map((row) => row.id)).toEqual(['ent_new', 'ent_first', 'ent_test', 'ent_last']);
+  expect(written[2].name).toBe('Replaced In Place');
+  expect(String(catalogWrite![0])).toMatch(/entities-index\.json\.\d+\.tmp$/);
 });

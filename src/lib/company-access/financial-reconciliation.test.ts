@@ -19,19 +19,21 @@ function project(entity: FinancialEntity): FinancialEntity {
 }
 
 describe('read-time financial reconciliation at the public boundary', () => {
-  it('holds Pete Codes derived profit while preserving the observed monthly revenue', () => {
+  it('keeps Pete Codes honest at the source: self-reported figure kept as a label, derived P&L unconfirmed, legacy display archived (2026-09-29 rebuild)', () => {
     const source = sourceEntity('ent_ebizfacts_petecodesghostwritingfounders10800month_52547c76000c');
     const projected = project(source);
 
-    expect(source.pnl.isOperatingProfitUnconfirmed).toBe(false);
-    expect(projected.pnl.monthlyRevenue).toBe(source.pnl.monthlyRevenue);
-    expect(projected.pnl.operatingProfit).toBe(source.pnl.operatingProfit);
+    expect(source.publishability).toBe('PARTIAL');
+    expect(source.pnl.isRevenueUnconfirmed).toBe(true);
+    expect(source.pnl.isOperatingProfitUnconfirmed).toBe(true);
+    expect(source.pnl.revenueLabel).toContain('本人申告');
+    expect(source.reaudit?.legacyDisplaySnapshot).toBeTruthy();
+    expect(projected.pnl.monthlyRevenue).toBe(0);
     expect(projected.pnl.isOperatingProfitUnconfirmed).toBe(true);
-    expect(projected.pnl.isCostsUnconfirmed).toBe(true);
     expect(projected.pnl.isNetProfitUnconfirmed).toBe(true);
-    expect(projected.unknownsNotes?.some((note) => note.includes('財務項目の未確認'))).toBe(true);
     expect(publicSummaryEntity(projected).pnl.operatingProfit).toBe(0);
-    expect(publicSummaryEntity(projected).pnl.isOperatingProfitUnconfirmed).toBe(true);
+    expect(publicSummaryEntity(projected).pnl.revenueLabel).toContain('本人申告');
+    expect(isPublishableEntity(projected)).toBe(true);
   });
 
   it('holds Jim Lashbaugh annual/monthly period contradiction without converting it', () => {

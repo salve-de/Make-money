@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rename } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { getFoundationBucket, putR2ObjectCreateOnly, sha256Hex, isR2ConfiguredAsync } from '../../src/lib/storage/r2';
 import { parseFinancialEntity } from '../../src/shared/financial-entity-schema';
@@ -28,8 +28,20 @@ export interface IngestEntityInput {
 async function putStorageObject(bucket: string, key: string, body: string, contentType: string, metadata: Record<string, string>) {
   const isConfigured = await isR2ConfiguredAsync(bucket).catch(() => false);
   if (isConfigured) {
-    return await putR2ObjectCreateOnly({ bucket, key, body, contentType, metadata });
+    const result = await putR2ObjectCreateOnly({ bucket, key, body, contentType, metadata });
+    console.log(`    → destination: R2 ${bucket}/${key} [${result.status}]`);
+    return result;
   }
+
+  // 2026-09-29: R2 が未設定のときに黙ってローカルへ退避しない。明示的に許可された場合だけローカルミラーへ書く。
+  if (process.env.ALLOW_LOCAL_R2_FALLBACK !== '1') {
+    throw new Error(
+      `[INGEST ABORTED: R2 NOT CONFIGURED] bucket "${bucket}" is not reachable in this runtime. ` +
+      `Run through scripts/with-r2-keychain-secrets.mjs (pnpm r2:with-secrets -- ...), or set ALLOW_LOCAL_R2_FALLBACK=1 ` +
+      `to write a LOCAL mirror under data/r2-local (a local mirror is never R2 delivery).`
+    );
+  }
+  console.warn(`    ⚠ destination: LOCAL MIRROR (not R2) data/r2-local/${bucket}/${key}`);
 
   const localPath = resolve(process.cwd(), `data/r2-local/${bucket}/${key}`);
   await mkdir(dirname(localPath), { recursive: true });
@@ -303,11 +315,19 @@ export async function ingestVerifiedEntities(
   const existing: FinancialEntity[] = JSON.parse(await readFile(indexPath, 'utf8'));
 
   const entities = sanitizedInputs.map(s => s.entity);
-  const newIds = new Set(entities.map(e => e.id));
-  const filteredExisting = existing.filter(e => !newIds.has(e.id));
-  const updatedCatalog = [...entities, ...filteredExisting];
+  const incomingById = new Map(entities.map(e => [e.id, e] as const));
+  const existingIds = new Set(existing.map(e => e.id));
+  // 2026-09-29: 既存IDは配列内の位置を保ったまま置換する（再監査レーンは family 配列の index で範囲を分担しており、
+  // 先頭への移動は分担を壊す）。新規IDだけを先頭に追加する。
+  const updatedCatalog = [
+    ...entities.filter(e => !existingIds.has(e.id)),
+    ...existing.map(e => incomingById.get(e.id) ?? e),
+  ];
 
-  await writeFile(indexPath, JSON.stringify(updatedCatalog, null, 2), 'utf8');
+  // 一時ファイル → rename で原子的に書く（並行して索引を読む再監査レーンが途中状態を読まないため）。
+  const tmpPath = `${indexPath}.${process.pid}.tmp`;
+  await writeFile(tmpPath, JSON.stringify(updatedCatalog, null, 2), 'utf8');
+  await rename(tmpPath, indexPath);
   console.log(`  ✓ Catalog synchronized! Total entities: ${updatedCatalog.length} (Added/Updated: ${entities.length})`);
 
   const { execSync } = await import('node:child_process');
