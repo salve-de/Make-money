@@ -22,7 +22,7 @@
 ## 修正後の確認
 
 ```sh
-pnpm exec vitest run src/platform/data/financial-integrity.test.ts src/platform/data/financial-reconciliation.test.ts src/features/company-inspector/model/financial-display.test.ts
+pnpm exec vitest run src/platform/data/financial-integrity.test.ts src/platform/data/financial-reconciliation.test.ts src/features/company-inspector/ui/CashAnatomySection.test.tsx src/features/company-inspector/dynamic-sections/DynamicEvidenceDeck.test.ts
 pnpm schemas:check
 ```
 

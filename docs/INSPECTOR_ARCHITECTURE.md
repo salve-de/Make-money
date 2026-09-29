@@ -6,13 +6,14 @@ Baseline: 02fb23e, CompanyInspectorPane.tsx 1,793 lines. No fetch or persistence
 | --- | --- | --- |
 | Scroll reset, Escape, section deep link | CompanyInspectorPane | local ref/scroll state and parent callbacks |
 | Money formatting, waterfall, hazard/status, card presence | model/inspector-model | pure FinancialEntity input |
-| Header, identity, temporal badge and section navigation | ui/CompanyHeader | explicit props |
+| Header, identity (name kept on every tab), tabs and case actions | ui/CompanyHeader | explicit props |
 | Related reports and market links | ui/RelatedResearch | existing catalog data, callbacks |
 | Variable evidence cards | dynamic-sections | typed card-kind registry, shared renderer |
-| Business identity fallback | ui/BusinessSections | entity, hazard and card presence |
-| Financial P&L and operations | ui/FinancialSection | pure calculated model |
-| Tool stack / hazard defense | ui/ToolsSection | existing affiliate config |
-| Traction / acquisition and PRO analysis | ui/PlaybookSections | entity and entitlement callback |
+| Business overview (事業の概要) | ui/ExecutiveIntuitiveSummary | entity and hazard mode |
+| Monthly P&L (月次損益) | ui/CashAnatomySection (reported) / ui/EstimatedCashSummary (estimated) | pure calculated model; unknown values stay 未確認, conflicts show 財務データ要照合 |
+| Operating metrics and tool costs (運営指標・ツール費用) | ui/FinancialOperationsSupplement | entity operations |
+| Business model and acquisition steps (事業モデル・顧客獲得・実行手順) | ui/LootBlueprintSection | entity and hazard mode |
+| PRO analysis (競争・価格・継続利用・資金効率 / 参入判断の材料) | ui/BusinessAnalysisSections | entity and entitlement callback |
 | Evidence timeline and observations | ui/EvidenceStream | existing universal stream |
 | Analyst notes | ui/AnalystNotes | parent-controlled note and save callback |
 
