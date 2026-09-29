@@ -29,6 +29,8 @@ const state = vi.hoisted(() => ({
   database: null as DatabaseSync | null,
   offline: false,
   keysSeen: [] as string[],
+  siteProven: true,
+  ownershipChecks: [] as Array<{ domain: string; token: string }>,
 }));
 
 vi.mock('@/lib/firebase/server', () => ({ verifyFirebaseIdToken: async () => state.user }));
@@ -42,6 +44,13 @@ vi.mock('@/lib/verification/entity-site', () => ({
   findEntitySite: vi.fn(async (id: string): Promise<Site | null> => {
     if (state.entityError) throw new Error('catalog unavailable');
     return state.entities[id.toLowerCase()] ?? null;
+  }),
+}));
+vi.mock('@/lib/verification/site-ownership', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/lib/verification/site-ownership')>()),
+  proveSiteOwnership: vi.fn(async (domain: string, token: string) => {
+    state.ownershipChecks.push({ domain, token });
+    return state.siteProven;
   }),
 }));
 vi.mock('@/lib/storage/d1', () => ({
@@ -69,7 +78,8 @@ vi.mock('@/lib/stripe', () => ({
 
 import { createStripeClientForKey } from '@/lib/stripe';
 import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
-import { POST } from './route';
+import { siteOwnershipToken } from '@/lib/verification/site-ownership';
+import { GET, POST } from './route';
 
 const page = <T,>(data: T[], hasMore = false): StripePage<T> => ({ data, has_more: hasMore });
 const monthlySubscription = (id: string, unitAmount: number) => ({
@@ -138,6 +148,8 @@ beforeEach(() => {
   state.onAccountRead = null;
   state.offline = false;
   state.keysSeen = [];
+  state.siteProven = true;
+  state.ownershipChecks = [];
   state.database = new DatabaseSync(':memory:');
   state.database.exec(readFileSync('migrations/d1/0012_verified_revenue.sql', 'utf8'));
   vi.clearAllMocks();
@@ -306,6 +318,42 @@ describe('POST /api/verification/stripe: the case and the site', () => {
     expect(response.status).toBe(200);
     expect(rows().map((row) => row.entity_id)).toEqual(['ent_example']);
     expect((await response.json()).verification.entityId).toBe('ent_example');
+  });
+});
+
+describe('POST /api/verification/stripe: proof of running the official site', () => {
+  it('refuses before touching Stripe when the site holds no token for this user, and says where to put it', async () => {
+    state.siteProven = false;
+    const body = await expectFailure(await submit(), 403, 'site_unproven') as { ownership?: Record<string, string> };
+    const token = siteOwnershipToken('owner-1', 'example.com');
+    expect(body.ownership).toEqual({ domain: 'example.com', token, fileUrl: 'https://example.com/.well-known/kinrokoku-verification.txt', dnsName: '_kinrokoku-verification.example.com' });
+    expect(state.ownershipChecks).toEqual([{ domain: 'example.com', token }]);
+    expect(createStripeClientForKey).not.toHaveBeenCalled();
+  });
+
+  it('binds the token to the signed-in user, so another user cannot reuse a published one', () => {
+    expect(siteOwnershipToken('owner-1', 'example.com')).not.toBe(siteOwnershipToken('attacker', 'example.com'));
+    expect(siteOwnershipToken('owner-1', 'example.com')).not.toBe(siteOwnershipToken('owner-1', 'other.com'));
+    expect(siteOwnershipToken('owner-1', 'example.com')).not.toContain('owner-1');
+  });
+});
+
+describe('GET /api/verification/stripe: the token to place', () => {
+  const get = (query: string, auth: string | null = 'Bearer valid-token') => GET(new NextRequest(`http://localhost/api/verification/stripe${query}`, { headers: auth ? { Authorization: auth } : {} }));
+
+  it('gives the signed-in user their own token for the case site', async () => {
+    const response = await get('?entity_id=ent_example');
+    expect(response.status).toBe(200);
+    expect(response.headers.get('cache-control')).toBe('private, no-store');
+    expect((await response.json()).ownership).toMatchObject({ domain: 'example.com', token: siteOwnershipToken('owner-1', 'example.com') });
+  });
+
+  it('refuses without sign-in, without a case, or for a case with no usable site', async () => {
+    expect((await get('?entity_id=ent_example', null)).status).toBe(401);
+    expect((await get('')).status).toBe(400);
+    expect((await get('?entity_id=ent_hidden')).status).toBe(404);
+    state.entities.ent_example = { entityId: 'ent_example', url: 'https://github.com/acme/app' };
+    expect((await get('?entity_id=ent_example')).status).toBe(403);
   });
 });
 

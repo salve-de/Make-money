@@ -46,6 +46,13 @@ export const VERIFICATION_COOLDOWN_SECONDS = 60 * 60;
 export const STRIPE_READ_PERMISSIONS = ['アカウント', '残高の取引', 'サブスクリプション'] as const;
 export type StripeReadPermission = (typeof STRIPE_READ_PERMISSIONS)[number];
 
+/** 運営者であることを示す合言葉を置く場所（公式サイトのファイル、またはDNSのTXTレコード名の先頭）。 */
+export const SITE_OWNERSHIP_FILE_PATH = '/.well-known/kinrokoku-verification.txt';
+export const SITE_OWNERSHIP_DNS_PREFIX = '_kinrokoku-verification';
+
+/** 合言葉と、置く場所。ログイン中の本人にだけ返す。 */
+export type SiteOwnershipChallenge = { domain: string; token: string; fileUrl: string; dnsName: string };
+
 export const VERIFICATION_ERROR_CODES = [
   'unauthorized',
   'invalid_request',
@@ -59,6 +66,7 @@ export const VERIFICATION_ERROR_CODES = [
   'entity_site_shared',
   'stripe_site_missing',
   'site_mismatch',
+  'site_unproven',
   'key_rejected',
   'permission_missing',
   'currency_missing',
@@ -77,4 +85,6 @@ export type VerificationErrorResponse = {
   permissions?: readonly StripeReadPermission[];
   /** cooldown のとき、次に確認できるまでの秒数。 */
   retryAfterSeconds?: number;
+  /** site_unproven のとき、公式サイトに置いてほしい合言葉。 */
+  ownership?: SiteOwnershipChallenge;
 };

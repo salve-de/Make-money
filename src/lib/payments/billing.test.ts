@@ -219,14 +219,14 @@ describe('checkout for monthly and yearly plans', () => {
     expect(oversized.status).toBe(413);
     expect(state.checkoutParams).toHaveLength(0);
   });
-  it('does not start a second subscription while one is renewing, but allows one after a cancellation is scheduled', async () => {
+  it('does not start a second subscription while one is renewing or still paid through a scheduled cancellation', async () => {
     const subscription = await completeSubscription();
     const blocked = await buy('pro-yearly');
     expect(blocked.status).toBe(409); expect((await blocked.json()).error).toContain('すでに月額・年額プランに加入しています');
-    expect(state.checkoutParams).toHaveLength(0);
     subscription.cancel_at_period_end = true;
-    expect((await buy('pro-yearly')).status).toBe(200);
-    expect(state.checkoutParams).toHaveLength(1);
+    const pending = await buy('pro-yearly');
+    expect(pending.status).toBe(409); expect((await pending.json()).error).toContain('解約予約中の契約が期間の終わりまで有効です');
+    expect(state.checkoutParams).toHaveLength(0);
   });
   it('allows a new subscription after the old one ended, or to a founding-pass holder', async () => {
     const subscription = await completeSubscription();

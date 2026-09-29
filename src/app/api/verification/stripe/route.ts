@@ -6,6 +6,7 @@ import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 import { createStripeClientForKey, paymentLiveMode } from '@/lib/stripe';
 import { findEntitySite, type EntitySite } from '@/lib/verification/entity-site';
 import { isSharedSiteDomain, siteDomain } from '@/lib/verification/site-domain';
+import { proveSiteOwnership, siteOwnershipDnsName, siteOwnershipToken } from '@/lib/verification/site-ownership';
 import { getLastVerifiedAt, insertVerification } from '@/lib/verification/store';
 import {
   readStripeVerification,
@@ -18,8 +19,10 @@ import {
 import { sha256Sync } from '@/shared/sha256';
 import { compileParser } from '@/shared/validate-json';
 import {
+  SITE_OWNERSHIP_FILE_PATH,
   STRIPE_READ_PERMISSIONS,
   VERIFICATION_COOLDOWN_SECONDS,
+  type SiteOwnershipChallenge,
   type VerificationErrorCode,
   type VerificationErrorResponse,
   type VerificationLookupResponse,
@@ -48,7 +51,7 @@ function respond(body: VerificationLookupResponse | VerificationErrorResponse, s
   return NextResponse.json(body, { status, headers: { ...headers, ...extraHeaders } });
 }
 
-function fail(status: number, code: VerificationErrorCode, error: string, extra: Pick<VerificationErrorResponse, 'permissions' | 'retryAfterSeconds'> = {}, extraHeaders: Record<string, string> = {}) {
+function fail(status: number, code: VerificationErrorCode, error: string, extra: Pick<VerificationErrorResponse, 'permissions' | 'retryAfterSeconds' | 'ownership'> = {}, extraHeaders: Record<string, string> = {}) {
   return respond({ error, code, ...extra }, status, extraHeaders);
 }
 
@@ -117,6 +120,42 @@ function outcomeFailure(outcome: Exclude<StripeVerificationOutcome, { status: 'v
   }
 }
 
+function ownershipChallenge(userId: string, domain: string): SiteOwnershipChallenge {
+  return { domain, token: siteOwnershipToken(userId, domain), fileUrl: `https://${domain}${SITE_OWNERSHIP_FILE_PATH}`, dnsName: siteOwnershipDnsName(domain) };
+}
+
+type OfficialSite = { ok: true; site: EntitySite; domain: string } | { ok: false; response: NextResponse };
+
+async function officialSite(entityId: string): Promise<OfficialSite> {
+  let site: EntitySite | null;
+  try {
+    site = await findEntitySite(entityId.trim());
+  } catch (error) {
+    logFailure('case lookup failed', error);
+    return { ok: false, response: fail(503, 'unavailable', '事例の情報を取得できません。しばらくしてからもう一度お試しください') };
+  }
+  if (!site) return { ok: false, response: fail(404, 'not_found', '事例が見つかりません') };
+  const domain = siteDomain(site.url);
+  if (!domain) {
+    return { ok: false, response: fail(403, 'entity_site_missing', 'この事例には公式サイトが登録されていないため、決済アカウントと照合できません') };
+  }
+  if (isSharedSiteDomain(domain)) {
+    return { ok: false, response: fail(403, 'entity_site_shared', 'この事例の公式サイトは共有サービス上のページのため、決済アカウントのサイトとの一致では持ち主を確認できません') };
+  }
+  return { ok: true, site, domain };
+}
+
+/** ログイン中の本人に、公式サイトへ置く合言葉を返す。 */
+export async function GET(request: NextRequest) {
+  const userId = await userIdFrom(request);
+  if (!userId) return fail(401, 'unauthorized', 'ログインしてから、もう一度お試しください');
+  const entityId = request.nextUrl.searchParams.get('entity_id');
+  if (!entityId || entityId.length > 200 || !/\S/.test(entityId)) return fail(400, 'invalid_request', '事例IDを送ってください');
+  const official = await officialSite(entityId);
+  if (!official.ok) return official.response;
+  return NextResponse.json({ ownership: ownershipChallenge(userId, official.domain) }, { headers });
+}
+
 /**
  * 事例の運営者が、自分のStripeの読み取り専用キーで実際の売上を確認する。
  * キーはこの1回の確認にだけ使い、保存もログ出力もしない。
@@ -157,21 +196,9 @@ export async function POST(request: NextRequest) {
     return fail(503, 'unavailable', 'いまは確認できません。しばらくしてからもう一度お試しください');
   }
 
-  let site: EntitySite | null;
-  try {
-    site = await findEntitySite(body.entityId.trim());
-  } catch (error) {
-    logFailure('case lookup failed', error);
-    return fail(503, 'unavailable', '事例の情報を取得できません。しばらくしてからもう一度お試しください');
-  }
-  if (!site) return fail(404, 'not_found', '事例が見つかりません');
-  const officialDomain = siteDomain(site.url);
-  if (!officialDomain) {
-    return fail(403, 'entity_site_missing', 'この事例には公式サイトが登録されていないため、決済アカウントと照合できません');
-  }
-  if (isSharedSiteDomain(officialDomain)) {
-    return fail(403, 'entity_site_shared', 'この事例の公式サイトは共有サービス上のページのため、決済アカウントのサイトとの一致では持ち主を確認できません');
-  }
+  const official = await officialSite(body.entityId);
+  if (!official.ok) return official.response;
+  const { site, domain: officialDomain } = official;
 
   const now = Math.floor(Date.now() / 1000);
   try {
@@ -180,6 +207,12 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     logFailure('cooldown check failed', error);
     return fail(503, 'unavailable', 'いまは確認できません。しばらくしてからもう一度お試しください');
+  }
+
+  // Stripeのサイト欄は誰でも書き換えられるので、公式サイトを運営している証拠を先に確かめる。
+  const ownership = ownershipChallenge(userId, officialDomain);
+  if (!await proveSiteOwnership(officialDomain, ownership.token)) {
+    return fail(403, 'site_unproven', `公式サイトの運営者であることを確認できませんでした。${ownership.fileUrl} に合言葉を置くか、DNSの ${ownership.dnsName} にTXTレコードとして登録してから、もう一度お試しください`, { ownership });
   }
 
   let outcome: StripeVerificationOutcome;

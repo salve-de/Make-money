@@ -1,4 +1,4 @@
-import type { VerificationErrorResponse, VerifiedEntity, VerifiedRevenue } from '@/shared/verification';
+import type { SiteOwnershipChallenge, VerificationErrorResponse, VerifiedEntity, VerifiedRevenue } from '@/shared/verification';
 
 /** Stripeが小数を持たない通貨（金額の最小単位＝そのままの額）。 */
 const ZERO_DECIMAL = new Set(['BIF', 'CLP', 'DJF', 'GNF', 'JPY', 'KMF', 'KRW', 'MGA', 'PYG', 'RWF', 'UGX', 'VND', 'VUV', 'XAF', 'XOF', 'XPF']);
@@ -89,10 +89,14 @@ export function readVerifiedEntities(value: unknown): VerifiedEntity[] {
 }
 
 /** 失敗時の応答から、画面に出す文と、Stripeで付けてほしい権限を取り出す。 */
-export function readVerificationError(value: unknown, fallback: string): { error: string; permissions?: readonly string[] } {
+export function readVerificationError(value: unknown, fallback: string): { error: string; permissions?: readonly string[]; ownership?: SiteOwnershipChallenge } {
   const body = (value && typeof value === 'object' ? value : {}) as Partial<VerificationErrorResponse>;
+  const ownership = body.ownership;
   return {
     error: typeof body.error === 'string' && body.error ? body.error : fallback,
     permissions: Array.isArray(body.permissions) ? body.permissions.filter((item) => typeof item === 'string') : undefined,
+    ownership: ownership && typeof ownership === 'object'
+      && [ownership.domain, ownership.token, ownership.fileUrl, ownership.dnsName].every((item) => typeof item === 'string')
+      ? ownership : undefined,
   };
 }

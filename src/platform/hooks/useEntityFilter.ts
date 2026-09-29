@@ -119,10 +119,15 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
   }, [filterParam, batchParam]);
 
   useEffect(() => {
+    // URLから条件が消えたとき（戻る・同じページ内の移動）も、画面の絞り込みを外してURLに合わせる。
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (tagsKey) setActiveTags(tagsKey.split(','));
-    if (screenerKey) setScreenerFilters(JSON.parse(screenerKey) as ScreenerFilterState);
-  }, [tagsKey, screenerKey]);
+    setActiveTags(tagsKey ? tagsKey.split(',') : []);
+  }, [tagsKey]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setScreenerFilters(screenerKey ? JSON.parse(screenerKey) as ScreenerFilterState : null);
+  }, [screenerKey]);
 
   const handleToggleTag = useCallback((tag: string | null) => {
     if (!tag) { setActiveTags([]); return; }

@@ -58,13 +58,16 @@ export async function POST(request: Request) {
     const appUrl = await getRuntimeEnvValue("NEXT_PUBLIC_APP_URL") || new URL(request.url).origin;
 
     if (subscriptionOffer) {
-      // すでに更新される月額・年額があるなら、二重に課金しないよう新しい契約は作らない。
-      // 解約予約済みなら、そのまま次の契約を始められる。
+      // 有効な月額・年額があるうちは、二重に課金しないよう新しい契約は作らない。
+      // 解約予約済みでも期間が終わるまでは請求期間が重なるので、同じく止める。
       let current: BillingInspection;
       try { current = await inspectBilling(userId); }
       catch { return NextResponse.json({ error: "購入状況を確認できないため購入を開始できません" }, { status: 503 }); }
-      if (current.activeSubscription && !current.cancelAtPeriodEnd) {
-        return NextResponse.json({ error: "すでに月額・年額プランに加入しています。変更や解約は契約の管理画面から行ってください" }, { status: 409 });
+      if (current.activeSubscription) {
+        const error = current.cancelAtPeriodEnd
+          ? "解約予約中の契約が期間の終わりまで有効です。続ける場合は契約の管理画面で解約予約を取り消してください"
+          : "すでに月額・年額プランに加入しています。変更や解約は契約の管理画面から行ってください";
+        return NextResponse.json({ error }, { status: 409 });
       }
       const session = await stripe.checkout.sessions.create({
         mode: "subscription",

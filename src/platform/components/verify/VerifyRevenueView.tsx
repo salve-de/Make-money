@@ -5,13 +5,14 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { AuthModal } from '@/components/auth/AuthModal';
 import type { FinancialEntity } from '@/shared/terminal';
-import { STRIPE_READ_PERMISSIONS, type VerifiedRevenue } from '@/shared/verification';
+import { STRIPE_READ_PERMISSIONS, type SiteOwnershipChallenge, type VerifiedRevenue } from '@/shared/verification';
 import { isSharedSiteDomain, siteDomain } from '@/lib/verification/site-domain';
 import { loadEntityDetail } from '@/platform/hooks/entity-detail-loader';
 import { refreshVerifiedEntityIds } from '@/platform/hooks/useVerifiedEntityIds';
 import { readVerificationError, readVerifiedRevenue, verifiedRevenueRows } from '@/platform/model/verified-revenue-view';
 
 type Loaded = { entityId: string; entity: FinancialEntity | null; failed: boolean };
+type Challenge = { entityId: string; ownership: SiteOwnershipChallenge | null };
 type SubmitState =
   | { status: 'idle' | 'sending' }
   | { status: 'verified'; verification: VerifiedRevenue }
@@ -26,6 +27,22 @@ export function VerifyRevenueView({ entityId }: { entityId: string | null }) {
   const [key, setKey] = useState('');
   const [state, setState] = useState<SubmitState>({ status: 'idle' });
   const [showAuth, setShowAuth] = useState(false);
+  const [challenge, setChallenge] = useState<Challenge | null>(null);
+
+  useEffect(() => {
+    // 公式サイトに置く合言葉は、ログイン中の本人ごとに決まる
+    if (!entityId || !user) return;
+    let cancelled = false;
+    (async () => {
+      const response = await fetch(`/api/verification/stripe?entity_id=${encodeURIComponent(entityId)}`, {
+        headers: { Authorization: `Bearer ${await user.getIdToken()}` },
+        cache: 'no-store',
+      });
+      const body = response.ok ? await response.json() as { ownership?: SiteOwnershipChallenge } : null;
+      if (!cancelled) setChallenge({ entityId, ownership: body?.ownership ?? null });
+    })().catch(() => { if (!cancelled) setChallenge({ entityId, ownership: null }); });
+    return () => { cancelled = true; };
+  }, [entityId, user]);
 
   useEffect(() => {
     if (!entityId) return;
@@ -51,6 +68,7 @@ export function VerifyRevenueView({ entityId }: { entityId: string | null }) {
   const entity = current.entity;
   const domain = siteDomain(entity.url);
   const checkable = Boolean(domain && !isSharedSiteDomain(domain));
+  const ownership = user && challenge?.entityId === entityId ? challenge.ownership : null;
 
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -77,6 +95,7 @@ export function VerifyRevenueView({ entityId }: { entityId: string | null }) {
       if (response.status === 401) setShowAuth(true);
       const failure = readVerificationError(body, '確認できませんでした。時間をおいてから、もう一度お試しください');
       setState({ status: 'error', message: failure.error, permissions: failure.permissions });
+      if (failure.ownership) setChallenge({ entityId: entity.id, ownership: failure.ownership });
     } catch {
       setState({ status: 'error', message: '通信できませんでした。接続を確かめて、もう一度お試しください' });
     }
@@ -115,6 +134,18 @@ export function VerifyRevenueView({ entityId }: { entityId: string | null }) {
             <li>Stripeのダッシュボードで「開発者」→「APIキー」を開き、「制限付きキーを作成」を選びます。</li>
             <li>権限は「{STRIPE_READ_PERMISSIONS.join('」「')}」の3つだけを「読み取り」にします。書き込みの権限は付けません。</li>
             <li>Stripeのビジネス設定のWebサイトに、<span className="term-num">{domain}</span> が登録されていることを確かめます。</li>
+            <li>
+              公式サイトの運営者であることを示すため、次の合言葉を置きます。どちらか1つで足ります。
+              {ownership ? (
+                <div className="mt-1.5 space-y-1.5 text-xs text-term-sub">
+                  <p className="break-all font-mono text-sm text-term-fg-strong">{ownership.token}</p>
+                  <p>サイトのファイル: <span className="break-all font-mono text-term-fg">{ownership.fileUrl}</span> に、この合言葉だけを書いたテキストを置く</p>
+                  <p>DNS: <span className="break-all font-mono text-term-fg">{ownership.dnsName}</span> に、この合言葉をTXTレコードとして登録する</p>
+                </div>
+              ) : (
+                <p className="mt-1 text-xs text-term-sub">{user ? '合言葉を読み込んでいます…' : 'ログインすると、あなた専用の合言葉が表示されます。'}</p>
+              )}
+            </li>
             <li>作ったキー（rk_ で始まるキー）を下に貼り付けて、「確認する」を押します。</li>
           </ol>
           <form onSubmit={submit} aria-label="制限付きキーで確認" className="mt-3 max-w-xl space-y-2">
@@ -147,6 +178,7 @@ export function VerifyRevenueView({ entityId }: { entityId: string | null }) {
           </form>
           <ul className="mt-3 max-w-2xl space-y-1 text-xs leading-5 text-term-label">
             <li>キーはこの確認に1回だけ使い、保存もログへの記録もしません。送った時点で入力欄から消えます。</li>
+            <li>合言葉はあなたのアカウント専用です。公開されても、ほかの人の確認には使えません。確認が済んだら消してかまいません。</li>
             <li>読むのは、直近30日の売上（返金を引いた額）、有効な契約の件数と月額の合計、決済アカウントのサイトと通貨だけです。顧客やカードの情報は読みません。</li>
             <li>同じ事例の確認は、1時間に1回までです。</li>
           </ul>

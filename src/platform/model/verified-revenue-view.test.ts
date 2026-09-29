@@ -80,4 +80,15 @@ describe('response readers', () => {
       .toEqual({ error: '権限がありません', permissions: ['アカウント'] });
     expect(readVerificationError(null, '確認できませんでした')).toEqual({ error: '確認できませんでした', permissions: undefined });
   });
+
+  it('keeps where to put the site token when the site could not be proven, and drops a broken one', () => {
+    const ownership = {
+      domain: 'photoai.com',
+      token: 'kinrokoku-verify-abc',
+      fileUrl: 'https://photoai.com/.well-known/kinrokoku-verification.txt',
+      dnsName: '_kinrokoku-verification.photoai.com',
+    };
+    expect(readVerificationError({ error: '確認できませんでした', code: 'site_unproven', ownership }, 'x').ownership).toEqual(ownership);
+    expect(readVerificationError({ error: 'x', ownership: { domain: 'photoai.com', token: 1 } }, 'x').ownership).toBeUndefined();
+  });
 });
