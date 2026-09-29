@@ -9455,7 +9455,7 @@
     "normName": "immigenceos",
     "ticker": "IH0CDF56B2",
     "domain": "immigence.ca",
-    "sector": "LOCAL_SERVICES",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9485,7 +9485,7 @@
     "normName": "coinbird",
     "ticker": "IH1FF3CA09",
     "domain": "coinbird.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9496,7 +9496,7 @@
     "ticker": "IH25CB507E",
     "domain": "benefits-copilot.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9515,7 +9515,7 @@
     "normName": "developmentservices",
     "ticker": "IH73F660F2",
     "domain": "expertdevtech.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9525,7 +9525,7 @@
     "normName": "kadimagrow",
     "ticker": "IHE91ECC6A",
     "domain": "kadimadigital.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9535,7 +9535,7 @@
     "normName": "strumacecustommousepads",
     "ticker": "IH02C9F50C",
     "domain": "strumace.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9545,8 +9545,8 @@
     "normName": "wasenderpluginforwhatsappweb",
     "ticker": "IHE7E6AD01",
     "domain": "wasender.ai",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9555,7 +9555,7 @@
     "normName": "outrank.websiteseocompany",
     "ticker": "IH35D95BEA",
     "domain": "outrank.website",
-    "sector": "CONTENT_MEDIA",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9565,8 +9565,8 @@
     "normName": "loopzgiftcards",
     "ticker": "IH89DA9B68",
     "domain": "loopz.io",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9576,7 +9576,7 @@
     "ticker": "IHE967DBE7",
     "domain": "careersidekick.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9585,8 +9585,8 @@
     "normName": "interviewbuddy",
     "ticker": "IH59823D62",
     "domain": "interviewbuddy.net",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9595,7 +9595,7 @@
     "normName": "reviewsonmywebsite",
     "ticker": "IH88C63B1D",
     "domain": "reviewsonmywebsite.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9606,7 +9606,7 @@
     "ticker": "IHD9B8A365",
     "domain": "editionguard.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9615,8 +9615,8 @@
     "normName": "contentallies",
     "ticker": "IH7ACE542C",
     "domain": "contentallies.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9625,7 +9625,7 @@
     "normName": "growthpods",
     "ticker": "IH2E0E4937",
     "domain": "growthpods.org",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9636,7 +9636,7 @@
     "ticker": "IHF5AAB807",
     "domain": "statbot.io",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9646,7 +9646,7 @@
     "ticker": "IH7002E47D",
     "domain": "hyperping.io",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9655,8 +9655,8 @@
     "normName": "activatedscale",
     "ticker": "IHAD82D1EC",
     "domain": "activatedscale.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9665,7 +9665,7 @@
     "normName": "vetta",
     "ticker": "IHF25DB159",
     "domain": "getvetta.ai",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9675,8 +9675,8 @@
     "normName": "leguphealth",
     "ticker": "IH718BC73F",
     "domain": "leguphealth.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9685,8 +9685,8 @@
     "normName": "swipeconversionstrategiesdatabase",
     "ticker": "IH11D631C0",
     "domain": "swipe.page",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9695,7 +9695,7 @@
     "normName": "mcrdse",
     "ticker": "IH3AC37948",
     "domain": "mcrdse.ca",
-    "sector": "LOCAL_SERVICES",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9705,8 +9705,8 @@
     "normName": "ipdefender",
     "ticker": "IH755FF3BC",
     "domain": "ipdefender.eu",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9716,7 +9716,7 @@
     "ticker": "IHFFC600AA",
     "domain": "trustmrr.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9725,7 +9725,7 @@
     "normName": "conveythis",
     "ticker": "IH7B5CA421",
     "domain": "conveythis.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9735,8 +9735,8 @@
     "normName": "justgogrindcommunity",
     "ticker": "IH88631D7E",
     "domain": "airtable.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9755,8 +9755,8 @@
     "normName": "adoovy",
     "ticker": "IH56BC9F88",
     "domain": "adoovy.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9766,7 +9766,7 @@
     "ticker": "IHA1DAD134",
     "domain": "studiowombat.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9775,8 +9775,8 @@
     "normName": "themarketingvault",
     "ticker": "IH388D6F72",
     "domain": "marketerprompts.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9795,7 +9795,7 @@
     "normName": "tableai",
     "ticker": "IHE1BDC45A",
     "domain": "usetableai.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9805,7 +9805,7 @@
     "normName": "shelfcents:mealplanner&caloriescounter",
     "ticker": "IHE74717B4",
     "domain": "shelfcents.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9815,7 +9815,7 @@
     "normName": "righttailcorp",
     "ticker": "IH49096FA9",
     "domain": "righttail.co",
-    "sector": "AI_AUTOMATION",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9826,7 +9826,7 @@
     "ticker": "IH4F62D7AB",
     "domain": "keytomic.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9835,7 +9835,7 @@
     "normName": "synoril.com",
     "ticker": "IH7E9EDBC2",
     "domain": "synoril.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9845,7 +9845,7 @@
     "normName": "mailthentic",
     "ticker": "IHBF8F98A8",
     "domain": "mailthentic.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9856,7 +9856,7 @@
     "ticker": "IHB06E9202",
     "domain": "futurocorp.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9865,7 +9865,7 @@
     "normName": "plugskyunlimitedaimodelusage",
     "ticker": "IH5B7E6296",
     "domain": "plugsky.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9885,7 +9885,7 @@
     "normName": "companyautomator'slegalpro",
     "ticker": "IH8E019BF4",
     "domain": "companyautomator.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9895,7 +9895,7 @@
     "normName": "vantacron",
     "ticker": "IH1B997F44",
     "domain": "vantacron.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9905,7 +9905,7 @@
     "normName": "bulkbarcodegenerator",
     "ticker": "IH2A10B5A8",
     "domain": "bulkbarcode-generator.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9915,8 +9915,8 @@
     "normName": "dialmain",
     "ticker": "IHAD66DB6C",
     "domain": "dialmain.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9925,7 +9925,7 @@
     "normName": "cueballcreatives",
     "ticker": "IH6A5209BE",
     "domain": "cueballcreatives.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9935,7 +9935,7 @@
     "normName": "proptradingvibes",
     "ticker": "IH39586D81",
     "domain": "proptradingvibes.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9946,7 +9946,7 @@
     "ticker": "IHC0B285F8",
     "domain": "sesen.ai",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9956,7 +9956,7 @@
     "ticker": "IH576370D0",
     "domain": "wordy.info",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -9985,7 +9985,7 @@
     "normName": "zyroai",
     "ticker": "IH0CB1715E",
     "domain": "zyro.world",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -9995,7 +9995,7 @@
     "normName": "daasy",
     "ticker": "IH6F47E1DC",
     "domain": "daasy.app",
-    "sector": "AI_AUTOMATION",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10005,7 +10005,7 @@
     "normName": "techdecisionmakersdatapack",
     "ticker": "IH7C2A3EAF",
     "domain": "saurbhspark.gumroad.com",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10015,7 +10015,7 @@
     "normName": "tswhomestainlesssteelproducts",
     "ticker": "IH3E8FB35B",
     "domain": "tswhome.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10025,7 +10025,7 @@
     "normName": "vittorioesposito",
     "ticker": "IH68557E06",
     "domain": "vittorioexp.dev",
-    "sector": "NICHE_SAAS",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10045,7 +10045,7 @@
     "normName": "websitedevelopment",
     "ticker": "IH2253BB55",
     "domain": "nakshatranamahacreations.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10065,7 +10065,7 @@
     "normName": "crunchzapp",
     "ticker": "IH282A8F70",
     "domain": "crunchz.app",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10075,8 +10075,8 @@
     "normName": "socialflowmachine",
     "ticker": "IHE32DD542",
     "domain": "offer.socialflowmachine.pro",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10085,8 +10085,8 @@
     "normName": "highendgpugraphicscardaiaccelerator",
     "ticker": "IH2D2C044A",
     "domain": "buysellram.com",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10095,7 +10095,7 @@
     "normName": "honterstudio",
     "ticker": "IHED4FCDFB",
     "domain": "honterstudio.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10106,7 +10106,7 @@
     "ticker": "IH94D42062",
     "domain": "slidescarnival.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10116,7 +10116,7 @@
     "ticker": "IH8EA96E17",
     "domain": "leadgraph.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10125,8 +10125,8 @@
     "normName": "snowballcreations",
     "ticker": "IH51B66629",
     "domain": "snowballcreations.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10136,7 +10136,7 @@
     "ticker": "IH3466107D",
     "domain": "anexplorer.io",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10145,8 +10145,8 @@
     "normName": "saasbusinessbroker",
     "ticker": "IH89CE42E6",
     "domain": "davidjacobsbusinessbroker.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10165,8 +10165,8 @@
     "normName": "rotatewatcheswatchmakingkits",
     "ticker": "IH1A6BE773",
     "domain": "rotatewatches.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10175,8 +10175,8 @@
     "normName": "snowhousestudio",
     "ticker": "IH1FA41608",
     "domain": "snowhouse.studio",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10185,8 +10185,8 @@
     "normName": "lowcodeagency",
     "ticker": "IH02B3147D",
     "domain": "lowcode.agency",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10196,7 +10196,7 @@
     "ticker": "IHE7A1FE86",
     "domain": "sqspthemes.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10466,7 +10466,7 @@
     "ticker": "IH4CBAF221",
     "domain": "quicklaunch.in",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10475,8 +10475,8 @@
     "normName": "hakeema",
     "ticker": "IH1EEE6885",
     "domain": "hakeema.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10485,7 +10485,7 @@
     "normName": "targetup|facebookinterestfindingtool",
     "ticker": "IH4CFE224C",
     "domain": "usetargetup.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10495,8 +10495,8 @@
     "normName": "mexicantraindominoes",
     "ticker": "IHD0D0221A",
     "domain": "mexicantrain.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10505,8 +10505,8 @@
     "normName": "codefreestartup",
     "ticker": "IH6F0AAB03",
     "domain": "codefree.co",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10515,8 +10515,8 @@
     "normName": "formcrafts",
     "ticker": "IH68CD9434",
     "domain": "formcrafts.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10525,8 +10525,8 @@
     "normName": "socialrocketship",
     "ticker": "IHCFCEFF80",
     "domain": "socialrocketship.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10556,7 +10556,7 @@
     "ticker": "IHB27B43AD",
     "domain": "vocal.email",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10566,7 +10566,7 @@
     "ticker": "IHC5129A91",
     "domain": "bazzly.ai",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10586,7 +10586,7 @@
     "ticker": "IH30F351D5",
     "domain": "textbelt.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -10595,7 +10595,7 @@
     "normName": "cybersecurityfeedbacksite",
     "ticker": "IH2FE41513",
     "domain": "vitb-polimi-cyber-v4.vercel.app",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10615,7 +10615,7 @@
     "normName": "buypremiumkratom",
     "ticker": "IH5C21CEC4",
     "domain": "jackbotanicals.com",
-    "sector": "LOCAL_SERVICES",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10635,7 +10635,7 @@
     "normName": "evenpairs",
     "ticker": "IHABDEB049",
     "domain": "evenpairs.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10645,7 +10645,7 @@
     "normName": "revenuemultiplicationengine",
     "ticker": "IHC3C8F08D",
     "domain": "docs.google.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10665,7 +10665,7 @@
     "normName": "dropcontent",
     "ticker": "IHDA707C00",
     "domain": "dropcontent.co",
-    "sector": "CONTENT_MEDIA",
+    "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10695,7 +10695,7 @@
     "normName": "chatgonow",
     "ticker": "IH935B1D3D",
     "domain": "chatgonow.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11705,7 +11705,7 @@
     "normName": "logocreator",
     "ticker": "IH69434D3B",
     "domain": "logocreator.app",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11746,7 +11746,7 @@
     "ticker": "IH5958DD0A",
     "domain": "frontpage.host",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -11765,7 +11765,7 @@
     "normName": "wooninjas",
     "ticker": "IH8C6EEC26",
     "domain": "wooninjas.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11845,7 +11845,7 @@
     "normName": "toolsweb",
     "ticker": "IHF5A2759F",
     "domain": "toolsweb.io",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11875,7 +11875,7 @@
     "normName": "starwarsnamegenerator",
     "ticker": "IH91F29AFB",
     "domain": "starwarsnamegenerator.com",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11905,7 +11905,7 @@
     "normName": "paperanimaor",
     "ticker": "IHD9D3953D",
     "domain": "paperanimators.in",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11915,7 +11915,7 @@
     "normName": "scamdrillforfamilies",
     "ticker": "IHEAC3464E",
     "domain": "scamdrill.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11925,7 +11925,7 @@
     "normName": "doctransfer",
     "ticker": "IHE425A075",
     "domain": "doctransfer.app",
-    "sector": "FINTECH_INFRA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -11945,7 +11945,7 @@
     "normName": "ecoinkly",
     "ticker": "IHF3F76FC0",
     "domain": "ecoinkly.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -12955,8 +12955,8 @@
     "normName": "metrikal",
     "ticker": "IHD0C91C32",
     "domain": "metrikal.io",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -12965,8 +12965,8 @@
     "normName": "affilisting",
     "ticker": "IHE2078C4B",
     "domain": "affilisting.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -12976,7 +12976,7 @@
     "ticker": "IH0323FAAF",
     "domain": "loggle.io",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -12986,7 +12986,7 @@
     "ticker": "IH6B54270D",
     "domain": "znicrm.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -12995,8 +12995,8 @@
     "normName": "softwareideas.io",
     "ticker": "IHE06702A7",
     "domain": "softwareideas.io",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13005,8 +13005,8 @@
     "normName": "onlinesolitaire",
     "ticker": "IHC552E590",
     "domain": "online-solitaire.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13015,7 +13015,7 @@
     "normName": "royaloakfurnitures",
     "ticker": "IHD4A574D1",
     "domain": "royaloakindia.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13026,7 +13026,7 @@
     "ticker": "IH2435D8D3",
     "domain": "sslzen.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13035,8 +13035,8 @@
     "normName": "mybrandnewlogo",
     "ticker": "IH40B92530",
     "domain": "mybrandnewlogo.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13046,7 +13046,7 @@
     "ticker": "IH410EA652",
     "domain": "closet.tools",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13056,7 +13056,7 @@
     "ticker": "IHEED7A2C0",
     "domain": "gofullpage.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13065,8 +13065,8 @@
     "normName": "seaweedshakers",
     "ticker": "IH13F0A4CC",
     "domain": "ebbtides.co.uk",
-    "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13075,8 +13075,8 @@
     "normName": "learnux.io",
     "ticker": "IH2738C7D0",
     "domain": "learnux.io",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13085,8 +13085,8 @@
     "normName": "brandedfruit",
     "ticker": "IH5F180FB6",
     "domain": "brandedfruit.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13096,7 +13096,7 @@
     "ticker": "IH969174E1",
     "domain": "thepodcasthost.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13106,7 +13106,7 @@
     "ticker": "IHCA9A3DBE",
     "domain": "backpackforlaravel.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13115,8 +13115,8 @@
     "normName": "marienereyewear",
     "ticker": "IH91E591F3",
     "domain": "mariener.nl",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13125,7 +13125,7 @@
     "normName": "rupeshghimirebrandinganddigitalmarketing",
     "ticker": "IH8830DD80",
     "domain": "rupeshghimire.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13135,7 +13135,7 @@
     "normName": "keptify",
     "ticker": "IHF19A89D7",
     "domain": "keptify.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13146,7 +13146,7 @@
     "ticker": "IH6E5F565F",
     "domain": "izmirmekanrehberi.com",
     "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13155,7 +13155,7 @@
     "normName": "viraloctopus",
     "ticker": "IH0E032099",
     "domain": "viraloctopus.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "UNKNOWN",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13165,8 +13165,8 @@
     "normName": "wheelofpopups",
     "ticker": "IHFADF7FA0",
     "domain": "wheelofpopups.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13175,7 +13175,7 @@
     "normName": "tlakapp",
     "ticker": "IH68EA8CB2",
     "domain": "tlakapp.com",
-    "sector": "LOCAL_SERVICES",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13185,7 +13185,7 @@
     "normName": "zingrmeetpeople.makenewfriends.chat.",
     "ticker": "IH5EA73FE4",
     "domain": "zingr.app",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13195,7 +13195,7 @@
     "normName": "betapeak",
     "ticker": "IH14CDC458",
     "domain": "betapeak.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "UNKNOWN",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13205,8 +13205,8 @@
     "normName": "wpsaas",
     "ticker": "IHCAA77695",
     "domain": "wpsaas.net",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "UNKNOWN",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13215,8 +13215,8 @@
     "normName": "quixpagebuilder",
     "ticker": "IH7560ACAB",
     "domain": "themexpert.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13226,7 +13226,7 @@
     "ticker": "IHD3B5BE78",
     "domain": "momtestbook.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13235,7 +13235,7 @@
     "normName": "shopeasy.ai",
     "ticker": "IHEFD20D1C",
     "domain": "shopeasy.ai",
-    "sector": "FINTECH_INFRA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13245,7 +13245,7 @@
     "normName": "w3rocks",
     "ticker": "IH151B8B7E",
     "domain": "marketing.w3rocks.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13255,7 +13255,7 @@
     "normName": "luxuryldreplicabagsproviderhightquality1:1",
     "ticker": "IHE97814D8",
     "domain": "ldluxurybags.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13265,7 +13265,7 @@
     "normName": "studymateultra",
     "ticker": "IH171418DB",
     "domain": "app-80w1ta9dnym9.appmedo.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13275,7 +13275,7 @@
     "normName": "dynamicslabs",
     "ticker": "IH0F12A2C0",
     "domain": "dynamicslabs.io",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13285,7 +13285,7 @@
     "normName": "tweakr",
     "ticker": "IH022A5B2C",
     "domain": "tweakr.app",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13296,7 +13296,7 @@
     "ticker": "IHDBB364C1",
     "domain": "everyday.app",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13306,7 +13306,7 @@
     "ticker": "IH239B626B",
     "domain": "learninpublic.org",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13335,8 +13335,8 @@
     "normName": "avium",
     "ticker": "IHE003CC92",
     "domain": "avium.vip",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "UNKNOWN",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13345,7 +13345,7 @@
     "normName": "occuz",
     "ticker": "IHB420BE75",
     "domain": "occuz.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13355,7 +13355,7 @@
     "normName": "hxjxns",
     "ticker": "IHE479D128",
     "domain": "example.com",
-    "sector": "NICHE_SAAS",
+    "sector": "UNKNOWN",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13365,7 +13365,7 @@
     "normName": "wesaidnotometa—andprinteditonashirt",
     "ticker": "IH4F74E0AB",
     "domain": "amazeafashion.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13376,7 +13376,7 @@
     "ticker": "IH0C095103",
     "domain": "draculatheme.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13385,8 +13385,8 @@
     "normName": "osyro",
     "ticker": "IH48E6476D",
     "domain": "osyro.com",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13395,7 +13395,7 @@
     "normName": "wafflegamedailychallenge",
     "ticker": "IH85AA2808",
     "domain": "hellowordl.cc",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -13406,7 +13406,7 @@
     "ticker": "IH110007DD",
     "domain": "testingbot.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13415,8 +13415,8 @@
     "normName": "hugeiconspro",
     "ticker": "IH0E763C72",
     "domain": "hugeicons.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13435,8 +13435,8 @@
     "normName": "azdirectorio",
     "ticker": "IH64F15D78",
     "domain": "azdirectorio.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -13445,8 +13445,8 @@
     "normName": "communer",
     "ticker": "IHFBB5E0FC",
     "domain": "communer.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "UNKNOWN",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14206,7 +14206,7 @@
     "ticker": "IHEF756F2B",
     "domain": "thisweekinreact.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14216,7 +14216,7 @@
     "ticker": "IHF3F462C2",
     "domain": "getaicollective.in",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14225,8 +14225,8 @@
     "normName": "latkamagazine",
     "ticker": "IHF0E578C6",
     "domain": "nathanlatka.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14236,7 +14236,7 @@
     "ticker": "IHBE5875AB",
     "domain": "portal.app",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14245,8 +14245,8 @@
     "normName": "reviewshake",
     "ticker": "IH2E3A1FEE",
     "domain": "reviewshake.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14255,8 +14255,8 @@
     "normName": "batinstudio",
     "ticker": "IH8CD489D7",
     "domain": "batinstudio.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14266,7 +14266,7 @@
     "ticker": "IH13910A7F",
     "domain": "thankjohn.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14276,7 +14276,7 @@
     "ticker": "IH9CE68766",
     "domain": "awesound.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14286,7 +14286,7 @@
     "ticker": "IH8F090AA2",
     "domain": "underpricedai.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14295,8 +14295,8 @@
     "normName": "radaar",
     "ticker": "IH5F8F3603",
     "domain": "radaar.io",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14315,7 +14315,7 @@
     "normName": "recruitmentcrm",
     "ticker": "IHE519BBB9",
     "domain": "dgrecruitment.services",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -14375,7 +14375,7 @@
     "normName": "webscension",
     "ticker": "IHB37227CF",
     "domain": "webscension.co",
-    "sector": "AI_AUTOMATION",
+    "sector": "FINTECH_INFRA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -14385,7 +14385,7 @@
     "normName": "callbridge",
     "ticker": "IH43E72CC5",
     "domain": "callbridge.live",
-    "sector": "NICHE_SAAS",
+    "sector": "FINTECH_INFRA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -14395,7 +14395,7 @@
     "normName": "startupwars",
     "ticker": "IHA7E6814D",
     "domain": "startupwars.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -14416,7 +14416,7 @@
     "ticker": "IH0F2183A8",
     "domain": "drillerdb.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14425,8 +14425,8 @@
     "normName": "onlysocial",
     "ticker": "IH2F1916F1",
     "domain": "onlysocial.io",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14436,7 +14436,7 @@
     "ticker": "IH00CB0418",
     "domain": "maynuu.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14445,8 +14445,8 @@
     "normName": "conversiosga4andfacebookpixelplugin",
     "ticker": "IH8443DDD8",
     "domain": "conversios.io",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14455,8 +14455,8 @@
     "normName": "zilculator",
     "ticker": "IH113141AD",
     "domain": "zilculator.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14466,7 +14466,7 @@
     "ticker": "IH0E67950C",
     "domain": "contentfordevs.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14475,8 +14475,8 @@
     "normName": "meleton",
     "ticker": "IH9CDE99C6",
     "domain": "meleton.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14485,8 +14485,8 @@
     "normName": "djaodjin",
     "ticker": "IH825B5EE3",
     "domain": "djaodjin.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14496,7 +14496,7 @@
     "ticker": "IHFE4E608D",
     "domain": "hyperstarter.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14506,7 +14506,7 @@
     "ticker": "IH9C1982D2",
     "domain": "swipekit.app",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14516,7 +14516,7 @@
     "ticker": "IHA68C1FCD",
     "domain": "reconwithme.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14526,7 +14526,7 @@
     "ticker": "IH864B8274",
     "domain": "alertasubastas.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14536,7 +14536,7 @@
     "ticker": "IH68EA3E3E",
     "domain": "modelpilot.co",
     "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14545,7 +14545,7 @@
     "normName": "pesaflow",
     "ticker": "IH66429414",
     "domain": "pesaflow.vercel.app",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -14555,7 +14555,7 @@
     "normName": "calculationof2tothepowerofn",
     "ticker": "IHD1DE56BF",
     "domain": "tothepowerof2.com",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -14565,8 +14565,8 @@
     "normName": "commcomm",
     "ticker": "IHABFA9C42",
     "domain": "commcomm.xyz",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14576,7 +14576,7 @@
     "ticker": "IH40D0C4F6",
     "domain": "swimpro.com.ng",
     "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14586,7 +14586,7 @@
     "ticker": "IH8050C049",
     "domain": "refurb.me",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14596,7 +14596,7 @@
     "ticker": "IH06B2A535",
     "domain": "crossfyapp.com",
     "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14616,7 +14616,7 @@
     "ticker": "IH7E0AFAB0",
     "domain": "write.as",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14626,7 +14626,7 @@
     "ticker": "IH91284835",
     "domain": "chrome-stats.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14635,8 +14635,8 @@
     "normName": "bettersheets",
     "ticker": "IH4386C166",
     "domain": "bettersheets.co",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14665,8 +14665,8 @@
     "normName": "goprotelemetryextractor",
     "ticker": "IH56AF5750",
     "domain": "goprotelemetryextractor.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14685,8 +14685,8 @@
     "normName": "grainient",
     "ticker": "IHAA77FC26",
     "domain": "grainient.supply",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -14696,7 +14696,7 @@
     "ticker": "IH68C9B00D",
     "domain": "aitools.store",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15456,7 +15456,7 @@
     "ticker": "IH81717B09",
     "domain": "generatech.ai",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15465,8 +15465,8 @@
     "normName": "smartbisloyaltyandcashbackmarketing",
     "ticker": "IH153D0D68",
     "domain": "smartbis.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15475,7 +15475,7 @@
     "normName": "webscore360",
     "ticker": "IH3402671B",
     "domain": "webscore360.io",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -15485,8 +15485,8 @@
     "normName": "nationly",
     "ticker": "IH6708B45B",
     "domain": "nation.ly",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15495,8 +15495,8 @@
     "normName": "punchname",
     "ticker": "IHE36364C5",
     "domain": "punchname.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15506,7 +15506,7 @@
     "ticker": "IH83034E01",
     "domain": "ctminfo.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15515,8 +15515,8 @@
     "normName": "snipfeed",
     "ticker": "IH88740DEF",
     "domain": "snipfeed.co.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15525,8 +15525,8 @@
     "normName": "googleadsmasterclass",
     "ticker": "IH2F4FC11B",
     "domain": "onlinelabs.io",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15565,8 +15565,8 @@
     "normName": "aidesignedcustombobblehead",
     "ticker": "IHAC38F956",
     "domain": "heartvoicegifts.com",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15575,8 +15575,8 @@
     "normName": "kloudle",
     "ticker": "IH8D4C128D",
     "domain": "kloudle.com",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15585,8 +15585,8 @@
     "normName": "facepop",
     "ticker": "IH74C29650",
     "domain": "facepop.io",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15595,8 +15595,8 @@
     "normName": "formo",
     "ticker": "IH14CD4B60",
     "domain": "formo.so",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15606,7 +15606,7 @@
     "ticker": "IHEFAFD13A",
     "domain": "indieaffiliate.io",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15616,7 +15616,7 @@
     "ticker": "IHC5A507BF",
     "domain": "camocopy.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15626,7 +15626,7 @@
     "ticker": "IHA98E51B5",
     "domain": "notionboss.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15636,7 +15636,7 @@
     "ticker": "IH89EF8972",
     "domain": "budgetsheet.com",
     "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15646,7 +15646,7 @@
     "ticker": "IH2DA27B5E",
     "domain": "liarliar.ai",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15656,7 +15656,7 @@
     "ticker": "IHB1F30FD2",
     "domain": "localcan.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15675,7 +15675,7 @@
     "normName": "motionwave",
     "ticker": "IHDBBC270F",
     "domain": "motionwave.co",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -15685,8 +15685,8 @@
     "normName": "re.statement",
     "ticker": "IHEF1D3DCD",
     "domain": "shoprestatement.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15695,7 +15695,7 @@
     "normName": "foriluxurystreetwear",
     "ticker": "IH2999A5F0",
     "domain": "foriofficial.store",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -15705,8 +15705,8 @@
     "normName": "webhosting,vpsanddedicatedservers",
     "ticker": "IHB584BEEE",
     "domain": "moxihost.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15716,7 +15716,7 @@
     "ticker": "IHB7F38F67",
     "domain": "teleprompter.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15726,7 +15726,7 @@
     "ticker": "IHEA0DC6B9",
     "domain": "webharvy.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15735,8 +15735,8 @@
     "normName": "codewithandrea",
     "ticker": "IHBF431DDA",
     "domain": "codewithandrea.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15746,7 +15746,7 @@
     "ticker": "IHC30065CD",
     "domain": "bloggersneed.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15766,7 +15766,7 @@
     "ticker": "IHA37AFAB1",
     "domain": "share-a-cart.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15775,8 +15775,8 @@
     "normName": "polygonjs",
     "ticker": "IH2FC5688B",
     "domain": "polygonjs.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15805,8 +15805,8 @@
     "normName": "wphackedhelp",
     "ticker": "IHC1BAE062",
     "domain": "secure.wphackedhelp.com",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15815,8 +15815,8 @@
     "normName": "nooksunderwear",
     "ticker": "IHAFB317B8",
     "domain": "getnooks.com",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15836,7 +15836,7 @@
     "ticker": "IHF45E1090",
     "domain": "web.voiceoverping.net",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15846,7 +15846,7 @@
     "ticker": "IH3F9FC45E",
     "domain": "vehicleinfo.page.link",
     "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15855,7 +15855,7 @@
     "normName": "grid50",
     "ticker": "IH4DB7E13A",
     "domain": "grid50gear.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -15865,8 +15865,8 @@
     "normName": "martialartsonrails",
     "ticker": "IHDFD3C96E",
     "domain": "maonrails.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15875,8 +15875,8 @@
     "normName": "forgedock",
     "ticker": "IHDA2B298D",
     "domain": "forgedock.dev",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15885,8 +15885,8 @@
     "normName": "myblog",
     "ticker": "IH513B9C21",
     "domain": "blog.stephsmith.io",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15895,7 +15895,7 @@
     "normName": "justlikeapi",
     "ticker": "IH28F683B1",
     "domain": "justlikeapi.io",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -15905,8 +15905,8 @@
     "normName": "entrosolutions",
     "ticker": "IHF6B7D687",
     "domain": "entro.solutions",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15916,7 +15916,7 @@
     "ticker": "IH3D5B800E",
     "domain": "korzh.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15936,7 +15936,7 @@
     "ticker": "IH97D41723",
     "domain": "investing.substack.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -15946,7 +15946,7 @@
     "ticker": "IH6DA64B39",
     "domain": "expertinvestor.net",
     "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16706,7 +16706,7 @@
     "ticker": "IH1FE5C10E",
     "domain": "drivewebstudio.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16716,7 +16716,7 @@
     "ticker": "IHBCC01AE1",
     "domain": "contentbot.ai",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16725,8 +16725,8 @@
     "normName": "vulse",
     "ticker": "IH292ABE1C",
     "domain": "vulse.co",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16735,8 +16735,8 @@
     "normName": "jetseen",
     "ticker": "IHAC87FB99",
     "domain": "jetseen.com",
-    "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16745,8 +16745,8 @@
     "normName": "searchcans",
     "ticker": "IH92E0EC17",
     "domain": "searchcans.com",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16755,8 +16755,8 @@
     "normName": "notionsocial",
     "ticker": "IH25785C2F",
     "domain": "notionsocial.app",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16766,7 +16766,7 @@
     "ticker": "IHFE6036A1",
     "domain": "10er.dk",
     "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16775,7 +16775,7 @@
     "normName": "pinpointaudits",
     "ticker": "IH9841F620",
     "domain": "pinpointaudits.netlify.app",
-    "sector": "AI_AUTOMATION",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -16786,7 +16786,7 @@
     "ticker": "IHD20052DE",
     "domain": "plangy.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16796,7 +16796,7 @@
     "ticker": "IH9590606F",
     "domain": "webhookrelay.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16805,8 +16805,8 @@
     "normName": "scrubber",
     "ticker": "IH0C778291",
     "domain": "scrubber.social",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16815,8 +16815,8 @@
     "normName": "cryptojobslist",
     "ticker": "IH68CD719A",
     "domain": "cryptojobslist.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16826,7 +16826,7 @@
     "ticker": "IH049F1FA7",
     "domain": "christiantechjobs.io",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16835,7 +16835,7 @@
     "normName": "deckdynamo",
     "ticker": "IH1846304B",
     "domain": "deckdynamo.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -16846,7 +16846,7 @@
     "ticker": "IH1B09F120",
     "domain": "pointintimecount.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16856,7 +16856,7 @@
     "ticker": "IH15A651B6",
     "domain": "quickdownloadgames.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16865,7 +16865,7 @@
     "normName": "rephelper",
     "ticker": "IH403BE37B",
     "domain": "rephelper.ai",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -16875,8 +16875,8 @@
     "normName": "reditus",
     "ticker": "IHD226335A",
     "domain": "getreditus.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16886,7 +16886,7 @@
     "ticker": "IHBE81B653",
     "domain": "getcopycheck.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16895,8 +16895,8 @@
     "normName": "chiefsformen",
     "ticker": "IH8DF98589",
     "domain": "chiefsformen.com",
-    "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16915,8 +16915,8 @@
     "normName": "composables",
     "ticker": "IH8695D909",
     "domain": "composables.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16935,7 +16935,7 @@
     "normName": "custommilitarycamouflagewebbing",
     "ticker": "IHDE078757",
     "domain": "camouflagewebbing.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -16945,7 +16945,7 @@
     "normName": "nexusai",
     "ticker": "IH182ED3A8",
     "domain": "nexusai-tech.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -16955,8 +16955,8 @@
     "normName": "flotiq",
     "ticker": "IH64D50366",
     "domain": "flotiq.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -16985,8 +16985,8 @@
     "normName": "emptybookclub",
     "ticker": "IHDA515B3A",
     "domain": "emptybookclub.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17015,7 +17015,7 @@
     "normName": "masterofbusinessleadershipprogram",
     "ticker": "IH527D6630",
     "domain": "philjohnson1.podia.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -17036,7 +17036,7 @@
     "ticker": "IHB480B389",
     "domain": "saas-ui.dev",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17045,8 +17045,8 @@
     "normName": "craftsmancreative",
     "ticker": "IH6D66B9F1",
     "domain": "craftsmancreative.co",
-    "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17065,8 +17065,8 @@
     "normName": "blueprintsvisualwebsitegeneratormac&pc",
     "ticker": "IH1890FD95",
     "domain": "blueprintsapp.launchaco.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17075,8 +17075,8 @@
     "normName": "influencegrid",
     "ticker": "IH6B58B0D8",
     "domain": "influencegrid.com",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17096,7 +17096,7 @@
     "ticker": "IHDF86B896",
     "domain": "i2b.co",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17105,8 +17105,8 @@
     "normName": "embedvidio",
     "ticker": "IH723D4AB9",
     "domain": "embedvid.io",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17115,8 +17115,8 @@
     "normName": "socialplanner",
     "ticker": "IH7C1B3200",
     "domain": "socialplanner.io",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17146,7 +17146,7 @@
     "ticker": "IHD1CADCD1",
     "domain": "naskodaskalov.gumroad.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17155,7 +17155,7 @@
     "normName": "the100cigarettesproject",
     "ticker": "IHE5024B18",
     "domain": "100cigarettes.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -17175,7 +17175,7 @@
     "normName": "applianceverified",
     "ticker": "IH289A2C1A",
     "domain": "applianceverified.ca",
-    "sector": "CONTENT_MEDIA",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -17195,8 +17195,8 @@
     "normName": "friendly",
     "ticker": "IH053DBABE",
     "domain": "friendly.ch",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_Verified_1000"
   },
   {
@@ -17985,7 +17985,7 @@
     "normName": "entropylite.in",
     "ticker": "IH225E69BE",
     "domain": "entropylite.in",
-    "sector": "AI_AUTOMATION",
+    "sector": "FINTECH_INFRA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18005,8 +18005,8 @@
     "normName": "visibility",
     "ticker": "IH41B230A9",
     "domain": "visibility.pixis.ai",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100t"
   },
   {
@@ -18055,7 +18055,7 @@
     "normName": "evaspeaksai",
     "ticker": "IH3244BE45",
     "domain": "evaspeaks.ai",
-    "sector": "NICHE_SAAS",
+    "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18065,7 +18065,7 @@
     "normName": "hire22.ai",
     "ticker": "IH08B02F4C",
     "domain": "hire22.ai",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18105,7 +18105,7 @@
     "normName": "f.r.lunit",
     "ticker": "IHA0320B1A",
     "domain": "chillelec.com",
-    "sector": "LOCAL_SERVICES",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18125,7 +18125,7 @@
     "normName": "shieldhz",
     "ticker": "IH88512046",
     "domain": "shieldhz.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18165,7 +18165,7 @@
     "normName": "huyu",
     "ticker": "IHFBFD6E6B",
     "domain": "huyuelectric.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18245,7 +18245,7 @@
     "normName": "popal",
     "ticker": "IHB071C2F0",
     "domain": "popal.io",
-    "sector": "AI_AUTOMATION",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18255,7 +18255,7 @@
     "normName": "subscriptionflowsalesiq",
     "ticker": "IH3EFD244B",
     "domain": "customwidget.subscriptionflow.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18265,7 +18265,7 @@
     "normName": "modernofficecarpettrendstoelevateyourworksp",
     "ticker": "IH936392F1",
     "domain": "carpetsstore.ae",
-    "sector": "NICHE_SAAS",
+    "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18275,7 +18275,7 @@
     "normName": "freewhatsappsender",
     "ticker": "IH89AAC21A",
     "domain": "wawebsender.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18285,7 +18285,7 @@
     "normName": "mixpad:aidrivenmultitrackmusicproduction",
     "ticker": "IH3D5989BB",
     "domain": "nch.com.au",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18295,7 +18295,7 @@
     "normName": "garychristen",
     "ticker": "IH6DD3BA7D",
     "domain": "vocal.media",
-    "sector": "PHYSICAL_ASSET",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18305,7 +18305,7 @@
     "normName": "oneupnetworks",
     "ticker": "IH640711CF",
     "domain": "oneupnetworks.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18315,7 +18315,7 @@
     "normName": "opuscove",
     "ticker": "IH311778ED",
     "domain": "opuscove.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18355,7 +18355,7 @@
     "normName": "whatsappblast",
     "ticker": "IHD78F1A92",
     "domain": "wachat.planotechevents.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100t"
   },
@@ -18375,8 +18375,8 @@
     "normName": "labeliqai",
     "ticker": "IHDC4EA815",
     "domain": "labeliqai",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100u"
   },
   {
@@ -18385,7 +18385,7 @@
     "normName": "alivetech",
     "ticker": "IH09AAB45D",
     "domain": "lnkshk.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18405,7 +18405,7 @@
     "normName": "hellmartgame",
     "ticker": "IH6777E0F1",
     "domain": "hellmartgame.com",
-    "sector": "PHYSICAL_ASSET",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18415,7 +18415,7 @@
     "normName": "soccerfans.tv",
     "ticker": "IH354AEC01",
     "domain": "soccerfans.tv",
-    "sector": "FINTECH_INFRA",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18425,7 +18425,7 @@
     "normName": "ottergames",
     "ticker": "IH4DF5846C",
     "domain": "ottergames.org",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18455,7 +18455,7 @@
     "normName": "registrum",
     "ticker": "IH03F707C1",
     "domain": "registrum.co.uk",
-    "sector": "AI_AUTOMATION",
+    "sector": "FINTECH_INFRA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18465,7 +18465,7 @@
     "normName": "gardenhorizonscalculator",
     "ticker": "IHBCF1749B",
     "domain": "growagardencalculator.ph",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18485,7 +18485,7 @@
     "normName": "kickvideodownloader",
     "ticker": "IH083A1311",
     "domain": "kick-video.download",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18505,7 +18505,7 @@
     "normName": "aiex",
     "ticker": "IH32758A2A",
     "domain": "aiex.me",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18545,7 +18545,7 @@
     "normName": "bestdashcam2026",
     "ticker": "IHDD9208F3",
     "domain": "bestdashcam2026.com",
-    "sector": "LOCAL_SERVICES",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18595,7 +18595,7 @@
     "normName": "cigardirectory",
     "ticker": "IH2CB73D4F",
     "domain": "cigar.directory",
-    "sector": "PHYSICAL_ASSET",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18605,7 +18605,7 @@
     "normName": "dataguessr",
     "ticker": "IHA28AAD5D",
     "domain": "dataguessr.com",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18615,7 +18615,7 @@
     "normName": "devhub",
     "ticker": "IH783603B7",
     "domain": "devhub.best",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18665,7 +18665,7 @@
     "normName": "freehackertyperonline",
     "ticker": "IH99703C51",
     "domain": "toolcenterhub.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -18695,7 +18695,7 @@
     "normName": "hdobox",
     "ticker": "IHC29BAC4A",
     "domain": "hdobox.com.co",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -19225,7 +19225,7 @@
     "normName": "clipy",
     "ticker": "IHC3EDA1EA",
     "domain": "clipy.online",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -19285,7 +19285,7 @@
     "normName": "helionex",
     "ticker": "IHE0398A10",
     "domain": "helionex.net",
-    "sector": "CONTENT_MEDIA",
+    "sector": "UNKNOWN",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -19315,7 +19315,7 @@
     "normName": "leadstrack",
     "ticker": "IH19ECC401",
     "domain": "leadstrack.in",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100u"
   },
@@ -19375,7 +19375,7 @@
     "normName": "snapcontract",
     "ticker": "IH8A064D03",
     "domain": "g.co",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100v"
   },
@@ -19405,7 +19405,7 @@
     "normName": "softrip&nivo",
     "ticker": "IHFE611FFD",
     "domain": "softrip.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100v"
   },
@@ -19415,7 +19415,7 @@
     "normName": "caloiai",
     "ticker": "IH295A7E27",
     "domain": "caloi.in",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100v"
   },
@@ -19425,7 +19425,7 @@
     "normName": "pitchmap",
     "ticker": "IH1542C7CF",
     "domain": "pitchmap.app",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100v"
   },
@@ -19435,7 +19435,7 @@
     "normName": "crewtower",
     "ticker": "IHECAF07D6",
     "domain": "crewtower.app",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100v"
   },
@@ -19445,7 +19445,7 @@
     "normName": "geminilaunch",
     "ticker": "IHA1545E9A",
     "domain": "geminilaunch.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100v"
   },
@@ -20455,7 +20455,7 @@
     "normName": "mytrustedbrands.com",
     "ticker": "IH65DB5C00",
     "domain": "mytrustedbrands.com",
-    "sector": "PHYSICAL_ASSET",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20485,7 +20485,7 @@
     "normName": "wimemo",
     "ticker": "IHFAA2B2A2",
     "domain": "wimemo.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20535,7 +20535,7 @@
     "normName": "patchesgame",
     "ticker": "IHBF05C1E8",
     "domain": "patchesgame.app",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20565,7 +20565,7 @@
     "normName": "remoot.dev",
     "ticker": "IH8F8A2DA2",
     "domain": "remoot.dev",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20575,7 +20575,7 @@
     "normName": "shadowfightguideshub",
     "ticker": "IH20839D27",
     "domain": "shadowfightter.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20605,7 +20605,7 @@
     "normName": "perfectparser",
     "ticker": "IH555BDD56",
     "domain": "perfectparser.com",
-    "sector": "FINTECH_INFRA",
+    "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20645,8 +20645,8 @@
     "normName": "obskura",
     "ticker": "IH13E1048D",
     "domain": "obskura.app",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20665,7 +20665,7 @@
     "normName": "myexamtrack",
     "ticker": "IHAD5C6FA4",
     "domain": "myexamtrack.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20685,7 +20685,7 @@
     "normName": "forgelogbooks",
     "ticker": "IH63050229",
     "domain": "forgelogbooks.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20695,7 +20695,7 @@
     "normName": "freetoolforge",
     "ticker": "IHE01F6631",
     "domain": "freetoolforge.org",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20706,7 +20706,7 @@
     "ticker": "IHD64625EB",
     "domain": "permisoft.app",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20716,7 +20716,7 @@
     "ticker": "IH14CAF043",
     "domain": "interviewroom.io",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20726,7 +20726,7 @@
     "ticker": "IHF108F5CA",
     "domain": "mooncv.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20735,8 +20735,8 @@
     "normName": "autosubmit.to",
     "ticker": "IH5A7366F6",
     "domain": "autosubmit.to",
-    "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20746,7 +20746,7 @@
     "ticker": "IHDEFB23ED",
     "domain": "yushetf33.github.io",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20755,7 +20755,7 @@
     "normName": "senflosennagummies",
     "ticker": "IH7888E4AA",
     "domain": "senflogummies.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20775,7 +20775,7 @@
     "normName": "millionaios",
     "ticker": "IHEA266A57",
     "domain": "millionaios.polsia.app",
-    "sector": "AI_AUTOMATION",
+    "sector": "FINTECH_INFRA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20785,7 +20785,7 @@
     "normName": "telegramminiapprevenuekit",
     "ticker": "IH046EE5D0",
     "domain": "foxify.pro",
-    "sector": "FINTECH_INFRA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_new100w"
   },
@@ -20796,7 +20796,7 @@
     "ticker": "IHECDE393A",
     "domain": "social-flow.dev",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20806,7 +20806,7 @@
     "ticker": "IHAF538DD9",
     "domain": "roastmylanding.vercel.app",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20816,7 +20816,7 @@
     "ticker": "IHC395776C",
     "domain": "forgehouse.io",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20826,7 +20826,7 @@
     "ticker": "IH5D4B4E54",
     "domain": "sharepdf.app",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20836,7 +20836,7 @@
     "ticker": "IHBC567875",
     "domain": "plavtora.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20845,8 +20845,8 @@
     "normName": "pullpage",
     "ticker": "IH582B4403",
     "domain": "pull.page",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20856,7 +20856,7 @@
     "ticker": "IH84F1C040",
     "domain": "bugstack.ai",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20866,7 +20866,7 @@
     "ticker": "IH1A39C6A2",
     "domain": "preflightio.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20886,7 +20886,7 @@
     "ticker": "IH2CE88C3F",
     "domain": "hiredfast.co",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20896,7 +20896,7 @@
     "ticker": "IH2FF1A3B3",
     "domain": "heliostat.dev",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20906,7 +20906,7 @@
     "ticker": "IH31FAAC68",
     "domain": "lunarsections.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20915,8 +20915,8 @@
     "normName": "foundersrankboard",
     "ticker": "IH87A2C79D",
     "domain": "foundersrankboard.com",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20925,8 +20925,8 @@
     "normName": "ruletheworld",
     "ticker": "IH26563F86",
     "domain": "ruleworld.co",
-    "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20936,7 +20936,7 @@
     "ticker": "IHC5437D57",
     "domain": "appcharts.app",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -20945,8 +20945,8 @@
     "normName": "inventapp",
     "ticker": "IH585ECB9F",
     "domain": "inventa-da89a.web.app",
-    "sector": "FINTECH_INFRA",
-    "status": "UNAVAILABLE",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
     "batchId": "IndieHackers_new100w"
   },
   {
@@ -24296,7 +24296,7 @@
     "ticker": "DLSITEPL",
     "domain": "dlsite.com",
     "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch_analyst_20260916_exact100"
   },
   {
@@ -24504,7 +24504,7 @@
     "name": "Ory",
     "normName": "ory",
     "ticker": "ORYCORP",
-    "domain": "ory.sh",
+    "domain": "ory.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_clean_winners_100_20260916"
@@ -24544,7 +24544,7 @@
     "name": "Casdoor",
     "normName": "casdoor",
     "ticker": "CASDOOR",
-    "domain": "casdoor.org",
+    "domain": "casdoor.ai",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_clean_winners_100_20260916"
@@ -24716,7 +24716,7 @@
     "ticker": "PRXYCURL",
     "domain": "nubela.co",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch_clean_winners_100_20260916"
   },
   {
@@ -24824,7 +24824,7 @@
     "name": "Monosnap",
     "normName": "monosnap",
     "ticker": "MONOSNAP",
-    "domain": "monosnap.com",
+    "domain": "monosnap.ai",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_clean_winners_100_20260916"
@@ -24924,7 +24924,7 @@
     "name": "Affinity Designer",
     "normName": "affinitydesigner",
     "ticker": "AFFNDSGN",
-    "domain": "affinity.serif.com",
+    "domain": "affinity.studio",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_clean_winners_100_20260916"
@@ -25054,7 +25054,7 @@
     "name": "WellSaid Labs",
     "normName": "wellsaidlabs",
     "ticker": "WELLSAID",
-    "domain": "wellsaidlabs.com",
+    "domain": "wellsaid.io",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_clean_winners_100_20260916"
@@ -25154,7 +25154,7 @@
     "name": "Captain Data",
     "normName": "captaindata",
     "ticker": "CPTNDATA",
-    "domain": "captaindata.co",
+    "domain": "captaindata.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_clean_winners_100_20260916"
@@ -25194,7 +25194,7 @@
     "name": "MakeLeaps",
     "normName": "makeleaps",
     "ticker": "MAKELEAP",
-    "domain": "makeleaps.jp",
+    "domain": "makeleaps.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_clean_winners_100_20260916"
@@ -26154,7 +26154,7 @@
     "name": "SmartGit",
     "normName": "smartgit",
     "ticker": "SMARTGIT",
-    "domain": "syntevo.com",
+    "domain": "smartgit.dev",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_20260916"
@@ -26214,7 +26214,7 @@
     "name": "AltTab",
     "normName": "alttab",
     "ticker": "ALTTABMC",
-    "domain": "alt-tab-macos.netlify.app",
+    "domain": "alt-tab.app",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_20260916"
@@ -26234,7 +26234,7 @@
     "name": "LinearMouse",
     "normName": "linearmouse",
     "ticker": "LINEARM",
-    "domain": "linearmouse.org",
+    "domain": "linearmouse.app",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_20260916"
@@ -26264,7 +26264,7 @@
     "name": "Latest",
     "normName": "latest",
     "ticker": "LATESTM",
-    "domain": "max-schmeling.de",
+    "domain": "max.codes",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_20260916"
@@ -26324,7 +26324,7 @@
     "name": "Lens Kubernetes",
     "normName": "lenskubernetes",
     "ticker": "LENSK8S",
-    "domain": "k8slens.dev",
+    "domain": "lenshq.io",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_20260916"
@@ -27286,7 +27286,7 @@
     "ticker": "OPUSCLIP",
     "domain": "opus.pro",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
@@ -27324,7 +27324,7 @@
     "name": "Podcastle",
     "normName": "podcastle",
     "ticker": "PODCASTL",
-    "domain": "podcastle.ai",
+    "domain": "async.com",
     "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "batch-05-2026-09-14-recent-winners100"
@@ -27334,7 +27334,7 @@
     "name": "Riverside.fm",
     "normName": "riverside.fm",
     "ticker": "RIVERFM",
-    "domain": "riverside.fm",
+    "domain": "riverside.com",
     "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "batch-05-2026-09-14-recent-winners100"
@@ -27344,7 +27344,7 @@
     "name": "Railway",
     "normName": "railway",
     "ticker": "RAILWAYA",
-    "domain": "railway.app",
+    "domain": "railway.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch-05-2026-09-14-recent-winners100"
@@ -27366,7 +27366,7 @@
     "ticker": "DEVUTILS",
     "domain": "devutils.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
@@ -27376,7 +27376,7 @@
     "ticker": "XNAPPER",
     "domain": "xnapper.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
@@ -27386,7 +27386,7 @@
     "ticker": "BLKMGC",
     "domain": "blackmagic.so",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
@@ -27484,7 +27484,7 @@
     "name": "Relume",
     "normName": "relume",
     "ticker": "RELUMEIO",
-    "domain": "relume.io",
+    "domain": "relume.ai",
     "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "batch-05-2026-09-14-recent-winners100"
@@ -28596,7 +28596,7 @@
     "ticker": "TALLY.SO",
     "domain": "tally.so",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28606,7 +28606,7 @@
     "ticker": "PAPRFORM",
     "domain": "paperform.co",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28616,7 +28616,7 @@
     "ticker": "CANNY.IO",
     "domain": "canny.io",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28626,7 +28626,7 @@
     "ticker": "FEATRBS",
     "domain": "featurebase.app",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28636,7 +28636,7 @@
     "ticker": "HELPKIT",
     "domain": "helpkit.so",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28646,7 +28646,7 @@
     "ticker": "SUPER.SO",
     "domain": "super.so",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28656,7 +28656,7 @@
     "ticker": "POTION.SO",
     "domain": "potion.so",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28686,7 +28686,7 @@
     "ticker": "HYPEFURY",
     "domain": "hypefury.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28766,7 +28766,7 @@
     "ticker": "EMLOCTO",
     "domain": "emailoctopus.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28806,7 +28806,7 @@
     "ticker": "BOEI.WGT",
     "domain": "boei.help",
     "sector": "LOCAL_SERVICES",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28816,7 +28816,7 @@
     "ticker": "UPVOTY",
     "domain": "upvoty.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
   },
   {
@@ -28834,7 +28834,7 @@
     "name": "ReConvert",
     "normName": "reconvert",
     "ticker": "RECONVRT",
-    "domain": "reconvert.com",
+    "domain": "upsell.com",
     "sector": "LOCAL_SERVICES",
     "status": "UNAVAILABLE",
     "batchId": "batch-04-2026-09-14-solo-conquerors100"
@@ -31906,7 +31906,7 @@
     "ticker": "JOIN.1440",
     "domain": "join1440.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31946,7 +31946,7 @@
     "ticker": "THMS.FRNK",
     "domain": "thomasjfrank.com",
     "sector": "CONTENT_MEDIA",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31964,7 +31964,7 @@
     "name": "100 Days of No Code",
     "normName": "100daysofnocode",
     "ticker": "HNDR.NOCO",
-    "domain": "100daysofnocode.com",
+    "domain": "100school.com",
     "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "batch-01-core-foundation134"
@@ -32076,7 +32076,7 @@
     "ticker": "AUD.OPEN",
     "domain": "audiopen.ai",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -32164,7 +32164,7 @@
     "name": "Buttondown",
     "normName": "buttondown",
     "ticker": "BTTN.DOWN",
-    "domain": "buttondown.email",
+    "domain": "buttondown.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch-01-core-foundation134"

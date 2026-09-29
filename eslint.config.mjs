@@ -7,6 +7,7 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Override default ignores of eslint-config-next.
   globalIgnores([
+    "reports/**", // local re-audit working files (gitignored)
     // Default ignores of eslint-config-next:
     ".next/**",
     ".open-next/**",
