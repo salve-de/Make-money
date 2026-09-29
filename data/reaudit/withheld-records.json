@@ -205,5 +205,122 @@
     "publishability": "REJECTED_AS_CASE",
     "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
     "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_vibotsite_d7c97e854e02",
+    "name": "Vibot.site",
+    "reasonCode": "DOMAIN_REPURPOSED_TO_ADULT_ADS",
+    "reason": "掲載された公式ドメインが成人向け広告の画面に変わっており、元の動画作成サービスとは別物になっている。リンク先として出せないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "http://www.vibot.site/",
+        "observation": "トルコ語の成人向け広告掲載画面を返す（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_scratespas_796bb310da56",
+    "name": "scratespas",
+    "reasonCode": "SUSPECTED_UNLICENSED_GAMBLING",
+    "reason": "掲載URLがスロット・カジノ等の賭博サイトで、運営主体と許認可が確認できないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://hgo909.io/",
+        "observation": "HGO909名義でスロット・スポーツ・カジノを表示（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_carziqo_f990037f38c0",
+    "name": "Carziqo",
+    "reasonCode": "SUSPECTED_INVESTMENT_SCHEME",
+    "reason": "自動運転車への出資で日々の収益分配を得られるとうたうが、車両運行・入金の実態と許認可が確認できない。出資勧誘型の詐欺の恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/product/carziqo",
+        "observation": "自動運転車の貸し出しで収入を得ると紹介、運行・入金実績は確認できない（2026-09-29 観測）"
+      },
+      {
+        "url": "https://vip.carziqo.net/",
+        "observation": "題名とJavaScript要求のみ、サービス本文なし（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_mobmonitor_1080b8f46e8a",
+    "name": "MobMonitor",
+    "reasonCode": "SUSPECTED_STALKERWARE",
+    "reason": "他人のAndroid端末の位置・通話・SNS・録音を監視する機能を売り、権限のない端末への導入は利用者の責任とする免責を出している。本人に知られない監視に使われる恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://mobmonitor.com/",
+        "observation": "位置追跡・通話履歴・SNS活動・録音機能と、監視権限のない端末への導入に関する免責を表示（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_pojavlauncherdl_4a36457e98e4",
+    "name": "PojavlauncherDL",
+    "reasonCode": "SUSPECTED_IMPERSONATION",
+    "reason": "トップでOfficialと名乗ってAPKを配布するが、Aboutはファンサイトと説明しており、開発元との正式な関係が確認できない。非公式配布を公式と装っている恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://pojavlauncherdl.com/",
+        "observation": "Official表記とAPK配布の導線（2026-09-29 観測）"
+      },
+      {
+        "url": "https://pojavlauncherdl.com/about-us/",
+        "observation": "Minecraftファンのサイトと説明（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_terabox_25bf0737ffb6",
+    "name": "Terabox",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "正規TeraBoxの改変APKと有料機能の無料利用をうたうページで、配布の許諾が確認できないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.teraboxpremapk.com/",
+        "observation": "改変APKと有料機能の無料利用をうたう（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_vnmodapk_b1d5d0744a56",
+    "name": "VN MOD APK",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "名称が改変版アプリ（MOD APK）の配布を示し、配布許諾を確認できない。サイトは現在到達できない。同種の掲載（Capcut MOD APK等）と同じ扱いで掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/product/vn-mod-apk",
+        "observation": "改変版APKの名称で掲載（2026-09-29 観測）"
+      },
+      {
+        "url": "https://vnapkdownload.com",
+        "observation": "DNS解決に失敗し到達できない（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
   }
 ]
