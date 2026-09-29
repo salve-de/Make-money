@@ -448,11 +448,12 @@ function decodeDataImage(href: string, maxBytes: number): { bytes: Uint8Array; s
 /**
  * Captures are fail-closed: decision "held" and subjectIsPerson true. Here `true` means "not yet confirmed"
  * (real captures: photoai.com's og:image and stevehanov.ca's home page are dominated by photographs of people);
- * the reviewer sets it to false after looking at the picture, which the schema requires before "allowed".
+ * the reviewer records false after looking at the picture (scripts/media/review-assets.ts appends it to decisions.jsonl;
+ * this manifest is never edited), which the schema requires before "allowed".
  */
 const HELD_NOTE =
   '自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない ' +
-  '(3) 識別・説明目的に限る、を確認し subjectIsPerson を false に更新する（自動取得の既定値 true は「未確認」の意味）。';
+  '(3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。';
 
 async function stageAsset(
   ec: EntityContext,

@@ -6,6 +6,9 @@ import { MobileFeedCard } from './MobileFeedCard';
 import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { entityDescription } from '@/platform/utils/entityDescription';
+import { pickEntityLogo } from '@/shared/media-display';
+import { useEntityMedia } from '../../hooks/useEntityMedia';
+import { EntityLogo } from './EntityLogo';
 
 const PAGE_SIZE = 250;
 
@@ -102,6 +105,10 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     return entities.slice(0, visibleCount);
   }, [entities, visibleCount]);
 
+  // 公式ロゴ（許可済みのものだけ）。表示中の行の分をまとめて取得し、無い行は何も出さない。
+  const visibleEntityIds = useMemo(() => visibleEntities.map((entity) => entity.id), [visibleEntities]);
+  const logos = useEntityMedia(visibleEntityIds);
+
   useEffect(() => {
     const root = scrollContainerRef.current;
     const target = observerTargetRef.current;
@@ -146,6 +153,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
           <MobileFeedCard
             key={entity.id}
             entity={entity}
+            logo={pickEntityLogo(logos[entity.id])}
             isSelected={selectedEntityId === entity.id}
             onSelect={() => onSelectEntity(entity.id)}
             currency={currency}
@@ -208,6 +216,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       <div className="min-w-0 flex-1">
                         {/* 1段目: 社名 + 中立的な業種表示 */}
                         <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+                          <EntityLogo asset={pickEntityLogo(logos[entity.id])} />
                           <span className="min-w-0 shrink truncate font-semibold text-sm text-zinc-100">
                             {entity.name}
                           </span>
@@ -325,6 +334,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         </button>
                         <div className="min-w-0 flex-1">
                           <div className="flex min-w-0 flex-wrap items-center gap-2">
+                            <EntityLogo asset={pickEntityLogo(logos[entity.id])} />
                             <span className="min-w-0 shrink truncate text-sm font-semibold text-zinc-100 transition-colors group-hover:text-sky-100">
                               {entity.name}
                             </span>

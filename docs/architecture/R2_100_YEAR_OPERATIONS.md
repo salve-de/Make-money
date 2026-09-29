@@ -58,6 +58,8 @@ evidence形式を定義し、raw evidence・Lake bundle・journal・typed datase
 
 Bucket Lockは保持期間を先に決めてから適用する。全バケットへの無期限Lockは、権利上削除が必要なデータを閉じ込めるため禁止する。
 
+例外の明示: `foundation-raw` の `media/` プレフィックス（公式サイトの画像とその台帳。[`../MEDIA_ASSETS_AND_PROVENANCE.md`](../MEDIA_ASSETS_AND_PROVENANCE.md)）は、削除依頼に応じるため無期限Lockの対象外とする（オーナー決定 2026-09-29）。プレフィックス単位でLockを設定する場合は `media/` を除く。バケット設定の変更は人が行い、現状の設定は本書では未確認。
+
 ## 認証と権限
 
 - Workerは、必要なバケットだけをR2 Bindingで参照する。
