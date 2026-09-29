@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
+import { SECTION_TITLES } from '@/platform/components/navigation/navigationItems';
 import { BusinessSaleNotice } from './BusinessSaleNotice';
 import { MarketplaceTabs } from './MarketplaceTabs';
 
@@ -20,7 +21,8 @@ export function BusinessSalePage({ name, aside, srHeading, children }: {
       <GlobalHeader currentSection="BUSINESSES" />
       <main className="w-full flex-1">
         <div className="term-panel-title">
-          <span className="term-panel-name">{name}</span>
+          {/* スマホではヘッダーが同じ画面名を出すので、ここでは重ねて出さない */}
+          <span className={`term-panel-name ${name === SECTION_TITLES.BUSINESSES ? 'max-lg:hidden' : ''}`}>{name}</span>
           {aside}
         </div>
         {srHeading && <h1 className="sr-only">{srHeading}</h1>}

@@ -35,6 +35,8 @@ interface GlobalHeaderProps {
   /** 渡すと検索欄が一覧をその場で絞り込む（台帳画面用）。渡さなければ送信で /?q= へ移動する。 */
   searchValue?: string;
   onSearchChange?: (query: string) => void;
+  /** 画面自体に検索欄がある時。スマホのヘッダーに2つ目の検索ボタンを出さない */
+  pageHasSearch?: boolean;
 }
 
 const SYNC_LABEL: Record<BookmarkSyncStatus, string> = {
@@ -96,6 +98,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   onSelectLocalMode,
   searchValue,
   onSearchChange,
+  pageHasSearch = false,
 }) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -213,7 +216,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         {/* スマホ: PRO は右上 */}
         <div className="ml-auto flex h-11 items-stretch lg:hidden">
           {rightContent}
-          {!onSearchChange && (
+          {!onSearchChange && !pageHasSearch && (
             <button type="button" aria-label="事例を検索" aria-expanded={searchOpen} onClick={() => { setSearchOpen((open) => !open); requestAnimationFrame(() => searchRef.current?.focus()); }} className="flex w-11 items-center justify-center text-term-fg hover:bg-term-head">
               <Search aria-hidden="true" size={20} />
             </button>

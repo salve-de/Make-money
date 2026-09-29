@@ -43,35 +43,15 @@ export const SECONDARY_NAV_ITEMS: NavItem[] = [
   { id: 'EXECUTION', label: '実行計画', href: '/execute' },
 ];
 
-/** スマホの引き出しメニュー。下のタブ（事例・発見・市場・保存）に無い画面を、使う場面ごとに分ける */
-export interface MenuGroup {
-  label: string;
-  items: NavItem[];
-}
-
-export const MOBILE_MENU_GROUPS: MenuGroup[] = [
-  {
-    label: '分析',
-    items: [
-      { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
-      { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
-      { id: 'COMPARE', label: '事例の比較', href: '/compare' },
-    ],
-  },
-  {
-    label: 'マイページ',
-    items: [
-      { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
-      { id: 'EXECUTION', label: '実行計画', href: '/execute' },
-    ],
-  },
-  {
-    label: 'マーケット',
-    items: [
-      { id: 'BUSINESSES', label: '事業の売買', href: '/marketplace/businesses' },
-      { id: 'MARKETPLACE', label: 'サービス一覧', href: '/marketplace' },
-    ],
-  },
+/** スマホの引き出しメニュー。下のタブ（事例・発見・市場・事業検討）に無い画面を、よく使う順に並べる */
+export const MOBILE_MENU_ITEMS: NavItem[] = [
+  { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
+  { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
+  { id: 'COMPARE', label: '事例の比較', href: '/compare' },
+  { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
+  { id: 'EXECUTION', label: '実行計画', href: '/execute' },
+  { id: 'BUSINESSES', label: '事業の売買', href: '/marketplace/businesses' },
+  { id: 'MARKETPLACE', label: 'サービス一覧', href: '/marketplace' },
 ];
 
 export const LOCAL_MODE_BY_SECTION: Partial<Record<GlobalNavSection, LocalWorkspaceMode>> = {

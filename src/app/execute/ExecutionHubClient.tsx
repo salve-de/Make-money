@@ -136,7 +136,7 @@ export function ExecutionHubClient() {
     <main className="w-full flex-1">
       <h1 className="sr-only">実行計画</h1>
       <div className="term-panel-title">
-        <span className="term-panel-name">実行計画</span>
+        <span className="term-panel-name max-lg:hidden">実行計画</span>
         {projects.length > 0 ? (
           <span className="term-num flex flex-wrap gap-x-4">
             <span>案件 <span className="text-term-fg-strong">{projects.length}</span></span>

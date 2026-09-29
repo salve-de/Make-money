@@ -152,7 +152,7 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ 
       <header className="shrink-0 border-b border-term-line bg-term-panel">
         <h1 className="sr-only">事業パターン</h1>
         <div className="term-panel-title">
-          <span className="term-panel-name">事業パターン</span>
+          <span className="term-panel-name max-lg:hidden">事業パターン</span>
           <span className="term-num">{guides.length}件</span>
         </div>
         <div className="relative border-b border-term-line-soft p-2 sm:max-w-md">

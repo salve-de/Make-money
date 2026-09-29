@@ -3,18 +3,41 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Dialog } from 'radix-ui';
-import { ChevronRight, Menu, X } from 'lucide-react';
+import {
+  BellRing,
+  ChevronRight,
+  Columns3,
+  Handshake,
+  LayoutGrid,
+  ListChecks,
+  Menu,
+  Store,
+  Wrench,
+  X,
+  type LucideIcon,
+} from 'lucide-react';
 import {
   GlobalNavSection,
   LEGAL_LINKS,
   LOCAL_MODE_BY_SECTION,
   LocalWorkspaceMode,
-  MOBILE_MENU_GROUPS,
+  MOBILE_MENU_ITEMS,
   PRO_HREF,
 } from './navigationItems';
 
 /** 下のタブに出ている画面。メニューには重ねて出さない */
 export const TAB_SECTION_IDS: GlobalNavSection[] = ['LEDGER', 'DISCOVER', 'RADAR', 'SYNTHESIS'];
+
+/** 下のタブと同じ線アイコン（lucide）で、メニューの行も見分けやすくする */
+export const MENU_ICONS: Partial<Record<GlobalNavSection, LucideIcon>> = {
+  ARCHETYPES: LayoutGrid,
+  PLAYBOOK: Wrench,
+  COMPARE: Columns3,
+  ALERTS: BellRing,
+  EXECUTION: ListChecks,
+  BUSINESSES: Handshake,
+  MARKETPLACE: Store,
+};
 
 interface MobileMenuProps {
   activeSection: GlobalNavSection;
@@ -63,32 +86,29 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
             )}
           </div>
           <nav aria-label="そのほかの画面" className="min-h-0 flex-1 overflow-y-auto">
-            {MOBILE_MENU_GROUPS.map((group) => (
-              <section key={group.label} aria-label={group.label}>
-                <h2 className="px-4 pb-1.5 pt-5 text-xs text-term-dim">{group.label}</h2>
-                <ul className="border-t border-term-line-soft">
-                  {group.items.map((item) => {
-                    const active = activeSection === item.id;
-                    return (
-                      <li key={item.id} className="border-b border-term-line-soft">
-                        <Link
-                          href={item.href}
-                          prefetch={false}
-                          onClick={(event) => handleLocal(event, item.id)}
-                          aria-current={active ? 'page' : undefined}
-                          className={`flex min-h-[52px] items-center justify-between gap-3 px-4 text-base hover:bg-term-head ${
-                            active ? 'bg-term-select text-term-fg-strong shadow-[inset_3px_0_0_var(--term-accent)]' : 'text-term-fg'
-                          }`}
-                        >
-                          <span>{item.label}</span>
-                          <ChevronRight aria-hidden="true" size={18} className="shrink-0 text-term-label" />
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            ))}
+            <ul>
+              {MOBILE_MENU_ITEMS.map((item) => {
+                const active = activeSection === item.id;
+                const Icon = MENU_ICONS[item.id];
+                return (
+                  <li key={item.id} className="border-b border-term-line-soft">
+                    <Link
+                      href={item.href}
+                      prefetch={false}
+                      onClick={(event) => handleLocal(event, item.id)}
+                      aria-current={active ? 'page' : undefined}
+                      className={`flex min-h-[52px] items-center gap-3 px-4 text-base hover:bg-term-head ${
+                        active ? 'bg-term-select text-term-fg-strong' : 'text-term-fg'
+                      }`}
+                    >
+                      {Icon && <Icon aria-hidden="true" size={20} strokeWidth={1.8} className={`shrink-0 ${active ? 'text-term-accent' : 'text-term-muted'}`} />}
+                      <span className="flex-1">{item.label}</span>
+                      <ChevronRight aria-hidden="true" size={18} className="shrink-0 text-term-label" />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </nav>
           <div className="shrink-0 border-t border-term-line px-4">
             <ul className="flex flex-wrap gap-x-4 py-1">
