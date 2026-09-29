@@ -1,0 +1,15 @@
+[
+  {
+    "id": "ent_rhudenauticalsilkshirt_a33f04af4094",
+    "name": "Rhude Nautical Silk Shirt",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_COUNTERFEIT_STORE",
+    "reason": "実在するロサンゼルスのファッションブランド Rhude の名前を使う通販店。記録上の公式URL rhudecom.com は現在名前解決できず、Wayback の保存版（2025-01-01）は本物のブランドとは別ドメインで「公式サイト」を名乗る店だった。偽物・模倣品の店の可能性があり、事例として掲載すると商標を侵害する店への集客に加担するおそれがあるため、公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      { "url": "https://rhudecom.com/", "observation": "2026-09-29 時点で名前解決できない" },
+      { "url": "https://web.archive.org/web/20250101000000*/rhudecom.com", "observation": "2025-01-01 の保存版は本物のブランドとは別ドメインで「公式サイト」を名乗る通販店" }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  }
+]
