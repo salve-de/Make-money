@@ -6,8 +6,149 @@
     "reasonCode": "SUSPECTED_COUNTERFEIT_STORE",
     "reason": "実在するロサンゼルスのファッションブランド Rhude の名前を使う通販店。記録上の公式URL rhudecom.com は現在名前解決できず、Wayback の保存版（2025-01-01）は本物のブランドとは別ドメインで「公式サイト」を名乗る店だった。偽物・模倣品の店の可能性があり、事例として掲載すると商標を侵害する店への集客に加担するおそれがあるため、公開表示を停止する。記録は削除せず残す。",
     "evidence": [
-      { "url": "https://rhudecom.com/", "observation": "2026-09-29 時点で名前解決できない" },
-      { "url": "https://web.archive.org/web/20250101000000*/rhudecom.com", "observation": "2025-01-01 の保存版は本物のブランドとは別ドメインで「公式サイト」を名乗る通販店" }
+      {
+        "url": "https://rhudecom.com/",
+        "observation": "2026-09-29 時点で名前解決できない"
+      },
+      {
+        "url": "https://web.archive.org/web/20250101000000*/rhudecom.com",
+        "observation": "2025-01-01 の保存版は本物のブランドとは別ドメインで「公式サイト」を名乗る通販店"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_telegramaccountmarketplaces-aged-reviewed_0c4fd370252d",
+    "name": "Telegram Account Marketplaces: Aged & Reviewed",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_ILLEGAL_GOODS",
+    "reason": "各種アカウントと偽の識別番号を販売する通販ページとして記録されていた。アカウントの売買は各サービスの規約違反、偽の識別番号の販売は違法の疑いがあり、事例として掲載すると不正取引への集客に加担するおそれがあるため公開表示を停止する。IH の掲載ページは 404。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/",
+        "observation": "2026-09-29 の再監査（IH batch 017）で IH 掲載ページが 404、販売ページの内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_rswsora2studio_15c080113c02",
+    "name": "RSW Sora 2 AI Studio",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_RIGHTS_INFO_REMOVAL",
+    "reason": "生成動画の透かし（権利・出所を示す表示）を除去する道具として掲載されていた。透かし等の権利管理情報の除去は著作権侵害とみなされうる行為（日本では著作権法113条）で、事例として掲載すると侵害行為への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://www.removesorawatermark.online/sora2-video",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_capcutmodapk_109c8bc42d09",
+    "name": "Capcut MOD APK",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "他社アプリの改変版（MOD／非公式クライアント）を配布するサイトとして掲載されていた。改変版の配布は元アプリの著作権侵害・規約違反の疑いがあり、事例として掲載すると侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://capcutmodpro.org",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_gbwhatsappprov1870_304187da628b",
+    "name": "GB WhatsApp Pro v18.70",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "他社アプリの改変版（MOD／非公式クライアント）を配布するサイトとして掲載されていた。改変版の配布は元アプリの著作権侵害・規約違反の疑いがあり、事例として掲載すると侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://gbwaves.net/",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_gbwhatsappapk_28172331b165",
+    "name": "GB WhatsApp APK",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "他社アプリの改変版（MOD／非公式クライアント）を配布するサイトとして掲載されていた。改変版の配布は元アプリの著作権侵害・規約違反の疑いがあり、事例として掲載すると侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://gbwaplus.net/",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_lighthouse_7d9a2283f840",
+    "name": "Lighthouse",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "DOMAIN_REPURPOSED_TO_GAMBLING",
+    "reason": "掲載の公式URLが、IH の掲載内容（B2B向けAI導入支援）と無関係なオンラインスロット（賭博）の案内ページを表示している。ドメインの失効後の転用か乗っ取りの疑いがあり、リンクを出すと読者を賭博サイトへ送ることになるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://lighthouselaunch.com",
+        "observation": "2026-09-29 の再監査（IH batch 019）で確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_stremioaddonmanager_afa8b297e1d4",
+    "name": "Stremio Addon Manager",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_PIRACY_FACILITATION",
+    "reason": "非公式ツールで、掲載者の投稿が違法配信の入手に使われる拡張（Torrentio、Real-Debrid）に言及している。著作権侵害の助長の疑いがあり、事例として掲載すると侵害への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://stremioaddonmanager.org",
+        "observation": "2026-09-29 の再監査（IH batch 019）で確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_qwenimage_a15ace8d4a96",
+    "name": "Qwen Image AI",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_IMPERSONATION",
+    "reason": "著名なAIモデル・企業の名称を使うサイトで、開発元との関係が確認できず、公式を装う疑いが指摘されている（開発元リポジトリの利用者報告）。公式と誤認させる店への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://qwen-image.ai/",
+        "observation": "2026-09-29 の再監査（IH batch 021）で確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_minimaxh3_dbb09329c2df",
+    "name": "MiniMax H3",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_IMPERSONATION",
+    "reason": "著名なAIモデル・企業の名称を使うサイトで、開発元との関係が確認できず、公式を装う疑いが指摘されている（規約上の運営者が別会社）。公式と誤認させる店への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://miniultra.tech/",
+        "observation": "2026-09-29 の再監査（IH batch 040）で確認"
+      }
     ],
     "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
     "decidedAt": "2026-09-29"
