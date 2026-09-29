@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import type { BookmarkSyncStatus } from '../../hooks/useEntityFilter';
 import { MobileBottomNav } from './MobileBottomNav';
+import { MobileMenu } from './MobileMenu';
 import {
   GlobalNavSection,
   LOCAL_MODE_BY_SECTION,
@@ -197,7 +198,8 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     <>
       <header className="sticky top-0 z-40 flex w-full shrink-0 flex-wrap items-stretch border-b border-term-line bg-term-panel lg:h-9 lg:flex-nowrap">
         {/* ロゴ */}
-        <div className="flex h-11 shrink-0 items-center pl-3 lg:h-full lg:border-r lg:border-term-line lg:pr-3 xl:pr-4">
+        <MobileMenu activeSection={activeSection} onOpenPro={onOpenPro} onSelectLocalMode={onSelectLocalMode} />
+        <div className="flex h-11 shrink-0 items-center pl-1 lg:h-full lg:border-r lg:border-term-line lg:pl-3 lg:pr-3 xl:pr-4">
           <Link href="/" prefetch={false} aria-label="Make Money" className="inline-flex min-h-11 items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
             MAKE MONEY
           </Link>
@@ -327,7 +329,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       <MobileBottomNav
         activeSection={activeSection}
         bookmarkCount={bookmarkCount}
-        onOpenPro={onOpenPro}
         onSelectLocalMode={onSelectLocalMode}
       />
     </>

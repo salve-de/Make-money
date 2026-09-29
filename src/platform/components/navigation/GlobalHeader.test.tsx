@@ -27,6 +27,9 @@ describe('GlobalHeader terminal navigation', () => {
     const html = renderToStaticMarkup(<GlobalHeader />);
     expect(html).toContain('term-bottom-nav');
     expect(html).toContain('lg:hidden');
-    for (const label of ['事例', '市場', 'パターン', 'その他']) expect(html).toContain(label);
+    const bottom = html.slice(html.indexOf('term-bottom-nav'));
+    for (const label of ['事例', '発見', '市場', '保存']) expect(bottom).toContain(label);
+    expect(bottom).not.toContain('その他');
+    expect(html).toContain('aria-label="メニューを開く"');
   });
 });
