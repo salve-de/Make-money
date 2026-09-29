@@ -45,21 +45,21 @@ export function SourcesSection({ entity }: Pick<InspectorSectionProps, 'entity' 
   if (uniqueLinks.length === 0 && sourceNotes.length === 0 && !period) return null;
 
   return (
-    <section id="section-sources" className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721] scroll-mt-4">
-      <h3 className="border-b border-white/[0.12] bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">参照先</h3>
-      <ul className="divide-y divide-white/[0.1]">
+    <section id="section-sources" className="border-b border-term-line scroll-mt-4">
+      <div className="term-panel-title"><h3 className="term-panel-name">参照先</h3></div>
+      <ul className="divide-y divide-term-line-soft">
         {uniqueLinks.map((link) => (
           <li key={link.href}>
-            <a href={link.href} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center justify-between gap-3 px-4 py-2 text-sm text-sky-200 hover:bg-white/[0.05]">
+            <a href={link.href} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center justify-between gap-3 px-3 py-1 text-[13px] text-term-fg hover:bg-term-head">
               <span className="min-w-0 truncate">{link.label}</span>
               <ExternalLink aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
             </a>
           </li>
         ))}
       </ul>
-      {period && <p className="border-t border-white/10 px-4 py-2.5 text-xs text-zinc-300"><span className="mr-2 text-zinc-400">対象期間</span>{period}</p>}
-      {sourceNotes.length > 0 && <div className="border-t border-white/10 px-4 py-2.5">
-        <h4 className="text-sm text-sky-200">資料名・出典メモ</h4>
+      {period && <p className="border-t border-term-line-soft px-3 py-1.5 text-xs text-zinc-300"><span className="mr-2 text-zinc-400">対象期間</span>{period}</p>}
+      {sourceNotes.length > 0 && <div className="border-t border-term-line-soft px-3 py-1.5">
+        <h4 className="text-xs text-term-label">資料名・出典メモ</h4>
         <ul className="mt-2 space-y-2 text-xs leading-5 text-zinc-300">{sourceNotes.map((note) => <li key={note} className="break-words">{note}</li>)}</ul>
       </div>}
     </section>

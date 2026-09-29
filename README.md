@@ -362,9 +362,9 @@ WORLD (世界中のノイズ・一次情報)
 
 * **Framework**: Next.js 16 (App Router, Turbopack)
 * **Language**: TypeScript (Strict Mode)
-* **Styling**: Tailwind CSS (金融端末調 Institutional Slate & Dark Navy モノトーン)
-* **Data Models**: `src/types/terminal.ts` / `src/types/idea.ts`
-* **Data Sources**: `src/data/terminalData.ts` / `src/data/ideasData.ts` / `src/data/portalSignals.ts`
+* **Styling**: Tailwind CSS v4（端末型UI。色・文字・角丸は `src/app/globals.css` のトークン、仕様は `docs/design/TERMINAL_UI.md`）
+* **Data Models**: `src/shared/terminal.ts`
+* **Data Sources**: 組み込みの事例カタログ `src/platform/data/mockLedgerData.ts`、収集済み一覧 `data/collected-registry.json`、Foundation Lake（R2）の公開データ（`/api/businesses` 経由）
 * **Payments**: Stripe API (`/api/checkout`, `/api/webhooks/stripe`)
 
 ```bash

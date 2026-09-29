@@ -51,8 +51,8 @@ export function BusinessVisualSummary({ entity, formatMoney, isHazardMode, isPro
         {hasFlow && <figure aria-label="顧客・提供価値・収益の構造">
           <figcaption className="mb-2 font-medium text-zinc-100">顧客 → 提供価値 → 収益モデル</figcaption>
           <ol className="grid gap-2 sm:grid-cols-3">
-            {[["顧客", customer], ["提供価値", offering], ["収益モデル", revenue]].map(([label, value], index) => <li key={label} className="min-w-0 rounded border border-white/10 bg-white/[0.03] p-2.5 break-words">
-              <div className="mb-1 text-sky-300">{index + 1}. {label}</div><p>{value}</p>
+            {[["顧客", customer], ["提供価値", offering], ["収益モデル", revenue]].map(([label, value], index) => <li key={label} className="min-w-0 rounded-sm border border-term-line bg-transparent p-2.5 break-words">
+              <div className="mb-1 text-term-fg">{index + 1}. {label}</div><p>{value}</p>
             </li>)}
           </ol>
           {content(entity.pricing?.pricePoint) && <p className="mt-1.5 text-zinc-400">価格帯：{entity.pricing?.pricePoint}</p>}
@@ -60,8 +60,8 @@ export function BusinessVisualSummary({ entity, formatMoney, isHazardMode, isPro
         {hasComparison && <figure aria-label="価値提供経路の比較">
           <figcaption className="mb-2 font-medium text-zinc-100">価値提供経路の比較（登録分析）</figcaption>
           <div className="grid gap-2 sm:grid-cols-2">
-            <div className="min-w-0 rounded border border-white/10 p-2.5 break-words"><p className="mb-1 text-zinc-400">既存側の摩擦・制約</p><p>{incumbent}</p></div>
-            <div className="min-w-0 rounded border border-sky-300/20 p-2.5 break-words"><p className="mb-1 text-sky-300">{entity.name}の提供構造</p><p>{mechanism}</p></div>
+            <div className="min-w-0 rounded-sm border border-term-line p-2.5 break-words"><p className="mb-1 text-zinc-400">既存側の摩擦・制約</p><p>{incumbent}</p></div>
+            <div className="min-w-0 rounded-sm border border-term-line p-2.5 break-words"><p className="mb-1 text-term-fg">{entity.name}の提供構造</p><p>{mechanism}</p></div>
           </div>
         </figure>}
         {rows.length >= 2 && <figure aria-label="月額換算の損益項目比較">
@@ -72,10 +72,10 @@ export function BusinessVisualSummary({ entity, formatMoney, isHazardMode, isPro
           <dl className="space-y-1.5">
             {rows.map((row) => <div key={row.label} className="grid grid-cols-[7rem_minmax(0,1fr)] items-center gap-2">
               <dt>{row.label}</dt><dd className="min-w-0">
-                <div className={`text-right tabular-nums ${row.value < 0 ? 'text-rose-300' : 'text-zinc-200'}`}>{estimated ? '推計 ' : ''}{formatMoney(row.value)}</div>
-                <div aria-hidden="true" className="relative mt-0.5 h-2 bg-white/[0.04]">
+                <div className={`text-right tabular-nums ${row.value < 0 ? 'text-term-danger' : 'text-zinc-200'}`}>{estimated ? '推計 ' : ''}{formatMoney(row.value)}</div>
+                <div aria-hidden="true" className="relative mt-0.5 h-2 bg-term-head">
                   <span className="absolute inset-y-0 w-px bg-zinc-500" style={{ left: hasNegative ? '50%' : 0 }} />
-                  <span className={`absolute inset-y-0 ${row.value < 0 ? 'bg-rose-400' : row.kind === 'cost' ? 'bg-amber-400/80' : 'bg-sky-400/80'}`} style={{
+                  <span className={`absolute inset-y-0 ${row.value < 0 ? 'bg-term-danger' : row.kind === 'cost' ? 'bg-term-dim' : 'bg-term-muted'}`} style={{
                     width: `${Math.abs(row.value) / max * (hasNegative ? 50 : 100)}%`,
                     left: `${hasNegative ? row.value < 0 ? 50 - Math.abs(row.value) / max * 50 : 50 : 0}%`,
                   }} />
@@ -86,11 +86,11 @@ export function BusinessVisualSummary({ entity, formatMoney, isHazardMode, isPro
           {hasNegative && <p className="mt-1 text-zinc-400">基準線の左は負の金額、右は正の金額。</p>}
           {content(pnl.sourceDoc) && <p className="mt-2 break-words text-zinc-400">出典：{pnl.sourceDoc}</p>}
         </figure>}
-        {(retention || capital) && <details className="border-t border-white/10 pt-2">
+        {(retention || capital) && <details className="border-t border-term-line pt-2">
           <summary className="cursor-pointer text-zinc-200">継続・資本運用の構造</summary>
           <dl className="mt-2 grid gap-2 sm:grid-cols-2">
-            {retention && <div><dt className="text-sky-300">継続・切替摩擦</dt><dd className="break-words">{retention}</dd></div>}
-            {capital && <div><dt className="text-sky-300">資本運用</dt><dd className="break-words">{capital}</dd></div>}
+            {retention && <div><dt className="text-term-fg">継続・切替摩擦</dt><dd className="break-words">{retention}</dd></div>}
+            {capital && <div><dt className="text-term-fg">資本運用</dt><dd className="break-words">{capital}</dd></div>}
           </dl>
         </details>}
       </div>

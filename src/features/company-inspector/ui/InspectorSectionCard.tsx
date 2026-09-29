@@ -11,6 +11,7 @@ interface InspectorSectionCardProps {
   className?: string;
 }
 
+/** 詳細の1区画。24pxの見出し行（橙の項目名）＋罫線区切りの本文。枠や角丸は持たない。 */
 export const InspectorSectionCard: React.FC<InspectorSectionCardProps> = ({
   id,
   index,
@@ -25,32 +26,18 @@ export const InspectorSectionCard: React.FC<InspectorSectionCardProps> = ({
     <section
       id={id}
       data-section-index={index}
-      className={`scroll-mt-4 overflow-hidden rounded-md border bg-[#0e151d] transition-colors ${
-        isHazardMode ? 'border-rose-300/30' : 'border-white/[0.16]'
-      } ${className}`}
+      data-hazard={isHazardMode ? 'true' : undefined}
+      className={`scroll-mt-8 border-b border-term-line ${className}`}
     >
-      <div className={`flex min-h-11 flex-wrap items-center justify-between gap-2 border-b px-3 py-2 sm:px-4 ${
-        isHazardMode ? 'border-rose-300/20 bg-rose-950/30' : 'border-white/[0.12] bg-[#192632]'
-      }`}>
-        <div className="flex items-center gap-2.5 min-w-0">
-          <span aria-hidden="true" className={`h-4 w-0.5 shrink-0 ${isHazardMode ? 'bg-rose-300' : 'bg-sky-300'}`} />
-          <div className="min-w-0">
-            <span aria-hidden="true" className="sr-only">{categoryEn}</span>
-            <h3 className="text-sm font-semibold text-zinc-50 sm:text-[15px]">
-              {titleJa}
-            </h3>
-          </div>
+      <div className="term-panel-title sticky top-0 z-10 justify-between">
+        <div className="flex min-w-0 items-center gap-2">
+          <span aria-hidden="true" className="sr-only">{categoryEn}</span>
+          <h3 className="term-panel-name truncate">{titleJa}</h3>
         </div>
-
-        {badge && (
-          <div className="flex shrink-0 items-center gap-2 text-xs">
-            {badge}
-          </div>
-        )}
+        {badge && <div className="flex shrink-0 items-center gap-2 text-xs text-term-muted">{badge}</div>}
       </div>
 
-      {/* セクション本体 */}
-      <div className="px-3 sm:px-4">{children}</div>
+      <div className="px-2.5 text-[13px] text-term-fg sm:px-3">{children}</div>
     </section>
   );
 };

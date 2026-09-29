@@ -136,41 +136,44 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ 
   const activeEntry = guides.find(({ id }) => id === selectedId) ?? guides[0];
   const active = activeEntry?.guide;
   const related = activeEntry ? allEntities.filter((entity) => activeEntry.record.proofEntityIds.includes(entity.id)) : [];
-  const extra = activeEntry ? <details className="rounded-md border border-white/[0.16] bg-[#101721] px-4 pb-3">
-    <summary className="cursor-pointer py-3 text-sm font-medium text-sky-200">背景・初動の資料</summary>
-    <div className="space-y-3 text-sm leading-6 text-zinc-200">
+  const linkBtn = 'inline-flex min-h-11 items-center rounded-sm border border-term-line px-3 text-sm text-term-select-fg hover:bg-term-head lg:min-h-8';
+  const extra = activeEntry ? <details className="border-b border-term-line px-3">
+    <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">背景・初動の資料</summary>
+    <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg">
       <p>{activeEntry.record.signalData}</p><p>{activeEntry.record.incumbentTrap}</p><p>{activeEntry.record.trendingPlaybook}</p><p>{activeEntry.record.guerrillaTractionLog}</p>
       {activeEntry.record.techStack.length > 0 && <p>構成例: {activeEntry.record.techStack.join(' / ')}</p>}
-      {related.length > 0 && <div className="flex flex-wrap gap-2">{related.map((entity) => <button key={entity.id} type="button" onClick={() => onOpenEntityInLedger(entity.id)} className="rounded border border-white/[0.16] px-3 py-2 text-sky-200">{entity.name}</button>)}</div>}
-      {related[0] && onOpenSynthesisWithEntity && <button type="button" onClick={() => onOpenSynthesisWithEntity(related[0].id)} className="rounded border border-white/[0.16] px-3 py-2 text-sky-200">関連事例から企画する</button>}
+      {related.length > 0 && <div className="flex flex-wrap gap-2">{related.map((entity) => <button key={entity.id} type="button" onClick={() => onOpenEntityInLedger(entity.id)} className={linkBtn}>{entity.name}</button>)}</div>}
+      {related[0] && onOpenSynthesisWithEntity && <button type="button" onClick={() => onOpenSynthesisWithEntity(related[0].id)} className="inline-flex min-h-11 items-center rounded-sm border border-term-accent px-3 text-sm text-term-accent hover:bg-term-head lg:min-h-8">関連事例から企画する</button>}
     </div>
   </details> : null;
 
   return (
-    <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-background text-foreground">
-      <header className="shrink-0 border-b border-white/[0.14] bg-surface px-3 py-2 sm:px-5">
-        <div className="flex items-center gap-3">
-          <h1 className="shrink-0 text-base font-semibold text-white sm:text-lg">事業パターン</h1>
-          <div className="relative min-w-0 flex-1 sm:max-w-sm">
-            <Search aria-hidden="true" className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
-            <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="事業パターンを検索" placeholder="テーマを検索" className="h-10 w-full rounded-md border border-white/[0.16] bg-background pl-8 pr-3 text-sm text-white placeholder:text-zinc-500 focus:border-sky-300 focus:outline-none" />
-          </div>
-          <span className="shrink-0 text-xs tabular-nums text-zinc-400">{guides.length}件</span>
+    <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-term-bg text-term-fg">
+      <header className="shrink-0 border-b border-term-line bg-term-panel">
+        <h1 className="sr-only">事業パターン</h1>
+        <div className="term-panel-title">
+          <span className="term-panel-name">事業パターン</span>
+          <span className="term-num">{guides.length}件</span>
+        </div>
+        <div className="relative border-b border-term-line-soft p-2 sm:max-w-md">
+          <Search aria-hidden="true" className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="事業パターンを検索" placeholder="テーマを検索" className="h-11 w-full rounded-sm border border-term-line bg-term-bg pl-8 pr-3 text-sm text-term-fg-strong placeholder:text-term-dim focus:border-term-accent focus:outline-none lg:h-8" />
         </div>
       </header>
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
-        <aside aria-label="事業パターン一覧" className="min-h-0 w-full overflow-y-auto border-r border-white/[0.14] bg-surface pb-24 lg:w-[36%] lg:max-w-[480px] lg:pb-0">
-          <div className="space-y-2 p-2">
-            {guides.map(({ id, guide }) => (
-              <button key={id} type="button" aria-pressed={activeEntry?.id === id} onClick={() => { setSelectedId(id); setMobileDetailOpen(true); }} className={`w-full rounded-md border border-l-2 px-3 py-2.5 text-left transition-colors ${activeEntry?.id === id ? 'border-sky-300/40 border-l-sky-300 bg-sky-300/[0.08]' : 'border-white/[0.12] bg-background/40 hover:bg-white/[0.04]'}`}>
-                <span className="text-xs text-sky-200">{guide.category}</span>
-                <strong className="mt-1 block text-sm font-semibold text-white">{guide.title}</strong>
-                <span className="mt-1 block text-sm leading-5 text-zinc-300">{guide.summary}</span>
+        <aside aria-label="事業パターン一覧" className="min-h-0 w-full overflow-y-auto border-r border-term-line bg-term-bg lg:w-[36%] lg:max-w-[480px]">
+          {guides.map(({ id, guide }, index) => {
+            const selected = activeEntry?.id === id;
+            return (
+              <button key={id} type="button" aria-pressed={selected} onClick={() => { setSelectedId(id); setMobileDetailOpen(true); }} className={`block min-h-11 w-full border-b border-term-line-soft px-3 py-2 text-left ${selected ? 'bg-term-select' : index % 2 ? 'bg-term-row-alt hover:bg-term-head' : 'hover:bg-term-head'}`}>
+                <span className="text-xs text-term-label">{guide.category}</span>
+                <strong className="block text-sm font-semibold text-term-fg-strong">{guide.title}</strong>
+                <span className={`block text-sm leading-5 ${selected ? 'text-term-select-fg' : 'text-term-sub'}`}>{guide.summary}</span>
               </button>
-            ))}
-          </div>
-          {guides.length === 0 && <p className="p-4 text-sm text-zinc-400">該当するテーマはありません。</p>}
+            );
+          })}
+          {guides.length === 0 && <p className="p-3 text-sm text-term-label">該当するテーマはありません。検索語を短くするか、消して全件を表示してください。</p>}
         </aside>
 
         <section aria-label="選択した事業パターンの詳細" className="hidden min-w-0 flex-1 overflow-y-auto lg:block">
@@ -179,7 +182,7 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ 
       </div>
 
       {mobileDetailOpen && active && (
-        <div role="dialog" aria-modal="true" aria-label={`${active.title}の詳細`} className="fixed inset-0 z-50 flex flex-col bg-background lg:hidden">
+        <div role="dialog" aria-modal="true" aria-label={`${active.title}の詳細`} className="fixed inset-0 z-50 flex flex-col bg-term-bg lg:hidden">
           <div className="min-h-0 flex-1 overflow-y-auto pb-8"><PatternDetail extra={extra} guide={active} onBack={() => setMobileDetailOpen(false)} /></div>
         </div>
       )}
@@ -187,33 +190,35 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ 
   );
 };
 
+const KV: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+  <div className="border-b border-term-line-soft px-3 py-2 text-sm leading-6 sm:border-r">
+    <dt className="text-xs text-term-label">{label}</dt>
+    <dd className="text-term-fg">{value}</dd>
+  </div>
+);
+
 const PatternDetail: React.FC<{ guide: PatternGuide; extra?: React.ReactNode; onBack?: () => void }> = ({ guide, onBack, extra }) => (
-  <div className="mx-auto max-w-5xl space-y-3 p-4 sm:p-6">
-    <header className="border-b border-white/[0.16] pb-3">
-      <div className="flex items-center justify-between gap-3">
-        <p className="text-xs font-medium text-sky-200">{guide.category} · 事業案</p>
-        {onBack && <button type="button" onClick={onBack} className="inline-flex min-h-10 items-center gap-1 rounded px-2 text-sm text-zinc-300 hover:bg-white/[0.06]"><ArrowLeft aria-hidden="true" className="h-4 w-4" />一覧へ</button>}
-      </div>
-      <h2 className="mt-1 text-xl font-semibold text-white">{guide.title}</h2>
-      <p className="mt-1 text-sm text-zinc-300">{guide.summary}</p>
-    </header>
-    <div className="grid gap-3 xl:grid-cols-2">
-      <section className="rounded-md border border-white/[0.16] bg-[#101721]">
-        <h3 className="border-b border-white/[0.12] bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">事業の形</h3>
-        <dl className="divide-y divide-white/[0.1] px-4 text-sm leading-6">
-          <div className="py-2"><dt className="text-xs text-sky-200">想定する顧客</dt><dd className="text-zinc-200">{guide.customer}</dd></div>
-          <div className="py-2"><dt className="text-xs text-sky-200">提供するもの</dt><dd className="text-zinc-200">{guide.deliverable}</dd></div>
-          <div className="py-2"><dt className="text-xs text-sky-200">収益の取り方</dt><dd className="text-zinc-200">{guide.revenueModel}</dd></div>
-        </dl>
-      </section>
-      <section className="rounded-md border border-white/[0.16] bg-[#101721]">
-        <h3 className="border-b border-white/[0.12] bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">最初に確かめること</h3>
-        <p className="border-b border-white/[0.1] px-4 py-2.5 text-sm leading-6 text-zinc-200">{guide.firstStep}</p>
-        <ul className="divide-y divide-white/[0.1] px-4 text-sm leading-6 text-zinc-200">
-          {guide.checks.map((check) => <li key={check} className="py-2">{check}</li>)}
-        </ul>
-      </section>
+  <div className="w-full">
+    <div className="term-panel-title">
+      <span className="term-panel-name">{guide.category}</span>事業案
+      {onBack && <button type="button" onClick={onBack} className="ml-auto inline-flex min-h-11 items-center gap-1 px-2 text-sm text-term-sub hover:text-term-fg-strong"><ArrowLeft aria-hidden="true" className="h-4 w-4" />一覧へ</button>}
     </div>
+    <header className="border-b border-term-line px-3 py-3">
+      <h2 className="text-lg font-semibold text-term-fg-strong">{guide.title}</h2>
+      <p className="mt-1 text-sm text-term-sub">{guide.summary}</p>
+    </header>
+    <dl className="grid border-b border-term-line sm:grid-cols-2">
+      <KV label="想定する顧客" value={guide.customer} />
+      <KV label="提供するもの" value={guide.deliverable} />
+      <KV label="収益の取り方" value={guide.revenueModel} />
+      <KV label="最初に確かめること" value={guide.firstStep} />
+    </dl>
+    <section aria-label="確認事項" className="border-b border-term-line">
+      <h3 className="border-b border-term-line-soft bg-term-head px-3 py-1 text-xs text-term-label">確認しておくこと</h3>
+      <ul className="text-sm leading-6 text-term-fg">
+        {guide.checks.map((check) => <li key={check} className="border-b border-term-line-soft px-3 py-1.5 last:border-b-0">{check}</li>)}
+      </ul>
+    </section>
     {extra}
   </div>
 );

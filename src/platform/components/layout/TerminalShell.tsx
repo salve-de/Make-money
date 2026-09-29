@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { FinancialEntity, WorkspaceMode } from '@/shared/terminal';
 import { useTerminalWorkspace } from '../../hooks/useTerminalWorkspace';
@@ -23,7 +23,10 @@ import { PlaybookIntelligenceView } from '../playbook/PlaybookIntelligenceView';
 import { MarketRadarView } from '../radar/MarketRadarView';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal } from '../screener/AdvancedScreenerModal';
-import { MobileBottomNav } from '../navigation/MobileBottomNav';
+import { LedgerFilterRail } from '../grid/LedgerFilterRail';
+import { TerminalStatusBar } from './TerminalStatusBar';
+import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
+import { closeEntityParam, dropQueryParam, openEntityParam, openLedgerEntityUrl, positionLabel } from '../../utils/entityUrl';
 import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC<{
@@ -133,25 +136,37 @@ export const TerminalShell: React.FC<{
   }, [activeDossier, entities]);
 
   // 4. 選択中エンティティ・ナビゲーション・PRO分析フック
-  const {
-    selectedEntityId,
-    setSelectedEntityId,
-    selectedEntity,
-    handlePrevEntity,
-    handleNextEntity,
-  } = useSelectedEntityNavigation({
-    entities,
-    filteredEntities,
-    deepDiveEntities,
-    workspaceMode,
-    detailedEntities,
-    entityAliases,
-    onFetchEntityDetailOnDemand: fetchEntityDetailOnDemand,
-  });
+  const { selectedEntityId, openedEntityId, setSelectedEntityId, selectedEntity, handlePrevEntity, handleNextEntity } =
+    useSelectedEntityNavigation({
+      entities,
+      filteredEntities,
+      deepDiveEntities,
+      workspaceMode,
+      detailedEntities,
+      entityAliases,
+      onFetchEntityDetailOnDemand: fetchEntityDetailOnDemand,
+    });
+
   const openEntity = (id: string) => {
     setSelectedEntityId(id);
     setMobileInspectorOpen(true);
+    openEntityParam(id);
   };
+  const closeEntity = () => {
+    setMobileInspectorOpen(false);
+    setSelectedEntityId(null);
+    closeEntityParam();
+  };
+
+  const selectedPositionLabel = positionLabel(filteredEntities.findIndex((row) => row.id === selectedEntityId), catalogTotal || filteredEntities.length);
+  const ledgerEntityIds = useMemo(() => filteredEntities.map((entity) => entity.id), [filteredEntities]);
+  useLedgerKeyboard({
+    enabled: workspaceMode === 'LEDGER' && !isCommandPaletteOpen && !isScreenerOpen && !isProModalOpen,
+    entityIds: ledgerEntityIds,
+    selectedEntityId,
+    onSelect: setSelectedEntityId,
+    onOpen: openEntity,
+  });
 
   const synthesisEntities = useMemo(() => {
     const merged = new Map(entities.map((entity) => [entity.id, entity]));
@@ -159,9 +174,8 @@ export const TerminalShell: React.FC<{
     return [...merged.values()];
   }, [entities, detailedEntities]);
 
-  // Workspace tabs are already rendered inside this shell. Update the view
-  // immediately and keep the URL/back button in sync without requesting a new
-  // dynamic Server Component payload for the same page.
+  // Workspace tabs are already rendered inside this shell: update the view immediately and keep the
+  // URL/back button in sync without requesting a new dynamic Server Component payload for the same page.
   const selectWorkspaceMode = (mode: WorkspaceMode, entityId?: string) => {
     setWorkspaceMode(mode);
     if (mode === 'DEEP_DIVE') setActiveTopicId(null);
@@ -180,6 +194,14 @@ export const TerminalShell: React.FC<{
     if (nextUrl !== currentUrl) window.history.pushState(null, '', nextUrl);
   };
 
+  // ?pro=1 で PRO の説明を開き、パラメータは消す
+  const proParam = searchParams?.get('pro');
+  useEffect(() => {
+    if (proParam !== '1') return;
+    setIsProModalOpen(true);
+    dropQueryParam('pro');
+  }, [proParam, setIsProModalOpen]);
+
   // アナリスト考察メモ
   const { notes, getNote, saveNote, getSaveStatus } = useAnalystNotes();
   const { isPro: isProUnlocked, role } = useAuth();
@@ -194,7 +216,7 @@ export const TerminalShell: React.FC<{
   };
 
   return (
-    <div className="flex h-dvh w-full flex-col overflow-hidden bg-[#0c1016] font-sans text-zinc-100">
+    <div className="flex term-screen w-full flex-col overflow-hidden bg-term-bg font-sans text-term-fg">
       {/* 統合グローバルナビゲーションヘッダー */}
       <GlobalHeader
         currentSection={
@@ -210,7 +232,7 @@ export const TerminalShell: React.FC<{
         }
         onOpenPro={() => setIsProModalOpen(true)}
         onSelectLocalMode={selectWorkspaceMode}
-        hideMobilePrimaryNav
+        {...(workspaceMode === 'LEDGER' ? { searchValue: searchQuery, onSearchChange: setSearchQuery } : {})}
         bookmarkCount={bookmarkedIds.size}
         bookmarkSyncStatus={bookmarkSyncStatus}
         onSelectBookmark={() => {
@@ -221,7 +243,7 @@ export const TerminalShell: React.FC<{
       />
 
       {/* メインエリア */}
-      <main className="flex-1 flex min-h-0 overflow-hidden relative pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0">
+      <main className="flex-1 flex min-h-0 overflow-hidden relative">
         {/* 画面モードに応じたコンテンツレンダリング */}
         {workspaceMode === 'PLAYBOOK' ? (
           <PlaybookIntelligenceView
@@ -239,7 +261,7 @@ export const TerminalShell: React.FC<{
             notes={notes}
             onSaveNote={saveNote}
             currency={currency}
-            initialContextEntityId={selectedEntityId}
+            initialContextEntityId={openedEntityId}
           />
         ) : workspaceMode === 'RADAR' ? (
           <MarketRadarView
@@ -262,14 +284,15 @@ export const TerminalShell: React.FC<{
             }}
           />
         ) : (
-          <div className={`flex min-h-0 min-w-0 flex-col overflow-hidden bg-[#0c1016] transition-[width] duration-150 ${
-            selectedEntity
-              ? 'w-full shrink-0 xl:w-[38%] xl:max-w-[600px] xl:border-r xl:border-white/[0.12]'
-              : 'flex-1'
-          }`}>
+          <>
+          <div className="hidden xl:flex">
+            <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={catalogTotal ?? filteredEntities.length} />
+          </div>
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden border-term-line bg-term-bg xl:border-r">
             <DataGridToolbar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
+              hideSearch
               totalCount={filteredEntities.length}
               onOpenScreener={() => setIsScreenerOpen(true)}
               screenerFilters={screenerFilters}
@@ -279,7 +302,7 @@ export const TerminalShell: React.FC<{
               newlyCollectedCount={newlyCollectedCount}
               onApproveAllCollected={canApproveEntities ? handleApproveAllCollected : undefined}
               selectedBatch={selectedBatch}
-              onSelectBatch={setSelectedBatch}
+              onSelectBatch={setSelectedBatch} showBatchFilter={canApproveEntities}
               batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
               catalogTotal={catalogTotal}
             />
@@ -288,6 +311,7 @@ export const TerminalShell: React.FC<{
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}
+              mobileSelectedEntityId={openedEntityId}
               onSelectEntity={openEntity}
               currency={currency}
               bookmarkedIds={bookmarkedIds}
@@ -300,16 +324,16 @@ export const TerminalShell: React.FC<{
               onRetry={retryFoundationPage}
             />
           </div>
+          </>
         )}
 
         {/* 右リアルタイム解剖インスペクター (全銘柄台帳モード時のみ表示) */}
         {workspaceMode === 'LEDGER' && selectedEntity && (
+          <div className="contents xl:flex xl:w-[520px] xl:min-w-0 xl:shrink-0">
           <CompanyInspectorPane
             entity={selectedEntity}
-            onClose={() => {
-              setMobileInspectorOpen(false);
-              setSelectedEntityId(null);
-            }}
+            positionLabel={selectedPositionLabel}
+            onClose={closeEntity}
             mobileOpen={mobileInspectorOpen}
             currency={currency}
             onPrevEntity={handlePrevEntity}
@@ -336,20 +360,11 @@ export const TerminalShell: React.FC<{
             isBookmarked={bookmarkedIds.has(selectedEntity.id)}
             onToggleBookmark={(e) => handleToggleBookmark(selectedEntity.id, e)}
           />
+          </div>
         )}
       </main>
 
-      {/* スマホ最下部固定ボトムナビ */}
-      <MobileBottomNav
-        workspaceMode={workspaceMode}
-        onSelectMode={selectWorkspaceMode}
-        currentFilter={currentFilter}
-        onSelectFilter={(f) => {
-          selectWorkspaceMode('LEDGER');
-          setCurrentFilter(f);
-          setScreenerFilters(null);
-        }}
-      />
+      {workspaceMode === 'LEDGER' && <TerminalStatusBar shownCount={filteredEntities.length} totalCount={catalogTotal ?? filteredEntities.length} updatedAt={newArrivalsRelease?.releaseAt ?? null} />}
 
       {/* ⌘K グローバル検索モーダル */}
       <GlobalCommandPalette
@@ -358,18 +373,13 @@ export const TerminalShell: React.FC<{
         entities={entities}
         onSelectEntity={(id) => {
           setWorkspaceMode('LEDGER');
-          openEntity(id);
-          const params = new URLSearchParams(window.location.search);
-          params.delete('mode');
-          params.delete('topic');
-          params.delete('q');
-          params.set('entity', id);
-          window.history.pushState(null, '', `/?${params.toString()}`);
+          setSelectedEntityId(id);
+          setMobileInspectorOpen(true);
+          openLedgerEntityUrl(id);
         }}
         currency={currency}
       />
 
-      {/* 多条件詳細スクリーナーモーダル */}
       <AdvancedScreenerModal
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
@@ -379,11 +389,7 @@ export const TerminalShell: React.FC<{
         initialFilters={screenerFilters}
       />
 
-      {/* PROメンバーシップ決済モーダル */}
-      <ProModal
-        isOpen={isProModalOpen}
-        onClose={() => setIsProModalOpen(false)}
-      />
+      <ProModal isOpen={isProModalOpen} onClose={() => setIsProModalOpen(false)} />
     </div>
   );
 };

@@ -52,26 +52,26 @@ const RISKS: Record<string, RiskGuide> = {
 };
 
 const RiskDetail: React.FC<{ guide: RiskGuide; trap: DeathTrapsSectionProps["deathTraps"][number] }> = ({ guide, trap }) => (
-  <div className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-    <h3 className="hidden border-b border-white/[0.12] bg-[#1a2530] px-4 py-3 text-base font-semibold text-white lg:block">{guide.title}</h3>
-    <dl className="divide-y divide-white/[0.1] px-4 text-sm leading-6">
+  <div>
+    <h3 className="hidden border-b border-term-line px-3 py-2 text-base font-semibold text-term-fg-strong lg:block">{guide.title}</h3>
+    <dl className="text-sm leading-6">
       {[
         ['見つける兆候', guide.signal],
         ['起こり得ること', guide.impact],
         ['見直し方', guide.response],
       ].map(([label, value]) => (
-        <div key={label} className="grid gap-0.5 py-2 sm:py-2.5 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-4">
-          <dt className="text-xs font-medium text-amber-200">{label}</dt>
-          <dd className="text-zinc-200">{value}</dd>
+        <div key={label} className="grid gap-0.5 border-b border-term-line-soft px-3 py-2 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-4">
+          <dt className="text-xs text-term-label">{label}</dt>
+          <dd className="text-term-fg">{value}</dd>
         </div>
       ))}
     </dl>
-    <details className="border-t border-white/[0.12] px-4 pb-3">
-      <summary className="cursor-pointer py-3 text-sm font-medium text-amber-200">原因・対応の資料</summary>
-      <div className="space-y-3 text-sm leading-6 text-zinc-200"><p>{trap.mechanism}</p>
+    <details className="border-b border-term-line px-3">
+      <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">原因・対応の資料</summary>
+      <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg"><p>{trap.mechanism}</p>
       <ul className="list-disc space-y-2 pl-5">{trap.warningSigns.map((sign, index) => <li key={index}>{sign}</li>)}</ul>
       <p>{trap.antidote}</p>
-      {trap.victimEntities.length > 0 && <section className="border-t border-white/[0.1] pt-3"><h4 className="text-xs font-medium text-zinc-400">資料内の参考例</h4>{trap.victimEntities.map((entity) => <article key={entity.id} className="mt-3 space-y-1"><h5 className="font-medium">{entity.name}</h5><p>{entity.headline}</p><p>{entity.punchline}</p><ul className="list-disc pl-5">{entity.details.map((detail, index) => <li key={index}>{detail}</li>)}</ul></article>)}</section>}</div>
+      {trap.victimEntities.length > 0 && <section className="border-t border-term-line pt-3"><h4 className="text-xs text-term-label">資料内の参考例</h4>{trap.victimEntities.map((entity) => <article key={entity.id} className="mt-3 space-y-1"><h5 className="font-medium text-term-fg-strong">{entity.name}</h5><p>{entity.headline}</p><p>{entity.punchline}</p><ul className="list-disc pl-5">{entity.details.map((detail, index) => <li key={index}>{detail}</li>)}</ul></article>)}</section>}</div>
     </details>
   </div>
 );
@@ -79,27 +79,31 @@ const RiskDetail: React.FC<{ guide: RiskGuide; trap: DeathTrapsSectionProps["dea
 export const DeathTrapsSection: React.FC<DeathTrapsSectionProps> = ({ deathTraps, shelfLifeAlerts, selectedTrapId, setSelectedTrapId }) => {
   const selected = deathTraps.find((trap) => trap.id === selectedTrapId) ?? deathTraps[0];
   return (
-    <div className="mx-auto grid max-w-7xl gap-3 p-3 sm:p-5 lg:grid-cols-[minmax(260px,36%)_minmax(0,1fr)]">
-      <div className="space-y-2">
-        {deathTraps.map((trap) => {
+    <div className="grid w-full lg:grid-cols-[minmax(280px,36%)_minmax(0,1fr)]">
+      <div className="lg:border-r lg:border-term-line">
+        <div className="term-panel-title"><span className="term-panel-name">失敗と見直し</span><span className="term-num">{deathTraps.length}件</span></div>
+        {deathTraps.map((trap, index) => {
           const guide = riskGuide(trap);
           const isSelected = selected?.id === trap.id;
           return (
             <div key={trap.id}>
-              <button type="button" onClick={() => setSelectedTrapId(trap.id)} aria-pressed={isSelected} className={`w-full rounded-md border-l-[3px] px-3 py-3 text-left transition-colors ${isSelected ? 'border-amber-300 bg-[#1a2530]' : 'border-transparent bg-[#101721] hover:bg-[#18212b]'}`}>
-                <span className="block text-sm font-semibold text-white">{guide.title}</span>
-                <span className="mt-1 block text-sm leading-5 text-zinc-300">{guide.summary}</span>
+              <button type="button" onClick={() => setSelectedTrapId(trap.id)} aria-pressed={isSelected} className={`block min-h-11 w-full border-b border-term-line-soft px-3 py-2 text-left ${isSelected ? 'bg-term-select text-term-fg-strong' : index % 2 ? 'bg-term-row-alt hover:bg-term-head' : 'hover:bg-term-head'}`}>
+                <span className="block text-sm font-semibold text-term-fg-strong">{guide.title}</span>
+                <span className={`mt-0.5 block text-sm leading-5 ${isSelected ? 'text-term-select-fg' : 'text-term-sub'}`}>{guide.summary}</span>
               </button>
-              {isSelected && <div className="mt-2 lg:hidden"><RiskDetail guide={guide} trap={trap} /></div>}
+              {isSelected && <div className="border-b border-term-line lg:hidden"><RiskDetail guide={guide} trap={trap} /></div>}
             </div>
           );
         })}
       </div>
-      {shelfLifeAlerts.length > 0 && <details className="rounded-md border border-white/[0.16] bg-[#101721] p-4 lg:col-span-2 lg:order-last">
-        <summary className="cursor-pointer text-sm font-medium text-amber-200">環境変化の資料（{shelfLifeAlerts.length}件）</summary>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2">{shelfLifeAlerts.map((alert) => <article key={alert.id} className="space-y-2 rounded border border-white/[0.1] p-3 text-sm leading-6 text-zinc-200"><h3 className="font-semibold">{alert.playbookName}</h3><p className="text-xs text-zinc-400">{alert.downgradeDate}</p><p>{alert.triggerEvent}</p><p>{alert.fatalReason}</p><p>{alert.survivalPivot}</p></article>)}</div>
+      <div className="hidden lg:block">
+        <div className="term-panel-title"><span className="term-panel-name">詳細</span></div>
+        {selected && <RiskDetail guide={riskGuide(selected)} trap={selected} />}
+      </div>
+      {shelfLifeAlerts.length > 0 && <details className="border-t border-term-line px-3 lg:col-span-2">
+        <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">環境変化の資料（{shelfLifeAlerts.length}件）</summary>
+        <div className="grid gap-x-4 pb-3 sm:grid-cols-2">{shelfLifeAlerts.map((alert) => <article key={alert.id} className="space-y-1 border-t border-term-line-soft py-2 text-sm leading-6 text-term-fg"><h3 className="font-semibold text-term-fg-strong">{alert.playbookName}</h3><p className="term-num text-xs text-term-label">{alert.downgradeDate}</p><p>{alert.triggerEvent}</p><p>{alert.fatalReason}</p><p>{alert.survivalPivot}</p></article>)}</div>
       </details>}
-      <div className="hidden lg:block">{selected && <RiskDetail guide={riskGuide(selected)} trap={selected} />}</div>
     </div>
   );
 };

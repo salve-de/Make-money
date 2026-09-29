@@ -43,47 +43,49 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
   const router = useRouter();
   const entityById = React.useMemo(() => new Map(entities.map((entity) => [entity.id, entity])), [entities]);
 
+  const btn = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border px-3 text-sm bg-transparent hover:bg-term-head disabled:cursor-not-allowed disabled:opacity-45 lg:min-h-8';
   return (
-    <div className="h-full overflow-y-auto p-4 md:p-6 space-y-5 scrollbar-thin scrollbar-thumb-white/10">
+    <div className="h-full overflow-y-auto">
       {synthesizedIdeas.length === 0 ? (
-        <section className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-          <header className="flex items-center justify-between gap-3 border-b border-white/[0.12] bg-[#1a2530] px-4 py-3">
-            <h2 className="text-sm font-semibold text-zinc-100">選択した事例から企画案を作成</h2>
-            <span className="shrink-0 text-xs text-zinc-400">{selectedEntityIds.size}件</span>
-          </header>
-          <div className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center">
-          {selectedEntityIds.size === 0 ? <p className="text-sm text-zinc-300">保存した事例を選ぶと、収益の仕組みや自分のメモをもとに企画案を作れます。</p> : (
+        <section>
+          <div className="term-panel-title">
+            <span className="term-panel-name">選択した事例から企画案を作成</span>
+            <span className="term-num ml-auto">{selectedEntityIds.size}件</span>
+          </div>
+          <div className="flex flex-col gap-3 px-3 py-3 sm:flex-row sm:items-center">
+          {selectedEntityIds.size === 0 ? (
+            <div className="text-sm">
+              <p className="text-term-fg-strong">企画案がここに並びます</p>
+              <p className="mt-1 text-term-sub">左の事例を1件以上選び、「企画案を作る」を押してください。</p>
+            </div>
+          ) : (
             <div className="flex min-w-0 flex-1 flex-wrap gap-2">
               {[...selectedEntityIds].map((id) => {
                 const entity = entityById.get(id);
-                return entity ? <Link key={id} href={`/?entity=${encodeURIComponent(id)}&mode=LEDGER`} className="rounded border border-white/[0.14] px-3 py-2 text-sm text-sky-100 hover:bg-white/[0.06]">{entity.name}</Link> : null;
+                return entity ? <Link key={id} href={`/?entity=${encodeURIComponent(id)}&mode=LEDGER`} className="inline-flex min-h-11 items-center rounded-sm border border-term-line px-3 text-sm text-term-select-fg hover:bg-term-head lg:min-h-8">{entity.name}</Link> : null;
               })}
             </div>
           )}
           <button
             onClick={handleSynthesize}
             disabled={isSynthesizing || selectedEntityIds.size === 0}
-            className="inline-flex min-h-10 shrink-0 items-center justify-center self-start rounded-md bg-sky-200 px-3 py-2 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-45"
+            className={`${btn} shrink-0 self-start border-term-accent text-term-accent`}
           >
             {isSynthesizing ? '企画案を作成中…' : '企画案を作る'}
           </button>
           </div>
         </section>
       ) : (
-        <div className="space-y-4 max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-700 pb-3">
-            <div>
-              <h3 className="text-lg font-semibold text-white">
-                企画案
-              </h3>
-
-            </div>
+        <div className="max-w-5xl">
+          <div className="term-panel-title">
+            <span className="term-panel-name">企画案</span>
+            <span className="term-num">{synthesizedIdeas.length}件</span>
             <button
               onClick={handleSynthesize}
               disabled={isSynthesizing}
-              className="inline-flex min-h-11 items-center justify-center gap-2 px-3 rounded-lg border border-slate-600 text-sm text-slate-100 hover:bg-slate-800 transition-colors disabled:opacity-50"
+              className="ml-auto inline-flex min-h-11 items-center gap-1.5 px-2 text-xs text-term-sub hover:text-term-fg-strong disabled:opacity-50 lg:min-h-6"
             >
-              <RotateCcw className="w-4 h-4" />
+              <RotateCcw aria-hidden="true" className="h-3.5 w-3.5" />
               案を作り直す
             </button>
           </div>
@@ -96,135 +98,99 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
             const unresolvedSourceCount = sourceIds.length - sourceEntities.length;
 
             return (
-            <article
-              key={idea.id}
-              className="space-y-5 rounded-lg border border-slate-600 bg-slate-900 p-4 sm:p-5"
-            >
-              {/* アイデア上部ヘッダー */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-700 pb-4">
-                  <div>
-                  <span className="text-xs text-slate-200 bg-slate-800 px-2.5 py-1 rounded border border-slate-600 inline-block mb-2">
-                    {idea.dimensionLabel}
-                  </span>
-                  <h4 className="text-base md:text-lg font-semibold text-white font-sans">
-                    {idea.title}
-                  </h4>
-                  <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                    <span className="font-medium text-slate-300">着想元</span>
+            <article key={idea.id} className="border-b border-term-line">
+              <header className="flex flex-col gap-2 border-b border-term-line-soft px-3 py-2 sm:flex-row sm:items-start sm:justify-between">
+                <div className="min-w-0">
+                  <span className="text-xs text-term-label">{idea.dimensionLabel}</span>
+                  <h4 className="text-base font-semibold text-term-fg-strong">{idea.title}</h4>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="text-term-label">着想元</span>
                     {sourceEntities.length > 0 ? sourceEntities.map((entity) => (
                       <Link
                         key={entity.id}
                         href={`/?entity=${encodeURIComponent(entity.id)}`}
-                        className="inline-flex min-h-8 items-center gap-2 rounded border border-slate-500/60 bg-slate-800 px-2 text-slate-100 hover:border-sky-300/60 hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                        className="inline-flex min-h-11 items-center gap-2 text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6"
                       >
                         <span>{entity.name}</span>
-                        <span className="text-slate-300">{sourceEvidenceLabel(entity)}</span>
+                        <span className="text-term-label">{sourceEvidenceLabel(entity)}</span>
                       </Link>
                     )) : (
-                      <span className="text-amber-200">参照元は案に記録されていません</span>
+                      <span className="text-term-dim">参照元は案に記録されていません</span>
                     )}
                     {unresolvedSourceCount > 0 && (
-                      <span className="text-amber-200">台帳で確認できない参照元 {unresolvedSourceCount}件</span>
+                      <span className="text-term-dim">台帳で確認できない参照元 {unresolvedSourceCount}件</span>
                     )}
                   </div>
                 </div>
 
-                {/* 財務サマリー */}
-                <div className="grid grid-cols-2 gap-4 sm:min-w-64 shrink-0">
-                  <div className="rounded-lg bg-slate-950/70 border border-slate-700 p-3">
-                    <span className="text-xs text-slate-300 block">月間利益の仮説</span>
-                    <span className="text-base font-semibold text-amber-300 tabular-nums mt-1 block">
-                      {formatMoney(idea.projectedMonthlyProfitJpy)}
-                    </span>
+                <dl className="grid shrink-0 grid-cols-2 sm:min-w-64 sm:border-l sm:border-term-line-soft">
+                  <div className="px-3 py-1">
+                    <dt className="text-xs text-term-label">月間利益の仮説</dt>
+                    <dd className="term-num text-base text-term-accent">約{formatMoney(idea.projectedMonthlyProfitJpy)}</dd>
                   </div>
-                  <div className="rounded-lg bg-slate-950/70 border border-slate-700 p-3">
-                    <span className="text-xs text-slate-300 block">利益率の仮説</span>
-                    <span className="text-base font-semibold text-slate-100 tabular-nums mt-1 block">
-                      {idea.operatingMargin}%
-                    </span>
+                  <div className="px-3 py-1">
+                    <dt className="text-xs text-term-label">利益率の仮説</dt>
+                    <dd className="term-num text-base text-term-fg-strong">{idea.operatingMargin}%</dd>
                   </div>
-                </div>
-              </div>
+                </dl>
+              </header>
 
-              {/* 狙う財布 ＆ 構造的歪み */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                <div className="bg-slate-950/60 p-4 rounded-lg border border-slate-700">
-                  <span className="text-xs font-semibold text-slate-200 block mb-2">
-                    想定する利用者と課題
-                  </span>
-                  <p className="text-slate-200 leading-relaxed">
-                    {idea.targetPainWallet}
-                  </p>
+              <dl className="grid grid-cols-1 border-b border-term-line-soft text-sm md:grid-cols-2">
+                <div className="border-b border-term-line-soft px-3 py-2 md:border-b-0 md:border-r">
+                  <dt className="text-xs text-term-label">想定する利用者と課題</dt>
+                  <dd className="leading-relaxed text-term-fg">{idea.targetPainWallet}</dd>
                 </div>
-                <div className="bg-slate-950/60 p-4 rounded-lg border border-slate-700">
-                  <span className="text-xs font-semibold text-slate-200 block mb-2">
-                    参考にした事例の構造
-                  </span>
-                  <p className="text-slate-200 leading-relaxed">
-                    {idea.structuralArbitrage}
-                  </p>
+                <div className="px-3 py-2">
+                  <dt className="text-xs text-term-label">参考にした事例の構造</dt>
+                  <dd className="leading-relaxed text-term-fg">{idea.structuralArbitrage}</dd>
                 </div>
-              </div>
+              </dl>
 
-              {/* 推奨ツールスタック */}
-              <div>
-                <span className="text-sm font-semibold text-slate-100 block mb-2">
-                  使用候補と月額費用の目安
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  {idea.requiredTools.map((tool, tIdx) => (
-                    <div
-                      key={tIdx}
-                      className="bg-slate-950/60 border border-slate-700 p-3 rounded-lg text-sm"
-                    >
-                      <div className="text-white font-semibold">{tool.name}</div>
-                      <div className="text-slate-300 mt-1">{tool.purpose}</div>
-                      <div className="text-slate-200 text-xs mt-2">
-                        月{formatMoney(tool.monthlyCostJpy)}
-                      </div>
+              <section aria-label="使用候補と月額費用の目安">
+                <h5 className="border-b border-term-line-soft bg-term-head px-3 py-1 text-xs text-term-label">使用候補と月額費用の目安</h5>
+                {idea.requiredTools.map((tool, tIdx) => (
+                  <div key={tIdx} className={`grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-3 border-b border-term-line-soft px-3 py-1.5 text-sm ${tIdx % 2 ? 'bg-term-row-alt' : ''}`}>
+                    <div className="min-w-0">
+                      <span className="font-semibold text-term-fg-strong">{tool.name}</span>
+                      <span className="block text-xs text-term-sub">{tool.purpose}</span>
                     </div>
-                  ))}
-                </div>
-              </div>
+                    <span className="term-num text-term-fg">月{formatMoney(tool.monthlyCostJpy)}</span>
+                  </div>
+                ))}
+              </section>
 
-              {/* 仮説の検証手順 */}
-              <div>
-                <span className="text-sm font-semibold text-slate-100 block mb-2">
-                  最初に試す検証手順（案）
-                </span>
-                <ul className="space-y-2 text-sm text-slate-200 font-sans">
+              <section aria-label="最初に試す検証手順">
+                <h5 className="border-b border-term-line-soft bg-term-head px-3 py-1 text-xs text-term-label">最初に試す検証手順（案）</h5>
+                <ol className="text-sm text-term-fg">
                   {idea.first100TractionPlaybook.map((step, sIdx) => (
-                    <li key={sIdx} className="flex items-start gap-2">
-                      <span className="text-xs font-medium text-slate-400 shrink-0 pt-0.5">
-                        {sIdx + 1}.
-                      </span>
+                    <li key={sIdx} className="flex items-start gap-2 border-b border-term-line-soft px-3 py-1.5">
+                      <span className="term-num shrink-0 text-xs text-term-label">{sIdx + 1}.</span>
                       <span>{step}</span>
                     </li>
                   ))}
-                </ul>
-              </div>
+                </ol>
+              </section>
 
-              {/* アクション: 深掘り or そのままMVP生成 */}
-              <div className="pt-3 border-t border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <span className="text-sm text-slate-300">
+              <div className="flex flex-col justify-between gap-2 px-3 py-2 sm:flex-row sm:items-center">
+                <span className="text-sm text-term-sub">
                   参考にした内容: {idea.userNoteInspiration || '選択した事例'}
                 </span>
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:items-center">
                   <button
                     onClick={() => handleDrilldownIdea(idea)}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-sm font-medium text-white transition-colors cursor-pointer"
+                    className={`${btn} cursor-pointer border-term-line text-term-fg`}
                   >
                     <span>内容を相談する</span>
-                    <ArrowRight className="w-4 h-4 text-slate-300" />
+                    <ArrowRight aria-hidden="true" className="h-4 w-4 text-term-label" />
                   </button>
                   <button
                     onClick={() => {
                       try { sessionStorage.setItem(`mm_build_idea:${idea.id}`, JSON.stringify(idea)); } catch { /* navigation still works for already-persisted ideas */ }
                       router.push(`/build/${encodeURIComponent(idea.id)}`);
                     }}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 px-3 rounded-lg bg-cyan-700 hover:bg-cyan-600 border border-cyan-600 text-sm font-semibold text-white transition-colors cursor-pointer"
+                    className={`${btn} cursor-pointer border-term-accent text-term-accent`}
                   >
-                    <Hammer className="w-3.5 h-3.5" />
+                    <Hammer aria-hidden="true" className="h-3.5 w-3.5" />
                     <span>試作品を作る</span>
                   </button>
                 </div>

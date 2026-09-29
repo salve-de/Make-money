@@ -16,29 +16,29 @@ export const RadarLandmineDetail: React.FC<RadarLandmineDetailProps> = ({ landmi
   };
 
   return (
-    <div className="mx-auto w-full max-w-5xl space-y-3">
-      <header className="border-b border-white/[0.16] pb-3">
-        <p className="text-xs font-medium text-rose-200">{guide.category}</p>
-        <h1 className="mt-1 text-xl font-semibold leading-snug tracking-tight text-white sm:text-2xl">{guide.title}</h1>
-        <p className="mt-1 text-sm leading-5 text-zinc-300">{guide.summary}</p>
+    <div className="w-full">
+      <header className="border-b border-term-line px-3 py-3">
+        <p className="text-xs text-term-label">{guide.category}</p>
+        <h1 className="mt-1 text-xl font-semibold leading-snug text-term-fg-strong sm:text-2xl">{guide.title}</h1>
+        <p className="mt-1 text-sm leading-5 text-term-sub">{guide.summary}</p>
       </header>
 
-      <div className="grid gap-3 sm:grid-cols-2">
+      <dl className="text-sm leading-6">
         {[
           ['見つける兆候', guide.signal],
           ['起こり得ること', guide.impact],
           ['見直し方', guide.response],
         ].map(([label, value]) => (
-          <section key={label} className="overflow-hidden rounded-md border border-white/[0.16] bg-[#101721]">
-            <h2 className="border-b border-white/[0.12] bg-[#1a2530] px-4 py-2.5 text-sm font-semibold text-white">{label}</h2>
-            <p className="px-4 py-3 text-sm leading-6 text-zinc-200">{value}</p>
-          </section>
+          <div key={label} className="grid gap-0.5 border-b border-term-line-soft px-3 py-2 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-4">
+            <dt className="text-xs text-term-label sm:pt-0.5">{label}</dt>
+            <dd className="text-term-fg">{value}</dd>
+          </div>
         ))}
-      </div>
-      <details className="rounded-md border border-white/[0.16] bg-[#101721] px-4 pb-3">
-        <summary className="cursor-pointer py-3 text-sm font-medium text-rose-200">要因・対応の資料</summary>
-        <div className="space-y-3 text-sm leading-6 text-zinc-200"><p>{landmine.deadlyReason.mechanism}</p><p>{landmine.survivalWedge.whatToAvoid}</p><p>{landmine.survivalWedge.howToPivotOrSurvive}</p>
-        {landmine.graveyardExamples.length > 0 && <section className="border-t border-white/[0.1] pt-3"><h2 className="text-xs font-medium text-zinc-400">資料内の参考例</h2>{landmine.graveyardExamples.map((example, index) => <article key={index} className="mt-3"><h3 className="font-medium">{example.name}</h3><p>{example.deathTrigger}</p></article>)}</section>}</div>
+      </dl>
+      <details className="border-b border-term-line px-3">
+        <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">要因・対応の資料</summary>
+        <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg"><p>{landmine.deadlyReason.mechanism}</p><p>{landmine.survivalWedge.whatToAvoid}</p><p>{landmine.survivalWedge.howToPivotOrSurvive}</p>
+        {landmine.graveyardExamples.length > 0 && <section className="border-t border-term-line pt-3"><h2 className="text-xs text-term-label">資料内の参考例</h2>{landmine.graveyardExamples.map((example, index) => <article key={index} className="mt-3"><h3 className="font-medium text-term-fg-strong">{example.name}</h3><p>{example.deathTrigger}</p></article>)}</section>}</div>
       </details>
     </div>
   );

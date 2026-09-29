@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { inspectFinancialIntegrity } from '@/shared/financial-integrity';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
 
@@ -35,18 +36,34 @@ export function CashAnatomySection({
       (opexObj.other || 0),
     0,
   );
-  const profit = entity.pnl?.operatingProfit ?? 0;
-  const grossProfit = rev - cogs;
+  const pnl = entity.pnl;
+  const profit = pnl?.operatingProfit ?? 0;
+  // 記録された数値どうしが合わないときは、黙って計算し直さず「要照合」として示す
+  // 仮の値（0）のまま未確認になっている項目は食い違いとみなさない
+  const checked = inspectFinancialIntegrity(pnl);
+  const integrity = {
+    ...checked,
+    profitConflict: checked.profitConflict && (pnl.operatingProfit !== 0 || pnl.isOperatingProfitUnconfirmed === false),
+    grossConflict: checked.grossConflict && (pnl.grossProfit !== 0 || pnl.isGrossProfitUnconfirmed === false),
+    marginConflict: checked.marginConflict && pnl.operatingMargin !== 0,
+  };
+  const hasConflict = integrity.profitConflict || integrity.grossConflict || integrity.marginConflict;
   const isLoss = profit < 0;
   const actualCogsPct = percentOf(cogs, rev);
   const opexPct = percentOf(totalOpex, rev);
   const actualProfitPct = percentOf(profit, rev);
-  const grossProfitPct = percentOf(grossProfit, rev);
 
-  const cogsUnknown = Boolean(entity.pnl.isCogsUnconfirmed || entity.pnl.isCostsUnconfirmed || (cogs === 0 && rev > 0 && !entity.pnl.cogs));
-  const opexUnknown = Boolean(entity.pnl.isCostsUnconfirmed || (totalOpex === 0 && rev > 0 && Object.values(opexObj).every((v) => !v)));
-  const profitUnknown = Boolean(entity.pnl.isOperatingProfitUnconfirmed || entity.pnl.isMarginUnconfirmed || (profit === 0 && rev > 0 && !entity.pnl.operatingProfit));
-  const grossProfitUnknown = Boolean(entity.pnl.isGrossProfitUnconfirmed || entity.pnl.isGrossMarginUnconfirmed || cogsUnknown);
+  // 明示的に「確認済み（false）」の値は、他の項目が未確認でも表示する。0円は確認済みのときだけ0円として出す。
+  const cogsFlag = pnl.isCogsUnconfirmed ?? pnl.isCostsUnconfirmed;
+  const cogsUnknown = cogsFlag === true || (cogsFlag !== false && cogs === 0 && rev > 0);
+  const opexUnknown = pnl.isCostsUnconfirmed === true || (pnl.isCostsUnconfirmed !== false && totalOpex === 0 && rev > 0);
+  const grossProfit = pnl.isGrossProfitUnconfirmed === false ? pnl.grossProfit : rev - cogs;
+  const grossProfitPct = percentOf(grossProfit, rev);
+  const grossProfitUnknown = integrity.grossConflict || pnl.isGrossProfitUnconfirmed === true || (pnl.isGrossProfitUnconfirmed !== false && cogsUnknown);
+  const profitUnknown = integrity.profitConflict || integrity.grossConflict || pnl.isOperatingProfitUnconfirmed === true
+    || (pnl.isOperatingProfitUnconfirmed !== false && profit === 0 && rev > 0);
+  const grossPctUnknown = grossProfitUnknown || pnl.isGrossMarginUnconfirmed === true;
+  const profitPctUnknown = profitUnknown || pnl.isMarginUnconfirmed === true || integrity.marginConflict;
 
   const statusLabel = {
     VERIFIED: '一次資料',
@@ -54,7 +71,7 @@ export function CashAnatomySection({
     ESTIMATED: '推計',
     POST_MORTEM: '事後資料',
     UNAVAILABLE: '未確認',
-  }[entity.pnl.financialStatus || 'UNAVAILABLE'];
+  }[pnl.financialStatus || 'UNAVAILABLE'];
 
   // 財務データがない場合
   if (isFinancialUnavailable || rev <= 0 || entity.pnl.isRevenueUnconfirmed) {
@@ -62,145 +79,72 @@ export function CashAnatomySection({
   }
 
   const badgeElement = (
-    <div className="flex items-center gap-1.5 font-mono text-[11px]">
-      <span className="rounded border border-white/[0.10] bg-white/[0.04] px-2 py-0.5 text-zinc-300">
-        {statusLabel}
-      </span>
-      {entity.pnl.dataSnapshotPeriod && (
-        <span className="rounded border border-white/[0.10] bg-white/[0.04] px-2 py-0.5 text-zinc-400 hidden sm:inline">
-          {entity.pnl.dataSnapshotPeriod}
-        </span>
-      )}
-    </div>
+    <>
+      <span className={hasConflict ? 'text-term-accent' : undefined}>{hasConflict ? '要照合' : statusLabel}</span>
+      {entity.pnl.dataSnapshotPeriod && <span className="term-num hidden text-term-label sm:inline">{entity.pnl.dataSnapshotPeriod}</span>}
+    </>
   );
+
+  const opexDetail = opexUnknown
+    ? null
+    : [
+        opexObj.serverAndApi ? `サーバー ${formatMoney(opexObj.serverAndApi)}` : null,
+        opexObj.advertising ? `広告 ${formatMoney(opexObj.advertising)}` : null,
+        opexObj.subcontracting ? `外注 ${formatMoney(opexObj.subcontracting)}` : null,
+        opexObj.toolsAndSaaS ? `ツール ${formatMoney(opexObj.toolsAndSaaS)}` : null,
+        opexObj.other ? `その他 ${formatMoney(opexObj.other)}` : null,
+      ].filter(Boolean).join(' / ');
+
+  const rows: Array<{ key: string; label: string; unknown: boolean; pctUnknown?: boolean; value: number; shown: string; pct: number; tone: 'rev' | 'cost' | 'profit'; negative?: boolean; note?: string | null }> = [
+    { key: 'rev', label: '売上高', unknown: false, value: rev, shown: formatMoney(rev), pct: 100, tone: 'rev', note: '本業の総売上' },
+    { key: 'cogs', label: '売上原価', unknown: cogsUnknown, value: cogs, shown: `−${formatMoney(cogs)}`, pct: actualCogsPct, tone: 'cost', note: '売上に直接対応する原価' },
+    { key: 'gross', label: '粗利益', unknown: grossProfitUnknown, pctUnknown: grossPctUnknown, value: grossProfit, shown: formatMoney(grossProfit), pct: grossProfitPct, tone: 'profit', negative: grossProfit < 0, note: '売上高 − 売上原価' },
+    { key: 'opex', label: '販管費', unknown: opexUnknown, value: totalOpex, shown: `−${formatMoney(totalOpex)}`, pct: opexPct, tone: 'cost', note: opexDetail || '人件費・インフラ・マーケティング' },
+    { key: 'op', label: '営業利益', unknown: profitUnknown, pctUnknown: profitPctUnknown, value: profit, shown: formatMoney(profit), pct: actualProfitPct, tone: 'profit', negative: isLoss, note: '粗利益 − 販管費（税引前）' },
+  ];
+  const barClass = { rev: 'bg-term-muted', cost: 'bg-term-dim', profit: 'bg-term-fg-strong' } as const;
 
   return (
     <InspectorSectionCard
       id="section-cash-anatomy"
       index="02"
       categoryEn="FINANCIAL DOSSIER"
-      titleJa={isHazardMode ? '損失と撤退要因' : '損益（月額換算）'}
+      titleJa={isHazardMode ? '損失と撤退要因' : '月次損益（月額換算）'}
       badge={badgeElement}
       isHazardMode={isHazardMode}
     >
-      {/* 4大財務サマリー */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 border-b border-white/[0.07] bg-[#090d13]">
-        <div className="p-3.5 sm:px-4 sm:py-3">
-          <div className="text-[11px] font-mono text-zinc-400 font-medium">売上高</div>
-          <div className="mt-1 font-mono text-sm sm:text-base font-bold tabular-nums text-zinc-100">
-            {formatMoney(rev)}
-          </div>
-        </div>
-        <div className="p-3.5 sm:px-4 sm:py-3 border-l border-white/[0.06]">
-          <div className="text-[11px] font-mono text-zinc-400 font-medium">
-            売上原価 <span className="text-[10px] text-zinc-500">({cogsUnknown ? '未確認' : `${actualCogsPct}%`})</span>
-          </div>
-          <div className="mt-1 font-mono text-sm sm:text-base font-bold tabular-nums text-zinc-100">
-            {cogsUnknown ? '未確認' : formatMoney(cogs)}
-          </div>
-        </div>
-        <div className="p-3.5 sm:px-4 sm:py-3 border-t sm:border-t-0 border-l sm:border-l border-white/[0.06]">
-          <div className="text-[11px] font-mono text-zinc-400 font-medium">
-            販管費 <span className="text-[10px] text-zinc-500">({opexUnknown ? '未確認' : `${opexPct}%`})</span>
-          </div>
-          <div className="mt-1 font-mono text-sm sm:text-base font-bold tabular-nums text-zinc-100">
-            {opexUnknown ? '未確認' : formatMoney(totalOpex)}
-          </div>
-        </div>
-        <div className="p-3.5 sm:px-4 sm:py-3 border-t sm:border-t-0 border-l border-white/[0.06]">
-          <div className="text-[11px] font-mono text-zinc-400 font-medium">
-            営業利益 <span className="text-[10px] text-zinc-500">({profitUnknown ? '未確認' : `${actualProfitPct}%`})</span>
-          </div>
-          <div className={`mt-1 font-mono text-sm sm:text-base font-bold tabular-nums ${
-            profitUnknown ? 'text-zinc-400' : isLoss ? 'text-red-400' : 'text-emerald-400'
-          }`}>
-            {profitUnknown ? '未確認' : formatMoney(profit)}
-          </div>
-        </div>
-      </div>
-
-      {/* 損益明細テーブル */}
-      <div className="overflow-x-auto">
-        <table role="presentation" className="w-full min-w-[580px] border-collapse text-left text-xs font-sans">
-          <thead>
-            <tr role="presentation" className="border-b border-white/[0.07] bg-white/[0.02] text-[11px] font-mono text-zinc-400">
-              <th className="px-4 py-2.5 font-semibold">勘定科目</th>
-              <th className="px-4 py-2.5 text-right font-semibold">月次金額</th>
-              <th className="px-4 py-2.5 text-right font-semibold">売上比</th>
-              <th className="px-4 py-2.5 font-semibold">内訳・意味</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-white/[0.05]">
-            <tr role="presentation" className="hover:bg-white/[0.02] transition-colors">
-              <td className="px-4 py-2.5 font-medium text-zinc-200">売上高</td>
-              <td className="px-4 py-2.5 text-right font-mono font-bold text-zinc-100 tabular-nums">
-                {formatMoney(rev)}
-              </td>
-              <td className="px-4 py-2.5 text-right font-mono text-zinc-400 tabular-nums">100%</td>
-              <td className="px-4 py-2.5 text-zinc-400 text-[11px]">本業の総売上</td>
-            </tr>
-
-            <tr role="presentation" className="hover:bg-white/[0.02] transition-colors">
-              <td className="px-4 py-2.5 font-medium text-zinc-300">売上原価</td>
-              <td className="px-4 py-2.5 text-right font-mono text-zinc-300 tabular-nums">
-                {cogsUnknown ? '未確認' : `-${formatMoney(cogs)}`}
-              </td>
-              <td className="px-4 py-2.5 text-right font-mono text-zinc-400 tabular-nums">
-                {cogsUnknown ? '未確認' : `${actualCogsPct}%`}
-              </td>
-              <td className="px-4 py-2.5 text-zinc-400 text-[11px]">売上に直接対応する原価</td>
-            </tr>
-
-            <tr role="presentation" className="bg-white/[0.015] font-semibold hover:bg-white/[0.03] transition-colors">
-              <td className="px-4 py-2.5 text-zinc-100">粗利益</td>
-              <td className={`px-4 py-2.5 text-right font-mono font-bold tabular-nums ${
-                grossProfitUnknown ? 'text-zinc-400' : grossProfit < 0 ? 'text-red-400' : 'text-cyan-400'
-              }`}>
-                {grossProfitUnknown ? '未確認' : formatMoney(grossProfit)}
-              </td>
-              <td className="px-4 py-2.5 text-right font-mono text-zinc-300 tabular-nums">
-                {grossProfitUnknown ? '未確認' : `${grossProfitPct}%`}
-              </td>
-              <td className="px-4 py-2.5 text-zinc-400 text-[11px]">売上高 − 売上原価</td>
-            </tr>
-
-            <tr role="presentation" className="hover:bg-white/[0.02] transition-colors">
-              <td className="px-4 py-2.5 font-medium text-zinc-300">販管費 (SGA)</td>
-              <td className="px-4 py-2.5 text-right font-mono text-zinc-300 tabular-nums">
-                {opexUnknown ? '未確認' : `-${formatMoney(totalOpex)}`}
-              </td>
-              <td className="px-4 py-2.5 text-right font-mono text-zinc-400 tabular-nums">
-                {opexUnknown ? '未確認' : `${opexPct}%`}
-              </td>
-              <td className="px-4 py-2.5 text-zinc-400 text-[11px]">
-                {opexUnknown ? '未確認' : [
-                  opexObj.serverAndApi ? `サーバー ${formatMoney(opexObj.serverAndApi)}` : null,
-                  opexObj.advertising ? `広告 ${formatMoney(opexObj.advertising)}` : null,
-                  opexObj.subcontracting ? `外注 ${formatMoney(opexObj.subcontracting)}` : null,
-                  opexObj.toolsAndSaaS ? `ツール ${formatMoney(opexObj.toolsAndSaaS)}` : null,
-                ].filter(Boolean).join(' / ') || '人件費・インフラ・マーケティング'}
-              </td>
-            </tr>
-
-            <tr role="presentation" className="bg-white/[0.02] font-bold hover:bg-white/[0.04] transition-colors border-t border-white/[0.08]">
-              <td className="px-4 py-3 text-zinc-100">営業利益（税引前）</td>
-              <td className={`px-4 py-3 text-right font-mono text-sm tabular-nums ${
-                profitUnknown ? 'text-zinc-400' : isLoss ? 'text-red-400' : 'text-emerald-400'
-              }`}>
-                {profitUnknown ? '未確認' : formatMoney(profit)}
-              </td>
-              <td className={`px-4 py-3 text-right font-mono tabular-nums ${
-                profitUnknown ? 'text-zinc-400' : isLoss ? 'text-red-400' : 'text-emerald-400'
-              }`}>
-                {profitUnknown ? '未確認' : `${actualProfitPct}%`}
-              </td>
-              <td className="px-4 py-3 text-zinc-400 text-[11px] font-normal">
-                粗利益 − 販管費
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table role="presentation" className="w-full border-collapse text-left text-[13px]">
+        <tbody>
+          {rows.map((row) => {
+            const width = Math.min(Math.max(Math.abs(row.pct), 0), 100);
+            return (
+              <tr role="presentation" key={row.key} className="border-b border-term-line-soft last:border-b-0" title={row.note || undefined}>
+                <td className="w-[84px] py-1.5 pr-2 text-xs text-term-label">{row.label}</td>
+                <td className="py-1.5 pr-3">
+                  {!row.unknown && (
+                    <div aria-hidden="true" className="h-1.5 w-full bg-term-head">
+                      <div className={`h-full ${row.negative ? 'bg-term-danger' : barClass[row.tone]}`} style={{ width: `${width}%` }} />
+                    </div>
+                  )}
+                </td>
+                <td className={`term-num w-[104px] whitespace-nowrap py-1.5 text-right ${row.unknown ? 'text-term-dim' : row.negative ? 'text-term-danger' : 'text-term-fg-strong'}`}>
+                  {row.unknown ? <span className="font-sans text-xs">未確認</span> : row.shown}
+                </td>
+                <td className="term-num w-[44px] py-1.5 pl-2 text-right text-xs text-term-label">{row.unknown || row.pctUnknown ? '' : `${row.pct}%`}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      {opexDetail && <p className="border-t border-term-line-soft py-1.5 text-xs text-term-label">販管費の内訳: {opexDetail}</p>}
+      {hasConflict && (
+        <p className="border-t border-term-accent-line bg-term-accent-bg px-2 py-1.5 text-xs leading-5 text-term-sub">
+          <span className="font-semibold text-term-accent">財務データ要照合</span>
+          {integrity.profitConflict && <>　記録の営業利益 <span className="term-num">{formatMoney(pnl.operatingProfit)}</span> と、粗利益−経費の計算値 <span className="term-num">{formatMoney(integrity.calculatedProfit)}</span> が一致しません。</>}
+          {integrity.grossConflict && '　売上−原価と粗利益が一致しません。'}
+          {integrity.marginConflict && '　記録の利益率と、売上・利益からの計算値が一致しません。'}
+        </p>
+      )}
     </InspectorSectionCard>
   );
 }

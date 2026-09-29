@@ -4,7 +4,7 @@ test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) =>
   await page.addInitScript(() => localStorage.setItem('kin_pro_unlocked', 'true'));
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByText('UNLOCKED: 機関解錠済')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'プラン', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'PRO', exact: true })).toBeVisible();
   const response = await page.request.get('/api/company-analysis?entity_id=ent_photoai');
   expect([401, 403]).toContain(response.status());
 });
@@ -13,7 +13,7 @@ test('ticker and welcome use the same amounts as the ledger', async ({ page }) =
   await page.goto('/?entity=ent_photoai');
   const ticker = page.getByRole('complementary', { name: '台帳の財務サマリー' });
   await expect(ticker).toHaveCount(0);
-  await expect(page.locator('#section-summary')).not.toContainText('¥0');
+  await expect(page.locator('#section-summary')).not.toContainText(/(?<![\d,.])0円/);
   await expect(page.locator('#section-summary')).not.toContainText('45億');
   await page.goto('/welcome');
   const preview = page.locator('a').filter({ hasText: 'Photo AI' });
@@ -44,7 +44,7 @@ test('unconfirmed financials never present a zero as a measured result', async (
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(page.locator('#section-summary')).not.toContainText('¥0');
+  await expect(page.locator('#section-summary')).not.toContainText(/(?<![\d,.])0円/);
   await page.getByRole('button', { name: '出典・記録', exact: true }).click();
   const sources = page.locator('#section-sources');
   await expect(sources.getByRole('link', { name: '公式サイト', exact: true })).toHaveAttribute('href', /^https?:\/\//);

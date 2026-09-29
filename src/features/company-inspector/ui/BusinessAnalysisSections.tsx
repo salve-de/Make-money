@@ -17,11 +17,11 @@ function text(value: unknown): string {
   return typeof value === 'string' && !/^(UNKNOWN|未確認)(?:$|[：:])/.test(value.trim()) ? value.trim() : '';
 }
 function Rows({ rows }: { rows: [string, unknown][] }) {
-  return <dl className="divide-y divide-white/10">{rows.filter(([, value]) => text(value)).map(([label, value]) => <div key={label} className="grid gap-1 py-2.5 sm:grid-cols-[130px_minmax(0,1fr)] sm:gap-3"><dt className="text-xs font-medium text-sky-200">{label}</dt><dd className="min-w-0 whitespace-pre-line break-words text-sm leading-6 text-zinc-200">{text(value)}</dd></div>)}</dl>;
+  return <dl className="divide-y divide-term-line-soft">{rows.filter(([, value]) => text(value)).map(([label, value]) => <div key={label} className="grid grid-cols-[84px_minmax(0,1fr)] gap-3 py-1.5"><dt className="text-xs leading-6 text-term-label">{label}</dt><dd className="min-w-0 whitespace-pre-line break-words text-[13px] leading-6 text-term-fg">{text(value)}</dd></div>)}</dl>;
 }
 function Steps({ title, items }: { title: string; items?: string[] }) {
   const values = [...new Set((items || []).map(text).filter(Boolean))];
-  return values.length > 0 ? <div className="py-3"><h4 className="mb-2 text-sm font-medium text-sky-200">{title}</h4><ol className="list-decimal space-y-2 pl-5 text-sm leading-6 text-zinc-200">{values.map((value) => <li key={value} className="whitespace-pre-line break-words pl-1">{value}</li>)}</ol></div> : null;
+  return values.length > 0 ? <div className="py-3"><h4 className="mb-1 text-xs text-term-label">{title}</h4><ol className="list-decimal space-y-1 pl-5 text-[13px] leading-6 text-term-fg">{values.map((value) => <li key={value} className="whitespace-pre-line break-words pl-1">{value}</li>)}</ol></div> : null;
 }
 export function BusinessAnalysisSections({ entity, isHazardMode, formatMoney, isPro, onOpenPro }: Props) {
   const acquisition = entity.acquisition;
@@ -48,11 +48,11 @@ export function BusinessAnalysisSections({ entity, isHazardMode, formatMoney, is
       <Steps title="獲得施策" items={acquisition?.tactics} />
       <Steps title="実行手順" items={actions} />
       <Steps title="初動チェックリスト" items={checklist.filter((item) => !actions.includes(item))} />
-      {text(entity.strategy?.coldOutreachTemplate) && <details className="border-t border-white/10 py-3"><summary className="cursor-pointer text-sm text-sky-200">初回連絡の文面</summary><p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 text-zinc-200">{entity.strategy.coldOutreachTemplate}</p></details>}
+      {text(entity.strategy?.coldOutreachTemplate) && <details className="border-t border-term-line py-3"><summary className="cursor-pointer text-sm text-term-fg">初回連絡の文面</summary><p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 text-zinc-200">{entity.strategy.coldOutreachTemplate}</p></details>}
     </InspectorSectionCard>}
     {(groups.some((group) => group.rows.some(([, value]) => text(value))) || (!isPro && entity.hasPremiumAnalysis)) && <InspectorSectionCard id="section-structure" index="06" categoryEn="構造分析" titleJa="競争・価格・継続利用・資金効率" isHazardMode={isHazardMode}>
-      {groups.filter((group) => group.rows.some(([, value]) => text(value))).map((group) => <div key={group.title} className="py-3"><h4 className="border-b border-white/15 pb-2 text-sm font-semibold text-zinc-100">{group.title}</h4><Rows rows={group.rows} /></div>)}
-      {!isPro && onOpenPro && <button type="button" onClick={onOpenPro} className="my-3 rounded border border-white/20 px-3 py-2 text-sm text-sky-200">詳細分析を開く</button>}
+      {groups.filter((group) => group.rows.some(([, value]) => text(value))).map((group) => <div key={group.title} className="py-3"><h4 className="border-b border-term-line pb-2 text-sm font-semibold text-zinc-100">{group.title}</h4><Rows rows={group.rows} /></div>)}
+      {!isPro && onOpenPro && <button type="button" onClick={onOpenPro} className="my-3 rounded-sm border border-term-line px-3 py-2 text-sm text-term-fg">詳細分析を開く</button>}
     </InspectorSectionCard>}
     {judgment && <InspectorSectionCard id="section-judgment" index="07" categoryEn="事業検討" titleJa="参入判断の材料" isHazardMode={isHazardMode}><Rows rows={[
       ['記録された見立て', judgment.verdictLabel], ['理由', judgment.oneLineReason], ['需要の変化', judgment.demandDelta], ['競争の変化', judgment.competitionDelta], ['必要資本', judgment.entryRequirements?.capital], ['技術的な難度', judgment.entryRequirements?.technicalDifficulty], ['プラットフォーム依存', judgment.entryRequirements?.platformRisk],

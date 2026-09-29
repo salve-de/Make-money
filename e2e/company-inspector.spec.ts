@@ -24,7 +24,7 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(financials).not.toContainText('現金の滝');
   await expect(financials).not.toContainText('通帳引き算バー');
   await expect(financials.locator('canvas')).toHaveCount(0);
-  await expect(financials).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
+  await expect(financials).toContainText(/[−-]5,000万円|[−-]2\.6億円/);
   await page.locator('#section-evidence').scrollIntoViewIfNeeded();
   const evidence = page.locator('#section-evidence');
   await expect(evidence).toBeInViewport();
@@ -66,7 +66,7 @@ test('malformed Foundation response cannot replace the usable core list', async 
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.getByText('Invalid remote company', { exact: true })).toHaveCount(0);
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(page.locator('#section-summary')).not.toContainText('¥0');
+  await expect(page.locator('#section-summary')).not.toContainText(/(?<![\d,.])0円/);
   expect(errors).toEqual([]);
 });
 
@@ -107,7 +107,7 @@ test('existing hazard dossier keeps its loss label and dynamic evidence', async 
   const inspector = page.getByRole('complementary').filter({ has: heading });
   await expect(inspector).toContainText('営業利益');
   await expect(inspector).not.toContainText('赤字出血');
-  await expect(page.locator('#section-cash-anatomy')).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
+  await expect(page.locator('#section-cash-anatomy')).toContainText(/[−-]5,000万円|[−-]2\.6億円/);
   expect(errors).toEqual([]);
 });
 
@@ -194,9 +194,9 @@ test('remote revenue-only detail leaves profit unknown and does not invent a wat
   await expect(page.getByRole('heading', { name: '境界確認企業', exact: true })).toBeVisible();
   await page.locator('#section-cash-anatomy').scrollIntoViewIfNeeded();
   const financials = page.locator('#section-cash-anatomy');
-  await expect(financials).toContainText('¥12万');
+  await expect(financials).toContainText('12万円');
   await expect(financials).toContainText('未確認');
-  await expect(financials).not.toContainText('¥0');
+  await expect(financials).not.toContainText(/(?<![\d,.])0円/);
   await expect(financials).not.toContainText('100%基準');
   expect(errors).toEqual([]);
 });
@@ -205,7 +205,7 @@ test('unconfirmed financials omit the result card without fabricating zero value
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(page.locator('#section-summary')).not.toContainText('¥0');
+  await expect(page.locator('#section-summary')).not.toContainText(/(?<![\d,.])0円/);
   await page.getByRole('button', { name: '出典・記録', exact: true }).click();
   await expect(page.locator('#section-sources')).toBeVisible();
 });

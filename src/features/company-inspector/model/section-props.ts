@@ -21,6 +21,8 @@ export interface CompanyInspectorPaneProps {
   isBookmarked?: boolean;
   onToggleBookmark?: (e: React.MouseEvent) => void;
   mobileOpen?: boolean;
+  /** スマホ詳細の見出しに出す「9 / 3,085」のような一覧内の位置（任意） */
+  positionLabel?: string;
 }
 
 export type TabType = 'EVIDENCE' | 'FINANCIALS' | 'PLAYBOOK' | 'STREAM' | 'NOTES' | 'ALL';

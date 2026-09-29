@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { ExternalLink, LoaderCircle, Store } from 'lucide-react';
+import { ExternalLink, LoaderCircle } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
@@ -165,80 +165,76 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
     setForm((current) => ({ ...current, [key]: value }));
   };
 
+  const BTN = 'inline-flex min-h-11 items-center justify-center border px-4 text-sm disabled:opacity-50 lg:min-h-8 lg:px-3';
   return (
-    <div className="flex min-h-screen flex-col bg-[#07080B] text-zinc-100">
+    <div className="flex term-page flex-col bg-term-bg text-term-fg">
       <GlobalHeader currentSection="MARKETPLACE" />
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-4 sm:px-6">
-        <Link href="/marketplace" className="text-xs text-zinc-500 hover:text-zinc-300">← 掲載サービス一覧</Link>
-        <div className="mt-3 flex items-center gap-3">
-          <div className="grid h-10 w-10 place-items-center rounded-lg border border-emerald-500/20 bg-emerald-500/[0.07]">
-            <Store className="h-5 w-5 text-emerald-400" />
-          </div>
-          <div>
-            <h1 className="mt-1 text-xl font-semibold">サービスを掲載</h1>
-          </div>
+      <main className="w-full flex-1">
+        <div className="term-panel-title">
+          <span className="term-panel-name">サービスを掲載</span>
+          <Link href="/marketplace" className="inline-flex min-h-11 items-center text-term-sub hover:text-term-fg-strong lg:min-h-6">掲載サービス一覧へ戻る</Link>
         </div>
+        <h1 className="sr-only">サービスを掲載</h1>
 
         {!authLoading && !user ? (
-          <section className="mt-8 rounded-xl border border-white/[0.08] bg-[#0d1117] p-6">
-            <p className="text-sm text-zinc-300">掲載者本人のサービスとして登録するため、ログインしてください。</p>
-            <button type="button" onClick={() => void signInWithGoogle()} className="mt-4 rounded-md bg-white px-4 py-2 text-sm font-semibold text-zinc-950 hover:bg-zinc-200">
+          <section className="px-3 py-4 text-sm">
+            <p className="text-term-fg-strong">ログインすると掲載できます</p>
+            <p className="mt-1 text-term-sub">掲載者本人のサービスとして登録するため、ログインしてください。</p>
+            <button type="button" onClick={() => void signInWithGoogle()} className={`${BTN} mt-3 rounded-sm border-term-accent bg-transparent text-term-accent hover:bg-term-head`}>
               Googleでログイン
             </button>
           </section>
         ) : authLoading || loading ? (
-          <div className="mt-10 flex items-center gap-2 text-sm text-zinc-500"><LoaderCircle className="h-4 w-4 animate-spin" />掲載情報を読み込み中…</div>
+          <div className="flex items-center gap-2 px-3 py-4 text-sm text-term-label"><LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" />掲載情報を読み込み中…</div>
         ) : loadFailed ? (
-          <section className="mt-4 text-sm">
-            <p role="alert" className="text-rose-300">{error}</p>
-            <button type="button" className="mt-2 min-h-11 px-3 text-zinc-200" onClick={() => setRetry((value) => value + 1)}>再読み込み</button>
+          <section className="px-3 py-4 text-sm">
+            <p role="alert" className="text-term-danger">{error}</p>
+            <button type="button" className={`${BTN} mt-2 rounded-sm border-term-line text-term-fg hover:bg-term-head`} onClick={() => setRetry((value) => value + 1)}>再読み込み</button>
           </section>
         ) : (
-          <>
-            <section className="mt-6 rounded-xl border border-white/[0.08] bg-[#0d1117] p-5 sm:p-6">
-              <div className="mt-5 grid gap-4">
-                <Field label="サービス名" value={form.title} maxLength={100} onChange={(value) => update('title', value)} required />
-                <label className="block">
-                  <span className="mb-1.5 block text-xs font-medium text-zinc-300">誰の何を解決するサービスか</span>
-                  <textarea value={form.summary} maxLength={240} onChange={(event) => update('summary', event.target.value)} rows={4} className={inputClass} placeholder="例: 小規模工場向けに、紙図面を検索できるデータへ変換するサービス" />
-                  <span className="mt-1 block text-right text-[10px] text-zinc-600">{form.summary.length}/240</span>
-                </label>
-                <label className="block">
-                  <span className="mb-1.5 block text-xs font-medium text-zinc-300">カテゴリ</span>
-                  <select value={form.category} onChange={(event) => update('category', event.target.value as MarketplaceCategory)} className={inputClass}>
-                    {MARKETPLACE_CATEGORIES.map((category) => <option key={category} value={category}>{MARKETPLACE_CATEGORY_LABELS[category]}</option>)}
-                  </select>
-                </label>
-                <Field label="公開したサービスのURL（HTTPS）" value={form.productUrl} maxLength={2048} onChange={(value) => update('productUrl', value)} placeholder="https://your-service.example" required={status === 'published'} />
-                <Field label="購入・申込URL（任意）" value={form.checkoutUrl} maxLength={2048} onChange={(value) => update('checkoutUrl', value)} placeholder="https://checkout.example" />
-                <Field label="価格表示（任意）" value={form.priceLabel} maxLength={80} onChange={(value) => update('priceLabel', value)} placeholder="例: 月額 2,980円 / 1件ごとに見積" />
-                <Field label="掲載者名（任意）" value={form.sellerName} maxLength={50} onChange={(value) => update('sellerName', value)} placeholder="空欄なら名前を公開しません" />
-              </div>
-              <p className="mt-4 text-xs text-zinc-400">申込み・決済は登録した外部サイトで行います。</p>
-              {error && <p role="alert" className="mt-4 text-sm text-rose-300">{error}</p>}
-              <div className="mt-5 flex flex-wrap items-center gap-3">
-                <button type="button" disabled={saving} onClick={() => void save('published')} className="inline-flex items-center gap-2 rounded-md bg-emerald-400 px-4 py-2 text-sm font-semibold text-zinc-950 hover:bg-emerald-300 disabled:opacity-50">
-                  {saving ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Store className="h-4 w-4" />}
-                  {status === 'published' ? '公開内容を更新' : 'Make-Moneyに公開'}
-                </button>
-                <button type="button" disabled={saving} onClick={() => void save('draft')} className="rounded-md border border-white/[0.12] px-4 py-2 text-sm text-zinc-300 hover:bg-white/[0.05] disabled:opacity-50">
-                  {status === 'published' ? '非公開にする' : '下書きを保存'}
-                </button>
-                {slug && status === 'published' && (
-                  <Link href={`/marketplace/${encodeURIComponent(slug)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm text-zinc-400 hover:text-white">
-                    公開ページを見る <ExternalLink className="h-3.5 w-3.5" />
-                  </Link>
-                )}
-              </div>
-            </section>
-          </>
+          <section className="max-w-3xl px-3 py-3">
+            <div className="grid gap-4">
+              <Field label="サービス名" value={form.title} maxLength={100} onChange={(value) => update('title', value)} required />
+              <label className="block">
+                <span className="mb-1 block text-xs text-term-label">誰の何を解決するサービスか</span>
+                <textarea value={form.summary} maxLength={240} onChange={(event) => update('summary', event.target.value)} rows={4} className={inputClass} placeholder="例: 小規模工場向けに、紙図面を検索できるデータへ変換するサービス" />
+                <span className="term-num mt-1 block text-right text-xs text-term-dim">{form.summary.length}/240</span>
+              </label>
+              <label className="block">
+                <span className="mb-1 block text-xs text-term-label">カテゴリ</span>
+                <select value={form.category} onChange={(event) => update('category', event.target.value as MarketplaceCategory)} className={inputClass}>
+                  {MARKETPLACE_CATEGORIES.map((category) => <option key={category} value={category}>{MARKETPLACE_CATEGORY_LABELS[category]}</option>)}
+                </select>
+              </label>
+              <Field label="公開したサービスのURL（HTTPS）" value={form.productUrl} maxLength={2048} onChange={(value) => update('productUrl', value)} placeholder="https://your-service.example" required={status === 'published'} />
+              <Field label="購入・申込URL（任意）" value={form.checkoutUrl} maxLength={2048} onChange={(value) => update('checkoutUrl', value)} placeholder="https://checkout.example" />
+              <Field label="価格表示（任意）" value={form.priceLabel} maxLength={80} onChange={(value) => update('priceLabel', value)} placeholder="例: 月額 2,980円 / 1件ごとに見積" />
+              <Field label="掲載者名（任意）" value={form.sellerName} maxLength={50} onChange={(value) => update('sellerName', value)} placeholder="空欄なら名前を公開しません" />
+            </div>
+            <p className="mt-4 text-xs text-term-label">申込み・決済は登録した外部サイトで行います。</p>
+            {error && <p role="alert" className="mt-3 text-sm text-term-danger">{error}</p>}
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              <button type="button" disabled={saving} onClick={() => void save('published')} className={`${BTN} gap-2 rounded-sm border-term-accent bg-transparent text-term-accent hover:bg-term-head`}>
+                {saving && <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" />}
+                {status === 'published' ? '公開内容を更新' : 'Make-Moneyに公開'}
+              </button>
+              <button type="button" disabled={saving} onClick={() => void save('draft')} className={`${BTN} rounded-sm border-term-line bg-transparent text-term-fg hover:bg-term-head`}>
+                {status === 'published' ? '非公開にする' : '下書きを保存'}
+              </button>
+              {slug && status === 'published' && (
+                <Link href={`/marketplace/${encodeURIComponent(slug)}`} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-1.5 text-sm text-term-sub hover:text-term-fg-strong lg:min-h-8">
+                  公開ページを見る <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
+                </Link>
+              )}
+            </div>
+          </section>
         )}
       </main>
     </div>
   );
 }
 
-const inputClass = 'w-full rounded-md border border-white/[0.1] bg-[#080a0f] px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-emerald-400/50';
+const inputClass = 'w-full rounded-sm border border-term-line bg-term-bg px-3 py-2.5 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent';
 
 function Field({
   label,
@@ -257,7 +253,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium text-zinc-300">{label}{required && <span className="ml-1 text-rose-300">*</span>}</span>
+      <span className="mb-1 block text-xs text-term-label">{label}{required && <span className="ml-1 text-term-danger">*</span>}</span>
       <input value={value} maxLength={maxLength} onChange={(event) => onChange(event.target.value)} required={required} placeholder={placeholder} className={inputClass} />
     </label>
   );

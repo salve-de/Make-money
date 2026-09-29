@@ -1,18 +1,23 @@
 'use client';
 
 import React from 'react';
-import {
-  MacroIntelligenceData,
-  TOOL_CATEGORIES,
-  ToolCategoryKey,
-} from '@/lib/intelligence/macro-aggregator';
+import { MacroIntelligenceData } from '@/lib/intelligence/macro-aggregator';
 import { usePlaybookNavigation, PlaybookTabKey } from '../../hooks/usePlaybookNavigation';
+import { SquareTabs, type SquareTab } from './SquareTabs';
 import { ToolRadarSection } from './ToolRadarSection';
 import { DeathTrapsSection } from './DeathTrapsSection';
 import { CurrentWavesSection } from './CurrentWavesSection';
 import { GenesisSection, GoldenStackSection } from './GenesisAndStackSection';
 
 export type { PlaybookTabKey };
+
+const PLAYBOOK_TABS: ReadonlyArray<SquareTab<PlaybookTabKey>> = [
+  { key: 'TOOL_RADAR', label: 'ツール構成' },
+  { key: 'SHELF_LIFE_DOWNGRADES', label: '失敗と見直し' },
+  { key: 'CURRENT_PLAYS', label: '事業の型' },
+  { key: 'DIRTY_GENESIS', label: '初期の顧客獲得' },
+  { key: 'GOLDEN_RECIPES', label: '技術構成の参考' },
+];
 
 interface PlaybookIntelligenceViewProps {
   data: MacroIntelligenceData;
@@ -39,110 +44,19 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
   } = usePlaybookNavigation(data);
 
   return (
-    <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-background text-foreground font-sans">
-      <header className="shrink-0 border-b border-white/[0.14] bg-surface px-3 py-1.5 sm:px-5">
-        <div className="mx-auto flex w-full max-w-screen-2xl flex-col">
-          <h1 className="sr-only">事業・ツールの参考例</h1>
-
-          <div className="flex items-center gap-2 py-1 sm:hidden">
-            <select
-              aria-label="参考資料の種類"
-              value={activeTab}
-              onChange={(event) => setActiveTab(event.target.value as PlaybookTabKey)}
-              className="h-9 min-w-0 flex-1 rounded border border-white/[0.16] bg-[#18232d] px-2 text-sm text-zinc-100"
-            >
-              <option value="TOOL_RADAR">ツール構成</option>
-              <option value="SHELF_LIFE_DOWNGRADES">失敗と見直し</option>
-              <option value="CURRENT_PLAYS">事業の型</option>
-              <option value="DIRTY_GENESIS">初期の顧客獲得</option>
-              <option value="GOLDEN_RECIPES">技術構成の参考</option>
-            </select>
-            {activeTab === 'TOOL_RADAR' && <>
-              <label htmlFor="mobile-tool-category" className="sr-only">ツールの用途</label>
-              <select
-                id="mobile-tool-category"
-                value={selectedToolCategory}
-                onChange={(event) => setSelectedToolCategory(event.target.value as ToolCategoryKey)}
-                className="h-9 min-w-0 flex-1 rounded border border-white/[0.16] bg-[#18232d] px-2 text-sm text-zinc-100"
-              >
-                {TOOL_CATEGORIES.map((cat) => <option key={cat.key} value={cat.key}>{cat.label
-                  .replace('デプロイ・ホスティング', 'ホスティング')
-                  .replace('AI・推論エンジン', 'AI・推論')
-                  .replace('データベース・基盤', 'データベース')
-                  .replace('決済・サブスク課金', '決済・課金')
-                  .replace('集客・CRM・配信', '集客・配信')
-                  .replace('フロント・ノーコード', 'フロント制作')}</option>)}
-              </select>
-            </>}
-          </div>
-          <nav aria-label="参考資料の種類" className="hidden gap-1 sm:flex sm:flex-wrap">
-          {/* ツールの構成・乗り換え */}
-          <button
-            onClick={() => setActiveTab('TOOL_RADAR')}
-            type="button"
-            aria-pressed={activeTab === 'TOOL_RADAR'}
-            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
-              activeTab === 'TOOL_RADAR'
-                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
-                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
-            }`}
-          >
-            <span>ツール構成</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('SHELF_LIFE_DOWNGRADES')}
-            type="button"
-            aria-pressed={activeTab === 'SHELF_LIFE_DOWNGRADES'}
-            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
-              activeTab === 'SHELF_LIFE_DOWNGRADES'
-                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
-                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
-            }`}
-          >
-            <span>失敗と見直し</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('CURRENT_PLAYS')}
-            type="button"
-            aria-pressed={activeTab === 'CURRENT_PLAYS'}
-            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
-              activeTab === 'CURRENT_PLAYS'
-                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
-                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
-            }`}
-          >
-            <span>事業の型</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('DIRTY_GENESIS')}
-            type="button"
-            aria-pressed={activeTab === 'DIRTY_GENESIS'}
-            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
-              activeTab === 'DIRTY_GENESIS'
-                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
-                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
-            }`}
-          >
-            <span>初期の顧客獲得</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('GOLDEN_RECIPES')}
-            type="button"
-            aria-pressed={activeTab === 'GOLDEN_RECIPES'}
-            className={`flex min-h-10 items-center justify-center border-b-2 px-2.5 text-center text-sm font-medium transition-colors cursor-pointer ${
-              activeTab === 'GOLDEN_RECIPES'
-                ? 'border-sky-300 bg-sky-300/[0.08] text-sky-200'
-                : 'border-transparent text-zinc-300 hover:bg-white/[0.04] hover:text-white'
-            }`}
-          >
-            <span>技術構成の参考</span>
-          </button>
-          </nav>
+    <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-term-bg font-sans text-term-fg">
+      <header className="shrink-0 border-b border-term-line bg-term-panel">
+        <h1 className="sr-only">手口と道具</h1>
+        <div className="term-panel-title">
+          <span className="term-panel-name">手口と道具</span>
+          <span className="hidden sm:inline">事業の型・ツール構成・失敗の見直し・初期の顧客獲得</span>
         </div>
+        <SquareTabs
+          ariaLabel="参考資料の種類"
+          tabs={PLAYBOOK_TABS}
+          value={activeTab}
+          onChange={setActiveTab}
+        />
       </header>
 
       {/* ─── 3. コンテンツ本体 ─── */}

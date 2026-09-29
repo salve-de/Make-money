@@ -87,34 +87,43 @@ export default function SuccessPage() {
               : checkoutState === 'checking'
                 ? '決済状況を確認しています'
                 : '決済完了を確認できていません';
-  const stateTone = checkoutState === 'confirmed'
-    ? 'bg-emerald-300'
+  const stateLabel = checkoutState === 'confirmed'
+    ? '確認'
     : checkoutState === 'pending' || checkoutState === 'checking'
-      ? 'bg-amber-300'
+      ? '確認中'
       : checkoutState === 'error' || checkoutState === 'revoked'
-        ? 'bg-rose-300'
-        : 'bg-zinc-400';
+        ? '要対応'
+        : '未確認';
+  const stateTone = checkoutState === 'confirmed'
+    ? 'text-term-positive'
+    : checkoutState === 'error' || checkoutState === 'revoked'
+      ? 'text-term-danger'
+      : checkoutState === 'pending' || checkoutState === 'checking'
+        ? 'text-term-accent'
+        : 'text-term-dim';
+  const BTN = 'inline-flex min-h-11 items-center justify-center rounded-sm border px-5 text-sm lg:min-h-8 lg:px-3';
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#10151a] px-4 py-8 text-zinc-100">
-      <section className="w-full max-w-lg rounded-lg border border-white/[0.14] bg-[#171e25] p-5 sm:p-7">
-        <div className="text-xs font-semibold tracking-wide text-zinc-400">決済確認</div>
-        <h1 className="mt-2 text-xl font-semibold leading-snug text-zinc-50 sm:text-2xl">{heading}</h1>
-        <div className="mt-5 flex items-start gap-3 rounded-md border border-white/[0.1] bg-black/10 p-4">
-          <span aria-hidden="true" className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${stateTone}`} />
-          <p role="status" aria-live="polite" className="text-sm leading-6 text-zinc-200">{message}</p>
+    <main className="term-page bg-term-bg text-term-fg">
+      <div className="term-panel-title"><span className="term-panel-name">決済確認</span>{FOUNDING_PASS.name}</div>
+      <section className="max-w-2xl">
+        <h1 className="border-b border-term-line px-3 py-3 text-lg font-semibold text-term-fg-strong">{heading}</h1>
+        <div className="grid grid-cols-[110px_minmax(0,1fr)] items-baseline gap-2 border-b border-term-line-soft px-3 py-2">
+          <span className="text-xs text-term-label">状態</span>
+          <span className={`text-sm ${stateTone}`}>{stateLabel}</span>
         </div>
-        <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+        <p role="status" aria-live="polite" className="border-b border-term-line px-3 py-3 text-sm leading-6 text-term-fg">{message}</p>
+        <div className="flex flex-col gap-2 px-3 py-3 sm:flex-row">
           <button
             onClick={async () => { await refreshUserStatus(); router.push('/'); }}
-            className="inline-flex min-h-11 items-center justify-center rounded-md bg-sky-200 px-5 text-sm font-semibold text-slate-950 hover:bg-sky-100"
+            className={`${BTN} border-term-accent bg-transparent text-term-accent hover:bg-term-head`}
           >
-            台帳へ戻る
+            事例一覧へ戻る
           </button>
           {checkoutState === 'login-required' ? (
             <button
               onClick={() => void signInWithGoogle()}
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/[0.16] px-5 text-sm font-medium text-zinc-100 hover:bg-white/[0.06]"
+              className={`${BTN} border-term-line bg-transparent text-term-fg hover:bg-term-head`}
             >
               Googleでログイン
             </button>
@@ -122,13 +131,13 @@ export default function SuccessPage() {
             <button
               disabled={checking || loading}
               onClick={() => setAttempt((value) => value + 1)}
-              className="inline-flex min-h-11 items-center justify-center rounded-md border border-white/[0.16] px-5 text-sm font-medium text-zinc-100 hover:bg-white/[0.06] disabled:cursor-wait disabled:opacity-50"
+              className={`${BTN} border-term-line bg-transparent text-term-fg hover:bg-term-head disabled:cursor-wait disabled:opacity-50`}
             >
               {checking ? '確認中…' : 'もう一度確認'}
             </button>
           )}
         </div>
-        <Link href="/welcome" className="mt-5 inline-flex min-h-11 items-center text-sm text-zinc-400 underline underline-offset-4 hover:text-zinc-200">サービス案内</Link>
+        <Link href="/welcome" className="inline-flex min-h-11 items-center px-3 text-sm text-term-sub underline underline-offset-4 hover:text-term-fg-strong">サービス案内</Link>
       </section>
     </main>
   );

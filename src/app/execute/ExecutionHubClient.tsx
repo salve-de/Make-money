@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 import React, { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, CircleDollarSign, Database } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
+import { formatYen } from '@/platform/utils/moneyDisplay';
 import {
   executionProgress,
   executionStoragePrefix,
@@ -123,87 +123,76 @@ export function ExecutionHubClient() {
 
   if (loading) {
     return (
-      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 text-sm text-zinc-500 sm:px-6 lg:px-8">
-        実行状態を読み込み中…
+      <main className="w-full flex-1">
+        <div className="term-panel-title"><span className="term-panel-name">実行計画</span>読み込み中</div>
+        <p className="px-3 py-3 text-sm text-term-label">実行状態を読み込み中…</p>
       </main>
     );
   }
 
+  const loadingRemote = Boolean(token) && remoteState === 'loading';
+
   return (
-    <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-3 sm:px-6 lg:px-8">
-      <section className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b border-white/[0.1] pb-3">
-        <div>
-          <h1 className="text-lg font-semibold tracking-tight text-zinc-50">実行計画</h1>
-        </div>
-        {projects.length > 0 && <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1 text-sm">
-          <SummaryItem label="案件" value={String(projects.length)} />
-          <SummaryItem label="初回売上" value={`${firstDollarCount}件`} />
-          <SummaryItem label="記録売上" value={`¥${totalRevenue.toLocaleString()}`} />
-        </div>}
-      </section>
+    <main className="w-full flex-1">
+      <h1 className="sr-only">実行計画</h1>
+      <div className="term-panel-title">
+        <span className="term-panel-name">実行計画</span>
+        {projects.length > 0 ? (
+          <span className="term-num flex flex-wrap gap-x-4">
+            <span>案件 <span className="text-term-fg-strong">{projects.length}</span></span>
+            <span>初回売上 <span className="text-term-fg-strong">{firstDollarCount}件</span></span>
+            <span>記録売上 <span className="text-term-fg-strong">{formatYen(totalRevenue)}</span></span>
+          </span>
+        ) : <span>保存した実行計画の進み具合</span>}
+      </div>
 
       {projects.length === 0 ? (
-        <section className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-md border border-white/[0.14] bg-surface px-4 py-4">
-          <div className="flex min-w-0 items-start gap-3">
-            <Database aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-accent-strong" />
-            <div className="min-w-0">
-              <h2 className="text-base font-semibold text-zinc-100">
-                {token && remoteState === 'loading' ? '保存した計画を読み込んでいます' : '実行計画はまだありません'}
-              </h2>
-              <p className="mt-1 max-w-xl text-sm leading-6 text-zinc-300">
-                {token && remoteState === 'loading'
-                  ? 'クラウドとこの端末に保存された計画を確認しています。'
-                  : '台帳で事例を開き、「計画を作成」から追加できます。'}
-              </p>
-              {!(token && remoteState === 'loading') && (
-                <Link
-                  href="/"
-                  className="mt-2 inline-flex min-h-10 shrink-0 items-center gap-2 text-sm font-semibold text-accent-strong transition-colors hover:text-amber-200"
-                >
-                  台帳で事例を探す
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              )}
-            </div>
-          </div>
+        <section className="px-3 py-4 text-sm">
+          <p className="text-term-fg-strong">{loadingRemote ? '保存した計画を読み込んでいます' : '実行計画はまだありません'}</p>
+          <p className="mt-1 text-term-sub">
+            {loadingRemote
+              ? 'クラウドとこの端末に保存された計画を確認しています。'
+              : '事例を開き「計画を作成」を押すと、ここに一覧で並びます。'}
+          </p>
+          {!loadingRemote && (
+            <Link
+              href="/"
+              className="mt-3 inline-flex min-h-11 items-center border border-term-accent px-4 text-sm text-term-accent hover:bg-term-head lg:min-h-8"
+            >
+              事例を探す
+            </Link>
+          )}
         </section>
       ) : (
-        <section className="mt-3 grid grid-cols-[repeat(auto-fit,minmax(min(100%,22rem),1fr))] gap-3">
-          {projects.map((project) => {
+        <section aria-label="実行計画の一覧">
+          <div className="hidden h-[26px] grid-cols-[minmax(0,1.2fr)_minmax(0,1.6fr)_140px_130px_120px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label lg:grid">
+            <span>案件</span>
+            <span>提供するもの</span>
+            <span className="text-right">進捗</span>
+            <span className="text-right">記録売上</span>
+            <span>状態</span>
+          </div>
+          {projects.map((project, index) => {
             const progress = executionProgress(project);
             const earned = project.revenueJpy > 0;
+            const offer = project.offerName && project.offerName !== '金額・費用の裏付けは未確認。' ? project.offerName : '';
             return (
               <Link
                 key={project.entityId}
                 href={'/execute/' + encodeURIComponent(project.entityId)}
-                className="group rounded-md border border-white/[0.16] bg-[#101721] p-4 transition-colors hover:border-emerald-400/25 hover:bg-white/[0.035]"
+                className={`grid min-h-11 grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-0.5 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select lg:min-h-[29px] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.6fr)_140px_130px_120px] lg:py-1 ${index % 2 ? 'bg-term-row-alt' : ''}`}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <h2 className="line-clamp-2 text-base font-semibold text-zinc-100">{project.sourceName}</h2>
-                    {project.offerName && project.offerName !== '金額・費用の裏付けは未確認。' && (
-                      <p className="mt-1 line-clamp-2 text-sm text-zinc-300">{project.offerName}</p>
-                    )}
-                    {conflictIds.has(project.entityId) && (
-                      <span className="mt-1.5 inline-flex rounded border border-amber-400/25 bg-amber-400/[0.08] px-1.5 py-0.5 text-[9px] font-mono text-amber-300">
-                        端末下書きとクラウドが競合
-                      </span>
-                    )}
-                  </div>
-                  <ArrowRight className="h-4 w-4 shrink-0 text-zinc-600 transition-transform group-hover:translate-x-0.5 group-hover:text-emerald-300" />
-                </div>
-
-                <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
-                  <div className="h-full rounded-full bg-emerald-400" style={{ width: String(progress) + '%' }} />
-                </div>
-
-                <div className="mt-3 flex items-center justify-between text-[11px]">
-                  <span className="font-mono text-zinc-500">{String(progress) + '% · ' + String(project.completedSteps.length) + '/6'}</span>
-                  <span className={earned ? 'inline-flex items-center gap-1 font-mono text-emerald-300' : 'font-mono text-zinc-600'}>
-                    {earned && <CircleDollarSign className="h-3.5 w-3.5" />}
-                    {earned ? '¥' + project.revenueJpy.toLocaleString() : '売上未達'}
-                  </span>
-                </div>
+                <span className="min-w-0 truncate text-term-fg-strong">{project.sourceName}</span>
+                <span className="col-span-2 row-start-2 min-w-0 truncate text-xs text-term-label lg:col-span-1 lg:row-start-auto lg:text-sm lg:text-term-sub">{offer || '—'}</span>
+                <span className="term-num text-right text-xs text-term-muted lg:text-sm">{progress}% · {project.completedSteps.length}/6</span>
+                <span className={`term-num hidden text-right lg:block ${earned ? 'text-term-fg-strong' : 'text-term-dim'}`}>
+                  {earned ? formatYen(project.revenueJpy) : '未達'}
+                </span>
+                <span className="hidden truncate text-xs lg:block">
+                  {conflictIds.has(project.entityId)
+                    ? <span className="text-term-accent">端末下書きとクラウドが競合</span>
+                    : <span className="text-term-muted">保存済み</span>}
+                </span>
               </Link>
             );
           })}
@@ -211,18 +200,9 @@ export function ExecutionHubClient() {
       )}
 
       {remoteState === 'error' && (
-        <p className="mt-4 text-xs text-amber-300">クラウド側の実行プロジェクトを読み込めていないため、この端末の保存内容を表示している。</p>
+        <p className="border-t border-term-line px-3 py-2 text-xs text-term-danger">クラウド側の実行プロジェクトを読み込めていないため、この端末の保存内容を表示している。</p>
       )}
     </main>
-  );
-}
-
-function SummaryItem({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-baseline gap-1.5">
-      <span className="text-xs text-zinc-400">{label}</span>
-      <span className="font-mono text-sm font-semibold tabular-nums text-zinc-100">{value}</span>
-    </div>
   );
 }
 

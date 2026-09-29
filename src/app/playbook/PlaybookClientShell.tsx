@@ -18,7 +18,7 @@ export const PlaybookClientShell: React.FC<PlaybookClientShellProps> = ({ macroD
   };
 
   return (
-    <div className="flex h-dvh w-full flex-col overflow-hidden bg-background">
+    <div className="flex term-screen w-full flex-col overflow-hidden bg-background">
       {/* 統合グローバルナビゲーションヘッダー */}
       <GlobalHeader currentSection="PLAYBOOK" />
 

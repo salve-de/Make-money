@@ -15,6 +15,17 @@ describe('detailed case content', () => {
   expect(html).toContain('SQLite');
   expect(html).toContain('事業内容・料金・運営');
  });
+ it('labels a case the user only viewed so it is never presented as saved', () => {
+  const entity = structuredClone(INSTITUTIONAL_ENTITIES[0]);
+  const render = (bookmarkedIds: Set<string>) => renderToStaticMarkup(<SynthesisEntitiesSidebar savedEntities={[entity]} bookmarkedIds={bookmarkedIds} selectedEntityIds={new Set()} toggleSelectEntity={()=>{}} activeEditingEntityId={entity.id} setActiveEditingEntityId={()=>{}} notes={{}} onSaveNote={()=>{}} formatMoney={String} handleSynthesize={()=>{}} isSynthesizing={false} />);
+  expect(render(new Set())).toContain('閲覧中の事例');
+  expect(render(new Set([entity.id]))).not.toContain('閲覧中の事例');
+ });
+ it('shows an empty state instead of filling the list with cases the user never chose', () => {
+  const html = renderToStaticMarkup(<SynthesisEntitiesSidebar savedEntities={[]} bookmarkedIds={new Set()} selectedEntityIds={new Set()} toggleSelectEntity={()=>{}} activeEditingEntityId="" setActiveEditingEntityId={()=>{}} notes={{}} onSaveNote={()=>{}} formatMoney={String} handleSynthesize={()=>{}} isSynthesizing={false} />);
+  expect(html).toContain('保存した事例がここに並びます');
+  expect(html).toContain('0件選択 / 0件');
+ });
  it('retains initial acquisition even with no tools or blueprint steps', () => {
   const entity = structuredClone(INSTITUTIONAL_ENTITIES[0]);
   entity.lootBlueprint = undefined;

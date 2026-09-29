@@ -22,12 +22,11 @@ export function useStrategySynthesis({
   const { token } = useAuth();
   const [conversationId] = useState<string>(() => `conv_${Date.now()}`);
 
-  // 保存銘柄（もし保存がなければ代表的3社をデフォルト表示）
-  const savedEntities = useMemo(() => {
-    const list = allEntities.filter((e) => bookmarkedIds.has(e.id) || e.id === initialContextEntityId);
-    if (bookmarkedIds.size > 0 || initialContextEntityId) return list;
-    return allEntities.slice(0, 3);
-  }, [allEntities, bookmarkedIds, initialContextEntityId]);
+  // 検討に使う事例 = 保存した事例 ＋ 直前に見ていた事例。保存がない人に別の事例を代わりに並べることはしない
+  const savedEntities = useMemo(
+    () => allEntities.filter((e) => bookmarkedIds.has(e.id) || e.id === initialContextEntityId),
+    [allEntities, bookmarkedIds, initialContextEntityId],
+  );
 
   // 合成対象としてチェックされている企業ID群
   const [selectedEntityIds, setSelectedEntityIds] = useState<Set<string>>(() => {
@@ -38,10 +37,11 @@ export function useStrategySynthesis({
     return initial;
   });
 
-  // 編集中のアクティブ銘柄（左ペインでメモを入力・フォーカス中のもの）
+  // 編集中のアクティブ銘柄（左ペインでメモを入力・フォーカス中のもの）。左ペインに無い事例は選ばない
   const [activeEditingEntityId, setActiveEditingEntityId] = useState<string>(
-    initialContextEntityId || savedEntities[0]?.id || allEntities[0]?.id
+    initialContextEntityId || savedEntities[0]?.id || ''
   );
+  const activeEntity = savedEntities.find((e) => e.id === activeEditingEntityId) || savedEntities[0];
 
   const touchedSelection = useRef(false);
   useEffect(() => {
@@ -152,7 +152,7 @@ export function useStrategySynthesis({
       role: 'user',
       content: textToSend.trim(),
       timestamp: new Date().toISOString(),
-      contextEntityId: activeEditingEntityId,
+      contextEntityId: activeEntity?.id,
     };
 
     setChatMessages((prev) => [...prev, userMsg]);
@@ -170,7 +170,7 @@ export function useStrategySynthesis({
           action: 'CHAT',
           conversationId,
           messages: [...chatMessages, userMsg].map((m) => ({ role: m.role, content: m.content })),
-          contextEntityId: activeEditingEntityId,
+          contextEntityId: activeEntity?.id,
           synthesizedIdeas,
           notes,
         }),
@@ -200,8 +200,6 @@ export function useStrategySynthesis({
     const prompt = `「${idea.title}」について検討したい。想定する利用者の課題、現在の代替手段、費用と収入の前提、最初にできる小規模な確認方法、うまくいかない条件を整理してください。選択した事例から分かること、一般的な推測、まだ分からないことを分け、根拠がない場合は断定しないでください。`;
     handleSendMessage(prompt);
   };
-
-  const activeEntity = allEntities.find((e) => e.id === activeEditingEntityId) || savedEntities[0];
 
   return {
     savedEntities,

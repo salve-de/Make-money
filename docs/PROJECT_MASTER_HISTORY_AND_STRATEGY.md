@@ -7389,3 +7389,14 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Fixed40 ledger now31 saved business runs/677distinctIDs and9 explicitly classified remaining artifacts;19 upstream research holds retained. Parent checks only additional50 local APIs. Actual scheduled new-candidate15:20 proof remains pending; manual recovery is not automatic success.
 
 - Parent additional50 local APIs passed06:12:39.745Z (3list pages/50details/failed[], strict Foundation); no overlap with prior627, total677accepted. Representative Pallet/ConradKacsik detail→execute6steps independently passed. No recovery batch remains active. Genuine scheduled R2/API/UI arrival remains to be observed after15:20.
+
+### 2026-09-29: 全画面を端末型UI（A案）へ刷新
+
+- 全19URL×スマホ/タブレット/PCの監査（57画面）で、12px未満の文字18,937か所、12種以上の黒の直書き、3系統のナビ、URLに残らない事例詳細などを確認。デザイン方向3案（端末型/紙面型/可視化型）から、ユーザーが「プロ端末らしさ」を条件にA案を選択。
+- 仕様は `docs/design/TERMINAL_UI.md`、色・角丸・等幅フォントは `src/app/globals.css` のトークンに集約。zinc系を端末の灰色に置換し、金額表記は `src/platform/utils/moneyDisplay.ts` に一本化。
+- 共通ヘッダー（検索コマンド欄・数字キーのタブ）と全ページ共通のスマホ下部メニュー、PCの3ペイン＋状態バー、事例を開くとURLに `?entity=` が残る動きを実装。確認列は「確認/報告値/未確認/推定/ピーク」を文字で表示。
+- 検証: typecheck、関連単体テスト、lint、`next build` 通過。再監査で12px未満の文字0、横はみ出し0。`pnpm ui:audit` で全画面の撮影と計測を再実行できる。データ本文（定型書き出し等）の修正は別作業のため対象外。
+- 不自然さの除去: 初めての人に「保存 2」と出ていた初期保存（既定の2社）を廃止し、保存0件から始める。事業検討でも、保存していない事例を「保存した事例」として並べる代用（先頭3社）をやめ、利用者が自分で開いた事例だけを「閲覧中の事例」として加える（PCで最初の事例を自動表示しているだけのときは加えず、相談の対象事例にも入れない）。スマホの一覧も、開いた事例だけを強調する。ページを開いた直後に出ていた「確認中」の表示も消した。スマホの一覧の保存ボタンは行に重ねず右端の列に置き、誤って事例が開かないようにした。
+- 事例詳細の社名は、どのタブ（概要・損益／出典・記録）でも上部に残す。1024px（小型ノートPC）でヘッダーが重なる不具合を直し、監査に1024pxと押し場所の重なり検出を追加。最終監査（本番ビルド、1440/1024/768/375px × 19URL = 76画面）で、12px未満の文字・小さすぎる押し場所・横はみ出し・押し場所の重なり・名前のない操作部品・壊れた画像はすべて0。
+- 使われていないファイル61件を削除（旧UIの部品・旧データ・旧型定義53件、テストからしか使われていなかった詳細画面の旧部品4件とそのテスト3件、旧データを書き換えるだけのスクリプト1件）。判定はTypeScriptのimportを実際にたどる到達解析で行い、ページ・API・スクリプト・テストのどこからもたどれないものだけを対象にした。紹介料の設定（`src/config/affiliateLinks.ts`、`src/platform/config/toolAffiliates.ts`）は収益に関わるため残した。README・`docs/INSPECTOR_ARCHITECTURE.md`・データ置き場の説明・境界テストの例も今のファイルに合わせた。
+- PR #102 の自動レビュー（Codex）指摘2件を修正。①スマホ・タブレットで発見・手口と道具・市場動向の最下部が下部メニューに隠れていたため、画面の高さを `term-screen`／`term-page`（下部メニューの高さ `--term-nav-space` を引く）に統一し、空白だけのスクロールも解消。②事例を閉じると履歴が積まれ「戻る」で閉じた事例が再び開いていたため、開く・閉じるを `openEntityParam`／`closeEntityParam` にまとめた（一覧から開くときだけ履歴を積み、閉じるときはその履歴を戻す）。あわせて、詳細の前へ・次へでURLが古い事例のままだった不具合も直した。監査に「下部メニューに隠れる枠」の検出を追加し、4幅×19URLで0件を確認。E2E 52件は新しい表記（円表記・「手口と道具」・PRO）に合わせて更新し、`¥0` の否定確認は「0円」の否定確認へ置き換えた。

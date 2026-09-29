@@ -7,6 +7,7 @@ import type { WorkspaceMode } from '../types/terminal';
 import { parseCompanyAnalysis } from '@/lib/company-access/schema';
 import { useViewHistory } from './useViewHistory';
 import { useAuth } from '../../context/AuthContext';
+import { openEntityParam } from '../utils/entityUrl';
 
 interface UseSelectedEntityNavigationProps {
   entities: FinancialEntity[];
@@ -42,8 +43,16 @@ export function useSelectedEntityNavigation({
         )?.id || entities[0]?.id || null
       : entities[0]?.id || null);
 
-  const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
+  const [selectedEntityId, setSelectedEntityIdState] = useState<string | null>(initialEntityId);
+  // 利用者が自分で開いた事例か（URLの ?entity=・検索語・クリック・キー操作）。
+  // PCで最初の事例を自動で表示しているだけのときは false にして、「閲覧中」や強調表示に使わない
+  const [selectionIsExplicit, setSelectionIsExplicit] = useState(Boolean(entityParam || queryParam));
+  const setSelectedEntityId = useCallback((id: string | null) => {
+    setSelectionIsExplicit(id !== null);
+    setSelectedEntityIdState(id);
+  }, []);
   const appliedNavigation = useRef<string | null>(null);
+  const previousEntityParam = useRef<string | null>(entityParam ?? null);
 
   // オンデマンド詳細読み込み
   useEffect(() => {
@@ -76,8 +85,11 @@ export function useSelectedEntityNavigation({
       }
     } else {
       appliedNavigation.current = navigationKey;
+      // 戻る操作などで ?entity= が消えたら詳細を閉じる
+      if (previousEntityParam.current) setSelectedEntityId(null);
     }
-  }, [entityParam, queryParam, entities, entityAliases]);
+    previousEntityParam.current = entityParam ?? null;
+  }, [entityParam, queryParam, entities, entityAliases, setSelectedEntityId]);
 
   // 閲覧履歴の自動追跡
   useEffect(() => {
@@ -128,8 +140,9 @@ export function useSelectedEntityNavigation({
     const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
     if (currentIndex > 0) {
       setSelectedEntityId(list[currentIndex - 1].id);
+      openEntityParam(list[currentIndex - 1].id);
     }
-  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities]);
+  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
 
   const handleNextEntity = useCallback(() => {
     const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
@@ -137,11 +150,14 @@ export function useSelectedEntityNavigation({
     const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
     if (currentIndex >= 0 && currentIndex < list.length - 1) {
       setSelectedEntityId(list[currentIndex + 1].id);
+      openEntityParam(list[currentIndex + 1].id);
     }
-  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities]);
+  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
 
   return {
     selectedEntityId,
+    /** 利用者が開いた事例のID（自動で表示しているだけなら null） */
+    openedEntityId: selectionIsExplicit ? selectedEntityId : null,
     setSelectedEntityId,
     selectedEntity,
     viewedEntityIds,

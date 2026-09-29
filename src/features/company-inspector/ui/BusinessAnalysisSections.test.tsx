@@ -30,4 +30,28 @@ describe('restored case information', () => {
   expect(render(false)).not.toContain('PRIVATE_DETAIL');
   for(const v of ['PRIVATE_DETAIL','規模差','速度差','比較値','予算','蓄積','移行','前金','限界利益'])expect(render(true)).toContain(v);
  });
+ it('never embeds any of the twelve premium fields for a free user, and shows all of them when entitled', () => {
+  const entity=structuredClone(INSTITUTIONAL_ENTITIES[0]);
+  entity.hasPremiumAnalysis = true;
+  const secrets = Array.from({ length: 12 }, (_, i) => `CONFIDENTIAL_FIELD_${i + 1}_END`);
+  entity.meta = {
+   incumbentDilemma: { cannibalizationBarrier: secrets[0], scaleMismatchReason: secrets[1], decisionSpeedAdvantage: secrets[2] },
+   pricingPower: { anchorComparison: secrets[3], lossAversionTrigger: secrets[4], budgetCategory: secrets[5] },
+   lockInMechanism: { dataHostage: secrets[6], workflowIntegration: secrets[7], switchingFriction: secrets[8] },
+   capitalEfficiency: { cashConversionCycle: secrets[9], incrementalMargin: secrets[10], workingCapitalStrategy: secrets[11] },
+  };
+  const render=(isPro:boolean)=>renderToStaticMarkup(<BusinessAnalysisSections entity={entity} isHazardMode={false} formatMoney={String} isPro={isPro} onOpenPro={() => {}} />);
+  const free = render(false);
+  for (const secret of secrets) expect(free).not.toContain(secret);
+  expect(free).not.toContain('blur-');
+  const pro = render(true);
+  for (const secret of secrets) expect(pro).toContain(secret);
+ });
+ it('does not render premium placeholders as content when an entitled user has no payload', () => {
+  const entity=structuredClone(INSTITUTIONAL_ENTITIES[0]);
+  entity.hasPremiumAnalysis = true; entity.meta = undefined;
+  const html=renderToStaticMarkup(<BusinessAnalysisSections entity={entity} isHazardMode={false} formatMoney={String} isPro={true} />);
+  expect(html).not.toContain('CONFIDENTIAL');
+  expect(html).not.toContain('詳細分析を開く');
+ });
 });

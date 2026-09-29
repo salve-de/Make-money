@@ -39,6 +39,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   isBookmarked = false,
   onToggleBookmark,
   mobileOpen = true,
+  positionLabel,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,55 +111,63 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     setMainTab,
     isBookmarked,
     onToggleBookmark,
+    positionLabel,
     ...model
   };
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={onClose}
-        className={mobileOpen ? 'fixed inset-0 z-30 bg-black/60 backdrop-blur-xs xl:hidden' : 'hidden'}
-        aria-label="企業事例インスペクターを閉じる"
-      />
+    <aside
+      aria-label={`${entity.name}の企業事例インスペクター`}
+      className={`fixed inset-0 z-40 h-full w-full shrink-0 flex-col overflow-hidden bg-term-panel lg:static lg:inset-auto lg:z-auto lg:min-w-0 lg:flex-1 lg:border-l lg:border-term-line ${mobileOpen ? 'flex' : 'hidden lg:flex'}`}
+    >
+      <CompanyHeader {...sectionProps} />
 
-      <aside
-        aria-label={`${entity.name}の企業事例インスペクター`}
-        className={`fixed inset-x-0 bottom-0 z-40 h-full max-h-[92dvh] w-full shrink-0 flex-col overflow-hidden border-t border-white/[0.08] bg-[#10161f] shadow-2xl xl:static xl:max-h-none xl:min-w-[520px] xl:flex-1 xl:shrink xl:border-l xl:border-t-0 ${mobileOpen ? 'flex' : 'hidden xl:flex'}`}
+      <div
+        ref={scrollContainerRef}
+        onScroll={handleScroll}
+        className="relative flex-1 overflow-y-auto bg-term-bg pb-[env(safe-area-inset-bottom)] font-sans text-[13px] scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin]"
       >
-        <CompanyHeader {...sectionProps} />
+        {mainTab === 'LEDGER' ? (
+          <>
+            <ExecutiveIntuitiveSummary {...sectionProps} />
 
-        <div
-          ref={scrollContainerRef}
-          onScroll={handleScroll}
-          className="relative flex-1 space-y-5 overflow-y-auto bg-[#0c1016] px-4 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-4 text-sm font-sans scroll-smooth [scrollbar-color:rgba(255,255,255,0.2)_rgba(12,16,22,1)] [scrollbar-gutter:stable] [scrollbar-width:thin] sm:p-5"
-        >
-          {mainTab === 'LEDGER' ? (
-            <>
-              <ExecutiveIntuitiveSummary {...sectionProps} />
+            {entity.pnl.financialStatus === 'ESTIMATED' ? (
+              <EstimatedCashSummary {...sectionProps} />
+            ) : (
+              <CashAnatomySection {...sectionProps} />
+            )}
 
-              {entity.pnl.financialStatus === 'ESTIMATED' ? (
-                <EstimatedCashSummary {...sectionProps} />
-              ) : (
-                <CashAnatomySection {...sectionProps} />
-              )}
+            <EvidenceDeckSection {...sectionProps} />
+            <LootBlueprintSection {...sectionProps} />
+            <BusinessAnalysisSections {...sectionProps} />
+            <FinancialOperationsSupplement {...sectionProps} />
+            <BusinessVisualSummary {...sectionProps} />
+            <RelatedResearch {...sectionProps} />
+          </>
+        ) : (
+          <>
+            <SourcesSection {...sectionProps} />
+            <EvidenceStream {...sectionProps} />
+            <AnalystNotes {...sectionProps} />
+          </>
+        )}
+      </div>
 
-              <EvidenceDeckSection {...sectionProps} />
-              <LootBlueprintSection {...sectionProps} />
-              <BusinessAnalysisSections {...sectionProps} />
-              <FinancialOperationsSupplement {...sectionProps} />
-              <BusinessVisualSummary {...sectionProps} />
-              <RelatedResearch {...sectionProps} />
-            </>
-          ) : (
-            <>
-              <SourcesSection {...sectionProps} />
-              <EvidenceStream {...sectionProps} />
-              <AnalystNotes {...sectionProps} />
-            </>
-          )}
+      {!isPro && onOpenPro && (
+        <div className="sticky bottom-0 flex min-h-11 shrink-0 items-center gap-3 border-t border-term-accent-line bg-term-accent-bg px-3 pb-[env(safe-area-inset-bottom)] lg:min-h-9">
+          <span className="text-xs font-semibold text-term-accent">PRO</span>
+          <span className="min-w-0 flex-1 truncate text-xs text-term-sub">
+            大手との競争・価格決定力・継続利用の仕組み・資金効率
+          </span>
+          <button
+            type="button"
+            onClick={onOpenPro}
+            className="h-8 shrink-0 rounded-sm border border-term-accent px-3 text-xs text-term-accent hover:bg-term-head lg:h-6"
+          >
+            見本を開く
+          </button>
         </div>
-      </aside>
-    </>
+      )}
+    </aside>
   );
 };

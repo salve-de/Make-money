@@ -51,51 +51,33 @@ export const SynthesisConsolePane: React.FC<SynthesisConsolePaneProps> = ({
   messagesEndRef,
   requestError,
 }) => {
+  const tabBtn = (active: boolean) => `min-h-11 border-r border-term-line px-3 text-sm lg:min-h-[28px] lg:text-xs ${active ? 'bg-[var(--surface-overlay)] text-term-fg-strong shadow-[inset_0_-2px_0_var(--term-accent)]' : 'text-term-muted hover:bg-term-head'}`;
   return (
-    <div className={`min-h-0 flex-1 flex-col overflow-hidden bg-[#060709] ${mobileHidden ? 'hidden md:flex' : 'flex'}`}>
-      {/* コンソール上部バー */}
-      <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/[0.1] bg-[#171e25] p-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            onClick={() => setActiveConsoleTab('IDEAS')}
-            className={`min-h-11 rounded-md px-3 text-sm font-medium transition-colors ${
-              activeConsoleTab === 'IDEAS'
-                ? 'border border-white/[0.2] bg-white/[0.1] text-zinc-50'
-                : 'border border-transparent text-zinc-300 hover:bg-white/[0.05]'
-            }`}
-          >
-            企画案（{synthesizedIdeas.length}）
+    <div className={`min-h-0 flex-1 flex-col overflow-hidden bg-term-bg ${mobileHidden ? 'hidden md:flex' : 'flex'}`}>
+      <div className="flex shrink-0 items-stretch justify-between gap-3 border-b border-term-line bg-term-panel">
+        <div className="flex flex-wrap items-stretch">
+          <button onClick={() => setActiveConsoleTab('IDEAS')} aria-pressed={activeConsoleTab === 'IDEAS'} className={tabBtn(activeConsoleTab === 'IDEAS')}>
+            企画案（<span className="term-num">{synthesizedIdeas.length}</span>）
           </button>
-          <button
-            onClick={() => setActiveConsoleTab('CHAT')}
-            className={`min-h-11 rounded-md px-3 text-sm font-medium transition-colors ${
-              activeConsoleTab === 'CHAT'
-                ? 'border border-white/[0.2] bg-white/[0.1] text-zinc-50'
-                : 'border border-transparent text-zinc-300 hover:bg-white/[0.05]'
-            }`}
-          >
+          <button onClick={() => setActiveConsoleTab('CHAT')} aria-pressed={activeConsoleTab === 'CHAT'} className={tabBtn(activeConsoleTab === 'CHAT')}>
             相談
           </button>
         </div>
 
         {activeEntity && (
-          <div className="hidden max-w-[40%] truncate rounded border border-white/[0.1] bg-white/[0.03] px-2.5 py-1 text-xs text-zinc-300 sm:block">
-            対象事例: <span className="font-medium text-zinc-100">{activeEntity.name}</span>
+          <div className="hidden max-w-[40%] items-center truncate px-3 text-xs text-term-label sm:flex">
+            対象事例 <span className="ml-2 truncate text-term-fg-strong">{activeEntity.name}</span>
           </div>
         )}
       </div>
 
       {requestError && (
-        <div
-          role="alert"
-          className="border-b border-rose-400/25 bg-rose-950/30 px-4 py-3 text-sm text-rose-100"
-        >
+        <div role="alert" className="border-b border-term-line px-3 py-2 text-sm text-term-danger">
           {requestError}
         </div>
       )}
 
-      {/* 事業アイデア即時検証バー（全タブ共通フロントドア） */}
-      {activeConsoleTab === 'IDEAS' && synthesizedIdeas.length > 0 && <div className="shrink-0 border-b border-white/[0.1] bg-[#10151a] p-3">
+      {activeConsoleTab === 'IDEAS' && synthesizedIdeas.length > 0 && <div className="shrink-0 border-b border-term-line bg-term-panel p-2">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -114,23 +96,23 @@ export const SynthesisConsolePane: React.FC<SynthesisConsolePaneProps> = ({
               onChange={(e) => setIdeaInput(e.target.value)}
               aria-label="アイデアについて相談する"
               placeholder="企画案の疑問や、追加で見たい根拠を入力"
-              className="min-h-11 w-full rounded-md border border-white/[0.16] bg-[#0d1217] px-3 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-sky-300/60 focus:outline-none"
+              className="min-h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-sm text-term-fg-strong placeholder:text-term-dim focus:border-term-accent focus:outline-none lg:min-h-8"
             />
           </div>
           <button
             type="submit"
             disabled={!ideaInput.trim() || isChatSending}
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md bg-sky-200 px-4 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-100 disabled:cursor-not-allowed disabled:opacity-45"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-sm border border-term-accent bg-transparent px-4 text-sm text-term-accent hover:bg-term-head disabled:cursor-not-allowed disabled:opacity-45 lg:min-h-8"
           >
             <span>相談する</span>
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </button>
         </form>
 
-        <details className="group mt-2">
-          <summary className="flex min-h-9 cursor-pointer items-center justify-between text-xs text-zinc-400 hover:text-zinc-200">
+        <details className="group mt-1">
+          <summary className="flex min-h-11 cursor-pointer items-center justify-between text-xs text-term-label hover:text-term-fg lg:min-h-8">
             入力例
-            <span className="text-zinc-500">収益の根拠・顧客・コストなど</span>
+            <span className="text-term-dim">収益の根拠・顧客・コストなど</span>
           </summary>
           <div className="flex flex-wrap gap-2 pb-1">
             {[
@@ -145,7 +127,7 @@ export const SynthesisConsolePane: React.FC<SynthesisConsolePaneProps> = ({
                   setActiveConsoleTab('CHAT');
                   setChatInput(pText);
                 }}
-                className="min-h-10 rounded border border-white/[0.12] bg-white/[0.03] px-3 text-sm text-zinc-300 transition-colors hover:bg-white/[0.08] hover:text-white"
+                className="min-h-11 rounded-sm border border-term-line px-3 text-sm text-term-fg hover:bg-term-head lg:min-h-8"
               >
                 {pText}
               </button>

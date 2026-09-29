@@ -6,8 +6,8 @@ const base = INSTITUTIONAL_ENTITIES.find((entity) => entity.id === 'ent_keyence'
 describe('Inspector presentation calculations', () => {
   it('retains the current JPY/USD display conversion and waterfall', () => {
     const model = buildInspectorModel(base, 'JPY');
-    expect(model.formatMoney(80000000000)).toBe('¥800.0億');
-    expect(model.formatMoney(25000)).toBe('¥3万');
+    expect(model.formatMoney(80000000000)).toBe('800億円');
+    expect(model.formatMoney(25000)).toBe('3万円');
     expect(buildInspectorModel(base, 'USD').formatMoney(150000000)).toBe('$1.0M');
     expect(model.profitPct).toBe(Math.round(base.pnl.operatingProfit / base.pnl.monthlyRevenue * 100));
   });
