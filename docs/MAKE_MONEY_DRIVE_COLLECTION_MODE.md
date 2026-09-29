@@ -2,7 +2,7 @@
 
 Updated: 2026-09-30 JST
 
-The four research lanes currently persist raw JSON to Google Drive because scheduled GitHub create-only persistence repeatedly encountered the OpenAI action-safety write gate. This does not change the long-term Universal Foundation -> R2 architecture and does not auto-publish Drive research into the Make-Money UI.
+The four research lanes currently persist canonical JSON into an append-only Google Sheets ledger inside Google Drive. Scheduled GitHub create-only persistence repeatedly encountered the OpenAI action-safety write gate, and the first raw-file bridge could create a temporary Doc but did not complete the Scheduled content-write step. This does not change the long-term Universal Foundation -> R2 architecture and does not auto-publish Drive research into the Make-Money UI.
 
 Schedules remain:
 - DISCOVERY :00 hourly
@@ -13,9 +13,12 @@ Schedules remain:
 R2_QUEUE tasks remain paused for this mode.
 
 Current Drive SSOT:
-- root folder id: `1RKmgSZo-4ZG_mMjJHYf9Ah6lOlZQ4hsF`
-- manifest v2: `1so2gceMyM6MAplRGJUzwenPvrOf5gatu`
+- JSON Ledger spreadsheet id: `1zDeV8-XpsroXWxAg3j3w92dyiMiK2f7ZcPX3LgDtwKo`
+- manifest v3.1: `1299f1b821G-TljIgVgyUI9CDk1SiYAq7`
 - case schema v1.1: `1nxsXwlmCw841n8zO4WjZcA-Ab_GIrjiQ`
+- media-use-decision.v1 schema: `12Dt88HtHdZjxdYNYQiqxlZOFS2ZHqjTO`
+
+The ledger separates `CasesIndex`, `Claims`, `Runs`, `Payload`, `DedupeReview`, and `MediaIndex`. Canonical JSON is stored in <=40,000-character Payload chunks with SHA-256; indexes are routing projections. Raw `.json` Drive folders remain secondary export/review surfaces, not the Scheduled success path.
 
 The collection model now includes stable-identity/case-fingerprint dedupe, 90-minute append-only claims for existing-case lanes, uncertain-duplicate quarantine, and per-case media candidates with asset/use/jurisdiction rights metadata.
 
