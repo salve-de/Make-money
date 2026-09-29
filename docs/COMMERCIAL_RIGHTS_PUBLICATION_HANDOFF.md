@@ -1,6 +1,6 @@
 # Commercial Rights / Public Publication Handoff
 
-Updated: 2026-09-28 JST
+Updated: 2026-09-30 JST
 
 ## Final objective
 
@@ -20,6 +20,21 @@ scheduled discovery / verification
 ```
 
 A source being public, searchable, or stored as `metadata_only` does not by itself authorize copying its article, images, database, or restricted API output. Conversely, absence of an explicit open-license label does not automatically prohibit an independently stated fact; the documented legal basis and the intended use still need review.
+
+## Media / thumbnail / likeness update — 2026-09-30
+
+The paired Universal Foundation now has a per-asset/per-use media policy and schema. Make-Money should preserve ordinary verified facts in its own wording without treating a missing open-content licence as an automatic copyright prohibition. Images are reviewed separately.
+
+For media:
+- a licence/platform/press-kit/embed/consent/public-domain basis is preferred;
+- Japan Copyright Act Article 47-5 can be evaluated for genuinely minor thumbnails incidental to computerized search/information-analysis result provision; it is not a blanket licence and does not extend automatically to hero/gallery/ad use;
+- Article 47-4 is primarily technical/internal computer-use copying, not the normal user-facing display basis;
+- identifiable people require separate portrait/privacy/publicity review;
+- app icons should prefer official developer assets or explicit platform/API terms (including Apple's Search API promotional route where its conditions are met);
+- third-party app-store screenshots default to metadata/link unless an explicit/platform/statutory basis supports the exact public use;
+- a Japan-only thumbnail basis must not be silently treated as worldwide media permission.
+
+Canonical details: `docs/MEDIA_THUMBNAIL_AND_LIKENESS_POLICY.md`.
 
 ## Commercial-use interpretation — 2026-09-28
 
