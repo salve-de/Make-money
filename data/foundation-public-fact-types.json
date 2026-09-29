@@ -1,8 +1,9 @@
 {
   "schema_version": "make-money-public-fact-types-snapshot.v1",
   "source_repository": "salve-de/universal-foundation",
-  "source_commit_sha": "7fd16e70af0b9fc97303cfeadb7ac4e9c21747a2",
-  "generated_at": "2026-09-25T14:25:00+09:00",
+  "source_commit_sha": "7e14b5e41dc6dc7cda65856811031382dfffd9cc",
+  "generated_at": "2026-09-29T01:19:42.420Z",
+  "notes": "Runtime-approved Public Fact types pinned from Universal Foundation. Fact-type approval does not grant publication rights; evidence remains subject to the independent rights snapshot and publication gate.",
   "records": [
     {
       "fact_type_id": "fact.ownership_interest_percent.v1",
@@ -27,9 +28,36 @@
         },
         "suffix": "%"
       },
+      "notes": "Approved semantic type for evidence-linked ownership-interest percentages. This record does not grant rights; downstream rights policy resolution remains mandatory.",
       "path": "registry/public-facts/fact.ownership-interest-percent.v1.json",
       "blob_sha": "3cccc7c2db7eb3a09e733c7e842806ec0d4f62ca"
+    },
+    {
+      "fact_type_id": "fact.self_reported_business_metric.v1",
+      "status": "approved",
+      "value_kind": "money",
+      "allowed_scope_types": [
+        "company",
+        "product",
+        "other"
+      ],
+      "allowed_actor_relations": [
+        "direct_entity",
+        "owner",
+        "issuer"
+      ],
+      "display": {
+        "title": "Self-reported figure",
+        "relation_labels": {
+          "direct_entity": "Self-reported by {target_entity}",
+          "owner": "Self-reported by the owner",
+          "issuer": "Self-reported by the issuer"
+        },
+        "suffix": null
+      },
+      "notes": "Approved semantic type for revenue, MRR, profit, downloads, subscribers or similar figures that the subject stated about their own business. Display requires the self-reported label, the statement date, the period the figure refers to, and the canonical source link. It does not assert independent verification and does not grant rights over the source page; downstream rights policy resolution remains mandatory.",
+      "path": "registry/public-facts/fact.self-reported-business-metric.v1.json",
+      "blob_sha": "93c7b39a7143d6b8c39060c48495cdc0a3afa8fc"
     }
-  ],
-  "notes": "Runtime-approved Public Fact types pinned from Universal Foundation main. Fact-type approval does not grant publication rights; evidence remains subject to the independent rights snapshot and publication gate."
+  ]
 }

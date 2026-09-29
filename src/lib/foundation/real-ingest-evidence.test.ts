@@ -21,7 +21,22 @@ vi.mock('../../../scripts/pipeline/auto-enrich-entity', async (importOriginal) =
 import { autoEnrichEntityBeforeIngest } from '../../../scripts/pipeline/auto-enrich-entity';
 import { ingestVerifiedEntities } from '../../../scripts/pipeline/real-ingest-pipeline';
 
-beforeEach(() => vi.clearAllMocks());
+beforeEach(() => {
+  vi.clearAllMocks();
+  // 2026-09-29: R2 未設定時は明示的に許可しない限り ingest が中断する契約。このテストはローカルミラー（モック fs）を明示的に許可する。
+  vi.stubEnv('ALLOW_LOCAL_R2_FALLBACK', '1');
+});
+
+it('aborts instead of silently writing a local mirror when R2 is not configured and the fallback is not allowed', async () => {
+  vi.stubEnv('ALLOW_LOCAL_R2_FALLBACK', '0');
+  const entity = {
+    id: 'ent_test_abort', name: 'Abort Example', url: 'https://example.com',
+    pnl: { monthlyRevenue: 0, operatingMargin: 0, sourceDoc: 'https://example.com' },
+    operations: { toolStack: [] }, evidenceCards: [{ id: 'claim-abort', sourceNote: 'https://example.com' }],
+  } as unknown as FinancialEntity;
+  await expect(ingestVerifiedEntities([{ entity }], 'test')).rejects.toThrow('[INGEST ABORTED: R2 NOT CONFIGURED]');
+  expect(mocks.writes.mock.calls.some(([path]) => String(path).endsWith('/data/entities-index.json'))).toBe(false);
+});
 
 it.each(['one capture', 'reversed captures', 'metadata only'])('preserves claim identity and source bindings with %s', async (scenario) => {
   const cards = [

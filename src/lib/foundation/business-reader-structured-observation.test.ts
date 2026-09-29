@@ -136,3 +136,56 @@ describe('structured Foundation observations', () => {
     expect(detail.observations[0]).not.toHaveProperty('payloadSchemaRef');
   });
 });
+
+describe('public_display attribution (Tier 2 facts-only sources, 2026-09-29)', () => {
+  function withAttribution(attribution: unknown) {
+    return buildFoundationBusinessCaseForEntity(baseBundle({
+      observation_id: 'obs_attributionattribution1',
+      observation_type: 'public_fact.v1',
+      entity_id: entityId,
+      origin_type: 'reported',
+      verification_status: 'SUPPORTED',
+      observed_at: '2025-03-01T00:00:00Z',
+      evidence_ids: [evidenceId],
+      text: 'Self-reported figure',
+      public_payload: { fact_type_id: 'fact.self_reported_business_metric.v1', value: { kind: 'money', amount: 12000, currency: 'USD' } },
+      public_display: {
+        title: 'Self-reported figure',
+        subject: 'Company',
+        facts: [{ label: 'Self-reported by Structured Demo', value: 12000, suffix: 'USD' }],
+        source_label: 'Indie Hackers',
+        source_urls: ['https://www.indiehackers.com/product/example-tool'],
+        attribution,
+      },
+    }), baseSummary);
+  }
+
+  it('keeps a validated attribution block on the reader-side display', () => {
+    const detail = withAttribution({
+      display_tier: 'facts_only',
+      provider_name: 'Indie Hackers',
+      published_at: '2025-03-01T00:00:00Z',
+      retrieved_at: null,
+      rule: 'Provider name + canonical URL + publication date.',
+      self_reported: true,
+    });
+    expect(detail.observations[0].publicDisplay).toMatchObject({
+      sourceLabel: 'Indie Hackers',
+      attribution: {
+        displayTier: 'facts_only',
+        providerName: 'Indie Hackers',
+        publishedAt: '2025-03-01T00:00:00Z',
+        rule: 'Provider name + canonical URL + publication date.',
+        selfReported: true,
+      },
+    });
+    expect(detail.observations[0].publicDisplay?.attribution).not.toHaveProperty('retrievedAt');
+  });
+
+  it('fails closed when the attribution block is malformed', () => {
+    expect(withAttribution({ display_tier: 'facts_only' }).observations[0]).not.toHaveProperty('publicDisplay');
+    expect(withAttribution({ display_tier: 'public', provider_name: 'X' }).observations[0]).not.toHaveProperty('publicDisplay');
+    expect(withAttribution({ display_tier: 'facts_only', provider_name: 'X', published_at: 'yesterday' }).observations[0]).not.toHaveProperty('publicDisplay');
+    expect(withAttribution('Indie Hackers').observations[0]).not.toHaveProperty('publicDisplay');
+  });
+});

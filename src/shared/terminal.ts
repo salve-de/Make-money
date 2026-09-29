@@ -286,6 +286,16 @@ export interface UniversalObservationPublicFact {
   suffix?: string;
 }
 
+/** 出典表示（Tier 2「事実のみ」出典では表示必須。本人申告の数値は selfReported=true）。 */
+export interface UniversalObservationPublicAttribution {
+  displayTier: 'automatic' | 'facts_only';
+  providerName: string;
+  publishedAt?: string;
+  retrievedAt?: string;
+  rule?: string;
+  selfReported: boolean;
+}
+
 export interface UniversalObservationPublicDisplay {
   title: string;
   subject: string;
@@ -293,6 +303,7 @@ export interface UniversalObservationPublicDisplay {
   facts: UniversalObservationPublicFact[];
   sourceLabel: string;
   sourceUrls: string[];
+  attribution?: UniversalObservationPublicAttribution;
 }
 
 export interface UniversalObservation {

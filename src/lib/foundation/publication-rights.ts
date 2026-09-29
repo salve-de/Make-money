@@ -1,5 +1,5 @@
 import observationContracts from '../../../data/foundation-public-observation-contracts.json';
-import { projectTypedPublicFacts } from './public-fact';
+import { mergePublicAttributions, projectTypedPublicFacts } from './public-fact';
 import rightsSnapshot from '../../../data/foundation-public-rights-snapshot.json';
 
 type JsonObject = Record<string, unknown>;
@@ -10,6 +10,8 @@ export interface CommercialPublicProjectionAssessment {
   status: CommercialPublicProjectionStatus;
   allowedEvidenceIds: string[];
   heldEvidenceIds: string[];
+  /** Subset of allowedEvidenceIds admitted under a Tier 2 facts-only policy; display must carry attribution. */
+  attributionRequiredEvidenceIds: string[];
   reasons: string[];
 }
 
@@ -17,31 +19,66 @@ export interface CommercialPublicProjectionAssessment {
  * Runtime snapshot of Universal Foundation policies that are safe to
  * auto-admit for commercial fact display without an additional condition.
  *
- * Policies marked restricted/conditional in Universal Foundation are
- * intentionally NOT auto-admitted here. They can be added only after the
- * exact condition can be proven mechanically.
+ * Tier 1 (`automatic`): approved policies with allowed commercial use and
+ * allowed public fact display.
+ * Tier 2 (`facts_only`, owner decision 2026-09-29): restricted policies whose
+ * public_fact_display is `restricted` are admitted for independently worded
+ * facts only, and every projected fact carries provider attribution. Prose,
+ * excerpts, screenshots and media from those providers never cross.
+ * Policies with blocked/pending/metadata_only/expired status stay RIGHTS_HELD.
  */
+export type PublicFactDisplayTier = 'automatic' | 'facts_only';
+
 export interface AutoPublicFactPolicy {
   sourceId: string;
   providerName: string;
   allowedSourceTypes: string[];
   allowedHostSuffixes: string[];
   allowedPathPrefixes: string[];
+  /**
+   * `automatic`  — Tier 1: approved provider; facts display with attribution and no extra condition.
+   * `facts_only` — Tier 2: restricted provider; independently worded facts only. Provider name,
+   *                canonical URL and date must be shown; prose, excerpts and media never cross.
+   */
+  displayTier: PublicFactDisplayTier;
+  /** `entity_domain`: no fixed host; the evidence URL must sit on the domain registered on the bound entity. */
+  hostScope: 'suffix' | 'entity_domain';
+  /** Attribution rule text from the registry decision (shown with Tier 2 facts). */
+  attribution: string | null;
+}
+
+type RightsSnapshotRecord = (typeof rightsSnapshot.records)[number];
+
+function snapshotDisplayTier(record: RightsSnapshotRecord): PublicFactDisplayTier | null {
+  const { policy, source } = record;
+  if (
+    source.source_id !== policy.source_id ||
+    !source.rights_policy_ids.includes(policy.policy_id) ||
+    !/^[a-f0-9]{40}$/.test(policy.blob_sha) ||
+    !/^[a-f0-9]{40}$/.test(source.blob_sha)
+  ) return null;
+  if (
+    policy.status === 'approved' &&
+    policy.commercial_use === 'allowed' &&
+    policy.public_fact_display === 'allowed' &&
+    source.status === 'active'
+  ) return 'automatic';
+  if (
+    policy.status === 'restricted' &&
+    policy.public_fact_display === 'restricted' &&
+    (policy.commercial_use === 'allowed' || policy.commercial_use === 'restricted') &&
+    (policy.public_display === 'allowed' || policy.public_display === 'restricted') &&
+    typeof policy.attribution === 'string' && policy.attribution.trim().length > 0 &&
+    (source.status === 'active' || source.status === 'gated')
+  ) return 'facts_only';
+  return null;
 }
 
 export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
   rightsSnapshot.records
-    .filter((record) =>
-      record.policy.status === 'approved' &&
-      record.policy.commercial_use === 'allowed' &&
-      record.policy.public_fact_display === 'allowed' &&
-      record.source.status === 'active' &&
-      record.source.source_id === record.policy.source_id &&
-      record.source.rights_policy_ids.includes(record.policy.policy_id) &&
-      /^[a-f0-9]{40}$/.test(record.policy.blob_sha) &&
-      /^[a-f0-9]{40}$/.test(record.source.blob_sha)
-    )
-    .map((record) => [
+    .map((record) => ({ record, displayTier: snapshotDisplayTier(record) }))
+    .filter((entry): entry is { record: RightsSnapshotRecord; displayTier: PublicFactDisplayTier } => entry.displayTier !== null)
+    .map(({ record, displayTier }) => [
       record.policy.policy_id,
       {
         sourceId: record.source.source_id,
@@ -52,6 +89,11 @@ export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
           Array.isArray(record.allowed_path_prefixes)
           ? [...record.allowed_path_prefixes]
           : [],
+        displayTier,
+        hostScope: record.host_scope === 'entity_domain' ? 'entity_domain' : 'suffix',
+        attribution: typeof record.policy.attribution === 'string' && record.policy.attribution.trim()
+          ? record.policy.attribution.trim()
+          : null,
       },
     ]),
 );
@@ -66,24 +108,61 @@ function text(value: unknown): string | null {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
 }
 
-function urlHostMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean {
+function hostWithinSuffixes(hostname: string, suffixes: readonly string[]): boolean {
+  return suffixes.some((suffix) => {
+    const normalized = suffix.toLowerCase().replace(/^\./, '').replace(/\.$/, '');
+    return Boolean(normalized) && (hostname === normalized || hostname.endsWith(`.${normalized}`));
+  });
+}
+
+/** Registered entity domain → bare host (no scheme, path, `www.` or trailing dot). */
+function normalizeEntityDomain(value: unknown): string | null {
+  const raw = text(value);
+  if (!raw) return null;
+  const host = raw.toLowerCase().replace(/^https?:\/\//, '').split('/')[0].replace(/^www\./, '').replace(/\.$/, '');
+  return /^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(host) ? host : null;
+}
+
+/** Domains registered on bundle entities; with `evidenceId`, only entities that bind that evidence. */
+function entityDomainsInBundle(bundle: JsonObject, evidenceId?: string): string[] {
+  const domains = new Set<string>();
+  for (const item of Array.isArray(bundle.entities) ? bundle.entities : []) {
+    const entity = objectValue(item);
+    if (!entity) continue;
+    if (evidenceId && !stringArray(entity.evidence_ids).includes(evidenceId)) continue;
+    const domain = normalizeEntityDomain(entity.domain);
+    if (domain) domains.add(domain);
+  }
+  return [...domains];
+}
+
+function urlHostMatchesPolicy(
+  value: unknown,
+  policy: AutoPublicFactPolicy,
+  entityDomains: readonly string[] = [],
+): boolean {
   const raw = text(value);
   if (!raw) return false;
   try {
     const url = new URL(raw);
     const hostname = url.hostname.toLowerCase().replace(/\.$/, '');
-    return policy.allowedHostSuffixes.some((suffix) => {
-      const normalized = suffix.toLowerCase().replace(/^\./, '');
-      return hostname === normalized || hostname.endsWith(`.${normalized}`);
-    });
+    if (policy.hostScope === 'entity_domain') {
+      // Entity-bound policy: only the domain registered on the bound entity (or its subdomains) qualifies.
+      return entityDomains.length > 0 && hostWithinSuffixes(hostname, entityDomains);
+    }
+    return hostWithinSuffixes(hostname, policy.allowedHostSuffixes);
   } catch {
     return false;
   }
 }
 
-function urlMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean {
+function urlMatchesPolicy(
+  value: unknown,
+  policy: AutoPublicFactPolicy,
+  entityDomains: readonly string[] = [],
+): boolean {
   const raw = text(value);
-  if (!raw || !urlHostMatchesPolicy(raw, policy)) return false;
+  if (!raw || !urlHostMatchesPolicy(raw, policy, entityDomains)) return false;
   try {
     const url = new URL(raw);
     return policy.allowedPathPrefixes.length === 0 ||
@@ -303,6 +382,7 @@ function buildPublicObservationDisplay(
   observationType: string,
   publicPayload: JsonObject,
   sourceUrls: string[],
+  attributions: readonly JsonObject[] = [],
 ): JsonObject | null {
   const display = PUBLIC_OBSERVATION_TYPE_POLICIES[observationType]?.display;
   if (!display) return null;
@@ -327,7 +407,34 @@ function buildPublicObservationDisplay(
     facts,
     source_label: display.sourceLabel,
     source_urls: [...new Set(sourceUrls)].slice(0, 8),
+    ...(() => { const attribution = mergePublicAttributions(attributions); return attribution ? { attribution } : {}; })(),
   };
+}
+
+/** Fields that could carry provider prose; never copied for Tier 2 (facts-only) evidence. */
+const FACTS_ONLY_EVIDENCE_PROSE_FIELDS = [
+  'summary', 'excerpt', 'excerpts', 'quote', 'quotes', 'snippet', 'text', 'content', 'body',
+  'raw_text', 'transcript', 'highlights', 'notes', 'description',
+] as const;
+
+/** Attribution block that travels with every fact projected from a registry-admitted source. */
+function buildPublicAttribution(row: JsonObject, policy: AutoPublicFactPolicy): JsonObject {
+  return {
+    display_tier: policy.displayTier,
+    provider_name: policy.providerName,
+    source_url: text(row.source_url),
+    published_at: text(row.published_at),
+    retrieved_at: text(row.retrieved_at),
+    ...(policy.attribution ? { rule: policy.attribution } : {}),
+  };
+}
+
+/** Tier 2 evidence crosses as metadata + attribution only; any prose-bearing field is dropped. */
+function projectFactsOnlyEvidence(row: JsonObject, policy: AutoPublicFactPolicy): JsonObject {
+  const projected = JSON.parse(JSON.stringify(row)) as JsonObject;
+  for (const field of FACTS_ONLY_EVIDENCE_PROSE_FIELDS) delete projected[field];
+  projected.public_attribution = buildPublicAttribution(row, policy);
+  return projected;
 }
 
 function compactPublicObservationText(
@@ -348,6 +455,7 @@ function buildCommercialPublicObservation(
   allowed: Set<string>,
   sourceUrlByEvidenceId: ReadonlyMap<string, string>,
   policyIdByEvidenceId: ReadonlyMap<string, string>,
+  attributionByEvidenceId: ReadonlyMap<string, JsonObject> = new Map(),
 ): JsonObject | null {
   if (!recordUsesOnlyAllowedEvidence(value, allowed)) return null;
 
@@ -370,6 +478,7 @@ function buildCommercialPublicObservation(
         observationType,
         publicPayload,
         evidenceIds.map((id) => sourceUrlByEvidenceId.get(id)).filter((url): url is string => Boolean(url)),
+        evidenceIds.map((id) => attributionByEvidenceId.get(id)).filter((item): item is JsonObject => Boolean(item)),
       )
     : null;
 
@@ -469,6 +578,8 @@ function sourceTypeMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): 
 }
 
 function sourceMatchesRegisteredIdentity(source: JsonObject, policy: AutoPublicFactPolicy): boolean {
+  // Entity-bound policies have no registry identity to infer from; they must be named explicitly.
+  if (policy.hostScope === 'entity_domain') return false;
   return normalizeIdentity(source.provider_name) === normalizeIdentity(policy.providerName) &&
     sourceTypeMatchesPolicy(source.source_type, policy) &&
     urlHostMatchesPolicy(source.canonical_url, policy);
@@ -483,6 +594,7 @@ function resolveSourcePolicies(bundle: JsonObject): Map<string, ResolvedSourcePo
   const result = new Map<string, ResolvedSourcePolicy>();
   const sources = Array.isArray(bundle.sources) ? bundle.sources : [];
   const sourceIdCounts = new Map<string, number>();
+  const bundleEntityDomains = entityDomainsInBundle(bundle);
 
   for (const item of sources) {
     const source = objectValue(item);
@@ -508,7 +620,7 @@ function resolveSourcePolicies(bundle: JsonObject): Map<string, ResolvedSourcePo
         explicitPolicy &&
         explicitPolicy.sourceId === localSourceId &&
         sourceTypeMatchesPolicy(source.source_type, explicitPolicy) &&
-        urlHostMatchesPolicy(source.canonical_url, explicitPolicy)
+        urlHostMatchesPolicy(source.canonical_url, explicitPolicy, bundleEntityDomains)
       ) {
         result.set(localSourceId, { policyId: explicitPolicyId, resolution: 'explicit' });
       }
@@ -537,12 +649,14 @@ export function assessCommercialPublicProjection(
       status: 'RIGHTS_HELD',
       allowedEvidenceIds: [],
       heldEvidenceIds: [],
+      attributionRequiredEvidenceIds: [],
       reasons: ['bundle is not an object'],
     };
   }
 
   const policyBySource = resolveSourcePolicies(bundle);
   const allowedEvidenceIds: string[] = [];
+  const attributionRequiredEvidenceIds: string[] = [];
   const heldEvidenceIds: string[] = [];
   const reasons = new Set<string>();
   const evidence = Array.isArray(bundle.evidence) ? bundle.evidence : [];
@@ -567,6 +681,9 @@ export function assessCommercialPublicProjection(
         storageStatus === 'allowed_private_raw' ||
         storageStatus === 'restricted_private_raw';
 
+    const boundEntityDomains = policy?.hostScope === 'entity_domain'
+      ? entityDomainsInBundle(bundle, evidenceId)
+      : [];
     const allowed =
       Boolean(sourceId) &&
       Boolean(resolved) &&
@@ -574,10 +691,11 @@ export function assessCommercialPublicProjection(
       !explicitConflict &&
       statusEligible &&
       sourceTypeMatchesPolicy(row.source_type, policy!) &&
-      urlMatchesPolicy(row.source_url, policy!);
+      urlMatchesPolicy(row.source_url, policy!, boundEntityDomains);
 
     if (allowed) {
       allowedEvidenceIds.push(evidenceId);
+      if (policy!.displayTier === 'facts_only') attributionRequiredEvidenceIds.push(evidenceId);
     } else {
       heldEvidenceIds.push(evidenceId);
       if (storageStatus === 'blocked') {
@@ -594,7 +712,9 @@ export function assessCommercialPublicProjection(
         }
       } else if (!policy || !sourceTypeMatchesPolicy(row.source_type, policy)) {
         reasons.add('evidence source type is outside the approved source contract');
-      } else if (!urlMatchesPolicy(row.source_url, policy)) {
+      } else if (policy.hostScope === 'entity_domain' && !urlMatchesPolicy(row.source_url, policy, boundEntityDomains)) {
+        reasons.add('official-website evidence is not bound to an entity whose registered domain serves the evidence URL');
+      } else if (!urlMatchesPolicy(row.source_url, policy, boundEntityDomains)) {
         reasons.add('evidence URL is outside the registered policy host scope');
       } else {
         reasons.add('evidence is not eligible for public projection');
@@ -606,6 +726,7 @@ export function assessCommercialPublicProjection(
     status: allowedEvidenceIds.length > 0 ? 'ALLOWED' : 'RIGHTS_HELD',
     allowedEvidenceIds: [...new Set(allowedEvidenceIds)].sort(),
     heldEvidenceIds: [...new Set(heldEvidenceIds)].sort(),
+    attributionRequiredEvidenceIds: [...new Set(attributionRequiredEvidenceIds)].sort(),
     reasons: [...reasons].sort(),
   };
 }
@@ -657,6 +778,14 @@ export function buildCommercialPublicFactProjection(
   }
 
   const allowed = new Set(assessment.allowedEvidenceIds);
+  const attributionRequired = new Set(assessment.attributionRequiredEvidenceIds);
+  const resolvedPolicies = resolveSourcePolicies(bundle);
+  const policyForEvidence = (value: JsonObject): AutoPublicFactPolicy | undefined => {
+    const sourceId = text(value.source_id);
+    const policyId = sourceId ? resolvedPolicies.get(sourceId)?.policyId : undefined;
+    return policyId ? AUTO_PUBLIC_FACT_POLICIES.get(policyId) : undefined;
+  };
+  const attributionByEvidenceId = new Map<string, JsonObject>();
   const evidence = (Array.isArray(bundle.evidence) ? bundle.evidence : [])
     .map(objectValue)
     .filter((value): value is JsonObject => Boolean(value))
@@ -664,13 +793,19 @@ export function buildCommercialPublicFactProjection(
       const id = text(value.evidence_id);
       return Boolean(id && allowed.has(id));
     })
-    .map((value) => JSON.parse(JSON.stringify(value)) as JsonObject);
+    .map((value) => {
+      const id = text(value.evidence_id);
+      const policy = policyForEvidence(value);
+      if (id && policy) attributionByEvidenceId.set(id, buildPublicAttribution(value, policy));
+      return id && policy && attributionRequired.has(id)
+        ? projectFactsOnlyEvidence(value, policy)
+        : JSON.parse(JSON.stringify(value)) as JsonObject;
+    });
   const sourceUrlByEvidenceId = new Map(
     evidence
       .map((value) => [text(value.evidence_id), text(value.source_url)] as const)
       .filter((pair): pair is readonly [string, string] => Boolean(pair[0] && pair[1])),
   );
-  const resolvedPolicies = resolveSourcePolicies(bundle);
   const policyIdByEvidenceId = new Map(
     evidence
       .map((value) => {
@@ -717,6 +852,7 @@ export function buildCommercialPublicFactProjection(
         allowed,
         sourceUrlByEvidenceId,
         policyIdByEvidenceId,
+        attributionByEvidenceId,
       ),
       typedRecordSetInput,
       (Array.isArray(bundle.entities) ? bundle.entities : [])
@@ -736,6 +872,7 @@ export function buildCommercialPublicFactProjection(
         typedRecordSet: typedRecordSetInput,
         allowedEvidenceIds: allowed,
         sourceUrlByEvidenceId,
+        attributionByEvidenceId,
         publicEntities: publicFactIdentityPool,
       })
     : [];
@@ -778,6 +915,9 @@ export function buildCommercialPublicFactProjection(
       warnings: [
         ...stringArray(quality.warnings),
         'public projection is fact-only and filtered by commercial/public rights policy',
+        ...(attributionRequired.size > 0
+          ? ['facts-only (Tier 2) sources present: display must show provider name, source URL and date; no prose, excerpt or media']
+          : []),
       ],
       schema_validation: 'PASS',
     },

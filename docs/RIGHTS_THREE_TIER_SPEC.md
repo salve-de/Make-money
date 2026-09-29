@@ -38,8 +38,9 @@ reviewed_at は `2026-09-29T09:00:00+09:00`。terms_urls は各社の規約ペ�
 
 `docs/AI_RESEARCH_PUBLICATION_RULES.md` の 1, 2, 3, 4, 5, 8, 11 節を3層に書き換え、冒頭に "2026-09-29: three-tier model adopted by the project owner; supersedes the 2026-09-25 fail-closed default." を追記。新設 "13. Accuracy over rights"（識別可能な人物・会社に根拠のない売上・利益を付けることが最大の法的リスク。表示する数字は必ず出典・期間・reported/estimated/unknown ラベル付き。根拠のない旧数値は未確認として表示する）。`registry/rights/README.md` の Publication rule と Default behavior を、未審査プロバイダは事実は Tier 2 扱い・媒体と引用は Tier 3 扱いに改める。
 
-## 5. Make-Money 側で続けて必要な実装
+## 5. Make-Money 側の実装（2026-09-29 実装済み）
 
-1. `data/foundation-public-rights-snapshot.json` を UF の確定 commit から再生成（Tier 1 と Tier 2 の policy/source を含める）。
-2. `src/lib/foundation/publication-rights.ts` で `status=restricted` かつ `public_fact_display=restricted` の policy を「事実のみ・出典表示必須」として通す（原文・媒体は通さない）。
-3. `fact.self_reported_business_metric.v1` を Public Fact の型登録簿に追加し、UI で「本人申告」ラベルと日付・リンクを必須表示にする。
+1. スナップショット再生成: `pnpm foundation:snapshots -- --uf <universal-foundation の checkout> --commit <sha>`（`scripts/foundation/build-foundation-snapshots.mjs`）。`--check` で drift 検査。UF commit 7e14b5e4 で Tier1 automatic 7 + Tier2 facts_only 18 = 25 policy、公開事実型 2 件。blob_sha は `git rev-parse <commit>:<path>` の内容アドレスで、push 後の GitHub API と一致する。
+2. `publication-rights.ts`: `display_tier=facts_only`（status=restricted かつ public_fact_display=restricted、commercial_use と public_display が allowed/restricted、attribution 規則あり、source が active/gated）を事実のみ表示として許可。判定結果 `attributionRequiredEvidenceIds` を返し、Tier2 証跡は散文フィールドを落として `public_attribution` を付け、観測の `public_display.attribution` に提供者名・掲載日・規則を載せる。公式サイト policy は `host_scope=entity_domain`（束の entity.domain に束縛、明示 policy id 必須）。
+3. `fact.self_reported_business_metric.v1` を型登録簿に追加。`public-fact.ts` は `attribution.self_reported=true` を付け（Tier1 出典でも付く）、`business-reader.ts` は attribution を検証して不正なら display ごと落とし、`StructuredObservationPayload.tsx` が「出典: 提供者 · 掲載日 · 本人申告・独立確認なし · 事実のみ表示」を描画する。
+4. deploy 依存: `pnpm deploy:preflight` は両スナップショットの commit が UF `main` に含まれることを検証する。UF PR の merge → Make-Money PR merge → deploy の順で反映する。
