@@ -33,11 +33,14 @@ export async function DELETE(req: NextRequest) {
   try {
     // A checkout can run before migration 0011 is applied. Older databases
     // have no listings to delete; do not break their existing account deletion.
-    const [schema] = await queryD1<{ available: number }>(
-      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available",
+    // Saved searches (migration 0013) follow the same rule. Both flags come from one
+    // statement, so a row that proves `available` is well-formed also carries the second column.
+    const [schema] = await queryD1<{ available: number; saved_searches: number }>(
+      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='saved_searches') AS saved_searches",
     );
     if (!schema || (schema.available !== 0 && schema.available !== 1)) throw new Error('Invalid schema readback');
     const hasListings = schema.available === 1;
+    const hasSavedSearches = schema.saved_searches === 1;
     const resetAt = new Date().toISOString();
     const ownerKey = executionOwnerKey(user.uid);
     await batchD1([
@@ -49,6 +52,7 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM build_sessions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM submissions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM newsletter_subscribers WHERE user_id = ?', params: [user.uid] },
+      ...(hasSavedSearches ? [{ sql: 'DELETE FROM saved_searches WHERE user_id = ?', params: [user.uid] }] : []),
       { sql: 'DELETE FROM execution_projects WHERE user_id = ?', params: [user.uid] },
       { sql: 'INSERT INTO execution_resets(owner_key,generation,reset_at) VALUES(?,1,?) ON CONFLICT(owner_key) DO UPDATE SET generation=generation+1,reset_at=excluded.reset_at', params: [ownerKey, resetAt] },
       { sql: "UPDATE payment_events SET user_id = NULL, fact = json_remove(fact, '$.userId', '$.user_id') WHERE user_id = ?", params: [user.uid] },
