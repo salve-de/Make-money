@@ -52,6 +52,10 @@ This interpretation is grounded in the current repository's collection master gu
 
 This policy update does **not** grant a blanket license or change runtime publication behavior. `src/lib/foundation/publication-rights.ts` still auto-admits only exact policies in `data/foundation-public-rights-snapshot.json`; the current snapshot contains three source-policy entries. A source outside that snapshot may therefore remain `RIGHTS_HELD` in the application even when the missing open-license label alone would not establish a legal prohibition on an independently presented fact. That is an **automation-policy gap**, not a legal finding that every held fact is unlawful. To publish additional source families automatically, review the actual source/access terms and add a source-scoped fact-display policy through the Universal Foundation rights/source registry, refresh this repository's pinned snapshot, and test that only the reviewed claim types/hosts/paths pass. Do not solve the gap with a generic host allowlist or by trusting a collector-supplied `allowed` flag.
 
+## Active collection persistence — 2026-09-30
+
+The four Make-Money research lanes are active again using Google Drive raw JSON rather than GitHub/R2 writes. The current mode, dedupe/claim rules, v1.1 case schema and media-candidate behavior are documented in `docs/MAKE_MONEY_DRIVE_COLLECTION_MODE.md`. R2_QUEUE remains paused; Drive collection does not automatically reach the public API/UI.
+
 ## User intent / constraints
 
 - Keep business/case discovery broad; do not narrow the kinds of businesses, facts, or analysis collected. Prefer clear reusable sources, while allowing independently stated facts to proceed to a documented use-specific review when the source has no explicit open-license label.
