@@ -172,6 +172,30 @@ function urlMatchesPolicy(
   }
 }
 
+export interface CatalogSourcePolicy {
+  policyId: string;
+  sourceId: string;
+  providerName: string;
+  displayTier: PublicFactDisplayTier;
+}
+
+/**
+ * Registry policy for a catalog source URL. `officialUrl` supplies the entity domain for the
+ * `entity_domain` policy. Suffix policies win over the official-site policy so a platform page
+ * (e.g. an Indie Hackers listing) is never classed as the company's own site. `null` = unregistered.
+ */
+export function resolveCatalogSourcePolicy(sourceUrl: unknown, officialUrl?: unknown): CatalogSourcePolicy | null {
+  const entityDomain = normalizeEntityDomain(officialUrl);
+  const entries = [...AUTO_PUBLIC_FACT_POLICIES.entries()]
+    .sort(([, a], [, b]) => Number(a.hostScope === 'entity_domain') - Number(b.hostScope === 'entity_domain'));
+  for (const [policyId, policy] of entries) {
+    if (urlMatchesPolicy(sourceUrl, policy, entityDomain ? [entityDomain] : [])) {
+      return { policyId, sourceId: policy.sourceId, providerName: policy.providerName, displayTier: policy.displayTier };
+    }
+  }
+  return null;
+}
+
 function stringArray(value: unknown): string[] {
   return Array.isArray(value)
     ? value.filter((item): item is string => typeof item === 'string' && item.trim().length > 0)

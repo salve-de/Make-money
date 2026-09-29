@@ -76,3 +76,6 @@ __pycache__/
 /reports/paused-handoff-*
 # Media asset staging (fetched images and provenance manifests; local only, see docs/MEDIA_ASSETS_AND_PROVENANCE.md)
 /data/media-staging/
+
+# Re-audit lane scratch (LANE_WORKDIR default; local only, see docs/reaudit/)
+/.reaudit-work/

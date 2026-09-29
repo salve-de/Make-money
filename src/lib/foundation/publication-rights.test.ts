@@ -5,6 +5,7 @@ import {
   PUBLIC_OBSERVATION_TYPE_POLICIES,
   assessCommercialPublicProjection,
   buildCommercialPublicFactProjection,
+  resolveCatalogSourcePolicy,
 } from './publication-rights';
 
 function bundle(
@@ -784,5 +785,24 @@ describe('three-tier publication rights (owner decision 2026-09-29)', () => {
 
   it('never registry-infers the entity-bound official-website policy without an explicit policy id', () => {
     expect(assessCommercialPublicProjection(officialBundle('example-tool.com', { policyId: null })).status).toBe('RIGHTS_HELD');
+  });
+});
+
+describe('resolveCatalogSourcePolicy (catalog source → registry policy)', () => {
+  it('maps a platform host to its facts-only policy even when it is not the official domain', () => {
+    expect(resolveCatalogSourcePolicy('https://www.indiehackers.com/product/foo', 'https://foo.com')).toMatchObject({
+      policyId: 'rights.indiehackers.v2', displayTier: 'facts_only',
+    });
+  });
+
+  it('maps the entity own domain (and subdomains) to the official-website policy', () => {
+    expect(resolveCatalogSourcePolicy('https://blog.foo.com/post', 'https://www.foo.com/')?.policyId).toBe('rights.official-company-website.v1');
+    expect(resolveCatalogSourcePolicy('https://foo.com/pricing', 'foo.com')?.displayTier).toBe('automatic');
+  });
+
+  it('returns null for unregistered hosts and for another company domain', () => {
+    expect(resolveCatalogSourcePolicy('https://someblog.example.net/a', 'https://foo.com')).toBeNull();
+    expect(resolveCatalogSourcePolicy('https://bar.com/', 'https://foo.com')).toBeNull();
+    expect(resolveCatalogSourcePolicy('not a url', 'https://foo.com')).toBeNull();
   });
 });
