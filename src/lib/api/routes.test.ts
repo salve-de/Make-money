@@ -5,6 +5,7 @@ const rateLimit = vi.hoisted(() => vi.fn(async () => true));
 vi.mock('@/lib/storage/d1', () => ({ queryD1: state.query, executeD1: state.execute, batchD1: state.batch }));
 vi.mock('@/lib/firebase/server', () => ({ verifyFirebaseIdToken: vi.fn(async () => state.user) }));
 vi.mock('@/lib/security/rate-limit', () => ({ consumeRequestRateLimit: rateLimit }));
+vi.mock('@/lib/payments/billing', () => ({ findManageableSubscription: async () => null }));
 import { DELETE as unsubscribe, POST as newsletter } from '@/app/api/newsletter/subscribe/route';
 import { POST as submission } from '@/app/api/submissions/route';
 import { GET as listBookmarks, POST as bookmark } from '@/app/api/bookmarks/route';
