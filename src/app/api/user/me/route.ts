@@ -46,13 +46,16 @@ export async function DELETE(req: NextRequest) {
     // have no listings to delete; do not break their existing account deletion.
     // The same holds for migration 0012 (verified_revenue): the user's UID is kept there
     // for the per-user cooldown, so those rows are deleted with the account when the table exists.
-    const [schema] = await queryD1<{ available: number; verifications?: number }>(
-      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='verified_revenue') AS verifications",
+    // Saved searches (migration 0013) follow the same rule. All flags come from one statement.
+    const [schema] = await queryD1<{ available: number; verifications?: number; saved_searches?: number }>(
+      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='verified_revenue') AS verifications, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='saved_searches') AS saved_searches",
     );
     if (!schema || (schema.available !== 0 && schema.available !== 1)
-      || (schema.verifications !== undefined && schema.verifications !== 0 && schema.verifications !== 1)) throw new Error('Invalid schema readback');
+      || (schema.verifications !== undefined && schema.verifications !== 0 && schema.verifications !== 1)
+      || (schema.saved_searches !== undefined && schema.saved_searches !== 0 && schema.saved_searches !== 1)) throw new Error('Invalid schema readback');
     const hasListings = schema.available === 1;
     const hasVerifications = schema.verifications === 1;
+    const hasSavedSearches = schema.saved_searches === 1;
     const resetAt = new Date().toISOString();
     const ownerKey = executionOwnerKey(user.uid);
     await batchD1([
@@ -65,6 +68,7 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM build_sessions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM submissions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM newsletter_subscribers WHERE user_id = ?', params: [user.uid] },
+      ...(hasSavedSearches ? [{ sql: 'DELETE FROM saved_searches WHERE user_id = ?', params: [user.uid] }] : []),
       { sql: 'DELETE FROM execution_projects WHERE user_id = ?', params: [user.uid] },
       { sql: 'INSERT INTO execution_resets(owner_key,generation,reset_at) VALUES(?,1,?) ON CONFLICT(owner_key) DO UPDATE SET generation=generation+1,reset_at=excluded.reset_at', params: [ownerKey, resetAt] },
       { sql: "UPDATE payment_events SET user_id = NULL, fact = json_remove(fact, '$.userId', '$.user_id') WHERE user_id = ?", params: [user.uid] },

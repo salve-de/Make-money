@@ -136,6 +136,36 @@ describe('DELETE /api/user/me', () => {
     expect(state.batch).not.toHaveBeenCalled();
   });
 
+  it('deletes saved searches with the rest of the account data once migration 0013 exists', async () => {
+    state.query.mockImplementation(async (sql: string) => sql.includes('sqlite_master')
+      ? [{ available: 1, saved_searches: 1 }]
+      : [{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
+    const response = await DELETE(request());
+
+    expect(response.status).toBe(200);
+    expect(state.query.mock.calls[0][0]).toContain("name='saved_searches'");
+    const statements = state.batch.mock.calls[0]?.[0] as Array<{ sql: string; params: unknown[] }>;
+    expect(statements).toEqual(expect.arrayContaining([
+      { sql: 'DELETE FROM saved_searches WHERE user_id = ?', params: ['owner-a'] },
+      { sql: 'DELETE FROM users WHERE id = ?', params: ['owner-a'] },
+    ]));
+    // one transaction: the saved searches go before the account row, in the same batch
+    const sqls = statements.map(({ sql }) => sql);
+    expect(sqls.indexOf('DELETE FROM saved_searches WHERE user_id = ?')).toBeLessThan(sqls.indexOf('DELETE FROM users WHERE id = ?'));
+  });
+
+  it('preserves account deletion before the saved-search migration', async () => {
+    state.query.mockImplementation(async (sql: string) => sql.includes('sqlite_master')
+      ? [{ available: 1, saved_searches: 0 }]
+      : [{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
+    const response = await DELETE(request());
+
+    expect(response.status).toBe(200);
+    const statements = state.batch.mock.calls[0][0] as Array<{ sql: string }>;
+    expect(statements.some(({ sql }) => sql.includes('saved_searches'))).toBe(false);
+    expect(statements.some(({ sql }) => sql.includes('DELETE FROM users'))).toBe(true);
+  });
+
   it('does not mutate data when schema inspection fails', async () => {
     state.query.mockRejectedValueOnce(new Error('database unavailable'));
     expect((await DELETE(request())).status).toBe(503);
