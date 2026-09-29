@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
-import { FOUNDING_PASS } from '@/lib/payments/founding-pass';
+import { PLAN_LABELS, fetchBillingStatus, formatRenewal } from '@/components/terminal/billing-client';
 
 type CheckoutState = 'checking' | 'confirmed' | 'pending' | 'revoked' | 'missing' | 'login-required' | 'unconfirmed' | 'error';
 
@@ -56,8 +56,18 @@ export default function SuccessPage() {
             : result.status === 'pending'
               ? 'pending'
               : 'unconfirmed');
+        let confirmedText = 'PRO の決済と会員権限を確認しました。';
+        if (result.status === 'confirmed') {
+          // 月額・年額か創刊版かで、次の更新日と解約の案内を出し分ける（読めなければ共通の文言のまま）
+          const billing = await fetchBillingStatus(token).catch(() => null);
+          if (cancelled) return;
+          if (billing?.plan) {
+            const renewal = formatRenewal(billing);
+            confirmedText = `PRO（${PLAN_LABELS[billing.plan]}）の決済と会員権限を確認しました。${renewal ? `${renewal}。解約はPROの画面の「契約の管理」からいつでもできます。` : ''}`;
+          }
+        }
         setMessage(result.status === 'confirmed'
-          ? `${FOUNDING_PASS.name}の決済と会員権限を確認しました。`
+          ? confirmedText
           : result.status === 'revoked' ? 'この決済は返金または異議申立てにより利用権を確認できません。'
           : result.status === 'pending' ? '入金を確認しました。会員権限への反映を待っています。少し待って再確認してください。'
           : '決済完了はまだ確認できていません。');
@@ -105,7 +115,7 @@ export default function SuccessPage() {
 
   return (
     <main className="term-page bg-term-bg text-term-fg">
-      <div className="term-panel-title"><span className="term-panel-name">決済確認</span>{FOUNDING_PASS.name}</div>
+      <div className="term-panel-title"><span className="term-panel-name">決済確認</span>金鉱録 PRO</div>
       <section className="max-w-2xl">
         <h1 className="border-b border-term-line px-3 py-3 text-lg font-semibold text-term-fg-strong">{heading}</h1>
         <div className="grid grid-cols-[110px_minmax(0,1fr)] items-baseline gap-2 border-b border-term-line-soft px-3 py-2">

@@ -7,6 +7,7 @@ const state = vi.hoisted(() => ({
   batch: vi.fn(),
   execute: vi.fn(),
   query: vi.fn(),
+  subscription: vi.fn(),
 }));
 
 vi.mock('@/lib/firebase/server', () => ({
@@ -23,6 +24,10 @@ vi.mock('@/lib/payments/entitlement', () => ({
   getProEntitlement: async () => false,
 }));
 
+vi.mock('@/lib/payments/billing', () => ({
+  findManageableSubscription: state.subscription,
+}));
+
 import { DELETE } from './route';
 
 function request(auth = true) {
@@ -35,11 +40,29 @@ function request(auth = true) {
 beforeEach(() => {
   state.user = { uid: 'owner-a' };
   state.batch.mockReset().mockResolvedValue([]);
+  state.subscription.mockReset().mockResolvedValue(null);
   state.execute.mockReset();
   state.query.mockReset().mockImplementation(async (sql: string) => sql.includes('sqlite_master') ? [{ available: 1 }] : [{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
 });
 
 describe('DELETE /api/user/me', () => {
+  it('refuses to delete while a monthly or yearly plan keeps renewing, so billing cannot outlive the account', async () => {
+    state.subscription.mockResolvedValue({ id: 'sub_1', cancel_at_period_end: false, cancel_at: null });
+    const response = await DELETE(request());
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ code: 'subscription_active' });
+    expect(state.batch).not.toHaveBeenCalled();
+  });
+
+  it('allows deletion once the plan is set to end, and fails closed when billing cannot be read', async () => {
+    state.subscription.mockResolvedValue({ id: 'sub_1', cancel_at_period_end: true, cancel_at: null });
+    expect((await DELETE(request())).status).toBe(200);
+    state.batch.mockClear();
+    state.subscription.mockRejectedValue(new Error('stripe down'));
+    expect((await DELETE(request())).status).toBe(503);
+    expect(state.batch).not.toHaveBeenCalled();
+  });
+
   it('deletes execution projects in the same application-data transaction', async () => {
     const response = await DELETE(request());
 

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { batchD1, executeD1, queryD1 } from '@/lib/storage/d1';
 import { getProEntitlement } from '@/lib/payments/entitlement';
+import { findManageableSubscription } from '@/lib/payments/billing';
 import { executionOwnerKey } from '@/lib/execution/generation-store';
 
 export const dynamic = 'force-dynamic';
@@ -30,6 +31,16 @@ export async function DELETE(req: NextRequest) {
   const auth = req.headers.get('authorization');
   const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
   if (!user) return json({ error: 'Unauthorized' }, { status: 401 });
+  // 更新され続ける契約を残したまま削除すると、台帳の本人の紐付けが消え、本人が解約できないまま請求が続く。
+  // 解約（または解約予約）が済んでいない月額・年額があるときは、先に解約してもらう。
+  try {
+    const subscription = await findManageableSubscription(user.uid);
+    if (subscription && !subscription.cancel_at_period_end && !subscription.cancel_at) {
+      return json({ error: '月額・年額プランの契約が続いています。「契約の管理」から解約してから、アカウントを削除してください', code: 'subscription_active' }, { status: 409 });
+    }
+  } catch {
+    return json({ error: '契約の状況を確認できないため、今は削除できません。時間をおいて再度お試しください' }, { status: 503 });
+  }
   try {
     // A checkout can run before migration 0011 is applied. Older databases
     // have no listings to delete; do not break their existing account deletion.
