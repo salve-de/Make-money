@@ -6,6 +6,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { validateDeepCandidate } from './deep/merge-deep.mjs';
 import { parseFinancialEntity } from '../../src/shared/financial-entity-schema';
 
 type AnyRecord = Record<string, unknown>;
@@ -27,6 +28,7 @@ for (const file of files) {
     total += 1;
     const errors: string[] = [];
     const id = String(rec.id ?? '');
+    errors.push(...validateDeepCandidate(rec, byId.get(id), /reaudit-deep-/.test(file)));
     if (!byId.has(id)) errors.push('id not in catalog (new entities go through the normal collection path, not re-audit)');
     if (seen.has(id)) errors.push('duplicate id within file'); seen.add(id);
     try { parseFinancialEntity(rec); } catch (err) { errors.push(`schema: ${err instanceof Error ? err.message.slice(0, 200) : String(err)}`); }
