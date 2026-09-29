@@ -1,5 +1,19 @@
 # Commercial Rights / Public Publication Handoff
 
+## Three-tier model adopted — 2026-09-29 (owner decision)
+
+The fail-closed default ("hold unless a source policy explicitly allows public fact display") is replaced by three tiers. Legal basis is unchanged from the 2026-09-28 interpretation below: facts and data are not copyright works; provider terms bind the access method and the reuse of expression/media, not independently worded facts. This is an operational policy, not legal advice.
+
+| Tier | Providers | Public display |
+|---|---|---|
+| 1 automatic | public filings and statistics, the entity's own official website, press-release wires, app-store listings, GitHub | facts and numbers with attribution; short attributed quotation only; media only where the provider publishes reusable assets |
+| 2 facts only | news, interviews, newsletters, community posts (IndieHackers, eBiz Facts, Reddit, HN, TechCrunch, Product Hunt, X, YouTube, Substack, beehiiv, Reuters, Bloomberg, Nikkei, Crunchbase, Wikipedia, Etsy) | independently worded facts with provider name, canonical URL and date; figures stated by the subject carry a self-reported label; no article prose, screenshots, images, charts or copied tables; raw bodies metadata_only going forward |
+| 3 blocked | LinkedIn; paywalled bodies, photographs of people, third-party charts, social-post screenshots, personal data beyond the subject's own statements, non-public screens | never |
+
+Accuracy over rights: the largest legal exposure of this product is an unsupported revenue or profit figure attached to an identifiable person or company. Every displayed figure carries provenance, period and a reported / estimated / unknown label; unsupported legacy figures are shown as unknown (see the 2026-09-29 honest rebuild in PROJECT_MASTER_HISTORY_AND_STRATEGY.md).
+
+Registry changes live in Universal Foundation branch `claude/rights-three-tier-20260929` (local clone; push/PR pending owner action). Runtime work still required in this repository: regenerate `data/foundation-public-rights-snapshot.json` from the merged registry commit and let `src/lib/foundation/publication-rights.ts` admit Tier-2 `restricted` policies for fact display when attribution is present.
+
 Updated: 2026-09-28 JST
 
 ## Final objective

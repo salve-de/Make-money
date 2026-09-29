@@ -1,5 +1,27 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-29 【確定】正直化再構築（Honest Rebuild v1）・PARTIAL表示契約・権利3層・画像パイプライン着手
+
+### 1. ユーザー指示と判断
+- ユーザー指示: 「お前の監査した内容でやってくれ 完全にしてくれ」「権利関係完全にOKじゃないと出せないみたいな考えはやめて」「使える画像も追加で取得して保存して、どこから取得したか管理したい」「今ある事例のデータがゴミな可能性があるのでそれを直すのもやる」「最高効率でやってくれ」。
+- 事前監査（同日）で確定した事実: 3,341件のうち3,203件（96%）の販管費内訳が固定比率 30/25/20/15/10、2,095件が同一文面の推計ロジック、出典欄がURLなのは145件、第三者出典URLは0件、eBiz Facts由来761件のみ生HTMLをR2保存済み。旧リリース3,085件の権利監査は SAFE 0。再監査候補57件/受入0。
+- 判断: 「3,341件を0番から1件ずつ再調査」ではなく、先に (1) 正直なデータが画面に出る道、(2) 機械的な正直化（出典で裏付けられない数値・タグ・カードの取り下げ）、(3) 出典の有無による四層の個別再調査、の順にする。
+
+### 2. 実施内容（feature branch `claude/honest-catalog-20260929`、コミット c7437be4 以降）
+1. 表示契約: `isPublishableEntity` は PUBLISHABLE に加えて PARTIAL（一部未確認）を表示対象にする。RAW/ARCHIVED/REJECTED_AS_CASE/未指定は従来どおり非表示。審査通過バッジ用に `isPublicationApproved` を分離。インスペクター見出しに PARTIAL 用の注記（`data-testid="reaudit-partial-notice"`）。
+2. 機械的正直化 `scripts/reaudit/honest-rebuild.ts`（冪等）: 出典URLまたは原本Bindingを持つ156件は保持（`reaudit.status=LEGACY_WITH_SOURCE`）。残り3,185件（eBiz Facts 761 / Indie Hackers 1,391 / 生成のみ 1,033）は P&L を UNAVAILABLE（全項目未確認）へ、検証系タグと「通帳レントゲン」等の無出典カード4,905枚を取り下げ、出典カード（eBiz Facts記事・Indie Hackers掲載・公式サイト）を付与、叙述フィールド内の明示金額・率 6,479件を〔金額未確認〕へ置換、旧表示は `reaudit.legacyDisplaySnapshot` に保持。eBiz Facts 761件は `reportedMetrics` から「本人申告 $X（単位）/ eBiz Facts 掲載日・独立確認なし（月次でなければ・月次換算なし）」を `revenueLabel` に付与。タグラインは金額文を除去し、残らない392件は「…の詳細は再監査中です」に統一。
+3. 取り込み安全化: `real-ingest-pipeline.ts` は R2 未設定時に `ALLOW_LOCAL_R2_FALLBACK=1` が無ければ失敗（黙ってローカル退避しない）。`process-incoming.ts --file` で受入済みファイルだけ処理。
+4. 候補形式統一 `scripts/reaudit/normalize-candidate.ts`（`reaudit` ブロック: sources/unknown/rights/legacyDisplaySnapshot）と受入取り込み `scripts/reaudit/ingest-accepted.ts`（Tier1公式ページを rawArtifacts として添付、取り込み後に foundation-lake の journal を読み戻して SHA 確認）。lightGallery 095 の候補を正規化済み（`data/incoming/reaudit-accepted-lightgallery-20260929.json`、私的ファイルとして gitignore）。
+5. 検証: `pnpm lint`（eslint・境界・storage・API入力・runtime schema・index safety・ingest quality 3,341件・component health）PASS、`pnpm typecheck` PASS、対象単体テスト 73/73 PASS。
+6. 権利3層（Universal Foundation 側の登録簿・規則）: ローカル clone の branch `claude/rights-three-tier-20260929` に Tier1（公式サイト・プレス配信・アプリストア・GitHub）、Tier2（事実のみ: IndieHackers/eBiz Facts/Reddit/TechCrunch/Product Hunt/Etsy の v2 と、HN/X/YouTube/Niche Pursuits/Starter Story/Substack/beehiiv/Reuters/Bloomberg/Nikkei/Crunchbase/Wikipedia）、Tier3（LinkedIn 据え置き＋有料・私的素材の catch-all）、公開事実型 `fact.self_reported_business_metric.v1` を生成し schema 検証済み。push/PR はユーザー操作待ち。
+7. 画像パイプライン: サブエージェントが別 worktree で `src/shared/media-asset-schema.ts`、`scripts/media/fetch-official-assets.ts`、`docs/MEDIA_ASSETS_AND_PROVENANCE.md` を作成中（完了報告待ち）。
+
+### 3. 未完了・ユーザー操作が必要なもの
+- feature branch の GitHub push、Universal Foundation の push と PR、R2 への受入取り込み（`pnpm r2:with-secrets -- node --import tsx scripts/reaudit/ingest-accepted.ts --file data/incoming/reaudit-accepted-lightgallery-20260929.json`）は自動承認が下りず未実施。
+- Make-Money 側の権利スナップショットと `publication-rights.ts` の「restricted=事実のみ表示」対応は未実装（UF 側の commit 確定後）。
+- 個別再調査レーン（A 大手148件の公的開示、B eBiz Facts 750件の原文再抽出、C Indie Hackers 1,391件、D 根拠ゼロ 1,033件）は未着手。3,341件の機械的正直化に対する R2 journal 追記は未実施。
+- 本番反映（catalog release の再生成・deploy）は未実施。
+
 ## 2026-09-28 【戦略追記】Distribution Marketplace — 「作る市場」から「販売力と実取引を握る市場」へ
 
 ### 1. 今回確定した根本目的

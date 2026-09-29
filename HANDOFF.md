@@ -1,3 +1,5 @@
+> **2026-09-29 現在地（最優先で読む）**: 3,341件の旧カタログは数値の96%が式による生成物だったため、branch `claude/honest-catalog-20260929` で「機械的正直化」を実施した（出典で裏付けられない数値・タグ・カードを取り下げ、PARTIALとして表示、旧表示は `reaudit.legacyDisplaySnapshot` に保持）。経緯・数字・未完了は [docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md](docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md) の同日節を正本とする。権利は「3層（自動OK / 事実のみOK / 完全NG）」へ移行中で、Universal Foundation 側の登録簿変更は push/PR 待ち。次の作業者は (1) branch を確認、(2) `pnpm r2:with-secrets -- node --import tsx scripts/reaudit/ingest-accepted.ts --file data/incoming/reaudit-accepted-lightgallery-20260929.json` で受入1件のR2貫通、(3) 四層の個別再調査（scripts/reaudit の統一形式）へ進む。
+
 > **Commercial-rights publication work (2026-09-25 current):** read [docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md](docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md) first. Rights/source registries and the stronger Public Fact consumer are already on main; old PR #67 is superseded. The next unfinished step is the real production R2 audit (`pnpm foundation:rights:audit`) on the configured Mac, followed by public-projection quarantine/rebuild based on that evidence.
 
 # Make-Money 引継ぎ入口（2026-09-24 最新正本）
