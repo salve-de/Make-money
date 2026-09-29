@@ -51,7 +51,7 @@ export interface MenuGroup {
 
 export const MOBILE_MENU_GROUPS: MenuGroup[] = [
   {
-    label: '調べる',
+    label: '分析',
     items: [
       { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
       { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
@@ -59,14 +59,14 @@ export const MOBILE_MENU_GROUPS: MenuGroup[] = [
     ],
   },
   {
-    label: '自分の記録',
+    label: 'マイページ',
     items: [
       { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
       { id: 'EXECUTION', label: '実行計画', href: '/execute' },
     ],
   },
   {
-    label: '売り買い',
+    label: 'マーケット',
     items: [
       { id: 'BUSINESSES', label: '事業の売買', href: '/marketplace/businesses' },
       { id: 'MARKETPLACE', label: 'サービス一覧', href: '/marketplace' },

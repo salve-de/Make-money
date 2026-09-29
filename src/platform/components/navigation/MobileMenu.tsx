@@ -65,8 +65,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
           <nav aria-label="そのほかの画面" className="min-h-0 flex-1 overflow-y-auto">
             {MOBILE_MENU_GROUPS.map((group) => (
               <section key={group.label} aria-label={group.label}>
-                <h2 className="bg-term-head px-4 py-1.5 text-xs font-semibold tracking-wider text-term-label">{group.label}</h2>
-                <ul>
+                <h2 className="px-4 pb-1.5 pt-5 text-xs text-term-dim">{group.label}</h2>
+                <ul className="border-t border-term-line-soft">
                   {group.items.map((item) => {
                     const active = activeSection === item.id;
                     return (

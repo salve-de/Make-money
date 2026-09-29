@@ -39,7 +39,7 @@ describe('GlobalHeader terminal navigation', () => {
     const html = renderToStaticMarkup(<GlobalHeader />);
     expect(html).not.toContain('MAKE MONEY</h2>');
     const items = MOBILE_MENU_GROUPS.flatMap((group) => group.items);
-    expect(MOBILE_MENU_GROUPS.map((group) => group.label)).toEqual(['調べる', '自分の記録', '売り買い']);
+    expect(MOBILE_MENU_GROUPS.map((group) => group.label)).toEqual(['分析', 'マイページ', 'マーケット']);
     expect(items.map((item) => item.href)).toContain('/marketplace/businesses');
     for (const item of items) expect(TAB_SECTION_IDS).not.toContain(item.id);
     expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
