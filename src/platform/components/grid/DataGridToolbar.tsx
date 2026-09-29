@@ -22,6 +22,8 @@ interface DataGridToolbarProps {
   onSelectBatch?: (batchId: string) => void;
   batchCounts?: Record<string, number>;
   catalogTotal?: number | null;
+  /** 登録回（取り込み作業の単位）の選択欄は管理者だけに出す。一般の利用者には内部の管理名を見せない。 */
+  showBatchFilter?: boolean;
 }
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
@@ -39,12 +41,14 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   onSelectBatch,
   batchCounts = {},
   catalogTotal = null,
+  showBatchFilter = false,
 }) => {
   const batchOptions = React.useMemo(() => {
     const knownMap = new Map(KNOWN_INGEST_BATCHES.map((batch) => [batch.id, batch]));
     const options = KNOWN_INGEST_BATCHES.map((batch) => ({
       id: batch.id,
-      label: batch.shortLabel,
+      // 管理名に入った固定の社数は実際の件数と食い違うため外し、件数は後ろの (N件) だけで示す
+      label: batch.shortLabel.replace(/\s*\([^)]*社\)\s*$/, ''),
       count: batchCounts[batch.id] || 0,
     }));
 
@@ -140,6 +144,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
         </div>
 
         <div className={`flex flex-wrap items-center gap-2 ${hideSearch ? 'min-w-0 flex-1' : ''}`}>
+          {showBatchFilter ? (
           <label className="inline-flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-sm border border-term-line px-2.5 text-xs text-term-label sm:flex-none lg:min-h-7">
             <Layers aria-hidden="true" className="h-3.5 w-3.5" />
             <span className="hidden shrink-0 whitespace-nowrap sm:inline">登録回</span>
@@ -157,6 +162,17 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               ))}
             </select>
           </label>
+          ) : selectedBatch !== 'ALL' ? (
+            <button
+              type="button"
+              onClick={() => onSelectBatch?.('ALL')}
+              aria-label="登録回の絞り込みを解除"
+              className={`${btn} ${btnOn} min-h-11 lg:min-h-7`}
+            >
+              登録回で絞り込み中
+              <X aria-hidden="true" className="h-3.5 w-3.5" />
+            </button>
+          ) : null}
 
           {onToggleTag && (
             <button
@@ -195,7 +211,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             </button>
           )}
 
-          <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label" aria-live="polite">
+          <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">
             <span className="text-term-fg">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件
           </p>
         </div>

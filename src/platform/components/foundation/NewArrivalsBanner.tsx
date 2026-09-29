@@ -62,7 +62,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, o
           {unread ? '新着' : '確認済み'}
         </span>
         <span className="truncate">
-          <span className="text-term-fg-strong">新着公開便</span>
+          <span className="text-term-fg-strong">新しく公開された事例</span>
           <span className="mx-1.5 text-term-dim">・</span>
           <span className="term-num">{release.count}件</span>
           <span className="mx-1.5 text-term-dim">・</span>
@@ -75,7 +75,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, o
           markSeen();
           onOpen();
         }}
-        className="h-[22px] shrink-0 rounded-sm border border-term-line px-2 text-xs text-term-fg hover:bg-term-head hover:text-term-fg-strong"
+        className="min-h-11 shrink-0 rounded-sm border border-term-line px-2 text-xs text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:min-h-0 lg:h-[22px]"
       >
         新着を見る
       </button>

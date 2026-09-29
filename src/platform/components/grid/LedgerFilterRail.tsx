@@ -12,6 +12,7 @@ export interface LedgerFilterRailProps {
   filters: ScreenerFilterState | null;
   onChangeFilters: (filters: ScreenerFilterState | null) => void;
   onOpenAdvanced: () => void;
+  /** 件数は一覧の見出しと状態バーに出すため、この欄には表示しない（受け口のみ維持）。 */
   resultCount: number;
   catalogTotal: number;
 }
@@ -81,8 +82,6 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
   filters,
   onChangeFilters,
   onOpenAdvanced,
-  resultCount,
-  catalogTotal,
 }) => {
   const current = filters ?? EMPTY;
   const update = (patch: Partial<ScreenerFilterState>) => {
@@ -154,10 +153,6 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         詳しい条件…
       </button>
 
-      <div className="mt-auto border-t border-term-line px-2.5 py-1.5 text-xs text-term-label">
-        <span className="term-num text-term-fg">{resultCount.toLocaleString('ja-JP')}</span>
-        <span className="term-num"> / {catalogTotal.toLocaleString('ja-JP')}</span> 件
-      </div>
     </aside>
   );
 };

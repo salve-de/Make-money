@@ -51,7 +51,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         {description && <span className="mt-0.5 block truncate text-[13px] text-term-muted">{description}</span>}
         <span className="mt-0.5 flex items-center justify-between gap-3 pr-11 text-xs">
           <span className="min-w-0 truncate text-term-label">
-            {sectorLabel(entity.sector)} ・ {team ? `${team}人` : '人数 —'}
+            {sectorLabel(entity.sector)}{team ? ` ・ ${team}人` : ''}
           </span>
           <span className={`shrink-0 ${CONFIRM_TONE_CLASS[status.tone]}`}>{status.label}</span>
         </span>

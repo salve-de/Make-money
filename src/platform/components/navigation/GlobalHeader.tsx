@@ -167,7 +167,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     const label = (
       <>
         <span>保存</span>
-        {typeof bookmarkCount === 'number' && (
+        {typeof bookmarkCount === 'number' && bookmarkCount > 0 && (
           <span className="term-num text-term-accent">{bookmarkCount}</span>
         )}
       </>
@@ -176,11 +176,11 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       isBookmarkActive ? 'bg-term-select text-term-fg-strong' : 'text-term-fg'
     }`;
     return onSelectBookmark ? (
-      <button type="button" onClick={onSelectBookmark} className={cls} aria-label={`保存した事例 (${bookmarkCount || 0})`}>
+      <button type="button" onClick={onSelectBookmark} className={cls} aria-label={bookmarkCount ? `保存した事例 (${bookmarkCount}件)` : '保存した事例'}>
         {label}
       </button>
     ) : (
-      <Link href={SAVED_HREF} prefetch={false} className={cls} aria-label={`保存した事例 (${bookmarkCount || 0})`}>
+      <Link href={SAVED_HREF} prefetch={false} className={cls} aria-label={bookmarkCount ? `保存した事例 (${bookmarkCount}件)` : '保存した事例'}>
         {label}
       </Link>
     );
@@ -193,7 +193,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       <header className="sticky top-0 z-40 flex w-full shrink-0 flex-wrap items-stretch border-b border-term-line bg-term-panel lg:h-9 lg:flex-nowrap">
         {/* ロゴ */}
         <div className="flex h-10 items-center pl-3 lg:h-full lg:border-r lg:border-term-line lg:pr-4">
-          <Link href="/" prefetch={false} className="inline-flex min-h-11 items-center font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
+          <Link href="/" prefetch={false} aria-label="Make Money" className="inline-flex min-h-11 items-center font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
             MAKE MONEY
           </Link>
         </div>
@@ -250,7 +250,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
                 aria-current={isActive ? 'page' : undefined}
                 className={tabClass(isActive)}
               >
-                <span className="term-num text-xs text-term-label">{index + 1}</span>
+                <span aria-hidden="true" className="term-num text-xs text-term-label">{index + 1}</span>
                 <span>{item.label}</span>
               </Link>
             );

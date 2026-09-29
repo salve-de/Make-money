@@ -308,7 +308,7 @@ export const TerminalShell: React.FC<{
               newlyCollectedCount={newlyCollectedCount}
               onApproveAllCollected={canApproveEntities ? handleApproveAllCollected : undefined}
               selectedBatch={selectedBatch}
-              onSelectBatch={setSelectedBatch}
+              onSelectBatch={setSelectedBatch} showBatchFilter={canApproveEntities}
               batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
               catalogTotal={catalogTotal}
             />

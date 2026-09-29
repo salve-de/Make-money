@@ -8,7 +8,7 @@ import type { ScreenerFilterState } from '../components/screener/AdvancedScreene
 import { collectedEntityIds, matchesCatalogQuery, readEntityFilterQuery } from '../model/entity-filter';
 import { approveEntities } from '../api/entity-approval';
 import { useAuth } from '@/context/AuthContext';
-import { DEFAULT_BOOKMARK_IDS, readGuestBookmarkIds, writeGuestBookmarkIds } from './bookmark-storage';
+import { readGuestBookmarkIds, writeGuestBookmarkIds } from './bookmark-storage';
 
 export type BookmarkSyncStatus = 'loading' | 'local' | 'saving' | 'synced' | 'error';
 
@@ -28,7 +28,7 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
   const [selectedBatch, setSelectedBatch] = useState<string>(batchParam);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(null);
-  const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(() => new Set(DEFAULT_BOOKMARK_IDS));
+  const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(() => new Set<string>());
   const [bookmarkSyncStatus, setBookmarkSyncStatus] = useState<BookmarkSyncStatus>('loading');
   const bookmarkedIdsRef = useRef(bookmarkedIds);
   const pendingBookmarkIds = useRef(new Set<string>());

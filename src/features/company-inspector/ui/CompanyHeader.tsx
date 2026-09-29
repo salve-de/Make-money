@@ -109,7 +109,7 @@ export function CompanyHeader({
           </div>
         </div>
 
-        {/* タブ・リンク・特徴（スマホは押しやすい高さ） */}
+        {/* タブ・リンク・タグ（スマホは押しやすい高さ） */}
         <div className="flex min-h-11 items-center justify-between gap-2 border-t border-term-line-soft pl-1 pr-2.5 lg:min-h-7">
           <div className="flex min-w-0 items-center text-xs" role="tablist" aria-label="事例の表示内容">
             <TabButton active={mainTab === 'LEDGER'} onClick={() => setMainTab?.('LEDGER')} label="概要・損益" />
@@ -145,7 +145,7 @@ export function CompanyHeader({
             {entity.tags?.length > 0 && (
               <details className="group relative shrink-0">
                 <summary className="flex min-h-11 cursor-pointer list-none items-center px-1 text-term-muted hover:text-term-fg-strong lg:min-h-7 [&::-webkit-details-marker]:hidden">
-                  特徴 <span className="term-num ml-1">{entity.tags.length}</span>
+                  タグ <span className="term-num ml-1">{entity.tags.length}</span>
                   {activeTags.length > 0 ? <span className="ml-1 text-term-accent">選択 {activeTags.length}</span> : null}
                 </summary>
                 <div className="absolute right-0 top-full z-50 flex max-h-64 w-64 flex-wrap items-start gap-1 overflow-y-auto border border-term-line bg-term-panel p-2 shadow-xl">

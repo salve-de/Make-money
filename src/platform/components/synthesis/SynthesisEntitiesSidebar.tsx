@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { FinancialEntity } from '../../types/terminal';
 import { 
   CheckSquare, 
@@ -59,6 +60,7 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
           <div className="px-3 py-4 text-sm">
             <p className="text-term-fg-strong">保存した事例がここに並びます</p>
             <p className="mt-1 text-term-sub">事例一覧で気になる事例を保存すると、企画案の材料に選べます。</p>
+            <Link href="/" prefetch={false} className="mt-3 inline-flex min-h-11 items-center border border-term-accent px-3 text-sm text-term-accent hover:bg-term-head lg:min-h-8">事例一覧を開く</Link>
           </div>
         )}
         {savedEntities.map((ent, index) => {

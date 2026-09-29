@@ -65,8 +65,6 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
         const status = /https?:\/\/\S+/i.test(card.sourceNote || '')
           ? statusMeta(card.evidenceStatus)
           : { label: '出典リンクなし', dot: 'bg-zinc-500', text: 'text-zinc-400' };
-        const detailCount = card.details?.length || 0;
-        const metricCount = card.metrics?.length || 0;
         const hasCode = Boolean(card.codeSnippet);
 
         return (
@@ -75,22 +73,16 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
               type="button"
               onClick={() => setExpandedId(expanded ? null : rowId)}
               aria-expanded={expanded}
-              className="grid w-full grid-cols-[20px_minmax(0,1fr)_auto] items-start gap-2 px-2 py-3 sm:items-center sm:gap-3 sm:px-4 sm:py-3.5 text-left transition-colors hover:bg-term-head focus-visible:outline-none sm:grid-cols-[40px_100px_minmax(0,1fr)_auto]"
+              className="grid w-full grid-cols-[24px_minmax(0,1fr)_auto] items-start gap-2 px-3 py-2.5 text-left transition-colors hover:bg-term-head focus-visible:outline-none"
             >
               {/* 番号 */}
-              <span className="font-mono text-xs tabular-nums text-zinc-400 font-semibold">
+              <span className="pt-px font-mono text-xs tabular-nums text-term-label">
                 {String(idx + 1).padStart(2, '0')}
               </span>
 
-              {/* 分類バッジ */}
-              <span className={`hidden text-xs font-mono font-semibold sm:block ${
-                isHazardMode ? 'text-term-danger' : 'text-zinc-300'
-              }`}>
-                {label}
-              </span>
-
-              {/* タイトルとパンチライン */}
+              {/* 分類・タイトル・要点（詳細欄の幅でも読めるよう1列にまとめる） */}
               <span className="min-w-0">
+                <span className={`block text-xs ${isHazardMode ? 'text-term-danger' : 'text-term-label'}`}>{label}</span>
                 <span className="flex min-w-0 items-center gap-2">
                   <span className="line-clamp-2 text-xs sm:text-[13px] font-bold text-zinc-100">
                     {card.title}
@@ -110,19 +102,11 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
                 <span className="mt-1 line-clamp-2 text-xs leading-relaxed text-zinc-300" title={card.punchline}>
                   {card.punchline}
                 </span>
-                <span className={`mt-1.5 flex items-center gap-1.5 text-xs sm:hidden ${status.text}`}>
-                  {status.label}
-                </span>
               </span>
 
-              {/* 右側ステータスと開閉 */}
-              <span className="flex shrink-0 items-center gap-3">
-                <span className="hidden items-center gap-2 font-mono text-xs text-zinc-400 md:flex">
-                  {detailCount > 0 && <span>詳細 {detailCount}</span>}
-                  {metricCount > 0 && <span>数値 {metricCount}</span>}
-                </span>
-                <span className={`hidden items-center gap-1.5 font-mono text-xs sm:inline-flex ${status.text}`}>
-                  
+              {/* 右側: 資料の確認状況と開閉 */}
+              <span className="flex shrink-0 items-center gap-2 pt-px">
+                <span className={`text-xs ${status.text}`}>
                   {status.label}
                 </span>
                 {expanded ? (
