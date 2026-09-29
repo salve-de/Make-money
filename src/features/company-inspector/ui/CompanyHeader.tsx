@@ -67,8 +67,7 @@ export function CompanyHeader({
             type="button"
             onClick={onClose}
             className="inline-flex h-11 shrink-0 items-center px-3 text-sm text-term-accent hover:bg-term-line lg:hidden"
-            aria-label="閉じる"
-            title="一覧へ戻る"
+            aria-label="一覧へ戻る"
           >
             ◀ 一覧
           </button>

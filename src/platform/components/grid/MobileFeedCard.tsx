@@ -32,14 +32,15 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   const status = confirmStatus(entity);
   const description = listDescription(entityDescription(entity));
 
+  // 開くボタンと保存ボタンを横に並べる（重ねないので、保存を押したつもりで事例が開くことがない）
   return (
-    <article data-entity-id={entity.id} className={`relative border-b border-term-line-soft ${isSelected ? 'bg-term-select' : zebra ? 'bg-term-row-alt' : ''}`}>
+    <article data-entity-id={entity.id} className={`flex items-stretch border-b border-term-line-soft ${isSelected ? 'bg-term-select' : zebra ? 'bg-term-row-alt' : ''}`}>
       <button
         type="button"
         onClick={onSelect}
         aria-pressed={isSelected}
         aria-label={`${entity.name}の事例を開く`}
-        className="block min-h-11 w-full px-3 py-[9px] text-left focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent"
+        className="block min-h-11 min-w-0 flex-1 py-[9px] pl-3 pr-1 text-left focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent"
       >
         <span className="flex items-baseline justify-between gap-3">
           <span className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
@@ -49,7 +50,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           </span>
         </span>
         {description && <span className="mt-0.5 block truncate text-[13px] text-term-muted">{description}</span>}
-        <span className="mt-0.5 flex items-center justify-between gap-3 pr-11 text-xs">
+        <span className="mt-0.5 flex items-center justify-between gap-3 text-xs">
           <span className="min-w-0 truncate text-term-label">
             {sectorLabel(entity.sector)}{team ? ` ・ ${team}人` : ''}
           </span>
@@ -61,7 +62,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         onClick={onToggleBookmark}
         aria-label={isBookmarked ? `${entity.name}の保存を解除` : `${entity.name}を保存`}
         aria-pressed={isBookmarked}
-        className={`absolute bottom-0 right-0 inline-flex h-9 w-11 items-center justify-center hover:text-term-fg ${isBookmarked ? 'text-term-accent' : 'text-term-dim'}`}
+        className={`inline-flex w-11 shrink-0 items-center justify-center hover:text-term-fg ${isBookmarked ? 'text-term-accent' : 'text-term-dim'}`}
       >
         <Bookmark className={`h-4 w-4 ${isBookmarked ? 'fill-current' : ''}`} />
       </button>

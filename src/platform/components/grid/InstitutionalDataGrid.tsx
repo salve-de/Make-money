@@ -21,6 +21,8 @@ export function shouldRenderGridContinuation(visibleCount: number, entityCount: 
 interface InstitutionalDataGridProps {
   entities: FinancialEntity[];
   selectedEntityId: string | null;
+  /** スマホの一覧で強調する事例。PCで最初の事例を自動で開いていても、スマホでは開いた事例だけを強調する */
+  mobileSelectedEntityId?: string | null;
   onSelectEntity: (id: string) => void;
   currency: 'JPY' | 'USD';
   bookmarkedIds: Set<string>;
@@ -38,6 +40,7 @@ interface InstitutionalDataGridProps {
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   entities,
   selectedEntityId,
+  mobileSelectedEntityId,
   onSelectEntity,
   currency,
   bookmarkedIds,
@@ -98,7 +101,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
           <MobileFeedCard
             key={entity.id}
             entity={entity}
-            isSelected={selectedEntityId === entity.id}
+            isSelected={(mobileSelectedEntityId === undefined ? selectedEntityId : mobileSelectedEntityId) === entity.id}
             onSelect={() => onSelectEntity(entity.id)}
             currency={currency}
             isBookmarked={bookmarkedIds.has(entity.id)}

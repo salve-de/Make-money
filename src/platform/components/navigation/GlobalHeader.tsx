@@ -192,14 +192,14 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     <>
       <header className="sticky top-0 z-40 flex w-full shrink-0 flex-wrap items-stretch border-b border-term-line bg-term-panel lg:h-9 lg:flex-nowrap">
         {/* ロゴ */}
-        <div className="flex h-10 shrink-0 items-center pl-3 lg:h-full lg:border-r lg:border-term-line lg:pr-3 xl:pr-4">
+        <div className="flex h-11 shrink-0 items-center pl-3 lg:h-full lg:border-r lg:border-term-line lg:pr-3 xl:pr-4">
           <Link href="/" prefetch={false} aria-label="Make Money" className="inline-flex min-h-11 items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
             MAKE MONEY
           </Link>
         </div>
 
         {/* スマホ: PRO は右上 */}
-        <div className="ml-auto flex h-10 items-stretch lg:hidden">
+        <div className="ml-auto flex h-11 items-stretch lg:hidden">
           {rightContent}
           {onOpenPro ? (
             <button type="button" onClick={onOpenPro} className="flex min-w-11 items-center px-3 text-sm font-semibold text-term-accent">

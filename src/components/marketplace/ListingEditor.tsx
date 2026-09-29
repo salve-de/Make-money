@@ -172,7 +172,7 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
       <main className="w-full flex-1">
         <div className="term-panel-title">
           <span className="term-panel-name">サービスを掲載</span>
-          <Link href="/marketplace" className="inline-flex min-h-6 items-center text-term-sub hover:text-term-fg-strong">掲載サービス一覧へ戻る</Link>
+          <Link href="/marketplace" className="inline-flex min-h-11 items-center text-term-sub hover:text-term-fg-strong lg:min-h-6">掲載サービス一覧へ戻る</Link>
         </div>
         <h1 className="sr-only">サービスを掲載</h1>
 

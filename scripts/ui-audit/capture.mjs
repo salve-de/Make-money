@@ -42,13 +42,16 @@ const METRICS = () => {
   const minT = vw < 1024 ? 44 : 24;
   const small = inter.filter((e) => { const r = e.getBoundingClientRect(); return r.height < minT * 0.8 || r.width < minT * 0.8; });
   const unlabeled = inter.filter((e) => !(e.innerText || '').trim() && !e.getAttribute('aria-label') && !e.title && !e.placeholder && !e.getAttribute('aria-labelledby'));
-  // 押し場所どうしが重なっていないか（片方がもう片方を含む入れ子は除く）
+  // 押し場所どうしが重なっていないか（片方がもう片方を含む入れ子は除く）。
+  // 固定表示のバー（ヘッダーや下部メニュー）と、その下をスクロールする本文との重なりは正常なので比べない
   const targets = vis.filter((e) => e.matches('a,button,[role=button],input,select,textarea,summary'));
+  const layerOf = (e) => { for (let n = e; n; n = n.parentElement) { const pos = getComputedStyle(n).position; if (pos === 'fixed' || pos === 'sticky') return n; } return null; };
+  const layers = new Map(targets.map((e) => [e, layerOf(e)]));
   const overlaps = [];
   for (let i = 0; i < targets.length && overlaps.length < 5; i++) {
     for (let j = i + 1; j < targets.length && overlaps.length < 5; j++) {
       const a = targets[i]; const b = targets[j];
-      if (a.contains(b) || b.contains(a)) continue;
+      if (a.contains(b) || b.contains(a) || layers.get(a) !== layers.get(b)) continue;
       const r1 = a.getBoundingClientRect(); const r2 = b.getBoundingClientRect();
       const w = Math.min(r1.right, r2.right) - Math.max(r1.left, r2.left);
       const h = Math.min(r1.bottom, r2.bottom) - Math.max(r1.top, r2.top);

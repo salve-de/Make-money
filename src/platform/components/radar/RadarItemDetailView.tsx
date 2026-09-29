@@ -37,7 +37,7 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id }) 
     <div className="flex h-full min-w-0 flex-1 flex-col overflow-y-auto bg-term-bg text-term-fg">
       <div className="term-panel-title">
         <span className="term-panel-name">市場動向</span>
-        <Link href="/radar" className="inline-flex min-h-6 items-center gap-1 text-term-sub hover:text-term-fg-strong">
+        <Link href="/radar" className="inline-flex min-h-11 items-center gap-1 text-term-sub hover:text-term-fg-strong lg:min-h-6">
           <ArrowLeft aria-hidden="true" className="h-3.5 w-3.5" />一覧へ戻る
         </Link>
       </div>

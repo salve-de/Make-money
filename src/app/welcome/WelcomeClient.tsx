@@ -117,7 +117,7 @@ export default function WelcomeClient({
         <section aria-labelledby="welcome-picks" className="border-b border-term-line">
           <div className="term-panel-title">
             <h2 id="welcome-picks" className="term-panel-name">事例ピックアップ</h2>
-            <Link href="/" className="ml-auto inline-flex min-h-6 items-center text-term-select-fg hover:text-term-fg-strong">全件を見る</Link>
+            <Link href="/" className="ml-auto inline-flex min-h-11 items-center text-term-select-fg hover:text-term-fg-strong lg:min-h-6">全件を見る</Link>
           </div>
 
           {examples.length > 0 ? (

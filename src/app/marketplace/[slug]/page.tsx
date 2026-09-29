@@ -54,7 +54,7 @@ export default async function MarketplaceListingPage({
       <main className="w-full flex-1">
         <div className="term-panel-title">
           <span className="term-panel-name">サービス紹介</span>
-          <Link href="/marketplace" className="inline-flex min-h-6 items-center text-term-sub hover:text-term-fg-strong">掲載サービス一覧へ戻る</Link>
+          <Link href="/marketplace" className="inline-flex min-h-11 items-center text-term-sub hover:text-term-fg-strong lg:min-h-6">掲載サービス一覧へ戻る</Link>
         </div>
         {unavailable ? (
           <p role="alert" className="px-3 py-4 text-sm text-term-danger">この紹介ページを読み込めませんでした。時間をおいて再読み込みしてください。</p>

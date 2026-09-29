@@ -42,7 +42,14 @@ export function useSelectedEntityNavigation({
         )?.id || entities[0]?.id || null
       : entities[0]?.id || null);
 
-  const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
+  const [selectedEntityId, setSelectedEntityIdState] = useState<string | null>(initialEntityId);
+  // 利用者が自分で開いた事例か（URLの ?entity=・検索語・クリック・キー操作）。
+  // PCで最初の事例を自動で表示しているだけのときは false にして、「閲覧中」や強調表示に使わない
+  const [selectionIsExplicit, setSelectionIsExplicit] = useState(Boolean(entityParam || queryParam));
+  const setSelectedEntityId = useCallback((id: string | null) => {
+    setSelectionIsExplicit(id !== null);
+    setSelectedEntityIdState(id);
+  }, []);
   const appliedNavigation = useRef<string | null>(null);
   const previousEntityParam = useRef<string | null>(entityParam ?? null);
 
@@ -81,7 +88,7 @@ export function useSelectedEntityNavigation({
       if (previousEntityParam.current) setSelectedEntityId(null);
     }
     previousEntityParam.current = entityParam ?? null;
-  }, [entityParam, queryParam, entities, entityAliases]);
+  }, [entityParam, queryParam, entities, entityAliases, setSelectedEntityId]);
 
   // 閲覧履歴の自動追跡
   useEffect(() => {
@@ -133,7 +140,7 @@ export function useSelectedEntityNavigation({
     if (currentIndex > 0) {
       setSelectedEntityId(list[currentIndex - 1].id);
     }
-  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities]);
+  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
 
   const handleNextEntity = useCallback(() => {
     const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
@@ -142,10 +149,12 @@ export function useSelectedEntityNavigation({
     if (currentIndex >= 0 && currentIndex < list.length - 1) {
       setSelectedEntityId(list[currentIndex + 1].id);
     }
-  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities]);
+  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
 
   return {
     selectedEntityId,
+    /** 利用者が開いた事例のID（自動で表示しているだけなら null） */
+    openedEntityId: selectionIsExplicit ? selectedEntityId : null,
     setSelectedEntityId,
     selectedEntity,
     viewedEntityIds,

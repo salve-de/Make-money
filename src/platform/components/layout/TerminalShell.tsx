@@ -136,21 +136,16 @@ export const TerminalShell: React.FC<{
   }, [activeDossier, entities]);
 
   // 4. 選択中エンティティ・ナビゲーション・PRO分析フック
-  const {
-    selectedEntityId,
-    setSelectedEntityId,
-    selectedEntity,
-    handlePrevEntity,
-    handleNextEntity,
-  } = useSelectedEntityNavigation({
-    entities,
-    filteredEntities,
-    deepDiveEntities,
-    workspaceMode,
-    detailedEntities,
-    entityAliases,
-    onFetchEntityDetailOnDemand: fetchEntityDetailOnDemand,
-  });
+  const { selectedEntityId, openedEntityId, setSelectedEntityId, selectedEntity, handlePrevEntity, handleNextEntity } =
+    useSelectedEntityNavigation({
+      entities,
+      filteredEntities,
+      deepDiveEntities,
+      workspaceMode,
+      detailedEntities,
+      entityAliases,
+      onFetchEntityDetailOnDemand: fetchEntityDetailOnDemand,
+    });
 
   const openEntity = (id: string) => {
     setSelectedEntityId(id);
@@ -179,9 +174,8 @@ export const TerminalShell: React.FC<{
     return [...merged.values()];
   }, [entities, detailedEntities]);
 
-  // Workspace tabs are already rendered inside this shell. Update the view
-  // immediately and keep the URL/back button in sync without requesting a new
-  // dynamic Server Component payload for the same page.
+  // Workspace tabs are already rendered inside this shell: update the view immediately and keep the
+  // URL/back button in sync without requesting a new dynamic Server Component payload for the same page.
   const selectWorkspaceMode = (mode: WorkspaceMode, entityId?: string) => {
     setWorkspaceMode(mode);
     if (mode === 'DEEP_DIVE') setActiveTopicId(null);
@@ -267,7 +261,7 @@ export const TerminalShell: React.FC<{
             notes={notes}
             onSaveNote={saveNote}
             currency={currency}
-            initialContextEntityId={selectedEntityId}
+            initialContextEntityId={openedEntityId}
           />
         ) : workspaceMode === 'RADAR' ? (
           <MarketRadarView
@@ -317,6 +311,7 @@ export const TerminalShell: React.FC<{
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}
+              mobileSelectedEntityId={openedEntityId}
               onSelectEntity={openEntity}
               currency={currency}
               bookmarkedIds={bookmarkedIds}
