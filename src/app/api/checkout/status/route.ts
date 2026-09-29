@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import { getStripeClient, paymentLiveMode } from '@/lib/stripe';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { isPaidFoundingPass } from '@/lib/payments/founding-pass';
-import { stripeId, chargeStillEntitled } from '@/lib/payments/provider-state';
+import { paidSubscriptionPlan } from '@/lib/payments/plans';
+import { stripeId, chargeStillEntitled, subscriptionStillEntitled } from '@/lib/payments/provider-state';
 import { getProEntitlement } from '@/lib/payments/entitlement';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 
@@ -26,6 +27,13 @@ export async function POST(request: Request) {
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
     if (session.client_reference_id !== user.uid || session.metadata?.userId !== user.uid || session.livemode !== await paymentLiveMode()) return json({ error: '決済情報を確認できません' }, { status: 403 });
+    if (paidSubscriptionPlan(session)) {
+      // 月額・年額: 支払い済みの契約を Stripe で確認し、台帳へ記録済みなら confirmed。権利はここでは与えない。
+      const subscriptionId = stripeId(session.subscription);
+      if (!subscriptionId) throw new Error('Subscription unavailable');
+      if (!await subscriptionStillEntitled(stripe, subscriptionId)) return json({ status: 'revoked' });
+      return json({ status: await getProEntitlement(user.uid) ? 'confirmed' : 'pending' });
+    }
     if (!isPaidFoundingPass(session)) return json({ status: 'unpaid' });
     const intentId = stripeId(session.payment_intent);
     const chargeId = intentId ? stripeId((await stripe.paymentIntents.retrieve(intentId)).latest_charge) : null;

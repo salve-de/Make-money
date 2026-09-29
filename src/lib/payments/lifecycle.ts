@@ -1,6 +1,8 @@
 import type Stripe from 'stripe';
 import { FOUNDING_PASS, isPaidFoundingPass } from './founding-pass';
+import { paidSubscriptionPlan } from './plans';
 import { stripeId } from './provider-state';
+import { isActiveSubscriptionStatus, subscriptionPeriodEnd } from './subscription';
 import type { PaymentFact, PaymentRecord } from './ledger';
 
 export function paymentRecord(id: string, resourceId: string, occurredAt: number, livemode: boolean, fact: PaymentFact): PaymentRecord {
@@ -28,9 +30,28 @@ export async function purchaseFacts(stripe: Stripe, session: Stripe.Checkout.Ses
   }
   return facts;
 }
+/** A paid monthly/yearly checkout. The fact belongs to the subscription ID; whether access continues
+ * (renewal, cancellation, failed payment, refund) is rechecked against Stripe on every read. */
+export async function subscriptionFacts(stripe: Stripe, session: Stripe.Checkout.Session, eventId: string, occurredAt: number): Promise<PaymentRecord[]> {
+  const plan = paidSubscriptionPlan(session);
+  if (!plan) return [];
+  const uid = session.client_reference_id;
+  if (!uid || session.metadata?.userId !== uid) throw new Error('Subscription has no verified account binding');
+  const subscriptionId = stripeId(session.subscription);
+  if (!subscriptionId) throw new Error('Paid checkout has no subscription');
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+  if (subscription.livemode !== session.livemode || subscription.metadata?.userId !== uid || subscription.metadata?.product !== plan) {
+    throw new Error('Subscription does not match its checkout');
+  }
+  return [paymentRecord(eventId, subscription.id, occurredAt, session.livemode,
+    { kind: 'subscription', userId: uid, active: isActiveSubscriptionStatus(subscription.status), expiresAt: subscriptionPeriodEnd(subscription) })];
+}
 export async function factsForStripeEvent(stripe: Stripe, event: Stripe.Event): Promise<PaymentRecord[]> {
   if (event.type === 'checkout.session.completed' || event.type === 'checkout.session.async_payment_succeeded') {
-    return purchaseFacts(stripe, event.data.object as Stripe.Checkout.Session, event.id, event.created);
+    const session = event.data.object as Stripe.Checkout.Session;
+    return session.mode === 'subscription'
+      ? subscriptionFacts(stripe, session, event.id, event.created)
+      : purchaseFacts(stripe, session, event.id, event.created);
   }
   if (event.type === 'charge.refunded') {
     const charge = event.data.object as Stripe.Charge;
@@ -47,9 +68,9 @@ export async function factsForStripeEvent(stripe: Stripe, event: Stripe.Event): 
   if (['customer.subscription.updated', 'customer.subscription.deleted'].includes(event.type)) {
     const subscription = event.data.object as Stripe.Subscription;
     const uid = subscription.metadata?.userId;
-    if (!uid || subscription.status === 'active') return [];
+    if (!uid || isActiveSubscriptionStatus(subscription.status)) return [];
     return [paymentRecord(event.id, subscription.id, event.created, event.livemode, { kind: 'subscription', userId: uid,
-      active: subscription.status === 'active', expiresAt: Math.max(0, ...subscription.items.data.map((item) => item.current_period_end)) })];
+      active: false, expiresAt: subscriptionPeriodEnd(subscription) })];
   }
   return [];
 }
