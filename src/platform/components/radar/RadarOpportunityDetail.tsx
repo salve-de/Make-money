@@ -51,7 +51,7 @@ export const RadarOpportunityDetail: React.FC<RadarOpportunityDetailProps> = ({ 
           ))}
         </dl>
         {playbook.threeToolStack.length > 0 && <details className="border-b border-term-line px-3">
-          <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">ツール構成・費用案</summary>
+          <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-6">ツール構成・費用案</summary>
           <ul className="text-sm">
             {playbook.threeToolStack.map((tool) => (
               <li key={tool.name} className="grid gap-1 border-t border-term-line-soft py-2 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-3">

@@ -208,7 +208,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <MobileMenu activeSection={activeSection} onOpenPro={onOpenPro} onSelectLocalMode={onSelectLocalMode} />
         <div className="flex h-11 shrink-0 items-center pl-1 lg:h-full lg:border-r lg:border-term-line lg:pl-3 lg:pr-3 xl:pr-4">
           <span className="truncate text-base font-semibold text-term-fg-strong lg:hidden">{SECTION_TITLES[activeSection]}</span>
-          <Link href="/" prefetch={false} aria-label="Make Money" className="hidden min-h-0 items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:inline-flex">
+          <Link href="/" prefetch={false} aria-label="Make Money" className="hidden h-full items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:inline-flex">
             MAKE MONEY
           </Link>
         </div>
@@ -251,7 +251,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           <button
             type="submit"
             aria-label="検索を実行"
-            className="hidden border border-term-line px-1.5 font-mono text-xs leading-5 text-term-muted hover:bg-term-head xl:block"
+            className="hidden h-6 items-center border border-term-line px-1.5 font-mono text-xs text-term-muted hover:bg-term-head xl:inline-flex"
           >
             GO
           </button>

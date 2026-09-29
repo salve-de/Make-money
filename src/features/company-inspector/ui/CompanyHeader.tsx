@@ -16,7 +16,7 @@ function siteHost(url: string): string | null {
 
 // 表示方法（inline-flex / hidden）と文字色は、クラスの競合を避けるためボタンごとに指定する
 const headerBtn =
-  'h-11 min-w-11 items-center justify-center border-l border-term-line px-2 text-xs hover:bg-term-line hover:text-term-fg-strong lg:h-6 lg:min-w-0 lg:border-l-0 lg:px-2';
+  'h-11 min-w-11 items-center justify-center border-l border-term-line px-2 text-xs hover:bg-term-line hover:text-term-fg-strong lg:h-6 lg:min-w-6 lg:border-l-0 lg:px-2';
 
 export function CompanyHeader({
   entity,

@@ -36,7 +36,7 @@ export const RadarLandmineDetail: React.FC<RadarLandmineDetailProps> = ({ landmi
         ))}
       </dl>
       <details className="border-b border-term-line px-3">
-        <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">要因・対応の資料</summary>
+        <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-6">要因・対応の資料</summary>
         <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg"><p>{landmine.deadlyReason.mechanism}</p><p>{landmine.survivalWedge.whatToAvoid}</p><p>{landmine.survivalWedge.howToPivotOrSurvive}</p>
         {landmine.graveyardExamples.length > 0 && <section className="border-t border-term-line pt-3"><h2 className="text-xs text-term-label">資料内の参考例</h2>{landmine.graveyardExamples.map((example, index) => <article key={index} className="mt-3"><h3 className="font-medium text-term-fg-strong">{example.name}</h3><p>{example.deathTrigger}</p></article>)}</section>}</div>
       </details>

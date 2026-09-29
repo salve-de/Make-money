@@ -278,7 +278,7 @@ function DetailPane({
 
       <div className="min-h-0 flex-1 overflow-y-auto">
         <details className="border-b border-term-line">
-          <summary className="min-h-11 cursor-pointer px-3 py-3 text-xs text-term-label lg:min-h-0 lg:py-1.5">数値の出典・対象時期</summary>
+          <summary className="min-h-11 cursor-pointer px-3 py-3 text-xs text-term-label lg:min-h-6 lg:py-1.5">数値の出典・対象時期</summary>
           <dl className="grid grid-cols-2 border-t border-term-line-soft">
             <div className="min-w-0 border-r border-term-line-soft px-3 py-2">
               <dt className="text-xs text-term-label">資料区分</dt>

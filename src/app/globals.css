@@ -4,6 +4,7 @@
  * Terminal design tokens (A案: プロ用端末).
  * 色は「背景3段・罫線2段・文字5段・アクセント橙1色・選択の青」だけ。
  * 画面では必ずこのトークン（bg-term-* / text-term-* / border-term-*）を使い、16進の直書きはしない。
+ * 文字色はどの背景（bg・row-alt・panel・head・select）の上でも 4.5:1 以上（WCAG 1.4.3）。値を変えたら計算し直す。
  */
 :root {
   color-scheme: dark;
@@ -16,13 +17,13 @@
   --term-fg-strong: #ffffff;
   --term-fg: #d6d8db;
   --term-sub: #b4b8be;
-  --term-muted: #9ea3aa;
-  --term-label: #7d828a;
-  --term-dim: #5d6168;
+  --term-muted: #a7acb3;
+  --term-label: #959aa1;
+  --term-dim: #80858d;
   --term-accent: #ff9f1a;
   --term-accent-bg: #140f06;
   --term-accent-line: #3a2a10;
-  --term-select: #1b2a3d;
+  --term-select: #131d2a;
   --term-select-fg: #c4ccd6;
   --term-positive: #3fb950;
   --term-danger: #f06a5f;
@@ -86,9 +87,9 @@
   --color-zinc-100: #e9eaec;
   --color-zinc-200: #d6d8db;
   --color-zinc-300: #b4b8be;
-  --color-zinc-400: #9ea3aa;
-  --color-zinc-500: #7d828a;
-  --color-zinc-600: #5d6168;
+  --color-zinc-400: #a7acb3;
+  --color-zinc-500: #959aa1;
+  --color-zinc-600: #80858d;
   --color-zinc-700: #3a3d42;
   --color-zinc-800: #26282c;
   --color-zinc-900: #16171a;
@@ -120,6 +121,16 @@ body {
   select,
   textarea {
     font: inherit;
+  }
+
+  /* 開閉の見出しも押せる要素。PC 24px・スマホ 44px を下限にする（個別の min-h-* が優先） */
+  summary {
+    min-height: 24px;
+  }
+  @media (max-width: 1023px) {
+    summary {
+      min-height: 44px;
+    }
   }
 }
 
@@ -223,6 +234,16 @@ body {
 :focus-visible {
   outline: 1px solid var(--term-accent);
   outline-offset: 1px;
+}
+
+/* スマホ・タブレット（1024px未満）の入力欄は 16px。16px 未満だと iPhone が入力のたびに画面を拡大する。
+   レイヤー外に置き、各部品の text-sm 等より優先する。 */
+@media (max-width: 1023px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

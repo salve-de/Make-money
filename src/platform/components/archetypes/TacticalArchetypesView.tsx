@@ -138,7 +138,7 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ 
   const related = activeEntry ? allEntities.filter((entity) => activeEntry.record.proofEntityIds.includes(entity.id)) : [];
   const linkBtn = 'inline-flex min-h-11 items-center rounded-sm border border-term-line px-3 text-sm text-term-select-fg hover:bg-term-head lg:min-h-8';
   const extra = activeEntry ? <details className="border-b border-term-line px-3">
-    <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">背景・初動の資料</summary>
+    <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-6">背景・初動の資料</summary>
     <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg">
       <p>{activeEntry.record.signalData}</p><p>{activeEntry.record.incumbentTrap}</p><p>{activeEntry.record.trendingPlaybook}</p><p>{activeEntry.record.guerrillaTractionLog}</p>
       {activeEntry.record.techStack.length > 0 && <p>構成例: {activeEntry.record.techStack.join(' / ')}</p>}

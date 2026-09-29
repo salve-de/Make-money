@@ -661,7 +661,7 @@ function StepBody({
             href={checkoutHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center gap-1.5 text-sm text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6"
           >
             決済導線を実機確認
             <ExternalLink aria-hidden="true" className="h-3 w-3" />

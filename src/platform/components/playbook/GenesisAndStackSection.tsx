@@ -48,10 +48,10 @@ export const GenesisSection: React.FC<GenesisSectionProps> = ({ genesisTactics }
           <h2 className="border-b border-term-line-soft bg-term-head px-3 py-2 text-sm font-semibold text-term-fg-strong">{guide?.title || tactic.tacticName}</h2>
           <div className="px-3 py-2">
             <p className="text-sm leading-6 text-term-fg">{tactic.summary}</p>
-            <Link href={`/?entity=${encodeURIComponent(tactic.proofEntity.id)}&mode=LEDGER`} className="mt-1 inline-flex min-h-11 items-center text-xs text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0">参考事例: {tactic.proofEntity.name}</Link>
+            <Link href={`/?entity=${encodeURIComponent(tactic.proofEntity.id)}&mode=LEDGER`} className="mt-1 inline-flex min-h-11 items-center text-xs text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">参考事例: {tactic.proofEntity.name}</Link>
           </div>
           {tactic.executionSteps.length > 0 && <details className="border-t border-term-line-soft px-3">
-            <summary className="min-h-11 cursor-pointer py-2.5 text-sm text-term-select-fg lg:min-h-0">具体的な手順</summary>
+            <summary className="min-h-11 cursor-pointer py-2.5 text-sm text-term-select-fg lg:min-h-6">具体的な手順</summary>
             <ol className="list-decimal space-y-2 pb-3 pl-5 text-sm leading-6 text-term-sub">
               {tactic.executionSteps.map((step, i) => <li key={i}>{step}</li>)}
             </ol>
@@ -120,7 +120,7 @@ export const GoldenStackSection: React.FC<GoldenStackSectionProps> = ({ goldenSt
             ))}
           </dl>
           <details className="border-t border-term-line-soft px-3">
-            <summary className="min-h-11 cursor-pointer py-2.5 text-sm text-term-select-fg lg:min-h-0">構成案の前提・費用</summary>
+            <summary className="min-h-11 cursor-pointer py-2.5 text-sm text-term-select-fg lg:min-h-6">構成案の前提・費用</summary>
             <dl className="space-y-2 pb-3 text-sm leading-6 text-term-sub">
               <div><dt className="text-xs text-term-label">構成の考え方</dt><dd>{recipe.description}</dd></div>
               <div><dt className="text-xs text-term-label">想定する規模</dt><dd>{recipe.targetScale}</dd></div>

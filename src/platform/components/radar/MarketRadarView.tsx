@@ -125,7 +125,7 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
         )}
 
         <div className="flex justify-end border-t border-term-line px-3 py-2 text-sm">
-          <Link href="/" className="inline-flex min-h-11 items-center text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0">
+          <Link href="/" className="inline-flex min-h-11 items-center text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">
             事例一覧へ
           </Link>
         </div>

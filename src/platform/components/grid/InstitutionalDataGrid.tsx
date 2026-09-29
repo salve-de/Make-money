@@ -198,7 +198,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       onClick={(e) => onToggleBookmark(entity.id, e)}
                       aria-label={isBookmarked ? `${entity.name}の保存を解除` : `${entity.name}を保存`}
                       aria-pressed={isBookmarked}
-                      className={`inline-flex h-[22px] w-[22px] items-center justify-center rounded-sm hover:bg-term-line ${isBookmarked ? 'text-term-accent' : 'text-term-dim hover:text-term-fg'}`}
+                      className={`inline-flex h-6 w-6 items-center justify-center rounded-sm hover:bg-term-line ${isBookmarked ? 'text-term-accent' : 'text-term-dim hover:text-term-fg'}`}
                     >
                       <Bookmark className={`h-3.5 w-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
                     </button>

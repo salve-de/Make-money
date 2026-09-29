@@ -69,7 +69,7 @@ export default async function MarketplacePage({ searchParams }: {
             {nextOffset !== null && <Link href={`/marketplace?offset=${nextOffset}`} className={`${BTN} border-term-line text-term-fg hover:bg-term-head`}>次へ</Link>}
           </nav>
         )}
-        <details className="border-t border-term-line px-3 py-2 text-xs text-term-label"><summary className="min-h-11 cursor-pointer lg:min-h-0">掲載情報について</summary><p className="mt-2">掲載者が登録した内容です。申込み・決済は各サービスのサイトで行います。</p></details>
+        <details className="border-t border-term-line px-3 py-2 text-xs text-term-label"><summary className="min-h-11 cursor-pointer lg:min-h-6">掲載情報について</summary><p className="mt-2">掲載者が登録した内容です。申込み・決済は各サービスのサイトで行います。</p></details>
       </main>
     </div>
   );
