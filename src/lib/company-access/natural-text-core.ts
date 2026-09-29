@@ -65,9 +65,10 @@ export function tidyText(value: string): string {
 }
 
 /** 表示名の候補（長い順）。事例名・運営者名・人物名。未確認の値は使わない。 */
-export function entityNames(entity: { name?: unknown; legalEntity?: unknown; founder?: unknown; profileSubject?: unknown }): string[] {
+export function entityNames(entity: object): string[] {
+  const record = entity as Record<string, unknown>;
   const out = new Set<string>();
-  for (const value of [entity.name, entity.legalEntity, entity.founder, entity.profileSubject]) {
+  for (const value of [record.name, record.legalEntity, record.founder, record.profileSubject]) {
     if (typeof value !== 'string') continue;
     const t = value.trim();
     if (!t || /^UNKNOWN/i.test(t) || /未確認|不明|非公開/.test(t)) continue;

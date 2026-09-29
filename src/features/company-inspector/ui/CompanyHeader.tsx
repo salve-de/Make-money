@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
+import { useCompareTray } from '@/platform/hooks/useCompareTray';
 import type { InspectorSectionProps } from '../model/section-props';
 import { ShareModal } from './ShareModal';
 
@@ -53,6 +54,8 @@ export function CompanyHeader({
   | 'positionLabel'
 >) {
   const [isShareOpen, setIsShareOpen] = useState(false);
+  const compare = useCompareTray();
+  const inCompare = compare.has(entity.id);
 
   const rawUrl = entity.url || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
@@ -94,6 +97,17 @@ export function CompanyHeader({
                 {isBookmarked ? '保存済' : '保存'}
               </button>
             )}
+            <button
+              type="button"
+              onClick={() => compare.toggle({ id: entity.id, name: entity.name })}
+              disabled={!inCompare && compare.isFull}
+              aria-pressed={inCompare}
+              className={`${headerBtn} inline-flex disabled:cursor-not-allowed disabled:text-term-dim ${inCompare ? 'text-term-accent' : 'text-term-fg'}`}
+              aria-label={inCompare ? `${entity.name}を比較から外す` : `${entity.name}を比較に追加`}
+              title={inCompare ? '比較から外す' : compare.isFull ? '比較は4件までです' : '比較に追加'}
+            >
+              {inCompare ? '比較中' : '比較'}
+            </button>
             <button
               type="button"
               onClick={() => setIsShareOpen(true)}

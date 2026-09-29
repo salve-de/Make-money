@@ -178,7 +178,7 @@ export function naturalizeEntity<T extends FinancialEntity>(entity: T): T {
 
 function naturalizeUncached<T extends FinancialEntity>(entity: T): T {
   const context: TextContext = {
-    names: entityNames(entity as { name?: unknown; legalEntity?: unknown; founder?: unknown; profileSubject?: unknown }),
+    names: entityNames(entity),
     subject: displaySubject(entity.name),
   };
   const next = { ...entity } as T & Mutable;
@@ -238,7 +238,7 @@ function naturalizeUncached<T extends FinancialEntity>(entity: T): T {
     }
     const legacy = entity as Mutable;
     for (const key of LEGACY_PROSE_KEYS) {
-      if (typeof legacy[key] === 'string') next[key] = prose(legacy[key], context);
+      if (typeof legacy[key] === 'string') (next as Mutable)[key] = prose(legacy[key], context);
     }
   }
 

@@ -39,7 +39,7 @@ async function main() {
     if (!Array.isArray(rows)) throw new Error(`${input} is not an entity array`);
     for (const row of rows) {
       if (!row || typeof row !== 'object' || typeof (row as { id?: unknown }).id !== 'string') continue;
-      const entity = row as { id: string };
+      const entity = row as Record<string, unknown> & { id: string };
       entityCount += 1;
       const names = entityNames(entity);
       for (const path of NARRATIVE_TEXT_PATHS) {

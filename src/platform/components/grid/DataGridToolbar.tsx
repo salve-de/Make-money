@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { CompareTrayLink } from '@/platform/components/compare/CompareTrayLink';
 import { Check, Layers, Search, SlidersHorizontal, X } from 'lucide-react';
 import { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { KNOWN_INGEST_BATCHES } from '@/shared/terminal';
@@ -211,6 +212,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               表示中を登録
             </button>
           )}
+
+          <CompareTrayLink />
 
           <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">
             <span className="text-term-fg">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件

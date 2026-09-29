@@ -2,6 +2,7 @@
 
 import { useModalFocus } from '@/platform/hooks/useModalFocus';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { AuthModal } from '@/components/auth/AuthModal';
@@ -65,6 +66,9 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
           </button>
           {errorMessage && <p role="alert" className="text-sm text-term-danger">{errorMessage}</p>}
           <p className="text-xs leading-5 text-term-label">財務・出典情報は無料。購入後はログインしたアカウントに反映されます。</p>
+          <p className="text-xs leading-5 text-term-label">
+            購入前に<Link href="/legal/tokushoho" className="mx-0.5 text-term-sub underline hover:text-term-fg-strong">特定商取引法に基づく表記</Link>と<Link href="/legal/terms" className="mx-0.5 text-term-sub underline hover:text-term-fg-strong">利用規約</Link>をご確認ください。
+          </p>
         </div>
       </div>
       <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} />

@@ -8,6 +8,7 @@ export type GlobalNavSection =
   | 'BUILDER'
   | 'EXECUTION'
   | 'MARKETPLACE'
+  | 'COMPARE'
   | 'WELCOME';
 
 export type LocalWorkspaceMode = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS';
@@ -30,6 +31,7 @@ export const PRIMARY_NAV_ITEMS: NavItem[] = [
 
 /** 「その他」の中身 */
 export const SECONDARY_NAV_ITEMS: NavItem[] = [
+  { id: 'COMPARE', label: '事例の比較', href: '/compare' },
   { id: 'MARKETPLACE', label: 'サービス一覧', href: '/marketplace' },
   { id: 'EXECUTION', label: '実行計画', href: '/execute' },
 ];
@@ -41,6 +43,13 @@ export const LOCAL_MODE_BY_SECTION: Partial<Record<GlobalNavSection, LocalWorksp
   ARCHETYPES: 'ARCHETYPES',
   SYNTHESIS: 'SYNTHESIS',
 };
+
+/** 規約・ポリシー・特定商取引法の表記（メニューの下部と法務ページで使う） */
+export const LEGAL_LINKS = [
+  { href: '/legal/terms', label: '利用規約' },
+  { href: '/legal/privacy', label: 'プライバシーポリシー' },
+  { href: '/legal/tokushoho', label: '特定商取引法に基づく表記' },
+] as const;
 
 export const PRO_HREF = '/?pro=1';
 export const SAVED_HREF = '/?mode=SYNTHESIS';

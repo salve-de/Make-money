@@ -13,6 +13,7 @@ import {
   PRO_HREF,
   SAVED_HREF,
   SECONDARY_NAV_ITEMS,
+  LEGAL_LINKS,
 } from './navigationItems';
 
 export type { GlobalNavSection } from './navigationItems';
@@ -103,6 +104,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
     if (pathname?.startsWith('/marketplace')) return 'MARKETPLACE';
+    if (pathname?.startsWith('/compare')) return 'COMPARE';
     if (pathname?.startsWith('/build')) return 'BUILDER';
     if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
     if (pathname?.startsWith('/radar')) return 'RADAR';
@@ -279,6 +281,13 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
                   {item.label}
                 </Link>
               ))}
+              <div className="flex flex-col border-t border-term-line py-1">
+                {LEGAL_LINKS.map((link) => (
+                  <Link key={link.href} href={link.href} prefetch={false} className="flex h-7 items-center px-3 text-xs text-term-label hover:bg-term-head hover:text-term-fg-strong">
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </details>
         </nav>

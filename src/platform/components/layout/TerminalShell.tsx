@@ -306,7 +306,7 @@ export const TerminalShell: React.FC<{
               batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
               catalogTotal={catalogTotal}
             />
-            <NewArrivalsBanner release={newArrivalsRelease} onOpen={openNewArrivals} />
+            <NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} onOpenEntity={openEntity} />
             <FoundationSearchContinuation available={foundationSearchContinuationAvailable} failed={foundationSearchContinuationFailed} loading={foundationLoading} retryMessage={foundationSearchRetryMessage} onContinue={continueFoundationSearch} />
             <InstitutionalDataGrid
               entities={filteredEntities}
