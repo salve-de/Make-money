@@ -7,7 +7,7 @@ import { executionOwnerKey } from '@/lib/execution/generation-store';
 export const dynamic = 'force-dynamic';
 const json = (body: unknown, init: { status?: number } = {}) => NextResponse.json(body, { ...init, headers: { 'Cache-Control': 'private, no-store', Vary: 'Authorization' } });
 interface UserRow { id: string; email: string; display_name: string | null; role: string }
-interface DeletionReadback { users: number; execution_projects: number; marketplace_listings: number; execution_generation: number }
+interface DeletionReadback { users: number; execution_projects: number; marketplace_listings: number; execution_generation: number; verified_revenue?: number }
 export async function GET(req: NextRequest) {
   const auth = req.headers.get('authorization');
   const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
@@ -33,11 +33,15 @@ export async function DELETE(req: NextRequest) {
   try {
     // A checkout can run before migration 0011 is applied. Older databases
     // have no listings to delete; do not break their existing account deletion.
-    const [schema] = await queryD1<{ available: number }>(
-      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available",
+    // The same holds for migration 0012 (verified_revenue): the user's UID is kept there
+    // for the per-user cooldown, so those rows are deleted with the account when the table exists.
+    const [schema] = await queryD1<{ available: number; verifications?: number }>(
+      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='verified_revenue') AS verifications",
     );
-    if (!schema || (schema.available !== 0 && schema.available !== 1)) throw new Error('Invalid schema readback');
+    if (!schema || (schema.available !== 0 && schema.available !== 1)
+      || (schema.verifications !== undefined && schema.verifications !== 0 && schema.verifications !== 1)) throw new Error('Invalid schema readback');
     const hasListings = schema.available === 1;
+    const hasVerifications = schema.verifications === 1;
     const resetAt = new Date().toISOString();
     const ownerKey = executionOwnerKey(user.uid);
     await batchD1([
@@ -46,6 +50,7 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM chat_messages WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM synthesized_ideas WHERE user_id = ?', params: [user.uid] },
       ...(hasListings ? [{ sql: 'DELETE FROM marketplace_listings WHERE user_id = ?', params: [user.uid] }] : []),
+      ...(hasVerifications ? [{ sql: 'DELETE FROM verified_revenue WHERE user_id = ?', params: [user.uid] }] : []),
       { sql: 'DELETE FROM build_sessions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM submissions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM newsletter_subscribers WHERE user_id = ?', params: [user.uid] },
@@ -55,11 +60,12 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM users WHERE id = ?', params: [user.uid] },
     ]);
     const [remaining] = await queryD1<DeletionReadback>(
-      `SELECT (SELECT COUNT(*) FROM users WHERE id = ?) AS users, (SELECT COUNT(*) FROM execution_projects WHERE user_id = ?) AS execution_projects, ${hasListings ? '(SELECT COUNT(*) FROM marketplace_listings WHERE user_id = ?)' : '0'} AS marketplace_listings, (SELECT generation FROM execution_resets WHERE owner_key = ?) AS execution_generation`,
-      [user.uid, user.uid, ...(hasListings ? [user.uid] : []), ownerKey],
+      `SELECT (SELECT COUNT(*) FROM users WHERE id = ?) AS users, (SELECT COUNT(*) FROM execution_projects WHERE user_id = ?) AS execution_projects, ${hasListings ? '(SELECT COUNT(*) FROM marketplace_listings WHERE user_id = ?)' : '0'} AS marketplace_listings, (SELECT generation FROM execution_resets WHERE owner_key = ?) AS execution_generation${hasVerifications ? ', (SELECT COUNT(*) FROM verified_revenue WHERE user_id = ?) AS verified_revenue' : ''}`,
+      [user.uid, user.uid, ...(hasListings ? [user.uid] : []), ownerKey, ...(hasVerifications ? [user.uid] : [])],
     );
     if (!remaining || Number(remaining.users) !== 0 || Number(remaining.execution_projects) !== 0
       || Number(remaining.marketplace_listings) !== 0
+      || (hasVerifications && Number(remaining.verified_revenue) !== 0)
       || !Number.isSafeInteger(Number(remaining.execution_generation)) || Number(remaining.execution_generation) < 1) {
       throw new Error('User deletion readback failed');
     }

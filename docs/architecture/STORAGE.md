@@ -12,6 +12,8 @@
 
 2026-09-24: Builder製品と外部制作製品をMake-Moneyへ掲載するためmigration 0011（`marketplace_listings`）を追加した。掲載行は認証UIDに所有紐付けし、Builder製品だけ完成済み`build_sessions`へ紐づける。`source_type`でBuilder由来と外部由来を区別し、公開一覧は`status='published'`の許可済み項目だけを読む。公開ページが持つのは説明、掲載者表示名、利用者が登録したHTTPSサービス/申込URL、価格表示であり、生成コード・preview token・実績保証は含まない。このmigrationはGit上の変更であり、本番D1へ未適用。
 
+2026-09-29: 事例の運営者が自分のStripeを読み取り専用でつなぎ、実際の売上を「決済データで確認済み」と表示できるようにするためmigration 0012（`verified_revenue`）を追加した。運営者の制限付きAPIキーは1回の確認にだけ使い、D1・R2・ログのどこにも保存しない。決済アカウントIDはSHA-256の値だけを保存し、運営者のFirebase UIDは同じ人が同じ事例を1時間に2回確認できないようにする制限と退会時の削除だけに使う。公開APIが返すのは事例ID、決済アカウントのサイトのドメイン、通貨、直近30日の売上、月額換算の継続売上、有効なサブスクリプション数、期間、確認時刻だけである。このmigrationはGit上の変更であり、本番D1へ未適用。仕組みは[決済データによる売上確認](../VERIFIED_REVENUE.md)。
+
 2026-09-12: Neon管理APIを読み取り専用で再監査した。接続可能な所有プロジェクトは `Investrader-hub` だけで、Make-MoneyというNeonプロジェクトは存在しなかった。そのDBでMake-Money旧schema名（`businesses`、`business_ideas`、`market_signals`、`saved_items`、`submissions`、`newsletter_subscribers`、`analyst_notes`、`chat_conversations`、`synthesized_ideas`）を照会した結果は0件。`users`等の一般名テーブルには別プロジェクトのデータがあるため、所有境界を証明できないままMake-MoneyのR2へコピーしていない。Neonは引き続きMake-Moneyの実行時保存先にしない。
 
 ## 認証環境の作成状況（2026-09-11）
@@ -30,6 +32,7 @@
 | ユーザー設定、保存企業、投稿、会話 | プロジェクト専用D1 | 認証済みAPI → 所有者を限定したSQL。構造変更はSQL migration | 更新・検索・整合性制約が必要 |
 | First Dollar実行プロジェクト | プロジェクト専用D1 `execution_projects` | 認証済みAPI。server-issued `generation` と `revision` のCASで保存。匿名開始時だけブラウザlocalStorage | 別端末・同時PUT・ブラウザ時計ずれで新しい編集を失わない |
 | Builder・外部サービス掲載ページ | プロジェクト専用D1 `marketplace_listings` | 認証済みAPIが本人のBuilderセッションを検証、または外部URLの掲載行を所有UIDに紐付け。公開側は掲載許可項目だけを読み出す | 生成コードやpreview tokenを出さず、掲載者の公開URLへ案内する。購入照合・報酬分配は未接続 |
+| 決済データで確認済みの売上 | プロジェクト専用D1 `verified_revenue` | 認証済みAPIが、運営者のStripe読み取り専用キーを1回だけ使って売上・月額換算を集計し、結果の行だけ追加する。キーと決済アカウントID（ハッシュ以外）は保存しない。公開側は最新の1件だけを読む | 運営者の自己申告ではなく決済側の実データに基づく表示にする。決済アカウントのサイトが事例の公式サイトと一致したものだけを保存する |
 | 実行データ削除tombstone | プロジェクト専用D1 `execution_resets` | UIDを直接保存せずSHA-256化した `owner_key` と世代番号・reset時刻だけ保持 | 退会後に他端末の古いlocal draftがD1へ再生成されるのを防ぐ |
 | ニュースレター購読 | プロジェクト専用D1 | 認証済みならUIDを紐付け、匿名なら解除トークンのハッシュだけを保存。解除APIで削除 | メール本文をAPI応答へ返さず、匿名でも本人が削除できる |
 | 決済イベント、購入・返金・利用権 | プロジェクト専用D1 | 署名検証済みStripe webhook → 重複排除・原子的更新 | 二重処理、順序逆転、返金後の権限残存を防ぐ |
@@ -103,7 +106,7 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 
 D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。復元手順と合成データによる自動演習は [RECOVERY.md](RECOVERY.md) に記載します。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
 
-アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、Builderサービス掲載、Builderセッション、First Dollar実行プロジェクト、`users` 行をD1の一括処理で削除する。同じbatchで `execution_resets` の世代を1つ進める。これにより、削除を実行したブラウザ以外の端末に古いlocalStorageが残っていても、旧generationのPUTをD1が拒否し、削除済み本文を復活させない。`execution_resets` に保持するのは一方向ハッシュ化owner key、generation、reset時刻だけで、実行本文・顧客・URL・売上・メモ・生UIDは保持しない。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
+アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、Builderサービス掲載、決済データによる売上確認（`verified_revenue`。migration適用後）、Builderセッション、First Dollar実行プロジェクト、`users` 行をD1の一括処理で削除する。同じbatchで `execution_resets` の世代を1つ進める。これにより、削除を実行したブラウザ以外の端末に古いlocalStorageが残っていても、旧generationのPUTをD1が拒否し、削除済み本文を復活させない。`execution_resets` に保持するのは一方向ハッシュ化owner key、generation、reset時刻だけで、実行本文・顧客・URL・売上・メモ・生UIDは保持しない。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
 
 匿名のニュースレター登録と掲載申請には、Cloudflareのクライアント識別子を一方向ハッシュ化したD1の時間窓カウンタを適用する。これは最低限のスパム抑制であり、WAF・Turnstile・分散攻撃への完全な防御を意味しない。実運用の閾値はトラフィックを観測して調整する。
 
