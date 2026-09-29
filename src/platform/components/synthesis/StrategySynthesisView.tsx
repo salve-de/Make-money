@@ -6,6 +6,7 @@ import { useStrategySynthesis } from '../../hooks/useStrategySynthesis';
 import { formatYen } from '../../utils/moneyDisplay';
 import { SynthesisEntitiesSidebar } from './SynthesisEntitiesSidebar';
 import { SynthesisConsolePane } from './SynthesisConsolePane';
+import { IdeaResearchPanel } from './IdeaResearchPanel';
 
 interface StrategySynthesisViewProps {
   allEntities: FinancialEntity[];
@@ -80,8 +81,8 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
   // 円表示は共通の moneyDisplay に統一する。USD 表示のときだけフック側の書式を使う。
   const formatMoney = (yen: number) => (currency === 'USD' ? hookFormatMoney(yen) : formatYen(yen));
 
-  return (
-    <div className="flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-term-bg font-sans text-term-fg md:flex-row">
+  const workspace = (
+    <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-term-bg font-sans text-term-fg md:flex-row">
       <nav className="grid shrink-0 grid-cols-2 border-b border-term-line bg-term-panel md:hidden" aria-label="事業検討の作業面">
         <button type="button" onClick={() => setMobilePane('SOURCES')} aria-pressed={mobilePane === 'SOURCES'} className={`min-h-11 border-r border-term-line px-2 text-sm ${mobilePane === 'SOURCES' ? 'bg-[var(--surface-overlay)] text-term-fg-strong shadow-[inset_0_-2px_0_var(--term-accent)]' : 'text-term-muted'}`}>事例とメモ</button>
         <button type="button" onClick={() => setMobilePane('WORKSPACE')} aria-pressed={mobilePane === 'WORKSPACE'} className={`min-h-11 px-2 text-sm ${mobilePane === 'WORKSPACE' ? 'bg-[var(--surface-overlay)] text-term-fg-strong shadow-[inset_0_-2px_0_var(--term-accent)]' : 'text-term-muted'}`}>企画案・相談</button>
@@ -125,6 +126,14 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
         messagesEndRef={messagesEndRef}
         requestError={requestError}
       />
+    </div>
+  );
+
+  // 上部に「自分のアイデアを調べる」を置き、その下に従来の事例・メモ／企画案・相談の作業面をそのまま並べる。
+  return (
+    <div className="flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-term-bg">
+      <IdeaResearchPanel formatMoney={formatMoney} />
+      {workspace}
     </div>
   );
 };

@@ -6,63 +6,12 @@ import { queryD1, executeD1, batchD1 } from '@/lib/storage/d1';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
+import { boundedGeminiText, callGeminiApi } from '@/lib/strategy/gemini';
+import { sanitizeGeneratedText, sanitizeSynthesizedIdeas } from '@/lib/strategy/guidance-safety';
 
 export const dynamic = 'force-dynamic';
 const MAX_STRATEGY_REQUEST_BYTES = 1 * 1024 * 1024;
-const MAX_GEMINI_RESPONSE_CHARS = 128 * 1024;
 const SAFETY_BOUNDARY_NOTICE = '公開事例は事実の記録として扱い、実行案は法令・各サービス規約・相手の同意を前提にします。根拠が不足する数値は未確認のまま検証します。';
-
-// Historical source data can mention abusive or terms-violating growth tactics.
-// Those descriptions may remain in the research ledger, but generated advice
-// must never turn them into instructions.
-const PROHIBITED_GUIDANCE_PATTERNS = [
-  /自演|なりすまし|別人を装/iu,
-  /dm爆撃|迷惑dm|スパム(?:送信|dm)/iu,
-  /不正(?:な)?スクレイピング|無断(?:取得|転載|連絡)/iu,
-  /規約(?:の)?(?:隙間|抜け道|回避)|terms?.{0,12}(?:bypass|evasion)/iu,
-  /直取引(?:を)?(?:封鎖|妨害|禁止)/iu,
-  /sockpuppet|fake\s*account|spam\s*dm|unauthorized\s*scrap/iu,
-];
-
-function containsProhibitedGuidance(value: unknown): boolean {
-  if (typeof value === 'string') {
-    const normalized = value.replace(/[\s　]+/gu, '');
-    return PROHIBITED_GUIDANCE_PATTERNS.some((pattern) => pattern.test(value) || pattern.test(normalized));
-  }
-  if (Array.isArray(value)) return value.some(containsProhibitedGuidance);
-  if (value && typeof value === 'object') {
-    return Object.values(value as Record<string, unknown>).some(containsProhibitedGuidance);
-  }
-  return false;
-}
-
-function sanitizeGeneratedText(value: string): string {
-  return containsProhibitedGuidance(value)
-    ? '公開事例に規約・法令違反につながる記述が含まれるため、許可を得た正規の手段へ置き換えて検証します。'
-    : value;
-}
-
-function sanitizeSynthesizedIdeas(ideas: SynthesizedIdea[]): SynthesizedIdea[] {
-  return ideas.map((idea) => ({
-    ...idea,
-    dimensionLabel: sanitizeGeneratedText(idea.dimensionLabel),
-    title: sanitizeGeneratedText(idea.title),
-    targetPainWallet: sanitizeGeneratedText(idea.targetPainWallet),
-    structuralArbitrage: sanitizeGeneratedText(idea.structuralArbitrage),
-    requiredTools: idea.requiredTools.map((tool) => ({
-      ...tool,
-      name: sanitizeGeneratedText(tool.name),
-      purpose: sanitizeGeneratedText(tool.purpose),
-    })),
-    first100TractionPlaybook: idea.first100TractionPlaybook.map(sanitizeGeneratedText),
-    userNoteInspiration: sanitizeGeneratedText(idea.userNoteInspiration),
-  }));
-}
-
-function boundedGeminiText(text: string): string {
-  if (!text || text.length > MAX_GEMINI_RESPONSE_CHARS) throw new Error('Gemini response exceeded the safety limit');
-  return text;
-}
 
 // =========================================================================
 // 内蔵アナリスト推論エンジン（Fallback Analyst Engine）
@@ -206,66 +155,6 @@ function generateFallbackChatResponse(
     content: `${entity.name}の事例記録${period ? `（${period}）` : ''}\n\n${sections.length ? sections.join('\n\n') : 'この項目の記録はありません。'}`,
     suggestedActionPrompts: prompts,
   };
-}
-
-interface GeminiApiResponse {
-  text: string;
-  sources?: Array<{ title: string; url: string }>;
-}
-
-// =========================================================================
-// Gemini API による高度推論（APIキー存在時）
-// 最安運用: 必要時のみ Google Search Grounding を有効化
-// =========================================================================
-async function callGeminiApi(
-  prompt: string,
-  apiKey: string,
-  enableSearch: boolean = false
-): Promise<GeminiApiResponse> {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
-  
-  const requestBody: Record<string, unknown> = {
-    contents: [{ parts: [{ text: prompt }] }],
-    generationConfig: {
-      temperature: 0.3,
-      maxOutputTokens: 2048,
-    },
-  };
-
-  // リアルタイム検索AIが必要な場合のみGoogle検索ツールを有効化（完全無料枠運用・最安化）
-  if (enableSearch) {
-    requestBody.tools = [{ googleSearch: {} }];
-  }
-
-  const resp = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(requestBody),
-  });
-
-  if (!resp.ok) {
-    throw new Error(`Gemini API returned status ${resp.status}`);
-  }
-
-  const data = await resp.json();
-  const candidate = data.candidates?.[0];
-  const text = candidate?.content?.parts?.[0]?.text || '';
-
-  // Google Search Grounding の参照元（URL・タイトル）の抽出
-  const sources: Array<{ title: string; url: string }> = [];
-  const groundingChunks = candidate?.groundingMetadata?.groundingChunks;
-  if (Array.isArray(groundingChunks)) {
-    for (const chunk of groundingChunks) {
-      if (chunk?.web?.uri) {
-        sources.push({
-          title: chunk.web.title || chunk.web.uri,
-          url: chunk.web.uri,
-        });
-      }
-    }
-  }
-
-  return { text, sources: sources.length > 0 ? sources : undefined };
 }
 
 /**

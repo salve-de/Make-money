@@ -4,6 +4,7 @@ import { batchD1, executeD1, queryD1 } from '@/lib/storage/d1';
 import { getProEntitlement } from '@/lib/payments/entitlement';
 import { findManageableSubscription } from '@/lib/payments/billing';
 import { executionOwnerKey } from '@/lib/execution/generation-store';
+import { businessSaleDataRemains, businessSaleDeletionStatements } from '@/lib/marketplace/business-account';
 
 export const dynamic = 'force-dynamic';
 const json = (body: unknown, init: { status?: number } = {}) => NextResponse.json(body, { ...init, headers: { 'Cache-Control': 'private, no-store', Vary: 'Authorization' } });
@@ -46,16 +47,18 @@ export async function DELETE(req: NextRequest) {
     // have no listings to delete; do not break their existing account deletion.
     // The same holds for migration 0012 (verified_revenue): the user's UID is kept there
     // for the per-user cooldown, so those rows are deleted with the account when the table exists.
-    // Saved searches (migration 0013) follow the same rule. All flags come from one statement.
-    const [schema] = await queryD1<{ available: number; verifications?: number; saved_searches?: number }>(
-      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='verified_revenue') AS verifications, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='saved_searches') AS saved_searches",
+    // Saved searches (0013) and business-sale listings/inquiries (0014) follow the same rule. All flags come from one statement.
+    const [schema] = await queryD1<{ available: number; verifications?: number; saved_searches?: number; businessSale?: number }>(
+      "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='marketplace_listings') AS available, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='verified_revenue') AS verifications, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='saved_searches') AS saved_searches, EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='business_sale_listings') AS businessSale",
     );
     if (!schema || (schema.available !== 0 && schema.available !== 1)
       || (schema.verifications !== undefined && schema.verifications !== 0 && schema.verifications !== 1)
-      || (schema.saved_searches !== undefined && schema.saved_searches !== 0 && schema.saved_searches !== 1)) throw new Error('Invalid schema readback');
+      || (schema.saved_searches !== undefined && schema.saved_searches !== 0 && schema.saved_searches !== 1)
+      || (schema.businessSale !== undefined && schema.businessSale !== 0 && schema.businessSale !== 1)) throw new Error('Invalid schema readback');
     const hasListings = schema.available === 1;
     const hasVerifications = schema.verifications === 1;
     const hasSavedSearches = schema.saved_searches === 1;
+    const hasBusinessSales = schema.businessSale === 1;
     const resetAt = new Date().toISOString();
     const ownerKey = executionOwnerKey(user.uid);
     await batchD1([
@@ -65,6 +68,7 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM synthesized_ideas WHERE user_id = ?', params: [user.uid] },
       ...(hasListings ? [{ sql: 'DELETE FROM marketplace_listings WHERE user_id = ?', params: [user.uid] }] : []),
       ...(hasVerifications ? [{ sql: 'DELETE FROM verified_revenue WHERE user_id = ?', params: [user.uid] }] : []),
+      ...(hasBusinessSales ? businessSaleDeletionStatements(user.uid) : []),
       { sql: 'DELETE FROM build_sessions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM submissions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM newsletter_subscribers WHERE user_id = ?', params: [user.uid] },
@@ -84,6 +88,7 @@ export async function DELETE(req: NextRequest) {
       || !Number.isSafeInteger(Number(remaining.execution_generation)) || Number(remaining.execution_generation) < 1) {
       throw new Error('User deletion readback failed');
     }
+    if (hasBusinessSales && await businessSaleDataRemains(user.uid)) throw new Error('Business sale deletion readback failed');
     return json({
       success: true,
       scope: 'application_data',

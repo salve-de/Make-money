@@ -16,6 +16,8 @@
 
 2026-09-29: 保存した検索条件と新着メール通知のためmigration 0013（`saved_searches`、`notification_sends`）を追加した。`saved_searches` は認証UIDに所有紐付けし、1人20件までを1文のSQL（件数を数えて挿入）で保証する。保存事例（bookmarks、`BOOKMARKED`）は条件として保存しない。`notification_sends` は通知メールの二重送信を防ぐ台帳で、宛先は一方向SHA-256だけを持ち、メールアドレスは残さない。送信手順・環境変数・定期実行は [NOTIFICATIONS.md](../NOTIFICATIONS.md)。このmigrationはGit上の変更であり、本番D1へ未適用。
 
+2026-09-29: 小規模事業の売買掲載のためmigration 0014（`business_sale_listings` / `business_sale_inquiries`）を追加した。掲載は認証UIDに所有紐付けし、売上の根拠 `revenue_basis` は常に本人申告（`self_reported`）で作る。`stripe_verified` と `verification_id`（売上検証の記録を指す。外部キーなし）を付けられるのは売上検証の仕組みだけで、この機能のAPIは受け取らない。売上検証済みの掲載でも、月商を書き換えたら本人申告へ戻す。公開一覧・公開詳細は `status='published'` の項目だけを読み、売り手のUIDと買い手の連絡先は読まない。問い合わせ（買い手の連絡先メール・本文）は掲載の持ち主だけが管理画面で読め、公開一覧・公開詳細・通知メールには出さない。同じ買い手から同じ掲載への問い合わせは、公開中であることと直近24時間の問い合わせがないことを条件にした1本のINSERTで、1日1回に制限する。売り手への「問い合わせが届きました」メールは、`RESEND_API_KEY` と `NOTIFY_FROM_EMAIL` の両方が設定されているときだけ、`users.email`（初回ログイン時にFirebaseトークンから保存した値）を宛先に送る。本文に問い合わせ内容は入れず、匿名アカウント用の仮アドレスには送らず、送れなくても問い合わせの保存結果は変えない。金鉱録は売買の仲介・価格の保証・契約の代行をしない（全ページに注意書きを出す）。このmigrationはGit上の変更であり、本番D1へ未適用。
+
 2026-09-12: Neon管理APIを読み取り専用で再監査した。接続可能な所有プロジェクトは `Investrader-hub` だけで、Make-MoneyというNeonプロジェクトは存在しなかった。そのDBでMake-Money旧schema名（`businesses`、`business_ideas`、`market_signals`、`saved_items`、`submissions`、`newsletter_subscribers`、`analyst_notes`、`chat_conversations`、`synthesized_ideas`）を照会した結果は0件。`users`等の一般名テーブルには別プロジェクトのデータがあるため、所有境界を証明できないままMake-MoneyのR2へコピーしていない。Neonは引き続きMake-Moneyの実行時保存先にしない。
 
 ## 認証環境の作成状況（2026-09-11）
@@ -35,6 +37,7 @@
 | First Dollar実行プロジェクト | プロジェクト専用D1 `execution_projects` | 認証済みAPI。server-issued `generation` と `revision` のCASで保存。匿名開始時だけブラウザlocalStorage | 別端末・同時PUT・ブラウザ時計ずれで新しい編集を失わない |
 | Builder・外部サービス掲載ページ | プロジェクト専用D1 `marketplace_listings` | 認証済みAPIが本人のBuilderセッションを検証、または外部URLの掲載行を所有UIDに紐付け。公開側は掲載許可項目だけを読み出す | 生成コードやpreview tokenを出さず、掲載者の公開URLへ案内する。購入照合・報酬分配は未接続 |
 | 決済データで確認済みの売上 | プロジェクト専用D1 `verified_revenue` | 認証済みAPIが、運営者のStripe読み取り専用キーを1回だけ使って売上・月額換算を集計し、結果の行だけ追加する。キーと決済アカウントID（ハッシュ以外）は保存しない。公開側は最新の1件だけを読む | 運営者の自己申告ではなく決済側の実データに基づく表示にする。決済アカウントのサイトが事例の公式サイトと一致したものだけを保存する |
+| 事業の売買（掲載・問い合わせ） | プロジェクト専用D1 `business_sale_listings` / `business_sale_inquiries` | 認証済みAPIが所有UIDに紐付けて保存。公開側は `status='published'` の項目だけを読み、売り手のUID・買い手の連絡先は読まない。問い合わせは掲載の持ち主だけが読める | 売上・利益・希望価格は売り手の申告で、根拠は本人申告。売上検証は別の仕組みが根拠を付ける。仲介・価格保証・契約代行は行わない |
 | 実行データ削除tombstone | プロジェクト専用D1 `execution_resets` | UIDを直接保存せずSHA-256化した `owner_key` と世代番号・reset時刻だけ保持 | 退会後に他端末の古いlocal draftがD1へ再生成されるのを防ぐ |
 | ニュースレター購読 | プロジェクト専用D1 | 認証済みならUIDを紐付け、匿名なら解除トークンのハッシュだけを保存。解除APIで削除 | メール本文をAPI応答へ返さず、匿名でも本人が削除できる |
 | 保存した検索条件・通知設定 | プロジェクト専用D1 `saved_searches` | 認証済みAPI（`/api/saved-searches`）。所有者UIDで限定し、1人20件までを挿入と同じ1文で保証。条件は保存時に検証し既知の項目だけ保存 | 他人の条件を読み書きできず、同時に保存しても上限を超えない |
@@ -110,7 +113,7 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 
 D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。復元手順と合成データによる自動演習は [RECOVERY.md](RECOVERY.md) に記載します。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
 
-アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、保存した検索条件（migration 0013の適用後）、Builderサービス掲載、決済データによる売上確認（`verified_revenue`。migration 0012の適用後）、Builderセッション、First Dollar実行プロジェクト、`users` 行をD1の一括処理で削除する。`notification_sends` は宛先の一方向ハッシュだけを持つ送信台帳のため、削除対象にしない。同じbatchで `execution_resets` の世代を1つ進める。これにより、削除を実行したブラウザ以外の端末に古いlocalStorageが残っていても、旧generationのPUTをD1が拒否し、削除済み本文を復活させない。`execution_resets` に保持するのは一方向ハッシュ化owner key、generation、reset時刻だけで、実行本文・顧客・URL・売上・メモ・生UIDは保持しない。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
+アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、保存した検索条件（migration 0013の適用後）、Builderサービス掲載、事業の売買の掲載と問い合わせ（本人の掲載、そこに届いた問い合わせ、本人が送った問い合わせ。migration 0014の適用後）、決済データによる売上確認（`verified_revenue`。migration 0012の適用後）、Builderセッション、First Dollar実行プロジェクト、`users` 行をD1の一括処理で削除する。`notification_sends` は宛先の一方向ハッシュだけを持つ送信台帳のため、削除対象にしない。同じbatchで `execution_resets` の世代を1つ進める。これにより、削除を実行したブラウザ以外の端末に古いlocalStorageが残っていても、旧generationのPUTをD1が拒否し、削除済み本文を復活させない。`execution_resets` に保持するのは一方向ハッシュ化owner key、generation、reset時刻だけで、実行本文・顧客・URL・売上・メモ・生UIDは保持しない。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。 事業の売買の問い合わせ（買い手の連絡先メール・本文）は、現在は売り手または買い手の退会まで保持し、募集終了後の自動削除は未実装。
 
 匿名のニュースレター登録と掲載申請には、Cloudflareのクライアント識別子を一方向ハッシュ化したD1の時間窓カウンタを適用する。これは最低限のスパム抑制であり、WAF・Turnstile・分散攻撃への完全な防御を意味しない。実運用の閾値はトラフィックを観測して調整する。
 
