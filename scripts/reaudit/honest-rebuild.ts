@@ -28,7 +28,7 @@ const ledgerPath = resolve(process.cwd(), 'data/individual_curation_ledger.jsonl
 const FABRICATED_TAGS = new Set([
   '独立監査済', '報告売上検証', 'チーム規模精査済', '完全勝ち組', '利益率80%超', '超高粗利', '高利益率',
   '損益分岐点ゼロ', '完全自己資本', 'ブートストラップ', '少数精鋭', '極小チーム(2-5名)', '専業フルコミット',
-  '再現性重視', '持たざる個人の成り上がり', '完全ソロ運営', '完全1人開発', '収集事例', '公式プロダクト検証',
+  '再現性重視', '持たざる個人の成り上がり', '完全ソロ運営', '完全1人開発', '公式プロダクト検証',
 ]);
 
 const isHttp = (v: unknown): v is string => typeof v === 'string' && /^https?:\/\//i.test(v);

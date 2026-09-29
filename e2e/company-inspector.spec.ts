@@ -1,6 +1,7 @@
 import { openNotes, selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
 
+// 2026-09-29 正直化: Jasper.ai は出典の無い損失値と物語カードを取り下げた PARTIAL 記録。財務は「未確認」、証跡は出典カードと「調査限界」カードを持つ。
 test('company list opens financials and evidence, then closes and reopens the inspector', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -24,12 +25,14 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(financials).not.toContainText('現金の滝');
   await expect(financials).not.toContainText('通帳引き算バー');
   await expect(financials.locator('canvas')).toHaveCount(0);
-  await expect(financials).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
+  await expect(financials).toContainText('未確認');
+  await expect(financials).not.toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
   await page.locator('#section-evidence').scrollIntoViewIfNeeded();
   const evidence = page.locator('#section-evidence');
   await expect(evidence).toBeInViewport();
   await expect(evidence).toContainText(/撤退・破綻に関する記録/);
-  await expect(evidence).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
+  await expect(evidence).toContainText(/調査限界/);
+  await expect(evidence).not.toContainText(/ChatGPT/);
   await page.getByRole('button', { name: '出典・記録', exact: true }).click();
   await expect(page.locator('#section-stream')).toBeVisible();
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
@@ -95,19 +98,21 @@ test('sparse Foundation candidate cannot replace a curated dossier with the same
   expect(errors).toEqual([]);
 });
 
-test('existing hazard dossier keeps its loss label and dynamic evidence', async ({ page }) => {
+test('existing hazard dossier keeps its hazard label and honest evidence after the re-audit demotion', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
   const heading = page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true });
   await expect(heading).toBeVisible();
   await expect(page.locator('#section-evidence')).toContainText(/撤退・破綻に関する記録/);
-  await expect(page.locator('#section-evidence')).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
+  await expect(page.locator('#section-evidence')).toContainText(/調査限界/);
+  await expect(page.locator('#section-evidence')).not.toContainText(/ChatGPT/);
   await page.locator('#section-cash-anatomy').scrollIntoViewIfNeeded();
   const inspector = page.getByRole('complementary').filter({ has: heading });
   await expect(inspector).toContainText('営業利益');
   await expect(inspector).not.toContainText('赤字出血');
-  await expect(page.locator('#section-cash-anatomy')).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
+  await expect(page.locator('#section-cash-anatomy')).toContainText('未確認');
+  await expect(page.locator('#section-cash-anatomy')).not.toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
   expect(errors).toEqual([]);
 });
 
