@@ -236,6 +236,15 @@ body {
   }
 }
 
-/* 下部固定メニュー（term-bottom-nav）の分だけ本文の下に余白を空ける */
-body:has(.term-bottom-nav) { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
-@media (min-width: 1024px) { body:has(.term-bottom-nav) { padding-bottom: 0; } }
+/* 下部固定メニュー（term-bottom-nav、1024px未満だけ表示）の高さ。本文の下に同じだけ余白を空ける */
+body { --term-nav-space: 0px; }
+body:has(.term-bottom-nav) { --term-nav-space: calc(56px + env(safe-area-inset-bottom)); padding-bottom: var(--term-nav-space); }
+@media (min-width: 1024px) { body:has(.term-bottom-nav) { --term-nav-space: 0px; } }
+
+/*
+ * 画面の高さに合わせる枠は、下部メニューの分を引いて作る。
+ * term-screen: 画面いっぱいの枠（中だけスクロールする画面）。最後の行がメニューの下に隠れない。
+ * term-page: 通常のページの最低の高さ。中身が短いときに、空白だけのスクロールが出ない。
+ */
+.term-screen { height: calc(100dvh - var(--term-nav-space)); }
+.term-page { min-height: calc(100dvh - var(--term-nav-space)); }

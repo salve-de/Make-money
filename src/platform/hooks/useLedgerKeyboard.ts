@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { syncEntityParam } from '../utils/entityUrl';
+import { openEntityParam } from '../utils/entityUrl';
 
 interface LedgerKeyboardOptions {
   enabled: boolean;
@@ -39,7 +39,7 @@ export function useLedgerKeyboard({ enabled, entityIds, selectedEntityId, onSele
       const nextId = entityIds[nextIndex];
       if (nextId === selectedEntityId) return;
       onSelect(nextId);
-      if (new URLSearchParams(window.location.search).has('entity')) syncEntityParam(nextId, 'replace');
+      if (new URLSearchParams(window.location.search).has('entity')) openEntityParam(nextId);
       document.querySelector(`[data-entity-id="${CSS.escape(nextId)}"]`)?.scrollIntoView({ block: 'nearest' });
     };
     window.addEventListener('keydown', handleKeyDown);

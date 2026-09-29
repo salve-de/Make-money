@@ -1,7 +1,7 @@
 export default function Loading() {
   const rows = Array.from({ length: 12 }, (_, index) => index);
   return (
-    <div className="min-h-dvh bg-term-bg text-term-fg" role="status" aria-live="polite">
+    <div className="term-page bg-term-bg text-term-fg" role="status" aria-live="polite">
       <div className="flex h-9 items-center border-b border-term-line bg-term-panel px-3">
         <div className="h-3 w-28 animate-pulse bg-term-head motion-reduce:animate-none" />
         <span className="sr-only">ページを読み込んでいます</span>

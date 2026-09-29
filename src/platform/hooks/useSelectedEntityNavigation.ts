@@ -7,6 +7,7 @@ import type { WorkspaceMode } from '../types/terminal';
 import { parseCompanyAnalysis } from '@/lib/company-access/schema';
 import { useViewHistory } from './useViewHistory';
 import { useAuth } from '../../context/AuthContext';
+import { openEntityParam } from '../utils/entityUrl';
 
 interface UseSelectedEntityNavigationProps {
   entities: FinancialEntity[];
@@ -139,6 +140,7 @@ export function useSelectedEntityNavigation({
     const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
     if (currentIndex > 0) {
       setSelectedEntityId(list[currentIndex - 1].id);
+      openEntityParam(list[currentIndex - 1].id);
     }
   }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
 
@@ -148,6 +150,7 @@ export function useSelectedEntityNavigation({
     const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
     if (currentIndex >= 0 && currentIndex < list.length - 1) {
       setSelectedEntityId(list[currentIndex + 1].id);
+      openEntityParam(list[currentIndex + 1].id);
     }
   }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
 

@@ -54,7 +54,7 @@ export default function WelcomeClient({
   const btn = 'inline-flex min-h-11 items-center rounded-sm border px-4 text-sm lg:min-h-8 lg:px-3';
 
   return (
-    <div className="min-h-screen bg-term-bg text-term-fg">
+    <div className="term-page bg-term-bg text-term-fg">
       <GlobalHeader
         currentSection="WELCOME"
         rightContent={user ? (

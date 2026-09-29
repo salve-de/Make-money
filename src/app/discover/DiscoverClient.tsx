@@ -488,7 +488,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
 
   const lensTabs = LENSES.map((item) => ({ key: item.id, label: item.label }));
   return (
-    <div className="flex h-dvh w-full flex-col overflow-hidden bg-term-bg text-term-fg">
+    <div className="flex term-screen w-full flex-col overflow-hidden bg-term-bg text-term-fg">
       <GlobalHeader currentSection="DISCOVER" />
       <h1 className="sr-only">事例を探す</h1>
 

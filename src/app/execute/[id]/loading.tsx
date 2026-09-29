@@ -1,7 +1,7 @@
 export default function ExecutionLoading() {
   const rows = Array.from({ length: 8 }, (_, index) => index);
   return (
-    <main className="min-h-screen bg-term-bg text-term-fg" role="status" aria-live="polite">
+    <main className="term-page bg-term-bg text-term-fg" role="status" aria-live="polite">
       <div className="term-panel-title">
         <span className="term-panel-name">実行計画</span>読み込み中
       </div>

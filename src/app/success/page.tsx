@@ -104,7 +104,7 @@ export default function SuccessPage() {
   const BTN = 'inline-flex min-h-11 items-center justify-center rounded-sm border px-5 text-sm lg:min-h-8 lg:px-3';
 
   return (
-    <main className="min-h-screen bg-term-bg text-term-fg">
+    <main className="term-page bg-term-bg text-term-fg">
       <div className="term-panel-title"><span className="term-panel-name">決済確認</span>{FOUNDING_PASS.name}</div>
       <section className="max-w-2xl">
         <h1 className="border-b border-term-line px-3 py-3 text-lg font-semibold text-term-fg-strong">{heading}</h1>

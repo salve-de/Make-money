@@ -3,7 +3,7 @@
  * 使い方: 開発サーバーを起動してから
  *   UI_AUDIT_BASE_URL=http://localhost:3000 node scripts/ui-audit/capture.mjs
  *   （幅を絞るときは UI_AUDIT_VIEWPORTS=lap,sp のように指定）
- * 出力: 画面ごとのPNGと results.json（横はみ出し・12px未満の文字・小さすぎる押し場所・重なった押し場所・色数など）。
+ * 出力: 画面ごとのPNGと results.json（横はみ出し・12px未満の文字・小さすぎる押し場所・重なった押し場所・下部メニューに隠れる枠・色数など）。
  * 仕様は docs/design/TERMINAL_UI.md。
  */
 import { chromium } from '@playwright/test';
@@ -59,6 +59,13 @@ const METRICS = () => {
     }
   }
   const off = vis.filter((e) => e.getBoundingClientRect().right > vw + 2 && !['fixed', 'sticky'].includes(getComputedStyle(e).position));
+  // 下部の固定メニューの下に、中だけスクロールする枠の下端が潜っていないか（潜ると最後の行が隠れて押せない）
+  const bottomNav = document.querySelector('.term-bottom-nav');
+  const navTop = bottomNav && shown(bottomNav) ? bottomNav.getBoundingClientRect().top : null;
+  const navCovered = navTop === null ? [] : vis.filter((e) => {
+    const s = getComputedStyle(e); const r = e.getBoundingClientRect();
+    return /(auto|scroll)/.test(s.overflowY) && e.scrollHeight > e.clientHeight + 4 && r.height > 100 && r.bottom > navTop + 1;
+  }).map((e) => String(e.className).slice(0, 40));
   const colors = new Set(); const bgs = new Set();
   vis.forEach((e) => { const s = getComputedStyle(e); colors.add(s.color); if (s.backgroundColor !== 'rgba(0, 0, 0, 0)') bgs.add(s.backgroundColor); });
   const h1 = [...document.querySelectorAll('h1')].filter(shown).map((e) => e.innerText.trim().slice(0, 40));
@@ -70,7 +77,7 @@ const METRICS = () => {
     fontSizes: fs, tinyTextCount: tiny, textNodes: txt.length,
     interactive: inter.length, smallTargets: small.length,
     smallEx: small.slice(0, 5).map((e) => (e.innerText || e.getAttribute('aria-label') || '').trim().slice(0, 20) + ` ${Math.round(e.getBoundingClientRect().width)}x${Math.round(e.getBoundingClientRect().height)}`),
-    unlabeled: unlabeled.length, overlaps,
+    unlabeled: unlabeled.length, overlaps, navCovered,
     offscreen: off.slice(0, 4).map((e) => e.tagName + ':' + (e.innerText || '').trim().slice(0, 20) + ':' + Math.round(e.getBoundingClientRect().right)),
     distinctTextColors: colors.size, distinctBgColors: bgs.size, brokenImages: imgsBroken,
     jargon: ['インスペクター', 'エンティティ', 'projection', 'Foundation', 'undefined', 'null', 'NaN', 'UNKNOWN', 'Primary', 'Evidence'].filter((w) => text.includes(w)),

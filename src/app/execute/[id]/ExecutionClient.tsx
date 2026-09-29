@@ -59,7 +59,7 @@ export function ExecutionClient({ entity }: { entity: ExecutionSource }) {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen flex-col bg-term-bg text-term-fg">
+      <div className="flex term-page flex-col bg-term-bg text-term-fg">
         <GlobalHeader currentSection="EXECUTION" />
         <main className="w-full flex-1">
           <div className="term-panel-title"><span className="term-panel-name">実行計画</span>読み込み中</div>
@@ -418,7 +418,7 @@ function ExecutionWorkspace({
 
   const saveLabel = saveState === 'saved' ? 'クラウド' : saveState === 'conflict' ? '競合あり' : saveState === 'error' ? '要再保存' : 'この端末';
   return (
-    <div className="flex min-h-screen flex-col bg-term-bg text-term-fg">
+    <div className="flex term-page flex-col bg-term-bg text-term-fg">
       <GlobalHeader currentSection="EXECUTION" />
 
       <main className="flex w-full flex-1 flex-col">

@@ -49,7 +49,7 @@ export default async function MarketplaceListingPage({
 
   const BTN = 'inline-flex min-h-11 items-center border px-4 text-sm lg:min-h-8 lg:px-3';
   return (
-    <div className="flex min-h-screen flex-col bg-term-bg text-term-fg">
+    <div className="flex term-page flex-col bg-term-bg text-term-fg">
       <GlobalHeader currentSection="MARKETPLACE" />
       <main className="w-full flex-1">
         <div className="term-panel-title">

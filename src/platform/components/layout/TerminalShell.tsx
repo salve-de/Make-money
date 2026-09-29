@@ -26,7 +26,7 @@ import { AdvancedScreenerModal } from '../screener/AdvancedScreenerModal';
 import { LedgerFilterRail } from '../grid/LedgerFilterRail';
 import { TerminalStatusBar } from './TerminalStatusBar';
 import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
-import { dropQueryParam, openLedgerEntityUrl, positionLabel, syncEntityParam } from '../../utils/entityUrl';
+import { closeEntityParam, dropQueryParam, openEntityParam, openLedgerEntityUrl, positionLabel } from '../../utils/entityUrl';
 import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC<{
@@ -150,12 +150,12 @@ export const TerminalShell: React.FC<{
   const openEntity = (id: string) => {
     setSelectedEntityId(id);
     setMobileInspectorOpen(true);
-    syncEntityParam(id);
+    openEntityParam(id);
   };
   const closeEntity = () => {
     setMobileInspectorOpen(false);
     setSelectedEntityId(null);
-    syncEntityParam(null);
+    closeEntityParam();
   };
 
   const selectedPositionLabel = positionLabel(filteredEntities.findIndex((row) => row.id === selectedEntityId), catalogTotal || filteredEntities.length);
@@ -216,7 +216,7 @@ export const TerminalShell: React.FC<{
   };
 
   return (
-    <div className="flex h-[calc(100dvh-56px-env(safe-area-inset-bottom))] w-full flex-col overflow-hidden bg-term-bg font-sans text-term-fg lg:h-dvh">
+    <div className="flex term-screen w-full flex-col overflow-hidden bg-term-bg font-sans text-term-fg">
       {/* 統合グローバルナビゲーションヘッダー */}
       <GlobalHeader
         currentSection={

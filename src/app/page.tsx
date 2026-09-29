@@ -77,7 +77,7 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   });
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-term-bg" />}>
+    <Suspense fallback={<div className="term-page bg-term-bg" />}>
       {unavailable ? <aside role="status" className="border-b border-term-line bg-term-panel p-3 text-sm text-term-fg">
         {unavailable.name}：詳細の公開確認が完了していないため、未確認の財務・分析は表示していません。
         <Link className="ml-3 text-term-accent underline" href={`/execute/${encodeURIComponent(unavailable.id)}`}>{unavailable.name}を参考に計画を作る</Link>

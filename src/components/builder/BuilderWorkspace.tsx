@@ -308,7 +308,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
 
   if (authLoading) {
     return (
-      <main className="flex min-h-screen flex-col bg-term-bg text-term-fg">
+      <main className="flex term-page flex-col bg-term-bg text-term-fg">
         <GlobalHeader currentSection="BUILDER" />
         <div className="term-panel-title"><span className="term-panel-name">試作ワークスペース</span>読み込み中</div>
         <div className="flex items-center gap-2 px-3 py-3 text-sm text-term-label">
@@ -320,7 +320,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
 
   if ((!user || !token) && !isPublicDemo) {
     return (
-      <main className="flex min-h-screen flex-col bg-term-bg text-term-fg">
+      <main className="flex term-page flex-col bg-term-bg text-term-fg">
         <GlobalHeader currentSection="BUILDER" />
         <div className="term-panel-title"><span className="term-panel-name">試作ワークスペース</span></div>
         <div className="max-w-xl px-3 py-4">
@@ -352,7 +352,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
   const smallBtn = 'inline-flex min-h-11 items-center gap-1.5 px-2 text-sm text-term-sub hover:text-term-fg-strong disabled:opacity-40 lg:min-h-8';
 
   return (
-    <main className="flex h-dvh min-h-[560px] flex-col overflow-hidden bg-term-bg text-term-fg">
+    <main className="flex term-screen min-h-[560px] flex-col overflow-hidden bg-term-bg text-term-fg">
       <GlobalHeader currentSection="BUILDER" />
       <div className="term-panel-title shrink-0">
         <span className="term-panel-name">試作ワークスペース</span>
