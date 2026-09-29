@@ -82,9 +82,10 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
 
   return (
     <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-term-line bg-term-panel px-3 py-2 lg:px-2.5 lg:py-1.5">
-      <div className="flex flex-col gap-2 lg:gap-1.5">
-        <div className="flex items-center gap-2">
-          {hideSearch ? <div className="min-w-0 flex-1" /> : (
+      <div className={hideSearch ? 'flex flex-wrap items-center gap-2' : 'flex flex-col gap-2 lg:gap-1.5'}>
+        {/* 検索欄を出さないときは「条件を絞る」を登録回の行の右端へ寄せ、空の行を作らない */}
+        <div className={hideSearch ? 'order-last ml-auto flex items-center gap-2' : 'flex items-center gap-2'}>
+          {hideSearch ? null : (
           <div className="relative min-w-0 flex-1">
             <label htmlFor="company-search" className="sr-only">会社名、ティッカー、事業の特徴で検索</label>
             <Search aria-hidden="true" className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
@@ -138,7 +139,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className={`flex flex-wrap items-center gap-2 ${hideSearch ? 'min-w-0 flex-1' : ''}`}>
           <label className="inline-flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-sm border border-term-line px-2.5 text-xs text-term-label sm:flex-none lg:min-h-7">
             <Layers aria-hidden="true" className="h-3.5 w-3.5" />
             <span className="hidden shrink-0 whitespace-nowrap sm:inline">登録回</span>

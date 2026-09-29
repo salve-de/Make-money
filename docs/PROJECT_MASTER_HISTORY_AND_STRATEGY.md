@@ -7389,3 +7389,10 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Fixed40 ledger now31 saved business runs/677distinctIDs and9 explicitly classified remaining artifacts;19 upstream research holds retained. Parent checks only additional50 local APIs. Actual scheduled new-candidate15:20 proof remains pending; manual recovery is not automatic success.
 
 - Parent additional50 local APIs passed06:12:39.745Z (3list pages/50details/failed[], strict Foundation); no overlap with prior627, total677accepted. Representative Pallet/ConradKacsik detail→execute6steps independently passed. No recovery batch remains active. Genuine scheduled R2/API/UI arrival remains to be observed after15:20.
+
+### 2026-09-29: 全画面を端末型UI（A案）へ刷新
+
+- 全19URL×スマホ/タブレット/PCの監査（57画面）で、12px未満の文字18,937か所、12種以上の黒の直書き、3系統のナビ、URLに残らない事例詳細などを確認。デザイン方向3案（端末型/紙面型/可視化型）から、ユーザーが「プロ端末らしさ」を条件にA案を選択。
+- 仕様は `docs/design/TERMINAL_UI.md`、色・角丸・等幅フォントは `src/app/globals.css` のトークンに集約。zinc系を端末の灰色に置換し、金額表記は `src/platform/utils/moneyDisplay.ts` に一本化。
+- 共通ヘッダー（検索コマンド欄・数字キーのタブ）と全ページ共通のスマホ下部メニュー、PCの3ペイン＋状態バー、事例を開くとURLに `?entity=` が残る動きを実装。確認列は「確認/報告値/未確認/推定/ピーク」を文字で表示。
+- 検証: typecheck、関連単体テスト、lint、`next build` 通過。再監査で12px未満の文字0、横はみ出し0。`pnpm ui:audit` で全画面の撮影と計測を再実行できる。データ本文（定型書き出し等）の修正は別作業のため対象外。
