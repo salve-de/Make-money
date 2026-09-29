@@ -52,21 +52,9 @@ curl -fsS -X POST -H "x-cron-secret: $NOTIFY_CRON_SECRET" https://<サイトのU
 
 - 週1回だけ呼ぶと、その時点の最新の便に載った事例だけが通知の対象です。
 - 取りこぼしを減らすには、各便の少し後（日本時間 9:10・15:10・21:10）に毎日3回呼びます。同じ便は二度送られず、週1回のお知らせも週1通のままです。
-- このアプリのWorkerは `fetch` だけを持ち、Cloudflare の Cron Trigger（`scheduled`）を受けません。GitHub Actions から呼ぶか、URLを `fetch` するだけの小さな別Workerに Cron Trigger を付けてください。この作業では定期実行の設定ファイルは追加していません。
-
-GitHub Actions の例（`.github/workflows/` に置く。`NOTIFY_CRON_SECRET` はリポジトリのSecret、`SITE_URL` は変数に登録）:
-
-```yaml
-on:
-  schedule:
-    - cron: '10 0,6,12 * * *'   # 日本時間 9:10 / 15:10 / 21:10
-  workflow_dispatch:
-jobs:
-  digest:
-    runs-on: ubuntu-latest
-    steps:
-      - run: curl -fsS -X POST -H "x-cron-secret: ${{ secrets.NOTIFY_CRON_SECRET }}" "${{ vars.SITE_URL }}/api/notifications/digest"
-```
+- このアプリのWorkerは `fetch` だけを持ち、Cloudflare の Cron Trigger（`scheduled`）を受けません。定期実行は GitHub Actions の `.github/workflows/notify-digest.yml` が、日本時間 9:10・15:10・21:10 に呼びます（main に入ってから動く）。
+- 動かすには、GitHub のリポジトリ設定で Secret `NOTIFY_CRON_SECRET`（サイト側と同じ値）と、変数 `SITE_URL`（例 `https://kinrokoku.example.jp`）を登録します。どちらかが無い間は、何も送らずに成功で終わります。手動実行（workflow_dispatch）もできます。
+- 失敗（502など）は2回まで呼び直します。同じ便は二度送られないため、呼び直しても重複しません。
 
 ## 結果の見方
 

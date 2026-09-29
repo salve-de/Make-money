@@ -10,6 +10,9 @@ export type GlobalNavSection =
   | 'MARKETPLACE'
   | 'COMPARE'
   | 'ALERTS'
+  /** 見出しに項目を持たない画面（運営者向けの売上確認・法務ページ） */
+  | 'VERIFY'
+  | 'LEGAL'
   | 'WELCOME';
 
 export type LocalWorkspaceMode = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS';

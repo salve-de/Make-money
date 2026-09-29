@@ -1,0 +1,34 @@
+name: Notify digest
+
+# 保存した条件に合う新着と、週1回のお知らせをメールで送る（docs/NOTIFICATIONS.md）。
+# 新着は日本時間 9・15・21時の便で公開されるため、各便の10分後に呼ぶ。同じ便は二度送られない。
+# リポジトリのSecret NOTIFY_CRON_SECRET と変数 SITE_URL が無い間は、何も送らずに終わる。
+on:
+  schedule:
+    - cron: '10 0,6,12 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: notify-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Send new-case emails
+        env:
+          NOTIFY_CRON_SECRET: ${{ secrets.NOTIFY_CRON_SECRET }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          if [ -z "$NOTIFY_CRON_SECRET" ] || [ -z "$SITE_URL" ]; then
+            echo "NOTIFY_CRON_SECRET または SITE_URL が未設定のため、送信しません。"
+            exit 0
+          fi
+          # 502（一部の宛先に送れなかった）は、呼び直すと足りない分だけ送られる
+          curl -fsS --retry 2 --retry-delay 60 --max-time 120 -X POST \
+            -H "x-cron-secret: ${NOTIFY_CRON_SECRET}" \
+            "${SITE_URL%/}/api/notifications/digest"

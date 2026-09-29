@@ -16,8 +16,10 @@ import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
 import { EvidenceStream } from './ui/EvidenceStream';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
 import { LootBlueprintSection } from './ui/LootBlueprintSection';
+import { OperatorVerificationNote } from './ui/OperatorVerificationNote';
 import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
+import { VerifiedRevenueSection } from './ui/VerifiedRevenueSection';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   entity,
@@ -130,6 +132,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         {mainTab === 'LEDGER' ? (
           <>
             <ExecutiveIntuitiveSummary {...sectionProps} />
+            <VerifiedRevenueSection entityId={entity.id} />
 
             {entity.pnl.financialStatus === 'ESTIMATED' ? (
               <EstimatedCashSummary {...sectionProps} />
@@ -147,6 +150,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         ) : (
           <>
             <SourcesSection {...sectionProps} />
+            <OperatorVerificationNote entityId={entity.id} url={entity.url} />
             <EvidenceStream {...sectionProps} />
             <AnalystNotes {...sectionProps} />
           </>

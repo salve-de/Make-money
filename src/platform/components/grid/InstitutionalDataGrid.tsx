@@ -7,6 +7,8 @@ import { CONFIRM_TONE_CLASS, confirmStatus, monthlyRevenueParts, teamSizeText, l
 import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { entityDescription } from '@/platform/utils/entityDescription';
+import { useVerifiedEntityIds } from '@/platform/hooks/useVerifiedEntityIds';
+import { VerifiedMark } from './VerifiedMark';
 
 const PAGE_SIZE = 250;
 
@@ -56,6 +58,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const observerTargetRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const verifiedIds = useVerifiedEntityIds();
 
   // フィルタや検索で entities が変更された場合は表示件数を初期化
   const [previousRows, setPreviousRows] = useState(entities);
@@ -107,6 +110,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             isBookmarked={bookmarkedIds.has(entity.id)}
             onToggleBookmark={(e) => onToggleBookmark(entity.id, e)}
             zebra={index % 2 === 1}
+            isVerified={verifiedIds.has(entity.id)}
           />
         ))}
         {entities.length === 0 && (
@@ -173,7 +177,12 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   }`}
                 >
                   <td className="term-num px-2 text-right text-xs text-term-dim">{index + 1}</td>
-                  <td className="truncate px-2 font-semibold text-term-fg-strong" title={entity.name}>{entity.name}</td>
+                  <td className="overflow-hidden px-2" title={entity.name}>
+                    <span className="flex min-w-0 items-baseline gap-1.5">
+                      <span className="truncate font-semibold text-term-fg-strong">{entity.name}</span>
+                      {verifiedIds.has(entity.id) && <VerifiedMark />}
+                    </span>
+                  </td>
                   {!isSplitView && (
                     <td className="truncate px-2 text-term-muted" title={description}>{description}</td>
                   )}
