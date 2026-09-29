@@ -10205,7 +10205,7 @@
     "normName": "ubuntubaba",
     "ticker": "IH3F10F5B9",
     "domain": "ubuntubaba.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10215,7 +10215,7 @@
     "normName": "powerpackforbeaverbuilder",
     "ticker": "IH22279584",
     "domain": "wpbeaveraddons.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10235,7 +10235,7 @@
     "normName": "blockonomics",
     "ticker": "IHC9B4476C",
     "domain": "blockonomics.co",
-    "sector": "NICHE_SAAS",
+    "sector": "FINTECH_INFRA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10265,7 +10265,7 @@
     "normName": "thrivez",
     "ticker": "IHA35F2B6B",
     "domain": "thrivez.io",
-    "sector": "AI_AUTOMATION",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10275,7 +10275,7 @@
     "normName": "snailbobgame",
     "ticker": "IH9D9334F7",
     "domain": "snailsbob.org",
-    "sector": "NICHE_SAAS",
+    "sector": "CONTENT_MEDIA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10285,7 +10285,7 @@
     "normName": "moonly",
     "ticker": "IHCD2DAD1D",
     "domain": "moon.ly",
-    "sector": "AI_AUTOMATION",
+    "sector": "FINTECH_INFRA",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10295,7 +10295,7 @@
     "normName": "patentearth",
     "ticker": "IH6B10E914",
     "domain": "patentearth.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10335,7 +10335,7 @@
     "normName": "hoverboardai",
     "ticker": "IHAF3A2714",
     "domain": "gethoverboard.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10345,7 +10345,7 @@
     "normName": "contraststudio",
     "ticker": "IHCB5C420B",
     "domain": "contrast.studio",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10355,7 +10355,7 @@
     "normName": "flxwebsites",
     "ticker": "IH0D82A247",
     "domain": "flxwebsites.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10375,7 +10375,7 @@
     "normName": "24kjewelry",
     "ticker": "IH4BBC1027",
     "domain": "vivalatina-shop.com",
-    "sector": "NICHE_SAAS",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10385,7 +10385,7 @@
     "normName": "listadum",
     "ticker": "IH5C8045DC",
     "domain": "listadum.com",
-    "sector": "AI_AUTOMATION",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10425,7 +10425,7 @@
     "normName": "rhudenauticalsilkshirt",
     "ticker": "IHA33F04AF",
     "domain": "rhudecom.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "PHYSICAL_ASSET",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -10445,7 +10445,7 @@
     "normName": "vimeography",
     "ticker": "IH2A4D4ACD",
     "domain": "vimeography.com",
-    "sector": "CONTENT_MEDIA",
+    "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "IndieHackers_Verified_1000"
   },
@@ -25804,7 +25804,7 @@
     "name": "Swish Mac",
     "normName": "swishmac",
     "ticker": "SWISHMAC",
-    "domain": "highlyconfigurable.com",
+    "domain": "highlyopinionated.co",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_100_20260916"

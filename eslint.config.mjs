@@ -8,6 +8,7 @@ const eslintConfig = defineConfig([
   // Override default ignores of eslint-config-next.
   globalIgnores([
     "reports/**", // local re-audit working files (gitignored)
+    ".reaudit-work/**", // lane scratch (LANE_WORKDIR, gitignored)
     // Default ignores of eslint-config-next:
     ".next/**",
     ".open-next/**",
