@@ -26554,7 +26554,7 @@
     "name": "Trojan on Solana",
     "normName": "trojanonsolana",
     "ticker": "TROJANSOL",
-    "domain": "trojan.app",
+    "domain": "trojan.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_20260916"
@@ -26644,7 +26644,7 @@
     "name": "Arkham Intelligence",
     "normName": "arkhamintelligence",
     "ticker": "ARKHAMIN",
-    "domain": "arkhamintelligence.com",
+    "domain": "info.arkm.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch_solo_winners_20260916"
@@ -27556,7 +27556,7 @@
     "ticker": "DIVJOYIO",
     "domain": "divjoy.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
@@ -27684,7 +27684,7 @@
     "name": "Toddle",
     "normName": "toddle",
     "ticker": "TODDLEDEV",
-    "domain": "toddle.dev",
+    "domain": "nordcraft.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch-05-2026-09-14-recent-winners100"
@@ -27744,7 +27744,7 @@
     "name": "AppFlowy",
     "normName": "appflowy",
     "ticker": "APPFLOWY",
-    "domain": "appflowy.io",
+    "domain": "appflowy.com",
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "batch-05-2026-09-14-recent-winners100"
@@ -31126,7 +31126,7 @@
     "ticker": "BNR.BEAR",
     "domain": "bannerbear.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31186,7 +31186,7 @@
     "ticker": "SCRP.BEE",
     "domain": "scrapingbee.com",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31226,7 +31226,7 @@
     "ticker": "PHOTOAI",
     "domain": "photoai.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31246,7 +31246,7 @@
     "ticker": "PLSB.IO",
     "domain": "plausible.io",
     "sector": "NICHE_SAAS",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -31286,7 +31286,7 @@
     "ticker": "HEADSHOT",
     "domain": "headshotpro.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"
   },
   {
@@ -32434,7 +32434,7 @@
     "name": "Turbo AI",
     "normName": "turboai",
     "ticker": "TURBO.AI",
-    "domain": "turbolearn.ai",
+    "domain": "turbo.ai",
     "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "batch-06-2026-09-15-codex-bootstrap100"
@@ -32464,7 +32464,7 @@
     "name": "SuperX",
     "normName": "superx",
     "ticker": "SUPERX",
-    "domain": "superx.st",
+    "domain": "superx.so",
     "sector": "AI_AUTOMATION",
     "status": "UNAVAILABLE",
     "batchId": "batch-06-2026-09-15-codex-bootstrap100"
@@ -32546,7 +32546,7 @@
     "ticker": "BYEDISPUT",
     "domain": "byedispute.com",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-06-2026-09-15-codex-bootstrap100"
   },
   {
@@ -32556,7 +32556,7 @@
     "ticker": "ZENVOICE",
     "domain": "zenvoice.io",
     "sector": "AI_AUTOMATION",
-    "status": "UNAVAILABLE",
+    "status": "REPORTED",
     "batchId": "batch-06-2026-09-15-codex-bootstrap100"
   },
   {
