@@ -69,3 +69,8 @@ __pycache__/
 /data/raw_master_facts.json
 /data/raw_sources_cache/
 /.catalog-release/
+
+# Private re-audit research candidates and worker notes (kept in R2 backup / private worktree, never pushed)
+/data/incoming/reaudit-*.json
+/reports/reaudit-*
+/reports/paused-handoff-*

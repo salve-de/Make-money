@@ -126,7 +126,7 @@ export interface ClaimEvidenceBinding {
 
 export type PublishabilityStatus =
   | 'PUBLISHABLE'       // 審査通過・確定公開可能（一般検索インデックスへ投影）
-  | 'PARTIAL'           // 一部欠損・作業中（内部保管、公開面へは未投影）
+  | 'PARTIAL'           // 一部未確認（根拠のある事実のみ表示し、未確認は未確認と表示する。2026-09-29表示契約）
   | 'RAW'               // 未加工ログ（Universal Raw / Lake）
   | 'ARCHIVED'          // アーカイブ済み
   | 'REJECTED_AS_CASE'; // 事例としては不採用（Foundationには保全するが公開しない）

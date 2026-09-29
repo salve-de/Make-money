@@ -28,8 +28,20 @@ export interface IngestEntityInput {
 async function putStorageObject(bucket: string, key: string, body: string, contentType: string, metadata: Record<string, string>) {
   const isConfigured = await isR2ConfiguredAsync(bucket).catch(() => false);
   if (isConfigured) {
-    return await putR2ObjectCreateOnly({ bucket, key, body, contentType, metadata });
+    const result = await putR2ObjectCreateOnly({ bucket, key, body, contentType, metadata });
+    console.log(`    → destination: R2 ${bucket}/${key} [${result.status}]`);
+    return result;
   }
+
+  // 2026-09-29: R2 が未設定のときに黙ってローカルへ退避しない。明示的に許可された場合だけローカルミラーへ書く。
+  if (process.env.ALLOW_LOCAL_R2_FALLBACK !== '1') {
+    throw new Error(
+      `[INGEST ABORTED: R2 NOT CONFIGURED] bucket "${bucket}" is not reachable in this runtime. ` +
+      `Run through scripts/with-r2-keychain-secrets.mjs (pnpm r2:with-secrets -- ...), or set ALLOW_LOCAL_R2_FALLBACK=1 ` +
+      `to write a LOCAL mirror under data/r2-local (a local mirror is never R2 delivery).`
+    );
+  }
+  console.warn(`    ⚠ destination: LOCAL MIRROR (not R2) data/r2-local/${bucket}/${key}`);
 
   const localPath = resolve(process.cwd(), `data/r2-local/${bucket}/${key}`);
   await mkdir(dirname(localPath), { recursive: true });

@@ -242,8 +242,19 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
  * PUBLISHABLE かつ Claim-level Evidence Locator（客観的出典）が存在するもののみを許可。
  * undefined, RAW, PARTIAL, ARCHIVED, REJECTED_AS_CASE, または根拠なきデータは一般公開面に漏らさない。
  */
+/**
+ * 2026-09-29 表示契約: 根拠のある事実を持つ記録は、未確認項目が残っていても（PARTIAL）表示する。
+ * 未確認は「未確認」として表示し、根拠のない数値は出さない。RAW / ARCHIVED / REJECTED_AS_CASE / 未指定は表示しない。
+ */
+export const DISPLAYABLE_PUBLISHABILITY: ReadonlySet<string> = new Set(['PUBLISHABLE', 'PARTIAL']);
+
 export function isPublishableEntity(entity: FinancialEntity): boolean {
-  // 厳格Fail-closed: 明示的に 'PUBLISHABLE' かつ客観的出典ロケーターが存在する場合のみ許可。
+  // 表示可否ゲート: 明示的に PUBLISHABLE または PARTIAL で、かつ客観的出典ロケーターが存在する場合のみ許可。
+  return DISPLAYABLE_PUBLISHABILITY.has(entity?.publishability ?? '') && hasValidEvidenceLocator(entity);
+}
+
+/** 審査通過（PUBLISHABLE）かどうか。バッジ表示用であり、表示可否のゲートではない。 */
+export function isPublicationApproved(entity: FinancialEntity): boolean {
   return entity?.publishability === 'PUBLISHABLE' && hasValidEvidenceLocator(entity);
 }
 

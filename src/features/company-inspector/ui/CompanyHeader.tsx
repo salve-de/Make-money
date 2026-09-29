@@ -149,6 +149,15 @@ export function CompanyHeader({
           {entity.pnl.dataSnapshotPeriod && (
             <p className="mt-1 truncate text-[11px] text-zinc-400" title={entity.pnl.dataSnapshotPeriod}>{entity.pnl.dataSnapshotPeriod}</p>
           )}
+          {entity.publishability === 'PARTIAL' && (
+            <p
+              className="mt-1 rounded border border-amber-300/25 bg-amber-300/[0.07] px-2 py-1 text-[11px] leading-snug text-amber-100"
+              role="status"
+              data-testid="reaudit-partial-notice"
+            >
+              再監査中: 出典付きの事実だけを表示しています。未確認の項目は「未確認」と表示し、根拠のない旧表示の数値は取り下げ済みです。
+            </p>
+          )}
         </div>
 
         {(onPrevEntity || onNextEntity || onApproveEntity) && <div className="flex items-center justify-end gap-2 px-3 pb-1 text-xs sm:px-4">

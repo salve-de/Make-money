@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-09-29T00:23:17.262Z",
+  "method": "SCRIPTED_HONEST_REBUILD_V1",
+  "stats": {
+    "total": 3341,
+    "keptWithSource": 156,
+    "demoted": 3185,
+    "byFamily": {
+      "ebizfacts": 761,
+      "indiehackers": 1391,
+      "generated": 1033
+    },
+    "droppedCards": 4905,
+    "redactedTokens": 6479,
+    "taglineSource": {
+      "essence.whatItDoes": 441,
+      "legacy_tagline_stripped": 2327,
+      "fallback": 392,
+      "description": 25
+    },
+    "ebizWithLabel": 761,
+    "parseFailures": []
+  }
+}

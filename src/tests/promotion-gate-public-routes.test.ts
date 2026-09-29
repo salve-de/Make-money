@@ -41,8 +41,9 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     // 厳格Fail-Closed: undefined も物理遮断 (false)
     expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: undefined })).toBe(false);
 
+    // 2026-09-29 表示契約: PARTIAL（一部未確認）は根拠があれば表示する
+    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'PARTIAL' })).toBe(true);
     // それ以外のステータスはすべて物理遮断
-    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'PARTIAL' })).toBe(false);
     expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'RAW' })).toBe(false);
     expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'ARCHIVED' })).toBe(false);
     expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'REJECTED_AS_CASE' })).toBe(false);
