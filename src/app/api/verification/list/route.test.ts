@@ -60,11 +60,11 @@ describe('GET /api/verification/list', () => {
     expect((await LIST()).headers.get('cache-control')).toBe('public, max-age=30, must-revalidate');
   });
 
-  it('answers 503 when the database is unavailable', async () => {
+  it('answers an empty, uncached list marked unavailable when the database is unavailable', async () => {
     state.offline = true;
     const response = await LIST();
-    expect(response.status).toBe(503);
-    expect(await response.json()).toMatchObject({ code: 'unavailable' });
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ verified: [], unavailable: true });
     expect(response.headers.get('cache-control')).toBe('no-store');
   });
 });

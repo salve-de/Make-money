@@ -19,7 +19,8 @@ function load() {
     .then((response) => (response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`))))
     .then((body: unknown) => {
       verifiedIds = new Set(readVerifiedEntities(body).map((row) => row.entityId));
-      status = 'loaded';
+      // 読めなかった応答なら、次にこの一覧を開いたときに読み直す
+      status = (body as { unavailable?: unknown } | null)?.unavailable === true ? 'idle' : 'loaded';
       listeners.forEach((listener) => listener());
     })
     .catch(() => {

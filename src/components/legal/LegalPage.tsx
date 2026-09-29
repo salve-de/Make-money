@@ -19,7 +19,7 @@ export function LegalPage({ title, updatedAt, children }: { title: string; updat
         </article>
         <nav aria-label="規約とポリシー" className="flex flex-wrap gap-x-4 gap-y-1 border-t border-term-line px-4 py-3 text-xs">
           {LEGAL_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="inline-flex min-h-11 items-center text-term-sub hover:text-term-fg-strong hover:underline lg:min-h-0">{link.label}</Link>
+            <Link key={link.href} href={link.href} className="inline-flex min-h-11 items-center text-term-sub hover:text-term-fg-strong hover:underline lg:min-h-8">{link.label}</Link>
           ))}
         </nav>
       </main>

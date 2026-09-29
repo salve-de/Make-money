@@ -33,7 +33,8 @@ export type VerificationSubmitRequest = { entityId: string; restrictedKey: strin
 export type VerificationLookupResponse = { verification: VerifiedRevenue | null };
 
 /** GET /api/verification/list の応答。 */
-export type VerificationListResponse = { verified: VerifiedEntity[] };
+/** `unavailable` は一覧を読めなかったとき。空の一覧は「確認済みが無い」ではなく「今は分からない」。 */
+export type VerificationListResponse = { verified: VerifiedEntity[]; unavailable?: true };
 
 /** 売上を数える期間（日）。 */
 export const VERIFICATION_WINDOW_DAYS = 30;

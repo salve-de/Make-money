@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server';
 
 import { listVerifiedEntities } from '@/lib/verification/store';
-import type { VerificationErrorResponse, VerificationListResponse } from '@/shared/verification';
+import type { VerificationListResponse } from '@/shared/verification';
 
 export const dynamic = 'force-dynamic';
 
 const publicHeaders = { 'Cache-Control': 'public, max-age=30, must-revalidate' };
 const errorHeaders = { 'Cache-Control': 'no-store' };
 
-function respond(body: VerificationListResponse | VerificationErrorResponse, status: number, headers: Record<string, string>) {
+function respond(body: VerificationListResponse, status: number, headers: Record<string, string>) {
   return NextResponse.json(body, { status, headers });
 }
 
@@ -18,6 +18,7 @@ export async function GET() {
     return respond({ verified: await listVerifiedEntities() }, 200, publicHeaders);
   } catch (error) {
     console.error('[verification/list] lookup failed:', error instanceof Error ? error.name : 'unknown');
-    return respond({ error: '確認済みの事例をいま取得できません', code: 'unavailable' }, 503, errorHeaders);
+    // 印は一覧の飾りなので、読めないときは印を出さないだけにする（全画面でブラウザにエラーを出さない）。
+    return respond({ verified: [], unavailable: true }, 200, errorHeaders);
   }
 }
