@@ -1,3 +1,4 @@
+import type Stripe from 'stripe';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { batchD1, queryD1 } from '@/lib/storage/d1';
 import { getStripeClient, paymentLiveMode } from '@/lib/stripe';
@@ -35,7 +36,9 @@ export async function getPaymentRecords(uid: string): Promise<PaymentRecord[]> {
   const rows = await queryD1('SELECT * FROM payment_events WHERE resource_id IN (SELECT resource_id FROM payment_events WHERE user_id = ?) AND livemode = ?', [uid, (await paymentLiveMode()) ? 1 : 0]);
   return rows.map(parsePaymentRecord);
 }
-export async function getProEntitlement(uid: string): Promise<boolean> {
+export interface EntitlementInputs { stripe: Stripe | null; records: PaymentRecord[]; resources: string[] }
+/** The user's ledger facts and the resources (charges / subscriptions) that Stripe must confirm before access is granted. */
+export async function loadEntitlementInputs(uid: string): Promise<EntitlementInputs> {
   let records = await getPaymentRecords(uid);
   const stripe = await getStripeClient();
   if (!records.some((r) => r.userId === uid && (r.fact.kind === 'purchase' || (r.fact.kind === 'subscription' && r.fact.active)))) {
@@ -52,6 +55,16 @@ export async function getProEntitlement(uid: string): Promise<boolean> {
   // An established subscription can renew beyond its old snapshot expiry. Its
   // current paid invoice, refunds and status are checked at the provider below.
   for (const r of records) if (r.fact.kind === 'subscription' && r.fact.active && r.fact.userId === uid && !resources.includes(r.resourceId)) resources.push(r.resourceId);
+  return { stripe, records, resources };
+}
+/** Every subscription ID the ledger ties to this user, whether or not it is still paid. */
+export function subscriptionResourceIds(records: PaymentRecord[], uid: string): string[] {
+  const ids = new Set<string>();
+  for (const r of records) if (r.fact.kind === 'subscription' && r.fact.userId === uid && r.resourceId.startsWith('sub_')) ids.add(r.resourceId);
+  return [...ids];
+}
+export async function getProEntitlement(uid: string): Promise<boolean> {
+  const { stripe, resources } = await loadEntitlementInputs(uid);
   if (!resources.length) return false;
   if (!stripe) throw new Error('Payment verification unavailable');
   for (const resource of resources) {
