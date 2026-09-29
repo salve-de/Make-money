@@ -257,6 +257,19 @@ function main() {
       });
     }
 
+    // 調査限界カード（取れなかった事実の開示）: 何が未確認かを明示し、根拠ゼロの穴埋めをしない。
+    newCards.push({
+      id: `${idBase}_reaudit_limits`, type: 'UNKNOWN_AUDIT', title: '調査限界: この再監査で確認していないこと', badge: '未確認', evidenceStatus: 'UNKNOWN',
+      punchline: '月商・利益・原価・手残り、チーム規模、創業年、集客経路、ツール構成は未確認。旧表示の数値は出典不足のため取り下げた。',
+      details: [
+        '未確認: 月商・利益・原価・手残りの実額（本人申告があれば「本人申告」として別掲）',
+        '未確認: チーム規模・稼働時間・初期資本・創業年・現在の稼働状況',
+        '未確認: 集客経路・ツール構成・価格の変遷',
+        `次の作業: 公式サイトと創業者本人の一次発信を再取得し、出典・時点・利用条件付きで個別再監査する（${AUDIT_DATE} 時点）`,
+      ],
+      sourceNote: 'scripted honest rebuild / research limits disclosure', sourceClass: 'PRIMARY',
+    });
+
     const revenueLabel = family === 'ebizfacts' ? pickRevenueLabel(e, publishedAt) : null;
     if (revenueLabel) stats.ebizWithLabel += 1;
     const sourceUrlForPnl = family === 'ebizfacts' ? ebizfactsUrl(e) : family === 'indiehackers' ? indiehackersUrl(e) : null;
