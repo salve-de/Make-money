@@ -54,7 +54,7 @@ This policy update does **not** grant a blanket license or change runtime public
 
 ## Active collection persistence — 2026-09-30
 
-The four Make-Money research lanes are active again using Google Drive raw JSON rather than GitHub/R2 writes. The current mode, dedupe/claim rules, v1.1 case schema and media-candidate behavior are documented in `docs/MAKE_MONEY_DRIVE_COLLECTION_MODE.md`. R2_QUEUE remains paused; Drive collection does not automatically reach the public API/UI.
+The four Make-Money research lanes are active again using a Google Drive JSON Ledger rather than GitHub/R2 writes. Canonical JSON is append-only in the Ledger Payload tab with compact case/run/claim/media/dedupe indexes; raw `.json` folders are secondary export/review surfaces. The current mode, dedupe/claim rules, v1.1 case schema and media-candidate behavior are documented in `docs/MAKE_MONEY_DRIVE_COLLECTION_MODE.md`. R2_QUEUE remains paused; Drive collection does not automatically reach the public API/UI.
 
 ## User intent / constraints
 
