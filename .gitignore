@@ -69,3 +69,6 @@ __pycache__/
 /data/raw_master_facts.json
 /data/raw_sources_cache/
 /.catalog-release/
+
+# Media asset staging (fetched images and provenance manifests; local only, see docs/MEDIA_ASSETS_AND_PROVENANCE.md)
+/data/media-staging/
