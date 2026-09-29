@@ -4,6 +4,7 @@ import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
 import { MoneyText } from './MoneyText';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
+import { comparableText, isSameContent } from '@/lib/company-access/natural-text-core';
 
 function stripLeadingEntityName(text: string, name?: string, legalEntity?: string): string {
   if (!text) return '';
@@ -168,11 +169,16 @@ export function ExecutiveIntuitiveSummary({
   const pricePoint = cleanValue(entity.pricing?.pricePoint);
   const psychoTrigger = cleanValue(entity.pricing?.psychologicalTrigger);
 
-  // 表示する有効な項目だけを構築（未確認・同じ文面の重複は入れない）
+  // 表示する有効な項目だけを構築（未確認・見出しと導入文に出た内容・同じ文面の重複は入れない）
   const infoRows: Array<{ label: string; value: string }> = [];
+  const shownAbove = [headline, leadParagraph].filter((text): text is string => Boolean(text)).map(comparableText);
   const pushRow = (label: string, value: string) => {
     const text = value.trim();
-    if (text && !infoRows.some((row) => row.value === text)) infoRows.push({ label, value: text });
+    if (!text) return;
+    const key = comparableText(text);
+    if (key.length >= 10 && shownAbove.some((shown) => shown.includes(key))) return;
+    if (infoRows.some((row) => isSameContent(row.value, text) || row.value === text)) return;
+    infoRows.push({ label, value: text });
   };
 
   if (targetPain) pushRow(isHazardMode ? '事業継続の課題' : '顧客の課題', targetPain);

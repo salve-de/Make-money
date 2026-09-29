@@ -5,6 +5,7 @@ import { findCachedPublishableEntity } from '@/lib/company-access/local-entity-i
 import { readFoundationBusinessCase } from '@/lib/foundation/business-reader';
 import { adaptFoundationDetailToFinancialEntity } from '@/lib/foundation/foundation-adapter';
 import { parseCompanyAnalysis } from '@/lib/company-access/schema';
+import { hasUnverifiedAiNarrative } from '@/lib/company-access/natural-text';
 
 export const dynamic = 'force-dynamic';
 const response = (body: unknown, status = 200) => NextResponse.json(body, {
@@ -21,7 +22,8 @@ export async function GET(request: Request) {
       const detail = await readFoundationBusinessCase(id);
       if (detail) entity = adaptFoundationDetailToFinancialEntity(detail);
     }
-    if (!entity?.meta) return response({ error: 'Analysis not found' }, 404);
+    // 再監査で「AI生成・未検証」と記録された分析は販売しない
+    if (!entity?.meta || hasUnverifiedAiNarrative(entity)) return response({ error: 'Analysis not found' }, 404);
     return response({ entityId: id, meta: parseCompanyAnalysis(entity.meta) });
   } catch { return response({ error: 'Analysis temporarily unavailable' }, 503); }
 }

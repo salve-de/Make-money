@@ -14,10 +14,11 @@ import {
   canAdmitPublicPayload,
   sanitizePublicObservationPayload,
 } from '@/lib/foundation/public-observation';
+import { naturalizeEntity } from './natural-text';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
-  const { meta, ...publicFields } = entity;
+  const { meta, ...publicFields } = naturalizeEntity(entity);
   return publicFoundationData({ ...publicFields, hasPremiumAnalysis: Boolean(meta) });
 }
 
@@ -253,7 +254,8 @@ export function isPublishableEntity(entity: FinancialEntity): boolean {
  * latestDossierHash と sourceRevision を確実に保持し、クリック時の鮮度ズレを防止する。
  * unknown != zero 原則に基づき、未確認指標は 0 ではなく null で安全に保持する。
  */
-export function publicSummaryEntity(entity: FinancialEntity): PublicSummaryEntity {
+export function publicSummaryEntity(source: FinancialEntity): PublicSummaryEntity {
+  const entity = naturalizeEntity(source);
   const isRevUnconfirmed = Boolean(entity.pnl?.isRevenueUnconfirmed);
   const isProfitUnconfirmed = Boolean(entity.pnl?.isOperatingProfitUnconfirmed);
   const isMarginUnconfirmed = Boolean(entity.pnl?.isMarginUnconfirmed);

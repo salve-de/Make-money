@@ -1,3 +1,4 @@
+import { clipText } from '@/lib/company-access/natural-text-core';
 import type {
   FoundationBusinessCase,
   FoundationMetricSignal,
@@ -396,7 +397,8 @@ export function adaptFoundationSummaryToFinancialEntity(
   const opportunityJudgment: OpportunityJudgment = {
     verdict: (isUnconfirmed) ? 'MONITOR' : 'ENTRY_CANDIDATE',
     verdictLabel: (isUnconfirmed) ? '要監視・データ精査中' : '参入候補',
-    oneLineReason: headline,
+    // 見出しの繰り返しを理由として出さない（理由の観測がない）
+    oneLineReason: '',
     demandDelta: '未確認',
     competitionDelta: '未確認',
     entryRequirements: {
@@ -815,7 +817,7 @@ export function adaptFoundationDetailToFinancialEntity(
       evidenceStatus: 'ESTIMATED',
       punchline: `『${entity.name}』の再現条件は、公開Evidenceで確認できた範囲だけで評価`,
       details: [
-        `① 業態・顧客課題: ${sector === 'UNKNOWN' ? '業態未確認' : sector}。 ${blindspotText.slice(0, 80)}`,
+        `① 業態・顧客課題: ${sector === 'UNKNOWN' ? '業態未確認' : sector}。 ${clipText(blindspotText, 80)}`,
         `② 価格・課金・販売方式: ${cleanMoneyLabel(priceStr)}。定額課金・都度販売・卸・店舗販売などはEvidenceがある場合だけ採用。`,
         `③ 集客・運営・継続条件: ${initialTraction[0] || moatText || '未確認'}。ソフトウェア型のロックインやデータ蓄積を推測で補完しない。`,
       ],
@@ -826,7 +828,8 @@ export function adaptFoundationDetailToFinancialEntity(
   const opportunityJudgment: OpportunityJudgment = {
     verdict: (isUnconfirmed) ? 'MONITOR' : 'ENTRY_CANDIDATE',
     verdictLabel: (isUnconfirmed) ? '要監視・データ精査中' : '参入候補',
-    oneLineReason: tagline,
+    // 見出しの繰り返しを理由として出さない（理由の観測がない）
+    oneLineReason: '',
     demandDelta: '未確認',
     competitionDelta: '未確認',
     entryRequirements: {
@@ -855,12 +858,13 @@ export function adaptFoundationDetailToFinancialEntity(
     isGrowthUnconfirmed: true,
     architecturePattern: pattern,
     pipelineStack: '技術構成未確認',
-    targetPainWallet: cleanIntelligenceText(firstObs ? firstObs.slice(0, 40) : '対象の痛みは未確認'),
+    // 最初の観測文を切って「顧客」「痛み」に使い回さない（見出しと同じ文が途中で切れて何度も出るため）
+    targetPainWallet: '対象の痛みは未確認',
     tags: Array.from(tags),
     essence: {
       whatItDoes: tagline,
-      targetCustomer: cleanIntelligenceText(firstObs ? firstObs.slice(0, 40) : '対象顧客は未確認'),
-      painRelief: cleanIntelligenceText(blindspotText.slice(0, 50) || '解消する痛みは未確認'),
+      targetCustomer: '対象顧客は未確認',
+      painRelief: '解消する痛みは未確認',
     },
     operations: {
       teamSize,
@@ -875,9 +879,11 @@ export function adaptFoundationDetailToFinancialEntity(
       toolStack: [],
     },
     strategy: {
-      blindspot: blindspotText,
+      // 収益化経路の主張は「収益の仕組み」、売却などの出来事は年表に出す。盲点・参入障壁の欄には入れない
+      blindspot: '市場の盲点は未確認',
       moatType: 'UNKNOWN',
-      moatDescription: moatText,
+      moatDescription: '参入障壁は未確認',
+      secretInsight: revenuePathClaim ? blindspotText : undefined,
       initialTraction,
       actionPlaybook: ['公開記録の範囲では実行手順未確認'],
     },
