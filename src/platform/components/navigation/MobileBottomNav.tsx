@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Bookmark, Compass, List, TrendingUp, type LucideIcon } from 'lucide-react';
+import { Compass, Lightbulb, List, TrendingUp, type LucideIcon } from 'lucide-react';
 import {
   GlobalNavSection,
   LOCAL_MODE_BY_SECTION,
@@ -21,7 +21,7 @@ const TABS: { id: GlobalNavSection; label: string; href: string; Icon: LucideIco
   { id: 'LEDGER', label: '事例', href: '/', Icon: List },
   { id: 'DISCOVER', label: '発見', href: '/discover', Icon: Compass },
   { id: 'RADAR', label: '市場', href: '/radar', Icon: TrendingUp },
-  { id: 'SYNTHESIS', label: '保存', href: SAVED_HREF, Icon: Bookmark },
+  { id: 'SYNTHESIS', label: '事業検討', href: SAVED_HREF, Icon: Lightbulb },
 ];
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeSection, bookmarkCount, onSelectLocalMode }) => {

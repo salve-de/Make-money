@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import type { BookmarkSyncStatus } from '../../hooks/useEntityFilter';
 import { MobileBottomNav } from './MobileBottomNav';
+import { Search } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import {
   GlobalNavSection,
@@ -15,6 +16,7 @@ import {
   SAVED_HREF,
   SECONDARY_NAV_ITEMS,
   LEGAL_LINKS,
+  SECTION_TITLES,
 } from './navigationItems';
 
 export type { GlobalNavSection } from './navigationItems';
@@ -99,6 +101,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const router = useRouter();
   const searchRef = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
   const moreRef = useRef<HTMLDetailsElement>(null);
 
   const activeSection: GlobalNavSection = currentSection || (() => {
@@ -201,7 +204,8 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         {/* ロゴ */}
         <MobileMenu activeSection={activeSection} onOpenPro={onOpenPro} onSelectLocalMode={onSelectLocalMode} />
         <div className="flex h-11 shrink-0 items-center pl-1 lg:h-full lg:border-r lg:border-term-line lg:pl-3 lg:pr-3 xl:pr-4">
-          <Link href="/" prefetch={false} aria-label="Make Money" className="inline-flex min-h-11 items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
+          <span className="truncate text-base font-semibold text-term-fg-strong lg:hidden">{SECTION_TITLES[activeSection]}</span>
+          <Link href="/" prefetch={false} aria-label="Make Money" className="hidden min-h-0 items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:inline-flex">
             MAKE MONEY
           </Link>
         </div>
@@ -209,6 +213,11 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         {/* スマホ: PRO は右上 */}
         <div className="ml-auto flex h-11 items-stretch lg:hidden">
           {rightContent}
+          {!onSearchChange && (
+            <button type="button" aria-label="事例を検索" aria-expanded={searchOpen} onClick={() => { setSearchOpen((open) => !open); requestAnimationFrame(() => searchRef.current?.focus()); }} className="flex w-11 items-center justify-center text-term-fg hover:bg-term-head">
+              <Search aria-hidden="true" size={20} />
+            </button>
+          )}
           {onOpenPro ? (
             <button type="button" onClick={onOpenPro} className="flex min-w-11 items-center px-3 text-sm font-semibold text-term-accent">
               PRO
@@ -224,7 +233,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <form
           role="search"
           onSubmit={submitSearch}
-          className="order-last flex h-11 w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]"
+          className={`order-last ${onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-11 w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
         >
           <span aria-hidden="true" className="font-mono text-sm text-term-accent">&gt;</span>
           <input

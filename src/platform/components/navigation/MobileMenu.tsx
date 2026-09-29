@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Dialog } from 'radix-ui';
-import { BarChart3, Bell, ClipboardList, Columns2, Menu, Package, Store, Wrench, X, type LucideIcon } from 'lucide-react';
+import { ChevronRight, Menu, X } from 'lucide-react';
 import {
   GlobalNavSection,
   LEGAL_LINKS,
@@ -15,16 +15,6 @@ import {
 
 /** 下のタブに出ている画面。メニューには重ねて出さない */
 export const TAB_SECTION_IDS: GlobalNavSection[] = ['LEDGER', 'DISCOVER', 'RADAR', 'SYNTHESIS'];
-
-const ICONS: Partial<Record<GlobalNavSection, LucideIcon>> = {
-  ARCHETYPES: BarChart3,
-  PLAYBOOK: Wrench,
-  COMPARE: Columns2,
-  ALERTS: Bell,
-  EXECUTION: ClipboardList,
-  BUSINESSES: Store,
-  MARKETPLACE: Package,
-};
 
 interface MobileMenuProps {
   activeSection: GlobalNavSection;
@@ -44,7 +34,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
     onSelectLocalMode(mode);
   };
 
-  const proClass = 'flex min-h-12 w-full items-center justify-center border border-term-accent text-base font-semibold text-term-accent hover:bg-term-head';
+  const proClass = 'flex min-h-12 w-full items-center justify-center bg-term-accent text-base font-semibold text-term-panel';
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -65,13 +55,19 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
               <X aria-hidden="true" size={20} />
             </Dialog.Close>
           </div>
+          <div className="shrink-0 border-b border-term-line p-3">
+            {onOpenPro ? (
+              <button type="button" onClick={() => { setOpen(false); onOpenPro(); }} className={proClass}>PRO の内容を見る</button>
+            ) : (
+              <Link href={PRO_HREF} prefetch={false} onClick={() => setOpen(false)} className={proClass}>PRO の内容を見る</Link>
+            )}
+          </div>
           <nav aria-label="そのほかの画面" className="min-h-0 flex-1 overflow-y-auto">
             {MOBILE_MENU_GROUPS.map((group) => (
               <section key={group.label} aria-label={group.label}>
                 <h2 className="bg-term-head px-4 py-1.5 text-xs font-semibold tracking-wider text-term-label">{group.label}</h2>
                 <ul>
                   {group.items.map((item) => {
-                    const Icon = ICONS[item.id];
                     const active = activeSection === item.id;
                     return (
                       <li key={item.id} className="border-b border-term-line-soft">
@@ -80,15 +76,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
                           prefetch={false}
                           onClick={(event) => handleLocal(event, item.id)}
                           aria-current={active ? 'page' : undefined}
-                          className={`flex min-h-14 items-center gap-3 px-4 py-2 hover:bg-term-head ${
-                            active ? 'bg-term-select shadow-[inset_3px_0_0_var(--term-accent)]' : ''
+                          className={`flex min-h-[52px] items-center justify-between gap-3 px-4 text-base hover:bg-term-head ${
+                            active ? 'bg-term-select text-term-fg-strong shadow-[inset_3px_0_0_var(--term-accent)]' : 'text-term-fg'
                           }`}
                         >
-                          {Icon && <Icon aria-hidden="true" size={20} className={active ? 'text-term-accent' : 'text-term-muted'} />}
-                          <span className="min-w-0">
-                            <span className={`block text-base ${active ? 'text-term-fg-strong' : 'text-term-fg'}`}>{item.label}</span>
-                            <span className="block truncate text-xs text-term-label">{item.hint}</span>
-                          </span>
+                          <span>{item.label}</span>
+                          <ChevronRight aria-hidden="true" size={18} className="shrink-0 text-term-label" />
                         </Link>
                       </li>
                     );
@@ -97,12 +90,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
               </section>
             ))}
           </nav>
-          <div className="shrink-0 border-t border-term-line px-4 pt-3">
-            {onOpenPro ? (
-              <button type="button" onClick={() => { setOpen(false); onOpenPro(); }} className={proClass}>PRO の内容を見る</button>
-            ) : (
-              <Link href={PRO_HREF} prefetch={false} onClick={() => setOpen(false)} className={proClass}>PRO の内容を見る</Link>
-            )}
+          <div className="shrink-0 border-t border-term-line px-4">
             <ul className="flex flex-wrap gap-x-4 py-1">
               {LEGAL_LINKS.map((link) => (
                 <li key={link.href}>
