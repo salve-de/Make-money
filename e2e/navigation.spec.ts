@@ -59,7 +59,7 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   const errors: string[] = [];
   page.on('pageerror', (error) => { errors.push(error.message); console.log('PLAYBOOK_PAGE_ERROR', error.message); });
   await page.goto('/playbook', { waitUntil: 'networkidle' });
-  await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考例/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /手口と道具/ })).toBeVisible();
   // Select the tab explicitly: the assertion concerns its content and click behavior.
   await page.getByRole('button', { name: /ツール構成/ }).click();
   await expect(page.getByLabel('用途', { exact: true })).toBeVisible();
@@ -76,7 +76,7 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   }
   await page.goto('/macro');
   await expect(page).toHaveURL(/\/playbook$/);
-  await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考例/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /手口と道具/ })).toBeVisible();
   await page.getByRole('button', { name: /ツール構成/ }).click();
   await page.getByRole('button', { name: '初期の顧客獲得', exact: true }).click();
   await page.getByRole('link', { name: '参考事例: Nomad List', exact: true }).first().click();
@@ -110,7 +110,7 @@ test('legacy finder and macro links still reach their canonical routes', async (
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await page.goto('/macro');
   await expect(page).toHaveURL(/\/playbook$/);
-  await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考例/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /手口と道具/ })).toBeVisible();
   await page.getByRole('link', { name: 'Make Money', exact: true }).click();
   await page.waitForURL(/\/$/);
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible({ timeout: 15000 });

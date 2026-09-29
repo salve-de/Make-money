@@ -36,9 +36,9 @@ interface GlobalHeaderProps {
 const SYNC_LABEL: Record<BookmarkSyncStatus, string> = {
   error: '保存失敗',
   saving: '保存中',
-  loading: '確認中',
   synced: '同期済',
-  // この端末だけに保存している通常状態は表示しない
+  // 読み込み中（ページを開いた直後の一瞬）と、この端末だけに保存している通常状態は表示しない
+  loading: '',
   local: '',
 };
 
@@ -155,7 +155,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   };
 
   const tabClass = (active: boolean) =>
-    `flex h-full items-center gap-1.5 border-r border-term-line px-3 text-[13px] whitespace-nowrap ${
+    `flex h-full shrink-0 items-center gap-1.5 border-r border-term-line px-2 text-[13px] whitespace-nowrap xl:px-3 ${
       active
         ? 'bg-[var(--surface-overlay)] text-term-fg-strong shadow-[inset_0_-2px_0_var(--term-accent)]'
         : 'text-term-muted hover:bg-term-head hover:text-term-fg'
@@ -192,8 +192,8 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     <>
       <header className="sticky top-0 z-40 flex w-full shrink-0 flex-wrap items-stretch border-b border-term-line bg-term-panel lg:h-9 lg:flex-nowrap">
         {/* ロゴ */}
-        <div className="flex h-10 items-center pl-3 lg:h-full lg:border-r lg:border-term-line lg:pr-4">
-          <Link href="/" prefetch={false} aria-label="Make Money" className="inline-flex min-h-11 items-center font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
+        <div className="flex h-10 shrink-0 items-center pl-3 lg:h-full lg:border-r lg:border-term-line lg:pr-3 xl:pr-4">
+          <Link href="/" prefetch={false} aria-label="Make Money" className="inline-flex min-h-11 items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:min-h-0">
             MAKE MONEY
           </Link>
         </div>
@@ -216,7 +216,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <form
           role="search"
           onSubmit={submitSearch}
-          className="order-last flex h-11 w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[280px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5"
+          className="order-last flex h-11 w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]"
         >
           <span aria-hidden="true" className="font-mono text-sm text-term-accent">&gt;</span>
           <input
@@ -225,13 +225,13 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             value={onSearchChange ? searchValue ?? '' : searchText}
             onChange={(event) => (onSearchChange ? onSearchChange(event.target.value) : setSearchText(event.target.value))}
             aria-label="事例を検索"
-            placeholder="会社名・事業を検索"
+            placeholder="会社名・ティッカー・事業で検索"
             className="h-full min-w-0 flex-1 bg-transparent text-sm text-term-fg outline-none placeholder:text-term-dim lg:text-[13px]"
           />
           <button
             type="submit"
             aria-label="検索を実行"
-            className="hidden border border-term-line px-1.5 font-mono text-xs leading-5 text-term-muted hover:bg-term-head lg:block"
+            className="hidden border border-term-line px-1.5 font-mono text-xs leading-5 text-term-muted hover:bg-term-head xl:block"
           >
             GO
           </button>
@@ -239,23 +239,26 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
 
         {/* PC: ファンクションタブ */}
         <nav aria-label="主要ナビゲーション" className="hidden h-full min-w-0 items-stretch lg:flex">
-          {PRIMARY_NAV_ITEMS.map((item, index) => {
-            const isActive = activeSection === item.id;
-            return (
-              <Link
-                key={item.id}
-                href={item.href}
-                prefetch={false}
-                onClick={(event) => handleLocalNavigation(event, item.id)}
-                aria-current={isActive ? 'page' : undefined}
-                className={tabClass(isActive)}
-              >
-                <span aria-hidden="true" className="term-num text-xs text-term-label">{index + 1}</span>
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
-          <details ref={moreRef} className="relative h-full">
+          {/* 幅が足りない画面では、タブだけ横にスクロールする（「その他」のメニューは切れないよう外に置く） */}
+          <div className="flex h-full min-w-0 items-stretch overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {PRIMARY_NAV_ITEMS.map((item, index) => {
+              const isActive = activeSection === item.id;
+              return (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  prefetch={false}
+                  onClick={(event) => handleLocalNavigation(event, item.id)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={tabClass(isActive)}
+                >
+                  <span aria-hidden="true" className="term-num hidden text-xs text-term-label xl:inline">{index + 1}</span>
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+          <details ref={moreRef} className="relative h-full shrink-0">
             <summary
               className={`${tabClass(secondaryActive)} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}
             >
@@ -281,7 +284,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         </nav>
 
         {/* PC: 右端 */}
-        <div className="ml-auto hidden h-full items-stretch lg:flex">
+        <div className="ml-auto hidden h-full shrink-0 items-stretch whitespace-nowrap lg:flex">
           {rightContent !== undefined && <div className="flex items-center px-2">{rightContent}</div>}
           {bookmarkSyncStatus && SYNC_LABEL[bookmarkSyncStatus] && (
             <span
@@ -303,7 +306,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
               PRO
             </Link>
           )}
-          <div className="flex items-center border-l border-term-line px-3">
+          <div className="hidden items-center border-l border-term-line px-3 xl:flex">
             <JstClock />
           </div>
         </div>

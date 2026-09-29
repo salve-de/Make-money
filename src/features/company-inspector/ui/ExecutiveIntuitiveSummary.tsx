@@ -111,14 +111,6 @@ function buildExecutiveLead(
   return combined.length > 0 ? combined : null;
 }
 
-function siteHost(url: string | undefined): string | null {
-  if (!url) return null;
-  try {
-    return new URL(url.startsWith('http') ? url : `https://${url}`).hostname.replace(/^www\./, '');
-  } catch {
-    return null;
-  }
-}
 
 function KeyValue({
   label,
@@ -167,7 +159,6 @@ export function ExecutiveIntuitiveSummary({
   const foundedYear = entity.temporal?.foundedYear;
   const sourceCount = new Set((entity.observationsStream || []).flatMap((item) => item.evidenceIds ?? [])).size
     || new Set([entity.pnl.sourceDoc, ...(entity.evidenceCards || []).map((card) => card.sourceNote)].filter(Boolean)).size;
-  const host = siteHost(entity.url);
 
   const targetPain = cleanValue(entity.targetPainWallet || entity.essence?.painRelief);
   const targetCustomer = cleanValue(entity.essence?.targetCustomer);
@@ -221,14 +212,12 @@ export function ExecutiveIntuitiveSummary({
       titleJa={isHazardMode ? '撤退・破綻の要因' : '事業の概要'}
       isHazardMode={isHazardMode}
     >
-      <div className="border-b border-term-line-soft py-2.5">
-        <h2 className="text-lg font-semibold leading-tight text-term-fg-strong">{entity.name}</h2>
-        <p className="mt-0.5 text-xs text-term-label">
-          {sectorLabel(entity.sector)}{host ? ` ・ ${host}` : ''}
-        </p>
-        {headline && <p className="mt-1.5 break-words text-[13px] leading-6 text-term-sub">{headline}</p>}
-        {leadParagraph && <p className="mt-1 break-words text-[13px] leading-6 text-term-sub">{leadParagraph}</p>}
-      </div>
+      {(headline || leadParagraph) && (
+        <div className="border-b border-term-line-soft py-2.5">
+          {headline && <p className="break-words text-[13px] leading-6 text-term-fg">{headline}</p>}
+          {leadParagraph && <p className="mt-1 break-words text-[13px] leading-6 text-term-sub">{leadParagraph}</p>}
+        </div>
+      )}
 
       <dl className="grid grid-cols-1 border-b border-term-line-soft lg:grid-cols-2 [&>div:last-child]:border-b-0">
         <KeyValue label="月商" tag={revenueKnown ? (isEstimated ? '推定' : undefined) : '未確認'} tagTone={revenueKnown && isEstimated ? 'accent' : 'dim'}>

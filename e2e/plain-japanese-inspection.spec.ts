@@ -29,7 +29,7 @@ for (const [id, name, hazard] of entities) {
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
     await expect(page.locator('#section-summary')).toHaveCount(1);
     // Uncollected financials no longer occupy a result card; the summary must not fabricate zeros.
-    await expect(page.locator('#section-summary')).not.toContainText('¥0');
+    await expect(page.locator('#section-summary')).not.toContainText(/(?<![\d,.])0円/);
     await expect(page.locator('#section-flywheel')).toHaveCount(0);
     await expect(page.locator('#section-loot-blueprint')).toHaveCount(1);
     await expect(page.locator('#section-evidence')).toContainText(hazard ? '撤退・破綻に関する記録' : '根拠となる記録');

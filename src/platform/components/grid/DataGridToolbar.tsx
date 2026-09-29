@@ -80,7 +80,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
 
   const hasActiveScreener = activeScreenerCount > 0;
 
-  const btn = 'inline-flex items-center gap-1.5 rounded-sm border px-2.5 text-xs transition-colors';
+  // 文字サイズはボタンごとに指定する（同じ種類のクラスを重ねると、どちらが効くかがCSSの並び順任せになるため）
+  const btn = 'inline-flex items-center gap-1.5 rounded-sm border px-2.5 transition-colors';
   const btnOff = 'border-term-line bg-transparent text-term-fg hover:bg-term-head';
   const btnOn = 'border-term-accent text-term-accent';
 
@@ -167,7 +168,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               type="button"
               onClick={() => onSelectBatch?.('ALL')}
               aria-label="登録回の絞り込みを解除"
-              className={`${btn} ${btnOn} min-h-11 lg:min-h-7`}
+              className={`${btn} ${btnOn} min-h-11 text-xs lg:min-h-7`}
             >
               登録回で絞り込み中
               <X aria-hidden="true" className="h-3.5 w-3.5" />
@@ -180,7 +181,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               onClick={() => onToggleTag('収集事例')}
               aria-pressed={activeTags.includes('収集事例')}
               title="新しく登録された事例を表示"
-              className={`${btn} min-h-9 lg:min-h-7 ${activeTags.includes('収集事例') ? btnOn : btnOff}`}
+              className={`${btn} min-h-9 text-xs lg:min-h-7 ${activeTags.includes('収集事例') ? btnOn : btnOff}`}
             >
               <span>新着事例</span>
             </button>
@@ -192,7 +193,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               type="button"
               onClick={() => onToggleTag?.(tag)}
               aria-label={`${tag}の絞り込みを解除`}
-              className={`${btn} min-h-9 lg:min-h-7 ${btnOn}`}
+              className={`${btn} min-h-9 text-xs lg:min-h-7 ${btnOn}`}
             >
               <span>{tag}</span>
               <X aria-hidden="true" className="h-3.5 w-3.5" />
@@ -203,7 +204,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             <button
               type="button"
               onClick={onApproveAllCollected}
-              className={`${btn} ${btnOff} min-h-9 lg:min-h-7`}
+              className={`${btn} ${btnOff} min-h-9 text-xs lg:min-h-7`}
               title="表示中の事例を台帳に登録"
             >
               <Check aria-hidden="true" className="h-3.5 w-3.5" />

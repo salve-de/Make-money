@@ -194,11 +194,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                 </tr>
               );
             })}
-            {entities.length === 0 && (
-              <tr><td colSpan={isSplitView ? 6 : 8} className="px-3 py-6 text-sm text-term-muted">条件に合う事例がありません。条件を減らすか、検索語を変えてください。</td></tr>
-            )}
           </tbody>
         </table>
+        {entities.length === 0 && (
+          <div className="px-3 py-6 text-sm text-term-muted">条件に合う事例がありません。条件を減らすか、検索語を変えてください。</div>
+        )}
       </div>
 
       {/* 追加読み込みトリガー */}

@@ -182,7 +182,7 @@ interface ToolRadarSectionProps {
   onSelectEntity?: (entityId: string) => void;
 }
 
-const TOOL_GRID = 'lg:grid-cols-[180px_minmax(0,1.4fr)_minmax(0,1.2fr)_minmax(0,1.2fr)_110px]';
+const TOOL_GRID = 'lg:grid-cols-[180px_minmax(0,1.4fr)_minmax(0,1.2fr)_minmax(0,1.2fr)_120px]';
 
 export const ToolRadarSection: React.FC<ToolRadarSectionProps> = ({
   selectedToolCategory,
@@ -222,7 +222,7 @@ export const ToolRadarSection: React.FC<ToolRadarSectionProps> = ({
             <p className="text-term-sub">{guide.description}</p>
             <p className="text-term-fg"><span className="mr-2 text-xs text-term-label lg:hidden">向く用途</span>{guide.suitableFor}</p>
             <p className="text-term-muted"><span className="mr-2 text-xs text-term-label lg:hidden">導入前に確認</span>{guide.check}</p>
-            <a href={guide.officialUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0">公式資料を開く ↗</a>
+            <a href={guide.officialUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center whitespace-nowrap text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0">公式資料を開く ↗</a>
           </article>
         ))}
       </section>

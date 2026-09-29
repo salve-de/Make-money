@@ -22,12 +22,11 @@ export function useStrategySynthesis({
   const { token } = useAuth();
   const [conversationId] = useState<string>(() => `conv_${Date.now()}`);
 
-  // 保存銘柄（もし保存がなければ代表的3社をデフォルト表示）
-  const savedEntities = useMemo(() => {
-    const list = allEntities.filter((e) => bookmarkedIds.has(e.id) || e.id === initialContextEntityId);
-    if (bookmarkedIds.size > 0 || initialContextEntityId) return list;
-    return allEntities.slice(0, 3);
-  }, [allEntities, bookmarkedIds, initialContextEntityId]);
+  // 検討に使う事例 = 保存した事例 ＋ 直前に見ていた事例。保存がない人に別の事例を代わりに並べることはしない
+  const savedEntities = useMemo(
+    () => allEntities.filter((e) => bookmarkedIds.has(e.id) || e.id === initialContextEntityId),
+    [allEntities, bookmarkedIds, initialContextEntityId],
+  );
 
   // 合成対象としてチェックされている企業ID群
   const [selectedEntityIds, setSelectedEntityIds] = useState<Set<string>>(() => {

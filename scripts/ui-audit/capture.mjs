@@ -1,8 +1,9 @@
 /**
- * 全ページをPC(1440)・タブレット(768)・スマホ(375)で撮影し、UIの数値を測る。
+ * 全ページをPC(1440)・小型ノートPC(1024)・タブレット(768)・スマホ(375)で撮影し、UIの数値を測る。
  * 使い方: 開発サーバーを起動してから
  *   UI_AUDIT_BASE_URL=http://localhost:3000 node scripts/ui-audit/capture.mjs
- * 出力: 画面ごとのPNGと results.json（横はみ出し・12px未満の文字・小さすぎる押し場所・色数など）。
+ *   （幅を絞るときは UI_AUDIT_VIEWPORTS=lap,sp のように指定）
+ * 出力: 画面ごとのPNGと results.json（横はみ出し・12px未満の文字・小さすぎる押し場所・重なった押し場所・色数など）。
  * 仕様は docs/design/TERMINAL_UI.md。
  */
 import { chromium } from '@playwright/test';
@@ -17,6 +18,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 const VIEWPORTS = {
   pc: { width: 1440, height: 900, isMobile: false, hasTouch: false },
+  lap: { width: 1024, height: 768, isMobile: false, hasTouch: false },
   tab: { width: 768, height: 1024, isMobile: true, hasTouch: true },
   sp: { width: 375, height: 812, isMobile: true, hasTouch: true },
 };
@@ -30,7 +32,8 @@ let routes = [
 const METRICS = () => {
   const vw = innerWidth;
   const all = [...document.querySelectorAll('body *')];
-  const shown = (e) => { const r = e.getBoundingClientRect(); const s = getComputedStyle(e); return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none' && s.opacity !== '0'; };
+  // 閉じた <details> の中身なども「見えていない」と判定する（checkVisibility が使えるブラウザでは併用）
+  const shown = (e) => { const r = e.getBoundingClientRect(); const s = getComputedStyle(e); return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none' && s.opacity !== '0' && (!e.checkVisibility || e.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })); };
   const vis = all.filter(shown);
   const txt = vis.filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()));
   const fs = {}; let tiny = 0;
@@ -39,6 +42,19 @@ const METRICS = () => {
   const minT = vw < 1024 ? 44 : 24;
   const small = inter.filter((e) => { const r = e.getBoundingClientRect(); return r.height < minT * 0.8 || r.width < minT * 0.8; });
   const unlabeled = inter.filter((e) => !(e.innerText || '').trim() && !e.getAttribute('aria-label') && !e.title && !e.placeholder && !e.getAttribute('aria-labelledby'));
+  // 押し場所どうしが重なっていないか（片方がもう片方を含む入れ子は除く）
+  const targets = vis.filter((e) => e.matches('a,button,[role=button],input,select,textarea,summary'));
+  const overlaps = [];
+  for (let i = 0; i < targets.length && overlaps.length < 5; i++) {
+    for (let j = i + 1; j < targets.length && overlaps.length < 5; j++) {
+      const a = targets[i]; const b = targets[j];
+      if (a.contains(b) || b.contains(a)) continue;
+      const r1 = a.getBoundingClientRect(); const r2 = b.getBoundingClientRect();
+      const w = Math.min(r1.right, r2.right) - Math.max(r1.left, r2.left);
+      const h = Math.min(r1.bottom, r2.bottom) - Math.max(r1.top, r2.top);
+      if (w > 2 && h > 2) overlaps.push(`${(a.innerText || a.getAttribute('aria-label') || '').trim().slice(0, 12)} × ${(b.innerText || b.getAttribute('aria-label') || '').trim().slice(0, 12)}`);
+    }
+  }
   const off = vis.filter((e) => e.getBoundingClientRect().right > vw + 2 && !['fixed', 'sticky'].includes(getComputedStyle(e).position));
   const colors = new Set(); const bgs = new Set();
   vis.forEach((e) => { const s = getComputedStyle(e); colors.add(s.color); if (s.backgroundColor !== 'rgba(0, 0, 0, 0)') bgs.add(s.backgroundColor); });
@@ -51,7 +67,7 @@ const METRICS = () => {
     fontSizes: fs, tinyTextCount: tiny, textNodes: txt.length,
     interactive: inter.length, smallTargets: small.length,
     smallEx: small.slice(0, 5).map((e) => (e.innerText || e.getAttribute('aria-label') || '').trim().slice(0, 20) + ` ${Math.round(e.getBoundingClientRect().width)}x${Math.round(e.getBoundingClientRect().height)}`),
-    unlabeled: unlabeled.length,
+    unlabeled: unlabeled.length, overlaps,
     offscreen: off.slice(0, 4).map((e) => e.tagName + ':' + (e.innerText || '').trim().slice(0, 20) + ':' + Math.round(e.getBoundingClientRect().right)),
     distinctTextColors: colors.size, distinctBgColors: bgs.size, brokenImages: imgsBroken,
     jargon: ['インスペクター', 'エンティティ', 'projection', 'Foundation', 'undefined', 'null', 'NaN', 'UNKNOWN', 'Primary', 'Evidence'].filter((w) => text.includes(w)),
@@ -77,7 +93,9 @@ const results = [];
 }
 console.error('routes', routes);
 
-for (const [vpName, vp] of Object.entries(VIEWPORTS)) {
+// UI_AUDIT_VIEWPORTS=pc,lap のように指定すると、その幅だけ撮る
+const only = (process.env.UI_AUDIT_VIEWPORTS || '').split(',').filter(Boolean);
+for (const [vpName, vp] of Object.entries(VIEWPORTS).filter(([name]) => only.length === 0 || only.includes(name))) {
   const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: vp.isMobile, hasTouch: vp.hasTouch, deviceScaleFactor: 1, colorScheme: 'dark' });
   for (const route of routes) {
     const page = await ctx.newPage();

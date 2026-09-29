@@ -58,7 +58,7 @@ export default function WelcomeClient({
       <GlobalHeader
         currentSection="WELCOME"
         rightContent={user ? (
-          <span className="max-w-40 truncate text-sm text-term-sub">{user.email}</span>
+          <span className="max-w-28 truncate text-sm text-term-sub xl:max-w-40">{user.email}</span>
         ) : (
           <button
             type="button"

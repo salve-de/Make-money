@@ -13,6 +13,8 @@ import {
 interface SynthesisEntitiesSidebarProps {
   mobileHidden?: boolean;
   savedEntities: FinancialEntity[];
+  /** 保存済みの事例ID。ここに無い事例は「閲覧中の事例」として印を付ける */
+  bookmarkedIds?: Set<string>;
   selectedEntityIds: Set<string>;
   toggleSelectEntity: (id: string) => void;
   activeEditingEntityId: string;
@@ -38,6 +40,7 @@ function financialStatusLabel(entity: FinancialEntity): string | null {
 export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> = ({
   mobileHidden = false,
   savedEntities,
+  bookmarkedIds,
   selectedEntityIds,
   toggleSelectEntity,
   activeEditingEntityId,
@@ -51,7 +54,7 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
   return (
     <div className={`w-full min-h-0 flex-1 flex-col overflow-hidden border-b border-term-line bg-term-bg md:max-h-none md:w-[34%] md:min-w-[300px] md:max-w-[460px] md:flex-none md:border-b-0 md:border-r lg:w-[32%] ${mobileHidden ? 'hidden md:flex' : 'flex'}`}>
       <div className="term-panel-title shrink-0">
-        <span className="term-panel-name">保存した事例とメモ</span>
+        <span className="term-panel-name">検討に使う事例とメモ</span>
         <span className="term-num ml-auto">{selectedEntityIds.size}件選択 / {savedEntities.length}件</span>
       </div>
 
@@ -97,6 +100,9 @@ export const SynthesisEntitiesSidebar: React.FC<SynthesisEntitiesSidebarProps> =
                   >
                     {ent.name}
                   </button>
+                  {bookmarkedIds && !bookmarkedIds.has(ent.id) && (
+                    <span className="shrink-0 text-xs text-term-label">閲覧中の事例</span>
+                  )}
                 </div>
                 {financialStatusLabel(ent) && <span className="shrink-0 text-xs text-term-muted">{financialStatusLabel(ent)}</span>}
               </div>
