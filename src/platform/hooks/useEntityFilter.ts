@@ -23,11 +23,14 @@ interface UseEntityFilterProps {
 export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, onUpdateDetailedTags, onCatalogFiltersChange }: UseEntityFilterProps) {
   const searchParams = useSearchParams();
   const { user, token, loading: authLoading } = useAuth();
-  const { filter: filterParam, batch: batchParam } = readEntityFilterQuery(searchParams);
+  const { filter: filterParam, batch: batchParam, tags: tagsParam, screener: screenerParam } = readEntityFilterQuery(searchParams);
+  // 保存した条件を開くURL（?tags= / ?screener=）から始める。値が変わったときだけ下の効果で合わせ直す
+  const tagsKey = tagsParam.join(',');
+  const screenerKey = screenerParam ? JSON.stringify(screenerParam) : '';
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(filterParam);
   const [selectedBatch, setSelectedBatch] = useState<string>(batchParam);
-  const [activeTags, setActiveTags] = useState<string[]>([]);
-  const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(null);
+  const [activeTags, setActiveTags] = useState<string[]>(tagsParam);
+  const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(screenerParam as ScreenerFilterState | null);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(() => new Set<string>());
   const [bookmarkSyncStatus, setBookmarkSyncStatus] = useState<BookmarkSyncStatus>('loading');
   const bookmarkedIdsRef = useRef(bookmarkedIds);
@@ -114,6 +117,17 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
     setCurrentFilter(filterParam);
     setSelectedBatch(batchParam);
   }, [filterParam, batchParam]);
+
+  useEffect(() => {
+    // URLから条件が消えたとき（戻る・同じページ内の移動）も、画面の絞り込みを外してURLに合わせる。
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setActiveTags(tagsKey ? tagsKey.split(',') : []);
+  }, [tagsKey]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setScreenerFilters(screenerKey ? JSON.parse(screenerKey) as ScreenerFilterState : null);
+  }, [screenerKey]);
 
   const handleToggleTag = useCallback((tag: string | null) => {
     if (!tag) { setActiveTags([]); return; }
@@ -230,6 +244,6 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
     currentFilter, setCurrentFilter, selectedBatch, setSelectedBatch,
     activeTags, setActiveTags, handleToggleTag, screenerFilters, setScreenerFilters,
     bookmarkedIds, handleToggleBookmark, bookmarkSyncStatus, availableTags, tagCounts,
-    newlyCollectedCount, batchCounts, filteredEntities, handleApproveEntity, handleApproveAllCollected,
+    newlyCollectedCount, batchCounts, filteredEntities, handleApproveEntity, handleApproveAllCollected, catalogFilters,
   };
 }

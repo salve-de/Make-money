@@ -12,6 +12,8 @@ export async function GET(request: Request) {
   const offset = Number(params.get('offset') ?? '0');
   const requestedPageSize = Number(params.get('pageSize') ?? '100');
   const generation = params.get('generation');
+  const sector = params.get('sector');
+  if (sector !== null && !/^[A-Z][A-Z_]{1,39}$/.test(sector)) return NextResponse.json({ error: 'Invalid catalog query' }, { status: 400 });
   if (
     query.length > 200 ||
     !Number.isSafeInteger(offset) ||
@@ -26,7 +28,7 @@ export async function GET(request: Request) {
   catch { return NextResponse.json({ error: 'Invalid catalog filters' }, { status: 400 }); }
   try {
     const entities = await readCachedLocalPublishableEntities();
-    const filtered = entities.filter((entity) => matchesCatalogQuery(entity, query, filters));
+    const filtered = entities.filter((entity) => (!sector || entity.sector === sector) && matchesCatalogQuery(entity, query, filters));
     const data = filtered.slice(offset, offset + requestedPageSize).map(publicSummaryEntity);
     const nextOffset = offset + data.length;
     return NextResponse.json({ data, total: filtered.length, generation: catalogGeneration,

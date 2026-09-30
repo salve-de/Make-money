@@ -6,6 +6,7 @@ import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { entityDescription } from '@/platform/utils/entityDescription';
 import { CONFIRM_TONE_CLASS, confirmStatus, monthlyRevenueParts, teamSizeText, listDescription } from './ledgerRow';
+import { VerifiedMark } from './VerifiedMark';
 
 interface MobileFeedCardProps {
   entity: FinancialEntity;
@@ -16,6 +17,8 @@ interface MobileFeedCardProps {
   isBookmarked: boolean;
   /** 偶数行の縞（一覧側から渡す） */
   zebra?: boolean;
+  /** 決済データで売上を確認済み */
+  isVerified?: boolean;
 }
 
 export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
@@ -26,6 +29,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   onToggleBookmark,
   isBookmarked,
   zebra = false,
+  isVerified = false,
 }) => {
   const revenue = monthlyRevenueParts(entity, currency);
   const team = teamSizeText(entity);
@@ -43,7 +47,10 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         className="block min-h-11 min-w-0 flex-1 py-[9px] pl-3 pr-1 text-left focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent"
       >
         <span className="flex items-baseline justify-between gap-3">
-          <span className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
+          <span className="flex min-w-0 items-baseline gap-1.5">
+            <span className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
+            {isVerified && <VerifiedMark />}
+          </span>
           <span className={`term-num shrink-0 text-base ${revenue ? 'text-term-fg-strong' : 'text-term-dim'}`}>
             {revenue ? revenue.value : '—'}
             {revenue?.unit && <span className="ml-0.5 font-sans text-xs text-term-label">{revenue.unit}</span>}

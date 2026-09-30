@@ -1,6 +1,7 @@
 import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
+import { isSameContent } from '@/lib/company-access/natural-text-core';
 const MOAT_TYPE_LABELS: Record<string, string> = {
   COUNTER_POSITIONING: '大企業が真似できない構造',
   NETWORK_EFFECT: '利用者が増えるほど強くなる仕組み',
@@ -11,6 +12,8 @@ const MOAT_TYPE_LABELS: Record<string, string> = {
   BRAND_SPEED: '圧倒的なブランド認知とスピード',
   UNKNOWN: '未確認',
 };
+
+const LEVEL_LABELS: Record<string, string> = { LOW: '低い', MEDIUM: '中程度', HIGH: '高い', CRITICAL: '非常に高い' };
 
 type Props = Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'formatMoney' | 'isPro' | 'onOpenPro'>;
 function text(value: unknown): string {
@@ -28,7 +31,9 @@ export function BusinessAnalysisSections({ entity, isHazardMode, formatMoney, is
   const actions = entity.strategy?.actionPlaybook || [];
   const checklist = entity.lootBlueprint?.executionChecklist || [];
   const hasAcquisition = Boolean((entity.strategy?.moatType && entity.strategy.moatType !== 'UNKNOWN') || text(entity.pricing?.churnRate) || Number.isFinite(entity.pricing?.estimatedLtvJpy) || text(acquisition?.primaryFunnel) || acquisition?.tactics?.some(text) || text(entity.strategy?.coldOutreachTemplate) || actions.some(text) || checklist.some(text) || (acquisition && Number.isFinite(acquisition.cacJpy)));
-  const judgment = entity.opportunityJudgment;
+  // 理由のない判定や、見出しの繰り返しを理由にした判定は、区分だけが並ぶので出さない
+  const reason = text(entity.opportunityJudgment?.oneLineReason);
+  const judgment = reason && !isSameContent(reason, entity.tagline || '') ? entity.opportunityJudgment : undefined;
   const meta = isPro ? entity.meta : undefined;
   const groups: { title: string; rows: [string, unknown][] }[] = meta ? [
     { title: '大手との競争', rows: [['既存事業との衝突', meta.incumbentDilemma?.cannibalizationBarrier], ['市場規模の違い', meta.incumbentDilemma?.scaleMismatchReason], ['意思決定の速さ', meta.incumbentDilemma?.decisionSpeedAdvantage]] },
@@ -55,7 +60,7 @@ export function BusinessAnalysisSections({ entity, isHazardMode, formatMoney, is
       {!isPro && onOpenPro && <button type="button" onClick={onOpenPro} className="my-3 rounded-sm border border-term-line px-3 py-2 text-sm text-term-fg">詳細分析を開く</button>}
     </InspectorSectionCard>}
     {judgment && <InspectorSectionCard id="section-judgment" index="07" categoryEn="事業検討" titleJa="参入判断の材料" isHazardMode={isHazardMode}><Rows rows={[
-      ['記録された見立て', judgment.verdictLabel], ['理由', judgment.oneLineReason], ['需要の変化', judgment.demandDelta], ['競争の変化', judgment.competitionDelta], ['必要資本', judgment.entryRequirements?.capital], ['技術的な難度', judgment.entryRequirements?.technicalDifficulty], ['プラットフォーム依存', judgment.entryRequirements?.platformRisk],
+      ['記録された見立て', judgment.verdictLabel], ['理由', judgment.oneLineReason], ['需要の変化', judgment.demandDelta], ['競争の変化', judgment.competitionDelta], ['必要資本', judgment.entryRequirements?.capital], ['技術的な難度', LEVEL_LABELS[judgment.entryRequirements?.technicalDifficulty ?? '']], ['プラットフォーム依存', LEVEL_LABELS[judgment.entryRequirements?.platformRisk ?? '']],
     ]} /></InspectorSectionCard>}
   </>;
 }

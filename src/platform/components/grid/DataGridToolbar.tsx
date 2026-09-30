@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { CompareTrayLink } from '@/platform/components/compare/CompareTrayLink';
+import { SaveSearchButton, type SavedSearchDraft } from './SaveSearchButton';
 import { Check, Layers, Search, SlidersHorizontal, X } from 'lucide-react';
 import { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { KNOWN_INGEST_BATCHES } from '@/shared/terminal';
@@ -24,6 +26,8 @@ interface DataGridToolbarProps {
   catalogTotal?: number | null;
   /** 登録回（取り込み作業の単位）の選択欄は管理者だけに出す。一般の利用者には内部の管理名を見せない。 */
   showBatchFilter?: boolean;
+  /** 今の検索語と絞り込み（「条件を保存」に使う）。 */
+  savedSearchDraft?: SavedSearchDraft;
 }
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
@@ -42,6 +46,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   batchCounts = {},
   catalogTotal = null,
   showBatchFilter = false,
+  savedSearchDraft,
 }) => {
   const batchOptions = React.useMemo(() => {
     const knownMap = new Map(KNOWN_INGEST_BATCHES.map((batch) => [batch.id, batch]));
@@ -211,6 +216,9 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               表示中を登録
             </button>
           )}
+
+          {savedSearchDraft && <SaveSearchButton draft={savedSearchDraft} />}
+          <CompareTrayLink />
 
           <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">
             <span className="text-term-fg">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件

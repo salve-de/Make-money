@@ -60,4 +60,12 @@ describe('catalog paging and search', () => {
     mocks.read.mockRejectedValue(new Error('missing object'));
     expect((await GET(new Request('http://localhost/api/catalog'))).status).toBe(503);
   });
+  it('narrows to one sector and rejects malformed sector values', async () => {
+    const rows = await mocks.read();
+    rows[3].sector = 'CONTENT_MEDIA';
+    rows[150].sector = 'CONTENT_MEDIA';
+    const result = await (await GET(new Request('http://localhost/api/catalog?sector=CONTENT_MEDIA'))).json();
+    expect(result.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_3', 'ent_150']);
+    expect((await GET(new Request('http://localhost/api/catalog?sector=content-media'))).status).toBe(400);
+  });
 });

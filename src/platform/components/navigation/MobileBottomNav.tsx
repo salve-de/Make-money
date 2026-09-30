@@ -10,6 +10,7 @@ import {
   PRO_HREF,
   SAVED_HREF,
   SECONDARY_NAV_ITEMS,
+  LEGAL_LINKS,
 } from './navigationItems';
 
 interface MobileBottomNavProps {
@@ -102,6 +103,13 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                     PRO
                   </Link>
                 )}
+              </li>
+              <li className="flex flex-wrap gap-x-4 border-t border-term-line px-3">
+                {LEGAL_LINKS.map((link) => (
+                  <Link key={link.href} href={link.href} prefetch={false} onClick={() => setSheetOpen(false)} className="inline-flex min-h-11 items-center text-xs text-term-label hover:text-term-fg-strong">
+                    {link.label}
+                  </Link>
+                ))}
               </li>
             </ul>
           </div>

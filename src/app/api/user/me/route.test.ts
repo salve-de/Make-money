@@ -7,6 +7,7 @@ const state = vi.hoisted(() => ({
   batch: vi.fn(),
   execute: vi.fn(),
   query: vi.fn(),
+  subscription: vi.fn(),
 }));
 
 vi.mock('@/lib/firebase/server', () => ({
@@ -23,6 +24,10 @@ vi.mock('@/lib/payments/entitlement', () => ({
   getProEntitlement: async () => false,
 }));
 
+vi.mock('@/lib/payments/billing', () => ({
+  findManageableSubscription: state.subscription,
+}));
+
 import { DELETE } from './route';
 
 function request(auth = true) {
@@ -35,11 +40,29 @@ function request(auth = true) {
 beforeEach(() => {
   state.user = { uid: 'owner-a' };
   state.batch.mockReset().mockResolvedValue([]);
+  state.subscription.mockReset().mockResolvedValue(null);
   state.execute.mockReset();
   state.query.mockReset().mockImplementation(async (sql: string) => sql.includes('sqlite_master') ? [{ available: 1 }] : [{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
 });
 
 describe('DELETE /api/user/me', () => {
+  it('refuses to delete while a monthly or yearly plan keeps renewing, so billing cannot outlive the account', async () => {
+    state.subscription.mockResolvedValue({ id: 'sub_1', cancel_at_period_end: false, cancel_at: null });
+    const response = await DELETE(request());
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ code: 'subscription_active' });
+    expect(state.batch).not.toHaveBeenCalled();
+  });
+
+  it('allows deletion once the plan is set to end, and fails closed when billing cannot be read', async () => {
+    state.subscription.mockResolvedValue({ id: 'sub_1', cancel_at_period_end: true, cancel_at: null });
+    expect((await DELETE(request())).status).toBe(200);
+    state.batch.mockClear();
+    state.subscription.mockRejectedValue(new Error('stripe down'));
+    expect((await DELETE(request())).status).toBe(503);
+    expect(state.batch).not.toHaveBeenCalled();
+  });
+
   it('deletes execution projects in the same application-data transaction', async () => {
     const response = await DELETE(request());
 
@@ -75,6 +98,72 @@ describe('DELETE /api/user/me', () => {
     const statements = state.batch.mock.calls[0][0] as Array<{ sql: string }>;
     expect(statements.some(({ sql }) => sql.includes('marketplace_listings'))).toBe(false);
     expect(state.query.mock.calls[1][0]).not.toContain('FROM marketplace_listings');
+  });
+
+  it('deletes the revenue-verification rows that keep the user id, once migration 0012 exists', async () => {
+    state.query.mockReset()
+      .mockResolvedValueOnce([{ available: 1, verifications: 1 }])
+      .mockResolvedValueOnce([{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1, verified_revenue: 0 }]);
+    const response = await DELETE(request());
+    expect(response.status).toBe(200);
+    const statements = state.batch.mock.calls[0][0] as Array<{ sql: string; params: unknown[] }>;
+    expect(statements).toEqual(expect.arrayContaining([{ sql: 'DELETE FROM verified_revenue WHERE user_id = ?', params: ['owner-a'] }]));
+    expect(state.query).toHaveBeenLastCalledWith(
+      expect.stringContaining('COUNT(*) FROM verified_revenue WHERE user_id = ?'),
+      ['owner-a', 'owner-a', 'owner-a', executionOwnerKey('owner-a'), 'owner-a'],
+    );
+  });
+
+  it('fails closed when revenue-verification rows remain after deletion', async () => {
+    state.query.mockReset()
+      .mockResolvedValueOnce([{ available: 1, verifications: 1 }])
+      .mockResolvedValueOnce([{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1, verified_revenue: 1 }]);
+    expect((await DELETE(request())).status).toBe(503);
+  });
+
+  it('preserves account deletion before the revenue-verification migration', async () => {
+    state.query.mockResolvedValueOnce([{ available: 1, verifications: 0 }]);
+    const response = await DELETE(request());
+    expect(response.status).toBe(200);
+    const statements = state.batch.mock.calls[0][0] as Array<{ sql: string }>;
+    expect(statements.some(({ sql }) => sql.includes('verified_revenue'))).toBe(false);
+    expect(state.query.mock.calls[1][0]).not.toContain('verified_revenue');
+  });
+
+  it('rejects an inconsistent schema readback without deleting anything', async () => {
+    state.query.mockReset().mockResolvedValueOnce([{ available: 1, verifications: 2 }]);
+    expect((await DELETE(request())).status).toBe(503);
+    expect(state.batch).not.toHaveBeenCalled();
+  });
+
+  it('deletes saved searches with the rest of the account data once migration 0013 exists', async () => {
+    state.query.mockImplementation(async (sql: string) => sql.includes('sqlite_master')
+      ? [{ available: 1, saved_searches: 1 }]
+      : [{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
+    const response = await DELETE(request());
+
+    expect(response.status).toBe(200);
+    expect(state.query.mock.calls[0][0]).toContain("name='saved_searches'");
+    const statements = state.batch.mock.calls[0]?.[0] as Array<{ sql: string; params: unknown[] }>;
+    expect(statements).toEqual(expect.arrayContaining([
+      { sql: 'DELETE FROM saved_searches WHERE user_id = ?', params: ['owner-a'] },
+      { sql: 'DELETE FROM users WHERE id = ?', params: ['owner-a'] },
+    ]));
+    // one transaction: the saved searches go before the account row, in the same batch
+    const sqls = statements.map(({ sql }) => sql);
+    expect(sqls.indexOf('DELETE FROM saved_searches WHERE user_id = ?')).toBeLessThan(sqls.indexOf('DELETE FROM users WHERE id = ?'));
+  });
+
+  it('preserves account deletion before the saved-search migration', async () => {
+    state.query.mockImplementation(async (sql: string) => sql.includes('sqlite_master')
+      ? [{ available: 1, saved_searches: 0 }]
+      : [{ users: 0, execution_projects: 0, marketplace_listings: 0, execution_generation: 1 }]);
+    const response = await DELETE(request());
+
+    expect(response.status).toBe(200);
+    const statements = state.batch.mock.calls[0][0] as Array<{ sql: string }>;
+    expect(statements.some(({ sql }) => sql.includes('saved_searches'))).toBe(false);
+    expect(statements.some(({ sql }) => sql.includes('DELETE FROM users'))).toBe(true);
   });
 
   it('does not mutate data when schema inspection fails', async () => {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { MarketplaceTabs } from '@/components/marketplace/business/MarketplaceTabs';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { listPublishedMarketplaceListings, parseMarketplaceOffset, MARKETPLACE_PAGE_SIZE } from '@/lib/marketplace/listing-store';
 import { MARKETPLACE_CATEGORY_LABELS } from '@/shared/marketplace-listing';
@@ -33,6 +34,7 @@ export default async function MarketplacePage({ searchParams }: {
           <span className="hidden sm:inline">掲載者が登録したサービス。申込み・決済は各サイトで行います。</span>
         </div>
         <h1 className="sr-only">サービス一覧</h1>
+        <MarketplaceTabs active="products" />
         <div className="flex flex-wrap gap-2 border-b border-term-line px-3 py-2">
           <Link href="/marketplace/new" className={`${BTN} border-term-accent text-term-accent hover:bg-term-head`}>サービスを掲載</Link>
           <Link href="/discover" className={`${BTN} border-term-line text-term-fg hover:bg-term-head`}>アイデアを探して作る</Link>
