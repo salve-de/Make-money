@@ -24,7 +24,10 @@ export interface DiscoveryCase {
   resultMetricId: string | null;
   summaryFactId: string | null;
   summaryText: string;
-  /** 詳細と AI への文脈が読む唯一の中身 */
+  /**
+   * 詳細と AI への文脈が読む唯一の中身。検証は ReaderCaseSchema（zod）が持つので、JSON スキーマの生成からは外す。
+   * @hidden
+   */
   reader?: ReaderCase;
   resultEvidenceLabel: string;
   resultPeriod: string | null;

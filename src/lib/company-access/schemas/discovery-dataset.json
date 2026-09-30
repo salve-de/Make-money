@@ -17,28 +17,6 @@
             "$ref": "#/definitions/DiscoveryCase"
           }
         },
-        "mechanisms": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "label": {
-                "type": "string"
-              },
-              "count": {
-                "type": "number"
-              }
-            },
-            "required": [
-              "id",
-              "label",
-              "count"
-            ]
-          }
-        },
         "highlights": {
           "type": "array",
           "items": {
@@ -50,7 +28,6 @@
         "sourceCount",
         "visibleCount",
         "cases",
-        "mechanisms",
         "highlights"
       ]
     },
@@ -67,7 +44,8 @@
           "type": "string"
         },
         "sector": {
-          "type": "string"
+          "type": "string",
+          "description": "SEC の標準産業分類（SEC_SIC）が根拠の時だけ入る。それ以外は空文字で、画面に出さない。"
         },
         "resultLabel": {
           "type": "string"
@@ -80,6 +58,21 @@
             "number",
             "null"
           ]
+        },
+        "resultMetricId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "summaryFactId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "summaryText": {
+          "type": "string"
         },
         "resultEvidenceLabel": {
           "type": "string"
@@ -113,12 +106,6 @@
         },
         "leverage": {
           "type": "string"
-        },
-        "mechanism": {
-          "$ref": "#/definitions/DiscoveryMechanism"
-        },
-        "mechanismCount": {
-          "type": "number"
         },
         "currentLabel": {
           "type": "string"
@@ -159,28 +146,6 @@
             "required": [
               "label",
               "value"
-            ]
-          }
-        },
-        "related": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "resultValue": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "name",
-              "resultValue"
             ]
           }
         },
@@ -228,6 +193,9 @@
         "resultLabel",
         "resultValue",
         "resultAmountJpy",
+        "resultMetricId",
+        "summaryFactId",
+        "summaryText",
         "resultEvidenceLabel",
         "resultPeriod",
         "resultSource",
@@ -236,8 +204,6 @@
         "criticalInsight",
         "whyMoneyMoved",
         "leverage",
-        "mechanism",
-        "mechanismCount",
         "currentLabel",
         "currentDetail",
         "isCurrent",
@@ -247,23 +213,7 @@
         "lowWork",
         "evidenceCount",
         "descriptors",
-        "related",
         "scores"
-      ]
-    },
-    "DiscoveryMechanism": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "label": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "label"
       ]
     }
   }

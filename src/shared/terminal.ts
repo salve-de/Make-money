@@ -419,7 +419,11 @@ export interface SectorBasis {
 }
 
 export interface FinancialEntity {
-  /** 画面が読む唯一の中身（src/shared/reader-case.ts）。公開版を作る時に入れる。 */
+  /**
+   * 画面が読む唯一の中身（src/shared/reader-case.ts）。公開版を作る時に入れる。
+   * 検証は ReaderCaseSchema（zod）が持つので、JSON スキーマの生成（generate-schemas）からは外す。
+   * @hidden
+   */
   reader?: ReaderCase;
   reaudit?: ReauditMetadata;
   id: string;

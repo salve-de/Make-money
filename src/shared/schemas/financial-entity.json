@@ -27,24 +27,8 @@
           "$ref": "#/definitions/SectorCategory"
         },
         "sectorBasis": {
-          "type": "object",
-          "properties": {
-            "source": {
-              "enum": [
-                "SEC_SIC",
-                "SOURCED_DESCRIPTION"
-              ],
-              "type": "string"
-            },
-            "note": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "source",
-            "note"
-          ],
-          "additionalProperties": false
+          "$ref": "#/definitions/SectorBasis",
+          "description": "業種の根拠。無い時は業種を画面に出さない。"
         },
         "scale": {
           "$ref": "#/definitions/BusinessScale"
@@ -222,6 +206,25 @@
         "FINTECH_INFRA",
         "LOCAL_SERVICES",
         "UNKNOWN"
+      ]
+    },
+    "SectorBasis": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "SEC_SIC",
+            "SOURCED_DESCRIPTION"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "note"
       ]
     },
     "BusinessScale": {
