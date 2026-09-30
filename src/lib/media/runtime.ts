@@ -17,10 +17,10 @@ export async function readMediaSource(): Promise<MediaSourceConfig> {
   );
 }
 
-let shared: { publicDomain: string; reader: PublicMediaReader } | null = null;
+let shared: { publicDomain: string | null; reader: PublicMediaReader } | null = null;
 
-export function publicMediaReaderFor(publicDomain: string): PublicMediaReader {
-  if (shared?.publicDomain !== publicDomain) {
+export function publicMediaReaderFor(publicDomain: string | null): PublicMediaReader {
+  if (!shared || shared.publicDomain !== publicDomain) {
     shared = { publicDomain, reader: createPublicMediaReader({ source: createR2PublicObjectSource(), publicDomain }) };
   }
   return shared.reader;

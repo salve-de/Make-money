@@ -371,7 +371,7 @@ node --import tsx scripts/media/auto-review.ts [--entity ent_a,ent_b] [--dry-run
 | 環境 | 読み先 | 画像URL |
 |---|---|---|
 | 開発（`next dev`）とローカルE2E | `data/media-staging` の台帳 + `decisions.jsonl`（`local_staging`） | `/api/media/file?entity_id=&asset=`（ローカルファイルを台帳のSHA-256と照合してから返す） |
-| 本番 | `foundation-public` の `media/<entityId>/public-manifest.<asOf>.json` のうち最新（`foundation_public`） | `CLOUDFLARE_R2_PUBLIC_DOMAIN` + `/` + 画像のキー。ドメインが無い、または https のオリジンでなければ**何も出さない** |
+| 本番 | `foundation-public` の `media/<entityId>/public-manifest.<asOf>.json` のうち最新（`foundation_public`） | `CLOUDFLARE_R2_PUBLIC_DOMAIN` + `/` + 画像のキー。ドメインが無い（または https のオリジンでない）時は、アプリの `/api/media/file` が最新の公開目録に載っている画像だけを、目録のバイト数・sha256 と一致した時に返す（2026-10-01） |
 
 環境変数（サーバー側。`src/lib/media/source.ts`）:
 

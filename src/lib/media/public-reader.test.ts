@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { describe, expect, it, vi } from 'vitest';
 import { PUBLIC_MEDIA_MANIFEST_SCHEMA, publicManifestKey, type PublicMediaManifest } from '../../shared/media-public-manifest';
 import { createPublicMediaReader, PUBLIC_MEDIA_DIRECTORY_TTL_MS, type PublicMediaObjectSource } from './public-reader';
@@ -101,6 +102,33 @@ describe('createPublicMediaReader', () => {
     clock += 2;
     expect(await reader.read(['ent_keyence'])).toEqual({});
     expect(list).toHaveBeenCalledTimes(2);
+  });
+
+  it('without a public domain, points images at the app and serves only bytes the newest manifest lists', async () => {
+    const image = new TextEncoder().encode('png bytes');
+    const sha = createHash('sha256').update(image).digest('hex');
+    const listed = manifest('ent_keyence', [{ sha256: sha, kind: 'favicon' }]);
+    listed.assets[0].bytes = image.byteLength;
+    const assetId = listed.assets[0].assetId;
+    const encode = (value: unknown) => new TextEncoder().encode(JSON.stringify(value));
+    const objects: Record<string, Uint8Array> = {
+      [publicManifestKey('ent_keyence', '20260929T100000Z')]: encode(listed),
+      [`media/ent_keyence/${sha}.png`]: image,
+      [`media/ent_keyence/${SHA_B}.png`]: new TextEncoder().encode('never listed'),
+    };
+    const source: PublicMediaObjectSource = {
+      list: async (prefix) => Object.keys(objects).filter((key) => key.startsWith(prefix)),
+      read: async (key) => objects[key] ?? null,
+    };
+    const reader = createPublicMediaReader({ source, publicDomain: null });
+    expect((await reader.read(['ent_keyence'])).ent_keyence.map((asset) => asset.url)).toEqual([`/api/media/file?entity_id=ent_keyence&asset=${assetId}`]);
+    expect(await reader.readFile('ent_keyence', assetId)).toEqual({ bytes: image, contentType: 'image/png' });
+    expect(await reader.readFile('ent_keyence', `ma_${SHA_B.slice(0, 24)}`)).toBeNull();
+    expect(await reader.readFile('ent_other', assetId)).toBeNull();
+
+    // Bytes that no longer match the manifest are refused.
+    objects[`media/ent_keyence/${sha}.png`] = new TextEncoder().encode('png bytez');
+    expect(await reader.readFile('ent_keyence', assetId)).toBeNull();
   });
 
   it('lets a failing store surface (the route answers 503) instead of returning a partial answer', async () => {
