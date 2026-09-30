@@ -1,10 +1,10 @@
 /**
  * 画面のコードが持つ文言の許可リスト。
- * 画面の文字は「fact.text」「metrics・sources を書式化した文字」「この一覧の定数」からだけ作る。
- * scripts/architecture/screen-text.tsx は、fact・metric・source の要素の外にある文字が
+ * 画面の文字は「fact.text」「印つきの analysis」「metrics・sources を書式化した文字」「この一覧の定数」からだけ作る。
+ * scripts/architecture/screen-text.tsx は、fact・analysis・metric・source の要素の外にある文字が
  * ここの値のどれかに一致しなければ失敗にする。{name} は事例名に置き換えて照合する。
  */
-import type { Measure, MetricOrigin, UnknownItem } from './reader-case';
+import type { AnalysisItem, Measure, MetricOrigin, ReaderAnalysis, UnknownItem } from './reader-case';
 import type { ReaderFact } from './reader-case';
 
 export const MEASURE_LABELS: Record<Measure, string> = {
@@ -41,6 +41,40 @@ export const UNKNOWN_LABELS: Record<UnknownItem, string> = {
   STATUS: '現況',
 };
 
+export const ANALYSIS_LABELS: Record<AnalysisItem, string> = {
+  HEADLINE: '強い一行',
+  STORY: '物語',
+  BUSINESS_MODEL: '事業の形',
+  PRICING: '料金',
+  CUSTOMER: '客',
+  CUSTOMER_PAIN: '客の痛み',
+  FIRST_CUSTOMERS: '最初の客',
+  CHANNELS: '集客経路',
+  REVENUE_ESTIMATE: '売上の推定',
+  COST_STRUCTURE: '費用',
+  TAKE_HOME: '手残り',
+  CAPITAL_AND_TEAM: '資本と人数',
+  TOOLS: '道具',
+  DEPENDENCIES: '依存先',
+  LOCK_IN: '客が抜けにくい仕掛け',
+  UPFRONT_CASH: '前金',
+  REFERRAL: '紹介の報酬',
+  INCUMBENT_BLINDSPOT: '大手が手を出せない理由',
+  COMPETITION: '競合',
+  TIMELINE: '年表',
+  WHY_IT_WORKED: '勝因',
+  VIABILITY: '今も通用するか',
+  PIVOTS: '方向転換',
+  FAILURE_CAUSE: '失敗の原因',
+  LESSON: '教訓',
+};
+
+export const CONFIDENCE_LABELS: Record<ReaderAnalysis['confidence'], string> = {
+  HIGH: '高',
+  MEDIUM: '中',
+  LOW: '低',
+};
+
 /** 事実の種類ごとの見出し（表示順）。 */
 export const FACT_SECTIONS: Array<{ kind: ReaderFact['kind']; title: string }> = [
   { kind: 'DESCRIPTION', title: '事業内容' },
@@ -59,6 +93,11 @@ export const UI = {
   // 詳細の見出し・列名
   SECTION_METRICS: '数値',
   SECTION_SOURCES: '出典',
+  SECTION_ANALYSIS: 'アナリストの推測',
+  ANALYSIS_MARK: '推測',
+  ANALYSIS_FORMULA_PREFIX: '計算: ',
+  ANALYSIS_BASIS_PREFIX: '根拠: ',
+  ANALYSIS_CONFIDENCE_PREFIX: '確度: ',
   COL_MEASURE: '項目',
   COL_PERIOD: '期間',
   METRIC_STATED_AT_SUFFIX: '時点の表示',
@@ -178,6 +217,8 @@ export function allowedUiTexts(entityName: string): Set<string> {
   for (const v of Object.values(MEASURE_LABELS)) add(v);
   for (const v of Object.values(ORIGIN_LABELS)) add(v);
   for (const v of Object.values(UNKNOWN_LABELS)) add(v);
+  for (const v of Object.values(ANALYSIS_LABELS)) add(v);
+  for (const v of Object.values(CONFIDENCE_LABELS)) add(v);
   for (const s of FACT_SECTIONS) add(s.title);
   for (const v of Object.values(SECTOR_LABELS)) add(v);
   out.add(entityName);

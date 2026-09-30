@@ -121,7 +121,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         onScroll={handleScroll}
         className="relative flex-1 overflow-y-auto bg-term-bg pb-[env(safe-area-inset-bottom)] font-sans text-[13px] scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin]"
       >
-        {/* 画面の文字は entity.reader（出典つきの事実・数値・出典）と、運営者が決済データで確認した売上だけから作る */}
+        {/* entity.reader の事実・数値・出典と、推測の印つきの推論、運営者が決済確認した売上を描く */}
         {mainTab === 'LEDGER' ? (
           <>
             <ReaderLedger reader={entity.reader} />

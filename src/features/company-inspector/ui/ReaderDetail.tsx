@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useId } from 'react';
 
-import type { ReaderCase, ReaderFact, ReaderSource } from '@/shared/reader-case';
+import { ANALYSIS_ITEMS, type ReaderAnalysis, type ReaderCase, type ReaderFact, type ReaderSource } from '@/shared/reader-case';
 import {
   dedupeReaderSources,
   formatMetricAmount,
@@ -8,24 +8,27 @@ import {
   metricOriginLabel,
   readerSummaryFact,
 } from '@/shared/display-text';
-import { FACT_SECTIONS, UI, UNKNOWN_LABELS } from '@/shared/ui-strings';
+import { ANALYSIS_LABELS, CONFIDENCE_LABELS, FACT_SECTIONS, UI, UNKNOWN_LABELS } from '@/shared/ui-strings';
 import { ReaderSection } from './ReaderSection';
 
 const sourceMap = (reader: ReaderCase): Map<string, ReaderSource> => new Map(reader.sources.map((s) => [s.id, s]));
 
+type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
+const evidenceAnchor = (prefix: string, id: string) => `${prefix}-evidence-${encodeURIComponent(id)}`;
+
 /** 概要の1行（summaryFactId の事実）。無ければ出さない。 */
-export function ReaderSummary({ reader }: { reader?: ReaderCase }) {
+export function ReaderSummary({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   const fact = readerSummaryFact(reader);
   if (!reader || !fact) return null;
   return (
-    <p data-fact={fact.id} className="border-b border-term-line px-2.5 py-2 text-sm leading-relaxed text-term-fg-strong sm:px-3">
+    <p id={evidenceAnchor(evidencePrefix, fact.id)} data-fact={fact.id} className="scroll-mt-8 border-b border-term-line px-2.5 py-2 text-sm leading-relaxed text-term-fg-strong sm:px-3">
       {fact.text}
     </p>
   );
 }
 
 /** 数値の表。列は 項目・期間・金額・由来・出典。 */
-export function ReaderMetrics({ reader }: { reader?: ReaderCase }) {
+export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   if (!reader) return null;
   const sources = sourceMap(reader);
   return (
@@ -45,7 +48,7 @@ export function ReaderMetrics({ reader }: { reader?: ReaderCase }) {
             {reader.metrics.map((m) => {
               const src = sources.get(m.sourceId);
               return (
-                <tr key={m.id} data-metric={m.id} className="border-b border-term-line-soft align-top">
+                <tr key={m.id} id={evidenceAnchor(evidencePrefix, m.id)} data-metric={m.id} className="scroll-mt-8 border-b border-term-line-soft align-top">
                   <td className="px-2 py-1.5 text-term-fg-strong">
                     {metricMeasureLabel(m)}
                     {m.basis && <span className="block text-xs text-term-label">{m.basis}</span>}
@@ -68,7 +71,7 @@ export function ReaderMetrics({ reader }: { reader?: ReaderCase }) {
 }
 
 /** 事実を種類ごとに。各事実の後ろに出典名を小さく付ける。概要の事実は上で出すので除く。 */
-export function ReaderFacts({ reader }: { reader?: ReaderCase }) {
+export function ReaderFacts({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   if (!reader) return null;
   const sources = sourceMap(reader);
   return (
@@ -79,7 +82,7 @@ export function ReaderFacts({ reader }: { reader?: ReaderCase }) {
           <ReaderSection key={kind} id={`section-facts-${kind.toLowerCase()}`} title={title} empty={facts.length === 0}>
             <ul className="divide-y divide-term-line-soft">
               {facts.map((f) => (
-                <li key={f.id} data-fact={f.id} className="py-1.5 leading-relaxed text-term-fg">
+                <li key={f.id} id={evidenceAnchor(evidencePrefix, f.id)} data-fact={f.id} className="scroll-mt-8 py-1.5 leading-relaxed text-term-fg">
                   {f.text}
                   {sources.get(f.sourceId) && (
                     <span className="ml-1.5 text-xs text-term-label">{sources.get(f.sourceId)?.publisher}</span>
@@ -91,6 +94,79 @@ export function ReaderFacts({ reader }: { reader?: ReaderCase }) {
         );
       })}
     </>
+  );
+}
+
+function AnalysisEntry({ analysis, reader, evidencePrefix, headline = false }: {
+  analysis: ReaderAnalysis;
+  reader: ReaderCase;
+  evidencePrefix: string;
+  headline?: boolean;
+}) {
+  return (
+    <div data-analysis={analysis.id} className="min-w-0 py-2 [overflow-wrap:anywhere]">
+      <div className="mb-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs">
+        {!headline && <h4 className="text-term-label">{ANALYSIS_LABELS[analysis.item]}</h4>}
+        <span className="text-term-accent">{UI.ANALYSIS_MARK}</span>
+        <span className="text-term-label">{UI.ANALYSIS_CONFIDENCE_PREFIX}{CONFIDENCE_LABELS[analysis.confidence]}</span>
+      </div>
+      {headline ? (
+        <h3 className="text-lg font-semibold leading-relaxed text-term-fg-strong">{analysis.text}</h3>
+      ) : (
+        <p className="whitespace-pre-line text-sm leading-relaxed text-term-fg lg:text-[13px]">{analysis.text}</p>
+      )}
+      {analysis.formula && (
+        <p className="mt-1 whitespace-pre-line text-sm leading-relaxed text-term-sub lg:text-[13px]">
+          <span className="text-term-label">{UI.ANALYSIS_FORMULA_PREFIX}</span>{analysis.formula}
+        </p>
+      )}
+      {analysis.basis.length > 0 && (
+        <div className="mt-1 text-xs text-term-label">
+          <span>{UI.ANALYSIS_BASIS_PREFIX}</span>
+          <ul className="min-w-0">
+            {analysis.basis.map((id) => {
+              const fact = reader.facts.find((f) => f.id === id);
+              const metric = reader.metrics.find((m) => m.id === id);
+              const label = fact?.text ?? (metric && `${metricMeasureLabel(metric)} ${metric.period} ${formatMetricAmount(metric)}`);
+              if (!label) return null;
+              return (
+                <li key={id}>
+                  <a href={`#${encodeURIComponent(evidenceAnchor(evidencePrefix, id))}`} className="inline-flex min-h-11 min-w-6 max-w-full items-center py-1 text-term-sub underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">
+                    {label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** 強い一行と物語。推論である印はそれぞれに付ける。 */
+export function ReaderAnalysisIntro({ reader, evidencePrefix = 'reader' }: ReaderProps) {
+  if (!reader) return null;
+  const intro = ['HEADLINE', 'STORY'].flatMap((item) => reader.analysis.filter((a) => a.item === item));
+  if (intro.length === 0) return null;
+  return (
+    <div className="min-w-0 border-b border-term-line px-2.5 py-1 sm:px-3">
+      {intro.map((a) => <AnalysisEntry key={a.id} analysis={a} reader={reader} evidencePrefix={evidencePrefix} headline={a.item === 'HEADLINE'} />)}
+    </div>
+  );
+}
+
+/** 残りの推論をスキーマの項目順に。事実の区画とは分けて出す。 */
+export function ReaderAnalyses({ reader, evidencePrefix = 'reader' }: ReaderProps) {
+  if (!reader) return null;
+  const analysis = ANALYSIS_ITEMS.filter((item) => item !== 'HEADLINE' && item !== 'STORY')
+    .flatMap((item) => reader.analysis.filter((a) => a.item === item));
+  return (
+    <ReaderSection id="section-analysis" title={UI.SECTION_ANALYSIS} empty={analysis.length === 0}>
+      <div className="min-w-0 divide-y divide-term-line-soft">
+        {analysis.map((a) => <AnalysisEntry key={a.id} analysis={a} reader={reader} evidencePrefix={evidencePrefix} />)}
+      </div>
+    </ReaderSection>
   );
 }
 
@@ -126,12 +202,15 @@ export function ReaderUnknowns({ reader }: { reader?: ReaderCase }) {
 
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
 export function ReaderLedger({ reader }: { reader?: ReaderCase }) {
+  const evidencePrefix = `reader-${useId()}`;
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
   return (
     <>
-      <ReaderSummary reader={reader} />
-      <ReaderMetrics reader={reader} />
-      <ReaderFacts reader={reader} />
+      <ReaderAnalysisIntro reader={reader} evidencePrefix={evidencePrefix} />
+      <ReaderSummary reader={reader} evidencePrefix={evidencePrefix} />
+      <ReaderMetrics reader={reader} evidencePrefix={evidencePrefix} />
+      <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} />
+      <ReaderAnalyses reader={reader} evidencePrefix={evidencePrefix} />
       <ReaderSources reader={reader} />
       <ReaderUnknowns reader={reader} />
     </>

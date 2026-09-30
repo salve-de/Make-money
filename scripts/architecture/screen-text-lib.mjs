@@ -126,9 +126,9 @@ export const LIST_ONLY_RES = [
 export const STANDALONE_LINES = ['収集事例', '財務未確認', '公式サイト確認済み'];
 
 // ---- 出どころの検査（2026-09-30 13回目）-----------------------------------------------------
-// 画面の文字は fact・metric・source の要素の中か、ui-strings の許可リストのどちらかでなければならない。
+// 画面の文字は fact・analysis・metric・source の要素の中か、ui-strings の許可リストのどちらかでなければならない。
 const VOID_TAGS = new Set(['br', 'img', 'input', 'hr', 'meta', 'link', 'wbr', 'source', 'col']);
-const OWNER_ATTRS = ['data-fact', 'data-metric', 'data-source'];
+const OWNER_ATTRS = ['data-fact', 'data-metric', 'data-source', 'data-analysis'];
 const ATTR_TEXTS = ['title', 'aria-label', 'alt', 'placeholder'];
 const decodeEntities = (s) => s
   .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
