@@ -1,3 +1,5 @@
+> **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](docs/OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
+
 > **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録（為替逆数、100倍誤爆、ID衝突、未確認フラグ、SaaS誤爆、#01〜#04手抜き・非表示等）の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。追加質問・手戻りゼロで自走完遂せよ。
 
 
@@ -192,7 +194,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 5. `sector`: 7大業種または任意カテゴリ（`AI_AUTOMATION` / `NICHE_SAAS` / `MONOPOLY_MFG` / `CONTENT_MEDIA` / `PHYSICAL_ASSET` / `FINTECH_INFRA` / `LOCAL_SERVICES` 等）
 6. `scale`: 規模区分（`SOLO` / `SMALL_TEAM` / `SCALEUP` / `ENTERPRISE` / `UNKNOWN`）
 7. `founder`: 創業者・仕掛け人（実名・組織名・匿名・不明いずれも可）
-8. `country`: 国コード（ISO 2文字。不明なら `JP` または `GLOBAL` 等）
+8. `country`: 国コード（ISO 2文字。不明なら `JP` または `GLOBAL` 等）（**2026-09-30 廃止** → OWNER_INTENT 2章: 国は不明なら不明のまま。JP/GLOBAL を既定値にしない）
 9. `url`: 公式サイトURL（**任意・なし可**。サイト消滅、非Web、下請け、オフライン等の場合は `null` または省略）
 10. `temporal`: 時系列・賞味期限インテリジェンス（創業年、初動期、観測期、時代背景、勝敗判定等。取れる範囲で記録）
 
@@ -205,14 +207,14 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 #### 3. 動的証拠カード（特異点事実 ＆ 略奪転用方程式）
 最低1枚以上（うち勝ち組は `LOOT_BLUEPRINT`、地雷組は `FATAL_BLEED` 必須）を配備せよ：
-- **`LOOT_BLUEPRINT`（略奪転用方程式）[勝ち組必須]**: 「今夜別業界で同じズルを使って稼ぐならどう組むか」の転用手順（`details`）と配管設計図・コードスニペット（`codeSnippet`）。
+- **`LOOT_BLUEPRINT`（略奪転用方程式）[勝ち組必須]**: 「今夜別業界で同じズルを使って稼ぐならどう組むか」の転用手順（`details`）と配管設計図・コードスニペット（`codeSnippet`）。（**2026-09-30 廃止** → OWNER_INTENT 6章: その会社が何をしたかの事実記述に限る。転用手順・コード化は出さない）
 - **`THE_CRIME`（身も蓋もない一行の真実）**: 誰から・いくら・どんな手口で抜いているかのレントゲン。
 - **`DIRTY_GENESIS`（初期ゲリラ戦ログ）**: 最初の100人を仕留めた泥臭い自演、手作業代行、Reddit潜入等の事実ログ。
 - **`INCUMBENT_TRAP`（大手の自爆構造）**: 大手が自社の高単価売上を守るために手を出せないカニバリズム障壁。
 - **`FATAL_BLEED`（死因出血検死解剖）**: 失敗企業における資金炎上・即死のメカニズム。
 
 #### 4. 現場配管ツール（`operations.toolStack`）
-実際に確認できたツール群だけを月額原価付きで列挙せよ。構成や費用が未確認なら空配列を許可し、`isCostUnconfirmed` 等のフラグと画面の `未確認` 表示で示す。空欄を埋めるためにStripe、Cloudflare等を推測で追加してはならない：
+実際に確認できたツール群だけを月額原価付きで列挙せよ。構成や費用が未確認なら空配列を許可し、`isCostUnconfirmed` 等のフラグと画面の `未確認` 表示で示す。空欄を埋めるためにStripe、Cloudflare等を推測で追加してはならない：（**2026-09-30 廃止** → OWNER_INTENT 3章: ツール構成は「推測」と印を付ければ推論欄で可。事実のツール欄とは分ける）
 - `name`（ツール名: Stripe, Next.js, Cloudflare等） / `category`（決済, インフラ等） / `monthlyCost`（月額円） / `purpose`（役割）
 
 #### 5. 資本主義の裏帳簿戦略（`strategy`）
@@ -222,7 +224,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - `secretInsight`: 創業者だけが知っている業界の裏の真実
 - `initialTraction`: 初動突破の具体的マイルストーン（3つ）
 - `actionPlaybook`: 3ステップの実行手順
-- `coldOutreachTemplate`: 今夜そのまま送れるコールド営業・提案文テンプレート
+- `coldOutreachTemplate`: 今夜そのまま送れるコールド営業・提案文テンプレート（**2026-09-30 廃止** → OWNER_INTENT 6章: 営業文テンプレートは出さない。事例の実際の文面の要約に限る）
 
 ### 【超重要】完全自律型・万能データ収集＆Gold精錬プロトコル（Autonomous Ingest & Refinery Protocol）
 **ユーザーがいちいち細かくコピペや条件指示を出さなくても、「〇〇について1000件集めて精錬して」「MAKEMONEYに必要なデータと普通に集めるやつ集めてきて」と一言言っただけで、全てのAI（Antigravity, Claude, GPT, Cursor, 外部スクリプト・サブエージェント）が完全に自律連携し、以下の5大フェーズを自律完遂せよ：**
@@ -298,7 +300,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Make-Moneyはconsumerであり、`foundation-lake` の登録済み `entities` / `research-bundles` を読み取るだけにする。現在の実装仕様は [`docs/FOUNDATION_UI_READ_PATH.md`](./docs/FOUNDATION_UI_READ_PATH.md) を参照する。
 - 一覧はEntity prefixをR2 Listのcursorでページングし、画面は100件単位で段階描画する。詳細は選択時だけbyte range探索し、対象候補のbundle本体を読む。毎回の全件本体取得は禁止する。
 - `datasets/ds.business.entities.core/index.json` のようなMake-Money独自root indexを作成・上書きしない。UI用の整形は読み取り時の一時projectionに限定し、Foundationの新schemaや新しい正本を作らない。
-- R2の正本に存在しない売上・利益・人数・創業年などを実績の0や仮値で埋めない。内部DTOの型互換で0を保持する場合は必ず`is*Unconfirmed`を併記し、画面・集計では`未確認`として扱う。推計・推論・報告・観測はorigin/status/evidenceを分けて表示する。
+- R2の正本に存在しない売上・利益・人数・創業年などを実績の0や仮値で埋めない。内部DTOの型互換で0を保持する場合は必ず`is*Unconfirmed`を併記し、画面・集計では`未確認`として扱う。推計・推論・報告・観測はorigin/status/evidenceを分けて表示する。（**2026-09-30 廃止** → OWNER_INTENT 3章: 事実欄は不明のまま。別欄に「推測」と印を付けた推定を出す）
 - 現行のUI read pathはPUT/DELETEを呼ばない。10万件級で検索・集計が必要になった場合だけ、Foundationの既存registry/view契約を確認し、別途明示承認されたversioned serving viewまたは分析経路を検討する。
 
 ## 3. コピーライティング・言語統制憲条（瞬時の直感理解 ＆ 急所を抉る強い言葉）
@@ -339,7 +341,7 @@ AIエージェントが生成するすべての画面コピー、見出し、ボ
 2. **⭕ ファクト骨格 × 自社アナリスト逆算推論のハイブリッド統合**:
    - **外部収集（サブエージェント）の役割**: 会社名、創業者、商品、価格、売上、純利益、使用ツール、社員数、初期集客ログ、失敗歴などの「公知の確定ファクト（骨格）」を柔軟に拾う。
    - **自社エンジン（裏帳簿フィルター）の役割**: Web上にない「決済手数料（Stripe 2.9%）」「インフラ費」「創業者手残り」は、単価・顧客規模・期間・原価率を資料または明示した仮定で再現できる場合だけ逆算（Estimate）して補完せよ。
-   - **表示の誠実性**: 確定値はそのまま表示し、再現可能な逆算だけに `[推定レントゲン (Estimated)]` と計算式を付ける。根拠が不足する値は `UNAVAILABLE` / `未確認` とし、0円・仮の人数・仮の利益率で補完しない。
+   - **表示の誠実性**: 確定値はそのまま表示し、再現可能な逆算だけに `[推定レントゲン (Estimated)]` と計算式を付ける。根拠が不足する値は `UNAVAILABLE` / `未確認` とし、0円・仮の人数・仮の利益率で補完しない。（**2026-09-30 廃止** → OWNER_INTENT 3章: 式と前提を付けた推定は可。根拠のない仮値だけ不可。事実欄は空のまま）
 3. **固定観念の粉砕（柔軟な事例取り込み）**:
    - すべての企業が同一のフォーマットに収まる必要はない。Bufferのように「全社員給与公開」の事例もあれば、Photo AIのように「完全1人API包装」の事例もある。
    - それぞれの企業の「最も金が抜けている急所・特異点」に合わせて、柔軟かつ迅速に事例・市場の歪みを取り込め。

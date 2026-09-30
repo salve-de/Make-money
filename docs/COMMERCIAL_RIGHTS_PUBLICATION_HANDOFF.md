@@ -1,5 +1,7 @@
 # Commercial Rights / Public Publication Handoff
 
+> **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
+
 Updated: 2026-09-30 JST
 
 ## Final objective
