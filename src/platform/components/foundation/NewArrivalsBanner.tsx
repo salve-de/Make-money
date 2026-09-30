@@ -91,10 +91,10 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
             <span className="mx-1.5 text-term-dim">・</span>
             <span className="term-num">{release.count}件</span>
             {summary.revenueCount !== null && summary.revenueCount > 0 && (
-              <><span className="mx-1.5 text-term-dim">・</span>売上の記録あり <span className="term-num">{summary.revenueCount}件</span></>
+              <span className="hidden sm:inline"><span className="mx-1.5 text-term-dim">・</span>売上の記録あり <span className="term-num">{summary.revenueCount}件</span></span>
             )}
             {summary.failureCount !== null && summary.failureCount > 0 && (
-              <><span className="mx-1.5 text-term-dim">・</span>失敗・撤退 <span className="term-num">{summary.failureCount}件</span></>
+              <span className="hidden sm:inline"><span className="mx-1.5 text-term-dim">・</span>失敗・撤退 <span className="term-num">{summary.failureCount}件</span></span>
             )}
             <span className="mx-1.5 hidden text-term-dim sm:inline">・</span>
             <span className="hidden sm:inline">{release.label}</span>
@@ -140,7 +140,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
                   className="grid h-7 w-full grid-cols-[minmax(0,1fr)_7rem_7.5rem] items-center gap-3 px-2.5 text-left hover:bg-term-head"
                 >
                   <span className="truncate text-term-fg-strong">{entity.name}</span>
-                  <span className="truncate text-term-muted">{sectorLabel(entity.sector)}</span>
+                  <span className="truncate text-term-muted">{sectorLabel(entity)}</span>
                   <span className="truncate text-right">
                     {failure ? (
                       <span className="text-term-danger">失敗・撤退の記録</span>

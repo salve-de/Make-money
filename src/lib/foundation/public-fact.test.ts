@@ -77,8 +77,15 @@ function project(
 }
 
 describe('Public Fact v1 consumer projection', () => {
-  it('loads only the upstream-approved ownership fact type pinned in the runtime snapshot', () => {
-    expect(APPROVED_PUBLIC_FACT_TYPE_POLICIES.size).toBe(1);
+  it('loads only the upstream-approved fact types pinned in the runtime snapshot', () => {
+    expect(APPROVED_PUBLIC_FACT_TYPE_POLICIES.size).toBe(2);
+    expect(APPROVED_PUBLIC_FACT_TYPE_POLICIES.get('fact.self_reported_business_metric.v1')).toMatchObject({
+      factTypeId: 'fact.self_reported_business_metric.v1',
+      valueKind: 'money',
+      allowedScopeTypes: ['company', 'product', 'other'],
+      allowedActorRelations: ['direct_entity', 'owner', 'issuer'],
+      title: 'Self-reported figure',
+    });
     expect(APPROVED_PUBLIC_FACT_TYPE_POLICIES.get('fact.ownership_interest_percent.v1')).toMatchObject({
       factTypeId: 'fact.ownership_interest_percent.v1',
       valueKind: 'percentage',
@@ -228,5 +235,79 @@ describe('Public Fact v1 consumer projection', () => {
 
   it('does not use an arbitrary HTTP source URL in public display', () => {
     expect(project(typedFact(), { sourceUrl: 'http://example.com/source' })).toEqual([]);
+  });
+});
+
+describe('self-reported metrics and Tier 2 attribution (2026-09-29)', () => {
+  const selfReportedPolicy: PublicFactTypePolicy = {
+    factTypeId: 'fact.self_reported_business_metric.v1',
+    valueKind: 'money',
+    allowedScopeTypes: ['company', 'product', 'other'],
+    allowedActorRelations: ['direct_entity', 'owner', 'issuer'],
+    title: 'Self-reported figure',
+    relationLabels: { direct_entity: 'Self-reported by {target_entity}', owner: 'Self-reported by the owner' },
+  };
+  const selfReportedFact = () => typedFact({
+    fact_type_id: 'fact.self_reported_business_metric.v1',
+    context: { scope_type: 'company', scope_ref: null, actor_relation: 'direct_entity', related_entity_id: null },
+    value: { kind: 'money', amount: 12000, currency: 'USD' },
+  });
+  const sourceUrl = 'https://www.indiehackers.com/product/example-tool';
+
+  function projectSelfReported(attribution: Record<string, unknown> | null) {
+    return projectTypedPublicFacts({
+      typedRecordSet: selfReportedFact(),
+      allowedEvidenceIds: new Set([evidenceId]),
+      sourceUrlByEvidenceId: new Map([[evidenceId, sourceUrl]]),
+      ...(attribution ? { attributionByEvidenceId: new Map([[evidenceId, attribution]]) } : {}),
+      publicEntities: [{ entity_id: entityId, canonical_name: 'Example Tool' }],
+      policies: new Map([[selfReportedPolicy.factTypeId, selfReportedPolicy]]),
+    });
+  }
+
+  it('labels a self-reported metric and carries Tier 2 provider attribution into the display', () => {
+    const rows = projectSelfReported({
+      display_tier: 'facts_only',
+      provider_name: 'Indie Hackers',
+      source_url: sourceUrl,
+      published_at: '2025-03-01T00:00:00Z',
+      retrieved_at: null,
+      rule: 'Provider name + canonical URL + publication date.',
+    });
+    expect(rows).toHaveLength(1);
+    expect(rows[0].public_display).toMatchObject({
+      title: 'Self-reported figure',
+      facts: [{ label: 'Self-reported by Example Tool', value: 12000, suffix: 'USD' }],
+      source_label: 'Indie Hackers',
+      source_urls: [sourceUrl],
+      attribution: {
+        display_tier: 'facts_only',
+        provider_name: 'Indie Hackers',
+        published_at: '2025-03-01T00:00:00Z',
+        rule: 'Provider name + canonical URL + publication date.',
+        self_reported: true,
+      },
+    });
+  });
+
+  it('still labels a self-reported metric when its source is Tier 1', () => {
+    const rows = projectSelfReported({
+      display_tier: 'automatic',
+      provider_name: 'Example Tool (official site)',
+      source_url: 'https://www.example-tool.com/about',
+      published_at: null,
+      retrieved_at: '2026-09-29T00:00:00Z',
+    });
+    expect(rows[0].public_display).toMatchObject({
+      source_label: 'Source',
+      attribution: { display_tier: 'automatic', provider_name: 'Example Tool (official site)', self_reported: true },
+    });
+    expect((rows[0].public_display as Record<string, unknown>).attribution).not.toHaveProperty('rule');
+  });
+
+  it('adds no attribution to a Tier 1 ownership fact', () => {
+    const rows = project(typedFact());
+    expect(rows[0].public_display).toMatchObject({ source_label: 'Source' });
+    expect(rows[0].public_display).not.toHaveProperty('attribution');
   });
 });

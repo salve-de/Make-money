@@ -30,3 +30,12 @@ Finder filtering, financial sheet open/close, and ledger/signals navigation. Bro
 storage corruption cases seed only isolated Playwright contexts, preserving real user
 browser data. These smoke cases do not prove the accuracy of legacy Finder strategy
 estimates or static Playbook claims.
+
+Official product images (`media-gallery.spec.ts`) are checked against the local staging ledger `data/media-staging`
+(gitignored; the e2e server is started with `MEDIA_SOURCE=local_staging` and `MEDIA_STAGING_DIR`, see `playwright.config.ts`).
+The spec reads what a human approved with `scripts/media/review-assets.ts` and asserts that exactly those images, with their
+source text, reach the page and the media API, and that held or blocked images do not. Each test skips itself when nothing is
+approved, so CI without that directory stays green. One test answers the media API for a list row with a real approved image
+to check the row wiring; that interception is stated in the spec. It writes `test-results/media-gallery-photoai.png`,
+`media-gallery-keyence.png` (Keyence is not in the catalog release, so a production build shows the notice, not the inspector)
+and `media-list-logo.png`. See docs/MEDIA_ASSETS_AND_PROVENANCE.md, chapter 11.

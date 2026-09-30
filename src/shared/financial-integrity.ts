@@ -138,15 +138,8 @@ export function inspectFinancialEvidenceConsistency(entity: FinancialEntity): Fi
     )
   );
 
+  // 「表示していない」「割り戻しはしていない」型の断り書きは足さない。値の無い欄は画面が「未確認」と出す。
   const reasons: string[] = [];
-  if (domains.size > 0) {
-    reasons.push('既存観測に財務項目の未確認・独立未確認があるため、該当する派生P&Lをunknown/hold表示。');
-  }
-  if (revenuePeriodConflict) {
-    reasons.push(hasMonthlyRevenueEvidence
-      ? '既存根拠の年次売上と月次売上がP&Lの月次値に一致しないため、年/月換算を行わず売上と派生P&Lをunknown/hold表示。'
-      : '既存根拠は年次売上を示すがP&Lの月次値を裏付ける根拠がないため、年/月換算を行わず売上と派生P&Lをunknown/hold表示。');
-  }
 
   return {
     explicitUnknownDomains: [...domains],
@@ -200,7 +193,7 @@ export function reconcileFinancialEvidence(entity: FinancialEntity): FinancialEn
   // Do not replace an already audited label (for example, a documented peak).
   // Newly detected period conflicts receive a non-numeric hold label instead.
   if (audit.revenuePeriodConflict && !entity.pnl.isRevenueUnconfirmed) {
-    pnl.revenueLabel = '売上期間未確認（年次根拠のみ。月次換算なし）';
+    pnl.revenueLabel = '売上未確認';
   }
 
   return {

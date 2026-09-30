@@ -17,15 +17,20 @@ test("standalone discover page delivers value without requiring setup", async ({
   const initialCount = await rows.count();
   expect(initialCount).toBeGreaterThan(5);
 
-  await expect(page.getByTestId("discover-detail")).toContainText("事業の説明・分析");
-  await expect(page.getByTestId("discover-detail")).toContainText("事業の要点");
-  await expect(page.getByTestId("discover-detail")).toContainText("数値の出典・対象時期");
+  // 詳細は entity.reader だけを読む。reader は公開版にだけ入るので、E2E のサーバー（作業ツリーのデータ）では
+  // 詳細は「準備中」になり、出典のない数字や文を出さない。選んだ行の名前が詳細の見出しに出る。
+  const detail = page.getByTestId("discover-detail");
+  await expect(detail.getByRole("heading", { level: 2 })).toBeVisible();
+  await expect(detail).toContainText("この事例の詳細は準備中です。");
+  await expect(detail).not.toContainText(/(?<![\d,.])0円/);
 
   await page.getByRole("button", { name: "初期資金", exact: true }).click();
   await expect(rows).toHaveCount(initialCount);
 
   await rows.nth(1).click();
-  await expect(page.getByTestId("discover-detail")).toContainText("支払理由の分析");
+  const secondName = (await rows.nth(1).innerText()).split("\n")[0].trim();
+  await expect(detail.getByRole("heading", { level: 2 })).toContainText(secondName);
+  await expect(detail).toContainText("この事例について質問");
 
   const search = page.getByPlaceholder("事例名・業種・収益の仕組みで検索");
   await search.fill("no-match-discovery-smoke-zzzz");

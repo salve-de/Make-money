@@ -1,37 +1,114 @@
 {
   "schema_version": "make-money-public-rights-snapshot.v1",
   "source_repository": "salve-de/universal-foundation",
-  "source_commit_sha": "5722eec358e2aa40294eb7b6e54f119b9776cc85",
-  "generated_at": "2026-09-24T22:20:56Z",
+  "source_commit_sha": "7e14b5e41dc6dc7cda65856811031382dfffd9cc",
+  "generated_at": "2026-09-29T01:19:42.420Z",
+  "notes": "Tier 1 (display_tier=automatic) and Tier 2 (display_tier=facts_only) source policies pinned from Universal Foundation. Tier 2 admits independently worded facts only, with provider name, canonical URL and date shown; never prose, excerpts, screenshots or media. Policies absent from this file are RIGHTS_HELD at runtime.",
   "records": [
     {
       "policy": {
-        "policy_id": "rights.e-stat.v1",
-        "source_id": "src.e-stat",
+        "policy_id": "rights.app-stores.v1",
+        "source_id": "src.app-stores",
         "status": "approved",
         "commercial_use": "allowed",
+        "public_display": "allowed",
         "public_fact_display": "allowed",
-        "reviewed_at": "2026-09-24T14:40:00Z",
-        "path": "registry/rights/policy.e-stat.v1.json",
-        "blob_sha": "78703886cc503daa63acc5a7faf5d0431c62846e"
+        "public_excerpt_display": "restricted",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication/retrieval date.",
+        "display_tier": "automatic",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.app-stores.v1.json",
+        "blob_sha": "aac63a0f13f4e0e9bae5fd408b8570208dbee2ec"
       },
       "source": {
-        "source_id": "src.e-stat",
+        "source_id": "src.app-stores",
         "status": "active",
-        "provider_url": "https://www.e-stat.go.jp/",
+        "provider_url": "https://apps.apple.com/",
         "rights_policy_ids": [
-          "rights.e-stat.v1"
+          "rights.app-stores.v1"
         ],
-        "path": "registry/sources/source.e-stat.v1.json",
-        "blob_sha": "65b2acbf79da2e9b00a339dddeea943fdb60a948",
-        "provider_name": "e-Stat",
+        "path": "registry/sources/source.app-stores.v1.json",
+        "blob_sha": "aba2cbb954b919a301b52bc959cea773eefad225",
+        "provider_name": "Apple App Store and Google Play public listings",
         "source_types": [
-          "official_statistics",
-          "api"
+          "app_store_listing"
         ]
       },
+      "host_scope": "suffix",
       "allowed_host_suffixes": [
-        "e-stat.go.jp"
+        "apps.apple.com",
+        "play.google.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.beehiiv.v1",
+        "source_id": "src.beehiiv",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.beehiiv.v1.json",
+        "blob_sha": "337de422195cc40eba0414c99731c54e543ead48"
+      },
+      "source": {
+        "source_id": "src.beehiiv",
+        "status": "active",
+        "provider_url": "https://www.beehiiv.com/",
+        "rights_policy_ids": [
+          "rights.beehiiv.v1"
+        ],
+        "path": "registry/sources/source.beehiiv.v1.json",
+        "blob_sha": "d798b92b2dabc31316cbe809af3eb98cca976da8",
+        "provider_name": "beehiiv newsletters",
+        "source_types": [
+          "newsletter_article"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "beehiiv.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.bloomberg.v1",
+        "source_id": "src.bloomberg",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.bloomberg.v1.json",
+        "blob_sha": "42a285a62b8048978be809f393c862108407a141"
+      },
+      "source": {
+        "source_id": "src.bloomberg",
+        "status": "active",
+        "provider_url": "https://www.bloomberg.com/",
+        "rights_policy_ids": [
+          "rights.bloomberg.v1"
+        ],
+        "path": "registry/sources/source.bloomberg.v1.json",
+        "blob_sha": "9ac8de039220731373fa440f4da4f0ca6b692e24",
+        "provider_name": "Bloomberg",
+        "source_types": [
+          "news_report"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "bloomberg.com"
       ]
     },
     {
@@ -40,7 +117,12 @@
         "source_id": "src.bls-api",
         "status": "approved",
         "commercial_use": "allowed",
+        "public_display": "allowed",
         "public_fact_display": "allowed",
+        "public_excerpt_display": "restricted",
+        "public_media_display": "restricted",
+        "attribution": "Attribute BLS/source program where appropriate.",
+        "display_tier": "automatic",
         "reviewed_at": "2026-09-24T14:40:00Z",
         "path": "registry/rights/policy.bls.v1.json",
         "blob_sha": "4d7deee83005b6f576220225da705b6360f737e1"
@@ -60,8 +142,523 @@
           "api"
         ]
       },
+      "host_scope": "suffix",
       "allowed_host_suffixes": [
         "bls.gov"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.crunchbase.v1",
+        "source_id": "src.crunchbase",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.crunchbase.v1.json",
+        "blob_sha": "4ba6512f74c6a86b58b1a84d67b56b7a0ba813cc"
+      },
+      "source": {
+        "source_id": "src.crunchbase",
+        "status": "active",
+        "provider_url": "https://www.crunchbase.com/",
+        "rights_policy_ids": [
+          "rights.crunchbase.v1"
+        ],
+        "path": "registry/sources/source.crunchbase.v1.json",
+        "blob_sha": "1e4788cb40857b641a9903907fb1958aac4aa959",
+        "provider_name": "Crunchbase public pages",
+        "source_types": [
+          "company_profile"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "crunchbase.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.e-stat.v1",
+        "source_id": "src.e-stat",
+        "status": "approved",
+        "commercial_use": "allowed",
+        "public_display": "allowed",
+        "public_fact_display": "allowed",
+        "public_excerpt_display": "allowed",
+        "public_media_display": "restricted",
+        "attribution": "Source attribution required; indicate editing/processing when applicable.",
+        "display_tier": "automatic",
+        "reviewed_at": "2026-09-24T14:40:00Z",
+        "path": "registry/rights/policy.e-stat.v1.json",
+        "blob_sha": "78703886cc503daa63acc5a7faf5d0431c62846e"
+      },
+      "source": {
+        "source_id": "src.e-stat",
+        "status": "active",
+        "provider_url": "https://www.e-stat.go.jp/",
+        "rights_policy_ids": [
+          "rights.e-stat.v1"
+        ],
+        "path": "registry/sources/source.e-stat.v1.json",
+        "blob_sha": "65b2acbf79da2e9b00a339dddeea943fdb60a948",
+        "provider_name": "e-Stat",
+        "source_types": [
+          "official_statistics",
+          "api"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "e-stat.go.jp"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.ebizfacts.v2",
+        "source_id": "src.ebizfacts",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.ebizfacts.v2.json",
+        "blob_sha": "3d65eed0aadb219f663bd32c7d3496f67014bd78"
+      },
+      "source": {
+        "source_id": "src.ebizfacts",
+        "status": "gated",
+        "provider_url": "https://ebizfacts.com/",
+        "rights_policy_ids": [
+          "rights.ebizfacts.v1",
+          "rights.ebizfacts.v2"
+        ],
+        "path": "registry/sources/source.ebizfacts.v1.json",
+        "blob_sha": "530afe6740148f740301ef29aeee00d4529f4c88",
+        "provider_name": "eBizFacts",
+        "source_types": [
+          "case_studies",
+          "editorial"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "ebizfacts.com",
+        "ebizfacts.beehiiv.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.etsy.v2",
+        "source_id": "src.etsy",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.etsy.v2.json",
+        "blob_sha": "4541c153f895547bbbb1d520be5423c1dc6a223f"
+      },
+      "source": {
+        "source_id": "src.etsy",
+        "status": "gated",
+        "provider_url": "https://www.etsy.com/",
+        "rights_policy_ids": [
+          "rights.etsy.v1",
+          "rights.etsy.v2"
+        ],
+        "path": "registry/sources/source.etsy.v1.json",
+        "blob_sha": "e1290c6fe5d8971484103ff24b1ec2b6b5b67748",
+        "provider_name": "Etsy",
+        "source_types": [
+          "marketplace",
+          "api"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "etsy.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.github.v1",
+        "source_id": "src.github",
+        "status": "approved",
+        "commercial_use": "allowed",
+        "public_display": "allowed",
+        "public_fact_display": "allowed",
+        "public_excerpt_display": "restricted",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication/retrieval date.",
+        "display_tier": "automatic",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.github.v1.json",
+        "blob_sha": "ffd20d8092c3a668fb4a178a7c7f224c23a3fac6"
+      },
+      "source": {
+        "source_id": "src.github",
+        "status": "active",
+        "provider_url": "https://github.com/",
+        "rights_policy_ids": [
+          "rights.github.v1"
+        ],
+        "path": "registry/sources/source.github.v1.json",
+        "blob_sha": "f2495a33d54ce5fb62029b55337473214261e814",
+        "provider_name": "GitHub public repositories",
+        "source_types": [
+          "official_public_code_repository"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "github.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.hacker-news.v1",
+        "source_id": "src.hacker-news",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.hacker-news.v1.json",
+        "blob_sha": "d215c4905ce41b9dfa10c224749b1e0a3c2de140"
+      },
+      "source": {
+        "source_id": "src.hacker-news",
+        "status": "active",
+        "provider_url": "https://news.ycombinator.com/",
+        "rights_policy_ids": [
+          "rights.hacker-news.v1"
+        ],
+        "path": "registry/sources/source.hacker-news.v1.json",
+        "blob_sha": "87d1b3eee1c8f26375d0b931db27f88bf126a468",
+        "provider_name": "Hacker News",
+        "source_types": [
+          "community_post",
+          "founder_self_report"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "news.ycombinator.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.indiehackers.v2",
+        "source_id": "src.indiehackers",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.indiehackers.v2.json",
+        "blob_sha": "422c1be3a1d22a79f2bd2328f7d8d11d3e605601"
+      },
+      "source": {
+        "source_id": "src.indiehackers",
+        "status": "gated",
+        "provider_url": "https://www.indiehackers.com/",
+        "rights_policy_ids": [
+          "rights.indiehackers.v1",
+          "rights.indiehackers.v2"
+        ],
+        "path": "registry/sources/source.indiehackers.v1.json",
+        "blob_sha": "1a50991754fea2e683483adf58106098642e1d66",
+        "provider_name": "Indie Hackers",
+        "source_types": [
+          "community",
+          "case_studies"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "indiehackers.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.niche-pursuits.v1",
+        "source_id": "src.niche-pursuits",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.niche-pursuits.v1.json",
+        "blob_sha": "577d1263eaca1fc94aa95328de95a3cf37f61dbb"
+      },
+      "source": {
+        "source_id": "src.niche-pursuits",
+        "status": "active",
+        "provider_url": "https://www.nichepursuits.com/",
+        "rights_policy_ids": [
+          "rights.niche-pursuits.v1"
+        ],
+        "path": "registry/sources/source.niche-pursuits.v1.json",
+        "blob_sha": "7eee3ece3e69d58ad39aada6fa6182228f2ddd4b",
+        "provider_name": "Niche Pursuits",
+        "source_types": [
+          "founder_interview",
+          "secondary_reporting_interview"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "nichepursuits.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.nikkei.v1",
+        "source_id": "src.nikkei",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.nikkei.v1.json",
+        "blob_sha": "37395f81b6bf6d7dbeb48b3c1043aa0ce1b679ad"
+      },
+      "source": {
+        "source_id": "src.nikkei",
+        "status": "active",
+        "provider_url": "https://www.nikkei.com/",
+        "rights_policy_ids": [
+          "rights.nikkei.v1"
+        ],
+        "path": "registry/sources/source.nikkei.v1.json",
+        "blob_sha": "d9ec2c819811c4ef81c870e95165945a1b4a4a98",
+        "provider_name": "Nikkei",
+        "source_types": [
+          "news_report"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "nikkei.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.official-company-website.v1",
+        "source_id": "src.official-company-website",
+        "status": "approved",
+        "commercial_use": "allowed",
+        "public_display": "allowed",
+        "public_fact_display": "allowed",
+        "public_excerpt_display": "restricted",
+        "public_media_display": "restricted",
+        "attribution": "Provider name + canonical URL + publication/retrieval date.",
+        "display_tier": "automatic",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.official-company-website.v1.json",
+        "blob_sha": "8b60829c1c4446e9cec6bd5c303b4b012dbceec3"
+      },
+      "source": {
+        "source_id": "src.official-company-website",
+        "status": "active",
+        "provider_url": "https://official-website.entity-bound.invalid/",
+        "rights_policy_ids": [
+          "rights.official-company-website.v1"
+        ],
+        "path": "registry/sources/source.official-company-website.v1.json",
+        "blob_sha": "4c011c0ec8ed3a4fcc0ff92774a3684d2b4c4cd0",
+        "provider_name": "Official company or product website (entity-bound)",
+        "source_types": [
+          "official_website",
+          "official_pricing_page",
+          "official_product_page",
+          "official_company_blog",
+          "official_press_release",
+          "official_documentation",
+          "official_faq"
+        ]
+      },
+      "host_scope": "entity_domain",
+      "allowed_host_suffixes": []
+    },
+    {
+      "policy": {
+        "policy_id": "rights.press-release-wires.v1",
+        "source_id": "src.press-release-wires",
+        "status": "approved",
+        "commercial_use": "allowed",
+        "public_display": "allowed",
+        "public_fact_display": "allowed",
+        "public_excerpt_display": "restricted",
+        "public_media_display": "restricted",
+        "attribution": "Provider name + canonical URL + publication/retrieval date.",
+        "display_tier": "automatic",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.press-release-wires.v1.json",
+        "blob_sha": "b67206c4eb115990e788d1d5836a7fed33917351"
+      },
+      "source": {
+        "source_id": "src.press-release-wires",
+        "status": "active",
+        "provider_url": "https://www.prnewswire.com/",
+        "rights_policy_ids": [
+          "rights.press-release-wires.v1"
+        ],
+        "path": "registry/sources/source.press-release-wires.v1.json",
+        "blob_sha": "02693d2a362aa62760032a9bcf53484d754f851d",
+        "provider_name": "Press release distribution wires (PR Newswire, GlobeNewswire, Business Wire, PR TIMES)",
+        "source_types": [
+          "company_press_release",
+          "press_release_distribution"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "prnewswire.com",
+        "globenewswire.com",
+        "businesswire.com",
+        "prtimes.jp"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.product-hunt.v2",
+        "source_id": "src.product-hunt",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.product-hunt.v2.json",
+        "blob_sha": "3424ca3a4282792d573d409f55276e30a75ff55e"
+      },
+      "source": {
+        "source_id": "src.product-hunt",
+        "status": "gated",
+        "provider_url": "https://www.producthunt.com/",
+        "rights_policy_ids": [
+          "rights.product-hunt.v1",
+          "rights.product-hunt.v2"
+        ],
+        "path": "registry/sources/source.product-hunt.v1.json",
+        "blob_sha": "89af5b32ad68c5bc9eef125a4109954768d81aec",
+        "provider_name": "Product Hunt",
+        "source_types": [
+          "product_directory",
+          "community",
+          "api"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "producthunt.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.reddit.v2",
+        "source_id": "src.reddit",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.reddit.v2.json",
+        "blob_sha": "cba0a309ce24affc6ab8f760bacca6f916cccc32"
+      },
+      "source": {
+        "source_id": "src.reddit",
+        "status": "gated",
+        "provider_url": "https://www.reddit.com/",
+        "rights_policy_ids": [
+          "rights.reddit.v1",
+          "rights.reddit.v2"
+        ],
+        "path": "registry/sources/source.reddit.v1.json",
+        "blob_sha": "121298eb7a5e2f8cf17ff38da72d87d37c301a1c",
+        "provider_name": "Reddit",
+        "source_types": [
+          "community",
+          "api",
+          "user_content"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "reddit.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.reuters.v1",
+        "source_id": "src.reuters",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.reuters.v1.json",
+        "blob_sha": "f3d9bb5a7c37e1e45379bfc8fc3a1d0bc30e233b"
+      },
+      "source": {
+        "source_id": "src.reuters",
+        "status": "active",
+        "provider_url": "https://www.reuters.com/",
+        "rights_policy_ids": [
+          "rights.reuters.v1"
+        ],
+        "path": "registry/sources/source.reuters.v1.json",
+        "blob_sha": "c27c030a2be1d08c5eea15a35c7bc2b0aee22628",
+        "provider_name": "Reuters",
+        "source_types": [
+          "news_report"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "reuters.com"
       ]
     },
     {
@@ -70,7 +667,12 @@
         "source_id": "src.sec-edgar",
         "status": "approved",
         "commercial_use": "allowed",
+        "public_display": "restricted",
         "public_fact_display": "allowed",
+        "public_excerpt_display": "restricted",
+        "public_media_display": "blocked",
+        "attribution": "Cite the SEC/EDGAR filing URL and identify the filing source; do not imply SEC endorsement.",
+        "display_tier": "automatic",
         "reviewed_at": "2026-09-25T04:18:00+09:00",
         "path": "registry/rights/policy.sec-edgar-public-facts.v1.json",
         "blob_sha": "f33fbbcb5355a1fdf9e77eaf043ac0900089d101"
@@ -89,11 +691,229 @@
           "regulatory_filing"
         ]
       },
+      "host_scope": "suffix",
       "allowed_host_suffixes": [
         "sec.gov"
       ],
       "allowed_path_prefixes": [
         "/Archives/edgar/"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.starter-story.v1",
+        "source_id": "src.starter-story",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.starter-story.v1.json",
+        "blob_sha": "894694c7901d9dd70fba559534ce2058d826cb34"
+      },
+      "source": {
+        "source_id": "src.starter-story",
+        "status": "active",
+        "provider_url": "https://www.starterstory.com/",
+        "rights_policy_ids": [
+          "rights.starter-story.v1"
+        ],
+        "path": "registry/sources/source.starter-story.v1.json",
+        "blob_sha": "816eb3a1accdeb24fc09384593f8c791b845fe04",
+        "provider_name": "Starter Story",
+        "source_types": [
+          "founder_interview"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "starterstory.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.substack.v1",
+        "source_id": "src.substack",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.substack.v1.json",
+        "blob_sha": "6d3a6a964187d9f9370f746d030acf8115340478"
+      },
+      "source": {
+        "source_id": "src.substack",
+        "status": "active",
+        "provider_url": "https://substack.com/",
+        "rights_policy_ids": [
+          "rights.substack.v1"
+        ],
+        "path": "registry/sources/source.substack.v1.json",
+        "blob_sha": "3595dc8ede75e23166632eb5adf245a2efd99e69",
+        "provider_name": "Substack newsletters",
+        "source_types": [
+          "newsletter_article",
+          "founder_self_report"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "substack.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.techcrunch.v2",
+        "source_id": "src.techcrunch",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.techcrunch.v2.json",
+        "blob_sha": "c5ecf426663d0d45699ec1b261c586bf450fecba"
+      },
+      "source": {
+        "source_id": "src.techcrunch",
+        "status": "gated",
+        "provider_url": "https://techcrunch.com/",
+        "rights_policy_ids": [
+          "rights.techcrunch.v1",
+          "rights.techcrunch.v2"
+        ],
+        "path": "registry/sources/source.techcrunch.v1.json",
+        "blob_sha": "54ed746980e8428a7b5f8c341d3310ff66511532",
+        "provider_name": "TechCrunch",
+        "source_types": [
+          "news",
+          "secondary_reporting"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "techcrunch.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.wikipedia.v1",
+        "source_id": "src.wikipedia",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.wikipedia.v1.json",
+        "blob_sha": "40949ae8f0daa210da2f5d062fd74bb726622fcf"
+      },
+      "source": {
+        "source_id": "src.wikipedia",
+        "status": "active",
+        "provider_url": "https://www.wikipedia.org/",
+        "rights_policy_ids": [
+          "rights.wikipedia.v1"
+        ],
+        "path": "registry/sources/source.wikipedia.v1.json",
+        "blob_sha": "99e5c0eba9afed3a082b57d4a00a949f35439672",
+        "provider_name": "Wikipedia",
+        "source_types": [
+          "encyclopedia_article"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "wikipedia.org"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.x-twitter.v1",
+        "source_id": "src.x-twitter",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.x-twitter.v1.json",
+        "blob_sha": "c15946e8148400a36050dc9702c5d5fa1a39bfaf"
+      },
+      "source": {
+        "source_id": "src.x-twitter",
+        "status": "active",
+        "provider_url": "https://x.com/",
+        "rights_policy_ids": [
+          "rights.x-twitter.v1"
+        ],
+        "path": "registry/sources/source.x-twitter.v1.json",
+        "blob_sha": "c8bcfff2014db9447823fe75d1f821f0e79afc23",
+        "provider_name": "X (Twitter)",
+        "source_types": [
+          "social_post",
+          "founder_self_report"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "x.com",
+        "twitter.com"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.youtube.v1",
+        "source_id": "src.youtube",
+        "status": "restricted",
+        "commercial_use": "restricted",
+        "public_display": "restricted",
+        "public_fact_display": "restricted",
+        "public_excerpt_display": "blocked",
+        "public_media_display": "blocked",
+        "attribution": "Provider name + canonical URL + publication date; figures stated by the subject are labeled self-reported (本人申告).",
+        "display_tier": "facts_only",
+        "reviewed_at": "2026-09-29T09:00:00+09:00",
+        "path": "registry/rights/policy.youtube.v1.json",
+        "blob_sha": "fb0d0850e03cb89bc7fc943580a52362fc00e18b"
+      },
+      "source": {
+        "source_id": "src.youtube",
+        "status": "active",
+        "provider_url": "https://www.youtube.com/",
+        "rights_policy_ids": [
+          "rights.youtube.v1"
+        ],
+        "path": "registry/sources/source.youtube.v1.json",
+        "blob_sha": "535fb974b358c9bc8e95e0390f58221fe478bffe",
+        "provider_name": "YouTube",
+        "source_types": [
+          "video_interview",
+          "founder_self_report"
+        ]
+      },
+      "host_scope": "suffix",
+      "allowed_host_suffixes": [
+        "youtube.com",
+        "youtu.be"
       ]
     }
   ]

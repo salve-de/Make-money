@@ -5,6 +5,7 @@ import React from 'react';
 import { inspectFinancialIntegrity } from '@/shared/financial-integrity';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
+import { snapshotPeriodLabel } from '@/shared/display-text';
 
 function percentOf(value: number, revenue: number): number {
   return revenue > 0 ? Math.round((value / revenue) * 100) : 0;
@@ -81,7 +82,7 @@ export function CashAnatomySection({
   const badgeElement = (
     <>
       <span className={hasConflict ? 'text-term-accent' : undefined}>{hasConflict ? '要照合' : statusLabel}</span>
-      {entity.pnl.dataSnapshotPeriod && <span className="term-num hidden text-term-label sm:inline">{entity.pnl.dataSnapshotPeriod}</span>}
+      {snapshotPeriodLabel(entity.pnl.dataSnapshotPeriod) && <span className="term-num hidden text-term-label sm:inline">{snapshotPeriodLabel(entity.pnl.dataSnapshotPeriod)}</span>}
     </>
   );
 

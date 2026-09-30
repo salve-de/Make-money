@@ -1,6 +1,7 @@
 
 import { describe, expect, it } from "vitest";
 import type { FinancialEntity } from "@/shared/terminal";
+import { baremetrics, block } from "@/shared/__fixtures__/reader-samples";
 import { deriveDiscoveryDataset } from "./discovery-model";
 
 function makeEntity(
@@ -129,16 +130,16 @@ describe("discovery model", () => {
     );
   });
 
-  it("counts similar mechanisms without pretending to know a success probability", () => {
-    const dataset = deriveDiscoveryDataset([
-      makeEntity("a", { architecture: "月額サブスク SaaS" }),
-      makeEntity("b", { architecture: "継続課金 subscription" }),
-      makeEntity("c", { architecture: "直販 D2C" }),
+  it("does not invent a revenue mechanism or a sector without a sourced basis", () => {
+    const dataset = deriveDiscoveryDataset([makeEntity("a", { architecture: "月額サブスク SaaS" })]);
+    const item = dataset.cases[0] as unknown as Record<string, unknown>;
+    expect(item.mechanism).toBeUndefined();
+    expect(item.related).toBeUndefined();
+    expect(item.sector).toBe("");
+    const withBasis = deriveDiscoveryDataset([
+      { ...makeEntity("b", {}), sectorBasis: { source: "SEC_SIC", note: "SIC 7372" } },
     ]);
-
-    const recurring = dataset.cases.find((item) => item.id === "a");
-    expect(recurring?.mechanism.label).toBe("継続課金");
-    expect(recurring?.mechanismCount).toBe(2);
+    expect(withBasis.cases[0].sector).toBe("ソフトウェア");
   });
 
   it("marks current and low-friction conditions from confirmed fields only", () => {
@@ -174,15 +175,37 @@ describe("discovery model", () => {
     expect(item.lowWork).toBe(false);
   });
 
-  it("shows record status and annual-period caveat beside a monthly ledger value", () => {
-    const item = deriveDiscoveryDataset([
-      makeEntity("annual", {
-        financialStatus: "ESTIMATED",
-        snapshotPeriod: "FY2025 (2025年12月31日終了)",
-      }),
-    ]).cases[0];
+  it("picks the list result from reader.metrics and names it by measure", () => {
+    const exit = { ...makeEntity("exit"), reader: baremetrics };
+    const item = deriveDiscoveryDataset([exit]).cases[0];
+    expect(item.resultLabel).toBe("売却額");
+    expect(item.resultValue).toBe("$4M");
+    expect(item.resultMetricId).toBe("m1");
+    expect(item.summaryText).toBe("サブスク課金の指標を見せる分析ツール。");
+    expect(item.resultEvidenceLabel).not.toBe("推定");
+  });
 
-    expect(item.resultEvidenceLabel).toBe("資料区分: 推定");
-    expect(item.resultPeriodNote).toBe("年次資料の月次換算条件は未記載");
+  it("prefers a filed annual revenue and never labels a filed value as estimated", () => {
+    const item = deriveDiscoveryDataset([{ ...makeEntity("blk"), reader: block }]).cases[0];
+    expect(item.resultLabel).toBe("売上");
+    expect(item.resultValue).toBe("$24B");
+    expect(item.resultEvidenceLabel).toBe("提出書類");
+    expect(item.resultPeriod).toBe("FY2025");
+  });
+
+  it("shows unconfirmed without a reader instead of reading the pnl text", () => {
+    const item = deriveDiscoveryDataset([makeEntity("bare", { financialStatus: "POST_MORTEM" })]).cases[0];
+    expect(item.resultValue).toBe("未確認");
+    expect(item.summaryFactId).toBeNull();
+    expect(item.resultEvidenceLabel).toBe("");
+  });
+
+  it("leaves the start line and the sector empty when nothing is sourced", () => {
+    const item = deriveDiscoveryDataset([makeEntity("none", {})]).cases[0];
+    expect(item.startLine).not.toContain("未確認");
+    const guessed = { ...makeEntity("g", {}), sectorBasis: { source: "SOURCED_DESCRIPTION" as const, note: "主要説明文の語: 講座" } };
+    expect(deriveDiscoveryDataset([guessed]).cases[0].sector).toBe("");
+    const estate = { ...makeEntity("e", {}), sector: "PHYSICAL_ASSET" as const, sectorBasis: { source: "SEC_SIC" as const, note: "SIC 6512" } };
+    expect(deriveDiscoveryDataset([estate]).cases[0].sector).toBe("物販・不動産");
   });
 });

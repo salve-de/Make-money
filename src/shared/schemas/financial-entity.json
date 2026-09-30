@@ -26,6 +26,10 @@
         "sector": {
           "$ref": "#/definitions/SectorCategory"
         },
+        "sectorBasis": {
+          "$ref": "#/definitions/SectorBasis",
+          "description": "業種の根拠。無い時は業種を画面に出さない。"
+        },
         "scale": {
           "$ref": "#/definitions/BusinessScale"
         },
@@ -202,6 +206,25 @@
         "FINTECH_INFRA",
         "LOCAL_SERVICES",
         "UNKNOWN"
+      ]
+    },
+    "SectorBasis": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "SEC_SIC",
+            "SOURCED_DESCRIPTION"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "note"
       ]
     },
     "BusinessScale": {
@@ -1192,6 +1215,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "attribution": {
+          "$ref": "#/definitions/UniversalObservationPublicAttribution"
         }
       },
       "required": [
@@ -1223,6 +1249,39 @@
         "label",
         "value"
       ]
+    },
+    "UniversalObservationPublicAttribution": {
+      "type": "object",
+      "properties": {
+        "displayTier": {
+          "type": "string",
+          "enum": [
+            "automatic",
+            "facts_only"
+          ]
+        },
+        "providerName": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "retrievedAt": {
+          "type": "string"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "selfReported": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "displayTier",
+        "providerName",
+        "selfReported"
+      ],
+      "description": "出典表示（Tier 2「事実のみ」出典では表示必須。本人申告の数値は selfReported=true）。"
     },
     "LootBlueprint": {
       "type": "object",

@@ -127,23 +127,21 @@ export default function RegistryClient() {
         ) : (
           <div>
             {!loading && filtered.length > 0 && (
-              <div className="grid h-[26px] grid-cols-[minmax(0,1fr)_86px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label sm:grid-cols-[minmax(0,1fr)_140px_180px_120px]">
+              <div className="grid h-[26px] grid-cols-[minmax(0,1fr)_86px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label sm:grid-cols-[minmax(0,1fr)_180px_120px]">
                 <span>名称</span>
-                <span className="hidden sm:block">ティッカー</span>
                 <span className="hidden sm:block">ドメイン</span>
                 <span>状態</span>
               </div>
             )}
             {shown.map((entry, index) => (
-              <div key={entry.id} className={`grid min-h-11 grid-cols-[minmax(0,1fr)_86px] items-center gap-3 border-b border-term-line-soft px-3 py-1.5 text-sm hover:bg-term-select sm:min-h-[36px] sm:grid-cols-[minmax(0,1fr)_140px_180px_120px] ${index % 2 ? 'bg-term-row-alt' : ''}`}>
+              <div key={entry.id} className={`grid min-h-11 grid-cols-[minmax(0,1fr)_86px] items-center gap-3 border-b border-term-line-soft px-3 py-1.5 text-sm hover:bg-term-select sm:min-h-[36px] sm:grid-cols-[minmax(0,1fr)_180px_120px] ${index % 2 ? 'bg-term-row-alt' : ''}`}>
                 <div className="min-w-0">
                   <div className="truncate text-term-fg-strong">{entry.name}</div>
                   <div className="truncate text-xs text-term-dim" title={entry.id}>
-                    <span className="sm:hidden">{entry.ticker || entry.domain || entry.sector || '識別情報なし'}</span>
+                    <span className="sm:hidden">{entry.domain || entry.sector || '識別情報なし'}</span>
                     <span className="term-num hidden sm:inline">{entry.id}</span>
                   </div>
                 </div>
-                <div className="term-num hidden truncate text-term-sub sm:block">{entry.ticker || '—'}</div>
                 <div className="hidden truncate text-term-muted sm:block">{entry.domain || '—'}</div>
                 <div className="truncate text-xs text-term-sub sm:text-sm">{registryStatusLabel(entry.status)}</div>
               </div>

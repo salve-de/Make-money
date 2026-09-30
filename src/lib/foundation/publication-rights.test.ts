@@ -1,9 +1,11 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
+  AUTO_PUBLIC_FACT_POLICIES,
   PUBLIC_OBSERVATION_TYPE_POLICIES,
   assessCommercialPublicProjection,
   buildCommercialPublicFactProjection,
+  resolveCatalogSourcePolicy,
 } from './publication-rights';
 
 function bundle(
@@ -657,5 +659,150 @@ describe('commercial publication rights gate', () => {
     expect(projected.assessment.reasons).toContain(
       'no SUPPORTED fact record remains after commercial-rights filtering',
     );
+  });
+});
+
+describe('three-tier publication rights (owner decision 2026-09-29)', () => {
+  const evidenceId = 'ev_1234567890abcdef12345678';
+  type Loose = Record<string, unknown>;
+
+  function tier2Bundle(policyId: string | null, status = 'metadata_only') {
+    const input = bundle(policyId, status, 'SUPPORTED', 'src.indiehackers', 'https://www.indiehackers.com/product/example-tool');
+    input.sources[0].provider_name = 'Indie Hackers';
+    input.sources[0].source_type = 'case_studies';
+    input.sources[0].canonical_url = 'https://www.indiehackers.com/';
+    input.evidence[0].source_type = 'case_studies';
+    (input.evidence[0] as Loose).published_at = '2025-03-01T00:00:00Z';
+    return input;
+  }
+
+  function officialBundle(domain: string | null, options: { bindEvidence?: boolean; evidenceUrl?: string; policyId?: string | null } = {}) {
+    const input = bundle(
+      options.policyId === undefined ? 'rights.official-company-website.v1' : options.policyId,
+      options.policyId === undefined ? 'metadata_only' : 'pending_review',
+      'SUPPORTED',
+      'src.official-company-website',
+      options.evidenceUrl ?? 'https://www.example-tool.com/pricing',
+    );
+    input.sources[0].provider_name = 'Example Tool (official site)';
+    input.sources[0].source_type = 'official_pricing_page';
+    input.sources[0].canonical_url = 'https://www.example-tool.com/';
+    input.evidence[0].source_type = 'official_pricing_page';
+    (input.entities[0] as Loose).domain = domain;
+    if (options.bindEvidence === false) input.entities[0].evidence_ids = [];
+    return input;
+  }
+
+  it('pins Tier 1 automatic and Tier 2 facts-only policies from the regenerated snapshot', () => {
+    expect(AUTO_PUBLIC_FACT_POLICIES.get('rights.e-stat.v1')?.displayTier).toBe('automatic');
+    expect(AUTO_PUBLIC_FACT_POLICIES.get('rights.indiehackers.v2')).toMatchObject({
+      displayTier: 'facts_only',
+      sourceId: 'src.indiehackers',
+      hostScope: 'suffix',
+      allowedHostSuffixes: ['indiehackers.com'],
+    });
+    expect(AUTO_PUBLIC_FACT_POLICIES.get('rights.indiehackers.v2')?.attribution).toContain('self-reported');
+    expect(AUTO_PUBLIC_FACT_POLICIES.get('rights.official-company-website.v1')).toMatchObject({
+      displayTier: 'automatic',
+      hostScope: 'entity_domain',
+      allowedHostSuffixes: [],
+    });
+    for (const held of [
+      'rights.indiehackers.v1', 'rights.ebizfacts.v1', 'rights.linkedin.v1',
+      'rights.paywalled-and-private.v1', 'rights.eurostat.v1', 'rights.techcrunch.v1',
+    ]) {
+      expect(AUTO_PUBLIC_FACT_POLICIES.has(held)).toBe(false);
+    }
+  });
+
+  it('admits an explicit Tier 2 policy for facts only and strips source prose from the projected evidence', () => {
+    const projected = buildCommercialPublicFactProjection(tier2Bundle('rights.indiehackers.v2'));
+    expect(projected.assessment.status).toBe('ALLOWED');
+    expect(projected.assessment.attributionRequiredEvidenceIds).toEqual([evidenceId]);
+    const evidence = projected.bundle?.evidence as Loose[];
+    expect(evidence).toHaveLength(1);
+    expect(evidence[0]).not.toHaveProperty('summary');
+    expect(evidence[0].public_attribution).toMatchObject({
+      display_tier: 'facts_only',
+      provider_name: 'Indie Hackers',
+      source_url: 'https://www.indiehackers.com/product/example-tool',
+      published_at: '2025-03-01T00:00:00Z',
+    });
+    expect(JSON.stringify(projected.bundle)).not.toContain('source summary not for public projection');
+    const warnings = (projected.bundle?.quality as { warnings: string[] }).warnings;
+    expect(warnings.some((warning) => warning.includes('facts-only (Tier 2)'))).toBe(true);
+  });
+
+  it('leaves Tier 1 evidence untouched by the facts-only projection', () => {
+    const projected = buildCommercialPublicFactProjection(bundle('rights.e-stat.v1'));
+    expect(projected.assessment.attributionRequiredEvidenceIds).toEqual([]);
+    const evidence = projected.bundle?.evidence as Loose[];
+    expect(evidence[0]).not.toHaveProperty('public_attribution');
+  });
+
+  it('registry-resolves a pending Tier 2 source only from its exact provider identity and host', () => {
+    const assessment = assessCommercialPublicProjection(tier2Bundle(null, 'pending_review'));
+    expect(assessment.status).toBe('ALLOWED');
+    expect(assessment.attributionRequiredEvidenceIds).toEqual([evidenceId]);
+
+    const wrongHost = tier2Bundle(null, 'pending_review');
+    wrongHost.evidence[0].source_url = 'https://medium.com/@someone/example-tool';
+    expect(assessCommercialPublicProjection(wrongHost).status).toBe('RIGHTS_HELD');
+
+    const wrongProvider = tier2Bundle(null, 'pending_review');
+    wrongProvider.sources[0].provider_name = 'Someone else';
+    expect(assessCommercialPublicProjection(wrongProvider).status).toBe('RIGHTS_HELD');
+  });
+
+  it('keeps the superseded v1 policies and blocked providers RIGHTS_HELD', () => {
+    const v1 = assessCommercialPublicProjection(tier2Bundle('rights.indiehackers.v1'));
+    expect(v1.status).toBe('RIGHTS_HELD');
+    expect(v1.reasons).toContain('policy is not auto-approved for commercial fact display: rights.indiehackers.v1');
+
+    const linkedin = bundle('rights.linkedin.v1', 'metadata_only', 'SUPPORTED', 'src.linkedin', 'https://www.linkedin.com/in/someone');
+    expect(assessCommercialPublicProjection(linkedin).status).toBe('RIGHTS_HELD');
+    expect(assessCommercialPublicProjection(bundle('rights.paywalled-and-private.v1')).status).toBe('RIGHTS_HELD');
+  });
+
+  it('admits official-website evidence only on the domain registered on the entity that binds it', () => {
+    const allowed = assessCommercialPublicProjection(officialBundle('example-tool.com'));
+    expect(allowed.status).toBe('ALLOWED');
+    expect(allowed.attributionRequiredEvidenceIds).toEqual([]);
+    expect(assessCommercialPublicProjection(officialBundle('www.example-tool.com')).status).toBe('ALLOWED');
+
+    expect(assessCommercialPublicProjection(officialBundle('other-company.com')).status).toBe('RIGHTS_HELD');
+    expect(assessCommercialPublicProjection(officialBundle(null)).status).toBe('RIGHTS_HELD');
+    expect(assessCommercialPublicProjection(officialBundle('example-tool.com', { bindEvidence: false })).status).toBe('RIGHTS_HELD');
+
+    const offDomain = assessCommercialPublicProjection(
+      officialBundle('example-tool.com', { evidenceUrl: 'https://example-tool.medium.com/pricing' }),
+    );
+    expect(offDomain.status).toBe('RIGHTS_HELD');
+    expect(offDomain.reasons).toContain(
+      'official-website evidence is not bound to an entity whose registered domain serves the evidence URL',
+    );
+  });
+
+  it('never registry-infers the entity-bound official-website policy without an explicit policy id', () => {
+    expect(assessCommercialPublicProjection(officialBundle('example-tool.com', { policyId: null })).status).toBe('RIGHTS_HELD');
+  });
+});
+
+describe('resolveCatalogSourcePolicy (catalog source → registry policy)', () => {
+  it('maps a platform host to its facts-only policy even when it is not the official domain', () => {
+    expect(resolveCatalogSourcePolicy('https://www.indiehackers.com/product/foo', 'https://foo.com')).toMatchObject({
+      policyId: 'rights.indiehackers.v2', displayTier: 'facts_only',
+    });
+  });
+
+  it('maps the entity own domain (and subdomains) to the official-website policy', () => {
+    expect(resolveCatalogSourcePolicy('https://blog.foo.com/post', 'https://www.foo.com/')?.policyId).toBe('rights.official-company-website.v1');
+    expect(resolveCatalogSourcePolicy('https://foo.com/pricing', 'foo.com')?.displayTier).toBe('automatic');
+  });
+
+  it('returns null for unregistered hosts and for another company domain', () => {
+    expect(resolveCatalogSourcePolicy('https://someblog.example.net/a', 'https://foo.com')).toBeNull();
+    expect(resolveCatalogSourcePolicy('https://bar.com/', 'https://foo.com')).toBeNull();
+    expect(resolveCatalogSourcePolicy('not a url', 'https://foo.com')).toBeNull();
   });
 });

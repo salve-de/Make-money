@@ -1,0 +1,367 @@
+{
+  "ent_baremetrics_b0966c4871940e459cbb": {
+    "sources": [
+      {
+        "id": "s1",
+        "publisher": "Baremetrics",
+        "url": "https://baremetrics.com/",
+        "checkedAt": "2026-09-30",
+        "kind": "OFFICIAL"
+      },
+      {
+        "id": "s2",
+        "publisher": "Baremetrics",
+        "url": "https://baremetrics.com/pricing-build-your-own",
+        "checkedAt": "2026-09-30",
+        "kind": "OFFICIAL"
+      },
+      {
+        "id": "s3",
+        "publisher": "Baremetrics / Josh Pigford",
+        "url": "https://baremetrics.com/blog/i-sold-baremetrics",
+        "publishedAt": "2020-11-10",
+        "checkedAt": "2026-09-30",
+        "kind": "OFFICIAL"
+      },
+      {
+        "id": "s4",
+        "publisher": "Baremetrics / Josh Pigford",
+        "url": "https://baremetrics.com/blog/one-year-later",
+        "publishedAt": "2014-10-13",
+        "checkedAt": "2026-09-30",
+        "kind": "OFFICIAL"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "kind": "DESCRIPTION",
+        "text": "Baremetricsは決済データからMRR、ARR、解約率、顧客価値などを表示し、回収・解約分析も提供する。",
+        "sourceId": "s1",
+        "attribution": "OFFICIAL"
+      },
+      {
+        "id": "f2",
+        "kind": "PRICING",
+        "text": "料金は追跡対象ARRに応じて増え、支払回収や解約分析などの追加製品も選べる。",
+        "sourceId": "s2",
+        "attribution": "OFFICIAL"
+      },
+      {
+        "id": "f3",
+        "kind": "FOUNDING",
+        "text": "Josh Pigfordは2013年にBaremetricsを作り、同年11月にStripe向け分析として公開した。",
+        "sourceId": "s4",
+        "attribution": "OFFICIAL"
+      },
+      {
+        "id": "f4",
+        "kind": "EXIT",
+        "text": "2020年11月、Josh PigfordはXenon Partnersへ現金4百万ドルで売却し、本人受取額3.7百万ドル、約2.65倍ARRと公表した。",
+        "sourceId": "s3",
+        "statedAt": "2020-11-10",
+        "attribution": "OFFICIAL"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "m1",
+        "measure": "EXIT_VALUE",
+        "periodKind": "POINT",
+        "period": "2020年11月",
+        "amount": 4000000,
+        "currency": "USD",
+        "origin": "SELF_REPORTED",
+        "sourceId": "s3",
+        "statedAt": "2020-11-10"
+      }
+    ],
+    "unknowns": [
+      "REVENUE",
+      "PROFIT",
+      "COST",
+      "CHANNEL",
+      "TOOLS"
+    ],
+    "summaryFactId": "f1"
+  },
+  "ent_ebizfacts_hannahmorganvirtualhousemanager60kyear_bc927cae9842": {
+    "sources": [
+      {
+        "id": "s1",
+        "publisher": "eBiz Facts",
+        "url": "https://ebizfacts.com/hannah-morgan-virtual-house-manager-60k-year/",
+        "publishedAt": "2025-07-31",
+        "checkedAt": "2026-09-29",
+        "kind": "ARTICLE"
+      },
+      {
+        "id": "s2",
+        "publisher": "Side Hustle Nation",
+        "url": "https://www.sidehustlenation.com/virtual-house-management/",
+        "checkedAt": "2026-09-29",
+        "kind": "THIRD_PARTY"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "kind": "DESCRIPTION",
+        "text": "夏のキャンプの申込み、医者の予約、家族旅行の計画、家族の予定管理など、家庭の雑務をオンラインで代行するHeron House Managementを運営する。開始から1年余り。",
+        "sourceId": "s1",
+        "attribution": "ARTICLE"
+      },
+      {
+        "id": "f2",
+        "kind": "TEAM",
+        "text": "本人とチームで運営し、全員がリモート勤務。",
+        "sourceId": "s1",
+        "attribution": "ARTICLE"
+      },
+      {
+        "id": "f3",
+        "kind": "OTHER",
+        "text": "利用者の子どもの年齢・興味・予算を聞き、11週間の夏休みのキャンプ手配などを行う使い方が紹介されている。",
+        "sourceId": "s1",
+        "attribution": "ARTICLE"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "m1",
+        "measure": "REVENUE",
+        "periodKind": "YEAR",
+        "period": "昨年",
+        "amount": 60000,
+        "currency": "USD",
+        "origin": "ARTICLE",
+        "sourceId": "s1",
+        "statedAt": "2025-07-31"
+      }
+    ],
+    "unknowns": [
+      "PROFIT",
+      "COST",
+      "CHANNEL",
+      "TOOLS",
+      "PRICING",
+      "STATUS"
+    ]
+  },
+  "ent_block_J8P4V6RN": {
+    "sources": [
+      {
+        "id": "s1",
+        "publisher": "Block, Inc. 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026012254/xyz-20251231.htm",
+        "title": "Form 10-K FY2025",
+        "checkedAt": "2026-09-14",
+        "kind": "FILING"
+      },
+      {
+        "id": "s2",
+        "publisher": "Block, Inc.",
+        "url": "https://investors.block.xyz/files/doc_downloads/2022/05/Block-Investor-Day-2022-Our-Ecosystems.pdf",
+        "title": "Investor Day 2022",
+        "checkedAt": "2026-09-14",
+        "kind": "OFFICIAL"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "kind": "FOUNDING",
+        "text": "Blockは2009年にJack DorseyとJim McKelveyが創業した。",
+        "sourceId": "s2",
+        "attribution": "OFFICIAL"
+      },
+      {
+        "id": "f2",
+        "kind": "OTHER",
+        "text": "FY2025のBitcoin ecosystem売上は8,502.787百万ドルだが、粗利益寄与は約4%だった。",
+        "sourceId": "s1",
+        "attribution": "FILING"
+      },
+      {
+        "id": "f3",
+        "kind": "OTHER",
+        "text": "2025年末のClass B保有者は約53%の議決権を持つと開示されている。",
+        "sourceId": "s1",
+        "attribution": "FILING"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "m1",
+        "measure": "REVENUE",
+        "periodKind": "FISCAL_YEAR",
+        "period": "FY2025",
+        "amount": 24193683000,
+        "currency": "USD",
+        "origin": "FILED",
+        "sourceId": "s1"
+      },
+      {
+        "id": "m2",
+        "measure": "COST",
+        "periodKind": "FISCAL_YEAR",
+        "period": "FY2025",
+        "amount": 13833754000,
+        "currency": "USD",
+        "origin": "FILED",
+        "label": "売上原価",
+        "sourceId": "s1"
+      },
+      {
+        "id": "m3",
+        "measure": "OPERATING_INCOME",
+        "periodKind": "FISCAL_YEAR",
+        "period": "FY2025",
+        "amount": 1708406000,
+        "currency": "USD",
+        "origin": "FILED",
+        "sourceId": "s1"
+      }
+    ],
+    "unknowns": [
+      "CHANNEL",
+      "TOOLS",
+      "PRICING",
+      "TEAM"
+    ]
+  },
+  "ent_vetta_f25db159678a": {
+    "sources": [
+      {
+        "id": "s1",
+        "publisher": "公式サイト",
+        "url": "https://getvetta.ai",
+        "checkedAt": "2026-09-29",
+        "kind": "OFFICIAL"
+      },
+      {
+        "id": "s2",
+        "publisher": "Indie Hackers",
+        "url": "https://www.indiehackers.com/product/vetta",
+        "publishedAt": "2026-03-17",
+        "checkedAt": "2026-09-29",
+        "kind": "LISTING"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "kind": "DESCRIPTION",
+        "text": "採用チームと候補者を、履歴書ではなく課題解決の成果でつなぐ採用マーケットプレイス。対象は採用チーム（5〜50人規模）、候補者、採用代行会社。",
+        "sourceId": "s1",
+        "attribution": "OFFICIAL"
+      },
+      {
+        "id": "f2",
+        "kind": "PRICING",
+        "text": "候補者向けのプランは6か月$9.95（月あたり$1.70未満）のみ。雇用主・採用代行会社向けの料金は非掲載。",
+        "sourceId": "s1",
+        "attribution": "OFFICIAL"
+      },
+      {
+        "id": "f3",
+        "kind": "FOUNDING",
+        "text": "運営は Vetta, Inc.。著作権表記は2026年。",
+        "sourceId": "s1",
+        "attribution": "OFFICIAL"
+      },
+      {
+        "id": "f4",
+        "kind": "TEAM",
+        "text": "創業者は Richard Samela（@rsamela）。掲載ページのチーム表示は1人。",
+        "sourceId": "s2",
+        "attribution": "LISTING"
+      },
+      {
+        "id": "f5",
+        "kind": "EVENT",
+        "text": "2026-03-17 の投稿で、9週間で候補者4,400人超、企業55社、成約11件を報告。2026-08-29 の投稿で、約8か月で候補者約6,000人、企業80社、成約180件超、採用までの平均13日を報告（いずれも本人申告）。",
+        "sourceId": "s2",
+        "statedAt": "2026-08-29",
+        "attribution": "SELF_REPORTED"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "m1",
+        "measure": "REVENUE",
+        "periodKind": "MONTH",
+        "period": "月",
+        "amount": 23000,
+        "currency": "USD",
+        "origin": "SELF_REPORTED",
+        "basis": "Indie Hackers 掲載ページの収益欄の表示",
+        "sourceId": "s2",
+        "statedAt": "2026-09-29"
+      }
+    ],
+    "unknowns": [
+      "PROFIT",
+      "COST",
+      "CHANNEL",
+      "TOOLS"
+    ]
+  },
+  "ent_leadiy_59baaf7b4457": {
+    "sources": [
+      {
+        "id": "s1",
+        "publisher": "Indie Hackers",
+        "url": "https://www.indiehackers.com/product/leadiy",
+        "publishedAt": "2026-08-20",
+        "checkedAt": "2026-09-29",
+        "kind": "LISTING"
+      }
+    ],
+    "facts": [
+      {
+        "id": "f1",
+        "kind": "DESCRIPTION",
+        "text": "企業の探索から連絡・成約までをAIで一つの流れにする顧客獲得プラットフォーム。",
+        "sourceId": "s1",
+        "attribution": "LISTING"
+      },
+      {
+        "id": "f2",
+        "kind": "TEAM",
+        "text": "創業者ハンドルは Thisarjay。X アカウントは @leadiyacq と表示されている。",
+        "sourceId": "s1",
+        "attribution": "LISTING"
+      },
+      {
+        "id": "f3",
+        "kind": "EVENT",
+        "text": "創業者の投稿は2026-08-20の1件で、公開直後の告知（早期ユーザーと意見の募集を含む）。",
+        "sourceId": "s1",
+        "statedAt": "2026-08-20",
+        "attribution": "LISTING"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "m1",
+        "measure": "REVENUE",
+        "periodKind": "MONTH",
+        "period": "月",
+        "amount": 100000,
+        "currency": "USD",
+        "origin": "SELF_REPORTED",
+        "basis": "Indie Hackers 掲載ページの収益欄の表示",
+        "sourceId": "s1",
+        "statedAt": "2026-09-29"
+      }
+    ],
+    "unknowns": [
+      "PROFIT",
+      "COST",
+      "CHANNEL",
+      "TOOLS",
+      "PRICING"
+    ]
+  }
+}

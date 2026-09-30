@@ -10,6 +10,7 @@ import { useCuratedCatalog } from './useCuratedCatalog';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 import { useFoundationPaging } from './useFoundationPaging';
+import { mayFoundationReplaceCurated, preferDetail } from '@/shared/dossier-authority';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
 
@@ -49,6 +50,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
+  // 詳細の取得が失敗した・採らなかった事例。一覧の再描画のたびに同じ要求を撃ち直さないよう、ページを開き直すまで再取得しない
+  const detailFetchSettled = useRef(new Set<string>());
 
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [approvalProjectionEpoch, setApprovalProjectionEpoch] = useState(0);
@@ -191,7 +194,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
       const coreName = normalize(core.name);
       const candidate = foundationById.get(core.id.toLowerCase()) ||
         (coreName ? foundationByName.get(coreName) || foundationByName.get(aliasMatches[coreName]) : undefined);
-      const replacement = candidate?.readyToReplaceCurated ? candidate.entity : undefined;
+      const replacement = candidate?.readyToReplaceCurated && mayFoundationReplaceCurated(core) ? candidate.entity : undefined;
       const entity = replacement ? { ...replacement, batchId: replacement.batchId || core.batchId } : core;
       const normalizedName = normalize(entity.name);
       if (seenIds.has(entity.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName))) continue;
@@ -229,12 +232,13 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   // オンデマンド詳細読み込み関数
   const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
-    if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
+    if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId) || detailFetchSettled.current.has(targetId)) return Promise.resolve();
 
     detailFetchInProgress.current.add(targetId);
     const normalizedTargetId = targetId.toLowerCase();
     const knownFoundation = foundationRows.some((row) => row.id.toLowerCase() === normalizedTargetId);
-    const knownCurated = coreEntities.some((entity) => entity.id.toLowerCase() === normalizedTargetId);
+    const curated = coreEntities.find((entity) => entity.id.toLowerCase() === normalizedTargetId);
+    const knownCurated = Boolean(curated);
 
     return fetchBusinessDetailResponse(fetch, {
       targetId,
@@ -248,18 +252,22 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
           const payload = json as { source?: string; data?: unknown };
           if (payload.source === 'foundation_lake') {
             const detail = parseFoundationDetailResponse(payload);
-            if (detail) {
+            // 公開中の事例は公開版が正本。同じ ID の Foundation 候補で詳細を置き換えない
+            if (detail && mayFoundationReplaceCurated(curated)) {
               const adapted = adaptFoundationDetailToFinancialEntity(detail);
-              setDetailedEntities((prev) => ({ ...prev, [targetId]: adapted }));
+              setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], adapted) }));
+            } else {
+              detailFetchSettled.current.add(targetId);
             }
           } else if (payload.data && typeof payload.data === 'object') {
             const entity = parseFinancialEntity(payload.data);
             if (entity.id !== targetId) throw new Error('Detail entity identity mismatch');
-            setDetailedEntities((prev) => ({ ...prev, [targetId]: entity }));
+            setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], entity) }));
           }
         }
       })
       .catch((err) => {
+        detailFetchSettled.current.add(targetId);
         console.warn('[TerminalShell] Detail fetch failed for', targetId, err);
       })
       .finally(() => {

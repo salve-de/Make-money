@@ -11,3 +11,12 @@ it.each([
   expect(html).not.toContain('自動保存済');
   if (status !== 'saved') expect(html).not.toContain('アカウントに保存済み');
 });
+
+it('keeps the input open for a first note without internal labels or sample text', () => {
+  for (const isHazardMode of [false, true]) {
+    const html = renderToStaticMarkup(createElement(AnalystNotes, { entity: INSTITUTIONAL_ENTITIES[0], analystNote: '', isHazardMode }));
+    expect(html).toContain('<textarea');
+    expect(html).not.toContain('未記録');
+    expect(html).not.toContain('例:');
+  }
+});

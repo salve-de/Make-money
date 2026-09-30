@@ -4,6 +4,21 @@
 
 Updated: 2026-09-30 JST
 
+## Three-tier model adopted — 2026-09-29 (owner decision)
+
+The fail-closed default ("hold unless a source policy explicitly allows public fact display") is replaced by three tiers. Legal basis is unchanged from the 2026-09-28 interpretation below: facts and data are not copyright works; provider terms bind the access method and the reuse of expression/media, not independently worded facts. This is an operational policy, not legal advice.
+
+| Tier | Providers | Public display |
+|---|---|---|
+| 1 automatic | public filings and statistics, the entity's own official website, press-release wires, app-store listings, GitHub | facts and numbers with attribution; short attributed quotation only; media only where the provider publishes reusable assets |
+| 2 facts only | news, interviews, newsletters, community posts (IndieHackers, eBiz Facts, Reddit, HN, TechCrunch, Product Hunt, X, YouTube, Substack, beehiiv, Reuters, Bloomberg, Nikkei, Crunchbase, Wikipedia, Etsy) | independently worded facts with provider name, canonical URL and date; figures stated by the subject carry a self-reported label; no article prose, screenshots, images, charts or copied tables; raw bodies metadata_only going forward （**2026-09-30 廃止** → OWNER_INTENT 6章: eBiz Facts は Tier 2 から外す。規約で商用利用・公の表示が禁止。発見の手がかりに留める） |
+| 3 blocked | LinkedIn; paywalled bodies, photographs of people, third-party charts, social-post screenshots, personal data beyond the subject's own statements, non-public screens | never |
+
+Accuracy over rights: the largest legal exposure of this product is an unsupported revenue or profit figure attached to an identifiable person or company. Every displayed figure carries provenance, period and a reported / estimated / unknown label; unsupported legacy figures are shown as unknown (see the 2026-09-29 honest rebuild in PROJECT_MASTER_HISTORY_AND_STRATEGY.md).
+
+Registry changes live in Universal Foundation branch `claude/rights-three-tier-20260929` (commit 7e14b5e4, pushed; PR/merge into UF `main` pending owner action). Runtime support in this repository is implemented (2026-09-29): `data/foundation-public-rights-snapshot.json` and `data/foundation-public-fact-types.json` are regenerated from that commit by `scripts/foundation/build-foundation-snapshots.mjs`, and `src/lib/foundation/publication-rights.ts` admits Tier-2 `restricted` policies (`display_tier=facts_only`) for independently worded facts only, with provider attribution attached to every projected fact and prose fields dropped from the evidence. `pnpm deploy:preflight` verifies both snapshots against UF `main`, so production deploy is blocked until the UF branch is merged.
+
+
 ## Final objective
 
 Build a valuable Make-Money catalog by researching business facts, writing original fact-based presentations, and displaying the commercially usable facts in the UI with evidence and source history attached. Prefer sources with clear reusable terms, but do not treat the absence of an open-license label by itself as proof that a factual claim cannot be commercially displayed.
@@ -52,7 +67,7 @@ This interpretation is grounded in the current repository's collection master gu
 
 ### Important implementation boundary
 
-This policy update does **not** grant a blanket license or change runtime publication behavior. `src/lib/foundation/publication-rights.ts` still auto-admits only exact policies in `data/foundation-public-rights-snapshot.json`; the current snapshot contains three source-policy entries. A source outside that snapshot may therefore remain `RIGHTS_HELD` in the application even when the missing open-license label alone would not establish a legal prohibition on an independently presented fact. That is an **automation-policy gap**, not a legal finding that every held fact is unlawful. To publish additional source families automatically, review the actual source/access terms and add a source-scoped fact-display policy through the Universal Foundation rights/source registry, refresh this repository's pinned snapshot, and test that only the reviewed claim types/hosts/paths pass. Do not solve the gap with a generic host allowlist or by trusting a collector-supplied `allowed` flag.
+This policy update does **not** grant a blanket license. `src/lib/foundation/publication-rights.ts` still admits only exact policies pinned in `data/foundation-public-rights-snapshot.json`; the current snapshot (UF commit 7e14b5e4) contains 25 source-policy entries: 7 Tier 1 (`display_tier=automatic`) and 18 Tier 2 (`display_tier=facts_only`, attribution mandatory, prose/excerpts/media never projected). Policies whose status is blocked, metadata_only, pending or expired, and `restricted` policies whose `public_fact_display` is `allowed` (conditional, not mechanically provable), are not pinned. A source outside that snapshot may therefore remain `RIGHTS_HELD` in the application even when the missing open-license label alone would not establish a legal prohibition on an independently presented fact. That is an **automation-policy gap**, not a legal finding that every held fact is unlawful. To publish additional source families automatically, review the actual source/access terms and add a source-scoped fact-display policy through the Universal Foundation rights/source registry, refresh this repository's pinned snapshot, and test that only the reviewed claim types/hosts/paths pass. Do not solve the gap with a generic host allowlist or by trusting a collector-supplied `allowed` flag.
 
 ## Active collection persistence — 2026-09-30
 

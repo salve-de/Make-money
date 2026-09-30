@@ -2,6 +2,7 @@ import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
 import { MoneyText } from './MoneyText';
+import { snapshotPeriodLabel, sourceDocLabel } from '@/shared/display-text';
 
 function statusLabel(sourceClass: string | undefined): string {
   if (sourceClass === 'PRIMARY') return '一次情報を入力に含む推計';
@@ -59,6 +60,9 @@ export function EstimatedCashSummary({
     },
   ];
 
+  // 4項目とも未確認なら、箱ごと出さない（根拠欄・注意書きも空の枠になる）。
+  if (rows.every((row) => row.value === '未確認')) return null;
+
   return (
     <InspectorSectionCard
       id="section-cash-anatomy"
@@ -87,8 +91,8 @@ export function EstimatedCashSummary({
         <dl className="text-xs leading-5">
           {[
             ['区分', statusLabel(pnl.sourceClass)],
-            ['観測時点', pnl.dataSnapshotPeriod || '未確認'],
-            ['参照資料', pnl.sourceDoc || '未確認'],
+            ['観測時点', snapshotPeriodLabel(pnl.dataSnapshotPeriod) || '未確認'],
+            ['参照資料', sourceDocLabel(pnl.sourceDoc) || '未確認'],
             ['計算ロジック', pnl.estimationLogic || '推計ロジックの詳細は未登録'],
             ...(confidence ? [['確信度', confidence]] : []),
             ...(range ? [['推計レンジ', range]] : []),

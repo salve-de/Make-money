@@ -3,16 +3,8 @@ import React, { useState } from 'react';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
 import type { InspectorSectionProps } from '../model/section-props';
+import { UI, uiFormat } from '@/shared/ui-strings';
 import { ShareModal } from './ShareModal';
-
-function siteHost(url: string): string | null {
-  if (!url) return null;
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return null;
-  }
-}
 
 // 表示方法（inline-flex / hidden）と文字色は、クラスの競合を避けるためボタンごとに指定する
 const headerBtn =
@@ -24,8 +16,6 @@ export function CompanyHeader({
   onPrevEntity,
   onNextEntity,
   onApproveEntity,
-  activeTags = [],
-  onToggleTag,
   formatMoney,
   isFinancialUnavailable,
   mainTab = 'LEDGER',
@@ -40,8 +30,6 @@ export function CompanyHeader({
   | 'onPrevEntity'
   | 'onNextEntity'
   | 'onApproveEntity'
-  | 'activeTags'
-  | 'onToggleTag'
   | 'isScrolled'
   | 'formatMoney'
   | 'isHazardMode'
@@ -59,7 +47,7 @@ export function CompanyHeader({
 
   const rawUrl = entity.url || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
-  const host = siteHost(externalUrl);
+  const sector = sectorLabel(entity);
 
   return (
     <>
@@ -70,31 +58,29 @@ export function CompanyHeader({
             type="button"
             onClick={onClose}
             className="inline-flex h-11 shrink-0 items-center px-3 text-sm text-term-accent hover:bg-term-line lg:hidden"
-            aria-label="一覧へ戻る"
+            aria-label={UI.BACK_TO_LIST_ARIA}
           >
-            ◀ 一覧
+            {UI.BACK_TO_LIST}
           </button>
-          <span className="term-panel-name hidden h-6 shrink-0 items-center lg:inline-flex">詳細</span>
+          <span className="term-panel-name hidden h-6 shrink-0 items-center lg:inline-flex">{UI.DETAIL_PANEL}</span>
           {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
           <div className="min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2">
             <h2 className="truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
               {entity.name}
             </h2>
-            <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">
-              {sectorLabel(entity.sector)}{host ? ` ・ ${host}` : ''}
-            </p>
+            {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
           </div>
-          <div className="flex shrink-0 items-center lg:ml-auto" aria-label="事例の操作">
+          <div className="flex shrink-0 items-center lg:ml-auto" aria-label={UI.ACTIONS_LABEL}>
             {onToggleBookmark && (
               <button
                 type="button"
                 onClick={onToggleBookmark}
                 aria-pressed={isBookmarked}
                 className={`${headerBtn} inline-flex ${isBookmarked ? 'text-term-accent' : 'text-term-fg'}`}
-                aria-label={isBookmarked ? `${entity.name}の保存を解除` : `${entity.name}を保存`}
-                title={isBookmarked ? '保存済み' : '保存'}
+                aria-label={uiFormat(isBookmarked ? UI.UNSAVE_ARIA : UI.SAVE_ARIA, entity.name)}
+                title={isBookmarked ? UI.SAVED : UI.SAVE}
               >
-                {isBookmarked ? '保存済' : '保存'}
+                {isBookmarked ? UI.SAVED_SHORT : UI.SAVE}
               </button>
             )}
             <button
@@ -103,47 +89,47 @@ export function CompanyHeader({
               disabled={!inCompare && compare.isFull}
               aria-pressed={inCompare}
               className={`${headerBtn} inline-flex disabled:cursor-not-allowed disabled:text-term-dim ${inCompare ? 'text-term-accent' : 'text-term-fg'}`}
-              aria-label={inCompare ? `${entity.name}を比較から外す` : `${entity.name}を比較に追加`}
-              title={inCompare ? '比較から外す' : compare.isFull ? '比較は4件までです' : '比較に追加'}
+              aria-label={uiFormat(inCompare ? UI.COMPARE_REMOVE_ARIA : UI.COMPARE_ADD_ARIA, entity.name)}
+              title={inCompare ? UI.COMPARE_REMOVE : compare.isFull ? UI.COMPARE_FULL : UI.COMPARE_ADD}
             >
-              {inCompare ? '比較中' : '比較'}
+              {inCompare ? UI.COMPARE_ACTIVE : UI.COMPARE}
             </button>
             <button
               type="button"
               onClick={() => setIsShareOpen(true)}
               className={`${headerBtn} inline-flex text-term-fg`}
-              aria-label="この事例を共有"
-              title="共有"
+              aria-label={UI.SHARE_ARIA}
+              title={UI.SHARE}
             >
-              共有
+              {UI.SHARE}
             </button>
             {onPrevEntity && (
-              <button type="button" onClick={onPrevEntity} className={`${headerBtn} hidden text-term-fg sm:inline-flex`} aria-label="前の事例">
-                ◀ 前
+              <button type="button" onClick={onPrevEntity} className={`${headerBtn} hidden text-term-fg sm:inline-flex`} aria-label={UI.PREV_ARIA}>
+                {UI.PREV_SHORT}
               </button>
             )}
             {onNextEntity && (
-              <button type="button" onClick={onNextEntity} className={`${headerBtn} hidden text-term-fg sm:inline-flex`} aria-label="次の事例">
-                次 ▶
+              <button type="button" onClick={onNextEntity} className={`${headerBtn} hidden text-term-fg sm:inline-flex`} aria-label={UI.NEXT_ARIA}>
+                {UI.NEXT_SHORT}
               </button>
             )}
             <button
               type="button"
               onClick={onClose}
               className={`${headerBtn} hidden text-term-muted lg:inline-flex`}
-              aria-label="閉じる"
-              title="閉じる (Esc)"
+              aria-label={UI.CLOSE}
+              title={UI.CLOSE_TITLE}
             >
-              ×
+              {UI.CLOSE_MARK}
             </button>
           </div>
         </div>
 
-        {/* タブ・リンク・タグ（スマホは押しやすい高さ） */}
+        {/* タブ・リンク（スマホは押しやすい高さ） */}
         <div className="flex min-h-11 items-center justify-between gap-2 border-t border-term-line-soft pl-1 pr-2.5 lg:min-h-7">
-          <div className="flex shrink-0 items-center text-xs" role="group" aria-label="事例の表示内容">
-            <TabButton active={mainTab === 'LEDGER'} onClick={() => setMainTab?.('LEDGER')} label="概要・損益" shortLabel="概要" />
-            <TabButton active={mainTab === 'AUDIT'} onClick={() => setMainTab?.('AUDIT')} label="出典・記録" shortLabel="出典" />
+          <div className="flex shrink-0 items-center text-xs" role="group" aria-label={UI.TABS_LABEL}>
+            <TabButton active={mainTab === 'LEDGER'} onClick={() => setMainTab?.('LEDGER')} label={UI.TAB_LEDGER} shortLabel={UI.TAB_LEDGER_SHORT} />
+            <TabButton active={mainTab === 'AUDIT'} onClick={() => setMainTab?.('AUDIT')} label={UI.TAB_AUDIT} shortLabel={UI.TAB_AUDIT_SHORT} />
           </div>
           <div className="flex min-w-0 items-center gap-2 whitespace-nowrap text-xs">
             {externalUrl && (
@@ -153,56 +139,24 @@ export function CompanyHeader({
                 rel="noopener noreferrer"
                 onClick={(event) => event.stopPropagation()}
                 className="inline-flex min-h-11 items-center px-1 text-term-muted hover:text-term-fg-strong lg:min-h-7"
-                aria-label={`${entity.name}の公式サイトを新しいタブで開く`}
-                title="公式サイト"
+                aria-label={uiFormat(UI.OFFICIAL_SITE_ARIA, entity.name)}
+                title={UI.OFFICIAL_SITE}
               >
-                公式サイト
+                {UI.OFFICIAL_SITE}
               </a>
             )}
             <a
               href={'/execute/' + encodeURIComponent(entity.id)}
               className="inline-flex min-h-11 items-center px-1 text-term-accent hover:underline lg:min-h-7"
-              aria-label={`${entity.name}をもとに計画を作成`}
-              title="計画を作成"
+              aria-label={uiFormat(UI.PLAN_ARIA, entity.name)}
+              title={UI.PLAN}
             >
-              計画を作成
+              {UI.PLAN}
             </a>
             {onApproveEntity && (
               <button type="button" onClick={() => onApproveEntity(entity.id)} className="min-h-11 px-1 text-term-fg hover:text-term-fg-strong lg:min-h-7">
-                収集事例を承認
+                {UI.APPROVE}
               </button>
-            )}
-            {entity.tags?.length > 0 && (
-              <details className="group relative shrink-0">
-                <summary className="flex min-h-11 cursor-pointer list-none items-center px-1 text-term-muted hover:text-term-fg-strong lg:min-h-7 [&::-webkit-details-marker]:hidden">
-                  タグ <span className="term-num ml-1">{entity.tags.length}</span>
-                  {activeTags.length > 0 ? <span className="ml-1 text-term-accent">選択 {activeTags.length}</span> : null}
-                </summary>
-                <div className="absolute right-0 top-full z-50 flex max-h-64 w-64 flex-wrap items-start gap-1 overflow-y-auto border border-term-line bg-term-panel p-2 shadow-xl">
-                  {entity.tags.map((tag) => {
-                    const isActive = activeTags.includes(tag);
-                    return (
-                      <button
-                        key={tag}
-                        type="button"
-                        onClick={(event) => {
-                          event.preventDefault();
-                          event.stopPropagation();
-                          onToggleTag?.(tag);
-                        }}
-                        aria-pressed={isActive}
-                        className={`min-h-11 rounded-sm border px-2 text-xs lg:min-h-6 ${
-                          isActive
-                            ? 'border-term-accent bg-term-select text-term-fg-strong'
-                            : 'border-term-line text-term-muted hover:bg-term-head hover:text-term-fg'
-                        }`}
-                      >
-                        {tag}
-                      </button>
-                    );
-                  })}
-                </div>
-              </details>
             )}
           </div>
         </div>

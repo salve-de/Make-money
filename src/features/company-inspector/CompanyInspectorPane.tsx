@@ -3,22 +3,14 @@
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 
+import { UI, uiFormat } from '@/shared/ui-strings';
 import { buildInspectorModel } from './model/inspector-model';
 import type { CompanyInspectorPaneProps, InspectorMainTab, InspectorViewMode } from './model/section-props';
-import { BusinessAnalysisSections } from './ui/BusinessAnalysisSections';
-import { FinancialOperationsSupplement } from './ui/FinancialOperationsSupplement';
-import { BusinessVisualSummary } from './ui/BusinessVisualSummary';
 import { AnalystNotes } from './ui/AnalystNotes';
-import { CashAnatomySection } from './ui/CashAnatomySection';
 import { CompanyHeader } from './ui/CompanyHeader';
-import { EstimatedCashSummary } from './ui/EstimatedCashSummary';
-import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
-import { EvidenceStream } from './ui/EvidenceStream';
-import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
-import { LootBlueprintSection } from './ui/LootBlueprintSection';
+import { EntityMediaGallery } from './ui/EntityMediaGallery';
 import { OperatorVerificationNote } from './ui/OperatorVerificationNote';
-import { RelatedResearch } from './ui/RelatedResearch';
-import { SourcesSection } from './ui/SourcesSection';
+import { ReaderLedger } from './ui/ReaderDetail';
 import { VerifiedRevenueSection } from './ui/VerifiedRevenueSection';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -119,7 +111,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   return (
     <aside
-      aria-label={`${entity.name}の企業事例インスペクター`}
+      aria-label={uiFormat(UI.INSPECTOR_ARIA, entity.name)}
       className={`fixed inset-0 z-40 h-full w-full shrink-0 flex-col overflow-hidden bg-term-panel lg:static lg:inset-auto lg:z-auto lg:min-w-0 lg:flex-1 lg:border-l lg:border-term-line ${mobileOpen ? 'flex' : 'hidden lg:flex'}`}
     >
       <CompanyHeader {...sectionProps} />
@@ -129,31 +121,16 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         onScroll={handleScroll}
         className="relative flex-1 overflow-y-auto bg-term-bg pb-[env(safe-area-inset-bottom)] font-sans text-[13px] scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin]"
       >
+        {/* entity.reader の事実・数値・出典と、推測の印つきの推論、運営者が決済確認した売上を描く */}
         {mainTab === 'LEDGER' ? (
           <>
-            <ExecutiveIntuitiveSummary {...sectionProps} />
+            <ReaderLedger reader={entity.reader} />
             <VerifiedRevenueSection entityId={entity.id} />
-
-            {entity.pnl.financialStatus === 'ESTIMATED' ? (
-              <EstimatedCashSummary {...sectionProps} />
-            ) : (
-              <CashAnatomySection {...sectionProps} />
-            )}
-
-            <EvidenceDeckSection {...sectionProps} />
-            <LootBlueprintSection {...sectionProps} />
-            <BusinessAnalysisSections {...sectionProps} />
-            <FinancialOperationsSupplement {...sectionProps} />
-            <BusinessVisualSummary {...sectionProps} />
-            <RelatedResearch {...sectionProps} />
+            <OperatorVerificationNote entityId={entity.id} url={entity.url} />
+            <EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />
           </>
         ) : (
-          <>
-            <SourcesSection {...sectionProps} />
-            <OperatorVerificationNote entityId={entity.id} url={entity.url} />
-            <EvidenceStream {...sectionProps} />
-            <AnalystNotes {...sectionProps} />
-          </>
+          <AnalystNotes {...sectionProps} />
         )}
       </div>
 

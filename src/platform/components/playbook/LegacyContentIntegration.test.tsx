@@ -15,9 +15,15 @@ import type { ExecutionSource } from '@/shared/execution-source';
 const data = aggregateMacroIntelligence([]);
 describe('legacy content in the approved compact design', () => {
   it('restores execution source context without inventing empty fields', () => {
-    const entity: ExecutionSource = { architecturePattern: 'CASE_STRUCTURE', pipelineStack: 'CASE_DELIVERY', targetPainWallet: 'CASE_PAIN', id: 'case-id', name: 'CASE_NAME', tagline: 'CASE_LEAD', essence: { whatItDoes: 'CASE_DESCRIPTION', targetCustomer: 'CASE_CUSTOMER', painRelief: '' }, strategy: { blindspot: 'CASE_INSIGHT', initialTraction: ['CASE_CHANNEL'], actionPlaybook: ['CASE_STEP'] }, operations: { primaryChannels: [] } };
+    const entity: ExecutionSource = { id: 'case-id', name: 'CASE_NAME', reader: {
+      sources: [{ id: 's1', publisher: 'SRC', url: 'https://example.com/a', kind: 'OFFICIAL' }],
+      facts: [
+        { id: 'f1', kind: 'DESCRIPTION', text: 'CASE_DESCRIPTION', sourceId: 's1', attribution: 'OFFICIAL' },
+        { id: 'f2', kind: 'CHANNEL', text: 'CASE_CHANNEL', sourceId: 's1', attribution: 'OFFICIAL' },
+      ], metrics: [], unknowns: [], analysis: [] } };
     const html = renderToStaticMarkup(createElement(ExecutionReference, { entity }));
-    for (const value of ['CASE_DESCRIPTION', 'CASE_CUSTOMER', 'CASE_INSIGHT', 'CASE_CHANNEL', 'CASE_STEP']) expect(html).toContain(value);
+    for (const value of ['CASE_DESCRIPTION', 'CASE_CHANNEL']) expect(html).toContain(value);
+    expect(html).not.toContain('着眼点');
     expect(html).toContain('/?entity=case-id');
     expect(renderToStaticMarkup(createElement(ExecutionReference, { entity: { ...entity, contextUnavailable: true } }))).toBe('');
   });

@@ -2,8 +2,7 @@ import { legacyNumber, legacyText } from '../model/legacy-fields';
 import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
-import { MoneyText } from './MoneyText';
-import { sectorLabel } from '@/platform/components/grid/sectorLabel';
+import { reportedAnnualReport, revenueTextInputOf } from '@/shared/display-text';
 import { comparableText, isSameContent } from '@/lib/company-access/natural-text-core';
 
 function stripLeadingEntityName(text: string, name?: string, legalEntity?: string): string {
@@ -113,30 +112,6 @@ function buildExecutiveLead(
 }
 
 
-function KeyValue({
-  label,
-  children,
-  tag,
-  tagTone = 'dim',
-}: {
-  label: string;
-  children: React.ReactNode;
-  tag?: string;
-  tagTone?: 'dim' | 'accent';
-}) {
-  return (
-    <div className="flex min-h-[34px] items-center justify-between gap-3 border-b border-term-line-soft px-2.5 py-1 lg:min-h-[30px] lg:odd:border-r lg:odd:border-term-line-soft">
-      <dt className="shrink-0 text-xs text-term-label">{label}</dt>
-      <dd className="flex min-w-0 items-baseline justify-end gap-1.5">
-        {children}
-        {tag && <span className={`shrink-0 text-xs ${tagTone === 'accent' ? 'text-term-accent' : 'text-term-dim'}`}>{tag}</span>}
-      </dd>
-    </div>
-  );
-}
-
-const UNKNOWN = <span className="term-num text-[15px] text-term-dim">—</span>;
-
 export function ExecutiveIntuitiveSummary({
   entity,
   isHazardMode,
@@ -156,10 +131,54 @@ export function ExecutiveIntuitiveSummary({
   const teamSize = !entity.operations?.isTeamSizeUnconfirmed
     ? entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null
     : null;
-  const isEstimated = entity.pnl.financialStatus === 'ESTIMATED';
-  const foundedYear = entity.temporal?.foundedYear;
-  const sourceCount = new Set((entity.observationsStream || []).flatMap((item) => item.evidenceIds ?? [])).size
-    || new Set([entity.pnl.sourceDoc, ...(entity.evidenceCards || []).map((card) => card.sourceNote)].filter(Boolean)).size;
+
+  // 月次の売上が無い大手でも、年次の報告値（10-K・有価証券報告書など）があれば年次のまま出す。
+  const annual = revenueKnown ? null : reportedAnnualReport(revenueTextInputOf(entity));
+  const annualSource = annual ? [annual.fiscalYear, annual.periodEnd && `（${annual.periodEnd}）`, annual.doc && `・${annual.doc}`].filter(Boolean).join('').replace(/^・/, '') : '';
+  const sourceUrl = /^https?:\/\//.test(entity.pnl.sourceDoc ?? '') ? entity.pnl.sourceDoc : undefined;
+  const annualMetrics: Array<{ label: string; value: string | undefined; tone: string }> = annual
+    ? [
+        { label: '公表された年間売上', value: annual.revenue, tone: 'neutral' },
+        { label: '公表された年間営業利益', value: annual.operatingIncome, tone: annual.operatingIncome?.startsWith('-') ? 'negative' : 'neutral' },
+        { label: '公表された年間純利益', value: annual.netIncome, tone: annual.netIncome?.startsWith('-') ? 'negative' : 'neutral' },
+      ]
+    : [];
+
+  const metrics = [
+    ...annualMetrics.filter((m) => m.value).map((m) => ({
+      label: m.label,
+      value: m.value as string,
+      known: true,
+      tone: m.tone,
+      sub: annualSource,
+      href: sourceUrl,
+    })),
+    {
+      label: '売上（月額換算）',
+      value: revenueKnown ? formatMoney(entity.pnl.monthlyRevenue) : '未確認',
+      known: revenueKnown,
+      tone: revenueKnown ? 'neutral' : 'muted',
+    },
+    {
+      label: '営業利益（月額換算）',
+      value: profitKnown ? formatMoney(entity.pnl.operatingProfit) : '未確認',
+      known: profitKnown,
+      tone: profitKnown && entity.pnl.operatingProfit < 0 ? 'negative' : profitKnown ? 'positive' : 'muted',
+    },
+    {
+      label: '営業利益率',
+      value: marginKnown ? `${entity.pnl.operatingMargin.toFixed(1)}%` : '未確認',
+      known: marginKnown,
+      tone: marginKnown && entity.pnl.operatingMargin < 0 ? 'negative' : marginKnown ? 'positive' : 'muted',
+    },
+    {
+      label: '組織規模',
+      value: teamSize ? `${teamSize.toLocaleString()}名` : '未確認',
+      known: Boolean(teamSize),
+      sub: entity.operations?.isWeeklyHoursUnconfirmed === false && entity.operations?.weeklyHours ? `週稼働 ${entity.operations.weeklyHours}h` : null,
+      tone: 'neutral',
+    },
+  ];
 
   const targetPain = cleanValue(entity.targetPainWallet || entity.essence?.painRelief);
   const targetCustomer = cleanValue(entity.essence?.targetCustomer);
@@ -206,9 +225,9 @@ export function ExecutiveIntuitiveSummary({
     pushRow('価格・利用動機', pricingParts.join(' / '));
   }
 
-  const approx = (value: number) => (isEstimated ? `約${formatMoney(value)}` : formatMoney(value));
-  const moneyClass = (accent: boolean, negative = false) =>
-    `term-num text-base ${negative ? 'text-term-danger' : accent ? 'text-term-accent' : 'text-term-fg-strong'}`;
+  const hasHeadline = Boolean(headline) && headline !== '未確認';
+  // 見出しだけで中身（説明・数値・補足）が1つも無い時は、部品ごと出さない
+  if (!hasHeadline && !leadParagraph && !metrics.some((metric) => metric.known) && infoRows.length === 0) return null;
 
   return (
     <InspectorSectionCard
@@ -218,54 +237,44 @@ export function ExecutiveIntuitiveSummary({
       titleJa={isHazardMode ? '撤退・破綻の要因' : '事業の概要'}
       isHazardMode={isHazardMode}
     >
-      {(headline || leadParagraph) && (
-        <div className="border-b border-term-line-soft py-2.5">
-          {headline && <p className="break-words text-[13px] leading-6 text-term-fg">{headline}</p>}
-          {leadParagraph && <p className="mt-1 break-words text-[13px] leading-6 text-term-sub">{leadParagraph}</p>}
+      {(hasHeadline || leadParagraph) && (
+        <div className="space-y-1.5 border-b border-white/[0.1] py-3">
+          {hasHeadline && <p className="text-sm font-medium leading-6 text-zinc-100 break-words">{headline}</p>}
+          {leadParagraph && <p className="text-sm leading-6 text-zinc-300 break-words">{leadParagraph}</p>}
         </div>
       )}
-
-      <dl className="grid grid-cols-1 border-b border-term-line-soft lg:grid-cols-2 [&>div:last-child]:border-b-0">
-        <KeyValue label="月商" tag={revenueKnown ? (isEstimated ? '推定' : undefined) : '未確認'} tagTone={revenueKnown && isEstimated ? 'accent' : 'dim'}>
-          {revenueKnown ? (
-            <MoneyText text={approx(entity.pnl.monthlyRevenue)} className={moneyClass(isEstimated)} />
-          ) : UNKNOWN}
-        </KeyValue>
-        <KeyValue
-          label={isEstimated ? '手残り（推定）' : '営業利益'}
-          tag={profitKnown ? (isEstimated ? '推定' : undefined) : '未確認'}
-          tagTone={profitKnown && isEstimated ? 'accent' : 'dim'}
-        >
-          {profitKnown ? (
-            <MoneyText text={approx(entity.pnl.operatingProfit)} className={moneyClass(isEstimated, entity.pnl.operatingProfit < 0)} />
-          ) : UNKNOWN}
-        </KeyValue>
-        {marginKnown && (
-          <KeyValue label="営業利益率">
-            <span className={moneyClass(false, entity.pnl.operatingMargin < 0)}>{entity.pnl.operatingMargin.toFixed(1)}<span className="ml-0.5 font-sans text-xs text-term-label">%</span></span>
-          </KeyValue>
-        )}
-        <KeyValue label="運営人数" tag={teamSize ? undefined : '未確認'}>
-          {teamSize ? (
-            <span className="term-num text-base text-term-fg-strong">{teamSize.toLocaleString('ja-JP')}<span className="ml-0.5 font-sans text-xs text-term-label">人</span></span>
-          ) : UNKNOWN}
-          {teamSize && entity.operations?.isWeeklyHoursUnconfirmed === false && entity.operations?.weeklyHours ? (
-            <span className="text-xs text-term-label">週{entity.operations.weeklyHours}h</span>
-          ) : null}
-        </KeyValue>
-        <KeyValue label="開始年" tag={foundedYear && foundedYear > 0 ? undefined : '未確認'}>
-          {foundedYear && foundedYear > 0 ? (
-            <span className="term-num text-base text-term-fg-strong">{foundedYear}<span className="ml-0.5 font-sans text-xs text-term-label">年</span></span>
-          ) : UNKNOWN}
-        </KeyValue>
-        <KeyValue label="分野">
-          <span className="text-[13px] text-term-fg-strong">{sectorLabel(entity.sector)}</span>
-        </KeyValue>
-        <KeyValue label="出典">
-          {sourceCount > 0 ? (
-            <span className="term-num text-base text-term-fg-strong">{sourceCount}<span className="ml-0.5 font-sans text-xs text-term-label">件</span></span>
-          ) : UNKNOWN}
-        </KeyValue>
+      <dl className="flex flex-wrap items-stretch border-b border-white/[0.1]">
+        {metrics.filter((metric) => metric.known).map((metric) => {
+          const toneClass = metric.tone === 'positive'
+            ? 'text-emerald-400'
+            : metric.tone === 'negative'
+              ? 'text-red-400'
+              : metric.tone === 'muted'
+                ? 'text-zinc-500 font-normal'
+                : 'text-zinc-100';
+          return (
+            <div
+              key={metric.label}
+              className="min-w-[130px] flex-1 border-r border-white/[0.08] py-2 pr-3 last:border-r-0 sm:py-3"
+            >
+              <dt className="text-xs text-zinc-400">{metric.label}</dt>
+              <dd className={`mt-1 font-mono text-sm font-semibold tabular-nums sm:text-base ${toneClass}`}>
+                {metric.value}
+              </dd>
+              {metric.sub && (
+                <dd className="mt-0.5 text-xs text-zinc-400">
+                  {metric.sub}
+                  {'href' in metric && metric.href && (
+                    <>
+                      {' '}
+                      <a href={metric.href} target="_blank" rel="noopener noreferrer" className="text-sky-200 underline underline-offset-2">資料を開く</a>
+                    </>
+                  )}
+                </dd>
+              )}
+            </div>
+          );
+        })}
       </dl>
 
       {infoRows.length > 0 && (

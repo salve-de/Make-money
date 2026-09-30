@@ -1,14 +1,20 @@
-import { DynamicEvidenceDeck } from '../dynamic-sections/DynamicEvidenceDeck';
+import { DynamicEvidenceDeck, hasEvidenceBody } from '../dynamic-sections/DynamicEvidenceDeck';
 import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
+
+function isEmptyUnknownCard(card: NonNullable<InspectorSectionProps['entity']['evidenceCards']>[number]): boolean {
+  const hasUrl = /https?:\/\/\S+/i.test(card.sourceNote || '');
+  return !hasUrl && (card.type === 'UNKNOWN_AUDIT' || card.evidenceStatus === 'UNKNOWN');
+}
 
 export function EvidenceDeckSection({
   entity,
   isHazardMode,
   hasEvidenceCards,
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
-  const cards = entity.evidenceCards || [];
+  // 「出典URLが無いため未確認」だけの中身の無いカードは、他に内容があるかどうかに関係なく出さない。
+  const cards = (entity.evidenceCards || []).filter(hasEvidenceBody).filter((card) => !isEmptyUnknownCard(card));
   if (!hasEvidenceCards || cards.length === 0) return null;
 
   const sourceCount = new Set((entity.observationsStream || []).flatMap((item) => item.evidenceIds ?? [])).size;

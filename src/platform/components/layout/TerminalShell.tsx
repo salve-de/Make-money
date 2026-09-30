@@ -13,7 +13,7 @@ import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 
 import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
-import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
+import { InstitutionalDataGrid, LedgerListTitle } from '../grid/InstitutionalDataGrid';
 import { FoundationSearchContinuation } from '../foundation/FoundationSearchContinuation';
 import { NewArrivalsBanner } from '../foundation/NewArrivalsBanner';
 import { CompanyInspectorPane } from '@/features/company-inspector';
@@ -27,6 +27,7 @@ import { LedgerFilterRail } from '../grid/LedgerFilterRail';
 import { TerminalStatusBar } from './TerminalStatusBar';
 import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
 import { closeEntityParam, dropQueryParam, openEntityParam, openLedgerEntityUrl, positionLabel } from '../../utils/entityUrl';
+import { preferDetail } from '@/shared/dossier-authority';
 import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC<{
@@ -171,7 +172,7 @@ export const TerminalShell: React.FC<{
 
   const synthesisEntities = useMemo(() => {
     const merged = new Map(entities.map((entity) => [entity.id, entity]));
-    for (const detail of Object.values(detailedEntities)) merged.set(detail.id, detail);
+    for (const detail of Object.values(detailedEntities)) merged.set(detail.id, preferDetail(merged.get(detail.id), detail));
     return [...merged.values()];
   }, [entities, detailedEntities]);
 
@@ -310,6 +311,7 @@ export const TerminalShell: React.FC<{
             />
             <NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} onOpenEntity={openEntity} />
             <FoundationSearchContinuation available={foundationSearchContinuationAvailable} failed={foundationSearchContinuationFailed} loading={foundationLoading} retryMessage={foundationSearchRetryMessage} onContinue={continueFoundationSearch} />
+            <LedgerListTitle count={filteredEntities.length} />
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}

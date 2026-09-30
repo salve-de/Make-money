@@ -1,0 +1,621 @@
+{
+ "checkedAt": "2026-09-30",
+ "note": "公式URLへの普通のGET（転送追従、12秒、UA固定）の分類結果。normal と fail は書き換えないため含めない。",
+ "counts": {
+  "normal": 1957,
+  "third": 51,
+  "redirect": 54,
+  "parked": 4,
+  "unreadable": 56,
+  "soon": 2,
+  "fail": 10
+ },
+ "entries": {
+  "ent_ebizfacts_johnmuscarelloamazoninfluencer30kmonthproduc_5a6adfda5159": {
+   "cat": "third",
+   "host": "reviewandearnsystem.com"
+  },
+  "ent_ebizfacts_twoaiimageapps7kmonth378subscribers_09c66db213ac": {
+   "cat": "third",
+   "host": "reddit.com"
+  },
+  "ent_ebizfacts_brandonaiwebsites8kmonthlocalpostcards_c480ab43910e": {
+   "cat": "third",
+   "host": "newsletter.chrisjkoerner.com"
+  },
+  "ent_ebizfacts_willbuttertonatmsidehustle1500month_b2c21669aef2": {
+   "cat": "third",
+   "host": "sidehustlenation.com"
+  },
+  "ent_ebizfacts_zachdowneydistinctivevending500kcottoncandy_abf6f98f4a32": {
+   "cat": "third",
+   "host": "entrepreneur.com"
+  },
+  "ent_ebizfacts_jonathanlaramychloevshistory8kmonthaichannel_e7caaa33f44c": {
+   "cat": "third",
+   "host": "outlierkit.com"
+  },
+  "ent_ebizfacts_ethanashifbmsniperiphoneflippingbot600900mon_d8e5b5dde9ca": {
+   "cat": "third",
+   "host": "github.com"
+  },
+  "ent_ebizfacts_yandilatinotiktokshop1mmonth12kfollowers_d4563d058e73": {
+   "cat": "third",
+   "host": "netinfluencer.com"
+  },
+  "ent_ebizfacts_joshsharedpostcards40kyearlocalads_fafbc3b94d47": {
+   "cat": "third",
+   "host": "usps.com"
+  },
+  "ent_ebizfacts_jasontiktokshoplivestream70klitterbox_866d331a2d88": {
+   "cat": "third",
+   "host": "dashboardly.io"
+  },
+  "ent_ebizfacts_kamlabdelkader9appsinstagramreels10kmonth_f20f41866125": {
+   "cat": "third",
+   "host": "socialgrowthengineers.com"
+  },
+  "ent_ebizfacts_asiesusayoutubechannel1102month_f04b1bc2f462": {
+   "cat": "third",
+   "host": "flippa.com"
+  },
+  "ent_ebizfacts_gregpoiriercloudkettlesalesforceconsultancy1_14491a9cda33": {
+   "cat": "redirect",
+   "host": "ateko.com"
+  },
+  "ent_ebizfacts_remoteonlinenotary1000monthkitchentable_4f0c85cb6ec8": {
+   "cat": "third",
+   "host": "theghostbusiness.com"
+  },
+  "ent_ebizfacts_samhuntparkingspacerental54kyearpassiveincom_4b97a575c566": {
+   "cat": "third",
+   "host": "the-sun.com"
+  },
+  "ent_ebizfacts_davidbresslerformulabot28myearformulabotgold_24187f0621fd": {
+   "cat": "redirect",
+   "host": "betteranalyst.com"
+  },
+  "ent_ebizfacts_angelrodriguezyachtrentalarbitrage30kmonth_eb7d684d0563": {
+   "cat": "third",
+   "host": "mail.uncommonprofits.co"
+  },
+  "ent_ebizfacts_sarahhamprwashr3000monthlaundryservice_d66e523ad933": {
+   "cat": "redirect",
+   "host": "hampr.com"
+  },
+  "ent_ebizfacts_casvanoortjobleads8000monthleadgenerationsaa_37b6451dfa35": {
+   "cat": "third",
+   "host": "indiehustle.co"
+  },
+  "ent_ebizfacts_traditionalebbinatorwyzanttutor2500week_6f1927d6b2c3": {
+   "cat": "third",
+   "host": "wyzant.com"
+  },
+  "ent_ebizfacts_dylanlualdirckitpiggybackapp8kmrr_caf26bb5707d": {
+   "cat": "third",
+   "host": "microsaasidea.substack.com"
+  },
+  "ent_ebizfacts_stephenkeyproductlicensing800kyearspinformat_26beea7abd5f": {
+   "cat": "redirect",
+   "host": "inventright.com"
+  },
+  "ent_ebizfacts_victoriakurichenko8800affiliatemarketingblog_e58ef8746d6d": {
+   "cat": "redirect",
+   "host": "behindrankings.com"
+  },
+  "ent_ebizfacts_chartsheets40kmonthspreadsheettemplatesviapi_319202d83577": {
+   "cat": "parked"
+  },
+  "ent_ebizfacts_baltimorebannerlocalnews13million3years_eb13bb8db1bf": {
+   "cat": "redirect",
+   "host": "thebanner.com"
+  },
+  "ent_ebizfacts_henrygabbyleadgenjanitorial6500month_b0f9a706b71d": {
+   "cat": "third",
+   "host": "news.ycombinator.com"
+  },
+  "ent_ebizfacts_wesvanceexplorehere1000monthhistoryapp_9204273c252b": {
+   "cat": "unreadable"
+  },
+  "ent_ebizfacts_elijahamazonsellerreplens21million_125b6f8b18bf": {
+   "cat": "third",
+   "host": "statista.com"
+  },
+  "ent_ebizfacts_jonghobettermentroboinvesting28k8years_452cda3436aa": {
+   "cat": "third",
+   "host": "betterment.com"
+  },
+  "ent_ebizfacts_ronaldread8millionsecretfortune_3feb9f7f4323": {
+   "cat": "third",
+   "host": "en.wikipedia.org"
+  },
+  "ent_ebizfacts_jonastyrollersteamgamethronefall15million2mo_345f300fca64": {
+   "cat": "third",
+   "host": "store.steampowered.com"
+  },
+  "ent_ebizfacts_rezataheridomainflipping01937in4months_1ea0fd44cc49": {
+   "cat": "third",
+   "host": "names.co.uk"
+  },
+  "ent_ebizfacts_brigittelyonspodcastally100kyearsale_4af649a22b3d": {
+   "cat": "redirect",
+   "host": "attheofficesportsbargrill.com"
+  },
+  "ent_ebizfacts_cormachaydenoasiswaterapp20kmonth_c1f1fd4c59b0": {
+   "cat": "redirect",
+   "host": "oasishealth.app"
+  },
+  "ent_ebizfacts_deepakmehta35kprofitcouplesideprojects_9de5dd871808": {
+   "cat": "third",
+   "host": "superframeworks.com"
+  },
+  "ent_ebizfacts_mcdsmenuunofficialmcdonaldswebsite700month_8a37fb094ff4": {
+   "cat": "redirect",
+   "host": "mac-menus.com"
+  },
+  "ent_ebizfacts_sarahmcaffrystatemintconsignment10ksellingcl_d8d089caac6e": {
+   "cat": "redirect",
+   "host": "statemint.com"
+  },
+  "ent_ebizfacts_petervalleyzenarbitragebookflippingsoftware9_c1d58815e420": {
+   "cat": "redirect",
+   "host": "clickfunnels.com"
+  },
+  "ent_ebizfacts_estheritalkiproteacherfrenchenglish5000month_daa63af2294b": {
+   "cat": "third",
+   "host": "italki.com"
+  },
+  "ent_ebizfacts_designcrowdcontestspb257millionearningsavera_8f92691bff5d": {
+   "cat": "third",
+   "host": "designcrowd.com"
+  },
+  "ent_ebizfacts_tezrappen22perhourmicrotasks_552c7929ded9": {
+   "cat": "third",
+   "host": "crowdgen.com"
+  },
+  "ent_ebizfacts_thomassmithmediumwriter5kmonth_93deab2dc773": {
+   "cat": "parked"
+  },
+  "ent_ebizfacts_kristidasilvahoneybookclickupconsultant300ho_916f2531c69b": {
+   "cat": "redirect",
+   "host": "stackset.com"
+  },
+  "ent_ebizfacts_walldecortrendvintagewallgraphicsetsy17kmont_decee0d3befe": {
+   "cat": "third",
+   "host": "explodingideas.beehiiv.com"
+  },
+  "ent_ebizfacts_annahickmancedabrandingcontentstrategy200k6m_9354f13d96ba": {
+   "cat": "parked"
+  },
+  "ent_ebizfacts_bohmilpokstefldealharvest15kmonthafter4month_d060edac8fb6": {
+   "cat": "redirect",
+   "host": "brandharvest.io"
+  },
+  "ent_ebizfacts_policeactivitydemonetizedyoutube10kmonth_1f2cf2957d65": {
+   "cat": "third",
+   "host": "viewstats.com"
+  },
+  "ent_ebizfacts_tiktokaffiliatemarketingelectricfinger0viral_01b51084dcaf": {
+   "cat": "third",
+   "host": "kalodata.com"
+  },
+  "ent_ebizfacts_ayushpoddarwhatlistwhatsapp1k2weeks_300326af8ea1": {
+   "cat": "parked"
+  },
+  "ent_ebizfacts_marshallatkinsonmidjourneyexperiencenewslett_a5fa8e7e757a": {
+   "cat": "redirect",
+   "host": "marshallatkinson.com"
+  },
+  "ent_ebizfacts_tamirbashkinthankyougptzendesk2300month_435bee9fc88c": {
+   "cat": "redirect",
+   "host": "getadelante.com"
+  },
+  "ent_ebizfacts_davidszabostubanpromptmaster225k6months_9d7d867a6bb0": {
+   "cat": "redirect",
+   "host": "paladin.cc"
+  },
+  "ent_ebizfacts_chadlubinskiugccreator8000month_56c80be07147": {
+   "cat": "third",
+   "host": "mikeandlauratravel.com"
+  },
+  "ent_ebizfacts_hasibalicfacebookarbitrageblogpost466profit_b7a70a172cc2": {
+   "cat": "third",
+   "host": "mediavine.com"
+  },
+  "ent_ebizfacts_tibomakertypeframes8kmrr_15c1c9f21f97": {
+   "cat": "redirect",
+   "host": "revid.ai"
+  },
+  "ent_ebizfacts_philippkellerseokickstarter10k30days_e0993830d16e": {
+   "cat": "third",
+   "host": "web.archive.org"
+  },
+  "ent_ebizfacts_basvanstraatenwebflowcookies11k12months_ea9799a10e82": {
+   "cat": "redirect",
+   "host": "digital-sparks.com"
+  },
+  "ent_ebizfacts_vujovampirewebsitesthefrisky500kfirstyear_93c6c01d7e5d": {
+   "cat": "third",
+   "host": "wired.com"
+  },
+  "ent_ebizfacts_alangreenbaumwhiskercloudvetwebsites10millio_b32d6d9e0316": {
+   "cat": "redirect",
+   "host": "petdesk.com"
+  },
+  "ent_ebizfacts_salarytransparentstreet1millionyearrevenue_42176ac60e35": {
+   "cat": "redirect",
+   "host": "nowthismedia.com"
+  },
+  "ent_ebizfacts_erwinlengkeektailscanchromeextension53k_4a82775f9032": {
+   "cat": "redirect",
+   "host": "remotedev.co"
+  },
+  "ent_ebizfacts_julienlevalloissublaunch29kmonthwithin1year_6f4f95827c8a": {
+   "cat": "redirect",
+   "host": "sublaunch.com"
+  },
+  "ent_ebizfacts_alfonsomatosjournalistai20kmonthmakenoise_9cb6ace02c7e": {
+   "cat": "redirect",
+   "host": "arvow.com"
+  },
+  "ent_ebizfacts_richardfitzgeraldlovindubai1millionyear_864cf98cbf62": {
+   "cat": "redirect",
+   "host": "augustusmedia.com"
+  },
+  "ent_ebizfacts_jollydogipadgamefordogs7000month_ecfba881fe3b": {
+   "cat": "third",
+   "host": "app.sensortower.com"
+  },
+  "ent_ebizfacts_wojciechwegrzynskifirescienceshowpodcast20ky_d8f6bf16673a": {
+   "cat": "third",
+   "host": "smartpassiveincome.com"
+  },
+  "ent_ebizfacts_minhphamnocodesaasseomatic2000month_31a91c198e64": {
+   "cat": "unreadable"
+  },
+  "ent_ebizfacts_ludwigvanclassicalmusicsitemichaelvincent1mi_701abd6d3f79": {
+   "cat": "redirect",
+   "host": "classicalfm.ca"
+  },
+  "ent_ebizfacts_lauralacurezeanugooglemaps28hourcoldcalling_f87cd79178a0": {
+   "cat": "third",
+   "host": "skillshop.exceedlms.com"
+  },
+  "ent_ebizfacts_keilashaheenshadowworkjournal3millionprofit_b2ebbc84f4e1": {
+   "cat": "third",
+   "host": "theatlantic.com"
+  },
+  "ent_ebizfacts_mollyjonesnotionconsultant10kmonth_35940bb2a190": {
+   "cat": "third",
+   "host": "notion.so"
+  },
+  "ent_ebizfacts_mikecardonafreelanceautomation200kyear_31f4cfb46af0": {
+   "cat": "third",
+   "host": "highsignal.io"
+  },
+  "ent_ebizfacts_jackmasseywelsh1700buyingyoutubechannels_e72ab611aa1d": {
+   "cat": "third",
+   "host": "accs-market.com"
+  },
+  "ent_ebizfacts_joelsimkhaigrindr245millionshirtbuttons_59c86926d87c": {
+   "cat": "redirect",
+   "host": "senangrekreasi.com"
+  },
+  "ent_ebizfacts_jamesmckinven4projects12kmonth_944f01c4c111": {
+   "cat": "soon"
+  },
+  "ent_ebizfacts_guurdoon10kmonthmuslimdatingappsomalia_8aeace11fbfe": {
+   "cat": "third",
+   "host": "africanews.com"
+  },
+  "ent_ebizfacts_oliverbrocatotabschocolate11million18months_9179ebf5268d": {
+   "cat": "redirect",
+   "host": "tabs.co"
+  },
+  "ent_ebizfacts_adelaidekanenetworthincomeexpenses5million_16af7dac17e4": {
+   "cat": "third",
+   "host": "news.com.au"
+  },
+  "ent_ebizfacts_carynmarjorieaivoicebot71koneweek_813902ebbb3a": {
+   "cat": "third",
+   "host": "snapchat.com"
+  },
+  "ent_ebizfacts_henrygpositivemindsetpodcast5200monthspotify_9a666eefe6c1": {
+   "cat": "third",
+   "host": "open.spotify.com"
+  },
+  "ent_ebizfacts_audiopennocodechatgptapp15kfirstmonth_f995587ce9ba": {
+   "cat": "redirect",
+   "host": "bubble.io"
+  },
+  "ent_ebizfacts_mitchellpehlkenameimagelikenessohiostatelacr_f1a9e8e816ca": {
+   "cat": "third",
+   "host": "opendorse.com"
+  },
+  "ent_ebizfacts_justindukebuttondown15kmonthslowtraction_7de2a67ccdea": {
+   "cat": "redirect",
+   "host": "jmduke.com"
+  },
+  "ent_ebizfacts_donaangelademiranchoatucocinaearnings_dafa20ae425e": {
+   "cat": "third",
+   "host": "latinometrics.substack.com"
+  },
+  "ent_ebizfacts_tamismithzeroto20kin12months_54ac68eb0018": {
+   "cat": "redirect",
+   "host": "momsdowellness.com"
+  },
+  "ent_ebizfacts_alexfriedmanprofile_8ab28c24e121": {
+   "cat": "third",
+   "host": "lu.ma"
+  },
+  "ent_ebizfacts_janitaoharaprofile_decad3f72c90": {
+   "cat": "soon"
+  },
+  "ent_ebizfacts_cathrinmanningprofile_7311c6c8141d": {
+   "cat": "redirect",
+   "host": "cathrinmanning.com"
+  },
+  "ent_ebizfacts_georgiaaustinprofile_25c9f6c09364": {
+   "cat": "redirect",
+   "host": "wizeoio.wpcomstaging.com"
+  },
+  "ent_calday_f8d949377008": {
+   "cat": "redirect",
+   "host": "calday.com"
+  },
+  "ent_mazeengineers_cfed2f0a7097": {
+   "cat": "redirect",
+   "host": "conductscience.com"
+  },
+  "ent_cursosjazyk_fd29737297aa": {
+   "cat": "unreadable"
+  },
+  "ent_hirex_3945f1d59120": {
+   "cat": "redirect",
+   "host": "hirexai.space"
+  },
+  "ent_joinit_d697fbaa4aa4": {
+   "cat": "redirect",
+   "host": "joinit.com"
+  },
+  "ent_x23yc_ab71d1b6f68f": {
+   "cat": "redirect",
+   "host": "flatnine.co"
+  },
+  "ent_document360_7d52aaa62869": {
+   "cat": "redirect",
+   "host": "document360.com"
+  },
+  "ent_nightcafecreator_847ef63e3c37": {
+   "cat": "unreadable"
+  },
+  "ent_wasenderpluginforwhatsappweb_e7e6ad019ae0": {
+   "cat": "unreadable"
+  },
+  "ent_careersidekick_e967dbe76253": {
+   "cat": "unreadable"
+  },
+  "ent_hyperping_7002e47dd3a6": {
+   "cat": "redirect",
+   "host": "hyperping.com"
+  },
+  "ent_studiowombat_a1dad134a525": {
+   "cat": "unreadable"
+  },
+  "ent_kratomroots_a9c3d2cf9018": {
+   "cat": "unreadable"
+  },
+  "ent_goatlas_728a18864acb": {
+   "cat": "unreadable"
+  },
+  "ent_lilbigthings_3a2cd8fbc5a0": {
+   "cat": "redirect",
+   "host": "lilbigthings.com"
+  },
+  "ent_thrivez_a35f2b6bf91c": {
+   "cat": "unreadable"
+  },
+  "ent_hoverboard_af3a2714700a": {
+   "cat": "unreadable"
+  },
+  "ent_jobsaicopilot_1f6fe158ca3a": {
+   "cat": "unreadable"
+  },
+  "ent_socialrocketship_cfceff80fe8b": {
+   "cat": "unreadable"
+  },
+  "ent_makebook_49b07d727b1b": {
+   "cat": "redirect",
+   "host": "readmake.com"
+  },
+  "ent_logopackageexpress_46d435fe68bf": {
+   "cat": "redirect",
+   "host": "logopackage.com"
+  },
+  "ent_ramenclub_e60b4c46e998": {
+   "cat": "redirect",
+   "host": "ramenclub.com"
+  },
+  "ent_rybbit_bc41b880e443": {
+   "cat": "redirect",
+   "host": "rybbit.com"
+  },
+  "ent_analyzify_e1158558a297": {
+   "cat": "redirect",
+   "host": "analyzify.com"
+  },
+  "ent_yiyouyaglobalbridgeeducation_99c623040abd": {
+   "cat": "unreadable"
+  },
+  "ent_seaweedshakers_13f0a4cc8b85": {
+   "cat": "unreadable"
+  },
+  "ent_conversiosga4andfacebookpixelplugin_8443ddd8734d": {
+   "cat": "unreadable"
+  },
+  "ent_generatorthemeforhubspotcms_1fe5c10eea15": {
+   "cat": "redirect",
+   "host": "generatorhq.com"
+  },
+  "ent_10erdk_fe6036a10f1b": {
+   "cat": "redirect",
+   "host": "10er.com"
+  },
+  "ent_proactor_7181403ffebb": {
+   "cat": "unreadable"
+  },
+  "ent_dropzap_1ce14d9b9afa": {
+   "cat": "unreadable"
+  },
+  "ent_contextgpt_af5b804d7317": {
+   "cat": "redirect",
+   "host": "contextgpt.co"
+  },
+  "ent_ebizfacts_noctsenseiaiinfluencer1100in5days_9d1272e16a76": {
+   "cat": "third",
+   "host": "pykaso.ai"
+  },
+  "ent_ebizfacts_jasonhamilton175monthpassiveincomepublicdoma_de7a6d705fcd": {
+   "cat": "redirect",
+   "host": "storytellingdb.com"
+  },
+  "ent_ebizfacts_marianahealthywage10899prizelost81lbs_a61f69cc3282": {
+   "cat": "third",
+   "host": "healthywage.com"
+  },
+  "ent_freepik_e6fa4d": {
+   "cat": "redirect",
+   "host": "magnific.com"
+  },
+  "ent_corp59_a31419": {
+   "cat": "unreadable"
+  },
+  "ent_gammaapp_a6b02a": {
+   "cat": "unreadable"
+  },
+  "ent_motionarray_e298a7": {
+   "cat": "unreadable"
+  },
+  "ent_icons8_9ec117": {
+   "cat": "unreadable"
+  },
+  "ent_vultr_4a36e6": {
+   "cat": "unreadable"
+  },
+  "ent_triplewhale_7d11a1": {
+   "cat": "unreadable"
+  },
+  "ent_crushon_7b96c5": {
+   "cat": "unreadable"
+  },
+  "ent_janitor_8c07d6": {
+   "cat": "unreadable"
+  },
+  "ent_boxyhqap_3e79fe19": {
+   "cat": "redirect",
+   "host": "ory.com"
+  },
+  "ent_rplyiohq_6da94316": {
+   "cat": "unreadable"
+  },
+  "ent_ubersgst_017e627e": {
+   "cat": "unreadable"
+  },
+  "ent_pixlmatr_aad0b8bd": {
+   "cat": "redirect",
+   "host": "apple.com"
+  },
+  "ent_amplnote_fb634f68": {
+   "cat": "unreadable"
+  },
+  "ent_lookahqg_987abd5c": {
+   "cat": "unreadable"
+  },
+  "ent_nghtcafe_6d8d14a0": {
+   "cat": "unreadable"
+  },
+  "ent_misocajp_e442c4bb": {
+   "cat": "redirect",
+   "host": "yayoi-kk.co.jp"
+  },
+  "ent_supernormal_2b9a71": {
+   "cat": "unreadable"
+  },
+  "ent_menubarx_8818ba": {
+   "cat": "unreadable"
+  },
+  "ent_stormproxies_1118ba": {
+   "cat": "unreadable"
+  },
+  "ent_photonsol_8818ba": {
+   "cat": "unreadable"
+  },
+  "ent_trojansol_9918ba": {
+   "cat": "unreadable"
+  },
+  "ent_gmgnai_5518ba": {
+   "cat": "unreadable"
+  },
+  "ent_birdeye_6618ba": {
+   "cat": "unreadable"
+  },
+  "ent_dune_8818ba": {
+   "cat": "unreadable"
+  },
+  "ent_coingecko_1118ba": {
+   "cat": "unreadable"
+  },
+  "ent_officernd_8818ba": {
+   "cat": "unreadable"
+  },
+  "ent_chownow_7718ba": {
+   "cat": "unreadable"
+  },
+  "ent_artlist_3318ba": {
+   "cat": "unreadable"
+  },
+  "ent_soundstripe_5518ba": {
+   "cat": "unreadable"
+  },
+  "ent_lovable_2f9cb7": {
+   "cat": "unreadable"
+  },
+  "ent_streamline_59afb3": {
+   "cat": "unreadable"
+  },
+  "ent_nudgify_8d2f67": {
+   "cat": "unreadable"
+  },
+  "ent_siderai_d0295f": {
+   "cat": "unreadable"
+  },
+  "ent_promptbase_3ca4c4": {
+   "cat": "unreadable"
+  },
+  "ent_payhip_f97483": {
+   "cat": "unreadable"
+  },
+  "ent_mbrew_9e": {
+   "cat": "unreadable"
+  },
+  "ent_skool_a5": {
+   "cat": "unreadable"
+  },
+  "ent_camel_aa": {
+   "cat": "unreadable"
+  },
+  "ent_beacns_b3": {
+   "cat": "unreadable"
+  },
+  "ent_phind_c7": {
+   "cat": "unreadable"
+  },
+  "ent_1440_80f77c7820bd7f120771": {
+   "cat": "unreadable"
+  },
+  "ent_typebot_beda1e": {
+   "cat": "redirect",
+   "host": "typebot.com"
+  }
+ }
+}

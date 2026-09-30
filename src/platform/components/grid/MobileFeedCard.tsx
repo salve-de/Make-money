@@ -4,12 +4,16 @@ import React from 'react';
 import type { FinancialEntity } from '../../types/terminal';
 import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
-import { entityDescription } from '@/platform/utils/entityDescription';
-import { CONFIRM_TONE_CLASS, confirmStatus, monthlyRevenueParts, teamSizeText, listDescription } from './ledgerRow';
 import { VerifiedMark } from './VerifiedMark';
+import type { PublicMediaAsset } from '@/shared/media-display';
+import { EntityLogo } from './EntityLogo';
+import { UI, uiFormat } from '@/shared/ui-strings';
+import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from './ReaderListCells';
 
 interface MobileFeedCardProps {
   entity: FinancialEntity;
+  /** 許可済みの公式ロゴ。無ければ何も出さない。 */
+  logo?: PublicMediaAsset | null;
   isSelected: boolean;
   onSelect: () => void;
   currency: 'JPY' | 'USD';
@@ -23,18 +27,16 @@ interface MobileFeedCardProps {
 
 export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   entity,
+  logo = null,
   isSelected,
   onSelect,
-  currency,
   onToggleBookmark,
   isBookmarked,
   zebra = false,
   isVerified = false,
 }) => {
-  const revenue = monthlyRevenueParts(entity, currency);
-  const team = teamSizeText(entity);
-  const status = confirmStatus(entity);
-  const description = listDescription(entityDescription(entity));
+  const { main, profit } = listMetricsOf(entity.reader);
+  const sector = sectorLabel(entity);
 
   // 開くボタンと保存ボタンを横に並べる（重ねないので、保存を押したつもりで事例が開くことがない）
   return (
@@ -43,31 +45,32 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         type="button"
         onClick={onSelect}
         aria-pressed={isSelected}
-        aria-label={`${entity.name}の事例を開く`}
+        aria-label={uiFormat(UI.OPEN_CASE_ARIA, entity.name)}
         className="block min-h-11 min-w-0 flex-1 py-[9px] pl-3 pr-1 text-left focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent"
       >
         <span className="flex items-baseline justify-between gap-3">
-          <span className="flex min-w-0 items-baseline gap-1.5">
-            <span className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
+          <span className="flex min-w-0 items-center gap-1.5">
+            <EntityLogo asset={logo} />
+            <span data-testid="entity-name" className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
             {isVerified && <VerifiedMark />}
           </span>
-          <span className={`term-num shrink-0 text-base ${revenue ? 'text-term-fg-strong' : 'text-term-dim'}`}>
-            {revenue ? revenue.value : '—'}
-            {revenue?.unit && <span className="ml-0.5 font-sans text-xs text-term-label">{revenue.unit}</span>}
+          <span className="term-num shrink-0 text-base">
+            <ListMetricCell metric={main} expected={['REVENUE']} />
           </span>
         </span>
-        {description && <span className="mt-0.5 block truncate text-[13px] text-term-muted">{description}</span>}
+        <ListDescription reader={entity.reader} className="mt-0.5 block truncate text-[13px] text-term-muted" />
         <span className="mt-0.5 flex items-center justify-between gap-3 text-xs">
-          <span className="min-w-0 truncate text-term-label">
-            {sectorLabel(entity.sector)}{team ? ` ・ ${team}人` : ''}
+          <span className="flex min-w-0 items-center gap-3 truncate text-term-label">
+            {sector && <span className="truncate">{sector}</span>}
+            {profit && <span className="term-num truncate"><ListMetricCell metric={profit} /></span>}
           </span>
-          <span className={`shrink-0 ${CONFIRM_TONE_CLASS[status.tone]}`}>{status.label}</span>
+          <span className="shrink-0"><ListOriginCell metric={main} /></span>
         </span>
       </button>
       <button
         type="button"
         onClick={onToggleBookmark}
-        aria-label={isBookmarked ? `${entity.name}の保存を解除` : `${entity.name}を保存`}
+        aria-label={uiFormat(isBookmarked ? UI.UNSAVE_ARIA : UI.SAVE_ARIA, entity.name)}
         aria-pressed={isBookmarked}
         className={`inline-flex w-11 shrink-0 items-center justify-center hover:text-term-fg ${isBookmarked ? 'text-term-accent' : 'text-term-dim'}`}
       >

@@ -5,9 +5,11 @@ import Link from "next/link";
 import React, { useMemo, useState } from "react";
 import { Loader2, Search, X } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import { ReaderLedger } from "@/features/company-inspector";
+import { UI } from "@/shared/ui-strings";
+import { readerContextText } from "@/shared/display-text";
 import { GlobalHeader } from "@/platform/components/navigation/GlobalHeader";
 import { SquareTabs } from "@/platform/components/playbook/SquareTabs";
-import { formatYen } from "@/platform/utils/moneyDisplay";
 import type {
   DiscoveryCase,
   DiscoveryDataset,
@@ -30,96 +32,51 @@ const LENSES: Array<{ id: DiscoveryLens; label: string; hint: string }> = [
 ];
 
 function buildContext(item: DiscoveryCase): string {
-  return [
-    "事例: " + item.name,
-    "結果: " + item.resultLabel + " " + item.resultValue,
-    "資料区分: " + item.resultEvidenceLabel,
-    "対象時期: " + (item.resultPeriod || "未設定"),
-    "出典表示: " + (item.resultSource || "未設定"),
-    "開始条件: " + item.startLine,
-    "着眼点: " + item.criticalInsight,
-    "顧客が対価を払う理由: " + item.whyMoneyMoved,
-    "規模を伸ばす仕組み: " + item.leverage,
-    "近い構造: " + item.mechanism.label + " / " + item.mechanismCount + "件",
-    "現在性: " + item.currentLabel + " / " + item.currentDetail,
-  ].join("\n");
+  // AI への文脈は entity.reader の facts・metrics・unknowns だけで作る
+  return readerContextText(item.name, item.reader) ?? "事例: " + item.name + "\n出典付きの記録はまだありません。";
 }
 
-const YEN_UNIT: Record<string, number> = { 兆: 1_000_000_000_000, 億: 100_000_000, 万: 10_000 };
-
-/** 登録された文字列中の円金額を、共通の金額表記（moneyDisplay）へそろえる。 */
-function normalizeYenText(value: string): string {
-  return value.replace(/(-?)¥\s*([\d,.]+)(兆|億|万)?/g, (_match, minus: string, digits: string, unit?: string) => {
-    const amount = Number(digits.replace(/,/g, "")) * (unit ? YEN_UNIT[unit] : 1);
-    if (!Number.isFinite(amount)) return _match;
-    return formatYen(minus ? -amount : amount);
-  });
-}
-
-function displayResult(item: DiscoveryCase): string {
-  return item.resultAmountJpy !== null ? formatYen(item.resultAmountJpy) : normalizeYenText(item.resultValue);
-}
-
-/** 金額の種類（列見出しを兼ねる短い表記） */
-function resultKind(item: DiscoveryCase): string {
-  if (item.resultLabel.startsWith("営業損失")) return "損失";
-  if (item.resultLabel.startsWith("営業利益")) return "利益";
-  if (item.resultLabel.startsWith("売上")) return "売上";
-  return "";
-}
-
-function evidenceShort(item: DiscoveryCase): string {
-  return item.resultEvidenceLabel.replace("資料区分: ", "");
-}
-
+/** 由来の文字（推定だけ橙）。数値が無い時は空。 */
 function evidenceTone(label: string): string {
   if (label.includes("推定") || label.includes("推計")) return "text-term-accent";
-  if (label.includes("未設定") || label.includes("未確認")) return "text-term-dim";
   return "text-term-muted";
 }
 
 function valueTone(item: DiscoveryCase): string {
-  const label = item.resultEvidenceLabel;
-  if (label.includes("未設定") || label.includes("未確認") || item.resultAmountJpy === null) return "text-term-dim";
+  if (!item.resultMetricId) return "text-term-dim";
   // 一覧では推定の数値そのものは色を付けず、横の「推定」表示だけを橙にする（強調色を増やさない）
-  if (label.includes("推定") || label.includes("推計")) return "text-term-fg";
+  if (item.resultEvidenceLabel.includes("推定")) return "text-term-fg";
   return item.isFailure ? "text-term-danger" : "text-term-fg-strong";
 }
 
-const ROW_GRID = "lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)_128px_64px] xl:grid-cols-[minmax(0,1.4fr)_88px_minmax(0,1fr)_128px_64px]";
+/** 数値（entity.reader.metrics の1件）の要素に付ける出どころの印。無ければ何も付けない。 */
+function metricAttrs(item: DiscoveryCase): Record<string, string> {
+  return item.resultMetricId ? { "data-metric": item.resultMetricId } : {};
+}
+
+const ROW_GRID = "lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.3fr)_136px_72px] xl:grid-cols-[minmax(0,1.1fr)_88px_minmax(0,1.3fr)_136px_72px]";
 
 function ResultBlock({ item }: { item: DiscoveryCase }) {
   return (
-    <div className="shrink-0 text-right">
+    <div className="shrink-0 text-right" {...metricAttrs(item)}>
       <div className="text-xs text-term-label">{item.resultLabel}</div>
-      <div className={`term-num text-lg ${valueTone(item)}`}>{displayResult(item)}</div>
-      <div className={`text-xs ${evidenceTone(evidenceShort(item))}`}>{evidenceShort(item)}</div>
+      <div className={`term-num text-lg ${valueTone(item)}`}>{item.resultValue}</div>
+      {item.resultEvidenceLabel && <div className={`text-xs ${evidenceTone(item.resultEvidenceLabel)}`}>{item.resultEvidenceLabel}</div>}
     </div>
   );
 }
 
-function MemoRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="grid gap-0.5 border-b border-term-line-soft px-3 py-2 sm:grid-cols-[150px_minmax(0,1fr)] sm:gap-4">
-      <div className="text-xs text-term-label sm:pt-0.5">{label}</div>
-      <p className="text-sm leading-relaxed text-term-fg">{value}</p>
-    </div>
-  );
-}
-
-function DiscoveryRow({
+export function DiscoveryRow({
   item,
-  index,
+  index = 0,
   selected,
   onSelect,
 }: {
   item: DiscoveryCase;
-  index: number;
+  index?: number;
   selected: boolean;
   onSelect: () => void;
 }) {
-  const kind = resultKind(item);
-  const status = evidenceShort(item);
   return (
     <button
       type="button"
@@ -131,21 +88,27 @@ function DiscoveryRow({
     >
       <span className="min-w-0">
         <span className="block truncate font-semibold text-term-fg-strong">{item.name}</span>
-        <span className="block truncate text-xs text-term-label lg:hidden">{item.sector} · {item.mechanism.label}</span>
+        {item.sector && <span className="block truncate text-xs text-term-label lg:hidden">{item.sector}</span>}
       </span>
       <span className="hidden truncate text-term-muted xl:block">{item.sector}</span>
-      <span className="hidden truncate text-term-sub lg:block">{item.mechanism.label}</span>
-      <span className="text-right">
-        <span className={`term-num ${valueTone(item)}`}>{displayResult(item)}</span>
-        {kind && <span className="ml-1 text-xs text-term-label">{kind}</span>}
-        <span className={`block text-xs lg:hidden ${evidenceTone(status)}`}>{status}</span>
+      <span className="hidden min-w-0 lg:block">
+        {item.summaryFactId && item.summaryText && (
+          <span data-fact={item.summaryFactId} className="block truncate text-term-sub" title={item.summaryText}>{item.summaryText}</span>
+        )}
       </span>
-      <span className={`hidden truncate text-xs lg:block ${evidenceTone(status)}`}>{status}</span>
+      <span className="text-right" {...metricAttrs(item)}>
+        <span className={`term-num ${valueTone(item)}`}>{item.resultValue}</span>
+        <span className="ml-1 text-xs text-term-label">{item.resultLabel}</span>
+        {item.resultEvidenceLabel && <span className={`block text-xs lg:hidden ${evidenceTone(item.resultEvidenceLabel)}`}>{item.resultEvidenceLabel}</span>}
+      </span>
+      <span className="hidden truncate text-xs lg:block" {...metricAttrs(item)}>
+        {item.resultEvidenceLabel && <span className={evidenceTone(item.resultEvidenceLabel)}>{item.resultEvidenceLabel}</span>}
+      </span>
     </button>
   );
 }
 
-function DetailPane({
+export function DetailPane({
   item,
   onCloseMobile,
 }: {
@@ -158,10 +121,10 @@ function DetailPane({
   const [isSending, setIsSending] = useState(false);
 
   const quickPrompts = [
-    { label: "収益の仕組み", question: "この事例で確認できる収益の仕組みを整理して" },
-    { label: "成立条件", question: "成立条件と、条件が変わると成り立たない点を分けて" },
-    { label: "顧客の獲得", question: "初期顧客の獲得方法と、必要な資源をまとめて" },
-    { label: "自分への応用", question: "自分の状況と比べるために確認すべき点を挙げて" },
+    { label: UI.ASK_Q1, question: "この事例で確認できる収益の仕組みを整理して" },
+    { label: UI.ASK_Q2, question: "成立条件と、条件が変わると成り立たない点を分けて" },
+    { label: UI.ASK_Q3, question: "初期顧客の獲得方法と、必要な資源をまとめて" },
+    { label: UI.ASK_Q4, question: "自分の状況と比べるために確認すべき点を挙げて" },
   ];
 
   const send = async (prompt?: string) => {
@@ -258,16 +221,16 @@ function DetailPane({
   return (
     <div data-testid="discover-detail" className="flex h-full flex-col bg-term-bg">
       <div className="term-panel-title shrink-0">
-        <span className="term-panel-name">事例の詳細</span>
-        <span className="truncate">{item.sector} · {item.startLine}</span>
+        <span className="term-panel-name">{UI.CASE_DETAIL}</span>
+        {item.sector && <span className="truncate">{item.sector}</span>}
         {onCloseMobile && (
           <button
             type="button"
             onClick={onCloseMobile}
             className="ml-auto inline-flex min-h-11 items-center gap-1 px-2 text-sm text-term-sub hover:text-term-fg-strong lg:hidden"
-            aria-label="詳細を閉じる"
+            aria-label={UI.DETAIL_CLOSE_ARIA}
           >
-            <X aria-hidden="true" className="h-4 w-4" />閉じる
+            <X aria-hidden="true" className="h-4 w-4" />{UI.CLOSE}
           </button>
         )}
       </div>
@@ -277,82 +240,12 @@ function DetailPane({
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <details className="border-b border-term-line">
-          <summary className="min-h-11 cursor-pointer px-3 py-3 text-xs text-term-label lg:min-h-6 lg:py-1.5">数値の出典・対象時期</summary>
-          <dl className="grid grid-cols-2 border-t border-term-line-soft">
-            <div className="min-w-0 border-r border-term-line-soft px-3 py-2">
-              <dt className="text-xs text-term-label">資料区分</dt>
-              <dd className="text-sm text-term-fg-strong">{evidenceShort(item)}</dd>
-              <dd className="max-w-full truncate text-xs text-term-label" title={item.resultSource || undefined}>
-                {item.resultSource || "出典表示なし"}
-              </dd>
-            </div>
-            <div className="px-3 py-2">
-              <dt className="text-xs text-term-label">対象時期</dt>
-              <dd className="term-num text-sm text-term-fg-strong">{item.resultPeriod || "未設定"}</dd>
-              <dd className="text-xs text-term-label">{item.resultPeriodNote || "数値が示す期間"}</dd>
-            </div>
-          </dl>
-        </details>
-
-        <section className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-b border-term-line bg-term-head px-3 py-2">
-          <div className="text-sm text-term-fg-strong">{item.mechanism.label}</div>
-          <div className="term-num text-xs text-term-label">同じ分類 {item.mechanismCount.toLocaleString()}件</div>
-        </section>
-
-        <details open className="border-b border-term-line">
-          <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg lg:min-h-8">事業の説明・分析</summary>
-          <div className="border-t border-term-line-soft">
-            {item.tagline && <MemoRow label="登録説明" value={item.tagline} />}
-            <MemoRow label="事業の要点" value={item.criticalInsight} />
-            <MemoRow label="支払理由の分析" value={item.whyMoneyMoved} />
-            <MemoRow label="規模を伸ばす分析" value={item.leverage} />
-          </div>
-        </details>
-
-        {item.related.length > 0 && <section className="border-b border-term-line">
-          <h3 className="border-b border-term-line-soft bg-term-head px-3 py-1 text-xs text-term-label">関連事例</h3>
-          {item.related.map((related) => (
-            <Link
-              key={related.id}
-              href={"/?entity=" + encodeURIComponent(related.id) + "&mode=LEDGER"}
-              className="flex min-h-11 items-center justify-between gap-3 border-b border-term-line-soft px-3 text-sm hover:bg-term-select lg:min-h-[29px]"
-            >
-              <span className="truncate text-term-fg">{related.name}</span>
-              <span className="term-num shrink-0 text-term-muted">{normalizeYenText(related.resultValue)}</span>
-            </Link>
-          ))}
-        </section>}
-
-        <details className="border-b border-term-line">
-          <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg lg:min-h-8">運営情報・現行性</summary>
-          <div className="grid grid-cols-1 border-t border-term-line-soft lg:grid-cols-2">
-            <div className="px-3 py-3 lg:border-r lg:border-term-line-soft">
-              <div className="mb-1 text-xs text-term-label">現在性の登録判定</div>
-              <div className="text-sm text-term-fg-strong">{item.currentLabel}</div>
-              <p className="mt-1 text-sm leading-6 text-term-sub">{item.currentDetail}</p>
-            </div>
-            <div className="border-t border-term-line-soft px-3 py-3 lg:border-t-0">
-              <div className="mb-1 text-xs text-term-label">運営情報</div>
-              <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                {item.descriptors.length > 0 ? (
-                  item.descriptors.map((fact) => (
-                    <div key={fact.label}>
-                      <div className="text-xs text-term-label">{fact.label}</div>
-                      <div className="term-num text-sm text-term-fg">{fact.value}</div>
-                    </div>
-                  ))
-                ) : (
-                  <div className="col-span-2 text-sm text-term-dim">運営特性は未確認</div>
-                )}
-              </div>
-            </div>
-          </div>
-        </details>
+        {/* 詳細は entity.reader（出典つきの事実・数値・出典）だけを読む */}
+        <ReaderLedger reader={item.reader} />
 
         <details className="group border-b border-term-line">
           <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg lg:min-h-8">
-            この事例について質問
+            {UI.ASK_TITLE}
           </summary>
           <div className="border-t border-term-line-soft p-3">
             <div className="mb-3 flex flex-wrap gap-2">
@@ -391,7 +284,7 @@ function DetailPane({
                 onClick={() => void signInWithGoogle()}
                 className={`${actionBtn} mb-3 border-term-line text-term-fg hover:bg-term-head`}
               >
-                Googleでログインして質問する
+                {UI.ASK_LOGIN}
               </button>
             )}
 
@@ -403,10 +296,10 @@ function DetailPane({
               className="flex gap-2"
             >
               <input
-                aria-label="事例についての質問"
+                aria-label={UI.ASK_INPUT_ARIA}
                 value={chatInput}
                 onChange={(event) => setChatInput(event.target.value)}
-                placeholder="例：この価格設定が成り立つ条件は？"
+                placeholder={UI.ASK_PLACEHOLDER}
                 className="min-h-11 min-w-0 flex-1 rounded-sm border border-term-line bg-term-bg px-3 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:min-h-8"
               />
               <button
@@ -414,7 +307,7 @@ function DetailPane({
                 disabled={!chatInput.trim() || isSending}
                 className={`${actionBtn} shrink-0 border-term-accent bg-transparent text-term-accent hover:bg-term-head disabled:cursor-not-allowed disabled:opacity-30`}
               >
-                聞く
+                {UI.ASK_SUBMIT}
               </button>
             </form>
           </div>
@@ -425,16 +318,16 @@ function DetailPane({
             href={`/execute/${encodeURIComponent(item.id)}`}
             className={`${actionBtn} border-term-accent text-term-accent hover:bg-term-head`}
           >
-            計画を作成
+            {UI.PLAN}
           </Link>
           <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
             className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}
           >
-            事例の詳細
+            {UI.CASE_DETAIL}
           </Link>
           <Link href="/?mode=SYNTHESIS" className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}>
-            事業を検討
+            {UI.CONSIDER}
           </Link>
         </section>
       </div>
@@ -456,12 +349,8 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
       ? dataset.cases.filter((item) =>
           [
             item.name,
-            item.tagline,
-            item.startLine,
-            item.criticalInsight,
-            item.whyMoneyMoved,
-            item.leverage,
-            item.mechanism.label,
+            item.summaryText,
+            ...(item.reader?.facts.map((fact) => fact.text) ?? []),
             item.sector,
           ]
             .join(" ")
@@ -533,11 +422,11 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
       <main className="flex min-h-0 flex-1 overflow-hidden">
         <section data-testid="discover-list" className="flex min-w-0 w-full flex-col border-r border-term-line bg-term-bg lg:w-[58%] xl:w-[56%]">
           <div className={`hidden h-[26px] shrink-0 items-center gap-x-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label lg:grid ${ROW_GRID}`}>
-            <span>事例</span>
-            <span className="hidden xl:block">分野</span>
-            <span>収益パターン</span>
-            <span className="text-right">営業利益 / 月商</span>
-            <span>状態</span>
+            <span>{UI.LIST_COL_NAME}</span>
+            <span className="hidden xl:block">{UI.LIST_COL_SECTOR}</span>
+            <span>{UI.LIST_COL_SUMMARY}</span>
+            <span className="text-right">{UI.LIST_COL_AMOUNT}</span>
+            <span>{UI.LIST_COL_ORIGIN}</span>
           </div>
 
           <div className="min-h-0 flex-1 overflow-y-auto">

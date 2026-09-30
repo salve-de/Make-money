@@ -1,4 +1,5 @@
 import type { InspectorSectionProps } from '../model/section-props';
+import { cleanDisplayText, estimationLogicLabel, snapshotPeriodLabel, sourceDocLabel, toolCategoryLabel } from '@/shared/display-text';
 import { InspectorSectionCard } from './InspectorSectionCard';
 
 function known(value: unknown, unconfirmed?: boolean, minimum = 0): value is number {
@@ -50,7 +51,7 @@ export function FinancialOperationsSupplement({ entity, formatMoney, isHazardMod
   // EstimatedCashSummary already renders revenue, COGS, OPEX and profit.
   // Its missing gross-profit row retains the estimate label here.
   if (pnl.financialStatus === 'ESTIMATED') addFinancial('推計粗利益（月額換算）', pnl.grossProfit, pnl.isGrossProfitUnconfirmed);
-  const financialContext = pnl.financialStatus !== 'ESTIMATED' && (pnl.sourceDoc || pnl.estimationLogic || pnl.dataSnapshotPeriod);
+  const financialContext = pnl.financialStatus !== 'ESTIMATED' && (sourceDocLabel(pnl.sourceDoc) || estimationLogicLabel(pnl.estimationLogic) || snapshotPeriodLabel(pnl.dataSnapshotPeriod));
   if (!rows.some(([, value]) => value !== null) && tools.length === 0 && !financialContext && standalone.length === 0) return null;
 
   return <InspectorSectionCard id="section-financial-operations" index="operations" categoryEn="Operations" titleJa="運営指標・ツール費用" isHazardMode={isHazardMode}>
@@ -61,13 +62,13 @@ export function FinancialOperationsSupplement({ entity, formatMoney, isHazardMod
       {standalone.map(([label, value]) => <div key={label}><dt className="text-xs text-zinc-400">{label}</dt><dd className="mt-1 text-sm tabular-nums text-zinc-100">{formatMoney(value!)}</dd></div>)}
     </dl>}
     {tools.length > 0 && <div className="border-t border-term-line py-3">
-      <div className="mb-2 flex flex-wrap justify-between gap-2 text-xs"><span className="text-zinc-300">ツール別月額費用</span><span className="tabular-nums text-zinc-300">合計 {total !== null && Number.isFinite(total) ? formatMoney(total) : '—'}</span></div>
-      <ul className="divide-y divide-white/10">{tools.map((tool, index) => {
+      <div className="mb-2 flex flex-wrap justify-between gap-2 text-xs"><span className="text-term-fg">ツール別月額費用</span>{total !== null && Number.isFinite(total) && <span className="tabular-nums text-term-fg">合計 {formatMoney(total)}</span>}</div>
+      <ul className="divide-y divide-term-line-soft">{tools.map((tool, index) => {
         const url = sourceUrl(tool.url);
         return <li key={`${tool.name}-${index}`} className="flex items-start justify-between gap-3 py-2 text-xs">
-          <div className="min-w-0 break-words text-zinc-200"><span>{url ? <a href={url} target="_blank" rel="noopener noreferrer" className="underline decoration-zinc-600 underline-offset-4 hover:text-term-fg">{tool.name}</a> : tool.name}</span>
-          {tool.category && <span className="ml-2 text-zinc-400">{tool.category}</span>}
-          {tool.purpose && <p className="mt-1 whitespace-pre-wrap leading-5 text-zinc-300">{tool.purpose}</p>}
+          <div className="min-w-0 break-words text-term-fg"><span>{url ? <a href={url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-term-fg-strong">{tool.name}</a> : tool.name}</span>
+          {toolCategoryLabel(tool.category) && <span className="ml-2 text-term-label">{toolCategoryLabel(tool.category)}</span>}
+          {cleanDisplayText(tool.purpose) && <p className="mt-1 whitespace-pre-wrap leading-5 text-term-fg">{cleanDisplayText(tool.purpose)}</p>}
           {tool.replacementDifficulty && <p className="mt-1 text-zinc-400">切替難易度: {{LOW: '低', MEDIUM: '中', HIGH: '高'}[tool.replacementDifficulty]}</p>}
           </div>
           <span className="shrink-0 tabular-nums text-zinc-300">{known(tool.monthlyCost, tool.isCostUnconfirmed) ? formatMoney(tool.monthlyCost) : '—'}</span>
@@ -77,9 +78,9 @@ export function FinancialOperationsSupplement({ entity, formatMoney, isHazardMod
     {financialContext && <details className="border-t border-term-line py-3 text-xs">
       <summary className="cursor-pointer text-zinc-300">財務の対象期間・算定根拠</summary>
       <dl className="mt-2 space-y-2 break-words leading-5 text-zinc-300">
-        {pnl.dataSnapshotPeriod && <div><dt className="text-zinc-400">対象期間</dt><dd>{pnl.dataSnapshotPeriod}</dd></div>}
-        {pnl.sourceDoc && <div><dt className="text-zinc-400">参照資料</dt><dd>{sourceUrl(pnl.sourceDoc) ? <a href={sourceUrl(pnl.sourceDoc)!} target="_blank" rel="noopener noreferrer" className="underline">{pnl.sourceDoc}</a> : pnl.sourceDoc}</dd></div>}
-        {pnl.estimationLogic && <div><dt className="text-zinc-400">算定根拠</dt><dd className="whitespace-pre-wrap">{pnl.estimationLogic}</dd></div>}
+        {snapshotPeriodLabel(pnl.dataSnapshotPeriod) && <div><dt className="text-zinc-400">対象期間</dt><dd>{snapshotPeriodLabel(pnl.dataSnapshotPeriod)}</dd></div>}
+        {sourceDocLabel(pnl.sourceDoc) && <div><dt className="text-zinc-400">参照資料</dt><dd>{sourceUrl(pnl.sourceDoc) ? <a href={sourceUrl(pnl.sourceDoc)!} target="_blank" rel="noopener noreferrer" className="underline">{pnl.sourceDoc}</a> : sourceDocLabel(pnl.sourceDoc)}</dd></div>}
+        {estimationLogicLabel(pnl.estimationLogic) && <div><dt className="text-zinc-400">算定根拠</dt><dd className="whitespace-pre-wrap">{estimationLogicLabel(pnl.estimationLogic)}</dd></div>}
       </dl>
     </details>}
   </InspectorSectionCard>;

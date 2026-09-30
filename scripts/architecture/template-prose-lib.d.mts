@@ -1,0 +1,28 @@
+type Entity = Record<string, unknown>;
+export const MIN_REPEAT: number;
+export const MIN_LEN: number;
+export const FRAME_MIN_LEN: number;
+export const FRAME_MIN_REPEAT: number;
+export const EXEMPT_PATTERNS: RegExp[];
+export function isExemptSentence(sentence: string): boolean;
+export function isSourcedToolEntry(t: unknown): boolean;
+export function normalizeProse(text: string, entity: Entity): string;
+export function splitSentences(text: string): string[];
+export function collectUnits(entity: Entity): { field: string; text: string }[];
+export function buildTemplateIndex(entities: Entity[]): {
+  match(field: string, sentence: string, entity: Entity): { count: number; key: string } | null;
+  isTemplate(field: string, sentence: string, entity: Entity): boolean;
+  isReusedLabel(text: unknown): boolean;
+  labels: Map<string, Set<string>>;
+};
+export function findTemplateViolations(entities: Entity[]): { field: string; sentence: string; count: number; entities: Set<string> }[];
+export function isTrustedCard(c: unknown): boolean;
+export function trustedNorm(entity: Entity): string;
+export function isSupportedSentence(sentence: string, entity: Entity): boolean;
+export const SOURCED_REWRITE_STATUSES: Set<string>;
+export const SOURCED_REWRITE_EXEMPT_FIELDS: RegExp;
+export const LABEL_RE: RegExp;
+export function isSourcedObservation(text: unknown): boolean;
+export function labelUsage(entities: Entity[]): Map<string, Set<string>>;
+export function isUnsourcedLabelled(text: unknown, sourceUrl?: unknown): boolean;
+export function boundEvidenceIds(entity: Entity): Set<string>;

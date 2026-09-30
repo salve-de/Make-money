@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({
           status: "EXISTS",
           exists: true,
-          message: `既に収集済みです: [${matched.name}] (ID: ${matched.id}, Ticker: ${matched.ticker || "N/A"})`,
+          message: `既に収集済みです: [${matched.name}] (ID: ${matched.id}, Domain: ${matched.domain || "—"})`,
           entity: matched,
         });
       } else {

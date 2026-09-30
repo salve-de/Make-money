@@ -69,3 +69,19 @@ __pycache__/
 /data/raw_master_facts.json
 /data/raw_sources_cache/
 /.catalog-release/
+
+# Private re-audit research candidates and worker notes (kept in R2 backup / private worktree, never pushed)
+/data/incoming/reaudit-*.json
+/reports/reaudit-*
+/reports/paused-handoff-*
+# Media asset staging (fetched images and provenance manifests; local only, see docs/MEDIA_ASSETS_AND_PROVENANCE.md)
+/data/media-staging/
+
+# Re-audit lane scratch (LANE_WORKDIR default; local only, see docs/reaudit/)
+/.reaudit-work/
+
+# 出典本文の照合（scripts/reader-case/fetch-sources.ts など）。結果の data/reader-verdicts.json だけコミットする
+/data/source-cache/
+/data/verify/
+# 推論（reader.analysis）の作業ファイル。結果の data/reader-analysis.json だけコミットする
+/data/analyze/

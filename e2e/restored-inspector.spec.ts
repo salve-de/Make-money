@@ -1,25 +1,31 @@
 import { test, expect } from '@playwright/test';
+import { routeReader } from './reader-fixture';
 
+// 公開済みの事例（Plausible）の詳細で、数値・推測・出典・メモの各区画に、どの画面幅でも届くこと。
+// 詳細は entity.reader だけを読む（作り物の reader を詳細レスポンスに足す。e2e/reader-fixture.ts）。
 for (const width of [390, 768, 960, 1440]) {
   test(`restored case content remains reachable at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.goto('/?entity=ent_photoai');
-    const pane = page.getByRole('complementary', { name: 'Photo AIの企業事例インスペクター' });
+    await routeReader(page, 'ent_plausible');
+    await page.goto('/?entity=ent_plausible');
+    const pane = page.getByRole('complementary', { name: 'Plausible Analyticsの企業事例インスペクター' });
     await expect(pane).toBeVisible();
-    await expect(pane.locator('#section-summary')).toContainText('事業の概要');
-    const operations = pane.locator('#section-financial-operations');
-    await operations.scrollIntoViewIfNeeded();
-    await expect(operations).toBeVisible();
-    await expect(operations).toContainText('ツール');
-    const playbook = pane.locator('#section-playbook');
-    await playbook.scrollIntoViewIfNeeded();
-    await expect(playbook).toBeVisible();
-    await expect(playbook).toContainText('実行');
-    await pane.getByRole('button', { name: '出典・記録', exact: true }).click();
-    await expect(pane.locator('#section-stream')).toBeVisible();
-    await expect(pane.locator('#section-stream')).not.toHaveAttribute('hidden');
+    await expect(pane.locator('[data-fact="f1"]')).toContainText('サイトの訪問数を数える');
+    const metrics = pane.locator('#section-metrics');
+    await metrics.scrollIntoViewIfNeeded();
+    await expect(metrics).toBeVisible();
+    await expect(metrics).toContainText('金額');
+    const analysis = pane.locator('#section-analysis');
+    await analysis.scrollIntoViewIfNeeded();
+    await expect(analysis).toBeVisible();
+    await expect(analysis).toContainText('推測');
+    const sources = pane.locator('#section-sources');
+    await sources.scrollIntoViewIfNeeded();
+    await expect(sources).toBeVisible();
+    await expect(sources).toContainText('サンプル公式');
+    await pane.getByRole('button', { name: 'メモ', exact: true }).click();
     await pane.locator('#section-notes').scrollIntoViewIfNeeded();
     await expect(pane.locator('#section-notes textarea')).toBeVisible();
     const bounds = await pane.boundingBox();

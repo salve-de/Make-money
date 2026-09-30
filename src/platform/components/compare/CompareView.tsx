@@ -28,7 +28,7 @@ const money = (value: number, entity: FinancialEntity) => (
 /** 比較する項目。値が出せない（未確認）の欄は「—」。全列で未確認の行は出さない。 */
 const ROWS: { label: string; value: (entity: FinancialEntity) => React.ReactNode }[] = [
   { label: '事業', value: (e) => text(e.essence?.whatItDoes) || text(e.tagline) || null },
-  { label: '分野', value: (e) => sectorLabel(e.sector) },
+  { label: '分野', value: (e) => sectorLabel(e) },
   {
     label: '成否',
     value: (e) => {
@@ -175,6 +175,7 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
       {ready[0] && (
         <CompareSimilarCases
           sector={ready[0].sector}
+          sectorBasis={ready[0].sectorBasis}
           excludeIds={ids}
           canAdd={ids.length < COMPARE_LIMIT}
           onAdd={addCase}

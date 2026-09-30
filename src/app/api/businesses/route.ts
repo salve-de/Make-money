@@ -34,6 +34,7 @@ import { readIndexedNewArrivalsRelease } from '@/lib/foundation/new-arrivals-ind
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 import { getFoundationBucketAsync, listR2Objects, readR2Object } from '@/lib/storage/r2';
+import { foundationMayServeDetail } from '@/shared/dossier-authority';
 
 const gunzip = promisify(gunzipCb);
 
@@ -425,7 +426,11 @@ export async function GET(request: Request) {
   }
 
   if (entityId) {
-    if (requestedDossierHash) {
+    // 公開中の事例の一覧の行は、公開版の詳細ハッシュを latestDossierHash に持つ。その詳細は lake ではなく
+    // 公開版にあるので、目録のハッシュと一致する要求は下の curated（公開版）の経路で返す。
+    const { catalogReleaseDetailHash } = await import('@/lib/company-access/catalog-release');
+    const servedByRelease = Boolean(requestedDossierHash) && catalogReleaseDetailHash(entityId) === requestedDossierHash;
+    if (requestedDossierHash && !servedByRelease) {
       try {
         const r2Storage = new CloudflareR2BlobStorage('lake');
         const dossierPath = getDossierStoragePath(entityId, requestedDossierHash);
@@ -472,13 +477,17 @@ export async function GET(request: Request) {
       }
     }
 
+    // 公開中の事例は公開版が正本。目録にある ID は Foundation の view を読まず、curated（公開版）だけで返す。
+    const { hasCatalogReleaseEntity } = await import('@/lib/company-access/catalog-release');
+    const foundationAllowed = foundationMayServeDetail(hasCatalogReleaseEntity(entityId));
+
     let parsedFoundation: FoundationBusinessCase | null = null;
     let foundationResponse: NextResponse | null = null;
     let foundationReady = false;
     let stagedViewMissing = false;
 
     try {
-      const stagedView = await retryFoundationRead(() => readMakeMoneyViewDetail(entityId));
+      const stagedView = foundationAllowed ? await retryFoundationRead(() => readMakeMoneyViewDetail(entityId)) : null;
       if (!stagedView) {
         stagedViewMissing = true;
       } else {

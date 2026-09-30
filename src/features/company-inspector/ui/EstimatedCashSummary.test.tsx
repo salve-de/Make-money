@@ -27,7 +27,7 @@ describe('estimated financial presentation', () => {
     );
 
     expect(html).toContain('推計P&amp;L');
-    expect(html).toContain('ESTIMATED');
+    expect(html).toContain('推計');
     expect(html).toContain('通帳着金・創業者の個人手取り・実際の口座残高を意味しません');
     expect(html).toContain('Independent test source');
     expect(html).toContain('price × estimated customers ÷ month');
@@ -63,11 +63,8 @@ describe('estimated financial presentation', () => {
       <EstimatedCashSummary entity={entity} formatMoney={(value) => `MONEY-${value}`} />,
     );
 
-    expect(html).toContain('推計売上（月額換算）');
-    expect(html).toContain('推計売上原価');
-    expect(html).toContain('推計販管費');
-    expect(html).toContain('推計営業利益');
-    expect(html).toContain('未確認');
+    // 4項目とも未確認なら、推計P&Lの箱ごと出さない。
+    expect(html).toBe('');
     expect(html).not.toContain('MONEY-123456');
     expect(html).not.toContain('MONEY-0');
   });

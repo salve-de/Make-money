@@ -2,7 +2,7 @@ import { expect, type Page } from '@playwright/test';
 
 /** Use the visible product controls; keep persistence assertions in each test. */
 export async function openNotes(page: Page) {
-  await page.getByRole('button', { name: '出典・記録', exact: true }).click();
+  await page.getByRole('button', { name: 'メモ', exact: true }).click();
   await expect(page.locator('#section-notes textarea')).toBeVisible();
 }
 
