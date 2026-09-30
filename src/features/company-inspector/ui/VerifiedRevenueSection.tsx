@@ -56,7 +56,7 @@ export function VerifiedRevenueSection({ entityId }: { entityId: string }) {
         運営者が読み取り専用のキーでつないだ決済アカウント（Stripe）の実データです。売上は返金を引いた税込の額で、決済手数料は引いていません。決済アカウントに登録されたサイトと公式サイトの一致で照合しており、運営者本人であることの証明ではありません。
       </p>
       <p className="pb-2 text-xs">
-        <Link href={`/verify?entity=${encodeURIComponent(entityId)}`} className="inline-flex min-h-11 items-center text-term-fg underline hover:text-term-fg-strong lg:min-h-0">
+        <Link href={`/verify?entity=${encodeURIComponent(entityId)}`} className="inline-flex min-h-11 items-center text-term-fg underline hover:text-term-fg-strong lg:min-h-6">
           運営者の方: 確認し直す
         </Link>
       </p>

@@ -2,6 +2,8 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import { GlobalHeader } from './GlobalHeader';
+import { MENU_ICONS, TAB_SECTION_IDS } from './MobileMenu';
+import { MOBILE_MENU_ITEMS } from './navigationItems';
 
 vi.mock('next/navigation', () => ({ usePathname: () => '/', useRouter: () => ({ push: () => {} }) }));
 vi.mock('next/link', () => ({ default: ({ children, prefetch: _prefetch, ...props }: React.PropsWithChildren<React.AnchorHTMLAttributes<HTMLAnchorElement> & { prefetch?: boolean }>) => { void _prefetch; return <a {...props}>{children}</a>; } }));
@@ -27,6 +29,22 @@ describe('GlobalHeader terminal navigation', () => {
     const html = renderToStaticMarkup(<GlobalHeader />);
     expect(html).toContain('term-bottom-nav');
     expect(html).toContain('lg:hidden');
-    for (const label of ['事例', '市場', 'パターン', 'その他']) expect(html).toContain(label);
+    const bottom = html.slice(html.indexOf('term-bottom-nav'));
+    for (const label of ['事例', '発見', '市場', '事業検討']) expect(bottom).toContain(label);
+    expect(bottom).not.toContain('その他');
+    expect(html).toContain('aria-label="メニューを開く"');
+  });
+
+  it('lists the drawer screens once and never repeats a screen that is already a bottom tab', () => {
+    const html = renderToStaticMarkup(<GlobalHeader />);
+    expect(html).not.toContain('MAKE MONEY</h2>');
+    const items = MOBILE_MENU_ITEMS;
+    expect(items.map((item) => item.href)).toContain('/marketplace/businesses');
+    for (const item of items) expect(TAB_SECTION_IDS).not.toContain(item.id);
+    expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
+  });
+
+  it('gives every drawer row an icon, so rows never mix icon and text-only styles', () => {
+    for (const item of MOBILE_MENU_ITEMS) expect(MENU_ICONS[item.id]).toBeDefined();
   });
 });

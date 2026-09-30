@@ -107,7 +107,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
               aria-expanded={expanded}
               aria-controls={detailId}
               onClick={() => setExpanded((value) => !value)}
-              className="hidden min-h-0 rounded-sm px-2 text-xs text-term-sub hover:bg-term-head hover:text-term-fg-strong sm:inline-flex sm:h-[22px] sm:items-center"
+              className="hidden min-h-11 rounded-sm px-2 text-xs text-term-sub hover:bg-term-head hover:text-term-fg-strong sm:inline-flex sm:items-center lg:min-h-6 lg:h-6"
             >
               {expanded ? '注目を閉じる' : `注目の${summary.highlights.length}件`}
             </button>
@@ -118,7 +118,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
               markSeen();
               onOpen();
             }}
-            className="min-h-11 shrink-0 rounded-sm border border-term-line px-2 text-xs text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:min-h-0 lg:h-[22px]"
+            className="min-h-11 shrink-0 rounded-sm border border-term-line px-2 text-xs text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:min-h-6 lg:h-6"
           >
             新着を見る
           </button>

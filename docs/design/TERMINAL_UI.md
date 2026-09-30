@@ -21,13 +21,15 @@ Tailwind では `bg-term-*` / `text-term-*` / `border-term-*` を使う。16進�
 | 強い文字（名前・確認済みの数値） | `term-fg-strong` | #ffffff |
 | 本文 | `term-fg` | #d6d8db |
 | 補足文 | `term-sub` | #b4b8be |
-| 弱い本文・非選択タブ | `term-muted` | #9ea3aa |
-| 項目名・ラベル | `term-label` | #7d828a |
-| 未確認・無効 | `term-dim` | #5d6168 |
+| 弱い本文・非選択タブ | `term-muted` | #a7acb3 |
+| 項目名・ラベル | `term-label` | #959aa1 |
+| 未確認・無効 | `term-dim` | #80858d |
 | アクセント（橙、1色のみ） | `term-accent` | #ff9f1a |
 | PRO帯の背景 / 罫線 | `term-accent-bg` / `term-accent-line` | #140f06 / #3a2a10 |
-| 選択行・選択中の絞り込み | `term-select` / `term-select-fg` | #1b2a3d / #c4ccd6 |
+| 選択行・選択中の絞り込み | `term-select` / `term-select-fg` | #131d2a / #c4ccd6 |
 | 成功 / エラー（状態表示のみ） | `term-positive` / `term-danger` | #3fb950 / #f06a5f |
+
+文字色（term-dim 以上のすべて）は、どの背景（bg・row-alt・panel・head・select）の上でも 4.5:1 以上（WCAG 1.4.3）。2026-09-30 に実測で term-dim が 3.1:1 だったため、muted・label・dim・select を上の値に改めた。値を変えるときは計算し直す。
 
 zinc 系は上の灰色に置き換え済みなので、既存の `text-zinc-400` 等もそのまま端末の灰色になる。ただし新規・改修箇所は `term-*` を使う。
 
@@ -43,6 +45,8 @@ zinc 系は上の灰色に置き換え済みなので、既存の `text-zinc-400
 - 角丸：原則なし（`rounded-none`）。入力欄とボタンは最大 `rounded-sm`（2px）。`rounded-full` はアイコンの丸以外に使わない。
 - 影：浮かぶ要素（ドロップダウン・モーダル）だけ。
 - 高さ：PC のボタン・入力 26〜32px、一覧の行 29px 前後。スマホ（lg 未満）の押せる要素は 44px 以上。
+- 押せる要素の下限：PC でも 24px（WCAG 2.5.8）。`lg:min-h-0` は使わず `lg:min-h-6`。一覧の保存ボタンは 24×24px。
+- 入力欄の文字：lg 未満では 16px（`globals.css` で一括指定。16px 未満だと iPhone が入力のたびに拡大する）。
 
 ## 部品のレシピ
 - **パネル見出しバー**：`<div className="term-panel-title"><span className="term-panel-name">事例一覧</span>…補足…</div>`（高さ24px、背景 term-head、下罫線）。

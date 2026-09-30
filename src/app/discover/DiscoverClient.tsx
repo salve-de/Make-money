@@ -278,7 +278,7 @@ function DetailPane({
 
       <div className="min-h-0 flex-1 overflow-y-auto">
         <details className="border-b border-term-line">
-          <summary className="min-h-11 cursor-pointer px-3 py-3 text-xs text-term-label lg:min-h-0 lg:py-1.5">数値の出典・対象時期</summary>
+          <summary className="min-h-11 cursor-pointer px-3 py-3 text-xs text-term-label lg:min-h-6 lg:py-1.5">数値の出典・対象時期</summary>
           <dl className="grid grid-cols-2 border-t border-term-line-soft">
             <div className="min-w-0 border-r border-term-line-soft px-3 py-2">
               <dt className="text-xs text-term-label">資料区分</dt>
@@ -489,12 +489,12 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
   const lensTabs = LENSES.map((item) => ({ key: item.id, label: item.label }));
   return (
     <div className="flex term-screen w-full flex-col overflow-hidden bg-term-bg text-term-fg">
-      <GlobalHeader currentSection="DISCOVER" />
+      <GlobalHeader currentSection="DISCOVER" pageHasSearch />
       <h1 className="sr-only">事例を探す</h1>
 
       <div className="shrink-0 border-b border-term-line bg-term-panel">
         <div className="term-panel-title">
-          <span className="term-panel-name">事例を探す</span>
+          <span className="term-panel-name max-lg:hidden">事例を探す</span>
           <span className="term-num">
             {query ? `検索結果 ${visibleCases.length}件 / 全${dataset.sourceCount.toLocaleString()}件` : `${dataset.visibleCount.toLocaleString()}件を表示 / 全${dataset.sourceCount.toLocaleString()}件`}
           </span>

@@ -8,6 +8,7 @@ export type GlobalNavSection =
   | 'BUILDER'
   | 'EXECUTION'
   | 'MARKETPLACE'
+  | 'BUSINESSES'
   | 'COMPARE'
   | 'ALERTS'
   /** 見出しに項目を持たない画面（運営者向けの売上確認・法務ページ） */
@@ -37,8 +38,20 @@ export const PRIMARY_NAV_ITEMS: NavItem[] = [
 export const SECONDARY_NAV_ITEMS: NavItem[] = [
   { id: 'COMPARE', label: '事例の比較', href: '/compare' },
   { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
+  { id: 'BUSINESSES', label: '事業の売買', href: '/marketplace/businesses' },
   { id: 'MARKETPLACE', label: 'サービス一覧', href: '/marketplace' },
   { id: 'EXECUTION', label: '実行計画', href: '/execute' },
+];
+
+/** スマホの引き出しメニュー。下のタブ（事例・発見・市場・事業検討）に無い画面を、よく使う順に並べる */
+export const MOBILE_MENU_ITEMS: NavItem[] = [
+  { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
+  { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
+  { id: 'COMPARE', label: '事例の比較', href: '/compare' },
+  { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
+  { id: 'EXECUTION', label: '実行計画', href: '/execute' },
+  { id: 'BUSINESSES', label: '事業の売買', href: '/marketplace/businesses' },
+  { id: 'MARKETPLACE', label: 'サービス一覧', href: '/marketplace' },
 ];
 
 export const LOCAL_MODE_BY_SECTION: Partial<Record<GlobalNavSection, LocalWorkspaceMode>> = {
@@ -58,3 +71,22 @@ export const LEGAL_LINKS = [
 
 export const PRO_HREF = '/?pro=1';
 export const SAVED_HREF = '/?mode=SYNTHESIS';
+
+/** スマホのヘッダーに出す、いま開いている画面の名前 */
+export const SECTION_TITLES: Record<GlobalNavSection, string> = {
+  LEDGER: '事例一覧',
+  DISCOVER: '発見',
+  RADAR: '市場動向',
+  ARCHETYPES: '事業パターン',
+  PLAYBOOK: '手口と道具',
+  SYNTHESIS: '事業検討',
+  BUILDER: '事業検討',
+  EXECUTION: '実行計画',
+  MARKETPLACE: 'サービス一覧',
+  BUSINESSES: '事業の売買',
+  COMPARE: '事例の比較',
+  ALERTS: '保存した条件',
+  VERIFY: '売上の確認',
+  LEGAL: '規約・表記',
+  WELCOME: 'Make Money',
+};

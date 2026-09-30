@@ -112,8 +112,8 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
   return (
     <>
       <div className="term-panel-title">
-        <span className="term-panel-name">事例の比較</span>
-        <span className="term-num">{ids.length} / {COMPARE_LIMIT}</span>
+        <span className="term-panel-name max-lg:hidden">事例の比較</span>
+        <span className="term-num">{ids.length} / {COMPARE_LIMIT}件</span>
         <span className="hidden truncate sm:inline">売上・利益は記録がある値だけを表示します。未確認は「—」です。</span>
         {ids.length > 0 && <button type="button" onClick={clearAll} className="ml-auto flex min-h-11 items-center px-2 text-xs text-term-muted hover:bg-term-line hover:text-term-fg-strong lg:min-h-6">すべて外す</button>}
       </div>

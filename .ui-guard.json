@@ -1,0 +1,5 @@
+{
+  "disable": {
+    "B6-outline-none": "2026-09-30 Claude: src/app/globals.css の :focus-visible（レイヤー外）が Tailwind の outline-none より優先され、フォーカス枠は常に出る。screen-check の B6（focus-visible）実測で違反0件"
+  }
+}

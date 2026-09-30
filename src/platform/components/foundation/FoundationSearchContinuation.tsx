@@ -34,7 +34,7 @@ export const FoundationSearchContinuation:
           type="button"
           disabled={loading}
           onClick={onContinue}
-          className="h-[22px] shrink-0 rounded-sm border border-term-line px-2 text-xs text-term-fg hover:bg-term-head disabled:cursor-not-allowed disabled:opacity-50"
+          className="min-h-11 shrink-0 rounded-sm border border-term-line px-2 text-xs text-term-fg hover:bg-term-head disabled:cursor-not-allowed disabled:opacity-50 lg:min-h-6"
         >
           {loading ? '検索中...' : failed ? '再試行' : '続けて検索'}
         </button>

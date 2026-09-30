@@ -67,7 +67,7 @@ const RiskDetail: React.FC<{ guide: RiskGuide; trap: DeathTrapsSectionProps["dea
       ))}
     </dl>
     <details className="border-b border-term-line px-3">
-      <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">原因・対応の資料</summary>
+      <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-6">原因・対応の資料</summary>
       <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg"><p>{trap.mechanism}</p>
       <ul className="list-disc space-y-2 pl-5">{trap.warningSigns.map((sign, index) => <li key={index}>{sign}</li>)}</ul>
       <p>{trap.antidote}</p>
@@ -101,7 +101,7 @@ export const DeathTrapsSection: React.FC<DeathTrapsSectionProps> = ({ deathTraps
         {selected && <RiskDetail guide={riskGuide(selected)} trap={selected} />}
       </div>
       {shelfLifeAlerts.length > 0 && <details className="border-t border-term-line px-3 lg:col-span-2">
-        <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">環境変化の資料（{shelfLifeAlerts.length}件）</summary>
+        <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-6">環境変化の資料（{shelfLifeAlerts.length}件）</summary>
         <div className="grid gap-x-4 pb-3 sm:grid-cols-2">{shelfLifeAlerts.map((alert) => <article key={alert.id} className="space-y-1 border-t border-term-line-soft py-2 text-sm leading-6 text-term-fg"><h3 className="font-semibold text-term-fg-strong">{alert.playbookName}</h3><p className="term-num text-xs text-term-label">{alert.downgradeDate}</p><p>{alert.triggerEvent}</p><p>{alert.fatalReason}</p><p>{alert.survivalPivot}</p></article>)}</div>
       </details>}
     </div>

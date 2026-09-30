@@ -64,7 +64,7 @@ const ModelDetail: React.FC<{ guide: ModelGuide; wave: CurrentWavesSectionProps[
       ))}
     </dl>
     <details className="border-b border-term-line px-3">
-      <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-0">背景・手順の資料</summary>
+      <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-6">背景・手順の資料</summary>
       <div className="space-y-3 pb-3 text-sm leading-6 text-term-fg">
         <p>{wave.whyItWinsNow}</p><p>{wave.shelfLifeAnalysis}</p>
         <h4 className="font-medium text-term-fg-strong">{wave.lootBlueprint.headline}</h4>

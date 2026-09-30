@@ -98,19 +98,21 @@ export default function WelcomeClient({
                 <button type="submit" className={`${btn} shrink-0 border-term-accent text-term-accent hover:bg-term-head`}>検索</button>
               </form>
             </div>
-            <dl className="grid grid-cols-2 self-start border border-term-line">
-              <div className="border-b border-r border-term-line px-3 py-2">
-                <dt className="text-xs text-term-label">公開している事例</dt>
-                <dd className="term-num text-xl text-term-fg-strong">{publishedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
-              </div>
-              <div className="border-b border-term-line px-3 py-2">
-                <dt className="text-xs text-term-label">収集済みの事例</dt>
-                <dd className="term-num text-xl text-term-fg-strong">{collectedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
-              </div>
-              <div className="col-span-2 px-3 py-2 text-xs leading-5 text-term-label">
+            <div className="self-start border border-term-line">
+              <dl className="grid grid-cols-2">
+                <div className="border-b border-r border-term-line px-3 py-2">
+                  <dt className="text-xs text-term-label">公開している事例</dt>
+                  <dd className="term-num text-xl text-term-fg-strong">{publishedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
+                </div>
+                <div className="border-b border-term-line px-3 py-2">
+                  <dt className="text-xs text-term-label">収集済みの事例</dt>
+                  <dd className="term-num text-xl text-term-fg-strong">{collectedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
+                </div>
+              </dl>
+              <p className="px-3 py-2 text-xs leading-5 text-term-label">
                 収集済みのうち、出典の確認が済んだものを公開しています。
-              </div>
-            </dl>
+              </p>
+            </div>
           </div>
         </section>
 

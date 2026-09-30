@@ -3,6 +3,8 @@ import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // 開発中に左下へ出る丸い「N」印が、スマホ幅で下のタブに重なるため出さない
+  devIndicators: false,
   turbopack: {
     root: __dirname,
   },

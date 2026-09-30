@@ -222,7 +222,7 @@ export const ToolRadarSection: React.FC<ToolRadarSectionProps> = ({
             <p className="text-term-sub">{guide.description}</p>
             <p className="text-term-fg"><span className="mr-2 text-xs text-term-label lg:hidden">向く用途</span>{guide.suitableFor}</p>
             <p className="text-term-muted"><span className="mr-2 text-xs text-term-label lg:hidden">導入前に確認</span>{guide.check}</p>
-            <a href={guide.officialUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center whitespace-nowrap text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-0">公式資料を開く ↗</a>
+            <a href={guide.officialUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center whitespace-nowrap text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">公式資料を開く ↗</a>
           </article>
         ))}
       </section>
@@ -231,7 +231,7 @@ export const ToolRadarSection: React.FC<ToolRadarSectionProps> = ({
           <h3 className="font-semibold text-term-fg-strong">{tool.name}</h3>
           {tool.whyMigrating && <p className="text-term-sub">{tool.whyMigrating}</p>}
           {tool.estimatedCost && <p><span className="text-xs text-term-label">費用目安 </span>{tool.estimatedCost}</p>}
-          {tool.proofQuote && <details><summary className="min-h-11 cursor-pointer text-term-select-fg lg:min-h-0">収集記録</summary><p className="mt-2">{tool.proofQuote}</p>{tool.detectionMethod && <p className="text-xs text-term-label">{tool.detectionMethod}</p>}</details>}
+          {tool.proofQuote && <details><summary className="min-h-11 cursor-pointer text-term-select-fg lg:min-h-6">収集記録</summary><p className="mt-2">{tool.proofQuote}</p>{tool.detectionMethod && <p className="text-xs text-term-label">{tool.detectionMethod}</p>}</details>}
           {tool.usedByEntities.length > 0 && <div className="flex flex-wrap gap-2">{tool.usedByEntities.map((entity) => onSelectEntity ? <button key={entity.id} type="button" onClick={() => onSelectEntity(entity.id)} className="min-h-11 rounded-sm border border-term-line px-2 text-term-select-fg hover:bg-term-head lg:min-h-8">{entity.name}</button> : <span key={entity.id}>{entity.name}</span>)}</div>}
         </article>
       ))}
