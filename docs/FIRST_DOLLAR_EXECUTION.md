@@ -2,11 +2,17 @@
 
 更新日: 2026-09-19
 
-## 北極星
+## 位置づけ
 
-MAKE MONEY を「儲かる事例を読む場所」で終わらせず、ユーザーが実際の最初の売上に到達するまでを1本の導線として持つ。
+MAKE MONEY を「儲かる事例を読む場所」で終わらせず、行動する一部のユーザーについては実際の最初の売上まで追えるようにする実行レイヤー。
 
-最重要のプロダクト指標は、閲覧数や保存数ではなく **Time to First Dollar**（機会を見つけてから、実売上が最初に発生するまでの時間）。
+ただし **Time to First Dollar はMake-Money全体のNorth Starではない**。
+
+全体の最上位KPIは [Operator Revenue & Growth Flywheel](OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md) に定義する **Operator Profit / Operator Revenue**。次に利用規模・再訪・Retentionを重視する。
+
+First Dollarは、商品が本当に売れるか、Marketplaceで紹介価値があるか、Seller / Promoterの成功証拠になるかを測る**下位の品質・成果指標**として扱う。
+
+大多数のユーザーが実際には商品を作らず「もっと良い機会」を探し続けること自体は失敗ではない。閲覧・探索・再訪もプラットフォーム価値と収益機会である。
 
 ## ユーザー導線
 
@@ -66,12 +72,13 @@ MAKE MONEY 自身がマーケットプレイスとして第三者商品の代金
 
 ## 次の実装判断基準
 
-新機能は原則として次のどれかを短縮・改善する場合だけ追加する。
+この実行レイヤー内では次を改善する。
 
-- First Dollar までの時間を短縮する
 - BUILD の作業量を減らす
-- DISTRIBUTE の最初の顧客到達率を上げる
+- ProductをMarketplaceへ掲載しやすくする
+- DISTRIBUTEで他ユーザーが紹介しやすくする
 - SELL の決済摩擦を減らす
-- EARN 後の再現性・反復率を上げる
+- First Dollar / Verified SaleをMarketplace quality signalとして取得する
+- 成功ProductをAffiliate Networkへ回しやすくする
 
-単に情報量を増やすだけの機能は、この実行レイヤーより優先しない。
+ただし全体優先順位は常に **Operator Revenue / Profit → User scale / Retention → Marketplace liquidity / Distribution → User outcome** の順で判断する。

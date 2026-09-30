@@ -17,6 +17,46 @@
 3. **どうやって俺たちが儲けるか**: 「マネーの関所（交差点）」＝稼ぎたい人間が必ず通る道に居座り、全方位から通行税を吸い上げる。
 
 
+### 【事業North Starの絶対順位】
+本プロジェクトの最上位KPIは**ユーザーのFirst Dollarではなく、運営に最終的にいくら利益が残るか**である。
+
+順位:
+1. **Operator Profit / Operator Revenue**
+2. **User Scale / Retention / Usage**
+3. **Marketplace liquidity / Affiliate distribution / Verified GMV**
+4. **First Dollar等の個別ユーザー成果**
+
+大多数の閲覧者が実際には何も作らず、何度も「もっと良い金脈」を探すことを失敗扱いしない。この継続探索はRetention・PRO・広告・Affiliate・Marketplace流入の母集団である。
+
+Builder、Listing、Affiliate、Partner Originはすべて、運営収益を増やす1本の成長装置として設計する。
+
+~~~
+大量閲覧
+↓
+一部がBuild / 自商品掲載
+↓
+商品供給増加
+↓
+他ユーザーが紹介
+↓
+外部Buyer流入
+↓
+Verified Sale
+↓
+Platform Fee
+↓
+Promoterが別Promoterを招待
+↓
+Origin Commission動機でNetwork拡大
+↓
+さらにSale / Platform Fee
+~~~
+
+Partner Originは過去SellRelay正本で確定した1段Origin方式を引き継ぐ。Network自体は連鎖できるが、1件のSaleからOrigin Commissionを受け取るのは販売者の直接紹介元1人だけ。Signup・招待人数だけに報酬は出さない。
+
+詳細正本: [docs/OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md](./docs/OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md)
+
+
 ### 【実行レイヤー憲章】発見した金脈を、その場で「所有する事業」へ変える
 Make-Moneyは情報を見せて「後は自分でBolt/Lovableを探して作れ」で終わってはならない。ユーザーが「これを作りたい」と感じた瞬間は、本プラットフォームが生んだ価値・行動意欲・購買意欲が最大になる地点である。その瞬間を外部サイトへ強制放流せず、**Opportunity → Build → Publish → Sell → Revenue Feedback**までをMake-Moneyの引力場へ接続する。
 
