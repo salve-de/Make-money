@@ -56,14 +56,29 @@ describe('GET /api/media', () => {
     expect(text).not.toContain('owner-delegated');
   });
 
-  it('shows nothing in production without a public domain', async () => {
+  it('in production without a public domain, reads through the app-served reader', async () => {
     mocks.source.mockResolvedValue({ kind: 'foundation_public', publicDomain: null });
+    const read = vi.fn(async () => ({}));
+    mocks.reader.mockReturnValue({ read, readFile: vi.fn(async () => null) });
     const body = await (await GET(request(`entity_id=${ENTITY}`))).json();
-    expect(body).toMatchObject({ available: false, entities: {} });
+    expect(mocks.reader).toHaveBeenCalledWith(null);
+    expect(read).toHaveBeenCalledWith([ENTITY]);
+    expect(body).toMatchObject({ source: 'foundation_public', available: true, entities: {} });
   });
 });
 
 describe('GET /api/media/file', () => {
+  it('in production without a public domain, streams only what the manifest reader returns', async () => {
+    mocks.source.mockResolvedValue({ kind: 'foundation_public', publicDomain: null });
+    const readFile = vi.fn(async (_entityId: string, assetId: string) => (assetId === 'ma_aaaaaaaaaaaaaaaaaaaaaaaa' ? { bytes: new Uint8Array([7, 8]), contentType: 'image/png' } : null));
+    mocks.reader.mockReturnValue({ read: vi.fn(), readFile });
+    const ok = await GET_FILE(request(`entity_id=${ENTITY}&asset=ma_aaaaaaaaaaaaaaaaaaaaaaaa`, '/api/media/file'));
+    expect(ok.status).toBe(200);
+    expect(ok.headers.get('content-type')).toBe('image/png');
+    expect(new Uint8Array(await ok.arrayBuffer())).toEqual(new Uint8Array([7, 8]));
+    expect((await GET_FILE(request(`entity_id=${ENTITY}&asset=ma_bbbbbbbbbbbbbbbbbbbbbbbb`, '/api/media/file'))).status).toBe(404);
+  });
+
   it('streams an allowed image with hardening headers and 404s everything else', async () => {
     const [favicon, home] = await stageEntity(root, ENTITY, [{ kind: 'favicon', bytes: Buffer.from('favicon-bytes') }, { kind: 'screenshot_home', bytes: Buffer.from('home') }]);
     await review(root, ENTITY, favicon, 'allowed');
