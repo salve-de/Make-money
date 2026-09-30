@@ -1,7 +1,7 @@
 # オーナーの意図（何を・なぜ・どこまで）— 最初に読む1枚
 
 最終更新: 2026-09-30。この文書は、オーナー（ユーザー）が会話で繰り返し伝えてきた「何を作りたいか・何を重視するか・何を嫌うか」を1か所にまとめたもの。オーナーは長い指示を書かないので、AI・作業者はここを読んでから動く。
-細部の正本: 収集の鉄則と事故録は [`DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)、項目の型は [`GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)、画像は [`MEDIA_ASSETS_AND_PROVENANCE.md`](./MEDIA_ASSETS_AND_PROVENANCE.md)、保存は [`COLLECT_AND_STORE.md`](./COLLECT_AND_STORE.md)。食い違ったら、この文書の「オーナーの決定」が新しい。
+細部の正本（土台との関係は10章）: 収集の鉄則と事故録は [`DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)、項目の型は [`GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)、画像は [`MEDIA_ASSETS_AND_PROVENANCE.md`](./MEDIA_ASSETS_AND_PROVENANCE.md)、保存は [`COLLECT_AND_STORE.md`](./COLLECT_AND_STORE.md)。食い違ったら、この文書の「オーナーの決定」が新しい。
 
 ---
 
@@ -70,3 +70,20 @@
 - 会話ごとに担当が分かれる（UIの会話はUIだけ、データの会話はデータだけ）。担当外は頼まれない限り触らない。
 - 報告は日本語で、結論から、平易に。項目名の一覧ではなく、実在の1件で「左に項目・右に実際の中身」の実物を見せる。
 - オーナーの訂正は、その場でこの文書と台帳（~/.claude/intent/projects/Make-Money.md）に追記する。
+
+## 10. 土台（Universal Foundation）との関係
+集めたデータは Make-Money だけの物ではない。共通の土台 [salve-de/universal-foundation](https://github.com/salve-de/universal-foundation) に入れ、Investrader・Idea Spark・GOLDMINE・将来の事業でも使い回す。土台の正本は次の3つ。
+- 北極星（`docs/NORTH_STAR.md`）: 「広く取る。証拠をそのまま残す。事実は控えめに組む。変化を時系列で追う。深掘りは価値のある物だけ。事業ごとの見せ方は最後に作る」。狙いは、新しい事業を思いついた時に集め直さずに済むこと。
+- 何を集めるか（`docs/MAKE_MONEY_COLLECTION_SCOPE.md`）: 12の領域（身元・人・商品・客と需要・料金・金と損益・集客・運営・技術・競合と市場・時系列と結末・出典と権利と不確かさ）と、9つの探し先（公式・本人の発信・過去の魚拓・報道・マーケット・客の声・検索や流入の推計・失敗や売却・出典不明の手がかり）。一次情報を優先するが、一次情報だけに絞らない。
+- Make-Money の物語の決まり（`docs/MAKE_MONEY_RESEARCH_REQUIREMENTS.md`）: 強い一行・4段の物語（前夜／隙／突破／金が回る仕組み）・客の心理・堀は残す。事実で確かめた後に作り、推論と印を付けて、後から作り直せる形にする。
+
+この文書（オーナーの決定）と土台の決まりの分け方:
+- **土台に入れる物（長く残す）**: 出典、取得日時、出典の本文（権利上許される時だけ）、事実・数字・出来事、食い違い、未確認。手残りの実額は、本人の証拠が無い限り「不明」のまま残す。
+- **作り直せる物（事業ごとの見せ方）**: 強い一行、推論した各項目、手残りの推定、今も通用するか。いまの推論（`data/reader-analysis.json`）はこちら。事実の側を推論で書き換えない。
+- **画面の決定はこの文書が優先**: 土台は「薄い候補も出典なしの手がかりとして見せてよい」とするが、Make-Money の画面では「データが少ない事例は保存したまま出さない」（8章）。「空欄は負け、推論で埋める」（3章）は、土台の「不明は不明」と矛盾しない。事実は不明のまま残し、画面には別の推定を印付きで出す。
+
+2026-09-30 時点で、土台の決まりに届いていない所（次の収集で埋める）:
+- 出典の本文（`data/source-cache`、約7,500件）はローカルにしか無い。権利上許される物は土台の証拠置き場（foundation-raw）に保存する。
+- 推論（`data/reader-analysis.json`）と画面に出すかの印（`data/case-display.json`）は、まだ土台に派生データとして入っていない。
+- 12の領域 × 9つの探し先ごとに「見つかった／探したが無かった／探していない／該当しない」を記録していない。
+- 4段の物語（前夜／隙／突破／金が回る仕組み）は、推論の項目にまだ無い。
