@@ -71,14 +71,18 @@ async function routeFoundation(page: Page, detailBody: unknown) {
   }));
 }
 
-async function openEvidence(page: Page) {
+// 詳細画面は entity.reader だけを読む。Foundation の観測（observations）と構造化データ（payload / publicPayload）を並べる
+// 「出典・記録」タブと証跡ストリーム（#section-stream）は撤去済み。撤去された表示そのものは確かめられないので、
+// 守るべき中身を今の画面に置き換える: Foundation の内部メタデータ・生の payload・公開用の構造化データが、
+// 詳細画面（本文全体）に一切出ないこと。収集しただけの観測は、公開版に入るまで「準備中」になる。
+async function openDetail(page: Page) {
   await page.goto(`/?entity=${entityId}`);
   await expect(page.getByRole('heading', { name: 'Structured Foundation Demo', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: '出典・記録', exact: true }).click();
-  const stream = page.locator('#section-stream');
-  await stream.scrollIntoViewIfNeeded();
-  await expect(stream).toBeInViewport();
-  return stream;
+  const inspector = page.getByRole('complementary', { name: 'Structured Foundation Demoの企業事例インスペクター' });
+  await expect(inspector).toContainText('この事例の詳細は準備中です。');
+  await expect(page.getByRole('button', { name: '出典・記録', exact: true })).toHaveCount(0);
+  await expect(page.locator('#section-stream')).toHaveCount(0);
+  return page.locator('body');
 }
 
 test('raw-only structured metadata stays hidden on the active CompanyInspector path', async ({ page }) => {
@@ -99,15 +103,16 @@ test('raw-only structured metadata stays hidden on the active CompanyInspector p
     evidenceIds: ['ev_structured'],
   }));
 
-  const stream = await openEvidence(page);
-  await expect(stream).toContainText('Raw semantic text');
-  await expect(stream.getByText('構造化データ', { exact: true })).toHaveCount(0);
-  await expect(stream).not.toContainText('must-not-appear-in-ui');
-  await expect(stream).not.toContainText('DISCOVERY');
-  await expect(stream).not.toContainText('urn:internal:schema');
+  const body = await openDetail(page);
+  await expect(body.getByText('構造化データ', { exact: true })).toHaveCount(0);
+  await expect(body).not.toContainText('must-not-appear-in-ui');
+  await expect(body).not.toContainText('raw_secret');
+  await expect(body).not.toContainText('DISCOVERY');
+  await expect(body).not.toContainText('urn:internal:schema');
+  await expect(body).not.toContainText('business_model.raw');
 });
 
-test('explicit publicPayload reaches the active CompanyInspector evidence stream without internal metadata', async ({ page }) => {
+test('explicit publicPayload does not reach the reader-only inspector and no internal metadata leaks', async ({ page }) => {
   await routeFoundation(page, detail({
     id: 'obs_public',
     kind: 'business_model.revenue_signal',
@@ -130,16 +135,14 @@ test('explicit publicPayload reaches the active CompanyInspector evidence stream
     evidenceIds: ['ev_structured'],
   }));
 
-  const stream = await openEvidence(page);
-  await expect(stream).toContainText('Structured revenue signal');
-  const structured = stream.getByText('構造化データ', { exact: true });
-  await expect(structured).toBeVisible();
-  await structured.click();
-
-  await expect(stream).toContainText('business_model.revenue_signal');
-  await expect(stream).toContainText('public_fact');
-  await expect(stream).toContainText('123000000');
-  await expect(stream).not.toContainText('must-not-appear-in-ui');
-  await expect(stream).not.toContainText('DISCOVERY');
-  await expect(stream).not.toContainText('urn:internal:schema');
+  const body = await openDetail(page);
+  // 出典つきの reader を持たない観測は、公開用の構造化データであっても数字として画面に出さない（未確認の金額を実測に見せない）。
+  await expect(body.getByText('構造化データ', { exact: true })).toHaveCount(0);
+  await expect(body).not.toContainText('123000000');
+  await expect(body).not.toContainText('123,000,000');
+  await expect(body).not.toContainText('public_fact');
+  await expect(body).not.toContainText('business_model.revenue_signal');
+  await expect(body).not.toContainText('must-not-appear-in-ui');
+  await expect(body).not.toContainText('DISCOVERY');
+  await expect(body).not.toContainText('urn:internal:schema');
 });

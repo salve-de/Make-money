@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { routeReader } from './reader-fixture';
 
 test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('kin_pro_unlocked', 'true'));
@@ -9,12 +10,15 @@ test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) =>
   expect([401, 403]).toContain(response.status());
 });
 
+// Photo AI は公開版の103社に入っていない（詳細は「準備中」）。財務の数字も作文も画面に出ないことを、そのまま確かめる。
 test('ticker and welcome use the same amounts as the ledger', async ({ page }) => {
   await page.goto('/?entity=ent_photoai');
   const ticker = page.getByRole('complementary', { name: '台帳の財務サマリー' });
   await expect(ticker).toHaveCount(0);
-  await expect(page.locator('#section-summary')).not.toContainText(/(?<![\d,.])0円/);
-  await expect(page.locator('#section-summary')).not.toContainText('45億');
+  const inspector = page.getByRole('complementary', { name: 'Photo AIの企業事例インスペクター' });
+  await expect(inspector).toContainText('この事例の詳細は準備中です。');
+  await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
+  await expect(inspector).not.toContainText('45億');
   await page.goto('/welcome');
   const preview = page.locator('a').filter({ hasText: 'Photo AI' });
   await expect(preview).toHaveCount(1);
@@ -37,18 +41,24 @@ test('opening success without a payment cannot claim confirmation or grant acces
   expect(await page.evaluate(() => localStorage.getItem('kin_pro_unlocked'))).not.toBe('true');
 });
 
+// 公開済みの事例（Plausible）の詳細に、利益が「未確認」の reader を載せて確かめる。0円の実測に見せず、出典リンクは安全な形で出る。
 test('unconfirmed financials never present a zero as a measured result', async ({ page }) => {
-  // Keep this regression on the same canonical Photo AI deep-link contract
-  // exercised elsewhere in the suite; ticker membership is intentionally not
-  // a prerequisite for opening a dossier.
-  await page.goto('/?entity=ent_photoai');
-  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+  await routeReader(page, 'ent_plausible');
+  await page.goto('/?entity=ent_plausible');
+  await expect(page.getByRole('heading', { name: 'Plausible Analytics', exact: true })).toBeVisible();
+  const inspector = page.getByRole('complementary', { name: 'Plausible Analyticsの企業事例インスペクター' });
+  await expect(inspector.locator('#section-metrics')).toBeVisible();
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(page.locator('#section-summary')).not.toContainText(/(?<![\d,.])0円/);
-  await page.getByRole('button', { name: '出典・記録', exact: true }).click();
+  await expect(inspector).toContainText('未確認: 利益');
+  await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
   const sources = page.locator('#section-sources');
-  await expect(sources.getByRole('link', { name: '公式サイト', exact: true })).toHaveAttribute('href', /^https?:\/\//);
-  await expect(sources.getByRole('link').first()).toHaveAttribute('rel', 'noopener noreferrer');
+  await expect(sources).toBeVisible();
+  await expect(sources.getByRole('link', { name: /サンプル公式/ })).toHaveAttribute('href', /^https?:\/\//);
+  const links = sources.getByRole('link');
+  for (let i = 0; i < await links.count(); i += 1) {
+    await expect(links.nth(i)).toHaveAttribute('href', /^https?:\/\//);
+    await expect(links.nth(i)).toHaveAttribute('rel', 'noopener noreferrer');
+  }
   await expect(sources).not.toContainText('原本暗号保全済み');
 });
 
