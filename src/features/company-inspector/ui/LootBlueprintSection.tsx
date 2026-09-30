@@ -4,6 +4,7 @@ import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
+import { cleanDisplayText } from '@/shared/display-text';
 import { legacyText } from '../model/legacy-fields';
 import { formatYen } from '@/platform/utils/moneyDisplay';
 
@@ -19,7 +20,7 @@ function cleanText(value: string | null | undefined): string | null {
   ) {
     return null;
   }
-  return trimmed;
+  return cleanDisplayText(trimmed);
 }
 
 export function LootBlueprintSection({
@@ -57,8 +58,8 @@ export function LootBlueprintSection({
       label: isHazardMode ? '入口' : '顧客獲得',
       title: isHazardMode ? 'どこで無理が始まったか' : '最初の顧客をどう取るか',
       text: stealthEntry,
-      extraLabel: loot?.targetPrey ? 'ターゲット' : null,
-      extra: loot?.targetPrey || null,
+      extraLabel: cleanText(loot?.targetPrey) ? 'ターゲット' : null,
+      extra: cleanText(loot?.targetPrey),
     });
   }
 
@@ -68,8 +69,8 @@ export function LootBlueprintSection({
       label: isHazardMode ? '構造' : '提供構造',
       title: isHazardMode ? 'どの構造が損失を増幅したか' : '何を使って、どう提供するか',
       text: tollGateSetup,
-      extraLabel: loot?.structuralFlaw ? '業界の摩擦' : null,
-      extra: loot?.structuralFlaw || null,
+      extraLabel: cleanText(loot?.structuralFlaw) ? '業界の摩擦' : null,
+      extra: cleanText(loot?.structuralFlaw),
     });
   }
 
@@ -84,7 +85,8 @@ export function LootBlueprintSection({
 
   if (cleanText(loot?.targetPrey) && !stealthEntry) steps.push({ index: String(steps.length + 1).padStart(2, '0'), label: '対象顧客', title: '狙う顧客', text: cleanText(loot?.targetPrey)! });
   if (cleanText(loot?.structuralFlaw) && !tollGateSetup) steps.push({ index: String(steps.length + 1).padStart(2, '0'), label: '業界の摩擦', title: '既存の構造上の課題', text: cleanText(loot?.structuralFlaw)! });
-  const hasAnyContent = steps.length > 0 || Boolean(entity.strategy?.initialTraction?.some((text) => cleanText(text)));
+  const initialTraction = (entity.strategy?.initialTraction || []).filter((text) => cleanText(text));
+  const hasAnyContent = steps.length > 0 || initialTraction.length > 0;
 
   if (!hasAnyContent) return null;
 
@@ -94,8 +96,6 @@ export function LootBlueprintSection({
       {hasKnownInitialCapital && <span>初期資本 {formatYen(initialCapital)}</span>}
     </div>
   );
-
-  const initialTraction = (entity.strategy?.initialTraction || []).filter(Boolean);
 
   return (
     <InspectorSectionCard
@@ -119,7 +119,7 @@ export function LootBlueprintSection({
                 }`}>
                   #{idx + 1}
                 </span>
-                <span>{item}</span>
+                <span>{cleanDisplayText(item)}</span>
               </div>
             ))}
           </div>

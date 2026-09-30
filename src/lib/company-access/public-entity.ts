@@ -4,6 +4,8 @@ import {
   computeClaimFingerprint,
 } from '@/shared/terminal';
 import { sha256Sync } from '@/shared/sha256';
+import { lightReader } from './reader-case-light';
+import { listRevenueText, revenueTextInputOf } from '@/shared/display-text';
 import { resolveFoundationEvidence, verifyRawPayload } from '@/lib/foundation/evidence-store';
 import { verifyClaimSupport } from './claim-support';
 import type {
@@ -243,8 +245,19 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
  * PUBLISHABLE かつ Claim-level Evidence Locator（客観的出典）が存在するもののみを許可。
  * undefined, RAW, PARTIAL, ARCHIVED, REJECTED_AS_CASE, または根拠なきデータは一般公開面に漏らさない。
  */
+/**
+ * 2026-09-29 表示契約: 根拠のある事実を持つ記録は、未確認項目が残っていても（PARTIAL）表示する。
+ * 未確認は「未確認」として表示し、根拠のない数値は出さない。RAW / ARCHIVED / REJECTED_AS_CASE / 未指定は表示しない。
+ */
+export const DISPLAYABLE_PUBLISHABILITY: ReadonlySet<string> = new Set(['PUBLISHABLE', 'PARTIAL']);
+
 export function isPublishableEntity(entity: FinancialEntity): boolean {
-  // 厳格Fail-closed: 明示的に 'PUBLISHABLE' かつ客観的出典ロケーターが存在する場合のみ許可。
+  // 表示可否ゲート: 明示的に PUBLISHABLE または PARTIAL で、かつ客観的出典ロケーターが存在する場合のみ許可。
+  return DISPLAYABLE_PUBLISHABILITY.has(entity?.publishability ?? '') && hasValidEvidenceLocator(entity);
+}
+
+/** 審査通過（PUBLISHABLE）かどうか。バッジ表示用であり、表示可否のゲートではない。 */
+export function isPublicationApproved(entity: FinancialEntity): boolean {
   return entity?.publishability === 'PUBLISHABLE' && hasValidEvidenceLocator(entity);
 }
 
@@ -269,6 +282,7 @@ export function publicSummaryEntity(source: FinancialEntity): PublicSummaryEntit
     legalEntity: entity.legalEntity,
     tagline: entity.tagline,
     sector: entity.sector,
+    sectorBasis: entity.sectorBasis,
     scale: entity.scale,
     founder: entity.founder,
     country: entity.country,
@@ -297,7 +311,8 @@ export function publicSummaryEntity(source: FinancialEntity): PublicSummaryEntit
       isCogsUnconfirmed: entity.pnl?.isCogsUnconfirmed,
       isCostsUnconfirmed: entity.pnl?.isCostsUnconfirmed,
       isNetProfitUnconfirmed: entity.pnl?.isNetProfitUnconfirmed,
-      revenueLabel: entity.pnl?.revenueLabel,
+      // 一覧に出す売上の文。年次の報告値は年次のまま、長い注記は詳細ペインに任せる。
+      revenueLabel: isRevUnconfirmed ? listRevenueText(revenueTextInputOf(entity)) : entity.pnl?.revenueLabel,
     },
     operations: {
       teamSize: isTeamUnconfirmed ? 0 : (entity.operations?.teamSize ?? 1),
@@ -334,6 +349,7 @@ export function publicSummaryEntity(source: FinancialEntity): PublicSummaryEntit
       eraContext: '',
       currentViabilityAnalysis: '',
     } : undefined,
+    ...(entity.reader ? { reader: lightReader(entity.reader) } : {}),
     publishability: entity.publishability,
     // A made-up identifier is not a stored content hash and causes detail 404s.
     latestDossierHash: entity.latestDossierHash,

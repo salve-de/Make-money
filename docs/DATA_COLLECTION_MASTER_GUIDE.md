@@ -106,6 +106,15 @@
 
 一次資料（確認日: 2026-09-28）: [文化庁「他人の著作物を利用したい場合」](https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/chosakukensha_fumei/)、[文化庁「AIと著作権」](https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html)、[個人情報保護委員会 FAQ Q1-49 / Q2-4](https://www.ppc.go.jp/personalinfo/faq/APPI_QA/)、[OpenAI Terms of Use](https://openai.com/policies/terms-of-use/)、[OpenAI Services Agreement](https://openai.com/policies/may-2025-business-terms/)、[OpenAI Sharing & Publication Policy](https://openai.com/policies/sharing-publication-policy/)、[OpenAI Web Search API citations](https://developers.openai.com/api/docs/guides/tools-web-search)、[Creative Commons licensing guidance](https://creativecommons.org/share-your-work/licensing-considerations/version4/)。この節は運用方針であり、個別案件の法律意見ではない。
 
+### 0.1 画像の取得（v3、2026-09-29 #2。正本は `docs/MEDIA_ASSETS_AND_PROVENANCE.md`）
+
+画像は必須。取れるものは取る（アイコン、プレビュー画像＝og:image、ストア画像）。取得元は次の2つだけ。
+
+- **公式サイト**（記録の公式ドメイン内）: favicon と og:image。robots.txt とbot対策は回避しない。公式ドメイン外のCDN、SNS、第三者サイトの画像は取らない。人物写真は使わない。
+- **App Store の掲載画像**: Apple の公開 iTunes Lookup / Search API（`https://itunes.apple.com/lookup`, `/search`）だけを使う。アイコン1枚とストア画像最大3枚。名前検索では、開発者サイト（`sellerUrl`）が記録の公式ドメインと一致したときだけ採る。**Google Play は対象外**（公式APIが無く、HTML取得は規約上グレー）。（**2026-09-30 注記** → OWNER_INTENT 7章: 出すのは出典リンク付きの小さなサムネだけ。ギャラリー、拡大、ダウンロードは付けない）
+- 権利区分は `official_marketing_material`。識別・説明の目的に限り、小さく表示し（アイコン128px以下、プレビュー・ストア画像は長辺480px以下）、出典リンクを付け、削除依頼に応じる。UFの登録簿ではアプリストアの `public_media_display` は `blocked` のままで、この運用は登録簿と食い違う（登録簿の更新はUF側の作業としてオーナーに渡す）。
+- 取得した画像は `held` から始まり、1枚ごとの台帳と判定ログ（`decisions.jsonl`）で `allowed` になったものだけ表示する。自動判定 `auto-rule-v3` は顔が無い識別用素材だけを `allowed` にし、スクリーンショットは人手待ちにする。
+
 ### 1. 収集項目と足切り条件の完全分離（ゼロ足切り ＆ 欠損誠実受入原則）
 - **収集項目**: 人数、粗利、原価、URL、創業者、ツール構成など、**必要なデータは当然すべて徹底調査して記録する**。
 - **足切り条件（完全排除）**: **いかなる項目の欠落や数値の有無も【収集の足切り条件（フィルター）】には絶対にしない**。

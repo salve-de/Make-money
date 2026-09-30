@@ -17,24 +17,26 @@ describe('execution identity without financial publication', () => {
     state.ready.mockReturnValue(false);
   });
   it('uses the same ready-R2 replacement rule as the detail page', async () => {
-    const base = { id: 'ent_live', name: 'Live', strategy: { actionPlaybook: [], initialTraction: [], blindspot: 'old' }, operations: { primaryChannels: [] } };
+    const rd = (text: string) => ({ sources: [], facts: [{ id: 'f1', text }], metrics: [], unknowns: [] });
+    const base = { id: 'ent_live', name: 'Live', reader: rd('old') };
     state.local.mockResolvedValue(base);
-    state.view.mockResolvedValue({ ...base, strategy: { ...base.strategy, blindspot: 'new' } });
-    expect((await findExecutionSource('ent_live'))?.strategy.blindspot).toBe('old');
+    state.view.mockResolvedValue({ ...base, reader: rd('new') });
+    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('old');
     state.ready.mockReturnValue(true);
-    expect((await findExecutionSource('ent_live'))?.strategy.blindspot).toBe('new');
+    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('new');
     state.gate.mockReturnValue(false);
-    expect((await findExecutionSource('ent_live'))?.strategy.blindspot).toBe('old');
+    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('old');
     state.view.mockRejectedValue(new Error('R2 unavailable'));
-    expect((await findExecutionSource('ent_live'))?.strategy.blindspot).toBe('old');
+    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('old');
   });
   it('carries publishable R2 context into execution without financial or private fields', async () => {
     state.view.mockResolvedValue({ id: 'ent_live', name: 'Live', tagline: 'Recorded business',
-      strategy: { actionPlaybook: [], initialTraction: [], blindspot: 'Recorded insight' },
-      operations: { primaryChannels: ['Recorded channel'] }, pnl: { monthlyRevenue: 99 }, meta: { secret: true } });
+      reader: { sources: [], facts: [], metrics: [], unknowns: [] },
+      strategy: { blindspot: 'Recorded insight' }, pnl: { monthlyRevenue: 99 }, meta: { secret: true } });
     const source = await findExecutionSource('ent_live');
-    expect(source?.strategy.blindspot).toBe('Recorded insight');
-    expect(source?.operations.primaryChannels).toEqual(['Recorded channel']);
+    expect(source?.reader).toBeDefined();
+    expect(source).not.toHaveProperty('strategy');
+    expect(source).not.toHaveProperty('tagline');
     expect(source?.contextUnavailable).toBeUndefined();
     expect(source).not.toHaveProperty('pnl'); expect(source).not.toHaveProperty('meta');
   });
@@ -55,7 +57,6 @@ describe('execution identity without financial publication', () => {
     expect(source).toMatchObject({ id: 'ent_keyence', contextUnavailable: true });
     expect(source).not.toHaveProperty('pnl');
     expect(source).not.toHaveProperty('meta');
-    expect(source?.strategy.actionPlaybook).toEqual([]);
   });
   it('supports canonical new arrivals not yet in the local registry', async () => {
     state.canonical.mockResolvedValue({ id: 'ent_new', name: 'New case' });
@@ -66,9 +67,9 @@ describe('execution identity without financial publication', () => {
   });
   it('does not send financial or premium fields from a publishable dossier', async () => {
     state.local.mockResolvedValue({ id: 'ent_known', name: 'Known', pnl: { monthlyRevenue: 42 },
-      meta: { private: true }, strategy: { actionPlaybook: [], blindspot: 'hint' }, operations: { primaryChannels: [] } });
+      meta: { private: true }, strategy: { blindspot: 'hint' } });
     const source = await findExecutionSource('ent_known');
-    expect(source?.strategy.blindspot).toBe('hint');
+    expect(source).not.toHaveProperty('strategy');
     expect(source).not.toHaveProperty('pnl');
     expect(source).not.toHaveProperty('meta');
   });

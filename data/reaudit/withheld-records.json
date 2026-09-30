@@ -1,0 +1,461 @@
+[
+  {
+    "id": "ent_rhudenauticalsilkshirt_a33f04af4094",
+    "name": "Rhude Nautical Silk Shirt",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_COUNTERFEIT_STORE",
+    "reason": "実在するロサンゼルスのファッションブランド Rhude の名前を使う通販店。記録上の公式URL rhudecom.com は現在名前解決できず、Wayback の保存版（2025-01-01）は本物のブランドとは別ドメインで「公式サイト」を名乗る店だった。偽物・模倣品の店の可能性があり、事例として掲載すると商標を侵害する店への集客に加担するおそれがあるため、公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://rhudecom.com/",
+        "observation": "2026-09-29 時点で名前解決できない"
+      },
+      {
+        "url": "https://web.archive.org/web/20250101000000*/rhudecom.com",
+        "observation": "2025-01-01 の保存版は本物のブランドとは別ドメインで「公式サイト」を名乗る通販店"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_telegramaccountmarketplaces-aged-reviewed_0c4fd370252d",
+    "name": "Telegram Account Marketplaces: Aged & Reviewed",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_ILLEGAL_GOODS",
+    "reason": "各種アカウントと偽の識別番号を販売する通販ページとして記録されていた。アカウントの売買は各サービスの規約違反、偽の識別番号の販売は違法の疑いがあり、事例として掲載すると不正取引への集客に加担するおそれがあるため公開表示を停止する。IH の掲載ページは 404。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/",
+        "observation": "2026-09-29 の再監査（IH batch 017）で IH 掲載ページが 404、販売ページの内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_rswsora2studio_15c080113c02",
+    "name": "RSW Sora 2 AI Studio",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_RIGHTS_INFO_REMOVAL",
+    "reason": "生成動画の透かし（権利・出所を示す表示）を除去する道具として掲載されていた。透かし等の権利管理情報の除去は著作権侵害とみなされうる行為（日本では著作権法113条）で、事例として掲載すると侵害行為への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://www.removesorawatermark.online/sora2-video",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_capcutmodapk_109c8bc42d09",
+    "name": "Capcut MOD APK",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "他社アプリの改変版（MOD／非公式クライアント）を配布するサイトとして掲載されていた。改変版の配布は元アプリの著作権侵害・規約違反の疑いがあり、事例として掲載すると侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://capcutmodpro.org",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_gbwhatsappprov1870_304187da628b",
+    "name": "GB WhatsApp Pro v18.70",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "他社アプリの改変版（MOD／非公式クライアント）を配布するサイトとして掲載されていた。改変版の配布は元アプリの著作権侵害・規約違反の疑いがあり、事例として掲載すると侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://gbwaves.net/",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_gbwhatsappapk_28172331b165",
+    "name": "GB WhatsApp APK",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "他社アプリの改変版（MOD／非公式クライアント）を配布するサイトとして掲載されていた。改変版の配布は元アプリの著作権侵害・規約違反の疑いがあり、事例として掲載すると侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://gbwaplus.net/",
+        "observation": "2026-09-29 の再監査（IH batch 020）で掲載内容を確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_lighthouse_7d9a2283f840",
+    "name": "Lighthouse",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "DOMAIN_REPURPOSED_TO_GAMBLING",
+    "reason": "掲載の公式URLが、IH の掲載内容（B2B向けAI導入支援）と無関係なオンラインスロット（賭博）の案内ページを表示している。ドメインの失効後の転用か乗っ取りの疑いがあり、リンクを出すと読者を賭博サイトへ送ることになるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://lighthouselaunch.com",
+        "observation": "2026-09-29 の再監査（IH batch 019）で確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_stremioaddonmanager_afa8b297e1d4",
+    "name": "Stremio Addon Manager",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_PIRACY_FACILITATION",
+    "reason": "非公式ツールで、掲載者の投稿が違法配信の入手に使われる拡張（Torrentio、Real-Debrid）に言及している。著作権侵害の助長の疑いがあり、事例として掲載すると侵害への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://stremioaddonmanager.org",
+        "observation": "2026-09-29 の再監査（IH batch 019）で確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_qwenimage_a15ace8d4a96",
+    "name": "Qwen Image AI",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_IMPERSONATION",
+    "reason": "著名なAIモデル・企業の名称を使うサイトで、開発元との関係が確認できず、公式を装う疑いが指摘されている（開発元リポジトリの利用者報告）。公式と誤認させる店への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://qwen-image.ai/",
+        "observation": "2026-09-29 の再監査（IH batch 021）で確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_minimaxh3_dbb09329c2df",
+    "name": "MiniMax H3",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_IMPERSONATION",
+    "reason": "著名なAIモデル・企業の名称を使うサイトで、開発元との関係が確認できず、公式を装う疑いが指摘されている（規約上の運営者が別会社）。公式と誤認させる店への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://miniultra.tech/",
+        "observation": "2026-09-29 の再監査（IH batch 040）で確認"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_silentwealthglobal_a8b5f60b498e",
+    "name": "Silent Wealth Global",
+    "reasonCode": "SUSPECTED_SANCTIONS_EVASION",
+    "reason": "制裁対象者や政治的に影響力を持つ人物に向けて、名義管理・匿名の資産保有構造を案内している。資格・適法性は確認できず、制裁回避を助ける恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://silentwealthglobal.org",
+        "observation": "公式サイトが制裁対象者向けサービスと名義・資産保有構造の設計を案内（2026-09-29 観測）"
+      },
+      {
+        "url": "https://www.indiehackers.com/product/silent-wealth-global-2",
+        "observation": "IH掲載は立ち上げ告知と同日に月$200,000の収益を入力。運営者と実績は未確認"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_jaiclubofficial_216747b4766b",
+    "name": "JAI CLUB OFFICIAL",
+    "reasonCode": "SUSPECTED_UNLICENSED_GAMBLING",
+    "reason": "入金・賭けに連動する報酬と紹介報酬を宣伝している。運営主体・許認可は確認できず、公式サイトにも到達できないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/product/jai-club-official",
+        "observation": "2026-03-23の掲載でゲーム・入金・賭け連動の報酬と紹介報酬を宣伝（2026-09-29 観測）"
+      },
+      {
+        "url": "https://jai-club.co.in/",
+        "observation": "公式URLに到達できない（2026-09-29）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_fashiondiffusion_38a2182d31ef",
+    "name": "Fashion Diffusion",
+    "reasonCode": "SUSPECTED_NCII_TOOL_PROMOTION",
+    "reason": "公式サイトのフッターから、服の除去や透視をうたうツールへ誘導している。本人の同意のない性的画像の生成につながる恐れがあるため、掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.fashiondiffusion.ai/",
+        "observation": "公式フッターに服の除去・透視をうたう名称のツールへの導線（2026-09-29 観測、機能は実行していない）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_vibotsite_d7c97e854e02",
+    "name": "Vibot.site",
+    "reasonCode": "DOMAIN_REPURPOSED_TO_ADULT_ADS",
+    "reason": "掲載された公式ドメインが成人向け広告の画面に変わっており、元の動画作成サービスとは別物になっている。リンク先として出せないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "http://www.vibot.site/",
+        "observation": "トルコ語の成人向け広告掲載画面を返す（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_scratespas_796bb310da56",
+    "name": "scratespas",
+    "reasonCode": "SUSPECTED_UNLICENSED_GAMBLING",
+    "reason": "掲載URLがスロット・カジノ等の賭博サイトで、運営主体と許認可が確認できないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://hgo909.io/",
+        "observation": "HGO909名義でスロット・スポーツ・カジノを表示（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_carziqo_f990037f38c0",
+    "name": "Carziqo",
+    "reasonCode": "SUSPECTED_INVESTMENT_SCHEME",
+    "reason": "自動運転車への出資で日々の収益分配を得られるとうたうが、車両運行・入金の実態と許認可が確認できない。出資勧誘型の詐欺の恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/product/carziqo",
+        "observation": "自動運転車の貸し出しで収入を得ると紹介、運行・入金実績は確認できない（2026-09-29 観測）"
+      },
+      {
+        "url": "https://vip.carziqo.net/",
+        "observation": "題名とJavaScript要求のみ、サービス本文なし（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_mobmonitor_1080b8f46e8a",
+    "name": "MobMonitor",
+    "reasonCode": "SUSPECTED_STALKERWARE",
+    "reason": "他人のAndroid端末の位置・通話・SNS・録音を監視する機能を売り、権限のない端末への導入は利用者の責任とする免責を出している。本人に知られない監視に使われる恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://mobmonitor.com/",
+        "observation": "位置追跡・通話履歴・SNS活動・録音機能と、監視権限のない端末への導入に関する免責を表示（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_pojavlauncherdl_4a36457e98e4",
+    "name": "PojavlauncherDL",
+    "reasonCode": "SUSPECTED_IMPERSONATION",
+    "reason": "トップでOfficialと名乗ってAPKを配布するが、Aboutはファンサイトと説明しており、開発元との正式な関係が確認できない。非公式配布を公式と装っている恐れがあるため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://pojavlauncherdl.com/",
+        "observation": "Official表記とAPK配布の導線（2026-09-29 観測）"
+      },
+      {
+        "url": "https://pojavlauncherdl.com/about-us/",
+        "observation": "Minecraftファンのサイトと説明（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_terabox_25bf0737ffb6",
+    "name": "Terabox",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "正規TeraBoxの改変APKと有料機能の無料利用をうたうページで、配布の許諾が確認できないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.teraboxpremapk.com/",
+        "observation": "改変APKと有料機能の無料利用をうたう（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_vnmodapk_b1d5d0744a56",
+    "name": "VN MOD APK",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "名称が改変版アプリ（MOD APK）の配布を示し、配布許諾を確認できない。サイトは現在到達できない。同種の掲載（Capcut MOD APK等）と同じ扱いで掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://www.indiehackers.com/product/vn-mod-apk",
+        "observation": "改変版APKの名称で掲載（2026-09-29 観測）"
+      },
+      {
+        "url": "https://vnapkdownload.com",
+        "observation": "DNS解決に失敗し到達できない（2026-09-29 観測）"
+      }
+    ],
+    "publishability": "REJECTED_AS_CASE",
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-29)",
+    "decidedAt": "2026-09-29"
+  },
+  {
+    "id": "ent_filmoramodapk_4671cfd457a0",
+    "name": "Filmora Mod APK",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "動画編集アプリの有料制限の解除をうたう非公式の改変版（Mod APK）の配布サイトとして掲載されていた。改変版の配布は元アプリの著作権侵害・規約違反の疑いがあり、事例として掲載すると侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://filmoramodapk.site/",
+        "observation": "2026-09-30 の公開前確認で掲載内容（事業の概要）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_shadowfightguideshub_20839d27cba9",
+    "name": "Shadow Fight Guides Hub",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_INFRINGING_DISTRIBUTION",
+    "reason": "攻略ガイドを掲げる掲載だが、公式URLは同ゲームの改変版アプリ（Mod APK）を案内している。侵害配布への集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://shadowfightter.com/",
+        "observation": "2026-09-30 の公開前確認で掲載内容（事業の概要）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_luxuryldreplicabagsproviderhightquality1-1_e97814d8b12e",
+    "name": "Luxury LD replica bags provider hight quality 1:1",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_COUNTERFEIT_GOODS",
+    "reason": "高級ブランドの「レプリカ」バッグの提供を掲げる掲載。商標権侵害品（偽物）の販売の疑いがあり、事例として掲載すると集客に加担するおそれがあるため公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://ldluxurybags.com/",
+        "observation": "2026-09-30 の公開前確認で掲載内容（事業の概要）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_v9app_a5bb83efbb97",
+    "name": "V9 App",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_UNLICENSED_GAMBLING",
+    "reason": "パキスタン向けの現金賭博・カードゲームを紹介し外部ダウンロードへ誘導するサイト。運営主体と許認可が確認できないため掲載を止める。",
+    "evidence": [
+      {
+        "url": "https://v-9game.com.pk/",
+        "observation": "2026-09-30 の公開前確認で掲載内容（事業の概要）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_touchtap_416172f2aa2f",
+    "name": "Touchtap",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "OFFICIAL_DOMAIN_REDIRECTS_TO_GAMBLING",
+    "reason": "公式ドメインが別のサイトを経由してカジノ関連とみられるドメインへ転送される。公式サイトへのリンクが賭博サイトへの誘導になるため掲載を止める。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://touchtap.com",
+        "observation": "2026-09-30 の公開前確認で掲載内容（事業の概要）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_neuroxtm_807d63d83f7b",
+    "name": "NeuroX™",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "SUSPECTED_UNLICENSED_GAMBLING",
+    "reason": "暗号資産のギャンブルサイト向け自動ベットボットを匿名の運営者が販売すると称するページ。賭博への誘導と効果の根拠の無い売上主張のため掲載を止める。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://mr-xneuro.github.io/neurobet-demo/",
+        "observation": "2026-09-30 の公開前確認で画面の文字（事業の概要・観察）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_dynamicslabs_0f12a2c0a08f",
+    "name": "Dynamics Labs",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "OFFICIAL_DOMAIN_SHOWS_GAMBLING",
+    "reason": "公式ドメインは403で、保存ページはベトナム語のオンライン賭博サイトの内容だった。事業の実体が確認できず、リンクが賭博サイトへの誘導になるため掲載を止める。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://www.dynamicslabs.io",
+        "observation": "2026-09-30 の公開前確認で画面の文字（事業の概要・観察）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_enzo_60bad17917cf",
+    "name": "Enzo App",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "OFFICIAL_DOMAIN_SHOWS_GAMBLING",
+    "reason": "旧公式URLは家事アプリではなく、賭博・スロット関連カテゴリを含む無関係のブログを表示する。リンクが無関係・賭博関連のサイトへの誘導になるため掲載を止める。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://www.enzo-app.co/",
+        "observation": "2026-09-30 の公開前確認で画面の文字（事業の概要・観察）から判断"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  },
+  {
+    "id": "ent_filmmakerfreedom_c13dd4f7aa8d",
+    "name": "Filmmaker Freedom",
+    "publishability": "REJECTED_AS_CASE",
+    "reasonCode": "OFFICIAL_DOMAIN_SHOWS_GAMBLING",
+    "reason": "記録上の公式URL filmmakerfreedom.com が、2026-09-30 の確認でオンラインスロット賭博サイト（OLXTOTO）の案内を表示している。事例の事業とは別の賭博サイトへの集客になるため、公開表示を停止する。記録は削除せず残す。",
+    "evidence": [
+      {
+        "url": "https://filmmakerfreedom.com/",
+        "observation": "2026-09-30 の取得でページ題名が「OLXTOTO - Katalog Utama Situs Bandar Slot Gacor」（スロット賭博の案内）"
+      }
+    ],
+    "decidedBy": "owner (delegated to Claude lead, 2026-09-30)",
+    "decidedAt": "2026-09-30"
+  }
+]

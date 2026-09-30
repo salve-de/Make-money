@@ -20,7 +20,7 @@ it('restores growth, operating metrics, per-tool costs, total and source links w
 it('does not treat missing or unconfirmed zero costs as free and does not sum partial costs', () => {
   const entity = fixture(); entity.operations.toolStack[1].isCostUnconfirmed = undefined;
   entity.operations.isCapitalUnconfirmed = true; entity.operations.initialCapitalRequired = 99999;
-  const html = render(entity); expect(html).toContain('合計 —'); expect(html).not.toContain('¥0'); expect(html).not.toContain('¥99999');
+  const html = render(entity); expect(html).not.toContain('合計'); expect(html).not.toContain('¥0'); expect(html).not.toContain('¥99999');
 });
 it('falls back to legacy team size and rejects unsafe links and invalid values', () => {
   const entity = fixture(); entity.operations.currentTeamSize = undefined; entity.operations.teamSize = 3;

@@ -32,7 +32,10 @@ describe('PR20 filter behavior contract', () => {
     expect(matchesGridFilter(candidate, 'MONOPOLY', empty)).toBe(false);
     expect(matchesGridFilter({ ...candidate, scale: 'ENTERPRISE' }, 'MONOPOLY', empty)).toBe(true);
     expect(matchesGridFilter(candidate, 'AI_NATIVE', empty)).toBe(false);
-    expect(matchesGridFilter({ ...candidate, sector: 'AI_AUTOMATION' }, 'AI_NATIVE', empty)).toBe(true);
+    // キーワードからの推測の業種では絞り込まない
+    expect(matchesGridFilter({ ...candidate, sector: 'AI_AUTOMATION' }, 'AI_NATIVE', empty)).toBe(false);
+    expect(matchesGridFilter({ ...candidate, sector: 'AI_AUTOMATION', sectorBasis: { source: 'SOURCED_DESCRIPTION', note: '主要説明文の語: AI' } }, 'AI_NATIVE', empty)).toBe(false);
+    expect(matchesGridFilter({ ...candidate, sector: 'AI_AUTOMATION', sectorBasis: { source: 'SEC_SIC', note: 'SIC 7372' } }, 'AI_NATIVE', empty)).toBe(true);
     expect(matchesGridFilter(candidate, 'BOOKMARKED', empty)).toBe(false);
     expect(matchesGridFilter(candidate, 'BOOKMARKED', new Set([candidate.id]))).toBe(true);
   });

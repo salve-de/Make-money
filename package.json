@@ -5,13 +5,17 @@
   "scripts": {
     "catalog:prepare": "node --import tsx scripts/prepare-catalog-release.ts",
     "catalog:check": "node --import tsx scripts/prepare-catalog-release.ts --check",
+    "catalog:screen-check": "tsx scripts/architecture/screen-text.tsx --check",
     "catalog:audit": "node --import tsx scripts/audit-catalog-coverage.ts",
-    "catalog:publish": "pnpm catalog:prepare && node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/publish-catalog-release.ts",
+    "catalog:publish": "pnpm catalog:screen-check && pnpm catalog:prepare && node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/publish-catalog-release.ts",
+    "foundation:snapshots": "node scripts/foundation/build-foundation-snapshots.mjs",
+    "foundation:snapshots:check": "node scripts/foundation/build-foundation-snapshots.mjs --check",
     "dev": "next dev",
     "build": "pnpm lint && next build --webpack && node scripts/architecture/check-paid-bundle.mjs",
     "start": "node scripts/start-standalone.mjs",
-    "lint": "eslint --max-warnings=0 && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs && node scripts/architecture/check-index-safety.mjs && node scripts/architecture/check-ingest-quality.mjs && node scripts/architecture/check-component-health.mjs",
+    "lint": "eslint --max-warnings=0 && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs && node scripts/architecture/check-index-safety.mjs && node scripts/architecture/check-ingest-quality.mjs && node scripts/architecture/check-template-prose.mjs && node scripts/architecture/check-component-health.mjs",
     "ingest:verify": "node scripts/architecture/check-ingest-quality.mjs",
+    "template-prose:verify": "node scripts/architecture/check-template-prose.mjs",
     "ingest:incoming": "npx tsx scripts/pipeline/process-incoming.ts",
     "audit:ui": "tsx scripts/architecture/audit-all-234-ui.ts",
     "preview:workers": "pnpm workers:build && opennextjs-cloudflare preview",
@@ -71,7 +75,8 @@
     "radix-ui": "^1.6.7",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "stripe": "^22.6.1"
+    "stripe": "^22.6.1",
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",

@@ -1,6 +1,7 @@
 'use client';
 
-import { entityDescription } from '@/platform/utils/entityDescription';
+import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from '@/platform/components/grid/ReaderListCells';
+import { UI } from '@/shared/ui-strings';
 import { useState } from 'react';
 import Link from 'next/link';
 import { Search } from 'lucide-react';
@@ -8,36 +9,11 @@ import { AuthModal } from '@/components/auth/AuthModal';
 import { SubmissionForm } from '@/components/terminal/SubmissionForm';
 import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
 import { useAuth } from '@/context/AuthContext';
-import { formatYen } from '@/platform/utils/moneyDisplay';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import type { FinancialEntity } from '@/shared/terminal';
 
 
-function formatMonthlyRevenue(entity: FinancialEntity): string {
-  if (entity.pnl.isRevenueUnconfirmed || entity.pnl.financialStatus === 'UNAVAILABLE') {
-    return entity.pnl.revenueLabel || '未確認';
-  }
-  return formatYen(entity.pnl.monthlyRevenue, { approx: entity.pnl.financialStatus === 'ESTIMATED' });
-}
-
-function financialStatusLabel(entity: FinancialEntity): string {
-  if (entity.pnl.isRevenueUnconfirmed || entity.pnl.financialStatus === 'UNAVAILABLE') return '未確認';
-  switch (entity.pnl.financialStatus) {
-    case 'VERIFIED': return '一次資料';
-    case 'REPORTED': return '報告値';
-    case 'ESTIMATED': return '推計';
-    case 'POST_MORTEM': return '事後記録';
-    default: return '根拠未登録';
-  }
-}
-
-function teamSizeLabel(entity: FinancialEntity): string {
-  const operations = entity.operations;
-  if (!operations || operations.isTeamSizeUnconfirmed || operations.teamSize == null) return '未確認';
-  return `${operations.teamSize.toLocaleString()}人`;
-}
-
-const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_120px_90px_90px_110px]';
+const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_150px_90px]';
 
 export default function WelcomeClient({
   entities,
@@ -125,10 +101,10 @@ export default function WelcomeClient({
           {examples.length > 0 ? (
             <div>
               <div className={`hidden h-[26px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label md:grid ${SAMPLE_GRID}`}>
-                <span>事例</span><span>事業内容</span><span className="text-right">売上（月額換算）</span><span className="text-right">運営規模</span><span>資料区分</span><span>対象時期</span>
+                <span>{UI.LIST_COL_NAME}</span><span>{UI.LIST_COL_SUMMARY}</span><span className="text-right">{UI.LIST_COL_AMOUNT}</span><span>{UI.LIST_COL_ORIGIN}</span>
               </div>
               {examples.map((entity, index) => {
-                const status = financialStatusLabel(entity);
+                const { main } = listMetricsOf(entity.reader);
                 return (
                   <Link
                     key={entity.id}
@@ -136,11 +112,9 @@ export default function WelcomeClient({
                     className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select md:min-h-[29px] md:items-center md:py-1 ${SAMPLE_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
                   >
                     <span className="font-semibold text-term-fg-strong">{entity.name}</span>
-                    <span className="line-clamp-2 text-term-sub md:line-clamp-1">{entityDescription(entity)}</span>
-                    <span className="term-num text-term-fg-strong md:text-right"><span className="mr-2 text-xs text-term-label md:hidden">売上（月額換算）</span>{formatMonthlyRevenue(entity)}</span>
-                    <span className="term-num text-term-fg md:text-right"><span className="mr-2 text-xs text-term-label md:hidden">運営規模</span>{teamSizeLabel(entity)}</span>
-                    <span className={`text-xs md:text-sm ${status === '推計' ? 'text-term-accent' : status === '未確認' ? 'text-term-dim' : 'text-term-muted'}`}>{status}</span>
-                    <span className="term-num text-xs text-term-label md:text-sm">{entity.pnl.dataSnapshotPeriod || '時点未登録'}</span>
+                    <ListDescription reader={entity.reader} className="line-clamp-2 text-term-sub md:line-clamp-1" />
+                    <span className="term-num md:text-right"><ListMetricCell metric={main} expected={['REVENUE']} /></span>
+                    <span className="text-xs md:text-sm"><ListOriginCell metric={main} /></span>
                   </Link>
                 );
               })}

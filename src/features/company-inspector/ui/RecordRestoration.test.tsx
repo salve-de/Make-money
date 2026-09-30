@@ -5,7 +5,7 @@ import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import { EvidenceStream } from './EvidenceStream';
 import { EvidenceDeckSection } from './EvidenceDeckSection';
 import { SourcesSection } from './SourcesSection';
-import { mergeInspectorObservations } from './UniversalIntelligenceStream';
+import { mergeInspectorObservations, observationSourceHeading } from './UniversalIntelligenceStream';
 
 const base = () => structuredClone(INSTITUTIONAL_ENTITIES[0]);
 describe('all public case records remain reachable', () => {
@@ -47,7 +47,8 @@ describe('all public case records remain reachable', () => {
     entity.timelineEvents = [{ eventType: '創業', occurredAt: '2020', description: '一度だけの出来事' }, { eventType: '創業', occurredAt: '2020', description: '一度だけの出来事' }];
     entity.coverageAudit = [{ dimension: '調査項目', status: 'attempted_unavailable', note: '長い調査メモ', attempts: ['探索先の記録'] }];
     const html = renderToStaticMarkup(<EvidenceStream entity={entity} currency="JPY" isHazardMode={false} />);
-    for (const value of ['初期獲得記録', '活用記録', '転換記録', '費用記録', '活用の詳細', '時代背景', '現在の分析', '探索先の記録']) expect(html).toContain(value);
+    for (const value of ['初期獲得記録', '活用記録', '転換記録', '費用記録', '活用の詳細', '時代背景', '現在の分析']) expect(html).toContain(value);
+    expect(html).not.toContain('探索先の記録');
     expect(html.split('一度だけの出来事')).toHaveLength(2);
     expect(html).not.toContain('<details');
   });
@@ -70,5 +71,40 @@ describe('all public case records remain reachable', () => {
     expect(html).toContain('有価証券報告書 12ページ'); expect(html).toContain('2025年度');
     expect(html).toContain('https://example.com/source'); expect(html).toContain('https://example.com/second');
     expect(html).not.toContain('DO_NOT_RENDER'); expect(html).not.toContain('<details');
+  });
+  it('lists re-audit sources with publisher, dates, display tier and self-report label, without duplicate plain links', () => {
+    const entity = base(); entity.url = 'https://foo.com'; entity.evidenceCards = [];
+    entity.reaudit = { sources: [
+      { url: 'https://foo.com', publisher: 'Foo 公式サイト', checkedAt: '2026-09-29', displayTier: 'automatic', claimStatus: 'PRICING_CONFIRMED' },
+      { url: 'https://www.indiehackers.com/product/foo', publisher: 'Indie Hackers', publicationDate: '2021-04-01', checkedAt: '2026-09-29', displayTier: 'facts_only', claimStatus: 'FOUNDER_SELF_REPORT_RECORDED', rawStoredPrivately: true },
+    ] };
+    const html = renderToStaticMarkup(<SourcesSection entity={entity} isHazardMode={false} />);
+    expect(html).toContain('data-testid="audited-sources"');
+    expect(html).toContain('Indie Hackers'); expect(html).toContain('掲載 2021-04-01'); expect(html).toContain('確認 2026-09-29');
+    expect(html).not.toContain('事実のみ・出典表示必須'); expect(html).not.toContain('出典表示で掲載可'); expect(html).toContain('本人申告（独立確認なし）');
+    expect(html).not.toContain('>公式サイト<'); expect(html).not.toContain('rawStoredPrivately');
+  });
+});
+
+describe('investigation notes headings and duplicates', () => {
+  const entity = () => { const e = structuredClone(INSTITUTIONAL_ENTITIES[0]); e.url = 'https://www.example.com'; return e; };
+  it('headings come from where the fact came from, not the ingest category', () => {
+    expect(observationSourceHeading('https://example.com/pricing', 'https://www.example.com')).toBe('公式サイト');
+    expect(observationSourceHeading('https://www.indiehackers.com/product/x', 'https://example.com')).toBe('Indie Hackers');
+    expect(observationSourceHeading('https://www.other.org/a', 'https://example.com')).toBe('other.org');
+    expect(observationSourceHeading(undefined, 'https://example.com')).toBeNull();
+  });
+  it('does not repeat structured notes as supplements, and drops empty or duplicate bodies', () => {
+    const e = entity();
+    e.observationsStream = [{ text: '料金は月$19。対象は個人の創業者', category: 'FOUNDER_HACK', sourceUrl: 'https://example.com/pricing' }, { text: '' , sourceUrl: 'https://example.com' }, { text: '同じ本文。' }, { text: '同じ本文' }];
+    e.observations = ['公式サイト: 料金は月$19', 'Indie Hackers 掲載ページ: 別の事実です'];
+    const html = renderToStaticMarkup(<EvidenceStream entity={e} currency="JPY" isHazardMode={false} />);
+    expect(html).not.toContain('補足記録');
+    expect(html).not.toContain('創業期の泥臭い工夫');
+    expect(html).toContain('公式サイト');
+    expect(html).toContain('Indie Hackers 掲載ページ');
+    expect(html).toContain('別の事実です');
+    expect(html.split('同じ本文').length).toBe(2);
+    expect(html).toContain('3件');
   });
 });

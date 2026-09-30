@@ -1,7 +1,7 @@
 import type { FinancialEntity, GridFilterOption } from '@/shared/terminal';
 
 /** Minimal input contract: no React, network, modal or storage dependency. */
-export type FilterCandidate = Pick<FinancialEntity, 'id' | 'scale' | 'sector'> & {
+export type FilterCandidate = Pick<FinancialEntity, 'id' | 'scale' | 'sector' | 'sectorBasis'> & {
   pnl: Pick<FinancialEntity['pnl'], 'operatingMargin'>;
   operations: Pick<FinancialEntity['operations'], 'isCapitalUnconfirmed' | 'initialCapitalRequired'>;
 };
@@ -15,7 +15,8 @@ const predicates: Record<GridFilterOption, Predicate> = {
   HIGH_MARGIN: (entity) => entity.pnl.operatingMargin >= 50,
   ZERO_CAPITAL: (entity) => !entity.operations.isCapitalUnconfirmed && entity.operations.initialCapitalRequired <= 0,
   MONOPOLY: (entity) => entity.scale === 'ENTERPRISE',
-  AI_NATIVE: (entity) => entity.sector === 'AI_AUTOMATION',
+  // 業種は SEC の標準産業分類が根拠の時だけ使う（キーワードからの推測では絞り込まない）
+  AI_NATIVE: (entity) => entity.sectorBasis?.source === 'SEC_SIC' && entity.sector === 'AI_AUTOMATION',
   BOOKMARKED: (entity, bookmarks) => bookmarks.has(entity.id),
 };
 

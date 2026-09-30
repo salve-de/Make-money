@@ -1,16 +1,8 @@
-import type { SectorCategory } from '@/shared/terminal';
+import type { FinancialEntity } from '@/shared/terminal';
+import { SECTOR_LABELS } from '@/shared/ui-strings';
 
-const SECTOR_LABELS: Record<SectorCategory, string> = {
-  AI_AUTOMATION: 'AI・ソフトウェア',
-  NICHE_SAAS: 'ソフトウェア',
-  MONOPOLY_MFG: '製造',
-  CONTENT_MEDIA: 'メディア',
-  PHYSICAL_ASSET: '実物・店舗',
-  FINTECH_INFRA: 'ITサービス',
-  LOCAL_SERVICES: '地域サービス',
-  UNKNOWN: '分類未確認',
-};
-
-export function sectorLabel(sector: SectorCategory): string {
-  return SECTOR_LABELS[sector];
+/** SEC の標準産業分類（SEC_SIC）が根拠の時だけ業種名を返す。キーワードからの推測・分類未確認は null（画面に出さない）。 */
+export function sectorLabel(entity: Pick<FinancialEntity, 'sector' | 'sectorBasis'>): string | null {
+  if (entity.sectorBasis?.source !== 'SEC_SIC' || entity.sector === 'UNKNOWN') return null;
+  return SECTOR_LABELS[entity.sector] ?? null;
 }

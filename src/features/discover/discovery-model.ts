@@ -1,4 +1,7 @@
 import type { FinancialEntity, ViabilityStatus } from '@/shared/terminal';
+import { firstSentence, formatMetricAmount, metricMeasureLabel, metricOriginLabel, pickListMetric, readerSummaryFact } from '@/shared/display-text';
+import type { ReaderCase } from '@/shared/reader-case';
+import { UI } from '@/shared/ui-strings';
 
 export type DiscoveryLens =
   | 'SURPRISE'
@@ -9,19 +12,20 @@ export type DiscoveryLens =
   | 'CURRENT'
   | 'FAILURE';
 
-export interface DiscoveryMechanism {
-  id: string;
-  label: string;
-}
-
 export interface DiscoveryCase {
   id: string;
   name: string;
   tagline: string;
+  /** SEC の標準産業分類（SEC_SIC）が根拠の時だけ入る。それ以外は空文字で、画面に出さない。 */
   sector: string;
   resultLabel: string;
   resultValue: string;
   resultAmountJpy: number | null;
+  resultMetricId: string | null;
+  summaryFactId: string | null;
+  summaryText: string;
+  /** 詳細と AI への文脈が読む唯一の中身 */
+  reader?: ReaderCase;
   resultEvidenceLabel: string;
   resultPeriod: string | null;
   resultSource: string | null;
@@ -30,8 +34,6 @@ export interface DiscoveryCase {
   criticalInsight: string;
   whyMoneyMoved: string;
   leverage: string;
-  mechanism: DiscoveryMechanism;
-  mechanismCount: number;
   currentLabel: string;
   currentDetail: string;
   isCurrent: boolean;
@@ -41,7 +43,6 @@ export interface DiscoveryCase {
   lowWork: boolean;
   evidenceCount: number;
   descriptors: Array<{ label: string; value: string }>;
-  related: Array<{ id: string; name: string; resultValue: string }>;
   scores: Record<DiscoveryLens, number>;
 }
 
@@ -49,57 +50,18 @@ export interface DiscoveryDataset {
   sourceCount: number;
   visibleCount: number;
   cases: DiscoveryCase[];
-  mechanisms: Array<{ id: string; label: string; count: number }>;
   highlights: DiscoveryCase[];
 }
 
 const SECTOR_LABELS: Record<string, string> = {
-  AI_AUTOMATION: 'AI・自動化',
-  NICHE_SAAS: '特化SaaS',
-  MONOPOLY_MFG: '製造・独占',
+  AI_AUTOMATION: 'AI',
+  NICHE_SAAS: 'ソフトウェア',
+  MONOPOLY_MFG: '製造',
   CONTENT_MEDIA: 'メディア',
-  PHYSICAL_ASSET: '実物資産',
+  PHYSICAL_ASSET: '物販・不動産',
   FINTECH_INFRA: '金融・決済',
   LOCAL_SERVICES: '地域サービス',
 };
-
-const MECHANISMS: Array<{ id: string; label: string; re: RegExp }> = [
-  {
-    id: 'toll',
-    label: '取引手数料・仲介',
-    re: /手数料|仲介|中抜き|通行税|marketplace|マーケットプレイス|決済|紹介料|送客|broker|仲介料/iu,
-  },
-  {
-    id: 'recurring',
-    label: '継続課金',
-    re: /サブスク|月額|年額|継続課金|subscription|ARR|MRR|リカーリング/iu,
-  },
-  {
-    id: 'automation',
-    label: '自動化・業務効率化',
-    re: /人力|手作業|省人|無人|自動化|自動納品|外注.{0,12}自動|自動.{0,12}外注|原価.{0,12}(?:削減|低下)|AI.{0,12}(?:代替|置換|自動化)/iu,
-  },
-  {
-    id: 'direct',
-    label: '直販',
-    re: /直販|D2C|中間業者|相見積|代理店.*飛ば|direct/iu,
-  },
-  {
-    id: 'audience',
-    label: '広告・紹介',
-    re: /広告|メディア|newsletter|ニュースレター|affiliate|アフィリ|スポンサー|掲載料/iu,
-  },
-  {
-    id: 'asset',
-    label: 'コンテンツ・ソフトウェア販売',
-    re: /テンプレ|デジタル商品|ライセンス|ソフトウェア|SaaS|コンテンツ|教材|プラグイン|extension/iu,
-  },
-  {
-    id: 'scarcity',
-    label: '供給制約・ブランド',
-    re: /独占|希少|ブランド|monopoly|cornered|限定|供給制約/iu,
-  },
-];
 
 function compact(value: string | undefined | null, max = 150): string {
   const text = (value || '').replace(/\s+/gu, ' ').trim();
@@ -123,76 +85,26 @@ function resultOf(entity: FinancialEntity): {
   label: string;
   value: string;
   amount: number | null;
+  metricId: string | null;
+  evidenceLabel: string;
+  period: string | null;
+  source: string | null;
 } {
-  const pnl = entity.pnl;
-  if (pnl.financialStatus === 'UNAVAILABLE') {
-    return { label: '金額', value: '未確認', amount: null };
+  // 一覧の結果は entity.reader.metrics から選ぶ。売上が無ければ売却額・調達額などをその名前で出す。
+  const metric = pickListMetric(entity.reader);
+  if (!metric) {
+    return { label: UI.LIST_COL_REVENUE, value: UI.LIST_REVENUE_UNKNOWN, amount: null, metricId: null, evidenceLabel: '', period: null, source: null };
   }
-  if (
-    pnl.financialStatus === 'POST_MORTEM' ||
-    (!pnl.isOperatingProfitUnconfirmed && pnl.operatingProfit < 0)
-  ) {
-    if (!pnl.isOperatingProfitUnconfirmed && pnl.operatingProfit !== 0) {
-      return { label: '営業損失（月額換算・登録値）', value: formatJpy(pnl.operatingProfit), amount: pnl.operatingProfit };
-    }
-    return { label: '結果', value: '失敗・撤退', amount: null };
-  }
-
-  if (!pnl.isOperatingProfitUnconfirmed && pnl.operatingProfit > 0) {
-    return { label: '営業利益（月額換算・登録値）', value: formatJpy(pnl.operatingProfit), amount: pnl.operatingProfit };
-  }
-  if (!pnl.isRevenueUnconfirmed && pnl.monthlyRevenue > 0) {
-    return { label: '売上（月額換算・登録値）', value: formatJpy(pnl.monthlyRevenue), amount: pnl.monthlyRevenue };
-  }
-  if (pnl.revenueLabel) return { label: '売上', value: pnl.revenueLabel, amount: null };
-  return { label: '結果', value: '金額未確認', amount: null };
-}
-
-function mechanismOf(entity: FinancialEntity): DiscoveryMechanism {
-  const haystack = [
-    entity.architecturePattern,
-    entity.strategy?.secretInsight,
-    entity.strategy?.blindspot,
-    entity.strategy?.moatDescription,
-    entity.lootBlueprint?.tollGateSetup,
-    entity.lootBlueprint?.structuralFlaw,
-    entity.targetPainWallet,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  const found = MECHANISMS.find((item) => item.re.test(haystack));
-  if (found) return { id: found.id, label: found.label };
-
+  const publisher = entity.reader?.sources.find((s) => s.id === metric.sourceId)?.publisher ?? null;
   return {
-    id: `sector:${entity.sector}`,
-    label: `${SECTOR_LABELS[entity.sector] || 'その他'}の事例`,
+    label: metricMeasureLabel(metric),
+    value: formatMetricAmount(metric),
+    amount: metric.currency === 'JPY' ? metric.amount : null,
+    metricId: metric.id,
+    evidenceLabel: metricOriginLabel(metric),
+    period: metric.period,
+    source: publisher,
   };
-}
-
-function resultEvidenceLabel(entity: FinancialEntity): string {
-  switch (entity.pnl.financialStatus) {
-    case 'VERIFIED':
-      return '資料区分: 一次資料';
-    case 'REPORTED':
-      return '資料区分: 報道・取材';
-    case 'ESTIMATED':
-      return '資料区分: 推定';
-    case 'POST_MORTEM':
-      return '資料区分: 事後資料';
-    case 'UNAVAILABLE':
-      return '資料区分: 未確認';
-    default:
-      return '資料区分: 未設定';
-  }
-}
-
-function resultPeriodNote(entity: FinancialEntity): string | null {
-  const period = entity.pnl.dataSnapshotPeriod || '';
-  if (/FY\s*\d{4}|\d{4}年.*(?:期|通期|終了年度)|52週|通期/iu.test(period)) {
-    return '年次資料の月次換算条件は未記載';
-  }
-  return null;
 }
 
 function viability(status: ViabilityStatus | undefined, label?: string, detail?: string) {
@@ -225,7 +137,7 @@ function startLineOf(entity: FinancialEntity): string {
   if (entity.temporal?.foundedYear && entity.temporal.foundedYear > 0) {
     parts.push(`${entity.temporal.foundedYear}年開始`);
   }
-  return parts.length > 0 ? parts.join(' / ') : '開始条件は一部未確認';
+  return parts.join(' / ');
 }
 
 function criticalInsightOf(entity: FinancialEntity): string {
@@ -322,20 +234,8 @@ export function deriveDiscoveryDataset(
   visibleLimit = 220,
 ): DiscoveryDataset {
   const publicEntities = entities.filter((entity) => entity && entity.id && entity.name);
-  const mechanismsById = new Map<string, { label: string; count: number }>();
-
-  for (const entity of publicEntities) {
-    const mechanism = mechanismOf(entity);
-    const current = mechanismsById.get(mechanism.id);
-    mechanismsById.set(mechanism.id, {
-      label: mechanism.label,
-      count: (current?.count || 0) + 1,
-    });
-  }
-
   const lightweight = publicEntities.map((entity) => {
     const result = resultOf(entity);
-    const mechanism = mechanismOf(entity);
     const current = viability(
       entity.temporal?.viabilityStatus,
       entity.temporal?.viabilityLabel,
@@ -351,7 +251,6 @@ export function deriveDiscoveryDataset(
     return {
       entity,
       result,
-      mechanism,
       current,
       base,
       isFailure,
@@ -365,41 +264,29 @@ export function deriveDiscoveryDataset(
     };
   });
 
-  const relatedIndex = new Map<string, typeof lightweight>();
-  for (const item of lightweight) {
-    const list = relatedIndex.get(item.mechanism.id) || [];
-    list.push(item);
-    relatedIndex.set(item.mechanism.id, list);
-  }
-  for (const list of relatedIndex.values()) {
-    list.sort((a, b) => b.base - a.base);
-  }
-
   const allCases = lightweight
     .map((item): DiscoveryCase => {
-      const { entity, result, mechanism, current } = item;
-      const relatedPool = (relatedIndex.get(mechanism.id) || []).filter(
-        (candidate) => candidate.entity.id !== entity.id,
-      );
-
+      const { entity, result, current } = item;
       return {
         id: entity.id,
         name: entity.name,
         tagline: compact(entity.tagline, 180),
-        sector: SECTOR_LABELS[entity.sector] || entity.sector,
+        sector: entity.sectorBasis?.source === 'SEC_SIC' ? SECTOR_LABELS[entity.sector] || '' : '',
         resultLabel: result.label,
         resultValue: result.value,
         resultAmountJpy: result.amount,
-        resultEvidenceLabel: resultEvidenceLabel(entity),
-        resultPeriod: compact(entity.pnl.dataSnapshotPeriod, 50) || null,
-        resultSource: compact(entity.pnl.sourceDoc, 70) || null,
-        resultPeriodNote: resultPeriodNote(entity),
+        resultMetricId: result.metricId,
+        reader: entity.reader,
+        summaryFactId: readerSummaryFact(entity.reader)?.id ?? null,
+        summaryText: firstSentence(readerSummaryFact(entity.reader)?.text ?? ''),
+        resultEvidenceLabel: result.evidenceLabel,
+        resultPeriod: result.period,
+        resultSource: result.source,
+        resultPeriodNote: null,
         startLine: startLineOf(entity),
         criticalInsight: criticalInsightOf(entity),
         whyMoneyMoved: whyMoneyMovedOf(entity),
         leverage: leverageOf(entity),
-        mechanism,
-        mechanismCount: mechanismsById.get(mechanism.id)?.count || 1,
         currentLabel: current.label,
         currentDetail: current.detail,
         isCurrent: current.isCurrent,
@@ -409,11 +296,6 @@ export function deriveDiscoveryDataset(
         lowWork: item.lowWork,
         evidenceCount: entity.evidenceCards?.length || 0,
         descriptors: descriptorsOf(entity),
-        related: relatedPool.slice(0, 4).map((candidate) => ({
-          id: candidate.entity.id,
-          name: candidate.entity.name,
-          resultValue: candidate.result.value,
-        })),
         scores: lensScores(entity, result.amount, item.base),
       };
     });
@@ -449,10 +331,6 @@ export function deriveDiscoveryDataset(
     sourceCount: publicEntities.length,
     visibleCount: cases.length,
     cases,
-    mechanisms: Array.from(mechanismsById.entries())
-      .map(([id, item]) => ({ id, ...item }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 12),
     highlights,
   };
 }

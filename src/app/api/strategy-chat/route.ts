@@ -1,3 +1,4 @@
+import { readerContextText } from '@/shared/display-text';
 import { parseStrategyRequest, parseSynthesizedIdeas } from '@/shared/strategy-schema';
 import { NextRequest, NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
@@ -40,14 +41,14 @@ function generateFallbackSynthesis(
     id: `idea_savanna_${Date.now()}_1`,
     dimension: 'SAVANNA_INSTINCT',
     dimensionLabel: '① 本能工夫型（人間の防衛本能・衝動）',
-    title: `${primaryEntity.name}の手口転用: 【${primaryEntity.targetPainWallet || '顧客の防衛本能'}】を突く高単価マイクロ代行`,
-    targetPainWallet: `${primaryEntity.targetPainWallet || '企業の保身・損失回避'} × ユーザー着目点（${combinedUserNote.slice(0, 40)}...）`,
-    structuralArbitrage: `顧客が避けたい損失を、${primaryEntity.strategy.blindspot}の公開事例から読み解く。対象業界の許可された接点で小さく検証し、成約・提供時間・原価を記録してから拡大する。`,
-    projectedMonthlyProfitJpy: Math.round(primaryEntity.pnl.operatingProfit * 0.25) || 1200000,
+    title: `${primaryEntity.name}を参考にした小規模な有料パイロット案`,
+    targetPainWallet: `利用者のメモ（${combinedUserNote.slice(0, 40)}...）`,
+    structuralArbitrage: `${primaryEntity.name}の出典付きの記録を起点に、対象業界の許可された接点で小さく検証し、成約・提供時間・原価を記録してから拡大する。`,
+    projectedMonthlyProfitJpy: 1200000,
     operatingMargin: 78,
     requiredTools: [
-      { name: primaryEntity.operations.toolStack[0]?.name || 'Next.js + Stripe', monthlyCostJpy: 4500, purpose: '集金およびフロントエンド' },
-      { name: primaryEntity.operations.toolStack[1]?.name || 'Make / Supabase', monthlyCostJpy: 3000, purpose: 'バックエンド・通知の完全無人化' },
+      { name: 'Next.js + Stripe', monthlyCostJpy: 4500, purpose: '集金およびフロントエンド' },
+      { name: 'Make / Supabase', monthlyCostJpy: 3000, purpose: 'バックエンド・通知の完全無人化' },
       { name: 'Resend / Google Workspace', monthlyCostJpy: 2000, purpose: '直販コールドアプローチ用配管' }
     ],
     first100TractionPlaybook: [
@@ -123,36 +124,15 @@ function generateFallbackChatResponse(
   if (!entity) return { content: '相談する事例を選択してください。', suggestedActionPrompts: [] };
 
   const q = userQuery.toLowerCase();
-  const sections: string[] = [];
-  const add = (label: string, value?: string) => {
-    if (value?.trim() && !/^(unknown|unavailable)$/i.test(value.trim())) {
-      sections.push(`${label}\n${sanitizeGeneratedText(value.trim())}`);
-    }
-  };
-
-  if (/費用|コスト|ツール|原価|スタック/.test(q)) {
-    for (const tool of entity.operations.toolStack) {
-      const cost = !tool.isCostUnconfirmed && Number.isFinite(tool.monthlyCost) && tool.monthlyCost > 0
-        ? `（記録上の月額費用 ¥${tool.monthlyCost.toLocaleString('ja-JP')}）` : '';
-      add(`${tool.name}${cost}`, tool.purpose || tool.category);
-    }
-    if (!sections.length) add('利用構成', entity.pipelineStack);
-  } else if (/競合|真似|大手|防壁|moat|競争/.test(q)) {
-    add('競争上の特徴', entity.strategy.moatDescription);
-    add('競合の対応が難しい点', entity.strategy.blindspot);
-  } else if (/集客|顧客獲得|マーケ|トラクション/.test(q)) {
-    add('顧客との接点', entity.operations.primaryChannels.join('・'));
-    add('初期の顧客獲得', entity.strategy.initialTraction.join('\n'));
-  } else {
-    add('事業の概要', entity.tagline);
-    add('課金方式', entity.pricing?.model);
-    add('価格帯', entity.pricing?.pricePoint);
-    add('収益構造', entity.architecturePattern);
-  }
-
-  const period = entity.temporal?.dataSnapshotPeriod;
+  // 事例の記録は entity.reader（出典つきの事実・数値・未確認）だけを使う
+  const kinds: Array<NonNullable<typeof entity.reader>['facts'][number]['kind']> =
+    /費用|コスト|ツール|原価|スタック/.test(q) ? ['TOOL']
+      : /競合|真似|大手|防壁|moat|競争/.test(q) ? ['OTHER', 'EVENT']
+        : /集客|顧客獲得|マーケ|トラクション/.test(q) ? ['CHANNEL']
+          : ['DESCRIPTION', 'PRICING'];
+  const context = readerContextText(entity.name, entity.reader, kinds);
   return {
-    content: `${entity.name}の事例記録${period ? `（${period}）` : ''}\n\n${sections.length ? sections.join('\n\n') : 'この項目の記録はありません。'}`,
+    content: `${context ? sanitizeGeneratedText(context) : `${entity.name}の出典付きの記録はまだありません。`}`,
     suggestedActionPrompts: prompts,
   };
 }
@@ -216,7 +196,7 @@ export async function POST(req: NextRequest) {
 あなたは事業調査を支援するアナリストです。選ばれた事例と利用者のメモから、根拠の範囲を保った企画仮説を3つ作ってください。利用者の目的や条件が明示されていない場合は、予算・運営人数・利益目標を勝手に設定しないでください。
 
 【対象企業データ】:
-${JSON.stringify(entitiesData.map(e => ({ name: e.name, ticker: e.ticker, profit: e.pnl.operatingProfit, margin: e.pnl.operatingMargin, moat: e.strategy.moatDescription, blindspot: e.strategy.blindspot, tools: e.operations.toolStack, traction: e.strategy.initialTraction })), null, 2)}
+${entitiesData.map((e) => readerContextText(e.name, e.reader) ?? `事例: ${e.name}（出典付きの記録なし）`).join('\n\n')}
 
 【ユーザーのアナリストメモ（考察）】:
 ${JSON.stringify(notes, null, 2)}
@@ -313,8 +293,8 @@ ${enableSearch ? '6. Google検索から得られた最新の市場・競合・�
 【安全と根拠の境界】
 法令・各サービス規約に反する手順、自作自演、迷惑DM、不正取得・不正スクレイピング、直取引の妨害、誤認表示は提案しないでください。実行案は正規チャネル、相手の明示同意、透明な料金・解約条件、データの持ち出し可能性を前提にしてください。公開事実・推定・未確認を区別し、根拠のない成功保証や売上・利益の断定は避けてください。
 
-【あなたの手元にある財務・戦略データデータ（参考実例）】:
-${entity ? JSON.stringify({ name: entity.name, pnl: entity.pnl, moat: entity.strategy.moatDescription, traction: entity.strategy.initialTraction, stack: entity.operations.toolStack, painWallet: entity.targetPainWallet }) : '全銘柄データ保有'}
+【出典付きの事例記録（参考実例）】:
+${entity ? (readerContextText(entity.name, entity.reader) ?? `事例: ${entity.name}（出典付きの記録なし）`) : '事例は選択されていません'}
 
 【DBおよび直近から蓄積されたアナリストメモ（ユーザーの視点）】:
 ${allNotesContext || '特記事項なし'}

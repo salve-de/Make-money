@@ -133,6 +133,16 @@ export interface FoundationObservationPublicFact {
   suffix?: string;
 }
 
+/** Provider attribution emitted by the public projection (mandatory display for Tier 2 facts-only sources). */
+export interface FoundationObservationPublicAttribution {
+  displayTier: 'automatic' | 'facts_only';
+  providerName: string;
+  publishedAt?: string;
+  retrievedAt?: string;
+  rule?: string;
+  selfReported: boolean;
+}
+
 export interface FoundationObservationPublicDisplay {
   title: string;
   subject: string;
@@ -140,6 +150,7 @@ export interface FoundationObservationPublicDisplay {
   facts: FoundationObservationPublicFact[];
   sourceLabel: string;
   sourceUrls: string[];
+  attribution?: FoundationObservationPublicAttribution;
 }
 
 export interface FoundationObservation {
@@ -656,6 +667,38 @@ function fallbackRecordId(prefix: string, value: JsonObject): string {
   return `${prefix}-${(hash >>> 0).toString(16).padStart(8, '0')}`;
 }
 
+/** `undefined` = absent (Tier 1 needs none); `null` = present but malformed (the display fails closed). */
+function normalizePublicObservationAttribution(
+  value: unknown,
+): FoundationObservationPublicAttribution | null | undefined {
+  if (value === undefined || value === null) return undefined;
+  const input = objectValue(value);
+  if (!input) return null;
+  const displayTier = stringValue(input, 'display_tier') || stringValue(input, 'displayTier');
+  const providerName = stringValue(input, 'provider_name') || stringValue(input, 'providerName');
+  const publishedAt = stringValue(input, 'published_at') || stringValue(input, 'publishedAt');
+  const retrievedAt = stringValue(input, 'retrieved_at') || stringValue(input, 'retrievedAt');
+  const rule = stringValue(input, 'rule');
+  const selfReportedRaw = input.self_reported ?? input.selfReported;
+  const validDate = (candidate: string | null) =>
+    !candidate || (candidate.length <= 40 && Number.isFinite(Date.parse(candidate)));
+  if (
+    (displayTier !== 'automatic' && displayTier !== 'facts_only') ||
+    !providerName || providerName.length > 80 ||
+    !validDate(publishedAt) || !validDate(retrievedAt) ||
+    (rule && rule.length > 320) ||
+    (selfReportedRaw !== undefined && selfReportedRaw !== null && typeof selfReportedRaw !== 'boolean')
+  ) return null;
+  return {
+    displayTier,
+    providerName,
+    ...(publishedAt ? { publishedAt } : {}),
+    ...(retrievedAt ? { retrievedAt } : {}),
+    ...(rule ? { rule } : {}),
+    selfReported: selfReportedRaw === true,
+  };
+}
+
 function normalizePublicObservationDisplay(
   value: unknown,
 ): FoundationObservationPublicDisplay | undefined {
@@ -709,6 +752,9 @@ function normalizePublicObservationDisplay(
     }
   }
 
+  const attribution = normalizePublicObservationAttribution(input.attribution);
+  if (attribution === null) return undefined;
+
   return {
     title,
     subject,
@@ -716,6 +762,7 @@ function normalizePublicObservationDisplay(
     facts,
     sourceLabel,
     sourceUrls: [...new Set(sourceUrls)],
+    ...(attribution ? { attribution } : {}),
   };
 }
 

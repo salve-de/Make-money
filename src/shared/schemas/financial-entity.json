@@ -26,6 +26,26 @@
         "sector": {
           "$ref": "#/definitions/SectorCategory"
         },
+        "sectorBasis": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "enum": [
+                "SEC_SIC",
+                "SOURCED_DESCRIPTION"
+              ],
+              "type": "string"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "note"
+          ],
+          "additionalProperties": false
+        },
         "scale": {
           "$ref": "#/definitions/BusinessScale"
         },
@@ -1192,6 +1212,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "attribution": {
+          "$ref": "#/definitions/UniversalObservationPublicAttribution"
         }
       },
       "required": [
@@ -1223,6 +1246,39 @@
         "label",
         "value"
       ]
+    },
+    "UniversalObservationPublicAttribution": {
+      "type": "object",
+      "properties": {
+        "displayTier": {
+          "type": "string",
+          "enum": [
+            "automatic",
+            "facts_only"
+          ]
+        },
+        "providerName": {
+          "type": "string"
+        },
+        "publishedAt": {
+          "type": "string"
+        },
+        "retrievedAt": {
+          "type": "string"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "selfReported": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "displayTier",
+        "providerName",
+        "selfReported"
+      ],
+      "description": "出典表示（Tier 2「事実のみ」出典では表示必須。本人申告の数値は selfReported=true）。"
     },
     "LootBlueprint": {
       "type": "object",

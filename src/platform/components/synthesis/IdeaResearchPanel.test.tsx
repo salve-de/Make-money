@@ -104,7 +104,7 @@ describe('input row', () => {
 describe('similar cases', () => {
   const html = ready({ cases, ai: null, aiUnavailableReason: 'LOGIN_REQUIRED' });
 
-  it('lists every case as a row that can be pressed, with its outcome, sector and name', () => {
+  it('lists every case as a row that can be pressed, with its outcome and name, without guessed sectors', () => {
     expect(html).toContain('似た事例');
     expect(html).toContain('3件');
     for (const item of cases) {
@@ -115,9 +115,9 @@ describe('similar cases', () => {
     expect(html).toContain('>成功<');
     expect(html).toContain('>失敗<');
     expect(html).toContain('>不明<');
-    expect(html).toContain('ソフトウェア');
-    expect(html).toContain('AI・ソフトウェア');
-    expect(html).toContain('地域サービス');
+    // 事例要約は分類の根拠（SEC_SIC）を持たないため、キーワード推測の分野名は出さない
+    expect(html).not.toContain('AI・ソフトウェア');
+    expect(html).not.toContain('地域サービス');
   });
 
   it('shows revenue only where the ledger confirms it, and a dash otherwise, never an invented number', () => {

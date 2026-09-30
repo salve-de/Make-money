@@ -13,7 +13,7 @@ import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 
 import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
-import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
+import { InstitutionalDataGrid, LedgerListTitle } from '../grid/InstitutionalDataGrid';
 import { FoundationSearchContinuation } from '../foundation/FoundationSearchContinuation';
 import { NewArrivalsBanner } from '../foundation/NewArrivalsBanner';
 import { CompanyInspectorPane } from '@/features/company-inspector';
@@ -310,6 +310,7 @@ export const TerminalShell: React.FC<{
             />
             <NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} onOpenEntity={openEntity} />
             <FoundationSearchContinuation available={foundationSearchContinuationAvailable} failed={foundationSearchContinuationFailed} loading={foundationLoading} retryMessage={foundationSearchRetryMessage} onContinue={continueFoundationSearch} />
+            <LedgerListTitle count={filteredEntities.length} />
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}

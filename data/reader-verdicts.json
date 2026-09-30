@@ -1,0 +1,1304 @@
+{
+ "ent_ebizfacts_maximilianfleitmannbasetemplates15kmonth_ce2347717a5c": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Maximilian Fleitmann is an entrepreneur based in Berlin 🇩🇪 and the man behind BaseTemplates , which is a collection of pitch deck and fundraising templates.",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: 資金調達用の資料（ピッチデック）などのテンプレートを売るBaseTemplates。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "In 2019 I was still operating my education startup, but was always attracted to test out new ideas. With one of these ideas, I wanted to participate in a contest. As I needed to build a pitch deck quickly, I searched for a great-looking and easy-to-use template.",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "ベルリンの起業家が2019年に、自分でテンプレートを買って大会に勝った縁から、創業者が事業を売りたがっていると知って買収した。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "When I took over BaseTemplates, there was mainly organic traffic which came from a couple of blog articles… I wrote 30 new blog posts and created specific pages for long-tail keywords like “Pitch Deck Business Model Slide”.",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "買収時は商品が1つと小さな解説記事だけだったが、30本の新しい記事とロングテールの検索語向けのページで自然検索からの流入を増やし、商品と無料ツールを増やした。"
+  },
+  "f4": {
+   "verdict": "PARTIAL",
+   "quote": "I see Max has recently introduced BaseTemplates Pro , which is a software that comes with templates, a CRM to reach out to investors, and gives you access to investor databases.",
+   "fix": {
+    "text": "最近は投資家への連絡用の管理機能や投資家データベースを付けたBaseTemplates Proソフトを出した。"
+   },
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "最近は投資家への連絡用の管理機能や投資家データベースを付けた有料ソフトも出した。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "When I took over BaseTemplates, there was mainly organic traffic which came from a couple of blog articles… I wrote 30 new blog posts and created specific pages for long-tail keywords like “Pitch Deck Business Model Slide”.",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "集客経路: 検索（記事30本の追加と、ロングテールの検索語向けの専用ページ）。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "When I took over BaseTemplates, there was mainly organic traffic which came from a couple of blog articles… I wrote 30 new blog posts and created specific pages for long-tail keywords like “Pitch Deck Business Model Slide”.",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "買収時点も自然検索が中心。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "In 2019 I was still operating my education startup, but was always attracted to test out new ideas. With one of these ideas, I wanted to participate in a contest.",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "開始時期: 2019年に買収（インタビューの約4年前）。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "When I took over BaseTemplates, just one product and a small content section existed. But there was already a regular stream of customers.",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "買収時は商品1つと小さな解説記事だけで、すでに継続的な客がいたと本人が説明。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "The first thing I did was create a plan that made it possible to 10x the business…",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "買収後、事業を10倍にする計画を最初に作ったと本人が説明。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "If you find a product you really like or with potential, you could inquire about buying the business, or perhaps start your own (better) version 💪",
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "記事は、買って良いと感じたデジタル商品の事業を買収するか、より良い版を作ることを提案（記事の提案）。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "The business right now is making $15k+ per month on amazing margins.",
+   "fix": {
+    "metric": {
+     "origin": "SELF_REPORTED",
+     "basis": "$15k+ per month"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/maximilian-fleitmann-base-templates-15k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=15000 USD / 由来=ARTICLE / 記載日=2024-04-01"
+  }
+ },
+ "ent_ebizfacts_elyssabernardromewise16kmonth_4c4ad4aef245": {
+  "f1": {
+   "verdict": "PARTIAL",
+   "quote": "I think this year we will be close to grossing just under 200k. We also recently launched florencewise.com and we believe it will turn a profit by the end of the year.",
+   "fix": {
+    "text": "記事が載せる金額は「this year we will be close to grossing just under 200k」という本人からのメールで、記事は約$16,000 per monthとしている。"
+   },
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "記事が載せる金額はjust under 200k（2023年の売上の見込み・gross、「just under」の表現で200k未満。通貨の明記なし、記事は$と表記・本人申告）。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Elyssa Bernard is the founder of Romewise , a website for travelers to get the most out of their trips to Rome 🇮🇹",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: ローマ旅行を最大限楽しむための情報サイトRomewise。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "I met my husband traveling, with a backpack, back in 1997. We got married in 1999, and were living in the States… in 2001 we decided to move back to Rome and open a bed and breakfast.",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "創業者は1997年に旅行中に夫と出会い、2001年にローマへ移って小さな宿（B&B）を開業した。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "Over the years of running their B&B and answering guests’ questions, Elyssa amassed a ton of insider knowledge about Rome. She realized this information could benefit many more travelers, not just their hotel guests.",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "宿泊客に毎日予定を聞いて助言するうちに蓄積した知識を、もっと多くの旅行者に届けようと2009年にサイトを開始した。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "When we create pages for this website, we pour hours of research, planning, information, photograph curation and writing into it. It usually takes about 2-4 weeks to write one page.",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "1ページを書くのに2〜4週間かけ、調査、写真の選定、執筆を重ねる深い内容が支持され、自然検索の訪問が月10万超。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "Elyssa monetizes the site through a mix of display ads, affiliate links for tours and tickets – eg. on this page – and her own ebooks and other products .",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "収益は表示広告、ツアーやチケットのアフィリエイト、自社の電子書籍など。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "We also recently launched florencewise.com and we believe it will turn a profit by the end of the year.",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "姉妹サイトのフィレンツェ版も開始した。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "Such effort and diligence has led to over 100,000 organic visitors per month 📈",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "集客経路: 自然検索（月10万超）。"
+  },
+  "f9": {
+   "verdict": "PARTIAL",
+   "quote": "Elyssa monetizes the site through a mix of display ads, affiliate links for tours and tickets – eg. on this page – and her own ebooks and other products .",
+   "fix": {
+    "text": "収益は表示広告、ツアーやチケットのアフィリエイト、自社の電子書籍など。"
+   },
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "収益は広告、アフィリエイト、自社の電子書籍。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "We also recently launched florencewise.com and we believe it will turn a profit by the end of the year.",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "姉妹サイトのフィレンツェ版は年内に黒字化する見通しと本人が説明。"
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "Elyssa is a subscriber to this newsletter 👋 and recently told us via email…\nI think this year we will be close to grossing just under 200k.",
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "数字は記事の運営者宛てのメールによるもので、公開のインタビューではない。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "I think this year we will be close to grossing just under 200k. We also recently launched florencewise.com and we believe it will turn a profit by the end of the year.",
+   "fix": {
+    "metric": {
+     "period": "this year",
+     "amount": 200000,
+     "currency": null,
+     "origin": "SELF_REPORTED",
+     "basis": "close to grossing just under 200k"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=年(YEAR) / 金額=200000 USD / 由来=ARTICLE / 記載日=2023-09-18"
+  },
+  "m2": {
+   "verdict": "PARTIAL",
+   "quote": "So that’s about $16,000 per month, mainly from one website about a popular tourist destination 😎",
+   "fix": {
+    "metric": {
+     "origin": "ARTICLE",
+     "basis": "about $16,000 per month"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/elyssa-bernard-romewise-16k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=16000 USD / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_ebizfacts_vascomonteiroarvowseowritingapp70kmonth_e74150634a2d": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Back in 2023, Vasco Monteiro started Arvow , an AI SEO writing app 🤖",
+   "sourceUrl": "https://ebizfacts.com/vasco-monteiro-arvow-seo-writing-app-70k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: 2023年にAI SEOライティングアプリArvowを開始。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Jasper was on it already… there was CopyAI as well. So we weren’t the first… we crammed ourselves in there. Nothing new. We saw what was working and just did something for us.",
+   "sourceUrl": "https://ebizfacts.com/vasco-monteiro-arvow-seo-writing-app-70k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "JasperやCopyAIなど先行サービスに続き、既に稼いでいる製品を見て自分なりに作った。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "Vasco took the same approach with his previous company, a marketplace like Upwork but more niche…\nVettted wasn’t anything new… It was a marketplace just niched down for SEO services.",
+   "sourceUrl": "https://ebizfacts.com/vasco-monteiro-arvow-seo-writing-app-70k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "前の会社はSEOサービスに絞ったUpwork型マーケットプレイスのVettted。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "Vasco also admits that Arvow wasn’t an original idea, taking inspiration from other apps that were already earning big money doing the same thing 👇",
+   "sourceUrl": "https://ebizfacts.com/vasco-monteiro-arvow-seo-writing-app-70k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "先行するJasperやCopyAIがあるなか、後追いで参入したと本人が説明。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "Vettted wasn’t anything new… It was a marketplace just niched down for SEO services.",
+   "sourceUrl": "https://ebizfacts.com/vasco-monteiro-arvow-seo-writing-app-70k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "前の会社Vetttedも、SEOサービスに絞ったニッチな市場だったと本人が説明。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "In a recent interview, he reveals that the app is now pulling in $70K in monthly revenue…",
+   "sourceUrl": "https://ebizfacts.com/vasco-monteiro-arvow-seo-writing-app-70k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=70000 USD / 由来=ARTICLE / 記載日=2025-11-24"
+  }
+ },
+ "ent_ebizfacts_marcmontagnewatchauctionhq150k_d4bd942b5488": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "After 3 years, Marc had grown it into “a five-figure ARR product” and sold for 6 figures 💰",
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "記事が載せる金額はfive-figure ARR（売却時のARR・5桁ドル・本人申告）、six figures（売却額・6桁ドル・本人申告）。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "In 2021 I decided to launch WatchAuctionHQ , a database of watch auctions results, simply because I needed it myself as a collector.",
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: 時計コレクターが自分で必要だったことから2021年に作った、時計オークションの落札結果のデータベースWatchAuctionHQ。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "He built it with no-code tools…\nI was able to have a running prototype in less than two months by working on it during nights and weekends.",
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "ノーコードのツールで、夜間と週末の作業だけで2か月足らずで試作品を動かし、3年かけて育てて売却した。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "Marc Montagne\nFounder of WatchAuctionHQ\n$150,000+ estimated revenue\n📝 Marc Montagne writes in a recent interview …",
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "チーム・稼働: 本人。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "In 2021 I decided to launch WatchAuctionHQ , a database of watch auctions results, simply because I needed it myself as a collector.",
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "開始時期: 2021年に開始、3年後に売却。"
+  },
+  "f7": {
+   "verdict": "PARTIAL",
+   "quote": "Niches with thriving auction markets include 👇\nArt\nAntiques\nClassic cars\nComic books\nSports memorabilia\nRare books and manuscripts\nCoins\nStamps\nWines and spirits",
+   "fix": {
+    "text": "記事は、美術品、骨董、クラシックカー、コミック本、スポーツ記念品、希少本・写本、コイン、切手、ワイン・蒸留酒など、オークション市場が盛んな他分野への応用を提案。"
+   },
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "記事は、美術品、骨董、クラシックカード、切手、ワインなど、オークション市場が盛んな他分野への応用を提案。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "After 3 years, Marc had grown it into “a five-figure ARR product” and sold for 6 figures 💰",
+   "fix": {
+    "metric": {
+     "label": "five-figure ARR product",
+     "basis": "five-figure ARR product"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=年(YEAR) / 金額=10000 USD / 由来=ARTICLE / 記載日=2024-10-17"
+  },
+  "m2": {
+   "verdict": "PARTIAL",
+   "quote": "After 3 years, Marc had grown it into “a five-figure ARR product” and sold for 6 figures 💰",
+   "fix": {
+    "metric": {
+     "label": "sold for 6 figures",
+     "basis": "sold for 6 figures"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/marc-montagne-watch-auction-hq-150k/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=EXIT_VALUE / 名前=売却額 / 期間=2024-10-17 時点(POINT) / 金額=100000 USD / 由来=ARTICLE / 記載日=2024-10-17"
+  }
+ },
+ "ent_ebizfacts_arunimagoelknitterknottercrochetblog6kmonth_e34614e76406": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Arunima Goel is the founder of KnitterKnotter , a website all about Tunisian crochet 🧶",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: チュニジアン・クロッシェ（鉤針編みの一種）に絞ったサイトKnitterKnotter。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "I considered selling crocheted products, but I quickly realized that it wasn’t a very scalable business model, so I shifted my focus to creating and selling crochet patterns instead.",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "編み物の作品を売るのは拡大しにくいため、編み図（パターン）と講座の販売に切り替えた。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "I’ve been a full-time crochet designer for a little over 5 years now. I focus on Tunisian Crochet, which has been picking up in popularity lately.",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "専業のデザイナーになって5年余り。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "I didn’t make any money for the first 3 years, but the business has grown significantly in the last two years.",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "最初の3年は収入がなく、この2年で大きく伸びた。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "Arunima started sharing her work on social media, and her audience began to grow 📈",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "集客経路: SNSでの作品共有と、年1回の参加型イベント（Crochet Along）で顧客との関係を維持。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "I learned how to crochet when I was in high school but I didn’t really do much with it until about 15 years ago, when I picked it up again and re-taught myself using YouTube videos.",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "高校で編み物を覚え、約15年前にYouTube動画で学び直したと本人が説明。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "Finding an audience in that space would not be impossible, but it would be very hard, so I decided to focus on Tunisian Crochet instead.",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "既存の競合が多い分野を避け、チュニジアン・クロッシェに絞ったと本人が説明。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "Repeat customers are most valuable to me. I focus on connecting with my audience as much as possible…",
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "リピート顧客が最も価値があると本人が説明。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "On average, I make around $6,000 per month, with most of it coming from pattern and course sales.",
+   "fix": {
+    "metric": {
+     "origin": "SELF_REPORTED",
+     "basis": "around $6,000 per month"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/arunima-goel-knitter-knotter-crochet-blog-6k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=6000 USD / 由来=ARTICLE / 記載日=2024-05-20"
+  }
+ },
+ "ent_ebizfacts_jamessowerscastawayfmpodcastrepurposing20kmo_d499131877de": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "They help podcasters repurpose their content to reach a bigger audience 👍",
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: ポッドキャスターの番組を切り出して再利用し、より多くの聴取者に届ける定額サービスCastaway.fm。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Castaway was stuck at $4-6k MRR for a year while I was doing it as a side hustle.",
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "副業だった間は収益が1年停滞したが、2023年12月に会社を辞めて専業にし、11社の顧客を抱えるまで伸びた。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "We’re adding 1-2 clients per month right now and turning probably 5-6 away because they aren’t a good fit.",
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "月に1〜2社を増やし、5〜6社は断っている。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "I quit my job in December 2023 to go all-in on it (and a couple other projects) and now it’s up to $20,000 MRR spread across 11 clients…",
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "開始時期: 2023年12月に専業化。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "Castaway was stuck at $4-6k MRR for a year while I was doing it as a side hustle.",
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "副業の間は月$4〜6千で1年停滞。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "it’s up to $20,000 MRR spread across 11 clients… our current pace is a $250k run rate.\nWe’re adding 1-2 clients per month right now and turning probably 5-6 away because they aren’t a good fit.",
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "顧客は11社、月に1〜2社を増やし、5〜6社は合わないため断っていると本人が説明。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "I asked him to share a few tips to get started and he did so on X…\nMy best advice for aspiring productized service owners",
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "本人は定額サービスを目指す人向けの助言もXで共有。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "it’s up to $20,000 MRR spread across 11 clients… our current pace is a $250k run rate.",
+   "fix": {
+    "metric": {
+     "origin": "SELF_REPORTED",
+     "basis": "$20,000 MRR spread across 11 clients"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月（継続課金）(MONTH) / 金額=20000 USD / 由来=ARTICLE / 基準=月次の経常収益・MRR・11社の顧客 / 記載日=2024-09-26"
+  },
+  "m2": {
+   "verdict": "PARTIAL",
+   "quote": "Castaway was stuck at $4-6k MRR for a year while I was doing it as a side hustle.",
+   "fix": {
+    "metric": {
+     "label": "$4-6k MRR",
+     "basis": "stuck at $4-6k MRR for a year"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月（継続課金）(MONTH) / 金額=4000 USD / 由来=ARTICLE / 基準=副業時代に1年停滞していたMRR / 記載日=2024-09-26"
+  },
+  "m3": {
+   "verdict": "PARTIAL",
+   "quote": "it’s up to $20,000 MRR spread across 11 clients… our current pace is a $250k run rate.",
+   "fix": {
+    "metric": {
+     "periodKind": "POINT",
+     "period": "current pace",
+     "basis": "$250k run rate"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/james-sowers-castaway-fm-podcast-repurposing-20k-month/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=年(YEAR) / 金額=250000 USD / 由来=ARTICLE / 記載日=2024-09-26"
+  }
+ },
+ "ent_ebizfacts_babelaudio16hourtalkstrangerstrainai_83a4e38698c2": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "You can get paid to have fifteen minute conversations with thousands of participants…\nWe record every conversation, and use this data to build AI training datasets.",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: 会話を録音してAI学習用の音声データを作るBabel Audioで、15分の通話ごとに報酬を得る副業。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Not bad given that you need zero skills for this, just a quiet room and a decent microphone.",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "静かな部屋と良いマイクがあれば始められ、音声品質の審査が厳しいと記事が紹介している。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "I applied on December 28th and got accepted the next day via email. It is truly legit and love doing this type of work.",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "12月28日に申し込み、翌日に承認。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "Sarge earned his $572 from 142 fifteen-minute calls = $16 per hour 🤑",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "価格・プラン: 15分の通話ごとに支払い（記事の計算で時給$16相当）。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "So far, my earnings over last 29 days is $1400 .. and you can work when you want and how much you want depending on the call limits company prescribes to you.",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "チーム・稼働: 本人。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "Consensus is the company definitely pays, but they’re very picky about the audio quality 😕",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "会社は確かに支払うが、音声品質の審査は厳しいというのがRedditの大勢と記事が記載。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "So far, my earnings over last 29 days is $1400 .. and you can work when you want and how much you want depending on the call limits company prescribes to you.",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "勤務時間は自由で、通話数には会社が上限を設けると投稿者が説明。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "So far, my earnings over last 29 days is $1400 .. and you can work when you want and how much you want depending on the call limits company prescribes to you.",
+   "fix": {
+    "metric": {
+     "origin": "THIRD_PARTY",
+     "period": "last 29 days"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=29日間の収入(CUMULATIVE) / 金額=1400 USD / 由来=ARTICLE / 記載日=2025-03-24"
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "Sarge earned his $572 from 142 fifteen-minute calls = $16 per hour 🤑",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=YouTuberのSarge氏の収入・15分の通話142回(CUMULATIVE) / 金額=572 USD / 由来=THIRD_PARTY / 記載日=2025-03-24"
+  },
+  "m3": {
+   "verdict": "SUPPORTED",
+   "quote": "Sarge earned his $572 from 142 fifteen-minute calls = $16 per hour 🤑",
+   "sourceUrl": "https://ebizfacts.com/babel-audio-16-hour-talk-strangers-train-ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=PRICE / 名前=時給の目安 / 期間=2025-03-24 時点(POINT) / 金額=16 USD / 由来=ARTICLE / 記載日=2025-03-24"
+  }
+ },
+ "ent_ebizfacts_dadgangidentitybusiness2million30days_a23dad01f3d5": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Dad Gang was started by three guys in May 2022.",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "事業内容: 父親3人が、日々のメッセージで使っていた「#DadGang」という合言葉を帽子にしたブランドDad Gang。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "They made 100 hats, sold out in 36 hours.\nThen they made 300 hats, sold them in a week. Repeat!",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "2022年5月に少額の資金で100個を作ると36時間で完売し、次は300個を1週間で売り切ることを繰り返した。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "One of the co-founders Bart Szaniewski was on a podcast a few days back and mentioned they’ve sold 110,000 hats…",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "11万個を売ったと共同創業者が語る。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "Dad Gang was started by three guys in May 2022.",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "チーム・稼働: 共同創業者3人。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "Dad Gang was started by three guys in May 2022.",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "開始時期: 2022年5月に開始。"
+  },
+  "f6": {
+   "verdict": "PARTIAL",
+   "quote": "One of the co-founders Bart Szaniewski was on a podcast a few days back and mentioned they’ve sold 110,000 hats…",
+   "fix": {
+    "text": "共同創業者のBart Szaniewskiが、ポッドキャストで11万個の販売を語ったと記事が記載。"
+   },
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "共同創業者のBart Szaniewskiが、ポッドキャストで11万個の販売を語ったとCapital Fridayが記載。"
+  },
+  "f7": {
+   "verdict": "PARTIAL",
+   "quote": "The hats don’t look like anything special; it’s more about the identity they have come to represent.",
+   "fix": {
+    "text": "記事は、帽子の機能ではなく、父親という帰属意識を売っている点を成功要因としている。"
+   },
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "Capital Fridayは、帽子の機能ではなく、父親という帰属意識（アイデンティティ）を売っている点を成功要因と分析。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "Shaan sees it as five levels:\n– Level 1 Sell a Product – Don’t do this\n– Level 2 Sell a Solution – Head and Shoulders\n– Level 3 Sell a Lifestyle – Lululemon, Slack, this is how you create a category",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "記事は、Shaan Puriのマーケティング5段階（商品、解決策、生活様式、感情、アイデンティティ）の枠組みを引用。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "Looks like that crazy growth is continuing as one of the founders recently tweeted …\n$2m in 30 days is crazy. Onward. ➡️",
+   "fix": {
+    "metric": {
+     "origin": "SELF_REPORTED",
+     "basis": "one of the founders recently tweeted"
+    }
+   },
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=30日間の売上(CUMULATIVE) / 金額=2000000 USD / 由来=ARTICLE / 記載日=2024-06-17"
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "By August 2023 they had sold $1.5 million [worth of] hats.",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=累計(CUMULATIVE) / 金額=1500000 USD / 由来=THIRD_PARTY / 記載日=2024-06-17"
+  },
+  "m3": {
+   "verdict": "SUPPORTED",
+   "quote": "🚀 With only $750 of startup capital…\nThey made 100 hats, sold out in 36 hours.",
+   "sourceUrl": "https://ebizfacts.com/dad-gang-identity-business-2-million-30-days/",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=OTHER / 名前=創業時の資金 / 期間=2024-06-17 時点(POINT) / 金額=750 USD / 由来=THIRD_PARTY / 記載日=2024-06-17"
+  }
+ },
+ "ent_linguax_6b13ae7a12de": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "LinguaX is a macOS utility for mouse enhancement, push-to-talk voice input, and automatic input-source switching — smooth scrolling, gesture and button mapping, and input source rules by app and website.",
+   "sourceUrl": "https://linguax.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "外付けマウスの滑らかなスクロール、サイドボタン・ジェスチャーの割り当て、押して話す音声入力、アプリやサイトごとの入力ソース切り替えを案内。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "macOS 13+ · Apple Silicon & Intel · Menu bar app",
+   "sourceUrl": "https://linguax.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "macOS 13 以降の常駐アプリで、約10MBと説明。"
+  },
+  "f3": {
+   "verdict": "PARTIAL",
+   "quote": "Start with a full-feature trial. It is a one-time purchase with no subscription, and your rules stay on your Mac.",
+   "fix": {
+    "text": "料金は30日間の全機能の無料体験のあと、$9.9の買い切りで、購読なし。"
+   },
+   "sourceUrl": "https://linguax.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "料金は30日間の全機能の無料体験のあと、$9.9 の買い切り（3台まで、購読なし）。"
+  },
+  "f4": {
+   "verdict": "PARTIAL",
+   "quote": "Tools Compatibility Database\nScroll Test\nLogitech Pairing\nBlog Pricing\nDownload Free English English\n简体中文\n繁體中文\n日本語\n한국어\nDeutsch\nFrançais\nРусский\nBahasa Indonesia",
+   "fix": {
+    "text": "互換性データベース、スクロールテスト、Logitech Pairing、Blog Pricingを掲載し、英語、簡体中文、繁體中文、日本語、韓国語、Deutsch、Français、Русский、Bahasa Indonesiaを表示。"
+   },
+   "sourceUrl": "https://linguax.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "8言語に対応し、更新履歴、互換性データベース、スクロールのテスト、比較記事を掲載。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "Designed by Ermulin Studio.\nTerms of Service AIx Service Addendum Privacy Policy Buy via Gumroad Affiliate Program",
+   "sourceUrl": "https://linguax.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "「Designed by Ermulin Studio」と表示。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "People\nhenrychen Founder",
+   "sourceUrl": "https://www.indiehackers.com/product/linguax",
+   "checkedAt": "2026-09-30",
+   "claimText": "掲載者は henrychen。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "June 19, 2026\nI spent months building the wrong product — and the fix was one sentence",
+   "sourceUrl": "https://www.indiehackers.com/product/linguax",
+   "checkedAt": "2026-09-30",
+   "claimText": "投稿は2026-06-19「何か月も間違った製品を作った。直したのは一文だった」の1件。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "So I rewrote the entire positioning around a single sentence:\n▎ Give any mouse a native macOS feel — without a 500MB driver.",
+   "sourceUrl": "https://www.indiehackers.com/product/linguax",
+   "checkedAt": "2026-09-30",
+   "claimText": "投稿は、アプリの大きさが約10MB（Logi Options+ は約500MB）、価格が$9.9 の買い切りであることに触れ、「どのマウスにも Mac らしい感触を、500MB のドライバーなしで」と位置づけを説明。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "Revenue $50 / mo",
+   "sourceUrl": "https://www.indiehackers.com/product/linguax",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=50 USD / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_simplelogin_1250ac": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "SimpleLogin project was started in 2019 and the SimpleLogin company (SimpleLogin SAS) was created in 2020.",
+   "sourceUrl": "https://simplelogin.io/about/",
+   "checkedAt": "2026-09-30",
+   "claimText": "SimpleLoginは2019年に始まり、SimpleLogin SASは2020年に設立された。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "Free\n$0\n10 aliases\nUnlimited Bandwidth\nReply from alias\n1 mailbox",
+   "sourceUrl": "https://simplelogin.io/pricing/",
+   "checkedAt": "2026-09-30",
+   "claimText": "無料版は別名10件、有料版は年36米ドルまたは月4米ドルで別名数を無制限としている。"
+  }
+ },
+ "ent_fliki_bbd4e1": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Turn text, scripts, and blog posts into videos with 2,000+ AI voices in 80+ languages. No camera, no editing skills needed. Free forever plan.",
+   "sourceUrl": "https://fliki.ai/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式トップは、テキストから2,000以上のAI音声、80以上の言語で動画を作れると案内し、利用者1,400万人超、無料プランありと表示している。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "We have a vision to create a platform where users could create audio and video content and simplifying this process with the power of AI.",
+   "sourceUrl": "https://fliki.ai/about",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式Aboutは、音声と動画のコンテンツをAIで簡単に作れる場にする構想を述べ、運営会社の表記としてNine Thirty Fiveを掲げている。"
+  },
+  "f3": {
+   "verdict": "PARTIAL",
+   "quote": "Sabir: Fliki started with a text-to-speech solution, but we are slowly moving into text-to-video solutions.",
+   "fix": {
+    "text": "Tekponのインタビュー記事でSabirは、ブログ記事を動画にする機能、750以上のAI音声、4人のチームを述べている。"
+   },
+   "sourceUrl": "https://tekpon.com/insights/text-to-voice-and-text-to-video-for-all-your-content-sabir-ahmed-ceo-fliki/",
+   "checkedAt": "2026-09-30",
+   "claimText": "Tekponのインタビュー記事は、Sabir AhmedをCEOとして紹介し、ブログ記事を動画にする機能、750以上のAI音声、4人のチームを述べている。"
+  }
+ },
+ "ent_christiantechjobs_049f1fa7681c": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "The #1 Christian tech job board. Find software, IT, design, and data jobs at Christian companies, churches, and ministries.",
+   "sourceUrl": "https://www.christiantechjobs.io/",
+   "checkedAt": "2026-09-30",
+   "claimText": "求人の一覧、求職者のプロフィール、給与データ、採用側のツールを備えた、キリスト教系の企業・団体の技術職向けの求人サイトと案内。"
+  },
+  "f2": {
+   "verdict": "PARTIAL",
+   "quote": "45,600 + Monthly visitors\n325 + Companies\n57% Remote",
+   "fix": {
+    "text": "「月間訪問者4万5,600人超」「掲載企業325社超」を自己申告。"
+   },
+   "sourceUrl": "https://www.christiantechjobs.io/",
+   "checkedAt": "2026-09-30",
+   "claimText": "「月間訪問者4万5,600人超」「掲載企業325社超」「求人1,000件超」「求人カテゴリ200超」を自己申告（日付なし）。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "March 21, 2024\nFirst paying customer\nI received my first paying customers in March.",
+   "sourceUrl": "https://www.indiehackers.com/product/christian-tech-jobs",
+   "checkedAt": "2026-09-30",
+   "claimText": "投稿（3件）: 2024-03-21 に最初の有料顧客、2024-06-30 に月間ユニークユーザー1万人超、2024-08-31 に月間ユニークユーザー2万人。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "Stripe-Verified Revenue\n$3,672.45 in the last 30 days.\nRevenue data is verified by Stripe and doesn't include payments that were taken elsewhere.",
+   "sourceUrl": "https://www.indiehackers.com/product/christian-tech-jobs/revenue",
+   "checkedAt": "2026-09-30",
+   "claimText": "Stripe 連携は IH が検証済みと表示するもの。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "Stripe-Verified Revenue\n$3,672.45 in the last 30 days.\nRevenue data is verified by Stripe and doesn't include payments that were taken elsewhere.",
+   "fix": {
+    "metric": {
+     "amount": 3672.45,
+     "basis": "Stripe-Verified Revenue; $3,672.45 in the last 30 days"
+    }
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/christian-tech-jobs/revenue",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=2026-09-29 取得時点の直近30日(TRAILING_DAYS) / 金額=3417.45 USD / 由来=THIRD_PARTY / 記載日=2026-09-29"
+  }
+ },
+ "ent_speedhubeu_876cd347aa3c": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Web Hosting\nHosting plans starting from 0.99 € / Month\nMore details\nDomain Registration\nRegister a domain with just 3.99 € / Year\nMore details\nVPS Servers",
+   "sourceUrl": "https://www.speedhub.eu",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式は共有ホスティング、ドメイン登録、Linux／Windows VPS、VPN、SSLを販売する。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Web Hosting\nHosting plans starting from 0.99 € / Month\nMore details\nDomain Registration\nRegister a domain with just 3.99 € / Year\nMore details\nVPS Servers\nLinux and Windows VPS starting at 7.99 € / Month",
+   "sourceUrl": "https://www.speedhub.eu",
+   "checkedAt": "2026-09-30",
+   "claimText": "ホスティング月0.99ユーロ、VPS月7.99ユーロ、VPN月2.59ユーロからを表示する。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "By integrating this into our existing SpeedHub ecosystem—alongside our €0.99 hosting and affordable VPS plans—we can keep costs down while keeping performance high.",
+   "sourceUrl": "https://www.indiehackers.com/product/webhosting",
+   "checkedAt": "2026-09-30",
+   "claimText": "本人は既存のホスティング・VPS設備と共通化してVPNを低価格で提供し、長期契約や広告費の上乗せを避けるという開発理由を述べる。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "February 12, 2026\nInternet Privacy should not cost to much! We’re launching a Secure VPN plan for €2.59",
+   "sourceUrl": "https://www.indiehackers.com/product/webhosting",
+   "checkedAt": "2026-09-30",
+   "claimText": "2026年2月12日のIH投稿はVPNの公開を告知する。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "SPEEDHUB SOLUTIONS SRL (hereinafter referred to as SPEEDHUB.EU) with headquarters in Bucharest, Romania, Europe and registered with the trade register EUID no ROONRC.J40/3836/2017",
+   "sourceUrl": "https://www.speedhub.eu/tos.php",
+   "checkedAt": "2026-09-30",
+   "claimText": "規約は運営法人をSPEEDHUB SOLUTIONS SRL、本拠をルーマニアのブカレストと記載。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "The services are based on CloudLinux (server operating system), cPanel (administration panel), DirectAdmin (administration panel), LiteSpeed (optimization platforms and web publishing platforms).",
+   "sourceUrl": "https://www.speedhub.eu/tos.php",
+   "checkedAt": "2026-09-30",
+   "claimText": "規約は共有ホスティングのCloudLinux、cPanel、DirectAdmin、LiteSpeedとVPSのOpenVZ、KVM、VMWareを列挙する。"
+  },
+  "f11": {
+   "verdict": "PARTIAL",
+   "quote": "Day 30: Your cPanel or Direct Admin account with all the data in it is erased, without any possibility to recover the deleted data!",
+   "fix": {
+    "text": "未払いではDay 30にcPanelまたはDirect Adminアカウントが全データごと消去される。"
+   },
+   "sourceUrl": "https://www.speedhub.eu/tos.php",
+   "checkedAt": "2026-09-30",
+   "claimText": "未払いでは共有ホスティング30日、VPS7日でデータ削除と説明している。"
+  },
+  "f13": {
+   "verdict": "SUPPORTED",
+   "quote": "Win 5% of every order made by a client you recommanded.\nWithdraw at 20 Euro as Balance Credit to order new services or to pay any future invoices on SPEEDHUB.eu.",
+   "sourceUrl": "https://www.speedhub.eu/affiliate-info.php",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式紹介制度は注文額の5%を付与し、残高20ユーロから自社サービスの購入・請求充当に使えると説明。"
+  },
+  "f14": {
+   "verdict": "SUPPORTED",
+   "quote": "All requests for the Services cancellations and refund must be submitted via our ticketing system (in writing) by the Customer personally within 7 days of service sign up",
+   "sourceUrl": "https://www.speedhub.eu/refund.php",
+   "checkedAt": "2026-09-30",
+   "claimText": "返金方針は冒頭で7日以内、後段で14日以内の申請と食い違う。"
+  },
+  "f15": {
+   "verdict": "PARTIAL",
+   "quote": "Only 50% of this prepaid amount will be refunded because \"SPEEDHUB.EU\" has incurred costs of various kinds in order to provide service to the customer.",
+   "fix": {
+    "text": "前払い額の50%のみ、銀行口座への返金では25ユーロの返金税を差し引くという条件を記載。"
+   },
+   "sourceUrl": "https://www.speedhub.eu/refund.php",
+   "checkedAt": "2026-09-30",
+   "claimText": "前払い額の50%のみ、銀行送金控除25ユーロ、ドメインとSSLは返金対象外という条件も記載。"
+  },
+  "f18": {
+   "verdict": "SUPPORTED",
+   "quote": "Semrush #12462232; 📆 listed 2017 (#25304) 📄 Review 🎁 Coupons 0 📤 Products 65 ✅ Testimonials 0 👪 User Reviews 3 💥 Add Review +",
+   "sourceUrl": "https://www.whtop.com/review/speedhub.eu",
+   "checkedAt": "2026-09-30",
+   "claimText": "WHTopにはSemrush順位12,462,232と被リンク52,935の掲載がある。"
+  }
+ },
+ "ent_scrapingdog_4a1b8c": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Try Scrapingdog for Free Sign Up With Google\n30-day free trial\nNo credit card required\n100 credits free\nTrusted by 1000+ Developers & Companies Worldwide",
+   "sourceUrl": "https://www.scrapingdog.com/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式サイトは、Scrapingdogを、ウェブスクレイピングのAPIとして、1,000人超の開発者と企業に信頼されている、30日間の無料トライアルがあると紹介している。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Apr 2020\nLaunched Website\nBaby Scrapingdog was born! It was MVP and was launched on Product Hunt.\n16 May, 2020\nFirst Paid Customer",
+   "sourceUrl": "https://www.scrapingdog.com/about/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式Aboutは、創業者のManthan KoolwalとCTO兼共同創業者のDarshan Khandelwalを紹介し、沿革として2020年4月にProduct Huntでウェブサイトを公開、2020年5月16日に最初の有料顧客、2023年8月12日に最初の100顧客に到達したと述べている。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "FREE\n$0 forever\n100 Requests Credits\n1 Concurrency\nAccess To All APIs\nNo Credit Card Required\nCommunity Support\nTeam Support\nStart for Free\nLITE\n$40 /month",
+   "sourceUrl": "https://www.scrapingdog.com/pricing/",
+   "checkedAt": "2026-09-30",
+   "claimText": "料金ページは、Free（0ドル、100リクエストのクレジット、同時実行1）、Lite（月40ドル、月20万クレジット、同時実行5）、月90ドルのプランなどを表示し、年払いは2か月分お得、失敗したリクエストには課金しないと案内している。"
+  }
+ },
+ "ent_howeverai_119982c98934": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Pages\nLogin\n— Login on However Io. However AI manages 5 data types including daily check ins.\nRegister\n— Register on However Io. However AI manages 5 data types including daily check ins.",
+   "sourceUrl": "https://however.base44.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "however.base44.app は、ログイン、登録、料金、公開コミュニティ、ランキング、チャレンジ、メンター名簿、規約などのページを持つ。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "However AI manages 5 data types including daily check ins. Helps you organize, track, and share your work in 1 place for teams and solo users.",
+   "sourceUrl": "https://however.base44.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "各ページの説明文は「5種類のデータを扱い、日々のチェックインを含む。チームや個人が仕事を1か所で整理・追跡・共有できる」という同じ定型文の繰り返し。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "People\nNewVersion Founder",
+   "sourceUrl": "https://www.indiehackers.com/product/however-ai",
+   "checkedAt": "2026-09-30",
+   "claimText": "掲載者のハンドルは NewVersion。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "June 18, 2026\nSOMETHING CRAZY IS OUT FROM AFRICA TO THE WORLD🌍. However is one of the first AI-native personal development platform you'll ever see",
+   "sourceUrl": "https://www.indiehackers.com/product/however-ai",
+   "checkedAt": "2026-09-30",
+   "claimText": "2026-06-18 の投稿は、アフリカから世界へ向けた AI ネイティブの自己成長のプラットフォームとして紹介。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "Claude powers personalized coaching, skill learning paths built from live web research, and morning briefs that reference each user's actual behavioral history.",
+   "sourceUrl": "https://www.indiehackers.com/product/however-ai",
+   "checkedAt": "2026-09-30",
+   "claimText": "Claude を核にし、目標と現状のずれを毎日測り、個別のコーチング、学習の道筋、行動の要約を出すと説明。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "Revenue $300 / mo",
+   "sourceUrl": "https://www.indiehackers.com/product/however-ai",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=300 USD / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_softripnivo_fe611ffdc9bd": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Softrip is the all-in-one tour operator software for multi-day travel companies — reservations, operations, CRM, accounting, and reporting in one platform.",
+   "sourceUrl": "https://www.softrip.com",
+   "checkedAt": "2026-09-30",
+   "claimText": "複数日のツアー事業者向けに、予約管理、商品作成、運用の自動化、CRM・マーケティング、レポート、決済、会計をまとめたソフトと案内。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "1111B S Governors Ave #6072,\nDover, DE 19904",
+   "sourceUrl": "https://www.softrip.com",
+   "checkedAt": "2026-09-30",
+   "claimText": "運営表記は Softrip LLC（米国デラウェア州ドーバーの住所を表示）。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "© 2026 Softrip LLC | Legal\nWebsite by Media Components\nX Facebook\nTwitter\nLinkedIn",
+   "sourceUrl": "https://www.softrip.com",
+   "checkedAt": "2026-09-30",
+   "claimText": "導入企業の声、デモ申込、SNS のリンクを掲示。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "People\nSoftripNivo Founder",
+   "sourceUrl": "https://www.indiehackers.com/product/softrip-nivo",
+   "checkedAt": "2026-09-30",
+   "claimText": "創業者欄の表示名は製品名と同じ SoftripNivo（ハンドルも SoftripNivo）。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "April 21, 2026\nBuilding the Future of Agentic AI in Multi-Day Tour Operators",
+   "sourceUrl": "https://www.indiehackers.com/product/softrip-nivo",
+   "checkedAt": "2026-09-30",
+   "claimText": "投稿は2026-04-21の1件。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "Softrip serves large, complex tour operators, providing a full ERP that manages everything from inventory and suppliers to finance and reporting at scale.",
+   "sourceUrl": "https://www.indiehackers.com/product/softrip-nivo",
+   "checkedAt": "2026-09-30",
+   "claimText": "Softrip は大規模で複雑な事業者向けの ERP、Nivo は小さく成長中のチーム向けの軽量なプラットフォームと説明し、どちらにも作業を補助するだけでなく実行する AI を組み込むと述べる。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "Nivo is the multi-day tour management software designed for small to mid-sized tour operators who want streamlined workflows, less manual effort, and faster, more sustainable growth.",
+   "sourceUrl": "https://gonivo.com/",
+   "checkedAt": "2026-09-30",
+   "claimText": "Nivo は、旅程作成、予約、CRM、見積、運用、価格設定、分析、AI 支援を1つにまとめた、複数日のツアー管理ソフトと案内。"
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "Nivo is the multi-day tour management software designed for small to mid-sized tour operators who want streamlined workflows, less manual effort, and faster, more sustainable growth.",
+   "sourceUrl": "https://gonivo.com/",
+   "checkedAt": "2026-09-30",
+   "claimText": "対象は小規模〜中規模のツアー事業者。"
+  },
+  "f12": {
+   "verdict": "SUPPORTED",
+   "quote": "Now accepting early adopters\nScale Your Tours, Not Your Headcount.",
+   "sourceUrl": "https://gonivo.com/",
+   "checkedAt": "2026-09-30",
+   "claimText": "「早期利用者を受け付け中」と表示。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "Revenue $4MM / mo",
+   "sourceUrl": "https://www.indiehackers.com/product/softrip-nivo",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=4000000 USD / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_hulkapps_27759e": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "HulkApps is a Top Tier Shopify Expert, specializing in building Shopify apps tailored to help Shopify merchants through a comprehensive suite of 18+ apps.",
+   "sourceUrl": "https://www.hulkapps.com/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式サイトは、HulkAppsを、Shopifyの上位パートナーとして18以上のアプリを作る会社と紹介し、各アプリの導入数（17万件超、20万件超など）と『月9.90ドルから』などの開始価格を表示している。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Back in 2012, we built Shopify Themes. With 11+ Premium Shopify Themes in the market, we learned that merchants needed something more to be successful—so we built our own apps on the Shopify App Store .",
+   "sourceUrl": "https://www.hulkapps.com/pages/about",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式Aboutは、HulkAppsを2012年にShopifyのテーマから始め、2016年に最初のアプリを出し、カナダ、シカゴ、インド、ギリシャ、ボスニア・ヘルツェゴビナにまたがる250人超のチームで、12万社超の事業者を支えると説明している。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "HulkApps (also trading as Shop Circle) , operated by Shop Circle Ltd (also trading as Circeus), located in One Kingdom Street, Paddington Central, London - W2 6BD, United Kingdom.",
+   "sourceUrl": "https://www.hulkapps.com/pages/privacy-policy",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式のプライバシーポリシーは、運営主体を Shop Circle Ltd（屋号 HulkApps）と記している。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "Rising to serve you better, we are delighted to announce that PlanetX has been acquired by HulkApps, a Chicago-based leading Shopify agency.",
+   "sourceUrl": "https://www.hulkapps.com/pages/services-packages-terms-of-service",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式のサービスパッケージ規約のページは、PlanetXがHulkAppsに買収されたと告知している。"
+  }
+ },
+ "ent_lifeflowexecutionos_6a0824a98de9": {
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "The 9 AM Ritual: Aggressive focus on one project/task. No decision fatigue.\nVoice AI Recovery: Because life happens. Rebuild your schedule via voice when the day breaks.",
+   "sourceUrl": "https://www.indiehackers.com/product/lifeflow-execution-os",
+   "checkedAt": "2026-09-30",
+   "claimText": "一つの作業への集中、音声による予定再構築、実行状況の分析を提供すると説明。"
+  }
+ },
+ "ent_differenthunger_1dc50bdd1b8f": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Escape the Rat Race and Live on Your Terms.\nSubscribe\nFeatured\nMay 14, 2016\n•\n3 min read\n75+ Millionaires, Olympians & More Offer Their Best Advice",
+   "sourceUrl": "http://differenthunger.com",
+   "checkedAt": "2026-09-30",
+   "claimText": "起業家に「自分の条件で生きる」ことを勧める記事、事例、チュートリアル、インタビューを掲載し、購読の導線がある。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Different Hunger\nEscape the Rat Race and Live on Your Terms.\nSubscribe\n© 2026 Different Hunger Media.",
+   "sourceUrl": "http://differenthunger.com",
+   "checkedAt": "2026-09-30",
+   "claimText": "運営は Different Hunger Media、創業者は Matt Kohn と表示。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "Articles\nJun 2, 2026\n•\n4 min read\nYour Hunger Determines Your Success\nOct 27, 2025\n•\n4 min read\n72 Hour Clients is live on Product Hunt!",
+   "sourceUrl": "http://differenthunger.com",
+   "checkedAt": "2026-09-30",
+   "claimText": "2025年〜2026年の日付の記事がある。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "Oct 27, 2025\n•\n4 min read\n72 Hour Clients is live on Product Hunt!",
+   "sourceUrl": "http://differenthunger.com",
+   "checkedAt": "2026-09-30",
+   "claimText": "2025年10月の Product Hunt での公開に触れている。"
+  },
+  "f5": {
+   "verdict": "PARTIAL",
+   "quote": "People\nMatt Kohn Founder",
+   "fix": {
+    "text": "創業者はMatt Kohn。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/different-hunger-premium",
+   "checkedAt": "2026-09-30",
+   "claimText": "創業者は Matt Kohn(@Mattkohn2220)。"
+  },
+  "f7": {
+   "verdict": "PARTIAL",
+   "quote": "Different Hunger started as a personal blog and a dream in 2014.",
+   "fix": {
+    "text": "Different Hungerは2014年に個人ブログと夢として始まり、2017年5月8日にDifferent Hunger MediaのLLCを登録した。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/different-hunger-premium",
+   "checkedAt": "2026-09-30",
+   "claimText": "2014年5月に WordPress のブログとして開始、2017年5月に LLC を設立と説明。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "October 1, 2018\nPivoted agency model and broke $15K MRR!",
+   "sourceUrl": "https://www.indiehackers.com/product/different-hunger-premium",
+   "checkedAt": "2026-09-30",
+   "claimText": "投稿の題名に「2017年4月: 債務と燃え尽きを越えて売上$100Kを突破」「2018年10月: 代理店モデルへ転換し月次経常売上$15K超」がある。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "January 2019\nLaunched beta for agencies!\nAfter realizing that many of our agency clients were unable to scale and overworked, we created a new accelerator program",
+   "sourceUrl": "https://www.indiehackers.com/product/different-hunger-premium",
+   "checkedAt": "2026-09-30",
+   "claimText": "2019年1月に代理店向けの養成プログラム、2020年2月に月$200からの会員制を開始と説明。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "This figure was last updated September 23, 2020, and has not been independently verified.",
+   "sourceUrl": "https://www.indiehackers.com/product/different-hunger-premium/revenue",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=2020-09-23 時点(MONTH) / 金額=13000 USD / 由来=SELF_REPORTED / 記載日=2020-09-23"
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "October 1, 2018\nPivoted agency model and broke $15K MRR!",
+   "sourceUrl": "https://www.indiehackers.com/product/different-hunger-premium",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=2018-10 時点(MONTH) / 金額=15000 USD / 由来=SELF_REPORTED / 記載日=2018-10"
+  },
+  "m3": {
+   "verdict": "SUPPORTED",
+   "quote": "April 17, 2017\nOvercame debt and burnout to break $100K revenue",
+   "sourceUrl": "https://www.indiehackers.com/product/different-hunger-premium",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=2017-04 時点(期間の記載は未確認)(CUMULATIVE) / 金額=100000 USD / 由来=SELF_REPORTED / 記載日=2017-04"
+  }
+ },
+ "ent_wrupup_9a68103ef7bf": {
+  "f3": {
+   "verdict": "PARTIAL",
+   "quote": "People\nAndrews Libradilla Founder",
+   "fix": {
+    "text": "創業者はAndrews Libradilla。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/wrup-up",
+   "checkedAt": "2026-09-30",
+   "claimText": "創業者は Andrews Libradilla（@iskranetwork）。"
+  },
+  "f4": {
+   "verdict": "PARTIAL",
+   "quote": "Revenue $16K / mo\nWebsite Twitter Facebook",
+   "fix": {
+    "text": "Website、Twitter、Facebookのリンクがある。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/wrup-up",
+   "checkedAt": "2026-09-30",
+   "claimText": "X アカウントは @getwrupup、Facebook ページあり。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "August 10, 2018\nBeta Launching of Wrup Up\nLast August 10, 2018 at Robinsons Place Iligan.",
+   "sourceUrl": "https://www.indiehackers.com/product/wrup-up",
+   "checkedAt": "2026-09-30",
+   "claimText": "投稿: 2018-08-10「Wrup Up のベータ公開」（イリガンの商業施設で公開、地元のフリーランサーを招待）、2018-10-25「第1回デジタルキャリア博覧会を開催」、2019-06-23「British Council の CSO SEED 助成」。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "Revenue $16K / mo",
+   "fix": {
+    "metric": {
+     "amount": 16000,
+     "basis": "Revenue $16K / mo"
+    }
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/wrup-up",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=15744 USD / 由来=SELF_REPORTED / 記載日=2021-02-03"
+  }
+ },
+ "ent_aldnteap_cfb75ce0": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "We make essential macOS utilities: AlDente protects your MacBook battery with a charge limit, and Leftovers keeps your Downloads folder tidy.",
+   "sourceUrl": "https://apphousekitchen.com/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式サイトは、AppHouseKitchenを、AlDenteでMacBookのバッテリーを充電上限で守り、Leftoversでダウンロードフォルダを整理する、macOS向けユーティリティの運営元と紹介し、70万人超の利用者を掲げ、オーストリアの小さなチームが2021年のAlDenteから始めたと述べている。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "We’re a small team with a big mission: helping MacBook users take better care of their devices. AlDente started as a simple idea and grew into a tool trusted by thousands worldwide.",
+   "sourceUrl": "https://apphousekitchen.com/about/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式Aboutは、AppHouseKitchenを、MacBookのバッテリーの手入れを助けるという使命を持つ小さなチームと述べ、2021年からMacBook利用者のためのツールを作ってきたとして、David Wernhart、Matthias Kerbl、Daria Lazepkoの3人を紹介している。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "Setapp is a subscription service for Mac and iOS apps. For $9.99/mo, use AlDente Pro plus more than 240 other apps. No extra fees, no ads.",
+   "sourceUrl": "https://apphousekitchen.com/aldente-overview/pricing/",
+   "checkedAt": "2026-09-30",
+   "claimText": "料金ページは、AlDenteをFree、Proのサブスクリプション、Lifetimeライセンスで案内し、Setapp経由では月9.99ドルでAlDente Proとほかの240本超のアプリを使えると述べ、70万回超のダウンロードを掲げている。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "AppHouseKitchen GmbH\nObersdorfer Straße 31, Stiege 5 Tür 11,\n2120 Wolkersdorf im Weinviertel,\nAustria\nBusiness purpose: App development and distribution",
+   "sourceUrl": "https://apphousekitchen.com/imprint/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式のImprintは、運営会社をAppHouseKitchen GmbH（オーストリア、商業登記番号FN610995y、登録上の所在地はWolkersdorf im Weinviertel）と記し、事業の目的をアプリの開発と配信、代表者欄にDavid WernhartとMatthias Kerblを載せている。"
+  }
+ },
+ "ent_candor_bf1c87b2d523": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Honest admission chances built from real Common Data Set numbers. Not a guess, not hype.",
+   "sourceUrl": "https://admit.up.railway.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式サイトはCommon Data Setを用いた合格可能性、志望校リスト、出願者のプロフィール評価を案内。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Candor\nHonest college admissions odds for 398 schools, built from real data.",
+   "sourceUrl": "https://admit.up.railway.app",
+   "checkedAt": "2026-09-30",
+   "claimText": "398校を扱うとの表示がある。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "currently at 34 users / 24 active profiles. Wanted to share the why and how here.",
+   "sourceUrl": "https://www.indiehackers.com/product/candor",
+   "checkedAt": "2026-09-30",
+   "claimText": "2026-05-05の投稿では登録34人、プロフィール入力24人、有料顧客0人と本人が説明。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "May 2026 $9.99\nJune 2026 $24\nJuly 2026 $66\nAugust 2026 $81",
+   "sourceUrl": "https://www.indiehackers.com/product/candor/revenue",
+   "checkedAt": "2026-09-30",
+   "claimText": "2026年5月$9.99、6月$24、7月$66。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "Stripe-Verified Revenue\n$84 in the last 30 days.\nRevenue data is verified by Stripe and doesn't include payments that were taken elsewhere.",
+   "fix": {
+    "metric": {
+     "amount": 84,
+     "basis": "Stripe-Verified Revenue; $84 in the last 30 days"
+    }
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/candor/revenue",
+   "checkedAt": "2026-09-30",
+   "claimText": "項目=REVENUE / 期間=2026-09-29取得時点の直近30日(TRAILING_DAYS) / 金額=81 USD / 由来=THIRD_PARTY / 記載日=2026-09-29"
+  }
+ },
+ "ent_firstpromoter_947807": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Launch your affiliate management software in minutes and run affiliate, referral and influencer programs from one platform, trusted by 3,000+ SaaS companies.",
+   "sourceUrl": "https://firstpromoter.com/",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式トップは、FirstPromoterを、SaaS向けのアフィリエイト管理と紹介し、3,000社超が使い、14日間の無料試用があると表示している。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Since 2017, we have been building the tools that make partner programs work the way subscription businesses actually operate. Over 3,000 companies trust us to run theirs.",
+   "sourceUrl": "https://firstpromoter.com/about-us",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式Aboutは、2017年から提携プログラムのための道具を作ってきたと述べ、創業者Virgil C.の紹介と、小さなチームであることを記している。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "Starter\n$490\n/year\nup to $5,000/month revenue from affiliates\nGet started\nBusiness\n$990\n/year\nup to $15,000/month revenue from affiliates",
+   "sourceUrl": "https://firstpromoter.com/pricing",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式の料金ページは、年490ドル（アフィリエイト経由の月商5,000ドルまで）、年990ドル（同15,000ドルまで）、年1,490ドル（同15,000ドル超）の3段を表示している。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "Copyright © 2016-2026 Igil Webs SRL. All Rights Reserved.",
+   "sourceUrl": "https://firstpromoter.com/privacy",
+   "checkedAt": "2026-09-30",
+   "claimText": "公式のプライバシーページは、Igil Webs SRLの2016〜2026年のコピーライトを表示している。"
+  }
+ }
+}

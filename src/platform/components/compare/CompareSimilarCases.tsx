@@ -68,8 +68,9 @@ function CaseList({ title, empty, rows, canAdd, onAdd }: {
 }
 
 /** 比較中の1件目と同じ分野の、失敗事例と売上の記録がある事例。 */
-export function CompareSimilarCases({ sector, excludeIds, canAdd, onAdd }: {
+export function CompareSimilarCases({ sector, sectorBasis, excludeIds, canAdd, onAdd }: {
   sector: FinancialEntity['sector'];
+  sectorBasis?: FinancialEntity['sectorBasis'];
   excludeIds: readonly string[];
   canAdd: boolean;
   onAdd: (entity: FinancialEntity) => void;
@@ -93,7 +94,7 @@ export function CompareSimilarCases({ sector, excludeIds, canAdd, onAdd }: {
     ? { status: 'loading' as const }
     : 'failed' in result ? { status: 'error' as const } : { status: 'ready' as const, rows: result.rows };
 
-  const label = sectorLabel(sector);
+  const label = sectorLabel({ sector, sectorBasis });
   return (
     <div className="border-b border-term-line">
       <div className="term-panel-title">

@@ -190,6 +190,6 @@ export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEnti
       },
       ...(entity.observationsStream || []).filter((observation) => observation.id !== sourceObservationId),
     ],
-    unknownsNotes: [source.limitation, '旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。'],
+    unknownsNotes: [source.limitation],
   });
 }

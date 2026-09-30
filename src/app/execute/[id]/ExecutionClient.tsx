@@ -8,6 +8,7 @@ import { useAuth } from '@/context/AuthContext';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { formatYen } from '@/platform/utils/moneyDisplay';
 import type { ExecutionSource } from '@/shared/execution-source';
+import { FACT_SECTIONS, UI, uiFormat } from '@/shared/ui-strings';
 import {
   EXECUTION_STEP_IDS,
   MAX_EXECUTION_NOTES_LENGTH,
@@ -824,20 +825,14 @@ function executionRequestBody(project: ExecutionProject) {
 }
 
 export function ExecutionReference({ entity }: { entity: ExecutionSource }) {
-  const rows = [
-    ['事業内容', entity.essence?.whatItDoes || entity.tagline],
-    ['顧客', entity.essence?.targetCustomer || entity.targetPainWallet],
-    ['事業構造', entity.architecturePattern], ['提供経路', entity.pipelineStack],
-    ['料金', [entity.pricing?.model, entity.pricing?.pricePoint].filter(Boolean).join(' / ')],
-    ['集客', entity.acquisition?.primaryFunnel || entity.strategy.initialTraction.join(' / ')],
-    ['着眼点', entity.strategy.blindspot], ['参入の切り口', entity.lootBlueprint?.stealthEntry],
-    ['提供の仕組み', entity.lootBlueprint?.tollGateSetup],
-  ].filter(([, value]) => value && value !== 'UNKNOWN');
+  const reader = entity.reader;
+  const rows = FACT_SECTIONS
+    .map(({ kind, title }) => [title, (reader?.facts ?? []).filter((f) => f.kind === kind)] as const)
+    .filter(([, facts]) => facts.length > 0);
   if (entity.contextUnavailable || rows.length === 0) return null;
   return <details className="border-b border-term-line px-3">
-    <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-8 lg:py-1.5">参考事例: {entity.name}</summary>
-    <dl className="border-t border-term-line-soft text-sm leading-6">{rows.map(([label, value]) => <div key={label} className="grid gap-0.5 border-b border-term-line-soft py-2 sm:grid-cols-[120px_minmax(0,1fr)]"><dt className="text-xs text-term-label sm:pt-0.5">{label}</dt><dd className="whitespace-pre-wrap break-words text-term-fg">{value}</dd></div>)}</dl>
-    {entity.strategy.actionPlaybook.length > 0 && <ol className="list-decimal space-y-2 py-3 pl-5 text-sm leading-6 text-term-fg">{entity.strategy.actionPlaybook.map((step, index) => <li key={index}>{step}</li>)}</ol>}
-    <Link href={`/?entity=${encodeURIComponent(entity.id)}`} className="inline-flex min-h-11 items-center text-sm text-term-select-fg underline underline-offset-2 lg:min-h-8">事例の詳細を見る</Link>
+    <summary className="min-h-11 cursor-pointer py-3 text-sm text-term-select-fg lg:min-h-8 lg:py-1.5">{uiFormat(UI.REF_CASE, entity.name)}</summary>
+    <dl className="border-t border-term-line-soft text-sm leading-6">{rows.map(([label, value]) => <div key={label} className="grid gap-0.5 border-b border-term-line-soft py-2 sm:grid-cols-[120px_minmax(0,1fr)]"><dt className="text-xs text-term-label sm:pt-0.5">{label}</dt><dd className="space-y-1 break-words text-term-fg">{value.map((f) => <div key={f.id} data-fact={f.id} className="whitespace-pre-wrap">{f.text}</div>)}</dd></div>)}</dl>
+    <Link href={`/?entity=${encodeURIComponent(entity.id)}`} className="inline-flex min-h-11 items-center text-sm text-term-select-fg underline underline-offset-2 lg:min-h-8">{UI.VIEW_CASE}</Link>
   </details>;
 }

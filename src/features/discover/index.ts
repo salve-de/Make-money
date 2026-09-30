@@ -3,5 +3,4 @@ export type {
   DiscoveryCase,
   DiscoveryDataset,
   DiscoveryLens,
-  DiscoveryMechanism,
 } from './discovery-model';

@@ -52,7 +52,7 @@ export const IdeaResearchCases: React.FC<IdeaResearchCasesProps> = ({ cases, onO
                     <span className="block truncate text-sm font-semibold text-term-fg-strong lg:max-w-[45%] lg:shrink-0 lg:text-[13px]">{item.name}</span>
                     <span className="block text-xs text-term-sub lg:min-w-0 lg:truncate">{item.tagline}</span>
                   </span>
-                  <span className="hidden truncate text-xs text-term-muted lg:block">{sectorLabel(item.sector)}</span>
+                  <span className="hidden truncate text-xs text-term-muted lg:block">{sectorLabel({ sector: item.sector })}</span>
                   <span
                     title={item.monthlyRevenueLabel ?? undefined}
                     className={`term-num col-start-2 text-xs lg:col-start-auto lg:line-clamp-2 lg:text-right lg:text-[13px] ${item.monthlyRevenueLabel ? 'text-term-fg-strong' : 'text-term-dim'}`}

@@ -25,6 +25,8 @@ function entity(id: string, spec: { name: string; scale: string; sector: string;
     founder: '創業者',
     scale: spec.scale,
     sector: spec.sector,
+    // 業種での絞り込みは SEC の標準産業分類が根拠の時だけ効く（entity-filter の正直化規則）
+    sectorBasis: { source: 'SEC_SIC', note: 'テスト用の分類' },
     batchId: spec.batchId,
     tags: spec.tags,
     pnl: { operatingMargin: spec.margin },

@@ -1,4 +1,6 @@
 import { createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import manifest from '../../../data/catalog-release.json';
 import { getCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
@@ -17,11 +19,6 @@ function isDiscoveryCase(value: unknown): boolean {
     && value.descriptors.every((item) => isRecord(item)
       && typeof item.label === 'string'
       && typeof item.value === 'string');
-  const relatedValid = Array.isArray(value.related)
-    && value.related.every((item) => isRecord(item)
-      && typeof item.id === 'string' && item.id.length > 0
-      && typeof item.name === 'string' && item.name.length > 0
-      && typeof item.resultValue === 'string');
   const scores = isRecord(value.scores) ? value.scores : null;
   const scoresValid = scores !== null
     && DISCOVERY_SCORE_KEYS.every((key) => typeof scores[key] === 'number'
@@ -39,16 +36,11 @@ function isDiscoveryCase(value: unknown): boolean {
     && typeof value.criticalInsight === 'string'
     && typeof value.whyMoneyMoved === 'string'
     && typeof value.leverage === 'string'
-    && isRecord(value.mechanism)
-    && typeof value.mechanism.id === 'string'
-    && typeof value.mechanism.label === 'string'
-    && typeof value.mechanismCount === 'number'
     && typeof value.currentLabel === 'string'
     && typeof value.currentDetail === 'string'
     && ['isCurrent', 'isFailure', 'isSolo', 'lowCapital', 'lowWork'].every((key) => typeof value[key] === 'boolean')
     && typeof value.evidenceCount === 'number'
     && descriptorsValid
-    && relatedValid
     && scoresValid;
 }
 
@@ -58,11 +50,6 @@ export function parseDiscoveryRelease(value: unknown): DiscoveryDataset {
     || !Number.isInteger(value.visibleCount) || Number(value.visibleCount) < 0
     || !Array.isArray(value.cases) || !value.cases.every(isDiscoveryCase)
     || Number(value.visibleCount) !== value.cases.length
-    || !Array.isArray(value.mechanisms)
-    || !value.mechanisms.every((item) => isRecord(item)
-      && typeof item.id === 'string'
-      && typeof item.label === 'string'
-      && Number.isInteger(item.count) && Number(item.count) >= 0)
     || !Array.isArray(value.highlights) || !value.highlights.every(isDiscoveryCase)) {
     throw new Error('Invalid discovery release');
   }
@@ -82,7 +69,7 @@ export async function readReleaseDiscovery(): Promise<DiscoveryDataset> {
 export async function usesCatalogRelease(): Promise<boolean> {
   // next dev installs an emulated Cloudflare context with the production vars.
   // Local editing must still read the working-tree JSON, not private remote R2.
-  if (process.env.NODE_ENV === 'development') return false;
+  if (process.env.NODE_ENV === 'development') return readsLocalPreparedRelease();
   const env = await getCloudflareRuntimeEnv();
   return env?.ENVIRONMENT === 'production';
 }
@@ -93,8 +80,16 @@ export function decodeCatalogArtifact(bytes: Uint8Array, expectedHash: string): 
   return JSON.parse(json.toString('utf8')) as unknown;
 }
 
+/** 開発中に、`pnpm catalog:prepare` が作った手元の公開版（.catalog-release/）を画面で確かめるための切り替え。本番では効かない。 */
+function readsLocalPreparedRelease(): boolean {
+  return process.env.NODE_ENV === 'development' && process.env.CATALOG_RELEASE_LOCAL === '1';
+}
+
 async function readArtifact(key: string, hash: string): Promise<unknown> {
   if (!key || !/^[a-f0-9]{64}$/.test(hash)) throw new Error('Catalog release has not been prepared');
+  if (readsLocalPreparedRelease()) {
+    return decodeCatalogArtifact(await readFile(resolve(process.cwd(), '.catalog-release', `${hash}.json.gz`)), hash);
+  }
   const object = await readR2Object(await getFoundationBucketAsync('lake'), key);
   if (!object) throw new Error('Catalog release object is missing');
   return decodeCatalogArtifact(object.body, hash);

@@ -1,0 +1,70 @@
+// ih-report.mjs <batchNo> <startIndex> <candidateFile> <findingsFile> : reports/reaudit-ih-batch-NNN-20260929.md を生成
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+const REPO = process.cwd(); // リポジトリ(worktree)直下で実行する
+const OUT_ROOT = process.env.LANE_OUT_ROOT ? path.resolve(process.env.LANE_OUT_ROOT) : REPO; // 既定はreports/直下。検証時だけ別ディレクトリへ逃がす
+const [, , batchNo, startIdx, candFile, findFile, validateLine = '', lintLine = ''] = process.argv;
+const nnn = String(batchNo).padStart(3, '0');
+const recs = JSON.parse(fs.readFileSync(path.resolve(REPO, candFile), 'utf8'));
+const mod = await import(pathToFileURL(path.resolve(findFile)).href);
+const F = new Map(mod.default.map((f) => [f.id, f]));
+const notes = mod.batchNotes || { decisions: [], findings: [], changes: [] };
+const start = Number(startIdx); const end = start + recs.length - 1;
+const isRedir = (r) => ['DOMAIN_REDIRECT_CONFIRMED', 'CAMPAIGN_PAGE_TITLE_CONFIRMED', 'PAGE_TITLE_ONLY_CONFIRMED', 'DOMAIN_PARKED_CONFIRMED'].includes(F.get(r.id).official.claimStatus);
+const okOff = recs.filter((r) => F.get(r.id).official.ok && !isRedir(r)).length;
+const redirOff = recs.filter((r) => isRedir(r)).length;
+const withReport = recs.filter((r) => F.get(r.id).revenueLabel);
+const ihOk = recs.filter((r) => F.get(r.id).ih.ok).length;
+const srcTotal = recs.reduce((n, r) => n + r.reaudit.sources.length, 0);
+const lines = [];
+lines.push(`# Indie Hackers 再調査 バッチ ${nnn}（family index ${start}–${end}）— 2026-09-29`);
+lines.push('');
+lines.push(`- 担当: ${process.env.LANE_OWNER || process.env.SWARM_OWNER || "lane:C ih-research agent"}（再監査レーンC 並列）`);
+lines.push(`- 対象: ${recs.length}件（reaudit.family === 'indiehackers' の配列順 ${start}–${end}）`);
+lines.push(`- 生成物: \`${candFile}\``);
+lines.push(`- 検査: validate-candidates ${validateLine || '(未記入)'} / 品質ガード模擬（check-ingest-quality + check-index-safety を候補で差し替えたカタログに実行）${lintLine || '(未記入)'}`);
+lines.push('');
+lines.push('## 集計');
+lines.push(`- 公式サイト: 内容を確認できた ${okOff} 件 / 到達不能または非稼働 ${recs.length - okOff - redirOff} 件${redirOff ? ` / 転送・題名のみ・ドメイン売却ページの確認 ${redirOff} 件（製品ページの内容は確認できず）` : ''}`);
+lines.push(`- Indie Hackers 掲載ページ: 取得できた ${ihOk} / ${recs.length} 件（事実の確認のみ。掲載文は転載せず日本語で要約）`);
+lines.push(`- 記録した出典 URL: 計 ${srcTotal} 件（公式・掲載ページ・追加出典。すべて checkedAt 2026-09-29、rightsTier 付き）`);
+lines.push(`- 収益・利益の報告値を revenueLabel / reportedMetrics に記録できた事例: ${withReport.length} 件（${withReport.map((r) => r.name).join('、') || 'なし'}）。残りは「売上未確認」`);
+lines.push(`- 推計・為替換算・月次換算: 行っていない（金額欄の0は不明の互換値、isRevenueUnconfirmed など全項目 true のまま）`);
+lines.push('');
+lines.push('## 判断が必要な項目');
+for (const t of notes.decisions) lines.push(`- ${t}`);
+lines.push('');
+lines.push('## 横断的な発見（他レーン・ライン全体に影響し得るもの）');
+for (const t of notes.findings) lines.push(`- ${t}`);
+lines.push('');
+lines.push('## この候補で変更した項目');
+for (const t of notes.changes) lines.push(`- ${t}`);
+lines.push('');
+lines.push('## 事例別の結果');
+lines.push('| index | 名称 | 公式サイト | 追加出典 | 財務ラベル | 主な未確認 |');
+lines.push('|---|---|---|---|---|---|');
+recs.forEach((r, i) => {
+  const f = F.get(r.id);
+  const off = f.official.claimStatus === 'DOMAIN_REDIRECT_CONFIRMED' ? '転送のみ確認（製品ページの内容は確認できず）' : (f.official.claimStatus === 'CAMPAIGN_PAGE_TITLE_CONFIRMED' || f.official.claimStatus === 'PAGE_TITLE_ONLY_CONFIRMED') ? '題名のみ確認（詳細は取得できず）' : f.official.claimStatus === 'DOMAIN_PARKED_CONFIRMED' ? 'ドメイン売却の案内ページのみ確認（製品ページの内容は確認できず）' : (f.official.ok ? '確認済み' : `不能: ${f.official.access}`);
+  const ex = (f.extras || []).map((x) => x.publisher).join('、') || '—';
+  const lab = f.revenueLabel ? f.revenueLabel : '売上未確認';
+  const unk = f.unknown.slice(0, 2).map((u) => u.replace(/（.*?）/g, '')).join(' / ');
+  lines.push(`| ${start + i} | ${r.name} | ${off.replace(/\|/g, '/')} | ${ex} | ${lab.replace(/\|/g, '/')} | ${unk.replace(/\|/g, '/')} |`);
+});
+lines.push('');
+lines.push('## 調べた範囲と調べていない範囲');
+const noSearch = recs.filter((r) => F.get(r.id).searched === false).length;
+lines.push(noSearch > 0
+  ? `- 調べた: 公式サイト（トップ＋必要に応じ料金・会社概要）、Indie Hackers 掲載ページ（事実確認のみ）、Indie Hackers の収益ページ、登記簿・公式ブログなど直接取得できたページ。Web検索は ${recs.length - noSearch} 件のみ実施し、残り ${noSearch} 件は検索を行わず取得に絞った（各事例の unresearched に明記）。`
+  : '- 調べた: 公式サイト（トップ＋必要に応じ料金・会社概要）、Indie Hackers 掲載ページ（事実確認のみ）、Web検索1〜数回（創業者本人の発信・インタビュー・登記など）。');
+lines.push('- 調べていない: Wayback 等の公開アーカイブ、顧客レビュー・Reddit/HN の不満、検索流入・技術構成・求人などの公開シグナル、X の本人投稿（取得できないため検索結果に出たものだけ）。これらは各記録の reaudit.unresearched に記載。');
+lines.push('- 検索結果の要約や第三者サイトの推計値（Latka 等）は、本人申告ではないため採用していない。');
+lines.push('');
+lines.push('## 再現');
+lines.push(`- 雛形: \`node --import tsx scripts/reaudit/candidate-skeleton.ts --range ${start}-${end} --family indiehackers --lane ih --out ${candFile}\``);
+lines.push(`- 検査: \`node --import tsx scripts/reaudit/validate-candidates.ts ${candFile}\``);
+lines.push('');
+fs.mkdirSync(path.join(OUT_ROOT, 'reports'), { recursive: true });
+fs.writeFileSync(path.join(OUT_ROOT, `reports/reaudit-ih-batch-${nnn}-20260929.md`), lines.join('\n'), 'utf8');
+console.log(`wrote reports/reaudit-ih-batch-${nnn}-20260929.md (${lines.length} lines)`);

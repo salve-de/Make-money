@@ -140,7 +140,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
                   className="grid h-7 w-full grid-cols-[minmax(0,1fr)_7rem_7.5rem] items-center gap-3 px-2.5 text-left hover:bg-term-head"
                 >
                   <span className="truncate text-term-fg-strong">{entity.name}</span>
-                  <span className="truncate text-term-muted">{sectorLabel(entity.sector)}</span>
+                  <span className="truncate text-term-muted">{sectorLabel(entity)}</span>
                   <span className="truncate text-right">
                     {failure ? (
                       <span className="text-term-danger">失敗・撤退の記録</span>

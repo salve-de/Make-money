@@ -1,6 +1,7 @@
 import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
 import { InspectorSectionCard } from './InspectorSectionCard';
+import { snapshotPeriodLabel, sourceDocLabel } from '@/shared/display-text';
 
 type Props = Pick<InspectorSectionProps, 'entity' | 'formatMoney' | 'isHazardMode' | 'isPro'>;
 const content = (value: string | undefined) => {
@@ -67,7 +68,7 @@ export function BusinessVisualSummary({ entity, formatMoney, isHazardMode, isPro
         {rows.length >= 2 && <figure aria-label="月額換算の損益項目比較">
           <figcaption className="mb-2 flex flex-wrap gap-x-2 font-medium text-zinc-100">
             <span>{estimated ? '推計損益' : '損益'}の項目別比較（月額換算）</span>
-            {content(pnl.dataSnapshotPeriod) && <span className="font-normal text-zinc-400">{pnl.dataSnapshotPeriod}</span>}
+            {snapshotPeriodLabel(pnl.dataSnapshotPeriod) && <span className="font-normal text-zinc-400">{snapshotPeriodLabel(pnl.dataSnapshotPeriod)}</span>}
           </figcaption>
           <dl className="space-y-1.5">
             {rows.map((row) => <div key={row.label} className="grid grid-cols-[7rem_minmax(0,1fr)] items-center gap-2">
@@ -84,7 +85,7 @@ export function BusinessVisualSummary({ entity, formatMoney, isHazardMode, isPro
             </div>)}
           </dl>
           {hasNegative && <p className="mt-1 text-zinc-400">基準線の左は負の金額、右は正の金額。</p>}
-          {content(pnl.sourceDoc) && <p className="mt-2 break-words text-zinc-400">出典：{pnl.sourceDoc}</p>}
+          {sourceDocLabel(pnl.sourceDoc) && <p className="mt-2 break-words text-zinc-400">出典：{sourceDocLabel(pnl.sourceDoc)}</p>}
         </figure>}
         {(retention || capital) && <details className="border-t border-term-line pt-2">
           <summary className="cursor-pointer text-zinc-200">継続・資本運用の構造</summary>

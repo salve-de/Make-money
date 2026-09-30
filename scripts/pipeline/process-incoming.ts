@@ -20,9 +20,24 @@ async function main() {
     await mkdir(PROCESSED_DIR, { recursive: true });
   }
 
-  const files = (await readdir(INCOMING_DIR, { withFileTypes: true }))
+  // 2026-09-29: 受入済みファイルだけを明示的に処理する（--file <name> を繰り返し指定）。無指定時は従来どおり全件。
+  const argv = process.argv.slice(2);
+  const onlyFiles = new Set<string>();
+  for (let i = 0; i < argv.length; i += 1) {
+    if (argv[i] === '--file' && argv[i + 1]) { onlyFiles.add(argv[i + 1].replace(/^.*\//, '')); i += 1; }
+  }
+
+  let files = (await readdir(INCOMING_DIR, { withFileTypes: true }))
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.json'))
     .map(dirent => dirent.name);
+
+  if (onlyFiles.size > 0) {
+    const missing = [...onlyFiles].filter(name => !files.includes(name));
+    if (missing.length > 0) {
+      throw new Error(`[INCOMING] requested file(s) not found in data/incoming/: ${missing.join(', ')}`);
+    }
+    files = files.filter(name => onlyFiles.has(name));
+  }
 
   if (files.length === 0) {
     console.log(`[INFO] No new JSON batches found in data/incoming/. Ready for new drops.`);

@@ -90,20 +90,28 @@ for (const ent of entities) {
   }
 }
 
+// 2026-09-29: The entropy guards detect copy-pasted template content. Records whose lootBlueprint was
+// removed or honestly set to 未確認 during the re-audit carry no template to detect, so the diversity
+// ratio is computed over records that actually state content (otherwise honest unknowns would trip it).
+const isStatedText = (value) => typeof value === 'string' && value.trim().length > 0 && !/^(未確認|不明|unknown)/i.test(value.trim());
+
 // 2. Check executionChecklist duplication (Entropy Guard)
-const checklists = entities.map(e => JSON.stringify(e.lootBlueprint?.executionChecklist || []));
+const checklists = entities
+  .map(e => e.lootBlueprint?.executionChecklist)
+  .filter(list => Array.isArray(list) && list.some(isStatedText))
+  .map(list => JSON.stringify(list));
 const uniqueChecklists = new Set(checklists);
-const checklistDiversity = uniqueChecklists.size / entities.length;
-if (entities.length > 50 && checklistDiversity < 0.02) {
-  errors.push(`[RULE VIOLATION: Hardcoded Template Checklist] executionChecklist diversity is too low: only ${uniqueChecklists.size} unique patterns across ${entities.length} entities.`);
+const checklistDiversity = checklists.length ? uniqueChecklists.size / checklists.length : 1;
+if (checklists.length > 50 && checklistDiversity < 0.02) {
+  errors.push(`[RULE VIOLATION: Hardcoded Template Checklist] executionChecklist diversity is too low: only ${uniqueChecklists.size} unique patterns across ${checklists.length} entities that state a checklist.`);
 }
 
 // 3. Check tollGateSetup duplication
-const tollGates = entities.map(e => e.lootBlueprint?.tollGateSetup || '');
+const tollGates = entities.map(e => e.lootBlueprint?.tollGateSetup).filter(isStatedText);
 const uniqueTollGates = new Set(tollGates);
-const tollGateDiversity = uniqueTollGates.size / entities.length;
-if (entities.length > 50 && tollGateDiversity < 0.1) {
-  errors.push(`[RULE VIOLATION: Hardcoded Template TollGate] tollGateSetup diversity is too low: only ${uniqueTollGates.size} unique patterns across ${entities.length} entities.`);
+const tollGateDiversity = tollGates.length ? uniqueTollGates.size / tollGates.length : 1;
+if (tollGates.length > 50 && tollGateDiversity < 0.1) {
+  errors.push(`[RULE VIOLATION: Hardcoded Template TollGate] tollGateSetup diversity is too low: only ${uniqueTollGates.size} unique patterns across ${tollGates.length} entities that state a toll gate.`);
 }
 
 // 4. Check arithmetic precision (Audit only when financialStatus is not UNAVAILABLE and numbers are fully present)
@@ -381,10 +389,12 @@ for (const ent of entities) {
   if (what.startsWith('公開説明に記載された提供内容:') || what.includes('実装詳細と収益性はこの記述だけでは確認できない')) {
     errors.push(`[UPSTREAM VIOLATION: Mechanical Disclaimer WhatItDoes] "${ent.name}" essence.whatItDoes has mechanical disclaimer pattern.`);
   }
-  if (tag && !/[ぁ-んァ-ヶ]/.test(tag)) {
+  // 「未確認」は出典の無い欄の正式な表示（英語の生ログではない）。
+  const UNCONFIRMED = '未確認';
+  if (tag && tag !== UNCONFIRMED && !/[ぁ-んァ-ヶ]/.test(tag)) {
     errors.push(`[UPSTREAM VIOLATION: Raw English Tagline] "${ent.name}" tagline must be localized into Japanese.`);
   }
-  if (what && !/[ぁ-んァ-ヶ]/.test(what)) {
+  if (what && what !== UNCONFIRMED && !/[ぁ-んァ-ヶ]/.test(what)) {
     errors.push(`[UPSTREAM VIOLATION: Raw English WhatItDoes] "${ent.name}" essence.whatItDoes must be localized into Japanese.`);
   }
 

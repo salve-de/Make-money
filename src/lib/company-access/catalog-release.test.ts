@@ -34,15 +34,15 @@ describe('immutable catalog release', () => {
     const item = {
       id: 'case-1', name: 'Case', tagline: '', sector: 'AI', resultLabel: 'MRR', resultValue: '¥1万',
       resultAmountJpy: 10000, startLine: '1人開始', criticalInsight: 'Move', whyMoneyMoved: 'Pain',
-      resultEvidenceLabel: '資料区分: 一次資料', resultPeriod: null, resultSource: null, resultPeriodNote: null,
-      leverage: 'Code', mechanism: { id: 'asset', label: 'Asset' }, mechanismCount: 1,
+      resultEvidenceLabel: '開示資料', resultPeriod: null, resultSource: null, resultPeriodNote: null,
+      leverage: 'Code',
       currentLabel: 'Current', currentDetail: 'Detail', isCurrent: true, isFailure: false,
       isSolo: true, lowCapital: true, lowWork: false, evidenceCount: 1,
-      descriptors: [], related: [], scores: {
+      descriptors: [], scores: {
         SURPRISE: 1, BIG_CASH: 2, LOW_CAPITAL: 3, SOLO: 4, LOW_WORK: 5, CURRENT: 6, FAILURE: 7,
       },
     };
-    const dataset = { sourceCount: 1, visibleCount: 1, cases: [item], mechanisms: [{ id: 'asset', label: 'Asset', count: 1 }], highlights: [item] };
+    const dataset = { sourceCount: 1, visibleCount: 1, cases: [item], highlights: [item] };
     expect(parseDiscoveryRelease(dataset)).toBe(dataset);
     for (const field of ['resultEvidenceLabel', 'resultPeriod', 'resultSource', 'resultPeriodNote']) {
       for (const invalid of [undefined, 42, {}]) {
@@ -55,7 +55,6 @@ describe('immutable catalog release', () => {
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, id: null }] })).toThrow('Invalid discovery release');
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, descriptors: null }] })).toThrow('Invalid discovery release');
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, descriptors: [{ label: '体制', value: null }] }] })).toThrow('Invalid discovery release');
-    expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, related: [{ id: 'related', name: null, resultValue: '¥1万' }] }] })).toThrow('Invalid discovery release');
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, scores: { ...item.scores, FAILURE: undefined } }] })).toThrow('Invalid discovery release');
     expect(() => parseDiscoveryRelease({ ...dataset, cases: [{ ...item, scores: {
       SURPRISE: 1, BIG_CASH: 2, LOW_CAPITAL: 3, SOLO: 4, LOW_WORK: 5, CURRENT: 6, FAILURE: Number.NaN,
