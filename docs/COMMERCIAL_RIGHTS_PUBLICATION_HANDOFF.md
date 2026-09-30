@@ -1,6 +1,6 @@
 # Commercial Rights / Public Publication Handoff
 
-Updated: 2026-09-28 JST
+Updated: 2026-09-30 JST
 
 ## Final objective
 
@@ -21,13 +21,28 @@ scheduled discovery / verification
 
 A source being public, searchable, or stored as `metadata_only` does not by itself authorize copying its article, images, database, or restricted API output. Conversely, absence of an explicit open-license label does not automatically prohibit an independently stated fact; the documented legal basis and the intended use still need review.
 
+## Media / thumbnail / likeness update — 2026-09-30
+
+The paired Universal Foundation now has a per-asset/per-use media policy and schema. Make-Money should preserve ordinary verified facts in its own wording without treating a missing open-content licence as an automatic copyright prohibition. Images are reviewed separately.
+
+For media:
+- a licence/platform/press-kit/embed/consent/public-domain basis is preferred;
+- Japan Copyright Act Article 47-5 can be evaluated for genuinely minor thumbnails incidental to computerized search/information-analysis result provision; it is not a blanket licence and does not extend automatically to hero/gallery/ad use;
+- Article 47-4 is primarily technical/internal computer-use copying, not the normal user-facing display basis;
+- identifiable people require separate portrait/privacy/publicity review;
+- app icons should prefer official developer assets or explicit platform/API terms (including Apple's Search API promotional route where its conditions are met);
+- third-party app-store screenshots default to metadata/link unless an explicit/platform/statutory basis supports the exact public use;
+- a Japan-only thumbnail basis must not be silently treated as worldwide media permission.
+
+Canonical details: `docs/MEDIA_THUMBNAIL_AND_LIKENESS_POLICY.md`.
+
 ## Commercial-use interpretation — 2026-09-28
 
 The collection goal is **commercially usable information**, not “only records carrying an open-license badge” and not “hide everything with uncertain status.” Apply rights to each use and published claim:
 
 1. **Factual claims / original summaries:** Japanese Agency for Cultural Affairs guidance says mere facts and data are not copyright works. Collect verifiable business facts, bind each to evidence, and present them in Make-Money's own structure and wording. Do not copy article prose, distinctive phrasing, charts, or a source's selection/arrangement. No-open-license alone is not a rejection reason; check access terms, any database/bulk-use restrictions, privacy/personality and other relevant rights. If an actual restriction or material uncertainty remains, re-source the fact or hold that claim—not unrelated cleared claims.
 2. **OpenAI / AI-generated copy:** OpenAI's individual Terms assign Output to the user as between user and OpenAI, to the extent applicable law permits, but third-party search content remains subject to third-party terms and Output may not be unique. The consumer Terms prohibit automatic/programmatic extraction from the service; do not scrape ChatGPT Web. For product automation, use the contracted API or a specifically authorized integration. OpenAI API Web Search results shown to end users require visible, clickable inline citations. Review factual accuracy and clearly disclose AI's role in published first-party text under the current OpenAI Sharing & Publication Policy.
-3. **Images, charts, logos, people:** Do not copy random web images or charts. Use a verified commercial license/permission or an original asset; record author, asset URL, license/version, attribution and relevant release/brand limits. A license for an image does not automatically clear the depicted person's likeness/privacy or a logo/trademark. Prefer a text name or original generic illustration when the image adds no essential value.
+3. **Images, charts, logos, people:** Do not copy random web images or charts merely because they are public. Admit a specific asset only when the exact asset + intended use + jurisdiction has a recorded basis: verified commercial licence/permission, original asset, official platform/API/embed terms, consent, public-domain/open licence, or a separately reviewed statutory/case-specific basis under `docs/MEDIA_THUMBNAIL_AND_LIKENESS_POLICY.md` (for example a qualifying Japan Copyright Act Article 47-5 minor search/information-result thumbnail or a case-specific US fair-use review). A basis for a thumbnail does not authorize hero/gallery/advertising/download reuse or worldwide display. Record author/provider, asset/source URL, basis/terms version, attribution and relevant release/brand limits. Copyright clearance does not automatically clear a depicted person's portrait/privacy/publicity interests or a logo/trademark. Prefer a text name or original generic illustration when the image adds no essential value.
 4. **Source/use ledger:** Keep collection/access, raw retention, factual display, verbatim quotation, and media rights separate. Preserve source/evidence URL, publisher, publication/as-of date, retrieval time, precise locator, claim IDs, terms/license URL and version, reviewed date, attribution instructions, rights decision, scope, and reason. If the canonical schema cannot represent a permission, do not invent `allowed`; identify the missing policy/schema and resolve it through the registered Universal Foundation process.
 5. **Display rule:** Show each claim/media item that has evidence, an applicable use basis, and the required attribution. Exclude or replace only held claims/media; do not suppress unrelated rights-cleared facts merely because another field or image is held. A case can have honest `UNKNOWN`/not-found fields and still display its supported facts.
 
@@ -36,6 +51,10 @@ This interpretation is grounded in the current repository's collection master gu
 ### Important implementation boundary
 
 This policy update does **not** grant a blanket license or change runtime publication behavior. `src/lib/foundation/publication-rights.ts` still auto-admits only exact policies in `data/foundation-public-rights-snapshot.json`; the current snapshot contains three source-policy entries. A source outside that snapshot may therefore remain `RIGHTS_HELD` in the application even when the missing open-license label alone would not establish a legal prohibition on an independently presented fact. That is an **automation-policy gap**, not a legal finding that every held fact is unlawful. To publish additional source families automatically, review the actual source/access terms and add a source-scoped fact-display policy through the Universal Foundation rights/source registry, refresh this repository's pinned snapshot, and test that only the reviewed claim types/hosts/paths pass. Do not solve the gap with a generic host allowlist or by trusting a collector-supplied `allowed` flag.
+
+## Active collection persistence — 2026-09-30
+
+The four Make-Money research lanes are active again using a Google Drive JSON Ledger rather than GitHub/R2 writes. Canonical JSON is append-only in the Ledger Payload tab with compact case/run/claim/media/dedupe indexes; raw `.json` folders are secondary export/review surfaces. The current mode, dedupe/claim rules, v1.1 case schema and media-candidate behavior are documented in `docs/MAKE_MONEY_DRIVE_COLLECTION_MODE.md`. R2_QUEUE remains paused; Drive collection does not automatically reach the public API/UI.
 
 ## User intent / constraints
 
