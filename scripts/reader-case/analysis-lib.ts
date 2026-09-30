@@ -38,6 +38,33 @@ const ILLEGAL_IMPERATIVE = /しろ|せよ|すればよい|すれば良い|手順
 
 export const analysisId = (item: string): string => `a-${item.toLowerCase()}`;
 
+/** 決済・販売の場が公開している標準の手数料。これだけは式の中で「標準」と呼んでよい */
+const PLATFORM_FEE = /Stripe|App ?Store|Google ?Play|Apple/;
+const NORM_WORDS: [RegExp, string][] = [
+  [/相場上の仮定|一般相場の採算仮定|一般相場の仮定|相場仮定/g, '仮定'],
+  [/報酬相場の仮置き/g, '報酬の仮置き'],
+  [/(一般)?相場からの仮置き/g, '仮置き'],
+  [/(一般)?相場からの仮定|一般相場から仮定/g, '仮定'],
+  [/相場単価/g, '仮の単価'],
+  [/相場推計/g, '仮置きの推計'],
+  [/相場例/g, '仮置きの例'],
+  [/一般相場|相場/g, '仮の値'],
+];
+/**
+ * 式（formula）の中で、裏付けの無い数字を「相場」「一般的な」と業界の常識のように呼ぶ言い回しを「仮定・仮置き」に揃える。
+ * 公開監査（2026-10-01、20社393項目）で残った事実のふり14件のうち13件がこの型だった。決済・販売の場の標準手数料は除く。冪等。
+ */
+export function normalizeFormula(formula: string): string {
+  let out = formula.replace(/Stripe(の)?相場/g, 'Stripe標準');
+  for (const [re, to] of NORM_WORDS) out = out.replace(re, (m, ...rest) => {
+    const at = rest.find((x) => typeof x === 'number') as number;
+    return PLATFORM_FEE.test(formula.slice(Math.max(0, at - 16), at + m.length + 4)) && !/仮定|仮置き/.test(m) ? m : to;
+  });
+  out = out.replace(/一般的な/g, (m, at: number) => (PLATFORM_FEE.test(out.slice(Math.max(0, at - 16), at)) ? m : ''));
+  if (out !== formula && !out.includes('裏付け資料なし')) out = `${out.replace(/[。\s]+$/, '')}（仮の値。裏付け資料なし）`;
+  return out;
+}
+
 export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>): { ok: true; value: StoredAnalysis } | { ok: false; reason: DropReason } {
   const itemName = typeof raw.item === 'string' ? raw.item : '';
   const cand = {
@@ -45,7 +72,7 @@ export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>): 
     item: raw.item,
     text: raw.text,
     basis: raw.basis,
-    ...(typeof raw.formula === 'string' && raw.formula.trim() ? { formula: raw.formula.trim() } : {}),
+    ...(typeof raw.formula === 'string' && raw.formula.trim() ? { formula: normalizeFormula(raw.formula.trim()) } : {}),
     confidence: raw.confidence,
   };
   const parsed = ReaderAnalysisSchema.safeParse(cand);
@@ -90,7 +117,9 @@ export function checkCase(entityId: string, items: unknown, reader: ReaderCase):
 export function reflectAnalysis(reader: ReaderCase, stored: StoredAnalysis[] | undefined): ReaderCase {
   if (!stored?.length) return { ...reader, analysis: [] };
   const evidence = new Set([...reader.facts.map((f) => f.id), ...reader.metrics.map((m) => m.id)]);
-  const analysis = stored.filter((a) => a.basis.every((b) => evidence.has(b)));
+  const analysis = stored
+    .filter((a) => a.basis.every((b) => evidence.has(b)))
+    .map((a) => (a.formula ? { ...a, formula: normalizeFormula(a.formula) } : a));
   return { ...reader, analysis };
 }
 
