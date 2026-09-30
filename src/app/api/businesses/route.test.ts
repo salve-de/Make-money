@@ -476,6 +476,28 @@ describe('Foundation detail CPU boundary', () => {
     expect(mocks.curatedFind).not.toHaveBeenCalled();
   });
 
+  it('公開版の目録にある ID は、Foundation が準備済みでも公開版（curated）を返す', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_37signals_T6M1R8QK', 'Foundation Candidate'));
+    mocks.dossierReady.mockReturnValue(true);
+    mocks.curatedFind.mockResolvedValue({ id: 'ent_37signals_T6M1R8QK', name: 'Released', latestDossierHash: 'a'.repeat(64), sourceRevision: 1 });
+
+    const response = await GET(new Request('http://localhost/api/businesses?entity_id=ent_37signals_T6M1R8QK'));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('local_fallback');
+    expect(mocks.readThroughDetail).not.toHaveBeenCalled();
+  });
+
+  it('公開版の目録にある ID の foundationOnly は 404 にして、通常の取得へ回す', async () => {
+    mocks.readThroughDetail.mockResolvedValue(businessCase('ent_37signals_T6M1R8QK', 'Foundation Candidate'));
+    mocks.dossierReady.mockReturnValue(true);
+
+    const response = await GET(new Request('http://localhost/api/businesses?foundationOnly=true&entity_id=ent_37signals_T6M1R8QK'));
+
+    expect(response.status).toBe(404);
+    expect(mocks.readThroughDetail).not.toHaveBeenCalled();
+  });
+
   it('preserves curated precedence for a partial Foundation dossier and looks it up once', async () => {
     mocks.readThroughDetail.mockResolvedValue(businessCase('ent_overlap', 'Foundation Partial'));
     mocks.dossierReady.mockReturnValue(false);

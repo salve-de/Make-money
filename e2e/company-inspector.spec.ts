@@ -64,11 +64,7 @@ test('malformed Foundation response cannot replace the usable core list', async 
   expect(errors).toEqual([]);
 });
 
-// 既知のアプリ側の不具合（この検査は直さずに残す）: src/platform/hooks/useSelectedEntityNavigation.ts は
-// 「evidenceCards が2件以上 かつ lootBlueprint がある」事例だけを詳細取得済みとみなす。正直化で作文の evidenceCards・
-// lootBlueprint を外した事例は常にこの条件を満たさず、深いリンクを開くたびに詳細を取りに行き、同じ ID の未精錬の
-// Foundation 候補（「Photo AI (候補)」）が、詳細を置き換えてしまう。直ったら test.fail を外す（直ると「期待した失敗が起きない」で気づける）。
-test.fail('sparse Foundation candidate cannot replace a curated dossier with the same ID', async ({ page }) => {
+test('sparse Foundation candidate cannot replace a curated dossier with the same ID', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   const candidate = {

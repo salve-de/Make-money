@@ -6,6 +6,7 @@ import type { FinancialEntity } from '@/shared/terminal';
 import type { WorkspaceMode } from '../types/terminal';
 import { parseCompanyAnalysis } from '@/lib/company-access/schema';
 import { useViewHistory } from './useViewHistory';
+import { isDetailSettled, preferDetail } from '@/shared/dossier-authority';
 import { useAuth } from '../../context/AuthContext';
 import { openEntityParam } from '../utils/entityUrl';
 
@@ -58,7 +59,7 @@ export function useSelectedEntityNavigation({
   useEffect(() => {
     if (!selectedEntityId) return;
     const existing = entities.find((e) => e.id === selectedEntityId);
-    if (existing && existing.evidenceCards && existing.evidenceCards.length >= 2 && existing.lootBlueprint) {
+    if (isDetailSettled(existing)) {
       return;
     }
     onFetchEntityDetailOnDemand(selectedEntityId, existing?.latestDossierHash);
@@ -125,7 +126,9 @@ export function useSelectedEntityNavigation({
   // 選択中エンティティの合成
   const selectedEntity = useMemo(() => {
     if (!selectedEntityId) return null;
-    const entity = detailedEntities[selectedEntityId] || entities.find((e) => e.id === selectedEntityId);
+    const listed = entities.find((e) => e.id === selectedEntityId);
+    const detailed = detailedEntities[selectedEntityId];
+    const entity = detailed ? preferDetail(listed, detailed) : listed;
     if (!entity) return null;
     if (authIsPro && token && analysis?.token === token && analysis.id === selectedEntityId) {
       return { ...entity, meta: analysis.meta };

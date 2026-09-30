@@ -10,6 +10,7 @@ import { useCuratedCatalog } from './useCuratedCatalog';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 import { useFoundationPaging } from './useFoundationPaging';
+import { mayFoundationReplaceCurated, preferDetail } from '@/shared/dossier-authority';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
 
@@ -191,7 +192,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
       const coreName = normalize(core.name);
       const candidate = foundationById.get(core.id.toLowerCase()) ||
         (coreName ? foundationByName.get(coreName) || foundationByName.get(aliasMatches[coreName]) : undefined);
-      const replacement = candidate?.readyToReplaceCurated ? candidate.entity : undefined;
+      const replacement = candidate?.readyToReplaceCurated && mayFoundationReplaceCurated(core) ? candidate.entity : undefined;
       const entity = replacement ? { ...replacement, batchId: replacement.batchId || core.batchId } : core;
       const normalizedName = normalize(entity.name);
       if (seenIds.has(entity.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName))) continue;
@@ -234,7 +235,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     detailFetchInProgress.current.add(targetId);
     const normalizedTargetId = targetId.toLowerCase();
     const knownFoundation = foundationRows.some((row) => row.id.toLowerCase() === normalizedTargetId);
-    const knownCurated = coreEntities.some((entity) => entity.id.toLowerCase() === normalizedTargetId);
+    const curated = coreEntities.find((entity) => entity.id.toLowerCase() === normalizedTargetId);
+    const knownCurated = Boolean(curated);
 
     return fetchBusinessDetailResponse(fetch, {
       targetId,
@@ -248,14 +250,15 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
           const payload = json as { source?: string; data?: unknown };
           if (payload.source === 'foundation_lake') {
             const detail = parseFoundationDetailResponse(payload);
-            if (detail) {
+            // 公開中の事例は公開版が正本。同じ ID の Foundation 候補で詳細を置き換えない
+            if (detail && mayFoundationReplaceCurated(curated)) {
               const adapted = adaptFoundationDetailToFinancialEntity(detail);
-              setDetailedEntities((prev) => ({ ...prev, [targetId]: adapted }));
+              setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], adapted) }));
             }
           } else if (payload.data && typeof payload.data === 'object') {
             const entity = parseFinancialEntity(payload.data);
             if (entity.id !== targetId) throw new Error('Detail entity identity mismatch');
-            setDetailedEntities((prev) => ({ ...prev, [targetId]: entity }));
+            setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], entity) }));
           }
         }
       })

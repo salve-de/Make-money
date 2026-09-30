@@ -27,6 +27,7 @@ import { LedgerFilterRail } from '../grid/LedgerFilterRail';
 import { TerminalStatusBar } from './TerminalStatusBar';
 import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
 import { closeEntityParam, dropQueryParam, openEntityParam, openLedgerEntityUrl, positionLabel } from '../../utils/entityUrl';
+import { preferDetail } from '@/shared/dossier-authority';
 import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC<{
@@ -171,7 +172,7 @@ export const TerminalShell: React.FC<{
 
   const synthesisEntities = useMemo(() => {
     const merged = new Map(entities.map((entity) => [entity.id, entity]));
-    for (const detail of Object.values(detailedEntities)) merged.set(detail.id, detail);
+    for (const detail of Object.values(detailedEntities)) merged.set(detail.id, preferDetail(merged.get(detail.id), detail));
     return [...merged.values()];
   }, [entities, detailedEntities]);
 
