@@ -14,20 +14,27 @@ export function hasReader(entity: ReaderBearing | null | undefined): boolean {
   return Boolean(entity?.reader);
 }
 
+/** 詳細画面に使える完全な reader を持つか。一覧用に削った reader（listForm）は含めない。 */
+export function hasFullReader(entity: ReaderBearing | null | undefined): boolean {
+  return Boolean(entity?.reader && !entity.reader.listForm);
+}
+
 /**
  * 詳細を取りに行かなくてよいか。
- * - reader を持つ: 公開版の詳細をすでに持っている。
+ * - 完全な reader を持つ: 公開版の詳細をすでに持っている（一覧用の軽い reader は数えない）。
  * - 一覧の行がすでに証拠つきの完全な事例（公開版を使わないローカル・E2E の作業ツリーの事例）: 取りに行っても同じ中身。
  * 公開版の一覧の行は要約だけなので、reader が入るまでは取りに行く。
  */
 export function isDetailSettled(entity: Pick<FinancialEntity, 'reader' | 'evidenceCards'> | null | undefined): boolean {
   if (!entity) return false;
-  return hasReader(entity) || (entity.evidenceCards?.length ?? 0) >= 2;
+  return hasFullReader(entity) || (!entity.reader && (entity.evidenceCards?.length ?? 0) >= 2);
 }
 
-/** 詳細の上書きを認めるか。reader を持つ詳細を、reader の無いもので置き換えない。 */
+/** 詳細の上書きを認めるか。reader を持つ詳細を reader の無いもので、完全な reader を一覧用の reader で置き換えない。 */
 export function mayReplaceDetail(current: ReaderBearing | null | undefined, incoming: ReaderBearing): boolean {
-  return !(hasReader(current) && !hasReader(incoming));
+  if (hasReader(current) && !hasReader(incoming)) return false;
+  // 完全な詳細を、一覧用に削った reader で置き換えない
+  return !(hasFullReader(current) && !hasFullReader(incoming));
 }
 
 /** 上書きを認める時だけ incoming を、認めない時は current を返す。 */

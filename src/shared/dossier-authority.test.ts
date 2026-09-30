@@ -49,3 +49,17 @@ describe('dossier-authority', () => {
     expect(foundationMayServeDetail(false)).toBe(true);
   });
 });
+
+describe('一覧用の軽い reader（listForm）', () => {
+  const full = { reader: { sources: [], facts: [], metrics: [], unknowns: [], analysis: [] } } as never;
+  const light = { reader: { sources: [], facts: [], metrics: [], unknowns: [], analysis: [], listForm: true } } as never;
+  it('一覧の行の軽い reader だけでは詳細を取りに行く', () => {
+    expect(isDetailSettled(light)).toBe(false);
+    expect(isDetailSettled({ ...(light as object), evidenceCards: [{}, {}] } as never)).toBe(false);
+    expect(isDetailSettled(full)).toBe(true);
+  });
+  it('完全な詳細を一覧用の reader で置き換えない。一覧用は完全な詳細で置き換える', () => {
+    expect(preferDetail(full, light)).toBe(full);
+    expect(preferDetail(light, full)).toBe(full);
+  });
+});

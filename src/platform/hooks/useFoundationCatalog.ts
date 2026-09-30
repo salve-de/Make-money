@@ -50,6 +50,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
+  // 詳細の取得が失敗した・採らなかった事例。一覧の再描画のたびに同じ要求を撃ち直さないよう、ページを開き直すまで再取得しない
+  const detailFetchSettled = useRef(new Set<string>());
 
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [approvalProjectionEpoch, setApprovalProjectionEpoch] = useState(0);
@@ -230,7 +232,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   // オンデマンド詳細読み込み関数
   const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
-    if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
+    if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId) || detailFetchSettled.current.has(targetId)) return Promise.resolve();
 
     detailFetchInProgress.current.add(targetId);
     const normalizedTargetId = targetId.toLowerCase();
@@ -254,6 +256,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
             if (detail && mayFoundationReplaceCurated(curated)) {
               const adapted = adaptFoundationDetailToFinancialEntity(detail);
               setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], adapted) }));
+            } else {
+              detailFetchSettled.current.add(targetId);
             }
           } else if (payload.data && typeof payload.data === 'object') {
             const entity = parseFinancialEntity(payload.data);
@@ -263,6 +267,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         }
       })
       .catch((err) => {
+        detailFetchSettled.current.add(targetId);
         console.warn('[TerminalShell] Detail fetch failed for', targetId, err);
       })
       .finally(() => {

@@ -426,7 +426,11 @@ export async function GET(request: Request) {
   }
 
   if (entityId) {
-    if (requestedDossierHash) {
+    // 公開中の事例の一覧の行は、公開版の詳細ハッシュを latestDossierHash に持つ。その詳細は lake ではなく
+    // 公開版にあるので、目録のハッシュと一致する要求は下の curated（公開版）の経路で返す。
+    const { catalogReleaseDetailHash } = await import('@/lib/company-access/catalog-release');
+    const servedByRelease = Boolean(requestedDossierHash) && catalogReleaseDetailHash(entityId) === requestedDossierHash;
+    if (requestedDossierHash && !servedByRelease) {
       try {
         const r2Storage = new CloudflareR2BlobStorage('lake');
         const dossierPath = getDossierStoragePath(entityId, requestedDossierHash);

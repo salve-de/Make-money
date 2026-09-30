@@ -135,6 +135,8 @@ export const ReaderCaseSchema = z
     /** 概要は DESCRIPTION の事実を指すだけ。自由文の概要は持たない。 */
     summaryFactId: z.string().min(1).optional(),
     analysis: z.array(ReaderAnalysisSchema).default([]),
+    /** 一覧用に削った形（lightReader）の印。これが付いた reader は詳細の代わりにならない。 */
+    listForm: z.literal(true).optional(),
   })
   .superRefine((c, ctx) => {
     const sourceIds = new Set(c.sources.map((s) => s.id));

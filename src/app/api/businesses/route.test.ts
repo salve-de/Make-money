@@ -488,6 +488,27 @@ describe('Foundation detail CPU boundary', () => {
     expect(mocks.readThroughDetail).not.toHaveBeenCalled();
   });
 
+  it('一覧の行が持つ公開版の詳細ハッシュで要求されたら、lake ではなく公開版（curated）を返す', async () => {
+    const { catalogReleaseDetailHash } = await import('@/lib/company-access/catalog-release');
+    const hash = catalogReleaseDetailHash('ent_37signals_T6M1R8QK');
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
+    mocks.curatedFind.mockResolvedValue({ id: 'ent_37signals_T6M1R8QK', name: 'Released', latestDossierHash: hash, sourceRevision: 1 });
+
+    const response = await GET(new Request(`http://localhost/api/businesses?entity_id=ent_37signals_T6M1R8QK&dossier_hash=${hash}`));
+
+    expect(response.status).toBe(200);
+    expect((await response.json()).source).toBe('local_fallback');
+    expect(mocks.readThroughDetail).not.toHaveBeenCalled();
+  });
+
+  it('目録と違うハッシュの要求は公開版の経路に入らず、従来どおり lake の固定版を探す', async () => {
+    const response = await GET(new Request(`http://localhost/api/businesses?entity_id=ent_37signals_T6M1R8QK&dossier_hash=${'b'.repeat(64)}`));
+
+    // このテストの lake は作り物なので固定版は返らない。公開版（curated）へ回していないことを確かめる
+    expect(response.status).not.toBe(200);
+    expect(mocks.curatedFind).not.toHaveBeenCalled();
+  });
+
   it('公開版の目録にある ID の foundationOnly は 404 にして、通常の取得へ回す', async () => {
     mocks.readThroughDetail.mockResolvedValue(businessCase('ent_37signals_T6M1R8QK', 'Foundation Candidate'));
     mocks.dossierReady.mockReturnValue(true);

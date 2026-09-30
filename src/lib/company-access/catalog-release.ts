@@ -183,3 +183,10 @@ export function hasCatalogReleaseEntity(id: string): boolean {
   if (!normalizedId) return false;
   return Object.keys(manifest.details).some((candidate) => candidate.toLowerCase() === normalizedId);
 }
+
+/** 公開版の目録にある事例の詳細ハッシュ。一覧の行の latestDossierHash はこの値。目録に無ければ undefined。 */
+export function catalogReleaseDetailHash(id: string): string | undefined {
+  const details: Record<string, string> = manifest.details;
+  const canonicalId = Object.keys(details).find((key) => key.toLowerCase() === id.trim().toLowerCase());
+  return canonicalId ? details[canonicalId] : undefined;
+}
