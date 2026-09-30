@@ -10,7 +10,8 @@ import { isMediaEntityId, isSafeMediaUrl, type PublicMediaAsset } from '../../sh
  * Production source of displayable media: the public manifests in foundation-public (written by
  * scripts/media/upload-media-assets.ts). The newest `media/<entityId>/public-manifest.<stamp>.json` of an entity
  * is the current view; if that file cannot be read or is invalid, the entity shows nothing (an older view could
- * still list an image that was withdrawn). Images are loaded by the browser straight from the public domain.
+ * still list an image that was withdrawn). With a public domain the browser loads images straight from it; without
+ * one they go through GET /api/media/file, which serves only the bytes an entity's newest manifest lists.
  */
 
 export interface PublicMediaObjectSource {
@@ -20,8 +21,24 @@ export interface PublicMediaObjectSource {
   read(key: string): Promise<Uint8Array | null>;
 }
 
+export interface PublicMediaFile {
+  bytes: Uint8Array;
+  contentType: string;
+}
+
 export interface PublicMediaReader {
   read(entityIds: readonly string[]): Promise<Record<string, PublicMediaAsset[]>>;
+  /** The bytes of one asset the entity's newest manifest lists, or null (unknown, withdrawn or not matching the manifest). */
+  readFile(entityId: string, assetId: string): Promise<PublicMediaFile | null>;
+}
+
+function appFileUrl(entityId: string, assetId: string): string {
+  return `/api/media/file?entity_id=${encodeURIComponent(entityId)}&asset=${encodeURIComponent(assetId)}`;
+}
+
+async function sha256Hex(bytes: Uint8Array): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-256', bytes as Uint8Array<ArrayBuffer>);
+  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
 const MAX_PUBLIC_MANIFEST_BYTES = 256 * 1024;
@@ -30,8 +47,8 @@ export const PUBLIC_MEDIA_DIRECTORY_TTL_MS = 60_000;
 
 export function createPublicMediaReader(options: {
   source: PublicMediaObjectSource;
-  /** `https://assets.example.com` (no trailing slash): the origin that serves foundation-public. */
-  publicDomain: string;
+  /** `https://assets.example.com` (no trailing slash): the origin that serves foundation-public; null serves through the app. */
+  publicDomain: string | null;
   now?: () => number;
   directoryTtlMs?: number;
 }): PublicMediaReader {
@@ -71,7 +88,19 @@ export function createPublicMediaReader(options: {
     return manifest;
   }
 
+  async function currentManifest(entityId: string): Promise<PublicMediaManifest | null> {
+    const key = isMediaEntityId(entityId) ? (await newestManifestKeys()).get(entityId) : undefined;
+    return key ? loadManifest(entityId, key) : null;
+  }
+
   return {
+    async readFile(entityId, assetId) {
+      const asset = (await currentManifest(entityId))?.assets.find((item) => item.assetId === assetId);
+      if (!asset) return null;
+      const bytes = await options.source.read(asset.key);
+      if (!bytes || bytes.byteLength !== asset.bytes || (await sha256Hex(bytes)) !== asset.sha256) return null;
+      return { bytes, contentType: asset.contentType };
+    },
     async read(entityIds) {
       const entities: Record<string, PublicMediaAsset[]> = {};
       const latest = await newestManifestKeys();
@@ -84,7 +113,7 @@ export function createPublicMediaReader(options: {
           .map((asset): PublicMediaAsset => ({
             assetId: asset.assetId,
             kind: asset.kind,
-            url: `${options.publicDomain}/${asset.key}`,
+            url: options.publicDomain ? `${options.publicDomain}/${asset.key}` : appFileUrl(entityId, asset.assetId),
             contentType: asset.contentType,
             width: asset.width,
             height: asset.height,

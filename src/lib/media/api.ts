@@ -1,6 +1,6 @@
 import { PUBLIC_MEDIA_RESPONSE_SCHEMA, type PublicMediaResponse } from '../../shared/media-display';
 import { logMediaProblem, readLocalMediaFile, readLocalPublicMedia, type LocalMediaFile, type MediaProblemReporter } from './local-source';
-import type { PublicMediaReader } from './public-reader';
+import type { PublicMediaFile, PublicMediaReader } from './public-reader';
 import type { MediaSourceConfig } from './source';
 
 /** Response building for GET /api/media and GET /api/media/file, kept out of the route files so it can be tested. */
@@ -12,7 +12,8 @@ export interface MediaApiResult {
 }
 
 export interface MediaApiDeps {
-  publicReader: (publicDomain: string) => PublicMediaReader;
+  /** null: no public domain, images are served through GET /api/media/file. */
+  publicReader: (publicDomain: string | null) => PublicMediaReader;
   report?: MediaProblemReporter;
 }
 
@@ -34,9 +35,6 @@ export async function buildMediaResponse(entityIds: readonly string[], source: M
       const entities = await readLocalPublicMedia(entityIds, { root: source.root }, deps.report);
       return { status: 200, cacheControl: NO_STORE, body: response('local_staging', true, entities) };
     }
-    if (!source.publicDomain) {
-      return { status: 200, cacheControl: SHORT, body: response('foundation_public', false, {}, 'CLOUDFLARE_R2_PUBLIC_DOMAIN is not set to an https origin, so nothing is shown') };
-    }
     const entities = await deps.publicReader(source.publicDomain).read(entityIds);
     return { status: 200, cacheControl: SHORT, body: response('foundation_public', true, entities) };
   } catch (error) {
@@ -45,8 +43,19 @@ export async function buildMediaResponse(entityIds: readonly string[], source: M
   }
 }
 
-/** The bytes of one displayable staged image; null (a 404) for anything else, and always null outside the local source. */
-export async function serveMediaFile(entityId: string, assetId: string, source: MediaSourceConfig, report?: MediaProblemReporter): Promise<LocalMediaFile | null> {
-  if (source.kind !== 'local_staging') return null;
-  return readLocalMediaFile(entityId, assetId, { root: source.root }, report);
+/**
+ * The bytes of one displayable image; null (a 404) for anything else. Local source: a staged, allowed image.
+ * foundation-public without a public domain: an image the entity's newest public manifest lists. With a public
+ * domain the browser never asks here, so it answers null.
+ */
+export async function serveMediaFile(
+  entityId: string,
+  assetId: string,
+  source: MediaSourceConfig,
+  report?: MediaProblemReporter,
+  publicReader?: MediaApiDeps['publicReader'],
+): Promise<LocalMediaFile | PublicMediaFile | null> {
+  if (source.kind === 'local_staging') return readLocalMediaFile(entityId, assetId, { root: source.root }, report);
+  if (source.kind === 'foundation_public' && !source.publicDomain && publicReader) return publicReader(null).readFile(entityId, assetId);
+  return null;
 }

@@ -32,7 +32,7 @@ describe('buildMediaResponse', () => {
   });
 
   it('foundation-public: reads through the reader for the configured domain', async () => {
-    const reader: PublicMediaReader = { read: vi.fn(async () => ({})) };
+    const reader: PublicMediaReader = { read: vi.fn(async () => ({})), readFile: vi.fn(async () => null) };
     const publicReader = vi.fn(() => reader);
     const result = await buildMediaResponse(['ent_a', 'ent_b'], { kind: 'foundation_public', publicDomain: 'https://assets.example.com' }, { publicReader });
     expect(publicReader).toHaveBeenCalledWith('https://assets.example.com');
@@ -41,19 +41,24 @@ describe('buildMediaResponse', () => {
     expect(result.cacheControl).toBe('private, max-age=60');
   });
 
-  it('shows nothing, and says why, without a public domain or when media is off', async () => {
-    const noDomain = await buildMediaResponse(['ent_a'], { kind: 'foundation_public', publicDomain: null }, noReader);
-    expect(noDomain.body).toMatchObject({ source: 'foundation_public', available: false, entities: {} });
-    expect((noDomain.body as { reason: string }).reason).toMatch(/CLOUDFLARE_R2_PUBLIC_DOMAIN/);
+  it('without a public domain, reads through the app-served reader', async () => {
+    const reader: PublicMediaReader = { read: vi.fn(async () => ({})), readFile: vi.fn(async () => null) };
+    const publicReader = vi.fn(() => reader);
+    const result = await buildMediaResponse(['ent_a'], { kind: 'foundation_public', publicDomain: null }, { publicReader });
+    expect(publicReader).toHaveBeenCalledWith(null);
+    expect(result.body).toMatchObject({ source: 'foundation_public', available: true, entities: {} });
+  });
+
+  it('shows nothing, and says why, when media is off', async () => {
     const off = await buildMediaResponse(['ent_a'], { kind: 'off' }, noReader);
     expect(off.body).toMatchObject({ source: 'off', available: false, entities: {} });
-    expect(parsePublicMediaResponse(noDomain.body)).toEqual({});
+    expect(parsePublicMediaResponse(off.body)).toEqual({});
   });
 
   it('answers 503 (uncached) when the source fails', async () => {
     const seen: string[] = [];
     const result = await buildMediaResponse(['ent_a'], { kind: 'foundation_public', publicDomain: 'https://assets.example.com' }, {
-      publicReader: () => ({ read: async () => { throw new Error('R2 unavailable'); } }),
+      publicReader: () => ({ read: async () => { throw new Error('R2 unavailable'); }, readFile: async () => null }),
       report: (_id, message) => seen.push(message),
     });
     expect(result).toEqual({ status: 503, cacheControl: 'no-store', body: { error: 'Media temporarily unavailable' } });
@@ -68,5 +73,11 @@ describe('serveMediaFile', () => {
     expect((await serveMediaFile(ENTITY, favicon.assetId, { kind: 'local_staging', root }, () => undefined))?.bytes).toEqual(Buffer.from('f'));
     expect(await serveMediaFile(ENTITY, favicon.assetId, { kind: 'foundation_public', publicDomain: 'https://assets.example.com' })).toBeNull();
     expect(await serveMediaFile(ENTITY, favicon.assetId, { kind: 'off' })).toBeNull();
+    const file = { bytes: new Uint8Array([1]), contentType: 'image/png' };
+    const readFile = vi.fn(async () => file);
+    const publicReader = vi.fn(() => ({ read: async () => ({}), readFile }));
+    expect(await serveMediaFile(ENTITY, favicon.assetId, { kind: 'foundation_public', publicDomain: null }, undefined, publicReader)).toBe(file);
+    expect(readFile).toHaveBeenCalledWith(ENTITY, favicon.assetId);
+    expect(await serveMediaFile(ENTITY, favicon.assetId, { kind: 'foundation_public', publicDomain: 'https://assets.example.com' }, undefined, publicReader)).toBeNull();
   });
 });

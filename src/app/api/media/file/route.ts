@@ -1,15 +1,15 @@
 import { NextResponse } from 'next/server';
 import { serveMediaFile } from '@/lib/media/api';
-import { readMediaSource } from '@/lib/media/runtime';
+import { publicMediaReaderFor, readMediaSource } from '@/lib/media/runtime';
 import { MEDIA_ASSET_ID_PATTERN } from '@/shared/media-asset-schema';
 import { isMediaEntityId } from '@/shared/media-display';
 
 export const dynamic = 'force-dynamic';
 
 /**
- * Development / e2e only: streams one displayable staged image, `GET /api/media/file?entity_id=&asset=`.
- * Production images come straight from the public R2 domain. Anything that is not an allowed, non-person,
- * unmodified staged image answers 404, so held and blocked assets are indistinguishable from unknown ones.
+ * Streams one displayable image, `GET /api/media/file?entity_id=&asset=`: a staged image in development / e2e,
+ * or, in production without a public R2 domain, an image the entity's newest public manifest in foundation-public
+ * lists. Anything else answers 404, so held, blocked and withdrawn assets are indistinguishable from unknown ones.
  */
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
@@ -18,14 +18,15 @@ export async function GET(request: Request) {
   if (!isMediaEntityId(entityId) || !MEDIA_ASSET_ID_PATTERN.test(assetId)) {
     return NextResponse.json({ error: 'Invalid media query' }, { status: 400 });
   }
-  const file = await serveMediaFile(entityId, assetId, await readMediaSource());
+  const file = await serveMediaFile(entityId, assetId, await readMediaSource(), undefined, publicMediaReaderFor);
   if (!file) return new NextResponse(null, { status: 404, headers: { 'Cache-Control': 'no-store' } });
   return new NextResponse(new Uint8Array(file.bytes), {
     status: 200,
     headers: {
       'Content-Type': file.contentType,
       'Content-Length': String(file.bytes.byteLength),
-      'Cache-Control': 'no-store',
+      // A withdrawn image should disappear quickly, as with GET /api/media.
+      'Cache-Control': 'private, max-age=60',
       'X-Content-Type-Options': 'nosniff',
       // If an SVG is opened directly, it runs no script; as an <img> it never did.
       'Content-Security-Policy': "default-src 'none'; sandbox",
