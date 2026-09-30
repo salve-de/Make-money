@@ -49,9 +49,9 @@ try { verdicts = JSON.parse(await readFile('data/reader-verdicts.json', 'utf8'))
 // 推論（reader.analysis）。事実とは別の欄。無ければ空配列
 let analysisFile: AnalysisFile = {};
 try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf8')) as AnalysisFile; } catch { /* 無ければ推論なし */ }
-const withheld = { schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0 };
+const withheld = { schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
-type Display = 'SHOW' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE';
+type Display = 'SHOW' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
 const DISPLAY_REASON: Record<Display, string> = {
   SHOW: '出典と照合した事実がある',
   HOLD_NO_RAW: '元の記録が無い',
@@ -59,12 +59,16 @@ const DISPLAY_REASON: Record<Display, string> = {
   HOLD_SCHEMA: '形式の検査を通らない',
   HOLD_THIN: 'データが少ない（事実2件以下で数字なし）。一次情報を探し直す',
   HOLD_RESOURCE: '出典が利用規約で商用の表示を禁じる紹介サイト（eBiz Facts）だけ。本人・公式の一次情報に付け替えるまで出さない',
+  HOLD_QUEUE: '順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）',
 };
 // 素材の商用利用・公の表示を利用規約で禁じる出典（2026-09-30 確認: ebizfacts.com/about/terms）
 const TERMS_RESTRICTED_HOSTS = ['ebizfacts.com'];
 const onlyRestrictedSources = (urls: string[]) => urls.length > 0 && urls.every((u) => {
   try { const h = new URL(u).hostname.replace(/^www\./, ''); return TERMS_RESTRICTED_HOSTS.includes(h); } catch { return false; }
 });
+// 仕上げ済み（全項目の推論と抜き取り監査が済んだ）事例の一覧。ファイルがあれば、載っている事例だけを出す
+let finishedIds: Set<string> | null = null;
+try { finishedIds = new Set((await readFile('data/catalog-finished-ids.txt', 'utf8')).split('\n').map((x) => x.trim()).filter((x) => x && !x.startsWith('#'))); } catch { /* 無ければ全件が対象 */ }
 const caseStamps: Record<string, { display: Display; reason: string }> = {};
 const stamp = (id: string, display: Display) => { caseStamps[id] = { display, reason: DISPLAY_REASON[display] }; };
 const totals = { facts: 0, metrics: 0, processDropped: 0, unbound: 0 };
@@ -87,6 +91,7 @@ for (const entity of publishable) {
   if (validateReader(verified.reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }
   if (verified.reader.facts.length <= 2 && verified.reader.metrics.length === 0) { withheld.thin++; stamp(entity.id, 'HOLD_THIN'); continue; }
   if (onlyRestrictedSources(verified.reader.sources.map((x) => x.url))) { withheld.resource++; stamp(entity.id, 'HOLD_RESOURCE'); continue; }
+  if (finishedIds && !finishedIds.has(entity.id)) { withheld.queued++; stamp(entity.id, 'HOLD_QUEUE'); continue; }
   stamp(entity.id, 'SHOW');
   const missing = missingRequired(verified.reader);
   blanks.cells += REQUIRED_ITEMS.length;
