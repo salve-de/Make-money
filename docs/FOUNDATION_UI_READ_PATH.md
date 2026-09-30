@@ -1,5 +1,7 @@
 # Foundation R2 → Make-Money UI 読み取り経路
 
+> **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
+
 ## 目的
 
 既存の `foundation-lake` にある登録済みデータを、Make-Money の既存台帳UIへ高速・低コストで表示する。Foundation の正本を変更せず、Make-Money 側で必要な表示形へ読み取り時だけ整形する。
@@ -11,7 +13,7 @@
 1. **一覧** — `ds.business.entities.core` の登録済み `entities/` prefix を R2 List の cursor でページングする。1ページ100件、画面側も100件単位で段階描画する。各行には、同じページの対象entityを既存bundleから読み取って作るアプリ内限定の `valueProfile`（事業、課題、価格/財務、初動、仕組み、時系列）を付ける。これは表示時の一時projectionであり、R2に保存しない。
 2. **詳細** — 選択された `entity_id` の entity object を読み、`ds.business.research-bundles.derived` を短い byte range で先に探索する。対象entityの可能性があるbundleだけ本体を読み、claims / metrics / money-signals / events / relationships / observations / derived を重複排除して表示する。
 3. **キャッシュ** — 同じWorker isolate内の短期メモリキャッシュ、ブラウザの短期 `Cache-Control`、bundle一覧・bundle候補のキャッシュを使う。R2へUI用indexを書き戻さない。
-4. **不明値** — 記録されていない売上・利益・人数・創業年などは `未確認` のままにする。報告値・観測値・推定値・推論値を混ぜず、詳細のorigin/status/evidenceを表示する。`HIGH_SIGNAL / USEFUL / CANDIDATE` は真偽や収益性のランキングではなく、既存記録から表示できる信号の量を示すUIラベルである。
+4. **不明値** — 記録されていない売上・利益・人数・創業年などは `未確認` のままにする。報告値・観測値・推定値・推論値を混ぜず、詳細のorigin/status/evidenceを表示する。`HIGH_SIGNAL / USEFUL / CANDIDATE` は真偽や収益性のランキングではなく、既存記録から表示できる信号の量を示すUIラベルである。（**2026-09-30 廃止** → OWNER_INTENT 3章・11章: 事実欄は不明のまま。画面は「推測」と印を付けた推論で埋める）
 
 ## 料金の考え方
 

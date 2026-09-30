@@ -3,6 +3,8 @@
 
 # Make-Money / business-case 収集対象の完全目録
 
+> **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
+
 この文書は、Make-Moneyの事例調査で「何を調べ、何を残すか」をAIが迷わないように固定する横断契約です。新しいスキーマ、データベース、R2バケット、R2保存方式を追加する文書ではありません。意味の正本は `salve-de/universal-foundation` の登録済み契約、`research-bundle.v1`、`journal-entry.v1`、および `business-case.v2` です。
 
 この文書は [Universal Foundationの同名正本](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md) と同じ内容をMake-Money側にも置いたものです。内容が食い違う場合はUniversal Foundationのmainを上位正本とし、差分を放置しないでください。
@@ -163,4 +165,4 @@ Journalキーは `journal/v1/YYYY/MM/DD/<journal_id>.json`、typed/derivedキー
 7. R2 descriptorの反映状態
 8. 既存データへの変更件数。新規収集ではdelete/move/rename/overwriteを全て0とする
 
-必須項目を推測で埋めたり、未調査を調査済み扱いしたりして「完了」と報告してはいけません。
+必須項目を推測で埋めたり、未調査を調査済み扱いしたりして「完了」と報告してはいけません。（**2026-09-30 廃止** → OWNER_INTENT 3章: 「推測を事実と偽って埋めて完了と言うな」と読む。印を付けた推論で埋めるのは可）

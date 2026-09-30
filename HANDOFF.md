@@ -2,6 +2,8 @@
 
 # Make-Money 引継ぎ入口（2026-09-24 最新正本）
 
+> **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](docs/OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
+
 > **2026-09-19 First Dollar 実行レイヤー追加**: MAKE MONEY は情報DBだけで終わらせず、企業事例から `FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN` を進め、実売上の最初の1円まで追う。企業詳細の `この稼ぎ方を実行` から `/execute/[id]` へ入り、未ログインは端末保存、ログイン時は D1 同期。仕様正本は [docs/FIRST_DOLLAR_EXECUTION.md](docs/FIRST_DOLLAR_EXECUTION.md)。今後の機能判断では Time to First Dollar を主要基準にする。
 
 > **【別チャットのAntigravityへの最優先引継ぎ】**:
@@ -68,8 +70,8 @@
 > 
 > ### 【最重要：収集 ＆ UI表示の完全並行原則（後回し・分離の絶対禁止）】
 > **「データを集めるだけ集めて、UI画面の表示は後回しにする」ことを厳禁とする。**
-> 1. **配管直結**: トップ画面（`src/app/page.tsx`）は目録（`data/entities-index.json`）を直読し、金融端末UIへ流し込む。
-> 2. **完全並行サイクル**: 【底引き網調査 ➔ P&L逆算 ➔ 完全体JSON精錬 ➔ R2保存 ➔ 目録（entities-index.json）登録 ➔ ブラウザ実機でUI表示確認】の6ステップを1セットとして並行稼働せよ。
+> 1. **配管直結**: トップ画面（`src/app/page.tsx`）は目録（`data/entities-index.json`）を直読し、金融端末UIへ流し込む。（**2026-09-30 廃止** → OWNER_INTENT 10章: 本番は R2 の公開版（catalog release）を読む）
+> 2. **完全並行サイクル**: 【底引き網調査 ➔ P&L逆算 ➔ 完全体JSON精錬 ➔ R2保存 ➔ 目録（entities-index.json）登録 ➔ ブラウザ実機でUI表示確認】の6ステップを1セットとして並行稼働せよ。（**2026-09-30 廃止** → OWNER_INTENT 10章: 本番は R2 の公開版を読む。entities-index.json は直読しない）
 > 3. **完了条件**: 画面の一覧テーブルに行が表示され、詳細インスペクター（P&L損益計算書、痛みの財布、ツール構成、死因解剖バッジ等）が崩れなく0.01秒で描画されることを確認して初めて1件の収集完了とみなす。
 > 
 > 追加の質問や手戻り確認は一切不要。以下の3大正本を読み、直ちに上記6ステップの完全並行サイクルで自走完遂せよ。
@@ -84,7 +86,7 @@
 3. **100年R2完璧構造（保存先）**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md)
    - Layer 1: 生原本 ➔ `foundation-raw/blobs/sha256/<hash>`（Create-Only、上書き禁止）
    - Layer 2: 保存票 ➔ `foundation-lake/journal-entry.v1/<id>.json`（追記専用）
-   - Layer 3: 目録 ➔ `data/entities-index.json`（単一目録で1行JOIN、UI直結）
+   - Layer 3: 目録 ➔ `data/entities-index.json`（単一目録で1行JOIN、UI直結）（**2026-09-30 廃止** → OWNER_INTENT 10章: 本番は R2 の公開版を読む）
    - **【絶対不可侵】**: `universal/data-assets/financials/`（EDINET正本領域）には1文字たりとも書き込むな・触れるな。
 4. **横断自律収集契約**: [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)
    - **R2容量・料金の完全安全性**: 毎月10GB・100万回Class Aまで完全無料。1社最大1MBのため、1万社集めても月額0円（完全無料）。破産リスクゼロ。

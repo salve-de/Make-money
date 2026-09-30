@@ -1,5 +1,34 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+> 現在の方針の正本は [docs/OWNER_INTENT.md](./OWNER_INTENT.md)（唯一の入口）。この白書は経緯の記録で、食い違ったら OWNER_INTENT が優先。
+
+## 2026-09-30 【確定】事実＋推論で全項目を埋める・正本を1本化（OWNER_INTENT）
+
+### 1. オーナーの決定（原文の要点）
+- 「ないのは弱いから AIで推測して書いたり、調べたことから推測するんだよ」: 事実が無い項目は、推測と明記した推論で埋める。空欄・「未確認」だらけの画面は商品として負け。
+- 「厳密にやる必要はない。ユーザーは厳密な金額を見たいのではない」: 数字は約・幅でよい。厳しくするのは「事実のふりをした嘘」と「出してはいけない物（権利・違法指南・個人情報）」だけ。
+- 「なんか強い言葉は欲しい」: 各事例に強い一行（HEADLINE）。例「工場が止まる恐怖を消して5億（キーエンス）」「構築10日、あとは週1時間の保守」。
+- 「スタンプを押して記録する」: 項目ごとに種類・根拠・出典・表示可否、事例ごとに出す／出さない（`data/case-display.json`）。
+- 「データが少ないのは UI に出さない」: 薄い事例・出典が消えた事例は、一次情報を1回探し直し、無ければ保存したまま画面に出さない。
+- 「全部許可するから いちいち許可を求めないで」: push・PR・マージ・デプロイ・R2 書込みは包括許可。削除・課金は確認。
+- 「すべてどっかに書いておけ」「完璧にしろ」: 散らばった正本を `docs/OWNER_INTENT.md` の1本にまとめ、古い文書の食い違う箇所に「廃止」の注記を入れた。
+
+### 2. 覆した物
+- 「出典どおり95%」を公開条件にして監査を14回回した方式（推論まで作文として消し、画面が空になった）。
+- 「推測で埋めず未確認のまま残す」（CLAUDE.md・AGENTS.md・CHARTER・DATA_COLLECTION_CONTRACT 等の旧文）。
+- eBiz Facts を権利3層の Tier 2（事実のみ可）に置いた 09-29 の判断。利用規約（ebizfacts.com/about/terms）が商用利用・公の表示を禁じるため、発見の手がかりに限る。
+
+### 3. 実施内容（feature branch `claude/honest-catalog-20260929`）
+- `src/shared/reader-case.ts`: ReaderCase に推論の欄 `analysis` を追加。項目は HEADLINE・STORY（4段の物語）・事業の形・料金・客・客の痛み・最初の客・集客・売上推計・費用・手残り・資金と人数・道具・依存先・やめにくさ・前金・紹介報酬・大手が手を出せない理由・競合・時期・当たった理由・今も通用するか・ピボット・死因・持ち帰れる核心。
+- `scripts/reader-case/`: 出典本文の取得 → Codex による照合 → Codex による推論（`analyze-prompt.md`）→ 機械の落とし込み（`analysis-lib.ts`）→ `data/reader-analysis.json`。
+- `scripts/prepare-catalog-release.ts`: 事例ごとの表示印（SHOW / HOLD_UNVERIFIED / HOLD_THIN / HOLD_RESOURCE / HOLD_SCHEMA / HOLD_NO_RAW）を `data/case-display.json` に出力。
+- 見本 `data/samples/pinboard.stamped.json`（オーナーが「最高」と評価した水準）。
+- Universal Foundation（NORTH_STAR・MAKE_MONEY_COLLECTION_SCOPE・MAKE_MONEY_RESEARCH_REQUIREMENTS）との関係を OWNER_INTENT 16章に整理。事実と証拠は土台に長く残し、推論は作り直せる見せ方として扱う。
+
+### 4. 未達（2026-09-30 時点）
+- 全件の推論、公開版の R2 公開、本番デプロイ、本番画面の確認は未了。
+- eBiz だけの事例（約760件）の一次情報への付け替え、画像の R2 投入、出典本文の土台への保存、12領域×9探し先の記録は未着手。
+
 ## 2026-09-28 【戦略追記】Distribution Marketplace — 「作る市場」から「販売力と実取引を握る市場」へ
 
 ### 1. 今回確定した根本目的

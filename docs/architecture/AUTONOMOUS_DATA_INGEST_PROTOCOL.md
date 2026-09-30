@@ -1,5 +1,7 @@
 # 全プロジェクト共通：完全自律データ収集 ＆ 100年R2保存プロトコル (Autonomous Ingest & 100-Year R2 Protocol)
 
+> **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](../OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
+
 > **最高運用契約**: ユーザーは長文プロンプトや追加条件を絶対に書かない。
 > 「AGENTS.md見てデータ集めて」の一言で、全AI（Antigravity, Claude, ChatGPT, Cursor）は一切の追加質問・手戻りなしに完全自律稼働せよ。
 > 本プロトコルは、Make-Money、Investrader、universal-foundation、および今後立ち上がる全プロジェクトにそのまま適用可能な【最高標準契約】である。
@@ -56,8 +58,8 @@
    - 創業者の綺麗事（「価値ある発信でファンを増やした」）を焼き払い、Reddit自演、コールドDM爆撃、ToS隙間ハック等の泥臭い初動突破事実ログを抉り出せ。
 4. **【最重要】収集 ＆ UI表示の完全並行原則（後回し・分離の絶対禁止）**:
    - **「データを溜めるだけ溜めて、画面UIの表示は後回しにする」ことは厳禁である。**
-   - トップ画面（`src/app/page.tsx`）は目録（`data/entities-index.json`）を直読して金融端末へ流し込む。
-   - 【底引き網調査 ➔ P&L逆算 ➔ 完全体JSON精錬 ➔ R2保存 ➔ 目録（entities-index.json）登録 ➔ ブラウザUI（一覧テーブル＆詳細インスペクター）で崩れなく0.01秒で描画されることを実機確認】までを1セットとして並行稼働せよ。
+   - トップ画面（`src/app/page.tsx`）は目録（`data/entities-index.json`）を直読して金融端末へ流し込む。（**2026-09-30 廃止** → OWNER_INTENT 10章: 本番は R2 の公開版（catalog release）を読む）
+   - 【底引き網調査 ➔ P&L逆算 ➔ 完全体JSON精錬 ➔ R2保存 ➔ 目録（entities-index.json）登録 ➔ ブラウザUI（一覧テーブル＆詳細インスペクター）で崩れなく0.01秒で描画されることを実機確認】までを1セットとして並行稼働せよ。（**2026-09-30 廃止** → OWNER_INTENT 10章: 本番は R2 の公開版を読む）
 
 
 ---
