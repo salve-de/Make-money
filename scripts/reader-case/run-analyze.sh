@@ -21,7 +21,7 @@ run_one() {
   local rc attempt
   # モデルが混雑中（at capacity）で落ちた時は、間を空けて3回までやり直す
   for attempt in 1 2 3; do
-    { cat "$PROMPT"; printf '\n## 入力（このJSONがバッチの全文。ファイルを開く必要はない）\n'; cat "$batch"; } | \
+    { cat "$PROMPT"; [ -n "${ANALYZE_NOTE:-}" ] && printf '\n## 今回だけの指示\n%s\n' "$ANALYZE_NOTE"; printf '\n## 入力（このJSONがバッチの全文。ファイルを開く必要はない）\n'; cat "$batch"; } | \
       codex exec -m "${ANALYZE_MODEL:-gpt-6.1-sol}" -c model_reasoning_effort="\"${ANALYZE_EFFORT:-high}\"" -C "$ROOT" -s read-only --skip-git-repo-check -o "$out.tmp" - >"data/analyze/log/$name.log" 2>&1
     rc=$?
     grep -q "at capacity" "data/analyze/log/$name.log" || break

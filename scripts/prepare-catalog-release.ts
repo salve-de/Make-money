@@ -10,7 +10,7 @@ import { collectApprovalCandidateIds } from '../src/lib/company-access/approval-
 import { projectReaderCase, validateReader, type UnboundLine, type ReviewItem } from '../src/lib/company-access/reader-case-projection';
 import { applyVerdicts } from '../src/lib/company-access/reader-verdicts';
 import type { VerdictsFile } from './reader-case/verify-lib';
-import { reflectAnalysis, missingRequired, REQUIRED_ITEMS, type AnalysisFile } from './reader-case/analysis-lib';
+import { citesRestrictedSource, reflectAnalysis, missingRequired, REQUIRED_ITEMS, type AnalysisFile } from './reader-case/analysis-lib';
 import { computeDossierContentHash, getDossierStoragePath, stringifyDeterministic } from '../src/lib/foundation/dossier-projection';
 import { deriveDiscoveryDataset } from '../src/features/discover';
 import { findTemplateViolations, MIN_REPEAT } from './architecture/template-prose-lib.mjs';
@@ -58,14 +58,9 @@ const DISPLAY_REASON: Record<Display, string> = {
   HOLD_UNVERIFIED: '出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す',
   HOLD_SCHEMA: '形式の検査を通らない',
   HOLD_THIN: 'データが少ない（事実2件以下で数字なし）。一次情報を探し直す',
-  HOLD_RESOURCE: '出典が利用規約で商用の表示を禁じる紹介サイト（eBiz Facts）だけ。本人・公式の一次情報に付け替えるまで出さない',
+  HOLD_RESOURCE: '出典に利用規約で商用の表示を禁じる紹介サイト（eBiz Facts）を含む。本人・公式の一次情報に付け替えるまで出さない',
   HOLD_QUEUE: '順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）',
 };
-// 素材の商用利用・公の表示を利用規約で禁じる出典（2026-09-30 確認: ebizfacts.com/about/terms）
-const TERMS_RESTRICTED_HOSTS = ['ebizfacts.com'];
-const onlyRestrictedSources = (urls: string[]) => urls.length > 0 && urls.every((u) => {
-  try { const h = new URL(u).hostname.replace(/^www\./, ''); return TERMS_RESTRICTED_HOSTS.includes(h); } catch { return false; }
-});
 // 仕上げ済み（全項目の推論と抜き取り監査が済んだ）事例の一覧。ファイルがあれば、載っている事例だけを出す
 let finishedIds: Set<string> | null = null;
 try { finishedIds = new Set((await readFile('data/catalog-finished-ids.txt', 'utf8')).split('\n').map((x) => x.trim()).filter((x) => x && !x.startsWith('#'))); } catch { /* 無ければ全件が対象 */ }
@@ -90,7 +85,7 @@ for (const entity of publishable) {
   verified.reader = reflectAnalysis(verified.reader, analysisFile[entity.id]);
   if (validateReader(verified.reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }
   if (verified.reader.facts.length <= 2 && verified.reader.metrics.length === 0) { withheld.thin++; stamp(entity.id, 'HOLD_THIN'); continue; }
-  if (onlyRestrictedSources(verified.reader.sources.map((x) => x.url))) { withheld.resource++; stamp(entity.id, 'HOLD_RESOURCE'); continue; }
+  if (citesRestrictedSource(verified.reader)) { withheld.resource++; stamp(entity.id, 'HOLD_RESOURCE'); continue; }
   if (finishedIds && !finishedIds.has(entity.id)) { withheld.queued++; stamp(entity.id, 'HOLD_QUEUE'); continue; }
   stamp(entity.id, 'SHOW');
   const missing = missingRequired(verified.reader);

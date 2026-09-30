@@ -89,6 +89,17 @@ describe('projectReaderCase', () => {
     const light = lightReader(projectReaderCase(entity).reader);
     expect(ReaderCaseSchema.safeParse(light).success).toBe(true);
   });
+  it('概要の事実が無い事例は、強い一行とその根拠の事実だけを一覧用に残す', () => {
+    const r = projectReaderCase(entity).reader;
+    const basisFact = r.facts[r.facts.length - 1];
+    const headline = { id: 'a-headline', item: 'HEADLINE' as const, text: '見出し', basis: [basisFact.id], confidence: 'MEDIUM' as const };
+    const other = { id: 'a-lesson', item: 'LESSON' as const, text: '教訓', basis: [], confidence: 'LOW' as const };
+    const light = lightReader({ ...r, summaryFactId: undefined, analysis: [headline, other] });
+    expect(light.analysis.map((a) => a.id)).toEqual(['a-headline']);
+    expect(light.facts.map((f) => f.id)).toEqual([basisFact.id]);
+    expect(ReaderCaseSchema.safeParse(light).success).toBe(true);
+    expect(lightReader({ ...r, analysis: [headline] }).analysis).toEqual(r.summaryFactId ? [] : [headline]);
+  });
   it('実データの5件（見本の事例）が通る', () => {
     const all = JSON.parse(readFileSync('data/entities-index.json', 'utf8')) as Record<string, unknown>[];
     for (const id of ['ent_baremetrics_b0966c4871940e459cbb', 'ent_block_J8P4V6RN', 'ent_vetta_f25db159678a']) {

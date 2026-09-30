@@ -19,10 +19,19 @@ export function listMetricsOf(reader: ReaderCase | undefined): { main: ReaderMet
   return { main, profit: profit && profit.id !== main?.id ? profit : null };
 }
 
-/** 事業の説明: summaryFactId の事実の1文目。無ければ何も出さない。 */
+/** 事業の説明: summaryFactId の事実の1文目。無ければ強い一行（推測の印つき）。どちらも無ければ何も出さない。 */
 export function ListDescription({ reader, className }: { reader?: ReaderCase; className?: string }) {
   const fact = readerSummaryFact(reader);
-  if (!fact) return null;
+  if (!fact) {
+    const headline = reader?.analysis.find((a) => a.item === 'HEADLINE');
+    if (!headline) return null;
+    return (
+      <span className={className} data-analysis={headline.id} title={headline.text}>
+        <span className="mr-1 text-term-accent">{UI.ANALYSIS_MARK}</span>
+        {headline.text}
+      </span>
+    );
+  }
   const text = firstSentence(fact.text);
   return (
     <span className={className} data-fact={fact.id} title={text}>

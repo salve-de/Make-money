@@ -57,6 +57,10 @@ describe('merge-analysis の落とし条件', () => {
     expect(run([item({ item: 'COST_STRUCTURE', text: '決済手数料が売上の約3%かかると見られる。' })]).dropped[0]!.reason).toBe('number-without-formula');
     expect(run([item({ item: 'COST_STRUCTURE', text: '決済手数料が売上の約3%かかると見られる。', formula: 'Stripe 2.9% + 30セント' })]).kept).toHaveLength(1);
   });
+  it('「万人向け」のような金額でない漢字は式を求めない。漢数字の金額は求める', () => {
+    expect(run([item({ item: 'INCUMBENT_BLINDSPOT', text: 'OS標準機能は万人向けで、細かな仕上げまで追わない。' })]).kept).toHaveLength(1);
+    expect(run([item({ item: 'REVENUE_ESTIMATE', text: '売上は年に数千万円規模と見られる。' })]).dropped[0]!.reason).toBe('number-without-formula');
+  });
   it('売上の事実があるのに REVENUE_ESTIMATE が出たら落とす', () => {
     const r = base();
     r.metrics.push({ id: 'm2', measure: 'REVENUE', periodKind: 'YEAR', period: '2025', amount: 100, currency: 'USD', origin: 'ARTICLE', sourceId: 's1' });

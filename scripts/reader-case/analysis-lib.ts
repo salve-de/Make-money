@@ -32,7 +32,7 @@ export interface RawItem {
 
 const STATEMENT = /語った|述べた|発表した|公表した|明かした|によると|と話す|と語る|インタビューで/;
 const WORK = /記載(が)?な|明記(され)?てい?な|確認できな|本文を読|出典に(は)?無/;
-const MONEY = /[$＄¥￥€£]|円|万|億|USD|EUR|JPY|ドル|ユーロ|%|％|パーセント/;
+const MONEY = /[$＄¥￥€£]|USD|EUR|JPY|[0-9０-９][0-9０-９,.，]*\s*(円|万|億|千|ドル|ユーロ|%|％|パーセント)|[数何幾十百千万億]+(円|ドル|ユーロ)/;
 const ILLEGAL_TOPIC = /自作自演|サクラ|なりすま|スパム|規約を(回避|すり抜)|botで大量/;
 const ILLEGAL_IMPERATIVE = /しろ|せよ|すればよい|すれば良い|手順/;
 
@@ -110,3 +110,47 @@ export function missingRequired(reader: ReaderCase): string[] {
   };
   return REQUIRED_ITEMS.filter((item) => !have.has(item) && !byFact[item]);
 }
+
+export interface AuditFinding { analysisId: string; kind: string; severity: 'BLOCK' | 'FIX' | 'LOW'; why?: string; fix?: string }
+export type AuditFile = Record<string, AuditFinding[]>;
+
+/**
+ * 公開前の監査（data/audit/out-*.json）の指摘を推論に反映する。BLOCK は外す。FIX は直した文に置き換え、
+ * 置き換えた文も checkItem を通す（通らなければ外す）。LOW はそのまま。純粋関数。
+ */
+export function applyAudit(entityId: string, stored: StoredAnalysis[], findings: AuditFinding[] | undefined, reader: ReaderCase):
+  { kept: StoredAnalysis[]; removed: { id: string; kind: string; why?: string }[]; fixed: number } {
+  if (!findings?.length) return { kept: stored, removed: [], fixed: 0 };
+  const byId = new Map<string, AuditFinding[]>();
+  for (const f of findings) byId.set(f.analysisId, [...(byId.get(f.analysisId) ?? []), f]);
+  const kept: StoredAnalysis[] = [];
+  const removed: { id: string; kind: string; why?: string }[] = [];
+  const seen = new Set<string>();
+  let fixed = 0;
+  for (const a of stored) {
+    const fs = byId.get(a.id) ?? [];
+    const block = fs.find((f) => f.severity === 'BLOCK');
+    if (block) { removed.push({ id: a.id, kind: block.kind, why: block.why }); continue; }
+    const fix = fs.find((f) => f.severity === 'FIX');
+    if (!fix) { seen.add(a.item); kept.push(a); continue; }
+    if (!fix.fix?.trim()) { removed.push({ id: a.id, kind: fix.kind, why: fix.why }); continue; }
+    // 監査役の直した文が出典の数字を引くだけで式が無い時は、根拠の事実がある場合に限り「出典の値」と式欄に書き添える
+    const text = fix.fix.trim();
+    const formula = a.formula ?? (MONEY.test(text) && a.basis.length ? `数字は出典の値（根拠: ${a.basis.join(', ')}）` : undefined);
+    const r = checkItem({ ...a, text, formula }, reader, seen);
+    if (r.ok) { kept.push(r.value); fixed++; } else removed.push({ id: a.id, kind: `${fix.kind}/${r.reason}`, why: fix.why });
+  }
+  void entityId;
+  return { kept, removed, fixed };
+}
+
+/** 素材の商用利用・公の表示を利用規約で禁じる出典（2026-09-30 確認: ebizfacts.com/about/terms） */
+export const TERMS_RESTRICTED_HOSTS = ['ebizfacts.com', 'ebizfacts.beehiiv.com']; // 後者は同社のニュースレター
+const restrictedHost = (u: string): boolean => {
+  try { const h = new URL(u).hostname.replace(/^www\./, ''); return TERMS_RESTRICTED_HOSTS.some((r) => h === r || h.endsWith(`.${r}`)); } catch { return false; }
+};
+/**
+ * 規約で表示を禁じる出典を1つでも引いている事例か。eBiz の数字・出来事は一次情報に付け替えるまで出さない（OWNER_INTENT 6章）。
+ * 2つ目の出典があっても、それが数字を裏付けるとは限らないため、事例ごと止める。
+ */
+export const citesRestrictedSource = (reader: Pick<ReaderCase, 'sources'>): boolean => reader.sources.some((s) => restrictedHost(s.url));
