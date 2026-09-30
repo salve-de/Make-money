@@ -18,3 +18,7 @@ test('何度かけても同じ結果になる', () => {
   const once = normalizeFormula('相場仮定：月$30〜100。一般相場の仮定：月額支援300〜1,500円。');
   assert.equal(normalizeFormula(once), once);
 });
+
+test('内部の根拠IDを読者向けの式に出さない', () => {
+  assert.equal(normalizeFormula('数字は出典の値（根拠: f1, f3）'), '数字は出典に載っている値');
+});

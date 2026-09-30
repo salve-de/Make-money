@@ -55,13 +55,14 @@ const NORM_WORDS: [RegExp, string][] = [
  * 公開監査（2026-10-01、20社393項目）で残った事実のふり14件のうち13件がこの型だった。決済・販売の場の標準手数料は除く。冪等。
  */
 export function normalizeFormula(formula: string): string {
-  let out = formula.replace(/Stripe(の)?相場/g, 'Stripe標準');
+  const base = formula.replace(/Stripe(の)?相場/g, 'Stripe標準').replace(/数字は出典の値（根拠: [^）]*）/g, '数字は出典に載っている値');
+  let out = base;
   for (const [re, to] of NORM_WORDS) out = out.replace(re, (m, ...rest) => {
     const at = rest.find((x) => typeof x === 'number') as number;
-    return PLATFORM_FEE.test(formula.slice(Math.max(0, at - 16), at + m.length + 4)) && !/仮定|仮置き/.test(m) ? m : to;
+    return PLATFORM_FEE.test(base.slice(Math.max(0, at - 16), at + m.length + 4)) && !/仮定|仮置き/.test(m) ? m : to;
   });
   out = out.replace(/一般的な/g, (m, at: number) => (PLATFORM_FEE.test(out.slice(Math.max(0, at - 16), at)) ? m : ''));
-  if (out !== formula && !out.includes('裏付け資料なし')) out = `${out.replace(/[。\s]+$/, '')}（仮の値。裏付け資料なし）`;
+  if (out !== base && !out.includes('裏付け資料なし')) out = `${out.replace(/[。\s]+$/, '')}（仮の値。裏付け資料なし）`;
   return out;
 }
 
@@ -165,7 +166,7 @@ export function applyAudit(entityId: string, stored: StoredAnalysis[], findings:
     if (!fix.fix?.trim()) { removed.push({ id: a.id, kind: fix.kind, why: fix.why }); continue; }
     // 監査役の直した文が出典の数字を引くだけで式が無い時は、根拠の事実がある場合に限り「出典の値」と式欄に書き添える
     const text = fix.fix.trim();
-    const formula = a.formula ?? (MONEY.test(text) && a.basis.length ? `数字は出典の値（根拠: ${a.basis.join(', ')}）` : undefined);
+    const formula = a.formula ?? (MONEY.test(text) && a.basis.length ? '数字は出典に載っている値' : undefined);
     const r = checkItem({ ...a, text, formula }, reader, seen);
     if (r.ok) { kept.push(r.value); fixed++; } else removed.push({ id: a.id, kind: `${fix.kind}/${r.reason}`, why: fix.why });
   }
