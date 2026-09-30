@@ -33,7 +33,8 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
   const sources = sourceMap(reader);
   return (
     <ReaderSection id="section-metrics" title={UI.SECTION_METRICS} empty={reader.metrics.length === 0}>
-      <div className="overflow-x-auto">
+      {/* 狭い画面では横に送る。キーボードでも送れるようにフォーカスを受ける */}
+      <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={UI.SECTION_METRICS}>
         <table className="w-full min-w-[480px] border-collapse text-left text-[13px]">
           <thead>
             <tr className="h-[26px] border-b border-term-line bg-term-head text-xs text-term-label">

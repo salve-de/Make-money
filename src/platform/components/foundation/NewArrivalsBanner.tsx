@@ -91,10 +91,10 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
             <span className="mx-1.5 text-term-dim">・</span>
             <span className="term-num">{release.count}件</span>
             {summary.revenueCount !== null && summary.revenueCount > 0 && (
-              <><span className="mx-1.5 text-term-dim">・</span>売上の記録あり <span className="term-num">{summary.revenueCount}件</span></>
+              <span className="hidden sm:inline"><span className="mx-1.5 text-term-dim">・</span>売上の記録あり <span className="term-num">{summary.revenueCount}件</span></span>
             )}
             {summary.failureCount !== null && summary.failureCount > 0 && (
-              <><span className="mx-1.5 text-term-dim">・</span>失敗・撤退 <span className="term-num">{summary.failureCount}件</span></>
+              <span className="hidden sm:inline"><span className="mx-1.5 text-term-dim">・</span>失敗・撤退 <span className="term-num">{summary.failureCount}件</span></span>
             )}
             <span className="mx-1.5 hidden text-term-dim sm:inline">・</span>
             <span className="hidden sm:inline">{release.label}</span>
