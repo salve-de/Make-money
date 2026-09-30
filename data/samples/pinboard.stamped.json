@@ -1,0 +1,48 @@
+{
+  "entityId": "ent_ebizfacts_maciejceglowskipinboard200kyear_70137aea360d",
+  "name": "Pinboard",
+  "savedAt": "2026-09-30",
+  "purpose": "推論つき全項目の見本（ユーザーが『最高』と評価した水準の手本）。スタンプ: kind=事実|本人申告|第三者推計|推定|推測|要収集、basis=根拠、sources=どこから持ってきたか、display=画面に出してよいか。",
+  "caseStamp": {
+    "display": "SHOW",
+    "reason": "本人が売上推移を公開しており、一次情報がある",
+    "rights": "事実と自前の推論のみ。記事本文は転載しない。eBiz Facts は利用規約が素材の商用利用・公の表示を禁じるため出典の柱にせず、本人ブログ等の一次情報に付け替える。"
+  },
+  "sources": {
+    "ebiz": { "url": "https://ebizfacts.com/maciej-ceglowski-pinboard-200k-year/", "use": "発見の手がかりのみ（商用表示の出典にしない）" },
+    "blog7": { "url": "https://blog.pinboard.in/2016/07/pinboard_turns_seven/", "use": "本人の一次情報（売上・運営費）" },
+    "blog8": { "url": "https://blog.pinboard.in/2017/07/eight_years_of_victory/", "use": "本人の一次情報（売上）" },
+    "blog11": { "url": "https://blog.pinboard.in/2020/07/pinboard_is_eleven/", "use": "本人の一次情報（売上）" },
+    "blog6": { "url": "https://blog.pinboard.in/2015/07/pinboard_turns_six/", "use": "本人の一次情報（料金を年額制へ変更）" },
+    "wiki": { "url": "https://en.wikipedia.org/wiki/Pinboard_(website)", "use": "年表・料金の変遷・利用者数の手がかり（事実は各脚注の一次・報道で確かめる）" }
+  },
+  "items": [
+    { "item": "HEADLINE", "text": "大手が改悪した夜、怒った常連を拾って年会費を取り、社員ゼロのまま11年間、年約$20万（約3,000万円）を抜き続けた1人のブックマーク屋", "kind": "推測", "basis": ["DeliciousのリニューアルとYahooの閉鎖報道で客が流入", "2010〜2020年の売上 年$117K〜$259K", "1人運営"], "sources": ["blog11", "wiki"], "display": true, "note": "事実から描いた絵。本人の発言ではない" },
+    { "item": "サービス名・事業", "text": "Pinboard。ブックマークを保存・共有する有料サービス", "kind": "事実", "sources": ["wiki"], "display": true },
+    { "item": "創業者", "text": "Maciej Cegłowski", "kind": "事実", "sources": ["wiki"], "display": true },
+    { "item": "創業", "text": "2009年7月", "kind": "事実", "sources": ["wiki"], "display": true },
+    { "item": "売上の推移", "text": "2010 約$12万 → 2012 約$18万 → 2014 約$19万 → 2016 約$23万 → 2017 約$26万（最高）→ 2019 約$22万 → 2020 約$21万", "kind": "本人申告", "sources": ["blog7", "blog8", "blog11"], "display": true, "note": "年ごとの細かい値は ebiz の一覧と一致。表示は丸めでよい" },
+    { "item": "料金", "text": "始めは登録料（1人増えるごとに少しずつ値上がり）→ 2015年から年額制 → 今は年$22前後", "kind": "事実", "sources": ["blog6", "wiki"], "display": true },
+    { "item": "運営費", "text": "年約$1.7万（2016年時点）", "kind": "本人申告", "sources": ["blog7"], "display": true },
+    { "item": "手残り", "text": "年約$18万〜20万（売上約$21万 − 運営費約$2万 − 決済手数料約$1万）", "kind": "推定", "basis": ["売上2020", "運営費2016", "決済手数料 約3%+30¢ の相場"], "display": true, "note": "事業の利益の推定。個人の所得ではない" },
+    { "item": "利益率", "text": "約85〜90%", "kind": "推定", "basis": ["手残り ÷ 売上"], "display": true },
+    { "item": "客の数", "text": "登録約2.5万人（2011年）、今の有料は約1万口座規模", "kind": "事実＋推定", "basis": ["Time誌 2011（Wikipedia脚注）", "売上 ÷ 年会費"], "sources": ["wiki"], "display": true },
+    { "item": "客は誰か", "text": "何年分ものリンクを溜めて探し直すエンジニア・研究者・ファンコミュニティの書き手", "kind": "推測", "basis": ["ファン層の利用", "技術者とのミートアップ"], "display": true },
+    { "item": "客の痛み", "text": "無料サービスの改悪や閉鎖で、何年分ものブックマークが消える恐怖", "kind": "推測", "basis": ["Deliciousの改悪・閉鎖報道で流入"], "display": true },
+    { "item": "最初の客", "text": "Deliciousの改悪に怒ったユーザーの受け皿になった。2010年12月、Yahooの閉鎖報道の月に利用者が約1.6万人へ", "kind": "事実", "sources": ["wiki"], "display": true },
+    { "item": "いまの集客", "text": "ファンの口コミが中心。広告の形跡は無い", "kind": "推測", "basis": ["ファンの二次創作まで生まれた", "公開ドキュメントとミートアップ"], "display": true },
+    { "item": "人数・働き方", "text": "本人1人。作業の中心はサーバーの保守。2021年にサーバーとサポートの担当を募集", "kind": "事実＋推測", "sources": ["wiki"], "display": true },
+    { "item": "外注・自動化", "text": "外注なし。1人で約1万口座を回せるほど自動化", "kind": "推測", "display": true },
+    { "item": "初期資金", "text": "資金調達の記録なし。自己資金で小さく始めた", "kind": "推測", "confidence": "LOW", "display": true },
+    { "item": "競合・買収", "text": "ベンチャー資金$200万を集めた大手Deliciousを、2017年に約$3.5万で買い取った", "kind": "事実（金額は記事）", "sources": ["ebiz", "wiki"], "display": true, "note": "買収額は一次情報で要確認" },
+    { "item": "大手が手を出せない理由", "text": "年会費×約1万人（年約$20万）は大手には小さすぎる。無料＋広告の大手が有料にすると客が一斉に逃げる", "kind": "推測", "display": true },
+    { "item": "誰の土台に乗っているか", "text": "アプリストアやSNSに乗らず自前サイトで直販。首を握るのは決済会社とサーバー会社だけ", "kind": "推測", "display": true },
+    { "item": "やめにくさ", "text": "何年分ものブックマークとタグが溜まり、捨てにくい", "kind": "推測", "display": true },
+    { "item": "前金", "text": "年額前払いで年初に1年分の現金が入り、費用は月々。客の金で回る形", "kind": "推測", "basis": ["年額制"], "display": true },
+    { "item": "今も通用するか", "text": "先行者が強く後発は困難。2017年をピークに売上は縮小", "kind": "推測＋本人申告", "display": true },
+    { "item": "持ち帰れる核心", "text": "大手が客を裏切った瞬間に『あなたの声を聞く代わり』として有料の受け皿を出す", "kind": "推測", "display": true },
+    { "item": "画像", "text": "サイトのアイコン・OG画像", "kind": "要収集", "display": false, "note": "出典つき・削除依頼に対応できる形で取る" },
+    { "item": "（外したもの）本人の言葉『パンツ一丁で…』", "text": "発言者が本人かThe Economistか出典で食い違うため、引用としては出さない。HEADLINE の絵としては使わない", "kind": "保留", "display": false },
+    { "item": "（外したもの）著作権の論点", "text": "根拠が薄く違法を匂わせるため削除", "kind": "削除", "display": false }
+  ]
+}

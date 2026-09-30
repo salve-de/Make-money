@@ -1,3 +1,5 @@
+> **2026-09-30 オーナーの意図（最初に読む）**: 何を・なぜ集めるか、厳密さはどこまで要るか（数字は約・幅でよい）、事実＋推論で全項目を埋める（空欄は負け）、強い一行、画像は必須、eBiz Facts の規約、スタンプ、薄い事例の扱いは [`docs/OWNER_INTENT.md`](./docs/OWNER_INTENT.md) に1枚でまとめてある。下の本文と食い違ったら OWNER_INTENT の決定が新しい。
+
 > **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
 
 # CLAUDE.md: The Ultimate Agent Protocol for 金鉱録 (KIN-ROKOKU)
