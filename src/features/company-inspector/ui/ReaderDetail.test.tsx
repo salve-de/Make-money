@@ -229,8 +229,13 @@ describe('詳細の取得状態（準備中と取り違えない）', () => {
   it('取得が終わって reader が無い時だけ「準備中」を出す', () => {
     expect(renderToStaticMarkup(<ReaderLedger />)).toContain('準備中');
   });
-  it('reader があれば取得状態に関わらず中身を出す', () => {
+  it('完全な reader があれば取得状態に関わらず中身だけを出す', () => {
     const html = renderToStaticMarkup(<ReaderLedger reader={baremetrics} detailState="failed" />);
     expect(html).not.toContain('詳細の読み込みに失敗しました。');
+  });
+  it('一覧用の reader（listForm）しか無い時は、失敗と再読み込みを中身の上に出す', () => {
+    const html = renderToStaticMarkup(<ReaderLedger reader={{ ...baremetrics, listForm: true }} detailState="failed" onRetry={() => undefined} />);
+    expect(html).toContain('詳細の読み込みに失敗しました。');
+    expect(html).toContain('再読み込み');
   });
 });

@@ -252,24 +252,25 @@ export function ReaderLedger({ reader, detailState, onRetry }: {
   onRetry?: () => void;
 }) {
   const evidencePrefix = `reader-${useId()}`;
-  if (!reader && detailState === 'failed') {
-    return (
-      <div role="alert" className="flex flex-wrap items-center gap-3 px-2.5 py-3 text-sm text-term-muted sm:px-3">
-        <span>{UI.DETAIL_LOAD_FAILED}</span>
-        {onRetry && (
-          <button type="button" onClick={onRetry} className="min-h-11 rounded-sm border border-term-line px-3 text-sm text-term-sub hover:border-term-accent-line hover:text-term-accent lg:min-h-8">
-            {UI.DETAIL_RELOAD}
-          </button>
-        )}
-      </div>
-    );
-  }
-  if (!reader && detailState === 'loading') {
-    return <p role="status" className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.DETAIL_LOADING}</p>;
-  }
+  // 一覧用に削った reader（listForm）は詳細の代わりにならない。完全な reader が無い間は取得状態を出す
+  const incomplete = !reader || Boolean(reader.listForm);
+  const status = incomplete && detailState === 'failed' ? (
+    <div role="alert" className="flex flex-wrap items-center gap-3 border-b border-term-line px-2.5 py-3 text-sm text-term-muted sm:px-3">
+      <span>{UI.DETAIL_LOAD_FAILED}</span>
+      {onRetry && (
+        <button type="button" onClick={onRetry} className="min-h-11 rounded-sm border border-term-line px-3 text-sm text-term-sub hover:border-term-accent-line hover:text-term-accent lg:min-h-8">
+          {UI.DETAIL_RELOAD}
+        </button>
+      )}
+    </div>
+  ) : incomplete && detailState === 'loading' ? (
+    <p role="status" className="border-b border-term-line px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.DETAIL_LOADING}</p>
+  ) : null;
+  if (!reader && status) return status;
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
   return (
     <>
+      {status}
       <ReaderAnalysisIntro reader={reader} />
       <ReaderSummary reader={reader} evidencePrefix={evidencePrefix} />
       <ReaderMetrics reader={reader} evidencePrefix={evidencePrefix} />
