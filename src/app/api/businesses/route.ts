@@ -1,6 +1,6 @@
 import { CatalogUnavailableError, readReleaseSummaries } from '@/lib/company-access/catalog-release';
 import { findCachedPublishableEntity } from '@/lib/company-access/local-entity-index';
-import { publicEntity } from '@/lib/company-access/public-entity';
+import { cachedPublicEntity } from '@/lib/company-access/projection-cache';
 import { computeDossierContentHash } from '@/lib/foundation/dossier-projection';
 import { matchesCatalogQuery } from '@/platform/model/entity-filter';
 import { catalogDetailHash, filterToCatalog, isCatalogId } from '@/shared/catalog-membership';
@@ -13,6 +13,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 
 const CACHE_CONTROL = 'private, max-age=30, stale-while-revalidate=300';
+const RELEASE_DETAIL_CACHE_CONTROL = 'private, max-age=600, stale-while-revalidate=3600';
 const MAX_ENTITY_ID_LENGTH = 200;
 const MAX_CURSOR_LENGTH = 16;
 
@@ -57,13 +58,15 @@ export async function GET(request: Request) {
       return response({
         source: 'catalog_release',
         count: 1,
-        data: publicEntity(entity),
+        data: cachedPublicEntity(entity),
         dossierHash: actualHash,
         sourceRevision: revision,
         isStale: false,
       }, 200, {
         'X-Dossier-Hash': actualHash,
         'X-Source-Revision': String(revision),
+        // ハッシュ指定の公開版の詳細は中身が変わらない。同じ事例を開き直した時はブラウザの控えを使い、Worker を起こさない
+        ...(requestedDossierHash ? { 'Cache-Control': RELEASE_DETAIL_CACHE_CONTROL } : {}),
       });
     } catch (error) {
       return unavailable(error);

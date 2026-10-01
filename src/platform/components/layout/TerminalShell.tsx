@@ -60,7 +60,7 @@ export const TerminalShell: React.FC<{
     setApprovedIds,
     setCatalogFilters,
     loadMore,
-    fetchEntityDetailOnDemand,
+    fetchEntityDetailOnDemand, detailStateFor, retryEntityDetail,
   } = useCatalogEntities(initialEntities, searchQuery);
 
   // 3. 複合フィルタリング・集計・承認フック
@@ -250,7 +250,7 @@ export const TerminalShell: React.FC<{
         {workspaceMode === 'LEDGER' && selectedEntity && (
           <div className="contents xl:flex xl:w-[520px] xl:min-w-0 xl:shrink-0">
           <CompanyInspectorPane
-            entity={selectedEntity}
+            entity={selectedEntity} detailState={detailStateFor(selectedEntity)} onRetryDetail={() => { void retryEntityDetail(selectedEntity.id); }}
             positionLabel={selectedPositionLabel}
             onClose={closeEntity}
             mobileOpen={mobileInspectorOpen}

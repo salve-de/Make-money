@@ -13,7 +13,7 @@ vi.mock('@/lib/company-access/catalog-release', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/lib/company-access/catalog-release')>();
   return { ...actual, readReleaseSummaries: mocks.summaries };
 });
-vi.mock('@/lib/company-access/public-entity', () => ({ publicEntity: (value: unknown) => value }));
+vi.mock('@/lib/company-access/projection-cache', () => ({ cachedPublicEntity: (value: unknown) => value }));
 
 import { GET } from './route';
 

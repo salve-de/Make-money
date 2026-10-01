@@ -6,7 +6,7 @@ import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
 import { useCuratedCatalog } from './useCuratedCatalog';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
-import { preferDetail } from '@/shared/dossier-authority';
+import { hasFullReader, isDetailSettled, preferDetail } from '@/shared/dossier-authority';
 import { canonicalCatalogId, filterToCatalog } from '@/shared/catalog-membership';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
@@ -38,6 +38,8 @@ function isApprovalCandidate(entity: FinancialEntity): boolean {
 /**
  * 画面に出す事例の行。公開目録（data/catalog-release.json）にある事例だけを受け取り、出口でも目録の門を通す。
  */
+export type DetailFetchStatus = 'failed' | 'done';
+
 export function useCatalogEntities(initialEntities: FinancialEntity[], searchQuery = '') {
   const [catalogFilters, setCatalogFilters] = useState('');
   const catalog = useCuratedCatalog(initialEntities, searchQuery, catalogFilters);
@@ -47,6 +49,10 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
   const detailFetchInProgress = useRef(new Set<string>());
   // 詳細の取得が失敗した・採らなかった事例。一覧の再描画のたびに同じ要求を撃ち直さないよう、ページを開き直すまで再取得しない
   const detailFetchSettled = useRef(new Set<string>());
+  // 詳細の取得の結末。failed は取り直しても通らなかった事例で、画面は「準備中」ではなく失敗と再読み込みを出す。
+  // done は取得が終わった（中身の有無は問わない）事例。どちらも無い間は読み込み中として扱える
+  const [detailStatus, setDetailStatus] = useState<Readonly<Record<string, DetailFetchStatus>>>({});
+  const lastDetailHash = useRef(new Map<string, string | undefined>());
 
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [approvalProjectionEpoch, setApprovalProjectionEpoch] = useState(0);
@@ -172,11 +178,20 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
     // ?entity=ENT_... のような大文字小文字・前後の空白の違いは、目録の正式な ID に直してから扱う
     const targetId = canonicalCatalogId(requestedId);
     if (!targetId) return Promise.resolve();
+    lastDetailHash.current.set(targetId, latestDossierHash);
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId) || detailFetchSettled.current.has(targetId)) return Promise.resolve();
 
     detailFetchInProgress.current.add(targetId);
+    const markStatus = (status: DetailFetchStatus) => setDetailStatus((prev) =>
+      prev[targetId] === status ? prev : { ...prev, [targetId]: status });
     return fetchBusinessDetailResponse(fetch, { targetId, latestDossierHash })
       .then(async (res) => {
+        if (res.status === 404) {
+          // 公開されていない・見つからない事例。取り直しても同じなので、ページを開き直すまで撃ち直さない
+          detailFetchSettled.current.add(targetId);
+          markStatus('done');
+          return;
+        }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: unknown = await res.json();
         if (json && typeof json === 'object') {
@@ -187,15 +202,38 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
             setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], entity) }));
           }
         }
+        markStatus('done');
       })
       .catch((err) => {
+        // 取り直しても通らなかった。一覧の再描画で撃ち直さないよう止め、画面の再読み込みだけで取り直す
         detailFetchSettled.current.add(targetId);
+        markStatus('failed');
         console.warn('[TerminalShell] Detail fetch failed for', targetId, err);
       })
       .finally(() => {
         detailFetchInProgress.current.delete(targetId);
       });
   }, [detailedEntities]);
+
+  /** 詳細の取得に失敗した事例を、利用者の「再読み込み」で取り直す。 */
+  const retryEntityDetail = useCallback((requestedId: string) => {
+    const targetId = canonicalCatalogId(requestedId);
+    if (!targetId || detailStatus[targetId] !== 'failed' || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
+    detailFetchSettled.current.delete(targetId);
+    setDetailStatus((prev) => {
+      const next = { ...prev };
+      delete next[targetId];
+      return next;
+    });
+    return fetchEntityDetailOnDemand(targetId, lastDetailHash.current.get(targetId));
+  }, [detailStatus, fetchEntityDetailOnDemand]);
+
+  /** 詳細ペインに渡す取得状態。取得中・失敗を「準備中」と取り違えないために使う。取得が終わっていれば undefined。 */
+  const detailStateFor = useCallback((entity: FinancialEntity): 'loading' | 'failed' | undefined => {
+    const status = detailStatus[entity.id];
+    if (status === 'failed') return 'failed';
+    return !status && !hasFullReader(entity) && !isDetailSettled(entity) ? 'loading' : undefined;
+  }, [detailStatus]);
 
   return {
     entities,
@@ -213,5 +251,7 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
     setCatalogFilters,
     loadMore: catalog.loadMore,
     fetchEntityDetailOnDemand,
+    detailStateFor,
+    retryEntityDetail,
   };
 }

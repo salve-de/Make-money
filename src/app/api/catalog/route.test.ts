@@ -68,4 +68,13 @@ describe('catalog paging and search', () => {
     expect(result.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_3', 'ent_150']);
     expect((await GET(new Request('http://localhost/api/catalog?sector=content-media'))).status).toBe(400);
   });
+  it('公開版は不変なので、同じ条件の応答本文を使い回す', async () => {
+    const rows = await mocks.read();
+    mocks.read.mockResolvedValue(rows);
+    const url = 'http://localhost/api/catalog?pageSize=3&q=Company%2020';
+    const first = await (await GET(new Request(url))).text();
+    rows[20].name = 'Renamed';
+    const second = await (await GET(new Request(url))).text();
+    expect(second).toBe(first);
+  });
 });

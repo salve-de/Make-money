@@ -2,6 +2,10 @@ import type { FinancialEntity } from '@/shared/terminal';
 import type { buildInspectorModel } from './inspector-model';
 export interface CompanyInspectorPaneProps {
   entity: FinancialEntity | null;
+  /** 詳細（reader）の取得状態。loading は取得中、failed は取り直しても失敗した。無ければ取得は終わっている */
+  detailState?: 'loading' | 'failed';
+  /** 詳細の取得に失敗した時の「再読み込み」 */
+  onRetryDetail?: () => void;
   onClose: () => void;
   currency: 'JPY' | 'USD';
   onPrevEntity?: () => void;
