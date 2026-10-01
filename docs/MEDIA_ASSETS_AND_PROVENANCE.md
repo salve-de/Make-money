@@ -40,7 +40,7 @@
 | 3 | 公式サイト・アプリストアの製品スクリーンショット、製品画像を当方が取得。製品の識別・説明に使い、公式ページを出典として明記し、削除依頼に応じる | `official_marketing_material` | `screenshot_home` / `screenshot_pricing` / `screenshot_product` / `product_image` / `og_image` / `favicon` / `app_icon` / `store_screenshot` |
 | 4 | CC0 / CC BY / パブリックドメイン。ライセンス名と版、帰属表示を記録 | `open_licence` | `open_licence_image` |
 
-取得CLIが自動で取るのは優先3のうち、公式サイトの `favicon` / `og_image` / `screenshot_home` / `screenshot_pricing`（`fetch-official-assets`）と、App Store の `app_icon` / `store_screenshot`（`fetch-app-store-assets`、第6.2節）だけ。優先1・2・4と `screenshot_product` / `product_image` / `logo` は、今は人が取得して台帳に書く（CLI未対応）。
+取得CLIが自動で取るのは優先3のうち、公式サイトの `favicon` / `og_image` / `screenshot_home` / `screenshot_pricing` / `screenshot_product`（`fetch-official-assets`、製品画面は第6.1節）と、App Store の `app_icon` / `store_screenshot`（`fetch-app-store-assets`、第6.2節）だけ。優先1・2・4と `product_image` / `logo` は、今は人が取得して台帳に書く（CLI未対応）。
 
 ### 2.1 取得元の範囲（v3）
 
@@ -62,7 +62,7 @@
 | 1 | App Store のストア画面写真（`store_screenshot`） | 第6.2節の公式 API。運営会社が「実際の画面」として載せたもの |
 | 2 | 公式サイトに載った製品の画面写真（`screenshot_product`） | トップ・機能紹介・使い方・ドキュメントの公開ページにある画像。ファイル名・alt・周りの文に dashboard / app / screenshot / editor / 画面 などがあり、横長で画面らしいもの |
 | 3 | アイコン（`app_icon` / `favicon` / `logo`） | 一覧の小さな印用。製品画面の代わりにはしない |
-| 4 | `og_image` | 製品の画面が写っている時だけ表示。ロゴ・飾り・文字だけなら `blocked`（`promo_banner_no_product`） |
+| 4 | `og_image` | 出さない。自動判定は一律 `blocked`（`promo_banner_no_product`）にする。og:image / twitter:image はほぼ宣伝バナーで、画面が写っていても自動では見分けられないため。人が目視して画面だと確かめたものだけ `allowed` にできるが、ギャラリーの表示対象には入れない |
 
 - ログイン後の画面を自分で撮らない。公開ページ以外から取らない（第3章のまま）。
 - 表示は今までどおり小さく（長辺480px以下）、出典付き。背景・見出し画像などの飾りには使わない（著作権法の引用・軽微利用の範囲を外れるため）。
@@ -250,6 +250,28 @@ node --import tsx scripts/media/fetch-official-assets.ts --ids ent_photoai,ent_k
 
 項目（`favicon` `og_image` `screenshot_home` `screenshot_pricing`）のステータス: `captured` `already_in_manifest` `skipped_duplicate`（同じバイト列を別kindで取得済み）`not_found` `skipped_robots` `skipped_off_domain` `not_attempted` `failed`。
 
+### 6.1 公式サイトの製品画面（`screenshot_product`、2026-10-02）
+
+```sh
+node --import tsx scripts/media/fetch-official-assets.ts --ids ent_a,ent_b --kinds screenshot_product --concurrency 4
+```
+
+トップページと、トップからリンクされた同じサイトの機能紹介・使い方・ドキュメントのページ（リンク文言が features / product / how it works / docs / 機能 / 使い方 / サービス など、またはパスがそれ。ブログ・料金・ログイン・採用・会社概要は除く）を最大3ページ開き、本文中の画像を集める。ログイン・フォーム送信・同意バナーのクリックはしない。robots.txt・403/429・CAPTCHA・公式サイト外は第3章のとおり回避しない。ページを下までスクロールして遅延読み込みの画像を出す。
+
+画像の判定（純関数 `judgeProductImage`、`src/shared/media-product-screen.ts`、規則名 `product-screen-rule:v1`）:
+
+| 結果 | 条件 |
+|---|---|
+| 採る（screen） | ページ本文にある（ヘッダー・ナビ・フッターは除く）。横長（幅800px以上、比1.05〜2.6）または縦長の端末比（高さ800px以上、幅比1:1.6〜1:2.4）。表示幅240px以上。かつ、パス・alt・class に決定的な手がかり（dashboard / screenshot / screencap / inbox / editor / interface / workspace / console、ダッシュボード / 管理画面 / 画面 など）がある |
+| 採らない（promo） | SVG・ICO。パスまたは alt に og / ogp / poster / banner / seo / social / logo / people / testimonial / badge / avatar / award / star / icon / background / headshot などの語。class に logo / avatar / badge / icon / testimonial など。形が合わない（正方形、細長い、幅800px未満）。ヘッダー・ナビ・フッターの画像 |
+| 保留（ambiguous） | 形は合うが決定的な手がかりが無い。弱い語（screen / admin / builder / report / demo / mockup / product / feature / app / ui / hero / preview など）は、商品写真・ブログの飾り画像・イラストにも付くため、それだけでは採らない。周りの見出し（Features など）も補助止まり。**保留のまま出さず、人（または Claude）が画像を見て実画面だけを許可する**（判定者名と見た内容を `decisions.jsonl` の note に残し、顔検出も通す）。`MEDIA_STAGE_AMBIGUOUS=1` で大きい順に最大枚数まで保存する |
+
+- 画像は `srcset` / `<picture>` の最大幅のファイルを取る。ダウンロード後に実ファイルの寸法で規則をもう一度かける
+- 画像のホストは `og_image` と同じ扱い: 公式の登録ドメイン配下、公式ページ自身が使うサイト作成ツールの配信ホスト、公式名で始まる自社配信ドメイン。それ以外の外部CDNは取らない（`skipped_off_domain`）
+- 1事例あたり最大3枚。台帳の `rights.notes` に規則名・根拠・alt・class・見出しを残す（自動判定が同じ入力で判定し直せるように）
+- `MEDIA_DEBUG_PRODUCT=1` を付けると、見つけた画像ごとの判定を表示する
+- 実行記録の `screenshot_product` の `detail` に、開いたページごとの画像数と、判定の内訳（`screen` / `ambiguous` / `promo(理由)`）が出る
+
 ### 6.2 App Store の画像取得（v3）
 
 ```sh
@@ -300,7 +322,7 @@ node --import tsx scripts/media/review-assets.ts --list [--entity ent_photoai]
 4. `node --import tsx scripts/media/fetch-official-assets.ts --validate --ids <id>` で `manifest.json` と実ファイルを検査する。判定ログは `review-assets` が追記のたびに検査し、`--list` の `PROBLEM` 行にも出る
 5. R2へ出すのは第5章のアップロードコマンド。画面に出るのは、公開側の一覧に載ってから（第11章）
 
-### 7.2 規則による自動判定（v3、reviewer `auto-rule-v3`）
+### 7.2 規則による自動判定（v4、reviewer `auto-rule-v4`。v3 の行も有効な判定として読む）
 
 人手の代わりに規則で `decisions.jsonl` へ追記する。
 
@@ -310,9 +332,10 @@ node --import tsx scripts/media/auto-review.ts [--entity ent_a,ent_b] [--dry-run
 
 | 結果 | 条件 |
 |---|---|
-| `allowed`（`subjectIsPerson=false`） | ①`kind` が `favicon` / `app_icon` / `og_image` / `store_screenshot` / `logo`、②バイト列から画像として読める、③顔が検出されない、④ファイルのSHA-256が台帳と一致 — の**すべて** |
+| `allowed`（`subjectIsPerson=false`） | ①`kind` が `favicon` / `app_icon` / `store_screenshot` / `logo`、または `screenshot_product`（台帳に残した根拠から第6.1節の規則で判定し直して screen のもの）、②バイト列から画像として読める、③顔が検出されない、④ファイルのSHA-256が台帳と一致 — の**すべて** |
+| `blocked`（理由 `promo_banner_no_product`） | `og_image` は一律（宣伝バナーは実際に使うときの画面ではない）。以前の自動判定（`auto-rule-*`）が `allowed` にしていた行も、新しい `blocked` の行で上書きする。人の判定は触らない |
 | `blocked`（`subjectIsPerson=true`） | 顔を検出した |
-| 何も追記しない（`held` のまま） | 検査できなかった（Vision でも NSImage 経由でも読めない画像＝壊れたファイル、macOS 13 以前での SVG、ファイル欠落・不一致）／`screenshot_home` `screenshot_pricing`（同意バナーの写り込みがあるので自動では `allowed` にしない）／その他の `kind` |
+| 何も追記しない（`held` のまま） | 検査できなかった（Vision でも NSImage 経由でも読めない画像＝壊れたファイル、macOS 13 以前での SVG、ファイル欠落・不一致）／`screenshot_home` `screenshot_pricing`（同意バナーの写り込みがあるので自動では `allowed` にしない）／根拠の印が無い、または判定し直して screen でない `screenshot_product`／その他の `kind` |
 
 - `note` に検査した内容（画像として読める、SHA-256一致、Vision の顔検出で何件か）を書く。バナーや文言の目視はしていない旨も書く
 - すでに判定行がある資産（人手の判定、以前の自動判定）は触らない。再実行しても増えない
@@ -407,10 +430,10 @@ node --import tsx scripts/media/auto-review.ts [--entity ent_a,ent_b] [--dry-run
 
 ### 画面
 
-- **一覧の各行**（`InstitutionalDataGrid`、モバイルカードも）: 社名の前に20px角の画像を出す。優先順は `logo` → `favicon` → `og_image`（同じ種類が複数あれば最新）。画像が無い行は何も出さない。表示中の行のidをまとめて（40件ずつ）APIに聞く。出典はツールチップ
-- **インスペクター**（`EntityMediaGallery`）: 「事業の概要」の直下に「製品画像」。対象は `screenshot_home` → `screenshot_pricing` → `og_image` → `app_icon`（各種類の最新1枚）と、`store_screenshot`（新しい順に最大3枚）。**各画像の下に、必ず出典（`attribution`）、出典ページへのリンク（`sourcePageUrl`、新しいタブ・`noopener noreferrer nofollow`）、由来の表記（`［公式サイト］` または `［App Store 掲載画像］`）を出す**（v3）。遅延読み込み。画像が読めなければ、その画像と出典ごと隠す。画像が1枚も無い事例には、セクション自体を出さない（**2026-09-30 廃止** → OWNER_INTENT 7章: 出すのは出典リンク付きの小さなサムネだけ。ギャラリー、拡大、ダウンロードは付けない）
-- **表示サイズの上限（v3）**: 著作権法47条の5（軽微利用）の考え方に倣い、識別・説明に足りる小ささに限る。アイコン（`app_icon` / `favicon` / `logo`）は長辺128px以下、プレビュー（`og_image`、スクリーンショット）とストア画像は長辺480px以下のサムネイル。**守り方は表示側のCSS**（`EntityMediaGallery` が `maxWidth` / `maxHeight` を 128 / 480 に固定、`object-fit: contain`。一覧のロゴは20px）で、保存する原本とR2の公開コピーは縮小しない（公開コピーは原本と同じキー・同じバイト列という第5章の不変条件を保つため）。定数は `src/shared/media-display.ts` の `MEDIA_ICON_MAX_PX` / `MEDIA_THUMBNAIL_MAX_PX`。ストア画像は1事例3枚まで（`MEDIA_STORE_SCREENSHOT_LIMIT`）
-- `kind` を足すときは `src/shared/media-display.ts` の `MEDIA_LOGO_KINDS` / `MEDIA_GALLERY_KINDS` を直す
+- **一覧の各行**（`InstitutionalDataGrid`、モバイルカードも）: 社名の前に20px角の画像を出す。優先順は `logo` → `app_icon` → `favicon`（同じ種類が複数あれば最新）。宣伝の `og_image` は出さない（2026-10-02）。画像が無い行は何も出さない。表示中の行のidをまとめて（40件ずつ）APIに聞く。出典はツールチップ
+- **インスペクター**（`EntityMediaGallery`）: 「事業の概要」の直下に「製品画像」。対象は、実画面（`store_screenshot` → `screenshot_product` の順に新しいものから、合わせて最大3枚）、続いて `screenshot_home` → `screenshot_pricing` → `app_icon`（各種類の最新1枚）。`og_image` は出さない（2026-10-02）。**各画像の下に、必ず出典（`attribution`）、出典ページへのリンク（`sourcePageUrl`、新しいタブ・`noopener noreferrer nofollow`）、由来の表記（`［公式サイト］` または `［App Store 掲載画像］`）を出す**（v3）。遅延読み込み。画像が読めなければ、その画像と出典ごと隠す。画像が1枚も無い事例には、セクション自体を出さない（**2026-09-30 廃止** → OWNER_INTENT 7章: 出すのは出典リンク付きの小さなサムネだけ。ギャラリー、拡大、ダウンロードは付けない）
+- **表示サイズの上限（v3）**: 著作権法47条の5（軽微利用）の考え方に倣い、識別・説明に足りる小ささに限る。アイコン（`app_icon` / `favicon` / `logo`）は長辺128px以下、プレビュー（`og_image`、スクリーンショット）とストア画像は長辺480px以下のサムネイル。**守り方は表示側のCSS**（`EntityMediaGallery` が `maxWidth` / `maxHeight` を 128 / 480 に固定、`object-fit: contain`。一覧のロゴは20px）で、保存する原本とR2の公開コピーは縮小しない（公開コピーは原本と同じキー・同じバイト列という第5章の不変条件を保つため）。定数は `src/shared/media-display.ts` の `MEDIA_ICON_MAX_PX` / `MEDIA_THUMBNAIL_MAX_PX`。実画面は1事例3枚まで（`MEDIA_SCREEN_LIMIT`）
+- `kind` を足すときは `src/shared/media-display.ts` の `MEDIA_LOGO_KINDS` / `MEDIA_SCREEN_KINDS` / `MEDIA_GALLERY_KINDS` を直す
 
 ### 確認手順
 
