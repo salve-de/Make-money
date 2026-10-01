@@ -124,7 +124,7 @@ describe('reader analysis', () => {
 
   it('計算と根拠は事実の後・出典の前の1区画にまとめる', () => {
     const html = ledger(withAnalysis);
-    const at = html.indexOf('section-evidence');
+    const at = html.indexOf('section-reasoning');
     expect(at).toBeGreaterThan(html.indexOf('data-fact="f2"'));
     expect(at).toBeLessThan(html.indexOf('section-sources'));
     expect(html.match(/計算: /g)).toHaveLength(1);

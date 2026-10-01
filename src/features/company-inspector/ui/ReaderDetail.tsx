@@ -147,7 +147,7 @@ export function ReaderEvidence({ reader, evidencePrefix = 'reader' }: ReaderProp
   const no = (id: string) => used.indexOf(id) + 1;
   const anchor = (id: string) => evidenceAnchor(evidencePrefix, `basis-${id}`);
   return (
-    <ReaderSection id="section-evidence" title={UI.SECTION_EVIDENCE} empty={rows.length === 0}>
+    <ReaderSection id="section-reasoning" title={UI.SECTION_EVIDENCE} empty={rows.length === 0}>
       <ul className="min-w-0 divide-y divide-term-line-soft text-xs [overflow-wrap:anywhere]">
         {rows.map(({ a, basis }) => (
           <li key={a.id} data-evidence={a.id} className="py-1 leading-relaxed">
