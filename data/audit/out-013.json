@@ -1,0 +1,56 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_yaak_2e7b91",
+      "items": []
+    },
+    {
+      "entityId": "ent_keepa_4a9b19",
+      "items": []
+    },
+    {
+      "entityId": "ent_ipdata_7b1a92",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "IP照会だけで偽アカウント問題を解決できるという効能は確認できず、公式の説明は不正の検知や軽減を支援するものにとどまる。",
+          "fix": "IPの位置情報と危険性のデータで、不正登録対策と海外客への表示の出し分けを支える。標準プランは月$10〜120で、照会枠と提供データの種類に応じて課金する。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_sublimemerge_4418ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_pumpfun_7718ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_cleanvoice_ai_bbdf69",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "計算の起点となる年間売上$59,400〜810,000の導出式や仮定がなく、手残り額の範囲を再現できない。",
+          "fix": "作者中心の運営では、音声処理、外注、支援などの外部支出と事業継続の留保を引いた余剰が、本人の労働対価を含む税引前の受取原資になると考えられる。年間売上と実際の費用が不明なため、個人に残る金額は推計できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_helicone_09bc61",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「最初の成約先や転換率を特定する材料ではない」は調査材料の評価を述べる作業表現で、顧客獲得の説明として読みづらい。",
+          "fix": "YCの公開紹介では無料導入を呼びかけ、GitHubとDiscordも案内している。接続先を変更するだけで試せることが、開発者の試用を後押ししたと考えられるが、最初の成約先や試用から購入への転換率は不明だ。"
+        }
+      ]
+    }
+  ]
+}

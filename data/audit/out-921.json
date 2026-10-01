@@ -1,0 +1,113 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_costco_N4K8Q2WM",
+      "items": []
+    },
+    {
+      "entityId": "ent_devutils_46425e",
+      "items": [
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "初期現金100〜1000ドルについて、formulaは金額の再掲にとどまり、費用別の仮定と合計を求める計算式がない。",
+          "fix": "既存のMacを使い、自分で開発する場合は、機材購入や外注への支出を抑えられると考えられるが、初期資金の実額は不明で、完成までの開発時間と保守・問い合わせ対応の負担も残る。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介報酬20〜30%を同種製品の目安としているが、制度への入口だけでは業界相場の裏付けにならない。",
+          "fix": "公式サイトにはアフィリエイトと再販の入口があり、開発者向け発信者や販売者から購入へつなぐ経路になり得るが、紹介報酬率と紹介経由の売上比率は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_divjoy_3111be",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介報酬20〜30%を買い切り開発ソフトの相場として置いているが、提示資料にその相場の根拠がない。",
+          "fix": "公式サイトにはアフィリエイトの入口があり、React開発の解説者や利用者から購入へつなぐ経路になり得るが、実際の報酬率と支払条件は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_docgpt_8785430a",
+      "items": []
+    },
+    {
+      "entityId": "ent_epidemicsound_4418ba",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本文では便宜的な仮定としている一方、formulaでは10〜30%を一般的な販売相場と述べており、その裏付けがない。",
+          "fix": "紹介制度と企業向け再販網の入口があり、制作者の推薦や地域の販売パートナーから契約を集める経路になり得るが、紹介・再販の報酬率と費用負担は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_fanbox_5b74c3",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaの月額支援500〜1000円を一般相場に基づく推計としているが、提示資料にその相場の根拠がない。",
+          "fix": "推しの制作裏話を見たい、活動を続けてほしいという気持ちを毎月の支援へつなぐ基盤で、運営は決済と限定公開を提供して手数料を受け取る形と考えられるが、平均支援額と実際の徴収条件は不明。"
+        },
+        {
+          "analysisId": "a-pricing",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月額支援300〜1500円を中心帯、運営手数料5〜15%を同種基盤の相場としているが、いずれも資料の裏付けがない。",
+          "fix": "ファンがクリエイターを毎月支援する仕組みだが、支援額の分布、平均支援額、運営の手数料率は不明で、作者へ送る支援額と運営自身の収入は区別する必要がある。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "本文の下限−3.36億円とformulaの下側−0.56億円が一致せず、全仮定の下限には支援総額168億円を使う必要がある。",
+          "fix": "支援総額28億〜168億円、手数料率5〜15%、決済費用率2.5〜4%、その他費用率30〜60%を独立した便宜的仮定として組み合わせると、税前の運営余力は年−3.36億〜13.44億円で、下限は168億円×［5%×（1−60%）−4%］、上限は168億円×［15%×（1−30%）−2.5%］となるが、実際の収支や個人への還元額を示すものではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_featurebase_e78725",
+      "items": [
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "人数差の理由は不明としながら、formulaではAboutの3人表記を別時点の規模と断定している。",
+          "fix": "共同創業者は3人で、公式には資金調達なしで黒字と説明されているが、Aboutのチーム3人と採用ページの8人は更新時点が不明なため、人数差の理由と最新の人数は判断できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_flrapph_01d5e738",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "初年度利用料の10〜30%を開発者向け定期課金の一般相場としているが、提示資料にその根拠がない。",
+          "fix": "公式サイトにはアフィリエイト制度の入口があり、Laravelの解説者や開発道具の紹介から契約を呼ぶ経路になり得るが、報酬率、対象期間、支払条件は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_flwise_77d72700",
+      "items": []
+    },
+    {
+      "entityId": "ent_frmbrc_26eee227",
+      "items": []
+    }
+  ]
+}

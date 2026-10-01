@@ -1,0 +1,154 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_ebizfacts_wojciechwegrzynskifirescienceshowpodcast20ky_d8f6bf16673a",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "番組の実物を見せて協賛を売ったという営業時の出来事は、提供された事実と出典本文にない。",
+          "fix": "最初のスポンサーは、約80話を資金援助なしで制作した後に見つかった英国のエンジニアリング会社。制作実績が長期提携の説得材料になった可能性はある。"
+        },
+        {
+          "analysisId": "a-channels",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「経路別の比率は置かない」は分析を作る側の作業方針になっている。",
+          "fix": "聞き手を集める主軸はポッドキャストの継続配信。専門職同士の紹介が広がりを支える可能性があり、スポンサー獲得には本人からの長期提携の打診が使われた。集客経路ごとの割合は不明。"
+        },
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "資金援助なしで制作した事実だけでは、その期間に収益がなかったとは断定できない。",
+          "fix": "本人が資金援助なしで約80話を作った。初期の大きな投入資源は、専門家との対話を積み上げる時間だったと考えられる。その時間の回収まで含めると、短期間で稼げる副業とは捉えにくい。"
+        },
+        {
+          "analysisId": "a-timeline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "協賛獲得前を「無収益制作期間」とする根拠はなく、無協賛と無収益を同一視している。",
+          "fix": "開始は2021年前後と見られる。2023年のインタビューでは開始から約2年で約120話と説明され、別の紹介記事では約130話。約80話を資金援助なしで制作した時期と、スポンサー獲得後を分けて捉える必要がある。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_lauralacurezeanugooglemaps28hourcoldcalling_f87cd79178a0",
+      "items": []
+    },
+    {
+      "entityId": "ent_ebizfacts_johnmuscarelloamazoninfluencer30kmonthproduc_5a6adfda5159",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典は最近の複数月に$27,000と$35,000を報告しているだけで、直近の単月が$27,000だったとは特定していない。",
+          "fix": "買う直前の客が知りたい実際の使い心地を撮り、Amazonの売場から紹介料を取る。約5,000本の動画を積み、記事では最近の月売上$2.7万と$3.5万、最高月$3.5万を報告。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_yandilatinotiktokshop1mmonth12kfollowers_d4563d058e73",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "ライブ配信で商品を紹介した事実はあるが、実際に使い心地を見せたという配信内容は確認できない。",
+          "fix": "ライブ配信を中心にSharkの掃除機などを紹介し、平均約$300の商品を3,860点販売。フォロワー約1.2万人のアカウントで、2026年3月の紹介料は約$15万という第三者の推計。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "返品によって本人の紹介料が減るという報酬確定の仕様は、提供された事実と出典本文にない。",
+          "fix": "本人側の費用候補は実演用の商品、撮影環境、通信、制作や配信補助。商品原価や配送費を本人が負担するとは限らない。返品や不成立で報酬が減額される契約なら、その減額も手残りに響く。"
+        },
+        {
+          "analysisId": "a-why_it_worked",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "家電を動かして見せたという具体的な実演を、出典で確認された成功要因として扱っている。",
+          "fix": "ライブ配信を中心とした商品紹介と、TikTok Shopで購入できる仕組みが組み合わさった。少ないフォロワーでも販売額を作る例が上位にあり、観客の総数だけでなく、商品の単価や購入意欲が寄与したと考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_carynmarjorieaivoicebot71koneweek_813902ebbb3a",
+      "items": [
+        {
+          "analysisId": "a-channels",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「比率は置かない」「人数と混ぜない」は読者向けの説明ではなく分析作業の指示になっている。",
+          "fix": "集客の土台は開始当時のSnapchatのファン層で、会話の場はTelegram。新しいAI体験としての話題も認知を広げた可能性はあるが、報道を見て来た客と既存ファンの割合は不明。180万人は開始当時の紹介値。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_dlsite_4a63b2",
+      "items": []
+    },
+    {
+      "entityId": "ent_ebizfacts_policeactivitydemonetizedyoutube10kmonth_1f2cf2957d65",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式のAmazon収入は$600ではなく$6,000で、Patreonを足した月$10,000は出典の計算と一致する。",
+          "fix": "警察の現場映像へ月約5,000万再生を集め、広告が止まっても支援と車載カメラ紹介で収益化。記事はPatreon約$4,000とAmazon紹介収入約$6,000を合わせ、月約$1万と推計している。"
+        },
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "記事の計算に誤差があるという指摘は、分析側の誤計算によるもので出典には成立しない。",
+          "fix": "前夜：警察官のボディカメラ映像を中心に、公的記録を公開するチャンネルが始まった。隙：現場の出来事を直接見たい視聴者に、映像を見つけやすい場所を作れた。突破：最小限の編集で投稿を積み、大きな視聴者層を集めた。金が回る仕組み：広告収益から外れた後は支援と商品紹介へ切り替えたが、紹介収入の推計は仮定したクリック率と購入率に左右される。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "収入の再計算が誤っており、同じ仮定経費を使った手残りは月$6,900〜8,980になる。",
+          "fix": "記事の月収入推計$10,000を基準に、Patreon手数料$320〜600と映像取得・保存・編集費$700〜2,500を仮定すると、税前手残りは月約$6,900〜9,000。収入と経費はいずれも推計で、本人労働の評価額と税は引いていない。"
+        },
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「人数は置けない」は読者に必要な情報ではなく数値を作成する側の作業表現になっている。",
+          "fix": "大規模な撮影設備より、公的記録を継続して集め、整理して公開する体制が必要。約8年で約1,900本の投稿が蓄積している。運営人数は不明だが、継続投稿には映像の取得と管理の仕事が残る。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "formulaの500購入×$12は$6,000であり、記載された$600は10分の1の誤計算になっている。",
+          "fix": "車載カメラの紹介リンクから購入が起きると報酬が入る。記事の仮定では単価$300×紹介料率4%で購入あたり$12、月5,000万再生×クリック率0.1%×購入率1%で500購入となり、紹介収入は月$6,000。実測収入ではなく、クリック率と購入率を仮定した推計。"
+        },
+        {
+          "analysisId": "a-lesson",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介収入の掲載式に桁のずれがあるという断定は誤りで、桁を間違えているのは分析側の計算である。",
+          "fix": "配信場所から広告料をもらえなくても、視聴者との接点が残れば支援と紹介販売で収益化できる。ただし月約$1万は推計であり、大きな再生数だけでなく、実際の支援収入、クリック率、購入率、運営費を確かめて利益を判断する必要がある。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_sprblg_810121e8",
+      "items": []
+    },
+    {
+      "entityId": "ent_costco_N4K8Q2WM",
+      "items": []
+    },
+    {
+      "entityId": "ent_tlscan_0a15820a",
+      "items": []
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_marblism_1a122b",
+      "items": [
+        {
+          "analysisId": "a-customer",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "掲載された利用者事例だけでは顧客構成の中心や購入者を確定できず、個人医院の診療中の予約用途も裏付けられていない。",
+          "fix": "公式には映像制作、メンタルヘルスの個人事業、コーチング、IT支援などの利用事例がある。メール、集客、電話対応を抱える小規模事業者が、採用や外注の代替として検討する商品と考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_anckit_2def9ce1",
+      "items": [
+        {
+          "analysisId": "a-timeline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Product Huntでの初回掲載を、製品が初めて市場へ公開された時期と断定している。",
+          "fix": "Product Huntでは2019年4月25日にAnnounceKit、2022年8月11日にAnnounceKit 2.0が公開されている。現在はWebとモバイルの告知、要望収集、複数経路への配信を提供している。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_uptrbt_af2d40c1",
+      "items": []
+    },
+    {
+      "entityId": "ent_trtapp_aa29420b",
+      "items": [
+        {
+          "analysisId": "a-customer",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "和食店や居酒屋の導入事例はあるが、それらが顧客の中心であることや支払う担当者の構成は示されていない。",
+          "fix": "公式には和食店や居酒屋、複数店舗を運営する飲食会社の導入事例がある。電話とネットの予約、席の回転、常連客の情報をまとめたい店主や本部に、導入を検討する理由があると考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_towrgit_462d8992",
+      "items": []
+    },
+    {
+      "entityId": "ent_srldbs_76a2fcda",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月約420ドルはScaleプランの最低構成の計算であり、より安いStartプランを含めた本番利用全体の最低料金とは確認できない。",
+          "fix": "検索、関係図、顧客データを別々に運ぶ開発チームの配管仕事をまとめる。無料で試させ、Scaleプランの最低3ノードを常時稼働させる場合、計算資源だけで月約$420を取る。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_clrbithq_86349018",
+      "items": []
+    },
+    {
+      "entityId": "ent_aptabase_3f8a61",
+      "items": []
+    },
+    {
+      "entityId": "ent_colossyan_4c8a91",
+      "items": []
+    },
+    {
+      "entityId": "ent_gitkraken_9f1a23",
+      "items": []
+    }
+  ]
+}

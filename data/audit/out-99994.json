@@ -1,0 +1,88 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_hypefury_4e5a47",
+      "items": []
+    },
+    {
+      "entityId": "ent_instatus_1c69d9",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "WORK_WORDS",
+          "severity": "LOW",
+          "why": "「業界仮の値」という意味の取りにくい編集途中の表現が残っている。",
+          "fixFormula": "任意の報酬率20〜30%を仮定すると、公表MRR$50,105÷有料顧客1,354×20〜30%＝約$7〜11／月相当。これは紹介された有料顧客1社あたりの試算であり、Instatusの実際の報酬率・支払期間・紹介収入を示さない。創業者は紹介プログラムの開始を説明したが、当時は成果を報告するには早いとしていた。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ipdata_7b1a92",
+      "items": []
+    },
+    {
+      "entityId": "ent_kapwing_2218ba",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "WORK_WORDS",
+          "severity": "LOW",
+          "why": "「ソフト紹介の仮の値」「業界仮の値」という不自然な表現が、任意の仮定という説明を読み取りにくくしている。",
+          "fixFormula": "任意の報酬率15〜30%を仮定すると、紹介費＝紹介経由の購読売上×15〜30%。Kapwingの実際の報酬率や業界相場を示すものではない。公式サイトには提携と紹介制度の入口があり、発信者から試用へ送る経路になり得る。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_keepa_4a9b19",
+      "items": []
+    },
+    {
+      "entityId": "ent_krisp_1b9d40",
+      "items": [
+        {
+          "analysisId": "a-viability",
+          "kind": "WORK_WORDS",
+          "severity": "LOW",
+          "why": "数値を扱っていない分析に「仮の値」という無関係な注記が付いている。",
+          "fixFormula": "会議メモは標準機能と競争しやすく、騒音除去だけでも大手の機能追加を受けると考えられる。後発には、電話窓口や特定言語・業務で音声品質の改善を測り、現場導入まで支える特化の余地があると推測する。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_lgless_b5875629",
+      "items": []
+    },
+    {
+      "entityId": "ent_lovable_2f9cb7",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "LOW",
+          "why": "「業界の料金仮の値」という編集途中の表現が残り、試算条件の説明として不自然になっている。",
+          "fixFormula": "採算検討用の任意条件として、個人契約月$20〜100、チーム契約月$100〜500を仮定する。年額換算＝月額×12。追加利用料金は含めない。この価格幅はLovableの実際の販売価格や業界相場を示すものではなく、実際の月額料金は不明である。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_mailbrew_c71e2a",
+      "items": []
+    },
+    {
+      "entityId": "ent_mailgun_87096814",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "WORK_WORDS",
+          "severity": "LOW",
+          "why": "「料率は仮の値ではなく計算用の仮定」という言い換えは読者に有益な区別を示さず、説明を混乱させる。",
+          "fixFormula": "任意の報酬率10〜20%を仮定すると、初年度利用料$1,200×10〜20%＝紹介報酬$120〜240。Mailgunの実際の報酬率や業界相場を示すものではない。公式サイトには提携先募集の入口があるが、実際の紹介による獲得実績や報酬条件は不明である。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_mangools_f79a1b",
+      "items": []
+    }
+  ]
+}

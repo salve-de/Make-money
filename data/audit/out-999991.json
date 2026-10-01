@@ -1,0 +1,29 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_hoverify_9c23d3",
+   "items": [
+    {
+     "analysisId": "a-why_it_worked",
+     "kind": "FACT_DISGUISED",
+     "severity": "FIX",
+     "why": "実演の記述が出典に無い",
+     "fix": "制作作業を1つの道具にまとめ、発売時の露出・口コミ・不具合修正で日常の道具へ近づけたとみる。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_pumpfun_7718ba",
+   "items": [
+    {
+     "analysisId": "a-referral",
+     "kind": "CONTRADICTS_FACT",
+     "severity": "FIX",
+     "why": "出典は紹介報酬ではなく作成者手数料",
+     "fix": "売買のたびに作成者へ0.3%が入るため、コイン作成者自身が売買を呼び込む動機を持つと推測する。",
+     "fixFormula": "公式手数料表：ボンディングカーブ取引の作成者手数料0.300%（合計1.25%）。売買額$1,000なら作成者へ$3。"
+    }
+   ]
+  }
+ ]
+}

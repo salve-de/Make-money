@@ -1,0 +1,83 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_helpkit_a63be7",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "自己資金での開発や本人によるデザインは確認できるが、創業者が単独で製品を育てたという運営体制は明記されていない。",
+          "fix": "創業者は自己資金でNotionの文書を顧客向けに届ける道具を作り、デザインも自分で担った。Notionの利用者との交流と開発過程の公開を通じ、Product Huntへの出品前に購読客を得た。慣れた編集環境を残して公開・検索・案内を補うことが、継続利用の理由になったと考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_heygen_8f11a1",
+      "items": []
+    },
+    {
+      "entityId": "ent_hypefury_4e5a47",
+      "items": []
+    },
+    {
+      "entityId": "ent_instatus_1c69d9",
+      "items": []
+    },
+    {
+      "entityId": "ent_krisp_1b9d40",
+      "items": []
+    },
+    {
+      "entityId": "ent_lgless_b5875629",
+      "items": []
+    },
+    {
+      "entityId": "ent_mailbrew_c71e2a",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月10ドルと共同創業者2人は2020年当時の情報だが、現在の料金と運営体制として読める表現になっている。",
+          "fix": "SNSとニュースの巡回をメールにまとめるサービス。2020年当時は共同創業者2人が運営し、Proは月10ドル、第三者記事は月約2千ドルの売上を報じた。買収側の2026年3月発表では、基本利用は無料となり、有料の上位プランが残っている。"
+        },
+        {
+          "analysisId": "a-channels",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "既存ニュースレターが初期集客の中心だったという獲得経路と寄与は、提示された出典に記載されていない。",
+          "fix": "初期には、創業者が試用を直接依頼した利用者の推薦や、Hacker News・Product Huntでの露出があった。現在は利用者の紹介と買収側のメディア網が入口になり得るが、各経路の集客実績や有料転換への寄与は不明である。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_mailgun_87096814",
+      "items": []
+    },
+    {
+      "entityId": "ent_miro_684c78",
+      "items": [
+        {
+          "analysisId": "a-lock_in",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "データを書き出せるという製品仕様は、提示された事実と出典本文では確認できない。",
+          "fix": "白板に過去の判断、顧客との合意、計画、社内テンプレートが溜まり、部署をまたぐ使い方が定着するほど、乗り換え負担は増すと考えられる。仮に内容を持ち出せても、参加者の権限や連携、会議の習慣を移行先で整える手間は残り得る。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_modal_c5803a",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "初期に技術者の試用と紹介から実運用への定着を経て有料利用になったという獲得過程は、出典に記載されていない。",
+          "fix": "データ処理や機械学習の環境整備に困る開発者が試用し、実運用への組み込みを通じて有料利用へ進む経路は考えられる。ただし、最初の有料顧客や、初期の試用・紹介による獲得実績は不明である。"
+        }
+      ]
+    }
+  ]
+}

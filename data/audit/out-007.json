@@ -1,0 +1,105 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_rfrcui_64e924ac",
+      "items": []
+    },
+    {
+      "entityId": "ent_artlist_3318ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_modal_c5803a",
+      "items": []
+    },
+    {
+      "entityId": "ent_lovable_2f9cb7",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公開プロジェクトGPT Engineerを開発したとされるのはAnton Osikaであり、共同創業者全員がその開発に関わったという経歴は示されていない。",
+          "fix": "前夜：Anton Osikaが、言葉の指示からソフトを作る公開プロジェクトGPT Engineerを開発した。隙：アプリの案を持つ人でも、コードの理解と細かな修正指示が壁になっていたと推す。突破：OsikaとFabian Hedinが商用のGPT Engineer Appを開発し、その後Lovableへ改称して一般利用を開いた。金が回る仕組み：作成と修正の利用枠を売るため、完成までの試行が収益につながる一方、生成費が採算を左右すると考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_chirr_app_d33bca",
+      "items": [
+        {
+          "analysisId": "a-why_it_worked",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "現在の予約・管理機能は確認できるが、分割機能から後に予約・管理へ拡張したという開発順序は示されていない。",
+          "fix": "創業者によれば、Twitter本体が連続投稿機能を備える前に、その使い方の人気を見てアプリを作った。現在は分割に加えて下書き、予約、複数アカウント管理も案内しており、継続的な発信の手間を減らすことが購入理由になると推す。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_superso_8372eb",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "主要流入元と無料試用への導線は説明されているが、初期客が自分の文書で便利さを確かめてから購入したという行動は示されていない。",
+          "fix": "本人の説明では、初期の主要流入元はProduct HuntとTwitterで、サービス紹介ページから7日間の無料試用へ案内していた。普段使うNotionの文書で公開機能を試せることが、購入判断を後押ししたと推す。"
+        },
+        {
+          "analysisId": "a-channels",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「現在の流入比重まで初期実績で決めない」は、読者への事業説明ではなく分析担当者への判断指示になっている。",
+          "fix": "初期はProduct HuntとTwitterが主要流入元だったという本人説明がある。その後の候補として、Notionでサイトを作る方法を探す検索や公開事例からの紹介を推すが、現在の主力経路とその比重は不明である。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "30日後に到達したMRR $1,000を公開初月の売上として扱っているが、初月に実際に得た売上や入金額は示されていない。",
+          "fix": "初月末に到達したMRR $1,000が1か月続く売上規模を仮定すると、費用控除後の税前残額は事業全体で月約$650〜950と試算される。これは公開初月の実収入ではなく、運営者を2人・均等配分と仮定した場合は各約$325〜475となり、本人たちの開発・保守労働への対価も含む。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_ethanashifbmsniperiphoneflippingbot600900mon_d8e5b5dde9ca",
+      "items": []
+    },
+    {
+      "entityId": "ent_frmbrc_26eee227",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Typeform代替を求める発信と開発者向けの紹介はあるが、開発者コミュニティから初期試用者を獲得したという経路の実績は示されていない。",
+          "fix": "共同創業者の説明では、公開型のTypeform代替を求める発信が事業開始のきっかけだった。GitHubや開発者向けの紹介を通じて試用者に届き、そのうち自前運用の負担や製品内調査を解決したい企業が有料客になった経路を推す。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_mangools_f79a1b",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "3段階の有料契約は説明されているが、調査回数や追跡する検索語の量が上位契約への条件になるという仕様は示されていない。",
+          "fix": "小規模サイト向けのSEO一式として、月約$30〜100の料金帯を仮定する。2019年の本人説明では月払い・年払いに対応する3段階の有料契約があるが、各段階の利用上限や公表単価は不明で、この価格幅は実料金ではない。"
+        },
+        {
+          "analysisId": "a-tools",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "無料SEOツールは開発に取り組んでいると述べられているだけで、既に集客に使用していたとする運用実績は示されていない。",
+          "fix": "検索語や順位のデータを集める処理、調査結果を保存する基盤、使いやすいWeb画面、継続決済が基本構成と推す。2019年の本人説明ではSEO解説ブログを運営し、ブランドの認知を高めるため無料SEOツールと良質なコンテンツの制作にも取り組んでいた。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_estheritalkiproteacherfrenchenglish5000month_daa63af2294b",
+      "items": []
+    }
+  ]
+}

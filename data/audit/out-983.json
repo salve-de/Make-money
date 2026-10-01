@@ -1,0 +1,68 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_towrgit_462d8992",
+      "items": []
+    },
+    {
+      "entityId": "ent_srldbs_76a2fcda",
+      "items": []
+    },
+    {
+      "entityId": "ent_zerotier_0098642d",
+      "items": [
+        {
+          "analysisId": "a-revenue_estimate",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式の接続300万台以上という表示には集計期間の説明がないのに、formulaでは「累計接続」「累計実績」と断定している。",
+          "fix": "公式の接続300万台以上という表示は集計定義が不明であり、参考値を300万台、その2〜10%が課金中、平均月額を$1.80と仮定すると、300万台×2〜10%×$1.80×12＝年$129.6万〜648万となるが、実績売上ではなくEnterprise・Quantumの個別契約も含めない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_mailgun_87096814",
+      "items": []
+    },
+    {
+      "entityId": "ent_updowni_bc0277ab",
+      "items": [
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "基盤費の下限は（10×€5＋€50）×12＝€1,200であり、formulaの年€1,300は計算と一致しない。",
+          "fix": "基盤費は（10拠点×月€5〜30＋主要基盤月€50〜200）×12＝年€1,200〜6,000と仮定し、通知・会計等を年€1,000〜5,000、決済を売上の3〜6%と別途仮定するが、本人の労働費は含めない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_flrapph_01d5e738",
+      "items": []
+    },
+    {
+      "entityId": "ent_yesware_5f868a7d",
+      "items": []
+    },
+    {
+      "entityId": "ent_clrbithq_86349018",
+      "items": [
+        {
+          "analysisId": "a-revenue_estimate",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "料金の裏付け資料がないのに「同種商品の平均料金」と書き、任意の仮定を市場で確認された平均値のように扱っている。",
+          "fix": "実際の契約数と平均請求額は未確認であり、有料500〜2,000社、平均月額$1,000〜3,000を任意に仮定すると、500×$1,000×12〜2,000×$3,000×12＝年$600万〜7,200万となるが、Clearbitの実績や同種商品の平均料金を示す数字ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_monosnap_3d229afd",
+      "items": []
+    },
+    {
+      "entityId": "ent_aptabase_3f8a61",
+      "items": []
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_fndesk_e62a280f",
+      "items": []
+    },
+    {
+      "entityId": "ent_frmbrc_26eee227",
+      "items": []
+    },
+    {
+      "entityId": "ent_gitkraken_9f1a23",
+      "items": []
+    },
+    {
+      "entityId": "ent_gmass_209d19",
+      "items": []
+    },
+    {
+      "entityId": "ent_headlime_c44798",
+      "items": [
+        {
+          "analysisId": "a-channels",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "開発過程・数字・進捗の発信と拡散は確認できるが、生成結果をTwitterで見せたという具体的な行動は確認できない。",
+          "fix": "売却前はTwitterで開発過程・数字・進捗を発信し、投稿の拡散とメディア露出で自然流入を得た。"
+        },
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本人申告の累計売上6万ドル超を、入金時期が確認できないまま式で初期入金6万ドル超と言い換えている。",
+          "fix": "初版制作後の限定買い切りを中心に、本人申告では数週間に$6万超の売上を得た。",
+          "fixFormula": "初回公開後数週間の本人申告累計売上>$60,000で、限定買い切り販売が大部分を占める。実際の入金額と入金時期は不明。買い切り販売は先行して資金を得られる可能性があるが、その後の提供費用も負担するため、継続課金のMRRとは分けて考える。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_healthchecksio_a924b8",
+      "items": []
+    },
+    {
+      "entityId": "ent_helicone_09bc61",
+      "items": [
+        {
+          "analysisId": "a-failure_cause",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式の「数字は出典に載っている値」は監査作業の説明であり、読者に事業の構造を伝えない。",
+          "fix": "創業者はARRが$100万超となり、2026年3月にMintlifyへ買収されたと公表している。",
+          "fixFormula": "創業者公表の買収前ARR>$1,000,000、買収時期は2026年3月。買収されたことだけでは、破綻や資金枯渇、強制売却を意味しない。"
+        },
+        {
+          "analysisId": "a-revenue_estimate",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式の「顧客数を仮定した別推計は行わない」は分析者の作業方針であり、読者に必要な収益の説明ではない。",
+          "fix": "買収前の本人公表ARRは$100万超で、月換算では約$8.3万超の継続課金規模。",
+          "fixFormula": "創業者公表の買収前ARR>$1,000,000。$1,000,000÷12≈$83,333で、月換算では約$8.3万超。ARRは継続課金を年換算した指標であり、会計上の年間売上や実際の入金額とは異なる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_helpkit_a63be7",
+      "items": [
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "2022年の年額720ドルの契約成立は確認できるが、その入金が配信費の支払いに先行したという実際の順序は確認できない。",
+          "fix": "年払いは2か月分お得で、2022年のProduct Hunt公開時には年$720の上位契約が1件成立したと本人が報告している。",
+          "fixFormula": "現在の年払い割引は、同じ月払い単価を基準にすると基本月額×10に相当する。2022年の本人報告は上位年契約$720×1件。年払いは先行して運営資金を確保し得るが、この契約の入金時期と配信費の支払順序は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_heygen_8f11a1",
+      "items": []
+    },
+    {
+      "entityId": "ent_hoppscotch_1a8e94",
+      "items": []
+    },
+    {
+      "entityId": "ent_hoverify_9c23d3",
+      "items": []
+    }
+  ]
+}

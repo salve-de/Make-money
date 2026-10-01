@@ -1,0 +1,113 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_37signals_T6M1R8QK",
+      "items": []
+    },
+    {
+      "entityId": "ent_aceternity_6d14e4",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介料率20〜30%を相場とする根拠がなく、仮定と断っていても業界相場としての裏付けはない。",
+          "fix": "公式サイトには紹介制度への入口があるが、実際の報酬条件は不明。仮に販売額の20〜30%を紹介報酬に設定するなら、買い切り価格$199〜299に対して約$40〜90となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_artlist_3318ba",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "素材探しを引き受けるサービス仕様は、提示された事実にも出典本文にも記載されていない。",
+          "fix": "映像制作者へ、出演者・場所・カメラ角度をまとめて指定できるAI制作環境を提供する。会社公表の2026年初ARRは$3億で、年間実収入や利益とは異なる。"
+        },
+        {
+          "analysisId": "a-pricing",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月$15〜60や$50〜200以上を同種サービスの相場として示しているが、その相場を支える資料がない。",
+          "fix": "個人向け・チーム向けの実料金や、素材利用・AI生成量による課金区分は不明。公表ARRだけでは契約単価を算出できない。"
+        },
+        {
+          "analysisId": "a-why_it_worked",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Artlistが素材事業で既存顧客を獲得したという前提は、提示された事実にも出典本文にもない。",
+          "fix": "Artlist Studioは、生成映像の一貫性と制御の課題に対し、実際の撮影に近い指定方法を提供する。制作のやり直しを減らせれば、専門制作者の継続的な支払い理由になると考えられる。"
+        },
+        {
+          "analysisId": "a-pivots",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "素材中心のサービスから転換したという沿革と、買収対象が素材・編集関連だったという説明は提示資料で確認できない。",
+          "fix": "映像制作会社からAIプラットフォームへの転換を進めている。Motion ArrayやFXhomeなどの買収で商品群を広げ、Artlist Studioを公開したほか、AIを前提とした組織への再編と約200職種の見直しを発表した。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_audiopen_155f440ff058c5942d9a",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formula内で紹介報酬10〜30%を相場としているが、相場の資料もAudioPenの実際の報酬条件も示されていない。",
+          "fix": "本人は紹介プログラムを成長経路として挙げているが、報酬方式と料率は不明。仮に$99の購入へ10〜30%の現金報酬を設定するなら、負担は1件約$10〜30となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bannerbear_9e1204c3",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formula内の紹介報酬20〜30%には相場としての裏付けがなく、月々報酬が発生する実条件も確認できない。",
+          "fix": "公式サイトには紹介プログラムへの入口があるが、料率と報酬の継続期間は不明。仮に月$149の契約へ毎月20〜30%を支払う条件なら、紹介報酬は月約$30〜45となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_board_1d30e9",
+      "items": [
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaでは利用期間の費用を後払いすると断定しているが、運営費の支払時期を示す事実はない。",
+          "fix": "年払いはなく、カードで翌利用期間の料金を先に受け取る。郵送も1通195円のチケットを事前購入する方式である。運営費の支払時期は不明なため、先行入金による資金余力は算出できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_buttondown_573bd3808b0c701ad7ee",
+      "items": []
+    },
+    {
+      "entityId": "ent_byedispute_c094ec",
+      "items": [
+        {
+          "analysisId": "a-why_it_worked",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "アクティブなサブスクリプションがないことだけでは、取引枠の追加購入などによる継続入金がないとは断定できない。",
+          "fix": "創業者自身の決済停止体験が、個人開発者にも起こり得る不安を具体化した。コードを書かずに監視と対応を設定できる点は購入理由になり得る。直近30日の売上は97ドルで、アクティブなサブスクリプションはないが、追加購入による入金の継続性は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_canny_951d05",
+      "items": []
+    },
+    {
+      "entityId": "ent_coolify_956c18",
+      "items": []
+    }
+  ]
+}
