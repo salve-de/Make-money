@@ -100,3 +100,10 @@ test('registry, radar and playbook screens no longer exist', async ({ request })
     expect((await request.get(path)).status(), path).toBe(404);
   }
 });
+
+test('a deep link with different casing opens the same published case', async ({ page }) => {
+  const id = Object.keys(manifest.details)[0];
+  await page.goto(`/?entity=${id.toUpperCase()}`);
+  await expect(page.getByRole('complementary', { name: /の企業事例インスペクター/ })).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByText('この事例は公開していません。')).toHaveCount(0);
+});

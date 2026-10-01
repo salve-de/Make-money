@@ -11,13 +11,7 @@ This section supersedes the historical pending-main statements below. The active
 - These observations establish local consumption of recovered data. They do **not** establish scheduled persistence, historical-queue reconciliation, or correction of q32's excessive evidence associations. Those remain active work owned by the R2 repair task; its final receipts must be checked separately.
 - v0 activation and the deferred 2,050-record revision remain excluded. No additional app deployment, billing change, original-data overwrite or deletion was performed.
 
-Repeatable read-only local verification (receipt JSON must contain `entity_ids`):
-
-```sh
-node scripts/verify-local-foundation.mjs http://localhost:3000 /absolute/path/to/recovery.receipt.json
-```
-
-Multiple receipts are accepted and IDs are deduplicated. The check rejects non-loopback destinations, redirects, stale cursor loops, checked-in fallbacks, missing list entries and wrong detail identities; detail reads are limited to two in flight. It prints only verification metadata and failed entity IDs, never response bodies. This is consumer verification, not proof that the receipt was produced by an automatic schedule.
+2026-10-01: 公開の `/api/businesses` は公開目録（`data/catalog-release.json`）の事例だけを返すようにしたため、収集基盤（Foundation R2）の受領IDを公開 API 越しに確かめる `scripts/verify-local-foundation.mjs` は廃止した。収集基盤の確認は R2 の view を直接読んで行う。
 
 ## Historical implementation checkpoints
 

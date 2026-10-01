@@ -7,7 +7,7 @@ import { useCuratedCatalog } from './useCuratedCatalog';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 import { preferDetail } from '@/shared/dossier-authority';
-import { filterToCatalog, isCatalogId } from '@/shared/catalog-membership';
+import { canonicalCatalogId, filterToCatalog } from '@/shared/catalog-membership';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
 
@@ -168,8 +168,10 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
   }, [approvedIds, detailedEntities]);
 
   // オンデマンド詳細読み込み関数（公開目録の事例だけ。目録外は取りに行かない）
-  const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
-    if (!isCatalogId(targetId)) return Promise.resolve();
+  const fetchEntityDetailOnDemand = useCallback((requestedId: string, latestDossierHash?: string) => {
+    // ?entity=ENT_... のような大文字小文字・前後の空白の違いは、目録の正式な ID に直してから扱う
+    const targetId = canonicalCatalogId(requestedId);
+    if (!targetId) return Promise.resolve();
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId) || detailFetchSettled.current.has(targetId)) return Promise.resolve();
 
     detailFetchInProgress.current.add(targetId);
