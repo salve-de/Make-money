@@ -43,7 +43,7 @@ test('search and screener change the company list and reset cleanly', async ({ p
 test('analyst note survives reload and remains attached to the selected company', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?entity=ent_excalidraw_c7820d');
   await openNotes(page);
   const note = page.locator('#section-notes textarea');
   await note.fill('Smoke note: verify the quoted operating margin before comparison.');
@@ -62,7 +62,7 @@ test('legacy finder redirects into the usable current ledger rather than a delet
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/finder');
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible();
+  await expect(page.getByRole('region', { name: '事例を検索・絞り込み' })).toBeVisible();
   await selectCompany(page, 'Excalidraw');
   await page.getByRole('button', { name: '閉じる', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toHaveCount(0);
@@ -75,7 +75,7 @@ for (const raw of ['null', '{}', '[null,42,"ent_excalidraw_c7820d"]']) {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.addInitScript((raw) => localStorage.setItem('mm_viewed_entity_history_v1', raw), raw);
-    await page.goto('/');
+    await page.goto('/?entity=ent_excalidraw_c7820d');
     await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible();
     await selectCompany(page, 'GMass');
     await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toHaveCount(0);

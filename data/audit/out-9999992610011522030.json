@@ -1,0 +1,69 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_workast_59c154994e9b",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式に「仮の値ではない（仮の値。裏付け資料なし）」という矛盾した編集メモが残り、料金の仮定が不明瞭になっている。",
+          "fix": "人数課金を仮定した試算用の単価は、ひとり月$5〜20で、公式料金は未確認。",
+          "fixFormula": "人数課金を仮定し、試算用単価をひとり月$5〜20と置く；公式の料金や課金方式を示す値ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_wosworldofsports_969205ca7c7c",
+      "items": []
+    },
+    {
+      "entityId": "ent_wpfusion_2f62147a170d",
+      "items": [
+        {
+          "analysisId": "a-dependencies",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Googleの送客減が新規販売を削っていると言い切っているが、会社報告はGoogleの影響を可能性として挙げるにとどまる。",
+          "fix": "WordPressと接続先の変更は保守負担を増やし得る一方、新規獲得の減少にはGoogleの影響がある可能性を会社が挙げている。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_wschmschurchmanagementsystem_e737093a4210",
+      "items": []
+    },
+    {
+      "entityId": "ent_x23yc_ab71d1b6f68f",
+      "items": [
+        {
+          "analysisId": "a-lesson",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式の「ポートフォリオ$1M」という表示を、意味が明示されていない製品の評価額として扱っている。",
+          "fix": "AIの人数や「ポートフォリオ$1M」という表示より、束ねた商売の売上と費用の差で省人化の成果を測る。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_yo-kart_ec6358739106",
+      "items": []
+    },
+    {
+      "entityId": "ent_zamashops_79ff2a49dd9b",
+      "items": []
+    },
+    {
+      "entityId": "ent_zapyon_1a7afd654d6e",
+      "items": []
+    },
+    {
+      "entityId": "ent_zenresume_c61b8b49db8f",
+      "items": []
+    },
+    {
+      "entityId": "ent_zyro_0cb1715e4cfd",
+      "items": []
+    }
+  ]
+}

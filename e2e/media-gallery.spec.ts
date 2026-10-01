@@ -127,7 +127,7 @@ test.describe('official product images', () => {
     });
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.goto('/');
+    await page.goto('/?entity=ent_excalidraw_c7820d');
     await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible({ timeout: 45_000 });
 
     const row = page.getByRole('row').filter({ hasText: 'Excalidraw' }).filter({ visible: true }).first();

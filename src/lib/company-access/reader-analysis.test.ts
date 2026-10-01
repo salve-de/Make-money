@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { ReaderCaseSchema, type ReaderCase } from '@/shared/reader-case';
-import { checkCase, reflectAnalysis, type StoredAnalysis } from '../../../scripts/reader-case/analysis-lib';
+import { readFileSync } from 'node:fs';
+import { analysisHash, auditEvidence, checkCase, legacyAnalysisHash, reflectAnalysis, type StoredAnalysis } from '../../../scripts/reader-case/analysis-lib';
+import { loadReaders } from '../../../scripts/reader-case/load-readers';
 
 const base = (): ReaderCase => ({
   sources: [{ id: 's1', publisher: 'A', url: 'https://a.example/', kind: 'ARTICLE' }],
@@ -85,5 +87,36 @@ describe('prepare-catalog-release への反映（reflectAnalysis）', () => {
   });
   it('reader-analysis.json に無い事例は空配列', () => {
     expect(reflectAnalysis(base(), undefined).analysis).toEqual([]);
+  });
+});
+
+describe('監査の鮮度の指紋（analysisHash）', () => {
+  const items = [{ item: 'CUSTOMER', text: '推論の文。', basis: ['f1'], confidence: 'LOW' }];
+  const h = (r: ReaderCase, sources: unknown) => analysisHash(items, undefined, auditEvidence(r, sources));
+  it('同じ材料なら同じ指紋', () => {
+    expect(h(base(), [{ id: 's1', text: '本文' }])).toBe(h(base(), [{ id: 's1', text: '本文' }]));
+  });
+  it('出典の本文が変われば指紋が変わる', () => {
+    expect(h(base(), [{ id: 's1', text: '本文' }])).not.toBe(h(base(), [{ id: 's1', text: '本文が変わった' }]));
+  });
+  it('事実・数字が変われば指紋が変わる', () => {
+    const r = base();
+    r.facts[0]!.text = '別の事実。';
+    expect(h(base(), [])).not.toBe(h(r, []));
+    const m = base();
+    m.metrics[0]!.amount = 99;
+    expect(h(base(), [])).not.toBe(h(m, []));
+  });
+  it('旧形式の指紋とは別物（移行が要る）', () => {
+    expect(h(base(), [])).not.toBe(legacyAnalysisHash(items, undefined));
+  });
+});
+
+describe('loadReaders', () => {
+  it('ids を渡せば、まだ公開されていない候補も entities-index から読める', () => {
+    const published = new Set(Object.keys((JSON.parse(readFileSync('data/catalog-release.json', 'utf8')) as { details: Record<string, string> }).details));
+    const candidate = (JSON.parse(readFileSync('data/entities-index.json', 'utf8')) as { id?: string }[]).find((e) => e.id && !published.has(e.id))?.id;
+    expect(candidate).toBeDefined();
+    expect([...loadReaders([candidate!]).keys()]).toEqual([candidate]);
   });
 });

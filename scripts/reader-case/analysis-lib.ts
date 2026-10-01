@@ -2,9 +2,39 @@
  * 推論（reader.analysis）の機械の確かめ。Codex が返した item を1件ずつ検査し、通ったものだけを残す。純粋関数。
  * 事実（facts/metrics）とは混ぜない。ここを通っても画面は「推測」と明記して出す。
  */
+import { createHash } from 'node:crypto';
+import { metricLine } from './verify-lib';
 import { ReaderAnalysisSchema, type ReaderAnalysis, type ReaderCase } from '../../src/shared/reader-case';
 
 export const ANALYSIS_FILE = 'data/reader-analysis.json';
+// 監査の鮮度。監査した時点の推論（機械の検査を通った直後、監査の修正前）の指紋と、今の指紋が同じ事例だけを「監査済み」とする
+export const RAW_HASHES_FILE = 'data/analysis-raw-hashes.json';
+export const AUDIT_BASELINE_FILE = 'data/audit/baseline-hashes.json';
+export const AUDIT_FRESH_FILE = 'data/audit-fresh.json';
+/** 監査役に渡す「元の材料」: 照合後の事実・数字の行・分析役が読んだ出典の本文。build-audit-input.ts が渡すものと同じ形 */
+export interface AuditEvidence {
+  facts: { id: string; kind: string; text: string; attribution?: unknown }[];
+  metrics: { id: string; line: string }[];
+  sources: unknown;
+}
+export function auditEvidence(reader: Pick<ReaderCase, 'facts' | 'metrics'>, sources: unknown): AuditEvidence {
+  return {
+    facts: reader.facts.map((f) => ({ id: f.id, kind: f.kind, text: f.text, attribution: f.attribution })),
+    metrics: reader.metrics.map((m) => ({ id: m.id, line: metricLine(m) })),
+    sources: sources ?? [],
+  };
+}
+// 指紋には監査役に渡す中身をすべて入れる: 推論（文・式・根拠・確度）、その事例の照合結果、そして推論の元になった事実・数字・出典の本文。
+// 文が同じでも、根拠や元の出典・事実が変われば監査し直す
+export function analysisHash(items: readonly { item: string; text: string; formula?: string; basis?: readonly string[]; confidence?: string }[], verdict: unknown, evidence: AuditEvidence): string {
+  const body = items.map((a) => [a.item, a.text, a.formula ?? '', [...(a.basis ?? [])], a.confidence ?? '']);
+  return createHash('sha256').update(JSON.stringify([body, verdict ?? null, evidence])).digest('hex').slice(0, 16);
+}
+/** 旧形式の指紋（推論と照合結果だけ）。data/ の指紋を新形式へ移す scripts/reader-case/migrate-hashes.ts だけが使う */
+export function legacyAnalysisHash(items: readonly { item: string; text: string; formula?: string; basis?: readonly string[]; confidence?: string }[], verdict?: unknown): string {
+  const body = items.map((a) => [a.item, a.text, a.formula ?? '', [...(a.basis ?? [])], a.confidence ?? '']);
+  return createHash('sha256').update(JSON.stringify([body, verdict ?? null])).digest('hex').slice(0, 16);
+}
 export const ANALYZE_DIR = 'data/analyze';
 
 export type DropReason =

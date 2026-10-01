@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_formcrafts_68cd94342451",
+      "items": []
+    },
+    {
+      "entityId": "ent_hitpawvikpea_88956e9e071e",
+      "items": []
+    },
+    {
+      "entityId": "ent_hostman_75a8a8241b36",
+      "items": [
+        {
+          "analysisId": "a-revenue_estimate",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "売上構成は不明であり、AIの基本料金だけを根拠にサーバー利用料が収益の中心だと言い切ることはできない。",
+          "fix": "仮定の有料口座数と平均支払額による月売上の試算は約$5万〜100万で、サーバー利用料とAIのトークン課金などの収益構成は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_iglead_b7632543c2f5",
+      "items": []
+    },
+    {
+      "entityId": "ent_immigenceos_0cdf56b226a3",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典は業務管理機能を説明するだけで、月額課金という契約仕様は確認されていない。",
+          "fix": "前夜：顧客と案件を抱える移民相談業。隙：顧客情報と案件の進行が散る。突破：顧客・案件・作業をまとめる形。金が回る仕組み：日々の案件処理を支えるソフトに利用料を取るモデルが考えられるが、実際の課金方式は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_lockedin_63bd18bf4f4b",
+      "items": []
+    },
+    {
+      "entityId": "ent_mailslurp_fc6838012e2e",
+      "items": []
+    },
+    {
+      "entityId": "ent_mathematicalcalculator_8fd043fcbd3b",
+      "items": []
+    },
+    {
+      "entityId": "ent_mdp_1d9aa669ea39",
+      "items": []
+    },
+    {
+      "entityId": "ent_mexicantraindominoes_d0d0221a86a9",
+      "items": []
+    }
+  ]
+}

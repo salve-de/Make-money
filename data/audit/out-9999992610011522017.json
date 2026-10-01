@@ -1,0 +1,87 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_mailthentic_bf8f98a8563e",
+      "items": []
+    },
+    {
+      "entityId": "ent_managernest_2b291e9cdd23",
+      "items": []
+    },
+    {
+      "entityId": "ent_marylebonediagnosticcentre_8acb16ba6540",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式の税引前上限$10,600から30%を留保すると$7,420であり、本文と式の上限$8,000に一致しない。",
+          "fix": "第三者掲載額と仮置き費用に基づく月間余力は、赤字時の不足を含めて−$5,200〜$7,420の推計で、創業者への実着金ではない。",
+          "fixFormula": "$32,000−検査原価$6,400〜11,200−人件費・賃料等$14,000〜25,000−決済費$1,000＝税引前−$5,200〜$10,600。黒字分のみ30%を税留保すると−$5,200〜$7,420。費用は仮置きし、黒字残額の全額分配を仮定するが、赤字は創業者の受取額ではなく資金不足を表す。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_mathematicalcalculator_8fd043fcbd3b",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式に「仮の値ではない（仮の値）」という編集途中のような矛盾した注記が残り、単価の位置づけが伝わらない。",
+          "fix": "広告を掲載すると仮定した計算用の受取単価は、1,000広告表示あたり$0.5〜4と置く。",
+          "fixFormula": "計算用の仮置き受取単価＝$0.5〜4／1,000広告表示。実際の広告掲載と受取単価は不明であり、公開価格や確認済みの業界相場ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_mazeengineers_cfed2f0a7097",
+      "items": []
+    },
+    {
+      "entityId": "ent_mcrdse_3ac3794827b3",
+      "items": []
+    },
+    {
+      "entityId": "ent_mdp_1d9aa669ea39",
+      "items": []
+    },
+    {
+      "entityId": "ent_mexicantraindominoes_d0d0221a86a9",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典にあるのはコンピュータ生成の対戦相手３人であり、コンピュータ３台を使う仕様ではない。",
+          "fix": "相手探しなしでコンピュータの対戦相手３人と無料で遊べる、ドミノに特化したオンラインゲーム。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "広告売上$100〜7,500を導く表示回数や計算式がなく、手残り推計の収入側を説明できない。",
+          "fix": "広告型なら広告収入から保守・配信等の費用を引く構造になるが、広告の有無と表示回数が不明なため、手残り額は算定できない。",
+          "fixFormula": ""
+        }
+      ]
+    },
+    {
+      "entityId": "ent_militarytimechart_ff05cf7cce6b",
+      "items": []
+    },
+    {
+      "entityId": "ent_mindinterview_80c233dd3064",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "税引前$4,500〜19,000から30%を留保すると$3,150〜13,300であり、本文と式の下限$2,000に一致しない。",
+          "fix": "本人掲載額と仮置き費用に基づく創業者への月間分配余力は、$3,150〜13,300の推計で、実着金ではない。",
+          "fixFormula": "$30,000−AI・保存費$3,000〜7,500−開発・営業等$7,000〜17,000−決済費$1,000＝税引前$4,500〜19,000。費用を仮置きし、黒字の30%を税留保して残額を全額分配すると、$4,500×70%〜$19,000×70%＝$3,150〜13,300／月。円建て料金との換算はせず、実着金ではない。"
+        }
+      ]
+    }
+  ]
+}

@@ -70230,7 +70230,7 @@
    "verdict": "PARTIAL",
    "quote": "Those two choices say \"built by someone who felt your exact pain\" louder than any feature list.",
    "fix": {
-    "text": "コメント1件は、HTTP 200とvalid:falseによる検証結果の返し方やerrors=friendlyの説明を、開発者の信頼を得る要素として評価している。"
+    "text": "コメント1件は、検証結果の返し方とエラー説明の分かりやすさを、開発者の信頼を得る要素として評価している。"
    },
    "sourceUrl": "https://www.indiehackers.com/product/invoicexml",
    "checkedAt": "2026-09-30",
@@ -81514,7 +81514,7 @@
    "verdict": "PARTIAL",
    "quote": "CONTACT\nLOGIN\nACTIVATE SYSTEM\n// SYSTEM_STATUS: ONLINE",
    "fix": {
-    "text": "連絡先への導線があり、「SYSTEM_STATUS: ONLINE」と表示。"
+    "text": "連絡先への導線があり、サイト上に稼働中の表示がある。"
    },
    "sourceUrl": "https://convoboss.com",
    "checkedAt": "2026-09-30",

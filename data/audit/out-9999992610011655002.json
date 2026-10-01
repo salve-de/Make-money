@@ -1,0 +1,97 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_contentallies_7ace542c25f3",
+      "items": []
+    },
+    {
+      "entityId": "ent_cybersecurityfeedbacksite_2fe41513efa1",
+      "items": []
+    },
+    {
+      "entityId": "ent_datecalculator_d5fc6dc32913",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式の「業界仮の値」という不自然な表現と重複する注記が、仮定の単価であることを分かりにくくしている。",
+          "fix": "広告を掲載する場合の試算として、千回表示あたりの受取収入を$1〜10と仮置きする。",
+          "fixFormula": "月間広告表示をN回、千回表示あたりの受取収入を仮に$1〜10と置くと、月間広告収入＝N÷1,000×$1〜10。単価は試算用の仮定であり、広告掲載・表示回数・実際の受取単価は未確認。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_dogagecalculator_60f44b837fd8",
+      "items": []
+    },
+    {
+      "entityId": "ent_dublab_9384ee8531ab",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "著作権表示の2026年だけでは、掲載料金が2026年に適用された価格だとは確認できない。",
+          "fix": "自分の声で海外向け動画を作る面倒を消す、公式掲載価格は月約$10から",
+          "fixFormula": "公式サイト掲載のHobby価格$9.99/月≒月$10。価格の適用時期や売上実績は示さない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_easychannel_5fe2315b6802",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "式が算出しているのは事業の税前損益であり、個人分配を別としているのに創業者の手残りと呼んでいる。",
+          "fix": "売上と費用を仮置きした事業の税前損益は、月約−$2.3万〜$6.9万と推計する。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_echeckplan_185c733ea536",
+      "items": []
+    },
+    {
+      "entityId": "ent_epicgrowth_3ef8412e30d7",
+      "items": [
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "期間料金と自動更新の案内だけでは、会費の受領より後に講演・会員対応・イベントの費用を支払うとは確認できない。",
+          "fix": "期間分の会費を前払いで受け取る形なら、将来の講演追加や会員対応に充てる資金を先に確保できる。",
+          "fixFormula": "公式料金は3か月3,600ルーブル、12か月19,900または39,900ルーブル。期間分の前払いを仮定した資金繰りの推論であり、実際の入金時期と各費用の支払時期は未確認。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_excelgame_72a1ed5e4c07",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式の「市場仮の値」という意味の取りにくい表現と重複する注記が、試算の説明を損なっている。",
+          "fix": "広告収益化を仮定し、広告表示1,000回あたりの受取額を$1〜10と置く。",
+          "fixFormula": "月間広告表示をN回、1,000回あたりの受取額を仮に$1〜10と置くと、月間広告収入＝N÷1,000×$1〜10。単価は試算用の仮定であり、このサイトの実績単価や確認済みの市場相場ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_foldingstool_2543acee862a",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式の「仮の値の主張ではない」は直前の仮置きと意味が食い違い、価格の位置づけを読者に伝えられない。",
+          "fix": "直販を仮定した試算では、伸縮式スツール1脚の販売価格を$20〜60と仮置きする。",
+          "fixFormula": "直販時の販売価格を1脚$20〜60と仮定する。月間販売数をQ脚と置くと、月売上＝Q×$20〜60。実際の販売価格と、このサイトが直販するかどうかは未確認。"
+        }
+      ]
+    }
+  ]
+}

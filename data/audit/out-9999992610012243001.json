@@ -1,0 +1,1 @@
+{"cases":[{"entityId":"ent_convoboss_79f2c91fbb81","items":[{"analysisId":"a-headline","kind":"FACT_DISGUISED","severity":"FIX","why":"現在の追客機能と2020年の売上を結び付け、当時その機能が追客漏れを解消して売上を生んだように読めるが、その成果と因果関係は確認されていない。","fix":"ノーコードWebチャットボットで本人申告月売上$3.5万（2020年5月）；現在は問い合わせの振り分け・追客自動化を訴求。"}]},{"entityId":"ent_invoicexml_a894654d8407","items":[]}]}
