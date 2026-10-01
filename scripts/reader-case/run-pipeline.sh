@@ -27,7 +27,7 @@ node -e "
   fs.writeFileSync('$CAND',[...ids].sort().join('\n')+'\n');console.log('候補',ids.size,'件')" || fail "候補の一覧を作れない"
 
 # 2. 統合（機械の検査を通った推論だけ残す）
-node --import tsx scripts/reader-case/merge-analysis.ts >/dev/null || fail "統合に失敗"
+node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "統合に失敗"
 
 # 2b. 短さの検査（強い一行55字・物語以外は60字が規則。70字を超える項目が5%を超えたら止める）
 node -e "
@@ -46,7 +46,7 @@ if [ -s "$CAND.audit" ] && grep -q . "$CAND.audit"; then
   say "監査: in-${TAG}*"
   AUDIT_ONLY="${TAG}*" bash scripts/reader-case/run-audit.sh || fail "監査の実行に失敗"
   for i in data/audit/in-${TAG}*.json; do [ -s "${i/in-/out-}" ] || fail "監査が終わっていない: $(basename "$i")（もう一度実行すると続きから回る）"; done
-  node --import tsx scripts/reader-case/merge-analysis.ts >/dev/null || fail "監査の反映に失敗"
+  node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "監査の反映に失敗"
 fi
 
 # 3b. 画像の検査（使ってよいと判定された画像が1枚も無い候補は、仕上げ済みにしない）

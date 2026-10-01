@@ -5,8 +5,8 @@
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
-import { argValue, loadReaders, readIdsFile } from './load-readers';
-import { ANALYSIS_FILE, ANALYZE_DIR, AUDIT_BASELINE_FILE, AUDIT_FRESH_FILE, RAW_HASHES_FILE, analysisHash, applyAudit, checkCase, type AnalysisFile, type AuditFinding, type Dropped } from './analysis-lib';
+import { argValue, loadRawItems, loadReaders, loadSourceTexts, readIdsFile } from './load-readers';
+import { ANALYSIS_FILE, ANALYZE_DIR, AUDIT_BASELINE_FILE, AUDIT_FRESH_FILE, RAW_HASHES_FILE, analysisHash, applyAudit, auditEvidence, checkCase, type AnalysisFile, type AuditFinding, type Dropped } from './analysis-lib';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 
 function main() {
@@ -15,22 +15,9 @@ function main() {
   // 外れた売上の数字が残ったままだと「売上の事実があるのに推計した」と誤って売上の推定を落とし、必須の欄が空になる。
   const verdicts = existsSync(VERDICTS_FILE) ? (JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile) : {};
   const readers = new Map([...loadReaders(idsFile ? readIdsFile(idsFile) : undefined)].map(([id, r]) => [id, applyVerdicts(r, verdicts[id])?.reader ?? r]));
+  const sourceTexts = loadSourceTexts();
   const outDir = `${ANALYZE_DIR}/out`;
-  const raws = new Map<string, unknown>();
-  for (const f of existsSync(outDir) ? readdirSync(outDir).sort() : []) {
-    if (!/^batch-[\w-]+\.json$/.test(f)) continue;
-    const j = JSON.parse(readFileSync(`${outDir}/${f}`, 'utf8')) as { analysis?: { entityId: string; items?: unknown }[] };
-    for (const c of j.analysis ?? []) raws.set(c.entityId, c.items);
-  }
-  // 足りない項目だけを後から埋めた結果（add-*.json）は、既存の item の後ろに足す（同じ item は先勝ちで既存を残す）
-  for (const f of existsSync(outDir) ? readdirSync(outDir).sort() : []) {
-    if (!/^add-[\w-]+\.json$/.test(f)) continue;
-    const j = JSON.parse(readFileSync(`${outDir}/${f}`, 'utf8')) as { analysis?: { entityId: string; items?: unknown }[] };
-    for (const c of j.analysis ?? []) {
-      const prev = raws.get(c.entityId);
-      if (Array.isArray(prev) && Array.isArray(c.items)) raws.set(c.entityId, [...prev, ...c.items]);
-    }
-  }
+  const raws = loadRawItems(outDir);
   const result: AnalysisFile = existsSync(ANALYSIS_FILE) ? (JSON.parse(readFileSync(ANALYSIS_FILE, 'utf8')) as AnalysisFile) : {};
   const byItem: Record<string, number> = {};
   const byReason: Record<string, number> = {};
@@ -46,7 +33,7 @@ function main() {
     for (const d of r.dropped) byReason[d.reason] = (byReason[d.reason] ?? 0) + 1;
     if (r.kept.length) {
       result[entityId] = r.kept;
-      rawHashes[entityId] = analysisHash(r.kept, verdicts[entityId]);
+      rawHashes[entityId] = analysisHash(r.kept, verdicts[entityId], auditEvidence(reader, sourceTexts.get(entityId)));
       cases++;
       for (const k of r.kept) { byItem[k.item] = (byItem[k.item] ?? 0) + 1; items++; }
     } else delete result[entityId];
