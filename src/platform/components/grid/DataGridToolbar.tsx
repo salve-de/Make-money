@@ -155,7 +155,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           </div>
         </div>
 
-        <div className={`flex items-center gap-2 ${hideSearch ? 'min-w-0 flex-1' : 'flex-wrap'}`}>
+        <div className={`flex flex-wrap items-center gap-2 ${hideSearch ? 'min-w-0 flex-1' : ''}`}>
           {showBatchFilter ? (
           <label className="inline-flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-sm border border-term-line px-2.5 text-xs text-term-label sm:flex-none lg:min-h-7">
             <Layers aria-hidden="true" className="h-3.5 w-3.5" />

@@ -186,7 +186,6 @@ export const UI = {
   ASK_PLACEHOLDER: '例：この価格設定が成り立つ条件は？',
   ASK_SUBMIT: '聞く',
   CASE_DETAIL: '事例の詳細',
-  CONSIDER: '事業を検討',
   REF_CASE: '参考事例: {name}',
   VIEW_CASE: '事例の詳細を見る',
 } as const;

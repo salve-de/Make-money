@@ -313,21 +313,19 @@ export function DetailPane({
           </div>
         </details>
 
+        {/* 主な操作は「事例の詳細」1つ。「事業検討」は上のタブにあるので重ねない */}
         <section className="flex flex-wrap items-center gap-2 px-3 py-3">
           <Link
-            href={`/execute/${encodeURIComponent(item.id)}`}
-            className={`${actionBtn} border-term-accent text-term-accent hover:bg-term-head`}
-          >
-            {UI.PLAN}
-          </Link>
-          <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
-            className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}
+            className={`${actionBtn} border-term-accent text-term-accent hover:bg-term-head`}
           >
             {UI.CASE_DETAIL}
           </Link>
-          <Link href="/?mode=SYNTHESIS" className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}>
-            {UI.CONSIDER}
+          <Link
+            href={`/execute/${encodeURIComponent(item.id)}`}
+            className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}
+          >
+            {UI.PLAN}
           </Link>
         </section>
       </div>
