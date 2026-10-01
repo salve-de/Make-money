@@ -7,7 +7,7 @@ import { baremetrics, block, emptyReader, hannahMorgan } from '@/shared/__fixtur
 import { analyzeScreen } from '../../../../scripts/architecture/screen-text-lib.mjs';
 import { allowedUiTexts, isUnknownsLine } from '@/shared/ui-strings';
 import { ANALYSIS_ITEMS, type ReaderCase } from '@/shared/reader-case';
-import { ReaderAnalyses, ReaderAnalysisIntro, ReaderFacts, ReaderLedger, ReaderMetrics, ReaderSources, ReaderSummary, ReaderUnknowns } from './ReaderDetail';
+import { ReaderAnalyses, ReaderAnalysisIntro, ReaderEvidence, ReaderFacts, ReaderLedger, ReaderMetrics, ReaderSources, ReaderSummary, ReaderUnknowns } from './ReaderDetail';
 
 const withAnalysis: ReaderCase = {
   ...baremetrics,
@@ -104,19 +104,43 @@ describe('reader analysis', () => {
     expect(html.indexOf('a-story')).toBeLessThan(html.indexOf('data-fact="f1"'));
   });
 
-  it('事実の後に推測欄を出し、項目名・本文・計算・確度を表示する', () => {
+  it('推測欄は数値の後・事実の前に、項目名・結論・確度だけを出す', () => {
     const html = ledger(withAnalysis);
-    expect(html.indexOf('section-analysis')).toBeGreaterThan(html.indexOf('data-fact="f2"'));
+    expect(html.indexOf('section-analysis')).toBeGreaterThan(html.indexOf('section-metrics'));
+    expect(html.indexOf('section-analysis')).toBeLessThan(html.indexOf('data-fact="f2"'));
     expect(html).toContain('アナリストの推測');
     expect(html).toContain('事業の形');
     expect(html).toContain('手残り');
     expect(html).toContain(withAnalysis.analysis[0].text);
-    expect(html).toContain('計算: </span>売上 − 運営費 = 手残り');
     expect(html).toContain('確度: 低');
     const rows = renderToStaticMarkup(<ReaderAnalyses reader={withAnalysis} />);
     expect(rows.match(/>推測</g)).toHaveLength(2);
     expect(rows).not.toContain('a-headline');
     expect(rows).not.toContain('a-story');
+    expect(rows).not.toContain('計算:');
+    expect(rows).not.toContain('根拠:');
+    expect(rows).not.toContain('href=');
+  });
+
+  it('計算と根拠は事実の後・出典の前の1区画にまとめる', () => {
+    const html = ledger(withAnalysis);
+    const at = html.indexOf('section-reasoning');
+    expect(at).toBeGreaterThan(html.indexOf('data-fact="f2"'));
+    expect(at).toBeLessThan(html.indexOf('section-sources'));
+    expect(html.match(/計算: /g)).toHaveLength(1);
+    expect(html).toContain('計算: </span>売上 − 運営費 = 手残り');
+    expect(html.indexOf('計算: ')).toBeGreaterThan(at);
+    expect(html.indexOf('根拠: ')).toBeGreaterThan(at);
+    expect(renderToStaticMarkup(<ReaderEvidence reader={baremetrics} />)).toBe('');
+  });
+
+  it('事実と数値の行は出典名の代わりに番号を付け、番号は下の出典一覧の行へ飛ぶ', () => {
+    const html = ledger(withAnalysis);
+    const publisher = withAnalysis.sources[0].publisher;
+    expect(html.indexOf(publisher)).toBeGreaterThan(html.indexOf('section-sources'));
+    const refs = [...html.matchAll(/href="#([^"]+-source-\d+)"/g)].map((match) => match[1]);
+    expect(refs.length).toBe(withAnalysis.facts.length + withAnalysis.metrics.length - 1);
+    for (const id of refs) expect(html).toContain(`id="${id}"`);
   });
 
   it('入力順によらず ANALYSIS_ITEMS の順で全項目を並べる', () => {
@@ -128,16 +152,19 @@ describe('reader analysis', () => {
     expect(ids).toEqual(items);
   });
 
-  it('basis は概要・事実・数値の実在する行へのページ内リンクになる', () => {
+  it('根拠は番号で示し、使った事実は下に1回だけ並べる', () => {
     const html = ledger(withAnalysis);
-    const links = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]);
+    const links = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => decodeURIComponent(match[1])).filter((id) => id.includes('-evidence-basis-'));
+    // HEADLINE(f1) + STORY(f1) + TAKE_HOME(m1, f2) = 4本、使った事実は f1・m1・f2 の3つ
     expect(links).toHaveLength(4);
     for (const id of links) expect(html).toContain(`id="${id}"`);
-    expect(links.some((id) => id.endsWith('-evidence-f1'))).toBe(true);
-    expect(links.some((id) => id.endsWith('-evidence-f2'))).toBe(true);
-    expect(links.some((id) => id.endsWith('-evidence-m1'))).toBe(true);
-    expect(html).toMatch(/href="#[^"]+-evidence-m1"[^>]*>売却額 2023 \$4M<\/a>/);
-    expect(html).toMatch(/href="#[^"]+-evidence-f2"[^>]*>2023年に別の会社へ売却された。<\/a>/);
+    expect(new Set(links).size).toBe(3);
+    const list = html.slice(html.indexOf('data-evidence="basis"'), html.indexOf('section-sources'));
+    expect(list.match(/<li /g)).toHaveLength(3);
+    expect(list).toContain('売却額 2023 $4M');
+    const est = ledger({ ...withAnalysis, metrics: [{ ...withAnalysis.metrics[0], origin: 'ESTIMATED' as const }] });
+    expect(est.slice(est.indexOf('data-evidence="basis"'))).toContain('売却額 2023 $4M 推定');
+    expect(list).toContain('2023年に別の会社へ売却された。');
   });
 
   it('analysis が空・reader が無い時は推測欄も HEADLINE も出さない', () => {
@@ -154,7 +181,7 @@ describe('reader analysis', () => {
     const intro = renderToStaticMarkup(<ReaderAnalysisIntro reader={{ ...reader, analysis: [{ ...reader.analysis[0], basis: [] }] }} />);
     expect(intro).toContain('物語');
     expect(intro).not.toContain('<h3');
-    const rows = renderToStaticMarkup(<ReaderAnalyses reader={reader} />);
+    const rows = renderToStaticMarkup(<><ReaderAnalyses reader={reader} /><ReaderEvidence reader={{ ...reader, analysis: [withAnalysis.analysis[2]] }} /></>);
     expect(rows).not.toContain('根拠:');
     expect(rows).not.toContain('計算:');
   });
@@ -172,6 +199,7 @@ describe('reader analysis', () => {
       analysis: [{ ...withAnalysis.analysis[2], basis: [id] }],
     });
     const href = html.match(/href="#([^"]+)"/)?.[1];
+    expect(html).toContain('data-evidence="basis"');
     expect(href).toBeDefined();
     expect(html).toContain(`id="${decodeURIComponent(href!)}"`);
   });
