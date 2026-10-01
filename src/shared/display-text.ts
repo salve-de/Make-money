@@ -563,6 +563,23 @@ export function formatMetricAmount(m: Pick<ReaderMetric, 'amount' | 'currency' |
   return `${sign}${abs >= 1e4 ? groupNum(abs) : trimNum(abs)}${m.unit ?? ''}`;
 }
 
+/** 金額の後ろに付ける期間の短い表記（/月・/年・累計）。時点の値など短く言えない時は空。 */
+export function metricPeriodSuffix(m: Pick<ReaderMetric, 'periodKind'>): string {
+  switch (m.periodKind) {
+    case 'MONTH': return '/月';
+    case 'YEAR':
+    case 'FISCAL_YEAR': return '/年';
+    case 'QUARTER': return '/四半期';
+    case 'CUMULATIVE': return '累計';
+    default: return '';
+  }
+}
+
+/** 数値がいつのものか（年だけ）。statedAt が無ければ空。 */
+export function metricYear(m: Pick<ReaderMetric, 'statedAt'>): string {
+  return m.statedAt ? m.statedAt.slice(0, 4) : '';
+}
+
 export function metricMeasureLabel(m: Pick<ReaderMetric, 'measure' | 'label'>): string {
   return m.measure === 'OTHER' && m.label ? m.label : MEASURE_LABELS[m.measure];
 }

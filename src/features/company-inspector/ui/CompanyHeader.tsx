@@ -66,9 +66,10 @@ export function CompanyHeader({
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-11 shrink-0 items-center px-3 text-sm text-term-accent hover:bg-term-line lg:hidden"
+            className="inline-flex h-11 shrink-0 items-center gap-0.5 pl-1.5 pr-3 text-sm text-term-accent hover:bg-term-line lg:hidden"
             aria-label={UI.BACK_TO_LIST_ARIA}
           >
+            <ChevronLeft size={20} aria-hidden="true" />
             {UI.BACK_TO_LIST}
           </button>
           {positionLabel && <span className="term-num hidden h-6 shrink-0 items-center text-term-muted lg:inline-flex">{positionLabel}</span>}

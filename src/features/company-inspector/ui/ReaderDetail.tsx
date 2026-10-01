@@ -112,13 +112,13 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader' }: ReaderProps) 
 }
 
 /** 推測1件。見出し・印・確度・結論だけ。計算と根拠は下の ReaderEvidence にまとめる。 */
-function AnalysisEntry({ analysis, headline = false }: { analysis: ReaderAnalysis; headline?: boolean }) {
+function AnalysisEntry({ analysis, headline = false, marked = true }: { analysis: ReaderAnalysis; headline?: boolean; marked?: boolean }) {
   return (
     <div data-analysis={analysis.id} className="min-w-0 py-2 [overflow-wrap:anywhere]">
-      <div className="mb-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs">
-        {!headline && <h4 className="text-term-label">{ANALYSIS_LABELS[analysis.item]}</h4>}
-        <span className="text-term-accent">{UI.ANALYSIS_MARK}</span>
-        <span className="text-term-label">{UI.ANALYSIS_CONFIDENCE_PREFIX}{CONFIDENCE_LABELS[analysis.confidence]}</span>
+      <div className="mb-1 flex items-baseline gap-x-2 text-xs">
+        {!headline && <h4 className="font-semibold text-term-fg-strong">{ANALYSIS_LABELS[analysis.item]}</h4>}
+        {marked && <span className="text-term-accent">{UI.ANALYSIS_MARK}</span>}
+        <span className="ml-auto shrink-0 text-term-label">{UI.ANALYSIS_CONFIDENCE_PREFIX}{CONFIDENCE_LABELS[analysis.confidence]}</span>
       </div>
       {headline ? (
         <h3 className="text-lg font-semibold leading-relaxed text-term-fg-strong">{analysis.text}</h3>
@@ -148,8 +148,9 @@ export function ReaderAnalyses({ reader }: { reader?: ReaderCase }) {
     .flatMap((item) => reader.analysis.filter((a) => a.item === item));
   return (
     <ReaderSection id="section-analysis" title={UI.SECTION_ANALYSIS} empty={analysis.length === 0}>
+      {/* 見出しが「推測」なので、各項目には印を繰り返さない */}
       <div className="min-w-0 divide-y divide-term-line-soft">
-        {analysis.map((a) => <AnalysisEntry key={a.id} analysis={a} />)}
+        {analysis.map((a) => <AnalysisEntry key={a.id} analysis={a} marked={false} />)}
       </div>
     </ReaderSection>
   );

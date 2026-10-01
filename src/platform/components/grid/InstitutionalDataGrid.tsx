@@ -128,12 +128,12 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left text-[13px] [counter-reset:ledger-row]">
           <colgroup>
             <col className="w-10" />
-            <col className={isSplitView ? 'w-[52%]' : 'w-[22%]'} />
+            <col className={isSplitView ? undefined : 'w-[22%]'} />
             {!isSplitView && <col />}
             {!isSplitView && <col className="w-[110px]" />}
-            <col className="w-[120px]" />
-            {!isSplitView && <col className="w-[104px]" />}
-            <col className="w-[72px]" />
+            <col className="w-[156px]" />
+            {!isSplitView && <col className="w-[120px]" />}
+            <col className="w-[100px]" />
             <col className="w-8" />
           </colgroup>
           <thead>
@@ -176,11 +176,13 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                 >
                   {/* 行番号は CSS の連番で描く（画面の文字は事例の出典・数値・定数だけにする） */}
                   <td className="term-num px-2 text-right text-xs text-term-dim before:content-[counter(ledger-row)]" />
-                  <td className="overflow-hidden px-2" title={entity.name}>
+                  <td className="overflow-hidden px-2">
                     <span className="flex min-w-0 items-center gap-1.5">
                       <EntityLogo asset={pickEntityLogo(logos[entity.id])} />
-                      <span className="truncate font-semibold text-term-fg-strong">{entity.name}</span>
+                      <span className="shrink-0 truncate font-semibold text-term-fg-strong [max-width:60%]">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
+                      {/* 詳細を開いて概要の列が無い時は、名前の横に何の事業かを1行で出す */}
+                      {isSplitView && <ListDescription reader={entity.reader} className="min-w-0 truncate text-xs text-term-muted" />}
                     </span>
                   </td>
                   {!isSplitView && (

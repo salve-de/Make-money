@@ -228,7 +228,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
 
           <div className="ml-auto flex shrink-0 items-center gap-1">
             <p className="term-num whitespace-nowrap px-1 text-xs text-term-label" aria-live="polite">
-              <span className="hidden sm:inline">全{catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件中 </span><span className="text-term-fg-strong">{totalCount.toLocaleString()}</span>件<span className="hidden sm:inline">を表示</span>
+              {/* 絞り込んでいない時は「全N件中 N件」と同じ数を2回出さない */}
+              {catalogTotal !== totalCount && <span className="hidden sm:inline">全{catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件中 </span>}<span className="text-term-fg-strong">{totalCount.toLocaleString()}</span>件{catalogTotal !== totalCount && <span className="hidden sm:inline">を表示</span>}
             </p>
             {countAddon}
           </div>

@@ -133,7 +133,7 @@ export const UI = {
   PREV_ARIA: '前の事例',
   NEXT_ARIA: '次の事例',
   APPROVE: '収集事例を承認',
-  BACK_TO_LIST: '◀ 一覧',
+  BACK_TO_LIST: '一覧',
   BACK_TO_LIST_ARIA: '一覧へ戻る',
   COMPARE_ADD: '比較に追加',
   COMPARE_REMOVE: '比較から外す',
@@ -157,6 +157,7 @@ export const UI = {
   // 一覧
   LIST_REVENUE_UNKNOWN: '未確認',
   LIST_ORIGIN_NONE_ARIA: '情報源なし',
+  LIST_REVENUE_UNKNOWN_ARIA: '売上は未確認',
   LIST_COL_CASE: '企業・事業内容',
   LIST_COL_REVENUE: '売上',
   LIST_COL_PROFIT: '営業利益',

@@ -159,7 +159,9 @@ export const TerminalShell: React.FC<{
     closeEntityParam();
   };
 
-  const selectedPositionLabel = positionLabel(filteredEntities.findIndex((row) => row.id === selectedEntityId), catalogTotal || filteredEntities.length);
+  // 一覧には公開カタログ以外の行も入るため、全体件数は読み込んだ行数を下回らせない
+  const listTotal = Math.max(catalogTotal ?? 0, entities.length);
+  const selectedPositionLabel = positionLabel(filteredEntities.findIndex((row) => row.id === selectedEntityId), listTotal || filteredEntities.length);
   const ledgerEntityIds = useMemo(() => filteredEntities.map((entity) => entity.id), [filteredEntities]);
   useLedgerKeyboard({
     enabled: workspaceMode === 'LEDGER' && !isCommandPaletteOpen && !isScreenerOpen && !isProModalOpen,
@@ -287,7 +289,7 @@ export const TerminalShell: React.FC<{
         ) : (
           <>
           <div className="hidden xl:flex">
-            <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={catalogTotal ?? filteredEntities.length} />
+            <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={listTotal} />
           </div>
           <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden border-term-line bg-term-bg xl:border-r">
             <h1 className="sr-only">事例一覧</h1>
@@ -306,7 +308,7 @@ export const TerminalShell: React.FC<{
               selectedBatch={selectedBatch}
               onSelectBatch={setSelectedBatch} showBatchFilter={canApproveEntities}
               batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
-              catalogTotal={catalogTotal}
+              catalogTotal={listTotal}
               savedSearchDraft={{ query: searchQuery, filters: catalogFilters }}
               hideScreenerOnXl
               countAddon={<NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} />}

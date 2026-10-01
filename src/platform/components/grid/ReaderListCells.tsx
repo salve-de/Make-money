@@ -5,6 +5,8 @@ import {
   formatMetricAmount,
   metricMeasureLabel,
   metricOriginLabel,
+  metricPeriodSuffix,
+  metricYear,
   pickListMetric,
   pickProfitMetric,
   readerSummaryFact,
@@ -58,26 +60,30 @@ export function ListMetric({ metric, compact = false }: { metric: ReaderMetric |
 
 /**
  * 表の1マス用（1行）。金額だけを出し、列の想定と違う種類（売却額・調達額など）の時だけ名前を前に付ける。
- * 期間と由来は title に入れる。無ければ「未確認」。
+ * 金額の後ろに /月・/年・累計 を付け、詳しい期間と由来は title に入れる。無ければ「—」。
  */
 export function ListMetricCell({ metric, expected }: { metric: ReaderMetric | null; expected?: readonly Measure[] }) {
-  if (!metric) return <span className="font-sans text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
+  // 表では空欄の慣習どおり「—」。読み上げでは未確認と伝える
+  if (!metric) return <span className="text-term-dim" title={UI.LIST_REVENUE_UNKNOWN}><span aria-hidden="true">—</span><span className="sr-only">{UI.LIST_REVENUE_UNKNOWN_ARIA}</span></span>;
   const label = metricMeasureLabel(metric);
   const showLabel = !expected || !expected.includes(metric.measure);
+  const suffix = metricPeriodSuffix(metric);
   return (
     <span data-metric={metric.id} title={`${label} ${metric.period} · ${metricOriginLabel(metric)}`}>
       {showLabel && <span className="mr-1 font-sans text-xs text-term-label">{label}</span>}
       <span className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}</span>
+      {suffix && <span className="ml-0.5 font-sans text-xs text-term-label">{suffix}</span>}
     </span>
   );
 }
 
-/** 情報源の1語（提出書類・本人申告・記事・第三者・推定）。推定だけ橙。数値が無い時は、隣の「未確認」と重ねず「—」。 */
+/** 情報源の1語（提出書類・本人申告・記事・第三者・推定）と、いつの数値かの年。推定だけ橙。数値が無い時は「—」。 */
 export function ListOriginCell({ metric }: { metric: ReaderMetric | null }) {
-  if (!metric) return <span className="text-term-dim" aria-label={UI.LIST_ORIGIN_NONE_ARIA}>—</span>;
+  if (!metric) return <span className="text-term-dim"><span aria-hidden="true">—</span><span className="sr-only">{UI.LIST_ORIGIN_NONE_ARIA}</span></span>;
   return (
     <span data-metric={metric.id} className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}>
       {metricOriginLabel(metric)}
+      {metricYear(metric) && <span className="term-num ml-1 text-term-label">{metricYear(metric)}</span>}
     </span>
   );
 }

@@ -114,7 +114,9 @@ describe('reader analysis', () => {
     expect(html).toContain(withAnalysis.analysis[0].text);
     expect(html).toContain('確度: 低');
     const rows = renderToStaticMarkup(<ReaderAnalyses reader={withAnalysis} />);
-    expect(rows.match(/>推測</g)).toHaveLength(2);
+    // 見出し「アナリストの推測」が印になるので、項目ごとには繰り返さない
+    expect(rows).toContain('アナリストの推測');
+    expect(rows.match(/>推測</g)).toBeNull();
     expect(rows).not.toContain('a-headline');
     expect(rows).not.toContain('a-story');
     expect(rows).not.toContain('計算・前提:');

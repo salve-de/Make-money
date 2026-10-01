@@ -58,7 +58,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
             {main ? <ListMetricCell metric={main} expected={['REVENUE']} /> : <span className="font-sans text-xs text-term-dim"><span className="mr-1 text-term-label">{UI.LIST_COL_REVENUE}</span>{UI.LIST_REVENUE_UNKNOWN}</span>}
           </span>
         </span>
-        <ListDescription reader={entity.reader} className="mt-0.5 block truncate text-[13px] text-term-muted" />
+        <ListDescription reader={entity.reader} className="mt-0.5 line-clamp-2 text-[13px] leading-snug text-term-muted" />
         <span className="mt-0.5 flex items-center justify-between gap-3 text-xs">
           <span className="flex min-w-0 items-center gap-3 truncate text-term-label">
             {sector && <span className="truncate">{sector}</span>}
