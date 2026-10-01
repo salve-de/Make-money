@@ -1,0 +1,107 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_heartemoji_4b0d963db224",
+      "items": []
+    },
+    {
+      "entityId": "ent_hellooutbound_33a5e5848c8e",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典はコールドアウトリーチのデータとキャンペーンを説明するだけで、メール営業の代行とは特定していない。",
+          "fix": "営業データとキャンペーンをフルサービスで提供、月6万ドルは時点不明の本人申告。"
+        },
+        {
+          "analysisId": "a-business_model",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典で特定されていないメール営業の実行を、確認済みの提供内容として書いている。",
+          "fix": "営業データとキャンペーンのフルサービスを、営業人員の足りない企業にまとめて売る構造と推す。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_hellorevenue_18f88851d570",
+      "items": []
+    },
+    {
+      "entityId": "ent_helpwise_a21d9ee980b2",
+      "items": []
+    },
+    {
+      "entityId": "ent_highendgpugraphicscardaccelerator_2d2c044aa162",
+      "items": []
+    },
+    {
+      "entityId": "ent_hirex_3945f1d59120",
+      "items": []
+    },
+    {
+      "entityId": "ent_hitpawvikpea_88956e9e071e",
+      "items": []
+    },
+    {
+      "entityId": "ent_honterstudio_ed4fcdfbe61a",
+      "items": [
+        {
+          "analysisId": "a-dependencies",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式にある「TOOLS推計は追加しない」は作成側の作業判断で、読者に事業の情報を伝えない。",
+          "fix": "Framerの実装と制作担当の空き時間に依存し、月会費が増えても作業量は消えない。",
+          "fixFormula": "公式のFramer開発サービスと、受託デザインに必要な制作時間から依存関係を推論。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_hostman_75a8a8241b36",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "仮定から作った売上範囲を「狙う」と書き、出典にない会社の売上目標へ置き換えている。",
+          "fix": "人の支援でアプリの公開と運用を支えるクラウドで、仮定の契約数と単価による月売上試算は$5万〜100万。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "総費用が売上の110%なら月売上100万ドル時の損失は10万ドルとなり、式の損失下限5千ドルは合わない。",
+          "fix": "仮定上の税引後分配余力は月$0〜28万で、事業の税引前損益は月−$10万〜35万となる。",
+          "fixFormula": "仮置き月売上$50,000〜1,000,000×（1−仮置き総費用率65〜110%）＝税引前損益−$100,000〜350,000／月；黒字分の税負担20〜35%、創業者持分・分配割合0〜100%を仮置きすると、税引後分配余力は$0〜280,000／月；上限は$350,000×80%×100%；設備投資と運転資金の追加留保は別で、実際の個人着金額は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_hoverboard_af3a2714700a",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Indie Hackersの売上表示という事実から、第三者が推計した数字だとは確認できない。",
+          "fix": "代理店のAI検索報告をまとめ、月$1.8万はIndie Hackersの掲載値で対象時点と算定方法は不詳。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "掲載売上を第三者の推計と呼び、持分と分配条件が不明な事業余剰を創業者の現金として示している。",
+          "fix": "仮定の費用と留保を差し引いた事業の税前余剰は月約$2千〜1.2万で、創業者への分配額は不明。",
+          "fixFormula": "Indie Hackers掲載の月売上$18,000−回答・生成・設備費の仮置き$1,800〜5,400−開発・支援等の仮置き$3,000〜8,000−留保の仮置き$1,000〜3,000＝事業の税前余剰$1,600〜12,200／月；約$2,000〜12,000に丸める；掲載売上の対象時点と算定方法、税・持分・実際の分配額は不明。"
+        },
+        {
+          "analysisId": "a-viability",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "複数社の導入と継続開発の説明だけでは、導入数や売上が伸びていることは確認できない。",
+          "fix": "2026年8月の本人投稿では複数の代理店・ブランドによる導入と継続開発が報告されているが、導入数や売上の増減は不明。"
+        }
+      ]
+    }
+  ]
+}

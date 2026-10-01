@@ -1,0 +1,92 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_asmrvideo_b03209afa1ea",
+      "items": []
+    },
+    {
+      "entityId": "ent_automator-slegalpro_8e019bf4eed7",
+      "items": []
+    },
+    {
+      "entityId": "ent_bazzly_c5129a918174",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典は紹介制度の「30%」表記だけで、購読料が報酬の対象になるという仕様は確認できないのに言い切っている。",
+          "fix": "紹介制度は「30%」と案内され、紹介者から客を呼ぶ経路になり得るが、報酬の対象や継続条件は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_benefitscopilot_25cb507e99c7",
+      "items": [
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "予約販売と年額契約の売上報告だけでは実際の入金や費用支出の順序は確認できず、前金が入り費用が後から出たと言い切れない。",
+          "fix": "予約販売と年額契約を前払いで受け取るなら、継続提供にかかる費用より先に現金を確保できるが、実際の入金額と支出時期は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bestdedicatedwebhostingserver_e52a240f65a5",
+      "items": []
+    },
+    {
+      "entityId": "ent_bestemailmarketing_5122f27a6086",
+      "items": []
+    },
+    {
+      "entityId": "ent_bestgoldandmetaldetectorsmachines_7a90d67332f8",
+      "items": []
+    },
+    {
+      "entityId": "ent_blockblastunblocked_f4d958675fb3",
+      "items": []
+    },
+    {
+      "entityId": "ent_blockonomics_c9b4476c2ff1",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月$2万は第三者ページの掲載額であり、第三者が推計した数字だという説明は確認できない。",
+          "fix": "店のビットコイン受取を支え、月$2万の第三者掲載額（時点不詳）。"
+        },
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式の「実際の料金や仮の値を示さない（仮の値。裏付け資料なし）」は矛盾した作業注記で、料金仮定の意味を分かりにくくしている。",
+          "fix": "料金は未確認で、採算を考える仮定として月額$10〜50、または決済取扱額の1%を置く。",
+          "fixFormula": "定額課金を仮定する場合の月売上＝仮定月額$10〜50×契約店舗数。取引課金を仮定する場合の月売上＝月間決済取扱額×仮定料率1%。両者は代替の仮定であり、実際の料金ではない。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "式が掲載月売上を「第三者の売上推計」と呼んでいるが、出典には推計という説明がない。",
+          "fix": "掲載月売上$2万を基に、給与・支援・設備などの費用を月$9千〜1.7万と仮置きする。",
+          "fixFormula": "第三者掲載月売上$20,000を基に、創業者以外の給与・支援費$8,000〜14,000と設備・開発・収納費$1,000〜3,000を仮置きする。合計費用＝$9,000〜17,000/月。売上の観測年月と実際の費用は不明。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "式が掲載月売上を「第三者の売上推計」と呼んでおり、掲載額の出自を誤って説明している。",
+          "fix": "掲載月売上$2万を基に、創業者へ回せる税前余力を月$1千〜1万と推計する。",
+          "fixFormula": "第三者掲載月売上$20,000−仮置き給与・支援費$8,000〜14,000−仮置き設備・開発・収納費$1,000〜3,000−仮置き留保$1,000〜2,000＝$1,000〜10,000/月。残余全額を創業者の給与と分配に回す仮定で、税は控除前。売上の観測年月、持分、実際の費用・留保・受取額は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_blueingo_d2ac825d4804",
+      "items": []
+    }
+  ]
+}

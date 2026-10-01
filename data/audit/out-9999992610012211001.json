@@ -1,0 +1,108 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_talentexafrica_72ef56358c5e",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "採用の選別を企業へ売る求人屋、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で、対象月は不詳；企業側への課金を主収入とする構造は仮説。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_leadiy_59baaf7b4457",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "営業の地図探しと転記をまとめて売り、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で対象月は不詳；業務の統合は製品説明に基づく。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_itprofiles_7ebb9f38027f",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "外注先選びの失敗を減らす比較屋、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で対象月は不詳；現在の収入内訳は未確定。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_kamero_316c8418ff3c",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "自撮りで写真探しを消して撮影業者へ売り、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で対象月は不詳；写真検索と撮影業者向け提供は公式説明。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_directoryfire_7cd7c981523e",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "見つけてもらえない新サイトへ掲載を売り、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で対象月は不詳；掲載申請の料金は1サイト$59、通常表示$79。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_invoicexml_a894654d8407",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "請求書の形式違いと更新の面倒をAPIで売り、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で対象月は不詳；請求書生成・検証・変換は公式機能。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_timodesk_f91a599ef1bd",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "遠隔作業の見えなさを安価な監視へ変え、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で対象月は不詳；公式単価は1ユーザー月$1。"
+    }
+   ]
+  },
+  {
+   "entityId": "ent_loopzgiftcards_89da9b681356",
+   "items": [
+    {
+     "analysisId": "a-upfront_cash",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "ギフト代の前金は加盟店に入り、Loopzはその残高を扱う月額管理料を取る。",
+     "fixFormula": "購入代金が利用前に加盟店へ入るギフトカードの構造と、未使用残高は加盟店側に残るという出典の説明に基づく。未使用残高をLoopzの利益とは扱わない。"
+    }
+   ]
+  }
+ ]
+}

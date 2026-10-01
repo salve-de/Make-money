@@ -1,0 +1,87 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_findpercentagecalculator_7596b477627d",
+      "items": []
+    },
+    {
+      "entityId": "ent_fittrack_5557daa2b9d2",
+      "items": []
+    },
+    {
+      "entityId": "ent_flick_9b8c660813a9",
+      "items": [
+        {
+          "analysisId": "a-timeline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "提供された事実と出典本文には公式サイトの2026年表記がなく、確認できない年をサイトの観測時点として言い切っている。",
+          "fix": "2025年7月には初期の需要検証を説明しており、公式サイトでは無料試用とデモを案内しているが、その案内の掲載時期は不明。",
+          "fixFormula": "初期需要検証の投稿は2025-07-28；公式サイトには14日間の無料試用とデモの案内があるが、掲載時期は不明；創業年と月売上の成立時期は導かない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_flxwebsites_0d82a247be05",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "第三者の掲載ページに売上表示があることは確認できるが、第三者が推計した金額だとする根拠はない。",
+          "fix": "地元の店のサイト管理を丸ごと引き受ける、Indie Hackersの売上表示は月$1.7万・対象時点不明。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "売上表示を第三者の推計と呼ぶ根拠がなく、持分や分配が不明な事業残額を創業者個人の現金として示している。",
+          "fix": "掲載売上を前提に費用を仮置きすると、事業の税引前残額は推計月$7千〜1.2万で、創業者個人への分配額は不明。",
+          "fixFormula": "Indie Hackersの掲載売上$17,000/月−仮置き外注制作・更新・マーケティング費$3,000〜6,000−仮置き設備・ソフト・収納費$1,000〜2,000−仮置き新規制作の持ち出し・留保$1,000〜2,000＝事業の税引前残額$7,000〜12,000/月；売上の対象時点、実費、持分、個人への分配額は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_foldingstool_2543acee862a",
+      "items": []
+    },
+    {
+      "entityId": "ent_formcrafts_68cd94342451",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "推計月売上$18,330〜303,150の算出式がなく、累計利用社数と料金だけでは有料契約数やプラン構成を導けないため手残りの金額を再計算できない。",
+          "fix": "売上、有料契約数、費用実額が不明なため、税引前の分配原資と創業者の手残りは金額で推計できない。",
+          "fixFormula": ""
+        }
+      ]
+    },
+    {
+      "entityId": "ent_futuro_b06e9202fb8e",
+      "items": []
+    },
+    {
+      "entityId": "ent_fyliananobanana_92076e52808b",
+      "items": []
+    },
+    {
+      "entityId": "ent_gemfinity_e9c9eaba233e",
+      "items": []
+    },
+    {
+      "entityId": "ent_gibble_4a337bfdd25a",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "公開初期の推計売上$0〜2,140を導く契約数や購入率の仮定・算出式がなく、107票から売上や事業残額は計算できない。",
+          "fix": "公開初期の売上と有料契約数が不明なため、事業残額は金額で推計できず、107票も購入実績を示さない。",
+          "fixFormula": ""
+        }
+      ]
+    }
+  ]
+}

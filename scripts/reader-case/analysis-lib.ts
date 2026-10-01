@@ -2,9 +2,17 @@
  * 推論（reader.analysis）の機械の確かめ。Codex が返した item を1件ずつ検査し、通ったものだけを残す。純粋関数。
  * 事実（facts/metrics）とは混ぜない。ここを通っても画面は「推測」と明記して出す。
  */
+import { createHash } from 'node:crypto';
 import { ReaderAnalysisSchema, type ReaderAnalysis, type ReaderCase } from '../../src/shared/reader-case';
 
 export const ANALYSIS_FILE = 'data/reader-analysis.json';
+// 監査の鮮度。監査した時点の推論（機械の検査を通った直後、監査の修正前）の指紋と、今の指紋が同じ事例だけを「監査済み」とする
+export const RAW_HASHES_FILE = 'data/analysis-raw-hashes.json';
+export const AUDIT_BASELINE_FILE = 'data/audit/baseline-hashes.json';
+export const AUDIT_FRESH_FILE = 'data/audit-fresh.json';
+export function analysisHash(items: readonly { item: string; text: string; formula?: string }[]): string {
+  return createHash('sha256').update(JSON.stringify(items.map((a) => [a.item, a.text, a.formula ?? '']))).digest('hex').slice(0, 16);
+}
 export const ANALYZE_DIR = 'data/analyze';
 
 export type DropReason =

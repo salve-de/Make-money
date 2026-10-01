@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_visalist_3e9e8e9553d3",
+      "items": []
+    },
+    {
+      "entityId": "ent_vocalemail_b27b43ad8960",
+      "items": [
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "現在の小チームという説明を、裏付けのない創業時のチーム体制へ遡らせている。",
+          "fix": "2021年の創業者投稿は処理の多くが利用者側だったと説明し、現在の公式サイトは小チームで文字起こしと顧客支援も提供すると案内する。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介制度へのリンクだけでは、購読料の一部を報酬として支払う具体的な条件までは確認できない。",
+          "fix": "利用者紹介で顧客が増えたと本人は説明し、公式サイトには紹介制度への案内があるが、報酬の形や支払い条件は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_wasenderpluginforwhatsappweb_e7e6ad019ae0",
+      "items": [
+        {
+          "analysisId": "a-why_it_worked",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典が変更していないと説明するのは通知文面と送信時刻であり、講座内容が同じだったとは書かれていない。",
+          "fix": "通知文面と送信時刻を変えず、メールからWhatsAppへ通知手段を替えたと本人は説明し、別開催の講座で出席割合の違いを観測した。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_webdatascrapingservices_c094774ef4ce",
+      "items": []
+    },
+    {
+      "entityId": "ent_webidoctr_7f016e4d74d7",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式の税引前下限$3,700から30%を留保すると$2,590となり、記載された下限約$2,000と一致しない。",
+          "fix": "税留保30%と全額分配を仮定した創業者への分配余力は、直近30日で約$2,600〜13,100の推計。",
+          "fixFormula": "Stripe検証売上を約$29,500に丸め、端末・回線・運用費$5,900〜11,800、営業等$4,000〜10,000、返金留保$0〜3,000を仮置きする。米国Stripeの2.9%＋$0.30を仮適用し、決済件数を約50〜420件と置いた決済費を約$900〜1,000に丸める。税引前余力の下限は$29,500−$11,800−$10,000−$3,000−$1,000＝$3,700、上限は$29,500−$5,900−$4,000−$0−$900＝$18,700。税留保30%・残額全額分配を仮定すると$3,700〜18,700×70%＝$2,590〜13,090≒$2,600〜13,100／30日。実着金ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_websitedevelopment_2253bb558425",
+      "items": []
+    },
+    {
+      "entityId": "ent_welovenocode_4ef11722de3b",
+      "items": []
+    },
+    {
+      "entityId": "ent_widgetclub_8b6d2c4a5b75",
+      "items": []
+    },
+    {
+      "entityId": "ent_wishcowork_a16cfd2b3f4a",
+      "items": []
+    },
+    {
+      "entityId": "ent_wordy_576370d015bb",
+      "items": []
+    }
+  ]
+}

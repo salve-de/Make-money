@@ -1,0 +1,108 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_cueballcreatives_6a5209bee2dd",
+      "items": []
+    },
+    {
+      "entityId": "ent_cursosjazyk_fd29737297aa",
+      "items": [
+        {
+          "analysisId": "a-business_model",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "2022年更新の規約にある地域別契約条件を、現在も使い分けている提供実態として言い切っている。",
+          "fix": "スペイン語話者へ複数言語の自習教材を売り、現行のJazyk PROは一括払いを案内する一方、2022年更新の規約にはEU向けの継続契約も記載されている。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式に「仮の値ではなく」と「仮の値」を併記した作業注記があり、費用率の位置付けが不明瞭になっている。",
+          "fix": "講座制作・更新と質問対応が費用の芯で、録音教材を繰り返し売るほど追加納品費は薄くなる。",
+          "fixFormula": "月売上$90,000に対し、教材制作償却・更新・人件費25〜45%、集客10〜25%、配信・管理・決済5〜10%を根拠未確認の仮定として置くと、総費用率は40〜80%、月費用は$36,000〜72,000となる；売上対象時点は不詳で、現行価格から過去の販売人数は導かない。"
+        },
+        {
+          "analysisId": "a-lesson",
+          "kind": "CONTRADICTS_FACT",
+          "severity": "FIX",
+          "why": "初入金につながった募集メールは教材を試したMVP完成後であり、「教材を作る前」の接点という時系列は事実と食い違う。",
+          "fix": "教材を試したベータ利用者や関心層への募集告知が初入金につながり、買い切り販売後も教材更新の費用は残る。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_cybersecurityfeedbacksite_2fe41513efa1",
+      "items": [
+        {
+          "analysisId": "a-business_model",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "募集サイト運営者に取り分を定める別契約が存在することは、事実にも出典本文にも示されていない。",
+          "fix": "技術系卒業者に両校の教育課程を案内し、授業料は両校の授業料と登録料を含むが、募集サイト運営者の収入や取り分は不明。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "本文の上限€150,000と式の上限€155,000が一致せず、サイト費用控除前の仮の分配額を手残りと呼んでいる。",
+          "fix": "仮の入学者数・費用率・分配割合では、募集サイト運営者への税前分配額は１期€0〜155,000となるが、実際の取り分は不明。",
+          "fixFormula": "仮に20〜50人が授業料€15,500を全額支払うと、授業料総額は€310,000〜775,000；課程費用を総額の80〜100%と置くと課程余剰は€0〜155,000；運営者への分配を余剰の0〜100%と置くと税前分配額は€0〜155,000／期；入学者数・入金・分配契約は未確認で、サイト費用と税は控除していない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_cycle_30b45d034779",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Indie Hackersの売上表示を、出典本文に記載のない「第三者の推計」と位置付けている。",
+          "fix": "運用担当を増やさずクラウドを動かす基盤、Indie Hackers掲載の月売上は$1.8万（対象時点不詳）。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "式の売上根拠を「第三者の売上推計」と呼んでいるが、出典本文にあるのは推計方法を伴わない売上表示だけである。",
+          "fix": "掲載売上から仮の費用と留保を引いた事業余力は、月−$11,000〜+$5,000と推計する。",
+          "fixFormula": "Indie Hackers掲載の月売上$18,000−仮置き開発・技術支援費$10,000〜22,000−仮置き設備・検証・運営費$3,000〜5,000−仮置き留保$0〜2,000＝月−$11,000〜+$5,000；売上対象時点は不詳で、これは税控除前の事業余力の試算であり、創業者個人への入金額は導けない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_daasy_6f47e1dc65e2",
+      "items": []
+    },
+    {
+      "entityId": "ent_datapipeagencypro_a1da229e0b62",
+      "items": []
+    },
+    {
+      "entityId": "ent_datecalculator_d5fc6dc32913",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式の「仮の値ではない」と「仮の値」という矛盾した作業注記が、広告収入の仮定を読み取りにくくしている。",
+          "fix": "広告を掲載する場合の試算として、千回表示あたりの受取収入を$1〜10と仮置きする。",
+          "fixFormula": "広告表示回数をN回、千回表示あたりの受取収入を仮に$1〜10と置くと、広告収入＝N÷1,000×$1〜10；この単価は資料に基づく業界相場ではなく、広告掲載・表示回数・実収入も未確認。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_datingpro_3e629849c32e",
+      "items": []
+    },
+    {
+      "entityId": "ent_deploybotcom_f06300cc1ada",
+      "items": []
+    },
+    {
+      "entityId": "ent_developmentservice_a010935342e0",
+      "items": []
+    }
+  ]
+}
