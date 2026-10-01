@@ -8,6 +8,9 @@ const baseURL = `http://127.0.0.1:${port}`;
 // Without that directory nothing is shown and e2e/media-gallery.spec.ts skips itself.
 const mediaStagingDir = resolve(process.cwd(), 'data/media-staging');
 
+// 公開目録の成果物（pnpm catalog:prepare -- --artifacts-only が書く）。standalone の cwd は別なので絶対パスで渡す
+const catalogReleaseDir = resolve(process.cwd(), '.catalog-release');
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -18,7 +21,7 @@ export default defineConfig({
   use: { baseURL, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 1000 } } }],
   webServer: {
-    command: `PORT=${port} HOSTNAME=127.0.0.1 MEDIA_SOURCE=local_staging MEDIA_STAGING_DIR="${mediaStagingDir}" node scripts/start-standalone.mjs`,
+    command: `PORT=${port} HOSTNAME=127.0.0.1 CATALOG_RELEASE_DIR="${catalogReleaseDir}" MEDIA_SOURCE=local_staging MEDIA_STAGING_DIR="${mediaStagingDir}" node scripts/start-standalone.mjs`,
     url: baseURL, reuseExistingServer: false, timeout: 60000,
   },
 });

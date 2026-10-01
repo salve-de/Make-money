@@ -18,15 +18,12 @@ const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_150px_90px]';
 export default function WelcomeClient({
   entities,
   publishedCount,
-  collectedCount,
 }: {
   entities: FinancialEntity[];
   publishedCount: number;
-  collectedCount: number;
 }) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user } = useAuth();
-  const examples = entities.filter((entity) => ['ent_photoai', 'ent_keyence'].includes(entity.id));
   const btn = 'inline-flex min-h-11 items-center rounded-sm border px-4 text-sm lg:min-h-8 lg:px-3';
 
   return (
@@ -75,18 +72,14 @@ export default function WelcomeClient({
               </form>
             </div>
             <div className="self-start border border-term-line">
-              <dl className="grid grid-cols-2">
-                <div className="border-b border-r border-term-line px-3 py-2">
+              <dl className="grid grid-cols-1">
+                <div className="border-b border-term-line px-3 py-2">
                   <dt className="text-xs text-term-label">公開している事例</dt>
                   <dd className="term-num text-xl text-term-fg-strong">{publishedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
                 </div>
-                <div className="border-b border-term-line px-3 py-2">
-                  <dt className="text-xs text-term-label">収集済みの事例</dt>
-                  <dd className="term-num text-xl text-term-fg-strong">{collectedCount.toLocaleString('ja-JP')}<span className="ml-1 text-xs text-term-label">件</span></dd>
-                </div>
               </dl>
               <p className="px-3 py-2 text-xs leading-5 text-term-label">
-                収集済みのうち、出典の確認が済んだものを公開しています。
+                出典の確認が済んだ事例だけを公開しています。
               </p>
             </div>
           </div>
@@ -98,12 +91,12 @@ export default function WelcomeClient({
             <Link href="/" className="ml-auto inline-flex min-h-11 items-center text-term-select-fg hover:text-term-fg-strong lg:min-h-6">全件を見る</Link>
           </div>
 
-          {examples.length > 0 ? (
+          {entities.length > 0 ? (
             <div>
               <div className={`hidden h-[26px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label md:grid ${SAMPLE_GRID}`}>
                 <span>{UI.LIST_COL_NAME}</span><span>{UI.LIST_COL_SUMMARY}</span><span className="text-right">{UI.LIST_COL_AMOUNT}</span><span>{UI.LIST_COL_ORIGIN}</span>
               </div>
-              {examples.map((entity, index) => {
+              {entities.map((entity, index) => {
                 const { main } = listMetricsOf(entity.reader);
                 return (
                   <Link

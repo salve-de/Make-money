@@ -6,16 +6,15 @@ test.beforeEach(async ({ page }) => {
   }));
 });
 
-// SOLO は scale が SOLO の事例だけ。公開版に入る Updown.io（SOLO）が残り、規模が未確認の Photo AI や
-// 大企業（ENTERPRISE）の Bird Global・キーエンスは、読み込み直しても出ない。
+// SOLO は scale が SOLO の事例だけ。公開版に入る Updown.io（SOLO）が残り、規模が未確認の Excalidraw や
+// 公開目録に無い Bird Global は、読み込み直しても出ない。
 test('SOLO deep link filters enterprise rows before and after reload', async ({ page }) => {
   await page.goto('/?filter=SOLO');
   const rows = page.getByRole('row').filter({ visible: true });
   const expectSoloOnly = async () => {
     await expect(rows.filter({ hasText: 'Updown.io' })).toHaveCount(1);
-    await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(0);
+    await expect(rows.filter({ hasText: 'Excalidraw' })).toHaveCount(0);
     await expect(rows.filter({ hasText: 'Bird Global' })).toHaveCount(0);
-    await expect(rows.filter({ hasText: 'キーエンス (KEYENCE)' })).toHaveCount(0);
   };
   await expectSoloOnly();
   await page.reload();
@@ -29,11 +28,11 @@ test('batch deep links survive reload and removed URL parameters reset', async (
   await page.reload();
   await expect(rows).toHaveCount(1);
   await page.evaluate(() => window.history.pushState(null, '', '/'));
-  await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(1);
+  await expect(rows.filter({ hasText: 'Excalidraw' })).toHaveCount(1);
   await page.goBack();
   await expect(rows).toHaveCount(1);
   await page.goForward();
-  await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(1);
+  await expect(rows.filter({ hasText: 'Excalidraw' })).toHaveCount(1);
 });
 
 test('anonymous users never see the editorial bulk approval action', async ({ page }) => {

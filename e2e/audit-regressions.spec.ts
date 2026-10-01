@@ -3,34 +3,22 @@ import { routeReader } from './reader-fixture';
 
 test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('kin_pro_unlocked', 'true'));
-  await page.goto('/?entity=ent_photoai');
+  await page.goto('/?entity=ent_excalidraw_c7820d');
   await expect(page.getByText('UNLOCKED: 機関解錠済')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'PRO', exact: true })).toBeVisible();
-  const response = await page.request.get('/api/company-analysis?entity_id=ent_photoai');
+  const response = await page.request.get('/api/company-analysis?entity_id=ent_excalidraw_c7820d');
   expect([401, 403]).toContain(response.status());
 });
 
-// Photo AI は公開版の103社に入っていない（詳細は「準備中」）。財務の数字も作文も画面に出ないことを、そのまま確かめる。
-test('ticker and welcome use the same amounts as the ledger', async ({ page }) => {
+// 公開目録に無い事例（Photo AI）は、名前も数字も画面に出さない。/welcome に出す件数は公開件数だけ。
+test('an unpublished case shows no name or numbers, and welcome shows only the published count', async ({ page }) => {
   await page.goto('/?entity=ent_photoai');
-  const ticker = page.getByRole('complementary', { name: '台帳の財務サマリー' });
-  await expect(ticker).toHaveCount(0);
-  const inspector = page.getByRole('complementary', { name: 'Photo AIの企業事例インスペクター' });
-  await expect(inspector).toContainText('この事例の詳細は準備中です。');
-  await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
-  await expect(inspector).not.toContainText('45億');
+  await expect(page.getByText('この事例は公開していません。')).toBeVisible();
+  await expect(page.getByText('Photo AI')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: /を参考に計画を作る|をもとに計画を作成/ })).toHaveCount(0);
   await page.goto('/welcome');
-  const preview = page.locator('a').filter({ hasText: 'Photo AI' });
-  await expect(preview).toHaveCount(1);
-  await expect(preview).toContainText('未確認');
-  await expect(preview).not.toContainText('77.3%');
-});
-
-test('empty trend search clears selected detail and result statistics', async ({ page }) => {
-  await page.goto('/?mode=ARCHETYPES');
-  await page.getByPlaceholder('テーマを検索').first().fill('audit-no-matching-trend');
-  await expect(page.getByText('0件', { exact: true })).toBeVisible();
-  await expect(page.getByText('86.5%')).toHaveCount(0);
+  await expect(page.getByText('3341')).toHaveCount(0);
+  await expect(page.getByText('Photo AI')).toHaveCount(0);
 });
 
 test('opening success without a payment cannot claim confirmation or grant access', async ({ page }) => {
@@ -60,9 +48,4 @@ test('unconfirmed financials never present a zero as a measured result', async (
     await expect(links.nth(i)).toHaveAttribute('rel', 'noopener noreferrer');
   }
   await expect(sources).not.toContainText('原本暗号保全済み');
-});
-
-test('an old duplicate entity URL still opens its canonical company', async ({ page }) => {
-  await page.goto('/?entity=ent_business_72f423163f9c7ce9b932');
-  await expect(page.getByRole('heading', { level: 2, name: /Ahrefs/ })).toBeVisible();
 });

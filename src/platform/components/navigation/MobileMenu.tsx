@@ -8,11 +8,9 @@ import {
   ChevronRight,
   Columns3,
   Handshake,
-  LayoutGrid,
   ListChecks,
   Menu,
   Store,
-  Wrench,
   X,
   type LucideIcon,
 } from 'lucide-react';
@@ -26,12 +24,10 @@ import {
 } from './navigationItems';
 
 /** 下のタブに出ている画面。メニューには重ねて出さない */
-export const TAB_SECTION_IDS: GlobalNavSection[] = ['LEDGER', 'DISCOVER', 'RADAR', 'SYNTHESIS'];
+export const TAB_SECTION_IDS: GlobalNavSection[] = ['LEDGER', 'DISCOVER', 'SYNTHESIS'];
 
 /** 下のタブと同じ線アイコン（lucide）で、メニューの行も見分けやすくする */
 export const MENU_ICONS: Partial<Record<GlobalNavSection, LucideIcon>> = {
-  ARCHETYPES: LayoutGrid,
-  PLAYBOOK: Wrench,
   COMPARE: Columns3,
   ALERTS: BellRing,
   EXECUTION: ListChecks,

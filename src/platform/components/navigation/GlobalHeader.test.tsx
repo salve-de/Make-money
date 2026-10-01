@@ -12,11 +12,10 @@ describe('GlobalHeader terminal navigation', () => {
   it('renders every workspace route as a numbered tab and never links /registry', () => {
     const html = renderToStaticMarkup(<GlobalHeader onSelectLocalMode={() => {}} />);
     const nav = html.slice(html.indexOf('aria-label="主要ナビゲーション"'), html.indexOf('</nav>'));
-    for (const href of ['/', '/discover', '/radar', '/?mode=ARCHETYPES', '/playbook', '/?mode=SYNTHESIS', '/marketplace', '/execute']) {
+    for (const href of ['/', '/discover', '/?mode=SYNTHESIS', '/marketplace', '/execute']) {
       expect(nav).toContain(`href="${href}"`);
     }
-    expect(nav).toContain('手口と道具');
-    expect(html).not.toContain('/registry');
+    for (const removed of ['/radar', '/playbook', 'mode=ARCHETYPES', '/registry']) expect(html).not.toContain(removed);
   });
 
   it('always renders 保存 and PRO as links when no handlers are supplied', () => {
@@ -30,7 +29,7 @@ describe('GlobalHeader terminal navigation', () => {
     expect(html).toContain('term-bottom-nav');
     expect(html).toContain('lg:hidden');
     const bottom = html.slice(html.indexOf('term-bottom-nav'));
-    for (const label of ['事例', '発見', '市場', '事業検討']) expect(bottom).toContain(label);
+    for (const label of ['事例', '発見', '事業検討']) expect(bottom).toContain(label);
     expect(bottom).not.toContain('その他');
     expect(html).toContain('aria-label="メニューを開く"');
   });

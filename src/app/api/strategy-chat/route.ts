@@ -1,8 +1,9 @@
 import { readerContextText } from '@/shared/display-text';
 import { parseStrategyRequest, parseSynthesizedIdeas } from '@/shared/strategy-schema';
 import { NextRequest, NextResponse } from 'next/server';
-import { INSTITUTIONAL_ENTITIES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
-import { SynthesizedIdea, StrategyChatMessage } from '@/platform/types/terminal';
+import { CatalogUnavailableError, findReleaseEntity, readReleaseSummaries } from '@/lib/company-access/catalog-release';
+import { filterToCatalog, isCatalogId } from '@/shared/catalog-membership';
+import { SynthesizedIdea, StrategyChatMessage, FinancialEntity } from '@/platform/types/terminal';
 import { queryD1, executeD1, batchD1 } from '@/lib/storage/d1';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
@@ -14,18 +15,25 @@ export const dynamic = 'force-dynamic';
 const MAX_STRATEGY_REQUEST_BYTES = 1 * 1024 * 1024;
 const SAFETY_BOUNDARY_NOTICE = '公開事例は事実の記録として扱い、実行案は法令・各サービス規約・相手の同意を前提にします。根拠が不足する数値は未確認のまま検証します。';
 
+/** 公開目録にある事例だけ。目録に無い ID は無かった扱い。 */
+async function findCatalogEntity(id: string | undefined): Promise<FinancialEntity | null> {
+  return id && isCatalogId(id) ? findReleaseEntity(id) : null;
+}
+
 // =========================================================================
 // 内蔵アナリスト推論エンジン（Fallback Analyst Engine）
 // Gemini APIキー未設定時でも、実在22社のデータとユーザーメモから高精度な3次元アイデアを即時合成
 // =========================================================================
 function generateFallbackSynthesis(
   selectedEntityIds: string[],
-  notes: Record<string, { content: string; updatedAt: string }>
+  notes: Record<string, { content: string; updatedAt: string }>,
+  catalog: FinancialEntity[],
 ): SynthesizedIdea[] {
-  const chosenEntities = INSTITUTIONAL_ENTITIES.filter((e) =>
+  const chosenEntities = filterToCatalog(catalog).filter((e) =>
     selectedEntityIds.includes(e.id)
   );
-  const relevantEntities = chosenEntities.length > 0 ? chosenEntities : INSTITUTIONAL_ENTITIES.slice(0, 3);
+  if (catalog.length === 0) throw new CatalogUnavailableError('Catalog is empty');
+  const relevantEntities = chosenEntities.length > 0 ? chosenEntities : catalog.slice(0, 3);
   
   // ユーザーのメモを統合
   const noteTexts = selectedEntityIds
@@ -33,8 +41,8 @@ function generateFallbackSynthesis(
     .filter(Boolean) as string[];
   const combinedUserNote = noteTexts.join(' / ') || '特記事項なし（保存銘柄の構造を掛け合わせ）';
 
-  const primaryEntity = relevantEntities[0] || INSTITUTIONAL_ENTITIES[0];
-  const secondaryEntity = relevantEntities[1] || INSTITUTIONAL_ENTITIES[1] || primaryEntity;
+  const primaryEntity = relevantEntities[0];
+  const secondaryEntity = relevantEntities[1] || catalog[1] || primaryEntity;
 
   // 1. 本能工夫型（人間の防衛本能・衝動）: 損失回避・怠惰・虚栄心を直撃する即効型
   const idea1: SynthesizedIdea = {
@@ -115,11 +123,11 @@ function generateFallbackSynthesis(
 // 内蔵チャット推論エンジン（Fallback Analyst Sparring）
 // 冷徹なCTO・金融アナリスト視点によるシャープな壁打ち
 // =========================================================================
-function generateFallbackChatResponse(
+async function generateFallbackChatResponse(
   userQuery: string,
   contextEntityId?: string,
-): { content: string; suggestedActionPrompts: string[] } {
-  const entity = findInstitutionalEntity(contextEntityId || '');
+): Promise<{ content: string; suggestedActionPrompts: string[] }> {
+  const entity = await findCatalogEntity(contextEntityId);
   const prompts = ['収益の仕組みを教えて', '利用ツールと費用を教えて', '初期の顧客獲得を教えて', '競争上の特徴を教えて'];
   if (!entity) return { content: '相談する事例を選択してください。', suggestedActionPrompts: [] };
 
@@ -189,9 +197,8 @@ export async function POST(req: NextRequest) {
       // Gemini APIが利用可能な場合はAI推論を試みる
       if (apiKey) {
         try {
-          const entitiesData = INSTITUTIONAL_ENTITIES.filter((e) =>
-            selectedEntityIds.includes(e.id)
-          );
+          const entitiesData = (await Promise.all(selectedEntityIds.map(findCatalogEntity)))
+            .filter((e): e is FinancialEntity => e !== null);
           const prompt = `
 あなたは事業調査を支援するアナリストです。選ばれた事例と利用者のメモから、根拠の範囲を保った企画仮説を3つ作ってください。利用者の目的や条件が明示されていない場合は、予算・運営人数・利益目標を勝手に設定しないでください。
 
@@ -247,7 +254,7 @@ ${JSON.stringify(notes, null, 2)}
       }
 
       // フォールバック推論エンジン
-      const ideas = sanitizeSynthesizedIdeas(generateFallbackSynthesis(selectedEntityIds, notes));
+      const ideas = sanitizeSynthesizedIdeas(generateFallbackSynthesis(selectedEntityIds, notes, await readReleaseSummaries()));
       return NextResponse.json({ success: true, ideas, engine: 'fallback_internal', persisted: await persistIdeas(userId, ideas) });
     }
 
@@ -275,7 +282,7 @@ ${JSON.stringify(notes, null, 2)}
 
       if (apiKey) {
         try {
-          const entity = findInstitutionalEntity(contextEntityId || '');
+          const entity = await findCatalogEntity(contextEntityId);
           const clientNote = contextEntityId && notes ? notes[contextEntityId]?.content || '' : '';
           const allNotesContext = [clientNote, dbAccumulatedNotes].filter(Boolean).join('\n\n');
 
@@ -343,7 +350,7 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
       }
 
       // フォールバック推論エンジン
-      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId);
+      const { content, suggestedActionPrompts } = await generateFallbackChatResponse(lastUserMessage, contextEntityId);
       const assistantMsg: StrategyChatMessage = {
         id: `msg_${Date.now()}`,
         role: 'assistant',
@@ -358,6 +365,7 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
 
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
   } catch (err: unknown) {
+    if (err instanceof CatalogUnavailableError) return NextResponse.json({ error: 'Catalog temporarily unavailable' }, { status: 503 });
     console.error('Strategy Chat API error:', err);
     return NextResponse.json(
       { error: err instanceof Error ? err.message : 'Internal Server Error' },

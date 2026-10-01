@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { serveMediaFile } from '@/lib/media/api';
 import { publicMediaReaderFor, readMediaSource } from '@/lib/media/runtime';
 import { MEDIA_ASSET_ID_PATTERN } from '@/shared/media-asset-schema';
+import { isCatalogId } from '@/shared/catalog-membership';
 import { isMediaEntityId } from '@/shared/media-display';
 
 export const dynamic = 'force-dynamic';
@@ -18,6 +19,7 @@ export async function GET(request: Request) {
   if (!isMediaEntityId(entityId) || !MEDIA_ASSET_ID_PATTERN.test(assetId)) {
     return NextResponse.json({ error: 'Invalid media query' }, { status: 400 });
   }
+  if (!isCatalogId(entityId)) return new NextResponse(null, { status: 404, headers: { 'Cache-Control': 'no-store' } });
   const file = await serveMediaFile(entityId, assetId, await readMediaSource(), undefined, publicMediaReaderFor);
   if (!file) return new NextResponse(null, { status: 404, headers: { 'Cache-Control': 'no-store' } });
   return new NextResponse(new Uint8Array(file.bytes), {

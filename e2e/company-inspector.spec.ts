@@ -37,75 +37,13 @@ test('withdrawn narrative sections (loot blueprint, value chain, flywheel) are n
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible();
 
   await expect(page.locator('#section-flywheel')).toHaveCount(0);
   await expect(page.getByRole('button', { name: /強化ループ/ })).toHaveCount(0);
 
   await expect(page.locator('#section-loot-blueprint')).toHaveCount(0);
   await expect(page.locator('#section-value-chain')).toHaveCount(0);
-  expect(errors).toEqual([]);
-});
-
-test('malformed Foundation response cannot replace the usable core list', async ({ page }) => {
-  const errors: string[] = [];
-  const warnings: string[] = [];
-  page.on('pageerror', (error) => errors.push(error.message));
-  page.on('console', (message) => { if (message.type() === 'warning') warnings.push(message.text()); });
-  await page.route('**/api/businesses*', (route) => route.fulfill({ status: 200, contentType: 'application/json',
-    body: JSON.stringify({ source: 'foundation_lake', data: [{ id: 'malformed', name: 'Invalid remote company' }], nextCursor: null, hasMore: false }),
-  }));
-  await page.goto('/');
-  await expect.poll(() => warnings.some((warning) => warning.includes('Foundation Lake read failed'))).toBe(true);
-  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
-  await expect(page.getByText('Invalid remote company', { exact: true })).toHaveCount(0);
-  await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(page.getByRole('complementary', { name: 'Photo AIの企業事例インスペクター' })).not.toContainText(/(?<![\d,.])0円/);
-  expect(errors).toEqual([]);
-});
-
-test('sparse Foundation candidate cannot replace a curated dossier with the same ID', async ({ page }) => {
-  const errors: string[] = [];
-  page.on('pageerror', (error) => errors.push(error.message));
-  const candidate = {
-    id: 'ent_photoai', name: 'Photo AI (候補)', entityType: 'company', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [],
-    valueProfile: { tier: 'CANDIDATE', score: 1, labels: [], businessSignal: '未精錬候補', painSignal: null, moneySignal: null, tractionSignal: null, mechanismSignal: null, timeSignal: null,
-      counts: { claims: 0, metrics: 0, moneySignals: 0, events: 0, observations: 0, derived: 0, evidence: 0 } },
-  };
-  let detailRequests = 0;
-  await page.route('**/api/businesses*', (route) => {
-    const isDetail = new URL(route.request().url()).searchParams.has('entity_id');
-    if (isDetail) detailRequests += 1;
-    return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(isDetail
-      ? { source: 'foundation_lake', data: { ...candidate, claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0, bundleScanComplete: true } }
-      : { source: 'foundation_lake', data: [candidate], hasMore: false, nextCursor: null }) });
-  });
-  await page.goto('/?entity=ent_photoai');
-  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Photo AI (候補)', exact: true })).toHaveCount(0);
-  // Photo AI は公開版に入っていないので詳細は「準備中」。候補の未精錬の文（候補・未精錬候補）が同じ ID の詳細を置き換えない。
-  const inspector = page.getByRole('complementary', { name: 'Photo AIの企業事例インスペクター' });
-  await expect(inspector).toContainText('この事例の詳細は準備中です。');
-  await expect(inspector).not.toContainText('未精錬候補');
-  expect(detailRequests).toBe(0);
-  expect(errors).toEqual([]);
-});
-
-// Jasper.ai は再監査で損失値と物語を取り下げた事例で、公開版の103社に入っていない。
-// 取り下げた損失値・作文が画面のどこにも出ず、詳細は「準備中」になる。
-test('hazard dossier shows no withdrawn loss values after the re-audit demotion', async ({ page }) => {
-  const errors: string[] = [];
-  page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
-  const heading = page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true });
-  await expect(heading).toBeVisible();
-  const inspector = page.getByRole('complementary').filter({ has: heading });
-  await expect(inspector).toContainText('この事例の詳細は準備中です。');
-  await expect(page.locator('#section-sources')).toHaveCount(0);
-  await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(inspector).not.toContainText('赤字出血');
-  await expect(inspector).not.toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000|[−-]5,000万円|[−-]2\.6億円/);
-  await expect(page.locator('body')).not.toContainText('赤字出血');
   expect(errors).toEqual([]);
 });
 
@@ -119,7 +57,7 @@ test('J/K never switches companies, including while writing and reloading a note
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  const heading = page.getByRole('heading', { name: 'Photo AI', exact: true });
+  const heading = page.getByRole('heading', { name: 'Excalidraw', exact: true });
   await expect(heading).toBeVisible();
   await openNotes(page);
   const note = page.locator('#section-notes textarea');
@@ -135,12 +73,12 @@ test('J/K never switches companies, including while writing and reloading a note
   await expect(heading).toBeVisible();
   await openNotes(page);
   await expect(note).toHaveValue('jkJK memo');
-  await selectCompany(page, 'Ahrefs');
+  await selectCompany(page, 'GMass');
   await expect(heading).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
-for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_photoai: { content: 42 }, ent_ahrefs_1cfda3ec4b2ab651bd2d: { entityId: 'ent_ahrefs_1cfda3ec4b2ab651bd2d', content: '正常な既存メモ', updatedAt: '2026-09-11T00:00:00Z' } })]) {
+for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_excalidraw_c7820d: { content: 42 }, ent_gmass_209d19: { entityId: 'ent_gmass_209d19', content: '正常な既存メモ', updatedAt: '2026-09-11T00:00:00Z' } })]) {
   test(`damaged note storage is recoverable without losing original data: ${raw.slice(0, 28)}`, async ({ page }) => {
     const storageKey = 'make_money_analyst_notes_v1';
     const errors: string[] = [];
@@ -149,7 +87,7 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_photoai: { cont
       if (!sessionStorage.getItem('notes-test-seeded')) { localStorage.setItem(storageKey, raw); sessionStorage.setItem('notes-test-seeded', 'true'); }
     }, { storageKey, raw });
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible();
     await openNotes(page);
     const note = page.locator('#section-notes textarea');
     await expect(note).toHaveValue('');
@@ -158,44 +96,25 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_photoai: { cont
     const stored = await page.evaluate((key) => ({ notes: JSON.parse(localStorage.getItem(key) || '{}'),
       backups: Object.keys(localStorage).filter((k) => k.startsWith(`${key}.recovery.`)).map((k) => localStorage.getItem(k)) }), storageKey);
     expect(stored.backups).toEqual([raw]);
-    if (raw.includes('ent_ahrefs')) expect(stored.notes.ent_ahrefs_1cfda3ec4b2ab651bd2d.content).toBe('正常な既存メモ');
+    if (raw.includes('ent_gmass')) expect(stored.notes.ent_gmass_209d19.content).toBe('正常な既存メモ');
     await page.reload();
-    await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible();
     await openNotes(page);
     await expect(note).toHaveValue('復旧後のメモ jkJK');
     expect(errors).toEqual([]);
   });
 }
 
-test('remote revenue-only detail leaves profit unknown and does not invent a waterfall', async ({ page }) => {
+// 収集基盤の候補や旧版の行が API から届いても、目録に無い事例は一覧にも詳細にも出ない
+test('a row outside the published catalog never appears even if an API returns it', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  // This test owns the financial-display boundary, not dossier promotion.
-  // Keep the mocked Foundation row independently display-eligible so a failure
-  // here means the revenue-only detail adapter regressed, rather than the
-  // readiness gate correctly filtering an evidence-free candidate.
-  const summary = { id: 'ent_smoke_revenue_only', name: '境界確認企業', entityType: 'company', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: '2026-09-20T00:00:00Z', evidenceIds: ['ev_smoke_1', 'ev_smoke_2'],
-    valueProfile: { tier: 'HIGH_SIGNAL', score: 80, labels: ['事業', '課題', '価格/財務', '初動/成長', '仕組み'], businessSignal: '企業向け契約管理を月額で提供する業務支援サービス', painSignal: '契約管理の手作業', moneySignal: '¥120000 monthly revenue', tractionSignal: '導入実績あり', mechanismSignal: '業務支援', timeSignal: '2026-09観測',
-      counts: { claims: 1, metrics: 1, moneySignals: 0, events: 0, observations: 1, derived: 0, evidence: 2 } } };
-  const detail = { ...summary, claims: [{ id: 'claim_business', statement: '企業向け契約管理を月額で提供する業務支援サービス', originType: 'reported', verificationStatus: 'SUPPORTED', confidence: 0.9, occurredAt: null, evidenceIds: ['ev_smoke_1'] }], metrics: [{ id: 'metric_revenue', metricType: 'monthly_revenue', value: 120000, unit: 'JPY', currency: 'JPY', periodStart: null, periodEnd: null, pointInTime: '2026-09-20T00:00:00Z', basis: 'reported', scope: 'company',
-    originType: 'reported', verificationStatus: 'SUPPORTED', confidence: 0.9, evidenceIds: ['ev_smoke_2'] }], moneySignals: [], events: [], relationships: [], observations: [{ id: 'obs_smoke', kind: 'BUSINESS_MODEL', text: '契約管理の手作業を減らす業務支援', originType: 'observed', verificationStatus: 'SUPPORTED', observedAt: '2026-09-20T00:00:00Z', collectionTier: 'CORE', collectionChannel: 'web', evidenceIds: ['ev_smoke_1'] }], derived: [], bundlesScanned: 1, bundleObjectsListed: 1, bundleScanComplete: true };
-  let detailReturned = false;
-  await page.route('**/api/businesses*', (route) => {
-    const isDetail = new URL(route.request().url()).searchParams.has('entity_id');
-    if (isDetail) detailReturned = true;
-    return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(isDetail
-      ? { source: 'foundation_lake', data: detail }
-      : { source: 'foundation_lake', data: [summary], hasMore: false, nextCursor: null }) });
-  });
+  const outsider = { id: 'ent_smoke_revenue_only', name: '境界確認企業', entityType: 'company', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [] };
+  await page.route('**/api/businesses*', (route) => route.fulfill({ status: 200, contentType: 'application/json',
+    body: JSON.stringify({ source: 'catalog_release', data: [outsider], nextCursor: null, hasMore: false }) }));
   await page.goto('/?entity=ent_smoke_revenue_only');
-  await expect.poll(() => detailReturned).toBe(true);
-  await expect(page.getByRole('heading', { name: '境界確認企業', exact: true })).toBeVisible();
-  // 画面は entity.reader だけを読む。Foundation 由来の売上だけの記録から損益の滝や0円を作らない。
-  const inspector = page.getByRole('complementary').filter({ has: page.getByRole('heading', { name: '境界確認企業', exact: true }) });
-  await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
-  await expect(inspector).not.toContainText('100%基準');
-  await expect(inspector.locator('canvas')).toHaveCount(0);
+  await expect(page.getByText('この事例は公開していません。')).toBeVisible();
+  await expect(page.getByText('境界確認企業')).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 

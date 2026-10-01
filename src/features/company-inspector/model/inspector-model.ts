@@ -1,5 +1,3 @@
-import { INTELLIGENCE_DOSSIERS } from '@/platform/data/intelligenceDossiers';
-import { MARKET_ANOMALIES } from '@/platform/data/marketAnomaliesData';
 import type { FinancialEntity } from '@/shared/terminal';
 import { formatYen } from '@/platform/utils/moneyDisplay';
 export function parsePunchline(text: string): { punchline: string; detail: string } {
@@ -31,16 +29,6 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
   const saasPct = Math.min(Math.round((entity.pnl.operatingExpenses.toolsAndSaaS / rev) * 100), 100);
   const otherPct = Math.min(Math.round((entity.pnl.operatingExpenses.other / rev) * 100), 100);
   const profitPct = Math.max(Math.round((entity.pnl.operatingProfit / rev) * 100), 0);
-
-  // 当該企業に紐づく特集レポートを検索
-  const relatedDossier = INTELLIGENCE_DOSSIERS.find((d) =>
-    d.targetEntityIds.includes(entity.id)
-  );
-
-  // 当該企業が実証している市場の歪み・トレンドを検索
-  const relatedAnomaly = MARKET_ANOMALIES.find((a) =>
-    a.proofEntityIds.includes(entity.id)
-  );
 
   // 地雷・失敗・転落銘柄の自動検知（失敗の検証・ポストモータムモード）
   const isHazardMode =
@@ -90,5 +78,5 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
   // 動的証拠カード（Dynamic Evidence Registry）の有無判定
   const hasEvidenceCards = Boolean(entity.evidenceCards && entity.evidenceCards.length > 0);
 
-  return { formatMoney, rev, cogsPct, serverPct, adPct, subPct, saasPct, otherPct, profitPct, relatedDossier, relatedAnomaly, isHazardMode, financialStatus, isFinancialUnavailable, getFinancialBadgeMeta, financialBadgeMeta, hasEvidenceCards };
+  return { formatMoney, rev, cogsPct, serverPct, adPct, subPct, saasPct, otherPct, profitPct, isHazardMode, financialStatus, isFinancialUnavailable, getFinancialBadgeMeta, financialBadgeMeta, hasEvidenceCards };
 }

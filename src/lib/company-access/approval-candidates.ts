@@ -1,17 +1,6 @@
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
-import { releaseApprovalCandidateIds, usesCatalogRelease } from './catalog-release';
+import { releaseApprovalCandidateIds } from './catalog-release';
 
 const REVIEW_TAG = '収集事例';
-const CACHE_TTL_MS = 60_000;
-
-type CandidateCache = {
-  expiresAt: number;
-  ids: Set<string>;
-};
-
-let candidateCache: CandidateCache | null = null;
-
 function normalizedId(value: unknown): string | null {
   if (typeof value !== 'string') return null;
   const id = value.trim().toLowerCase();
@@ -40,15 +29,7 @@ export function collectApprovalCandidateIds(catalog: unknown): Set<string> {
 }
 
 async function loadApprovalCandidateIds(): Promise<Set<string>> {
-  if (await usesCatalogRelease()) return releaseApprovalCandidateIds();
-  const now = Date.now();
-  if (candidateCache && candidateCache.expiresAt > now) return candidateCache.ids;
-
-  const catalogPath = resolve(process.cwd(), 'data/entities-index.json');
-  const raw = await readFile(catalogPath, 'utf8');
-  const ids = collectApprovalCandidateIds(JSON.parse(raw) as unknown);
-  candidateCache = { expiresAt: now + CACHE_TTL_MS, ids };
-  return ids;
+  return releaseApprovalCandidateIds();
 }
 
 /**

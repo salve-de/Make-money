@@ -3,11 +3,11 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { gunzipSync } from 'node:zlib';
 import manifest from '../../../data/catalog-release.json';
-import { getCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
 import { getFoundationBucketAsync, readR2Object } from '@/lib/storage/r2';
 import { getDossierStoragePath } from '@/lib/foundation/dossier-projection';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { isPublishableEntity } from './public-entity';
+import { canonicalCatalogId, catalogDetailHash, filterToCatalog } from '@/shared/catalog-membership';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { DiscoveryDataset } from '@/features/discover';
 
@@ -66,33 +66,46 @@ export async function readReleaseDiscovery(): Promise<DiscoveryDataset> {
   return discovery;
 }
 
-export async function usesCatalogRelease(): Promise<boolean> {
-  // next dev installs an emulated Cloudflare context with the production vars.
-  // Local editing must still read the working-tree JSON, not private remote R2.
-  if (process.env.NODE_ENV === 'development') return readsLocalPreparedRelease();
-  const env = await getCloudflareRuntimeEnv();
-  return env?.ENVIRONMENT === 'production';
-}
-
 export function decodeCatalogArtifact(bytes: Uint8Array, expectedHash: string): unknown {
   const json = gunzipSync(bytes, { maxOutputLength: 24 * 1024 * 1024 });
   if (createHash('sha256').update(json).digest('hex') !== expectedHash) throw new Error('Catalog artifact hash mismatch');
   return JSON.parse(json.toString('utf8')) as unknown;
 }
 
-/** 開発中に、`pnpm catalog:prepare` が作った手元の公開版（.catalog-release/）を画面で確かめるための切り替え。本番では効かない。 */
-function readsLocalPreparedRelease(): boolean {
-  return process.env.NODE_ENV === 'development' && process.env.CATALOG_RELEASE_LOCAL === '1';
+/** 公開目録の中身（要約・詳細）を読めない時の失敗。画面は「目録を読み込めません」と出し、見本データや全件索引には落とさない。 */
+export class CatalogUnavailableError extends Error {
+  constructor(message: string, options?: { cause?: unknown }) {
+    super(message, options);
+    this.name = 'CatalogUnavailableError';
+  }
+}
+
+function runsInWorkers(): boolean {
+  return typeof navigator !== 'undefined' && navigator.userAgent === 'Cloudflare-Workers';
+}
+
+/** 手元の公開版（`pnpm catalog:prepare` が作る .catalog-release/）から読む。Workers では読まない。 */
+async function readLocalArtifact(hash: string): Promise<unknown | null> {
+  if (runsInWorkers()) return null;
+  const directory = process.env.CATALOG_RELEASE_DIR?.trim() || resolve(process.cwd(), '.catalog-release');
+  try {
+    return decodeCatalogArtifact(await readFile(resolve(directory, `${hash}.json.gz`)), hash);
+  } catch {
+    return null;
+  }
 }
 
 async function readArtifact(key: string, hash: string): Promise<unknown> {
-  if (!key || !/^[a-f0-9]{64}$/.test(hash)) throw new Error('Catalog release has not been prepared');
-  if (readsLocalPreparedRelease()) {
-    return decodeCatalogArtifact(await readFile(resolve(process.cwd(), '.catalog-release', `${hash}.json.gz`)), hash);
+  if (!key || !/^[a-f0-9]{64}$/.test(hash)) throw new CatalogUnavailableError('Catalog release has not been prepared');
+  const local = await readLocalArtifact(hash);
+  if (local !== null) return local;
+  try {
+    const object = await readR2Object(await getFoundationBucketAsync('lake'), key);
+    if (!object) throw new Error('Catalog release object is missing');
+    return decodeCatalogArtifact(object.body, hash);
+  } catch (error) {
+    throw new CatalogUnavailableError('Catalog release is unavailable', { cause: error });
   }
-  const object = await readR2Object(await getFoundationBucketAsync('lake'), key);
-  if (!object) throw new Error('Catalog release object is missing');
-  return decodeCatalogArtifact(object.body, hash);
 }
 
 let summaries: Promise<FinancialEntity[]> | undefined;
@@ -153,19 +166,16 @@ export async function readReleaseSummaries(): Promise<FinancialEntity[]> {
   if (!summaries) {
     summaries = readArtifact(manifest.summaries.key, manifest.summaries.hash).then((value) => {
       const result = parseCatalogSummaryRows(value, manifest.publishedCount);
-      const featuredIdx = result.findIndex((entity) => entity.id === 'ent_photoai');
-      if (featuredIdx > 0) result.unshift(...result.splice(featuredIdx, 1));
-      return result;
+      return filterToCatalog(result);
     }).catch((error) => { summaries = undefined; throw error; });
   }
   return summaries;
 }
 
 export async function findReleaseEntity(id: string): Promise<FinancialEntity | null> {
-  const details: Record<string, string> = manifest.details;
-  const canonicalId = Object.keys(details).find((key) => key.toLowerCase() === id.toLowerCase());
-  if (!canonicalId) return null;
-  const hash = details[canonicalId];
+  const canonicalId = canonicalCatalogId(id);
+  const hash = catalogDetailHash(id);
+  if (!canonicalId || !hash) return null;
   const value = await readArtifact(getDossierStoragePath(canonicalId, hash), hash);
   const parsed = parseFinancialEntitiesResiliently([value]);
   const entity = parsed.validEntities[0];
@@ -175,18 +185,4 @@ export async function findReleaseEntity(id: string): Promise<FinancialEntity | n
 
 export function releaseApprovalCandidateIds(): Set<string> {
   return new Set(manifest.approvalCandidateIds);
-}
-
-/** Check release membership without reading the full dossier from R2. */
-export function hasCatalogReleaseEntity(id: string): boolean {
-  const normalizedId = id.trim().toLowerCase();
-  if (!normalizedId) return false;
-  return Object.keys(manifest.details).some((candidate) => candidate.toLowerCase() === normalizedId);
-}
-
-/** 公開版の目録にある事例の詳細ハッシュ。一覧の行の latestDossierHash はこの値。目録に無ければ undefined。 */
-export function catalogReleaseDetailHash(id: string): string | undefined {
-  const details: Record<string, string> = manifest.details;
-  const canonicalId = Object.keys(details).find((key) => key.toLowerCase() === id.trim().toLowerCase());
-  return canonicalId ? details[canonicalId] : undefined;
 }
