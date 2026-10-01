@@ -1,0 +1,102 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_huckabuycloud_7a41b597c019",
+      "items": [
+        {
+          "analysisId": "a-lock_in",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "契約条件の裏付けがないのに、顧客サイトを拘束する契約ではないと言い切っている。",
+          "fix": "検索向けの処理を任せるほど、外す際には設定変更や検索への影響を確かめる負担が増えると見られる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_humanproofdesigns_82df53cf8789",
+      "items": [
+        {
+          "analysisId": "a-incumbent_blindspot",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "比較対象の仕様を確認せず、汎用サイト作成サービスは画面を渡すだけだと言い切っている。",
+          "fix": "サイト作成の道具を提供する形に対し、題材選び・記事制作・運営支援までまとめて引き受けることが差別化になると見られる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_hyls_86b4077ecf65",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "掲載時点で説明された平均月次売上を、2021年10月単月の売上として読める形で言い切っている。",
+          "fix": "自己改善講座を好きな額で売り、2021年10月掲載の説明では平均月売上約$4万（創業者申告）。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_hyperping_7002e47dd3a6",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "有料顧客の獲得がProduct Hunt公開より早いことは確認できるが、製品自体の公開前だったとは確認できない。",
+          "fix": "最初の有料客は2018年1月16日に獲得し、その後1月30日にProduct Huntで公開した。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_iglead_b7632543c2f5",
+      "items": [
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "初回入金の案内だけでは取得費より先に入金されるとは確認できず、無料抽出とプレビューでは取得費が先に発生し得る。",
+          "fix": "初回入金を促すボーナスがあるが、無料抽出では課金より先に取得費が発生し得るため、前払いで取得費を賄えるとは限らない。",
+          "fixFormula": "公式の初回入金ボーナスと、無料抽出・結果プレビュー後の解除課金に基づく。入金と取得費発生の前後関係は確認できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_iloveimg_cae3d9b3bbe0",
+      "items": []
+    },
+    {
+      "entityId": "ent_immigenceos_0cdf56b226a3",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典が説明するのは顧客・案件・業務の管理であり、書類管理機能の提供は確認できない。",
+          "fix": "移民業務の顧客・案件管理をまとめ、月$250〜3万売上と推計する業務ソフト（時点不明）。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_imovid_d872e15ed1e8",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式に「仮の値ではない（仮の値）」という矛盾した作業注記が残り、価格の位置付けが分かりにくい。",
+          "fix": "動画生成枠の料金は、実料金ではなく計算用の仮定として月$10〜100を置く。",
+          "fixFormula": "個人の試作から小規模な商用制作までを想定し、生成枠付き月額$10〜100を計算用に仮置きする。実際の料金・請求周期は不明で、他社価格に基づく推計ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_insertchatgpt_c8c34dd93b08",
+      "items": []
+    },
+    {
+      "entityId": "ent_interviewbuddy_59823d62cef1",
+      "items": []
+    }
+  ]
+}

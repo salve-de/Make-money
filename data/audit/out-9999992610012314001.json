@@ -1,0 +1,17 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_invoicexml_a894654d8407",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "SCREEN_WORDING",
+     "severity": "FIX",
+     "why": "画面に出さない言い回し（公開前の画面検査）",
+     "fix": "請求書の形式違いと更新の面倒をAPIで売り、時点不詳の本人登録で月$10万。",
+     "fixFormula": "月売上$100,000は本人の自己申告で対象月は不詳；請求書生成・検証・変換は公式機能。"
+    }
+   ]
+  }
+ ]
+}

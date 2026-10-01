@@ -1,0 +1,124 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_pulseability_175d6504c643",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "利用者面談と無料相談募集は確認できるが、それらが最初の企業接点だったとは確認できない。",
+          "fix": "利用者面談と無料のB2B販促相談募集が、企業との接点づくりにつながったと考えられる。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式末尾の「仮の値。裏付け資料なし」は作業注記であり、出典にある料金例を根拠のない数値と誤認させる。",
+          "fix": "発信者の信頼を借りて企業サイトへ送客し、実際の訪問に応じて発信者へ報酬を払う。",
+          "fixFormula": "保存サイトの例：CPC $1×1,000クリック＝課金額$1,000；発信者への配分＝$1,000×90%＝$900、運営への配分＝$1,000×10%＝$100；公式の例示であり、実際の平均CPCや取引実績ではない。"
+        },
+        {
+          "analysisId": "a-lesson",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "実際の運営費と売上の計上方法が不明なのに、仲介の取り分では運営費を賄えないと断定している。",
+          "fix": "売上表示が総取扱額なら運営の取り分は10%にとどまり、その範囲で計測・支援費を賄えるかが採算を決める。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_qase_a81bce0ecfab",
+      "items": []
+    },
+    {
+      "entityId": "ent_qreviews_02a92fb4186d",
+      "items": [
+        {
+          "analysisId": "a-incumbent_blindspot",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "数値のない推論に「仮の値。裏付け資料なし」という無関係な作業注記が付いている。",
+          "fix": "一般的なアンケート収集に加え、患者データとの接続と院内対応への通知まで担う点に専門性があると考えられる。",
+          "fixFormula": "患者データ連携、SMSによる回答収集、管理者・臨床スタッフへのリアルタイム通知から、医療業務への接続が専門性になると推論；競合の対応能力や不在は断定しない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_quicklaunch_4cbaf22172b0",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "修正を相談した創業者たちが、既存の新規MVP顧客だったとは出典に書かれていない。",
+          "fix": "新規MVP事業を始めた後、創業者たちから既存アプリの修正相談が届き、救援サービスにつながった。"
+        },
+        {
+          "analysisId": "a-channels",
+          "kind": "CONTRADICTS_FACT",
+          "severity": "FIX",
+          "why": "式は投稿年を2025年としているが実際は2026年1月で、本文もコールド営業の不実施を新規営業全般の不実施へ広げている。",
+          "fix": "2026年1月の本人投稿では、2025年は広告や面識のない相手への営業を使わず、口コミで依頼が続いたと説明している。",
+          "fixFormula": "2026-01-12の創業者投稿による2025年の顧客獲得説明；広告とコールド営業を行わなかったとの自己申告で、営業活動全般を行わなかったとは扱わない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_quotaguard_d9a6b3bacb63",
+      "items": []
+    },
+    {
+      "entityId": "ent_ragleap_6ccc4830e619",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式が金額から手数料率を直接引く形になっており、率を掛ける対象額が明示されていない。",
+          "fix": "仮置きの支援金と費用から計算すると、作者側の税引前余力は月−$500〜480と推計される。",
+          "fixFormula": "仮置き月支援金S＝$0〜500、月開発費C＝$20〜500、支援金に対する仮置き受取手数料率r＝0〜10%；税引前余力＝S×(1−r)−C；下限＝$0−$500＝−$500、上限＝$500×(1−0%)−$20＝$480；給与・税・創業者と協力者への配分は別。"
+        },
+        {
+          "analysisId": "a-lock_in",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "MITライセンスと自己ホストだけでは、移行負担が導入設定の変更だけに限られるとは確認できない。",
+          "fix": "無料コードを自前で持てるため課金による囲い込みは弱いと考えられるが、移行には設定や業務連携の作り直しが必要になる可能性がある。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_randomip_6902672e42aa",
+      "items": []
+    },
+    {
+      "entityId": "ent_rankchecker_ad5d57bb526a",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "上限計算に使う月売上$125,860について、契約数・単価の組み合わせや仮置きの根拠が示されていない。",
+          "fix": "買収後の事業残額は、契約数と費用実績が不明のため金額を推計できない。",
+          "fixFormula": ""
+        },
+        {
+          "analysisId": "a-viability",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "制作込み購読への移行は確認できるが、市場や事業が成長中であることを示す実績はない。",
+          "fix": "買収後はAI内の露出確認に改善作業を組み合わせる提供形態へ広がっているが、市場や事業の成長度合いは不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_readonlyrest_83810c3968e3",
+      "items": []
+    },
+    {
+      "entityId": "ent_realappreview_42769fa68951",
+      "items": []
+    }
+  ]
+}

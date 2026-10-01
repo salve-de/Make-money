@@ -1,0 +1,109 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_talentexafrica_72ef56358c5e",
+      "items": []
+    },
+    {
+      "entityId": "ent_talkhiring_67b5ef3ecd8c",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式は面接練習と成果の記録・報告支援を説明しているが、成果報告そのものを代行する仕様は示していない。",
+          "fix": "就職支援の面接練習と成果の記録を支援、月$2,000〜40,000の売上と推計・時点不詳。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "留保$0〜12,000を他の仮定と独立に動かすと残額は−$16,700〜+$31,000となり、記載された範囲にはならない。",
+          "fix": "創業者の実受取額は不明だが、仮定上の事業残額は税引前で月−$16,700〜+$31,000。",
+          "fixFormula": "下限＝$2,000×（1−35%）−$6,000−$12,000＝−$16,700/月；上限＝$40,000×（1−15%）−$3,000−$0＝$31,000/月；売上$2,000〜40,000、変動費率15〜35%、創業者以外の開発・営業・支援費$3,000〜6,000、留保$0〜12,000を独立した仮定として計算；税・持分配分前で、創業者への実送金額ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_targetup-facebookinterestfindingtool_4cfe224cfe47",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "計算の起点となる月売上$1,500〜45,000について、有料契約数と料金から導く式がなく、利用組織3,000超だけでは支えられない。",
+          "fix": "2022年頃の創業者の手残りは不明で、利用組織3,000超という自己申告だけでは売上や利益を算出できない。",
+          "fixFormula": ""
+        }
+      ]
+    },
+    {
+      "entityId": "ent_taskforcesh_0a6be78adca0",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式にある収集記載日とm1・m2の重複処理は、読者向けの売上説明に不要な内部作業情報である。",
+          "fix": "BullMQの処理を監視する管理画面、2025年1月の保存ページで本人申告の月売上$22,000。",
+          "fixFormula": "2025年1月24日の保存ページに月売上$22,000と掲載；売上の対象月は不明で、現在の売上を示すものではない。"
+        },
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Bull・BullMQが無料であるという料金仕様は、提示された事実と出典本文にない。",
+          "fix": "前夜：裏側の処理は画面から見えにくい。隙：キューの運用には監視が要る。突破：開発元が管理画面を提供する。金が回る仕組み：監視と操作の負担軽減が支払い理由になると推す。"
+        },
+        {
+          "analysisId": "a-why_it_worked",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本文と式がライブラリを無料と扱っているが、その料金仕様は提示資料にない。",
+          "fix": "BullMQの処理を運用するチームには、障害の発見と対応を助ける管理画面に支払う理由があると推す。",
+          "fixFormula": "公式の監視・アラート・ジョブ管理機能と、ライブラリ開発を支える管理道具という説明から支払い理由を推論；利用者増加や有料転換の実績を示すものではない。"
+        },
+        {
+          "analysisId": "a-lesson",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "この事例の教訓として無料配布を前提にしているが、ライブラリの無料提供は提示資料で確認されていない。",
+          "fix": "処理基盤を使う開発チームに、障害時の監視と操作を助ける運用道具を売る余地がある。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_teamcamp_ae0c21986c4d",
+      "items": []
+    },
+    {
+      "entityId": "ent_techandtrends_1e1f158cc293",
+      "items": []
+    },
+    {
+      "entityId": "ent_techdecisionmakersdatapack_7c2a3eaf4559",
+      "items": []
+    },
+    {
+      "entityId": "ent_teliportmevirtualtours_415bd6fc1f9d",
+      "items": []
+    },
+    {
+      "entityId": "ent_telosim_6df318b5f769",
+      "items": []
+    },
+    {
+      "entityId": "ent_tessellatelabs_5f3cef45d410",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式のm1・f8という内部識別子は読者に意味がなく、売上の時点と帰属を直接説明する必要がある。",
+          "fix": "MVPを$5,000で数週間納品する開発サービス、2025年4月の掲載記録で本人申告の月売上$30,000。",
+          "fixFormula": "2025年4月18日の記録に本人申告の月売上$30,000；売上の対象月と新規MVP開発への帰属は不明；既存会社の継続案件による売上という説明は別の「40K MRR」への返信であり、$30,000の内訳を確定するものではない。"
+        }
+      ]
+    }
+  ]
+}
