@@ -1,11 +1,6 @@
-import { isPublishableEntity } from '@/lib/company-access/public-entity';
-import { readLatestNewArrivalsRelease, type FoundationBusinessCase } from '@/lib/foundation/business-reader';
-import {
-  adaptFoundationDetailToFinancialEntity,
-  adaptFoundationSummaryToFinancialEntity,
-} from '@/lib/foundation/foundation-adapter';
-import { mapServingReads, readMakeMoneyViewDetail } from '@/lib/foundation/make-money-view';
-import { parseFoundationBusinessCase } from '@/lib/foundation/schema';
+import { findReleaseEntity } from '@/lib/company-access/catalog-release';
+import { readLatestNewArrivalsRelease } from '@/lib/foundation/business-reader';
+import { filterToCatalog } from '@/shared/catalog-membership';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { DigestDeps } from './digest';
 import { sendEmail } from './email';
@@ -13,31 +8,12 @@ import { claimSend, loadSentRecipients, releaseSend } from './ledger';
 import { listActiveSubscribers, listAlertRecipients, markSavedSearchesNotified } from './recipients';
 import { buildNewsletterUnsubscribeUrl } from './unsubscribe-link';
 
-/** The identifier shape of a published Foundation case (the same rule the public list uses). */
-const ENTITY_ID = /^ent_[a-z0-9]+_[a-f0-9]{20}$/;
-
 /**
- * Cases of the edition, read the way the public detail page reads them and held to the
- * same publication gate, so an email never names a case the site would not show.
- *
- * A storage failure throws, which stops the digest before anything is sent. A single case
- * that cannot be understood (bad shape, no display name, not publishable) is left out.
+ * 配信に載せる事例。公開目録（data/catalog-release.json）にある事例だけを、画面の詳細と同じ公開版から読む。
+ * 目録に無い ID は黙って除く。保存先の読み取り失敗は例外にして、何も送る前に配信を止める。
  */
 export async function readPublishableEntities(ids: readonly string[]): Promise<FinancialEntity[]> {
-  const rows = await mapServingReads(ids.filter((id) => ENTITY_ID.test(id)), async (id) => {
-    const view = await readMakeMoneyViewDetail(id);
-    if (!view) return null;
-    try {
-      const detail: FoundationBusinessCase = parseFoundationBusinessCase(view);
-      // A row still named by its stored id has no display identity yet; the list fails closed on it too.
-      if (ENTITY_ID.test(detail.name)) return null;
-      if (!isPublishableEntity(adaptFoundationSummaryToFinancialEntity(detail))) return null;
-      return adaptFoundationDetailToFinancialEntity(detail);
-    } catch (error) {
-      console.warn(`[notifications/digest] skipped a case that could not be read: ${id}`, error);
-      return null;
-    }
-  });
+  const rows = await Promise.all(filterToCatalog(ids.map((id) => ({ id }))).map(({ id }) => findReleaseEntity(id)));
   return rows.filter((row): row is FinancialEntity => row !== null);
 }
 

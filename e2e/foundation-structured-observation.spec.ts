@@ -77,9 +77,9 @@ async function routeFoundation(page: Page, detailBody: unknown) {
 // 詳細画面（本文全体）に一切出ないこと。収集しただけの観測は、公開版に入るまで「準備中」になる。
 async function openDetail(page: Page) {
   await page.goto(`/?entity=${entityId}`);
-  await expect(page.getByRole('heading', { name: 'Structured Foundation Demo', exact: true })).toBeVisible();
-  const inspector = page.getByRole('complementary', { name: 'Structured Foundation Demoの企業事例インスペクター' });
-  await expect(inspector).toContainText('この事例の詳細は準備中です。');
+  // 収集基盤の候補は公開目録に無いので、API が返しても画面は「公開していません」だけ。名前も観測も出ない。
+  await expect(page.getByText('この事例は公開していません。')).toBeVisible();
+  await expect(page.getByText('Structured Foundation Demo')).toHaveCount(0);
   await expect(page.getByRole('button', { name: '出典・記録', exact: true })).toHaveCount(0);
   await expect(page.locator('#section-stream')).toHaveCount(0);
   return page.locator('body');

@@ -5,9 +5,7 @@ import { fileURLToPath } from 'node:url';
 const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const STRICT_LIMITS = Object.freeze({
   'components/layout/TerminalShell.tsx': 400,
-  'components/playbook/PlaybookIntelligenceView.tsx': 300,
   'components/synthesis/StrategySynthesisView.tsx': 200,
-  'components/radar/RadarItemDetailView.tsx': 200,
 });
 const MAX_LINES = 500;
 const ADVISORY_LINES = 350;

@@ -117,8 +117,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     if (pathname?.startsWith('/verify')) return 'VERIFY';
     if (pathname?.startsWith('/legal')) return 'LEGAL';
     if (pathname?.startsWith('/build')) return 'BUILDER';
-    if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
-    if (pathname?.startsWith('/radar')) return 'RADAR';
     if (pathname === '/welcome') return 'WELCOME';
     return 'LEDGER';
   })();

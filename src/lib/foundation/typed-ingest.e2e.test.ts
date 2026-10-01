@@ -4,11 +4,12 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { NextRequest } from 'next/server';
 import { POST as ingestTyped } from '@/app/api/foundation/ingest/typed/route';
-import { GET as getBusinesses } from '@/app/api/businesses/route';
+import { isPublishableEntity, publicFoundationBusinessCase, publicFoundationData } from '@/lib/company-access/public-entity';
+import { parseFoundationBusinessCase } from './schema';
 import { withCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
 import { gitBlobSha1, prepareFoundationTypedIngest } from './typed-ingest';
 import { DIMENSIONS } from './coverage';
-import { adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
+import { adaptFoundationDetailToFinancialEntity, adaptFoundationSummaryToFinancialEntity } from './foundation-adapter';
 import type { FoundationBusinessCase } from './business-reader';
 import { UniversalIntelligenceStream } from '@/features/company-inspector';
 import {
@@ -16,6 +17,21 @@ import {
   readMakeMoneyViewDetail,
   rebuildMakeMoneyViewsPage,
 } from './make-money-view';
+
+/**
+ * 公開 API（/api/businesses）は公開目録だけを返すので、収集基盤の公開ビューは
+ * ここで直接読み、旧 API と同じ形（公開用に絞った詳細）に整えて検査する。
+ */
+async function getBusinesses(request: Request): Promise<Response> {
+  const entityId = new URL(request.url).searchParams.get('entity_id');
+  const view = entityId ? await readMakeMoneyViewDetail(entityId) : null;
+  if (!view) return Response.json({ error: 'Entity not found' }, { status: 404 });
+  const parsed = parseFoundationBusinessCase(view);
+  if (!isPublishableEntity(adaptFoundationSummaryToFinancialEntity(parsed))) {
+    return Response.json({ error: 'Entity not found' }, { status: 404 });
+  }
+  return Response.json({ source: 'foundation_lake', data: publicFoundationData(publicFoundationBusinessCase(parsed)) });
+}
 
 type StoredObject = {
   body: Uint8Array;
@@ -733,12 +749,7 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(canonicalText).toContain('collection_coverage');
       expect(canonicalText).toContain('not_attempted');
 
-      const listResponse = await getBusinesses(
-        new Request('http://localhost/api/businesses?foundationOnly=true&limit=100'),
-      );
-      const list = await listResponse.json();
-      expect(listResponse.status).toBe(200);
-      expect(list.data.some((row: { id?: string }) => row.id === entityId)).toBe(true);
+      expect(await readMakeMoneyViewDetail(entityId)).not.toBeNull();
 
       const firstCanonical = canonicalKeys(r2);
       const second = await postTyped(partialCoverageRequest);

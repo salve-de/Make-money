@@ -2,15 +2,12 @@
 
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
-import { parseFoundationDetailResponse } from '@/lib/foundation/schema';
-import { adaptFoundationSummaryToFinancialEntity, adaptFoundationDetailToFinancialEntity, isFoundationDossierReady } from '@/lib/foundation/foundation-adapter';
-import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
 import { useCuratedCatalog } from './useCuratedCatalog';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
-import { useFoundationPaging } from './useFoundationPaging';
-import { hasFullReader, isDetailSettled, mayFoundationReplaceCurated, preferDetail } from '@/shared/dossier-authority';
+import { hasFullReader, isDetailSettled, preferDetail } from '@/shared/dossier-authority';
+import { canonicalCatalogId, filterToCatalog } from '@/shared/catalog-membership';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
 
@@ -38,17 +35,15 @@ function isApprovalCandidate(entity: FinancialEntity): boolean {
   return (entity.tags || []).includes('収集事例');
 }
 
+/**
+ * 画面に出す事例の行。公開目録（data/catalog-release.json）にある事例だけを受け取り、出口でも目録の門を通す。
+ */
 export type DetailFetchStatus = 'failed' | 'done';
 
-export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQuery = '') {
+export function useCatalogEntities(initialEntities: FinancialEntity[], searchQuery = '') {
   const [catalogFilters, setCatalogFilters] = useState('');
   const catalog = useCuratedCatalog(initialEntities, searchQuery, catalogFilters);
-  const coreEntities = catalog.entities;
-  const foundation = useFoundationPaging({
-    searchQuery,
-    catalogHasMore: catalog.hasMore,
-  });
-  const foundationRows = foundation.rows;
+  const coreEntities = useMemo(() => filterToCatalog(catalog.entities), [catalog.entities]);
 
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
@@ -99,29 +94,15 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     };
   }, []);
 
-  const foundationEntries = useMemo(() => {
-    return foundationRows.map((summary) => ({
-      summary,
-      entity: adaptFoundationSummaryToFinancialEntity(summary),
-      readyToReplaceCurated: isFoundationDossierReady(summary),
-    }));
-  }, [foundationRows]);
-
-  const foundationEntities = useMemo(
-    () => foundationEntries.map((entry) => entry.entity),
-    [foundationEntries],
-  );
-
   const approvalCandidateIds = useMemo(() => {
     const ids = new Set<string>();
     const addCandidate = (entity: FinancialEntity) => {
       if (isApprovalCandidate(entity)) ids.add(entity.id.trim().toLowerCase());
     };
     coreEntities.forEach(addCandidate);
-    foundationEntities.forEach(addCandidate);
     Object.values(detailedEntities).forEach(addCandidate);
     return [...ids];
-  }, [coreEntities, foundationEntities, detailedEntities]);
+  }, [coreEntities, detailedEntities]);
 
   useEffect(() => {
     const now = Date.now();
@@ -177,49 +158,10 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     return () => controller.abort();
   }, [approvalCandidateIds, approvedIds, approvalProjectionEpoch]);
 
-  // 全エンティティの統合
-  const entities = useMemo(() => {
-    const normalize = (s: string) => s.toLowerCase().trim().replace(/[\s\-_・（）()株式会社有限会社]/g, '');
-    const foundationById = new Map(
-      foundationEntries.map((entry) => [entry.entity.id.toLowerCase(), entry])
-    );
-    const foundationByName = new Map(
-      foundationEntries.map((entry) => [normalize(entry.entity.name), entry])
-    );
-    const aliasMatches: Record<string, string> = {
-      'aliabdaal': 'aliabdaalcourses',
-      'aliabdaalcourses': 'aliabdaal',
-      'eggheadio': 'egghead',
-      'egghead': 'eggheadio',
-    };
-
-    const seenIds = new Set<string>();
-    const seenNames = new Set<string>();
-    const merged: FinancialEntity[] = [];
-    for (const core of coreEntities) {
-      const coreName = normalize(core.name);
-      const candidate = foundationById.get(core.id.toLowerCase()) ||
-        (coreName ? foundationByName.get(coreName) || foundationByName.get(aliasMatches[coreName]) : undefined);
-      const replacement = candidate?.readyToReplaceCurated && mayFoundationReplaceCurated(core) ? candidate.entity : undefined;
-      const entity = replacement ? { ...replacement, batchId: replacement.batchId || core.batchId } : core;
-      const normalizedName = normalize(entity.name);
-      if (seenIds.has(entity.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName))) continue;
-      merged.push(entity);
-      seenIds.add(entity.id.toLowerCase());
-      if (normalizedName) seenNames.add(normalizedName);
-    }
-
-    for (const foundation of foundationEntities) {
-      const normalizedName = normalize(foundation.name);
-      const aliasName = aliasMatches[normalizedName];
-      if (seenIds.has(foundation.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName)) || (aliasName && seenNames.has(aliasName))) continue;
-      merged.push(foundation);
-      seenIds.add(foundation.id.toLowerCase());
-      if (normalizedName) seenNames.add(normalizedName);
-    }
-
-    return merged.map((item) => approvedIds.has(item.id.toLowerCase()) ? removeCollectionTag(item) : item);
-  }, [coreEntities, foundationEntries, foundationEntities, approvedIds]);
+  const entities = useMemo(
+    () => coreEntities.map((item) => approvedIds.has(item.id.toLowerCase()) ? removeCollectionTag(item) : item),
+    [coreEntities, approvedIds],
+  );
 
   // Detailed records use the same persisted overlay as summaries. Keep the raw
   // fetched object intact so changing an approval never mutates source evidence.
@@ -231,30 +173,19 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     return next;
   }, [approvedIds, detailedEntities]);
 
-  // 資本主義の動的攻略本マクロ集計データ
-  const macroData = useMemo(() => {
-    return aggregateMacroIntelligence(entities);
-  }, [entities]);
-
-  // オンデマンド詳細読み込み関数
-  const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
+  // オンデマンド詳細読み込み関数（公開目録の事例だけ。目録外は取りに行かない）
+  const fetchEntityDetailOnDemand = useCallback((requestedId: string, latestDossierHash?: string) => {
+    // ?entity=ENT_... のような大文字小文字・前後の空白の違いは、目録の正式な ID に直してから扱う
+    const targetId = canonicalCatalogId(requestedId);
+    if (!targetId) return Promise.resolve();
     lastDetailHash.current.set(targetId, latestDossierHash);
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId) || detailFetchSettled.current.has(targetId)) return Promise.resolve();
 
     detailFetchInProgress.current.add(targetId);
-    const normalizedTargetId = targetId.toLowerCase();
-    const knownFoundation = foundationRows.some((row) => row.id.toLowerCase() === normalizedTargetId);
-    const curated = coreEntities.find((entity) => entity.id.toLowerCase() === normalizedTargetId);
-    const knownCurated = Boolean(curated);
     const markStatus = (status: DetailFetchStatus) => setDetailStatus((prev) =>
       prev[targetId] === status ? prev : { ...prev, [targetId]: status });
-
-    return fetchBusinessDetailResponse(fetch, {
-      targetId,
-      latestDossierHash,
-      knownCurated,
-      knownFoundation,
-    }).then(async (res) => {
+    return fetchBusinessDetailResponse(fetch, { targetId, latestDossierHash })
+      .then(async (res) => {
         if (res.status === 404) {
           // 公開されていない・見つからない事例。取り直しても同じなので、ページを開き直すまで撃ち直さない
           detailFetchSettled.current.add(targetId);
@@ -264,17 +195,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: unknown = await res.json();
         if (json && typeof json === 'object') {
-          const payload = json as { source?: string; data?: unknown };
-          if (payload.source === 'foundation_lake') {
-            const detail = parseFoundationDetailResponse(payload);
-            // 公開中の事例は公開版が正本。同じ ID の Foundation 候補で詳細を置き換えない
-            if (detail && mayFoundationReplaceCurated(curated)) {
-              const adapted = adaptFoundationDetailToFinancialEntity(detail);
-              setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], adapted) }));
-            } else {
-              detailFetchSettled.current.add(targetId);
-            }
-          } else if (payload.data && typeof payload.data === 'object') {
+          const payload = json as { data?: unknown };
+          if (payload.data && typeof payload.data === 'object') {
             const entity = parseFinancialEntity(payload.data);
             if (entity.id !== targetId) throw new Error('Detail entity identity mismatch');
             setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], entity) }));
@@ -291,11 +213,12 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
       .finally(() => {
         detailFetchInProgress.current.delete(targetId);
       });
-  }, [coreEntities, detailedEntities, foundationRows]);
+  }, [detailedEntities]);
 
   /** 詳細の取得に失敗した事例を、利用者の「再読み込み」で取り直す。 */
-  const retryEntityDetail = useCallback((targetId: string) => {
-    if (detailStatus[targetId] !== 'failed' || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
+  const retryEntityDetail = useCallback((requestedId: string) => {
+    const targetId = canonicalCatalogId(requestedId);
+    if (!targetId || detailStatus[targetId] !== 'failed' || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
     detailFetchSettled.current.delete(targetId);
     setDetailStatus((prev) => {
       const next = { ...prev };
@@ -317,32 +240,16 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     catalogFirstId: catalog.firstId,
     catalogLoadedCount: catalog.loadedCount,
     catalogTotal: catalog.totalCount,
-    foundationLoadedCount: foundationRows.length,
-    foundationTotal: foundation.total,
-    dataSource: catalog.error || foundation.dataSource,
-    macroData,
-    foundationHasMore: foundation.gridHasMore,
-    foundationLoading: foundation.loading,
+    /** 目録を読み込めなかった時の理由。null なら正常 */
+    catalogError: catalog.error,
+    hasMore: catalog.hasMore,
     catalogLoading: catalog.loading,
-    foundationRetryAvailable: foundation.gridRetryAvailable,
-    foundationSearchIncomplete: foundation.searchIncomplete,
-    foundationSearchContinuationAvailable:
-      foundation.searchContinuationAvailable,
-    foundationSearchContinuationFailed:
-      foundation.searchContinuationFailed,
-    foundationSearchRetryMessage: foundation.searchRetryMessage,
-    newArrivalsRelease: foundation.newArrivalsRelease,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
     approvedIds,
     setApprovedIds,
     setCatalogFilters,
-    loadMoreFoundation: () => {
-      foundation.loadMore();
-      catalog.loadMore();
-    },
-    continueFoundationSearch: foundation.continueSearch,
-    retryFoundationPage: foundation.retryPage,
+    loadMore: catalog.loadMore,
     fetchEntityDetailOnDemand,
     detailStateFor,
     retryEntityDetail,

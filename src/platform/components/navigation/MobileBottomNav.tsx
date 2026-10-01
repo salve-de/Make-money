@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Compass, Lightbulb, List, TrendingUp, type LucideIcon } from 'lucide-react';
+import { Compass, Lightbulb, List, type LucideIcon } from 'lucide-react';
 import {
   GlobalNavSection,
   LOCAL_MODE_BY_SECTION,
@@ -16,11 +16,10 @@ interface MobileBottomNavProps {
   onSelectLocalMode?: (mode: LocalWorkspaceMode) => void;
 }
 
-/** 下のタブは主要な4画面だけ（Apple・Material とも3〜5個）。ほかはヘッダー左のメニューに置く */
+/** 下のタブは主要な3画面だけ（Apple・Material とも3〜5個）。ほかはヘッダー左のメニューに置く */
 const TABS: { id: GlobalNavSection; label: string; href: string; Icon: LucideIcon }[] = [
   { id: 'LEDGER', label: '事例', href: '/', Icon: List },
   { id: 'DISCOVER', label: '発見', href: '/discover', Icon: Compass },
-  { id: 'RADAR', label: '市場', href: '/radar', Icon: TrendingUp },
   { id: 'SYNTHESIS', label: '事業検討', href: SAVED_HREF, Icon: Lightbulb },
 ];
 

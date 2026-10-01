@@ -656,11 +656,7 @@ export type GridFilterOption =
 
 export type WorkspaceMode =
   | 'LEDGER'
-  | 'PLAYBOOK'
-  | 'ARCHETYPES'
-  | 'RADAR'
-  | 'SYNTHESIS'
-  | 'DEEP_DIVE';
+  | 'SYNTHESIS';
 
 // ─── 市場の歪み・急上昇トレンド（Market Anomaly & Trend） ───
 export type AnomalyCategory =

@@ -104,6 +104,8 @@ if (process.env.READER_REPORT_DIR) {
 }
 const directory = '.catalog-release';
 const checkOnly = process.argv.includes('--check');
+// CI の e2e 用: .catalog-release/*.gz だけを書く。目録ファイル（data/catalog-release.json）は書き換えず、食い違えば失敗
+const artifactsOnly = process.argv.includes('--artifacts-only');
 if (!checkOnly) await mkdir(directory, { recursive: true });
 const objects: { key: string; file: string }[] = [];
 async function artifact(value: unknown, key?: string) {
@@ -128,7 +130,7 @@ const discovery = await artifact(deriveDiscoveryDataset(entities.map(publicEntit
 const manifest = { version: 1, sourceHash, sourceCount: parsed.validEntities.length, publishedCount: entities.length,
   summaries, discovery, details, approvalCandidateIds: [...collectApprovalCandidateIds(raw)].sort() };
 const manifestText = `${JSON.stringify(manifest, null, 2)}\n`;
-if (checkOnly) {
+if (checkOnly || artifactsOnly) {
   if (await readFile('data/catalog-release.json', 'utf8') !== manifestText) throw new Error('Catalog release is stale; run pnpm catalog:prepare and publish before deployment');
 } else {
   await writeFile('data/catalog-release.json', manifestText);

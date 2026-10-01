@@ -38,7 +38,7 @@ describe('公開版の詳細の isolate 内キャッシュ', () => {
 
   it('読み込みの失敗は覚えず、次の要求で読み直す', async () => {
     mocks.readR2Object.mockRejectedValueOnce(new Error('R2 unavailable')).mockResolvedValue({ body: gzipSync(text) });
-    await expect(findReleaseEntity('ent_cached')).rejects.toThrow('R2 unavailable');
+    await expect(findReleaseEntity('ent_cached')).rejects.toThrow('Catalog release is unavailable');
     expect(await findReleaseEntity('ent_cached')).toEqual(dossier);
     expect(mocks.readR2Object).toHaveBeenCalledTimes(2);
   });

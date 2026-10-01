@@ -24,8 +24,8 @@ const VIEWPORTS = {
 };
 
 let routes = [
-  '/', '/?mode=PLAYBOOK', '/?mode=RADAR', '/?mode=ARCHETYPES', '/?mode=SYNTHESIS',
-  '/discover', '/finder', '/macro', '/radar', '/playbook', '/registry', '/build', '/execute',
+  '/', '/?mode=SYNTHESIS',
+  '/discover', '/finder', '/build', '/execute',
   '/marketplace', '/marketplace/new', '/marketplace/businesses', '/marketplace/businesses/new', '/marketplace/businesses/mine',
   '/partners', '/welcome', '/success',
   '/compare', '/alerts', '/verify', '/legal/tokushoho', '/legal/terms', '/legal/privacy',
@@ -94,7 +94,7 @@ const results = [];
 {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: 'dark' });
   const p = await ctx.newPage();
-  for (const base of ['/execute', '/radar', '/build', '/marketplace', '/marketplace/businesses']) {
+  for (const base of ['/execute', '/build', '/marketplace', '/marketplace/businesses']) {
     try {
       await p.goto(BASE + base, { waitUntil: 'networkidle', timeout: 45000 });
       // 「新規」「自分の掲載」の入口と、事業の売買（製品一覧のタブ先）は、詳細ページの代表としては拾わない

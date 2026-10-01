@@ -55,6 +55,42 @@ export function findPaidClientImports(graph, clientEntries) {
   return errors;
 }
 
+/**
+ * 公開の入口（画面・API・メール配信）から、見本データや全件索引へ行き着いてはいけない。
+ * 公開してよい事例は data/catalog-release.json の目録だけ。起点は src/app/** の page/layout/route/loading/error/not-found。
+ * 管理・取り込み用の入口（認証付きの運用 API）は対象外。
+ */
+const PUBLIC_ENTRY = /^src\/app\/(?:.*\/)?(?:page|layout|route|loading|error|not-found)\.tsx?$/;
+const NON_PUBLIC_ENTRY = /^src\/app\/api\/(?:admin|foundation|cron|webhooks?|internal)\//;
+const SAMPLE_OR_FULL_INDEX = [
+  /^src\/platform\/data\/mockLedgerData\.ts$/,
+  /^src\/platform\/data\/additionalInstitutionalEntities\d*\.ts$/,
+  /^src\/lib\/intelligence\/macro-aggregator[^/]*\.ts$/,
+  /^src\/platform\/data\/marketAnomaliesData\.ts$/,
+  /^src\/platform\/data\/marketRadarData\.ts$/,
+  /^src\/platform\/data\/intelligenceDossiers\.ts$/,
+  /^data\/entities-index\.json$/,
+  /^data\/collected-registry\.json$/,
+];
+export function findSampleReachableFromPublicEntries(graph) {
+  const errors = [];
+  const entries = [...graph.keys()].filter((file) => PUBLIC_ENTRY.test(file) && !NON_PUBLIC_ENTRY.test(file));
+  for (const entry of entries) {
+    const visited = new Set();
+    const visit = (file, trail) => {
+      if (visited.has(file)) return;
+      visited.add(file);
+      if (SAMPLE_OR_FULL_INDEX.some((pattern) => pattern.test(file))) {
+        errors.push(`Sample or full-index data reached from a public entry: ${[...trail, file].join(' -> ')}`);
+        return;
+      }
+      for (const target of graph.get(file) || []) visit(target, [...trail, file]);
+    };
+    visit(entry, []);
+  }
+  return errors;
+}
+
 /** @param {{ file: string, text: string }[]} probes In-memory regression fixtures. */
 export function checkBoundaries(probes = []) {
   const errors = [];
@@ -99,6 +135,7 @@ export function checkBoundaries(probes = []) {
     walk(source); graph.set(from, edges);
   }
   errors.push(...findPaidClientImports(graph, clientEntries));
+  errors.push(...findSampleReachableFromPublicEntries(graph));
   for (const cycle of findCycles(graph)) errors.push(`Runtime import cycle: ${cycle.join(' -> ')}`);
   return errors;
 }

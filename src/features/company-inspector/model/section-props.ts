@@ -1,4 +1,4 @@
-import type { FinancialEntity,IntelligenceTopicId } from '@/shared/terminal';
+import type { FinancialEntity } from '@/shared/terminal';
 import type { buildInspectorModel } from './inspector-model';
 export interface CompanyInspectorPaneProps {
   entity: FinancialEntity | null;
@@ -11,8 +11,6 @@ export interface CompanyInspectorPaneProps {
   onPrevEntity?: () => void;
   onNextEntity?: () => void;
   onOpenPro?: () => void;
-  onSelectTopic?: (topicId: IntelligenceTopicId) => void;
-  onOpenAnomaly?: (anomalyId: string) => void;
   initialTab?: TabType;
   activeTags?: string[];
   onToggleTag?: (tag: string | null) => void;

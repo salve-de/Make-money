@@ -1,14 +1,21 @@
-import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
-import { publicEntity } from '@/lib/company-access/public-entity';
+import { readReleaseSummaries } from '@/lib/company-access/catalog-release';
+import type { FinancialEntity } from '@/shared/terminal';
 import manifest from '../../../data/catalog-release.json';
 import WelcomeClient from './WelcomeClient';
 
-export default function WelcomePage() {
-  return (
-    <WelcomeClient
-      entities={INSTITUTIONAL_ENTITIES.filter((e) => ['ent_photoai', 'ent_keyence', 'ent_stripe'].includes(e.id)).map(publicEntity)}
-      publishedCount={manifest.publishedCount}
-      collectedCount={manifest.sourceCount}
-    />
-  );
+export const dynamic = 'force-dynamic';
+
+const PICK_COUNT = 3;
+
+/** 公開目録の先頭数件。目録を読めない時は空にして、見本データには落とさない。 */
+async function readPicks(): Promise<FinancialEntity[]> {
+  try {
+    return (await readReleaseSummaries()).slice(0, PICK_COUNT);
+  } catch {
+    return [];
+  }
+}
+
+export default async function WelcomePage() {
+  return <WelcomeClient entities={await readPicks()} publishedCount={manifest.publishedCount} />;
 }
