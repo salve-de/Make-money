@@ -129,7 +129,8 @@ export function judgeProductImage(candidate: ProductImageCandidate): ProductScre
   const ownTexts = [path, candidate.alt, candidate.className];
   const ownTokens = ownTexts.flatMap(signalTokens);
   const contextTokens = signalTokens(candidate.context);
-  const japanese = ownTexts.some((text) => JAPANESE_SIGNALS.test(text)) || JAPANESE_SIGNALS.test(candidate.context);
+  // Only the image's own path / alt / class count: a Japanese heading above it is supporting evidence at most.
+  const japanese = ownTexts.some((text) => JAPANESE_SIGNALS.test(text));
   const strong = [...new Set(ownTokens.filter((token) => STRONG_SET.has(token)))];
   const weak = [...new Set([...ownTokens, ...contextTokens].filter((token) => WEAK_SET.has(token) || (STRONG_SET.has(token) && !strong.includes(token))))];
   if (strong.length > 0 || japanese) reasons.push(`signal:${[...strong, ...(japanese ? ['ja'] : [])].join('+')}`);

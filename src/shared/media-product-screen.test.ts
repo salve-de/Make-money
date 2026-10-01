@@ -106,6 +106,9 @@ describe('judgeProductImage', () => {
 
   it('treats the surrounding heading as support only', () => {
     expect(judgeProductImage(candidate({ url: 'https://example.com/img/a8f3c2.jpg', context: 'Features' })).verdict).toBe('ambiguous');
+    // A Japanese heading above the image is not evidence from the image itself.
+    expect(judgeProductImage(candidate({ url: 'https://example.com/img/a8f3c2.jpg', context: '操作画面' })).verdict).toBe('ambiguous');
+    expect(judgeProductImage(candidate({ url: 'https://example.com/img/a8f3c2.jpg', alt: '管理画面' })).verdict).toBe('screen');
   });
 });
 

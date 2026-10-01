@@ -901,9 +901,13 @@ async function captureProductScreens(ec: EntityContext, page: Page, facts: PageF
   const kind = 'screenshot_product' as const;
   const candidates: { candidate: ProductImageCandidate; pageUrl: URL }[] = [];
   const pageNotes: string[] = [];
-  const homeCandidates = await collectImageCandidates(page).catch(() => []);
+  // An earlier step (the pricing screenshot) may have left the shared page elsewhere; the home candidates and their
+  // recorded source page must come from the home page itself.
+  let onHome = withoutHash(new URL(page.url())) === withoutHash(homeUrl);
+  if (!onHome) onHome = (await openPage(ec, page, homeUrl, offSite)).ok;
+  const homeCandidates = onHome ? await collectImageCandidates(page).catch(() => []) : [];
   homeCandidates.forEach((candidate) => candidates.push({ candidate, pageUrl: homeUrl }));
-  pageNotes.push(`home:${homeCandidates.length}`);
+  pageNotes.push(onHome ? `home:${homeCandidates.length}` : 'home:not_reopened');
 
   for (const target of pickProductPageLinks(facts.pageLinks, ec.home, homeUrl, PRODUCT_SCREEN_MAX_PAGES)) {
     const verdict = await ec.run.robots.check(target);
@@ -953,7 +957,8 @@ async function captureProductScreens(ec: EntityContext, page: Page, facts: PageF
       }
       const staged = await stageAsset(ec, kind, bytes, { sourcePageUrl: withoutHash(pageUrl), assetUrl: url.href, sniffed, note: buildProductScreenNote(candidate, verdict) });
       steps.push({ kind, ...staged, url: url.href });
-      if (staged.status === 'captured' || staged.status === 'already_in_manifest') kept += 1;
+      // A record that exists under another kind (an og:image staged earlier with the same bytes) is not a product-screen record.
+      if (staged.status === 'captured' || (staged.status === 'already_in_manifest' && (staged.assetId && ec.existing.get(staged.assetId)?.kind === kind))) kept += 1;
     } catch (error) {
       steps.push({ kind, status: error instanceof FetchProblem ? error.kind : 'failed', url: candidate.url, detail: describeError(error) });
     }
@@ -1014,8 +1019,9 @@ async function runBrowserCapture(ec: EntityContext, context: BrowserContext, res
   const wanted = (kind: StepKind) => ec.run.kinds.includes(kind);
   if (wanted('screenshot_home')) await attempt('screenshot_home', () => captureScreenshot(ec, page, 'screenshot_home', home.url));
   if (wanted('favicon')) await attempt('favicon', () => captureFavicon(ec, home.facts, home.url));
-  if (wanted('og_image')) await attempt('og_image', () => captureOgImage(ec, home.facts, home.url));
   if (wanted('screenshot_pricing')) await attempt('screenshot_pricing', () => capturePricing(ec, page, home.facts, home.url, offSite));
+  // Product screens come before og:image: when an inline product screen is also the page's og:image (identical bytes, so the
+  // same asset id), the first step to stage it decides the kind, and the product screen must win.
   if (wanted('screenshot_product')) {
     try {
       result.steps.push(...(await captureProductScreens(ec, page, home.facts, home.url, offSite)));
@@ -1023,6 +1029,7 @@ async function runBrowserCapture(ec: EntityContext, context: BrowserContext, res
       result.steps.push({ kind: 'screenshot_product', status: error instanceof FetchProblem ? error.kind : 'failed', detail: describeError(error) });
     }
   }
+  if (wanted('og_image')) await attempt('og_image', () => captureOgImage(ec, home.facts, home.url));
   return true;
 }
 
