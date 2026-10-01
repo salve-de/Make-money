@@ -87,10 +87,11 @@ test.describe('official product images', () => {
       expect((await request.get(`/api/media/file?entity_id=ent_gmass_209d19&asset=${held.assetId}`)).status()).toBe(404);
     }
 
-    // 画像は事例が出ている時だけ出る。GMass は公開目録に入っているので、詳細と一緒に画像欄も出る
+    // 画像は事例が出ている時だけ出る。画像欄に出るのは実画面（ストアの画面写真・製品画面）とアプリのアイコンだけで、
+    // ファビコンだけの事例には画像欄を出さない
     await page.goto('/?entity=ent_gmass_209d19');
     await expect(page.getByRole('heading', { name: 'GMass', exact: true })).toBeVisible({ timeout: 45_000 });
-    await expect(page.locator('#section-media')).toBeVisible();
+    await expect(page.locator('#section-media')).toHaveCount(pickGalleryAssets(offered).length > 0 ? 1 : 0);
     await page.screenshot({ path: 'test-results/media-gallery-gmass.png' });
   });
 
