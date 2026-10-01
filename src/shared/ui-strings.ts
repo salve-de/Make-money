@@ -108,6 +108,9 @@ export const UI = {
   UNKNOWN_JOINER: '・',
   ESTIMATED_MARK: '推定',
   NO_READER: 'この事例の詳細は準備中です。',
+  DETAIL_LOADING: '詳細を読み込んでいます…',
+  DETAIL_LOAD_FAILED: '詳細の読み込みに失敗しました。',
+  DETAIL_RELOAD: '再読み込み',
   // ヘッダー・操作
   TAB_LEDGER: '概要・数値',
   TAB_AUDIT: 'メモ',

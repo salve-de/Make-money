@@ -1,11 +1,11 @@
 import {
   isPublishableEntity,
-  publicEntity,
   publicFoundationBusinessCase,
   publicFoundationData,
   publicSummaryEntity,
 } from '@/lib/company-access/public-entity';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
+import { cachedPublicEntity, cachedPublicSummaryEntity } from '@/lib/company-access/projection-cache';
 import { NextResponse } from 'next/server';
 import {
   type FoundationBusinessCase,
@@ -41,6 +41,7 @@ const gunzip = promisify(gunzipCb);
 export const dynamic = 'force-dynamic';
 
 const CACHE_CONTROL = 'private, max-age=30, stale-while-revalidate=300';
+const RELEASE_DETAIL_CACHE_CONTROL = 'private, max-age=600, stale-while-revalidate=3600';
 const MAX_ENTITY_ID_LENGTH = 200;
 const MAX_R2_CURSOR_LENGTH = 2048;
 const MAX_FOUNDATION_SEARCH_CURSOR_LENGTH = 8192;
@@ -535,13 +536,15 @@ export async function GET(request: Request) {
       return response({
         source: 'local_fallback',
         count: 1,
-        data: publicEntity(curated),
+        data: cachedPublicEntity(curated),
         dossierHash: actualHash,
         sourceRevision: revision,
         isStale: false,
       }, 200, {
         'X-Dossier-Hash': actualHash,
         'X-Source-Revision': String(revision),
+        // 公開版のハッシュ指定の詳細は中身が変わらない。同じ事例を開き直した時はブラウザの控えを使い、Worker を起こさない
+        ...(servedByRelease ? { 'Cache-Control': RELEASE_DETAIL_CACHE_CONTROL } : {}),
       });
     }
 
@@ -674,8 +677,8 @@ export async function GET(request: Request) {
   const curatedFallback = await readCuratedFallbackEntities();
   const fallbackEntities = curatedFallback.entities.filter(isPublishableEntity);
   const transformed = returnSummaryOnly
-    ? fallbackEntities.map(publicSummaryEntity)
-    : fallbackEntities.map(publicEntity);
+    ? fallbackEntities.map(cachedPublicSummaryEntity)
+    : fallbackEntities.map(cachedPublicEntity);
 
   return response({
     source: curatedFallback.source,
