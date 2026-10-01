@@ -48,12 +48,26 @@ export function useSelectedEntityNavigation({
   // 利用者が自分で開いた事例か（URLの ?entity=・検索語・クリック・キー操作）。
   // PCで最初の事例を自動で表示しているだけのときは false にして、「閲覧中」や強調表示に使わない
   const [selectionIsExplicit, setSelectionIsExplicit] = useState(Boolean(entityParam || queryParam));
+  // 最初の事例の自動表示を済ませた（または利用者が操作した）か。閉じた後に勝手に開き直さないための印
+  const autoSelectSettled = useRef(initialEntityId !== null);
   const setSelectedEntityId = useCallback((id: string | null) => {
+    autoSelectSettled.current = true;
     setSelectionIsExplicit(id !== null);
     setSelectedEntityIdState(id);
   }, []);
   const appliedNavigation = useRef<string | null>(null);
   const previousEntityParam = useRef<string | null>(entityParam ?? null);
+
+  // 本番は一覧がブラウザに届いてから先頭の事例を自動で表示する（サーバー側では詳細を読まない）。
+  // 自動表示は「利用者が開いた」扱いにしない（スマホ幅では詳細を開かない）
+  useEffect(() => {
+    if (autoSelectSettled.current || selectedEntityId || entityParam || queryParam) return;
+    const first = entities[0]?.id;
+    if (!first) return;
+    autoSelectSettled.current = true;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSelectedEntityIdState(first);
+  }, [entities, selectedEntityId, entityParam, queryParam]);
 
   // オンデマンド詳細読み込み
   useEffect(() => {
