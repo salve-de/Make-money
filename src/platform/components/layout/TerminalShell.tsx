@@ -336,8 +336,7 @@ export const TerminalShell: React.FC<{
         {workspaceMode === 'LEDGER' && selectedEntity && (
           <div className="contents xl:flex xl:w-[520px] xl:min-w-0 xl:shrink-0">
           <CompanyInspectorPane
-            entity={selectedEntity}
-            detailState={detailStateFor(selectedEntity)} onRetryDetail={() => { void retryEntityDetail(selectedEntity.id); }}
+            entity={selectedEntity} detailState={detailStateFor(selectedEntity)} onRetryDetail={() => { void retryEntityDetail(selectedEntity.id); }}
             positionLabel={selectedPositionLabel}
             onClose={closeEntity}
             mobileOpen={mobileInspectorOpen}
