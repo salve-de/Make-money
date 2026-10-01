@@ -19,11 +19,13 @@ test('ticker and welcome use the same amounts as the ledger', async ({ page }) =
   await expect(inspector).toContainText('この事例の詳細は準備中です。');
   await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
   await expect(inspector).not.toContainText('45億');
+  // トップのピックアップは公開中の事例から選ぶ。Photo AI が出る時（公開版が読めない時の見本）も、作り物の数字は出さない
   await page.goto('/welcome');
+  await expect(page.getByRole('heading', { name: '事例ピックアップ' })).toBeVisible();
+  await expect(page.locator('main')).not.toContainText('77.3%');
+  await expect(page.locator('main')).not.toContainText('45億');
   const preview = page.locator('a').filter({ hasText: 'Photo AI' });
-  await expect(preview).toHaveCount(1);
-  await expect(preview).toContainText('未確認');
-  await expect(preview).not.toContainText('77.3%');
+  if (await preview.count()) await expect(preview).toContainText('未確認');
 });
 
 test('empty trend search clears selected detail and result statistics', async ({ page }) => {

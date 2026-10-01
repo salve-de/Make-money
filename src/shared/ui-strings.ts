@@ -102,6 +102,7 @@ export const UI = {
   COL_MEASURE: '項目',
   COL_PERIOD: '期間',
   METRIC_STATED_AT_SUFFIX: '時点の表示',
+  TREND_TITLE: '{name}の推移（古い順）',
   COL_AMOUNT: '金額',
   COL_ORIGIN: '情報源',
   UNKNOWN_PREFIX: '未確認: ',

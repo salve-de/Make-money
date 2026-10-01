@@ -2,9 +2,13 @@
 
 import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from '@/platform/components/grid/ReaderListCells';
 import { UI } from '@/shared/ui-strings';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ChevronRight, Search } from 'lucide-react';
+import { EntityAvatar } from '@/platform/components/grid/EntityAvatar';
+import { useEntityMedia } from '@/platform/hooks/useEntityMedia';
+import { pickEntityLogo } from '@/shared/media-display';
+import { readerSummaryFact } from '@/shared/display-text';
+import { ChevronRight, ListOrdered, Puzzle, Search, TrendingUp, Wrench } from 'lucide-react';
 import { AuthModal } from '@/components/auth/AuthModal';
 import { SubmissionForm } from '@/components/terminal/SubmissionForm';
 import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
@@ -13,14 +17,16 @@ import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import type { FinancialEntity } from '@/shared/terminal';
 
 
-const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_150px_90px]';
+const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_150px_130px]';
 
 /** 最初の一手。中身のある画面だけを、何が見られるかの1行と一緒に並べる（ナビの名前と同じ語を使う） */
+const PICK_LIMIT = 8;
+
 const ENTRY_POINTS = [
-  { label: 'ランキング', text: '金額・初期資金・人数などで並べ替えて、目立つ事例から見る', href: '/discover' },
-  { label: '市場動向', text: '伸びている事業テーマと、失敗した理由を分野ごとに見る', href: '/radar' },
-  { label: '事業アイデア', text: '顧客・提供するもの・収益の取り方を組み合わせた案を見る', href: '/?mode=ARCHETYPES' },
-  { label: 'やり方とツール', text: '集客の方法や、事業で使われている道具を用途別に見る', href: '/playbook' },
+  { label: 'ランキング', text: '金額・初期資金・人数などで並べ替えて、目立つ事例から見る', href: '/discover', Icon: ListOrdered },
+  { label: '市場動向', text: '伸びている事業テーマと、失敗した理由を分野ごとに見る', href: '/radar', Icon: TrendingUp },
+  { label: '事業アイデア', text: '顧客・提供するもの・収益の取り方を組み合わせた案を見る', href: '/?mode=ARCHETYPES', Icon: Puzzle },
+  { label: 'やり方とツール', text: '集客の方法や、事業で使われている道具を用途別に見る', href: '/playbook', Icon: Wrench },
 ];
 
 export default function WelcomeClient({
@@ -34,7 +40,23 @@ export default function WelcomeClient({
 }) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const { user } = useAuth();
-  const examples = entities.filter((entity) => ['ent_photoai', 'ent_keyence'].includes(entity.id));
+  // 公開中の事例から、何の事業かの一文と数字の両方がある物を最大8件。読めるまでは渡された見本を出す
+  const [published, setPublished] = useState<FinancialEntity[] | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/api/catalog?offset=0&pageSize=60')
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const body = (await response.json()) as { data?: FinancialEntity[] };
+        const rows = Array.isArray(body.data) ? body.data : [];
+        const picks = rows.filter((entity) => readerSummaryFact(entity.reader) && listMetricsOf(entity.reader).main).slice(0, PICK_LIMIT);
+        if (!cancelled && picks.length > 0) setPublished(picks);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+  const examples = published ?? entities.filter((entity) => ['ent_photoai', 'ent_keyence'].includes(entity.id));
+  const logos = useEntityMedia(examples.map((entity) => entity.id));
   const btn = 'inline-flex min-h-11 items-center rounded-sm border px-4 text-sm lg:min-h-8 lg:px-3';
 
   return (
@@ -119,7 +141,10 @@ export default function WelcomeClient({
                     href={`/?entity=${encodeURIComponent(entity.id)}`}
                     className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select md:items-center lg:min-h-[29px] lg:py-1 ${SAMPLE_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
                   >
-                    <span className="font-semibold text-term-fg-strong">{entity.name}</span>
+                    <span className="flex min-w-0 items-center gap-2 font-semibold text-term-fg-strong">
+                      <EntityAvatar name={entity.name} asset={pickEntityLogo(logos[entity.id])} size={24} />
+                      <span className="truncate">{entity.name}</span>
+                    </span>
                     <ListDescription reader={entity.reader} className="line-clamp-2 text-term-sub md:line-clamp-1" />
                     <span className="term-num md:text-right"><ListMetricCell metric={main} expected={['REVENUE']} /></span>
                     <span className="text-xs md:text-sm"><ListOriginCell metric={main} /></span>
@@ -142,8 +167,11 @@ export default function WelcomeClient({
           <ul className="grid sm:grid-cols-2">
             {ENTRY_POINTS.map((entry, index) => (
               <li key={entry.href} className={`border-b border-term-line-soft ${index % 2 === 0 ? 'sm:border-r' : ''}`}>
-                <Link href={entry.href} prefetch={false} className="flex min-h-11 items-center justify-between gap-3 px-3 py-2 text-sm hover:bg-term-select">
-                  <span className="min-w-0">
+                <Link href={entry.href} prefetch={false} className="flex min-h-11 items-center justify-between gap-3 px-3 py-2.5 text-sm hover:bg-term-select">
+                  <span aria-hidden="true" className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-term-line bg-term-head text-term-accent">
+                    <entry.Icon className="h-[18px] w-[18px]" />
+                  </span>
+                  <span className="min-w-0 flex-1">
                     <span className="block font-semibold text-term-fg-strong">{entry.label}</span>
                     <span className="block text-xs leading-5 text-term-sub">{entry.text}</span>
                   </span>

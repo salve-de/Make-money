@@ -13,6 +13,7 @@ import {
 } from '@/shared/display-text';
 import type { Measure, ReaderCase, ReaderMetric } from '@/shared/reader-case';
 import { UI } from '@/shared/ui-strings';
+import { ORIGIN_ICONS } from '../icons/ui-icons';
 
 /** 一覧の行が読むのは entity.reader だけ。売上欄と利益欄の1件ずつを選ぶ。 */
 export function listMetricsOf(reader: ReaderCase | undefined): { main: ReaderMetric | null; profit: ReaderMetric | null } {
@@ -81,9 +82,15 @@ export function ListMetricCell({ metric, expected }: { metric: ReaderMetric | nu
 export function ListOriginCell({ metric }: { metric: ReaderMetric | null }) {
   if (!metric) return <span className="text-term-dim"><span aria-hidden="true">—</span><span className="sr-only">{UI.LIST_ORIGIN_NONE_ARIA}</span></span>;
   return (
-    <span data-metric={metric.id} className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}>
+    <span data-metric={metric.id} className={`inline-flex items-center gap-1 whitespace-nowrap ${metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}`}>
+      <OriginIcon origin={metric.origin} />
       {metricOriginLabel(metric)}
       {metricYear(metric) && <span className="term-num ml-1 text-term-label">{metricYear(metric)}</span>}
     </span>
   );
+}
+
+function OriginIcon({ origin }: { origin: ReaderMetric['origin'] }) {
+  const Icon = ORIGIN_ICONS[origin];
+  return <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />;
 }

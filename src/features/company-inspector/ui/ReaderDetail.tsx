@@ -6,10 +6,14 @@ import {
   formatMetricAmount,
   metricMeasureLabel,
   metricOriginLabel,
+  metricPeriodSuffix,
+  pickListMetric,
   readerSummaryFact,
 } from '@/shared/display-text';
 import { ANALYSIS_LABELS, CONFIDENCE_LABELS, FACT_SECTIONS, UI, UNKNOWN_LABELS } from '@/shared/ui-strings';
+import { ANALYSIS_ICONS } from '@/platform/components/icons/ui-icons';
 import { ReaderSection } from './ReaderSection';
+import { ReaderMetricTrend } from './ReaderMetricTrend';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
 const evidenceAnchor = (prefix: string, id: string) => `${prefix}-evidence-${encodeURIComponent(id)}`;
@@ -33,14 +37,44 @@ function SourceRef({ n, prefix }: { n?: number; prefix: string }) {
   );
 }
 
-/** 概要の1行（summaryFactId の事実）。無ければ出さない。 */
+/** 概要の1行（summaryFactId の事実）。何の事業かを最初に読ませる。無ければ出さない。 */
 export function ReaderSummary({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   const fact = readerSummaryFact(reader);
   if (!reader || !fact) return null;
   return (
-    <p id={evidenceAnchor(evidencePrefix, fact.id)} data-fact={fact.id} className="scroll-mt-8 border-b border-term-line px-2.5 py-2 text-sm leading-relaxed text-term-fg-strong sm:px-3">
+    <p id={evidenceAnchor(evidencePrefix, fact.id)} data-fact={fact.id} className="scroll-mt-8 px-2.5 pb-1 pt-3 text-[15px] leading-relaxed text-term-fg-strong sm:px-3">
       {fact.text}
     </p>
+  );
+}
+
+/** 一番大事な数字1つを大きく（株価の画面の先頭の値と同じ置き方）。期間・情報源・基準は横に小さく。全件は下の「数値」の表。 */
+export function ReaderKeyFigure({ reader, evidencePrefix = 'reader' }: ReaderProps) {
+  if (!reader) return null;
+  const m = pickListMetric(reader);
+  // 数字が無い事例は、下の「未確認: 売上・利益」の行が伝える
+  if (!m) return null;
+  const suffix = metricPeriodSuffix(m);
+  const estimated = m.origin === 'ESTIMATED';
+  return (
+    <div data-metric={m.id} data-key-figure className="flex flex-wrap items-end gap-x-4 gap-y-1 px-2.5 pb-3 pt-2 sm:px-3">
+      <div className="min-w-0">
+        <div className="text-xs text-term-label">{metricMeasureLabel(m)}</div>
+        <div className={`term-num text-[28px] font-semibold leading-tight ${estimated ? 'text-term-accent' : 'text-term-fg-strong'}`}>
+          {formatMetricAmount(m)}
+          {suffix && <span className="ml-1 font-sans text-sm font-normal text-term-sub">{suffix}</span>}
+        </div>
+      </div>
+      <dl className="min-w-0 flex-1 pb-1 text-xs leading-relaxed text-term-sub">
+        <div className="flex gap-2"><dt className="shrink-0 text-term-label">{UI.COL_PERIOD}</dt><dd className="min-w-0">{m.period}</dd></div>
+        <div className="flex gap-2">
+          <dt className="shrink-0 text-term-label">{UI.COL_ORIGIN}</dt>
+          <dd className={estimated ? 'text-term-accent' : undefined}>
+            <a href={`#${evidenceAnchor(evidencePrefix, m.id)}`} className="underline-offset-2 hover:underline">{metricOriginLabel(m)}</a>
+          </dd>
+        </div>
+      </dl>
+    </div>
   );
 }
 
@@ -50,6 +84,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
   const sourceNo = sourceNumbers(reader);
   return (
     <ReaderSection id="section-metrics" title={UI.SECTION_METRICS} empty={reader.metrics.length === 0}>
+      <ReaderMetricTrend reader={reader} />
       {/* 狭い画面では横に送る。キーボードでも送れるようにフォーカスを受ける */}
       <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={UI.SECTION_METRICS}>
         <table className="w-full min-w-[400px] border-collapse text-left text-[13px]">
@@ -111,12 +146,23 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader' }: ReaderProps) 
   );
 }
 
+/** 推測の項目名。目で探しやすいよう、項目ごとの印を前に付ける（意味は文字で伝える）。 */
+function AnalysisHeading({ item }: { item: ReaderAnalysis['item'] }) {
+  const Icon = ANALYSIS_ICONS[item];
+  return (
+    <h4 className="inline-flex items-center gap-1.5 font-semibold text-term-fg-strong">
+      <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-term-sub" />
+      {ANALYSIS_LABELS[item]}
+    </h4>
+  );
+}
+
 /** 推測1件。見出し・印・確度・結論だけ。計算と根拠は下の ReaderEvidence にまとめる。 */
 function AnalysisEntry({ analysis, headline = false, marked = true }: { analysis: ReaderAnalysis; headline?: boolean; marked?: boolean }) {
   return (
     <div data-analysis={analysis.id} className="min-w-0 py-2 [overflow-wrap:anywhere]">
       <div className="mb-1 flex items-baseline gap-x-2 text-xs">
-        {!headline && <h4 className="font-semibold text-term-fg-strong">{ANALYSIS_LABELS[analysis.item]}</h4>}
+        {!headline && <AnalysisHeading item={analysis.item} />}
         {marked && <span className="text-term-accent">{UI.ANALYSIS_MARK}</span>}
         <span className="ml-auto shrink-0 text-term-label">{UI.ANALYSIS_CONFIDENCE_PREFIX}{CONFIDENCE_LABELS[analysis.confidence]}</span>
       </div>
@@ -246,13 +292,20 @@ export function ReaderUnknowns({ reader }: { reader?: ReaderCase }) {
 }
 
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
-export function ReaderLedger({ reader }: { reader?: ReaderCase }) {
+export function ReaderLedger({ reader, media }: { reader?: ReaderCase; media?: React.ReactNode }) {
   const evidencePrefix = `reader-${useId()}`;
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
+  // 読む順: 何の事業か → 一番大事な数字 → 製品の画像 → 強い一行と物語（推測） → 数値の表 → 推測 → 事実 → 根拠 → 出典
   return (
     <>
+      {readerSummaryFact(reader) || pickListMetric(reader) ? (
+        <div className="border-b border-term-line">
+          <ReaderSummary reader={reader} evidencePrefix={evidencePrefix} />
+          <ReaderKeyFigure reader={reader} evidencePrefix={evidencePrefix} />
+          {media}
+        </div>
+      ) : media}
       <ReaderAnalysisIntro reader={reader} />
-      <ReaderSummary reader={reader} evidencePrefix={evidencePrefix} />
       <ReaderMetrics reader={reader} evidencePrefix={evidencePrefix} />
       <ReaderAnalyses reader={reader} />
       <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} />

@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { DropdownMenu } from 'radix-ui';
 import { Bookmark, ChevronLeft, ChevronRight, ExternalLink, Share2, X } from 'lucide-react';
 
+import { EntityAvatar } from '@/platform/components/grid/EntityAvatar';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
+import { useEntityMedia } from '@/platform/hooks/useEntityMedia';
+import { pickEntityLogo } from '@/shared/media-display';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
 import type { InspectorSectionProps } from '../model/section-props';
 import { UI, uiFormat } from '@/shared/ui-strings';
@@ -57,6 +60,7 @@ export function CompanyHeader({
   const rawUrl = entity.url || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
   const sector = sectorLabel(entity);
+  const logo = pickEntityLogo(useEntityMedia([entity.id])[entity.id]);
 
   return (
     <>
@@ -73,11 +77,16 @@ export function CompanyHeader({
             {UI.BACK_TO_LIST}
           </button>
           {positionLabel && <span className="term-num hidden h-6 shrink-0 items-center text-term-muted lg:inline-flex">{positionLabel}</span>}
-          <div className="min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2">
-            <h2 className="truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
-              {entity.name}
-            </h2>
-            {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
+          <div className="flex min-w-0 flex-1 items-center gap-2 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:gap-3 lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2.5">
+            {/* 会社のロゴを名前の前に大きく（一覧の行と同じ画像） */}
+            <span className="hidden lg:contents"><EntityAvatar name={entity.name} asset={logo} size={40} /></span>
+            <span className="contents lg:hidden"><EntityAvatar name={entity.name} asset={logo} size={28} /></span>
+            <div className="min-w-0">
+              <h2 className="truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-xl lg:leading-tight" title={entity.name}>
+                {entity.name}
+              </h2>
+              {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
+            </div>
           </div>
           <div className="flex shrink-0 items-center lg:ml-auto" aria-label={UI.ACTIONS_LABEL}>
             {onToggleBookmark && (

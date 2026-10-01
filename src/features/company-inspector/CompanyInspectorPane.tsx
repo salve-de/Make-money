@@ -8,7 +8,7 @@ import { buildInspectorModel } from './model/inspector-model';
 import type { CompanyInspectorPaneProps, InspectorMainTab, InspectorViewMode } from './model/section-props';
 import { AnalystNotes } from './ui/AnalystNotes';
 import { CompanyHeader } from './ui/CompanyHeader';
-import { EntityMediaGallery } from './ui/EntityMediaGallery';
+import { EntityHeroImage, EntityMediaGallery } from './ui/EntityMediaGallery';
 import { OperatorVerificationNote } from './ui/OperatorVerificationNote';
 import { ReaderLedger } from './ui/ReaderDetail';
 import { VerifiedRevenueSection } from './ui/VerifiedRevenueSection';
@@ -125,7 +125,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         {/* entity.reader の事実・数値・出典と、推測の印つきの推論、運営者が決済確認した売上を描く */}
         {mainTab === 'LEDGER' ? (
           <>
-            <ReaderLedger reader={entity.reader} />
+            <ReaderLedger reader={entity.reader} media={<EntityHeroImage entityId={entity.id} entityName={entity.name} />} />
             <VerifiedRevenueSection entityId={entity.id} />
             <OperatorVerificationNote entityId={entity.id} url={entity.url} />
             <EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />

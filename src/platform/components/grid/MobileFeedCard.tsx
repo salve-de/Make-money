@@ -6,7 +6,7 @@ import { Bookmark } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { VerifiedMark } from './VerifiedMark';
 import type { PublicMediaAsset } from '@/shared/media-display';
-import { EntityLogo } from './EntityLogo';
+import { EntityAvatar } from './EntityAvatar';
 import { UI, uiFormat } from '@/shared/ui-strings';
 import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from './ReaderListCells';
 
@@ -46,11 +46,12 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         onClick={onSelect}
         aria-pressed={isSelected}
         aria-label={uiFormat(UI.OPEN_CASE_ARIA, entity.name)}
-        className="block min-h-11 min-w-0 flex-1 py-[9px] pl-3 pr-1 text-left focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent"
+        className="flex min-h-11 min-w-0 flex-1 items-start gap-3 py-2.5 pl-3 pr-1 text-left focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent"
       >
+        <span className="mt-0.5"><EntityAvatar name={entity.name} asset={logo} size={36} /></span>
+        <span className="block min-w-0 flex-1">
         <span className="flex items-baseline justify-between gap-3">
           <span className="flex min-w-0 items-center gap-1.5">
-            <EntityLogo asset={logo} />
             <span data-testid="entity-name" className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
             {isVerified && <VerifiedMark />}
           </span>
@@ -65,6 +66,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
             {profit && <span className="term-num truncate"><ListMetricCell metric={profit} /></span>}
           </span>
           {main && <span className="shrink-0"><ListOriginCell metric={main} /></span>}
+        </span>
         </span>
       </button>
       <button

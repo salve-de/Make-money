@@ -27,27 +27,24 @@ test.describe('official product images', () => {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/?entity=ent_photoai');
-    const gallery = page.locator('#section-media');
-    await expect(gallery).toBeVisible({ timeout: 45_000 });
-
-    // Directly under 「事業の概要」.
-    await expect(page.locator('#section-summary + #section-media')).toHaveCount(1);
-    await expect(gallery).toContainText('製品画像');
+    // The first image sits right under the summary and the key figure; any others are in 「製品画像」 further down.
+    const hero = page.getByTestId('media-hero');
+    await expect(hero).toBeVisible({ timeout: 45_000 });
 
     // One image per approved kind, loaded, each with its source text directly below it.
-    const images = gallery.getByTestId('media-gallery-image');
+    const images = page.locator('[data-testid="media-hero-image"], [data-testid="media-gallery-image"]');
     await expect(images).toHaveCount(new Set(shown.map((asset) => asset.kind)).size);
-    await gallery.scrollIntoViewIfNeeded();
     for (const image of await images.all()) {
+      await image.scrollIntoViewIfNeeded();
       await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
-      await expect(image).toHaveAttribute('loading', 'lazy');
     }
     const pricing = shown.find((asset) => asset.kind === 'screenshot_pricing');
     if (pricing) {
-      const figure = gallery.locator('figure').filter({ has: page.locator('[data-kind="screenshot_pricing"]') });
-      await expect(figure.getByTestId('media-gallery-attribution')).toHaveText(pricing.rights.attribution);
-      const image = await figure.getByTestId('media-gallery-image').boundingBox();
-      const caption = await figure.getByTestId('media-gallery-attribution').boundingBox();
+      const figure = page.locator('figure').filter({ has: page.locator('[data-kind="screenshot_pricing"]') });
+      const attribution = figure.locator('[data-testid="media-hero-attribution"], [data-testid="media-gallery-attribution"]');
+      await expect(attribution).toHaveText(pricing.rights.attribution);
+      const image = await figure.locator('img').boundingBox();
+      const caption = await attribution.boundingBox();
       expect(image && caption && caption.y >= image.y + image.height - 1).toBe(true);
     }
 
@@ -94,9 +91,9 @@ test.describe('official product images', () => {
     const notice = page.getByRole('status').filter({ hasText: '詳細の公開確認が完了していない' });
     await expect(heading.or(notice).first()).toBeVisible({ timeout: 45_000 });
     if (await heading.isVisible()) {
-      await expect(page.locator('#section-media')).toBeVisible();
+      await expect(page.getByTestId('media-hero')).toBeVisible();
     } else {
-      await expect(page.locator('#section-media')).toHaveCount(0);
+      await expect(page.locator('[data-testid="media-hero"], #section-media')).toHaveCount(0);
     }
     await page.screenshot({ path: 'test-results/media-gallery-keyence.png' });
   });

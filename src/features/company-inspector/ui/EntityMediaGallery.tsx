@@ -85,7 +85,58 @@ export function EntityMediaGalleryView({
   );
 }
 
+/** 詳細の先頭に置く1枚（画面写真・og:image など、アイコン以外で最初の物）。 */
+export function pickHeroAsset(assets: readonly PublicMediaAsset[]): PublicMediaAsset | null {
+  return assets.find((asset) => !isMediaIconKind(asset.kind)) ?? null;
+}
+
+/**
+ * 概要と数字のすぐ下に出す製品の画像1枚。出典の文と出典ページへのリンクを必ず添える。大きさは長辺 480px まで。
+ * 読み込めなければ何も出さない。
+ */
+export function EntityHeroImageView({ entityName, asset }: { entityName: string; asset: PublicMediaAsset | null }) {
+  const [failedId, setFailedId] = useState<string | null>(null);
+  if (!asset || failedId === asset.assetId) return null;
+  return (
+    <figure data-testid="media-hero" className="m-0 px-2.5 pb-3 sm:px-3">
+      {/* A vetted official image served by our own route or the public R2 domain; the Next image optimizer is not part of the Workers deploy. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        data-testid="media-hero-image"
+        data-kind={asset.kind}
+        src={asset.url}
+        alt={`${entityName}の${mediaKindLabel(asset.kind)}`}
+        width={asset.width ?? undefined}
+        height={asset.height ?? undefined}
+        decoding="async"
+        referrerPolicy="no-referrer"
+        onError={() => setFailedId(asset.assetId)}
+        style={{
+          ...(asset.width && asset.height ? { aspectRatio: `${asset.width} / ${asset.height}` } : {}),
+          maxWidth: MEDIA_THUMBNAIL_MAX_PX,
+          maxHeight: MEDIA_THUMBNAIL_MAX_PX,
+        }}
+        className="block h-auto w-full rounded border border-term-line bg-white object-contain"
+      />
+      <figcaption className="mt-1 flex flex-wrap gap-x-2 text-xs leading-snug text-term-label">
+        <span data-testid="media-hero-attribution" className="min-w-0 break-words">{asset.attribution}</span>
+        <a href={asset.sourcePageUrl} target="_blank" rel="noopener noreferrer nofollow" className="text-term-sub underline underline-offset-2 hover:text-term-fg-strong">
+          出典ページを開く
+        </a>
+      </figcaption>
+    </figure>
+  );
+}
+
+export function EntityHeroImage({ entityId, entityName }: { entityId: string; entityName: string }) {
+  const media = useEntityMedia([entityId]);
+  return <EntityHeroImageView entityName={entityName} asset={pickHeroAsset(pickGalleryAssets(media[entityId]))} />;
+}
+
+/** 残りの画像（先頭に出した1枚を除く）。 */
 export function EntityMediaGallery({ entityId, entityName, isHazardMode }: { entityId: string; entityName: string; isHazardMode?: boolean }) {
   const media = useEntityMedia([entityId]);
-  return <EntityMediaGalleryView entityName={entityName} assets={pickGalleryAssets(media[entityId])} isHazardMode={isHazardMode} />;
+  const assets = pickGalleryAssets(media[entityId]);
+  const hero = pickHeroAsset(assets);
+  return <EntityMediaGalleryView entityName={entityName} assets={assets.filter((asset) => asset !== hero)} isHazardMode={isHazardMode} />;
 }

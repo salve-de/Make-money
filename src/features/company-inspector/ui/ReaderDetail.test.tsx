@@ -101,7 +101,9 @@ describe('reader analysis', () => {
     expect(html.match(/data-analysis="a-headline"/g)).toHaveLength(1);
     expect(html.match(/data-analysis="a-story"/g)).toHaveLength(1);
     expect(html.indexOf('a-headline')).toBeLessThan(html.indexOf('a-story'));
-    expect(html.indexOf('a-story')).toBeLessThan(html.indexOf('data-fact="f1"'));
+    // 読む順: 何の事業か（概要の事実）→ 主要な数字 → 強い一行と物語 → 数値の表
+    expect(html.indexOf('data-fact="f1"')).toBeLessThan(html.indexOf('a-headline'));
+    expect(html.indexOf('a-story')).toBeLessThan(html.indexOf('section-metrics'));
   });
 
   it('推測欄は数値の後・事実の前に、項目名・結論・確度だけを出す', () => {
