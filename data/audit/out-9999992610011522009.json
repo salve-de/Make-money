@@ -1,0 +1,109 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_editionguard_d9b8a3655368",
+      "items": []
+    },
+    {
+      "entityId": "ent_ejunkie_7e9e46bd9643",
+      "items": []
+    },
+    {
+      "entityId": "ent_elevaaura_fabc0d7439db",
+      "items": []
+    },
+    {
+      "entityId": "ent_engineeringdaily_c2e29753da57",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月6万ドルは事業全体の売上申告であり、全額を広告枠の売上として結び付ける根拠はない。",
+          "fix": "技術者向け番組でスポンサー枠を売る、事業全体の月売上6万ドルは2018年2月の本人申告。"
+        },
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "広告主が成約を重視するという説明から、成約そのものを販売する課金仕様までは確認できない。",
+          "fix": "前夜：ソフトウェアを学ぶ毎日の番組。隙：技術者へ深く届く広告の場を作る。突破：スポンサーが複数回の出稿で反応を試す。金が回る仕組み：広告枠を売り、毎日の制作費を負う。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_epicgrowth_3ef8412e30d7",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式が計算しているのは会社の税前損益であり、持分や分配を考慮した創業者の手残りではない。",
+          "fix": "会員数と費用を仮置きした会社の税前損益は、月約−164万〜768万ルーブルと推計する。",
+          "fixFormula": "仮置き会員数500〜3,000人×料金の月換算1,200〜3,325ルーブル＝月平均売上600,000〜9,975,000ルーブル。下限600,000×（1−40%）−2,000,000＝−1,640,000、上限9,975,000×（1−20%）−300,000＝7,680,000ルーブル/月。費用率・固定費・イベント費用の配賦は仮定で、会社の税前損益を示し、創業者への分配額は計算しない。"
+        },
+        {
+          "analysisId": "a-competition",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "事例を検索できるという具体的な機能は、提示された事実と出典本文では確認できない。",
+          "fix": "無料の講演動画や単発カンファレンスに対し、講演動画と閉鎖チャット、参加者同士の交流をまとめて売る。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_evenpairs_abdeb049999e",
+      "items": []
+    },
+    {
+      "entityId": "ent_excelgame_72a1ed5e4c07",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "formulaに「仮の値ではない」と「仮の値」が併記され、「裏付け資料なし」という作業メモも残っている。",
+          "fix": "広告収益化を仮定し、広告表示1,000回あたりの受取額を$1〜10と置く。",
+          "fixFormula": "広告表示1,000回あたりの受取額$1〜10は試算用の仮定であり、このサイトの実績単価や確認済みの市場相場ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_faqfa_5069f2bf8aba",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "THIRD_PARTYという由来区分だけでは、第三者が売上を推計したとは確認できない。",
+          "fix": "SEOと文章直しを無料で束ね、2025年4月の掲載月売上は$3.5万（算出方法不明）。",
+          "fixFormula": "2025年4月1日付のIndie Hackers掲載月売上$35,000。推計値か実測値か、誰が算出・申告したかは不明。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "元の月売上を「第三者の推計」とする根拠がなく、売上の由来と費用を仮置きした試算を混同している。",
+          "fix": "掲載月売上$3.5万を基に費用を仮置きすると、税引前余力は月約$7,500〜29,500と推計する。",
+          "fixFormula": "下限$35,000×（1−50%）−$10,000＝$7,500、上限$35,000×（1−10%）−$2,000＝$29,500/月。掲載売上の算出方法は不明で、AI・処理費率10〜50%と外部保守・配信・運営費$2,000〜10,000は仮定。広告型の場合は売上を受取ベースと仮定し、所有者給与・税・運転資金は別で、実際の手取りではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_faxto_24a05a963afe",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "掲載月売上は従量課金と契約型を含む事業の値であり、単発利用への従量徴収だけの売上とは確認できない。",
+          "fix": "一度だけFAXを送りたい需要に従量課金で応え、契約型も提供した事業の月売上は$4.8万（時点不詳・本人公表）。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_fiddlart_ffc600aa7d00",
+      "items": []
+    }
+  ]
+}

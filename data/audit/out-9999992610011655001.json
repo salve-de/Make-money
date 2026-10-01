@@ -1,0 +1,94 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_12weeksfromtoday_818a61743857",
+      "items": []
+    },
+    {
+      "entityId": "ent_abestinclassios-thebookseries_a1d78504d4b7",
+      "items": []
+    },
+    {
+      "entityId": "ent_adacertify_4ad7e813cde2",
+      "items": [
+        {
+          "analysisId": "a-revenue_estimate",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式から求まる下限は年$170,000であり、$80,000へ下げる重複・割引の調整率や計算が示されていない。",
+          "fix": "仮置きの有料契約数・料金・修正件数で計算すると、年売上は約$17万〜220万となる。",
+          "fixFormula": "顧客表示5,000人を仮の母数とし、有料契約率10〜30%、監視の年単価$300〜1,200、年間修正20〜80件、修正単価$1,000〜5,000を仮置き。下限：5,000×10%×$300＋20×$1,000＝$170,000/年。上限：5,000×30%×$1,200＋80×$5,000＝$2,200,000/年。監視と修正は別課金と仮定し、重複・割引の調整は含めない。顧客表示は現役有料契約数を示さない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_airstarairbnbclonescript_670771dd1392",
+      "items": []
+    },
+    {
+      "entityId": "ent_almondclearskincareproducts_639d1daaf5f6",
+      "items": [
+        {
+          "analysisId": "a-lock_in",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "定期購入の管理導線だけでは解約・移行条件は分からず、契約で縛る仕掛けが弱いという仕様の評価は裏付けられない。",
+          "fix": "肌に合うと感じた客は、別の商品へ切り替える際に使用感が変わる不安から継続購入する可能性がある。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bestdedicatedwebhostingserver_e52a240f65a5",
+      "items": [
+        {
+          "analysisId": "a-dependencies",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "アフィリエイトリンクの掲載から運営者が自前の設備を持たないとは確認できず、設備の非保有を言い切っている。",
+          "fix": "紹介報酬の条件に依存し、検索を主な集客経路とする場合は順位の変化も収益を左右すると推す。",
+          "fixFormula": "アフィリエイトリンクの明示から紹介報酬条件への依存を推論。検索主体の集客は仮定であり、運営者の設備保有状況は不明。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介報酬額は仮置きと明示されているが、設備を持たないという運営実態は確認されていない。",
+          "fix": "紹介先の成約報酬を1件$20〜100と仮置きし、サーバー契約の入口から得られる収入を試算する。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bratfontgenerator_bc370564ef21",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式に作成者向けの注記「仮の値。裏付け資料なし」が残り、直前の「仮の値ではない」という説明とも食い違っている。",
+          "fix": "広告型の試算では、千回表示あたりのサイト側受取額を$1〜10と仮定する。",
+          "fixFormula": "試算上の仮定：広告千回表示あたりのサイト側受取額＝$1〜10。実際の広告掲載・受取単価は不明で、公開された相場や販売料金を示す値ではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bytegeometry_9484747e5462",
+      "items": []
+    },
+    {
+      "entityId": "ent_c12ncloud_47dc2ea7cbd0",
+      "items": []
+    },
+    {
+      "entityId": "ent_codementor_ba692caa3db3",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "実際に直接取引へ流出した記録はなく、仲介構造上の可能性を「直接取引へ漏れる」という発生済みの出来事として書いている。",
+          "fix": "前夜：創業者は人に相談する学習の穴を見た。隙：教材だけでは手元のバグを直せない。突破：紹介ページが開発者コミュニティで広がる。金が回る仕組み：相談課金を仲介するが、顧客と専門家が直接取引へ移る可能性がある。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_ubuntubaba_3f10f5b9dd40",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月売上$20,000は掲載値として確認できるが、第三者が推計した数字だとは記載されていない。",
+          "fix": "抱っこで塞がる手を取り戻す紐、Indie Hackers掲載の月売上$2万（対象期間不明）。",
+          "fixFormula": "Indie Hackers掲載月売上$20,000＝月$2万。算定方法と対象期間は不明で、第三者による推計や創業者所得とは扱わない。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "費用の仮置きは明示されているが、基準売上を第三者の推計とする説明には裏付けがない。",
+          "fix": "生地と縫製が主原価と考えられ、送料・返品回収・保証対応も販売後の利益を削る。",
+          "fixFormula": "Indie Hackers掲載売上$20,000/月を基準に、生地・縫製35〜50%＝$7,000〜10,000、配送・返品・保証$1,500〜3,000、人件費・集客・管理・決済等$4,000〜6,000を仮置き。合計$12,500〜19,000/月。売上の対象期間と実際の費用は不明。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "分配原資の計算は仮定として成立するが、基準売上が第三者推計だという説明は確認できない。",
+          "fix": "掲載売上と仮置き費用から計算すると、全額を創業者に回す場合の税・再投資前の原資は月$1,000〜7,500。",
+          "fixFormula": "Indie Hackers掲載売上$20,000−仮置き生地・縫製$7,000〜10,000−仮置き配送・返品等$1,500〜3,000−仮置き人件費・管理等$4,000〜6,000＝$1,000〜7,500/月。全額創業者帰属を仮定した税・再投資前の原資で、実際の個人所得ではない。和解補償は含めない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ufile_09a181739976",
+      "items": []
+    },
+    {
+      "entityId": "ent_uxwritinghub_e48cd506ccb2",
+      "items": []
+    },
+    {
+      "entityId": "ent_vantacron_1b997f442fa6",
+      "items": []
+    },
+    {
+      "entityId": "ent_vetta_f25db159678a",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "無料期間の提供は8月の報告で確認できるが、公開初期から実施していたという時系列は確認できない。",
+          "fix": "公開初期に候補者と企業を集め、2026年8月には双方の不足を補うため無料期間を提供していると報告した。"
+        },
+        {
+          "analysisId": "a-lock_in",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "他の採用先との併用を制限しないという契約・利用条件は記載されていない。",
+          "fix": "成果プロフィールと面談調整の蓄積は継続利用の理由になり得るが、他の採用サービスとの併用条件は不明。"
+        },
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "6か月料金の表示だけでは徴収時期が分からず、本文は前払いという仮定を確定した仕組みとして述べている。",
+          "fix": "候補者料金が半年分の前払いなら先に現金を受け取れるが、初回半年を無料にした候補者からはその期間の料金収入を得ない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_viewst_b2dd109ebbf3",
+      "items": []
+    },
+    {
+      "entityId": "ent_villainnamegenerator_93c27e666968",
+      "items": []
+    },
+    {
+      "entityId": "ent_vimeography_2a4d4acdeac1",
+      "items": []
+    },
+    {
+      "entityId": "ent_vindy_dd2944f39d20",
+      "items": [
+        {
+          "analysisId": "a-incumbent_blindspot",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "2025年資料のアプリは職人向けであり、現在の依頼者向けモバイル対応が当時の穴を埋めたとは確認できない。",
+          "fix": "創業者は当時の有力競合がモバイル未対応だったと回想し、2025年のWerkspot資料には職人向けアプリがあるが、依頼者側の使いやすさまで同等とは判断できない。"
+        },
+        {
+          "analysisId": "a-viability",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "職人向け競合アプリの存在だけでは、依頼者向けの携帯対応による優位が現在消えたとは言い切れない。",
+          "fix": "携帯対応だけで現在も差を出せるかは不明で、後発には地域や工種ごとに必要な職人を揃える力が重要と考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_virtualserver_df524f8ef21e",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式では月$1,650の赤字があり得るのに、本文の手残り下限を$0として持出しを除いている。",
+          "fix": "仮定条件では月最大$1,650の持出しから、黒字時に月最大$4,776の創業者への分配余力まで。",
+          "fixFormula": "仮置き紹介売上$0〜6,000/月−仮置き維持・更新・集客費$30〜1,650/月＝営業余力−$1,650〜5,970/月。黒字にのみ税・再投資留保20〜40%を適用し、残額を創業者へ全額分配すると最大$5,970×80%＝$4,776/月。赤字は創業者が全額補填する仮定で、持出し・分配の範囲は−$1,650〜$4,776/月。"
+        }
+      ]
+    }
+  ]
+}
