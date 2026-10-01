@@ -23,7 +23,7 @@ export function EvidenceDeckSection({
 
   return (
     <InspectorSectionCard
-      id="section-reasoning"
+      id="section-evidence"
       index="03"
       categoryEn="出典に基づく記録"
       titleJa={isHazardMode ? '撤退・破綻に関する記録' : '根拠となる記録'}
