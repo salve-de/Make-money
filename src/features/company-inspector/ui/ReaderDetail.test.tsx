@@ -117,7 +117,7 @@ describe('reader analysis', () => {
     expect(rows.match(/>推測</g)).toHaveLength(2);
     expect(rows).not.toContain('a-headline');
     expect(rows).not.toContain('a-story');
-    expect(rows).not.toContain('計算:');
+    expect(rows).not.toContain('計算・前提:');
     expect(rows).not.toContain('根拠:');
     expect(rows).not.toContain('href=');
   });
@@ -127,9 +127,9 @@ describe('reader analysis', () => {
     const at = html.indexOf('section-reasoning');
     expect(at).toBeGreaterThan(html.indexOf('data-fact="f2"'));
     expect(at).toBeLessThan(html.indexOf('section-sources'));
-    expect(html.match(/計算: /g)).toHaveLength(1);
-    expect(html).toContain('計算: </span>売上 − 運営費 = 手残り');
-    expect(html.indexOf('計算: ')).toBeGreaterThan(at);
+    expect(html.match(/計算・前提: /g)).toHaveLength(1);
+    expect(html).toContain('計算・前提: </span>売上 − 運営費 = 手残り');
+    expect(html.indexOf('計算・前提: ')).toBeGreaterThan(at);
     expect(html.indexOf('根拠: ')).toBeGreaterThan(at);
     expect(renderToStaticMarkup(<ReaderEvidence reader={baremetrics} />)).toBe('');
   });
@@ -183,7 +183,7 @@ describe('reader analysis', () => {
     expect(intro).not.toContain('<h3');
     const rows = renderToStaticMarkup(<><ReaderAnalyses reader={reader} /><ReaderEvidence reader={{ ...reader, analysis: [withAnalysis.analysis[2]] }} /></>);
     expect(rows).not.toContain('根拠:');
-    expect(rows).not.toContain('計算:');
+    expect(rows).not.toContain('計算・前提:');
   });
 
   it('複数の詳細を描いても根拠の飛び先が衝突しない', () => {
