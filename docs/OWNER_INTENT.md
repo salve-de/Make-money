@@ -1,20 +1,24 @@
 # Make-Money 正本 — 何を・なぜ・どう・どこまで（最初に読む1本）
 
-最終更新: 2026-09-30。
+最終更新: 2026-10-02。
 この文書は Make-Money の**唯一の入口**です。オーナー（ユーザー）が会話で伝えてきたことを1本にまとめています。何を作るか、なぜか、何を集め、どう集め、どこに貯め、どう見せ、何を守り、どうなれば完成か、を書きます。
 オーナーは長い指示を書きません。AI・作業者は、これを読んでから動いてください。
 
+**2026-10-02 最終プロダクト計画**: 機能範囲・ユーザー導線・個人開発としての実装境界は [`PRODUCT_FINAL_PLAN.md`](./PRODUCT_FINAL_PLAN.md) を正とします。この文書は引き続き唯一の入口であり、データ収集・事実/推論・権利・保存の規則は本書を維持します。
+
 **優先順位**
 1. この文書
-2. 土台（Universal Foundation）の正本（事実と証拠の残し方に限る。16章）
-3. その他の文書
+2. [`PRODUCT_FINAL_PLAN.md`](./PRODUCT_FINAL_PLAN.md)（プロダクト機能・UX・実装境界に限る）
+3. 土台（Universal Foundation）の正本（事実と証拠の残し方に限る。16章）
+4. その他の文書
 
-他の文書とこの文書が食い違ったら、この文書が勝ちます。食い違う古い規則の一覧と置き換え先は17章にあります。
+他の文書とこの文書が食い違ったら、この文書が勝ちます。プロダクト機能・UX・実装境界については、この文書から委任した `PRODUCT_FINAL_PLAN.md` が旧README・PROJECT_CHARTER・旧Phase計画より優先します。食い違う古い規則の一覧と置き換え先は17章にあります。
 オーナーの訂正が入ったら、その場でこの文書と台帳（`~/.claude/intent/projects/Make-Money.md`）に書き足します（15章）。
 
 ---
 
 ## 1. なぜ作るのか
+- **最終プロダクト導線（2026-10-02）**: 事例 → トレンド/需要 → Opportunity → Build → Launch → Market → Distribute/Promote → 実績Feedback → 次のTrend/Opportunity、という一つの循環を本体とします。詳細は [`PRODUCT_FINAL_PLAN.md`](./PRODUCT_FINAL_PLAN.md)。M&Aは中核計画から外します。
 - 作るのは、読者が「これを見ずに動くのは損だ（自殺行為だ）」と思って金を払う、**資本主義の裏帳簿**です。誰が・誰から・何の恐怖や面倒を消して・どれだけ楽に・いくら抜いているかを、1画面で掴ませます。
 - 読者は、これから稼ぎたい個人、経営者、投資家です。欲しいのは会計の正確さではありません。**金の抜き方の構造と規模感、それに1秒で刺さる強い一行**です。
 - **勝ち**: 1件開くと、強い一行・物語・売上の規模・手残り・客の痛み・最初の客の集め方・大手が手を出せない理由・今も通用するかが、全部埋まっていること。事実は出典つき、推論は「推測」と印つきです。
@@ -268,6 +272,7 @@
 ## 15. 決定の経緯（新しい順）
 | 日付 | 決定 | 覆した物 |
 |---|---|---|
+| 2026-10-02 | 最終プロダクト計画を固定。事例 → Trend/需要 → Opportunity → Build → Launch → Market → Distribution/Promotion → 実績Feedbackを本体とし、内部はIntelligence / Creation / Commerce / Feedbackの4エンジンに統合。ユーザー価値は削らず、LLM・コード生成・Hosting・決済/KYC/payout等の巨大基盤は外部providerへ委譲する | M&Aを中核から除外。独立Execution、独立Finder、Compare専用プロダクト、巨大SNS、Newsletter/Alert/Bookmark、Goal Layer、汎用AIチャットを主役にする旧案 |
 | 2026-09-30 | 分析の項目に 料金・道具・時期・前金・紹介報酬・ピボット・4段の物語 を足し、全項目を推論で埋められるようにした | 料金・道具・創業年は事実が無ければ空欄になる作り |
 | 2026-09-30 | 土台（Universal Foundation）との関係を決めた: 事実と証拠は土台に長く残し、推論・一行・手残り推定は作り直せる見せ方 | — |
 | 2026-09-30 | 見出しは強い一行にする。項目ごと・事例ごとにスタンプを押して保存する | — |
@@ -315,6 +320,7 @@
 | HANDOFF.md、docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md | 画面は entities-index.json を直接読む | 10章（本番は R2 の公開版を読む） |
 | docs/INDIVIDUAL_CURATION_REPORT.md | 全件校閲済み | 廃止（15章 09-29） |
 | docs/DATA_COLLECTION_MASTER_GUIDE.md 3-4 | UNKNOWN のまま残せ | 同 Ⅰ-6（保存上の状態。画面の完成形ではない） |
+| README.md、PROJECT_CHARTER.md、旧Phase記録 | M&A・独立Execution/Finder・Goal Layer等を中核または主要出口として扱う記述 | [`PRODUCT_FINAL_PLAN.md`](./PRODUCT_FINAL_PLAN.md)（2026-10-02の最終プロダクト範囲） |
 
 ## 18. 今の状態（2026-09-30 夜）
 - この文書が指す仕組みの多く（`src/shared/reader-case.ts` の推論欄、`scripts/reader-case/`、`scripts/media/`、`docs/MEDIA_ASSETS_AND_PROVENANCE.md`、`docs/RIGHTS_THREE_TIER_SPEC.md`、表示の印）は、作業ブランチ `claude/honest-catalog-20260929` にあり、まだ main に入っていない。そのブランチは `data/entities-index.json`（125MB）が GitHub の上限を超えるため push できない。main へは、大きなファイルを除いた形で入れる必要がある。
