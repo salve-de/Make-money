@@ -134,10 +134,13 @@ describe('reader analysis', () => {
     expect(renderToStaticMarkup(<ReaderEvidence reader={baremetrics} />)).toBe('');
   });
 
-  it('事実と数値の行に出典名を出さず、出典は下の一覧だけに出す', () => {
+  it('事実と数値の行は出典名の代わりに番号を付け、番号は下の出典一覧の行へ飛ぶ', () => {
     const html = ledger(withAnalysis);
     const publisher = withAnalysis.sources[0].publisher;
     expect(html.indexOf(publisher)).toBeGreaterThan(html.indexOf('section-sources'));
+    const refs = [...html.matchAll(/href="#([^"]+-source-\d+)"/g)].map((match) => match[1]);
+    expect(refs.length).toBe(withAnalysis.facts.length + withAnalysis.metrics.length - 1);
+    for (const id of refs) expect(html).toContain(`id="${id}"`);
   });
 
   it('入力順によらず ANALYSIS_ITEMS の順で全項目を並べる', () => {
@@ -151,7 +154,7 @@ describe('reader analysis', () => {
 
   it('根拠は番号で示し、使った事実は下に1回だけ並べる', () => {
     const html = ledger(withAnalysis);
-    const links = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => decodeURIComponent(match[1]));
+    const links = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => decodeURIComponent(match[1])).filter((id) => id.includes('-evidence-basis-'));
     // HEADLINE(f1) + STORY(f1) + TAKE_HOME(m1, f2) = 4本、使った事実は f1・m1・f2 の3つ
     expect(links).toHaveLength(4);
     for (const id of links) expect(html).toContain(`id="${id}"`);
@@ -159,6 +162,8 @@ describe('reader analysis', () => {
     const list = html.slice(html.indexOf('data-evidence="basis"'), html.indexOf('section-sources'));
     expect(list.match(/<li /g)).toHaveLength(3);
     expect(list).toContain('売却額 2023 $4M');
+    const est = ledger({ ...withAnalysis, metrics: [{ ...withAnalysis.metrics[0], origin: 'ESTIMATED' as const }] });
+    expect(est.slice(est.indexOf('data-evidence="basis"'))).toContain('売却額 2023 $4M 推定');
     expect(list).toContain('2023年に別の会社へ売却された。');
   });
 

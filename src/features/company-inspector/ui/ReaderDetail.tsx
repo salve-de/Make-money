@@ -13,6 +13,25 @@ import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
 const evidenceAnchor = (prefix: string, id: string) => `${prefix}-evidence-${encodeURIComponent(id)}`;
+const sourceAnchor = (prefix: string, n: number) => `${prefix}-source-${n}`;
+
+/** sourceId → 下の出典一覧での番号（重複をまとめた後の並び）。 */
+function sourceNumbers(reader: ReaderCase): Map<string, number> {
+  const list = dedupeReaderSources(reader.sources);
+  const key = (url: string) => url.replace(/#.*$/, '').replace(/\/$/, '');
+  const byKey = new Map(list.map((s, i) => [key(s.url), i + 1]));
+  return new Map(reader.sources.map((s) => [s.id, byKey.get(key(s.url)) ?? 0]));
+}
+
+/** 事実・数値の後ろに付ける小さい出典番号。押すと下の出典一覧へ飛ぶ。 */
+function SourceRef({ n, prefix }: { n?: number; prefix: string }) {
+  if (!n) return null;
+  return (
+    <a href={`#${sourceAnchor(prefix, n)}`} className="ml-1 inline-flex min-h-6 min-w-6 items-center justify-center align-baseline text-xs text-term-label underline underline-offset-2 hover:text-term-fg-strong">
+      {n}
+    </a>
+  );
+}
 
 /** 概要の1行（summaryFactId の事実）。無ければ出さない。 */
 export function ReaderSummary({ reader, evidencePrefix = 'reader' }: ReaderProps) {
@@ -25,9 +44,10 @@ export function ReaderSummary({ reader, evidencePrefix = 'reader' }: ReaderProps
   );
 }
 
-/** 数値の表。列は 項目・期間・金額・由来。出典は下の一覧にまとめる。 */
+/** 数値の表。列は 項目・期間・金額・由来。出典は番号だけ付け、中身は下の一覧にまとめる。 */
 export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   if (!reader) return null;
+  const sourceNo = sourceNumbers(reader);
   return (
     <ReaderSection id="section-metrics" title={UI.SECTION_METRICS} empty={reader.metrics.length === 0}>
       {/* 狭い画面では横に送る。キーボードでも送れるようにフォーカスを受ける */}
@@ -47,6 +67,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
                 <tr key={m.id} id={evidenceAnchor(evidencePrefix, m.id)} data-metric={m.id} className="scroll-mt-8 border-b border-term-line-soft align-top">
                   <td className="px-2 py-1.5 text-term-fg-strong">
                     {metricMeasureLabel(m)}
+                    <SourceRef n={sourceNo.get(m.sourceId)} prefix={evidencePrefix} />
                     {m.basis && <span className="block text-xs text-term-label">{m.basis}</span>}
                   </td>
                   <td className="px-2 py-1.5 text-term-fg">
@@ -65,9 +86,10 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
   );
 }
 
-/** 事実を種類ごとに。出典は下の一覧にまとめる。概要の事実は上で出すので除く。 */
+/** 事実を種類ごとに。出典は番号だけ付け、中身は下の一覧にまとめる。概要の事実は上で出すので除く。 */
 export function ReaderFacts({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   if (!reader) return null;
+  const sourceNo = sourceNumbers(reader);
   return (
     <>
       {FACT_SECTIONS.map(({ kind, title }) => {
@@ -78,6 +100,7 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader' }: ReaderProps) 
               {facts.map((f) => (
                 <li key={f.id} id={evidenceAnchor(evidencePrefix, f.id)} data-fact={f.id} className="scroll-mt-8 py-1.5 leading-relaxed text-term-fg">
                   {f.text}
+                  <SourceRef n={sourceNo.get(f.sourceId)} prefix={evidencePrefix} />
                 </li>
               ))}
             </ul>
@@ -138,7 +161,9 @@ export function ReaderEvidence({ reader, evidencePrefix = 'reader' }: ReaderProp
   const basisLabel = (id: string) => {
     const fact = reader.facts.find((f) => f.id === id);
     const metric = reader.metrics.find((m) => m.id === id);
-    return fact?.text ?? (metric && `${metricMeasureLabel(metric)} ${metric.period} ${formatMetricAmount(metric)}`);
+    if (fact) return fact.text;
+    if (!metric) return undefined;
+    return [metricMeasureLabel(metric), metric.period, formatMetricAmount(metric), metricOriginLabel(metric), metric.basis].filter(Boolean).join(' ');
   };
   const rows = ANALYSIS_ITEMS.flatMap((item) => reader.analysis.filter((a) => a.item === item))
     .map((a) => ({ a, basis: a.basis.filter((id) => basisLabel(id)) }))
@@ -187,14 +212,16 @@ export function ReaderEvidence({ reader, evidencePrefix = 'reader' }: ReaderProp
 }
 
 /** 出典: 出版元・題名・日付・リンク。重複は1つ。 */
-export function ReaderSources({ reader }: { reader?: ReaderCase }) {
+export function ReaderSources({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   if (!reader) return null;
   const sources = dedupeReaderSources(reader.sources);
   return (
     <ReaderSection id="section-sources" title={UI.SECTION_SOURCES} empty={sources.length === 0}>
       <ul className="divide-y divide-term-line-soft">
-        {sources.map((s) => (
-          <li key={s.id} data-source={s.id} className="py-1.5 leading-relaxed text-term-fg">
+        {sources.map((s, i) => (
+          <li key={s.id} id={sourceAnchor(evidencePrefix, i + 1)} data-source={s.id} className="flex scroll-mt-8 gap-2 py-1.5 leading-relaxed text-term-fg">
+            <span className="term-num shrink-0 text-xs text-term-label">{i + 1}</span>
+            <span className="min-w-0">
             <a href={s.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-6 items-center text-term-fg underline underline-offset-2 hover:text-term-fg-strong">
               {s.publisher}
               {s.title ? ` ${s.title}` : ''}
@@ -202,6 +229,7 @@ export function ReaderSources({ reader }: { reader?: ReaderCase }) {
             {(s.publishedAt ?? s.checkedAt) && (
               <span className="ml-1.5 text-xs text-term-label">{s.publishedAt ?? s.checkedAt}</span>
             )}
+            </span>
           </li>
         ))}
       </ul>
@@ -228,7 +256,7 @@ export function ReaderLedger({ reader }: { reader?: ReaderCase }) {
       <ReaderAnalyses reader={reader} />
       <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} />
       <ReaderEvidence reader={reader} evidencePrefix={evidencePrefix} />
-      <ReaderSources reader={reader} />
+      <ReaderSources reader={reader} evidencePrefix={evidencePrefix} />
       <ReaderUnknowns reader={reader} />
     </>
   );
