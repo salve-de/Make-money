@@ -11,5 +11,6 @@
 - WEAK: 公開はできるが中身が薄い（どの事業にも当てはまる一般論だけ）。深刻度は低。
 
 ## 出力
-{"cases":[{"entityId":"…","items":[{"analysisId":"a-…","kind":"…","severity":"BLOCK|FIX|LOW","why":"日本語で1文","fix":"直した文（FIX の時）"}]}]}
+{"cases":[{"entityId":"…","items":[{"analysisId":"a-…","kind":"…","severity":"BLOCK|FIX|LOW","why":"日本語で1文","fix":"直した文（FIX の時）","fixFormula":"直した式（式に問題がある時だけ。式を消すなら空文字）"}]}]}
+fix は本文（text）を置き換える。問題が式（formula）にある時は fixFormula に直した式を必ず書く（fix だけ直すと本文と式が食い違う）。fix と fixFormula の数字は一致させる。
 問題が無い事例も items:[] で必ず1件返す。BLOCK=このまま出すと害がある、FIX=直せば出せる、LOW=軽微。迷ったら厳しめに付ける。
