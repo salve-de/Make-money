@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_bottleneckcalculator_659e3c4ae29f",
+      "items": []
+    },
+    {
+      "entityId": "ent_branchspot_2bad06d7b0e0",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "第三者サイトへの売上掲載は確認できるが、その数字を第三者が推計したという説明はない。",
+          "fix": "銀行の場所と営業時間の検索を集めるサイト、Indie Hackers掲載の月売上は$1.8万、対象月と算定方法は不詳。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "式が掲載売上を「第三者の売上推計」と扱っているが、掲載元の本文にもmetricsにも推計という根拠はない。",
+          "fix": "掲載売上と仮置き費用を使い、単独所有・残額全額分配なら、創業者の税前分配額は月$1万〜1.5万と推計。",
+          "fixFormula": "Indie Hackers掲載の月売上$18,000（対象月・算定方法不詳）−仮置き設備・データ費$500〜2,000−仮置き更新・保守・営業費$1,500〜4,000−仮置き留保$1,000〜2,000＝$10,000〜15,000/月；単独所有・残額全額分配を仮定し、税・実際の持分・人員費は不詳。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bratfontgenerator_bc370564ef21",
+      "items": []
+    },
+    {
+      "entityId": "ent_brightstage_055c41823f3d",
+      "items": []
+    },
+    {
+      "entityId": "ent_broosads_cbe00332e000",
+      "items": []
+    },
+    {
+      "entityId": "ent_buildco_cf67e365ad68",
+      "items": []
+    },
+    {
+      "entityId": "ent_bulkbarcodegenerator_2a10b5a83a74",
+      "items": []
+    },
+    {
+      "entityId": "ent_buypremiumkratom_5c21cec451e0",
+      "items": []
+    },
+    {
+      "entityId": "ent_bwnventures_7f061aa05a7d",
+      "items": []
+    },
+    {
+      "entityId": "ent_bytegeometry_9484747e5462",
+      "items": []
+    }
+  ]
+}

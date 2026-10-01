@@ -1,0 +1,89 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_moonly_cd2dad1de681",
+      "items": []
+    },
+    {
+      "entityId": "ent_mushegyanholding_6b4fd0ee92a2",
+      "items": [
+        {
+          "analysisId": "a-tools",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "管理画面の存在は確認されておらず、構成の推定を提供済みの機能として本文で言い切っている。",
+          "fix": "企業向けAPI・SDK、APIキーとシークレットキーによる認証、取引経路の選択、webhook通知を提供すると紹介している。",
+          "fixFormula": "紹介投稿に記載されたAPI・SDK、API KeyとSecret Key、取引経路の選択、webhook通知に基づく；管理画面の有無は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_myoperator_49c393230a2d",
+      "items": []
+    },
+    {
+      "entityId": "ent_ncacheinmemorydistributedcache_7a2cf8d54c52",
+      "items": []
+    },
+    {
+      "entityId": "ent_nightcafecreator_847ef63e3c37",
+      "items": []
+    },
+    {
+      "entityId": "ent_nmsbyinfusionicsoft_6507af965c9b",
+      "items": [
+        {
+          "analysisId": "a-timeline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "試作の完成時点が不明なため開発開始年は特定できず、2026年初頭の開始では4月22日までに6か月の試作期間を確保できない。",
+          "fix": "2026年4月22日は試験公開と初の有料顧客募集の段階で、試作には夜と週末を使って6か月かけたと説明している。",
+          "fixFormula": "2026-04-22の投稿は試験公開・初の有料顧客募集と、MVP開発期間6か月を記載；試作の完成日が不明なため、開始年月は特定できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_nocodedevs_e76c2e1dc8ec",
+      "items": [
+        {
+          "analysisId": "a-viability",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "NoCodeDevsの課金内訳は不明で、確認されたStripe経由の売上変動を案件売上の変動と断定できない。",
+          "fix": "用途が揃う読者に届く媒体には販売余地があると推すが、NoCodeDevsの売上変動の原因と課金内訳は不明。",
+          "fixFormula": "NoCodeDevsの掲載売上は2026年7月$2,810、8月$36,014.42で、$36,014.42÷$2,810＝約12.82倍；案件売上とは特定できない。媒体の販売余地は転送先MakerThriveの説明からの推論で、同一運営は未確認。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_nomadscom_96421ce9be1d",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "式にある「無料会員を含む」という会員数の集計仕様は、提示された事実と出典本文では確認できない。",
+          "fix": "旅先の孤独と街選びを束ね、公式サイトは会員約4.7万人と掲示。",
+          "fixFormula": "公式掲示の会員数47,382人÷10,000＝4.7382万人≒4.7万人；無料・有料の内訳と集計範囲は不明で、有料客数や累計購入者数には読み替えない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_nowofwork_2ed34a79ea3e",
+      "items": []
+    },
+    {
+      "entityId": "ent_offshackle_b98b6843c0d5",
+      "items": [
+        {
+          "analysisId": "a-lock_in",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "次の仕事を直接進められるという取引条件は確認されておらず、式の留保に反して本文では可能と断定している。",
+          "fix": "共同作業の履歴は移行負担になる一方、知り合った相手と次の案件を直接契約したくなる誘因もあると推す。",
+          "fixFormula": "共同作業機能から移行負担を、継続する発注者・受注者関係から直接契約への誘因を推論；実際の直接取引の可否と囲い込みの強さは不明。"
+        }
+      ]
+    }
+  ]
+}

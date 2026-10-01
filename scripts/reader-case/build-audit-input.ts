@@ -1,6 +1,6 @@
 /**
  * 公開前の抜き取り監査の入力を作る。指定した事例の、照合後の facts/metrics と analysis を並べて data/audit/in-NNN.json に書く。
- * 使い方: node --import tsx scripts/reader-case/build-audit-input.ts --ids <file> [--per 10]
+ * 使い方: node --import tsx scripts/reader-case/build-audit-input.ts --ids <file> [--per 10] [--tag 999999YYMMDDHHMM]
  */
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
@@ -11,6 +11,8 @@ import { VERDICTS_FILE, metricLine, type VerdictsFile } from './verify-lib';
 const ids = readIdsFile(argValue('--ids') ?? '');
 const per = Number(argValue('--per') ?? 10);
 const start = Number(argValue('--start') ?? 1);
+// --tag を付けると in-<tag>NNN.json の名前にする（数字の桁あふれを避け、後の回ほど名前順で後ろに来るようにする）
+const tag = argValue('--tag');
 const verdicts = JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile;
 const analysis = JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile;
 // 分析役が読んだ出典の本文（data/analyze/batches）も渡す。事実に無くても本文にあれば捏造ではない
@@ -33,6 +35,6 @@ for (const [id, reader] of loadReaders(ids)) {
 }
 mkdirSync('data/audit', { recursive: true });
 for (let i = 0; i * per < cases.length; i++) {
-  writeFileSync(`data/audit/in-${String(i + start).padStart(3, '0')}.json`, JSON.stringify({ cases: cases.slice(i * per, (i + 1) * per) }, null, 1));
+  writeFileSync(`data/audit/in-${tag ? `${tag}${String(i + 1).padStart(3, '0')}` : String(i + start).padStart(3, '0')}.json`, JSON.stringify({ cases: cases.slice(i * per, (i + 1) * per) }, null, 1));
 }
 console.log(JSON.stringify({ cases: cases.length, files: Math.ceil(cases.length / per) }));

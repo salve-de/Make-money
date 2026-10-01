@@ -4,12 +4,17 @@
  * 使い方: node --import tsx scripts/reader-case/merge-analysis.ts [--ids <file>]
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
 import { argValue, loadReaders, readIdsFile } from './load-readers';
 import { ANALYSIS_FILE, ANALYZE_DIR, applyAudit, checkCase, type AnalysisFile, type AuditFinding, type Dropped } from './analysis-lib';
+import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 
 function main() {
   const idsFile = argValue('--ids');
-  const readers = loadReaders(idsFile ? readIdsFile(idsFile) : undefined);
+  // 照合で外れた事実・数字は、公開時（select-finished）と同じく無いものとして推論を確かめる。
+  // 外れた売上の数字が残ったままだと「売上の事実があるのに推計した」と誤って売上の推定を落とし、必須の欄が空になる。
+  const verdicts = existsSync(VERDICTS_FILE) ? (JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile) : {};
+  const readers = new Map([...loadReaders(idsFile ? readIdsFile(idsFile) : undefined)].map(([id, r]) => [id, applyVerdicts(r, verdicts[id])?.reader ?? r]));
   const outDir = `${ANALYZE_DIR}/out`;
   const raws = new Map<string, unknown>();
   for (const f of existsSync(outDir) ? readdirSync(outDir).sort() : []) {

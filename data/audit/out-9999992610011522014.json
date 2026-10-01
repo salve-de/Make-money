@@ -1,0 +1,68 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_invoicexml_a894654d8407",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "創業者が挙げた公開ライブラリを組み合わせる選択肢を落とし、大きな専用製品か自作しかないと選択肢を断定している。",
+          "fix": "前夜：自分の請求書対応に苦戦した開発者。隙：創業者は専用製品の費用、公開ライブラリの組み合わせ、一からの実装にそれぞれ負担を感じた。突破：自作の生成・検証処理をAPIとして公開。金が回る仕組み：利用枠を売り規則更新を引き受ける。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ipdefender_755ff3bc6edc",
+      "items": []
+    },
+    {
+      "entityId": "ent_itprofiles_7ebb9f38027f",
+      "items": []
+    },
+    {
+      "entityId": "ent_jamagency_131801ee2216",
+      "items": []
+    },
+    {
+      "entityId": "ent_japan_2b75d9353e36",
+      "items": []
+    },
+    {
+      "entityId": "ent_jaro_f9d5e93d2bd5",
+      "items": []
+    },
+    {
+      "entityId": "ent_jobsaicopilot_1f6fe158ca3a",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "売上はIndie Hackersの掲載値であり、第三者が推計した数字だという説明はfacts・metrics・sources.textにない。",
+          "fix": "求職者の応募作業を代わりに回すサービス、Indie Hackers掲載の月売上$1.7万・対象月不詳。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式の$3,400〜7,650は売上から費用を引いた残額ではなく費用額であり、正しく計算した下限−$1,650も本文の−$1,000と一致しない。",
+          "fix": "掲載売上を基準に、留保控除後の税引前余剰は仮定計算で月−$1,650〜+$7,600。",
+          "fixFormula": "Indie Hackers掲載の月売上$17,000を基準とする。求人取得・生成・応募・設備費を売上の20〜45%と仮定すると$3,400〜7,650。開発・支援・集客・収納費を$5,000〜9,000、留保を$1,000〜2,000と仮定。下限＝$17,000−$7,650−$9,000−$2,000＝−$1,650/月、上限＝$17,000−$3,400−$5,000−$1,000＝+$7,600/月。売上の対象月、税、持分、創業者への実際の入金額は不詳。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_joinit_d697fbaa4aa4",
+      "items": []
+    },
+    {
+      "entityId": "ent_justgogrindcommunity_88631d7ed187",
+      "items": []
+    },
+    {
+      "entityId": "ent_justreachout_fd65a58652a6",
+      "items": []
+    }
+  ]
+}

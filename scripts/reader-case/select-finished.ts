@@ -21,7 +21,9 @@ for (const [id, reader] of loadReaders(readIdsFile(argValue('--ids') ?? ''))) {
   const applied = applyVerdicts(reader, verdicts[id]);
   if (!applied) { notYet[id] = ['未照合']; continue; }
   const r = reflectAnalysis(applied.reader, analysis[id]);
-  const why = [...missingRequired(r).map((m) => `空欄:${m}`), ...(audited.has(id) ? [] : ['未監査']), ...(citesRestrictedSource(r) ? ['出典:規約で表示不可(eBiz)'] : [])];
+  // 公開データ作り（prepare-catalog-release.ts の HOLD_THIN）と同じく、照合済みの事実2件以下で数字が無い事例は出さない
+  const thin = r.facts.length <= 2 && r.metrics.length === 0;
+  const why = [...missingRequired(r).map((m) => `空欄:${m}`), ...(thin ? ['データが少ない（事実2件以下で数字なし）'] : []), ...(audited.has(id) ? [] : ['未監査']), ...(citesRestrictedSource(r) ? ['出典:規約で表示不可(eBiz)'] : [])];
   if (why.length) notYet[id] = why; else finished.push(id);
 }
 writeFileSync('data/catalog-finished-ids.txt', `# 仕上げ済み（全項目の推論と公開前の監査が済んだ）事例。scripts/reader-case/select-finished.ts が書く\n${finished.sort().join('\n')}\n`);

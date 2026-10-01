@@ -1,0 +1,82 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_-_11698c879403",
+      "items": []
+    },
+    {
+      "entityId": "ent_-mlcourses_75e787ca69b5",
+      "items": []
+    },
+    {
+      "entityId": "ent_-tweet100_8f13b3e438ce",
+      "items": [
+        {
+          "analysisId": "a-revenue_estimate",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "式が算定しているのは参加料収入だけであり、その他の収入も含む企画の直接売上全体を月$0とする根拠にはならない。",
+          "fix": "終了後の無料企画の参加料収入は、月$0と推計する。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "費用増を理由に移行したことは確認できるが、移行先が実際に安かったことは示されていない。",
+          "fix": "運営時はZapierの費用が増え、その費用を理由にIntegromatへ移行した。"
+        },
+        {
+          "analysisId": "a-viability",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "API変更による終了告知だけでは、同じ外部接続を使った再現が不可能という仕様までは確定できない。",
+          "fix": "この企画はTwitterのAPI変更で終了しており、同じ仕組みを再現するには接続条件と運営費の確認が必要になる。"
+        },
+        {
+          "analysisId": "a-failure_cause",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式の終了理由はAPI変更だが、参加者不足が関与しなかったことや外部接続そのものが失われたことは示されていない。",
+          "fix": "公式サイトは、企画の終了理由をTwitterのAPI変更と説明している。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_12weeksfromtoday_818a61743857",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "式に『仮の値ではない（仮の値。裏付け資料なし）』という矛盾した編集メモが残っている。",
+          "fix": "広告型を仮定した試算では、千回表示あたりの受取額を$1〜10と置く。",
+          "fixFormula": "試算上の仮定：千回表示あたりの受取額＝$1〜10；実際の広告掲載と受取単価は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_24kjewelry_4bbc10273215",
+      "items": []
+    },
+    {
+      "entityId": "ent_401kbusinessfinancing_28b057bda9ea",
+      "items": []
+    },
+    {
+      "entityId": "ent_abestinclassios-thebookseries_a1d78504d4b7",
+      "items": []
+    },
+    {
+      "entityId": "ent_activatedscale_ad82d1ecd049",
+      "items": []
+    },
+    {
+      "entityId": "ent_adacertify_4ad7e813cde2",
+      "items": []
+    },
+    {
+      "entityId": "ent_adoovy_56bc9f887d0b",
+      "items": []
+    }
+  ]
+}
