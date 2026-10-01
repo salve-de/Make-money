@@ -50,8 +50,3 @@ export function preferDetail<T extends ReaderBearing>(current: T | null | undefi
 export function mayFoundationReplaceCurated(curated: Pick<FinancialEntity, 'reader' | 'latestDossierHash'> | null | undefined): boolean {
   return !curated || !(hasReader(curated) || curated.latestDossierHash);
 }
-
-/** サーバー: 公開版の目録にある ID は、Foundation の詳細を優先せず・単独でも返さない。 */
-export function foundationMayServeDetail(idIsInReleaseManifest: boolean): boolean {
-  return !idIsInReleaseManifest;
-}

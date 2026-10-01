@@ -1,15 +1,25 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 const state = vi.hoisted(() => ({ status: 403 as 200 | 401 | 403 | 503 }));
 vi.mock('@/lib/payments/entitlement', () => ({ authorizePro: vi.fn(async () => ({ status: state.status, uid: 'test' })) }));
-vi.mock('@/lib/foundation/business-reader', () => ({ readFoundationBusinessCase: vi.fn(async () => null) }));
-vi.mock('@/lib/company-access/local-entity-index', () => ({ findCachedPublishableEntity: vi.fn(async () => null) }));
+const found = vi.hoisted(() => ({ entity: null as unknown }));
+vi.mock('@/lib/company-access/catalog-release', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/lib/company-access/catalog-release')>()),
+  findReleaseEntity: vi.fn(async () => found.entity),
+}));
+import manifest from '../../../data/catalog-release.json';
 import { GET } from '@/app/api/company-analysis/route';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import { publicEntity, publicFoundationData } from './public-entity';
 import { parseCompanyAnalysis } from './schema';
-const entity = INSTITUTIONAL_ENTITIES.find((item) => item.meta)!;
-beforeEach(() => { state.status = 403; });
+const PUBLISHED_ID = Object.keys(manifest.details)[0];
+const entity = { ...INSTITUTIONAL_ENTITIES.find((item) => item.meta)!, id: PUBLISHED_ID };
+beforeEach(() => { state.status = 403; found.entity = entity; });
 describe('server-only premium delivery', () => {
+  it('目録に無い事例は、権限があっても 404', async () => {
+    state.status = 200;
+    const result = await GET(new Request('https://example.test/api/company-analysis?entity_id=ent_not_in_catalog'));
+    expect(result.status).toBe(404);
+  });
   it.each([401, 403, 503] as const)('never delivers text for access status %s', async (status) => {
     state.status = status;
     const result = await GET(new Request(`https://example.test/api/company-analysis?entity_id=${entity.id}`));

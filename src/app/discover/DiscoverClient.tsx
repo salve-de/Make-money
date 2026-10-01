@@ -9,7 +9,7 @@ import { ReaderLedger } from "@/features/company-inspector";
 import { UI } from "@/shared/ui-strings";
 import { readerContextText } from "@/shared/display-text";
 import { GlobalHeader } from "@/platform/components/navigation/GlobalHeader";
-import { SquareTabs } from "@/platform/components/playbook/SquareTabs";
+import { SquareTabs } from "@/platform/components/navigation/SquareTabs";
 import type {
   DiscoveryCase,
   DiscoveryDataset,

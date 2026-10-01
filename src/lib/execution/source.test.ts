@@ -1,74 +1,29 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-const state = vi.hoisted(() => ({ local: vi.fn(), canonical: vi.fn(), view: vi.fn(), parse: vi.fn(), adapt: vi.fn(), gate: vi.fn(), ready: vi.fn() }));
+import manifest from '../../../data/catalog-release.json';
+
+const state = vi.hoisted(() => ({ local: vi.fn() }));
 vi.mock('@/lib/company-access/local-entity-index', () => ({ findCachedPublishableEntity: state.local }));
-vi.mock('@/lib/foundation/business-reader', () => ({ readFoundationEntitySummaryById: state.canonical }));
-vi.mock('@/lib/foundation/make-money-view', () => ({ readMakeMoneyViewDetail: state.view }));
-vi.mock('@/lib/foundation/schema', () => ({ parseFoundationBusinessCase: state.parse }));
-vi.mock('@/lib/foundation/foundation-adapter', () => ({ adaptFoundationDetailToFinancialEntity: state.adapt, adaptFoundationSummaryToFinancialEntity: state.adapt, isFoundationDossierReady: state.ready }));
-vi.mock('@/lib/company-access/public-entity', () => ({ isPublishableEntity: state.gate, publicEntity: (v: unknown) => v, publicFoundationData: (v: unknown) => v }));
 import { findExecutionSource } from './source';
 
-describe('execution identity without financial publication', () => {
+const PUBLISHED_ID = Object.keys(manifest.details)[0];
+
+describe('execution identity は公開目録だけ', () => {
   beforeEach(() => {
     vi.resetAllMocks();
-    state.local.mockResolvedValue(null); state.canonical.mockResolvedValue(null);
-    state.view.mockResolvedValue(null); state.parse.mockImplementation(v => v);
-    state.adapt.mockImplementation(v => v); state.gate.mockReturnValue(true);
-    state.ready.mockReturnValue(false);
+    state.local.mockResolvedValue(null);
   });
-  it('uses the same ready-R2 replacement rule as the detail page', async () => {
-    const rd = (text: string) => ({ sources: [], facts: [{ id: 'f1', text }], metrics: [], unknowns: [] });
-    const base = { id: 'ent_live', name: 'Live', reader: rd('old') };
-    state.local.mockResolvedValue(base);
-    state.view.mockResolvedValue({ ...base, reader: rd('new') });
-    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('old');
-    state.ready.mockReturnValue(true);
-    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('new');
-    state.gate.mockReturnValue(false);
-    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('old');
-    state.view.mockRejectedValue(new Error('R2 unavailable'));
-    expect((await findExecutionSource('ent_live'))?.reader?.facts[0].text).toBe('old');
-  });
-  it('carries publishable R2 context into execution without financial or private fields', async () => {
-    state.view.mockResolvedValue({ id: 'ent_live', name: 'Live', tagline: 'Recorded business',
-      reader: { sources: [], facts: [], metrics: [], unknowns: [] },
-      strategy: { blindspot: 'Recorded insight' }, pnl: { monthlyRevenue: 99 }, meta: { secret: true } });
-    const source = await findExecutionSource('ent_live');
-    expect(source?.reader).toBeDefined();
-    expect(source).not.toHaveProperty('strategy');
-    expect(source).not.toHaveProperty('tagline');
-    expect(source?.contextUnavailable).toBeUndefined();
-    expect(source).not.toHaveProperty('pnl'); expect(source).not.toHaveProperty('meta');
-  });
-  it('does not carry rejected R2 context into a blank plan', async () => {
-    state.view.mockResolvedValue({ id: 'ent_live', name: 'Live' });
-    state.gate.mockReturnValue(false);
-    state.canonical.mockResolvedValue({ id: 'ent_live', name: 'Live' });
-    expect(await findExecutionSource('ent_live')).toMatchObject({ contextUnavailable: true });
-  });
-  it('rejects a mismatched or invalid R2 view', async () => {
-    state.view.mockResolvedValue({ id: 'ent_other', name: 'Other' });
-    expect(await findExecutionSource('ent_live')).toBeNull();
-    state.parse.mockImplementation(() => { throw new Error('Invalid schema'); });
-    expect(await findExecutionSource('ent_live')).toBeNull();
-  });
-  it('opens a known case even when its financial evidence gate rejects the dossier', async () => {
-    const source = await findExecutionSource('ent_keyence');
-    expect(source).toMatchObject({ id: 'ent_keyence', contextUnavailable: true });
-    expect(source).not.toHaveProperty('pnl');
-    expect(source).not.toHaveProperty('meta');
-  });
-  it('supports canonical new arrivals not yet in the local registry', async () => {
-    state.canonical.mockResolvedValue({ id: 'ent_new', name: 'New case' });
-    expect(await findExecutionSource('ent_new')).toMatchObject({ id: 'ent_new', name: 'New case' });
-  });
-  it('does not invent unknown identities', async () => {
+  it('目録に無い ID は保存先を読まずに null', async () => {
     expect(await findExecutionSource('ent_unknown')).toBeNull();
+    expect(state.local).not.toHaveBeenCalled();
   });
-  it('does not send financial or premium fields from a publishable dossier', async () => {
-    state.local.mockResolvedValue({ id: 'ent_known', name: 'Known', pnl: { monthlyRevenue: 42 },
+  it('目録にあっても詳細が読めなければ null', async () => {
+    expect(await findExecutionSource(PUBLISHED_ID)).toBeNull();
+  });
+  it('目録の事例から、財務・有料の項目を除いた元データを作る', async () => {
+    state.local.mockResolvedValue({ id: PUBLISHED_ID, name: 'Known', pnl: { monthlyRevenue: 42 },
       meta: { private: true }, strategy: { blindspot: 'hint' } });
-    const source = await findExecutionSource('ent_known');
+    const source = await findExecutionSource(PUBLISHED_ID);
+    expect(source).toMatchObject({ id: PUBLISHED_ID });
     expect(source).not.toHaveProperty('strategy');
     expect(source).not.toHaveProperty('pnl');
     expect(source).not.toHaveProperty('meta');

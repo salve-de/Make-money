@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { review, stageEntity } from '@/lib/media/media-test-fixtures';
+import manifest from '../../../../data/catalog-release.json';
 import { parsePublicMediaResponse } from '@/shared/media-display';
 
 const mocks = vi.hoisted(() => ({ source: vi.fn(), reader: vi.fn() }));
@@ -11,7 +12,7 @@ vi.mock('@/lib/media/runtime', () => ({ readMediaSource: mocks.source, publicMed
 import { GET } from './route';
 import { GET as GET_FILE } from './file/route';
 
-const ENTITY = 'ent_keyence';
+const ENTITY = Object.keys(manifest.details)[0];
 let root: string;
 beforeEach(async () => {
   root = await mkdtemp(join(tmpdir(), 'media-route-'));

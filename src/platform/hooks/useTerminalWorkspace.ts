@@ -2,28 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { WorkspaceMode, IntelligenceTopicId } from '../types/terminal';
-import { INTELLIGENCE_DOSSIERS } from '../data/intelligenceDossiers';
+import { WorkspaceMode } from '../types/terminal';
 
 export function useTerminalWorkspace() {
   const searchParams = useSearchParams();
   const queryParam = searchParams?.get('q') || '';
-  const modeParam = searchParams?.get('mode') as WorkspaceMode | null;
-  const topicParam = searchParams?.get('topic') as IntelligenceTopicId | null;
+  const modeParam: WorkspaceMode | null = searchParams?.get('mode') === 'SYNTHESIS' ? 'SYNTHESIS' : null;
 
-  // 表示モード (LEDGER: 台帳 / RADAR: 動向レーダー / SYNTHESIS: 戦略壁打ち＆独自アイデア合成)
+  // 表示モード (LEDGER: 台帳 / SYNTHESIS: 戦略壁打ち＆独自アイデア合成)
   const initialMode: WorkspaceMode = modeParam || 'LEDGER';
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(initialMode);
 
-  // 特集トピックID (nullの場合は特集カタログ一覧を表示)
-  const initialTopic: IntelligenceTopicId | null =
-    topicParam && INTELLIGENCE_DOSSIERS.some((d) => d.id === topicParam)
-      ? topicParam
-      : null;
-  const [activeTopicId, setActiveTopicId] = useState<IntelligenceTopicId | null>(initialTopic);
-
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
-  const [selectedAnomalyId, setSelectedAnomalyId] = useState<string | null>(null);
 
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [isScreenerOpen, setIsScreenerOpen] = useState<boolean>(false);
@@ -45,28 +35,18 @@ export function useTerminalWorkspace() {
   // URL変更との同期
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (modeParam) setWorkspaceMode(modeParam);
-    else if (topicParam) setWorkspaceMode('DEEP_DIVE');
-    else setWorkspaceMode('LEDGER');
-
-    if (topicParam && INTELLIGENCE_DOSSIERS.some((d) => d.id === topicParam)) {
-      setActiveTopicId(topicParam);
-    }
+    setWorkspaceMode(modeParam ?? 'LEDGER');
 
     if (queryParam !== undefined) {
       setSearchQuery(queryParam);
     }
-  }, [modeParam, topicParam, queryParam]);
+  }, [modeParam, queryParam]);
 
   return {
     workspaceMode,
     setWorkspaceMode,
-    activeTopicId,
-    setActiveTopicId,
     searchQuery,
     setSearchQuery,
-    selectedAnomalyId,
-    setSelectedAnomalyId,
     isCommandPaletteOpen,
     setIsCommandPaletteOpen,
     isScreenerOpen,

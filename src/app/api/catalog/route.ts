@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
-import { usesCatalogRelease } from '@/lib/company-access/catalog-release';
 import { cachedPublicSummaryEntity } from '@/lib/company-access/projection-cache';
 import manifest from '../../../../data/catalog-release.json';
 import { matchesCatalogQuery, parseCatalogFilters } from '@/platform/model/entity-filter';
@@ -35,19 +34,15 @@ export async function GET(request: Request) {
   try {
     const entities = await readCachedLocalPublishableEntities();
     const cacheKey = JSON.stringify([catalogGeneration, sector, query, params.get('filters') ?? '', offset, requestedPageSize]);
-    // 手元の作業ツリーのデータ（公開版を使わない時）は書き換わるので覚えない
-    const cacheable = await usesCatalogRelease();
-    const cached = cacheable ? bodyCache.get(cacheKey) : undefined;
+    const cached = bodyCache.get(cacheKey);
     if (cached !== undefined) return new NextResponse(cached, { headers: CATALOG_HEADERS });
     const filtered = entities.filter((entity) => (!sector || entity.sector === sector) && matchesCatalogQuery(entity, query, filters));
     const data = filtered.slice(offset, offset + requestedPageSize).map(cachedPublicSummaryEntity);
     const nextOffset = offset + data.length;
     const body = JSON.stringify({ data, total: filtered.length, generation: catalogGeneration,
       nextOffset: nextOffset < filtered.length ? nextOffset : null });
-    if (cacheable) {
-      if (bodyCache.size >= BODY_CACHE_LIMIT) bodyCache.delete(bodyCache.keys().next().value as string);
-      bodyCache.set(cacheKey, body);
-    }
+    if (bodyCache.size >= BODY_CACHE_LIMIT) bodyCache.delete(bodyCache.keys().next().value as string);
+    bodyCache.set(cacheKey, body);
     return new NextResponse(body, { headers: CATALOG_HEADERS });
   } catch {
     return NextResponse.json({ error: 'Catalog temporarily unavailable' }, { status: 503 });

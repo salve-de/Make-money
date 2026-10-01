@@ -2,6 +2,14 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 const state = vi.hoisted(() => ({ user: { uid: 'user-1' } as { uid: string } | null, query: vi.fn(), execute: vi.fn(), batch: vi.fn() }));
 const rateLimit = vi.hoisted(() => vi.fn(async () => true));
+vi.mock('@/lib/company-access/catalog-release', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/lib/company-access/catalog-release')>();
+  const { default: manifest } = await import('../../../data/catalog-release.json');
+  const { INSTITUTIONAL_ENTITIES } = await import('@/platform/data/mockLedgerData');
+  const ids = Object.keys(manifest.details);
+  const rows = INSTITUTIONAL_ENTITIES.filter((entity) => entity.pnl).slice(0, 3).map((entity, i) => ({ ...entity, id: ids[i] }));
+  return { ...actual, readReleaseSummaries: vi.fn(async () => rows) };
+});
 vi.mock('@/lib/storage/d1', () => ({ queryD1: state.query, executeD1: state.execute, batchD1: state.batch }));
 vi.mock('@/lib/firebase/server', () => ({ verifyFirebaseIdToken: vi.fn(async () => state.user) }));
 vi.mock('@/lib/security/rate-limit', () => ({ consumeRequestRateLimit: rateLimit }));

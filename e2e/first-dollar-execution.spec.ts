@@ -1,22 +1,14 @@
 import { expect, test } from '@playwright/test';
 
-test('a known case with unavailable financial verification can start a blank plan', async ({ page }) => {
-  await page.goto('/?entity=ent_keyence');
-  await page.getByRole('link', { name: /キーエンス.*を参考に計画を作る/ }).click();
-  await expect(page.getByRole('heading', { level: 1, name: /の実行計画$/ })).toBeVisible({ timeout: 15_000 });
-  await expect(page).toHaveURL(/\/execute\/ent_keyence$/);
-  await expect(page.getByLabel('売るもの')).toHaveValue('');
-});
-
 test('company dossier becomes a persistent First Dollar execution project', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
 
-  await page.goto('/?entity=ent_photoai');
-  await expect(page.getByRole('heading', { level: 2, name: 'Photo AI', exact: true })).toBeVisible();
+  await page.goto('/?entity=ent_excalidraw_c7820d');
+  await expect(page.getByRole('heading', { level: 2, name: 'Excalidraw', exact: true })).toBeVisible();
 
-  await page.getByRole('link', { name: /Photo AIをもとに計画を作成/ }).click();
-  await expect(page).toHaveURL(/\/execute\/ent_photoai$/);
+  await page.getByRole('link', { name: /Excalidrawをもとに計画を作成/ }).click();
+  await expect(page).toHaveURL(/\/execute\/ent_excalidraw_c7820d$/);
   await expect(page.getByRole('heading', { level: 1, name: /の実行計画$/ })).toBeVisible();
 
   const offer = page.getByLabel('売るもの');
@@ -25,7 +17,7 @@ test('company dossier becomes a persistent First Dollar execution project', asyn
   await page.getByLabel('販売価格（円）').fill('3000');
 
   await expect.poll(async () => page.evaluate(() => {
-    const raw = localStorage.getItem('makemoney.execution.anonymous.ent_photoai');
+    const raw = localStorage.getItem('makemoney.execution.anonymous.ent_excalidraw_c7820d');
     if (!raw) return null;
     const project = JSON.parse(raw) as { offerName?: string; targetPriceJpy?: number };
     return { offerName: project.offerName, targetPriceJpy: project.targetPriceJpy };

@@ -1,91 +1,48 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const state = vi.hoisted(() => ({
-  view: vi.fn(),
-  parse: vi.fn(),
-  publishable: vi.fn(),
-  adaptSummary: vi.fn(),
-  adaptDetail: vi.fn(),
-  release: vi.fn(),
-}));
+import manifest from '../../../data/catalog-release.json';
 
-vi.mock('@/lib/foundation/make-money-view', () => ({
-  readMakeMoneyViewDetail: state.view,
-  // the real helper only bounds concurrency; keep its order-preserving, fail-fast behaviour
-  mapServingReads: async <T, R>(items: readonly T[], read: (item: T) => Promise<R>) => Promise.all(items.map(read)),
-}));
-vi.mock('@/lib/foundation/schema', () => ({ parseFoundationBusinessCase: state.parse }));
-vi.mock('@/lib/company-access/public-entity', () => ({ isPublishableEntity: state.publishable }));
-vi.mock('@/lib/foundation/foundation-adapter', () => ({
-  adaptFoundationSummaryToFinancialEntity: state.adaptSummary,
-  adaptFoundationDetailToFinancialEntity: state.adaptDetail,
-}));
+const state = vi.hoisted(() => ({ release: vi.fn(), find: vi.fn() }));
+
+vi.mock('@/lib/company-access/catalog-release', () => ({ findReleaseEntity: state.find }));
 vi.mock('@/lib/foundation/business-reader', () => ({ readLatestNewArrivalsRelease: state.release }));
 vi.mock('@/lib/storage/d1', () => ({ queryD1: vi.fn(), executeD1: vi.fn() }));
 vi.mock('@/lib/runtime/cloudflare', () => ({ getRuntimeEnvValue: async () => undefined }));
 
 import { createRuntimeDigestDeps, readPublishableEntities } from './digest-runtime';
 
-/** A published case id ends in 20 lowercase hex digits; derive them from a readable label. */
-const ID = (label: string) => `ent_saas_${Buffer.from(label).toString('hex').padEnd(20, '0').slice(0, 20)}`;
+const [A, B, C] = Object.keys(manifest.details);
+const ID = (label: string) => label === 'a' ? A : label === 'b' ? B : C;
 
 beforeEach(() => {
-  vi.spyOn(console, 'warn').mockImplementation(() => {});
-  state.view.mockReset().mockImplementation(async (id: string) => ({ viewOf: id }));
-  state.parse.mockReset().mockImplementation((view: { viewOf: string }) => ({ id: view.viewOf, name: `名前 ${view.viewOf}` }));
-  state.publishable.mockReset().mockReturnValue(true);
-  state.adaptSummary.mockReset().mockImplementation((detail: unknown) => ({ gateFor: detail }));
-  state.adaptDetail.mockReset().mockImplementation((detail: { id: string }) => ({ id: detail.id, adapted: true }));
   state.release.mockReset();
+  state.find.mockReset().mockImplementation(async (id: string) => ({ id, name: `名前 ${id}` }));
 });
 
 describe('readPublishableEntities', () => {
-  it('reads each case through the public detail path and returns the adapted entities in order', async () => {
-    const ids = [ID('a'), ID('b'), ID('c')];
-    const entities = await readPublishableEntities(ids);
-    expect(entities).toEqual(ids.map((id) => ({ id, adapted: true })));
-    expect(state.view.mock.calls.map((call) => call[0])).toEqual(ids);
+  it('目録の事例を、渡された順に返す', async () => {
+    const entities = await readPublishableEntities([A, B, C]);
+    expect(entities.map((entity) => entity.id)).toEqual([A, B, C]);
   });
 
-  it('applies the same publication gate the public detail uses, built from the summary form of the case', async () => {
-    state.publishable.mockImplementation((gate: { gateFor: { id: string } }) => gate.gateFor.id !== ID('b'));
-    const entities = await readPublishableEntities([ID('a'), ID('b')]);
-    expect(entities.map((entity) => entity.id)).toEqual([ID('a')]);
-    expect(state.adaptDetail).toHaveBeenCalledTimes(1);
+  it('目録に無い ID は読まずに除く', async () => {
+    const entities = await readPublishableEntities(['../secrets/key', 'ent_a', A, '', 'ent_not_in_catalog']);
+    expect(entities.map((entity) => entity.id)).toEqual([A]);
+    expect(state.find.mock.calls.map((call) => call[0])).toEqual([A]);
   });
 
-  it('leaves out cases that are missing, cannot be parsed, or have no display name yet', async () => {
-    state.view.mockImplementation(async (id: string) => (id === ID('missing') ? null : { viewOf: id }));
-    state.parse.mockImplementation((view: { viewOf: string }) => {
-      if (view.viewOf === ID('garbled')) throw new Error('schema mismatch');
-      // a case still named by its stored id has no display identity
-      return { id: view.viewOf, name: view.viewOf === ID('unnamed') ? ID('unnamed') : '名前' };
+  it('詳細が無い事例は除く', async () => {
+    state.find.mockImplementation(async (id: string) => (id === B ? null : { id, name: 'x' }));
+    const entities = await readPublishableEntities([A, B]);
+    expect(entities.map((entity) => entity.id)).toEqual([A]);
+  });
+
+  it('読み込みの失敗は配信を止める', async () => {
+    state.find.mockImplementation(async (id: string) => {
+      if (id === B) throw new Error('catalog unavailable');
+      return { id, name: 'x' };
     });
-    const entities = await readPublishableEntities([ID('ok'), ID('missing'), ID('garbled'), ID('unnamed')]);
-    expect(entities.map((entity) => entity.id)).toEqual([ID('ok')]);
-  });
-
-  it('skips one case whose adaptation throws instead of losing the whole edition', async () => {
-    state.adaptDetail.mockImplementation((detail: { id: string }) => {
-      if (detail.id === ID('bad')) throw new Error('unexpected shape');
-      return { id: detail.id, adapted: true };
-    });
-    const entities = await readPublishableEntities([ID('bad'), ID('good')]);
-    expect(entities.map((entity) => entity.id)).toEqual([ID('good')]);
-  });
-
-  it('never reads an identifier that is not shaped like a published case', async () => {
-    const entities = await readPublishableEntities(['../secrets/key', 'ent_a', ID('ok'), '', 'ENT_SAAS_00000000000000000000']);
-    expect(entities.map((entity) => entity.id)).toEqual([ID('ok')]);
-    expect(state.view.mock.calls.map((call) => call[0])).toEqual([ID('ok')]);
-  });
-
-  it('lets a storage failure stop the run: it is not a case to skip', async () => {
-    state.view.mockImplementation(async (id: string) => {
-      if (id === ID('b')) throw new Error('R2 unavailable');
-      return { viewOf: id };
-    });
-    await expect(readPublishableEntities([ID('a'), ID('b')])).rejects.toThrow('R2 unavailable');
+    await expect(readPublishableEntities([A, B])).rejects.toThrow('catalog unavailable');
   });
 });
 

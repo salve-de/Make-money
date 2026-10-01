@@ -3,20 +3,17 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { FinancialEntity } from '@/shared/terminal';
-import type { WorkspaceMode } from '../types/terminal';
 import { parseCompanyAnalysis } from '@/lib/company-access/schema';
 import { useViewHistory } from './useViewHistory';
 import { isDetailSettled, preferDetail } from '@/shared/dossier-authority';
 import { useAuth } from '../../context/AuthContext';
 import { openEntityParam } from '../utils/entityUrl';
+import { canonicalCatalogId } from '@/shared/catalog-membership';
 
 interface UseSelectedEntityNavigationProps {
   entities: FinancialEntity[];
   filteredEntities: FinancialEntity[];
-  deepDiveEntities: FinancialEntity[];
-  workspaceMode: WorkspaceMode;
   detailedEntities: Record<string, FinancialEntity>;
-  entityAliases: Record<string, string>;
   /** 公開目録の先頭の事例。届いたらPC幅で自動表示する（届くまで null） */
   defaultEntityId?: string | null;
   onFetchEntityDetailOnDemand: (id: string, hash?: string) => void;
@@ -25,20 +22,19 @@ interface UseSelectedEntityNavigationProps {
 export function useSelectedEntityNavigation({
   entities,
   filteredEntities,
-  deepDiveEntities,
-  workspaceMode,
   detailedEntities,
-  entityAliases,
   defaultEntityId = null,
   onFetchEntityDetailOnDemand,
 }: UseSelectedEntityNavigationProps) {
   const { viewedEntityIds, recordView } = useViewHistory();
   const searchParams = useSearchParams();
   const queryParam = searchParams?.get('q') || '';
-  const entityParam = searchParams?.get('entity');
+  const rawEntityParam = searchParams?.get('entity');
+  // ?entity=ENT_... の大文字小文字・空白の違いは、目録の正式な ID に直す（目録外はそのまま）
+  const entityParam = rawEntityParam ? (canonicalCatalogId(rawEntityParam) ?? rawEntityParam) : rawEntityParam;
 
   const initialEntityId =
-    (entityParam ? entityAliases[entityParam] || entityParam : null) ||
+    entityParam ||
     (queryParam
       ? entities.find(
           (e) =>
@@ -88,7 +84,7 @@ export function useSelectedEntityNavigation({
     if (entityParam) {
       appliedNavigation.current = navigationKey;
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSelectedEntityId(entityAliases[entityParam] || entityParam);
+      setSelectedEntityId(entityParam);
     } else if (queryParam) {
       const matched = entities.find(
         (e) =>
@@ -106,7 +102,7 @@ export function useSelectedEntityNavigation({
       if (previousEntityParam.current) setSelectedEntityId(null);
     }
     previousEntityParam.current = entityParam ?? null;
-  }, [entityParam, queryParam, entities, entityAliases, setSelectedEntityId]);
+  }, [entityParam, queryParam, entities, setSelectedEntityId]);
 
   // 閲覧履歴の自動追跡
   useEffect(() => {
@@ -154,24 +150,24 @@ export function useSelectedEntityNavigation({
 
   // 前後送りハンドラー
   const handlePrevEntity = useCallback(() => {
-    const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
+    const list = filteredEntities;
     if (!selectedEntityId || list.length === 0) return;
     const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
     if (currentIndex > 0) {
       setSelectedEntityId(list[currentIndex - 1].id);
       openEntityParam(list[currentIndex - 1].id);
     }
-  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
+  }, [selectedEntityId, filteredEntities, setSelectedEntityId]);
 
   const handleNextEntity = useCallback(() => {
-    const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
+    const list = filteredEntities;
     if (!selectedEntityId || list.length === 0) return;
     const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
     if (currentIndex >= 0 && currentIndex < list.length - 1) {
       setSelectedEntityId(list[currentIndex + 1].id);
       openEntityParam(list[currentIndex + 1].id);
     }
-  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities, setSelectedEntityId]);
+  }, [selectedEntityId, filteredEntities, setSelectedEntityId]);
 
   return {
     selectedEntityId,

@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
 import {
-  foundationMayServeDetail,
   hasReader,
   isDetailSettled,
   mayFoundationReplaceCurated,
@@ -42,11 +41,6 @@ describe('dossier-authority', () => {
     expect(mayFoundationReplaceCurated({})).toBe(true);
     expect(mayFoundationReplaceCurated({ reader })).toBe(false);
     expect(mayFoundationReplaceCurated({ latestDossierHash: 'f'.repeat(64) })).toBe(false);
-  });
-
-  it('サーバーは目録にある ID の Foundation 詳細を返さない', () => {
-    expect(foundationMayServeDetail(true)).toBe(false);
-    expect(foundationMayServeDetail(false)).toBe(true);
   });
 });
 

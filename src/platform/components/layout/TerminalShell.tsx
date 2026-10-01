@@ -4,23 +4,17 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { FinancialEntity, WorkspaceMode } from '@/shared/terminal';
 import { useTerminalWorkspace } from '../../hooks/useTerminalWorkspace';
-import { useFoundationCatalog } from '../../hooks/useFoundationCatalog';
+import { useCatalogEntities } from '../../hooks/useCatalogEntities';
 import { useEntityFilter } from '../../hooks/useEntityFilter';
 import { useSelectedEntityNavigation } from '../../hooks/useSelectedEntityNavigation';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { useAuth } from '../../../context/AuthContext';
-import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 
 import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid, LedgerListTitle } from '../grid/InstitutionalDataGrid';
-import { FoundationSearchContinuation } from '../foundation/FoundationSearchContinuation';
-import { NewArrivalsBanner } from '../foundation/NewArrivalsBanner';
 import { CompanyInspectorPane } from '@/features/company-inspector';
-import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
-import { PlaybookIntelligenceView } from '../playbook/PlaybookIntelligenceView';
-import { MarketRadarView } from '../radar/MarketRadarView';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal } from '../screener/AdvancedScreenerModal';
 import { LedgerFilterRail } from '../grid/LedgerFilterRail';
@@ -32,10 +26,7 @@ import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC<{
   initialEntities: FinancialEntity[];
-  entityAliases: Record<string, string>;
-  catalogTags?: string[];
-  catalogBatchIds?: string[];
-}> = ({ initialEntities, entityAliases, catalogTags = [], catalogBatchIds = [] }) => {
+}> = ({ initialEntities }) => {
   const searchParams = useSearchParams();
   const entityParam = searchParams?.get('entity') || null;
   const [inspectorVisibility, setInspectorVisibility] = useState({ entityParam, open: Boolean(entityParam) });
@@ -46,12 +37,8 @@ export const TerminalShell: React.FC<{
   const {
     workspaceMode,
     setWorkspaceMode,
-    activeTopicId,
-    setActiveTopicId,
     searchQuery,
     setSearchQuery,
-    selectedAnomalyId,
-    setSelectedAnomalyId,
     isCommandPaletteOpen,
     setIsCommandPaletteOpen,
     isScreenerOpen,
@@ -61,28 +48,20 @@ export const TerminalShell: React.FC<{
     currency,
   } = useTerminalWorkspace();
 
-  // 2. R2 Foundation カタログ・マージ・マクロ集計フック
+  // 2. 公開目録（data/catalog-release.json）の事例だけを読むフック
   const {
     entities, catalogFirstId,
-    macroData,
-    foundationHasMore,
+    catalogError,
     catalogLoading,
-    foundationRetryAvailable,
-    foundationSearchContinuationAvailable,
-    foundationSearchContinuationFailed,
-    foundationSearchRetryMessage,
-    continueFoundationSearch,
-    foundationLoading,
     catalogTotal,
-    newArrivalsRelease,
+    hasMore,
     detailedEntities,
     setDetailedEntities,
     setApprovedIds,
     setCatalogFilters,
-    loadMoreFoundation,
-    retryFoundationPage,
+    loadMore,
     fetchEntityDetailOnDemand, detailStateFor, retryEntityDetail,
-  } = useFoundationCatalog(initialEntities, searchQuery);
+  } = useCatalogEntities(initialEntities, searchQuery);
 
   // 3. 複合フィルタリング・集計・承認フック
   const {
@@ -91,7 +70,6 @@ export const TerminalShell: React.FC<{
     selectedBatch,
     setSelectedBatch,
     activeTags,
-    setActiveTags,
     handleToggleTag,
     screenerFilters,
     setScreenerFilters,
@@ -126,26 +104,12 @@ export const TerminalShell: React.FC<{
     },
   });
 
-  // 特集レポート用エンティティ
-  const activeDossier = useMemo(() => {
-    if (!activeTopicId) return null;
-    return INTELLIGENCE_DOSSIERS.find((d) => d.id === activeTopicId) || null;
-  }, [activeTopicId]);
-
-  const deepDiveEntities = useMemo(() => {
-    if (!activeDossier) return [];
-    return entities.filter((entity) => activeDossier.targetEntityIds.includes(entity.id));
-  }, [activeDossier, entities]);
-
   // 4. 選択中エンティティ・ナビゲーション・PRO分析フック
   const { selectedEntityId, openedEntityId, setSelectedEntityId, selectedEntity, handlePrevEntity, handleNextEntity } =
     useSelectedEntityNavigation({
       entities,
       filteredEntities,
-      deepDiveEntities,
-      workspaceMode,
       detailedEntities,
-      entityAliases,
       defaultEntityId: searchQuery ? null : catalogFirstId,
       onFetchEntityDetailOnDemand: fetchEntityDetailOnDemand,
     });
@@ -181,13 +145,8 @@ export const TerminalShell: React.FC<{
   // URL/back button in sync without requesting a new dynamic Server Component payload for the same page.
   const selectWorkspaceMode = (mode: WorkspaceMode, entityId?: string) => {
     setWorkspaceMode(mode);
-    if (mode === 'DEEP_DIVE') setActiveTopicId(null);
-
     const params = new URLSearchParams(window.location.search);
-    if (mode !== 'DEEP_DIVE') {
-      params.delete('topic');
-      setActiveTopicId(null);
-    }
+    params.delete('topic');
     if (mode === 'LEDGER') params.delete('mode');
     else params.set('mode', mode);
     if (entityId) params.set('entity', entityId);
@@ -209,30 +168,12 @@ export const TerminalShell: React.FC<{
   const { notes, getNote, saveNote, getSaveStatus } = useAnalystNotes();
   const { isPro: isProUnlocked, role } = useAuth();
   const canApproveEntities = role === 'admin';
-  const openNewArrivals = () => {
-    selectWorkspaceMode('LEDGER');
-    setSearchQuery('');
-    setCurrentFilter('ALL');
-    setSelectedBatch('ALL');
-    setScreenerFilters(null);
-    setActiveTags(['新着']);
-  };
 
   return (
     <div className="flex term-screen w-full flex-col overflow-hidden bg-term-bg font-sans text-term-fg">
       {/* 統合グローバルナビゲーションヘッダー */}
       <GlobalHeader
-        currentSection={
-          workspaceMode === 'PLAYBOOK'
-            ? 'PLAYBOOK'
-            : workspaceMode === 'RADAR'
-            ? 'RADAR'
-            : workspaceMode === 'ARCHETYPES'
-            ? 'ARCHETYPES'
-            : workspaceMode === 'SYNTHESIS'
-            ? 'SYNTHESIS'
-            : 'LEDGER'
-        }
+        currentSection={workspaceMode === 'SYNTHESIS' ? 'SYNTHESIS' : 'LEDGER'}
         onOpenPro={() => setIsProModalOpen(true)}
         onSelectLocalMode={selectWorkspaceMode}
         {...(workspaceMode === 'LEDGER' ? { searchValue: searchQuery, onSearchChange: setSearchQuery } : {})}
@@ -248,15 +189,7 @@ export const TerminalShell: React.FC<{
       {/* メインエリア */}
       <main className="flex-1 flex min-h-0 overflow-hidden relative">
         {/* 画面モードに応じたコンテンツレンダリング */}
-        {workspaceMode === 'PLAYBOOK' ? (
-          <PlaybookIntelligenceView
-            data={macroData}
-            onSelectEntity={(entityId) => {
-              openEntity(entityId);
-              selectWorkspaceMode('LEDGER', entityId);
-            }}
-          />
-        ) : workspaceMode === 'SYNTHESIS' ? (
+        {workspaceMode === 'SYNTHESIS' ? (
           <StrategySynthesisView
             allEntities={synthesisEntities}
             onLoadEntity={fetchEntityDetailOnDemand}
@@ -265,26 +198,6 @@ export const TerminalShell: React.FC<{
             onSaveNote={saveNote}
             currency={currency}
             initialContextEntityId={openedEntityId}
-          />
-        ) : workspaceMode === 'RADAR' ? (
-          <MarketRadarView
-            onSelectEntity={(entityId) => {
-              openEntity(entityId);
-              selectWorkspaceMode('LEDGER', entityId);
-            }}
-          />
-        ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'DEEP_DIVE') ? (
-          <TacticalArchetypesView
-            allEntities={entities}
-            initialAnomalyId={selectedAnomalyId}
-            onOpenEntityInLedger={(entityId) => {
-              openEntity(entityId);
-              selectWorkspaceMode('LEDGER', entityId);
-            }}
-            onOpenSynthesisWithEntity={(entityId) => {
-              openEntity(entityId);
-              selectWorkspaceMode('SYNTHESIS', entityId);
-            }}
           />
         ) : (
           <>
@@ -306,12 +219,15 @@ export const TerminalShell: React.FC<{
               onApproveAllCollected={canApproveEntities ? handleApproveAllCollected : undefined}
               selectedBatch={selectedBatch}
               onSelectBatch={setSelectedBatch} showBatchFilter={canApproveEntities}
-              batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
+              batchCounts={batchCounts}
               catalogTotal={catalogTotal}
               savedSearchDraft={{ query: searchQuery, filters: catalogFilters }}
             />
-            <NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} onOpenEntity={openEntity} />
-            <FoundationSearchContinuation available={foundationSearchContinuationAvailable} failed={foundationSearchContinuationFailed} loading={foundationLoading} retryMessage={foundationSearchRetryMessage} onContinue={continueFoundationSearch} />
+            {catalogError && entities.length === 0 ? (
+              <div role="alert" className="border-b border-term-line bg-term-panel px-3 py-3 text-sm text-term-fg">
+                目録を読み込めません。しばらくしてから、ページを開き直してください。
+              </div>
+            ) : null}
             <LedgerListTitle count={filteredEntities.length} />
             <InstitutionalDataGrid
               entities={filteredEntities}
@@ -322,11 +238,9 @@ export const TerminalShell: React.FC<{
               bookmarkedIds={bookmarkedIds}
               onToggleBookmark={handleToggleBookmark}
               isSplitView={Boolean(selectedEntity)}
-              onLoadMore={loadMoreFoundation}
-              hasMore={foundationHasMore}
-              isLoadingMore={foundationLoading || catalogLoading}
-              retryAvailable={foundationRetryAvailable}
-              onRetry={retryFoundationPage}
+              onLoadMore={loadMore}
+              hasMore={hasMore}
+              isLoadingMore={catalogLoading}
             />
           </div>
           </>
@@ -344,13 +258,6 @@ export const TerminalShell: React.FC<{
             onPrevEntity={handlePrevEntity}
             onNextEntity={handleNextEntity}
             onOpenPro={() => setIsProModalOpen(true)}
-            onSelectTopic={() => {
-              selectWorkspaceMode('RADAR');
-            }}
-            onOpenAnomaly={(anomalyId) => {
-              setSelectedAnomalyId(anomalyId);
-              selectWorkspaceMode('ARCHETYPES');
-            }}
             activeTags={activeTags}
             onToggleTag={handleToggleTag}
             analystNote={getNote(selectedEntity.id)}
@@ -369,7 +276,7 @@ export const TerminalShell: React.FC<{
         )}
       </main>
 
-      {workspaceMode === 'LEDGER' && <TerminalStatusBar shownCount={filteredEntities.length} totalCount={catalogTotal ?? filteredEntities.length} updatedAt={newArrivalsRelease?.releaseAt ?? null} />}
+      {workspaceMode === 'LEDGER' && <TerminalStatusBar shownCount={filteredEntities.length} totalCount={catalogTotal ?? filteredEntities.length} updatedAt={null} />}
 
       {/* ⌘K グローバル検索モーダル */}
       <GlobalCommandPalette
@@ -389,7 +296,7 @@ export const TerminalShell: React.FC<{
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}
-        availableTags={[...new Set([...availableTags, ...catalogTags])]}
+        availableTags={availableTags}
         tagCounts={tagCounts}
         initialFilters={screenerFilters}
       />

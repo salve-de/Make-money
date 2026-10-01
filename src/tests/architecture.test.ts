@@ -30,3 +30,15 @@ it('rejects private type queries, relative paths and template literal imports', 
     expect(violations.some(violation => violation.startsWith(probe.file))).toBe(true);
   }
 }, 20_000);
+
+it('公開の入口から見本データ・全件索引へ行き着くと落ちる', () => {
+  const probes = [
+    { file: 'src/app/sample-probe-a/page.tsx', text: "import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData'; export default function P() { return INSTITUTIONAL_ENTITIES.length; }" },
+    { file: 'src/app/sample-probe-b/route.ts', text: "import index from '../../../data/entities-index.json'; export const GET = () => Response.json(index);" },
+    { file: 'src/app/sample-probe-c/layout.tsx', text: "import registry from '../../../data/collected-registry.json'; export default function L() { return registry.length; }" },
+  ];
+  const violations = checkBoundaries(probes);
+  for (const file of ['sample-probe-a/page.tsx', 'sample-probe-b/route.ts', 'sample-probe-c/layout.tsx']) {
+    expect(violations.some((v) => v.startsWith('Sample or full-index data reached from a public entry') && v.includes(file)), file).toBe(true);
+  }
+}, 20_000);

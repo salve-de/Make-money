@@ -19,14 +19,14 @@ async function ledger(entityId: string): Promise<EffectiveMediaAsset[]> {
 }
 
 test.describe('official product images', () => {
-  test('the Photo AI inspector shows its approved pricing screenshot under the summary, with the source, and no held image', async ({ page }) => {
-    const assets = await ledger('ent_photoai');
+  test('the Excalidraw inspector shows its approved pricing screenshot under the summary, with the source, and no held image', async ({ page }) => {
+    const assets = await ledger('ent_excalidraw_c7820d');
     const shown = assets.filter((asset) => isMediaDisplayable(asset) && MEDIA_GALLERY_KINDS.includes(asset.kind));
-    test.skip(shown.length === 0, 'data/media-staging has no approved Photo AI gallery image (approve one with scripts/media/review-assets.ts)');
+    test.skip(shown.length === 0, 'data/media-staging has no approved Excalidraw gallery image (approve one with scripts/media/review-assets.ts)');
 
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.goto('/?entity=ent_photoai');
+    await page.goto('/?entity=ent_excalidraw_c7820d');
     const gallery = page.locator('#section-media');
     await expect(gallery).toBeVisible({ timeout: 45_000 });
 
@@ -56,21 +56,21 @@ test.describe('official product images', () => {
     for (const asset of assets.filter((candidate) => !isMediaDisplayable(candidate))) expect(html).not.toContain(asset.assetId);
 
     // No horizontal overflow from the new section.
-    const pane = page.getByRole('complementary', { name: 'Photo AIの企業事例インスペクター' });
+    const pane = page.getByRole('complementary', { name: 'Excalidrawの企業事例インスペクター' });
     await expect(pane).toHaveJSProperty('scrollWidth', await pane.evaluate((element) => element.clientWidth));
 
-    await page.screenshot({ path: 'test-results/media-gallery-photoai.png' });
+    await page.screenshot({ path: 'test-results/media-gallery-excalidraw.png' });
     expect(errors).toEqual([]);
   });
 
-  test('the media API offers exactly the approved Keyence images and serves only those files', async ({ page, request }) => {
-    const assets = await ledger('ent_keyence');
+  test('the media API offers exactly the approved GMass images and serves only those files', async ({ page, request }) => {
+    const assets = await ledger('ent_gmass_209d19');
     const approved = assets.filter(isMediaDisplayable);
-    test.skip(approved.length === 0, 'data/media-staging has no approved Keyence image');
+    test.skip(approved.length === 0, 'data/media-staging has no approved GMass image');
 
-    const body = await (await request.get('/api/media?entity_id=ent_keyence')).json();
+    const body = await (await request.get('/api/media?entity_id=ent_gmass_209d19')).json();
     expect(body).toMatchObject({ schema: PUBLIC_MEDIA_RESPONSE_SCHEMA, source: 'local_staging', available: true });
-    const offered = body.entities.ent_keyence as PublicMediaAsset[];
+    const offered = body.entities.ent_gmass_209d19 as PublicMediaAsset[];
     expect(offered.map((asset) => asset.assetId).sort()).toEqual(approved.map((asset) => asset.assetId).sort());
     for (const asset of offered) {
       const record = approved.find((candidate) => candidate.assetId === asset.assetId) as EffectiveMediaAsset;
@@ -84,21 +84,14 @@ test.describe('official product images', () => {
       expect(createHash('sha256').update(bytes).digest('hex')).toBe(record.sha256);
     }
     for (const held of assets.filter((asset) => !isMediaDisplayable(asset))) {
-      expect((await request.get(`/api/media/file?entity_id=ent_keyence&asset=${held.assetId}`)).status()).toBe(404);
+      expect((await request.get(`/api/media/file?entity_id=ent_gmass_209d19&asset=${held.assetId}`)).status()).toBe(404);
     }
 
-    // Keyence is not in data/catalog-release.json, so a production build shows the "not confirmed yet" notice instead of the
-    // inspector. The gallery follows the case: it is shown when the case is shown and never on its own.
-    await page.goto('/?entity=ent_keyence');
-    const heading = page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true });
-    const notice = page.getByRole('status').filter({ hasText: '詳細の公開確認が完了していない' });
-    await expect(heading.or(notice).first()).toBeVisible({ timeout: 45_000 });
-    if (await heading.isVisible()) {
-      await expect(page.locator('#section-media')).toBeVisible();
-    } else {
-      await expect(page.locator('#section-media')).toHaveCount(0);
-    }
-    await page.screenshot({ path: 'test-results/media-gallery-keyence.png' });
+    // 画像は事例が出ている時だけ出る。GMass は公開目録に入っているので、詳細と一緒に画像欄も出る
+    await page.goto('/?entity=ent_gmass_209d19');
+    await expect(page.getByRole('heading', { name: 'GMass', exact: true })).toBeVisible({ timeout: 45_000 });
+    await expect(page.locator('#section-media')).toBeVisible();
+    await page.screenshot({ path: 'test-results/media-gallery-gmass.png' });
   });
 
   test('no held, blocked or person image is in any media response', async ({ request }) => {
@@ -118,26 +111,26 @@ test.describe('official product images', () => {
   });
 
   test('a list row shows the logo that the media API offers for it', async ({ page, request }) => {
-    // Photo AI's own favicon is not approved, so the API is answered for that row with a real, approved image (Keyence's favicon)
+    // Excalidraw's own favicon is not approved, so the API is answered for that row with a real, approved image (GMass's favicon)
     // to check how the row is wired: ids of the visible rows go out in one request, the answer becomes a 20px mark before the name.
-    const real = await (await request.get('/api/media?entity_id=ent_keyence')).json();
-    const favicon = (real.entities?.ent_keyence as PublicMediaAsset[] | undefined)?.find((asset) => asset.kind === 'favicon');
-    test.skip(!favicon, 'data/media-staging has no approved Keyence favicon');
+    const real = await (await request.get('/api/media?entity_id=ent_gmass_209d19')).json();
+    const favicon = (real.entities?.ent_gmass_209d19 as PublicMediaAsset[] | undefined)?.find((asset) => asset.kind === 'favicon');
+    test.skip(!favicon, 'data/media-staging has no approved GMass favicon');
 
     const asked: string[][] = [];
     await page.route(/\/api\/media\?/, async (route) => {
       const ids = new URL(route.request().url()).searchParams.getAll('entity_id');
       asked.push(ids);
       await route.fulfill({
-        json: { schema: PUBLIC_MEDIA_RESPONSE_SCHEMA, source: 'local_staging', available: true, entities: ids.includes('ent_photoai') ? { ent_photoai: [favicon] } : {} },
+        json: { schema: PUBLIC_MEDIA_RESPONSE_SCHEMA, source: 'local_staging', available: true, entities: ids.includes('ent_excalidraw_c7820d') ? { ent_excalidraw_c7820d: [favicon] } : {} },
       });
     });
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible({ timeout: 45_000 });
+    await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible({ timeout: 45_000 });
 
-    const row = page.getByRole('row').filter({ hasText: 'Photo AI' }).filter({ visible: true }).first();
+    const row = page.getByRole('row').filter({ hasText: 'Excalidraw' }).filter({ visible: true }).first();
     const logo = row.getByTestId('entity-logo');
     await expect(logo).toBeVisible();
     await expect.poll(() => logo.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
@@ -147,7 +140,7 @@ test.describe('official product images', () => {
     // Rows without an approved image get no mark at all.
     await expect(page.getByTestId('entity-logo').filter({ visible: true })).toHaveCount(1);
     await row.screenshot({ path: 'test-results/media-list-logo.png' });
-    expect(asked.flat()).toContain('ent_photoai');
+    expect(asked.flat()).toContain('ent_excalidraw_c7820d');
     expect(Math.max(...asked.map((ids) => ids.length))).toBeLessThanOrEqual(40);
     expect(errors).toEqual([]);
   });

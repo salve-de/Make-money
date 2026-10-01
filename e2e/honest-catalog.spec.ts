@@ -1,36 +1,31 @@
 import { expect, test } from '@playwright/test';
 
-// 表示契約: 機械的に正直化された PARTIAL 記録（eBiz の作文）は公開版の103社に入らない。
-// 一覧には出ても、詳細は「準備中」で、作文の数字（月商150万円・月4,500万円）も再監査の注記も画面に出さない。
-// 出典URL付きで保持された記録（Plaid）にも注記は出ない。
+// 表示契約: 機械的に正直化された記録（eBiz の作文）や出典が確認できない記録は公開目録（103社）に入らない。
+// 目録に無い事例は、名前も作文の数字（月商150万円・月4,500万円）も再監査の注記も画面に出さず、「公開していません」だけを出す。
 const PARTIAL_ID = 'ent_ebizfacts_stevehanovmultiplesaas10kmonthcheapstack_5425bcdb3286';
 const PARTIAL_NEWSLETTER_ID = 'ent_ebizfacts_ryansneddonnaptownscoop300kyearlocalnewslett_1e614f249087';
-const KEPT_ID = 'ent_plaid_K5R9T3LM'; // 出典URL付きで保持された記録（機関投資家向け別扱いの Keyence は使わない）
+const UNPUBLISHED_WITH_SOURCE_ID = 'ent_plaid_K5R9T3LM';
 
 test.describe('honest catalog display contract', () => {
-  test('a demoted PARTIAL record shows only the pending notice and no fabricated revenue', async ({ page }) => {
+  test('a demoted PARTIAL record shows no name and no fabricated revenue', async ({ page }) => {
     await page.goto(`/?entity=${PARTIAL_ID}`);
-    await expect(page.getByRole('heading', { name: /Steve Hanov/ })).toBeVisible({ timeout: 45_000 });
-    await expect(page.getByRole('complementary', { name: /Steve Hanov.*インスペクター/ })).toContainText('この事例の詳細は準備中です。');
+    await expect(page.getByText('この事例は公開していません。')).toBeVisible();
+    await expect(page.getByText(/Steve Hanov/)).toHaveCount(0);
     await expect(page.getByTestId('reaudit-partial-notice')).toHaveCount(0);
-    await expect(page.getByText('【月商150万円】')).toHaveCount(0);
     await expect(page.getByText(/月商150万円/)).toHaveCount(0);
-    await page.screenshot({ path: 'test-results/honest-partial-steve-hanov.png', fullPage: false });
   });
 
   test('the newsletter record no longer shows the fabricated 4,500万円 monthly revenue', async ({ page }) => {
     await page.goto(`/?entity=${PARTIAL_NEWSLETTER_ID}`);
-    await expect(page.getByRole('heading', { name: /Ryan Sneddon/ })).toBeVisible({ timeout: 45_000 });
-    await expect(page.getByRole('complementary', { name: /Ryan Sneddon.*インスペクター/ })).toContainText('この事例の詳細は準備中です。');
-    await expect(page.getByTestId('reaudit-partial-notice')).toHaveCount(0);
+    await expect(page.getByText('この事例は公開していません。')).toBeVisible();
+    await expect(page.getByText(/Ryan Sneddon/)).toHaveCount(0);
     await expect(page.getByText(/4,?500万円/)).toHaveCount(0);
-    await page.screenshot({ path: 'test-results/honest-partial-naptown-scoop.png', fullPage: false });
   });
 
-  test('a record kept with a source shows no re-audit notice', async ({ page }) => {
-    await page.goto(`/?entity=${KEPT_ID}`);
-    await expect(page.getByRole('heading', { name: /Plaid/ })).toBeVisible({ timeout: 45_000 });
+  test('a record that is not in the catalog shows no re-audit notice either', async ({ page }) => {
+    await page.goto(`/?entity=${UNPUBLISHED_WITH_SOURCE_ID}`);
+    await expect(page.getByText('この事例は公開していません。')).toBeVisible();
+    await expect(page.getByText(/Plaid/)).toHaveCount(0);
     await expect(page.getByTestId('reaudit-partial-notice')).toHaveCount(0);
-    await page.screenshot({ path: 'test-results/kept-with-source-plaid.png', fullPage: false });
   });
 });

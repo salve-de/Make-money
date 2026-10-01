@@ -1,8 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { FinancialEntity } from '@/shared/terminal';
-const mocks = vi.hoisted(() => ({ read: vi.fn(), usesRelease: vi.fn().mockResolvedValue(false) }));
+const mocks = vi.hoisted(() => ({ read: vi.fn() }));
 vi.mock('@/lib/company-access/local-entity-index', () => ({ readCachedLocalPublishableEntities: mocks.read }));
-vi.mock('@/lib/company-access/catalog-release', () => ({ usesCatalogRelease: mocks.usesRelease }));
 import { GET } from './route';
 
 describe('catalog paging and search', () => {
@@ -69,17 +68,13 @@ describe('catalog paging and search', () => {
     expect(result.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_3', 'ent_150']);
     expect((await GET(new Request('http://localhost/api/catalog?sector=content-media'))).status).toBe(400);
   });
-  it('公開版（不変）の時だけ、同じ条件の応答本文を使い回す', async () => {
+  it('公開版は不変なので、同じ条件の応答本文を使い回す', async () => {
     const rows = await mocks.read();
     mocks.read.mockResolvedValue(rows);
-    mocks.usesRelease.mockResolvedValue(true);
     const url = 'http://localhost/api/catalog?pageSize=3&q=Company%2020';
     const first = await (await GET(new Request(url))).text();
     rows[20].name = 'Renamed';
     const second = await (await GET(new Request(url))).text();
     expect(second).toBe(first);
-    mocks.usesRelease.mockResolvedValue(false);
-    const local = await (await GET(new Request(url))).json();
-    expect(local.data.map((row: FinancialEntity) => row.id)).not.toContain('ent_20');
   });
 });

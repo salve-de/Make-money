@@ -1,9 +1,6 @@
 export type GlobalNavSection =
   | 'LEDGER'
   | 'DISCOVER'
-  | 'PLAYBOOK'
-  | 'RADAR'
-  | 'ARCHETYPES'
   | 'SYNTHESIS'
   | 'BUILDER'
   | 'EXECUTION'
@@ -16,7 +13,7 @@ export type GlobalNavSection =
   | 'LEGAL'
   | 'WELCOME';
 
-export type LocalWorkspaceMode = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS';
+export type LocalWorkspaceMode = 'LEDGER' | 'SYNTHESIS';
 
 export interface NavItem {
   id: GlobalNavSection;
@@ -24,13 +21,10 @@ export interface NavItem {
   href: string;
 }
 
-/** PC のファンクションタブ（先頭から 1〜6 キーで開く） */
+/** PC のファンクションタブ（先頭から数字キーで開く） */
 export const PRIMARY_NAV_ITEMS: NavItem[] = [
   { id: 'LEDGER', label: '事例一覧', href: '/' },
   { id: 'DISCOVER', label: '発見', href: '/discover' },
-  { id: 'RADAR', label: '市場動向', href: '/radar' },
-  { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
-  { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
   { id: 'SYNTHESIS', label: '事業検討', href: '/?mode=SYNTHESIS' },
 ];
 
@@ -45,8 +39,6 @@ export const SECONDARY_NAV_ITEMS: NavItem[] = [
 
 /** スマホの引き出しメニュー。下のタブ（事例・発見・市場・事業検討）に無い画面を、よく使う順に並べる */
 export const MOBILE_MENU_ITEMS: NavItem[] = [
-  { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
-  { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
   { id: 'COMPARE', label: '事例の比較', href: '/compare' },
   { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
   { id: 'EXECUTION', label: '実行計画', href: '/execute' },
@@ -56,9 +48,6 @@ export const MOBILE_MENU_ITEMS: NavItem[] = [
 
 export const LOCAL_MODE_BY_SECTION: Partial<Record<GlobalNavSection, LocalWorkspaceMode>> = {
   LEDGER: 'LEDGER',
-  PLAYBOOK: 'PLAYBOOK',
-  RADAR: 'RADAR',
-  ARCHETYPES: 'ARCHETYPES',
   SYNTHESIS: 'SYNTHESIS',
 };
 
@@ -76,9 +65,6 @@ export const SAVED_HREF = '/?mode=SYNTHESIS';
 export const SECTION_TITLES: Record<GlobalNavSection, string> = {
   LEDGER: '事例一覧',
   DISCOVER: '発見',
-  RADAR: '市場動向',
-  ARCHETYPES: '事業パターン',
-  PLAYBOOK: '手口と道具',
   SYNTHESIS: '事業検討',
   BUILDER: '事業検討',
   EXECUTION: '実行計画',

@@ -17,11 +17,9 @@ test("standalone discover page delivers value without requiring setup", async ({
   const initialCount = await rows.count();
   expect(initialCount).toBeGreaterThan(5);
 
-  // 詳細は entity.reader だけを読む。reader は公開版にだけ入るので、E2E のサーバー（作業ツリーのデータ）では
-  // 詳細は「準備中」になり、出典のない数字や文を出さない。選んだ行の名前が詳細の見出しに出る。
+  // 選んだ行の詳細（公開目録の中身）が出る。0円の実測には見せない。
   const detail = page.getByTestId("discover-detail");
   await expect(detail.getByRole("heading", { level: 2 })).toBeVisible();
-  await expect(detail).toContainText("この事例の詳細は準備中です。");
   await expect(detail).not.toContainText(/(?<![\d,.])0円/);
 
   await page.getByRole("button", { name: "初期資金", exact: true }).click();
