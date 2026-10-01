@@ -17,6 +17,8 @@ interface UseSelectedEntityNavigationProps {
   workspaceMode: WorkspaceMode;
   detailedEntities: Record<string, FinancialEntity>;
   entityAliases: Record<string, string>;
+  /** 公開目録の先頭の事例。届いたらPC幅で自動表示する（届くまで null） */
+  defaultEntityId?: string | null;
   onFetchEntityDetailOnDemand: (id: string, hash?: string) => void;
 }
 
@@ -27,6 +29,7 @@ export function useSelectedEntityNavigation({
   workspaceMode,
   detailedEntities,
   entityAliases,
+  defaultEntityId = null,
   onFetchEntityDetailOnDemand,
 }: UseSelectedEntityNavigationProps) {
   const { viewedEntityIds, recordView } = useViewHistory();
@@ -58,16 +61,15 @@ export function useSelectedEntityNavigation({
   const appliedNavigation = useRef<string | null>(null);
   const previousEntityParam = useRef<string | null>(entityParam ?? null);
 
-  // 本番は一覧がブラウザに届いてから先頭の事例を自動で表示する（サーバー側では詳細を読まない）。
-  // 自動表示は「利用者が開いた」扱いにしない（スマホ幅では詳細を開かない）
+  // 本番は公開目録がブラウザに届いてから先頭の事例を自動で表示する（サーバー側では詳細を読まない）。
+  // 自動表示は「利用者が開いた」扱いにしない。詳細欄が見えない幅（スマホ）では選ばず、詳細も取りに行かない
   useEffect(() => {
-    if (autoSelectSettled.current || selectedEntityId || entityParam || queryParam) return;
-    const first = entities[0]?.id;
-    if (!first) return;
+    if (autoSelectSettled.current || selectedEntityId || entityParam || queryParam || !defaultEntityId) return;
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
     autoSelectSettled.current = true;
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSelectedEntityIdState(first);
-  }, [entities, selectedEntityId, entityParam, queryParam]);
+    setSelectedEntityIdState(defaultEntityId);
+  }, [defaultEntityId, selectedEntityId, entityParam, queryParam]);
 
   // オンデマンド詳細読み込み
   useEffect(() => {

@@ -92,8 +92,11 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
     void load(page.nextOffset, page.generation);
   }, [load, page, requestKey]);
   const entities = useMemo(() => mergeKnownCatalogEntities(initial, rows), [initial, rows]);
+  // 公開目録の API ページが届いた後の先頭の事例（届くまでは null）
+  const firstId = page.key === requestKey ? rows[0]?.id ?? null : null;
   return {
     entities,
+    firstId,
     loadedCount: rows.length,
     totalCount: page.key === requestKey ? page.total : null,
     hasMore: page.key === requestKey && page.nextOffset !== null,

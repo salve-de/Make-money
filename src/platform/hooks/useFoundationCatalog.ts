@@ -277,6 +277,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   return {
     entities,
+    catalogFirstId: catalog.firstId,
     catalogLoadedCount: catalog.loadedCount,
     catalogTotal: catalog.totalCount,
     foundationLoadedCount: foundationRows.length,
