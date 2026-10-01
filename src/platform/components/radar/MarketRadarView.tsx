@@ -81,10 +81,6 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
       <h1 className="sr-only">市場の動きと事業リスク</h1>
 
       <div className="sticky top-0 z-20 border-b border-term-line bg-term-panel">
-        <div className="term-panel-title">
-          <span className="term-panel-name">市場動向</span>
-          <span className="hidden sm:inline">事業テーマと失敗要因の一覧</span>
-        </div>
         <div className="flex flex-col sm:flex-row sm:items-stretch sm:justify-between">
           <SquareTabs ariaLabel="表示する市場情報" tabs={tabs} value={viewMode} onChange={setViewMode} />
           {viewMode !== 'LANDMINES' && (
@@ -106,7 +102,8 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
       <div className="w-full flex-1">
         {(viewMode === 'OPPORTUNITIES' || viewMode === 'DUAL') && (
           <section aria-labelledby="radar-opportunities-heading">
-            <div className="term-panel-title">
+            {/* 1種類だけ出す時はタブと同じ見出しになるので、読み上げ用だけに残す */}
+            <div className={viewMode === 'DUAL' ? 'term-panel-title' : 'sr-only'}>
               <h2 id="radar-opportunities-heading" className="term-panel-name">事業テーマ</h2>
               <span className="term-num">{filteredTrends.length}件</span>
             </div>
@@ -116,7 +113,7 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
 
         {(viewMode === 'LANDMINES' || viewMode === 'DUAL') && (
           <section aria-labelledby="radar-landmines-heading">
-            <div className="term-panel-title">
+            <div className={viewMode === 'DUAL' ? 'term-panel-title' : 'sr-only'}>
               <h2 id="radar-landmines-heading" className="term-panel-name">失敗要因</h2>
               <span className="term-num">{MARKET_RADAR_LANDMINES.length}件</span>
             </div>

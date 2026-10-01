@@ -47,10 +47,6 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-term-bg font-sans text-term-fg">
       <header className="shrink-0 border-b border-term-line bg-term-panel">
         <h1 className="sr-only">手口と道具</h1>
-        <div className="term-panel-title max-sm:hidden">
-          <span className="term-panel-name max-lg:hidden">手口と道具</span>
-          <span className="hidden sm:inline">事業の型・ツール構成・失敗の見直し・初期の顧客獲得</span>
-        </div>
         <SquareTabs
           ariaLabel="参考資料の種類"
           tabs={PLAYBOOK_TABS}

@@ -122,7 +122,7 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
       {ids.length === 0 ? (
         <section className="px-3 py-4 text-sm">
           <p className="text-term-fg-strong">比較する事例がありません</p>
-          <p className="mt-1 text-term-sub">事例の詳細で「比較」を押すと、ここに{COMPARE_LIMIT}件まで並べて見比べられます。</p>
+          <p className="mt-1 text-term-sub">事例の詳細の「⋯」から「比較に追加」を選ぶと、ここに{COMPARE_LIMIT}件まで並べて見比べられます。</p>
           <Link href="/" className="mt-3 inline-flex min-h-11 items-center border border-term-line px-4 text-sm text-term-fg hover:bg-term-head lg:min-h-8 lg:px-3">事例一覧へ</Link>
         </section>
       ) : (

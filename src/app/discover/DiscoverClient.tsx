@@ -382,13 +382,6 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
       <h1 className="sr-only">事例を探す</h1>
 
       <div className="shrink-0 border-b border-term-line bg-term-panel">
-        <div className="term-panel-title">
-          <span className="term-panel-name max-lg:hidden">事例を探す</span>
-          <span className="term-num">
-            {query ? `検索結果 ${visibleCases.length}件 / 全${dataset.sourceCount.toLocaleString()}件` : `${dataset.visibleCount.toLocaleString()}件を表示 / 全${dataset.sourceCount.toLocaleString()}件`}
-          </span>
-          <span className="ml-auto hidden xl:inline">並び順: {LENSES.find((item) => item.id === lens)?.hint}</span>
-        </div>
         <div className="flex items-center gap-2 p-2">
           <div className="relative min-w-0 flex-1 sm:max-w-sm">
             <Search aria-hidden="true" className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-term-label" />
@@ -416,6 +409,11 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
             onChange={setLens}
             className="hidden border-l border-term-line lg:flex"
           />
+          {/* 並び順の決め方（推定を含むか）は信頼に関わるので、広い画面では件数の前に残す */}
+          <span className="ml-auto hidden min-w-0 truncate text-xs text-term-dim 2xl:inline">{LENSES.find((item) => item.id === lens)?.hint}</span>
+          <span className="term-num hidden shrink-0 text-xs text-term-label sm:inline max-2xl:ml-auto" aria-live="polite">
+            {query ? `${visibleCases.length}件 / ${dataset.sourceCount.toLocaleString()}件` : `${dataset.visibleCount.toLocaleString()}件 / ${dataset.sourceCount.toLocaleString()}件`}
+          </span>
         </div>
       </div>
 

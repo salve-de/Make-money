@@ -38,7 +38,6 @@ export const IdeaResearchPanelView: React.FC<IdeaResearchPanelViewProps> = ({
     <section aria-label="自分のアイデアを調べる" className="shrink-0 border-b border-term-line bg-term-panel">
       <div className="term-panel-title">
         <span className="term-panel-name">自分のアイデアを調べる</span>
-        <span className="hidden sm:inline">似た事例を探して、作るところまで進めます</span>
         {(data || problem) && (
           <button type="button" onClick={onClose} className="ml-auto min-h-11 px-2 text-xs text-term-sub hover:text-term-fg-strong lg:min-h-6">
             結果を閉じる
