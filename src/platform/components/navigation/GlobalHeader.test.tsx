@@ -15,7 +15,7 @@ describe('GlobalHeader terminal navigation', () => {
     for (const href of ['/', '/discover', '/radar', '/?mode=ARCHETYPES', '/playbook', '/?mode=SYNTHESIS', '/marketplace', '/execute']) {
       expect(nav).toContain(`href="${href}"`);
     }
-    expect(nav).toContain('手口と道具');
+    expect(nav).toContain('やり方とツール');
     expect(html).not.toContain('/registry');
   });
 
@@ -30,7 +30,7 @@ describe('GlobalHeader terminal navigation', () => {
     expect(html).toContain('term-bottom-nav');
     expect(html).toContain('lg:hidden');
     const bottom = html.slice(html.indexOf('term-bottom-nav'));
-    for (const label of ['事例', '発見', '市場', '事業検討']) expect(bottom).toContain(label);
+    for (const label of ['事例一覧', 'ランキング', '市場動向', 'アイデア調査']) expect(bottom).toContain(label);
     expect(bottom).not.toContain('その他');
     expect(html).toContain('aria-label="メニューを開く"');
   });

@@ -55,7 +55,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
             {isVerified && <VerifiedMark />}
           </span>
           <span className="term-num shrink-0 text-base">
-            <ListMetricCell metric={main} expected={['REVENUE']} />
+            {main ? <ListMetricCell metric={main} expected={['REVENUE']} /> : <span className="font-sans text-xs text-term-dim"><span className="mr-1 text-term-label">{UI.LIST_COL_REVENUE}</span>{UI.LIST_REVENUE_UNKNOWN}</span>}
           </span>
         </span>
         <ListDescription reader={entity.reader} className="mt-0.5 block truncate text-[13px] text-term-muted" />
@@ -64,7 +64,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
             {sector && <span className="truncate">{sector}</span>}
             {profit && <span className="term-num truncate"><ListMetricCell metric={profit} /></span>}
           </span>
-          <span className="shrink-0"><ListOriginCell metric={main} /></span>
+          {main && <span className="shrink-0"><ListOriginCell metric={main} /></span>}
         </span>
       </button>
       <button

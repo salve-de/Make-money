@@ -100,11 +100,12 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
         onOpen();
       }}
       title={[`${release.label} に公開`, breakdown].filter(Boolean).join('　')}
+      aria-label={`最新の更新で追加された${release.count}件を表示`}
       className={`inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-sm px-2 text-xs hover:bg-term-head lg:min-h-7 ${unread ? 'text-term-accent' : 'text-term-muted hover:text-term-fg-strong'}`}
     >
       {unread && <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-term-accent" />}
-      <span>新着</span>
-      <span className="term-num">{release.count}件</span>
+      {/* 左の「新着事例」絞り込みと同じ語を避け、更新日に続けて読める文にする（09/28 更新 ● 1件追加） */}
+      <span className="term-num">{release.count}件追加</span>
     </button>
     </>
   );

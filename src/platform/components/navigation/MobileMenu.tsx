@@ -59,8 +59,10 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onSelectL
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
-        <button type="button" aria-label="メニューを開く" className="flex h-11 w-11 items-center justify-center text-term-fg hover:bg-term-head lg:hidden">
-          <Menu aria-hidden="true" size={22} />
+        <button type="button" aria-label="メニューを開く" className="flex h-11 min-w-11 shrink-0 flex-col items-center justify-center gap-0.5 px-2 text-term-fg hover:bg-term-head lg:hidden">
+          {/* 三本線だけでは気づかれにくいので、下に「メニュー」と書く */}
+          <Menu aria-hidden="true" size={20} />
+          <span aria-hidden="true" className="text-xs leading-none">メニュー</span>
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>

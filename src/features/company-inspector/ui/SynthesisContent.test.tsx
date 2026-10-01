@@ -24,7 +24,7 @@ describe('detailed case content', () => {
  it('shows an empty state instead of filling the list with cases the user never chose', () => {
   const html = renderToStaticMarkup(<SynthesisEntitiesSidebar savedEntities={[]} bookmarkedIds={new Set()} selectedEntityIds={new Set()} toggleSelectEntity={()=>{}} activeEditingEntityId="" setActiveEditingEntityId={()=>{}} notes={{}} onSaveNote={()=>{}} formatMoney={String} handleSynthesize={()=>{}} isSynthesizing={false} />);
   expect(html).toContain('保存した事例がここに並びます');
-  expect(html).toContain('0件選択 / 0件');
+  expect(html).toContain('保存 0件中 0件を選択');
  });
  it('retains initial acquisition even with no tools or blueprint steps', () => {
   const entity = structuredClone(INSTITUTIONAL_ENTITIES[0]);

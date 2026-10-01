@@ -46,7 +46,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
   return (
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-term-bg font-sans text-term-fg">
       <header className="shrink-0 border-b border-term-line bg-term-panel">
-        <h1 className="sr-only">手口と道具</h1>
+        <h1 className="sr-only">やり方とツール</h1>
         <SquareTabs
           ariaLabel="参考資料の種類"
           tabs={PLAYBOOK_TABS}

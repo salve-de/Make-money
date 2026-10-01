@@ -18,10 +18,10 @@ interface MobileBottomNavProps {
 
 /** 下のタブは主要な4画面だけ（Apple・Material とも3〜5個）。ほかはヘッダー左のメニューに置く */
 const TABS: { id: GlobalNavSection; label: string; href: string; Icon: LucideIcon }[] = [
-  { id: 'LEDGER', label: '事例', href: '/', Icon: List },
-  { id: 'DISCOVER', label: '発見', href: '/discover', Icon: Compass },
-  { id: 'RADAR', label: '市場', href: '/radar', Icon: TrendingUp },
-  { id: 'SYNTHESIS', label: '事業検討', href: SAVED_HREF, Icon: Lightbulb },
+  { id: 'LEDGER', label: '事例一覧', href: '/', Icon: List },
+  { id: 'DISCOVER', label: 'ランキング', href: '/discover', Icon: Compass },
+  { id: 'RADAR', label: '市場動向', href: '/radar', Icon: TrendingUp },
+  { id: 'SYNTHESIS', label: 'アイデア調査', href: SAVED_HREF, Icon: Lightbulb },
 ];
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeSection, bookmarkCount, onSelectLocalMode }) => {

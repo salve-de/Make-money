@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DropdownMenu } from 'radix-ui';
-import { Bookmark } from 'lucide-react';
+import { Bookmark, ChevronLeft, ChevronRight, ExternalLink, Share2, X } from 'lucide-react';
 
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
@@ -13,7 +13,11 @@ const menuItem =
   'flex min-h-11 cursor-pointer items-center px-3 outline-none data-[highlighted]:bg-term-head data-[highlighted]:text-term-fg-strong data-[disabled]:cursor-not-allowed data-[disabled]:text-term-dim lg:min-h-7';
 
 const headerBtn =
-  'h-11 min-w-11 items-center justify-center border-l border-term-line px-2 text-xs hover:bg-term-line hover:text-term-fg-strong lg:h-6 lg:min-w-6 lg:border-l-0 lg:px-2';
+  'h-11 min-w-11 items-center justify-center gap-1 border-l border-term-line px-2 text-xs hover:bg-term-line hover:text-term-fg-strong lg:h-7 lg:min-w-6 lg:rounded-sm lg:border-l-0 lg:px-2';
+
+// 2段目の文字リンク（PC だけ。スマホは「⋯」の中）
+const rowLink =
+  'hidden min-h-7 items-center gap-1 rounded-sm px-1.5 text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:inline-flex';
 
 export function CompanyHeader({
   entity,
@@ -86,22 +90,25 @@ export function CompanyHeader({
               >
                 {/* 一覧の行と同じしおりの印にそろえる（ヘッダー右上の「保存済み」一覧への入口と区別する） */}
                 <Bookmark aria-hidden="true" className={`h-4 w-4 ${isBookmarked ? 'fill-current' : ''}`} />
+                <span className="hidden lg:inline">{isBookmarked ? UI.SAVED : UI.SAVE}</span>
               </button>
             )}
             {onPrevEntity && (
               <button type="button" onClick={onPrevEntity} className={`${headerBtn} hidden text-term-fg sm:inline-flex`} aria-label={UI.PREV_ARIA}>
-                {UI.PREV_SHORT}
+                <ChevronLeft aria-hidden="true" className="h-4 w-4" />
+                <span className="hidden lg:inline">{UI.PREV}</span>
               </button>
             )}
             {onNextEntity && (
               <button type="button" onClick={onNextEntity} className={`${headerBtn} hidden text-term-fg sm:inline-flex`} aria-label={UI.NEXT_ARIA}>
-                {UI.NEXT_SHORT}
+                <span className="hidden lg:inline">{UI.NEXT}</span>
+                <ChevronRight aria-hidden="true" className="h-4 w-4" />
               </button>
             )}
-            {/* 使う頻度の低い操作は「…」にまとめる（見出しの操作は保存・前後・閉じるだけ） */}
+            {/* スマホは幅が足りないので、比較・共有・公式サイトを「⋯」にまとめる。PC は2段目に文字で並べる */}
             <DropdownMenu.Root>
               <DropdownMenu.Trigger asChild>
-                <button type="button" className={`${headerBtn} inline-flex text-term-fg`} aria-label={UI.MORE_ARIA} title={UI.MORE_ARIA}>
+                <button type="button" className={`${headerBtn} inline-flex text-term-fg lg:hidden`} aria-label={UI.MORE_ARIA} title={UI.MORE_ARIA}>
                   {UI.MORE_MARK}
                 </button>
               </DropdownMenu.Trigger>
@@ -135,7 +142,8 @@ export function CompanyHeader({
               aria-label={UI.CLOSE}
               title={UI.CLOSE_TITLE}
             >
-              {UI.CLOSE_MARK}
+              <X aria-hidden="true" className="h-4 w-4" />
+              <span>{UI.CLOSE}</span>
             </button>
           </div>
         </div>
@@ -146,10 +154,30 @@ export function CompanyHeader({
             <TabButton active={mainTab === 'LEDGER'} onClick={() => setMainTab?.('LEDGER')} label={UI.TAB_LEDGER} shortLabel={UI.TAB_LEDGER_SHORT} />
             <TabButton active={mainTab === 'AUDIT'} onClick={() => setMainTab?.('AUDIT')} label={UI.TAB_AUDIT} shortLabel={UI.TAB_AUDIT_SHORT} />
           </div>
-          <div className="flex min-w-0 items-center gap-2 whitespace-nowrap text-xs">
+          <div className="flex min-w-0 items-center gap-1 whitespace-nowrap text-xs">
+            <button
+              type="button"
+              disabled={!inCompare && compare.isFull}
+              onClick={() => compare.toggle({ id: entity.id, name: entity.name })}
+              className={`${rowLink} disabled:cursor-not-allowed disabled:text-term-dim`}
+              aria-pressed={inCompare}
+              aria-label={uiFormat(inCompare ? UI.COMPARE_REMOVE_ARIA : UI.COMPARE_ADD_ARIA, entity.name)}
+            >
+              {inCompare ? UI.COMPARE_REMOVE : compare.isFull ? UI.COMPARE_FULL : UI.COMPARE_ADD}
+            </button>
+            <button type="button" onClick={() => setIsShareOpen(true)} className={rowLink} aria-label={UI.SHARE_ARIA}>
+              <Share2 aria-hidden="true" className="h-3.5 w-3.5" />
+              {UI.SHARE}
+            </button>
+            {externalUrl && (
+              <a href={externalUrl} target="_blank" rel="noopener noreferrer" className={rowLink} aria-label={uiFormat(UI.OFFICIAL_SITE_ARIA, entity.name)}>
+                {UI.OFFICIAL_SITE}
+                <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
+              </a>
+            )}
             <a
               href={'/execute/' + encodeURIComponent(entity.id)}
-              className="inline-flex min-h-11 items-center px-1 text-term-fg hover:text-term-fg-strong hover:underline lg:min-h-7"
+              className="inline-flex min-h-11 items-center rounded-sm px-1.5 text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:min-h-7"
               aria-label={uiFormat(UI.PLAN_ARIA, entity.name)}
               title={UI.PLAN}
             >

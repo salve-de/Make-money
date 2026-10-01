@@ -24,10 +24,10 @@ interface ChatLine {
 const LENSES: Array<{ id: DiscoveryLens; label: string; hint: string }> = [
   { id: "SURPRISE", label: "注目順", hint: "登録金額と開始条件を組み合わせて並べる。推定を含む" },
   { id: "BIG_CASH", label: "金額順", hint: "台帳の金額が大きい順。推定・報道を含む" },
-  { id: "LOW_CAPITAL", label: "初期資金", hint: "台帳に記録された初期資金が少ない順" },
-  { id: "SOLO", label: "初期体制", hint: "開始人数が1人と登録された例を前へ" },
-  { id: "LOW_WORK", label: "稼働時間", hint: "週の稼働時間が短いと登録された例を前へ" },
-  { id: "CURRENT", label: "現行性", hint: "台帳上の現行性判定を前へ。出典未照合" },
+  { id: "LOW_CAPITAL", label: "少額で開始", hint: "台帳に記録された初期資金が少ない順" },
+  { id: "SOLO", label: "1人で開始", hint: "開始人数が1人と登録された例を前へ" },
+  { id: "LOW_WORK", label: "短い作業時間", hint: "週の稼働時間が短いと登録された例を前へ" },
+  { id: "CURRENT", label: "今も有効", hint: "台帳上の現行性判定を前へ。出典未照合" },
   { id: "FAILURE", label: "撤退事例", hint: "失敗・撤退として登録された事例を前へ" },
 ];
 
@@ -69,11 +69,14 @@ function ResultBlock({ item }: { item: DiscoveryCase }) {
 export function DiscoveryRow({
   item,
   index = 0,
+  amountHeader = UI.LIST_COL_AMOUNT,
   selected,
   onSelect,
 }: {
   item: DiscoveryCase;
   index?: number;
+  /** 金額欄の見出し。中身の種類がこれと違う行だけ、名前を前に付ける */
+  amountHeader?: string;
   selected: boolean;
   onSelect: () => void;
 }) {
@@ -97,8 +100,9 @@ export function DiscoveryRow({
         )}
       </span>
       <span className="text-right" {...metricAttrs(item)}>
+        {/* 見出しと同じ種類なら名前を省き、違う時（売却額・調達額など）だけ前に付ける */}
+        {item.resultLabel !== amountHeader && <span className="mr-1 text-xs text-term-label">{item.resultLabel}</span>}
         <span className={`term-num ${valueTone(item)}`}>{item.resultValue}</span>
-        <span className="ml-1 text-xs text-term-label">{item.resultLabel}</span>
         {item.resultEvidenceLabel && <span className={`block text-xs lg:hidden ${evidenceTone(item.resultEvidenceLabel)}`}>{item.resultEvidenceLabel}</span>}
       </span>
       <span className="hidden truncate text-xs lg:block" {...metricAttrs(item)}>
@@ -313,13 +317,13 @@ export function DetailPane({
           </div>
         </details>
 
-        {/* 主な操作は「事例の詳細」1つ。「事業検討」は上のタブにあるので重ねない */}
+        {/* 主な操作は「詳しく見る」1つ。「事業検討」は上のタブにあるので重ねない */}
         <section className="flex flex-wrap items-center gap-2 px-3 py-3">
           <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
             className={`${actionBtn} border-term-accent text-term-accent hover:bg-term-head`}
           >
-            {UI.CASE_DETAIL}
+            {UI.OPEN_FULL_CASE}
           </Link>
           <Link
             href={`/execute/${encodeURIComponent(item.id)}`}
@@ -374,6 +378,9 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
   };
 
   const lensTabs = LENSES.map((item) => ({ key: item.id, label: item.label }));
+  // 金額欄の見出しは、表示中の行の種類が1つにそろう時だけその名前（売上・初期資金など）にする
+  const amountKinds = new Set(visibleCases.map((item) => item.resultLabel).filter(Boolean));
+  const amountHeader = amountKinds.size === 1 ? [...amountKinds][0] : UI.LIST_COL_AMOUNT;
   return (
     <div className="flex term-screen w-full flex-col overflow-hidden bg-term-bg text-term-fg">
       <GlobalHeader currentSection="DISCOVER" pageHasSearch />
@@ -410,7 +417,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
           {/* 並び順の決め方（推定を含むか）は信頼に関わるので、広い画面では件数の前に残す */}
           <span className="ml-auto hidden min-w-0 truncate text-xs text-term-dim 2xl:inline">{LENSES.find((item) => item.id === lens)?.hint}</span>
           <span className="term-num hidden shrink-0 text-xs text-term-label sm:inline max-2xl:ml-auto" aria-live="polite">
-            {query ? `${visibleCases.length}件 / ${dataset.sourceCount.toLocaleString()}件` : `${dataset.visibleCount.toLocaleString()}件 / ${dataset.sourceCount.toLocaleString()}件`}
+            {`全${dataset.sourceCount.toLocaleString()}件中 ${(query ? visibleCases.length : dataset.visibleCount).toLocaleString()}件`}
           </span>
         </div>
       </div>
@@ -421,7 +428,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
             <span>{UI.LIST_COL_NAME}</span>
             <span className="hidden xl:block">{UI.LIST_COL_SECTOR}</span>
             <span>{UI.LIST_COL_SUMMARY}</span>
-            <span className="text-right">{UI.LIST_COL_AMOUNT}</span>
+            <span className="text-right">{amountHeader}</span>
             <span>{UI.LIST_COL_ORIGIN}</span>
           </div>
 
@@ -431,6 +438,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
                 key={item.id}
                 item={item}
                 index={index}
+                amountHeader={amountHeader}
                 selected={selected?.id === item.id}
                 onSelect={() => choose(item.id)}
               />

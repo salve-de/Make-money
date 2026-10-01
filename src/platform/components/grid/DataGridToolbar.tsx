@@ -30,7 +30,7 @@ interface DataGridToolbarProps {
   savedSearchDraft?: SavedSearchDraft;
   /** 件数の右に並べる部品（今回の公開分への入口など）。帯を別の段に増やさないため。 */
   countAddon?: React.ReactNode;
-  /** 左に絞り込み欄が出ている幅では「条件を絞る」を出さない（同じ操作を2回出さない）。 */
+  /** 左に絞り込み欄が出ている幅では「絞り込み」を出さない（同じ操作を2回出さない）。 */
   hideScreenerOnXl?: boolean;
 }
 
@@ -99,7 +99,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   return (
     <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-term-line bg-term-panel px-3 py-2 lg:px-2.5 lg:py-1.5">
       <div className={hideSearch ? 'flex flex-wrap items-center gap-2' : 'flex flex-col gap-2 lg:gap-1.5'}>
-        {/* 検索欄を出さないときは「条件を絞る」を登録回の行の右端へ寄せ、空の行を作らない */}
+        {/* 検索欄を出さないときは「絞り込み」を登録回の行の右端へ寄せ、空の行を作らない */}
         <div className={hideSearch ? `order-last flex items-center gap-2 ${hideScreenerOnXl && !hasActiveScreener ? 'xl:hidden' : ''}` : 'flex items-center gap-2'}>
           {hideSearch ? null : (
           <div className="relative min-w-0 flex-1">
@@ -134,12 +134,12 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             <button
               type="button"
               onClick={onOpenScreener}
-              aria-label={hasActiveScreener ? `条件を絞る、現在${activeScreenerCount}件の条件` : '条件を絞る'}
+              aria-label={hasActiveScreener ? `絞り込み、現在${activeScreenerCount}件の条件` : '絞り込み'}
               className={`${btn} min-h-11 justify-center text-sm lg:min-h-8 lg:text-xs ${hasActiveScreener ? btnOn : btnOff}`}
               title="業種や規模などの条件を設定"
             >
               <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
-              <span className="sm:hidden">絞込</span><span className="hidden sm:inline">条件を絞る</span>
+              <span>絞り込み</span>
               {hasActiveScreener && <span className="term-num">{activeScreenerCount}</span>}
             </button>
             {hasActiveScreener && onResetScreener && (
@@ -228,7 +228,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
 
           <div className="ml-auto flex shrink-0 items-center gap-1">
             <p className="term-num whitespace-nowrap px-1 text-xs text-term-label" aria-live="polite">
-              <span className="text-term-fg-strong">{totalCount.toLocaleString()}</span><span className="hidden sm:inline"> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}</span>件
+              <span className="hidden sm:inline">全{catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件中 </span><span className="text-term-fg-strong">{totalCount.toLocaleString()}</span>件
             </p>
             {countAddon}
           </div>

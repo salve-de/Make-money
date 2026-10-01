@@ -150,19 +150,19 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ 
   return (
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden bg-term-bg text-term-fg">
       <header className="shrink-0 border-b border-term-line bg-term-panel">
-        <h1 className="sr-only">事業パターン</h1>
+        <h1 className="sr-only">事業アイデア</h1>
         <div className="term-panel-title">
-          <span className="term-panel-name max-lg:hidden">事業パターン</span>
+          <span className="term-panel-name max-lg:hidden">事業アイデア</span>
           <span className="term-num">{guides.length}件</span>
         </div>
         <div className="relative border-b border-term-line-soft p-2 sm:max-w-md">
           <Search aria-hidden="true" className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
-          <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="事業パターンを検索" placeholder="テーマを検索" className="h-11 w-full rounded-sm border border-term-line bg-term-bg pl-8 pr-3 text-sm text-term-fg-strong placeholder:text-term-dim focus:border-term-accent focus:outline-none lg:h-8" />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="事業アイデアを検索" placeholder="テーマを検索" className="h-11 w-full rounded-sm border border-term-line bg-term-bg pl-8 pr-3 text-sm text-term-fg-strong placeholder:text-term-dim focus:border-term-accent focus:outline-none lg:h-8" />
         </div>
       </header>
 
       <div className="flex min-h-0 flex-1 overflow-hidden">
-        <aside aria-label="事業パターン一覧" className="min-h-0 w-full overflow-y-auto border-r border-term-line bg-term-bg lg:w-[36%] lg:max-w-[480px]">
+        <aside aria-label="事業アイデア一覧" className="min-h-0 w-full overflow-y-auto border-r border-term-line bg-term-bg lg:w-[36%] lg:max-w-[480px]">
           {guides.map(({ id, guide }, index) => {
             const selected = activeEntry?.id === id;
             return (
@@ -176,7 +176,7 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({ 
           {guides.length === 0 && <p className="p-3 text-sm text-term-label">該当するテーマはありません。検索語を短くするか、消して全件を表示してください。</p>}
         </aside>
 
-        <section aria-label="選択した事業パターンの詳細" className="hidden min-w-0 flex-1 overflow-y-auto lg:block">
+        <section aria-label="選択した事業アイデアの詳細" className="hidden min-w-0 flex-1 overflow-y-auto lg:block">
           {active && <PatternDetail extra={extra} guide={active} />}
         </section>
       </div>

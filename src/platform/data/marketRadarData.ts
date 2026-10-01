@@ -63,7 +63,7 @@ export interface MarketRadarTrendItem {
 }
 
 export const RADAR_CATEGORIES: { key: RadarCategory; label: string }[] = [
-  { key: 'ALL', label: 'すべての傾向' },
+  { key: 'ALL', label: 'すべての分野' },
   { key: 'AI_INFRA', label: 'AI・データ基盤' },
   { key: 'UNBUNDLED_SAAS', label: 'SaaSの分業化' },
   { key: 'PLATFORM_PARASITE', label: 'プラットフォーム周辺' },

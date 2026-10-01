@@ -67,7 +67,7 @@ export const IdeaResearchPanelView: React.FC<IdeaResearchPanelViewProps> = ({
       </form>
       <div className="flex items-center justify-between gap-3 px-3 py-1.5 text-xs text-term-label">
         <span>誰の何をどう解決するかを書くと、似た事例が見つかりやすくなります</span>
-        <span className="term-num shrink-0">{Array.from(text).length} / {IDEA_MAX_LENGTH}</span>
+        <span className="term-num shrink-0">{Array.from(text).length} / {IDEA_MAX_LENGTH}字</span>
       </div>
       {problem && (
         <div role="alert" className="border-t border-term-line px-3 py-2 text-sm text-term-danger">

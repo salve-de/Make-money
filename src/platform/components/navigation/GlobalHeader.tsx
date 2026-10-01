@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import type { BookmarkSyncStatus } from '../../hooks/useEntityFilter';
 import { MobileBottomNav } from './MobileBottomNav';
-import { Search } from 'lucide-react';
+import { Search, ChevronDown } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import {
   GlobalNavSection,
@@ -203,7 +203,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <form
           role="search"
           onSubmit={submitSearch}
-          className={`order-last ${pageHasSearch && !onSearchChange ? 'hidden' : onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
+          className={`order-last ${pageHasSearch && !onSearchChange ? 'hidden' : onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:mx-2 lg:h-7 lg:w-[240px] lg:shrink-0 lg:self-center lg:rounded-sm lg:border lg:bg-term-bg lg:px-2 lg:focus-within:border-term-accent xl:w-[280px]`}
         >
           <Search aria-hidden="true" size={16} className="shrink-0 text-term-muted" />
           <input
@@ -244,6 +244,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
               className={`${tabClass(secondaryActive)} cursor-pointer list-none [&::-webkit-details-marker]:hidden`}
             >
               その他
+              <ChevronDown aria-hidden="true" size={14} className="ml-1 text-term-muted" />
             </summary>
             <div className="absolute left-0 top-full z-50 w-48 border border-term-line bg-term-panel shadow-lg">
               {SECONDARY_NAV_ITEMS.map((item) => (

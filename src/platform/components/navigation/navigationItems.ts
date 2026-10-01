@@ -27,11 +27,11 @@ export interface NavItem {
 /** PC のファンクションタブ（先頭から 1〜6 キーで開く） */
 export const PRIMARY_NAV_ITEMS: NavItem[] = [
   { id: 'LEDGER', label: '事例一覧', href: '/' },
-  { id: 'DISCOVER', label: '発見', href: '/discover' },
+  { id: 'DISCOVER', label: 'ランキング', href: '/discover' },
   { id: 'RADAR', label: '市場動向', href: '/radar' },
-  { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
-  { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
-  { id: 'SYNTHESIS', label: '事業検討', href: '/?mode=SYNTHESIS' },
+  { id: 'ARCHETYPES', label: '事業アイデア', href: '/?mode=ARCHETYPES' },
+  { id: 'PLAYBOOK', label: 'やり方とツール', href: '/playbook' },
+  { id: 'SYNTHESIS', label: 'アイデア調査', href: '/?mode=SYNTHESIS' },
 ];
 
 /** 「その他」の中身 */
@@ -43,10 +43,10 @@ export const SECONDARY_NAV_ITEMS: NavItem[] = [
   { id: 'EXECUTION', label: '実行計画', href: '/execute' },
 ];
 
-/** スマホの引き出しメニュー。下のタブ（事例・発見・市場・事業検討）に無い画面を、よく使う順に並べる */
+/** スマホの引き出しメニュー。下のタブ（事例一覧・ランキング・市場動向・アイデア調査）に無い画面を、よく使う順に並べる */
 export const MOBILE_MENU_ITEMS: NavItem[] = [
-  { id: 'ARCHETYPES', label: '事業パターン', href: '/?mode=ARCHETYPES' },
-  { id: 'PLAYBOOK', label: '手口と道具', href: '/playbook' },
+  { id: 'ARCHETYPES', label: '事業アイデア', href: '/?mode=ARCHETYPES' },
+  { id: 'PLAYBOOK', label: 'やり方とツール', href: '/playbook' },
   { id: 'COMPARE', label: '事例の比較', href: '/compare' },
   { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
   { id: 'EXECUTION', label: '実行計画', href: '/execute' },
@@ -75,12 +75,12 @@ export const SAVED_HREF = '/?mode=SYNTHESIS';
 /** スマホのヘッダーに出す、いま開いている画面の名前 */
 export const SECTION_TITLES: Record<GlobalNavSection, string> = {
   LEDGER: '事例一覧',
-  DISCOVER: '発見',
+  DISCOVER: 'ランキング',
   RADAR: '市場動向',
-  ARCHETYPES: '事業パターン',
-  PLAYBOOK: '手口と道具',
-  SYNTHESIS: '事業検討',
-  BUILDER: '事業検討',
+  ARCHETYPES: '事業アイデア',
+  PLAYBOOK: 'やり方とツール',
+  SYNTHESIS: 'アイデア調査',
+  BUILDER: 'アイデア調査',
   EXECUTION: '実行計画',
   MARKETPLACE: 'サービス一覧',
   BUSINESSES: '事業の売買',

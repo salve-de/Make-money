@@ -72,9 +72,9 @@ export function ListMetricCell({ metric, expected }: { metric: ReaderMetric | nu
   );
 }
 
-/** 由来の1語（提出書類・本人申告・記事・第三者・推定）。推定だけ橙。数値が無ければ「未確認」。 */
+/** 情報源の1語（提出書類・本人申告・記事・第三者・推定）。推定だけ橙。数値が無い時は、隣の「未確認」と重ねず「—」。 */
 export function ListOriginCell({ metric }: { metric: ReaderMetric | null }) {
-  if (!metric) return <span className="text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
+  if (!metric) return <span className="text-term-dim" aria-label={UI.LIST_ORIGIN_NONE_ARIA}>—</span>;
   return (
     <span data-metric={metric.id} className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}>
       {metricOriginLabel(metric)}
