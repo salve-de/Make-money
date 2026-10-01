@@ -34,6 +34,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onToggleBookmark,
   mobileOpen = true,
   positionLabel,
+  detailState,
+  onRetryDetail,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -124,7 +126,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         {/* entity.reader の事実・数値・出典と、推測の印つきの推論、運営者が決済確認した売上を描く */}
         {mainTab === 'LEDGER' ? (
           <>
-            <ReaderLedger reader={entity.reader} />
+            <ReaderLedger reader={entity.reader} detailState={detailState} onRetry={onRetryDetail} />
             <VerifiedRevenueSection entityId={entity.id} />
             <OperatorVerificationNote entityId={entity.id} url={entity.url} />
             <EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />

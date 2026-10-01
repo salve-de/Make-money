@@ -161,16 +161,43 @@ export async function readReleaseSummaries(): Promise<FinancialEntity[]> {
   return summaries;
 }
 
+// 公開版の詳細はハッシュで中身が決まる（不変）。同じ isolate では1事例につき1回だけ R2 から読み、展開・検査する。
+// Workers は1要求あたりの CPU 時間が短いため、要求のたびに gunzip・ハッシュ照合・スキーマ検査をやり直さない。
+// 上限つき（古い順に捨てる）。公開中の事例数より少し多い程度に抑え、isolate のメモリを増やし続けない。
+const RELEASE_ENTITY_CACHE_LIMIT = 128;
+const releaseEntities = new Map<string, Promise<FinancialEntity>>();
+
 export async function findReleaseEntity(id: string): Promise<FinancialEntity | null> {
   const details: Record<string, string> = manifest.details;
   const canonicalId = Object.keys(details).find((key) => key.toLowerCase() === id.toLowerCase());
   if (!canonicalId) return null;
   const hash = details[canonicalId];
-  const value = await readArtifact(getDossierStoragePath(canonicalId, hash), hash);
-  const parsed = parseFinancialEntitiesResiliently([value]);
-  const entity = parsed.validEntities[0];
-  if (!entity || entity.id !== canonicalId || !isPublishableEntity(entity)) throw new Error('Invalid catalog dossier');
-  return entity;
+  const cacheKey = `${canonicalId}:${hash}`;
+  let pending = releaseEntities.get(cacheKey);
+  if (pending) {
+    // 最近使った順に並べ直す
+    releaseEntities.delete(cacheKey);
+    releaseEntities.set(cacheKey, pending);
+  } else {
+    pending = readArtifact(getDossierStoragePath(canonicalId, hash), hash).then((value) => {
+      const parsed = parseFinancialEntitiesResiliently([value]);
+      const entity = parsed.validEntities[0];
+      if (!entity || entity.id !== canonicalId || !isPublishableEntity(entity)) throw new Error('Invalid catalog dossier');
+      return entity;
+    });
+    // 失敗（R2 の一時的な不調など）は覚えない。次の要求で読み直す
+    pending.catch(() => releaseEntities.delete(cacheKey));
+    if (releaseEntities.size >= RELEASE_ENTITY_CACHE_LIMIT) {
+      releaseEntities.delete(releaseEntities.keys().next().value as string);
+    }
+    releaseEntities.set(cacheKey, pending);
+  }
+  return pending;
+}
+
+/** テスト用: 詳細の isolate 内キャッシュを空にする。 */
+export function clearReleaseEntityCacheForTest(): void {
+  releaseEntities.clear();
 }
 
 export function releaseApprovalCandidateIds(): Set<string> {
