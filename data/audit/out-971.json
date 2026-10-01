@@ -1,0 +1,52 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_kapwing_2218ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_yaak_2e7b91",
+      "items": []
+    },
+    {
+      "entityId": "ent_epidemicsound_4418ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_devutils_46425e",
+      "items": []
+    },
+    {
+      "entityId": "ent_photoroom_cacaf9",
+      "items": []
+    },
+    {
+      "entityId": "ent_aputime_3675d76dbe1a466da11b",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "formulaの「月$2,000〜8,000ではなく」は修正前の値を持ち込んだ編集の痕跡で、読者には不要である。",
+          "fix": "2023年3月のMRR約$50,000−推計月費用$36,000〜65,000＝月収支−$15,000〜+$14,000。黒字への税を20〜30%と仮定すると年間分配可能額の上限は$14,000×12×80%＝$134,400。費用に含まれる本人給与を月$2,000〜5,000、分配受取割合を0〜100%と仮定した給与と分配の合計は年$24,000〜194,400で、本人の個人税前の条件付き試算である。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_soulver_8829a1",
+      "items": [
+        {
+          "analysisId": "a-business_model",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "formulaの「数字は出典の値（根拠: f1, f3）」は内部の確認用メモで、料金の意味を読者に説明していない。",
+          "fix": "Soulverの公式表示は買い切り$59、SetappはSoulverを含む260アプリを利用できる月$15の会費であり、Soulverへの分配額は不明である。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_37signals_T6M1R8QK",
+      "items": []
+    }
+  ]
+}

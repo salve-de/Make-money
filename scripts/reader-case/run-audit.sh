@@ -2,7 +2,7 @@
 # data/audit/in-NNN.json を Codex で監査し data/audit/out-NNN.json に書く。並列は既定3本。済んだものは飛ばす。AUDIT_ONLY=92? のように番号を絞れる。
 set -u
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"; cd "$ROOT" || exit 1
-PROMPT="$ROOT/scripts/reader-case/audit-prompt.md"; PARALLEL=${AUDIT_PARALLEL:-3}
+PROMPT="${AUDIT_PROMPT:-$ROOT/scripts/reader-case/audit-prompt.md}"; PARALLEL=${AUDIT_PARALLEL:-3}
 run_one() {
   local in="$1" n; n="$(basename "$in" .json | sed 's/^in-//')"; local out="data/audit/out-$n.json" log="data/audit/log-$n.log"
   [ -s "$out" ] && { echo "skip $n"; return 0; }

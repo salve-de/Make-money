@@ -1,0 +1,108 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_helpkit_a63be7",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本文では便宜的な仮定としているが、formulaでは裏付けのない20〜30%を一般的な紹介報酬の相場として扱っている。",
+          "fix": "公式サイトには紹介制度の入口があるが、報酬条件は不明である。採算検討用に紹介報酬率を仮に20〜30%と置く場合、紹介費は紹介経由の購読売上×20〜30%となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ipdata_7b1a92",
+      "items": [
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaのサーバー費と関連費には資料の裏付けがなく、仮定した単価を「相場例」と呼んでいる。",
+          "fix": "創業者の寄稿では少数のAWS EC2サーバーから始めたと説明している。仮に3台×月$30〜150にデータ・監視・管理費月$100〜550を加えると月$190〜1,000となるが、台数と費用は試算用の仮定で、実際の初期支出額は不明である。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_krisp_1b9d40",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本文では便宜的な仮定としているが、formulaでは裏付けのない10〜20%を企業向け定期課金の一般相場として扱っている。",
+          "fix": "公式サイトにはパートナープログラムの入口があるが、報酬条件は不明である。試算用に初年度利用料の10〜20%を報酬と仮定すると、CC Core年$180×100席＝$18,000に対して$1,800〜3,600となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_board_1d30e9",
+      "items": [
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本文では運営費の支払時期を不明としているのに、formulaではその期間の費用を後払いで負担すると断定している。",
+          "fix": "年払いはなく、カードで翌利用期間の料金を先に受け取る。郵送も1通195円のチケットを事前購入する方式だが、運営費の支払時期は不明で、入出金の時間差による資金余力は算出できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_zenvoice_b370b9",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaでは裏付けのない紹介報酬率20〜30%を「相場仮定」と位置づけている。",
+          "fix": "公式サイトには紹介制度の入口があるが、報酬条件は不明である。採算検討用に報酬率を仮に20〜30%と置くと、購入額$49〜69×20〜30%＝約$10〜21／件となり、残額から将来の保守費などを負担する。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_artlist_3318ba",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaに記した素材サービス月$15〜60とAI制作・チーム用途月$50〜200以上には相場としての裏付けがない。",
+          "fix": "個人向け・チーム向けの実料金や、素材利用・AI生成量による課金区分は不明で、公表ARRだけでは契約単価を算出できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_aceternity_6d14e4",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaでは裏付けのない紹介報酬率20〜30%を「相場仮定」と位置づけている。",
+          "fix": "公式サイトには紹介制度の入口があるが、報酬条件は不明である。試算用に販売額の20〜30%を報酬と仮定すると、買い切りの併記価格$199〜299に対して約$40〜90／件となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_really_good_emails_b66581",
+      "items": []
+    },
+    {
+      "entityId": "ent_seopress_eb7d51",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本文では相場を示さないと説明しているが、formulaでは裏付けのない15〜30%を一般的な紹介報酬の相場として扱っている。",
+          "fix": "公式サイトには紹介制度の入口があるが、報酬条件は不明である。採算検討用に紹介報酬率を仮に15〜30%と置く場合、紹介費は紹介経由の有料売上×15〜30%となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_srldbs_76a2fcda",
+      "items": []
+    }
+  ]
+}

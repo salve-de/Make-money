@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_tlscan_0a15820a",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出典は実演動画を投稿して反応を確かめる方針を述べているが、実際に動画で検証した出来事までは確認できない。",
+          "fix": "前夜：ITコンサルタントのErwinは、長く作った前作が伸びず、需要を確かめる前に作り込む失敗を経験した。隙：Tailwindの画面調整では、ブラウザとコードを行き来する細かな手間が残っていた。突破：自分用の道具を作り直し、最小版と実演動画のオンライン投稿で需要を確かめる方針を立てた。金が回る仕組み：作業時間を減らす機能を買い切りと継続課金で売り、検索記事や専門媒体から客を集める。"
+        },
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "実演動画へのオンライン反応を初期獲得の実績として断定しているが、出典には動画の実施結果や最初の支払客の獲得経路が記載されていない。",
+          "fix": "本人は、最小版を作り、実演動画をオンラインに投稿して需要を確かめる方針を述べている。最初の支払客の獲得経路は不明だが、画面調整を実演する方法は、Tailwind利用者へ用途を伝える入口になり得る。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_rfrcui_64e924ac",
+      "items": []
+    },
+    {
+      "entityId": "ent_sltapp_4ffc56b9",
+      "items": []
+    },
+    {
+      "entityId": "ent_docgpt_8785430a",
+      "items": []
+    },
+    {
+      "entityId": "ent_flwise_77d72700",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式告知は開発者の利用方法の変化を説明しているが、コードを書くAIが配線の面倒を消したという実現済みの能力までは裏付けていない。",
+          "fix": "運営期はAIアプリの配線を図で作りたい開発者へ月$35〜65のプランを提供。巨大な公開コミュニティを持ちながら運営終了を発表し、公式はコードを書くAIへの移行と固定的なワークフローの限界を理由に挙げた。"
+        },
+        {
+          "analysisId": "a-viability",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式が説明する開発方法の変化から、商品がコードを書くAIに代替されたという完了した出来事へ断定を強めている。",
+          "fix": "当時限定と考えられる。公式が述べるコードを書くAIへの移行と固定的なワークフローの限界から、繰り返しコードを書く手間を減らす価値は相対的に低下したと推測される。公開版を自社保守する利用は残せるが、同じ月額商品として新規参入するには別の支払い理由が必要だ。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_trgdev_c3dcfd24",
+      "items": []
+    },
+    {
+      "entityId": "ent_pldcms_93bacb45",
+      "items": []
+    },
+    {
+      "entityId": "ent_fndesk_e62a280f",
+      "items": []
+    },
+    {
+      "entityId": "ent_trtapp_aa29420b",
+      "items": []
+    },
+    {
+      "entityId": "ent_lgless_b5875629",
+      "items": []
+    }
+  ]
+}

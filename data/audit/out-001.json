@@ -1,0 +1,134 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_ebizfacts_mushfiqsarkerprofile_0f40cc29c965",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "表示広告は改善案として挙げられているだけで、この案件が広告主から収入を得た事実は確認できない。",
+          "fix": "月$300のAmazonアフィリエイト収入があるアウトドアサイトを買い、ライターで育てて$17.5万で売却。運営中の収入と、サイトを売る代金の二つの回収口を持つ。"
+        },
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "このサイトの検索流入への依存は示されていないのに、確認された収益条件として言い切っている。",
+          "fix": "Mushfiqは小さなAmazonアフィリエイト収入があるアウトドアサイトを買い、ライターを雇って記事を増やした。運営中の収入を得た後、自分のニュースレター経由で個人の買い手へ売却した。検索が主な入口だった場合には、検索順位の変化も収益と売却評価を左右すると考えられる。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "CONTRADICTS_FACT",
+          "severity": "FIX",
+          "why": "2020年末には購入額と追加支出を売上でほぼ回収していたため、売却まで現金を寝かせる必要があったという説明は食い違う。",
+          "fix": "サイト購入に約$2.3万、その後の成長支出に約$3.8万を投じた。2020年末までの追加支出は主にライター費で、記事では同年末に購入額を含めてほぼ収支が釣り合ったとされる。先行投資は必要だが、売却前にも運営収入で資金を回収できた案件だ。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_traditionalebbinatorwyzanttutor2500week_6f1927d6b2c3",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "試験まで生徒が継続受講したという契約や受講実績は示されていない。",
+          "fix": "医学部4年生の本人は、WyzantでMCAT対策を低単価から教え、初期にはレビューに対する割引も使って評価を積んだ。現在の時給は本人申告で$185。専門知識と評価を時間料金へ変える構造で、継続受講があれば収入の安定にもつながると考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_chadlubinskiugccreator8000month_56c80be07147",
+      "items": []
+    },
+    {
+      "entityId": "ent_ebizfacts_henrygpositivemindsetpodcast5200monthspotify_9a666eefe6c1",
+      "items": [
+        {
+          "analysisId": "a-channels",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "Spotifyでの番組発見と既存聴取者の再生が主力だったと判定できる流入内訳は示されていない。",
+          "fix": "Spotifyで番組を配信し、平日に新しいエピソードを公開している。本人は番組の成長や収益化について動画でも発信し、番組紹介にはメール登録への導線もある。定期更新は聴取者との再接触を増やせると考えられるが、各経路の集客比率は分からない。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "過去音声が実際に再生されて費用回収を助けたという聴取実績は示されていない。",
+          "fix": "本人中心の録音を仮定すると、編集・素材等と機材更新・配信関連費を合わせ、現金費用は月約$100〜700と試算できる。本人の企画・収録時間は別の労働原価になる。過去のエピソードも継続して再生されるなら、制作済みの音声から収益を得る余地がある。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_xnapper_ba0abc",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "一般的なTwitterでの需要検証の説明を、Xnapperの初期販売で実際に起きた出来事として言い切っている。",
+          "fix": "Tonyは自分の作業に合う道具を作り、他の利用者にも販売する方針を説明している。Xnapperは背景・余白・機密文字の処理をまとめる買い切り型のMacアプリだった。本人の一般的な需要検証方法から、Twitterの既存読者が初期販売にも役立った可能性はあるが、最初の購入経路は特定できない。"
+        },
+        {
+          "analysisId": "a-channels",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本人がTwitterの売上への影響を可能性として述べた説明を、確定した主力経路へ強めている。",
+          "fix": "売却時、Tonyは個人のTwitterがXnapperの売上へ大きく影響している可能性を述べ、その依存を減らす時間を買い手に与えるため前払いと売上分配を組み合わせた。現在の公式サイトには無料版、無料ツール、ブログがあるが、それぞれの集客効果は示されていない。"
+        },
+        {
+          "analysisId": "a-why_it_worked",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "創業者の発信が最初の販売経路だったという時系列は、提示された事実にも出典にもない。",
+          "fix": "画像の手直しをまとめる買い切り型のMacアプリを販売し、本人は保守負担が軽いと説明している。売却時には個人のTwitterが売上へ影響する可能性も認識していた。軽い保守と既存読者への接点が事業価値を支えたと考えられるが、最初の販売経路は特定できない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_zachdowneydistinctivevending500kcottoncandy_abf6f98f4a32",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "本人が挙げた約30セントの原価を、内訳の確認なしに材料費と限定している。",
+          "fix": "遊園地でロボットが綿あめを作る瞬間を売る自販機屋。本人は約30セントの原価で$10で売れる点を魅力として挙げ、記事は販売価格を最大$15、10台合計の年間売上を$50万の見込みとして紹介する。"
+        },
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "約30セントの原価に何が含まれるか不明なのに、材料費として費用項目へ割り当てている。",
+          "fix": "本人が挙げた1個約$0.30を材料費と仮定し、平均価格$10〜15、年売上$50万で試算すると材料費は年約$1万〜1.5万になる。さらに場所代、補充・保守、決済費を仮定すると運営費は年約$18万〜31万。実際の費用内訳ではなく、機械購入費も別に必要だ。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_plausible",
+      "items": []
+    },
+    {
+      "entityId": "ent_ebizfacts_joshsharedpostcards40kyearlocalads_fafbc3b94d47",
+      "items": [
+        {
+          "analysisId": "a-incumbent_blindspot",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "USPSが広告主をまとめる営業を代行しないというサービス範囲は、提示された出典から確認できない。",
+          "fix": "Joshは地元のFacebookグループと個別メッセージで広告枠を売り、USPSのEDDMで家庭へ配布する。既存の配達網を使いながら、異業種の広告主を集めて共通費用を分担させる手配役に価値があると考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_vujovampirewebsitesthefrisky500kfirstyear_93c6c01d7e5d",
+      "items": []
+    },
+    {
+      "entityId": "ent_ebizfacts_jordanhughesuntitledui25kmonth_da1735634d7e",
+      "items": []
+    }
+  ]
+}

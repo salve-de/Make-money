@@ -1,0 +1,91 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_podsqueeze_bdfb91",
+      "items": []
+    },
+    {
+      "entityId": "ent_rentecdirect_4418ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_rfrcui_64e924ac",
+      "items": [
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaで費用率を「デジタル教材の相場」と位置づけているが、その相場を裏付ける資料がない。",
+          "fix": "発売前には執筆、作例制作、動画編集の労働が必要になる。販売後の費用は、試算用に決済・販売費＝売上×3〜10%、配信・保守費＝売上×5〜15%と仮定する。この率は業界相場や実際の費用率を示さず、著者自身の制作労働は別途控除していない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_seopress_eb7d51",
+      "items": [
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "textでは相場ではないと断っている一方、formulaでは資料の裏付けなく「一般的なソフト紹介の相場を使用」と記している。",
+          "fix": "公式サイトには紹介制度の入口があり、WordPressの解説者や制作会社から有料契約を送る経路になり得る。試算用に紹介費＝紹介経由の有料売上×15〜30%と仮定するが、この率は業界相場やSEOPressの実際の報酬率を示さない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_signoz_361f8507",
+      "items": [
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "第三者紹介にはチーム38人という記載はあるが、過去との比較がないため「拡大している」という出来事までは確認できない。",
+          "fix": "共同創業者にはMicrosoftとCitiでの職歴があり、YCの企業ページは2021年冬バッチ、チーム38人と記載している。無料の公開版を試せることと、その保守・クラウド運営を少人数で済ませられることは別と考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_simpleanalytics_4cc012",
+      "items": [
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "textでは相場を示さない仮定と断っているが、formulaでは支払額を裏付けのない「相場からの仮置き」と説明している。",
+          "fix": "2020年のMRR$6,000を基準に、月額費用を運用$600〜1,200、開発協力$1,500〜3,000、集客・管理$300〜600、決済$180と仮定すると、合計は月$2,580〜4,980となる。開発協力者の参加は確認できるが、各費用額は実績や業界相場に基づかない試算用の仮定である。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_spktro_16f48aa6",
+      "items": []
+    },
+    {
+      "entityId": "ent_sprblg_810121e8",
+      "items": []
+    },
+    {
+      "entityId": "ent_superso_8372eb",
+      "items": []
+    },
+    {
+      "entityId": "ent_surugaya_8a07b6",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "古本・ゲーム・フィギュアの価格帯を一般相場として提示しているが、掲載資料にはその価格帯の裏付けがない。",
+          "fix": "採算の試算例として、販売価格を古本・小物300〜1,500円、ゲーム2,000〜8,000円、フィギュア3,000〜30,000円と仮定する。これは駿河屋の掲載価格や一般相場を示さない。商品粗利＝販売価格−買取・仕入れ価格であり、状態別の仕入れ値と販売値が利益を左右すると考えられる。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "資料にない紹介料率1〜5%を「ホビー物販の一般相場」と位置づけ、ソフトの定期課金より低いという比較にも裏付けがない。",
+          "fix": "通販にはアフィリエイトの入口がある。試算用に紹介報酬＝対象販売額×1〜5%と仮定すると、5,000円の商品では50〜250円となる。この率は駿河屋の実料率や業界相場を示さず、紹介報酬とは別に仕入れや配送の費用を考慮する必要がある。"
+        }
+      ]
+    }
+  ]
+}

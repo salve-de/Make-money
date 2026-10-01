@@ -1,0 +1,114 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_docgpt_8785430a",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月2,000ドルからのManagedはArc53の外部環境で運用されるため、「機密資料を外に出せない企業」向けの閉域導入と同じ条件で紹介できない。",
+          "fix": "専用環境の運用を任せたい企業から月$2,000〜。無料の公開コードを入口に、社内文書を探す面倒と運用の責任を引き受け、自社設備や閉域網への導入は別の料金で提供する。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_lgless_b5875629",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "システム提供会社であることは記載されているが、倉庫を所有していないという資産保有の事実は示されていない。",
+          "fix": "注文が増えるほど発送が詰まる店から、月2万円＋無料枠を超えた出荷件数に応じた料金。受注と倉庫の連絡をつなぐシステムを提供し、年間4,000万件以上の出荷を支える。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介報酬の10〜20%は設計上の仮定なのに、継続料金の一部を返す方式が相場だとする市場実態の根拠は示されていない。",
+          "fix": "対応倉庫とEC支援会社は、店舗への導入を支える接点になると考えられる。コマースメディアは導入支援と自社利用の双方を行っているが、紹介報酬の有無や支払率は不明だ。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_zerotier_0098642d",
+      "items": [
+        {
+          "analysisId": "a-revenue_estimate",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式の「接続300万台以上」という表示を、集計方法の説明がないまま累計接続台数と断定している。",
+          "fix": "公式表示の接続300万台以上を参考に、課金中の商用端末をその2〜10%、平均月額を$1.80と仮定すると、6万〜30万台×$1.80×12で年約$130万〜650万になる。接続実績と課金中の台数は同一とは限らず、Enterprise・Quantumの個別契約は含めない仮定の推計だ。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_updowni_bc0277ab",
+      "items": [
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "formulaの基盤費用の下限は（10拠点×月€5＋月€50）×12＝€1,200であり、記載された年€1,300と一致しない。",
+          "fix": "監視サーバー、結果の保存、通知、決済が主な現金費用になる。監視10拠点を月€5〜30、主要基盤を月€50〜200と仮定すると基盤費は年€1,200〜6,000で、通知・会計等に年€1,000〜5,000、決済に売上の3〜6%を別途見込む。本人の労働費を除いた仮定の費用だ。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_flwise_77d72700",
+      "items": [
+        {
+          "analysisId": "a-failure_cause",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「人気不足や資金破綻を死因に足す根拠はなく」は、事業の説明に監査・執筆上の判断を混ぜている。",
+          "fix": "公式が挙げる終了理由は、AIの進化による開発方法の変化と、固定的なワークフローが複雑な用途で限界に当たることだ。商品が省いていた接続作業の価値低下が、終了判断の中心にあったと考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_things3_7d21b3",
+      "items": [
+        {
+          "analysisId": "a-first_customers",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "初期配布とiPhone版の発売は記載されているが、試用者の改善要望やMac利用者の口コミを足場にしたという具体的な獲得経緯は示されていない。",
+          "fix": "Wikipediaによると、2007年後半にMacのアルファ版を12,000人へ配布し、2008年7月にiPhone版を発売した。Macでの初期配布とApp Storeへの早期参入が、利用者との接点を広げたと考えられる。"
+        },
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "別プラットフォームの版が別売りであることを、端末を追加するたび再購入が必要であるかのように一般化している。",
+          "fix": "アプリ購入で代金を得た後も、更新・同期・支援の費用は続く。Mac版とiPhone版など別売りの版を追加購入する客からは新たな代金を得られるが、既存の購入版を使い続けるだけでは定期課金は生まれない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_zededit_8b129f10",
+      "items": []
+    },
+    {
+      "entityId": "ent_photoroom_cacaf9",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "アプリの年払いと企業向けAPIの存在は示されているが、個人の年払いから企業APIへ広げたという課金事業の時系列は示されていない。",
+          "fix": "GoProで働いていたMattは、画像の輪郭を手作業で切り抜く負担を経験し、Eliot AndresとPhotoroomを共同創業した。現在は小規模事業者向けのアプリと、大量の商品画像を扱う企業向けのAPIを提供する。出品作業の負担を減らす一方、AI処理費と仕上がりへの対応が収益を左右すると考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_vivid_685ee5",
+      "items": []
+    },
+    {
+      "entityId": "ent_37signals_T6M1R8QK",
+      "items": []
+    }
+  ]
+}

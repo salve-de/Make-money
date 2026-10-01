@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_gitkraken_9f1a23",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "仮定とは断っているが、年$60〜120・$100〜240を料金帯と推す根拠に、資料で裏付けられていない開発支援ソフトの相場を使っている。",
+          "fix": "無料試用から有料プランへ進む入口があり、共同作業や企業向けの認証・管理機能が支払い理由になると推す。具体的な料金帯は不明。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "紹介報酬10〜30%を相場として置けると述べているが、その相場を裏付ける資料がない。",
+          "fix": "公式に紹介制度があり、Atlassian向け支援会社との提携も販売の入口になる。開発者の口コミに加え、企業のJira導入を支援する会社が連携製品を勧める経路と考えられるが、紹介報酬の料率や契約条件は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_hoppscotch_1a8e94",
+      "items": []
+    },
+    {
+      "entityId": "ent_ipdata_7b1a92",
+      "items": [
+        {
+          "analysisId": "a-capital_and_team",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "月$200〜1,000の試算に使うサーバー単価などを相場例としているが、その価格を裏付ける資料がない。",
+          "fix": "創業者の寄稿では、最初は少数のAWS EC2サーバーで始め、配信地域を広げている。実際の初期支出額は不明で、少数のサーバーで始めても、データ整備と稼働監視には継続した技術労働が必要と考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_keepa_4a9b19",
+      "items": [
+        {
+          "analysisId": "a-pricing",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "仮定とは断っているが、月US$15〜40を同種の販売者支援ツールの相場として扱う資料の裏付けがない。",
+          "fix": "一般の買い物客向けアプリは無料。Google Playには大量追跡向けの有料プランについて利用者の報告があるが、公式の料金体系は不明で、無料利用者全員が支払うとは考えられない。"
+        },
+        {
+          "analysisId": "a-referral",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "物販紹介の報酬1〜4%を一般的な目安として述べているが、料率や区分・上限を裏付ける資料がない。",
+          "fix": "拡張内のeBayリンクは紹介プログラムを通ると説明されており、買い物客の送客を収益につなげる経路と考えられる。報酬率、成立条件、Keepaの実際の紹介収入は不明。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_marblism_1a122b",
+      "items": []
+    },
+    {
+      "entityId": "ent_milkrd_a1",
+      "items": []
+    },
+    {
+      "entityId": "ent_pumpfun_7718ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_really_good_emails_b66581",
+      "items": []
+    },
+    {
+      "entityId": "ent_soulver_8829a1",
+      "items": []
+    }
+  ]
+}

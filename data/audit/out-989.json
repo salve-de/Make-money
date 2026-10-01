@@ -1,0 +1,98 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_milkrd_a1",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "日次配信は確認できるが、配信時刻を「毎朝」とする仕様は確認できない。",
+          "fix": "暗号資産のニュースを追い切れない個人に毎日の要点を無料で届け、広告主と有料会員から取る。報道によれば、2022年に開始から10か月で25万読者を集め、売却に至った投資メディア。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bannerbear_9e1204c3",
+      "items": []
+    },
+    {
+      "entityId": "ent_scrapingbee_4f92a188",
+      "items": []
+    },
+    {
+      "entityId": "ent_plausible",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "CONTRADICTS_FACT",
+          "severity": "FIX",
+          "why": "metricsでは通貨がEURと確認されているのに、formulaで通貨不明として扱い、見出しの金額から通貨を省いている。",
+          "fix": "アクセス解析の複雑さと訪問者追跡の面倒を減らし、サイト運営者から購読料だけを取る。外部資金なしのチームが、登記の年次報告書によれば2025年度に売上約433万ユーロ、利益約205万ユーロを生んだ。"
+        },
+        {
+          "analysisId": "a-take_home",
+          "kind": "CONTRADICTS_FACT",
+          "severity": "FIX",
+          "why": "法人利益の通貨はmetricsでEURと確認済みであり、「ユーロと仮定する」という説明は確認済み情報と食い違う。",
+          "fix": "2025年度の法人利益約205万ユーロを基に、利益の現金化率70〜90%、再投資等を残した配分可能率40〜70%を仮定すると、創業者側へ回せる現金は合計年約57万〜129万ユーロと推計される。実際の配当額ではなく、配当課税と個人税も引いていない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_calcom_a24b70ba1746771479ff",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "現在の無料・有料プラン構成は確認できるが、創業期に無料利用から有料契約を獲得して突破したという出来事は確認できない。",
+          "fix": "Cal.comは、日程調整を会社や製品へ組み込む基盤を提供している。個人向け無料プランを入口に、担当者の振り分けや組織管理への需要を有料契約へつなぐ設計と見られる。人数課金と法人契約が収益源になる一方、外部カレンダーとの接続維持や導入支援が費用になると考えられる。"
+        },
+        {
+          "analysisId": "a-competition",
+          "kind": "CONTRADICTS_FACT",
+          "severity": "FIX",
+          "why": "Cal.diyを企業の自社運用の選択肢として挙げているが、公式READMEは個人の非本番利用を推奨し、商用・企業向けにはCal.comを案内している。",
+          "fix": "代わりはCalendly、SavvyCal、カレンダーの標準予約、手動の日程調整。Cal.comの差は変更の自由と会社・製品への組み込みにある。無料のCal.diyは、公式には個人の非本番利用が推奨される自己運用版で、企業機能は含まれない。商用・企業向けの運用にはCal.comが案内されている。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_audiopen_155f440ff058c5942d9a",
+      "items": []
+    },
+    {
+      "entityId": "ent_buttondown_573bd3808b0c701ad7ee",
+      "items": []
+    },
+    {
+      "entityId": "ent_aputime_3675d76dbe1a466da11b",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "formulaの「月$2,000〜8,000ではなく」は修正前の数字を残した編集履歴で、読者の判断に必要ない。",
+          "fix": "2023年3月のMRR約$50,000から推計月費用$36,000〜65,000を引くと、月収支は−$15,000〜+$14,000。黒字への税を20〜30%と仮定した年間分配可能額の上限は$134,400。費用に含まれる本人給与を月$2,000〜5,000、分配受取割合を0〜100%と仮定すると、給与と分配の合計は個人税前で年$24,000〜194,400となる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_alfred_4d340a9a61833216fae8",
+      "items": []
+    },
+    {
+      "entityId": "ent_activepieces_e79ea75946468156aa9f",
+      "items": [
+        {
+          "analysisId": "a-upfront_cash",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "月$20に「2か月分割引」を適用すると年$200となり、冒頭の「$16から」という表示だけではPlusの年額$192を裏付けられない。",
+          "fix": "年払いと年間利用枠を持つ企業契約では、運用費より先にまとまった入金を得られる余地がある。Plusの月額$20に表示上の2か月分割引を適用する仮定なら年額は$20×10＝$200。Embedは年$36,000からと表示されるが、いずれも全額前払いかどうかは契約条件による。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_colossyan_4c8a91",
+      "items": []
+    },
+    {
+      "entityId": "ent_gitkraken_9f1a23",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "提供資料に席数に応じた課金仕様はなく、見出しでは他の分析で推計としている課金方式を言い切っている。",
+          "fix": "変更確認とレビューの滞留を減らす、10万組織に信頼されるGit道具群。無料の入口から、開発者の席数や企業の管理機能に応じた継続課金へつなげる構造と推す。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_yaak_2e7b91",
+      "items": []
+    },
+    {
+      "entityId": "ent_keepa_4a9b19",
+      "items": []
+    },
+    {
+      "entityId": "ent_ipdata_7b1a92",
+      "items": [
+        {
+          "analysisId": "a-lesson",
+          "kind": "CONTRADICTS_FACT",
+          "severity": "FIX",
+          "why": "無料枠の条件は非商用であることなので、公開サービスへの組み込みを有料化の条件とする説明は非公開の商用利用と公開の非商用利用を取り違えている。",
+          "fix": "元データが公開されていても、集めて更新し、速く安定して返す作業には対価が付く。非商用の無料枠を試用の入口にし、商用利用には有料契約を求めることで、技術の試用と事業の支出をつなげられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_sublimemerge_4418ba",
+      "items": [
+        {
+          "analysisId": "a-headline",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "公式の企業料金は1人年$75であり、企業単位で年$75という料金仕様は示されていない。",
+          "fix": "誤った行までコミットする不安とGit操作の待ち時間を減らす。個人は$99で3年間の更新付き、企業は1人年$75。既存エディタの技術と信用で売る高速な道具。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_pumpfun_7718ba",
+      "items": []
+    },
+    {
+      "entityId": "ent_cleanvoice_ai_bbdf69",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "UNSUPPORTED_NUMBER",
+          "severity": "FIX",
+          "why": "formulaの売上$59,400〜810,000には出典も導出式もなく、年間売上が不明で金額を推計できないという説明に反して受取原資を算出している。",
+          "fix": "作者中心の運営なら、税引前の受取原資は年間売上から外部支出と事業継続の留保を引いた額と考えられるが、年間売上と実費が不明なため金額は算出できず、formulaにも未根拠の売上額と受取額を載せない。"
+        }
+      ]
+    }
+  ]
+}

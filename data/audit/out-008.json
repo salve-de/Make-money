@@ -1,0 +1,135 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_alfred_4d340a9a61833216fae8",
+      "items": [
+        {
+          "analysisId": "a-customer",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "職種別の利用者構成を示す根拠がないのに、開発者や編集者などが顧客の中心だと言い切っている。",
+          "fix": "ファイル、文章、コードを日々扱うMac利用者に向くと見られる。個人ライセンスで、自分の反復操作を減らす仕事道具として購入する形に合う。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ebizfacts_designcrowdcontestspb257millionearningsavera_8f92691bff5d",
+      "items": [
+        {
+          "analysisId": "a-business_model",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「分析対象は運営会社ではなく」という監査上の対象設定が、そのまま読者向けの説明に残っている。",
+          "fix": "参加デザイナーは、依頼主の要望に合わせたロゴや画像などを制作し、採用報酬や参加報酬を受け取る。DesignCrowdの手数料控除後の金額が収入になる。"
+        },
+        {
+          "analysisId": "a-first_customers",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「初回受注歴は推定せず」という執筆作業の方針が、顧客獲得の説明に混ざっている。",
+          "fix": "公開案件への提出作品が依頼主の判断材料となり、採用されれば報酬につながる。Danny個人の最初の受注経路は不明だ。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_spktro_16f48aa6",
+      "items": [
+        {
+          "analysisId": "a-dependencies",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "外部のデータ供給者に依存する調達構造は、提示された事実や出典本文では確認できない。",
+          "fix": "検索・SNS・媒体の変化に合わせて調査データを更新する必要があると見られる。外部からデータを調達する構成なら、その価格や供給条件も依存要因になる。"
+        },
+        {
+          "analysisId": "a-timeline",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「Mozの沿革と混ぜて扱わない」という編集上の注意が、事業の沿革として掲載されている。",
+          "fix": "2022年10月24日付の取材では、RandがSparkToroの運営方針を語っており、遅くともこの時点で事業は動いていた。公式サイトでは現在もオーディエンス調査サービスを案内している。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_wondercraft_ai_cf6a91",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "出資を受けた事実だけでは、赤字時の給与が実際に出資金から支払われるとは断定できない。",
+          "fix": "創業者側の給与手残りは、合計で推計年約$10万〜21万で、利益分配は加算しない。仮定上の事業収支は赤字から黒字まで広く、赤字でも給与を払い続けるには出資金などの資金残高が必要になる。"
+        },
+        {
+          "analysisId": "a-competition",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "企業での承認まで同じ場所で進められるという製品仕様は、提示された出典本文にない。",
+          "fix": "代わりはAIモデルを個別に使う方法、通常の編集ソフト、外注スタジオだ。Wondercraftは素材の生成、編集、共同制作をまとめ、企業向けにはアクセス管理や導入支援も案内している。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_nocodb_42885d",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "仮定上の赤字から、創業者給与の支払原資が出資金になると断定している。",
+          "fix": "創業者給与の手残りは推計年約$4万〜9万で、利益分配はゼロと仮定する。売上の仮定次第では会社収支は赤字となり、給与を維持できるかは出資金を含む資金残高に左右される。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_helicone_09bc61",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「買収額からの着金を想像で埋めない」という執筆作業の指示が読者向けの文章に残っている。",
+          "fix": "買収前の創業者側の給与手残りは、合計で推計年約$12万〜21万。公表ARRの到達水準を基準に費用と給与を仮定した計算で、実際の給与額や個人への着金額は不明だ。配当と売却代金は含まない。"
+        },
+        {
+          "analysisId": "a-failure_cause",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "「理由を加えず」「事例として扱う」という監査・分類の作業方針が掲載文に混ざっている。",
+          "fix": "創業者は、ARRが$100万を超え、2026年3月にMintlifyに買収されたと公表している。買収されたことだけでは、破綻や資金枯渇、強制売却を意味しない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_buttondown_573bd3808b0c701ad7ee",
+      "items": []
+    },
+    {
+      "entityId": "ent_excalidraw_c7820d",
+      "items": [
+        {
+          "analysisId": "a-business_model",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "有料版の存在は確認できるが、提示された出典本文では継続課金の契約方式まで確認できない。",
+          "fix": "描画部分は無料で公開し、有料版ではクラウドの作業場所、共有範囲、発表、チーム利用などを売る。反復利用する個人・チームほど、図を保存して管理する機能に支払う理由が強いと見られる。"
+        },
+        {
+          "analysisId": "a-customer",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "有料顧客が継続利用者に偏るという実際の顧客構成を、集計根拠なしに言い切っている。",
+          "fix": "システム構成を説明する開発者、仕様を相談するプロダクト担当、粗い画面案を共有するデザイナーに向く。図を保管し、同僚と繰り返し使う人ほど、有料版のクラウド管理に支払う理由が強いと見られる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_signoz_361f8507",
+      "items": []
+    },
+    {
+      "entityId": "ent_sltapp_4ffc56b9",
+      "items": []
+    }
+  ]
+}

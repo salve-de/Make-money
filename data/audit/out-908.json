@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "entityId": "ent_hoppscotch_1a8e94",
+      "items": [
+        {
+          "analysisId": "a-story",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "既存の道具の重さや煩雑さを避けるために開発したという創業時の動機は、製品の現在の説明からは確認できない。",
+          "fix": "Hoppscotchは軽さと共同作業を掲げる公開ソフトだ。無料の個人利用を入口に、会社が必要とする設定共有やアクセス管理を人数課金につなげる構造と推す。ただし、無料利用者の多さが有料契約の多さを保証するわけではない。"
+        },
+        {
+          "analysisId": "a-customer",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "実際の有料顧客の中心と購入判断を担う役職を、顧客構成や購買過程の裏付けなく言い切っている。",
+          "fix": "共同作業や企業向け認証の機能から、複数の開発者が同じAPIを扱うスタートアップや企業の開発部門が有料契約の対象と推す。アクセス管理や社内認証を担う技術責任者は、購入判断に関わる候補と考えられる。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_soulver_8829a1",
+      "items": [
+        {
+          "analysisId": "a-cost_structure",
+          "kind": "FACT_DISGUISED",
+          "severity": "FIX",
+          "why": "formulaにあるApp Storeの一般的な料率15〜30%は、提示された事実や出典本文にない外部の料金仕様を断定している。",
+          "fix": "費用計算の仮定として、販売・決済費＝売上×10〜25%、開発・保守人件費＝年$70,000〜300,000、データ・管理費＝年$10,000〜30,000と置く。これらは実際の費用や販売経路ごとの手数料率を示すものではない。"
+        }
+      ]
+    },
+    {
+      "entityId": "ent_vapi_29e1a4",
+      "items": []
+    },
+    {
+      "entityId": "ent_really_good_emails_b66581",
+      "items": []
+    },
+    {
+      "entityId": "ent_appflowy_911e94",
+      "items": []
+    },
+    {
+      "entityId": "ent_breakcold_303e14",
+      "items": []
+    },
+    {
+      "entityId": "ent_milkrd_a1",
+      "items": []
+    },
+    {
+      "entityId": "ent_calcom_a24b70ba1746771479ff",
+      "items": []
+    },
+    {
+      "entityId": "ent_aputime_3675d76dbe1a466da11b",
+      "items": [
+        {
+          "analysisId": "a-take_home",
+          "kind": "WORK_WORDS",
+          "severity": "FIX",
+          "why": "formulaの「月$2,000〜8,000ではなく」は、採用しなかった推計値を訂正する作業上の記述で読者には不要である。",
+          "fix": "2023年3月のMRR約$50,000から推計月費用$36,000〜65,000を引くと、月収支は−$15,000〜+$14,000。黒字への税を20〜30%と仮定すると、年間分配可能額は最大$134,400。費用に含めた本人給与を月$2,000〜5,000、分配受取割合を0〜100%と仮定すると、給与と分配の合計は年$24,000〜194,400となる。個人税前の条件付き推計で、現在の所得を示さない。"
+        }
+      ]
+    }
+  ]
+}
