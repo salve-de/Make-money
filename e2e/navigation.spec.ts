@@ -155,3 +155,26 @@ test('closing a case leaves no history entry that reopens it', async ({ page }) 
   await page.goBack();
   await expect(page).toHaveURL(/\/welcome$/);
 });
+
+// 本番の既定表示: 公開目録が届いたら先頭の事例を PC 幅で自動表示する。閉じたら開き直さず、スマホ幅では開かない。
+test('default view auto-selects the first published case on desktop only', async ({ page, browser }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/');
+  const inspector = page.getByRole('complementary', { name: /の企業事例インスペクター/ });
+  await expect(inspector).toBeVisible();
+  await page.getByRole('button', { name: '閉じる', exact: true }).click();
+  await page.waitForTimeout(800);
+  await expect(inspector).toHaveCount(0);
+
+  const phone = await browser.newContext({ viewport: { width: 390, height: 800 } });
+  const mobile = await phone.newPage();
+  const requests: string[] = [];
+  mobile.on('request', (req) => { if (req.url().includes('/api/businesses') && req.url().includes('entity_id=')) requests.push(req.url()); });
+  await mobile.goto('/');
+  await mobile.waitForTimeout(1500);
+  await expect(mobile.getByRole('complementary', { name: /の企業事例インスペクター/ })).toHaveCount(0);
+  expect(requests).toEqual([]);
+  await phone.close();
+  expect(errors).toEqual([]);
+});
