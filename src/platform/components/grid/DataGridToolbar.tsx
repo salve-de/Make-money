@@ -28,6 +28,10 @@ interface DataGridToolbarProps {
   showBatchFilter?: boolean;
   /** 今の検索語と絞り込み（「条件を保存」に使う）。 */
   savedSearchDraft?: SavedSearchDraft;
+  /** 件数の右に並べる部品（今回の公開分への入口など）。帯を別の段に増やさないため。 */
+  countAddon?: React.ReactNode;
+  /** 左に絞り込み欄が出ている幅では「条件を絞る」を出さない（同じ操作を2回出さない）。 */
+  hideScreenerOnXl?: boolean;
 }
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
@@ -47,6 +51,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   catalogTotal = null,
   showBatchFilter = false,
   savedSearchDraft,
+  countAddon,
+  hideScreenerOnXl = false,
 }) => {
   const batchOptions = React.useMemo(() => {
     const knownMap = new Map(KNOWN_INGEST_BATCHES.map((batch) => [batch.id, batch]));
@@ -94,7 +100,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
     <section aria-label="事例を検索・絞り込み" className="shrink-0 border-b border-term-line bg-term-panel px-3 py-2 lg:px-2.5 lg:py-1.5">
       <div className={hideSearch ? 'flex flex-wrap items-center gap-2' : 'flex flex-col gap-2 lg:gap-1.5'}>
         {/* 検索欄を出さないときは「条件を絞る」を登録回の行の右端へ寄せ、空の行を作らない */}
-        <div className={hideSearch ? 'order-last ml-auto flex items-center gap-2' : 'flex items-center gap-2'}>
+        <div className={hideSearch ? `order-last flex items-center gap-2 ${hideScreenerOnXl && !hasActiveScreener ? 'xl:hidden' : ''}` : 'flex items-center gap-2'}>
           {hideSearch ? null : (
           <div className="relative min-w-0 flex-1">
             <label htmlFor="company-search" className="sr-only">会社名、ティッカー、事業の特徴で検索</label>
@@ -129,7 +135,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               type="button"
               onClick={onOpenScreener}
               aria-label={hasActiveScreener ? `条件を絞る、現在${activeScreenerCount}件の条件` : '条件を絞る'}
-              className={`${btn} min-h-11 flex-1 justify-center text-sm sm:flex-none lg:min-h-8 lg:text-xs ${hasActiveScreener ? btnOn : btnOff}`}
+              className={`${btn} min-h-11 justify-center text-sm lg:min-h-8 lg:text-xs ${hasActiveScreener ? btnOn : btnOff}`}
               title="業種や規模などの条件を設定"
             >
               <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
@@ -149,7 +155,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           </div>
         </div>
 
-        <div className={`flex flex-wrap items-center gap-2 ${hideSearch ? 'min-w-0 flex-1' : ''}`}>
+        <div className={`flex items-center gap-2 ${hideSearch ? 'min-w-0 flex-1' : 'flex-wrap'}`}>
           {showBatchFilter ? (
           <label className="inline-flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-sm border border-term-line px-2.5 text-xs text-term-label sm:flex-none lg:min-h-7">
             <Layers aria-hidden="true" className="h-3.5 w-3.5" />
@@ -186,7 +192,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               onClick={() => onToggleTag('収集事例')}
               aria-pressed={activeTags.includes('収集事例')}
               title="新しく登録された事例を表示"
-              className={`${btn} min-h-9 text-xs lg:min-h-7 ${activeTags.includes('収集事例') ? btnOn : btnOff}`}
+              className={`${btn} min-h-11 shrink-0 text-xs lg:min-h-7 ${activeTags.includes('収集事例') ? btnOn : btnOff}`}
             >
               <span>新着事例</span>
             </button>
@@ -220,9 +226,12 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           {savedSearchDraft && <SaveSearchButton draft={savedSearchDraft} />}
           <CompareTrayLink />
 
-          <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">
-            <span className="text-term-fg">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件
-          </p>
+          <div className="ml-auto flex shrink-0 items-center gap-1">
+            <p className="term-num whitespace-nowrap px-1 text-xs text-term-label" aria-live="polite">
+              <span className="text-term-fg-strong">{totalCount.toLocaleString()}</span><span className="hidden sm:inline"> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}</span>件
+            </p>
+            {countAddon}
+          </div>
         </div>
       </div>
     </section>

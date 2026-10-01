@@ -53,7 +53,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeSection,
             <Icon aria-hidden="true" size={22} strokeWidth={active ? 2.4 : 1.8} />
             <span>{label}</span>
             {id === 'SYNTHESIS' && typeof bookmarkCount === 'number' && bookmarkCount > 0 && (
-              <span className="term-num absolute right-[calc(50%-1.6rem)] top-1.5 min-w-4 bg-term-accent px-1 text-center text-[10px] leading-4 text-term-panel">
+              <span className="term-num absolute right-[calc(50%-1.6rem)] top-1.5 min-w-4 bg-term-accent px-1 text-center text-xs leading-4 text-term-panel">
                 {bookmarkCount}
               </span>
             )}

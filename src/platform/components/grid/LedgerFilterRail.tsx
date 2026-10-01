@@ -12,7 +12,7 @@ export interface LedgerFilterRailProps {
   filters: ScreenerFilterState | null;
   onChangeFilters: (filters: ScreenerFilterState | null) => void;
   onOpenAdvanced: () => void;
-  /** 件数は一覧の見出しと状態バーに出すため、この欄には表示しない（受け口のみ維持）。 */
+  /** 件数は一覧の上の道具欄に出すため、この欄には表示しない（受け口のみ維持）。 */
   resultCount: number;
   catalogTotal: number;
 }
@@ -51,7 +51,29 @@ function isEmpty(f: ScreenerFilterState): boolean {
 }
 
 function GroupHeader({ children }: { children: React.ReactNode }) {
-  return <div className="flex h-6 items-center bg-term-head px-2.5 text-xs text-term-label">{children}</div>;
+  return <div className="flex h-7 items-end px-2.5 pb-1 text-xs text-term-label">{children}</div>;
+}
+
+/** 使う人が少ない群は畳んでおき、選んだ数だけ見出しに出す（Polaris の絞り込みの作法）。 */
+function FoldGroup({ title, selectedCount, children }: { title: string; selectedCount: number; children: React.ReactNode }) {
+  const [open, setOpen] = React.useState(selectedCount > 0);
+  const id = React.useId();
+  return (
+    <>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={id}
+        onClick={() => setOpen((value) => !value)}
+        className="flex h-7 w-full items-end gap-1.5 px-2.5 pb-1 text-left text-xs text-term-label hover:text-term-fg-strong"
+      >
+        <span>{title}</span>
+        {selectedCount > 0 && <span className="term-num text-term-accent">{selectedCount}</span>}
+        <span aria-hidden="true" className="ml-auto text-term-dim">{open ? '−' : '+'}</span>
+      </button>
+      {open && <div id={id}>{children}</div>}
+    </>
+  );
 }
 
 function Row({ selected, onClick, label, role = 'checkbox' }: { selected: boolean; onClick: () => void; label: string; role?: 'checkbox' | 'radio' }) {
@@ -61,7 +83,7 @@ function Row({ selected, onClick, label, role = 'checkbox' }: { selected: boolea
       role={role}
       aria-checked={selected}
       onClick={onClick}
-      className={`flex h-6 w-full items-center gap-2 border-b border-term-line-soft px-2.5 text-left text-xs ${
+      className={`flex h-6 w-full items-center gap-2 px-2.5 text-left text-xs ${
         selected ? 'bg-term-select text-term-fg-strong' : 'text-term-fg hover:bg-term-head'
       }`}
     >
@@ -94,14 +116,15 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
     <aside aria-label="絞り込み" className="flex w-[220px] shrink-0 flex-col overflow-y-auto border-r border-term-line bg-term-bg">
       <div className="term-panel-title">
         <span className="term-panel-name">絞り込み</span>
-        <button
-          type="button"
-          onClick={() => onChangeFilters(null)}
-          disabled={!filters}
-          className="ml-auto h-6 px-1 text-xs text-term-muted hover:text-term-fg-strong disabled:text-term-dim"
-        >
-          解除
-        </button>
+        {filters && (
+          <button
+            type="button"
+            onClick={() => onChangeFilters(null)}
+            className="ml-auto h-6 px-1 text-xs text-term-muted hover:text-term-fg-strong"
+          >
+            解除
+          </button>
+        )}
       </div>
 
       <GroupHeader>運営人数</GroupHeader>
@@ -131,10 +154,11 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         />
       ))}
 
-      <GroupHeader>参入障壁</GroupHeader>
-      {MOATS.map((item) => (
-        <Row key={item.id} label={item.label} selected={current.moats.includes(item.id)} onClick={() => update({ moats: toggle(current.moats, item.id) })} />
-      ))}
+      <FoldGroup title="参入障壁" selectedCount={current.moats.length}>
+        {MOATS.map((item) => (
+          <Row key={item.id} label={item.label} selected={current.moats.includes(item.id)} onClick={() => update({ moats: toggle(current.moats, item.id) })} />
+        ))}
+      </FoldGroup>
 
       {(current.selectedTags?.length ?? 0) > 0 && (
         <>
@@ -148,7 +172,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
       <button
         type="button"
         onClick={onOpenAdvanced}
-        className="h-7 w-full border-b border-term-line-soft px-2.5 text-left text-xs text-term-accent hover:bg-term-head"
+        className="mt-2 h-7 w-full border-t border-term-line-soft px-2.5 text-left text-xs text-term-muted hover:bg-term-head hover:text-term-fg-strong"
       >
         詳しい条件…
       </button>

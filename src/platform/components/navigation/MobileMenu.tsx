@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Dialog } from 'radix-ui';
 import {
   BellRing,
-  ChevronRight,
   Columns3,
   Handshake,
   LayoutGrid,
@@ -22,7 +21,6 @@ import {
   LOCAL_MODE_BY_SECTION,
   LocalWorkspaceMode,
   MOBILE_MENU_ITEMS,
-  PRO_HREF,
 } from './navigationItems';
 
 /** 下のタブに出ている画面。メニューには重ねて出さない */
@@ -46,7 +44,8 @@ interface MobileMenuProps {
 }
 
 /** スマホ用の左からの引き出しメニュー（ハンバーガー）。開閉・フォーカス・Esc・背面のスクロール固定は Radix Dialog が担う */
-export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro, onSelectLocalMode }) => {
+/** PRO はヘッダー右上に常に出ているので、メニューには重ねて出さない */
+export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onSelectLocalMode }) => {
   const [open, setOpen] = useState(false);
 
   const handleLocal = (event: React.MouseEvent<HTMLAnchorElement>, id: GlobalNavSection) => {
@@ -56,8 +55,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
     event.preventDefault();
     onSelectLocalMode(mode);
   };
-
-  const proClass = 'flex min-h-12 w-full items-center justify-center bg-term-accent text-base font-semibold text-term-panel';
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -78,13 +75,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
               <X aria-hidden="true" size={20} />
             </Dialog.Close>
           </div>
-          <div className="shrink-0 border-b border-term-line p-3">
-            {onOpenPro ? (
-              <button type="button" onClick={() => { setOpen(false); onOpenPro(); }} className={proClass}>PRO の内容を見る</button>
-            ) : (
-              <Link href={PRO_HREF} prefetch={false} onClick={() => setOpen(false)} className={proClass}>PRO の内容を見る</Link>
-            )}
-          </div>
           <nav aria-label="そのほかの画面" className="min-h-0 flex-1 overflow-y-auto">
             <ul>
               {MOBILE_MENU_ITEMS.map((item) => {
@@ -103,7 +93,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
                     >
                       {Icon && <Icon aria-hidden="true" size={20} strokeWidth={1.8} className={`shrink-0 ${active ? 'text-term-accent' : 'text-term-muted'}`} />}
                       <span className="flex-1">{item.label}</span>
-                      <ChevronRight aria-hidden="true" size={18} className="shrink-0 text-term-label" />
                     </Link>
                   </li>
                 );

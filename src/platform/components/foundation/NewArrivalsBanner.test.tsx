@@ -35,11 +35,12 @@ describe('new arrival highlights', () => {
     expect(summary.failureCount).toBeNull();
   });
 
-  it('shows counts in the strip and nothing when there is no release', () => {
-    const html = renderToStaticMarkup(createElement(NewArrivalsBanner, { release, entities, onOpen: vi.fn(), onOpenEntity: vi.fn() }));
-    expect(html).toContain('売上の記録あり');
-    expect(html).toContain('失敗・撤退');
-    expect(html).toContain('注目の3件');
+  it('shows one compact link with the breakdown on hover, and nothing when there is no release', () => {
+    const html = renderToStaticMarkup(createElement(NewArrivalsBanner, { release, entities, onOpen: vi.fn() }));
+    expect(html).toContain('新着');
+    expect(html).toContain('3件');
+    expect(html).toContain('売上の記録あり 2件');
+    expect(html).toContain('失敗・撤退 1件');
     expect(renderToStaticMarkup(createElement(NewArrivalsBanner, { release: null, onOpen: vi.fn() }))).toBe('');
   });
 });

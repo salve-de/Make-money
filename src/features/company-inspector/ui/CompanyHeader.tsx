@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DropdownMenu } from 'radix-ui';
 
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
@@ -7,6 +8,9 @@ import { UI, uiFormat } from '@/shared/ui-strings';
 import { ShareModal } from './ShareModal';
 
 // 表示方法（inline-flex / hidden）と文字色は、クラスの競合を避けるためボタンごとに指定する
+const menuItem =
+  'flex min-h-11 cursor-pointer items-center px-3 outline-none data-[highlighted]:bg-term-head data-[highlighted]:text-term-fg-strong data-[disabled]:cursor-not-allowed data-[disabled]:text-term-dim lg:min-h-7';
+
 const headerBtn =
   'h-11 min-w-11 items-center justify-center border-l border-term-line px-2 text-xs hover:bg-term-line hover:text-term-fg-strong lg:h-6 lg:min-w-6 lg:border-l-0 lg:px-2';
 
@@ -62,8 +66,7 @@ export function CompanyHeader({
           >
             {UI.BACK_TO_LIST}
           </button>
-          <span className="term-panel-name hidden h-6 shrink-0 items-center lg:inline-flex">{UI.DETAIL_PANEL}</span>
-          {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
+          {positionLabel && <span className="term-num hidden h-6 shrink-0 items-center text-term-muted lg:inline-flex">{positionLabel}</span>}
           <div className="min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2">
             <h2 className="truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
               {entity.name}
@@ -83,26 +86,6 @@ export function CompanyHeader({
                 {isBookmarked ? UI.SAVED_SHORT : UI.SAVE}
               </button>
             )}
-            <button
-              type="button"
-              onClick={() => compare.toggle({ id: entity.id, name: entity.name })}
-              disabled={!inCompare && compare.isFull}
-              aria-pressed={inCompare}
-              className={`${headerBtn} inline-flex disabled:cursor-not-allowed disabled:text-term-dim ${inCompare ? 'text-term-accent' : 'text-term-fg'}`}
-              aria-label={uiFormat(inCompare ? UI.COMPARE_REMOVE_ARIA : UI.COMPARE_ADD_ARIA, entity.name)}
-              title={inCompare ? UI.COMPARE_REMOVE : compare.isFull ? UI.COMPARE_FULL : UI.COMPARE_ADD}
-            >
-              {inCompare ? UI.COMPARE_ACTIVE : UI.COMPARE}
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsShareOpen(true)}
-              className={`${headerBtn} inline-flex text-term-fg`}
-              aria-label={UI.SHARE_ARIA}
-              title={UI.SHARE}
-            >
-              {UI.SHARE}
-            </button>
             {onPrevEntity && (
               <button type="button" onClick={onPrevEntity} className={`${headerBtn} hidden text-term-fg sm:inline-flex`} aria-label={UI.PREV_ARIA}>
                 {UI.PREV_SHORT}
@@ -113,6 +96,36 @@ export function CompanyHeader({
                 {UI.NEXT_SHORT}
               </button>
             )}
+            {/* 使う頻度の低い操作は「…」にまとめる（見出しの操作は保存・前後・閉じるだけ） */}
+            <DropdownMenu.Root>
+              <DropdownMenu.Trigger asChild>
+                <button type="button" className={`${headerBtn} inline-flex text-term-fg`} aria-label={UI.MORE_ARIA} title={UI.MORE_ARIA}>
+                  {UI.MORE_MARK}
+                </button>
+              </DropdownMenu.Trigger>
+              <DropdownMenu.Portal>
+                <DropdownMenu.Content align="end" sideOffset={4} className="z-50 min-w-40 border border-term-line bg-term-panel py-1 text-xs text-term-fg shadow-lg">
+                  <DropdownMenu.Item
+                    disabled={!inCompare && compare.isFull}
+                    onSelect={() => compare.toggle({ id: entity.id, name: entity.name })}
+                    className={menuItem}
+                    aria-label={uiFormat(inCompare ? UI.COMPARE_REMOVE_ARIA : UI.COMPARE_ADD_ARIA, entity.name)}
+                  >
+                    {inCompare ? UI.COMPARE_REMOVE : compare.isFull ? UI.COMPARE_FULL : UI.COMPARE_ADD}
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item onSelect={() => setIsShareOpen(true)} className={menuItem} aria-label={UI.SHARE_ARIA}>
+                    {UI.SHARE}
+                  </DropdownMenu.Item>
+                  {externalUrl && (
+                    <DropdownMenu.Item asChild className={menuItem}>
+                      <a href={externalUrl} target="_blank" rel="noopener noreferrer" aria-label={uiFormat(UI.OFFICIAL_SITE_ARIA, entity.name)}>
+                        {UI.OFFICIAL_SITE}
+                      </a>
+                    </DropdownMenu.Item>
+                  )}
+                </DropdownMenu.Content>
+              </DropdownMenu.Portal>
+            </DropdownMenu.Root>
             <button
               type="button"
               onClick={onClose}
@@ -132,19 +145,6 @@ export function CompanyHeader({
             <TabButton active={mainTab === 'AUDIT'} onClick={() => setMainTab?.('AUDIT')} label={UI.TAB_AUDIT} shortLabel={UI.TAB_AUDIT_SHORT} />
           </div>
           <div className="flex min-w-0 items-center gap-2 whitespace-nowrap text-xs">
-            {externalUrl && (
-              <a
-                href={externalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(event) => event.stopPropagation()}
-                className="inline-flex min-h-11 items-center px-1 text-term-muted hover:text-term-fg-strong lg:min-h-7"
-                aria-label={uiFormat(UI.OFFICIAL_SITE_ARIA, entity.name)}
-                title={UI.OFFICIAL_SITE}
-              >
-                {UI.OFFICIAL_SITE}
-              </a>
-            )}
             <a
               href={'/execute/' + encodeURIComponent(entity.id)}
               className="inline-flex min-h-11 items-center px-1 text-term-accent hover:underline lg:min-h-7"

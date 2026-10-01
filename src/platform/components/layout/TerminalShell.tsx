@@ -13,7 +13,7 @@ import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 
 import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
-import { InstitutionalDataGrid, LedgerListTitle } from '../grid/InstitutionalDataGrid';
+import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { FoundationSearchContinuation } from '../foundation/FoundationSearchContinuation';
 import { NewArrivalsBanner } from '../foundation/NewArrivalsBanner';
 import { CompanyInspectorPane } from '@/features/company-inspector';
@@ -24,7 +24,6 @@ import { MarketRadarView } from '../radar/MarketRadarView';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal } from '../screener/AdvancedScreenerModal';
 import { LedgerFilterRail } from '../grid/LedgerFilterRail';
-import { TerminalStatusBar } from './TerminalStatusBar';
 import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
 import { closeEntityParam, dropQueryParam, openEntityParam, openLedgerEntityUrl, positionLabel } from '../../utils/entityUrl';
 import { preferDetail } from '@/shared/dossier-authority';
@@ -308,10 +307,10 @@ export const TerminalShell: React.FC<{
               batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
               catalogTotal={catalogTotal}
               savedSearchDraft={{ query: searchQuery, filters: catalogFilters }}
+              hideScreenerOnXl
+              countAddon={<NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} />}
             />
-            <NewArrivalsBanner release={newArrivalsRelease} entities={entities} onOpen={openNewArrivals} onOpenEntity={openEntity} />
             <FoundationSearchContinuation available={foundationSearchContinuationAvailable} failed={foundationSearchContinuationFailed} loading={foundationLoading} retryMessage={foundationSearchRetryMessage} onContinue={continueFoundationSearch} />
-            <LedgerListTitle count={filteredEntities.length} />
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}
@@ -367,8 +366,6 @@ export const TerminalShell: React.FC<{
           </div>
         )}
       </main>
-
-      {workspaceMode === 'LEDGER' && <TerminalStatusBar shownCount={filteredEntities.length} totalCount={catalogTotal ?? filteredEntities.length} updatedAt={newArrivalsRelease?.releaseAt ?? null} />}
 
       {/* ⌘K グローバル検索モーダル */}
       <GlobalCommandPalette

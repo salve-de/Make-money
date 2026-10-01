@@ -176,7 +176,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
         </header>
         <div className="space-y-4 p-4">
           <div className="flex items-center gap-2 rounded-sm border border-term-line bg-term-bg/80 p-2">
-            <input aria-label="共有リンク" readOnly value={shareUrl} className="min-w-0 flex-1 bg-transparent text-xs text-zinc-300 outline-none" />
+            <input aria-label="共有リンク" readOnly value={shareUrl} className="min-w-0 flex-1 bg-transparent text-base text-term-sub outline-none sm:text-xs" />
             <button type="button" onClick={handleCopyUrlOnly} className="inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-sm border border-term-accent px-3 text-sm text-term-accent hover:bg-term-accent-bg">
               {copiedSection === 'URL' ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />}{copiedSection === 'URL' ? 'コピー済み' : 'コピー'}
             </button>

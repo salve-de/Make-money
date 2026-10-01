@@ -15,20 +15,6 @@ import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from '
 
 const PAGE_SIZE = 250;
 
-/**
- * PC一覧の見出しバー（事例一覧・条件・件数）。一覧の外側（スクロールしない位置）に置く。
- * 件数は事例のデータではないので、行の中身の検査（screen-text の一覧）とは分けて描く。
- */
-export function LedgerListTitle({ count, conditionsLabel }: { count: number; conditionsLabel?: string }) {
-  return (
-    <div className="term-panel-title hidden shrink-0 lg:flex">
-      <span className="term-panel-name">{UI.LIST_TITLE}</span>
-      <span className="truncate">{conditionsLabel || UI.LIST_NO_CONDITIONS}</span>
-      <span className="term-num ml-auto shrink-0">{count.toLocaleString('ja-JP')}件</span>
-    </div>
-  );
-}
-
 export function shouldLoadMoreGridPage(visibleCount: number, entityCount: number, hasMore: boolean, retryAvailable = false): boolean {
   return visibleCount >= entityCount && hasMore && !retryAvailable;
 }
@@ -137,7 +123,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         )}
       </div>
 
-      {/* PC一覧（表）。見出しバー（件数・条件）は一覧の外側（LedgerListTitle）に置く */}
+      {/* PC一覧（表）。件数は一覧の上の道具欄に出す */}
       <div data-variant="table" className="hidden w-full lg:block">
         <table className="w-full table-fixed border-collapse text-left text-[13px] [counter-reset:ledger-row]">
           <colgroup>

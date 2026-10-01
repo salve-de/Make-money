@@ -54,39 +54,6 @@ function isTypingTarget(target: EventTarget | null): boolean {
   return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || target.isContentEditable;
 }
 
-function formatJstClock(now: Date): string {
-  const parts = new Intl.DateTimeFormat('ja-JP', {
-    timeZone: 'Asia/Tokyo',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  }).formatToParts(now);
-  const get = (type: string) => parts.find((part) => part.type === type)?.value ?? '';
-  const hour = get('hour') === '24' ? '00' : get('hour');
-  return `${get('month')}/${get('day')} ${hour}:${get('minute')} JST`;
-}
-
-const JstClock: React.FC = () => {
-  const [label, setLabel] = useState<string | null>(null);
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    const tick = () => {
-      const now = new Date();
-      setLabel(formatJstClock(now));
-      timer = setTimeout(tick, 60_000 - (now.getSeconds() * 1000 + now.getMilliseconds()));
-    };
-    tick();
-    return () => clearTimeout(timer);
-  }, []);
-  return (
-    <span className="term-num min-w-[8.5rem] text-right text-xs text-term-muted" suppressHydrationWarning>
-      {label ?? ''}
-    </span>
-  );
-};
-
 export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   currentSection,
   onOpenPro,
@@ -245,16 +212,9 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             value={onSearchChange ? searchValue ?? '' : searchText}
             onChange={(event) => (onSearchChange ? onSearchChange(event.target.value) : setSearchText(event.target.value))}
             aria-label="事例を検索"
-            placeholder="会社名・ティッカー・事業で検索"
+            placeholder="事例を検索"
             className="h-full min-w-0 flex-1 bg-transparent text-sm text-term-fg outline-none placeholder:text-term-dim lg:text-[13px]"
           />
-          <button
-            type="submit"
-            aria-label="検索を実行"
-            className="hidden h-6 items-center border border-term-line px-1.5 font-mono text-xs text-term-muted hover:bg-term-head xl:inline-flex"
-          >
-            GO
-          </button>
         </form>
 
         {/* PC: ファンクションタブ */}
@@ -270,9 +230,10 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
                   prefetch={false}
                   onClick={(event) => handleLocalNavigation(event, item.id)}
                   aria-current={isActive ? 'page' : undefined}
+                  aria-keyshortcuts={String(index + 1)}
+                  title={`${item.label}（${index + 1}キー）`}
                   className={tabClass(isActive)}
                 >
-                  <span aria-hidden="true" className="term-num hidden text-xs text-term-label xl:inline">{index + 1}</span>
                   <span>{item.label}</span>
                 </Link>
               );
@@ -333,9 +294,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
               PRO
             </Link>
           )}
-          <div className="hidden items-center border-l border-term-line px-3 xl:flex">
-            <JstClock />
-          </div>
         </div>
       </header>
 
