@@ -35,7 +35,7 @@ interface GlobalHeaderProps {
   /** 渡すと検索欄が一覧をその場で絞り込む（台帳画面用）。渡さなければ送信で /?q= へ移動する。 */
   searchValue?: string;
   onSearchChange?: (query: string) => void;
-  /** 画面自体に検索欄がある時。スマホのヘッダーに2つ目の検索ボタンを出さない */
+  /** 画面自体に検索欄がある時。ヘッダーには検索欄も検索ボタンも出さない（検索欄を1画面に2つ並べない） */
   pageHasSearch?: boolean;
 }
 
@@ -203,7 +203,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <form
           role="search"
           onSubmit={submitSearch}
-          className={`order-last ${onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
+          className={`order-last ${pageHasSearch && !onSearchChange ? 'hidden' : onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
         >
           <span aria-hidden="true" className="font-mono text-sm text-term-accent">&gt;</span>
           <input

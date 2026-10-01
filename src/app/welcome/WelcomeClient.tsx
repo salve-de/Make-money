@@ -32,6 +32,7 @@ export default function WelcomeClient({
   return (
     <div className="term-page bg-term-bg text-term-fg">
       <GlobalHeader
+        pageHasSearch
         currentSection="WELCOME"
         rightContent={user ? (
           <span className="max-w-28 truncate text-sm text-term-sub xl:max-w-40">{user.email}</span>

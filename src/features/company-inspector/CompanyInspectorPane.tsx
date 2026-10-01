@@ -144,7 +144,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           <button
             type="button"
             onClick={onOpenPro}
-            className="h-8 shrink-0 rounded-sm border border-term-accent px-3 text-xs text-term-accent hover:bg-term-head lg:h-6"
+            className="h-9 shrink-0 rounded-sm border border-term-accent px-3 text-xs text-term-accent hover:bg-term-accent-bg lg:h-7"
           >
             見本を開く
           </button>
