@@ -297,11 +297,12 @@ node --import tsx scripts/media/auto-review.ts [--entity ent_a,ent_b] [--dry-run
 |---|---|
 | `allowed`（`subjectIsPerson=false`） | ①`kind` が `favicon` / `app_icon` / `og_image` / `store_screenshot` / `logo`、②バイト列から画像として読める、③顔が検出されない、④ファイルのSHA-256が台帳と一致 — の**すべて** |
 | `blocked`（`subjectIsPerson=true`） | 顔を検出した |
-| 何も追記しない（`held` のまま） | 検査できなかった（Vision が読めない画像＝SVGや壊れたファイル、ファイル欠落・不一致）／`screenshot_home` `screenshot_pricing`（同意バナーの写り込みがあるので自動では `allowed` にしない）／その他の `kind` |
+| 何も追記しない（`held` のまま） | 検査できなかった（Vision でも NSImage 経由でも読めない画像＝壊れたファイル、macOS 13 以前での SVG、ファイル欠落・不一致）／`screenshot_home` `screenshot_pricing`（同意バナーの写り込みがあるので自動では `allowed` にしない）／その他の `kind` |
 
 - `note` に検査した内容（画像として読める、SHA-256一致、Vision の顔検出で何件か）を書く。バナーや文言の目視はしていない旨も書く
 - すでに判定行がある資産（人手の判定、以前の自動判定）は触らない。再実行しても増えない
 - 顔検出は macOS の Vision（`VNDetectFaceRectanglesRequest`）。この機械には Swift の開発ツールが入っていなかったため、同じ Vision を macOS 標準の JavaScript for Automation から呼ぶ `scripts/media/detect-faces.js`（`osascript -l JavaScript`）で実装した。Swift が使える環境なら同じ要求を Swift に置き換えてよい
+- SVG は Vision が直接読めないため、`NSImage`（macOS 14 以降は SVG を読める）で描いたビットマップに同じ顔検出をかける。これで SVG も `allowed` / `blocked` になる。macOS 13 以前では読めず `held` のまま（2026-10-01 追加）
 - 限界: 顔検出は写真の顔だけを見る。イラストの人物、横顔・小さな顔、文字だけのバナー、他社ロゴの羅列は検出しない。だから対象を「公式が自分で出した小さな識別・紹介素材」の kind に限り、表示サイズにも上限を置く（第11章）
 
 2026-09-29の取得で見つかった実例と、その後の判定:
