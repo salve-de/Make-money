@@ -205,14 +205,14 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           onSubmit={submitSearch}
           className={`order-last ${pageHasSearch && !onSearchChange ? 'hidden' : onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
         >
-          <span aria-hidden="true" className="font-mono text-sm text-term-accent">&gt;</span>
+          <Search aria-hidden="true" size={16} className="shrink-0 text-term-muted" />
           <input
             ref={searchRef}
             type="text"
             value={onSearchChange ? searchValue ?? '' : searchText}
             onChange={(event) => (onSearchChange ? onSearchChange(event.target.value) : setSearchText(event.target.value))}
             aria-label="事例を検索"
-            placeholder="事例を検索"
+            placeholder="会社名・ティッカー・事業で検索"
             className="h-full min-w-0 flex-1 bg-transparent text-sm text-term-fg outline-none placeholder:text-term-dim lg:text-[13px]"
           />
         </form>
