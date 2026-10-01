@@ -137,16 +137,16 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
       {!isPro && onOpenPro && (
         <div className="sticky bottom-0 flex min-h-11 shrink-0 items-center gap-3 border-t border-term-accent-line bg-term-accent-bg px-3 pb-[env(safe-area-inset-bottom)] lg:min-h-9">
-          <span className="text-xs font-semibold text-term-accent">PRO</span>
           <span className="min-w-0 flex-1 truncate text-xs text-term-sub">
-            大手との競争・価格決定力・継続利用の仕組み・資金効率
+            <span className="mr-2 font-semibold text-term-accent">PRO</span>
+            大手との競争・価格の決め方・解約されにくさ・資金の回し方も読めます
           </span>
           <button
             type="button"
             onClick={onOpenPro}
             className="h-9 shrink-0 rounded-sm border border-term-accent px-3 text-xs text-term-accent hover:bg-term-accent-bg lg:h-7"
           >
-            見本を開く
+            PROの見本を見る
           </button>
         </div>
       )}

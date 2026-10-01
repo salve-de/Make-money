@@ -203,7 +203,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <form
           role="search"
           onSubmit={submitSearch}
-          className={`order-last ${pageHasSearch && !onSearchChange ? 'hidden' : onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:mx-2 lg:h-7 lg:w-[240px] lg:shrink-0 lg:self-center lg:rounded-sm lg:border lg:bg-term-bg lg:px-2 lg:focus-within:border-term-accent xl:w-[280px]`}
+          className={`order-last ${pageHasSearch && !onSearchChange ? 'hidden' : onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:mx-2 lg:h-7 lg:w-[150px] lg:shrink-0 lg:self-center lg:rounded-sm lg:border lg:bg-term-bg lg:px-2 lg:focus-within:border-term-accent xl:w-[240px] 2xl:w-[280px]`}
         >
           <Search aria-hidden="true" size={16} className="shrink-0 text-term-muted" />
           <input

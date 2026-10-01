@@ -120,6 +120,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
           <button
             type="button"
             onClick={() => onChangeFilters(null)}
+            aria-label="絞り込み条件をすべて解除"
             className="ml-auto h-6 px-1 text-xs text-term-muted hover:text-term-fg-strong"
           >
             解除

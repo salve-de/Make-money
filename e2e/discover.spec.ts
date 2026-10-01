@@ -24,7 +24,7 @@ test("standalone discover page delivers value without requiring setup", async ({
   await expect(detail).toContainText("この事例の詳細は準備中です。");
   await expect(detail).not.toContainText(/(?<![\d,.])0円/);
 
-  await page.getByRole("button", { name: "初期資金", exact: true }).click();
+  await page.getByRole("button", { name: "少額で開始", exact: true }).click();
   await expect(rows).toHaveCount(initialCount);
 
   await rows.nth(1).click();

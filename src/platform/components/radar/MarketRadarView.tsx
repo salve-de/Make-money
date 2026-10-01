@@ -90,7 +90,7 @@ export const MarketRadarView: React.FC<MarketRadarViewProps> = () => {
                 aria-label="事業テーマの分野"
                 value={selectedCategory}
                 onChange={(event) => setSelectedCategory(event.target.value as RadarCategory)}
-                className="h-11 min-w-0 flex-1 rounded-sm border border-term-line bg-term-bg px-2 text-sm text-term-fg-strong lg:h-7"
+                className="h-11 min-w-0 flex-1 rounded-sm border border-term-line bg-term-bg px-2 text-sm text-term-fg-strong outline-none focus:border-term-accent lg:h-8"
               >
                 {RADAR_CATEGORIES.map((cat) => <option key={cat.key} value={cat.key}>{cat.label}</option>)}
               </select>

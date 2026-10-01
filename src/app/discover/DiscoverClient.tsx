@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import React, { useMemo, useState } from "react";
-import { Loader2, Search, X } from "lucide-react";
+import { ChevronRight, Loader2, Search, X } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import { ReaderLedger } from "@/features/company-inspector";
 import { UI } from "@/shared/ui-strings";
@@ -248,7 +248,8 @@ export function DetailPane({
         <ReaderLedger reader={item.reader} />
 
         <details className="group border-b border-term-line">
-          <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg lg:min-h-8">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-1 px-3 text-sm text-term-fg hover:bg-term-head lg:min-h-8 [&::-webkit-details-marker]:hidden">
+            <ChevronRight aria-hidden="true" className="h-4 w-4 text-term-muted transition-transform duration-150 group-open:rotate-90" />
             {UI.ASK_TITLE}
           </summary>
           <div className="border-t border-term-line-soft p-3">
@@ -327,7 +328,7 @@ export function DetailPane({
           </Link>
           <Link
             href={`/execute/${encodeURIComponent(item.id)}`}
-            className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}
+            className="inline-flex min-h-11 items-center px-2 text-sm text-term-fg underline-offset-2 hover:text-term-fg-strong hover:underline lg:min-h-8"
           >
             {UI.PLAN}
           </Link>
@@ -417,7 +418,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
           {/* 並び順の決め方（推定を含むか）は信頼に関わるので、広い画面では件数の前に残す */}
           <span className="ml-auto hidden min-w-0 truncate text-xs text-term-dim 2xl:inline">{LENSES.find((item) => item.id === lens)?.hint}</span>
           <span className="term-num hidden shrink-0 text-xs text-term-label sm:inline max-2xl:ml-auto" aria-live="polite">
-            {`全${dataset.sourceCount.toLocaleString()}件中 ${(query ? visibleCases.length : dataset.visibleCount).toLocaleString()}件`}
+            {`全${dataset.sourceCount.toLocaleString()}件中 ${(query ? visibleCases.length : dataset.visibleCount).toLocaleString()}件を表示`}
           </span>
         </div>
       </div>

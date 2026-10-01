@@ -4,7 +4,7 @@ import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from '
 import { UI } from '@/shared/ui-strings';
 import { useState } from 'react';
 import Link from 'next/link';
-import { Search } from 'lucide-react';
+import { ChevronRight, Search } from 'lucide-react';
 import { AuthModal } from '@/components/auth/AuthModal';
 import { SubmissionForm } from '@/components/terminal/SubmissionForm';
 import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
@@ -14,6 +14,14 @@ import type { FinancialEntity } from '@/shared/terminal';
 
 
 const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_150px_90px]';
+
+/** 最初の一手。中身のある画面だけを、何が見られるかの1行と一緒に並べる（ナビの名前と同じ語を使う） */
+const ENTRY_POINTS = [
+  { label: 'ランキング', text: '金額・初期資金・人数などで並べ替えて、目立つ事例から見る', href: '/discover' },
+  { label: '市場動向', text: '伸びている事業テーマと、失敗した理由を分野ごとに見る', href: '/radar' },
+  { label: '事業アイデア', text: '顧客・提供するもの・収益の取り方を組み合わせた案を見る', href: '/?mode=ARCHETYPES' },
+  { label: 'やり方とツール', text: '集客の方法や、事業で使われている道具を用途別に見る', href: '/playbook' },
+];
 
 export default function WelcomeClient({
   entities,
@@ -109,7 +117,7 @@ export default function WelcomeClient({
                   <Link
                     key={entity.id}
                     href={`/?entity=${encodeURIComponent(entity.id)}`}
-                    className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select md:min-h-[29px] md:items-center md:py-1 ${SAMPLE_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
+                    className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select md:items-center lg:min-h-[29px] lg:py-1 ${SAMPLE_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
                   >
                     <span className="font-semibold text-term-fg-strong">{entity.name}</span>
                     <ListDescription reader={entity.reader} className="line-clamp-2 text-term-sub md:line-clamp-1" />
@@ -127,13 +135,32 @@ export default function WelcomeClient({
           )}
         </section>
 
+        <section aria-labelledby="welcome-entry" className="border-b border-term-line">
+          <div className="term-panel-title">
+            <h2 id="welcome-entry" className="term-panel-name">ここでできること</h2>
+          </div>
+          <ul className="grid sm:grid-cols-2">
+            {ENTRY_POINTS.map((entry, index) => (
+              <li key={entry.href} className={`border-b border-term-line-soft ${index % 2 === 0 ? 'sm:border-r' : ''}`}>
+                <Link href={entry.href} prefetch={false} className="flex min-h-11 items-center justify-between gap-3 px-3 py-2 text-sm hover:bg-term-select">
+                  <span className="min-w-0">
+                    <span className="block font-semibold text-term-fg-strong">{entry.label}</span>
+                    <span className="block text-xs leading-5 text-term-sub">{entry.text}</span>
+                  </span>
+                  <ChevronRight aria-hidden="true" className="h-4 w-4 shrink-0 text-term-muted" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section aria-label="更新の受け取りと事例の投稿" className="grid lg:grid-cols-2">
-          <details className="border-b border-term-line lg:border-r">
-            <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg hover:bg-term-head">新着をメールで受け取る</summary>
+          <details className="group border-b border-term-line lg:border-r">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center gap-1 px-3 text-sm text-term-fg hover:bg-term-head [&::-webkit-details-marker]:hidden"><ChevronRight aria-hidden="true" className="h-4 w-4 text-term-muted transition-transform duration-150 group-open:rotate-90" />新着をメールで受け取る</summary>
             <div className="border-t border-term-line"><WeeklyNewsletterSection /></div>
           </details>
-          <details className="border-b border-term-line">
-            <summary className="flex min-h-11 cursor-pointer items-center px-3 text-sm text-term-fg hover:bg-term-head">事例を投稿する</summary>
+          <details className="group border-b border-term-line">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center gap-1 px-3 text-sm text-term-fg hover:bg-term-head [&::-webkit-details-marker]:hidden"><ChevronRight aria-hidden="true" className="h-4 w-4 text-term-muted transition-transform duration-150 group-open:rotate-90" />事例を投稿する</summary>
             <div className="border-t border-term-line"><SubmissionForm /></div>
           </details>
         </section>

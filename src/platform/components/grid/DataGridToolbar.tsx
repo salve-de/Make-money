@@ -228,7 +228,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
 
           <div className="ml-auto flex shrink-0 items-center gap-1">
             <p className="term-num whitespace-nowrap px-1 text-xs text-term-label" aria-live="polite">
-              <span className="hidden sm:inline">全{catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件中 </span><span className="text-term-fg-strong">{totalCount.toLocaleString()}</span>件
+              <span className="hidden sm:inline">全{catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件中 </span><span className="text-term-fg-strong">{totalCount.toLocaleString()}</span>件<span className="hidden sm:inline">を表示</span>
             </p>
             {countAddon}
           </div>

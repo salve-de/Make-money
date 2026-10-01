@@ -28,14 +28,14 @@ test('search and screener change the company list and reset cleanly', async ({ p
   await search.fill('');
   // 「一人で運営」は scale が SOLO と出典つきで確認できた事例だけ。公開版に入る Updown.io が残り、
   // 規模が未確認の Photo AI や大企業の Bird Global・キーエンスは出ない。
-  await page.getByRole('button', { name: '絞り込み', exact: true }).click();
-  await page.getByRole('button', { name: '一人で運営', exact: true }).click();
-  await page.getByRole('button', { name: '条件を適用', exact: true }).click();
+  // PC幅では左の絞り込み欄で選ぶ（押した時点で一覧に効く）
+  const rail = page.getByRole('complementary', { name: '絞り込み' });
+  await rail.getByRole('checkbox', { name: '一人で運営', exact: true }).click();
   await expect(rows.filter({ hasText: 'Updown.io' })).toHaveCount(1);
   await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(0);
   await expect(rows.filter({ hasText: 'Bird Global' })).toHaveCount(0);
   await expect(rows.filter({ hasText: 'キーエンス (KEYENCE)' })).toHaveCount(0);
-  await page.getByRole('button', { name: '絞り込み条件をすべて解除', exact: true }).click();
+  await rail.getByRole('button', { name: '絞り込み条件をすべて解除', exact: true }).click();
   await search.fill('Ahrefs');
   await expect(rows.filter({ has: page.getByText('Ahrefs', { exact: true }) })).toHaveCount(1);
   expect(errors).toEqual([]);

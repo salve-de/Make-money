@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { ChevronRight } from 'lucide-react';
 import { isSharedSiteDomain, siteDomain } from '@/lib/verification/site-domain';
 
 /**
@@ -10,7 +11,13 @@ export function OperatorVerificationNote({ entityId, url }: { entityId: string; 
   const domain = siteDomain(url);
   if (!domain || isSharedSiteDomain(domain)) return null;
   return (
-    <section aria-label="運営者の方へ" className="border-b border-term-line px-3 py-2 text-xs leading-5 text-term-label">
+    // 閲覧者には関係が薄いので、見出しだけ出して畳んでおく（開けば運営者向けの説明とボタン）
+    <details className="group border-b border-term-line text-xs leading-5 text-term-label">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center gap-1 px-3 text-term-muted hover:text-term-fg lg:min-h-8 [&::-webkit-details-marker]:hidden">
+        <ChevronRight aria-hidden="true" className="h-3.5 w-3.5 transition-transform duration-150 group-open:rotate-90" />
+        この事例の運営者の方へ
+      </summary>
+      <div className="px-3 pb-2">
       <p>
         この事例の運営者の方は、Stripeの読み取り専用キーで実際の売上を確認し、一覧と詳細に「決済確認」と表示できます。キーは保存しません。
       </p>
@@ -20,6 +27,7 @@ export function OperatorVerificationNote({ entityId, url }: { entityId: string; 
       >
         決済データで売上を確認する
       </Link>
-    </section>
+      </div>
+    </details>
   );
 }
