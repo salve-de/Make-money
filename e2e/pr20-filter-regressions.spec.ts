@@ -28,11 +28,11 @@ test('batch deep links survive reload and removed URL parameters reset', async (
   await page.reload();
   await expect(rows).toHaveCount(1);
   await page.evaluate(() => window.history.pushState(null, '', '/'));
-  await expect(rows.filter({ hasText: 'Excalidraw' })).toHaveCount(1);
+  await expect.poll(async () => rows.count()).toBeGreaterThan(1);
   await page.goBack();
   await expect(rows).toHaveCount(1);
   await page.goForward();
-  await expect(rows.filter({ hasText: 'Excalidraw' })).toHaveCount(1);
+  await expect.poll(async () => rows.count()).toBeGreaterThan(1);
 });
 
 test('anonymous users never see the editorial bulk approval action', async ({ page }) => {

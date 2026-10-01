@@ -36,7 +36,7 @@ test('company list opens financials and evidence, then closes and reopens the in
 test('withdrawn narrative sections (loot blueprint, value chain, flywheel) are not rendered', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?entity=ent_excalidraw_c7820d');
   await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible();
 
   await expect(page.locator('#section-flywheel')).toHaveCount(0);
@@ -56,7 +56,7 @@ test('strategy API rejects malformed input before processing', async ({ request 
 test('J/K never switches companies, including while writing and reloading a note', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
+  await page.goto('/?entity=ent_excalidraw_c7820d');
   const heading = page.getByRole('heading', { name: 'Excalidraw', exact: true });
   await expect(heading).toBeVisible();
   await openNotes(page);
@@ -86,7 +86,7 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_excalidraw_c782
     await page.addInitScript(({ storageKey, raw }) => {
       if (!sessionStorage.getItem('notes-test-seeded')) { localStorage.setItem(storageKey, raw); sessionStorage.setItem('notes-test-seeded', 'true'); }
     }, { storageKey, raw });
-    await page.goto('/');
+    await page.goto('/?entity=ent_excalidraw_c7820d');
     await expect(page.getByRole('heading', { name: 'Excalidraw', exact: true })).toBeVisible();
     await openNotes(page);
     const note = page.locator('#section-notes textarea');
