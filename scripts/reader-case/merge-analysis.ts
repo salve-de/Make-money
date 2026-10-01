@@ -51,7 +51,7 @@ function main() {
   let stale = 0;
   for (const f of existsSync(auditDir) ? readdirSync(auditDir).filter((x) => /^out-\d+\.json$/.test(x)).sort() : []) {
     const j = JSON.parse(readFileSync(`${auditDir}/${f}`, 'utf8')) as { cases?: { entityId: string; items?: AuditFinding[] }[] };
-    const sidecar = sidecars.find((x) => f.startsWith(`out-${x.tag}`))?.hashes ?? baseline;
+    const sidecar = sidecars.find((x) => new RegExp(`^out-${x.tag}\\d{3}\\.json$`).test(f))?.hashes ?? baseline;
     for (const c of j.cases ?? []) {
       const reader = readers.get(c.entityId);
       if (!reader || !result[c.entityId]) continue;

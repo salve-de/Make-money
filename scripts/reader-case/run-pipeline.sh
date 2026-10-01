@@ -36,12 +36,12 @@ node -e "
   console.log('長すぎる項目',long,'/',n);process.exit(n&&long/n>0.05?1:0)" || fail "推論の文が長すぎる（分析指示の短さの規則が効いていない）"
 
 # 3. 監査（今の推論の文をまだ監査していない候補だけ。推論を作り直した事例は、前に監査済みでも監査し直す。
-#    名前は 999999+日時 で、過去の監査より後ろに並べる。監査済みかは merge-analysis.ts が指紋で判定して data/audit-fresh.json に書く）
+#    名前は 999999+日時（秒まで）+プロセス番号 で、過去の監査より後ろに並べる。監査済みかは merge-analysis.ts が指紋で判定して data/audit-fresh.json に書く）
 node -e "
   const fs=require('fs');const done=new Set(JSON.parse(fs.readFileSync('data/audit-fresh.json','utf8')));
   const todo=fs.readFileSync('$CAND','utf8').split('\n').filter(x=>x&&!done.has(x));fs.writeFileSync('$CAND.audit',todo.join('\n')+'\n');console.log('未監査',todo.length,'件')"
 if [ -s "$CAND.audit" ] && grep -q . "$CAND.audit"; then
-  TAG="999999$(date +%y%m%d%H%M)"
+  TAG="999999$(date +%y%m%d%H%M%S)$(printf %05d "$$")"  # 秒とプロセス番号まで入れる（同じ分に別の実行が始まっても入力・指紋の名前が衝突しない）
   node --import tsx scripts/reader-case/build-audit-input.ts --ids "$CAND.audit" --per 10 --tag "$TAG" || fail "監査の入力を作れない"
   say "監査: in-${TAG}*"
   AUDIT_ONLY="${TAG}*" bash scripts/reader-case/run-audit.sh || fail "監査の実行に失敗"
