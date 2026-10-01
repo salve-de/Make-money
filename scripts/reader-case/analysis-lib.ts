@@ -141,12 +141,13 @@ export function missingRequired(reader: ReaderCase): string[] {
   return REQUIRED_ITEMS.filter((item) => !have.has(item) && !byFact[item]);
 }
 
-export interface AuditFinding { analysisId: string; kind: string; severity: 'BLOCK' | 'FIX' | 'LOW'; why?: string; fix?: string }
+export interface AuditFinding { analysisId: string; kind: string; severity: 'BLOCK' | 'FIX' | 'LOW'; why?: string; fix?: string; fixFormula?: string }
 export type AuditFile = Record<string, AuditFinding[]>;
 
 /**
  * 公開前の監査（data/audit/out-*.json）の指摘を推論に反映する。BLOCK は外す。FIX は直した文に置き換え、
- * 置き換えた文も checkItem を通す（通らなければ外す）。LOW はそのまま。純粋関数。
+ * fixFormula があれば式も置き換える（空文字なら式を消す）。置き換えた文も checkItem を通す（通らなければ外す）。
+ * LOW はそのまま。純粋関数。
  */
 export function applyAudit(entityId: string, stored: StoredAnalysis[], findings: AuditFinding[] | undefined, reader: ReaderCase):
   { kept: StoredAnalysis[]; removed: { id: string; kind: string; why?: string }[]; fixed: number } {
@@ -166,7 +167,8 @@ export function applyAudit(entityId: string, stored: StoredAnalysis[], findings:
     if (!fix.fix?.trim()) { removed.push({ id: a.id, kind: fix.kind, why: fix.why }); continue; }
     // 監査役の直した文が出典の数字を引くだけで式が無い時は、根拠の事実がある場合に限り「出典の値」と式欄に書き添える
     const text = fix.fix.trim();
-    const formula = a.formula ?? (MONEY.test(text) && a.basis.length ? '数字は出典に載っている値' : undefined);
+    const base = fix.fixFormula === undefined ? a.formula : fix.fixFormula.trim() || undefined;
+    const formula = base ?? (MONEY.test(text) && a.basis.length ? '数字は出典に載っている値' : undefined);
     const r = checkItem({ ...a, text, formula }, reader, seen);
     if (r.ok) { kept.push(r.value); fixed++; } else removed.push({ id: a.id, kind: `${fix.kind}/${r.reason}`, why: fix.why });
   }
