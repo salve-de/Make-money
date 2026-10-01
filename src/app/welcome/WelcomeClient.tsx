@@ -48,14 +48,13 @@ export default function WelcomeClient({
 
       <main>
         <section aria-labelledby="welcome-title" className="border-b border-term-line">
-          <div className="term-panel-title"><span className="term-panel-name">事業事例データベース</span></div>
           <div className="grid gap-4 px-3 py-4 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-8">
             <div>
               <h1 id="welcome-title" className="text-xl font-semibold leading-snug text-term-fg-strong sm:text-2xl">
                 事業の売上・やり方・出典を、事例ごとに一覧で確認できます
               </h1>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-term-sub">
-                登録された事業事例について、売上や利益、収益の仕組み、使っているツール、初期の顧客獲得の方法を、出典と対象時期つきで並べています。確認できていない数値は「未確認」と表示し、推定は「約」を付けています。
+                売上・利益・収益の仕組み・道具・初期の集客を、出典と時期つきで記録。確認できない数値は「未確認」、推定には「約」を付けています。
               </p>
               <form action="/" method="get" role="search" className="mt-3 flex max-w-xl items-center gap-2">
                 <div className="relative min-w-0 flex-1">

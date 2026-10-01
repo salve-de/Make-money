@@ -90,6 +90,9 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
   ].filter(Boolean).join('・');
 
   return (
+    <>
+    {/* 最終更新日は信頼の手がかりなので、新着の有無と別に件数の横へ常に出す */}
+    {date && <span className="term-num hidden whitespace-nowrap px-1 text-xs text-term-dim sm:inline">{date} 更新</span>}
     <button
       type="button"
       onClick={() => {
@@ -102,7 +105,7 @@ export const NewArrivalsBanner: React.FC<NewArrivalsBannerProps> = ({ release, e
       {unread && <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-term-accent" />}
       <span>新着</span>
       <span className="term-num">{release.count}件</span>
-      {date && <span className="term-num hidden text-term-dim sm:inline">{date}</span>}
     </button>
+    </>
   );
 };

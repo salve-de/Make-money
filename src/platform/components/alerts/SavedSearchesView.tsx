@@ -68,10 +68,12 @@ export function SavedSearchesView() {
 
   return (
     <>
-      <div className="term-panel-title">
-        <span className="term-panel-name max-lg:hidden">保存した条件</span>
-        {count !== null && <span className="term-num">{count} / {SAVED_SEARCH_LIMIT}件</span>}
-        <span className="hidden truncate sm:inline">新着が条件に合うと、メールでお知らせします。</span>
+      {/* スマホは画面名をヘッダーが出すので、件数が無い時はこの段ごと出さない */}
+      <div className={count === null ? 'hidden lg:block' : undefined}>
+        <div className="term-panel-title">
+          <span className="term-panel-name max-lg:hidden">保存した条件</span>
+          {count !== null && <span className="term-num">{count} / {SAVED_SEARCH_LIMIT}件</span>}
+        </div>
       </div>
       <h1 className="sr-only">保存した条件</h1>
 
@@ -124,7 +126,7 @@ export function SavedSearchesView() {
       {rowError && <p role="alert" className="px-3 py-2 text-xs text-term-danger">{rowError}</p>}
 
       <section aria-label="週1回のお知らせ" className="border-t border-term-line">
-        <div className="term-panel-title"><span className="term-panel-name">週1回のお知らせ</span><span className="hidden truncate sm:inline">条件を決めずに、新しく公開された事例をまとめて受け取る</span></div>
+        <div className="term-panel-title"><span className="term-panel-name">週1回のお知らせ</span></div>
         <WeeklyNewsletterSection />
       </section>
       <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} />

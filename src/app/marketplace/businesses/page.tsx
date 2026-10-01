@@ -44,7 +44,6 @@ export default async function BusinessSaleListPage({ searchParams }: {
     <BusinessSalePage
       name="事業の売買"
       srHeading="事業の売買"
-      aside={<span className="hidden sm:inline">売り手が申告した数字を並べています。金鉱録は売買を仲介しません。</span>}
     >
       <div className="flex flex-wrap gap-2 border-b border-term-line px-3 py-2">
         <Link href="/marketplace/businesses/new" className={`${BTN} border-term-accent text-term-accent hover:bg-term-head`}>事業を掲載する</Link>

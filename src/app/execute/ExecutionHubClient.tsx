@@ -135,15 +135,17 @@ export function ExecutionHubClient() {
   return (
     <main className="w-full flex-1">
       <h1 className="sr-only">実行計画</h1>
-      <div className="term-panel-title">
-        <span className="term-panel-name max-lg:hidden">実行計画</span>
-        {projects.length > 0 ? (
-          <span className="term-num flex flex-wrap gap-x-4">
-            <span>案件 <span className="text-term-fg-strong">{projects.length}</span></span>
-            <span>初回売上 <span className="text-term-fg-strong">{firstDollarCount}件</span></span>
-            <span>記録売上 <span className="text-term-fg-strong">{formatYen(totalRevenue)}</span></span>
-          </span>
-        ) : <span>保存した実行計画の進み具合</span>}
+      <div className={projects.length === 0 ? 'hidden lg:block' : undefined}>
+        <div className="term-panel-title">
+          <span className="term-panel-name max-lg:hidden">実行計画</span>
+          {projects.length > 0 ? (
+            <span className="term-num flex flex-wrap gap-x-4">
+              <span>案件 <span className="text-term-fg-strong">{projects.length}</span></span>
+              <span>初回売上 <span className="text-term-fg-strong">{firstDollarCount}件</span></span>
+              <span>記録売上 <span className="text-term-fg-strong">{formatYen(totalRevenue)}</span></span>
+            </span>
+          ) : null}
+        </div>
       </div>
 
       {projects.length === 0 ? (

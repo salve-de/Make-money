@@ -62,13 +62,12 @@ export const WeeklyNewsletterSection = () => {
 
   return (
     <section aria-labelledby="newsletter-heading" className="text-term-fg">
-      <div className="term-panel-title"><span className="term-panel-name">メール更新</span></div>
       <div className="max-w-xl px-3 py-2">
         <h2 id="newsletter-heading" className="text-base font-semibold text-term-fg-strong">
           事業・財務の更新を受け取る
         </h2>
         <p className="mt-1 text-sm leading-6 text-term-sub">
-          台帳に追加・更新された内容をメールでお知らせします。登録受付後、配信の開始時期は運用状況により変わる場合があります。
+          追加・更新された事例をメールで届けます。配信を始める時期は変わる場合があります。
         </p>
       </div>
 
