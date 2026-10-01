@@ -62,7 +62,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
+      // メニューなどが先に Esc を受けて閉じた時（defaultPrevented）は、詳細欄までは閉じない
+      if (event.key === 'Escape' && !event.defaultPrevented) onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
