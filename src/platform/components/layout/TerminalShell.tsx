@@ -63,7 +63,7 @@ export const TerminalShell: React.FC<{
 
   // 2. R2 Foundation カタログ・マージ・マクロ集計フック
   const {
-    entities,
+    entities, catalogFirstId,
     macroData,
     foundationHasMore,
     catalogLoading,
@@ -146,6 +146,7 @@ export const TerminalShell: React.FC<{
       workspaceMode,
       detailedEntities,
       entityAliases,
+      defaultEntityId: searchQuery ? null : catalogFirstId,
       onFetchEntityDetailOnDemand: fetchEntityDetailOnDemand,
     });
 

@@ -41,10 +41,14 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
     // A production deep link is resolved by the browser's bounded detail API.
     // Reading the full R2 dossier during SSR can exceed the Worker CPU limit
     // for evidence-heavy entities; the client already has an id-aware,
-    // retryable on-demand path. Keep only the lightweight default bootstrap on
-    // the server, and retain the working-tree deep-link behavior in dev.
+    // retryable on-demand path. The production default view therefore
+    // bootstraps nothing on the server: the client selects the first entity of
+    // the published catalog once its list arrives, so a case absent from the
+    // release is never put first. Only an explicit ?entity=ent_photoai keeps
+    // the curated bootstrap (its "preparing" inspector is covered by e2e).
+    // Local development keeps the working-tree deep-link behavior.
     const bootstrapEntityId = productionCatalog
-      ? (!requestedEntityId || requestedEntityId === 'ent_photoai' ? 'ent_photoai' : undefined)
+      ? (requestedEntityId === 'ent_photoai' ? 'ent_photoai' : undefined)
       : requestedEntityId;
     if (bootstrapEntityId) {
       try {
