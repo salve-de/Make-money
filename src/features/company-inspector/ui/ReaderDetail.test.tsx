@@ -213,3 +213,24 @@ describe('reader analysis', () => {
     expect(result.factCount).toBe(withAnalysis.facts.length);
   });
 });
+
+describe('詳細の取得状態（準備中と取り違えない）', () => {
+  it('取得中は「準備中」ではなく読み込み中を出す', () => {
+    const html = renderToStaticMarkup(<ReaderLedger detailState="loading" />);
+    expect(html).toContain('詳細を読み込んでいます');
+    expect(html).not.toContain('準備中');
+  });
+  it('取得に失敗したら失敗と再読み込みを出す', () => {
+    const html = renderToStaticMarkup(<ReaderLedger detailState="failed" onRetry={() => undefined} />);
+    expect(html).toContain('詳細の読み込みに失敗しました。');
+    expect(html).toContain('再読み込み');
+    expect(html).not.toContain('準備中');
+  });
+  it('取得が終わって reader が無い時だけ「準備中」を出す', () => {
+    expect(renderToStaticMarkup(<ReaderLedger />)).toContain('準備中');
+  });
+  it('reader があれば取得状態に関わらず中身を出す', () => {
+    const html = renderToStaticMarkup(<ReaderLedger reader={baremetrics} detailState="failed" />);
+    expect(html).not.toContain('詳細の読み込みに失敗しました。');
+  });
+});

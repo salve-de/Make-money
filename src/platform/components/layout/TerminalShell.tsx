@@ -81,7 +81,7 @@ export const TerminalShell: React.FC<{
     setCatalogFilters,
     loadMoreFoundation,
     retryFoundationPage,
-    fetchEntityDetailOnDemand,
+    fetchEntityDetailOnDemand, detailStateFor, retryEntityDetail,
   } = useFoundationCatalog(initialEntities, searchQuery);
 
   // 3. 複合フィルタリング・集計・承認フック
@@ -336,6 +336,7 @@ export const TerminalShell: React.FC<{
           <div className="contents xl:flex xl:w-[520px] xl:min-w-0 xl:shrink-0">
           <CompanyInspectorPane
             entity={selectedEntity}
+            detailState={detailStateFor(selectedEntity)} onRetryDetail={() => { void retryEntityDetail(selectedEntity.id); }}
             positionLabel={selectedPositionLabel}
             onClose={closeEntity}
             mobileOpen={mobileInspectorOpen}

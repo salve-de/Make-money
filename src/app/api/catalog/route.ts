@@ -1,11 +1,17 @@
 import { NextResponse } from 'next/server';
 import { readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
-import { publicSummaryEntity } from '@/lib/company-access/public-entity';
+import { usesCatalogRelease } from '@/lib/company-access/catalog-release';
+import { cachedPublicSummaryEntity } from '@/lib/company-access/projection-cache';
 import manifest from '../../../../data/catalog-release.json';
 import { matchesCatalogQuery, parseCatalogFilters } from '@/platform/model/entity-filter';
 
 export const dynamic = 'force-dynamic';
 const catalogGeneration = manifest.summaries.hash;
+// 公開版の要約は不変なので、同じ条件の応答本文は isolate 内で使い回せる。
+// Workers の1要求あたりの CPU 時間に収めるため、要求のたびに全行の絞り込み・変換・JSON 化をやり直さない。
+const BODY_CACHE_LIMIT = 64;
+const bodyCache = new Map<string, string>();
+const CATALOG_HEADERS = { 'Cache-Control': 'private, max-age=30', 'Content-Type': 'application/json' };
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const query = (params.get('q') ?? '').trim().toLowerCase();
@@ -28,11 +34,21 @@ export async function GET(request: Request) {
   catch { return NextResponse.json({ error: 'Invalid catalog filters' }, { status: 400 }); }
   try {
     const entities = await readCachedLocalPublishableEntities();
+    const cacheKey = JSON.stringify([catalogGeneration, sector, query, params.get('filters') ?? '', offset, requestedPageSize]);
+    // 手元の作業ツリーのデータ（公開版を使わない時）は書き換わるので覚えない
+    const cacheable = await usesCatalogRelease();
+    const cached = cacheable ? bodyCache.get(cacheKey) : undefined;
+    if (cached !== undefined) return new NextResponse(cached, { headers: CATALOG_HEADERS });
     const filtered = entities.filter((entity) => (!sector || entity.sector === sector) && matchesCatalogQuery(entity, query, filters));
-    const data = filtered.slice(offset, offset + requestedPageSize).map(publicSummaryEntity);
+    const data = filtered.slice(offset, offset + requestedPageSize).map(cachedPublicSummaryEntity);
     const nextOffset = offset + data.length;
-    return NextResponse.json({ data, total: filtered.length, generation: catalogGeneration,
-      nextOffset: nextOffset < filtered.length ? nextOffset : null }, { headers: { 'Cache-Control': 'private, max-age=30' } });
+    const body = JSON.stringify({ data, total: filtered.length, generation: catalogGeneration,
+      nextOffset: nextOffset < filtered.length ? nextOffset : null });
+    if (cacheable) {
+      if (bodyCache.size >= BODY_CACHE_LIMIT) bodyCache.delete(bodyCache.keys().next().value as string);
+      bodyCache.set(cacheKey, body);
+    }
+    return new NextResponse(body, { headers: CATALOG_HEADERS });
   } catch {
     return NextResponse.json({ error: 'Catalog temporarily unavailable' }, { status: 503 });
   }

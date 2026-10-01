@@ -245,8 +245,28 @@ export function ReaderUnknowns({ reader }: { reader?: ReaderCase }) {
 }
 
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
-export function ReaderLedger({ reader }: { reader?: ReaderCase }) {
+export function ReaderLedger({ reader, detailState, onRetry }: {
+  reader?: ReaderCase;
+  /** 詳細の取得状態。取得中・失敗を「準備中」と取り違えて出さないために使う */
+  detailState?: 'loading' | 'failed';
+  onRetry?: () => void;
+}) {
   const evidencePrefix = `reader-${useId()}`;
+  if (!reader && detailState === 'failed') {
+    return (
+      <div role="alert" className="flex flex-wrap items-center gap-3 px-2.5 py-3 text-sm text-term-muted sm:px-3">
+        <span>{UI.DETAIL_LOAD_FAILED}</span>
+        {onRetry && (
+          <button type="button" onClick={onRetry} className="min-h-11 rounded-sm border border-term-line px-3 text-sm text-term-sub hover:border-term-accent-line hover:text-term-accent lg:min-h-8">
+            {UI.DETAIL_RELOAD}
+          </button>
+        )}
+      </div>
+    );
+  }
+  if (!reader && detailState === 'loading') {
+    return <p role="status" className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.DETAIL_LOADING}</p>;
+  }
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
   return (
     <>

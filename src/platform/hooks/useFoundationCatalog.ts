@@ -10,7 +10,7 @@ import { useCuratedCatalog } from './useCuratedCatalog';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 import { useFoundationPaging } from './useFoundationPaging';
-import { mayFoundationReplaceCurated, preferDetail } from '@/shared/dossier-authority';
+import { hasFullReader, isDetailSettled, mayFoundationReplaceCurated, preferDetail } from '@/shared/dossier-authority';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
 
@@ -38,6 +38,8 @@ function isApprovalCandidate(entity: FinancialEntity): boolean {
   return (entity.tags || []).includes('収集事例');
 }
 
+export type DetailFetchStatus = 'failed' | 'done';
+
 export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQuery = '') {
   const [catalogFilters, setCatalogFilters] = useState('');
   const catalog = useCuratedCatalog(initialEntities, searchQuery, catalogFilters);
@@ -52,6 +54,10 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
   const detailFetchInProgress = useRef(new Set<string>());
   // 詳細の取得が失敗した・採らなかった事例。一覧の再描画のたびに同じ要求を撃ち直さないよう、ページを開き直すまで再取得しない
   const detailFetchSettled = useRef(new Set<string>());
+  // 詳細の取得の結末。failed は取り直しても通らなかった事例で、画面は「準備中」ではなく失敗と再読み込みを出す。
+  // done は取得が終わった（中身の有無は問わない）事例。どちらも無い間は読み込み中として扱える
+  const [detailStatus, setDetailStatus] = useState<Readonly<Record<string, DetailFetchStatus>>>({});
+  const lastDetailHash = useRef(new Map<string, string | undefined>());
 
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [approvalProjectionEpoch, setApprovalProjectionEpoch] = useState(0);
@@ -232,6 +238,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   // オンデマンド詳細読み込み関数
   const fetchEntityDetailOnDemand = useCallback((targetId: string, latestDossierHash?: string) => {
+    lastDetailHash.current.set(targetId, latestDossierHash);
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId) || detailFetchSettled.current.has(targetId)) return Promise.resolve();
 
     detailFetchInProgress.current.add(targetId);
@@ -239,6 +246,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     const knownFoundation = foundationRows.some((row) => row.id.toLowerCase() === normalizedTargetId);
     const curated = coreEntities.find((entity) => entity.id.toLowerCase() === normalizedTargetId);
     const knownCurated = Boolean(curated);
+    const markStatus = (status: DetailFetchStatus) => setDetailStatus((prev) =>
+      prev[targetId] === status ? prev : { ...prev, [targetId]: status });
 
     return fetchBusinessDetailResponse(fetch, {
       targetId,
@@ -246,6 +255,12 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
       knownCurated,
       knownFoundation,
     }).then(async (res) => {
+        if (res.status === 404) {
+          // 公開されていない・見つからない事例。取り直しても同じなので、ページを開き直すまで撃ち直さない
+          detailFetchSettled.current.add(targetId);
+          markStatus('done');
+          return;
+        }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: unknown = await res.json();
         if (json && typeof json === 'object') {
@@ -265,15 +280,37 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
             setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], entity) }));
           }
         }
+        markStatus('done');
       })
       .catch((err) => {
+        // 取り直しても通らなかった。一覧の再描画で撃ち直さないよう止め、画面の再読み込みだけで取り直す
         detailFetchSettled.current.add(targetId);
+        markStatus('failed');
         console.warn('[TerminalShell] Detail fetch failed for', targetId, err);
       })
       .finally(() => {
         detailFetchInProgress.current.delete(targetId);
       });
   }, [coreEntities, detailedEntities, foundationRows]);
+
+  /** 詳細の取得に失敗した事例を、利用者の「再読み込み」で取り直す。 */
+  const retryEntityDetail = useCallback((targetId: string) => {
+    if (detailStatus[targetId] !== 'failed' || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
+    detailFetchSettled.current.delete(targetId);
+    setDetailStatus((prev) => {
+      const next = { ...prev };
+      delete next[targetId];
+      return next;
+    });
+    return fetchEntityDetailOnDemand(targetId, lastDetailHash.current.get(targetId));
+  }, [detailStatus, fetchEntityDetailOnDemand]);
+
+  /** 詳細ペインに渡す取得状態。取得中・失敗を「準備中」と取り違えないために使う。取得が終わっていれば undefined。 */
+  const detailStateFor = useCallback((entity: FinancialEntity): 'loading' | 'failed' | undefined => {
+    const status = detailStatus[entity.id];
+    if (status === 'failed') return 'failed';
+    return !status && !hasFullReader(entity) && !isDetailSettled(entity) ? 'loading' : undefined;
+  }, [detailStatus]);
 
   return {
     entities,
@@ -306,5 +343,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     continueFoundationSearch: foundation.continueSearch,
     retryFoundationPage: foundation.retryPage,
     fetchEntityDetailOnDemand,
+    detailStateFor,
+    retryEntityDetail,
   };
 }
