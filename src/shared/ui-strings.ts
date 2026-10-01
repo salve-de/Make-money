@@ -135,7 +135,6 @@ export const UI = {
   APPROVE: '収集事例を承認',
   BACK_TO_LIST: '◀ 一覧',
   BACK_TO_LIST_ARIA: '一覧へ戻る',
-  SAVED_SHORT: '保存済',
   COMPARE_ADD: '比較に追加',
   COMPARE_REMOVE: '比較から外す',
   COMPARE_FULL: '比較は4件までです',

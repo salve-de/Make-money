@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { DropdownMenu } from 'radix-ui';
+import { Bookmark } from 'lucide-react';
 
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
@@ -83,7 +84,8 @@ export function CompanyHeader({
                 aria-label={uiFormat(isBookmarked ? UI.UNSAVE_ARIA : UI.SAVE_ARIA, entity.name)}
                 title={isBookmarked ? UI.SAVED : UI.SAVE}
               >
-                {isBookmarked ? UI.SAVED_SHORT : UI.SAVE}
+                {/* 一覧の行と同じしおりの印にそろえる（ヘッダー右上の「保存済み」一覧への入口と区別する） */}
+                <Bookmark aria-hidden="true" className={`h-4 w-4 ${isBookmarked ? 'fill-current' : ''}`} />
               </button>
             )}
             {onPrevEntity && (
@@ -147,7 +149,7 @@ export function CompanyHeader({
           <div className="flex min-w-0 items-center gap-2 whitespace-nowrap text-xs">
             <a
               href={'/execute/' + encodeURIComponent(entity.id)}
-              className="inline-flex min-h-11 items-center px-1 text-term-accent hover:underline lg:min-h-7"
+              className="inline-flex min-h-11 items-center px-1 text-term-fg hover:text-term-fg-strong hover:underline lg:min-h-7"
               aria-label={uiFormat(UI.PLAN_ARIA, entity.name)}
               title={UI.PLAN}
             >

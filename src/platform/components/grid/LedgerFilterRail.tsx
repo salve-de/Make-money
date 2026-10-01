@@ -172,9 +172,9 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
       <button
         type="button"
         onClick={onOpenAdvanced}
-        className="mt-2 h-7 w-full border-t border-term-line-soft px-2.5 text-left text-xs text-term-muted hover:bg-term-head hover:text-term-fg-strong"
+        className="mt-2 h-7 w-full border-t border-term-line-soft px-2.5 text-left text-xs text-term-fg hover:bg-term-head hover:text-term-fg-strong"
       >
-        詳しい条件…
+        詳しい条件 ›
       </button>
 
     </aside>

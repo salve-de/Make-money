@@ -128,7 +128,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left text-[13px] [counter-reset:ledger-row]">
           <colgroup>
             <col className="w-10" />
-            <col className={isSplitView ? 'w-[38%]' : 'w-[22%]'} />
+            <col className={isSplitView ? 'w-[52%]' : 'w-[22%]'} />
             {!isSplitView && <col />}
             {!isSplitView && <col className="w-[110px]" />}
             <col className="w-[120px]" />

@@ -146,7 +146,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const renderBookmark = () => {
     const label = (
       <>
-        <span>保存</span>
+        <span>保存済み</span>
         {typeof bookmarkCount === 'number' && bookmarkCount > 0 && (
           <span className="term-num text-term-accent">{bookmarkCount}</span>
         )}
@@ -203,7 +203,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <form
           role="search"
           onSubmit={submitSearch}
-          className={`order-last ${onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-11 w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
+          className={`order-last ${onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-[45px] w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
         >
           <span aria-hidden="true" className="font-mono text-sm text-term-accent">&gt;</span>
           <input

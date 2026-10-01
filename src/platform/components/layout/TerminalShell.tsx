@@ -290,6 +290,7 @@ export const TerminalShell: React.FC<{
             <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={catalogTotal ?? filteredEntities.length} />
           </div>
           <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden border-term-line bg-term-bg xl:border-r">
+            <h1 className="sr-only">事例一覧</h1>
             <DataGridToolbar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
