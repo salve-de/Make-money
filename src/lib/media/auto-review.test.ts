@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { isMediaDisplayable } from '../../shared/media-decisions';
-import { readEffectiveManifest, stagedFileName } from '../../shared/media-asset-store';
+import { appendMediaDecision, readEffectiveManifest, stagedFileName } from '../../shared/media-asset-store';
 import { AUTO_REVIEWER, runAutoReview, type FaceDetector } from './auto-review';
 import { review, stageEntity, type FixtureAsset } from './media-test-fixtures';
 
@@ -36,12 +36,23 @@ function detector(answers: Record<string, number | 'error'>, seen: string[][] = 
   };
 }
 
+const PRODUCT_NOTE = (alt: string) => `実際の製品画面の候補 [product-screen-rule:v1] 判定=screen 根拠=signal:dashboard 位置=main alt=${JSON.stringify(alt)} class="" context=""`;
+const productAsset = (tag: string, overrides: Partial<FixtureAsset> = {}): FixtureAsset => ({
+  kind: 'screenshot_product',
+  bytes: png(tag),
+  assetUrl: 'https://www.keyence.co.jp/static/home-hero-dashboard.png',
+  width: 1600,
+  height: 900,
+  notes: PRODUCT_NOTE('Dashboard of the product'),
+  ...overrides,
+});
+
 describe('runAutoReview', () => {
-  it('allows faceless icons and previews, blocks faces, and leaves the rest held', async () => {
+  it('allows faceless icons and store screenshots, blocks faces, and leaves the rest held', async () => {
     const assets: FixtureAsset[] = [
       { kind: 'favicon', bytes: png('favicon') },
       { kind: 'app_icon', bytes: png('icon') },
-      { kind: 'og_image', bytes: png('og-person') },
+      { kind: 'favicon', bytes: png('face-icon') },
       { kind: 'store_screenshot', bytes: png('store') },
       { kind: 'screenshot_home', bytes: png('home') },
       { kind: 'screenshot_pricing', bytes: png('pricing') },
@@ -127,5 +138,77 @@ describe('runAutoReview', () => {
     const tally = await runAutoReview(null, { root, detector: detector({}), now: NOW });
     expect(tally.ledgerErrors).toHaveLength(1);
     expect(tally.allowed).toBe(1);
+  });
+
+  it('blocks og:image banners as promotional art, also over an earlier automatic allow, but never over a human decision', async () => {
+    const records = await stageEntity(root, 'ent_a', [
+      { kind: 'og_image', bytes: png('og-fresh') },
+      { kind: 'og_image', bytes: png('og-auto-allowed') },
+      { kind: 'og_image', bytes: png('og-human-allowed') },
+    ]);
+    await appendMediaDecision(
+      'ent_a',
+      { assetId: records[1].assetId, decision: 'allowed', subjectIsPerson: false, reviewer: 'auto-rule-v3', reviewedAt: '2026-09-29T10:00:00.000Z', note: '自動判定 auto-rule-v3: og_image。' },
+      { root },
+    );
+    await review(root, 'ent_a', records[2], 'allowed', { subjectIsPerson: false, note: '画面が写っていることを目視' });
+
+    const tally = await runAutoReview(['ent_a'], { root, detector: detector({}), now: NOW });
+    expect(tally).toMatchObject({ promoBlocked: 2, allowed: 0, alreadyDecided: 1 });
+    const byId = new Map(((await readEffectiveManifest('ent_a', { root }))?.assets ?? []).map((asset) => [asset.assetId, asset]));
+    for (const index of [0, 1]) {
+      const asset = byId.get(records[index].assetId)!;
+      expect(asset.rights.decision).toBe('blocked');
+      expect(asset.review?.note).toContain('promo_banner_no_product');
+      expect(isMediaDisplayable(asset)).toBe(false);
+    }
+    expect(isMediaDisplayable(byId.get(records[2].assetId)!)).toBe(true);
+
+    const log = await readFile(join(root, 'ent_a', 'decisions.jsonl'), 'utf8');
+    expect(await runAutoReview(['ent_a'], { root, detector: detector({}), now: NOW })).toMatchObject({ promoBlocked: 0, alreadyDecided: 3 });
+    expect(await readFile(join(root, 'ent_a', 'decisions.jsonl'), 'utf8')).toBe(log);
+  });
+
+  it('allows a product screen whose recorded evidence still passes the rule and which shows no face', async () => {
+    const records = await stageEntity(root, 'ent_a', [productAsset('screen-ok'), productAsset('screen-face')]);
+    const tally = await runAutoReview(['ent_a'], { root, detector: detector({ [records[1].assetId]: 1 }), now: NOW });
+    expect(tally).toMatchObject({ allowed: 1, blocked: 1, held: 0 });
+    const byId = new Map(((await readEffectiveManifest('ent_a', { root }))?.assets ?? []).map((asset) => [asset.assetId, asset]));
+    expect(isMediaDisplayable(byId.get(records[0].assetId)!)).toBe(true);
+    expect(byId.get(records[0].assetId)!.review?.note).toContain('製品画面');
+    expect(byId.get(records[1].assetId)!.rights.decision).toBe('blocked');
+  });
+
+  it('holds a product screen without the rule marker or whose evidence no longer passes (logo, shape, off the page body)', async () => {
+    await stageEntity(root, 'ent_a', [
+      productAsset('no-marker', { notes: '手で入れた記録' }),
+      productAsset('logo-path', { assetUrl: 'https://www.keyence.co.jp/static/customer-logos-dashboard.png' }),
+      productAsset('square', { width: 900, height: 900 }),
+      productAsset('footer', { notes: PRODUCT_NOTE('Dashboard').replace('位置=main', '位置=footer') }),
+    ]);
+    const seen: string[][] = [];
+    const tally = await runAutoReview(['ent_a'], { root, detector: detector({}, seen), now: NOW });
+    expect(tally).toMatchObject({ allowed: 0, blocked: 0, held: 4 });
+    expect(seen).toEqual([]);
+  });
+
+  it('sends an earlier automatic product-screen allow back to held when the rule says it is no longer clearly a screen, but keeps a human allow', async () => {
+    const records = await stageEntity(root, 'ent_a', [
+      productAsset('weak-word', { assetUrl: 'https://www.keyence.co.jp/static/feature-section.png', notes: PRODUCT_NOTE('Feature section') }),
+      productAsset('clear', { notes: PRODUCT_NOTE('Dashboard of the product') }),
+      productAsset('human', { assetUrl: 'https://www.keyence.co.jp/static/feature-section2.png', notes: PRODUCT_NOTE('Feature section') }),
+    ]);
+    const auto = { subjectIsPerson: false, reviewer: 'auto-rule-v4', reviewedAt: '2026-10-02T00:00:00.000Z', note: '自動判定 auto-rule-v4: 顔 0 件。' };
+    await appendMediaDecision('ent_a', { assetId: records[0].assetId, decision: 'allowed', ...auto }, { root });
+    await appendMediaDecision('ent_a', { assetId: records[1].assetId, decision: 'allowed', ...auto }, { root });
+    await review(root, 'ent_a', records[2], 'allowed', { subjectIsPerson: false, note: '製品画面を目視' });
+
+    const tally = await runAutoReview(['ent_a'], { root, detector: detector({}), now: NOW });
+    expect(tally).toMatchObject({ demoted: 1, allowed: 0, alreadyDecided: 2 });
+    const byId = new Map(((await readEffectiveManifest('ent_a', { root }))?.assets ?? []).map((asset) => [asset.assetId, asset]));
+    expect(byId.get(records[0].assetId)!.rights.decision).toBe('held');
+    expect(isMediaDisplayable(byId.get(records[1].assetId)!)).toBe(true);
+    expect(isMediaDisplayable(byId.get(records[2].assetId)!)).toBe(true);
+    expect(await runAutoReview(['ent_a'], { root, detector: detector({}), now: NOW })).toMatchObject({ demoted: 0 });
   });
 });

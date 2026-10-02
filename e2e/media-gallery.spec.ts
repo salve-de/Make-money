@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 import { listStagedEntityIds, readEffectiveManifest } from '../src/shared/media-asset-store';
 import { isMediaDisplayable, type EffectiveMediaAsset } from '../src/shared/media-decisions';
-import { MEDIA_GALLERY_KINDS, PUBLIC_MEDIA_RESPONSE_SCHEMA, type PublicMediaAsset } from '../src/shared/media-display';
+import { MEDIA_GALLERY_KINDS, MEDIA_SCREEN_KINDS, PUBLIC_MEDIA_RESPONSE_SCHEMA, pickGalleryAssets, type PublicMediaAsset } from '../src/shared/media-display';
 
 // Official product images (docs/MEDIA_ASSETS_AND_PROVENANCE.md, chapter 11). The server started by playwright.config.ts
 // reads the repository's data/media-staging (MEDIA_SOURCE=local_staging), which is gitignored: what is checked here is
@@ -21,7 +21,7 @@ async function ledger(entityId: string): Promise<EffectiveMediaAsset[]> {
 test.describe('official product images', () => {
   test('the Excalidraw inspector shows its approved pricing screenshot under the summary, with the source, and no held image', async ({ page }) => {
     const assets = await ledger('ent_excalidraw_c7820d');
-    const shown = assets.filter((asset) => isMediaDisplayable(asset) && MEDIA_GALLERY_KINDS.includes(asset.kind));
+    const shown = assets.filter((asset) => isMediaDisplayable(asset) && (MEDIA_GALLERY_KINDS.includes(asset.kind) || MEDIA_SCREEN_KINDS.includes(asset.kind)));
     test.skip(shown.length === 0, 'data/media-staging has no approved Excalidraw gallery image (approve one with scripts/media/review-assets.ts)');
 
     const errors: string[] = [];
@@ -34,9 +34,9 @@ test.describe('official product images', () => {
     await expect(page.locator('#section-summary + #section-media')).toHaveCount(1);
     await expect(gallery).toContainText('製品画像');
 
-    // One image per approved kind, loaded, each with its source text directly below it.
+    // The images the gallery rule picks, loaded, each with its source text directly below it.
     const images = gallery.getByTestId('media-gallery-image');
-    await expect(images).toHaveCount(new Set(shown.map((asset) => asset.kind)).size);
+    await expect(images).toHaveCount(pickGalleryAssets(shown as unknown as PublicMediaAsset[]).length);
     await gallery.scrollIntoViewIfNeeded();
     for (const image of await images.all()) {
       await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
@@ -87,10 +87,11 @@ test.describe('official product images', () => {
       expect((await request.get(`/api/media/file?entity_id=ent_gmass_209d19&asset=${held.assetId}`)).status()).toBe(404);
     }
 
-    // 画像は事例が出ている時だけ出る。GMass は公開目録に入っているので、詳細と一緒に画像欄も出る
+    // 画像は事例が出ている時だけ出る。画像欄に出るのは実画面（ストアの画面写真・製品画面）とアプリのアイコンだけで、
+    // ファビコンだけの事例には画像欄を出さない
     await page.goto('/?entity=ent_gmass_209d19');
     await expect(page.getByRole('heading', { name: 'GMass', exact: true })).toBeVisible({ timeout: 45_000 });
-    await expect(page.locator('#section-media')).toBeVisible();
+    await expect(page.locator('#section-media')).toHaveCount(pickGalleryAssets(offered).length > 0 ? 1 : 0);
     await page.screenshot({ path: 'test-results/media-gallery-gmass.png' });
   });
 

@@ -11,6 +11,7 @@ import {
   pickEntityLogo,
   pickGalleryAssets,
   mediaOriginLabel,
+  mediaKindLabel,
   isMediaIconKind,
   type PublicMediaAsset,
 } from './media-display';
@@ -44,12 +45,12 @@ describe('constants that mirror the ledger schema', () => {
 });
 
 describe('pickEntityLogo', () => {
-  it('prefers logo, then favicon, then og_image, and ignores everything else', () => {
+  it('prefers logo, then favicon, and never takes a promotional og_image or a screenshot', () => {
     const og = asset('og_image', 'a');
     const favicon = asset('favicon', 'b');
     const logo = asset('logo', 'c');
     const shot = asset('screenshot_home', 'd');
-    expect(pickEntityLogo([shot, og])).toBe(og);
+    expect(pickEntityLogo([shot, og, asset('screenshot_product', 'p')])).toBeNull();
     expect(pickEntityLogo([shot, og, favicon])).toBe(favicon);
     expect(pickEntityLogo([shot, og, favicon, logo])).toBe(logo);
     expect(pickEntityLogo([shot])).toBeNull();
@@ -73,26 +74,40 @@ describe('pickEntityLogo', () => {
 });
 
 describe('pickGalleryAssets', () => {
-  it('returns home screenshot, pricing screenshot and og:image in that order, one per kind, without icons', () => {
-    const items = [asset('favicon', '1'), asset('og_image', '2'), asset('screenshot_pricing', '3'), asset('screenshot_home', '4'), asset('screenshot_product', '5')];
-    expect(pickGalleryAssets(items).map((item) => item.kind)).toEqual(['screenshot_home', 'screenshot_pricing', 'og_image']);
-    expect(pickGalleryAssets([asset('favicon', '1')])).toEqual([]);
+  it('puts real screens first, then the home / pricing capture, never the og:image or the favicon', () => {
+    const items = [asset('favicon', '1'), asset('og_image', '2'), asset('screenshot_pricing', '3'), asset('screenshot_home', '4'), asset('screenshot_product', '5'), asset('app_icon', '6')];
+    expect(pickGalleryAssets(items).map((item) => item.kind)).toEqual(['screenshot_product', 'screenshot_home', 'screenshot_pricing', 'app_icon']);
+    expect(pickGalleryAssets([asset('favicon', '1'), asset('og_image', '2')])).toEqual([]);
     expect(pickGalleryAssets(undefined)).toEqual([]);
+  });
+
+  it('fills three screen slots with App Store screenshots first, then product screens of the official site', () => {
+    const store = [1, 2].map((n) => asset('store_screenshot', `s${n}`, `2026-09-2${n}T00:00:00.000Z`));
+    const product = [1, 2, 3].map((n) => asset('screenshot_product', `p${n}`, `2026-10-0${n}T00:00:00.000Z`));
+    const picked = pickGalleryAssets([...product, ...store, asset('og_image', 'o')]);
+    expect(picked.map((item) => item.kind)).toEqual(['store_screenshot', 'store_screenshot', 'screenshot_product']);
+    expect(picked.map((item) => item.assetId)).toEqual([store[1].assetId, store[0].assetId, product[2].assetId]);
+  });
+
+  it('shows at most three screens in total', () => {
+    const product = [1, 2, 3, 4, 5].map((n) => asset('screenshot_product', `p${n}`, `2026-10-0${n}T00:00:00.000Z`));
+    expect(pickGalleryAssets(product)).toHaveLength(3);
   });
 });
 
 describe('App Store images in the gallery', () => {
-  it('adds the app icon and at most three store screenshots after the site images, newest first', () => {
+  it('adds the app icon after at most three store screenshots, newest first', () => {
     const shots = [1, 2, 3, 4, 5].map((n) => asset('store_screenshot', `s${n}`, `2026-09-2${n}T00:00:00.000Z`));
     const picked = pickGalleryAssets([...shots, asset('app_icon', 'i'), asset('og_image', 'o')]);
-    expect(picked.map((item) => item.kind)).toEqual(['og_image', 'app_icon', 'store_screenshot', 'store_screenshot', 'store_screenshot']);
-    expect(picked.slice(2).map((item) => item.assetId)).toEqual([shots[4].assetId, shots[3].assetId, shots[2].assetId]);
+    expect(picked.map((item) => item.kind)).toEqual(['store_screenshot', 'store_screenshot', 'store_screenshot', 'app_icon']);
+    expect(picked.slice(0, 3).map((item) => item.assetId)).toEqual([shots[4].assetId, shots[3].assetId, shots[2].assetId]);
   });
 
   it('labels the origin of each image and knows which kinds use the small icon box', () => {
     expect(mediaOriginLabel('app_icon')).toBe('App Store 掲載画像');
     expect(mediaOriginLabel('store_screenshot')).toBe('App Store 掲載画像');
-    expect(mediaOriginLabel('og_image')).toBe('公式サイト');
+    expect(mediaOriginLabel('screenshot_product')).toBe('公式サイト');
+    expect(mediaKindLabel('screenshot_product')).toBe('公式サイトの製品画面');
     expect(isMediaIconKind('app_icon')).toBe(true);
     expect(isMediaIconKind('store_screenshot')).toBe(false);
   });
