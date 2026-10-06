@@ -199,7 +199,7 @@ test('CLI select → prepare dry-run shares gate; fresh audit passes, cache chan
     writeFileSync('data/entities-index.json', JSON.stringify([entity])); writeFileSync('data/reader-verdicts.json', JSON.stringify({ [entity.id]: verdicts }));
     const f0 = reader.facts[0].id;
     const required = ['HEADLINE', 'STORY', 'CUSTOMER_PAIN', 'FIRST_CUSTOMERS', 'CHANNELS', 'TAKE_HOME', 'INCUMBENT_BLINDSPOT', 'VIABILITY', 'LESSON', 'REVENUE_ESTIMATE']
-      .map((item) => ({ id: `a-${item.toLowerCase()}`, item, text: '予約の取りこぼしを嫌う小さな店舗向けで、月額課金が中心と推す。', basis: [f0], confidence: 'LOW' }));
+      .map((item) => ({ id: `a-${item.toLowerCase()}`, item, text: item === 'HEADLINE' ? '予約の取りこぼしに悩む小さな店舗が、電話受付をやめて予約管理サービスに切り替えた。' : '予約の取りこぼしを嫌う小さな店舗向けで、月額課金が中心と推す。', basis: [f0], confidence: 'LOW' }));
     writeFileSync('data/reader-analysis.json', JSON.stringify({ [entity.id]: required })); writeFileSync('data/candidate.ids', '# scope\nent_fixture\n');
     writeFileSync('data/catalog-finished-ids.txt', '# initially empty\n'); writeFileSync('data/catalog-release.json', JSON.stringify({ details: {} }));
     // Real audit input writer; synthetic reviewer output makes this an offline fixture, never an actual approval.

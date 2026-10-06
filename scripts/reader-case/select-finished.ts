@@ -9,7 +9,8 @@ import { reconcileFinancialEntity } from '../../src/platform/data/financial-reco
 import { argValue, loadEntities, loadReaders, readIdsFile } from './load-readers';
 import { type AnalysisFile } from './analysis-lib';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
-import { evaluateForRelease, preparePublicationReader } from './publication-evaluation';
+import { appendRecord } from './ledger';
+import { evaluateForRelease, LEAD_NOT_PASSED_PREFIX, preparePublicationReader } from './publication-evaluation';
 import { loadPublicationInput, readPublicationAudits } from './publication-inputs';
 
 async function main() {
@@ -29,6 +30,11 @@ async function main() {
     const input = await loadPublicationInput(normalizeFinancialEntity(reconcileFinancialEntity(entity)), prepared.reader, verdicts[id]);
     const evaluated = evaluateForRelease(input, audited[id], prepared.problems);
     if (evaluated.publishable) finished.push(id); else notYet[id] = evaluated.reasons;
+    // リード基準外で止めた事例は台帳に残す（止まっている一覧で見えるように）。台帳に書けなくても選別は止めない
+    const leadReason = evaluated.reasons.find((r) => r.startsWith(LEAD_NOT_PASSED_PREFIX));
+    if (leadReason) {
+      try { appendRecord({ caseId: id, stage: 'LEAD', status: 'HOLD', reasonCode: 'LEAD_NOT_PASSED', reasonText: leadReason, nextAction: 'リードの書き直し（headline-prompt.md）', actor: 'select-finished', finishedAt: new Date().toISOString() }); } catch { /* 台帳は補助 */ }
+    }
   }
   writeFileSync('data/catalog-finished-ids.txt', `# 仕上げ済み（現在の事実・推論・出典・画像権利・監査入力を確認した）事例。scripts/reader-case/select-finished.ts が書く\n${finished.sort().join('\n')}\n`);
   console.log(JSON.stringify({ finished: finished.length, notYet: Object.keys(notYet).length, reasons: notYet }, null, 1));

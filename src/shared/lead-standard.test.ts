@@ -43,6 +43,68 @@ describe('リードの機械検査', () => {
   });
 });
 
+/**
+ * リード基準の fixture 表。悪い例は独立レビュー M2 の再現文と、20件版の採点（reports/spec-scoring.md 表B）の原文。
+ * 良い例は「人・行動・結果が1〜2文で浮かぶ」文。数字の出どころ検査は別で見るので、ここでは文自体を材料に渡す。
+ */
+const BAD_LEADS: Array<[string, string]> = [
+  ['M2 料金の説明', '月額29ドルで請求書を自動作成するクラウド型の経理ソフト。'],
+  ['M2 業界初', '業界初の、請求書作成を自動化するAI経理プラットフォーム。'],
+  ['M2 業務基盤', '中小企業向けにプロジェクト管理を一元化するクラウド型の業務基盤。'],
+  ['M2 公開年だけ', '2024年に公開された、請求をまとめるツール。'],
+  ['M2 短文', '請求をまとめるツールを提供する。'],
+  ['M2 会社の説明', '請求業務を代行する会社。'],
+  ['TalentExAfrica', 'アフリカの求人を、応募者は無料で探せる。TalentExAfricaは求人を出す企業に、投稿前の確認を求める。'],
+  ['Hostman 料金', '新規AIエージェントは月0.10ドル＋トークン従量。従量方式の料金は残高から毎時引く。'],
+  ['Sender 制度', '紹介者には継続30%の報酬を掲げる、メール配信のSender。'],
+  ['Attio 自称数字', '顧客3万超を掲げるCRM。'],
+  ['Cleanvoice 枠', '月ごとの処理枠を有料プランで提供する音声編集AI。'],
+  ['EmailJS', 'メール送信用のサーバーコードを書く手間を省くEmailJSは、月ごとのリクエスト枠を有料で提供する。'],
+  ['HazeOver 製品+価格', '背景の窓を暗くする道具を4.99ドルで売るMaxim Ananov。'],
+  ['Clop 機能', '画像をコピーするたび、軽くしてそのまま貼り付ける。'],
+  ['Contexts 製品+価格', '9.99ドルの窓切り替えソフトContextsは、同居家族6人まで共有できる。'],
+  ['Litur 機能', 'カメラで拾った色を、SwiftUIの色コードへ。'],
+  ['Blip 料金体系', '仕事で使う人は年払いで1人300ドル、一緒に作業する顧客は契約不要。'],
+  ['Ice 収益の置き方', 'メニューバー整理ツールIceは無料で配り、開発支援をGitHub SponsorsとBuyMeACoffeeで募る。'],
+  ['Presentify 実績+説明', '発売時のProduct Hunt7位を掲げる、画面に矢印を描くPresentify。'],
+  ['合成 サブスク', '月額980円で全機能が使い放題になるサブスクリプションのサービス。'],
+  ['合成 ソリューション', '現場の課題を解決するクラウド型の業務ソリューション。'],
+];
+const GOOD_LEADS: Array<[string, string]> = [
+  ['オーナー例', '7年・5作超で累計売上$100だった副業開発者が、価格を上げて1年足らずに月$7,500へ。'],
+  ['Practical Typography', '広告を置かず、65万人に無料で読ませた組版の本で、フォントを売って元を取った弁護士。'],
+  ['ITProfiles 転機', '2025年、スポンサー掲載を廃止したITProfiles。'],
+  ['NCache 転換', '2003年に受託開発をやめ、キャッシュ製品の会社へ転換した2人組。'],
+  ['Requestly 加入', '2025年5月、個人開発から始めたRequestlyがBrowserStackに加わった。'],
+  ['合成 売却', '3人で作った家計簿アプリを、創業4年目に買い手へ売却した。'],
+  ['合成 撤退', '月20ドルの有料プランを廃止し、買い切り1本に絞った開発者。'],
+  ['合成 最初の客', '最初の客は、創業者が前の職場の元同僚に直接声をかけて獲得した。'],
+  ['合成 ピボット', '3回のピボットで貯金を使い切った創業者が、4作目で月$3,000を超えた。'],
+  ['合成 値上げ', '値上げを3回断念した末に、月額を2倍にして解約が増えなかった店主。'],
+];
+describe('リード基準の fixture 表（良い例と悪い例）', () => {
+  it('悪い例は20件以上あり、すべて落ちる', () => {
+    expect(BAD_LEADS.length).toBeGreaterThanOrEqual(20);
+    for (const [name, text] of BAD_LEADS) {
+      const v = checkLead({ text, basis: ['f'] }, { facts: [{ id: 'f', text }], metrics: [] });
+      expect({ name, ok: v.ok }).toEqual({ name, ok: false });
+    }
+  });
+  it('悪い例のうち製品説明の型は product-description で落ちる', () => {
+    for (const [name, text] of BAD_LEADS.filter(([n]) => !n.startsWith('TalentExAfrica') && !n.startsWith('Hostman'))) {
+      const v = checkLead({ text, basis: ['f'] }, { facts: [{ id: 'f', text }], metrics: [] });
+      expect({ name, problems: v.problems }).toEqual({ name, problems: expect.arrayContaining(['product-description']) });
+    }
+  });
+  it('良い例は10件、すべて通る', () => {
+    expect(GOOD_LEADS.length).toBeGreaterThanOrEqual(10);
+    for (const [name, text] of GOOD_LEADS) {
+      const v = checkLead({ text, basis: ['f'] }, { facts: [{ id: 'f', text }], metrics: [] });
+      expect({ name, problems: v.problems }).toEqual({ name, problems: [] });
+    }
+  });
+});
+
 describe('「約」の丸め', () => {
   it('約が付いた数字は材料の値と10%以内なら通り、桁違いは通さない', () => {
     expect(numbersMissingFrom('約6万ドルを売った', [61392])).toEqual([]);
