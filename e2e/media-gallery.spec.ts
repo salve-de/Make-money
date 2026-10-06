@@ -157,4 +157,34 @@ test.describe('official product images', () => {
     expect(Math.max(...asked.map((ids) => ids.length))).toBeLessThanOrEqual(40);
     expect(errors).toEqual([]);
   });
+  for (const viewport of [{ name: 'PC', width: 1440, height: 900, size: 24 }, { name: 'スマホ', width: 390, height: 844, size: 20 }]) {
+    test(`the inspector header shows the same logo before the case name (${viewport.name})`, async ({ page, request }) => {
+      // 詳細パネル（PC）とスマホの詳細画面にも、一覧の行と同じ審査済みのロゴが社名の前に出る（2026-10-06 の指示）
+      const real = await (await request.get('/api/media?entity_id=ent_gmass_209d19')).json();
+      const favicon = (real.entities?.ent_gmass_209d19 as PublicMediaAsset[] | undefined)?.find((asset) => asset.kind === 'favicon');
+      test.skip(!favicon, 'data/media-staging has no approved GMass favicon');
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await page.route(/\/api\/media\?/, async (route) => {
+        const ids = new URL(route.request().url()).searchParams.getAll('entity_id');
+        await route.fulfill({
+          json: { schema: PUBLIC_MEDIA_RESPONSE_SCHEMA, source: 'local_staging', available: true, entities: ids.includes('ent_excalidraw_c7820d') ? { ent_excalidraw_c7820d: [favicon] } : {} },
+        });
+      });
+      const errors: string[] = [];
+      page.on('pageerror', (error) => errors.push(error.message));
+      await page.goto('/?entity=ent_excalidraw_c7820d');
+      const heading = page.getByRole('heading', { name: 'Excalidraw', exact: true });
+      await expect(heading).toBeVisible({ timeout: 45_000 });
+      const logo = page.getByTestId('entity-header-logo').filter({ visible: true });
+      await expect(logo).toHaveCount(1);
+      await expect.poll(() => logo.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
+      const box = await logo.boundingBox();
+      const title = await heading.boundingBox();
+      expect(box && Math.round(box.width) === viewport.size && Math.round(box.height) === viewport.size).toBe(true);
+      // 社名の左に並ぶ
+      expect(box && title && box.x + box.width <= title.x).toBe(true);
+      await expect(logo).toHaveAttribute('title', favicon!.attribution);
+      expect(errors).toEqual([]);
+    });
+  }
 });
