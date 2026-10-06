@@ -184,7 +184,7 @@ export const UI = {
   NOTE_STATUS_SAVING: '保存中',
   NOTE_STATUS_ERROR: '未保存・再入力で再試行',
   // 一覧
-  LIST_REVENUE_UNKNOWN: '未確認',
+  LIST_REVENUE_UNKNOWN: '—',
   LIST_COL_CASE: '企業・事業内容',
   LIST_COL_REVENUE: '売上',
   LIST_COL_PROFIT: '営業利益',

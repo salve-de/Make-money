@@ -124,7 +124,7 @@ test('unconfirmed financials omit the result card without fabricating zero value
   const inspector = page.getByRole('complementary', { name: `${NO_MONEY.name}の企業事例インスペクター` });
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
   await expect(inspector.locator('#section-metrics')).toHaveCount(0);
-  await expect(inspector).toContainText(NO_MONEY.unconfirmed);
+  await expect(inspector).not.toContainText(NO_MONEY.unconfirmed);
   await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
   await expect(page.locator('#section-sources')).toBeVisible();
 });

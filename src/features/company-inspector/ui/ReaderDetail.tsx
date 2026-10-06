@@ -9,7 +9,7 @@ import {
   plainFactText,
   readerSummaryFact,
 } from '@/shared/display-text';
-import { ANALYSIS_LABELS, FACT_SECTIONS, UI, UNKNOWN_LABELS } from '@/shared/ui-strings';
+import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
 import { AnalysisGroups, Headline, KeyStrip, planKeyStrip, StorySteps } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
 
@@ -195,13 +195,6 @@ export function ReaderSources({ reader, evidencePrefix = 'reader' }: ReaderProps
   );
 }
 
-/** 未確認の1行: 「未確認: 売上・利益」。 */
-export function ReaderUnknowns({ reader }: { reader?: ReaderCase }) {
-  if (!reader || reader.unknowns.length === 0) return null;
-  const line = `${UI.UNKNOWN_PREFIX}${reader.unknowns.map((u) => UNKNOWN_LABELS[u]).join(UI.UNKNOWN_JOINER)}`;
-  return <p className="border-b border-term-line px-2.5 py-2 text-xs text-term-dim sm:px-3">{line}</p>;
-}
-
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
 export function ReaderLedger({ reader, detailState, onRetry, media }: {
   reader?: ReaderCase;
@@ -254,7 +247,6 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
         <ReaderEvidence reader={reader} evidencePrefix={evidencePrefix} />
         <ReaderSources reader={reader} evidencePrefix={evidencePrefix} />
       </details>}
-      <ReaderUnknowns reader={reader} />
     </>
   );
 }

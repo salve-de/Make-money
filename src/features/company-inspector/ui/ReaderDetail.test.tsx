@@ -8,7 +8,7 @@ import { analyzeScreen } from '../../../../scripts/architecture/screen-text-lib.
 import { allowedUiTexts, isUnknownsLine } from '@/shared/ui-strings';
 import { ANALYSIS_ITEMS, type ReaderCase } from '@/shared/reader-case';
 import { ANALYSIS_GROUPS, AnalysisGroups, Headline, planKeyStrip, StorySteps } from './ReaderOverview';
-import { ReaderEvidence, ReaderFacts, ReaderLedger, ReaderMetrics, ReaderSources, ReaderSummary, ReaderUnknowns } from './ReaderDetail';
+import { ReaderEvidence, ReaderFacts, ReaderLedger, ReaderMetrics, ReaderSources, ReaderSummary } from './ReaderDetail';
 
 const withAnalysis: ReaderCase = {
   ...baremetrics,
@@ -27,7 +27,6 @@ function detail(reader: Parameters<typeof ReaderSummary>[0]['reader']): string {
       <ReaderMetrics reader={reader} />
       <ReaderFacts reader={reader} />
       <ReaderSources reader={reader} />
-      <ReaderUnknowns reader={reader} />
     </>,
   );
 }
@@ -71,7 +70,7 @@ describe('reader detail', () => {
     expect(html).not.toMatch(/詳細 \d|特徴 \d|参照先あり/);
     expect(html.match(/data-fact="f1"/g)).toHaveLength(1);
     expect(html.match(/data-source=/g)).toHaveLength(1);
-    expect(html).toContain('未確認: 売上・利益');
+    expect(html).not.toContain('未確認');
   });
 
   it('基準の注記を出す', () => {

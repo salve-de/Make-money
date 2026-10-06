@@ -30,11 +30,11 @@ function LoginButton({ onLogin }: { onLogin: () => void }) {
   );
 }
 
-/** 推定の数字。数字が無い（根拠が足りず 0 のまま）ときは「未確認」とだけ出し、0円とは書かない。 */
+/** 推定の数字。数字が無い（根拠が足りず 0 のまま）ときは「—」とだけ出し、0円とは書かない。 */
 function EstimatedValue({ value, text }: { value: number; text: string }) {
   return value > 0
     ? <span className="term-num text-base text-term-accent">{text}</span>
-    : <span className="term-num text-base text-term-dim">未確認</span>;
+    : <span className="term-num text-base text-term-dim">—</span>;
 }
 
 /**

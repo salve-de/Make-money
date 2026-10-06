@@ -54,7 +54,7 @@ for (const [id, name, published, hasMetrics] of entities) {
       await expect(inspector.locator('[data-analysis]').first()).toBeVisible();
       // 推測は「推測の計算・前提と根拠」の区画に、根拠の番号と計算つきでまとまる
       await expect(inspector.locator('#section-reasoning')).toContainText('推測');
-      await expect(inspector).toContainText('未確認:');
+      await expect(inspector).not.toContainText('未確認:');
       await expect(inspector).not.toContainText('この事例の詳細は準備中です。');
     }
     // 財務が未収集でも、0円の実測に見せない。

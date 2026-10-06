@@ -119,11 +119,11 @@ function viability(status: ViabilityStatus | undefined, label?: string, detail?:
         ? '当時限定'
         : status === 'EVOLVING_BARRIER'
           ? '条件が変化中'
-          : '現在性未確認';
+          : '—';
   return {
     isCurrent,
     label: compact(label, 38) || (isCurrent ? '現在も有効' : fallback),
-    detail: compact(detail, 220) || '現在性の詳しい根拠は未確認です。',
+    detail: compact(detail, 220) || '—',
   };
 }
 
@@ -159,7 +159,7 @@ function whyMoneyMovedOf(entity: FinancialEntity): string {
     compact(entity.essence?.painRelief, 190) ||
     compact(entity.targetPainWallet, 190) ||
     compact(entity.essence?.targetCustomer, 190) ||
-    '支払理由は未確認'
+    '—'
   );
 }
 
