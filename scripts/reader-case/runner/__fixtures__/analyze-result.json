@@ -10,7 +10,7 @@
       "fx-001-f1",
       "fx-001-m1"
      ],
-     "confidence": "MEDIUM"
+     "presentation": "FACT_SUMMARY"
     },
     {
      "item": "BUSINESS_MODEL",
@@ -18,7 +18,7 @@
      "basis": [
       "fx-001-f1"
      ],
-     "confidence": "HIGH"
+     "presentation": "FACT_SUMMARY"
     }
    ]
   },
@@ -32,7 +32,7 @@
       "fx-002-f1",
       "fx-002-m1"
      ],
-     "confidence": "MEDIUM"
+     "presentation": "FACT_SUMMARY"
     },
     {
      "item": "BUSINESS_MODEL",
@@ -40,7 +40,7 @@
      "basis": [
       "fx-002-f1"
      ],
-     "confidence": "HIGH"
+     "presentation": "FACT_SUMMARY"
     }
    ]
   },
@@ -54,7 +54,7 @@
       "fx-003-f1",
       "fx-003-m1"
      ],
-     "confidence": "MEDIUM"
+     "presentation": "FACT_SUMMARY"
     },
     {
      "item": "BUSINESS_MODEL",
@@ -62,7 +62,7 @@
      "basis": [
       "fx-003-f1"
      ],
-     "confidence": "HIGH"
+     "presentation": "FACT_SUMMARY"
     }
    ]
   }

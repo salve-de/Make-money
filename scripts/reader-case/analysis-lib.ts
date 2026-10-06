@@ -28,8 +28,9 @@ export function auditEvidence(reader: Pick<ReaderCase, 'facts' | 'metrics'>, sou
 // 指紋には監査役に渡す中身をすべて入れる: 推論（文・式・根拠・確度）、その事例の照合結果、そして推論の元になった事実・数字・出典の本文。
 // 文が同じでも、根拠や元の出典・事実が変われば監査し直す
 export function analysisHash(items: readonly { item: string; text: string; formula?: string; basis?: readonly string[]; confidence?: string; presentation?: string }[], verdict: unknown, evidence: AuditEvidence): string {
-  // presentation は付いている時だけ指紋に入れる（旧データの指紋を変えない）
-  const body = items.map((a) => [a.item, a.text, a.formula ?? '', [...(a.basis ?? [])], a.confidence ?? '', ...(a.presentation ? [a.presentation] : [])]);
+  // confidence（確度ラベル）は廃止。付いている旧データだけ従来どおり指紋に入れる（保存済みの全指紋を変えないため）。
+  // 付いていない（新しい指示で作った）項目は、確度の有無に左右されない。presentation も付いている時だけ入れる
+  const body = items.map((a) => [a.item, a.text, a.formula ?? '', [...(a.basis ?? [])], ...(a.confidence ? [a.confidence] : []), ...(a.presentation ? [a.presentation] : [])]);
   return createHash('sha256').update(JSON.stringify([body, verdict ?? null, evidence])).digest('hex').slice(0, 16);
 }
 /** 旧形式の指紋（推論と照合結果だけ）。data/ の指紋を新形式へ移す scripts/reader-case/migrate-hashes.ts だけが使う */
