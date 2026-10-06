@@ -19,11 +19,12 @@ import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from '
 import { pathToFileURL } from 'node:url';
 import { ReaderCaseSchema, UNKNOWN_ITEMS, type ReaderCase } from '../../src/shared/reader-case';
 import { evidenceNumbers, numbersIn, numbersMissingFrom } from '../../src/shared/number-evidence';
+import { checkLead } from '../../src/shared/lead-standard';
 import { auditEvidence, checkCase, type StoredAnalysis } from './analysis-lib';
 import { appendRecord, LEDGER_DIR, readCaseRecords, type ReasonCode } from './ledger';
 import { auditSnapshot, contentHash, publicationHash, type PublicationInput } from './publication-evaluation';
 
-export const IMPORT_RULE_VERSION = 'case-rebuild-import-v1';
+export const IMPORT_RULE_VERSION = 'case-rebuild-import-v2';
 export const IMPORT_ACTOR = 'import-case-rebuild';
 export const DEFAULT_SRC = '/Volumes/SS/Worktrees/Make-Money/case-content-rebuild/data/case-rebuild';
 export const DEFAULT_IDS = [
@@ -176,10 +177,22 @@ export async function importCases(opts: ImportOptions, deps: ImportDeps): Promis
       outcomes.push(hold(inputHash, lead ? 'LEAD_NOT_PASSED' : 'ANALYSIS_REJECTED', `品質検査に不合格: ${gate.errors.slice(0, 3).map((e) => `[${e.code}] ${e.where}`).join(' / ')}`, '事例担当に直しを頼む'));
       continue;
     }
+    // 画面は src/shared/lead-standard.ts の基準を通らないリードを出さない。事例担当の検査（check-case.mjs）とは基準が別なので、取り込み側でも同じ基準を通す
+    const headline = converted.value.analysis.find((a) => a.item === 'HEADLINE');
+    const leadVerdict = headline ? checkLead(headline, converted.value.reader) : undefined;
+    if (!leadVerdict || !leadVerdict.ok) {
+      outcomes.push(hold(inputHash, 'LEAD_NOT_PASSED', `リードが画面の基準（lead-standard）を通らない: ${leadVerdict ? leadVerdict.problems.join(' / ') : '推論にリード（HEADLINE）が残らなかった'}`, '事例担当にリードの書き直しを頼む'));
+      continue;
+    }
     if (opts.dryRun) { outcomes.push({ id, result: 'WOULD_IMPORT', inputHash }); continue; }
     const { reader, analysis, dropped, droppedUnknowns, repairs } = converted.value;
     const withAnalysis: ReaderCase = { ...reader, analysis };
-    const input = await deps.buildPublicationInput(id, withAnalysis);
+    // 1件の材料不足で束全体を止めない（他の事例の取り込みを続ける）。事業の記録が無い事例は保留として台帳に残す
+    let input: PublicationInput;
+    try { input = await deps.buildPublicationInput(id, withAnalysis); } catch (error) {
+      outcomes.push(hold(inputHash, 'NO_ENTITY_RECORD', error instanceof Error ? error.message : String(error), 'entities-index.json に事業の記録を足す（目録への登録は事例担当と相談）'));
+      continue;
+    }
     const snapshot = auditSnapshot(input);
     const auditCase = { entityId: id, ...auditEvidence(withAnalysis, snapshot.sources), analysis, identity: snapshot.identity, media: snapshot.media, snapshot, publicationHash: publicationHash(input) };
     const dir = `${opts.dataDir}/case-import/${id}`;
