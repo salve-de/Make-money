@@ -38,7 +38,7 @@ export const formatVerificationDateTime = (unixSeconds: number) => DATE_TIME.for
 export interface VerifiedRevenueRow {
   label: string;
   value: string;
-  /** false のときは数えられなかった項目（「未確認」と出す）。0とは書かない。 */
+  /** false のときは数えられなかった項目（「—」と出す）。0とは書かない。 */
   confirmed: boolean;
 }
 
@@ -48,12 +48,12 @@ export function verifiedRevenueRows(verification: VerifiedRevenue): VerifiedReve
     { label: '30日間の売上', value: formatMinorAmount(verification.last30dRevenueMinor, currency), confirmed: true },
     {
       label: '月額の継続売上（MRR）',
-      value: verification.mrrMinor === null ? '未確認' : formatMinorAmount(verification.mrrMinor, currency),
+      value: verification.mrrMinor === null ? '—' : formatMinorAmount(verification.mrrMinor, currency),
       confirmed: verification.mrrMinor !== null,
     },
     {
       label: '有効な契約',
-      value: verification.activeSubscriptions === null ? '未確認' : `${verification.activeSubscriptions.toLocaleString('ja-JP')}件`,
+      value: verification.activeSubscriptions === null ? '—' : `${verification.activeSubscriptions.toLocaleString('ja-JP')}件`,
       confirmed: verification.activeSubscriptions !== null,
     },
     { label: '集計期間', value: `${formatVerificationDate(verification.periodStart)} 〜 ${formatVerificationDate(verification.periodEnd)}`, confirmed: true },

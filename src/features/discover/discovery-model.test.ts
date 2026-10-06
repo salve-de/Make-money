@@ -130,6 +130,14 @@ describe("discovery model", () => {
     );
   });
 
+  it("treats a bare 未確認 filler as empty so the dash fallback shows instead", () => {
+    const dataset = deriveDiscoveryDataset([makeEntity("a", { insight: "未確認" })]);
+    const item = dataset.cases[0];
+    expect(item.criticalInsight).not.toBe("未確認");
+    expect(item.whyMoneyMoved).not.toBe("未確認");
+    expect(item.leverage).not.toBe("未確認");
+  });
+
   it("does not invent a revenue mechanism or a sector without a sourced basis", () => {
     const dataset = deriveDiscoveryDataset([makeEntity("a", { architecture: "月額サブスク SaaS" })]);
     const item = dataset.cases[0] as unknown as Record<string, unknown>;
@@ -195,7 +203,7 @@ describe("discovery model", () => {
 
   it("shows unconfirmed without a reader instead of reading the pnl text", () => {
     const item = deriveDiscoveryDataset([makeEntity("bare", { financialStatus: "POST_MORTEM" })]).cases[0];
-    expect(item.resultValue).toBe("未確認");
+    expect(item.resultValue).toBe("—");
     expect(item.summaryFactId).toBeNull();
     expect(item.resultEvidenceLabel).toBe("");
   });

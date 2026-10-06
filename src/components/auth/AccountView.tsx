@@ -231,7 +231,7 @@ export const AccountView: React.FC = () => {
             </Row>
             {recurring && (
               <Row label="更新">
-                <span className="term-num">{renewal ?? '未確認'}</span>
+                <span className="term-num">{renewal ?? '—'}</span>
               </Row>
             )}
             {status?.plan === 'founding-pass' && <Row label="更新">買い切りのため、自動更新・月額の請求はありません</Row>}

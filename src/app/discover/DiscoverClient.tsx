@@ -50,6 +50,11 @@ function valueTone(item: DiscoveryCase): string {
   return item.isFailure ? "text-term-danger" : "text-term-fg-strong";
 }
 
+/** 数値が無い事例は、保存済みの文言がどうであれ「—」にする。 */
+function resultText(item: DiscoveryCase): string {
+  return item.resultMetricId ? item.resultValue : UI.LIST_REVENUE_UNKNOWN;
+}
+
 /** 数値（entity.reader.metrics の1件）の要素に付ける出どころの印。無ければ何も付けない。 */
 function metricAttrs(item: DiscoveryCase): Record<string, string> {
   return item.resultMetricId ? { "data-metric": item.resultMetricId } : {};
@@ -61,7 +66,7 @@ function ResultBlock({ item }: { item: DiscoveryCase }) {
   return (
     <div className="shrink-0 text-right" {...metricAttrs(item)}>
       <div className="text-xs text-term-label">{item.resultLabel}</div>
-      <div className={`term-num text-lg ${valueTone(item)}`}>{item.resultValue}</div>
+      <div className={`term-num text-lg ${valueTone(item)}`}>{resultText(item)}</div>
       {item.resultEvidenceLabel && <div className={`text-xs ${evidenceTone(item.resultEvidenceLabel)}`}>{item.resultEvidenceLabel}</div>}
     </div>
   );
@@ -98,7 +103,7 @@ export function DiscoveryRow({
         )}
       </span>
       <span className="text-right" {...metricAttrs(item)}>
-        <span className={`term-num ${valueTone(item)}`}>{item.resultValue}</span>
+        <span className={`term-num ${valueTone(item)}`}>{resultText(item)}</span>
         <span className="ml-1 text-xs text-term-label">{item.resultLabel}</span>
         {item.resultEvidenceLabel && <span className={`block text-xs lg:hidden ${evidenceTone(item.resultEvidenceLabel)}`}>{item.resultEvidenceLabel}</span>}
       </span>

@@ -87,10 +87,12 @@ export default async function MarketplaceListingPage({
                 <dt className="text-xs text-term-label">掲載者</dt>
                 <dd className="text-sm text-term-fg">{listing.sellerName || '掲載者名なし'}</dd>
               </div>
-              <div className="grid grid-cols-[110px_minmax(0,1fr)] items-baseline gap-2 border-b border-term-line-soft px-3 py-2">
-                <dt className="text-xs text-term-label">価格</dt>
-                <dd className={`text-sm ${listing.priceLabel ? 'term-num text-term-fg-strong' : 'text-term-dim'}`}>{listing.priceLabel || '未確認'}</dd>
-              </div>
+              {listing.priceLabel && (
+                <div className="grid grid-cols-[110px_minmax(0,1fr)] items-baseline gap-2 border-b border-term-line-soft px-3 py-2">
+                  <dt className="text-xs text-term-label">価格</dt>
+                  <dd className="term-num text-sm text-term-fg-strong">{listing.priceLabel}</dd>
+                </div>
+              )}
             </dl>
             <p className="whitespace-pre-wrap border-b border-term-line px-3 py-3 text-sm leading-7 text-term-fg">{listing.summary}</p>
             <div className="flex flex-wrap gap-2 border-b border-term-line px-3 py-3">

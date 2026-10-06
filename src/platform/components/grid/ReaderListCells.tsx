@@ -58,7 +58,7 @@ export function ListMetric({ metric, compact = false }: { metric: ReaderMetric |
 
 /**
  * 表の1マス用（1行）。金額だけを出し、列の想定と違う種類（売却額・調達額など）の時だけ名前を前に付ける。
- * 期間と由来は title に入れる。無ければ「未確認」。
+ * 期間と由来は title に入れる。無ければ「—」。
  */
 export function ListMetricCell({ metric, expected }: { metric: ReaderMetric | null; expected?: readonly Measure[] }) {
   if (!metric) return <span className="font-sans text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
@@ -72,7 +72,7 @@ export function ListMetricCell({ metric, expected }: { metric: ReaderMetric | nu
   );
 }
 
-/** 由来の1語（提出書類・本人申告・記事・第三者・推定）。推定だけ橙。数値が無ければ「未確認」。 */
+/** 由来の1語（提出書類・本人申告・記事・第三者・推定）。推定だけ橙。数値が無ければ「—」。 */
 export function ListOriginCell({ metric }: { metric: ReaderMetric | null }) {
   if (!metric) return <span className="text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
   return (
