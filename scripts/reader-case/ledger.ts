@@ -86,14 +86,27 @@ export function appendRecord(input: LedgerInput, dir = LEDGER_DIR, now = new Dat
   const bad = validateRecord(input);
   if (bad) throw new Error(`台帳に書けない記録: ${bad}`);
   mkdirSync(dir, { recursive: true });
-  let attempts = input.attempts;
-  if (attempts === undefined) {
-    const prev = readCaseRecords(input.caseId, dir).filter((r) => r.stage === input.stage).at(-1);
-    attempts = (prev?.attempts ?? 0) + (input.status === 'RUNNING' ? 1 : 0);
-  }
+  const prev = readCaseRecords(input.caseId, dir).filter((r) => r.stage === input.stage).at(-1);
+  // 同じ事例×段階×状態×理由の保留・失敗は1件に畳む。直前の記録と同じなら足さず、その記録を返す（RUNNING と成功は毎回足す）
+  if (prev && (input.status === 'HOLD' || input.status === 'FAILED') && sameStuck(prev, input)) return prev;
+  const attempts = input.attempts ?? (prev?.attempts ?? 0) + (input.status === 'RUNNING' ? 1 : 0);
   const rec: LedgerRecord = { ...input, attempts, at: now.toISOString() };
   appendFileSync(fileOf(dir, input.caseId), `${JSON.stringify(rec)}\n`);
   return rec;
+}
+
+const sameStuck = (a: Pick<LedgerRecord, 'status' | 'reasonCode' | 'reasonText'>, b: Pick<LedgerRecord, 'status' | 'reasonCode' | 'reasonText'>) =>
+  a.status === b.status && a.reasonCode === b.reasonCode && (a.reasonText ?? '') === (b.reasonText ?? '');
+
+/**
+ * 止まっている（HOLD / FAILED）事例×段階を、成功（DONE）で閉じる。止まっていなければ何もしない（false）。
+ * 履歴は消さず DONE を足すので、現在の状態は止まっている一覧から外れる。
+ */
+export function resolveStuck(caseId: string, stage: Stage, dir = LEDGER_DIR, actor?: string, now = new Date()): boolean {
+  const last = readCaseRecords(caseId, dir).filter((r) => r.stage === stage).at(-1);
+  if (!last || !STUCK_STATUSES.includes(last.status)) return false;
+  appendRecord({ caseId, stage, status: 'DONE', actor, finishedAt: now.toISOString(), attempts: last.attempts }, dir, now);
+  return true;
 }
 
 /** 全事例の現在の状態（事例×段階の最後の記録） */

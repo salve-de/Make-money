@@ -8,6 +8,9 @@ import type { ReaderCase } from '../../src/shared/reader-case';
 export const EVIDENCE_CURRENT_FILE = 'data/analyze/evidence-current.json';
 export const EVIDENCE_REVIEWED_FILE = 'data/analyze/evidence-reviewed.json';
 
+/** 再評価の束を作ったが、まだ受理されていない事例の根拠の指紋。merge-analysis.ts が受理後に reviewed へ進める */
+export const EVIDENCE_PENDING_FILE = 'data/analyze/evidence-pending.json';
+
 /** id → 内容の指紋 */
 export interface EvidenceDigest {
   facts: Record<string, string>;
