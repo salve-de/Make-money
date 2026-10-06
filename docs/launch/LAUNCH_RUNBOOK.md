@@ -30,7 +30,22 @@
 | 公開の Firebase 設定 | `NEXT_PUBLIC_FIREBASE_*`（`deploy:preflight` が検査する）。許可ドメインに本番ドメインを追加（Firebase コンソール） | 公開する人 |
 | Stripe | 本番の Webhook エンドポイントを本番URLに登録し、署名鍵を `STRIPE_WEBHOOK_SECRET` に入れる。商品・価格の本番設定 | オーナー（課金設定） |
 | アクセス解析 | `NEXT_PUBLIC_CF_ANALYTICS_TOKEN`（Cloudflare Web Analytics のトークン。未設定なら何も読み込まない。同意後のみ読み込む） | 公開する人 |
+| 運営者（審査担当）の権限 | マーケット掲載は審査後に表示される。審査 API を使えるのは `users.role='admin'` の人だけ。本番D1で審査担当に admin を付ける操作が要る（オーナーが実施。手順と curl 例は `MARKETPLACE_REVIEW.md`。**付けるまで掲載は1件も公開されない**） | オーナー |
+| 新しい migration | 0015（ニュースレターの確認メール方式）、0016（掲載の審査）。`deploy:workers` が本番D1に適用する。0015 は既存の購読者を「確認済み」にしない。0016 は既存の公開行を「審査待ち」に倒す（本番は現在どちらも0行の想定） | 公開する人 |
+| 確認メールの送信 | `RESEND_API_KEY` と `NOTIFY_FROM_EMAIL`（Resend で認証したドメイン）と `NOTIFY_UNSUBSCRIBE_SECRET` か `NOTIFY_CRON_SECRET` が無いと、購読の確認メールが送れず、登録は確認待ちのまま配信対象にならない | 公開する人 |
 | 死活監視 | 外部の監視サービスに `/api/health`（異常時 503）を登録。方法は `MONITORING.md` | 公開する人 |
+
+### 2-2. 公開の直前にオーナーが行うことの一覧
+
+1. 法務: 弁護士に `LEGAL_REVIEW_CHECKLIST.md` を確認してもらい、規約・プライバシー・特商法のドラフト表示を外す。
+2. 運営者情報（`LEGAL_*`）と、本番ドメイン（`NEXT_PUBLIC_SITE_URL`）を決めて設定する。
+3. Firebase: Web API キーに HTTP リファラー制限（Google Cloud コンソール）、許可ドメインに本番ドメインを追加。匿名ログインが有効か確認。
+4. Cloudflare: 取り込み用・ダイジェスト用エンドポイントへのレート制限ルール。Web Analytics のトークン（任意）。
+5. Stripe: 本番の Webhook 登録と署名鍵、商品・価格の本番設定。
+6. Resend: 送信ドメインの認証。
+7. 審査担当に admin 権限を付ける（上の表）。
+8. 実ブラウザで確認: Google ログインのポップアップ、Stripe 画面への移動、事例画像、ビルダーのプレビュー、購読の確認メールのリンク、同意バー（スマホ幅も）。
+9. 外部の死活監視に `/api/health` を登録。
 
 ## 3. 公開の手順（この順で）
 
@@ -105,7 +120,7 @@ node -e "const d=require('./data/case-display.json');const c={};for(const v of O
 
 ## 7. この作業で入れていないもの（公開前に残る作業）
 
-- **オーナーの判断が要る安全性の残件**: ニュースレターの二重確認（確認メール方式にするか止めるか）、マーケットプレイス掲載の審査（審査後に表示か、止めるか）。
+- ニュースレターの確認メール方式と、マーケット掲載の審査後表示は実装済み（2026-10-06 オーナー決定。本番D1適用・実メール送信・実ブラウザ確認は未実施）。審査画面・公開中の掲載の取り下げ API・審査待ち通知は未作成（取り下げは当面 D1 の直接操作）。
 - **公開する人の設定**: Firebase の Web API キーの HTTP リファラー制限、Cloudflare のレート制限ルール、CSP の実ブラウザ確認（Google ログインのポップアップ・Stripe 画面への移動・事例画像・ビルダーのプレビュー）。
 - 事例ごとのタイトル・説明・noindex（`src/app/page.tsx` に `generateMetadata` が必要。部品 `entityMetadata()` は用意済み。画面担当の領域）。
 - 共有画像の日本語化（日本語フォントの同梱が必要）。

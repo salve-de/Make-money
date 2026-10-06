@@ -15,7 +15,7 @@ vi.mock('next/link', () => ({
 
 const noop = () => {};
 function listing(overrides: Partial<OwnedBusinessSaleWithInquiries> = {}): OwnedBusinessSaleWithInquiries {
-  return { ...detail(), status: 'published', createdAt: '2026-09-01T00:00:00.000Z', inquiryCount: 0, inquiries: [], ...overrides };
+  return { ...detail(), status: 'published', reviewNote: null, createdAt: '2026-09-01T00:00:00.000Z', inquiryCount: 0, inquiries: [], ...overrides };
 }
 const props: MyBusinessSalesViewProps = {
   listings: [],
@@ -34,7 +34,7 @@ describe('MyBusinessSalesView', () => {
     const text = visibleText(render());
     expect(text).toContain('まだ掲載がありません');
     expect(text).toContain('「事業を掲載する」から下書きを作ります');
-    expect(text).toContain('公開するまで、買い手には見えません');
+    expect(text).toContain('審査を通って公開されるまで、買い手には見えません');
   });
 
   it('links to creating a listing and to the public list', () => {
@@ -48,8 +48,28 @@ describe('MyBusinessSalesView', () => {
     const text = visibleText(html);
     expect(text).toContain('下書き');
     expect(html).toContain('href="/marketplace/businesses/new?id=draft-1"');
-    expect(text).toContain('公開する');
+    expect(text).toContain('公開を申請する');
     expect(text).not.toContain('募集を終了する');
+    expect(text).not.toContain('公開ページを見る');
+  });
+
+  it('tells the owner a pending listing awaits review and offers no public page or closing', () => {
+    const html = render({ listings: [listing({ id: 'p1', status: 'pending_review' })] });
+    const text = visibleText(html);
+    expect(text).toContain('審査待ち');
+    expect(text).toContain('審査待ちです。承認されると公開されます');
+    expect(text).not.toContain('公開ページを見る');
+    expect(text).not.toContain('募集を終了する');
+    expect(text).not.toContain('公開を申請する');
+  });
+
+  it('shows the rejection reason to the owner and offers resubmission', () => {
+    const html = render({ listings: [listing({ id: 'r1', status: 'rejected', reviewNote: '事業の説明が実態とずれています' })] });
+    const text = visibleText(html);
+    expect(text).toContain('却下');
+    expect(text).toContain('事業の説明が実態とずれています');
+    expect(text).toContain('審査に出し直す');
+    expect(html).toContain('href="/marketplace/businesses/new?id=r1"');
     expect(text).not.toContain('公開ページを見る');
   });
 

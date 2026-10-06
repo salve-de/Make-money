@@ -72,10 +72,16 @@ describe('public reads', () => {
   it('returns only published listings by slug and never exposes the seller', async () => {
     const draft = seed({ slug: 'draft-slug', status: 'draft' });
     const closed = seed({ slug: 'closed-slug', status: 'closed' });
+    const pending = seed({ slug: 'pending-slug', status: 'pending_review' });
+    const rejected = seed({ slug: 'rejected-slug', status: 'rejected', reviewNote: '却下の理由（非公開）' });
     const published = seed({ slug: 'published-slug', status: 'published', userId: 'seller-secret-uid' });
-    expect(draft && closed).toBeTruthy();
+    expect(draft && closed && pending && rejected).toBeTruthy();
 
     expect(await getPublishedBusinessSaleBySlug('draft-slug')).toBeNull();
+    expect(await getPublishedBusinessSaleBySlug('pending-slug')).toBeNull();
+    expect(await getPublishedBusinessSaleBySlug('rejected-slug')).toBeNull();
+    expect(await getPublishedBusinessSaleForInquiry(pending)).toBeNull();
+    expect(await getPublishedBusinessSaleForInquiry(rejected)).toBeNull();
     expect(await getPublishedBusinessSaleBySlug('closed-slug')).toBeNull();
     expect(await getPublishedBusinessSaleBySlug('missing')).toBeNull();
     const listing = await getPublishedBusinessSaleBySlug('published-slug');
@@ -83,6 +89,7 @@ describe('public reads', () => {
     expect(Object.keys(listing!)).not.toContain('userId');
     expect(Object.keys(listing!)).not.toContain('status');
     expect(JSON.stringify(listing)).not.toContain('seller-secret-uid');
+    expect(JSON.stringify(listing)).not.toContain('reviewNote');
   });
 
   it('lists published listings newest first and filters by category and price', async () => {
@@ -91,6 +98,8 @@ describe('public reads', () => {
     seed({ slug: 'mid', updatedAt: '2026-09-10 00:00:00', category: 'saas', askingPriceJpy: 3_000_000 });
     seed({ slug: 'hidden-draft', status: 'draft' });
     seed({ slug: 'hidden-closed', status: 'closed' });
+    seed({ slug: 'hidden-pending', status: 'pending_review' });
+    seed({ slug: 'hidden-rejected', status: 'rejected', reviewNote: '理由' });
 
     expect((await listPublishedBusinessSales()).map((item) => item.slug)).toEqual(['new', 'mid', 'old']);
     expect((await listPublishedBusinessSales({ category: 'saas' })).map((item) => item.slug)).toEqual(['mid', 'old']);
@@ -147,27 +156,47 @@ describe('updateBusinessSale', () => {
   it('treats another user\'s listing as missing and leaves it untouched', async () => {
     const id = seed({ userId: 'seller-1', status: 'draft' });
     const before = rowOf(state.db!, id);
-    expect(await updateBusinessSale('intruder', id, { title: '乗っ取り', status: 'published' })).toEqual({ kind: 'not_found' });
+    expect(await updateBusinessSale('intruder', id, { title: '乗っ取り', status: 'pending_review' })).toEqual({ kind: 'not_found' });
     expect(await updateBusinessSale('seller-1', crypto.randomUUID(), { title: 'x'.repeat(5) })).toEqual({ kind: 'not_found' });
     expect(rowOf(state.db!, id)).toEqual(before);
   });
 
-  it('publishes a complete draft and then closes it, and nothing can go back', async () => {
+  it('requests review for a complete draft; it stays hidden until a reviewer approves it, then it can be closed', async () => {
     const id = seed({ status: 'draft' });
-    expect(await updateBusinessSale('seller-1', id, { status: 'published' })).toMatchObject({ kind: 'ok', listing: { status: 'published' } });
+    expect(await updateBusinessSale('seller-1', id, { status: 'pending_review' })).toMatchObject({ kind: 'ok', listing: { status: 'pending_review' } });
+    expect((await listPublishedBusinessSales()).map((item) => item.id)).not.toContain(id);
+    expect(await getPublishedBusinessSaleBySlug(String(rowOf(state.db!, id)!.slug))).toBeNull();
+    // 運営者の承認（審査 API の代わりに SQL で公開にする）
+    state.db!.prepare("UPDATE business_sale_listings SET status='published' WHERE id=?").run(id);
     expect((await listPublishedBusinessSales()).map((item) => item.id)).toContain(id);
     expect(await updateBusinessSale('seller-1', id, { status: 'draft' })).toMatchObject({ kind: 'conflict' });
     expect(await updateBusinessSale('seller-1', id, { status: 'closed' })).toMatchObject({ kind: 'ok', listing: { status: 'closed' } });
     expect((await listPublishedBusinessSales()).map((item) => item.id)).not.toContain(id);
     expect(await updateBusinessSale('seller-1', id, { title: '終了後の変更' })).toMatchObject({ kind: 'conflict' });
-    expect(await updateBusinessSale('seller-1', id, { status: 'published' })).toMatchObject({ kind: 'conflict' });
+    expect(await updateBusinessSale('seller-1', id, { status: 'pending_review' })).toMatchObject({ kind: 'conflict' });
     expect(rowOf(state.db!, id)).toMatchObject({ status: 'closed', title: expect.not.stringContaining('終了後') });
   });
 
-  it('refuses to publish an incomplete draft', async () => {
+  it('sends a published listing back to review when it is edited, and hides it again', async () => {
+    const id = seed({ status: 'published' });
+    state.db!.prepare("UPDATE business_sale_listings SET reviewed_at='2026-09-02 00:00:00',reviewed_by='admin-1' WHERE id=?").run(id);
+    const before = Number(rowOf(state.db!, id)!.revision);
+    expect(await updateBusinessSale('seller-1', id, { askingPriceJpy: 3_000_000 })).toMatchObject({ kind: 'ok', listing: { status: 'pending_review', askingPriceJpy: 3_000_000 } });
+    expect((await listPublishedBusinessSales()).map((item) => item.id)).not.toContain(id);
+    expect(rowOf(state.db!, id)).toMatchObject({ status: 'pending_review', reviewed_at: null, reviewed_by: null, revision: before + 1 });
+  });
+
+  it('keeps a rejection reason only while the listing stays rejected, and clears it on resubmission', async () => {
+    const id = seed({ status: 'rejected', reviewNote: '説明が不十分です' });
+    expect(await getOwnedBusinessSale('seller-1', id)).toMatchObject({ status: 'rejected', reviewNote: '説明が不十分です' });
+    expect(await updateBusinessSale('seller-1', id, { title: '直した事業名' })).toMatchObject({ kind: 'ok', listing: { status: 'rejected', reviewNote: '説明が不十分です' } });
+    expect(await updateBusinessSale('seller-1', id, { status: 'pending_review' })).toMatchObject({ kind: 'ok', listing: { status: 'pending_review', reviewNote: null } });
+  });
+
+  it('refuses to request review for an incomplete draft', async () => {
     const id = seed({ status: 'draft' });
     state.db!.prepare("UPDATE business_sale_listings SET reason_for_sale='' WHERE id=?").run(id);
-    expect(await updateBusinessSale('seller-1', id, { status: 'published' })).toMatchObject({ kind: 'invalid', field: 'reasonForSale' });
+    expect(await updateBusinessSale('seller-1', id, { status: 'pending_review' })).toMatchObject({ kind: 'invalid', field: 'reasonForSale' });
     expect(rowOf(state.db!, id)).toMatchObject({ status: 'draft' });
   });
 
@@ -190,7 +219,7 @@ describe('updateBusinessSale', () => {
         state.db!.prepare("UPDATE business_sale_listings SET status='published' WHERE id=?").run(id);
       }
     };
-    const outcome = await updateBusinessSale('seller-1', id, { title: '同時編集', status: 'published' });
+    const outcome = await updateBusinessSale('seller-1', id, { title: '同時編集', status: 'pending_review' });
     expect(outcome).toMatchObject({ kind: 'conflict' });
     expect(rowOf(state.db!, id)).toMatchObject({ status: 'published', title: expect.not.stringContaining('同時編集') });
   });

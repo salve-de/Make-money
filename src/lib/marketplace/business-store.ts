@@ -27,7 +27,7 @@ const SUMMARY_COLUMNS = `id,slug,title,summary,category,
   monthly_profit_jpy AS monthlyProfitJpy,asking_price_jpy AS askingPriceJpy,
   revenue_basis AS revenueBasis,seller_name AS sellerName,updated_at AS updatedAt`;
 const DETAIL_COLUMNS = `${SUMMARY_COLUMNS},reason_for_sale AS reasonForSale,included_assets AS includedAssets`;
-const OWNER_COLUMNS = `${DETAIL_COLUMNS},status,created_at AS createdAt`;
+const OWNER_COLUMNS = `${DETAIL_COLUMNS},status,review_note AS reviewNote,created_at AS createdAt`;
 
 function asRow(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Invalid business sale row');
@@ -82,7 +82,9 @@ function parseOwnedRow(value: unknown): OwnedBusinessSaleListing {
   const row = asRow(value);
   const status = row.status;
   if (!isBusinessSaleStatus(status)) throw new Error('Invalid business sale row: status');
-  return { ...parseDetailRow(row), status, createdAt: toIso(text(row, 'createdAt')) };
+  const reviewNote = row.reviewNote;
+  if (reviewNote !== null && typeof reviewNote !== 'string') throw new Error('Invalid business sale row: reviewNote');
+  return { ...parseDetailRow(row), status, reviewNote, createdAt: toIso(text(row, 'createdAt')) };
 }
 
 function slugBase(title: string): string {
@@ -187,6 +189,8 @@ export type UpdateOutcome =
  * 本人の掲載だけを更新する。他人の掲載は存在しないものとして扱う（not_found）。
  * 状態の変更は現在の状態を条件に付けた UPDATE で行い、同時操作で飛び越えられないようにする。
  * 月商を書き換えたら、検証済みの表示と検証の記録を外して本人申告に戻す。
+ * 公開は運営者の審査でだけ付く。公開中の掲載の内容を書き換えたら審査待ちに戻り、
+ * 審査待ち・下書きへ戻すときは却下の理由と審査の記録を消す。保存のたびに revision を1進める。
  */
 export async function updateBusinessSale(userId: string, id: string, patch: BusinessSaleUpdateInput): Promise<UpdateOutcome> {
   const current = await getOwnedBusinessSale(userId, id);
@@ -196,19 +200,24 @@ export async function updateBusinessSale(userId: string, id: string, patch: Busi
 
   const { next } = plan;
   const resetVerification = plan.revenueChanged ? 1 : 0;
+  const keepReview = next.status === 'rejected' || next.status === 'published' || next.status === 'closed' ? 1 : 0;
   const rows = await queryD1(
     `UPDATE business_sale_listings SET
        title=?,summary=?,category=?,established_year=?,monthly_revenue_jpy=?,monthly_profit_jpy=?,
        asking_price_jpy=?,reason_for_sale=?,included_assets=?,seller_name=?,status=?,
        revenue_basis=CASE WHEN ?=1 THEN 'self_reported' ELSE revenue_basis END,
        verification_id=CASE WHEN ?=1 THEN NULL ELSE verification_id END,
+       review_note=CASE WHEN ?=1 THEN review_note ELSE NULL END,
+       reviewed_at=CASE WHEN ?=1 THEN reviewed_at ELSE NULL END,
+       reviewed_by=CASE WHEN ?=1 THEN reviewed_by ELSE NULL END,
+       revision=revision+1,
        updated_at=CURRENT_TIMESTAMP
      WHERE id=? AND user_id=? AND status=?
      RETURNING ${OWNER_COLUMNS}`,
     [
       next.title, next.summary, next.category, next.establishedYear, next.monthlyRevenueJpy, next.monthlyProfitJpy,
       next.askingPriceJpy, next.reasonForSale, next.includedAssets, next.sellerName, next.status,
-      resetVerification, resetVerification, id, userId, current.status,
+      resetVerification, resetVerification, keepReview, keepReview, keepReview, id, userId, current.status,
     ],
     parseOwnedRow,
   );

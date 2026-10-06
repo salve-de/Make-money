@@ -4,13 +4,16 @@ import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 import { getOwnedBuildSession } from '@/lib/builder/session';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { getOwnedMarketplaceListing, getOwnedMarketplaceListingById } from '@/lib/marketplace/listing-store';
+import { validListingUrl } from '@/lib/marketplace/listing-url';
 import { executeD1 } from '@/lib/storage/d1';
 import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 import {
   MARKETPLACE_CATEGORIES,
   type MarketplaceCategory,
   type MarketplaceListingSource,
+  type MarketplaceListingRequestedStatus,
   type MarketplaceListingStatus,
+  type OwnedMarketplaceListing,
 } from '@/shared/marketplace-listing';
 
 export const dynamic = 'force-dynamic';
@@ -27,24 +30,6 @@ function response(body: unknown, status = 200) {
   return NextResponse.json(body, { status, headers });
 }
 
-function validProductUrl(value: unknown, required: boolean): string | null | false {
-  if (typeof value !== 'string' || !value.trim()) return required ? false : null;
-  const raw = value.trim();
-  if (raw.length > 2048) return false;
-  try {
-    const url = new URL(raw);
-    const host = url.hostname.toLowerCase().replace(/\.$/, '');
-    const ipLiteral = host.startsWith('[') || /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host);
-    if (url.protocol !== 'https:' || url.username || url.password || !host || ipLiteral || host === 'localhost'
-      || host.endsWith('.localhost') || host.endsWith('.local') || host === '::1'
-      || /^127\./.test(host) || /^10\./.test(host) || /^192\.168\./.test(host)
-      || /^169\.254\./.test(host) || /^172\.(1[6-9]|2\d|3[01])\./.test(host)) return false;
-    return url.toString();
-  } catch {
-    return false;
-  }
-}
-
 interface ListingInput {
   listingId: string | null;
   sessionId: string | null;
@@ -56,7 +41,7 @@ interface ListingInput {
   checkoutUrl: string | null;
   priceLabel: string;
   sellerName: string;
-  status: MarketplaceListingStatus;
+  status: MarketplaceListingRequestedStatus;
 }
 
 function parseInput(value: unknown): ListingInput {
@@ -73,8 +58,8 @@ function parseInput(value: unknown): ListingInput {
   const status = row.status;
   const priceLabel = typeof row.priceLabel === 'string' ? row.priceLabel.trim() : '';
   const sellerName = typeof row.sellerName === 'string' ? row.sellerName.trim() : '';
-  const productUrl = validProductUrl(row.productUrl, status === 'published');
-  const checkoutUrl = validProductUrl(row.checkoutUrl, false);
+  const productUrl = validListingUrl(row.productUrl, status === 'pending_review');
+  const checkoutUrl = validListingUrl(row.checkoutUrl, false);
   if (
     (listingId !== null && listingId.length > 128)
     || (sessionId !== null && sessionId.length > 128)
@@ -82,9 +67,9 @@ function parseInput(value: unknown): ListingInput {
     || (sourceType === 'builder' && !sessionId)
     || (sourceType === 'external' && sessionId !== null)
     || title.length < 2 || title.length > 100
-    || summary.length > 240 || (status === 'published' && summary.length < 12)
+    || summary.length > 240 || (status === 'pending_review' && summary.length < 12)
     || !MARKETPLACE_CATEGORIES.includes(category as MarketplaceCategory)
-    || (status !== 'draft' && status !== 'published')
+    || (status !== 'draft' && status !== 'pending_review')
     || productUrl === false || checkoutUrl === false
     || priceLabel.length > 80 || sellerName.length > 50
   ) throw new Error('Invalid listing fields');
@@ -99,7 +84,7 @@ function parseInput(value: unknown): ListingInput {
     checkoutUrl,
     priceLabel,
     sellerName,
-    status: status as MarketplaceListingStatus,
+    status: status as MarketplaceListingRequestedStatus,
   };
 }
 
@@ -163,19 +148,31 @@ export async function PUT(request: NextRequest) {
     }
     const listingId = existing?.listingId || id;
     const slug = existing?.slug || `${slugPart(input.title)}-${crypto.randomUUID().slice(0, 8)}`;
-    const result = await executeD1(
-      `INSERT INTO marketplace_listings(
-        id,user_id,build_session_id,source_type,slug,title,summary,category,product_url,checkout_url,price_label,seller_name,status,updated_at
-      ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)
-      ON CONFLICT(id) DO UPDATE SET
-        title=excluded.title,summary=excluded.summary,category=excluded.category,
-        product_url=excluded.product_url,checkout_url=excluded.checkout_url,
-        price_label=excluded.price_label,seller_name=excluded.seller_name,
-        status=excluded.status,updated_at=CURRENT_TIMESTAMP
-      WHERE marketplace_listings.user_id=excluded.user_id`,
-      [listingId, userId, input.sessionId, input.sourceType, slug, input.title, input.summary, input.category,
-        input.productUrl, input.checkoutUrl, input.priceLabel, input.sellerName, input.status],
-    );
+    let result: { changes: number };
+    if (existing) {
+      // 公開（published）は運営者の審査でだけ付く。公開中の掲載は、内容を変えたら審査待ちに戻す。
+      const status = nextStatus(existing, input);
+      const keepReview = status === 'published' ? 1 : 0;
+      result = await executeD1(
+        `UPDATE marketplace_listings SET
+          title=?,summary=?,category=?,product_url=?,checkout_url=?,price_label=?,seller_name=?,status=?,
+          review_note=CASE WHEN ?=1 THEN review_note ELSE NULL END,
+          reviewed_at=CASE WHEN ?=1 THEN reviewed_at ELSE NULL END,
+          reviewed_by=CASE WHEN ?=1 THEN reviewed_by ELSE NULL END,
+          revision=revision+1,updated_at=CURRENT_TIMESTAMP
+        WHERE id=? AND user_id=? AND status=?`,
+        [input.title, input.summary, input.category, input.productUrl, input.checkoutUrl, input.priceLabel,
+          input.sellerName, status, keepReview, keepReview, keepReview, listingId, userId, existing.status],
+      );
+    } else {
+      result = await executeD1(
+        `INSERT INTO marketplace_listings(
+          id,user_id,build_session_id,source_type,slug,title,summary,category,product_url,checkout_url,price_label,seller_name,status,updated_at
+        ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)`,
+        [listingId, userId, input.sessionId, input.sourceType, slug, input.title, input.summary, input.category,
+          input.productUrl, input.checkoutUrl, input.priceLabel, input.sellerName, input.status],
+      );
+    }
     if (result.changes !== 1) return response({ error: 'Listing could not be saved' }, 503);
     const listing = await getOwnedMarketplaceListingById(userId, listingId);
     if (!listing) return response({ error: 'Listing save could not be verified' }, 503);
@@ -184,6 +181,21 @@ export async function PUT(request: NextRequest) {
     console.error('[marketplace/listings] save failed:', error);
     return response({ error: 'Listing could not be saved' }, 503);
   }
+}
+
+/**
+ * 保存後の状態。掲載者が決められるのは下書きか審査待ちだけ。
+ * 公開中の掲載は、内容が同じなら公開のまま、変えたら審査待ちに戻す。
+ * 却下された掲載は、下書きへ戻すか、審査に出し直した時だけ状態が変わる。
+ */
+function nextStatus(existing: OwnedMarketplaceListing, input: ListingInput): MarketplaceListingStatus {
+  if (input.status === 'draft') return 'draft';
+  if (existing.status !== 'published') return 'pending_review';
+  const unchanged = existing.title === input.title && existing.summary === input.summary
+    && existing.category === input.category && (existing.productUrl || null) === input.productUrl
+    && (existing.checkoutUrl || null) === input.checkoutUrl && existing.priceLabel === input.priceLabel
+    && existing.sellerName === input.sellerName;
+  return unchanged ? 'published' : 'pending_review';
 }
 
 function slugPart(value: string): string {

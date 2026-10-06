@@ -94,7 +94,7 @@ describe('DELETE /api/user/me and business sale data', () => {
 
   it('still deletes the account on a database that has not applied migration 0014', async () => {
     state.db!.close();
-    state.db = openFullTestDatabase(['0014_business_sale_listings.sql']);
+    state.db = openFullTestDatabase(['0014_business_sale_listings.sql', '0016_listing_review.sql']);
     addUser('seller-1');
     expect((await DELETE(request())).status).toBe(200);
     expect(ids('users')).toEqual([]);

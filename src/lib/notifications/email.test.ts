@@ -5,6 +5,7 @@ const state = vi.hoisted(() => ({ env: {} as Record<string, string | undefined> 
 vi.mock('@/lib/runtime/cloudflare', () => ({ getRuntimeEnvValue: async (name: string) => state.env[name] }));
 
 import {
+  buildNewsletterConfirmationEmail,
   buildNewsletterEmail,
   buildSavedSearchEmail,
   entityLink,
@@ -316,5 +317,16 @@ describe('buildNewsletterEmail', () => {
   it('does not put a header-breaking label into the subject', () => {
     const mail = buildNewsletterEmail({ appUrl: APP, total: 1, entities: [entity(1)], releaseLabel: '9時\r\nBcc: x@mail.jp', unsubscribeUrl });
     expect(mail.subject).not.toMatch(/[\r\n]/);
+  });
+});
+
+describe('buildNewsletterConfirmationEmail', () => {
+  it('carries the link, the validity and a "ignore if not you" line, in Japanese', () => {
+    const mail = buildNewsletterConfirmationEmail({ confirmUrl: 'https://site.jp/api/newsletter/confirm?u=a&e=1&s=b', validHours: 48 });
+    expect(mail.subject).toContain('確認');
+    expect(mail.text).toContain('https://site.jp/api/newsletter/confirm?u=a&e=1&s=b');
+    expect(mail.text).toContain('48時間');
+    expect(mail.text).toContain('無視してください');
+    expect(mail.html).toContain('href="https://site.jp/api/newsletter/confirm?u=a&amp;e=1&amp;s=b"');
   });
 });

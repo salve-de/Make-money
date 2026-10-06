@@ -11,6 +11,7 @@
 2026-09-19: First Dollar実行レイヤー用にmigration 0009（`execution_projects`）と0010（server-issued `revision` / `generation`、`execution_resets`）をrepoへ追加した。これはGit上のschema変更であり、この記録だけでは本番D1への適用を意味しない。`execution_projects` はユーザー所有の実行途中データ、`execution_resets` は退会後に別端末の古い下書きが復活することを防ぐ世代tombstoneである。tombstoneの主キーはFirebase UIDそのものではなく一方向SHA-256化した `owner_key` とし、本文・URL・売上・メモ等は保持しない。
 
 2026-09-24: Builder製品と外部制作製品をMake-Moneyへ掲載するためmigration 0011（`marketplace_listings`）を追加した。掲載行は認証UIDに所有紐付けし、Builder製品だけ完成済み`build_sessions`へ紐づける。`source_type`でBuilder由来と外部由来を区別し、公開一覧は`status='published'`の許可済み項目だけを読む。公開ページが持つのは説明、掲載者表示名、利用者が登録したHTTPSサービス/申込URL、価格表示であり、生成コード・preview token・実績保証は含まない。このmigrationはGit上の変更であり、本番D1へ未適用。
+2026-10-06: 掲載を審査方式にするためmigration 0016を追加した（`marketplace_listings`・`business_sale_listings`を作り直し、状態に`pending_review`（審査待ち）・`rejected`（却下）を追加、`review_note`（却下理由・200字以内）・`reviewed_at`・`reviewed_by`・`revision`を追加）。掲載者が公開を操作すると`pending_review`になり、公開一覧・公開詳細・問い合わせの受付は`published`だけを対象とするので、審査待ち・却下は公開側に出ない。`published`にできるのは運営者（`users.role='admin'`）の審査APIだけで、公開中の掲載の内容を変えると`pending_review`に戻る。承認・却下は審査者が読んだ`revision`にだけ効き、読んだ後に掲載者が内容を変えていれば拒否する。Builder・外部サービスの承認時は商品URL・購入URLを再検査する。却下理由は掲載者本人の応答にだけ含め、公開側のSELECTには含めない。既存の`published`行は`pending_review`に倒す（本番の掲載は0行の想定）。このmigrationもGit上の変更であり、本番D1へ未適用。運用は`docs/launch/MARKETPLACE_REVIEW.md`。
 
 2026-09-29: 事例の運営者が自分のStripeを読み取り専用でつなぎ、実際の売上を「決済データで確認済み」と表示できるようにするためmigration 0012（`verified_revenue`）を追加した。運営者の制限付きAPIキーは1回の確認にだけ使い、D1・R2・ログのどこにも保存しない。決済アカウントIDはSHA-256の値だけを保存し、運営者のFirebase UIDは同じ人が同じ事例を1時間に2回確認できないようにする制限と退会時の削除だけに使う。公開APIが返すのは事例ID、決済アカウントのサイトのドメイン、通貨、直近30日の売上、月額換算の継続売上、有効なサブスクリプション数、期間、確認時刻だけである。このmigrationはGit上の変更であり、本番D1へ未適用。仕組みは[決済データによる売上確認](../VERIFIED_REVENUE.md)。
 
@@ -35,11 +36,11 @@
 | ログイン資格情報 | Firebase Authentication | 認証SDK。サーバーでトークン検証 | パスワードや認証処理を自作しない |
 | ユーザー設定、保存企業、投稿、会話 | プロジェクト専用D1 | 認証済みAPI → 所有者を限定したSQL。構造変更はSQL migration | 更新・検索・整合性制約が必要 |
 | First Dollar実行プロジェクト | プロジェクト専用D1 `execution_projects` | 認証済みAPI。server-issued `generation` と `revision` のCASで保存。匿名開始時だけブラウザlocalStorage | 別端末・同時PUT・ブラウザ時計ずれで新しい編集を失わない |
-| Builder・外部サービス掲載ページ | プロジェクト専用D1 `marketplace_listings` | 認証済みAPIが本人のBuilderセッションを検証、または外部URLの掲載行を所有UIDに紐付け。公開側は掲載許可項目だけを読み出す | 生成コードやpreview tokenを出さず、掲載者の公開URLへ案内する。購入照合・報酬分配は未接続 |
+| Builder・外部サービス掲載ページ | プロジェクト専用D1 `marketplace_listings` | 認証済みAPIが本人のBuilderセッションを検証、または外部URLの掲載行を所有UIDに紐付け。公開側は審査を通った（`published`）掲載の許可項目だけを読み出す。公開は運営者の承認後 | 生成コードやpreview tokenを出さず、掲載者の公開URLへ案内する。購入照合・報酬分配は未接続 |
 | 決済データで確認済みの売上 | プロジェクト専用D1 `verified_revenue` | 認証済みAPIが、運営者のStripe読み取り専用キーを1回だけ使って売上・月額換算を集計し、結果の行だけ追加する。キーと決済アカウントID（ハッシュ以外）は保存しない。公開側は最新の1件だけを読む | 運営者の自己申告ではなく決済側の実データに基づく表示にする。決済アカウントのサイトが事例の公式サイトと一致したものだけを保存する |
-| 事業の売買（掲載・問い合わせ） | プロジェクト専用D1 `business_sale_listings` / `business_sale_inquiries` | 認証済みAPIが所有UIDに紐付けて保存。公開側は `status='published'` の項目だけを読み、売り手のUID・買い手の連絡先は読まない。問い合わせは掲載の持ち主だけが読める | 売上・利益・希望価格は売り手の申告で、根拠は本人申告。売上検証は別の仕組みが根拠を付ける。仲介・価格保証・契約代行は行わない |
+| 事業の売買（掲載・問い合わせ） | プロジェクト専用D1 `business_sale_listings` / `business_sale_inquiries` | 認証済みAPIが所有UIDに紐付けて保存。公開側は運営者が承認した `status='published'` の項目だけを読み（審査待ち・却下・下書き・終了は出さない）、売り手のUID・買い手の連絡先・却下理由は読まない。問い合わせは承認済みの掲載にだけ送れる。問い合わせは掲載の持ち主だけが読める | 売上・利益・希望価格は売り手の申告で、根拠は本人申告。売上検証は別の仕組みが根拠を付ける。仲介・価格保証・契約代行は行わない |
 | 実行データ削除tombstone | プロジェクト専用D1 `execution_resets` | UIDを直接保存せずSHA-256化した `owner_key` と世代番号・reset時刻だけ保持 | 退会後に他端末の古いlocal draftがD1へ再生成されるのを防ぐ |
-| ニュースレター購読 | プロジェクト専用D1 | 認証済みならUIDを紐付け、匿名なら解除トークンのハッシュだけを保存。解除APIで削除 | メール本文をAPI応答へ返さず、匿名でも本人が削除できる |
+| ニュースレター購読 | プロジェクト専用D1 | 確認メール方式（ダブルオプトイン）。登録は `confirmed_at` が空の「確認待ち」で保存し、署名つき・48時間有効のリンクを本人が開いて確定（migration 0015、Git上のみ・本番D1へ未適用）。配信の宛先は確認済みだけ。認証済みならUIDを紐付け、匿名なら解除トークンのハッシュだけを保存。解除APIで削除 | 他人のアドレスで勝手に配信されない。メールアドレスをAPI応答・ログへ返さず、匿名でも本人が削除できる |
 | 保存した検索条件・通知設定 | プロジェクト専用D1 `saved_searches` | 認証済みAPI（`/api/saved-searches`）。所有者UIDで限定し、1人20件までを挿入と同じ1文で保証。条件は保存時に検証し既知の項目だけ保存 | 他人の条件を読み書きできず、同時に保存しても上限を超えない |
 | 通知メールの送信台帳 | プロジェクト専用D1 `notification_sends` | 送信前に(種類, 宛先ハッシュ, 便または週)をUNIQUEで確保し、失敗したら解放。宛先は一方向ハッシュのみ | 同じ便を二度送らない。台帳にメールアドレスを残さない |
 | 決済イベント、購入・返金・利用権 | プロジェクト専用D1 | 署名検証済みStripe webhook → 重複排除・原子的更新 | 二重処理、順序逆転、返金後の権限残存を防ぐ |

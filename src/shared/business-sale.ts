@@ -19,12 +19,22 @@ export const BUSINESS_SALE_CATEGORY_LABELS: Record<BusinessSaleCategory, string>
   service: 'サービス・受託',
 };
 
-export const BUSINESS_SALE_STATUSES = ['draft', 'published', 'closed'] as const;
+/**
+ * 掲載の状態。掲載者が公開を申請すると pending_review になり、運営者が承認したものだけが published になる。
+ * 掲載者が自分で published・rejected にすることはできない。
+ */
+export const BUSINESS_SALE_STATUSES = ['draft', 'pending_review', 'published', 'rejected', 'closed'] as const;
 export type BusinessSaleStatus = (typeof BUSINESS_SALE_STATUSES)[number];
+
+/** 掲載者が API に送れる状態 */
+export const BUSINESS_SALE_REQUESTABLE_STATUSES = ['draft', 'pending_review', 'closed'] as const;
+export type BusinessSaleRequestedStatus = (typeof BUSINESS_SALE_REQUESTABLE_STATUSES)[number];
 
 export const BUSINESS_SALE_STATUS_LABELS: Record<BusinessSaleStatus, string> = {
   draft: '下書き',
+  pending_review: '審査待ち',
   published: '公開中',
+  rejected: '却下',
   closed: '募集終了',
 };
 
@@ -107,6 +117,8 @@ export interface PublicBusinessSaleListing extends PublicBusinessSaleSummary {
 /** 売り手本人だけが見る掲載。 */
 export interface OwnedBusinessSaleListing extends PublicBusinessSaleListing {
   status: BusinessSaleStatus;
+  /** 却下の理由。掲載者本人にだけ返し、公開側には出さない */
+  reviewNote: string | null;
   createdAt: string;
 }
 

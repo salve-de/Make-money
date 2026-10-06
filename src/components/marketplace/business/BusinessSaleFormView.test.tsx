@@ -55,7 +55,7 @@ describe('BusinessSaleFormView', () => {
     const notice = html.indexOf(BUSINESS_SALE_NOTICE);
     expect(notice).toBeGreaterThan(-1);
     // ヒント文にも「公開する」が出るので、ボタン要素の終わりまで含めて探す
-    expect(notice).toBeLessThan(html.indexOf('公開する</button>'));
+    expect(notice).toBeLessThan(html.indexOf('公開を申請する</button>'));
     expect(notice).toBeLessThan(html.indexOf('下書きを保存</button>'));
     const editing = render({ mode: 'edit', status: 'published' });
     expect(editing.indexOf(BUSINESS_SALE_NOTICE)).toBeLessThan(editing.indexOf('変更を保存</button>'));
@@ -63,13 +63,22 @@ describe('BusinessSaleFormView', () => {
 
   it('offers publish and save-draft for a new or draft listing, and only save-changes for a published one', () => {
     const buttons = (html: string) => ({
-      publish: html.includes('公開する</button>'),
+      publish: html.includes('公開を申請する</button>'),
       draft: html.includes('下書きを保存</button>'),
       changes: html.includes('変更を保存</button>'),
     });
     expect(buttons(render())).toEqual({ publish: true, draft: true, changes: false });
     expect(buttons(render({ mode: 'edit', status: 'draft' }))).toEqual({ publish: true, draft: true, changes: false });
     expect(buttons(render({ mode: 'edit', status: 'published' }))).toEqual({ publish: false, draft: false, changes: true });
+    expect(buttons(render({ mode: 'edit', status: 'pending_review' }))).toEqual({ publish: false, draft: false, changes: true });
+  });
+
+  it('says a pending listing awaits review and shows the rejection reason to its owner', () => {
+    expect(render({ mode: 'edit', status: 'pending_review' })).toContain('審査待ちです。承認されると公開されます');
+    const rejected = render({ mode: 'edit', status: 'rejected', reviewNote: '事業の説明が実態とずれています' });
+    expect(rejected).toContain('事業の説明が実態とずれています');
+    expect(rejected).toContain('審査に出し直す</button>');
+    expect(render({ mode: 'edit', status: 'draft' })).not.toContain('審査待ち');
   });
 
   it('disables the buttons while saving', () => {

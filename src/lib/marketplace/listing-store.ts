@@ -21,6 +21,7 @@ interface ListingRow {
   priceLabel: string;
   sellerName: string;
   status: string;
+  reviewNote: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -36,7 +37,8 @@ function parseRow(value: unknown): ListingRow {
     || (row.productUrl !== null && typeof row.productUrl !== 'string')
     || (row.checkoutUrl !== null && typeof row.checkoutUrl !== 'string')
     || typeof row.priceLabel !== 'string' || typeof row.sellerName !== 'string'
-    || (row.status !== 'draft' && row.status !== 'published')
+    || (row.status !== 'draft' && row.status !== 'pending_review' && row.status !== 'published' && row.status !== 'rejected')
+    || (row.reviewNote !== null && typeof row.reviewNote !== 'string')
     || typeof row.createdAt !== 'string' || typeof row.updatedAt !== 'string'
     || !MARKETPLACE_CATEGORIES.includes(row.category as MarketplaceCategory)
   ) throw new Error('Invalid marketplace listing');
@@ -54,6 +56,7 @@ function parseRow(value: unknown): ListingRow {
     priceLabel: row.priceLabel,
     sellerName: row.sellerName,
     status: row.status,
+    reviewNote: row.reviewNote,
     createdAt: row.createdAt,
     updatedAt: row.updatedAt,
   };
@@ -62,7 +65,7 @@ function parseRow(value: unknown): ListingRow {
 const SELECT = `SELECT
   id,build_session_id AS sessionId,source_type AS sourceType,
   slug,title,summary,category,product_url AS productUrl,checkout_url AS checkoutUrl,
-  price_label AS priceLabel,seller_name AS sellerName,status,
+  price_label AS priceLabel,seller_name AS sellerName,status,review_note AS reviewNote,
   created_at AS createdAt,updated_at AS updatedAt
 FROM marketplace_listings`;
 
@@ -80,6 +83,7 @@ function toOwned(row: ListingRow): OwnedMarketplaceListing {
     priceLabel: row.priceLabel,
     sellerName: row.sellerName,
     status: row.status as MarketplaceListingStatus,
+    reviewNote: row.reviewNote,
     createdAt: row.createdAt,
     updatedAt: row.updatedAt,
   };

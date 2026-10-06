@@ -12,11 +12,14 @@ function migration(file: string): string {
   return readFileSync(new URL(`../../../../migrations/d1/${file}`, import.meta.url), 'utf8');
 }
 
-/** users（売り手のメール参照）と business_sale_* を持つ空のデータベース。 */
+/** users（売り手のメール参照）、marketplace_listings、business_sale_*（審査方式の 0016 適用後）を持つ空のデータベース。 */
 export function openBusinessSaleTestDatabase(): DatabaseSync {
   const database = new DatabaseSync(':memory:');
   database.exec(migration('0001_users.sql'));
+  database.exec(migration('0008_builder.sql'));
+  database.exec(migration('0011_marketplace_listings.sql'));
   database.exec(migration('0014_business_sale_listings.sql'));
+  database.exec(migration('0016_listing_review.sql'));
   return database;
 }
 

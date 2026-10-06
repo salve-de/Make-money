@@ -59,7 +59,7 @@ describe('formFromListing', () => {
     const listing: OwnedBusinessSaleListing = {
       id: 'l1', slug: 's', title: 'T事業', summary: '説明', category: 'saas', establishedYear: 2020, monthlyRevenueJpy: 500_000,
       monthlyProfitJpy: 0, askingPriceJpy: 1_000_000, revenueBasis: 'self_reported', sellerName: '', updatedAt: 'x',
-      reasonForSale: '理由', includedAssets: '資産', status: 'draft', createdAt: 'y',
+      reasonForSale: '理由', includedAssets: '資産', status: 'draft', reviewNote: null, createdAt: 'y',
     };
     expect(formFromListing(listing)).toEqual({
       title: 'T事業', category: 'saas', establishedYear: '2020', monthlyRevenueJpy: '500000', monthlyProfitJpy: '0',

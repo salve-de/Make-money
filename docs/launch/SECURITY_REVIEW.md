@@ -11,15 +11,15 @@
    - 事例の画像（R2 の公開ドメイン含む）が表示される
    - ビルダーのプレビュー iframe が表示される
    - 問題が出たら `src/lib/security/headers.ts` の該当ディレクティブだけを緩める（根拠は同ファイル冒頭）
-2. **ニュースレターの二重確認（ダブルオプトイン）が無い**。`/api/newsletter/subscribe` は他人のメールアドレスでも登録でき、ダイジェストがそこへ送られる。特定電子メール法・迷惑メールの観点で、公開前に「確認メールを送り、承諾後に有効化」へ変えるか、機能を止めるかを決める。
-3. **マーケットプレイスの掲載に審査が無い**。任意の https の商品・決済 URL をそのまま公開できる。公開前に、審査後に表示する運用にするか、機能を止めるかを決める。
+2. **ニュースレターの二重確認（ダブルオプトイン）**: **対応済み（確認メール方式、未実機確認）**。登録は「確認待ち」で保存し、署名つき・48時間有効のリンクを本人が開いて確定した人だけに配信する（migration 0015 は本番D1へ未適用、Resend での実送信は未確認）。
+3. **マーケットプレイスの掲載の審査**: **対応済み（審査方式、未実機確認）**。掲載者が公開を申請すると「審査待ち」になり、運営者（`users.role = 'admin'`）が承認したものだけが公開される。公開中の掲載の内容を変えると審査待ちに戻る。承認時に URL を再検査する。運用手順は `docs/launch/MARKETPLACE_REVIEW.md`。migration 0016 は本番D1へ未適用で、審査 API の実機での動作・運営者トークンでの呼び出しは未確認。
 4. **Firebase の Web API キーに HTTP リファラー制限をかける**（Google Cloud コンソール。キー自体は公開前提だが、他サイトでの悪用を防ぐ）。あわせて、匿名ログインが無効であることを確認する（クライアントは使っていない。プロジェクト設定は未確認）。
 5. **取り込み用トークンの総当たり対策**。`/api/foundation/ingest*`・`views/rebuild`・`notifications/digest` は秘密値の定数時間比較で守られているが、失敗回数の制限は無い。Cloudflare のレート制限ルール（失敗の多い IP を止める）を入れる。トークンは十分に長いものを使う。
 
 ## 公開後でよい
 
 - 認証済みの D1 書き込み系（analyst-notes PUT、bookmarks POST、execution-projects PUT など）に回数制限が無い。1人あたりの上限を入れる。
-- `newsletter/subscribe`・`submissions` は、ログイン済みだと回数制限を通らない書き方になっている（`!user && ...`）。本人 ID 単位の上限に変える（既存テストの D1 モックに合わせて直す必要がある）。
+- `submissions` は、ログイン済みだと回数制限を通らない書き方になっている（`!user && ...`）。本人 ID 単位の上限に変える（既存テストの D1 モックに合わせて直す必要がある）。
 - `checkout/status` の回数制限（Stripe の読み取りが毎回走る）。`/api/user/me`・`company-analysis` も、毎回 Stripe を読む。低リスク。
 - `foundation/ingest`・`ingest/typed` の 502 応答が内部のエラー文を返す。トークン保持者（運用者）にしか届かないので低リスク。既存テストの文言確認を直してから固定文にする。
 - ビルダーのプレビューは v0 が作った HTML を自サイトのオリジンから配信している。iframe は `sandbox`（`allow-same-origin` なし）で、プレビューの応答にもサンドボックスの CSP を付けた。長期的には別ドメインから配信する。
@@ -91,12 +91,14 @@
 | foundation/views/rebuild | POST | 秘密値（定数時間比較） | なし | R2 | エラー文を固定化（今回） |
 | health | GET | 公開 | なし | なし | |
 | idea-research | POST | Bearer | ○ | Gemini | |
-| marketplace/businesses 系 | GET/POST/PATCH | 所有者確認あり | ○ | メール | 審査なし（必須の 3） |
-| marketplace/listings | GET/PUT | Bearer | ○ | D1 | 審査なし（必須の 3） |
+| marketplace/businesses 系 | GET/POST/PATCH | 所有者確認あり | ○ | メール | 審査方式（対応済み・未実機確認） |
+| marketplace/listings | GET/PUT | Bearer | ○ | D1 | 審査方式（対応済み・未実機確認） |
+| marketplace/reviews（一覧・approve・reject） | GET/POST | Bearer・運営者のみ（`users.role='admin'`） | なし | D1 | 新設。承認時に URL 再検査、読んだ版（revision）にだけ効く |
 | media | GET | 公開 | なし | なし | 公開カタログのみ |
 | media/file | GET | 公開 | なし | なし | ID を正規表現で検査・カタログ所属を確認（パス横断なし） |
-| newsletter/subscribe | POST/DELETE | 公開 | ○（未ログイン時のみ） | メール | 二重確認なし（必須の 2） |
+| newsletter/subscribe | POST/DELETE | 公開 | ○（ログイン済みは本人ID単位、アドレス単位の上限も） | メール | 確認メール方式（対応済み・未実機確認） |
 | notifications/digest | POST | 秘密値（定数時間比較） | なし | メール | |
+| newsletter/confirm | GET/POST | 署名付き・期限あり | なし | なし | 自前の CSP（GETは画面だけ、POSTで確定） |
 | notifications/unsubscribe | GET/POST | 署名付き | なし | なし | 自前の CSP |
 | saved-searches・[id] | GET/POST/PATCH/DELETE | Bearer・本人 | 作成のみ ○ | D1 | |
 | strategy-chat | POST | Bearer（鍵がある時） | ○（今回） | Gemini | 429・内蔵推論へ退避 |

@@ -106,8 +106,8 @@ for row in [
 alerts = q(sql['listAlert'])
 out['alerts'] = [(row['userId'], row['email'], row['name']) for row in alerts if row['userId'] in ('U1', 'U2', 'GHOST')]
 
-# Newsletter subscribers: only active ones, oldest first; deleting removes the row.
-q("INSERT INTO newsletter_subscribers(id,email,source,status,subscribed_at) VALUES('ns1','a@mail.jp','web','active','2026-01-02'),('ns2','b@mail.jp','web','unsubscribed','2026-01-01'),('ns3','c@mail.jp','web','active','2026-01-01')")
+# Newsletter subscribers: only active and confirmed ones, oldest first; deleting removes the row.
+q("INSERT INTO newsletter_subscribers(id,email,source,status,subscribed_at,confirmed_at) VALUES('ns1','a@mail.jp','web','active','2026-01-02','2026-01-02'),('ns2','b@mail.jp','web','unsubscribed','2026-01-01','2026-01-01'),('ns3','c@mail.jp','web','active','2026-01-01','2026-01-01'),('ns4','d@mail.jp','web','active','2026-01-01',NULL)")
 out['subscribers'] = [row['id'] for row in q(sql['subscribers'])]
 q(sql['deleteSubscriber'], ('ns3',))
 out['subscribersAfterDelete'] = [row['id'] for row in q(sql['subscribers'])]

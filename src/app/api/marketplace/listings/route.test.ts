@@ -54,6 +54,7 @@ beforeEach(() => {
     priceLabel: '',
     sellerName: '',
     status: 'published',
+    reviewNote: null,
     createdAt: '2026-09-24T00:00:00.000Z',
     updatedAt: '2026-09-24T00:00:00.000Z',
   });
@@ -62,7 +63,7 @@ beforeEach(() => {
 });
 
 describe('PUT /api/marketplace/listings external product', () => {
-  it('publishes an external HTTPS product without requiring a Builder session', async () => {
+  it('submits an external HTTPS product for review without requiring a Builder session', async () => {
     const response = await PUT(request({
       sourceType: 'external',
       title: 'My Service',
@@ -72,7 +73,7 @@ describe('PUT /api/marketplace/listings external product', () => {
       checkoutUrl: '',
       priceLabel: '',
       sellerName: '',
-      status: 'published',
+      status: 'pending_review',
     }));
 
     expect(response.status).toBe(200);
@@ -84,5 +85,17 @@ describe('PUT /api/marketplace/listings external product', () => {
     expect(params[1]).toBe('seller-1');
     expect(params[2]).toBeNull();
     expect(params[3]).toBe('external');
+    expect(params[12]).toBe('pending_review');
+  });
+
+  it('refuses to let the owner set published or rejected', async () => {
+    for (const status of ['published', 'rejected']) {
+      const response = await PUT(request({
+        sourceType: 'external', title: 'My Service', summary: 'A useful product for independent creators.',
+        category: 'business_tool', productUrl: 'https://maker.example', status,
+      }));
+      expect(response.status, status).toBe(400);
+    }
+    expect(state.execute).not.toHaveBeenCalled();
   });
 });

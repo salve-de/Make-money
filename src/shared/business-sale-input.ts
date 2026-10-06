@@ -1,9 +1,11 @@
 import {
   BUSINESS_SALE_CATEGORIES,
   BUSINESS_SALE_LIMITS,
+  BUSINESS_SALE_REQUESTABLE_STATUSES,
   BUSINESS_SALE_STATUSES,
   type BusinessSaleCategory,
   type BusinessSaleFields,
+  type BusinessSaleRequestedStatus,
   type BusinessSaleStatus,
 } from './business-sale';
 
@@ -96,6 +98,11 @@ export function isBusinessSaleStatus(value: unknown): value is BusinessSaleStatu
   return typeof value === 'string' && (BUSINESS_SALE_STATUSES as readonly string[]).includes(value);
 }
 
+/** 掲載者が送れる状態か。published・rejected は運営者の審査でだけ付くので、ここでは受け付けない。 */
+export function isRequestedBusinessSaleStatus(value: unknown): value is BusinessSaleRequestedStatus {
+  return typeof value === 'string' && (BUSINESS_SALE_REQUESTABLE_STATUSES as readonly string[]).includes(value);
+}
+
 function readCategory(raw: unknown): ParseResult<BusinessSaleCategory> {
   if (raw === undefined) return fail('category', '区分を選んでください');
   if (!isBusinessSaleCategory(raw)) return fail('category', '区分が正しくありません');
@@ -166,7 +173,7 @@ export function parseBusinessSaleCreate(value: unknown, now: Date = new Date()):
 }
 
 export interface BusinessSaleUpdateInput extends Partial<BusinessSaleFields> {
-  status?: BusinessSaleStatus;
+  status?: BusinessSaleRequestedStatus;
 }
 
 /** 更新。送られた項目だけを検証する。空の更新や、決められた以外のキーは受け付けない。 */
@@ -181,7 +188,7 @@ export function parseBusinessSaleUpdate(value: unknown, now: Date = new Date()):
   const patch: Record<string, unknown> = {};
   for (const key of keys) {
     if (key === 'status') {
-      if (!isBusinessSaleStatus(row.status)) return fail('status', '状態が正しくありません');
+      if (!isRequestedBusinessSaleStatus(row.status)) return fail('status', '状態が正しくありません');
       patch.status = row.status;
       continue;
     }
@@ -195,17 +202,22 @@ export function parseBusinessSaleUpdate(value: unknown, now: Date = new Date()):
 export type BusinessSaleSnapshot = BusinessSaleFields & { status: BusinessSaleStatus };
 
 export type UpdatePlan =
-  | { ok: true; next: BusinessSaleSnapshot; revenueChanged: boolean }
+  | { ok: true; next: BusinessSaleSnapshot; revenueChanged: boolean; contentChanged: boolean }
   | { ok: false; kind: 'invalid' | 'conflict'; field?: string; message: string };
 
-/** 状態は 下書き → 公開中 → 募集終了 の順にだけ進める。戻す・飛ばすことはできない。 */
+/**
+ * 掲載者が進められる状態の順序。公開（published）は運営者の審査でだけ付くので、ここには「published へ進む」道がない。
+ * 下書き → 審査待ち →（運営者の承認）→ 公開中 → 募集終了。却下されたものは直して再び審査に出せる。
+ */
 const ALLOWED_TRANSITIONS: Record<BusinessSaleStatus, readonly BusinessSaleStatus[]> = {
-  draft: ['draft', 'published'],
+  draft: ['draft', 'pending_review'],
+  pending_review: ['pending_review', 'draft'],
+  rejected: ['rejected', 'draft', 'pending_review'],
   published: ['published', 'closed'],
   closed: [],
 };
 
-/** 公開するときに満たす条件。買い手が判断できる最低限の説明があること。 */
+/** 審査に出す（公開する）ときに満たす条件。買い手が判断できる最低限の説明があること。 */
 export function findPublishProblem(fields: BusinessSaleFields): { field: string; message: string } | null {
   if (charLength(fields.summary) < BUSINESS_SALE_LIMITS.summaryPublishMin) {
     return { field: 'summary', message: `公開するには、事業の説明を${BUSINESS_SALE_LIMITS.summaryPublishMin}文字以上で書いてください` };
@@ -215,19 +227,25 @@ export function findPublishProblem(fields: BusinessSaleFields): { field: string;
   return null;
 }
 
-/** 現在の掲載と更新内容から、更新後の姿と状態遷移の可否を決める（DB を触らない純関数）。 */
+/**
+ * 現在の掲載と更新内容から、更新後の姿と状態遷移の可否を決める（DB を触らない純関数）。
+ * 公開中の掲載の内容を書き換えたら、審査待ちに戻す（承認された内容と違うものを公開し続けない）。
+ */
 export function planBusinessSaleUpdate(current: BusinessSaleSnapshot, patch: BusinessSaleUpdateInput): UpdatePlan {
   if (current.status === 'closed') {
     return { ok: false, kind: 'conflict', message: '募集を終了した掲載は変更できません' };
   }
-  const nextStatus = patch.status ?? current.status;
-  if (!ALLOWED_TRANSITIONS[current.status].includes(nextStatus)) {
-    return { ok: false, kind: 'conflict', field: 'status', message: '状態は「下書き → 公開中 → 募集終了」の順にだけ変えられます' };
+  const requested: BusinessSaleStatus = patch.status ?? current.status;
+  if (!ALLOWED_TRANSITIONS[current.status].includes(requested)) {
+    return { ok: false, kind: 'conflict', field: 'status', message: '状態は「下書き → 審査待ち → 公開中 → 募集終了」の順にだけ変えられます' };
   }
+  const contentChanged = FIELD_KEYS.some((key) => key in patch && patch[key] !== current[key]);
+  const nextStatus: BusinessSaleStatus = requested === 'published' && contentChanged ? 'pending_review' : requested;
   const next: BusinessSaleSnapshot = { ...current, ...patch, status: nextStatus };
-  const problem = crossFieldProblem(next) ?? (nextStatus === 'published' ? findPublishProblem(next) : null);
+  const problem = crossFieldProblem(next)
+    ?? (nextStatus === 'pending_review' || nextStatus === 'published' ? findPublishProblem(next) : null);
   if (problem) return { ok: false, kind: 'invalid', field: problem.field, message: problem.message };
-  return { ok: true, next, revenueChanged: next.monthlyRevenueJpy !== current.monthlyRevenueJpy };
+  return { ok: true, next, revenueChanged: next.monthlyRevenueJpy !== current.monthlyRevenueJpy, contentChanged };
 }
 
 const EMAIL_PATTERN = /^[a-z0-9._%+-]{1,64}@(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}$/;

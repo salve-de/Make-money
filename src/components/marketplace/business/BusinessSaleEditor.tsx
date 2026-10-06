@@ -7,6 +7,7 @@ import { LoaderCircle } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
 import type { BusinessSaleStatus } from '@/shared/business-sale';
+import { PENDING_REVIEW_NOTICE } from '@/shared/marketplace-listing';
 import { BusinessSaleFormView, type FormProblem } from './BusinessSaleFormView';
 import { BusinessSalePage } from './BusinessSalePage';
 import { getMyBusinessSales } from './business-sale-client';
@@ -33,6 +34,7 @@ function EditorInner({ listingId }: { listingId: string }) {
   const [form, setForm] = useState<BusinessSaleForm>(EMPTY_BUSINESS_SALE_FORM);
   const [id, setId] = useState<string | null>(listingId || null);
   const [status, setStatus] = useState<BusinessSaleStatus | null>(null);
+  const [reviewNote, setReviewNote] = useState<string | null>(null);
   const [loading, setLoading] = useState(Boolean(listingId));
   const [loadError, setLoadError] = useState<string | null>(null);
   const [retry, setRetry] = useState(0);
@@ -55,6 +57,7 @@ function EditorInner({ listingId }: { listingId: string }) {
         if (found) {
           setForm(formFromListing(found));
           setStatus(found.status);
+          setReviewNote(found.reviewNote);
           setId(found.id);
         } else {
           setLoadError('この掲載は見つかりません');
@@ -71,7 +74,7 @@ function EditorInner({ listingId }: { listingId: string }) {
     setNotice(null);
   };
 
-  /** 作成・下書き保存・公開・公開中の変更保存。何をどの順で送るかは submitBusinessSaleForm が決める。 */
+  /** 作成・下書き保存・公開の申請・公開中/審査待ちの変更保存。何をどの順で送るかは submitBusinessSaleForm が決める。 */
   const save = async (intent: SubmitIntent) => {
     if (!token || saving || loading) return;
     setSaving(true);
@@ -87,8 +90,9 @@ function EditorInner({ listingId }: { listingId: string }) {
         }
         setForm(formFromListing(outcome.listing));
         setStatus(outcome.listing.status);
+        setReviewNote(outcome.listing.reviewNote);
         setId(outcome.listing.id);
-        setNotice('保存しました');
+        setNotice(outcome.listing.status === 'pending_review' ? PENDING_REVIEW_NOTICE : '保存しました');
         return;
       }
       // 下書きだけ保存できて公開に失敗したときは、以後はその下書きを更新する（二重に作らない）
@@ -143,6 +147,7 @@ function EditorInner({ listingId }: { listingId: string }) {
         onChange={update}
         mode={mode}
         status={status}
+        reviewNote={reviewNote}
         problem={problem}
         notice={notice}
         saving={saving}
