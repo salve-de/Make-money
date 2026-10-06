@@ -50,9 +50,14 @@ export function isMediaEntityId(value: unknown): value is string {
 }
 
 /** Kinds the UI may show as the small logo in a list row, best first. */
-export const MEDIA_LOGO_KINDS: readonly MediaAssetKind[] = ['logo', 'app_icon', 'favicon', 'og_image'];
-/** Kinds shown in the inspector gallery, in display order (newest one of each; store screenshots up to MEDIA_STORE_SCREENSHOT_LIMIT). */
-export const MEDIA_GALLERY_KINDS: readonly MediaAssetKind[] = ['screenshot_home', 'screenshot_pricing', 'og_image', 'app_icon'];
+export const MEDIA_LOGO_KINDS: readonly MediaAssetKind[] = ['logo', 'app_icon', 'favicon'];
+/**
+ * Kinds shown in the inspector gallery, best first (owner decision 2026-10-02): real product screens come before
+ * anything else. Store screenshots and product screens share MEDIA_SCREEN_LIMIT slots in that order; then the newest
+ * home / pricing page capture; the icon last. og:image is a promotional banner and is never shown here.
+ */
+export const MEDIA_SCREEN_KINDS: readonly MediaAssetKind[] = ['store_screenshot', 'screenshot_product'];
+export const MEDIA_GALLERY_KINDS: readonly MediaAssetKind[] = ['screenshot_home', 'screenshot_pricing', 'app_icon'];
 
 /**
  * Display size caps (Copyright Act art. 47-5, "minor use": small, for identification and explanation only).
@@ -61,8 +66,8 @@ export const MEDIA_GALLERY_KINDS: readonly MediaAssetKind[] = ['screenshot_home'
  */
 export const MEDIA_ICON_MAX_PX = 128;
 export const MEDIA_THUMBNAIL_MAX_PX = 480;
-/** At most this many store screenshots are shown per entity. */
-export const MEDIA_STORE_SCREENSHOT_LIMIT = 3;
+/** At most this many real screens (store screenshots first, then product screens from the official site) are shown per entity. */
+export const MEDIA_SCREEN_LIMIT = 3;
 
 /** Kinds whose display box is the small icon box. */
 export function isMediaIconKind(kind: MediaAssetKind): boolean {
@@ -94,6 +99,7 @@ const KIND_LABELS: Partial<Record<MediaAssetKind, string>> = {
   store_screenshot: 'App Store 掲載のスクリーンショット',
   screenshot_home: '公式サイトのトップページ',
   screenshot_pricing: '公式サイトの料金ページ',
+  screenshot_product: '公式サイトの製品画面',
 };
 
 export function mediaKindLabel(kind: MediaAssetKind): string {
@@ -118,19 +124,20 @@ function newestPerKind(assets: readonly PublicMediaAsset[], kinds: readonly Medi
   return picked;
 }
 
-/** The image for the 20px logo slot of a list row: logo, else favicon, else og:image. */
+/** The image for the 20px logo slot of a list row: logo, else app icon, else favicon (never a promotional og:image). */
 export function pickEntityLogo(assets: readonly PublicMediaAsset[] | undefined): PublicMediaAsset | null {
   return assets ? (newestPerKind(assets, MEDIA_LOGO_KINDS)[0] ?? null) : null;
 }
 
-/** The images for the inspector gallery: newest home / pricing screenshot, og:image, app icon, then up to three store screenshots. */
+/**
+ * The images for the inspector gallery: up to MEDIA_SCREEN_LIMIT real screens (App Store screenshots, then product screens
+ * of the official site), then the newest home / pricing page capture, then the app icon. No promotional og:image.
+ */
 export function pickGalleryAssets(assets: readonly PublicMediaAsset[] | undefined): PublicMediaAsset[] {
   if (!assets) return [];
-  const store = assets
-    .filter((asset) => asset.kind === 'store_screenshot')
-    .sort((a, b) => Date.parse(b.retrievedAt) - Date.parse(a.retrievedAt) || a.assetId.localeCompare(b.assetId))
-    .slice(0, MEDIA_STORE_SCREENSHOT_LIMIT);
-  return [...newestPerKind(assets, MEDIA_GALLERY_KINDS), ...store];
+  const newestFirst = (a: PublicMediaAsset, b: PublicMediaAsset) => Date.parse(b.retrievedAt) - Date.parse(a.retrievedAt) || a.assetId.localeCompare(b.assetId);
+  const screens = MEDIA_SCREEN_KINDS.flatMap((kind) => assets.filter((asset) => asset.kind === kind).sort(newestFirst)).slice(0, MEDIA_SCREEN_LIMIT);
+  return [...screens, ...newestPerKind(assets, MEDIA_GALLERY_KINDS)];
 }
 
 /** `?entity_id=a&entity_id=b` for a batch of valid ids (invalid ids are dropped, duplicates removed). */
