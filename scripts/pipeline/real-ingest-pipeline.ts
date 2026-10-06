@@ -5,6 +5,7 @@ import { parseFinancialEntity } from '../../src/shared/financial-entity-schema';
 import { inspectFinancialIntegrity } from '../../src/shared/financial-integrity';
 import type { FinancialEntity } from '../../src/platform/types/terminal';
 
+import { normalizeEntityName, entityDomain } from './entity-identity.mjs';
 import { autoEnrichEntityBeforeIngest } from './auto-enrich-entity';
 
 export interface RawArtifact {
@@ -87,14 +88,9 @@ export async function ingestVerifiedEntities(
   const existingIndexPath = resolve(process.cwd(), 'data/entities-index.json');
   const existingCatalog: FinancialEntity[] = JSON.parse(await readFile(existingIndexPath, 'utf8'));
 
-  const normalizeForDedup = (name: string) => name
-    .toLowerCase()
-    .trim()
-    .replace(/\b(inc|llc|corp|corporation|co|ltd|plc|gmbh|holdings)\b/g, '')
-    .replace(/[\s\-_・（）()株式会社有限会社]/g, '');
-
   const existingIdMap = new Map(existingCatalog.map(e => [e.id.toLowerCase().trim(), e]));
-  const existingNormMap = new Map(existingCatalog.map(e => [normalizeForDedup(e.name), e]));
+  const existingNormMap = new Map(existingCatalog.map(e => [normalizeEntityName(e.name), e]));
+  const batchSeenDomains = new Set<string>();
   const batchSeenNorms = new Map<string, string>();
   const batchSeenIds = new Map<string, string>();
 
@@ -114,7 +110,7 @@ export async function ingestVerifiedEntities(
       }
     }
     const idLower = ent.id.toLowerCase().trim();
-    const norm = normalizeForDedup(ent.name);
+    const norm = normalizeEntityName(ent.name);
 
     if (batchSeenIds.has(idLower)) {
       throw new Error(`[INGEST REJECTED: BATCH DUPLICATE ID] "${ent.name}" has duplicate ID "${ent.id}" within incoming batch.`);
@@ -129,6 +125,16 @@ export async function ingestVerifiedEntities(
     const existingIdConflict = existingIdMap.get(idLower);
     if (existingIdConflict && existingIdConflict.id !== ent.id) {
       throw new Error(`[INGEST REJECTED: EXISTING ID DUPLICATE] ID "${ent.id}" conflicts with already collected entity "${existingIdConflict.name}".`);
+    }
+
+    const domain = entityDomain(ent.url);
+    const existingDomain = existingIdConflict && entityDomain(existingIdConflict.url);
+    if (domain && existingDomain && domain !== existingDomain) throw new Error(`[INGEST REJECTED: ID DOMAIN CONFLICT] ${ent.id}`);
+    if (domain && batchSeenDomains.has(domain)) throw new Error(`[INGEST REJECTED: BATCH DUPLICATE DOMAIN] ${domain}`);
+    if (domain) batchSeenDomains.add(domain);
+    const domainConflict = domain && existingCatalog.find(e => e.id !== ent.id && entityDomain(e.url) === domain);
+    if (domainConflict && ent.pnl?.financialStatus !== 'POST_MORTEM' && !ent.name.includes('検死')) {
+      throw new Error(`[INGEST REJECTED: EXISTING DUPLICATE DOMAIN] ${ent.id}; update existing ID ${domainConflict.id}`);
     }
 
     const existingConflict = existingNormMap.get(norm);

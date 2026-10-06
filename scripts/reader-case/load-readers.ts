@@ -8,7 +8,7 @@ import { projectReaderCase } from '../../src/lib/company-access/reader-case-proj
 import type { ReaderCase } from '../../src/shared/reader-case';
 
 export function readIdsFile(path: string): string[] {
-  return readFileSync(path, 'utf8').split('\n').map((s) => s.trim()).filter(Boolean);
+  return readFileSync(path, 'utf8').split('\n').map((s) => s.trim()).filter((s) => s && !s.startsWith('#'));
 }
 
 export function loadReaders(ids?: string[]): Map<string, ReaderCase> {
@@ -54,4 +54,16 @@ export function loadRawItems(outDir: string): Map<string, unknown> {
     }
   }
   return raws;
+}
+
+/** 同じ entities-index.json から、公開評価に使う元の事業記録を読む（reader と同じ局所スナップショット）。 */
+export function loadEntities(ids?: string[]): Map<string, import('../../src/shared/terminal').FinancialEntity> {
+  const wanted = ids ? new Set(ids) : null;
+  const raw = JSON.parse(readFileSync('data/entities-index.json', 'utf8')) as Record<string, unknown>[];
+  const out = new Map<string, import('../../src/shared/terminal').FinancialEntity>();
+  for (const r of raw) {
+    const id = typeof r?.id === 'string' ? r.id : undefined;
+    if (id && (!wanted || wanted.has(id))) out.set(id, r as unknown as import('../../src/shared/terminal').FinancialEntity);
+  }
+  return out;
 }
