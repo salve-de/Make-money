@@ -1,17 +1,26 @@
-> **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。スコープは本目録。保存先は [`architecture/STORAGE.md`](./architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
+> **2026-10-04追補**: [懸念・問い・決定・未解決・検証台帳](./OWNER_QUESTIONS_AND_ACCEPTANCE_20261004.md)も参照。表示項目と伝える内容を収集前に定義し、中間仮表示から追加調査へ戻す。共通骨格＋登録済み条件ブロック、欠損項目・空章・画像空枠の非表示、残る内容の読む価値を守る。固定章数・固定字数は決定していない。docs更新と実装・全件検証・公開は別であり、今回の変更は文書のみ。
+
+> **現行入口（2026-10-03）**: 最初に [`OWNER_INTENT.md`](./OWNER_INTENT.md) を読む。10情報領域、根拠ある推論、文章品質、画像の現行方針はその2・3・7章が正本。本目録の12領域・9情報源・周辺生態系等は維持し、収集上限や全件の穴埋め義務にはしない。旧マスターガイド・GOLDENは補助資料、保存は既存Foundation契約に従う。
 
 
 # Make-Money / business-case 収集対象の完全目録
 
-> **2026-09-30**: Make-Money の唯一の入口は [docs/OWNER_INTENT.md](OWNER_INTENT.md)。この文書と食い違う所は OWNER_INTENT が優先（食い違う箇所には「廃止」の注記あり）。
+> **2026-10-03**: Make-Money の収集・表示方針は [OWNER_INTENT.md](OWNER_INTENT.md) を優先する。10領域のために従来の対象を削らず、材料のない任意本文は表示しない。
 
 この文書は、Make-Moneyの事例調査で「何を調べ、何を残すか」をAIが迷わないように固定する横断契約です。新しいスキーマ、データベース、R2バケット、R2保存方式を追加する文書ではありません。意味の正本は `salve-de/universal-foundation` の登録済み契約、`research-bundle.v1`、`journal-entry.v1`、および `business-case.v2` です。
 
-この文書は [Universal Foundationの同名正本](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md) と同じ内容をMake-Money側にも置いたものです。内容が食い違う場合はUniversal Foundationのmainを上位正本とし、差分を放置しないでください。
+この目録は [Universal Foundationの同名正本](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md) を参照しています。優先順位は OWNER_INTENT 冒頭に従い、Make-Moneyの収集・文章・表示方針は OWNER_INTENT、事実・証拠の保存schemaと権利・保持契約はUniversal Foundationの登録済み契約を使います。今回Universal側の契約・schema・登録簿は変更しません。
 
 ## 0. 横断再利用の境界
 
 ここで集める事例は、Make-Moneyの記事専用素材ではなく、Foundationの共通資産です。出典付きの事実、過去時点のスナップショット、金の流れ、運営制約、調査状態、出典・権利・未知を残し、Make-Money、Idea Spark、GOLDMINE、Investrader、今後の新規プロジェクトが同じ記録を再利用できるようにします。ランキング、物語、画面ラベル、行動提案などのプロジェクト固有の表現は、元の事実を書き換えず、再生成可能なderived / serving viewとして扱います。将来のAIは、安定したIDと明示的な出典を使って既存のEntity / Claim / Metric / MoneySignal / Event / Relationship / observation / Journalを選び、各プロジェクト独自のViewを作ります。複数プロジェクトで使える観測は、特定プロダクト前提に埋め込まず、既存フィールド・observations・Journalのまま保持します。
+
+## 現行10情報領域と既存目録の関係
+表示項目と「そこで何が分かるか」は先に定義し、収集中も意識する。その問いを結論の先取りや収集上限にせず、仮表示で判明した意味不足を追加調査へ戻す。未知・非該当・未調査・矛盾・非公開を区別し、表示しない情報も行先と理由を残す。具体的な状態schemaや共通処理は設計・実装・検証を別に記録する。
+
+現行の整理軸は、顧客と困りごと／商品と売り方／売れた実績／利益と費用／最初の需要と購入の実経緯／その後の集客と購入・継続／日常運営／開始資源／転機・失敗・外部条件・依存リスク／根拠ある応用行動と条件の10領域です。各領域の具体的な材料と扱いは [OWNER_INTENT 2章](./OWNER_INTENT.md#2-何を集めるか10情報領域と上限のない補助目録) に一元化します。
+
+10領域は下記12領域や既存の追加観測を置き換えて減らすためのものではありません。表示内容を選ぶことと収集範囲は別です。従来の全scope・枠外の有用情報も可能な限り保持し、完全新規・バックフィル・既存素材の再利用を柔軟に選びます。全件を必須10章にせず、材料がある部分を具体的に示します。情報豊富な事例・sourceを優先し、薄い事例は追加調査へ戻します。未確認の表示や確度ラベルを主画面に並べただけで掲載完了にしません。確度・時点・出典は記録と詳細に保ち、根拠の弱い数値を見出しに使いません。既存source / evidenceを先に再利用し、必要な不足を重点に追加調査します。事実・行動・結果を出典・時点・種類に結び付けて残し、長い詳細文以外にも検索・比較・パターン分析へ再利用します。画像も引き続き対象で、実製品画面・利用場面・出力例を優先し、faviconだけを完了扱いしません。取得・保存・商用表示の既存ゲートは [OWNER_INTENT 7章](./OWNER_INTENT.md#7-画像) と画像台帳の規則を維持します。
 
 ## 1. 絶対に止めてはいけない調査範囲
 
@@ -44,7 +53,7 @@
 
 ## 2. 全事例で確認する12領域
 
-12領域は画面項目の一覧ではなく、調査の抜けを防ぐための必須チェックです。これ以外の有用な情報も捨てず、既存の `observations` とUniversal Journalへ残します。
+12領域は画面項目の一覧ではなく、調査の抜けを防ぐための確認対象です。調査状態を残し、全領域の値・本文の強制穴埋めや保存の足切りには使いません。これ以外の有用な情報も捨てず、既存の `observations` とUniversal Journalへ残します。
 
 | 領域 | 調べる内容 |
 | --- | --- |
@@ -110,7 +119,9 @@
 - `inferred`: 複数事実からの解釈
 - `unknown` / `UNVERIFIED`: 支持できる根拠がない
 
-利益や個人手残りが公開されていなくても、そこで調査を止めません。判明した入力から別枠で推計し、仮定を全て残します。たとえば決済手数料（適用時の2.9% + 0.30ドル等）、原価、ホスティング、モデル/API、ツール、給与・外注、広告、税引当、返金、再投資を順に分けます。「売上 − Stripe手数料」は創業者手残りではありません。実際の個人手取りは直接根拠がない限り `unknown` のままです。
+利益や個人手残りが公開されていなくても、そこで調査を止めません。判明した入力から別枠で推計し、仮定を全て残します。たとえば決済手数料（適用時の2.9% + 0.30ドル等）、原価、ホスティング、モデル/API、ツール、給与・外注、広告、税引当、返金、再投資を順に分けます。「売上 − Stripe手数料」は創業者手残りではありません。実際の個人手取りは直接根拠がない限り `unknown` のままです。全費用が分からなければ、確認済み費用を引いた残額を利益と断定しません。未確認料金の仮置きも禁止します。
+
+`unknown`（不明・未確認）、明示的な根拠がある非公開、`not_applicable`（該当なし）、出典が示す数値の0を区別します。「見つからない」を非公開や0に変えません。状態の説明は既存schema・observations・Journalに残します。
 
 ## 7. 調査の深さと完了宣言
 
@@ -149,7 +160,7 @@ Journalキーは `journal/v1/YYYY/MM/DD/<journal_id>.json`、typed/derivedキー
 
 作業開始前に、次を読みます。
 
-1. `salve-de/universal-foundation` mainの `AGENTS.md`、`README.md`、`docs/MAKE_MONEY_COLLECTION_SCOPE.md`、該当する `docs/COLLECTION_RECONCILIATION.md`、`docs/R2_NEW_DATA_WRITE_RUNBOOK.md`。
+1. このリポジトリの `docs/OWNER_INTENT.md`。続いて `salve-de/universal-foundation` mainの `AGENTS.md`、`README.md`、`docs/MAKE_MONEY_COLLECTION_SCOPE.md`、該当する `docs/COLLECTION_RECONCILIATION.md`、`docs/R2_NEW_DATA_WRITE_RUNBOOK.md`。
 2. このリポジトリの `AGENTS.md`、`docs/COLLECT_AND_STORE.md`、この文書。
 3. 対象R2ロールの `_README.vN.md` と `_manifest.vN.json`。
 4. 登録済みの `research-bundle.v1`、`journal-entry.v1`、`business-case.v2` と、実行するcollectorのreadme・validator。
@@ -165,4 +176,5 @@ Journalキーは `journal/v1/YYYY/MM/DD/<journal_id>.json`、typed/derivedキー
 7. R2 descriptorの反映状態
 8. 既存データへの変更件数。新規収集ではdelete/move/rename/overwriteを全て0とする
 
-必須項目を推測で埋めたり、未調査を調査済み扱いしたりして「完了」と報告してはいけません。（**2026-09-30 廃止** → OWNER_INTENT 3章: 「推測を事実と偽って埋めて完了と言うな」と読む。印を付けた推論で埋めるのは可）
+根拠のある推論は、basis・前提・種類を明記した派生分析として使えます。ただし全項目の穴埋め義務はありません。推測ラベルだけを理由に、未確認料金・初客・物語・一般論を作って埋めたり、未調査を調査済みとして「完了」と報告してはいけません（OWNER_INTENT 2・3章、2026-10-03）。
+
