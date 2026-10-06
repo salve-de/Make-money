@@ -14,7 +14,7 @@ import { formatYen } from '@/platform/utils/moneyDisplay';
 import {
   firstSentence,
   formatMetricAmount,
-  metricMeasureLabel,
+  metricListLabel,
   metricOriginLabel,
   pickListMetric,
   pickProfitMetric,
@@ -41,7 +41,7 @@ const money = (value: number, entity: FinancialEntity) => (
 const metricCell = (metric: ReaderMetric | null): React.ReactNode =>
   metric ? (
     <span data-metric={metric.id}>
-      <span className="text-xs text-term-label">{metricMeasureLabel(metric)}</span>
+      <span className="text-xs text-term-label">{metricListLabel(metric)}</span>
       <span className="term-num ml-1 text-term-fg-strong">{formatMetricAmount(metric)}</span>
       <span className="block text-xs text-term-label">{metric.period} · {metricOriginLabel(metric)}</span>
     </span>
@@ -73,7 +73,7 @@ const ROWS: { label: string; value: (entity: FinancialEntity) => React.ReactNode
   { label: '利益', value: (e) => metricCell(pickProfitMetric(e.reader)) },
   { label: '料金', value: (e) => factCell(e, 'PRICING') ?? analysisCell(e, 'PRICING') },
   { label: ANALYSIS_LABELS.CUSTOMER, value: (e) => analysisCell(e, 'CUSTOMER') },
-  { label: '人数', value: (e) => factCell(e, 'TEAM') ?? (teamSizeText(e) ? <span className="term-num">{teamSizeText(e)}人</span> : null) },
+  { label: '資本と人数', value: (e) => analysisCell(e, 'CAPITAL_AND_TEAM') ?? (teamSizeText(e) ? <span className="term-num">{teamSizeText(e)}人</span> : null) },
   { label: ANALYSIS_LABELS.CHANNELS, value: (e) => analysisCell(e, 'CHANNELS') },
   { label: ANALYSIS_LABELS.UPFRONT_CASH, value: (e) => analysisCell(e, 'UPFRONT_CASH') },
   { label: ANALYSIS_LABELS.WHY_IT_WORKED, value: (e) => analysisCell(e, 'WHY_IT_WORKED') },

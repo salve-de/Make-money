@@ -85,7 +85,7 @@ export function ConsentNotice() {
             Cookie・端末保存の設定
           </h2>
           <p className="text-term-sub">
-            ログインや画面の状態の保存は、同意なしで使います。アクセス解析は、同意した場合だけ行います。現在は{analytics ? '同意済み' : '同意していない'}状態です。
+            ログインや画面の状態の保存は、同意なしで使います。アクセス解析は、同意した場合だけ行います。{reopened ? `現在は${analytics ? '同意済み' : '同意していない'}状態です。` : ''}
             <Link href="/legal/privacy" className="mx-0.5 underline hover:text-term-fg-strong">プライバシーポリシー</Link>
           </p>
         </div>
