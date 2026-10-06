@@ -134,7 +134,7 @@ export function PatternsView({ report }: { report: PatternReport }) {
         <Chips label="売上の根拠" items={(Object.keys(REVENUE_BASIS_LABELS) as RevenueBasis[]).map((k) => ({ key: k, label: REVENUE_BASIS_LABELS[k] }))} current={f.revenueBasis} make={(k) => filterHref({ ...f, revenueBasis: k as RevenueBasis | undefined })} />
         <p className="term-num px-3 py-1 text-xs text-term-sub" aria-live="polite">
           対象 {report.base}件／{report.total}件{filtered ? '（絞り込み中）' : ''}
-          {small ? ` ・ 該当${report.base}件のため、割合と組合せは出しません` : ''}
+          {small ? ' ・ 件数が少ないため、割合は出さず件数だけを示します' : ''}
         </p>
       </div>
 
@@ -165,23 +165,17 @@ export function PatternsView({ report }: { report: PatternReport }) {
         </div>
       </Panel>
 
+      {!small && (
       <Panel id="combos" title="意外な組合せ" note={<>二つの特徴が一緒に出る件数を、それぞれの出やすさから見込まれる件数と比べています<Estimate />。同じ種類どうし（集客どうしなど）は比べません。各特徴は {FEW_CASES}件以上のものだけです。</>}>
-        {small ? <p className="px-3 py-2 text-xs text-term-label">該当{report.base}件のため出しません。</p> : (
-          <>
-            <h3 className="px-3 pt-2 text-xs text-term-label">見込みより多く重なる</h3>
-            <Combos rows={report.combos.more} kind="多い" />
-            <h3 className="px-3 pt-2 text-xs text-term-label">見込みより少ない</h3>
-            <Combos rows={report.combos.less} kind="少ない" />
-          </>
-        )}
+        <h3 className="px-3 pt-2 text-xs text-term-label">見込みより多く重なる</h3>
+        <Combos rows={report.combos.more} kind="多い" />
+        <h3 className="px-3 pt-2 text-xs text-term-label">見込みより少ない</h3>
+        <Combos rows={report.combos.less} kind="少ない" />
       </Panel>
+      )}
 
       <Panel id="triggers" title="何が起きると有料になるか" note={<>料金の事実の文だけから、決まった語で拾っています。母数は料金の事実がある事例（{report.triggers.base}件）。これは料金の仕組みの記述で、売上が増えた証拠ではありません。{FEW_CASES}件未満は「少数」と示します。</>}>
         <BarRows rows={report.triggers.rows} base={report.triggers.base} withQuote />
-      </Panel>
-
-      <Panel id="recent" title="最近の変化">
-        <p className="px-3 py-2 text-[13px] text-term-sub">{report.recent.reason}</p>
       </Panel>
     </div>
   );

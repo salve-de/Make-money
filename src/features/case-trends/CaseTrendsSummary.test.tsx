@@ -141,8 +141,17 @@ describe('CaseTrendsSummary', () => {
     expect(output).not.toContain('このページの記録から');
   });
 
+  it('does not repeat the sample note or the cohort size when every case is on the page', () => {
+    const output = html(Array.from({ length: 3 }, (_, i) => item(`ent_${i}`)), { corpus: { ...corpus, publishedCaseCount: 3 } });
+    expect(output).toContain('公開3事例が対象です。');
+    expect(output).not.toContain('現在の条件に合う');
+    expect(output).not.toContain('表示中の');
+    expect(output).not.toContain('期間比較');
+  });
+
   it('limits examples while describing the actual page size, not the sample size', () => {
-    const output = html(Array.from({ length: 25 }, (_, i) => item(`ent_${i}`)));
+    const cases = Array.from({ length: 25 }, (_, i) => item(`ent_${i}`));
+    const output = html(cases, { coverage: { ...summarizeCaseTrends(cases), cases: 120 } });
     expect(output).toContain('表示中の25事例から');
     expect(output.match(/href="\/\?entity=/g)).toHaveLength(3);
     expect(output).not.toContain('事例 ent_3');

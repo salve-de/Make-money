@@ -73,10 +73,12 @@ export function CaseTrendsSummary({ coverage, corpus, cases }: CaseTrendsSummary
   return <section aria-label="傾向の見どころ" className="min-w-0 border-b border-term-line px-3 py-3 text-term-fg">
     <h2 className="text-base font-semibold text-term-fg-strong">記録から見えること</h2>
     <p className="mt-1 break-words text-sm text-term-sub lg:text-[13px]">
-      公開{count(corpus.publishedCaseCount)}事例のうち、現在の条件に合う{count(coverage.cases)}事例が対象です。
+      {coverage.cases === corpus.publishedCaseCount
+        ? `公開${count(corpus.publishedCaseCount)}事例が対象です。`
+        : `公開${count(corpus.publishedCaseCount)}事例のうち、現在の条件に合う${count(coverage.cases)}事例が対象です。`}
     </p>
     <dl className="mt-3 grid min-w-0 grid-cols-3 gap-x-2 sm:max-w-xl">
-      {([['対象', coverage.cases], ['数値あり', coverage.observedMetricCases], ['期間比較', coverage.comparableCases]] as const).map(([label, value]) => <div key={label} className="min-w-0">
+      {([['対象', coverage.cases], ['数値あり', coverage.observedMetricCases], ['期間比較', coverage.comparableCases]] as const).filter(([label, value]) => label !== '期間比較' || value > 0).map(([label, value]) => <div key={label} className="min-w-0">
         <dt className="break-words text-sm text-term-label lg:text-[13px]">{label}</dt>
         <dd className="term-num mt-1 break-words text-base text-term-fg-strong">{count(value)}<span className="ml-1 text-sm">事例</span></dd>
       </div>)}
@@ -91,7 +93,7 @@ export function CaseTrendsSummary({ coverage, corpus, cases }: CaseTrendsSummary
     </p>}
     {examples.length > 0 && <div className="mt-3 min-w-0">
       <h3 className="text-sm font-semibold text-term-fg-strong">このページの記録から</h3>
-      <p className="mt-1 text-sm text-term-sub lg:text-[13px]">下の例は表示中の{count(cases.length)}事例から選んでいます。件数は条件に合う事例全体です。</p>
+      {cases.length !== coverage.cases && <p className="mt-1 text-sm text-term-sub lg:text-[13px]">下の例は表示中の{count(cases.length)}事例から選んでいます。件数は条件に合う事例全体です。</p>}
       <ul className="mt-1 min-w-0">{examples.map((item) => <Example key={item.entityId} item={item} />)}</ul>
     </div>}
     <p className="mt-3 break-words text-sm text-term-label lg:text-[13px]">

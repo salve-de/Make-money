@@ -12,18 +12,18 @@ const BTN = 'inline-flex min-h-11 items-center border px-4 text-sm lg:min-h-8 lg
 const STEPS: { no: string; title: string; body: string; label: string; href: string; primary?: boolean }[] = [
   {
     no: '1',
-    title: '作る案を決める',
+    title: '事例から探す',
+    body: '参考にする事例を、分野や規模から探して保存します。',
+    label: '事例を探す',
+    href: '/discover',
+  },
+  {
+    no: '2',
+    title: '事業の案を決める',
     body: '保存した事例から事業の案を作ります。案を開くと、その案をもとに試作の画面づくりへ進めます。',
     label: '事業検討で案を作る',
     href: '/?mode=SYNTHESIS',
     primary: true,
-  },
-  {
-    no: '2',
-    title: '事例から探す',
-    body: '作る案の材料にする事例を、分野や規模から探して保存します。',
-    label: '事例を探す',
-    href: '/discover',
   },
   {
     no: '3',
