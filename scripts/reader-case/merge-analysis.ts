@@ -32,7 +32,7 @@ async function main() {
   for (const [entityId, items0] of raws) {
     const reader = readers.get(entityId);
     if (!reader) continue;
-    const r = checkCase(entityId, items0, reader);
+    const r = checkCase(entityId, items0, reader, { strictNumbers: true });
     dropped.push(...r.dropped);
     for (const d of r.dropped) byReason[d.reason] = (byReason[d.reason] ?? 0) + 1;
     if (r.kept.length) {

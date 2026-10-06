@@ -37,11 +37,9 @@ LEDGER_STAGE=MERGE
 # 2. 統合（機械の検査を通った推論だけ残す）
 node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "統合に失敗"
 
-# 2b. 短さの検査（強い一行55字・物語以外は60字が規則。70字を超える項目が5%を超えたら止める）
-node -e "
-  const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/reader-analysis.json','utf8'));
-  let n=0,long=0;for(const id of fs.readFileSync('$CAND','utf8').split('\\n').filter(Boolean))for(const a of d[id]||[]){if(a.item==='STORY')continue;n++;if(a.text.length>70)long++}
-  console.log('長すぎる項目',long,'/',n);process.exit(n&&long/n>0.05?1:0)" || fail "推論の文が長すぎる（分析指示の短さの規則が効いていない）"
+# 2b. リード（HEADLINE）の基準検査。固定の字数は基準にしない（短い・長いで止めない）。
+#     断り書き・製品説明・出典に無い数字などで基準外のリードは数を表示するだけ（画面は基準外のリードを出さない。直しは headline-prompt.md の書き直し段で行う）
+node --import tsx scripts/reader-case/lead-report.ts --ids "$CAND" || say "リード基準の検査を実行できなかった（続行）"
 
 LEDGER_STAGE=AUDIT
 # 3. 監査（今の推論の文をまだ監査していない候補だけ。推論を作り直した事例は、前に監査済みでも監査し直す。

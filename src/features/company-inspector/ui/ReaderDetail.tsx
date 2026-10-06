@@ -8,7 +8,8 @@ import {
   metricOriginLabel,
   readerSummaryFact,
 } from '@/shared/display-text';
-import { ANALYSIS_LABELS, CONFIDENCE_LABELS, FACT_SECTIONS, UI, UNKNOWN_LABELS } from '@/shared/ui-strings';
+import { checkLead } from '@/shared/lead-standard';
+import { ANALYSIS_LABELS, FACT_SECTIONS, UI, UNKNOWN_LABELS } from '@/shared/ui-strings';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
@@ -111,14 +112,14 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader' }: ReaderProps) 
   );
 }
 
-/** 推測1件。見出し・印・確度・結論だけ。計算と根拠は下の ReaderEvidence にまとめる。 */
+/** 推測1件。見出し・印・結論だけ（確度は出さない）。計算と根拠は下の ReaderEvidence にまとめる。 */
 function AnalysisEntry({ analysis, headline = false }: { analysis: ReaderAnalysis; headline?: boolean }) {
   return (
     <div data-analysis={analysis.id} className="min-w-0 py-2 [overflow-wrap:anywhere]">
       <div className="mb-1 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs">
         {!headline && <h4 className="text-term-label">{ANALYSIS_LABELS[analysis.item]}</h4>}
-        <span className="text-term-accent">{UI.ANALYSIS_MARK}</span>
-        <span className="text-term-label">{UI.ANALYSIS_CONFIDENCE_PREFIX}{CONFIDENCE_LABELS[analysis.confidence]}</span>
+        {analysis.presentation === 'ESTIMATE' && <span className="text-term-label opacity-70">{UI.ESTIMATED_MARK}</span>}
+        {analysis.presentation === undefined && <span className="text-term-accent">{UI.ANALYSIS_MARK}</span>}
       </div>
       {headline ? (
         <h3 className="text-lg font-semibold leading-relaxed text-term-fg-strong">{analysis.text}</h3>
@@ -132,7 +133,9 @@ function AnalysisEntry({ analysis, headline = false }: { analysis: ReaderAnalysi
 /** 強い一行と物語。推論である印はそれぞれに付ける。 */
 export function ReaderAnalysisIntro({ reader }: { reader?: ReaderCase }) {
   if (!reader) return null;
-  const intro = ['HEADLINE', 'STORY'].flatMap((item) => reader.analysis.filter((a) => a.item === item));
+  // リード（HEADLINE）は基準（lead-standard.ts）を通った時だけ出す。通らなければ出さず、物語だけ出す
+  const intro = ['HEADLINE', 'STORY'].flatMap((item) => reader.analysis.filter((a) => a.item === item))
+    .filter((a) => a.item !== 'HEADLINE' || checkLead(a, reader).ok);
   if (intro.length === 0) return null;
   return (
     <div className="min-w-0 border-b border-term-line px-2.5 py-1 sm:px-3">

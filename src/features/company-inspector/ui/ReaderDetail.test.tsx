@@ -91,20 +91,19 @@ describe('reader detail', () => {
 describe('reader analysis', () => {
   const ledger = (reader: ReaderCase) => renderToStaticMarkup(<ReaderLedger reader={reader} />);
 
-  it('冒頭に大きい HEADLINE と STORY を各1回、両方に推測の印と確度を出す', () => {
+  it('冒頭に大きい HEADLINE と STORY を各1回、両方に推測の印を出す（確度は出さない）', () => {
     const html = ledger(withAnalysis);
     const intro = renderToStaticMarkup(<ReaderAnalysisIntro reader={withAnalysis} />);
     expect(intro).toMatch(/<h3 class="[^"]*text-lg[^"]*">面倒な集計/);
     expect(intro.match(/>推測</g)).toHaveLength(2);
-    expect(intro).toContain('確度: 高');
-    expect(intro).toContain('確度: 中');
+    expect(intro).not.toContain('確度');
     expect(html.match(/data-analysis="a-headline"/g)).toHaveLength(1);
     expect(html.match(/data-analysis="a-story"/g)).toHaveLength(1);
     expect(html.indexOf('a-headline')).toBeLessThan(html.indexOf('a-story'));
     expect(html.indexOf('a-story')).toBeLessThan(html.indexOf('data-fact="f1"'));
   });
 
-  it('推測欄は数値の後・事実の前に、項目名・結論・確度だけを出す', () => {
+  it('推測欄は数値の後・事実の前に、項目名・結論だけを出す', () => {
     const html = ledger(withAnalysis);
     expect(html.indexOf('section-analysis')).toBeGreaterThan(html.indexOf('section-metrics'));
     expect(html.indexOf('section-analysis')).toBeLessThan(html.indexOf('data-fact="f2"'));
@@ -112,7 +111,7 @@ describe('reader analysis', () => {
     expect(html).toContain('事業の形');
     expect(html).toContain('手残り');
     expect(html).toContain(withAnalysis.analysis[0].text);
-    expect(html).toContain('確度: 低');
+    expect(html).not.toContain('確度');
     const rows = renderToStaticMarkup(<ReaderAnalyses reader={withAnalysis} />);
     expect(rows.match(/>推測</g)).toHaveLength(2);
     expect(rows).not.toContain('a-headline');
@@ -120,6 +119,23 @@ describe('reader analysis', () => {
     expect(rows).not.toContain('計算・前提:');
     expect(rows).not.toContain('根拠:');
     expect(rows).not.toContain('href=');
+  });
+
+  it('印は presentation で変わる: ESTIMATE=推定、FACT_SUMMARY=印なし、無し=従来の推測', () => {
+    const one = (presentation?: 'ESTIMATE' | 'FACT_SUMMARY') => renderToStaticMarkup(<ReaderAnalyses reader={{ ...baremetrics, analysis: [{ id: 'a-take-home', item: 'TAKE_HOME', text: 'テスト', basis: ['m1'], formula: '売上 − 費用', ...(presentation ? { presentation } : {}) }] }} />);
+    expect(one('ESTIMATE')).toContain('>推定<');
+    expect(one('ESTIMATE')).not.toContain('>推測<');
+    expect(one('FACT_SUMMARY')).not.toMatch(/>(推測|推定)</);
+    expect(one()).toContain('>推測<');
+  });
+
+  it('リードは基準を通った時だけ出す（断り書き付き・出典に無い数字・製品説明は出さない）', () => {
+    const show = (text: string, basis = ['f1']) => renderToStaticMarkup(<ReaderAnalysisIntro reader={{ ...withAnalysis, analysis: [{ id: 'a-headline', item: 'HEADLINE', text, basis }] }} />);
+    expect(show('面倒な集計を引き受けて、継続課金を積み上げる。')).toContain('<h3');
+    expect(show('集計を自動化し、月$2万売上（本人公表）。')).not.toContain('<h3');
+    expect(show('集計を引き受け、月$9,999,999を稼ぐ。')).not.toContain('<h3');
+    expect(show('集計をまとめるツールを提供する。')).not.toContain('<h3');
+    expect(show('集計を引き受け、月$2万〜5万を稼ぐ。')).not.toContain('<h3');
   });
 
   it('計算と根拠は事実の後・出典の前の1区画にまとめる', () => {
