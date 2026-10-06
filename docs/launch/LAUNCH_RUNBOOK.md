@@ -60,6 +60,21 @@
 7. **本番で確認**（5章のチェック表の「公開直後」）。
 8. 問題があれば 6 章の戻し方へ。
 
+### 3-1. 手元専用の証拠（出典本文・画像）を公開の実行場所で使えるようにする
+
+必要な場面: 公開版を作る `pnpm catalog:prepare`（`catalog:publish` の中でも走る）。10件の最終監査が、出典本文（`data/source-cache/`）と画像の台帳と実物（`data/media-staging/`）を読む。権利の条件（本文・画像は転載しない）のため、Git にも R2 にも入れない。不要な場面: `catalog:check`（読み取り検査）、自動テスト、Workers 本体（公開版は目録と圧縮済み成果物だけを読む）。
+
+| 選択肢 | 中身 | 長所 | 短所 |
+|---|---|---|---|
+| A. 公開の直前に複写 | 公開を実行する作業フォルダへ、証拠の置き場から `cp -R` | 置き場が1つで済む。権利の扱いが単純 | 複写し忘れると監査で10件とも止まる（安全側に倒れる） |
+| B. 別の置き場に固定 | 実行場所の `data/` から固定の置き場へシンボリックリンク | 複写が要らない | リンク切れ・置き場の移動で気づきにくい |
+
+おすすめ: **A（直前に複写）**。理由は、止まる方向が安全側（監査が通らず公開されない）で、証拠がどのフォルダにあるかを毎回目で確かめられるため。手順: 証拠の正本を1か所（オーナーの手元）に決め、公開の実行前に次を行う。
+1. `cp -R <正本>/source-cache data/` と `cp -RL <正本>/media-staging data/`（`media-staging` はリンクの可能性があるので実体を複写）。
+2. `git status` に出ないこと（`.gitignore` 済み）を確認。
+3. `pnpm catalog:prepare --dry-run` で、公開対象すべてが SHOW のまま（`withheld.audit` が 0）を確認してから公開へ進む。
+公開後も複写物は Git に入れない。公開の実行環境を GitHub Actions などに移す場合は、証拠を CI に置かない（権利のため）。公開は手元で実行する。
+
 定期実行（収集の自動運転、通知メール）は、公開と同時に有効にしない。有効化の条件は `AUTOPILOT_OPERATIONS.md` 6章。
 
 ## 4. 件数と保留の理由の出し方
@@ -69,7 +84,7 @@ node -e "const r=require('./data/catalog-release.json');console.log('公開',Obj
 node -e "const d=require('./data/case-display.json');const c={};for(const v of Object.values(d)){c[v.display]=(c[v.display]||0)+1}console.log(c)"
 ```
 
-実測（2026-10-06、この作業フォルダの main）: 公開 323 件（元 3,341 件）。`case-display.json` は 3,312 件で、SHOW 323 / HOLD_QUEUE 1,611（順番待ち）/ HOLD_RESOURCE 748（eBiz のみ出典）/ HOLD_UNVERIFIED 424 / HOLD_THIN 200 / HOLD_SCHEMA 6。報告は「公開 N 件、保留 M 件（内訳: …）」の形にする。台帳の「20件だけ表示」とは別の数字なので、公開対象は通し済みの事例だけ（2章）。
+実測（2026-10-06、公開対象を10件に絞った後）: 公開 10 件（元 3,354 件）。`case-display.json` は 3,325 件で、SHOW 10 / HOLD_QUEUE 1,925（順番待ち。外した引き継ぎ315件を含む）/ HOLD_RESOURCE 748（eBiz のみ出典）/ HOLD_UNVERIFIED 436 / HOLD_THIN 200 / HOLD_SCHEMA 6。報告は「公開 N 件、保留 M 件（内訳: …）」の形にする。台帳の「20件だけ表示」とは別の数字なので、公開対象は通し済みの事例だけ（2章）。
 
 ## 5. 公開前チェック表
 
