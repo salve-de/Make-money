@@ -238,8 +238,12 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
       <ReaderSummary reader={reader} evidencePrefix={evidencePrefix} />
       <KeyStrip reader={reader} plan={plan} />
       {media}
-      <StorySteps reader={reader} />
-      <AnalysisGroups reader={reader} usage={plan.usage} />
+      {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
+        <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
+          <StorySteps reader={reader} />
+          <AnalysisGroups reader={reader} usage={plan.usage} />
+        </div>
+      )}
       <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} exclude={plan.usage.factIds} />
       {hasDetails && <details open className="group border-b border-term-line">
         <summary className="flex min-h-9 cursor-pointer list-none items-center gap-2 bg-term-head px-2.5 text-xs text-term-sub hover:text-term-fg-strong sm:px-3 [&::-webkit-details-marker]:hidden">
