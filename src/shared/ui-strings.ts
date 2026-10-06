@@ -4,7 +4,7 @@
  * scripts/architecture/screen-text.tsx は、fact・analysis・metric・source の要素の外にある文字が
  * ここの値のどれかに一致しなければ失敗にする。{name} は事例名に置き換えて照合する。
  */
-import type { AnalysisItem, Measure, MetricOrigin, ReaderAnalysis, UnknownItem } from './reader-case';
+import type { AnalysisItem, Measure, MetricOrigin, UnknownItem } from './reader-case';
 import type { ReaderFact } from './reader-case';
 
 export const MEASURE_LABELS: Record<Measure, string> = {
@@ -69,11 +69,23 @@ export const ANALYSIS_LABELS: Record<AnalysisItem, string> = {
   LESSON: '教訓',
 };
 
-export const CONFIDENCE_LABELS: Record<ReaderAnalysis['confidence'], string> = {
-  HIGH: '高',
-  MEDIUM: '中',
-  LOW: '低',
-};
+/** 詳細の章の見出し（推論を置く章）。材料がある章だけ出る。 */
+export const CHAPTER_TITLES = {
+  what: '何を、誰に売っているのか',
+  first: '最初の一件は',
+  growth: '伸びたきっかけ',
+  left: 'いくら残るのか',
+  needs: '続けるために必要なもの',
+  now: '今どうなっているか',
+} as const;
+
+/** 物語の4段の名前。 */
+export const STORY_STAGE_LABELS = {
+  prelude: '前夜',
+  gap: '隙',
+  breakthrough: '突破',
+  engine: '金が回る仕組み',
+} as const;
 
 /** 事実の種類ごとの見出し（表示順）。 */
 export const FACT_SECTIONS: Array<{ kind: ReaderFact['kind']; title: string }> = [
@@ -95,10 +107,13 @@ export const UI = {
   SECTION_SOURCES: '出典',
   SECTION_ANALYSIS: 'アナリストの推測',
   ANALYSIS_MARK: '推測',
-  SECTION_EVIDENCE: '推測の計算・前提と根拠',
+  SECTION_EVIDENCE: '計算・前提と根拠を見る',
+  SECTION_FACTS: '確認できた事実',
+  SECTION_METRICS_DETAIL: '数値の内訳',
+  IMAGES_ARIA: '製品の画面',
+  IMAGE_SOURCE: '出典',
   ANALYSIS_FORMULA_PREFIX: '計算・前提: ',
   ANALYSIS_BASIS_PREFIX: '根拠: ',
-  ANALYSIS_CONFIDENCE_PREFIX: '確度: ',
   COL_MEASURE: '項目',
   COL_PERIOD: '期間',
   METRIC_STATED_AT_SUFFIX: '時点の表示',
@@ -118,8 +133,8 @@ export const UI = {
   ACTIONS_LABEL: '事例の操作',
   OFFICIAL_SITE: '公式サイト',
   OFFICIAL_SITE_ARIA: '{name}の公式サイトを新しいタブで開く',
-  PLAN: '計画を作成',
-  PLAN_ARIA: '{name}をもとに計画を作成',
+  PLAN: 'これで作る',
+  PLAN_ARIA: '{name}をもとに事業を作る',
   SAVE: '保存',
   SAVED: '保存済み',
   SAVE_ARIA: '{name}を保存',
@@ -164,7 +179,7 @@ export const UI = {
   NOTE_STATUS_SAVING: '保存中',
   NOTE_STATUS_ERROR: '未保存・再入力で再試行',
   // 一覧
-  LIST_REVENUE_UNKNOWN: '未確認',
+  LIST_REVENUE_UNKNOWN: '—',
   LIST_COL_CASE: '企業・事業内容',
   LIST_COL_REVENUE: '売上',
   LIST_COL_PROFIT: '営業利益',
@@ -179,6 +194,12 @@ export const UI = {
   LIST_COL_ORIGIN: '由来',
   LIST_COL_AMOUNT: '金額',
   LIST_EMPTY: '条件に合う事例がありません。条件を減らすか、検索語を変えてください。',
+  LIST_EMPTY_WHAT: 'ここには、条件に合う事例の売上と中身が並びます。',
+  LIST_LOADING: '事例を読み込んでいます…',
+  LIST_LOAD_SLOW: '時間がかかっています。通信を待っています。',
+  LIST_LOAD_FAILED: '事例一覧を読み込めませんでした。',
+  LIST_LOAD_MORE_FAILED: '続きを読み込めませんでした。',
+  LIST_RETRY: 'もう一度読み込む',
   VERIFIED_MARK: '決済確認',
   VERIFIED_MARK_TITLE: '運営者の決済データ（Stripe）で売上を確認済み',
   OPEN_CASE_ARIA: '{name}の事例を開く',
@@ -221,7 +242,8 @@ export function allowedUiTexts(entityName: string): Set<string> {
   for (const v of Object.values(ORIGIN_LABELS)) add(v);
   for (const v of Object.values(UNKNOWN_LABELS)) add(v);
   for (const v of Object.values(ANALYSIS_LABELS)) add(v);
-  for (const v of Object.values(CONFIDENCE_LABELS)) add(v);
+  for (const v of Object.values(CHAPTER_TITLES)) add(v);
+  for (const v of Object.values(STORY_STAGE_LABELS)) add(v);
   for (const s of FACT_SECTIONS) add(s.title);
   for (const v of Object.values(SECTOR_LABELS)) add(v);
   out.add(entityName);

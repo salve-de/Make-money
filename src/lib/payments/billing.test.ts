@@ -525,10 +525,10 @@ describe('POST /api/billing/portal', () => {
     const { response, body } = await open();
     expect(response.status).toBe(200); expect(body).toEqual({ url: 'https://billing.stripe.com/session/test' });
     expect(response.headers.get('cache-control')).toBe('private, no-store');
-    expect(state.portalParams).toEqual([{ customer: 'cus_1', return_url: 'http://localhost/' }]);
+    expect(state.portalParams).toEqual([{ customer: 'cus_1', return_url: 'http://localhost/account' }]);
     process.env.NEXT_PUBLIC_APP_URL = 'https://app.example';
     await open();
-    expect(state.portalParams[1]).toEqual({ customer: 'cus_1', return_url: 'https://app.example/' });
+    expect(state.portalParams[1]).toEqual({ customer: 'cus_1', return_url: 'https://app.example/account' });
   });
   it('never opens another member\'s subscription', async () => {
     await completeSubscription();

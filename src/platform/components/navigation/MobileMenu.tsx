@@ -3,17 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Dialog } from 'radix-ui';
-import {
-  BellRing,
-  ChevronRight,
-  Columns3,
-  Handshake,
-  ListChecks,
-  Menu,
-  Store,
-  X,
-  type LucideIcon,
-} from 'lucide-react';
+import { BellRing, ChevronRight, Menu, X, type LucideIcon } from 'lucide-react';
 import {
   GlobalNavSection,
   LEGAL_LINKS,
@@ -22,17 +12,14 @@ import {
   MOBILE_MENU_ITEMS,
   PRO_HREF,
 } from './navigationItems';
+import { DrawerUserMenu } from '@/components/auth/UserMenu';
 
 /** 下のタブに出ている画面。メニューには重ねて出さない */
-export const TAB_SECTION_IDS: GlobalNavSection[] = ['LEDGER', 'DISCOVER', 'SYNTHESIS'];
+export const TAB_SECTION_IDS: GlobalNavSection[] = ['LEDGER', 'TRENDS', 'SYNTHESIS', 'BUILDER', 'MARKETPLACE'];
 
 /** 下のタブと同じ線アイコン（lucide）で、メニューの行も見分けやすくする */
 export const MENU_ICONS: Partial<Record<GlobalNavSection, LucideIcon>> = {
-  COMPARE: Columns3,
   ALERTS: BellRing,
-  EXECUTION: ListChecks,
-  BUSINESSES: Handshake,
-  MARKETPLACE: Store,
 };
 
 interface MobileMenuProps {
@@ -74,6 +61,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ activeSection, onOpenPro
               <X aria-hidden="true" size={20} />
             </Dialog.Close>
           </div>
+          <DrawerUserMenu onNavigate={() => setOpen(false)} />
           <div className="shrink-0 border-b border-term-line p-3">
             {onOpenPro ? (
               <button type="button" onClick={() => { setOpen(false); onOpenPro(); }} className={proClass}>PRO の内容を見る</button>

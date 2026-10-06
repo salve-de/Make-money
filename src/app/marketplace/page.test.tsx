@@ -45,19 +45,17 @@ beforeEach(() => {
 });
 
 describe('/marketplace (product listings)', () => {
-  it('adds the product / business sale switch without changing the product list', async () => {
+  it('shows the product list with the list-yours and build entrances, and no way into business sales', async () => {
     const html = await render();
     const text = visibleText(html);
-    expect(html).toContain('aria-label="マーケットの種類"');
-    expect(html).toContain('href="/marketplace/businesses"');
-    expect(html.indexOf('aria-current="page"')).toBeLessThan(html.indexOf('href="/marketplace/businesses"'));
-    expect(text).toContain('製品事業の売買');
-    // 既存の製品一覧はそのまま
-    expect(text).toContain('サービス一覧');
+    expect(html).not.toContain('マーケットの種類');
+    expect(html).not.toContain('/marketplace/businesses');
+    expect(text).not.toContain('事業の売買');
     expect(text).toContain('小さな工場向けの図面検索');
     expect(html).toContain('href="/marketplace/my-service-a1b2c3d4"');
     expect(html).toContain('href="/marketplace/new"');
-    expect(html).toContain('href="/discover"');
+    expect(text).toContain('出品する');
+    expect(html).toContain('href="/build"');
   });
 
   it('still shows its empty and error states', async () => {

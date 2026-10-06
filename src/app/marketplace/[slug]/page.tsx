@@ -5,7 +5,11 @@ import { cache } from 'react';
 import { ExternalLink } from 'lucide-react';
 
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
+import { PurchasePanel } from '@/components/marketplace/commerce/PurchasePanel';
+import { resolveCommercePaymentMode } from '@/lib/marketplace/commerce/payment-mode';
+import { getPublicOffer } from '@/lib/marketplace/commerce/store';
 import { getPublishedMarketplaceListing } from '@/lib/marketplace/listing-store';
+import { isReferralCode } from '@/shared/marketplace-commerce-input';
 import { MARKETPLACE_CATEGORY_LABELS } from '@/shared/marketplace-listing';
 
 export const dynamic = 'force-dynamic';
@@ -34,10 +38,14 @@ export async function generateMetadata({
 
 export default async function MarketplaceListingPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ ref?: string | string[] }>;
 }) {
   const { slug } = await params;
+  const { ref } = await searchParams;
+  const referralCode = isReferralCode(ref) ? ref : null;
   let listing = null;
   let unavailable = false;
   try {
@@ -46,6 +54,15 @@ export default async function MarketplaceListingPage({
     unavailable = true;
   }
   if (!listing && !unavailable) notFound();
+  let offer = null;
+  let offerUnavailable = false;
+  if (listing) {
+    try {
+      offer = await getPublicOffer(slug, await resolveCommercePaymentMode());
+    } catch {
+      offerUnavailable = true;
+    }
+  }
 
   const BTN = 'inline-flex min-h-11 items-center border px-4 text-sm lg:min-h-8 lg:px-3';
   return (
@@ -75,7 +92,7 @@ export default async function MarketplaceListingPage({
               </div>
             </dl>
             <p className="whitespace-pre-wrap border-b border-term-line px-3 py-3 text-sm leading-7 text-term-fg">{listing.summary}</p>
-            <div className="flex flex-wrap gap-2 px-3 py-3">
+            <div className="flex flex-wrap gap-2 border-b border-term-line px-3 py-3">
               <a href={listing.productUrl} target="_blank" rel="noopener noreferrer" className={`${BTN} border-term-accent text-term-accent hover:bg-term-head`}>
                 サービスを見る<ExternalLink aria-hidden="true" className="ml-2 h-4 w-4" />
               </a>
@@ -85,7 +102,8 @@ export default async function MarketplaceListingPage({
                 </a>
               )}
             </div>
-            <p className="border-t border-term-line px-3 py-3 text-xs leading-5 text-term-label">掲載者が登録した情報です。申込み・決済は外部サイトで行います。</p>
+            <PurchasePanel slug={slug} productUrl={listing.productUrl} offer={offer} offerUnavailable={offerUnavailable} referralCode={referralCode} />
+            <p className="px-3 py-3 text-xs leading-5 text-term-label">掲載者が登録した情報です。外部サイトでの申込み・決済は掲載者が行います。</p>
           </article>
         ) : null}
       </main>

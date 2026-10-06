@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useSyncExternalStore } from 'react';
-import { COMPARE_LIMIT } from '@/platform/model/compare-ids';
+import { COMPARE_LIMIT, parseCompareIds } from '@/platform/model/compare-ids';
 
 /** 比較に入れた事例（この端末だけに保存する）。 */
 export interface CompareItem {
@@ -18,9 +18,13 @@ function parseItems(raw: string | null): CompareItem[] {
   try {
     const value: unknown = JSON.parse(raw);
     if (!Array.isArray(value)) return EMPTY;
-    const items = value.filter((item): item is CompareItem =>
-      Boolean(item) && typeof item.id === 'string' && item.id.length <= 200 && typeof item.name === 'string' && item.name.length <= 300);
-    return items.slice(0, COMPARE_LIMIT);
+    const items: CompareItem[] = [];
+    for (const item of value) {
+      if (!item || typeof item.id !== 'string' || parseCompareIds(item.id)[0] !== item.id || typeof item.name !== 'string' || !item.name.trim() || item.name.length > 300) continue;
+      if (!items.some((entry) => entry.id === item.id)) items.push({ id: item.id, name: item.name });
+      if (items.length === COMPARE_LIMIT) break;
+    }
+    return items;
   } catch {
     return EMPTY;
   }
@@ -44,13 +48,16 @@ function readItems(): CompareItem[] {
 }
 
 function writeItems(items: CompareItem[]): void {
+  const next = items.slice(0, COMPARE_LIMIT);
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items.slice(0, COMPARE_LIMIT)));
+    const raw = JSON.stringify(next);
+    window.localStorage.setItem(STORAGE_KEY, raw);
+    cachedRaw = raw;
   } catch {
-    // 保存できない環境（プライベートブラウズ等）では、このページを開いている間だけ保持する
-    cachedRaw = null;
-    cachedItems = items.slice(0, COMPARE_LIMIT);
+    // 保存できない環境（プライベートブラウズ等）では、このページを開いている間だけ保持する。
+    // 最後に読んだ保存値は残し、同じ古い値を読み直しても今の編集が戻らないようにする
   }
+  cachedItems = next;
   window.dispatchEvent(new Event(CHANGE_EVENT));
 }
 

@@ -7,6 +7,7 @@ import { getFoundationBucketAsync, readR2Object } from '@/lib/storage/r2';
 import { getDossierStoragePath } from '@/lib/foundation/dossier-projection';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { isPublishableEntity } from './public-entity';
+import { toPatternCase, type PatternCase, type PatternSourceCase } from './case-patterns';
 import { canonicalCatalogId, catalogDetailHash, filterToCatalog } from '@/shared/catalog-membership';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { DiscoveryDataset } from '@/features/discover';
@@ -212,4 +213,36 @@ export function clearReleaseEntityCacheForTest(): void {
 
 export function releaseApprovalCandidateIds(): Set<string> {
   return new Set(manifest.approvalCandidateIds);
+}
+
+// 傾向画面用。公開目録の全事例の詳細（reader だけ）を読み、軽い形にして isolate 内に覚える。
+// 詳細は不変（ハッシュで決まる）なので、同じ版の間は1回だけ読む。失敗は覚えない。
+let patternCases: Promise<PatternCase[]> | undefined;
+
+export async function readReleasePatternCases(): Promise<PatternCase[]> {
+  if (!patternCases) {
+    patternCases = (async () => {
+      const rows = await readReleaseSummaries();
+      const out: PatternCase[] = [];
+      const queue = [...rows];
+      const worker = async () => {
+        for (let row = queue.shift(); row; row = queue.shift()) {
+          const hash = catalogDetailHash(row.id);
+          if (!hash) throw new CatalogUnavailableError('Catalog detail hash is missing');
+          const detail = await readArtifact(getDossierStoragePath(row.id, hash), hash);
+          if (!isRecord(detail) || detail.id !== row.id) throw new CatalogUnavailableError('Invalid catalog dossier');
+          out.push(toPatternCase({
+            id: row.id,
+            name: row.name,
+            sector: typeof detail.sector === 'string' ? detail.sector : row.sector,
+            tags: Array.isArray(detail.tags) ? detail.tags.filter((t): t is string => typeof t === 'string') : [],
+            reader: isRecord(detail.reader) ? (detail.reader as PatternSourceCase['reader']) : undefined,
+          }));
+        }
+      };
+      await Promise.all(Array.from({ length: 8 }, worker));
+      return out.sort((a, b) => a.id.localeCompare(b.id));
+    })().catch((error) => { patternCases = undefined; throw error; });
+  }
+  return patternCases;
 }

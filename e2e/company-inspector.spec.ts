@@ -124,7 +124,8 @@ test('unconfirmed financials omit the result card without fabricating zero value
   await expect(page.getByRole('heading', { name: 'Plausible Analytics', exact: true })).toBeVisible();
   const inspector = page.getByRole('complementary', { name: 'Plausible Analyticsの企業事例インスペクター' });
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(inspector).toContainText('未確認: 利益');
+  // 未確認の項目は「未確認」と書いて埋めず、出さない
+  await expect(inspector).not.toContainText('未確認');
   await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
   await expect(page.locator('#section-sources')).toBeVisible();
 });

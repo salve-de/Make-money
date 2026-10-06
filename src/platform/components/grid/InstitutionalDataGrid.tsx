@@ -52,6 +52,8 @@ interface InstitutionalDataGridProps {
   isLoadingMore?: boolean;
   retryAvailable?: boolean;
   onRetry?: () => void;
+  /** 読み込み中・失敗の表示を別に出している間は、0件の案内を出さない */
+  suppressEmpty?: boolean;
 }
 
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
@@ -68,6 +70,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   isLoadingMore = false,
   retryAvailable = false,
   onRetry,
+  suppressEmpty = false,
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const observerTargetRef = useRef<HTMLDivElement>(null);
@@ -132,8 +135,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             isVerified={verifiedIds.has(entity.id)}
           />
         ))}
-        {entities.length === 0 && (
-          <div className="px-3 py-8 text-sm text-term-muted">{UI.LIST_EMPTY}</div>
+        {entities.length === 0 && !suppressEmpty && (
+          <div className="px-3 py-8 text-sm text-term-muted">
+            <p>{UI.LIST_EMPTY}</p>
+            <p className="mt-1">{UI.LIST_EMPTY_WHAT}</p>
+          </div>
         )}
       </div>
 
@@ -232,8 +238,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             })}
           </tbody>
         </table>
-        {entities.length === 0 && (
-          <div className="px-3 py-6 text-sm text-term-muted">{UI.LIST_EMPTY}</div>
+        {entities.length === 0 && !suppressEmpty && (
+          <div className="px-3 py-6 text-sm text-term-muted">
+            <p>{UI.LIST_EMPTY}</p>
+            <p className="mt-1">{UI.LIST_EMPTY_WHAT}</p>
+          </div>
         )}
       </div>
 
@@ -243,9 +252,12 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
           {isLoadingMore ? (
             <span>追加取得中（現在 {entities.length.toLocaleString('ja-JP')}件）</span>
           ) : retryAvailable && onRetry ? (
-            <button type="button" onClick={onRetry} className="h-8 rounded-sm border border-term-accent px-3 text-term-accent hover:bg-term-accent-bg">
-              追加取得を再試行
-            </button>
+            <div role="alert" className="flex flex-wrap items-center justify-center gap-3 text-sm text-term-fg lg:text-xs">
+              <span>{UI.LIST_LOAD_MORE_FAILED}</span>
+              <button type="button" onClick={onRetry} className="min-h-11 rounded-sm border border-term-accent px-3 text-term-accent hover:bg-term-head lg:min-h-8">
+                {UI.LIST_RETRY}
+              </button>
+            </div>
           ) : visibleCount < entities.length ? (
             <button
               type="button"

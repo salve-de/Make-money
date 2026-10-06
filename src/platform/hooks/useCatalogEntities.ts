@@ -244,6 +244,8 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
     catalogError: catalog.error,
     hasMore: catalog.hasMore,
     catalogLoading: catalog.loading,
+    catalogSlow: catalog.slow,
+    retryCatalog: catalog.retry,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
     approvedIds,

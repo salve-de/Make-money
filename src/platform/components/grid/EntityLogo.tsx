@@ -25,7 +25,7 @@ export function EntityLogo({ asset }: { asset: PublicMediaAsset | null | undefin
       referrerPolicy="no-referrer"
       title={asset.attribution}
       onError={() => setFailedUrl(asset.url)}
-      className={`h-5 w-5 shrink-0 rounded-[3px] border border-white/[0.14] bg-white ${asset.kind === 'og_image' ? 'object-cover' : 'object-contain'}`}
+      className={`h-5 w-5 shrink-0 border border-term-line bg-term-fg-strong ${asset.kind === 'og_image' ? 'object-cover' : 'object-contain'}`}
     />
   );
 }

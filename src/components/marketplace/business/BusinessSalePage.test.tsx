@@ -46,7 +46,7 @@ describe('MarketplaceTabs', () => {
     const businesses = renderToStaticMarkup(<MarketplaceTabs active="businesses" />);
     expect((businesses.match(/aria-current="page"/g) ?? []).length).toBe(1);
     expect(businesses.indexOf('aria-current="page"')).toBeGreaterThan(businesses.indexOf('href="/marketplace"'));
-    expect(visibleText(businesses)).toBe('製品事業の売買');
+    expect(visibleText(businesses)).toBe('製品事業の売買取引・紹介');
   });
 
   it('uses the square tab style with the orange underline on the current tab only', () => {

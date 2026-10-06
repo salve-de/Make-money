@@ -34,14 +34,14 @@ export async function POST(request: Request) {
     let body: unknown;
     try { body = await readJsonBody(request, MAX_CHECKOUT_REQUEST_BYTES); }
     catch (error) {
-      if (error instanceof RequestBodyTooLargeError) return NextResponse.json({ error: "Checkout request is too large" }, { status: 413 });
-      return NextResponse.json({ error: "Invalid checkout request" }, { status: 400 });
+      if (error instanceof RequestBodyTooLargeError) return NextResponse.json({ error: "購入の要求が大きすぎます" }, { status: 413 });
+      return NextResponse.json({ error: "購入の要求を読み取れません" }, { status: 400 });
     }
 
     // 価格・金額・ユーザーIDは本文から受け取らない。プランのidだけを受け取り、金額はサーバー側の設定で決める。
     const product = body && typeof body === "object" && !Array.isArray(body) ? (body as Record<string, unknown>).product : undefined;
     if (!isPlanId(product)) {
-      return NextResponse.json({ error: "Unknown product" }, { status: 400 });
+      return NextResponse.json({ error: "選んだプランが見つかりません" }, { status: 400 });
     }
     const subscriptionOffer = isSubscriptionPlanId(product) ? await getSubscriptionOffer(product) : null;
     const onSale = isSubscriptionPlanId(product) ? subscriptionOffer !== null : await isFoundingPassOnSale();
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     const stripe = await getStripeClient();
     if (!stripe || !await getRuntimeEnvValue("STRIPE_WEBHOOK_SECRET")) {
       return NextResponse.json(
-        { error: "Stripe is not configured in this environment" },
+        { error: "この環境では決済の設定が済んでいないため、購入できません" },
         { status: 503 }
       );
     }
@@ -93,7 +93,7 @@ export async function POST(request: Request) {
         cancel_url: `${appUrl}/`,
       });
       if (!session.url) {
-        return NextResponse.json({ error: "Checkout URL was not created" }, { status: 502 });
+        return NextResponse.json({ error: "決済画面を開始できませんでした" }, { status: 502 });
       }
       return NextResponse.json({ url: session.url });
     }
@@ -125,7 +125,7 @@ export async function POST(request: Request) {
     });
 
     if (!session.url) {
-      return NextResponse.json({ error: "Checkout URL was not created" }, { status: 502 });
+      return NextResponse.json({ error: "決済画面を開始できませんでした" }, { status: 502 });
     }
 
     return NextResponse.json({ url: session.url });

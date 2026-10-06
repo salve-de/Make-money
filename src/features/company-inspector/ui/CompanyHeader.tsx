@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
+import { useEntityMedia } from '@/platform/hooks/useEntityMedia';
+import { EntityLogo } from '@/platform/components/grid/EntityLogo';
+import { pickEntityLogo } from '@/shared/media-display';
 import type { InspectorSectionProps } from '../model/section-props';
 import { UI, uiFormat } from '@/shared/ui-strings';
 import { ShareModal } from './ShareModal';
@@ -48,6 +52,7 @@ export function CompanyHeader({
   const rawUrl = entity.url || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
   const sector = sectorLabel(entity);
+  const logo = pickEntityLogo(useEntityMedia([entity.id])[entity.id]);
 
   return (
     <>
@@ -65,9 +70,12 @@ export function CompanyHeader({
           <span className="term-panel-name hidden h-6 shrink-0 items-center lg:inline-flex">{UI.DETAIL_PANEL}</span>
           {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
           <div className="min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2">
-            <h2 className="truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
-              {entity.name}
-            </h2>
+            <div className="flex min-w-0 items-center gap-2">
+              <EntityLogo asset={logo} />
+              <h2 className="truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
+                {entity.name}
+              </h2>
+            </div>
             {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
           </div>
           <div className="flex shrink-0 items-center lg:ml-auto" aria-label={UI.ACTIONS_LABEL}>
@@ -145,14 +153,15 @@ export function CompanyHeader({
                 {UI.OFFICIAL_SITE}
               </a>
             )}
-            <a
-              href={'/execute/' + encodeURIComponent(entity.id)}
+            <Link
+              href="/build"
+              prefetch={false}
               className="inline-flex min-h-11 items-center px-1 text-term-accent hover:underline lg:min-h-7"
               aria-label={uiFormat(UI.PLAN_ARIA, entity.name)}
               title={UI.PLAN}
             >
               {UI.PLAN}
-            </a>
+            </Link>
             {onApproveEntity && (
               <button type="button" onClick={() => onApproveEntity(entity.id)} className="min-h-11 px-1 text-term-fg hover:text-term-fg-strong lg:min-h-7">
                 {UI.APPROVE}

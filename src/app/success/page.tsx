@@ -58,12 +58,13 @@ export default function SuccessPage() {
               : 'unconfirmed');
         let confirmedText = 'PRO の決済と会員権限を確認しました。';
         if (result.status === 'confirmed') {
+          setMessage(confirmedText);
           // 月額・年額か創刊版かで、次の更新日と解約の案内を出し分ける（読めなければ共通の文言のまま）
           const billing = await fetchBillingStatus(token).catch(() => null);
           if (cancelled) return;
           if (billing?.plan) {
             const renewal = formatRenewal(billing);
-            confirmedText = `PRO（${PLAN_LABELS[billing.plan]}）の決済と会員権限を確認しました。${renewal ? `${renewal}。解約はPROの画面の「契約の管理」からいつでもできます。` : ''}`;
+            confirmedText = `PRO（${PLAN_LABELS[billing.plan]}）の決済と会員権限を確認しました。${renewal ? `${renewal}。解約は会員設定の「契約の管理」からいつでもできます。` : ''}`;
           }
         }
         setMessage(result.status === 'confirmed'
@@ -147,7 +148,10 @@ export default function SuccessPage() {
             </button>
           )}
         </div>
-        <Link href="/welcome" className="inline-flex min-h-11 items-center px-3 text-sm text-term-sub underline underline-offset-4 hover:text-term-fg-strong">サービス案内</Link>
+        <div className="flex flex-wrap gap-x-2">
+          <Link href="/account" className="inline-flex min-h-11 items-center px-3 text-sm text-term-sub underline underline-offset-4 hover:text-term-fg-strong">会員設定（プラン・契約の管理）</Link>
+          <Link href="/welcome" className="inline-flex min-h-11 items-center px-3 text-sm text-term-sub underline underline-offset-4 hover:text-term-fg-strong">サービス案内</Link>
+        </div>
       </section>
     </main>
   );

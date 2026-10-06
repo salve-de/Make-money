@@ -315,12 +315,6 @@ export function DetailPane({
 
         <section className="flex flex-wrap items-center gap-2 px-3 py-3">
           <Link
-            href={`/execute/${encodeURIComponent(item.id)}`}
-            className={`${actionBtn} border-term-accent text-term-accent hover:bg-term-head`}
-          >
-            {UI.PLAN}
-          </Link>
-          <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
             className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}
           >

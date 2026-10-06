@@ -39,3 +39,16 @@ approved, so CI without that directory stays green. One test answers the media A
 to check the row wiring; that interception is stated in the spec. It writes `test-results/media-gallery-photoai.png`,
 `media-gallery-keyence.png` (Keyence is not in the catalog release, so a production build shows the notice, not the inspector)
 and `media-list-logo.png`. See docs/MEDIA_ASSETS_AND_PROVENANCE.md, chapter 11.
+
+## 会員導線の通し確認（ローカル専用）
+
+`account-flow.spec.ts` は登録・ログイン・メニュー・会員設定・パスワード再設定・ログアウト・退会（任意で決済→解約）を通す。本物の Firebase・Stripe・D1 にはつながない。CI では環境変数が無いので skip する。
+
+1. 認証エミュレーター：`firebase emulators:start --only auth --project demo-make-money`（ポートは firebase.json で 9139 などに。Java 不要）
+2. ローカル D1：`pnpm db:migrate:local`（wrangler のローカル保存先に作る）
+3. 決済の偽装（任意）：`STRIPE_MOCK_PORT=12111 STRIPE_MOCK_APP_URL=http://127.0.0.1:3131 node e2e/support/stripe-mock.mjs`
+4. 開発サーバー（.env.local の本番設定を上書きする）：
+   `NEXT_PUBLIC_FIREBASE_API_KEY=demo-key NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=demo-make-money.firebaseapp.com NEXT_PUBLIC_FIREBASE_PROJECT_ID=demo-make-money NEXT_PUBLIC_FIREBASE_APP_ID=demo-app NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9139 FIREBASE_AUTH_EMULATOR_HOST=127.0.0.1:9139 STRIPE_SECRET_KEY=sk_test_local_mock STRIPE_WEBHOOK_SECRET=whsec_local_mock STRIPE_LOCAL_MOCK_HOST=127.0.0.1:12111 PRO_MONTHLY_PRICE_JPY=980 NEXT_PUBLIC_APP_URL=http://127.0.0.1:3131 pnpm exec next dev --webpack -p 3131 -H 127.0.0.1`
+5. `ACCOUNT_E2E_BASE_URL=http://127.0.0.1:3131 ACCOUNT_E2E_AUTH_EMULATOR=http://127.0.0.1:9139 ACCOUNT_E2E_STRIPE_MOCK=http://127.0.0.1:12111 pnpm exec playwright test -c e2e/account-flow.config.ts`
+
+エミュレーターと偽装への切替は、`NODE_ENV` が production でなく、宛先が localhost で、プロジェクトが `demo-`・鍵が `sk_test_` のときだけ有効（`src/lib/firebase/emulator.ts`・`src/lib/stripe.ts`、単体テスト `src/lib/firebase/emulator.test.ts`）。画面写真は `test-results/account-flow/` に出る。

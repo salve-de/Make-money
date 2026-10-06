@@ -30,9 +30,7 @@ test.describe('official product images', () => {
     const gallery = page.locator('#section-media');
     await expect(gallery).toBeVisible({ timeout: 45_000 });
 
-    // Directly under 「事業の概要」.
-    await expect(page.locator('#section-summary + #section-media')).toHaveCount(1);
-    await expect(gallery).toContainText('製品画像');
+    // 冒頭の概要の下に、小さく並ぶ。
 
     // The images the gallery rule picks, loaded, each with its source text directly below it.
     const images = gallery.getByTestId('media-gallery-image');

@@ -1,5 +1,6 @@
 'use client';
 
+import { GuestCarryOverNotice } from '@/platform/components/saved/GuestCarryOverNotice';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { FinancialEntity, WorkspaceMode } from '@/shared/terminal';
@@ -17,6 +18,7 @@ import { CompanyInspectorPane } from '@/features/company-inspector';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal } from '../screener/AdvancedScreenerModal';
+import { LedgerLoadState } from '../grid/LedgerLoadState';
 import { LedgerFilterRail } from '../grid/LedgerFilterRail';
 import { TerminalStatusBar } from './TerminalStatusBar';
 import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
@@ -52,7 +54,7 @@ export const TerminalShell: React.FC<{
   const {
     entities, catalogFirstId,
     catalogError,
-    catalogLoading,
+    catalogLoading, catalogSlow, retryCatalog,
     catalogTotal,
     hasMore,
     detailedEntities,
@@ -125,6 +127,8 @@ export const TerminalShell: React.FC<{
     closeEntityParam();
   };
 
+  // 最初の取得が届くまで（検索語や条件を変えた直後も）は「0件」ではなく読み込み中として扱う
+  const listLoading = !catalogError && (catalogLoading || catalogTotal === null);
   const selectedPositionLabel = positionLabel(filteredEntities.findIndex((row) => row.id === selectedEntityId), catalogTotal || filteredEntities.length);
   const ledgerEntityIds = useMemo(() => filteredEntities.map((entity) => entity.id), [filteredEntities]);
   useLedgerKeyboard({
@@ -186,6 +190,8 @@ export const TerminalShell: React.FC<{
         isBookmarkActive={workspaceMode === 'LEDGER' && currentFilter === 'BOOKMARKED'}
       />
 
+      <GuestCarryOverNotice />
+
       {/* メインエリア */}
       <main className="flex-1 flex min-h-0 overflow-hidden relative">
         {/* 画面モードに応じたコンテンツレンダリング */}
@@ -223,10 +229,8 @@ export const TerminalShell: React.FC<{
               catalogTotal={catalogTotal}
               savedSearchDraft={{ query: searchQuery, filters: catalogFilters }}
             />
-            {catalogError && entities.length === 0 ? (
-              <div role="alert" className="border-b border-term-line bg-term-panel px-3 py-3 text-sm text-term-fg">
-                目録を読み込めません。しばらくしてから、ページを開き直してください。
-              </div>
+            {entities.length === 0 && (catalogError || listLoading) ? (
+              <LedgerLoadState state={catalogError ? 'failed' : 'loading'} slow={catalogSlow} onRetry={retryCatalog} />
             ) : null}
             <LedgerListTitle count={filteredEntities.length} />
             <InstitutionalDataGrid
@@ -241,6 +245,9 @@ export const TerminalShell: React.FC<{
               onLoadMore={loadMore}
               hasMore={hasMore}
               isLoadingMore={catalogLoading}
+              retryAvailable={Boolean(catalogError) && entities.length > 0}
+              onRetry={retryCatalog}
+              suppressEmpty={entities.length === 0 && (Boolean(catalogError) || listLoading)}
             />
           </div>
           </>

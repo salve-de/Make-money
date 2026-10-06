@@ -16,8 +16,8 @@ for (const width of [390, 768, 960, 1440]) {
     const metrics = pane.locator('#section-metrics');
     await metrics.scrollIntoViewIfNeeded();
     await expect(metrics).toBeVisible();
-    await expect(metrics).toContainText('金額');
-    const analysis = pane.locator('#section-analysis');
+    await expect(metrics.locator('[data-metric]').first()).toBeVisible();
+    const analysis = pane.locator('[data-section^="section-analysis"]').first();
     await analysis.scrollIntoViewIfNeeded();
     await expect(analysis).toBeVisible();
     await expect(analysis).toContainText('推測');

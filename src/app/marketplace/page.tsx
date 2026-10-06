@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { MarketplaceTabs } from '@/components/marketplace/business/MarketplaceTabs';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { listPublishedMarketplaceListings, parseMarketplaceOffset, MARKETPLACE_PAGE_SIZE } from '@/lib/marketplace/listing-store';
 import { MARKETPLACE_CATEGORY_LABELS } from '@/shared/marketplace-listing';
@@ -30,14 +29,13 @@ export default async function MarketplacePage({ searchParams }: {
       <GlobalHeader currentSection="MARKETPLACE" />
       <main className="w-full flex-1">
         <div className="term-panel-title max-sm:hidden">
-          <span className="term-panel-name max-lg:hidden">サービス一覧</span>
+          <span className="term-panel-name max-lg:hidden">市場</span>
           <span className="hidden sm:inline">掲載者が登録したサービス。申込み・決済は各サイトで行います。</span>
         </div>
-        <h1 className="sr-only">サービス一覧</h1>
-        <MarketplaceTabs active="products" />
+        <h1 className="sr-only">市場</h1>
         <div className="flex flex-wrap gap-2 border-b border-term-line px-3 py-2">
-          <Link href="/marketplace/new" className={`${BTN} border-term-accent text-term-accent hover:bg-term-head`}>サービスを掲載</Link>
-          <Link href="/discover" className={`${BTN} border-term-line text-term-fg hover:bg-term-head`}>アイデアを探して作る</Link>
+          <Link href="/marketplace/new" className={`${BTN} border-term-accent text-term-accent hover:bg-term-head`}>出品する</Link>
+          <Link href="/build" prefetch={false} className={`${BTN} border-term-line text-term-fg hover:bg-term-head`}>作る</Link>
         </div>
 
         {unavailable ? (
@@ -45,7 +43,7 @@ export default async function MarketplacePage({ searchParams }: {
         ) : listings?.length === 0 ? (
           <section className="px-3 py-4 text-sm">
             <p className="text-term-fg-strong">{offset > 0 ? 'このページに掲載サービスはありません' : 'まだ掲載サービスはありません'}</p>
-            <p className="mt-1 text-term-sub">サービスを公開したら「サービスを掲載」から紹介ページを作れます。</p>
+            <p className="mt-1 text-term-sub">サービスを作ったら「出品する」から紹介ページを作れます。</p>
           </section>
         ) : (
           <section aria-label="掲載サービスの一覧">

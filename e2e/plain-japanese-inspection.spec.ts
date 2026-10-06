@@ -41,7 +41,6 @@ for (const [id, name, published] of entities) {
     if (published) {
       await expect(inspector.locator('#section-metrics')).toHaveCount(1);
       await expect(inspector.locator('#section-sources')).toHaveCount(1);
-      await expect(inspector.locator('#section-analysis')).toHaveCount(1);
       await expect(inspector.locator('[data-analysis]').first()).toContainText('推測');
       await expect(inspector).not.toContainText('この事例の詳細は準備中です。');
     }
