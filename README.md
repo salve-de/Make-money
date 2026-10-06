@@ -1,10 +1,14 @@
+> **2026-10-04追補**: [懸念・問い・決定・未解決・検証台帳](./docs/OWNER_QUESTIONS_AND_ACCEPTANCE_20261004.md)も参照。表示項目と伝える内容を収集前に定義し、中間仮表示から追加調査へ戻す。共通骨格＋登録済み条件ブロック、欠損項目・空章・画像空枠の非表示、残る内容の読む価値を守る。固定章数・固定字数は決定していない。docs更新と実装・全件検証・公開は別であり、今回の変更は文書のみ。
+
+> **現行の唯一の入口（2026-10-03）**: [`docs/OWNER_INTENT.md`](./docs/OWNER_INTENT.md)。収集の10情報領域と文章品質は2・3章、画像は7章。10領域は収集上限・全件必須10章ではなく、従来の12領域・9情報源・枠外の有用情報を維持する。根拠のある推論だけを使い、全項目の強制穴埋めはしない。以下の旧宣言・テンプレートと食い違う場合も、この入口を優先する。保存・権利・書込承認の既存境界は維持する。
+
 > **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
 
 # 金鉱録 (KIN-ROKOKU / Universal Business Foundation)
 
 開発・保存先の入口: [データとコードの置き場所](docs/architecture/STORAGE.md)。担当者・AIは変更前に参照してください。
 
-新規データ収集を依頼されたAIは、最初に [全プロジェクト共通自律データ収集プロトコル](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md) および [黄金収集仕様](docs/GOLDEN_INGEST_SCHEMA.md) を読むこと。
+新規データ収集を依頼されたAIは、最初に [オーナー意図の正本](docs/OWNER_INTENT.md) を読み、次に [全プロジェクト共通自律データ収集プロトコル](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md) および [黄金収集仕様](docs/GOLDEN_INGEST_SCHEMA.md) を読むこと。
 
 何を集めるかの完全な目録は [Make-Money / business-case 収集対象の完全目録](docs/MAKE_MONEY_COLLECTION_SCOPE.md) に固定している。GitHubとR2だけを渡されたAIも、入口文書・この目録・Universal Foundationの正本を突き合わせてから収集を開始すること。
 
@@ -379,3 +383,4 @@ pnpm build
 ```
 
 ブラウザで [http://localhost:3000](http://localhost:3000) を開いて確認します。
+
