@@ -81,7 +81,7 @@ export interface ReevaluationTargets {
   items: string[];
   /** 事実が無く「未確認」になっている項目に対応する分析項目（既存の「不明」判定の再評価対象） */
   unknownItems: string[];
-  /** 根拠が空で確度 LOW の推論（一般相場だけの推論＝実質「不明」）の項目 */
+  /** 根拠が空の推論（事実に拠らない文＝実質「不明」）の項目。確度ラベルは廃止したので見ない */
   weakItems: string[];
 }
 
@@ -92,6 +92,6 @@ export interface ReevaluationTargets {
 export function reevaluationTargets(reader: Pick<ReaderCase, 'analysis' | 'unknowns'>, missing: readonly string[]): ReevaluationTargets {
   const existing = reader.analysis.map((a) => a.item as string);
   const unknownItems = reader.unknowns.map((u) => UNKNOWN_TO_ANALYSIS[u]).filter((x): x is string => !!x);
-  const weakItems = reader.analysis.filter((a) => a.confidence === 'LOW' && a.basis.length === 0).map((a) => a.item as string);
+  const weakItems = reader.analysis.filter((a) => a.basis.length === 0).map((a) => a.item as string);
   return { items: [...new Set([...missing, ...existing, ...unknownItems])], unknownItems: [...new Set(unknownItems)], weakItems: [...new Set(weakItems)] };
 }
