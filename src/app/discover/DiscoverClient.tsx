@@ -10,6 +10,7 @@ import { UI } from "@/shared/ui-strings";
 import { readerContextText } from "@/shared/display-text";
 import { GlobalHeader } from "@/platform/components/navigation/GlobalHeader";
 import { SquareTabs } from "@/platform/components/navigation/SquareTabs";
+import { readStrategyError } from "@/shared/strategy-client";
 import type {
   DiscoveryCase,
   DiscoveryDataset,
@@ -182,14 +183,7 @@ export function DetailPane({
 
       const data: unknown = await response.json();
       if (!response.ok) {
-        const message =
-          data &&
-          typeof data === "object" &&
-          "error" in data &&
-          typeof data.error === "string"
-            ? data.error
-            : "分析エンジンとの接続に失敗しました。";
-        throw new Error(message);
+        throw new Error(readStrategyError(data, response.status, "分析エンジンとの接続に失敗しました。"));
       }
 
       const answer =
@@ -314,12 +308,6 @@ export function DetailPane({
         </details>
 
         <section className="flex flex-wrap items-center gap-2 px-3 py-3">
-          <Link
-            href={`/execute/${encodeURIComponent(item.id)}`}
-            className={`${actionBtn} border-term-accent text-term-accent hover:bg-term-head`}
-          >
-            {UI.PLAN}
-          </Link>
           <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
             className={`${actionBtn} border-term-line text-term-fg hover:bg-term-head`}

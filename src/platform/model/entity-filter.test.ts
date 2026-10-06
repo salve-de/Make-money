@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import type { FinancialEntity } from '@/shared/terminal';
 import {
   GRID_FILTERS,
   collectedEntityIds,
+  countScreenerMatches,
   matchesGridFilter,
   readEntityFilterQuery,
   type FilterCandidate,
@@ -55,5 +57,27 @@ describe('PR20 filter behavior contract', () => {
 
     const hiddenElsewhere = { id: 'ent_hidden_collected', tags: ['収集事例'] };
     expect(collectedEntityIds(visible)).not.toContain(hiddenElsewhere.id);
+  });
+});
+
+describe('絞り込み欄の0件判定', () => {
+  // 公開中の事例と同じく、規模・利益率・初期資金・参入障壁がどれも未設定の事例
+  const unknown = {
+    id: 'ent_unknown', name: 'Unknown', ticker: '', tagline: '', tags: [], scale: 'UNKNOWN', sector: 'UNKNOWN',
+    pnl: { operatingMargin: 0 }, operations: { initialCapitalRequired: 0, isCapitalUnconfirmed: true }, strategy: { moatType: 'UNKNOWN' },
+  } as unknown as FinancialEntity;
+  const solo = { ...unknown, id: 'ent_solo', scale: 'SOLO', pnl: { operatingMargin: 60 } } as unknown as FinancialEntity;
+  const none = { scales: [], minMargin: 0, maxCapital: null, moats: [] };
+
+  it('値が未設定の事例だけなら、どの条件も0件になる', () => {
+    expect(countScreenerMatches([unknown], { ...none, scales: ['SOLO'] })).toBe(0);
+    expect(countScreenerMatches([unknown], { ...none, minMargin: 30 })).toBe(0);
+    expect(countScreenerMatches([unknown], { ...none, maxCapital: 0 })).toBe(0);
+    expect(countScreenerMatches([unknown], { ...none, moats: ['SWITCHING_COST'] })).toBe(0);
+  });
+  it('当たる事例があれば、その件数を数える（一覧の絞り込みと同じ規則）', () => {
+    expect(countScreenerMatches([unknown, solo], { ...none, scales: ['SOLO'] })).toBe(1);
+    expect(countScreenerMatches([unknown, solo], { ...none, minMargin: 50 })).toBe(1);
+    expect(countScreenerMatches([unknown, solo], { ...none, minMargin: 80 })).toBe(0);
   });
 });

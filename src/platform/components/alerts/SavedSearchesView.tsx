@@ -30,6 +30,7 @@ export function SavedSearchesView() {
   const [busyId, setBusyId] = useState<string | null>(null);
   const [rowError, setRowError] = useState<string | null>(null);
   const [showAuth, setShowAuth] = useState(false);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!user) return;
@@ -39,7 +40,9 @@ export function SavedSearchesView() {
       .then((body) => { if (!cancelled) setState({ status: 'ready', items: Array.isArray(body.savedSearches) ? body.savedSearches : [] }); })
       .catch((error) => { if (!cancelled) setState({ status: 'error', message: error instanceof Error ? error.message : '保存した条件を読み込めませんでした' }); });
     return () => { cancelled = true; };
-  }, [user]);
+  }, [user, attempt]);
+
+  const reload = () => { setRowError(null); setState({ status: 'loading' }); setAttempt((value) => value + 1); };
 
   const update = async (item: SavedSearch, action: 'toggle' | 'delete') => {
     if (!user) return;
@@ -63,7 +66,7 @@ export function SavedSearchesView() {
     }
   };
 
-  const BTN = 'inline-flex min-h-11 items-center justify-center rounded-sm border px-3 text-xs lg:min-h-7';
+  const BTN = 'inline-flex min-h-11 items-center justify-center border px-3 text-xs lg:min-h-7';
   const count = state.status === 'ready' ? state.items.length : null;
 
   return (
@@ -79,12 +82,22 @@ export function SavedSearchesView() {
         <p className="px-3 py-4 text-sm text-term-muted">読み込み中…</p>
       ) : !user ? (
         <section className="px-3 py-4 text-sm">
-          <p className="text-term-fg-strong">ログインすると、検索条件を保存して新着をメールで受け取れます</p>
-          <p className="mt-1 text-term-sub">事例一覧で検索や絞り込みをしてから「条件を保存」を押すと、ここに並びます。</p>
-          <button type="button" onClick={() => setShowAuth(true)} className={`${BTN} mt-3 border-term-accent px-4 text-sm text-term-accent hover:bg-term-head`}>ログイン</button>
+          <p className="text-term-fg-strong">検索条件を保存して、新着をメールで受け取れます</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-term-sub">
+            <li>事例一覧で検索語や絞り込みを決め、「条件を保存」を押す</li>
+            <li>新しい事例が条件に合うと、メールでお知らせ（切り替え・削除はこの画面から）</li>
+            <li>条件の保存にはログインが必要です。事例の保存・メモ・比較はログインなしでもこの端末で使えます</li>
+          </ul>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <button type="button" onClick={() => setShowAuth(true)} className={`${BTN} border-term-accent px-4 text-sm text-term-accent hover:bg-term-head`}>ログインして使う</button>
+            <Link href="/" className={`${BTN} border-term-line px-4 text-sm text-term-fg hover:bg-term-head`}>事例一覧で条件を決める</Link>
+          </div>
         </section>
       ) : state.status === 'error' ? (
-        <p role="alert" className="px-3 py-4 text-sm text-term-danger">{state.message}</p>
+        <section className="px-3 py-4 text-sm">
+          <p role="alert" className="text-term-danger">{state.message}</p>
+          <button type="button" onClick={reload} className={`${BTN} mt-3 border-term-line px-4 text-term-fg hover:bg-term-head`}>再読み込み</button>
+        </section>
       ) : state.status === 'ready' && state.items.length === 0 ? (
         <section className="px-3 py-4 text-sm">
           <p className="text-term-fg-strong">保存した条件はまだありません</p>

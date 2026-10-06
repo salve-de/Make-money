@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import { loadEntityDetail } from '@/platform/hooks/entity-detail-loader';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
@@ -56,39 +56,48 @@ const ROWS: { label: string; value: (entity: FinancialEntity) => React.ReactNode
 ];
 
 // Tailwind が読み取れるよう、列数ごとのクラスを文字列のまま並べる
+// スマホでは1列を200pxに固定し、長い文章は折り返して左右スクロールで見比べる。広い画面では列を均等に広げる
 const COLUMN_CLASSES = [
-  'grid-cols-[88px_minmax(180px,1fr)]',
-  'grid-cols-[88px_repeat(2,minmax(180px,1fr))]',
-  'grid-cols-[88px_repeat(3,minmax(180px,1fr))]',
-  'grid-cols-[88px_repeat(4,minmax(180px,1fr))]',
+  'grid-cols-[88px_200px] lg:grid-cols-[88px_minmax(0,1fr)]',
+  'grid-cols-[88px_repeat(2,200px)] lg:grid-cols-[88px_repeat(2,minmax(0,1fr))]',
+  'grid-cols-[88px_repeat(3,200px)] lg:grid-cols-[88px_repeat(3,minmax(0,1fr))]',
+  'grid-cols-[88px_repeat(4,200px)] lg:grid-cols-[88px_repeat(4,minmax(0,1fr))]',
 ];
 
 function useComparedEntities(ids: readonly string[]) {
   const [loaded, setLoaded] = useState<Record<string, Loaded>>({});
   const requested = useRef(new Set<string>());
   const key = ids.join(',');
+  const fetchOne = useCallback((id: string) => {
+    requested.current.add(id);
+    loadEntityDetail(id)
+      .then((entity) => setLoaded((prev) => ({ ...prev, [id]: entity ? { status: 'ready', entity } : { status: 'missing' } })))
+      .catch(() => {
+        requested.current.delete(id);
+        setLoaded((prev) => ({ ...prev, [id]: { status: 'error' } }));
+      });
+  }, []);
   useEffect(() => {
     // 取得済み・取得中の事例は取り直さない。まだ結果の無い事例は、表示側で「読み込み中」として扱う
     for (const id of key ? key.split(',') : []) {
-      if (requested.current.has(id)) continue;
-      requested.current.add(id);
-      loadEntityDetail(id)
-        .then((entity) => setLoaded((prev) => ({ ...prev, [id]: entity ? { status: 'ready', entity } : { status: 'missing' } })))
-        .catch(() => {
-          requested.current.delete(id);
-          setLoaded((prev) => ({ ...prev, [id]: { status: 'error' } }));
-        });
+      if (!requested.current.has(id)) fetchOne(id);
     }
-  }, [key]);
-  return loaded;
+  }, [key, fetchOne]);
+  /** 失敗した事例だけを取り直す。 */
+  const retry = useCallback((id: string) => {
+    if (requested.current.has(id)) return;
+    setLoaded((prev) => ({ ...prev, [id]: { status: 'loading' } }));
+    fetchOne(id);
+  }, [fetchOne]);
+  return { loaded, retry };
 }
 
-export function CompareView({ ids: requestedIds }: { ids: string[] }) {
+export function CompareView({ ids: requestedIds, omittedCount = 0 }: { ids: string[]; omittedCount?: number }) {
   const router = useRouter();
   const tray = useCompareTray();
   // URL の指定を優先し、無ければこの端末で比較に入れた事例を使う
   const ids = requestedIds.length > 0 ? requestedIds : tray.items.map((item) => item.id);
-  const loaded = useComparedEntities(ids);
+  const { loaded, retry: retryCase } = useComparedEntities(ids);
   const ready = ids.map((id) => loaded[id]).filter((item): item is { status: 'ready'; entity: FinancialEntity } => item?.status === 'ready').map((item) => item.entity);
 
   const removeCase = (id: string) => {
@@ -118,6 +127,16 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
         {ids.length > 0 && <button type="button" onClick={clearAll} className="ml-auto flex min-h-11 items-center px-2 text-xs text-term-muted hover:bg-term-line hover:text-term-fg-strong lg:min-h-6">すべて外す</button>}
       </div>
       <h1 className="sr-only">事例の比較</h1>
+      {omittedCount > 0 && (
+        <p role="status" className="border-b border-term-line px-3 py-2 text-xs text-term-sub">
+          一度に比べられるのは{COMPARE_LIMIT}件までです。残りの{omittedCount}件は表示していません。外したい事例の「×」を押すと、入れ替えられます。
+        </p>
+      )}
+      {ids.length === 1 && (
+        <p role="status" className="border-b border-term-line px-3 py-2 text-xs text-term-sub">
+          まだ1件だけです。もう1件以上を加えると見比べられます（あと{COMPARE_LIMIT - 1}件まで追加可）。下の同じ分野の事例から加えられます。
+        </p>
+      )}
 
       {ids.length === 0 ? (
         <section className="px-3 py-4 text-sm">
@@ -126,6 +145,8 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
           <Link href="/" className="mt-3 inline-flex min-h-11 items-center border border-term-line px-4 text-sm text-term-fg hover:bg-term-head lg:min-h-8 lg:px-3">事例一覧へ</Link>
         </section>
       ) : (
+        <>
+        {ids.length >= 2 && <p className="border-b border-term-line-soft px-3 py-1 text-xs text-term-muted lg:hidden">表は左右にスクロールできます。左の項目名は固定されます。</p>}
         <div className="overflow-x-auto border-b border-term-line">
           <div role="table" aria-label="事例の比較表" className={`grid min-w-max ${columns} text-[13px] lg:min-w-0`}>
             <div role="row" className="contents">
@@ -148,7 +169,14 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
                   const status = loaded[id]?.status ?? 'loading';
                   return (
                     <span role="cell" key={id} className="border-b border-r border-term-line-soft px-2.5 py-1.5 text-xs text-term-muted last:border-r-0">
-                      {status === 'ready' ? '' : status === 'loading' ? '読み込み中…' : status === 'missing' ? 'この事例は公開されていないか、見つかりません' : '読み込めませんでした。再読み込みしてください'}
+                      {status === 'ready' ? '' : status === 'loading' ? '読み込み中…' : status === 'missing' ? 'この事例は公開されていないか、見つかりません' : (
+                        <>
+                          <span className="block">読み込めませんでした。</span>
+                          <button type="button" onClick={() => retryCase(id)} className="mt-1 min-h-11 rounded-sm border border-term-accent px-3 text-sm text-term-accent hover:bg-term-head lg:min-h-6 lg:text-xs">
+                            もう一度読み込む
+                          </button>
+                        </>
+                      )}
                     </span>
                   );
                 })}
@@ -162,7 +190,7 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
                   const cell = index >= 0 ? row.cells[index] : null;
                   return (
                     <span role="cell" key={id} className="min-w-0 break-words border-b border-r border-term-line-soft px-2.5 py-1.5 leading-6 text-term-fg last:border-r-0">
-                      {cell ?? <span className="text-term-dim" aria-label="未確認">—</span>}
+                      {cell ?? <span className="text-term-dim">—</span>}
                     </span>
                   );
                 })}
@@ -170,6 +198,7 @@ export function CompareView({ ids: requestedIds }: { ids: string[] }) {
             ))}
           </div>
         </div>
+        </>
       )}
 
       {ready[0] && (

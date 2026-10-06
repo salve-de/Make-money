@@ -113,7 +113,7 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
           ) : !plans ? (
             <p className="text-sm text-term-muted">プランを読み込んでいます…</p>
           ) : plans.length === 0 ? (
-            <p className="text-sm text-term-muted">現在、購入できるプランはありません。</p>
+            <p className="text-sm leading-6 text-term-muted">いまは購入を受け付けていません。決済の準備が整うと、ここにプランと価格が出ます。</p>
           ) : (
             <>
               <fieldset className="border-y border-term-line py-2">

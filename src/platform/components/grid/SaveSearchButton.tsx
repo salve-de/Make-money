@@ -57,7 +57,7 @@ export function SaveSearchButton({ draft }: { draft: SavedSearchDraft }) {
         type="button"
         aria-expanded={open}
         onClick={() => (open ? setOpen(false) : openPanel())}
-        className="inline-flex min-h-9 items-center gap-1.5 rounded-sm border border-term-line px-2.5 text-xs text-term-fg hover:bg-term-head lg:min-h-7"
+        className="inline-flex min-h-9 items-center gap-1.5 border border-term-line px-2.5 text-xs text-term-fg hover:bg-term-head lg:min-h-7"
         title="この検索と絞り込みを保存し、新着が合ったらメールで受け取る"
       >
         条件を保存
@@ -66,16 +66,17 @@ export function SaveSearchButton({ draft }: { draft: SavedSearchDraft }) {
         <form
           onSubmit={save}
           aria-label="検索条件を保存"
-          className="absolute left-0 top-full z-40 mt-1 w-[min(20rem,calc(100vw-2rem))] space-y-2 border border-term-line bg-term-panel p-3 text-xs shadow-lg sm:left-auto sm:right-0"
+          className="absolute left-0 top-full z-40 mt-1 w-[min(20rem,calc(100vw-2rem))] space-y-2 border border-term-line bg-term-panel p-3 text-xs sm:left-auto sm:right-0"
         >
           <p className="text-term-label">{describeSearchCondition(draft).join('・')}</p>
+          {!user && <p className="text-term-sub">条件の保存はログインが必要です。ログインすると、この条件を保存して新着をメールで受け取れます。</p>}
           <label className="block space-y-1">
             <span className="text-term-label">名前</span>
             <input
               value={name}
               maxLength={SAVED_SEARCH_NAME_MAX}
               onChange={(event) => setName(event.target.value)}
-              className="h-11 w-full rounded-sm border border-term-line bg-term-bg px-2 text-sm text-term-fg-strong outline-none focus:border-term-accent lg:h-8"
+              className="h-11 w-full border border-term-line bg-term-bg px-2 text-sm text-term-fg-strong outline-none focus:border-term-accent lg:h-8"
             />
           </label>
           <label className="flex min-h-11 items-center gap-2 text-term-fg lg:min-h-8">
@@ -86,11 +87,11 @@ export function SaveSearchButton({ draft }: { draft: SavedSearchDraft }) {
             <button
               type="submit"
               disabled={state.status === 'saving' || state.status === 'saved'}
-              className="inline-flex min-h-11 flex-1 items-center justify-center rounded-sm border border-term-accent px-3 text-xs text-term-accent hover:bg-term-head disabled:opacity-60 lg:min-h-8"
+              className="inline-flex min-h-11 flex-1 items-center justify-center border border-term-accent px-3 text-xs text-term-accent hover:bg-term-head disabled:opacity-60 lg:min-h-8"
             >
               {!user ? 'ログインして保存' : state.status === 'saving' ? '保存しています…' : state.status === 'saved' ? '保存しました' : '保存'}
             </button>
-            <button type="button" onClick={() => setOpen(false)} className="inline-flex min-h-11 items-center rounded-sm border border-term-line px-3 text-xs text-term-muted hover:bg-term-head lg:min-h-8">
+            <button type="button" onClick={() => setOpen(false)} className="inline-flex min-h-11 items-center border border-term-line px-3 text-xs text-term-muted hover:bg-term-head lg:min-h-8">
               閉じる
             </button>
           </div>

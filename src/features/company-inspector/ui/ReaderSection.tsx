@@ -21,7 +21,7 @@ export function ReaderSection({
       <div className="term-panel-title sticky top-0 z-10">
         <h3 className="term-panel-name truncate">{title}</h3>
       </div>
-      <div className="px-2.5 py-1.5 text-[13px] text-term-fg sm:px-3">{children}</div>
+      <div className="px-2.5 py-1.5 text-sm text-term-fg lg:text-[13px] sm:px-3">{children}</div>
     </section>
   );
 }

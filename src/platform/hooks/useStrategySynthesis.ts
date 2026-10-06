@@ -3,6 +3,7 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { FinancialEntity, SynthesizedIdea, StrategyChatMessage } from '../types/terminal';
 import { useAuth } from '@/context/AuthContext';
+import { notesForRequest, readStrategyError } from '@/shared/strategy-client';
 
 interface UseStrategySynthesisProps {
   allEntities: FinancialEntity[];
@@ -106,11 +107,11 @@ export function useStrategySynthesis({
         body: JSON.stringify({
           action: 'SYNTHESIZE',
           selectedEntityIds: Array.from(selectedEntityIds),
-          notes,
+          notes: notesForRequest(notes, selectedEntityIds),
         }),
       });
       const data: unknown = await res.json();
-      if (!res.ok) throw new Error(readStrategyError(data, 'アイデア合成に失敗しました'));
+      if (!res.ok) throw new Error(readStrategyError(data, res.status, 'アイデア合成に失敗しました'));
       if (!data || typeof data !== 'object' || !('ideas' in data) || !Array.isArray(data.ideas)) {
         throw new Error('アイデア合成の応答形式を確認できません');
       }
@@ -172,11 +173,11 @@ export function useStrategySynthesis({
           messages: [...chatMessages, userMsg].map((m) => ({ role: m.role, content: m.content })),
           contextEntityId: activeEntity?.id,
           synthesizedIdeas,
-          notes,
+          notes: notesForRequest(notes),
         }),
       });
       const data: unknown = await res.json();
-      if (!res.ok) throw new Error(readStrategyError(data, 'アナリストとの通信に失敗しました'));
+      if (!res.ok) throw new Error(readStrategyError(data, res.status, 'アナリストとの通信に失敗しました'));
       if (!data || typeof data !== 'object' || !('message' in data) || !data.message || typeof data.message !== 'object') {
         throw new Error('アナリストの応答形式を確認できません');
       }
@@ -225,11 +226,4 @@ export function useStrategySynthesis({
     activeEntity,
     requestError,
   };
-}
-
-function readStrategyError(payload: unknown, fallback: string): string {
-  if (payload && typeof payload === 'object' && 'error' in payload && typeof payload.error === 'string') {
-    return payload.error.slice(0, 240);
-  }
-  return fallback;
 }

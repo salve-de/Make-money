@@ -30,17 +30,6 @@ export default function WelcomeClient({
     <div className="term-page bg-term-bg text-term-fg">
       <GlobalHeader
         currentSection="WELCOME"
-        rightContent={user ? (
-          <span className="max-w-28 truncate text-sm text-term-sub xl:max-w-40">{user.email}</span>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setIsAuthModalOpen(true)}
-            className="min-h-11 px-3 text-sm text-term-sub hover:text-term-fg-strong"
-          >
-            ログイン
-          </button>
-        )}
       />
 
       <main>
@@ -138,6 +127,7 @@ export default function WelcomeClient({
           <nav aria-label="フッターナビゲーション" className="flex flex-wrap gap-x-5">
             <Link href="/" className="inline-flex min-h-11 items-center hover:text-term-fg-strong">事例一覧</Link>
             {!user && <button type="button" onClick={() => setIsAuthModalOpen(true)} className="min-h-11 text-left hover:text-term-fg-strong">ログイン</button>}
+            {user && <Link href="/account" className="inline-flex min-h-11 items-center hover:text-term-fg-strong">会員設定</Link>}
           </nav>
         </div>
       </footer>

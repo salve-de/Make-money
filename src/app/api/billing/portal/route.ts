@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     const customer = stripeId(subscription.customer);
     if (!customer) throw new Error('Subscription customer unavailable');
     const appUrl = await getRuntimeEnvValue('NEXT_PUBLIC_APP_URL') || new URL(request.url).origin;
-    const session = await stripe.billingPortal.sessions.create({ customer, return_url: `${appUrl}/` });
+    const session = await stripe.billingPortal.sessions.create({ customer, return_url: `${appUrl}/account` });
     if (!session.url) throw new Error('Portal URL was not created');
     return json({ url: session.url });
   } catch {

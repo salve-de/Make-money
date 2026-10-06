@@ -8,7 +8,8 @@ test('company dossier becomes a persistent First Dollar execution project', asyn
   await page.goto(`/?entity=${PRIMARY.id}`);
   await expect(page.getByRole('heading', { level: 2, name: PRIMARY.name, exact: true })).toBeVisible();
 
-  await page.getByRole('link', { name: /計画を作成/ }).click();
+  // 実行計画は画面から入れない（直接URLのみ）。事例画面の入口は「これで作る」（/build）
+  await page.goto(`/execute/${PRIMARY.id}`);
   await expect(page).toHaveURL(new RegExp(`/execute/${PRIMARY.id}$`));
   await expect(page.getByRole('heading', { level: 1, name: /の実行計画$/ })).toBeVisible();
 

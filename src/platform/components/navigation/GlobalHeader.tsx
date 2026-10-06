@@ -7,6 +7,7 @@ import type { BookmarkSyncStatus } from '../../hooks/useEntityFilter';
 import { MobileBottomNav } from './MobileBottomNav';
 import { Search } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
+import { HeaderUserMenu } from '@/components/auth/UserMenu';
 import {
   GlobalNavSection,
   LOCAL_MODE_BY_SECTION,
@@ -17,6 +18,7 @@ import {
   SECONDARY_NAV_ITEMS,
   LEGAL_LINKS,
   SECTION_TITLES,
+  tabOfSection,
 } from './navigationItems';
 
 export type { GlobalNavSection } from './navigationItems';
@@ -109,6 +111,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
 
   const activeSection: GlobalNavSection = currentSection || (() => {
     if (pathname?.startsWith('/discover')) return 'DISCOVER';
+    if (pathname?.startsWith('/trends')) return 'TRENDS';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
     if (pathname?.startsWith('/marketplace/businesses')) return 'BUSINESSES';
     if (pathname?.startsWith('/marketplace')) return 'MARKETPLACE';
@@ -118,6 +121,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     if (pathname?.startsWith('/legal')) return 'LEGAL';
     if (pathname?.startsWith('/build')) return 'BUILDER';
     if (pathname === '/welcome') return 'WELCOME';
+    if (pathname?.startsWith('/account')) return 'ACCOUNT';
     return 'LEDGER';
   })();
 
@@ -132,7 +136,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     onSelectLocalMode(mode);
   };
 
-  // 1〜6: タブ移動 / "/": 検索欄へ
+  // 1〜5: タブ移動 / "/": 検索欄へ
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.metaKey || event.ctrlKey || event.altKey || event.defaultPrevented) return;
@@ -142,7 +146,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         searchRef.current?.focus();
         return;
       }
-      if (!/^[1-6]$/.test(event.key)) return;
+      if (!/^[1-5]$/.test(event.key)) return;
       const item = PRIMARY_NAV_ITEMS[Number(event.key) - 1];
       if (!item) return;
       event.preventDefault();
@@ -172,7 +176,8 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         : 'text-term-muted hover:bg-term-head hover:text-term-fg'
     }`;
 
-  const secondaryActive = SECONDARY_NAV_ITEMS.some((item) => item.id === activeSection);
+  const activeTab = tabOfSection(activeSection);
+  const secondaryActive = SECONDARY_NAV_ITEMS.some((item) => item.id === activeSection) || activeSection === 'LEGAL';
 
   const renderBookmark = () => {
     const label = (
@@ -260,7 +265,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           {/* 幅が足りない画面では、タブだけ横にスクロールする（「その他」のメニューは切れないよう外に置く） */}
           <div className="flex h-full min-w-0 items-stretch overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {PRIMARY_NAV_ITEMS.map((item, index) => {
-              const isActive = activeSection === item.id;
+              const isActive = activeTab === item.id;
               return (
                 <Link
                   key={item.id}
@@ -331,6 +336,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
               PRO
             </Link>
           )}
+          <HeaderUserMenu />
           <div className="hidden items-center border-l border-term-line px-3 xl:flex">
             <JstClock />
           </div>

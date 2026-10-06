@@ -152,7 +152,7 @@ export function ExecutionHubClient() {
           <p className="mt-1 text-term-sub">
             {loadingRemote
               ? 'クラウドとこの端末に保存された計画を確認しています。'
-              : '事例を開き「計画を作成」を押すと、ここに一覧で並びます。'}
+              : '作った実行計画が、ここに一覧で並びます。'}
           </p>
           {!loadingRemote && (
             <Link

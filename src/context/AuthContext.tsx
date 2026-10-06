@@ -9,6 +9,7 @@ import {
   signOut as firebaseSignOut,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth, requireFirebaseAuth } from "@/lib/firebase/client";
 
@@ -24,6 +25,7 @@ interface AuthContextType {
   signInWithEmail: (email: string, pass: string) => Promise<void>;
   signUpWithEmail: (email: string, pass: string) => Promise<void>;
   signOut: () => Promise<void>;
+  sendPasswordReset: (email: string) => Promise<void>;
   refreshUserStatus: () => Promise<void>;
   refreshAuthToken: () => Promise<string | null>;
 }
@@ -38,6 +40,7 @@ const AuthContext = createContext<AuthContextType>({
   signInWithEmail: async () => {},
   signUpWithEmail: async () => {},
   signOut: async () => {},
+  sendPasswordReset: async () => {},
   refreshUserStatus: async () => {},
   refreshAuthToken: async () => null,
 });
@@ -132,6 +135,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await createUserWithEmailAndPassword(requireFirebaseAuth(), email, pass);
   };
 
+  const sendPasswordReset = async (email: string) => {
+    const target = requireFirebaseAuth();
+    target.languageCode = "ja";
+    await sendPasswordResetEmail(target, email);
+  };
+
   const signOut = async () => {
     if (auth) await firebaseSignOut(auth);
     setIsPro(false);
@@ -151,6 +160,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signInWithEmail,
         signUpWithEmail,
         signOut,
+        sendPasswordReset,
         refreshUserStatus,
         refreshAuthToken,
       }}

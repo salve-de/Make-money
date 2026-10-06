@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 import { genreLabel } from '@/shared/display-text';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
@@ -156,14 +157,15 @@ export function CompanyHeader({
                 {UI.OFFICIAL_SITE}
               </a>
             )}
-            <a
-              href={'/execute/' + encodeURIComponent(entity.id)}
+            <Link
+              href="/build"
+              prefetch={false}
               className="inline-flex min-h-11 items-center px-1 text-term-accent hover:underline lg:min-h-7"
               aria-label={uiFormat(UI.PLAN_ARIA, entity.name)}
               title={UI.PLAN}
             >
               {UI.PLAN}
-            </a>
+            </Link>
             {onApproveEntity && (
               <button type="button" onClick={() => onApproveEntity(entity.id)} className="min-h-11 px-1 text-term-fg hover:text-term-fg-strong lg:min-h-7">
                 {UI.APPROVE}

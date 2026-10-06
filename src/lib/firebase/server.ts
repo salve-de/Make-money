@@ -1,4 +1,5 @@
-import { createRemoteJWKSet, jwtVerify } from "jose";
+import { createRemoteJWKSet, jwtVerify, UnsecuredJWT, type JWTPayload } from "jose";
+import { currentUserAgent, resolveAuthEmulatorHost } from "./emulator";
 import { getCloudflareRuntimeEnv, getRuntimeEnvValue } from "@/lib/runtime/cloudflare";
 
 // Google Firebase Auth 公開JWKSエンドポイント
@@ -23,6 +24,16 @@ export interface VerifiedFirebaseToken {
 export async function verifyFirebaseIdToken(
   idToken: string
 ): Promise<VerifiedFirebaseToken | null> {
+  // ローカル開発専用：エミュレーターの署名なしトークン。本番・Workers・demo- 以外では到達しない（./emulator.ts）。
+  const emulatorProjectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID?.trim();
+  if (resolveAuthEmulatorHost({
+    nodeEnv: process.env.NODE_ENV,
+    host: process.env.FIREBASE_AUTH_EMULATOR_HOST,
+    projectId: emulatorProjectId,
+    userAgent: currentUserAgent(),
+  }) && emulatorProjectId) {
+    return verifyEmulatorToken(idToken, emulatorProjectId);
+  }
   // A live Worker context is authoritative. Never fall back to a public
   // build-time value when the Worker binding is missing, or tokens from a
   // different Firebase project could be accepted after a deployment mistake.
@@ -46,17 +57,35 @@ export async function verifyFirebaseIdToken(
       audience: projectId,
     });
 
-    if (typeof payload.sub !== 'string' || payload.sub.length === 0 || payload.sub.length > 128) return null;
-
-    return {
-      uid: payload.sub,
-      email: typeof payload.email === "string" ? payload.email : undefined,
-      name: typeof payload.name === "string" ? payload.name : undefined,
-      picture: typeof payload.picture === "string" ? payload.picture : undefined,
-      claims: payload,
-    };
+    return toVerifiedToken(payload);
   } catch (error) {
     console.error("Firebase token verification failed:", error);
+    return null;
+  }
+}
+
+function toVerifiedToken(payload: JWTPayload): VerifiedFirebaseToken | null {
+  if (typeof payload.sub !== 'string' || payload.sub.length === 0 || payload.sub.length > 128) return null;
+  return {
+    uid: payload.sub,
+    email: typeof payload.email === "string" ? payload.email : undefined,
+    name: typeof payload.name === "string" ? payload.name : undefined,
+    picture: typeof payload.picture === "string" ? payload.picture : undefined,
+    claims: payload,
+  };
+}
+
+/** エミュレーターのトークンは alg:none。発行者・宛先が demo- プロジェクトで、期限内のものだけ通す。 */
+function verifyEmulatorToken(idToken: string, projectId: string): VerifiedFirebaseToken | null {
+  if (!idToken || idToken.length > 16_384) return null;
+  try {
+    const { payload } = UnsecuredJWT.decode(idToken, {
+      issuer: `https://securetoken.google.com/${projectId}`,
+      audience: projectId,
+      requiredClaims: ['exp', 'sub'],
+    });
+    return toVerifiedToken(payload);
+  } catch {
     return null;
   }
 }

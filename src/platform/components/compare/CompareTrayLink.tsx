@@ -12,7 +12,7 @@ export function CompareTrayLink({ className = '' }: { className?: string }) {
   return (
     <Link
       href={compareHref(items.map((item) => item.id))}
-      className={`inline-flex min-h-9 items-center gap-1.5 rounded-sm border border-term-accent px-2.5 text-xs text-term-accent hover:bg-term-head lg:min-h-7 ${className}`}
+      className={`inline-flex min-h-9 items-center gap-1.5 border border-term-accent px-2.5 text-xs text-term-accent hover:bg-term-head lg:min-h-7 ${className}`}
       title={items.map((item) => item.name).join(' / ')}
     >
       比較する<span className="term-num">{items.length}件</span>
