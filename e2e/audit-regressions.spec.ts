@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { PRIMARY } from './reader-fixture';
+import { PRIMARY, openDetails } from './reader-fixture';
 
 test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('kin_pro_unlocked', 'true'));
@@ -34,6 +34,7 @@ test('unconfirmed financials never present a zero as a measured result', async (
   await page.goto(`/?entity=${PRIMARY.id}`);
   await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toBeVisible();
   const inspector = page.getByRole('complementary', { name: `${PRIMARY.name}の企業事例インスペクター` });
+  await openDetails(page);
   await expect(inspector.locator('#section-metrics')).toBeVisible();
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
   await expect(inspector).not.toContainText(PRIMARY.unconfirmed);

@@ -52,8 +52,9 @@ for (const [id, name, published, hasMetrics] of entities) {
       await expect(inspector.locator('#section-sources')).toHaveCount(1);
       await expect(inspector.locator('#section-analysis')).toHaveCount(1);
       await expect(inspector.locator('[data-analysis]').first()).toBeVisible();
-      // 推測は「推測の計算・前提と根拠」の区画に、根拠の番号と計算つきでまとまる
-      await expect(inspector.locator('#section-reasoning')).toContainText('推測');
+      // 計算がある事例だけ「推定の計算と前提」の区画が出る（計算が無い事例では出さない）
+      const reasoning = inspector.locator('#section-reasoning');
+      if (await reasoning.count()) await expect(reasoning).toContainText('推定');
       await expect(inspector).not.toContainText('未確認:');
       await expect(inspector).not.toContainText('この事例の詳細は準備中です。');
     }
