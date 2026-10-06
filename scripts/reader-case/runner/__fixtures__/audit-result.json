@@ -1,0 +1,23 @@
+{
+ "cases": [
+  {
+   "entityId": "fx-001",
+   "items": [
+    {
+     "analysisId": "a-headline",
+     "kind": "WEAK",
+     "severity": "LOW",
+     "why": "一般論に近い"
+    }
+   ]
+  },
+  {
+   "entityId": "fx-002",
+   "items": []
+  },
+  {
+   "entityId": "fx-003",
+   "items": []
+  }
+ ]
+}

@@ -15,9 +15,12 @@ say() { echo "[$(date +%H:%M)] $*"; }
 notify() { osascript -e "display notification \"$1\" with title \"Make-Money 収集\"" >/dev/null 2>&1 || true; }
 fail() { say "停止: $*"; notify "停止: $*"; exit 1; }
 
-# 1. 分析（Codex）。全バッチの出力が揃うまで進まない
+# 1. 分析（Claude サブエージェント）。全バッチの出力が揃うまで進まない
+#    run-analyze.sh は結果の検査と指示書の生成だけを行う（終了コード 75=サブエージェント待ち、76=保留）。待ちの時はここで止まり、
+#    オーケストレーターが指示書を実行して結果を置いたあとにこの命令をもう一度実行すると、受理済みの束から先へ進む
 say "分析: ${PREFIX}*"
-ANALYZE_PREFIX="$PREFIX" bash scripts/reader-case/run-analyze.sh || fail "分析の実行に失敗"
+ANALYZE_PREFIX="$PREFIX" bash scripts/reader-case/run-analyze.sh; rc=$?
+case $rc in 0) ;; 75) fail "分析はサブエージェント待ち（指示書: data/runner/instructions/analyze/。結果を data/runner/inbox/analyze/ に置いてから再実行）" ;; 76) fail "分析に保留の束がある（理由: data/runner/state/analyze/。人の判断後 runner の release で解除）" ;; *) fail "分析の実行に失敗" ;; esac
 missing=""
 for b in data/analyze/batches/${PREFIX}*.json; do [ -s "data/analyze/out/$(basename "$b")" ] || missing="$missing $(basename "$b" .json)"; done
 [ -z "$missing" ] || fail "分析が終わっていない束:$missing（もう一度この命令を実行すると続きから回る）"
@@ -41,12 +44,21 @@ node -e "
   const fs=require('fs');const done=new Set(JSON.parse(fs.readFileSync('data/audit-fresh.json','utf8')));
   const todo=fs.readFileSync('$CAND','utf8').split('\n').filter(x=>x&&!done.has(x));fs.writeFileSync('$CAND.audit',todo.join('\n')+'\n');console.log('未監査',todo.length,'件')"
 if [ -s "$CAND.audit" ] && grep -q . "$CAND.audit"; then
-  TAG="999999$(date +%y%m%d%H%M%S)$(printf %05d "$$")"  # 秒とプロセス番号まで入れる（同じ分に別の実行が始まっても入力・指紋の名前が衝突しない）
-  node --import tsx scripts/reader-case/build-audit-input.ts --ids "$CAND.audit" --per 10 --tag "$TAG" || fail "監査の入力を作れない"
+  # サブエージェント待ちで止まった後の再実行では、同じ監査入力（同じ TAG）を使い続ける（毎回作り直すと結果が永久に揃わない）
+  TAGFILE="$CAND.audit-tag"
+  if [ -s "$TAGFILE" ] && ls data/audit/in-"$(cat "$TAGFILE")"*.json >/dev/null 2>&1; then
+    TAG="$(cat "$TAGFILE")"; say "監査: 前回の入力 in-${TAG}* を続ける"
+  else
+    TAG="999999$(date +%y%m%d%H%M%S)$(printf %05d "$$")"  # 秒とプロセス番号まで入れる（同じ分に別の実行が始まっても入力・指紋の名前が衝突しない）
+    node --import tsx scripts/reader-case/build-audit-input.ts --ids "$CAND.audit" --per 10 --tag "$TAG" || fail "監査の入力を作れない"
+    echo "$TAG" > "$TAGFILE"
+  fi
   say "監査: in-${TAG}*"
-  AUDIT_ONLY="${TAG}*" bash scripts/reader-case/run-audit.sh || fail "監査の実行に失敗"
+  AUDIT_ONLY="${TAG}*" bash scripts/reader-case/run-audit.sh; rc=$?
+  case $rc in 0) ;; 75) fail "監査はサブエージェント待ち（指示書: data/runner/instructions/audit/。結果を data/runner/inbox/audit/ に置いてから再実行。再実行すると同じ監査入力 TAG=${TAG} を続ける）" ;; 76) fail "監査に保留の束がある（理由: data/runner/state/audit/）" ;; *) fail "監査の実行に失敗" ;; esac
   for i in data/audit/in-${TAG}*.json; do [ -s "${i/in-/out-}" ] || fail "監査が終わっていない: $(basename "$i")（もう一度実行すると続きから回る）"; done
   node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "監査の反映に失敗"
+  rm -f "$TAGFILE"
 fi
 
 # 3b. 画像の検査（使ってよいと判定された画像が1枚も無い候補は、仕上げ済みにしない）
@@ -97,7 +109,7 @@ published=$(node -e "console.log(Object.keys(JSON.parse(require('fs').readFileSy
 git add data scripts/reader-case
 git commit -qm "仕上げ済みを ${before} → ${after} 件に増やして公開（${PREFIX}）
 
-Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" || fail "コミットできない（事前検査を確認）"
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>" || fail "コミットできない（事前検査を確認）"
 git push -q origin "HEAD:refs/heads/$NAME" || fail "push できない"
 PR=$(gh pr create --base main --head "$NAME" --title "仕上げ済みを ${after} 件に増やして公開" --body "分析・監査を通った事例を公開に加えます（${before} → ${after} 件）。
 

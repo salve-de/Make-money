@@ -1,0 +1,67 @@
+{
+ "cases": [
+  {
+   "entityId": "fx-001",
+   "facts": [],
+   "metrics": [],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "架空の見出し",
+     "basis": [],
+     "confidence": "MEDIUM"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "年会費で稼ぐ",
+     "basis": [],
+     "confidence": "HIGH"
+    }
+   ]
+  },
+  {
+   "entityId": "fx-002",
+   "facts": [],
+   "metrics": [],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "架空の見出し",
+     "basis": [],
+     "confidence": "MEDIUM"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "年会費で稼ぐ",
+     "basis": [],
+     "confidence": "HIGH"
+    }
+   ]
+  },
+  {
+   "entityId": "fx-003",
+   "facts": [],
+   "metrics": [],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "架空の見出し",
+     "basis": [],
+     "confidence": "MEDIUM"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "年会費で稼ぐ",
+     "basis": [],
+     "confidence": "HIGH"
+    }
+   ]
+  }
+ ]
+}
