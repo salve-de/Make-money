@@ -17,8 +17,8 @@ export function ReaderSection({
 }) {
   if (empty) return null;
   return (
-    <section id={id} data-section={id} className="scroll-mt-8 border-b border-term-line">
-      <div className="term-panel-title sticky top-0 z-10">
+    <section id={id} data-section={id} className="scroll-mt-12 border-b border-term-line lg:scroll-mt-9">
+      <div className="term-panel-title">
         <h3 className="term-panel-name truncate">{title}</h3>
       </div>
       <div className="px-2.5 py-1.5 text-sm text-term-fg lg:text-[13px] sm:px-3">{children}</div>

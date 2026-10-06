@@ -45,7 +45,7 @@ const NoticeLine: React.FC<{ notice: Notice }> = ({ notice }) => notice ? (
 /** 会員設定：アカウント・プランと契約・パスワード・ログアウト・退会。 */
 export const AccountView: React.FC = () => {
   const { user, loading, isPro, signOut, sendPasswordReset } = useAuth();
-  const [authMode, setAuthMode] = useState<'signin' | 'signup' | null>(null);
+  const [authMode, setAuthMode] = useState<'signin' | 'signup' | 'reset' | null>(null);
   const [billing, setBilling] = useState<BillingState>({ kind: 'loading' });
   const [billingAttempt, setBillingAttempt] = useState(0);
   const [portalBusy, setPortalBusy] = useState(false);
@@ -130,12 +130,16 @@ export const AccountView: React.FC = () => {
     return (
       <>
         <Section id="account-signed-out" title="会員設定">
-          <p className="px-3 pt-3 text-sm leading-6 text-term-fg">ログインすると、プランの確認、契約の管理、パスワードの再設定ができます。</p>
-          <p className="px-3 pt-1 text-sm leading-6 text-term-sub">保存した事例やメモを、ほかの端末でも使えるようになります。登録は無料です。</p>
+          <p className="px-3 pt-3 text-sm leading-6 text-term-fg">ログインすると、保存した事例・メモ・契約が使えます。登録は無料です。</p>
           <div className="flex flex-col gap-2 px-3 py-3 sm:flex-row">
             <button type="button" onClick={() => setAuthMode('signup')} className={BTN_PRIMARY}>無料で登録する</button>
             <button type="button" onClick={() => setAuthMode('signin')} className={BTN}>ログイン</button>
           </div>
+          <p className="px-3 pb-3">
+            <button type="button" onClick={() => setAuthMode('reset')} className="inline-flex min-h-11 items-center text-xs text-term-sub underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">
+              パスワードを忘れた方
+            </button>
+          </p>
         </Section>
         <AuthModal isOpen={authMode !== null} onClose={() => setAuthMode(null)} defaultMode={authMode ?? 'signin'} />
       </>

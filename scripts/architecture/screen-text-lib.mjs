@@ -128,7 +128,9 @@ export const STANDALONE_LINES = ['収集事例', '財務未確認', '公式サ�
 // ---- 出どころの検査（2026-09-30 13回目）-----------------------------------------------------
 // 画面の文字は fact・analysis（その計算と根拠＝data-evidence）・metric・source の要素の中か、ui-strings の許可リストのどちらかでなければならない。
 const VOID_TAGS = new Set(['br', 'img', 'input', 'hr', 'meta', 'link', 'wbr', 'source', 'col']);
-const OWNER_ATTRS = ['data-fact', 'data-metric', 'data-source', 'data-analysis', 'data-evidence'];
+// data-fact-part: 別の場所に全文がある事実の一部（1文目・残りの文・事実から取り出した年）。同じ fact の2回目とは数えない。
+// data-record: 事例の構造化された欄の値（人数など）。文章ではなく数値の表示だけに使う。
+const OWNER_ATTRS = ['data-fact', 'data-metric', 'data-source', 'data-analysis', 'data-evidence', 'data-fact-part', 'data-record'];
 const ATTR_TEXTS = ['title', 'aria-label', 'alt', 'placeholder'];
 const decodeEntities = (s) => s
   .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))

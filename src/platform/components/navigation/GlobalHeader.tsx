@@ -13,7 +13,6 @@ import {
   LOCAL_MODE_BY_SECTION,
   LocalWorkspaceMode,
   PRIMARY_NAV_ITEMS,
-  PRO_HREF,
   SAVED_HREF,
   LEGAL_LINKS,
   SECTION_TITLES,
@@ -203,8 +202,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     );
   };
 
-  const proClass = 'flex h-full items-center px-3 text-[13px] font-semibold text-term-accent hover:bg-term-head';
-
   return (
     <>
       <header className="sticky top-0 z-40 flex w-full shrink-0 flex-wrap items-stretch border-b border-term-line bg-term-panel lg:h-9 lg:flex-nowrap">
@@ -217,22 +214,13 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           </Link>
         </div>
 
-        {/* スマホ: PRO は右上 */}
+        {/* スマホ: 右上は検索だけ。PRO はメニューの1項目にだけ置く */}
         <div className="ml-auto flex h-11 items-stretch lg:hidden">
           {rightContent}
           {!onSearchChange && !pageHasSearch && (
             <button type="button" aria-label="事例を検索" aria-expanded={searchOpen} onClick={() => { setSearchOpen((open) => !open); requestAnimationFrame(() => searchRef.current?.focus()); }} className="flex w-11 items-center justify-center text-term-fg hover:bg-term-head">
               <Search aria-hidden="true" size={20} />
             </button>
-          )}
-          {onOpenPro ? (
-            <button type="button" onClick={onOpenPro} className="flex min-w-11 items-center px-3 text-sm font-semibold text-term-accent">
-              PRO
-            </button>
-          ) : (
-            <Link href={PRO_HREF} prefetch={false} className="flex min-w-11 items-center px-3 text-sm font-semibold text-term-accent">
-              PRO
-            </Link>
           )}
         </div>
 
@@ -347,15 +335,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             </span>
           )}
           {renderBookmark()}
-          {onOpenPro ? (
-            <button type="button" onClick={onOpenPro} className={proClass} title="PRO の内容を確認">
-              PRO
-            </button>
-          ) : (
-            <Link href={PRO_HREF} prefetch={false} className={proClass} title="PRO の内容を確認">
-              PRO
-            </Link>
-          )}
           <HeaderUserMenu />
           <div className="hidden items-center border-l border-term-line px-3 xl:flex">
             <JstClock />

@@ -3,13 +3,15 @@
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 
+import { genreLabel } from '@/shared/display-text';
+import { pickEntityLogo } from '@/shared/media-display';
+import { useEntityMedia } from '@/platform/hooks/useEntityMedia';
 import { UI, uiFormat } from '@/shared/ui-strings';
 import { buildInspectorModel } from './model/inspector-model';
 import type { CompanyInspectorPaneProps, InspectorMainTab, InspectorViewMode } from './model/section-props';
 import { AnalystNotes } from './ui/AnalystNotes';
 import { CompanyHeader } from './ui/CompanyHeader';
 import { EntityMediaGallery } from './ui/EntityMediaGallery';
-import { OperatorVerificationNote } from './ui/OperatorVerificationNote';
 import { ReaderLedger } from './ui/ReaderDetail';
 import { VerifiedRevenueSection } from './ui/VerifiedRevenueSection';
 
@@ -40,6 +42,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   const [mainTab, setMainTab] = useState<InspectorMainTab>('LEDGER');
   const [viewMode, setViewMode] = useState<InspectorViewMode>('ALL');
   const searchParams = useSearchParams();
+  const logo = pickEntityLogo(useEntityMedia(entity ? [entity.id] : [])[entity?.id ?? '']);
   const targetSection = searchParams?.get('section');
 
   const scrollToSection = (sectionId: string) => {
@@ -124,33 +127,18 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           <>
             <ReaderLedger
               reader={entity.reader}
+              identity={{ entity, name: entity.name, genre: genreLabel(entity.tagline), logo }}
               detailState={detailState}
               onRetry={onRetryDetail}
               media={<EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />}
             />
             <VerifiedRevenueSection entityId={entity.id} />
-            <OperatorVerificationNote entityId={entity.id} url={entity.url} />
           </>
         ) : (
           <AnalystNotes {...sectionProps} />
         )}
       </div>
 
-      {!isPro && onOpenPro && (
-        <div className="sticky bottom-0 flex min-h-11 shrink-0 items-center gap-3 border-t border-term-accent-line bg-term-accent-bg px-3 pb-[env(safe-area-inset-bottom)] lg:min-h-9">
-          <span className="text-xs font-semibold text-term-accent">PRO</span>
-          <span className="min-w-0 flex-1 truncate text-xs text-term-sub">
-            大手との競争・価格決定力・継続利用の仕組み・資金効率
-          </span>
-          <button
-            type="button"
-            onClick={onOpenPro}
-            className="h-8 shrink-0 rounded-sm border border-term-accent px-3 text-xs text-term-accent hover:bg-term-head lg:h-6"
-          >
-            見本を開く
-          </button>
-        </div>
-      )}
     </aside>
   );
 };

@@ -50,10 +50,11 @@ for (const [id, name, published, hasMetrics] of entities) {
     if (published) {
       await expect(inspector.locator('#section-metrics')).toHaveCount(hasMetrics ? 1 : 0);
       await expect(inspector.locator('#section-sources')).toHaveCount(1);
-      await expect(inspector.locator('#section-analysis')).toHaveCount(1);
+      await expect(inspector.getByRole('region', { name: '事業のあらまし' })).toHaveCount(1);
       await expect(inspector.locator('[data-analysis]').first()).toBeVisible();
-      // 推測は「推測の計算・前提と根拠」の区画に、根拠の番号と計算つきでまとまる
-      await expect(inspector.locator('#section-reasoning')).toContainText('推測');
+      // 推測には薄い印（推測・推定）が付き、数値・計算・出典は末尾の「根拠」の区画にまとまる
+      await expect(inspector.locator('#section-basis')).toHaveCount(1);
+      await expect(inspector.locator('[data-analysis]').first()).toContainText(/推測|推定|見どころ/);
       await expect(inspector).not.toContainText('未確認:');
       await expect(inspector).not.toContainText('この事例の詳細は準備中です。');
     }

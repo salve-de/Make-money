@@ -61,7 +61,7 @@ export function CompanyHeader({
   return (
     <>
       <header className="relative z-30 shrink-0 border-b border-term-line bg-term-panel">
-        {/* 見出しバー: スマホは 44px の1行に社名を入れる。PC は 24px のバーの下に社名の行を折り返す（どのタブでも社名が残る） */}
+        {/* 見出しバー: スマホの台帳は社名を身元カードに出すのでここには置かない（メモでは1行に入れる）。PC は 24px のバーの下に社名の行を折り返す（どのタブでも社名が残る） */}
         <div className="flex flex-wrap items-center bg-term-head text-xs lg:gap-x-3 lg:px-2.5">
           <button
             type="button"
@@ -73,7 +73,7 @@ export function CompanyHeader({
           </button>
           <span className="term-panel-name hidden h-6 shrink-0 items-center lg:inline-flex">{UI.DETAIL_PANEL}</span>
           {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
-          <div className="min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2">
+          <div className={`${mainTab === 'LEDGER' ? 'hidden lg:block' : ''} min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2`}>
             <div className="flex min-w-0 items-center gap-2">
               <EntityLogo asset={logo} variant="header" />
               <h2 className="min-w-0 truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
@@ -83,7 +83,7 @@ export function CompanyHeader({
             </div>
             {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
           </div>
-          <div className="flex shrink-0 items-center lg:ml-auto" aria-label={UI.ACTIONS_LABEL}>
+          <div className="ml-auto flex shrink-0 items-center" aria-label={UI.ACTIONS_LABEL}>
             {onToggleBookmark && (
               <button
                 type="button"

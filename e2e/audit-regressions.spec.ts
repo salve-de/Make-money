@@ -5,7 +5,6 @@ test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) =>
   await page.addInitScript(() => localStorage.setItem('kin_pro_unlocked', 'true'));
   await page.goto(`/?entity=${PRIMARY.id}`);
   await expect(page.getByText('UNLOCKED: 機関解錠済')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'PRO', exact: true })).toBeVisible();
   const response = await page.request.get(`/api/company-analysis?entity_id=${PRIMARY.id}`);
   expect([401, 403]).toContain(response.status());
 });

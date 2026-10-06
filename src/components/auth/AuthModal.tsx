@@ -11,7 +11,7 @@ type AuthMode = "signin" | "signup" | "reset";
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
-  defaultMode?: "signin" | "signup";
+  defaultMode?: "signin" | "signup" | "reset";
 }
 
 const TITLES: Record<AuthMode, string> = {

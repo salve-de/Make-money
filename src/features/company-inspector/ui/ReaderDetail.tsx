@@ -1,50 +1,23 @@
 import React, { useId } from 'react';
 
-import { ANALYSIS_ITEMS, type ReaderCase, type ReaderFact } from '@/shared/reader-case';
+import type { ReaderCase } from '@/shared/reader-case';
+import type { FinancialEntity } from '@/shared/terminal';
+import type { PublicMediaAsset } from '@/shared/media-display';
 import {
   dedupeReaderSources,
   formatMetricAmount,
   metricMeasureLabel,
   metricOriginLabel,
-  plainFactText,
-  readerSummaryFact,
 } from '@/shared/display-text';
-import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
-import { AnalysisGroups, Headline, KeyStrip, planKeyStrip, StorySteps } from './ReaderOverview';
+import { ANALYSIS_ITEMS } from '@/shared/reader-case';
+import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
+import { planCard, planNav, planSections } from '../model/case-detail-plan';
+import { CaseSections } from './CaseSections';
+import { IdentityCard, SectionNav } from './CaseIdentity';
+import { evidenceAnchor, SourceRef, sourceAnchor, sourceNumbers } from './ReaderRefs';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
-const evidenceAnchor = (prefix: string, id: string) => `${prefix}-evidence-${encodeURIComponent(id)}`;
-const sourceAnchor = (prefix: string, n: number) => `${prefix}-source-${n}`;
-
-/** sourceId → 下の出典一覧での番号（重複をまとめた後の並び）。 */
-function sourceNumbers(reader: ReaderCase): Map<string, number> {
-  const list = dedupeReaderSources(reader.sources);
-  const key = (url: string) => url.replace(/#.*$/, '').replace(/\/$/, '');
-  const byKey = new Map(list.map((s, i) => [key(s.url), i + 1]));
-  return new Map(reader.sources.map((s) => [s.id, byKey.get(key(s.url)) ?? 0]));
-}
-
-/** 事実・数値の後ろに付ける小さい出典番号。押すと下の出典一覧へ飛ぶ。 */
-function SourceRef({ n, prefix }: { n?: number; prefix: string }) {
-  if (!n) return null;
-  return (
-    <a href={`#${sourceAnchor(prefix, n)}`} className="ml-1 inline-flex min-h-6 min-w-6 items-center justify-center align-baseline text-xs text-term-label underline underline-offset-2 hover:text-term-fg-strong">
-      {n}
-    </a>
-  );
-}
-
-/** 概要の1行（summaryFactId の事実）。無ければ出さない。 */
-export function ReaderSummary({ reader, evidencePrefix = 'reader' }: ReaderProps) {
-  const fact = readerSummaryFact(reader);
-  if (!reader || !fact) return null;
-  return (
-    <p id={evidenceAnchor(evidencePrefix, fact.id)} data-fact={fact.id} className="scroll-mt-8 border-b border-term-line px-2.5 pb-3 pt-0 text-sm leading-relaxed text-term-sub sm:px-3 lg:text-[13px]">
-      {plainFactText(fact.text)}
-    </p>
-  );
-}
 
 /** 数値の表。列は 項目・期間・金額・由来。出典は番号だけ付け、中身は下の一覧にまとめる。 */
 export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps) {
@@ -88,83 +61,24 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
   );
 }
 
-/** 事実を種類ごとに。出典は番号だけ付け、中身は下の一覧にまとめる。概要の事実は上で出すので除く。 */
-export function ReaderFacts({ reader, evidencePrefix = 'reader', exclude }: ReaderProps & { exclude?: Set<string> }) {
+/** 推測の計算式。計算がある推論だけ出す（「出典に載っている値」のような定型の式は出さない）。 */
+const BOILERPLATE_FORMULA = /^数字は出典(に載っている|の)値|計算はない/;
+export function ReaderEvidence({ reader }: ReaderProps) {
   if (!reader) return null;
-  const sourceNo = sourceNumbers(reader);
-  return (
-    <>
-      {FACT_SECTIONS.map(({ kind, title }) => {
-        const facts: ReaderFact[] = reader.facts.filter((f) => f.kind === kind && f.id !== reader.summaryFactId && !exclude?.has(f.id));
-        return (
-          <ReaderSection key={kind} id={`section-facts-${kind.toLowerCase()}`} title={title} empty={facts.length === 0}>
-            <ul className="divide-y divide-term-line-soft">
-              {facts.map((f) => (
-                <li key={f.id} id={evidenceAnchor(evidencePrefix, f.id)} data-fact={f.id} className="scroll-mt-8 py-1.5 leading-relaxed text-term-fg">
-                  {plainFactText(f.text)}
-                  <SourceRef n={sourceNo.get(f.sourceId)} prefix={evidencePrefix} />
-                </li>
-              ))}
-            </ul>
-          </ReaderSection>
-        );
-      })}
-    </>
-  );
-}
-
-/** 推測の計算と根拠。結論を読む邪魔にならないよう、ページの下に1か所でまとめる。根拠の事実は番号を振って1回だけ出す。 */
-export function ReaderEvidence({ reader, evidencePrefix = 'reader' }: ReaderProps) {
-  if (!reader) return null;
-  const basisLabel = (id: string) => {
-    const fact = reader.facts.find((f) => f.id === id);
-    const metric = reader.metrics.find((m) => m.id === id);
-    if (fact) return fact.text;
-    if (!metric) return undefined;
-    return [metricMeasureLabel(metric), metric.period, formatMetricAmount(metric), metricOriginLabel(metric), metric.basis].filter(Boolean).join(' ');
-  };
   const rows = ANALYSIS_ITEMS.flatMap((item) => reader.analysis.filter((a) => a.item === item))
-    .map((a) => ({ a, basis: a.basis.filter((id) => basisLabel(id)) }))
-    .filter(({ a, basis }) => a.formula || basis.length > 0);
-  const used = [...new Set(rows.flatMap(({ basis }) => basis))];
-  const no = (id: string) => used.indexOf(id) + 1;
-  const anchor = (id: string) => evidenceAnchor(evidencePrefix, `basis-${id}`);
+    .filter((a) => a.formula && !BOILERPLATE_FORMULA.test(a.formula.trim()));
   return (
     <ReaderSection id="section-reasoning" title={UI.SECTION_EVIDENCE} empty={rows.length === 0}>
       <ul className="min-w-0 divide-y divide-term-line-soft text-xs [overflow-wrap:anywhere]">
-        {rows.map(({ a, basis }) => (
-          <li key={a.id} data-evidence={a.id} className="py-1 leading-relaxed">
-            <div className="flex flex-wrap items-center gap-x-3">
-              <span className="text-term-label">{ANALYSIS_LABELS[a.item]}</span>
-              {basis.length > 0 && (
-                <span className="flex flex-wrap items-center gap-x-1 text-term-label">
-                  <span>{UI.ANALYSIS_BASIS_PREFIX}</span>
-                  {basis.map((id) => (
-                    <a key={id} href={`#${encodeURIComponent(anchor(id))}`} className="inline-flex min-h-11 min-w-6 items-center justify-center text-term-sub underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">
-                      {no(id)}
-                    </a>
-                  ))}
-                </span>
-              )}
-            </div>
-            {a.formula && (
-              <p className="whitespace-pre-line text-term-sub">
-                <span className="text-term-label">{UI.ANALYSIS_FORMULA_PREFIX}</span>{a.formula}
-              </p>
-            )}
+        {rows.map((a) => (
+          <li key={a.id} data-evidence={a.id} className="py-1.5 leading-relaxed">
+            <span className="text-term-label">{ANALYSIS_LABELS[a.item]}</span>
+            <p className="whitespace-pre-line text-term-sub">
+              <span className="text-term-label">{UI.ANALYSIS_FORMULA_PREFIX}</span>{a.formula}
+            </p>
           </li>
         ))}
       </ul>
-      {used.length > 0 && (
-        <ol data-evidence="basis" className="mt-1 border-t border-term-line-soft pt-1 text-xs leading-relaxed text-term-sub [overflow-wrap:anywhere]">
-          {used.map((id) => (
-            <li key={id} id={anchor(id)} className="flex scroll-mt-8 gap-2 py-0.5">
-              <span className="term-num shrink-0 text-term-label">{no(id)}</span>
-              <span className="min-w-0">{basisLabel(id)}</span>
-            </li>
-          ))}
-        </ol>
-      )}
     </ReaderSection>
   );
 }
@@ -196,13 +110,15 @@ export function ReaderSources({ reader, evidencePrefix = 'reader' }: ReaderProps
 }
 
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
-export function ReaderLedger({ reader, detailState, onRetry, media }: {
+export function ReaderLedger({ reader, detailState, onRetry, media, identity }: {
   reader?: ReaderCase;
   /** 詳細の取得状態。取得中・失敗を「準備中」と取り違えて出さないために使う */
   detailState?: 'loading' | 'failed';
   onRetry?: () => void;
-  /** 製品画面。主要な数字の直後に置く */
+  /** 製品画面。身元カードと目次の直後に置く */
   media?: React.ReactNode;
+  /** 身元カードに出す社名・分類・ロゴと、人数・創業年のもと。社名を渡さない画面（探す）では社名の行を出さない */
+  identity?: { entity: Partial<Pick<FinancialEntity, 'temporal' | 'operations'>>; name?: string; genre?: string | null; logo?: PublicMediaAsset | null };
 }) {
   const evidencePrefix = `reader-${useId()}`;
   // 一覧用に削った reader（listForm）は詳細の代わりにならない。完全な reader が無い間は取得状態を出す
@@ -221,32 +137,27 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
   ) : null;
   if (!reader && status) return status;
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
-  const plan = planKeyStrip(reader);
-  const hasDetails = reader.metrics.length > 0 || reader.sources.length > 0 || reader.analysis.some((a) => a.formula || a.basis.length > 0);
-  // 並び: 結論 → 概要 → 主要な数字 → 製品画面 → 物語 → 推測（4つの問い） → 事実 → 根拠・出典・数値の一覧（畳む）
+  const card = planCard(identity?.entity ?? {}, reader);
+  const sections = planSections(reader, card);
+  const hasBasis = reader.metrics.length > 0 || reader.sources.length > 0 || reader.analysis.some((a) => a.formula && !BOILERPLATE_FORMULA.test(a.formula.trim()));
+  const nav = planNav(sections, hasBasis);
+  const jump = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // 並び: 身元カード → 目次 → 製品画面 → 概要・稼ぎ方・客・勝因・経緯 → 根拠（数値・計算・出典）
   return (
     <>
       {status}
-      <Headline reader={reader} tight={Boolean(readerSummaryFact(reader))} />
-      <ReaderSummary reader={reader} evidencePrefix={evidencePrefix} />
-      <KeyStrip reader={reader} plan={plan} />
+      <IdentityCard name={identity?.name} genre={identity?.genre ?? null} logo={identity?.logo} plan={card} />
+      <SectionNav items={nav} onJump={jump} />
       {media}
-      {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
-        <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
-          <StorySteps reader={reader} />
-          <AnalysisGroups reader={reader} usage={plan.usage} />
+      <CaseSections reader={reader} sections={sections} evidencePrefix={evidencePrefix} />
+      {hasBasis && (
+        <div id="section-basis" data-section="section-basis" className="scroll-mt-12 lg:scroll-mt-9">
+          <h3 className="border-b border-term-line bg-term-head px-3 py-2 text-base font-semibold text-term-fg-strong lg:py-1.5 lg:text-sm">{UI.SEC_BASIS}</h3>
+          <ReaderMetrics reader={reader} evidencePrefix={evidencePrefix} />
+          <ReaderEvidence reader={reader} />
+          <ReaderSources reader={reader} evidencePrefix={evidencePrefix} />
         </div>
       )}
-      <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} exclude={plan.usage.factIds} />
-      {hasDetails && <details open className="group border-b border-term-line">
-        <summary className="flex min-h-9 cursor-pointer list-none items-center gap-2 bg-term-head px-2.5 text-xs text-term-sub hover:text-term-fg-strong sm:px-3 [&::-webkit-details-marker]:hidden">
-          <span aria-hidden="true" className="inline-block h-0 w-0 border-y-[4px] border-l-[5px] border-y-transparent border-l-current transition-transform group-open:rotate-90" />
-          <span>{UI.SECTION_DETAILS}</span>
-        </summary>
-        <ReaderMetrics reader={reader} evidencePrefix={evidencePrefix} />
-        <ReaderEvidence reader={reader} evidencePrefix={evidencePrefix} />
-        <ReaderSources reader={reader} evidencePrefix={evidencePrefix} />
-      </details>}
     </>
   );
 }
