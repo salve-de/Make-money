@@ -145,13 +145,13 @@ export async function buildEntry(id: string, opts: { dataDir: string; ledgerDir:
     return { id, state: 'HOLD', stage: 'IMPORT', reasons: ['取り込み出力が台帳の最新と合わない（古い出力が残っている／欠けている）'], importHash: last.inputHash ?? null };
   }
   const parsed = ReaderCaseSchema.safeParse({ ...readJson<ReaderCase>(`${dir}/reader.json`), analysis: readJson<StoredAnalysis[]>(`${dir}/analysis.json`) });
-  if (!parsed.success) return { id, state: 'HOLD', stage: 'IMPORT', reasons: ['取り込み出力の形式が不正'], importHash: manifest.inputHash };
+  if (!parsed.success) return { id, state: 'HOLD', stage: 'IMPORT', reasons: ['取り込み出力の形式が不正'], importHash: manifest.inputHash ?? null };
   const reader = parsed.data;
   const problems = contentProblems(reader);
-  if (problems.length) return { id, state: 'HOLD', stage: 'CONTENT', reasons: problems, importHash: manifest.inputHash };
+  if (problems.length) return { id, state: 'HOLD', stage: 'CONTENT', reasons: problems, importHash: manifest.inputHash ?? null };
   const release = await gate(id, reader);
-  if (!release.publishable) return { id, state: 'HOLD', stage: 'RELEASE', reasons: release.reasons, importHash: manifest.inputHash, reader };
-  return { id, state: 'SHOW', reasons: [], importHash: manifest.inputHash, reader };
+  if (!release.publishable) return { id, state: 'HOLD', stage: 'RELEASE', reasons: release.reasons, importHash: manifest.inputHash ?? null, reader };
+  return { id, state: 'SHOW', reasons: [], importHash: manifest.inputHash ?? null, reader };
 }
 
 const stableState = (state: ReflectState): string => `${JSON.stringify({ version: 1, cases: Object.fromEntries(Object.entries(state.cases).sort(([a], [b]) => a.localeCompare(b))) }, null, 1)}\n`;
