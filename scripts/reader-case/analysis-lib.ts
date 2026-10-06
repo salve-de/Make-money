@@ -40,6 +40,7 @@ export const ANALYZE_DIR = 'data/analyze';
 export type DropReason =
   | 'schema'
   | 'basis-missing-id'
+  | 'basis-empty'
   | 'duplicate-item'
   | 'fabricated-statement'
   | 'work-description'
@@ -113,6 +114,8 @@ export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>): 
   const evidence = new Set([...reader.facts.map((f) => f.id), ...reader.metrics.map((m) => m.id)]);
   if (a.basis.some((b) => !evidence.has(b))) return { ok: false, reason: 'basis-missing-id' };
   if (STATEMENT.test(a.text) && a.basis.length === 0) return { ok: false, reason: 'fabricated-statement' };
+  // 根拠の無い推論は出さない（根拠の事実・数字のIDが1件も無い）
+  if (a.basis.length === 0) return { ok: false, reason: 'basis-empty' };
   if (WORK.test(a.text)) return { ok: false, reason: 'work-description' };
   if (MONEY.test(a.text) && !a.formula) return { ok: false, reason: 'number-without-formula' };
   if (a.item === 'REVENUE_ESTIMATE' && reader.metrics.some((m) => m.measure === 'REVENUE')) return { ok: false, reason: 'contradicts-revenue' };
