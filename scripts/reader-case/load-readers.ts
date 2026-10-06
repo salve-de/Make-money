@@ -8,7 +8,7 @@ import { projectReaderCase } from '../../src/lib/company-access/reader-case-proj
 import type { ReaderCase } from '../../src/shared/reader-case';
 
 export function readIdsFile(path: string): string[] {
-  return readFileSync(path, 'utf8').split('\n').map((s) => s.trim()).filter(Boolean);
+  return readFileSync(path, 'utf8').split('\n').map((s) => s.trim()).filter((s) => s && !s.startsWith('#'));
 }
 
 export function loadReaders(ids?: string[]): Map<string, ReaderCase> {
@@ -40,7 +40,8 @@ export function argValue(name: string): string | undefined {
 
 /**
  * 分析役の出力（<outDir>/batch-*.json と、足りない項目を後から埋めた add-*.json）から、事例ID → 項目の一覧を作る。
- * add-*.json は既存の項目の後ろに足す（同じ項目は先勝ちで既存を残す）
+ * add-*.json は既存の項目の後ろに足す（同じ項目は先勝ちで既存を残す）。
+ * re-*.json は新しい根拠での再評価の結果。同じ項目の既存を置き換え、既存に無い項目は足す（build-fill-batches.ts）
  */
 export function loadRawItems(outDir: string): Map<string, unknown> {
   const raws = new Map<string, unknown>();
@@ -53,5 +54,25 @@ export function loadRawItems(outDir: string): Map<string, unknown> {
       if (Array.isArray(prev) && Array.isArray(c.items)) raws.set(c.entityId, [...prev, ...c.items]);
     }
   }
+  for (const f of files.filter((x) => /^re-[\w-]+\.json$/.test(x))) {
+    for (const c of read(f)) {
+      const prev = raws.get(c.entityId);
+      if (!Array.isArray(prev) || !Array.isArray(c.items)) continue;
+      const replaced = new Set((c.items as { item?: unknown }[]).map((i) => i?.item));
+      raws.set(c.entityId, [...prev.filter((p) => !replaced.has((p as { item?: unknown })?.item)), ...c.items]);
+    }
+  }
   return raws;
+}
+
+/** 同じ entities-index.json から、公開評価に使う元の事業記録を読む（reader と同じ局所スナップショット）。 */
+export function loadEntities(ids?: string[]): Map<string, import('../../src/shared/terminal').FinancialEntity> {
+  const wanted = ids ? new Set(ids) : null;
+  const raw = JSON.parse(readFileSync('data/entities-index.json', 'utf8')) as Record<string, unknown>[];
+  const out = new Map<string, import('../../src/shared/terminal').FinancialEntity>();
+  for (const r of raw) {
+    const id = typeof r?.id === 'string' ? r.id : undefined;
+    if (id && (!wanted || wanted.has(id))) out.set(id, r as unknown as import('../../src/shared/terminal').FinancialEntity);
+  }
+  return out;
 }

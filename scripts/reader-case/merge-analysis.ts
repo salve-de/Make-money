@@ -3,19 +3,23 @@
  * 落とす条件は analysis-lib.ts の checkItem を参照。既存の reader-analysis.json は、今回出力のある事例だけ置き換える。
  * 使い方: node --import tsx scripts/reader-case/merge-analysis.ts [--ids <file>]
  */
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
-import { argValue, loadRawItems, loadReaders, loadSourceTexts, readIdsFile } from './load-readers';
-import { ANALYSIS_FILE, ANALYZE_DIR, AUDIT_BASELINE_FILE, AUDIT_FRESH_FILE, RAW_HASHES_FILE, analysisHash, applyAudit, auditEvidence, checkCase, type AnalysisFile, type AuditFinding, type Dropped } from './analysis-lib';
+import { argValue, loadEntities, loadRawItems, loadReaders, loadSourceTexts, readIdsFile } from './load-readers';
+import { ANALYSIS_FILE, ANALYZE_DIR, AUDIT_FRESH_FILE, RAW_HASHES_FILE, analysisHash, auditEvidence, checkCase, type AnalysisFile, type Dropped } from './analysis-lib';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
+import { loadPublicationAuditDocuments, loadPublicationInput, readPublicationAudits } from './publication-inputs';
+import { applyPublicationAudit } from './publication-audit';
+import { PUBLICATION_AUDITS_FILE, evaluatePublication, publicationHash, type PublicationAudits } from './publication-evaluation';
 
-function main() {
+async function main() {
   const idsFile = argValue('--ids');
   // 照合で外れた事実・数字は、公開時（select-finished）と同じく無いものとして推論を確かめる。
   // 外れた売上の数字が残ったままだと「売上の事実があるのに推計した」と誤って売上の推定を落とし、必須の欄が空になる。
   const verdicts = existsSync(VERDICTS_FILE) ? (JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile) : {};
   const readers = new Map([...loadReaders(idsFile ? readIdsFile(idsFile) : undefined)].map(([id, r]) => [id, applyVerdicts(r, verdicts[id])?.reader ?? r]));
   const sourceTexts = loadSourceTexts();
+  const entities = loadEntities([...readers.keys()]);
   const outDir = `${ANALYZE_DIR}/out`;
   const raws = loadRawItems(outDir);
   const result: AnalysisFile = existsSync(ANALYSIS_FILE) ? (JSON.parse(readFileSync(ANALYSIS_FILE, 'utf8')) as AnalysisFile) : {};
@@ -38,37 +42,42 @@ function main() {
       for (const k of r.kept) { byItem[k.item] = (byItem[k.item] ?? 0) + 1; items++; }
     } else delete result[entityId];
   }
-  // 公開前の監査の指摘を反映する（data/audit/out-*.json）。BLOCK は外し、FIX は直した文に置き換える
-  const audit = { cases: 0, fixed: 0, removed: [] as { entityId: string; id: string; kind: string; why?: string }[] };
-  const auditDir = 'data/audit';
-  // 監査した時の推論の指紋。名前付きの回（hash-<tag>.json）はその回の指紋、それ以前の回は基準線（baseline-hashes.json）を使う。
-  // 今の推論と指紋が違う監査は古い（推論が作り直された後の文に、別の文向けの指摘を当てない）ので反映せず、監査済みにも数えない
-  const baseline: Record<string, string> = existsSync(AUDIT_BASELINE_FILE) ? (JSON.parse(readFileSync(AUDIT_BASELINE_FILE, 'utf8')) as Record<string, string>) : {};
-  const sidecars = (existsSync(auditDir) ? readdirSync(auditDir) : []).filter((x) => /^hash-\d+\.json$/.test(x))
-    .map((x) => ({ tag: x.slice(5, -5), hashes: JSON.parse(readFileSync(`${auditDir}/${x}`, 'utf8')) as Record<string, string> }));
-  // 一部の事例だけを統合した時（--ids）は、対象外の事例の「監査済み」をそのまま残す
-  const fresh = new Set<string>(idsFile && existsSync(AUDIT_FRESH_FILE) ? (JSON.parse(readFileSync(AUDIT_FRESH_FILE, 'utf8')) as string[]).filter((id) => !readers.has(id)) : []);
+  // 審査受領書: 「いま公開しようとしている入力全体」の指紋に対する監査だけを有効とする。
+  // 旧形式（推論だけの指紋）の監査は引き継がない。文章・根拠・出典・権利・画像が変われば指紋が変わり、受領書は無効になる。
+  const documents = loadPublicationAuditDocuments();
+  const receipts: PublicationAudits = readPublicationAudits(documents);
+  // 一部の事例だけを統合した時（--ids）は、対象外の事例の受領書をそのまま残す
+  const fresh = new Set<string>();
   let stale = 0;
-  for (const f of existsSync(auditDir) ? readdirSync(auditDir).filter((x) => /^out-\d+\.json$/.test(x)).sort() : []) {
-    const j = JSON.parse(readFileSync(`${auditDir}/${f}`, 'utf8')) as { cases?: { entityId: string; items?: AuditFinding[] }[] };
-    const sidecar = sidecars.find((x) => new RegExp(`^out-${x.tag}\\d{3}\\.json$`).test(f))?.hashes ?? baseline;
-    for (const c of j.cases ?? []) {
-      const reader = readers.get(c.entityId);
-      if (!reader || !result[c.entityId]) continue;
-      if (sidecar[c.entityId] !== rawHashes[c.entityId]) { stale++; continue; }
-      fresh.add(c.entityId);
-      const r = applyAudit(c.entityId, result[c.entityId], c.items, reader);
-      result[c.entityId] = r.kept;
-      audit.cases++; audit.fixed += r.fixed;
-      audit.removed.push(...r.removed.map((x) => ({ entityId: c.entityId, ...x })));
+  let audited = 0;
+  for (const [id, reader] of readers) {
+    const entity = entities.get(id);
+    if (!entity) continue;
+    let current = await loadPublicationInput(entity, { ...reader, analysis: result[id] ?? [] }, verdicts[id]);
+    for (const doc of documents.filter((d) => d.input.cases.some((c) => c.entityId === id))) {
+      const { inputFile, outputFile, input: inputDoc, output: outputDoc } = doc;
+      const matching = inputDoc.cases.find((c) => c.entityId === id);
+      // 同じ入力への新しい不合格・壊れた出力は、古い合格を打ち消す（巻き戻しで合格に戻らない）
+      if (matching?.publicationHash === publicationHash(current) || matching?.publicationHash === receipts[id]?.inputHash) delete receipts[id];
+      const approved = applyPublicationAudit(current, inputDoc, outputDoc, inputFile, outputFile);
+      if (!approved) continue;
+      result[id] = approved.analysis;
+      receipts[id] = approved.receipt;
+      current = { ...current, reader: { ...current.reader, analysis: approved.analysis } };
+      audited++;
     }
+    const evaluation = evaluatePublication(current, receipts[id]);
+    if (!evaluation.reasons.includes('現在の入力に対する監査が無い')) fresh.add(id);
+    else { delete receipts[id]; stale++; }
   }
-  writeFileSync(`${auditDir}-applied.json`, JSON.stringify(audit, null, 1));
+  for (const id of Object.keys(receipts)) if (!readers.has(id)) fresh.add(id);
+  mkdirSync(ANALYZE_DIR, { recursive: true });
+  writeFileSync(PUBLICATION_AUDITS_FILE, JSON.stringify(receipts, null, 1) + '\n');
   writeFileSync(RAW_HASHES_FILE, JSON.stringify(rawHashes, null, 1) + '\n');
   writeFileSync(AUDIT_FRESH_FILE, JSON.stringify([...fresh].sort(), null, 1) + '\n');
   writeFileSync(ANALYSIS_FILE, JSON.stringify(result, null, 1) + '\n');
   writeFileSync(`${ANALYZE_DIR}/dropped.json`, JSON.stringify(dropped, null, 1));
-  console.log(JSON.stringify({ casesWithOutput: raws.size, casesKept: cases, itemsKept: items, itemsDropped: dropped.length, byItem, dropByReason: byReason, audited: audit.cases, auditFixed: audit.fixed, auditRemoved: audit.removed.length, auditFresh: fresh.size, auditStale: stale }, null, 1));
+  console.log(JSON.stringify({ casesWithOutput: raws.size, casesKept: cases, itemsKept: items, itemsDropped: dropped.length, byItem, dropByReason: byReason, audited, auditFresh: fresh.size, auditStale: stale }, null, 1));
 }
 
-main();
+void main().catch((error) => { console.error(error); process.exitCode = 1; });

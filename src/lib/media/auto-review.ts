@@ -1,18 +1,22 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { type MediaAssetKind } from '../../shared/media-asset-schema';
-import { appendMediaDecision, listStagedEntityIds, readEffectiveManifest, readStagedAsset, stagedFileName, mediaEntityDir } from '../../shared/media-asset-store';
+import { appendMediaDecision, listStagedEntityIds, readEffectiveManifest, readMediaManifest, readStagedAsset, stagedFileName, mediaEntityDir } from '../../shared/media-asset-store';
 import { MediaLedgerError, type EffectiveMediaAsset } from '../../shared/media-decisions';
 import { sniffImage } from '../../shared/media-fetch-policy';
 import { join } from 'node:path';
+import { rejudgeStagedProductScreen } from '../../shared/media-product-screen';
 
 /**
- * Rule-based review of staged media (reviewer "auto-rule-v3"), used instead of a human look for the kinds where a
+ * Rule-based review of staged media (reviewer "auto-rule-v4"), used instead of a human look for the kinds where a
  * person in the picture is the only realistic problem. It appends to decisions.jsonl exactly like review-assets.
  *
- *   allowed  kind is favicon / app_icon / og_image / store_screenshot / logo, the bytes are a readable image, the
- *            SHA-256 matches the ledger and no face is detected  ->  subjectIsPerson=false
+ *   allowed  kind is favicon / app_icon / store_screenshot / logo, or a screenshot_product that the product-screen
+ *            rule (src/shared/media-product-screen.ts) still judges "screen" from its recorded evidence; the bytes
+ *            are a readable image, the SHA-256 matches the ledger and no face is detected  ->  subjectIsPerson=false
  *   blocked  a face is detected                                   ->  subjectIsPerson=true
+ *   blocked  an og_image (promotional banner; owner decision 2026-10-02, reason promo_banner_no_product). This also
+ *            overrides an earlier "allowed" line written by an automatic rule (auto-rule-*), never a human's.
  *   held     everything else stays as it is: the image cannot be inspected (Vision cannot read it, file missing or
  *            changed), or the kind needs a human (screenshot_home / screenshot_pricing can show consent banners)
  *
@@ -20,8 +24,11 @@ import { join } from 'node:path';
  * Operating procedure: docs/MEDIA_ASSETS_AND_PROVENANCE.md (chapter 7.2)
  */
 
-export const AUTO_REVIEWER = 'auto-rule-v3';
-export const AUTO_REVIEW_KINDS: readonly MediaAssetKind[] = ['favicon', 'app_icon', 'og_image', 'store_screenshot', 'logo'];
+export const AUTO_REVIEWER = 'auto-rule-v4';
+export const PROMO_BANNER_REASON = 'promo_banner_no_product';
+/** Reviewer names written by this automatic rule in any version: their lines may be superseded by a newer rule, a human's never. */
+const isAutoReviewer = (reviewer: string) => reviewer.startsWith('auto-rule-');
+export const AUTO_REVIEW_KINDS: readonly MediaAssetKind[] = ['favicon', 'app_icon', 'store_screenshot', 'logo', 'screenshot_product'];
 const FACE_CHUNK = 100;
 
 export type FaceResult = { faces: number } | { error: string };
@@ -51,6 +58,10 @@ export interface AutoReviewTally {
   entities: number;
   allowed: number;
   blocked: number;
+  /** og:image banners blocked as promotional art (reason promo_banner_no_product). */
+  promoBlocked: number;
+  /** Automatic "allowed" product screens sent back to held because the rule became stricter. */
+  demoted: number;
   /** Assets left without a decision line: needs a human kind, or could not be inspected. */
   held: number;
   /** Assets that already had a decision line and were not touched. */
@@ -77,7 +88,7 @@ interface Candidate {
 export async function runAutoReview(entityIds: readonly string[] | null, options: AutoReviewOptions): Promise<AutoReviewTally> {
   const store = { root: options.root };
   const ids = entityIds ? [...entityIds] : await listStagedEntityIds(store);
-  const tally: AutoReviewTally = { entities: 0, allowed: 0, blocked: 0, held: 0, alreadyDecided: 0, ledgerErrors: [], heldReasons: {} };
+  const tally: AutoReviewTally = { entities: 0, allowed: 0, blocked: 0, promoBlocked: 0, demoted: 0, held: 0, alreadyDecided: 0, ledgerErrors: [], heldReasons: {} };
   const hold = (reason: string) => {
     tally.held += 1;
     tally.heldReasons[reason] = (tally.heldReasons[reason] ?? 0) + 1;
@@ -97,10 +108,68 @@ export async function runAutoReview(entityIds: readonly string[] | null, options
     }
     if (!ledger) continue;
     tally.entities += 1;
+    // The capture-time notes carry the evidence of a product screen; a decision line replaces the effective notes.
+    const captureNotes = new Map(((await readMediaManifest(entityId, store)) ?? []).map((record) => [record.assetId, record.rights.notes]));
     for (const asset of ledger.assets) {
+      if (asset.kind === 'og_image' && asset.review?.decision !== 'blocked' && (!asset.review || isAutoReviewer(asset.review.reviewer))) {
+        // Promotional banners are not shown (owner decision 2026-10-02); this supersedes an earlier automatic "allowed".
+        const line = {
+          assetId: asset.assetId,
+          decision: 'blocked' as const,
+          subjectIsPerson: asset.subjectIsPerson,
+          reviewer: AUTO_REVIEWER,
+          reviewedAt: options.now().toISOString(),
+          note: `自動判定 ${AUTO_REVIEWER}: ${PROMO_BANNER_REASON}。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。`,
+        };
+        if (!options.dryRun) {
+          try {
+            await appendMediaDecision(entityId, line, store);
+          } catch (error) {
+            if (error instanceof MediaLedgerError) {
+              hold(`decision rejected (${error.code})`);
+              continue;
+            }
+            throw error;
+          }
+        }
+        tally.promoBlocked += 1;
+        options.log?.(`BLOCKED  ${entityId} ${asset.assetId} og_image ${PROMO_BANNER_REASON}`);
+        continue;
+      }
+      if (asset.kind === 'screenshot_product' && asset.review?.decision === 'allowed' && isAutoReviewer(asset.review.reviewer)) {
+        // A stricter rule supersedes an earlier automatic "allowed": the image goes back to held until a person has looked at it.
+        const verdict = rejudgeStagedProductScreen({ assetUrl: asset.assetUrl, width: asset.width, height: asset.height, notes: captureNotes.get(asset.assetId) ?? '' });
+        if (verdict?.verdict !== 'screen') {
+          if (!options.dryRun) {
+            try {
+              await appendMediaDecision(
+                entityId,
+                { assetId: asset.assetId, decision: 'held', subjectIsPerson: asset.subjectIsPerson, reviewer: AUTO_REVIEWER, reviewedAt: options.now().toISOString(), note: `自動判定 ${AUTO_REVIEWER}: 製品画面の規則を厳しくしたため、実画面と言い切れない (${verdict ? verdict.reasons.join(',') : '根拠の印なし'})。目視するまで出さない。` },
+                store,
+              );
+            } catch (error) {
+              if (error instanceof MediaLedgerError) {
+                hold(`decision rejected (${error.code})`);
+                continue;
+              }
+              throw error;
+            }
+          }
+          tally.demoted += 1;
+          options.log?.(`HELD     ${entityId} ${asset.assetId} screenshot_product (rule tightened)`);
+          continue;
+        }
+      }
       if (asset.review) {
         tally.alreadyDecided += 1;
         continue;
+      }
+      if (asset.kind === 'screenshot_product') {
+        const verdict = rejudgeStagedProductScreen({ assetUrl: asset.assetUrl, width: asset.width, height: asset.height, notes: captureNotes.get(asset.assetId) ?? '' });
+        if (verdict?.verdict !== 'screen') {
+          hold(`screenshot_product not clearly a product screen (${verdict ? verdict.reasons.join(',') : 'no rule marker'})`);
+          continue;
+        }
       }
       if (!AUTO_REVIEW_KINDS.includes(asset.kind)) {
         hold(asset.kind === 'screenshot_home' || asset.kind === 'screenshot_pricing' ? `${asset.kind} (consent banners: human review)` : `${asset.kind} (human review)`);
@@ -135,6 +204,7 @@ export async function runAutoReview(entityIds: readonly string[] | null, options
     const reviewedAt = options.now().toISOString();
     const size = asset.width && asset.height ? ` ${asset.width}x${asset.height}` : '';
     const inspected = `画像として読める (${asset.contentType}${size})、SHA-256が台帳と一致 (${asset.sha256.slice(0, 12)})、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest)`;
+    const rule = asset.kind === 'screenshot_product' ? '公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。' : '';
     const line =
       result.faces > 0
         ? { assetId: asset.assetId, decision: 'blocked' as const, subjectIsPerson: true, reviewer: AUTO_REVIEWER, reviewedAt, note: `自動判定 ${AUTO_REVIEWER}: ${asset.kind}。${inspected} で顔を ${result.faces} 件検出したため使わない。` }
@@ -144,7 +214,7 @@ export async function runAutoReview(entityIds: readonly string[] | null, options
             subjectIsPerson: false,
             reviewer: AUTO_REVIEWER,
             reviewedAt,
-            note: `自動判定 ${AUTO_REVIEWER}: ${asset.kind}。${inspected} で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。バナーや文言の目視確認はしていない。`,
+            note: `自動判定 ${AUTO_REVIEWER}: ${asset.kind}。${rule}${inspected} で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。`,
           };
     if (!options.dryRun) {
       try {
