@@ -1,40 +1,34 @@
-/**
- * 公開前の抜き取り監査の入力を作る。指定した事例の、照合後の facts/metrics と analysis を並べて data/audit/in-NNN.json に書く。
- * 使い方: node --import tsx scripts/reader-case/build-audit-input.ts --ids <file> [--per 10] [--tag 999999YYMMDDHHMM]
- */
+/** Build an audit of the exact current local release inputs, including facts-only cases. */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
-import { argValue, loadReaders, loadSourceTexts, readIdsFile } from './load-readers';
-import { RAW_HASHES_FILE, auditEvidence, reflectAnalysis, type AnalysisFile } from './analysis-lib';
+import { argValue, loadEntities, loadReaders, readIdsFile } from './load-readers';
+import { auditEvidence, type AnalysisFile } from './analysis-lib';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
+import { loadPublicationInput } from './publication-inputs';
+import { auditSnapshot, preparePublicationReader, publicationHash } from './publication-evaluation';
 
-const ids = readIdsFile(argValue('--ids') ?? '');
-const per = Number(argValue('--per') ?? 10);
-const start = Number(argValue('--start') ?? 1);
-// --tag を付けると in-<tag>NNN.json の名前にする（数字の桁あふれを避け、後の回ほど名前順で後ろに来るようにする）
-const tag = argValue('--tag');
-const verdicts = JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile;
-const analysis = JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile;
-// 分析役が読んだ出典の本文（data/analyze/batches）も渡す。事実に無くても本文にあれば捏造ではない
-const sourceTexts = loadSourceTexts();
-const cases: unknown[] = [];
-for (const [id, reader] of loadReaders(ids)) {
-  const applied = applyVerdicts(reader, verdicts[id]);
-  if (!applied) continue;
-  const r = reflectAnalysis(applied.reader, analysis[id]);
-  cases.push({
-    entityId: id,
-    ...auditEvidence(r, sourceTexts.get(id)),
-    analysis: r.analysis.map((a) => ({ id: a.id, item: a.item, text: a.text, formula: a.formula, basis: a.basis, confidence: a.confidence })),
-  });
+async function main() {
+  const ids = readIdsFile(argValue('--ids') ?? '');
+  const per = Number(argValue('--per') ?? 10);
+  const start = Number(argValue('--start') ?? 1);
+  const tag = argValue('--tag');
+  if (!Number.isSafeInteger(per) || per < 1 || !Number.isSafeInteger(start) || start < 1 || (tag && !/^\d+$/.test(tag))) throw new Error('Invalid audit batch arguments');
+  const verdicts = JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile;
+  const analysis = JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile;
+  const entities = loadEntities(ids);
+  const cases: unknown[] = [];
+  for (const [id, reader] of loadReaders(ids)) {
+    const prepared = preparePublicationReader(reader, verdicts[id], analysis[id]);
+    if (prepared.problems.length) throw new Error(`${id}: ${prepared.problems.join(', ')}`);
+    const snapshot = auditSnapshot(await loadPublicationInput(entities.get(id)!, prepared.reader, verdicts[id]));
+    cases.push({ entityId: id, ...auditEvidence(prepared.reader, snapshot.sources), analysis: prepared.reader.analysis,
+      identity: snapshot.identity, media: snapshot.media, snapshot, publicationHash: publicationHash(snapshot) });
+  }
+  mkdirSync('data/audit', { recursive: true });
+  for (let i = 0; i * per < cases.length; i++) {
+    const suffix = tag ? `${tag}${String(i + 1).padStart(3, '0')}` : String(i + start).padStart(3, '0');
+    // Never reuse an old output with a newly overwritten input.
+    writeFileSync(`data/audit/in-${suffix}.json`, JSON.stringify({ cases: cases.slice(i * per, (i + 1) * per) }, null, 1), { flag: 'wx' });
+  }
+  console.log(JSON.stringify({ cases: cases.length, files: Math.ceil(cases.length / per) }));
 }
-mkdirSync('data/audit', { recursive: true });
-for (let i = 0; i * per < cases.length; i++) {
-  writeFileSync(`data/audit/in-${tag ? `${tag}${String(i + 1).padStart(3, '0')}` : String(i + start).padStart(3, '0')}.json`, JSON.stringify({ cases: cases.slice(i * per, (i + 1) * per) }, null, 1));
-}
-// この回で監査する推論の指紋を残す。merge-analysis.ts は今の指紋と同じ時だけこの回の監査を反映し、監査済みに数える
-if (tag) {
-  const raw = JSON.parse(readFileSync(RAW_HASHES_FILE, 'utf8')) as Record<string, string>;
-  writeFileSync(`data/audit/hash-${tag}.json`, JSON.stringify(Object.fromEntries(cases.map((c) => [(c as { entityId: string }).entityId, raw[(c as { entityId: string }).entityId]])), null, 1));
-}
-console.log(JSON.stringify({ cases: cases.length, files: Math.ceil(cases.length / per) }));
+void main().catch((error) => { console.error(error); process.exitCode = 1; });
