@@ -174,3 +174,35 @@ test('year だけの statedAt など、直すと意味を作ってしまう形�
   const r = convertCase(out);
   assert.equal(r.ok, false);
 });
+
+test('事業の記録が無い事例は保留にして台帳へ残し、束の他の事例の取り込みは続ける', async () => {
+  const { write, opts } = setup();
+  const other = 'ent_fixture_000000000002';
+  write(fixture({ id: other }));
+  write(fixture());
+  const noRecord = deps({ buildPublicationInput: async (id, reader) => { if (id === other) throw new Error(`${id}: data/entities-index.json に事業の記録が無い`); return deps().buildPublicationInput(id, reader); } });
+  const results = await importCases({ ...opts, ids: [other, ID] }, noRecord);
+  assert.deepEqual(results.map((r) => r.result), ['HELD', 'IMPORTED']);
+  assert.equal(results[0].result === 'HELD' && results[0].reasonCode, 'NO_ENTITY_RECORD');
+  assert.equal(existsSync(`${opts.dataDir}/case-import/${other}`), false);
+  // 再実行しても保留の記録は増えない
+  await importCases({ ...opts, ids: [other] }, noRecord);
+  assert.equal(readCaseRecords(other, opts.ledgerDir).length, 1);
+});
+
+test('画面の基準（lead-standard）を通らないリードは取り込まず保留する（範囲表記など）。リードが推論に残らない時も保留', async () => {
+  const { write, opts } = setup();
+  const ranged = fixture({ lead: '29〜350人の客に月額29ドルの購読を売る。' });
+  ranged.reader.analysis = [{ item: 'HEADLINE', text: '29〜350人の客に月額29ドルの購読を売る。', basis: ['f1'], confidence: 'HIGH' }];
+  write(ranged);
+  const [r] = await importCases(opts, deps());
+  assert.equal(r.result, 'HELD');
+  assert.equal(r.result === 'HELD' && r.reasonCode, 'LEAD_NOT_PASSED');
+  assert.match(r.result === 'HELD' ? r.reasonText : '', /number-range/);
+  assert.equal(existsSync(`${opts.dataDir}/case-import/${ID}`), false);
+  const noHeadline = fixture();
+  noHeadline.reader.analysis = (noHeadline.reader.analysis ?? []).filter((a) => a.item !== 'HEADLINE');
+  write(noHeadline);
+  const [n] = await importCases(opts, deps());
+  assert.equal(n.result === 'HELD' && n.reasonCode, 'LEAD_NOT_PASSED');
+});

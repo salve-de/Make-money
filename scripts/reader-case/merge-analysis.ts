@@ -1,13 +1,16 @@
 /**
  * Codex の推論（data/analyze/out/batch-NNN.json）を機械で確かめ、通ったものだけ data/reader-analysis.json に書く。
- * 落とす条件は analysis-lib.ts の checkItem を参照。既存の reader-analysis.json は、今回出力のある事例だけ置き換える。
+ * 落とす条件は analysis-lib.ts の checkItem を参照。既存の reader-analysis.json は、今回通った項目だけを項目単位で重ねる（通らなかった項目・出なかった項目の既存は残す）。
  * 使い方: node --import tsx scripts/reader-case/merge-analysis.ts [--ids <file>]
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
-import { argValue, loadEntities, loadRawItems, loadReaders, loadSourceTexts, readIdsFile } from './load-readers';
+import { argValue, loadEntities, loadRawItems, loadReaders, reevaluatedIds, loadSourceTexts, readIdsFile } from './load-readers';
 import { ANALYSIS_FILE, ANALYZE_DIR, AUDIT_FRESH_FILE, RAW_HASHES_FILE, analysisHash, auditEvidence, checkCase, type AnalysisFile, type Dropped } from './analysis-lib';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
+import { EVIDENCE_PENDING_FILE, EVIDENCE_REVIEWED_FILE, type EvidenceDigestFile } from './evidence-digest';
+import { mergeAnalysisItems } from './merge-items';
+import { appendRecord, resolveStuck } from './ledger';
 import { loadPublicationAuditDocuments, loadPublicationInput, readPublicationAudits } from './publication-inputs';
 import { applyPublicationAudit } from './publication-audit';
 import { PUBLICATION_AUDITS_FILE, evaluatePublication, publicationHash, type PublicationAudits } from './publication-evaluation';
@@ -21,13 +24,21 @@ async function main() {
   const sourceTexts = loadSourceTexts();
   const entities = loadEntities([...readers.keys()]);
   const outDir = `${ANALYZE_DIR}/out`;
-  const raws = loadRawItems(outDir);
+  const batchDir = `${ANALYZE_DIR}/batches`;
+  const raws = loadRawItems(outDir, batchDir);
+  const reevaluated = reevaluatedIds(outDir, batchDir);
+  const readJson = <T,>(f: string, fallback: T): T => (existsSync(f) ? (JSON.parse(readFileSync(f, 'utf8')) as T) : fallback);
+  const pending = readJson<EvidenceDigestFile>(EVIDENCE_PENDING_FILE, {});
+  const reviewed = readJson<EvidenceDigestFile>(EVIDENCE_REVIEWED_FILE, {});
   const result: AnalysisFile = existsSync(ANALYSIS_FILE) ? (JSON.parse(readFileSync(ANALYSIS_FILE, 'utf8')) as AnalysisFile) : {};
   const byItem: Record<string, number> = {};
   const byReason: Record<string, number> = {};
   const dropped: Dropped[] = [];
   let cases = 0;
   let items = 0;
+  let retainedAfterReject = 0;
+  /** 保留が残っていれば、成功で閉じる */
+  const resolveRejected = (id: string) => resolveStuck(id, 'MERGE', undefined, 'merge-analysis');
   const rawHashes: Record<string, string> = existsSync(RAW_HASHES_FILE) ? (JSON.parse(readFileSync(RAW_HASHES_FILE, 'utf8')) as Record<string, string>) : {};
   for (const [entityId, items0] of raws) {
     const reader = readers.get(entityId);
@@ -35,12 +46,20 @@ async function main() {
     const r = checkCase(entityId, items0, reader, { strictNumbers: true });
     dropped.push(...r.dropped);
     for (const d of r.dropped) byReason[d.reason] = (byReason[d.reason] ?? 0) + 1;
+    const merged = mergeAnalysisItems(result[entityId], r.kept);
     if (r.kept.length) {
-      result[entityId] = r.kept;
-      rawHashes[entityId] = analysisHash(r.kept, verdicts[entityId], auditEvidence(reader, sourceTexts.get(entityId)));
+      result[entityId] = merged.items;
+      rawHashes[entityId] = analysisHash(merged.items, verdicts[entityId], auditEvidence(reader, sourceTexts.get(entityId)));
       cases++;
       for (const k of r.kept) { byItem[k.item] = (byItem[k.item] ?? 0) + 1; items++; }
-    } else delete result[entityId];
+      // 再評価の結果が通ってはじめて「評価済み」にする（束を作っただけ・拒否・保留では進めない）
+      if (reevaluated.has(entityId) && pending[entityId]) { reviewed[entityId] = pending[entityId]!; delete pending[entityId]; }
+      resolveRejected(entityId);
+    } else if (merged.allRejected) {
+      // 出力が全部落ちても既存の推論は消さない。理由は台帳に残す
+      retainedAfterReject++;
+      appendRecord({ caseId: entityId, stage: 'MERGE', status: 'HOLD', reasonCode: 'ANALYSIS_REJECTED', reasonText: `今回の出力 ${r.dropped.length} 項目が機械検査で全て落ちた。既存の ${merged.items.length} 項目は残した`, nextAction: '分析をやり直す', actor: 'merge-analysis', finishedAt: new Date().toISOString() });
+    }
   }
   // 審査受領書: 「いま公開しようとしている入力全体」の指紋に対する監査だけを有効とする。
   // 旧形式（推論だけの指紋）の監査は引き継がない。文章・根拠・出典・権利・画像が変われば指紋が変わり、受領書は無効になる。
@@ -75,9 +94,11 @@ async function main() {
   writeFileSync(PUBLICATION_AUDITS_FILE, JSON.stringify(receipts, null, 1) + '\n');
   writeFileSync(RAW_HASHES_FILE, JSON.stringify(rawHashes, null, 1) + '\n');
   writeFileSync(AUDIT_FRESH_FILE, JSON.stringify([...fresh].sort(), null, 1) + '\n');
+  writeFileSync(EVIDENCE_PENDING_FILE, JSON.stringify(pending, null, 1) + '\n');
+  writeFileSync(EVIDENCE_REVIEWED_FILE, JSON.stringify(reviewed, null, 1) + '\n');
   writeFileSync(ANALYSIS_FILE, JSON.stringify(result, null, 1) + '\n');
   writeFileSync(`${ANALYZE_DIR}/dropped.json`, JSON.stringify(dropped, null, 1));
-  console.log(JSON.stringify({ casesWithOutput: raws.size, casesKept: cases, itemsKept: items, itemsDropped: dropped.length, byItem, dropByReason: byReason, audited, auditFresh: fresh.size, auditStale: stale }, null, 1));
+  console.log(JSON.stringify({ casesWithOutput: raws.size, casesKept: cases, itemsKept: items, itemsDropped: dropped.length, retainedAfterReject, byItem, dropByReason: byReason, audited, auditFresh: fresh.size, auditStale: stale }, null, 1));
 }
 
 void main().catch((error) => { console.error(error); process.exitCode = 1; });

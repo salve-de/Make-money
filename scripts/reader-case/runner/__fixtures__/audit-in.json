@@ -9,15 +9,13 @@
      "id": "a-headline",
      "item": "HEADLINE",
      "text": "架空の見出し",
-     "basis": [],
-     "confidence": "MEDIUM"
+     "basis": []
     },
     {
      "id": "a-business_model",
      "item": "BUSINESS_MODEL",
      "text": "年会費で稼ぐ",
-     "basis": [],
-     "confidence": "HIGH"
+     "basis": []
     }
    ]
   },
@@ -30,15 +28,13 @@
      "id": "a-headline",
      "item": "HEADLINE",
      "text": "架空の見出し",
-     "basis": [],
-     "confidence": "MEDIUM"
+     "basis": []
     },
     {
      "id": "a-business_model",
      "item": "BUSINESS_MODEL",
      "text": "年会費で稼ぐ",
-     "basis": [],
-     "confidence": "HIGH"
+     "basis": []
     }
    ]
   },
@@ -51,15 +47,13 @@
      "id": "a-headline",
      "item": "HEADLINE",
      "text": "架空の見出し",
-     "basis": [],
-     "confidence": "MEDIUM"
+     "basis": []
     },
     {
      "id": "a-business_model",
      "item": "BUSINESS_MODEL",
      "text": "年会費で稼ぐ",
-     "basis": [],
-     "confidence": "HIGH"
+     "basis": []
     }
    ]
   }

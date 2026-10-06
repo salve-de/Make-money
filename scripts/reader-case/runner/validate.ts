@@ -66,6 +66,8 @@ interface VerifyBundle { cases: { entityId: string; sources?: { sourceId: string
 
 const casesOf = (bundle: unknown): { entityId: string }[] | null => (isObj(bundle) && Array.isArray(bundle.cases) && bundle.cases.every((c) => isObj(c) && str(c.entityId)) ? (bundle.cases as { entityId: string }[]) : null);
 
+const PRESENTATIONS = ['FACT_SUMMARY', 'ESTIMATE'];
+
 export function validateAnalyze(bundle: unknown, result: unknown): Validation {
   const cases = casesOf(bundle) as AnalyzeBundle['cases'] | null;
   if (!cases) return { ok: false, reasons: [{ code: 'BAD_BUNDLE', message: '束ファイルが {cases:[{entityId,…}]} の形でない' }] };
@@ -82,7 +84,7 @@ export function validateAnalyze(bundle: unknown, result: unknown): Validation {
     ids.push(e.entityId);
     const c = byId.get(e.entityId);
     if (!c) continue;
-    if (e.items.length === 0) reasons.push({ code: 'BAD_ITEM', message: `${e.entityId}: items が空` });
+    // items が空は正当（出典に事実が無く、書ける項目が無い事例。空欄は創作で埋めず「未調査」として残す）
     const evidence = new Set([...(c.facts ?? []).map((f) => f.id), ...(c.metrics ?? []).map((m) => m.id)]);
     for (const it of e.items as unknown[]) {
       if (!isObj(it) || !str(it.item) || !(ANALYSIS_ITEMS as readonly string[]).includes(it.item)) {
@@ -91,7 +93,9 @@ export function validateAnalyze(bundle: unknown, result: unknown): Validation {
       }
       const where = `${e.entityId}/${it.item}`;
       if (!str(it.text)) reasons.push({ code: 'BAD_ITEM', message: `${where}: text が空` });
-      if (!['HIGH', 'MEDIUM', 'LOW'].includes(String(it.confidence))) reasons.push({ code: 'BAD_ITEM', message: `${where}: confidence は HIGH|MEDIUM|LOW` });
+      // confidence（確度ラベル）は廃止。要求も検査もしない（付いていても無視する）。presentation は付いていれば列挙値を検査する
+      if (it.presentation !== undefined && !PRESENTATIONS.includes(String(it.presentation))) reasons.push({ code: 'BAD_ITEM', message: `${where}: presentation は FACT_SUMMARY|ESTIMATE` });
+      if (it.presentation === 'ESTIMATE' && !str(it.formula)) reasons.push({ code: 'BAD_ITEM', message: `${where}: ESTIMATE には式 formula が必要（式から導けないなら項目ごと省く）` });
       if (it.formula !== undefined && !str(it.formula)) reasons.push({ code: 'BAD_ITEM', message: `${where}: formula は空でない文字列（無ければ項目ごと省く）` });
       if (!Array.isArray(it.basis) || !it.basis.every(str)) {
         reasons.push({ code: 'BAD_ITEM', message: `${where}: basis は id 文字列の配列（根拠が無ければ空配列）` });
@@ -104,7 +108,10 @@ export function validateAnalyze(bundle: unknown, result: unknown): Validation {
   return finish(reasons, result);
 }
 
-const AUDIT_KINDS = ['FACT_DISGUISED', 'CONTRADICTS_FACT', 'UNSUPPORTED_NUMBER', 'ILLEGAL_HOWTO', 'PERSONAL_INFO', 'DEFAMATION', 'WORK_WORDS', 'WEAK'];
+// HEADLINE はリードの書き直し（headline-prompt.md の出力: FIX=直した文、BLOCK=保留）
+const AUDIT_KINDS = ['FACT_DISGUISED', 'CONTRADICTS_FACT', 'UNSUPPORTED_NUMBER', 'ILLEGAL_HOWTO', 'PERSONAL_INFO', 'DEFAMATION', 'WORK_WORDS', 'WEAK', 'HEADLINE'];
+/** ケース単位の指摘（事実・事業説明・権利）の analysisId。publication-audit.ts の `__case__` と同じ */
+const CASE_LEVEL_ID = '__case__';
 
 export function validateAudit(bundle: unknown, result: unknown): Validation {
   const cases = casesOf(bundle) as AuditBundle['cases'] | null;
@@ -128,7 +135,9 @@ export function validateAudit(bundle: unknown, result: unknown): Validation {
         continue;
       }
       const where = `${e.entityId}/${String(it.analysisId)}`;
-      if (!str(it.analysisId) || !analysisIds.has(it.analysisId)) reasons.push({ code: 'UNKNOWN_ANALYSIS_ID', message: `${where}: analysisId が入力の analysis に存在しない` });
+      const caseLevel = it.analysisId === CASE_LEVEL_ID;
+      if (caseLevel && it.severity === 'FIX') reasons.push({ code: 'BAD_ITEM', message: `${where}: ケース単位（__case__）の指摘は BLOCK か LOW（直す文の置き換え先が無い）` });
+      if (!caseLevel && (!str(it.analysisId) || !analysisIds.has(it.analysisId))) reasons.push({ code: 'UNKNOWN_ANALYSIS_ID', message: `${where}: analysisId が入力の analysis に存在しない` });
       if (!AUDIT_KINDS.includes(String(it.kind))) reasons.push({ code: 'BAD_ITEM', message: `${where}: kind が定義に無い（${String(it.kind)}）` });
       if (!['BLOCK', 'FIX', 'LOW'].includes(String(it.severity))) reasons.push({ code: 'BAD_ITEM', message: `${where}: severity は BLOCK|FIX|LOW` });
       if (!str(it.why)) reasons.push({ code: 'BAD_ITEM', message: `${where}: why が空` });
@@ -140,16 +149,19 @@ export function validateAudit(bundle: unknown, result: unknown): Validation {
 }
 
 const norm = (s: string): string => s.replace(/\s+/g, ' ').trim();
+const quoteIn = (texts: readonly string[], quote: string): boolean => texts.some((t) => t.includes(norm(quote)));
 
 export function validateVerify(bundle: unknown, result: unknown): Validation {
   const cases = casesOf(bundle) as VerifyBundle['cases'] | null;
   if (!cases) return { ok: false, reasons: [{ code: 'BAD_BUNDLE', message: '束ファイルが {cases:[{entityId,…}]} の形でない' }] };
   if (!isObj(result) || !Array.isArray(result.verdicts)) return { ok: false, reasons: [{ code: 'WRONG_SHAPE', message: '{"verdicts":[…]} の形でない' }] };
   const reasons: Rejection[] = [];
-  const claims = new Map<string, { sourceText: string }>();
+  const claims = new Map<string, { sourceTexts: string[] }>();
   for (const c of cases) {
-    const texts = new Map((c.sources ?? []).map((s) => [s.sourceId, s.text]));
-    for (const cl of c.claims ?? []) claims.set(`${c.entityId}\u0000${cl.claimId}`, { sourceText: norm(texts.get(cl.sourceId) ?? '') });
+    // 長い出典は同じ sourceId の複数チャンク（part/parts）になっている。全チャンクを保持し、引用はどのチャンクにあっても通す
+    const texts = new Map<string, string[]>();
+    for (const s of c.sources ?? []) texts.set(s.sourceId, [...(texts.get(s.sourceId) ?? []), norm(s.text ?? '')]);
+    for (const cl of c.claims ?? []) claims.set(`${c.entityId}\u0000${cl.claimId}`, { sourceTexts: texts.get(cl.sourceId) ?? [] });
   }
   const seen = new Set<string>();
   for (const v of result.verdicts as unknown[]) {
@@ -172,7 +184,7 @@ export function validateVerify(bundle: unknown, result: unknown): Validation {
     }
     if (v.verdict !== 'NOT_SUPPORTED') {
       if (!str(v.quote)) reasons.push({ code: 'BAD_ITEM', message: `${where}: ${String(v.verdict)} には本文からの quote が必要` });
-      else if (!claim.sourceText.includes(norm(v.quote))) reasons.push({ code: 'QUOTE_NOT_IN_SOURCE', message: `${where}: quote が出典本文の文字どおりの抜き出しでない` });
+      else if (!quoteIn(claim.sourceTexts, v.quote)) reasons.push({ code: 'QUOTE_NOT_IN_SOURCE', message: `${where}: quote が出典本文の文字どおりの抜き出しでない` });
     }
     if (v.verdict === 'PARTIAL' && !isObj(v.fix)) reasons.push({ code: 'BAD_ITEM', message: `${where}: PARTIAL には直し fix が必要` });
   }
