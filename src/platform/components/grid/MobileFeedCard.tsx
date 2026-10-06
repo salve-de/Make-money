@@ -50,7 +50,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
       >
         <span className="flex items-baseline justify-between gap-3">
           <span className="flex min-w-0 items-center gap-1.5">
-            <EntityLogo asset={logo} />
+            <EntityLogo asset={logo} name={entity.name} />
             <span data-testid="entity-name" className="min-w-0 truncate text-[15px] font-semibold text-term-fg-strong">{entity.name}</span>
             {isVerified && <VerifiedMark />}
           </span>

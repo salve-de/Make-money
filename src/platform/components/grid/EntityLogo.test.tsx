@@ -45,4 +45,12 @@ describe('EntityLogo', () => {
     expect(html).toContain('h-5 w-5 lg:h-6 lg:w-6');
     expect(html).toContain('title="出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)"');
   });
+
+  it('社名を渡すと、画像が無い時は頭文字の丸を出す（白い四角にしない）', () => {
+    const html = renderToStaticMarkup(<EntityLogo asset={null} name="HeyGen" />);
+    expect(html).toContain('data-testid="entity-initial"');
+    expect(html).toContain('data-initial="H"');
+    expect(html).toContain('rounded-full');
+    expect(renderToStaticMarkup(<EntityLogo asset={asset('favicon')} name="HeyGen" />)).toContain('data-testid="entity-logo"');
+  });
 });
