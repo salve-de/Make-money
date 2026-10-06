@@ -85,6 +85,8 @@ __pycache__/
 /data/verify/
 # 推論（reader.analysis）の作業ファイル。結果の data/reader-analysis.json だけコミットする
 /data/analyze/
+# 事例担当の作り直しを経路の入力へ変換した作業物（scripts/reader-case/import-case-rebuild.ts）。結果は経路を通してから data/ の正本に入る
+/data/case-import/
 # サブエージェント実行層の作業ファイル（指示書・結果の受け皿・試行状態）
 /data/runner/
 # 収集の状態台帳（追記型。ローカルのみ）

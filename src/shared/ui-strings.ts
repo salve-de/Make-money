@@ -4,7 +4,7 @@
  * scripts/architecture/screen-text.tsx は、fact・analysis・metric・source の要素の外にある文字が
  * ここの値のどれかに一致しなければ失敗にする。{name} は事例名に置き換えて照合する。
  */
-import type { AnalysisItem, Measure, MetricOrigin, ReaderAnalysis, UnknownItem } from './reader-case';
+import type { AnalysisItem, Measure, MetricOrigin, UnknownItem } from './reader-case';
 import type { ReaderFact } from './reader-case';
 
 export const MEASURE_LABELS: Record<Measure, string> = {
@@ -69,12 +69,6 @@ export const ANALYSIS_LABELS: Record<AnalysisItem, string> = {
   LESSON: '教訓',
 };
 
-export const CONFIDENCE_LABELS: Record<ReaderAnalysis['confidence'], string> = {
-  HIGH: '高',
-  MEDIUM: '中',
-  LOW: '低',
-};
-
 /** 事実の種類ごとの見出し（表示順）。 */
 export const FACT_SECTIONS: Array<{ kind: ReaderFact['kind']; title: string }> = [
   { kind: 'DESCRIPTION', title: '事業内容' },
@@ -98,7 +92,6 @@ export const UI = {
   SECTION_EVIDENCE: '推測の計算・前提と根拠',
   ANALYSIS_FORMULA_PREFIX: '計算・前提: ',
   ANALYSIS_BASIS_PREFIX: '根拠: ',
-  ANALYSIS_CONFIDENCE_PREFIX: '確度: ',
   GROUP_MONEY: 'どう稼ぐか',
   GROUP_CUSTOMERS: '誰から取るか',
   GROUP_EDGE: 'なぜ勝てたか',
@@ -238,7 +231,6 @@ export function allowedUiTexts(entityName: string): Set<string> {
   for (const v of Object.values(ORIGIN_LABELS)) add(v);
   for (const v of Object.values(UNKNOWN_LABELS)) add(v);
   for (const v of Object.values(ANALYSIS_LABELS)) add(v);
-  for (const v of Object.values(CONFIDENCE_LABELS)) add(v);
   for (const s of FACT_SECTIONS) add(s.title);
   for (const v of Object.values(SECTOR_LABELS)) add(v);
   for (const v of Object.values(GENRE_LABELS)) add(v);

@@ -137,6 +137,23 @@ describe('reader analysis', () => {
     expect(html.indexOf('a-take-home')).toBeLessThan(html.indexOf('a-model'));
   });
 
+  it('印は presentation で変わる: ESTIMATE=推定、FACT_SUMMARY=印なし、無し=従来（式無しは推測）', () => {
+    const one = (presentation?: 'ESTIMATE' | 'FACT_SUMMARY') => renderToStaticMarkup(<AnalysisGroups reader={{ ...baremetrics, analysis: [{ id: 'a-model', item: 'BUSINESS_MODEL', text: 'テスト', basis: ['f1'], ...(presentation ? { presentation } : {}) }] }} usage={{ items: new Set(), factIds: new Set() }} />);
+    expect(one('ESTIMATE')).toContain('>推定<');
+    expect(one('FACT_SUMMARY')).not.toMatch(/>(推測|推定)</);
+    expect(one()).toContain('>推測<');
+    expect(one('ESTIMATE')).not.toContain('確度');
+  });
+
+  it('リードは基準を通った時だけ出す（断り書き付き・出典に無い数字・製品説明は出さない）', () => {
+    const show = (text: string) => renderToStaticMarkup(<Headline reader={{ ...withAnalysis, analysis: [{ id: 'a-headline', item: 'HEADLINE', text, basis: ['f1'] }] }} />);
+    expect(show('面倒な集計を引き受けて、継続課金を積み上げる。')).toContain('<h3');
+    expect(show('集計を自動化し、月$2万売上（本人公表）。')).not.toContain('<h3');
+    expect(show('集計を引き受け、月$9,999,999を稼ぐ。')).not.toContain('<h3');
+    expect(show('集計をまとめるツールを提供する。')).not.toContain('<h3');
+    expect(show('集計を引き受け、月$2万〜5万を稼ぐ。')).not.toContain('<h3');
+  });
+
   it('計算と根拠は事実の後・出典の前の1区画にまとめる', () => {
     const html = ledger(withAnalysis);
     const at = html.indexOf('section-reasoning');

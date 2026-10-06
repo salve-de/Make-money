@@ -2,18 +2,21 @@ import React from 'react';
 
 import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
 import { formatMetricAmount, metricMeasureLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
+import { checkLead } from '@/shared/lead-standard';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
  * 詳しい欄の上半分。外部の見やすさの原理に合わせた作り:
  * - 結論を先頭に（強い一行）→ 主要な数字の帯 → 4段の物語 → まとまりごとの推測（項目名は細く・中身を主役に）
  * - 事実は実線、推測は点線の左罫と「推測」の印で見分ける（色だけに頼らない）
- * 推論は必ず「推測」の印と確度を付けて出す（OWNER_INTENT 3章）。
+ * 推論は必ず言葉の印を付けて出す（確度は出さない。事実の要約は印なし）（OWNER_INTENT 3章）。
  */
 
-/** 推論の印。薄灰色の「推測」（式のある数字の推論は「推定」）。色だけに頼らず言葉で示す（OWNER_INTENT 3章）。 */
+/** 推論の印。薄灰色の言葉。ESTIMATE=「推定」、FACT_SUMMARY=印なし、未指定の旧データ=従来どおり（式あり=推定、無し=推測）。 */
 function InferenceMark({ analysis }: { analysis: ReaderAnalysis }) {
-  return <span className="text-xs text-term-muted">{analysis.formula ? UI.ESTIMATED_MARK : UI.ANALYSIS_MARK}</span>;
+  if (analysis.presentation === 'FACT_SUMMARY') return null;
+  const estimate = analysis.presentation === 'ESTIMATE' || (analysis.presentation === undefined && Boolean(analysis.formula));
+  return <span className="text-xs text-term-muted">{estimate ? UI.ESTIMATED_MARK : UI.ANALYSIS_MARK}</span>;
 }
 
 /** 帯に出した推論・事実。下の一覧で同じものを2回出さないために使う。 */
@@ -124,7 +127,8 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
 /** 強い一行。結論を先頭に大きく。 */
 export function Headline({ reader, tight = false }: { reader: ReaderCase; tight?: boolean }) {
   const a = byItem(reader, 'HEADLINE');
-  if (!a) return null;
+  // リードは基準（lead-standard.ts）を通った時だけ出す
+  if (!a || !checkLead(a, reader).ok) return null;
   return (
     <div data-analysis={a.id} className={`${tight ? '' : 'border-b border-term-line '}px-2.5 pb-2 pt-3 sm:px-3`}>
       <div className="mb-1"><InferenceMark analysis={a} /></div>
@@ -184,7 +188,7 @@ export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[] }> = 
   { title: UI.GROUP_NOW, items: ['VIABILITY', 'TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
-/** まとまりごとに「項目名（細く）｜中身（主役）｜確度」の3列。推測は点線の左罫。 */
+/** まとまりごとに「項目名（細く）｜中身（主役）」の2列。推測は点線の左罫。 */
 export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: OverviewUsage }) {
   return (
     <>
