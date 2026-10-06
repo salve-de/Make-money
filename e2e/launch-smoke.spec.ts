@@ -68,7 +68,7 @@ test.describe('公開前の主要経路', () => {
   test('ログインしていない人には、保存条件ページでログインへの誘導が出て、ログイン画面が開く', async ({ page }) => {
     await page.goto('/alerts');
     await expect(page.getByText('検索条件を保存して、新着をメールで受け取れます')).toBeVisible();
-    await page.getByRole('button', { name: 'ログイン', exact: true }).click();
+    await page.getByRole('button', { name: 'ログインして使う' }).click();
     const dialog = page.getByRole('dialog');
     await expect(dialog).toBeVisible();
     await expect(dialog.getByRole('heading', { name: 'ログイン' })).toBeVisible();
