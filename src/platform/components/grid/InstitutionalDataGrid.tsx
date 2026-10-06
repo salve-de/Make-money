@@ -215,7 +215,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   <td className="term-num px-2 text-right text-xs text-term-dim before:content-[counter(ledger-row)]" />
                   <td className="overflow-hidden px-2" title={entity.name}>
                     <span className="flex min-w-0 items-center gap-1.5">
-                      <EntityLogo asset={pickEntityLogo(logos[entity.id])} />
+                      <EntityLogo asset={pickEntityLogo(logos[entity.id])} name={entity.name} />
                       <span className="truncate font-semibold text-term-fg-strong">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
                     </span>

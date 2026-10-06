@@ -75,7 +75,7 @@ export function CompanyHeader({
           {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
           <div className="order-last min-w-0 basis-full border-t border-term-line-soft bg-term-panel px-3 py-2 lg:-mx-2.5 lg:px-2.5">
             <div className="flex min-w-0 items-center gap-2">
-              <EntityLogo asset={logo} variant="header" />
+              <EntityLogo asset={logo} variant="header" name={entity.name} />
               <h2 className="min-w-0 break-words text-base font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
                 {entity.name}
               </h2>

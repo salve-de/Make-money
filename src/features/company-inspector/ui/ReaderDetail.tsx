@@ -9,6 +9,7 @@ import {
   plainFactText,
   readerSummaryFact,
 } from '@/shared/display-text';
+import { createSentenceMemory, splitSentences } from '@/shared/case-text';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
 import { AnalysisGroups, Fold, Headline, KeyStrip, planKeyStrip, SectionNav, StorySteps, WhatIs } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
@@ -88,14 +89,29 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
   );
 }
 
+/** 概要と、先に出す事実に書いた文と同じ内容しか言っていない事実は、2回出さない（文が全部出済みの事実だけを除く）。 */
+function newFactIds(reader: ReaderCase): Set<string> {
+  const memory = createSentenceMemory();
+  const summary = readerSummaryFact(reader);
+  if (summary) splitSentences(plainFactText(summary.text)).forEach((sentence) => memory.take(sentence));
+  const keep = new Set<string>();
+  for (const fact of reader.facts) {
+    const sentences = splitSentences(plainFactText(fact.text));
+    const fresh = sentences.filter((sentence) => memory.take(sentence));
+    if (fresh.length > 0) keep.add(fact.id);
+  }
+  return keep;
+}
+
 /** 事実を種類ごとに。出典は番号だけ付け、中身は下の一覧にまとめる。概要の事実は上で出すので除く。 */
 export function ReaderFacts({ reader, evidencePrefix = 'reader', exclude }: ReaderProps & { exclude?: Set<string> }) {
   if (!reader) return null;
   const sourceNo = sourceNumbers(reader);
+  const fresh = newFactIds(reader);
   return (
     <>
       {FACT_SECTIONS.map(({ kind, title }) => {
-        const facts: ReaderFact[] = reader.facts.filter((f) => f.kind === kind && f.id !== reader.summaryFactId && !exclude?.has(f.id));
+        const facts: ReaderFact[] = reader.facts.filter((f) => f.kind === kind && f.id !== reader.summaryFactId && !exclude?.has(f.id) && fresh.has(f.id));
         return (
           <ReaderSection key={kind} id={`section-facts-${kind.toLowerCase()}`} title={title} empty={facts.length === 0}>
             <ul className="divide-y divide-term-line-soft">
