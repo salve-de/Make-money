@@ -85,5 +85,7 @@ __pycache__/
 /data/verify/
 # 推論（reader.analysis）の作業ファイル。結果の data/reader-analysis.json だけコミットする
 /data/analyze/
+# サブエージェント実行層の作業ファイル（指示書・結果の受け皿・試行状態）
+/data/runner/
 # 収集の状態台帳（追記型。ローカルのみ）
 /data/pipeline/ledger/

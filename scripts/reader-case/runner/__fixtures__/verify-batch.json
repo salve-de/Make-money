@@ -1,0 +1,65 @@
+{
+ "batch": "batch-fx-001",
+ "cases": [
+  {
+   "entityId": "fx-001",
+   "sources": [
+    {
+     "sourceId": "fx-001-s1",
+     "url": "https://example.com/fx-001",
+     "publisher": "example",
+     "via": "direct",
+     "text": "架空ブックマーク屋は年額の会員制で提供している。売上は年10万ドルと本人が公表した。"
+    }
+   ],
+   "claims": [
+    {
+     "claimId": "fx-001-c1",
+     "kind": "fact",
+     "text": "架空ブックマーク屋は年額の会員制で提供している。",
+     "sourceId": "fx-001-s1"
+    }
+   ]
+  },
+  {
+   "entityId": "fx-002",
+   "sources": [
+    {
+     "sourceId": "fx-002-s1",
+     "url": "https://example.com/fx-002",
+     "publisher": "example",
+     "via": "direct",
+     "text": "架空ノーコード受託は年額の会員制で提供している。売上は年10万ドルと本人が公表した。"
+    }
+   ],
+   "claims": [
+    {
+     "claimId": "fx-002-c1",
+     "kind": "fact",
+     "text": "架空ノーコード受託は年額の会員制で提供している。",
+     "sourceId": "fx-002-s1"
+    }
+   ]
+  },
+  {
+   "entityId": "fx-003",
+   "sources": [
+    {
+     "sourceId": "fx-003-s1",
+     "url": "https://example.com/fx-003",
+     "publisher": "example",
+     "via": "direct",
+     "text": "架空アプリ開発者は年額の会員制で提供している。売上は年10万ドルと本人が公表した。"
+    }
+   ],
+   "claims": [
+    {
+     "claimId": "fx-003-c1",
+     "kind": "fact",
+     "text": "架空アプリ開発者は年額の会員制で提供している。",
+     "sourceId": "fx-003-s1"
+    }
+   ]
+  }
+ ]
+}

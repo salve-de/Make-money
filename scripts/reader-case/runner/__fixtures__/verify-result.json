@@ -1,0 +1,22 @@
+{
+ "verdicts": [
+  {
+   "entityId": "fx-001",
+   "claimId": "fx-001-c1",
+   "verdict": "SUPPORTED",
+   "quote": "架空ブックマーク屋は年額の会員制で提供している。"
+  },
+  {
+   "entityId": "fx-002",
+   "claimId": "fx-002-c1",
+   "verdict": "SUPPORTED",
+   "quote": "架空ノーコード受託は年額の会員制で提供している。"
+  },
+  {
+   "entityId": "fx-003",
+   "claimId": "fx-003-c1",
+   "verdict": "SUPPORTED",
+   "quote": "架空アプリ開発者は年額の会員制で提供している。"
+  }
+ ]
+}
