@@ -36413,12 +36413,133 @@
   {
    "id": "a-capital_and_team",
    "item": "CAPITAL_AND_TEAM",
-   "text": "元手は12ラック・ルピーで、主な使い道は技術開発とチーム。5人から125人まで増え、ESOPで従業員に報いている。",
+   "text": "元手は12ラック・ルピーで、主な使い道は技術開発とチーム。5人から125人まで増え、ESOPで従業員に報いたと本人は説明している。",
    "basis": [
     "f2",
     "f4"
    ],
-   "formula": "元手12ラック・ルピー、人数5人→125人は、いずれも本人の説明（YourStory 2016年記事の再掲）をそのまま載せた。",
+   "formula": "元手12ラック・ルピー、人数5人→125人は、いずれも本人の説明による。",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "CEOのAnkit Jainは2010年に最初の音声サービスVoice Jadooを始めていた。2013年3月、当時30歳のAnkitと27歳で公認会計士の弟Prateekが、自己資金12ラック・ルピーでMyOperatorを開始した。開始から6か月で登録利用者は600人超、有料は200社になり、この間に損益が釣り合った。開始からの3年間は、市場への啓発と販売に力を割いた。2016年時点で登録利用者は25,000人超、有料顧客は2,000社超、従業員は5人から125人に増えた。2016年時点で外部資金はなく、従業員にはストックオプションで報いた。",
+   "basis": [
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "小売・医療・教育・不動産・金融などの企業の営業・マーケ・サポート部門。開始から6か月の客にはLenskart、Snapdeal、Shop.IRCTCなどがあり、2016年にはCanon、Fabindia、Cashkaro、DHLが加わったと説明している。",
+   "basis": [
+    "f1",
+    "f3",
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "開始から6か月で登録利用者600人超、うち有料200社を得た。客にはアーム・アードミ党、Lenskart、Snapdeal、Shop.IRCTCなどがいた。",
+   "basis": [
+    "f3"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "開始からの3年間は、市場への啓発と販売に力を割いたと創業者は語る。現在は代理店を通すパートナー制度があり、代理店が顧客向けの運用サービスの価格を決める。",
+   "basis": [
+    "f7",
+    "f10"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "始めの12ラック・ルピーは主に技術とチームづくりに使った。従業員にはストックオプションで報いた。2016年時点の従業員は125人で、4割は直近6か月で採用した。",
+   "basis": [
+    "f2",
+    "f4",
+    "m2"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "WhatsApp向けの料金には、MyOperatorの利用料とは別にMetaの料金が乗る。",
+   "basis": [
+    "f1",
+    "f9"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "SaaSの年払いで、客は1年分を先に払う。現行の料金表も全プラン年払い。",
+   "basis": [
+    "f6",
+    "f9"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2010年: Ankit Jainが最初の音声サービスVoice Jadooを開始。2013年3月: MyOperatorを開始。開始から6か月: 登録利用者600人超、有料200社、損益が釣り合う。2016年: 登録利用者25,000人超、有料2,000社超、従業員125人。2015-16年度: 売上200万ドル（本人公表）。現在: 公式サイトが運営法人Voicetree Technologiesの名で営業を続け、現行の料金表を掲げている。",
+   "basis": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f9",
+    "m1"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "同じ分野には、2012年にシリーズAを調達したExotel、2014年7月に1,600万ドルを調達したKnowlarityなど、資金を入れた先行者が複数いる。MyOperatorはそれらより後の2013年の開始から外部資金なしで営業を続け、現行の料金表とパートナー制度を掲げ、サービスをWhatsAppとAIボットへ広げている。",
+   "basis": [
+    "f1",
+    "f2",
+    "f8",
+    "f9",
+    "f10"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "市場にこの技術があまり知られていない中で、3年間は啓発と販売に力を割いた。外部資金なしで、開始半年で損益が釣り合ったと本人は説明している。",
+   "basis": [
+    "f3",
+    "f6",
+    "f7"
+   ],
    "presentation": "FACT_SUMMARY"
   }
  ],
@@ -43061,7 +43182,7 @@
   {
    "id": "a-first_customers",
    "item": "FIRST_CUSTOMERS",
-   "text": "最初の手応えは、インディー開発者の仲間ではなく、初めて話した代理店の経営者から出た。別の投稿では、作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めたと書く。",
+   "text": "最初の手応えは、インディー開発者の仲間ではなく、初めて話した代理店の経営者から出た。別の投稿は、検証のやり方として、まだ無い製品に99ドルを先払いしてもよいという12人を見つけてから作り始めると書く。",
    "basis": [
     "f6",
     "f7"
@@ -43083,7 +43204,7 @@
   {
    "id": "a-upfront_cash",
    "item": "UPFRONT_CASH",
-   "text": "作る前に99ドルを先払いしてもよいという12人を見つけて確かめたと書く。別に、買い切り999ドルも販売し、売上の約4割を占めると本人は書く。",
+   "text": "別の投稿は、まだ無い製品に99ドルを先払いしてもよいという12人を見つけてから作る検証のやり方を書く。Teamcampは買い切り999ドルも試しており、売上の約4割を占めると本人は書く。",
    "basis": [
     "f7",
     "f8"
@@ -43106,6 +43227,105 @@
    "id": "a-failure_cause",
    "item": "FAILURE_CAUSE",
    "text": "半年間、インディー開発者仲間の称賛を頼りに機能を足したが、有料の客につながらなかったと本人が書く。仲間は払う客の代表ではなかったと振り返っている。",
+   "basis": [
+    "f6",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "サーバー費は利用量に比例して増える。買い切り999ドルの客が50人規模のチームを入れると利益が崩れると、創業者自身が懸念を書いている。紹介した客には生涯続く継続コミッションを払う。",
+   "basis": [
+    "f3",
+    "f8"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "GitHub・GitLabと連携し、コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearのデータを取り込める。",
+   "basis": [
+    "f1"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "開発案件では、タスクの状態と請求用の時刻記録がGitHub・GitLabのPR・マージの動きに連動して動く。",
+   "basis": [
+    "f1"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "時間記録、請求書、顧客に見せる専用画面、案件のやり取りを1つに集めており、代理店の顧客は専用画面で状況を見る。買い切りの客の解約はゼロだったと創業者は書く。",
+   "basis": [
+    "f1",
+    "f8"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "競合はAsana、Monday、Trello。Asanaは操作が重く、Mondayは使わない機能にも払い、Trelloは単純すぎるという不満を出発点にした。Asana・ClickUp・Linearから乗り換える客のデータを取り込める。",
+   "basis": [
+    "f1",
+    "f4"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "創業者は、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。決定打は機能の追加ではなく、初めて話した代理店の経営者に「顧客用ポータルは？白ラベルにできる？」と聞かれて、見た目より顧客とのやり取りの機能が要ると分かったこと。事業主との直接の会話に切り替えた後、2か月で継続率が12%から41%に上がったという。",
+   "basis": [
+    "f5",
+    "f6"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "公式サイトは料金表、紹介プログラム、顧客用ポータルを現在も掲げて営業している。創業者の投稿では、開発者仲間の要望に沿った作り込みは初月227ドルにとどまり、代理店向けの顧客用ポータルと事業主への聞き取りに切り替えて継続率が12%から41%に上がったと書く。",
+   "basis": [
+    "f2",
+    "f3",
+    "f6",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作った製品は、Product Huntで23票、初月売上227ドルだった。初めて話した代理店の経営者に顧客用ポータルを求められ、事業主との直接の会話に切り替えた。別の投稿は「2年前」の挑戦として、6か月の公開開発の後にサインアップ43件・有料2件だったと書き、以後は先払いを確かめてから作る検証に変えたと書く。",
+   "basis": [
+    "f6",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "仲間内の要望で6か月作った製品は初月227ドルだったが、外の業界の最初の客の一言（顧客用ポータルは？）を受けて事業主との直接の会話に切り替え、2か月で継続率が12%から41%に上がったと本人は書く。",
    "basis": [
     "f6",
     "f7"
