@@ -2,6 +2,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { argValue, loadEntities, loadReaders, readIdsFile } from './load-readers';
 import { auditEvidence, type AnalysisFile } from './analysis-lib';
+import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { loadPublicationInput } from './publication-inputs';
 import { auditSnapshot, preparePublicationReader, publicationHash } from './publication-evaluation';
@@ -13,7 +14,7 @@ async function main() {
   const tag = argValue('--tag');
   if (!Number.isSafeInteger(per) || per < 1 || !Number.isSafeInteger(start) || start < 1 || (tag && !/^\d+$/.test(tag))) throw new Error('Invalid audit batch arguments');
   const verdicts = JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile;
-  const analysis = JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile;
+  const analysis = withReflectedAnalysis(JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile, readReflectState(), 'audit');
   const entities = loadEntities(ids);
   const cases: unknown[] = [];
   for (const [id, reader] of loadReaders(ids)) {

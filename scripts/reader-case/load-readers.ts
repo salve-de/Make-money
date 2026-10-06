@@ -6,6 +6,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { projectReaderCase } from '../../src/lib/company-access/reader-case-projection';
 import type { ReaderCase } from '../../src/shared/reader-case';
+import { readReflectState, reflectedReader } from './case-reflect';
 
 export function readIdsFile(path: string): string[] {
   return readFileSync(path, 'utf8').split('\n').map((s) => s.trim()).filter((s) => s && !s.startsWith('#'));
@@ -20,6 +21,9 @@ export function loadReaders(ids?: string[]): Map<string, ReaderCase> {
     const id = typeof r?.id === 'string' ? r.id : undefined;
     if (id && want.has(id)) out.set(id, projectReaderCase(r).reader);
   }
+  // 反映段（case-reflect.ts）: 取り込み版があれば置き換え、取り込みが保留の事例は旧版も返さない
+  const reflect = readReflectState();
+  for (const id of [...out.keys()]) { const r = reflectedReader(reflect, id); if (r === null) out.delete(id); else if (r) out.set(id, r); }
   return new Map(wanted.filter((i) => out.has(i)).map((i) => [i, out.get(i)!]));
 }
 

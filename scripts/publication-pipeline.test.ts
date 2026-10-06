@@ -131,13 +131,13 @@ test('correction-only, equal-count replacement, unchanged and intentionally empt
   assert.throws(() => parseFinishedManifest('a\na\n'));
 });
 
-test('release gate adds main completeness rules: thin or empty required items stay out even with a current receipt', () => {
+test('release gate adds the display-contract minimum: thin cases stay out even with a current receipt', () => {
   const i = input(); const receipt = audit(i)!.receipt;
   assert.equal(evaluatePublication(i, receipt).publishable, true);
   const gate = evaluateForRelease(i, receipt);
   assert.equal(gate.publishable, false);
-  assert.ok(gate.reasons.some((r) => r.startsWith('データが少ない')));
-  assert.ok(gate.reasons.some((r) => r.startsWith('空欄:')));
+  assert.ok(gate.reasons.some((r) => r.startsWith('全体が薄い:事実2件以下')));
+  assert.ok(gate.reasons.some((r) => r.startsWith('全体が薄い:本文の節')));
 });
 
 test('legal suffix normalization preserves letters; ID/domain updates and duplicates are distinct', () => {
@@ -198,7 +198,7 @@ test('CLI select → prepare dry-run shares gate; fresh audit passes, cache chan
     await review(mediaRoot, entity.id, asset, 'allowed');
     writeFileSync('data/entities-index.json', JSON.stringify([entity])); writeFileSync('data/reader-verdicts.json', JSON.stringify({ [entity.id]: verdicts }));
     const f0 = reader.facts[0].id;
-    const required = ['HEADLINE', 'STORY', 'CUSTOMER_PAIN', 'FIRST_CUSTOMERS', 'CHANNELS', 'TAKE_HOME', 'INCUMBENT_BLINDSPOT', 'VIABILITY', 'LESSON', 'REVENUE_ESTIMATE']
+    const required = ['HEADLINE', 'STORY', 'CUSTOMER_PAIN', 'FIRST_CUSTOMERS', 'CHANNELS', 'TAKE_HOME', 'INCUMBENT_BLINDSPOT', 'VIABILITY', 'LESSON', 'REVENUE_ESTIMATE', 'PRICING']
       .map((item) => ({ id: `a-${item.toLowerCase()}`, item, text: '予約の取りこぼしを嫌う小さな店舗向けで、月額課金が中心と推す。', basis: [f0], confidence: 'LOW' }));
     writeFileSync('data/reader-analysis.json', JSON.stringify({ [entity.id]: required })); writeFileSync('data/candidate.ids', '# scope\nent_fixture\n');
     writeFileSync('data/catalog-finished-ids.txt', '# initially empty\n'); writeFileSync('data/catalog-release.json', JSON.stringify({ details: {} }));

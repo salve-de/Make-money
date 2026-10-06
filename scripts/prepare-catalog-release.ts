@@ -18,6 +18,7 @@ import type { FinancialEntity } from '../src/shared/terminal';
 import { evaluateForRelease, preparePublicationReader } from './reader-case/publication-evaluation';
 import { loadPublicationInput, readPublicationAudits } from './reader-case/publication-inputs';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
+import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAnalysis } from './reader-case/case-reflect';
 
 // 取り下げた旧表示（出典の無い数字や作文）は内部の監査記録。公開版には入れない
 function withoutWithdrawnSnapshot(entity: FinancialEntity): FinancialEntity {
@@ -34,6 +35,13 @@ const dryRun = process.argv.includes('--dry-run');
 const flagValue = (name: string) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined);
 const previous = JSON.parse(await readFile(flagValue('--previous') ?? 'data/catalog-release.json', 'utf8')) as { details: Record<string, string> };
 const withdrawalsPath = flagValue('--withdrawals');
+// --changed: 差分公開。この一覧の事例だけを受領書つきで評価し直す。いま公開中でこの一覧に無い事例は、受領書の再評価をせずに引き継ぐ。
+// ただし引き継いだ事例の中身（詳細の指紋）が公開中と1文字でも違えば止める（審査を経ない書き換えを出さない）
+const changedPath = flagValue('--changed');
+const changedIds = changedPath
+  ? new Set((await readFile(changedPath, 'utf8')).split(/\r?\n/).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')))
+  : null;
+const carried = (id: string) => changedIds !== null && !changedIds.has(id) && id in previous.details;
 const authorizedWithdrawals = withdrawalsPath
   ? new Set((await readFile(withdrawalsPath, 'utf8')).split(/\r?\n/).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')))
   : new Set<string>();
@@ -65,17 +73,22 @@ try { verdicts = JSON.parse(await readFile('data/reader-verdicts.json', 'utf8'))
 // 推論（reader.analysis）。事実とは別の欄。無ければ空配列
 let analysisFile: AnalysisFile = {};
 try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf8')) as AnalysisFile; } catch { /* 無ければ推論なし */ }
-const withheld = { audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
+// 反映段（case-reflect.ts）: 取り込み版の事例は、その中身と推論で置き換える。取り込み版が基準に通らなければ旧版も出さない
+const reflectState = readReflectState();
+analysisFile = withReflectedAnalysis(analysisFile, reflectState);
+const withheld = { imported: 0, audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
-type Display = 'SHOW' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
+type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
 const DISPLAY_REASON: Record<Display, string> = {
   SHOW: '出典と照合した事実がある',
+  HOLD_IMPORT: '作り直した版（取り込み）が基準に通っていない。旧版は出さない（data/case-reflect.json）',
   HOLD_NO_RAW: '元の記録が無い',
   HOLD_UNVERIFIED: '出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す',
   HOLD_SCHEMA: '形式の検査を通らない',
   HOLD_THIN: 'データが少ない（事実2件以下で数字なし）。一次情報を探し直す',
   HOLD_RESOURCE: '出典に利用規約で商用の表示を禁じる紹介サイト（eBiz Facts）を含む。本人・公式の一次情報に付け替えるまで出さない',
   HOLD_AUDIT: '今の入力全体に対する監査受領書が無い、または出典・画像・権利の再確認に通らない（文章が変わると古い受領書は無効）',
+  CARRIED: '公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）',
   HOLD_QUEUE: '順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）',
 };
 // 仕上げ済み（全項目の推論と抜き取り監査が済んだ）事例の一覧。ファイルがあれば、載っている事例だけを出す
@@ -92,7 +105,10 @@ const entities: FinancialEntity[] = [];
 for (const entity of publishable) {
   const rawRecord = rawById.get(entity.id);
   if (!rawRecord) { withheld.noRawRecord++; stamp(entity.id, 'HOLD_NO_RAW'); continue; }
-  const result = projectReaderCase(rawRecord);
+  const reflectHold = reflectHoldReasons(reflectState, entity.id);
+  if (reflectHold?.length) { withheld.imported++; stamp(entity.id, 'HOLD_IMPORT', reflectHold.join(' / ')); continue; }
+  const projected = projectReaderCase(rawRecord);
+  const result = { ...projected, reader: reflectedReader(reflectState, entity.id) ?? projected.reader };
   totals.processDropped += result.stats.processDropped;
   totals.unbound += result.unbound.length;
   if (result.unbound.length) unboundAll.push({ id: entity.id, lines: result.unbound });
@@ -104,14 +120,14 @@ for (const entity of publishable) {
   if (verified.reader.facts.length <= 2 && verified.reader.metrics.length === 0) { withheld.thin++; stamp(entity.id, 'HOLD_THIN'); continue; }
   if (citesRestrictedSource(verified.reader)) { withheld.resource++; stamp(entity.id, 'HOLD_RESOURCE'); continue; }
   if (finishedIds && !finishedIds.has(entity.id)) { withheld.queued++; stamp(entity.id, 'HOLD_QUEUE'); continue; }
-  if (!verifyOnly) {
+  if (!verifyOnly && !carried(entity.id)) {
     // select-finished.ts と同じ入力（照合後の事実＋機械検査を通った推論）で評価する。指紋が一致しなければ受領書は無効
     const prepared = preparePublicationReader(result.reader, verdicts[entity.id], analysisFile[entity.id]);
     const input = await loadPublicationInput(entity, prepared.reader, verdicts[entity.id]);
     const evaluated = evaluateForRelease(input, audited[entity.id], prepared.problems);
     if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', evaluated.reasons.join(' / ')); continue; }
   }
-  stamp(entity.id, 'SHOW');
+  stamp(entity.id, carried(entity.id) ? 'CARRIED' : 'SHOW');
   const missing = missingRequired(verified.reader);
   blanks.cells += REQUIRED_ITEMS.length;
   blanks.empty += missing.length;
@@ -145,11 +161,14 @@ async function artifact(value: unknown, key?: string) {
   return { hash, key: storageKey };
 }
 const details: Record<string, string> = {};
+const carriedDrift: string[] = [];
 for (const entity of entities) {
   const hash = computeDossierContentHash(entity);
+  if (carried(entity.id) && previous.details[entity.id] !== hash) carriedDrift.push(entity.id);
   await artifact(entity, getDossierStoragePath(entity.id, hash));
   details[entity.id] = hash;
 }
+if (carriedDrift.length) throw new Error(`Catalog release blocked: ${carriedDrift.length} carried-over cases changed without a receipt (add them to --changed and audit): ${carriedDrift.slice(0, 10).join(', ')}`);
 const summaryRows = entities.map((entity) => ({ ...publicSummaryEntity(entity), latestDossierHash: details[entity.id] }));
 if (parseFinancialEntitiesResiliently(summaryRows).invalidEntities.length) throw new Error('Invalid summary projection');
 const summaries = await artifact(summaryRows);

@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "sourceHash": "403d221b7ac5d2acc3f923ef417cf2dab515b5104c64f6086464551a077e6aad",
-  "sourceCount": 3341,
-  "publishedCount": 323,
+  "sourceHash": "291f21bcf1450eb1a89afb21d43084ea0fcd7c35fe4003e1b11f19fafb3a76ac",
+  "sourceCount": 3354,
+  "publishedCount": 325,
   "summaries": {
-    "hash": "de728c9b27c00bd4ddc46af5d8fb839ca2e87fe97392f9dffb02ca01096a42ca",
-    "key": "views/make-money/catalog-v1/objects/de728c9b27c00bd4ddc46af5d8fb839ca2e87fe97392f9dffb02ca01096a42ca.json.gz"
+    "hash": "b00cc4356103d11bd3d53ae35e80d9dddd42a20795a9d351dcc34f22ea4a2ed3",
+    "key": "views/make-money/catalog-v1/objects/b00cc4356103d11bd3d53ae35e80d9dddd42a20795a9d351dcc34f22ea4a2ed3.json.gz"
   },
   "discovery": {
-    "hash": "0f76a62ae845baea6f62de2a3c64280adde00efa41a24ff2b4070e37801bbc96",
-    "key": "views/make-money/catalog-v1/objects/0f76a62ae845baea6f62de2a3c64280adde00efa41a24ff2b4070e37801bbc96.json.gz"
+    "hash": "e07094ea3b6a137fdc608df9f6ba26d9d2241dc84eef8a343f154f86d50dfc15",
+    "key": "views/make-money/catalog-v1/objects/e07094ea3b6a137fdc608df9f6ba26d9d2241dc84eef8a343f154f86d50dfc15.json.gz"
   },
   "details": {
     "ent_talentexafrica_72ef56358c5e": "92b854a51f2cd2aea25e490a66c5e582e3c7fd79177341cbc6a152546a5dd720",
@@ -32,9 +32,9 @@
     "ent_mdp_1d9aa669ea39": "fdbff68eb2673f39d9381459fbd66ea093023c19138c0adaab0edf224dbbca24",
     "ent_hostman_75a8a8241b36": "68aa4dadc4ac218d7381914ce69e76f2af27672ae0a2dca8a612e00b323e8a1e",
     "ent_sender_fa1051628ebb": "f9d23226abaee0a7fd6ca8f79db5bfcb04ac3a29e8da8edb3644da0453fe758f",
-    "ent_myoperator_49c393230a2d": "7f547e260a3b2cc87d74b4477ee6da9e529bd69e77bc26bcae3c53c0f537c435",
+    "ent_myoperator_49c393230a2d": "5f1a08bf99654203d521a6a5641c56343911ef1f82429a513fe612db45aaf026",
     "ent_ncacheinmemorydistributedcache_7a2cf8d54c52": "b0d1b2c04623bce8f29f91f39dae878a266ba124118ebc9363e60b491458ef50",
-    "ent_codementor_ba692caa3db3": "c37a7671fd12a0408808f8b4b3ef85c0a2cef70487ebf00e937dda0909c093be",
+    "ent_codementor_ba692caa3db3": "7b831c1538eea0d1a02a3bb9a4a285e7f2c1f3f4181121fadd1598133d703d4b",
     "ent_seaverse_f455506839ca": "7f2be8dbca873e7939333e9ec1f654d0a5bdcb9782cd2ae40421464902480b09",
     "ent_cursosjazyk_fd29737297aa": "5c9ba953963c3a68a5ab96fb03a852781e99a0982207a638d19a4769167c6e6a",
     "ent_helpwise_a21d9ee980b2": "e51cd6407da6c3a6ebe7fb23805d4d68d456d67a01f9fa2bfeb1e7c2923d5f78",
@@ -53,10 +53,10 @@
     "ent_shopsages_12050447e4fd": "6ce510c62b6dcad8cf75dbcfe56a4e70b5915ca89961f3a0a5251457c38e9c90",
     "ent_prvolt_fca973c53275": "1b14eb26ffbc317cf73824368b48cfc96db0b5dc09dc8c879b38c44052bddecb",
     "ent_gigalixir_4f9471b23809": "c24df503b26a6afe090e617f28b0af9766e1cbbda9c0db3315157b1d5a968e89",
-    "ent_teamcamp_ae0c21986c4d": "5abd8f761ffcdba1cd89d51b6482e2af791af62d13281d765ab204330e98a11c",
+    "ent_teamcamp_ae0c21986c4d": "99d716326b950e5154459fb34f0e1ce862e55b6f299e2f4e3f3ee17f0924486c",
     "ent_alitu_109fc9f85569": "0a6ae4a34ab224f11a3824476f66b1d95d67ad517c935c4e5fa9ff84c407b17d",
-    "ent_referralrock_8c13d5ee4cfc": "405ccfb699f4545493f927f4c856cc6072ef11798a5583e61ef8af7a62e8c649",
-    "ent_ejunkie_7e9e46bd9643": "ef9ab34276999e81ed0035a27e325060e6e874ff36454f4073ee910d6bf7e812",
+    "ent_referralrock_8c13d5ee4cfc": "c982028498285464c0d5bc57f68ffd99765fadfc470091daf735d55b0453d331",
+    "ent_ejunkie_7e9e46bd9643": "beee60fdae2d1c33e275da0e0011f81753e893d7a11058ff660ad48c3cac14e2",
     "ent_quotaguard_d9a6b3bacb63": "c0bac5df3a73e077b1776aa1fcd937290fe78bad9177a36b4056cc35bc5ef777",
     "ent_chessmenswear_4862a5630ae9": "453f8627cb1b3410b55d0bfe5906910628189d59a2bf9a014c9123d207a8bb1f",
     "ent_randomip_6902672e42aa": "33c140dd91686f96a93ce19dda8f6a188efd62c056c806b42a57392bd247c2b0",
@@ -85,7 +85,7 @@
     "ent_easychannel_5fe2315b6802": "824faa65a1a64f61d6813c387df503b6b3f73bbd4df4eb1da1113c003858db2b",
     "ent_epicgrowth_3ef8412e30d7": "5e2f9c09916f08bd1e1daeef28bf1eef0f36223aaee1a5f5fd404e68ae881b83",
     "ent_yo-kart_ec6358739106": "d38732b33ecc89cbfc6286734178fa12e2d589b8f761c66167714328ca362376",
-    "ent_gorails_640d8f688451": "7e099a62e21a4bb7f446d99ec531a8408edcec09dd0342454d0653afcf11343d",
+    "ent_gorails_640d8f688451": "9decd136b6d7b817dea7d7f609c65d6846b177e23e8822508ab8fbc082405408",
     "ent_crazycattle_eb0ca968125c": "1f9d5c2ba56639092ce6521f726e186356ddaa1cc032ea62ad816140c7aedd0e",
     "ent_wpfusion_2f62147a170d": "42dfe05f5b327c4de1a2d749e5ce2f9dc85ca3ba123e2de6de9f3e8fce1dd7b8",
     "ent_ufile_09a181739976": "d7eee2a42237ace0749dcf163611dac0e65626a69bf5b4cc4aa4a6a3b48997c5",
@@ -243,7 +243,7 @@
     "ent_uptrbt_af2d40c1": "d31f68f66eabf33a56614d37092ade3a64d177661fe68187d288f94dfcf330ee",
     "ent_signoz_361f8507": "d8055b18f7346a013af1f404871ea6b7bdbb8bdbd869ab30afe151fe41e4046b",
     "ent_tlscan_0a15820a": "a9490ec23e703e44f690ead877b37dcb5f9cd2e79d22b1d338b1780e93cc6f4c",
-    "ent_rfrcui_64e924ac": "bfd27f25e6a33a04af82d73310490a372732904734699aef132cb116748c24f0",
+    "ent_rfrcui_64e924ac": "285dde6896baca29ef0b5baf5e9486301e953b055371da89c12b3e6ab4833002",
     "ent_sltapp_4ffc56b9": "fd106ce312f1a234d0cb803907a2529ccdacff3860769f67c2afeb969ecc1704",
     "ent_docgpt_8785430a": "05cb1b50ce30c982d2df732a56ae89da30ea6ad9ea23b3af70247b4be6b5234b",
     "ent_flwise_77d72700": "1877e51c25f824b407e67e4c69d804bd0ff7ed058b3fafe60b78c55f3545ca40",
@@ -256,7 +256,7 @@
     "ent_aceternity_6d14e4": "7f38ca5f074a06ce3482c1da4bb5ced329a506c28cae1779fb34e9d512ad2c71",
     "ent_instatus_1c69d9": "706be83b8ee22b1624c5a0a03176b435441767b99e49f0d1164c99047b2d921a",
     "ent_things3_7d21b3": "aedb16ec6ba93d2bb7d4ec97783944431fc92113f6183ecfbcdc2b2a0fd6e1c7",
-    "ent_heygen_8f11a1": "15a777a93abf22761916cc44e0721e382f75004accda5f0e009076141bb563d5",
+    "ent_heygen_8f11a1": "f48823cb49f8f4e01dcb59e614d0d4c82f44d127f4c6dbb46323d43444a4129d",
     "ent_surugaya_8a07b6": "92044db4c5b7c2966e97a1084307218823c17bf003d8b6ca09f76b3daccfaf13",
     "ent_board_1d30e9": "c36a1fdb152a96959548c0812484946edeaf40bccb7588e0a25a87e1eec5e9c9",
     "ent_dlsite_4a63b2": "0101aafd19990e1e4fccfed7bbbc174d19579ee687049dee536399a7ce4d4146",
@@ -334,7 +334,23 @@
     "ent_activepieces_e79ea75946468156aa9f": "c430dcdbd04d4b227299759f7c354714bc6ea0d752f08eba651ea7229fbc153e",
     "ent_marblism_1a122b": "20cd858a01175517b6b34ce83558e34901c8dc225f4fe93f09668aaf682913e4",
     "ent_byedispute_c094ec": "1e0d14b4f1303278992bdfaba29112ffea0075867f11ae9556d0087af3b59478",
-    "ent_zenvoice_b370b9": "04329f88a329f6a2f2e4a9538f954d252d8087b70a0b5f7ea18382e9a4728301"
+    "ent_zenvoice_b370b9": "04329f88a329f6a2f2e4a9538f954d252d8087b70a0b5f7ea18382e9a4728301",
+    "ent_requestly_28e9f2": "a01183f34a4168105ee28c9dd16ee8badfe29d785fdcfbe18af2a51bd7b7a0b7",
+    "ent_practicaltypographycom_e9aa6bc94ccf": "a7d9f24a8cd9008a52e2f5102cda51ab2d27eee880ddd67fbe8ac7874ba4a6fa"
   },
-  "approvalCandidateIds": []
+  "approvalCandidateIds": [
+    "ent_blipnet_1b6f322eb7d6",
+    "ent_contextsco_64ea708780f8",
+    "ent_hazeovercom_b6a66ead377a",
+    "ent_icemenubarapp_78d59ec32fd9",
+    "ent_liturapp_5ba475de72a5",
+    "ent_lowtechguyscom_42a06677420f",
+    "ent_organization_20445b20c24453e77663",
+    "ent_organization_2a61439a7f16ca0081d5",
+    "ent_organization_bf2dc76c06d87d6f7662",
+    "ent_practicaltypographycom_e9aa6bc94ccf",
+    "ent_presentifyappcom_b000d04e2c5f",
+    "ent_reederapp_b90e84b5768e",
+    "ent_taskpapercom_b4e8d7fa2c79"
+  ]
 }

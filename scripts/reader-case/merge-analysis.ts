@@ -12,6 +12,7 @@ import { EVIDENCE_PENDING_FILE, EVIDENCE_REVIEWED_FILE, type EvidenceDigestFile 
 import { mergeAnalysisItems } from './merge-items';
 import { appendRecord, resolveStuck } from './ledger';
 import { loadPublicationAuditDocuments, loadPublicationInput, readPublicationAudits } from './publication-inputs';
+import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { applyPublicationAudit } from './publication-audit';
 import { PUBLICATION_AUDITS_FILE, evaluatePublication, publicationHash, type PublicationAudits } from './publication-evaluation';
 
@@ -69,10 +70,12 @@ async function main() {
   const fresh = new Set<string>();
   let stale = 0;
   let audited = 0;
+  // 取り込み事例は反映段の推論（build-audit-input と同じもの）で入力を組む。審査で直した推論は reader-analysis.json に書き、case-reflect が受領書と突き合わせて採用する
+  const reflected = withReflectedAnalysis(result, readReflectState(), 'audit');
   for (const [id, reader] of readers) {
     const entity = entities.get(id);
     if (!entity) continue;
-    let current = await loadPublicationInput(entity, { ...reader, analysis: result[id] ?? [] }, verdicts[id]);
+    let current = await loadPublicationInput(entity, { ...reader, analysis: reflected[id] ?? [] }, verdicts[id]);
     for (const doc of documents.filter((d) => d.input.cases.some((c) => c.entityId === id))) {
       const { inputFile, outputFile, input: inputDoc, output: outputDoc } = doc;
       const matching = inputDoc.cases.find((c) => c.entityId === id);
@@ -90,6 +93,8 @@ async function main() {
     else { delete receipts[id]; stale++; }
   }
   for (const id of Object.keys(receipts)) if (!readers.has(id)) fresh.add(id);
+  // 一部の事例だけを統合した時（--ids）は、対象外の事例の「監査済み」の記録もそのまま残す
+  if (existsSync(AUDIT_FRESH_FILE)) for (const id of JSON.parse(readFileSync(AUDIT_FRESH_FILE, 'utf8')) as string[]) if (!readers.has(id)) fresh.add(id);
   mkdirSync(ANALYZE_DIR, { recursive: true });
   writeFileSync(PUBLICATION_AUDITS_FILE, JSON.stringify(receipts, null, 1) + '\n');
   writeFileSync(RAW_HASHES_FILE, JSON.stringify(rawHashes, null, 1) + '\n');
