@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { CATALOG_NAMES, PRIMARY } from './reader-fixture';
 
 test.beforeEach(async ({ page }) => {
   await page.route('**/api/businesses*', (route) => route.fulfill({ status: 200, contentType: 'application/json',
@@ -6,19 +7,23 @@ test.beforeEach(async ({ page }) => {
   }));
 });
 
-// SOLO は scale が SOLO の事例だけ。公開版に入る Updown.io（SOLO）が残り、規模が未確認の Excalidraw や
-// 公開目録に無い Bird Global は、読み込み直しても出ない。
+// SOLO は scale が SOLO と出典つきで確認できた事例だけ。公開版の10件は scale がどれも未確認なので、
+// 読み込み直しても1件も出ない（未確認を一人運営として出さない）。絞り込み無しの一覧には10件とも出ることも確かめる。
 test('SOLO deep link filters enterprise rows before and after reload', async ({ page }) => {
   await page.goto('/?filter=SOLO');
   const rows = page.getByRole('row').filter({ visible: true });
   const expectSoloOnly = async () => {
-    await expect(rows.filter({ hasText: 'Updown.io' })).toHaveCount(1);
-    await expect(rows.filter({ hasText: 'Excalidraw' })).toHaveCount(0);
-    await expect(rows.filter({ hasText: 'Bird Global' })).toHaveCount(0);
+    // 絞り込みの結果が描かれるまで待つ（検索欄が出てから）
+    await expect(page.getByPlaceholder(/会社名・ティッカー/).first()).toBeVisible();
+    // 一覧は描かれていて、見出しの行だけが残る（何も読めていないだけ、ではない）
+    await expect(rows).toHaveCount(1);
+    for (const name of CATALOG_NAMES) await expect(rows.filter({ hasText: name })).toHaveCount(0);
   };
   await expectSoloOnly();
   await page.reload();
   await expectSoloOnly();
+  await page.goto('/');
+  await expect(rows.filter({ hasText: PRIMARY.name })).toHaveCount(1);
 });
 
 test('batch deep links survive reload and removed URL parameters reset', async ({ page }) => {

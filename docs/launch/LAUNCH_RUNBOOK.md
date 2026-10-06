@@ -78,7 +78,7 @@ node -e "const d=require('./data/case-display.json');const c={};for(const v of O
 | # | 項目 | 確認方法 | 状態 |
 |---|---|---|---|
 | A. 事例の中身 | | | |
-| A1 | `catalog-finished-ids.txt` が通し済みの案件IDだけで、公開目録の件数と一致 | 4章 | 未達（2026-10-06）。ID一覧は325件のまま、公開対象は新基準の10件だけにする方針。10件は出典本文・画像の権利・現在の入力に対する監査が未充足で最終監査を通らないため、引き継ぎ315件の撤回（`data/catalog-withdrawn-20261006.txt`）は未適用。事例側の充足待ち |
+| A1 | `catalog-finished-ids.txt` が通し済みの案件IDだけで、公開目録の件数と一致 | 4章 | 確認済み（2026-10-06）。新基準の通し済み10件＝公開目録10件で一致。引き継ぎ315件は公開対象から外した（削除ではない。一覧は `data/catalog-withdrawn-20261006.txt`）。保留は計3,315件。10件の最終監査は、手元専用の証拠（`data/source-cache`、`data/media-staging`。コミットしない）が必要 |
 | A2 | 捏造・出典なし数字・仮置き手残りが0件 | 抜き取り監査（`OWNER_INTENT.md` 4章、#128 V03/V05）。事例担当の領域 | 未確認 |
 | A3 | eBiz のみ出典の事例が画面・API・sitemap に出ない | `e2e/catalog-only.spec.ts`、sitemap の ID が公開目録のみ | 未確認 |
 | A4 | 実在の事例を本番で開き、画像・出典・推定表示を目で確認 | 公開直後 | 未確認 |
