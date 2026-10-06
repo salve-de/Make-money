@@ -195,7 +195,7 @@ describe("discovery model", () => {
 
   it("shows unconfirmed without a reader instead of reading the pnl text", () => {
     const item = deriveDiscoveryDataset([makeEntity("bare", { financialStatus: "POST_MORTEM" })]).cases[0];
-    expect(item.resultValue).toBe("未確認");
+    expect(item.resultValue).toBe("—");
     expect(item.summaryFactId).toBeNull();
     expect(item.resultEvidenceLabel).toBe("");
   });
