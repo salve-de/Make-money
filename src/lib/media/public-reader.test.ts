@@ -135,4 +135,26 @@ describe('createPublicMediaReader', () => {
     const source: PublicMediaObjectSource = { list: async () => { throw new Error('R2 unavailable'); }, read: async () => null };
     await expect(createPublicMediaReader({ source, publicDomain: DOMAIN }).read(['ent_keyence'])).rejects.toThrow(/R2 unavailable/);
   });
+  it('同時に8件来ても、一覧取得は1回・同じ目録の読み込みも1回', async () => {
+    const { source, list, read } = fakeSource({ [publicManifestKey('ent_keyence', '20260929T100000Z')]: manifest('ent_keyence', [{ sha256: SHA_A, kind: 'favicon' }]) });
+    const reader = createPublicMediaReader({ source, publicDomain: DOMAIN });
+    const results = await Promise.all(Array.from({ length: 8 }, () => reader.read(['ent_keyence'])));
+    expect(list).toHaveBeenCalledTimes(1);
+    expect(read).toHaveBeenCalledTimes(1);
+    for (const result of results) expect(Object.keys(result)).toEqual(['ent_keyence']);
+  });
+
+  it('一覧取得が失敗したら共有を捨てて、次の要求でやり直す', async () => {
+    let fail = true;
+    const key = publicManifestKey('ent_keyence', '20260929T100000Z');
+    const list = vi.fn(async () => { if (fail) throw new Error('R2 unavailable'); return [key]; });
+    const body = new TextEncoder().encode(JSON.stringify(manifest('ent_keyence', [{ sha256: SHA_A, kind: 'favicon' }])));
+    const reader = createPublicMediaReader({ source: { list, read: async () => body }, publicDomain: DOMAIN });
+    const failed = await Promise.allSettled([reader.read(['ent_keyence']), reader.read(['ent_keyence'])]);
+    expect(failed.map((item) => item.status)).toEqual(['rejected', 'rejected']);
+    expect(list).toHaveBeenCalledTimes(1);
+    fail = false;
+    expect(Object.keys(await reader.read(['ent_keyence']))).toEqual(['ent_keyence']);
+    expect(list).toHaveBeenCalledTimes(2);
+  });
 });
