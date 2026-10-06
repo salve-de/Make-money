@@ -68,7 +68,8 @@ const SECTOR_LABELS: Record<string, string> = {
 
 function compact(value: string | undefined | null, max = 150): string {
   const text = (value || '').replace(/\s+/gu, ' ').trim();
-  if (!text) return '';
+  // 取り込み側が欠け項目に入れる「未確認」だけの値は、中身が無いものとして扱う（呼び出し側の「—」が出る）
+  if (!text || text === '未確認') return '';
   const first = text.split(/(?<=[。！？!?])\s*/u)[0] || text;
   return first.length > max ? `${first.slice(0, max - 1)}…` : first;
 }
