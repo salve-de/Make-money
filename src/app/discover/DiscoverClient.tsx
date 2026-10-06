@@ -92,15 +92,15 @@ export function DiscoveryRow({
         selected ? "bg-term-select text-term-fg-strong" : index % 2 ? "bg-term-row-alt hover:bg-term-head" : "hover:bg-term-head"
       }`}
     >
-      <span className="min-w-0">
+      <span data-variant="mobile" className="min-w-0">
         <span className="block truncate font-semibold text-term-fg-strong">{item.name}</span>
         {item.summaryFactId && item.summaryText && (
-          <span className="mt-0.5 line-clamp-2 text-xs text-term-sub lg:hidden">{item.summaryText}</span>
+          <span data-fact={item.summaryFactId} className="mt-0.5 line-clamp-2 text-xs text-term-sub lg:hidden">{item.summaryText}</span>
         )}
         {item.sector && <span className="block truncate text-xs text-term-label lg:hidden">{item.sector}</span>}
       </span>
       <span className="hidden truncate text-term-muted xl:block">{item.sector}</span>
-      <span className="hidden min-w-0 lg:block">
+      <span data-variant="wide" className="hidden min-w-0 lg:block">
         {item.summaryFactId && item.summaryText && (
           <span data-fact={item.summaryFactId} className="block truncate text-term-sub" title={item.summaryText}>{item.summaryText}</span>
         )}
