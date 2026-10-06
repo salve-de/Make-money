@@ -26,13 +26,13 @@ describe('EntityMediaGalleryView', () => {
   });
 
   it('shows every image lazily, with its source text under it and a description of what it is', () => {
-    const html = render(pickGalleryAssets([asset('screenshot_pricing', 'b', '出典: Photo AI 公式サイト (https://photoai.com/pricing)'), asset('og_image', 'a'), asset('favicon', 'f')]));
+    const html = render(pickGalleryAssets([asset('screenshot_pricing', 'b', '出典: Photo AI 公式サイト (https://photoai.com/pricing)'), asset('screenshot_product', 'a'), asset('og_image', 'x'), asset('favicon', 'f')]));
     expect(html).toContain('id="section-media"');
     expect(html).toContain('製品画像');
     expect((html.match(/data-testid="media-gallery-image"/g) ?? []).length).toBe(2);
     expect((html.match(/loading="lazy"/g) ?? []).length).toBe(2);
     expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの料金ページ"');
-    expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの紹介画像"');
+    expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの製品画面"');
     expect(html).toContain('出典: Photo AI 公式サイト (https://photoai.com/pricing)');
     expect(html).toContain('出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)');
     expect(html).toContain('aspect-ratio:1200 / 630');
@@ -58,7 +58,7 @@ describe('EntityMediaGalleryView', () => {
   it('gives every image a source link and an origin label, and caps the display size', () => {
     const storeAsset = { ...asset('store_screenshot', 's'), sourcePageUrl: 'https://apps.apple.com/us/app/photo-app/id111222333', attribution: '出典: Photo App App Store 掲載画像 (https://apps.apple.com/us/app/photo-app/id111222333)' };
     const iconAsset = { ...asset('app_icon', 'i'), sourcePageUrl: 'https://apps.apple.com/us/app/photo-app/id111222333', width: 512, height: 512 };
-    const html = render(pickGalleryAssets([asset('og_image', 'a'), iconAsset, storeAsset]));
+    const html = render(pickGalleryAssets([asset('screenshot_product', 'a'), iconAsset, storeAsset]));
     expect((html.match(/data-testid="media-gallery-source-link"/g) ?? []).length).toBe(3);
     expect(html).toContain('href="https://apps.apple.com/us/app/photo-app/id111222333"');
     expect(html).toContain('href="https://www.keyence.co.jp/"');
