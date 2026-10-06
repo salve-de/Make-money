@@ -104,19 +104,26 @@ test('同じ入力の再実行は何も変えない（台帳にも足さない�
   assert.equal(recs[1].ruleVersion, IMPORT_RULE_VERSION);
 });
 
-test('READY 以外は通さず、台帳に理由つきの保留を1回だけ残す（再実行で増えない）', async () => {
+test('READY 以外（未完の自己申告）でも止めず、取れた分で取り込む。申告は import.json に残す', async () => {
   const { write, opts } = setup();
   write(fixture({ status: 'INCOMPLETE', incompleteReasons: ['最初の客が未調査'] }));
   const [a] = await importCases(opts, deps());
-  const [b] = await importCases(opts, deps());
-  assert.equal(a.result, 'HELD');
-  assert.equal(b.result, 'HELD');
-  assert.equal(existsSync(`${opts.dataDir}/case-import/${ID}`), false);
-  const recs = readCaseRecords(ID, opts.ledgerDir);
-  assert.equal(recs.length, 1);
-  assert.equal(recs[0].status, 'HOLD');
-  assert.equal(recs[0].reasonCode, 'THIN');
-  assert.match(recs[0].reasonText ?? '', /最初の客が未調査/);
+  assert.equal(a.result, 'IMPORTED');
+  const manifest = JSON.parse(readFileSync(`${opts.dataDir}/case-import/${ID}/import.json`, 'utf8'));
+  assert.deepEqual(manifest.incompleteReasons, ['最初の客が未調査']);
+});
+
+test('1項目に閉じる検査の誤りは、その項目だけ外して取り込む（事例全体を止めない）。型違いの事実も外して残す', async () => {
+  const { write, opts } = setup();
+  const f = fixture();
+  f.reader.facts = [...f.reader.facts, { id: 'fbad', kind: 'NOT_A_KIND', text: '型に合わない観察。', sourceId: 's1' }];
+  write(f);
+  const [r] = await importCases(opts, deps({ gate: () => ({ available: true, errors: [{ code: 'PLACEHOLDER', where: 'analysis.a-x', detail: '仮' }, { code: 'THIN', where: 'facts', detail: '少ない' }] }) }));
+  assert.equal(r.result, 'IMPORTED');
+  const manifest = JSON.parse(readFileSync(`${opts.dataDir}/case-import/${ID}/import.json`, 'utf8'));
+  assert.equal(manifest.hiddenByCheck.length, 2);
+  assert.equal(manifest.outOfType.length, 1);
+  assert.equal(manifest.outOfType[0].item.id, 'fbad');
 });
 
 test('品質検査（門）に落ちたら取り込まない。門が呼べない時は記録のみで通す', async () => {
@@ -133,14 +140,15 @@ test('品質検査（門）に落ちたら取り込まない。門が呼べな�
   assert.equal((await makeCheckCaseGate(`${opts.srcDir}/nowhere/data/case-rebuild`)(fixture())).available, false);
 });
 
-test('reader の形が不正な READY は取り込まず保留。出力ファイルが無い id も保留', async () => {
+test('型に合わない事実は外して型外に残す。根拠が全部外れてリードが立たなければ保留（リードの書き直し）。出力ファイルが無い id も保留', async () => {
   const { write, opts } = setup();
   const bad = fixture();
   bad.reader.facts = [{ id: 'f1', kind: 'NOPE', text: 'x', sourceId: 's1', attribution: 'OFFICIAL' }];
   write(bad);
   const [r] = await importCases({ ...opts, ids: [ID, 'ent_fixture_missing'] }, deps());
   assert.equal(r.result, 'HELD');
-  assert.equal(convertCase(bad).ok, false);
+  const converted = convertCase(bad);
+  assert.ok(converted.ok && converted.value.outOfType.some((x) => (x.item as { id: string }).id === 'f1'));
   const all = await importCases({ ...opts, ids: ['ent_fixture_missing'] }, deps());
   assert.equal(all[0].result, 'HELD');
 });
@@ -168,11 +176,13 @@ test('意味を変えない形式のずれだけ機械で直し、記録に残�
   assert.equal(r.value.analysis[0].formula, '公式ページの表示額をそのまま載せた');
 });
 
-test('year だけの statedAt など、直すと意味を作ってしまう形式のずれは取り込まず保留', () => {
+test('year だけの statedAt など、直すと意味を作ってしまう形式のずれは直さず、その事実だけ型外へ外す', () => {
   const out = fixture();
   (out.reader.facts[0] as { statedAt?: string }).statedAt = '2023';
   const r = convertCase(out);
-  assert.equal(r.ok, false);
+  assert.ok(r.ok);
+  assert.ok(r.ok && r.value.outOfType.some((x) => (x.item as { statedAt?: string }).statedAt === '2023'));
+  assert.ok(r.ok && !r.value.reader.facts.some((f) => f.id === (out.reader.facts[0] as { id: string }).id));
 });
 
 test('事業の記録が無い事例は保留にして台帳へ残し、束の他の事例の取り込みは続ける', async () => {

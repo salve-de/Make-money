@@ -73,3 +73,27 @@ export function displayCoverage(reader: ReaderCase, opts: { hasDisplayableImage?
   }
   return { filled, missing };
 }
+
+/**
+ * 公開の下限（オーナー指示 2026-10-06: 落とし方のルール）。
+ * - 取れなかった項目は、その項目だけ画面から隠す。1項目の欠けで事例全体を止めない（誰が何をいくらで・料金・事業説明も同じ）
+ * - リード（LEAD）が無い・基準に落ちた → 事例は出さず「リードを書き直す」で事例担当へ差し戻す（直せない時だけ保留）
+ * - 事例全体を保留にするのは、本文の節（BODY_KEYS）が MIN_BODY 個未満の「全体が薄い」時だけ
+ * - 出典が1件も無い事例は出さない（根拠の無い事実は出さない）。画像は関門（画像の権利・実体）で別に見る
+ */
+export const BODY_KEYS = ['WHO_WHAT_PRICE', 'KEY_NUMBER', 'CUSTOMER_PAIN', 'START_AND_FIRST_CUSTOMERS', 'MONEY_AND_TIME', 'OPERATIONS', 'TURNS', 'VIABILITY', 'INTERESTING_FACT'] as const;
+export const MIN_BODY = 3;
+export const LEAD_REWRITE_PREFIX = 'リードを書き直す';
+export const THIN_PREFIX = '全体が薄い';
+
+/** 下限に足りない理由。足りていれば空配列。文言の頭で分類する（リードを書き直す／全体が薄い／出典が無い） */
+export function displayMinimumProblems(reader: ReaderCase): string[] {
+  const { filled } = displayCoverage(reader);
+  const have = new Set(filled);
+  const problems: string[] = [];
+  if (!have.has('LEAD')) problems.push(`${LEAD_REWRITE_PREFIX}:リード（HEADLINE）が無い`);
+  if (!have.has('SOURCES')) problems.push('出典が無い');
+  const body = BODY_KEYS.filter((k) => have.has(k)).length;
+  if (body < MIN_BODY) problems.push(`${THIN_PREFIX}:本文の節が${body}個（${MIN_BODY}個以上必要）`);
+  return problems;
+}

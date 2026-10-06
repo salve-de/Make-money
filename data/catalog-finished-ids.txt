@@ -1,4 +1,4 @@
-# 仕上げ済み（全項目の推論と公開前の監査が済んだ）事例。scripts/reader-case/select-finished.ts が書く
+# 仕上げ済み（現在の事実・推論・出典・画像権利・監査入力を確認した）事例。scripts/reader-case/select-finished.ts が書く
 ent_-mlcourses_75e787ca69b5
 ent_-tweet100_8f13b3e438ce
 ent_12weeksfromtoday_818a61743857
@@ -209,6 +209,7 @@ ent_pldcms_93bacb45
 ent_plugskyunlimitedmodelusage_5b7e62962dfc
 ent_podsqueeze_bdfb91
 ent_powerpackforbeaverbuilder_222795841942
+ent_practicaltypographycom_e9aa6bc94ccf
 ent_priceproven_9170384c4c0c
 ent_priscillachristie-_f2111f276990
 ent_promptzone_95970f3ac955
@@ -226,6 +227,7 @@ ent_really_good_emails_b66581
 ent_redlightgreenlightgame_0f4b9ea7bbb2
 ent_referralrock_8c13d5ee4cfc
 ent_rentecdirect_4418ba
+ent_requestly_28e9f2
 ent_revenuemultiplicationengine_c3c8f08dc5ac
 ent_rfrcui_64e924ac
 ent_righttail_49096fa9e88c

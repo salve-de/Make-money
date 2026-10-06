@@ -17,6 +17,7 @@ import { existsSync, appendFileSync, readFileSync, readdirSync, renameSync, writ
 import { pathToFileURL } from 'node:url';
 import { ReaderCaseSchema, type ReaderCase } from '../../src/shared/reader-case';
 import { checkLead } from '../../src/shared/lead-standard';
+import { LEAD_REWRITE_PREFIX } from '../../src/shared/display-contract';
 import { citesRestrictedSource, type AnalysisFile, type StoredAnalysis } from './analysis-lib';
 import { LEDGER_DIR, readCaseRecords } from './ledger';
 import { contentHash } from './publication-evaluation';
@@ -37,6 +38,10 @@ export interface ReflectEntry {
   importHash: string | null;
   /** 取り込み版の中身（推論込み）。取り込みと中身の基準を通った時だけ */
   reader?: ReaderCase;
+  /** 審査で直した推論（受領書の入力指紋が取り込み版と一致した時だけ）。表示はこちら、審査の入力と合流は取り込み版の推論を使う */
+  approvedAnalysis?: StoredAnalysis[];
+  /** 外して表示する項目（出典・事実・数値・推論）。1項目の問題で事例全体を止めないための記録。診断で収集側へ返す */
+  hidden?: string[];
   ruleVersion: string;
   /** この記録の指紋（時刻を含まない）。同じなら書き換えない */
   hash: string;
@@ -46,23 +51,51 @@ export interface ReflectState { version: 1; cases: Record<string, ReflectEntry> 
 
 const PLACEHOLDER = /仮置|仮の(値|数字|数値|金額)|ダミー|プレースホルダ|placeholder|\bTBD\b|\bTODO\b|\bXXX\b/i;
 
-/** 取り込み版の中身の基準。リード（画面と同じ checkLead）・仮置きの語・出典。問題が無ければ空配列 */
+/**
+ * 1項目だけの問題は、その項目を外して残りで組む（オーナー指示 2026-10-06: 1項目の欠け・1件の出典の失敗で全体を止めない）。
+ * - 仮置きの語を含む事実・数値・推論 → その項目を外す（根拠のない数字は出さない）
+ * - 使えない出典（利用条件・本文が取れない） → その出典と、それを根拠にする事実・数値・推論を外す
+ * 外した項目は hidden に残し、診断で収集側（別の出典の候補）へ戻す。リード（HEADLINE）が外れたら contentProblems が「リードを書き直す」を出す
+ */
+export function withoutItems(reader: ReaderCase, drop: { sources?: string[]; claims?: string[]; placeholders?: boolean }): { reader: ReaderCase; hidden: string[] } {
+  const hidden: string[] = [];
+  const sources = new Set(drop.sources ?? []);
+  const claims = new Set(drop.claims ?? []);
+  const ph = (t?: string) => !!drop.placeholders && !!t && PLACEHOLDER.test(t);
+  for (const s of reader.sources) if (sources.has(s.id)) hidden.push(`出典:${s.id}:${s.url}`);
+  const facts = reader.facts.filter((f) => {
+    const out = sources.has(f.sourceId) || claims.has(f.id) || ph(f.text);
+    if (out) hidden.push(`事実:${f.id}${ph(f.text) ? ':仮置きの語' : ''}`);
+    return !out;
+  });
+  const metrics = reader.metrics.filter((m) => {
+    const out = sources.has(m.sourceId) || claims.has(m.id) || ph([m.label, m.basis].filter(Boolean).join(' '));
+    if (out) hidden.push(`数値:${m.id}`);
+    return !out;
+  });
+  const gone = new Set([...reader.facts, ...reader.metrics].map((c) => c.id).filter((id) => !facts.some((f) => f.id === id) && !metrics.some((m) => m.id === id)));
+  const analysis = reader.analysis.filter((a) => {
+    const out = (a.basis ?? []).some((b) => gone.has(b)) || ph([a.text, a.formula].filter(Boolean).join(' '));
+    if (out) hidden.push(`推論:${a.item}`);
+    return !out;
+  });
+  const summaryFactId = reader.summaryFactId && facts.some((f) => f.id === reader.summaryFactId) ? reader.summaryFactId : undefined;
+  const next = { ...reader, sources: reader.sources.filter((s) => !sources.has(s.id)), facts, metrics, analysis } as ReaderCase;
+  if (summaryFactId) next.summaryFactId = summaryFactId; else delete (next as { summaryFactId?: string }).summaryFactId;
+  return { reader: next, hidden };
+}
+
+/** 取り込み版の中身の基準（事例全体に関わるものだけ）。リード（画面と同じ checkLead）・出典・禁止された出典。問題が無ければ空配列 */
 export function contentProblems(reader: ReaderCase): string[] {
   const problems: string[] = [];
   const parsed = ReaderCaseSchema.safeParse(reader);
   if (!parsed.success) return ['表示形式が不正'];
   const lead = reader.analysis.find((a) => a.item === 'HEADLINE');
-  if (!lead) problems.push('リードが無い');
+  if (!lead) problems.push(`${LEAD_REWRITE_PREFIX}:リードが無い`);
   else {
     const verdict = checkLead({ text: lead.text, basis: lead.basis }, reader);
-    if (!verdict.ok) problems.push(`リード基準外:${verdict.problems.join(',')}`);
+    if (!verdict.ok) problems.push(`${LEAD_REWRITE_PREFIX}:リード基準外:${verdict.problems.join(',')}`);
   }
-  const texts: [string, string | undefined][] = [
-    ...reader.facts.map((f) => [`事実:${f.id}`, f.text] as [string, string]),
-    ...reader.metrics.map((m) => [`数値:${m.id}`, [m.label, m.basis].filter(Boolean).join(' ')] as [string, string]),
-    ...reader.analysis.map((a) => [`推論:${a.item}`, [a.text, a.formula].filter(Boolean).join(' ')] as [string, string]),
-  ];
-  for (const [where, text] of texts) if (text && PLACEHOLDER.test(text)) problems.push(`仮置きの語:${where}`);
   if (!reader.sources.length) problems.push('出典が無い');
   if (citesRestrictedSource(reader)) problems.push('利用規約で表示できない出典');
   return problems;
@@ -82,14 +115,19 @@ export function readReflectState(path = REFLECT_FILE): ReflectState {
 export function reflectedReader(state: ReflectState, id: string): ReaderCase | null | undefined {
   const entry = state.cases[id];
   if (!entry) return undefined;
-  return entry.reader ?? null;
+  if (!entry.reader) return null;
+  return entry.approvedAnalysis ? { ...entry.reader, analysis: entry.approvedAnalysis } : entry.reader;
 }
 
-/** 推論ファイルに重ね書きを当てる。取り込み版の推論が旧い推論（reader-analysis.json）より常に勝つ */
-export function withReflectedAnalysis(file: AnalysisFile, state: ReflectState): AnalysisFile {
+/**
+ * 推論ファイルに重ね書きを当てる。取り込み版の推論が旧い推論（reader-analysis.json）より常に勝つ。
+ * stage='display'（既定。select-finished・prepare-catalog-release）は審査で直した推論を、
+ * stage='audit'（build-audit-input・merge-analysis）は審査に出した取り込み版の推論を返す。後者で受領書の入力指紋が毎回同じになる
+ */
+export function withReflectedAnalysis(file: AnalysisFile, state: ReflectState, stage: 'display' | 'audit' = 'display'): AnalysisFile {
   const out: AnalysisFile = { ...file };
   for (const [id, entry] of Object.entries(state.cases)) {
-    if (entry.reader) out[id] = entry.reader.analysis as StoredAnalysis[];
+    if (entry.reader) out[id] = (stage === 'display' && entry.approvedAnalysis ? entry.approvedAnalysis : entry.reader.analysis) as StoredAnalysis[];
     else delete out[id];
   }
   return out;
@@ -100,18 +138,22 @@ export function reflectHoldReasons(state: ReflectState, id: string): string[] | 
   const entry = state.cases[id];
   if (!entry) return null;
   if (entry.state !== 'SHOW' || !entry.reader) return entry.reasons.length ? entry.reasons : ['取り込み版が未確定'];
-  const problems = contentProblems(entry.reader);
+  const problems = contentProblems(reflectedReader(state, id)!);
   if (problems.length) return problems;
   if (entryHash(entry) !== entry.hash) return ['反映記録の指紋が合わない（手で書き換えられた）'];
   return [];
 }
 
-export function entryHash(e: Pick<ReflectEntry, 'id' | 'state' | 'stage' | 'reasons' | 'importHash' | 'reader'>): string {
-  return contentHash({ rule: REFLECT_RULE_VERSION, id: e.id, state: e.state, stage: e.stage ?? null, reasons: e.reasons, importHash: e.importHash, reader: e.reader ?? null });
+export function entryHash(e: Pick<ReflectEntry, 'id' | 'state' | 'stage' | 'reasons' | 'importHash' | 'reader' | 'approvedAnalysis' | 'hidden'>): string {
+  return contentHash({ rule: REFLECT_RULE_VERSION, id: e.id, state: e.state, stage: e.stage ?? null, reasons: e.reasons, importHash: e.importHash, reader: e.reader ?? null, ...(e.approvedAnalysis ? { approvedAnalysis: e.approvedAnalysis } : {}), ...(e.hidden?.length ? { hidden: e.hidden } : {}) });
 }
 
 /** 公開の関門。本番の実装は publication-evaluation の evaluateForRelease を手元の証拠で呼ぶ。テストでは差し替える */
-export type ReleaseGate = (id: string, reader: ReaderCase) => Promise<{ publishable: boolean; reasons: string[] }>;
+/**
+ * analysis を返した時は、その推論（審査で直したもの）を取り込み版の推論の代わりに採用する。
+ * 本番の関門は「受領書の入力指紋＝取り込み版の推論で組んだ入力の指紋」の時だけ返す（古い版の推論を拾わない）。
+ */
+export type ReleaseGate = (id: string, reader: ReaderCase) => Promise<{ publishable: boolean; reasons: string[]; analysis?: StoredAnalysis[] }>;
 
 export interface ReflectOptions { ids?: string[]; dataDir: string; ledgerDir?: string; dryRun?: boolean; now?: Date }
 export type ReflectOutcome = { id: string; result: 'UNCHANGED' | 'NEW' | 'REPLACED'; state: ReflectEntry['state']; stage?: ReflectStage; reasons: string[] };
@@ -146,12 +188,31 @@ export async function buildEntry(id: string, opts: { dataDir: string; ledgerDir:
   }
   const parsed = ReaderCaseSchema.safeParse({ ...readJson<ReaderCase>(`${dir}/reader.json`), analysis: readJson<StoredAnalysis[]>(`${dir}/analysis.json`) });
   if (!parsed.success) return { id, state: 'HOLD', stage: 'IMPORT', reasons: ['取り込み出力の形式が不正'], importHash: manifest.inputHash ?? null };
-  const reader = parsed.data;
+  // 仮置きの語を含む項目は外す（根拠のない数字は出さない）。事例全体は止めない
+  // 利用規約で表示できない出典（eBiz Facts 等）も、その出典と根拠にする項目だけ外す
+  const restricted = parsed.data.sources.filter((src) => citesRestrictedSource({ sources: [src] })).map((src) => src.id);
+  let { reader, hidden } = withoutItems(parsed.data, { placeholders: true, sources: restricted });
   const problems = contentProblems(reader);
-  if (problems.length) return { id, state: 'HOLD', stage: 'CONTENT', reasons: problems, importHash: manifest.inputHash ?? null };
-  const release = await gate(id, reader);
-  if (!release.publishable) return { id, state: 'HOLD', stage: 'RELEASE', reasons: release.reasons, importHash: manifest.inputHash ?? null, reader };
-  return { id, state: 'SHOW', reasons: [], importHash: manifest.inputHash ?? null, reader };
+  const importHash = manifest.inputHash ?? null;
+  const keepHidden = () => (hidden.length ? { hidden } : {});
+  if (problems.length) return { id, state: 'HOLD', stage: 'CONTENT', reasons: problems, importHash, ...keepHidden() };
+  let release = await gate(id, reader);
+  // 使えない出典（利用条件・本文が取れない）と根拠の合わない主張は、その出典・主張だけ外して関門をやり直す（最大2回）
+  for (let round = 0; round < 2 && !release.publishable; round++) {
+    const sources = release.reasons.flatMap((r) => /^(利用条件|出典本文):(s[^ ]+)$/.exec(r)?.[2] ?? []);
+    const claims = release.reasons.flatMap((r) => /^根拠の不一致:(.+)$/.exec(r)?.[1] ?? []);
+    if (!sources.length && !claims.length) break;
+    const trimmed = withoutItems(reader, { sources, claims });
+    if (!trimmed.reader.sources.length) break;
+    reader = trimmed.reader;
+    hidden = [...hidden, ...trimmed.hidden];
+    const after = contentProblems(reader);
+    if (after.length) return { id, state: 'HOLD', stage: 'CONTENT', reasons: after, importHash, reader, ...keepHidden() };
+    release = await gate(id, reader);
+  }
+  const approved = release.analysis ? { approvedAnalysis: release.analysis } : {};
+  if (!release.publishable) return { id, state: 'HOLD', stage: 'RELEASE', reasons: release.reasons, importHash, reader, ...approved, ...keepHidden() };
+  return { id, state: 'SHOW', reasons: [], importHash, reader, ...approved, ...keepHidden() };
 }
 
 const stableState = (state: ReflectState): string => `${JSON.stringify({ version: 1, cases: Object.fromEntries(Object.entries(state.cases).sort(([a], [b]) => a.localeCompare(b))) }, null, 1)}\n`;
@@ -195,7 +256,9 @@ async function main() {
   const ids = val('--ids')?.split(',').map((s) => s.trim()).filter(Boolean);
   const { loadEntities } = await import('./load-readers');
   const { loadPublicationInput, readPublicationAudits } = await import('./publication-inputs');
-  const { evaluateForRelease, preparePublicationReader } = await import('./publication-evaluation');
+  const { evaluateForRelease, preparePublicationReader, publicationHash } = await import('./publication-evaluation');
+  const { ANALYSIS_FILE } = await import('./analysis-lib');
+  const analysisFile = existsSync(ANALYSIS_FILE) ? readJson<AnalysisFile>(ANALYSIS_FILE) : {};
   const { VERDICTS_FILE } = await import('./verify-lib');
   const verdicts = existsSync(VERDICTS_FILE) ? readJson<Record<string, never>>(VERDICTS_FILE) : {};
   const audits = readPublicationAudits();
@@ -204,9 +267,20 @@ async function main() {
   const gate: ReleaseGate = async (id, reader) => {
     const entity = entities.get(id);
     if (!entity) return { publishable: false, reasons: ['事業の記録（entities-index.json）に無い'] };
-    const prepared = preparePublicationReader({ ...reader, analysis: [] }, verdicts[id], reader.analysis as StoredAnalysis[]);
-    const input = await loadPublicationInput(entity, prepared.reader, verdicts[id]);
-    return evaluateForRelease(input, audits[id], prepared.problems);
+    const inputWith = async (analysis: StoredAnalysis[]) => {
+      const prepared = preparePublicationReader({ ...reader, analysis: [] }, verdicts[id], analysis);
+      return { input: await loadPublicationInput(entity, prepared.reader, verdicts[id]), problems: prepared.problems };
+    };
+    const imported = await inputWith(reader.analysis as StoredAnalysis[]);
+    const receipt = audits[id];
+    const approved = analysisFile[id];
+    // 受領書がこの取り込み版を審査したもので、審査の直しを当てた推論が reader-analysis.json にあれば、それを採用する
+    if (receipt && approved && receipt.inputHash === publicationHash(imported.input)) {
+      const audited = await inputWith(approved);
+      const result = evaluateForRelease(audited.input, receipt, audited.problems);
+      return { ...result, analysis: approved };
+    }
+    return evaluateForRelease(imported.input, receipt, imported.problems);
   };
   const { outcomes, state, changed } = await reflectCases({ ids: wanted, dataDir, dryRun: args.includes('--dry-run') }, gate);
   for (const o of outcomes) console.log(JSON.stringify(o));

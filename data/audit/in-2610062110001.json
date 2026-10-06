@@ -1,0 +1,981 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_rfrcui_64e924ac",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "開発者が自分で画面を整えられるようにするデザイン教材。218ページのPDF（50章）、3本の動画（合計約41分）、200点超の部品見本、十数種の配色、30超のフォント案、200点のSVGアイコンが一式になっている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "PRICING",
+     "text": "価格は、本と動画だけのEssentialsが99ドル、素材まで全部入りのComplete Packageが149ドル（いずれも税別）。チーム向けはComplete Packageが3人399ドル、5人649ドル、10人1,249ドル、25人2,749ドルなどの人数別。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "TEAM",
+     "text": "著者はAdam Wathan（開発者）とSteve Schoger（UIデザイナー）。長年の友人で、共作の副業ではSteveが画面設計、Adamが開発を受け持っていた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "EVENT",
+     "text": "当初は、2人がTwitterで配ってきた小技を1つにまとめるだけの予定だった。計画を進めるうちに、本だけでなく動画・部品見本・配色・フォント・アイコンまで含む「一式」に広げた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "売り文句は「才能ではなく手順」。例として、枠線を減らし、影・背景色の差・余白で要素を分ける方法を挙げる。多くのデザイン講座は色彩理論などの大きな原則に偏り、すぐ画面を良くする具体策が足りないと批判している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "CHANNEL",
+     "text": "発売前の約2年、ツイートを多く流した。1本に2週間近いほぼフルタイムの作業をかけたものも多く、5000リツイート・1万5千いいね前後に届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "Refactoring UIは2018年12月に書いた本で、2022年9月の投稿時点で累計250万ドル超。4年たっても売れ続けていると本人が書いている。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "Adamは教材の前にも実績があった。2016年の最初の本は発売初週に61,392ドル、同年のTDD講座は累計100万ドル超、2018年のVue講座は約30万ドルと本人が書いている。2019年1月からTailwind CSSに専念し、2020年にTailwind UIを出した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "Adamが実際に出して失敗したのはNitpick CIだけで、履歴書アプリ、リンク共有のSNS、売上税の徴収を代行する決済サービスは、完成させずにやめたと本人が答えている。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f10",
+     "kind": "PRICING",
+     "text": "発売当初の価格は、基本版79ドル・上位版149ドルだった。上位版の値引きを40%、基本版を25%と見せ、上位版を大きく目立つ見た目にしたところ、2019年1月10日時点の購入の約78%が上位版だったという。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "同記事は、2年分の無料のツイート・動画・記事があったから149ドルを付けられた、と分析している。Amazonの電子書籍の相場から外れるよう、自前のサイトで動画・素材と組にした点も挙げる。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f13",
+     "kind": "TOOL",
+     "text": "公式サイトは3万部超の販売、Goodreads評価4.68、SavvyCal・Clearbit・Transistorの創業者の推薦文を掲げる。購入は2つの価格帯の「Buy now」から。決済はLink by Stripe。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=REVENUE / 期間=2022年9月13日の投稿時点の累計（250万ドル超）(CUMULATIVE) / 金額=2500000 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m2",
+     "line": "項目=REVENUE / 期間=累計（記事に期間の明記なし）、135万ドル超(CUMULATIVE) / 金額=1350000 USD / 由来=THIRD_PARTY"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://refactoringui.com/",
+     "publisher": "Refactoring UI（公式サイト）",
+     "snapshot": {
+      "url": "https://refactoringui.com/",
+      "finalUrl": "https://refactoringui.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-06T09:24:11.068Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "09ff6fa2d8501ea8d7b15c767bf3c24d458e173e49d8161abb7af493f16a55a0"
+     },
+     "text": "Refactoring UI\nRefactoring UI\nFrom the creators of Tailwind CSS\nOver 30,000 copies sold\n4.68 stars on Goodreads\nMake your ideas look awesome, without relying on a designer.\nLearn how to design beautiful user interfaces by yourself using specific tactics explained from a developer’s point-of-view.\nGet two free chapters Buy now\nGet two free chapters Buy now\nThis is the survival kit I wish I had when I was starting out building apps. Derrick Reimer\nFounder of SavvyCal\nThis book is fantastic for engineers learning how to design. Alex MacCaw\nFounder of Clearbit\nThis book Refactoring UI is a no-brainer for anyone in the web industry. Justin Jackson\nCo-founder of Transistor\n“I know this looks terrible, but I have no idea why.”\nHi! I’m Adam Wathan , a full stack developer who used to suck at design. I’ve been friends with Steve Schoger for years and we’ve worked on a bunch of side projects together — him handling the UI design and me taking care of development.\nLike a lot of developers, I always wished I could make my ideas look awesome without relying on a designer, but any time I tried to design something myself I would always get frustrated and give up.\nI always chalked it up to a left brain/right brain sort of thing — I’m logical and analytical so I’m good at programming, people like Steve are intuitive and creative so he’s good at design.\nBut after working closely with Steve I started picking up little tricks. Tricks that didn’t require any artistic talent, but made things look better instantly for reasons that made sense to me as a developer.\nDesign with tactics, not talent.\nHere’s a concrete design tactic I bet you see applied every day but haven’t explicitly noticed.\nUse fewer borders.\nBorders are a great way to distinguish two elements from one another, but using too many of them can make your design feel busy and cluttered.\nInstead, try adding a box shadow, using contrasting background colors, or simply adding more space between elements.\nIt doesn’t take any talent to make changes like this — once you know the tactic you just need to notice the problem and apply the solution.\nMost design courses are missing the mark.\nThey focus so much on high level principles like color theory and typography which, while important, never helped me make instant improvements like the actionable, specific tactics I was picking up from Steve.\nWorking together, we knew we could create something better.\nOver the last few years, we’ve helped thousands of developers get better at design through quick tips , in-depth articles , and video tutorials .\nRefactoring UI takes everything we know about design and bundles it into one comprehensive package, including a book, screencasts, a component gallery, custom designed assets, and more.\nIt’s exactly what I needed when I was struggling to make my projects look awesome.\nWhat we’ve put together\nIt’s not just a book — it’s everything you need to start producing better designs today.\nWhen we first started working on this project, our ambitions were pretty modest — take all of the tips and tricks we’ve shared on Twitter , bundle them up into one resource, and put it out into the world.\nBut the more time we put into planning it, the more we realized that we had an opportunity to create something better than that. Something that wasn’t just a book, but more like a complete survival kit for designing for the web .\nHere’s what we ended up with…\nThe Book\nA beautiful PDF containing 50 incredibly visual chapters spread across 200+ painstakingly typeset pages.\nThis book contains literally everything we know about web design, distilled into short, easy to read chapters.\nEvery chapter is designed to be as independent as possible, so you can read them in almost any order. And if you want to sit down and read the whole thing at once, you’ll have no trouble getting through it in just a couple of hours.\nWe hate books that repeat the same ideas over and over just to fill out the page count. This book is written a lot like our blog posts — every sentence is highlight-worthy.\nFull table of contents\nStarting from Scratch\nStart with a feature, not a layout 7\nDetail comes later 10\nDon’t design too much 13\nChoose a personality 17\nLimit your choices 24\nHierarchy is Everything\nNot all elements are equal 30\nSize isn’t everything 32\nDon’t use grey text on colored backgrounds 36\nDe-emphasize to emphasize 39\nLabels are a last resort 41\nSeparate visual hierarchy from document hierarchy 46\nBalance weight and contrast 48\nSemantics are secondary 52\nLayout and Spacing\nStart with too much white space 56\nEstablish a spacing and sizing system 60\nYou don’t have to fill the whole screen 65\nGrids are overrated 72\nRelative sizing doesn’t scale 79\nAvoid ambiguous spacing 83\nDesigning Text\nEstablish a type scale 88\nUse good fonts 94\nKeep your line length in check 99\nBaseline, not center 102\nLine-height is proportional 105\nNot every link needs a color 109\nAlign with readability in mind 111\nUse letter-spacing effectively 115\nWorking with Color\nDitch hex for HSL 119\nYou need more colors than you think 123\nDefine your shades up front 129\nDon’t let lightness kill your saturation 133\nGreys don’t have to be grey 139\nAccessible doesn’t have to mean ugly 142\nDon’t rely on color alone 146\nCreating Depth\nEmulate a light source 150\nUse shadows to convey elevation 158\nShadows can have two parts 163\nEven flat designs can have depth 167\nOverlap elements to create layers 170\nWorking with Images\nUse good photos 174\nText needs consistent contrast 176\nEverything has an intended size 181\nBeware user-uploaded content 187\nFinishing Touches\nSupercharge the defaults 192\nAdd color with accent borders 195\nDecorate your backgrounds 198\nDon’t overlook empty states 203\nUse fewer borders 206\nThink outside the box 210\nLeveling Up\nLeveling up 215\nSee all the chapters in the book\nVideo tutorials\nThe book will teach you a ton, but there are some things best learned by watching an expert do it themselves.\nwe’ve put together three in-depth video tutorials that walk through how to take all of the ideas in the book and apply them to three common UI design scenarios.\nDesigning a complex form interface\n11:13\nBuilding a data-focused dashboard\n17:20\nStyling a text-focused landing page\n12:08\nEach video is tightly edited and just the right pace, so there’s no wasted time watching me \"hmm\" and \"uhh\" my way around the design.\nThe Component Gallery\nHow many times have you found yourself looking at other apps to get ideas for things like button styles, form layouts, or navigation treatments?\nThis has always been a huge pain point for us with our own work, so we built the component gallery to solve it.\nThe component gallery is a huge resource of 20+ component/layout categories , and 200+ individual component styles .\nIt includes medium-fidelity mockups of every idea we could think of, for every component we could think of, including things like:\nButton styles\nCard layouts\nLogin page layouts\nTable styles\nMarketing page sections\nNavigation layouts\n…and much, much more.\nColor Palettes\nIf you’ve ever used an online color palette generator, you know that the five swatches they end up giving you are never enough to build out a real interface.\nWe set out to solve this by handcrafting over a dozen comprehensive color palettes that include 10 shades for each included color, as well as an example UI showing how those colors are intended to be used:\nwe’ve also put together a huge library of individual color scales that you can use to curate your own palettes, without handpicking every single shade yourself.\nFont Suggestions\nTrying to pick the perfect font for a project is a nightmare. There are thousands of fonts to choose from, and trying to make an informed decision without seeing a particular font in the right context takes forever.\nwe’ve put together a list of over 30 fonts we absolutely love, and broken it down across three categories: UI, headlines, and article copy.\nEach font is shown in an example UI for that category, so you can get a feel for exactly how it’s going to look where you intend to use it, without having to try each font yourself.\nIf you’ve ever felt uneasy trying to choose a typeface, this is going to save you a ton of time.\nCustom illustrated icons\nRefactoring UI also includes a set of 200 beautifully illustrated SVG icons.\nThe SVGs are pre-optimized, and the colors can easily be customized to fit your branding with just CSS — no design tool knowledge required.\n.primary {\nfill: #637985; }\n.secondary {\nfill: #0D2B3E; }\nGet Refactoring UI today.\nLearn how to design beautiful user interfaces by yourself using specific tactics explained from a developer’s point-of-view.\nThe Complete Package\n$149\nUSD\nplus local taxes\nBuy now The 218-page book in PDF format\nAll three in-depth video tutorials\nComponent inspiration gallery , featuring 200+ component and layout ideas\nOver a dozen comprehensive color palettes , tailored for application UIs\nCurated font showcase , including 30+ font recommendations categorized by use-case\nExclusive icon library , including 200 easily customizable SVG icons\nBuying for your team? View team pricing options.\nThe Essentials\n$99\nUSD\nplus local taxes\nBuy now The 218-page book in PDF format\nAll three in-depth video tutorials\nOver 20,000 people are already using Refactoring UI to make their ideas look awesome.\nHere’s what some of them are saying…\nPeople ask me all the time where to learn to become a better designer. Well, here it is!\nWes Bos\n@ wesbos\nView tweet by Wes Bos\nWe just bought this at work and I absolutely love it. You guys did a great job. I do a lot of UI work but did it based on \"feel\" but couldn’t explain why... your book does exactly that. Great work!\nDana Cottreau\n@ _DanaCottreau\nView tweet by Dana Cottreau\nWell I just read Refactoring UI by @adamwathan and @steveschoger in one sitting. So it’s safe to say it’s a great book 🔥\nTash\n@ _tashhockey\nView tweet by Tash\nI can proudly say that this is the best purchase I have made in a long time. Maybe ever! I love how visual it is -- forcing my wife to read it next! 😂\nChris Breuer\n@ chrisbreuer1904\nView tweet by Chris Breuer\nWow. What a read. This book has the most approachable, actionable, and useful design advice that I’ve ever seen 👏👏👏 @steveschoger and @adamwathan deserve a massive round of applause for putting this together\nNick Basile\n@ nickjbasile\nView tweet by Nick Basile\nOver the weekend, I read Refactoring UI by @adamwathan and @steveschoger . The content is amazing and the writing is clear, concise, and to-the-point. I need to come up with a strategy that ensures that I weave this book into my ongoing development efforts.\nBen Nadel\n@ BenNadel\nView tweet by Ben Nadel\nI can definitely see why this book is called “Refactoring UI” … tons of UI smells / anti-patterns and how to correct them with great examples for each case. 👍 Congrats @adamwathan and @steveschoger on the launch!\nTaylor Otwell\n@ taylorotwell\nView tweet by Taylor Otwell\nOnly read the first chapter of @steveschoger and @adamwathan ’s Refactoring UI book so far and already I’ve had so many “Ah - that makes so much sense!” moments 💡 This stuff is genius\nJL Sorak\n@ JLSorak\nView tweet by JL Sorak\nPurchased Refactoring UI! The way @adamwathan & @steveschoger share concepts and examples is the only way I can understand graphic design on the web. Very thankful they worked so hard to put this together. 🎄\nJeanine Schoessler\n@ satinflame\nView tweet by Jeanine Schoessler\nTalk about a no-brainer purchase! @adamwathan and @steveschoger put together an AMAZING product.\nMichael Faas\n@ faasie\nView tweet by Michael Faas\nToday I was revisiting \"Refactoring UI\", a visual design book for engineers. Started writing down my highlights... but then I realized I was trying to save most of the book. At least that’s when you know it’s good\nnithi\n@ nithinaray\nView tweet by nithi\nWhy didn’t I ever think of the personality of the site I am designing the apps for? Great stuff - Thanks @steveschoger and @adamwathan !\nRabia Williams\n@ williamsrabia\nView tweet by Rabia Williams\n🙏 Just had the pleasure of proofreading @adamwathan and @steveschoger ’s new book. I can’t remember the last time I absorbed that much knowledge in such a short time!\nPeter Suhm\n@ petersuhm\nView tweet by Peter Suhm\nWorking my way through this at the moment. Every page is pure gold!\nMatt Brailsford\n@ mattbrailsford\nView tweet by Matt Brailsford\nLoving every bit of this! @steveschoger @adamwathan im plowing unstoppably through this book. Such great content 🔥 Thank you! 🤘🏼\nmathias arlund\n@ mathiasarlund\nView tweet by mathias arlund\nShow more...\nFrequently asked questions\nCan I get Refactoring UI for my entire team? Sure! We offer team discounts on the Complete Package based on the number of team members you’d like to purchase for:\nUp to 3 team members\n$399 →\nUp to 5 team members\n$649 →\nUp to 10 team members\n$1249 →\nUp to 15 team members\n$1799 →\nUp to 25 team members\n$2749 →\nCan I get an invoice? Yes! After purchase you'll receive a receipt/invoice via email. During checkout, you can check \"I'm purchasing as a business\" to add your company information. Refactoring UI is sold through Link by Stripe, so if you need to make changes to your invoice after purchase, you can reach out to Link support directly (if you don't have a Link account and prefer not to create one, you can click \"I can't log in\").\nWhat format are the files? Is there any DRM? The book, component gallery, color palettes, and font recommendations are PDFs, the screencasts are downloadable mp4 files, and the icons are SVG.\nEverything is DRM-free; that crap is annoying.\nCan I upgrade to the complete package later? Of course! Shoot us an email at [email protected] and we’ll sort you out.\nDoes the component gallery include CSS? Short answer is no.\nLong answer is that the goal with the component gallery is to provide layout and treatment ideas with just enough fidelity to be useful.\nIf you need an idea for a pricing page layout, the idea is that you’d browse the component gallery to find one you like, then combine that with what you learn from the book to create a great-looking design yourself.\nThere are a million ways you could style these components, and we don’t want the component gallery to encourage you to make every project look the same.\nWhat’s the license for the icons? You can read a copy of the license here .\nTL;DR: Do pretty much whatever you want with them, including using them in open-source projects. Just don’t resell them or publish them on npm purely to distribute them for free or anything lame like that.\nWhat if I decide it’s not for me? No problem at all! Email us at [email protected] within 60 days and we’ll refund you in full, no questions asked.\nCopyright © 2026 The UI Company Inc.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+     "publisher": "Indie Hackers（Adam Wathan本人の投稿）",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "finalUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "status": 200,
+      "fetchedAt": "2026-10-06T09:24:11.341Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "6256283bce58a62ccbf70a3f18e757a98b0bf8f85432bab47d0b88152bef7ac5"
+     },
+     "text": "I'm Adam Wathan, I created Tailwind CSS and built a multi-million dollar business around it. AMA! - Indie Hackers\nHey folks! I\nHey folks! I\nI\nI'm Adam Wathan, I created Tailwind CSS and built a multi-million dollar business around it. AMA! - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n113\nUpvotes\n102 Comments\nI'm Adam Wathan, I created Tailwind CSS and built a multi-million dollar business around it. AMA!\nby adamwathan\nHey folks! I'm Adam Wathan, creator of Tailwind CSS.\nI went solo after writing my first book in 2016, which did $61,392 in the first week and gave me the courage to leave my job and create educational content full-time.\nI followed that up with a course on TDD for Laravel developers later that year that went on to make over $1m, and a course on advanced Vue component design in 2018 that did about $300k.\nIn December 2018, I wrote Refactoring UI with my friend Steve Schoger, which has done over $2.5m and continues to sell well four years later.\nIn the middle of all that I released Tailwind CSS in 2017 which has grown to be a massively popular CSS framework, and went full-time on it in January 2019 while living on sales from my info products, with the goal of building a business around it.\nWe launched Tailwind UI in 2020 which is doing seven figures per year and growing, and have grown to a small team of 7 that splits our time between working on our open source projects and the commercial templates we release under the Tailwind UI brand.\nAMA!\nadamwathan\non September 13, 2022\n113\nUpvotes\nShare\nSay something nice to adamwathan…\nPost Comment\n10\nHey, big fan here :)\nTo me, you're an example of how you should build products almost without marketing. So you're focused on making the product better, tweet/post about it from time to time and then it just \"takes off\".\nCan you tell how much time (percentage) in your week do you spend on sales/marketing? I mean, it seems almost 0 but maybe some of your thinking process, especially now when you have a team, evolve around questions like:\nHow to increase sales\nWhat features to launch and their potential ROI\nPreparing the tweets/videos, i.e. content marketing\nPotential partnerships, maybe for B2B sales?\nAnd generally, do you think about those processes as marketing, or are you just fully focused on the product, just \"sometimes tweeting occasionally\", and then somehow everything falls into place with $?\nCause from aside, your sales/marketing strategy, if any, seems effortless. But maybe under the hood you're spending a lot of time, before releasing some feature/screenshot/teaser?\nPovilasKorop\n&middot;\n4 years ago\n&middot;\nReply\n14\nHey! I'm glad it feels like we don't do any marketing — it's something we generally think about and work on a lot but we try to do it in a way that doesn't feel like advertising and is instead just interesting and valuable.\nIn very recent times (say the last couple of months) I feel like we aren't thinking about it or doing it enough, and I don't tweet as much, don't create video content, and don't write newsletter updates consistently which is a source of stress for me — it's something I think we need to be doing more. But we've had a really busy summer working on the Tailwind UI templates/all-access launch and all of the thinking that went into that is what has taken up most of my time.\nI definitely spend most of my time on product strategy, and am not really in the code or anything day to day, but all that strategy work sort of is marketing to me. Deciding what to make next and what we think people will be excited about, thinking through pricing (this is the most time consuming and challenging activity on earth), and copywriting (for our own sites, documentation and release notes, placeholder content for templates, newsletter updates) is what I'm generally focused on these days.\nBack when we were working on Refactoring UI (and the two years leading up to the book release), we did a lot more tweeting and those tweets took a ton of time, they weren't just a quick \"oh I'll tweet a little thing\". Many of those tweets took two weeks of near full-time effort to craft and make perfect, but that's why they would get like 5000 RTs and 15,000 likes. We also put tons and tons of effort into blog posts like 7 Practical Tips for Cheating at Design which for a long time (years) was the number one post of all-time on Medium.\nThese days I feel like we are coasting too much in this department and it's something I hope to work on more.\nSome of the most important marketing we do I think though is our documentation. Making Tailwind as easy to learn and easy to be as successful with as possible is what makes the entire business able to work. Any effort I put into that I expect to have a much higher pay-off than paying for a Facebook ad for Tailwind UI or something, but it's absolutely marketing, and I think that's probably part of why it doesn't look like we are doing a lot of marketing from the outside. I try to put our marketing effort into things with a long-term pay-off, which is why we don't even do things like Black Friday sales anymore or anything either.\nSorry feels like I'm rambling a bit here because it's a hard question to answer! But I guess the TL;DR is I feel like my job is almost 100% marketing, but with a maybe a wider definition of marketing than a lot of people have in their heads.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n4\nWow what a long answer, thanks for taking the time!\nIt does make sense though, cause I was referring to more like classic \"outbound\" marketing, and in your case you've fully switched to \"inbound\" marketing. So you don't actively sell much, but you're focused on the experience of whoever gets to your product.\nIt works perfectly, partly because you're famous enough and now whatever you release will get the eyeballs - and then the question becomes the experience with the product, which you excel at, so it's a winning strategy.\nAnd yes, I remember the days of Refactoring UI, and even before that, when you did tweet a lot more, and it felt more strategic, these days your emails do feel like it's \"work\" (should I say, chore?) for you.\nBut all in all, it works very well for you, so keep going! Don't change or add more stress to what already works :)\nPovilasKorop\n&middot;\n4 years ago\n&middot;\nReply\n3\nI could be mistaken, but I believe he spent a few years building up a large twitter audience before launching his first product. That's why it generated so much money in a relatively short amount of time. So technically he did do a lot of outbound marketing. Again I could be mistaken so please fact check.\nsidjain\n&middot;\n4 years ago\n&middot;\nReply\n2\nYes, sure, you're right, I meant that he SWITCHED to more inbound marketing, after doing a lot of outbound previously. I guess it's a natural growth trajectory for many businesses.\nPovilasKorop\n&middot;\n4 years ago\n&middot;\nReply\n1\nYeah good observation. I suppose once you build up that initial audience, it's easier to switch to inbound later on because you already have a following.\nsidjain\n&middot;\n4 years ago\n&middot;\nReply\n6\nWhat are the other failed project in your portfolio?\nsachingk\n&middot;\n4 years ago\n&middot;\nReply\n2\nThe only real failure that I actually launched was Nitpick CI, all of my other failed projects I actually failed to finish/launch, but they likely wouldn’t have worked out if I did either. One was an app for creating your resume, another was a social network for sharing links with your friends and your team, another was a checkout as a service tool for people who needed to collect sales tax when selling things online.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n4\nWith Tailwind in 2020 you launched into a crowded market of UI frameworks.\nWhat was your strategy at the beginning and how has it changed over time to outplay competitors and become successful?\nalexanderdavide\n&middot;\n4 years ago\n&middot;\nReply\n4\nYo @adamwathan! Couple questions:\nHow'd you get the idea for Tailwind? e.g. did your prior book/course projects give you a \"lightbulb moment\" of insight, etc.?\nDo you think running Tailwind as an open-source project creates any interesting limitations on (or benefits to) how your develop the software or how much you can grow?\nchanningallen\n&middot;\n4 years ago\n&middot;\nReply\n4\nHey @channingallen!\nHow'd you get the idea for Tailwind? e.g. did your prior book/course projects give you a \"lightbulb moment\" of insight, etc.?\nIt sort of fell naturally out of just working on my own side-projects and trying to come up with a CSS approach that felt maintainable to me over many years. You can read the full history of the project on my blog for more details.\nTL;DR — build side projects, live-stream working on them, everyone keeps asking about the CSS approach I'm using, decide to open-source it because people are asking so much.\nDo you think running Tailwind as an open-source project creates any interesting limitations on (or benefits to) how your develop the software or how much you can grow?\nI wish I had a good answer for this! I think for the most part it's benefits — the free CSS framework creates a huge user base for us that wouldn't be possible if we tried to just charge for the CSS framework, and as long as some percentage of those people see the value in paying for our premium templates and components then it all works. Our open-source stuff and commercial stuff is quite separate, so we don't have the types of challenges someone might have making their actual commercial product open-source.\nIt's pretty cool being able to fund a team to work on the open-source stuff though, again because of how much reach something can have as OSS. Most OSS projects start strong but the maintainers get burned out working evenings and weekends, and the project kinda dies off. We get to put tons of sustained effort into our OSS stuff which just helps us build a bigger audience for it and keep all those people really happy, and then via word of mouth more people start using the tool, and some percentage of them become customers.\nThere are some downsides like feeling pressure to do a lot of stuff in public that I'd rather have the space to work on in private, and managing GitHub issues and PRs from the community is an enormous amount of work that we're constantly trying to figure out how to deal with, but overall I think the OSS side of things is a big net positive for what we're doing.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nI think building a CSS framework isn't a challenge nor its unique. Any megatech with design team should have few design frameworks. Many public frameworks came and left, so anyone with experience probably would only stick with megatech's frameworks to ensure not getting burned by 3rd party projects that are abandoned. Then you get people who still wants to pivot away from megatech for various reasons.\nI think the most impressive part is how consistent Tailwind CSS seems to be able to hold up the past few years.\nPersonally, I used bootstrap, bunch of react frameworks, Apple designs, Material designs, Fluent (Microsoft) designs. I used bunch of my own frameworks. I prefer to have components act on css directly but there are times I get lazy and just want to pick a good framework. I've switched all my projects to Mudblazor the past 3 years. It's a framework at component level and it's performance is as good as mine acting directly on CSS. The only drawbacks: 1) the flexibility (as design is tied to material design), 2) slight learning curve for a new framework, 3) project not by a megatech (though it's now well funded). That said, my latest project is on Tailwind CSS with components modifying the css directly. I do use daisyUI at times. Since I am on blazor stack, I can't gain much by getting TailwindUI. I like it so far, but when I have missing components I'll need to write that myself and probably have inconsistent UI styling... maybe I'll switch back to Mudblazor.\nEdit: sorry, I am switching back... It was fun learning Tailwind CSS though.\nAlienroid\n&middot;\n4 years ago\n&middot;\nReply\n3\nNo questions, just wanted to say thank you. TailwindCSS is an awesome framework! I've used Bootstrap almost exclusively and have transitioned over to TailwindCSS for all of my personal projects. Nostrovia!\nvincepolston\n&middot;\n4 years ago\n&middot;\nReply\n3\nHow may Twitter followers did you had before you published the first book ?\nsachingk\n&middot;\n4 years ago\n&middot;\nReply\n1\nAbout 3500, and my email list that I built for the book was about 1500.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nHey Adam,\nAnother big fan here :) You've really set a great example of building a personal brand and business through info products. I re-watch your talk at the MicroConf every now & then to refresh the mindset.\nI was wondering what's your thought on releasing packages for Laravel:\n– with a \"Open-core\" model, accompanied by commercial licenses...this would allow people to use the package on personal projects but companies will need to buy licenses to use the same package for commercial projects.\nOR\n– with only commercial paid licenses with various tiers where developers can get the package with basic functionalities at a relatively low price, on a per-project basis license...teams and companies can purchase licenses at a higher price with all the features and multiple project usage.\nThanks in advance!\nphpfour\n&middot;\n4 years ago\n&middot;\nReply\n6\nHey! I think the best thing to do here would be talk to potential customers, hard to speculate. My gut feeling is that it will be an uphill battle and would depend on what the tool is. Something like Laravel Nova is a package but feels easy to sell as a product, whereas something like a filesystem driver for Dropbox or something is going to be a harder sell.\nI've never done either option myself though so unfortunately can't speak with any experience, sorry!\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThanks for your answer!\nphpfour\n&middot;\n4 years ago\n&middot;\nReply\n3\nAny advice you have for someone that wants to sell programming course/book without any social media followers? Do I focus on selling the course/book? Or Start with free one?\namin_\n&middot;\n4 years ago\n&middot;\nReply\n2\nThe only way I know how to do it successfully is to build an audience first, so I'd start there if it were me. When me and Steve decided to work on Refactoring UI, he had basically zero Twitter followers and we spent two years growing his following and building trust before we released the book.\nI gave a talk on my approach to launching info products, I'd recommend giving it a watch for lots more tactics:\nhttps://www.youtube.com/watch?v=ajrDxZRpP9M\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nIs there any big changes/choices your wish you would have made early on when building Tailwind that you feel is too late to change now that Tailwind is so stable and used by so many people?\nHarrjm\n&middot;\n4 years ago\n&middot;\nReply\n3\nOne big one I'd actually change is the spacing scale — I regret the cryptic mapping of mt-4 being 1rem (16px), pointless abstraction. In hindsight I 100% would have had mt-4 be 4px , but represented as 0.25rem for accessibility reasons.\nOther than that honestly not a ton, there are a few utility names I would probably change now like leading-* and tracking-* but we made quite a few changes from v0 to v1 and overall pretty happy with where things are now.\nThere are lots of little legacy things internally that we have to manage for backwards compatibility, but at this point I don't think I'd change any of that stuff unnecessarily. A lot of the time there might be a better name for something but it's not better enough to warrant a breaking change. Breaking changes are extremely painful and can be the death of a project if not handled carefully, so it's something I take pretty seriously.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nWhen does KiteTail launch?\naarondfrancis\n&middot;\n4 years ago\n&middot;\nReply\n10\nI'm never building anything that has to calculate sales tax or talk to the PayPal API.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n2\nThat's awesome! I wonder if your same strategies could be replicated in other spaces. How big was your audience when you launched?\nItsKev\n&middot;\n4 years ago\n&middot;\nReply\n2\nHi Adam, TailwindCSS really improved my ability to deliver fast results as a solo dev. Thank you for that!\nPaddle vs. Revin, which would you chose for a new product right now? Seeing you still use both in parallel.\nrunMRR\n&middot;\n4 years ago\n&middot;\nReply\n2\nBig fan. I'm curious how you dealt with the \"tribalism\" behaviors in the front-end developer community. In the past, whenever I've brought up a controversial idea about front-end frameworks, like \"react is a view library, if you use it for application development you'll eventually run into data management problem. you should use react with another library meant for managing data. Treat React like the \"V\" in MVC\" - I would get this vile hatred from other front-end developers. They'd say things like \"MVC is dead, your skills are outdated, bla bla .\"\nThen a few years later the same people changed their tune with \"Prop drilling makes your code messy. It's time to use state management libraries.\" Which is essentially using MVC principles - the state management library being the \"M\" and react being the \"VC\".\nDid you experience the same pushback with Tailwind? If so, how did you overcome this resistance and win so many people over to the 'tailwind' way of thinking about css?\nsidjain\n&middot;\n4 years ago\n&middot;\nReply\n2\nWho is the greatest GUITARIST of all time?\nShow your work.\nRonNorthrip\n&middot;\n4 years ago\n&middot;\nReply\n5\nMy top 3:\nJeff Hanneman (Slayer), not the most technically impressive but wrote the best riffs of all-time.\nDan Mongrain (Martyr/Voivod), super underrated, incredible player, can play anything and play it perfectly.\nVogg (Decapitated), just the most inhumanly tight guitarist I've ever seen.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nThis reminds me of the time someone asked Eric Clapton \"What's it like being the greatest guitarist of all time?\" and he replied \"I don't know, ask Prince.\"\nEuperia\n&middot;\n4 years ago\n&middot;\nReply\n1\nActually lol'd at this. What a great quip!!\nbrandonHacker\n&middot;\n4 years ago\n&middot;\nReply\n2\nTailwind is the single greatest CSS framework. So what are your thoughts on react-bootstrap? I know people often pit the 2 against each other.\nAlso, how long did it take you to build Tailwind? What was the engineering process like for building and creating it and how long did it take for people to catch on to it? Was it all through word of mouth or did you do some type of marketing?\ntheselftaughtlearner\n&middot;\n4 years ago\n&middot;\nReply\n5\nI haven't used react-bootstrap but I have always been a huge fan of just Bootstrap itself and learned a ton from that project. The only reason Tailwind exists actually is because Bootstrap switched from Less to Sass and I really had a strong preference for Less, so started rolling my own framework.\nI think Bootstrap solves a different problem than Tailwind personally — it's much more batteries included and makes it easy to build things super fast if you're happy to sort of \"color inside the lines\" that Bootstrap gives you with its components. The problem Tailwind tries to solve is \"how can I build this totally custom design I got from our design team faster than just starting from total scratch with an empty CSS file?\", which I don't think is the problem Bootstrap aims to solve.\nIt's hard to measure how long Tailwind took because it sort of came into existence organically. It started in 2015 and was released in 2017, but didn't actually have any plans to open source it until just a few months before it was released. Check out this blog post for a full history of the framework.\nI didn't really do any deliberate \"try to grow the framework\" type marketing, but I am a bit of a marketer by nature, so I created a lot of content around the framework when it was released, like screencasts on recreating popular websites with Tailwind. I never set out to create a popular open-source framework though — I only released it because people saw me using it in my live-streams and asked me how they could get their hands on it to use it in their own projects.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n2\nHow did the structure of your working days change with the growing success? Are you working more?\nLess? You said you went full-time in 2017, how much did you work on Tailwind until you went full-time? What made you choose going full-time? Any specific milestone?\njansroka\n&middot;\n4 years ago\n&middot;\nReply\n3\nI think the biggest change has been going from just me and Steve to having a team. When it was two of us we didn't have to do a lot of planning, and just sort of worked on whatever we felt was the most important thing to work on at any given time. Now with a team I have to spend more time making sure there is enough clearly defined work out there for everyone to work on, so I am in the code a lot less and working a lot more on strategy.\nIn terms of actual butt at the desk hours, it hasn't changed much. I have a young family so I stick to a 9-5 work schedule and take weekends off unless there's something really important that needs to get done. There are usually 2 or 3 times a year where I'm working a couple of hours in the evenings for 3-4 days straight to get something out the door in the time we want to ship it by, but nothing crazy.\nBefore I had kids I worked in the evenings and on the weekends more, and I couldn't have written that first book without working on it in the evenings for a couple of months straight.\nI worked on Tailwind quite a bit before going full-time on it, but I had the space to do it because the income from info products is quite passive and the work is mostly in bursts. I worked on Tailwind a ton in the summer of 2018 for example between my Vue course and writing Refactoring UI, and then focused almost 100% on Refactoring UI from September to December.\nI decided to go full-time on Tailwind because it was growing really fast as an open-source project, and it felt like I had an opportunity to really \"put my dent in the universe\" with such a high impact project. Wasn't a specific milestone but more just noticing it growing, and the convenient timing of just having released Refactoring UI which bought me a lot of time due to the success.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\n\"put my dent in the universe\"\nLiving the dream!\njansroka\n&middot;\n4 years ago\n&middot;\nReply\n1\nAs a Tailwind fan boy I am really impressed to get such a detailed answer. Thanks!\njansroka\n&middot;\n4 years ago\n&middot;\nReply\n1\nThis might be a dumb question that you've answered before, but when I brought up using TailwindCSS to a partner of mine she objected, because she said it \"breaks the semantic web,\" i.e. \"It's not standards compliant\".\nTo me, I'm like, \"I'd like to break the semantic web! That sounds like fun.\" Tailwind looks really awesome and a massive timesaver and I don't love dealing with CSS. Do you have an answer for this kind of objection?\nMaybe this was a question you've tackled in the past and give me a link?\nGabrielKunkel\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey loved your book. As I transition out of solo dev on my business, how can I find frontend devs with good design skills to hire? I'm finding it really difficult to find devs who are great at UX/UI. Where are some good places to look?\ndashbarkhuss\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat was your professional experience before publishing your first book? How long do you think it took for you to be mature enough to share that knowledge into book form?\nluskira\n&middot;\n4 years ago\n&middot;\nReply\n1\ni'm probably late here but i'll shoot my shot.\nhow did you build refactoring ui book? i'm talking the technical aspects of it.\ni have seen you link to a blog post & used princexml & nuxt but i'm curious how does it whole work with markdown assuming you wrote the book in markdown.\nstyling it all so it looks pretty & making sure the images & text don't break the page flow.\nhow did you do it? what framework you used? how did you write table of contents? did you use @tailwindcss/typography with next.js? did you use puppeeteer with print: modifiers? curious!\nif you'd change anything if you had to build a book now, what would you do? asking this bcz there's really no answer on the internet to this that works with markdown. i tried many rust libraries & many md-to-pdf npm packages but they all fall short.\nstartupspells\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat other products do you use in your repertoire or respect and admire a lot?\nI'm a huge fan of Tailwind by the way! My biggest thanks for an incredible framework.\nflawnson\n&middot;\n4 years ago\n&middot;\nReply\n1\nHUGE FAN!\nI was never ever fond of Bootstrap, they all look too similar, even when heavily customized.\nAfter tinkering with Tailwind, I came across Daisy and the rabbit hole got deeper 🤣\nFor a short while, I was using WindiCSS and later UnoCSS - but I keep coming back to Tailwind because I absolutely love the dedication, the optimization, the speed, the simplicity and the direction you guys are headed.\nI still tend to favor using apply for many of my duplicated styles. Are you still against that? 🤔\njjaimealeman\n&middot;\n4 years ago\n&middot;\nReply\n2\nLook into Twind it is similar to Windicss and unocss but follows Tailwind (so you can always exit).\nvolkandkaya\n&middot;\n4 years ago\n&middot;\nReply\n1\nThat looks pretty cool! I dig cool tools! Thanks amigo!\njjaimealeman\n&middot;\n4 years ago\n&middot;\nReply\n1\nThank you so much, Adam!\nYour talk ( https://www.youtube.com/watch?v=ajrDxZRpP9M&t=460s ) from MicroConf changed my world.\nvrabota\n&middot;\n4 years ago\n&middot;\nReply\n1\nThough I'm used to traditional CSS I don't find myself using Tailwind, I will say that I love the concept. Very impressive work; and pretty cool you still immerse yourself in communities like this.\nNice to meet you Adam!\nThreePack\n&middot;\n4 years ago\n&middot;\nReply\n1\nDid popularity of tailwind increased suddenly or you had apply some hacks to make boot up from ground?\nnavdeep_dh\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi @adamwathan - I'm one of your quasi-early adopter to Tailwind CSS, and probably one of your first few thousand buyers of Tailwind UI.\nI found you originally because I (cough cough) used Bootstrap and always struggled with it, and then started my own Vue UI project - and you had several videos to help me understand both Vue and building a Vue UI. So many thanks for that.\nMy real comment is this ... as a former \"product marketing\" guy, I love how you do your pricing. Instead of doing the whole \"subscription\" thing with your product, you rely on the world of a \"one-time\" purchase, and then enhancing your product, with uplift or upgrade pricing.\nQuestion: How much of a struggle (both internally and with your team) was that decision?\nAnd would like to echo the question from @runMRR - around Paddle v Revin.\narniemckinnis\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi Adam! Excuse my english, I am french.\nWow, didn't know you did so much, so inspiring!\nMy question: I am curious if you have any unsucessful projects that didn't see the light but you wish they did, if so, what have you learned about those experiences?\nThx, keep on the good work on Tailwind, it really helped me to build project alone without deep diving into css.\nKabo\n&middot;\n4 years ago\n&middot;\nReply\n1\nI am simply amazed that you started in 2017. It feels like Tailwind popped up like 2 years ago max. What happened in the early stage? Did you encounter a spike in popularity or was it a steady growth?\nericbureltech\n&middot;\n4 years ago\n&middot;\nReply\n1\nAdam - did you have to struggle to get your first customers? If yes - how did you go about it?\nTestimonialGuru\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nTailwind fans here..\nThank you for your hard work! you made our life easier\nkenzcde\n&middot;\n4 years ago\n&middot;\nReply\n1\nis there any opportunities around the Tailwind CSS ecosystem you won't be doing and the rest of us can do?\nstaticmaker2022\n&middot;\n4 years ago\n&middot;\nReply\n1\nI see tailwind as a breakthrough in thinking. It is half framework, and half changing how people think about CSS from the bootstrap sort of approach. What would be your bet for the next breakthrough thing in web development that will change how people work?\nmcapodici\n&middot;\n4 years ago\n&middot;\nReply\n1\nhow did you decide on a single purchase pricing model vs a subscription, and do you still think it was the right decision?\nkyh\n&middot;\n4 years ago\n&middot;\nReply\n1\nany plans to make the tailwind ui components work with plain js?\nI used to use vue/nuxt and it worked great out of the box, but I'm dropping vue and going back to full server side rendered and would love to have a working example with plain js\njonny91\n&middot;\n4 years ago\n&middot;\nReply\n1\nI have been interested in the books market for a while as it seem both lucrative and intellectually stimulating. How did you market/publish your books initially?\nlassekt\n&middot;\n4 years ago\n&middot;\nReply\n2\nI self published them just as ebooks and sold them on Gumroad.\nFor the marketing, the key for me was building authority in the area I was writing about for a long time before starting on the book, and then building a list of people interested in it before it launched.\nI gave a whole talk on creating info products that I would recommend:\nhttps://www.youtube.com/watch?v=ajrDxZRpP9M\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi Adam,\nMassive fan of TailwindUI and RefactoringUI, thanks for your work on these!\nYou mentioned that prior to releasing RefactoringUI you spent time building up Steves twitter followers. What methods did you find worked best for this? It seems these days everyones on there throwing out threads and it's become a very murky ground and seems much harder to stand out.\nDid you do anything specific in this regard that worked better?\nrmwebs\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey! We just tried to create really fantastic content that fit in a single tweet. Here are all the tweets we put together over the years when building his audience:\nhttps://twitter.com/i/events/994601867987619840?s=21&t=CBx2pirG82hmVeToYqnHKw\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThis is super impressive, Adam! Well done!\nAnd thank you for creating both Tailwind and TailwindUI. I use them a lot myself.\nKeep up the excellent work!\nphillipstemann\n&middot;\n4 years ago\n&middot;\nReply\n1\nI love tailwind UI. Your achievements are very impressive. Well done\nJuliendeC\n&middot;\n4 years ago\n&middot;\nReply\n1\nThat's really something motivational great work\ndilaw\n&middot;\n4 years ago\n&middot;\nReply\n1\nWow you have a lot of big fans here :)\nchenlungx\n&middot;\n4 years ago\n&middot;\nReply\n1\nAwesome story @adamwathan. Thanks for sharing it.\nManojRanaweera\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi, Are you going to support other frameworks such as Svelte? Thanks, big fan.\nlsgrep\n&middot;\n4 years ago\n&middot;\nReply\n1\nProbably not I’m afraid, in hindsight I wouldn’t have added Vue support even, it really slows us down and limits what we can build because any JS behavior needs to be in Headless UI so that it can work in both frameworks, can’t ever use any existing third party libraries. For example if we wanted to add a kanban board component we’d have to build our own drag and drop stuff from scratch so that it could be part of Headless UI and work in both React and Vue, instead of just using a popular established React library.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n2\n@adamwathan ... you might want to ignore this question (probably one of those, \"keep my opinion to myself\" type of things) ... but if you do ...\nIf you were starting an app project today, would you choose React over Vue? And why?\nFull disclosure, I'm a Vue fanboy, but wondering if refactoring to React for App UI would be a better choice. So just curious about your ideas from a React v Vue perspective (or anyone's on this comment stream).\narniemckinnis\n&middot;\n4 years ago\n&middot;\nReply\n1\nI'm a huge fan, and just wanted to say thank you for such an amazing work.\nsamkamrani\n&middot;\n4 years ago\n&middot;\nReply\n1\nAdam, I just love your platform and your components.\nI have always dreaded working with CSS.\nYou made it super easy for developers like me to create awesome looking web apps without having to depend on frontend developers or designers.\nCould you give a deep dive into your process for creating such great components?\nanirudhekbote\n&middot;\n4 years ago\n&middot;\nReply\n1\nHello! Thanks for doing this Adam! Fan since v1 and insta-purchaser of all things Tailwind UI, also refactoring.\nMy biggest hinderance to fully embracing TailwindCSS is that lack of prebuilt UI components (datatables, inputs, etc) that support custom classes. It is impossible to justify the use of Tailwind sometimes when compared to the ease of use of UI Frameworks like Veutify or Quasar.\nWhat is your vision for HeadlessUI Are you looking form something similar to Vuetify or other UI frameworks?\nEdit:\nWhy didn't you build TailwindUI around a SAAS model? Will there always be a market for new buyers? Is there truly a never ending number of new developers?\nphilipimperato\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey @adamwathan, I've been following you for quite some time now, and I have to say how can tailwind be so fluent!? Such an amazing work!\nHow do you manage your time?\nE.g. a feature is taking more time than expected. or which feature will work on first?\nmiguellima\n&middot;\n4 years ago\n&middot;\nReply\n1\nTailwind is the unmarried best CSS framework. So what are your mind on react-bootstrap? I recognise humans frequently pit the two in opposition to every other. https://bit.ly/3BFcGFM\nenlsonbridgeman\n&middot;\n4 years ago\n&middot;\nReply\n1\nBig fan of your work & I use Tailwind for most of my projects.\nCurious to know how many projects you worked on before going all in on Tailwind? And are those projects still active?\ngoutham8\n&middot;\n4 years ago\n&middot;\nReply\n3\nMan lots of stuff but almost all of it never even got released or went anywhere. Lots of getting excited about something, building the first 25% but never taking it over the finish line.\nA bunch that lead directly to Tailwind are captured in this post:\nhttps://adamwathan.me/tailwindcss-from-side-project-byproduct-to-multi-mullion-dollar-business/\nNitpick CI was my first attempt at starting a SaaS app and the only one I ever actually launched, but it went nowhere. I talk about it a bit in this MicroConf talk I gave .\nI worked on tons of open source stuff too, none of which is maintained or anything any longer — mostly little libraries that didn't have a lot of actual users.\nNowadays I only work on Tailwind-related stuff 👍\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat do you think made TailwindUI stand out from tons and tons of similar products out there from open source \"saas starter kits\" to ThemeForest templates?\nrdev\n&middot;\n4 years ago\n&middot;\nReply\n1\nI think the biggest thing we had going for us was the trust in the community we built when leading up to launching Refactoring UI. Steve was basically a celebrity designer at that point, so people were a lot more excited about what we were doing.\nI think it also helps a lot that they are official and come from the Tailwind CSS team.\nOn top of that of course we really just tried to make a great product, and structure everything in a way that's a little different than a typical theme and more just like a giant toolbox of stuff that will hopefully be useful on all of your projects. Not charging per project I think helped convince people to pull the trigger too.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nCongrats on all your successes! Really enjoying Tailwind it made my life a lot easier!\nYou made quite a few courses.\nHow did you get started making those?\nDo you have any resources or tips on how to succeed with info products?\njebraat\n&middot;\n4 years ago\n&middot;\nReply\n2\nHey thank you! I gave a talk that covers everything I know about launching info products, I'd definitely recommend giving that a watch:\nhttps://www.youtube.com/watch?v=ajrDxZRpP9M\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThank you! :)\njebraat\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey there! Massive fan of Tailwindcss. It has made development incomprehensibly better for me and I owe so much to you and your team for the beautifully tasty design of my site. Thanks so much!\nHeadless UI has been a massive time saver for me and has instilled a ton of confidence knowing that the components I'm getting are built correctly, with accessibility in mind, all the while allowing me to retain my own design language. I love it.\nI know your team is likely spread a little thin with so many projects going on, but do you have plans to continue to grow the Headless UI library, even though you have a paid option with Tailwind UI? I definitely hope so :)\nAgain, thank you!\ncsarnoult\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey thanks so much! We still do lots of work on Headless UI, we just released a new version last week:\nhttps://tailwindcss.com/blog/2022-09-09-new-personal-website-heroicons-2-headless-ui-v17#headless-ui-v1-7\nGenerally we only add what we personally need though, because it could become a really huge distraction otherwise. It's an absolutely brutal project to maintain because of all the weird accessibility and browser quirks you have to worry about, so we try not to just add to it for the sake of adding to it.\nIt's super important to us though and we take maintaining it very seriously, because it's the foundational layer for React and Vue support in Tailwind UI.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nIs PHP dead?\njasonlbeggs\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nOn the tech front\nI think a while back on your podcast you mentioned you were hacking on Elixir on your spare time, and given you had the time, what would you love to build out using Elixir?\nOn the business side\nIt's so incredible to see you guys iterate so quickly and ship such high level of polished work, and given that some of the time teams end can end up being inefficient (by hiring too quickly), at what point did you guys embrace the idea of start adding more team members?\ngcavanunez\n&middot;\n4 years ago\n&middot;\nReply\n3\nWhat would you love to build out using Elixir?\nHaven't touched Elixir in a long time and don't have any great ideas right now I'm afraid. Really enjoyed learning it though — learning a functional programming language really was an amazing workout for my brain.\nat what point did you guys embrace the idea of start adding more team members?\nRight after Tailwind UI was released we realized we were gonna be totally overwhelmed trying to maintain and improve that project while also maintaining and improving Tailwind CSS. Hiring was definitely the right decision and has been a life-saver, but I am still very conservative about it and probably wait too long to hire people. I don't think I'm a great manager even though I try hard at it, and it's very draining for me.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat's the next move?\nMaking a Tailwind website builder?\nisaacjoy_\n&middot;\n4 years ago\n&middot;\nReply\n7\nJust want to keep making our existing stuff better and better. Tailwind is used by so many people now on such big projects that I think it's really important to dedicate lots of time to just making it as bulletproof, reliable, and fast as possible.\nI hear the website builder thing a lot but really don't have any interest. I think that's a seductive thing to build as a developer because it sounds like a fun and interesting project, but we make things for developers, and I've yet to meet a developer who wants to build a website with a WYSIWYG tool instead of their editor. I would never use it myself, so even if it's an interesting technical challenge, I wouldn't want to pursue it as a product.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat if the editor is not a separate entity and instead integrated to the workflow as a Chrome extension?\nalthaffe\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nI'm big fan. Thank you for everything you have done for the community. You have changed my life in ways you can't imagine. Thank you again.\nMy question is, how many hours do you work per week? How do you balance everything?\nreckuza\n&middot;\n4 years ago\n&middot;\nReply\n4\nHey! Wow thank you, that's amazing to hear.\nI am in my office Monday to Friday 9-5, pretty regular working hours. When it was just Steve and I there would be some big pushes a few times per year when we worked really hard to get something out for some self-imposed deadline, but even though I had a lot of fun doing that we don't really work that way much anymore with a team.\nIn terms of balance, thankfully our products aren't the sort of mission critical things where you have to get up at 2am on a Sunday to fix some problem like you would if you maintained the API at Stripe or something. I do still need to pay attention to things and have a sense of any issues basically 24/7 like any business owner does, but it's very rare that real emergencies happen, I think it's happened maybe twice.\nThere's always an endless amount of good ideas to pursue and things to work on, so it's also really important that we try to stay very focused in terms of what problems we actually pursue, because otherwise it would be easy to end up overwhelmed. The natural state of any business with product market fit is to grow grow grow, there's like a gravity of opportunities begging for you to take advantage of them, but if you do then you start feeling overwhelmed, like you need to hire more people, manage more people, and I've realized that that doesn't make my life better. Better to just try and do as few things as possible and avoid taking on too much.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nNow that you are my definition of success, what motivates you to keep building ?\nHow do you overcome burnout ?\nWhat would you be doing if you sucked at design ? (learning design doesn’t count)\nName 3-5 websites/tools you cannot live without .\nTailwind CSS motivated me 3 years ago to be a web dev, and I’ve built +10 live websites in 5 frameworks, thanks A LOT for writing RUI and making TCSS/TUI.\nalexandromg\n&middot;\n4 years ago\n&middot;\nReply\n3\nwhat motivates you to keep building?\nHonestly just have to do something right? I don't think I have the same motivation as I used to, but I've found that just forcing myself to do something gives me motivation and is rewarding. On the days where I don't feel motivated and don't do anything, I feel like crap and like I'm not doing anything with my life except watching the universe pass me by. So better to just do something , no matter what.\nHow do you overcome burnout?\nTake some time off but find something to do in that time that is fulfilling and enjoyable, don't just vegetate. Then figure out what caused you to burn out and try to put things in place to prevent it from happening.\nGreat talk I come back to all the time when I'm thinking about this:\nhttps://www.youtube.com/watch?v=Kn5MbZoSRNM\nWhat would you be doing if you sucked at design? (learning design doesn’t count)\nHonestly I'm not a very good designer, Steve is the real designer in our partnership! So for me, finding a designer as a partner was really key. I would still learn design though, I love design and have always strived to learn about it and get better at it.\nName 3-5 websites/tools you cannot live without.\nFigma, it's like our company whiteboard and I don't think I could even think properly without being able to work with other people at the company in a Figma file\nExcel, best software ever made\nTailwind CSS ;)\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nI’m a great fan of your work :)\nTwo questions\nIn what ways did refactoring ui (or other big influences) influence the core principles of tailwind?\nHow did you test or what Moment convinced you that tailwind is something that should be build ?\nKeep up the good work 😊\nmatze846856\n&middot;\n4 years ago\n&middot;\nReply\n2\nHey thanks!\nIn what ways did refactoring ui (or other big influences) influence the core principles of tailwind css?\nThe ideas we put into Refactoring UI influenced the default design system in Tailwind CSS a ton, literally everywhere. The type scale, the shadow system, the color palette, the spacing scale — all of that stuff was designed using the principals we wrote about in the book.\nHow did you test or what Moment convinced you that tailwind css is something that should be build ?\nI actually only decided to open-source it and turn it into a real \"project\" because I was live-streaming a lot of work on a SaaS app I was building, and the most common question I was getting was \"what is this CSS framework you're using?\"\nUntil then it was just some stylesheets I was copying and pasting between projects, but I was getting so much feedback on it that I decided to open-source it. Originally I intended for the framework to be open-source sort of as a marketing play for the SaaS business and to help get the word out, but the SaaS ended up being abandoned and the framework itself is what turned into a business.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n0\nI'm Alexander, a moderator at the best Faje Bank Alert Tool FLash Funds. https://flashfunds.app\nFlashFunds\n&middot;\n4 years ago\n&middot;\nReply\n0\nNice, Thanks for sharing your valuable thoughts. I really Appreciate to write your main concept.\nhttps://inspectionexperts.com.au/\nInspection_Experts\n&middot;\n4 years ago\n&middot;\nReply\n0\nGlad to see you here!\nalpesdream\n&middot;\n4 years ago\n&middot;\nReply\n0\nhey there!\nAlcina\n&middot;\n4 years ago\n&middot;\nReply\n0\nTailwind's opinionated library makes working with CSS easier, great job Adam.\nOur team uses it at https://www.Vibehut.io\n1dolinski\n&middot;\n4 years ago\n&middot;\nReply\n-2\nThis comment has been voted down. Click to show.\nfabform\n&middot;\n4 years ago\n&middot;\nReply\n4\nThis feels like borderline spam but I'll give an answer here that's maybe useful to readers.\nWe get so, so, so, SO many messages about partnerships and integrations and stuff like that, and we say no to every single one. Lots of them would probably make us more money, but money isn't what we are really optimizing for at this point, I'm optimizing for maximum freedom and a fun and happy life. Pulling more people in an any way doesn't help us get to that goal. It's more people to co-ordinate with on things, more people expecting things from us, and it slows us down. So I really doubt we will ever partner with anyone on anything.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThis comment was deleted 4 years ago\nfireaction\n&middot;\n4 years ago\n1\nThis comment was deleted 4 years ago\nfireaction\n&middot;\n4 years ago\n1\nThis comment was deleted 4 years ago\nfireaction\n&middot;\n4 years ago\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://marketingexamples.com/landing-page/pricing",
+     "publisher": "Marketing Examples",
+     "snapshot": {
+      "url": "https://marketingexamples.com/landing-page/pricing",
+      "finalUrl": "https://marketingexamples.com/landing-page/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-06T09:24:11.769Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "18c233af655d1f880384786bf8725da7a590ea75ffbff591d4a32c89f0b91104"
+     },
+     "text": "Refactoring UI: A lesson in high prices\nRefactoring UI: A lesson in high prices\nHow Adam Wathan and Steve Schoger escaped the dogma of e-book pricing and made $1.35M selling Refactoring UI, their design book.\nHow Adam Wathan and Steve Schoger escaped the dogma of e-book pricing and made $1.35M selling Refactoring UI, their design book.\nRefactoring UI: A lesson in high prices\nRefactoring UI: A lesson in high prices\n3 mins\nLanding Page\nPeter Thiel spends 6 months writing down everything he knows about business. His book sells for $10 on Amazon.\nAdam Wathan and Steve Schoger spend 6 months writing down everything they know about design. Their “ book ” sells for $79 online.\nBelieve it or not, both prices make perfect sense.\nThiel is selling to the masses and the masses are sensitive to price changes (price elastic). If he raises the price to $30 they wouldn’t think twice before substituting his book for one of the many cheaper alternatives on Amazon.\nAdam and Steve are selling to hardcore fans and hardcore fans are insensitive to price changes (price inelastic). They've all been following the Twitter tips , watching the screencasts , reading the Medium posts . In their minds, there are no substitute resources available. They don’t want any old design book, they want an Adam Wathan + Steve Schoger design book.\nWhen demand for your good is inelastic, you raise your price. In the case of Adam and Steve, all the way up to $79. As the diagram shows, a 8x price increase (from $10 to $79) results in just a 2x drop in books sold (20k to 10k) and 4x more revenue (shown by the area of the two rectangles).\nStep 2 - Escape the context of an e-book\nSo quite rightly Adam and Steve elected to charge a high price, but that created one problem: You can't just sell an e-book for $70+ . People are anchored to what they're used to paying on Amazon. To quote Adam:\nThe format commands the price. No matter what the content is. And it speaks nothing to the value of the content or the effort that was put into creating it.\nSo how did Adam and Steve get round this? Well, they set up their own website , added in video tutorials, an icon pack, color palettes, font recommendations, a component library. And then the context changed .\nThey were no longer selling an Amazon e-book , they were selling an exhaustive design package . And they could charge whatever they liked.\nStep 3 - A Persuasive Higher Tier\nIn addition to the lower tier package of $79, Adam and Steve were also selling a higher tier package priced at $149. And it was this package that they wanted people to buy. The question was how could they present it in such a way to make it appear more compelling?\nWell, firstly, look at the hierarchy. The higher tier package takes up twice as much screen space, the font size is larger, and the button color is primary. It doesn't feel right pressing the “Buy Now” button on the lower tier.\nSecondly, look at the disproportionately sized discounts. The higher tier package\nis reduced by $100 (or 40%).\nThe lower package\nis only reduced by $20 (or 25%). To quote Adam:\nIf you want people to buy the more valuable package why not make the discount more compelling.\nAnd thirdly, look at the labelling of the higher tier option. The Complete Package infers that if you choose anything less you're missing out . It could just as accurately be labelled The Bonus Package but that wouldn't have the same psychological impact.\nAnd the subtle tweaks in presentation seemed to work. 78% of total purchases (6765) favoured the higher tier (as of Jan 10, 2019).\nIn Summary\nSo, there we have it. Adam and Steve:\n• Identified that a hardcore audience called for high pricing\n• Escaped the dogma of e-book pricing\n• Packaged the higher tier in a more compelling way\nand Refactoring UI ended up grossing over $1.35M .\nFinal Thought\nI don't want this pricing lesson to overshadow Adam and Steve's real competitive advantage: being able to justify a price of $149 in the first place . Only in serving up two years worth of free tips, screencasts, and articles is this price possible.\nMy own heuristic is: The price you can charge is equal to the value you’ve already created .\nNod of Appreciation\nThe quotes in this case study come from The Art of Product Podcast: Episode 70 , where Ben Orenstein and Derrick Reimer interview Adam and Steve. Would definitely recommend.\nContent SEO Sales Social Ads\nCopywriting Landing Page\nRetention Brand Referral Creative\n“ #1 Marketing Newsletter”\nRead by 130k\nCopywriting Examples\n30 secs\nSocial\nPosting seltzer. Making money.\n2 mins\nCreative\nThe saleswoman closing 33% of cold pitches\n2 min\nSales\nA full-time “pizza influencer”\n2 mins\nContent\nOne of these videos has 18M views\n30 secs\nCopywriting\nShould you offer a free trial?\n30 secs\nLanding Page\n“Make Ugly Ads”\n30 secs\nAds\nThe chocolate that goes viral every day\n2 mins\nAds\nThis rebrand cost Tropicana $55M\n1 min\nBrand\nRows' homepage test that doubled conversions\n1 min\nLanding Page\nAdobe's Perfect TikTok\n2 min\nAds\nBou's Near-Perfect Google ad\n2 mins\nCopywriting\nHow Loom Created a Category\n2 min\nBrand\nFour (not boring) ways to name a new product line\n30 secs\nCopywriting\nThe cold email that started a $100M / yr company\n2 mins\nSales\nReforge and the Strategic Use of Language\n30 secs\nBrand\nOne line. Eight Rhetorical Devices.\n3 mins\nCopywriting\nFour ways to write a CTA\n30 secs\nLanding Page\nI love this DTC retention strategy\n1 min\nRetention\n“Press B anytime to Buy”\n30 secs\nLanding Page\nInnocent’s Wooly Hats\n30 secs\nCreative\nI love Blinkist's free trial paywall\n1 min\nLanding Page\n“How can I do the ad without any adjectives?”\n30 secs\nCopywriting\nI love True Classic's upsell\n30 secs\nLanding Page\nGrowth Design's 60% open rate\n1 min\nContent\nTwo million clicks from one email\n1 min\nCopywriting\nLizzy's email worked on me\n1 min\nSales\nHow the 🌀 took over LinkedIn\n1 min\nReferral\nHow to approach viral content marketing\n20 secs\nContent\nSky Bet's Perfect Offer\n2 min\nCopywriting\n70% of Calvin Klein's tweets are questions\n2 min\nSocial\nThe most upvoted Reddit ad ever\n1 min\nAds\nHow Chamaripa turned celeb heights into shoe sales\n2 mins\nSEO\nThree ways to add warmth to your CTA\n15 secs\nLanding Page\nMy step-by-step guide to landing pages that convert\n4 mins\nLanding Page\nVeed, Miro and Canva's strategy in one line\n2 mins\nContent\n“The Dream 100”\n3 mins\nSales\nInnocent know how to write copy\n1 min\nSocial\nOne thousand replies to cold emails\n3 mins\nSales\nBarbie Newsjacking\n30 secs\nCreative\nHow Basecamp makes $99/month feel cheap\n25 secs\nLanding Page\nWine List's Counterintuitive Pricing\n1 min\nLanding Page\nMy favourite sales email pattern\n20 secs\nSales\n4 years. 4 AMA's. 1M views.\n30 secs\nSocial\nSeven ways to build your “founder brand”\n2 mins\nSocial\nMy favourite “Meta Images”\n1 min\nLanding Page\n10% of ARR from typo domains\n30 secs\nCreative\nMy new favourite agency ad\n1 min\nAds\nThe content marketing sweet spot\n1 min\nContent\nNine marketing examples that tap into cognitive biases\n3 min\nCreative\nThe tale of two Twitter strategies\n1 min\nSocial\nHow Vogue tapped 5M views from a 3 year old interview\n1 min\nContent\nSticker Mule's plain text emails\n30 secs\nSales\nA crash course in improving your open rate\n1 min\nRetention\nHow to grow a YouTube channel in 2022\n1 min\nContent\nCopywriting is more like math than you suspect\n1 min\nCopywriting\nInside Steven Bartlett's ad library\n30 secs\nContent\nDon't write “labels”...\n30 secs\nLanding Page\nI love this abandoned cart hook\n1 min\nSales\nMy favourite indie rock band\n10 secs\nCreative\nAG1's welcome offer is idiot-proof\n30 secs\nBrand\nAn influencer ad that doesn't SUCK\n1 min\nAds\nWhy is the Angostura bitters label too big?\n1 min\nCreative\nA crafty social media giveaway\n30 secs\nSocial\nA brilliant response to Amazon cloning your product\n1 min\nCreative\nHow Jürgen Klopp makes fans smile\n2 mins\nBrand\nArc'teryx's TikTok Fame\n1 min\nSocial\nI love Billboards designed for social\n2 mins\nSocial\nHow Chewy delights customers\n3 mins\nBrand\nRefactoring UI: A lesson in high prices\n3 mins\nLanding Page\nHow brands make friends on Twitter\n1 min\nSocial\nUsing GIPHY for free brand awareness\n3 mins\nContent\nIf you want to grow on social make yourself easy to sum up\n40 secs\nSocial\nA Table of Contents can work wonders for SEO\n30 secs\nSEO\nHow I got 2,000 new subscribers from Product Hunt\n3 mins\nSocial\nCronitor's Little Side-Project\n2 mins\nSEO\nKapwing's YouTube strategy\n1 min\nContent\nHow I promote my content\n3 mins\nContent\nThe marketing genius of Lil Nas X\n4 mins\nSocial\nMy guide to conversational copywriting\n4 mins\nCopywriting\nHow to write a landing page title\n3 mins\nLanding Page\nPeople Warm to People, Not Brands\n1 min\nBrand\nOne Tweet. Eighty media placements.\n30 secs\nBrand\nA simple idea that’s makes Gillette $60M/yr\n2 mins\nReferral\nMy Twitter Inspiration Handbook\n6 mins\nSocial\n17 tips for great copywriting\n5 mins\nCopywriting\n27 words that sum up the psychology of copywriting\n30 secs\nCopywriting\nGrubhub's link building strategy\n3 mins\nSEO\nSignal's Instagram Ads\n1 min\nAds\nReal Marketing\n2 mins\nBrand\n£8k Instagram Giveaway → 1M followers\n2 mins\nSocial\nA crash course in getting press and building links\n4 mins\nSEO\nNeiman's magazine ads\n30 secs\nAds\nHow LadBaby started a movement\n3 mins\nBrand\nHow to build a website which converts email subscribers\n3 mins\nLanding Page\nA story about my dad and PPC ads\n3 mins\nAds\nThe genius of Tesla's marketing strategy\n2 mins\nBrand\nTaylordle\n1 min\nContent\nRewriting landing pages with a pro copywriter\n3 mins\nLanding Page\nHow Convert Kit grew from $1.5k to $100k MRR\n3 mins\nSales\n“Michelin Guide” Marketing\n3 mins\nContent\nEmail Segmentation — A practical example\n3 mins\nRetention\nCounterpunch like Carl\n2 mins\nSocial\nThe most creative Coronavirus company pivots\n2 mins\nCreative\nHow a creative Google ad got an investor's attention\n1 min\nAds\nThe genius of no name's brand\n3 mins\nBrand\nBarilla's pasta playlist\n30 secs\nCreative\nUsing Unsplash for brand awareness and backlinks\n2 mins\nSEO\nHow Steve Jobs clarified Apple's message\n2 mins\nCopywriting\nLet your customers write your copy for you\n2 mins\nCopywriting\nHow Rev. Chris grew 100k Instagram followers\n2 mins\nSocial\nMy guide to brand positioning\n3 mins\nBrand\nThe Vegetable Name Change\n1 min\nCreative\nThe marketing genius of Andrew Schulz\n3 mins\nContent\nGrowth Loops\n4 mins\nReferral\nWhy Burger King sponsored Stevenage F.C.\n30 secs\nCreative\nMy favourite low-budget viral ads\n4 mins\nAds\nHow Nomad List dominates longer tail keywords\n3 mins\nSEO\nApple’s “Shot on iPhone” campaign\n1 min\nAds\nDave Gerhardt's 1 line sales email\n30 secs\nSales\nContent SEO Sales Social Ads\nCopywriting Landing Page\nRetention Brand Referral Creative\nHey, I'm Harry. Every Monday I share:\n• 3 short examples\n• 2 copywriting tips\n• 1 favourite tweet\nMarketers voted it the “ #1 marketing newsletter ”. 130k people enjoy it.\nTry it\n“My favourite newsletter on the web”\n“The newsletter is so f***ing great !”\n“Better than my marketing degree ”\n“🦄🦄🦄 — Nuff said ”\n“The best thing is it works ”\n“How is this still free? ”\n“A genius that actually gives a sh*t ”\n“I have no regrets ”\n“ Best newsletter I'm subbed to”\n“You ALWAYS find something useful”\n“No fluff marketing. Works right now ”\n“Shit you actually want in your inbox”\n“Sadly, there's only one Harry Dry”\n“Most wisdom per newsletter of all time ”\n“One of the best marketers I know”\n“ One of the best things on the web”\n“I can feel my brain getting smarter ”\n“The Sir Alex Ferguson of marketing”\n“I haven't read a bad one yet”\n“ I wanna be Harry when I grow up”\n“ Gems everywhere ”\n“ Dangerous in the wrong hands”\n“If you don’t read Marketing Examples you aren’t really a marketer ”\n“I literally can't wait for new issues”\n“Multiple notifications so I never miss it ”\n“The only newsletter I share with every person that joins my team”",
+     "policy": {
+      "url": "https://marketingexamples.com/landing-page/pricing",
+      "decision": "allowed",
+      "usage": "independently_worded_facts",
+      "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+      "reviewedAt": "2026-10-06T19:30:00+09:00",
+      "termsUrl": "https://marketingexamples.com/",
+      "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き。ページは著者の編集物なので、手口の文章や図は載せない。",
+      "recheckAfter": "2027-01-04T12:00:00+09:00"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "ほぼ2年、凝った無料ツイートで開発者の見込み客を育ててから、デザイン教材を出し、累計250万ドル超を売り上げた2人組",
+     "basis": [
+      "f6",
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "開発者に、デザインを才能ではなく手順として教える教材を、PDF・動画・素材をまとめた一式で売る。本と動画だけの安い版と、素材まで入った上位版の2段で、チームには人数別の割引もある。",
+     "basis": [
+      "f1",
+      "f2"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "デザイナーに頼らず自分で画面まで作る開発者や、小さなチーム。公式サイトは「デザイナーに頼らずに」「開発者の視点で」と呼びかけ、推薦文も開発者の創業者が寄せている。",
+     "basis": [
+      "f1",
+      "f5",
+      "f13"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "動くものは作れるのに、できあがった画面がなぜか素人くさく見える。公式サイトの冒頭は、その原因が分からず、デザインに挑んでは挫折してきた開発者の悩みから始まる。",
+     "basis": [
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "最初の買い手は、発売前の約2年のツイートや記事で2人を知っていた読者と見られる。Adamは前の本や講座で、発売初週に約6万ドルを売った実績も持っていた。",
+     "basis": [
+      "f6",
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "発売前の約2年、デザインの小技を図解したツイートや記事を先に無料で配り、読者を育てた。1本に2週間近くかけたツイートもあり、記事は長い間Mediumで歴代1位だったと本人が書いている。",
+     "basis": [
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "著者は2人で、以前から副業で組んでいた（Steveが画面設計、Adamが開発）。教材作りに外部の資金を入れた記録は見つからない。",
+     "basis": [
+      "f3"
+     ],
+     "formula": "公式サイトの著者紹介による。資金調達の記述は材料に無い。",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "売れ行きは、2人が約2年かけて育てたTwitterなどの読者に強く支えられている。発売後はTailwind CSSの知名度も追い風になったと見られるが、材料に裏付けは無い。",
+     "basis": [
+      "f6",
+      "f11"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "公式サイトは、既存のデザイン講座が色彩理論などの原則に偏ると位置づけ、すぐ使える具体策を売りにして差をつけている。",
+     "basis": [
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "Adamは教材の前に、Nitpick CIを実際に出して失敗している。他にも履歴書アプリなど3つの案を、完成させずにやめた。",
+     "basis": [
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "identity": {
+    "id": "ent_rfrcui_64e924ac",
+    "name": "Refactoring UI",
+    "url": "https://refactoringui.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_6d3b876c8c95e4a50f501bb9",
+      "entityId": "ent_rfrcui_64e924ac",
+      "kind": "favicon",
+      "sourcePageUrl": "https://refactoringui.com/",
+      "assetUrl": "https://refactoringui.com/favicon-32x32.png",
+      "retrievedAt": "2026-09-29T11:45:06.232Z",
+      "capturedBy": "media-fetch-20260929",
+      "sha256": "6d3b876c8c95e4a50f501bb909d9c1c287b5b27a61f5accbce3b74c465bdbc06",
+      "bytes": 1919,
+      "contentType": "image/png",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Refactoring UI 公式サイト (https://refactoringui.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-09-29T12:27:31.517Z",
+       "notes": "自動判定 auto-rule-v3: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (6d3b876c8c95)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。バナーや文言の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_rfrcui_64e924ac/6d3b876c8c95e4a50f501bb909d9c1c287b5b27a61f5accbce3b74c465bdbc06.png",
+       "publicKey": "media/ent_rfrcui_64e924ac/6d3b876c8c95e4a50f501bb909d9c1c287b5b27a61f5accbce3b74c465bdbc06.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_6d3b876c8c95e4a50f501bb9",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v3",
+       "reviewedAt": "2026-09-29T12:27:31.517Z",
+       "note": "自動判定 auto-rule-v3: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (6d3b876c8c95)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。バナーや文言の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_0d08a876319fde0f36750dad",
+      "entityId": "ent_rfrcui_64e924ac",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://refactoringui.com/",
+      "assetUrl": "https://refactoringui.com/build/assets/thumbnail-forms@80-D1dnCkaJ.jpg",
+      "retrievedAt": "2026-10-01T23:17:24.280Z",
+      "capturedBy": "media-fetch-20261001",
+      "sha256": "0d08a876319fde0f36750dada784ff6afa32e4b09fca0ebebaa0bd0511bd4161",
+      "bytes": 17425,
+      "contentType": "image/jpeg",
+      "width": 888,
+      "height": 500,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Refactoring UI 公式サイト (https://refactoringui.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-01T23:25:20.395Z",
+       "notes": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_rfrcui_64e924ac/0d08a876319fde0f36750dada784ff6afa32e4b09fca0ebebaa0bd0511bd4161.jpg",
+       "publicKey": "media/ent_rfrcui_64e924ac/0d08a876319fde0f36750dada784ff6afa32e4b09fca0ebebaa0bd0511bd4161.jpg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_0d08a876319fde0f36750dad",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "claude-visual-2026-10-02",
+       "reviewedAt": "2026-10-01T23:25:20.395Z",
+       "note": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+      }
+     },
+     {
+      "assetId": "ma_32946476ba414bdfcd765d2a",
+      "entityId": "ent_rfrcui_64e924ac",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://refactoringui.com/",
+      "assetUrl": "https://refactoringui.com/build/assets/thumbnail-data@80-C1GCea8a.jpg",
+      "retrievedAt": "2026-10-01T23:17:24.311Z",
+      "capturedBy": "media-fetch-20261001",
+      "sha256": "32946476ba414bdfcd765d2a0f742295d278955d0eeb7c9b242ad208c2ec51d3",
+      "bytes": 31923,
+      "contentType": "image/jpeg",
+      "width": 888,
+      "height": 500,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Refactoring UI 公式サイト (https://refactoringui.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-01T23:25:20.395Z",
+       "notes": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_rfrcui_64e924ac/32946476ba414bdfcd765d2a0f742295d278955d0eeb7c9b242ad208c2ec51d3.jpg",
+       "publicKey": "media/ent_rfrcui_64e924ac/32946476ba414bdfcd765d2a0f742295d278955d0eeb7c9b242ad208c2ec51d3.jpg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_32946476ba414bdfcd765d2a",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "claude-visual-2026-10-02",
+       "reviewedAt": "2026-10-01T23:25:20.395Z",
+       "note": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_6d3b876c8c95e4a50f501bb9",
+     "ma_0d08a876319fde0f36750dad",
+     "ma_32946476ba414bdfcd765d2a"
+    ],
+    "problems": []
+   },
+   "snapshot": {
+    "identity": {
+     "id": "ent_rfrcui_64e924ac",
+     "name": "Refactoring UI",
+     "url": "https://refactoringui.com",
+     "publishability": "PARTIAL"
+    },
+    "entityEligible": true,
+    "reader": {
+     "sources": [
+      {
+       "id": "s1",
+       "publisher": "Refactoring UI（公式サイト）",
+       "url": "https://refactoringui.com/",
+       "title": "Refactoring UI",
+       "checkedAt": "2026-10-06",
+       "kind": "OFFICIAL"
+      },
+      {
+       "id": "s2",
+       "publisher": "Indie Hackers（Adam Wathan本人の投稿）",
+       "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+       "title": "I'm Adam Wathan, I created Tailwind CSS and built a multi-million dollar business around it. AMA!",
+       "publishedAt": "2022-09",
+       "checkedAt": "2026-10-06",
+       "kind": "SELF_REPORTED"
+      },
+      {
+       "id": "s3",
+       "publisher": "Marketing Examples",
+       "url": "https://marketingexamples.com/landing-page/pricing",
+       "title": "Refactoring UI: A lesson in high prices",
+       "checkedAt": "2026-10-06",
+       "kind": "ARTICLE"
+      }
+     ],
+     "facts": [
+      {
+       "id": "f1",
+       "kind": "DESCRIPTION",
+       "text": "開発者が自分で画面を整えられるようにするデザイン教材。218ページのPDF（50章）、3本の動画（合計約41分）、200点超の部品見本、十数種の配色、30超のフォント案、200点のSVGアイコンが一式になっている。",
+       "sourceId": "s1",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f2",
+       "kind": "PRICING",
+       "text": "価格は、本と動画だけのEssentialsが99ドル、素材まで全部入りのComplete Packageが149ドル（いずれも税別）。チーム向けはComplete Packageが3人399ドル、5人649ドル、10人1,249ドル、25人2,749ドルなどの人数別。",
+       "sourceId": "s1",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f3",
+       "kind": "TEAM",
+       "text": "著者はAdam Wathan（開発者）とSteve Schoger（UIデザイナー）。長年の友人で、共作の副業ではSteveが画面設計、Adamが開発を受け持っていた。",
+       "sourceId": "s1",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f4",
+       "kind": "EVENT",
+       "text": "当初は、2人がTwitterで配ってきた小技を1つにまとめるだけの予定だった。計画を進めるうちに、本だけでなく動画・部品見本・配色・フォント・アイコンまで含む「一式」に広げた。",
+       "sourceId": "s1",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f5",
+       "kind": "OTHER",
+       "text": "売り文句は「才能ではなく手順」。例として、枠線を減らし、影・背景色の差・余白で要素を分ける方法を挙げる。多くのデザイン講座は色彩理論などの大きな原則に偏り、すぐ画面を良くする具体策が足りないと批判している。",
+       "sourceId": "s1",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f6",
+       "kind": "CHANNEL",
+       "text": "発売前の約2年、ツイートを多く流した。1本に2週間近いほぼフルタイムの作業をかけたものも多く、5000リツイート・1万5千いいね前後に届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。",
+       "sourceId": "s2",
+       "statedAt": "2022-09",
+       "attribution": "SELF_REPORTED"
+      },
+      {
+       "id": "f7",
+       "kind": "OTHER",
+       "text": "Refactoring UIは2018年12月に書いた本で、2022年9月の投稿時点で累計250万ドル超。4年たっても売れ続けていると本人が書いている。",
+       "sourceId": "s2",
+       "statedAt": "2022-09",
+       "attribution": "SELF_REPORTED"
+      },
+      {
+       "id": "f8",
+       "kind": "OTHER",
+       "text": "Adamは教材の前にも実績があった。2016年の最初の本は発売初週に61,392ドル、同年のTDD講座は累計100万ドル超、2018年のVue講座は約30万ドルと本人が書いている。2019年1月からTailwind CSSに専念し、2020年にTailwind UIを出した。",
+       "sourceId": "s2",
+       "statedAt": "2022-09",
+       "attribution": "SELF_REPORTED"
+      },
+      {
+       "id": "f9",
+       "kind": "OTHER",
+       "text": "Adamが実際に出して失敗したのはNitpick CIだけで、履歴書アプリ、リンク共有のSNS、売上税の徴収を代行する決済サービスは、完成させずにやめたと本人が答えている。",
+       "sourceId": "s2",
+       "statedAt": "2022-09",
+       "attribution": "SELF_REPORTED"
+      },
+      {
+       "id": "f10",
+       "kind": "PRICING",
+       "text": "発売当初の価格は、基本版79ドル・上位版149ドルだった。上位版の値引きを40%、基本版を25%と見せ、上位版を大きく目立つ見た目にしたところ、2019年1月10日時点の購入の約78%が上位版だったという。",
+       "sourceId": "s3",
+       "statedAt": "2019-01",
+       "attribution": "THIRD_PARTY"
+      },
+      {
+       "id": "f11",
+       "kind": "OTHER",
+       "text": "同記事は、2年分の無料のツイート・動画・記事があったから149ドルを付けられた、と分析している。Amazonの電子書籍の相場から外れるよう、自前のサイトで動画・素材と組にした点も挙げる。",
+       "sourceId": "s3",
+       "attribution": "THIRD_PARTY"
+      },
+      {
+       "id": "f13",
+       "kind": "TOOL",
+       "text": "公式サイトは3万部超の販売、Goodreads評価4.68、SavvyCal・Clearbit・Transistorの創業者の推薦文を掲げる。購入は2つの価格帯の「Buy now」から。決済はLink by Stripe。",
+       "sourceId": "s1",
+       "attribution": "OFFICIAL"
+      }
+     ],
+     "metrics": [
+      {
+       "id": "m1",
+       "measure": "REVENUE",
+       "periodKind": "CUMULATIVE",
+       "period": "2022年9月13日の投稿時点の累計（250万ドル超）",
+       "amount": 2500000,
+       "currency": "USD",
+       "origin": "SELF_REPORTED",
+       "sourceId": "s2"
+      },
+      {
+       "id": "m2",
+       "measure": "REVENUE",
+       "periodKind": "CUMULATIVE",
+       "period": "累計（記事に期間の明記なし）、135万ドル超",
+       "amount": 1350000,
+       "currency": "USD",
+       "origin": "THIRD_PARTY",
+       "sourceId": "s3"
+      }
+     ],
+     "unknowns": [
+      "PROFIT",
+      "COST",
+      "FOUNDED"
+     ],
+     "analysis": [
+      {
+       "id": "a-headline",
+       "item": "HEADLINE",
+       "text": "ほぼ2年、凝った無料ツイートで開発者の見込み客を育ててから、デザイン教材を出し、累計250万ドル超を売り上げた2人組",
+       "basis": [
+        "f6",
+        "f7"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-business_model",
+       "item": "BUSINESS_MODEL",
+       "text": "開発者に、デザインを才能ではなく手順として教える教材を、PDF・動画・素材をまとめた一式で売る。本と動画だけの安い版と、素材まで入った上位版の2段で、チームには人数別の割引もある。",
+       "basis": [
+        "f1",
+        "f2"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-customer",
+       "item": "CUSTOMER",
+       "text": "デザイナーに頼らず自分で画面まで作る開発者や、小さなチーム。公式サイトは「デザイナーに頼らずに」「開発者の視点で」と呼びかけ、推薦文も開発者の創業者が寄せている。",
+       "basis": [
+        "f1",
+        "f5",
+        "f13"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-customer_pain",
+       "item": "CUSTOMER_PAIN",
+       "text": "動くものは作れるのに、できあがった画面がなぜか素人くさく見える。公式サイトの冒頭は、その原因が分からず、デザインに挑んでは挫折してきた開発者の悩みから始まる。",
+       "basis": [
+        "f5"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-first_customers",
+       "item": "FIRST_CUSTOMERS",
+       "text": "最初の買い手は、発売前の約2年のツイートや記事で2人を知っていた読者と見られる。Adamは前の本や講座で、発売初週に約6万ドルを売った実績も持っていた。",
+       "basis": [
+        "f6",
+        "f8"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-channels",
+       "item": "CHANNELS",
+       "text": "発売前の約2年、デザインの小技を図解したツイートや記事を先に無料で配り、読者を育てた。1本に2週間近くかけたツイートもあり、記事は長い間Mediumで歴代1位だったと本人が書いている。",
+       "basis": [
+        "f6"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-capital_and_team",
+       "item": "CAPITAL_AND_TEAM",
+       "text": "著者は2人で、以前から副業で組んでいた（Steveが画面設計、Adamが開発）。教材作りに外部の資金を入れた記録は見つからない。",
+       "basis": [
+        "f3"
+       ],
+       "formula": "公式サイトの著者紹介による。資金調達の記述は材料に無い。",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-dependencies",
+       "item": "DEPENDENCIES",
+       "text": "売れ行きは、2人が約2年かけて育てたTwitterなどの読者に強く支えられている。発売後はTailwind CSSの知名度も追い風になったと見られるが、材料に裏付けは無い。",
+       "basis": [
+        "f6",
+        "f11"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-competition",
+       "item": "COMPETITION",
+       "text": "公式サイトは、既存のデザイン講座が色彩理論などの原則に偏ると位置づけ、すぐ使える具体策を売りにして差をつけている。",
+       "basis": [
+        "f5"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-pivots",
+       "item": "PIVOTS",
+       "text": "Adamは教材の前に、Nitpick CIを実際に出して失敗している。他にも履歴書アプリなど3つの案を、完成させずにやめた。",
+       "basis": [
+        "f9"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      }
+     ],
+     "summaryFactId": "f1"
+    },
+    "verdicts": {
+     "f1": {
+      "verdict": "SUPPORTED",
+      "quote": "The 218-page book in PDF format",
+      "sourceUrl": "https://refactoringui.com/",
+      "checkedAt": "2026-10-06",
+      "claimText": "開発者が自分で画面を整えられるようにするデザイン教材。218ページのPDF（50章）、3本の動画（合計約41分）、200点超の部品見本、十数種の配色、30超のフォント案、200点のSVGアイコンが一式になっている。"
+     },
+     "f2": {
+      "verdict": "SUPPORTED",
+      "quote": "The Essentials\n$99\nUSD\nplus local taxes",
+      "sourceUrl": "https://refactoringui.com/",
+      "checkedAt": "2026-10-06",
+      "claimText": "価格は、本と動画だけのEssentialsが99ドル、素材まで全部入りのComplete Packageが149ドル（いずれも税別）。チーム向けはComplete Packageが3人399ドル、5人649ドル、10人1,249ドル、25人2,749ドルなどの人数別。"
+     },
+     "f3": {
+      "verdict": "SUPPORTED",
+      "quote": "him handling the UI design and me taking care of development",
+      "sourceUrl": "https://refactoringui.com/",
+      "checkedAt": "2026-10-06",
+      "claimText": "著者はAdam Wathan（開発者）とSteve Schoger（UIデザイナー）。長年の友人で、共作の副業ではSteveが画面設計、Adamが開発を受け持っていた。"
+     },
+     "f4": {
+      "verdict": "SUPPORTED",
+      "quote": "take all of the tips and tricks we’ve shared on Twitter , bundle them up into one resource, and put it out into the world.",
+      "sourceUrl": "https://refactoringui.com/",
+      "checkedAt": "2026-10-06",
+      "claimText": "当初は、2人がTwitterで配ってきた小技を1つにまとめるだけの予定だった。計画を進めるうちに、本だけでなく動画・部品見本・配色・フォント・アイコンまで含む「一式」に広げた。"
+     },
+     "f5": {
+      "verdict": "SUPPORTED",
+      "quote": "They focus so much on high level principles like color theory and typography",
+      "sourceUrl": "https://refactoringui.com/",
+      "checkedAt": "2026-10-06",
+      "claimText": "売り文句は「才能ではなく手順」。例として、枠線を減らし、影・背景色の差・余白で要素を分ける方法を挙げる。多くのデザイン講座は色彩理論などの大きな原則に偏り、すぐ画面を良くする具体策が足りないと批判している。"
+     },
+     "f6": {
+      "verdict": "PARTIAL",
+      "quote": "Many of those tweets took two weeks of near full-time effort to craft and make perfect, but that's why they would get like 5000 RTs and 15,000 likes.",
+      "fix": {
+       "text": "発売前の約2年、ツイートを多く流した。1本に2週間近いほぼフルタイムの作業をかけたものも多く、5000リツイート・1万5千いいね前後に届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。"
+      },
+      "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "checkedAt": "2026-10-06",
+      "claimText": "発売前の約2年、デザインの小技を図解したツイートを大量に流した。1本に2週間近くかけたものも多く、数千リツイート・1万5千いいねに届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。"
+     },
+     "f7": {
+      "verdict": "PARTIAL",
+      "quote": "In December 2018, I wrote Refactoring UI with my friend Steve Schoger, which has done over $2.5m and continues to sell well four years later.",
+      "fix": {
+       "text": "Refactoring UIは2018年12月に書いた本で、2022年9月の投稿時点で累計250万ドル超。4年たっても売れ続けていると本人が書いている。"
+      },
+      "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "checkedAt": "2026-10-06",
+      "claimText": "Refactoring UIは2018年12月に発売し、2022年9月時点で累計250万ドル超。発売から4年たっても売れ続けていると本人が書いている。"
+     },
+     "f8": {
+      "verdict": "SUPPORTED",
+      "quote": "I went solo after writing my first book in 2016, which did $61,392 in the first week",
+      "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "checkedAt": "2026-10-06",
+      "claimText": "Adamは教材の前にも実績があった。2016年の最初の本は発売初週に61,392ドル、同年のTDD講座は累計100万ドル超、2018年のVue講座は約30万ドルと本人が書いている。2019年1月からTailwind CSSに専念し、2020年にTailwind UIを出した。"
+     },
+     "f9": {
+      "verdict": "SUPPORTED",
+      "quote": "The only real failure that I actually launched was Nitpick CI, all of my other failed projects I actually failed to finish/launch",
+      "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "checkedAt": "2026-10-06",
+      "claimText": "Adamが実際に出して失敗したのはNitpick CIだけで、履歴書アプリ、リンク共有のSNS、売上税の徴収を代行する決済サービスは、完成させずにやめたと本人が答えている。"
+     },
+     "f10": {
+      "verdict": "SUPPORTED",
+      "quote": "78% of total purchases (6765) favoured the higher tier (as of Jan 10, 2019)",
+      "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+      "checkedAt": "2026-10-06",
+      "claimText": "発売当初の価格は、基本版79ドル・上位版149ドルだった。上位版の値引きを40%、基本版を25%と見せ、上位版を大きく目立つ見た目にしたところ、2019年1月10日時点の購入の約78%が上位版だったという。"
+     },
+     "f11": {
+      "verdict": "SUPPORTED",
+      "quote": "Only in serving up two years worth of free tips, screencasts, and articles is this price possible.",
+      "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+      "checkedAt": "2026-10-06",
+      "claimText": "同記事は、2年分の無料のツイート・動画・記事があったから149ドルを付けられた、と分析している。Amazonの電子書籍の相場から外れるよう、自前のサイトで動画・素材と組にした点も挙げる。"
+     },
+     "f12": {
+      "verdict": "PARTIAL",
+      "quote": "Promotion via email, newsletter, social media, case studies, and screencasts to grow number of subscribers/followers",
+      "fix": {
+       "text": "2019年1月10日公開のポッドキャスト回で、メール・ニュースレター・SNS・事例記事・画面録画動画で購読者やフォロワーを増やす方法と、本・動画などの組み方、価格の付け方が話題になった。"
+      },
+      "sourceUrl": "https://artofproductpodcast.com/episode-70",
+      "checkedAt": "2026-10-06",
+      "claimText": "発売直後の2019年1月、2人はポッドキャストで、メール・SNS・事例記事・画面録画動画で購読者を増やした方法と、本・動画・素材の組み方、価格の付け方を語った。"
+     },
+     "f13": {
+      "verdict": "SUPPORTED",
+      "quote": "Over 30,000 copies sold\n4.68 stars on Goodreads",
+      "sourceUrl": "https://refactoringui.com/",
+      "checkedAt": "2026-10-06",
+      "claimText": "公式サイトは3万部超の販売、Goodreads評価4.68、SavvyCal・Clearbit・Transistorの創業者の推薦文を掲げる。購入は2つの価格帯の「Buy now」から。決済はLink by Stripe。"
+     },
+     "m1": {
+      "verdict": "PARTIAL",
+      "quote": "which has done over $2.5m and continues to sell well four years later",
+      "fix": {
+       "metric": {
+        "period": "2022年9月13日の投稿時点の累計（250万ドル超）"
+       }
+      },
+      "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "checkedAt": "2026-10-06",
+      "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2022年9月の累計（250万ドル超）(CUMULATIVE) / 金額=2500000 USD / 由来=SELF_REPORTED"
+     },
+     "m2": {
+      "verdict": "PARTIAL",
+      "quote": "Refactoring UI ended up grossing over $1.35M",
+      "fix": {
+       "metric": {
+        "period": "累計（記事に期間の明記なし）、135万ドル超"
+       }
+      },
+      "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+      "checkedAt": "2026-10-06",
+      "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2019年初め（終点は記事に明記なし）、135万ドル超(CUMULATIVE) / 金額=1350000 USD / 由来=THIRD_PARTY"
+     }
+    },
+    "media": {
+     "assets": [
+      {
+       "assetId": "ma_6d3b876c8c95e4a50f501bb9",
+       "entityId": "ent_rfrcui_64e924ac",
+       "kind": "favicon",
+       "sourcePageUrl": "https://refactoringui.com/",
+       "assetUrl": "https://refactoringui.com/favicon-32x32.png",
+       "retrievedAt": "2026-09-29T11:45:06.232Z",
+       "capturedBy": "media-fetch-20260929",
+       "sha256": "6d3b876c8c95e4a50f501bb909d9c1c287b5b27a61f5accbce3b74c465bdbc06",
+       "bytes": 1919,
+       "contentType": "image/png",
+       "width": 32,
+       "height": 32,
+       "rights": {
+        "basis": "official_marketing_material",
+        "termsUrl": null,
+        "licence": null,
+        "attribution": "出典: Refactoring UI 公式サイト (https://refactoringui.com/)",
+        "decision": "allowed",
+        "reviewedAt": "2026-09-29T12:27:31.517Z",
+        "notes": "自動判定 auto-rule-v3: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (6d3b876c8c95)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。バナーや文言の目視確認はしていない。"
+       },
+       "storage": {
+        "bucket": "foundation-raw",
+        "key": "media/ent_rfrcui_64e924ac/6d3b876c8c95e4a50f501bb909d9c1c287b5b27a61f5accbce3b74c465bdbc06.png",
+        "publicKey": "media/ent_rfrcui_64e924ac/6d3b876c8c95e4a50f501bb909d9c1c287b5b27a61f5accbce3b74c465bdbc06.png"
+       },
+       "subjectIsPerson": false,
+       "review": {
+        "assetId": "ma_6d3b876c8c95e4a50f501bb9",
+        "decision": "allowed",
+        "subjectIsPerson": false,
+        "reviewer": "auto-rule-v3",
+        "reviewedAt": "2026-09-29T12:27:31.517Z",
+        "note": "自動判定 auto-rule-v3: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (6d3b876c8c95)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。バナーや文言の目視確認はしていない。"
+       }
+      },
+      {
+       "assetId": "ma_0d08a876319fde0f36750dad",
+       "entityId": "ent_rfrcui_64e924ac",
+       "kind": "screenshot_product",
+       "sourcePageUrl": "https://refactoringui.com/",
+       "assetUrl": "https://refactoringui.com/build/assets/thumbnail-forms@80-D1dnCkaJ.jpg",
+       "retrievedAt": "2026-10-01T23:17:24.280Z",
+       "capturedBy": "media-fetch-20261001",
+       "sha256": "0d08a876319fde0f36750dada784ff6afa32e4b09fca0ebebaa0bd0511bd4161",
+       "bytes": 17425,
+       "contentType": "image/jpeg",
+       "width": 888,
+       "height": 500,
+       "rights": {
+        "basis": "official_marketing_material",
+        "termsUrl": null,
+        "licence": null,
+        "attribution": "出典: Refactoring UI 公式サイト (https://refactoringui.com/)",
+        "decision": "allowed",
+        "reviewedAt": "2026-10-01T23:25:20.395Z",
+        "notes": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+       },
+       "storage": {
+        "bucket": "foundation-raw",
+        "key": "media/ent_rfrcui_64e924ac/0d08a876319fde0f36750dada784ff6afa32e4b09fca0ebebaa0bd0511bd4161.jpg",
+        "publicKey": "media/ent_rfrcui_64e924ac/0d08a876319fde0f36750dada784ff6afa32e4b09fca0ebebaa0bd0511bd4161.jpg"
+       },
+       "subjectIsPerson": false,
+       "review": {
+        "assetId": "ma_0d08a876319fde0f36750dad",
+        "decision": "allowed",
+        "subjectIsPerson": false,
+        "reviewer": "claude-visual-2026-10-02",
+        "reviewedAt": "2026-10-01T23:25:20.395Z",
+        "note": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+       }
+      },
+      {
+       "assetId": "ma_32946476ba414bdfcd765d2a",
+       "entityId": "ent_rfrcui_64e924ac",
+       "kind": "screenshot_product",
+       "sourcePageUrl": "https://refactoringui.com/",
+       "assetUrl": "https://refactoringui.com/build/assets/thumbnail-data@80-C1GCea8a.jpg",
+       "retrievedAt": "2026-10-01T23:17:24.311Z",
+       "capturedBy": "media-fetch-20261001",
+       "sha256": "32946476ba414bdfcd765d2a0f742295d278955d0eeb7c9b242ad208c2ec51d3",
+       "bytes": 31923,
+       "contentType": "image/jpeg",
+       "width": 888,
+       "height": 500,
+       "rights": {
+        "basis": "official_marketing_material",
+        "termsUrl": null,
+        "licence": null,
+        "attribution": "出典: Refactoring UI 公式サイト (https://refactoringui.com/)",
+        "decision": "allowed",
+        "reviewedAt": "2026-10-01T23:25:20.395Z",
+        "notes": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+       },
+       "storage": {
+        "bucket": "foundation-raw",
+        "key": "media/ent_rfrcui_64e924ac/32946476ba414bdfcd765d2a0f742295d278955d0eeb7c9b242ad208c2ec51d3.jpg",
+        "publicKey": "media/ent_rfrcui_64e924ac/32946476ba414bdfcd765d2a0f742295d278955d0eeb7c9b242ad208c2ec51d3.jpg"
+       },
+       "subjectIsPerson": false,
+       "review": {
+        "assetId": "ma_32946476ba414bdfcd765d2a",
+        "decision": "allowed",
+        "subjectIsPerson": false,
+        "reviewer": "claude-visual-2026-10-02",
+        "reviewedAt": "2026-10-01T23:25:20.395Z",
+        "note": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+       }
+      }
+     ],
+     "displayableIds": [
+      "ma_6d3b876c8c95e4a50f501bb9",
+      "ma_0d08a876319fde0f36750dad",
+      "ma_32946476ba414bdfcd765d2a"
+     ],
+     "problems": []
+    },
+    "sources": [
+     {
+      "sourceId": "s1",
+      "url": "https://refactoringui.com/",
+      "publisher": "Refactoring UI（公式サイト）",
+      "snapshot": {
+       "url": "https://refactoringui.com/",
+       "finalUrl": "https://refactoringui.com/",
+       "status": 200,
+       "fetchedAt": "2026-10-06T09:24:11.068Z",
+       "via": "direct",
+       "contentType": "text/html; charset=utf-8",
+       "textHash": "09ff6fa2d8501ea8d7b15c767bf3c24d458e173e49d8161abb7af493f16a55a0"
+      },
+      "text": "Refactoring UI\nRefactoring UI\nFrom the creators of Tailwind CSS\nOver 30,000 copies sold\n4.68 stars on Goodreads\nMake your ideas look awesome, without relying on a designer.\nLearn how to design beautiful user interfaces by yourself using specific tactics explained from a developer’s point-of-view.\nGet two free chapters Buy now\nGet two free chapters Buy now\nThis is the survival kit I wish I had when I was starting out building apps. Derrick Reimer\nFounder of SavvyCal\nThis book is fantastic for engineers learning how to design. Alex MacCaw\nFounder of Clearbit\nThis book Refactoring UI is a no-brainer for anyone in the web industry. Justin Jackson\nCo-founder of Transistor\n“I know this looks terrible, but I have no idea why.”\nHi! I’m Adam Wathan , a full stack developer who used to suck at design. I’ve been friends with Steve Schoger for years and we’ve worked on a bunch of side projects together — him handling the UI design and me taking care of development.\nLike a lot of developers, I always wished I could make my ideas look awesome without relying on a designer, but any time I tried to design something myself I would always get frustrated and give up.\nI always chalked it up to a left brain/right brain sort of thing — I’m logical and analytical so I’m good at programming, people like Steve are intuitive and creative so he’s good at design.\nBut after working closely with Steve I started picking up little tricks. Tricks that didn’t require any artistic talent, but made things look better instantly for reasons that made sense to me as a developer.\nDesign with tactics, not talent.\nHere’s a concrete design tactic I bet you see applied every day but haven’t explicitly noticed.\nUse fewer borders.\nBorders are a great way to distinguish two elements from one another, but using too many of them can make your design feel busy and cluttered.\nInstead, try adding a box shadow, using contrasting background colors, or simply adding more space between elements.\nIt doesn’t take any talent to make changes like this — once you know the tactic you just need to notice the problem and apply the solution.\nMost design courses are missing the mark.\nThey focus so much on high level principles like color theory and typography which, while important, never helped me make instant improvements like the actionable, specific tactics I was picking up from Steve.\nWorking together, we knew we could create something better.\nOver the last few years, we’ve helped thousands of developers get better at design through quick tips , in-depth articles , and video tutorials .\nRefactoring UI takes everything we know about design and bundles it into one comprehensive package, including a book, screencasts, a component gallery, custom designed assets, and more.\nIt’s exactly what I needed when I was struggling to make my projects look awesome.\nWhat we’ve put together\nIt’s not just a book — it’s everything you need to start producing better designs today.\nWhen we first started working on this project, our ambitions were pretty modest — take all of the tips and tricks we’ve shared on Twitter , bundle them up into one resource, and put it out into the world.\nBut the more time we put into planning it, the more we realized that we had an opportunity to create something better than that. Something that wasn’t just a book, but more like a complete survival kit for designing for the web .\nHere’s what we ended up with…\nThe Book\nA beautiful PDF containing 50 incredibly visual chapters spread across 200+ painstakingly typeset pages.\nThis book contains literally everything we know about web design, distilled into short, easy to read chapters.\nEvery chapter is designed to be as independent as possible, so you can read them in almost any order. And if you want to sit down and read the whole thing at once, you’ll have no trouble getting through it in just a couple of hours.\nWe hate books that repeat the same ideas over and over just to fill out the page count. This book is written a lot like our blog posts — every sentence is highlight-worthy.\nFull table of contents\nStarting from Scratch\nStart with a feature, not a layout 7\nDetail comes later 10\nDon’t design too much 13\nChoose a personality 17\nLimit your choices 24\nHierarchy is Everything\nNot all elements are equal 30\nSize isn’t everything 32\nDon’t use grey text on colored backgrounds 36\nDe-emphasize to emphasize 39\nLabels are a last resort 41\nSeparate visual hierarchy from document hierarchy 46\nBalance weight and contrast 48\nSemantics are secondary 52\nLayout and Spacing\nStart with too much white space 56\nEstablish a spacing and sizing system 60\nYou don’t have to fill the whole screen 65\nGrids are overrated 72\nRelative sizing doesn’t scale 79\nAvoid ambiguous spacing 83\nDesigning Text\nEstablish a type scale 88\nUse good fonts 94\nKeep your line length in check 99\nBaseline, not center 102\nLine-height is proportional 105\nNot every link needs a color 109\nAlign with readability in mind 111\nUse letter-spacing effectively 115\nWorking with Color\nDitch hex for HSL 119\nYou need more colors than you think 123\nDefine your shades up front 129\nDon’t let lightness kill your saturation 133\nGreys don’t have to be grey 139\nAccessible doesn’t have to mean ugly 142\nDon’t rely on color alone 146\nCreating Depth\nEmulate a light source 150\nUse shadows to convey elevation 158\nShadows can have two parts 163\nEven flat designs can have depth 167\nOverlap elements to create layers 170\nWorking with Images\nUse good photos 174\nText needs consistent contrast 176\nEverything has an intended size 181\nBeware user-uploaded content 187\nFinishing Touches\nSupercharge the defaults 192\nAdd color with accent borders 195\nDecorate your backgrounds 198\nDon’t overlook empty states 203\nUse fewer borders 206\nThink outside the box 210\nLeveling Up\nLeveling up 215\nSee all the chapters in the book\nVideo tutorials\nThe book will teach you a ton, but there are some things best learned by watching an expert do it themselves.\nwe’ve put together three in-depth video tutorials that walk through how to take all of the ideas in the book and apply them to three common UI design scenarios.\nDesigning a complex form interface\n11:13\nBuilding a data-focused dashboard\n17:20\nStyling a text-focused landing page\n12:08\nEach video is tightly edited and just the right pace, so there’s no wasted time watching me \"hmm\" and \"uhh\" my way around the design.\nThe Component Gallery\nHow many times have you found yourself looking at other apps to get ideas for things like button styles, form layouts, or navigation treatments?\nThis has always been a huge pain point for us with our own work, so we built the component gallery to solve it.\nThe component gallery is a huge resource of 20+ component/layout categories , and 200+ individual component styles .\nIt includes medium-fidelity mockups of every idea we could think of, for every component we could think of, including things like:\nButton styles\nCard layouts\nLogin page layouts\nTable styles\nMarketing page sections\nNavigation layouts\n…and much, much more.\nColor Palettes\nIf you’ve ever used an online color palette generator, you know that the five swatches they end up giving you are never enough to build out a real interface.\nWe set out to solve this by handcrafting over a dozen comprehensive color palettes that include 10 shades for each included color, as well as an example UI showing how those colors are intended to be used:\nwe’ve also put together a huge library of individual color scales that you can use to curate your own palettes, without handpicking every single shade yourself.\nFont Suggestions\nTrying to pick the perfect font for a project is a nightmare. There are thousands of fonts to choose from, and trying to make an informed decision without seeing a particular font in the right context takes forever.\nwe’ve put together a list of over 30 fonts we absolutely love, and broken it down across three categories: UI, headlines, and article copy.\nEach font is shown in an example UI for that category, so you can get a feel for exactly how it’s going to look where you intend to use it, without having to try each font yourself.\nIf you’ve ever felt uneasy trying to choose a typeface, this is going to save you a ton of time.\nCustom illustrated icons\nRefactoring UI also includes a set of 200 beautifully illustrated SVG icons.\nThe SVGs are pre-optimized, and the colors can easily be customized to fit your branding with just CSS — no design tool knowledge required.\n.primary {\nfill: #637985; }\n.secondary {\nfill: #0D2B3E; }\nGet Refactoring UI today.\nLearn how to design beautiful user interfaces by yourself using specific tactics explained from a developer’s point-of-view.\nThe Complete Package\n$149\nUSD\nplus local taxes\nBuy now The 218-page book in PDF format\nAll three in-depth video tutorials\nComponent inspiration gallery , featuring 200+ component and layout ideas\nOver a dozen comprehensive color palettes , tailored for application UIs\nCurated font showcase , including 30+ font recommendations categorized by use-case\nExclusive icon library , including 200 easily customizable SVG icons\nBuying for your team? View team pricing options.\nThe Essentials\n$99\nUSD\nplus local taxes\nBuy now The 218-page book in PDF format\nAll three in-depth video tutorials\nOver 20,000 people are already using Refactoring UI to make their ideas look awesome.\nHere’s what some of them are saying…\nPeople ask me all the time where to learn to become a better designer. Well, here it is!\nWes Bos\n@ wesbos\nView tweet by Wes Bos\nWe just bought this at work and I absolutely love it. You guys did a great job. I do a lot of UI work but did it based on \"feel\" but couldn’t explain why... your book does exactly that. Great work!\nDana Cottreau\n@ _DanaCottreau\nView tweet by Dana Cottreau\nWell I just read Refactoring UI by @adamwathan and @steveschoger in one sitting. So it’s safe to say it’s a great book 🔥\nTash\n@ _tashhockey\nView tweet by Tash\nI can proudly say that this is the best purchase I have made in a long time. Maybe ever! I love how visual it is -- forcing my wife to read it next! 😂\nChris Breuer\n@ chrisbreuer1904\nView tweet by Chris Breuer\nWow. What a read. This book has the most approachable, actionable, and useful design advice that I’ve ever seen 👏👏👏 @steveschoger and @adamwathan deserve a massive round of applause for putting this together\nNick Basile\n@ nickjbasile\nView tweet by Nick Basile\nOver the weekend, I read Refactoring UI by @adamwathan and @steveschoger . The content is amazing and the writing is clear, concise, and to-the-point. I need to come up with a strategy that ensures that I weave this book into my ongoing development efforts.\nBen Nadel\n@ BenNadel\nView tweet by Ben Nadel\nI can definitely see why this book is called “Refactoring UI” … tons of UI smells / anti-patterns and how to correct them with great examples for each case. 👍 Congrats @adamwathan and @steveschoger on the launch!\nTaylor Otwell\n@ taylorotwell\nView tweet by Taylor Otwell\nOnly read the first chapter of @steveschoger and @adamwathan ’s Refactoring UI book so far and already I’ve had so many “Ah - that makes so much sense!” moments 💡 This stuff is genius\nJL Sorak\n@ JLSorak\nView tweet by JL Sorak\nPurchased Refactoring UI! The way @adamwathan & @steveschoger share concepts and examples is the only way I can understand graphic design on the web. Very thankful they worked so hard to put this together. 🎄\nJeanine Schoessler\n@ satinflame\nView tweet by Jeanine Schoessler\nTalk about a no-brainer purchase! @adamwathan and @steveschoger put together an AMAZING product.\nMichael Faas\n@ faasie\nView tweet by Michael Faas\nToday I was revisiting \"Refactoring UI\", a visual design book for engineers. Started writing down my highlights... but then I realized I was trying to save most of the book. At least that’s when you know it’s good\nnithi\n@ nithinaray\nView tweet by nithi\nWhy didn’t I ever think of the personality of the site I am designing the apps for? Great stuff - Thanks @steveschoger and @adamwathan !\nRabia Williams\n@ williamsrabia\nView tweet by Rabia Williams\n🙏 Just had the pleasure of proofreading @adamwathan and @steveschoger ’s new book. I can’t remember the last time I absorbed that much knowledge in such a short time!\nPeter Suhm\n@ petersuhm\nView tweet by Peter Suhm\nWorking my way through this at the moment. Every page is pure gold!\nMatt Brailsford\n@ mattbrailsford\nView tweet by Matt Brailsford\nLoving every bit of this! @steveschoger @adamwathan im plowing unstoppably through this book. Such great content 🔥 Thank you! 🤘🏼\nmathias arlund\n@ mathiasarlund\nView tweet by mathias arlund\nShow more...\nFrequently asked questions\nCan I get Refactoring UI for my entire team? Sure! We offer team discounts on the Complete Package based on the number of team members you’d like to purchase for:\nUp to 3 team members\n$399 →\nUp to 5 team members\n$649 →\nUp to 10 team members\n$1249 →\nUp to 15 team members\n$1799 →\nUp to 25 team members\n$2749 →\nCan I get an invoice? Yes! After purchase you'll receive a receipt/invoice via email. During checkout, you can check \"I'm purchasing as a business\" to add your company information. Refactoring UI is sold through Link by Stripe, so if you need to make changes to your invoice after purchase, you can reach out to Link support directly (if you don't have a Link account and prefer not to create one, you can click \"I can't log in\").\nWhat format are the files? Is there any DRM? The book, component gallery, color palettes, and font recommendations are PDFs, the screencasts are downloadable mp4 files, and the icons are SVG.\nEverything is DRM-free; that crap is annoying.\nCan I upgrade to the complete package later? Of course! Shoot us an email at [email protected] and we’ll sort you out.\nDoes the component gallery include CSS? Short answer is no.\nLong answer is that the goal with the component gallery is to provide layout and treatment ideas with just enough fidelity to be useful.\nIf you need an idea for a pricing page layout, the idea is that you’d browse the component gallery to find one you like, then combine that with what you learn from the book to create a great-looking design yourself.\nThere are a million ways you could style these components, and we don’t want the component gallery to encourage you to make every project look the same.\nWhat’s the license for the icons? You can read a copy of the license here .\nTL;DR: Do pretty much whatever you want with them, including using them in open-source projects. Just don’t resell them or publish them on npm purely to distribute them for free or anything lame like that.\nWhat if I decide it’s not for me? No problem at all! Email us at [email protected] within 60 days and we’ll refund you in full, no questions asked.\nCopyright © 2026 The UI Company Inc.",
+      "policy": {
+       "policyId": "rights.official-company-website.v1",
+       "sourceId": "src.official-company-website",
+       "providerName": "Official company or product website (entity-bound)",
+       "displayTier": "automatic",
+       "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+      }
+     },
+     {
+      "sourceId": "s2",
+      "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "publisher": "Indie Hackers（Adam Wathan本人の投稿）",
+      "snapshot": {
+       "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+       "finalUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+       "status": 200,
+       "fetchedAt": "2026-10-06T09:24:11.341Z",
+       "via": "direct",
+       "contentType": "text/html; charset=utf-8",
+       "textHash": "6256283bce58a62ccbf70a3f18e757a98b0bf8f85432bab47d0b88152bef7ac5"
+      },
+      "text": "I'm Adam Wathan, I created Tailwind CSS and built a multi-million dollar business around it. AMA! - Indie Hackers\nHey folks! I\nHey folks! I\nI\nI'm Adam Wathan, I created Tailwind CSS and built a multi-million dollar business around it. AMA! - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n113\nUpvotes\n102 Comments\nI'm Adam Wathan, I created Tailwind CSS and built a multi-million dollar business around it. AMA!\nby adamwathan\nHey folks! I'm Adam Wathan, creator of Tailwind CSS.\nI went solo after writing my first book in 2016, which did $61,392 in the first week and gave me the courage to leave my job and create educational content full-time.\nI followed that up with a course on TDD for Laravel developers later that year that went on to make over $1m, and a course on advanced Vue component design in 2018 that did about $300k.\nIn December 2018, I wrote Refactoring UI with my friend Steve Schoger, which has done over $2.5m and continues to sell well four years later.\nIn the middle of all that I released Tailwind CSS in 2017 which has grown to be a massively popular CSS framework, and went full-time on it in January 2019 while living on sales from my info products, with the goal of building a business around it.\nWe launched Tailwind UI in 2020 which is doing seven figures per year and growing, and have grown to a small team of 7 that splits our time between working on our open source projects and the commercial templates we release under the Tailwind UI brand.\nAMA!\nadamwathan\non September 13, 2022\n113\nUpvotes\nShare\nSay something nice to adamwathan…\nPost Comment\n10\nHey, big fan here :)\nTo me, you're an example of how you should build products almost without marketing. So you're focused on making the product better, tweet/post about it from time to time and then it just \"takes off\".\nCan you tell how much time (percentage) in your week do you spend on sales/marketing? I mean, it seems almost 0 but maybe some of your thinking process, especially now when you have a team, evolve around questions like:\nHow to increase sales\nWhat features to launch and their potential ROI\nPreparing the tweets/videos, i.e. content marketing\nPotential partnerships, maybe for B2B sales?\nAnd generally, do you think about those processes as marketing, or are you just fully focused on the product, just \"sometimes tweeting occasionally\", and then somehow everything falls into place with $?\nCause from aside, your sales/marketing strategy, if any, seems effortless. But maybe under the hood you're spending a lot of time, before releasing some feature/screenshot/teaser?\nPovilasKorop\n&middot;\n4 years ago\n&middot;\nReply\n14\nHey! I'm glad it feels like we don't do any marketing — it's something we generally think about and work on a lot but we try to do it in a way that doesn't feel like advertising and is instead just interesting and valuable.\nIn very recent times (say the last couple of months) I feel like we aren't thinking about it or doing it enough, and I don't tweet as much, don't create video content, and don't write newsletter updates consistently which is a source of stress for me — it's something I think we need to be doing more. But we've had a really busy summer working on the Tailwind UI templates/all-access launch and all of the thinking that went into that is what has taken up most of my time.\nI definitely spend most of my time on product strategy, and am not really in the code or anything day to day, but all that strategy work sort of is marketing to me. Deciding what to make next and what we think people will be excited about, thinking through pricing (this is the most time consuming and challenging activity on earth), and copywriting (for our own sites, documentation and release notes, placeholder content for templates, newsletter updates) is what I'm generally focused on these days.\nBack when we were working on Refactoring UI (and the two years leading up to the book release), we did a lot more tweeting and those tweets took a ton of time, they weren't just a quick \"oh I'll tweet a little thing\". Many of those tweets took two weeks of near full-time effort to craft and make perfect, but that's why they would get like 5000 RTs and 15,000 likes. We also put tons and tons of effort into blog posts like 7 Practical Tips for Cheating at Design which for a long time (years) was the number one post of all-time on Medium.\nThese days I feel like we are coasting too much in this department and it's something I hope to work on more.\nSome of the most important marketing we do I think though is our documentation. Making Tailwind as easy to learn and easy to be as successful with as possible is what makes the entire business able to work. Any effort I put into that I expect to have a much higher pay-off than paying for a Facebook ad for Tailwind UI or something, but it's absolutely marketing, and I think that's probably part of why it doesn't look like we are doing a lot of marketing from the outside. I try to put our marketing effort into things with a long-term pay-off, which is why we don't even do things like Black Friday sales anymore or anything either.\nSorry feels like I'm rambling a bit here because it's a hard question to answer! But I guess the TL;DR is I feel like my job is almost 100% marketing, but with a maybe a wider definition of marketing than a lot of people have in their heads.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n4\nWow what a long answer, thanks for taking the time!\nIt does make sense though, cause I was referring to more like classic \"outbound\" marketing, and in your case you've fully switched to \"inbound\" marketing. So you don't actively sell much, but you're focused on the experience of whoever gets to your product.\nIt works perfectly, partly because you're famous enough and now whatever you release will get the eyeballs - and then the question becomes the experience with the product, which you excel at, so it's a winning strategy.\nAnd yes, I remember the days of Refactoring UI, and even before that, when you did tweet a lot more, and it felt more strategic, these days your emails do feel like it's \"work\" (should I say, chore?) for you.\nBut all in all, it works very well for you, so keep going! Don't change or add more stress to what already works :)\nPovilasKorop\n&middot;\n4 years ago\n&middot;\nReply\n3\nI could be mistaken, but I believe he spent a few years building up a large twitter audience before launching his first product. That's why it generated so much money in a relatively short amount of time. So technically he did do a lot of outbound marketing. Again I could be mistaken so please fact check.\nsidjain\n&middot;\n4 years ago\n&middot;\nReply\n2\nYes, sure, you're right, I meant that he SWITCHED to more inbound marketing, after doing a lot of outbound previously. I guess it's a natural growth trajectory for many businesses.\nPovilasKorop\n&middot;\n4 years ago\n&middot;\nReply\n1\nYeah good observation. I suppose once you build up that initial audience, it's easier to switch to inbound later on because you already have a following.\nsidjain\n&middot;\n4 years ago\n&middot;\nReply\n6\nWhat are the other failed project in your portfolio?\nsachingk\n&middot;\n4 years ago\n&middot;\nReply\n2\nThe only real failure that I actually launched was Nitpick CI, all of my other failed projects I actually failed to finish/launch, but they likely wouldn’t have worked out if I did either. One was an app for creating your resume, another was a social network for sharing links with your friends and your team, another was a checkout as a service tool for people who needed to collect sales tax when selling things online.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n4\nWith Tailwind in 2020 you launched into a crowded market of UI frameworks.\nWhat was your strategy at the beginning and how has it changed over time to outplay competitors and become successful?\nalexanderdavide\n&middot;\n4 years ago\n&middot;\nReply\n4\nYo @adamwathan! Couple questions:\nHow'd you get the idea for Tailwind? e.g. did your prior book/course projects give you a \"lightbulb moment\" of insight, etc.?\nDo you think running Tailwind as an open-source project creates any interesting limitations on (or benefits to) how your develop the software or how much you can grow?\nchanningallen\n&middot;\n4 years ago\n&middot;\nReply\n4\nHey @channingallen!\nHow'd you get the idea for Tailwind? e.g. did your prior book/course projects give you a \"lightbulb moment\" of insight, etc.?\nIt sort of fell naturally out of just working on my own side-projects and trying to come up with a CSS approach that felt maintainable to me over many years. You can read the full history of the project on my blog for more details.\nTL;DR — build side projects, live-stream working on them, everyone keeps asking about the CSS approach I'm using, decide to open-source it because people are asking so much.\nDo you think running Tailwind as an open-source project creates any interesting limitations on (or benefits to) how your develop the software or how much you can grow?\nI wish I had a good answer for this! I think for the most part it's benefits — the free CSS framework creates a huge user base for us that wouldn't be possible if we tried to just charge for the CSS framework, and as long as some percentage of those people see the value in paying for our premium templates and components then it all works. Our open-source stuff and commercial stuff is quite separate, so we don't have the types of challenges someone might have making their actual commercial product open-source.\nIt's pretty cool being able to fund a team to work on the open-source stuff though, again because of how much reach something can have as OSS. Most OSS projects start strong but the maintainers get burned out working evenings and weekends, and the project kinda dies off. We get to put tons of sustained effort into our OSS stuff which just helps us build a bigger audience for it and keep all those people really happy, and then via word of mouth more people start using the tool, and some percentage of them become customers.\nThere are some downsides like feeling pressure to do a lot of stuff in public that I'd rather have the space to work on in private, and managing GitHub issues and PRs from the community is an enormous amount of work that we're constantly trying to figure out how to deal with, but overall I think the OSS side of things is a big net positive for what we're doing.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nI think building a CSS framework isn't a challenge nor its unique. Any megatech with design team should have few design frameworks. Many public frameworks came and left, so anyone with experience probably would only stick with megatech's frameworks to ensure not getting burned by 3rd party projects that are abandoned. Then you get people who still wants to pivot away from megatech for various reasons.\nI think the most impressive part is how consistent Tailwind CSS seems to be able to hold up the past few years.\nPersonally, I used bootstrap, bunch of react frameworks, Apple designs, Material designs, Fluent (Microsoft) designs. I used bunch of my own frameworks. I prefer to have components act on css directly but there are times I get lazy and just want to pick a good framework. I've switched all my projects to Mudblazor the past 3 years. It's a framework at component level and it's performance is as good as mine acting directly on CSS. The only drawbacks: 1) the flexibility (as design is tied to material design), 2) slight learning curve for a new framework, 3) project not by a megatech (though it's now well funded). That said, my latest project is on Tailwind CSS with components modifying the css directly. I do use daisyUI at times. Since I am on blazor stack, I can't gain much by getting TailwindUI. I like it so far, but when I have missing components I'll need to write that myself and probably have inconsistent UI styling... maybe I'll switch back to Mudblazor.\nEdit: sorry, I am switching back... It was fun learning Tailwind CSS though.\nAlienroid\n&middot;\n4 years ago\n&middot;\nReply\n3\nNo questions, just wanted to say thank you. TailwindCSS is an awesome framework! I've used Bootstrap almost exclusively and have transitioned over to TailwindCSS for all of my personal projects. Nostrovia!\nvincepolston\n&middot;\n4 years ago\n&middot;\nReply\n3\nHow may Twitter followers did you had before you published the first book ?\nsachingk\n&middot;\n4 years ago\n&middot;\nReply\n1\nAbout 3500, and my email list that I built for the book was about 1500.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nHey Adam,\nAnother big fan here :) You've really set a great example of building a personal brand and business through info products. I re-watch your talk at the MicroConf every now & then to refresh the mindset.\nI was wondering what's your thought on releasing packages for Laravel:\n– with a \"Open-core\" model, accompanied by commercial licenses...this would allow people to use the package on personal projects but companies will need to buy licenses to use the same package for commercial projects.\nOR\n– with only commercial paid licenses with various tiers where developers can get the package with basic functionalities at a relatively low price, on a per-project basis license...teams and companies can purchase licenses at a higher price with all the features and multiple project usage.\nThanks in advance!\nphpfour\n&middot;\n4 years ago\n&middot;\nReply\n6\nHey! I think the best thing to do here would be talk to potential customers, hard to speculate. My gut feeling is that it will be an uphill battle and would depend on what the tool is. Something like Laravel Nova is a package but feels easy to sell as a product, whereas something like a filesystem driver for Dropbox or something is going to be a harder sell.\nI've never done either option myself though so unfortunately can't speak with any experience, sorry!\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThanks for your answer!\nphpfour\n&middot;\n4 years ago\n&middot;\nReply\n3\nAny advice you have for someone that wants to sell programming course/book without any social media followers? Do I focus on selling the course/book? Or Start with free one?\namin_\n&middot;\n4 years ago\n&middot;\nReply\n2\nThe only way I know how to do it successfully is to build an audience first, so I'd start there if it were me. When me and Steve decided to work on Refactoring UI, he had basically zero Twitter followers and we spent two years growing his following and building trust before we released the book.\nI gave a talk on my approach to launching info products, I'd recommend giving it a watch for lots more tactics:\nhttps://www.youtube.com/watch?v=ajrDxZRpP9M\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nIs there any big changes/choices your wish you would have made early on when building Tailwind that you feel is too late to change now that Tailwind is so stable and used by so many people?\nHarrjm\n&middot;\n4 years ago\n&middot;\nReply\n3\nOne big one I'd actually change is the spacing scale — I regret the cryptic mapping of mt-4 being 1rem (16px), pointless abstraction. In hindsight I 100% would have had mt-4 be 4px , but represented as 0.25rem for accessibility reasons.\nOther than that honestly not a ton, there are a few utility names I would probably change now like leading-* and tracking-* but we made quite a few changes from v0 to v1 and overall pretty happy with where things are now.\nThere are lots of little legacy things internally that we have to manage for backwards compatibility, but at this point I don't think I'd change any of that stuff unnecessarily. A lot of the time there might be a better name for something but it's not better enough to warrant a breaking change. Breaking changes are extremely painful and can be the death of a project if not handled carefully, so it's something I take pretty seriously.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nWhen does KiteTail launch?\naarondfrancis\n&middot;\n4 years ago\n&middot;\nReply\n10\nI'm never building anything that has to calculate sales tax or talk to the PayPal API.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n2\nThat's awesome! I wonder if your same strategies could be replicated in other spaces. How big was your audience when you launched?\nItsKev\n&middot;\n4 years ago\n&middot;\nReply\n2\nHi Adam, TailwindCSS really improved my ability to deliver fast results as a solo dev. Thank you for that!\nPaddle vs. Revin, which would you chose for a new product right now? Seeing you still use both in parallel.\nrunMRR\n&middot;\n4 years ago\n&middot;\nReply\n2\nBig fan. I'm curious how you dealt with the \"tribalism\" behaviors in the front-end developer community. In the past, whenever I've brought up a controversial idea about front-end frameworks, like \"react is a view library, if you use it for application development you'll eventually run into data management problem. you should use react with another library meant for managing data. Treat React like the \"V\" in MVC\" - I would get this vile hatred from other front-end developers. They'd say things like \"MVC is dead, your skills are outdated, bla bla .\"\nThen a few years later the same people changed their tune with \"Prop drilling makes your code messy. It's time to use state management libraries.\" Which is essentially using MVC principles - the state management library being the \"M\" and react being the \"VC\".\nDid you experience the same pushback with Tailwind? If so, how did you overcome this resistance and win so many people over to the 'tailwind' way of thinking about css?\nsidjain\n&middot;\n4 years ago\n&middot;\nReply\n2\nWho is the greatest GUITARIST of all time?\nShow your work.\nRonNorthrip\n&middot;\n4 years ago\n&middot;\nReply\n5\nMy top 3:\nJeff Hanneman (Slayer), not the most technically impressive but wrote the best riffs of all-time.\nDan Mongrain (Martyr/Voivod), super underrated, incredible player, can play anything and play it perfectly.\nVogg (Decapitated), just the most inhumanly tight guitarist I've ever seen.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n3\nThis reminds me of the time someone asked Eric Clapton \"What's it like being the greatest guitarist of all time?\" and he replied \"I don't know, ask Prince.\"\nEuperia\n&middot;\n4 years ago\n&middot;\nReply\n1\nActually lol'd at this. What a great quip!!\nbrandonHacker\n&middot;\n4 years ago\n&middot;\nReply\n2\nTailwind is the single greatest CSS framework. So what are your thoughts on react-bootstrap? I know people often pit the 2 against each other.\nAlso, how long did it take you to build Tailwind? What was the engineering process like for building and creating it and how long did it take for people to catch on to it? Was it all through word of mouth or did you do some type of marketing?\ntheselftaughtlearner\n&middot;\n4 years ago\n&middot;\nReply\n5\nI haven't used react-bootstrap but I have always been a huge fan of just Bootstrap itself and learned a ton from that project. The only reason Tailwind exists actually is because Bootstrap switched from Less to Sass and I really had a strong preference for Less, so started rolling my own framework.\nI think Bootstrap solves a different problem than Tailwind personally — it's much more batteries included and makes it easy to build things super fast if you're happy to sort of \"color inside the lines\" that Bootstrap gives you with its components. The problem Tailwind tries to solve is \"how can I build this totally custom design I got from our design team faster than just starting from total scratch with an empty CSS file?\", which I don't think is the problem Bootstrap aims to solve.\nIt's hard to measure how long Tailwind took because it sort of came into existence organically. It started in 2015 and was released in 2017, but didn't actually have any plans to open source it until just a few months before it was released. Check out this blog post for a full history of the framework.\nI didn't really do any deliberate \"try to grow the framework\" type marketing, but I am a bit of a marketer by nature, so I created a lot of content around the framework when it was released, like screencasts on recreating popular websites with Tailwind. I never set out to create a popular open-source framework though — I only released it because people saw me using it in my live-streams and asked me how they could get their hands on it to use it in their own projects.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n2\nHow did the structure of your working days change with the growing success? Are you working more?\nLess? You said you went full-time in 2017, how much did you work on Tailwind until you went full-time? What made you choose going full-time? Any specific milestone?\njansroka\n&middot;\n4 years ago\n&middot;\nReply\n3\nI think the biggest change has been going from just me and Steve to having a team. When it was two of us we didn't have to do a lot of planning, and just sort of worked on whatever we felt was the most important thing to work on at any given time. Now with a team I have to spend more time making sure there is enough clearly defined work out there for everyone to work on, so I am in the code a lot less and working a lot more on strategy.\nIn terms of actual butt at the desk hours, it hasn't changed much. I have a young family so I stick to a 9-5 work schedule and take weekends off unless there's something really important that needs to get done. There are usually 2 or 3 times a year where I'm working a couple of hours in the evenings for 3-4 days straight to get something out the door in the time we want to ship it by, but nothing crazy.\nBefore I had kids I worked in the evenings and on the weekends more, and I couldn't have written that first book without working on it in the evenings for a couple of months straight.\nI worked on Tailwind quite a bit before going full-time on it, but I had the space to do it because the income from info products is quite passive and the work is mostly in bursts. I worked on Tailwind a ton in the summer of 2018 for example between my Vue course and writing Refactoring UI, and then focused almost 100% on Refactoring UI from September to December.\nI decided to go full-time on Tailwind because it was growing really fast as an open-source project, and it felt like I had an opportunity to really \"put my dent in the universe\" with such a high impact project. Wasn't a specific milestone but more just noticing it growing, and the convenient timing of just having released Refactoring UI which bought me a lot of time due to the success.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\n\"put my dent in the universe\"\nLiving the dream!\njansroka\n&middot;\n4 years ago\n&middot;\nReply\n1\nAs a Tailwind fan boy I am really impressed to get such a detailed answer. Thanks!\njansroka\n&middot;\n4 years ago\n&middot;\nReply\n1\nThis might be a dumb question that you've answered before, but when I brought up using TailwindCSS to a partner of mine she objected, because she said it \"breaks the semantic web,\" i.e. \"It's not standards compliant\".\nTo me, I'm like, \"I'd like to break the semantic web! That sounds like fun.\" Tailwind looks really awesome and a massive timesaver and I don't love dealing with CSS. Do you have an answer for this kind of objection?\nMaybe this was a question you've tackled in the past and give me a link?\nGabrielKunkel\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey loved your book. As I transition out of solo dev on my business, how can I find frontend devs with good design skills to hire? I'm finding it really difficult to find devs who are great at UX/UI. Where are some good places to look?\ndashbarkhuss\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat was your professional experience before publishing your first book? How long do you think it took for you to be mature enough to share that knowledge into book form?\nluskira\n&middot;\n4 years ago\n&middot;\nReply\n1\ni'm probably late here but i'll shoot my shot.\nhow did you build refactoring ui book? i'm talking the technical aspects of it.\ni have seen you link to a blog post & used princexml & nuxt but i'm curious how does it whole work with markdown assuming you wrote the book in markdown.\nstyling it all so it looks pretty & making sure the images & text don't break the page flow.\nhow did you do it? what framework you used? how did you write table of contents? did you use @tailwindcss/typography with next.js? did you use puppeeteer with print: modifiers? curious!\nif you'd change anything if you had to build a book now, what would you do? asking this bcz there's really no answer on the internet to this that works with markdown. i tried many rust libraries & many md-to-pdf npm packages but they all fall short.\nstartupspells\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat other products do you use in your repertoire or respect and admire a lot?\nI'm a huge fan of Tailwind by the way! My biggest thanks for an incredible framework.\nflawnson\n&middot;\n4 years ago\n&middot;\nReply\n1\nHUGE FAN!\nI was never ever fond of Bootstrap, they all look too similar, even when heavily customized.\nAfter tinkering with Tailwind, I came across Daisy and the rabbit hole got deeper 🤣\nFor a short while, I was using WindiCSS and later UnoCSS - but I keep coming back to Tailwind because I absolutely love the dedication, the optimization, the speed, the simplicity and the direction you guys are headed.\nI still tend to favor using apply for many of my duplicated styles. Are you still against that? 🤔\njjaimealeman\n&middot;\n4 years ago\n&middot;\nReply\n2\nLook into Twind it is similar to Windicss and unocss but follows Tailwind (so you can always exit).\nvolkandkaya\n&middot;\n4 years ago\n&middot;\nReply\n1\nThat looks pretty cool! I dig cool tools! Thanks amigo!\njjaimealeman\n&middot;\n4 years ago\n&middot;\nReply\n1\nThank you so much, Adam!\nYour talk ( https://www.youtube.com/watch?v=ajrDxZRpP9M&t=460s ) from MicroConf changed my world.\nvrabota\n&middot;\n4 years ago\n&middot;\nReply\n1\nThough I'm used to traditional CSS I don't find myself using Tailwind, I will say that I love the concept. Very impressive work; and pretty cool you still immerse yourself in communities like this.\nNice to meet you Adam!\nThreePack\n&middot;\n4 years ago\n&middot;\nReply\n1\nDid popularity of tailwind increased suddenly or you had apply some hacks to make boot up from ground?\nnavdeep_dh\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi @adamwathan - I'm one of your quasi-early adopter to Tailwind CSS, and probably one of your first few thousand buyers of Tailwind UI.\nI found you originally because I (cough cough) used Bootstrap and always struggled with it, and then started my own Vue UI project - and you had several videos to help me understand both Vue and building a Vue UI. So many thanks for that.\nMy real comment is this ... as a former \"product marketing\" guy, I love how you do your pricing. Instead of doing the whole \"subscription\" thing with your product, you rely on the world of a \"one-time\" purchase, and then enhancing your product, with uplift or upgrade pricing.\nQuestion: How much of a struggle (both internally and with your team) was that decision?\nAnd would like to echo the question from @runMRR - around Paddle v Revin.\narniemckinnis\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi Adam! Excuse my english, I am french.\nWow, didn't know you did so much, so inspiring!\nMy question: I am curious if you have any unsucessful projects that didn't see the light but you wish they did, if so, what have you learned about those experiences?\nThx, keep on the good work on Tailwind, it really helped me to build project alone without deep diving into css.\nKabo\n&middot;\n4 years ago\n&middot;\nReply\n1\nI am simply amazed that you started in 2017. It feels like Tailwind popped up like 2 years ago max. What happened in the early stage? Did you encounter a spike in popularity or was it a steady growth?\nericbureltech\n&middot;\n4 years ago\n&middot;\nReply\n1\nAdam - did you have to struggle to get your first customers? If yes - how did you go about it?\nTestimonialGuru\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nTailwind fans here..\nThank you for your hard work! you made our life easier\nkenzcde\n&middot;\n4 years ago\n&middot;\nReply\n1\nis there any opportunities around the Tailwind CSS ecosystem you won't be doing and the rest of us can do?\nstaticmaker2022\n&middot;\n4 years ago\n&middot;\nReply\n1\nI see tailwind as a breakthrough in thinking. It is half framework, and half changing how people think about CSS from the bootstrap sort of approach. What would be your bet for the next breakthrough thing in web development that will change how people work?\nmcapodici\n&middot;\n4 years ago\n&middot;\nReply\n1\nhow did you decide on a single purchase pricing model vs a subscription, and do you still think it was the right decision?\nkyh\n&middot;\n4 years ago\n&middot;\nReply\n1\nany plans to make the tailwind ui components work with plain js?\nI used to use vue/nuxt and it worked great out of the box, but I'm dropping vue and going back to full server side rendered and would love to have a working example with plain js\njonny91\n&middot;\n4 years ago\n&middot;\nReply\n1\nI have been interested in the books market for a while as it seem both lucrative and intellectually stimulating. How did you market/publish your books initially?\nlassekt\n&middot;\n4 years ago\n&middot;\nReply\n2\nI self published them just as ebooks and sold them on Gumroad.\nFor the marketing, the key for me was building authority in the area I was writing about for a long time before starting on the book, and then building a list of people interested in it before it launched.\nI gave a whole talk on creating info products that I would recommend:\nhttps://www.youtube.com/watch?v=ajrDxZRpP9M\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi Adam,\nMassive fan of TailwindUI and RefactoringUI, thanks for your work on these!\nYou mentioned that prior to releasing RefactoringUI you spent time building up Steves twitter followers. What methods did you find worked best for this? It seems these days everyones on there throwing out threads and it's become a very murky ground and seems much harder to stand out.\nDid you do anything specific in this regard that worked better?\nrmwebs\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey! We just tried to create really fantastic content that fit in a single tweet. Here are all the tweets we put together over the years when building his audience:\nhttps://twitter.com/i/events/994601867987619840?s=21&t=CBx2pirG82hmVeToYqnHKw\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThis is super impressive, Adam! Well done!\nAnd thank you for creating both Tailwind and TailwindUI. I use them a lot myself.\nKeep up the excellent work!\nphillipstemann\n&middot;\n4 years ago\n&middot;\nReply\n1\nI love tailwind UI. Your achievements are very impressive. Well done\nJuliendeC\n&middot;\n4 years ago\n&middot;\nReply\n1\nThat's really something motivational great work\ndilaw\n&middot;\n4 years ago\n&middot;\nReply\n1\nWow you have a lot of big fans here :)\nchenlungx\n&middot;\n4 years ago\n&middot;\nReply\n1\nAwesome story @adamwathan. Thanks for sharing it.\nManojRanaweera\n&middot;\n4 years ago\n&middot;\nReply\n1\nHi, Are you going to support other frameworks such as Svelte? Thanks, big fan.\nlsgrep\n&middot;\n4 years ago\n&middot;\nReply\n1\nProbably not I’m afraid, in hindsight I wouldn’t have added Vue support even, it really slows us down and limits what we can build because any JS behavior needs to be in Headless UI so that it can work in both frameworks, can’t ever use any existing third party libraries. For example if we wanted to add a kanban board component we’d have to build our own drag and drop stuff from scratch so that it could be part of Headless UI and work in both React and Vue, instead of just using a popular established React library.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n2\n@adamwathan ... you might want to ignore this question (probably one of those, \"keep my opinion to myself\" type of things) ... but if you do ...\nIf you were starting an app project today, would you choose React over Vue? And why?\nFull disclosure, I'm a Vue fanboy, but wondering if refactoring to React for App UI would be a better choice. So just curious about your ideas from a React v Vue perspective (or anyone's on this comment stream).\narniemckinnis\n&middot;\n4 years ago\n&middot;\nReply\n1\nI'm a huge fan, and just wanted to say thank you for such an amazing work.\nsamkamrani\n&middot;\n4 years ago\n&middot;\nReply\n1\nAdam, I just love your platform and your components.\nI have always dreaded working with CSS.\nYou made it super easy for developers like me to create awesome looking web apps without having to depend on frontend developers or designers.\nCould you give a deep dive into your process for creating such great components?\nanirudhekbote\n&middot;\n4 years ago\n&middot;\nReply\n1\nHello! Thanks for doing this Adam! Fan since v1 and insta-purchaser of all things Tailwind UI, also refactoring.\nMy biggest hinderance to fully embracing TailwindCSS is that lack of prebuilt UI components (datatables, inputs, etc) that support custom classes. It is impossible to justify the use of Tailwind sometimes when compared to the ease of use of UI Frameworks like Veutify or Quasar.\nWhat is your vision for HeadlessUI Are you looking form something similar to Vuetify or other UI frameworks?\nEdit:\nWhy didn't you build TailwindUI around a SAAS model? Will there always be a market for new buyers? Is there truly a never ending number of new developers?\nphilipimperato\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey @adamwathan, I've been following you for quite some time now, and I have to say how can tailwind be so fluent!? Such an amazing work!\nHow do you manage your time?\nE.g. a feature is taking more time than expected. or which feature will work on first?\nmiguellima\n&middot;\n4 years ago\n&middot;\nReply\n1\nTailwind is the unmarried best CSS framework. So what are your mind on react-bootstrap? I recognise humans frequently pit the two in opposition to every other. https://bit.ly/3BFcGFM\nenlsonbridgeman\n&middot;\n4 years ago\n&middot;\nReply\n1\nBig fan of your work & I use Tailwind for most of my projects.\nCurious to know how many projects you worked on before going all in on Tailwind? And are those projects still active?\ngoutham8\n&middot;\n4 years ago\n&middot;\nReply\n3\nMan lots of stuff but almost all of it never even got released or went anywhere. Lots of getting excited about something, building the first 25% but never taking it over the finish line.\nA bunch that lead directly to Tailwind are captured in this post:\nhttps://adamwathan.me/tailwindcss-from-side-project-byproduct-to-multi-mullion-dollar-business/\nNitpick CI was my first attempt at starting a SaaS app and the only one I ever actually launched, but it went nowhere. I talk about it a bit in this MicroConf talk I gave .\nI worked on tons of open source stuff too, none of which is maintained or anything any longer — mostly little libraries that didn't have a lot of actual users.\nNowadays I only work on Tailwind-related stuff 👍\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat do you think made TailwindUI stand out from tons and tons of similar products out there from open source \"saas starter kits\" to ThemeForest templates?\nrdev\n&middot;\n4 years ago\n&middot;\nReply\n1\nI think the biggest thing we had going for us was the trust in the community we built when leading up to launching Refactoring UI. Steve was basically a celebrity designer at that point, so people were a lot more excited about what we were doing.\nI think it also helps a lot that they are official and come from the Tailwind CSS team.\nOn top of that of course we really just tried to make a great product, and structure everything in a way that's a little different than a typical theme and more just like a giant toolbox of stuff that will hopefully be useful on all of your projects. Not charging per project I think helped convince people to pull the trigger too.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nCongrats on all your successes! Really enjoying Tailwind it made my life a lot easier!\nYou made quite a few courses.\nHow did you get started making those?\nDo you have any resources or tips on how to succeed with info products?\njebraat\n&middot;\n4 years ago\n&middot;\nReply\n2\nHey thank you! I gave a talk that covers everything I know about launching info products, I'd definitely recommend giving that a watch:\nhttps://www.youtube.com/watch?v=ajrDxZRpP9M\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThank you! :)\njebraat\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey there! Massive fan of Tailwindcss. It has made development incomprehensibly better for me and I owe so much to you and your team for the beautifully tasty design of my site. Thanks so much!\nHeadless UI has been a massive time saver for me and has instilled a ton of confidence knowing that the components I'm getting are built correctly, with accessibility in mind, all the while allowing me to retain my own design language. I love it.\nI know your team is likely spread a little thin with so many projects going on, but do you have plans to continue to grow the Headless UI library, even though you have a paid option with Tailwind UI? I definitely hope so :)\nAgain, thank you!\ncsarnoult\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey thanks so much! We still do lots of work on Headless UI, we just released a new version last week:\nhttps://tailwindcss.com/blog/2022-09-09-new-personal-website-heroicons-2-headless-ui-v17#headless-ui-v1-7\nGenerally we only add what we personally need though, because it could become a really huge distraction otherwise. It's an absolutely brutal project to maintain because of all the weird accessibility and browser quirks you have to worry about, so we try not to just add to it for the sake of adding to it.\nIt's super important to us though and we take maintaining it very seriously, because it's the foundational layer for React and Vue support in Tailwind UI.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nIs PHP dead?\njasonlbeggs\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nOn the tech front\nI think a while back on your podcast you mentioned you were hacking on Elixir on your spare time, and given you had the time, what would you love to build out using Elixir?\nOn the business side\nIt's so incredible to see you guys iterate so quickly and ship such high level of polished work, and given that some of the time teams end can end up being inefficient (by hiring too quickly), at what point did you guys embrace the idea of start adding more team members?\ngcavanunez\n&middot;\n4 years ago\n&middot;\nReply\n3\nWhat would you love to build out using Elixir?\nHaven't touched Elixir in a long time and don't have any great ideas right now I'm afraid. Really enjoyed learning it though — learning a functional programming language really was an amazing workout for my brain.\nat what point did you guys embrace the idea of start adding more team members?\nRight after Tailwind UI was released we realized we were gonna be totally overwhelmed trying to maintain and improve that project while also maintaining and improving Tailwind CSS. Hiring was definitely the right decision and has been a life-saver, but I am still very conservative about it and probably wait too long to hire people. I don't think I'm a great manager even though I try hard at it, and it's very draining for me.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat's the next move?\nMaking a Tailwind website builder?\nisaacjoy_\n&middot;\n4 years ago\n&middot;\nReply\n7\nJust want to keep making our existing stuff better and better. Tailwind is used by so many people now on such big projects that I think it's really important to dedicate lots of time to just making it as bulletproof, reliable, and fast as possible.\nI hear the website builder thing a lot but really don't have any interest. I think that's a seductive thing to build as a developer because it sounds like a fun and interesting project, but we make things for developers, and I've yet to meet a developer who wants to build a website with a WYSIWYG tool instead of their editor. I would never use it myself, so even if it's an interesting technical challenge, I wouldn't want to pursue it as a product.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nWhat if the editor is not a separate entity and instead integrated to the workflow as a Chrome extension?\nalthaffe\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nI'm big fan. Thank you for everything you have done for the community. You have changed my life in ways you can't imagine. Thank you again.\nMy question is, how many hours do you work per week? How do you balance everything?\nreckuza\n&middot;\n4 years ago\n&middot;\nReply\n4\nHey! Wow thank you, that's amazing to hear.\nI am in my office Monday to Friday 9-5, pretty regular working hours. When it was just Steve and I there would be some big pushes a few times per year when we worked really hard to get something out for some self-imposed deadline, but even though I had a lot of fun doing that we don't really work that way much anymore with a team.\nIn terms of balance, thankfully our products aren't the sort of mission critical things where you have to get up at 2am on a Sunday to fix some problem like you would if you maintained the API at Stripe or something. I do still need to pay attention to things and have a sense of any issues basically 24/7 like any business owner does, but it's very rare that real emergencies happen, I think it's happened maybe twice.\nThere's always an endless amount of good ideas to pursue and things to work on, so it's also really important that we try to stay very focused in terms of what problems we actually pursue, because otherwise it would be easy to end up overwhelmed. The natural state of any business with product market fit is to grow grow grow, there's like a gravity of opportunities begging for you to take advantage of them, but if you do then you start feeling overwhelmed, like you need to hire more people, manage more people, and I've realized that that doesn't make my life better. Better to just try and do as few things as possible and avoid taking on too much.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nNow that you are my definition of success, what motivates you to keep building ?\nHow do you overcome burnout ?\nWhat would you be doing if you sucked at design ? (learning design doesn’t count)\nName 3-5 websites/tools you cannot live without .\nTailwind CSS motivated me 3 years ago to be a web dev, and I’ve built +10 live websites in 5 frameworks, thanks A LOT for writing RUI and making TCSS/TUI.\nalexandromg\n&middot;\n4 years ago\n&middot;\nReply\n3\nwhat motivates you to keep building?\nHonestly just have to do something right? I don't think I have the same motivation as I used to, but I've found that just forcing myself to do something gives me motivation and is rewarding. On the days where I don't feel motivated and don't do anything, I feel like crap and like I'm not doing anything with my life except watching the universe pass me by. So better to just do something , no matter what.\nHow do you overcome burnout?\nTake some time off but find something to do in that time that is fulfilling and enjoyable, don't just vegetate. Then figure out what caused you to burn out and try to put things in place to prevent it from happening.\nGreat talk I come back to all the time when I'm thinking about this:\nhttps://www.youtube.com/watch?v=Kn5MbZoSRNM\nWhat would you be doing if you sucked at design? (learning design doesn’t count)\nHonestly I'm not a very good designer, Steve is the real designer in our partnership! So for me, finding a designer as a partner was really key. I would still learn design though, I love design and have always strived to learn about it and get better at it.\nName 3-5 websites/tools you cannot live without.\nFigma, it's like our company whiteboard and I don't think I could even think properly without being able to work with other people at the company in a Figma file\nExcel, best software ever made\nTailwind CSS ;)\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nHey Adam,\nI’m a great fan of your work :)\nTwo questions\nIn what ways did refactoring ui (or other big influences) influence the core principles of tailwind?\nHow did you test or what Moment convinced you that tailwind is something that should be build ?\nKeep up the good work 😊\nmatze846856\n&middot;\n4 years ago\n&middot;\nReply\n2\nHey thanks!\nIn what ways did refactoring ui (or other big influences) influence the core principles of tailwind css?\nThe ideas we put into Refactoring UI influenced the default design system in Tailwind CSS a ton, literally everywhere. The type scale, the shadow system, the color palette, the spacing scale — all of that stuff was designed using the principals we wrote about in the book.\nHow did you test or what Moment convinced you that tailwind css is something that should be build ?\nI actually only decided to open-source it and turn it into a real \"project\" because I was live-streaming a lot of work on a SaaS app I was building, and the most common question I was getting was \"what is this CSS framework you're using?\"\nUntil then it was just some stylesheets I was copying and pasting between projects, but I was getting so much feedback on it that I decided to open-source it. Originally I intended for the framework to be open-source sort of as a marketing play for the SaaS business and to help get the word out, but the SaaS ended up being abandoned and the framework itself is what turned into a business.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n0\nI'm Alexander, a moderator at the best Faje Bank Alert Tool FLash Funds. https://flashfunds.app\nFlashFunds\n&middot;\n4 years ago\n&middot;\nReply\n0\nNice, Thanks for sharing your valuable thoughts. I really Appreciate to write your main concept.\nhttps://inspectionexperts.com.au/\nInspection_Experts\n&middot;\n4 years ago\n&middot;\nReply\n0\nGlad to see you here!\nalpesdream\n&middot;\n4 years ago\n&middot;\nReply\n0\nhey there!\nAlcina\n&middot;\n4 years ago\n&middot;\nReply\n0\nTailwind's opinionated library makes working with CSS easier, great job Adam.\nOur team uses it at https://www.Vibehut.io\n1dolinski\n&middot;\n4 years ago\n&middot;\nReply\n-2\nThis comment has been voted down. Click to show.\nfabform\n&middot;\n4 years ago\n&middot;\nReply\n4\nThis feels like borderline spam but I'll give an answer here that's maybe useful to readers.\nWe get so, so, so, SO many messages about partnerships and integrations and stuff like that, and we say no to every single one. Lots of them would probably make us more money, but money isn't what we are really optimizing for at this point, I'm optimizing for maximum freedom and a fun and happy life. Pulling more people in an any way doesn't help us get to that goal. It's more people to co-ordinate with on things, more people expecting things from us, and it slows us down. So I really doubt we will ever partner with anyone on anything.\nadamwathan\n&middot;\n4 years ago\n&middot;\nReply\n1\nThis comment was deleted 4 years ago\nfireaction\n&middot;\n4 years ago\n1\nThis comment was deleted 4 years ago\nfireaction\n&middot;\n4 years ago\n1\nThis comment was deleted 4 years ago\nfireaction\n&middot;\n4 years ago\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+      "policy": {
+       "policyId": "rights.indiehackers.v2",
+       "sourceId": "src.indiehackers",
+       "providerName": "Indie Hackers",
+       "displayTier": "facts_only",
+       "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+      }
+     },
+     {
+      "sourceId": "s3",
+      "url": "https://marketingexamples.com/landing-page/pricing",
+      "publisher": "Marketing Examples",
+      "snapshot": {
+       "url": "https://marketingexamples.com/landing-page/pricing",
+       "finalUrl": "https://marketingexamples.com/landing-page/pricing",
+       "status": 200,
+       "fetchedAt": "2026-10-06T09:24:11.769Z",
+       "via": "direct",
+       "contentType": "text/html; charset=utf-8",
+       "textHash": "18c233af655d1f880384786bf8725da7a590ea75ffbff591d4a32c89f0b91104"
+      },
+      "text": "Refactoring UI: A lesson in high prices\nRefactoring UI: A lesson in high prices\nHow Adam Wathan and Steve Schoger escaped the dogma of e-book pricing and made $1.35M selling Refactoring UI, their design book.\nHow Adam Wathan and Steve Schoger escaped the dogma of e-book pricing and made $1.35M selling Refactoring UI, their design book.\nRefactoring UI: A lesson in high prices\nRefactoring UI: A lesson in high prices\n3 mins\nLanding Page\nPeter Thiel spends 6 months writing down everything he knows about business. His book sells for $10 on Amazon.\nAdam Wathan and Steve Schoger spend 6 months writing down everything they know about design. Their “ book ” sells for $79 online.\nBelieve it or not, both prices make perfect sense.\nThiel is selling to the masses and the masses are sensitive to price changes (price elastic). If he raises the price to $30 they wouldn’t think twice before substituting his book for one of the many cheaper alternatives on Amazon.\nAdam and Steve are selling to hardcore fans and hardcore fans are insensitive to price changes (price inelastic). They've all been following the Twitter tips , watching the screencasts , reading the Medium posts . In their minds, there are no substitute resources available. They don’t want any old design book, they want an Adam Wathan + Steve Schoger design book.\nWhen demand for your good is inelastic, you raise your price. In the case of Adam and Steve, all the way up to $79. As the diagram shows, a 8x price increase (from $10 to $79) results in just a 2x drop in books sold (20k to 10k) and 4x more revenue (shown by the area of the two rectangles).\nStep 2 - Escape the context of an e-book\nSo quite rightly Adam and Steve elected to charge a high price, but that created one problem: You can't just sell an e-book for $70+ . People are anchored to what they're used to paying on Amazon. To quote Adam:\nThe format commands the price. No matter what the content is. And it speaks nothing to the value of the content or the effort that was put into creating it.\nSo how did Adam and Steve get round this? Well, they set up their own website , added in video tutorials, an icon pack, color palettes, font recommendations, a component library. And then the context changed .\nThey were no longer selling an Amazon e-book , they were selling an exhaustive design package . And they could charge whatever they liked.\nStep 3 - A Persuasive Higher Tier\nIn addition to the lower tier package of $79, Adam and Steve were also selling a higher tier package priced at $149. And it was this package that they wanted people to buy. The question was how could they present it in such a way to make it appear more compelling?\nWell, firstly, look at the hierarchy. The higher tier package takes up twice as much screen space, the font size is larger, and the button color is primary. It doesn't feel right pressing the “Buy Now” button on the lower tier.\nSecondly, look at the disproportionately sized discounts. The higher tier package\nis reduced by $100 (or 40%).\nThe lower package\nis only reduced by $20 (or 25%). To quote Adam:\nIf you want people to buy the more valuable package why not make the discount more compelling.\nAnd thirdly, look at the labelling of the higher tier option. The Complete Package infers that if you choose anything less you're missing out . It could just as accurately be labelled The Bonus Package but that wouldn't have the same psychological impact.\nAnd the subtle tweaks in presentation seemed to work. 78% of total purchases (6765) favoured the higher tier (as of Jan 10, 2019).\nIn Summary\nSo, there we have it. Adam and Steve:\n• Identified that a hardcore audience called for high pricing\n• Escaped the dogma of e-book pricing\n• Packaged the higher tier in a more compelling way\nand Refactoring UI ended up grossing over $1.35M .\nFinal Thought\nI don't want this pricing lesson to overshadow Adam and Steve's real competitive advantage: being able to justify a price of $149 in the first place . Only in serving up two years worth of free tips, screencasts, and articles is this price possible.\nMy own heuristic is: The price you can charge is equal to the value you’ve already created .\nNod of Appreciation\nThe quotes in this case study come from The Art of Product Podcast: Episode 70 , where Ben Orenstein and Derrick Reimer interview Adam and Steve. Would definitely recommend.\nContent SEO Sales Social Ads\nCopywriting Landing Page\nRetention Brand Referral Creative\n“ #1 Marketing Newsletter”\nRead by 130k\nCopywriting Examples\n30 secs\nSocial\nPosting seltzer. Making money.\n2 mins\nCreative\nThe saleswoman closing 33% of cold pitches\n2 min\nSales\nA full-time “pizza influencer”\n2 mins\nContent\nOne of these videos has 18M views\n30 secs\nCopywriting\nShould you offer a free trial?\n30 secs\nLanding Page\n“Make Ugly Ads”\n30 secs\nAds\nThe chocolate that goes viral every day\n2 mins\nAds\nThis rebrand cost Tropicana $55M\n1 min\nBrand\nRows' homepage test that doubled conversions\n1 min\nLanding Page\nAdobe's Perfect TikTok\n2 min\nAds\nBou's Near-Perfect Google ad\n2 mins\nCopywriting\nHow Loom Created a Category\n2 min\nBrand\nFour (not boring) ways to name a new product line\n30 secs\nCopywriting\nThe cold email that started a $100M / yr company\n2 mins\nSales\nReforge and the Strategic Use of Language\n30 secs\nBrand\nOne line. Eight Rhetorical Devices.\n3 mins\nCopywriting\nFour ways to write a CTA\n30 secs\nLanding Page\nI love this DTC retention strategy\n1 min\nRetention\n“Press B anytime to Buy”\n30 secs\nLanding Page\nInnocent’s Wooly Hats\n30 secs\nCreative\nI love Blinkist's free trial paywall\n1 min\nLanding Page\n“How can I do the ad without any adjectives?”\n30 secs\nCopywriting\nI love True Classic's upsell\n30 secs\nLanding Page\nGrowth Design's 60% open rate\n1 min\nContent\nTwo million clicks from one email\n1 min\nCopywriting\nLizzy's email worked on me\n1 min\nSales\nHow the 🌀 took over LinkedIn\n1 min\nReferral\nHow to approach viral content marketing\n20 secs\nContent\nSky Bet's Perfect Offer\n2 min\nCopywriting\n70% of Calvin Klein's tweets are questions\n2 min\nSocial\nThe most upvoted Reddit ad ever\n1 min\nAds\nHow Chamaripa turned celeb heights into shoe sales\n2 mins\nSEO\nThree ways to add warmth to your CTA\n15 secs\nLanding Page\nMy step-by-step guide to landing pages that convert\n4 mins\nLanding Page\nVeed, Miro and Canva's strategy in one line\n2 mins\nContent\n“The Dream 100”\n3 mins\nSales\nInnocent know how to write copy\n1 min\nSocial\nOne thousand replies to cold emails\n3 mins\nSales\nBarbie Newsjacking\n30 secs\nCreative\nHow Basecamp makes $99/month feel cheap\n25 secs\nLanding Page\nWine List's Counterintuitive Pricing\n1 min\nLanding Page\nMy favourite sales email pattern\n20 secs\nSales\n4 years. 4 AMA's. 1M views.\n30 secs\nSocial\nSeven ways to build your “founder brand”\n2 mins\nSocial\nMy favourite “Meta Images”\n1 min\nLanding Page\n10% of ARR from typo domains\n30 secs\nCreative\nMy new favourite agency ad\n1 min\nAds\nThe content marketing sweet spot\n1 min\nContent\nNine marketing examples that tap into cognitive biases\n3 min\nCreative\nThe tale of two Twitter strategies\n1 min\nSocial\nHow Vogue tapped 5M views from a 3 year old interview\n1 min\nContent\nSticker Mule's plain text emails\n30 secs\nSales\nA crash course in improving your open rate\n1 min\nRetention\nHow to grow a YouTube channel in 2022\n1 min\nContent\nCopywriting is more like math than you suspect\n1 min\nCopywriting\nInside Steven Bartlett's ad library\n30 secs\nContent\nDon't write “labels”...\n30 secs\nLanding Page\nI love this abandoned cart hook\n1 min\nSales\nMy favourite indie rock band\n10 secs\nCreative\nAG1's welcome offer is idiot-proof\n30 secs\nBrand\nAn influencer ad that doesn't SUCK\n1 min\nAds\nWhy is the Angostura bitters label too big?\n1 min\nCreative\nA crafty social media giveaway\n30 secs\nSocial\nA brilliant response to Amazon cloning your product\n1 min\nCreative\nHow Jürgen Klopp makes fans smile\n2 mins\nBrand\nArc'teryx's TikTok Fame\n1 min\nSocial\nI love Billboards designed for social\n2 mins\nSocial\nHow Chewy delights customers\n3 mins\nBrand\nRefactoring UI: A lesson in high prices\n3 mins\nLanding Page\nHow brands make friends on Twitter\n1 min\nSocial\nUsing GIPHY for free brand awareness\n3 mins\nContent\nIf you want to grow on social make yourself easy to sum up\n40 secs\nSocial\nA Table of Contents can work wonders for SEO\n30 secs\nSEO\nHow I got 2,000 new subscribers from Product Hunt\n3 mins\nSocial\nCronitor's Little Side-Project\n2 mins\nSEO\nKapwing's YouTube strategy\n1 min\nContent\nHow I promote my content\n3 mins\nContent\nThe marketing genius of Lil Nas X\n4 mins\nSocial\nMy guide to conversational copywriting\n4 mins\nCopywriting\nHow to write a landing page title\n3 mins\nLanding Page\nPeople Warm to People, Not Brands\n1 min\nBrand\nOne Tweet. Eighty media placements.\n30 secs\nBrand\nA simple idea that’s makes Gillette $60M/yr\n2 mins\nReferral\nMy Twitter Inspiration Handbook\n6 mins\nSocial\n17 tips for great copywriting\n5 mins\nCopywriting\n27 words that sum up the psychology of copywriting\n30 secs\nCopywriting\nGrubhub's link building strategy\n3 mins\nSEO\nSignal's Instagram Ads\n1 min\nAds\nReal Marketing\n2 mins\nBrand\n£8k Instagram Giveaway → 1M followers\n2 mins\nSocial\nA crash course in getting press and building links\n4 mins\nSEO\nNeiman's magazine ads\n30 secs\nAds\nHow LadBaby started a movement\n3 mins\nBrand\nHow to build a website which converts email subscribers\n3 mins\nLanding Page\nA story about my dad and PPC ads\n3 mins\nAds\nThe genius of Tesla's marketing strategy\n2 mins\nBrand\nTaylordle\n1 min\nContent\nRewriting landing pages with a pro copywriter\n3 mins\nLanding Page\nHow Convert Kit grew from $1.5k to $100k MRR\n3 mins\nSales\n“Michelin Guide” Marketing\n3 mins\nContent\nEmail Segmentation — A practical example\n3 mins\nRetention\nCounterpunch like Carl\n2 mins\nSocial\nThe most creative Coronavirus company pivots\n2 mins\nCreative\nHow a creative Google ad got an investor's attention\n1 min\nAds\nThe genius of no name's brand\n3 mins\nBrand\nBarilla's pasta playlist\n30 secs\nCreative\nUsing Unsplash for brand awareness and backlinks\n2 mins\nSEO\nHow Steve Jobs clarified Apple's message\n2 mins\nCopywriting\nLet your customers write your copy for you\n2 mins\nCopywriting\nHow Rev. Chris grew 100k Instagram followers\n2 mins\nSocial\nMy guide to brand positioning\n3 mins\nBrand\nThe Vegetable Name Change\n1 min\nCreative\nThe marketing genius of Andrew Schulz\n3 mins\nContent\nGrowth Loops\n4 mins\nReferral\nWhy Burger King sponsored Stevenage F.C.\n30 secs\nCreative\nMy favourite low-budget viral ads\n4 mins\nAds\nHow Nomad List dominates longer tail keywords\n3 mins\nSEO\nApple’s “Shot on iPhone” campaign\n1 min\nAds\nDave Gerhardt's 1 line sales email\n30 secs\nSales\nContent SEO Sales Social Ads\nCopywriting Landing Page\nRetention Brand Referral Creative\nHey, I'm Harry. Every Monday I share:\n• 3 short examples\n• 2 copywriting tips\n• 1 favourite tweet\nMarketers voted it the “ #1 marketing newsletter ”. 130k people enjoy it.\nTry it\n“My favourite newsletter on the web”\n“The newsletter is so f***ing great !”\n“Better than my marketing degree ”\n“🦄🦄🦄 — Nuff said ”\n“The best thing is it works ”\n“How is this still free? ”\n“A genius that actually gives a sh*t ”\n“I have no regrets ”\n“ Best newsletter I'm subbed to”\n“You ALWAYS find something useful”\n“No fluff marketing. Works right now ”\n“Shit you actually want in your inbox”\n“Sadly, there's only one Harry Dry”\n“Most wisdom per newsletter of all time ”\n“One of the best marketers I know”\n“ One of the best things on the web”\n“I can feel my brain getting smarter ”\n“The Sir Alex Ferguson of marketing”\n“I haven't read a bad one yet”\n“ I wanna be Harry when I grow up”\n“ Gems everywhere ”\n“ Dangerous in the wrong hands”\n“If you don’t read Marketing Examples you aren’t really a marketer ”\n“I literally can't wait for new issues”\n“Multiple notifications so I never miss it ”\n“The only newsletter I share with every person that joins my team”",
+      "policy": {
+       "url": "https://marketingexamples.com/landing-page/pricing",
+       "decision": "allowed",
+       "usage": "independently_worded_facts",
+       "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+       "reviewedAt": "2026-10-06T19:30:00+09:00",
+       "termsUrl": "https://marketingexamples.com/",
+       "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き。ページは著者の編集物なので、手口の文章や図は載せない。",
+       "recheckAfter": "2027-01-04T12:00:00+09:00"
+      }
+     }
+    ]
+   },
+   "publicationHash": "ad8543a3129ad8f0e4a8fb3b038386a2b4db66d0ae488592e9c5ab8d2e23cb72"
+  }
+ ]
+}

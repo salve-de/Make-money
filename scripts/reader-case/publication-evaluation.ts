@@ -2,7 +2,8 @@
 import { createHash } from 'node:crypto';
 import { ReaderCaseSchema, type ReaderCase } from '../../src/shared/reader-case';
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
-import { checkCase, citesRestrictedSource, missingRequired, reflectAnalysis, type StoredAnalysis } from './analysis-lib';
+import { checkCase, citesRestrictedSource, reflectAnalysis, type StoredAnalysis } from './analysis-lib';
+import { THIN_PREFIX, displayMinimumProblems } from '../../src/shared/display-contract';
 import { hasText, quoteInText, type SourceCacheRecord, type VerdictsFile } from './verify-lib';
 
 export const PUBLICATION_AUDITS_FILE = 'data/publication-audits.json';
@@ -89,15 +90,20 @@ export function evaluatePublication(input: PublicationInput, audit: PublicationA
 
 /**
  * 選別（select-finished）と公開データ作り（prepare-catalog-release）が共通で使う関門。
- * 受領書・出典・権利・画像の確認（evaluatePublication）に、main の完成基準（OWNER_INTENT 2章: 必須項目の空欄・薄い事例は出さない）を足す。
+ * 受領書・出典・権利・画像の確認（evaluatePublication）に、表示契約の下限（薄い事例は出さない）を足す。
  */
 export function evaluateForRelease(input: PublicationInput, audit: PublicationAudit | undefined, problems: string[] = []) {
   const base = evaluatePublication(input, audit, problems);
-  const reasons = [...base.reasons];
+  // 1項目の欠けで事例全体を止めない（オーナー指示 2026-10-06）。検査で落ちた推論の項目と事業説明の欠けは、その項目を隠すだけにする。
+  // ただしリード（HEADLINE）が落ちた時は表示契約の下限が「リードを書き直す」を出す
+  const hideOnly = (r: string) => (r.startsWith('推論:') && !r.startsWith('推論:HEADLINE:')) || r === '根拠付きの事業説明が無い';
+  const reasons = base.reasons.filter((r) => !hideOnly(r));
+  const hidden = base.reasons.filter(hideOnly);
   const { reader } = input;
-  if (reader.facts.length <= 2 && reader.metrics.length === 0) reasons.push('データが少ない（事実2件以下で数字なし）');
-  reasons.push(...missingRequired(reader).map((m) => `空欄:${m}`));
-  return { ...base, reasons, publishable: reasons.length === 0 };
+  if (reader.facts.length <= 2 && reader.metrics.length === 0) reasons.push(`${THIN_PREFIX}:事実2件以下で数字なし`);
+  // 下限は表示契約（src/shared/display-contract.ts）。推論の項目（手残り・大手の死角・教訓など）は必須にしない（#128 D01・D05・D06）
+  reasons.push(...displayMinimumProblems(reader).filter((r) => !reasons.includes(r)));
+  return { ...base, reasons, hidden, publishable: reasons.length === 0 };
 }
 
 /** A release candidate list is mandatory. An absent/malformed file must never mean all records. */

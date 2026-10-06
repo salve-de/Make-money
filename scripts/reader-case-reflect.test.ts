@@ -7,10 +7,11 @@ import { test } from 'node:test';
 import type { ReaderCase } from '../src/shared/reader-case';
 import { appendRecord } from './reader-case/ledger';
 import { IMPORT_ACTOR } from './reader-case/import-case-rebuild';
-import { contentProblems, reflectCases, reflectHoldReasons, reflectedReader, withReflectedAnalysis, withdrawalsFor, type ReleaseGate } from './reader-case/case-reflect';
+import { contentProblems, withoutItems, reflectCases, reflectHoldReasons, reflectedReader, withReflectedAnalysis, withdrawalsFor, type ReleaseGate } from './reader-case/case-reflect';
 import { diagnose, stageOf } from './reader-case/display-diagnose';
 import { collect, mergeInto, sourceCards } from './reader-case/add-entity-records';
-import { displayCoverage } from '../src/shared/display-contract';
+import { touchedCases } from './reader-case/merge-verdicts';
+import { displayCoverage, displayMinimumProblems } from '../src/shared/display-contract';
 
 // 実データは使わない。fixture だけ（一時ディレクトリに書く）
 const ID = 'ent_fixture_000000000001';
@@ -89,12 +90,30 @@ test('関門に落ちた版は reader を持つが表示しない（照合・審
   assert.deepEqual(reflectHoldReasons(state, ID), ['現在の入力に対する監査が無い']);
 });
 
-test('中身の基準: 仮置きの語・範囲のリード・出典なしを落とす', () => {
+test('中身の基準: 仮置きの語の項目は外すだけ、範囲のリードは書き直しへ、出典なしは止める', () => {
   assert.deepEqual(contentProblems(reader()), []);
   const placeholder = reader({ analysis: [...reader().analysis, { id: 'a2', item: 'TAKE_HOME', text: '費用を仮置きで月$2,000とする。', basis: ['m1'] }] } as Partial<ReaderCase>);
-  assert.ok(contentProblems(placeholder).some((p) => p.startsWith('仮置きの語')));
+  const stripped = withoutItems(placeholder, { placeholders: true });
+  assert.deepEqual(stripped.hidden, ['推論:TAKE_HOME']);
+  assert.deepEqual(contentProblems(stripped.reader), []);
   const range = reader({ analysis: [{ id: 'a1', item: 'HEADLINE', text: '月99〜149ドルの購読で店を作り直した。', basis: ['f2'] }] } as Partial<ReaderCase>);
-  assert.ok(contentProblems(range).some((p) => p.startsWith('リード基準外')));
+  assert.ok(contentProblems(range).some((p) => p.startsWith('リードを書き直す:リード基準外')));
+  assert.equal(stageOf(contentProblems(range)[0]), 'LEAD');
+});
+
+test('使えない出典は、その出典と根拠にする項目だけ外して出す（事例全体を止めない）', async () => {
+  const { dataDir, ledgerDir, put } = setup();
+  const two = reader({ sources: [...reader().sources, { id: 's2', publisher: '紹介サイト', url: 'https://other.test/a', checkedAt: '2026-10-06', kind: 'ARTICLE' }],
+    facts: [...reader().facts, { id: 'f3', kind: 'TEAM', text: '運営は1人。', sourceId: 's2', attribution: 'ARTICLE' }],
+    analysis: [...reader().analysis, { id: 'a3', item: 'CAPITAL_AND_TEAM', text: '運営は1人で回している。', basis: ['f3'] }] } as Partial<ReaderCase>);
+  put(two, 'h1');
+  const gate: ReleaseGate = async (_id, r) => (r.sources.some((x) => x.id === 's2') ? { publishable: false, reasons: ['利用条件:s2'] } : { publishable: true, reasons: [] });
+  const { state } = await reflectCases({ dataDir, ledgerDir }, gate);
+  assert.equal(state.cases[ID].state, 'SHOW', JSON.stringify(state.cases[ID].reasons));
+  assert.deepEqual(state.cases[ID].hidden, ['出典:s2:https://other.test/a', '事実:f3', '推論:CAPITAL_AND_TEAM']);
+  const d = diagnose(state.cases[ID], reader(), true, { officialUrl: 'https://example.test/' });
+  assert.deepEqual(d.categories, []);
+  assert.ok(d.hidden.alternatives.some((a) => a.includes('https://example.test/')));
 });
 
 test('手で書き換えた SHOW 記録は指紋が合わず出さない', async () => {
@@ -148,4 +167,34 @@ test('目録への追加: 指紋を確かめ、既存の id・公式サイトと
   assert.equal(sourceCards('x', [{ id: 's1', url: 'ftp://bad' }]).length, 0);
   writeFileSync(`${root}/art/${hash}.json.gz`, gzipSync(`${json} `));
   assert.throws(() => collect(`${root}/m.json`, `${root}/art`, ['ent_new_1']), /指紋/);
+});
+
+test('表示の下限: 1項目の欠け（料金など）では止めず、本文の節が足りない時だけ「全体が薄い」', () => {
+  const thin = displayMinimumProblems(reader({ facts: [reader().facts[0]], metrics: [], analysis: [{ id: 'a1', item: 'HEADLINE', text: '月額29ドルの購読を売る小さな店。', basis: ['f1'] }] } as Partial<ReaderCase>));
+  assert.ok(!thin.some((p) => p.includes('WHO_WHAT_PRICE')));
+  assert.ok(thin.some((p) => p.startsWith('全体が薄い:本文の節が')));
+  assert.equal(stageOf(thin.find((p) => p.startsWith('全体が薄い'))!), 'THIN');
+  assert.equal(stageOf('利用条件:s1'), 'RIGHTS');
+});
+
+test('関門が審査で直した推論を返せば、それを表示版に採用する', async () => {
+  const { dataDir, ledgerDir, put } = setup();
+  put(reader(), 'h1');
+  const fixed = [{ id: 'a1', item: 'HEADLINE', text: '店を2024年に畳んだ創業者が、2025年に作り直して月10,150ドルを売った。', basis: ['f2', 'm1'] }];
+  const approve: ReleaseGate = async () => ({ publishable: true, reasons: [], analysis: fixed as never });
+  const { state } = await reflectCases({ dataDir, ledgerDir }, approve);
+  assert.equal(state.cases[ID].state, 'SHOW');
+  assert.deepEqual(reflectedReader(state, ID)?.analysis, fixed);
+  assert.deepEqual(reflectHoldReasons(state, ID), []);
+  // 審査の入力と合流には取り込み版の推論を返す（受領書の入力指紋を毎回同じにする）
+  assert.deepEqual(withReflectedAnalysis({}, state, 'audit')[ID], reader().analysis);
+  assert.deepEqual(withReflectedAnalysis({}, state)[ID], fixed);
+  const again = await reflectCases({ dataDir, ledgerDir }, approve);
+  assert.equal(again.changed, false);
+});
+
+test('照合の合流: 判定の無い事例は置き換えない（--ids なしでも既存の判定が減らない）', () => {
+  const touched = touchedCases([`${ID}\u0000f1`], [`ent_other\u0000f2`]);
+  assert.deepEqual([...touched].sort(), [ID, 'ent_other'].sort());
+  assert.equal(touched.has('ent_untouched'), false);
 });

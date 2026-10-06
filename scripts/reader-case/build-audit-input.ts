@@ -14,7 +14,7 @@ async function main() {
   const tag = argValue('--tag');
   if (!Number.isSafeInteger(per) || per < 1 || !Number.isSafeInteger(start) || start < 1 || (tag && !/^\d+$/.test(tag))) throw new Error('Invalid audit batch arguments');
   const verdicts = JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile;
-  const analysis = withReflectedAnalysis(JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile, readReflectState());
+  const analysis = withReflectedAnalysis(JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile, readReflectState(), 'audit');
   const entities = loadEntities(ids);
   const cases: unknown[] = [];
   for (const [id, reader] of loadReaders(ids)) {
