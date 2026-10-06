@@ -13,7 +13,11 @@ CAND="data/pipeline/${PREFIX%-}.ids"
 
 say() { echo "[$(date +%H:%M)] $*"; }
 notify() { osascript -e "display notification \"$1\" with title \"Make-Money 収集\"" >/dev/null 2>&1 || true; }
-fail() { say "停止: $*"; notify "停止: $*"; exit 1; }
+# 停止の理由は状態台帳（pnpm pipeline:status）にも残す。台帳に書けなくても停止は止めない
+fail() { say "停止: $*"; node --import tsx scripts/reader-case/pipeline-status.ts record --case "_run:${PREFIX%-}" --stage "${LEDGER_STAGE:-ANALYZE}" --status FAILED --reason RUN_ABORTED --text "$*" --next "原因を直して再実行" >/dev/null 2>&1 || true; notify "停止: $*"; exit 1; }
+
+# 出典本文が1件も無い事例は、台帳に HOLD NO_SOURCE_TEXT で残す（実行は止めない）
+node --import tsx scripts/reader-case/pipeline-status.ts scan-batches --prefix "$PREFIX" || true
 
 # 1. 分析（Codex）。全バッチの出力が揃うまで進まない
 say "分析: ${PREFIX}*"
@@ -26,6 +30,7 @@ node -e "
   for(const f of fs.readdirSync('data/analyze/batches').filter(f=>f.startsWith('$PREFIX')))for(const c of JSON.parse(fs.readFileSync('data/analyze/batches/'+f)).cases)ids.add(c.entityId);
   fs.writeFileSync('$CAND',[...ids].sort().join('\n')+'\n');console.log('候補',ids.size,'件')" || fail "候補の一覧を作れない"
 
+LEDGER_STAGE=MERGE
 # 2. 統合（機械の検査を通った推論だけ残す）
 node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "統合に失敗"
 
@@ -35,6 +40,7 @@ node -e "
   let n=0,long=0;for(const id of fs.readFileSync('$CAND','utf8').split('\\n').filter(Boolean))for(const a of d[id]||[]){if(a.item==='STORY')continue;n++;if(a.text.length>70)long++}
   console.log('長すぎる項目',long,'/',n);process.exit(n&&long/n>0.05?1:0)" || fail "推論の文が長すぎる（分析指示の短さの規則が効いていない）"
 
+LEDGER_STAGE=AUDIT
 # 3. 監査（今の推論の文をまだ監査していない候補だけ。推論を作り直した事例は、前に監査済みでも監査し直す。
 #    名前は 999999+日時（秒まで）+プロセス番号 で、過去の監査より後ろに並べる。監査済みかは merge-analysis.ts が指紋で判定して data/audit-fresh.json に書く）
 node -e "
@@ -49,6 +55,7 @@ if [ -s "$CAND.audit" ] && grep -q . "$CAND.audit"; then
   node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "監査の反映に失敗"
 fi
 
+LEDGER_STAGE=IMAGE
 # 3b. 画像の検査（使ってよいと判定された画像が1枚も無い候補は、仕上げ済みにしない）
 node -e "
   const fs=require('fs');const ok=[],ng=[];
@@ -59,6 +66,7 @@ node -e "
   fs.writeFileSync('$CAND.img',ok.join('\n')+'\n');fs.writeFileSync('$CAND.noimg',ng.join('\n')+'\n');
   console.log('画像あり',ok.length,'件／画像なし',ng.length,'件（$CAND.noimg）')" || fail "画像の検査に失敗"
 
+LEDGER_STAGE=SELECT
 # 4. 仕上げ済みの選別（今の公開分＋今回の候補のうち画像あり。空欄・未監査・規約で表示不可の出典は落ちる）
 # 比べる相手は「公開済み（origin/main）」の一覧。手元の一覧は前回の途中終了で既に増えていることがある
 git -C "$REPO" fetch -q origin main || fail "main を取得できない"
@@ -79,6 +87,7 @@ if [ -n "$NEW_IDS" ]; then
   node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/media/upload-media-assets.ts --entity "$NEW_IDS" > data/pipeline/upload.log 2>&1 || fail "画像を保存先へ上げられない（data/pipeline/upload.log）"
 fi
 
+LEDGER_STAGE=PUBLISH
 # 5. 公開データを作り、main への PR を出してマージ（毎回 main から新しい作業場所を作る）
 NAME="pub/${PREFIX%-}-$(date +%m%d%H%M)"; PUB="$REPO/.worktrees/${NAME//\//-}"
 git -C "$REPO" fetch -q origin main || fail "main を取得できない"
@@ -110,6 +119,7 @@ open=$(gh api graphql --raw-field query="{repository(owner:\"salve-de\",name:\"M
 [ "${open:-0}" = 0 ] || fail "レビュー指摘が ${open} 件ある（直してからマージ）: $PR"
 gh pr merge "$PR" --merge >/dev/null || fail "マージできない: $PR"
 
+LEDGER_STAGE=READBACK
 # 6. 本番反映（マージ後の main から）と読み戻し
 git fetch -q origin main && git merge -q --ff-only origin/main || fail "マージ後の main に合わせられない"
 pnpm -s deploy:workers > /tmp/mm-deploy.log 2>&1 || fail "本番反映に失敗（/tmp/mm-deploy.log）"
