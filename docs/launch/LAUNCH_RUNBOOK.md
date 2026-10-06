@@ -78,7 +78,7 @@ node -e "const d=require('./data/case-display.json');const c={};for(const v of O
 | # | 項目 | 確認方法 | 状態 |
 |---|---|---|---|
 | A. 事例の中身 | | | |
-| A1 | `catalog-finished-ids.txt` が通し済みの案件IDだけで、公開目録の件数と一致 | 4章 | 未確認（一覧の受け取り待ち） |
+| A1 | `catalog-finished-ids.txt` が通し済みの案件IDだけで、公開目録の件数と一致 | 4章 | 未達（2026-10-06）。ID一覧は325件のまま、公開対象は新基準の10件だけにする方針。10件は出典本文・画像の権利・現在の入力に対する監査が未充足で最終監査を通らないため、引き継ぎ315件の撤回（`data/catalog-withdrawn-20261006.txt`）は未適用。事例側の充足待ち |
 | A2 | 捏造・出典なし数字・仮置き手残りが0件 | 抜き取り監査（`OWNER_INTENT.md` 4章、#128 V03/V05）。事例担当の領域 | 未確認 |
 | A3 | eBiz のみ出典の事例が画面・API・sitemap に出ない | `e2e/catalog-only.spec.ts`、sitemap の ID が公開目録のみ | 未確認 |
 | A4 | 実在の事例を本番で開き、画像・出典・推定表示を目で確認 | 公開直後 | 未確認 |
@@ -96,10 +96,10 @@ node -e "const d=require('./data/case-display.json');const c={};for(const v of O
 | D1 | 公開 API・バンドルに private メタデータ・保留事例が出ない | `SECURITY_REVIEW.md` | 事例詳細の内部情報の漏れ1件を修正（許可リスト方式、テスト通過）。ビルド後のバンドル走査は `check-paid-bundle` 通過、成果物内の秘密文字列走査は未実施 |
 | D2 | セキュリティヘッダー（CSP 等）で Google ログイン・決済が壊れない | 本番相当の実画面でログインと決済の流れ | 未確認 |
 | D3 | 費用が発生する API（生成AI・メール・決済）の認証とレート制限 | `SECURITY_REVIEW.md` | 生成AI・決済に上限を追加（テスト通過）。取り込み・ダイジェストのトークン総当たり対策は Cloudflare 側の設定が必要（未実施） |
-| D4 | 依存の脆弱性（high/critical）の対処 | `pnpm audit` | 重大2件を解消（next 16.3.6、proxy-addr）。高11件は開発・ビルド時の依存が中心で残る |
+| D4 | 依存の脆弱性（high/critical）の対処 | `pnpm audit` | 重大2件を解消（next 16.3.6、proxy-addr）。本番依存の高8件が残る（2026-10-06 実測）: undici・brace-expansion・source-map-js は wrangler／@opennextjs のビルド・開発側、@grpc/grpc-js は firebase の依存。公開前に依存の更新を検討（未実施） |
 | D5 | 秘密文字列がリポジトリに無い | grep | 確認済み（走査で未検出。`SECURITY_REVIEW.md`） |
 | E. 品質 | | | |
-| E1 | lint・型検査・単体テスト・ビルド・E2E がすべて通る | CI（`quality.yml`） | ローカルで確認済み: lint、型検査、ビルド、単体テスト 2,502件中2,501件（1件は高負荷時のタイムアウトで、単独実行は通過）、e2e 83件通過。GitHub の CI は未実行（変更申請を出していない） |
+| E1 | lint・型検査・単体テスト・ビルド・E2E がすべて通る | CI（`quality.yml`） | ローカルで確認済み（2026-10-06）: lint、型検査、ビルド、e2e 84件、`pnpm test` 通過。GitHub の CI は変更申請 #141 で実行 |
 | E2 | 主要画面のアクセシビリティ確認 | `QUALITY_GATES.md` | 未確認 |
 | E3 | 表示速度（初回表示のデータ量） | `QUALITY_GATES.md` | 未確認 |
 | F. 運用 | | | |
