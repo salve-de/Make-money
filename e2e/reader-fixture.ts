@@ -25,7 +25,7 @@ export const SAMPLE_READER: ReaderCase = {
   unknowns: ['PROFIT'],
   summaryFactId: 'f1',
   analysis: [
-    { id: 'a1', item: 'HEADLINE', text: 'テスト用の見出し: 少人数でも回る月額の仕組み。', basis: ['f2'], confidence: 'MEDIUM' },
+    { id: 'a1', item: 'HEADLINE', text: 'テスト用の見出し: 少人数のまま料金の段階を増やし、単価を上げた。', basis: ['f2'], confidence: 'MEDIUM' },
     { id: 'a2', item: 'STORY', text: 'テスト用の物語: 小さく始めて、料金の段階で単価を上げていった。', basis: ['f2', 'f3'], confidence: 'LOW' },
     { id: 'a3', item: 'TAKE_HOME', text: 'テスト用の推論: 売上から原価を引いた残りが運営者の取り分になる。', basis: ['m1', 'm2'], formula: '120万円 − 30万円 = 90万円（原価は仮置き）', confidence: 'LOW' },
   ],
