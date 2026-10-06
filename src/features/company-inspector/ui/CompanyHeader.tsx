@@ -9,6 +9,7 @@ import { EntityLogo } from '@/platform/components/grid/EntityLogo';
 import { pickEntityLogo } from '@/shared/media-display';
 import type { InspectorSectionProps } from '../model/section-props';
 import { UI, uiFormat } from '@/shared/ui-strings';
+import { buildHref } from '@/platform/model/build-material';
 import { ShareModal } from './ShareModal';
 
 // 表示方法（inline-flex / hidden）と文字色は、クラスの競合を避けるためボタンごとに指定する
@@ -158,7 +159,7 @@ export function CompanyHeader({
               </a>
             )}
             <Link
-              href="/build"
+              href={buildHref(entity.id)}
               prefetch={false}
               className="inline-flex min-h-11 items-center px-1 text-term-accent hover:underline lg:min-h-7"
               aria-label={uiFormat(UI.PLAN_ARIA, entity.name)}

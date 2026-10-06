@@ -3,6 +3,11 @@ export const COMPARE_LIMIT = 4;
 
 const ENTITY_ID = /^[A-Za-z0-9][A-Za-z0-9_.:-]{0,199}$/;
 
+/** URL で受け取る事例IDの形。形だけの検査で、公開目録にあるかは別に確かめる。 */
+export function isEntityIdParam(value: string): boolean {
+  return ENTITY_ID.test(value);
+}
+
 /** `?ids=a,b,c` を、重複と不正な値を除いた最大4件の配列にする。 */
 export function parseCompareIds(value: string | null | undefined): string[] {
   if (!value) return [];
