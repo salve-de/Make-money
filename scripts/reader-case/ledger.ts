@@ -33,6 +33,7 @@ export const REASON_CODES = {
   READBACK_MISMATCH: '本番の読み戻しが公開内容と合わない',
   // 設計書の12種に加えた追加分
   RUN_ABORTED: '実行が途中で止まった（原因は理由欄）',
+  NO_ENTITY_RECORD: '事業の記録（entities-index.json）に無く、審査入力を作れない',
 } as const;
 export type ReasonCode = keyof typeof REASON_CODES;
 export const REASON_CODE_LIST = Object.keys(REASON_CODES) as ReasonCode[];
