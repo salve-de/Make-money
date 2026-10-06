@@ -4,8 +4,10 @@
  *   → 機械検査して受理（out へ確定）／拒否（理由を残して再試行）／試行上限で保留（HOLD）。
  * サブエージェントの起動そのものはオーケストレーター（Claude Code の Agent ツール）が行う。ここは起動しない。
  */
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { LEDGER_DIR, appendRecord, readCaseRecords, type ReasonCode, type Stage } from '../ledger';
 import { validateRaw, type Rejection, type StageName } from './validate';
 
 export const DEFAULT_MAX_ATTEMPTS = 3;
@@ -34,7 +36,7 @@ export const STAGES: Record<StageName, StageDef> = {
     outName: (n) => n,
     filterKey: (n) => n.replace(/\.json$/, ''),
     promptFile: 'scripts/reader-case/analyze-prompt.md',
-    resultShape: '{"analysis":[{"entityId":"…","items":[{"item":"…","text":"…","basis":["f1","m2"],"formula":"…","confidence":"HIGH|MEDIUM|LOW"}]}]}',
+    resultShape: '{"analysis":[{"entityId":"…","items":[{"item":"…","text":"…","basis":["f1","m2"],"formula":"…","presentation":"FACT_SUMMARY|ESTIMATE"}]}]}（書ける項目が無い事例は items を空配列にする。ESTIMATE のときだけ formula 必須）',
   },
   audit: {
     name: 'audit',
@@ -62,10 +64,20 @@ export const STAGES: Record<StageName, StageDef> = {
 
 export type BundleStatus = 'DONE' | 'READY_TO_ACCEPT' | 'WAITING' | 'HOLD';
 
+/** 束の完了と試行を結びつける指紋。入力（束の中身）と規則版（指示書・結果の形）が両方同じ時だけ同じ結果とみなす */
+export interface Fingerprint {
+  inputHash: string;
+  ruleVersion: string;
+}
+
 export interface BundleState {
   attempts: number;
   rejections: Rejection[];
   hold?: boolean;
+  /** この状態（試行回数・保留）を記録した時の指紋。今の指紋と違えば、入力か規則が変わったので試行も保留も白紙に戻す */
+  fp?: Fingerprint;
+  /** 最後に受理した時の指紋。今の指紋と一致する時だけ完了（DONE）とみなす。出力ファイルの有無・形では判定しない */
+  done?: Fingerprint & { at: string };
 }
 
 export interface BundleInfo {
@@ -92,17 +104,63 @@ export interface RunnerOptions {
   dryRun?: boolean;
 }
 
+const sha = (s: string): string => createHash('sha256').update(s).digest('hex').slice(0, 16);
+
+/**
+ * 規則版 = 段階の指示書（プロンプトの全文）と、結果の形の定義のハッシュ。
+ * 指示書を変えたら版が変わり、旧い指示で作られた結果は再処理になる（出力が残っていても完了扱いにしない）。
+ * 結果の受理検査（validate.ts）は DONE 判定のたびに out へ当て直すので、版には入れない。
+ */
+export function ruleVersionOf(o: Pick<RunnerOptions, 'root' | 'stage'>): string {
+  const def = STAGES[o.stage];
+  const p = join(o.root, def.promptFile);
+  return sha(JSON.stringify([o.stage, existsSync(p) ? readFileSync(p, 'utf8') : null, def.resultShape]));
+}
+
+export function fingerprintOf(o: Pick<RunnerOptions, 'root' | 'stage'>, bundleRaw: string): Fingerprint {
+  return { inputHash: sha(bundleRaw), ruleVersion: ruleVersionOf(o) };
+}
+
+const sameFp = (a: Fingerprint | undefined, b: Fingerprint): boolean => !!a && a.inputHash === b.inputHash && a.ruleVersion === b.ruleVersion;
+
+const LEDGER_STAGE: Record<StageName, Stage> = { analyze: 'ANALYZE', audit: 'AUDIT', verify: 'VERIFY' };
+const HOLD_REASON: Record<StageName, ReasonCode> = { analyze: 'ANALYSIS_REJECTED', audit: 'AUDIT_REJECTED', verify: 'VERIFY_UNRESOLVED' };
+
+/** 束の中の事例 id と、事例ごとの入力指紋（その事例の入力 JSON のハッシュ）。台帳の inputHash に使う */
+function bundleCases(bundle: unknown): { id: string; hash: string }[] {
+  const cs = (bundle as { cases?: unknown })?.cases;
+  if (!Array.isArray(cs)) return [];
+  return cs.flatMap((c) => (typeof c?.entityId === 'string' ? [{ id: c.entityId as string, hash: sha(JSON.stringify(c)) }] : []));
+}
+
+/** 台帳への記録。台帳に書けなくても実行は止めない。事例ごとの最新が同じ指紋の DONE / SKIPPED なら足さない（記録を増やし続けない） */
+function ledgerNote(o: RunnerOptions, bundle: unknown, rule: string, status: 'DONE' | 'SKIPPED_SAME_INPUT' | 'HOLD', reason?: { code: ReasonCode; text: string }): void {
+  if (o.dryRun) return;
+  const dir = join(o.root, LEDGER_DIR);
+  const stage = LEDGER_STAGE[o.stage];
+  for (const c of bundleCases(bundle)) {
+    try {
+      const last = readCaseRecords(c.id, dir).filter((r) => r.stage === stage).at(-1);
+      if (status !== 'HOLD' && last && (last.status === 'DONE' || last.status === 'SKIPPED_SAME_INPUT') && last.inputHash === c.hash && last.ruleVersion === rule) continue;
+      appendRecord({ caseId: c.id, stage, status, inputHash: c.hash, ruleVersion: rule, actor: 'runner', finishedAt: new Date().toISOString(), ...(reason ? { reasonCode: reason.code, reasonText: reason.text, nextAction: '原因を直して release で保留を解除' } : {}) }, dir);
+    } catch { /* 台帳に書けなくても実行は止めない */ }
+  }
+}
+
 const runnerDir = (root: string, kind: string, stage: StageName): string => join(root, 'data/runner', kind, stage);
 
 function readJson(path: string): unknown {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
-function loadState(root: string, stage: StageName, name: string): BundleState {
+function loadState(root: string, stage: StageName, name: string, fp?: Fingerprint): BundleState {
   const p = join(runnerDir(root, 'state', stage), `${name}.json`);
   if (!existsSync(p)) return { attempts: 0, rejections: [] };
   try {
-    return readJson(p) as BundleState;
+    const st = readJson(p) as BundleState;
+    // 試行回数・保留は、それを記録した時の指紋と今の指紋が同じ間だけ有効。入力か規則が変わったら白紙に戻す（done は別に今の指紋と照合する）
+    if (fp && st.fp && !sameFp(st.fp, fp)) return { attempts: 0, rejections: [], ...(st.done ? { done: st.done } : {}) };
+    return st;
   } catch {
     return { attempts: 0, rejections: [] };
   }
@@ -128,6 +186,11 @@ export function listBundles(o: RunnerOptions): string[] {
 function outIsValid(o: RunnerOptions, bundle: unknown, outPath: string): boolean {
   if (!existsSync(outPath)) return false;
   return validateRaw(o.stage, bundle, readFileSync(outPath, 'utf8')).ok;
+}
+
+/** 完了（DONE）= 今の入力指紋＋規則版で受理済み、かつ出力が今の受理検査を満たす。出力ファイルがあるだけでは完了にしない */
+function isDone(o: RunnerOptions, bundle: unknown, outPath: string, state: BundleState, fp: Fingerprint): boolean {
+  return sameFp(state.done, fp) && outIsValid(o, bundle, outPath);
 }
 
 export function instructionText(o: RunnerOptions, name: string, state: BundleState): string {
@@ -164,9 +227,11 @@ export function inspect(o: RunnerOptions): BundleInfo[] {
     const inboxPath = join(runnerDir(o.root, 'inbox', o.stage), def.outName(file));
     const instructionPath = join(runnerDir(o.root, 'instructions', o.stage), file.replace(/\.json$/, '.md'));
     const bundlePath = join(o.root, def.bundleDir, file);
-    const state = loadState(o.root, o.stage, file);
+    const raw = readFileSync(bundlePath, 'utf8');
+    const fp = fingerprintOf(o, raw);
+    const state = loadState(o.root, o.stage, file, fp);
     let status: BundleStatus;
-    if (outIsValid(o, readJson(bundlePath), outPath)) status = 'DONE';
+    if (isDone(o, JSON.parse(raw), outPath, state, fp)) status = 'DONE';
     else if (existsSync(inboxPath)) status = 'READY_TO_ACCEPT';
     else if (state.hold || state.attempts >= maxAttempts) status = 'HOLD';
     else status = 'WAITING';
@@ -188,7 +253,10 @@ export function acceptInbox(o: RunnerOptions): AcceptResult {
     if (info.status !== 'READY_TO_ACCEPT') continue;
     const file = `${info.name}.json`;
     const raw = readFileSync(info.inboxPath, 'utf8');
-    const v = validateRaw(o.stage, readJson(info.bundlePath), raw);
+    const bundleRaw = readFileSync(info.bundlePath, 'utf8');
+    const bundle = JSON.parse(bundleRaw);
+    const fp = fingerprintOf(o, bundleRaw);
+    const v = validateRaw(o.stage, bundle, raw);
     if (o.dryRun) {
       if (v.ok) res.accepted.push(info.name);
       else res.rejected.push({ name: info.name, reasons: v.reasons, held: false });
@@ -198,16 +266,20 @@ export function acceptInbox(o: RunnerOptions): AcceptResult {
       mkdirSync(join(o.root, def.outDir), { recursive: true });
       const tmp = `${info.outPath}.tmp`;
       writeFileSync(tmp, JSON.stringify(v.value));
+      // 旧い指紋で作られた出力は、上書きせず退避する（人が差を見られる）
+      if (existsSync(info.outPath)) renameSync(info.outPath, `${info.outPath}.bak-${Date.now()}`);
       renameSync(tmp, info.outPath);
       rmSync(info.inboxPath, { force: true });
-      saveState(o.root, o.stage, file, { attempts: info.attempts, rejections: [] });
+      saveState(o.root, o.stage, file, { attempts: info.attempts, rejections: [], fp, done: { ...fp, at: new Date().toISOString() } });
+      ledgerNote(o, bundle, fp.ruleVersion, 'DONE');
       res.accepted.push(info.name);
     } else {
       const attempts = info.attempts + 1;
       const held = attempts >= maxAttempts;
       // 拒否した提出は消さずに .rejected として残す（人が原因を見られる）。同じ場所に次の提出が書けるよう inbox からは外す
       renameSync(info.inboxPath, `${info.inboxPath}.rejected`);
-      saveState(o.root, o.stage, file, { attempts, rejections: v.reasons, ...(held ? { hold: true } : {}) });
+      saveState(o.root, o.stage, file, { attempts, rejections: v.reasons, fp, ...(held ? { hold: true } : {}) });
+      if (held) ledgerNote(o, bundle, fp.ruleVersion, 'HOLD', { code: HOLD_REASON[o.stage], text: `機械検査で ${attempts} 回拒否: ${v.reasons.slice(0, 3).map((x) => `[${x.code}] ${x.message}`).join(' / ')}` });
       res.rejected.push({ name: info.name, reasons: v.reasons, held });
     }
   }
@@ -221,7 +293,8 @@ export function writeInstructions(o: RunnerOptions): BundleInfo[] {
   for (const b of waiting) {
     mkdirSync(runnerDir(o.root, 'instructions', o.stage), { recursive: true });
     mkdirSync(runnerDir(o.root, 'inbox', o.stage), { recursive: true });
-    writeFileSync(b.instructionPath, instructionText(o, `${b.name}.json`, loadState(o.root, o.stage, `${b.name}.json`)));
+    const fp = fingerprintOf(o, readFileSync(b.bundlePath, 'utf8'));
+    writeFileSync(b.instructionPath, instructionText(o, `${b.name}.json`, loadState(o.root, o.stage, `${b.name}.json`, fp)));
   }
   return waiting;
 }
@@ -231,7 +304,7 @@ export function releaseHold(o: RunnerOptions): number {
   let n = 0;
   for (const b of inspect(o)) {
     if (b.status !== 'HOLD') continue;
-    saveState(o.root, o.stage, `${b.name}.json`, { attempts: 0, rejections: [] });
+    saveState(o.root, o.stage, `${b.name}.json`, { attempts: 0, rejections: [], fp: fingerprintOf(o, readFileSync(b.bundlePath, 'utf8')) });
     n++;
   }
   return n;
@@ -252,12 +325,17 @@ export function step(o: RunnerOptions): StepSummary {
   if (o.force && !o.dryRun) {
     for (const b of inspect(o)) {
       if (b.status === 'DONE') renameSync(b.outPath, `${b.outPath}.bak-${Date.now()}`);
-      saveState(o.root, o.stage, `${b.name}.json`, { attempts: 0, rejections: [] });
+      saveState(o.root, o.stage, `${b.name}.json`, { attempts: 0, rejections: [], fp: fingerprintOf(o, readFileSync(b.bundlePath, 'utf8')) });
     }
   }
   const acc = acceptInbox(o);
   writeInstructions(o);
   const all = inspect(o);
+  // 入力も規則も変わらず、すでに受理済みの束は再処理しない。台帳には「同じ入力のため飛ばした」を残す（事例ごとに最新が同じなら足さない）
+  for (const b of all.filter((x) => x.status === 'DONE')) {
+    const raw = readFileSync(b.bundlePath, 'utf8');
+    ledgerNote(o, JSON.parse(raw), fingerprintOf(o, raw).ruleVersion, 'SKIPPED_SAME_INPUT');
+  }
   const waiting = all.filter((b) => b.status === 'WAITING' || b.status === 'READY_TO_ACCEPT');
   const held = all.filter((b) => b.status === 'HOLD');
   const exitCode = waiting.length ? 75 : held.length ? 76 : 0;

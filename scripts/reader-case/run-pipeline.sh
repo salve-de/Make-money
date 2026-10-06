@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 1つの命令で「分析 → 統合 → 監査 → 仕上げ済みの選別 → 公開データ → PR・マージ → 本番反映 → 本番で読み戻し」まで通す。
-# どこかで止まったら理由を出して終了し、Mac の通知を出す。済んだ工程は次回飛ばす（分析・監査は出力があれば再実行しない）。
+# どこかで止まったら理由を出して終了し、Mac の通知を出す。済んだ工程は次回飛ばす（分析・監査は、入力指紋＋規則版が前回の受理時と同じ時だけ飛ばす。入力かプロンプトが変われば再処理）。
 # 使い方: bash scripts/reader-case/run-pipeline.sh <バッチ名の頭（例: batch-x1-）>
 #   PIPELINE_NO_PUBLISH=1 を付けると、選別までで止める（公開しない）。
 set -u -o pipefail
@@ -25,9 +25,8 @@ node --import tsx scripts/reader-case/pipeline-status.ts scan-batches --prefix "
 say "分析: ${PREFIX}*"
 ANALYZE_PREFIX="$PREFIX" bash scripts/reader-case/run-analyze.sh; rc=$?
 case $rc in 0) ;; 75) fail "分析はサブエージェント待ち（指示書: data/runner/instructions/analyze/。結果を data/runner/inbox/analyze/ に置いてから再実行）" ;; 76) fail "分析に保留の束がある（理由: data/runner/state/analyze/。人の判断後 runner の release で解除）" ;; *) fail "分析の実行に失敗" ;; esac
-missing=""
-for b in data/analyze/batches/${PREFIX}*.json; do [ -s "data/analyze/out/$(basename "$b")" ] || missing="$missing $(basename "$b" .json)"; done
-[ -z "$missing" ] || fail "分析が終わっていない束:$missing（もう一度この命令を実行すると続きから回る）"
+# 完了の判定は runner と同じ（出力ファイルの有無ではなく、入力指紋＋規則版の一致）。指示書（プロンプト）を変えた後は、旧い出力は再処理になる
+node --import tsx scripts/reader-case/runner/cli.ts status analyze --prefix "$PREFIX" >/dev/null || fail "分析が終わっていない束がある（node --import tsx scripts/reader-case/runner/cli.ts status analyze --prefix ${PREFIX} で確認。もう一度この命令を実行すると続きから回る）"
 node -e "
   const fs=require('fs');const ids=new Set();
   for(const f of fs.readdirSync('data/analyze/batches').filter(f=>f.startsWith('$PREFIX')))for(const c of JSON.parse(fs.readFileSync('data/analyze/batches/'+f)).cases)ids.add(c.entityId);
@@ -60,7 +59,7 @@ if [ -s "$CAND.audit" ] && grep -q . "$CAND.audit"; then
   say "監査: in-${TAG}*"
   AUDIT_ONLY="${TAG}*" bash scripts/reader-case/run-audit.sh; rc=$?
   case $rc in 0) ;; 75) fail "監査はサブエージェント待ち（指示書: data/runner/instructions/audit/。結果を data/runner/inbox/audit/ に置いてから再実行。再実行すると同じ監査入力 TAG=${TAG} を続ける）" ;; 76) fail "監査に保留の束がある（理由: data/runner/state/audit/）" ;; *) fail "監査の実行に失敗" ;; esac
-  for i in data/audit/in-${TAG}*.json; do [ -s "${i/in-/out-}" ] || fail "監査が終わっていない: $(basename "$i")（もう一度実行すると続きから回る）"; done
+  node --import tsx scripts/reader-case/runner/cli.ts status audit --prefix "${TAG}*" >/dev/null || fail "監査が終わっていない束がある（もう一度実行すると続きから回る）"
   node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "監査の反映に失敗"
   rm -f "$TAGFILE"
 fi
