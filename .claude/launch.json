@@ -2,13 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "画面",
-      "runtimeExecutable": "sh",
-      "runtimeArgs": [
-        "-c",
-        "cd /Users/satoushinya/project/Make-Money && (node .claude/media-proxy.mjs 3057 3056 &) && CATALOG_RELEASE_LOCAL=1 exec pnpm exec next dev -p 3056"
-      ],
-      "port": 3057
+      "name": "make-money-dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["dev", "-p", "3050"],
+      "port": 3050
     }
   ]
 }
