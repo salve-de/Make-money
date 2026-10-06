@@ -6,6 +6,7 @@ import { ExternalLink } from 'lucide-react';
 
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { PurchasePanel } from '@/components/marketplace/commerce/PurchasePanel';
+import { RelayReferralPanel } from '@/components/marketplace/commerce/RelayReferralPanel';
 import { resolveCommercePaymentMode } from '@/lib/marketplace/commerce/payment-mode';
 import { getPublicOffer } from '@/lib/marketplace/commerce/store';
 import { getPublishedMarketplaceListing } from '@/lib/marketplace/listing-store';
@@ -103,6 +104,7 @@ export default async function MarketplaceListingPage({
               )}
             </div>
             <PurchasePanel slug={slug} productUrl={listing.productUrl} offer={offer} offerUnavailable={offerUnavailable} referralCode={referralCode} />
+            <RelayReferralPanel slug={slug} />
             <p className="px-3 py-3 text-xs leading-5 text-term-label">掲載者が登録した情報です。外部サイトでの申込み・決済は掲載者が行います。</p>
           </article>
         ) : null}
