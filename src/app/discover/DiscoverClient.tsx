@@ -23,12 +23,12 @@ interface ChatLine {
 }
 
 const LENSES: Array<{ id: DiscoveryLens; label: string; hint: string }> = [
-  { id: "SURPRISE", label: "注目順", hint: "登録金額と開始条件を組み合わせて並べる。推定を含む" },
-  { id: "BIG_CASH", label: "金額順", hint: "台帳の金額が大きい順。推定・報道を含む" },
-  { id: "LOW_CAPITAL", label: "初期資金", hint: "台帳に記録された初期資金が少ない順" },
+  { id: "SURPRISE", label: "注目順", hint: "記録された金額と開始条件を組み合わせて並べる。推定を含む" },
+  { id: "BIG_CASH", label: "金額順", hint: "記録された金額が大きい順。推定・報道を含む" },
+  { id: "LOW_CAPITAL", label: "初期資金", hint: "記録された初期資金が少ない順" },
   { id: "SOLO", label: "初期体制", hint: "開始人数が1人と登録された例を前へ" },
   { id: "LOW_WORK", label: "稼働時間", hint: "週の稼働時間が短いと登録された例を前へ" },
-  { id: "CURRENT", label: "現行性", hint: "台帳上の現行性判定を前へ。出典未照合" },
+  { id: "CURRENT", label: "現行性", hint: "記録上の現行性の判定を前へ。出典は未照合" },
   { id: "FAILURE", label: "撤退事例", hint: "失敗・撤退として登録された事例を前へ" },
 ];
 
@@ -94,6 +94,9 @@ export function DiscoveryRow({
     >
       <span className="min-w-0">
         <span className="block truncate font-semibold text-term-fg-strong">{item.name}</span>
+        {item.summaryFactId && item.summaryText && (
+          <span className="mt-0.5 line-clamp-2 text-xs text-term-sub lg:hidden">{item.summaryText}</span>
+        )}
         {item.sector && <span className="block truncate text-xs text-term-label lg:hidden">{item.sector}</span>}
       </span>
       <span className="hidden truncate text-term-muted xl:block">{item.sector}</span>

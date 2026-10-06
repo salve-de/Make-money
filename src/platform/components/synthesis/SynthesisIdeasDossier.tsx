@@ -118,7 +118,7 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
                       <span className="text-term-dim">参照元は案に記録されていません</span>
                     )}
                     {unresolvedSourceCount > 0 && (
-                      <span className="text-term-dim">台帳で確認できない参照元 {unresolvedSourceCount}件</span>
+                      <span className="text-term-dim">事例一覧で確認できない参照元 {unresolvedSourceCount}件</span>
                     )}
                   </div>
                 </div>

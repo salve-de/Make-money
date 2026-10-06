@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { deleteUser } from 'firebase/auth';
 import { useAuth } from '@/context/AuthContext';
@@ -47,6 +47,14 @@ export const AccountView: React.FC = () => {
   const { user, loading, isPro, signOut, sendPasswordReset } = useAuth();
   const [authMode, setAuthMode] = useState<'signin' | 'signup' | 'reset' | null>(null);
   const [billing, setBilling] = useState<BillingState>({ kind: 'loading' });
+  // メニューの「ログイン・新規登録」から来た人が、もう一度ボタンを押さずに済むよう、未ログインならログイン窓を最初から開く
+  const autoOpened = useRef(false);
+  useEffect(() => {
+    if (!auth || loading || user || autoOpened.current) return;
+    autoOpened.current = true;
+    setAuthMode('signin');
+  }, [loading, user]);
+
   const [billingAttempt, setBillingAttempt] = useState(0);
   const [portalBusy, setPortalBusy] = useState(false);
   const [portalNotice, setPortalNotice] = useState<Notice>(null);

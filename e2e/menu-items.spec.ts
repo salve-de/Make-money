@@ -91,12 +91,12 @@ for (const viewport of [{ label: 'スマホ390', width: 390, height: 844 }, { la
     const button = page.getByRole('button', { name: /絞り込み・検索/ });
     await expect(button).toBeVisible({ timeout: 120_000 });
     // 閉じた状態: 検索窓は出ていない
-    await expect(page.getByPlaceholder(/会社名・ティッカー/)).toBeHidden();
+    await expect(page.getByPlaceholder(/会社名・事業/)).toBeHidden();
     await expect(page.getByTestId('search-term-mark')).toHaveCount(0);
     await shoot(page, `${viewport.label}-search-closed`);
 
     const dialog = page.getByRole('dialog', { name: '事例を条件で絞り込む' });
-    const input = dialog.getByPlaceholder(/会社名・ティッカー/);
+    const input = dialog.getByPlaceholder(/会社名・事業/);
     await clickUntilVisible(() => button.click({ timeout: 5000 }), () => expect(input).toBeVisible({ timeout: 3000 }));
     await shoot(page, `${viewport.label}-search-open-empty`);
     await input.fill('a');
@@ -122,7 +122,7 @@ for (const viewport of [{ label: 'スマホ390', width: 390, height: 844 }, { la
 test('PC：上部の検索欄はそのまま使える', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
-  await expect(page.getByPlaceholder(/会社名・ティッカー/).first()).toBeVisible({ timeout: 120_000 });
+  await expect(page.getByPlaceholder(/会社名・事業/).first()).toBeVisible({ timeout: 120_000 });
   await expect(page.getByRole('button', { name: '条件を絞る' })).toBeVisible();
   await expect(page.getByRole('button', { name: /絞り込み・検索/ })).toBeHidden();
 });

@@ -143,13 +143,13 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
             ref={inputRef}
             type="text"
             value={query}
-            aria-label="会社名・事例名・ティッカー・事業内容で検索"
+            aria-label="会社名・事例名・事業内容で検索"
             onChange={(e) => {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDownList}
-            placeholder="会社名・事例名・ティッカー・事業内容を検索"
+            placeholder="会社名・事例名・事業内容を検索"
             className="min-h-11 flex-1 bg-transparent text-sm text-term-fg-strong outline-none placeholder:text-term-dim"
           />
         </div>

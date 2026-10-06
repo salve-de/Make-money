@@ -1,22 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import type { FinancialEntity } from '@/shared/terminal';
-import { splitSimilarCases } from './CompareSimilarCases';
+import { otherCases } from './CompareSimilarCases';
 
-function row(id: string, revenue: number, extra: Partial<FinancialEntity> = {}): FinancialEntity {
-  return { id, name: id, tags: [], pnl: { monthlyRevenue: revenue, isRevenueUnconfirmed: revenue === 0, financialStatus: 'REPORTED' }, ...extra } as FinancialEntity;
+function row(id: string, withMetric: boolean): FinancialEntity {
+  const reader = withMetric
+    ? { sources: [], facts: [], analysis: [], unknowns: [], metrics: [{ id: `${id}-m`, measure: 'REVENUE', periodKind: 'YEAR', period: '2025', amount: 1000, currency: 'USD', origin: 'SELF_REPORTED', sourceId: 's' }] }
+    : undefined;
+  return { id, name: id, tags: [], reader } as unknown as FinancialEntity;
 }
 
-describe('similar cases for comparison', () => {
-  it('splits failures from revenue records, excludes compared cases and sorts by revenue', () => {
-    const rows = [
-      row('a', 1_000_000),
-      row('b', 5_000_000),
-      row('c', 0),
-      row('d', 2_000_000, { pnl: { monthlyRevenue: 2_000_000, isRevenueUnconfirmed: false, financialStatus: 'POST_MORTEM' } as FinancialEntity['pnl'] }),
-      row('e', 9_000_000),
-    ];
-    const { failures, successes } = splitSimilarCases(rows, ['e']);
-    expect(failures.map((item) => item.id)).toEqual(['d']);
-    expect(successes.map((item) => item.id)).toEqual(['b', 'a']);
+describe('cases that can be added to a comparison', () => {
+  it('excludes compared cases and puts cases with a recorded figure first', () => {
+    const rows = [row('a', false), row('b', true), row('c', true), row('d', true)];
+    expect(otherCases(rows, ['c']).map((item) => item.id)).toEqual(['b', 'd', 'a']);
   });
 });

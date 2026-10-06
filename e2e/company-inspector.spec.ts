@@ -12,7 +12,7 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toBeVisible();
   await page.getByRole('button', { name: '閉じる', exact: true }).click();
   await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toHaveCount(0);
-  await page.getByPlaceholder(/会社名・ティッカー/).first().fill(PRIMARY.name);
+  await page.getByPlaceholder(/会社名・事業/).first().fill(PRIMARY.name);
   const row = page.getByRole('row').filter({ hasText: PRIMARY.name }).filter({ visible: true });
   await expect(row).toHaveCount(1);
   await row.click();

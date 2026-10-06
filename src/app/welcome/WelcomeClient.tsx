@@ -46,14 +46,14 @@ export default function WelcomeClient({
               <form action="/" method="get" role="search" className="mt-3 flex max-w-xl items-center gap-2">
                 <div className="relative min-w-0 flex-1">
                   <Search aria-hidden="true" className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
-                  <label htmlFor="welcome-company-search" className="sr-only">会社名・ティッカー・事業の特徴で検索</label>
+                  <label htmlFor="welcome-company-search" className="sr-only">会社名・事業の特徴で検索</label>
                   <input
                     id="welcome-company-search"
                     name="q"
                     type="search"
                     autoComplete="off"
                     enterKeyHint="search"
-                    placeholder="会社名・ティッカー・事業の特徴で検索"
+                    placeholder="会社名・事業の特徴で検索"
                     className="h-11 w-full rounded-sm border border-term-line bg-term-bg pl-9 pr-3 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8"
                   />
                 </div>

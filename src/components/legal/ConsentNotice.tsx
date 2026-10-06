@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 import { getConsent, onConsentChange, onConsentReopenRequest, setConsent } from '@/lib/legal/consent';
 
 const BUTTON_CLASS =
-  'min-h-11 min-w-28 cursor-pointer rounded-sm border border-term-line bg-term-panel px-3 text-sm text-term-fg-strong hover:bg-term-head lg:min-h-8';
+  'min-h-11 min-w-28 flex-1 cursor-pointer lg:flex-none rounded-sm border border-term-line bg-term-panel px-3 text-sm text-term-fg-strong hover:bg-term-head lg:min-h-8';
 
 /**
  * 同意の選択バー。props なしで置ける。
@@ -79,14 +79,14 @@ export function ConsentNotice() {
       onKeyDown={onKeyDown}
       className="fixed inset-x-0 bottom-[var(--term-nav-space)] z-50 border-t border-term-line bg-term-panel text-term-fg"
     >
-      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
-        <div className="min-w-0 text-xs leading-6">
+      <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-2 lg:flex-row lg:items-center lg:justify-between lg:gap-3 lg:py-3">
+        <div className="min-w-0 text-xs leading-5 lg:leading-6">
           <h2 id="consent-title" ref={headingRef} tabIndex={-1} className="text-sm font-semibold text-term-fg-strong outline-none">
             Cookie・端末保存の設定
           </h2>
-          <p className="mt-1 text-term-sub">
-            ログイン・決済・画面の状態の保存に必要な分は、同意なしで使います。アクセス解析・計測は、同意した場合だけ行います。現在は{analytics ? '同意済み' : '同意していない'}状態です。
-            詳しくは<Link href="/legal/privacy" className="mx-0.5 underline hover:text-term-fg-strong">プライバシーポリシー</Link>をご覧ください。
+          <p className="text-term-sub">
+            ログインや画面の状態の保存は、同意なしで使います。アクセス解析は、同意した場合だけ行います。{reopened ? `現在は${analytics ? '同意済み' : '同意していない'}状態です。` : ''}
+            <Link href="/legal/privacy" className="mx-0.5 underline hover:text-term-fg-strong">プライバシーポリシー</Link>
           </p>
         </div>
         <div className="flex shrink-0 gap-2">

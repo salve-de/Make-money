@@ -14,7 +14,7 @@ test('SOLO deep link filters enterprise rows before and after reload', async ({ 
   const rows = page.getByRole('row').filter({ visible: true });
   const expectSoloOnly = async () => {
     // 絞り込みの結果が描かれるまで待つ（検索欄が出てから）
-    await expect(page.getByPlaceholder(/会社名・ティッカー/).first()).toBeVisible();
+    await expect(page.getByPlaceholder(/会社名・事業/).first()).toBeVisible();
     // 一覧は描かれていて、見出しの行だけが残る（何も読めていないだけ、ではない）
     await expect(rows).toHaveCount(1);
     for (const name of CATALOG_NAMES) await expect(rows.filter({ hasText: name })).toHaveCount(0);

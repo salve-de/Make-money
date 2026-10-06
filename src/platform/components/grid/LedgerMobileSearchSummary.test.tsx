@@ -18,7 +18,7 @@ describe('スマホ幅の検索表示', () => {
     const open = (query: string) =>
       renderToStaticMarkup(<AdvancedScreenerModal isOpen onClose={() => {}} onApplyFilters={() => {}} searchQuery={query} onSearchChange={() => {}} />);
     const empty = open('');
-    expect(empty).toContain('placeholder="会社名・ティッカー・事業で検索"');
+    expect(empty).toContain('placeholder="会社名・事業で検索"');
     expect(empty).toContain('lg:hidden');
     expect(empty.indexOf('screener-search')).toBeLessThan(empty.indexOf('事業の規模'));
     expect(empty).not.toContain('検索語を消去');

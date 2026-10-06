@@ -25,20 +25,23 @@ export function hasSavableCondition({ query, filters }: SearchCondition): boolea
   return Boolean(query.trim()) || filters.filter !== 'ALL' || filters.batch !== 'ALL' || filters.tags.length > 0 || Boolean(filters.screener);
 }
 
+/** 内部の印「収集事例」は画面では「新着」と呼ぶ */
+const tagLabel = (tag: string): string => (tag === '収集事例' ? '新着' : tag);
+
 /** 条件を短い日本語の並びにする（例: 検索「AI」・一人で運営・タグ: 新着・利益率50%以上）。 */
 export function describeSearchCondition({ query, filters }: SearchCondition): string[] {
   const parts: string[] = [];
   if (query.trim()) parts.push(`検索「${query.trim()}」`);
   if (FILTER_LABELS[filters.filter]) parts.push(FILTER_LABELS[filters.filter]);
   if (filters.batch !== 'ALL') parts.push('登録回で絞り込み');
-  if (filters.tags.length > 0) parts.push(`タグ: ${filters.tags.join('・')}`);
+  if (filters.tags.length > 0) parts.push(`タグ: ${filters.tags.map(tagLabel).join('・')}`);
   const screener = filters.screener;
   if (screener) {
     if (screener.scales.length > 0) parts.push(`規模: ${screener.scales.map((scale) => SCALE_LABELS[scale] ?? scale).join('・')}`);
     if (screener.minMargin > 0) parts.push(`営業利益率${screener.minMargin}%以上`);
     if (screener.maxCapital !== null) parts.push(screener.maxCapital <= 0 ? '初期資金0円' : `初期資金${Math.round(screener.maxCapital / 10_000).toLocaleString('ja-JP')}万円以内`);
     if (screener.moats.length > 0) parts.push(`強み: ${screener.moats.map((moat) => MOAT_LABELS[moat] ?? moat).join('・')}`);
-    if (screener.selectedTags?.length) parts.push(`タグ: ${screener.selectedTags.join('・')}`);
+    if (screener.selectedTags?.length) parts.push(`タグ: ${screener.selectedTags.map(tagLabel).join('・')}`);
   }
   return parts;
 }

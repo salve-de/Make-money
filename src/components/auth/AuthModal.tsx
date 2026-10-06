@@ -78,6 +78,11 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       return;
     }
 
+    if (mode === "signup" && password.length < 8) {
+      setError("パスワードは8文字以上にしてください。");
+      return;
+    }
+
     try {
       setError(null);
       setLoading(true);
@@ -160,7 +165,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   id="auth-reset-email" autoComplete="email" type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="founder@example.com"
+                  placeholder="name@example.com"
                   required
                   className={INPUT}
                 />
@@ -177,6 +182,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           </>
         ) : (
           <>
+        {mode === "signup" && (
+          <p className="mb-3 text-xs leading-5 text-term-label">
+            登録すると、
+            <a href="/legal/terms" target="_blank" rel="noopener noreferrer" className="mx-0.5 underline hover:text-term-fg-strong">利用規約</a>と
+            <a href="/legal/privacy" target="_blank" rel="noopener noreferrer" className="mx-0.5 underline hover:text-term-fg-strong">プライバシーポリシー</a>
+            に同意したものとみなします。
+          </p>
+        )}
         {/* Googleログイン */}
         <button
           type="button"
@@ -225,7 +238,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               id="auth-email" autoComplete="email" type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="founder@example.com"
+              placeholder="name@example.com"
               required
               className={INPUT}
             />
@@ -234,7 +247,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <div>
             <div className="mb-1 flex items-end justify-between gap-2">
               <label htmlFor="auth-password" className="block text-xs text-term-label">
-                パスワード{mode === "signup" && <span className="ml-1">（6文字以上）</span>}
+                パスワード{mode === "signup" && <span className="ml-1">（8文字以上）</span>}
               </label>
               {mode === "signin" && (
                 <button type="button" onClick={() => switchMode("reset")} className="inline-flex min-h-11 items-center text-xs text-term-sub underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">
@@ -247,7 +260,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              minLength={mode === "signup" ? 6 : undefined}
+              minLength={mode === "signup" ? 8 : undefined}
               className={INPUT}
             />
           </div>

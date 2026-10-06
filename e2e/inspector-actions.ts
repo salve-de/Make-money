@@ -8,7 +8,7 @@ export async function openNotes(page: Page) {
 
 export async function selectCompany(page: Page, name: string) {
   const notesWereOpen = await page.locator('#section-notes textarea').isVisible();
-  const search = page.getByPlaceholder(/会社名・ティッカー/).first();
+  const search = page.getByPlaceholder(/会社名・事業/).first();
   const previousQuery = await search.inputValue();
   // The grid is virtualized: a company outside its rendered window has no DOM row.
   // Search via the real input rather than assuming every company is mounted.

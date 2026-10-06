@@ -99,14 +99,14 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
         <div className={hideSearch ? 'order-last ml-auto flex items-center gap-2' : 'flex items-center gap-2'}>
           {hideSearch ? null : (
           <div className="relative min-w-0 flex-1">
-            <label htmlFor="company-search" className="sr-only">会社名、ティッカー、事業の特徴で検索</label>
+            <label htmlFor="company-search" className="sr-only">会社名、事業の特徴で検索</label>
             <Search aria-hidden="true" className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
             <input
               id="company-search"
               type="search"
               value={searchQuery}
               onChange={(event) => onSearchChange(event.target.value)}
-              placeholder="会社名・ティッカー・事業の特徴で検索"
+              placeholder="会社名・事業の特徴で検索"
               className="[&::-webkit-search-cancel-button]:appearance-none h-11 w-full rounded-sm border border-term-line bg-term-bg pl-9 pr-9 text-sm text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8 lg:text-[13px] sm:pr-14"
             />
             {!searchQuery ? (
@@ -213,7 +213,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               type="button"
               onClick={onApproveAllCollected}
               className={`${btn} ${btnOff} min-h-9 text-xs lg:min-h-7`}
-              title="表示中の事例を台帳に登録"
+              title="表示中の事例を承認する"
             >
               <Check aria-hidden="true" className="h-3.5 w-3.5" />
               表示中を登録

@@ -36,7 +36,7 @@ test('一覧の見出しが検索・絞り込みに合わせて更新され、�
   const title = page.locator('.term-panel-title').filter({ hasText: '事例一覧' }).first();
   await expect(title).toContainText('条件なし');
 
-  const search = page.getByPlaceholder(/会社名・ティッカー/).first();
+  const search = page.getByPlaceholder(/会社名・事業/).first();
   await search.fill(PRIMARY.name);
   await expect(title).toContainText(`検索「${PRIMARY.name}」`);
   await expect(title).not.toContainText('条件なし');

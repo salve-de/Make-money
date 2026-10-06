@@ -42,7 +42,7 @@ export const UNKNOWN_LABELS: Record<UnknownItem, string> = {
 };
 
 export const ANALYSIS_LABELS: Record<AnalysisItem, string> = {
-  HEADLINE: '強い一行',
+  HEADLINE: 'ひとこと',
   STORY: '物語',
   BUSINESS_MODEL: '事業の形',
   PRICING: '料金',
@@ -196,6 +196,11 @@ export const UI = {
   NOTE_STATUS_ERROR: '未保存・再入力で再試行',
   // 一覧
   LIST_REVENUE_UNKNOWN: '—',
+  /** 一覧の売上の見出し。期間の種類で呼び分け、月の数字と年の数字が同じ「売上」に見えないようにする */
+  REVENUE_MONTH: '月商',
+  REVENUE_YEAR: '年商',
+  REVENUE_CUMULATIVE: '累計売上',
+  REVENUE_ARR: '年換算売上',
   LIST_COL_CASE: '企業・事業内容',
   LIST_COL_REVENUE: '売上',
   LIST_COL_PROFIT: '営業利益',
