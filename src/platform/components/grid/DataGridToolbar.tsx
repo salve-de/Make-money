@@ -85,6 +85,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   }, [screenerFilters]);
 
   const hasActiveScreener = activeScreenerCount > 0;
+  const hasSearchTerm = searchQuery.trim().length > 0;
 
   // 文字サイズはボタンごとに指定する（同じ種類のクラスを重ねると、どちらが効くかがCSSの並び順任せになるため）
   const btn = 'inline-flex items-center gap-1.5 rounded-sm border px-2.5 transition-colors';
@@ -129,13 +130,14 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             <button
               type="button"
               onClick={onOpenScreener}
-              aria-label={hasActiveScreener ? `条件を絞る、現在${activeScreenerCount}件の条件` : '条件を絞る'}
-              className={`${btn} min-h-11 flex-1 justify-center text-sm sm:flex-none lg:min-h-8 lg:text-xs ${hasActiveScreener ? btnOn : btnOff}`}
+              className={`${btn} min-h-11 flex-1 justify-center text-sm sm:flex-none lg:min-h-8 lg:text-xs ${hasActiveScreener || (hideSearch && hasSearchTerm) ? btnOn : btnOff}`}
               title="業種や規模などの条件を設定"
             >
               <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
-              <span className="sm:hidden">絞込</span><span className="hidden sm:inline">条件を絞る</span>
-              {hasActiveScreener && <span className="term-num">{activeScreenerCount}</span>}
+              {/* 上部の検索欄が無い幅（lg 未満）では、検索もこの画面で行う */}
+              <span className={hideSearch ? 'lg:hidden' : 'sm:hidden'}>{hideSearch ? '絞り込み・検索' : '絞込'}</span><span className={hideSearch ? 'hidden lg:inline' : 'hidden sm:inline'}>条件を絞る</span>
+              {hasActiveScreener && <span className="term-num"><span className="sr-only">条件</span>{activeScreenerCount}<span className="sr-only">件</span></span>}
+              {hideSearch && hasSearchTerm && <span className="inline-flex items-center gap-1 lg:hidden" data-testid="search-term-mark"><span aria-hidden="true" className="h-2 w-2 bg-term-accent" /><span className="text-xs">検索語あり</span></span>}
             </button>
             {hasActiveScreener && onResetScreener && (
               <button

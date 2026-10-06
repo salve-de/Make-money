@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Check, RefreshCw, X } from 'lucide-react';
+import { Check, RefreshCw, Search, X } from 'lucide-react';
 import { BusinessScale, MoatType } from '../../types/terminal';
 
 interface AdvancedScreenerModalProps {
@@ -11,6 +11,9 @@ interface AdvancedScreenerModalProps {
   availableTags?: string[];
   tagCounts?: Record<string, number>;
   initialFilters?: ScreenerFilterState | null;
+  /** 渡すと、スマホ幅（PC の上部検索が無い幅）で最上部に検索欄を出す。入力はすぐ一覧に反映される */
+  searchQuery?: string;
+  onSearchChange?: (query: string) => void;
 }
 
 export interface ScreenerFilterState {
@@ -40,6 +43,8 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   availableTags = [],
   tagCounts = {},
   initialFilters,
+  searchQuery,
+  onSearchChange,
 }) => {
   const [scales, setScales] = useState<BusinessScale[]>(initialFilters?.scales || []);
   const [minMargin, setMinMargin] = useState<number>(initialFilters?.minMargin || 0);
@@ -164,6 +169,32 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
         </header>
 
         <div className="flex-1 space-y-4 overflow-y-auto px-3 py-3 sm:px-4">
+          {onSearchChange && (
+            <div className="border-b border-term-line-soft pb-4 lg:hidden">
+              <label htmlFor="screener-search" className="mb-2 block text-xs text-term-accent">事例を検索</label>
+              <div className="relative">
+                <Search aria-hidden="true" className="pointer-events-none absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-term-label" />
+                <input
+                  id="screener-search"
+                  type="search"
+                  value={searchQuery ?? ''}
+                  onChange={(event) => onSearchChange(event.target.value)}
+                  placeholder="会社名・ティッカー・事業で検索"
+                  className="[&::-webkit-search-cancel-button]:appearance-none h-11 w-full rounded-sm border border-term-line bg-term-bg pl-9 pr-11 text-base text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent"
+                />
+                {searchQuery ? (
+                  <button
+                    type="button"
+                    onClick={() => onSearchChange('')}
+                    aria-label="検索語を消去"
+                    className="absolute right-0 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center text-term-muted hover:text-term-fg-strong"
+                  >
+                    <X className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                ) : null}
+              </div>
+            </div>
+          )}
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
               事業の規模 <span className={hintClass}>複数選択可</span>

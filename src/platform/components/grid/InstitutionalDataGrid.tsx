@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
-import { Bookmark } from 'lucide-react';
+import { Bookmark, X } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
 import { useVerifiedEntityIds } from '@/platform/hooks/useVerifiedEntityIds';
 import { VerifiedMark } from './VerifiedMark';
@@ -25,6 +25,23 @@ export function LedgerListTitle({ count, conditionsLabel }: { count: number; con
       <span className="term-panel-name">{UI.LIST_TITLE}</span>
       <span className="truncate">{conditionsLabel || UI.LIST_NO_CONDITIONS}</span>
       <span className="term-num ml-auto shrink-0">{count.toLocaleString('ja-JP')}件</span>
+    </div>
+  );
+}
+
+/**
+ * スマホ幅（上部の検索欄が無い幅）の一覧見出し。検索語が入っている間だけ「検索「語」・N件」を出し、×で消せる。
+ * PC の見出し（LedgerListTitle）とは別部品にして、見出しの作り替えと独立して差し込めるようにしている。
+ */
+export function LedgerMobileSearchSummary({ query, count, onClear }: { query: string; count: number; onClear: () => void }) {
+  const term = query.trim();
+  if (!term) return null;
+  return (
+    <div className="flex min-h-11 shrink-0 items-center gap-2 border-b border-term-line bg-term-head pl-3 text-sm text-term-fg lg:hidden" data-testid="mobile-search-summary">
+      <span className="min-w-0 flex-1 truncate">検索「{term}」・<span className="term-num">{count.toLocaleString('ja-JP')}件</span></span>
+      <button type="button" onClick={onClear} aria-label="検索語を消去" className="flex h-11 w-11 shrink-0 items-center justify-center text-term-muted hover:text-term-fg-strong">
+        <X aria-hidden="true" className="h-4 w-4" />
+      </button>
     </div>
   );
 }

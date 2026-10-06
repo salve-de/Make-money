@@ -28,9 +28,12 @@ export default async function MarketplacePage({ searchParams }: {
     <div className="flex term-page flex-col bg-term-bg text-term-fg">
       <GlobalHeader currentSection="MARKETPLACE" />
       <main className="w-full flex-1">
-        <div className="term-panel-title max-sm:hidden">
-          <span className="term-panel-name max-lg:hidden">市場</span>
-          <span className="hidden sm:inline">掲載者が登録したサービス。申込み・決済は各サイトで行います。</span>
+        {/* スマホはヘッダーに「市場」が出ているので、見出し帯ごと出さない（.term-panel-title の display が効くため外側で隠す） */}
+        <div className="hidden sm:block">
+          <div className="term-panel-title">
+            <span className="term-panel-name max-lg:hidden">市場</span>
+            <span>掲載者が登録したサービス。申込み・決済は各サイトで行います。</span>
+          </div>
         </div>
         <h1 className="sr-only">市場</h1>
         <div className="flex flex-wrap gap-2 border-b border-term-line px-3 py-2">

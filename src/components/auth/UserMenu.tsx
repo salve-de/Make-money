@@ -3,12 +3,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ChevronRight, CircleUserRound, LogOut } from 'lucide-react';
+import { CircleUserRound, LogOut } from 'lucide-react';
+import { ACCOUNT_PATH } from '@/platform/components/navigation/navigationItems';
 import { useAuth } from '@/context/AuthContext';
 import { auth } from '@/lib/firebase/client';
 import { AuthModal } from './AuthModal';
 
-export const ACCOUNT_HREF = '/account';
+export const ACCOUNT_HREF = ACCOUNT_PATH;
 
 function planLabel(isPro: boolean): string {
   return isPro ? 'PRO' : '無料プラン';
@@ -123,8 +124,8 @@ export const HeaderUserMenu: React.FC = () => {
 };
 
 /**
- * スマホの引き出しメニュー上部のアカウント欄。ログイン中はメールとプラン、会員設定・ログアウト。
- * 未ログインなら会員設定ページ（そこでログイン・新規登録を選べる）へ案内する。
+ * スマホの引き出しメニュー上部のアカウント欄。ログイン中だけ、メールとプラン・ログアウトを出す。
+ * 会員設定・ログイン・新規登録の行は、PC の「その他」と同じ一覧（navigationItems の MORE_MENU_ITEMS）に出る。
  */
 export const DrawerUserMenu: React.FC<{ onNavigate: () => void }> = ({ onNavigate }) => {
   const { user, loading, isPro, signOut } = useAuth();
@@ -132,21 +133,7 @@ export const DrawerUserMenu: React.FC<{ onNavigate: () => void }> = ({ onNavigat
   const [signingOut, setSigningOut] = useState(false);
   const [signOutError, setSignOutError] = useState(false);
 
-  if (!auth || loading) return null;
-
-  const row = 'flex min-h-[52px] w-full items-center gap-3 px-4 text-left text-base text-term-fg hover:bg-term-head';
-
-  if (!user) {
-    return (
-      <div className="shrink-0 border-b border-term-line">
-        <Link href={ACCOUNT_HREF} prefetch={false} onClick={onNavigate} className={row}>
-          <CircleUserRound aria-hidden="true" size={20} strokeWidth={1.8} className="shrink-0 text-term-muted" />
-          <span className="flex-1">ログイン・新規登録</span>
-          <ChevronRight aria-hidden="true" size={18} className="shrink-0 text-term-label" />
-        </Link>
-      </div>
-    );
-  }
+  if (!auth || loading || !user) return null;
 
   const handleSignOut = async () => {
     setSigningOut(true);
@@ -163,19 +150,14 @@ export const DrawerUserMenu: React.FC<{ onNavigate: () => void }> = ({ onNavigat
   };
 
   return (
-    <div className="shrink-0 border-b border-term-line">
+    <div className="border-b border-term-line">
       <div className="px-4 pb-1 pt-3">
         <p className="truncate text-sm text-term-fg-strong">{user.email}</p>
         <p className="mt-0.5 text-xs text-term-label">
           プラン <span className={isPro ? 'text-term-accent' : 'text-term-fg'}>{planLabel(isPro)}</span>
         </p>
       </div>
-      <Link href={ACCOUNT_HREF} prefetch={false} onClick={onNavigate} className={`${row} border-b border-term-line-soft`}>
-        <CircleUserRound aria-hidden="true" size={20} strokeWidth={1.8} className="shrink-0 text-term-muted" />
-        <span className="flex-1">会員設定</span>
-        <ChevronRight aria-hidden="true" size={18} className="shrink-0 text-term-label" />
-      </Link>
-      <button type="button" onClick={() => void handleSignOut()} disabled={signingOut} className={`${row} disabled:opacity-50`}>
+      <button type="button" onClick={() => void handleSignOut()} disabled={signingOut} className="flex min-h-11 w-full items-center gap-3 px-4 text-left text-base text-term-fg hover:bg-term-head disabled:opacity-50">
         <LogOut aria-hidden="true" size={20} strokeWidth={1.8} className="shrink-0 text-term-muted" />
         <span className="flex-1">{signingOut ? 'ログアウトしています…' : 'ログアウト'}</span>
       </button>

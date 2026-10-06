@@ -15,11 +15,11 @@ import {
   PRIMARY_NAV_ITEMS,
   PRO_HREF,
   SAVED_HREF,
-  SECONDARY_NAV_ITEMS,
   LEGAL_LINKS,
   SECTION_TITLES,
   tabOfSection,
 } from './navigationItems';
+import { useMenuItems } from './useMenuItems';
 
 export type { GlobalNavSection } from './navigationItems';
 
@@ -108,6 +108,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   const [searchText, setSearchText] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const moreRef = useRef<HTMLDetailsElement>(null);
+  const menuItems = useMenuItems(bookmarkCount);
 
   const activeSection: GlobalNavSection = currentSection || (() => {
     if (pathname?.startsWith('/discover')) return 'DISCOVER';
@@ -127,10 +128,10 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
 
   const handleLocalNavigation = (
     event: React.MouseEvent<HTMLAnchorElement>,
-    section: GlobalNavSection,
+    section: GlobalNavSection | undefined,
   ) => {
     moreRef.current?.removeAttribute('open');
-    const mode = LOCAL_MODE_BY_SECTION[section];
+    const mode = section ? LOCAL_MODE_BY_SECTION[section] : undefined;
     if (!mode || !onSelectLocalMode) return;
     event.preventDefault();
     onSelectLocalMode(mode);
@@ -177,7 +178,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     }`;
 
   const activeTab = tabOfSection(activeSection);
-  const secondaryActive = SECONDARY_NAV_ITEMS.some((item) => item.id === activeSection) || activeSection === 'LEGAL';
+  const secondaryActive = activeSection === 'LEGAL' || (activeTab === undefined && menuItems.some((item) => item.section === activeSection));
 
   const renderBookmark = () => {
     const label = (
@@ -208,7 +209,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     <>
       <header className="sticky top-0 z-40 flex w-full shrink-0 flex-wrap items-stretch border-b border-term-line bg-term-panel lg:h-9 lg:flex-nowrap">
         {/* ロゴ */}
-        <MobileMenu activeSection={activeSection} onOpenPro={onOpenPro} onSelectLocalMode={onSelectLocalMode} />
+        <MobileMenu activeSection={activeSection} onOpenPro={onOpenPro} onSelectLocalMode={onSelectLocalMode} bookmarkCount={bookmarkCount} />
         <div className="flex h-11 shrink-0 items-center pl-1 lg:h-full lg:border-r lg:border-term-line lg:pl-3 lg:pr-3 xl:pr-4">
           <span className="truncate text-base font-semibold text-term-fg-strong lg:hidden">{SECTION_TITLES[activeSection]}</span>
           <Link href="/" prefetch={false} aria-label="Make Money" className="hidden h-full items-center whitespace-nowrap font-mono text-[13px] font-bold text-term-accent lg:inline-flex">
@@ -239,7 +240,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <form
           role="search"
           onSubmit={submitSearch}
-          className={`order-last ${onSearchChange || searchOpen ? 'flex' : 'hidden lg:flex'} h-11 w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
+          className={`order-last ${searchOpen ? 'flex' : 'hidden lg:flex'} h-11 w-full items-center gap-2 border-t border-term-line px-3 lg:order-none lg:h-full lg:w-[240px] lg:shrink-0 lg:border-t-0 lg:border-r lg:px-2.5 xl:w-[280px]`}
         >
           <span aria-hidden="true" className="font-mono text-sm text-term-accent">&gt;</span>
           <input
@@ -287,21 +288,40 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             >
               その他
             </summary>
-            <div className="absolute left-0 top-full z-50 w-48 border border-term-line bg-term-panel shadow-lg">
-              {SECONDARY_NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  prefetch={false}
-                  onClick={(event) => handleLocalNavigation(event, item.id)}
-                  aria-current={activeSection === item.id ? 'page' : undefined}
-                  className={`flex h-8 items-center border-b border-term-line-soft px-3 text-[13px] last:border-b-0 hover:bg-term-head ${
-                    activeSection === item.id ? 'bg-term-select text-term-fg-strong' : 'text-term-fg'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="absolute left-0 top-full z-50 w-56 border border-term-line bg-term-panel shadow-lg">
+              {menuItems.map((item) => {
+                const active = item.section !== undefined && activeSection === item.section && item.key !== 'PRO';
+                const Icon = item.icon;
+                const rowClass = `flex h-8 w-full items-center gap-2 border-b border-term-line-soft px-3 text-left text-[13px] hover:bg-term-head ${
+                  active ? 'bg-term-select text-term-fg-strong' : item.key === 'PRO' ? 'text-term-accent' : 'text-term-fg'
+                }`;
+                const body = (
+                  <>
+                    <Icon aria-hidden="true" size={14} strokeWidth={1.8} className={`shrink-0 ${active || item.key === 'PRO' ? 'text-term-accent' : 'text-term-muted'}`} />
+                    <span className="min-w-0 flex-1 truncate">{item.label}</span>
+                    {item.badge && <span className="term-num shrink-0 text-xs text-term-accent">{item.badge}</span>}
+                  </>
+                );
+                if (item.key === 'PRO' && onOpenPro) {
+                  return (
+                    <button key={item.key} type="button" onClick={() => { moreRef.current?.removeAttribute('open'); onOpenPro(); }} className={rowClass}>
+                      {body}
+                    </button>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    prefetch={false}
+                    onClick={(event) => handleLocalNavigation(event, item.key === 'SAVED' ? item.section : undefined)}
+                    aria-current={active ? 'page' : undefined}
+                    className={rowClass}
+                  >
+                    {body}
+                  </Link>
+                );
+              })}
               <div className="flex flex-col border-t border-term-line py-1">
                 {LEGAL_LINKS.map((link) => (
                   <Link key={link.href} href={link.href} prefetch={false} className="flex h-7 items-center px-3 text-xs text-term-label hover:bg-term-head hover:text-term-fg-strong">

@@ -13,7 +13,7 @@ import { useAuth } from '../../../context/AuthContext';
 
 import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
-import { InstitutionalDataGrid, LedgerListTitle } from '../grid/InstitutionalDataGrid';
+import { InstitutionalDataGrid, LedgerListTitle, LedgerMobileSearchSummary } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '@/features/company-inspector';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
@@ -240,6 +240,7 @@ export const TerminalShell: React.FC<{
               <LedgerLoadState state={catalogError ? 'failed' : 'loading'} slow={catalogSlow} onRetry={retryCatalog} />
             ) : null}
             <LedgerListTitle count={filteredEntities.length} conditionsLabel={describeLedgerCondition({ query: searchQuery, filters: catalogFilters }).join('・')} />
+            <LedgerMobileSearchSummary query={searchQuery} count={filteredEntities.length} onClear={() => setSearchQuery('')} />
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}
@@ -313,6 +314,8 @@ export const TerminalShell: React.FC<{
         availableTags={availableTags}
         tagCounts={tagCounts}
         initialFilters={screenerFilters}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
       />
 
       <ProModal isOpen={isProModalOpen} onClose={() => setIsProModalOpen(false)} />
