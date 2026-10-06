@@ -241,7 +241,7 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
       <StorySteps reader={reader} />
       <AnalysisGroups reader={reader} usage={plan.usage} />
       <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} exclude={plan.usage.factIds} />
-      {hasDetails && <details className="group border-b border-term-line">
+      {hasDetails && <details open className="group border-b border-term-line">
         <summary className="flex min-h-9 cursor-pointer list-none items-center gap-2 bg-term-head px-2.5 text-xs text-term-sub hover:text-term-fg-strong sm:px-3 [&::-webkit-details-marker]:hidden">
           <span aria-hidden="true" className="inline-block h-0 w-0 border-y-[4px] border-l-[5px] border-y-transparent border-l-current transition-transform group-open:rotate-90" />
           <span>{UI.SECTION_DETAILS}</span>
