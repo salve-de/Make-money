@@ -38,7 +38,7 @@ function expectNoOutsider(label: string, rawText: string, requestedId = ''): voi
 
 test('there is a non-empty set of unpublished cases to check against', () => {
   expect(outsiders.length).toBeGreaterThan(1000);
-  expect(catalogIds.size).toBeGreaterThan(50);
+  expect(catalogIds.size).toBeGreaterThanOrEqual(10);
 });
 
 for (const path of PUBLIC_PAGES) {

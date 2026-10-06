@@ -1,7 +1,9 @@
 'use client';
 
 import React from 'react';
+import type { FinancialEntity } from '@/shared/terminal';
 import type { BusinessScale, MoatType } from '../../types/terminal';
+import { countScreenerMatches } from '../../model/entity-filter';
 import type { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 
 /**
@@ -15,6 +17,11 @@ export interface LedgerFilterRailProps {
   /** 件数は一覧の見出しと状態バーに出すため、この欄には表示しない（受け口のみ維持）。 */
   resultCount: number;
   catalogTotal: number;
+  /**
+   * 公開中の全事例（全件が手元に読めている時だけ渡す）。渡された時は、1件も当たらない条件を押せない表示にする。
+   * 一部しか読めていない時は渡さない（手元の分だけで「0件」と決めつけない）。
+   */
+  allEntities?: readonly FinancialEntity[];
 }
 
 const EMPTY: ScreenerFilterState = { scales: [], minMargin: 0, maxCapital: null, moats: [], selectedTags: [] };
@@ -54,15 +61,19 @@ function GroupHeader({ children }: { children: React.ReactNode }) {
   return <div className="flex h-6 items-center bg-term-head px-2.5 text-xs text-term-label">{children}</div>;
 }
 
-function Row({ selected, onClick, label, role = 'checkbox' }: { selected: boolean; onClick: () => void; label: string; role?: 'checkbox' | 'radio' }) {
+function Row({ selected, onClick, label, role = 'checkbox', empty = false }: { selected: boolean; onClick: () => void; label: string; role?: 'checkbox' | 'radio'; empty?: boolean }) {
+  // 1件も当たらない条件は押せない（選択中なら外せるように押せるまま残す）
+  const disabled = empty && !selected;
   return (
     <button
       type="button"
       role={role}
       aria-checked={selected}
       onClick={onClick}
+      disabled={disabled}
+      title={disabled ? '該当する事例がありません' : undefined}
       className={`flex h-6 w-full items-center gap-2 border-b border-term-line-soft px-2.5 text-left text-xs ${
-        selected ? 'bg-term-select text-term-fg-strong' : 'text-term-fg hover:bg-term-head'
+        selected ? 'bg-term-select text-term-fg-strong' : disabled ? 'cursor-not-allowed text-term-dim' : 'text-term-fg hover:bg-term-head'
       }`}
     >
       <span
@@ -82,8 +93,12 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
   filters,
   onChangeFilters,
   onOpenAdvanced,
+  allEntities,
 }) => {
   const current = filters ?? EMPTY;
+  // その条件だけを当てた時に1件も残らないか（全件が手元にある時だけ判定する）
+  const isEmptyOption = (patch: Partial<ScreenerFilterState>): boolean =>
+    Boolean(allEntities) && countScreenerMatches(allEntities ?? [], { ...EMPTY, ...patch }) === 0;
   const update = (patch: Partial<ScreenerFilterState>) => {
     const next = { ...current, ...patch };
     onChangeFilters(isEmpty(next) ? null : next);
@@ -106,7 +121,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
 
       <GroupHeader>運営人数</GroupHeader>
       {SCALES.map((item) => (
-        <Row key={item.id} label={item.label} selected={current.scales.includes(item.id)} onClick={() => update({ scales: toggle(current.scales, item.id) })} />
+        <Row key={item.id} label={item.label} empty={isEmptyOption({ scales: [item.id] })} selected={current.scales.includes(item.id)} onClick={() => update({ scales: toggle(current.scales, item.id) })} />
       ))}
 
       <GroupHeader>営業利益率</GroupHeader>
@@ -115,6 +130,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
           key={item.value}
           role="radio"
           label={item.label}
+          empty={isEmptyOption({ minMargin: item.value })}
           selected={current.minMargin === item.value}
           onClick={() => update({ minMargin: current.minMargin === item.value ? 0 : item.value })}
         />
@@ -126,6 +142,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
           key={item.value}
           role="radio"
           label={item.label}
+          empty={isEmptyOption({ maxCapital: item.value })}
           selected={current.maxCapital === item.value}
           onClick={() => update({ maxCapital: current.maxCapital === item.value ? null : item.value })}
         />
@@ -133,7 +150,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
 
       <GroupHeader>参入障壁</GroupHeader>
       {MOATS.map((item) => (
-        <Row key={item.id} label={item.label} selected={current.moats.includes(item.id)} onClick={() => update({ moats: toggle(current.moats, item.id) })} />
+        <Row key={item.id} label={item.label} empty={isEmptyOption({ moats: [item.id] })} selected={current.moats.includes(item.id)} onClick={() => update({ moats: toggle(current.moats, item.id) })} />
       ))}
 
       {(current.selectedTags?.length ?? 0) > 0 && (

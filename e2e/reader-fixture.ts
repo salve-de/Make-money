@@ -8,6 +8,22 @@ import type { ReaderCase } from '../src/shared/reader-case';
  * 公開済みの事例の画面を確かめる検査は、実在の事例の詳細レスポンスに、この作り物の reader を足して返す。
  * 作り物なので、金額・文はどれも実在の事例の値ではない。事実と推測を分けて出す画面の構造を確かめるためだけに使う。
  */
+/**
+ * 公開目録（data/catalog-release.json、10件）の事例。画面・API(/api/businesses, /api/media)に出ている実際の内容に合わせてある。
+ * 事例を決め打ちする検査は、ここから取る（目録を入れ替えたら、ここだけ直す）。
+ * - PRIMARY: 売上・料金・出典が揃い、画像は小さなアイコンだけ（画像欄は出ない）。未確認は「利益・費用・道具」。
+ * - SECONDARY: 数値の欄は調達額・利用者数だけ。未確認は「売上・利益・費用・チーム・集客」。
+ * - NO_MONEY: 数値の欄（#section-metrics）が無い事例。未確認は「売上・利益・費用・チーム・道具」。出典欄はある。
+ * - WITH_SCREENS: 公式の製品画面が3枚承認済みで、画像欄（#section-media）が出る事例。数値の欄もある。
+ * どの事例も scale は UNKNOWN（一人で運営などの絞り込みには出ない）。
+ */
+export const PRIMARY = { id: 'ent_gorails_640d8f688451', name: 'GoRails', tag: '動画講座', unconfirmed: '未確認: 利益・費用・道具' } as const;
+export const SECONDARY = { id: 'ent_codementor_ba692caa3db3', name: 'Codementor' } as const;
+export const NO_MONEY = { id: 'ent_teamcamp_ae0c21986c4d', name: 'Teamcamp', unconfirmed: '未確認: 売上・利益・費用・チーム・道具' } as const;
+export const WITH_SCREENS = { id: 'ent_myoperator_49c393230a2d', name: 'MyOperator', screens: 3 } as const;
+/** 公開目録の全10件（/api/businesses の返す順ではなく名前で数える） */
+export const CATALOG_NAMES = ['Practical Typography', 'E-junkie', 'Referral Rock', 'Codementor', 'GoRails', 'Requestly', 'Teamcamp', 'MyOperator', 'HeyGen', 'Refactoring UI'] as const;
+
 export const SAMPLE_READER: ReaderCase = {
   sources: [
     { id: 's1', publisher: 'サンプル公式', url: 'https://example.com/pricing', kind: 'OFFICIAL', title: '料金ページ', publishedAt: '2026-05-01' },

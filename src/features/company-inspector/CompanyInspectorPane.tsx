@@ -126,7 +126,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               reader={entity.reader}
               detailState={detailState}
               onRetry={onRetryDetail}
-              media={<EntityMediaGallery entityId={entity.id} entityName={entity.name} />}
+              media={<EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />}
             />
             <VerifiedRevenueSection entityId={entity.id} />
             <OperatorVerificationNote entityId={entity.id} url={entity.url} />

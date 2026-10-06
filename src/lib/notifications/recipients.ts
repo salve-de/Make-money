@@ -20,7 +20,7 @@ export const LIST_ALERT_SEARCHES_SQL =
    ORDER BY s.user_id, s.created_at, s.id
    LIMIT ${ALERT_ROW_CAP}`;
 export const LIST_SUBSCRIBERS_SQL =
-  `SELECT id, email FROM newsletter_subscribers WHERE status = 'active' ORDER BY subscribed_at, id LIMIT ${SUBSCRIBER_ROW_CAP}`;
+  `SELECT id, email FROM newsletter_subscribers WHERE status = 'active' AND confirmed_at IS NOT NULL ORDER BY subscribed_at, id LIMIT ${SUBSCRIBER_ROW_CAP}`;
 export const DELETE_SUBSCRIBER_SQL = 'DELETE FROM newsletter_subscribers WHERE id = ?';
 
 interface AlertRow {

@@ -7,9 +7,13 @@ import { FOUNDING_PASS } from "@/lib/payments/founding-pass";
 import { getSubscriptionOffer, isFoundingPassOnSale, isPlanId, isSubscriptionPlanId } from "@/lib/payments/plans";
 import { verifyFirebaseIdToken } from "@/lib/firebase/server";
 import { readJsonBody, RequestBodyTooLargeError } from "@/lib/api/input";
+import { consumeRequestRateLimit } from "@/lib/security/rate-limit";
 
 export const dynamic = "force-dynamic";
 const MAX_CHECKOUT_REQUEST_BYTES = 32 * 1024;
+// Stripe の決済画面を作る回数の上限（1人あたり）。正規の購入では届かない数。
+const CHECKOUT_LIMIT = 20;
+const CHECKOUT_WINDOW_MS = 60 * 60 * 1000;
 const PRODUCT_DESCRIPTION = "事業構造12項目の詳細分析へのアクセス（財務と出典は無料）";
 
 export async function POST(request: Request) {
@@ -28,6 +32,9 @@ export async function POST(request: Request) {
     }
 
     if (!userId) return NextResponse.json({ error: "購入前にログインしてください" }, { status: 401 });
+    // 回数を数えられない時は購入を止めない（正規の購入を巻き込まない）。数えられて超過した時だけ止める。
+    const allowed = await consumeRequestRateLimit(request, "checkout-session", { limit: CHECKOUT_LIMIT, windowMs: CHECKOUT_WINDOW_MS, subject: userId }).catch(() => true);
+    if (!allowed) return NextResponse.json({ error: "操作が多すぎます。しばらくしてからお試しください" }, { status: 429, headers: { "Retry-After": String(CHECKOUT_WINDOW_MS / 1000) } });
     try { await assertPaymentStoreAvailable(); }
     catch { return NextResponse.json({ error: "会員情報を保存できないため購入を開始できません" }, { status: 503 }); }
 

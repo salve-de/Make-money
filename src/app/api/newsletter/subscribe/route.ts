@@ -3,6 +3,9 @@ import { parseNewsletter, parseNewsletterUnsubscribe, readInput } from '@/lib/ap
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { executeD1, queryD1 } from '@/lib/storage/d1';
 import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
+import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
+import { buildNewsletterConfirmUrl, CONFIRM_LINK_TTL_SECONDS } from '@/lib/notifications/confirm-link';
+import { buildNewsletterConfirmationEmail, isDeliverableEmail, normalizeAppUrl, sendEmail } from '@/lib/notifications/email';
 
 export const dynamic = 'force-dynamic';
 async function hashUnsubscribeToken(token: string): Promise<string> {
@@ -19,6 +22,15 @@ async function optionalUser(req: NextRequest) {
   return user;
 }
 
+/**
+ * Sign-up is a request, not a subscription (double opt-in). The row is saved as pending
+ * (confirmed_at IS NULL) and only the owner of the address can finish it by opening the
+ * signed link in the confirmation mail. Digest recipients are read with confirmed_at set,
+ * so a pending row never receives anything. Logged-in users are confirmed too: the
+ * address they type is not necessarily their own login address.
+ */
+const CONFIRM_MAILS_PER_ADDRESS_PER_HOUR = 3;
+
 export async function POST(req: NextRequest) {
   const input = await readInput(req, parseNewsletter);
   if (!input) return NextResponse.json({ error: '有効なメールアドレスと送信元を入力してください' }, { status: 400 });
@@ -29,23 +41,64 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
   try {
-    if (!user && !await consumeRequestRateLimit(req, 'newsletter-subscribe')) {
+    // Every caller is limited: anonymous by network address, logged-in by account id.
+    if (!await consumeRequestRateLimit(req, 'newsletter-subscribe', user ? { subject: `uid:${user.uid}` } : {})) {
       return NextResponse.json({ error: 'しばらく待ってから再試行してください' }, { status: 429 });
     }
     const unsubscribeToken = crypto.randomUUID();
     const tokenHash = await hashUnsubscribeToken(unsubscribeToken);
+    // An already confirmed row is left exactly as it is: a stranger typing the same address
+    // must not replace its cancel token or reset its confirmation. Only a pending row is refreshed.
     await executeD1(`INSERT INTO newsletter_subscribers(id,email,source,user_id,unsubscribe_token_hash)
       VALUES(?,?,?,?,?)
       ON CONFLICT(email) DO UPDATE SET source=excluded.source, user_id=COALESCE(newsletter_subscribers.user_id, excluded.user_id),
-      status='active', unsubscribe_token_hash=excluded.unsubscribe_token_hash`,
+      unsubscribe_token_hash=excluded.unsubscribe_token_hash
+      WHERE newsletter_subscribers.confirmed_at IS NULL`,
       [crypto.randomUUID(), input.email, input.source, user?.uid ?? null, tokenHash]);
-    const rows = await queryD1('SELECT id,status FROM newsletter_subscribers WHERE email=?', [input.email]);
-    if (rows.length !== 1 || typeof rows[0].id !== 'string' || rows[0].status !== 'active') throw new Error('Subscriber not persisted');
-    // Do not echo the email or whether it was previously registered. The
-    // token is the only deletion credential and is returned once to the caller.
-    return NextResponse.json({ success: true, message: '購読登録を受け付けました', unsubscribeToken });
+    const rows = await queryD1('SELECT id,confirmed_at AS confirmedAt FROM newsletter_subscribers WHERE email=?', [input.email]);
+    if (rows.length !== 1 || typeof rows[0].id !== 'string') throw new Error('Subscriber not persisted');
+    const pending = rows[0].confirmedAt === null || rows[0].confirmedAt === undefined;
+
+    let confirmationSent = !pending;
+    if (pending) {
+      // At most a few confirmation mails per address per hour, so the form cannot be used to flood someone's inbox.
+      if (!await consumeRequestRateLimit(req, 'newsletter-confirm-address', {
+        subject: input.email, limit: CONFIRM_MAILS_PER_ADDRESS_PER_HOUR,
+      })) {
+        // Same answer as a normal send: the response must not reveal what was already sent to this address.
+        confirmationSent = true;
+      } else {
+        confirmationSent = await sendConfirmationMail(req, rows[0].id, input.email);
+      }
+    }
+    // Neither the address nor whether it was registered before is echoed. For an address that
+    // is already confirmed the token below matches nothing; it only keeps the response identical.
+    return NextResponse.json({
+      success: true,
+      message: confirmationSent
+        ? '確認メールを送りました。メール内のリンクを開くと登録が完了します'
+        : '登録を受け付けましたが、現在確認メールを送れません。登録はまだ完了していません',
+      confirmationSent,
+      unsubscribeToken,
+    });
   } catch {
     return NextResponse.json({ error: '現在、購読登録を保存できません' }, { status: 503 });
+  }
+}
+
+/** True only when Resend accepted the mail. No configuration, or a failed send, leaves the row pending. */
+async function sendConfirmationMail(req: NextRequest, subscriberId: string, email: string): Promise<boolean> {
+  if (!isDeliverableEmail(email)) return false;
+  const appUrl = normalizeAppUrl(await getRuntimeEnvValue('NEXT_PUBLIC_APP_URL')) ?? normalizeAppUrl(req.nextUrl.origin);
+  if (!appUrl) return false;
+  const confirmUrl = await buildNewsletterConfirmUrl(appUrl, subscriberId);
+  if (!confirmUrl) return false;
+  const content = buildNewsletterConfirmationEmail({ confirmUrl, validHours: CONFIRM_LINK_TTL_SECONDS / 3600 });
+  try {
+    const result = await sendEmail({ to: email, ...content });
+    return result.ok;
+  } catch {
+    return false;
   }
 }
 

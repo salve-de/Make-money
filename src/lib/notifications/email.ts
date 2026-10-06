@@ -302,3 +302,21 @@ export function buildNewsletterEmail(input: {
     },
   };
 }
+
+/** Sign-up confirmation (double opt-in). Sent to an address that has not been verified yet, so it says what to do if the person did not ask for it. */
+export function buildNewsletterConfirmationEmail(input: { confirmUrl: string; validHours: number }): EmailContent {
+  const { confirmUrl, validHours } = input;
+  const intro = '「新着をメールで受け取る」へのご登録ありがとうございます。まだ登録は完了していません。下のリンクを開き、表示された画面のボタンを押すと登録が完了します。';
+  const expiry = `このリンクの有効期限は${validHours}時間です。`;
+  const ignore = 'お心当たりがない場合は、このメールを無視してください。リンクを開かない限り、登録も配信も行われません。';
+  return {
+    subject: '【Make Money】メールアドレスの確認をお願いします',
+    text: `${intro}\n\n登録を完了する: ${confirmUrl}\n\n${expiry}\n${ignore}\n`,
+    html: htmlDocument(
+      `<p style="margin:0 0 16px">${escapeHtml(intro)}</p>`
+      + `<p style="margin:0 0 16px"><a href="${escapeHtml(confirmUrl)}" style="color:#0b57d0;font-weight:bold">登録を完了する</a></p>`
+      + '<hr style="border:0;border-top:1px solid #dddddd;margin:16px 0">'
+      + `<p style="margin:0;font-size:12px;color:#555555">${escapeHtml(expiry)}<br>${escapeHtml(ignore)}</p>`,
+    ),
+  };
+}

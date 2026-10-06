@@ -117,6 +117,15 @@ export function matchesCatalogQuery(entity: FinancialEntity, query: string, filt
       .some((value) => value?.toLowerCase().includes(normalized));
 }
 
+/**
+ * 絞り込み条件（screener）だけを当てた時に残る件数。左の絞り込み欄で、手元の事例が1件も当たらない条件を
+ * 押せないようにするために使う（押すと必ず0件になる条件を並べない）。
+ */
+export function countScreenerMatches(entities: readonly FinancialEntity[], screener: NonNullable<CatalogFilters['screener']>): number {
+  const filters: CatalogFilters = { filter: 'ALL', batch: 'ALL', tags: [], bookmarks: [], screener };
+  return entities.reduce((count, entity) => count + (matchesCatalogQuery(entity, '', filters) ? 1 : 0), 0);
+}
+
 export function parseCatalogFilters(raw: string | null): CatalogFilters | undefined {
   if (!raw) return undefined;
   if (raw.length > 100_000) throw new Error('Filters too large');

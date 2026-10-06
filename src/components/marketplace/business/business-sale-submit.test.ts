@@ -27,7 +27,7 @@ function listing(overrides: Partial<OwnedBusinessSaleListing> = {}): OwnedBusine
     id: 'listing-1', slug: 'camera-shop-0123456789', title: form.title, summary: form.summary, category: 'ecommerce', establishedYear: 2021,
     monthlyRevenueJpy: 1_200_000, monthlyProfitJpy: 300_000, askingPriceJpy: 4_500_000, revenueBasis: 'self_reported', sellerName: '山田商店',
     updatedAt: '2026-09-29T00:00:00.000Z', reasonForSale: form.reasonForSale, includedAssets: form.includedAssets, status: 'draft',
-    createdAt: '2026-09-29T00:00:00.000Z', ...overrides,
+    reviewNote: null, createdAt: '2026-09-29T00:00:00.000Z', ...overrides,
   };
 }
 
@@ -59,16 +59,16 @@ describe('submitBusinessSaleForm: new listing', () => {
     expect(only.body).toMatchObject({ title: form.title, monthlyRevenueJpy: 1_200_000, askingPriceJpy: 4_500_000, sellerName: '山田商店' });
   });
 
-  it('publishes by creating the draft first, then changing only the status', async () => {
+  it('requests review by creating the draft first, then changing only the status', async () => {
     fetchMock
       .mockResolvedValueOnce(json({ success: true, listing: listing() }, 201))
-      .mockResolvedValueOnce(json({ success: true, listing: listing({ status: 'published' }) }));
+      .mockResolvedValueOnce(json({ success: true, listing: listing({ status: 'pending_review' }) }));
     const outcome = await submitBusinessSaleForm({ token: 'tok', form, listingId: null, intent: 'publish' });
-    expect(outcome).toEqual({ kind: 'saved', listing: listing({ status: 'published' }), leave: true });
+    expect(outcome).toEqual({ kind: 'saved', listing: listing({ status: 'pending_review' }), leave: true });
     const [create, publish] = calls();
     expect(create).toMatchObject({ url: '/api/marketplace/businesses', method: 'POST' });
     expect(Object.keys(create.body!).sort()).toEqual(TEN_KEYS);
-    expect(publish).toEqual({ url: '/api/marketplace/businesses/listing-1', method: 'PATCH', body: { status: 'published' } });
+    expect(publish).toEqual({ url: '/api/marketplace/businesses/listing-1', method: 'PATCH', body: { status: 'pending_review' } });
   });
 
   it('keeps the saved draft when publishing fails, and never creates a second one', async () => {
@@ -79,7 +79,7 @@ describe('submitBusinessSaleForm: new listing', () => {
     expect(outcome).toEqual({
       kind: 'failed',
       field: 'reasonForSale',
-      message: '下書きは保存しました。公開はできませんでした: 公開するには、手放す理由を書いてください',
+      message: '下書きは保存しました。公開の申請はできませんでした: 公開するには、手放す理由を書いてください',
       draft: listing(),
     });
     expect(calls().map((call) => call.method)).toEqual(['POST', 'PATCH']);
@@ -106,17 +106,17 @@ describe('submitBusinessSaleForm: existing listing', () => {
   });
 
   it('publishes with the ten fields and the status in a single PATCH', async () => {
-    fetchMock.mockResolvedValueOnce(json({ success: true, listing: listing({ status: 'published' }) }));
+    fetchMock.mockResolvedValueOnce(json({ success: true, listing: listing({ status: 'pending_review' }) }));
     const outcome = await submitBusinessSaleForm({ token: 'tok', form, listingId: 'listing-1', intent: 'publish' });
     expect(outcome).toMatchObject({ kind: 'saved', leave: true });
     const [only] = calls();
     expect(Object.keys(only.body!).sort()).toEqual([...TEN_KEYS, 'status'].sort());
-    expect(only.body).toMatchObject({ status: 'published' });
+    expect(only.body).toMatchObject({ status: 'pending_review' });
     expect(calls()).toHaveLength(1);
   });
 
   it('saves changes to a published listing without touching the status', async () => {
-    fetchMock.mockResolvedValueOnce(json({ success: true, listing: listing({ status: 'published' }) }));
+    fetchMock.mockResolvedValueOnce(json({ success: true, listing: listing({ status: 'pending_review' }) }));
     const outcome = await submitBusinessSaleForm({ token: 'tok', form, listingId: 'listing-1', intent: 'changes' });
     expect(outcome).toMatchObject({ kind: 'saved', leave: false });
     expect(calls()[0].body).not.toHaveProperty('status');

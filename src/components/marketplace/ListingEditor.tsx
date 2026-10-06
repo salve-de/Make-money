@@ -11,7 +11,9 @@ import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import {
   MARKETPLACE_CATEGORIES,
   MARKETPLACE_CATEGORY_LABELS,
+  PENDING_REVIEW_NOTICE,
   type MarketplaceCategory,
+  type MarketplaceListingRequestedStatus,
   type MarketplaceListingStatus,
   type MarketplaceListingSource,
   type OwnedMarketplaceListing,
@@ -64,6 +66,7 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
   const [buildSessionId, setBuildSessionId] = useState<string | null>(sessionId || null);
   const [status, setStatus] = useState<MarketplaceListingStatus>('draft');
   const [slug, setSlug] = useState<string | null>(null);
+  const [reviewNote, setReviewNote] = useState<string | null>(null);
   const [listingId, setListingId] = useState(initialListingId || '');
   const [loading, setLoading] = useState(true);
   const [loadFailed, setLoadFailed] = useState(false);
@@ -103,6 +106,7 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
           setSourceType(listing.sourceType);
           setBuildSessionId(listing.sessionId);
           setStatus(listing.status);
+          setReviewNote(listing.reviewNote);
           setSlug(listing.slug);
           setListingId(listing.listingId);
         } else if (typeof data.defaultTitle === 'string') {
@@ -120,7 +124,7 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
     return () => controller.abort();
   }, [authLoading, token, sessionId, initialListingId, retry]);
 
-  const save = async (nextStatus: MarketplaceListingStatus) => {
+  const save = async (nextStatus: MarketplaceListingRequestedStatus) => {
     if (!token || saving || loading || loadFailed) return;
     setSaving(true);
     setError(null);
@@ -150,6 +154,7 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
         sellerName: listing.sellerName,
       });
       setStatus(listing.status);
+      setReviewNote(listing.reviewNote);
       setSlug(listing.slug);
       setListingId(listing.listingId);
       if (!sessionId && !initialListingId) {
@@ -207,20 +212,26 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
                   {MARKETPLACE_CATEGORIES.map((category) => <option key={category} value={category}>{MARKETPLACE_CATEGORY_LABELS[category]}</option>)}
                 </select>
               </label>
-              <Field label="公開したサービスのURL（HTTPS）" value={form.productUrl} maxLength={2048} onChange={(value) => update('productUrl', value)} placeholder="https://your-service.example" required={status === 'published'} />
+              <Field label="公開したサービスのURL（HTTPS）" value={form.productUrl} maxLength={2048} onChange={(value) => update('productUrl', value)} placeholder="https://your-service.example" required={status !== 'draft'} />
               <Field label="購入・申込URL（任意）" value={form.checkoutUrl} maxLength={2048} onChange={(value) => update('checkoutUrl', value)} placeholder="https://checkout.example" />
               <Field label="価格表示（任意）" value={form.priceLabel} maxLength={80} onChange={(value) => update('priceLabel', value)} placeholder="例: 月額 2,980円 / 1件ごとに見積" />
               <Field label="掲載者名（任意）" value={form.sellerName} maxLength={50} onChange={(value) => update('sellerName', value)} placeholder="空欄なら名前を公開しません" />
             </div>
-            <p className="mt-4 text-xs text-term-label">申込み・決済は登録した外部サイトで行います。</p>
+            <p className="mt-4 text-xs text-term-label">申込み・決済は登録した外部サイトで行います。公開前に運営者が審査し、承認されたものだけが一覧に出ます。公開中の内容を変えると、再び審査待ちに戻ります。</p>
+            {status === 'pending_review' && <p role="status" className="mt-3 text-sm text-term-fg-strong">{PENDING_REVIEW_NOTICE}</p>}
+            {status === 'rejected' && (
+              <p role="status" className="mt-3 text-sm text-term-danger">
+                審査で却下されました{reviewNote ? `。理由: ${reviewNote}` : ''}。直してから、もう一度申請できます。
+              </p>
+            )}
             {error && <p role="alert" className="mt-3 text-sm text-term-danger">{error}</p>}
             <div className="mt-4 flex flex-wrap items-center gap-2">
-              <button type="button" disabled={saving} onClick={() => void save('published')} className={`${BTN} gap-2 rounded-sm border-term-accent bg-transparent text-term-accent hover:bg-term-head`}>
+              <button type="button" disabled={saving} onClick={() => void save('pending_review')} className={`${BTN} gap-2 rounded-sm border-term-accent bg-transparent text-term-accent hover:bg-term-head`}>
                 {saving && <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" />}
-                {status === 'published' ? '公開内容を更新' : 'Make-Moneyに公開'}
+                {status === 'published' ? '公開内容を更新（変更すると再審査）' : status === 'pending_review' ? '申請内容を更新' : 'Make-Moneyへの公開を申請'}
               </button>
               <button type="button" disabled={saving} onClick={() => void save('draft')} className={`${BTN} rounded-sm border-term-line bg-transparent text-term-fg hover:bg-term-head`}>
-                {status === 'published' ? '非公開にする' : '下書きを保存'}
+                {status === 'published' ? '非公開にする' : status === 'pending_review' ? '申請を取り下げる' : '下書きを保存'}
               </button>
               {slug && status === 'published' && (
                 <Link href={`/marketplace/${encodeURIComponent(slug)}`} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center gap-1.5 text-sm text-term-sub hover:text-term-fg-strong lg:min-h-8">

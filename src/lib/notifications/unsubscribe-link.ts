@@ -15,7 +15,7 @@ const encoder = new TextEncoder();
  * NOTIFY_UNSUBSCRIBE_SECRET is preferred so the cron secret can be rotated without breaking
  * links in old emails. It falls back to NOTIFY_CRON_SECRET, which the digest already requires.
  */
-async function readSecret(): Promise<string | null> {
+export async function readNotifySecret(): Promise<string | null> {
   return (await getRuntimeEnvValue('NOTIFY_UNSUBSCRIBE_SECRET')) ?? (await getRuntimeEnvValue('NOTIFY_CRON_SECRET')) ?? null;
 }
 
@@ -36,7 +36,7 @@ function fromHex(hex: string): Uint8Array<ArrayBuffer> {
 }
 
 export async function signNewsletterUnsubscribe(subscriberId: string): Promise<string | null> {
-  const secret = await readSecret();
+  const secret = await readNotifySecret();
   if (!secret) return null;
   return toHex(await crypto.subtle.sign('HMAC', await hmacKey(secret, 'sign'), payload(subscriberId)));
 }
@@ -44,7 +44,7 @@ export async function signNewsletterUnsubscribe(subscriberId: string): Promise<s
 /** Constant-time check (WebCrypto verify). Any malformed input is simply "not valid". */
 export async function verifyNewsletterUnsubscribe(subscriberId: string, signature: string): Promise<boolean> {
   if (!subscriberId || subscriberId.length > 128 || !SIGNATURE_HEX.test(signature)) return false;
-  const secret = await readSecret();
+  const secret = await readNotifySecret();
   if (!secret) return false;
   return crypto.subtle.verify('HMAC', await hmacKey(secret, 'verify'), fromHex(signature), payload(subscriberId));
 }

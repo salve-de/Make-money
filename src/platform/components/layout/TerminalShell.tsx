@@ -128,6 +128,12 @@ export const TerminalShell: React.FC<{
   };
 
   // 最初の取得が届くまで（検索語や条件を変えた直後も）は「0件」ではなく読み込み中として扱う
+  // 検索も絞り込みもしていない状態で全件が届いたら、その全件を覚えておく。左の絞り込み欄で
+  // 「押すと必ず0件になる条件」を押せない表示にするために使う（一部しか届いていない時は判定しない）
+  const unfilteredComplete = !searchQuery.trim() && currentFilter === 'ALL' && selectedBatch === 'ALL' && activeTags.length === 0
+    && !screenerFilters && catalogTotal !== null && !hasMore && entities.length >= catalogTotal;
+  const [catalogUniverse, setCatalogUniverse] = useState<FinancialEntity[] | undefined>(undefined);
+  if (unfilteredComplete && catalogUniverse !== entities) setCatalogUniverse(entities);
   const listLoading = !catalogError && (catalogLoading || catalogTotal === null);
   const selectedPositionLabel = positionLabel(filteredEntities.findIndex((row) => row.id === selectedEntityId), catalogTotal || filteredEntities.length);
   const ledgerEntityIds = useMemo(() => filteredEntities.map((entity) => entity.id), [filteredEntities]);
@@ -208,7 +214,7 @@ export const TerminalShell: React.FC<{
         ) : (
           <>
           <div className="hidden xl:flex">
-            <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={catalogTotal ?? filteredEntities.length} />
+            <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={catalogTotal ?? filteredEntities.length} allEntities={catalogUniverse} />
           </div>
           <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden border-term-line bg-term-bg xl:border-r">
             <DataGridToolbar

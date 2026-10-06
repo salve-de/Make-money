@@ -28,8 +28,7 @@ describe('EntityMediaGalleryView', () => {
   it('shows every image lazily, with its source text under it and a description of what it is', () => {
     const html = render(pickGalleryAssets([asset('screenshot_pricing', 'b', '出典: Photo AI 公式サイト (https://photoai.com/pricing)'), asset('screenshot_product', 'a'), asset('og_image', 'x'), asset('favicon', 'f')]));
     expect(html).toContain('id="section-media"');
-    expect(html).toContain('aria-label="製品の画面"');
-    expect(html).not.toContain('Product images');
+    expect(html).toContain('製品画像');
     expect((html.match(/data-testid="media-gallery-image"/g) ?? []).length).toBe(2);
     expect((html.match(/loading="lazy"/g) ?? []).length).toBe(2);
     expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの料金ページ"');
@@ -44,12 +43,12 @@ describe('EntityMediaGalleryView', () => {
     for (const figure of figures) expect(figure.indexOf('<img')).toBeLessThan(figure.indexOf('media-gallery-attribution'));
   });
 
-  it('並べるのは小さな画像だけ（拡大・大きな背景にしない）。画面写真は高さ96px、アイコンは48px', () => {
-    const html = render([asset('screenshot_home', 'b'), asset('app_icon', 'i')]);
-    expect(html).toContain('h-24');
-    expect(html).toContain('h-12');
-    expect(html).not.toMatch(/h-(3[2-9]|[4-9]\d)\b/);
-    expect(html).not.toContain('grid-cols');
+  it('gives a single image a readable width and several images a grid', () => {
+    expect(render([asset('og_image', 'a')])).toContain('max-w-[30rem]');
+    expect(render([asset('og_image', 'a')])).not.toContain('grid-cols-2');
+    const several = render([asset('screenshot_home', 'b'), asset('og_image', 'a')]);
+    expect(several).toContain('sm:grid-cols-2');
+    expect(several).not.toContain('max-w-[30rem]');
   });
 
   it('does not show the favicon in the gallery (it is the list logo)', () => {

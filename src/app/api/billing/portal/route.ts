@@ -4,6 +4,7 @@ import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { findManageableSubscription } from '@/lib/payments/billing';
 import { stripeId } from '@/lib/payments/provider-state';
+import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 
 export const dynamic = 'force-dynamic';
 const json = (body: unknown, init: { status?: number } = {}) => NextResponse.json(body, { ...init, headers: { 'Cache-Control': 'private, no-store', Vary: 'Authorization' } });
@@ -13,6 +14,9 @@ export async function POST(request: Request) {
   const authorization = request.headers.get('authorization');
   const user = authorization?.startsWith('Bearer ') ? await verifyFirebaseIdToken(authorization.slice(7)) : null;
   if (!user) return json({ error: 'ログインしてください' }, { status: 401 });
+  // 管理画面の URL を作る回数の上限（1人あたり）。数えられない時は止めない。
+  const allowed = await consumeRequestRateLimit(request, 'billing-portal', { limit: 30, windowMs: 60 * 60 * 1000, subject: user.uid }).catch(() => true);
+  if (!allowed) return json({ error: '操作が多すぎます。しばらくしてからお試しください' }, { status: 429 });
   try {
     const stripe = await getStripeClient();
     if (!stripe) return json({ error: '契約の管理画面をいまは開けません' }, { status: 503 });

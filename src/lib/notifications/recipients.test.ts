@@ -100,6 +100,8 @@ describe('markSavedSearchesNotified', () => {
 describe('newsletter subscribers', () => {
   it('reads only active subscribers, oldest first, within a limit', () => {
     expect(LIST_SUBSCRIBERS_SQL).toContain("status = 'active'");
+    // Double opt-in: a pending sign-up (confirmed_at NULL) is never a recipient.
+    expect(LIST_SUBSCRIBERS_SQL).toContain('confirmed_at IS NOT NULL');
     expect(LIST_SUBSCRIBERS_SQL).toContain('ORDER BY subscribed_at, id');
     expect(LIST_SUBSCRIBERS_SQL).toMatch(/LIMIT 5000/);
   });

@@ -29,7 +29,7 @@ export async function callGeminiApi(
   enableSearch: boolean = false,
   options: GeminiCallOptions = {},
 ): Promise<GeminiApiResponse> {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`;
 
   const requestBody: Record<string, unknown> = {
     contents: [{ parts: [{ text: prompt }] }],
@@ -47,7 +47,8 @@ export async function callGeminiApi(
 
   const resp = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    // キーを URL に入れない（URL はエラー文・ログ・中継の記録に残りやすい）
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
     body: JSON.stringify(requestBody),
     ...(options.timeoutMs ? { signal: AbortSignal.timeout(options.timeoutMs) } : {}),
   });

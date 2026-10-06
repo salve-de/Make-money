@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  毎日1回、scripts/reader-case/run-daily.sh を走らせる LaunchAgent のひな形。これは置いてあるだけで、登録も有効化もしていない。
+  使う時は docs/pipeline/DAILY_RUN.md の手順で __REPO__ / __NODE_BIN_DIR__ を実際の値に置き換えてから、人が登録する。
+  run-daily.sh はローカルの生成（選別と公開版の計画）までで、公開・R2 書き込み・本番反映・課金はしない。LLM も呼ばない。
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.make-money.pipeline-daily</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>__REPO__/scripts/reader-case/run-daily.sh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>__REPO__</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>__NODE_BIN_DIR__:/usr/local/bin:/usr/bin:/bin</string>
+    <key>PIPELINE_NO_PUBLISH</key>
+    <string>1</string>
+  </dict>
+  <!-- 毎日 04:30。Mac が眠っていた場合は、起きたあとに1回実行される -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>4</integer>
+    <key>Minute</key>
+    <integer>30</integer>
+  </dict>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>LowPriorityIO</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>__REPO__/data/pipeline/daily/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>__REPO__/data/pipeline/daily/launchd.err.log</string>
+</dict>
+</plist>

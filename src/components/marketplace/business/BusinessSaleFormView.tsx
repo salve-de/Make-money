@@ -12,6 +12,7 @@ import {
   type BusinessSaleStatus,
 } from '@/shared/business-sale';
 import { charLength } from '@/shared/business-sale-input';
+import { PENDING_REVIEW_NOTICE } from '@/shared/marketplace-listing';
 import { BusinessSaleNotice } from './BusinessSaleNotice';
 import type { BusinessSaleForm } from './business-sale-form';
 import { parseIntegerInput } from './format';
@@ -29,6 +30,8 @@ export interface BusinessSaleFormViewProps {
   mode: 'create' | 'edit';
   /** 編集中の掲載の状態。作成中は null */
   status: BusinessSaleStatus | null;
+  /** 却下されたときの理由（掲載者本人だけに返る） */
+  reviewNote?: string | null;
   problem: FormProblem | null;
   /** 保存できたときの案内 */
   notice: string | null;
@@ -75,7 +78,8 @@ export function BusinessSaleFormView(props: BusinessSaleFormViewProps) {
   const price = parseIntegerInput(form.askingPriceJpy);
   const multiple = price !== undefined && profit !== undefined ? calcPriceMultiple(price, profit) : null;
   const numbersReady = [revenue, profit, price].every((value) => value !== undefined && Number.isFinite(value));
-  const editingPublished = mode === 'edit' && status === 'published';
+  // 公開中・審査待ちの掲載は、その場で変更を保存する（公開中の内容を変えると、再審査になる）
+  const editingInPlace = mode === 'edit' && (status === 'published' || status === 'pending_review');
 
   return (
     <section className="max-w-3xl px-3 py-3">
@@ -203,11 +207,18 @@ export function BusinessSaleFormView(props: BusinessSaleFormViewProps) {
         </Field>
       </div>
 
+      {status === 'pending_review' && <p role="status" className="mt-4 text-sm text-term-fg-strong">{PENDING_REVIEW_NOTICE}</p>}
+      {status === 'rejected' && (
+        <p role="status" className="mt-4 text-sm text-term-danger">
+          審査で却下されました{props.reviewNote ? `。理由: ${props.reviewNote}` : ''}。直してから、もう一度申請できます。
+        </p>
+      )}
+      {status === 'published' && <p className="mt-4 text-xs text-term-label">公開中の内容を変えて保存すると、審査待ちに戻り、承認されるまで公開ページに出ません。</p>}
       {problem && <p role="alert" className="mt-4 text-sm text-term-danger">{problem.message}</p>}
       {notice && <p role="status" className="mt-4 text-sm text-term-fg">{notice}</p>}
       <BusinessSaleNotice className="mt-4" />
       <div className="mt-3 flex flex-wrap items-center gap-2">
-        {editingPublished ? (
+        {editingInPlace ? (
           <button type="button" disabled={saving} onClick={props.onSaveChanges} className={`${BTN} rounded-sm border-term-accent bg-transparent text-term-accent hover:bg-term-head`}>
             {saving && <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" />}
             変更を保存
@@ -216,7 +227,7 @@ export function BusinessSaleFormView(props: BusinessSaleFormViewProps) {
           <>
             <button type="button" disabled={saving} onClick={props.onPublish} className={`${BTN} rounded-sm border-term-accent bg-transparent text-term-accent hover:bg-term-head`}>
               {saving && <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" />}
-              公開する
+              {status === 'rejected' ? '審査に出し直す' : '公開を申請する'}
             </button>
             <button type="button" disabled={saving} onClick={props.onSaveDraft} className={`${BTN} rounded-sm border-term-line bg-transparent text-term-fg hover:bg-term-head`}>
               下書きを保存

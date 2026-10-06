@@ -10,6 +10,7 @@ import { UI } from "@/shared/ui-strings";
 import { readerContextText } from "@/shared/display-text";
 import { GlobalHeader } from "@/platform/components/navigation/GlobalHeader";
 import { SquareTabs } from "@/platform/components/navigation/SquareTabs";
+import { readStrategyError } from "@/shared/strategy-client";
 import type {
   DiscoveryCase,
   DiscoveryDataset,
@@ -182,14 +183,7 @@ export function DetailPane({
 
       const data: unknown = await response.json();
       if (!response.ok) {
-        const message =
-          data &&
-          typeof data === "object" &&
-          "error" in data &&
-          typeof data.error === "string"
-            ? data.error
-            : "分析エンジンとの接続に失敗しました。";
-        throw new Error(message);
+        throw new Error(readStrategyError(data, response.status, "分析エンジンとの接続に失敗しました。"));
       }
 
       const answer =

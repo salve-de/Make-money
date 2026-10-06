@@ -49,5 +49,8 @@
       "database_id": "07affd4c-cac4-4998-843c-b5881fccab5e",
       "migrations_dir": "migrations/d1"
     }
-  ]
+  ],
+  "observability": {
+    "enabled": true
+  }
 }

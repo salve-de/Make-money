@@ -1,0 +1,3162 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/Volumes/SS/Make-Money-normal-twenty-leads-icons-final-20261006-task6/data/catalog-history/reviewed-twenty-parent-392.json",
+  "manifestSha256": "f9c84b8f69c2929178d93152372fdae7d578392d6cf28fcfdc12b28f63a8a81d",
+  "artifactsDir": "/Volumes/SS/Make-Money-normal-twenty-leads-icons-final-20261006-task6/data/catalog-artifacts",
+  "collectedAt": "2026-10-06T09:29:28.561Z"
+ },
+ "records": [
+  {
+   "id": "ent_organization_20445b20c24453e77663",
+   "provenance": {
+    "detailsHash": "ebc18dde6d2d9dbdbc27ecedc4bffb78f2811795d5b0e45180b2d1bbb0fcadeb",
+    "artifactSha256": "cb88a0423b31c11a692ae996bd07e00bbb6fdf3afe11e78c656216bfb7a204c7"
+   },
+   "record": {
+    "architecturePattern": "地域サービス",
+    "claimBindings": [],
+    "country": "未確認",
+    "dynamicMoats": {},
+    "essence": {
+     "painRelief": "解消する痛みは未確認",
+     "targetCustomer": "対象顧客は未確認",
+     "whatItDoes": "広告や追跡を置かず、文章を軽いページで公開するブログサービスだ。"
+    },
+    "evidenceCards": [
+     {
+      "badge": "地域サービス",
+      "details": [
+       "retrieval_precision: 全取得の範囲は2026-10-04T04:48:00Zから保存時刻まで。各ページの正確なHTTP取得時刻はツールから得ていない。retrieved_atは記録終端として保持。",
+       "price_access: 公式案内からのupgradeリンクはHTTP403で停止。ログイン・他手段・別ツールで取得していない。",
+       "money_definition: 2024年のmakingという金額表現は売上・利益・MRRのいずれとも確定しない。原文$をUSDへ決め打ちしない。"
+      ],
+      "evidenceLocator": {
+       "end": 14,
+       "start": 0,
+       "type": "text"
+      },
+      "evidenceStatus": "UNKNOWN",
+      "id": "ev_ent_organization_20445b20c24453e77663_crime",
+      "punchline": "Bear Blogは、広告や追跡を置かず、文章を軽いページで公開するブログサービスだ。",
+      "sourceClass": "PRIMARY",
+      "sourceNote": "domain:bearblog.dev",
+      "title": "客観的事実ログ・集金構造",
+      "type": "THE_CRIME"
+     },
+     {
+      "badge": "ゲリラ集客",
+      "details": [
+       "2020年5月の公開記録が、週末制作とHacker News経由の初期流入を述べる。"
+      ],
+      "evidenceStatus": "REPORTED",
+      "id": "ev_ent_organization_20445b20c24453e77663_genesis",
+      "punchline": "2020年5月の公開記録が、週末制作とHacker News経由の初期流入を述べる。",
+      "sourceNote": "公開インタビュー・観測ログ",
+      "title": "最初の顧客獲得・初動突破ログ",
+      "type": "DIRTY_GENESIS"
+     },
+     {
+      "badge": "地域サービス",
+      "details": [
+       "① 業態・顧客課題: NICHE_SAAS。 price_access: 公式案内からのupgradeリンクはHTTP403で停止。ログイン・他手段・別ツールで取得していない。",
+       "② 価格・課金・販売方式: 2024-01-10 founder: approximately $5/month; purchasing-power adjustment。定額課金・都度販売・卸・店舗販売などはEvidenceがある場合だけ採用。",
+       "③ 集客・運営・継続条件: 2020年5月の公開記録が、週末制作とHacker News経由の初期流入を述べる。。ソフトウェア型のロックインやデータ蓄積を推測で補完しない。"
+      ],
+      "evidenceStatus": "ESTIMATED",
+      "id": "ev_ent_organization_20445b20c24453e77663_blueprint",
+      "punchline": "『Bear Blog』の再現条件は、公開Evidenceで確認できた範囲だけで評価",
+      "sourceNote": "Make-Money アナリスト転用設計（未確認事項は仮定しない）",
+      "title": "再現条件の確認ポイント",
+      "type": "LOOT_BLUEPRINT"
+     }
+    ],
+    "exposureAudit": {
+     "guerrillaTraction": "2020年5月の公開記録が、週末制作とHacker News経由の初期流入を述べる。",
+     "hiddenStackCost": "原価内訳は未確認",
+     "pivotSnapshot": "2020年5月の公開記録が、週末制作とHacker News経由の初期流入を述べる。",
+     "platformGlitch": "プラットフォーム施策は未確認"
+    },
+    "founder": "創業者情報未確認",
+    "growthRateYoY": 0,
+    "id": "ent_organization_20445b20c24453e77663",
+    "isGrowthUnconfirmed": true,
+    "legalEntity": "domain:bearblog.dev",
+    "name": "Bear Blog",
+    "observationsStream": [],
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "opportunityJudgment": {
+     "competitionDelta": "未確認",
+     "demandDelta": "未確認",
+     "entryRequirements": {
+      "capital": "未確認",
+      "platformRisk": "UNKNOWN",
+      "technicalDifficulty": "UNKNOWN"
+     },
+     "oneLineReason": "",
+     "verdict": "MONITOR",
+     "verdictLabel": "要監視・データ精査中"
+    },
+    "pipelineStack": "技術構成未確認",
+    "pnl": {
+     "cogs": 0,
+     "dataSnapshotPeriod": "2026-10 観測",
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "revenueLabel": "売上非公開",
+     "sourceDoc": "R2観測レイク・公表シグナル"
+    },
+    "pricing": {
+     "model": "公開価格情報",
+     "pricePoint": "2024-01-10 founder: approximately $5/month; purchasing-power adjustment",
+     "psychologicalTrigger": "未確認"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "sources": [],
+     "unknown": [
+      "現在の運営状況は未確認"
+     ]
+    },
+    "reportedMetrics": [],
+    "scale": "UNKNOWN",
+    "sector": "NICHE_SAAS",
+    "sourceMetadata": {
+     "firstReviewSha256": "4826fd59ffa9185a07d4274d491137e4e40bd1424c5351c498a37a1d0e416d16",
+     "heldSourceFacts": [
+      {
+       "claimText": "2024年2月の利用者は月$5を払って試し、デザイン調整を気に入ったが、画像を削除できない点を理由に別サービスへ移ったと書いた。",
+       "correction": "公開候補と公開bibliographyから除外。元資料は保全。",
+       "disposition": "EXCLUDE",
+       "id": "f34",
+       "note": "programmatic取得禁止HOLD。内容が偽と判定したのではなく、今回の公開候補から除外する。",
+       "quote": null,
+       "reason": "programmatic取得禁止HOLD。内容が偽と判定したのではなく、今回の公開候補から除外する。",
+       "retrievalAt": null,
+       "sourceId": "s21",
+       "sourceURL": "https://discourse.32bit.cafe/t/my-personal-opinion-comparing-small-blog-services/306",
+       "verdict": null
+      },
+      {
+       "claimText": "この利用者は静的サイトでの作業を減らし、短い文章と写真をブラウザーから公開したくて、Pika、Bear、Scribblesを比較していた。",
+       "correction": "公開候補と公開bibliographyから除外。元資料は保全。",
+       "disposition": "EXCLUDE",
+       "id": "f35",
+       "note": "programmatic取得禁止HOLD。保存済み本文を利用・再取得していない。",
+       "quote": null,
+       "reason": "programmatic取得禁止HOLD。保存済み本文を利用・再取得していない。",
+       "retrievalAt": null,
+       "sourceId": "s21",
+       "sourceURL": "https://discourse.32bit.cafe/t/my-personal-opinion-comparing-small-blog-services/306",
+       "verdict": null
+      }
+     ],
+     "mode": "LOCAL_SOURCE_REVIEW_CANDIDATE",
+     "originalBaseSha256": "f2df99e07c294b435483910c4f579137f0537a8b8ce728cf60f593bc85ceae98",
+     "originalObservationRecords": [
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [],
+       "id": "observation-946abafb",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "retrieval_precision: 全取得の範囲は2026-10-04T04:48:00Zから保存時刻まで。各ページの正確なHTTP取得時刻はツールから得ていない。retrieved_atは記録終端として保持。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_ccd33241aacd2d1df7e4bec9"
+       ],
+       "id": "observation-d31f04dc",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "price_access: 公式案内からのupgradeリンクはHTTP403で停止。ログイン・他手段・別ツールで取得していない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_dcebdeeb11a67e47ce02a3a1"
+       ],
+       "id": "observation-7ee2fd11",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "money_definition: 2024年のmakingという金額表現は売上・利益・MRRのいずれとも確定しない。原文$をUSDへ決め打ちしない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_769499ec9708335915e23da6",
+        "ev_dca46a1b4cd170c71472ee23",
+        "ev_b7587c458896a4a31513dd94"
+       ],
+       "id": "observation-d1e5a683",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "media_rights: 公式docsの管理画面と解析画像URLを確認したが、商用記事への転載許可は得ていない。コードlicenseを画像へ転用しない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d",
+        "ev_264c72474bcb49b8e495042c"
+       ],
+       "id": "observation-60efaf4f",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "temporal_discovery: 2022年の手動審査による発見掲載と、取得時に読めた2025年付の有料掲載説明は時点を分ける。全期間で同じ無料掲載条件とはしない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d",
+        "ev_3cdc9976fc54903377917d89",
+        "ev_0a7f4a60cb2fa8faa514852f"
+       ],
+       "id": "observation-821070db",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "qualitative_take_home: 2022年の別サービス給与と2025年のBear生活費充当は時点・事業を区別。個人受取額や現在の無給を推計しない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_2676c96e2d9e8cd6dd49dd3d",
+        "ev_fda2ac3269c595978d9a3fc5"
+       ],
+       "id": "observation-a25bbd6a",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "historical_failure: 2024年の利用者が述べた画像削除問題は当時の体験。2026年のメディア改善ログを読んでもその個別問題の解消を断定しない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_02f7a2d69608fbeb66af9f38",
+        "ev_b7587c458896a4a31513dd94"
+       ],
+       "id": "observation-7e7af17d",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "source_available: ソフトは2025年にlicenseを変更。旧MITというだけで現在の商用サービス複製を勧めない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_49d94a6c43c2dd7ff482a01c"
+       ],
+       "id": "observation-4f5e1c0c",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "cross_project_finance: S11の開発者給与相当という表現は複数事業の文脈。Bearの売上・利益への帰属を除外し、記録は消さない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [],
+       "id": "observation-9e150a42",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "native_independent_scope: native investigatorがS06〜S11を独立に読み追加材料を報告。全レコード監査や公開承認ではない。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [],
+       "id": "observation-a66e8371",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "storage_boundary: ユーザー指定でcreate-only SSDローカル保存。既存台帳・335・323・コード・定期収集・GitHub・R2は操作しない。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [],
+       "id": "observation-a9087796",
+       "observedAt": "2026-10-04T05:10:42.997059Z",
+       "originType": "observed",
+       "text": "novelty_limit: 観測した335・3341・registry・claim・incoming・既調査6名の照合範囲で未収集。別環境の全履歴まで不存在とは断言しない。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "MARKET_DISTORTION",
+       "categoryLabel": "現場観測事実",
+       "evidenceIds": [
+        "ev_49d94a6c43c2dd7ff482a01c"
+       ],
+       "id": "observation-989aa6f1",
+       "observedAt": "2026-10-04T05:13:35.481562Z",
+       "originType": "observed",
+       "text": "BB39は複数事業の文脈を読んだ研究者の適用範囲判定。創業者がこの除外判断を述べた事実とは扱わず、claimから追加観測へ移した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_dcef3549e1f78da28da53d5b"
+       ],
+       "id": "cl_fb626981e0a5e0600b37f75c",
+       "originType": "reported",
+       "text": "Bear Blogは、広告や追跡を置かず、文章を軽いページで公開するブログサービスだ。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "cl_afa7c5a5f751e7a0dd14dddf",
+       "originType": "reported",
+       "text": "Hermanは自分の文章を書く場所を作り直すうちに、他の人も使えるブログサービスを週末で作った。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "cl_13e99f512265e9e5c4250a3e",
+       "originType": "reported",
+       "text": "当時はReact開発者として3年働いていたが、スマートフォンからも投稿できるようDjangoで作り、Herokuに置いた。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "cl_8bb4e11fd2f2a893fff76426",
+       "originType": "reported",
+       "text": "Hacker Newsに投稿すると20分でトップページに入り、約24時間そこに残ったという。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "cl_c464cad8fe66f84244e893c9",
+       "originType": "reported",
+       "text": "流入に合わせてSendGridの契約を上げ、修正を重ねた。DNSの誤削除後には130件のレコードを手で直した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d"
+       ],
+       "id": "cl_b9bb2a9bae94c874c2b0a5e3",
+       "originType": "reported",
+       "text": "創業者は、自分のブログを読んだ人が主な増加源だったと記した。独自ドメインと見た目の変更を加えると、登録が再び伸びたという。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d"
+       ],
+       "id": "cl_04691683148c50ced3605870",
+       "originType": "reported",
+       "text": "支援者を募るだけでは利用者の多くは払わなかった。そこで独自ドメインと試験中の機能を支援者向けにし、既存の独自ドメイン利用者は維持した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d"
+       ],
+       "id": "cl_69a394c7117f84d005a3f828",
+       "originType": "reported",
+       "text": "2022年の時点ではBearを断続的に改善し、給与は別会社JustSketchMeから得ていたと本人が書いた。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d"
+       ],
+       "id": "cl_8b52459b99382fb3d66a1bca",
+       "originType": "reported",
+       "text": "独自ドメインのDNS設定に関する問い合わせが増え、説明書を改善しても支援対応は続いたという。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_dcebdeeb11a67e47ce02a3a1"
+       ],
+       "id": "cl_0215bb27a6adb98b33679a4c",
+       "originType": "reported",
+       "text": "2024年1月、創業者は独自ドメインやメディア保存を含む有料機能を約$5/月と説明し、国の購買力により変えると書いた。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_dcebdeeb11a67e47ce02a3a1"
+       ],
+       "id": "cl_0d7bb17c924fb38e4ff98881",
+       "originType": "reported",
+       "text": "同じ2024年1月の投稿で、Bearは月$500を大きく超える金額を得ていると記した。売上か利益かを区分していない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_0a7f4a60cb2fa8faa514852f"
+       ],
+       "id": "cl_74578ea1c8585e53ba059561",
+       "originType": "reported",
+       "text": "2025年12月、創業者はBearが経費を賄い、自分の暮らしを支えるだけの報酬を生み、借入などのレバレッジを使わず成長していると書いた。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_99dadff4e39631fb33133f8d"
+       ],
+       "id": "cl_63106ca6ea0ad2247e9711c5",
+       "originType": "reported",
+       "text": "新規ブログの約20%がスパムだったという。自動検出の誤りを避け、審査前は検索や発見フィードへ出さない仕組みにした。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_99dadff4e39631fb33133f8d"
+       ],
+       "id": "cl_9b2816ac888bb3ad2314425d",
+       "originType": "reported",
+       "text": "連続して承認・拒否できる審査画面を2時間で作り、週約5時間だった審査を約15分に減らしたという。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_3cdc9976fc54903377917d89"
+       ],
+       "id": "cl_70fdfd7a1309a802f71034bb",
+       "originType": "reported",
+       "text": "2022年の設計説明ではPythonとDjango、Heroku、サーバー側描画、HTMLとCSSを選び、移転と長期保守のしやすさを重視した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_3cdc9976fc54903377917d89"
+       ],
+       "id": "cl_089721f68b71119972d32958",
+       "originType": "reported",
+       "text": "2022年10月にも、Bear自体が黒字で運営費を払えていると説明したが、利益額は示さなかった。給与元には別サービスを挙げた。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_ebbe8473af4e4f1e064fe933"
+       ],
+       "id": "cl_51e2ec98d3a1cab6087ebef7",
+       "originType": "reported",
+       "text": "記事の閲覧計測にはブラウザー側JavaScriptを使わずCSSを利用する。IPと日付のハッシュで重複を扱い、日末に消す設計を説明した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_ebbe8473af4e4f1e064fe933"
+       ],
+       "id": "cl_66f09f478204c90bac684f06",
+       "originType": "reported",
+       "text": "この閲覧計測では、同じIPの複数端末を一人として扱い、少なく数える場合があると創業者も説明した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_913040926368b23c25eb2950"
+       ],
+       "id": "cl_e0433f01f6018f39572c3192",
+       "originType": "reported",
+       "text": "2025年初の登録増加でタイムアウトが起き、インフラ調整と自動スケーリングを加えたという。登録数と流入元は示さなかった。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_919ac07f2efabaf610d00443"
+       ],
+       "id": "cl_c8ba3beea85a901966d99e9a",
+       "originType": "reported",
+       "text": "2025年10月25日、大量のbotアクセスで独自ドメイン用のプロキシが停止した。監視通知も届かなかったという。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_919ac07f2efabaf610d00443"
+       ],
+       "id": "cl_da5d45bdb3c9c4193c40252c",
+       "originType": "reported",
+       "text": "障害後は監視の二重化、プロキシでの制限、容量増強、自動再起動、状況を知らせるページを整えたと記した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_a0265e6d5b2d41da8017ed61"
+       ],
+       "id": "cl_9967f583968c15a8998715df",
+       "originType": "reported",
+       "text": "規約は利用者の文章の所有権を利用者に残し、スパムの遮断やホストを拒否する権限を運営側に置く。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_a9e7b329259891f0054e1e76"
+       ],
+       "id": "cl_a3b9240da23634823950405f",
+       "originType": "reported",
+       "text": "プライバシー方針は登録にメールを求め、アップグレード時の支払い情報を決済事業者が扱うと説明する。決済事業者名はこの頁にない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_dca46a1b4cd170c71472ee23"
+       ],
+       "id": "cl_9ec5a7f82a5ca44d4585882f",
+       "originType": "reported",
+       "text": "基本の解析は過去1週間の閲覧と訪問者を表示し、有料版ではページ、流入元、国、端末などを詳しく見られる。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_cd33e4d655aa7c9cfa04d685"
+       ],
+       "id": "cl_ef4be4c80e9a7b2af2bc3d45",
+       "originType": "reported",
+       "text": "メール購読リストは有料ブログ向けだ。記事公開時のメール自動送信は行わず、小規模向けのリスト管理として提供する。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_cd33e4d655aa7c9cfa04d685"
+       ],
+       "id": "cl_2df930e4aacb5713a0d4d0f7",
+       "originType": "reported",
+       "text": "購読者が150人を超える場合はEmailOctopusやButtondownなど外部配信サービスへ既存リストを移す方法を勧める。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_ae0667a82266a4893816bfcb"
+       ],
+       "id": "cl_690404be0d57a0eda3b0ba63",
+       "originType": "reported",
+       "text": "移転では記事を少しずつ移し、旧URLの別名やRSSの転送を設定してリンクと読者を維持する。大規模な移転には創業者が支援を案内する。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_6f4426c70ed4ccaf652224c4"
+       ],
+       "id": "cl_c00ded94d479373c533d6ed0",
+       "originType": "reported",
+       "text": "独自ドメインは設定、DNS登録、検証の3段階で接続する。DNSのサービスによりレコード方式を変える必要がある。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_264c72474bcb49b8e495042c"
+       ],
+       "id": "cl_c6b34a3e788651c7901e5841",
+       "originType": "reported",
+       "text": "2025年4月付の公式案内は、発見フィードの掲載をアップグレード済みブログに限る。150文字未満の投稿や短時間の連投なども抑える。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_fda2ac3269c595978d9a3fc5"
+       ],
+       "id": "cl_3508c4ff0c46774c083d4ed2",
+       "originType": "reported",
+       "text": "公式変更記録の2026年3月欄では、バックアップの出力をCSVからMarkdownファイルへ変更したと記す。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_fda2ac3269c595978d9a3fc5"
+       ],
+       "id": "cl_0f2ad9586883dc1d439712ae",
+       "originType": "reported",
+       "text": "2026年9月の変更記録には、メディア管理改善、bot対策の作業証明、テーマ追加、発見フィードの言語絞り込みを挙げる。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_02f7a2d69608fbeb66af9f38"
+       ],
+       "id": "cl_5a4faaabe31683bafa89ae49",
+       "originType": "reported",
+       "text": "2025年9月、競合サービスとしての複製を受け、MITからホスト型サービスの提供を制限するライセンスへ変更したと発表した。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_b7587c458896a4a31513dd94"
+       ],
+       "id": "cl_357e3980074d4efd5009e779",
+       "originType": "reported",
+       "text": "公開コードのBear Blog License 2.0は、ソフトの利用・変更・配布を認める一方、主要機能を他者へ提供するホスト型や管理サービスを禁じる。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_2676c96e2d9e8cd6dd49dd3d"
+       ],
+       "id": "cl_2e5e64b901942babbc78f8f7",
+       "originType": "reported",
+       "text": "2024年2月の利用者は月$5を払って試し、デザイン調整を気に入ったが、画像を削除できない点を理由に別サービスへ移ったと書いた。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_2676c96e2d9e8cd6dd49dd3d"
+       ],
+       "id": "cl_b51825e89374a2fb98c214b0",
+       "originType": "reported",
+       "text": "この利用者は静的サイトでの作業を減らし、短い文章と写真をブラウザーから公開したくて、Pika、Bear、Scribblesを比較していた。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_769499ec9708335915e23da6"
+       ],
+       "id": "cl_4f1ff78e7ed7cb9dedcf6ce2",
+       "originType": "reported",
+       "text": "公式の機能説明は管理画面のCSS変更、記事一覧の埋め込み、数式表示などを案内し、管理画面の例画像も載せる。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d"
+       ],
+       "id": "cl_f9599b05eceba2f692a98ca6",
+       "originType": "reported",
+       "text": "2022年の記事では約5,500のブログが稼働すると書いた。ブログ数は有料利用者数ではない。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "FOUNDER_HACK",
+       "categoryLabel": "公表ファクト・財務・戦略データ",
+       "evidenceIds": [
+        "ev_dcef3549e1f78da28da53d5b"
+       ],
+       "id": "cl_8ba0b42975b1377221fd5170",
+       "originType": "reported",
+       "text": "公式トップは独自ドメイン、テーマ、RSSとAtom、追跡・広告・スクリプトを置かない公開ページを特徴として挙げる。",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "mt_3b63e11e3c0983a40db3f8eb_metric",
+       "originType": "reported",
+       "text": "UNIQUE VISITORS: 50,000 unique visitors",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "mt_653c2c6bf9b8c62167ab031c_metric",
+       "originType": "reported",
+       "text": "SIGNUPS: 1,200 signups",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "mt_18b19ede630c421d6f1cc98b_metric",
+       "originType": "reported",
+       "text": "HOSTING PRICE: 7 / 月（通貨未確認）",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1"
+       ],
+       "id": "mt_576d293938d1238fcdbc75a2_metric",
+       "originType": "reported",
+       "text": "DNS RECORD REPAIR: 130 DNS records",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_faec610ebe2e0bcb0109767d"
+       ],
+       "id": "mt_77026566148b041dcd91bf08_metric",
+       "originType": "reported",
+       "text": "BLOG COUNT: 5,500 blogs",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_dcebdeeb11a67e47ce02a3a1"
+       ],
+       "id": "mt_acd2fbc72486ba6e4e1382d7_metric",
+       "originType": "reported",
+       "text": "SUBSCRIPTION PRICE APPROX: 5 / 月（通貨未確認）",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_dcebdeeb11a67e47ce02a3a1"
+       ],
+       "id": "mt_6644818ef4247e0184f55c83_metric",
+       "originType": "reported",
+       "text": "UNCLASSIFIED MONTHLY MONEY: well over $500/mo",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_99dadff4e39631fb33133f8d"
+       ],
+       "id": "mt_42f78d5e6652a6e77688d27a_metric",
+       "originType": "reported",
+       "text": "SPAM SHARE APPROX: 20%",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_99dadff4e39631fb33133f8d"
+       ],
+       "id": "mt_cc0cb4fe72acf7ea3fd537e3_metric",
+       "originType": "reported",
+       "text": "REVIEW TIME BEFORE APPROX: 5時間",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_99dadff4e39631fb33133f8d"
+       ],
+       "id": "mt_d9d4ec3054f5e4426402c0b1_metric",
+       "originType": "reported",
+       "text": "REVIEW TIME AFTER APPROX: 15 minutes per week",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_99dadff4e39631fb33133f8d"
+       ],
+       "id": "mt_c66e30b0b1843573959c27fc_metric",
+       "originType": "reported",
+       "text": "REVIEW ツール DEVELOPMENT TIME: 2時間",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_cd33e4d655aa7c9cfa04d685"
+       ],
+       "id": "mt_dee65655a082817f4688fe12_metric",
+       "originType": "reported",
+       "text": "EMAIL EXTERNAL サービス GUIDANCE: 150 subscribers",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_264c72474bcb49b8e495042c"
+       ],
+       "id": "mt_8bfb8948d442b3c46a1fcea4_metric",
+       "originType": "reported",
+       "text": "DISCOVER MIN POST LENGTH: 150 characters",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_2676c96e2d9e8cd6dd49dd3d"
+       ],
+       "id": "mt_a48b7ccc56b03494446d9144_metric",
+       "originType": "reported",
+       "text": "CUSTOMER PAID MONTHLY PRICE: 5 / 月（通貨未確認）",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "TECH_VERIFICATION",
+       "categoryLabel": "財務・価格記録",
+       "evidenceIds": [
+        "ev_dcebdeeb11a67e47ce02a3a1"
+       ],
+       "id": "ms_aa660601300dd74c83b72996_money",
+       "originType": "reported",
+       "text": "Subscription Price Statement: 2024-01-10 founder: approximately $5/month; purchasing-power adjustment",
+       "verificationStatus": "SUPPORTED"
+      },
+      {
+       "category": "INCUMBENT_DILEMMA",
+       "categoryLabel": "構造解剖インサイト",
+       "evidenceIds": [
+        "ev_dcef3549e1f78da28da53d5b",
+        "ev_faec610ebe2e0bcb0109767d",
+        "ev_dcebdeeb11a67e47ce02a3a1",
+        "ev_dca46a1b4cd170c71472ee23",
+        "ev_264c72474bcb49b8e495042c"
+       ],
+       "id": "drv_422f61dd7e6a8c7e86ef6fd0",
+       "originType": "inferred",
+       "text": "文章を無料で公開する入口と、独自ドメイン・保存・解析などの有料機能を分ける形だ。発見フィードの掲載も、取得時の2025年付案内では有料側に置かれる。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "INCUMBENT_DILEMMA",
+       "categoryLabel": "構造解剖インサイト",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1",
+        "ev_faec610ebe2e0bcb0109767d",
+        "ev_dcef3549e1f78da28da53d5b"
+       ],
+       "id": "drv_50c1ddd88b79195811b7ffc7",
+       "originType": "inferred",
+       "text": "掲載者の文章がサービスの見本になることと、創業者自身の記事が読まれることが、外へ知らせる入口になる。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "INCUMBENT_DILEMMA",
+       "categoryLabel": "構造解剖インサイト",
+       "evidenceIds": [
+        "ev_99dadff4e39631fb33133f8d"
+       ],
+       "id": "drv_47d0ad97f4433cd0004f00b2",
+       "originType": "inferred",
+       "text": "運営工数を減らすには全自動化だけが答えではない。誤検知の多い仕事を人へ戻し、人が短時間で判断できる画面を作る手もある。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "INCUMBENT_DILEMMA",
+       "categoryLabel": "構造解剖インサイト",
+       "evidenceIds": [
+        "ev_ae0667a82266a4893816bfcb",
+        "ev_6f4426c70ed4ccaf652224c4",
+        "ev_fda2ac3269c595978d9a3fc5"
+       ],
+       "id": "drv_a4d160facdb615a66aa166a1",
+       "originType": "inferred",
+       "text": "移転を支援しバックアップを出せるサービスでも、DNSと過去リンクの設定には作業が残る。乗り換えが技術的に不可能とはいえない。",
+       "verificationStatus": "UNVERIFIED"
+      },
+      {
+       "category": "INCUMBENT_DILEMMA",
+       "categoryLabel": "構造解剖インサイト",
+       "evidenceIds": [
+        "ev_4d5049902ba1dd3ce1a673c1",
+        "ev_faec610ebe2e0bcb0109767d",
+        "ev_919ac07f2efabaf610d00443"
+       ],
+       "id": "drv_97c77bd401005b94de0a7716",
+       "originType": "inferred",
+       "text": "小さい構成でも外部ホスト、メール、DNS、bot対策、創業者の保守に依存する。サーバーの過去月額だけで現在の利益率を計算できない。",
+       "verificationStatus": "UNVERIFIED"
+      }
+     ],
+     "secondReviewSha256": "0151e464647159f95078b6252efa80d77694fcac6f43c89b611fd5a774238bf3",
+     "unreviewedDerivedDisposition": "PRIVATE_RETAINED_NOT_PUBLIC_FACT"
+    },
+    "strategy": {
+     "actionPlaybook": [
+      "公開記録の範囲では実行手順未確認"
+     ],
+     "blindspot": "市場の盲点は未確認",
+     "initialTraction": [
+      "2020年5月の公開記録が、週末制作とHacker News経由の初期流入を述べる。"
+     ],
+     "moatDescription": "参入障壁は未確認",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "Bear Blogは、広告や追跡を置かず、文章を軽いページで公開するブログサービスだ。",
+    "tags": [
+     "SaaS・ツール",
+     "収集事例"
+    ],
+    "targetPainWallet": "対象の痛みは未確認",
+    "temporal": {
+     "currentViabilityAnalysis": "現在の再現性を裏付ける比較資料は未確認",
+     "dataSnapshotPeriod": "2026-10 観測",
+     "eraContext": "時代背景は未確認",
+     "foundedYear": 0,
+     "initialTractionPeriod": "初動時期未確認",
+     "viabilityLabel": "現在の再現性は未確認",
+     "viabilityStatus": "UNKNOWN"
+    },
+    "ticker": "BEARBLOGDE",
+    "timelineEvents": [
+     {
+      "description": "2020年5月の公開記録が、週末制作とHacker News経由の初期流入を述べる。",
+      "eventType": "launch",
+      "occurredAt": "時期未確認"
+     },
+     {
+      "description": "2022年の記録が、スポンサー特典への独自ドメイン移行を述べる。",
+      "eventType": "monetization_change",
+      "occurredAt": "時期未確認"
+     },
+     {
+      "description": "2025年初の登録増加に対する調整を報告。",
+      "eventType": "scaling",
+      "occurredAt": "時期未確認"
+     },
+     {
+      "description": "2025-10-25のbot流入と独自ドメインの停止を報告。",
+      "eventType": "outage",
+      "occurredAt": "時期未確認"
+     },
+     {
+      "description": "2025-09-01にホスト型複製を制限するライセンス変更を発表。",
+      "eventType": "license_change",
+      "occurredAt": "時期未確認"
+     },
+     {
+      "description": "2026年9月の変更記録にメディア改善とbot対策。",
+      "eventType": "feature_update",
+      "occurredAt": "時期未確認"
+     }
+    ],
+    "url": "https://bearblog.dev",
+    "verifiedBadge": false
+   }
+  },
+  {
+   "id": "ent_organization_bf2dc76c06d87d6f7662",
+   "provenance": {
+    "detailsHash": "5d43959b92a22ba9ecd9fe784919cf3a9df1db389f4f09475ad7a17b43294b26",
+    "artifactSha256": "782e12a4b62d4a4006a3e54fed16d9d1ecee14f3c7ffc0ca77db4fb897896a24"
+   },
+   "record": {
+    "architecturePattern": "事業型未確認",
+    "claimBindings": [],
+    "country": "未確認",
+    "dynamicMoats": {},
+    "essence": {
+     "painRelief": "解消する痛みは未確認",
+     "targetCustomer": "対象顧客は未確認",
+     "whatItDoes": "開業時は約1年分の貯金を用意していた。"
+    },
+    "evidenceCards": [
+     {
+      "badge": "事業型未確認",
+      "details": [
+       "Saved original manually selected public reading. This revision performs no source retrieval. retrieved_at is the original recorded reading-window endpoint, not an exact HTTP response timestamp. Original body/hash absent. Publisher statement or founder self-report is not independent business verification. Own factual paraphrase candidate only; public reuse awaits owner source/evidence/rightsgate; no text/image licence implied.",
+       "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+       "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance."
+      ],
+      "evidenceLocator": {
+       "end": 66,
+       "start": 0,
+       "type": "text"
+      },
+      "evidenceStatus": "UNKNOWN",
+      "id": "ev_ent_organization_bf2dc76c06d87d6f7662_crime",
+      "punchline": "開業時は約1年分の貯金を用意していた。",
+      "sourceClass": "PRIMARY",
+      "sourceNote": "domain:balsamiq.com",
+      "title": "客観的事実ログ・集金構造",
+      "type": "THE_CRIME"
+     },
+     {
+      "badge": "ゲリラ集客",
+      "details": [
+       "初動突破は未確認"
+      ],
+      "evidenceStatus": "UNKNOWN",
+      "id": "ev_ent_organization_bf2dc76c06d87d6f7662_genesis",
+      "punchline": "初動突破は未確認",
+      "sourceNote": "公開インタビュー・観測ログ",
+      "title": "最初の顧客獲得・初動突破ログ",
+      "type": "DIRTY_GENESIS"
+     },
+     {
+      "badge": "事業型未確認",
+      "details": [
+       "① 業態・顧客課題: 業態未確認。 市場の盲点は未確認",
+       "② 価格・課金・販売方式: 価格体系は非公開または要問合せ。定額課金・都度販売・卸・店舗販売などはEvidenceがある場合だけ採用。",
+       "③ 集客・運営・継続条件: 初動突破は未確認。ソフトウェア型のロックインやデータ蓄積を推測で補完しない。"
+      ],
+      "evidenceStatus": "ESTIMATED",
+      "id": "ev_ent_organization_bf2dc76c06d87d6f7662_blueprint",
+      "punchline": "『Balsamiq』の再現条件は、公開Evidenceで確認できた範囲だけで評価",
+      "sourceNote": "Make-Money アナリスト転用設計（未確認事項は仮定しない）",
+      "title": "再現条件の確認ポイント",
+      "type": "LOOT_BLUEPRINT"
+     }
+    ],
+    "exposureAudit": {
+     "guerrillaTraction": "初期顧客獲得は未確認",
+     "hiddenStackCost": "原価内訳は未確認",
+     "pivotSnapshot": "ピボット履歴は未確認",
+     "platformGlitch": "プラットフォーム施策は未確認"
+    },
+    "founder": "創業者情報未確認",
+    "growthRateYoY": 0,
+    "id": "ent_organization_bf2dc76c06d87d6f7662",
+    "isGrowthUnconfirmed": true,
+    "legalEntity": "domain:balsamiq.com",
+    "name": "Balsamiq",
+    "observationsStream": [
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-269b271b",
+      "observationType": "newcase.source-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Saved original manually selected public reading. This revision performs no source retrieval. retrieved_at is the original recorded reading-window endpoint, not an exact HTTP response timestamp. Original body/hash absent. Publisher statement or founder self-report is not independent business verification. Own factual paraphrase candidate only; public reuse awaits owner source/evidence/rightsgate; no text/image licence implied.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-783d5a39",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-7ef2d69c",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-c7cefa6a",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-06c05041",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-93f4cac6",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-6b6fd4f6",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-bdcad2f2",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-eb59790e",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-00374ed4",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-ed63c0f3",
+      "observationType": "newcase.claim-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original claim record with attribution, scope, date precision and adoptionreason preserved; SUPPORTED describes source statement support, not audited company performance.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-82921055",
+      "observationType": "newcase.metric-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original numeric details retain exact/lower-bound/approximate operator, unit, currency, variant and business period. No conversion to company revenue/profit/takehome.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-4b416b43",
+      "observationType": "newcase.metric-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original numeric details retain exact/lower-bound/approximate operator, unit, currency, variant and business period. No conversion to company revenue/profit/takehome.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-46a7557e",
+      "observationType": "newcase.metric-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original numeric details retain exact/lower-bound/approximate operator, unit, currency, variant and business period. No conversion to company revenue/profit/takehome.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-6ce8fac3",
+      "observationType": "newcase.metric-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original numeric details retain exact/lower-bound/approximate operator, unit, currency, variant and business period. No conversion to company revenue/profit/takehome.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "observation-77ca60b1",
+      "observationType": "newcase.metric-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original numeric details retain exact/lower-bound/approximate operator, unit, currency, variant and business period. No conversion to company revenue/profit/takehome.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-cde81f4d",
+      "observationType": "newcase.held_observations-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Management-only original observation/HOLD/gap retained; not promoted to supported claims or current metrics.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-234b51e7",
+      "observationType": "newcase.held_observations-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Management-only original observation/HOLD/gap retained; not promoted to supported claims or current metrics.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-1d4d8749",
+      "observationType": "newcase.held_observations-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Management-only original observation/HOLD/gap retained; not promoted to supported claims or current metrics.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-dd9ff5dd",
+      "observationType": "newcase.pending_gaps-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Management-only original observation/HOLD/gap retained; not promoted to supported claims or current metrics.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-032b41ad",
+      "observationType": "newcase.pending_gaps-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Management-only original observation/HOLD/gap retained; not promoted to supported claims or current metrics.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-c0e5e4ba",
+      "observationType": "newcase.pending_gaps-original.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Management-only original observation/HOLD/gap retained; not promoted to supported claims or current metrics.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-49eae8f6",
+      "observationType": "newcase.original-material-link.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Original collected source material to new canonical candidate identity mapping.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-d4df546d",
+      "observationType": "newcase.identity-absence.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Supplied336catalog and3341index/registry absence verified; localcreate candidates authorized after lookup. Other environments and remote authority are outside this check.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "現場観測事実",
+      "evidenceIds": [],
+      "id": "observation-6e3f2305",
+      "observationType": "newcase.canonical-domain-basis.v1",
+      "observedAt": "2026-10-04T09:46:19.877267Z",
+      "originType": "observed",
+      "text": "Canonical business domain association, not independent legal entity verification; no restricted official site reread.",
+      "verificationStatus": "UNVERIFIED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_d3e591907001ce89331bf9d1",
+      "originType": "reported",
+      "text": "開業時は約1年分の貯金を用意していた。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_251d47c66368fe7e19f8b430",
+      "originType": "reported",
+      "text": "1月、顧客対応に注力するため、開発を手伝う人の採用が必要だと考えた。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_345ab951771f09dac6f54c1a",
+      "originType": "reported",
+      "text": "給与支払いへの不安から投資を検討したが、Dharmesh Shahへの相談後に見送った。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_a742c6f3e6abcc27cdef003e",
+      "originType": "reported",
+      "text": "2009年5月には、銀行残高で給与5年以上、毎月の売上で給与約6か月分を賄えると話した。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_e347c600a8b00fc254091c41",
+      "originType": "reported",
+      "text": "独立後、元同僚らに月1回のSkype相談を頼み、助言を受けていた。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_96f257b41fead0e912bf6dbc",
+      "originType": "reported",
+      "text": "売上公開の目的は、個人会社でもサポートを続けられると見込み客に伝えることだった。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_ba7f8641625f3a5f2a66258e",
+      "originType": "reported",
+      "text": "11月のReadWriteWebレビューはNew York Timesにも配信され、Net@Nightの取材も受けた。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_c8b8ff83973ed7fa098fc10c",
+      "originType": "reported",
+      "text": "事前計画は2年で150顧客だったが、11か月未満で5,000顧客を超えた。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_6ae62845cae534da0c301fcc",
+      "originType": "reported",
+      "text": "販売予定のなかったDesktop版が、2009年5月時点で収益の77%を占めた。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "cl_b80c9133cb5c324834a9b09f",
+      "originType": "reported",
+      "text": "利用者はTwitterやブログで応援し、GetSatisfactionで新機能の設計に参加していた。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "財務・価格記録",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "mt_d29ba0474d8cf2a595d2dcf0_metric",
+      "originType": "reported",
+      "text": "YEARS OF COMPANY PAYROLL COVERAGE: >=5",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "財務・価格記録",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "mt_e44c4f5470bc01a595efd54a_metric",
+      "originType": "reported",
+      "text": "MONTHS OF COMPANY PAYROLL COVERAGE: ~6",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "財務・価格記録",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "mt_feb8a5a8576cd5bc6aee0efb_metric",
+      "originType": "reported",
+      "text": "FORECAST CUSTOMERS: 150 forecast_customers",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "財務・価格記録",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "mt_0783d34d1ecd07392d104bcb_metric",
+      "originType": "reported",
+      "text": "REPORTED CUSTOMERS: >5000",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "財務・価格記録",
+      "evidenceIds": [
+       "ev_1ae571fa490b774b52f96496"
+      ],
+      "id": "mt_62662a9934ecb357809f5c78_metric",
+      "originType": "reported",
+      "text": "PERCENT OF REPORTED REVENUE: 77%",
+      "verificationStatus": "SUPPORTED"
+     }
+    ],
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "opportunityJudgment": {
+     "competitionDelta": "未確認",
+     "demandDelta": "未確認",
+     "entryRequirements": {
+      "capital": "未確認",
+      "platformRisk": "UNKNOWN",
+      "technicalDifficulty": "UNKNOWN"
+     },
+     "oneLineReason": "",
+     "verdict": "MONITOR",
+     "verdictLabel": "要監視・データ精査中"
+    },
+    "pipelineStack": "技術構成未確認",
+    "pnl": {
+     "cogs": 0,
+     "dataSnapshotPeriod": "2026-10 観測",
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "revenueLabel": "売上非公開",
+     "sourceDoc": "PERCENT_OF_REPORTED_REVENUE: 77 percent_of_reported_revenue（通貨未確認）"
+    },
+    "pricing": {
+     "model": "価格モデル未確認",
+     "pricePoint": "価格体系は非公開または要問合せ",
+     "psychologicalTrigger": "未確認"
+    },
+    "publishability": "PARTIAL",
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [
+      "公開記録の範囲では実行手順未確認"
+     ],
+     "blindspot": "市場の盲点は未確認",
+     "initialTraction": [
+      "初動突破は未確認"
+     ],
+     "moatDescription": "参入障壁は未確認",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "開業時は約1年分の貯金を用意していた。",
+    "tags": [
+     "業種未確認",
+     "収集事例"
+    ],
+    "targetPainWallet": "対象の痛みは未確認",
+    "temporal": {
+     "currentViabilityAnalysis": "現在の再現性を裏付ける比較資料は未確認",
+     "dataSnapshotPeriod": "2026-10 観測",
+     "eraContext": "時代背景は未確認",
+     "foundedYear": 0,
+     "initialTractionPeriod": "初動時期未確認",
+     "viabilityLabel": "現在の再現性は未確認",
+     "viabilityStatus": "UNKNOWN"
+    },
+    "ticker": "BALSAMIQCO",
+    "timelineEvents": [],
+    "url": "https://balsamiq.com",
+    "verifiedBadge": false
+   }
+  },
+  {
+   "id": "ent_organization_2a61439a7f16ca0081d5",
+   "provenance": {
+    "detailsHash": "a99abed0860c1ceb007962770cd51f3b6c60cccbb38815bbf485c7714d85600d",
+    "artifactSha256": "cf4c8ff9a52f9e092406a2e1aa66d815ad3d9f9234e40bff39ad4d6fc763241b"
+   },
+   "record": {
+    "architecturePattern": "地域サービス",
+    "claimBindings": [],
+    "country": "未確認",
+    "dynamicMoats": {},
+    "essence": {
+     "painRelief": "解消する痛みは未確認",
+     "targetCustomer": "対象顧客は未確認",
+     "whatItDoes": "個人の静的HTMLサイトを作る人向けのホスティングサービス。無料で始められ、Supporter会員と寄付が運営を支える。"
+    },
+    "evidenceCards": [
+     {
+      "badge": "地域サービス",
+      "details": [
+       "Neocitiesは、個人の静的HTMLサイトを作る人向けのホスティングサービス。無料で始められ、Supporter会員と寄付が運営を支える。",
+       "会員サイトへの広告掲載や個人データの販売をせず、コミュニティから直接資金を集めると説明する。",
+       "無料枠のストレージは1 GB、Supporter枠は50 GB。月あたりの転送量の目安はそれぞれ200 GBと3000 GBで、一時的な増加を許容する柔軟な上限と案内している。"
+      ],
+      "evidenceLocator": {
+       "end": 14,
+       "start": 0,
+       "type": "text"
+      },
+      "evidenceStatus": "UNKNOWN",
+      "id": "ev_ent_organization_2a61439a7f16ca0081d5_crime",
+      "punchline": "Neocitiesは、個人の静的HTMLサイトを作る人向けのホスティングサービス。無料で始められ、Supporter会員と寄付が運営を支える。",
+      "sourceClass": "PRIMARY",
+      "sourceNote": "https://neocities.org",
+      "title": "客観的事実ログ・集金構造",
+      "type": "THE_CRIME"
+     },
+     {
+      "badge": "ゲリラ集客",
+      "details": [
+       "初動突破は未確認"
+      ],
+      "evidenceStatus": "UNKNOWN",
+      "id": "ev_ent_organization_2a61439a7f16ca0081d5_genesis",
+      "punchline": "初動突破は未確認",
+      "sourceNote": "公開インタビュー・観測ログ",
+      "title": "最初の顧客獲得・初動突破ログ",
+      "type": "DIRTY_GENESIS"
+     },
+     {
+      "badge": "地域サービス",
+      "details": [
+       "① 業態・顧客課題: 業態未確認。 市場の盲点は未確認",
+       "② 価格・課金・販売方式: 価格体系は非公開または要問合せ。定額課金・都度販売・卸・店舗販売などはEvidenceがある場合だけ採用。",
+       "③ 集客・運営・継続条件: 初動突破は未確認。ソフトウェア型のロックインやデータ蓄積を推測で補完しない。"
+      ],
+      "evidenceStatus": "ESTIMATED",
+      "id": "ev_ent_organization_2a61439a7f16ca0081d5_blueprint",
+      "punchline": "再現条件は未確認",
+      "sourceNote": "Make-Money アナリスト転用設計（未確認事項は仮定しない）",
+      "title": "再現条件の確認ポイント",
+      "type": "LOOT_BLUEPRINT"
+     }
+    ],
+    "exposureAudit": {
+     "guerrillaTraction": "初期顧客獲得は未確認",
+     "hiddenStackCost": "原価内訳は未確認",
+     "pivotSnapshot": "ピボット履歴は未確認",
+     "platformGlitch": "プラットフォーム施策は未確認"
+    },
+    "founder": "創業者情報未確認",
+    "growthRateYoY": 0,
+    "id": "ent_organization_2a61439a7f16ca0081d5",
+    "isGrowthUnconfirmed": true,
+    "legalEntity": "https://neocities.org",
+    "name": "Neocities",
+    "observationsStream": [
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_21cc751871a188c0fce495c7"
+      ],
+      "id": "cl_d196b0546ccc1fe07941b315",
+      "originType": "reported",
+      "text": "Neocitiesは、個人の静的HTMLサイトを作る人向けのホスティングサービス。無料で始められ、Supporter会員と寄付が運営を支える。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_7d33da600dbc5e4611c7cf10"
+      ],
+      "id": "cl_f70c718aded655b3a65a9d04",
+      "originType": "reported",
+      "text": "会員サイトへの広告掲載や個人データの販売をせず、コミュニティから直接資金を集めると説明する。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_7d33da600dbc5e4611c7cf10"
+      ],
+      "id": "cl_2691006bd526a59c37b78f21",
+      "originType": "reported",
+      "text": "無料枠のストレージは1 GB、Supporter枠は50 GB。月あたりの転送量の目安はそれぞれ200 GBと3000 GBで、一時的な増加を許容する柔軟な上限と案内している。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_7d33da600dbc5e4611c7cf10"
+      ],
+      "id": "cl_42ff1598286ee9fb736d832c",
+      "originType": "reported",
+      "text": "無料プランへいつでも戻せ、使わなかった分の料金を返金すると案内する。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_7d33da600dbc5e4611c7cf10"
+      ],
+      "id": "cl_ea9d0908d2c99e76efbd4634",
+      "originType": "reported",
+      "text": "決済にはStripeとPayPalを使い、クレジットカード情報を直接保存しないと説明する。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_7d33da600dbc5e4611c7cf10"
+      ],
+      "id": "cl_5e24ffbd8594dd0f364eaec2",
+      "originType": "reported",
+      "text": "サービスを改善して機能を加えるために、Supporter会員からの資金を使うと説明する。",
+      "verificationStatus": "SUPPORTED"
+     },
+     {
+      "category": "FOUNDER_HACK",
+      "categoryLabel": "公表ファクト・財務・戦略データ",
+      "evidenceIds": [
+       "ev_7d33da600dbc5e4611c7cf10"
+      ],
+      "id": "cl_b80028b57df8b8c29a6b5e1c",
+      "originType": "reported",
+      "text": "Supporterプランは月額$5と掲示する。",
+      "verificationStatus": "SUPPORTED"
+     }
+    ],
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "opportunityJudgment": {
+     "competitionDelta": "未確認",
+     "demandDelta": "未確認",
+     "entryRequirements": {
+      "capital": "未確認",
+      "platformRisk": "UNKNOWN",
+      "technicalDifficulty": "UNKNOWN"
+     },
+     "oneLineReason": "",
+     "verdict": "MONITOR",
+     "verdictLabel": "要監視・データ精査中"
+    },
+    "pipelineStack": "技術構成未確認",
+    "pnl": {
+     "cogs": 0,
+     "dataSnapshotPeriod": "2026-10 観測",
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "revenueLabel": "売上非公開",
+     "sourceDoc": "R2観測レイク・公表シグナル"
+    },
+    "pricing": {
+     "model": "価格モデル未確認",
+     "pricePoint": "価格体系は非公開または要問合せ",
+     "psychologicalTrigger": "未確認"
+    },
+    "publishability": "PARTIAL",
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [
+      "公開記録の範囲では実行手順未確認"
+     ],
+     "blindspot": "市場の盲点は未確認",
+     "initialTraction": [
+      "初動突破は未確認"
+     ],
+     "moatDescription": "参入障壁は未確認",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "Neocitiesは、個人の静的HTMLサイトを作る人向けのホスティングサービス。無料で始められ、Supporter会員と寄付が運営を支える。",
+    "tags": [
+     "業種未確認",
+     "収集事例"
+    ],
+    "targetPainWallet": "対象の痛みは未確認",
+    "temporal": {
+     "currentViabilityAnalysis": "現在の再現性を裏付ける比較資料は未確認",
+     "dataSnapshotPeriod": "2026-10 観測",
+     "eraContext": "時代背景は未確認",
+     "foundedYear": 0,
+     "initialTractionPeriod": "初動時期未確認",
+     "viabilityLabel": "現在の再現性は未確認",
+     "viabilityStatus": "UNKNOWN"
+    },
+    "ticker": "NEOCITIESO",
+    "timelineEvents": [],
+    "url": "https://neocities.org",
+    "verifiedBadge": false
+   }
+  },
+  {
+   "id": "ent_hazeovercom_b6a66ead377a",
+   "provenance": {
+    "detailsHash": "0c7eecbbfb099b648a3fe12d30ab7f245b7011bacaaebca6789de3f4cc74ab01",
+    "artifactSha256": "7f8f98801e72bcc48f736add4da338ea2a10827b376bb95443b8f0d1bb09cb51"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_hazeovercom_b6a66ead377a",
+    "isGrowthUnconfirmed": true,
+    "name": "HazeOver",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://hazeover.com/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "開いている窓はそのまま、背景だけを暗くする。Macの視線整理をライセンスで売る。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://hazeover.com/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_hazeovercom_b6a66ead377a_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: HazeOver（HazeOver: Distraction Dimmer™ for Productivity on Mac）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://hazeover.com/",
+       "ホスト: hazeover.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://hazeover.com/",
+      "sourceNote": "official source listed in case-rebuild pack https://hazeover.com/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hazeovercom_b6a66ead377a_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: HazeOver（HazeOver for Mac - Buy a License）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://hazeover.com/buynow.html",
+       "ホスト: hazeover.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://hazeover.com/buynow.html",
+      "sourceNote": "official source listed in case-rebuild pack https://hazeover.com/buynow.html",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_lowtechguyscom_42a06677420f",
+   "provenance": {
+    "detailsHash": "290365cb742599697423683d08aa3ddcc980f73e4e2f94acbf35e3fa3cf6a7ee",
+    "artifactSha256": "b53443971b11d0b0e6681c2fcfe472465d01bae0639cf2fa9988124aa76c4632"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_lowtechguyscom_42a06677420f",
+    "isGrowthUnconfirmed": true,
+    "name": "Clop",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://lowtechguys.com/clop/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "画像をコピーするたびに軽くする。動画とPDFの圧縮も、無料版と買い切りProで提供する。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://lowtechguys.com/clop/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_lowtechguyscom_42a06677420f_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clop（Clop - Image, video, PDF and clipboard optimiser）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://lowtechguys.com/clop/",
+       "ホスト: lowtechguys.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://lowtechguys.com/clop/",
+      "sourceNote": "official source listed in case-rebuild pack https://lowtechguys.com/clop/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lowtechguyscom_42a06677420f_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clop（Clop - Press Kit）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://lowtechguys.com/clop/presskit",
+       "ホスト: lowtechguys.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://lowtechguys.com/clop/presskit",
+      "sourceNote": "official source listed in case-rebuild pack https://lowtechguys.com/clop/presskit",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lowtechguyscom_42a06677420f_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clop（Clop - Privacy Policy）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://lowtechguys.com/clop/privacy",
+       "ホスト: lowtechguys.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://lowtechguys.com/clop/privacy",
+      "sourceNote": "official source listed in case-rebuild pack https://lowtechguys.com/clop/privacy",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_reederapp_b90e84b5768e",
+   "provenance": {
+    "detailsHash": "e18605a29cfe7ea30f0d79191ac842d4eb9896e945aaa129229d9f141531c8f7",
+    "artifactSha256": "6935fdac5c36eaecb6b3a9bc7dde5d52d5c76a561a3d42796ab118426f937958"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_reederapp_b90e84b5768e",
+    "isGrowthUnconfirmed": true,
+    "name": "Reeder",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://reeder.app/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "新しいReederは読んだ位置を同期し、継続更新を購読で支える。従来版の買い切りは残す。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://reeder.app/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_reederapp_b90e84b5768e_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reeder（Reeder）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://reeder.app/",
+       "ホスト: reeder.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://reeder.app/",
+      "sourceNote": "official source listed in case-rebuild pack https://reeder.app/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_reederapp_b90e84b5768e_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reeder（Reeder Help）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://reeder.app/help/",
+       "ホスト: reeder.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://reeder.app/help/",
+      "sourceNote": "official source listed in case-rebuild pack https://reeder.app/help/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+   "provenance": {
+    "detailsHash": "95afa165a3f9e3e8c592db658cb972f432f6a03ced2721edcbbea7d7722c95a6",
+    "artifactSha256": "9622c9835f148978225c48d03e4b2c139f000174feef7f643fdecb03a8e372d2"
+   },
+   "record": {
+    "aliases": [
+     "Butterick’s Practical Typography"
+    ],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "isGrowthUnconfirmed": true,
+    "name": "Practical Typography",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://practicaltypography.com/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "本は先払いなしで読ませ、直接支払と自作フォントの購入につなぐ。読書の対価だけに収入源を絞らない。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://practicaltypography.com/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_practicaltypographycom_e9aa6bc94ccf_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Matthew Butterick（How to pay for this book | Butterick’s Practical Typography）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://practicaltypography.com/how-to-pay-for-this-book.html",
+       "ホスト: practicaltypography.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "sourceNote": "official source listed in case-rebuild pack https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_practicaltypographycom_e9aa6bc94ccf_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Matthew Butterick（The economics of a web-based book: year one | Butterick’s Practical Typography）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://practicaltypography.com/economics-year-one.html",
+       "ホスト: practicaltypography.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://practicaltypography.com/economics-year-one.html",
+      "sourceNote": "secondary source listed in case-rebuild pack https://practicaltypography.com/economics-year-one.html",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_practicaltypographycom_e9aa6bc94ccf_pack_source_s4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Matthew Butterick（Legal | Butterick’s Practical Typography）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://practicaltypography.com/legal.html",
+       "ホスト: practicaltypography.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://practicaltypography.com/legal.html",
+      "sourceNote": "official source listed in case-rebuild pack https://practicaltypography.com/legal.html",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_blipnet_1b6f322eb7d6",
+   "provenance": {
+    "detailsHash": "00b6877b4d1fa0a62f6a19205702acc037222df590269696622d328f39ecaab2",
+    "artifactSha256": "ed6a42b0ecabce4c32bd565d1cd303205ce81c32a99b4ef37d06003e4d0aae22"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_blipnet_1b6f322eb7d6",
+    "isGrowthUnconfirmed": true,
+    "name": "Blip",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://blip.net/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "制作フォルダーをそのまま相手へ送る。仕事で使う利用者から購読料を受け取り、その人と作業する顧客には購読を求めない。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://blip.net/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_blipnet_1b6f322eb7d6_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Blip（Blip – The fastest way to send files）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://blip.net/",
+       "ホスト: blip.net",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://blip.net/",
+      "sourceNote": "official source listed in case-rebuild pack https://blip.net/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_blipnet_1b6f322eb7d6_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Blip（Unlimited file transfer plans – Blip）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://blip.net/pricing",
+       "ホスト: blip.net",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://blip.net/pricing",
+      "sourceNote": "official source listed in case-rebuild pack https://blip.net/pricing",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_blipnet_1b6f322eb7d6_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Blip（Terms of service – Blip）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://blip.net/terms-of-service",
+       "ホスト: blip.net",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://blip.net/terms-of-service",
+      "sourceNote": "official source listed in case-rebuild pack https://blip.net/terms-of-service",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_contextsco_64ea708780f8",
+   "provenance": {
+    "detailsHash": "313ff328a25ade4d5f7ffd695f1bc4e7fa2bd11c0896119469bc9ff76cf13abb",
+    "artifactSha256": "d3759fb30023f67043e75636d74ec4c81accff8f2e0ddf40ddebc07d731f232b"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_contextsco_64ea708780f8",
+    "isGrowthUnconfirmed": true,
+    "name": "Contexts",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://contexts.co/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "アプリを探すだけでなく、同じアプリの窓まで選ぶ。Macの切り替え操作にライセンスを付ける。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://contexts.co/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_contextsco_64ea708780f8_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Contexts（Contexts - Radically simpler & faster window switcher for Mac）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://contexts.co/",
+       "ホスト: contexts.co",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://contexts.co/",
+      "sourceNote": "official source listed in case-rebuild pack https://contexts.co/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_contextsco_64ea708780f8_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Contexts（Contexts - EULA）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://contexts.co/legal/eula/",
+       "ホスト: contexts.co",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://contexts.co/legal/eula/",
+      "sourceNote": "official source listed in case-rebuild pack https://contexts.co/legal/eula/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_contextsco_64ea708780f8_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Contexts（Contexts - Press）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://contexts.co/press/",
+       "ホスト: contexts.co",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://contexts.co/press/",
+      "sourceNote": "official source listed in case-rebuild pack https://contexts.co/press/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_liturapp_5ba475de72a5",
+   "provenance": {
+    "detailsHash": "edd77c6321088e35bcbb64e6f89836941b29c2f447f01d30b43bb3ff11aa322d",
+    "artifactSha256": "4024efa8d0bb64891e42813170b9ec8a5ad2991145f8fcf76411a0c40ce7ccae"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_liturapp_5ba475de72a5",
+    "isGrowthUnconfirmed": true,
+    "name": "Litur",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://litur.app/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "現実で見つけた色を保存し、制作に使う色コードへ渡す。色拾いと色見本帳を一つにつなぐ。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://litur.app/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_liturapp_5ba475de72a5_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Litur（Litur - find and collect the colors around you.）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://litur.app/",
+       "ホスト: litur.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://litur.app/",
+      "sourceNote": "official source listed in case-rebuild pack https://litur.app/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_liturapp_5ba475de72a5_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Litur（Litur - Press Kit.）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://litur.app/presskit",
+       "ホスト: litur.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://litur.app/presskit",
+      "sourceNote": "official source listed in case-rebuild pack https://litur.app/presskit",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_icemenubarapp_78d59ec32fd9",
+   "provenance": {
+    "detailsHash": "435ca5c97bf11aebe0a4225f4d99dfebc3286979d98aeeb64891a785c7680c8f",
+    "artifactSha256": "810d7d8a98c7ed1f0ffbc664adb7c68f3911ec091910aeb6288ecfa97e94fba4"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_icemenubarapp_78d59ec32fd9",
+    "isGrowthUnconfirmed": true,
+    "name": "Ice",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://icemenubar.app/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "Macのメニューバーを整理する無料ツール。利用料金ではなく任意の開発支援を受け付ける。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://icemenubar.app/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_icemenubarapp_78d59ec32fd9_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ice（Ice - Menu Bar Manager）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://icemenubar.app/",
+       "ホスト: icemenubar.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://icemenubar.app/",
+      "sourceNote": "official source listed in case-rebuild pack https://icemenubar.app/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_icemenubarapp_78d59ec32fd9_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ice（Donate）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://icemenubar.app/Donate/",
+       "ホスト: icemenubar.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://icemenubar.app/Donate/",
+      "sourceNote": "official source listed in case-rebuild pack https://icemenubar.app/Donate/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_taskpapercom_b4e8d7fa2c79",
+   "provenance": {
+    "detailsHash": "f99946cc0c0a13cf64bb31c900803644903f033c2d72e56b86d33e306df1d412",
+    "artifactSha256": "0426cf3b5b0bfb50420ccdfbc91546762a9f6493b6cb8375bac6acfe90b1096f"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_taskpapercom_b4e8d7fa2c79",
+    "isGrowthUnconfirmed": true,
+    "name": "TaskPaper",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://www.taskpaper.com/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "タスクをテキストファイルに置き、Macアプリで折り畳みと検索を加える。「完成済みソフト」として機能の範囲を示す。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://www.taskpaper.com/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_taskpapercom_b4e8d7fa2c79_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: TaskPaper（TaskPaper – Plain text to-do lists for Mac）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.taskpaper.com/",
+       "ホスト: taskpaper.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://www.taskpaper.com/",
+      "sourceNote": "official source listed in case-rebuild pack https://www.taskpaper.com/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ent_presentifyappcom_b000d04e2c5f",
+   "provenance": {
+    "detailsHash": "ec116987f9bc4795a7d3fdb02c96d90e2299aad720e60cb442542e6554043082",
+    "artifactSha256": "1c69bb14cfe95039165e4b43a0cc7580f1e26b34138c450ad37fbf1b176ba9a4"
+   },
+   "record": {
+    "aliases": [],
+    "architecturePattern": "",
+    "country": "",
+    "founder": "",
+    "growthRateYoY": 0,
+    "id": "ent_presentifyappcom_b000d04e2c5f",
+    "isGrowthUnconfirmed": true,
+    "name": "Presentify",
+    "operations": {
+     "automationLevel": 0,
+     "initialCapitalRequired": 0,
+     "isAutomationUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "primaryChannels": [],
+     "teamSize": 0,
+     "toolStack": [],
+     "weeklyHours": 0
+    },
+    "pipelineStack": "",
+    "pnl": {
+     "cogs": 0,
+     "estimatedAnnualNetProfit": 0,
+     "financialStatus": "UNAVAILABLE",
+     "grossMargin": 0,
+     "grossProfit": 0,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isRevenueUnconfirmed": true,
+     "monthlyRevenue": 0,
+     "operatingExpenses": {
+      "advertising": 0,
+      "other": 0,
+      "serverAndApi": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0
+     },
+     "operatingMargin": 0,
+     "operatingProfit": 0,
+     "sourceDoc": "https://presentifyapp.com/ — 財務資料未取得。金額・利益・費用は未確認。"
+    },
+    "publishability": "PARTIAL",
+    "reaudit": {
+     "unknown": [
+      "現在の状況は未確認"
+     ]
+    },
+    "scale": "UNKNOWN",
+    "sector": "UNKNOWN",
+    "strategy": {
+     "actionPlaybook": [],
+     "blindspot": "",
+     "initialTraction": [],
+     "moatDescription": "",
+     "moatType": "UNKNOWN"
+    },
+    "tagline": "画面共有に矢印、カーソルの強調、拡大を重ねる。相手へ見る場所を示す道具を買い切りでも提供する。",
+    "tags": [
+     "収集事例"
+    ],
+    "targetPainWallet": "",
+    "ticker": "",
+    "url": "https://presentifyapp.com/",
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Presentify: Screen Annotation, Cursor Highlight, Spotlight, ZoomDownload on the Mac App StoreDownload on the Mac App Store）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Presentify Blog - App Updates, Presentation Tips, and Productivity GuidesDownload on the Mac App Store）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/blog",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/blog",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/blog",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Frequently Asked Questions - Presentify）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/faq",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/faq",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/faq",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Terms of Service - Presentify）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/terms",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/terms",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/terms",
+      "sourceClass": "PRIMARY"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -53,7 +53,7 @@ describe('BusinessSaleEditor', () => {
     auth.value = signedIn;
     const html = renderToStaticMarkup(<BusinessSaleEditor listingId="" />);
     expect(visibleText(html)).toContain('事業を掲載');
-    expect(html).toContain('公開する</button>');
+    expect(html).toContain('公開を申請する</button>');
     expect(html).toContain('下書きを保存</button>');
     expectTerminalStyle(html);
   });

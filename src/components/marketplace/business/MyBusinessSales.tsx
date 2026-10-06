@@ -44,8 +44,8 @@ function MyBusinessSalesInner() {
     return () => controller.abort();
   }, [authLoading, token, retry]);
 
-  /** 公開・募集終了。サーバーが状態の順序と公開条件を確かめ、通ったものだけ画面に反映する。 */
-  const changeStatus = async (id: string, status: Extract<BusinessSaleStatus, 'published' | 'closed'>) => {
+  /** 公開の申請・募集終了。サーバーが状態の順序と条件を確かめ、通ったものだけ画面に反映する。公開は運営者の承認後。 */
+  const changeStatus = async (id: string, status: Extract<BusinessSaleStatus, 'pending_review' | 'closed'>) => {
     if (!token || busyId) return;
     setBusyId(id);
     setActionError(null);
@@ -57,8 +57,8 @@ function MyBusinessSalesInner() {
       setActionError(result.message);
       return;
     }
-    const { status: nextStatus, updatedAt } = result.data;
-    setListings((current) => current?.map((listing) => (listing.id === id ? { ...listing, status: nextStatus, updatedAt } : listing)) ?? current);
+    const { status: nextStatus, updatedAt, reviewNote } = result.data;
+    setListings((current) => current?.map((listing) => (listing.id === id ? { ...listing, status: nextStatus, updatedAt, reviewNote } : listing)) ?? current);
   };
 
   let body;
@@ -93,7 +93,7 @@ function MyBusinessSalesInner() {
         busyId={busyId}
         confirmCloseId={confirmCloseId}
         error={actionError}
-        onPublish={(id) => void changeStatus(id, 'published')}
+        onPublish={(id) => void changeStatus(id, 'pending_review')}
         onAskClose={setConfirmCloseId}
         onCancelClose={() => setConfirmCloseId(null)}
         onConfirmClose={(id) => void changeStatus(id, 'closed')}

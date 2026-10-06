@@ -119,11 +119,14 @@ export const ReaderAnalysisSchema = z.object({
   id: z.string().min(1),
   item: z.enum(ANALYSIS_ITEMS),
   text: factText,
-  /** 推論が拠って立つ facts / metrics の id。一般的な相場だけの推論は空で、confidence は LOW。 */
+  /** 推論が拠って立つ facts / metrics の id。 */
   basis: z.array(z.string().min(1)),
   /** 数字を出す時の式と前提 */
   formula: z.string().min(1).max(400).optional(),
-  confidence: z.enum(['HIGH', 'MEDIUM', 'LOW']),
+  /** 廃止（2026-10-06）。表示も出力もしない。旧データの読み込みのために欄だけ残す。 */
+  confidence: z.enum(['HIGH', 'MEDIUM', 'LOW']).optional(),
+  /** FACT_SUMMARY=出典の事実をまとめた文（印なし）、ESTIMATE=式つきの推定（薄灰色の「推定」）。無い旧データは従来どおり「推測」の印。 */
+  presentation: z.enum(['FACT_SUMMARY', 'ESTIMATE']).optional(),
 });
 
 export const ReaderCaseSchema = z

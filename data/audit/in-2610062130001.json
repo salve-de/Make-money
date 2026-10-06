@@ -1,0 +1,889 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_requestly_28e9f2",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "ブラウザのHTTP通信を途中で書き換えたり、モック（偽の応答）にしたりする開発者向けのオープンソースツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "FOUNDING",
+     "text": "創業者Sachin Jainは、本番環境の圧縮されたJavaScriptをデバッグしたいという苛立ちから、約30分でChrome拡張の最初の版を作った。Baremetricsの紹介文は、週末の個人制作から始まったと説明する。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f3",
+     "kind": "EVENT",
+     "text": "2018年、JavaScriptファイルを差し替えるだけの道具として始まった。変更を試すためだけに配備し直す手間を省く道具で、のちにコンテンツセキュリティポリシーに当たった開発者向けにHTTPヘッダーの書き換えも加わった。デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、システム全体のプロキシ設定や証明書の導入が要らず、会社のVPNでも動く。その後、チームで設定を共有する機能が加わった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "TEAM",
+     "text": "Sachin Jainは共同創業者でCEO。Baremetricsの紹介文によれば、Googleのインターンとアドビのエンジニアを経て起業した。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f5",
+     "kind": "EVENT",
+     "text": "チームは、API応答の偽装（モック）が最も製品に合っていると見て、バックエンドの完成待ちから画面側の開発者を解放する方向へ軸足を移した。企業向けにはSSO、SLA、分析と報告、役割別の権限管理、SOC2 Type II認証を足した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "OTHER",
+     "text": "Baremetricsの紹介文によれば、Requestlyは約1万7千件の応募から採択された414社の1社としてY Combinatorに入った。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f7",
+     "kind": "CHANNEL",
+     "text": "Baremetricsの対談の紹介文は、ランディングページやマーケティングに頼らず自然に広まり、Stack OverflowとGitHubが販売戦略のすべてだったと説明する。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "収益化では、純粋な収益化よりオープンコアモデルを選んだ。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f9",
+     "kind": "FUNDING",
+     "text": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）、複数の著名エンジェルの出資を受けたと書く。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "EXIT",
+     "text": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "EXIT",
+     "text": "発表によれば、買収時のRequestlyは20万人超の開発者、1万社超の企業が使い、Chromeストアの評価は1,200件超のレビューで4.3。Sachin Jainは、環境とバックエンド担当への依存でコードの通しテストが止まる無駄な開発時間への苛立ちから生まれたと述べている。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "売り先の選び方について、創業者は価格より適した買い手を優先する考え方を語っている。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f13",
+     "kind": "PRICING",
+     "text": "料金ページはAPI PlatformのTeamを年払いで1利用者あたり月換算$10、Team Proを$15と表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "公式の製品ページは、通信を書き換えるルール機能、APIクライアント、モックサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを並べ、30万人超の開発者に使われているとうたう。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m2",
+     "line": "項目=USERS / 期間=2025-05(POINT) / 金額=200000 人 / 由来=SELF_REPORTED"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://requestly.com/products/",
+     "publisher": "Requestly公式サイト（製品ページ）",
+     "snapshot": {
+      "url": "https://requestly.com/products/",
+      "finalUrl": "https://requestly.com/products/",
+      "status": 200,
+      "fetchedAt": "2026-10-06T10:01:22.196Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "0f2394e0c80741f4599969d33662a1ebf33543c5b93507b9de2703fc271d2b62"
+     },
+     "text": "Products - Requestly\nBoost your web development with Requestly’s HTTP Interceptor. Debug, test, and optimize by managing and manipulating HTTP requests with ease.\nProducts - Requestly\nBoost your web development with Requestly’s HTTP Interceptor. Debug, test, and optimize by managing and manipulating HTTP requests with ease.\nProducts - Requestly\n📣 Requestly: design, build and test APIs, all in one place. Switch from Postman in 1 click → ×\nProduct Build & organize\nEnvironments & Variables Swap dev, staging, prod values\nDynamic Variables 100+ built-in data generators\nGraphQL Client Queries, mutations, introspection\nSOAP & gRPC WSDL, reflection and streaming\nTest & automate\nCollection Runner Run a whole collection in order\nAPI Tests & Assertions Assert on status, body, schema\nAI Test Case Generator Tests from a plain-English prompt\nRequestly CLI Run collections in CI\nGovern & secure\nVault Encrypted secrets, never exported\nTeam Workspaces Shared projects, synced, roles\nLocal Projects Collections as files on your disk\nEnterprise Security SOC 2, SSO, RBAC and audit logs\nMore tools\nHTTP Interceptor\nFile Server\nAPI Explorer\nAll features Release notes\nRequestly vs Postman A line-by-line comparison Import from Postman Collections, folders and environments Talk to sales Self-hosted, pilots and procurement\nPricing\nRequestly vs Postman\nResources Documentation Downloads Blog Case Studies Status Release Notes\nDocs Download\n×\nProduct\nBuild & organize\nEnvironments & Variables Dynamic Variables GraphQL Client SOAP & gRPC\nTest & automate\nCollection Runner API Tests & Assertions AI Test Case Generator Requestly CLI\nGovern & secure\nVault Team Workspaces Local Projects Enterprise Security More tools\nHTTP Interceptor File Server Import from Postman All features Pricing Requestly vs Postman Blog Docs Download\nHome / Products\nSuper charge your web development\nBoost your web development with Requestly’s HTTP Interceptor. Debug, test, and optimize by managing and manipulating HTTP requests with ease.\nDownload Now See pricing\nTrusted by 300,000+ developers, from next-gen startups to Fortune 500 companies.\nWhy engineering teams choose Requestly\nComplete Data Sovereignty\nChoose local, team sync, or self-hosted. Your data never leaves your control.\nPredictable, Flat Pricing\nFlat per-user pricing. Enterprise governance without hidden add-ons.\nLightweight & Developer-First\nOpen. Hit endpoint. Get response. No bloat, no lag, no noise.\nHTTP interceptor\nAn open-source tool to intercept & modify network requests, headers, API requests, inject scripts & much more. A complete HTTP debugging software that works on your browser, simple & fast.\nModify responses\nIntercept, Modify & Mock API Responses in Real-Time\nQuery params\nAdd or Remove Query Parameters in any website URL.\nCross Device Testing\nTest your website across multiple devices seamlessly\nModify headers\nModify HTTP request & response headers.\nReplace string\nReplace part of URL like hostname, query values.\nInsert scripts\nInject Custom JS & CSS on any website(s).\nCancel Rule\nBlock URLs by specifying keywords or complete URL.\nRedirect Rule\nRedirect URL to a different page or site\nOverride Graphql\nModify or override GraphQL requests easily\nMock Server Open-source Mock Server to quickly create mock API endpoints for testing without creating an actual API. Edit Content-Type, Status Code, Headers, and Response body easily on the Mock Server. Mock collections Intercept, Modify & Mock API Responses in Real-Time Generate content using AI GPT-based API Response generator will help you . Host Files Upload any HTML/CSS/JS files and generate public links. Set HTTP Headers Set mock API’s HTTP Headers and Status Code API Client Quickly create mock API endpoints with the Requestly API Client for seamless testing—no need to build a real API. Effortlessly customize the Content-Type, Status Code, Headers, and Response Body to simulate various scenarios Import cURL requests Easily import cURL requests from any platform Test API responses Send API requests and test responses API request history View and analyze your API request history\nBuilt for teams Effortless team collaboration\nEffortless team collaboration\nShare instantly, sync effortlessly, and collaborate effectively with your team in dedicated workspaces.\nQuick One time sharing: Instantly generate a link for your assets, such as rules, mocks, and recordings, and share it with your team in one click.\nTeam workspaces: Easily collaborate with teammates in a shared workspace. Group assets, such as mocks, rules, and sessions, in one place.\nExport data & sync to Git: Developers utilize session data directly in pull requests.\nEnterprise-ready security and compliance\nRequestly ensures top-tier security with SOC-II compliance, SSO integration, and role-based access control. We protect your data and secure your workflows, making us the ideal choice for enterprises.\nSOC-II Compliance\nAdheres to rigorous security standards for data protection and privacy.\nSingle Sign-On (SSO)\nSimplifies user access with secure, centralized authentication.\nRole-based access control\nEnsures precise control over user permissions and data access.\nData encryption\nProtects your data in transit and at rest with advanced encryption protocols.\nAudit logs\nProtects your data in transit and at rest with advanced encryption protocols.\nRegular security updates\nKeeps your environment secure with timely updates and patches.\nGet started with Requestly\nIntercept, modify and mock HTTP requests, build and test APIs, and host files.\nDownload Requestly See pricing\nmacOS, Windows & Linux\nSummarize Requestly with AI\nThe Git-native API client for teams that design, build and test APIs at scale.\nFeatures\nSave & Organize Requests Environment Variables GraphQL APIs Pre & Post Scripts API Test Generator Collection Runner Import / Export Collaboration & Sharing All features\nResources\nPricing Blog Use Cases Academy Privacy Policy Terms of Service Refunds and Cancellations\nCompany\nAbout Us Contact Us Careers Press EULA Community Guidelines\nDevelopers\nRelease notes Report issues GraphQL support API Explorer Github Extension for Chrome Extension for Edge Extension for Firefox Extension for Safari\nCompare Requestly with\nPostman Bruno Insomnia Hoppscotch\nDownload API Client\nmacOS Windows Linux\nCopyright © 2026 BrowserStack, Inc. All rights reserved.\nSOC2 GDPR DPA",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+     "publisher": "BrowserStack プレスリリース",
+     "snapshot": {
+      "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "finalUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "status": 200,
+      "fetchedAt": "2026-10-06T10:01:22.197Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "e13cbdc935f7ec20406ba7285d0a1690e846f77dcbe89d408c77724cdeaa9bda"
+     },
+     "text": "BrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests | BrowserStack\nBrowserStack today announced the acquisition of Requestly, the popular open-source HTTP interception and API mocking tool.\nBrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests | BrowserStack\nBrowserStack today announced the acquisition of Requestly, the popular open-source HTTP interception and API mocking tool.\nBrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests | BrowserStack\nSkip to main content\nProducts Featured Popular products for your test stack\nWeb Testing Test websites and web apps on real browsers\nMobile App Testing Test iOS & Android mobile apps on real devices\nAccessibility Automate accessibility compliance for websites & mobile apps\nPopular products for your test stack\nWEB TESTING\nLive Manual cross-browser testing\nAutomate Browser automation cloud\nAccessibility Testing Automate web compliance\nTest Companion Agentic testing in IDE\nLow Code Automation Automation without coding\nMOBILE APP TESTING\nApp Live Real device testing\nApp Automate Mobile app automation cloud\nApp Accessibility Testing Automate mobile app compliance\nTest Companion Agentic testing in IDE\nMANAGEMENT & OPTIMIZATION\nTest Management Plan, track, and manage tests\nTest websites and web apps on real browsers\nManual Testing\nLive Cross-browser testing\nTesting Toolkit Essential manual testing tools\nAPI Testing\nRequestly Privacy-first API client\nTest Automation\nAutomate Browser automation cloud\nPercy Visual testing & review\nCustom Device Lab Tailored test environments\nTest Companion Agentic testing in IDE\nLoad Testing Test browser & API load\nManagement & Optimization\nTest Management Plan, track, and manage tests\nTest Management for Jira Manage tests inside JIRA\nTest Reporting & Analytics Monitor & optimize tests\nAutomation without coding\nLow Code Automation AI-driven automated tests\nExplore\nEnterprise\nTest iOS & Android mobile apps on real devices\nManual Testing\nApp Live Real device testing\nAPI Testing\nRequestly Privacy-first API client\nTest Automation\nApp Automate Mobile app automation cloud\nApp Percy Visual testing & review\nCustom Device Lab Tailored test environments\nTest Companion Agentic testing in IDE\nManagement & Optimization\nTest Management Plan, track, and manage tests\nTest Management for Jira Manage tests inside JIRA\nTest Reporting & Analytics Monitor & optimize tests\nAutomation without coding\nApp Low Code Automation AI-driven automated tests\nExplore\nEnterprise\nAutomate accessibility compliance for websites & mobile apps\nDesign\nLayout Scanner Scan UI layouts\nComponent Scanner Validate UI components\nCode\nLinter WCAG checks in your IDE\nWeb testing\nWorkflow Analyzer Test web workflows\nTest Automation Add WCAG checks to CI/CD\nScreen Readers Test NVDA, TalkBack, VoiceOver\nAssisted Tests Guided WCAG issue testing\nMobile app testing\nWorkflow Analyzer Test app workflows\nTest Automation Add WCAG checks to CI/CD\nScreen Readers Test Talkback & VoiceOver\nMonitor\nWebsite Scanner Schedule WCAG sitemap scans\nExplore\nSpectra for Web\nSpectra for App\nAI Agents\nExplore\nBrowserStack for Enterprise\nRequestly\nExplore\nBrowserStack for Enterprise\nRequestly\nExplore\nSpectra for Web\nSpectra for App\nAI Agents\nSolutions Use Cases\nTest Your Websites Deliver bug-free web experiences\nTest Your Apps Deliver bug-free app experiences\nScale Test Automation Stable builds & faster releases\nTest on Real Devices 30,000+ real iOS & Android devices\nTab Content Footer\nNot sure where to start?\nTalk to Us Not sure where to start?\nDevelopers Documentation\nSupport\nStatus\nRelease Notes\nOpen Source\nEvents\nMeetups\nBrowserStack Talks\nCommunity\nDiscord Community\nDevelopers Help & Support\nDocumentation Learn how to set up & configure\nHelp Desk General support articles & FAQs\nCheck status and uptime\nCommunity\nEvents QA leader connects & webinars\nDiscord Community Join our developer community\nMeetups Network with the best in testing\nChampions Register for our Champions program\nResources\nRelease Notes Feature releases & product updates\nOpen Source Unlimited access for open source\nBrowserStack Talks Hear from the best in testing\nGuides Best practices, trends & fundamentals\nAI Agents\nPricing\nAI Agents Featured AI Agents\nBuilt into BrowserStack products. No setup required\nTest Case Generator Agent Convert any requirement to test cases\nLow-Code Authoring Agent Test cases to low-code automated tests\nSelf-healing Agent Auto heals broken UI locators\nTest Failure Analysis Agent Analyzes failures and provides fixes\nA11y Issue Detection Agent Detect complex WCAG issues\nVisual Review Agent Highlight only meaningful visual changes\nA11y Issue Remediation Agent Fix accessibility issues like a WCAG expert\nTest Deduplication Agent Find and remove duplicate test cases\nAI Agents at every step of the testing lifecycle View all agents (opens in a new tab)\nContact Sales\nSign in\nFree Trial\nGo to Dashboard\nHome Press BrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests BrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests\nStrategic acquisition addresses critical bottlenecks in modern web development through advanced HTTP interception, debugging, and mocking of network requests.\nDUBLIN—May 6, 2025 — BrowserStack today announced the acquisition of Requestly , the popular open-source HTTP interception and API mocking tool that eliminates critical bottlenecks in modern web development. This strategic acquisition strengthens BrowserStack’s commitment to developer productivity by supporting Requestly’s growth as a beloved HTTP interception and mocking solution, providing developers with tools that significantly accelerate their workflow.\nFrontend developers consistently face two major obstacles that derail productivity and delay releases: dependency on backend developers to complete APIs before frontend work can progress, and unreliable backend services during development and testing.\nThese challenges manifest as blocked sprints, delayed releases, and frustrated developer experiences when backend teams are still building needed endpoints or APIs don’t return data required for development.\nRequestly directly addresses these pain points through its browser-based approach to intercept and mock network requests:\nShift-left development experience : Delivers faster web development by offering comprehensive tools for HTTP interception, debugging, and mocking, supporting use cases from cloud-based mocking to JS redirects and local testing.\nZero-configuration setup : It installs directly into the browser and uses browser APIs to intercept and modify requests, eliminating the need to manage system-level proxy settings and install SSL certificates. This ensures it works well with corporate VPNs.\nOpen-source, secure, and enterprise-read y: Requestly is an open-source solution providing flexibility and speed for web development. For enterprises, Requestly provides features like SSO, SLAs, SOC-II compliance, reporting and analytics, and role-based access control for efficient management.\nSeamless workflow integration : Built primarily as a browser extension with a minimalistic and intuitive design, requiring no learning curve for developers.\nTeam collaboration : Enables teams to organize and collaborate on projects effectively through shared workspaces where users can instantly share rules, environments, and mocks.\nRequestly has achieved remarkable adoption among developers worldwide, trusted by 200,000+ developers from 10,000+ companies, ranging from Fortune 500 to startups. The tool maintains a Chrome Store rating of 4.3 from 1200+ reviews and has a growing open-source community with active contributors. As a YCombinator graduate and a part of Peak XV (formerly Sequoia) Surge, Requestly has established itself as a leading solution for interception, debugging, and mocking of HTTP requests.\n“Requestly was born from our own frustration of wasted developer hours due to broken workflows in end-to-end code testing caused by dependency on the environment & backend team,” said Sachin Jain, Founder of Requestly. “Joining BrowserStack means we can maintain our core values while accelerating our roadmap to address even more developer pain points. Our community will benefit from increased investment while we remain true to our vision and open-source roots.”\n“What drew us to Requestly was its innovative browser-native approach and the passionate developer community behind it,” said Ritesh Arora, CEO & Co-founder of BrowserStack. “We’re excited to accelerate Requestly’s disruption of the API mocking and interception space while preserving its open-source foundation. We’re backing Requestly’s growth while maintaining what developers love about it—this will help them innovate faster in a space ready for fresh thinking.”\nRequestly’s evolution mirrors the changing needs of modern web development. What began in 2018 as a simple tool to redirect JavaScript files for local testing has transformed into a comprehensive HTTP Interception & Mocking tool trusted by hundreds of thousands of developers.\nInitially, solving the frustration of deploying JavaScript changes just to test them, Requestly expanded to handle HTTP header modifications when developers faced Content Security Policy challenges. Taking a revolutionary Chrome-Extension based approach to HTTP interception—unlike traditional desktop-based proxy solutions—Requestly developed capabilities to intercept and modify all HTTP requests, positioning it as a lightweight alternative to complex proxy tools.\nThe addition of team workspaces enabled seamless developer collaboration through shared configurations. As mobile development has expanded, Requestly plans to support Android emulators and iOS simulators in upcoming releases.\nRecognizing that API mocking represented Requestly’s strongest product-market fit, the team refocused on helping developers work independently from backend dependencies. Enterprise features like SOC2 Type II certification followed, culminating in a comprehensive network interception & mocking tool. Throughout this journey, Requestly has remained true to its open-source roots while continuously adapting to meet developers’ evolving needs.\nBrowserStack emphasized its commitment to maintaining Requestly as an independent, open-source tool, ensuring the developer community continues to benefit from its accessibility and flexibility. The future roadmap includes launching HTTP interception and mocking capabilities for mobile devices and simulators.\nRequestly continues to be available as an open-source tool, now backed by BrowserStack’s resources and commitment to developer productivity. Developers can download the extension from the Chrome Web Store or as a Mac App here .\nAbout BrowserStack\nBrowserStack is the world’s leading software testing platform, powering over two million tests every day across 19 global data centers. BrowserStack helps Amazon, NVIDIA, MongoDB, Microsoft, X, and over 50,000 customers deliver quality software at speed by moving testing to their Cloud. BrowserStack’s platform provides instant access to 20,000+ real mobile devices on a highly reliable cloud infrastructure that effortlessly scales as testing needs grow. With BrowserStack, Dev and QA teams can move fast while delivering an amazing experience for every customer. Founded in 2011, BrowserStack is a privately held company backed by Accel, Bond, and Insight Partners. For more information, visit https://www.browserstack.com .\nAbout Requestly\nRequestly is a popular open-source HTTP Interception and Mocking tool, empowering 200,000+ developers across 10,000+ companies in their app development workflows. Requestly is widely popular for its browser-first approach, making the product lightweight and easy to use. With Requestly, developers reportedly save ~2 hours every week, and it helps them ship high-quality software faster. Requestly was funded by YCombinator, PeakXV partners (formerly Sequoia SEA), and many marquee angels. For more information, visit https://requestly.com .\nMedia Contact\nPress Relations Team\npress@browserstack.com\nPRODUCTS\nLive\nApp Automate\nApp Live\nAccessibility Testing\nAutomate\nTest Management\nApp Accessibility Testing\nLow Code Automation\nTesting Toolkit\nPercy\nCustom Device Lab\nApp Percy\nApp Low Code Automation\nTest Reporting & Analytics\nRequestly\nTest Management for Jira\nTest Companion\nLoad Testing\nWHY BROWSERSTACK\nCustomers\nCase Studies\nAI Agents\nBrowsers & Devices\nEnterprise\nData Centers\nReal Device Features\nSecurity\nRESOURCES\nSupport\nStatus\nRelease Notes\nBlog\nEvents\nCommunity\nBrowserStack Talks\nMeetups\nChampions\nGuide\nPartners\nFind a partner\nTrust Center\nTest University (Beta)\nCOMPANY\nAbout Us\nCareers\nOpen Source\nPress\nNewsletter\nSocial\nContact Us We are available 24 / 7\nMore Resources\nCross Browser Testing\nSelenium\nTest Management\nEmulators vs Real Device\nMobile App Testing\nTest on Devices\nTest on iPhone\nTest on iPad\nTest on Galaxy\nTest In IE\nTest on Android\nTest on iOS\nTest on Right Devices\nMobile Emulators\nTools\nSpeedLab\nScreenshots\nResponsive\nNightwatch.js\n© 2026 BrowserStack. All rights reserved.\nTerms of Service\nPrivacy Policy\nCookie Policy\nSitemap\nTalk to an Expert",
+     "policy": {
+      "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "decision": "allowed",
+      "usage": "independently_worded_facts",
+      "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+      "reviewedAt": "2026-10-06T19:30:00+09:00",
+      "termsUrl": "https://www.browserstack.com/terms",
+      "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: プレスリリースは周知目的の公開物。事実のみ・自分の言葉・出典と日付付き。本文転載・画像なし。買収額などは発表者の自己申告と明記。",
+      "recheckAfter": "2027-01-04T12:00:00+09:00"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://baremetrics.com/founder-chats/sachin-jain",
+     "publisher": "Baremetrics Founder Chats",
+     "snapshot": {
+      "url": "https://baremetrics.com/founder-chats/sachin-jain",
+      "finalUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+      "status": 200,
+      "fetchedAt": "2026-10-06T10:01:22.197Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "1f0dc780d61633d2029130c443c6408161168b3e13a1c27e60db5f9380485041"
+     },
+     "text": "From 30-Minute Hack to YC-Backed Dev Tool with Sachin Jain\nThis week, Luke sat down with Sachin Jain, Co-founder and CEO of Requestly. You\nThis week, Luke sat down with Sachin Jain, Co-founder and CEO of Requestly. You\nFrom 30-Minute Hack to YC-Backed Dev Tool with Sachin Jain\nFrom 30-Minute Hack to YC-Backed Dev Tool with Sachin Jain\nProduct\nPRODUCT\nSubscription Analytics\nTrack, analyze, and improve your subscription business.\nPayment Recovery\nGet help with failing charges and recover revenue.\nCancellation Insights\nGain insights into why customers cancel and reduce churn.\nFinancial Forecasting\nMake future planning simple with accurate financial forecasts.\nRECOMMENDED\nInteractive Demo\nView our live demo environment to see Baremetrics in action and learn how it can benefit your business.\nTry now\nFREE TRIAL\nFree trial\nUnlock Subscription Growth, Insights & Success with Baremetrics\nTry for free\nIntegrations\nINTEGRATIONS\nApple App Store\nGoogle Play Store\nShopify\nStripe\nBraintree\nChargebee\nRecurly\nQuickbooks Online\nXero\nUniversal Connector\nUNIFIED CONNECTIONS\nView all your subscriptions together to provide a holistic view of your companies health.\nPlans & Pricing\nResources\nTRENDING TOPICS\nSaaS Metrics\nGet the insights that reveal the truth of your business, and how to grow it.\nFinancial Forecasting\nUsing real-time data, you can create models based on your business, and your future goals.\nDunning\nFailed payments are a monthly issue for subscription businesses. How to best recapture these customers?\nPricing\nExperiment and optimize your pricing to secure the largest customer base.\nSegmentation\nDifferent customers need different treatment. Organize and analyze your user groups.\nMRR\nUnderstanding MRR is a key step toward building a profitable business.\nRetention\nKeep customers using your service and head-off churn before it happens.\nChurn\nUnderstanding why customers leave, using data and insights, is the first step to retaining them.\nPUBLICATIONS\nBlog\nFounders Journey: true experiences, challenges, and what the road to success really looks like.\nAcademy\nAccess a wealth of resources designed to help you master your business metrics and growth strategies.\nFounders Chats\nIn-depth conversations with successful founders discussing their journeys and the lessons they've learned.\nHELP & SUPPORT\nDevelopers\nExtend and Integrate Baremetrics\nHelp Center\nGet answers to common questions and learn how to get the most out of Baremetrics.\nExperts\nThe best consultants, agencies, and specialized services to help you grow.\nTHE OPEN PROJECT\nBenchmarks\nHave an idea of how other SaaS companies are doing and see how your business stacks up.\nStartups\nCompanies that are embracing transparency and openness by sharing their metrics with everyone.\nAccelerator\nEmerging SaaS startups\nCOMPARISONS\nChartMogul\nEvaluate how Baremetrics compares to ChartMogul in terms of features, usability, and value.\nProfitwell\nSee a detailed comparison between Baremetrics and Profitwell, including a breakdown of key differences and benefits.\nStripe\nDiscover how Stripe Analytics stacks up against Baremetrics in terms of features, ease of use, and overall benefits.\nAbout\nCOMPANY\nAbout\nLearn more about Baremetrics, our mission, values, and the team behind the product.\nCustomers\nDiscover how businesses like yours are using Baremetrics to drive growth and success.\nWall of Love\nRead testimonials and reviews from our customers who have achieved their goals with Baremetrics.\n(725) 217-4827\nSign In\nGet Started\nProduct\nPRODUCT\nSubscription Analytics\nPayment Recovery\nCancellation Insights\nFinancial Forecasting\nRECOMMENDED\nInteractive Demo\nTry now\nFREE TRIAL\nFree trial\nTry for free\nIntegrations\nINTEGRATIONS\nApple App Store\nGoogle Play Store\nShopify\nStripe\nBraintree\nChargebee\nRecurly\nQuickbooks Online\nXero\nUniversal Connector\nPlans & Pricing\nResources\nTRENDING TOPICS\nSaaS Metrics\nFinancial Forecasting\nDunning\nPricing\nSegmentation\nMRR\nRetention\nChurn\nPUBLICATIONS\nBlog\nAcademy\nFounders Chats\nHELP & SUPPORT\nDevelopers\nHelp Center\nExperts\nTHE OPEN PROJECT\nBenchmarks\nStartups\nAccelerator\nCOMPARISONS\nChartMogul\nProfitwell\nStripe\nAbout\nCOMPANY\nAbout\nCustomers\nWall of Love\n(725) 217-4827\nSign In\nGet Started\nCustomers\nSubscribe for Updates\nAccidentally Building a Y Combinator-backed Startup with Sachin Jain\nBy Andrea Del Angel on November 20, 2025\nLast updated on\nAugust 26, 2026\nTable of Contents\nMore Articles\nHow David Zitoun Bootstrapped Submagic to $8M Revenue\nThe Ultimate SaaS Onboarding Playbook with Justin Hammond\nThe Journey from SDR to Founder with Chase Taake\nWhy OptinMonster Won the Early Email Marketing Era with Thomas Griffin\nFounder Chats is brought to you by Baremetrics: zero-setup subscription analytics & insights for Stripe, Recurly, Braintree and any other subscription company!\nLike this episode? A rating and a review on iTunes would go a long way!\nThis week we sit down with Sachin Jain, Co-founder and CEO of Requestly. You'll hear about turning a 30-minute hack into a YC-backed developer tool, why he chose the open core model over pure monetization, how Stack Overflow and GitHub became their entire GTM strategy, and the acquisition framework that prioritizes the right buyer over the right price.\nAbout Sachin Jain:\nSachin Jain is the Co-founder and CEO of Requestly, the browser-based API mocking and testing platform used by over 300,000 developers worldwide. After transforming a weekend Chrome extension project into a Y Combinator-backed company (one of 414 accepted from 17,000 applications), Sachin led Requestly through a successful acquisition by BrowserStack earlier this year. His journey from Google intern and Adobe engineer to successful founder showcases the power of solving your own problems first.\nAbout Requestly:\nRequestly is a developer-first platform that simplifies API mocking, testing, and network request interception directly in the browser. Born from a frustrated developer's need to debug minified JavaScript in production, Requestly eliminates the need for bulky proxy tools by offering a simple Chrome extension that lets developers modify headers, redirect scripts, and mock API responses. The platform has become essential for frontend teams building against incomplete backends.\nShow Notes:\n00:00 From Developer to Founder\n00:32 The P0 Bug That Sparked a Business Idea\n02:52 Building an MVP in 30 Minutes\n03:04 Identifying a Problem: The Birth of Requestly\n05:05 From JavaScript Redirector to API Platform Evolution\n05:52 The Evolution of Requestly\n08:21 Organic Growth Without Landing Pages or Marketing\n08:55 Open Source vs. Monetization\n10:20 The Open Core Model\n12:10 Navigating Y Combinator: Tips for Success\n13:11 What Made Sachin's YC Application Stand Out\n14:50 Building a Developer Community\n16:39 Company Culture as Product Differentiation\n17:57 Acquisition Insights: Choosing the Right Buyer\n19:45 Customer Support as Competitive Advantage\n21:01 Post-Acquisition Journey\n23:53 Lessons Learned: Growth and Adaptation as a Founder\n24:38 Why Optimize for Right Buyer, Not Price\n27:57 Personal Growth: From Engineer to CEO\nWatch “Accidentally Building a Y Combinator-backed Startup with Sachin Jain” on its own page — with a full summary, chapters and related reading.\nAndrea Del Angel\nAndrea Del Angel is the Content Marketing Manager at Baremetrics. With 6 years of experience working in content at B2B SaaS startups, she specializes in turning complex ideas into content that resonates with growth-minded teams. When she's not working, you can find her traveling, hunting down good coffee, or getting lost in a good book.\nFEATURES\nHubspot Integration\nControl Center\nPeople Insights\nSmart Dashboards\nRecover\nCancellation Insights\nEmail Reports\nTrial Insights\nSegmentation\nAugmentation\nBenchmarks\nSlack Tools\nAnalytics API\nCompare\nProfitWell\nChartMogul\nFirstOfficer\nMaxio\nMRR.io\nStripe Analytics & Dunning\nCompany\nAbout\nCareers\nCustomers\nWall of Love\nExperts\nAffiliate Partners\nContact\nPublications\nBlog\nAcademy\nFounder Chats\nVideos\nOpen Project\nStartups\nBenchmarks\nBuild vs Buy\nSupport\nDevelopers\nHelp Center\nStatus\nLEGAL\nPrivacy\nSecurity\nTerms of Use\nGDPR\nEnglish\n日本語",
+     "policy": {
+      "url": "https://baremetrics.com/founder-chats/sachin-jain",
+      "decision": "allowed",
+      "usage": "independently_worded_facts",
+      "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+      "reviewedAt": "2026-10-06T19:30:00+09:00",
+      "termsUrl": "https://baremetrics.com/terms",
+      "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得の禁止が明文(対象は「サービス」)。人が確認した事実のみ・自分の言葉・リンク付き・本人申告ラベル。自動再取得しない。",
+      "recheckAfter": "2027-01-04T12:00:00+09:00"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://requestly.com/pricing/",
+     "publisher": "Requestly公式サイト（料金ページ）",
+     "snapshot": {
+      "url": "https://requestly.com/pricing/",
+      "finalUrl": "https://requestly.com/pricing/",
+      "status": 200,
+      "fetchedAt": "2026-10-06T10:01:22.197Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "9f4f9c51036c558524dd1020626d28c416ae2753325a5d9c91569d4c311c1894"
+     },
+     "text": "Pricing — Requestly API Platform\nTeam and Team Pro plans for the Requestly API Platform, priced per user. Every protocol, unlimited runs and no metering. Enterprise available as an add-on.\nPricing — Requestly API Platform\nTeam and Team Pro plans for the Requestly API Platform, priced per user. Every protocol, unlimited runs and no metering. Enterprise available as an add-on.\nPricing — Requestly API Platform\n📣 Requestly: design, build and test APIs, all in one place. Switch from Postman in 1 click → ×\nProduct Build & organize\nEnvironments & Variables Swap dev, staging, prod values\nDynamic Variables 100+ built-in data generators\nGraphQL Client Queries, mutations, introspection\nSOAP & gRPC WSDL, reflection and streaming\nTest & automate\nCollection Runner Run a whole collection in order\nAPI Tests & Assertions Assert on status, body, schema\nAI Test Case Generator Tests from a plain-English prompt\nRequestly CLI Run collections in CI\nGovern & secure\nVault Encrypted secrets, never exported\nTeam Workspaces Shared projects, synced, roles\nLocal Projects Collections as files on your disk\nEnterprise Security SOC 2, SSO, RBAC and audit logs\nMore tools\nHTTP Interceptor\nFile Server\nAPI Explorer\nAll features Release notes\nRequestly vs Postman A line-by-line comparison Import from Postman Collections, folders and environments Talk to sales Self-hosted, pilots and procurement\nPricing\nRequestly vs Postman\nResources Documentation Downloads Blog Case Studies Status Release Notes\nDocs Download\n×\nProduct\nBuild & organize\nEnvironments & Variables Dynamic Variables GraphQL Client SOAP & gRPC\nTest & automate\nCollection Runner API Tests & Assertions AI Test Case Generator Requestly CLI\nGovern & secure\nVault Team Workspaces Local Projects Enterprise Security More tools\nHTTP Interceptor File Server Import from Postman All features Pricing Requestly vs Postman Blog Docs Download\nPlans & pricing Manage your complete API lifecycle at 50% of your current cost.\nEvery protocol, unlimited runs, no credits and no metering. Start free for 30 days — no credit card required.\nMonthly Annual save 17%\nTeam\n$10 / user / month\nbilled annually\nEverything a growing team needs to build, test, and ship APIs.\nUsers 5 users 10 users 15 users 20 users More than 20 users $600 billed annually for 5 users\nContact Sales Included\nCore API Client REST, GraphQL and SOAP alongside gRPC, WebSocket, Socket.IO and MQTT — build, send and run every protocol in one place, with response viewing, formatting and search, code-snippet generation and a full cookie jar.\nLocal Projects & Git-based Collaboration Build locally in Local Projects with complete control over your data, full native Git workflows and two-way GitHub/GitLab sync so API changes follow the same review and branching workflows as code.\nTeam Projects & Real-time Collaboration Collaborate in realtime via Team Projects with shared elements.\nManual API Testing (Unlimited Manual Collection Runs) Pre/post-request scripts, assertions & no-code test builder, unlimited manual runs, CLI runner, CI/CD integration, data-driven testing.\nAutomated API Testing (Unlimited Scheduled Collection Runs) Pre/post-request scripts, assertions & no-code test builder, unlimited cloud runs, CLI runner, CI/CD integration, data-driven testing.\nBasic API Design & Docs Publish a released spec version as documentation with a shareable link, choosing public, internal, or password access.\nQuick Import & Migration Bring collections and variables across from Postman, OpenAPI, HAR, cURL, WSDL, SoapUI, or Bruno. Your existing test scripts run without a rewrite. Export and back up any time.\nRecommended Team Pro\n$15 / user / month\nbilled annually\nStandardize API lifecycle management across your entire organization.\nUsers 5 users 10 users 15 users 20 users More than 20 users $900 billed annually for 5 users\nContact Sales Team, plus:\nUnlimited AI credits AI-written tests and assertions, AI debugging and error resolution, and in-app assistant and agent mode.\nAI test / assertion generation\nAI-assisted debugging & error resolution\nAI assistant\nMCP server (upcoming)\nAdvanced Test Reporting & Analytics Test reports, exportable results and trend analysis over time, integrated with Test Reporting & Analytics.\nSecret Scanner Detect and secure secrets in API requests and elements against unwanted sharing or syncing.\nExternal Vault Integrations Secret management with HashiCorp Vault, Azure Key Vault and 1Password integrations.\nPrivate API Network Upcoming Share and discover private APIs securely with internal teams, with organization-level ownership and governance.\nAdvanced API Design, Docs & Governance Upcoming Build and validate implementation-ready specs and enforce design rules and publish live, embeddable docs on the fly.\nAdd-ons\nEnterprise\nContact Sales\nannual only\nSecurity, governance and control at organization scale\nContact Sales\nAdd on to Team or Team Pro for enterprise features, high-touch support, and advanced compliance\nSingle Sign-On (SAML) & SCIM provisioning\nAdvanced access control (attribute-based RBAC)\nAudit logs with SIEM export\nData residency and self-hosting\nPriority support\nLooking for HTTP Rules pricing? Click here\nCompare plans in detail\nFeature list\nRequestly API Platform\nTeam\n$10\nper user / month, billed annually\nTeam Pro\n$15\nper user / month, billed annually\nEnterprise\nContact Sales\nannual only\nCore API Client\nREST, GraphQL & SOAP composers Dedicated request composers for REST, GraphQL and SOAP, each with the body, header and query editors that protocol needs.\nWebSocket, gRPC & MQTT (build, send & run) Build, send and run realtime and streaming protocols — WebSocket, Socket.IO, gRPC and MQTT — alongside your HTTP requests.\nCode-snippet generation Generate a ready-to-paste client snippet for any request, in the language and library your team already uses.\nCookie jar A per-domain cookie store that persists across requests, so authenticated session flows behave as they do in a browser.\nImport & migration (Postman, Insomnia, Bruno) Bring collections and variables across from Postman, OpenAPI, HAR, cURL, WSDL, SoapUI or Bruno. Existing test scripts run without a rewrite.\nExport & backup Export any collection or project to a portable file at any time, so your work is never locked in.\nCollections & environment\nCollections & folders Group related requests into collections and nested folders that mirror how your APIs are organised.\nRequest history & search Every request you send is retained and searchable, so you can find and replay a past call.\nVariables & scoping Define variables at global, project, environment and request scope, with the nearest scope winning.\nAuth & secrets\nAdvanced Auth types (API key / Bearer / Basic, OAuth 1/2, JWT, NTLM) All auth helpers — API key, Bearer, Basic, OAuth 1.0 & 2.0, JWT and NTLM — configured per request, folder or collection.\nAWS SigV4 request signing Signature Version 4 for calling AWS APIs and other SigV4-protected endpoints.\nmTLS / client & CA certificates Client certificates and custom CA bundles for mutual-TLS endpoints.\nVault & secret managers\nLocal vault An encrypted local vault that keeps credentials on your own machine and out of collection files.\nExternal vault integrations (HashiCorp, Azure, 1Password) Securely pull secrets from HashiCorp Vault, Azure Key Vault and 1Password integrations.\nSecret scanner Detect potential secrets in API requests and elements against unwanted sharing or syncing.\nScripting, testing & automation\nPre/post-request scripts Run JavaScript before a request or after the response arrives, to set up state or assert on results.\nAssertions & no-code test builder Write assertions in script or visually without code from a guided editor.\nCollection runner (unlimited) Run a whole collection locally as often as you need — runs are not metered and carry no credit cap.\nCLI runner Run the same collections in terminal or CI agent using the Requestly CLI.\nCI/CD integration Wire collection runs into your pipeline to gate a build like any other test suite.\nData-driven testing Drive one request over data supplied from a file, producing a result per row.\nScheduled cloud runs Run collections on a schedule without keeping a machine of your own left running.\nReusable script library Share helper functions and snippets across requests and collections instead of copying script between them.\nBasic test-result history Retain the results of recent runs to inspect what passed and what failed.\nAdvanced Test Reporting & Analytics Test reports, exportable execution trends over time, integrated with Test Reporting & Analytics.\nMock servers\nMock servers (generated from a collection) Spin up a mock server rapidly from a collection, to unblock front-end and mobile teams while the API is still in progress.\nDynamic / stateful mocks Mocks that vary their response by request content and remember state across calls, rather than replaying one fixed payload.\nCollaboration & projects\nTeam projects Cloud-backed projects where collections, environments and history are shared with your team in realtime.\nShared team environments with secret masking Share environments across the team while keeping secret values masked from members who should not read them.\nShared / managed package library A managed library of shared script packages, available to every project in the organisation.\nComments & mentions Discuss a request or spec in place, and pull a teammate in with an @mention.\nActivity Logs A feed of who changed what, and when, across the project.\nLocal Projects Projects that live on your own machine, giving you complete control over your data, with full native Git workflows.\nVersion Control (Local projects only) Full version control for Local Projects, backed by Git and working the way your code repository does.\n2-way Git sync Push and pull collection changes to GitHub or GitLab, so API changes follow the same review and branching workflow as code.\nBranching, forking & pull requests Branch or fork a collection, then merge it back through a pull request.\nMerge & conflict resolution Resolve conflicting edits to the same request or collection through a guided merge.\nDiff view See exactly what changed between two versions of a collection, request or spec.\nAI Suite\nAI test / assertion generation Generate tests and assertions for a request from its schema and its past responses.\nAI-assisted debugging & error resolution Explain a failing request or response, and suggest the fix.\nAI assistant An in-app assistant that answers questions about your APIs and carries out work in the client.\nMCP server (upcoming) Expose your APIs and collections to AI IDEs and agents over the Model Context Protocol.\nAPI design & docs\nBasic API Design & Docs Publish a released spec version as documentation with a shareable link, choosing public, internal, or password access.\nSchema ↔ collection sync Keep an OpenAPI spec and the collection generated from it in step, in both directions.\nSchema versioning Version and release specs, so consumers can pin to a known revision.\nDesign Governance rules Auto-enforced API design and governance rules, applied as specs are authored.\nAuto-generated hosted docs Documentation generated from the spec and hosted for you, refreshed on each release.\nEmbeddable docs Embed the generated documentation in your own site or developer portal.\nPerformance testing\nIntegration with Load Testing Hand a collection or request to BrowserStack Load Testing to run it under load.\nEnterprise & identity\nSSO / SAML & SCIM provisioning Single sign-on over SAML, with user and group provisioning through SCIM.\nAdvanced / attribute-based RBAC Fine-grained, attribute-based roles and permissions, beyond the standard member roles.\nAudit logs + SIEM export A tamper-evident audit trail of platform activity, exportable to your SIEM.\nData residency / self-hosting Choose the region your data is stored in, or run the platform on your own infrastructure.\nPriority support Priority routing and response-time commitments on support requests.\nStart in under 2 minutes\nImport your Postman collections and start testing in minutes.\nContact Sales\n30-day trial · Full Team Pro entitlements · No credit card required\nSummarize Requestly with AI\nThe Git-native API client for teams that design, build and test APIs at scale.\nFeatures\nSave & Organize Requests Environment Variables GraphQL APIs Pre & Post Scripts API Test Generator Collection Runner Import / Export Collaboration & Sharing All features\nResources\nPricing Blog Use Cases Academy Privacy Policy Terms of Service Refunds and Cancellations\nCompany\nAbout Us Contact Us Careers Press EULA Community Guidelines\nDevelopers\nRelease notes Report issues GraphQL support API Explorer Github Extension for Chrome Extension for Edge Extension for Firefox Extension for Safari\nCompare Requestly with\nPostman Bruno Insomnia Hoppscotch\nDownload API Client\nmacOS Windows Linux\nCopyright © 2026 BrowserStack, Inc. All rights reserved.\nSOC2 GDPR DPA",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "30分で作ったChrome拡張を、広告もランディングページも使わず開発者20万人超に広め、2025年にBrowserStackの一員になった創業者",
+     "basis": [
+      "f2",
+      "f7",
+      "f11",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "最初は、本番環境の圧縮されたJavaScriptを調べる苛立ちから、創業者が約30分で作ったChrome拡張だった。2018年に、JavaScriptの差し替えだけの道具として出発し、ヘッダーの書き換え、通信の傍受、チームでの共有へ広げた。広告やランディングページには頼らず、Stack OverflowとGitHubで開発者の間に広まった。Y Combinatorに採択され、API応答のモックに軸足を絞って企業向けの認証も足し、2025年5月にBrowserStackへ加わった。",
+     "basis": [
+      "f2",
+      "f3",
+      "f5",
+      "f6",
+      "f7",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "基本機能はオープンソースで公開して開発者に広め、チームと企業向けの有料プランで稼ぐ。利益の最大化より浸透を優先する、と創業者が意図して選んだ形。",
+     "basis": [
+      "f8",
+      "f13"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "画面側の開発者は、バックエンド担当のAPI完成待ちと、不安定なバックエンドに作業を止められる。偽の応答を返せれば、待たずに画面側を進められる。",
+     "basis": [
+      "f1",
+      "f11"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "広告やランディングページに頼らず、Stack OverflowとGitHubが販売経路のすべてだった、とBaremetricsの紹介文は説明する。",
+     "basis": [
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、プロキシ設定や証明書の導入が要らず、会社のVPNでも動く、と発表は説明する。",
+     "basis": [
+      "f3"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "JavaScriptの差し替えから始まり、HTTPヘッダーの書き換え、チームでの共有、API応答のモックへと広げた。モックが最も製品に合うと判断し、API未完成のまま進めたい画面側の開発者向けに重心を移した。",
+     "basis": [
+      "f3",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "BrowserStackは、独立したオープンソースの道具として続ける方針を示し、公式サイトは30万人超の開発者に使われているとうたう。",
+     "basis": [
+      "f10",
+      "f15"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "identity": {
+    "id": "ent_requestly_28e9f2",
+    "name": "Requestly",
+    "url": "https://requestly.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_dfaaa1671548242e09d1a118",
+      "entityId": "ent_requestly_28e9f2",
+      "kind": "favicon",
+      "sourcePageUrl": "https://requestly.com/",
+      "assetUrl": "https://requestly.com/img/brand/requestly-icon.svg",
+      "retrievedAt": "2026-10-06T09:46:44.167Z",
+      "capturedBy": "media-fetch-20261006",
+      "sha256": "dfaaa1671548242e09d1a118568f24e69c7e7696011fa0bcd18ce7721bfdd615",
+      "bytes": 6837,
+      "contentType": "image/svg+xml",
+      "width": 16,
+      "height": 16,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Requestly 公式サイト (https://requestly.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-06T09:47:21.120Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 16x16)、SHA-256が台帳と一致 (dfaaa1671548)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_requestly_28e9f2/dfaaa1671548242e09d1a118568f24e69c7e7696011fa0bcd18ce7721bfdd615.svg",
+       "publicKey": "media/ent_requestly_28e9f2/dfaaa1671548242e09d1a118568f24e69c7e7696011fa0bcd18ce7721bfdd615.svg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_dfaaa1671548242e09d1a118",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-06T09:47:21.120Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 16x16)、SHA-256が台帳と一致 (dfaaa1671548)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_dfaaa1671548242e09d1a118"
+    ],
+    "problems": []
+   },
+   "snapshot": {
+    "identity": {
+     "id": "ent_requestly_28e9f2",
+     "name": "Requestly",
+     "url": "https://requestly.com",
+     "publishability": "PARTIAL"
+    },
+    "entityEligible": true,
+    "reader": {
+     "sources": [
+      {
+       "id": "s1",
+       "publisher": "Requestly公式サイト（製品ページ）",
+       "url": "https://requestly.com/products/",
+       "title": "Requestly Products",
+       "checkedAt": "2026-10-06",
+       "kind": "OFFICIAL"
+      },
+      {
+       "id": "s2",
+       "publisher": "BrowserStack プレスリリース",
+       "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+       "title": "BrowserStack Acquires Requestly",
+       "publishedAt": "2025-05",
+       "checkedAt": "2026-10-06",
+       "kind": "OFFICIAL"
+      },
+      {
+       "id": "s4",
+       "publisher": "Baremetrics Founder Chats",
+       "url": "https://baremetrics.com/founder-chats/sachin-jain",
+       "title": "Accidentally Building a Y Combinator-backed Startup with Sachin Jain",
+       "publishedAt": "2025-11",
+       "checkedAt": "2026-10-06",
+       "kind": "ARTICLE"
+      },
+      {
+       "id": "s6",
+       "publisher": "Requestly公式サイト（料金ページ）",
+       "url": "https://requestly.com/pricing/",
+       "title": "Pricing — Requestly API Platform",
+       "checkedAt": "2026-10-06",
+       "kind": "OFFICIAL"
+      }
+     ],
+     "facts": [
+      {
+       "id": "f1",
+       "kind": "DESCRIPTION",
+       "text": "ブラウザのHTTP通信を途中で書き換えたり、モック（偽の応答）にしたりする開発者向けのオープンソースツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。",
+       "sourceId": "s2",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f2",
+       "kind": "FOUNDING",
+       "text": "創業者Sachin Jainは、本番環境の圧縮されたJavaScriptをデバッグしたいという苛立ちから、約30分でChrome拡張の最初の版を作った。Baremetricsの紹介文は、週末の個人制作から始まったと説明する。",
+       "sourceId": "s4",
+       "statedAt": "2025-11",
+       "attribution": "ARTICLE"
+      },
+      {
+       "id": "f3",
+       "kind": "EVENT",
+       "text": "2018年、JavaScriptファイルを差し替えるだけの道具として始まった。変更を試すためだけに配備し直す手間を省く道具で、のちにコンテンツセキュリティポリシーに当たった開発者向けにHTTPヘッダーの書き換えも加わった。デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、システム全体のプロキシ設定や証明書の導入が要らず、会社のVPNでも動く。その後、チームで設定を共有する機能が加わった。",
+       "sourceId": "s2",
+       "statedAt": "2025-05",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f4",
+       "kind": "TEAM",
+       "text": "Sachin Jainは共同創業者でCEO。Baremetricsの紹介文によれば、Googleのインターンとアドビのエンジニアを経て起業した。",
+       "sourceId": "s4",
+       "statedAt": "2025-11",
+       "attribution": "ARTICLE"
+      },
+      {
+       "id": "f5",
+       "kind": "EVENT",
+       "text": "チームは、API応答の偽装（モック）が最も製品に合っていると見て、バックエンドの完成待ちから画面側の開発者を解放する方向へ軸足を移した。企業向けにはSSO、SLA、分析と報告、役割別の権限管理、SOC2 Type II認証を足した。",
+       "sourceId": "s2",
+       "statedAt": "2025-05",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f6",
+       "kind": "OTHER",
+       "text": "Baremetricsの紹介文によれば、Requestlyは約1万7千件の応募から採択された414社の1社としてY Combinatorに入った。",
+       "sourceId": "s4",
+       "statedAt": "2025-11",
+       "attribution": "ARTICLE"
+      },
+      {
+       "id": "f7",
+       "kind": "CHANNEL",
+       "text": "Baremetricsの対談の紹介文は、ランディングページやマーケティングに頼らず自然に広まり、Stack OverflowとGitHubが販売戦略のすべてだったと説明する。",
+       "sourceId": "s4",
+       "statedAt": "2025-11",
+       "attribution": "ARTICLE"
+      },
+      {
+       "id": "f8",
+       "kind": "OTHER",
+       "text": "収益化では、純粋な収益化よりオープンコアモデルを選んだ。",
+       "sourceId": "s4",
+       "statedAt": "2025-11",
+       "attribution": "ARTICLE"
+      },
+      {
+       "id": "f9",
+       "kind": "FUNDING",
+       "text": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）、複数の著名エンジェルの出資を受けたと書く。",
+       "sourceId": "s2",
+       "statedAt": "2025-05",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f10",
+       "kind": "EXIT",
+       "text": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。",
+       "sourceId": "s2",
+       "statedAt": "2025-05-06",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f11",
+       "kind": "EXIT",
+       "text": "発表によれば、買収時のRequestlyは20万人超の開発者、1万社超の企業が使い、Chromeストアの評価は1,200件超のレビューで4.3。Sachin Jainは、環境とバックエンド担当への依存でコードの通しテストが止まる無駄な開発時間への苛立ちから生まれたと述べている。",
+       "sourceId": "s2",
+       "statedAt": "2025-05",
+       "attribution": "SELF_REPORTED"
+      },
+      {
+       "id": "f12",
+       "kind": "OTHER",
+       "text": "売り先の選び方について、創業者は価格より適した買い手を優先する考え方を語っている。",
+       "sourceId": "s4",
+       "statedAt": "2025-11",
+       "attribution": "ARTICLE"
+      },
+      {
+       "id": "f13",
+       "kind": "PRICING",
+       "text": "料金ページはAPI PlatformのTeamを年払いで1利用者あたり月換算$10、Team Proを$15と表示する。",
+       "sourceId": "s6",
+       "attribution": "OFFICIAL"
+      },
+      {
+       "id": "f15",
+       "kind": "OTHER",
+       "text": "公式の製品ページは、通信を書き換えるルール機能、APIクライアント、モックサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを並べ、30万人超の開発者に使われているとうたう。",
+       "sourceId": "s1",
+       "attribution": "OFFICIAL"
+      }
+     ],
+     "metrics": [
+      {
+       "id": "m2",
+       "measure": "USERS",
+       "periodKind": "POINT",
+       "period": "2025-05",
+       "amount": 200000,
+       "unit": "人",
+       "origin": "SELF_REPORTED",
+       "sourceId": "s2"
+      }
+     ],
+     "unknowns": [
+      "REVENUE",
+      "PROFIT",
+      "COST",
+      "TOOLS"
+     ],
+     "analysis": [
+      {
+       "id": "a-headline",
+       "item": "HEADLINE",
+       "text": "30分で作ったChrome拡張を、広告もランディングページも使わず開発者20万人超に広め、2025年にBrowserStackの一員になった創業者",
+       "basis": [
+        "f2",
+        "f7",
+        "f11",
+        "f10"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-story",
+       "item": "STORY",
+       "text": "最初は、本番環境の圧縮されたJavaScriptを調べる苛立ちから、創業者が約30分で作ったChrome拡張だった。2018年に、JavaScriptの差し替えだけの道具として出発し、ヘッダーの書き換え、通信の傍受、チームでの共有へ広げた。広告やランディングページには頼らず、Stack OverflowとGitHubで開発者の間に広まった。Y Combinatorに採択され、API応答のモックに軸足を絞って企業向けの認証も足し、2025年5月にBrowserStackへ加わった。",
+       "basis": [
+        "f2",
+        "f3",
+        "f5",
+        "f6",
+        "f7",
+        "f10"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-business_model",
+       "item": "BUSINESS_MODEL",
+       "text": "基本機能はオープンソースで公開して開発者に広め、チームと企業向けの有料プランで稼ぐ。利益の最大化より浸透を優先する、と創業者が意図して選んだ形。",
+       "basis": [
+        "f8",
+        "f13"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-customer_pain",
+       "item": "CUSTOMER_PAIN",
+       "text": "画面側の開発者は、バックエンド担当のAPI完成待ちと、不安定なバックエンドに作業を止められる。偽の応答を返せれば、待たずに画面側を進められる。",
+       "basis": [
+        "f1",
+        "f11"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-channels",
+       "item": "CHANNELS",
+       "text": "広告やランディングページに頼らず、Stack OverflowとGitHubが販売経路のすべてだった、とBaremetricsの紹介文は説明する。",
+       "basis": [
+        "f7"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-competition",
+       "item": "COMPETITION",
+       "text": "デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、プロキシ設定や証明書の導入が要らず、会社のVPNでも動く、と発表は説明する。",
+       "basis": [
+        "f3"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-pivots",
+       "item": "PIVOTS",
+       "text": "JavaScriptの差し替えから始まり、HTTPヘッダーの書き換え、チームでの共有、API応答のモックへと広げた。モックが最も製品に合うと判断し、API未完成のまま進めたい画面側の開発者向けに重心を移した。",
+       "basis": [
+        "f3",
+        "f5"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      },
+      {
+       "id": "a-viability",
+       "item": "VIABILITY",
+       "text": "BrowserStackは、独立したオープンソースの道具として続ける方針を示し、公式サイトは30万人超の開発者に使われているとうたう。",
+       "basis": [
+        "f10",
+        "f15"
+       ],
+       "formula": "数字は出典に載っている値",
+       "presentation": "FACT_SUMMARY"
+      }
+     ],
+     "summaryFactId": "f1"
+    },
+    "verdicts": {
+     "f1": {
+      "verdict": "PARTIAL",
+      "quote": "the popular open-source HTTP interception and API mocking tool",
+      "fix": {
+       "text": "ブラウザのHTTP通信を途中で書き換えたり、モック（偽の応答）にしたりする開発者向けのオープンソースツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。"
+      },
+      "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "checkedAt": "2026-10-06",
+      "claimText": "ブラウザやアプリのHTTP通信を途中で書き換えたり、偽の応答を返したりする開発者向けツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。オープンソースで、API設計・テスト用のAPIクライアントも持つ。"
+     },
+     "f2": {
+      "verdict": "SUPPORTED",
+      "quote": "transforming a weekend Chrome extension project into a Y Combinator-backed company",
+      "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+      "checkedAt": "2026-10-06",
+      "claimText": "創業者Sachin Jainは、本番環境の圧縮されたJavaScriptをデバッグしたいという苛立ちから、約30分でChrome拡張の最初の版を作った。Baremetricsの紹介文は、週末の個人制作から始まったと説明する。"
+     },
+     "f3": {
+      "verdict": "SUPPORTED",
+      "quote": "What began in 2018 as a simple tool to redirect JavaScript files for local testing",
+      "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "checkedAt": "2026-10-06",
+      "claimText": "2018年、JavaScriptファイルを差し替えるだけの道具として始まった。変更を試すためだけに配備し直す手間を省く道具で、のちにコンテンツセキュリティポリシーに当たった開発者向けにHTTPヘッダーの書き換えも加わった。デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、システム全体のプロキシ設定や証明書の導入が要らず、会社のVPNでも動く。その後、チームで設定を共有する機能が加わった。"
+     },
+     "f4": {
+      "verdict": "SUPPORTED",
+      "quote": "His journey from Google intern and Adobe engineer to successful founder",
+      "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+      "checkedAt": "2026-10-06",
+      "claimText": "Sachin Jainは共同創業者でCEO。Baremetricsの紹介文によれば、Googleのインターンとアドビのエンジニアを経て起業した。"
+     },
+     "f5": {
+      "verdict": "SUPPORTED",
+      "quote": "the team refocused on helping developers work independently from backend dependencies",
+      "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "checkedAt": "2026-10-06",
+      "claimText": "チームは、API応答の偽装（モック）が最も製品に合っていると見て、バックエンドの完成待ちから画面側の開発者を解放する方向へ軸足を移した。企業向けにはSSO、SLA、分析と報告、役割別の権限管理、SOC2 Type II認証を足した。"
+     },
+     "f6": {
+      "verdict": "SUPPORTED",
+      "quote": "one of 414 accepted from 17,000 applications",
+      "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+      "checkedAt": "2026-10-06",
+      "claimText": "Baremetricsの紹介文によれば、Requestlyは約1万7千件の応募から採択された414社の1社としてY Combinatorに入った。"
+     },
+     "f7": {
+      "verdict": "PARTIAL",
+      "quote": "how Stack Overflow and GitHub became their entire GTM strategy",
+      "fix": {
+       "text": "Baremetricsの対談の紹介文は、ランディングページやマーケティングに頼らず自然に広まり、Stack OverflowとGitHubが販売戦略のすべてだったと説明する。"
+      },
+      "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+      "checkedAt": "2026-10-06",
+      "claimText": "Baremetricsの対談の紹介文は、ランディングページや広告に頼らず自然に広まり、Stack OverflowとGitHubが販売経路のすべてだったと説明する。"
+     },
+     "f8": {
+      "verdict": "PARTIAL",
+      "quote": "why he chose the open core model over pure monetization",
+      "fix": {
+       "text": "収益化では、純粋な収益化よりオープンコアモデルを選んだ。"
+      },
+      "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+      "checkedAt": "2026-10-06",
+      "claimText": "収益化では、利益の最大化より開発者への浸透を優先し、基本機能を公開する「オープンコア」を選んだ。無料の個人利用に加えて、チームや企業向けに有料のプランを売る。"
+     },
+     "f9": {
+      "verdict": "PARTIAL",
+      "quote": "Requestly was funded by YCombinator, PeakXV partners (formerly Sequoia SEA), and many marquee angels.",
+      "fix": {
+       "text": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）、複数の著名エンジェルの出資を受けたと書く。"
+      },
+      "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "checkedAt": "2026-10-06",
+      "claimText": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）のSurge、複数の著名エンジェルの出資を受けたと書く。出資額は記載がない。"
+     },
+     "f10": {
+      "verdict": "PARTIAL",
+      "quote": "DUBLIN—May 6, 2025 — BrowserStack today announced the acquisition of Requestly",
+      "fix": {
+       "text": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。"
+      },
+      "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "checkedAt": "2026-10-06",
+      "claimText": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。買収額の記載はない。"
+     },
+     "f11": {
+      "verdict": "SUPPORTED",
+      "quote": "trusted by 200,000+ developers from 10,000+ companies, ranging from Fortune 500 to startups",
+      "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "checkedAt": "2026-10-06",
+      "claimText": "発表によれば、買収時のRequestlyは20万人超の開発者、1万社超の企業が使い、Chromeストアの評価は1,200件超のレビューで4.3。Sachin Jainは、環境とバックエンド担当への依存でコードの通しテストが止まる無駄な開発時間への苛立ちから生まれたと述べている。"
+     },
+     "f12": {
+      "verdict": "SUPPORTED",
+      "quote": "the acquisition framework that prioritizes the right buyer over the right price",
+      "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+      "checkedAt": "2026-10-06",
+      "claimText": "売り先の選び方について、創業者は価格より適した買い手を優先する考え方を語っている。"
+     },
+     "f13": {
+      "verdict": "SUPPORTED",
+      "quote": "$10 / user / month",
+      "sourceUrl": "https://requestly.com/pricing/",
+      "checkedAt": "2026-10-06",
+      "claimText": "料金ページはAPI PlatformのTeamを年払いで1利用者あたり月換算$10、Team Proを$15と表示する。"
+     },
+     "f14": {
+      "verdict": "SUPPORTED",
+      "quote": "Requestly is used by more than 180,000+ developers across 5000+ organizations around the globe.",
+      "sourceUrl": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
+      "checkedAt": "2026-10-06",
+      "claimText": "創業者本人のブログは、2023年3月時点でRequestlyを5,000超の組織の18万人超の開発者が使うと書く。Chrome DevToolsにはHTTP要求・応答を書き換える機能が無く、その穴を埋める道具だという位置づけ。"
+     },
+     "f15": {
+      "verdict": "SUPPORTED",
+      "quote": "Trusted by 300,000+ developers, from next-gen startups to Fortune 500 companies.",
+      "sourceUrl": "https://requestly.com/products/",
+      "checkedAt": "2026-10-06",
+      "claimText": "公式の製品ページは、通信を書き換えるルール機能、APIクライアント、モックサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを並べ、30万人超の開発者に使われているとうたう。"
+     },
+     "m1": {
+      "verdict": "SUPPORTED",
+      "quote": "Requestly is used by more than 180,000+ developers across 5000+ organizations around the globe.",
+      "sourceUrl": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
+      "checkedAt": "2026-10-06",
+      "claimText": "項目=USERS / 期間=2023-03(POINT) / 金額=180000 人 / 由来=SELF_REPORTED"
+     },
+     "m2": {
+      "verdict": "SUPPORTED",
+      "quote": "empowering 200,000+ developers across 10,000+ companies",
+      "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "checkedAt": "2026-10-06",
+      "claimText": "項目=USERS / 期間=2025-05(POINT) / 金額=200000 人 / 由来=SELF_REPORTED"
+     }
+    },
+    "media": {
+     "assets": [
+      {
+       "assetId": "ma_dfaaa1671548242e09d1a118",
+       "entityId": "ent_requestly_28e9f2",
+       "kind": "favicon",
+       "sourcePageUrl": "https://requestly.com/",
+       "assetUrl": "https://requestly.com/img/brand/requestly-icon.svg",
+       "retrievedAt": "2026-10-06T09:46:44.167Z",
+       "capturedBy": "media-fetch-20261006",
+       "sha256": "dfaaa1671548242e09d1a118568f24e69c7e7696011fa0bcd18ce7721bfdd615",
+       "bytes": 6837,
+       "contentType": "image/svg+xml",
+       "width": 16,
+       "height": 16,
+       "rights": {
+        "basis": "official_marketing_material",
+        "termsUrl": null,
+        "licence": null,
+        "attribution": "出典: Requestly 公式サイト (https://requestly.com/)",
+        "decision": "allowed",
+        "reviewedAt": "2026-10-06T09:47:21.120Z",
+        "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 16x16)、SHA-256が台帳と一致 (dfaaa1671548)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+       },
+       "storage": {
+        "bucket": "foundation-raw",
+        "key": "media/ent_requestly_28e9f2/dfaaa1671548242e09d1a118568f24e69c7e7696011fa0bcd18ce7721bfdd615.svg",
+        "publicKey": "media/ent_requestly_28e9f2/dfaaa1671548242e09d1a118568f24e69c7e7696011fa0bcd18ce7721bfdd615.svg"
+       },
+       "subjectIsPerson": false,
+       "review": {
+        "assetId": "ma_dfaaa1671548242e09d1a118",
+        "decision": "allowed",
+        "subjectIsPerson": false,
+        "reviewer": "auto-rule-v4",
+        "reviewedAt": "2026-10-06T09:47:21.120Z",
+        "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 16x16)、SHA-256が台帳と一致 (dfaaa1671548)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+       }
+      }
+     ],
+     "displayableIds": [
+      "ma_dfaaa1671548242e09d1a118"
+     ],
+     "problems": []
+    },
+    "sources": [
+     {
+      "sourceId": "s1",
+      "url": "https://requestly.com/products/",
+      "publisher": "Requestly公式サイト（製品ページ）",
+      "snapshot": {
+       "url": "https://requestly.com/products/",
+       "finalUrl": "https://requestly.com/products/",
+       "status": 200,
+       "fetchedAt": "2026-10-06T10:01:22.196Z",
+       "via": "direct",
+       "contentType": "text/html; charset=utf-8",
+       "textHash": "0f2394e0c80741f4599969d33662a1ebf33543c5b93507b9de2703fc271d2b62"
+      },
+      "text": "Products - Requestly\nBoost your web development with Requestly’s HTTP Interceptor. Debug, test, and optimize by managing and manipulating HTTP requests with ease.\nProducts - Requestly\nBoost your web development with Requestly’s HTTP Interceptor. Debug, test, and optimize by managing and manipulating HTTP requests with ease.\nProducts - Requestly\n📣 Requestly: design, build and test APIs, all in one place. Switch from Postman in 1 click → ×\nProduct Build & organize\nEnvironments & Variables Swap dev, staging, prod values\nDynamic Variables 100+ built-in data generators\nGraphQL Client Queries, mutations, introspection\nSOAP & gRPC WSDL, reflection and streaming\nTest & automate\nCollection Runner Run a whole collection in order\nAPI Tests & Assertions Assert on status, body, schema\nAI Test Case Generator Tests from a plain-English prompt\nRequestly CLI Run collections in CI\nGovern & secure\nVault Encrypted secrets, never exported\nTeam Workspaces Shared projects, synced, roles\nLocal Projects Collections as files on your disk\nEnterprise Security SOC 2, SSO, RBAC and audit logs\nMore tools\nHTTP Interceptor\nFile Server\nAPI Explorer\nAll features Release notes\nRequestly vs Postman A line-by-line comparison Import from Postman Collections, folders and environments Talk to sales Self-hosted, pilots and procurement\nPricing\nRequestly vs Postman\nResources Documentation Downloads Blog Case Studies Status Release Notes\nDocs Download\n×\nProduct\nBuild & organize\nEnvironments & Variables Dynamic Variables GraphQL Client SOAP & gRPC\nTest & automate\nCollection Runner API Tests & Assertions AI Test Case Generator Requestly CLI\nGovern & secure\nVault Team Workspaces Local Projects Enterprise Security More tools\nHTTP Interceptor File Server Import from Postman All features Pricing Requestly vs Postman Blog Docs Download\nHome / Products\nSuper charge your web development\nBoost your web development with Requestly’s HTTP Interceptor. Debug, test, and optimize by managing and manipulating HTTP requests with ease.\nDownload Now See pricing\nTrusted by 300,000+ developers, from next-gen startups to Fortune 500 companies.\nWhy engineering teams choose Requestly\nComplete Data Sovereignty\nChoose local, team sync, or self-hosted. Your data never leaves your control.\nPredictable, Flat Pricing\nFlat per-user pricing. Enterprise governance without hidden add-ons.\nLightweight & Developer-First\nOpen. Hit endpoint. Get response. No bloat, no lag, no noise.\nHTTP interceptor\nAn open-source tool to intercept & modify network requests, headers, API requests, inject scripts & much more. A complete HTTP debugging software that works on your browser, simple & fast.\nModify responses\nIntercept, Modify & Mock API Responses in Real-Time\nQuery params\nAdd or Remove Query Parameters in any website URL.\nCross Device Testing\nTest your website across multiple devices seamlessly\nModify headers\nModify HTTP request & response headers.\nReplace string\nReplace part of URL like hostname, query values.\nInsert scripts\nInject Custom JS & CSS on any website(s).\nCancel Rule\nBlock URLs by specifying keywords or complete URL.\nRedirect Rule\nRedirect URL to a different page or site\nOverride Graphql\nModify or override GraphQL requests easily\nMock Server Open-source Mock Server to quickly create mock API endpoints for testing without creating an actual API. Edit Content-Type, Status Code, Headers, and Response body easily on the Mock Server. Mock collections Intercept, Modify & Mock API Responses in Real-Time Generate content using AI GPT-based API Response generator will help you . Host Files Upload any HTML/CSS/JS files and generate public links. Set HTTP Headers Set mock API’s HTTP Headers and Status Code API Client Quickly create mock API endpoints with the Requestly API Client for seamless testing—no need to build a real API. Effortlessly customize the Content-Type, Status Code, Headers, and Response Body to simulate various scenarios Import cURL requests Easily import cURL requests from any platform Test API responses Send API requests and test responses API request history View and analyze your API request history\nBuilt for teams Effortless team collaboration\nEffortless team collaboration\nShare instantly, sync effortlessly, and collaborate effectively with your team in dedicated workspaces.\nQuick One time sharing: Instantly generate a link for your assets, such as rules, mocks, and recordings, and share it with your team in one click.\nTeam workspaces: Easily collaborate with teammates in a shared workspace. Group assets, such as mocks, rules, and sessions, in one place.\nExport data & sync to Git: Developers utilize session data directly in pull requests.\nEnterprise-ready security and compliance\nRequestly ensures top-tier security with SOC-II compliance, SSO integration, and role-based access control. We protect your data and secure your workflows, making us the ideal choice for enterprises.\nSOC-II Compliance\nAdheres to rigorous security standards for data protection and privacy.\nSingle Sign-On (SSO)\nSimplifies user access with secure, centralized authentication.\nRole-based access control\nEnsures precise control over user permissions and data access.\nData encryption\nProtects your data in transit and at rest with advanced encryption protocols.\nAudit logs\nProtects your data in transit and at rest with advanced encryption protocols.\nRegular security updates\nKeeps your environment secure with timely updates and patches.\nGet started with Requestly\nIntercept, modify and mock HTTP requests, build and test APIs, and host files.\nDownload Requestly See pricing\nmacOS, Windows & Linux\nSummarize Requestly with AI\nThe Git-native API client for teams that design, build and test APIs at scale.\nFeatures\nSave & Organize Requests Environment Variables GraphQL APIs Pre & Post Scripts API Test Generator Collection Runner Import / Export Collaboration & Sharing All features\nResources\nPricing Blog Use Cases Academy Privacy Policy Terms of Service Refunds and Cancellations\nCompany\nAbout Us Contact Us Careers Press EULA Community Guidelines\nDevelopers\nRelease notes Report issues GraphQL support API Explorer Github Extension for Chrome Extension for Edge Extension for Firefox Extension for Safari\nCompare Requestly with\nPostman Bruno Insomnia Hoppscotch\nDownload API Client\nmacOS Windows Linux\nCopyright © 2026 BrowserStack, Inc. All rights reserved.\nSOC2 GDPR DPA",
+      "policy": {
+       "policyId": "rights.official-company-website.v1",
+       "sourceId": "src.official-company-website",
+       "providerName": "Official company or product website (entity-bound)",
+       "displayTier": "automatic",
+       "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+      }
+     },
+     {
+      "sourceId": "s2",
+      "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "publisher": "BrowserStack プレスリリース",
+      "snapshot": {
+       "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+       "finalUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+       "status": 200,
+       "fetchedAt": "2026-10-06T10:01:22.197Z",
+       "via": "direct",
+       "contentType": "text/html; charset=UTF-8",
+       "textHash": "e13cbdc935f7ec20406ba7285d0a1690e846f77dcbe89d408c77724cdeaa9bda"
+      },
+      "text": "BrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests | BrowserStack\nBrowserStack today announced the acquisition of Requestly, the popular open-source HTTP interception and API mocking tool.\nBrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests | BrowserStack\nBrowserStack today announced the acquisition of Requestly, the popular open-source HTTP interception and API mocking tool.\nBrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests | BrowserStack\nSkip to main content\nProducts Featured Popular products for your test stack\nWeb Testing Test websites and web apps on real browsers\nMobile App Testing Test iOS & Android mobile apps on real devices\nAccessibility Automate accessibility compliance for websites & mobile apps\nPopular products for your test stack\nWEB TESTING\nLive Manual cross-browser testing\nAutomate Browser automation cloud\nAccessibility Testing Automate web compliance\nTest Companion Agentic testing in IDE\nLow Code Automation Automation without coding\nMOBILE APP TESTING\nApp Live Real device testing\nApp Automate Mobile app automation cloud\nApp Accessibility Testing Automate mobile app compliance\nTest Companion Agentic testing in IDE\nMANAGEMENT & OPTIMIZATION\nTest Management Plan, track, and manage tests\nTest websites and web apps on real browsers\nManual Testing\nLive Cross-browser testing\nTesting Toolkit Essential manual testing tools\nAPI Testing\nRequestly Privacy-first API client\nTest Automation\nAutomate Browser automation cloud\nPercy Visual testing & review\nCustom Device Lab Tailored test environments\nTest Companion Agentic testing in IDE\nLoad Testing Test browser & API load\nManagement & Optimization\nTest Management Plan, track, and manage tests\nTest Management for Jira Manage tests inside JIRA\nTest Reporting & Analytics Monitor & optimize tests\nAutomation without coding\nLow Code Automation AI-driven automated tests\nExplore\nEnterprise\nTest iOS & Android mobile apps on real devices\nManual Testing\nApp Live Real device testing\nAPI Testing\nRequestly Privacy-first API client\nTest Automation\nApp Automate Mobile app automation cloud\nApp Percy Visual testing & review\nCustom Device Lab Tailored test environments\nTest Companion Agentic testing in IDE\nManagement & Optimization\nTest Management Plan, track, and manage tests\nTest Management for Jira Manage tests inside JIRA\nTest Reporting & Analytics Monitor & optimize tests\nAutomation without coding\nApp Low Code Automation AI-driven automated tests\nExplore\nEnterprise\nAutomate accessibility compliance for websites & mobile apps\nDesign\nLayout Scanner Scan UI layouts\nComponent Scanner Validate UI components\nCode\nLinter WCAG checks in your IDE\nWeb testing\nWorkflow Analyzer Test web workflows\nTest Automation Add WCAG checks to CI/CD\nScreen Readers Test NVDA, TalkBack, VoiceOver\nAssisted Tests Guided WCAG issue testing\nMobile app testing\nWorkflow Analyzer Test app workflows\nTest Automation Add WCAG checks to CI/CD\nScreen Readers Test Talkback & VoiceOver\nMonitor\nWebsite Scanner Schedule WCAG sitemap scans\nExplore\nSpectra for Web\nSpectra for App\nAI Agents\nExplore\nBrowserStack for Enterprise\nRequestly\nExplore\nBrowserStack for Enterprise\nRequestly\nExplore\nSpectra for Web\nSpectra for App\nAI Agents\nSolutions Use Cases\nTest Your Websites Deliver bug-free web experiences\nTest Your Apps Deliver bug-free app experiences\nScale Test Automation Stable builds & faster releases\nTest on Real Devices 30,000+ real iOS & Android devices\nTab Content Footer\nNot sure where to start?\nTalk to Us Not sure where to start?\nDevelopers Documentation\nSupport\nStatus\nRelease Notes\nOpen Source\nEvents\nMeetups\nBrowserStack Talks\nCommunity\nDiscord Community\nDevelopers Help & Support\nDocumentation Learn how to set up & configure\nHelp Desk General support articles & FAQs\nCheck status and uptime\nCommunity\nEvents QA leader connects & webinars\nDiscord Community Join our developer community\nMeetups Network with the best in testing\nChampions Register for our Champions program\nResources\nRelease Notes Feature releases & product updates\nOpen Source Unlimited access for open source\nBrowserStack Talks Hear from the best in testing\nGuides Best practices, trends & fundamentals\nAI Agents\nPricing\nAI Agents Featured AI Agents\nBuilt into BrowserStack products. No setup required\nTest Case Generator Agent Convert any requirement to test cases\nLow-Code Authoring Agent Test cases to low-code automated tests\nSelf-healing Agent Auto heals broken UI locators\nTest Failure Analysis Agent Analyzes failures and provides fixes\nA11y Issue Detection Agent Detect complex WCAG issues\nVisual Review Agent Highlight only meaningful visual changes\nA11y Issue Remediation Agent Fix accessibility issues like a WCAG expert\nTest Deduplication Agent Find and remove duplicate test cases\nAI Agents at every step of the testing lifecycle View all agents (opens in a new tab)\nContact Sales\nSign in\nFree Trial\nGo to Dashboard\nHome Press BrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests BrowserStack Acquires Requestly, a YCombinator Startup for HTTP Interception, Mocking & Debugging Network Requests\nStrategic acquisition addresses critical bottlenecks in modern web development through advanced HTTP interception, debugging, and mocking of network requests.\nDUBLIN—May 6, 2025 — BrowserStack today announced the acquisition of Requestly , the popular open-source HTTP interception and API mocking tool that eliminates critical bottlenecks in modern web development. This strategic acquisition strengthens BrowserStack’s commitment to developer productivity by supporting Requestly’s growth as a beloved HTTP interception and mocking solution, providing developers with tools that significantly accelerate their workflow.\nFrontend developers consistently face two major obstacles that derail productivity and delay releases: dependency on backend developers to complete APIs before frontend work can progress, and unreliable backend services during development and testing.\nThese challenges manifest as blocked sprints, delayed releases, and frustrated developer experiences when backend teams are still building needed endpoints or APIs don’t return data required for development.\nRequestly directly addresses these pain points through its browser-based approach to intercept and mock network requests:\nShift-left development experience : Delivers faster web development by offering comprehensive tools for HTTP interception, debugging, and mocking, supporting use cases from cloud-based mocking to JS redirects and local testing.\nZero-configuration setup : It installs directly into the browser and uses browser APIs to intercept and modify requests, eliminating the need to manage system-level proxy settings and install SSL certificates. This ensures it works well with corporate VPNs.\nOpen-source, secure, and enterprise-read y: Requestly is an open-source solution providing flexibility and speed for web development. For enterprises, Requestly provides features like SSO, SLAs, SOC-II compliance, reporting and analytics, and role-based access control for efficient management.\nSeamless workflow integration : Built primarily as a browser extension with a minimalistic and intuitive design, requiring no learning curve for developers.\nTeam collaboration : Enables teams to organize and collaborate on projects effectively through shared workspaces where users can instantly share rules, environments, and mocks.\nRequestly has achieved remarkable adoption among developers worldwide, trusted by 200,000+ developers from 10,000+ companies, ranging from Fortune 500 to startups. The tool maintains a Chrome Store rating of 4.3 from 1200+ reviews and has a growing open-source community with active contributors. As a YCombinator graduate and a part of Peak XV (formerly Sequoia) Surge, Requestly has established itself as a leading solution for interception, debugging, and mocking of HTTP requests.\n“Requestly was born from our own frustration of wasted developer hours due to broken workflows in end-to-end code testing caused by dependency on the environment & backend team,” said Sachin Jain, Founder of Requestly. “Joining BrowserStack means we can maintain our core values while accelerating our roadmap to address even more developer pain points. Our community will benefit from increased investment while we remain true to our vision and open-source roots.”\n“What drew us to Requestly was its innovative browser-native approach and the passionate developer community behind it,” said Ritesh Arora, CEO & Co-founder of BrowserStack. “We’re excited to accelerate Requestly’s disruption of the API mocking and interception space while preserving its open-source foundation. We’re backing Requestly’s growth while maintaining what developers love about it—this will help them innovate faster in a space ready for fresh thinking.”\nRequestly’s evolution mirrors the changing needs of modern web development. What began in 2018 as a simple tool to redirect JavaScript files for local testing has transformed into a comprehensive HTTP Interception & Mocking tool trusted by hundreds of thousands of developers.\nInitially, solving the frustration of deploying JavaScript changes just to test them, Requestly expanded to handle HTTP header modifications when developers faced Content Security Policy challenges. Taking a revolutionary Chrome-Extension based approach to HTTP interception—unlike traditional desktop-based proxy solutions—Requestly developed capabilities to intercept and modify all HTTP requests, positioning it as a lightweight alternative to complex proxy tools.\nThe addition of team workspaces enabled seamless developer collaboration through shared configurations. As mobile development has expanded, Requestly plans to support Android emulators and iOS simulators in upcoming releases.\nRecognizing that API mocking represented Requestly’s strongest product-market fit, the team refocused on helping developers work independently from backend dependencies. Enterprise features like SOC2 Type II certification followed, culminating in a comprehensive network interception & mocking tool. Throughout this journey, Requestly has remained true to its open-source roots while continuously adapting to meet developers’ evolving needs.\nBrowserStack emphasized its commitment to maintaining Requestly as an independent, open-source tool, ensuring the developer community continues to benefit from its accessibility and flexibility. The future roadmap includes launching HTTP interception and mocking capabilities for mobile devices and simulators.\nRequestly continues to be available as an open-source tool, now backed by BrowserStack’s resources and commitment to developer productivity. Developers can download the extension from the Chrome Web Store or as a Mac App here .\nAbout BrowserStack\nBrowserStack is the world’s leading software testing platform, powering over two million tests every day across 19 global data centers. BrowserStack helps Amazon, NVIDIA, MongoDB, Microsoft, X, and over 50,000 customers deliver quality software at speed by moving testing to their Cloud. BrowserStack’s platform provides instant access to 20,000+ real mobile devices on a highly reliable cloud infrastructure that effortlessly scales as testing needs grow. With BrowserStack, Dev and QA teams can move fast while delivering an amazing experience for every customer. Founded in 2011, BrowserStack is a privately held company backed by Accel, Bond, and Insight Partners. For more information, visit https://www.browserstack.com .\nAbout Requestly\nRequestly is a popular open-source HTTP Interception and Mocking tool, empowering 200,000+ developers across 10,000+ companies in their app development workflows. Requestly is widely popular for its browser-first approach, making the product lightweight and easy to use. With Requestly, developers reportedly save ~2 hours every week, and it helps them ship high-quality software faster. Requestly was funded by YCombinator, PeakXV partners (formerly Sequoia SEA), and many marquee angels. For more information, visit https://requestly.com .\nMedia Contact\nPress Relations Team\npress@browserstack.com\nPRODUCTS\nLive\nApp Automate\nApp Live\nAccessibility Testing\nAutomate\nTest Management\nApp Accessibility Testing\nLow Code Automation\nTesting Toolkit\nPercy\nCustom Device Lab\nApp Percy\nApp Low Code Automation\nTest Reporting & Analytics\nRequestly\nTest Management for Jira\nTest Companion\nLoad Testing\nWHY BROWSERSTACK\nCustomers\nCase Studies\nAI Agents\nBrowsers & Devices\nEnterprise\nData Centers\nReal Device Features\nSecurity\nRESOURCES\nSupport\nStatus\nRelease Notes\nBlog\nEvents\nCommunity\nBrowserStack Talks\nMeetups\nChampions\nGuide\nPartners\nFind a partner\nTrust Center\nTest University (Beta)\nCOMPANY\nAbout Us\nCareers\nOpen Source\nPress\nNewsletter\nSocial\nContact Us We are available 24 / 7\nMore Resources\nCross Browser Testing\nSelenium\nTest Management\nEmulators vs Real Device\nMobile App Testing\nTest on Devices\nTest on iPhone\nTest on iPad\nTest on Galaxy\nTest In IE\nTest on Android\nTest on iOS\nTest on Right Devices\nMobile Emulators\nTools\nSpeedLab\nScreenshots\nResponsive\nNightwatch.js\n© 2026 BrowserStack. All rights reserved.\nTerms of Service\nPrivacy Policy\nCookie Policy\nSitemap\nTalk to an Expert",
+      "policy": {
+       "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+       "decision": "allowed",
+       "usage": "independently_worded_facts",
+       "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+       "reviewedAt": "2026-10-06T19:30:00+09:00",
+       "termsUrl": "https://www.browserstack.com/terms",
+       "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: プレスリリースは周知目的の公開物。事実のみ・自分の言葉・出典と日付付き。本文転載・画像なし。買収額などは発表者の自己申告と明記。",
+       "recheckAfter": "2027-01-04T12:00:00+09:00"
+      }
+     },
+     {
+      "sourceId": "s4",
+      "url": "https://baremetrics.com/founder-chats/sachin-jain",
+      "publisher": "Baremetrics Founder Chats",
+      "snapshot": {
+       "url": "https://baremetrics.com/founder-chats/sachin-jain",
+       "finalUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+       "status": 200,
+       "fetchedAt": "2026-10-06T10:01:22.197Z",
+       "via": "direct",
+       "contentType": "text/html; charset=UTF-8",
+       "textHash": "1f0dc780d61633d2029130c443c6408161168b3e13a1c27e60db5f9380485041"
+      },
+      "text": "From 30-Minute Hack to YC-Backed Dev Tool with Sachin Jain\nThis week, Luke sat down with Sachin Jain, Co-founder and CEO of Requestly. You\nThis week, Luke sat down with Sachin Jain, Co-founder and CEO of Requestly. You\nFrom 30-Minute Hack to YC-Backed Dev Tool with Sachin Jain\nFrom 30-Minute Hack to YC-Backed Dev Tool with Sachin Jain\nProduct\nPRODUCT\nSubscription Analytics\nTrack, analyze, and improve your subscription business.\nPayment Recovery\nGet help with failing charges and recover revenue.\nCancellation Insights\nGain insights into why customers cancel and reduce churn.\nFinancial Forecasting\nMake future planning simple with accurate financial forecasts.\nRECOMMENDED\nInteractive Demo\nView our live demo environment to see Baremetrics in action and learn how it can benefit your business.\nTry now\nFREE TRIAL\nFree trial\nUnlock Subscription Growth, Insights & Success with Baremetrics\nTry for free\nIntegrations\nINTEGRATIONS\nApple App Store\nGoogle Play Store\nShopify\nStripe\nBraintree\nChargebee\nRecurly\nQuickbooks Online\nXero\nUniversal Connector\nUNIFIED CONNECTIONS\nView all your subscriptions together to provide a holistic view of your companies health.\nPlans & Pricing\nResources\nTRENDING TOPICS\nSaaS Metrics\nGet the insights that reveal the truth of your business, and how to grow it.\nFinancial Forecasting\nUsing real-time data, you can create models based on your business, and your future goals.\nDunning\nFailed payments are a monthly issue for subscription businesses. How to best recapture these customers?\nPricing\nExperiment and optimize your pricing to secure the largest customer base.\nSegmentation\nDifferent customers need different treatment. Organize and analyze your user groups.\nMRR\nUnderstanding MRR is a key step toward building a profitable business.\nRetention\nKeep customers using your service and head-off churn before it happens.\nChurn\nUnderstanding why customers leave, using data and insights, is the first step to retaining them.\nPUBLICATIONS\nBlog\nFounders Journey: true experiences, challenges, and what the road to success really looks like.\nAcademy\nAccess a wealth of resources designed to help you master your business metrics and growth strategies.\nFounders Chats\nIn-depth conversations with successful founders discussing their journeys and the lessons they've learned.\nHELP & SUPPORT\nDevelopers\nExtend and Integrate Baremetrics\nHelp Center\nGet answers to common questions and learn how to get the most out of Baremetrics.\nExperts\nThe best consultants, agencies, and specialized services to help you grow.\nTHE OPEN PROJECT\nBenchmarks\nHave an idea of how other SaaS companies are doing and see how your business stacks up.\nStartups\nCompanies that are embracing transparency and openness by sharing their metrics with everyone.\nAccelerator\nEmerging SaaS startups\nCOMPARISONS\nChartMogul\nEvaluate how Baremetrics compares to ChartMogul in terms of features, usability, and value.\nProfitwell\nSee a detailed comparison between Baremetrics and Profitwell, including a breakdown of key differences and benefits.\nStripe\nDiscover how Stripe Analytics stacks up against Baremetrics in terms of features, ease of use, and overall benefits.\nAbout\nCOMPANY\nAbout\nLearn more about Baremetrics, our mission, values, and the team behind the product.\nCustomers\nDiscover how businesses like yours are using Baremetrics to drive growth and success.\nWall of Love\nRead testimonials and reviews from our customers who have achieved their goals with Baremetrics.\n(725) 217-4827\nSign In\nGet Started\nProduct\nPRODUCT\nSubscription Analytics\nPayment Recovery\nCancellation Insights\nFinancial Forecasting\nRECOMMENDED\nInteractive Demo\nTry now\nFREE TRIAL\nFree trial\nTry for free\nIntegrations\nINTEGRATIONS\nApple App Store\nGoogle Play Store\nShopify\nStripe\nBraintree\nChargebee\nRecurly\nQuickbooks Online\nXero\nUniversal Connector\nPlans & Pricing\nResources\nTRENDING TOPICS\nSaaS Metrics\nFinancial Forecasting\nDunning\nPricing\nSegmentation\nMRR\nRetention\nChurn\nPUBLICATIONS\nBlog\nAcademy\nFounders Chats\nHELP & SUPPORT\nDevelopers\nHelp Center\nExperts\nTHE OPEN PROJECT\nBenchmarks\nStartups\nAccelerator\nCOMPARISONS\nChartMogul\nProfitwell\nStripe\nAbout\nCOMPANY\nAbout\nCustomers\nWall of Love\n(725) 217-4827\nSign In\nGet Started\nCustomers\nSubscribe for Updates\nAccidentally Building a Y Combinator-backed Startup with Sachin Jain\nBy Andrea Del Angel on November 20, 2025\nLast updated on\nAugust 26, 2026\nTable of Contents\nMore Articles\nHow David Zitoun Bootstrapped Submagic to $8M Revenue\nThe Ultimate SaaS Onboarding Playbook with Justin Hammond\nThe Journey from SDR to Founder with Chase Taake\nWhy OptinMonster Won the Early Email Marketing Era with Thomas Griffin\nFounder Chats is brought to you by Baremetrics: zero-setup subscription analytics & insights for Stripe, Recurly, Braintree and any other subscription company!\nLike this episode? A rating and a review on iTunes would go a long way!\nThis week we sit down with Sachin Jain, Co-founder and CEO of Requestly. You'll hear about turning a 30-minute hack into a YC-backed developer tool, why he chose the open core model over pure monetization, how Stack Overflow and GitHub became their entire GTM strategy, and the acquisition framework that prioritizes the right buyer over the right price.\nAbout Sachin Jain:\nSachin Jain is the Co-founder and CEO of Requestly, the browser-based API mocking and testing platform used by over 300,000 developers worldwide. After transforming a weekend Chrome extension project into a Y Combinator-backed company (one of 414 accepted from 17,000 applications), Sachin led Requestly through a successful acquisition by BrowserStack earlier this year. His journey from Google intern and Adobe engineer to successful founder showcases the power of solving your own problems first.\nAbout Requestly:\nRequestly is a developer-first platform that simplifies API mocking, testing, and network request interception directly in the browser. Born from a frustrated developer's need to debug minified JavaScript in production, Requestly eliminates the need for bulky proxy tools by offering a simple Chrome extension that lets developers modify headers, redirect scripts, and mock API responses. The platform has become essential for frontend teams building against incomplete backends.\nShow Notes:\n00:00 From Developer to Founder\n00:32 The P0 Bug That Sparked a Business Idea\n02:52 Building an MVP in 30 Minutes\n03:04 Identifying a Problem: The Birth of Requestly\n05:05 From JavaScript Redirector to API Platform Evolution\n05:52 The Evolution of Requestly\n08:21 Organic Growth Without Landing Pages or Marketing\n08:55 Open Source vs. Monetization\n10:20 The Open Core Model\n12:10 Navigating Y Combinator: Tips for Success\n13:11 What Made Sachin's YC Application Stand Out\n14:50 Building a Developer Community\n16:39 Company Culture as Product Differentiation\n17:57 Acquisition Insights: Choosing the Right Buyer\n19:45 Customer Support as Competitive Advantage\n21:01 Post-Acquisition Journey\n23:53 Lessons Learned: Growth and Adaptation as a Founder\n24:38 Why Optimize for Right Buyer, Not Price\n27:57 Personal Growth: From Engineer to CEO\nWatch “Accidentally Building a Y Combinator-backed Startup with Sachin Jain” on its own page — with a full summary, chapters and related reading.\nAndrea Del Angel\nAndrea Del Angel is the Content Marketing Manager at Baremetrics. With 6 years of experience working in content at B2B SaaS startups, she specializes in turning complex ideas into content that resonates with growth-minded teams. When she's not working, you can find her traveling, hunting down good coffee, or getting lost in a good book.\nFEATURES\nHubspot Integration\nControl Center\nPeople Insights\nSmart Dashboards\nRecover\nCancellation Insights\nEmail Reports\nTrial Insights\nSegmentation\nAugmentation\nBenchmarks\nSlack Tools\nAnalytics API\nCompare\nProfitWell\nChartMogul\nFirstOfficer\nMaxio\nMRR.io\nStripe Analytics & Dunning\nCompany\nAbout\nCareers\nCustomers\nWall of Love\nExperts\nAffiliate Partners\nContact\nPublications\nBlog\nAcademy\nFounder Chats\nVideos\nOpen Project\nStartups\nBenchmarks\nBuild vs Buy\nSupport\nDevelopers\nHelp Center\nStatus\nLEGAL\nPrivacy\nSecurity\nTerms of Use\nGDPR\nEnglish\n日本語",
+      "policy": {
+       "url": "https://baremetrics.com/founder-chats/sachin-jain",
+       "decision": "allowed",
+       "usage": "independently_worded_facts",
+       "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+       "reviewedAt": "2026-10-06T19:30:00+09:00",
+       "termsUrl": "https://baremetrics.com/terms",
+       "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得の禁止が明文(対象は「サービス」)。人が確認した事実のみ・自分の言葉・リンク付き・本人申告ラベル。自動再取得しない。",
+       "recheckAfter": "2027-01-04T12:00:00+09:00"
+      }
+     },
+     {
+      "sourceId": "s6",
+      "url": "https://requestly.com/pricing/",
+      "publisher": "Requestly公式サイト（料金ページ）",
+      "snapshot": {
+       "url": "https://requestly.com/pricing/",
+       "finalUrl": "https://requestly.com/pricing/",
+       "status": 200,
+       "fetchedAt": "2026-10-06T10:01:22.197Z",
+       "via": "direct",
+       "contentType": "text/html; charset=utf-8",
+       "textHash": "9f4f9c51036c558524dd1020626d28c416ae2753325a5d9c91569d4c311c1894"
+      },
+      "text": "Pricing — Requestly API Platform\nTeam and Team Pro plans for the Requestly API Platform, priced per user. Every protocol, unlimited runs and no metering. Enterprise available as an add-on.\nPricing — Requestly API Platform\nTeam and Team Pro plans for the Requestly API Platform, priced per user. Every protocol, unlimited runs and no metering. Enterprise available as an add-on.\nPricing — Requestly API Platform\n📣 Requestly: design, build and test APIs, all in one place. Switch from Postman in 1 click → ×\nProduct Build & organize\nEnvironments & Variables Swap dev, staging, prod values\nDynamic Variables 100+ built-in data generators\nGraphQL Client Queries, mutations, introspection\nSOAP & gRPC WSDL, reflection and streaming\nTest & automate\nCollection Runner Run a whole collection in order\nAPI Tests & Assertions Assert on status, body, schema\nAI Test Case Generator Tests from a plain-English prompt\nRequestly CLI Run collections in CI\nGovern & secure\nVault Encrypted secrets, never exported\nTeam Workspaces Shared projects, synced, roles\nLocal Projects Collections as files on your disk\nEnterprise Security SOC 2, SSO, RBAC and audit logs\nMore tools\nHTTP Interceptor\nFile Server\nAPI Explorer\nAll features Release notes\nRequestly vs Postman A line-by-line comparison Import from Postman Collections, folders and environments Talk to sales Self-hosted, pilots and procurement\nPricing\nRequestly vs Postman\nResources Documentation Downloads Blog Case Studies Status Release Notes\nDocs Download\n×\nProduct\nBuild & organize\nEnvironments & Variables Dynamic Variables GraphQL Client SOAP & gRPC\nTest & automate\nCollection Runner API Tests & Assertions AI Test Case Generator Requestly CLI\nGovern & secure\nVault Team Workspaces Local Projects Enterprise Security More tools\nHTTP Interceptor File Server Import from Postman All features Pricing Requestly vs Postman Blog Docs Download\nPlans & pricing Manage your complete API lifecycle at 50% of your current cost.\nEvery protocol, unlimited runs, no credits and no metering. Start free for 30 days — no credit card required.\nMonthly Annual save 17%\nTeam\n$10 / user / month\nbilled annually\nEverything a growing team needs to build, test, and ship APIs.\nUsers 5 users 10 users 15 users 20 users More than 20 users $600 billed annually for 5 users\nContact Sales Included\nCore API Client REST, GraphQL and SOAP alongside gRPC, WebSocket, Socket.IO and MQTT — build, send and run every protocol in one place, with response viewing, formatting and search, code-snippet generation and a full cookie jar.\nLocal Projects & Git-based Collaboration Build locally in Local Projects with complete control over your data, full native Git workflows and two-way GitHub/GitLab sync so API changes follow the same review and branching workflows as code.\nTeam Projects & Real-time Collaboration Collaborate in realtime via Team Projects with shared elements.\nManual API Testing (Unlimited Manual Collection Runs) Pre/post-request scripts, assertions & no-code test builder, unlimited manual runs, CLI runner, CI/CD integration, data-driven testing.\nAutomated API Testing (Unlimited Scheduled Collection Runs) Pre/post-request scripts, assertions & no-code test builder, unlimited cloud runs, CLI runner, CI/CD integration, data-driven testing.\nBasic API Design & Docs Publish a released spec version as documentation with a shareable link, choosing public, internal, or password access.\nQuick Import & Migration Bring collections and variables across from Postman, OpenAPI, HAR, cURL, WSDL, SoapUI, or Bruno. Your existing test scripts run without a rewrite. Export and back up any time.\nRecommended Team Pro\n$15 / user / month\nbilled annually\nStandardize API lifecycle management across your entire organization.\nUsers 5 users 10 users 15 users 20 users More than 20 users $900 billed annually for 5 users\nContact Sales Team, plus:\nUnlimited AI credits AI-written tests and assertions, AI debugging and error resolution, and in-app assistant and agent mode.\nAI test / assertion generation\nAI-assisted debugging & error resolution\nAI assistant\nMCP server (upcoming)\nAdvanced Test Reporting & Analytics Test reports, exportable results and trend analysis over time, integrated with Test Reporting & Analytics.\nSecret Scanner Detect and secure secrets in API requests and elements against unwanted sharing or syncing.\nExternal Vault Integrations Secret management with HashiCorp Vault, Azure Key Vault and 1Password integrations.\nPrivate API Network Upcoming Share and discover private APIs securely with internal teams, with organization-level ownership and governance.\nAdvanced API Design, Docs & Governance Upcoming Build and validate implementation-ready specs and enforce design rules and publish live, embeddable docs on the fly.\nAdd-ons\nEnterprise\nContact Sales\nannual only\nSecurity, governance and control at organization scale\nContact Sales\nAdd on to Team or Team Pro for enterprise features, high-touch support, and advanced compliance\nSingle Sign-On (SAML) & SCIM provisioning\nAdvanced access control (attribute-based RBAC)\nAudit logs with SIEM export\nData residency and self-hosting\nPriority support\nLooking for HTTP Rules pricing? Click here\nCompare plans in detail\nFeature list\nRequestly API Platform\nTeam\n$10\nper user / month, billed annually\nTeam Pro\n$15\nper user / month, billed annually\nEnterprise\nContact Sales\nannual only\nCore API Client\nREST, GraphQL & SOAP composers Dedicated request composers for REST, GraphQL and SOAP, each with the body, header and query editors that protocol needs.\nWebSocket, gRPC & MQTT (build, send & run) Build, send and run realtime and streaming protocols — WebSocket, Socket.IO, gRPC and MQTT — alongside your HTTP requests.\nCode-snippet generation Generate a ready-to-paste client snippet for any request, in the language and library your team already uses.\nCookie jar A per-domain cookie store that persists across requests, so authenticated session flows behave as they do in a browser.\nImport & migration (Postman, Insomnia, Bruno) Bring collections and variables across from Postman, OpenAPI, HAR, cURL, WSDL, SoapUI or Bruno. Existing test scripts run without a rewrite.\nExport & backup Export any collection or project to a portable file at any time, so your work is never locked in.\nCollections & environment\nCollections & folders Group related requests into collections and nested folders that mirror how your APIs are organised.\nRequest history & search Every request you send is retained and searchable, so you can find and replay a past call.\nVariables & scoping Define variables at global, project, environment and request scope, with the nearest scope winning.\nAuth & secrets\nAdvanced Auth types (API key / Bearer / Basic, OAuth 1/2, JWT, NTLM) All auth helpers — API key, Bearer, Basic, OAuth 1.0 & 2.0, JWT and NTLM — configured per request, folder or collection.\nAWS SigV4 request signing Signature Version 4 for calling AWS APIs and other SigV4-protected endpoints.\nmTLS / client & CA certificates Client certificates and custom CA bundles for mutual-TLS endpoints.\nVault & secret managers\nLocal vault An encrypted local vault that keeps credentials on your own machine and out of collection files.\nExternal vault integrations (HashiCorp, Azure, 1Password) Securely pull secrets from HashiCorp Vault, Azure Key Vault and 1Password integrations.\nSecret scanner Detect potential secrets in API requests and elements against unwanted sharing or syncing.\nScripting, testing & automation\nPre/post-request scripts Run JavaScript before a request or after the response arrives, to set up state or assert on results.\nAssertions & no-code test builder Write assertions in script or visually without code from a guided editor.\nCollection runner (unlimited) Run a whole collection locally as often as you need — runs are not metered and carry no credit cap.\nCLI runner Run the same collections in terminal or CI agent using the Requestly CLI.\nCI/CD integration Wire collection runs into your pipeline to gate a build like any other test suite.\nData-driven testing Drive one request over data supplied from a file, producing a result per row.\nScheduled cloud runs Run collections on a schedule without keeping a machine of your own left running.\nReusable script library Share helper functions and snippets across requests and collections instead of copying script between them.\nBasic test-result history Retain the results of recent runs to inspect what passed and what failed.\nAdvanced Test Reporting & Analytics Test reports, exportable execution trends over time, integrated with Test Reporting & Analytics.\nMock servers\nMock servers (generated from a collection) Spin up a mock server rapidly from a collection, to unblock front-end and mobile teams while the API is still in progress.\nDynamic / stateful mocks Mocks that vary their response by request content and remember state across calls, rather than replaying one fixed payload.\nCollaboration & projects\nTeam projects Cloud-backed projects where collections, environments and history are shared with your team in realtime.\nShared team environments with secret masking Share environments across the team while keeping secret values masked from members who should not read them.\nShared / managed package library A managed library of shared script packages, available to every project in the organisation.\nComments & mentions Discuss a request or spec in place, and pull a teammate in with an @mention.\nActivity Logs A feed of who changed what, and when, across the project.\nLocal Projects Projects that live on your own machine, giving you complete control over your data, with full native Git workflows.\nVersion Control (Local projects only) Full version control for Local Projects, backed by Git and working the way your code repository does.\n2-way Git sync Push and pull collection changes to GitHub or GitLab, so API changes follow the same review and branching workflow as code.\nBranching, forking & pull requests Branch or fork a collection, then merge it back through a pull request.\nMerge & conflict resolution Resolve conflicting edits to the same request or collection through a guided merge.\nDiff view See exactly what changed between two versions of a collection, request or spec.\nAI Suite\nAI test / assertion generation Generate tests and assertions for a request from its schema and its past responses.\nAI-assisted debugging & error resolution Explain a failing request or response, and suggest the fix.\nAI assistant An in-app assistant that answers questions about your APIs and carries out work in the client.\nMCP server (upcoming) Expose your APIs and collections to AI IDEs and agents over the Model Context Protocol.\nAPI design & docs\nBasic API Design & Docs Publish a released spec version as documentation with a shareable link, choosing public, internal, or password access.\nSchema ↔ collection sync Keep an OpenAPI spec and the collection generated from it in step, in both directions.\nSchema versioning Version and release specs, so consumers can pin to a known revision.\nDesign Governance rules Auto-enforced API design and governance rules, applied as specs are authored.\nAuto-generated hosted docs Documentation generated from the spec and hosted for you, refreshed on each release.\nEmbeddable docs Embed the generated documentation in your own site or developer portal.\nPerformance testing\nIntegration with Load Testing Hand a collection or request to BrowserStack Load Testing to run it under load.\nEnterprise & identity\nSSO / SAML & SCIM provisioning Single sign-on over SAML, with user and group provisioning through SCIM.\nAdvanced / attribute-based RBAC Fine-grained, attribute-based roles and permissions, beyond the standard member roles.\nAudit logs + SIEM export A tamper-evident audit trail of platform activity, exportable to your SIEM.\nData residency / self-hosting Choose the region your data is stored in, or run the platform on your own infrastructure.\nPriority support Priority routing and response-time commitments on support requests.\nStart in under 2 minutes\nImport your Postman collections and start testing in minutes.\nContact Sales\n30-day trial · Full Team Pro entitlements · No credit card required\nSummarize Requestly with AI\nThe Git-native API client for teams that design, build and test APIs at scale.\nFeatures\nSave & Organize Requests Environment Variables GraphQL APIs Pre & Post Scripts API Test Generator Collection Runner Import / Export Collaboration & Sharing All features\nResources\nPricing Blog Use Cases Academy Privacy Policy Terms of Service Refunds and Cancellations\nCompany\nAbout Us Contact Us Careers Press EULA Community Guidelines\nDevelopers\nRelease notes Report issues GraphQL support API Explorer Github Extension for Chrome Extension for Edge Extension for Firefox Extension for Safari\nCompare Requestly with\nPostman Bruno Insomnia Hoppscotch\nDownload API Client\nmacOS Windows Linux\nCopyright © 2026 BrowserStack, Inc. All rights reserved.\nSOC2 GDPR DPA",
+      "policy": {
+       "policyId": "rights.official-company-website.v1",
+       "sourceId": "src.official-company-website",
+       "providerName": "Official company or product website (entity-bound)",
+       "displayTier": "automatic",
+       "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+      }
+     }
+    ]
+   },
+   "publicationHash": "46f353c0fd0a4d4934e17b83faac988ce6c47654e1f70f66968b92dfcf551969"
+  }
+ ]
+}

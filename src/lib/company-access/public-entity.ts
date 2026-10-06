@@ -20,8 +20,26 @@ import { naturalizeEntity } from './natural-text';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
-  const { meta, ...publicFields } = naturalizeEntity(entity);
-  return publicFoundationData({ ...publicFields, hasPremiumAnalysis: Boolean(meta) });
+  const { meta, reaudit, ...publicFields } = naturalizeEntity(entity);
+  const data = publicFoundationData({ ...publicFields, hasPremiumAnalysis: Boolean(meta) });
+  const audit = publicReaudit(reaudit);
+  return audit ? { ...data, reaudit: audit } : data;
+}
+
+/**
+ * 再監査メモのうち、画面が読む項目だけを公開する（許可リスト方式）。
+ * 出典の一覧（sources）・裏付けた事実の文（supported）・監査日（auditDate）以外は、
+ * 担当者名・手法・内部メモ・権利判断などの内部情報なので、公開の応答に載せない。
+ */
+const PUBLIC_REAUDIT_FIELDS = ['auditDate', 'sources', 'supported'] as const;
+
+function publicReaudit(reaudit: FinancialEntity['reaudit']): FinancialEntity['reaudit'] | undefined {
+  if (!reaudit || typeof reaudit !== 'object') return undefined;
+  const picked: Record<string, unknown> = {};
+  for (const field of PUBLIC_REAUDIT_FIELDS) {
+    if (reaudit[field] !== undefined) picked[field] = reaudit[field];
+  }
+  return Object.keys(picked).length > 0 ? picked : undefined;
 }
 
 /**

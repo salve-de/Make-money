@@ -1,18 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import { StatusScreen, statusButtonClass, statusPrimaryButtonClass } from '@/components/terminal/StatusScreen';
+import { StatusScreen, STATUS_BUTTON_MAIN, STATUS_BUTTON_SUB } from '@/lib/site/StatusScreen';
 
-/** ページの表示中に失敗した時の画面。もう一度読み込むか、一覧へ戻れる。 */
-export default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
+export default function ErrorPage({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
-    <StatusScreen title="表示できません" message="このページを表示できませんでした。" detail="通信が不安定な可能性があります。もう一度読み込むか、一覧へ戻ってください。">
-      <button type="button" onClick={reset} className={statusPrimaryButtonClass}>
-        もう一度読み込む
-      </button>
-      <Link href="/" className={statusButtonClass}>
-        一覧へ戻る
-      </Link>
+    <StatusScreen
+      label="500"
+      title="表示できませんでした"
+      note={error.digest ? <>障害番号 <span className="term-num text-term-muted">{error.digest}</span>。問い合わせるときは、この番号を添えてください。</> : undefined}
+      actions={
+        <>
+          <button type="button" onClick={reset} className={STATUS_BUTTON_MAIN}>もう一度試す</button>
+          <Link href="/" className={STATUS_BUTTON_SUB}>トップへ戻る</Link>
+        </>
+      }
+    >
+      一時的な問題が起きたようです。もう一度試すと直ることがあります。直らないときは、しばらくしてから開き直してください。
     </StatusScreen>
   );
 }

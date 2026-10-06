@@ -1,0 +1,70 @@
+{
+ "analysis": [
+  {
+   "entityId": "fx-001",
+   "items": [
+    {
+     "item": "HEADLINE",
+     "text": "架空の見出し",
+     "basis": [
+      "fx-001-f1",
+      "fx-001-m1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "item": "BUSINESS_MODEL",
+     "text": "年会費で稼ぐ",
+     "basis": [
+      "fx-001-f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ]
+  },
+  {
+   "entityId": "fx-002",
+   "items": [
+    {
+     "item": "HEADLINE",
+     "text": "架空の見出し",
+     "basis": [
+      "fx-002-f1",
+      "fx-002-m1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "item": "BUSINESS_MODEL",
+     "text": "年会費で稼ぐ",
+     "basis": [
+      "fx-002-f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ]
+  },
+  {
+   "entityId": "fx-003",
+   "items": [
+    {
+     "item": "HEADLINE",
+     "text": "架空の見出し",
+     "basis": [
+      "fx-003-f1",
+      "fx-003-m1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "item": "BUSINESS_MODEL",
+     "text": "年会費で稼ぐ",
+     "basis": [
+      "fx-003-f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ]
+  }
+ ]
+}

@@ -5,13 +5,14 @@ import {
   BUSINESS_SALE_STATUS_LABELS,
   type OwnedBusinessSaleWithInquiries,
 } from '@/shared/business-sale';
+import { PENDING_REVIEW_NOTICE } from '@/shared/marketplace-listing';
 import { PriceMultipleValue } from './BusinessSaleValues';
 import { formatJstDate, formatJstDateTime } from './format';
 import { YenValue } from './YenValue';
 
 export interface MyBusinessSalesViewProps {
   listings: OwnedBusinessSaleWithInquiries[];
-  /** 公開・終了の処理中の掲載 id */
+  /** 公開申請・終了の処理中の掲載 id */
   busyId: string | null;
   /** 「募集を終了する」を1回押して、確認待ちの掲載 id */
   confirmCloseId: string | null;
@@ -64,7 +65,7 @@ export function MyBusinessSalesView(props: MyBusinessSalesViewProps) {
       {listings.length === 0 ? (
         <section className="px-3 py-4 text-sm">
           <p className="text-term-fg-strong">まだ掲載がありません</p>
-          <p className="mt-1 text-term-sub">売りに出す事業があるときは、「事業を掲載する」から下書きを作ります。公開するまで、買い手には見えません。</p>
+          <p className="mt-1 text-term-sub">売りに出す事業があるときは、「事業を掲載する」から下書きを作ります。審査を通って公開されるまで、買い手には見えません。</p>
         </section>
       ) : listings.map((listing) => {
         const busy = busyId === listing.id;
@@ -72,17 +73,27 @@ export function MyBusinessSalesView(props: MyBusinessSalesViewProps) {
           <section key={listing.id} aria-label={listing.title} className="border-b border-term-line">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-3 py-2">
               <h2 className="min-w-0 break-words text-sm font-normal text-term-fg-strong">{listing.title}</h2>
-              <span className={`text-xs ${listing.status === 'published' ? 'text-term-fg' : 'text-term-muted'}`}>{BUSINESS_SALE_STATUS_LABELS[listing.status]}</span>
+              <span className={`text-xs ${listing.status === 'published' ? 'text-term-fg' : listing.status === 'rejected' ? 'text-term-danger' : 'text-term-muted'}`}>{BUSINESS_SALE_STATUS_LABELS[listing.status]}</span>
               <span className="text-xs text-term-label">{BUSINESS_SALE_CATEGORY_LABELS[listing.category]}</span>
               <span className="text-xs text-term-label">希望価格 <YenValue jpy={listing.askingPriceJpy} className="text-term-fg" /></span>
               <span className="text-xs text-term-label">倍率 <PriceMultipleValue askingPriceJpy={listing.askingPriceJpy} monthlyProfitJpy={listing.monthlyProfitJpy} /></span>
               <span className="text-xs text-term-label">更新 <span className="term-num">{formatJstDate(listing.updatedAt)}</span></span>
             </div>
+            {listing.status === 'pending_review' && (
+              <p role="status" className="px-3 pb-2 text-xs text-term-sub">{PENDING_REVIEW_NOTICE}</p>
+            )}
+            {listing.status === 'rejected' && (
+              <p role="status" className="px-3 pb-2 text-xs text-term-danger">
+                審査で却下されました{listing.reviewNote ? `。理由: ${listing.reviewNote}` : ''}。直してから、もう一度申請できます。
+              </p>
+            )}
             {listing.status !== 'closed' && (
               <div className="flex flex-wrap items-center gap-2 px-3 pb-2">
                 <Link href={`/marketplace/businesses/new?id=${encodeURIComponent(listing.id)}`} className={NORMAL}>編集</Link>
-                {listing.status === 'draft' && (
-                  <button type="button" disabled={busy} onClick={() => props.onPublish(listing.id)} className={PRIMARY}>公開する</button>
+                {(listing.status === 'draft' || listing.status === 'rejected') && (
+                  <button type="button" disabled={busy} onClick={() => props.onPublish(listing.id)} className={PRIMARY}>
+                    {listing.status === 'rejected' ? '審査に出し直す' : '公開を申請する'}
+                  </button>
                 )}
                 {listing.status === 'published' && (
                   <>

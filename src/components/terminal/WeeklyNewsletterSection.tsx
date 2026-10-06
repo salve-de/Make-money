@@ -8,6 +8,7 @@ export const WeeklyNewsletterSection = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
+  const [confirmationSent, setConfirmationSent] = useState(true);
   const [errorMsg, setErrorMsg] = useState('');
   const [unsubscribeToken, setUnsubscribeToken] = useState<string | null>(null);
   const [unsubscribing, setUnsubscribing] = useState(false);
@@ -30,6 +31,7 @@ export const WeeklyNewsletterSection = () => {
       }
 
       setSubscribed(true);
+      setConfirmationSent(!('confirmationSent' in payload) || payload.confirmationSent !== false);
       setUnsubscribeToken('unsubscribeToken' in payload && typeof payload.unsubscribeToken === 'string' ? payload.unsubscribeToken : null);
     } catch (error) {
       setErrorMsg(error instanceof Error ? error.message : '通信に失敗しました。');
@@ -68,7 +70,7 @@ export const WeeklyNewsletterSection = () => {
           事業・財務の更新を受け取る
         </h2>
         <p className="mt-1 text-sm leading-6 text-term-sub">
-          台帳に追加・更新された内容をメールでお知らせします。登録受付後、配信の開始時期は運用状況により変わる場合があります。
+          台帳に追加・更新された内容をメールでお知らせします。登録するとまず確認メールが届き、メール内のリンクを開いて初めて登録が完了します。配信の開始時期は運用状況により変わる場合があります。
         </p>
       </div>
 
@@ -96,15 +98,22 @@ export const WeeklyNewsletterSection = () => {
           </form>
         ) : (
           <div className="border-l-2 border-term-positive px-3 py-1" role="status">
-            <p className="text-sm text-term-fg-strong">登録を受け付けました</p>
-            <p className="mt-1 text-sm leading-6 text-term-sub">配信を停止する場合は、ここから手続きできます。</p>
+            <p className="text-sm text-term-fg-strong">
+              {confirmationSent ? '確認メールを送りました' : '登録を受け付けましたが、確認メールを送れませんでした'}
+            </p>
+            <p className="mt-1 text-sm leading-6 text-term-sub">
+              {confirmationSent
+                ? 'メール内のリンクを開くと登録が完了します。リンクを開くまでは、配信されません。届かないときは、迷惑メールのフォルダも確認してください。'
+                : '登録はまだ完了していません。時間をおいて、もう一度登録してください。'}
+            </p>
+            <p className="mt-1 text-sm leading-6 text-term-sub">登録を取り消す場合は、ここから手続きできます。</p>
             <button
               type="button"
               onClick={handleUnsubscribe}
               disabled={unsubscribing || (!token && !unsubscribeToken)}
               className="mt-2 min-h-11 text-sm text-term-sub underline underline-offset-4 hover:text-term-fg-strong disabled:cursor-not-allowed disabled:no-underline disabled:opacity-50"
             >
-              {unsubscribing ? '解除中…' : '配信を停止する'}
+              {unsubscribing ? '取り消し中…' : '登録を取り消す'}
             </button>
           </div>
         )}
