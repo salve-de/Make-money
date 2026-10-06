@@ -36,4 +36,13 @@ describe('EntityLogo', () => {
   it('crops a wide og:image instead of squeezing it', () => {
     expect(renderToStaticMarkup(<EntityLogo asset={asset('og_image')} />)).toContain('object-cover');
   });
+
+  it('renders the inspector header mark at 20px on phones and 24px on PC, under its own test id', () => {
+    const html = renderToStaticMarkup(<EntityLogo asset={asset('favicon')} variant="header" />);
+    expect(html).toContain('data-testid="entity-header-logo"');
+    expect(html).not.toContain('data-testid="entity-logo"');
+    expect(html).toContain('width="24"');
+    expect(html).toContain('h-5 w-5 lg:h-6 lg:w-6');
+    expect(html).toContain('title="出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)"');
+  });
 });

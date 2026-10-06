@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import { genreLabel } from '@/shared/display-text';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
+import { useEntityMedia } from '@/platform/hooks/useEntityMedia';
+import { EntityLogo } from '@/platform/components/grid/EntityLogo';
+import { pickEntityLogo } from '@/shared/media-display';
 import type { InspectorSectionProps } from '../model/section-props';
 import { UI, uiFormat } from '@/shared/ui-strings';
 import { ShareModal } from './ShareModal';
@@ -45,6 +48,8 @@ export function CompanyHeader({
   const [isShareOpen, setIsShareOpen] = useState(false);
   const compare = useCompareTray();
   const inCompare = compare.has(entity.id);
+  // 一覧の行と同じ審査済みのロゴ（同じ読み込み器なので追加の通信はない）。無ければ何も出さない
+  const logo = pickEntityLogo(useEntityMedia([entity.id])[entity.id]);
 
   const rawUrl = entity.url || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
@@ -68,6 +73,7 @@ export function CompanyHeader({
           {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
           <div className="min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2">
             <div className="flex min-w-0 items-center gap-2">
+              <EntityLogo asset={logo} variant="header" />
               <h2 className="min-w-0 truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
                 {entity.name}
               </h2>
