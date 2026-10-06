@@ -13,7 +13,6 @@ import {
   LOCAL_MODE_BY_SECTION,
   LocalWorkspaceMode,
   PRIMARY_NAV_ITEMS,
-  PRO_HREF,
   SAVED_HREF,
   LEGAL_LINKS,
   SECTION_TITLES,
@@ -203,7 +202,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     );
   };
 
-  const proClass = 'flex h-full items-center px-3 text-[13px] font-semibold text-term-accent hover:bg-term-head';
 
   return (
     <>
@@ -240,7 +238,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             value={onSearchChange ? searchValue ?? '' : searchText}
             onChange={(event) => (onSearchChange ? onSearchChange(event.target.value) : setSearchText(event.target.value))}
             aria-label="事例を検索"
-            placeholder="会社名・ティッカー・事業で検索"
+            placeholder="会社名・事業で検索"
             className="h-full min-w-0 flex-1 bg-transparent text-sm text-term-fg outline-none placeholder:text-term-dim lg:text-[13px]"
           />
           <button
@@ -338,15 +336,6 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             </span>
           )}
           {renderBookmark()}
-          {onOpenPro ? (
-            <button type="button" onClick={onOpenPro} className={proClass} title="PRO の内容を確認">
-              PRO
-            </button>
-          ) : (
-            <Link href={PRO_HREF} prefetch={false} className={proClass} title="PRO の内容を確認">
-              PRO
-            </Link>
-          )}
           <HeaderUserMenu />
           <div className="hidden items-center border-l border-term-line px-3 xl:flex">
             <JstClock />

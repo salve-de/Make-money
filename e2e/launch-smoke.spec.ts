@@ -42,7 +42,7 @@ test.describe('公開前の主要経路', () => {
   test('検索で事例が絞り込まれ、該当なしの検索でも壊れない', async ({ page, request }) => {
     const target = await publishedCase(request);
     await page.goto('/');
-    const search = page.getByPlaceholder(/会社名・ティッカー/).first();
+    const search = page.getByPlaceholder(/会社名・事業/).first();
     const rows = page.getByRole('row').filter({ visible: true });
     await search.fill(target.name);
     await expect(rows.filter({ has: page.getByText(target.name, { exact: true }) })).toHaveCount(1);

@@ -126,6 +126,20 @@ export function countScreenerMatches(entities: readonly FinancialEntity[], scree
   return entities.reduce((count, entity) => count + (matchesCatalogQuery(entity, '', filters) ? 1 : 0), 0);
 }
 
+/** 絞り込みの4つのまとまりのうち、1件でも当たる選択肢を持つもの。全部の選択肢が0件になるまとまりは画面に出さない。 */
+export interface ScreenerFacets { scales: boolean; margin: boolean; capital: boolean; moats: boolean }
+
+export function screenerFacetAvailability(entities: readonly FinancialEntity[]): ScreenerFacets {
+  const base = { scales: [], minMargin: 0, maxCapital: null, moats: [] } as NonNullable<CatalogFilters['screener']>;
+  const any = (patches: Array<Partial<NonNullable<CatalogFilters['screener']>>>) => patches.some((patch) => countScreenerMatches(entities, { ...base, ...patch }) > 0);
+  return {
+    scales: any((['SOLO', 'SMALL_TEAM', 'SCALEUP', 'ENTERPRISE'] as const).map((scale) => ({ scales: [scale] }))),
+    margin: any([30, 50, 80].map((minMargin) => ({ minMargin }))),
+    capital: any([0, 1_000_000].map((maxCapital) => ({ maxCapital }))),
+    moats: any((['COUNTER_POSITIONING', 'SWITCHING_COST', 'NETWORK_EFFECT', 'CORNERED_RESOURCE', 'SCALE_ECONOMIES', 'PROCESS_POWER'] as const).map((moat) => ({ moats: [moat] }))),
+  };
+}
+
 export function parseCatalogFilters(raw: string | null): CatalogFilters | undefined {
   if (!raw) return undefined;
   if (raw.length > 100_000) throw new Error('Filters too large');

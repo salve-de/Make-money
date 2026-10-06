@@ -3,8 +3,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Check, RefreshCw, Search, X } from 'lucide-react';
 import { BusinessScale, MoatType } from '../../types/terminal';
+import type { FinancialEntity } from '@/shared/terminal';
+import { screenerFacetAvailability } from '../../model/entity-filter';
 
 interface AdvancedScreenerModalProps {
+  /** 公開中の全事例（全件が手元にある時だけ）。1件も当たらないまとまりは出さない。 */
+  allEntities?: readonly FinancialEntity[];
   isOpen: boolean;
   onClose: () => void;
   onApplyFilters: (filters: ScreenerFilterState) => void;
@@ -37,6 +41,7 @@ const legendClass = 'mb-2 flex w-full items-center justify-between gap-3 text-xs
 const hintClass = 'ml-2 text-xs font-normal text-term-label';
 
 export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
+  allEntities,
   isOpen,
   onClose,
   onApplyFilters,
@@ -46,6 +51,8 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   searchQuery,
   onSearchChange,
 }) => {
+  const facets = allEntities ? screenerFacetAvailability(allEntities) : null;
+  const shows = (key: 'scales' | 'margin' | 'capital' | 'moats') => !facets || facets[key];
   const [scales, setScales] = useState<BusinessScale[]>(initialFilters?.scales || []);
   const [minMargin, setMinMargin] = useState<number>(initialFilters?.minMargin || 0);
   const [maxCapital, setMaxCapital] = useState<number | null>(initialFilters?.maxCapital ?? null);
@@ -179,7 +186,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                   type="search"
                   value={searchQuery ?? ''}
                   onChange={(event) => onSearchChange(event.target.value)}
-                  placeholder="会社名・ティッカー・事業で検索"
+                  placeholder="会社名・事業で検索"
                   className="[&::-webkit-search-cancel-button]:appearance-none h-11 w-full rounded-sm border border-term-line bg-term-bg pl-9 pr-11 text-base text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent"
                 />
                 {searchQuery ? (
@@ -195,6 +202,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
               </div>
             </div>
           )}
+          {shows('scales') && (
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
               事業の規模 <span className={hintClass}>複数選択可</span>
@@ -222,7 +230,9 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
               })}
             </div>
           </fieldset>
+          )}
 
+          {shows('margin') && (
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
               <span>営業利益率の下限</span>
@@ -245,7 +255,9 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
               })}
             </div>
           </fieldset>
+          )}
 
+          {shows('capital') && (
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
               <span>初期資金の上限</span>
@@ -272,7 +284,9 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
               })}
             </div>
           </fieldset>
+          )}
 
+          {shows('moats') && (
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
               事業の参入障壁 <span className={hintClass}>複数選択可</span>
@@ -302,6 +316,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
               })}
             </div>
           </fieldset>
+          )}
 
           {availableTags.length > 0 && (
             <fieldset className="space-y-3 pb-1">

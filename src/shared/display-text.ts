@@ -1,5 +1,5 @@
 import type { ReaderCase, ReaderFact, ReaderMetric, ReaderSource } from './reader-case';
-import { GENRE_LABELS, MEASURE_LABELS, ORIGIN_LABELS, UNKNOWN_LABELS } from './ui-strings';
+import { GENRE_LABELS, MEASURE_LABELS, ORIGIN_LABELS, UI, UNKNOWN_LABELS } from './ui-strings';
 
 /**
  * 画面に出す直前に文字を整える共通関数。
@@ -565,6 +565,16 @@ export function formatMetricAmount(m: Pick<ReaderMetric, 'amount' | 'currency' |
 
 export function metricMeasureLabel(m: Pick<ReaderMetric, 'measure' | 'label'>): string {
   return m.measure === 'OTHER' && m.label ? m.label : MEASURE_LABELS[m.measure];
+}
+
+/** 一覧用の見出し。売上は期間の種類で「月商」「年商」「累計売上」「年換算売上」に呼び分ける（それ以外は metricMeasureLabel と同じ）。 */
+export function metricListLabel(m: Pick<ReaderMetric, 'measure' | 'label' | 'periodKind'>): string {
+  if (m.measure !== 'REVENUE') return metricMeasureLabel(m);
+  if (m.periodKind === 'MONTH') return UI.REVENUE_MONTH;
+  if (m.periodKind === 'FISCAL_YEAR' || m.periodKind === 'YEAR') return UI.REVENUE_YEAR;
+  if (m.periodKind === 'CUMULATIVE') return UI.REVENUE_CUMULATIVE;
+  if (m.label && /ARR|年間経常/.test(m.label)) return UI.REVENUE_ARR;
+  return metricMeasureLabel(m);
 }
 
 /** 「推定」は origin=ESTIMATED の時だけ。 */

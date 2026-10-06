@@ -11,6 +11,18 @@ import { CASE_OUTCOME_LABEL, caseOutcome, hasRecordedRevenue } from '@/platform/
 import { confirmStatus, teamSizeText } from '@/platform/components/grid/ledgerRow';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { formatYen } from '@/platform/utils/moneyDisplay';
+import {
+  firstSentence,
+  formatMetricAmount,
+  metricMeasureLabel,
+  metricOriginLabel,
+  pickListMetric,
+  pickProfitMetric,
+  plainAnalysisText,
+  readerSummaryFact,
+} from '@/shared/display-text';
+import { ANALYSIS_LABELS } from '@/shared/ui-strings';
+import type { AnalysisItem, ReaderMetric } from '@/shared/reader-case';
 import { CompareSimilarCases } from './CompareSimilarCases';
 
 type Loaded = { status: 'loading' } | { status: 'ready'; entity: FinancialEntity } | { status: 'missing' } | { status: 'error' };
@@ -25,10 +37,47 @@ const money = (value: number, entity: FinancialEntity) => (
   <><span className="term-num text-term-fg-strong">{formatYen(value)}</span><span className="ml-1 text-xs text-term-dim">{confirmStatus(entity).label}</span></>
 );
 
+/** 出典つきの数値（売上・利益など）。名前・金額・期間・由来を並べる。 */
+const metricCell = (metric: ReaderMetric | null): React.ReactNode =>
+  metric ? (
+    <span data-metric={metric.id}>
+      <span className="text-xs text-term-label">{metricMeasureLabel(metric)}</span>
+      <span className="term-num ml-1 text-term-fg-strong">{formatMetricAmount(metric)}</span>
+      <span className="block text-xs text-term-label">{metric.period} · {metricOriginLabel(metric)}</span>
+    </span>
+  ) : null;
+
+/** 推測の欄の1文目（比べやすいよう短く）。無ければ null。 */
+const analysisCell = (entity: FinancialEntity, item: AnalysisItem): React.ReactNode => {
+  const found = entity.reader?.analysis.find((a) => a.item === item);
+  return found ? firstSentence(plainAnalysisText(found.text)) : null;
+};
+
+/** 出典つきの事実の欄の1文目。 */
+const factCell = (entity: FinancialEntity, kind: 'PRICING' | 'TEAM'): React.ReactNode => {
+  const found = entity.reader?.facts.find((f) => f.kind === kind);
+  return found ? firstSentence(found.text) : null;
+};
+
 /** 比較する項目。値が出せない欄は「—」。全列で値のない行は出さない。 */
 const ROWS: { label: string; value: (entity: FinancialEntity) => React.ReactNode }[] = [
-  { label: '事業', value: (e) => text(e.essence?.whatItDoes) || text(e.tagline) || null },
+  {
+    label: '何の事業か',
+    value: (e) => {
+      const fact = readerSummaryFact(e.reader);
+      return (fact ? firstSentence(fact.text) : '') || text(e.essence?.whatItDoes) || text(e.tagline) || null;
+    },
+  },
   { label: '分野', value: (e) => sectorLabel(e) },
+  { label: '売上など', value: (e) => metricCell(pickListMetric(e.reader)) },
+  { label: '利益', value: (e) => metricCell(pickProfitMetric(e.reader)) },
+  { label: '料金', value: (e) => factCell(e, 'PRICING') ?? analysisCell(e, 'PRICING') },
+  { label: ANALYSIS_LABELS.CUSTOMER, value: (e) => analysisCell(e, 'CUSTOMER') },
+  { label: '人数', value: (e) => factCell(e, 'TEAM') ?? (teamSizeText(e) ? <span className="term-num">{teamSizeText(e)}人</span> : null) },
+  { label: ANALYSIS_LABELS.CHANNELS, value: (e) => analysisCell(e, 'CHANNELS') },
+  { label: ANALYSIS_LABELS.UPFRONT_CASH, value: (e) => analysisCell(e, 'UPFRONT_CASH') },
+  { label: ANALYSIS_LABELS.WHY_IT_WORKED, value: (e) => analysisCell(e, 'WHY_IT_WORKED') },
+  { label: ANALYSIS_LABELS.INCUMBENT_BLINDSPOT, value: (e) => analysisCell(e, 'INCUMBENT_BLINDSPOT') },
   {
     label: '成否',
     value: (e) => {
@@ -37,22 +86,16 @@ const ROWS: { label: string; value: (entity: FinancialEntity) => React.ReactNode
     },
   },
   { label: '開始年', value: (e) => (e.temporal?.foundedYear && e.temporal.foundedYear > 0 ? <span className="term-num">{e.temporal.foundedYear}年</span> : null) },
-  { label: '月商', value: (e) => (hasRecordedRevenue(e) ? money(e.pnl.monthlyRevenue, e) : null) },
+  { label: '月商', value: (e) => (!e.reader && hasRecordedRevenue(e) ? money(e.pnl.monthlyRevenue, e) : null) },
   {
     label: '営業利益',
-    value: (e) => (hasRecordedRevenue(e) && !e.pnl.isOperatingProfitUnconfirmed && Number.isFinite(e.pnl.operatingProfit) ? money(e.pnl.operatingProfit, e) : null),
+    value: (e) => (!e.reader && hasRecordedRevenue(e) && !e.pnl.isOperatingProfitUnconfirmed && Number.isFinite(e.pnl.operatingProfit) ? money(e.pnl.operatingProfit, e) : null),
   },
   {
     label: '営業利益率',
-    value: (e) => (hasRecordedRevenue(e) && !e.pnl.isMarginUnconfirmed && Number.isFinite(e.pnl.operatingMargin)
+    value: (e) => (!e.reader && hasRecordedRevenue(e) && !e.pnl.isMarginUnconfirmed && Number.isFinite(e.pnl.operatingMargin)
       ? <span className="term-num">{e.pnl.operatingMargin.toFixed(1)}%</span> : null),
   },
-  { label: '運営人数', value: (e) => (teamSizeText(e) ? <span className="term-num">{teamSizeText(e)}人</span> : null) },
-  { label: '価格', value: (e) => text(e.pricing?.pricePoint) || null },
-  { label: '対象顧客', value: (e) => text(e.essence?.targetCustomer) || null },
-  { label: '最初の顧客', value: (e) => text(e.acquisition?.primaryFunnel) || text(e.lootBlueprint?.stealthEntry) || null },
-  { label: '競争優位', value: (e) => text(e.strategy?.moatDescription) || null },
-  { label: '大手との競争', value: (e) => text(e.strategy?.incumbentDilemma) || null },
 ];
 
 // Tailwind が読み取れるよう、列数ごとのクラスを文字列のまま並べる
@@ -134,7 +177,7 @@ export function CompareView({ ids: requestedIds, omittedCount = 0 }: { ids: stri
       )}
       {ids.length === 1 && (
         <p role="status" className="border-b border-term-line px-3 py-2 text-xs text-term-sub">
-          まだ1件だけです。もう1件以上を加えると見比べられます（あと{COMPARE_LIMIT - 1}件まで追加可）。下の同じ分野の事例から加えられます。
+          まだ1件だけです。もう1件以上を加えると見比べられます（あと{COMPARE_LIMIT - 1}件まで追加可）。下の「ほかの事例を加える」から加えられます。
         </p>
       )}
 
@@ -203,8 +246,6 @@ export function CompareView({ ids: requestedIds, omittedCount = 0 }: { ids: stri
 
       {ready[0] && (
         <CompareSimilarCases
-          sector={ready[0].sector}
-          sectorBasis={ready[0].sectorBasis}
           excludeIds={ids}
           canAdd={ids.length < COMPARE_LIMIT}
           onAdd={addCase}

@@ -62,8 +62,8 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
             window.clearTimeout(timeout);
             controller.signal.removeEventListener('abort', forward);
           }
-          if (response.status === 409) throw new Error('台帳が更新されました。画面を再読み込みしてください');
-          if (!response.ok) throw new Error(`台帳の取得に失敗しました（HTTP ${response.status}）。再読み込みしてください`);
+          if (response.status === 409) throw new Error('事例データが更新されました。画面を再読み込みしてください');
+          if (!response.ok) throw new Error(`事例データの取得に失敗しました（HTTP ${response.status}）。再読み込みしてください`);
           payload = await response.json() as {
             data: unknown;
             generation: string;
@@ -73,7 +73,7 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
           break;
         } catch (cause) {
           lastError = cause;
-          if (attempt === 1 || controller.signal.aborted || (cause instanceof Error && cause.message.includes('台帳が更新されました'))) {
+          if (attempt === 1 || controller.signal.aborted || (cause instanceof Error && cause.message.includes('事例データが更新されました'))) {
             throw cause;
           }
           await new Promise<void>((resolve) => window.setTimeout(resolve, 250));

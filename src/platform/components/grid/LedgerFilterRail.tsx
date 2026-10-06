@@ -3,7 +3,7 @@
 import React from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { BusinessScale, MoatType } from '../../types/terminal';
-import { countScreenerMatches } from '../../model/entity-filter';
+import { countScreenerMatches, screenerFacetAvailability } from '../../model/entity-filter';
 import type { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 
 /**
@@ -96,6 +96,11 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
   allEntities,
 }) => {
   const current = filters ?? EMPTY;
+  // 全件が手元にある時、1件も当たらないまとまりは出さない（押せない項目の壁を作らない）
+  const facets = allEntities ? screenerFacetAvailability(allEntities) : null;
+  const shows = (key: 'scales' | 'margin' | 'capital' | 'moats') => !facets || facets[key];
+  const hasTags = (current.selectedTags?.length ?? 0) > 0;
+  if (facets && !facets.scales && !facets.margin && !facets.capital && !facets.moats && !hasTags) return null;
   // その条件だけを当てた時に1件も残らないか（全件が手元にある時だけ判定する）
   const isEmptyOption = (patch: Partial<ScreenerFilterState>): boolean =>
     Boolean(allEntities) && countScreenerMatches(allEntities ?? [], { ...EMPTY, ...patch }) === 0;
@@ -119,11 +124,17 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         </button>
       </div>
 
+      {shows('scales') && (
+        <>
       <GroupHeader>運営人数</GroupHeader>
       {SCALES.map((item) => (
         <Row key={item.id} label={item.label} empty={isEmptyOption({ scales: [item.id] })} selected={current.scales.includes(item.id)} onClick={() => update({ scales: toggle(current.scales, item.id) })} />
       ))}
+        </>
+      )}
 
+      {shows('margin') && (
+        <>
       <GroupHeader>営業利益率</GroupHeader>
       {MARGINS.map((item) => (
         <Row
@@ -135,7 +146,11 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
           onClick={() => update({ minMargin: current.minMargin === item.value ? 0 : item.value })}
         />
       ))}
+        </>
+      )}
 
+      {shows('capital') && (
+        <>
       <GroupHeader>初期資金</GroupHeader>
       {CAPITALS.map((item) => (
         <Row
@@ -147,11 +162,17 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
           onClick={() => update({ maxCapital: current.maxCapital === item.value ? null : item.value })}
         />
       ))}
+        </>
+      )}
 
+      {shows('moats') && (
+        <>
       <GroupHeader>参入障壁</GroupHeader>
       {MOATS.map((item) => (
         <Row key={item.id} label={item.label} empty={isEmptyOption({ moats: [item.id] })} selected={current.moats.includes(item.id)} onClick={() => update({ moats: toggle(current.moats, item.id) })} />
       ))}
+        </>
+      )}
 
       {(current.selectedTags?.length ?? 0) > 0 && (
         <>

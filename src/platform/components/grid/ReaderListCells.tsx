@@ -3,6 +3,7 @@ import React from 'react';
 import {
   firstSentence,
   formatMetricAmount,
+  metricListLabel,
   metricMeasureLabel,
   metricOriginLabel,
   pickListMetric,
@@ -45,7 +46,7 @@ export function ListMetric({ metric, compact = false }: { metric: ReaderMetric |
   if (!metric) return <span className="text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
   return (
     <span data-metric={metric.id} className="inline-flex flex-col items-end">
-      <span className="text-xs text-term-label">{metricMeasureLabel(metric)}</span>
+      <span className="text-xs text-term-label">{metricListLabel(metric)}</span>
       <span className={`term-num text-sm ${metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}`}>{formatMetricAmount(metric)}</span>
       {!compact && (
         <span className={`text-xs ${metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-label'}`}>
@@ -62,8 +63,9 @@ export function ListMetric({ metric, compact = false }: { metric: ReaderMetric |
  */
 export function ListMetricCell({ metric, expected }: { metric: ReaderMetric | null; expected?: readonly Measure[] }) {
   if (!metric) return <span className="font-sans text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
-  const label = metricMeasureLabel(metric);
-  const showLabel = !expected || !expected.includes(metric.measure);
+  const label = metricListLabel(metric);
+  // 列の見出しと同じ種類でも、売上は月・年・累計で呼び分けるので、見出しと違う名前の時は前に付ける
+  const showLabel = !expected || !expected.includes(metric.measure) || label !== metricMeasureLabel(metric);
   return (
     <span data-metric={metric.id} title={`${label} ${metric.period} · ${metricOriginLabel(metric)}`}>
       {showLabel && <span className="mr-1 font-sans text-xs text-term-label">{label}</span>}

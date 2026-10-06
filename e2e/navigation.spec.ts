@@ -17,7 +17,7 @@ test('search and screener change the company list and reset cleanly', async ({ p
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  const search = page.getByPlaceholder(/会社名・ティッカー/).first();
+  const search = page.getByPlaceholder(/会社名・事業/).first();
   // 詳細（aside）の中の数値の表にも行があるので、事例一覧の行だけを数える
   const rows = page.getByRole('row').and(page.locator(':not(aside *)')).filter({ visible: true });
   await search.fill(PRIMARY.name);
