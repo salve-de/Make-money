@@ -53,7 +53,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: error instanceof Error ? error.message : 'Make-Money view rebuild failed',
+        // 詳細はサーバーのログだけに残す（応答に内部の文面を載せない）
+        error: 'Make-Money view rebuild failed',
       },
       { status: 502 }
     );

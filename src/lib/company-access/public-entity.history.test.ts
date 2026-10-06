@@ -46,4 +46,25 @@ describe('private research history public boundary', () => {
     expect(JSON.stringify(stored)).toBe(before);
     expect(publicFoundationData({ items: [stored] })).not.toHaveProperty('items.0.reaudit.legacyDisplaySnapshot');
   });
+
+  it('再監査メモは出典・裏付けの文・監査日だけを公開し、担当者名や内部メモは出さない', () => {
+    const stored = {
+      id: 'reaudit-allowlist-test',
+      reaudit: {
+        auditDate: '2026-09-29',
+        auditOwner: 'lane:C internal agent',
+        method: 'internal method',
+        conflicts: ['internal note'],
+        rights: { held: false },
+        narrativeStatus: 'UNVERIFIED',
+        sources: [{ url: 'https://example.org/source' }],
+        supported: ['月商 100万円'],
+      },
+      evidenceCards: [{ sourceNote: 'https://example.org/source' }],
+    };
+    const result = publicEntity(stored as unknown as FinancialEntity);
+    expect(Object.keys(result.reaudit ?? {}).sort()).toEqual(['auditDate', 'sources', 'supported']);
+    expect(JSON.stringify(result)).not.toMatch(/lane:C|internal method|internal note/);
+    expect(publicEntity({ id: 'no-audit' } as unknown as FinancialEntity)).not.toHaveProperty('reaudit');
+  });
 });

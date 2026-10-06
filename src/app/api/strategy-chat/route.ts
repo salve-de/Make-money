@@ -8,11 +8,15 @@ import { queryD1, executeD1, batchD1 } from '@/lib/storage/d1';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
+import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 import { boundedGeminiText, callGeminiApi } from '@/lib/strategy/gemini';
 import { sanitizeGeneratedText, sanitizeSynthesizedIdeas } from '@/lib/strategy/guidance-safety';
 
 export const dynamic = 'force-dynamic';
 const MAX_STRATEGY_REQUEST_BYTES = 1 * 1024 * 1024;
+// 生成AI（Gemini）は呼ぶたびに費用が出る。ログインした本人ごとに、1時間あたりの回数を絞る。
+const AI_CALL_LIMIT = 60;
+const AI_CALL_WINDOW_MS = 60 * 60 * 1000;
 const SAFETY_BOUNDARY_NOTICE = '公開事例は事実の記録として扱い、実行案は法令・各サービス規約・相手の同意を前提にします。根拠が不足する数値は未確認のまま検証します。';
 
 /** 公開目録にある事例だけ。目録に無い ID は無かった扱い。 */
@@ -186,8 +190,23 @@ export async function POST(req: NextRequest) {
     const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
     if (auth && !user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     const userId = user?.uid ?? null;
-    const apiKey = await getRuntimeEnvValue('GEMINI_API_KEY') || await getRuntimeEnvValue('GOOGLE_GENERATIVE_AI_API_KEY');
-    if (apiKey && !user) return NextResponse.json({ error: 'Authentication is required for AI analysis' }, { status: 401 });
+    const configuredApiKey = await getRuntimeEnvValue('GEMINI_API_KEY') || await getRuntimeEnvValue('GOOGLE_GENERATIVE_AI_API_KEY');
+    if (configuredApiKey && !user) return NextResponse.json({ error: 'Authentication is required for AI analysis' }, { status: 401 });
+    // 回数を数えられない間は、費用がかかる生成AIを呼ばず、内蔵の推論に切り替える。上限を超えたら 429。
+    let apiKey = configuredApiKey;
+    if (configuredApiKey && user) {
+      let allowed = false;
+      try {
+        allowed = await consumeRequestRateLimit(req, 'strategy-chat-ai', { limit: AI_CALL_LIMIT, windowMs: AI_CALL_WINDOW_MS, subject: user.uid });
+      } catch {
+        apiKey = undefined;
+        allowed = true;
+      }
+      if (!allowed) {
+        const retryAfter = Math.ceil((AI_CALL_WINDOW_MS - (Date.now() % AI_CALL_WINDOW_MS)) / 1000);
+        return NextResponse.json({ error: 'Too many AI requests' }, { status: 429, headers: { 'Retry-After': String(retryAfter) } });
+      }
+    }
 
     // 1. アイデア合成リクエスト (SYNTHESIZE)
     if (body.action === 'SYNTHESIZE') {
@@ -366,10 +385,8 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
   } catch (err: unknown) {
     if (err instanceof CatalogUnavailableError) return NextResponse.json({ error: 'Catalog temporarily unavailable' }, { status: 503 });
+    // 内部のエラー文（保存先の名前や接続情報を含みうる）は返さず、ログにだけ残す。
     console.error('Strategy Chat API error:', err);
-    return NextResponse.json(
-      { error: err instanceof Error ? err.message : 'Internal Server Error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

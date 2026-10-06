@@ -15,9 +15,10 @@ describe('callGeminiApi', () => {
     const result = await callGeminiApi('質問', 'test-key');
     expect(result).toEqual({ text: '答え', sources: undefined });
     const [url, init] = fetchMock.mock.calls[0];
-    expect(String(url)).toBe('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=test-key');
+    expect(String(url)).toBe('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent');
+    expect(String(url)).not.toContain('test-key');
     expect(init?.method).toBe('POST');
-    expect(init?.headers).toEqual({ 'Content-Type': 'application/json' });
+    expect(init?.headers).toEqual({ 'Content-Type': 'application/json', 'x-goog-api-key': 'test-key' });
     expect(init?.signal).toBeUndefined();
     expect(JSON.parse(String(init?.body))).toEqual({
       contents: [{ parts: [{ text: '質問' }] }],

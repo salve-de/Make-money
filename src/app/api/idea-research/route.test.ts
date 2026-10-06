@@ -260,7 +260,9 @@ describe('POST /api/idea-research when signed in', () => {
     mocks.env.mockImplementation(async (name: string) => (name === 'GOOGLE_GENERATIVE_AI_API_KEY' ? 'second-key' : undefined));
     const body = await (await POST(request({ idea: IDEA }, { token: 'valid' }))).json();
     expect(body.ai).not.toBeNull();
-    expect(String((fetchMock.mock.calls[0] as unknown as [unknown])[0])).toContain('key=second-key');
+    const [url, init] = fetchMock.mock.calls[0] as unknown as [unknown, RequestInit];
+    expect(String(url)).not.toContain('second-key');
+    expect((init.headers as Record<string, string>)['x-goog-api-key']).toBe('second-key');
   });
 
   it.each([
