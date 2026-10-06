@@ -10,7 +10,7 @@ import {
   readerSummaryFact,
 } from '@/shared/display-text';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
-import { AnalysisGroups, Headline, KeyStrip, planKeyStrip, StorySteps } from './ReaderOverview';
+import { AnalysisGroups, Fold, Headline, KeyStrip, planKeyStrip, SectionNav, StorySteps, WhatIs } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
@@ -113,58 +113,22 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader', exclude }: Read
   );
 }
 
-/** 推測の計算と根拠。結論を読む邪魔にならないよう、ページの下に1か所でまとめる。根拠の事実は番号を振って1回だけ出す。 */
-export function ReaderEvidence({ reader, evidencePrefix = 'reader' }: ReaderProps) {
+/** 推定の計算と前提。式のある項目だけを出す（「数字は出典に載っている値」のような式でない定型文と、事実の再掲は出さない）。 */
+const BOILERPLATE_FORMULA = /^数字は出典に載っている値$/;
+export function ReaderEvidence({ reader }: ReaderProps) {
   if (!reader) return null;
-  const basisLabel = (id: string) => {
-    const fact = reader.facts.find((f) => f.id === id);
-    const metric = reader.metrics.find((m) => m.id === id);
-    if (fact) return fact.text;
-    if (!metric) return undefined;
-    return [metricMeasureLabel(metric), metric.period, formatMetricAmount(metric), metricOriginLabel(metric), metric.basis].filter(Boolean).join(' ');
-  };
   const rows = ANALYSIS_ITEMS.flatMap((item) => reader.analysis.filter((a) => a.item === item))
-    .map((a) => ({ a, basis: a.basis.filter((id) => basisLabel(id)) }))
-    .filter(({ a, basis }) => a.formula || basis.length > 0);
-  const used = [...new Set(rows.flatMap(({ basis }) => basis))];
-  const no = (id: string) => used.indexOf(id) + 1;
-  const anchor = (id: string) => evidenceAnchor(evidencePrefix, `basis-${id}`);
+    .filter((a) => a.formula && !BOILERPLATE_FORMULA.test(a.formula.trim()));
   return (
     <ReaderSection id="section-reasoning" title={UI.SECTION_EVIDENCE} empty={rows.length === 0}>
       <ul className="min-w-0 divide-y divide-term-line-soft text-xs [overflow-wrap:anywhere]">
-        {rows.map(({ a, basis }) => (
-          <li key={a.id} data-evidence={a.id} className="py-1 leading-relaxed">
-            <div className="flex flex-wrap items-center gap-x-3">
-              <span className="text-term-label">{ANALYSIS_LABELS[a.item]}</span>
-              {basis.length > 0 && (
-                <span className="flex flex-wrap items-center gap-x-1 text-term-label">
-                  <span>{UI.ANALYSIS_BASIS_PREFIX}</span>
-                  {basis.map((id) => (
-                    <a key={id} href={`#${encodeURIComponent(anchor(id))}`} className="inline-flex min-h-11 min-w-6 items-center justify-center text-term-sub underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6">
-                      {no(id)}
-                    </a>
-                  ))}
-                </span>
-              )}
-            </div>
-            {a.formula && (
-              <p className="whitespace-pre-line text-term-sub">
-                <span className="text-term-label">{UI.ANALYSIS_FORMULA_PREFIX}</span>{a.formula}
-              </p>
-            )}
+        {rows.map((a) => (
+          <li key={a.id} data-evidence={a.id} className="py-1.5 leading-relaxed">
+            <span className="block text-term-label">{ANALYSIS_LABELS[a.item]}</span>
+            <p className="whitespace-pre-line text-term-sub">{a.formula}</p>
           </li>
         ))}
       </ul>
-      {used.length > 0 && (
-        <ol data-evidence="basis" className="mt-1 border-t border-term-line-soft pt-1 text-xs leading-relaxed text-term-sub [overflow-wrap:anywhere]">
-          {used.map((id) => (
-            <li key={id} id={anchor(id)} className="flex scroll-mt-8 gap-2 py-0.5">
-              <span className="term-num shrink-0 text-term-label">{no(id)}</span>
-              <span className="min-w-0">{basisLabel(id)}</span>
-            </li>
-          ))}
-        </ol>
-      )}
     </ReaderSection>
   );
 }
@@ -222,31 +186,32 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
   if (!reader && status) return status;
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
   const plan = planKeyStrip(reader);
-  const hasDetails = reader.metrics.length > 0 || reader.sources.length > 0 || reader.analysis.some((a) => a.formula || a.basis.length > 0);
-  // 並び: 結論 → 概要 → 主要な数字 → 製品画面 → 物語 → 推測（4つの問い） → 事実 → 根拠・出典・数値の一覧（畳む）
+  const summary = readerSummaryFact(reader);
+  const hasStory = reader.analysis.some((a) => a.item === 'STORY');
+  const hasDetails = reader.facts.length > 0 || reader.metrics.length > 0 || reader.sources.length > 0 || reader.analysis.some((a) => a.formula);
+  // 並び: 何の事業か → 製品画面（横に送る。開いてすぐ見える位置） → 主要な数字 → ひとこと → 目次 → 稼ぎ方・客・強み・経緯（畳む） → 出典つきの事実・数値（畳む）
   return (
     <>
       {status}
-      <Headline reader={reader} tight={Boolean(readerSummaryFact(reader))} />
-      <ReaderSummary reader={reader} evidencePrefix={evidencePrefix} />
-      <KeyStrip reader={reader} plan={plan} />
+      <WhatIs fact={summary} />
       {media}
+      <KeyStrip reader={reader} plan={plan} />
+      <Headline reader={reader} />
+      <SectionNav reader={reader} usage={plan.usage} hasDetails={hasDetails} hasStory={hasStory} />
       {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
         <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
-          <StorySteps reader={reader} />
           <AnalysisGroups reader={reader} usage={plan.usage} />
+          <StorySteps reader={reader} />
         </div>
       )}
-      <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} exclude={plan.usage.factIds} />
-      {hasDetails && <details open className="group border-b border-term-line">
-        <summary className="flex min-h-9 cursor-pointer list-none items-center gap-2 bg-term-head px-2.5 text-xs text-term-sub hover:text-term-fg-strong sm:px-3 [&::-webkit-details-marker]:hidden">
-          <span aria-hidden="true" className="inline-block h-0 w-0 border-y-[4px] border-l-[5px] border-y-transparent border-l-current transition-transform group-open:rotate-90" />
-          <span>{UI.SECTION_DETAILS}</span>
-        </summary>
-        <ReaderMetrics reader={reader} evidencePrefix={evidencePrefix} />
-        <ReaderEvidence reader={reader} evidencePrefix={evidencePrefix} />
-        <ReaderSources reader={reader} evidencePrefix={evidencePrefix} />
-      </details>}
+      {hasDetails && (
+        <Fold id="section-details" title={UI.SECTION_DETAILS}>
+          <ReaderFacts reader={reader} evidencePrefix={evidencePrefix} exclude={new Set([...plan.usage.factIds, ...(summary ? [summary.id] : [])])} />
+          <ReaderMetrics reader={reader} evidencePrefix={evidencePrefix} />
+          <ReaderEvidence reader={reader} evidencePrefix={evidencePrefix} />
+          <ReaderSources reader={reader} evidencePrefix={evidencePrefix} />
+        </Fold>
+      )}
     </>
   );
 }

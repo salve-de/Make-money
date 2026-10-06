@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { PRIMARY } from './reader-fixture';
+import { PRIMARY, openDetails } from './reader-fixture';
 
 // 公開済みの事例（GoRails）の詳細で、数値・推測・出典・メモの各区画に、どの画面幅でも届くこと。
 // 詳細は entity.reader だけを読む（公開目録に入っている実際の reader。e2e/reader-fixture.ts の PRIMARY）。
@@ -12,6 +12,7 @@ for (const width of [390, 768, 960, 1440]) {
     const pane = page.getByRole('complementary', { name: `${PRIMARY.name}の企業事例インスペクター` });
     await expect(pane).toBeVisible();
     await expect(pane.locator('[data-fact="f1"]')).toContainText('Ruby on Rails の動画講座とコース');
+    await openDetails(page);
     const metrics = pane.locator('#section-metrics');
     await metrics.scrollIntoViewIfNeeded();
     await expect(metrics).toBeVisible();
@@ -22,7 +23,7 @@ for (const width of [390, 768, 960, 1440]) {
     await expect(analysis.locator('[data-analysis]').first()).toBeVisible();
     const reasoning = pane.locator('#section-reasoning');
     await reasoning.scrollIntoViewIfNeeded();
-    await expect(reasoning).toContainText('推測');
+    await expect(reasoning).toContainText('推定');
     const sources = pane.locator('#section-sources');
     await sources.scrollIntoViewIfNeeded();
     await expect(sources).toBeVisible();

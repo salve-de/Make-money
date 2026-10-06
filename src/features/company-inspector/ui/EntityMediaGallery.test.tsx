@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { pickGalleryAssets, type PublicMediaAsset } from '@/shared/media-display';
 import { EntityMediaGalleryView } from './EntityMediaGallery';
 
-function asset(kind: PublicMediaAsset['kind'], suffix: string, attribution = '出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)'): PublicMediaAsset {
+function asset(kind: PublicMediaAsset['kind'], suffix: string, attribution = '出典: キーエンス (KEYENCE) 公式サイト'): PublicMediaAsset {
   return {
     assetId: `ma_${suffix.padEnd(24, '0')}`,
     kind,
@@ -25,30 +25,26 @@ describe('EntityMediaGalleryView', () => {
     expect(render([])).toBe('');
   });
 
-  it('shows every image lazily, with its source text under it and a description of what it is', () => {
-    const html = render(pickGalleryAssets([asset('screenshot_pricing', 'b', '出典: Photo AI 公式サイト (https://photoai.com/pricing)'), asset('screenshot_product', 'a'), asset('og_image', 'x'), asset('favicon', 'f')]));
+  it('shows every image in one row, with each distinct source text once under the row', () => {
+    const html = render(pickGalleryAssets([asset('screenshot_pricing', 'b', '出典: Photo AI 公式サイト'), asset('screenshot_product', 'a'), asset('og_image', 'x'), asset('favicon', 'f')]));
     expect(html).toContain('id="section-media"');
-    expect(html).toContain('製品画像');
     expect((html.match(/data-testid="media-gallery-image"/g) ?? []).length).toBe(2);
-    expect((html.match(/loading="lazy"/g) ?? []).length).toBe(2);
     expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの料金ページ"');
     expect(html).toContain('alt="キーエンス (KEYENCE)の公式サイトの製品画面"');
-    expect(html).toContain('出典: Photo AI 公式サイト (https://photoai.com/pricing)');
-    expect(html).toContain('出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)');
+    expect(html).toContain('出典: Photo AI 公式サイト');
+    expect(html).toContain('出典: キーエンス (KEYENCE) 公式サイト');
     expect(html).toContain('aspect-ratio:1200 / 630');
     expect(html).toContain('referrerPolicy="no-referrer"');
-    // every caption sits in the same figure as its image, after it
-    const figures = html.split('<figure').slice(1);
-    expect(figures).toHaveLength(2);
-    for (const figure of figures) expect(figure.indexOf('<img')).toBeLessThan(figure.indexOf('media-gallery-attribution'));
+    // 横に並べる（縦に積まない）
+    expect(html).toContain('overflow-x-auto');
+    expect(html).not.toContain('grid-cols-');
   });
 
-  it('gives a single image a readable width and several images a grid', () => {
-    expect(render([asset('og_image', 'a')])).toContain('max-w-[30rem]');
-    expect(render([asset('og_image', 'a')])).not.toContain('grid-cols-2');
-    const several = render([asset('screenshot_home', 'b'), asset('og_image', 'a')]);
-    expect(several).toContain('sm:grid-cols-2');
-    expect(several).not.toContain('max-w-[30rem]');
+  it('writes an identical source only once, even for several images', () => {
+    const html = render([asset('screenshot_home', 'b'), asset('screenshot_home', 'c'), asset('screenshot_home', 'd')]);
+    expect((html.match(/data-testid="media-gallery-image"/g) ?? []).length).toBe(3);
+    expect((html.match(/data-testid="media-gallery-attribution"/g) ?? []).length).toBe(1);
+    expect((html.match(/data-testid="media-gallery-source-link"/g) ?? []).length).toBe(1);
   });
 
   it('does not show the favicon in the gallery (it is the list logo)', () => {
@@ -67,6 +63,6 @@ describe('EntityMediaGalleryView', () => {
     expect(html).toContain('［App Store 掲載画像］');
     // 128px for the icon, 480px for previews and store images
     expect(html).toContain('max-width:128px');
-    expect(html).toContain('max-width:480px');
+    expect(html).toContain('max-width:min(480px');
   });
 });
