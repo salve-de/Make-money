@@ -43,6 +43,16 @@ export function describeSearchCondition({ query, filters }: SearchCondition): st
   return parts;
 }
 
+/**
+ * 一覧の見出しに出す条件の要約。検索語・絞り込み・保存した事例の表示を、いま画面に効いている状態からそのまま作る。
+ * 保存条件の名前とは違い、保存した事例の表示（BOOKMARKED）も条件として含める。何も効いていなければ空の配列。
+ */
+export function describeLedgerCondition(condition: SearchCondition): string[] {
+  const parts = describeSearchCondition(condition);
+  if (condition.filters.filter === 'BOOKMARKED') parts.unshift('保存した事例');
+  return parts;
+}
+
 /** 名前の初期値。条件の並びをつなげて60文字に収める。 */
 export function defaultSavedSearchName(condition: SearchCondition): string {
   const text = describeSearchCondition(condition).join('・') || '保存した条件';

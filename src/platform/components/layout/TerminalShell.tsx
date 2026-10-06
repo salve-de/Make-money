@@ -24,6 +24,7 @@ import { TerminalStatusBar } from './TerminalStatusBar';
 import { useLedgerKeyboard } from '../../hooks/useLedgerKeyboard';
 import { closeEntityParam, dropQueryParam, openEntityParam, openLedgerEntityUrl, positionLabel } from '../../utils/entityUrl';
 import { preferDetail } from '@/shared/dossier-authority';
+import { describeLedgerCondition } from '../../model/saved-search-view';
 import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC<{
@@ -238,7 +239,7 @@ export const TerminalShell: React.FC<{
             {entities.length === 0 && (catalogError || listLoading) ? (
               <LedgerLoadState state={catalogError ? 'failed' : 'loading'} slow={catalogSlow} onRetry={retryCatalog} />
             ) : null}
-            <LedgerListTitle count={filteredEntities.length} />
+            <LedgerListTitle count={filteredEntities.length} conditionsLabel={describeLedgerCondition({ query: searchQuery, filters: catalogFilters }).join('・')} />
             <InstitutionalDataGrid
               entities={filteredEntities}
               selectedEntityId={selectedEntityId}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { catalogQueryHref, readEntityFilterQuery, type CatalogFilters } from './entity-filter';
-import { defaultSavedSearchName, describeSearchCondition, hasSavableCondition } from './saved-search-view';
+import { defaultSavedSearchName, describeLedgerCondition, describeSearchCondition, hasSavableCondition } from './saved-search-view';
 
 const none: CatalogFilters = { filter: 'ALL', batch: 'ALL', tags: [], bookmarks: [], screener: null };
 
@@ -30,5 +30,13 @@ describe('saved search view', () => {
   it('ignores a malformed screener in the link', () => {
     const params = new URLSearchParams({ screener: '{"scales":"SOLO"}', tags: 'a,,a,b' });
     expect(readEntityFilterQuery(params)).toMatchObject({ screener: null, tags: ['a', 'b'] });
+  });
+
+  it('ledger heading follows the live state and returns to empty when everything is cleared', () => {
+    expect(describeLedgerCondition({ query: '', filters: none })).toEqual([]);
+    expect(describeLedgerCondition({ query: ' AI ', filters: none })).toEqual(['検索「AI」']);
+    expect(describeLedgerCondition({ query: 'AI', filters: { ...none, filter: 'SOLO' } })).toEqual(['検索「AI」', '一人で運営']);
+    expect(describeLedgerCondition({ query: '', filters: { ...none, filter: 'BOOKMARKED' } })).toEqual(['保存した事例']);
+    expect(describeLedgerCondition({ query: '   ', filters: none })).toEqual([]);
   });
 });

@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { BuildMaterial } from '@/platform/components/build/BuildMaterial';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 
 export const metadata: Metadata = { title: '作る | Make Money' };
@@ -48,6 +50,9 @@ export default function BuildIndexPage() {
           <h1 className="term-panel-name">作る</h1>
           <span className="max-sm:hidden">事例から案を決め、作って出品するまでの道すじ</span>
         </div>
+        <Suspense fallback={null}>
+          <BuildMaterial />
+        </Suspense>
         <ol aria-label="作って出品するまでの4つの段階">
           {STEPS.map((step) => (
             <li key={step.no} className="flex flex-col gap-2 border-b border-term-line px-3 py-3 sm:flex-row sm:items-center sm:gap-4">
