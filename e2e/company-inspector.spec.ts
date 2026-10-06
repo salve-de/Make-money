@@ -1,6 +1,6 @@
 import { openNotes, selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
-import { NO_MONEY, PRIMARY, SECONDARY } from './reader-fixture';
+import { NO_MONEY, PRIMARY, SECONDARY, openDetails } from './reader-fixture';
 
 // 公開済みの事例（GoRails）で、一覧 → 詳細 → 閉じる → 開き直す、を通す。
 // 詳細は entity.reader だけを読む（公開目録の reader が出る）。
@@ -18,6 +18,7 @@ test('company list opens financials and evidence, then closes and reopens the in
   await row.click();
   await expect(page.getByRole('heading', { name: PRIMARY.name, exact: true })).toBeVisible();
   const inspector = page.getByRole('complementary').filter({ has: page.getByRole('heading', { name: PRIMARY.name, exact: true }) });
+  await openDetails(page);
   await expect(inspector.locator('#section-metrics')).toBeVisible();
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
   for (const legacy of ['純手残り', '損益ブリッジ', '資金フロー', '現金の滝', '通帳引き算バー']) await expect(inspector).not.toContainText(legacy);
@@ -126,5 +127,6 @@ test('unconfirmed financials omit the result card without fabricating zero value
   await expect(inspector.locator('#section-metrics')).toHaveCount(0);
   await expect(inspector).not.toContainText(NO_MONEY.unconfirmed);
   await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
+  await openDetails(page);
   await expect(page.locator('#section-sources')).toBeVisible();
 });

@@ -62,3 +62,9 @@ export async function routeReader(page: Page, entityId: string, reader: ReaderCa
     return route.fulfill({ response, json: { ...body, data: { ...body.data, reader } } });
   });
 }
+
+/** 「出典つきの事実・数値」は閉じた折りたたみなので、中の区画（数値・推定の計算・出典）を見る前に開く */
+export async function openDetails(page: import('@playwright/test').Page): Promise<void> {
+  // 下端の Cookie 帯が押下を覆うので、クリックでなく open 属性で開く
+  await page.locator('#section-details').evaluate((el) => { (el as HTMLDetailsElement).open = true; });
+}
