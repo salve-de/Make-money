@@ -40,7 +40,7 @@ export function ReaderSummary({ reader, evidencePrefix = 'reader' }: ReaderProps
   const fact = readerSummaryFact(reader);
   if (!reader || !fact) return null;
   return (
-    <p id={evidenceAnchor(evidencePrefix, fact.id)} data-fact={fact.id} className="scroll-mt-8 border-b border-term-line px-2.5 pb-3 pt-0 text-[13px] leading-relaxed text-term-sub sm:px-3">
+    <p id={evidenceAnchor(evidencePrefix, fact.id)} data-fact={fact.id} className="scroll-mt-8 border-b border-term-line px-2.5 pb-3 pt-0 text-sm leading-relaxed text-term-sub sm:px-3 lg:text-[13px]">
       {plainFactText(fact.text)}
     </p>
   );

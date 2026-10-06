@@ -71,7 +71,7 @@ export function CompanyHeader({
               <h2 className="min-w-0 truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
                 {entity.name}
               </h2>
-              {genre && <span className="shrink-0 rounded-[2px] border border-term-line px-1.5 text-[11px] leading-5 text-term-sub">{genre}</span>}
+              {genre && <span className="shrink-0 rounded-[2px] border border-term-line px-1.5 text-xs leading-5 text-term-sub">{genre}</span>}
             </div>
             {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
           </div>

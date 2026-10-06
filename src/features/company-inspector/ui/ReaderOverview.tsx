@@ -11,6 +11,11 @@ import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
  * 推論は必ず「推測」の印と確度を付けて出す（OWNER_INTENT 3章）。
  */
 
+/** 推論の印。薄灰色の「推測」（式のある数字の推論は「推定」）。色だけに頼らず言葉で示す（OWNER_INTENT 3章）。 */
+function InferenceMark({ analysis }: { analysis: ReaderAnalysis }) {
+  return <span className="text-xs text-term-muted">{analysis.formula ? UI.ESTIMATED_MARK : UI.ANALYSIS_MARK}</span>;
+}
+
 /** 帯に出した推論・事実。下の一覧で同じものを2回出さないために使う。 */
 export type OverviewUsage = { items: Set<AnalysisItem>; factIds: Set<string> };
 
@@ -46,11 +51,12 @@ function Sparkline({ points }: { points: number[] }) {
 }
 
 /** 帯の1マス。事実は実線の上罫、推測は点線の上罫。 */
-function StripCell({ label, inferred, children, attrs }: { label: string; inferred: boolean; children: React.ReactNode; attrs?: Record<string, string> }) {
+function StripCell({ label, mark, inferred, children, attrs }: { label: string; mark?: React.ReactNode; inferred: boolean; children: React.ReactNode; attrs?: Record<string, string> }) {
   return (
     <div {...attrs} className={`min-w-0 border-t-2 ${inferred ? 'border-dashed border-term-accent-line' : 'border-solid border-term-sub'} bg-term-panel px-2.5 pb-2 pt-1.5`}>
-      <div className="mb-1 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] text-term-label">
+      <div className="mb-1 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-term-label">
         <span>{label}</span>
+        {mark}
       </div>
       {children}
     </div>
@@ -59,8 +65,8 @@ function StripCell({ label, inferred, children, attrs }: { label: string; inferr
 
 function AnalysisCell({ analysis }: { analysis: ReaderAnalysis }) {
   return (
-    <StripCell label={ANALYSIS_LABELS[analysis.item]} inferred attrs={{ 'data-analysis': analysis.id }}>
-      <p className="text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(analysis.text)}</p>
+    <StripCell label={ANALYSIS_LABELS[analysis.item]} mark={ANALYSIS_LABELS[analysis.item].includes('推') ? undefined : <InferenceMark analysis={analysis} />} inferred attrs={{ 'data-analysis': analysis.id }}>
+      <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(analysis.text)}</p>
     </StripCell>
   );
 }
@@ -96,7 +102,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
           <span className="term-num text-[22px] font-semibold leading-none text-term-fg-strong">{formatMetricAmount(metric)}</span>
           {series.length > 0 && <Sparkline points={series.map((m) => m.amount)} />}
         </div>
-        <div className="mt-1.5 text-[11px] leading-snug text-term-label">
+        <div className="mt-1.5 text-xs leading-snug text-term-label">
           {metric.period} ・ {metricOriginLabel(metric)}
         </div>
       </StripCell>,
@@ -105,7 +111,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   if (priceFact) {
     cells.push(
       <StripCell key="price" label={ANALYSIS_LABELS.PRICING} inferred={false} attrs={{ 'data-fact': priceFact.id }}>
-        <p className="text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainFactText(priceFact.text)}</p>
+        <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainFactText(priceFact.text)}</p>
       </StripCell>,
     );
   }
@@ -121,6 +127,7 @@ export function Headline({ reader, tight = false }: { reader: ReaderCase; tight?
   if (!a) return null;
   return (
     <div data-analysis={a.id} className={`${tight ? '' : 'border-b border-term-line '}px-2.5 pb-2 pt-3 sm:px-3`}>
+      <div className="mb-1"><InferenceMark analysis={a} /></div>
       <h3 className="text-[19px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
     </div>
   );
@@ -148,21 +155,22 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
     <div data-analysis={story.id} className="border-b border-term-line px-2.5 py-2.5 sm:px-3">
       <div className="mb-2 flex flex-wrap items-center gap-2 text-xs">
         <h4 className="text-term-label">{ANALYSIS_LABELS.STORY}</h4>
+        <InferenceMark analysis={story} />
       </div>
       {steps ? (
         <ol className="grid grid-cols-1 gap-x-3 gap-y-2.5 sm:grid-cols-2">
           {steps.map(({ step, body }, i) => (
             <li key={step} className="relative min-w-0 border-l border-dashed border-term-accent-line pl-2.5">
-              <span className="mb-0.5 flex items-center gap-1.5 text-[11px] text-term-accent">
+              <span className="mb-0.5 flex items-center gap-1.5 text-xs text-term-accent">
                 <span className="term-num">{i + 1}</span>
                 <span>{step}</span>
               </span>
-              <span className="block text-[13px] leading-snug text-term-fg [overflow-wrap:anywhere]">{body}</span>
+              <span className="block text-sm lg:text-[13px] leading-snug text-term-fg [overflow-wrap:anywhere]">{body}</span>
             </li>
           ))}
         </ol>
       ) : (
-        <p className="whitespace-pre-line text-[13px] leading-relaxed text-term-fg">{plainAnalysisText(story.text)}</p>
+        <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{plainAnalysisText(story.text)}</p>
       )}
     </div>
   );
@@ -191,10 +199,11 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
             <dl className="divide-y divide-term-line-soft px-2.5 sm:px-3">
               {rows.map((a) => (
                 <div key={a.id} data-analysis={a.id} className="grid grid-cols-1 gap-x-3 gap-y-0.5 py-2 sm:grid-cols-[7.5rem_minmax(0,1fr)]">
-                  <dt className="flex flex-wrap items-center gap-x-2 text-[11px] text-term-label sm:flex-col sm:items-start sm:gap-1">
+                  <dt className="flex flex-wrap items-center gap-x-2 text-xs text-term-label sm:flex-col sm:items-start sm:gap-1">
                     <span>{ANALYSIS_LABELS[a.item]}</span>
+                    <InferenceMark analysis={a} />
                   </dt>
-                  <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 text-[13px] leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</dd>
+                  <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 text-sm lg:text-[13px] leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</dd>
                 </div>
               ))}
             </dl>

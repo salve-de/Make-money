@@ -103,6 +103,10 @@ describe('reader analysis', () => {
     expect(html.match(/data-analysis="a-story"/g)).toHaveLength(1);
     expect(html.indexOf('a-headline')).toBeLessThan(html.indexOf('a-story'));
     expect(html.indexOf('a-story')).toBeLessThan(html.indexOf('data-fact="f2"'));
+    // 推論には必ず薄灰色の言葉の印が付く（確度ラベルは出さない）
+    expect(head).toMatch(/>(推測|推定)</);
+    expect(story).toMatch(/>(推測|推定)</);
+    expect(html).not.toContain('確度');
   });
 
   it('4段の形でない STORY はそのまま1つの文で出す', () => {
