@@ -11,9 +11,11 @@ export default function MarketplaceActivityPage() {
     <div className="flex term-page flex-col bg-term-bg text-term-fg">
       <GlobalHeader currentSection="MARKETPLACE" />
       <main className="w-full flex-1">
-        <div className="term-panel-title max-sm:hidden">
-          <span className="term-panel-name max-lg:hidden">取引・紹介</span>
-          <span className="hidden sm:inline">自分の掲載、購入、販売、紹介リンクの成果。現在はテスト購入で、実際の請求はありません。</span>
+        <div className="hidden sm:block">
+          <div className="term-panel-title">
+            <span className="term-panel-name max-lg:hidden">取引・紹介</span>
+            <span>自分の掲載、購入、販売、紹介リンクの成果。現在はテスト購入で、実際の請求はありません。</span>
+          </div>
         </div>
         <h1 className="sr-only">取引・紹介</h1>
         <MarketplaceTabs active="activity" />

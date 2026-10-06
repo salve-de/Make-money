@@ -1,3 +1,5 @@
+import { Bookmark, BellRing, CircleUserRound, Gem, GitCompareArrows, Handshake, Package, type LucideIcon } from 'lucide-react';
+
 export type GlobalNavSection =
   | 'LEDGER'
   | 'DISCOVER'
@@ -52,15 +54,64 @@ export function tabOfSection(section: GlobalNavSection): GlobalNavSection | unde
   return PRIMARY_NAV_ITEMS.some((item) => item.id === id) ? id : undefined;
 }
 
-/** PC の「その他」の中身（5つのタブに入れない補助の画面） */
-export const SECONDARY_NAV_ITEMS: NavItem[] = [
-  { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
+export const PRO_HREF = '/?pro=1';
+export const SAVED_HREF = '/?mode=SYNTHESIS';
+export const ACCOUNT_PATH = '/account';
+
+export type MenuItemKey = 'SAVED' | 'COMPARE' | 'ALERTS' | 'MY_PRODUCTS' | 'REFERRALS' | 'PRO' | 'ACCOUNT';
+
+export interface MenuItem {
+  key: MenuItemKey;
+  label: string;
+  href: string;
+  icon: LucideIcon;
+  /** 開いている画面がこの値なら、行を選択中にする（無ければ選択中にならない） */
+  section?: GlobalNavSection;
+  /** 件数など、行の右に小さく出す値 */
+  badge?: string;
+}
+
+/**
+ * PC の「その他」とスマホの引き出しメニューで共通の、5つのタブに入らない補助機能（ここ1か所が正本）。
+ * 実在する画面だけを並べる。実行計画・事業の売買・/finder は入口を出さない。
+ */
+export const MORE_MENU_ITEMS: MenuItem[] = [
+  { key: 'SAVED', label: '保存した事例とメモ', href: SAVED_HREF, icon: Bookmark, section: 'SYNTHESIS' },
+  { key: 'COMPARE', label: '比較', href: '/compare', icon: GitCompareArrows, section: 'COMPARE' },
+  { key: 'ALERTS', label: '保存した条件', href: '/alerts', icon: BellRing, section: 'ALERTS' },
+  { key: 'MY_PRODUCTS', label: '自分の商品', href: '/marketplace/activity#activity-listings', icon: Package },
+  { key: 'REFERRALS', label: '紹介と取引', href: '/marketplace/activity#activity-referrals', icon: Handshake },
+  { key: 'PRO', label: 'PRO の内容を見る', href: PRO_HREF, icon: Gem },
 ];
 
-/** スマホの引き出しメニュー。下のタブ（5つ）に無い画面だけを並べる。規約・表記は下部に別枠で出す */
-export const MOBILE_MENU_ITEMS: NavItem[] = [
-  { id: 'ALERTS', label: '保存した条件', href: '/alerts' },
-];
+/** ログイン状態で変わる行。ログイン中は「会員設定」、未ログインは「ログイン・新規登録」。ログインの仕組みが無い環境では出さない */
+export type AccountMenuState = 'signedIn' | 'signedOut' | 'hidden';
+
+export function accountMenuItem(state: AccountMenuState): MenuItem | null {
+  if (state === 'hidden') return null;
+  return {
+    key: 'ACCOUNT',
+    label: state === 'signedIn' ? '会員設定' : 'ログイン・新規登録',
+    href: ACCOUNT_PATH,
+    icon: CircleUserRound,
+    section: 'ACCOUNT',
+  };
+}
+
+/** PC とスマホで同じ並びのメニュー項目（件数つき・ログイン状態つき） */
+export function buildMenuItems(options: { account: AccountMenuState; compareIds?: readonly string[]; compareHref?: string; bookmarkCount?: number }): MenuItem[] {
+  const items = MORE_MENU_ITEMS.map((item): MenuItem => {
+    if (item.key === 'COMPARE' && options.compareIds && options.compareIds.length > 0) {
+      return { ...item, href: options.compareHref ?? item.href, badge: `${options.compareIds.length}件` };
+    }
+    if (item.key === 'SAVED' && options.bookmarkCount && options.bookmarkCount > 0) {
+      return { ...item, badge: `${options.bookmarkCount}件` };
+    }
+    return item;
+  });
+  const account = accountMenuItem(options.account);
+  return account ? [...items, account] : items;
+}
 
 export const LOCAL_MODE_BY_SECTION: Partial<Record<GlobalNavSection, LocalWorkspaceMode>> = {
   LEDGER: 'LEDGER',
@@ -74,9 +125,6 @@ export const LEGAL_LINKS = [
   { href: '/legal/tokushoho', label: '特定商取引法に基づく表記' },
   { href: '/legal/contact', label: 'お問い合わせ・削除依頼' },
 ] as const;
-
-export const PRO_HREF = '/?pro=1';
-export const SAVED_HREF = '/?mode=SYNTHESIS';
 
 /** スマホのヘッダーに出す、いま開いている画面の名前 */
 export const SECTION_TITLES: Record<GlobalNavSection, string> = {
