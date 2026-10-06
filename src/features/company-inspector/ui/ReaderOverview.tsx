@@ -124,15 +124,42 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   return <div className="grid grid-cols-1 gap-px border-b border-term-line bg-term-line sm:grid-cols-2 sm:[&>*:last-child:nth-child(odd)]:col-span-2">{cells}</div>;
 }
 
-/** 強い一行。結論を先頭に大きく。 */
-export function Headline({ reader, tight = false }: { reader: ReaderCase; tight?: boolean }) {
+/** 何の事業か。概要の最初の1文を、最上部に大きく。続きは畳む。 */
+export function WhatIs({ fact }: { fact: ReaderFact | null | undefined }) {
+  if (!fact) return null;
+  const text = plainFactText(fact.text);
+  const end = text.indexOf('。');
+  const first = end >= 0 ? text.slice(0, end + 1) : text;
+  const rest = end >= 0 ? text.slice(end + 1).trim() : '';
+  return (
+    <div data-fact={fact.id} className="px-2.5 pb-3 pt-3 sm:px-3">
+      <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
+      <p className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{first}</p>
+      {rest && (
+        <details className="group mt-2">
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1 text-xs text-term-sub hover:text-term-fg-strong lg:min-h-6 [&::-webkit-details-marker]:hidden">
+            <span aria-hidden="true" className="inline-block h-0 w-0 border-y-[4px] border-l-[5px] border-y-transparent border-l-current transition-transform group-open:rotate-90" />
+            {UI.WHAT_IS_MORE}
+          </summary>
+          <p className="pt-1 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{rest}</p>
+        </details>
+      )}
+    </div>
+  );
+}
+
+/** ひとこと（強い一行）。主役は「何の事業か」と数字の帯なので、ここでは小さめに。 */
+export function Headline({ reader }: { reader: ReaderCase }) {
   const a = byItem(reader, 'HEADLINE');
   // リードは基準（lead-standard.ts）を通った時だけ出す
   if (!a || !checkLead(a, reader).ok) return null;
   return (
-    <div data-analysis={a.id} className={`${tight ? '' : 'border-b border-term-line '}px-2.5 pb-2 pt-3 sm:px-3`}>
-      <div className="mb-1"><InferenceMark analysis={a} /></div>
-      <h3 className="text-[19px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
+    <div data-analysis={a.id} className="border-b border-term-line px-2.5 py-2.5 sm:px-3">
+      <div className="mb-0.5 flex items-center gap-2 text-xs text-term-label">
+        <span>{UI.HEADLINE_LABEL}</span>
+        <InferenceMark analysis={a} />
+      </div>
+      <h3 className="text-sm font-normal leading-relaxed text-term-fg [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
     </div>
   );
 }
@@ -156,11 +183,7 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
   if (!story) return null;
   const steps = splitStory(story.text);
   return (
-    <div data-analysis={story.id} className="border-b border-term-line px-2.5 py-2.5 sm:px-3">
-      <div className="mb-2 flex flex-wrap items-center gap-2 text-xs">
-        <h4 className="text-term-label">{ANALYSIS_LABELS.STORY}</h4>
-        <InferenceMark analysis={story} />
-      </div>
+    <Fold id="section-story" title={ANALYSIS_LABELS.STORY} mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
       {steps ? (
         <ol className="grid grid-cols-1 gap-x-3 gap-y-2.5 sm:grid-cols-2">
           {steps.map(({ step, body }, i) => (
@@ -176,7 +199,7 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
       ) : (
         <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{plainAnalysisText(story.text)}</p>
       )}
-    </div>
+    </Fold>
   );
 }
 
@@ -188,21 +211,34 @@ export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[] }> = 
   { title: UI.GROUP_NOW, items: ['VIABILITY', 'TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
-/** まとまりごとに「項目名（細く）｜中身（主役）」の2列。推測は点線の左罫。 */
+/** 区切りの見える折りたたみ。見出しは大きく太く、背景帯と矢印で「ここから別の話」と分かるようにする。 */
+export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: { id: string; title: string; mark?: React.ReactNode; defaultOpen?: boolean; attrs?: Record<string, string>; children: React.ReactNode }) {
+  return (
+    <details id={id} data-fold={id} open={defaultOpen} {...attrs} className="group scroll-mt-12 border-b border-term-line">
+      <summary className="flex min-h-12 cursor-pointer list-none items-center gap-2 bg-term-head px-2.5 text-sm font-semibold text-term-fg-strong hover:bg-term-line sm:px-3 lg:min-h-9 [&::-webkit-details-marker]:hidden">
+        <span aria-hidden="true" className="inline-block h-0 w-0 border-y-[5px] border-l-[6px] border-y-transparent border-l-term-accent transition-transform group-open:rotate-90" />
+        <span className="min-w-0 flex-1">{title}</span>
+        {mark}
+      </summary>
+      <div className="px-2.5 py-2.5 sm:px-3">{children}</div>
+    </details>
+  );
+}
+
+export const GROUP_IDS = ['section-group-money', 'section-group-customers', 'section-group-edge', 'section-group-now'] as const;
+
+/** まとまりごとに「項目名（細く）｜中身（主役）」の2列。折りたたみで、最初の「どう稼ぐか」だけ開く。推測は点線の左罫。 */
 export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: OverviewUsage }) {
   return (
     <>
-      {ANALYSIS_GROUPS.map(({ title, items }) => {
+      {ANALYSIS_GROUPS.map(({ title, items }, index) => {
         const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item));
         if (rows.length === 0) return null;
         return (
-          <section key={title} className="border-b border-term-line">
-            <div className="flex items-center gap-2 bg-term-head px-2.5 py-1 sm:px-3">
-              <h3 className="text-xs font-semibold text-term-fg-strong">{title}</h3>
-            </div>
-            <dl className="divide-y divide-term-line-soft px-2.5 sm:px-3">
+          <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen={index === 0}>
+            <dl className="divide-y divide-term-line-soft">
               {rows.map((a) => (
-                <div key={a.id} data-analysis={a.id} className="grid grid-cols-1 gap-x-3 gap-y-0.5 py-2 sm:grid-cols-[7.5rem_minmax(0,1fr)]">
+                <div key={a.id} data-analysis={a.id} className="grid grid-cols-1 gap-x-3 gap-y-0.5 py-2 first:pt-0 last:pb-0 sm:grid-cols-[7.5rem_minmax(0,1fr)]">
                   <dt className="flex flex-wrap items-center gap-x-2 text-xs text-term-label sm:flex-col sm:items-start sm:gap-1">
                     <span>{ANALYSIS_LABELS[a.item]}</span>
                     <InferenceMark analysis={a} />
@@ -211,9 +247,38 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
                 </div>
               ))}
             </dl>
-          </section>
+          </Fold>
         );
       })}
     </>
+  );
+}
+
+const GROUP_NAV = [UI.NAV_MONEY, UI.NAV_CUSTOMERS, UI.NAV_EDGE, UI.NAV_NOW] as const;
+
+/** 中身のあるまとまりだけを、目次の小さな札にして並べる（押すと開いてその位置へ）。 */
+export function SectionNav({ reader, usage, hasDetails, hasStory }: { reader: ReaderCase; usage: OverviewUsage; hasDetails: boolean; hasStory: boolean }) {
+  const chips: Array<{ id: string; label: string }> = [];
+  ANALYSIS_GROUPS.forEach(({ items }, index) => {
+    const has = items.some((item) => !usage.items.has(item) && reader.analysis.some((a) => a.item === item));
+    if (has) chips.push({ id: GROUP_IDS[index], label: GROUP_NAV[index] });
+  });
+  if (hasStory) chips.push({ id: 'section-story', label: ANALYSIS_LABELS.STORY });
+  if (hasDetails) chips.push({ id: 'section-details', label: UI.NAV_DETAILS });
+  if (chips.length < 2) return null;
+  const go = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (el instanceof HTMLDetailsElement) el.open = true;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  return (
+    <nav aria-label={UI.NAV_ARIA} className="sticky top-0 z-20 flex gap-px overflow-x-auto border-b border-term-line bg-term-line [scrollbar-width:none]">
+      {chips.map(({ id, label }) => (
+        <button key={id} type="button" onClick={() => go(id)} className="min-h-11 shrink-0 bg-term-panel px-3.5 text-sm text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:min-h-8 lg:text-xs">
+          {label}
+        </button>
+      ))}
+    </nav>
   );
 }

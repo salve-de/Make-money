@@ -91,10 +91,10 @@ describe('reader detail', () => {
 describe('reader analysis', () => {
   const ledger = (reader: ReaderCase) => renderToStaticMarkup(<ReaderLedger reader={reader} />);
 
-  it('先頭に大きい HEADLINE、続いて4段の STORY。どちらにも推測の印と確度を出す', () => {
+  it('「ひとこと」の HEADLINE と、畳んだ4段の STORY。どちらにも推測の印を出す', () => {
     const html = ledger(withAnalysis);
     const head = renderToStaticMarkup(<Headline reader={withAnalysis} />);
-    expect(head).toMatch(/<h3 class="[^"]*text-\[19px\][^"]*">面倒な集計/);
+    expect(head).toMatch(/<h3 class="[^"]*text-sm[^"]*">面倒な集計/);
     const story = renderToStaticMarkup(<StorySteps reader={withAnalysis} />);
     expect(story.match(/<li /g)).toHaveLength(4);
     expect(story).toContain('集計を自動化した');
@@ -153,16 +153,23 @@ describe('reader analysis', () => {
     expect(show('集計を引き受け、月$2万〜5万を稼ぐ。')).not.toContain('<h3');
   });
 
-  it('計算と根拠は事実の後・出典の前の1区画にまとめる', () => {
+  it('推定の計算は事実の後・出典の前の1区画にまとめ、式のある項目だけを出す', () => {
     const html = ledger(withAnalysis);
     const at = html.indexOf('section-reasoning');
     expect(at).toBeGreaterThan(html.indexOf('data-fact="f2"'));
     expect(at).toBeLessThan(html.indexOf('section-sources'));
-    expect(html.match(/計算・前提: /g)).toHaveLength(1);
-    expect(html).toContain('計算・前提: </span>売上 − 運営費 = 手残り');
-    expect(html.indexOf('計算・前提: ')).toBeGreaterThan(at);
-    expect(html.indexOf('根拠: ')).toBeGreaterThan(at);
+    expect(html.match(/data-evidence="a-take-home"/g)).toHaveLength(1);
+    expect(html.slice(at)).toContain('売上 − 運営費 = 手残り');
+    expect(html).not.toContain('計算・前提: ');
+    expect(html).not.toContain('根拠: ');
     expect(renderToStaticMarkup(<ReaderEvidence reader={baremetrics} />)).toBe('');
+  });
+
+  it('式でない定型文（数字は出典に載っている値）と、事実の再掲は出さない', () => {
+    const reader: ReaderCase = { ...withAnalysis, analysis: withAnalysis.analysis.map((a) => ({ ...a, formula: '数字は出典に載っている値' })) };
+    expect(renderToStaticMarkup(<ReaderEvidence reader={reader} />)).toBe('');
+    expect(ledger(reader)).not.toContain('数字は出典に載っている値');
+    expect(ledger(withAnalysis)).not.toContain('data-evidence="basis"');
   });
 
   it('事実と数値の行は出典名の代わりに番号を付け、番号は下の出典一覧の行へ飛ぶ', () => {
@@ -185,21 +192,6 @@ describe('reader analysis', () => {
     const expected = [...plan.analyses.map((a) => a.item), ...ANALYSIS_GROUPS.flatMap((g) => g.items).filter((i) => !plan.usage.items.has(i))];
     expect(ids).toEqual(expected);
     expect([...ids].sort()).toEqual([...items].sort());
-  });
-
-  it('根拠は番号で示し、使った事実は下に1回だけ並べる', () => {
-    const html = ledger(withAnalysis);
-    const links = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => decodeURIComponent(match[1])).filter((id) => id.includes('-evidence-basis-'));
-    // HEADLINE(f1) + STORY(f1) + TAKE_HOME(m1, f2) = 4本、使った事実は f1・m1・f2 の3つ
-    expect(links).toHaveLength(4);
-    for (const id of links) expect(html).toContain(`id="${id}"`);
-    expect(new Set(links).size).toBe(3);
-    const list = html.slice(html.indexOf('data-evidence="basis"'), html.indexOf('section-sources'));
-    expect(list.match(/<li /g)).toHaveLength(3);
-    expect(list).toContain('売却額 2023 $4M');
-    const est = ledger({ ...withAnalysis, metrics: [{ ...withAnalysis.metrics[0], origin: 'ESTIMATED' as const }] });
-    expect(est.slice(est.indexOf('data-evidence="basis"'))).toContain('売却額 2023 $4M 推定');
-    expect(list).toContain('2023年に別の会社へ売却された。');
   });
 
   it('analysis が空・reader が無い時は推測のまとまりも HEADLINE も出さない', () => {
@@ -228,17 +220,6 @@ describe('reader analysis', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('根拠の id に日本語・空白・% があってもリンク先が一致する', () => {
-    const id = '創業 100%';
-    const html = ledger({ ...emptyReader,
-      facts: [{ ...baremetrics.facts[1], id }],
-      analysis: [{ ...withAnalysis.analysis[2], basis: [id] }],
-    });
-    const href = html.match(/href="#([^"]+)"/)?.[1];
-    expect(html).toContain('data-evidence="basis"');
-    expect(href).toBeDefined();
-    expect(html).toContain(`id="${decodeURIComponent(href!)}"`);
-  });
 
   it('推測を fact と偽装せず、画面の文字検査も通る', () => {
     const allowed = allowedUiTexts('Case');

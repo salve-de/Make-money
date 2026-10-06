@@ -217,22 +217,13 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           </Link>
         </div>
 
-        {/* スマホ: PRO は右上 */}
+        {/* スマホ: 右上は検索だけ。PRO はメニューの中に置く */}
         <div className="ml-auto flex h-11 items-stretch lg:hidden">
           {rightContent}
           {!onSearchChange && !pageHasSearch && (
             <button type="button" aria-label="事例を検索" aria-expanded={searchOpen} onClick={() => { setSearchOpen((open) => !open); requestAnimationFrame(() => searchRef.current?.focus()); }} className="flex w-11 items-center justify-center text-term-fg hover:bg-term-head">
               <Search aria-hidden="true" size={20} />
             </button>
-          )}
-          {onOpenPro ? (
-            <button type="button" onClick={onOpenPro} className="flex min-w-11 items-center px-3 text-sm font-semibold text-term-accent">
-              PRO
-            </button>
-          ) : (
-            <Link href={PRO_HREF} prefetch={false} className="flex min-w-11 items-center px-3 text-sm font-semibold text-term-accent">
-              PRO
-            </Link>
           )}
         </div>
 
