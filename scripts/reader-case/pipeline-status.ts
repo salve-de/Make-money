@@ -6,7 +6,7 @@
  *   pnpm pipeline:status scan-batches --prefix batch-x1-   出典本文が空の事例を HOLD NO_SOURCE_TEXT で記録
  */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
-import { appendRecord, currentStates, renderStatus, summarize, type LedgerInput, type ReasonCode, type Stage, type Status } from './ledger';
+import { appendRecord, currentStates, readCaseRecords, resolveStuck, renderStatus, summarize, type LedgerInput, type ReasonCode, type Stage, type Status } from './ledger';
 
 const args = process.argv.slice(2);
 const val = (k: string) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : undefined; };
@@ -32,13 +32,28 @@ function main(): void {
     const prefix = val('--prefix') ?? '';
     const dir = val('--dir') ?? 'data/analyze/batches';
     let n = 0;
+    let closed = 0;
     for (const f of existsSync(dir) ? readdirSync(dir).filter((x) => x.startsWith(prefix) && x.endsWith('.json')) : []) {
-      for (const id of casesWithoutSourceText(JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')))) {
+      const batch = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as { cases?: { entityId: string; sources?: { text?: string }[] }[] };
+      const empty = new Set(casesWithoutSourceText(batch));
+      // 出典本文が取れた事例の「出典なし」の保留は閉じる（取れるようになったのに止まっている一覧に残さない）
+      for (const c of batch.cases ?? []) {
+        if (empty.has(c.entityId)) continue;
+        const last = readCaseRecords(c.entityId).filter((r) => r.stage === 'ANALYZE').at(-1);
+        if (last?.reasonCode === 'NO_SOURCE_TEXT' && resolveStuck(c.entityId, 'ANALYZE', undefined, 'scan-batches')) closed++;
+      }
+      for (const id of empty) {
         appendRecord({ caseId: id, stage: 'ANALYZE', status: 'HOLD', reasonCode: 'NO_SOURCE_TEXT', reasonText: `束 ${f} の出典に本文が1件も無い`, nextAction: '出典本文を取得し直す（fetch-sources）', actor: 'scan-batches', finishedAt: new Date().toISOString() });
         n += 1;
       }
     }
-    console.log(`出典本文なし: ${n} 件を保留で記録`);
+    console.log(`出典本文なし: ${n} 件を保留で記録（同じ理由は1件に畳む）、解消して閉じた ${closed} 件`);
+    return;
+  }
+  if (cmd === 'resolve') {
+    // pnpm pipeline:status resolve --case X --stage ANALYZE : 止まっている事例×段階を成功で閉じる。--case "_run:<prefix>" で実行全体の失敗を閉じる
+    const ok = resolveStuck(val('--case') ?? '', val('--stage') as Stage, undefined, val('--actor') ?? 'run-pipeline.sh');
+    console.log(ok ? '閉じた' : '止まっていないので何もしない');
     return;
   }
   const sum = summarize(currentStates(val('--dir')));
