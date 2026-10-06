@@ -57,9 +57,22 @@ export function createPublicMediaReader(options: {
   let directory: { at: number; latest: Map<string, string> } | null = null;
   // A manifest key never changes its content (create-only), so a parsed manifest can be kept.
   const manifests = new Map<string, PublicMediaManifest | null>();
+  // 実行中の取得は共有する。同時に来た要求ごとに R2 へ list / read を重ねない（失敗した取得は捨てて、次回やり直す）。
+  let directoryInFlight: Promise<Map<string, string>> | null = null;
+  const manifestsInFlight = new Map<string, Promise<PublicMediaManifest | null>>();
 
-  async function newestManifestKeys(): Promise<Map<string, string>> {
-    if (directory && now() - directory.at < ttl) return directory.latest;
+  function newestManifestKeys(): Promise<Map<string, string>> {
+    if (directory && now() - directory.at < ttl) return Promise.resolve(directory.latest);
+    if (!directoryInFlight) {
+      const pending = fetchNewestManifestKeys().finally(() => {
+        if (directoryInFlight === pending) directoryInFlight = null;
+      });
+      directoryInFlight = pending;
+    }
+    return directoryInFlight;
+  }
+
+  async function fetchNewestManifestKeys(): Promise<Map<string, string>> {
     const newest = new Map<string, { stamp: string; key: string }>();
     for (const key of await options.source.list(MEDIA_KEY_PREFIX)) {
       const parsed = parsePublicManifestKey(key);
@@ -71,8 +84,18 @@ export function createPublicMediaReader(options: {
     return directory.latest;
   }
 
-  async function loadManifest(entityId: string, key: string): Promise<PublicMediaManifest | null> {
-    if (manifests.has(key)) return manifests.get(key) ?? null;
+  function loadManifest(entityId: string, key: string): Promise<PublicMediaManifest | null> {
+    if (manifests.has(key)) return Promise.resolve(manifests.get(key) ?? null);
+    const shared = manifestsInFlight.get(key);
+    if (shared) return shared;
+    const pending = fetchManifest(entityId, key).finally(() => {
+      if (manifestsInFlight.get(key) === pending) manifestsInFlight.delete(key);
+    });
+    manifestsInFlight.set(key, pending);
+    return pending;
+  }
+
+  async function fetchManifest(entityId: string, key: string): Promise<PublicMediaManifest | null> {
     let manifest: PublicMediaManifest | null = null;
     const bytes = await options.source.read(key);
     if (bytes && bytes.byteLength <= MAX_PUBLIC_MANIFEST_BYTES) {
