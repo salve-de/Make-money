@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { genreLabel } from '@/shared/display-text';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { useCompareTray } from '@/platform/hooks/useCompareTray';
 import type { InspectorSectionProps } from '../model/section-props';
@@ -48,6 +49,7 @@ export function CompanyHeader({
   const rawUrl = entity.url || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
   const sector = sectorLabel(entity);
+  const genre = genreLabel(entity.tagline);
 
   return (
     <>
@@ -65,9 +67,12 @@ export function CompanyHeader({
           <span className="term-panel-name hidden h-6 shrink-0 items-center lg:inline-flex">{UI.DETAIL_PANEL}</span>
           {positionLabel && <span className="term-num hidden shrink-0 text-term-muted lg:inline">{positionLabel}</span>}
           <div className="min-w-0 flex-1 px-1 lg:order-last lg:-mx-2.5 lg:basis-full lg:border-t lg:border-term-line-soft lg:bg-term-panel lg:px-2.5 lg:py-2">
-            <h2 className="truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
-              {entity.name}
-            </h2>
+            <div className="flex min-w-0 items-center gap-2">
+              <h2 className="min-w-0 truncate text-sm font-semibold leading-5 text-term-fg-strong lg:text-lg lg:leading-tight" title={entity.name}>
+                {entity.name}
+              </h2>
+              {genre && <span className="shrink-0 rounded-[2px] border border-term-line px-1.5 text-xs leading-5 text-term-sub">{genre}</span>}
+            </div>
             {sector && <p className="truncate text-xs leading-4 text-term-label lg:mt-0.5">{sector}</p>}
           </div>
           <div className="flex shrink-0 items-center lg:ml-auto" aria-label={UI.ACTIONS_LABEL}>

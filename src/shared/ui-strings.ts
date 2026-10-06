@@ -99,6 +99,11 @@ export const UI = {
   ANALYSIS_FORMULA_PREFIX: '計算・前提: ',
   ANALYSIS_BASIS_PREFIX: '根拠: ',
   ANALYSIS_CONFIDENCE_PREFIX: '確度: ',
+  GROUP_MONEY: 'どう稼ぐか',
+  GROUP_CUSTOMERS: '誰から取るか',
+  GROUP_EDGE: 'なぜ勝てたか',
+  GROUP_NOW: '今やると・経緯',
+  SECTION_DETAILS: '根拠・出典・数値の一覧',
   COL_MEASURE: '項目',
   COL_PERIOD: '期間',
   METRIC_STATED_AT_SUFFIX: '時点の表示',
@@ -210,6 +215,18 @@ export const SECTOR_LABELS: Record<string, string> = {
   UNKNOWN: '分類未確認',
 };
 
+/** 事例の分野（名前の横の札）。事業を説明する一文の語尾から決める。 */
+export const GENRE_LABELS = {
+  APP: 'アプリ',
+  EXTENSION: '拡張機能',
+  API: 'API・基盤',
+  SOFTWARE: 'SaaS・ツール',
+  AI: 'AI',
+  SHOP: '通販',
+  SITE: 'Webサイト',
+  AGENCY: '代理店・受託',
+} as const;
+
 const TEMPLATE = /\{name\}/;
 
 /** 許可リスト（{name} を含む文言は事例名を入れて照合する）。 */
@@ -224,6 +241,7 @@ export function allowedUiTexts(entityName: string): Set<string> {
   for (const v of Object.values(CONFIDENCE_LABELS)) add(v);
   for (const s of FACT_SECTIONS) add(s.title);
   for (const v of Object.values(SECTOR_LABELS)) add(v);
+  for (const v of Object.values(GENRE_LABELS)) add(v);
   out.add(entityName);
   return out;
 }
