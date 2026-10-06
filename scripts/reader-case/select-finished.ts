@@ -8,6 +8,7 @@ import { normalizeFinancialEntity } from '../../src/shared/financial-integrity';
 import { reconcileFinancialEntity } from '../../src/platform/data/financial-reconciliation';
 import { argValue, loadEntities, loadReaders, readIdsFile } from './load-readers';
 import { type AnalysisFile } from './analysis-lib';
+import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { evaluateForRelease, preparePublicationReader } from './publication-evaluation';
 import { loadPublicationInput, readPublicationAudits } from './publication-inputs';
@@ -15,7 +16,7 @@ import { loadPublicationInput, readPublicationAudits } from './publication-input
 async function main() {
   const ids = readIdsFile(argValue('--ids') ?? '');
   const verdicts = JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile;
-  const analysis: AnalysisFile = existsSync('data/reader-analysis.json') ? JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) : {};
+  const analysis: AnalysisFile = withReflectedAnalysis(existsSync('data/reader-analysis.json') ? JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) : {}, readReflectState());
   const audited = readPublicationAudits();
   const entities = loadEntities(ids);
   const readers = loadReaders(ids);

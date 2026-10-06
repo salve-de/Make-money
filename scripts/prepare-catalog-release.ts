@@ -18,6 +18,7 @@ import type { FinancialEntity } from '../src/shared/terminal';
 import { evaluateForRelease, preparePublicationReader } from './reader-case/publication-evaluation';
 import { loadPublicationInput, readPublicationAudits } from './reader-case/publication-inputs';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
+import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAnalysis } from './reader-case/case-reflect';
 
 // 取り下げた旧表示（出典の無い数字や作文）は内部の監査記録。公開版には入れない
 function withoutWithdrawnSnapshot(entity: FinancialEntity): FinancialEntity {
@@ -65,11 +66,15 @@ try { verdicts = JSON.parse(await readFile('data/reader-verdicts.json', 'utf8'))
 // 推論（reader.analysis）。事実とは別の欄。無ければ空配列
 let analysisFile: AnalysisFile = {};
 try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf8')) as AnalysisFile; } catch { /* 無ければ推論なし */ }
-const withheld = { audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
+// 反映段（case-reflect.ts）: 取り込み版の事例は、その中身と推論で置き換える。取り込み版が基準に通らなければ旧版も出さない
+const reflectState = readReflectState();
+analysisFile = withReflectedAnalysis(analysisFile, reflectState);
+const withheld = { imported: 0, audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
-type Display = 'SHOW' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
+type Display = 'SHOW' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
 const DISPLAY_REASON: Record<Display, string> = {
   SHOW: '出典と照合した事実がある',
+  HOLD_IMPORT: '作り直した版（取り込み）が基準に通っていない。旧版は出さない（data/case-reflect.json）',
   HOLD_NO_RAW: '元の記録が無い',
   HOLD_UNVERIFIED: '出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す',
   HOLD_SCHEMA: '形式の検査を通らない',
@@ -92,7 +97,10 @@ const entities: FinancialEntity[] = [];
 for (const entity of publishable) {
   const rawRecord = rawById.get(entity.id);
   if (!rawRecord) { withheld.noRawRecord++; stamp(entity.id, 'HOLD_NO_RAW'); continue; }
-  const result = projectReaderCase(rawRecord);
+  const reflectHold = reflectHoldReasons(reflectState, entity.id);
+  if (reflectHold?.length) { withheld.imported++; stamp(entity.id, 'HOLD_IMPORT', reflectHold.join(' / ')); continue; }
+  const projected = projectReaderCase(rawRecord);
+  const result = { ...projected, reader: reflectedReader(reflectState, entity.id) ?? projected.reader };
   totals.processDropped += result.stats.processDropped;
   totals.unbound += result.unbound.length;
   if (result.unbound.length) unboundAll.push({ id: entity.id, lines: result.unbound });
