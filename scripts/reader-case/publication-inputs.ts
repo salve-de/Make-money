@@ -7,8 +7,7 @@ import { readEffectiveManifest, readStagedAsset } from '../../src/shared/media-a
 import { isMediaDisplayable } from '../../src/shared/media-decisions';
 import type { FinancialEntity } from '../../src/shared/terminal';
 import type { ReaderCase } from '../../src/shared/reader-case';
-import { readCache, metricLine, type VerdictsFile } from './verify-lib';
-import { excerpt } from './build-verify-batches';
+import { readCache, type VerdictsFile } from './verify-lib';
 import type { PublicationInput, PublicationMedia } from './publication-evaluation';
 
 export { loadPublicationAuditDocuments, readPublicationAudits, type AuditDocument } from './publication-audit-store';
@@ -33,9 +32,9 @@ export async function loadPublicationInput(entity: FinancialEntity, reader: Read
     entityEligible: isPublishableEntity(entity), reader, verdicts, media,
     sources: reader.sources.map((source) => {
       const snapshot = readCache(source.url) ?? null;
-      const claims = [...reader.facts.filter((f) => f.sourceId === source.id).map((f) => f.text), ...reader.metrics.filter((m) => m.sourceId === source.id).map(metricLine)];
       return { sourceId: source.id, url: source.url, publisher: source.publisher, snapshot,
-        text: snapshot ? excerpt(snapshot.text, claims, 8000) : '', policy: sourcePolicy(source.url, entity.url) };
+        // 抜粋せず全文（指紋は全文を元に作られる）
+        text: snapshot ? snapshot.text : '', policy: sourcePolicy(source.url, entity.url) };
     }),
   };
 }
