@@ -40,6 +40,15 @@ import {
   type RobotsPolicy,
   type SniffedImage,
 } from '../../src/shared/media-fetch-policy';
+import {
+  buildProductScreenNote,
+  judgeProductImage,
+  pickProductPageLinks,
+  pickAmbiguousScreens,
+  pickProductScreens,
+  type PageLink,
+  type ProductImageCandidate,
+} from '../../src/shared/media-product-screen';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const DEFAULT_INDEX = join(REPO_ROOT, 'data/entities-index.json');
@@ -53,6 +62,12 @@ const LOAD_SETTLE_MS = 8_000;
 const IDLE_SETTLE_MS = 4_000;
 const FETCH_TIMEOUT_MS = 15_000;
 const ENTITY_DEADLINE_MS = 150_000;
+/** Reading the home page plus a few product pages takes longer. */
+const PRODUCT_SCREEN_DEADLINE_MS = 260_000;
+const PRODUCT_SCREEN_MAX_PAGES = 3;
+const PRODUCT_SCREEN_MAX_IMAGES = 3;
+const PRODUCT_SCREEN_MAX_DOWNLOADS = 8;
+const MAX_PRODUCT_IMAGE_BYTES = 8 * 1024 * 1024;
 const MAX_REDIRECTS = 5;
 const MAX_ROBOTS_BYTES = 512 * 1024;
 const MAX_FAVICON_BYTES = 1024 * 1024;
@@ -67,7 +82,7 @@ const CHALLENGE_BODY = /enable javascript and cookies to continue|checking your 
 // Types
 // ---------------------------------------------------------------------------
 
-type StepKind = 'favicon' | 'og_image' | 'screenshot_home' | 'screenshot_pricing';
+type StepKind = 'favicon' | 'og_image' | 'screenshot_home' | 'screenshot_pricing' | 'screenshot_product';
 type StepStatus =
   | 'captured'
   | 'already_in_manifest'
@@ -201,7 +216,7 @@ function withoutHash(url: URL): string {
 // CLI
 // ---------------------------------------------------------------------------
 
-const ALL_STEP_KINDS: StepKind[] = ['favicon', 'og_image', 'screenshot_home', 'screenshot_pricing'];
+const ALL_STEP_KINDS: StepKind[] = ['favicon', 'og_image', 'screenshot_home', 'screenshot_pricing', 'screenshot_product'];
 const STEP_KINDS = ALL_STEP_KINDS;
 
 const USAGE = `Usage: node --import tsx scripts/media/fetch-official-assets.ts --ids <id1,id2,...> [--limit N] [--out data/media-staging]
@@ -212,7 +227,7 @@ const USAGE = `Usage: node --import tsx scripts/media/fetch-official-assets.ts -
   --out       Staging directory (default: data/media-staging)
   --validate  Do not fetch: check hand-edited manifest.json files against the schema and the files on disk
   --index     Entity index to read (default: data/entities-index.json; for tests)
-  --kinds     Comma separated steps to run: favicon,og_image,screenshot_home,screenshot_pricing (default: all)
+  --kinds     Comma separated steps to run: favicon,og_image,screenshot_home,screenshot_pricing,screenshot_product (default: all)
   --skip-processed  Skip ids already recorded in <out>/progress.jsonl (one line is appended per finished entity)
   --concurrency N   Entities in parallel (default 1, max 8); never two of the same registrable domain at once
 `;
@@ -613,6 +628,8 @@ interface PageFacts {
   icons: { href: string; sizes: string; type: string }[];
   ogImage: string;
   pricingLinks: { href: string; text: string; inNav: boolean }[];
+  /** Same-page anchors with short visible text, used to find the feature / how-it-works / docs pages. */
+  pageLinks: PageLink[];
 }
 
 async function readPageFacts(page: Page): Promise<PageFacts> {
@@ -638,12 +655,17 @@ async function readPageFacts(page: Page): Promise<PageFacts> {
       const label = [visible, attr(anchor, 'aria-label'), attr(anchor, 'title')].find((candidate) => candidate && candidate.length <= 80 && matcher.test(candidate));
       return label ? [{ href: (anchor as HTMLAnchorElement).href, text: label, inNav: Boolean(anchor.closest('nav, header')) }] : [];
     });
+    const pageLinks = Array.from(document.querySelectorAll('a[href]')).flatMap((anchor) => {
+      const text = ((anchor as HTMLElement).innerText || anchor.textContent || '').replace(/\s+/g, ' ').trim();
+      return text && text.length <= 40 ? [{ href: (anchor as HTMLAnchorElement).href, text, inNav: Boolean(anchor.closest('nav, header')) }] : [];
+    });
     return {
       title: document.title || '',
       bodyText: (document.body?.innerText || '').slice(0, 2000),
       icons,
       ogImage: og ? resolve(og) : '',
       pricingLinks: pricingLinks.slice(0, 40),
+      pageLinks: pageLinks.slice(0, 300),
     };
   }, PRICING_LINK_TEXT.source);
 }
@@ -784,6 +806,168 @@ async function capturePricing(ec: EntityContext, page: Page, facts: PageFacts, c
   return captureScreenshot(ec, page, 'screenshot_pricing', opened.url);
 }
 
+/** Scroll through the page so lazily loaded images load, then read every sizeable image with its surroundings. */
+async function collectImageCandidates(page: Page): Promise<ProductImageCandidate[]> {
+  await page
+    .evaluate(async () => {
+      const step = Math.max(400, Math.floor(window.innerHeight * 0.8));
+      const limit = Math.min(document.documentElement.scrollHeight, 16_000);
+      for (let y = 0; y < limit; y += step) {
+        window.scrollTo(0, y);
+        await new Promise((done) => setTimeout(done, 220));
+      }
+      window.scrollTo(0, 0);
+    })
+    .catch(() => undefined);
+  await page.waitForLoadState('networkidle', { timeout: 2_500 }).catch(() => undefined);
+  return page.evaluate(() => {
+    const heading = (start: Element): string => {
+      let node: Element | null = start;
+      for (let depth = 0; node && depth < 5; depth += 1) {
+        const found = node.querySelector('h1, h2, h3, h4, figcaption');
+        const text = found?.textContent?.replace(/\s+/g, ' ').trim();
+        if (text) return text.slice(0, 160);
+        node = node.parentElement;
+      }
+      return '';
+    };
+    // The widest file the page offers for this image (srcset / <picture>), so a small responsive variant does not hide a real screen.
+    const bestSource = (img: HTMLImageElement): { url: string; declaredWidth: number } => {
+      const lists: string[] = [img.srcset];
+      const picture = img.closest('picture');
+      if (picture) {
+        for (const source of Array.from(picture.querySelectorAll('source'))) {
+          if (!source.media || window.matchMedia(source.media).matches) lists.push(source.srcset);
+        }
+      }
+      let best = { url: '', declaredWidth: 0 };
+      for (const list of lists) {
+        for (const part of list.split(',')) {
+          const [rawUrl, descriptor] = part.trim().split(/\s+/);
+          const width = descriptor && /^\d+w$/.test(descriptor) ? Number.parseInt(descriptor, 10) : 0;
+          if (rawUrl && width > best.declaredWidth) {
+            try {
+              best = { url: new URL(rawUrl, document.baseURI).href, declaredWidth: width };
+            } catch {
+              // an unparsable srcset entry is ignored
+            }
+          }
+        }
+      }
+      return best;
+    };
+    const seen = new Set<string>();
+    const found: { url: string; alt: string; width: number; height: number; renderedWidth: number; className: string; context: string; zone: 'main' | 'header' | 'nav' | 'footer' }[] = [];
+    for (const img of Array.from(document.images)) {
+      const rect = img.getBoundingClientRect();
+      if (rect.width < 200 || rect.height < 100) continue;
+      const style = getComputedStyle(img);
+      if (style.visibility === 'hidden' || style.display === 'none') continue;
+      const best = bestSource(img);
+      const url = best.url || img.currentSrc || img.src;
+      if (!url || !/^https?:/i.test(url) || seen.has(url)) continue;
+      const width = Math.max(best.declaredWidth, img.naturalWidth);
+      // The file is measured again after the download; this is only for choosing what to download.
+      const ratio = img.naturalWidth > 0 && img.naturalHeight > 0 ? img.naturalHeight / img.naturalWidth : rect.height / rect.width;
+      const height = Math.round(width * ratio);
+      seen.add(url);
+      const topBar = img.closest('header, [role=banner]');
+      let zone: 'main' | 'header' | 'nav' | 'footer' = 'main';
+      if (img.closest('nav')) zone = 'nav';
+      else if (img.closest('footer, [role=contentinfo]')) zone = 'footer';
+      else if (topBar && topBar.getBoundingClientRect().height < 220) zone = 'header';
+      found.push({
+        url,
+        alt: (img.alt || img.getAttribute('aria-label') || '').slice(0, 200),
+        width,
+        height,
+        renderedWidth: rect.width,
+        className: [img.className, img.parentElement?.className].filter((value) => typeof value === 'string').join(' ').slice(0, 200),
+        context: heading(img.parentElement ?? img),
+        zone,
+      });
+      if (found.length >= 120) break;
+    }
+    return found;
+  });
+}
+
+/**
+ * Real product screens (owner decision 2026-10-02): images in the body of the home page and of up to three linked
+ * product pages (features, how it works, docs) whose file name, alt text or shape say "screen of the product".
+ * Promotional art (logos, people, badges, og banners) is left out. Only public pages are read; nothing is clicked or submitted.
+ */
+async function captureProductScreens(ec: EntityContext, page: Page, facts: PageFacts, homeUrl: URL, offSite: { url: string | null }): Promise<StepResult[]> {
+  const kind = 'screenshot_product' as const;
+  const candidates: { candidate: ProductImageCandidate; pageUrl: URL }[] = [];
+  const pageNotes: string[] = [];
+  // An earlier step (the pricing screenshot) may have left the shared page elsewhere; the home candidates and their
+  // recorded source page must come from the home page itself.
+  let onHome = withoutHash(new URL(page.url())) === withoutHash(homeUrl);
+  if (!onHome) onHome = (await openPage(ec, page, homeUrl, offSite)).ok;
+  const homeCandidates = onHome ? await collectImageCandidates(page).catch(() => []) : [];
+  homeCandidates.forEach((candidate) => candidates.push({ candidate, pageUrl: homeUrl }));
+  pageNotes.push(onHome ? `home:${homeCandidates.length}` : 'home:not_reopened');
+
+  for (const target of pickProductPageLinks(facts.pageLinks, ec.home, homeUrl, PRODUCT_SCREEN_MAX_PAGES)) {
+    const verdict = await ec.run.robots.check(target);
+    if (!verdict.allowed) {
+      pageNotes.push(`${target.pathname}:robots`);
+      continue;
+    }
+    const opened = await openPage(ec, page, target, offSite);
+    if (!opened.ok) {
+      pageNotes.push(`${target.pathname}:${opened.kind}`);
+      continue;
+    }
+    const found = await collectImageCandidates(page).catch(() => []);
+    found.forEach((candidate) => candidates.push({ candidate, pageUrl: opened.url }));
+    pageNotes.push(`${target.pathname}:${found.length}`);
+  }
+
+  const tally: Record<string, number> = {};
+  for (const { candidate } of candidates) {
+    const judged = judgeProductImage(candidate);
+    if (process.env.MEDIA_DEBUG_PRODUCT) log(`      ? ${judged.verdict.padEnd(9)} ${judged.reasons.join(',')} ${candidate.width}x${candidate.height} ${candidate.zone} ${candidate.url.slice(0, 140)} alt="${candidate.alt.slice(0, 50)}"`);
+    const key = judged.verdict === 'promo' ? `promo(${judged.reasons[judged.reasons.length - 1].split(':')[0]})` : judged.verdict;
+    tally[key] = (tally[key] ?? 0) + 1;
+  }
+  const summary = `pages=[${pageNotes.join(' ')}] images=${candidates.length} ${JSON.stringify(tally)}`;
+
+  const pageOf = new Map(candidates.map(({ candidate, pageUrl }) => [candidate.url, pageUrl]));
+  const all = candidates.map(({ candidate }) => candidate);
+  let picked = pickProductScreens(all, PRODUCT_SCREEN_MAX_DOWNLOADS);
+  // Only for a person's look afterwards (MEDIA_STAGE_AMBIGUOUS=1): no clear screen was found, so stage the two largest unclear ones, held.
+  const lookAtAmbiguous = picked.length === 0 && Boolean(process.env.MEDIA_STAGE_AMBIGUOUS);
+  if (lookAtAmbiguous) picked = pickAmbiguousScreens(all, 2);
+  const steps: StepResult[] = [];
+  let kept = 0;
+  for (const { candidate, verdict } of picked) {
+    if (kept >= PRODUCT_SCREEN_MAX_IMAGES) break;
+    const pageUrl = pageOf.get(candidate.url) ?? homeUrl;
+    try {
+      const url = parsePublicHttpUrl(candidate.url);
+      if (!url) throw new FetchProblem('failed', `not a public http(s) URL: ${candidate.url.slice(0, 200)}`);
+      const { bytes, sniffed } = await downloadImage(ec, url, MAX_PRODUCT_IMAGE_BYTES, pageUrl.href);
+      // Judge again with the real file size: the browser's natural size can differ from the delivered file.
+      const real = judgeProductImage({ ...candidate, width: sniffed.width ?? candidate.width, height: sniffed.height ?? candidate.height });
+      if (real.verdict !== (lookAtAmbiguous ? 'ambiguous' : 'screen')) {
+        steps.push({ kind, status: 'not_found', url: url.href, detail: `rejected after download: ${real.reasons.join(',')}` });
+        continue;
+      }
+      const staged = await stageAsset(ec, kind, bytes, { sourcePageUrl: withoutHash(pageUrl), assetUrl: url.href, sniffed, note: buildProductScreenNote(candidate, verdict) });
+      steps.push({ kind, ...staged, url: url.href });
+      // A record that exists under another kind (an og:image staged earlier with the same bytes) is not a product-screen record.
+      if (staged.status === 'captured' || (staged.status === 'already_in_manifest' && (staged.assetId && ec.existing.get(staged.assetId)?.kind === kind))) kept += 1;
+    } catch (error) {
+      steps.push({ kind, status: error instanceof FetchProblem ? error.kind : 'failed', url: candidate.url, detail: describeError(error) });
+    }
+  }
+  if (steps.length === 0) steps.push({ kind, status: 'not_found', detail: summary });
+  else steps[0].detail = [steps[0].detail, summary].filter(Boolean).join('; ');
+  return steps;
+}
+
 /** Resolves true when the home page was captured (steps hold the per-asset results), false when it was refused. */
 async function runBrowserCapture(ec: EntityContext, context: BrowserContext, result: EntityResult): Promise<boolean> {
   // tsx compiles with keepNames, which wraps nested functions in a __name() helper that does not exist inside the
@@ -835,8 +1019,17 @@ async function runBrowserCapture(ec: EntityContext, context: BrowserContext, res
   const wanted = (kind: StepKind) => ec.run.kinds.includes(kind);
   if (wanted('screenshot_home')) await attempt('screenshot_home', () => captureScreenshot(ec, page, 'screenshot_home', home.url));
   if (wanted('favicon')) await attempt('favicon', () => captureFavicon(ec, home.facts, home.url));
-  if (wanted('og_image')) await attempt('og_image', () => captureOgImage(ec, home.facts, home.url));
   if (wanted('screenshot_pricing')) await attempt('screenshot_pricing', () => capturePricing(ec, page, home.facts, home.url, offSite));
+  // Product screens come before og:image: when an inline product screen is also the page's og:image (identical bytes, so the
+  // same asset id), the first step to stage it decides the kind, and the product screen must win.
+  if (wanted('screenshot_product')) {
+    try {
+      result.steps.push(...(await captureProductScreens(ec, page, home.facts, home.url, offSite)));
+    } catch (error) {
+      result.steps.push({ kind: 'screenshot_product', status: error instanceof FetchProblem ? error.kind : 'failed', detail: describeError(error) });
+    }
+  }
+  if (wanted('og_image')) await attempt('og_image', () => captureOgImage(ec, home.facts, home.url));
   return true;
 }
 
@@ -925,7 +1118,7 @@ async function processEntity(run: RunContext, entityId: string, entities: Map<st
 
     let completed = false;
     try {
-      completed = await withDeadline(runBrowserCapture(ec, context, result), ENTITY_DEADLINE_MS);
+      completed = await withDeadline(runBrowserCapture(ec, context, result), run.kinds.includes('screenshot_product') ? PRODUCT_SCREEN_DEADLINE_MS : ENTITY_DEADLINE_MS);
     } catch (error) {
       result.status = 'failed';
       result.error = describeError(error);

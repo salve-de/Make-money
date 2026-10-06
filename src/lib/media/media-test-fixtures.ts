@@ -13,6 +13,10 @@ export interface FixtureAsset {
   extension?: string;
   retrievedAt?: string;
   attribution?: string;
+  assetUrl?: string;
+  width?: number;
+  height?: number;
+  notes?: string;
 }
 
 export function fixtureRecord(entityId: string, asset: FixtureAsset): MediaAssetManifest {
@@ -24,14 +28,14 @@ export function fixtureRecord(entityId: string, asset: FixtureAsset): MediaAsset
     entityId,
     kind: asset.kind,
     sourcePageUrl: 'https://www.keyence.co.jp/',
-    assetUrl: rendered ? null : 'https://www.keyence.co.jp/asset',
+    assetUrl: rendered ? null : (asset.assetUrl ?? 'https://www.keyence.co.jp/asset'),
     retrievedAt: asset.retrievedAt ?? '2026-09-29T00:38:11.808Z',
     capturedBy: 'media-fetch-20260929',
     sha256,
     bytes: asset.bytes.byteLength,
     contentType: extension === 'ico' ? 'image/vnd.microsoft.icon' : 'image/png',
-    width: 152,
-    height: 152,
+    width: asset.width ?? 152,
+    height: asset.height ?? 152,
     rights: {
       basis: 'official_marketing_material',
       termsUrl: null,
@@ -39,7 +43,7 @@ export function fixtureRecord(entityId: string, asset: FixtureAsset): MediaAsset
       attribution: asset.attribution ?? `出典: キーエンス (KEYENCE) 公式サイト (https://www.keyence.co.jp/)`,
       decision: 'held',
       reviewedAt: null,
-      notes: '自動取得。権利審査前のため held。',
+      notes: asset.notes ?? '自動取得。権利審査前のため held。',
     },
     storage: { bucket: 'foundation-raw', key: mediaRawKey(entityId, sha256, extension), publicKey: null },
     subjectIsPerson: true,
