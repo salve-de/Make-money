@@ -1,5 +1,5 @@
 import type { ReaderCase, ReaderFact, ReaderMetric, ReaderSource } from './reader-case';
-import { MEASURE_LABELS, ORIGIN_LABELS, UNKNOWN_LABELS } from './ui-strings';
+import { GENRE_LABELS, MEASURE_LABELS, ORIGIN_LABELS, UNKNOWN_LABELS } from './ui-strings';
 
 /**
  * 画面に出す直前に文字を整える共通関数。
@@ -648,4 +648,46 @@ export function readerContextText(name: string, reader: ReaderCase | undefined |
   }
   if (reader.unknowns.length) lines.push(`未確認: ${reader.unknowns.map((u) => UNKNOWN_LABELS[u]).join('・')}`);
   return lines.join('\n');
+}
+
+/**
+ * 事実の文末の「〜と説明。」「〜と記載している。」を画面では省く。
+ * 誰が言ったかは出典の番号が示すので、本文には要らない（読む邪魔になる）。保存データは変えない。
+ * 省いた後に文として成り立たなくなる時（「〜と」の前が空など）は元のまま返す。
+ */
+const REPORTING_TAIL = /(?:と|として|とも|とを)(?:創業者が|公式資料に|掲載ページに)?(?:説明|案内|記載|記している|記し|表示|述べている|述べ|紹介|書いている|明記|示している|伝えている|投稿|報じている|答えている|注記|報告|定めている|挙げている)(?:している|されている|ている)?。?$/;
+export function plainFactText(text: string): string {
+  const trimmed = text.trim();
+  const cut = trimmed.replace(REPORTING_TAIL, '');
+  if (cut === trimmed || cut.length < 8) return text;
+  return /[。.!?]$/.test(cut) ? cut : `${cut}。`;
+}
+
+/** 推測の文末「〜とみる。」「〜と見る。」「〜と推す。」を画面では省く（読む邪魔になるだけ）。前が短すぎる時は元のまま。 */
+const HEDGE_TAIL = /(?:と|ものと|ように)(?:みる|見る|みられる|見られる|推す|推測する|推測される|考えられる|考える|思われる)。?$/;
+export function plainAnalysisText(text: string): string {
+  const trimmed = text.trim();
+  const cut = trimmed.replace(HEDGE_TAIL, '');
+  if (cut === trimmed || cut.length < 8) return text;
+  return /[。.!?]$/.test(cut) ? cut : `${cut}。`;
+}
+
+/**
+ * 名前の横に出す分野の札。事業を説明する一文（tagline）の語尾から決める。決められなければ null（出さない）。
+ * 上から順に当てる。「サービス」だけの語尾は分野が決まらないので出さない。
+ */
+const GENRE_RULES: Array<[RegExp, keyof typeof GENRE_LABELS]> = [
+  [/拡張(機能)?$|プラグイン$/, 'EXTENSION'],
+  [/アプリ$/, 'APP'],
+  [/API$|基盤$|データベース$|プロキシサービス$/, 'API'],
+  [/AI(サービス|ツール|チャット|スタジオ|従業員|販売担当|動画サービス|画像編集サービス)?$|AI[^。]{0,12}(サービス|スタジオ)$/, 'AI'],
+  [/通販$|ショップ$|マーケットプレイス$|ショッピングサイト$/, 'SHOP'],
+  [/サービス$|サービスの(案内|販売)$|SaaS$|CRM$|CMS$|クラウド$|道具$|ツール集$|部品集$|ランチャー$|ワークスペース$|エディター$|ナレッジベース$|ツール$|ソフト$|システム$|ビルダー$|エディタ$|クライアント$|ERP$|解析$|プラットフォーム$|アシスタント$|ボード$|PaaS）?$|チェックリスト$|エラー追跡と性能監視$|ボイラープレート$|仕組み$/, 'SOFTWARE'],
+  [/サイト$|サイトHealthPally$|サイトを名乗る$|ページ$|ギャラリー$|ディレクトリ$|コミュニティ$|掲載$/, 'SITE'],
+  [/代理店$|コンサルティング$|代行$|開発会社$|デザイン会社|事業者$|会社$|ブローカー$|企業$/, 'AGENCY'],
+];
+export function genreLabel(tagline: string | undefined | null): string | null {
+  const t = (tagline ?? '').trim().split('。')[0].replace(/\s*[（(][^）)]*[）)]$/, '');
+  for (const [re, key] of GENRE_RULES) if (re.test(t)) return GENRE_LABELS[key];
+  return null;
 }
