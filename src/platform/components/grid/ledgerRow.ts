@@ -7,9 +7,9 @@ export function isRevenueUnknown(entity: FinancialEntity): boolean {
   return entity.pnl.isRevenueUnconfirmed === true || entity.pnl.financialStatus === 'UNAVAILABLE';
 }
 
-/** 確認 列の文字。一次資料=確認、公表値=報告値、売上不明=未確認、推定/ピーク=アクセント。 */
+/** 確認 列の文字。一次資料=確認、公表値=報告値、売上不明=—、推定/ピーク=アクセント。 */
 export function confirmStatus(entity: FinancialEntity): { label: string; tone: ConfirmTone } {
-  if (isRevenueUnknown(entity)) return { label: '未確認', tone: 'dim' };
+  if (isRevenueUnknown(entity)) return { label: '—', tone: 'dim' };
   if (entity.pnl.dataSnapshotPeriod?.includes('ピーク')) return { label: 'ピーク', tone: 'accent' };
   switch (entity.pnl.financialStatus) {
     case 'ESTIMATED': return { label: '推定', tone: 'accent' };

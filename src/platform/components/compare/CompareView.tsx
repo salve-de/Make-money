@@ -25,7 +25,7 @@ const money = (value: number, entity: FinancialEntity) => (
   <><span className="term-num text-term-fg-strong">{formatYen(value)}</span><span className="ml-1 text-xs text-term-dim">{confirmStatus(entity).label}</span></>
 );
 
-/** 比較する項目。値が出せない（未確認）の欄は「—」。全列で未確認の行は出さない。 */
+/** 比較する項目。値が出せない欄は「—」。全列で値のない行は出さない。 */
 const ROWS: { label: string; value: (entity: FinancialEntity) => React.ReactNode }[] = [
   { label: '事業', value: (e) => text(e.essence?.whatItDoes) || text(e.tagline) || null },
   { label: '分野', value: (e) => sectorLabel(e) },
@@ -123,7 +123,7 @@ export function CompareView({ ids: requestedIds, omittedCount = 0 }: { ids: stri
       <div className="term-panel-title">
         <span className="term-panel-name max-lg:hidden">事例の比較</span>
         <span className="term-num">{ids.length} / {COMPARE_LIMIT}件</span>
-        <span className="hidden truncate sm:inline">売上・利益は記録がある値だけを表示します。未確認は「—」です。</span>
+        <span className="hidden truncate sm:inline">売上・利益は記録がある値だけを表示します。記録のない欄は「—」です。</span>
         {ids.length > 0 && <button type="button" onClick={clearAll} className="ml-auto flex min-h-11 items-center px-2 text-xs text-term-muted hover:bg-term-line hover:text-term-fg-strong lg:min-h-6">すべて外す</button>}
       </div>
       <h1 className="sr-only">事例の比較</h1>

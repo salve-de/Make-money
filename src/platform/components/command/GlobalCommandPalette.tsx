@@ -108,7 +108,7 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
       case 'REPORTED': return '報告値';
       case 'ESTIMATED': return '推定';
       case 'POST_MORTEM': return '事後記録';
-      default: return '未確認';
+      default: return '';
     }
   };
 
@@ -175,9 +175,11 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="truncate text-[13px] font-semibold text-term-fg-strong">{item.name}</span>
-                    <span className="shrink-0 text-xs text-term-label">
-                      {financialEvidenceLabel(item.pnl.financialStatus)}
-                    </span>
+                    {financialEvidenceLabel(item.pnl.financialStatus) && (
+                      <span className="shrink-0 text-xs text-term-label">
+                        {financialEvidenceLabel(item.pnl.financialStatus)}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-0.5 line-clamp-2 text-xs text-term-sub">{entityDescription(item)}</p>
                 </div>
@@ -185,11 +187,11 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
                 <div className="shrink-0 text-right text-xs">
                   <div className="text-term-label">売上（月額換算）</div>
                   <div className={`font-mono tabular-nums ${item.pnl.isRevenueUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? 'text-term-dim' : 'text-term-fg-strong'}`}>
-                    {item.pnl.isRevenueUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? '未確認' : formatMoney(item.pnl.monthlyRevenue)}
+                    {item.pnl.isRevenueUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? '—' : formatMoney(item.pnl.monthlyRevenue)}
                   </div>
                   <div className="mt-1 text-term-label">営業利益率</div>
                   <div className={`font-mono tabular-nums ${item.pnl.isMarginUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? 'text-term-dim' : 'text-term-fg'}`}>
-                    {item.pnl.isMarginUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? '未確認' : `${item.pnl.operatingMargin}%`}
+                    {item.pnl.isMarginUnconfirmed || item.pnl.financialStatus === 'UNAVAILABLE' ? '—' : `${item.pnl.operatingMargin}%`}
                   </div>
                 </div>
               </button>

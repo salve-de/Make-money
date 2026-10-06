@@ -21,7 +21,7 @@ interface SynthesisIdeasDossierProps {
 }
 
 function sourceEvidenceLabel(entity: FinancialEntity): string {
-  if (entity.pnl.financialStatus === 'UNAVAILABLE' || entity.pnl.isRevenueUnconfirmed) return '未確認';
+  if (entity.pnl.financialStatus === 'UNAVAILABLE' || entity.pnl.isRevenueUnconfirmed) return '';
   switch (entity.pnl.financialStatus) {
     case 'VERIFIED': return '一次資料';
     case 'REPORTED': return '報告値';
@@ -112,7 +112,7 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
                         className="inline-flex min-h-11 items-center gap-2 text-term-select-fg underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6"
                       >
                         <span>{entity.name}</span>
-                        <span className="text-term-label">{sourceEvidenceLabel(entity)}</span>
+                        {sourceEvidenceLabel(entity) && <span className="text-term-label">{sourceEvidenceLabel(entity)}</span>}
                       </Link>
                     )) : (
                       <span className="text-term-dim">参照元は案に記録されていません</span>

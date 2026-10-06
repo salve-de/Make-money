@@ -12,7 +12,7 @@ interface IdeaResearchCasesProps {
 const OUTCOME_LABEL: Record<IdeaResearchOutcome, { text: string; tone: string }> = {
   success: { text: '成功', tone: 'text-term-positive' },
   failure: { text: '失敗', tone: 'text-term-danger' },
-  unknown: { text: '不明', tone: 'text-term-dim' },
+  unknown: { text: '—', tone: 'text-term-dim' },
 };
 
 const COLUMNS = 'grid-cols-[3rem_minmax(0,1fr)] lg:grid-cols-[3rem_minmax(0,1fr)_7rem_11rem]';
@@ -66,7 +66,7 @@ export const IdeaResearchCases: React.FC<IdeaResearchCasesProps> = ({ cases, onO
           })}
         </ul>
         <p className="border-b border-term-line-soft px-3 py-1.5 text-xs text-term-label">
-          成功＝売上が確認できた事例 ／ 失敗＝撤退・破綻の記録がある事例 ／ 不明＝どちらも確認できていない事例。月商は確認できた事例だけ表示します。
+          成功＝売上が確認できた事例 ／ 失敗＝撤退・破綻の記録がある事例。月商は確認できた事例だけ表示します。
         </p>
       </>
     )}

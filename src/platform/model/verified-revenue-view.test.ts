@@ -47,10 +47,10 @@ describe('verifiedRevenueRows', () => {
     ]);
   });
 
-  it('writes 未確認 instead of zero when MRR or the contract count could not be counted', () => {
+  it('writes — instead of zero when MRR or the contract count could not be counted', () => {
     const rows = verifiedRevenueRows({ ...base, mrrMinor: null, activeSubscriptions: null });
-    expect(rows[1]).toMatchObject({ value: '未確認', confirmed: false });
-    expect(rows[2]).toMatchObject({ value: '未確認', confirmed: false });
+    expect(rows[1]).toMatchObject({ value: '—', confirmed: false });
+    expect(rows[2]).toMatchObject({ value: '—', confirmed: false });
   });
 });
 
