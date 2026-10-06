@@ -144,7 +144,8 @@ it('replaces an existing catalog record in place and prepends only new ids', asy
     pnl: { monthlyRevenue: 0, operatingMargin: 0, sourceDoc: 'https://example.com' },
     operations: { toolStack: [] }, evidenceCards: cards,
   } as unknown as FinancialEntity;
-  const newEntity = { ...existingEntity, id: 'ent_new', name: 'Brand New' } as unknown as FinancialEntity;
+  // 新規事例は別の事業（別ドメイン）。同じドメインに新IDを付ける取り込みは本物の重複なので、重複検査が止める
+  const newEntity = { ...existingEntity, id: 'ent_new', name: 'Brand New', url: 'https://brand-new.example' } as unknown as FinancialEntity;
   await ingestVerifiedEntities([{ entity: newEntity }, { entity: existingEntity }], 'test');
   const catalogWrite = mocks.writes.mock.calls.find(([path]) => String(path).includes('/data/entities-index.json'));
   const written = JSON.parse(catalogWrite![1]) as Array<{ id: string; name?: string }>;
