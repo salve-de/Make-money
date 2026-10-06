@@ -40,7 +40,8 @@ export function argValue(name: string): string | undefined {
 
 /**
  * 分析役の出力（<outDir>/batch-*.json と、足りない項目を後から埋めた add-*.json）から、事例ID → 項目の一覧を作る。
- * add-*.json は既存の項目の後ろに足す（同じ項目は先勝ちで既存を残す）
+ * add-*.json は既存の項目の後ろに足す（同じ項目は先勝ちで既存を残す）。
+ * re-*.json は新しい根拠での再評価の結果。同じ項目の既存を置き換え、既存に無い項目は足す（build-fill-batches.ts）
  */
 export function loadRawItems(outDir: string): Map<string, unknown> {
   const raws = new Map<string, unknown>();
@@ -51,6 +52,14 @@ export function loadRawItems(outDir: string): Map<string, unknown> {
     for (const c of read(f)) {
       const prev = raws.get(c.entityId);
       if (Array.isArray(prev) && Array.isArray(c.items)) raws.set(c.entityId, [...prev, ...c.items]);
+    }
+  }
+  for (const f of files.filter((x) => /^re-[\w-]+\.json$/.test(x))) {
+    for (const c of read(f)) {
+      const prev = raws.get(c.entityId);
+      if (!Array.isArray(prev) || !Array.isArray(c.items)) continue;
+      const replaced = new Set((c.items as { item?: unknown }[]).map((i) => i?.item));
+      raws.set(c.entityId, [...prev.filter((p) => !replaced.has((p as { item?: unknown })?.item)), ...c.items]);
     }
   }
   return raws;
