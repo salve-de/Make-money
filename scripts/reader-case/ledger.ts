@@ -22,6 +22,7 @@ export const REASON_CODES = {
   NO_SOURCE_TEXT: '出典の本文が無い',
   VERIFY_UNRESOLVED: '出典との照合が済んでいない',
   ANALYSIS_REJECTED: '推論が機械検査で落ちた',
+  AUDIT_REJECTED: '監査役の出力が機械検査で落ちた',
   AUDIT_BLOCK: '監査で止められた',
   LEAD_NOT_PASSED: 'リード文が審査に通っていない',
   NO_IMAGE: '使ってよい画像が無い',

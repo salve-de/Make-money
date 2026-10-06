@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 1つの命令で「分析 → 統合 → 監査 → 仕上げ済みの選別 → 公開データ → PR・マージ → 本番反映 → 本番で読み戻し」まで通す。
-# どこかで止まったら理由を出して終了し、Mac の通知を出す。済んだ工程は次回飛ばす（分析・監査は出力があれば再実行しない）。
+# どこかで止まったら理由を出して終了し、Mac の通知を出す。済んだ工程は次回飛ばす（分析・監査は、入力指紋＋規則版が前回の受理時と同じ時だけ飛ばす。入力かプロンプトが変われば再処理）。
 # 使い方: bash scripts/reader-case/run-pipeline.sh <バッチ名の頭（例: batch-x1-）>
 #   PIPELINE_NO_PUBLISH=1 を付けると、選別までで止める（公開しない）。
 set -u -o pipefail
@@ -16,6 +16,9 @@ notify() { osascript -e "display notification \"$1\" with title \"Make-Money 収
 # 停止の理由は状態台帳（pnpm pipeline:status）にも残す。台帳に書けなくても停止は止めない
 fail() { say "停止: $*"; node --import tsx scripts/reader-case/pipeline-status.ts record --case "_run:${PREFIX%-}" --stage "${LEDGER_STAGE:-ANALYZE}" --status FAILED --reason RUN_ABORTED --text "$*" --next "原因を直して再実行" >/dev/null 2>&1 || true; notify "停止: $*"; exit 1; }
 
+# 段階が成功したら、その段階で前に残った「_run:<prefix>」の失敗を台帳で閉じる（resolve が無い版の pipeline-status.ts では何もしない）
+stage_ok() { grep -q "'resolve'" scripts/reader-case/pipeline-status.ts 2>/dev/null && node --import tsx scripts/reader-case/pipeline-status.ts resolve --case "_run:${PREFIX%-}" --stage "$1" >/dev/null 2>&1; return 0; }
+
 # 出典本文が1件も無い事例は、台帳に HOLD NO_SOURCE_TEXT で残す（実行は止めない）
 node --import tsx scripts/reader-case/pipeline-status.ts scan-batches --prefix "$PREFIX" || true
 
@@ -25,14 +28,14 @@ node --import tsx scripts/reader-case/pipeline-status.ts scan-batches --prefix "
 say "分析: ${PREFIX}*"
 ANALYZE_PREFIX="$PREFIX" bash scripts/reader-case/run-analyze.sh; rc=$?
 case $rc in 0) ;; 75) fail "分析はサブエージェント待ち（指示書: data/runner/instructions/analyze/。結果を data/runner/inbox/analyze/ に置いてから再実行）" ;; 76) fail "分析に保留の束がある（理由: data/runner/state/analyze/。人の判断後 runner の release で解除）" ;; *) fail "分析の実行に失敗" ;; esac
-missing=""
-for b in data/analyze/batches/${PREFIX}*.json; do [ -s "data/analyze/out/$(basename "$b")" ] || missing="$missing $(basename "$b" .json)"; done
-[ -z "$missing" ] || fail "分析が終わっていない束:$missing（もう一度この命令を実行すると続きから回る）"
+# 完了の判定は runner と同じ（出力ファイルの有無ではなく、入力指紋＋規則版の一致）。指示書（プロンプト）を変えた後は、旧い出力は再処理になる
+node --import tsx scripts/reader-case/runner/cli.ts status analyze --prefix "$PREFIX" >/dev/null || fail "分析が終わっていない束がある（node --import tsx scripts/reader-case/runner/cli.ts status analyze --prefix ${PREFIX} で確認。もう一度この命令を実行すると続きから回る）"
 node -e "
   const fs=require('fs');const ids=new Set();
   for(const f of fs.readdirSync('data/analyze/batches').filter(f=>f.startsWith('$PREFIX')))for(const c of JSON.parse(fs.readFileSync('data/analyze/batches/'+f)).cases)ids.add(c.entityId);
   fs.writeFileSync('$CAND',[...ids].sort().join('\n')+'\n');console.log('候補',ids.size,'件')" || fail "候補の一覧を作れない"
 
+stage_ok ANALYZE
 LEDGER_STAGE=MERGE
 # 2. 統合（機械の検査を通った推論だけ残す）
 node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "統合に失敗"
@@ -41,6 +44,7 @@ node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null
 #     断り書き・製品説明・出典に無い数字などで基準外のリードは数を表示するだけ（画面は基準外のリードを出さない。直しは headline-prompt.md の書き直し段で行う）
 node --import tsx scripts/reader-case/lead-report.ts --ids "$CAND" || say "リード基準の検査を実行できなかった（続行）"
 
+stage_ok MERGE
 LEDGER_STAGE=AUDIT
 # 3. 監査（今の推論の文をまだ監査していない候補だけ。推論を作り直した事例は、前に監査済みでも監査し直す。
 #    名前は 999999+日時（秒まで）+プロセス番号 で、過去の監査より後ろに並べる。監査済みかは merge-analysis.ts が指紋で判定して data/audit-fresh.json に書く）
@@ -60,11 +64,12 @@ if [ -s "$CAND.audit" ] && grep -q . "$CAND.audit"; then
   say "監査: in-${TAG}*"
   AUDIT_ONLY="${TAG}*" bash scripts/reader-case/run-audit.sh; rc=$?
   case $rc in 0) ;; 75) fail "監査はサブエージェント待ち（指示書: data/runner/instructions/audit/。結果を data/runner/inbox/audit/ に置いてから再実行。再実行すると同じ監査入力 TAG=${TAG} を続ける）" ;; 76) fail "監査に保留の束がある（理由: data/runner/state/audit/）" ;; *) fail "監査の実行に失敗" ;; esac
-  for i in data/audit/in-${TAG}*.json; do [ -s "${i/in-/out-}" ] || fail "監査が終わっていない: $(basename "$i")（もう一度実行すると続きから回る）"; done
+  node --import tsx scripts/reader-case/runner/cli.ts status audit --prefix "${TAG}*" >/dev/null || fail "監査が終わっていない束がある（もう一度実行すると続きから回る）"
   node --import tsx scripts/reader-case/merge-analysis.ts --ids "$CAND" >/dev/null || fail "監査の反映に失敗"
   rm -f "$TAGFILE"
 fi
 
+stage_ok AUDIT
 LEDGER_STAGE=IMAGE
 # 3b. 画像の検査（使ってよいと判定された画像が1枚も無い候補は、仕上げ済みにしない）
 node -e "
@@ -76,6 +81,7 @@ node -e "
   fs.writeFileSync('$CAND.img',ok.join('\n')+'\n');fs.writeFileSync('$CAND.noimg',ng.join('\n')+'\n');
   console.log('画像あり',ok.length,'件／画像なし',ng.length,'件（$CAND.noimg）')" || fail "画像の検査に失敗"
 
+stage_ok IMAGE
 LEDGER_STAGE=SELECT
 # 4. 仕上げ済みの選別と、公開版の「追加／訂正／撤回」の計画
 # 比べる相手は「公開済み（origin/main）の公開版 data/catalog-release.json」。件数ではなく事例ごとの中身のハッシュで差を見る。
@@ -98,8 +104,8 @@ before=$(node -p "require('./data/pipeline/release-plan.json').before")
 after=$(node -p "require('./data/pipeline/release-plan.json').after")
 say "公開版の計画: ${before} → ${after} 件（追加・訂正・撤回は data/pipeline/release-plan.json、残りの理由は data/pipeline/select.json）"
 [ "$(node -p "require('./data/pipeline/prepare.json').canApply")" = true ] || fail "撤回の明示が足りない（PIPELINE_WITHDRAWALS_FILE に撤回する事例IDを書く。計画: data/pipeline/release-plan.json）"
-[ "${PIPELINE_NO_PUBLISH:-0}" = 1 ] && { say "公開はしない指定なので、ここで終了"; exit 0; }
-[ "$(node -p "require('./data/pipeline/release-plan.json').changed")" = true ] || { say "追加・訂正・撤回が無いので公開しない"; exit 0; }
+[ "${PIPELINE_NO_PUBLISH:-0}" = 1 ] && { stage_ok SELECT; say "公開はしない指定なので、ここで終了"; exit 0; }
+[ "$(node -p "require('./data/pipeline/release-plan.json').changed")" = true ] || { stage_ok SELECT; say "追加・訂正・撤回が無いので公開しない"; exit 0; }
 
 # 4b. 新しく仕上がった事例の画像を保存先へ上げる（追加のみ。既に上がっている分は読み戻して一致を確かめるだけ）
 NEW_IDS=$(node -p "require('./data/pipeline/release-plan.json').added.join(',')")
@@ -108,6 +114,7 @@ if [ -n "$NEW_IDS" ]; then
   node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/media/upload-media-assets.ts --entity "$NEW_IDS" > data/pipeline/upload.log 2>&1 || fail "画像を保存先へ上げられない（data/pipeline/upload.log）"
 fi
 
+stage_ok SELECT
 LEDGER_STAGE=PUBLISH
 # 5. 公開データを作り、main への PR を出してマージ（毎回 main から新しい作業場所を作る）
 NAME="pub/${PREFIX%-}-$(date +%m%d%H%M)"; PUB="$REPO/.worktrees/${NAME//\//-}"
@@ -147,6 +154,7 @@ open=$(gh api graphql --raw-field query="{repository(owner:\"salve-de\",name:\"M
 [ "${open:-0}" = 0 ] || fail "レビュー指摘が ${open} 件ある（直してからマージ）: $PR"
 gh pr merge "$PR" --merge >/dev/null || fail "マージできない: $PR"
 
+stage_ok PUBLISH
 LEDGER_STAGE=READBACK
 # 6. 本番反映（マージ後の main から）と読み戻し
 git fetch -q origin main && git merge -q --ff-only origin/main || fail "マージ後の main に合わせられない"
@@ -163,5 +171,6 @@ if [ -n "${NEW_IDS:-}" ]; then
   done
   [ "$noimg" = 0 ] || fail "本番で画像が出ない事例が ${noimg} 件（data/pipeline/prod-noimg.ids）"
 fi
+stage_ok READBACK
 say "完了: 本番に ${total} 件（$PR）"
 notify "完了: 本番に ${total} 件"
