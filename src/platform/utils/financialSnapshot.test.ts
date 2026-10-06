@@ -11,7 +11,7 @@ describe('shared promotional financial snapshot', () => {
     expect(snapshot.margin).toBe('20.0%');
   });
   it('does not promote unknown or undefined margins as zero', () => {
-    expect(financialSnapshot({ ...entity, pnl: { ...entity.pnl, isRevenueUnconfirmed: true, isMarginUnconfirmed: true } })).toMatchObject({ revenue: '未確認', margin: '未確認' });
-    expect(financialSnapshot({ ...entity, pnl: { ...entity.pnl, monthlyRevenue: 0 } }).margin).toBe('未確認');
+    expect(financialSnapshot({ ...entity, pnl: { ...entity.pnl, isRevenueUnconfirmed: true, isMarginUnconfirmed: true } })).toMatchObject({ revenue: '—', margin: '—' });
+    expect(financialSnapshot({ ...entity, pnl: { ...entity.pnl, monthlyRevenue: 0 } }).margin).toBe('—');
   });
 });

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { ExternalLink, LoaderCircle } from 'lucide-react';
 
+import { DistributionPanel } from '@/components/marketplace/commerce/DistributionPanel';
 import { OfferPanel } from '@/components/marketplace/commerce/OfferPanel';
 import { useAuth } from '@/context/AuthContext';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
@@ -240,6 +241,7 @@ function ListingEditorForm({ sessionId, listingId: initialListingId }: { session
               )}
             </div>
             {listingId && <OfferPanel listingId={listingId} published={status === 'published'} />}
+            {listingId && status === 'published' && <DistributionPanel listingId={listingId} title={form.title} summary={form.summary} />}
           </section>
         )}
       </main>

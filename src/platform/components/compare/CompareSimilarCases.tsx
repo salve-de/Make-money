@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import { hasRecordedRevenue, isFailureCase } from '@/platform/model/case-outcome';
-import { confirmStatus } from '@/platform/components/grid/ledgerRow';
+import { confirmStatus, isRevenueUnknown } from '@/platform/components/grid/ledgerRow';
 import { sectorLabel } from '@/platform/components/grid/sectorLabel';
 import { formatYen } from '@/platform/utils/moneyDisplay';
 
@@ -46,7 +46,9 @@ function CaseList({ title, empty, rows, canAdd, onAdd }: {
                 {isFailureCase(row) ? (
                   <span className="text-term-danger">失敗・撤退</span>
                 ) : (
-                  <><span className="term-num text-term-fg">{formatYen(row.pnl.monthlyRevenue)}</span><span className="ml-1 text-term-dim">{confirmStatus(row).label}</span></>
+                  isRevenueUnknown(row)
+                    ? <span className="text-term-dim">—</span>
+                    : <><span className="term-num text-term-fg">{formatYen(row.pnl.monthlyRevenue)}</span><span className="ml-1 text-term-dim">{confirmStatus(row).label}</span></>
                 )}
               </span>
               <button

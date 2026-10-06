@@ -41,7 +41,7 @@ export default function WelcomeClient({
                 事業の売上・やり方・出典を、事例ごとに一覧で確認できます
               </h1>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-term-sub">
-                登録された事業事例について、売上や利益、収益の仕組み、使っているツール、初期の顧客獲得の方法を、出典と対象時期つきで並べています。確認できていない数値は「未確認」と表示し、推定は「約」を付けています。
+                登録された事業事例について、売上や利益、収益の仕組み、使っているツール、初期の顧客獲得の方法を、出典と対象時期つきで並べています。数値は記録のあるものだけを載せ、推定には「約」を付けています。
               </p>
               <form action="/" method="get" role="search" className="mt-3 flex max-w-xl items-center gap-2">
                 <div className="relative min-w-0 flex-1">

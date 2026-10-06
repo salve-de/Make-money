@@ -36,7 +36,7 @@ test('unconfirmed financials never present a zero as a measured result', async (
   const inspector = page.getByRole('complementary', { name: `${PRIMARY.name}の企業事例インスペクター` });
   await expect(inspector.locator('#section-metrics')).toBeVisible();
   await expect(page.locator('#section-cash-anatomy')).toHaveCount(0);
-  await expect(inspector).toContainText(PRIMARY.unconfirmed);
+  await expect(inspector).not.toContainText(PRIMARY.unconfirmed);
   await expect(inspector).not.toContainText(/(?<![\d,.])0円/);
   const sources = page.locator('#section-sources');
   await expect(sources).toBeVisible();

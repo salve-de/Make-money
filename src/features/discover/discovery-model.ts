@@ -68,7 +68,8 @@ const SECTOR_LABELS: Record<string, string> = {
 
 function compact(value: string | undefined | null, max = 150): string {
   const text = (value || '').replace(/\s+/gu, ' ').trim();
-  if (!text) return '';
+  // 取り込み側が欠け項目に入れる「未確認」だけの値は、中身が無いものとして扱う（呼び出し側の「—」が出る）
+  if (!text || text === '未確認') return '';
   const first = text.split(/(?<=[。！？!?])\s*/u)[0] || text;
   return first.length > max ? `${first.slice(0, max - 1)}…` : first;
 }
@@ -119,11 +120,11 @@ function viability(status: ViabilityStatus | undefined, label?: string, detail?:
         ? '当時限定'
         : status === 'EVOLVING_BARRIER'
           ? '条件が変化中'
-          : '現在性未確認';
+          : '—';
   return {
     isCurrent,
     label: compact(label, 38) || (isCurrent ? '現在も有効' : fallback),
-    detail: compact(detail, 220) || '現在性の詳しい根拠は未確認です。',
+    detail: compact(detail, 220) || '—',
   };
 }
 
@@ -159,7 +160,7 @@ function whyMoneyMovedOf(entity: FinancialEntity): string {
     compact(entity.essence?.painRelief, 190) ||
     compact(entity.targetPainWallet, 190) ||
     compact(entity.essence?.targetCustomer, 190) ||
-    '支払理由は未確認'
+    '—'
   );
 }
 

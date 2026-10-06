@@ -114,7 +114,7 @@ describe('similar cases', () => {
     expect(html.match(/<li /g)).toHaveLength(3);
     expect(html).toContain('>成功<');
     expect(html).toContain('>失敗<');
-    expect(html).toContain('>不明<');
+    expect(html).toContain('text-xs text-term-dim">—<');
     // 事例要約は分類の根拠（SEC_SIC）を持たないため、キーワード推測の分野名は出さない
     expect(html).not.toContain('AI・ソフトウェア');
     expect(html).not.toContain('地域サービス');
@@ -132,7 +132,7 @@ describe('similar cases', () => {
   it('explains what success, failure and unknown mean', () => {
     expect(html).toContain('成功＝売上が確認できた事例');
     expect(html).toContain('失敗＝撤退・破綻の記録がある事例');
-    expect(html).toContain('不明＝どちらも確認できていない事例');
+    expect(html).not.toContain('不明＝');
   });
 
   it('says so, and how to search better, when nothing similar was found', () => {
@@ -174,9 +174,10 @@ describe('AI summary', () => {
     expect(html).not.toMatch(/月約0円/);
   });
 
-  it('shows 未確認, not 0円, when the AI had no confirmed revenue to base a number on', () => {
+  it('shows —, not 0円, when the AI had no confirmed revenue to base a number on', () => {
     const unconfirmed = ready({ cases, ai: { ...summary, projectedMonthlyProfitJpy: 0, operatingMargin: 0 } });
-    expect(unconfirmed).toContain('未確認');
+    expect(unconfirmed).toContain('term-num text-base text-term-dim">—</span>');
+    expect(unconfirmed).not.toContain('未確認');
     expect(unconfirmed).not.toMatch(/(?<![0-9,])0円/);
     expect(unconfirmed).not.toContain('約0');
     expect(unconfirmed).not.toMatch(/月間利益の目安<span/);

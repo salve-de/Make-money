@@ -14,7 +14,7 @@ export function financialSnapshot(entity: SnapshotEntity) {
     : pnl.financialStatus === 'UNAVAILABLE'
       ? '非公開'
       : hasUnconfirmedValues
-        ? '一部未確認'
+        ? '一部のみ'
         : pnl.financialStatus === 'VERIFIED'
           ? '一次資料'
           : pnl.financialStatus === 'REPORTED'
@@ -23,10 +23,10 @@ export function financialSnapshot(entity: SnapshotEntity) {
               ? '推定'
               : pnl.financialStatus === 'POST_MORTEM'
                 ? '事後資料'
-                : '未確認';
+                : '—';
   return {
-    revenue: pnl.financialStatus === 'UNAVAILABLE' || pnl.isRevenueUnconfirmed ? '未確認' : `¥${pnl.monthlyRevenue.toLocaleString('ja-JP')}`,
-    margin: pnl.financialStatus === 'UNAVAILABLE' || pnl.isMarginUnconfirmed || pnl.monthlyRevenue <= 0 ? '未確認' : `${pnl.operatingMargin.toFixed(1)}%`,
+    revenue: pnl.financialStatus === 'UNAVAILABLE' || pnl.isRevenueUnconfirmed ? '—' : `¥${pnl.monthlyRevenue.toLocaleString('ja-JP')}`,
+    margin: pnl.financialStatus === 'UNAVAILABLE' || pnl.isMarginUnconfirmed || pnl.monthlyRevenue <= 0 ? '—' : `${pnl.operatingMargin.toFixed(1)}%`,
     status,
   };
 }
