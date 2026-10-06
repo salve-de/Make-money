@@ -47,9 +47,9 @@ export function argValue(name: string): string | undefined {
  * add-*.json は既存の項目の後ろに足す（同じ項目は先勝ちで既存を残す）。
  * re-*.json は新しい根拠での再評価の結果。同じ項目の既存を置き換え、既存に無い項目は足す（build-fill-batches.ts）
  */
-export function loadRawItems(outDir: string): Map<string, unknown> {
+export function loadRawItems(outDir: string, batchDir?: string): Map<string, unknown> {
   const raws = new Map<string, unknown>();
-  const files = existsSync(outDir) ? readdirSync(outDir).sort() : [];
+  const files = validOutFiles(outDir, batchDir);
   const read = (f: string) => (JSON.parse(readFileSync(`${outDir}/${f}`, 'utf8')) as { analysis?: { entityId: string; items?: unknown }[] }).analysis ?? [];
   for (const f of files.filter((x) => /^batch-[\w-]+\.json$/.test(x))) for (const c of read(f)) raws.set(c.entityId, c.items);
   for (const f of files.filter((x) => /^add-[\w-]+\.json$/.test(x))) {
@@ -67,6 +67,27 @@ export function loadRawItems(outDir: string): Map<string, unknown> {
     }
   }
   return raws;
+}
+
+/**
+ * 出力ファイルのうち、いま有効なもの。add-/re- の出力は、同じ名前の束（batchDir）がいま存在する時だけ有効。
+ * 束の名前には中身の指紋が入る（build-fill-batches.ts）ので、中身が変わった束の古い出力は名前が合わず使われない。
+ * batchDir を渡さない時は従来どおり全部を有効とする。
+ */
+function validOutFiles(outDir: string, batchDir?: string): string[] {
+  const files = existsSync(outDir) ? readdirSync(outDir).sort() : [];
+  if (!batchDir) return files;
+  return files.filter((f) => !/^(add|re)-/.test(f) || existsSync(`${batchDir}/${f}`));
+}
+
+/** 再評価（re-）の有効な出力に載っている事例ID。受理後に「評価済み」へ進める対象 */
+export function reevaluatedIds(outDir: string, batchDir?: string): Set<string> {
+  const ids = new Set<string>();
+  for (const f of validOutFiles(outDir, batchDir).filter((x) => /^re-[\w-]+\.json$/.test(x))) {
+    const doc = JSON.parse(readFileSync(`${outDir}/${f}`, 'utf8')) as { analysis?: { entityId: string }[] };
+    for (const c of doc.analysis ?? []) ids.add(c.entityId);
+  }
+  return ids;
 }
 
 /** 同じ entities-index.json から、公開評価に使う元の事業記録を読む（reader と同じ局所スナップショット）。 */
