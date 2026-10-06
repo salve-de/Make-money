@@ -2,6 +2,7 @@
 import { createHash } from 'node:crypto';
 import { ReaderCaseSchema, type ReaderCase } from '../../src/shared/reader-case';
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
+import { checkLead } from '../../src/shared/lead-standard';
 import { checkCase, citesRestrictedSource, missingRequired, reflectAnalysis, type StoredAnalysis } from './analysis-lib';
 import { hasText, quoteInText, type SourceCacheRecord, type VerdictsFile } from './verify-lib';
 
@@ -87,6 +88,19 @@ export function evaluatePublication(input: PublicationInput, audit: PublicationA
   return { publishable: reasons.length === 0, reasons, hash, reader };
 }
 
+/** リード理由の接頭辞。台帳の理由コード LEAD_NOT_PASSED に対応する */
+export const LEAD_NOT_PASSED_PREFIX = 'LEAD_NOT_PASSED';
+/**
+ * リード（HEADLINE）が基準（src/shared/lead-standard.ts）を通らない事例は公開しない（D06: 空を隠しても読み応えが無い事例は保留）。
+ * HEADLINE が無い事例は「空欄:HEADLINE」で既に止まるので、ここは「あるが基準外」だけを見る。画面（ReaderOverview）は基準外を黙って隠すだけなので、関門で止める。
+ */
+export function leadGateReasons(reader: ReaderCase): string[] {
+  const lead = reader.analysis.find((a) => a.item === 'HEADLINE');
+  if (!lead) return [];
+  const verdict = checkLead(lead, reader);
+  return verdict.ok ? [] : [`${LEAD_NOT_PASSED_PREFIX}:${verdict.problems.join(',')}`];
+}
+
 /**
  * 選別（select-finished）と公開データ作り（prepare-catalog-release）が共通で使う関門。
  * 受領書・出典・権利・画像の確認（evaluatePublication）に、main の完成基準（OWNER_INTENT 2章: 必須項目の空欄・薄い事例は出さない）を足す。
@@ -97,6 +111,7 @@ export function evaluateForRelease(input: PublicationInput, audit: PublicationAu
   const { reader } = input;
   if (reader.facts.length <= 2 && reader.metrics.length === 0) reasons.push('データが少ない（事実2件以下で数字なし）');
   reasons.push(...missingRequired(reader).map((m) => `空欄:${m}`));
+  reasons.push(...leadGateReasons(reader));
   return { ...base, reasons, publishable: reasons.length === 0 };
 }
 
