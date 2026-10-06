@@ -9,7 +9,8 @@
  *      entities-index.json の指紋が変わると公開目録（catalog-release.json）の作り直しが要る。--apply は公開データ作りの直前にだけ使う。
  *
  * 使い方:
- *   node --import tsx scripts/reader-case/add-entity-records.ts --collect --manifest <catalog.json> --artifacts <dir> --ids a,b --name <name>
+ *   node --import tsx scripts/reader-case/add-entity-records.ts --collect --manifest <catalog.json> --artifacts <dir> --ids a,b --name <name> [--packs <dir>]
+ *   （--packs: 根拠カードが無い記録に、事例担当の材料 packs/<id>.json の出典から根拠カードを付ける）
  *   node --import tsx scripts/reader-case/add-entity-records.ts --apply [--dry-run]
  */
 import { createHash } from 'node:crypto';
@@ -30,7 +31,24 @@ export interface AdditionFile {
 const sha256 = (b: Buffer | string) => createHash('sha256').update(b).digest('hex');
 const host = (u: unknown) => { try { return new URL(String(u)).hostname.replace(/^www\./, '').toLowerCase(); } catch { return ''; } };
 
-export function collect(manifestPath: string, artifactsDir: string, ids: string[], now = new Date()): AdditionFile {
+interface PackSource { id: string; kind?: string; publisher?: string; title?: string; url?: string; checkedAt?: string }
+
+/** 根拠カードが無い記録に、事例担当の材料（packs/<id>.json）の出典から根拠カードを作る。カードは出典の所在だけで、中身の主張はしない */
+export function sourceCards(id: string, sources: PackSource[]): Record<string, unknown>[] {
+  return sources.filter((s) => s.url && /^https?:\/\//.test(s.url)).map((s) => {
+    const primary = s.kind === 'OFFICIAL' || s.kind === 'FILING';
+    let hostName = '';
+    try { hostName = new URL(s.url!).hostname.replace(/^www\./, ''); } catch { /* 上で http(s) を確認済み */ }
+    return {
+      id: `${id}_pack_source_${s.id}`, type: 'UNKNOWN_AUDIT', title: `出典: ${s.publisher ?? hostName}${s.title ? `（${s.title}）` : ''}`,
+      badge: '出典', evidenceStatus: 'REPORTED', punchline: '事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。',
+      details: [`URL: ${s.url}`, `ホスト: ${hostName}`, ...(s.checkedAt ? [`確認日: ${s.checkedAt}`] : [])],
+      url: s.url, sourceNote: `${primary ? 'official' : 'secondary'} source listed in case-rebuild pack ${s.url}`, sourceClass: primary ? 'PRIMARY' : 'INDEPENDENT_SECONDARY',
+    };
+  });
+}
+
+export function collect(manifestPath: string, artifactsDir: string, ids: string[], now = new Date(), packsDir?: string): AdditionFile {
   const text = readFileSync(manifestPath, 'utf8');
   const manifest = JSON.parse(text) as { details: Record<string, string>; approvalCandidateIds?: string[] };
   const records: AdditionFile['records'] = [];
@@ -46,6 +64,12 @@ export function collect(manifestPath: string, artifactsDir: string, ids: string[
     const tags = Array.isArray(record.tags) ? (record.tags as string[]) : [];
     // 元の目録で審査待ちだったかどうかに関わらず、この目録では審査待ちとして足す（承認はこの目録の承認経路で行う）
     record.tags = tags.includes(REVIEW_TAG) ? tags : [...tags, REVIEW_TAG];
+    const cards = Array.isArray(record.evidenceCards) ? record.evidenceCards : [];
+    const packPath = packsDir ? `${packsDir}/${id}.json` : '';
+    if (!cards.length && packPath && existsSync(packPath)) {
+      const pack = JSON.parse(readFileSync(packPath, 'utf8')) as { sources?: PackSource[] };
+      record.evidenceCards = sourceCards(id, pack.sources ?? []);
+    }
     records.push({ id, provenance: { detailsHash, artifactSha256: sha256(bytes) }, record });
   }
   const parsed = parseFinancialEntitiesResiliently(records.map((r) => r.record));
@@ -86,7 +110,7 @@ function main() {
     const manifest = val('--manifest'); const artifacts = val('--artifacts'); const name = val('--name');
     const ids = (val('--ids') ?? '').split(',').map((s) => s.trim()).filter(Boolean);
     if (!manifest || !artifacts || !name || !/^[\w-]+$/.test(name) || !ids.length) throw new Error('--manifest --artifacts --ids --name が要る');
-    const file = collect(manifest, artifacts, ids);
+    const file = collect(manifest, artifacts, ids, new Date(), val('--packs'));
     mkdirSync(ADDITIONS_DIR, { recursive: true });
     writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
     console.log(JSON.stringify({ collected: file.records.length, file: `${ADDITIONS_DIR}/${name}.json` }));

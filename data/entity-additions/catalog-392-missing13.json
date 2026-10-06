@@ -4,7 +4,7 @@
   "manifest": "/Volumes/SS/Make-Money-normal-twenty-leads-icons-final-20261006-task6/data/catalog-history/reviewed-twenty-parent-392.json",
   "manifestSha256": "f9c84b8f69c2929178d93152372fdae7d578392d6cf28fcfdc12b28f63a8a81d",
   "artifactsDir": "/Volumes/SS/Make-Money-normal-twenty-leads-icons-final-20261006-task6/data/catalog-artifacts",
-  "collectedAt": "2026-10-06T09:20:36.702Z"
+  "collectedAt": "2026-10-06T09:29:28.561Z"
  },
  "records": [
   {
@@ -2022,7 +2022,41 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://hazeover.com/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_hazeovercom_b6a66ead377a_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: HazeOver（HazeOver: Distraction Dimmer™ for Productivity on Mac）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://hazeover.com/",
+       "ホスト: hazeover.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://hazeover.com/",
+      "sourceNote": "official source listed in case-rebuild pack https://hazeover.com/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_hazeovercom_b6a66ead377a_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: HazeOver（HazeOver for Mac - Buy a License）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://hazeover.com/buynow.html",
+       "ホスト: hazeover.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://hazeover.com/buynow.html",
+      "sourceNote": "official source listed in case-rebuild pack https://hazeover.com/buynow.html",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2101,7 +2135,57 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://lowtechguys.com/clop/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_lowtechguyscom_42a06677420f_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clop（Clop - Image, video, PDF and clipboard optimiser）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://lowtechguys.com/clop/",
+       "ホスト: lowtechguys.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://lowtechguys.com/clop/",
+      "sourceNote": "official source listed in case-rebuild pack https://lowtechguys.com/clop/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lowtechguyscom_42a06677420f_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clop（Clop - Press Kit）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://lowtechguys.com/clop/presskit",
+       "ホスト: lowtechguys.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://lowtechguys.com/clop/presskit",
+      "sourceNote": "official source listed in case-rebuild pack https://lowtechguys.com/clop/presskit",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lowtechguyscom_42a06677420f_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clop（Clop - Privacy Policy）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://lowtechguys.com/clop/privacy",
+       "ホスト: lowtechguys.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://lowtechguys.com/clop/privacy",
+      "sourceNote": "official source listed in case-rebuild pack https://lowtechguys.com/clop/privacy",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2180,7 +2264,41 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://reeder.app/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_reederapp_b90e84b5768e_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reeder（Reeder）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://reeder.app/",
+       "ホスト: reeder.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://reeder.app/",
+      "sourceNote": "official source listed in case-rebuild pack https://reeder.app/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_reederapp_b90e84b5768e_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reeder（Reeder Help）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://reeder.app/help/",
+       "ホスト: reeder.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://reeder.app/help/",
+      "sourceNote": "official source listed in case-rebuild pack https://reeder.app/help/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2261,7 +2379,57 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://practicaltypography.com/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_practicaltypographycom_e9aa6bc94ccf_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Matthew Butterick（How to pay for this book | Butterick’s Practical Typography）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://practicaltypography.com/how-to-pay-for-this-book.html",
+       "ホスト: practicaltypography.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "sourceNote": "official source listed in case-rebuild pack https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_practicaltypographycom_e9aa6bc94ccf_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Matthew Butterick（The economics of a web-based book: year one | Butterick’s Practical Typography）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://practicaltypography.com/economics-year-one.html",
+       "ホスト: practicaltypography.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://practicaltypography.com/economics-year-one.html",
+      "sourceNote": "secondary source listed in case-rebuild pack https://practicaltypography.com/economics-year-one.html",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_practicaltypographycom_e9aa6bc94ccf_pack_source_s4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Matthew Butterick（Legal | Butterick’s Practical Typography）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://practicaltypography.com/legal.html",
+       "ホスト: practicaltypography.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://practicaltypography.com/legal.html",
+      "sourceNote": "official source listed in case-rebuild pack https://practicaltypography.com/legal.html",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2340,7 +2508,57 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://blip.net/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_blipnet_1b6f322eb7d6_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Blip（Blip – The fastest way to send files）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://blip.net/",
+       "ホスト: blip.net",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://blip.net/",
+      "sourceNote": "official source listed in case-rebuild pack https://blip.net/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_blipnet_1b6f322eb7d6_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Blip（Unlimited file transfer plans – Blip）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://blip.net/pricing",
+       "ホスト: blip.net",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://blip.net/pricing",
+      "sourceNote": "official source listed in case-rebuild pack https://blip.net/pricing",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_blipnet_1b6f322eb7d6_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Blip（Terms of service – Blip）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://blip.net/terms-of-service",
+       "ホスト: blip.net",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://blip.net/terms-of-service",
+      "sourceNote": "official source listed in case-rebuild pack https://blip.net/terms-of-service",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2419,7 +2637,57 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://contexts.co/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_contextsco_64ea708780f8_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Contexts（Contexts - Radically simpler & faster window switcher for Mac）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://contexts.co/",
+       "ホスト: contexts.co",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://contexts.co/",
+      "sourceNote": "official source listed in case-rebuild pack https://contexts.co/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_contextsco_64ea708780f8_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Contexts（Contexts - EULA）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://contexts.co/legal/eula/",
+       "ホスト: contexts.co",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://contexts.co/legal/eula/",
+      "sourceNote": "official source listed in case-rebuild pack https://contexts.co/legal/eula/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_contextsco_64ea708780f8_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Contexts（Contexts - Press）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://contexts.co/press/",
+       "ホスト: contexts.co",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://contexts.co/press/",
+      "sourceNote": "official source listed in case-rebuild pack https://contexts.co/press/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2498,7 +2766,41 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://litur.app/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_liturapp_5ba475de72a5_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Litur（Litur - find and collect the colors around you.）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://litur.app/",
+       "ホスト: litur.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://litur.app/",
+      "sourceNote": "official source listed in case-rebuild pack https://litur.app/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_liturapp_5ba475de72a5_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Litur（Litur - Press Kit.）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://litur.app/presskit",
+       "ホスト: litur.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://litur.app/presskit",
+      "sourceNote": "official source listed in case-rebuild pack https://litur.app/presskit",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2577,7 +2879,41 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://icemenubar.app/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_icemenubarapp_78d59ec32fd9_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ice（Ice - Menu Bar Manager）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://icemenubar.app/",
+       "ホスト: icemenubar.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://icemenubar.app/",
+      "sourceNote": "official source listed in case-rebuild pack https://icemenubar.app/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_icemenubarapp_78d59ec32fd9_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ice（Donate）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://icemenubar.app/Donate/",
+       "ホスト: icemenubar.app",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://icemenubar.app/Donate/",
+      "sourceNote": "official source listed in case-rebuild pack https://icemenubar.app/Donate/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2656,7 +2992,25 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://www.taskpaper.com/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_taskpapercom_b4e8d7fa2c79_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: TaskPaper（TaskPaper – Plain text to-do lists for Mac）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.taskpaper.com/",
+       "ホスト: taskpaper.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://www.taskpaper.com/",
+      "sourceNote": "official source listed in case-rebuild pack https://www.taskpaper.com/",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   },
   {
@@ -2735,7 +3089,73 @@
     "targetPainWallet": "",
     "ticker": "",
     "url": "https://presentifyapp.com/",
-    "verifiedBadge": false
+    "verifiedBadge": false,
+    "evidenceCards": [
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Presentify: Screen Annotation, Cursor Highlight, Spotlight, ZoomDownload on the Mac App StoreDownload on the Mac App Store）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Presentify Blog - App Updates, Presentation Tips, and Productivity GuidesDownload on the Mac App Store）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/blog",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/blog",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/blog",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Frequently Asked Questions - Presentify）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/faq",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/faq",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/faq",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_presentifyappcom_b000d04e2c5f_pack_source_s4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Presentify（Terms of Service - Presentify）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://presentifyapp.com/terms",
+       "ホスト: presentifyapp.com",
+       "確認日: 2026-10-05"
+      ],
+      "url": "https://presentifyapp.com/terms",
+      "sourceNote": "official source listed in case-rebuild pack https://presentifyapp.com/terms",
+      "sourceClass": "PRIMARY"
+     }
+    ]
    }
   }
  ]
