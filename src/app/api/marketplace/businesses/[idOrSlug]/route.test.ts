@@ -113,7 +113,7 @@ describe('PATCH /api/marketplace/businesses/[id]', () => {
     const before = [listingRow(state.db!, draft), listingRow(state.db!, published)];
 
     expect((await patch(draft, { title: '乗っ取り' }, 'other-token')).status).toBe(404);
-    expect((await patch(draft, { status: 'published' }, 'other-token')).status).toBe(404);
+    expect((await patch(draft, { status: 'pending_review' }, 'other-token')).status).toBe(404);
     expect((await patch(published, { status: 'closed' }, 'other-token')).status).toBe(404);
     expect((await patch(published, { askingPriceJpy: 1 }, 'other-token')).status).toBe(404);
     expect([listingRow(state.db!, draft), listingRow(state.db!, published)]).toEqual(before);
@@ -125,18 +125,39 @@ describe('PATCH /api/marketplace/businesses/[id]', () => {
     }
   });
 
-  it('moves a complete draft to published, then to closed', async () => {
+  it('moves a complete draft to pending_review, stays hidden until approved, then can be closed', async () => {
     const id = seedBusinessSale(state.db!, { status: 'draft' });
-    expect(await (await patch(id, { status: 'published' })).json()).toMatchObject({ listing: { status: 'published' } });
-    expect(await (await GET(jsonRequest(`${BASE}/x`), context(String(listingRow(state.db!, id)!.slug)))).json()).toMatchObject({ listing: { id } });
+    const slug = String(listingRow(state.db!, id)!.slug);
+    expect(await (await patch(id, { status: 'pending_review' })).json()).toMatchObject({ listing: { status: 'pending_review' } });
+    expect((await GET(jsonRequest(`${BASE}/x`), context(slug))).status).toBe(404);
+    state.db!.prepare("UPDATE business_sale_listings SET status='published' WHERE id=?").run(id); // 運営者の承認
+    expect(await (await GET(jsonRequest(`${BASE}/x`), context(slug))).json()).toMatchObject({ listing: { id } });
     expect(await (await patch(id, { status: 'closed' })).json()).toMatchObject({ listing: { status: 'closed' } });
-    expect((await GET(jsonRequest(`${BASE}/x`), context(String(listingRow(state.db!, id)!.slug)))).status).toBe(404);
+    expect((await GET(jsonRequest(`${BASE}/x`), context(slug))).status).toBe(404);
   });
 
-  it('answers 400 with the field when a draft is not ready to publish', async () => {
+  it('never lets the owner publish or reject their own listing', async () => {
+    const id = seedBusinessSale(state.db!, { status: 'draft' });
+    for (const status of ['published', 'rejected']) {
+      const response = await patch(id, { status });
+      expect(response.status, status).toBe(400);
+      expect(await response.json()).toMatchObject({ field: 'status' });
+    }
+    expect(listingRow(state.db!, id)).toMatchObject({ status: 'draft' });
+  });
+
+  it('puts an edited published listing back to review and takes it off the public page', async () => {
+    const id = seedBusinessSale(state.db!, { status: 'published' });
+    const slug = String(listingRow(state.db!, id)!.slug);
+    expect((await GET(jsonRequest(`${BASE}/x`), context(slug))).status).toBe(200);
+    expect(await (await patch(id, { askingPriceJpy: 1_000_000 })).json()).toMatchObject({ listing: { status: 'pending_review', askingPriceJpy: 1_000_000 } });
+    expect((await GET(jsonRequest(`${BASE}/x`), context(slug))).status).toBe(404);
+  });
+
+  it('answers 400 with the field when a draft is not ready for review', async () => {
     const id = seedBusinessSale(state.db!, { status: 'draft' });
     state.db!.prepare("UPDATE business_sale_listings SET included_assets='' WHERE id=?").run(id);
-    const response = await patch(id, { status: 'published' });
+    const response = await patch(id, { status: 'pending_review' });
     expect(response.status).toBe(400);
     expect(await response.json()).toMatchObject({ field: 'includedAssets' });
     expect(listingRow(state.db!, id)).toMatchObject({ status: 'draft' });
@@ -146,7 +167,7 @@ describe('PATCH /api/marketplace/businesses/[id]', () => {
     const draft = seedBusinessSale(state.db!, { status: 'draft' });
     const published = seedBusinessSale(state.db!, { status: 'published' });
     const closed = seedBusinessSale(state.db!, { status: 'closed' });
-    for (const [id, body] of [[draft, { status: 'closed' }], [published, { status: 'draft' }], [closed, { status: 'published' }], [closed, { title: '終了後の編集' }]] as const) {
+    for (const [id, body] of [[draft, { status: 'closed' }], [published, { status: 'draft' }], [closed, { status: 'pending_review' }], [closed, { title: '終了後の編集' }]] as const) {
       expect((await patch(id, body)).status, JSON.stringify(body)).toBe(409);
     }
     expect([draft, published, closed].map((id) => listingRow(state.db!, id)!.status)).toEqual(['draft', 'published', 'closed']);

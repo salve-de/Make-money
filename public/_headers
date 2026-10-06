@@ -1,0 +1,16 @@
+# Cloudflare Workers の静的アセット（public/ と .next/static）に付けるヘッダー。
+# 画面（HTML）と API の応答には効かない。そちらは next.config.ts の headers()（src/lib/security/headers.ts）が付ける。
+# 根拠と確認手順: docs/launch/SECURITY_REVIEW.md
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), usb=(), serial=(), bluetooth=(), magnetometer=(), accelerometer=(), gyroscope=(), browsing-topics=()
+
+# SVG を直接開いても、スクリプトを動かさない（<img> として使う分には影響しない）
+/*.svg
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+
+# ファイル名にハッシュが入る成果物は、変わらないので長く使い回せる
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

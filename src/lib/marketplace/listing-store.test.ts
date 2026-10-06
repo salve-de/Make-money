@@ -5,7 +5,7 @@ vi.mock('@/lib/storage/d1', () => ({ queryD1: query }));
 const rows = Array.from({ length: 61 }, (_, index) => ({
   id: `listing-${index}`, sessionId: null, sourceType: 'external', slug: `service-${index}`,
   title: 'Service', summary: 'Useful service', category: 'other', productUrl: 'https://example.com',
-  checkoutUrl: null, priceLabel: '', sellerName: '', status: 'published', createdAt: '2026-09-28', updatedAt: '2026-09-28',
+  checkoutUrl: null, priceLabel: '', sellerName: '', status: 'published', reviewNote: null, createdAt: '2026-09-28', updatedAt: '2026-09-28',
 }));
 beforeEach(() => { query.mockReset().mockImplementation(async (_sql, [limit, offset], parse) => rows.slice(offset, offset + limit).map(parse)); });
 it('requests a sentinel row and stable ordering, then exposes the 61st listing on the next page', async () => {

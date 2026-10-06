@@ -89,7 +89,9 @@ describe('POST /api/marketplace/businesses/[id]/inquiries', () => {
   it('only accepts inquiries for published listings', async () => {
     const draft = seedBusinessSale(state.db!, { status: 'draft' });
     const closed = seedBusinessSale(state.db!, { status: 'closed' });
-    for (const id of [draft, closed, crypto.randomUUID(), 'not-a-uuid', "x'--"]) {
+    const pending = seedBusinessSale(state.db!, { status: 'pending_review' });
+    const rejected = seedBusinessSale(state.db!, { status: 'rejected' });
+    for (const id of [draft, closed, pending, rejected, crypto.randomUUID(), 'not-a-uuid', "x'--"]) {
       expect((await send(id)).status, id).toBe(404);
     }
     expect(inquiryRows(state.db!)).toEqual([]);

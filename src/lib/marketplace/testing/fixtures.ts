@@ -22,7 +22,8 @@ export interface SeedOptions {
   userId?: string;
   slug?: string;
   title?: string;
-  status?: 'draft' | 'published' | 'closed';
+  status?: 'draft' | 'pending_review' | 'published' | 'rejected' | 'closed';
+  reviewNote?: string | null;
   category?: string;
   askingPriceJpy?: number;
   updatedAt?: string;
@@ -35,13 +36,13 @@ export function seedBusinessSale(database: DatabaseSync, options: SeedOptions = 
   const id = options.id ?? crypto.randomUUID();
   database.prepare(
     `INSERT INTO business_sale_listings(id,user_id,slug,title,summary,category,established_year,monthly_revenue_jpy,monthly_profit_jpy,
-       asking_price_jpy,revenue_basis,verification_id,reason_for_sale,included_assets,seller_name,status,created_at,updated_at)
-     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+       asking_price_jpy,revenue_basis,verification_id,reason_for_sale,included_assets,seller_name,status,review_note,created_at,updated_at)
+     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
   ).run(
     id, options.userId ?? 'seller-1', options.slug ?? `slug-${id.slice(0, 8)}`, options.title ?? `Title ${id.slice(0, 4)}`,
     listingFields.summary, options.category ?? 'ecommerce', 2021, 1_200_000, 300_000, options.askingPriceJpy ?? 4_500_000,
     options.revenueBasis ?? 'self_reported', options.verificationId ?? null, listingFields.reasonForSale,
-    listingFields.includedAssets, listingFields.sellerName, options.status ?? 'published',
+    listingFields.includedAssets, listingFields.sellerName, options.status ?? 'published', options.reviewNote ?? null,
     options.updatedAt ?? '2026-09-01 00:00:00', options.updatedAt ?? '2026-09-01 00:00:00',
   );
   return id;

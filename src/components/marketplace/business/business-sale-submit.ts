@@ -10,9 +10,9 @@ import { checkBusinessSaleForm, toBusinessSalePayload, type BusinessSaleForm } f
 export type SubmitIntent =
   /** 下書きとして保存する */
   | 'draft'
-  /** 公開する（新規なら、下書きを作ってから公開する） */
+  /** 公開を申請する（新規なら、下書きを作ってから審査に出す。公開は運営者の承認後） */
   | 'publish'
-  /** 公開中の掲載の変更を保存する */
+  /** 公開中・審査待ちの掲載の変更を保存する（公開中の内容を変えると、再審査になる） */
   | 'changes';
 
 export type SubmitOutcome =
@@ -30,9 +30,9 @@ function failed(result: Extract<ClientResult<unknown>, { ok: false }>, prefix = 
 /**
  * 掲載フォームを送る。
  * - 送る前に、サーバーと同じ検証で確かめる（通らない内容は送らない）。
- * - 新規（listingId が null）は、まず10項目を下書きとして作る。公開なら続けて状態だけを公開にする。
- *   公開に失敗しても下書きは残り、呼び出し側は draft の id で続きを PATCH できる（二重に作らない）。
- * - 既存は PATCH。公開するときだけ、本文に status: 'published' を足す。
+ * - 新規（listingId が null）は、まず10項目を下書きとして作る。公開の申請なら続けて状態だけを審査待ちにする。
+ *   申請に失敗しても下書きは残り、呼び出し側は draft の id で続きを PATCH できる（二重に作らない）。
+ * - 既存は PATCH。公開を申請するときだけ、本文に status: 'pending_review' を足す。公開（published）は運営者の承認でだけ付き、ここからは送れない。
  * 売上の根拠・検証の記録は、どの経路でも送らない。
  */
 export async function submitBusinessSaleForm(input: {
@@ -50,12 +50,12 @@ export async function submitBusinessSaleForm(input: {
     const created = await postBusinessSaleDraft(token, payload);
     if (!created.ok) return failed(created);
     if (intent === 'draft') return { kind: 'saved', listing: created.data, leave: true };
-    const published = await patchBusinessSale(token, created.data.id, { status: 'published' });
-    if (!published.ok) return { ...failed(published, '下書きは保存しました。公開はできませんでした: '), draft: created.data };
-    return { kind: 'saved', listing: published.data, leave: true };
+    const requested = await patchBusinessSale(token, created.data.id, { status: 'pending_review' });
+    if (!requested.ok) return { ...failed(requested, '下書きは保存しました。公開の申請はできませんでした: '), draft: created.data };
+    return { kind: 'saved', listing: requested.data, leave: true };
   }
 
-  const updated = await patchBusinessSale(token, listingId, intent === 'publish' ? { ...payload, status: 'published' } : payload);
+  const updated = await patchBusinessSale(token, listingId, intent === 'publish' ? { ...payload, status: 'pending_review' } : payload);
   if (!updated.ok) return failed(updated);
   return { kind: 'saved', listing: updated.data, leave: intent === 'publish' };
 }

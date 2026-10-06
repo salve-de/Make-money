@@ -146,7 +146,13 @@ describe('parseBusinessSaleUpdate', () => {
       ok: true,
       value: { askingPriceJpy: 5_000_000, summary: '更新後の説明' },
     });
-    expect(parseBusinessSaleUpdate({ status: 'published' }, NOW)).toEqual({ ok: true, value: { status: 'published' } });
+    expect(parseBusinessSaleUpdate({ status: 'pending_review' }, NOW)).toEqual({ ok: true, value: { status: 'pending_review' } });
+  });
+
+  it('never lets the owner set published or rejected (only the operator review can)', () => {
+    for (const status of ['published', 'rejected']) {
+      expect(parseBusinessSaleUpdate({ status }, NOW)).toMatchObject({ ok: false, field: 'status' });
+    }
   });
 
   it('rejects an empty update, extra keys and bad values', () => {
@@ -176,16 +182,34 @@ describe('planBusinessSaleUpdate', () => {
     status: 'draft',
   };
 
-  it('moves a complete draft to published', () => {
-    const plan = planBusinessSaleUpdate(current, { status: 'published' });
+  it('moves a complete draft to pending_review, never straight to published', () => {
+    const plan = planBusinessSaleUpdate(current, { status: 'pending_review' });
     expect(plan).toMatchObject({ ok: true, revenueChanged: false });
-    expect(plan.ok && plan.next.status).toBe('published');
+    expect(plan.ok && plan.next.status).toBe('pending_review');
+    expect(planBusinessSaleUpdate(current, { status: 'published' as never })).toMatchObject({ ok: false, kind: 'conflict', field: 'status' });
   });
 
-  it('refuses to publish without a description, a reason or included assets', () => {
-    expect(planBusinessSaleUpdate({ ...current, summary: '短い説明' }, { status: 'published' })).toMatchObject({ ok: false, kind: 'invalid', field: 'summary' });
-    expect(planBusinessSaleUpdate({ ...current, reasonForSale: '' }, { status: 'published' })).toMatchObject({ ok: false, kind: 'invalid', field: 'reasonForSale' });
-    expect(planBusinessSaleUpdate({ ...current, includedAssets: '' }, { status: 'published' })).toMatchObject({ ok: false, kind: 'invalid', field: 'includedAssets' });
+  it('sends a published listing back to review when its content changes, but not when nothing changed', () => {
+    const published = { ...current, status: 'published' as const };
+    const edited = planBusinessSaleUpdate(published, { askingPriceJpy: 4_000_000 });
+    expect(edited.ok && edited.next.status).toBe('pending_review');
+    const same = planBusinessSaleUpdate(published, { askingPriceJpy: current.askingPriceJpy });
+    expect(same.ok && same.next.status).toBe('published');
+    const closed = planBusinessSaleUpdate(published, { status: 'closed', title: '終了前の改題' });
+    expect(closed.ok && closed.next.status).toBe('closed');
+  });
+
+  it('lets a rejected listing be fixed and resubmitted, or stay rejected while edited', () => {
+    const rejected = { ...current, status: 'rejected' as const };
+    expect(planBusinessSaleUpdate(rejected, { title: '直した事業名' })).toMatchObject({ ok: true, next: { status: 'rejected' } });
+    expect(planBusinessSaleUpdate(rejected, { title: '直した事業名', status: 'pending_review' })).toMatchObject({ ok: true, next: { status: 'pending_review' } });
+    expect(planBusinessSaleUpdate({ ...rejected, summary: '' }, { status: 'pending_review' })).toMatchObject({ ok: false, kind: 'invalid', field: 'summary' });
+  });
+
+  it('refuses to request review without a description, a reason or included assets', () => {
+    expect(planBusinessSaleUpdate({ ...current, summary: '短い説明' }, { status: 'pending_review' })).toMatchObject({ ok: false, kind: 'invalid', field: 'summary' });
+    expect(planBusinessSaleUpdate({ ...current, reasonForSale: '' }, { status: 'pending_review' })).toMatchObject({ ok: false, kind: 'invalid', field: 'reasonForSale' });
+    expect(planBusinessSaleUpdate({ ...current, includedAssets: '' }, { status: 'pending_review' })).toMatchObject({ ok: false, kind: 'invalid', field: 'includedAssets' });
     expect(findPublishProblem(current)).toBeNull();
   });
 
@@ -199,7 +223,7 @@ describe('planBusinessSaleUpdate', () => {
     expect(planBusinessSaleUpdate({ ...current, summary: '' }, { title: '新しい事業名' })).toMatchObject({ ok: true });
   });
 
-  it('only moves forward: draft to published to closed', () => {
+  it('only moves forward: draft to review to published (by the operator) to closed', () => {
     const published = { ...current, status: 'published' as const };
     expect(planBusinessSaleUpdate(published, { status: 'closed' })).toMatchObject({ ok: true });
     expect(planBusinessSaleUpdate(published, { status: 'draft' })).toMatchObject({ ok: false, kind: 'conflict', field: 'status' });
@@ -208,7 +232,7 @@ describe('planBusinessSaleUpdate', () => {
 
   it('freezes a closed listing', () => {
     const closed = { ...current, status: 'closed' as const };
-    for (const patch of [{ title: '変更' }, { status: 'published' as const }, { status: 'closed' as const }]) {
+    for (const patch of [{ title: '変更' }, { status: 'pending_review' as const }, { status: 'closed' as const }]) {
       expect(planBusinessSaleUpdate(closed, patch)).toMatchObject({ ok: false, kind: 'conflict' });
     }
   });
