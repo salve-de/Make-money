@@ -4,6 +4,7 @@
  */
 import { createHash } from 'node:crypto';
 import { metricLine } from './verify-lib';
+import { evidenceNumbers, numbersIn, numbersMissingFrom } from '../../src/shared/number-evidence';
 import { ReaderAnalysisSchema, type ReaderAnalysis, type ReaderCase } from '../../src/shared/reader-case';
 
 export const ANALYSIS_FILE = 'data/reader-analysis.json';
@@ -26,8 +27,10 @@ export function auditEvidence(reader: Pick<ReaderCase, 'facts' | 'metrics'>, sou
 }
 // 指紋には監査役に渡す中身をすべて入れる: 推論（文・式・根拠・確度）、その事例の照合結果、そして推論の元になった事実・数字・出典の本文。
 // 文が同じでも、根拠や元の出典・事実が変われば監査し直す
-export function analysisHash(items: readonly { item: string; text: string; formula?: string; basis?: readonly string[]; confidence?: string }[], verdict: unknown, evidence: AuditEvidence): string {
-  const body = items.map((a) => [a.item, a.text, a.formula ?? '', [...(a.basis ?? [])], a.confidence ?? '']);
+export function analysisHash(items: readonly { item: string; text: string; formula?: string; basis?: readonly string[]; confidence?: string; presentation?: string }[], verdict: unknown, evidence: AuditEvidence): string {
+  // confidence（確度ラベル）は廃止。付いている旧データだけ従来どおり指紋に入れる（保存済みの全指紋を変えないため）。
+  // 付いていない（新しい指示で作った）項目は、確度の有無に左右されない。presentation も付いている時だけ入れる
+  const body = items.map((a) => [a.item, a.text, a.formula ?? '', [...(a.basis ?? [])], ...(a.confidence ? [a.confidence] : []), ...(a.presentation ? [a.presentation] : [])]);
   return createHash('sha256').update(JSON.stringify([body, verdict ?? null, evidence])).digest('hex').slice(0, 16);
 }
 /** 旧形式の指紋（推論と照合結果だけ）。data/ の指紋を新形式へ移す scripts/reader-case/migrate-hashes.ts だけが使う */
@@ -40,13 +43,18 @@ export const ANALYZE_DIR = 'data/analyze';
 export type DropReason =
   | 'schema'
   | 'basis-missing-id'
+  | 'basis-empty'
   | 'duplicate-item'
   | 'fabricated-statement'
   | 'work-description'
   | 'fact-exists'
   | 'number-without-formula'
   | 'contradicts-revenue'
-  | 'illegal-howto';
+  | 'illegal-howto'
+  // 数字の出どころ検査（strictNumbers を付けた受け入れ時だけ）
+  | 'placeholder-number'
+  | 'number-not-in-evidence'
+  | 'estimate-without-fact-inputs';
 
 /** 保存する形（id は a-<item小文字>） */
 export type StoredAnalysis = Omit<ReaderAnalysis, 'id'> & { id: string };
@@ -58,11 +66,25 @@ export interface RawItem {
   basis?: unknown;
   formula?: unknown;
   confidence?: unknown;
+  presentation?: unknown;
+}
+
+/** checkItem / checkCase の追加の検査 */
+export interface CheckOptions {
+  /**
+   * 数字の出どころ検査（2026-10-06 仕様反転）。出典の事実・数値の id を持たない数値＝仮置きとして落とす。
+   * 取り込み時（merge-analysis.ts）だけ有効にする。公開済みの旧データを評価する経路（evaluatePublication）では付けない。
+   */
+  strictNumbers?: boolean;
 }
 
 const STATEMENT = /語った|述べた|発表した|公表した|明かした|によると|と話す|と語る|インタビューで/;
 const WORK = /記載(が)?な|明記(され)?てい?な|確認できな|本文を読|出典に(は)?無/;
 const MONEY = /[$＄¥￥€£]|USD|EUR|JPY|[0-9０-９][0-9０-９,.，]*\s*(円|万|億|千|ドル|ユーロ|%|％|パーセント)|[数何幾十百千万億]+(円|ドル|ユーロ)/;
+/** 仮置き・想定の言い回し。数字と一緒に出たら、出典に無い数字を作った合図 */
+const PLACEHOLDER_WORDS = /仮置|仮の|仮定|相場|業界標準|一般的に|想定|試算/;
+/** 決済・販売の場が公開している標準の手数料（式の中で使ってよい数字） */
+const STANDARD_FEE_NUMBERS = [2.9, 3.6, 30, 15];
 const ILLEGAL_TOPIC = /自作自演|サクラ|なりすま|スパム|規約を(回避|すり抜)|botで大量/;
 const ILLEGAL_IMPERATIVE = /しろ|せよ|すればよい|すれば良い|手順/;
 
@@ -96,7 +118,7 @@ export function normalizeFormula(formula: string): string {
   return out;
 }
 
-export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>): { ok: true; value: StoredAnalysis } | { ok: false; reason: DropReason } {
+export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>, options: CheckOptions = {}): { ok: true; value: StoredAnalysis } | { ok: false; reason: DropReason } {
   const itemName = typeof raw.item === 'string' ? raw.item : '';
   const cand = {
     id: analysisId(itemName),
@@ -104,7 +126,8 @@ export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>): 
     text: raw.text,
     basis: raw.basis,
     ...(typeof raw.formula === 'string' && raw.formula.trim() ? { formula: normalizeFormula(raw.formula.trim()) } : {}),
-    confidence: raw.confidence,
+    ...(raw.confidence !== undefined ? { confidence: raw.confidence } : {}),
+    ...(raw.presentation !== undefined ? { presentation: raw.presentation } : {}),
   };
   const parsed = ReaderAnalysisSchema.safeParse(cand);
   if (!parsed.success) return { ok: false, reason: 'schema' };
@@ -113,8 +136,14 @@ export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>): 
   const evidence = new Set([...reader.facts.map((f) => f.id), ...reader.metrics.map((m) => m.id)]);
   if (a.basis.some((b) => !evidence.has(b))) return { ok: false, reason: 'basis-missing-id' };
   if (STATEMENT.test(a.text) && a.basis.length === 0) return { ok: false, reason: 'fabricated-statement' };
+  // 根拠の無い推論は出さない（根拠の事実・数字のIDが1件も無い）
+  if (a.basis.length === 0) return { ok: false, reason: 'basis-empty' };
   if (WORK.test(a.text)) return { ok: false, reason: 'work-description' };
   if (MONEY.test(a.text) && !a.formula) return { ok: false, reason: 'number-without-formula' };
+  if (options.strictNumbers) {
+    const reason = numberOriginProblem(a, typeof raw.formula === 'string' ? raw.formula : '', reader);
+    if (reason) return { ok: false, reason };
+  }
   if (a.item === 'REVENUE_ESTIMATE' && reader.metrics.some((m) => m.measure === 'REVENUE')) return { ok: false, reason: 'contradicts-revenue' };
   // 事実がある項目は推論で上書きしない（料金・道具）
   if (a.item === 'PRICING' && (reader.facts.some((f) => f.kind === 'PRICING') || reader.metrics.some((m) => m.measure === 'PRICE'))) return { ok: false, reason: 'fact-exists' };
@@ -122,6 +151,26 @@ export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>): 
   if (ILLEGAL_TOPIC.test(a.text) && ILLEGAL_IMPERATIVE.test(a.text)) return { ok: false, reason: 'illegal-howto' };
   seen.add(a.item);
   return { ok: true, value: a };
+}
+
+/**
+ * 数字の出どころ検査。通すのは、数字が「basis の事実・数値」か「式」か「標準手数料」に出てくる時だけ。
+ * 式の中の仮置き・想定の言い回しは、数字と一緒にあれば落とす（式は正規化の前の原文で見る）。
+ * 限界: 式の計算結果が正しいか、式の入力の意味が合うかは見ない（審査役が見る）。
+ */
+export function numberOriginProblem(a: Pick<StoredAnalysis, 'text' | 'basis' | 'formula' | 'presentation'>, rawFormula: string, reader: ReaderCase): DropReason | null {
+  const formulaForCheck = rawFormula.replace(/Stripe(の)?相場/g, '');
+  if ((PLACEHOLDER_WORDS.test(a.text) && numbersIn(a.text).length > 0) || (PLACEHOLDER_WORDS.test(formulaForCheck) && numbersIn(formulaForCheck).length > 0)) return 'placeholder-number';
+  const cited = evidenceNumbers(reader.facts, reader.metrics, a.basis);
+  const allowed = [...cited, ...STANDARD_FEE_NUMBERS, ...(a.formula ? numbersIn(a.formula, true) : [])];
+  if (numbersMissingFrom(a.text, allowed).length > 0) return 'number-not-in-evidence';
+  if (a.presentation === 'ESTIMATE') {
+    // 推定は式が要り、式の入力の少なくとも1つが根拠の事実・数値の値であること
+    if (!a.formula || a.basis.length === 0) return 'estimate-without-fact-inputs';
+    const inputs = numbersIn(a.formula, true).filter((n) => !(Number.isInteger(n) && n < 10));
+    if (!inputs.some((n) => cited.some((c) => Math.abs(c - n) <= Math.max(1e-9, Math.abs(c) * 1e-9)))) return 'estimate-without-fact-inputs';
+  }
+  return null;
 }
 
 export interface Dropped {
@@ -132,12 +181,12 @@ export interface Dropped {
 }
 
 /** 1事例ぶんの item 一覧を検査する。重複は先勝ち。 */
-export function checkCase(entityId: string, items: unknown, reader: ReaderCase): { kept: StoredAnalysis[]; dropped: Dropped[] } {
+export function checkCase(entityId: string, items: unknown, reader: ReaderCase, options: CheckOptions = {}): { kept: StoredAnalysis[]; dropped: Dropped[] } {
   const kept: StoredAnalysis[] = [];
   const dropped: Dropped[] = [];
   const seen = new Set<string>();
   for (const raw of Array.isArray(items) ? (items as RawItem[]) : []) {
-    const r = checkItem(raw ?? {}, reader, seen);
+    const r = checkItem(raw ?? {}, reader, seen, options);
     if (r.ok) kept.push(r.value);
     else dropped.push({ entityId, item: String(raw?.item ?? ''), reason: r.reason, text: String(raw?.text ?? '').slice(0, 120) });
   }

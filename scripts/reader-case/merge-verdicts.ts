@@ -5,6 +5,7 @@
  * 使い方: node --import tsx scripts/reader-case/merge-verdicts.ts [--ids <file>]
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { argValue, loadReaders, readIdsFile } from './load-readers';
 import { VERDICTS_FILE, VERIFY_DIR, claimsOf, quoteInText, readCache, type MetricFix, type VerdictEntry, type VerdictsFile } from './verify-lib';
 
@@ -14,6 +15,14 @@ interface Raw {
   verdict: string;
   quote?: string;
   fix?: { text?: string; metric?: MetricFix };
+}
+
+/**
+ * この実行で判定（照合の出力か、届かない記録）がある事例だけを置き換える。判定が1件も無い事例は既存の判定に触らない。
+ * --ids なしで全件を読んでも、手元に照合の出力が無い事例の判定が消えない（2026-10-06 に314件分が落ちた事故の再発防止）
+ */
+export function touchedCases(rawKeys: Iterable<string>, unreachableKeys: Iterable<string>): Set<string> {
+  return new Set([...rawKeys, ...unreachableKeys].map((k) => k.split('\u0000')[0]));
 }
 
 const QUOTE_MIN = 12;
@@ -40,7 +49,10 @@ function main() {
   const rejected: { entityId: string; claimId: string; claimText: string; verdict: string; reason: string; quote?: string; fix?: unknown }[] = [];
   const perCase: Record<string, { claims: number; kept: number }> = {};
 
+  const touched = touchedCases(raws.keys(), unreachable);
+  let untouched = 0;
   for (const [entityId, reader] of readers) {
+    if (!touched.has(entityId)) { untouched++; continue; }
     const kept: Record<string, VerdictEntry> = {};
     const urlOf = new Map(reader.sources.map((s) => [s.id, s.url]));
     const claims = claimsOf(reader);
@@ -103,7 +115,7 @@ function main() {
   writeFileSync(VERDICTS_FILE, `${JSON.stringify(result, null, 1)}\n`);
   writeFileSync(`${VERIFY_DIR}/rejected.json`, JSON.stringify(rejected, null, 1));
   writeFileSync(`${VERIFY_DIR}/per-case.json`, JSON.stringify(perCase, null, 1));
-  console.log(JSON.stringify({ cases: readers.size, casesWithVerdicts: Object.keys(result).length, ...stats }, null, 1));
+  console.log(JSON.stringify({ cases: readers.size, untouched, casesWithVerdicts: Object.keys(result).length, ...stats }, null, 1));
 }
 
-main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();

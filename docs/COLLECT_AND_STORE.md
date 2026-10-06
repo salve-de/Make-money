@@ -1,4 +1,6 @@
-> **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。スコープは [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md)。保存先は [`architecture/STORAGE.md`](./architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
+> **2026-10-04追補**: [懸念・問い・決定・未解決・検証台帳](./OWNER_QUESTIONS_AND_ACCEPTANCE_20261004.md)も参照。表示項目と伝える内容を収集前に定義し、中間仮表示から追加調査へ戻す。共通骨格＋登録済み条件ブロック、欠損項目・空章・画像空枠の非表示、残る内容の読む価値を守る。固定章数・固定字数は決定していない。docs更新と実装・全件検証・公開は別であり、今回の変更は文書のみ。
+
+> **現行入口（2026-10-03）**: まず [`OWNER_INTENT.md`](./OWNER_INTENT.md) を読む。収集の10情報領域・根拠ある推論・文章品質・画像は同文書が正本。従来の12領域・9情報源・枠外の有用情報は [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md) で維持する。本書は既存の保存手順を説明し、R2書込み・実データ変更・公開を新たに承認するものではない。
 
 
 # 新規収集・R2保存の入口
@@ -7,7 +9,7 @@
 
 項目の取りこぼしを防ぐため、まず [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md) を読む。そこに9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、財務・手残り推計、未知値の状態、Journal/R2配置、完了報告の必須項目を全て列挙している。この入口文書は保存手順、完全目録は調査内容を定義する。
 
-Universal側の同名正本は [`universal-foundation/docs/MAKE_MONEY_COLLECTION_SCOPE.md`](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md)。内容が違えばUniversal Foundation mainを上位正本として修正し、差分を残さない。
+Universal側の同名正本は [`universal-foundation/docs/MAKE_MONEY_COLLECTION_SCOPE.md`](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md)。Make-Moneyの収集・表示方針は OWNER_INTENT、事実と証拠の保存schema・権利・保持契約はUniversal Foundationの登録済み契約を使う。今回Universal側の契約や登録簿は変更しない。
 
 ## DEEP_RECONCILEDを主張する場合の検査
 
@@ -24,6 +26,14 @@ DEEP_RECONCILEDを主張する場合にUniversalの `docs/COLLECTION_RECONCILIAT
 
 ## 1. 収集段階と調査範囲
 
+### 現行方針を保存へつなぐ
+- 表示項目、読者の疑問、必要根拠、探索先、不足時の扱いを先に定義し、収集時も参照する。仮記事から意味不足を具体的な追加調査へ戻す。未知情報や反証を残し、AI記事を出典にしない。担当と各段階の出力は詳細台帳4章、検証は6章。
+- OWNER_INTENT 2章の10情報領域は収集・再利用の整理軸であり、全件の必須10章や収集上限ではない。従来の全scope・枠外の有用情報は可能な限り集め、保存する。表示で選ぶことを理由に収集項目を落とさない。完全新規、バックフィル、既存素材の再利用は柔軟に選べる。
+- 情報豊富な事例/sourceを優先する。保存済みsource / evidence / factsを先に確認して再利用し、その事例の理解に必要な不足を重点に追加収集する。薄い事例は追加調査へ戻し、件数や未確認表示の羅列を掲載完了の根拠にしない。確度・時点・出典の記録を保持することと、それを本文へ機械的に連発することは分ける。
+- 長い詳細文だけで完了にせず、個々の事実・行動・結果と出典ID/該当箇所・日付/期間・種類を結び付け、既存typed record / observations / Journalへ残す。検索・比較・パターン分析にも使える元材料を保つ。見出し・物語・応用提案は派生物に分ける。
+- 根拠ある推論はbasis・前提・式/確度を付ける。不明、根拠のある非公開、該当なし、数値の0を混同しない。未確認料金や創作初客・物語で穴埋めしない。全費用が不明なら利益・手残りと断定しない。
+- 画像も対象。実製品画面・利用場面・出力例を優先し、faviconだけで完了にしない。取得・保存・商用表示の可否は別で、既存の権利・台帳・許可ゲートを変えない。
+
 収集対象は画面に現在表示される項目だけではない。12領域、9情報源レーン、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、過去時点、失敗・閉鎖・ピボット、出典未回収の手掛かり、既存項目外の観測を調べる。見つからなかったものも `attempted_unavailable`、まだ見ていないものも `not_attempted` として保存する。
 
 91項目という数は保存構造でも上限でもない。
@@ -37,7 +47,7 @@ DEEP_RECONCILEDを主張する場合にUniversalの `docs/COLLECTION_RECONCILIAT
 
 検索/ブラウザ、Node/npm、非公開UniversalへのGitHub認証、R2認証が必要。このMacは既存Keychainラッパーを利用できる。別環境には安全に許可済み認証を渡す必要があり、GitHub閲覧だけではR2書込権限は付かない。
 
-既存R2、EDINET、既存shadowの物理整理・上書き・移動・削除は永久禁止。原物不変（Write-Once）と物理移動ゼロを徹底し、新規保存だけを行う。整理・結合はすべて単一の目録（Catalog / entities-index / D1）側で論理マッピングする（詳細は `docs/architecture/STORAGE.md` の「100年壊れないR2完璧構造」を参照）。
+既存R2、EDINET、既存shadowの物理整理・上書き・移動・削除は本収集作業の権限外であり禁止。長期設計の権利削除・保持期限対応は、別途権限と登録済み保持契約を確認する管理手順の要件であり、この禁止を解除するものではない。原物不変（Write-Once）と物理移動ゼロを徹底し、新規保存だけを行う。整理・結合はすべて単一の目録（Catalog / entities-index / D1）側で論理マッピングする（詳細は `docs/architecture/STORAGE.md` の「100年壊れないR2完璧構造」を参照）。
 
 実証記録（Bufferの2024年開示から新規6件を保存、全6件SHA/bytes一致、再実行は新規0・同一6）は、保存経路の実証であり、Bufferの全項目調査完了ではない。証拠は実装ブランチの `data/collection/buffer-2024.saved.json` と `buffer-2024.repeat.json` で確認する。
 
@@ -184,3 +194,4 @@ CAPTURE/CORE/ENRICHEDの部分データは、有用ならそのまま保存し�
 9. Journalは後回しにしない。収集と同じrunの`journal-entry.v1`を計画し、許可された既存経路で保存し、Journal件数・schema検証・readbackを完了報告に含める。descriptorの更新も、データ本体とは別の明示的な新規create-only書込みとして扱う。
 
 この収集workstreamはNeon、D1、R2 SQLを必要としない。R2 serving/indexの最適化やInvestraderのDB撤去は別作業として進める。
+
