@@ -24,14 +24,30 @@ export interface PublicationInput {
   media: PublicationMedia;
   entityEligible: boolean;
 }
+/** 監査した入力・結果のファイルの身元（中身の指紋）。どちらかが書き換わったら、その監査で通した項目は無効 */
+export interface AuditFileRef { inputFile: string; outputFile: string; inputFileHash: string; outputFileHash: string }
+/**
+ * 項目ごとの監査記録（version 2）。事例丸ごとの指紋ではなく、項目（事実・数字・推論）ごとに「監査を通った中身の指紋」を持つ。
+ * - caseHash: 事例の身元（ID・名前）。変われば事例ごと監査し直し（外す）。
+ * - items: 'fact:<id>' / 'metric:<id>' / 'analysis:<id>' → 監査を通った中身の指紋と、通した監査の入力ファイル。
+ *   中身が変わった項目だけが「未監査」になり、画面ではその項目だけを隠す（事例は外さない）。
+ * - baseAnalysisHash: 全体監査に出した推論一式の指紋。取り込み版の事例で、審査で直した推論（reader-analysis.json）を採用してよいかの判定に使う。
+ * - audits: この記録に効いている監査ファイル。readPublicationAudits がファイルの指紋を確かめ、合わない監査で通した項目は捨てる。
+ */
 export interface PublicationAudit {
+  version: 2;
+  caseHash: string;
+  baseAnalysisHash?: string;
+  items: Record<string, { hash: string; by: string }>;
+  audits: AuditFileRef[];
+  /** 最後に畳み込んだ監査の入力ファイル。これより新しい監査だけを次に畳み込む（同じ監査を二度当てない） */
+  lastAudit?: string;
+}
+/** 旧形式（事例丸ごとの指紋）。data/publication-audits.json に残っている間は、読み込み時に項目ごとの形へ移す */
+export interface LegacyPublicationAudit extends AuditFileRef {
   version: 1;
   inputHash: string;
   approvedHash: string;
-  inputFile: string;
-  outputFile: string;
-  inputFileHash: string;
-  outputFileHash: string;
 }
 export type PublicationAudits = Record<string, PublicationAudit>;
 export function contentHash(value: unknown): string {
@@ -48,6 +64,57 @@ export function auditSnapshot(input: PublicationInput): PublicationInput {
   }) };
 }
 export const publicationHash = (input: PublicationInput): string => contentHash(auditSnapshot(input));
+
+/** 事例の身元の指紋。ここが変われば事例ごと監査し直す */
+export const publicationCaseHash = (input: Pick<PublicationInput, 'identity'>): string => contentHash({ id: input.identity.id, name: input.identity.name });
+const bodyHash = (source: PublicationSource | undefined): string | null => {
+  if (!source?.snapshot) return null;
+  return typeof source.snapshot.text === 'string' ? contentHash(source.snapshot.text) : source.snapshot.textHash ?? null;
+};
+/** 推論1件の指紋。文・式・根拠の並びと、根拠にした事実・数字の指紋（＝その出典の本文）を入れる。根拠が変われば推論も監査し直す */
+export function analysisItemHash(a: Pick<ReaderCase['analysis'][number], 'item' | 'text' | 'basis' | 'formula' | 'presentation'>, hashes: Record<string, string>): string {
+  return contentHash({ item: a.item, text: a.text, formula: a.formula, basis: a.basis, presentation: a.presentation,
+    evidence: a.basis.map((b) => hashes[`fact:${b}`] ?? hashes[`metric:${b}`] ?? null) });
+}
+/**
+ * 項目ごとの指紋（'fact:<id>' / 'metric:<id>' / 'analysis:<id>'）。事実・数字は、中身・照合結果（取得日を除く）・出典（表示する出典の情報と本文）を入れる。
+ * 出典を取り直しただけ（取得日時だけが変わった）では変わらない。本文が変われば、その出典を根拠にする項目だけが変わる。
+ */
+export function publicationItemHashes(input: Pick<PublicationInput, 'reader' | 'sources' | 'verdicts'>): Record<string, string> {
+  const sourceHash = new Map(input.reader.sources.map((s) => [s.id,
+    contentHash({ source: s, body: bodyHash(input.sources.find((x) => x.sourceId === s.id && x.url === s.url)) })]));
+  const claim = (c: { id: string; sourceId: string }) => {
+    const v = input.verdicts?.[c.id];
+    const verdict = v ? { verdict: v.verdict, quote: v.quote, sourceUrl: v.sourceUrl, claimText: v.claimText, fix: v.fix } : null;
+    return contentHash({ claim: c, verdict, source: sourceHash.get(c.sourceId) ?? null });
+  };
+  const hashes: Record<string, string> = {};
+  for (const f of input.reader.facts) hashes[`fact:${f.id}`] = claim(f);
+  for (const m of input.reader.metrics) hashes[`metric:${m.id}`] = claim(m);
+  for (const a of input.reader.analysis) hashes[`analysis:${a.id}`] = analysisItemHash(a, hashes);
+  return hashes;
+}
+/** 未監査の項目（と、それを根拠にする推論）を外した表示版。画面に出すのはこちら */
+export function withoutUnaudited(reader: ReaderCase, keys: readonly string[]): ReaderCase {
+  if (!keys.length) return reader;
+  const drop = new Set(keys);
+  const facts = reader.facts.filter((f) => !drop.has(`fact:${f.id}`));
+  const metrics = reader.metrics.filter((m) => !drop.has(`metric:${m.id}`));
+  const live = new Set([...facts, ...metrics].map((c) => c.id));
+  const analysis = reader.analysis.filter((a) => !drop.has(`analysis:${a.id}`) && a.basis.every((b) => live.has(b)));
+  const next = { ...reader, facts, metrics, analysis } as ReaderCase;
+  if (next.summaryFactId && !live.has(next.summaryFactId)) delete (next as { summaryFactId?: string }).summaryFactId;
+  return next;
+}
+/** 未監査の理由の頭。evaluateForRelease はこれを「その項目だけ隠す」に回す */
+export const UNAUDITED_PREFIX = '未監査:';
+export const CASE_UNAUDITED = '現在の入力に対する監査が無い';
+/** 監査記録と今の入力を突き合わせる。事例の身元が違えば事例ごと未監査、そうでなければ中身が変わった項目の鍵を返す */
+export function unauditedItems(input: PublicationInput, audit: PublicationAudit | undefined): { caseLevel: boolean; keys: string[] } {
+  if (audit?.version !== 2 || audit.caseHash !== publicationCaseHash(input)) return { caseLevel: true, keys: [] };
+  const now = publicationItemHashes(input);
+  return { caseLevel: false, keys: Object.keys(now).filter((k) => audit.items[k]?.hash !== now[k]) };
+}
 
 /** Null/omitted analysis means unknown; an active but invalid item is rejected, never silently approved. */
 export function preparePublicationReader(reader: ReaderCase, verdicts: VerdictsFile[string] | undefined, analysis: StoredAnalysis[] | null | undefined) {
@@ -84,8 +151,10 @@ export function evaluatePublication(input: PublicationInput, audit: PublicationA
   for (const metric of reader.metrics) if (metric.origin === 'ESTIMATED' && !metric.basis?.trim()) reasons.push(`推定の根拠:${metric.id}`);
   if (input.media.problems.length || !input.media.displayableIds.length) reasons.push('画像の権利または実体が未充足');
   const hash = publicationHash(input);
-  if (audit?.version !== 1 || audit.approvedHash !== hash) reasons.push('現在の入力に対する監査が無い');
-  return { publishable: reasons.length === 0, reasons, hash, reader };
+  const unaudited = unauditedItems(input, audit);
+  if (unaudited.caseLevel) reasons.push(CASE_UNAUDITED);
+  reasons.push(...unaudited.keys.map((k) => `${UNAUDITED_PREFIX}${k}`));
+  return { publishable: reasons.length === 0, reasons, hash, reader, unaudited: unaudited.keys };
 }
 
 /**
@@ -95,15 +164,16 @@ export function evaluatePublication(input: PublicationInput, audit: PublicationA
 export function evaluateForRelease(input: PublicationInput, audit: PublicationAudit | undefined, problems: string[] = []) {
   const base = evaluatePublication(input, audit, problems);
   // 1項目の欠けで事例全体を止めない（オーナー指示 2026-10-06）。検査で落ちた推論の項目と事業説明の欠けは、その項目を隠すだけにする。
-  // ただしリード（HEADLINE）が落ちた時は表示契約の下限が「リードを書き直す」を出す
-  const hideOnly = (r: string) => (r.startsWith('推論:') && !r.startsWith('推論:HEADLINE:')) || r === '根拠付きの事業説明が無い';
+  // 監査の後に中身が変わった項目（未監査）も、その項目だけを隠す。事例ごと外すのは、身元・出典の権利・本文・画像など事例全体の問題だけ。
+  // ただしリード（HEADLINE）が落ちた・隠れた時は表示契約の下限が「リードを書き直す」を出す
+  const hideOnly = (r: string) => (r.startsWith('推論:') && !r.startsWith('推論:HEADLINE:')) || r === '根拠付きの事業説明が無い' || r.startsWith(UNAUDITED_PREFIX);
   const reasons = base.reasons.filter((r) => !hideOnly(r));
   const hidden = base.reasons.filter(hideOnly);
-  const { reader } = input;
+  const reader = withoutUnaudited(input.reader, base.unaudited);
   if (reader.facts.length <= 2 && reader.metrics.length === 0) reasons.push(`${THIN_PREFIX}:事実2件以下で数字なし`);
   // 下限は表示契約（src/shared/display-contract.ts）。推論の項目（手残り・大手の死角・教訓など）は必須にしない（#128 D01・D05・D06）
   reasons.push(...displayMinimumProblems(reader).filter((r) => !reasons.includes(r)));
-  return { ...base, reasons, hidden, publishable: reasons.length === 0 };
+  return { ...base, reasons, hidden, reader, publishable: reasons.length === 0 };
 }
 
 /** A release candidate list is mandatory. An absent/malformed file must never mean all records. */
