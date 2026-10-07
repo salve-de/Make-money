@@ -1,5 +1,5 @@
 import { strict as assert } from 'node:assert';
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync, rmSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
@@ -193,6 +193,28 @@ test('関門が審査で直した推論を返せば、それを表示版に採�
   assert.deepEqual(withReflectedAnalysis({}, state)[ID], fixed);
   const again = await reflectCases({ dataDir, ledgerDir }, approve);
   assert.equal(again.changed, false);
+});
+
+test('取り込み出力が手元に無くても、反映記録の取り込み版から作り直し、新しい受領書の審査済みの推論を届ける', async () => {
+  const { dataDir, ledgerDir, put } = setup();
+  put(reader(), 'h1');
+  const v1 = [{ id: 'a1', item: 'HEADLINE', text: '店を2024年に畳んだ創業者が、2025年に作り直して月10,150ドルを売った。', basis: ['f2', 'm1'] }];
+  await reflectCases({ dataDir, ledgerDir }, async () => ({ publishable: true, reasons: [], analysis: v1 as never }));
+  // 出典の訂正と監査のあと: 取り込み出力は無く、受領書は新しい審査済みの推論を指す
+  rmSync(`${dataDir}/case-import`, { recursive: true });
+  const v2 = [{ id: 'a1', item: 'HEADLINE', text: '店を2024年に畳んだ創業者が、2025年に作り直して月10,150ドルを売った（本人の申告）。', basis: ['f2', 'm1'] }];
+  const seen: unknown[] = [];
+  const gate: ReleaseGate = async (_id, r) => { seen.push(r.analysis); return { publishable: true, reasons: [], analysis: v2 as never }; };
+  const second = await reflectCases({ dataDir, ledgerDir }, gate);
+  assert.equal(second.outcomes[0].result, 'REPLACED');
+  assert.deepEqual(reflectedReader(second.state, ID)?.analysis, v2);
+  // 関門に渡すのは取り込み版の推論（審査の入力）のまま。審査していない版は関門が通さない
+  assert.deepEqual(seen[0], reader().analysis);
+  assert.deepEqual(withReflectedAnalysis({}, second.state, 'audit')[ID], reader().analysis);
+  // 受領書が審査していなければ（関門が通さなければ）SHOW にならず、旧い承認の推論も残らない
+  const third = await reflectCases({ dataDir, ledgerDir }, fail);
+  assert.equal(third.state.cases[ID].state, 'HOLD');
+  assert.equal(third.state.cases[ID].approvedAnalysis, undefined);
 });
 
 test('照合の合流: 判定の無い事例は置き換えない（--ids なしでも既存の判定が減らない）', () => {
