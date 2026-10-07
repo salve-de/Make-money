@@ -88,17 +88,24 @@ LEDGER_STAGE=SELECT
 # 撤回（公開から外す事例）は、PIPELINE_WITHDRAWALS_FILE に事例IDを明示した時だけ許す（黙って巻き戻らない）。
 git -C "$REPO" fetch -q origin main || fail "main を取得できない"
 git -C "$REPO" show origin/main:data/catalog-release.json > data/pipeline/previous-release.json || fail "公開済みの一覧を読めない"
+# PIPELINE_CHANGED_ONLY=1: 差分公開。今回の候補（と前回までの仕上げ済み）だけを評価し、公開中の他の事例は評価し直さずに引き継ぐ。
+# 公開中の事例の出典本文・画像台帳（git に入れない手元の証拠）が無い作業場所でも、公開中の事例を撤回扱いにしない。
+# 引き継いだ事例の中身が公開中と違えば prepare-catalog-release が止める（審査を経ない書き換えは出ない）
+CHANGED_ONLY="${PIPELINE_CHANGED_ONLY:-0}"
 node -e "
-  const fs=require('fs');const ids=new Set(Object.keys(JSON.parse(fs.readFileSync('data/pipeline/previous-release.json','utf8')).details));
-  for(const f of ['$CAND','data/catalog-finished-ids.txt'])if(fs.existsSync(f))for(const l of fs.readFileSync(f,'utf8').split('\\n')){const t=l.trim();if(t&&!t.startsWith('#'))ids.add(t)}
+  const fs=require('fs');const prev=Object.keys(JSON.parse(fs.readFileSync('data/pipeline/previous-release.json','utf8')).details);
+  const ids=new Set('$CHANGED_ONLY'==='1'?[]:prev);
+  for(const f of ['$CAND','data/catalog-finished-ids.txt'])if(fs.existsSync(f))for(const l of fs.readFileSync(f,'utf8').split('\\n')){const t=l.trim();if(t&&!t.startsWith('#')&&!('$CHANGED_ONLY'==='1'&&prev.includes(t)))ids.add(t)}
   fs.writeFileSync('data/pipeline/all.ids',[...ids].sort().join('\\n')+'\\n')" || fail "選別の対象を作れない"
-node --import tsx scripts/reader-case/select-finished.ts --ids data/pipeline/all.ids > data/pipeline/select.json || fail "選別に失敗"
+CHANGED_ARGS=(); KEEP_ARGS=()
+if [ "$CHANGED_ONLY" = 1 ]; then CHANGED_ARGS=(--changed data/pipeline/all.ids); KEEP_ARGS=(--keep-published); fi
+node --import tsx scripts/reader-case/select-finished.ts --ids data/pipeline/all.ids ${KEEP_ARGS[@]+"${KEEP_ARGS[@]}"} > data/pipeline/select.json || fail "選別に失敗"
 WITHDRAWAL_ARGS=()
 if [ -n "${PIPELINE_WITHDRAWALS_FILE:-}" ]; then
   cp "$PIPELINE_WITHDRAWALS_FILE" data/pipeline/approved-withdrawals.ids || fail "明示した撤回の一覧を読めない"
   WITHDRAWAL_ARGS=(--withdrawals data/pipeline/approved-withdrawals.ids)
 fi
-node --import tsx scripts/prepare-catalog-release.ts --dry-run --previous data/pipeline/previous-release.json ${WITHDRAWAL_ARGS[@]+"${WITHDRAWAL_ARGS[@]}"} > data/pipeline/prepare.json || fail "公開版の計画を作れない"
+node --import tsx scripts/prepare-catalog-release.ts --dry-run --previous data/pipeline/previous-release.json ${WITHDRAWAL_ARGS[@]+"${WITHDRAWAL_ARGS[@]}"} ${CHANGED_ARGS[@]+"${CHANGED_ARGS[@]}"} > data/pipeline/prepare.json || fail "公開版の計画を作れない"
 node -e "const fs=require('fs');fs.writeFileSync('data/pipeline/release-plan.json',JSON.stringify(JSON.parse(fs.readFileSync('data/pipeline/prepare.json')).plan,null,2))" || fail "公開版の計画を保存できない"
 before=$(node -p "require('./data/pipeline/release-plan.json').before")
 after=$(node -p "require('./data/pipeline/release-plan.json').after")
@@ -132,7 +139,8 @@ cp scripts/prepare-catalog-release.ts "$PUB/scripts/"
 cp scripts/reader-case/*.md scripts/reader-case/*.sh scripts/reader-case/*.ts "$PUB/scripts/reader-case/"
 cd "$PUB" || fail "公開用の作業場所に入れない"
 pnpm install --frozen-lockfile --offline >/dev/null 2>&1 || pnpm install --frozen-lockfile >/dev/null 2>&1 || fail "依存を入れられない"
-pnpm -s catalog:prepare ${WITHDRAWAL_ARGS[@]+"${WITHDRAWAL_ARGS[@]}"} > /tmp/mm-prepare.json || fail "公開データを作れない"
+[ "$CHANGED_ONLY" != 1 ] || cp "$ROOT/data/pipeline/all.ids" "$PUB/data/pipeline/all.ids"
+pnpm -s catalog:prepare ${WITHDRAWAL_ARGS[@]+"${WITHDRAWAL_ARGS[@]}"} ${CHANGED_ARGS[@]+"${CHANGED_ARGS[@]}"} > /tmp/mm-prepare.json || fail "公開データを作れない"
 # 画面に出さない言い回し（内部の符号・禁止語）が公開データに無いかを、コミットの前に検査する（catalog:publish と同じ検査）
 pnpm -s catalog:screen-check > /tmp/mm-screen-check.log 2>&1 || fail "画面に出さない言い回しが残っている（/tmp/mm-screen-check.log）"
 published=$(node -e "console.log(Object.keys(JSON.parse(require('fs').readFileSync('data/catalog-release.json','utf8')).details).length)")

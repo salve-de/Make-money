@@ -7,10 +7,14 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { projectReaderCase } from '../../src/lib/company-access/reader-case-projection';
 import type { ReaderCase } from '../../src/shared/reader-case';
 import { readReflectState, reflectedReader } from './case-reflect';
+import { sourcePolicy } from './source-policy';
 
 export function readIdsFile(path: string): string[] {
   return readFileSync(path, 'utf8').split('\n').map((s) => s.trim()).filter((s) => s && !s.startsWith('#'));
 }
+
+/** 利用条件が未承認の出典の事実は事例に入れない（prepare-catalog-release.ts と同じ規則） */
+export const rightsOptions = (r: Record<string, unknown>) => ({ allowSource: (u: string) => !!sourcePolicy(u, typeof r.url === 'string' ? r.url : '') });
 
 export function loadReaders(ids?: string[]): Map<string, ReaderCase> {
   const wanted = ids ?? Object.keys((JSON.parse(readFileSync('data/catalog-release.json', 'utf8')) as { details: Record<string, string> }).details);
@@ -19,7 +23,7 @@ export function loadReaders(ids?: string[]): Map<string, ReaderCase> {
   const out = new Map<string, ReaderCase>();
   for (const r of raw) {
     const id = typeof r?.id === 'string' ? r.id : undefined;
-    if (id && want.has(id)) out.set(id, projectReaderCase(r).reader);
+    if (id && want.has(id)) out.set(id, projectReaderCase(r, rightsOptions(r)).reader);
   }
   // 反映段（case-reflect.ts）: 取り込み版があれば置き換え、取り込みが保留の事例は旧版も返さない
   const reflect = readReflectState();
@@ -77,7 +81,8 @@ export function loadRawItems(outDir: string, batchDir?: string): Map<string, unk
 function validOutFiles(outDir: string, batchDir?: string): string[] {
   const files = existsSync(outDir) ? readdirSync(outDir).sort() : [];
   if (!batchDir) return files;
-  return files.filter((f) => !/^(add|re)-/.test(f) || existsSync(`${batchDir}/${f}`));
+  // 入力の束が今は無い（作り直しで束の数が減った等）出力は、古い事実IDを指すので読まない
+  return files.filter((f) => existsSync(`${batchDir}/${f}`));
 }
 
 /** 再評価（re-）の有効な出力に載っている事例ID。受理後に「評価済み」へ進める対象 */
