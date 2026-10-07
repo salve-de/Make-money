@@ -754,6 +754,15 @@ export function withYenApprox(text: string): string {
   return out.join('');
 }
 
+/**
+ * 数字の期間の文。「2021-11（記事掲載時のMRR）」のように、括弧の中が「どの時点の何の数字か」を言っている時は、出どころの印と見分けがつかず消えてしまうので、
+ * 括弧を外して文に取り込み、時点と中身を残す（「記事掲載時（2021-11）の月商」）。それ以外は screenText と同じ。
+ */
+export function metricPeriodText(period: string): string {
+  const folded = period.replace(/^(.+?)\s*[（(]記事掲載時のMRR[）)]\s*$/, '記事掲載時（$1）の月商');
+  return screenText(folded);
+}
+
 /** 画面に出す文の仕上げ: 出どころの印を外し、外貨の金額に円の概算を添える（どの欄の文にも同じ処理を通す）。 */
 export function screenText(text: string): string {
   return withYenApprox(stripOriginTag(text));

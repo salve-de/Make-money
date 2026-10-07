@@ -7,6 +7,7 @@ import {
   metricListLabel,
   metricEstimateLabel,
   plainFactText,
+  metricPeriodText,
   readerSummaryFact,
   screenText,
 } from '@/shared/display-text';
@@ -76,7 +77,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
                     {m.basis && <span className="block text-xs text-term-label">{screenText(m.basis)}</span>}
                   </td>
                   <td className="px-2 py-1.5 text-term-fg">
-                    {screenText(m.period)}
+                    {metricPeriodText(m.period)}
                     {m.statedAt && !m.period.includes(m.statedAt) && <span className="block text-xs text-term-label">{m.statedAt} {UI.METRIC_STATED_AT_SUFFIX}</span>}
                   </td>
                   <td className={`term-num px-2 py-1.5 text-right ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}`}>{screenText(formatMetricAmount(m))}</td>

@@ -11,6 +11,7 @@
  *   pnpm display:build --materials-only --id X AIを呼ばず、AIに渡す材料の JSON を出すだけ
  *   pnpm display:build --list                  AIを呼ばず、対象の事例と足りない層を出すだけ
  *   pnpm display:build --no-repair             今の文の言い回しの直し（下の流れの0）をしない
+ *   pnpm display:build --dedupe                層をまたいで同じ数字・話が重なっている事例の、概要・分析欄の行だけを作り直す（章・成功の秘訣は動かさない）
  *   pnpm display:build --repair-only           言い回しの直しだけをして、足りない層は作らない
  *   pnpm display:build --reader                直しの前に、作る者と別のAIを「何も知らない読者」にして全行を読ませ、意味が取れない語句を直しの対象に足す
  *                                              （指摘が出た行だけ3回判定して2回以上で採用。呼び出し回数・秒・費用は data/pipeline/reader-pass.jsonl）
@@ -40,7 +41,7 @@ import {
 import { loadReaders, argValue } from './load-readers';
 import { preparePublicationReader } from './publication-evaluation';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
-import { crossLayerDuplicates } from './cross-layer-dups';
+import { crossLayerDuplicates, dedupeTargets, duplicatesInvolving } from './cross-layer-dups';
 import { type AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../architecture/natural-japanese.mjs';
@@ -56,6 +57,7 @@ const COMMIT = has('--commit');
 const MAX = Number(argValue('--max') ?? 3);
 const ATTEMPTS = Number(argValue('--attempts') ?? 3);
 const ONLY = argValue('--id');
+const DEDUPE = has('--dedupe');
 const REVIEW = !has('--no-review');
 const BRANCH = argValue('--branch') ?? 'auto/display-build';
 const FAILURES = join(ROOT, 'data/pipeline/display-build-failures.jsonl');
@@ -220,6 +222,8 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
   const baselineRun = runCheck(files);
   const baseline = baselineRun.problems;
   const baselineDups = crossLayerDuplicates(entityId, files);
+  // 重なりを直す実行（--dedupe）では、作り直した行に関わる重なりが1つでも残れば通さない（元からある重なりでも見逃さない）
+  const dupGate = (merged: DisplayFiles) => (DEDUPE ? duplicatesInvolving(entityId, merged, { summary: need.summary, detail: need.detail }) : newProblems(baselineDups, crossLayerDuplicates(entityId, merged)));
   if (baseline.some((p) => p.startsWith(UNPARSED))) return { ok: false, attempts: 0, reasons: baseline, calls };
   let previous: unknown; let problems: string[] = [];
   mkdirSync(WORK, { recursive: true });
@@ -236,7 +240,7 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
     const { display, problems: assembly } = assembleDisplay(entityId, reader, need, call.value, liveSuccessPoints(entityId, reader, files));
     const merged = mergeEntity(files, entityId, display);
     const check = runCheck(merged);
-    problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems), ...newProblems(baselineDups, crossLayerDuplicates(entityId, merged))];
+    problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems), ...dupGate(merged)];
     say(`${entityId}: ${attempt}回目 — 機械の検査の指摘 ${problems.length}件（${call.seconds.toFixed(0)}秒）`);
     if (problems.length) { writeFileSync(join(WORK, `${entityId}.attempt${attempt}.problems.txt`), problems.join('\n')); continue; }
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], calls, display };
@@ -255,7 +259,7 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
     const cut = dropFlagged(display, must.map((i) => i.id));
     if (cut.blocked.length) return { ok: false, attempts: attempt, reasons: problems, calls };
     const recheck = runCheck(mergeEntity(files, entityId, cut.display));
-    const left = [...structuralProblems(cut.display), ...newProblems(baseline, recheck.problems), ...newProblems(baselineDups, crossLayerDuplicates(entityId, mergeEntity(files, entityId, cut.display)))];
+    const left = [...structuralProblems(cut.display), ...newProblems(baseline, recheck.problems), ...dupGate(mergeEntity(files, entityId, cut.display))];
     if (left.length) return { ok: false, attempts: attempt, reasons: [...problems, ...left], calls };
     say(`${entityId}: 確認役が指摘した ${cut.dropped.join('、')} を外して出す`);
     return { ok: true, attempts: attempt, reasons: [], calls, display: cut.display, minor: issues, dropped: cut.dropped };
@@ -412,6 +416,18 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
 }
 
 // ---------- 本体 ----------
+/** 重なりを直す実行（--dedupe）の対象: 層をまたいで同じ数字・話が重なっている事例の、概要・分析欄の行だけ（足りない層は作らない）。 */
+function dedupeGaps(ids: readonly string[], files: DisplayFiles, readers: ReadonlyMap<string, LiveReader>): Array<{ entityId: string; need: DisplayNeed }> {
+  const out: Array<{ entityId: string; need: DisplayNeed }> = [];
+  for (const id of ids) {
+    if (!readers.has(id)) continue;
+    const t = dedupeTargets(id, files);
+    if (!t.summary && !t.detail.length) continue;
+    out.push({ entityId: id, need: { list: false, summary: t.summary, success: false, chapters: false, detail: t.detail } });
+  }
+  return out;
+}
+
 function main() {
   let files = loadFiles(DATA_DIR);
   let repairFailed = 0;
@@ -454,7 +470,7 @@ function main() {
   }
   if (has('--repair-only')) return repairFailed ? 1 : 0;
   // 2. 足りない層を作る
-  const gaps = displayGaps(ids, files, readers);
+  const gaps = DEDUPE ? dedupeGaps(ids, files, readers) : displayGaps(ids, files, readers);
   if (has('--list')) {
     for (const id of ids) { const rows = readers.has(id) ? repairRows(id, files, unnatural) : []; if (rows.length) say(`${id}: 言い回しの直し ${rows.map((r) => r.id).join(', ')}`); }
     for (const g of gaps) say(`${g.entityId}: ${JSON.stringify(g.need)}`); say(`対象 ${gaps.length} 件`); return 0;
