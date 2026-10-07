@@ -40,6 +40,7 @@ import {
 import { loadReaders, argValue } from './load-readers';
 import { preparePublicationReader } from './publication-evaluation';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
+import { crossLayerDuplicates } from './cross-layer-dups';
 import { type AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../architecture/natural-japanese.mjs';
@@ -218,6 +219,7 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
   const calls: CallResult[] = [];
   const baselineRun = runCheck(files);
   const baseline = baselineRun.problems;
+  const baselineDups = crossLayerDuplicates(entityId, files);
   if (baseline.some((p) => p.startsWith(UNPARSED))) return { ok: false, attempts: 0, reasons: baseline, calls };
   let previous: unknown; let problems: string[] = [];
   mkdirSync(WORK, { recursive: true });
@@ -232,8 +234,9 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
     if (!isAiOutput(call.value)) { previous = call.value; problems = ['出力の形が指定と違う（list・summary・detail・success・chapters を全部返す）']; continue; }
     previous = call.value;
     const { display, problems: assembly } = assembleDisplay(entityId, reader, need, call.value, liveSuccessPoints(entityId, reader, files));
-    const check = runCheck(mergeEntity(files, entityId, display));
-    problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems)];
+    const merged = mergeEntity(files, entityId, display);
+    const check = runCheck(merged);
+    problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems), ...newProblems(baselineDups, crossLayerDuplicates(entityId, merged))];
     say(`${entityId}: ${attempt}回目 — 機械の検査の指摘 ${problems.length}件（${call.seconds.toFixed(0)}秒）`);
     if (problems.length) { writeFileSync(join(WORK, `${entityId}.attempt${attempt}.problems.txt`), problems.join('\n')); continue; }
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], calls, display };
@@ -252,7 +255,7 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
     const cut = dropFlagged(display, must.map((i) => i.id));
     if (cut.blocked.length) return { ok: false, attempts: attempt, reasons: problems, calls };
     const recheck = runCheck(mergeEntity(files, entityId, cut.display));
-    const left = [...structuralProblems(cut.display), ...newProblems(baseline, recheck.problems)];
+    const left = [...structuralProblems(cut.display), ...newProblems(baseline, recheck.problems), ...newProblems(baselineDups, crossLayerDuplicates(entityId, mergeEntity(files, entityId, cut.display)))];
     if (left.length) return { ok: false, attempts: attempt, reasons: [...problems, ...left], calls };
     say(`${entityId}: 確認役が指摘した ${cut.dropped.join('、')} を外して出す`);
     return { ok: true, attempts: attempt, reasons: [], calls, display: cut.display, minor: issues, dropped: cut.dropped };

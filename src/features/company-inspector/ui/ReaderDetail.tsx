@@ -8,6 +8,7 @@ import {
   metricEstimateLabel,
   plainFactText,
   readerSummaryFact,
+  screenText,
 } from '@/shared/display-text';
 import { createSentenceMemory, splitSentences } from '@/shared/case-text';
 import { scrubAbsence } from '@/shared/absence-text';
@@ -72,13 +73,13 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
                   <td className="px-2 py-1.5 text-term-fg-strong">
                     {metricListLabel(m)}
                     <SourceRef n={sourceNo.get(m.sourceId)} prefix={evidencePrefix} />
-                    {m.basis && <span className="block text-xs text-term-label">{m.basis}</span>}
+                    {m.basis && <span className="block text-xs text-term-label">{screenText(m.basis)}</span>}
                   </td>
                   <td className="px-2 py-1.5 text-term-fg">
-                    {m.period}
+                    {screenText(m.period)}
                     {m.statedAt && !m.period.includes(m.statedAt) && <span className="block text-xs text-term-label">{m.statedAt} {UI.METRIC_STATED_AT_SUFFIX}</span>}
                   </td>
-                  <td className={`term-num px-2 py-1.5 text-right ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}`}>{formatMetricAmount(m)}</td>
+                  <td className={`term-num px-2 py-1.5 text-right ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}`}>{screenText(formatMetricAmount(m))}</td>
                   <td className={`px-2 py-1.5 text-xs ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}`}>{metricEstimateLabel(m)}</td>
                 </tr>
               );
@@ -118,7 +119,7 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader', exclude }: Read
             <ul className="divide-y divide-term-line-soft">
               {facts.map((f) => (
                 <li key={f.id} id={evidenceAnchor(evidencePrefix, f.id)} data-fact={f.id} className="scroll-mt-8 py-1.5 leading-relaxed text-term-fg">
-                  {plainFactText(f.text)}
+                  {screenText(plainFactText(f.text))}
                   <SourceRef n={sourceNo.get(f.sourceId)} prefix={evidencePrefix} />
                 </li>
               ))}
@@ -142,7 +143,7 @@ export function ReaderEvidence({ reader }: ReaderProps) {
         {rows.map((a) => (
           <li key={a.id} data-evidence={a.id} className="py-1.5 leading-relaxed">
             <span className="block text-term-label">{ANALYSIS_LABELS[a.item]}</span>
-            <p className="whitespace-pre-line text-term-sub">{a.formula}</p>
+            <p className="whitespace-pre-line text-term-sub">{screenText(a.formula ?? '')}</p>
           </li>
         ))}
       </ul>

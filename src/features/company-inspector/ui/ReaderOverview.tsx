@@ -7,7 +7,7 @@ import { successPointsFor } from '@/shared/success-points';
 import { caseChaptersFor, type ChapterId, type ChapterRow } from '@/shared/case-chapters';
 import { listLineFor } from '@/shared/list-lines';
 import { summaryRestFor } from '@/shared/summary-lines';
-import { formatMetricAmount, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, plainFactText, withYenApprox } from '@/shared/display-text';
+import { formatMetricAmount, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, plainFactText, screenText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -73,7 +73,7 @@ function StripCell({ label, mark, inferred, children, attrs }: { label: string; 
 
 function AnalysisCell({ analysis }: { analysis: ReaderAnalysis }) {
   // 帯の推論は編集文を通らないので、外貨の金額に円換算の概算をここで添える（料金の事実の欄と同じ）
-  const text = withYenApprox(stripAbsence(plainAnalysisText(analysis.text)));
+  const text = screenText(stripAbsence(plainAnalysisText(analysis.text)));
   if (text === '') return null;
   return (
     <StripCell label={ANALYSIS_LABELS[analysis.item]} mark={ANALYSIS_LABELS[analysis.item].includes('推') ? undefined : <InferenceMark analysis={analysis} />} inferred attrs={{ 'data-analysis': analysis.id }}>
@@ -122,7 +122,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
           {series.length > 0 && <Sparkline points={series.map((m) => m.amount)} />}
         </div>
         <div className="mt-1.5 text-xs leading-snug text-term-label">
-          {metric.period}{metricEstimateLabel(metric) && ` ・ ${metricEstimateLabel(metric)}`}
+          {screenText(metric.period)}{metricEstimateLabel(metric) && ` ・ ${metricEstimateLabel(metric)}`}
         </div>
       </StripCell>,
     );
@@ -130,7 +130,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   if (priceFact) {
     cells.push(
       <StripCell key="price" label={ANALYSIS_LABELS.PRICING} inferred={false} attrs={{ 'data-fact': priceFact.id }}>
-        <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{withYenApprox(plainFactText(priceFact.text))}</p>
+        <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{screenText(plainFactText(priceFact.text))}</p>
       </StripCell>,
     );
   }
@@ -143,7 +143,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
 /** 概要。最初の1文を最上部に大きく、続きは畳まずそのまま下に出す。 */
 export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | null | undefined; entityId?: string; lead?: boolean }) {
   if (!fact) return null;
-  const text = stripAbsence(plainFactText(fact.text));
+  const text = screenText(stripAbsence(plainFactText(fact.text)));
   const end = text.indexOf('。');
   // 一覧と同じ「短い1行」があればそれを大きく出し、元の要約は全文を下に続ける
   const short = entityId ? listLineFor(entityId, fact) : null;
@@ -353,20 +353,31 @@ function hostOf(url: string): string {
   }
 }
 
-/** 章の出典を、同じURLは1つにまとめて「出典1」「出典2」と番号を振る。 */
-function numberSources(rows: ReadonlyArray<ChapterRow>): { urls: string[]; noOf: (row: ChapterRow) => number } {
-  const urls = Array.from(new Set(rows.map((row) => row.source)));
-  return { urls, noOf: (row) => urls.indexOf(row.source) + 1 };
+/** 出典は画面全体で、同じURLは1つにまとめて「出典1」「出典2」と番号を振る。リンクは最初に出る章の末尾にだけ置き、後の章の行は番号だけ付ける。 */
+function numberSourcesAcross(chapters: ReadonlyArray<{ id: ChapterId; rows: ReadonlyArray<ChapterRow> }>): { introduced: Map<ChapterId, Array<{ url: string; no: number }>>; noOf: (row: ChapterRow) => number } {
+  const numbers = new Map<string, number>();
+  const introduced = new Map<ChapterId, Array<{ url: string; no: number }>>();
+  for (const { id, rows } of chapters) {
+    const fresh: Array<{ url: string; no: number }> = [];
+    for (const row of rows) {
+      if (numbers.has(row.source)) continue;
+      numbers.set(row.source, numbers.size + 1);
+      fresh.push({ url: row.source, no: numbers.size });
+    }
+    introduced.set(id, fresh);
+  }
+  return { introduced, noOf: (row) => numbers.get(row.source) ?? 0 };
 }
 
-function SourceList({ urls }: { urls: ReadonlyArray<string> }) {
+function SourceList({ sources }: { sources: ReadonlyArray<{ url: string; no: number }> }) {
+  if (sources.length === 0) return null;
   return (
     <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 border-t border-term-line-soft pt-1.5 text-xs text-term-label">
-      {urls.map((url, i) => (
+      {sources.map(({ url, no }) => (
         <li key={url}>
           <a href={url} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted">
             {UI.CHAPTER_SOURCE}
-            {i + 1}
+            {no}
           </a>
           <span className="ml-1">{hostOf(url)}</span>
         </li>
@@ -379,21 +390,19 @@ function SourceList({ urls }: { urls: ReadonlyArray<string> }) {
 export function CaseChapters({ entityId, facts }: { entityId?: string; facts: ReadonlyArray<{ id: string; text: string }> }) {
   const chapters = caseChaptersFor(entityId, facts);
   if (chapters.length === 0) return null;
+  const { introduced, noOf } = numberSourcesAcross(chapters);
   return (
     <>
-      {chapters.map(({ id, rows }) => {
-        const { urls, noOf } = numberSources(rows);
-        return (
-          <Fold key={id} id={`section-chapter-${id}`} title={CHAPTER_TITLES[id]} defaultOpen>
-            <ul className="grid grid-cols-1 gap-2">
-              {rows.map((row) => (
-                <ChapterRowView key={row.text} id={id} row={row} no={noOf(row)} />
-              ))}
-            </ul>
-            <SourceList urls={urls} />
-          </Fold>
-        );
-      })}
+      {chapters.map(({ id, rows }) => (
+        <Fold key={id} id={`section-chapter-${id}`} title={CHAPTER_TITLES[id]} defaultOpen>
+          <ul className="grid grid-cols-1 gap-2">
+            {rows.map((row) => (
+              <ChapterRowView key={row.text} id={id} row={row} no={noOf(row)} />
+            ))}
+          </ul>
+          <SourceList sources={introduced.get(id) ?? []} />
+        </Fold>
+      ))}
     </>
   );
 }
