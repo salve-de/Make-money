@@ -9,6 +9,8 @@
     "ja-unnatural-alphabet": true,
     "no-hankaku-kana": true,
     "no-nfd": true,
-    "no-zero-width-spaces": true
+    "no-zero-width-spaces": true,
+    "max-ten": { "max": 3 },
+    "@textlint-ja/preset-ai-writing": true
   }
 }
