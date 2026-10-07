@@ -208,14 +208,15 @@ export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?
   );
 }
 
-/** 推測を、読む人の疑問の順に並べる: 誰に売る → なぜ始めたか（着想） → 最初の客 → 金の回り → なぜ他に取られないか → 経緯。story は物語の4段（前夜・隙・突破…）をその位置に出す。 */
+/** 推測を、読む人の疑問の順に並べる: 結論（成功の秘訣）→ 誰に売る → なぜ始めたか（着想） → 最初の客 → 金の回り → なぜ他に取られないか → 経緯。story は物語の4段（前夜・隙・突破…）をその位置に出す。 */
 export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[]; story?: boolean }> = [
+  { title: UI.GROUP_SECRET, items: ['WHY_IT_WORKED', 'LESSON'] },
   { title: UI.GROUP_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN'] },
   { title: UI.GROUP_ORIGIN, items: [], story: true },
   { title: UI.GROUP_FIRST, items: ['FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
   { title: UI.GROUP_MONEY, items: ['BUSINESS_MODEL', 'PRICING', 'REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH', 'CAPITAL_AND_TEAM'] },
-  { title: UI.GROUP_EDGE, items: ['WHY_IT_WORKED', 'INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
-  { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
+  { title: UI.GROUP_EDGE, items: ['INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
+  { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE'] },
 ];
 
 /** 「2010年: …。2013年: …。」の形の年表を行に分ける。形が違えば null。 */
@@ -274,7 +275,7 @@ export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: 
   );
 }
 
-export const GROUP_IDS = ['section-group-customers', 'section-story', 'section-group-first', 'section-group-money', 'section-group-edge', 'section-group-now'] as const;
+export const GROUP_IDS = ['section-group-secret', 'section-group-customers', 'section-story', 'section-group-first', 'section-group-money', 'section-group-edge', 'section-group-now'] as const;
 
 /** まとまりごとに「項目名（細く）｜中身（主役）」の2列。全部開いたまま並べる（読む人に開かせない）。推測は点線の左罫。 */
 export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase; usage: OverviewUsage; entityId?: string }) {

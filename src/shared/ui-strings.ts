@@ -114,6 +114,7 @@ export const UI = {
   IMAGE_SOURCE: '出典',
   ANALYSIS_FORMULA_PREFIX: '計算・前提: ',
   ANALYSIS_BASIS_PREFIX: '根拠: ',
+  GROUP_SECRET: '成功の秘訣',
   GROUP_CUSTOMERS: '誰に売っているか',
   GROUP_ORIGIN: 'なぜ始めたか・着想',
   GROUP_FIRST: '最初の客をどう取ったか',
