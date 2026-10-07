@@ -6,9 +6,9 @@
  * 監査役が通した項目（指摘なし・LOW・FIX で直した文）だけを「監査済み」にする。BLOCK・壊れた結果・事例単位の BLOCK は、今回確かめた項目の合格を取り消す。
  */
 import { z } from 'zod';
-import { applyAudit, type StoredAnalysis } from './analysis-lib';
+import { applyAudit, auditEvidence, type StoredAnalysis } from './analysis-lib';
 import {
-  analysisItemHash, contentHash, publicationCaseHash, publicationHash, publicationItemHashes,
+  analysisItemHash, auditSnapshot, contentHash, publicationCaseHash, publicationHash, publicationItemHashes,
   type AuditFileRef, type LegacyPublicationAudit, type PublicationAudit, type PublicationInput,
 } from './publication-evaluation';
 import type { ReaderCase } from '../../src/shared/reader-case';
@@ -116,4 +116,23 @@ export function migrateLegacyAudit(id: string, legacy: LegacyPublicationAudit, d
   if (!applied?.analysis) return null;
   if (publicationHash({ ...snapshot, reader: { ...snapshot.reader, analysis: applied.analysis } }) !== legacy.approvedHash) return null;
   return applied.receipt;
+}
+
+/**
+ * 監査に出す1事例ぶん（全体監査・差分監査の共通の形）。監査役が読む材料（事実・数字・出典の本文）は全体を渡し、確かめる推論は review の分だけにする。
+ * changedClaims は前の監査から中身が変わった事実・数字（確かめる対象）。
+ */
+export function auditCaseEntry(input: PublicationInput, scope: AuditedCase['scope'], review: string[]) {
+  const auditable = auditSnapshot(input);
+  const keys = new Set(review);
+  const analysis = input.reader.analysis.filter((a) => keys.has(`analysis:${a.id}`));
+  const changedClaims = review.filter((k) => !k.startsWith('analysis:')).map((k) => k.replace(/^(fact|metric):/, ''));
+  return {
+    entityId: input.identity.id, scope,
+    ...(scope === 'diff' ? { auditScope: '差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）' } : {}),
+    ...auditEvidence(input.reader, auditable.sources), analysis, changedClaims,
+    identity: auditable.identity, media: auditable.media,
+    caseHash: publicationCaseHash(input), itemHashes: publicationItemHashes(input), review,
+    reader: { ...input.reader, analysis },
+  };
 }

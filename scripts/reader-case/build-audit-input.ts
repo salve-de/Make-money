@@ -1,11 +1,12 @@
 /** Build an audit of the exact current local release inputs, including facts-only cases. */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { argValue, loadEntities, loadReaders, readIdsFile } from './load-readers';
-import { auditEvidence, type AnalysisFile } from './analysis-lib';
+import type { AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { loadPublicationInput } from './publication-inputs';
-import { auditSnapshot, preparePublicationReader, publicationHash } from './publication-evaluation';
+import { preparePublicationReader, publicationItemHashes } from './publication-evaluation';
+import { auditCaseEntry } from './publication-audit';
 
 async function main() {
   const ids = readIdsFile(argValue('--ids') ?? '');
@@ -20,9 +21,9 @@ async function main() {
   for (const [id, reader] of loadReaders(ids)) {
     const prepared = preparePublicationReader(reader, verdicts[id], analysis[id]);
     if (prepared.problems.length) throw new Error(`${id}: ${prepared.problems.join(', ')}`);
-    const snapshot = auditSnapshot(await loadPublicationInput(entities.get(id)!, prepared.reader, verdicts[id]));
-    cases.push({ entityId: id, ...auditEvidence(prepared.reader, snapshot.sources), analysis: prepared.reader.analysis,
-      identity: snapshot.identity, media: snapshot.media, snapshot, publicationHash: publicationHash(snapshot) });
+    // 全体監査: 全項目を確かめる。結果は項目ごとの監査記録（publication-audit.ts）に畳み込まれる
+    const input = await loadPublicationInput(entities.get(id)!, prepared.reader, verdicts[id]);
+    cases.push(auditCaseEntry(input, 'full', Object.keys(publicationItemHashes(input))));
   }
   mkdirSync('data/audit', { recursive: true });
   for (let i = 0; i * per < cases.length; i++) {
