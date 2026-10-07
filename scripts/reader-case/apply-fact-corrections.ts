@@ -99,4 +99,11 @@ if (process.argv[1]?.endsWith('apply-fact-corrections.ts')) {
   writeFileSync(SUCCESS, `${JSON.stringify(files.success, null, 2)}\n`);
   writeFileSync(DETAIL, `${JSON.stringify(files.detail, null, 2)}\n`);
   console.log(`[fact-corrections] 当てた ${r.applied}、既に当たっていた ${r.skipped}（訂正 ${corrections.length} 件）`);
+  // 公開中の事例を直すと、公開の入力の指紋が変わり、前の監査の受領書は無効になる（目録から外れる）。直した事例は必ず監査し直す
+  const ids = [...new Set(corrections.map((c) => c.entityId))];
+  console.log(`[fact-corrections] 次の手順: 直した ${ids.length} 件は監査の受領書が無効になる。`
+    + '\n  1. printf で事例IDを1行ずつ書いた一覧を作り、node --import tsx scripts/reader-case/build-audit-input.ts --ids <一覧> --per 10 --tag <999999+日時>'
+    + '\n  2. AUDIT_ONLY=\'<tag>*\' bash scripts/reader-case/run-audit.sh を実行し、出る指示書を別のAIに実行させる（自分で監査しない）'
+    + '\n  3. node --import tsx scripts/reader-case/merge-analysis.ts --ids <一覧> で受領書を取り込み、node --import tsx scripts/prepare-catalog-release.ts --dry-run で外れる事例が0件か確かめる'
+    + `\n  対象: ${ids.join(' ')}`);
 }

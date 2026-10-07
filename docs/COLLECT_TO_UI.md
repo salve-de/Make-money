@@ -62,7 +62,7 @@
 
 1. `node --import tsx scripts/reader-case/source-check.ts --ids <事例ID>` で照らす（出典は `data/source-cache/` から読み、無ければ取る。取れなければ Web アーカイブを試す）。
 2. 見ること: 引用が原文にある／数字が引用か原文にある／年が原文にある／数字の時点（年・月）が引用の近くか出典の公開日で裏づく／売上と呼べない数字（直接の支払いだけ・取扱高・アンケートの区分・別事業）に「売上」が付いていない。
-3. 落ちた項目は `--apply` で再収集の指示書（`data/runner/instructions/recollect/<回>.md`）が出る。別の担当が別の出典・保存版を探し、直し方を訂正の台帳と同じ形で返す。`scripts/reader-case/apply-fact-corrections.ts` で当てる。
+3. 落ちた項目は `--apply` で再収集の指示書（`data/runner/instructions/recollect/<回>.md`）が出る。別の担当が別の出典・保存版を探し、直し方を訂正の台帳と同じ形で返す。`scripts/reader-case/apply-fact-corrections.ts` で当てる。 公開中の事例を直すと監査の受領書が無効になり、公開データ作りで目録から外れる。直したら対象を監査し直す（`build-audit-input.ts` → `run-audit.sh` → 別のAIが実行 → `merge-analysis.ts`）。出典本文の保存（`data/source-cache`）を照合で上書きすると元の引用が消えて「根拠の不一致」になるので、受領書の取り直しは元の保存で行う。手順はこの道具が実行後に表示する。
 4. 3回で直らない項目は保留（`data/source-check/held.json`）。その項目だけ画面から外れ、事例全体は止めない。
 5. 毎回の誤り率（落ちた数／照らした数）は `data/source-check/ledger.jsonl`。公開後は `--sample N` で抜き取って照らし直す。基準値は公開10件中7件（2026-10-07）。
 
