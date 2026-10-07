@@ -41,22 +41,46 @@
 | 2 | 調査記録を書く | 出典を開いて事実を書く。形は [`research-record/`](./research-record/) の見本どおり。数字には1件ずつ種類・出来事の時点・原文の引用（15語以内）・出典URL・取得日を付け、創業と転機の事実を必ず入れる（README「数字の決まり」。Codex などに任せる時は `scripts/reader-case/collect-prompt.md` を渡す） | 作業用の JSON（どこでもよい） | 下の 3 で落ちたら、表示の `#/...` を見て直す（README の「落ちた時の表示の読み方」） |
 | 3 | 一覧に入れる | `node --import tsx scripts/reader-case/add-entity-records.ts --from-research <記録.json> --name <名前>`（出力の `unconfirmedFacts` と `thinCases` が0件になるまで記録を直す。決まりを満たさない数字はその数字だけ分けられ、事例は止まらない）→ `... add-entity-records.ts --apply` → `pnpm registry:sync` | コミットするのは `data/entity-additions/<名前>.json` だけ。`--apply` が書き換える `data/entities-index.json` と、`registry:sync` が書き換える `data/collected-registry.json` は手元で後の段を動かすためのもので、**コミットしない**（索引は約99MBで、GitHub の1ファイル100MBの上限に近い） | 形の検査の表示を読んで記録を直す。同じ id・同じ公式サイトがあれば足されない（`skipped` に理由） |
 | 4 | 出典の本文を取る | `node --import tsx scripts/reader-case/fetch-sources.ts --ids <idsファイル>` | `data/source-cache/`（git に入らない） | 403・CAPTCHA・ログインの壁は越えない。取れない出典は照合に回らない（`data/verify/unreachable.json`） |
-| 5 | 照合（事実が出典どおりか） | `build-verify-batches.ts --ids <idsファイル>` → `bash scripts/reader-case/run-verify.sh` → `merge-verdicts.ts --ids <idsファイル>`（いずれも `scripts/reader-case/`） | `data/verify/`、`data/reader-verdicts.json` | `run-verify.sh` が終了コード75で止まるのは正常。指示書 `data/runner/instructions/verify/` を別のAIが実行し、結果を `data/runner/inbox/verify/` に置いてから再実行する（[`pipeline/CLAUDE_RUNNER.md`](./pipeline/CLAUDE_RUNNER.md)） |
-| 5b | 画像を取って判定する | 4章の命令（公式サイト・App Store から取得 → 自動判定 → 保留の分は人が判定） | `data/media-staging/<事例ID>/`（git に入らない） | 段9より前に済ませる。「使ってよい」が1枚も無い事例は選別で落ちる |
-| 6 | 分析（根拠つきの推論） | `build-analyze-batches.ts --ids <idsファイル> --prefix batch-<名前>-` → `bash scripts/reader-case/run-pipeline.sh batch-<名前>-`（`PIPELINE_NO_PUBLISH=1` を付ける） | `data/analyze/`、`data/reader-analysis.json` | 75で止まったら 5 と同じく指示書を実行して再実行。落ちた項目は `data/analyze/dropped.json` に理由が残る |
-| 7 | 統合 | 6 の命令の中で `merge-analysis.ts` が走る | `data/reader-analysis.json` | 数字を含む文が「式が無い」で落ちることがある（落とし穴の表 8） |
-| 8 | 監査 | 6 の命令の中で `build-audit-input.ts` → `run-audit.sh` が走る | `data/audit/`、`data/publication-audits.json` | 75で止まったら指示書を実行して再実行。直すべき指摘は分析の段へ戻す |
-| 9 | 選別（仕上げ済みか） | 6 の命令の中で `select-finished.ts` が走る | `data/catalog-finished-ids.txt`、`data/pipeline/select.json` | 落ちた理由は `data/pipeline/select.json`。画像が1枚も「使ってよい」になっていない事例も落ちる（4章） |
-| 10 | 画面の層を書く | 一覧の文・概要・章・分析欄の文・成功の秘訣を書く（手順は [`CASE_CHAPTER_PROCESS.md`](./CASE_CHAPTER_PROCESS.md)）。別のAIに全行を出典と照らして確認させる | `data/list-lines.json`、`data/summary-lines.json`、`data/case-chapters.json`、`data/detail-lines.json`、`data/success-points.json` | 確認で出た指摘をすべて直し、直した後にもう一度確認する |
+| 4b | 画像を取って判定する | 4章の命令（公式サイト・App Store から取得 → 自動判定 → 保留の分は人が判定） | `data/media-staging/<事例ID>/`（git に入らない） | 段5より前に済ませる。「使ってよい」が1枚も無い事例は選別で落ちる |
+| 5 | **ここから先は1本**: 照合から公開データの作成まで | `pnpm case:run --ids <事例ID,事例ID,…>`（`--ids-file <idsファイル>` でも可。公開はしない）。画像（段4b）は先に済ませる。中の順番と、落ちた時の見方は下の「3a」 | `data/reader-verdicts.json`、`data/reader-analysis.json`、`data/publication-audits.json`、`data/catalog-finished-ids.txt`、画面の層の5ファイル、`data/catalog-release.json`、`data/case-display.json`。所要時間は `data/pipeline/case-run.jsonl` | 最後に失敗した事例と理由が一覧で出る。直して同じ命令を再実行すれば、済んだ段は飛ばす |
 | 11 | 検査 | `pnpm case-text:verify`、`pnpm case-chapters:todo`、`pnpm lint`、`pnpm exec tsc --noEmit` | なし | 表示された行と理由を読んで、画面の層の文を直す |
 | 11b | 画面の自動監査（**必須**） | `pnpm build` の後に `pnpm reader-view:audit`（3100番が使用中なら `E2E_PORT=3110 pnpm reader-view:audit`） | なし（表は `test-results/reader-view-audit/report.md`） | 6b章。新しい違反が1つでもあれば落ちる。表の「事例・画面の箇所・該当文・規則」を見て画面の層の文を直す |
-| 12 | 公開データの作成 | `pnpm catalog:prepare` | `data/catalog-release.json`、`data/case-display.json`、`.catalog-release/` | 「撤回の明示が足りない」で止まったら、手元に既存の公開分の作業データが無いのが原因のことが多い（落とし穴の表 12） |
 | 13 | 公開（**人の許可が要る**） | 画像を保存先へ上げる（`scripts/media/upload-media-assets.ts`）→ `pnpm catalog:publish`（R2 へ書き、読み戻して確かめ、最後に「公開中の版の目印」を進める。画面の文の直しはこれだけで3分以内に本番へ出る。デプロイは要らない。10章）→ 本番の画面で1件開いて確かめる | R2 と本番 | 5章を読む。許可が無ければ 12 までで止める |
 
 - **世代（2026-10-08）**: 事例の世代（第N世代）は、取り込みファイルの `source.generation` で決まる。段3の `--from-research` / `--collect` が自動で書く（`--generation N` の指定 → 名前の `gen<N>-` → 取り込み済みの最大の世代、の順）。`--apply` が事例の記録へ `generation` を写し、`catalog:prepare` が一覧の要約へ運び、トップの一覧が世代ごとに区切って（新しい世代が上、「第N世代（M件）」）表示する。第1世代は記録に書かないので、既存の公開物は変わらない。新しい世代を始める時だけ `--generation N` を付ける。手書きの一覧は無い。
-- 段6〜9は `run-pipeline.sh` が1つの命令で続けて回します。止まった所から再実行すれば、済んだ段は飛ばします。
-- 毎日の自動実行（[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)）は 9 と公開版の計画までで止まり、公開はしません。
+- 段5は `pnpm case:run` が1本で流します（3a）。照合・分析・監査は AI をその場で呼ぶので、終了コード75の待ち合わせはありません。
+- 毎日の自動実行（[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)）は従来の `run-pipeline.sh` のまま、選別と公開版の計画までで止まり、公開はしません。
 - **申請待ち（2026-10-07 時点）**: 段3の `--from-research` は、まだ main に入っていません（変更の申請 #164 の中）。入るまでは、#164 の作業用コピーの `scripts/reader-case/add-entity-records.ts` を使います。#164 には、段7の「式が無い」の食い違いの修正と、分析欄の文が無い事例を検査で落とす変更も入っています。
+
+## 3a. 1本のコマンド `pnpm case:run`（2026-10-08〜）
+
+```
+pnpm case:run --ids a,b,c                # 公開データの作成まで。公開はしない
+pnpm case:run --ids-file <idsファイル>   # 事例IDを1行に1つ書いたファイルでも指定できる
+pnpm case:run --ids a --publish          # 最後に今の catalog:publish を呼ぶ（--publish を付けた時だけ）
+```
+
+オプション: `--from <段>`（その段から始める。段の名前は下の表。止まった所から続けたい時）、`--concurrency N`（同時に流す束・事例の数。既定4）、`--agent claude|codex|auto`（既定 auto = claude がログイン済みなら claude、無ければ codex。画面の文を作る `display:build` と同じ決め方）、`--model`、`--codex-effort`、`--max-attempts N`（束ごとに検査が拒否できる上限。既定3）、`--run-id`。
+
+中身は次の順です。事例ごとに束を分け、AI の呼び出しは同時に最大4本まで流します。1件が落ちてもほかの件は止まりません。
+
+| 順 | 段 | やること | 落ちた事例の扱い |
+|---|---|---|---|
+| 1 | fetch | 出典の本文を取る（`fetch-sources.ts`） | 取得の失敗は全件の失敗。取れない出典は照合に回らない |
+| 2 | verify | 事実の照合（`build-verify-batches.ts` → AI → `merge-verdicts.ts`） | 束が検査を3回通らなければその事例は以降の段から外れる |
+| 3 | source-check | 原文照合（`source-check.ts`） | 不合格の事例は「公開データの作成・公開から外す」だけで、ほかの段は続ける。直し方は 3.5 |
+| 4 | analyze | 分析（`build-analyze-batches.ts` → AI → `merge-analysis.ts`） | 検査に通らない・入力が作れない事例は外れる |
+| 5 | audit | 監査（`build-audit-input.ts` → AI → `merge-analysis.ts`）。監査済みの事例は飛ばす | 同上 |
+| 6 | select | 仕上げ済みの選別（`select-finished.ts --keep-published`）。画像が「使ってよい」1枚も無い事例などはここで落ちる | 理由つきで外れる |
+| 7 | display | 画面の文（`build-display.ts`）。事例ごとに別の作業場所で並列に作り、できた分を1つずつ実ファイルに反映する | 作れなかった事例は外れる。理由は `data/pipeline/display-build-failures.jsonl` |
+| 8 | case-text | 文の検査（`pnpm case-text:verify`） | 落ちた行の事例が外れる（事例を特定できなければ全件） |
+| 9 | prepare | 公開データの作成（`pnpm catalog:prepare --changed`）。原文照合で落ちた事例は含めない | 作れなければ段ごと失敗 |
+| 10 | publish | `--publish` の時だけ `pnpm catalog:publish` | 公開データの作成が通っていなければ公開しない |
+
+- **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所では「画像の権利または実体が未充足」「撤回の明示が足りない」で落ちます（落とし穴の表 12）。
+- 各段の所要時間は `data/pipeline/case-run.jsonl` に1行ずつ（`runId`・段・開始時刻・秒・対象件数・失敗件数）。実行ごとの記録は `data/pipeline/case-run/<runId>/`（`logs/` に各命令の出力、`summary.json` に最後の一覧）。
+- 束は `batch-r<runId>-NNN`（照合・分析）と監査の `in-999999…` で、1束に1事例。従来の `run-verify.sh` / `run-analyze.sh` / `run-audit.sh`（終了コード75で待つ版）は、毎日の自動実行と公開中の事例の直し（3b）がまだ使うので残してあります。
+- 実体: `scripts/reader-case/case-run.ts`（順番と失敗の扱い）、`scripts/reader-case/runner/agent-run.ts`（束ごとにAIを呼んで受理するまで）、`scripts/reader-case/agent-call.ts`（`claude -p` / `codex exec` の呼び出し）。試験: `pnpm test:runner`。
 
 ## 3.5 出す前の原文照合（2026-10-07 追加。どの事例も必ず通す）
 
