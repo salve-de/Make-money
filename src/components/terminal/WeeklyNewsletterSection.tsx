@@ -70,7 +70,7 @@ export const WeeklyNewsletterSection = () => {
           事業・財務の更新を受け取る
         </h2>
         <p className="mt-1 text-sm leading-6 text-term-sub">
-          新しく公開した事例や更新した内容をメールでお知らせします。登録するとまず確認メールが届き、メール内のリンクを開いて初めて登録が完了します。配信の開始時期は運用状況により変わる場合があります。
+          新しく公開した事例を、メールでまとめてお知らせします。登録後に届く確認メールのリンクを開くと完了です。メールアドレスは、お知らせの送信だけに使います（<a href="/legal/privacy" className="underline">プライバシーポリシー</a>）。
         </p>
       </div>
 

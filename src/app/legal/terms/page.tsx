@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LegalPage } from '@/components/legal/LegalPage';
 
-export const metadata: Metadata = { title: '利用規約' };
+export const metadata: Metadata = { title: '利用規約 | Make Money' };
 
 export default function TermsPage() {
   return (

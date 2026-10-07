@@ -72,7 +72,7 @@ export function SavedSearchesView() {
   return (
     <>
       <div className="term-panel-title">
-        <span className="term-panel-name max-lg:hidden">保存した条件</span>
+        <span className="term-panel-name">保存した条件</span>
         {count !== null && <span className="term-num">{count} / {SAVED_SEARCH_LIMIT}件</span>}
         <span className="hidden truncate sm:inline">新着が条件に合うと、メールでお知らせします。</span>
       </div>

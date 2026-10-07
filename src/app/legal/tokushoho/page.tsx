@@ -5,7 +5,7 @@ import { DISCLOSED_ON_REQUEST, NOT_CONFIGURED, readOperatorInfo } from '@/lib/le
 import { FOUNDING_PASS } from '@/lib/payments/founding-pass';
 
 export const dynamic = 'force-dynamic';
-export const metadata: Metadata = { title: '特定商取引法に基づく表記' };
+export const metadata: Metadata = { title: '特定商取引法に基づく表記 | Make Money' };
 
 export default async function TokushohoPage() {
   const operator = await readOperatorInfo();

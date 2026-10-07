@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LegalDataTable, LegalPage } from '@/components/legal/LegalPage';
 
-export const metadata: Metadata = { title: 'プライバシーポリシー' };
+export const metadata: Metadata = { title: 'プライバシーポリシー | Make Money' };
 
 const code = (text: string) => <code className="term-num break-all">{text}</code>;
 
