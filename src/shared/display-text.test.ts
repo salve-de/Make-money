@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel } from './display-text';
+import { cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel, withYenApprox, yenText } from './display-text';
 
 describe('formatSourceNote', () => {
   it('removes rights and facts-only, keeps URL and date', () => {
@@ -210,5 +210,60 @@ describe('sourceKindLabel', () => {
     expect(sourceKindLabel({ text: 'https://example.com/a', sourceClass: 'INDEPENDENT_SECONDARY' })).toBe('記事');
     expect(sourceKindLabel({ text: 'https://example.com/a' })).toBeNull();
     expect(sourceKindLabel({ text: '' })).toBeNull();
+  });
+});
+
+describe('withYenApprox', () => {
+  it('外貨の金額それぞれに円のおおよその額を添える', () => {
+    expect(withYenApprox('料金を月24ドル・49ドル・99ドルの3段と説明し、最安でも年288ドル。')).toBe('料金を月24ドル（約3,600円）・49ドル（約7,350円）・99ドル（約1万4,850円）の3段と説明し、最安でも年288ドル（約4万3,200円）。');
+    expect(withYenApprox('年10万ドル超の商談')).toBe('年10万ドル（約1,500万円）超の商談');
+    expect(withYenApprox('120万ルピーの月商')).toBe('120万ルピー（約210万円）の月商');
+  });
+  it('記号・略号の通貨にも添える', () => {
+    expect(withYenApprox('月換算$10、月払いは$15')).toBe('月換算$10（約1,500円）、月払いは$15（約2,250円）');
+    expect(withYenApprox('年$1.2M')).toBe('年$1.2M（約1.8億円）');
+    expect(withYenApprox('月49 USD・€20・£10・₹1,000')).toBe('月49 USD（約7,350円）・€20（約3,300円）・£10（約1,950円）・₹1,000（約1,750円）');
+  });
+  it('範囲は両端を換算する', () => {
+    expect(withYenApprox('月額29〜99ドル')).toBe('月額29〜99ドル（約4,350円〜1万4,850円）');
+    expect(withYenApprox('$29〜$99')).toBe('$29〜$99（約4,350円〜1万4,850円）');
+    expect(withYenApprox('1〜2万ドル')).toBe('1〜2万ドル（約150万円〜300万円）');
+  });
+  it('範囲の下端に桁が無く、上端の桁を当てると逆転する時は、下端を書かれたままの額にする', () => {
+    expect(withYenApprox('$900〜1K')).toBe('$900〜1K（約13万5,000円〜15万円）');
+    expect(withYenApprox('$2,500〜3K')).toBe('$2,500〜3K（約37万5,000円〜45万円）');
+    expect(withYenApprox('$1-2M')).toBe('$1-2M（約1.5億円〜3億円）');
+  });
+  it('ISO の略号の前の桁（k・K・M・B）も読む', () => {
+    expect(withYenApprox('25M USD')).toBe('25M USD（約37.5億円）');
+    expect(withYenApprox('7K USD')).toBe('7K USD（約105万円）');
+    expect(withYenApprox('3M EUR')).toBe('3M EUR（約5億円）');
+  });
+  it('MM・m・million などの桁も読み、読めない英字が続く金額は換算しない', () => {
+    expect(withYenApprox('$1MM')).toBe('$1MM（約1.5億円）');
+    expect(withYenApprox('$2.5m')).toBe('$2.5m（約3.8億円）');
+    expect(withYenApprox('$10 million')).toBe('$10 million（約15億円）');
+    expect(withYenApprox('$5xyz')).toBe('$5xyz');
+  });
+  it('円の無い括弧の補足が続く時は、その括弧の頭に入れる', () => {
+    expect(withYenApprox('月8ドル（商品10点・保存200MB）')).toBe('月8ドル（約1,200円、商品10点・保存200MB）');
+  });
+  it('すでに円の額や括弧の補足がある金額、外貨の無い文はそのまま', () => {
+    expect(withYenApprox('月99ドル（約1万4,850円）')).toBe('月99ドル（約1万4,850円）');
+    expect(withYenApprox('月99ドル、約1万円')).toBe('月99ドル、約1万円');
+    expect(withYenApprox('月980円')).toBe('月980円');
+  });
+  it('米ドル以外のドルは換算しない', () => {
+    expect(withYenApprox('CA$280,000で売却')).toBe('CA$280,000で売却');
+    expect(withYenApprox('A$500と$10')).toBe('A$500と$10（約1,500円）');
+    expect(withYenApprox('$39 CAD/mo')).toBe('$39 CAD/mo');
+    expect(withYenApprox('US$10')).toBe('US$10（約1,500円）');
+  });
+  it('円の書式', () => {
+    expect(yenText(19995)).toBe('2万円');
+    expect(yenText(29996)).toBe('3万円');
+    expect(yenText(14850)).toBe('1万4,850円');
+    expect(yenText(2.4e8)).toBe('2.4億円');
+    expect(yenText(900)).toBe('900円');
   });
 });

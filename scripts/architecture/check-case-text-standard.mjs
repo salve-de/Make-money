@@ -7,9 +7,12 @@
  *  4. 空の答えを置かない。
  *  6. 項目名と答えの1対1（data/item-contract.json）。
  *  5. 「未確認」「書かれていない」「公開されていない」など、分からない旨だけの文を置かない。
+ *  9. 仕上げ済みの事例で、画面の分析欄に出る推論の文に編集文（detail-lines）が結ばれている（無ければ原文のまま出るため）。
  */
+import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const FOREIGN = /(ドル|\$|ルピー|ラック|クロール|ユーロ|ポンド|INR|USD|EUR|GBP)/;
 const ABSENCE = /(未確認|書かれていない|公開されていない|記載(が)?(ない|なし)|確認できない|わからない|分からない|不明|非公開(?![版のなでに]))/;
@@ -87,6 +90,42 @@ for (const line of read('data/summary-lines.json')) {
   const anchor = listLineByEntity.get(line.entityId);
   if (!anchor || anchor.factId !== line.factId || anchor.factHash !== line.factHash) problems.push(`${where}: 元の事実との紐付け（factId・factHash）が一覧の文と合っていない`);
   if (line.text !== '') check(where, 'text', line.text, 140);
+}
+
+// 9. 仕上げ済みの事例（data/catalog-finished-ids.txt と、章を持つ事例）で、画面の分析欄に出る推論の文に編集文が結ばれているか。
+//    結ばれていない欄は、推論の原文（円換算なし・専門語あり）のまま画面に出る。数字の帯の推論は編集文を使わないので、原文に同じ検査を掛ける。
+//    推論の文と指紋は scripts/reader-case/detail-coverage.ts が、公開判定と同じ手順（照合・監査の反映の後）で出す（事例データはリポジトリ側）。
+//    どの欄が画面に出るか（章・成功の秘訣・hidden で消える欄）は、src/features/company-inspector/ui/ReaderOverview.tsx と同じ条件を、実行場所の data/ の編集文で判定する。
+const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const chapterEntries = read('data/case-chapters.json');
+const coverage = JSON.parse(execFileSync(process.execPath, ['--import', 'tsx', 'scripts/reader-case/detail-coverage.ts', ...chapterEntries.map((e) => e.entityId)], { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }));
+const detailByKey = new Map(read('data/detail-lines.json').map((line) => [`${line.entityId}\u0000${line.analysisId}`, line]));
+for (const id of coverage.missing) problems.push(`分析欄 ${id}: 仕上げ済みだが事例データが読めない`);
+for (const entry of coverage.cases) {
+  const live = (factId, factHash) => entry.facts[factId] === factHash;
+  const chapterIds = new Set(chapterEntries.filter((c) => c.entityId === entry.entityId && live(c.factId, c.factHash)).flatMap((c) => Object.entries(c.chapters).filter(([, rows]) => rows.length > 0).map(([id]) => id)));
+  const secrets = successPoints.some((p) => p.entityId === entry.entityId && (p.points ?? []).some((point) => live(point.factId, point.factHash)));
+  const where = (row) => `分析欄 ${entry.name}（${entry.entityId}）の「${row.label}」（${row.analysisId}）`;
+  for (const row of entry.strip) if (!row.absence) check(where(row), '原文', row.text, Infinity);
+  const shown = [];
+  const story = entry.analysis.find((row) => row.item === 'STORY');
+  // 4段の形の物語は、画面が編集文を使わず原文を出す（hidden も効かない）。原文そのものに同じ検査を掛ける。
+  if (story?.split) check(where(story), '原文（4段の物語）', story.text, Infinity);
+  else if (story) shown.push(story);
+  for (const items of coverage.groups) {
+    if (items.includes('WHY_IT_WORKED') && (secrets || chapterIds.size > 0)) continue;
+    for (const item of items) {
+      if ((item === 'TIMELINE' && chapterIds.has('timeline')) || (item === 'PIVOTS' && chapterIds.has('turning')) || (item === 'CAPITAL_AND_TEAM' && chapterIds.has('start'))) continue;
+      shown.push(...entry.analysis.filter((row) => row.item === item));
+    }
+  }
+  for (const row of shown) {
+    const line = detailByKey.get(`${entry.entityId}\u0000${row.analysisId}`);
+    const edited = line && line.textHash === row.textHash;
+    if (edited) continue;
+    if (row.absence && row.item !== 'TIMELINE') continue; // 「分からない」だけの原文は、画面が欄ごと落とす（物語の欄も StorySteps が出さない）
+    problems.push(`${where(row)}: 編集文（data/detail-lines.json）が無いか、今の文の指紋 ${row.textHash} と合わず、推論の原文のまま画面に出る「${row.text.slice(0, 30)}…」`);
+  }
 }
 
 if (problems.length) {
