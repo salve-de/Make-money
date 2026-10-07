@@ -4,17 +4,17 @@
   "sourceCount": 3354,
   "publishedCount": 10,
   "summaries": {
-    "hash": "1aa6031f2e00d18918820cf29c3ec0b9d0ed1467a3b0b37170f1dd40d7fbe75c",
-    "key": "views/make-money/catalog-v1/objects/1aa6031f2e00d18918820cf29c3ec0b9d0ed1467a3b0b37170f1dd40d7fbe75c.json.gz"
+    "hash": "b0403b80a46a7270684c0c2691ebe87850590c1016c31e7aeb937de0838e4ee1",
+    "key": "views/make-money/catalog-v1/objects/b0403b80a46a7270684c0c2691ebe87850590c1016c31e7aeb937de0838e4ee1.json.gz"
   },
   "discovery": {
-    "hash": "6053faf42aa6e945a080b630e05e71c2928054fbe3adc17d82ad3839b0a592ca",
-    "key": "views/make-money/catalog-v1/objects/6053faf42aa6e945a080b630e05e71c2928054fbe3adc17d82ad3839b0a592ca.json.gz"
+    "hash": "7c4fdb81f849447b1376a892cc6f05f8aa2dcedf31f78ae4c5ed5236682ad15a",
+    "key": "views/make-money/catalog-v1/objects/7c4fdb81f849447b1376a892cc6f05f8aa2dcedf31f78ae4c5ed5236682ad15a.json.gz"
   },
   "details": {
     "ent_myoperator_49c393230a2d": "57eaa31075b4baf1e7e6e97caffbaef4c33ef889bbcd14712f4a2d08448c7d15",
     "ent_codementor_ba692caa3db3": "b678e1dc5c339b9492988dd247ae93380765227fa2d6bf621440669da8efc418",
-    "ent_teamcamp_ae0c21986c4d": "dd681ac516c77066fad48bca9524f5d19960484b793edc2cc2407a8d9ee5698e",
+    "ent_teamcamp_ae0c21986c4d": "f396008f12db59edfd14ced595e1743b120744d7f7ce7b6137bf9b2f2667eeda",
     "ent_referralrock_8c13d5ee4cfc": "8f0ac052bc00f3e6bd6da6481f4d30257c8aae5eebd8774106dd3f21aed3d057",
     "ent_ejunkie_7e9e46bd9643": "ae23736d02d6a36a91a7b044dce45ac6d7c3f2617ad829464d0f519bd4d54024",
     "ent_gorails_640d8f688451": "76109ba89c5061ffe93062ee244490a3f19f983b92ec3e6d846764e7bf80e9c6",
