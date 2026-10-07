@@ -1,6 +1,13 @@
 [
  {
   "id": "ent_myoperator_49c393230a2d",
+  "where": "section-reasoning",
+  "rule": "a.出どころの印",
+  "text": "（YourStory 2016年記事の再掲）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_myoperator_49c393230a2d",
   "where": "数字の帯「料金」",
   "rule": "c.料金の付帯条件",
   "text": "「GST」: 現行の料金表は、Sedanが月5,000ルピー（約8,750円）、SUVが月15,000ルピー（約2万6,250円）で、どちらも10ユーザー。全プラン年払いで、GSTとMetaの料金は別。冒頭に30日間の全額返金を掲げる。",
@@ -127,6 +134,20 @@
  },
  {
   "id": "ent_codementor_ba692caa3db3",
+  "where": "section-chapter-core",
+  "rule": "a.出どころの印",
+  "text": "（根拠: 公開前のHacker News投稿で132点・コメント73件）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_codementor_ba692caa3db3",
+  "where": "section-facts-other",
+  "rule": "a.出どころの印",
+  "text": "（取材前アンケートの回答）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_codementor_ba692caa3db3",
   "where": "概要 / section-chapter-timeline",
   "rule": "e.同じ数字が2か所以上",
   "text": "2千人（2か所）",
@@ -151,6 +172,13 @@
   "where": "section-group-secret / section-chapter-timeline",
   "rule": "e.同じ数字が2か所以上",
   "text": "5,000人（2か所）",
+  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
+ },
+ {
+  "id": "ent_codementor_ba692caa3db3",
+  "where": "section-chapter-practice / section-chapter-core",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "73件（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -355,6 +383,13 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「と創業者は書く2025年10」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_referralrock_8c13d5ee4cfc",
+  "where": "section-group-secret",
+  "rule": "a.出どころの印",
+  "text": "（対談は1週間）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_referralrock_8c13d5ee4cfc",
@@ -589,6 +624,13 @@
  },
  {
   "id": "ent_rfrcui_64e924ac",
+  "where": "section-chapter-core",
+  "rule": "a.出どころの印",
+  "text": "（根拠: 約2年のツイートと記事）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_rfrcui_64e924ac",
   "where": "数字の帯「料金」",
   "rule": "c.料金の付帯条件",
   "text": "「税別」: 価格は、本と動画だけのEssentialsが99ドル（約1万4,850円）、素材まで全部入りのComplete Packageが149ドル（約2万2,350円、いずれも税別）。チーム向けはComplete Packageが3人399ドル（約5万9,850円）、5人649ドル（約9万7,350円）、10人1,",
@@ -708,6 +750,13 @@
  },
  {
   "id": "ent_heygen_8f11a1",
+  "where": "section-reasoning",
+  "rule": "a.出どころの印",
+  "text": "（ARRは2026-06-25時点、2.70は公式の「約」）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_heygen_8f11a1",
   "where": "数字の帯「年換算売上」 / section-chapter-timeline",
   "rule": "e.同じ数字が2か所以上",
   "text": "$200M（2か所）",
@@ -820,6 +869,27 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "section-chapter-core",
+  "rule": "a.出どころの印",
+  "text": "（根拠: 1年目、約450人がフォントの客になったと本人が見積もった）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "section-chapter-core",
+  "rule": "a.出どころの印",
+  "text": "（根拠: Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "section-chapter-voices",
+  "rule": "a.出どころの印",
+  "text": "（個人ブログ、2013年8月）",
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "数字の帯「料金」",
   "rule": "c.料金の付帯条件",
   "text": "「存在せず」: 直接の支払いは19・29・39・49ドル（約7,350円）の4段階。PDFや電子書籍は存在せず、支払ってもダウンロードは付かない。自作フォントは119ドル（約1万7,850円）から、関連する紙の本（Typography for Lawyers）は40ドル（約6,000円）。",
@@ -872,6 +942,13 @@
   "where": "section-group-secret / section-chapter-start",
   "rule": "e.同じ数字が2か所以上",
   "text": "65万人（2か所）",
+  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "section-group-secret / section-chapter-core",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "450人（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -969,7 +1046,7 @@
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-group-secret / section-chapter-core",
   "rule": "e.同じ話が2か所以上",
-  "text": "「9ドル約8850円45万円の」",
+  "text": "「フォントの客になったと本人が」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
