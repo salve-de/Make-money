@@ -12,13 +12,15 @@ interface DetailLine {
   textHash: string;
   answer: string;
   note?: string;
+  /** 項目名に答える中身が材料に無い時、その項目ごと画面に出さない（「分からない」と書かずに消す）。 */
+  hidden?: boolean;
 }
 
 const KEY = (entityId: string, analysisId: string) => `${entityId}\u0000${analysisId}`;
 const BY_KEY = new Map<string, DetailLine>((lines as DetailLine[]).map((line) => [KEY(line.entityId, line.analysisId), line]));
 
-export function detailLineFor(entityId: string | undefined, analysis: { id: string; text: string }): { answer: string; note?: string } | null {
+export function detailLineFor(entityId: string | undefined, analysis: { id: string; text: string }): { answer: string; note?: string; hidden?: boolean } | null {
   const line = entityId ? BY_KEY.get(KEY(entityId, analysis.id)) : undefined;
   if (!line || line.textHash !== textFingerprint(analysis.text)) return null;
-  return { answer: line.answer, note: line.note };
+  return { answer: line.answer, note: line.note, hidden: line.hidden };
 }

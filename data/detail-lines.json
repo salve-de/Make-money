@@ -72,8 +72,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-customer",
     "textHash": "55dfb291",
-    "answer": "Railsの開発者（初心者から経験者まで）",
-    "note": "本人は、自分が毎日でも話したい相手に売れる点を強みに挙げている。"
+    "answer": "Railsを学ぶ初心者から、最新の書き方を追う経験者までの開発者"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -132,7 +131,8 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-story",
     "textHash": "6889fbf0",
-    "answer": "音声サービスの経験があるAnkit Jainが、弟と2013年3月に自己資金で開始"
+    "answer": "-",
+    "hidden": true
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -241,8 +241,8 @@
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-competition",
     "textHash": "cbb722de",
-    "answer": "（推定の計算例）同じ売上でGumroadは約150ドル（約2.3万円）の手数料、E-junkieは月額固定",
-    "note": "月10ドル×100件＝売上1,000ドル（約15万円）に、Gumroadは1件10%＋0.50ドル。決済会社の手数料は別。件数は例。"
+    "answer": "競合はGumroadなど、売るたびに手数料を取る販売サービス",
+    "note": "（推定の計算例）月10ドル×100件＝売上1,000ドル（約15万円）なら、Gumroadは約150ドル（約2.3万円）の手数料。E-junkieは月額固定。件数は例。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -363,7 +363,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-capital_and_team",
     "textHash": "d943cc87",
-    "answer": "文章・フォント・図版・出版ソフトまで、本人がすべて作った"
+    "answer": "人数は本人1人。文章・フォント・図版・出版ソフトまで自作した"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -424,7 +424,8 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-channels",
     "textHash": "05446203",
-    "answer": "営業を増やした後、サイトの文面・LP・申込ボタンを直して、見込み客を増やした（本人申告）"
+    "answer": "サイトの文面・LP・申込ボタンを直して、見込み客を増やした（本人申告）",
+    "note": "営業を1人増やした後に着手した。"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -540,8 +541,7 @@
     "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-competition",
     "textHash": "6766d219",
-    "answer": "既存のデザイン講座は原則に偏っている、と公式サイトは位置づける",
-    "note": "公式サイトは、すぐ使える具体策を売りにして差をつけている。"
+    "answer": "競合は、原則を教える既存のデザイン講座。違いは、すぐ使える具体策（公式サイトの位置づけ）"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
@@ -610,8 +610,8 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-upfront_cash",
     "textHash": "755f4da8",
-    "answer": "別の投稿は、先に99ドル（約1.5万円）の先払い意思がある12人を探す検証法を書いている",
-    "note": "買い切りは月額と4か月並べて売り、売上の約4割を占めたと創業者は書く。"
+    "answer": "買い切り999ドル（約15万円）を試し、売上の約4割を占めた（創業者の申告）",
+    "note": "先に99ドル（約1.5万円）を払う意思のある12人を見つけてから作る検証法も書いている。"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",

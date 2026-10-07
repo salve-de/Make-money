@@ -5,6 +5,7 @@
  *  2. 答え（answer）は60字以内、補足（note）は120字以内。一覧の1行（text）は45字以内。
  *  3. 答えに「と語る」「と話す」「と説明している」「と書く」を入れない。
  *  4. 空の答えを置かない。
+ *  6. 項目名と答えの1対1（data/item-contract.json）。
  *  5. 「未確認」「書かれていない」「公開されていない」など、分からない旨だけの文を置かない。
  */
 import { readFileSync } from 'node:fs';
@@ -25,11 +26,21 @@ function check(where, field, text, max, { hedge = false } = {}) {
 }
 
 for (const line of read('data/detail-lines.json')) {
+  if (line.hidden) continue;
   const where = `detail-lines ${line.entityId}/${line.analysisId}`;
   // 年表（「2013年: …。2014年: …。」の形）だけは長くてよい
   const timeline = /^\d{4}年[^:：]*[:：]/.test(line.answer) && line.answer.includes('。');
   check(where, 'answer', line.answer, timeline ? 400 : /headline/i.test(line.analysisId) ? 90 : 60, { hedge: true });
   if (line.note !== undefined) check(where, 'note', line.note, 120);
+}
+// 5. 項目名と答えの1対1（data/item-contract.json）。項目名が問う事に、答えが答えていなければ落とす。
+const contract = read('data/item-contract.json').items;
+for (const line of read('data/detail-lines.json')) {
+  if (line.hidden) continue;
+  const item = line.analysisId.replace(/^a-/, '').toUpperCase();
+  const rule = contract[item];
+  if (!rule) continue;
+  if (!new RegExp(rule.must).test(`${line.answer} ${line.note ?? ''}`)) problems.push(`detail-lines ${line.entityId}/${line.analysisId}: 項目「${rule.question}」の答えになっていない「${line.answer.slice(0, 30)}…」`);
 }
 for (const line of read('data/list-lines.json')) check(`list-lines ${line.entityId}`, 'text', line.text, 45);
 

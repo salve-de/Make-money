@@ -186,6 +186,7 @@ export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?
   const story = byItem(reader, 'STORY');
   if (!story) return null;
   const steps = splitStory(story.text);
+  if (!steps && detailLineFor(entityId, story)?.hidden) return null;
   return (
     <Fold id="section-story" title={UI.GROUP_ORIGIN} defaultOpen mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
       {steps ? (
@@ -281,7 +282,7 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
     <>
       {ANALYSIS_GROUPS.map(({ title, items, story }, index) => {
         if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
-        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)))));
+        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && !detailLineFor(entityId, a)?.hidden && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)))));
         if (rows.length === 0) return null;
         return (
           <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>
