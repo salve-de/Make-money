@@ -2,7 +2,7 @@
 # 毎日1回の定期実行（launchd などから呼ぶ。手で実行してもよい）。ローカル生成までが上限で、公開側には何も出さない。
 #   束（data/analyze/batches）の接頭辞ごとに run-pipeline.sh を PIPELINE_NO_PUBLISH=1 で走らせる（選別と公開版の計画まで）。
 #   画像保存（R2）・main への変更申請・マージ・本番反映・課金は、この命令には含まない（run-pipeline.sh の 4b 以降は到達しない）。
-#   LLM は呼ばない。サブエージェントの結果が要る所は指示書（data/runner/instructions/）を出して正常終了し、
+#   LLM は呼ばない（例外: DISPLAY_BUILD=1 の時だけ、画面の層の自動作成 build-display.ts がAIのコマンド版を呼ぶ）。サブエージェントの結果が要る所は指示書（data/runner/instructions/）を出して正常終了し、
 #   結果が置かれたあとの次回の実行が受理済みの束から続きを進める（月次枠の Claude Code セッションで指示書を実行する）。
 # 使い方: bash scripts/reader-case/run-daily.sh [--prefix batch-x1-]... [--force] [--dry-run]
 #   --prefix 省略時は data/analyze/batches の名前から自動で決める（前回完了と入力が同じ接頭辞は飛ばす）
@@ -75,6 +75,9 @@ LOG="$LOGDIR/$(date +%Y%m%d-%H%M%S)-$$.log"
 find "$LOGDIR" -name '*.log' -mtime +60 -delete 2>/dev/null || true   # ログは60日分だけ残す
 say "定期実行を開始（実行ID $RUN_ID、ログ $LOG）"
 node --import tsx scripts/reader-case/chapter-gaps.ts 2>&1 | head -20 || true   # 束がない日も毎回出す。章がまだ無い仕上げ済み事例（次に章を作る対象。手順は docs/CASE_CHAPTER_PROCESS.md）
+# 画面の層（一覧・概要・分析欄・成功の秘訣・章）が足りない仕上げ済み事例を、AIで最大3件作り、専用ブランチ auto/display-build にコミットする（push はしない）。
+# AIの利用が発生するので既定では動かさない。DISPLAY_BUILD=1 の時だけ。失敗しても定期実行は止めない（理由は data/pipeline/display-build-failures.jsonl）
+if [ "${DISPLAY_BUILD:-0}" = 1 ]; then node --import tsx scripts/reader-case/build-display.ts --max 3 --commit 2>&1 | tee -a "$LOG" | grep '^\[display:build\]' | head -20 || true; fi
 
 [ ${#PREFIXES[@]} -gt 0 ] || while IFS= read -r p; do [ -n "$p" ] && PREFIXES+=("$p"); done < <($STATE prefixes)
 if [ ${#PREFIXES[@]} -eq 0 ]; then say "処理する束がない（data/analyze/batches が空）。何もしない"; exit 0; fi
