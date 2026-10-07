@@ -14,8 +14,12 @@ import { dirname, join, resolve } from 'node:path';
 export const MAX_PARALLEL = 4;
 const ROOT = resolve(dirname(new URL(import.meta.url).pathname), '../..');
 
-/** 引数を、上限つきの同時数と display:build に渡す物に分ける。 */
-export function parseArgs(argv) {
+/**
+ * 引数を、上限つきの同時数と display:build に渡す物に分ける。
+ * --run-id が無ければ、ここで1つ決めて全部の事例に同じ物を渡す（子ごとに時刻で決めると番号がばらけ、
+ * あとで --reader-run <番号> で読者役の記録を使う時に、一部の事例が見つからず止まる）。
+ */
+export function parseArgs(argv, now = new Date()) {
   const sep = argv.indexOf('--');
   const own = sep === -1 ? argv : argv.slice(0, sep);
   const pass = sep === -1 ? [] : argv.slice(sep + 1);
@@ -24,7 +28,8 @@ export function parseArgs(argv) {
   if (!Number.isInteger(want) || want < 1) throw new Error(`--parallel は1以上の整数: ${own[i + 1]}`);
   if (pass.includes('--id')) throw new Error('--id はここでは使わない（対象は仕上げ済みの全件）');
   if (!pass.includes('--reader-only')) throw new Error('流せるのは --reader-only（読者役だけ・書き込みなし）だけ。直しは1つの処理で流す');
-  return { parallel: Math.min(want, MAX_PARALLEL), pass };
+  const withRun = pass.includes('--run-id') ? pass : [...pass, '--run-id', now.toISOString().replace(/[-:]/g, '').slice(0, 15)];
+  return { parallel: Math.min(want, MAX_PARALLEL), pass: withRun };
 }
 
 /** 仕事を、同時に limit 個までで流す。同時に動いた最大数を返す。 */
@@ -55,7 +60,7 @@ async function main() {
     child.stdout.pipe(log); child.stderr.pipe(log);
     child.on('close', (code) => { const s = Math.round((Date.now() - t) / 1000); console.log(`[display:build:parallel] ${id} 終了=${code} ${s}秒`); done(code ?? 1); });
   }));
-  console.log(`[display:build:parallel] ${ids.length}件 同時の最大${peak}（上限${parallel}） 全体${Math.round((Date.now() - start) / 1000)}秒`);
+  console.log(`[display:build:parallel] ${ids.length}件 同時の最大${peak}（上限${parallel}） 実行番号${pass[pass.indexOf('--run-id') + 1]} 全体${Math.round((Date.now() - start) / 1000)}秒`);
   return results.some((c) => c !== 0) ? 1 : 0;
 }
 

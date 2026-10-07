@@ -34,7 +34,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  DISPLAY_FILES, applyRepairs, extractNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, dropFlagged, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
+  DISPLAY_FILES, applyRepairs, extractNumbers, lostNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, dropFlagged, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
   type AiOutput, type DisplayFiles, type RepairRow, type DisplayNeed, type EntityDisplay, type ItemContract, type LiveReader,
 } from '../../src/shared/display-build';
 import { loadReaders, argValue } from './load-readers';
@@ -354,7 +354,8 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
   const ids = new Set(rows.map((r) => r.id));
   let previous: unknown; let problems: string[] = [];
   // 確認役まで進んだ回のうち、確認役の必須の指摘が無かった行（行ごとに採用するため）
-  let reviewed: { attempt: number; fixes: Array<{ id: string; text: string }>; must: Set<string> } | undefined;
+  // reasons は、その回の確認役の必須の指摘（保留した行の理由として記録する。最後の回の指摘とは限らない）
+  let reviewed: { attempt: number; fixes: Array<{ id: string; text: string }>; must: Set<string>; reasons: string[] } | undefined;
   for (let attempt = 1; attempt <= ATTEMPTS; attempt += 1) {
     const user = JSON.stringify({ material, rows, ...(problems.length ? { previous, problems } : {}) });
     let call: CallResult;
@@ -367,11 +368,17 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     const missing = [...ids].filter((id) => !fixes.some((f) => f.id === id)).map((id) => `${id}: 直した文が返っていない`);
     // 元の行にあった数字（年月日・点数など）は、言い回しの直しで残ってよい
     const numbers = fixes.flatMap((f) => unsupportedNumbers(f.text, [...nums, ...extractNumbers(rows.find((r) => r.id === f.id)?.text ?? '')]).map((n) => `${f.id}: 材料に無い数字 ${n}`));
+    // 元の行の数字は、言い回しの直しで落とさない（同じ事例の他の行に残る数字は、重複を外しただけなので許す）
+    const shown = repairRows(entityId, applied.files, () => ['行']);
+    const lost = fixes.flatMap((f) => {
+      const gone = lostNumbers(rows.find((r) => r.id === f.id)?.text ?? '', f.text, shown.filter((r) => r.id !== f.id).map((r) => r.text).join('\n'));
+      return gone.length ? [`${f.id}: 元の文の数字 ${gone.join('、')} が消えた。言い回しだけを直し、数字は残す`] : [];
+    });
     // 出どころの印（本人・公式・第三者など）は、言い回しの直しで変えない（行の出典URLはそのままなので、印だけ変わると食い違う）
     const marks = (text: string) => [...new Set(text.match(/本人申告|本人|公式|第三者|報道|推測|推論|保存ページ/g) ?? [])].sort().join('・');
     const markProblems = fixes.filter((f) => marks(f.text) !== marks(rows.find((r) => r.id === f.id)?.text ?? '')).map((f) => `${f.id}: 出どころの印が変わった（元: ${marks(rows.find((r) => r.id === f.id)?.text ?? '') || 'なし'} → 今: ${marks(f.text) || 'なし'}）。印は元のまま残す`);
     const check = runCheck(applied.files);
-    problems = [...applied.problems, ...missing, ...left, ...numbers, ...markProblems, ...newProblems(baseline, check.problems)];
+    problems = [...applied.problems, ...missing, ...left, ...numbers, ...lost, ...markProblems, ...newProblems(baseline, check.problems)];
     say(`${entityId}: 直し ${attempt}回目 — 機械の検査の指摘 ${problems.length}件`);
     if (problems.length) continue;
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], files: applied.files };
@@ -384,8 +391,8 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     say(`${entityId}: 直し ${attempt}回目 — 確認役の指摘 必須${must.length}件・軽微${issues.length - must.length}件`);
     if (!must.length) return { ok: true, attempts: attempt, reasons: [], files: applied.files, adopted: fixes.map((f) => f.id), held: [] };
     const mustIds = new Set(must.map((i) => i.id));
-    if (!reviewed || fixes.filter((f) => !mustIds.has(f.id)).length >= reviewed.fixes.filter((f) => !reviewed!.must.has(f.id)).length) reviewed = { attempt, fixes, must: mustIds };
     problems = must.map((i) => `確認役: ${i.id}: ${i.problem}（直し案: ${i.fix}）`);
+    if (!reviewed || fixes.filter((f) => !mustIds.has(f.id)).length >= reviewed.fixes.filter((f) => !reviewed!.must.has(f.id)).length) reviewed = { attempt, fixes, must: mustIds, reasons: problems };
   }
   // 全行は通らなかった。確認役が必須の指摘を付けなかった行だけを反映し、残りは元の文のまま保留する（1行の指摘で事例ごと止めない）
   if (reviewed) {
@@ -394,8 +401,8 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
       const applied = applyRepairs(files, entityId, ok);
       const after = runCheck(applied.files);
       const fresh = [...applied.problems, ...newProblems(baseline, after.problems)];
-      if (!fresh.length) return { ok: true, attempts: reviewed.attempt, reasons: problems, files: applied.files, adopted: ok.map((f) => f.id), held: [...ids].filter((id) => !ok.some((f) => f.id === id)) };
-      problems = [...problems, ...fresh.map((p) => `行ごとの反映で機械の検査に落ちた: ${p}`)];
+      if (!fresh.length) return { ok: true, attempts: reviewed.attempt, reasons: reviewed.reasons, files: applied.files, adopted: ok.map((f) => f.id), held: [...ids].filter((id) => !ok.some((f) => f.id === id)) };
+      problems = [...reviewed.reasons, ...fresh.map((p) => `行ごとの反映で機械の検査に落ちた: ${p}`)];
     }
   }
   return { ok: false, attempts: ATTEMPTS, reasons: problems };

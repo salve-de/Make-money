@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  applyRepairs, repairRows, assembleDisplay, buildMaterial, liveSuccessPoints, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers,
+  applyRepairs, repairRows, assembleDisplay, buildMaterial, liveSuccessPoints, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers, lostNumbers,
   type AiOutput, type DisplayFiles, type DisplayNeed, type LiveReader,
 } from './display-build';
 import { textFingerprint } from './list-lines';
@@ -135,6 +135,14 @@ describe('数字の突き合わせ', () => {
     expect(unsupportedNumbers('160万ドル（約2.4億円）', nums)).toEqual([]);
     expect(unsupportedNumbers('12ラック（120万ルピー、約210万円）', nums)).toEqual([]);
     expect(unsupportedNumbers('3か月で月800ドル', nums)).toEqual([800]);
+  });
+
+  it('言い回しの直しで消えた数字を見つけ、他の行に残る数字は消えたと数えない', () => {
+    expect(lostNumbers('再販制度を作り、事業の約20%がそこから来た', '他の人が再販売する制度を作った', '')).toEqual([20]);
+    expect(lostNumbers('新規契約の報酬35%を3か月払う', '紹介すると3か月間報酬を払う', '')).toEqual([35]);
+    expect(lostNumbers('新規契約の報酬35%を3か月払う', 'その契約の料金の35%を3か月間払う', '')).toEqual([]);
+    expect(lostNumbers('資金あたりの定期収入が約2.7倍', '資金を効率よく使えた', '定期売上の1年換算額は調達資金の約2.7倍')).toEqual([]);
+    expect(lostNumbers('月500ドル（約7.5万円）', '1か月に500ドル（約7.5万円）', '')).toEqual([]);
   });
   it('どの文の数字が材料に無いかを場所つきで返す', () => {
     const { display } = assembleDisplay('e1', reader, fullNeed, out({ list: '利用者30万人の道具' }));
