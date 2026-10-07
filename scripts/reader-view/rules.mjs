@@ -19,6 +19,8 @@ export const RULES = {
   OVERVIEW_SCALE: 'd.概要の先頭が規模でない',
   OVERVIEW_PRICE: 'd.概要に料金が2行以上',
   DUP_NUMBER: 'e.同じ数字が2か所以上',
+  DUP_PHRASE: 'e.同じ話が2か所以上',
+  OVERVIEW_SALES: 'd.概要に売り方の並べ立て',
   JARGON: 'f.説明のない略語',
   YEN: 'g.外貨に円換算が無い',
   LABEL_MISMATCH: 'h.項目名と中身の数字の種類が違う',
@@ -89,6 +91,7 @@ export function priceExtras(text) {
   return [...new Set([...text.matchAll(new RegExp(PRICE_EXTRA, 'g'))].map((m) => m[0]))];
 }
 const PRICE_MAX = 70;
+const PHRASE_LEN = 14;
 
 // ---- d. 概要 ----------------------------------------------------------------------
 const SCALE_WORD = /[0-9０-９][0-9０-９,，.．]*\s*(億|万|千)?\s*(人|名|社|件|円|ドル|ルピー|ユーロ|ポンド|ユーザー|会員|顧客|店|冊|部)/;
@@ -140,7 +143,9 @@ export function auditScreen(screen, { checkImages = true } = {}) {
   if (screen.list) places.push(['一覧', screen.list]);
   screen.overview.forEach((line, i) => places.push([i === 0 ? '概要1行目' : '概要', line]));
   for (const cell of screen.cells) if (cell.where === '数字の帯') places.push([`数字の帯「${cell.label}」`, cell.value]);
-  for (const s of screen.sections) if (!SKIP_FOR_TEXT.test(s.id) && s.id !== MEDIA) places.push([s.id, s.text]);
+  // 章末の出典の一覧（「出典1 example.com」の行）は読む人向けの文ではないので、文の検査から外す（出典の規則 b はリンクで見る）
+  const withoutSourceList = (text) => text.split('\n').filter((line) => !/^出典\s?\d+/.test(line.trim())).join('\n');
+  for (const s of screen.sections) if (!SKIP_FOR_TEXT.test(s.id) && s.id !== MEDIA) places.push([s.id, withoutSourceList(s.text)]);
 
   // a. 出どころの印（括弧の中・単独の印）
   for (const [where, text] of places) for (const tag of originTags(text)) add(where, RULES.ORIGIN, tag);
@@ -189,6 +194,35 @@ export function auditScreen(screen, { checkImages = true } = {}) {
     }
   }
   for (const [, entry] of seen) if (entry.places.size >= 2) add([...entry.places].join(' / '), RULES.DUP_NUMBER, `${entry.raw}（${entry.places.size}か所）`);
+
+  // e. 同じ話: 数字が無くても、同じ言い回し（記号・空白を除いて連続14字）が別の場所に出たら、同じ事を2回言っている
+  /** @type {Map<string, Set<string>>} */
+  const phrases = new Map();
+  for (const [where, text] of places) {
+    if (where === '一覧' || /^section-(details|facts-|reasoning|metrics)/.test(where)) continue;
+    const flat = text.replace(/[\s、。，．,.・:：（）()「」『』〜~\-—–]/g, '');
+    const windows = new Set();
+    for (let i = 0; i + PHRASE_LEN <= flat.length; i += 1) {
+      const w = flat.slice(i, i + PHRASE_LEN);
+      if ((w.match(/[0-9０-９]/g) ?? []).length > PHRASE_LEN / 2) continue; // 数字ばかりの並びは e の数字で見る（数字は実際の値のまま比べる）
+      windows.add(w);
+    }
+    for (const w of windows) phrases.set(w, (phrases.get(w) ?? new Set()).add(where));
+  }
+  /** @type {Map<string, string>} */
+  const reported = new Map(); // 場所の組ごとに、最初に重なった言い回しを1つだけ出す
+  for (const [w, at] of phrases) {
+    if (at.size < 2) continue;
+    const pair = [...at].join(' / ');
+    if (!reported.has(pair)) reported.set(pair, w);
+  }
+  for (const [pair, w] of reported) add(pair, RULES.DUP_PHRASE, `「${w}」`);
+
+  // d. 概要に売り方の並べ立て（「支払い方は、A、B、Cの3つ」）。売り方は「稼ぎ方」の欄に1回だけ書く
+  for (const line of screen.overview) {
+    const m = line.match(/(支払い方|払い方|売り方|稼ぎ方|収入源)(は|が)[^。]*(つ|種類)。?/);
+    if (m) add('概要', RULES.OVERVIEW_SALES, m[0]);
+  }
 
   // f. 説明のない略語（すぐ後ろが「（」なら説明つきとみなす）。事例名の中の略語は通す。
   for (const [where, text] of places) {

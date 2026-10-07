@@ -86,3 +86,24 @@ test('画像: 製品画面が1枚も出ていなければ落とす', () => {
   // アイコンだけでは足りない（docs/OWNER_INTENT.md 7章）
   assert.ok(rulesOf({ images: 0, icons: 1 }).includes(RULES.NO_IMAGE));
 });
+
+test('オーナーの例文: 同じ話の繰り返し「よく払い／ほぼ払わなかった」と、概要の「支払い方は…の3つ」を落とす', () => {
+  const hits = rulesOf({
+    overview: ['年に約70万人が読む、組版の本', '支払い方は、作者が作った文字の書体を買う、直接支払う、紙の本を買う、の3つ。'],
+    sections: [
+      { id: 'section-chapter-core', title: '戦略の核', text: '無料の流入を、元のサイトごとに見分ける（根拠: Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった）', links: [] },
+      { id: 'section-group-first', title: '最初の客', text: '1年目は、Cool Tools経由の読者はよく払い、Reddit経由はほとんど払わなかった。', links: [] },
+    ],
+  });
+  assert.ok(hits.includes(RULES.DUP_PHRASE));
+  assert.ok(hits.includes(RULES.OVERVIEW_SALES));
+  assert.ok(hits.includes(RULES.ORIGIN));
+});
+
+test('同じ話: 別々の話と、章末の出典の一覧は通す', () => {
+  const hits = rulesOf({ sections: [
+    { id: 'section-chapter-core', title: '戦略の核', text: '無料で読ませ、気に入った読者だけが払う形にした。\n出典1 indiehackers.com\n出典2 news.ycombinator.com', links: [] },
+    { id: 'section-group-first', title: '最初の客', text: '最初の客は、法律家向けの紙の本を買った弁護士だった。\n出典1 indiehackers.com\n出典2 news.ycombinator.com', links: [] },
+  ] });
+  assert.ok(!hits.includes(RULES.DUP_PHRASE));
+});

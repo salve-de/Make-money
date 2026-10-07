@@ -25,6 +25,8 @@ const DEFAULT_REASON: Record<string, string> = {
   [RULES.PRICE_EXTRA]: '事例の文の担当が、料金を「プラン名＋月額＋上限」だけに短くする',
   [RULES.PRICE_LONG]: '事例の文の担当が、料金を「プラン名＋月額＋上限」だけに短くする',
   [RULES.DUP_NUMBER]: '事例の文の担当が、同じ数字を1か所だけにする',
+  [RULES.DUP_PHRASE]: '事例の文の担当が、同じ話を1か所だけにする',
+  [RULES.OVERVIEW_SALES]: '事例の文の担当が、売り方を概要から稼ぎ方の欄へ移す',
   [RULES.JARGON]: '事例の文の担当が、略語を言い換えるか説明を添える',
   [RULES.YEN]: '画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える',
   [RULES.LABEL_MISMATCH]: '事例の文の担当が、項目名に合う数字を選ぶ',
