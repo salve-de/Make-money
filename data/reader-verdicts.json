@@ -71927,18 +71927,28 @@
    "claimText": "TechCrunchは競合として、Freelancer.com、GitHub Jobs、Guru.com、Upwork、Toptalを挙げた。"
   },
   "m1": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "has raised $1.6 million in seed funding",
    "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=FUNDING / 期間=2016-12のシード(POINT) / 金額=1600000 USD / 由来=ARTICLE"
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=FUNDING / 期間=2016-12のシード(POINT) / 金額=1600000 USD / 由来=ARTICLE",
+   "fix": {
+    "metric": {
+     "basis": "2016年12月のシード（このラウンド）"
+    }
+   }
   },
   "m2": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "had previously raised $1.2 million in early-stage funding",
    "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=FUNDING / 期間=2016-12までの早期資金（Techstars・500 Startups・個人）(CUMULATIVE) / 金額=1200000 USD / 由来=ARTICLE"
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=FUNDING / 期間=2016-12までの早期資金（Techstars・500 Startups・個人）(CUMULATIVE) / 金額=1200000 USD / 由来=ARTICLE",
+   "fix": {
+    "metric": {
+     "basis": "2016年12月より前の合計"
+    }
+   }
   },
   "m3": {
    "verdict": "SUPPORTED",
@@ -75819,11 +75829,12 @@
    "claimText": "公式は1,000社超が使うと掲げる。2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。"
   },
   "m1": {
-   "verdict": "SUPPORTED",
+   "verdict": "HELD",
    "quote": "70K a month in revenue",
    "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=2019-05（本人の投稿「月の売上70K」）(MONTH) / 金額=70000 USD / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=REVENUE / 期間=2019-05（本人の投稿「月の売上70K」）(MONTH) / 金額=70000 USD / 由来=SELF_REPORTED",
+   "reason": "出典が403で読めず、時点（2019年5月）を確かめられない。2019年7月の対談では月70,000ドル"
   },
   "m2": {
    "verdict": "SUPPORTED",
@@ -79045,11 +79056,14 @@
    "claimText": "Ruby on Rails の動画講座とコース。公式トップは動画825本・140時間超を掲げ、9万6千人超の開発者が学ぶと表示する。同じ会社がRails向けホスティングHatchboxと、SaaS用テンプレートJumpstart Railsも持つ。"
   },
   "f2": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "Team\n$19\n/ user\n/month\nGet Started\nMinimum 2 users",
    "sourceUrl": "https://gorails.com/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "個人プランは月19ドル（動画650本超とDiscordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。"
+   "checkedAt": "2026-10-07",
+   "claimText": "個人プランは月19ドル（動画650本超とDiscordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。",
+   "fix": {
+    "text": "個人プランは月19ドル（Discordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。"
+   }
   },
   "f3": {
    "verdict": "SUPPORTED",
@@ -135413,16 +135427,12 @@
    "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2022年9月の累計（250万ドル超）(CUMULATIVE) / 金額=2500000 USD / 由来=SELF_REPORTED"
   },
   "m2": {
-   "verdict": "PARTIAL",
+   "verdict": "HELD",
    "quote": "Refactoring UI ended up grossing over $1.35M",
-   "fix": {
-    "metric": {
-     "period": "累計（記事に期間の明記なし）、135万ドル超"
-    }
-   },
    "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2019年初め（終点は記事に明記なし）、135万ドル超(CUMULATIVE) / 金額=1350000 USD / 由来=THIRD_PARTY"
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2019年初め（終点は記事に明記なし）、135万ドル超(CUMULATIVE) / 金額=1350000 USD / 由来=THIRD_PARTY",
+   "reason": "時点が記事に無い（金額は出典どおり）。一覧には本人の最新値を出す"
   }
  },
  "ent_tnyplt_f2fb3c69": {
@@ -182020,25 +182030,46 @@
    "claimText": "一部の読者から「寄付」と呼ぶのはおかしいと言われ、本人は直接の支払いの呼び方を改めた。慈善活動ではなく、書き手と読み手の経済関係として説明している。"
   },
   "m1": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "I got 321 pay­ments to­tal­ing $3676.",
    "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=公開1年目（〜2014年7月）の直接の支払い 321件(YEAR) / 金額=3676 USD / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=REVENUE / 期間=公開1年目（〜2014年7月）の直接の支払い 321件(YEAR) / 金額=3676 USD / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "measure": "OTHER",
+     "label": "直接の支払い（フォントの売上を除く）",
+     "period": "公開1年目（2013年8月〜2014年7月）、321件"
+    }
+   }
   },
   "m2": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "I col­lected 244 pay­ments to­tal­ing $3030.",
    "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=公開2年目の直接の支払い 244件(YEAR) / 金額=3030 USD / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=REVENUE / 期間=公開2年目の直接の支払い 244件(YEAR) / 金額=3030 USD / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "measure": "OTHER",
+     "label": "直接の支払い（フォントの売上を除く）",
+     "period": "公開2年目（〜2015年7月）、244件"
+    }
+   }
   },
   "m3": {
-   "verdict": "SUPPORTED",
+   "verdict": "PARTIAL",
    "quote": "I col­lected 489 pay­ments to­tal­ing $5472",
    "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=公開3年目（〜2016年）の直接の支払い 489件(YEAR) / 金額=5472 USD / 由来=SELF_REPORTED"
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=REVENUE / 期間=公開3年目（〜2016年）の直接の支払い 489件(YEAR) / 金額=5472 USD / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "measure": "OTHER",
+     "label": "直接の支払い（フォントの売上を除く）",
+     "period": "公開3年目（〜2016年7月）、489件"
+    }
+   }
   },
   "m4": {
    "verdict": "SUPPORTED",

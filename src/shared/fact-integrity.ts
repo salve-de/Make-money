@@ -10,6 +10,9 @@
  */
 import { extractAmounts, unsupportedNumbers, materialNumbers, type DisplayFiles, type LiveReader } from './display-build';
 import { textFingerprint } from './list-lines';
+import { metricWhen } from './metric-when';
+
+export { metricWhen };
 
 export interface IntegrityMetric {
   id: string;
@@ -24,21 +27,6 @@ export interface IntegrityMetric {
   basis?: string;
   sourceId: string;
   statedAt?: string;
-}
-
-const DATE = /((?:19|20)\d{2})(?:\s*[-年/.]\s*(\d{1,2})(?!\d))?/g;
-
-/** 数字の時点（'YYYY' か 'YYYY-MM'）。statedAt を優先し、無ければ period の最後の日付（「A〜B」なら終わりの側）。無ければ null */
-export function metricWhen(m: Pick<IntegrityMetric, 'period' | 'statedAt'>): string | null {
-  for (const text of [m.statedAt, m.period]) {
-    if (!text) continue;
-    const hits = [...text.normalize('NFKC').matchAll(DATE)];
-    const last = hits.at(-1);
-    if (!last) continue;
-    const month = last[2] ? Number(last[2]) : 0;
-    return month >= 1 && month <= 12 ? `${last[1]}-${String(month).padStart(2, '0')}` : last[1];
-  }
-  return null;
 }
 
 /** 売上の一部・売上でない数字を表す語。measure=REVENUE（画面で「年商」「月商」「累計売上」になる）に付いていたら、名前を付け替える */
