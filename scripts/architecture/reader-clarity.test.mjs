@@ -11,6 +11,7 @@ const ids = (text) => findUnclear(text, rules).map((h) => h.rule);
 test('オーナーが怒った3例（A・B・C）を落とす', () => {
   assert.ok(ids('根拠: Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった').includes('freq-pay'));
   assert.ok(ids('根拠: Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった').includes('almost-never-pay'));
+  for (const neg of ['ほとんど買わなかった', 'ほぼ払わずに離れた', 'ほとんど購入しなかった']) assert.ok(ids(neg).includes('almost-never-pay'), neg);
   assert.ok(ids('広告のない、読者の支払いで支える、組版（文字の組み方）の本').includes('modifier-chain'));
   assert.ok(ids('支払い方は、作者が作った文字の書体を買う、直接支払う、紙の本Typography for Lawyersを買う、の3つ。').includes('trailing-count'));
   assert.match(describeUnclear(findUnclear('Cool Tools経由はよく払い', rules)[0]), /払う人が多かった/);
@@ -34,5 +35,8 @@ test('意味の取れる文は落とさない（誤検出の見本）', () => {
     '作業管理、時間記録、請求書、顧客専用画面、GitHub・GitLab連携を備える',
     'カメラ・編集ソフト・制作の技術なしで作れ、175以上の言語・方言に翻訳できる',
     'マーケティングの担当が使う',
+    '店の商品をほとんど買った',
+    '会員はほぼ払った額の分だけ使った',
+    '注文の多くは、ほとんど購入した人の紹介だった',
   ]) assert.deepEqual(ids(text), [], text);
 });
