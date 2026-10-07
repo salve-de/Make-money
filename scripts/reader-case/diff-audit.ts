@@ -13,7 +13,7 @@
 import { spawn, spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { basename, join } from 'node:path';
 import { argValue, loadEntities, loadReaders, readIdsFile } from './load-readers';
 import type { AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
@@ -98,11 +98,15 @@ async function main() {
   const parallel = Number(argValue('--parallel') ?? 4);
   const agent = argValue('--agent') ?? process.env.DIFF_AUDIT_AGENT ?? 'codex';
   // 束の名前は 999999＋手元の時刻（他の監査の束と同じ形）。記録はこの名前の並びで「新しい監査」を決めるので、必ず今までの束より後に並ぶ
+  // 前回が別のAI待ち（終了コード75）で止まった時は、その束を使い続ける（置かれた結果を受理するため）。全部受理したら捨てる
+  const pendingFile = `data/pipeline/diff-audit-${idsFile ? basename(idsFile).replace(/[^\w.-]/g, '_') : 'all'}.tag`;
+  const pending = existsSync(pendingFile) ? readFileSync(pendingFile, 'utf8').trim() : '';
   const now = new Date(); const two = (n: number) => String(n).padStart(2, '0');
-  const tag = argValue('--tag') ?? `999999${two(now.getFullYear() % 100)}${two(now.getMonth() + 1)}${two(now.getDate())}${two(now.getHours())}${two(now.getMinutes())}${two(now.getSeconds())}`;
+  const tag = argValue('--tag') ?? (pending || `999999${two(now.getFullYear() % 100)}${two(now.getMonth() + 1)}${two(now.getDate())}${two(now.getHours())}${two(now.getMinutes())}${two(now.getSeconds())}`);
   if (!/^999999\d+$/.test(tag) || !Number.isSafeInteger(parallel) || parallel < 1 || !['codex', 'claude'].includes(agent)) throw new Error('引数が不正');
   const newest = existsSync('data/audit') ? readdirSync('data/audit').filter((f) => /^in-\d+\.json$/.test(f)).sort().at(-1) : undefined;
-  if (newest && `in-${tag}001.json` <= newest) throw new Error(`束の名前 in-${tag}001 が既存の ${newest} より前に並ぶ（監査記録が新しい監査と見なさない）。--tag を大きくする`);
+  const resumed = !!pending && tag === pending && existsSync('data/audit') && readdirSync('data/audit').some((f) => f.startsWith(`in-${tag}`));
+  if (!resumed && newest && `in-${tag}001.json` <= newest) throw new Error(`束の名前 in-${tag}001 が既存の ${newest} より前に並ぶ（監査記録が新しい監査と見なさない）。--tag を大きくする`);
   const verdicts = JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile;
   const analysis = withReflectedAnalysis(existsSync('data/reader-analysis.json') ? JSON.parse(readFileSync('data/reader-analysis.json', 'utf8')) as AnalysisFile : {}, readReflectState());
   const audits = readPublicationAudits();
@@ -111,7 +115,14 @@ async function main() {
   // 言い回しだけの直し（数字・年月日・固有名が増えていない）は、機械の照合で監査済みのまま。別のAIには回さない
   const paraphrased: Record<string, string[]> = {};
   mkdirSync('data/audit', { recursive: true });
-  for (const [id, reader] of loadReaders(ids)) {
+  if (resumed) {
+    for (const f of readdirSync('data/audit').filter((x) => x.startsWith(`in-${tag}`) && x.endsWith('.json')).sort()) {
+      const c = (JSON.parse(readFileSync(`data/audit/${f}`, 'utf8')) as { cases: { entityId: string; review: string[] }[] }).cases[0];
+      bundles.push({ name: f.replace(/\.json$/, ''), id: c.entityId, items: c.review });
+    }
+    say(`前回の束 ${tag} を使い続ける（${bundles.length} 束）`);
+  }
+  for (const [id, reader] of resumed ? [] : loadReaders(ids)) {
     const entity = entities.get(id);
     if (!entity) continue;
     const prepared = preparePublicationReader(reader, verdicts[id], analysis[id]);
@@ -135,8 +146,13 @@ async function main() {
   }
   const system = `${readFileSync(AUDIT_PROMPT, 'utf8')}\n${DIFF_NOTE}`;
   mkdirSync('data/runner/inbox/audit', { recursive: true });
+  mkdirSync('data/pipeline', { recursive: true });
+  writeFileSync(pendingFile, `${tag}\n`);
   await pool(bundles, parallel, async (b) => {
     const t = Date.now();
+    const out = b.name.replace(/^in-/, 'out-');
+    // 受理済み・結果が置かれている束は、もう一度AIに回さない
+    if (existsSync(`data/audit/${out}.json`) || existsSync(`data/runner/inbox/audit/${out}.json`)) return;
     try {
       const result = clean(await callAuditor(agent, system, readFileSync(`data/audit/${b.name}.json`, 'utf8')));
       writeFileSync(`data/runner/inbox/audit/${b.name.replace(/^in-/, 'out-')}.json`, JSON.stringify(result));
@@ -152,9 +168,12 @@ async function main() {
     const m = /^受理 \S+ (\S+)/.exec(line);
     if (m) summary.accepted.push(m[1]);
   }
+  for (const b of bundles) if (!summary.accepted.includes(b.name) && existsSync(`data/audit/${b.name.replace(/^in-/, 'out-')}.json`)) summary.accepted.push(b.name);
+  summary.failed = summary.failed.filter((n) => !summary.accepted.includes(n));
   for (const b of bundles) if (!summary.accepted.includes(b.name) && !summary.failed.includes(b.name)) summary.failed.push(b.name);
   summary.seconds = Math.round((Date.now() - started) / 1000);
   console.log(JSON.stringify(summary));
+  if (!summary.failed.length) rmSync(pendingFile, { force: true });
   if (summary.failed.length) {
     say(`受理されなかった束: ${summary.failed.join(', ')}。指示書を出す（別のAIに実行させて結果を置き、同じ命令を再実行）`);
     spawnSync(process.execPath, ['--import', 'tsx', 'scripts/reader-case/runner/cli.ts', 'step', 'audit', '--prefix', tag], { stdio: 'inherit' });

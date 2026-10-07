@@ -6,7 +6,7 @@ import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { contentHash, evaluateForRelease, evaluatePublication, parseFinishedManifest, preparePublicationReader, publicationHash, publicationItemHashes, unauditedItems, withoutUnaudited, type PublicationInput } from './reader-case/publication-evaluation';
 import { applyAuditDocument, auditCaseEntry } from './reader-case/publication-audit';
-import { factTokens, newFactTokens } from './reader-case/paraphrase-check';
+import { factTokens, formulaSkeleton, newFactTokens } from './reader-case/paraphrase-check';
 import { checkCase, missingRequired } from './reader-case/analysis-lib';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
 import { identifyEntity, normalizeEntityName } from './pipeline/entity-identity.mjs';
@@ -140,7 +140,7 @@ test('paraphrase only: an analysis reworded with no new number, date or name sta
   assert.equal(ok.publishable, true, ok.reasons.join(','));
   assert.deepEqual(ok.paraphrased, ['analysis:a-take_home']); assert.deepEqual(ok.unaudited, []);
   // 数字を1つ変えると、その項目だけが監査待ちになって隠れる
-  for (const [text, formula] of [['手残りは、推定で約12円と見られる。', '20 - 10 = 10'], ['事業の手残りは推定約10円。', '20 - 8 = 12'], ['Stripe 経由の手残りは推定約10円。', '20 - 10 = 10']]) {
+  for (const [text, formula] of [['手残りは、推定で約12円と見られる。', '20 - 10 = 10'], ['事業の手残りは推定約10円。', '20 - 8 = 12'], ['事業の手残りは推定約10円。', '20 + 10 = 10'], ['Stripe 経由の手残りは推定約10円。', '20 - 10 = 10']]) {
     const changed = structuredClone(i); changed.reader.analysis[0].text = text; changed.reader.analysis[0].formula = formula;
     const r = evaluatePublication(changed, receipt);
     assert.deepEqual(r.unaudited, ['analysis:a-take_home'], text);
@@ -154,12 +154,16 @@ test('paraphrase only: an analysis reworded with no new number, date or name sta
 });
 
 test('paraphrase check extracts numbers with units, dates and names', () => {
-  assert.deepEqual(factTokens('2024年に月額$29、Hacker Newsで1,200人。'), ['2024年', '29', '1200人', 'hacker', 'news']);
+  assert.deepEqual(factTokens('2024年に月額$29、Hacker Newsで1,200人。'), ['2024年', '$29', '1200人', 'hacker', 'news']);
   assert.deepEqual(newFactTokens('11月に始めた。', '1月に始めた。', []), ['11月']);
   assert.deepEqual(newFactTokens('6千ドルの売上。', '6万ドルの売上。', []), ['6千ドル']);
   assert.deepEqual(newFactTokens('Hacker News で広がった。', 'ネットで広がった。', ['Hacker Newsに載った。']), []);
   assert.deepEqual(newFactTokens('シャープ製の端末。', '端末。', []), ['シャープ']);
   assert.deepEqual(newFactTokens('約30%が残る。', '3割ほどが残る。', ['利益率30％']), []);
+  // 通貨記号を変えた・式の演算を変えた時は、言い回しの直しとみなさない
+  assert.deepEqual(newFactTokens('月額¥29。', '月額$29。', []), ['¥29']);
+  assert.equal(formulaSkeleton('売上 20 - 原価 10 = 10'), formulaSkeleton('売上20−原価10＝10'));
+  assert.notEqual(formulaSkeleton('20 - 10 = 10'), formulaSkeleton('20 + 10 = 10'));
 });
 
 test('case BLOCK, malformed/duplicate review, legacy and missing audit cannot approve', () => {

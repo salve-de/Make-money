@@ -8,7 +8,8 @@
 
 // 数字の後ろの単位（倍率・通貨・年月日・人数など）。単位まで含めて1語にする（「1月」と「3月」、「6万」と「6千」を区別する）
 const UNIT = '(?:兆|億|万|千|百)?(?:ドル|円|ユーロ|ポンド|ルピー|%|％|割|倍|年|か月|ヶ月|カ月|月|日|人|件|社|本|個|回|時間|分|秒|週|歳|店|国|ページ|校|曲|台)?';
-const NUMBER = new RegExp(`\\d+(?:[.,]\\d+)*${UNIT}`, 'g');
+// 前に付く通貨記号も語に含める（「$29」と「¥29」を区別する）
+const NUMBER = new RegExp(`[$¥€£₹]?\\d+(?:[.,]\\d+)*${UNIT}`, 'g');
 const LATIN = /[A-Za-z][A-Za-z0-9&'’+.-]*[A-Za-z0-9+]|[A-Za-z]/g;
 const KATAKANA = /[ァ-ヺー・]{2,}/g;
 
@@ -33,5 +34,11 @@ export function newFactTokens(edited: string, audited: string, facts: readonly s
   const known = new Set(factTokens([audited, ...facts].join('\n')));
   const haystack = normalize([audited, ...facts].join('\n')).toLowerCase();
   // 数字は単位まで同じ語が無ければ新しい（「11月」に「1月」が含まれる、のような部分一致では通さない）
-  return factTokens(edited).filter((tok) => !known.has(tok) && (/^\d/.test(tok) || !haystack.includes(tok.toLowerCase())));
+  return factTokens(edited).filter((tok) => !known.has(tok) && (/^[$¥€£₹]?\d/.test(tok) || !haystack.includes(tok.toLowerCase())));
+}
+
+/** 式の骨格（数字・通貨記号・演算子の並び）。語の言い換えだけなら同じ、引き算を足し算にした・数字を入れ替えた時は違う */
+export function formulaSkeleton(formula: string | undefined): string {
+  const t = normalize(formula ?? '').replace(/[−–—]/g, '-').replace(/[×✕]/g, '*').replace(/÷/g, '/');
+  return (t.match(/[$¥€£₹]|\d+(?:[.,]\d+)*|[+\-*/=%<>≒≈]/g) ?? []).join(' ');
 }

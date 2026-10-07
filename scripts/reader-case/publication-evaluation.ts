@@ -5,7 +5,7 @@ import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
 import { checkCase, citesRestrictedSource, reflectAnalysis, type StoredAnalysis } from './analysis-lib';
 import { THIN_PREFIX, displayMinimumProblems } from '../../src/shared/display-contract';
 import { hasText, metricLine, quoteInText, type SourceCacheRecord, type VerdictsFile } from './verify-lib';
-import { newFactTokens } from './paraphrase-check';
+import { formulaSkeleton, newFactTokens } from './paraphrase-check';
 
 export const PUBLICATION_AUDITS_FILE = 'data/publication-audits.json';
 export interface PublicationSource {
@@ -128,6 +128,7 @@ export function unauditedItems(input: PublicationInput, audit: PublicationAudit 
     const a = key.startsWith('analysis:') ? input.reader.analysis.find((x) => `analysis:${x.id}` === key) : undefined;
     const body = approved?.body;
     if (a && body && analysisItemHash({ ...a, text: body.text, formula: body.formula }, now) === approved.hash &&
+        formulaSkeleton(a.formula) === formulaSkeleton(body.formula) &&
         !newFactTokens([a.text, a.formula ?? ''].join('\n'), [body.text, body.formula ?? ''].join('\n'), facts).length) {
       paraphrased.push(key);
       continue;
