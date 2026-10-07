@@ -60,7 +60,7 @@ function metricAttrs(item: DiscoveryCase): Record<string, string> {
   return item.resultMetricId ? { "data-metric": item.resultMetricId } : {};
 }
 
-const ROW_GRID = "lg:grid-cols-[minmax(0,1fr)_136px_72px] xl:grid-cols-[minmax(0,1fr)_88px_136px_72px]";
+const ROW_GRID = "lg:grid-cols-[minmax(0,1fr)_136px] xl:grid-cols-[minmax(0,1fr)_88px_136px]";
 
 function ResultBlock({ item }: { item: DiscoveryCase }) {
   return (
@@ -104,9 +104,6 @@ export function DiscoveryRow({
         <span className={`term-num ${valueTone(item)}`}>{resultText(item)}</span>
         <span className="ml-1 text-xs text-term-label">{item.resultLabel}</span>
         {item.resultEvidenceLabel && <span className={`block text-xs lg:hidden ${evidenceTone(item.resultEvidenceLabel)}`}>{item.resultEvidenceLabel}</span>}
-      </span>
-      <span className="hidden truncate text-xs lg:block" {...metricAttrs(item)}>
-        {item.resultEvidenceLabel && <span className={evidenceTone(item.resultEvidenceLabel)}>{item.resultEvidenceLabel}</span>}
       </span>
     </button>
   );
@@ -416,7 +413,6 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
             <span>{UI.LIST_COL_NAME}</span>
             <span className="hidden xl:block">{UI.LIST_COL_SECTOR}</span>
             <span className="text-right">{UI.LIST_COL_AMOUNT}</span>
-            <span>{UI.LIST_COL_ORIGIN}</span>
           </div>
 
           <div className="min-h-0 flex-1 overflow-y-auto">
