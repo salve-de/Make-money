@@ -12,7 +12,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const FOREIGN = /(ドル|\$|ルピー|ラック|クロール|ユーロ|ポンド|INR|USD|EUR|GBP)/;
-const ABSENCE = /(未確認|書かれていない|公開されていない|記載(が)?(ない|なし)|確認できない|わからない|分からない|不明|非公開)/;
+const ABSENCE = /(未確認|書かれていない|公開されていない|記載(が)?(ない|なし)|確認できない|わからない|分からない|不明|非公開(?![版のなでに]))/;
 const HEDGE = /(と語る|と話す|と説明している|と書く|と述べる)/;
 const read = (file) => JSON.parse(readFileSync(resolve(process.cwd(), file), 'utf8'));
 const problems = [];
@@ -40,7 +40,21 @@ for (const line of read('data/detail-lines.json')) {
   const item = line.analysisId.replace(/^a-/, '').toUpperCase();
   const rule = contract[item];
   if (!rule) continue;
+  if (rule.mustNot && new RegExp(rule.mustNot).test(`${line.answer} ${line.note ?? ''}`)) problems.push(`detail-lines ${line.entityId}/${line.analysisId}: 項目「${rule.question}」に、別の章の話（結果・数字）が混ざっている「${line.answer.slice(0, 30)}…」`);
+  for (const all of rule.mustAll ?? []) if (!new RegExp(all).test(`${line.answer} ${line.note ?? ''}`)) problems.push(`detail-lines ${line.entityId}/${line.analysisId}: 項目「${rule.question}」の片方が無い（/${all}/）「${line.answer.slice(0, 30)}…」`);
   if (!new RegExp(rule.must).test(`${line.answer} ${line.note ?? ''}`)) problems.push(`detail-lines ${line.entityId}/${line.analysisId}: 項目「${rule.question}」の答えになっていない「${line.answer.slice(0, 30)}…」`);
+}
+// 6. 成功の秘訣（data/success-points.json）。見出し＝やった事（40字以内）、本文＝根拠の事実（140字以内）、4〜5点。
+const successPoints = read('data/success-points.json');
+for (const entry of successPoints) {
+  const list = entry.points ?? [];
+  if (list.length < 3 || list.length > 5) problems.push(`success-points ${entry.entityId}: ${list.length}点（3〜5点にする）`);
+  for (const point of list) {
+    const where = `success-points ${entry.entityId}/${point.factId}`;
+    check(where, 'head', point.head, 40);
+    check(where, 'body', point.body, 140);
+    if (/(しよう|しろ|せよ|してください|すべき)/.test(point.head + point.body)) problems.push(`${where}: 真似の手順（命令形）になっている`);
+  }
 }
 for (const line of read('data/list-lines.json')) check(`list-lines ${line.entityId}`, 'text', line.text, 45);
 
