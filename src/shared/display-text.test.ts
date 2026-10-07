@@ -229,6 +229,16 @@ describe('withYenApprox', () => {
     expect(withYenApprox('$29〜$99')).toBe('$29〜$99（約4,350円〜1万4,850円）');
     expect(withYenApprox('1〜2万ドル')).toBe('1〜2万ドル（約150万円〜300万円）');
   });
+  it('範囲の下端に桁が無く、上端の桁を当てると逆転する時は、下端を書かれたままの額にする', () => {
+    expect(withYenApprox('$900〜1K')).toBe('$900〜1K（約13万5,000円〜15万円）');
+    expect(withYenApprox('$2,500〜3K')).toBe('$2,500〜3K（約37万5,000円〜45万円）');
+    expect(withYenApprox('$1-2M')).toBe('$1-2M（約1.5億円〜3億円）');
+  });
+  it('ISO の略号の前の桁（k・K・M・B）も読む', () => {
+    expect(withYenApprox('25M USD')).toBe('25M USD（約37.5億円）');
+    expect(withYenApprox('7K USD')).toBe('7K USD（約105万円）');
+    expect(withYenApprox('3M EUR')).toBe('3M EUR（約5億円）');
+  });
   it('円の無い括弧の補足が続く時は、その括弧の頭に入れる', () => {
     expect(withYenApprox('月8ドル（商品10点・保存200MB）')).toBe('月8ドル（約1,200円、商品10点・保存200MB）');
   });

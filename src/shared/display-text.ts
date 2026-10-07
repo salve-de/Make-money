@@ -687,7 +687,7 @@ const PRE_SCALE = '(?:億|万|[kK](?![A-Za-z])|M(?![A-Za-z])|B(?![A-Za-z]))';
 // 範囲（「$10–$50」「$10-50」「29〜99ドル」）は両端をまとめて1つの金額として拾い、円も範囲で添える
 const FOREIGN_AMOUNT = new RegExp(
   `(?<pc>${PRE_CUR})(?<pn>${NUM})(?<ps>${PRE_SCALE})?(?:${RANGE}(?:${PRE_CUR})?(?<pn2>${NUM})(?<ps2>${PRE_SCALE})?)?`
-  + `|(?:(?<sn0>${NUM})\\s?(?<ss0>億|万)?${RANGE})?(?<sn>${NUM})\\s?(?<ss>億|万)?\\s?(?<sc>ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
+  + `|(?:(?<sn0>${NUM})\\s?(?<ss0>${PRE_SCALE})?${RANGE})?(?<sn>${NUM})\\s?(?<ss>${PRE_SCALE})?\\s?(?<sc>ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
 const SCALE: Record<string, number> = { 億: 1e8, 万: 1e4, k: 1e3, K: 1e3, M: 1e6, B: 1e9 };
 export function yenText(yen: number): string {
   const n = Math.round(yen);
@@ -717,7 +717,13 @@ export function withYenApprox(text: string): string {
     const value = (num: string, scale: string | undefined) => Number(num.replace(/,/g, '')) * (SCALE[scale ?? ''] ?? 1);
     const amount = g.pn ? value(g.pn, g.ps) : value(g.sn, g.ss);
     // 範囲の下端。後ろに桁（万・k など）が付くのが上端だけの時は、下端にも同じ桁を当てる（「1〜2万ドル」）
-    const low = g.pn2 ? value(g.pn, g.ps ?? g.ps2) : g.sn0 ? value(g.sn0, g.ss0 ?? g.ss) : null;
+    // ただし桁を当てると下端が上端を超える時（「$900〜1K」「$2,500〜3K」）は、下端は書かれたままの額にする
+    const lowOf = (num: string, own: string | undefined, upperNum: string, upperScale: string | undefined) => {
+      if (own || !upperScale) return value(num, own);
+      const inherited = value(num, upperScale);
+      return inherited <= value(upperNum, upperScale) ? inherited : value(num, undefined);
+    };
+    const low = g.pn2 ? lowOf(g.pn, g.ps, g.pn2, g.ps2) : g.sn0 ? lowOf(g.sn0, g.ss0, g.sn, g.ss) : null;
     const high = g.pn2 ? value(g.pn2, g.ps2) : amount;
     if (!rate || !Number.isFinite(high) || high <= 0 || (low !== null && (!Number.isFinite(low) || low <= 0))) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
