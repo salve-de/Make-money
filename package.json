@@ -49,7 +49,7 @@
     "prompt:collect": "node scripts/generate-collection-prompt.mjs",
     "typecheck": "next typegen && tsc --noEmit && pnpm schemas:check",
     "test": "vitest run && pnpm test:foundation && pnpm test:runner && pnpm test:architecture && pnpm test:recovery",
-    "test:architecture": "node --test scripts/architecture/check-deploy-config.test.mjs scripts/architecture/check-rights-upstream-release.test.mjs scripts/architecture/check-public-fact-upstream-release.test.mjs scripts/architecture/check-worker-secrets.test.mjs scripts/architecture/check-api-input.test.mjs scripts/architecture/check-runtime-schema.test.mjs scripts/architecture/check-index-safety.test.mjs scripts/architecture/ingest-hazard-guard.test.mjs scripts/ops/check-freshness.test.mjs scripts/architecture/natural-japanese.test.mjs scripts/architecture/reader-clarity.test.mjs scripts/reader-view/rules.test.mjs",
+    "test:architecture": "node --test scripts/architecture/check-deploy-config.test.mjs scripts/architecture/check-rights-upstream-release.test.mjs scripts/architecture/check-public-fact-upstream-release.test.mjs scripts/architecture/check-worker-secrets.test.mjs scripts/architecture/check-api-input.test.mjs scripts/architecture/check-runtime-schema.test.mjs scripts/architecture/check-index-safety.test.mjs scripts/architecture/ingest-hazard-guard.test.mjs scripts/ops/check-freshness.test.mjs scripts/architecture/natural-japanese.test.mjs scripts/architecture/reader-clarity.test.mjs scripts/reader-view/rules.test.mjs scripts/reader-case/display-build-parallel.test.mjs",
     "test:runner": "node --import tsx --test scripts/reader-case/runner/*.test.ts",
     "test:foundation": "node --import tsx --test scripts/*.test.ts && node --test scripts/gemini-*.test.mjs scripts/openai-*.test.mjs",
     "test:e2e": "playwright test",
@@ -64,7 +64,8 @@
     "foundation:typed:preflight": "node --import tsx scripts/foundation-typed-preflight.ts",
     "foundation:rights:audit": "node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/audit-commercial-rights-r2.ts",
     "ui:audit": "node scripts/ui-audit/capture.mjs",
-    "text:templates": "node --import tsx scripts/text/build-template-phrases.ts"
+    "text:templates": "node --import tsx scripts/text/build-template-phrases.ts",
+    "display:build:parallel": "node scripts/reader-case/display-build-parallel.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",
