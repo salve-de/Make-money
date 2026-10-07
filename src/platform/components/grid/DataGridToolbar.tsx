@@ -132,7 +132,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             <button
               type="button"
               onClick={onOpenScreener}
-              className={`${btn} min-h-11 flex-1 justify-center text-sm sm:flex-none lg:min-h-8 lg:text-xs ${hasActiveScreener || (hideSearch && hasSearchTerm) ? btnOn : btnOff}`}
+              className={`${btn} min-h-11 flex-1 justify-center text-sm sm:flex-none lg:min-h-8 lg:text-xs xl:hidden ${hasActiveScreener || (hideSearch && hasSearchTerm) ? btnOn : btnOff}`}
               title="業種や規模などの条件を設定"
             >
               <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
@@ -146,7 +146,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
                 type="button"
                 onClick={onResetScreener}
                 aria-label="絞り込み条件をすべて解除"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-term-line text-term-muted hover:bg-term-head hover:text-term-fg-strong lg:h-8 lg:w-8"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-sm border border-term-line text-term-muted hover:bg-term-head hover:text-term-fg-strong lg:h-8 lg:w-8 xl:hidden"
               >
                 <X className="h-4 w-4" />
               </button>
