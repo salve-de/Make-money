@@ -29,6 +29,7 @@
  * 落ちたら理由をAIに返して直させる（最大 --attempts 回）。通らなければ何も書かず、data/pipeline/display-build-failures.jsonl に理由を残す。
  * 基準は docs/CASE_TEXT_STANDARD.md、docs/CASE_CHAPTER_PROCESS.md、docs/case-chapter/CONVERT_PROMPT.md。
  */
+import { exitWithUsageIfHelp } from './usage';
 import { spawnSync } from 'node:child_process';
 import { appendFileSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -50,6 +51,7 @@ import { describeUnclear, findUnclear, loadClarityRules } from '../architecture/
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const read = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
 const has = (flag: string) => process.argv.includes(flag);
+exitWithUsageIfHelp(process.argv, fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(argValue('--data-dir') ?? join(ROOT, 'data'));
 const REAL_DATA = DATA_DIR === join(ROOT, 'data');
 const DRY = has('--dry-run');
