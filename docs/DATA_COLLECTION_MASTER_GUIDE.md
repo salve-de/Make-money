@@ -345,7 +345,9 @@ GitHubのmainにある docs/OWNER_INTENT.md（https://raw.githubusercontent.com/
 - 出発点: 開始時の元手・人数・準備期間・最初の数字。
 - 価格の変遷: 古い料金と今の料金（保存版の記録を使ってよい）。
 - 客の生の声: 評価と不満の両方。出典URLと日付つき。
-- 外貨は円に換算して添える。プラス面だけ出す（運・資金・続くか・作業時間は調べない）。
+- 外貨は円に換算して添える。
+
+集める範囲は広いまま変えない（元手・資金・続くか・作業時間・外部条件・依存リスクも `docs/OWNER_INTENT.md` どおり集める）。章に出すかどうかは、集めたあとの書き直しの段階で選ぶ（今の章はプラス面だけ）。
 
 集めたあとの書き直し・別AIの確認・検査・変更の申請は [`CASE_CHAPTER_PROCESS.md`](./CASE_CHAPTER_PROCESS.md)。調査の手順書は `docs/case-chapter/RESEARCH_PROMPT.md`。章がまだ無い事例は `pnpm case-chapters:todo` で出る（毎日の定期実行の最後にも表示される）。画面に出る文は、必ず読む人が1回で分かる言葉にする（`data/reader-language.json` が検査で自動確認する）。
 
