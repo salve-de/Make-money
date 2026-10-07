@@ -21,6 +21,8 @@ import { gunzipSync } from 'node:zlib';
 import { pathToFileURL } from 'node:url';
 import { parseFinancialEntitiesResiliently } from '../../src/shared/financial-entity-schema';
 import ENTITY_SCHEMA from '../../src/shared/schemas/financial-entity.json';
+import { applyNumberContract, basicFactTextCheck, type FactTextCheck } from './number-contract';
+import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../architecture/natural-japanese.mjs';
 
 export const ADDITIONS_DIR = 'data/entity-additions';
 export const REVIEW_TAG = '収集事例';
@@ -75,7 +77,7 @@ const WORK_NOTE = /本記録は|一時保存先|中央台帳|R2|本番表示|調
 /** 未取得・未確認の断り（観測ではなく、空欄の理由） */
 const UNKNOWN_NOTE = /未取得|未確認|確認できず|確認できない|見つからなかった/;
 
-export function normalizeResearchRecord(input: Rec): { record: Rec; changes: string[]; workNotes: string[] } {
+export function normalizeResearchRecord(input: Rec, textChecks: readonly FactTextCheck[] = [basicFactTextCheck]): { record: Rec; changes: string[]; workNotes: string[] } {
   const r = structuredClone(input) as Rec;
   const changes: string[] = [];
   const num = (o: Rec, k: string, flag: string | null, where: string) => {
@@ -195,6 +197,8 @@ export function normalizeResearchRecord(input: Rec): { record: Rec; changes: str
       delete r.essence; changes.push(`essence: 空欄あり→${filled.length ? 'essencePartial へ移して' : ''}欄を外す`);
     }
   }
+  // 数字の決まり（種類・時点・引用・出典・取得日）。満たさない数字だけを unconfirmedFacts に分ける（事例は止めない。0や仮の数で埋めない）
+  changes.push(...applyNumberContract(r, textChecks).changes);
   // 残りの空値（null）は、目録の形の定義に合わせて一律に扱う: 任意の欄は外し、必須の文字列は空文字、必須の数は 0（数の欄の未確認の印は上で付けた）
   nullsBySchema(r, ENTITY_SCHEMA as SchemaNode, '', changes);
   if (changes.length) r.normalizedFromResearch = changes;
@@ -251,13 +255,13 @@ export function collect(manifestPath: string, artifactsDir: string, ids: string[
  * 新しく調べた事例の記録（調査担当が書いた記録の配列 JSON）から足す。
  * 出所は調査ファイルのパスと指紋。記録ごとの detailsHash は記録そのものの指紋、artifactSha256 は調査ファイルの指紋。
  */
-export function collectFromResearch(researchPath: string, now = new Date()): AdditionFile {
+export function collectFromResearch(researchPath: string, now = new Date(), textChecks: readonly FactTextCheck[] = [basicFactTextCheck]): AdditionFile {
   const text = readFileSync(researchPath, 'utf8');
   const raw = JSON.parse(text) as unknown;
   const list = (Array.isArray(raw) ? raw : [raw]) as Record<string, unknown>[];
   if (!list.length) throw new Error('記録が1件も無い');
   const records: AdditionFile['records'] = list.map((raw) => {
-    const norm = normalizeResearchRecord(raw);
+    const norm = normalizeResearchRecord(raw, textChecks);
     const { reader: _reader, ...record } = norm.record;
     void _reader;
     const id = String(record.id ?? '');
@@ -310,7 +314,58 @@ export function readAdditions(dir = ADDITIONS_DIR): AdditionFile[] {
   return readdirSync(dir).filter((f) => f.endsWith('.json')).sort().map((f) => JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as AdditionFile);
 }
 
-function main() {
+/** 事実の文を差し戻す回数の上限。超えた項目は保留（取り込まないまま、理由を残す） */
+export const MAX_RETURNS = 3;
+const RETURN_STATE = 'data/runner/collect-return-state.json';
+const RETURN_DIR = 'data/runner/instructions/collect-return';
+const PLUGIN_DIR = 'scripts/architecture/fact-text-checks';
+
+/**
+ * 事実の文の検査をそろえる。既定（日本語か・程度の語）＋画面の文と同じ辞書（data/natural-japanese.json：不自然な言い回し、料金の欄の雑音）
+ * ＋差し込み口 scripts/architecture/fact-text-checks/*.mjs（既定の出力が (text, fact) => string[] の関数）。表示の段で初めて落ちる、にしない。
+ */
+export async function loadFactTextChecks(): Promise<FactTextCheck[]> {
+  const checks: FactTextCheck[] = [basicFactTextCheck];
+  if (existsSync('data/natural-japanese.json')) {
+    const rules = loadNaturalRules('data/natural-japanese.json');
+    checks.push((text, fact) => [...findUnnatural(text, rules).map(describeHit), ...findNoise(text, { price: fact.kind === 'PRICING' })]);
+  }
+  if (existsSync(PLUGIN_DIR)) {
+    for (const f of readdirSync(PLUGIN_DIR).filter((x) => x.endsWith('.mjs')).sort()) {
+      const mod = (await import(pathToFileURL(`${process.cwd()}/${PLUGIN_DIR}/${f}`).href)) as { default?: FactTextCheck };
+      if (typeof mod.default === 'function') checks.push(mod.default);
+    }
+  }
+  return checks;
+}
+
+/**
+ * 分けた項目を収集役へ差し戻す。回数を数え、上限未満なら直しの指示書を出し、上限に達した項目は保留として残す。
+ * 指示書: data/runner/instructions/collect-return/<名前>.md（scripts/reader-case/collect-prompt.md の「直し方」と項目の一覧）
+ */
+export function returnToCollector(name: string, file: AdditionFile): { returned: number; held: number } {
+  const state = (existsSync(RETURN_STATE) ? JSON.parse(readFileSync(RETURN_STATE, 'utf8')) : {}) as Record<string, number>;
+  const back: Record<string, unknown>[] = []; let held = 0;
+  for (const { id, record } of file.records) {
+    for (const u of (record.unconfirmedFacts as { where: string; index?: number; item: Rec; reasonLabels?: string[]; detail?: string[] }[] | undefined) ?? []) {
+      // 項目ごとの回数。位置（index）と出典で数える。文や金額を直しても同じ項目として数え、別の項目と回数を分け合わない
+      const key = `${id}|${u.where}#${String(u.index ?? '')}|${String(u.item.sourceUrl ?? '')}`;
+      const n = (state[key] ?? 0) + 1; state[key] = n;
+      if (n >= MAX_RETURNS) { held += 1; (u as Record<string, unknown>).held = true; continue; }
+      back.push({ entityId: id, where: u.where, attempt: n, reasons: u.reasonLabels, detail: u.detail, item: u.item });
+    }
+  }
+  mkdirSync('data/runner', { recursive: true });
+  writeFileSync(RETURN_STATE, `${JSON.stringify(state, null, 1)}\n`);
+  if (back.length) {
+    mkdirSync(RETURN_DIR, { recursive: true });
+    const prompt = readFileSync('scripts/reader-case/collect-prompt.md', 'utf8');
+    writeFileSync(`${RETURN_DIR}/${name}.md`, `${prompt}\n\n## 差し戻し（${back.length}項目。上限${MAX_RETURNS}回）\n\n直した記録を同じ調査記録に書き戻し、もう一度 --from-research を実行する。\n\n\`\`\`json\n${JSON.stringify(back, null, 1)}\n\`\`\`\n`);
+  }
+  return { returned: back.length, held };
+}
+
+async function main() {
   const args = process.argv.slice(2);
   const val = (k: string) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : undefined; };
   if (args.includes('--collect')) {
@@ -326,10 +381,16 @@ function main() {
   if (args.includes('--from-research')) {
     const research = val('--from-research'); const name = val('--name');
     if (!research || !name || !/^[\w-]+$/.test(name)) throw new Error('--from-research <records.json> --name <name> が要る');
-    const file = collectFromResearch(research);
+    const file = collectFromResearch(research, new Date(), await loadFactTextChecks());
     mkdirSync(ADDITIONS_DIR, { recursive: true });
     writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
-    console.log(JSON.stringify({ collected: file.records.length, file: `${ADDITIONS_DIR}/${name}.json` }));
+    // 数字の決まりを満たさず分けた数字（事例ごと）。0件でない時は、調査記録を直すか再収集する
+    const back = returnToCollector(name, file);
+    writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
+    const unconfirmedFacts = Object.fromEntries(file.records.map((r) => [r.id, ((r.record.unconfirmedFacts as unknown[] | undefined) ?? []).length]).filter(([, n]) => n));
+    // 創業も転機も無い記録（料金と規約だけの薄い事例。storemapper の失敗）。止めずに知らせる
+    const thinCases = file.records.filter((r) => !((r.record.facts as { kind?: string }[] | undefined) ?? []).some((f) => ['FOUNDING', 'EVENT', 'TEAM', 'CHANNEL', 'EXIT', 'FUNDING'].includes(String(f.kind)))).map((r) => r.id);
+    console.log(JSON.stringify({ collected: file.records.length, file: `${ADDITIONS_DIR}/${name}.json`, unconfirmedFacts, thinCases, returned: back.returned, held: back.held, ...(back.returned ? { returnFile: `${RETURN_DIR}/${name}.md` } : {}) }));
     return;
   }
   if (args.includes('--apply')) {
@@ -343,4 +404,4 @@ function main() {
   throw new Error('--collect か --from-research か --apply を指定する');
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) void main();

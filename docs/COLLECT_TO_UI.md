@@ -13,7 +13,7 @@
 読む人が1件を開けば、その事業の仕組みと規模感が分かり、自分の判断に使える状態を目指します。
 足りない所を作り話や一般論で埋めません。推測は推測と分かる形で、事実とは別の欄に置きます。
 
-収集は広く柔軟に行います。集めた内容は事例ページ（一覧の文・概要・章・分析欄）に出るので、何が画面に出るかを意識して、必要な材料を最初の1回で漏れなく集めます。あとで同じ事例を調べ直す無駄を無くすためです。ただし画面用の文に整えず、集める層の記録の形のまま残します（整えるのは段10）。
+収集は広く柔軟に行います。集めた内容は事例ページ（一覧の文・概要・章・分析欄）に出るので、何が画面に出るかを意識して、必要な材料を最初の1回で漏れなく集めます。あとで同じ事例を調べ直す無駄を無くすためです。事実の1文は、そのまま画面に出せる自然な日本語で書きます（2026-10-07 夜の決定。書き方の正本は `.claude/skills/natural-japanese/SKILL.md`、例は `DATA_COLLECTION_MASTER_GUIDE.md` Ⅶ）。出典の原文の引用は別欄 `quote` に残します。集める範囲は狭めません。取り込みが同じ検査を掛け、落ちた文は取り込まずに収集役へ差し戻します（段3）。
 
 - 何を・なぜ・どこまで: [`OWNER_INTENT.md`](./OWNER_INTENT.md)（2章: 集める10の領域、3章: 事実と推論、7章: 画像）
 - 収集の全体の決まりと過去の失敗: [`DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)
@@ -38,8 +38,8 @@
 | # | 段 | 実行すること | 変わるファイル | 落ちたら |
 |---|---|---|---|---|
 | 1 | 重複判定 | `pnpm dedup:check "社名"` と `pnpm dedup:check "公式ドメイン"`。`data/CLAIMED_TARGETS.txt` を検索し、無ければ末尾に社名を1行足す（予約） | `data/CLAIMED_TARGETS.txt` | 既にあれば新規に集めない。既存の事例を直す作業に切り替える |
-| 2 | 調査記録を書く | 出典を開いて事実を書く。形は [`research-record/`](./research-record/) の見本どおり | 作業用の JSON（どこでもよい） | 下の 3 で落ちたら、表示の `#/...` を見て直す（README の「落ちた時の表示の読み方」） |
-| 3 | 一覧に入れる | `node --import tsx scripts/reader-case/add-entity-records.ts --from-research <記録.json> --name <名前>` → `... add-entity-records.ts --apply` → `pnpm registry:sync` | コミットするのは `data/entity-additions/<名前>.json` だけ。`--apply` が書き換える `data/entities-index.json` と、`registry:sync` が書き換える `data/collected-registry.json` は手元で後の段を動かすためのもので、**コミットしない**（索引は約99MBで、GitHub の1ファイル100MBの上限に近い） | 形の検査の表示を読んで記録を直す。同じ id・同じ公式サイトがあれば足されない（`skipped` に理由） |
+| 2 | 調査記録を書く | 出典を開いて事実を書く。形は [`research-record/`](./research-record/) の見本どおり。数字には1件ずつ種類・出来事の時点・原文の引用（15語以内）・出典URL・取得日を付け、創業と転機の事実を必ず入れる（README「数字の決まり」。Codex などに任せる時は `scripts/reader-case/collect-prompt.md` を渡す） | 作業用の JSON（どこでもよい） | 下の 3 で落ちたら、表示の `#/...` を見て直す（README の「落ちた時の表示の読み方」） |
+| 3 | 一覧に入れる | `node --import tsx scripts/reader-case/add-entity-records.ts --from-research <記録.json> --name <名前>`（出力の `unconfirmedFacts` と `thinCases` が0件になるまで記録を直す。決まりを満たさない数字はその数字だけ分けられ、事例は止まらない）→ `... add-entity-records.ts --apply` → `pnpm registry:sync` | コミットするのは `data/entity-additions/<名前>.json` だけ。`--apply` が書き換える `data/entities-index.json` と、`registry:sync` が書き換える `data/collected-registry.json` は手元で後の段を動かすためのもので、**コミットしない**（索引は約99MBで、GitHub の1ファイル100MBの上限に近い） | 形の検査の表示を読んで記録を直す。同じ id・同じ公式サイトがあれば足されない（`skipped` に理由） |
 | 4 | 出典の本文を取る | `node --import tsx scripts/reader-case/fetch-sources.ts --ids <idsファイル>` | `data/source-cache/`（git に入らない） | 403・CAPTCHA・ログインの壁は越えない。取れない出典は照合に回らない（`data/verify/unreachable.json`） |
 | 5 | 照合（事実が出典どおりか） | `build-verify-batches.ts --ids <idsファイル>` → `bash scripts/reader-case/run-verify.sh` → `merge-verdicts.ts --ids <idsファイル>`（いずれも `scripts/reader-case/`） | `data/verify/`、`data/reader-verdicts.json` | `run-verify.sh` が終了コード75で止まるのは正常。指示書 `data/runner/instructions/verify/` を別のAIが実行し、結果を `data/runner/inbox/verify/` に置いてから再実行する（[`pipeline/CLAUDE_RUNNER.md`](./pipeline/CLAUDE_RUNNER.md)） |
 | 5b | 画像を取って判定する | 4章の命令（公式サイト・App Store から取得 → 自動判定 → 保留の分は人が判定） | `data/media-staging/<事例ID>/`（git に入らない） | 段9より前に済ませる。「使ってよい」が1枚も無い事例は選別で落ちる |
@@ -79,6 +79,17 @@ bash scripts/reader-case/run-reaudit.sh <直した事例IDを1行ずつ書いた
 - 推論の正本は `data/reader-analysis.json`。`approvedAnalysis` は反映の段が受領書と突き合わせて作る写しで、手で書かない。
 - 出典本文の保存（`data/source-cache`）を照合などで上書きすると、元の引用が消えて「根拠の不一致」になる。受領書の取り直しは、審査した時の保存で行う。
 - 手元にしかない証拠（画像台帳 `data/media-staging`、出典本文の保存）が無い作業場所では、公開の関門が通らない。持っている作業場所へつなぐ（コミットしない）。
+
+
+## 3.6 試しに集めた事例を公開してよい形にする（2026-10-07 追加）
+
+試しに集めた事例（例: 2026-10-07 の新規5件 Userlist・Rewardful・Ploi・Splitbee・Tuple。作業場所 `collect-trial-20261007` の `trial/*.json`）は、そのまま公開に入れない。公開するなら、普通の新しい事例と同じ道を通す。
+
+1. 本番の作業場所で段1（重複判定と `data/CLAIMED_TARGETS.txt` の予約）からやり直す。
+2. 調査記録を `--from-research` に通し、`unconfirmedFacts` と `thinCases` が0件であることを確かめる（試しの5件は、1回の差し戻しの後に0件）。コミットするのは `data/entity-additions/<名前>.json` だけ。
+3. 段4〜9（出典の取得・照合・画像・分析・監査・選別）を通す。原文照合（3.5）で落ちた項目は再収集に回す。
+4. 段10で画面の層を作り、別のAIに全行を確かめさせる。画面の1文が元の事実に辿れることの検査（[`pipeline/FACT_TRACE.md`](./pipeline/FACT_TRACE.md)）が入った後は、それも通す。
+5. 段11の検査を通す。段12・13（公開データの作成と公開）は人の許可を取ってから。
 
 ## 4. 画像
 
@@ -166,6 +177,7 @@ bash scripts/reader-case/run-reaudit.sh <直した事例IDを1行ずつ書いた
 | 23 | 分析の項目が400字超・出典に無い日付の数字で落ちた。事実の ID が変わった後に古い分析の項目が残り、監査の入力づくりが止まった | 分析の指示書に上限と「数字は basis の事実にある物だけ」を書いた。統合は根拠の事実が今の reader に無い項目を残さない。監査の入力は今ある束の分析だけを読む |
 | 24 | 作業場所に既存の公開分の作業データが無いと、計画が「撤回の明示が足りない」で止まる（12） | 新しい事例だけを評価する時は `PIPELINE_CHANGED_ONLY=1` を付ける。今回の候補だけを評価し、公開中の事例は評価し直さずに引き継ぐ（中身が公開中と違えば目録づくりが止まる） |
 | 25 | 数字の帯（料金・手残り・売上の推測）の推論は編集文を通らず原文のまま出るので、外貨に円換算が無いと文の基準の検査で落ちた | 帯の1マスは、料金の事実の欄と同じく `withYenApprox` で円換算の概算を添えて出す。検査（`detail-coverage.ts`）も同じ文に掛ける |
+| 26 | 公開10件中7件で数字が出典と合わなかった（直接の支払いを年商に、投稿日を出来事の日付に、読めない出典を確認済みに） | 集める時に数字ごとに種類・出来事の時点・引用・出典・取得日を付ける（README「数字の決まり」）。取り込みが決まりを満たさない項目だけを `unconfirmedFacts` に分け、収集役へ差し戻す |
 
 ## 9. 関連する正本
 
