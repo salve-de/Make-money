@@ -74,7 +74,7 @@ async function get(url: string): Promise<{ status: number; finalUrl: string; tex
   }
 }
 
-async function fetchOne(url: string): Promise<SourceCacheRecord> {
+export async function fetchOne(url: string): Promise<SourceCacheRecord> {
   const now = new Date().toISOString();
   let host = '';
   try {
