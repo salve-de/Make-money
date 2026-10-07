@@ -13,3 +13,25 @@ export function stripAbsence(text: string): string {
 export function isAbsenceOnly(text: string): boolean {
   return stripAbsence(text) === '';
 }
+
+type Scrubbable = {
+  summaryFactId?: string;
+  facts: Array<{ id: string; text: string }>;
+  analysis: Array<{ formula?: string }>;
+};
+
+/**
+ * 画面に渡す前に、読者向けデータから「分からない旨だけの文」を落とす。調べて集まった内容だけを出す。
+ * 概要の事実と分析の本文は、画面側の編集文が原文の指紋で結ばれているので触らない（表示の側で落とす）。
+ */
+export function scrubAbsence<T extends Scrubbable>(reader: T): T {
+  const facts = reader.facts
+    .map((fact) => (fact.id === reader.summaryFactId ? fact : { ...fact, text: stripAbsence(fact.text) }))
+    .filter((fact) => fact.text !== '');
+  const analysis = reader.analysis.map((a) => {
+    if (!a.formula) return a;
+    const formula = stripAbsence(a.formula);
+    return { ...a, formula: formula === '' ? undefined : formula };
+  });
+  return { ...reader, facts, analysis };
+}

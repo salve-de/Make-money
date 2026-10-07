@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import React, { useId, useMemo } from 'react';
 
 import { ANALYSIS_ITEMS, type ReaderCase, type ReaderFact } from '@/shared/reader-case';
 import {
@@ -10,6 +10,7 @@ import {
   readerSummaryFact,
 } from '@/shared/display-text';
 import { createSentenceMemory, splitSentences } from '@/shared/case-text';
+import { scrubAbsence } from '@/shared/absence-text';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
 import { AnalysisGroups, Fold, KeyStrip, planKeyStrip, SectionGap, WhatIs } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
@@ -176,7 +177,7 @@ export function ReaderSources({ reader, evidencePrefix = 'reader' }: ReaderProps
 }
 
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
-export function ReaderLedger({ reader, entityId, detailState, onRetry, media }: {
+export function ReaderLedger({ reader: rawReader, entityId, detailState, onRetry, media }: {
   reader?: ReaderCase;
   /** 一覧と同じ短い1行を概要に使うための事例の番号 */
   entityId?: string;
@@ -187,6 +188,7 @@ export function ReaderLedger({ reader, entityId, detailState, onRetry, media }: 
   media?: React.ReactNode;
 }) {
   const evidencePrefix = `reader-${useId()}`;
+  const reader = useMemo(() => (rawReader ? scrubAbsence(rawReader) : rawReader), [rawReader]);
   // 一覧用に削った reader（listForm）は詳細の代わりにならない。完全な reader が無い間は取得状態を出す
   const incomplete = !reader || Boolean(reader.listForm);
   const status = incomplete && detailState === 'failed' ? (

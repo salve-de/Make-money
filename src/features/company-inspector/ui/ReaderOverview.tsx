@@ -139,11 +139,12 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
 /** 概要。最初の1文を最上部に大きく、続きは畳まずそのまま下に出す。 */
 export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | null | undefined; entityId?: string; lead?: boolean }) {
   if (!fact) return null;
-  const text = plainFactText(fact.text);
+  const text = stripAbsence(plainFactText(fact.text));
   const end = text.indexOf('。');
   // 一覧と同じ「短い1行」があればそれを大きく出し、元の要約は全文を下に続ける
   const short = entityId ? listLineFor(entityId, fact) : null;
   const first = short ?? (end >= 0 ? text.slice(0, end + 1) : text);
+  if (!first) return null;
   // 短い1行と要約の1文目は同じことを言うので、続きは2文目から（同じ話を2度出さない）
   const rest = end >= 0 ? text.slice(end + 1).trim() : '';
   return (
