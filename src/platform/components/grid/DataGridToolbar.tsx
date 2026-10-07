@@ -233,7 +233,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           <CompareTrayLink />
 
           <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">
-            <span className="text-term-fg">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件
+            <span className="text-term-fg">{totalCount.toLocaleString()}</span>件
           </p>
         </div>
       </div>
