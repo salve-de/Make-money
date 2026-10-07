@@ -4,7 +4,7 @@ import { ANALYSIS_ITEMS, type ReaderCase, type ReaderFact } from '@/shared/reade
 import {
   dedupeReaderSources,
   formatMetricAmount,
-  metricMeasureLabel,
+  metricListLabel,
   metricOriginLabel,
   plainFactText,
   readerSummaryFact,
@@ -69,7 +69,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
               return (
                 <tr key={m.id} id={evidenceAnchor(evidencePrefix, m.id)} data-metric={m.id} className="scroll-mt-8 border-b border-term-line-soft align-top">
                   <td className="px-2 py-1.5 text-term-fg-strong">
-                    {metricMeasureLabel(m)}
+                    {metricListLabel(m)}
                     <SourceRef n={sourceNo.get(m.sourceId)} prefix={evidencePrefix} />
                     {m.basis && <span className="block text-xs text-term-label">{m.basis}</span>}
                   </td>

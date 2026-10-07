@@ -1,7 +1,7 @@
 import React from 'react';
 
 import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
-import { formatMetricAmount, metricMeasureLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
+import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { checkLead } from '@/shared/lead-standard';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
@@ -99,7 +99,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   if (metric) {
     const series = seriesFor(reader, metric);
     cells.push(
-      <StripCell key="metric" label={metricMeasureLabel(metric)} inferred={false} attrs={{ 'data-metric': metric.id }}>
+      <StripCell key="metric" label={metricListLabel(metric)} inferred={false} attrs={{ 'data-metric': metric.id }}>
         <div className="flex items-end justify-between gap-2">
           <span className="term-num text-[22px] font-semibold leading-none text-term-fg-strong">{formatMetricAmount(metric)}</span>
           {series.length > 0 && <Sparkline points={series.map((m) => m.amount)} />}
