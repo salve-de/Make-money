@@ -12,7 +12,7 @@
           "source": "https://excid3.com/blog/would-you-like-to-become-a-better-programmer"
         },
         {
-          "text": "配備手順のメモを公開し、検索とStack Overflowから最初の月に数千人が来た（本人）",
+          "text": "サーバーへの公開手順のメモを載せ、検索とStack Overflowから最初の月に数千人が来た（本人）",
           "source": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163"
         },
         {
@@ -64,7 +64,7 @@
           "source": "https://www.therubyonrailspodcast.com/552"
         },
         {
-          "text": "2016年12月: Hatchbox開始。客の提案を受け、人気の配備手順を自動化した（本人）",
+          "text": "2016年12月: Hatchbox開始。客の提案で、人気のサーバー公開手順を自動化した（本人）",
           "source": "https://www.therubyonrailspodcast.com/552"
         },
         {
@@ -76,7 +76,7 @@
           "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
         },
         {
-          "text": "2021年11月: 月次定期収入6万ドル（約900万円）（本人）",
+          "text": "2021年11月: 月の定期売上6万ドル（約900万円）（本人）",
           "source": "https://www.failory.com/interview/gorails"
         }
       ],
@@ -86,7 +86,7 @@
           "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
         },
         {
-          "text": "人気の手順メモを、製品に変える（根拠: 人気の配備手順からHatchboxを作った）",
+          "text": "人気の公開手順のメモを、製品に変える（根拠: 人気の公開手順からHatchboxを作った）",
           "source": "https://www.therubyonrailspodcast.com/552"
         },
         {
@@ -219,7 +219,7 @@
           "source": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers/"
         },
         {
-          "text": "2018年6月: 直近12か月の売上は500万〜1,000万ドル（約7.5億〜15億円）の区分と本人が答えた（本人）",
+          "text": "2018年6月: 直近12か月の売上は500万〜1,000万ドル（約7.5億〜15億円）と本人が答えた（本人）",
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         },
         {
@@ -233,11 +233,11 @@
           "source": "https://news.ycombinator.com/item?id=5799272"
         },
         {
-          "text": "二面市場は、先にメンター側を少数だけ固める（根拠: 熱心なメンター確保と返事の速さ）",
+          "text": "メンターと客の両方がいる場は、先にメンター側を少数だけ固める（根拠: 熱心なメンター確保と返事の速さ）",
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         },
         {
-          "text": "客の問い合わせが集まる別の需要を、次の商品にする（根拠: 採用の依頼メール→CodementorX）",
+          "text": "問い合わせが集まる別の需要を、次の商品にする（根拠: 採用の依頼メール→CodementorX）",
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         }
       ],
@@ -420,7 +420,7 @@
       ],
       "price": [
         {
-          "text": "2006年ごろ: 月5ドル（約750円）＝10商品から、月125ドル（約1.9万円）＝999商品まで（公式・保存版）",
+          "text": "2006年ごろ: 月5ドル（約750円）＝10商品から、月125ドル（約1.9万円）＝999商品まで（公式の保存ページ）",
           "source": "https://web.archive.org/web/20060601/http://www.e-junkie.com/ej/pricing.htm"
         },
         {
@@ -525,7 +525,7 @@
           "source": "https://www.hunted.space/dashboard/movio-la/launches/talkingphoto-by-movio"
         },
         {
-          "text": "2023年初め: 販売178日で年間経常収益100万ドル（約1.5億円）（本人）",
+          "text": "2023年初め: 販売178日で年間の定期売上100万ドル（約1.5億円）（本人）",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
@@ -533,11 +533,11 @@
           "source": "https://www.heygen.com/article/movio-rebrands-to-heygen"
         },
         {
-          "text": "2023年10月: 年間経常収益1,000万ドル（約15億円）（第三者）",
+          "text": "2023年10月: 年間の定期売上1,000万ドル（約15億円）（第三者）",
           "source": "https://research.contrary.com/company/heygen"
         },
         {
-          "text": "2024年6月: 年間経常収益3,500万ドル超（約52.5億円）、有料の法人客4万社超（公式）",
+          "text": "2024年6月: 年間の定期売上3,500万ドル超（約52.5億円）、有料の法人客4万社超（公式）",
           "source": "https://www.heygen.com/blog/announcing-our-series-a"
         },
         {
@@ -751,7 +751,7 @@
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "並べた道は自作フォント、紙の本、5〜10ドル（約750〜1,500円）の直接の支払いなど（Wayback 2013年7月）",
+          "text": "並べた道は自作フォント、紙の本、5〜10ドル（約750〜1,500円）の直接の支払いなど（2013年7月の保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -779,7 +779,7 @@
           "source": "https://practicaltypography.com/to-pay-or-not-to-pay.html"
         },
         {
-          "text": "お願いページは「私は企業ではなく1人の個人」と名乗り、5ドル（約750円）の支払いかフォント購入を頼んだ（Wayback 2015年9月）",
+          "text": "お願いページは「私は企業ではなく1人の個人」と名乗り、5ドル（約750円）の支払いかフォント購入を頼んだ（2015年9月の保存ページ）",
           "source": "https://web.archive.org/web/20150905011158/http://practicaltypography.com/graylist.html"
         },
         {
@@ -823,7 +823,7 @@
           "source": "https://practicaltypography.com/effluents-influence-affluence.html"
         },
         {
-          "text": "2015年9月: お願いページが公開済み（Wayback）",
+          "text": "2015年9月: お願いページが公開済み（保存ページ）",
           "source": "https://web.archive.org/web/20150905011158/http://practicaltypography.com/graylist.html"
         },
         {
@@ -855,11 +855,11 @@
       ],
       "start": [
         {
-          "text": "公開時の売り物は、自作フォント90ドル〜（約1.35万円）、紙の本約25ドル（約3,750円）、Kindle版10ドル（約1,500円）（Wayback 2013年7月）",
+          "text": "公開時の売り物は、自作フォント90ドル〜（約1.35万円）、紙の本約25ドル（約3,750円）、Kindle版10ドル（約1,500円）（2013年7月の保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "直接の支払いは5〜10ドル（約750〜1,500円）の目安。PayPalなどで本人のメール宛てに送る形だった（Wayback）",
+          "text": "直接の支払いは5〜10ドル（約750〜1,500円）の目安。PayPalなどで本人のメール宛てに送る形だった（保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -877,31 +877,31 @@
       ],
       "price": [
         {
-          "text": "直接の支払い: 2013年7月は5〜10ドル（約750〜1,500円）の目安（Wayback）",
+          "text": "直接の支払い: 2013年7月は5〜10ドル（約750〜1,500円）の目安（保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "直接の支払い: 2015年8月は5〜20ドル（約750〜3,000円）、カードで払えるように（Wayback）",
+          "text": "直接の支払い: 2015年8月は5〜20ドル（約750〜3,000円）、カードで払えるように（保存ページ）",
           "source": "https://web.archive.org/web/20150813/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "直接の支払い: 2018年6月は9〜39ドル（約1,350〜5,850円）に（Wayback）",
+          "text": "直接の支払い: 2018年6月は9〜39ドル（約1,350〜5,850円）に（保存ページ）",
           "source": "https://web.archive.org/web/20180601/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "直接の支払い: 2022年8月に19〜49ドル（約2,850〜7,350円）に。現在も同じ（Wayback）",
+          "text": "直接の支払い: 2022年8月に19〜49ドル（約2,850〜7,350円）に。現在も同じ（保存ページ）",
           "source": "https://web.archive.org/web/20220812/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "自作フォント: 2013年7月は90ドル〜（約1.35万円）（Wayback）",
+          "text": "自作フォント: 2013年7月は90ドル〜（約1.35万円）（保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "自作フォント: 2016年8月は89ドル〜（約1.34万円）。Equityは119ドル（Wayback）",
+          "text": "自作フォント: 2016年8月は89ドル〜（約1.34万円）。Equityは119ドル（保存ページ）",
           "source": "https://web.archive.org/web/20160802/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "自作フォント: 2019年12月に119ドル〜（約1.79万円）へ。現在も同じ（Wayback）",
+          "text": "自作フォント: 2019年12月に119ドル〜（約1.79万円）へ。現在も同じ（保存ページ）",
           "source": "https://web.archive.org/web/20191213/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -909,7 +909,7 @@
           "source": "https://practicaltypography.com/equity.html"
         },
         {
-          "text": "紙の本 Typography for Lawyers: 2013年7月は約25ドル（約3,750円）（Wayback）",
+          "text": "紙の本 Typography for Lawyers: 2013年7月は約25ドル（約3,750円）（保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -978,7 +978,7 @@
           "source": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/"
         },
         {
-          "text": "検索を柱に据え、手順を作って社員に引き継いだ（本人）",
+          "text": "検索からの集客を柱にし、やり方を決めて社員に任せた（本人）",
           "source": "https://gorelay.co/t/hey-oh-im-josh-founder-ceo-of-referral-rock-ama/738"
         }
       ],
@@ -1074,7 +1074,7 @@
           "source": "https://referralrock.com/case-study/feedxl/"
         },
         {
-          "text": "数か月で投資対効果10倍、新規客の10%が紹介経由（CoolBot、公式の導入事例、選別あり）",
+          "text": "数か月でかけた費用の10倍の成果、新規客の10%が紹介経由（CoolBot、公式の導入事例、選別あり）",
           "source": "https://referralrock.com/customers/coolbot/"
         },
         {
@@ -1113,7 +1113,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "2023年にオープンソース化し、HNで告知。Chrome拡張の入手は17.5万超（本人）",
+          "text": "2023年にソースコードを公開し、Hacker Newsで告知。Chrome拡張の入手は17.5万超（本人）",
           "source": "https://news.ycombinator.com/item?id=34968998"
         }
       ],
@@ -1131,7 +1131,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "前: ブラウザ拡張のみ。後: Electron製のデスクトップ版を足し、2022年に併売（本人）",
+          "text": "前: ブラウザ拡張のみ。後: パソコン用アプリ版（Electron製）を足し、2022年に併売（本人）",
           "source": "https://news.ycombinator.com/item?id=30540735"
         }
       ],
@@ -1157,11 +1157,11 @@
           "source": "https://news.ycombinator.com/item?id=20460703"
         },
         {
-          "text": "2020年6月: 有料2段を単一の有料プランに整理し、メール登録を追加（公式）",
+          "text": "2020年6月: 2つの有料プランを1つにまとめ、メール登録を追加（公式）",
           "source": "https://requestly.com/blog/requestly-turns-6/"
         },
         {
-          "text": "2022年3月3日: Launch HN。190点・コメント85件。本人は月間利用者4万人超と書く（累計とは別の数え方）（本人）",
+          "text": "2022年3月3日: Launch HN。190点・コメント85件。本人は月間利用者4万人超と書く（本人）",
           "source": "https://news.ycombinator.com/item?id=30540735"
         },
         {
@@ -1185,7 +1185,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "試作は非技術者に使えず、管理画面づくりに3〜4か月かけて初版を出した。画面は自分で設計（本人）",
+          "text": "試作は技術者でない人には使えず、管理画面づくりに3〜4か月かけて初版を出した。画面は自分で設計（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1395,7 +1395,7 @@
           "source": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715"
         },
         {
-          "text": "広告費をかけず、28日で試用127件・有料31件（月次売上3,069ドル、約46万円）（本人）",
+          "text": "広告費をかけず、28日で試用127件・有料31件（月の売上3,069ドル、約46万円）（本人）",
           "source": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715"
         },
         {
@@ -1421,17 +1421,17 @@
       ],
       "turning": [
         {
-          "text": "前: 開発者仲間向けは継続率12%・MRR347ドル（約5.2万円）。後: 経営者との電話で2か月後に41%・2,100ドル（約31.5万円）（本人、2025年11月）",
+          "text": "前: 開発者仲間向けは継続率12%・月の定期売上347ドル（約5.2万円）。後: 経営者との電話で2か月後に41%・2,100ドル（約31.5万円）（本人、2025年11月）",
           "source": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc"
         }
       ],
       "timeline": [
         {
-          "text": "2023年7月: 公式サイトに「顧客ポータル」「請求書」「時間記録」が並ぶ（公式、Wayback）",
+          "text": "2023年7月: 公式サイトに「顧客ポータル」「請求書」「時間記録」が並ぶ（公式の保存ページ）",
           "source": "https://web.archive.org/web/20230723075620id_/https://www.teamcamp.app/"
         },
         {
-          "text": "2025年8月19日: 稼働847チーム、月次売上4,200ドル（約63万円）と投稿。年末の目標は1万ドル（約150万円）（本人）",
+          "text": "2025年8月19日: 稼働847チーム、月の売上4,200ドル（約63万円）と投稿。年末の目標は1万ドル（約150万円）（本人）",
           "source": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68"
         },
         {
@@ -1439,7 +1439,7 @@
           "source": "https://devhunt.org/tool/teamcamp"
         },
         {
-          "text": "2026年9月時点: PRが開くとタスクが「レビュー」へ、マージで「完了」へ移り、請求用の時刻を記録（公式）",
+          "text": "2026年9月時点: コードの変更申請が出るとタスクが「レビュー」へ、取り込みで「完了」へ移り、請求用の時刻を記録（公式）",
           "source": "https://www.teamcamp.app/"
         }
       ],
