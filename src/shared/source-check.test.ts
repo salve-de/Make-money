@@ -35,6 +35,14 @@ describe('原文照合', () => {
     expect(r.reasons).toContain('YEAR_NOT_IN_SOURCE');
   });
 
+  it('英語の表の短い年（Dec \'18）は年として数え、別の年は落とす', () => {
+    const src = body('Month Revenue Dec \'18 77854 Jan \'19 76317 Feb \'19 73605 Mar \'19 74479 Apr \'19 72384 and more text');
+    expect(checkText('2018年12月〜2019年4月: 月の収入は約72,000〜78,000ドル（約1,080〜1,170万円）', src).ok).toBe(true);
+    expect(checkText('2017年12月: 月の収入は約78,000ドル', src).reasons).toContain('YEAR_NOT_IN_SOURCE');
+    // 年だけの行（他に照らす数が無い）も、短い年で本文があると分かる
+    expect(checkText('2018年12月〜2019年4月: 月の収入の表を公開', src).ok).toBe(true);
+  });
+
   it('時点の無い数字は落ちる', () => {
     const m = { id: 'm2', measure: 'REVENUE', periodKind: 'CUMULATIVE', period: '累計（記事に期間の明記なし）', amount: 1350000, sourceId: 's1' };
     expect(checkMetric(m, 'grossing over $1.35M', body('Refactoring UI ended up grossing over $1.35M')).reasons).toContain('WHEN_NOT_CONFIRMED');
