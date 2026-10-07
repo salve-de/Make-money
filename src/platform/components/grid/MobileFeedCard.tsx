@@ -8,7 +8,7 @@ import { VerifiedMark } from './VerifiedMark';
 import type { PublicMediaAsset } from '@/shared/media-display';
 import { EntityLogo } from './EntityLogo';
 import { UI, uiFormat } from '@/shared/ui-strings';
-import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from './ReaderListCells';
+import { ListDescription, ListMetricCell, listMetricsOf } from './ReaderListCells';
 
 interface MobileFeedCardProps {
   entity: FinancialEntity;
@@ -64,7 +64,6 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
             {sector && <span className="truncate">{sector}</span>}
             {profit && <span className="term-num truncate"><ListMetricCell metric={profit} /></span>}
           </span>
-          <span className="shrink-0"><ListOriginCell metric={main} /></span>
         </span>
       </button>
       <button
