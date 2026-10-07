@@ -32,6 +32,16 @@ GitHubの https://raw.githubusercontent.com/salve-de/Make-money/main/docs/DATA_C
 - 業種・AI分類は明示的な根拠がある場合だけ付与する。本文の部分文字列（例: remains に含まれる ai）から分類してはならない。根拠がなければ UNKNOWN。
 - 欠損は null / UNKNOWN、候補段階は CANDIDATE のまま保存し、架空の補完やテンプレ作文をしない。
 
+# 【2026-10-07 追加：数字の決まり（scripts/reader-case/collect-prompt.md が正本）】
+- 数字には1件ずつ numberKind（何の数字か）・asOf（出来事の日付。投稿日ではない）・quote（原文どおり15語以内。数字を含む）・sourceUrl・checkedAt を付ける。数を含む事実の文も同じ。
+- 直接の支払い・取扱高・アンケートの区分を「年商・月商・売上」にしない。推定は numberKind: ESTIMATE（事実に入らない）。
+- 創業と転機（FOUNDING・EVENT・TEAM・CHANNEL）の事実を必ず集める。料金と規約だけの記録にしない。
+- 読めない出典（403等）は Web アーカイブの保存版か別の出典で取り直す。無ければ書かずに reaudit.unknown へ。
+- 同じ事例の同じ種類の数字は突き合わせ、別の数字なら basis で見分ける。
+- 事実の1文は、そのまま画面に出せる自然な日本語で書く（正本 .claude/skills/natural-japanese/SKILL.md を必ず読む。1文＝1つの事実、程度の語を使わない）。原文の引用は別欄 quote に残す。
+  悪い例「Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった」→ 良い例「Cool Toolsから来た読者は払う人が多く、Redditから来た読者は払う人がほとんどいなかった。人数は出典に無い」
+- 書いた後に自分の文を英語に戻し（逆翻訳）、出典の英語と意味が合うかを確かめる。
+
 # 【絶対禁止：重複収集の完全遮断】
 以下の【収集済み企業 ${collectedNames.length}社】は既に当社の台帳に格納済みである。
 以下の企業（およびその同一サービス・直接の親会社/子会社）は【1件たりとも絶対に含めるな】。重複した事例は1秒で検知され即座に破棄される：

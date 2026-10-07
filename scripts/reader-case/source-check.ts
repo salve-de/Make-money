@@ -8,6 +8,8 @@
  *   ... --apply                                                           不合格の扱いを進める（やり直しの指示書を出す／上限に達したら保留にして画面から外す）
  *   ... --max-attempts 3                                                  やり直しの上限（既定3回）
  *   ... --label <名前>                                                    誤り率の台帳に残す回の名前
+ *   ... --collected --ids <file>                                          収集の直後（照合の段の前）に照らす。照合役の引用の代わりに、
+ *                                                                         調査記録（data/entity-additions/）の数字・事実に付けた引用を使う。収集の質の測定用
  *
  * 不合格の時の流れ（消して終わりにしない）:
  *  1. その場で出典を取り直す（新しく取得 → だめなら Web アーカイブの保存版）。取れたら照らし直す。
@@ -28,6 +30,7 @@ import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
 import { checkMetric, checkText, REASON_LABELS, type CheckReason } from '../../src/shared/source-check';
 import { textFingerprint } from '../../src/shared/list-lines';
 import { serialize, type ChapterEntry } from '../../src/shared/display-build';
+import { readAdditions } from './add-entity-records';
 
 export const STATE_FILE = 'data/source-check/state.json';
 export const LEDGER_FILE = 'data/source-check/ledger.jsonl';
@@ -46,25 +49,45 @@ export const readJson = <T>(file: string, fallback: T): T => (existsSync(file) ?
 
 interface Item { key: string; entityId: string; kind: ItemKind; id: string; text: string; textHash: string; sourceUrl: string; publishedAt?: string; quote?: string; metric?: Parameters<typeof checkMetric>[0]; chapter?: string }
 
-/** 照合の対象（画面に出る形の事実・数字と、章の行） */
-export function collectItems(ids: readonly string[]): Item[] {
+/**
+ * 調査記録に付けた引用（収集の直後の照合に使う）。事例ID → 事実の文・数字（出典URL＋金額）→ 引用。
+ * 数字の決まり（scripts/reader-case/number-contract.ts）を通った物だけが記録に残っている。
+ */
+export function collectedQuotes(): Map<string, { facts: Map<string, string>; metrics: Map<string, string> }> {
+  const out = new Map<string, { facts: Map<string, string>; metrics: Map<string, string> }>();
+  for (const file of readAdditions()) {
+    for (const { id, record } of file.records) {
+      const e = { facts: new Map<string, string>(), metrics: new Map<string, string>() };
+      for (const f of (record.facts as Record<string, unknown>[] | undefined) ?? []) if (typeof f.quote === 'string' && typeof f.text === 'string') e.facts.set(f.text, f.quote);
+      for (const m of (record.metrics as Record<string, unknown>[] | undefined) ?? []) if (typeof m.quote === 'string') e.metrics.set(`${String(m.sourceUrl)}|${String(m.amount)}`, m.quote);
+      out.set(id, e);
+    }
+  }
+  return out;
+}
+
+/** 照合の対象（画面に出る形の事実・数字と、章の行）。collected: 照合の段の前の姿と、調査記録の引用で照らす */
+export function collectItems(ids: readonly string[], collected = false): Item[] {
   const verdicts = readJson<VerdictsFile>(VERDICTS_FILE, {});
   const chapters = readJson<ChapterEntry[]>('data/case-chapters.json', []);
   const readers = loadReaders([...ids]);
+  const quotes = collected ? collectedQuotes() : new Map<string, { facts: Map<string, string>; metrics: Map<string, string> }>();
   const items: Item[] = [];
   for (const id of ids) {
     const base = readers.get(id);
-    const applied = base ? applyVerdicts(base, verdicts[id]) : null;
+    const applied = base ? (collected && !verdicts[id] ? { reader: base } : applyVerdicts(base, verdicts[id])) : null;
     if (applied) {
       const src = new Map(applied.reader.sources.map((s) => [s.id, s]));
+      const q = quotes.get(id);
       for (const f of applied.reader.facts) {
         const s = src.get(f.sourceId)!;
-        items.push({ key: itemKey(id, 'fact', f.id), entityId: id, kind: 'fact', id: f.id, text: f.text, textHash: textFingerprint(f.text), sourceUrl: s.url, publishedAt: s.publishedAt, quote: verdicts[id]?.[f.id]?.quote });
+        // 収集の直後は、数を含む事実だけ引用を持つ。引用の無い事実は文の数と年だけを照らす
+        items.push({ key: itemKey(id, 'fact', f.id), entityId: id, kind: 'fact', id: f.id, text: f.text, textHash: textFingerprint(f.text), sourceUrl: s.url, publishedAt: s.publishedAt, quote: verdicts[id]?.[f.id]?.quote ?? q?.facts.get(f.text) });
       }
       for (const m of applied.reader.metrics) {
         const s = src.get(m.sourceId)!;
         const line = metricLine(m);
-        items.push({ key: itemKey(id, 'metric', m.id), entityId: id, kind: 'metric', id: m.id, text: line, textHash: textFingerprint(line), sourceUrl: s.url, publishedAt: s.publishedAt, quote: verdicts[id]?.[m.id]?.quote ?? '', metric: m });
+        items.push({ key: itemKey(id, 'metric', m.id), entityId: id, kind: 'metric', id: m.id, text: line, textHash: textFingerprint(line), sourceUrl: s.url, publishedAt: s.publishedAt, quote: verdicts[id]?.[m.id]?.quote ?? q?.metrics.get(`${s.url}|${m.amount}`) ?? '', metric: m });
       }
     }
     for (const [chapter, rows] of Object.entries(chapters.find((e) => e.entityId === id)?.chapters ?? {})) {
@@ -90,7 +113,8 @@ async function sourceText(url: string, fresh: boolean): Promise<SourceCacheRecor
 
 function judge(item: Item, rec: SourceCacheRecord | undefined) {
   const text = rec?.text ?? '';
-  if (item.kind === 'metric') return checkMetric(item.metric!, item.quote ?? '', text, item.publishedAt);
+  // 日付の無いページ（料金表・機能一覧など今の表示）は、取得した時点の表示として扱う。数字の時点が取得の月と同じ時だけ裏づく
+  if (item.kind === 'metric') return checkMetric(item.metric!, item.quote ?? '', text, item.publishedAt ?? (rec?.via === 'direct' ? rec.fetchedAt?.slice(0, 10) : undefined));
   if (item.kind === 'fact') return checkText(item.text, text, { quote: item.quote ?? '', publishedAt: item.publishedAt });
   return checkText(item.text, text);
 }
@@ -110,7 +134,7 @@ async function main() {
   const sample = argValue('--sample');
   const now = new Date();
   const runId = now.toISOString().replace(/[-:]/g, '').slice(0, 15);
-  let items = collectItems(ids);
+  let items = collectItems(ids, process.argv.includes('--collected'));
   if (sample) items = sampleItems(items, Number(sample), now.toISOString().slice(0, 10));
 
   const results: Array<Item & { status: 'PASS' | 'FAIL'; reasons: CheckReason[]; detail: string[]; via?: string; retried: boolean }> = [];
@@ -182,7 +206,7 @@ async function main() {
   const reasons: Record<string, number> = {};
   for (const r of failed) for (const x of r.reasons) reasons[x] = (reasons[x] ?? 0) + 1;
   const line = {
-    runId, at: now.toISOString(), label: argValue('--label') ?? (sample ? 'sample' : 'full'), mode: sample ? `sample-${sample}` : 'full', apply,
+    runId, at: now.toISOString(), label: argValue('--label') ?? (sample ? 'sample' : 'full'), mode: `${sample ? `sample-${sample}` : 'full'}${process.argv.includes('--collected') ? '-collected' : ''}`, apply,
     cases: byCase.size, casesWithFailure: [...byCase.values()].filter((c) => c.failed > 0).length,
     total: results.length, failed: failed.length, failRate: results.length ? Number((failed.length / results.length).toFixed(4)) : 0,
     reasons, recollect: recollect.length, held: toHold.length,
