@@ -6,6 +6,7 @@ import { isAbsenceOnly, stripAbsence } from '@/shared/absence-text';
 import { successPointsFor } from '@/shared/success-points';
 import { caseChaptersFor, type ChapterId, type ChapterRow } from '@/shared/case-chapters';
 import { listLineFor } from '@/shared/list-lines';
+import { summaryRestFor } from '@/shared/summary-lines';
 import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
@@ -148,7 +149,7 @@ export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | nul
   const first = short ?? (end >= 0 ? text.slice(0, end + 1) : text);
   if (!first) return null;
   // 短い1行と要約の1文目は同じことを言うので、続きは2文目から（同じ話を2度出さない）
-  const rest = end >= 0 ? text.slice(end + 1).trim() : '';
+  const rest = (entityId ? summaryRestFor(entityId, fact) : null) ?? (end >= 0 ? text.slice(end + 1).trim() : '');
   return (
     <div data-fact={fact.id} className="px-2.5 pb-3 pt-3 sm:px-3">
       <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>

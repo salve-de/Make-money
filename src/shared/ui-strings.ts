@@ -115,7 +115,7 @@ export const UI = {
   ANALYSIS_FORMULA_PREFIX: '計算・前提: ',
   ANALYSIS_BASIS_PREFIX: '根拠: ',
   GROUP_SECRET: '成功の秘訣',
-  CHAPTER_PRACTICE: 'やり方の具体',
+  CHAPTER_PRACTICE: '実際にやったこと',
   CHAPTER_TURNING: 'つまずきと立て直し',
   CHAPTER_TIMELINE: '時間順の流れ',
   CHAPTER_CORE: '真似るべき戦略の核',
