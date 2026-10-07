@@ -189,6 +189,16 @@ function commitToBranch(entityId: string, name: string | undefined, display: Ent
   } finally { rmSync(join(index, '..'), { recursive: true, force: true }); }
 }
 
+/** 今の画面の文のうち、その事例の分（直した行を専用ブランチへ載せる時に使う） */
+function entityDisplayOf(files: DisplayFiles, entityId: string): EntityDisplay {
+  const one = <T extends { entityId: string }>(list: T[]) => list.find((x) => x.entityId === entityId);
+  return {
+    list: one(files['list-lines']), summary: one(files['summary-lines']),
+    detail: files['detail-lines'].filter((l) => l.entityId === entityId),
+    success: one(files['success-points']), chapters: one(files['case-chapters']),
+  };
+}
+
 // ---------- 1件を作る ----------
 interface Outcome { ok: boolean; attempts: number; reasons: string[]; calls: CallResult[]; display?: EntityDisplay; minor?: unknown[]; dropped?: string[] }
 function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, need: DisplayNeed, files: DisplayFiles, name: string | undefined): Outcome {
@@ -250,7 +260,7 @@ function recordCandidates(entityId: string, issues: Array<{ kind?: string; id: s
 
 // ---------- 言い回しだけを直す（1件） ----------
 const REPAIR_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-repair-prompt.md'), 'utf8')}\n## 使わない言い回し（左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}`).join('\n')}\n`;
-function repairOne(agent: Agent, entityId: string, reader: LiveReader, rows: RepairRow[], files: DisplayFiles): { ok: boolean; attempts: number; reasons: string[]; files?: DisplayFiles } {
+function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, rows: RepairRow[], files: DisplayFiles): { ok: boolean; attempts: number; reasons: string[]; files?: DisplayFiles } {
   const none = { list: false, summary: false, success: false, chapters: false, detail: [] };
   const material = buildMaterial(entityId, reader, none, { contract, files, exampleIds: [] });
   const nums = materialNumbers(reader);
@@ -278,7 +288,7 @@ function repairOne(agent: Agent, entityId: string, reader: LiveReader, rows: Rep
     if (problems.length) continue;
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], files: applied.files };
     let review: CallResult;
-    try { review = callAgent(agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: fixes.map((f) => ({ id: f.id, text: f.text, before: rows.find((r) => r.id === f.id)?.text })) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 直しの確認 ${attempt}回目`); }
+    try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: fixes.map((f) => ({ id: f.id, text: f.text, before: rows.find((r) => r.id === f.id)?.text })) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 直しの確認 ${attempt}回目`); }
     catch (e) { return { ok: false, attempts: attempt, reasons: [`確認役の呼び出しに失敗: ${(e as Error).message}`] }; }
     const issues = ((review.value as { issues?: Array<{ severity: string; kind?: string; id: string; problem: string; fix: string; phrase?: string }> }).issues ?? []);
     recordCandidates(entityId, issues);
@@ -293,6 +303,7 @@ function repairOne(agent: Agent, entityId: string, reader: LiveReader, rows: Rep
 // ---------- 本体 ----------
 function main() {
   let files = loadFiles(DATA_DIR);
+  let repairFailed = 0;
   const ids = ONLY ? [ONLY] : finished;
   if (ONLY && !finished.includes(ONLY)) { say(`${ONLY} は仕上げ済み（data/catalog-finished-ids.txt）に無い。作らない`); return 0; }
   const readers = liveReaders(ids);
@@ -301,29 +312,33 @@ function main() {
     const repairs = ids.map((id) => ({ id, rows: repairRows(id, files, unnatural) })).filter((r) => r.rows.length && readers.has(r.id)).slice(0, MAX);
     if (repairs.length) {
       const agent = pickAgent();
+      const repairReviewer = REVIEW ? pickReviewer(agent) : null;
+      if (REVIEW && !repairReviewer) { say('作った者と別のAIの確認役を用意できない（--review-agent / --review-model を指定するか、もう一方のAIにログインする）。独立した確認なしでは直さない'); return 1; }
       say(`言い回しの直し: ${repairs.length} 件（AI: ${agent}）`);
       for (const { id, rows } of repairs) {
-        const out = repairOne(agent, id, readers.get(id)!, rows, files);
+        const out = repairOne(agent, repairReviewer, id, readers.get(id)!, rows, files);
         if (!out.ok || !out.files) {
           mkdirSync(join(ROOT, 'data/pipeline'), { recursive: true });
           appendFileSync(FAILURES, `${JSON.stringify({ at: new Date().toISOString(), runId: RUN_ID, entityId: id, repair: rows.map((r) => r.id), attempts: out.attempts, agent, reasons: out.reasons })}\n`);
           say(`${id}: 言い回しの直しが通らなかった（${out.attempts}回）。何も書かない。理由は ${FAILURES}`);
+          repairFailed += 1;
           continue;
         }
         files = out.files;
         if (!DRY) for (const f of DISPLAY_FILES) writeFileSync(join(DATA_DIR, `${f}.json`), serialize(files[f]));
         say(`${id}: 言い回しを ${rows.length} 行直した（${out.attempts}回目で通過）。${DRY ? '書かない（--dry-run）' : '反映した'}`);
+        if (COMMIT) say(`${id}: ${BRANCH} にコミット ${commitToBranch(id, undefined, entityDisplayOf(files, id)).slice(0, 8)}（push はしない）`);
       }
     }
   }
-  if (has('--repair-only')) return 0;
+  if (has('--repair-only')) return repairFailed ? 1 : 0;
   // 2. 足りない層を作る
   const gaps = displayGaps(ids, files, readers);
   if (has('--list')) {
     for (const id of ids) { const rows = readers.has(id) ? repairRows(id, files, unnatural) : []; if (rows.length) say(`${id}: 言い回しの直し ${rows.map((r) => r.id).join(', ')}`); }
     for (const g of gaps) say(`${g.entityId}: ${JSON.stringify(g.need)}`); say(`対象 ${gaps.length} 件`); return 0;
   }
-  if (!gaps.length) { say('画面の層が足りない仕上げ済み事例は無い'); return 0; }
+  if (!gaps.length) { say('画面の層が足りない仕上げ済み事例は無い'); return repairFailed ? 1 : 0; }
   const names = entityNames(gaps.map((g) => g.entityId));
   if (has('--materials-only')) {
     for (const g of gaps.slice(0, MAX)) console.log(JSON.stringify(buildMaterial(g.entityId, readers.get(g.entityId)!, g.need, { name: names.get(g.entityId), contract, files, exampleIds: EXAMPLE_IDS }), null, 1));
@@ -351,7 +366,7 @@ function main() {
     say(`${entityId}: ${out.attempts}回目で通った。${DRY ? '書かない（--dry-run）' : `反映した（${DATA_DIR}）`}。${usage}`);
     if (COMMIT) say(`${entityId}: ${BRANCH} にコミット ${commitToBranch(entityId, names.get(entityId), out.display).slice(0, 8)}（push はしない）`);
   }
-  return failed ? 1 : 0;
+  return failed || repairFailed ? 1 : 0;
 }
 
 process.exit(main());
