@@ -9,6 +9,7 @@
  *  5. 「未確認」「書かれていない」「公開されていない」など、分からない旨だけの文を置かない。
  *  8. ら抜き・二重否定・冗長な言い回し・言葉の誤用など、文法の誤りを置かない（textlint、.textlintrc.json）。
  *  7. 話し言葉・業界のくだけた言い回し・不自然な動詞（「非公開版で回した」など）を置かない（data/natural-japanese.json、言い換えの候補つき）。
+ * 10. 初めて見る人が意味を取れない言い方（直訳調の「よく払う」、修飾語の3連、「、の3つ」、名詞の矢印など）を置かない（data/reader-clarity.json と scripts/architecture/reader-clarity.mjs。規則の正本は .claude/skills/natural-japanese/SKILL.md）。
  *  9. 仕上げ済みの事例で、画面の分析欄に出る推論の文に編集文（detail-lines）が結ばれている（無ければ原文のまま出るため）。
  */
 import { execFileSync } from 'node:child_process';
@@ -17,6 +18,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from './natural-japanese.mjs';
 import { lintJapanese } from './textlint-japanese.mjs';
+import { describeUnclear, findUnclear, loadClarityRules } from './reader-clarity.mjs';
 
 const FOREIGN = /(ドル|\$|ルピー|ラック|クロール|ユーロ|ポンド|INR|USD|EUR|GBP)/;
 const ABSENCE = /(未確認|書かれていない|公開されていない|記載(が)?(ない|なし)|確認できない|わからない|分からない|不明|非公開(?![版のなでに]))/;
@@ -27,6 +29,11 @@ const problems = [];
 const READER_LANGUAGE = JSON.parse(readFileSync(resolve(process.cwd(), 'data/reader-language.json'), 'utf8')).map((rule) => ({ re: new RegExp(rule.pattern), suggest: rule.suggest }));
 // 日本語の自然さ（話し言葉・業界のくだけた言い回し・不自然な動詞）。data/natural-japanese.json に足せば、全ての画面用の文に効く。
 const NATURAL = loadNaturalRules(resolve(process.cwd(), 'data/natural-japanese.json'));
+// 意味が取れるか（直訳調・修飾の連なり・中身の無い「の3つ」など）。data/reader-clarity.json に足せば、全ての画面用の文に効く。
+const CLARITY = loadClarityRules(resolve(process.cwd(), 'data/reader-clarity.json'));
+// 今ある文を display:build --repair-only --reader で直し終えるまでは警告として数える（直し終えたら true にして落とす）
+const CLARITY_BLOCKING = false;
+const clarityWarnings = [];
 // 文法の誤り（ら抜き・二重否定・冗長な言い回しなど）は、最後にまとめて textlint で見る（.textlintrc.json）
 const forTextlint = [];
 
@@ -42,6 +49,7 @@ function check(where, field, text, max, { hedge = false, price = false } = {}) {
     if (hit) problems.push(`${where} ${field}: 読む人に分かりにくい語「${hit[0]}」→ ${rule.suggest}`);
   }
   for (const hit of findUnnatural(text, NATURAL)) problems.push(`${where} ${field}: ${describeHit(hit)}`);
+  for (const hit of findUnclear(text, CLARITY)) (CLARITY_BLOCKING ? problems : clarityWarnings).push(`${where} ${field}: ${describeUnclear(hit)}`);
   forTextlint.push({ where: `${where} ${field}`, text });
   if (hedge && HEDGE.test(text)) problems.push(`${where} ${field}: 答えに「本人は〜と語る」型の言い回し`);
 }
@@ -143,6 +151,7 @@ for (const entry of coverage.cases) {
 const grammar = await lintJapanese(forTextlint.map((row) => row.text));
 grammar.forEach((messages, i) => { for (const message of messages) problems.push(`${forTextlint[i].where}: 日本語の誤り ${message}「${forTextlint[i].text.slice(0, 30)}…」`); });
 
+if (clarityWarnings.length) console.warn(`[case-text] 警告: 意味が取れない言い方 ${clarityWarnings.length}件（直す経路: pnpm display:build --repair-only --reader）:\n${clarityWarnings.join('\n')}`);
 if (problems.length) {
   console.error(`[case-text] ${problems.length}件の違反（docs/CASE_TEXT_STANDARD.md）:\n${problems.join('\n')}`);
   process.exit(1);
