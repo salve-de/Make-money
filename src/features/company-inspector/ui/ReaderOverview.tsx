@@ -7,7 +7,7 @@ import { successPointsFor } from '@/shared/success-points';
 import { caseChaptersFor, type ChapterId, type ChapterRow } from '@/shared/case-chapters';
 import { listLineFor } from '@/shared/list-lines';
 import { summaryRestFor } from '@/shared/summary-lines';
-import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText, withYenApprox } from '@/shared/display-text';
+import { formatMetricAmount, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, plainFactText, withYenApprox } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -121,7 +121,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
           {series.length > 0 && <Sparkline points={series.map((m) => m.amount)} />}
         </div>
         <div className="mt-1.5 text-xs leading-snug text-term-label">
-          {metric.period} ・ {metricOriginLabel(metric)}
+          {metric.period}{metricEstimateLabel(metric) && ` ・ ${metricEstimateLabel(metric)}`}
         </div>
       </StripCell>,
     );

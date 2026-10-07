@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "no-dropping-the-ra": true,
+    "no-double-negative-ja": true,
+    "ja-no-redundant-expression": true,
+    "ja-no-abusage": true,
+    "no-doubled-conjunction": true,
+    "no-doubled-conjunctive-particle-ga": true,
+    "ja-unnatural-alphabet": true,
+    "no-hankaku-kana": true,
+    "no-nfd": true,
+    "no-zero-width-spaces": true
+  }
+}

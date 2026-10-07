@@ -208,7 +208,15 @@ interface Candidate {
 
 const EBIZ_SECTION = /^(事業内容|開始時期|チーム・稼働|ツール|集客|価格|プラン|サービス内容|創業者|規模)(?:[（(][^）)]*[）)])?[:：]/;
 
-export function projectReaderCase(entity: Rec): ProjectionResult {
+export interface ProjectionOptions {
+  /**
+   * 出典の利用条件。渡した時は、false を返す出典（利用条件が未承認の第三者サイトなど）の事実・数字を事例から外す（収集層の記録は変えない）。
+   * 権利の判断（docs/OWNER_INTENT.md、data/catalog-source-rights.json の「その出典の事実は外す」）を機械で当てるためのもの。
+   */
+  allowSource?: (url: string) => boolean;
+}
+
+export function projectReaderCase(entity: Rec, options: ProjectionOptions = {}): ProjectionResult {
   const entityId = String(entity.id);
   const stats: ProjectionStats = {
     processDropped: 0,
@@ -437,8 +445,21 @@ export function projectReaderCase(entity: Rec): ProjectionResult {
     facts.push(...kept);
   }
 
+  // ---- 利用条件が未承認の出典の事実・数字を外す（options.allowSource を渡した時だけ） ----
+  let sources = table.list();
+  if (options.allowSource) {
+    const blocked = new Set(sources.filter((x) => !options.allowSource!(x.url)).map((x) => x.id));
+    if (blocked.size) {
+      const keptFacts = facts.filter((f) => !blocked.has(f.sourceId));
+      const keptMetrics = metrics.filter((m) => !blocked.has(m.sourceId));
+      for (const f of facts) if (blocked.has(f.sourceId)) review.push({ entityId, kind: 'source-rights-unapproved', text: f.text.slice(0, 200) });
+      facts.length = 0; facts.push(...keptFacts);
+      metrics.length = 0; metrics.push(...keptMetrics);
+      sources = sources.filter((x) => !blocked.has(x.id));
+    }
+  }
+
   // ---- 概要の事実（公式サイトの事実だけ） ----
-  const sources = table.list();
   const kindOf = new Map(sources.map((s) => [s.id, s.kind]));
   let summaryIdx = -1;
   const rootSource = new Set(

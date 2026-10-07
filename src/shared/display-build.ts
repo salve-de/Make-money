@@ -396,3 +396,63 @@ export function mergeEntity(files: DisplayFiles, entityId: string, display: Enti
 
 /** 書き出しの形（既存ファイルと同じ2字下げ＋末尾の改行） */
 export const serialize = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+
+// ---------- 言い回しだけの直し（日本語の自然さ・読む人に要らない情報の関門に落ちた文を、1行ずつ直す） ----------
+// 層ごと作り直すと、問題の無い行（章の行・選んだ事実）まで入れ替わって減る（2026-10-07 実測: Codementor の章が30行→数行）。
+// そこで、落ちた文だけを取り出し、同じ行の位置・紐付け（factId・指紋・出典URL）を保ったまま、文だけを差し替える。
+
+/** 直す1行。id は確認役と同じ形（list / summary / detail.<id>.answer|note / success.<i>.head|body / chapters.<章>.<i>） */
+export interface RepairRow { id: string; text: string; problems: string[] }
+
+/** その事例の、今の画面の文のうち関門に落ちる行。check は「料金の欄か」を受け取り、理由（無ければ []）を返す */
+export function repairRows(entityId: string, files: DisplayFiles, check: (text: string, ctx: { price: boolean }) => string[]): RepairRow[] {
+  const rows: RepairRow[] = [];
+  const add = (id: string, text: string | undefined, price = false) => {
+    if (!text) return;
+    const problems = check(text, { price });
+    if (problems.length) rows.push({ id, text, problems });
+  };
+  add('list', files['list-lines'].find((l) => l.entityId === entityId)?.text);
+  add('summary', files['summary-lines'].find((l) => l.entityId === entityId)?.text);
+  for (const l of files['detail-lines'].filter((x) => x.entityId === entityId && !x.hidden)) {
+    const price = /pricing/i.test(l.analysisId);
+    add(`detail.${l.analysisId}.answer`, l.answer, price);
+    add(`detail.${l.analysisId}.note`, l.note, price);
+  }
+  (files['success-points'].find((e) => e.entityId === entityId)?.points ?? []).forEach((p, i) => { add(`success.${i}.head`, p.head); add(`success.${i}.body`, p.body); });
+  for (const [chapter, list] of Object.entries(files['case-chapters'].find((e) => e.entityId === entityId)?.chapters ?? {})) (list ?? []).forEach((r, i) => add(`chapters.${chapter}.${i}`, r.text, chapter === 'price'));
+  return rows;
+}
+
+/** 直した文を、同じ行の位置に差し替える（紐付け・出典はそのまま）。知らない id・空の文は problems に返して差し替えない */
+export function applyRepairs(files: DisplayFiles, entityId: string, fixes: ReadonlyArray<{ id: string; text: string }>): { files: DisplayFiles; problems: string[] } {
+  const next: DisplayFiles = JSON.parse(JSON.stringify(files)) as DisplayFiles;
+  const problems: string[] = [];
+  for (const { id, text } of fixes) {
+    const value = text.trim();
+    if (!value) { problems.push(`${id}: 空の文は置けない（材料で支えられる文に直す）`); continue; }
+    const [layer, a, b] = id.split('.');
+    let done = false;
+    if (layer === 'list' || layer === 'summary') {
+      const line = next[layer === 'list' ? 'list-lines' : 'summary-lines'].find((l) => l.entityId === entityId);
+      if (line) { line.text = value; done = true; }
+    } else if (layer === 'detail' && (b === 'answer' || b === 'note')) {
+      const line = next['detail-lines'].find((l) => l.entityId === entityId && l.analysisId === a);
+      if (line) { line[b] = value; done = true; }
+    } else if (layer === 'success' && (b === 'head' || b === 'body')) {
+      const point = next['success-points'].find((e) => e.entityId === entityId)?.points[Number(a)];
+      if (point) { point[b] = value; done = true; }
+    } else if (layer === 'chapters') {
+      const row = (next['case-chapters'].find((e) => e.entityId === entityId)?.chapters as Record<string, Array<{ text: string }>> | undefined)?.[a]?.[Number(b)];
+      if (row) { row.text = value; done = true; }
+    }
+    if (!done) problems.push(`${id}: 直す対象の行ではない（rows の id だけを返す）`);
+  }
+  return { files: next, problems };
+}
+
+/** 言い回しの直しの出力の形 */
+export function repairSchema(): Record<string, unknown> {
+  const str = { type: 'string' };
+  return { type: 'object', properties: { rows: { type: 'array', items: { type: 'object', properties: { id: str, text: str }, required: ['id', 'text'], additionalProperties: false } } }, required: ['rows'], additionalProperties: false };
+}

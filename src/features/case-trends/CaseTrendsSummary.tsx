@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import type { CaseTrends, MetricTrendSeries, TrendCorpus, TrendPoint, summarizeCaseTrends } from '@/lib/company-access/case-trends';
-import { cleanDisplayText, formatDisplayDate, formatMetricAmount, metricMeasureLabel, metricOriginLabel } from '@/shared/display-text';
+import { cleanDisplayText, formatDisplayDate, formatMetricAmount, metricMeasureLabel, metricEstimateLabel } from '@/shared/display-text';
 import { SourceLink } from './SourceLink';
 
 export interface CaseTrendsSummaryProps {
@@ -39,7 +39,7 @@ function Example({ item }: { item: CaseTrends }) {
     {series && point ? <>
       <p className="break-words text-sm lg:text-[13px]">
         {metricMeasureLabel({ measure: series.scope.measure, label: series.scope.label ?? undefined })}
-        <span className="ml-2 text-xs text-term-label">{metricOriginLabel(series.scope)}</span>
+        <span className="ml-2 text-xs text-term-label">{metricEstimateLabel(series.scope)}</span>
       </p>
       {comparison && change?.from && change.to ? <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <p className="term-num break-words text-sm text-term-fg-strong">{amount(series, change.from)} → {amount(series, change.to)}</p>

@@ -15,7 +15,7 @@ import {
   firstSentence,
   formatMetricAmount,
   metricListLabel,
-  metricOriginLabel,
+  metricEstimateLabel,
   pickListMetric,
   pickProfitMetric,
   plainAnalysisText,
@@ -43,7 +43,7 @@ const metricCell = (metric: ReaderMetric | null): React.ReactNode =>
     <span data-metric={metric.id}>
       <span className="text-xs text-term-label">{metricListLabel(metric)}</span>
       <span className="term-num ml-1 text-term-fg-strong">{formatMetricAmount(metric)}</span>
-      <span className="block text-xs text-term-label">{metric.period} · {metricOriginLabel(metric)}</span>
+      <span className="block text-xs text-term-label">{metric.period}{metricEstimateLabel(metric) && ` · ${metricEstimateLabel(metric)}`}</span>
     </span>
   ) : null;
 

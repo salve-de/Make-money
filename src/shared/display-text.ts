@@ -583,6 +583,11 @@ export function metricOriginLabel(m: Pick<ReaderMetric, 'origin'>): string {
   return ORIGIN_LABELS[m.origin];
 }
 
+/** 画面に出す印。出どころ（本人申告・記事など）は画面に出さず、推定の時だけ「推定」と出す。 */
+export function metricEstimateLabel(m: Pick<ReaderMetric, 'origin'>): string {
+  return m.origin === 'ESTIMATED' ? ORIGIN_LABELS.ESTIMATED : '';
+}
+
 /** 新しさは数字が指す時点（年・月）で比べる。文字列の並びで比べると「累計（…）」と「2022年…」の比較が壊れる */
 const recency = (m: ReaderMetric): string => metricWhen(m) ?? '';
 
