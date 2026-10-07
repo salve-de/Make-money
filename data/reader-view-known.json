@@ -752,20 +752,6 @@
   "id": "ent_referralrock_8c13d5ee4cfc",
   "where": "section-chapter-voices",
   "rule": "a.出どころの印",
-  "text": "（Grover、選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（FeedXL、選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
   "text": "（CoolBot、選別あり）",
   "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
  },
@@ -925,9 +911,9 @@
  },
  {
   "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-group-secret / section-chapter-start",
+  "where": "section-group-secret / section-group-now",
   "rule": "e.同じ話が2か所以上",
-  "text": "「月約2000ドル約30万円に」",
+  "text": "「した2016年7月に雇った1」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -1131,13 +1117,6 @@
   "where": "section-group-secret / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「設定を引き受けると1人ずつメ」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-practice / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「決済会社のフォーラムで質問に」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -1590,13 +1569,6 @@
  },
  {
   "id": "ent_rfrcui_64e924ac",
-  "where": "section-group-secret / section-chapter-practice",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「前の約2年1本に2週間近くか」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
   "where": "section-group-secret / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「1本に2週間近くかけたツイー」",
@@ -1614,6 +1586,13 @@
   "where": "section-group-secret / section-chapter-price",
   "rule": "e.同じ話が2か所以上",
   "text": "「万円上位版149ドル約22万」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_rfrcui_64e924ac",
+  "where": "section-group-secret / section-chapter-practice",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「に配信で本の中身と発売日を公」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -1865,7 +1844,7 @@
   "id": "ent_requestly_28e9f2",
   "where": "section-chapter-voices",
   "rule": "a.出どころの印",
-  "text": "（HN、2022-03-03）",
+  "text": "（Hacker News、2022-03-03）",
   "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
  },
  {
@@ -1993,13 +1972,6 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「未回答のStackExcha」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-voices",
-  "rule": "f.説明のない略語",
-  "text": "HN: 品に見えた。本人は直すと返答（HN、2022-03-03）1",
-  "reason": "事例の文の担当が、略語を言い換えるか説明を添える"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -2395,6 +2367,13 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "概要 / 数字の帯「料金」",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「る紙の本Typography」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "概要 / 数字の帯「料金」 / section-chapter-price",
   "rule": "e.同じ話が2か所以上",
   "text": "「紙の本Typographyf」",
@@ -2423,16 +2402,16 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice / section-chapter-timeline",
+  "where": "section-chapter-practice / section-chapter-timeline / section-group-first",
   "rule": "e.同じ話が2か所以上",
-  "text": "「日にHackerNewsで4」",
+  "text": "「DaringFireball」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice / section-chapter-timeline / section-group-first",
+  "where": "section-chapter-practice / section-chapter-timeline",
   "rule": "e.同じ話が2か所以上",
-  "text": "「DaringFireball」",
+  "text": "「aringFireballが」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -2455,13 +2434,6 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「出版社から紙の本の話が来たが」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "概要",
-  "rule": "d.概要に売り方の並べ立て",
-  "text": "支払い方は、作者が作った文字の書体を買う、直接支払う、紙の本Typography for Lawyersを買う、の3つ。",
-  "reason": "事例の文の担当が、売り方を概要から稼ぎ方の欄へ移す"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",

@@ -3,19 +3,19 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "factId": "f1",
     "factHash": "3938c8ce",
-    "text": "開発者に1対1で質問できる、指導とフリーランス紹介の市場"
+    "text": "開発者に1対1で相談でき、仕事を請け負う開発者も紹介するサービス"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "factId": "f1",
     "factHash": "5a6c2944",
-    "text": "コピペのボタンで、どのサイトからでも商品を売れる販売サービス"
+    "text": "購入ボタンを自分のサイトに貼るだけで、商品を売れるようにするサービス"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "factId": "f1",
     "factHash": "2a9eaa16",
-    "text": "Ruby on Rails の動画講座"
+    "text": "Webアプリを作る道具Ruby on Railsの動画講座"
   },
   {
     "entityId": "ent_heygen_8f11a1",
@@ -27,25 +27,25 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "factId": "f1",
     "factHash": "0f0520a7",
-    "text": "電話とWhatsApp向けの、AIボットや自動音声案内を売る会社"
+    "text": "電話と、メッセージアプリWhatsApp向けに、AIの自動応答や自動音声案内を売る会社"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "factId": "f1",
     "factHash": "526875fa",
-    "text": "広告のない、読者の支払いで支える、組版（文字の組み方）の本"
+    "text": "文字の組み方を教える、無料で読めるWebの本。広告は載せず、読者のお金で成り立つ"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "factId": "f1",
     "factHash": "c804a794",
-    "text": "事業者向けの、紹介プログラム自動運営ソフト"
+    "text": "客の紹介と紹介者への報酬を管理する、事業者向けソフト"
   },
   {
     "entityId": "ent_requestly_28e9f2",
     "factId": "f1",
     "factHash": "3f9c44d6",
-    "text": "通信を書き換えて試せる、開発者向けのツール"
+    "text": "Webサイトの通信内容を書き換えて動作を試せる、開発者向けツール"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",

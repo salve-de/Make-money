@@ -21,3 +21,9 @@ test('書き込みを伴う直しは並列で流さない', () => {
   assert.throws(() => parseArgs(['--', '--reader-only', '--id', 'x']));
   assert.throws(() => parseArgs(['--parallel', '0', '--', '--reader-only']));
 });
+
+test('実行番号は親で1つ決め、全部の事例に同じ物を渡す', () => {
+  const now = new Date('2026-10-08T01:02:03Z');
+  assert.deepEqual(parseArgs(['--', '--reader-only'], now).pass, ['--reader-only', '--run-id', '20261008T010203']);
+  assert.deepEqual(parseArgs(['--', '--reader-only', '--run-id', 'mine'], now).pass, ['--reader-only', '--run-id', 'mine']);
+});

@@ -342,6 +342,16 @@ export function unsupportedNumbers(text: string, material: readonly number[]): n
   ))).map((a) => a.value);
 }
 
+/**
+ * 言い回しの直しで消えた数字。元の文にあって、直した文にも、同じ事例の他の行（elsewhere）にも無い値を返す。
+ * 他の行に同じ数字があれば、重複を外しただけなので消えたとは数えない（「同じ数字は1か所だけ」の規則）。
+ * 2026-10-08: 直しで「事業の約20%」「報酬35%」が落ち、事例のどこにも残らなかったため足した。
+ */
+export function lostNumbers(before: string, after: string, elsewhere: string): number[] {
+  const kept = new Set([...extractNumbers(after), ...extractNumbers(elsewhere)]);
+  return [...new Set(extractNumbers(before))].filter((n) => !kept.has(n));
+}
+
 export function numberProblems(display: EntityDisplay, material: readonly number[]): string[] {
   const rows: Array<[string, string]> = [];
   if (display.list) rows.push(['list', display.list.text]);
