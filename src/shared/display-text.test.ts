@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { screenText, cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel, withYenApprox, yenText } from './display-text';
+import { metricPeriodText, screenText, cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel, withYenApprox, yenText } from './display-text';
 
 describe('formatSourceNote', () => {
   it('removes rights and facts-only, keeps URL and date', () => {
@@ -270,6 +270,15 @@ describe('withYenApprox', () => {
     expect(yenText(14850)).toBe('1万4,850円');
     expect(yenText(2.4e8)).toBe('2.4億円');
     expect(yenText(900)).toBe('900円');
+  });
+});
+
+describe('metricPeriodText', () => {
+  it('括弧の中が時点と中身を言っている時は、括弧を外して文に取り込む', () => {
+    expect(metricPeriodText('2021-11（記事掲載時のMRR）')).toBe('記事掲載時（2021-11）の月商');
+  });
+  it('出どころの印だけの括弧は外す', () => {
+    expect(metricPeriodText('2021-11（インタビュー）')).toBe('2021-11');
   });
 });
 

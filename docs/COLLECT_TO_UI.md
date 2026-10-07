@@ -150,6 +150,7 @@ bash scripts/reader-case/run-reaudit.sh <直した事例IDを1行ずつ書いた
 - 画面の層の文は、元の事実の指紋（`factHash` / `textHash`）に結ばれています。元の事実が変わると、古い文は出なくなります。元を直したら画面の層も作り直します。
 - 画面に出さない言葉（作る側の用語）は `data/reader-language.json` にあり、`pnpm case-text:verify` が見つけます。
 - **日本語の自然さの関門**: 話し言葉・業界用語・説明のない略語（「非公開版で回した」など）は `data/natural-japanese.json`、文法の誤りは textlint（`.textlintrc.json`）、料金の欄の意味の通らないプラン名や返金などの付帯条件も、同じ `pnpm case-text:verify` が言い換えの候補つきで落とします。落ちた行は手で直さず、`pnpm display:build --repair-only` が行の位置・出典・印を保ったまま言い回しだけを直します（基準は `docs/CASE_TEXT_STANDARD.md`）。
+- **層をまたぐ重複の作り直し**: 概要・成功の秘訣・分析欄・章で同じ数字や同じ話が重なると、画面の自動監査（`pnpm reader-view:audit`）が落とします。`pnpm display:build --dedupe`（`--list` で対象だけ確認）は、重なっている概要と分析欄の行だけを作り直します（章と成功の秘訣は動かさず、言い回しの直しもしません。同じ折りたたみの分析欄どうしの重なりは対象外）。作り直す側と確認する側は別のAIにします。
 
 ## 6b. 画面の自動監査（2026-10-07〜。新しい事例を足すたびに必ず通す）
 
