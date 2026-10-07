@@ -1,6 +1,5 @@
 import points from '../../data/success-points.json';
 import { textFingerprint } from './list-lines';
-import { stripOriginTag } from './origin-tag';
 
 /**
  * 「成功の秘訣」。その事例で効いたことを、見出し（やった事）＋根拠の事実（実際に起きた事）の組で並べる画面用の編集文。
@@ -23,5 +22,5 @@ export function successPointsFor(entityId: string | undefined, facts: ReadonlyAr
   return list.filter((p) => {
     const text = byId.get(p.factId);
     return text !== undefined && textFingerprint(text) === p.factHash;
-  }).map(({ head, body }) => ({ head: stripOriginTag(head), body: stripOriginTag(body) }));
+  }).map(({ head, body }) => ({ head, body }));
 }

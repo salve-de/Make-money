@@ -22,7 +22,9 @@ describe('case-chapters', () => {
     expect(stripOriginTag('受付サイトにした（本人）')).toBe('受付サイトにした');
     expect(stripOriginTag('紹介者側は無料で使える（公式）')).toBe('紹介者側は無料で使える');
     expect(stripOriginTag('透かしを入れる機能を足した（第三者）')).toBe('透かしを入れる機能を足した');
-    expect(stripOriginTag('2018年に開始（本人、2018年5月）')).toBe('2018年に開始');
+    expect(stripOriginTag('2018年に開始（本人、2018年5月）')).toBe('2018年に開始（2018年5月）');
+    expect(stripOriginTag('価格は月29ドル（公式、2025年1月時点）')).toBe('価格は月29ドル（2025年1月時点）');
+    expect(stripOriginTag('利用者が増えた（公式の主張、2026年6月）')).toBe('利用者が増えた（2026年6月）');
     expect(stripOriginTag('印のない文。')).toBe('印のない文。');
     expect(stripOriginTag('需要があると考えた（本人申告）。')).toBe('需要があると考えた。');
     expect(stripOriginTag('（公式）の画面が変わった')).toBe('（公式）の画面が変わった');
