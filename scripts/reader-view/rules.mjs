@@ -81,7 +81,9 @@ export function unitNumbers(text) {
 const FOREIGN = /(\$\s?[0-9]|[0-9][0-9,.]*\s*(?:億|万|千|[kKMB])?\s*(?:米ドル|ドル|ルピー|ユーロ|ポンド)|(?:USD|INR|EUR|GBP)\s?[0-9])/;
 /** 外貨の金額があるのに、同じ文（句点まで）に円が無い文 @param {string} text @returns {string[]} */
 export function missingYen(text) {
-  return text.split(/(?<=[。\n])/).map((s) => s.trim()).filter((s) => FOREIGN.test(s) && !/円/.test(s));
+  // 0ドルは換算しても0円なので、円を添えなくてよい
+  const ZERO = /(?<![0-9.,])0(?:\.0+)?\s*(?:米ドル|ドル|ルピー|ユーロ|ポンド)/g;
+  return text.split(/(?<=[。\n])/).map((s) => s.trim()).filter((s) => FOREIGN.test(s.replace(ZERO, '')) && !/円/.test(s));
 }
 
 // ---- c. 料金 ----------------------------------------------------------------------

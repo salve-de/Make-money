@@ -46,6 +46,8 @@ test('同じ数字: 表記ゆれも同じ値として、別の場所の2回目�
 test('外貨: 同じ文に円が無ければ落とす', () => {
   assert.deepEqual(missingYen('月59ドルの有料版を公開した。'), ['月59ドルの有料版を公開した。']);
   assert.deepEqual(missingYen('月59ドル（約8,850円）の有料版を公開した。'), []);
+  assert.deepEqual(missingYen('広告・PR費は0ドルで、すべて口コミ。'), []);
+  assert.deepEqual(missingYen('広告費は10ドルだった。'), ['広告費は10ドルだった。']);
   assert.deepEqual(missingYen('2016年に始めた。'), []);
 });
 

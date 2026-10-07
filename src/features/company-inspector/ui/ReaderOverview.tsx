@@ -122,7 +122,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
           {series.length > 0 && <Sparkline points={series.map((m) => m.amount)} />}
         </div>
         <div className="mt-1.5 text-xs leading-snug text-term-label">
-          {metric.period}{metricEstimateLabel(metric) && ` ・ ${metricEstimateLabel(metric)}`}
+          {screenText(metric.period)}{metricEstimateLabel(metric) && ` ・ ${metricEstimateLabel(metric)}`}
         </div>
       </StripCell>,
     );

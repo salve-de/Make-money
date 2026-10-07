@@ -107,7 +107,7 @@ export interface Material {
   metrics: Array<{ id: string; what: string; period: string; amount: number; unit?: string; who?: string; sourceUrl?: string }>;
   analysis: Array<{ id: string; item: string; question: string; text: string; basis: readonly string[]; mustWords?: string; mustNotWords?: string; mustAllWords?: string[] }>;
   /** すでに画面に出ている、この事例の文（作り直さない層。同じ数字・出来事を繰り返さないために見せる） */
-  existing: Partial<{ list: string; summary: string; success: Array<{ head: string; body: string }>; detail: Array<{ analysisId: string; answer: string; note?: string }> }>;
+  existing: Partial<{ list: string; summary: string; success: Array<{ head: string; body: string }>; detail: Array<{ analysisId: string; answer: string; note?: string }>; chapters: Record<string, string[]> }>;
   /** 他の事例の、仕上がった文の見本（文の形と言い回しの手本。中身は使い回さない） */
   examples: Array<Record<string, unknown>>;
 }
@@ -132,6 +132,11 @@ export function buildMaterial(entityId: string, reader: LiveReader, need: Displa
   // 成功の秘訣は、足りない時も、今の事実に結ばれた有効な点は残す（AIには足りない分だけ作らせる）
   const keptSuccess = liveSuccessPoints(entityId, reader, files);
   if (!need.success || keptSuccess.length) existing.success = (need.success ? keptSuccess : files['success-points'].find((e) => e.entityId === entityId)?.points ?? []).map(({ head, body }) => ({ head, body }));
+  // 章は作り直さない時だけ、すでにある章の行を見せる（同じ数字・出来事を分析欄や成功の秘訣で繰り返さないため）
+  if (!need.chapters) {
+    const rows = Object.entries(files['case-chapters'].find((e) => e.entityId === entityId)?.chapters ?? {}).filter(([, list]) => list?.length);
+    if (rows.length) existing.chapters = Object.fromEntries(rows.map(([id, list]) => [id, list!.map((r) => r.text)]));
+  }
   const keptDetail = shownAnalysis(reader).map((a) => live(a.id)).filter((l): l is DetailLine => !!l);
   if (keptDetail.length) existing.detail = keptDetail.map(({ analysisId, answer, note }) => ({ analysisId, answer, ...(note ? { note } : {}) }));
   return {
