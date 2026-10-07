@@ -182,7 +182,7 @@ describe('reader analysis', () => {
   });
 
   it('入力順によらず、帯 → 問いのまとまりの順で全項目を1回ずつ並べる', () => {
-    const items = ANALYSIS_ITEMS.filter((item) => item !== 'HEADLINE' && item !== 'STORY');
+    const items = ANALYSIS_ITEMS.filter((item) => item !== 'HEADLINE' && item !== 'STORY' && item !== 'VIABILITY');
     const reader: ReaderCase = { ...baremetrics, analysis: [...items].reverse().map((item) => ({
       id: `a-${item}`, item, text: `${item}のテスト用推論`, basis: [], confidence: 'LOW',
     })) };

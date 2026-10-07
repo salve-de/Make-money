@@ -119,8 +119,8 @@ export const UI = {
   GROUP_EDGE: 'なぜ勝てたか',
   GROUP_NOW: '今やると・経緯',
   SECTION_DETAILS: '出典つきの事実・数値',
-  WHAT_IS: '何の事業か',
-  WHAT_IS_MORE: 'くわしく',
+  WHAT_IS: '概要',
+  
   HEADLINE_LABEL: 'ひとこと',
   NAV_ARIA: 'この事例の中の移動',
   NAV_MONEY: '稼ぎ方',

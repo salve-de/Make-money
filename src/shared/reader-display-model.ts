@@ -13,7 +13,7 @@ export const ANALYSIS_CHAPTERS: ReadonlyArray<{ id: string; title: string; items
   { id: 'growth', title: CHAPTER_TITLES.growth, items: ['CHANNELS', 'REFERRAL', 'COMPETITION', 'INCUMBENT_BLINDSPOT', 'WHY_IT_WORKED'] },
   { id: 'left', title: CHAPTER_TITLES.left, items: ['REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH'] },
   { id: 'needs', title: CHAPTER_TITLES.needs, items: ['CAPITAL_AND_TEAM', 'TOOLS', 'DEPENDENCIES', 'LOCK_IN'] },
-  { id: 'now', title: CHAPTER_TITLES.now, items: ['TIMELINE', 'VIABILITY', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
+  { id: 'now', title: CHAPTER_TITLES.now, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
 /** 一般論になりやすい項目。事実（basis）に結ばれている時だけ出す。 */

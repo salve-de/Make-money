@@ -89,11 +89,10 @@ export function planKeyStrip(reader: ReaderCase) {
   if (priceFact) usage.factIds.add(priceFact.id);
   else take('PRICING');
   take('TAKE_HOME');
-  take('VIABILITY');
   return { metric, priceFact, analyses, usage };
 }
 
-/** 主要な数字の帯: 売上（事実の数値。無ければ売上の推測）・料金・手残り・今も通用するか。 */
+/** 主要な数字の帯: 売上（事実の数値。無ければ売上の推測）・料金・手残り。 */
 export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnType<typeof planKeyStrip> }) {
   const { metric, priceFact, analyses } = plan;
   const cells: React.ReactNode[] = [];
@@ -124,7 +123,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   return <div className="grid grid-cols-1 gap-px border-b border-term-line bg-term-line sm:grid-cols-2 sm:[&>*:last-child:nth-child(odd)]:col-span-2">{cells}</div>;
 }
 
-/** 何の事業か。概要の最初の1文を、最上部に大きく。続きは畳む。 */
+/** 概要。最初の1文を最上部に大きく、続きは畳まずそのまま下に出す。 */
 export function WhatIs({ fact }: { fact: ReaderFact | null | undefined }) {
   if (!fact) return null;
   const text = plainFactText(fact.text);
@@ -135,15 +134,7 @@ export function WhatIs({ fact }: { fact: ReaderFact | null | undefined }) {
     <div data-fact={fact.id} className="px-2.5 pb-3 pt-3 sm:px-3">
       <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
       <p className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{first}</p>
-      {rest && (
-        <details className="group mt-2">
-          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1 text-xs text-term-sub hover:text-term-fg-strong lg:min-h-6 [&::-webkit-details-marker]:hidden">
-            <span aria-hidden="true" className="inline-block h-0 w-0 border-y-[4px] border-l-[5px] border-y-transparent border-l-current transition-transform group-open:rotate-90" />
-            {UI.WHAT_IS_MORE}
-          </summary>
-          <p className="pt-1 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{rest}</p>
-        </details>
-      )}
+      {rest && <p className="mt-2 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{rest}</p>}
     </div>
   );
 }
@@ -208,7 +199,7 @@ export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[] }> = 
   { title: UI.GROUP_MONEY, items: ['BUSINESS_MODEL', 'PRICING', 'REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH', 'CAPITAL_AND_TEAM'] },
   { title: UI.GROUP_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN', 'FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
   { title: UI.GROUP_EDGE, items: ['WHY_IT_WORKED', 'INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
-  { title: UI.GROUP_NOW, items: ['VIABILITY', 'TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
+  { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
 /** 区切りの見える折りたたみ。見出しは大きく太く、背景帯と矢印で「ここから別の話」と分かるようにする。 */
