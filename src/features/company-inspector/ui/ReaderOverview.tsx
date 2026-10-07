@@ -4,6 +4,7 @@ import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric
 import { detailLineFor } from '@/shared/detail-lines';
 import { isAbsenceOnly, stripAbsence } from '@/shared/absence-text';
 import { successPointsFor } from '@/shared/success-points';
+import { caseChaptersFor, type ChapterId, type ChapterRow } from '@/shared/case-chapters';
 import { listLineFor } from '@/shared/list-lines';
 import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
@@ -276,18 +277,111 @@ export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: 
   );
 }
 
+const CHAPTER_TITLES: Record<ChapterId, string> = {
+  practice: UI.CHAPTER_PRACTICE,
+  turning: UI.CHAPTER_TURNING,
+  timeline: UI.CHAPTER_TIMELINE,
+  core: UI.CHAPTER_CORE,
+  start: UI.CHAPTER_START,
+  price: UI.CHAPTER_PRICE,
+  voices: UI.CHAPTER_VOICES,
+};
+
+/** 「2014年1月: …」の頭の日付を分ける。形が違えば null。 */
+function splitWhen(text: string): { when: string; what: string } | null {
+  const m = text.match(/^(\d{4}年[^:：]{0,12})[:：]\s*(.+)$/);
+  return m ? { when: m[1], what: m[2] } : null;
+}
+
+/** 「前: …。後: …」を前と後の2行に分ける。形が違えば null。 */
+function splitBeforeAfter(text: string): { before: string; after: string } | null {
+  const m = text.match(/^前[:：]\s*(.+?)。?\s*後[:：]\s*(.+)$/);
+  return m ? { before: m[1], after: m[2] } : null;
+}
+
+function ChapterRowView({ id, row }: { id: ChapterId; row: ChapterRow }) {
+  if (id === 'timeline') {
+    const parts = splitWhen(row.text);
+    if (parts) {
+      return (
+        <li className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-2 text-sm">
+          <span className="term-num text-xs text-term-label">{parts.when}</span>
+          <span className="min-w-0 text-term-fg [overflow-wrap:anywhere]">
+            {parts.what}
+            <SourceLink href={row.source} />
+          </span>
+        </li>
+      );
+    }
+  }
+  if (id === 'turning') {
+    const parts = splitBeforeAfter(row.text);
+    if (parts) {
+      return (
+        <li className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-2 gap-y-0.5 text-sm [overflow-wrap:anywhere]">
+          <span className="text-xs text-term-label">前</span>
+          <span className="text-term-sub">{parts.before}</span>
+          <span className="text-xs font-semibold text-term-accent">後</span>
+          <span className="font-semibold text-term-fg-strong">
+            {parts.after}
+            <SourceLink href={row.source} />
+          </span>
+        </li>
+      );
+    }
+  }
+  return <li className="text-sm text-term-fg [overflow-wrap:anywhere]">
+      {row.text}
+      <SourceLink href={row.source} />
+    </li>;
+}
+
+function SourceLink({ href }: { href: string }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="ml-1 shrink-0 text-xs text-term-label underline decoration-dotted">
+      {UI.CHAPTER_SOURCE}
+    </a>
+  );
+}
+
+/** 事例ごとの追加の章。材料のある章だけを、決まった並びで全部開いたまま出す。 */
+export function CaseChapters({ entityId, facts }: { entityId?: string; facts: ReadonlyArray<{ id: string; text: string }> }) {
+  const chapters = caseChaptersFor(entityId, facts);
+  if (chapters.length === 0) return null;
+  return (
+    <>
+      {chapters.map(({ id, rows }) => (
+        <Fold key={id} id={`section-chapter-${id}`} title={CHAPTER_TITLES[id]} defaultOpen>
+          <ul className="grid grid-cols-1 gap-2">
+            {rows.map((row) => (
+              <ChapterRowView key={row.text} id={id} row={row} />
+            ))}
+          </ul>
+        </Fold>
+      ))}
+    </>
+  );
+}
+
 export const GROUP_IDS = ['section-group-secret', 'section-group-customers', 'section-story', 'section-group-first', 'section-group-money', 'section-group-edge', 'section-group-now'] as const;
 
 /** まとまりごとに「項目名（細く）｜中身（主役）」の2列。全部開いたまま並べる（読む人に開かせない）。推測は点線の左罫。 */
 export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase; usage: OverviewUsage; entityId?: string }) {
   return (
     <>
-      {ANALYSIS_GROUPS.map(({ title, items, story }, index) => {
+      {ANALYSIS_GROUPS.map(({ title, items: allItems, story }, index) => {
         if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
+        const hasChapter = (id: ChapterId) => caseChaptersFor(entityId, reader.facts).some((chapter) => chapter.id === id);
+        // 章が同じ話をしている欄は、重ねて出さない（年表→時間順の流れ、方向転換→つまずきと立て直し（失敗の理由の欄は残す））。
+        const items = allItems.filter((item) => !((item === 'TIMELINE' && hasChapter('timeline')) || (item === 'PIVOTS' && hasChapter('turning')) || (item === 'CAPITAL_AND_TEAM' && hasChapter('start'))));
         const secrets = title === UI.GROUP_SECRET ? successPointsFor(entityId, reader.facts) : [];
+        if (title === UI.GROUP_SECRET && secrets.length === 0 && caseChaptersFor(entityId, reader.facts).length > 0) {
+          return <CaseChapters key={title} entityId={entityId} facts={reader.facts} />;
+        }
         if (secrets.length > 0) {
           return (
-            <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>
+            <React.Fragment key={title}>
+            <Fold id={GROUP_IDS[index]} title={title} defaultOpen>
               <ol className="grid grid-cols-1 gap-3">
                 {secrets.map(({ head, body }, i) => (
                   <li key={head} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
@@ -300,6 +394,8 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
                 ))}
               </ol>
             </Fold>
+            <CaseChapters entityId={entityId} facts={reader.facts} />
+            </React.Fragment>
           );
         }
         const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && !detailLineFor(entityId, a)?.hidden && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)))));
