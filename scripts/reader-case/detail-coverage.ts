@@ -14,7 +14,7 @@ import { type AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { textFingerprint } from '../../src/shared/list-lines';
 import { isAbsenceOnly, stripAbsence } from '../../src/shared/absence-text';
-import { plainAnalysisText } from '../../src/shared/display-text';
+import { plainAnalysisText, withYenApprox } from '../../src/shared/display-text';
 import { ANALYSIS_LABELS } from '../../src/shared/ui-strings';
 import { ANALYSIS_GROUPS, planKeyStrip, splitStory } from '../../src/features/company-inspector/ui/ReaderOverview';
 
@@ -40,8 +40,8 @@ for (const id of ids) {
     entityId: id,
     name: names.get(id) ?? id,
     // 数字の帯の推論（売上の推測・料金・手残り）。帯は編集文を使わず原文を出す。
-    // 帯の1マス（AnalysisCell）は「分からない」の文を落とした後の文を出すので、検査も同じ文に掛ける
-    strip: plan.analyses.map(row).map((r) => ({ ...r, text: stripAbsence(r.text), absence: stripAbsence(r.text) === '' })),
+    // 帯の1マス（AnalysisCell）は「分からない」の文を落とし、外貨に円換算を添えた後の文を出すので、検査も同じ文に掛ける
+    strip: plan.analyses.map(row).map((r) => ({ ...r, text: withYenApprox(stripAbsence(r.text)), absence: stripAbsence(r.text) === '' })),
     // 帯に出なかった推論（物語の欄と分析の各まとまりの候補）
     analysis: reader.analysis.filter((a) => !plan.usage.items.has(a.item)).map(row),
     facts: Object.fromEntries(reader.facts.map((f) => [f.id, textFingerprint(f.text)])),

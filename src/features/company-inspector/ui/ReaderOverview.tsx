@@ -72,7 +72,8 @@ function StripCell({ label, mark, inferred, children, attrs }: { label: string; 
 }
 
 function AnalysisCell({ analysis }: { analysis: ReaderAnalysis }) {
-  const text = stripAbsence(plainAnalysisText(analysis.text));
+  // 帯の推論は編集文を通らないので、外貨の金額に円換算の概算をここで添える（料金の事実の欄と同じ）
+  const text = withYenApprox(stripAbsence(plainAnalysisText(analysis.text)));
   if (text === '') return null;
   return (
     <StripCell label={ANALYSIS_LABELS[analysis.item]} mark={ANALYSIS_LABELS[analysis.item].includes('推') ? undefined : <InferenceMark analysis={analysis} />} inferred attrs={{ 'data-analysis': analysis.id }}>
