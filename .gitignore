@@ -91,3 +91,6 @@ __pycache__/
 /data/runner/
 # 収集の状態台帳（追記型。ローカルのみ）
 /data/pipeline/ledger/
+# 画面の層の自動作成（pnpm display:build）の作業記録と、通らなかった事例の理由。ローカルのみ
+/data/pipeline/display-build/
+/data/pipeline/display-build-failures.jsonl

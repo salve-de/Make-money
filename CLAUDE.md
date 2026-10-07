@@ -301,3 +301,4 @@ AIが「初回調査で完璧に取れないから諦める」「表層のWeb情
 *   [`PROJECT_CHARTER.md`](./PROJECT_CHARTER.md): プロジェクト基本憲章・データ収集パイプライン
 *   [`docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md`](./docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md): 戦略マスター白書・永続意思決定台帳
 *   [`docs/DATA_COLLECTION_CONTRACT.md`](./docs/DATA_COLLECTION_CONTRACT.md): 財務データ収集共通契約
+*   [`docs/COLLECT_TO_UI.md`](./docs/COLLECT_TO_UI.md): 新しい事例を集めて画面に出すまでの1枚（手順・保存先・画像・許可・落とし穴、調査記録の見本は `docs/research-record/`）

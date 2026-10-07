@@ -17,6 +17,7 @@
     "ingest:verify": "node scripts/architecture/check-ingest-quality.mjs",
     "case-text:verify": "node scripts/architecture/check-case-text-standard.mjs",
     "case-chapters:todo": "node --import tsx scripts/reader-case/chapter-gaps.ts",
+    "display:build": "node --import tsx scripts/reader-case/build-display.ts",
     "template-prose:verify": "node scripts/architecture/check-template-prose.mjs",
     "pipeline:daily": "bash scripts/reader-case/run-daily.sh",
     "pipeline:status": "node --import tsx scripts/reader-case/pipeline-status.ts",
