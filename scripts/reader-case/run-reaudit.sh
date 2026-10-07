@@ -32,8 +32,10 @@ node --import tsx scripts/reader-case/runner/cli.ts status audit --prefix "${TAG
 node --import tsx scripts/reader-case/merge-analysis.ts --ids "$IDS" >/dev/null || fail "監査の取り込みに失敗"
 # 4. 反映（受領書が審査した取り込み版にだけ、審査で直した推論を表示版へ届ける。取り込み出力が手元に無くても反映記録の版から作る）
 node --import tsx scripts/reader-case/case-reflect.ts --ids "$CSV" > data/pipeline/reaudit-reflect.log || fail "反映に失敗（data/pipeline/reaudit-reflect.log）"
-# 5. 画面の文（直した文を章・成功の秘訣・詳細・一覧にも届ける。別のAIの確認つき。手で書き換えない）
-node --import tsx scripts/reader-case/build-display.ts --repair-only || say "画面の文の言い回しの直しは一部通らなかった（data/pipeline/display-build-failures.jsonl）"
+# 5. 画面の文（直した文を一覧・要約・章・成功の秘訣・詳細に届ける。足りない・古い層は事例ごとに作り直す。別のAIの確認つき。手で書き換えない）
+for id in $(grep -v '^#' "$IDS" | grep .); do
+  node --import tsx scripts/reader-case/build-display.ts --id "$id" || say "画面の文を作り直せなかった: $id（data/pipeline/display-build-failures.jsonl）"
+done
 # 6. 公開の目録の確認（外れる事例が0件か）
 node --import tsx scripts/prepare-catalog-release.ts --dry-run --changed "$IDS" > data/pipeline/reaudit-prepare.json || fail "公開版の計画を作れない"
 LEFT="$(node -p "const j=JSON.parse(require('fs').readFileSync('data/pipeline/reaudit-prepare.json','utf8').split('\n').find(l=>l.startsWith('{\"dryRun\"')));j.plan.withdrawn.join(' ')")"
@@ -42,4 +44,5 @@ if [ -n "$LEFT" ]; then
   node -p "const j=JSON.parse(require('fs').readFileSync('data/pipeline/reaudit-prepare.json','utf8').split('\n').find(l=>l.startsWith('{\"dryRun\"')));j.plan.withdrawn.map(i=>i+' '+(j.caseStamps[i]?.reason||'')).join('\n')"
   exit 1
 fi
+rm -f "$TAGFILE"  # 完了したら監査のタグを捨てる（同じ一覧ファイル名を後で使い回しても、前回の入力を選ばない）
 say "外れる事例は0件。次: node --import tsx scripts/prepare-catalog-release.ts --changed $IDS"

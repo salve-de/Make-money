@@ -217,6 +217,14 @@ test('取り込み出力が手元に無くても、反映記録の取り込み�
   assert.equal(third.state.cases[ID].approvedAnalysis, undefined);
 });
 
+test('import.json だけ残って reader.json が欠けている時は、黙って戻さず失敗にする', async () => {
+  const { dataDir, ledgerDir, put } = setup();
+  put(reader(), 'h1');
+  await reflectCases({ dataDir, ledgerDir }, pass);
+  rmSync(`${dataDir}/case-import/${ID}/reader.json`);
+  await assert.rejects(reflectCases({ dataDir, ledgerDir }, pass), /取り込み出力が欠けている/);
+});
+
 test('照合の合流: 判定の無い事例は置き換えない（--ids なしでも既存の判定が減らない）', () => {
   const touched = touchedCases([`${ID}\u0000f1`], [`ent_other\u0000f2`]);
   assert.deepEqual([...touched].sort(), [ID, 'ent_other'].sort());

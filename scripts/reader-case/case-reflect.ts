@@ -248,7 +248,12 @@ export async function reflectCases(opts: ReflectOptions, gate: ReleaseGate): Pro
     const prev = state.cases[id];
     let built = await buildEntry(id, { dataDir: opts.dataDir, ledgerDir }, gate);
     // 取り込み出力が手元に無い（取り込みの記録が無い、または出力ファイルが欠けている）事例は、反映記録の取り込み版から作り直す
-    const outputMissing = !existsSync(`${opts.dataDir}/case-import/${id}/import.json`);
+    const importDir = `${opts.dataDir}/case-import/${id}`;
+    // import.json だけ残って reader.json / analysis.json が欠けている（途中までのコピー・片付け）は、黙って戻さず失敗にする
+    if (existsSync(`${importDir}/import.json`) && (!existsSync(`${importDir}/reader.json`) || !existsSync(`${importDir}/analysis.json`))) {
+      throw new Error(`取り込み出力が欠けている（${id}: import.json はあるが reader.json か analysis.json が無い）。出力を取り直すか、${importDir} ごと消して反映記録の取り込み版から作り直す`);
+    }
+    const outputMissing = !existsSync(`${importDir}/import.json`);
     if (prev?.reader && outputMissing && (!built || (built.stage === 'IMPORT' && built.reasons[0]?.startsWith('取り込み出力が台帳の最新と合わない')))) built = await rebuildEntryFromState(prev, gate);
     if (!built) continue; // 取り込みの記録が無く、反映記録の取り込み版も無い事例は触らない（既存の記録も消さない）
     const hash = entryHash(built);
