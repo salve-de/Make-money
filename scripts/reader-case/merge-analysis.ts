@@ -11,17 +11,23 @@ import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { EVIDENCE_PENDING_FILE, EVIDENCE_REVIEWED_FILE, type EvidenceDigestFile } from './evidence-digest';
 import { mergeAnalysisItems } from './merge-items';
 import { appendRecord, resolveStuck } from './ledger';
-import { loadPublicationAuditDocuments, loadPublicationInput, readPublicationAudits } from './publication-inputs';
+import { loadPublicationAuditDocuments, loadPublicationInput } from './publication-inputs';
+import { foldNewerAudits, readStoredAudits } from './publication-audit-store';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
-import { applyPublicationAudit } from './publication-audit';
-import { PUBLICATION_AUDITS_FILE, evaluatePublication, publicationHash, type PublicationAudits } from './publication-evaluation';
+import { PUBLICATION_AUDITS_FILE, contentHash, preparePublicationReader, unauditedItems } from './publication-evaluation';
+import type { StoredAnalysis } from './analysis-lib';
+
+/** 推論1件の中身（比べる時に使う。確度などの付け足しは見ない） */
+const itemBody = (a: StoredAnalysis) => ({ id: a.id, item: a.item, text: a.text, formula: a.formula, basis: a.basis, presentation: a.presentation });
 
 async function main() {
   const idsFile = argValue('--ids');
   // 照合で外れた事実・数字は、公開時（select-finished）と同じく無いものとして推論を確かめる。
   // 外れた売上の数字が残ったままだと「売上の事実があるのに推計した」と誤って売上の推定を落とし、必須の欄が空になる。
   const verdicts = existsSync(VERDICTS_FILE) ? (JSON.parse(readFileSync(VERDICTS_FILE, 'utf8')) as VerdictsFile) : {};
-  const readers = new Map([...loadReaders(idsFile ? readIdsFile(idsFile) : undefined)].map(([id, r]) => [id, applyVerdicts(r, verdicts[id])?.reader ?? r]));
+  // 監査記録の突き合わせは、監査の入力づくり（build-audit-input）と同じく照合前の事例から組む（照合の直しを二度当てない）
+  const rawReaders = loadReaders(idsFile ? readIdsFile(idsFile) : undefined);
+  const readers = new Map([...rawReaders].map(([id, r]) => [id, applyVerdicts(r, verdicts[id])?.reader ?? r]));
   const sourceTexts = loadSourceTexts();
   const entities = loadEntities([...readers.keys()]);
   const outDir = `${ANALYZE_DIR}/out`;
@@ -68,39 +74,46 @@ async function main() {
       appendRecord({ caseId: entityId, stage: 'MERGE', status: 'HOLD', reasonCode: 'ANALYSIS_REJECTED', reasonText: `今回の出力 ${r.dropped.length} 項目が機械検査で全て落ちた。既存の ${merged.items.length} 項目は残した`, nextAction: '分析をやり直す', actor: 'merge-analysis', finishedAt: new Date().toISOString() });
     }
   }
-  // 審査受領書: 「いま公開しようとしている入力全体」の指紋に対する監査だけを有効とする。
-  // 旧形式（推論だけの指紋）の監査は引き継がない。文章・根拠・出典・権利・画像が変われば指紋が変わり、受領書は無効になる。
+  // 監査記録（項目ごと）: 記録に未反映の新しい監査を古い順に畳み込み、監査役の直し（FIX）と取り下げ（BLOCK）を推論の正本へ書く。
+  // 全体監査は「監査に出した推論一式が今も同じ」時だけ推論を置き換え、差分監査は「監査に出した項目が今も同じ文」の項目だけを直す。
+  // 監査の後に言い回しを直した項目は記録と合わなくなり、その項目だけが未監査になる（事例の記録は消さない）。
   const documents = loadPublicationAuditDocuments();
-  const receipts: PublicationAudits = readPublicationAudits(documents);
-  // 一部の事例だけを統合した時（--ids）は、対象外の事例の受領書をそのまま残す
+  const stored = readStoredAudits(documents);
+  const auditView = withReflectedAnalysis(result, readReflectState(), 'audit');
+  let audited = 0;
+  const folded = foldNewerAudits(stored, documents, (id, _doc, applied) => {
+    const reader = rawReaders.get(id);
+    if (!reader || !applied.analysis) return;
+    if (applied.scope === 'full') {
+      const current = preparePublicationReader(reader, verdicts[id], auditView[id]).reader.analysis;
+      if (contentHash(current.map(itemBody)) !== contentHash(applied.reviewed.map(itemBody))) return;
+      result[id] = applied.analysis;
+      audited++;
+      return;
+    }
+    const items = result[id] ?? [];
+    let touched = false;
+    const next = items.flatMap((a) => {
+      const reviewed = applied.reviewed.find((r) => r.id === a.id);
+      if (!reviewed || contentHash(itemBody(reviewed)) !== contentHash(itemBody(a))) return [a];
+      touched = true;
+      const kept = applied.analysis!.find((k) => k.id === a.id);
+      return kept ? [kept] : [];
+    });
+    if (touched) { result[id] = next; audited++; }
+  });
+  // 一部の事例だけを統合した時（--ids）は、対象外の事例の記録をファイルのまま残す（畳み込みは次にその事例を統合する時）
+  const receipts: Record<string, unknown> = existsSync(PUBLICATION_AUDITS_FILE) ? JSON.parse(readFileSync(PUBLICATION_AUDITS_FILE, 'utf8')) as Record<string, unknown> : {};
   const fresh = new Set<string>();
   let stale = 0;
-  let audited = 0;
-  // 取り込み事例は反映段の推論（build-audit-input と同じもの）で入力を組む。審査で直した推論は reader-analysis.json に書き、case-reflect が受領書と突き合わせて採用する
-  const reflected = withReflectedAnalysis(result, readReflectState(), 'audit');
-  for (const [id, reader] of readers) {
+  const display = withReflectedAnalysis(result, readReflectState());
+  for (const [id, reader] of rawReaders) {
+    if (folded[id]) receipts[id] = folded[id]; else delete receipts[id];
     const entity = entities.get(id);
     if (!entity) continue;
-    // base=この事例の今の入力（まだ審査の直しを当てていない）。current=前の審査の直しを当てた入力。
-    // 同じ入力を取り直して監査し直した新しい束は base に対する審査、前の審査の直しを入力にした束は current に対する審査。どちらも受け付ける
-    const base = await loadPublicationInput(entity, { ...reader, analysis: reflected[id] ?? [] }, verdicts[id]);
-    let current = base;
-    for (const doc of documents.filter((d) => d.input.cases.some((c) => c.entityId === id))) {
-      const { inputFile, outputFile, input: inputDoc, output: outputDoc } = doc;
-      const matching = inputDoc.cases.find((c) => c.entityId === id);
-      // 同じ入力への新しい不合格・壊れた出力は、古い合格を打ち消す（巻き戻しで合格に戻らない）
-      if (matching?.publicationHash === publicationHash(current) || matching?.publicationHash === publicationHash(base) || matching?.publicationHash === receipts[id]?.inputHash) delete receipts[id];
-      const target = matching?.publicationHash === publicationHash(base) ? base : current;
-      const approved = applyPublicationAudit(target, inputDoc, outputDoc, inputFile, outputFile);
-      if (!approved) continue;
-      result[id] = approved.analysis;
-      receipts[id] = approved.receipt;
-      current = { ...target, reader: { ...target.reader, analysis: approved.analysis } };
-      audited++;
-    }
-    const evaluation = evaluatePublication(current, receipts[id]);
-    if (!evaluation.reasons.includes('現在の入力に対する監査が無い')) fresh.add(id);
-    else { delete receipts[id]; stale++; }
+    const prepared = preparePublicationReader(reader, verdicts[id], display[id]);
+    const left = unauditedItems(await loadPublicationInput(entity, prepared.reader, verdicts[id]), folded[id]);
+    if (!left.caseLevel && !left.keys.length) fresh.add(id); else stale++;
   }
   for (const id of Object.keys(receipts)) if (!readers.has(id)) fresh.add(id);
   // 一部の事例だけを統合した時（--ids）は、対象外の事例の「監査済み」の記録もそのまま残す

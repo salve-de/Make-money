@@ -240,6 +240,8 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
     catalogFirstId: catalog.firstId,
     catalogLoadedCount: catalog.loadedCount,
     catalogTotal: catalog.totalCount,
+    /** 世代ごとの全体の件数（読み込み途中の見出し用）。届くまでは null */
+    catalogGenerationCounts: catalog.generationCounts,
     /** 目録を読み込めなかった時の理由。null なら正常 */
     catalogError: catalog.error,
     hasMore: catalog.hasMore,

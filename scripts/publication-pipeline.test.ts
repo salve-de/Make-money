@@ -4,8 +4,9 @@ import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync } from 
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { contentHash, evaluateForRelease, evaluatePublication, parseFinishedManifest, preparePublicationReader, publicationHash, type PublicationInput } from './reader-case/publication-evaluation';
-import { applyPublicationAudit } from './reader-case/publication-audit';
+import { contentHash, evaluateForRelease, evaluatePublication, parseFinishedManifest, preparePublicationReader, publicationHash, publicationItemHashes, unauditedItems, withoutUnaudited, type PublicationInput } from './reader-case/publication-evaluation';
+import { applyAuditDocument, auditCaseEntry } from './reader-case/publication-audit';
+import { factTokens, formulaSkeleton, newFactTokens } from './reader-case/paraphrase-check';
 import { checkCase, missingRequired } from './reader-case/analysis-lib';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
 import { identifyEntity, normalizeEntityName } from './pipeline/entity-identity.mjs';
@@ -36,11 +37,16 @@ function input(): PublicationInput {
     media: { assets: [{ assetId: 'media-fixture', rights: { decision: 'allowed' } }], displayableIds: ['media-fixture'], problems: [] },
   };
 }
+/** 全体監査（新しい形の入力）を1件当てる。結果が壊れている・事例単位の BLOCK なら analysis は null */
 const audit = (i: PublicationInput, items: unknown[] = []) => {
-  const inputDoc = { cases: [{ entityId: i.identity.id, snapshot: i, publicationHash: publicationHash(i) }] };
-  const outputDoc = { cases: [{ entityId: i.identity.id, items }] };
-  return applyPublicationAudit(i, inputDoc, outputDoc, 'data/audit/in-100.json', 'data/audit/out-100.json');
+  const input = { cases: [auditCaseEntry(i, 'full', Object.keys(publicationItemHashes(i)))] };
+  const output = { cases: [{ entityId: i.identity.id, items }] };
+  return applyAuditDocument(undefined, i.identity.id, { inputFile: 'data/audit/in-100.json', outputFile: 'data/audit/out-100.json', input, output });
 };
+/** 旧形式（事例丸ごとの snapshot）の入力でも同じ記録になる */
+const legacyAudit = (i: PublicationInput, items: unknown[] = []) => applyAuditDocument(undefined, i.identity.id, {
+  inputFile: 'data/audit/in-100.json', outputFile: 'data/audit/out-100.json',
+  input: { cases: [{ entityId: i.identity.id, snapshot: i, publicationHash: publicationHash(i) }] }, output: { cases: [{ entityId: i.identity.id, items }] } });
 
 test('revenue/profit absent: evidence/receipt gate passes without any fabricated value; main completeness rules are reported separately', () => {
   const i = input(); const receipt = audit(i)!.receipt;
@@ -74,10 +80,11 @@ test('auditor BLOCK removes a fabricated active claim, with no mandatory refill'
 
 test('an auditor correction approves only the corrected text and formula', () => {
   const i = input();
-  i.reader.analysis.push({ id: 'a-customer', item: 'CUSTOMER', text: '全店舗が客になる。', basis: ['f1'], confidence: 'LOW' });
+  // 直す前の文は新しい数字を含む（数字・年月日・固有名の無い言い換えは、機械の照合で通る設計）
+  i.reader.analysis.push({ id: 'a-customer', item: 'CUSTOMER', text: '全国の9割の店舗が客になる。', basis: ['f1'], confidence: 'LOW' });
   const reviewed = audit(i, [{ analysisId: 'a-customer', kind: 'FACT_DISGUISED', severity: 'FIX', fix: '予約管理の手間が多い店舗が客と見られる。' }])!;
   assert.equal(evaluatePublication(i, reviewed.receipt).publishable, false);
-  assert.equal(evaluatePublication({ ...i, reader: { ...i.reader, analysis: reviewed.analysis } }, reviewed.receipt).publishable, true);
+  assert.equal(evaluatePublication({ ...i, reader: { ...i.reader, analysis: reviewed.analysis! } }, reviewed.receipt).publishable, true);
 });
 
 test('source content/URL/attribution/facts/formula/rights changes invalidate an old audit', () => {
@@ -87,25 +94,87 @@ test('source content/URL/attribution/facts/formula/rights changes invalidate an 
     i => { i.reader.sources[0].url = 'https://other.example/'; },
     i => { i.reader.facts[0].attribution = 'SELF_REPORTED'; },
     i => { i.reader.sources[0].publishedAt = '2026-09-01'; },
-    i => { i.sources[0].snapshot!.fetchedAt = '2026-10-03T00:00:00Z'; },
     i => { i.reader.facts[0].text += '追加の主張'; },
     i => { i.sources[0].policy = { decision: 'blocked' }; },
-    i => { i.media.assets = [{ rights: { decision: 'held' } }]; },
+    i => { i.media.displayableIds = []; i.media.problems = ['held']; },
     i => { i.reader.analysis.push({ id: 'a-take_home', item: 'TAKE_HOME', text: '事業の手残り推定約10円。', basis: ['f1'], formula: '20 - 10 = 10', confidence: 'LOW' }); },
   ];
   for (const mutate of mutations) {
     const next = structuredClone(original); mutate(next);
     assert.equal(evaluatePublication(next, receipt).publishable, false);
   }
+  // 取得日時だけが変わっても、監査は無効にならない
+  const refetched = structuredClone(original); refetched.sources[0].snapshot!.fetchedAt = '2026-10-03T00:00:00Z';
+  assert.equal(evaluatePublication(refetched, receipt).publishable, true);
+});
+
+test('item audit: a changed fact hides only that item and what rests on it; the case stays', () => {
+  const i = input();
+  i.reader.facts.push({ id: 'f2', sourceId: 's1', kind: 'DESCRIPTION', text: '公式の製品説明と利用条件。', attribution: 'OFFICIAL' });
+  i.verdicts!.f2 = { verdict: 'SUPPORTED', claimText: '公式の製品説明と利用条件。', quote: '公式の製品説明と利用条件。', sourceUrl: 'https://fixture.example/', checkedAt: '2026-10-02' };
+  i.reader.analysis.push({ id: 'a-story', item: 'STORY', text: '公式の説明は予約管理を前面に出している。', basis: ['f2'], confidence: 'LOW' });
+  const receipt = audit(i)!.receipt;
+  assert.equal(evaluatePublication(i, receipt).publishable, true);
+  const next = structuredClone(i); next.reader.facts[1].text = '公式の製品説明。'; next.verdicts!.f2.claimText = '公式の製品説明。';
+  const left = unauditedItems(next, receipt);
+  assert.equal(left.caseLevel, false);
+  assert.deepEqual(left.keys.sort(), ['analysis:a-story', 'fact:f2']);
+  const shown = withoutUnaudited(next.reader, left.keys);
+  assert.deepEqual(shown.facts.map((f) => f.id), ['f1']); assert.deepEqual(shown.analysis, []);
+  // 身元が変わった時だけ、事例ごと未監査
+  const renamed = structuredClone(i); renamed.identity.name = 'Other business';
+  assert.equal(unauditedItems(renamed, receipt).caseLevel, true);
+  // 旧形式の入力でも同じ項目の記録になる
+  assert.deepEqual(legacyAudit(i)!.receipt.items, receipt.items);
+});
+
+test('paraphrase only: an analysis reworded with no new number, date or name stays audited without a new review', () => {
+  const i = input();
+  i.reader.analysis.push({ id: 'a-take_home', item: 'TAKE_HOME', text: '事業の手残りは推定約10円。', basis: ['f1'], formula: '20 - 10 = 10', confidence: 'LOW' });
+  const receipt = audit(i)!.receipt;
+  assert.equal(receipt.items['analysis:a-take_home'].body?.text, '事業の手残りは推定約10円。');
+  const reworded = structuredClone(i); reworded.reader.analysis[0].text = '手残りは、推定で約10円と見られる。';
+  const started = Date.now();
+  const ok = evaluatePublication(reworded, receipt);
+  assert.ok(Date.now() - started < 2000);
+  assert.equal(ok.publishable, true, ok.reasons.join(','));
+  assert.deepEqual(ok.paraphrased, ['analysis:a-take_home']); assert.deepEqual(ok.unaudited, []);
+  // 数字を1つ変えると、その項目だけが監査待ちになって隠れる
+  for (const [text, formula] of [['手残りは、推定で約12円と見られる。', '20 - 10 = 10'], ['事業の手残りは推定約10円。', '20 - 8 = 12'], ['事業の手残りは推定約10円。', '20 + 10 = 10'], ['Stripe 経由の手残りは推定約10円。', '20 - 10 = 10']]) {
+    const changed = structuredClone(i); changed.reader.analysis[0].text = text; changed.reader.analysis[0].formula = formula;
+    const r = evaluatePublication(changed, receipt);
+    assert.deepEqual(r.unaudited, ['analysis:a-take_home'], text);
+    assert.deepEqual(r.reasons.filter((x) => x.startsWith('未監査:')), ['未監査:analysis:a-take_home']);
+    assert.ok(!r.reasons.includes('現在の入力に対する監査が無い'));
+    assert.deepEqual(withoutUnaudited(changed.reader, r.unaudited).analysis, []);
+  }
+  // 根拠を変えた推論は、文が同じでも照合に回さない
+  const rebased = structuredClone(reworded); rebased.reader.analysis[0].basis = ['f1', 'f1'];
+  assert.deepEqual(evaluatePublication(rebased, receipt).unaudited, ['analysis:a-take_home']);
+});
+
+test('paraphrase check extracts numbers with units, dates and names', () => {
+  assert.deepEqual(factTokens('2024年に月額$29、Hacker Newsで1,200人。'), ['2024年', '$29', '1200人', 'hacker', 'news']);
+  assert.deepEqual(newFactTokens('11月に始めた。', '1月に始めた。', []), ['11月']);
+  assert.deepEqual(newFactTokens('6千ドルの売上。', '6万ドルの売上。', []), ['6千ドル']);
+  assert.deepEqual(newFactTokens('Hacker News で広がった。', 'ネットで広がった。', ['Hacker Newsに載った。']), []);
+  assert.deepEqual(newFactTokens('シャープ製の端末。', '端末。', []), ['シャープ']);
+  assert.deepEqual(newFactTokens('約30%が残る。', '3割ほどが残る。', ['利益率30％']), []);
+  // 通貨記号を変えた・式の演算を変えた時は、言い回しの直しとみなさない
+  assert.deepEqual(newFactTokens('月額¥29。', '月額$29。', []), ['¥29']);
+  assert.equal(formulaSkeleton('売上 20 - 原価 10 = 10'), formulaSkeleton('売上20−原価10＝10'));
+  assert.notEqual(formulaSkeleton('20 - 10 = 10'), formulaSkeleton('20 + 10 = 10'));
 });
 
 test('case BLOCK, malformed/duplicate review, legacy and missing audit cannot approve', () => {
   const i = input();
-  assert.equal(audit(i, [{ analysisId: '__case__', kind: 'RIGHTS', severity: 'BLOCK' }]), null);
-  assert.equal(audit(i, [{ analysisId: 'not-present', kind: 'X', severity: 'LOW' }]), null);
-  assert.equal(audit(i, [{ analysisId: '__case__', severity: 'invalid' }]), null);
+  for (const items of [[{ analysisId: '__case__', kind: 'RIGHTS', severity: 'BLOCK' }], [{ analysisId: 'not-present', kind: 'X', severity: 'LOW' }], [{ analysisId: '__case__', severity: 'invalid' }]]) {
+    const r = audit(i, items)!;
+    assert.equal(r.analysis, null); assert.deepEqual(r.receipt.items, {});
+    assert.equal(evaluatePublication(i, r.receipt).publishable, false);
+  }
   assert.equal(evaluatePublication(i, undefined).publishable, false);
-  assert.equal(applyPublicationAudit(i, { cases: [{ entityId: i.identity.id }] }, { cases: [{ entityId: i.identity.id, items: [] }] }, 'a', 'b'), null);
+  assert.equal(applyAuditDocument(undefined, i.identity.id, { inputFile: 'a', outputFile: 'b', input: { cases: [{ entityId: i.identity.id }] }, output: { cases: [{ entityId: i.identity.id, items: [] }] } }), null);
 });
 
 test('current media rights withdrawal permits a withdrawal-only release', () => {
@@ -223,7 +292,9 @@ test('CLI select → prepare dry-run shares gate; fresh audit passes, cache chan
     const changed = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
     saveEvidence('stale-source-dry-run.json', changed.stdout);
     assert.equal(changed.status, 0, changed.stderr); assert.deepEqual(JSON.parse(changed.stdout).plan.added, []);
-    assert.match(JSON.parse(changed.stdout).caseStamps.ent_fixture.reason, /現在の入力に対する監査が無い/);
+    // 出典の本文が変わった事実は、その項目だけが未監査になる（事例丸ごとの未監査ではない）
+    assert.doesNotMatch(JSON.parse(changed.stdout).caseStamps.ent_fixture.reason, /現在の入力に対する監査が無い/);
+    assert.match(JSON.parse(changed.stdout).caseStamps.ent_fixture.reason, /未監査で隠した:fact:/);
     writeFileSync(cachePath(cache.url), JSON.stringify(cache));
     writeFileSync('data/catalog-release.json', JSON.stringify({ details: { ent_fixture: hash('a') } }));
     const correction = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
