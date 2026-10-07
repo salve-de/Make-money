@@ -195,7 +195,7 @@ describe("discovery model", () => {
 
   it("prefers a filed annual revenue and never labels a filed value as estimated", () => {
     const item = deriveDiscoveryDataset([{ ...makeEntity("blk"), reader: block }]).cases[0];
-    expect(item.resultLabel).toBe("年商");
+    expect(item.resultLabel).toBe("売上");
     expect(item.resultValue).toBe("$24B");
     expect(item.resultEvidenceLabel).toBe("提出書類");
     expect(item.resultPeriod).toBe("FY2025");

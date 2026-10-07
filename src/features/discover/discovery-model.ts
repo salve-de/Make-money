@@ -1,5 +1,5 @@
 import type { FinancialEntity, ViabilityStatus } from '@/shared/terminal';
-import { firstSentence, formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, readerSummaryFact } from '@/shared/display-text';
+import { firstSentence, formatMetricAmount, metricMeasureLabel, metricOriginLabel, pickListMetric, readerSummaryFact } from '@/shared/display-text';
 import type { ReaderCase } from '@/shared/reader-case';
 import { UI } from '@/shared/ui-strings';
 
@@ -101,7 +101,7 @@ function resultOf(entity: FinancialEntity): {
   }
   const publisher = entity.reader?.sources.find((s) => s.id === metric.sourceId)?.publisher ?? null;
   return {
-    label: metricListLabel(metric),
+    label: metricMeasureLabel(metric),
     value: formatMetricAmount(metric),
     amount: metric.currency === 'JPY' ? metric.amount : null,
     metricId: metric.id,
