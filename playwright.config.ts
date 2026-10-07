@@ -1,7 +1,8 @@
 import { resolve } from 'node:path';
 import { defineConfig, devices } from '@playwright/test';
 
-const port = 3100;
+// 3100番が他で使われている手元では E2E_PORT=3110 のように変える（自動テストは既定の3100番）
+const port = Number(process.env.E2E_PORT ?? 3100);
 const baseURL = `http://127.0.0.1:${port}`;
 // The standalone server runs from .next/standalone; point the media routes at the repository's staging
 // ledger (data/media-staging, gitignored) so that images approved with scripts/media/review-assets.ts show up.
