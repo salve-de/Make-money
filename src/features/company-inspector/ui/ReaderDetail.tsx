@@ -11,7 +11,7 @@ import {
 } from '@/shared/display-text';
 import { createSentenceMemory, splitSentences } from '@/shared/case-text';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
-import { AnalysisGroups, Fold, Headline, headlineOf, KeyStrip, planKeyStrip, SectionGap, WhatIs } from './ReaderOverview';
+import { AnalysisGroups, Fold, KeyStrip, planKeyStrip, SectionGap, WhatIs } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
@@ -210,8 +210,7 @@ export function ReaderLedger({ reader, entityId, detailState, onRetry, media }: 
   return (
     <>
       {status}
-      <Headline reader={reader} entityId={entityId} />
-      <WhatIs fact={summary} entityId={entityId} lead={!headlineOf(reader)} />
+      <WhatIs fact={summary} entityId={entityId} lead />
       <KeyStrip reader={reader} plan={plan} />
       {media}
       {(hasDetails || reader.analysis.some((a) => a.item !== 'HEADLINE')) && <SectionGap />}

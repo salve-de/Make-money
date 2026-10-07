@@ -4,7 +4,6 @@ import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric
 import { detailLineFor } from '@/shared/detail-lines';
 import { listLineFor } from '@/shared/list-lines';
 import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
-import { checkLead } from '@/shared/lead-standard';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -149,27 +148,6 @@ export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | nul
       <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
       <p className={lead ? 'text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]' : 'text-base font-medium leading-snug text-term-fg-strong [overflow-wrap:anywhere]'}>{first}</p>
       {rest && <p className="mt-2 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{rest}</p>}
-    </div>
-  );
-}
-
-/** ひとこと（強い一行）。主役は「何の事業か」と数字の帯なので、ここでは小さめに。 */
-/** 出せるひとこと。リードは基準（lead-standard.ts）を通った時だけ。 */
-export function headlineOf(reader: ReaderCase): ReaderAnalysis | null {
-  const a = byItem(reader, 'HEADLINE');
-  return a && checkLead(a, reader).ok ? a : null;
-}
-
-export function Headline({ reader, entityId }: { reader: ReaderCase; entityId?: string }) {
-  const a = headlineOf(reader);
-  if (!a) return null;
-  return (
-    <div data-analysis={a.id} className="border-b border-term-line px-2.5 py-3 sm:px-3">
-      <div className="mb-1 flex items-center gap-2 text-xs text-term-label">
-        <span>{UI.HEADLINE_LABEL}</span>
-        <InferenceMark analysis={a} />
-      </div>
-      <h3 className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)}</h3>
     </div>
   );
 }

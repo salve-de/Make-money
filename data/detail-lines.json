@@ -136,24 +136,6 @@
     "note": "開始のきっかけは、材料に書かれていない（未確認）。"
   },
   {
-    "entityId": "ent_myoperator_49c393230a2d",
-    "analysisId": "a-headline",
-    "textHash": "68ae1889",
-    "answer": "元手210万円、社員5人の兄弟が、半年でインドの企業200社に電話サービスを売った"
-  },
-  {
-    "entityId": "ent_gorails_640d8f688451",
-    "analysisId": "a-headline",
-    "textHash": "f87ebe7a",
-    "answer": "毎週無料の動画を出し続けた元受託開発者が、1人で月900万円売る会社にした（本人申告・2021年11月）"
-  },
-  {
-    "entityId": "ent_codementor_ba692caa3db3",
-    "analysisId": "a-headline",
-    "textHash": "eee18cd1",
-    "answer": "作る前に「登録ページ」だけ置いたら、数千人が順番待ちに並んだ"
-  },
-  {
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-story",
     "textHash": "3b0eeeeb",
@@ -220,12 +202,6 @@
     "analysisId": "a-timeline",
     "textHash": "eb13dba2",
     "answer": "2013年6月: Hacker Newsに登録ページを投稿。2014年春ごろ: 正式公開（登録ページの約9か月後）。2016年12月: シードを調達。2018年6月: 直近12か月の売上は500万〜1,000万（通貨不明、本人のアンケート回答）。"
-  },
-  {
-    "entityId": "ent_ejunkie_7e9e46bd9643",
-    "analysisId": "a-headline",
-    "textHash": "18e2c460",
-    "answer": "商品を手で送る毎日に疲れた男が、自動で売れる仕組みを作って商売にした"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -298,13 +274,6 @@
   },
   {
     "entityId": "ent_heygen_8f11a1",
-    "analysisId": "a-headline",
-    "textHash": "1e0a46a6",
-    "answer": "台本を書くだけで本人そっくりの人が話す動画ができる。毎年入る契約収入は300億円超（公式発表・2026年6月）",
-    "note": "2026年6月25日時点の公式発表（自己申告）。"
-  },
-  {
-    "entityId": "ent_heygen_8f11a1",
     "analysisId": "a-story",
     "textHash": "eaf67816",
     "answer": "Snap時代に「人は動画が好きなのにカメラの前には立ちたがらない」と気づいて始めた",
@@ -356,13 +325,6 @@
     "analysisId": "a-timeline",
     "textHash": "2ef70e47",
     "answer": "2020年: Joshua XuとWayne Liangが創業。2026年6月25日: 年間の定期収入が2億ドル超（約300億円超）と公式発表（自己申告、8か月で倍増）。"
-  },
-  {
-    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
-    "analysisId": "a-headline",
-    "textHash": "030dbbee",
-    "answer": "無料で全部読める本を公開したら、そこから自作フォントを買う客がついた",
-    "note": "直接の支払いだけでは続かず、フォントが稼ぎ頭だったと本人は書く。"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -435,12 +397,6 @@
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
-    "analysisId": "a-headline",
-    "textHash": "f951211c",
-    "answer": "外部から資金を入れず、月の売上を1,050万円まで伸ばした。効いたのは営業をもう1人入れたこと（本人の投稿・2019年5月）"
-  },
-  {
-    "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-story",
     "textHash": "c3abfdda",
     "answer": "2013年に小さな事業向けの紹介運営ソフトを思いつき、同年12月にドメインを取った",
@@ -502,13 +458,6 @@
   },
   {
     "entityId": "ent_requestly_28e9f2",
-    "analysisId": "a-headline",
-    "textHash": "f52ca347",
-    "answer": "30分で作った小さなブラウザ拡張が、20万人に使われ、買収された（自己申告）",
-    "note": "1万社超の企業が利用。Y Combinatorに採択され、Peak XV（旧Sequoia）などの出資も受けた。"
-  },
-  {
-    "entityId": "ent_requestly_28e9f2",
     "analysisId": "a-story",
     "textHash": "73480c98",
     "answer": "本番の圧縮されたJavaScriptを調べる苛立ちから、週末に個人で作り始めた",
@@ -548,13 +497,6 @@
     "textHash": "6db6329a",
     "answer": "JS差し替えから、ヘッダー書き換え・チーム共有を経て、API応答のモックに絞った",
     "note": "モックが最も製品に合うと見て、画面側の開発者向けに重心を移した。企業向けにSSOやSOC2 Type II認証も足した。"
-  },
-  {
-    "entityId": "ent_rfrcui_64e924ac",
-    "analysisId": "a-headline",
-    "textHash": "8f8ec338",
-    "answer": "2年間、無料でツイートし続けた2人組が、デザイン教材で3億7,500万円売った（2022年9月・自己申告）",
-    "note": "2022年9月の本人投稿時点の累計（自己申告）。"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
@@ -617,12 +559,6 @@
     "textHash": "87d3f754",
     "answer": "Adamは教材の前にNitpick CIを出して失敗した",
     "note": "履歴書アプリ、リンク共有のSNS、売上税の徴収を代行する決済サービスは、完成させずにやめた。"
-  },
-  {
-    "entityId": "ent_teamcamp_ae0c21986c4d",
-    "analysisId": "a-headline",
-    "textHash": "24cbfda8",
-    "answer": "先に使い勝手を直したら、2か月で、続けて使う客が12%から41%に増えた（創業者の申告）"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",

@@ -7,7 +7,7 @@ import { baremetrics, block, emptyReader, hannahMorgan } from '@/shared/__fixtur
 import { analyzeScreen } from '../../../../scripts/architecture/screen-text-lib.mjs';
 import { allowedUiTexts, isUnknownsLine } from '@/shared/ui-strings';
 import { ANALYSIS_ITEMS, type ReaderCase } from '@/shared/reader-case';
-import { ANALYSIS_GROUPS, AnalysisGroups, Headline, planKeyStrip, StorySteps } from './ReaderOverview';
+import { ANALYSIS_GROUPS, AnalysisGroups, planKeyStrip, StorySteps } from './ReaderOverview';
 import { ReaderEvidence, ReaderFacts, ReaderLedger, ReaderMetrics, ReaderSources, ReaderSummary } from './ReaderDetail';
 
 const withAnalysis: ReaderCase = {
@@ -91,19 +91,15 @@ describe('reader detail', () => {
 describe('reader analysis', () => {
   const ledger = (reader: ReaderCase) => renderToStaticMarkup(<ReaderLedger reader={reader} />);
 
-  it('「ひとこと」の HEADLINE と、畳んだ4段の STORY。どちらにも推測の印を出す', () => {
+  it('畳んだ4段の STORY に推測の印を出し、ひとこと（HEADLINE）は画面に出さない', () => {
     const html = ledger(withAnalysis);
-    const head = renderToStaticMarkup(<Headline reader={withAnalysis} />);
-    expect(head).toMatch(/<h3 class="[^"]*text-\[20px\][^"]*">面倒な集計/);
     const story = renderToStaticMarkup(<StorySteps reader={withAnalysis} />);
     expect(story.match(/<li /g)).toHaveLength(4);
     expect(story).toContain('集計を自動化した');
-    expect(html.match(/data-analysis="a-headline"/g)).toHaveLength(1);
+    expect(html).not.toContain('data-analysis="a-headline"');
     expect(html.match(/data-analysis="a-story"/g)).toHaveLength(1);
-    expect(html.indexOf('a-headline')).toBeLessThan(html.indexOf('a-story'));
     expect(html.indexOf('a-story')).toBeLessThan(html.indexOf('data-fact="f2"'));
     // 推論には必ず薄灰色の言葉の印が付く（確度ラベルは出さない）
-    expect(head).toMatch(/>(推測|推定)</);
     expect(story).toMatch(/>(推測|推定)</);
     expect(html).not.toContain('確度');
   });
@@ -142,15 +138,6 @@ describe('reader analysis', () => {
     expect(one('FACT_SUMMARY')).not.toMatch(/>(推測|推定)</);
     expect(one()).toContain('>推測<');
     expect(one('ESTIMATE')).not.toContain('確度');
-  });
-
-  it('リードは基準を通った時だけ出す（断り書き付き・出典に無い数字・製品説明は出さない）', () => {
-    const show = (text: string) => renderToStaticMarkup(<Headline reader={{ ...withAnalysis, analysis: [{ id: 'a-headline', item: 'HEADLINE', text, basis: ['f1'] }] }} />);
-    expect(show('面倒な集計を引き受けて、継続課金を積み上げる。')).toContain('<h3');
-    expect(show('集計を自動化し、月$2万売上（本人公表）。')).not.toContain('<h3');
-    expect(show('集計を引き受け、月$9,999,999を稼ぐ。')).not.toContain('<h3');
-    expect(show('集計をまとめるツールを提供する。')).not.toContain('<h3');
-    expect(show('集計を引き受け、月$2万〜5万を稼ぐ。')).not.toContain('<h3');
   });
 
   it('推定の計算は事実の後・出典の前の1区画にまとめ、式のある項目だけを出す', () => {
@@ -196,7 +183,6 @@ describe('reader analysis', () => {
 
   it('analysis が空・reader が無い時は推測のまとまりも HEADLINE も出さない', () => {
     for (const reader of [emptyReader, baremetrics]) {
-      expect(renderToStaticMarkup(<Headline reader={reader} />)).toBe('');
       expect(renderToStaticMarkup(<StorySteps reader={reader} />)).toBe('');
       expect(renderToStaticMarkup(<AnalysisGroups reader={reader} usage={planKeyStrip(reader).usage} />)).toBe('');
     }
