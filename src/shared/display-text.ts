@@ -673,6 +673,32 @@ export function plainFactText(text: string): string {
   return /[。.!?]$/.test(cut) ? cut : `${cut}。`;
 }
 
+/**
+ * 本文の外貨の金額に、円のおおよその額を添える（「月99ドル」→「月99ドル（約1万4,850円）」）。
+ * 為替は docs/CASE_TEXT_STANDARD.md の固定の概算（1ドル=150円・1ユーロ=165円・1ポンド=195円・1ルピー=1.75円）。
+ * すぐ後ろに円の額や括弧の補足がある金額には足さない（二重にしない）。保存データは変えない。
+ */
+const TEXT_YEN_PER: Record<string, number> = { ドル: 150, ユーロ: 165, ポンド: 195, ルピー: 1.75 };
+const FOREIGN_AMOUNT = /([0-9][0-9,]*(?:\.[0-9]+)?)(億|万)?(ドル|ユーロ|ポンド|ルピー)/g;
+export function yenText(yen: number): string {
+  const n = Math.round(yen);
+  if (n >= 1e8) return `${trimNum(n / 1e8, 1)}億円`;
+  if (n >= 1e4) {
+    const man = Math.floor(n / 1e4);
+    const rest = Math.round((n % 1e4) / 10) * 10;
+    return rest === 0 ? `${man.toLocaleString('en-US')}万円` : `${man.toLocaleString('en-US')}万${rest.toLocaleString('en-US')}円`;
+  }
+  return `${n.toLocaleString('en-US')}円`;
+}
+export function withYenApprox(text: string): string {
+  return text.replace(FOREIGN_AMOUNT, (match, num: string, scale: string | undefined, unit: string, offset: number, whole: string) => {
+    if (/^\s*[（(]/.test(whole.slice(offset + match.length)) || /^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(whole.slice(offset + match.length))) return match;
+    const amount = Number(num.replace(/,/g, '')) * (scale === '億' ? 1e8 : scale === '万' ? 1e4 : 1);
+    if (!Number.isFinite(amount) || amount <= 0) return match;
+    return `${match}（約${yenText(amount * TEXT_YEN_PER[unit])}）`;
+  });
+}
+
 /** 推測の文末「〜とみる。」「〜と見る。」「〜と推す。」を画面では省く（読む邪魔になるだけ）。前が短すぎる時は元のまま。 */
 const HEDGE_TAIL = /(?:と|ものと|ように)(?:みる|見る|みられる|見られる|推す|推測する|推測される|考えられる|考える|思われる)。?$/;
 export function plainAnalysisText(text: string): string {

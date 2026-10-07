@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel } from './display-text';
+import { cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel, withYenApprox, yenText } from './display-text';
 
 describe('formatSourceNote', () => {
   it('removes rights and facts-only, keeps URL and date', () => {
@@ -210,5 +210,23 @@ describe('sourceKindLabel', () => {
     expect(sourceKindLabel({ text: 'https://example.com/a', sourceClass: 'INDEPENDENT_SECONDARY' })).toBe('記事');
     expect(sourceKindLabel({ text: 'https://example.com/a' })).toBeNull();
     expect(sourceKindLabel({ text: '' })).toBeNull();
+  });
+});
+
+describe('withYenApprox', () => {
+  it('外貨の金額それぞれに円のおおよその額を添える', () => {
+    expect(withYenApprox('料金を月24ドル・49ドル・99ドルの3段と説明し、最安でも年288ドル。')).toBe('料金を月24ドル（約3,600円）・49ドル（約7,350円）・99ドル（約1万4,850円）の3段と説明し、最安でも年288ドル（約4万3,200円）。');
+    expect(withYenApprox('年10万ドル超の商談')).toBe('年10万ドル（約1,500万円）超の商談');
+    expect(withYenApprox('120万ルピーの月商')).toBe('120万ルピー（約210万円）の月商');
+  });
+  it('すでに円の額や括弧の補足がある金額、外貨の無い文はそのまま', () => {
+    expect(withYenApprox('月99ドル（約1万4,850円）')).toBe('月99ドル（約1万4,850円）');
+    expect(withYenApprox('月99ドル、約1万円')).toBe('月99ドル、約1万円');
+    expect(withYenApprox('月980円')).toBe('月980円');
+  });
+  it('円の書式', () => {
+    expect(yenText(14850)).toBe('1万4,850円');
+    expect(yenText(2.4e8)).toBe('2.4億円');
+    expect(yenText(900)).toBe('900円');
   });
 });

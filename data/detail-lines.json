@@ -326,6 +326,12 @@
     "note": "2016年の従業員125人のうち4割は直近6か月で採用。従業員には自社株を買う権利（ストックオプション）で報いた（本人申告）。"
   },
   {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-referral",
+    "textHash": "cd54604e",
+    "answer": "代理店が客への運用サービスの値段を自分で決め、MyOperatorは代理店に基盤の料金を請求する"
+  },
+  {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-story",
     "textHash": "787e6110",
@@ -664,5 +670,107 @@
     "textHash": "630b7eb2",
     "answer": "外の業界で初めて話した経営者の一言が、作り込みの方向を変えた（本人申告）",
     "note": "「顧客用ポータルは？白ラベルにできる？」と聞かれ、見た目より顧客とのやり取りの機能が要ると分かった。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-tools",
+    "textHash": "e0401d93",
+    "answer": "GitHub・GitLabと連携し、コードの変更の進み具合に合わせてタスクの状態が自動で動く",
+    "note": "変更の申請が出ると「レビュー」へ、取り込まれると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearのデータを取り込める。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-headline",
+    "textHash": "27b38637",
+    "answer": "勤めながら作った使用許可キーの外部サービスを、有料の客が付かない1年近くを越えて育て、2019年に副業の売上が給与の約半分に届いて専業にした開発者（本人申告）"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-business_model",
+    "textHash": "71cff771",
+    "answer": "自社ソフトを売る会社に、使用許可キーの確認と端末の登録の仕組みを貸し、月額の料金を取る",
+    "note": "使える機能の管理やソフトの配布も扱う。Keygenが動かす版のほか、2023年からは客が自社のサーバーに置ける有料の企業向け版も売る。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-customer",
+    "textHash": "cfb6a3f4",
+    "answer": "自社ソフトを売る会社と個人開発者。大企業から新興企業まで数千社が使う（公式の主張）",
+    "note": "米国の大企業上位500社（Fortune 500）・1000社（Fortune 1000）に入る会社とも契約した（本人申告）。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-customer_pain",
+    "textHash": "e9921df5",
+    "answer": "使用許可の仕組みを自前で作り、守り続ける手間",
+    "note": "大企業では、古い使用許可の仕組みの置き換えが契約のきっかけになった。創業者も自分のアプリ用に作る中で、頼める外部サービスが無くて困っていた。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-first_customers",
+    "textHash": "79c00d55",
+    "answer": "最初はHacker Newsで紹介し、先行利用の希望者を数百人集めた（2016年11月、本人申告）",
+    "note": "Hacker Newsの1面に3回、Product Huntでその日の1位、Indie Hackersの取材も重ねたが有料の客にはつながりにくく、有料の客が付かない期間が1年近く続いた。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-channels",
+    "textHash": "b5a9e361",
+    "answer": "大企業へは電話営業をやめ、メールでのやり取りで契約を取った（本人申告）",
+    "note": "無料試用に加えて期限のない無料枠を置き、試す時間を長く取れるようにした。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-capital_and_team",
+    "textHash": "792501b4",
+    "answer": "外部資金を入れず自己資金で始め、意図して少人数のチームに保っている（公式の主張）",
+    "note": "勤めながら作り始め、2019年に専業になった。経理と税務は外に任せ、客が自分で使い始められる形を標準にしている。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-dependencies",
+    "textHash": "cbc51ba2",
+    "answer": "少人数の運営に頼っていること。大企業はここを不安に思った（推論）",
+    "note": "自社内に置ける版（2023年）と、会社が無くなっても使い続けられる使用条件（2024年）で応えた。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-pivots",
+    "textHash": "4c1f686e",
+    "answer": "仲間と作ったデスクトップアプリは失敗し、その部品だった使用許可の仕組みを売る方へ移った"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-lesson",
+    "textHash": "1b9bba18",
+    "answer": "自分の製品のために作った裏方の部品が、同じ悩みを持つ他社に売れる本業になりうる（推論）",
+    "note": "話題になった公開の場より、大企業の求め（自社内に置きたい・会社が無くなったら困る）に応えた変更の方が伸びにつながった。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-story",
+    "textHash": "6f183f9e",
+    "answer": "自作アプリの使用許可の仕組みを作る中で、決済のStripeのような外部サービスが無いと気づいた（本人申告）",
+    "note": "2016年5月22日の深夜に最初のコードを上げ、勤めながら作り続けた。仲間のアプリは失敗し、2019年に妻に相談した翌日に退職届を出した。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-lock_in",
+    "textHash": "3d349ade",
+    "answer": "キーの確認や端末の登録が客のソフトの中に入るため、ほかへ乗り換えにくい（推論）",
+    "note": "入れる作業に手間がかかる。2025年の解約率は1.9%だった（本人申告）。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "000a78aa",
+    "answer": "大企業が抱える古い使用許可の仕組みの置き換えを、外部サービスが取った（推論）",
+    "note": "Fortune 500の会社との契約がその例（2021年、本人申告）。"
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "analysisId": "a-timeline",
+    "textHash": "b1128711",
+    "answer": "2016年5月: 最初のコード。2016年11月: Hacker Newsで先行利用を募集。2019年: 会社を辞めて専業に。2023年6月: 中のプログラムを公開し、自社内に置ける版を発売。2024年8月: 使用条件を改定。2025年: 売上が前年から40%超の伸び。"
   }
 ]
