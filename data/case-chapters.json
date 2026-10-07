@@ -14,7 +14,7 @@
           "source": "https://excid3.com/blog/would-you-like-to-become-a-better-programmer"
         },
         {
-          "text": "サーバーへの公開手順のメモを載せ、検索と開発者の質問サイトStack Overflowから最初の月に数千人が来た（本人）",
+          "text": "サーバーに公開する手順をメモにして載せた。検索や開発者の質問サイトStack Overflowから、最初の月に数千人が来た（本人）",
           "source": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163"
         },
         {
@@ -62,7 +62,7 @@
           "source": "https://news.ycombinator.com/item?id=8040524"
         },
         {
-          "text": "2014年9月: 資金が尽きかけ、講座の会社One Monthに就職",
+          "text": "2014年9月: 資金が尽きかけ、講座を提供する会社One Monthに就職",
           "source": "https://www.therubyonrailspodcast.com/552"
         },
         {
@@ -142,7 +142,7 @@
       ],
       "voices": [
         {
-          "text": "「顧客です、GoRailsが続く限り使う」（Indie Hackers 投稿コメント）",
+          "text": "GoRailsの顧客から、サービスが続く限り使うというコメントがあった（起業家の交流サイトIndie Hackers）",
           "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
         }
       ]
@@ -183,7 +183,7 @@
           "source": "https://news.ycombinator.com/item?id=7932973"
         },
         {
-          "text": "日程調整は、相談サービスClarity.fmに倣い、客が候補を3つ出す方式にした（本人）",
+          "text": "日程調整は、相談サービスClarity.fmを参考に、客が希望日時を3つ挙げる方式にした（本人）",
           "source": "https://news.ycombinator.com/item?id=5799272"
         }
       ],
@@ -203,7 +203,7 @@
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         },
         {
-          "text": "2013年8月1日: 技術系媒体TechCrunchが試用版を紹介。メンター300人（第三者）",
+          "text": "2013年8月1日: 技術系媒体TechCrunchが試用版を紹介。相談に答える人は300人（第三者）",
           "source": "https://techcrunch.com/2013/08/01/codementor/"
         },
         {
@@ -237,7 +237,7 @@
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         },
         {
-          "text": "問い合わせが集まる別の需要を、次の商品にする（根拠: 採用の依頼メール→CodementorX）",
+          "text": "採用を頼むメールが届き、その需要に気づいて、採用向けの新サービスCodementorXを始めた",
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         }
       ],
@@ -402,7 +402,7 @@
           "source": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f"
         },
         {
-          "text": "客対応を厚くし、客が宣伝してくれる流れにする（根拠: 本人の説明）",
+          "text": "客に手厚く対応し、客が宣伝してくれる流れにする（根拠: 本人の説明）",
           "source": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f"
         }
       ],
@@ -444,7 +444,7 @@
           "source": "https://wellfedwriter.com/still-love-e-junkie-e-book-sales-websites/"
         },
         {
-          "text": "「問題なく動き、メール配信サービスAWeberとPayPalの連携が気に入った」（掲示板Warrior Forum、約2010年、第三者）",
+          "text": "「問題なく動き、メール配信サービスAWeberと決済サービスPayPalの連携が気に入った」（掲示板Warrior Forum、約2010年、第三者）",
           "source": "https://www.warriorforum.com/main-internet-marketing-discussion-forum/299772-has-anyone-used-e-junkie-wso.html"
         }
       ]
@@ -457,7 +457,7 @@
     "chapters": {
       "practice": [
         {
-          "text": "仕事を売買するサイトFiverrで、人が出演する「出演者動画」を検索し、1,811件の出品から需要を見積もった（本人）",
+          "text": "仕事を売買するサイトFiverrで、人が出演する動画の出品を検索し、1,811件の出品から需要を見積もった（本人）",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
@@ -469,7 +469,7 @@
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
-          "text": "販売開始後、新製品の紹介サイトProduct Huntで上位に入った（本人）",
+          "text": "販売開始後、新製品を紹介するサイトProduct Huntのランキングで上位に入った（本人）",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
@@ -507,7 +507,7 @@
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
-          "text": "前: 写真からのアバターは「できない」と返した。後: 完成を待たず機能を試して出し、ベータで受け入れられた（本人）",
+          "text": "前: 写真から分身を作れるか聞かれると、作れないと答えていた。後: その機能を完成前に試験公開し、利用者に受け入れられた（本人）",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         }
       ],
@@ -549,7 +549,7 @@
           "source": "https://research.contrary.com/company/heygen"
         },
         {
-          "text": "2026年6月25日: 2億ドル超（約300億円）、8か月で倍増（公式）",
+          "text": "2026年6月25日: 継続契約による売上の1年換算額が2億ドル超（約300億円）。8か月で倍増（公式）",
           "source": "https://www.heygen.com/blog/heygen-surpasses-200m-arr"
         }
       ],
@@ -567,7 +567,7 @@
           "source": "https://www.hunted.space/dashboard/movio-la/launches/talkingphoto-by-movio"
         },
         {
-          "text": "登録直後の体験に集中し、試した瞬間に価値が見えるようにする（根拠: 登録なしの体験、100万ドル（約1.5億円）到達）",
+          "text": "登録なしで試せるようにし、利用者がサービスの良さをすぐに確かめられるようにした",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
@@ -605,19 +605,19 @@
       ],
       "voices": [
         {
-          "text": "「節約できる時間だけで、料金に見合う」（CrystalNinja創業者、Upstarts 2026年6月）",
+          "text": "「節約できる時間だけで、料金に見合う」（利用者の声、2026年6月）",
           "source": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn"
         },
         {
-          "text": "不動産業者の地域ニュース風動画が最大25万回再生され、初めてSNS経由で成約（第三者）",
+          "text": "不動産業者の地域ニュース風の動画は最大25万回再生された。その業者は初めてSNS経由の客と契約した（第三者）",
           "source": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn"
         },
         {
-          "text": "「複製ではなく、宣伝の経路と考えると見方が変わる」（YouTube発信者、Upstarts）",
+          "text": "「自分の分身動画を、複製ではなく宣伝の手段と考えると見方が変わる」（YouTube発信者、Upstarts）",
           "source": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn"
         },
         {
-          "text": "視聴者5万人が分身の動画に反発。約6か月続けて視聴者が入れ替わり、登録者約30万人（YouTube発信者、Upstarts）",
+          "text": "視聴者5万人が分身動画に反発。投稿を約6か月続けると視聴者が入れ替わり、登録者は約30万人に（YouTube発信者、Upstarts）",
           "source": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn"
         }
       ]
@@ -646,11 +646,11 @@
           "source": "https://inc42.com/resources/businesses-manage-calls-myoperator-way/amp/"
         },
         {
-          "text": "無料のスマホアプリで不在着信を記録し、折り返しと再販促ができるようにした（第三者）",
+          "text": "無料のスマホアプリで不在着信を記録し、折り返し電話や再度の販売案内ができるようにした（第三者）",
           "source": "https://telecomlead.com/telecom-services/voicetree-app-offers-solutions-for-missed-calls-58957"
         },
         {
-          "text": "代理店が価格と請求を決め、MyOperatorは基盤料金だけを請求する（公式）",
+          "text": "代理店が客への運用料金を決めて請求し、MyOperatorは代理店にシステム利用料を請求する（公式）",
           "source": "https://myoperator.com/partnership-program"
         }
       ],
@@ -666,7 +666,7 @@
           "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
         },
         {
-          "text": "2013年9月: 登録600人超・有料200社。開始から2四半期で現金プラス（本人）",
+          "text": "2013年9月: 登録600人超・有料200社。開始から半年で、入るお金が出るお金を上回った（本人）",
           "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
         },
         {
@@ -674,7 +674,7 @@
           "source": "https://inc42.com/resources/businesses-manage-calls-myoperator-way/amp/"
         },
         {
-          "text": "2015年9月: 首相の月例ラジオの受付番号を受託。24時間で12,000件超の着信（第三者）",
+          "text": "2015年9月: 首相の月例ラジオ番組の電話受付用の番号を担当。24時間で12,000件超の着信（第三者）",
           "source": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony"
         },
         {
@@ -686,7 +686,7 @@
           "source": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors"
         },
         {
-          "text": "2021年9月: 前年度の売上は約4.5億円（300万ドル）。事業Ziffyを買収（本人）",
+          "text": "2021年9月: 前年度の売上は約4.5億円（300万ドル）。別の事業を買収（本人）",
           "source": "https://inc42.com/startup-essentials/myoperator/"
         },
         {
@@ -694,7 +694,7 @@
           "source": "https://myoperator.com/about-us"
         },
         {
-          "text": "2026年: 利用企業12,000社超、従業員250人超、累計20億件超の会話（公式）",
+          "text": "2026年: 利用企業は12,000社超。従業員は250人超。累計の会話は20億件超（公式）",
           "source": "https://myoperator.com/about-us"
         }
       ],
@@ -704,7 +704,7 @@
           "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
         },
         {
-          "text": "前払いの年契約で、出ていく金を入る金より小さく保つ（根拠: 年払い、開始から2四半期で現金プラス）",
+          "text": "客に1年分を先に払ってもらい、支出を収入より少なく保つ。開始から半年で、入るお金が出るお金を上回った。",
           "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
         },
         {
@@ -759,7 +759,7 @@
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "並べた道は自作フォント、紙の本、5〜10ドル（約750〜1,500円）の直接の支払いなど（2013年7月の保存ページ）",
+          "text": "作者にお金を払う方法として、自作フォントや紙の本の購入、5〜10ドル（約750〜1,500円）の送金などを用意した（2013年7月の保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -771,7 +771,7 @@
           "source": "https://type-ed.com/resources/rag-right/2013/09/29/matthew-butterick-practical-typography"
         },
         {
-          "text": "公開当日、Hacker Newsの紹介投稿に472点・コメント159件が付いた（第三者）",
+          "text": "公開当日、開発者向けの投稿サイトHacker Newsの紹介投稿は、評価472点を得た。コメントは159件だった（第三者）",
           "source": "https://news.ycombinator.com/item?id=6094946"
         },
         {
@@ -783,7 +783,7 @@
           "source": "https://kk.org/cooltools/buttericks-practical-typography/"
         },
         {
-          "text": "3年目、無料の流入が集中する15〜20サイトの読者にだけお願いページを出した（本人）",
+          "text": "3年目、無料で読む人の多くが来る15〜20サイトから来た人にだけ、お願いページを出した（本人）",
           "source": "https://practicaltypography.com/to-pay-or-not-to-pay.html"
         },
         {
@@ -823,7 +823,7 @@
           "source": "https://practicaltypography.com/economics-year-one.html"
         },
         {
-          "text": "2015年: 直接の支払いをクレジットカードで払えるようにし、選択肢を減らした（本人）",
+          "text": "2015年: クレジットカードでも作者にお金を送れるようにし、支払いの選択肢を減らした（本人）",
           "source": "https://practicaltypography.com/effluents-influence-affluence.html"
         },
         {
@@ -845,15 +845,15 @@
           "source": "https://practicaltypography.com/economics-year-one.html"
         },
         {
-          "text": "安い支払いより、使い道のある高い商品を並べる（根拠: 59〜299ドル（約8,850円〜4.5万円）のフォントに関心のある読者が、5〜20ドルの支払いより約35%多い）",
+          "text": "少額の送金より、使える高い商品を並べる。59〜299ドル（約8,850円〜4.5万円）のフォントを買いたい読者は、5〜20ドルを送りたい読者より約35%多い。",
           "source": "https://practicaltypography.com/effluents-influence-affluence.html"
         },
         {
-          "text": "無料の流入を、元のサイトごとに見分ける（根拠: Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった）",
+          "text": "道具の紹介サイトCool Toolsから来た読者は払う人が多く、掲示板サイトRedditから来た読者は払う人がほとんどいなかった",
           "source": "https://practicaltypography.com/economics-year-one.html"
         },
         {
-          "text": "流入が集中する少数のサイトにだけ、頼む（根拠: 15〜20サイト向けの1ページで支払い件数が約2倍）",
+          "text": "作者は、読者の多くが来る15〜20のサイトから来た人にだけ、支払いをお願いするページを出した。件数は約2倍になった",
           "source": "https://practicaltypography.com/to-pay-or-not-to-pay.html"
         },
         {
@@ -885,19 +885,19 @@
       ],
       "price": [
         {
-          "text": "直接の支払い: 2013年7月は5〜10ドル（約750〜1,500円）の目安（保存ページ）",
+          "text": "読者が作者に直接送るお金: 2013年7月は5〜10ドル（約750〜1,500円）が目安（保存ページ）",
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "直接の支払い: 2015年8月は5〜20ドル（約750〜3,000円）、カードで払えるように（保存ページ）",
+          "text": "読者が作者に直接送るお金: 2015年8月は5〜20ドル（約750〜3,000円）。カードで払えるようになった（保存ページ）",
           "source": "https://web.archive.org/web/20150813/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "直接の支払い: 2018年6月は9〜39ドル（約1,350〜5,850円）に（保存ページ）",
+          "text": "読者が作者に直接送るお金: 2018年6月は9〜39ドル（約1,350〜5,850円）になった（保存ページ）",
           "source": "https://web.archive.org/web/20180601/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "直接の支払い: 2022年8月に19〜49ドル（約2,850〜7,350円）に。現在も同じ（保存ページ）",
+          "text": "読者が作者に直接送るお金: 2022年8月に19〜49ドル（約2,850〜7,350円）になった。現在も同じ（保存ページ）",
           "source": "https://web.archive.org/web/20220812/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -913,7 +913,7 @@
           "source": "https://web.archive.org/web/20191213/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "自作フォント1書体: 119ドル（約1.79万円、1〜2人）、239ドル（約3.6万円、3〜5人）、359ドル（約5.4万円、6〜10人）。全8書体499ドル〜（公式）",
+          "text": "自作フォント1書体: 使用人数1〜2人は119ドル（約1.79万円）、3〜5人は239ドル（約3.6万円）、6〜10人は359ドル（約5.4万円）。全8書体499ドル〜（公式）",
           "source": "https://practicaltypography.com/equity.html"
         },
         {
@@ -935,11 +935,11 @@
           "source": "https://rg3.name/201308081610.html"
         },
         {
-          "text": "読んだ本のうち、作者Butterickの本が最も明快で役立つ（Cool Tools、2014年1月、第三者）",
+          "text": "読んだ本の中で、この本が最も明快で役立つ（道具の紹介サイトCool Tools、2014年1月、第三者）",
           "source": "https://kk.org/cooltools/buttericks-practical-typography/"
         },
         {
-          "text": "いつか払ってもいいと思うほどだった。実際にEquity Textを買った（Goodreads、2018年1月、第三者）",
+          "text": "いつかこの本にお金を払ってもよいと思った。実際にフォント（文字の書体）のEquity Textを買った（書評サイトGoodreads、2018年1月、第三者）",
           "source": "https://www.goodreads.com/book/show/18244760-butterick-s-practical-typography"
         },
         {
@@ -964,7 +964,7 @@
           "source": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/"
         },
         {
-          "text": "最初の管理画面はSurveyMonkey。申込内容を手で取り込んだ（本人）",
+          "text": "最初の管理画面には、アンケートを作るサービスSurveyMonkeyの回答フォームを使った。申込内容は手で取り込んだ（本人）",
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         },
         {
@@ -1002,7 +1002,7 @@
           "source": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/"
         },
         {
-          "text": "前: 要望を全部足して新しい客に分かりにくくなった。後: 専任アドバイザーが設計から手伝う型へ（公式）",
+          "text": "前: 客の要望をすべて機能に加え、新しい客には分かりにくくなった。後: 専任相談員が紹介制度の設計から手伝うようになった（公式）",
           "source": "https://referralrock.com/blog/how-our-services-have-evolved/"
         }
       ],
@@ -1038,7 +1038,7 @@
       ],
       "core": [
         {
-          "text": "電話で話した客から、値段と機能を決める（根拠: 成約約3倍、月250ドル（約3.75万円）・6か月契約）",
+          "text": "電話で聞いた客の話から値段と機能を決め、月250ドル（約3.75万円）・6か月契約のプランを加えた。成約は約3倍",
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         }
       ],
@@ -1072,19 +1072,19 @@
       ],
       "voices": [
         {
-          "text": "導入企業Grover: 会員5,300人、1日4〜5人の新規客（公式が選んだ導入事例）",
+          "text": "紹介制度を導入した企業Groverの会員は5,300人。新規客は1日4〜5人（公式が選んだ導入事例）",
           "source": "https://referralrock.com/customers/grover/"
         },
         {
-          "text": "導入企業FeedXL: 4か月で紹介216件（公式が選んだ導入事例）",
+          "text": "紹介制度を導入した企業FeedXLでは、4か月で216件の紹介があった（公式が選んだ導入事例）",
           "source": "https://referralrock.com/case-study/feedxl/"
         },
         {
-          "text": "数か月でかけた費用の10倍の成果、新規客の10%が紹介経由（CoolBot、公式の導入事例、選別あり）",
+          "text": "紹介制度を使うCoolBotは、数か月で「費用の10倍の成果」を得たと紹介されている。新規客の10%は紹介で来た客だった（公式の導入事例、選別あり）",
           "source": "https://referralrock.com/customers/coolbot/"
         },
         {
-          "text": "月30件超の紹介売上、成功報酬は修理10ドル（約1,500円）から（SIR Glass、公式の導入事例、選別あり）",
+          "text": "紹介された客からの売上は月30件超。修理1件につき紹介者に払う報酬は10ドル（約1,500円）から（SIR Glass、公式の導入事例、選別あり）",
           "source": "https://referralrock.com/customers/sir-glass-auto/"
         }
       ]
@@ -1101,7 +1101,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "「実際のサイトで動くプログラムを手元に送る」など、使い方の例を1つずつ投稿した（本人）",
+          "text": "「実際のサイトで動くプログラムを自分のパソコンに送る」など、使い方の例を1つずつ投稿した（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1179,7 +1179,7 @@
       ],
       "core": [
         {
-          "text": "自分の困りごとを解く道具を、同じ質問が溜まる場所に出す（根拠: 未回答のStack Exchangeに答えを書いた）",
+          "text": "質問サイトで、自分と同じ困りごとの未回答の質問に答え、自分が作った道具を紹介する",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1189,7 +1189,7 @@
       ],
       "start": [
         {
-          "text": "顧客サイトで実際に動くプログラムの調査に悩み、そのプログラムを手元に送る試作品を1人で作った（本人）",
+          "text": "顧客のサイトで動くプログラムを調べるのに苦労し、そのプログラムを自分のパソコンに送る試作品を1人で作った（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1213,7 +1213,7 @@
       ],
       "voices": [
         {
-          "text": "「日常的に使う。ブラウザの開発用機能DevToolsに入っていないのが不思議」（Hacker News、第三者、2022-03-04）",
+          "text": "「日常的に使う。この道具がブラウザの開発用機能に含まれていないのが不思議」（Hacker News、第三者、2022-03-04）",
           "source": "https://news.ycombinator.com/item?id=30540735"
         },
         {
@@ -1221,7 +1221,7 @@
           "source": "https://news.ycombinator.com/item?id=30540735"
         },
         {
-          "text": "初期の指摘: 価格ページは情報が多すぎ、通信を試すPostmanの類似品に見えた。本人は直すと返答（Hacker News、第三者、2022-03-03）",
+          "text": "初期には、価格ページの情報が多すぎることと、通信を試すソフトPostmanに似て見えることを指摘された。本人は直すと答えた（Hacker News、第三者、2022-03-03）",
           "source": "https://news.ycombinator.com/item?id=30540735"
         }
       ]
@@ -1246,7 +1246,7 @@
           "source": "https://x.com/steveschoger/status/1116062198974042113"
         },
         {
-          "text": "作り直す価格ページを、Twitterで募集した（本人、2018年5月）",
+          "text": "価格を載せたページのデザインを直すため、対象のページをTwitterで募集した（本人、2018年5月）",
           "source": "https://x.com/steveschoger/status/1001113443586527233"
         },
         {
@@ -1272,7 +1272,7 @@
           "source": "https://laravelpodcast.com/episodes/89e3758b/transcript"
         },
         {
-          "text": "前: 発売後、購入者がPDFしかなく素材をコピーできないと指摘。後: デザイン用のSketchファイルを次の更新に入れると予告（本人・第三者）",
+          "text": "前: 発売後、購入者がPDFしかなく素材をコピーできないと指摘。後: デザインソフトSketchで編集できるファイルを次の更新に入れると予告（本人・第三者）",
           "source": "https://x.com/steveschoger/status/1085947409681797121"
         }
       ],
@@ -1282,7 +1282,7 @@
           "source": "https://fullstackradio.com/74"
         },
         {
-          "text": "2018年3月2日までに、7つの小技の記事を投稿サイトMediumで公開。他のブログが紹介（第三者）",
+          "text": "2018年3月2日までに、7つの小技を紹介する記事を、文章を投稿できるサイトMediumで公開。他のブログでもこの記事が紹介された（第三者）",
           "source": "https://freek.dev/994-7-practical-tips-for-cheating-at-design"
         },
         {
@@ -1294,7 +1294,7 @@
           "source": "https://laravelpodcast.com/episodes/89e3758b/transcript"
         },
         {
-          "text": "2018年11月: 技術イベントLaracon Australiaでの登壇で作業が止まり、11月末の発売予定が12月に延びた（本人）",
+          "text": "2018年11月: 開発者向けの講演イベントLaracon Australiaに登壇して作業が止まり、11月末の発売予定が12月に延びた（本人）",
           "source": "https://laravelpodcast.com/episodes/89e3758b/transcript"
         },
         {
@@ -1328,7 +1328,7 @@
       ],
       "core": [
         {
-          "text": "売る前に、1本に作り込んだ無料の小技で読者を育てる（根拠: 約2年のツイートと記事）",
+          "text": "売る前に、手間をかけた無料の小技で読者を増やす（根拠: 約2年のツイートと記事）",
           "source": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724"
         },
         {
@@ -1352,7 +1352,7 @@
       ],
       "price": [
         {
-          "text": "発売時: 基本版99ドル→79ドル（約1.2万円）、上位版249ドル（約3.7万円）→149ドル（約2.2万円）。発売ツイートは最大40%引き（第三者）",
+          "text": "発売時は基本版79ドル（約1.2万円）、上位版149ドル（約2.2万円）。元値は99ドル（約1.5万円）と249ドル（約3.7万円）で、最大40%引きとツイートで告知（第三者）",
           "source": "https://marketingexamples.com/landing-page/pricing"
         },
         {
@@ -1399,7 +1399,7 @@
           "source": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715"
         },
         {
-          "text": "返信には作業管理ツールBasecampの月150ドル（約2.25万円）など、月400ドル超（約6万円超）の出費が並んだ（本人）",
+          "text": "返信では、月400ドル超（約6万円超）の出費が報告された。作業管理ツールBasecampに月150ドル（約2.25万円）払う例もあった（本人）",
           "source": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715"
         },
         {
@@ -1447,7 +1447,7 @@
           "source": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68"
         },
         {
-          "text": "2026年1月6日: 開発者向け製品の紹介サイトDevHuntで週間ランキング3位（第三者）",
+          "text": "2026年1月6日: 開発者向け製品の紹介サイトDevHuntで、Teamcampが週間3位（第三者）",
           "source": "https://devhunt.org/tool/teamcamp"
         },
         {
