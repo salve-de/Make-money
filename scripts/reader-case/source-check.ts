@@ -23,7 +23,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } fr
 import { dirname } from 'node:path';
 import { argValue, loadReaders, readIdsFile } from './load-readers';
 import { VERDICTS_FILE, cachePath, metricLine, readCache, type VerdictsFile, type SourceCacheRecord } from './verify-lib';
-import { fetchOne } from './fetch-sources';
+import { fetchArchive, fetchOne } from './fetch-sources';
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
 import { checkMetric, checkText, REASON_LABELS, type CheckReason } from '../../src/shared/source-check';
 import { textFingerprint } from '../../src/shared/list-lines';
@@ -123,6 +123,11 @@ async function main() {
       retried = true;
       const again = await fetchOne(item.sourceUrl);
       if (cacheOk(again)) { writeFileSync(cachePath(item.sourceUrl), JSON.stringify(again)); rec = again; r = judge(item, rec); }
+    }
+    // 2. 直接取得の本文に無かった時だけ、保存ページでも照らす（直接取得では一部が欠けることがある。照らすだけで控えは書き換えない）
+    if (!r.ok && rec?.via !== 'wayback') {
+      const archived = await fetchArchive(item.sourceUrl);
+      if (archived) { const ra = judge(item, archived); if (ra.ok) { rec = archived; r = ra; } }
     }
     results.push({ ...item, status: r.ok ? 'PASS' : 'FAIL', reasons: r.reasons, detail: r.detail, via: rec?.via, retried });
   }

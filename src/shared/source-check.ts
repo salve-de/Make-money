@@ -145,7 +145,9 @@ export function checkText(text: string, sourceText: string, opts: { quote?: stri
   const missing = numbers.filter((n) => !hasNumber(pool, n));
   if (missing.length) { reasons.push('NUMBER_NOT_IN_SOURCE'); detail.push(`原文に無い数 ${missing.join('、')}`); }
   const body = clean(sourceText);
-  const missingYears = years.filter((y) => !body.includes(y) && !opts.publishedAt?.startsWith(y));
+  // 英語の表の短い年（Dec '18・Jan ’19）も年として数える
+  const shortYear = (y: string) => new RegExp(`['’]${y.slice(2)}(?!\\d)`).test(body);
+  const missingYears = years.filter((y) => !body.includes(y) && !shortYear(y) && !opts.publishedAt?.startsWith(y));
   if (missingYears.length) { reasons.push('YEAR_NOT_IN_SOURCE'); detail.push(`原文に無い年 ${missingYears.join('、')}`); }
   return { ok: reasons.length === 0, reasons, detail };
 }
