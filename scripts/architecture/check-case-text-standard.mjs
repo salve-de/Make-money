@@ -7,12 +7,16 @@
  *  4. 空の答えを置かない。
  *  6. 項目名と答えの1対1（data/item-contract.json）。
  *  5. 「未確認」「書かれていない」「公開されていない」など、分からない旨だけの文を置かない。
+ *  8. ら抜き・二重否定・冗長な言い回し・言葉の誤用など、文法の誤りを置かない（textlint、.textlintrc.json）。
+ *  7. 話し言葉・業界のくだけた言い回し・不自然な動詞（「非公開版で回した」など）を置かない（data/natural-japanese.json、言い換えの候補つき）。
  *  9. 仕上げ済みの事例で、画面の分析欄に出る推論の文に編集文（detail-lines）が結ばれている（無ければ原文のまま出るため）。
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { describeHit, findNoise, findUnnatural, loadNaturalRules } from './natural-japanese.mjs';
+import { lintJapanese } from './textlint-japanese.mjs';
 
 const FOREIGN = /(ドル|\$|ルピー|ラック|クロール|ユーロ|ポンド|INR|USD|EUR|GBP)/;
 const ABSENCE = /(未確認|書かれていない|公開されていない|記載(が)?(ない|なし)|確認できない|わからない|分からない|不明|非公開(?![版のなでに]))/;
@@ -21,8 +25,13 @@ const read = (file) => JSON.parse(readFileSync(resolve(process.cwd(), file), 'ut
 const problems = [];
 // 読む人に分かりにくい語（専門略語・調査用語）。data/reader-language.json に足せば、全ての画面用の文に効く。
 const READER_LANGUAGE = JSON.parse(readFileSync(resolve(process.cwd(), 'data/reader-language.json'), 'utf8')).map((rule) => ({ re: new RegExp(rule.pattern), suggest: rule.suggest }));
+// 日本語の自然さ（話し言葉・業界のくだけた言い回し・不自然な動詞）。data/natural-japanese.json に足せば、全ての画面用の文に効く。
+const NATURAL = loadNaturalRules(resolve(process.cwd(), 'data/natural-japanese.json'));
+// 文法の誤り（ら抜き・二重否定・冗長な言い回しなど）は、最後にまとめて textlint で見る（.textlintrc.json）
+const forTextlint = [];
 
-function check(where, field, text, max, { hedge = false } = {}) {
+function check(where, field, text, max, { hedge = false, price = false } = {}) {
+  for (const problem of findNoise(text, { price })) problems.push(`${where} ${field}: ${problem}`);
   if (typeof text !== 'string' || text.trim() === '') { problems.push(`${where} ${field}: 空`); return; }
   if (text.length > max) problems.push(`${where} ${field}: ${text.length}字（上限${max}）`);
   if (FOREIGN.test(text) && !text.includes('円')) problems.push(`${where} ${field}: 外貨の数字に円換算（約◯円）が無い「${text.slice(0, 30)}…」`);
@@ -32,6 +41,8 @@ function check(where, field, text, max, { hedge = false } = {}) {
     const hit = text.match(rule.re);
     if (hit) problems.push(`${where} ${field}: 読む人に分かりにくい語「${hit[0]}」→ ${rule.suggest}`);
   }
+  for (const hit of findUnnatural(text, NATURAL)) problems.push(`${where} ${field}: ${describeHit(hit)}`);
+  forTextlint.push({ where: `${where} ${field}`, text });
   if (hedge && HEDGE.test(text)) problems.push(`${where} ${field}: 答えに「本人は〜と語る」型の言い回し`);
 }
 
@@ -40,8 +51,9 @@ for (const line of read('data/detail-lines.json')) {
   const where = `detail-lines ${line.entityId}/${line.analysisId}`;
   // 年表（「2013年: …。2014年: …。」の形）だけは長くてよい
   const timeline = /^\d{4}年[^:：]*[:：]/.test(line.answer) && line.answer.includes('。');
-  check(where, 'answer', line.answer, timeline ? 400 : /headline/i.test(line.analysisId) ? 90 : 60, { hedge: true });
-  if (line.note !== undefined) check(where, 'note', line.note, 120);
+  const price = /pricing/i.test(line.analysisId);
+  check(where, 'answer', line.answer, timeline ? 400 : /headline/i.test(line.analysisId) ? 90 : 60, { hedge: true, price });
+  if (line.note !== undefined) check(where, 'note', line.note, 120, { price });
 }
 // 5. 項目名と答えの1対1（data/item-contract.json）。項目名が問う事に、答えが答えていなければ落とす。
 const contract = read('data/item-contract.json').items;
@@ -76,7 +88,7 @@ for (const entry of read('data/case-chapters.json')) {
     if (!CHAPTER_IDS.includes(id)) problems.push(`case-chapters ${entry.entityId}: 知らない章「${id}」`);
     for (const row of rows) {
       const where = `case-chapters ${entry.entityId}/${id}`;
-      check(where, 'text', row.text, 90);
+      check(where, 'text', row.text, 90, { price: id === 'price' });
       if (!/^https:\/\//.test(row.source ?? '')) problems.push(`${where}: 出典URLが無い「${row.text.slice(0, 20)}…」`);
       if (/(しよう|しろ|せよ|してください|すべき)/.test(row.text)) problems.push(`${where}: 真似の手順（命令形）になっている「${row.text.slice(0, 20)}…」`);
       if (id === 'turning' && !/^前[:：].+後[:：]/.test(row.text)) problems.push(`${where}: 「前: …。後: …」の形でない「${row.text.slice(0, 20)}…」`);
@@ -127,6 +139,9 @@ for (const entry of coverage.cases) {
     problems.push(`${where(row)}: 編集文（data/detail-lines.json）が無いか、今の文の指紋 ${row.textHash} と合わず、推論の原文のまま画面に出る「${row.text.slice(0, 30)}…」`);
   }
 }
+
+const grammar = await lintJapanese(forTextlint.map((row) => row.text));
+grammar.forEach((messages, i) => { for (const message of messages) problems.push(`${forTextlint[i].where}: 日本語の誤り ${message}「${forTextlint[i].text.slice(0, 30)}…」`); });
 
 if (problems.length) {
   console.error(`[case-text] ${problems.length}件の違反（docs/CASE_TEXT_STANDARD.md）:\n${problems.join('\n')}`);
