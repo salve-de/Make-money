@@ -188,12 +188,21 @@ export async function buildEntry(id: string, opts: { dataDir: string; ledgerDir:
   }
   const parsed = ReaderCaseSchema.safeParse({ ...readJson<ReaderCase>(`${dir}/reader.json`), analysis: readJson<StoredAnalysis[]>(`${dir}/analysis.json`) });
   if (!parsed.success) return { id, state: 'HOLD', stage: 'IMPORT', reasons: ['取り込み出力の形式が不正'], importHash: manifest.inputHash ?? null };
+  return finishEntry(id, parsed.data, manifest.inputHash ?? null, [], gate);
+}
+
+/**
+ * 取り込み版の事例（reader）に、中身の基準と公開の関門を当てて反映記録を作る。取り込み出力（case-import）からも、
+ * 反映記録に残っている取り込み版（rebuildEntryFromState）からも、同じ手順で作る。関門は変えない（受領書が審査していない版は SHOW にならない）。
+ */
+async function finishEntry(id: string, base: ReaderCase, importHash: string | null, priorHidden: string[], gate: ReleaseGate): Promise<Omit<ReflectEntry, 'hash' | 'reflectedAt' | 'ruleVersion'>> {
   // 仮置きの語を含む項目は外す（根拠のない数字は出さない）。事例全体は止めない
   // 利用規約で表示できない出典（eBiz Facts 等）も、その出典と根拠にする項目だけ外す
-  const restricted = parsed.data.sources.filter((src) => citesRestrictedSource({ sources: [src] })).map((src) => src.id);
-  let { reader, hidden } = withoutItems(parsed.data, { placeholders: true, sources: restricted });
+  const restricted = base.sources.filter((src) => citesRestrictedSource({ sources: [src] })).map((src) => src.id);
+  const first = withoutItems(base, { placeholders: true, sources: restricted });
+  let reader = first.reader;
+  let hidden = [...new Set([...priorHidden, ...first.hidden])];
   const problems = contentProblems(reader);
-  const importHash = manifest.inputHash ?? null;
   const keepHidden = () => (hidden.length ? { hidden } : {});
   if (problems.length) return { id, state: 'HOLD', stage: 'CONTENT', reasons: problems, importHash, ...keepHidden() };
   let release = await gate(id, reader);
@@ -205,7 +214,7 @@ export async function buildEntry(id: string, opts: { dataDir: string; ledgerDir:
     const trimmed = withoutItems(reader, { sources, claims });
     if (!trimmed.reader.sources.length) break;
     reader = trimmed.reader;
-    hidden = [...hidden, ...trimmed.hidden];
+    hidden = [...new Set([...hidden, ...trimmed.hidden])];
     const after = contentProblems(reader);
     if (after.length) return { id, state: 'HOLD', stage: 'CONTENT', reasons: after, importHash, reader, ...keepHidden() };
     release = await gate(id, reader);
@@ -213,6 +222,16 @@ export async function buildEntry(id: string, opts: { dataDir: string; ledgerDir:
   const approved = release.analysis ? { approvedAnalysis: release.analysis } : {};
   if (!release.publishable) return { id, state: 'HOLD', stage: 'RELEASE', reasons: release.reasons, importHash, reader, ...approved, ...keepHidden() };
   return { id, state: 'SHOW', reasons: [], importHash, reader, ...approved, ...keepHidden() };
+}
+
+/**
+ * 取り込み出力（data/case-import/）が手元に無い事例を、反映記録に残っている取り込み版から作り直す。
+ * 監査・訂正のあとで、審査で直した推論（reader-analysis.json）を表示版へ届ける時に使う（人が付き添わず回すため）。
+ * 取り込み版は変えない（reader.analysis は審査の入力のまま）。変わるのは関門の判定と、審査で直した推論（approvedAnalysis）だけ。
+ */
+export async function rebuildEntryFromState(prev: ReflectEntry, gate: ReleaseGate): Promise<Omit<ReflectEntry, 'hash' | 'reflectedAt' | 'ruleVersion'> | null> {
+  if (!prev.reader) return null;
+  return finishEntry(prev.id, prev.reader, prev.importHash, prev.hidden ?? [], gate);
 }
 
 const stableState = (state: ReflectState): string => `${JSON.stringify({ version: 1, cases: Object.fromEntries(Object.entries(state.cases).sort(([a], [b]) => a.localeCompare(b))) }, null, 1)}\n`;
@@ -225,11 +244,19 @@ export async function reflectCases(opts: ReflectOptions, gate: ReleaseGate): Pro
   const now = (opts.now ?? new Date()).toISOString();
   const outcomes: ReflectOutcome[] = [];
   const history: string[] = [];
-  for (const id of opts.ids ?? importedIds(opts.dataDir, ledgerDir)) {
-    const built = await buildEntry(id, { dataDir: opts.dataDir, ledgerDir }, gate);
-    if (!built) continue; // 取り込みの記録が無い事例は触らない（既存の記録も消さない）
-    const hash = entryHash(built);
+  for (const id of opts.ids ?? [...new Set([...importedIds(opts.dataDir, ledgerDir), ...Object.keys(state.cases)])].sort()) {
     const prev = state.cases[id];
+    let built = await buildEntry(id, { dataDir: opts.dataDir, ledgerDir }, gate);
+    // 取り込み出力が手元に無い（取り込みの記録が無い、または出力ファイルが欠けている）事例は、反映記録の取り込み版から作り直す
+    const importDir = `${opts.dataDir}/case-import/${id}`;
+    // import.json だけ残って reader.json / analysis.json が欠けている（途中までのコピー・片付け）は、黙って戻さず失敗にする
+    if (existsSync(`${importDir}/import.json`) && (!existsSync(`${importDir}/reader.json`) || !existsSync(`${importDir}/analysis.json`))) {
+      throw new Error(`取り込み出力が欠けている（${id}: import.json はあるが reader.json か analysis.json が無い）。出力を取り直すか、${importDir} ごと消して反映記録の取り込み版から作り直す`);
+    }
+    const outputMissing = !existsSync(`${importDir}/import.json`);
+    if (prev?.reader && outputMissing && (!built || (built.stage === 'IMPORT' && built.reasons[0]?.startsWith('取り込み出力が台帳の最新と合わない')))) built = await rebuildEntryFromState(prev, gate);
+    if (!built) continue; // 取り込みの記録が無く、反映記録の取り込み版も無い事例は触らない（既存の記録も消さない）
+    const hash = entryHash(built);
     if (prev?.hash === hash) { outcomes.push({ id, result: 'UNCHANGED', state: prev.state, stage: prev.stage, reasons: prev.reasons }); continue; }
     if (prev) history.push(JSON.stringify({ ...prev, replacedAt: now, replacedByHash: hash }));
     state.cases[id] = { ...built, ruleVersion: REFLECT_RULE_VERSION, hash, reflectedAt: now };
@@ -262,7 +289,7 @@ async function main() {
   const { VERDICTS_FILE } = await import('./verify-lib');
   const verdicts = existsSync(VERDICTS_FILE) ? readJson<Record<string, never>>(VERDICTS_FILE) : {};
   const audits = readPublicationAudits();
-  const wanted = ids ?? importedIds(dataDir, LEDGER_DIR);
+  const wanted = ids ?? [...new Set([...importedIds(dataDir, LEDGER_DIR), ...Object.keys(readReflectState(`${dataDir}/case-reflect.json`).cases)])].sort();
   const entities = loadEntities(wanted);
   const gate: ReleaseGate = async (id, reader) => {
     const entity = entities.get(id);

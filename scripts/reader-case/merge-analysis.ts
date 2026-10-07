@@ -81,17 +81,21 @@ async function main() {
   for (const [id, reader] of readers) {
     const entity = entities.get(id);
     if (!entity) continue;
-    let current = await loadPublicationInput(entity, { ...reader, analysis: reflected[id] ?? [] }, verdicts[id]);
+    // base=この事例の今の入力（まだ審査の直しを当てていない）。current=前の審査の直しを当てた入力。
+    // 同じ入力を取り直して監査し直した新しい束は base に対する審査、前の審査の直しを入力にした束は current に対する審査。どちらも受け付ける
+    const base = await loadPublicationInput(entity, { ...reader, analysis: reflected[id] ?? [] }, verdicts[id]);
+    let current = base;
     for (const doc of documents.filter((d) => d.input.cases.some((c) => c.entityId === id))) {
       const { inputFile, outputFile, input: inputDoc, output: outputDoc } = doc;
       const matching = inputDoc.cases.find((c) => c.entityId === id);
       // 同じ入力への新しい不合格・壊れた出力は、古い合格を打ち消す（巻き戻しで合格に戻らない）
-      if (matching?.publicationHash === publicationHash(current) || matching?.publicationHash === receipts[id]?.inputHash) delete receipts[id];
-      const approved = applyPublicationAudit(current, inputDoc, outputDoc, inputFile, outputFile);
+      if (matching?.publicationHash === publicationHash(current) || matching?.publicationHash === publicationHash(base) || matching?.publicationHash === receipts[id]?.inputHash) delete receipts[id];
+      const target = matching?.publicationHash === publicationHash(base) ? base : current;
+      const approved = applyPublicationAudit(target, inputDoc, outputDoc, inputFile, outputFile);
       if (!approved) continue;
       result[id] = approved.analysis;
       receipts[id] = approved.receipt;
-      current = { ...current, reader: { ...current.reader, analysis: approved.analysis } };
+      current = { ...target, reader: { ...target.reader, analysis: approved.analysis } };
       audited++;
     }
     const evaluation = evaluatePublication(current, receipts[id]);

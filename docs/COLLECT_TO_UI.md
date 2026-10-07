@@ -57,6 +57,31 @@
 - 毎日の自動実行（[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)）は 9 と公開版の計画までで止まり、公開はしません。
 - **申請待ち（2026-10-07 時点）**: 段3の `--from-research` は、まだ main に入っていません（変更の申請 #164 の中）。入るまでは、#164 の作業用コピーの `scripts/reader-case/add-entity-records.ts` を使います。#164 には、段7の「式が無い」の食い違いの修正と、分析欄の文が無い事例を検査で落とす変更も入っています。
 
+## 3b. 公開中の事例を直した時の1本の流れ（人が付き添わない）
+
+公開中の事例の文・数字を直すと（訂正の台帳を当てた、推論を直した、など）、公開の入力の指紋が変わり、前の監査の受領書が無効になる。何もしないと、その事例は公開の目録から外れる（外す承認は出さない。直して出し直す）。直したら必ず次の1本を通す。
+
+```
+bash scripts/reader-case/run-reaudit.sh <直した事例IDを1行ずつ書いた一覧>
+```
+
+| 段 | 何をするか | 備考 |
+|---|---|---|
+| 1 | 今の入力全体の監査の入力を作る（`build-audit-input.ts`） | 待ちで止まった後の再実行では同じ入力を使い続ける（タグは `data/pipeline/reaudit-<一覧のファイル名>.tag`。完了したら捨てる） |
+| 2 | 別のAIが監査する（`run-audit.sh`） | 終了コード75ならサブエージェント待ち。出た指示書を別のAIに実行させ、結果を置いて同じ命令を再実行。自分で監査しない |
+| 3 | 取り込み（`merge-analysis.ts`） | 審査で直した推論は `data/reader-analysis.json`、受領書は `data/publication-audits.json` |
+| 4 | 反映（`case-reflect.ts`） | 受領書が審査した取り込み版にだけ、審査で直した推論を表示版（`data/case-reflect.json` の `approvedAnalysis`）へ届ける。取り込み出力（`data/case-import/`）が手元に無くても、反映記録の取り込み版から作る。受領書が審査していない版は通さない |
+| 5 | 画面の文を作り直す（事例ごとに `build-display.ts --id <事例ID>`） | 一覧・要約・章・成功の秘訣・詳細のうち、古くなった層と足りない層を作る。別のAIの確認つき。手で書き換えない |
+| 6 | 目録の確認（`prepare-catalog-release.ts --dry-run --changed`） | 外れる事例が0件なら終了コード0。残れば事例ID・理由を出して終了コード1 |
+
+0件になったら `node --import tsx scripts/prepare-catalog-release.ts --changed <一覧>` で目録を更新する。
+
+守ること:
+- 推論の正本は `data/reader-analysis.json`。`approvedAnalysis` は反映の段が受領書と突き合わせて作る写しで、手で書かない。
+- 出典本文の保存（`data/source-cache`）を照合などで上書きすると、元の引用が消えて「根拠の不一致」になる。受領書の取り直しは、審査した時の保存で行う。
+- 手元にしかない証拠（画像台帳 `data/media-staging`、出典本文の保存）が無い作業場所では、公開の関門が通らない。持っている作業場所へつなぐ（コミットしない）。
+
+
 ## 3.6 試しに集めた事例を公開してよい形にする（2026-10-07 追加）
 
 試しに集めた事例（例: 2026-10-07 の新規5件 Userlist・Rewardful・Ploi・Splitbee・Tuple。作業場所 `collect-trial-20261007` の `trial/*.json`）は、そのまま公開に入れない。公開するなら、普通の新しい事例と同じ道を通す。
