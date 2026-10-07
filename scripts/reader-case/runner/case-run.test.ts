@@ -38,14 +38,15 @@ function writeBundles(root: string, stage: 'verify' | 'analyze' | 'audit', name:
 }
 
 /** 偽の命令実行: 呼ばれた名前を記録し、束づくりの命令だけは束を置く */
-function fakeExec(root: string, calls: string[], opt: { sourceCheckFail?: string; select?: Record<string, string[]>; prepareCode?: number } = {}): Exec {
+function fakeExec(root: string, calls: string[], opt: { auditBuildBad?: string; sourceCheckFail?: string; select?: Record<string, string[]>; prepareCode?: number } = {}): Exec {
   return async (name, argv) => {
     calls.push(name);
     const arg = (n: string): string => argv[argv.indexOf(n) + 1];
     const ids = (): string[] => readFileSync(arg('--ids'), 'utf8').split('\n').filter(Boolean);
     if (name === 'verify-build') writeBundles(root, 'verify', (i) => `${arg('--prefix')}${String(i).padStart(3, '0')}`, ids());
     if (name === 'analyze-build') writeBundles(root, 'analyze', (i) => `${arg('--prefix')}${String(i).padStart(3, '0')}`, ids());
-    if (name === 'audit-build') writeBundles(root, 'audit', (i) => `in-${arg('--tag')}${String(i).padStart(3, '0')}`, ids());
+    if (name.startsWith('audit-build') && opt.auditBuildBad && ids().includes(opt.auditBuildBad)) return { code: 1, stdout: '', stderr: `Error: ${opt.auditBuildBad}: 推論:TIMELINE:basis-missing-id\n    at main (x.ts:1:1)` };
+    if (name.startsWith('audit-build')) writeBundles(root, 'audit', (i) => `in-${arg('--tag')}${String(i).padStart(3, '0')}`, ids());
     if (name === 'source-check' && opt.sourceCheckFail) return { code: 1, stdout: `{"cases":3}\n不合格 ${opt.sourceCheckFail}|fact|f1: 数字が原文に無い「売上」\n`, stderr: '' };
     if (name === 'select') return { code: 0, stdout: JSON.stringify({ finished: 3, reasons: opt.select ?? {} }), stderr: '' };
     if (name === 'prepare') return { code: opt.prepareCode ?? 0, stdout: '', stderr: '' };
@@ -137,4 +138,17 @@ test('AIの呼び出しは同時に concurrency 本までで、束が3本なら3
   const inner2 = fakeCaller(root2, []);
   await runCases(opts(root2), { exec: fakeExec(root2, []), caller: async (req) => { running++; peak = Math.max(peak, running); await new Promise((r) => setTimeout(r, 20)); try { return await inner2(req); } finally { running--; } } });
   assert.equal(peak, 3);
+});
+
+test('監査の入力を組めない事例が1件あっても、ほかの事例は監査まで進む', async () => {
+  const root = setupRoot(); const calls: string[] = []; const ai: { label: string }[] = [];
+  const s = await runCases(opts(root), { exec: fakeExec(root, calls, { auditBuildBad: 'fx-002' }), caller: fakeCaller(root, ai) });
+  assert.deepEqual(s.passed.sort(), ['fx-001', 'fx-003']);
+  const f = s.failures.filter((x) => x.id === 'fx-002');
+  assert.equal(f.length, 1);
+  assert.equal(f[0].stage, 'audit');
+  assert.match(f[0].reason, /basis-missing-id/);
+  assert.doesNotMatch(f[0].reason, /at main/, '理由には Error の行だけを出す');
+  assert.equal(ai.filter((a) => a.label.startsWith('audit')).length, 2);
+  assert.ok(calls.includes('audit-build-fx-001') && calls.includes('select'));
 });

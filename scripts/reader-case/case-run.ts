@@ -4,7 +4,7 @@
  *   pnpm case:run --ids a,b,c            （公開はしない。公開データの作成まで）
  *   pnpm case:run --ids-file <file>      （事例IDを1行に1つ書いたファイル）
  *   pnpm case:run --ids a --publish      （最後に今の catalog:publish を呼ぶ。R2 への書き込みと本番反映は catalog:publish の中身に従う）
- *   オプション: --concurrency N（同時に流す束・事例の数。既定4）  --agent claude|codex|auto  --model <型>  --codex-effort low|medium|high
+ *   オプション: --from <段>（その段から始める。段の名前は下）  --concurrency N（同時に流す束・事例の数。既定4）  --agent claude|codex|auto  --model <型>  --codex-effort low|medium|high
  *              --run-id <名前>  --max-attempts N（束ごとの拒否の上限。既定3）
  *
  * 段（この順）:
@@ -29,6 +29,8 @@ import { runStageWithAgent, type AgentStageOptions, type BundleOutcome } from '.
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(HERE, '../..');
 
+export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'case-text', 'prepare', 'publish'] as const;
+
 export interface ExecResult { code: number; stdout: string; stderr: string }
 /** 外の命令（node スクリプト・pnpm）を流す。試験では偽物に差し替える */
 export type Exec = (name: string, argv: string[], env?: Record<string, string>) => Promise<ExecResult>;
@@ -40,6 +42,8 @@ export interface CaseRunOptions {
   concurrency: number;
   publish: boolean;
   maxAttempts?: number;
+  /** この段から始める（それより前の段は飛ばす）。止まった所から続きを流す時や、前の段の結果が手元に既にある時に使う */
+  from?: string;
   /** build-display に渡す AI の指定 */
   agentArgs?: string[];
   log?: (text: string) => void;
@@ -97,12 +101,13 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
 
   /** 段を流して所要時間を記録する */
   async function stage(name: string, body: () => Promise<Record<string, unknown> | void>): Promise<void> {
+    if (opt.from && STAGE_ORDER.indexOf(name as (typeof STAGE_ORDER)[number]) < STAGE_ORDER.indexOf(opt.from as (typeof STAGE_ORDER)[number])) { log(`${name}: --from ${opt.from} なので飛ばす`); return; }
     if (!alive.size && name !== 'publish') { log(`${name}: 対象の事例が残っていないので飛ばす`); return; }
     const t0 = now(); const failedBefore = failures.length; const n = alive.size;
     log(`${name}: 開始（${n} 件）`);
     let detail: Record<string, unknown> | void;
     let ok = true;
-    try { detail = await body(); } catch (e) { ok = false; detail = { error: (e as Error).message }; failAll(name, `想定外の失敗: ${(e as Error).message}`); }
+    try { detail = await body(); } catch (e) { ok = false; detail = { error: (e as Error).message }; failAll(name, (e as Error).message); }
     const rec: StageRecord = { runId, stage: name, startedAt: new Date(t0).toISOString(), seconds: Number(((now() - t0) / 1000).toFixed(1)), ids: n, failed: failures.length - failedBefore, ok: ok && failures.length === failedBefore, ...(detail ? { detail } : {}) };
     stages.push(rec);
     try { mkdirSync(dirname(timingFile), { recursive: true }); appendFileSync(timingFile, `${JSON.stringify(rec)}\n`); } catch { /* 記録できなくても流れは止めない */ }
@@ -119,9 +124,13 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
       detail: { bundles: outcomes.length, calls: outcomes.reduce((s, o) => s + o.calls, 0), skipped: outcomes.filter((o) => o.skipped).length, costUsd: Number(outcomes.reduce((s, o) => s + o.costUsd, 0).toFixed(4)), concurrency: opt.concurrency },
     };
   }
+  const errorLine = (r: ExecResult): string => {
+    const lines = `${r.stderr}\n${r.stdout}`.split('\n').map((l) => l.trim()).filter(Boolean);
+    return (lines.find((l) => /^(Error|\w*Error)\b/.test(l)) ?? lines.slice(-2).join(' / ')).slice(0, 300);
+  };
   const must = async (name: string, argv: string[], env?: Record<string, string>): Promise<ExecResult> => {
     const r = await deps.exec(name, argv, env);
-    if (r.code !== 0) throw new Error(`${name} が失敗（終了コード ${r.code}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-3).join(' / ').slice(0, 300)}`);
+    if (r.code !== 0) throw new Error(`${name} が失敗（終了コード ${r.code}）: ${errorLine(r)}`);
     return r;
   };
 
@@ -169,7 +178,16 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
     const todo = [...alive].filter((id) => !fresh.has(id));
     if (!todo.length) return { skipped: '全件が監査済み' };
     const tag = `999999${new Date(now()).toISOString().slice(2, 19).replace(/\D/g, '')}${String(process.pid % 100000).padStart(5, '0')}`;
-    await must('audit-build', node('scripts/reader-case/build-audit-input.ts', '--ids', idsFile('audit', todo), '--per', '1', '--tag', tag));
+    // 入力づくりは1件でも組めないと全体が止まるので、まとめて失敗したら事例ごとに作り直し、組めない事例だけを外す
+    const built = await deps.exec('audit-build', node('scripts/reader-case/build-audit-input.ts', '--ids', idsFile('audit', todo), '--per', '1', '--tag', tag));
+    if (built.code !== 0) {
+      if (todo.length === 1) fail(todo[0], 'audit', `監査の入力を組めない: ${errorLine(built)}`);
+      else for (const [i, id] of todo.entries()) {
+        const one = await deps.exec(`audit-build-${id}`, node('scripts/reader-case/build-audit-input.ts', '--ids', idsFile(`audit-${i}`, [id]), '--per', '1', '--tag', `${tag}${String(i + 1).padStart(2, '0')}`));
+        if (one.code !== 0) fail(id, 'audit', `監査の入力を組めない: ${errorLine(one)}`);
+      }
+    }
+    if (!alive.size) return { skipped: '監査の入力を組める事例が無い' };
     const { detail } = await aiStage('audit', tag);
     if (alive.size) await must('audit-merge', node('scripts/reader-case/merge-analysis.ts', '--ids', idsFile('audit-ok', alive)));
     return { ...detail, tag };
@@ -188,6 +206,8 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
   // 7. 画面の文。事例ごとに別の作業場所（--data-dir）で並列に作り、できた分だけを最後に1つずつ実ファイルへ反映する
   await stage('display', async () => {
     const dirs = new Map<string, string>();
+    const finished = new Set(readLines(join(root, 'data/catalog-finished-ids.txt')));
+    for (const id of [...alive]) if (!finished.has(id)) fail(id, 'display', '仕上げ済み（data/catalog-finished-ids.txt）に無いので画面の文を作らない');
     const ids = [...alive];
     let next = 0;
     const lane = async (): Promise<void> => {
@@ -277,9 +297,11 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
   if (!ids.length) { console.error('使い方: pnpm case:run --ids a,b,c [--publish] [--concurrency 4] [--agent claude|codex|auto] [--model M] [--codex-effort E]'); process.exit(2); }
   const conc = Number(val('--concurrency') ?? 4);
   if (!Number.isInteger(conc) || conc < 1) { console.error('--concurrency は1以上の整数'); process.exit(2); }
+  if (val('--from') && !(STAGE_ORDER as readonly string[]).includes(val('--from')!)) { console.error(`--from は ${STAGE_ORDER.join(' / ')} のどれか`); process.exit(2); }
   const agent = val('--agent'); const model = val('--model'); const effort = val('--codex-effort');
   return {
     root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'),
+    from: val('--from'),
     runId: val('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15),
     maxAttempts: val('--max-attempts') ? Number(val('--max-attempts')) : undefined,
     agent, model, effort,
