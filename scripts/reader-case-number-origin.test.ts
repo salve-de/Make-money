@@ -61,4 +61,6 @@ test('式の無い事実の言い換えは、数字がすべて basis の事実�
   assert.equal(ok.kept[0]!.formula, '数字は出典に載っている値');
   assert.deepEqual(reasons({ item: 'PRICING', text: '月額49ドルの購読。', basis: ['f1'], presentation: 'FACT_SUMMARY' }), ['number-without-formula']);
   assert.deepEqual(reasons({ item: 'PRICING', text: '月額29ドルの購読。', basis: ['f1'] }, false), ['number-without-formula']);
+  // presentation の無い旧形式は、式を足すと画面で「推定」と出るため補わない
+  assert.deepEqual(reasons({ item: 'PRICING', text: '月額29ドルの購読。', basis: ['f1'] }), ['number-without-formula']);
 });

@@ -683,12 +683,13 @@ const CURRENCY_YEN: Array<[RegExp, number]> = [[/^(?:ドル|US\$|\$|USD)$/, 150]
 const NUM = '[0-9][0-9,]*(?:\\.[0-9]+)?';
 const RANGE = '\\s?[〜~～\\-–—]\\s?';
 const PRE_CUR = '(?:US\\$|\\$|€|£|₹|(?:USD|EUR|GBP|INR)\\s?)';
-const PRE_SCALE = '(?:億|万|[kK](?![A-Za-z])|M(?![A-Za-z])|B(?![A-Za-z]))';
+// 桁: 億・万、k・K・M・B、MM・mn・bn・m、million・billion・thousand（前に空白があってもよい）
+const PRE_SCALE = '(?:億|万|\\s?(?:million|billion|thousand)(?![A-Za-z])|(?:MM|mn|bn|[kKmMB])(?![A-Za-z]))';
 // 範囲（「$10–$50」「$10-50」「29〜99ドル」）は両端をまとめて1つの金額として拾い、円も範囲で添える
 const FOREIGN_AMOUNT = new RegExp(
   `(?<pc>${PRE_CUR})(?<pn>${NUM})(?<ps>${PRE_SCALE})?(?:${RANGE}(?:${PRE_CUR})?(?<pn2>${NUM})(?<ps2>${PRE_SCALE})?)?`
   + `|(?:(?<sn0>${NUM})\\s?(?<ss0>${PRE_SCALE})?${RANGE})?(?<sn>${NUM})\\s?(?<ss>${PRE_SCALE})?\\s?(?<sc>ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
-const SCALE: Record<string, number> = { 億: 1e8, 万: 1e4, k: 1e3, K: 1e3, M: 1e6, B: 1e9 };
+const SCALE: Record<string, number> = { 億: 1e8, 万: 1e4, k: 1e3, K: 1e3, M: 1e6, B: 1e9, m: 1e6, MM: 1e6, mn: 1e6, bn: 1e9, million: 1e6, billion: 1e9, thousand: 1e3 };
 export function yenText(yen: number): string {
   const n = Math.round(yen);
   if (n >= 1e8) return `${trimNum(n / 1e8, 1)}億円`;
@@ -714,7 +715,7 @@ export function withYenApprox(text: string): string {
     // 米ドル以外のドル（CA$・A$・NZ$・HK$・S$ や「$39 CAD」）は、為替の基準に無いので換算しない
     if (g.pc && /[A-Za-z]$/.test(text.slice(0, m.index ?? 0)) && !/^US/.test(g.pc)) continue;
     if (/^\s?(?:CAD|AUD|NZD|HKD|SGD|MXN|TWD)(?![A-Za-z])/.test(rest)) continue;
-    const value = (num: string, scale: string | undefined) => Number(num.replace(/,/g, '')) * (SCALE[scale ?? ''] ?? 1);
+    const value = (num: string, scale: string | undefined) => Number(num.replace(/,/g, '')) * (SCALE[(scale ?? '').trim()] ?? 1);
     const amount = g.pn ? value(g.pn, g.ps) : value(g.sn, g.ss);
     // 範囲の下端。後ろに桁（万・k など）が付くのが上端だけの時は、下端にも同じ桁を当てる（「1〜2万ドル」）
     // ただし桁を当てると下端が上端を超える時（「$900〜1K」「$2,500〜3K」）は、下端は書かれたままの額にする
@@ -726,6 +727,8 @@ export function withYenApprox(text: string): string {
     const low = g.pn2 ? lowOf(g.pn, g.ps, g.pn2, g.ps2) : g.sn0 ? lowOf(g.sn0, g.ss0, g.sn, g.ss) : null;
     const high = g.pn2 ? value(g.pn2, g.ps2) : amount;
     if (!rate || !Number.isFinite(high) || high <= 0 || (low !== null && (!Number.isFinite(low) || low <= 0))) continue;
+    // 金額のすぐ後ろに英字が続く（読めない桁や別の単位）時は、数字の頭だけを換算しない
+    if (/^[A-Za-z]/.test(rest)) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
     if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest)) continue;
     const yen = low !== null ? `約${yenText(low * rate)}〜${yenText(high * rate)}` : `約${yenText(high * rate)}`;

@@ -239,6 +239,12 @@ describe('withYenApprox', () => {
     expect(withYenApprox('7K USD')).toBe('7K USD（約105万円）');
     expect(withYenApprox('3M EUR')).toBe('3M EUR（約5億円）');
   });
+  it('MM・m・million などの桁も読み、読めない英字が続く金額は換算しない', () => {
+    expect(withYenApprox('$1MM')).toBe('$1MM（約1.5億円）');
+    expect(withYenApprox('$2.5m')).toBe('$2.5m（約3.8億円）');
+    expect(withYenApprox('$10 million')).toBe('$10 million（約15億円）');
+    expect(withYenApprox('$5xyz')).toBe('$5xyz');
+  });
   it('円の無い括弧の補足が続く時は、その括弧の頭に入れる', () => {
     expect(withYenApprox('月8ドル（商品10点・保存200MB）')).toBe('月8ドル（約1,200円、商品10点・保存200MB）');
   });
