@@ -1,0 +1,37 @@
+/**
+ * 画面用の編集文（data/detail-lines.json / data/list-lines.json）が docs/CASE_TEXT_STANDARD.md の基準を守っているか見る。
+ * 違反があれば exit 1。
+ *  1. 外貨・外国の単位（ドル・$・ルピー・ラック・クロール・ユーロ・ポンド・INR・USD）を含む文は、同じ欄に「円」も含む（円換算の概算を添える）。
+ *  2. 答え（answer）は60字以内、補足（note）は120字以内。一覧の1行（text）は45字以内。
+ *  3. 答えに「と語る」「と話す」「と説明している」「と書く」を入れない。
+ *  4. 空の答えを置かない。
+ */
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const FOREIGN = /(ドル|\$|ルピー|ラック|クロール|ユーロ|ポンド|INR|USD|EUR|GBP)/;
+const HEDGE = /(と語る|と話す|と説明している|と書く|と述べる)/;
+const read = (file) => JSON.parse(readFileSync(resolve(process.cwd(), file), 'utf8'));
+const problems = [];
+
+function check(where, field, text, max, { hedge = false } = {}) {
+  if (typeof text !== 'string' || text.trim() === '') { problems.push(`${where} ${field}: 空`); return; }
+  if (text.length > max) problems.push(`${where} ${field}: ${text.length}字（上限${max}）`);
+  if (FOREIGN.test(text) && !text.includes('円')) problems.push(`${where} ${field}: 外貨の数字に円換算（約◯円）が無い「${text.slice(0, 30)}…」`);
+  if (hedge && HEDGE.test(text)) problems.push(`${where} ${field}: 答えに「本人は〜と語る」型の言い回し`);
+}
+
+for (const line of read('data/detail-lines.json')) {
+  const where = `detail-lines ${line.entityId}/${line.analysisId}`;
+  // 年表（「2013年: …。2014年: …。」の形）だけは長くてよい
+  const timeline = /^\d{4}年[^:：]*[:：]/.test(line.answer) && line.answer.includes('。');
+  check(where, 'answer', line.answer, timeline ? 400 : /headline/i.test(line.analysisId) ? 90 : 60, { hedge: true });
+  if (line.note !== undefined) check(where, 'note', line.note, 120);
+}
+for (const line of read('data/list-lines.json')) check(`list-lines ${line.entityId}`, 'text', line.text, 45);
+
+if (problems.length) {
+  console.error(`[case-text] ${problems.length}件の違反（docs/CASE_TEXT_STANDARD.md）:\n${problems.join('\n')}`);
+  process.exit(1);
+}
+console.log('[case-text] OK');

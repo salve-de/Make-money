@@ -127,7 +127,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-timeline",
     "textHash": "f58cdbd0",
-    "answer": "2014年1月: 独立。毎週の動画公開を始める。時期不明: Hacker News掲載で1日にメール600件超。2020年8月: 3製品で累計100万ドル。2021年11月: MRR約6万ドル。"
+    "answer": "2014年1月: 独立。毎週の動画公開を始める。時期不明: Hacker News掲載で1日にメール600件超。2020年8月: 3製品で累計約1.5億円（100万ドル）。2021年11月: 月の定期収入約900万円（6万ドル）。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
@@ -135,5 +135,17 @@
     "textHash": "6889fbf0",
     "answer": "音声サービスの経験があるAnkit Jainが、弟と2013年3月に自己資金で開始",
     "note": "開始のきっかけは、材料に書かれていない（未確認）。開始から6か月で有料200社になり、損益が釣り合った。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-headline",
+    "textHash": "68ae1889",
+    "answer": "5人・自己資金約210万円で始め、半年で有料200社、3年目の年度に年商約3億円へ伸ばしたインドのクラウド電話屋"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-headline",
+    "textHash": "f87ebe7a",
+    "answer": "毎週の無料動画で信頼を貯め、Railsの開発者へ動画を売り、1人で月商約900万円に育てた元受託開発者"
   }
 ]

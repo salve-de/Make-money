@@ -210,7 +210,7 @@ export function ReaderLedger({ reader, entityId, detailState, onRetry, media }: 
   return (
     <>
       {status}
-      <Headline reader={reader} />
+      <Headline reader={reader} entityId={entityId} />
       <KeyStrip reader={reader} plan={plan} />
       <WhatIs fact={summary} entityId={entityId} lead={!headlineOf(reader)} />
       {media}

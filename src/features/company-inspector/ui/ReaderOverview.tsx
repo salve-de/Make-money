@@ -151,7 +151,7 @@ export function headlineOf(reader: ReaderCase): ReaderAnalysis | null {
   return a && checkLead(a, reader).ok ? a : null;
 }
 
-export function Headline({ reader }: { reader: ReaderCase }) {
+export function Headline({ reader, entityId }: { reader: ReaderCase; entityId?: string }) {
   const a = headlineOf(reader);
   if (!a) return null;
   return (
@@ -160,7 +160,7 @@ export function Headline({ reader }: { reader: ReaderCase }) {
         <span>{UI.HEADLINE_LABEL}</span>
         <InferenceMark analysis={a} />
       </div>
-      <h3 className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
+      <h3 className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)}</h3>
     </div>
   );
 }
