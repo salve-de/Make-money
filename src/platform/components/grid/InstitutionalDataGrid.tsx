@@ -165,12 +165,12 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left text-[13px] [counter-reset:ledger-row]">
           <colgroup>
             <col className="w-10" />
-            <col className={isSplitView ? 'w-[52%]' : undefined} />
+            <col />
             {!isSplitView && <col className="w-[110px]" />}
-            <col className="w-[120px]" />
+            <col className="w-[136px]" />
             {!isSplitView && <col className="w-[104px]" />}
-            <col className="w-[72px]" />
-            <col className="w-8" />
+            <col className="w-[64px]" />
+            <col className="w-7" />
           </colgroup>
           <thead>
             <tr className="h-[26px] border-b border-term-line bg-term-head text-xs text-term-label">
@@ -217,7 +217,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       <span className="truncate font-semibold text-term-fg-strong">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
                     </span>
-                    <ListDescription reader={entity.reader} className="block truncate text-xs text-term-muted" />
+                    <ListDescription reader={entity.reader} className="block truncate text-xs text-term-sub" />
                   </td>
                   {!isSplitView && (
                     <td className="truncate px-2 text-xs text-term-muted">{sector}</td>
