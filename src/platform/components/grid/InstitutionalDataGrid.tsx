@@ -179,14 +179,13 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               <th className="px-1"><span className="sr-only">{UI.SAVE}</span></th>
             </tr>
           </thead>
-          <tbody>
             {visibleEntities.map((entity, index) => {
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
               const { main, profit } = listMetricsOf(entity.reader);
               const sector = sectorLabel(entity);
               return (
-                <tr
+                <tbody
                   key={entity.id}
                   data-entity-id={entity.id}
                   onClick={() => onSelectEntity(entity.id)}
@@ -198,25 +197,25 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     }
                   }}
                   tabIndex={0}
-                  aria-selected={isSelected}
-                  className={`min-h-[29px] cursor-pointer border-b border-term-line-soft [counter-increment:ledger-row] focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent ${
+                  aria-current={isSelected ? "true" : undefined}
+                  className={`cursor-pointer focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent ${
                     isSelected
                       ? 'bg-term-select text-term-fg-strong'
                       : `${index % 2 === 1 ? 'bg-term-row-alt' : ''} hover:bg-term-head`
                   }`}
                 >
-                  <td className="overflow-hidden px-2 py-1" title={entity.name}>
+                  <tr>
+                  <td className="overflow-hidden px-2 pt-1.5" title={entity.name}>
                     <span className="flex min-w-0 items-center gap-1.5">
                       <EntityLogo asset={pickEntityLogo(logos[entity.id])} name={entity.name} />
                       <span className="truncate font-semibold text-term-fg-strong">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
                     </span>
-                    <ListDescription reader={entity.reader} className="block truncate text-xs text-term-sub" />
                   </td>
                   {!isSplitView && (
-                    <td className="truncate px-2 text-xs text-term-muted">{sector}</td>
+                    <td className="truncate px-2 pt-1.5 text-xs text-term-muted">{sector}</td>
                   )}
-                  <td className="term-num truncate px-2 text-right">
+                  <td className="term-num truncate px-2 pt-1.5 text-right">
                     <ListMetricCell metric={main} expected={['REVENUE']} />
                   </td>
                   {!isSplitView && (
@@ -224,7 +223,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       {profit ? <ListMetricCell metric={profit} expected={['OPERATING_INCOME']} /> : null}
                     </td>
                   )}
-                  <td className="px-0 text-center">
+                  <td className="px-0 pt-1 text-center">
                     <button
                       type="button"
                       onClick={(e) => onToggleBookmark(entity.id, e)}
@@ -235,10 +234,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       <Bookmark className={`h-3.5 w-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
                     </button>
                   </td>
-                </tr>
+                  </tr>
+                  <tr className="border-b border-term-line-soft">
+                    <td colSpan={isSplitView ? 3 : 5} className="overflow-hidden px-2 pb-1.5 pl-[34px]">
+                      <ListDescription reader={entity.reader} className="block truncate text-xs text-term-sub" />
+                    </td>
+                  </tr>
+                </tbody>
               );
             })}
-          </tbody>
         </table>
         {entities.length === 0 && !suppressEmpty && (
           <div className="px-3 py-6 text-sm text-term-muted">
