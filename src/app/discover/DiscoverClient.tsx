@@ -45,8 +45,8 @@ function evidenceTone(label: string): string {
 
 function valueTone(item: DiscoveryCase): string {
   if (!item.resultMetricId) return "text-term-dim";
-  // 一覧では推定の数値そのものは色を付けず、横の「推定」表示だけを橙にする（強調色を増やさない）
-  if (item.resultEvidenceLabel.includes("推定")) return "text-term-fg";
+  // 由来の語は一覧に出さないので、推定の数値だけ橙にして区別する
+  if (item.resultEvidenceLabel.includes("推定")) return "text-term-accent";
   return item.isFailure ? "text-term-danger" : "text-term-fg-strong";
 }
 
@@ -101,9 +101,8 @@ export function DiscoveryRow({
       </span>
       <span className="hidden truncate text-term-muted xl:block">{item.sector}</span>
       <span className="text-right" {...metricAttrs(item)}>
-        <span className={`term-num ${valueTone(item)}`}>{resultText(item)}</span>
+        <span className={`term-num ${valueTone(item)}`}>{resultText(item)}{item.resultMetricId && item.resultEvidenceLabel.includes("推定") && <span className="sr-only">（推定）</span>}</span>
         <span className="ml-1 text-xs text-term-label">{item.resultLabel}</span>
-        {item.resultEvidenceLabel && <span className={`block text-xs lg:hidden ${evidenceTone(item.resultEvidenceLabel)}`}>{item.resultEvidenceLabel}</span>}
       </span>
     </button>
   );

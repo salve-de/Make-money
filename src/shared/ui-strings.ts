@@ -218,7 +218,6 @@ export const UI = {
   LIST_COL_SUMMARY: '概要',
   LIST_COL_SCALE: '規模',
   LIST_COL_SECTOR: '分野',
-  LIST_COL_ORIGIN: '由来',
   LIST_COL_AMOUNT: '金額',
   LIST_EMPTY: '条件に合う事例がありません。条件を減らすか、検索語を変えてください。',
   LIST_EMPTY_WHAT: 'ここには、条件に合う事例の売上と中身が並びます。',
