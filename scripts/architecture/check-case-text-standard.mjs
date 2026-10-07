@@ -21,6 +21,7 @@ function check(where, field, text, max, { hedge = false } = {}) {
   if (typeof text !== 'string' || text.trim() === '') { problems.push(`${where} ${field}: 空`); return; }
   if (text.length > max) problems.push(`${where} ${field}: ${text.length}字（上限${max}）`);
   if (FOREIGN.test(text) && !text.includes('円')) problems.push(`${where} ${field}: 外貨の数字に円換算（約◯円）が無い「${text.slice(0, 30)}…」`);
+  if (/(?<![\d,.])0円/.test(text)) problems.push(`${where} ${field}: 「0円」は書かない（「かけていない」「無料」と言う）`);
   if (ABSENCE.test(text)) problems.push(`${where} ${field}: 「分からない・未確認」と言うだけの文は載せない（載せないのが正しい）`);
   if (hedge && HEDGE.test(text)) problems.push(`${where} ${field}: 答えに「本人は〜と語る」型の言い回し`);
 }
