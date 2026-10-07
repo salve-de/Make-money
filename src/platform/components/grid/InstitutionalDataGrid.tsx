@@ -184,7 +184,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               <th className="px-1"><span className="sr-only">{UI.SAVE}</span></th>
             </tr>
           </thead>
-            {visibleEntities.map((entity, index) => {
+            {visibleEntities.map((entity) => {
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
               const { revenue, scale, profit } = listColumnsOf(entity.reader);
@@ -207,14 +207,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   className={`cursor-pointer focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent ${
                     isSelected
                       ? 'bg-term-select text-term-fg-strong'
-                      : `${index % 2 === 1 ? 'bg-term-row-alt' : ''} hover:bg-term-head`
+                      : 'hover:bg-term-head'
                   }`}
                 >
                   <tr>
-                  <td className="overflow-hidden px-2 pt-1.5" title={entity.name}>
+                  <td className={`overflow-hidden border-l-2 px-2 pt-2 ${isSelected ? 'border-term-accent' : 'border-transparent'}`} title={entity.name}>
                     <span className="flex min-w-0 items-center gap-1.5">
                       <EntityLogo asset={pickEntityLogo(logos[entity.id])} name={entity.name} />
-                      <span className="min-w-0 shrink truncate font-semibold text-term-fg-strong">{entity.name}</span>
+                      <span className="min-w-0 shrink truncate text-sm font-semibold text-term-fg-strong">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
                       {onToggleTag && (entity.tags ?? []).slice(0, 3).map((tag) => {
                         const on = selectedTags.includes(tag);
@@ -235,7 +235,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   {!isSplitView && (
                     <td className="truncate px-2 pt-1.5 text-xs text-term-muted">{sector}</td>
                   )}
-                  <td className="term-num whitespace-nowrap px-2 pt-1.5 text-right">
+                  <td className="term-num whitespace-nowrap px-2 pt-2 text-right text-sm">
                     <ListMetricCell metric={headline} expected={['REVENUE']} />
                   </td>
                   {!isSplitView && (
@@ -255,9 +255,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     </button>
                   </td>
                   </tr>
-                  <tr className="border-b border-term-line-soft">
-                    <td colSpan={isSplitView ? 3 : 5} className="overflow-hidden px-2 pb-1.5 pl-[34px]">
-                      <ListDescription reader={entity.reader} className="block truncate text-xs text-term-sub" />
+                  <tr className="border-b border-term-line">
+                    <td colSpan={isSplitView ? 3 : 5} className={`overflow-hidden border-l-2 px-2 pb-2 pl-[32px] ${isSelected ? 'border-term-accent' : 'border-transparent'}`}>
+                      <ListDescription reader={entity.reader} className="mt-0.5 block truncate text-xs text-term-sub" />
                     </td>
                   </tr>
                 </tbody>
