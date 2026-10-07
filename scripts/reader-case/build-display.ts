@@ -25,7 +25,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  DISPLAY_FILES, assembleDisplay, buildMaterial, dropFlagged, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
+  DISPLAY_FILES, assembleDisplay, buildMaterial, liveSuccessPoints, dropFlagged, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
   type AiOutput, type DisplayFiles, type DisplayNeed, type EntityDisplay, type ItemContract, type LiveReader,
 } from '../../src/shared/display-build';
 import { loadReaders, argValue } from './load-readers';
@@ -75,6 +75,7 @@ const contract = read<{ items: ItemContract }>(join(ROOT, 'data/item-contract.js
 const language = read<Array<{ pattern: string; suggest: string }>>(join(ROOT, 'data/reader-language.json'));
 
 // ---------- 検査（一時コピーの data/ で、検査スクリプトを変えずに走らせる） ----------
+const UNPARSED = '検査が読み取れない形で落ちた: ';
 function runCheck(files: DisplayFiles): { ok: boolean; problems: string[] } {
   const dir = mkdtempSync(join(tmpdir(), 'display-check-'));
   try {
@@ -82,7 +83,11 @@ function runCheck(files: DisplayFiles): { ok: boolean; problems: string[] } {
     for (const f of DISPLAY_FILES) writeFileSync(join(dir, 'data', `${f}.json`), serialize(files[f]));
     for (const f of ['item-contract.json', 'reader-language.json']) copyFileSync(join(ROOT, 'data', f), join(dir, 'data', f));
     const r = spawnSync(process.execPath, [join(ROOT, 'scripts/architecture/check-case-text-standard.mjs')], { cwd: dir, encoding: 'utf8' });
-    return { ok: r.status === 0, problems: parseCheckOutput(`${r.stdout}\n${r.stderr}`) };
+    const output = `${r.stdout}\n${r.stderr}`;
+    const problems = parseCheckOutput(output);
+    // 異常終了なのに読み取れる違反が無い（検査が落ちた・壊れた）時は、握りつぶさず止める理由にする
+    if (r.status !== 0 && !problems.length) problems.push(`${UNPARSED}${output.trim().split('\n').slice(-5).join(' / ').slice(0, 400)}`);
+    return { ok: r.status === 0, problems };
   } finally { rmSync(dir, { recursive: true, force: true }); }
 }
 
@@ -95,6 +100,19 @@ function pickAgent(): Agent {
   try { if ((JSON.parse(s.stdout) as { loggedIn?: boolean }).loggedIn) return 'claude'; } catch { /* 下へ */ }
   say('claude がログインされていない（claude auth status）。codex を使う');
   return 'codex';
+}
+/** 確認役は作った者と別のAI（別の提供元、または別のモデルを明示した時だけ同じ提供元）。用意できなければ null（作らずに止める） */
+function pickReviewer(agent: Agent): Agent | null {
+  const want = argValue('--review-agent') ?? process.env.DISPLAY_REVIEW_AGENT;
+  const other: Agent = agent === 'claude' ? 'codex' : 'claude';
+  const target = (want === 'claude' || want === 'codex' ? want : other) as Agent;
+  if (target === agent) {
+    const rm = argValue('--review-model'); const m = argValue('--model');
+    return rm && rm !== m ? target : null;
+  }
+  if (spawnSync(target, ['--version'], { encoding: 'utf8' }).status !== 0) return null;
+  if (target === 'claude') { try { if (!(JSON.parse(spawnSync('claude', ['auth', 'status'], { encoding: 'utf8' }).stdout) as { loggedIn?: boolean }).loggedIn) return null; } catch { return null; } }
+  return target;
 }
 interface CallResult { value: unknown; costUsd?: number; tokens?: { input: number; output: number }; seconds: number }
 function callAgent(agent: Agent, system: string, user: string, schema: Record<string, unknown>, model: string | undefined, label: string): CallResult {
@@ -162,12 +180,14 @@ function commitToBranch(entityId: string, name: string | undefined, display: Ent
 
 // ---------- 1件を作る ----------
 interface Outcome { ok: boolean; attempts: number; reasons: string[]; calls: CallResult[]; display?: EntityDisplay; minor?: unknown[]; dropped?: string[] }
-function buildOne(agent: Agent, entityId: string, reader: LiveReader, need: DisplayNeed, files: DisplayFiles, name: string | undefined): Outcome {
+function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, need: DisplayNeed, files: DisplayFiles, name: string | undefined): Outcome {
   const material = buildMaterial(entityId, reader, need, { name, contract, files, exampleIds: EXAMPLE_IDS });
   const nums = materialNumbers(reader);
   const schema = outputSchema();
   const calls: CallResult[] = [];
-  const baseline = runCheck(files).problems;
+  const baselineRun = runCheck(files);
+  const baseline = baselineRun.problems;
+  if (baseline.some((p) => p.startsWith(UNPARSED))) return { ok: false, attempts: 0, reasons: baseline, calls };
   let previous: unknown; let problems: string[] = [];
   mkdirSync(WORK, { recursive: true });
   writeFileSync(join(WORK, `${entityId}.material.json`), JSON.stringify(material, null, 1));
@@ -180,14 +200,14 @@ function buildOne(agent: Agent, entityId: string, reader: LiveReader, need: Disp
     writeFileSync(join(WORK, `${entityId}.attempt${attempt}.json`), JSON.stringify(call.value, null, 1));
     if (!isAiOutput(call.value)) { previous = call.value; problems = ['出力の形が指定と違う（list・summary・detail・success・chapters を全部返す）']; continue; }
     previous = call.value;
-    const { display, problems: assembly } = assembleDisplay(entityId, reader, need, call.value);
+    const { display, problems: assembly } = assembleDisplay(entityId, reader, need, call.value, liveSuccessPoints(entityId, reader, files));
     const check = runCheck(mergeEntity(files, entityId, display));
     problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems)];
     say(`${entityId}: ${attempt}回目 — 機械の検査の指摘 ${problems.length}件（${call.seconds.toFixed(0)}秒）`);
     if (problems.length) { writeFileSync(join(WORK, `${entityId}.attempt${attempt}.problems.txt`), problems.join('\n')); continue; }
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], calls, display };
     let review: CallResult;
-    try { review = callAgent(agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: reviewRows(display) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 確認 ${attempt}回目`); }
+    try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: reviewRows(display) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 確認 ${attempt}回目`); }
     catch (e) { return { ok: false, attempts: attempt, reasons: [`確認役の呼び出しに失敗: ${(e as Error).message}`], calls }; }
     calls.push(review);
     const issues = ((review.value as { issues?: Array<{ severity: string; id: string; problem: string; fix: string }> }).issues ?? []);
@@ -224,10 +244,12 @@ function main() {
     return 0;
   }
   const agent = pickAgent();
+  const reviewer = REVIEW ? pickReviewer(agent) : null;
+  if (REVIEW && !reviewer) { say('作った者と別のAIの確認役を用意できない（--review-agent / --review-model を指定するか、もう一方のAIにログインする）。独立した確認なしでは作らない'); return 1; }
   say(`対象 ${gaps.length} 件のうち ${Math.min(MAX, gaps.length)} 件を作る（AI: ${agent}、書き先: ${DRY ? 'なし（--dry-run）' : DATA_DIR}、作業記録: ${WORK}）`);
   let failed = 0;
   for (const { entityId, need } of gaps.slice(0, MAX)) {
-    const out = buildOne(agent, entityId, readers.get(entityId)!, need, files, names.get(entityId));
+    const out = buildOne(agent, reviewer, entityId, readers.get(entityId)!, need, files, names.get(entityId));
     const cost = out.calls.reduce((s, c) => s + (c.costUsd ?? 0), 0);
     const tokens = out.calls.reduce((s, c) => ({ input: s.input + (c.tokens?.input ?? 0), output: s.output + (c.tokens?.output ?? 0) }), { input: 0, output: 0 });
     const usage = `呼び出し ${out.calls.length} 回、入力 ${tokens.input} / 出力 ${tokens.output} トークン${cost ? `、約 ${cost.toFixed(3)} ドル` : ''}`;

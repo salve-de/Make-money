@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  assembleDisplay, buildMaterial, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers,
+  assembleDisplay, buildMaterial, liveSuccessPoints, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers,
   type AiOutput, type DisplayFiles, type DisplayNeed, type LiveReader,
 } from './display-build';
 import { textFingerprint } from './list-lines';
@@ -205,5 +205,18 @@ describe('確認役の行と、指摘行の外し', () => {
     expect(dropFlagged(display, ['summary']).blocked).toEqual(['summary']);
     expect(dropFlagged(display, ['success.0', 'success.1']).blocked).toEqual(['success.0', 'success.1']);
     expect(dropFlagged(display, ['detail.a-story', 'chapters.practice.0']).dropped).toEqual([]);
+  });
+});
+
+describe('成功の秘訣の保持', () => {
+  it('有効な点が1つある時は、その点を残し、足りない分だけを足す', () => {
+    const live = { head: '残す点', body: 'b', factId: 'f1', factHash: textFingerprint(reader.facts.find((f) => f.id === 'f1')!.text) };
+    const stale = { head: '古い点', body: 'b', factId: 'f2', factHash: 'x' };
+    const files = { ...empty(), 'success-points': [{ entityId: 'e1', points: [live, stale] }] };
+    expect(liveSuccessPoints('e1', reader, files)).toEqual([live]);
+    const m = buildMaterial('e1', reader, { ...fullNeed, success: true }, { contract: {}, files, exampleIds: [] });
+    expect(m.existing.success).toEqual([{ head: '残す点', body: 'b' }]);
+    const { display } = assembleDisplay('e1', reader, fullNeed, out({ success: [{ head: '足す点', body: 'b2', factId: 'f2' }] }), [live]);
+    expect(display.success?.points.map((p) => p.head)).toEqual(['残す点', '足す点']);
   });
 });
