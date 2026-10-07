@@ -1,0 +1,62 @@
+[
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "factId": "f1",
+    "factHash": "3938c8ce",
+    "text": "開発者に1対1で質問できる、指導とフリーランス紹介の市場"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "factId": "f1",
+    "factHash": "5a6c2944",
+    "text": "コピペのボタンで、どのサイトからでも商品を売れる販売サービス"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "factId": "f1",
+    "factHash": "2a9eaa16",
+    "text": "Ruby on Rails の動画講座"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "factId": "f1",
+    "factHash": "d1217d65",
+    "text": "文章などから、本人そっくりのアバターが話す動画を作るAIサービス"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "factId": "f1",
+    "factHash": "0f0520a7",
+    "text": "通話・WhatsApp向けの、AIボットと電話の自動案内（IVR）を売る会社"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "factId": "f1",
+    "factHash": "526875fa",
+    "text": "広告のない、読者の支払いで支える、組版（文字の組み方）の本"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "factId": "f1",
+    "factHash": "c804a794",
+    "text": "事業者向けの、紹介プログラム自動運営ソフト"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "factId": "f1",
+    "factHash": "3f9c44d6",
+    "text": "通信を書き換えて試せる、開発者向けのツール"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "factId": "f1",
+    "factHash": "0f9e8892",
+    "text": "開発者が自分で画面を整えるための、デザイン教材"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "factId": "f1",
+    "factHash": "cecd9426",
+    "text": "開発・デザイン会社向けの、請求まで備えたプロジェクト管理ツール"
+  }
+]

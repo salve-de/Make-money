@@ -257,7 +257,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   </tr>
                   <tr className="border-b border-term-line">
                     <td colSpan={isSplitView ? 3 : 5} className={`overflow-hidden border-l-2 px-2 pb-2 pl-[32px] ${isSelected ? 'border-term-accent' : 'border-transparent'}`}>
-                      <ListDescription reader={entity.reader} className="mt-0.5 block truncate text-xs text-term-sub" />
+                      <ListDescription entityId={entity.id} reader={entity.reader} className="mt-0.5 block truncate text-xs text-term-sub" />
                     </td>
                   </tr>
                 </tbody>
