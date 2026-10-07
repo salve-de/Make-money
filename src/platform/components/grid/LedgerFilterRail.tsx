@@ -19,7 +19,6 @@ import {
 export interface LedgerFilterRailProps {
   filters: ScreenerFilterState | null;
   onChangeFilters: (filters: ScreenerFilterState | null) => void;
-  onOpenAdvanced: () => void;
   /** 件数は一覧の見出しと状態バーに出すため、この欄には表示しない（受け口のみ維持）。 */
   resultCount: number;
   catalogTotal: number;
@@ -108,7 +107,6 @@ function Row({
 export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
   filters,
   onChangeFilters,
-  onOpenAdvanced,
   allEntities,
   availableTags = [],
   tagCounts = {},
@@ -240,14 +238,6 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
             })}
         </>
       )}
-
-      <button
-        type="button"
-        onClick={onOpenAdvanced}
-        className="h-7 w-full border-b border-term-line-soft px-2.5 text-left text-xs text-term-accent hover:bg-term-head"
-      >
-        詳しい条件…
-      </button>
     </aside>
   );
 };

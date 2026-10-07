@@ -30,12 +30,11 @@ test('search and screener change the company list and reset cleanly', async ({ p
   await search.fill('');
   // 公開版の10件はどれも scale が未確認（UNKNOWN）。「一人で運営」は scale が SOLO と出典つきで確認できた事例だけなので、
   // 10件のどれも出ない。絞り込みの外では10件とも出ていることを、解除したあとに確かめる。
-  await page.getByRole('button', { name: '条件を絞る' }).click();
-  await page.getByRole('button', { name: '一人で運営', exact: true }).click();
-  await page.getByRole('button', { name: '条件を適用', exact: true }).click();
+  // PC（1440px）は左の絞り込み欄で行う。押した時点で一覧に反映される
+  await page.getByRole('checkbox', { name: '一人で運営', exact: true }).click();
   await expect(rows).toHaveCount(1);
   for (const name of CATALOG_NAMES) await expect(rows.filter({ hasText: name })).toHaveCount(0);
-  await page.getByRole('button', { name: '絞り込み条件をすべて解除', exact: true }).click();
+  await page.getByRole('button', { name: '解除', exact: true }).click();
   await search.fill(SECONDARY.name);
   await expect(rows.filter({ has: page.getByText(SECONDARY.name, { exact: true }) })).toHaveCount(1);
   expect(errors).toEqual([]);

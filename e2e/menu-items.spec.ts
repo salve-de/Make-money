@@ -123,6 +123,8 @@ test('PC：上部の検索欄はそのまま使える', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect(page.getByPlaceholder(/会社名・事業/).first()).toBeVisible({ timeout: 120_000 });
-  await expect(page.getByRole('button', { name: '条件を絞る' })).toBeVisible();
+  // PC は左の絞り込み欄が担う。同じ中身の「条件を絞る」ボタンは出さない
+  await expect(page.getByRole('complementary', { name: '絞り込み' })).toBeVisible();
+  await expect(page.getByRole('button', { name: '条件を絞る' })).toBeHidden();
   await expect(page.getByRole('button', { name: /絞り込み・検索/ })).toBeHidden();
 });
