@@ -15,6 +15,7 @@
  *   pnpm display:build --reader                直しの前に、作る者と別のAIを「何も知らない読者」にして全行を読ませ、意味が取れない語句を直しの対象に足す
  *                                              （指摘が出た行だけ3回判定して2回以上で採用。呼び出し回数・秒・費用は data/pipeline/reader-pass.jsonl）
  *   pnpm display:build --reader-only           読者役だけを流して記録し、直さない（精度と時間を測る用。--id と並べて並列に流せる）
+ *   pnpm display:build --repair-only --reader --reader-run <runId>  読者役を呼ばず、display:build:parallel が先に記録した <runId> の結果を使って直す
  *                 --reader-votes 1|3（既定3）  --codex-effort low|medium|high（Codex の考える深さ。既定は Codex の既定）
  * 環境変数・引数: --agent auto|claude|codex（既定 auto: claude がログイン済みなら claude、無ければ codex）
  *                 --model / --review-model（AIの型。既定は各コマンドの既定）  --no-review（別のAIの確認を省く。既定は確認する）
@@ -59,7 +60,7 @@ const BRANCH = argValue('--branch') ?? 'auto/display-build';
 const FAILURES = join(ROOT, 'data/pipeline/display-build-failures.jsonl');
 // 確認役が「不自然」「要らない」と指摘した語。機械の辞書（data/natural-japanese.json）に足す候補（pnpm natural-ja:report --candidates で数える）
 const NATURAL_CANDIDATES = join(ROOT, 'data/pipeline/natural-japanese-candidates.jsonl');
-const RUN_ID = new Date().toISOString().replace(/[-:]/g, '').slice(0, 15);
+const RUN_ID = argValue('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15);
 const WORK = join(ROOT, 'data/pipeline/display-build', RUN_ID);
 const EXAMPLE_IDS = ['ent_gorails_640d8f688451', 'ent_teamcamp_ae0c21986c4d', 'ent_requestly_28e9f2'];
 
@@ -277,6 +278,14 @@ const READER_ONLY = has('--reader-only');
 const READER = has('--reader') || READER_ONLY;
 const READER_VOTES = Number(argValue('--reader-votes') ?? 3);
 const READER_LOG = join(ROOT, 'data/pipeline/reader-pass.jsonl');
+const READER_RUN = argValue('--reader-run');
+/** 記録から、その実行・その事例の最後のまとめの行を返す */
+function readerRecord(runId: string, entityId: string): { votes: number; issues: ReaderIssue[] } | undefined {
+  if (!existsSync(READER_LOG)) return undefined;
+  const rows = readFileSync(READER_LOG, 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l) as { runId: string; entityId: string; summary?: boolean; votes?: number; issues: ReaderIssue[] });
+  const hit = rows.filter((r) => r.summary && r.runId === runId && r.entityId === entityId).at(-1);
+  return hit ? { votes: hit.votes ?? 1, issues: hit.issues } : undefined;
+}
 const READER_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-reader-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}`;
 const READER_SCHEMA = { type: 'object', properties: { issues: { type: 'array', items: { type: 'object', properties: { id: { type: 'string' }, quote: { type: 'string' }, reason: { type: 'string' }, fix: { type: 'string' } }, required: ['id', 'quote', 'reason', 'fix'], additionalProperties: false } } }, required: ['issues'], additionalProperties: false };
 type ReaderIssue = { id: string; quote: string; reason: string; fix: string };
@@ -298,6 +307,20 @@ function withReaderFlags(repairs: Array<{ id: string; rows: RepairRow[] }>, file
       // 引用が行の文に一字一句ある指摘だけを数える（作り話の指摘を外す）
       return ((call.value as { issues?: ReaderIssue[] }).issues ?? []).filter((i) => textOf.get(i.id)?.includes(i.quote.trim()) && i.quote.trim());
     };
+    const cached = READER_RUN ? readerRecord(READER_RUN, id) : undefined;
+    if (READER_RUN && !cached) throw new Error(`${id}: 読者役の記録（--reader-run ${READER_RUN}）が data/pipeline/reader-pass.jsonl に無い`);
+    if (cached) {
+      // 先に並列で流した読者役の結果を使う。引用が今の文にまだある指摘だけを残す
+      const issues = cached.issues.filter((i) => textOf.get(i.id)?.includes(i.quote.trim()) && i.quote.trim());
+      const next = rows.map((r) => ({ ...r, problems: [...r.problems] }));
+      for (const i of issues) {
+        const note = `読者役（${cached.votes >= 3 ? '3回中2回以上' : '1回'}）: 「${i.quote}」${i.reason}（直し案: ${i.fix}）`;
+        const row = next.find((r) => r.id === i.id);
+        if (row) row.problems.push(note); else next.push({ id: i.id, text: textOf.get(i.id)!, problems: [note] });
+      }
+      say(`${id}: 読者役の記録 ${READER_RUN} から ${new Set(issues.map((i) => i.id)).size}行を直しの対象に足した`);
+      return { id, rows: next };
+    }
     let first: ReaderIssue[];
     try { first = read(all, 1); } catch (e) { say(`${id}: 読者役の呼び出しに失敗（${(e as Error).message}）。読者役は飛ばす`); return { id, rows }; }
     const flagged = [...new Set(first.map((i) => i.id))];
@@ -323,13 +346,15 @@ function withReaderFlags(repairs: Array<{ id: string; rows: RepairRow[] }>, file
   });
 }
 
-function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, rows: RepairRow[], files: DisplayFiles): { ok: boolean; attempts: number; reasons: string[]; files?: DisplayFiles } {
+function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, rows: RepairRow[], files: DisplayFiles): { ok: boolean; attempts: number; reasons: string[]; files?: DisplayFiles; adopted?: string[]; held?: string[] } {
   const none = { list: false, summary: false, success: false, chapters: false, detail: [] };
   const material = buildMaterial(entityId, reader, none, { contract, files, exampleIds: [] });
   const nums = materialNumbers(reader);
   const baseline = runCheck(files).problems;
   const ids = new Set(rows.map((r) => r.id));
   let previous: unknown; let problems: string[] = [];
+  // 確認役まで進んだ回のうち、確認役の必須の指摘が無かった行（行ごとに採用するため）
+  let reviewed: { attempt: number; fixes: Array<{ id: string; text: string }>; must: Set<string> } | undefined;
   for (let attempt = 1; attempt <= ATTEMPTS; attempt += 1) {
     const user = JSON.stringify({ material, rows, ...(problems.length ? { previous, problems } : {}) });
     let call: CallResult;
@@ -357,8 +382,21 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     recordCandidates(entityId, issues);
     const must = issues.filter((i) => i.severity === 'must');
     say(`${entityId}: 直し ${attempt}回目 — 確認役の指摘 必須${must.length}件・軽微${issues.length - must.length}件`);
-    if (!must.length) return { ok: true, attempts: attempt, reasons: [], files: applied.files };
+    if (!must.length) return { ok: true, attempts: attempt, reasons: [], files: applied.files, adopted: fixes.map((f) => f.id), held: [] };
+    const mustIds = new Set(must.map((i) => i.id));
+    if (!reviewed || fixes.filter((f) => !mustIds.has(f.id)).length >= reviewed.fixes.filter((f) => !reviewed!.must.has(f.id)).length) reviewed = { attempt, fixes, must: mustIds };
     problems = must.map((i) => `確認役: ${i.id}: ${i.problem}（直し案: ${i.fix}）`);
+  }
+  // 全行は通らなかった。確認役が必須の指摘を付けなかった行だけを反映し、残りは元の文のまま保留する（1行の指摘で事例ごと止めない）
+  if (reviewed) {
+    const ok = reviewed.fixes.filter((f) => !reviewed!.must.has(f.id) && f.text !== rows.find((r) => r.id === f.id)?.text);
+    if (ok.length) {
+      const applied = applyRepairs(files, entityId, ok);
+      const after = runCheck(applied.files);
+      const fresh = [...applied.problems, ...newProblems(baseline, after.problems)];
+      if (!fresh.length) return { ok: true, attempts: reviewed.attempt, reasons: problems, files: applied.files, adopted: ok.map((f) => f.id), held: [...ids].filter((id) => !ok.some((f) => f.id === id)) };
+      problems = [...problems, ...fresh.map((p) => `行ごとの反映で機械の検査に落ちた: ${p}`)];
+    }
   }
   return { ok: false, attempts: ATTEMPTS, reasons: problems };
 }
@@ -395,7 +433,11 @@ function main() {
         }
         files = out.files;
         if (!DRY) for (const f of DISPLAY_FILES) writeFileSync(join(DATA_DIR, `${f}.json`), serialize(files[f]));
-        say(`${id}: 言い回しを ${rows.length} 行直した（${out.attempts}回目で通過）。${DRY ? '書かない（--dry-run）' : '反映した'}`);
+        if (out.held?.length) {
+          mkdirSync(join(ROOT, 'data/pipeline'), { recursive: true });
+          appendFileSync(FAILURES, `${JSON.stringify({ at: new Date().toISOString(), runId: RUN_ID, entityId: id, repair: out.held, adopted: out.adopted, attempts: out.attempts, agent, partial: true, reasons: out.reasons })}\n`);
+        }
+        say(`${id}: 言い回しを ${out.adopted?.length ?? rows.length} 行直した（${out.attempts}回目）${out.held?.length ? `。確認役が通さなかった ${out.held.length} 行は元のまま保留（${FAILURES}）` : ''}。${DRY ? '書かない（--dry-run）' : '反映した'}`);
         if (COMMIT) say(`${id}: ${BRANCH} にコミット ${commitToBranch(id, undefined, entityDisplayOf(files, id)).slice(0, 8)}（push はしない）`);
       }
     }
