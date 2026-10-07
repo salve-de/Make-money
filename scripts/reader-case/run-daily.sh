@@ -114,5 +114,6 @@ for P in "${PREFIXES[@]}"; do
   CUR_PREFIX=""
 done
 say "定期実行を終了（実行 ${ran} 件、失敗 ${failed}）。状態: pnpm pipeline:status / 履歴: $DAILY_DIR/runs.jsonl"
+node --import tsx scripts/reader-case/chapter-gaps.ts 2>&1 | head -20 || true   # 章がまだ無い仕上げ済み事例（次に章を作る対象。手順は docs/CASE_CHAPTER_PROCESS.md）
 [ "$failed" = 0 ] || exit 1
 exit 0
