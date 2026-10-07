@@ -81,8 +81,12 @@ export function loadRawItems(outDir: string, batchDir?: string): Map<string, unk
 function validOutFiles(outDir: string, batchDir?: string): string[] {
   const files = existsSync(outDir) ? readdirSync(outDir).sort() : [];
   if (!batchDir) return files;
-  // 入力の束が今は無い（作り直しで束の数が減った等）出力は、古い事実IDを指すので読まない
-  return files.filter((f) => existsSync(`${batchDir}/${f}`));
+  // 同じ系列（例: batch-gen2-）の束が今あるのに、その番号の束だけが無い出力は、作り直しで束の数が減った古い出力。
+  // 古い事実IDを指すので読まない。系列の束が1つも無い昔の出力（batch-001 など）は従来どおり読む
+  const batches = existsSync(batchDir) ? readdirSync(batchDir) : [];
+  const series = (f: string) => f.replace(/\d+\.json$/, '');
+  const liveSeries = new Set(batches.map(series));
+  return files.filter((f) => existsSync(`${batchDir}/${f}`) || (!/^(add|re)-/.test(f) && !liveSeries.has(series(f))));
 }
 
 /** 再評価（re-）の有効な出力に載っている事例ID。受理後に「評価済み」へ進める対象 */

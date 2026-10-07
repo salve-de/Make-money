@@ -160,9 +160,11 @@ test('目録への追加: 指紋を確かめ、既存の id・公式サイトと
   assert.equal('reader' in added, false);
   assert.deepEqual(added.tags, ['収集事例']);
   assert.equal((added.evidenceCards as unknown[]).length, 1);
-  const merged = mergeInto([{ id: 'ent_old', url: 'https://www.new.example/x' }], [file]);
+  const merged = mergeInto([{ id: 'ent_old', url: 'https://www.new.example/' }], [file]);
   assert.deepEqual(merged.added, []);
   assert.match(merged.skipped[0].reason, /公式サイト/);
+  // 既存の記録の URL が記事などのページ（パスあり）なら、その事業の公式サイトではないので重ならない
+  assert.deepEqual(mergeInto([{ id: 'ent_old', url: 'https://www.new.example/x' }], [file]).added, ['ent_new_1']);
   assert.deepEqual(mergeInto([], [file]).added, ['ent_new_1']);
   assert.equal(sourceCards('x', [{ id: 's1', url: 'ftp://bad' }]).length, 0);
   writeFileSync(`${root}/art/${hash}.json.gz`, gzipSync(`${json} `));
