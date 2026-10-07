@@ -217,7 +217,7 @@ export function ReaderLedger({ reader, entityId, detailState, onRetry, media }: 
       {(hasDetails || reader.analysis.some((a) => a.item !== 'HEADLINE')) && <SectionGap />}
       {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
         <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
-          <AnalysisGroups reader={reader} usage={plan.usage} />
+          <AnalysisGroups reader={reader} usage={plan.usage} entityId={entityId} />
         </div>
       )}
       {hasDetails && (

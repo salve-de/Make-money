@@ -1,0 +1,139 @@
+[
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-customer_pain",
+    "textHash": "4afc4022",
+    "answer": "インドの中小企業は、クラウド電話の存在自体を知らなかった",
+    "note": "創業者の見方。メール以上の技術に不慣れで、最初の3年は売る前に説明して回る作業が重かった。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-customer",
+    "textHash": "d6499ef2",
+    "answer": "小売・医療・教育・不動産・金融などの企業の、営業・マーケ・サポート部門",
+    "note": "有名な客: Lenskart、Snapdeal、Canon、DHL。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-first_customers",
+    "textHash": "dc37b494",
+    "answer": "開始から6か月で、登録600人超・有料200社",
+    "note": "最初の客は Lenskart、Snapdeal、Shop.IRCTC など。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-channels",
+    "textHash": "5b9b2933",
+    "answer": "最初の3年は、市場への啓発と販売に力を注いだ。いまは代理店を通す",
+    "note": "代理店が、顧客向けの運用サービスの値段を自分で決める。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-business_model",
+    "textHash": "f1d8ffa7",
+    "answer": "中小企業にクラウド電話を年払いで売る。いまはWhatsAppとAIボットまで広げた",
+    "note": "IVR・番号・通話記録・振り分け。代理店経由の販売もある。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-upfront_cash",
+    "textHash": "83b18b38",
+    "answer": "年払い。客は1年分を先に払う",
+    "note": "現行の料金表も全プラン年払い。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-capital_and_team",
+    "textHash": "c43f9530",
+    "answer": "元手は自己資金12ラック・ルピー（概算で約200万円）",
+    "note": "主な使い道は技術開発とチーム。5人から125人に増え、外部資金は2016年時点でなし。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-competition",
+    "textHash": "83e84b1f",
+    "answer": "競合は ExotelとKnowlarity。資金を入れた先行者",
+    "note": "MyOperatorは「設定なしで1分で立ち上がる」を違いに掲げた。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-dependencies",
+    "textHash": "40056404",
+    "answer": "WhatsApp向けは、Metaの料金が別に乗る"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-story",
+    "textHash": "cf6eb34a",
+    "answer": "受託で作った物が使われない虚しさから、2014年1月に仕事をやめた",
+    "note": "最初の2コースは売れず資金が尽きかけたが、Hacker Newsの上位に載って1日でメール600件超が集まり、ニュースレターが事業の柱になった。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-customer",
+    "textHash": "55dfb291",
+    "answer": "Railsの開発者（初心者から経験者まで）",
+    "note": "本人は、自分が毎日でも話したい相手に売れる点を強みに挙げている。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-first_customers",
+    "textHash": "4e91a2d5",
+    "answer": "メモ目的のサイトに既に来ていたRails開発者",
+    "note": "最初の2コースは売れず、毎週の無料動画でメールを貯めた層が後の客になった。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-channels",
+    "textHash": "ba575442",
+    "answer": "毎週の無料動画とニュースレターが中心",
+    "note": "Hacker News掲載、オープンソース、YouTube・Twitterでの発信。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-business_model",
+    "textHash": "f16cd436",
+    "answer": "無料動画で知ってもらい、メール読者に有料講座を売る",
+    "note": "同じ層に、ホスティングとテンプレートも重ねて売る。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-capital_and_team",
+    "textHash": "0a736bbf",
+    "answer": "外部資金なし。独立時は約9か月分の蓄えで、最初の2年は無給",
+    "note": "2021年11月も1人運営で、これから人を雇う段階。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-why_it_worked",
+    "textHash": "76bcdae4",
+    "answer": "先にアクセスのあるサイトを持ち、そこへ売った",
+    "note": "無料動画を毎週出して信頼を貯めた点も、本人が理由に挙げる。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-failure_cause",
+    "textHash": "51f80931",
+    "answer": "最初の2コースは、無名で、受託の経験を商品に直しただけだったため売れなかった"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-lesson",
+    "textHash": "6960977c",
+    "answer": "同じ層の人に、次々と別の商品を売る",
+    "note": "本人は、定期購入の歯ブラシ屋が歯磨き粉やカミソリを足すのと同じだと説明する。"
+  },
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "analysisId": "a-timeline",
+    "textHash": "f58cdbd0",
+    "answer": "2014年1月: 独立。毎週の動画公開を始める。時期不明: Hacker News掲載で1日にメール600件超。2020年8月: 3製品で累計100万ドル。2021年11月: MRR約6万ドル。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-story",
+    "textHash": "6889fbf0",
+    "answer": "音声サービスの経験があるAnkit Jainが、弟と2013年3月に自己資金で開始",
+    "note": "開始のきっかけは、材料に書かれていない（未確認）。開始から6か月で有料200社になり、損益が釣り合った。"
+  }
+]

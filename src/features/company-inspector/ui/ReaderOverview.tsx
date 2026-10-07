@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
+import { detailLineFor } from '@/shared/detail-lines';
 import { listLineFor } from '@/shared/list-lines';
 import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { checkLead } from '@/shared/lead-standard';
@@ -177,8 +178,19 @@ function splitStory(text: string): Array<{ step: string; body: string }> | null 
   }));
 }
 
+/** 4段に分けられない物語。編集済みの「答え＋補足」があればそれを、無ければ原文のまま。 */
+function StoryProse({ text, edited }: { text: string; edited: { answer: string; note?: string } | null }) {
+  if (!edited) return <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{text}</p>;
+  return (
+    <p className="[overflow-wrap:anywhere]">
+      <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{edited.answer}</span>
+      {edited.note && <span className="mt-1 block text-xs leading-relaxed text-term-sub">{edited.note}</span>}
+    </p>
+  );
+}
+
 /** 物語を4段の流れで。各段の名前は原文の語のまま（推論の本文の一部）。 */
-export function StorySteps({ reader }: { reader: ReaderCase }) {
+export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?: string }) {
   const story = byItem(reader, 'STORY');
   if (!story) return null;
   const steps = splitStory(story.text);
@@ -197,7 +209,7 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
           ))}
         </ol>
       ) : (
-        <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{plainAnalysisText(story.text)}</p>
+        <StoryProse text={plainAnalysisText(story.text)} edited={detailLineFor(entityId, story)} />
       )}
     </Fold>
   );
@@ -213,11 +225,39 @@ export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[]; stor
   { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
-/** 項目の中身。最初の1文を「答え」として濃く、続き（根拠・補足）は一段薄く小さく出す。文は削らない。 */
-function AnswerText({ text }: { text: string }) {
-  const end = text.indexOf('。');
-  const head = end >= 0 ? text.slice(0, end + 1) : text;
-  const tail = end >= 0 ? text.slice(end + 1).trim() : '';
+/** 「2010年: …。2013年: …。」の形の年表を行に分ける。形が違えば null。 */
+function splitTimeline(text: string): Array<{ when: string; what: string }> | null {
+  const parts = text.split(/。(?=[^。:：]{1,24}[:：])/).map((part) => part.trim().replace(/。$/, '')).filter(Boolean);
+  const rows = parts.map((part) => {
+    const m = part.match(/^([^:：]{1,24})[:：]\s*(.+)$/);
+    return m ? { when: m[1], what: m[2] } : null;
+  });
+  return rows.length >= 2 && rows.every(Boolean) ? (rows as Array<{ when: string; what: string }>) : null;
+}
+
+/** 項目の中身。編集済みの「答え＋補足」があればそれを、無ければ最初の1文を答えとして濃く、続きを薄く小さく出す。年表は行に分ける。 */
+function AnswerText({ analysis, entityId }: { analysis: ReaderAnalysis; entityId?: string }) {
+  const text = plainAnalysisText(analysis.text);
+  const edited = detailLineFor(entityId, analysis);
+  const line = edited?.answer ?? text;
+  const timeline = analysis.item === 'TIMELINE' ? splitTimeline(line) : null;
+  if (timeline) {
+    return (
+      <dd className="min-w-0 border-l border-dashed border-term-accent-line pl-2.5">
+        <ol className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-3 gap-y-1">
+          {timeline.map(({ when, what }) => (
+            <li key={`${when}${what}`} className="contents">
+              <span className="term-num text-xs leading-relaxed text-term-label">{when}</span>
+              <span className="text-sm leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">{what}</span>
+            </li>
+          ))}
+        </ol>
+      </dd>
+    );
+  }
+  const end = line.indexOf('。');
+  const head = edited ? line : end >= 0 ? line.slice(0, end + 1) : line;
+  const tail = edited ? edited.note ?? '' : end >= 0 ? line.slice(end + 1).trim() : '';
   return (
     <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 [overflow-wrap:anywhere]">
       <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{head}</span>
@@ -243,11 +283,11 @@ export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: 
 export const GROUP_IDS = ['section-group-customers', 'section-story', 'section-group-first', 'section-group-money', 'section-group-edge', 'section-group-now'] as const;
 
 /** まとまりごとに「項目名（細く）｜中身（主役）」の2列。全部開いたまま並べる（読む人に開かせない）。推測は点線の左罫。 */
-export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: OverviewUsage }) {
+export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase; usage: OverviewUsage; entityId?: string }) {
   return (
     <>
       {ANALYSIS_GROUPS.map(({ title, items, story }, index) => {
-        if (story) return <StorySteps key={title} reader={reader} />;
+        if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
         const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item));
         if (rows.length === 0) return null;
         return (
@@ -259,7 +299,7 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
                     <span>{ANALYSIS_LABELS[a.item]}</span>
                     <InferenceMark analysis={a} />
                   </dt>
-                  <AnswerText text={plainAnalysisText(a.text)} />
+                  <AnswerText analysis={a} entityId={entityId} />
                 </div>
               ))}
             </dl>
