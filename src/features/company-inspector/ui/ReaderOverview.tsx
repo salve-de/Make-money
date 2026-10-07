@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
 import { detailLineFor } from '@/shared/detail-lines';
+import { isAbsenceOnly, stripAbsence } from '@/shared/absence-text';
 import { listLineFor } from '@/shared/list-lines';
 import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
@@ -68,9 +69,11 @@ function StripCell({ label, mark, inferred, children, attrs }: { label: string; 
 }
 
 function AnalysisCell({ analysis }: { analysis: ReaderAnalysis }) {
+  const text = stripAbsence(plainAnalysisText(analysis.text));
+  if (text === '') return null;
   return (
     <StripCell label={ANALYSIS_LABELS[analysis.item]} mark={ANALYSIS_LABELS[analysis.item].includes('推') ? undefined : <InferenceMark analysis={analysis} />} inferred attrs={{ 'data-analysis': analysis.id }}>
-      <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(analysis.text)}</p>
+      <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{text}</p>
     </StripCell>
   );
 }
@@ -167,11 +170,12 @@ function splitStory(text: string): Array<{ step: string; body: string }> | null 
 
 /** 4段に分けられない物語。編集済みの「答え＋補足」があればそれを、無ければ原文のまま。 */
 function StoryProse({ text, edited }: { text: string; edited: { answer: string; note?: string } | null }) {
-  if (!edited) return <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{text}</p>;
+  if (!edited) return <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{stripAbsence(text)}</p>;
+  const note = stripAbsence(edited.note ?? '');
   return (
     <p className="[overflow-wrap:anywhere]">
-      <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{edited.answer}</span>
-      {edited.note && <span className="mt-1 block text-xs leading-relaxed text-term-sub">{edited.note}</span>}
+      <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{stripAbsence(edited.answer)}</span>
+      {note && <span className="mt-1 block text-xs leading-relaxed text-term-sub">{note}</span>}
     </p>
   );
 }
@@ -226,7 +230,8 @@ function splitTimeline(text: string): Array<{ when: string; what: string }> | nu
 function AnswerText({ analysis, entityId }: { analysis: ReaderAnalysis; entityId?: string }) {
   const text = plainAnalysisText(analysis.text);
   const edited = detailLineFor(entityId, analysis);
-  const line = edited?.answer ?? text;
+  const line = analysis.item === 'TIMELINE' ? edited?.answer ?? text : stripAbsence(edited?.answer ?? text);
+  if (line === '') return null;
   const timeline = analysis.item === 'TIMELINE' ? splitTimeline(line) : null;
   if (timeline) {
     return (
@@ -244,7 +249,7 @@ function AnswerText({ analysis, entityId }: { analysis: ReaderAnalysis; entityId
   }
   const end = line.indexOf('。');
   const head = edited ? line : end >= 0 ? line.slice(0, end + 1) : line;
-  const tail = edited ? edited.note ?? '' : end >= 0 ? line.slice(end + 1).trim() : '';
+  const tail = edited ? stripAbsence(edited.note ?? '') : end >= 0 ? line.slice(end + 1).trim() : '';
   return (
     <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 [overflow-wrap:anywhere]">
       <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{head}</span>
@@ -275,7 +280,7 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
     <>
       {ANALYSIS_GROUPS.map(({ title, items, story }, index) => {
         if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
-        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item));
+        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)))));
         if (rows.length === 0) return null;
         return (
           <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>

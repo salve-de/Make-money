@@ -5,11 +5,13 @@
  *  2. 答え（answer）は60字以内、補足（note）は120字以内。一覧の1行（text）は45字以内。
  *  3. 答えに「と語る」「と話す」「と説明している」「と書く」を入れない。
  *  4. 空の答えを置かない。
+ *  5. 「未確認」「書かれていない」「公開されていない」など、分からない旨だけの文を置かない。
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const FOREIGN = /(ドル|\$|ルピー|ラック|クロール|ユーロ|ポンド|INR|USD|EUR|GBP)/;
+const ABSENCE = /(未確認|書かれていない|公開されていない|記載(が)?(ない|なし)|確認できない|わからない|分からない|不明|非公開)/;
 const HEDGE = /(と語る|と話す|と説明している|と書く|と述べる)/;
 const read = (file) => JSON.parse(readFileSync(resolve(process.cwd(), file), 'utf8'));
 const problems = [];
@@ -18,6 +20,7 @@ function check(where, field, text, max, { hedge = false } = {}) {
   if (typeof text !== 'string' || text.trim() === '') { problems.push(`${where} ${field}: 空`); return; }
   if (text.length > max) problems.push(`${where} ${field}: ${text.length}字（上限${max}）`);
   if (FOREIGN.test(text) && !text.includes('円')) problems.push(`${where} ${field}: 外貨の数字に円換算（約◯円）が無い「${text.slice(0, 30)}…」`);
+  if (ABSENCE.test(text)) problems.push(`${where} ${field}: 「分からない・未確認」と言うだけの文は載せない（載せないのが正しい）`);
   if (hedge && HEDGE.test(text)) problems.push(`${where} ${field}: 答えに「本人は〜と語る」型の言い回し`);
 }
 

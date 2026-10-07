@@ -99,7 +99,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-capital_and_team",
     "textHash": "0a736bbf",
-    "answer": "外部資金は未確認。独立時は約9か月分の蓄えで、最初の2年は無給",
+    "answer": "独立時は約9か月分の蓄えで、最初の2年は無給",
     "note": "2021年11月も1人運営で、これから人を雇う段階。"
   },
   {
@@ -126,14 +126,13 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-timeline",
     "textHash": "f58cdbd0",
-    "answer": "2014年1月: 独立。毎週の動画公開を始める。時期不明: Hacker News掲載で1日にメール600件超。2020年8月: 3製品で累計約1.5億円（100万ドル）。2021年11月: 月の定期収入約900万円（6万ドル）。"
+    "answer": "2014年1月: 独立。毎週の動画公開を始める。Hacker News掲載で1日にメール600件超。2020年8月: 3製品で累計約1.5億円（100万ドル）。2021年11月: 月の定期収入約900万円（6万ドル）。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-story",
     "textHash": "6889fbf0",
-    "answer": "音声サービスの経験があるAnkit Jainが、弟と2013年3月に自己資金で開始",
-    "note": "開始のきっかけは、材料に書かれていない（未確認）。"
+    "answer": "音声サービスの経験があるAnkit Jainが、弟と2013年3月に自己資金で開始"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -201,7 +200,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-timeline",
     "textHash": "eb13dba2",
-    "answer": "2013年6月: Hacker Newsに登録ページを投稿。2014年春ごろ: 正式公開（登録ページの約9か月後）。2016年12月: シードを調達。2018年6月: 直近12か月の売上は500万〜1,000万（通貨不明、本人のアンケート回答）。"
+    "answer": "2013年6月: Hacker Newsに登録ページを投稿。2014年春ごろ: 正式公開（登録ページの約9か月後）。2016年12月: シードを調達。2018年6月: 直近12か月の売上は500万〜1,000万（本人のアンケート回答）。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -297,8 +296,7 @@
     "entityId": "ent_heygen_8f11a1",
     "analysisId": "a-channels",
     "textHash": "e6d9d6d2",
-    "answer": "口コミが中心（公式の説明）",
-    "note": "具体的な経路は材料に書かれていない（未確認）。"
+    "answer": "口コミが中心（公式の説明）"
   },
   {
     "entityId": "ent_heygen_8f11a1",
@@ -351,7 +349,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-cost_structure",
     "textHash": "8f27de8b",
-    "answer": "費用は執筆・フォント設計・図版・出版ソフトPollenの開発・サーバー代。金額は未確認",
+    "answer": "費用は執筆・フォント設計・図版・出版ソフトPollenの開発・サーバー代",
     "note": "広告・PR費は1・2年目とも0ドル（0円）。"
   },
   {
@@ -365,8 +363,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-capital_and_team",
     "textHash": "d943cc87",
-    "answer": "文章・フォント・図版・出版ソフトまで、本人がすべて作った",
-    "note": "外部資金や社員の話は未確認。"
+    "answer": "文章・フォント・図版・出版ソフトまで、本人がすべて作った"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -393,7 +390,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-timeline",
     "textHash": "32c2d4c5",
-    "answer": "2014年7月末: 公開1年。読者約65万人、直接の支払い321件で3,676ドル（約55万円）。2014年8月: 初の年次報告。時期不明: 2年目の報告。読者約70万人、244件で3,030ドル（約45万円）。2016年8月: 3年目の報告。読者約61.5万人、489件で5,472ドル（約82万円）。支払いのお願いページを出し、件数が約2倍に。"
+    "answer": "2014年7月末: 公開1年。読者約65万人、直接の支払い321件で3,676ドル（約55万円）。2014年8月: 初の年次報告。2年目の報告。読者約70万人、244件で3,030ドル（約45万円）。2016年8月: 3年目の報告。読者約61.5万人、489件で5,472ドル（約82万円）。支払いのお願いページを出し、件数が約2倍に。"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -536,7 +533,7 @@
     "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-capital_and_team",
     "textHash": "b92ab390",
-    "answer": "著者は2人。外部資金は未確認",
+    "answer": "著者は2人",
     "note": "以前から副業で組んでいた。Steveが画面設計、Adamが開発を受け持った。"
   },
   {
