@@ -3,12 +3,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Check, RefreshCw, Search, X } from 'lucide-react';
 import { BusinessScale, MoatType } from '../../types/terminal';
-import type { FinancialEntity } from '@/shared/terminal';
-import { screenerFacetAvailability } from '../../model/entity-filter';
+import { CAPITAL_OPTIONS, MARGIN_OPTIONS, MOAT_OPTIONS, SCALE_OPTIONS, SCREENER_LABELS } from './screener-options';
 
 interface AdvancedScreenerModalProps {
   /** 公開中の全事例（全件が手元にある時だけ）。1件も当たらないまとまりは出さない。 */
-  allEntities?: readonly FinancialEntity[];
   isOpen: boolean;
   onClose: () => void;
   onApplyFilters: (filters: ScreenerFilterState) => void;
@@ -41,7 +39,6 @@ const legendClass = 'mb-2 flex w-full items-center justify-between gap-3 text-xs
 const hintClass = 'ml-2 text-xs font-normal text-term-label';
 
 export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
-  allEntities,
   isOpen,
   onClose,
   onApplyFilters,
@@ -51,8 +48,6 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   searchQuery,
   onSearchChange,
 }) => {
-  const facets = allEntities ? screenerFacetAvailability(allEntities) : null;
-  const shows = (key: 'scales' | 'margin' | 'capital' | 'moats') => !facets || facets[key];
   const [scales, setScales] = useState<BusinessScale[]>(initialFilters?.scales || []);
   const [minMargin, setMinMargin] = useState<number>(initialFilters?.minMargin || 0);
   const [maxCapital, setMaxCapital] = useState<number | null>(initialFilters?.maxCapital ?? null);
@@ -202,18 +197,13 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
               </div>
             </div>
           )}
-          {shows('scales') && (
+          {(
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
-              事業の規模 <span className={hintClass}>複数選択可</span>
+              {SCREENER_LABELS.scales} <span className={hintClass}>{SCREENER_LABELS.multiple}</span>
             </legend>
             <div className="grid grid-cols-2 gap-2">
-              {[
-                { id: 'SOLO' as BusinessScale, label: '一人で運営' },
-                { id: 'SMALL_TEAM' as BusinessScale, label: '2〜10人' },
-                { id: 'SCALEUP' as BusinessScale, label: '11〜100人' },
-                { id: 'ENTERPRISE' as BusinessScale, label: '101人以上' },
-              ].map((item) => {
+              {SCALE_OPTIONS.map((item) => {
                 const selected = scales.includes(item.id);
                 return (
                   <button
@@ -232,14 +222,14 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           </fieldset>
           )}
 
-          {shows('margin') && (
+          {(
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
-              <span>営業利益率の下限</span>
+              <span>{SCREENER_LABELS.margin}</span>
               <span className="term-num text-xs font-normal text-term-muted">{minMargin === 0 ? '指定なし' : `${minMargin}%以上`}</span>
             </legend>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {[0, 30, 50, 80].map((value) => {
+              {MARGIN_OPTIONS.map(({ value, label }) => {
                 const selected = minMargin === value;
                 return (
                   <button
@@ -249,7 +239,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                     onClick={() => setMinMargin(value)}
                     className={`${optionClass(selected)} justify-center text-center`}
                   >
-                    {value === 0 ? '指定なし' : `${value}%以上`}
+                    {label}
                   </button>
                 );
               })}
@@ -257,18 +247,14 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           </fieldset>
           )}
 
-          {shows('capital') && (
+          {(
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
-              <span>初期資金の上限</span>
+              <span>{SCREENER_LABELS.capital}</span>
               <span className="term-num text-xs font-normal text-term-muted">{maxCapital === null ? '上限なし' : maxCapital === 0 ? '0円' : '100万円以内'}</span>
             </legend>
             <div className="grid grid-cols-3 gap-2">
-              {[
-                { value: 0, label: '0円' },
-                { value: 1000000, label: '100万円以内' },
-                { value: null, label: '上限なし' },
-              ].map((item) => {
+              {CAPITAL_OPTIONS.map((item) => {
                 const selected = maxCapital === item.value;
                 return (
                   <button
@@ -286,20 +272,13 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           </fieldset>
           )}
 
-          {shows('moats') && (
+          {(
           <fieldset className={fieldsetClass}>
             <legend className={legendClass}>
-              事業の参入障壁 <span className={hintClass}>複数選択可</span>
+              {SCREENER_LABELS.moats} <span className={hintClass}>{SCREENER_LABELS.multiple}</span>
             </legend>
             <div className="grid grid-cols-2 gap-2">
-              {[
-                { id: 'COUNTER_POSITIONING' as MoatType, label: '競合と異なる土俵' },
-                { id: 'SWITCHING_COST' as MoatType, label: '乗り換えにくさ' },
-                { id: 'NETWORK_EFFECT' as MoatType, label: '利用者が増えるほど価値が増す' },
-                { id: 'CORNERED_RESOURCE' as MoatType, label: '独自の資源' },
-                { id: 'SCALE_ECONOMIES' as MoatType, label: '規模の経済' },
-                { id: 'PROCESS_POWER' as MoatType, label: '独自の業務プロセス' },
-              ].map((item) => {
+              {MOAT_OPTIONS.map((item) => {
                 const selected = moats.includes(item.id);
                 return (
                   <button
@@ -321,14 +300,14 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
           {availableTags.length > 0 && (
             <fieldset className="space-y-3 pb-1">
               <legend className={`${legendClass} flex-wrap`}>
-                <span>事例の特徴 <span className={hintClass}>複数選択可</span></span>
+                <span>{SCREENER_LABELS.tags} <span className={hintClass}>{SCREENER_LABELS.multiple}</span></span>
                 {selectedTags.length > 0 && (
                   <span className="term-num border border-term-accent px-2 py-0.5 text-xs text-term-accent">
                     {selectedTags.length}件選択中
                   </span>
                 )}
               </legend>
-              <input type="search" aria-label="特徴タグを検索" placeholder="特徴タグを検索" value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-[13px] text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8" />
+              <input type="search" aria-label={SCREENER_LABELS.tagSearch} placeholder={SCREENER_LABELS.tagSearch} value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-[13px] text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8" />
               <div className="flex max-h-48 flex-wrap gap-1.5 overflow-y-auto border border-term-line-soft p-1.5">
                 {availableTags.filter((tag) => tag.toLowerCase().includes(tagQuery.trim().toLowerCase())).map((tag) => {
                   const selected = selectedTags.includes(tag);
@@ -358,7 +337,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                   onClick={() => setSelectedTags([])}
                   className="min-h-11 px-1 text-xs text-term-muted underline underline-offset-4 hover:text-term-fg-strong lg:min-h-7"
                 >
-                  特徴タグをすべて解除
+                  {SCREENER_LABELS.tagClear}
                 </button>
               )}
             </fieldset>

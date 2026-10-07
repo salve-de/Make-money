@@ -215,7 +215,7 @@ export const TerminalShell: React.FC<{
         ) : (
           <>
           <div className="hidden xl:flex">
-            <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={catalogTotal ?? filteredEntities.length} allEntities={catalogUniverse} />
+            <LedgerFilterRail filters={screenerFilters} onChangeFilters={setScreenerFilters} onOpenAdvanced={() => setIsScreenerOpen(true)} resultCount={filteredEntities.length} catalogTotal={catalogTotal ?? filteredEntities.length} allEntities={catalogUniverse} availableTags={availableTags} tagCounts={tagCounts} />
           </div>
           <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden border-term-line bg-term-bg xl:border-r">
             <DataGridToolbar
@@ -308,7 +308,6 @@ export const TerminalShell: React.FC<{
       />
 
       <AdvancedScreenerModal
-        allEntities={catalogUniverse}
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}

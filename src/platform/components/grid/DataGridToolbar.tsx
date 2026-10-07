@@ -85,6 +85,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   }, [screenerFilters]);
 
   const hasActiveScreener = activeScreenerCount > 0;
+  // 条件も検索語も無い時は全件の数（一覧は先頭の10件だけ読み込むため、読み込み済みの数は総数ではない）
+  const shownCount = !hasActiveScreener && !searchQuery.trim() && catalogTotal !== null ? catalogTotal : totalCount;
   const hasSearchTerm = searchQuery.trim().length > 0;
 
   // 文字サイズはボタンごとに指定する（同じ種類のクラスを重ねると、どちらが効くかがCSSの並び順任せになるため）
@@ -233,7 +235,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           <CompareTrayLink />
 
           <p className="term-num ml-auto shrink-0 whitespace-nowrap text-xs text-term-label lg:sr-only" aria-live="polite">
-            <span className="text-term-fg">{totalCount.toLocaleString()}</span> / {catalogTotal === null ? '…' : catalogTotal.toLocaleString()}件
+            <span className="text-term-fg">{shownCount.toLocaleString()}</span>件
           </p>
         </div>
       </div>

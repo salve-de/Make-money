@@ -381,7 +381,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
         <div className="term-panel-title">
           <span className="term-panel-name max-lg:hidden">事例を探す</span>
           <span className="term-num">
-            {query ? `検索結果 ${visibleCases.length}件 / 全${dataset.sourceCount.toLocaleString()}件` : `${dataset.visibleCount.toLocaleString()}件を表示 / 全${dataset.sourceCount.toLocaleString()}件`}
+            {query ? `検索結果 ${visibleCases.length.toLocaleString()}件` : `${dataset.visibleCount.toLocaleString()}件`}
           </span>
           <span className="ml-auto hidden xl:inline">並び順: {LENSES.find((item) => item.id === lens)?.hint}</span>
         </div>
