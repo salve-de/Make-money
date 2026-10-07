@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  assembleDisplay, buildMaterial, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers,
+  applyRepairs, repairRows, assembleDisplay, buildMaterial, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers,
   type AiOutput, type DisplayFiles, type DisplayNeed, type LiveReader,
 } from './display-build';
 import { textFingerprint } from './list-lines';
@@ -205,5 +205,34 @@ describe('確認役の行と、指摘行の外し', () => {
     expect(dropFlagged(display, ['summary']).blocked).toEqual(['summary']);
     expect(dropFlagged(display, ['success.0', 'success.1']).blocked).toEqual(['success.0', 'success.1']);
     expect(dropFlagged(display, ['detail.a-story', 'chapters.practice.0']).dropped).toEqual([]);
+  });
+});
+
+describe('言い回しだけの直し（repairRows / applyRepairs）', () => {
+  const anchor = { entityId: 'e1', factId: 'f1', factHash: 'h' };
+  const files = (): DisplayFiles => ({
+    'list-lines': [{ ...anchor, text: '一覧' }],
+    'summary-lines': [{ ...anchor, text: '続き' }],
+    'detail-lines': [{ entityId: 'e1', analysisId: 'a-pricing', textHash: 'x', answer: '月10ドル', note: '30日間の返金' }],
+    'success-points': [{ entityId: 'e1', points: [{ head: '非公開版で回した', body: 'b', factId: 'f2', factHash: 'y' }, { head: 'h2', body: 'b2', factId: 'f1', factHash: 'z' }] }],
+    'case-chapters': [{ ...anchor, chapters: { practice: [{ text: 'HNに投稿した', source: 'https://a' }, { text: '残す行', source: 'https://b' }] } }],
+  });
+  const check = (text: string, ctx: { price: boolean }) => [
+    ...(text.includes('回した') ? ['回し'] : []), ...(text.includes('HN') ? ['HN'] : []), ...(ctx.price && text.includes('返金') ? ['返金'] : []),
+  ];
+  it('落ちる行だけを、確認役と同じ id で取り出す。料金の欄だけ料金の検査をかける', () => {
+    expect(repairRows('e1', files(), check).map((r) => r.id)).toEqual(['detail.a-pricing.note', 'success.0.head', 'chapters.practice.0']);
+  });
+  it('同じ位置の文だけを差し替え、紐付け・出典・他の行は変えない。知らない id は差し替えない', () => {
+    const before = files();
+    const { files: after, problems } = applyRepairs(before, 'e1', [
+      { id: 'success.0.head', text: '非公開版で運営した' }, { id: 'chapters.practice.0', text: 'Hacker Newsに投稿した' }, { id: 'detail.a-pricing.note', text: ' 年払いのみ ' }, { id: 'success.9.head', text: 'x' },
+    ]);
+    expect(problems).toEqual(['success.9.head: 直す対象の行ではない（rows の id だけを返す）']);
+    expect(after['success-points'][0].points[0]).toEqual({ head: '非公開版で運営した', body: 'b', factId: 'f2', factHash: 'y' });
+    expect(after['case-chapters'][0].chapters.practice).toEqual([{ text: 'Hacker Newsに投稿した', source: 'https://a' }, { text: '残す行', source: 'https://b' }]);
+    expect(after['detail-lines'][0].note).toBe('年払いのみ');
+    expect(before['success-points'][0].points[0].head).toBe('非公開版で回した'); // 元は変えない
+    expect(repairRows('e1', after, check)).toEqual([]);
   });
 });

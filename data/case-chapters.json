@@ -233,7 +233,7 @@
       ],
       "core": [
         {
-          "text": "作る前に、登録ページだけで需要を確かめる（根拠: 公開前のHN投稿で132点・73件）",
+          "text": "作る前に、登録ページだけで需要を確かめる",
           "source": "https://news.ycombinator.com/item?id=5799272"
         },
         {
@@ -595,7 +595,7 @@
       ],
       "price": [
         {
-          "text": "2026年: Creator 月29ドル（約4,350円）、Pro 月49ドル（約7,350円）、Business 月149ドル（約2.2万円）（第三者）",
+          "text": "2026年: 月額29ドル（約4,350円）から（第三者）",
           "source": "https://www.ababnews.com/depth/heygen-ai"
         },
         {
@@ -724,7 +724,7 @@
       ],
       "price": [
         {
-          "text": "現在: 月8,750円（5,000ルピー）・10人から。上位は月26,250円（15,000ルピー）。全プラン年払いで30日間全額返金（公式）",
+          "text": "現在: 月8,750円（5,000ルピー）で10人が利用できる。上位プランも10人で月26,250円（15,000ルピー）。全プラン年払い（公式）",
           "source": "https://myoperator.com/pricing"
         },
         {
@@ -909,7 +909,7 @@
           "source": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
-          "text": "自作フォント: 2016年8月は89ドル〜（約1.34万円）。Equityは119ドル（保存ページ）",
+          "text": "自作フォント: 2016年8月は89ドル〜（約1.34万円）。119ドルのフォントもある（保存ページ）",
           "source": "https://web.archive.org/web/20160802/https://practicaltypography.com/how-to-pay-for-this-book.html"
         },
         {
@@ -1109,7 +1109,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "「本番JSを手元に飛ばす」など、使い方の例を1つずつ投稿した（本人）",
+          "text": "「実際のサイトで動くプログラムを手元に送る」など、使い方の例を1つずつ投稿した（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1169,7 +1169,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "2019年7月: 利用者10万人超。HNでフィードバックを募る（本人）",
+          "text": "2019年7月: 利用者10万人超。開発者向けの投稿サイトHacker Newsで意見を募る（本人）",
           "source": "https://news.ycombinator.com/item?id=20460703"
         },
         {
@@ -1181,7 +1181,7 @@
           "source": "https://news.ycombinator.com/item?id=30540735"
         },
         {
-          "text": "2023年2月28日: オープンソース化。HNは54点（本人）",
+          "text": "2023年2月28日: ソースコードを公開し、誰でも利用や改変ができるようにした。Hacker Newsでの投稿は54点の評価（本人）",
           "source": "https://news.ycombinator.com/item?id=34968998"
         }
       ],
@@ -1197,7 +1197,7 @@
       ],
       "start": [
         {
-          "text": "本人1人。顧客サイトの本番JSの調査に悩み、「本番JSを手元に飛ばす」試作を作った（本人）",
+          "text": "顧客サイトで実際に動くプログラムの調査に悩み、そのプログラムを手元に送る試作品を1人で作った（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1372,7 +1372,7 @@
           "source": "https://alexsidorenko.com/blog/is-refactoring-ui-worth-it"
         },
         {
-          "text": "現在: 同じ2段。チーム向けは3人399ドル〜25人2,749ドル（約41万円）。60日返金保証（公式）",
+          "text": "現在: 同じ2段。チーム向けは3人399ドル〜25人2,749ドル（約41万円）（公式）",
           "source": "https://refactoringui.com"
         }
       ],
@@ -1382,7 +1382,7 @@
           "source": "https://refactoringui.com"
         },
         {
-          "text": "「UIを勘で作り、説明できなかった。この本は説明してくれる」Dana Cottreau（公式の声のページ、選別あり）",
+          "text": "「画面を勘で作り、説明できなかった。この本は説明してくれる」Dana Cottreau（公式掲載の利用者の声）",
           "source": "https://refactoringui.com"
         },
         {
