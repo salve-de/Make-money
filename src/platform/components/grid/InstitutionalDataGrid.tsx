@@ -224,7 +224,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                             type="button"
                             aria-pressed={on}
                             onClick={(event) => { event.stopPropagation(); onToggleTag(tag); }}
-                            className={`hidden h-5 shrink-0 items-center whitespace-nowrap border px-1.5 text-xs xl:inline-flex ${on ? 'border-term-accent text-term-fg-strong' : 'border-term-line text-term-sub hover:bg-term-head'}`}
+                            className={`hidden h-[18px] shrink-0 items-center whitespace-nowrap border px-1 text-[11px] xl:inline-flex ${on ? 'border-term-accent text-term-accent' : 'border-term-line-soft text-term-label hover:border-term-line hover:text-term-fg'}`}
                           >
                             {tag}
                           </button>
@@ -236,7 +236,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     <td className="truncate px-2 pt-1.5 text-xs text-term-muted">{sector}</td>
                   )}
                   <td className="term-num whitespace-nowrap px-2 pt-1.5 text-right">
-                    <ListMetricCell metric={headline} expected={['REVENUE']} aligned />
+                    <ListMetricCell metric={headline} expected={['REVENUE']} />
                   </td>
                   {!isSplitView && (
                     <td className="term-num truncate px-2 text-right">
