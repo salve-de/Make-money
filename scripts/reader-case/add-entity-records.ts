@@ -29,7 +29,8 @@ export const REVIEW_TAG = '収集事例';
 
 export interface AdditionFile {
   version: 1;
-  source: { manifest: string; manifestSha256: string; artifactsDir: string; collectedAt: string };
+  /** generation: 集める流れの版（第N世代）。無ければファイル名の `gen<N>-` から、それも無ければ第1世代 */
+  source: { manifest: string; manifestSha256: string; artifactsDir: string; collectedAt: string; generation?: number };
   records: { id: string; provenance: { detailsHash: string; artifactSha256: string }; workNotes?: string[]; record: Record<string, unknown> }[];
 }
 
@@ -287,6 +288,19 @@ export function collectFromResearch(researchPath: string, now = new Date(), text
   return { version: 1, source: { manifest: researchPath, manifestSha256: sha256(text), artifactsDir: '', collectedAt: now.toISOString() }, records };
 }
 
+/** 取り込みファイルの世代。ファイルに書いてあればそれ、無ければ名前の `gen<N>-`、どちらも無ければ第1世代 */
+export function generationOfAddition(fileName: string, file: AdditionFile): number {
+  const written = file.source?.generation;
+  if (Number.isInteger(written) && (written as number) >= 1) return written as number;
+  const m = /^gen(\d+)-/.exec(fileName);
+  return m ? Math.max(1, Number(m[1])) : 1;
+}
+
+/** 新しく集める事例の既定の世代 = いま取り込み済みの最大の世代。新しい世代を始める時だけ --generation で指定する */
+export function currentGeneration(dir = ADDITIONS_DIR): number {
+  return readAdditions(dir).reduce((max, file) => Math.max(max, file.source.generation ?? 1), 1);
+}
+
 /** 目録に足す。足した id と、足さなかった id（理由）を返す。既存の記録は変えない */
 export function mergeInto(index: Record<string, unknown>[], additions: AdditionFile[]): { next: Record<string, unknown>[]; added: string[]; skipped: { id: string; reason: string }[] } {
   const ids = new Set(index.map((e) => String(e.id)));
@@ -300,7 +314,9 @@ export function mergeInto(index: Record<string, unknown>[], additions: AdditionF
       if (ids.has(id)) { skipped.push({ id, reason: '同じ id が既にある' }); continue; }
       const h = officialHost(record.url);
       if (h && hosts.has(h)) { skipped.push({ id, reason: `同じ公式サイトの事例が既にある: ${hosts.get(h)}` }); continue; }
-      next.push(record);
+      // 世代は事例の記録に持たせる（第1世代は書かない = 既存の公開物と同じ形のまま）
+      const generation = file.source.generation ?? 1;
+      next.push(generation > 1 && record.generation === undefined ? { ...record, generation } : record);
       ids.add(id);
       if (h) hosts.set(h, id);
       added.push(id);
@@ -311,7 +327,10 @@ export function mergeInto(index: Record<string, unknown>[], additions: AdditionF
 
 export function readAdditions(dir = ADDITIONS_DIR): AdditionFile[] {
   if (!existsSync(dir)) return [];
-  return readdirSync(dir).filter((f) => f.endsWith('.json')).sort().map((f) => JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as AdditionFile);
+  return readdirSync(dir).filter((f) => f.endsWith('.json')).sort().map((f) => {
+    const file = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as AdditionFile;
+    return { ...file, source: { ...file.source, generation: generationOfAddition(f, file) } };
+  });
 }
 
 /** 事実の文を差し戻す回数の上限。超えた項目は保留（取り込まないまま、理由を残す） */
@@ -365,6 +384,17 @@ export function returnToCollector(name: string, file: AdditionFile): { returned:
   return { returned: back.length, held };
 }
 
+/** --generation N があればそれ、無ければ名前の `gen<N>-`、それも無ければ取り込み済みの最大の世代 */
+function chosenGeneration(flag: string | undefined, name: string): number {
+  if (flag !== undefined) {
+    const n = Number(flag);
+    if (!Number.isInteger(n) || n < 1) throw new Error('--generation は1以上の整数');
+    return n;
+  }
+  const m = /^gen(\d+)-/.exec(name);
+  return m ? Number(m[1]) : currentGeneration();
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const val = (k: string) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : undefined; };
@@ -373,6 +403,7 @@ async function main() {
     const ids = (val('--ids') ?? '').split(',').map((s) => s.trim()).filter(Boolean);
     if (!manifest || !artifacts || !name || !/^[\w-]+$/.test(name) || !ids.length) throw new Error('--manifest --artifacts --ids --name が要る');
     const file = collect(manifest, artifacts, ids, new Date(), val('--packs'));
+    file.source.generation = chosenGeneration(val('--generation'), name);
     mkdirSync(ADDITIONS_DIR, { recursive: true });
     writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
     console.log(JSON.stringify({ collected: file.records.length, file: `${ADDITIONS_DIR}/${name}.json` }));
@@ -382,6 +413,7 @@ async function main() {
     const research = val('--from-research'); const name = val('--name');
     if (!research || !name || !/^[\w-]+$/.test(name)) throw new Error('--from-research <records.json> --name <name> が要る');
     const file = collectFromResearch(research, new Date(), await loadFactTextChecks());
+    file.source.generation = chosenGeneration(val('--generation'), name);
     mkdirSync(ADDITIONS_DIR, { recursive: true });
     writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
     // 数字の決まりを満たさず分けた数字（事例ごと）。0件でない時は、調査記録を直すか再収集する

@@ -23,6 +23,19 @@ describe('catalog paging and search', () => {
     expect(result.data).toHaveLength(25);
     expect(result.nextOffset).toBe(25);
   });
+  it('returns newer generations first across pages, keeping the original order inside a generation', async () => {
+    const rows = await mocks.read();
+    rows[3].generation = 2;
+    rows[150].generation = 3;
+    rows[204].generation = 2;
+    const first = await (await GET(new Request('http://localhost/api/catalog?pageSize=4'))).json();
+    expect(first.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_150', 'ent_3', 'ent_204', 'ent_0']);
+    expect(first.data[0].generation).toBe(3);
+    expect(first.data[3]).not.toHaveProperty('generation');
+    rows[3].generation = undefined;
+    rows[150].generation = undefined;
+    rows[204].generation = undefined;
+  });
   it('searches outside the initial page', async () => {
     const result = await (await GET(new Request('http://localhost/api/catalog?q=Company%20204'))).json();
     expect(result.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_204']);
