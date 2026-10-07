@@ -114,8 +114,9 @@ async function sourceText(url: string, fresh: boolean): Promise<SourceCacheRecor
 function judge(item: Item, rec: SourceCacheRecord | undefined) {
   const text = rec?.text ?? '';
   // 日付の無いページ（料金表・機能一覧など今の表示）は、取得した時点の表示として扱う。数字の時点が取得の月と同じ時だけ裏づく
-  if (item.kind === 'metric') return checkMetric(item.metric!, item.quote ?? '', text, item.publishedAt ?? (rec?.via === 'direct' ? rec.fetchedAt?.slice(0, 10) : undefined));
-  if (item.kind === 'fact') return checkText(item.text, text, { quote: item.quote ?? '', publishedAt: item.publishedAt });
+  const publishedAt = item.publishedAt ?? (rec?.via === 'direct' ? rec.fetchedAt?.slice(0, 10) : undefined);
+  if (item.kind === 'metric') return checkMetric(item.metric!, item.quote ?? '', text, publishedAt);
+  if (item.kind === 'fact') return checkText(item.text, text, { quote: item.quote ?? '', publishedAt });
   return checkText(item.text, text);
 }
 
