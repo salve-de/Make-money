@@ -36,6 +36,17 @@ test('公開している全事例の画面の文が、見る人目線の規則�
   const started = Date.now();
   await page.goto('/');
   await page.locator('[data-variant="table"] [data-entity-id]').first().waitFor();
+  // 一覧は10件ずつ段階で読み込む。末尾までスクロールして、公開している全事例の行が描かれるまで待つ（増えなくなったら止める）
+  const rows = page.locator('[data-variant="table"] [data-entity-id]');
+  for (let still = 0, last = -1; still < 5;) {
+    const present = await rows.evaluateAll((els, want) => new Set(els.map((el) => el.getAttribute('data-entity-id'))).size >= want.length && want.every((id) => els.some((el) => el.getAttribute('data-entity-id') === id)), ids);
+    if (present) break;
+    const count = await rows.count();
+    still = count === last ? still + 1 : 0;
+    last = count;
+    await rows.last().scrollIntoViewIfNeeded();
+    await page.waitForTimeout(400);
+  }
   const list = new Map<string, string>();
   for (const id of ids) {
     const row = page.locator(`[data-variant="table"] [data-entity-id="${id}"]`).first();

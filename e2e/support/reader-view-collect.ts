@@ -16,8 +16,10 @@ export interface ScreenCase {
   /** 「項目名｜中身」の組（数字の帯のマスと、分析欄の行） */
   cells: ScreenCell[];
   sections: ScreenSection[];
-  /** 読み込めた画像の数 */
+  /** 読み込めた製品画面の画像の数（アイコン・ロゴ・ファビコンは数えない。docs/OWNER_INTENT.md 7章: アイコンは目印で、製品画像の代わりにならない） */
   images: number;
+  /** 読み込めたアイコン・ロゴの数（参考） */
+  icons: number;
 }
 
 export function collectInspector(aside: HTMLElement): Omit<ScreenCase, 'id' | 'list'> {
@@ -55,6 +57,7 @@ export function collectInspector(aside: HTMLElement): Omit<ScreenCase, 'id' | 'l
     const links = [...el.querySelectorAll('a[href]')].map((a) => ({ text: text(a), href: (a as HTMLAnchorElement).href }));
     sections.push({ id: el.id, title, text: body, links });
   }
-  const images = [...aside.querySelectorAll('#section-media img')].filter((img) => (img as HTMLImageElement).naturalWidth > 0).length;
-  return { name, overview, cells, sections, images };
+  const loaded = [...aside.querySelectorAll('#section-media img')].filter((img) => (img as HTMLImageElement).naturalWidth > 0);
+  const isIcon = (img: Element) => ['app_icon', 'favicon', 'logo'].includes(img.getAttribute('data-kind') ?? '');
+  return { name, overview, cells, sections, images: loaded.filter((img) => !isIcon(img)).length, icons: loaded.filter(isIcon).length };
 }

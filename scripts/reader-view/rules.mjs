@@ -219,7 +219,7 @@ export function auditScreen(screen, { checkImages = true } = {}) {
   }
 
   // i. 画像（画像の置き場がある環境だけ）
-  if (checkImages && screen.images === 0) add(MEDIA, RULES.NO_IMAGE, '製品画面・アイコンが1枚も出ていない');
+  if (checkImages && screen.images === 0) add(MEDIA, RULES.NO_IMAGE, screen.icons ? `製品画面が1枚も出ていない（アイコン${screen.icons}枚だけでは足りない）` : '製品画面が1枚も出ていない');
   return hits;
 }
 

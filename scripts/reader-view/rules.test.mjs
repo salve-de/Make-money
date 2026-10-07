@@ -4,7 +4,7 @@ import test from 'node:test';
 
 import { auditScreen, missingYen, originTags, priceExtras, RULES, unitNumbers } from './rules.mjs';
 
-const screen = (over = {}) => ({ id: 'x', name: 'Example', list: '', overview: ['月約1,200人が使う、会計ソフト'], cells: [], sections: [], images: 1, ...over });
+const screen = (over = {}) => ({ id: 'x', name: 'Example', list: '', overview: ['月約1,200人が使う、会計ソフト'], cells: [], sections: [], images: 1, icons: 0, ...over });
 const rulesOf = (s) => auditScreen(screen(s)).map((h) => h.rule);
 
 test('出どころの印: 括弧の中の印と媒体の呼び名を落とし、中身の補足は通す', () => {
@@ -80,7 +80,9 @@ test('略語: 説明の無い略語を落とし、固有名の一部・説明つ
   assert.ok(!where('有名な客: Snapdeal、Canon、DHL。'));
 });
 
-test('画像: 1枚も出ていなければ落とす', () => {
+test('画像: 製品画面が1枚も出ていなければ落とす', () => {
   assert.ok(rulesOf({ images: 0 }).includes(RULES.NO_IMAGE));
   assert.ok(!rulesOf({ images: 2 }).includes(RULES.NO_IMAGE));
+  // アイコンだけでは足りない（docs/OWNER_INTENT.md 7章）
+  assert.ok(rulesOf({ images: 0, icons: 1 }).includes(RULES.NO_IMAGE));
 });
