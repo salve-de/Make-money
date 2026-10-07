@@ -98,6 +98,8 @@ try { finishedIds = new Set((await readFile('data/catalog-finished-ids.txt', 'ut
 const caseStamps: Record<string, { display: Display; reason: string }> = {};
 // 事例は出すが、未監査のため隠した項目（'analysis:<id>' / 'fact:<id>' / 'metric:<id>'）
 const hiddenItems: Record<string, string[]> = {};
+// 言い回しだけの直しとして、機械の照合で監査済みのまま出す項目（数字・年月日・固有名が増えていない）
+const paraphrasedItems: Record<string, string[]> = {};
 const stamp = (id: string, display: Display, reason = DISPLAY_REASON[display]) => { caseStamps[id] = { display, reason }; };
 const totals = { facts: 0, metrics: 0, processDropped: 0, unbound: 0 };
 // 画面に出す事例の必須項目の空欄（事実でも推論でも埋まっていない数）。終点は空欄率5%未満
@@ -128,8 +130,10 @@ for (const entity of publishable) {
     const prepared = preparePublicationReader(result.reader, verdicts[entity.id], analysisFile[entity.id]);
     const input = await loadPublicationInput(entity, prepared.reader, verdicts[entity.id]);
     const evaluated = evaluateForRelease(input, audited[entity.id], prepared.problems);
-    if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', evaluated.reasons.join(' / ')); continue; }
+    // 未監査の項目を隠した結果として薄くなった時も、どの項目を隠したかを理由に残す（差分監査を流せば戻る）
+    if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', [...evaluated.reasons, ...evaluated.unaudited.map((k) => `未監査で隠した:${k}`)].join(' / ')); continue; }
     // 監査の後に中身が変わった項目（未監査）は、その項目だけを画面から隠す。差分監査（run-diff-audit.sh）を通ると戻る
+    if (evaluated.paraphrased.length) paraphrasedItems[entity.id] = evaluated.paraphrased;
     if (evaluated.unaudited.length) {
       verified.reader = withoutUnaudited(verified.reader, evaluated.unaudited);
       hiddenItems[entity.id] = evaluated.unaudited;
@@ -186,7 +190,7 @@ const manifest = { version: 1, sourceHash, sourceCount: parsed.validEntities.len
 const manifestText = `${JSON.stringify(manifest, null, 2)}\n`;
 const plan = planRelease(previous, manifest);
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, hiddenItems, caseStamps }));
+  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, hiddenItems, paraphrasedItems, caseStamps }));
   return;
 }
 if (checkOnly || artifactsOnly) {
@@ -196,7 +200,7 @@ if (checkOnly || artifactsOnly) {
   await writeFile('data/case-display.json', `${JSON.stringify(Object.fromEntries(Object.entries(caseStamps).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`);
   await writeFile(`${directory}/upload.json`, JSON.stringify(objects));
 }
-console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, hiddenItems, totals,
+console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, hiddenItems, paraphrasedItems, totals,
   blankRate: blanks.cells ? Number((blanks.empty / blanks.cells).toFixed(4)) : null, blanks, objects: objects.length }));
 }
 void main().catch((error) => { console.error(error); process.exitCode = 1; });

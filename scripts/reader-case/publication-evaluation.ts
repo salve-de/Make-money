@@ -4,7 +4,8 @@ import { ReaderCaseSchema, type ReaderCase } from '../../src/shared/reader-case'
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
 import { checkCase, citesRestrictedSource, reflectAnalysis, type StoredAnalysis } from './analysis-lib';
 import { THIN_PREFIX, displayMinimumProblems } from '../../src/shared/display-contract';
-import { hasText, quoteInText, type SourceCacheRecord, type VerdictsFile } from './verify-lib';
+import { hasText, metricLine, quoteInText, type SourceCacheRecord, type VerdictsFile } from './verify-lib';
+import { newFactTokens } from './paraphrase-check';
 
 export const PUBLICATION_AUDITS_FILE = 'data/publication-audits.json';
 export interface PublicationSource {
@@ -38,7 +39,8 @@ export interface PublicationAudit {
   version: 2;
   caseHash: string;
   baseAnalysisHash?: string;
-  items: Record<string, { hash: string; by: string }>;
+  /** body: 監査を通った推論の文と式（言い回しだけの直しを機械で照合するため。推論の項目だけ） */
+  items: Record<string, { hash: string; by: string; body?: { text: string; formula?: string } }>;
   audits: AuditFileRef[];
   /** 最後に畳み込んだ監査の入力ファイル。これより新しい監査だけを次に畳み込む（同じ監査を二度当てない） */
   lastAudit?: string;
@@ -109,11 +111,30 @@ export function withoutUnaudited(reader: ReaderCase, keys: readonly string[]): R
 /** 未監査の理由の頭。evaluateForRelease はこれを「その項目だけ隠す」に回す */
 export const UNAUDITED_PREFIX = '未監査:';
 export const CASE_UNAUDITED = '現在の入力に対する監査が無い';
-/** 監査記録と今の入力を突き合わせる。事例の身元が違えば事例ごと未監査、そうでなければ中身が変わった項目の鍵を返す */
-export function unauditedItems(input: PublicationInput, audit: PublicationAudit | undefined): { caseLevel: boolean; keys: string[] } {
-  if (audit?.version !== 2 || audit.caseHash !== publicationCaseHash(input)) return { caseLevel: true, keys: [] };
+/**
+ * 監査記録と今の入力を突き合わせる。事例の身元が違えば事例ごと未監査、そうでなければ中身が変わった項目の鍵を返す。
+ * 推論のうち、文と式だけが変わり（根拠・根拠の事実は同じ）、直した文に監査済みの文にも事実にも無い数字・年月日・固有名が無いものは、
+ * 言い回しだけの直しとして監査済みのまま扱う（paraphrased。別のAIの監査に回さない）。
+ */
+export function unauditedItems(input: PublicationInput, audit: PublicationAudit | undefined): { caseLevel: boolean; keys: string[]; paraphrased: string[] } {
+  if (audit?.version !== 2 || audit.caseHash !== publicationCaseHash(input)) return { caseLevel: true, keys: [], paraphrased: [] };
   const now = publicationItemHashes(input);
-  return { caseLevel: false, keys: Object.keys(now).filter((k) => audit.items[k]?.hash !== now[k]) };
+  const facts = [...input.reader.facts.map((f) => f.text), ...input.reader.metrics.map((m) => metricLine(m))];
+  const keys: string[] = [];
+  const paraphrased: string[] = [];
+  for (const key of Object.keys(now)) {
+    const approved = audit.items[key];
+    if (approved?.hash === now[key]) continue;
+    const a = key.startsWith('analysis:') ? input.reader.analysis.find((x) => `analysis:${x.id}` === key) : undefined;
+    const body = approved?.body;
+    if (a && body && analysisItemHash({ ...a, text: body.text, formula: body.formula }, now) === approved.hash &&
+        !newFactTokens([a.text, a.formula ?? ''].join('\n'), [body.text, body.formula ?? ''].join('\n'), facts).length) {
+      paraphrased.push(key);
+      continue;
+    }
+    keys.push(key);
+  }
+  return { caseLevel: false, keys, paraphrased };
 }
 
 /** Null/omitted analysis means unknown; an active but invalid item is rejected, never silently approved. */
@@ -154,7 +175,7 @@ export function evaluatePublication(input: PublicationInput, audit: PublicationA
   const unaudited = unauditedItems(input, audit);
   if (unaudited.caseLevel) reasons.push(CASE_UNAUDITED);
   reasons.push(...unaudited.keys.map((k) => `${UNAUDITED_PREFIX}${k}`));
-  return { publishable: reasons.length === 0, reasons, hash, reader, unaudited: unaudited.keys };
+  return { publishable: reasons.length === 0, reasons, hash, reader, unaudited: unaudited.keys, paraphrased: unaudited.paraphrased };
 }
 
 /**

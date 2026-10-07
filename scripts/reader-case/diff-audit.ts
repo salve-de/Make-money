@@ -6,7 +6,8 @@
  * 3. 別のAI（既定 codex。自分では監査しない）に束ごと並行で渡し、結果を data/runner/inbox/audit/ に置いて、実行役の受理検査（runner accept）に通す。
  * 書き込み先はローカルのファイルだけ。推論の正本と監査記録への取り込みは merge-analysis.ts（run-diff-audit.sh が続けて流す）。
  * 使い方: node --import tsx scripts/reader-case/diff-audit.ts [--ids <一覧>] [--parallel 4] [--agent codex|claude] [--tag 数字] [--build-only]
- * 出力（最後の1行）: {"tag","bundles":[…],"cases":n,"items":n,"accepted":[…],"failed":[…],"seconds":n}
+ * 言い回しだけの直し（直した文に、監査済みの文にも事実にも無い数字・年月日・固有名が無い推論）は、ここに来る前に機械の照合で通り、束に入らない（paraphrase-check.ts）。
+ * 出力（最後の1行）: {"tag","bundles":[…],"cases":n,"items":n,"accepted":[…],"failed":[…],"paraphrased":{id:[鍵]},"seconds":n}
  * 終了コード: 0=未監査なし・全部受理 / 75=別のAIを使えない・失敗した束がある（指示書を出したので、結果を置いて run-diff-audit.sh を再実行）/ 1=失敗
  */
 import { spawn, spawnSync } from 'node:child_process';
@@ -107,6 +108,8 @@ async function main() {
   const audits = readPublicationAudits();
   const entities = loadEntities(ids);
   const bundles: { name: string; id: string; items: string[] }[] = [];
+  // 言い回しだけの直し（数字・年月日・固有名が増えていない）は、機械の照合で監査済みのまま。別のAIには回さない
+  const paraphrased: Record<string, string[]> = {};
   mkdirSync('data/audit', { recursive: true });
   for (const [id, reader] of loadReaders(ids)) {
     const entity = entities.get(id);
@@ -114,6 +117,7 @@ async function main() {
     const prepared = preparePublicationReader(reader, verdicts[id], analysis[id]);
     const input = await loadPublicationInput(entity, prepared.reader, verdicts[id]);
     const left = unauditedItems(input, audits[id]);
+    if (left.paraphrased.length) { paraphrased[id] = left.paraphrased; say(`${id}: 言い回しだけの直し ${left.paraphrased.length} 項目は照合で通した（監査に回さない）`); }
     const scope = left.caseLevel ? 'full' : 'diff';
     const review = left.caseLevel ? Object.keys(publicationItemHashes(input)) : left.keys;
     if (!review.length) continue;
@@ -123,7 +127,7 @@ async function main() {
     bundles.push({ name, id, items: review });
     say(`${id}: ${scope === 'full' ? '全体監査（身元が変わった・記録が無い）' : '差分監査'} ${review.length} 項目 → data/audit/${name}.json`);
   }
-  const summary = { tag, bundles: bundles.map((b) => b.name), cases: bundles.length, items: bundles.reduce((n, b) => n + b.items.length, 0), accepted: [] as string[], failed: [] as string[], seconds: 0 };
+  const summary = { tag, bundles: bundles.map((b) => b.name), cases: bundles.length, items: bundles.reduce((n, b) => n + b.items.length, 0), accepted: [] as string[], failed: [] as string[], paraphrased, seconds: 0 };
   if (!bundles.length || process.argv.includes('--build-only')) {
     summary.seconds = Math.round((Date.now() - started) / 1000);
     console.log(JSON.stringify(summary));

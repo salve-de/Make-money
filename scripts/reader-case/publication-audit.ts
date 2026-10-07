@@ -92,7 +92,7 @@ export function applyAuditDocument(prev: PublicationAudit | undefined, id: strin
     if (!(key in c.hashes)) continue;
     if (!key.startsWith('analysis:')) { items[key] = { hash: c.hashes[key], by: doc.inputFile }; continue; }
     const kept = applied.kept.find((a) => `analysis:${a.id}` === key);
-    if (kept) items[key] = { hash: analysisItemHash(kept, c.hashes), by: doc.inputFile };
+    if (kept) items[key] = { hash: analysisItemHash(kept, c.hashes), by: doc.inputFile, body: { text: kept.text, ...(kept.formula ? { formula: kept.formula } : {}) } };
     else delete items[key];
   }
   base.audits = [...base.audits.filter((a) => a.inputFile !== doc.inputFile), fileRef(doc)];
