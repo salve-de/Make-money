@@ -742,7 +742,7 @@ export function withYenApprox(text: string): string {
     if (/円[（(]\s*$/.test(text.slice(0, m.index ?? 0))) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
     // 「90ドル〜（約1.35万円）」のように、「〜」のあとに円の括弧が続く並びも換算済み
-    if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[〜~～]?\s*[（(][^）)]*円/.test(rest)) continue;
+    if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest) || /^\s*[〜~～]\s*[（(]\s*(?:約|およそ)?\s*[0-9][0-9,.万億]*円/.test(rest)) continue;
     // 金額の直前がマイナス記号（-$10・−$10・▲$10）なら、円の額にも同じ符号を付ける（赤字を黒字に見せない）
     const neg = /(?:^|[^0-9A-Za-z])[-−▲△]$/.test(text.slice(0, m.index ?? 0));
     const sg = neg ? '−' : '';

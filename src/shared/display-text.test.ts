@@ -232,6 +232,7 @@ describe('withYenApprox', () => {
   it('「〜」のあとに円の括弧が続く金額は、換算済みとして足さない', () => {
     expect(withYenApprox('自作フォント90ドル〜（約1.35万円）')).toBe('自作フォント90ドル〜（約1.35万円）');
     expect(withYenApprox('119ドル〜(約1.79万円)へ')).toBe('119ドル〜(約1.79万円)へ');
+    expect(withYenApprox('月10ドル〜（送料500円）')).toContain('約1,500円');
   });
   it('範囲は両端を換算する', () => {
     expect(withYenApprox('月額29〜99ドル')).toBe('月額29〜99ドル（約4,350円〜1万4,850円）');
