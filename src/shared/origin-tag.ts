@@ -15,10 +15,18 @@ const MEDIA_WORDS = [
   'Hacker News', 'HN', 'Indie Hackers', 'TechCrunch', 'Goodreads', 'Reddit', 'Upstarts', 'Warrior Forum', 'Cool Tools', 'Product Hunt',
 ];
 const MEDIA_PART = new RegExp(MEDIA_WORDS.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'));
-/** 出どころの呼び名を含む部分のうち、呼び名だけで成る短い部分（日付・「根拠:」・「は」「の」だけが付く）。中身のある長い部分は残す。 */
-const PART_LIMIT = 40;
-/** 部分が出どころの呼び名の部分か（短く、呼び名を含む）。 */
-const isOriginPart = (part: string): boolean => ORIGIN_PART.test(part) || (MEDIA_PART.test(part) && part.trim().length <= PART_LIMIT);
+/**
+ * 部分が、出どころの呼び名だけで成っているか。呼び名・日付・つなぎの語（「の」「は」「投稿コメント」「創業者の」など）を除いて何も残らない時だけ、
+ * 出どころの印とみなす。数字や別の語が残る部分（「公開前のHacker News投稿で132点」「2.70は公式の「約」」）は中身のある事実なので残す。
+ */
+const FILLER = /創業者|作者|作家|運営者|投稿者|コメント|再掲|経由|掲載時|時点|公開前|[のはでにがと・:：、\s]|根拠/g;
+const DATE = /(?:約)?[0-9]{4}(?:年(?:[0-9]{1,2}月(?:[0-9]{1,2}日)?)?|-[0-9]{2}(?:-[0-9]{2})?)?/g;
+const isOriginPart = (part: string): boolean => {
+  if (ORIGIN_PART.test(part)) return true;
+  if (!MEDIA_PART.test(part)) return false;
+  const rest = part.replace(new RegExp(MEDIA_PART.source, 'g'), '').replace(DATE, '').replace(FILLER, '');
+  return rest.length === 0;
+};
 /** 「根拠: 」の前置きは、後ろが出どころの呼び名だけの時は一緒に外す（「（根拠: 本人の説明）」）。 */
 const BASIS_PREFIX = /^\s*根拠[:：]\s*/;
 

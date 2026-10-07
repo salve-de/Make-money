@@ -738,6 +738,8 @@ export function withYenApprox(text: string): string {
     if (!rate || !Number.isFinite(high) || high <= 0 || (low !== null && (!Number.isFinite(low) || low <= 0))) continue;
     // 金額のすぐ後ろに英字が続く（読めない桁や別の単位）時は、数字の頭だけを換算しない
     if (/^[A-Za-z]/.test(rest)) continue;
+    // すぐ前が円の額の括弧（「約900万円（6万ドル）」。円が先で外貨が後の並び）なら、もう換算してある
+    if (/円[（(]\s*$/.test(text.slice(0, m.index ?? 0))) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
     if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest)) continue;
     // 金額の直前がマイナス記号（-$10・−$10・▲$10）なら、円の額にも同じ符号を付ける（赤字を黒字に見せない）
