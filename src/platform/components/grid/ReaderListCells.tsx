@@ -72,15 +72,26 @@ export function ListMetric({ metric, compact = false }: { metric: ReaderMetric |
  * 表の1マス用（1行）。金額だけを出し、列の想定と違う種類（売却額・調達額など）の時だけ名前を前に付ける。
  * 期間と由来は title に入れる。無ければ「—」。
  */
-export function ListMetricCell({ metric, expected }: { metric: ReaderMetric | null; expected?: readonly Measure[] }) {
-  if (!metric) return <span className="font-sans text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
+export function ListMetricCell({ metric, expected, aligned = false }: { metric: ReaderMetric | null; expected?: readonly Measure[]; aligned?: boolean }) {
+  if (!metric) return <span className="block text-right font-sans text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
   const label = metricListLabel(metric);
   // 列の見出しと同じ種類でも、売上は月・年・累計で呼び分けるので、見出しと違う名前の時は前に付ける
   const showLabel = !expected || !expected.includes(metric.measure) || label !== metricMeasureLabel(metric);
+  const amount = <span className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}</span>;
+  const title = `${label} ${metric.period} · ${metricOriginLabel(metric)}`;
+  // 名前は左・金額は右に固定し、行をまたいで数字の右端が揃うようにする
+  if (aligned) {
+    return (
+      <span data-metric={metric.id} title={title} className="grid grid-cols-[3.75rem_1fr] items-baseline gap-x-1 whitespace-nowrap text-right">
+        <span className="text-left font-sans text-xs text-term-label">{showLabel ? label : ''}</span>
+        {amount}
+      </span>
+    );
+  }
   return (
-    <span data-metric={metric.id} title={`${label} ${metric.period} · ${metricOriginLabel(metric)}`}>
+    <span data-metric={metric.id} title={title}>
       {showLabel && <span className="mr-1 font-sans text-xs text-term-label">{label}</span>}
-      <span className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}</span>
+      {amount}
     </span>
   );
 }

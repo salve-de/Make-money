@@ -166,8 +166,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
           <colgroup>
             <col />
             {!isSplitView && <col className="w-[110px]" />}
-            <col className="w-[128px]" />
-            <col className="w-[136px]" />
+            <col className="w-[132px]" />
+            <col className="w-[160px]" />
             {!isSplitView && <col className="w-[104px]" />}
             <col className="w-7" />
           </colgroup>
@@ -217,11 +217,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   {!isSplitView && (
                     <td className="truncate px-2 pt-1.5 text-xs text-term-muted">{sector}</td>
                   )}
-                  <td className="term-num truncate px-2 pt-1.5 text-right">
-                    <ListMetricCell metric={revenue} expected={['REVENUE']} />
+                  <td className="term-num whitespace-nowrap px-2 pt-1.5 text-right">
+                    <ListMetricCell metric={revenue} expected={['REVENUE']} aligned />
                   </td>
-                  <td className="term-num truncate px-2 pt-1.5 text-right">
-                    <ListMetricCell metric={scale} />
+                  <td className="term-num whitespace-nowrap px-2 pt-1.5 text-right">
+                    <ListMetricCell metric={scale} aligned />
                   </td>
                   {!isSplitView && (
                     <td className="term-num truncate px-2 text-right">
