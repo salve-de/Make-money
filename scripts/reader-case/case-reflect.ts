@@ -121,13 +121,15 @@ export function reflectedReader(state: ReflectState, id: string): ReaderCase | n
 
 /**
  * 推論ファイルに重ね書きを当てる。取り込み版の推論が旧い推論（reader-analysis.json）より常に勝つ。
- * stage='display'（既定。select-finished・prepare-catalog-release）は審査で直した推論を、
+ * stage='display'（既定。select-finished・prepare-catalog-release）は審査で直した推論（採用済みなら reader-analysis.json の今の文）を、
  * stage='audit'（build-audit-input・merge-analysis）は審査に出した取り込み版の推論を返す。後者で受領書の入力指紋が毎回同じになる
  */
 export function withReflectedAnalysis(file: AnalysisFile, state: ReflectState, stage: 'display' | 'audit' = 'display'): AnalysisFile {
   const out: AnalysisFile = { ...file };
   for (const [id, entry] of Object.entries(state.cases)) {
-    if (entry.reader) out[id] = (stage === 'display' && entry.approvedAnalysis ? entry.approvedAnalysis : entry.reader.analysis) as StoredAnalysis[];
+    // 審査の直しを採用済みの事例（approvedAnalysis あり）は、その正本 reader-analysis.json の今の文を出す。採用の後に言い回しを直しても、
+    // 反映をやり直さずに画面の候補へ届く。直した項目は項目ごとの監査記録と合わないので、差分監査を通るまでその項目だけ隠れる
+    if (entry.reader) out[id] = (stage === 'display' && entry.approvedAnalysis ? file[id] ?? entry.approvedAnalysis : entry.reader.analysis) as StoredAnalysis[];
     else delete out[id];
   }
   return out;
@@ -283,7 +285,7 @@ async function main() {
   const ids = val('--ids')?.split(',').map((s) => s.trim()).filter(Boolean);
   const { loadEntities } = await import('./load-readers');
   const { loadPublicationInput, readPublicationAudits } = await import('./publication-inputs');
-  const { evaluateForRelease, preparePublicationReader, publicationHash } = await import('./publication-evaluation');
+  const { evaluateForRelease, preparePublicationReader, contentHash: hashOf } = await import('./publication-evaluation');
   const { ANALYSIS_FILE } = await import('./analysis-lib');
   const analysisFile = existsSync(ANALYSIS_FILE) ? readJson<AnalysisFile>(ANALYSIS_FILE) : {};
   const { VERDICTS_FILE } = await import('./verify-lib');
@@ -301,8 +303,9 @@ async function main() {
     const imported = await inputWith(reader.analysis as StoredAnalysis[]);
     const receipt = audits[id];
     const approved = analysisFile[id];
-    // 受領書がこの取り込み版を審査したもので、審査の直しを当てた推論が reader-analysis.json にあれば、それを採用する
-    if (receipt && approved && receipt.inputHash === publicationHash(imported.input)) {
+    // 監査記録がこの取り込み版の推論一式を全体監査したもので、審査の直しを当てた推論が reader-analysis.json にあれば、それを採用する。
+    // 採用した後に reader-analysis.json の文を直した項目は、項目ごとの監査記録と合わないので、その項目だけが画面から隠れる
+    if (receipt && approved && receipt.baseAnalysisHash === hashOf(imported.input.reader.analysis)) {
       const audited = await inputWith(approved);
       const result = evaluateForRelease(audited.input, receipt, audited.problems);
       return { ...result, analysis: approved };

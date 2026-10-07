@@ -439,6 +439,8 @@ export interface FinancialEntity {
   country: string;
   url: string;
   verifiedBadge: boolean;
+  /** 集めた流れの版（第N世代）。無ければ第1世代。一覧を世代ごとに区切るのに使う */
+  generation?: number;
   pnl: ProfitAndLossStatement;
   operations: OperatingFramework;
   strategy: StrategicDossier;

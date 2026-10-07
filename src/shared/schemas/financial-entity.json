@@ -45,6 +45,10 @@
         "verifiedBadge": {
           "type": "boolean"
         },
+        "generation": {
+          "type": "number",
+          "description": "集めた流れの版（第N世代）。無ければ第1世代。一覧を世代ごとに区切るのに使う"
+        },
         "pnl": {
           "$ref": "#/definitions/ProfitAndLossStatement"
         },

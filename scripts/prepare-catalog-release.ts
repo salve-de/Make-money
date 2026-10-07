@@ -15,7 +15,7 @@ import { computeDossierContentHash, getDossierStoragePath, stringifyDeterministi
 import { deriveDiscoveryDataset } from '../src/features/discover';
 import { findTemplateViolations, MIN_REPEAT } from './architecture/template-prose-lib.mjs';
 import type { FinancialEntity } from '../src/shared/terminal';
-import { evaluateForRelease, preparePublicationReader } from './reader-case/publication-evaluation';
+import { evaluateForRelease, preparePublicationReader, withoutUnaudited } from './reader-case/publication-evaluation';
 import { loadPublicationInput, readPublicationAudits } from './reader-case/publication-inputs';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
 import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAnalysis } from './reader-case/case-reflect';
@@ -91,7 +91,7 @@ const DISPLAY_REASON: Record<Display, string> = {
   HOLD_SCHEMA: '形式の検査を通らない',
   HOLD_THIN: 'データが少ない（事実2件以下で数字なし）。一次情報を探し直す',
   HOLD_RESOURCE: '出典に利用規約で商用の表示を禁じる紹介サイト（eBiz Facts）を含む。本人・公式の一次情報に付け替えるまで出さない',
-  HOLD_AUDIT: '今の入力全体に対する監査受領書が無い、または出典・画像・権利の再確認に通らない（文章が変わると古い受領書は無効）',
+  HOLD_AUDIT: '事例の監査記録が無い（身元が変わった・未監査）、または出典・画像・権利の再確認に通らない。文を直しただけなら、その項目だけが隠れて事例は外れない',
   CARRIED: '公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）',
   HOLD_QUEUE: '順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）',
 };
@@ -99,6 +99,10 @@ const DISPLAY_REASON: Record<Display, string> = {
 let finishedIds: Set<string> | null = null;
 try { finishedIds = new Set((await readFile('data/catalog-finished-ids.txt', 'utf8')).split('\n').map((x) => x.trim()).filter((x) => x && !x.startsWith('#'))); } catch { /* 無ければ全件が対象 */ }
 const caseStamps: Record<string, { display: Display; reason: string }> = {};
+// 事例は出すが、未監査のため隠した項目（'analysis:<id>' / 'fact:<id>' / 'metric:<id>'）
+const hiddenItems: Record<string, string[]> = {};
+// 言い回しだけの直しとして、機械の照合で監査済みのまま出す項目（数字・年月日・固有名が増えていない）
+const paraphrasedItems: Record<string, string[]> = {};
 const stamp = (id: string, display: Display, reason = DISPLAY_REASON[display]) => { caseStamps[id] = { display, reason }; };
 const totals = { facts: 0, metrics: 0, processDropped: 0, unbound: 0 };
 // 画面に出す事例の必須項目の空欄（事実でも推論でも埋まっていない数）。終点は空欄率5%未満
@@ -129,7 +133,14 @@ for (const entity of publishable) {
     const prepared = preparePublicationReader(result.reader, verdicts[entity.id], analysisFile[entity.id]);
     const input = await loadPublicationInput(entity, prepared.reader, verdicts[entity.id]);
     const evaluated = evaluateForRelease(input, audited[entity.id], prepared.problems);
-    if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', evaluated.reasons.join(' / ')); continue; }
+    // 未監査の項目を隠した結果として薄くなった時も、どの項目を隠したかを理由に残す（差分監査を流せば戻る）
+    if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', [...evaluated.reasons, ...evaluated.unaudited.map((k) => `未監査で隠した:${k}`)].join(' / ')); continue; }
+    // 監査の後に中身が変わった項目（未監査）は、その項目だけを画面から隠す。差分監査（run-diff-audit.sh）を通ると戻る
+    if (evaluated.paraphrased.length) paraphrasedItems[entity.id] = evaluated.paraphrased;
+    if (evaluated.unaudited.length) {
+      verified.reader = withoutUnaudited(verified.reader, evaluated.unaudited);
+      hiddenItems[entity.id] = evaluated.unaudited;
+    }
   }
   stamp(entity.id, carried(entity.id) ? 'CARRIED' : 'SHOW');
   const missing = missingRequired(verified.reader);
@@ -198,7 +209,7 @@ objects.push({ key: manifestObjectKey(manifestHash), file: manifestFile });
 const localPointer: ReleasePointer = { version: 1, manifestHash, manifestKey: manifestObjectKey(manifestHash), publishedCount: entities.length, updatedAt: new Date().toISOString(), previous: null };
 const plan = planRelease(previous, manifest);
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, caseStamps }));
+  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, hiddenItems, paraphrasedItems, caseStamps }));
   return;
 }
 if (checkOnly || artifactsOnly) {
@@ -211,7 +222,7 @@ if (checkOnly || artifactsOnly) {
   await writeFile('data/case-display.json', `${JSON.stringify(Object.fromEntries(Object.entries(caseStamps).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`);
   await writeFile(`${directory}/upload.json`, JSON.stringify(objects));
 }
-console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, totals,
+console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, hiddenItems, paraphrasedItems, totals,
   blankRate: blanks.cells ? Number((blanks.empty / blanks.cells).toFixed(4)) : null, blanks, objects: objects.length }));
 }
 void main().catch((error) => { console.error(error); process.exitCode = 1; });
