@@ -3,6 +3,7 @@ import React from 'react';
 import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
 import { detailLineFor } from '@/shared/detail-lines';
 import { isAbsenceOnly, stripAbsence } from '@/shared/absence-text';
+import { successPointsFor } from '@/shared/success-points';
 import { listLineFor } from '@/shared/list-lines';
 import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
@@ -283,6 +284,24 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
     <>
       {ANALYSIS_GROUPS.map(({ title, items, story }, index) => {
         if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
+        const secrets = title === UI.GROUP_SECRET ? successPointsFor(entityId, reader.facts) : [];
+        if (secrets.length > 0) {
+          return (
+            <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>
+              <ol className="grid grid-cols-1 gap-3">
+                {secrets.map(({ head, body }, i) => (
+                  <li key={head} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
+                    <span className="term-num text-sm text-term-accent">{i + 1}</span>
+                    <div className="min-w-0 [overflow-wrap:anywhere]">
+                      <p className="text-sm font-semibold leading-snug text-term-fg-strong">{head}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-term-sub">{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </Fold>
+          );
+        }
         const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && !detailLineFor(entityId, a)?.hidden && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)))));
         if (rows.length === 0) return null;
         return (
