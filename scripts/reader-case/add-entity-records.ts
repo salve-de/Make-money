@@ -347,8 +347,9 @@ export function returnToCollector(name: string, file: AdditionFile): { returned:
   const state = (existsSync(RETURN_STATE) ? JSON.parse(readFileSync(RETURN_STATE, 'utf8')) : {}) as Record<string, number>;
   const back: Record<string, unknown>[] = []; let held = 0;
   for (const { id, record } of file.records) {
-    for (const u of (record.unconfirmedFacts as { where: string; item: Rec; reasonLabels?: string[]; detail?: string[] }[] | undefined) ?? []) {
-      const key = `${id}|${u.where}|${String(u.item.text ?? `${String(u.item.sourceUrl)}|${String(u.item.amount)}`)}`;
+    for (const u of (record.unconfirmedFacts as { where: string; index?: number; item: Rec; reasonLabels?: string[]; detail?: string[] }[] | undefined) ?? []) {
+      // 項目ごとの回数。位置（index）と出典で数える。文や金額を直しても同じ項目として数え、別の項目と回数を分け合わない
+      const key = `${id}|${u.where}#${String(u.index ?? '')}|${String(u.item.sourceUrl ?? '')}`;
       const n = (state[key] ?? 0) + 1; state[key] = n;
       if (n >= MAX_RETURNS) { held += 1; (u as Record<string, unknown>).held = true; continue; }
       back.push({ entityId: id, where: u.where, attempt: n, reasons: u.reasonLabels, detail: u.detail, item: u.item });

@@ -103,7 +103,7 @@ export function checkMetricEntry(raw: Rec): { reasons: NumberReason[]; metric: R
   const k = kind as Exclude<NumberKind, 'ESTIMATE'> | undefined;
   if (typeof m.amount !== 'number' || !Number.isFinite(m.amount)) reasons.push('NO_AMOUNT');
   const q = provenance(m, reasons);
-  if (q && typeof m.amount === 'number' && !hasNumber(sourceNumbers(q), m.amount)) reasons.push('AMOUNT_NOT_IN_QUOTE');
+  if (q && typeof m.amount === 'number' && !hasNumber(sourceNumbers(q), Math.abs(m.amount))) reasons.push('AMOUNT_NOT_IN_QUOTE'); // 損失「-$5 million」「lost $5M」は符号を除いて照らす
   if (k && KIND_MEASURES[k]) {
     const kind = k;
     const allowed = KIND_MEASURES[kind];
@@ -133,7 +133,7 @@ export function checkMetricEntry(raw: Rec): { reasons: NumberReason[]; metric: R
  */
 export function checkFactEntry(f: Rec, textChecks: readonly FactTextCheck[] = []): { reasons: NumberReason[]; detail: string[] } {
   const text = str(f.text) ?? '';
-  const { numbers } = claimNumbers(text);
+  const { numbers } = claimNumbers(text, { keepYen: true });
   const reasons: NumberReason[] = [];
   const kind = str(f.numberKind) as NumberKind | undefined;
   if (!str(f.sourceUrl) || !/^https?:\/\//.test(String(f.sourceUrl))) reasons.push('NO_SOURCE_URL');
@@ -145,7 +145,8 @@ export function checkFactEntry(f: Rec, textChecks: readonly FactTextCheck[] = []
   if (numbers.length) {
     if (!kind || !(NUMBER_KINDS as readonly string[]).includes(kind)) reasons.push('NO_KIND');
     if (!str(f.asOf) || !AS_OF.test(String(f.asOf))) reasons.push('NO_AS_OF');
-    if (q && !numbers.some((n) => hasNumber(sourceNumbers(q), n))) reasons.push('AMOUNT_NOT_IN_QUOTE');
+    // 文の数はすべて引用に要る（1つでも引用に無ければ、その数は裏づけが無い）
+    if (q && !numbers.every((n) => hasNumber(sourceNumbers(q), Math.abs(n)))) reasons.push('AMOUNT_NOT_IN_QUOTE');
     // 売上でない種類（直接の支払い・取扱高・アンケートの区分）の数字を「年商・月商・売上」と書いている
     if (kind && ['GMV', 'DIRECT_PAYMENT', 'SURVEY_TIER'].includes(kind) && REVENUE_WORDS.test(text) && !PARTIAL_SCOPE.test(text)) reasons.push('KIND_MISMATCH');
     if (kind === 'ESTIMATE') reasons.push('KIND_MISMATCH'); // 推定は事実の欄に書かない（分析の段で印を付けて書く）
@@ -165,7 +166,8 @@ function conflicts(list: Rec[]): Set<number> {
       const a = list[i]; const b = list[j];
       if (key(a) !== key(b) || typeof a.amount !== 'number' || typeof b.amount !== 'number') continue;
       if (hasNumber([a.amount], b.amount)) continue;
-      if (tag(a) !== tag(b) && (str(a.basis) || str(b.basis))) continue;
+      // 区別は basis か label のどちらか（「Basic」と「Pro」のように label が両方あって違えば別の数字）
+      if (tag(a) !== tag(b) && (str(a.basis) || str(b.basis) || (str(a.label) && str(b.label)))) continue;
       out.add(i); out.add(j);
     }
   }

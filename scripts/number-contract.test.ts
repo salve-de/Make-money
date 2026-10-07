@@ -88,3 +88,22 @@ test('見本（keygen.example.json）は数字を1つも分けずに通る', () 
   assert.equal((record.facts as unknown[]).length, 6);
   assert.equal((record.metrics as unknown[]).length, 1);
 });
+
+test('レビュー指摘: 元から円の数字・複数の数・負の数・label の区別', () => {
+  const base = { numberKind: 'REVENUE', asOf: '2024', sourceUrl: 'https://example.com/a', checkedAt: '2026-10-07' };
+  // 元から円の数字は照らす（引用に無ければ落ちる）。括弧の中の円換算は照らさない
+  assert.ok(checkFactEntry({ ...base, text: '2024年の年商は5000万円だった', quote: '年商は3000万円になりました' }).reasons.includes('AMOUNT_NOT_IN_QUOTE'));
+  assert.ok(!checkFactEntry({ ...base, text: '2024年の年商は5000万円だった', quote: '年商は5000万円になりました' }).reasons.includes('AMOUNT_NOT_IN_QUOTE'));
+  assert.ok(!checkFactEntry({ ...base, text: '2024年の年商は100万ドル（約1.5億円）だった', quote: 'we made $1 million in revenue' }).reasons.includes('AMOUNT_NOT_IN_QUOTE'));
+  // 文の数はすべて引用に要る
+  assert.ok(checkFactEntry({ ...base, text: '2024年の顧客は50人、年商は100万ドルだった', quote: 'we had 50 customers last year' }).reasons.includes('AMOUNT_NOT_IN_QUOTE'));
+  // 負の数（損失）は符号を除いて照らす
+  assert.ok(!checkMetricEntry({ ...good, numberKind: 'PROFIT', periodKind: 'YEAR', amount: -5000000, quote: 'net loss was -$5 million' }).reasons.includes('AMOUNT_NOT_IN_QUOTE'));
+  // label が両方あって違えば、同じ時点の料金でも食い違いにしない
+  const r: Record<string, unknown> = { metrics: [
+    { ...good, numberKind: 'PRICE', amount: 10, label: 'Basic', quote: 'Basic is $10 per month' },
+    { ...good, numberKind: 'PRICE', amount: 30, label: 'Pro', quote: 'Pro is $30 per month' },
+  ] };
+  applyNumberContract(r);
+  assert.equal((r.metrics as unknown[]).length, 2);
+});

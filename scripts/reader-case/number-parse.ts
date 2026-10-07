@@ -39,16 +39,20 @@ const YEAR = /(?<!\d)((?:19|20)\d{2})(?!\d)/g;
 const YEN = /円/;
 
 /** 日本語の文の、照らすべき数（年・円換算・12以下の小さい数を除く）と年 */
-export function claimNumbers(text: string): { numbers: number[]; years: string[] } {
+export function claimNumbers(text: string, opts: { keepYen?: boolean } = {}): { numbers: number[]; years: string[] } {
   // 円換算（画面の層が足した概算。原文には無い）は外す: 「約750〜1,500円」「約3万／6万円」「（約2.4億円）」
-  const t = joinJa(clean(text).replace(/約?[\d,.]+(?:千|万|億)?(?:\s*[〜~／/・、]\s*約?[\d,.]+(?:千|万|億)?)*円/g, ' '));
+  // keepYen（収集の層）: 外すのは括弧の中の「約…円」だけ。「年商は5000万円」のような元から円の数字は照らす
+  const base = clean(text);
+  const t = joinJa(opts.keepYen
+    ? base.replace(/[（(]約[^）)]*円[^）)]*[）)]/g, ' ')
+    : base.replace(/約?[\d,.]+(?:千|万|億)?(?:\s*[〜~／/・、]\s*約?[\d,.]+(?:千|万|億)?)*円/g, ' '));
   const years = [...new Set([...t.matchAll(YEAR)].map((m) => m[1]))];
   const numbers: number[] = [];
   for (const m of t.matchAll(/(?<![A-Za-z\d])(\d+(?:,\d{3})*(?:\.\d+)?)\s*(千|万|億)?\s*(円|年|月|日|か月|ヶ月)?(?![A-Za-z])/g)) {
     const raw = Number(m[1].replace(/,/g, ''));
     if (!Number.isFinite(raw)) continue;
     if (m[3] === '年' || (m[3] === '月' && raw <= 12) || (m[3] === '日' && raw <= 31)) continue; // 日付の部品
-    if (m[3] && YEN.test(m[3])) continue; // 円換算は原文に無い（画面の層が足した概算）
+    if (m[3] && YEN.test(m[3]) && !opts.keepYen) continue; // 円換算は原文に無い（画面の層が足した概算）
     const value = raw * (m[2] ? MULT[m[2]] : 1);
     if (value <= 12 || /^(19|20)\d{2}$/.test(m[1])) continue;
     numbers.push(value);
