@@ -74,6 +74,7 @@ fi
 LOG="$LOGDIR/$(date +%Y%m%d-%H%M%S)-$$.log"
 find "$LOGDIR" -name '*.log' -mtime +60 -delete 2>/dev/null || true   # ログは60日分だけ残す
 say "定期実行を開始（実行ID $RUN_ID、ログ $LOG）"
+node --import tsx scripts/reader-case/chapter-gaps.ts 2>&1 | head -20 || true   # 束がない日も毎回出す。章がまだ無い仕上げ済み事例（次に章を作る対象。手順は docs/CASE_CHAPTER_PROCESS.md）
 
 [ ${#PREFIXES[@]} -gt 0 ] || while IFS= read -r p; do [ -n "$p" ] && PREFIXES+=("$p"); done < <($STATE prefixes)
 if [ ${#PREFIXES[@]} -eq 0 ]; then say "処理する束がない（data/analyze/batches が空）。何もしない"; exit 0; fi

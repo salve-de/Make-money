@@ -16,6 +16,7 @@
     "lint": "eslint --max-warnings=0 && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs && node scripts/architecture/check-index-safety.mjs && node scripts/architecture/check-ingest-quality.mjs && node scripts/architecture/check-template-prose.mjs && node scripts/architecture/check-case-text-standard.mjs && node scripts/architecture/check-component-health.mjs",
     "ingest:verify": "node scripts/architecture/check-ingest-quality.mjs",
     "case-text:verify": "node scripts/architecture/check-case-text-standard.mjs",
+    "case-chapters:todo": "node --import tsx scripts/reader-case/chapter-gaps.ts",
     "template-prose:verify": "node scripts/architecture/check-template-prose.mjs",
     "pipeline:daily": "bash scripts/reader-case/run-daily.sh",
     "pipeline:status": "node --import tsx scripts/reader-case/pipeline-status.ts",
