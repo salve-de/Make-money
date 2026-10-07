@@ -174,7 +174,7 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
   if (!story) return null;
   const steps = splitStory(story.text);
   return (
-    <Fold id="section-story" title={ANALYSIS_LABELS.STORY} mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
+    <Fold id="section-story" title={UI.GROUP_ORIGIN} defaultOpen mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
       {steps ? (
         <ol className="grid grid-cols-1 gap-x-3 gap-y-2.5 sm:grid-cols-2">
           {steps.map(({ step, body }, i) => (
@@ -194,12 +194,14 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
   );
 }
 
-/** 推測を4つのまとまりに。読む人の問い（どう稼ぐ・誰から・なぜ勝てる・いま真似できるか）の順。 */
-export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[] }> = [
-  { title: UI.GROUP_MONEY, items: ['BUSINESS_MODEL', 'PRICING', 'REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH', 'CAPITAL_AND_TEAM'] },
-  { title: UI.GROUP_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN', 'FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
-  { title: UI.GROUP_EDGE, items: ['WHY_IT_WORKED', 'INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
-  { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
+/** 推測を、読む人の疑問の順に並べる: 誰に売る → なぜ始めたか（着想） → 最初の客 → 金の回り → なぜ他に取られないか → 経緯。story は物語の4段（前夜・隙・突破…）をその位置に出す。 */
+export const ANALYSIS_GROUPS: Array<{ title: string; nav: string; items: AnalysisItem[]; story?: boolean }> = [
+  { title: UI.GROUP_CUSTOMERS, nav: UI.NAV_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN'] },
+  { title: UI.GROUP_ORIGIN, nav: UI.NAV_ORIGIN, items: [], story: true },
+  { title: UI.GROUP_FIRST, nav: UI.NAV_FIRST, items: ['FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
+  { title: UI.GROUP_MONEY, nav: UI.NAV_MONEY, items: ['BUSINESS_MODEL', 'PRICING', 'REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH', 'CAPITAL_AND_TEAM'] },
+  { title: UI.GROUP_EDGE, nav: UI.NAV_EDGE, items: ['WHY_IT_WORKED', 'INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
+  { title: UI.GROUP_NOW, nav: UI.NAV_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
 /** 区切りの見える折りたたみ。見出しは大きく太く、背景帯と矢印で「ここから別の話」と分かるようにする。 */
@@ -216,17 +218,18 @@ export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: 
   );
 }
 
-export const GROUP_IDS = ['section-group-money', 'section-group-customers', 'section-group-edge', 'section-group-now'] as const;
+export const GROUP_IDS = ['section-group-customers', 'section-story', 'section-group-first', 'section-group-money', 'section-group-edge', 'section-group-now'] as const;
 
-/** まとまりごとに「項目名（細く）｜中身（主役）」の2列。折りたたみで、最初の「どう稼ぐか」だけ開く。推測は点線の左罫。 */
+/** まとまりごとに「項目名（細く）｜中身（主役）」の2列。全部開いたまま並べる（読む人に開かせない）。推測は点線の左罫。 */
 export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: OverviewUsage }) {
   return (
     <>
-      {ANALYSIS_GROUPS.map(({ title, items }, index) => {
+      {ANALYSIS_GROUPS.map(({ title, items, story }, index) => {
+        if (story) return <StorySteps key={title} reader={reader} />;
         const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item));
         if (rows.length === 0) return null;
         return (
-          <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen={index === 0}>
+          <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>
             <dl className="divide-y divide-term-line-soft">
               {rows.map((a) => (
                 <div key={a.id} data-analysis={a.id} className="grid grid-cols-1 gap-x-3 gap-y-0.5 py-2 first:pt-0 last:pb-0 sm:grid-cols-[7.5rem_minmax(0,1fr)]">
@@ -245,16 +248,13 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
   );
 }
 
-const GROUP_NAV = [UI.NAV_MONEY, UI.NAV_CUSTOMERS, UI.NAV_EDGE, UI.NAV_NOW] as const;
-
 /** 中身のあるまとまりだけを、目次の小さな札にして並べる（押すと開いてその位置へ）。 */
 export function SectionNav({ reader, usage, hasDetails, hasStory }: { reader: ReaderCase; usage: OverviewUsage; hasDetails: boolean; hasStory: boolean }) {
   const chips: Array<{ id: string; label: string }> = [];
-  ANALYSIS_GROUPS.forEach(({ items }, index) => {
-    const has = items.some((item) => !usage.items.has(item) && reader.analysis.some((a) => a.item === item));
-    if (has) chips.push({ id: GROUP_IDS[index], label: GROUP_NAV[index] });
+  ANALYSIS_GROUPS.forEach(({ items, nav, story }, index) => {
+    const has = story ? hasStory : items.some((item) => !usage.items.has(item) && reader.analysis.some((a) => a.item === item));
+    if (has) chips.push({ id: GROUP_IDS[index], label: nav });
   });
-  if (hasStory) chips.push({ id: 'section-story', label: ANALYSIS_LABELS.STORY });
   if (hasDetails) chips.push({ id: 'section-details', label: UI.NAV_DETAILS });
   if (chips.length < 2) return null;
   const go = (id: string) => {

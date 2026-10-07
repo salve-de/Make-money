@@ -11,7 +11,7 @@ import {
 } from '@/shared/display-text';
 import { createSentenceMemory, splitSentences } from '@/shared/case-text';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
-import { AnalysisGroups, Fold, Headline, KeyStrip, planKeyStrip, SectionNav, StorySteps, WhatIs } from './ReaderOverview';
+import { AnalysisGroups, Fold, Headline, KeyStrip, planKeyStrip, SectionNav, WhatIs } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
@@ -217,7 +217,6 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
       {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
         <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
           <AnalysisGroups reader={reader} usage={plan.usage} />
-          <StorySteps reader={reader} />
         </div>
       )}
       {hasDetails && (

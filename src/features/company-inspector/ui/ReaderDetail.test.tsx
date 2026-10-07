@@ -116,14 +116,14 @@ describe('reader analysis', () => {
 
   it('推測は問いごとのまとまりで、事実の前に、項目名・結論・確度だけを出す。数値の表は下の畳み欄に入る', () => {
     const html = ledger(withAnalysis);
-    expect(html.indexOf('どう稼ぐか')).toBeLessThan(html.indexOf('data-fact="f2"'));
+    expect(html.indexOf('金はどう回っているか')).toBeLessThan(html.indexOf('data-fact="f2"'));
     expect(html.indexOf('section-metrics')).toBeGreaterThan(html.indexOf('<details'));
     expect(html).toContain('事業の形');
     expect(html).toContain('手残り');
     expect(html).toContain('費用を抑えれば手残りが増える。');
     const rows = renderToStaticMarkup(<AnalysisGroups reader={withAnalysis} usage={planKeyStrip(withAnalysis).usage} />);
     expect(rows).not.toContain('a-headline');
-    expect(rows).not.toContain('a-story');
+    expect(rows).toContain('なぜ始めたか・着想');
     expect(rows).not.toContain('a-take-home');
     expect(rows).not.toContain('計算・前提:');
     expect(rows).not.toContain('根拠:');
@@ -207,7 +207,7 @@ describe('reader analysis', () => {
   it('根拠・計算が無い時は空のラベルを出さず、STORY だけでも表示する', () => {
     const reader = { ...emptyReader, analysis: [withAnalysis.analysis[1], withAnalysis.analysis[2]] };
     const story = renderToStaticMarkup(<StorySteps reader={{ ...reader, analysis: [{ ...reader.analysis[0], basis: [] }] }} />);
-    expect(story).toContain('物語');
+    expect(story).toContain('なぜ始めたか・着想');
     expect(story).not.toContain('<h3');
     const rows = renderToStaticMarkup(<><AnalysisGroups reader={reader} usage={planKeyStrip(reader).usage} /><ReaderEvidence reader={{ ...reader, analysis: [withAnalysis.analysis[2]] }} /></>);
     expect(rows).not.toContain('根拠:');
