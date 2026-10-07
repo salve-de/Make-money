@@ -79,7 +79,7 @@ try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf
 // 反映段（case-reflect.ts）: 取り込み版の事例は、その中身と推論で置き換える。取り込み版が基準に通らなければ旧版も出さない
 const reflectState = readReflectState();
 analysisFile = withReflectedAnalysis(analysisFile, reflectState);
-const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8')) as unknown]))) as unknown as DisplaySourceFiles;
+const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8').catch(() => '[]')) as unknown]))) as unknown as DisplaySourceFiles;
 const withheld = { imported: 0, audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
 type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';

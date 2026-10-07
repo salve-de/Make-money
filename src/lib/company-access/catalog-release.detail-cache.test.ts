@@ -1,3 +1,6 @@
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -28,7 +31,7 @@ vi.mock('./public-entity', () => ({ isPublishableEntity: () => true }));
 import { clearReleaseEntityCacheForTest, findReleaseEntity } from './catalog-release';
 
 describe('公開版の詳細の isolate 内キャッシュ', () => {
-  beforeEach(() => { clearReleaseEntityCacheForTest(); mocks.readR2Object.mockReset(); });
+  beforeEach(() => { vi.stubEnv('CATALOG_RELEASE_DIR', mkdtempSync(join(tmpdir(), 'catalog-empty-'))); clearReleaseEntityCacheForTest(); mocks.readR2Object.mockReset(); });
 
   it('同じ事例は R2 から1回だけ読み、同じオブジェクトを返す', async () => {
     mocks.readR2Object.mockResolvedValue({ body: gzipSync(text) });
