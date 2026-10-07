@@ -27,7 +27,7 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "factId": "f1",
     "factHash": "0f0520a7",
-    "text": "電話と、メッセージアプリWhatsApp向けに、AIの自動応答や自動音声案内を売る会社"
+    "text": "電話やメッセージアプリWhatsAppで使う、AIによる自動応答や自動音声案内を売る会社"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -51,12 +51,12 @@
     "entityId": "ent_rfrcui_64e924ac",
     "factId": "f1",
     "factHash": "0f9e8892",
-    "text": "開発者が自分で画面を整えるための、デザイン教材"
+    "text": "開発者が自分で画面を整えるためのデザイン教材"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "factId": "f1",
     "factHash": "cecd9426",
-    "text": "開発・デザイン会社向けの、請求まで備えたプロジェクト管理ツール"
+    "text": "開発会社・デザイン会社向けの、請求機能も備えたプロジェクト管理ツール"
   }
 ]
