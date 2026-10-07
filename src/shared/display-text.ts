@@ -582,6 +582,11 @@ export function metricOriginLabel(m: Pick<ReaderMetric, 'origin'>): string {
   return ORIGIN_LABELS[m.origin];
 }
 
+/** 画面に出す印。出どころ（本人申告・記事など）は画面に出さず、推定の時だけ「推定」と出す。 */
+export function metricEstimateLabel(m: Pick<ReaderMetric, 'origin'>): string {
+  return m.origin === 'ESTIMATED' ? ORIGIN_LABELS.ESTIMATED : '';
+}
+
 const recency = (m: ReaderMetric): string => m.statedAt ?? m.period;
 
 /** 一覧に出す1件。売上を優先順位で選び、無ければ売却額・調達額などをその名前で出す。 */
