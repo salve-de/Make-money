@@ -123,7 +123,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           <>
             <ReaderLedger
               reader={entity.reader}
-              entityId={entity.id}
               detailState={detailState}
               onRetry={onRetryDetail}
               media={<EntityMediaGallery entityId={entity.id} entityName={entity.name} isHazardMode={Boolean(sectionProps.isHazardMode)} />}

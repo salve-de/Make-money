@@ -1,11 +1,10 @@
 import { NextResponse } from 'next/server';
 import { readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
 import { cachedPublicSummaryEntity } from '@/lib/company-access/projection-cache';
-import manifest from '../../../../data/catalog-release.json';
+import { getCatalogManifest } from '@/lib/company-access/release-manifest';
 import { matchesCatalogQuery, parseCatalogFilters } from '@/platform/model/entity-filter';
 
 export const dynamic = 'force-dynamic';
-const catalogGeneration = manifest.summaries.hash;
 // 公開版の要約は不変なので、同じ条件の応答本文は isolate 内で使い回せる。
 // Workers の1要求あたりの CPU 時間に収めるため、要求のたびに全行の絞り込み・変換・JSON 化をやり直さない。
 const BODY_CACHE_LIMIT = 64;
@@ -13,6 +12,8 @@ const bodyCache = new Map<string, string>();
 const CATALOG_HEADERS = { 'Cache-Control': 'private, max-age=30', 'Content-Type': 'application/json' };
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
+  // 版は目印から実行時に決まる（ビルドし直さなくても切り替わる）
+  const catalogGeneration = (await getCatalogManifest()).summaries.hash;
   const query = (params.get('q') ?? '').trim().toLowerCase();
   const offset = Number(params.get('offset') ?? '0');
   const requestedPageSize = Number(params.get('pageSize') ?? '100');
@@ -36,10 +37,16 @@ export async function GET(request: Request) {
     const cacheKey = JSON.stringify([catalogGeneration, sector, query, params.get('filters') ?? '', offset, requestedPageSize]);
     const cached = bodyCache.get(cacheKey);
     if (cached !== undefined) return new NextResponse(cached, { headers: CATALOG_HEADERS });
-    const filtered = entities.filter((entity) => (!sector || entity.sector === sector) && matchesCatalogQuery(entity, query, filters));
+    // 新しい世代を先に返す（同じ世代の中は元の並びのまま）。一覧は世代ごとに区切って出すので、ページをまたいでも区切りが崩れない
+    const filtered = entities
+      .filter((entity) => (!sector || entity.sector === sector) && matchesCatalogQuery(entity, query, filters))
+      .sort((a, b) => (b.generation ?? 1) - (a.generation ?? 1));
     const data = filtered.slice(offset, offset + requestedPageSize).map(cachedPublicSummaryEntity);
     const nextOffset = offset + data.length;
-    const body = JSON.stringify({ data, total: filtered.length, generation: catalogGeneration,
+    // 世代ごとの件数（絞り込み後の全件。ページを読み込み切る前でも、一覧の見出しに全体の件数を出すため）
+    const generationCounts: Record<string, number> = {};
+    for (const entity of filtered) { const g = String(entity.generation ?? 1); generationCounts[g] = (generationCounts[g] ?? 0) + 1; }
+    const body = JSON.stringify({ data, total: filtered.length, generationCounts, generation: catalogGeneration,
       nextOffset: nextOffset < filtered.length ? nextOffset : null });
     if (bodyCache.size >= BODY_CACHE_LIMIT) bodyCache.delete(bodyCache.keys().next().value as string);
     bodyCache.set(cacheKey, body);

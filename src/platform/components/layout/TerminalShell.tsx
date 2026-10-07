@@ -57,6 +57,7 @@ export const TerminalShell: React.FC<{
     catalogError,
     catalogLoading, catalogSlow, retryCatalog,
     catalogTotal,
+    catalogGenerationCounts,
     hasMore,
     detailedEntities,
     setDetailedEntities,
@@ -258,6 +259,7 @@ export const TerminalShell: React.FC<{
               }}
               onLoadMore={loadMore}
               hasMore={hasMore}
+              generationTotals={hasMore ? catalogGenerationCounts ?? undefined : undefined}
               isLoadingMore={catalogLoading}
               retryAvailable={Boolean(catalogError) && entities.length > 0}
               onRetry={retryCatalog}

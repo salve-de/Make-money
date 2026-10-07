@@ -1,3 +1,6 @@
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -15,7 +18,11 @@ const mocks = fixture;
 vi.mock('../../../data/catalog-release.json', () => ({
   default: { summaries: { key: '', hash: '' }, discovery: { key: '', hash: '' }, details: { ent_cached: fixture.hash }, approvalCandidateIds: [], publishedCount: 1 },
 }));
-vi.mock('@/lib/storage/r2', () => ({ getFoundationBucketAsync: vi.fn().mockResolvedValue({}), readR2Object: fixture.readR2Object }));
+// 目印（現在の版を指す1枚）は無い扱い。同梱の版で動く。事例データの読みだけを数える
+vi.mock('@/lib/storage/r2', () => ({
+  getFoundationBucketAsync: vi.fn().mockResolvedValue({}),
+  readR2Object: (bucket: unknown, key: string) => (key === 'views/make-money/catalog-v1/current.json' ? Promise.resolve(null) : fixture.readR2Object(bucket, key)),
+}));
 vi.mock('@/shared/financial-entity-schema', () => ({
   parseFinancialEntitiesResiliently: (rows: unknown[]) => ({ validEntities: rows }),
 }));
@@ -24,7 +31,7 @@ vi.mock('./public-entity', () => ({ isPublishableEntity: () => true }));
 import { clearReleaseEntityCacheForTest, findReleaseEntity } from './catalog-release';
 
 describe('公開版の詳細の isolate 内キャッシュ', () => {
-  beforeEach(() => { clearReleaseEntityCacheForTest(); mocks.readR2Object.mockReset(); });
+  beforeEach(() => { vi.stubEnv('CATALOG_RELEASE_DIR', mkdtempSync(join(tmpdir(), 'catalog-empty-'))); clearReleaseEntityCacheForTest(); mocks.readR2Object.mockReset(); });
 
   it('同じ事例は R2 から1回だけ読み、同じオブジェクトを返す', async () => {
     mocks.readR2Object.mockResolvedValue({ body: gzipSync(text) });

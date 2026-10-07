@@ -18,6 +18,8 @@ export function lightReader(reader: ReaderCase): ReaderCase {
     unknowns: reader.unknowns,
     analysis: headline ? [headline] : [],
     ...(summary ? { summaryFactId: summary.id } : {}),
+    // 一覧で使う編集文は1行だけ。章や答えは詳細にだけ付ける（一覧の容量を増やさない）
+    ...(reader.display?.listLine ? { display: { listLine: reader.display.listLine } } : {}),
     listForm: true,
   };
 }

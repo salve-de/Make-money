@@ -15,11 +15,13 @@ import { computeDossierContentHash, getDossierStoragePath, stringifyDeterministi
 import { deriveDiscoveryDataset } from '../src/features/discover';
 import { findTemplateViolations, MIN_REPEAT } from './architecture/template-prose-lib.mjs';
 import type { FinancialEntity } from '../src/shared/terminal';
-import { evaluateForRelease, preparePublicationReader } from './reader-case/publication-evaluation';
+import { evaluateForRelease, preparePublicationReader, withoutUnaudited } from './reader-case/publication-evaluation';
 import { loadPublicationInput, readPublicationAudits } from './reader-case/publication-inputs';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
 import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAnalysis } from './reader-case/case-reflect';
 import { rightsOptions } from './reader-case/load-readers';
+import { displayForEntity, DISPLAY_SOURCE_FILE_NAMES, type DisplaySourceFiles } from '../src/shared/reader-display';
+import { manifestObjectKey, type ReleasePointer } from '../src/shared/catalog-manifest';
 
 // 取り下げた旧表示（出典の無い数字や作文）は内部の監査記録。公開版には入れない
 function withoutWithdrawnSnapshot(entity: FinancialEntity): FinancialEntity {
@@ -34,7 +36,7 @@ async function main() {
 // --withdrawals: 除外してよい事例IDの明示一覧。計画の除外と完全に一致しない限り、目録は書き換えない（黙って巻き戻らない）
 const dryRun = process.argv.includes('--dry-run');
 const flagValue = (name: string) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined);
-const previous = JSON.parse(await readFile(flagValue('--previous') ?? 'data/catalog-release.json', 'utf8')) as { details: Record<string, string> };
+const previous = JSON.parse(await readFile(flagValue('--previous') ?? 'data/catalog-release.json', 'utf8')) as { details: Record<string, string>; coreDetails?: Record<string, string> };
 const withdrawalsPath = flagValue('--withdrawals');
 // --changed: 差分公開。この一覧の事例だけを受領書つきで評価し直す。いま公開中でこの一覧に無い事例は、受領書の再評価をせずに引き継ぐ。
 // ただし引き継いだ事例の中身（詳細の指紋）が公開中と1文字でも違えば止める（審査を経ない書き換えを出さない）
@@ -77,6 +79,7 @@ try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf
 // 反映段（case-reflect.ts）: 取り込み版の事例は、その中身と推論で置き換える。取り込み版が基準に通らなければ旧版も出さない
 const reflectState = readReflectState();
 analysisFile = withReflectedAnalysis(analysisFile, reflectState);
+const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8').catch(() => '[]')) as unknown]))) as unknown as DisplaySourceFiles;
 const withheld = { imported: 0, audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
 type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
@@ -88,7 +91,7 @@ const DISPLAY_REASON: Record<Display, string> = {
   HOLD_SCHEMA: '形式の検査を通らない',
   HOLD_THIN: 'データが少ない（事実2件以下で数字なし）。一次情報を探し直す',
   HOLD_RESOURCE: '出典に利用規約で商用の表示を禁じる紹介サイト（eBiz Facts）を含む。本人・公式の一次情報に付け替えるまで出さない',
-  HOLD_AUDIT: '今の入力全体に対する監査受領書が無い、または出典・画像・権利の再確認に通らない（文章が変わると古い受領書は無効）',
+  HOLD_AUDIT: '事例の監査記録が無い（身元が変わった・未監査）、または出典・画像・権利の再確認に通らない。文を直しただけなら、その項目だけが隠れて事例は外れない',
   CARRIED: '公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）',
   HOLD_QUEUE: '順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）',
 };
@@ -96,6 +99,10 @@ const DISPLAY_REASON: Record<Display, string> = {
 let finishedIds: Set<string> | null = null;
 try { finishedIds = new Set((await readFile('data/catalog-finished-ids.txt', 'utf8')).split('\n').map((x) => x.trim()).filter((x) => x && !x.startsWith('#'))); } catch { /* 無ければ全件が対象 */ }
 const caseStamps: Record<string, { display: Display; reason: string }> = {};
+// 事例は出すが、未監査のため隠した項目（'analysis:<id>' / 'fact:<id>' / 'metric:<id>'）
+const hiddenItems: Record<string, string[]> = {};
+// 言い回しだけの直しとして、機械の照合で監査済みのまま出す項目（数字・年月日・固有名が増えていない）
+const paraphrasedItems: Record<string, string[]> = {};
 const stamp = (id: string, display: Display, reason = DISPLAY_REASON[display]) => { caseStamps[id] = { display, reason }; };
 const totals = { facts: 0, metrics: 0, processDropped: 0, unbound: 0 };
 // 画面に出す事例の必須項目の空欄（事実でも推論でも埋まっていない数）。終点は空欄率5%未満
@@ -126,7 +133,14 @@ for (const entity of publishable) {
     const prepared = preparePublicationReader(result.reader, verdicts[entity.id], analysisFile[entity.id]);
     const input = await loadPublicationInput(entity, prepared.reader, verdicts[entity.id]);
     const evaluated = evaluateForRelease(input, audited[entity.id], prepared.problems);
-    if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', evaluated.reasons.join(' / ')); continue; }
+    // 未監査の項目を隠した結果として薄くなった時も、どの項目を隠したかを理由に残す（差分監査を流せば戻る）
+    if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', [...evaluated.reasons, ...evaluated.unaudited.map((k) => `未監査で隠した:${k}`)].join(' / ')); continue; }
+    // 監査の後に中身が変わった項目（未監査）は、その項目だけを画面から隠す。差分監査（run-diff-audit.sh）を通ると戻る
+    if (evaluated.paraphrased.length) paraphrasedItems[entity.id] = evaluated.paraphrased;
+    if (evaluated.unaudited.length) {
+      verified.reader = withoutUnaudited(verified.reader, evaluated.unaudited);
+      hiddenItems[entity.id] = evaluated.unaudited;
+    }
   }
   stamp(entity.id, carried(entity.id) ? 'CARRIED' : 'SHOW');
   const missing = missingRequired(verified.reader);
@@ -135,7 +149,9 @@ for (const entity of publishable) {
   for (const m of missing) blanks.byItem[m] = (blanks.byItem[m] ?? 0) + 1;
   totals.facts += verified.reader.facts.length;
   totals.metrics += verified.reader.metrics.length;
-  entities.push({ ...entity, reader: verified.reader });
+  // 画面用の編集文（正本は data/list-lines.json など5つ）は、事例の事実と同じ版に入れて運ぶ（ビルドには同梱しない）
+  const display = displayForEntity(displaySources, entity.id);
+  entities.push({ ...entity, reader: display ? { ...verified.reader, display } : verified.reader });
 }
 const sourcelessExcluded = publishable.length - entities.length;
 if (process.env.READER_REPORT_DIR && !dryRun) {
@@ -162,10 +178,17 @@ async function artifact(value: unknown, key?: string) {
   return { hash, key: storageKey };
 }
 const details: Record<string, string> = {};
+// 画面用の編集文（reader.display）を除いた中身の指紋。引き継ぐ事例が「審査を経ない書き換え」をされていないかは、編集文を除いて比べる
+// （編集文は出典と照合する別の検査 display:build を通す。事実・推論・数字が変わった時だけ、受領書の再評価が要る）
+const coreDetails: Record<string, string> = {};
 const carriedDrift: string[] = [];
 for (const entity of entities) {
   const hash = computeDossierContentHash(entity);
-  if (carried(entity.id) && previous.details[entity.id] !== hash) carriedDrift.push(entity.id);
+  const { display: _display, ...coreReader } = entity.reader ?? ({} as NonNullable<FinancialEntity['reader']>);
+  void _display;
+  const coreHash = entity.reader?.display ? computeDossierContentHash({ ...entity, reader: coreReader as NonNullable<FinancialEntity['reader']> }) : hash;
+  coreDetails[entity.id] = coreHash;
+  if (carried(entity.id) && (previous.coreDetails?.[entity.id] ?? previous.details[entity.id]) !== coreHash) carriedDrift.push(entity.id);
   await artifact(entity, getDossierStoragePath(entity.id, hash));
   details[entity.id] = hash;
 }
@@ -175,21 +198,31 @@ if (parseFinancialEntitiesResiliently(summaryRows).invalidEntities.length) throw
 const summaries = await artifact(summaryRows);
 const discovery = await artifact(deriveDiscoveryDataset(entities.map(publicEntity)));
 const manifest = { version: 1, sourceHash, sourceCount: parsed.validEntities.length, publishedCount: entities.length,
-  summaries, discovery, details, approvalCandidateIds: [...collectApprovalCandidateIds(raw)].sort() };
+  summaries, discovery, details, coreDetails, approvalCandidateIds: [...collectApprovalCandidateIds(raw)].sort() };
 const manifestText = `${JSON.stringify(manifest, null, 2)}\n`;
+// 版の目録そのものも、指紋で名前が決まる成果物として置く。本番は「目印」が指す目録を実行時に読む（ビルドし直さなくても版が進む）。
+const manifestJson = stringifyDeterministic(manifest);
+const manifestHash = createHash('sha256').update(manifestJson).digest('hex');
+const manifestFile = `${directory}/${manifestHash}.json.gz`;
+if (!checkOnly && !dryRun) await writeFile(manifestFile, gzipSync(manifestJson));
+objects.push({ key: manifestObjectKey(manifestHash), file: manifestFile });
+const localPointer: ReleasePointer = { version: 1, manifestHash, manifestKey: manifestObjectKey(manifestHash), publishedCount: entities.length, updatedAt: new Date().toISOString(), previous: null };
 const plan = planRelease(previous, manifest);
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, caseStamps }));
+  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, hiddenItems, paraphrasedItems, caseStamps }));
   return;
 }
 if (checkOnly || artifactsOnly) {
   if (await readFile('data/catalog-release.json', 'utf8') !== manifestText) throw new Error('Catalog release is stale; run pnpm catalog:prepare and publish before deployment');
+  // 手元の画面（開発サーバ・自動テスト）が、同梱の版と食い違わずに今の版を読めるよう、手元の目印を書く
+  if (artifactsOnly) await writeFile(`${directory}/current.json`, `${JSON.stringify(localPointer, null, 2)}\n`);
 } else {
+  await writeFile(`${directory}/current.json`, `${JSON.stringify(localPointer, null, 2)}\n`);
   await writeFile('data/catalog-release.json', manifestText);
   await writeFile('data/case-display.json', `${JSON.stringify(Object.fromEntries(Object.entries(caseStamps).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`);
   await writeFile(`${directory}/upload.json`, JSON.stringify(objects));
 }
-console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, totals,
+console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, hiddenItems, paraphrasedItems, totals,
   blankRate: blanks.cells ? Number((blanks.empty / blanks.cells).toFixed(4)) : null, blanks, objects: objects.length }));
 }
 void main().catch((error) => { console.error(error); process.exitCode = 1; });

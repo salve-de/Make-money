@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
+import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderDisplay, ReaderFact, ReaderMetric } from '@/shared/reader-case';
 import { detailLineFor } from '@/shared/detail-lines';
 import { isAbsenceOnly, stripAbsence } from '@/shared/absence-text';
 import { successPointsFor } from '@/shared/success-points';
@@ -141,16 +141,16 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
 }
 
 /** 概要。最初の1文を最上部に大きく、続きは畳まずそのまま下に出す。 */
-export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | null | undefined; entityId?: string; lead?: boolean }) {
+export function WhatIs({ fact, display, lead = true }: { fact: ReaderFact | null | undefined; display?: ReaderDisplay; lead?: boolean }) {
   if (!fact) return null;
   const text = screenText(stripAbsence(plainFactText(fact.text)));
   const end = text.indexOf('。');
   // 一覧と同じ「短い1行」があればそれを大きく出し、元の要約は全文を下に続ける
-  const short = entityId ? listLineFor(entityId, fact) : null;
+  const short = listLineFor(display, fact);
   const first = short ?? (end >= 0 ? text.slice(0, end + 1) : text);
   if (!first) return null;
   // 短い1行と要約の1文目は同じことを言うので、続きは2文目から（同じ話を2度出さない）
-  const rest = (entityId ? summaryRestFor(entityId, fact) : null) ?? (end >= 0 ? text.slice(end + 1).trim() : '');
+  const rest = summaryRestFor(display, fact) ?? (end >= 0 ? text.slice(end + 1).trim() : '');
   return (
     <div data-fact={fact.id} className="px-2.5 pb-3 pt-3 sm:px-3">
       <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
@@ -186,11 +186,12 @@ function StoryProse({ text, edited }: { text: string; edited: { answer: string; 
 }
 
 /** 物語を4段の流れで。各段の名前は原文の語のまま（推論の本文の一部）。 */
-export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?: string }) {
+export function StorySteps({ reader }: { reader: ReaderCase }) {
+  const display = reader.display;
   const story = byItem(reader, 'STORY');
   if (!story) return null;
   const steps = splitStory(story.text);
-  const edited = detailLineFor(entityId, story);
+  const edited = detailLineFor(display, story);
   // 4段でない物語は、編集文で消した時と、出す文が「分からない」だけの時は欄ごと出さない（空の欄を残さない）
   if (!steps && (edited?.hidden || isAbsenceOnly(edited?.answer ?? plainAnalysisText(story.text)))) return null;
   return (
@@ -236,9 +237,9 @@ function splitTimeline(text: string): Array<{ when: string; what: string }> | nu
 }
 
 /** 項目の中身。編集済みの「答え＋補足」があればそれを、無ければ最初の1文を答えとして濃く、続きを薄く小さく出す。年表は行に分ける。 */
-function AnswerText({ analysis, entityId }: { analysis: ReaderAnalysis; entityId?: string }) {
+function AnswerText({ analysis, display }: { analysis: ReaderAnalysis; display?: ReaderDisplay }) {
   const text = plainAnalysisText(analysis.text);
-  const edited = detailLineFor(entityId, analysis);
+  const edited = detailLineFor(display, analysis);
   const line = analysis.item === 'TIMELINE' ? edited?.answer ?? text : stripAbsence(edited?.answer ?? text);
   if (line === '') return null;
   const timeline = analysis.item === 'TIMELINE' ? splitTimeline(line) : null;
@@ -387,8 +388,8 @@ function SourceList({ sources }: { sources: ReadonlyArray<{ url: string; no: num
 }
 
 /** 事例ごとの追加の章。材料のある章だけを、決まった並びで全部開いたまま出す。 */
-export function CaseChapters({ entityId, facts }: { entityId?: string; facts: ReadonlyArray<{ id: string; text: string }> }) {
-  const chapters = caseChaptersFor(entityId, facts);
+export function CaseChapters({ display, facts }: { display?: ReaderDisplay; facts: ReadonlyArray<{ id: string; text: string }> }) {
+  const chapters = caseChaptersFor(display, facts);
   if (chapters.length === 0) return null;
   const { introduced, noOf } = numberSourcesAcross(chapters);
   return (
@@ -410,17 +411,18 @@ export function CaseChapters({ entityId, facts }: { entityId?: string; facts: Re
 export const GROUP_IDS = ['section-group-secret', 'section-group-customers', 'section-story', 'section-group-first', 'section-group-money', 'section-group-edge', 'section-group-now'] as const;
 
 /** まとまりごとに「項目名（細く）｜中身（主役）」の2列。全部開いたまま並べる（読む人に開かせない）。推測は点線の左罫。 */
-export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase; usage: OverviewUsage; entityId?: string }) {
+export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: OverviewUsage }) {
+  const display = reader.display;
   return (
     <>
       {ANALYSIS_GROUPS.map(({ title, items: allItems, story }, index) => {
-        if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
-        const hasChapter = (id: ChapterId) => caseChaptersFor(entityId, reader.facts).some((chapter) => chapter.id === id);
+        if (story) return <StorySteps key={title} reader={reader} />;
+        const hasChapter = (id: ChapterId) => caseChaptersFor(display, reader.facts).some((chapter) => chapter.id === id);
         // 章が同じ話をしている欄は、重ねて出さない（年表→時間順の流れ、方向転換→つまずきと立て直し（失敗の理由の欄は残す））。
         const items = allItems.filter((item) => !((item === 'TIMELINE' && hasChapter('timeline')) || (item === 'PIVOTS' && hasChapter('turning')) || (item === 'CAPITAL_AND_TEAM' && hasChapter('start'))));
-        const secrets = title === UI.GROUP_SECRET ? successPointsFor(entityId, reader.facts) : [];
-        if (title === UI.GROUP_SECRET && secrets.length === 0 && caseChaptersFor(entityId, reader.facts).length > 0) {
-          return <CaseChapters key={title} entityId={entityId} facts={reader.facts} />;
+        const secrets = title === UI.GROUP_SECRET ? successPointsFor(display, reader.facts) : [];
+        if (title === UI.GROUP_SECRET && secrets.length === 0 && caseChaptersFor(display, reader.facts).length > 0) {
+          return <CaseChapters key={title} display={display} facts={reader.facts} />;
         }
         if (secrets.length > 0) {
           return (
@@ -438,11 +440,11 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
                 ))}
               </ol>
             </Fold>
-            <CaseChapters entityId={entityId} facts={reader.facts} />
+            <CaseChapters display={display} facts={reader.facts} />
             </React.Fragment>
           );
         }
-        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && !detailLineFor(entityId, a)?.hidden && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)))));
+        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && !detailLineFor(display, a)?.hidden && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(display, a)?.answer ?? plainAnalysisText(a.text)))));
         if (rows.length === 0) return null;
         return (
           <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>
@@ -453,7 +455,7 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
                     <span>{ANALYSIS_LABELS[a.item]}</span>
                     <InferenceMark analysis={a} />
                   </dt>
-                  <AnswerText analysis={a} entityId={entityId} />
+                  <AnswerText analysis={a} display={display} />
                 </div>
               ))}
             </dl>

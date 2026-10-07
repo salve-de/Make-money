@@ -11,6 +11,7 @@ import { pickEntityLogo } from '@/shared/media-display';
 import { useEntityMedia } from '../../hooks/useEntityMedia';
 import { EntityLogo } from './EntityLogo';
 import { UI, uiFormat } from '@/shared/ui-strings';
+import { buildGridItems, generationHeading } from './generation';
 import { ListDescription, ListMetricCell, listColumnsOf } from './ReaderListCells';
 
 const PAGE_SIZE = 250;
@@ -66,6 +67,8 @@ interface InstitutionalDataGridProps {
   isSplitView?: boolean;
   onLoadMore?: () => void;
   hasMore?: boolean;
+  /** 世代ごとの全体の件数。読み込み途中でも見出しに全体の件数を出す（全件が届いた後は使わない） */
+  generationTotals?: Readonly<Record<number, number>>;
   isLoadingMore?: boolean;
   retryAvailable?: boolean;
   onRetry?: () => void;
@@ -87,6 +90,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   isSplitView = false,
   onLoadMore,
   hasMore = false,
+  generationTotals,
   isLoadingMore = false,
   retryAvailable = false,
   onRetry,
@@ -107,9 +111,12 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   }
 
   // 1000件スケール耐性: 初期250件から段階的にDOM展開するプログレッシブ・ウィンドウイング
-  const visibleEntities = useMemo(() => {
-    return entities.slice(0, visibleCount);
-  }, [entities, visibleCount]);
+  // 世代ごとに区切る（新しい世代が上）。絞り込み・検索で並びが変わっても、区切りは保つ
+  const gridItems = useMemo(() => buildGridItems(entities, visibleCount, generationTotals), [entities, visibleCount, generationTotals]);
+  const visibleEntities = useMemo(
+    () => gridItems.flatMap((item) => (item.kind === 'row' ? [item.entity] : [])),
+    [gridItems],
+  );
 
   // 公式ロゴ（許可済みのものだけ）。表示中の行の分をまとめて取得し、無い行は何も出さない。
   const visibleEntityIds = useMemo(() => visibleEntities.map((entity) => entity.id), [visibleEntities]);
@@ -143,18 +150,26 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     <div ref={scrollContainerRef} className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-term-bg pb-16 lg:pb-0">
       {/* スマホ・タブレット一覧 */}
       <div data-variant="mobile" className="lg:hidden">
-        {visibleEntities.map((entity, index) => (
+        {gridItems.map((item) => item.kind === 'heading' ? (
+          <h2
+            key={`generation-${item.generation}`}
+            data-testid="generation-heading"
+            className="border-b border-term-line bg-term-head px-3 py-1.5 text-xs font-semibold text-term-label"
+          >
+            {generationHeading(item.generation, item.count)}
+          </h2>
+        ) : (
           <MobileFeedCard
-            key={entity.id}
-            entity={entity}
-            logo={pickEntityLogo(logos[entity.id])}
-            isSelected={(mobileSelectedEntityId === undefined ? selectedEntityId : mobileSelectedEntityId) === entity.id}
-            onSelect={() => onSelectEntity(entity.id)}
+            key={item.entity.id}
+            entity={item.entity}
+            logo={pickEntityLogo(logos[item.entity.id])}
+            isSelected={(mobileSelectedEntityId === undefined ? selectedEntityId : mobileSelectedEntityId) === item.entity.id}
+            onSelect={() => onSelectEntity(item.entity.id)}
             currency={currency}
-            isBookmarked={bookmarkedIds.has(entity.id)}
-            onToggleBookmark={(e) => onToggleBookmark(entity.id, e)}
-            zebra={index % 2 === 1}
-            isVerified={verifiedIds.has(entity.id)}
+            isBookmarked={bookmarkedIds.has(item.entity.id)}
+            onToggleBookmark={(e) => onToggleBookmark(item.entity.id, e)}
+            zebra={item.index % 2 === 1}
+            isVerified={verifiedIds.has(item.entity.id)}
           />
         ))}
         {entities.length === 0 && !suppressEmpty && (
@@ -184,7 +199,19 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               <th className="px-1"><span className="sr-only">{UI.SAVE}</span></th>
             </tr>
           </thead>
-            {visibleEntities.map((entity) => {
+            {gridItems.map((item) => {
+              if (item.kind === 'heading') {
+                return (
+                  <tbody key={`generation-${item.generation}`} data-testid="generation-heading">
+                    <tr className="border-b border-term-line bg-term-head">
+                      <th colSpan={isSplitView ? 3 : 5} scope="colgroup" className="px-2 py-1 text-left text-xs font-semibold text-term-label">
+                        {generationHeading(item.generation, item.count)}
+                      </th>
+                    </tr>
+                  </tbody>
+                );
+              }
+              const entity = item.entity;
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
               const { revenue, scale, profit } = listColumnsOf(entity.reader);
@@ -257,7 +284,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   </tr>
                   <tr className="border-b border-term-line">
                     <td colSpan={isSplitView ? 3 : 5} className={`overflow-hidden border-l-2 px-2 pb-2 pl-[32px] ${isSelected ? 'border-term-accent' : 'border-transparent'}`}>
-                      <ListDescription entityId={entity.id} reader={entity.reader} className="mt-0.5 block truncate text-xs text-term-sub" />
+                      <ListDescription reader={entity.reader} className="mt-0.5 block truncate text-xs text-term-sub" />
                     </td>
                   </tr>
                 </tbody>

@@ -306,6 +306,8 @@ export function publicSummaryEntity(source: FinancialEntity): PublicSummaryEntit
     country: entity.country,
     url: entity.url,
     verifiedBadge: entity.verifiedBadge,
+    // 第1世代は書かない（既存の公開物を変えない）。2以上の時だけ付ける
+    ...(entity.generation && entity.generation > 1 ? { generation: entity.generation } : {}),
     pnl: {
       monthlyRevenue: isRevUnconfirmed ? 0 : (entity.pnl?.monthlyRevenue ?? 0),
       cogs: entity.pnl?.isCogsUnconfirmed ? 0 : (entity.pnl?.cogs ?? 0),

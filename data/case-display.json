@@ -1976,8 +1976,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_codementor_ba692caa3db3": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_codewithandrea_bf431dda2cc1": {
   "display": "HOLD_QUEUE",
@@ -5948,8 +5948,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_ejunkie_7e9e46bd9643": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_elevaaura_fabc0d7439db": {
   "display": "HOLD_QUEUE",
@@ -6816,8 +6816,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_gorails_640d8f688451": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_goremotejob_1445b352d934": {
   "display": "HOLD_QUEUE",
@@ -7080,8 +7080,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_heygen_8f11a1": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_hicelestia_c4359ec103b0": {
   "display": "HOLD_QUEUE",
@@ -8824,8 +8824,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_myoperator_49c393230a2d": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_mypresences_b8d357831e84": {
   "display": "HOLD_QUEUE",
@@ -9880,8 +9880,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_practicebetter_1118ba": {
   "display": "HOLD_UNVERIFIED",
@@ -10348,8 +10348,8 @@
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
  "ent_referralrock_8c13d5ee4cfc": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_reform_303a4c": {
   "display": "HOLD_QUEUE",
@@ -10440,8 +10440,8 @@
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
  "ent_requestly_28e9f2": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_rescuetime_af20ec": {
   "display": "HOLD_UNVERIFIED",
@@ -10524,8 +10524,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_rfrcui_64e924ac": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_ridge_7e": {
   "display": "HOLD_QUEUE",
@@ -11924,8 +11924,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_teamcamp_ae0c21986c4d": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_teamsly_f632bc0d6ec7": {
   "display": "HOLD_QUEUE",

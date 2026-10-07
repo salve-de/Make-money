@@ -1,14 +1,9 @@
-import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
-import { gunzipSync } from 'node:zlib';
-import manifest from '../../../data/catalog-release.json';
-import { getFoundationBucketAsync, readR2Object } from '@/lib/storage/r2';
+import { getCatalogManifest, getCatalogMembership, getResolvedManifest } from './release-manifest';
+import { CatalogUnavailableError, decodeCatalogArtifact, readStoredArtifact } from './release-store';
 import { getDossierStoragePath } from '@/lib/foundation/dossier-projection';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { isPublishableEntity } from './public-entity';
 import { toPatternCase, type PatternCase, type PatternSourceCase } from './case-patterns';
-import { canonicalCatalogId, catalogDetailHash, filterToCatalog } from '@/shared/catalog-membership';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { DiscoveryDataset } from '@/features/discover';
 
@@ -57,59 +52,30 @@ export function parseDiscoveryRelease(value: unknown): DiscoveryDataset {
   return value as unknown as DiscoveryDataset;
 }
 
-let discovery: Promise<DiscoveryDataset> | undefined;
+// 版（manifest）は実行時に目印から決まる。要約・探索・傾向は、版の指紋ごとに isolate 内で1回だけ読む（古い版は捨てる）。
+// 失敗は覚えない。
+export { CatalogUnavailableError, decodeCatalogArtifact };
+
+/** 指紋ごとに1回だけ読む入れ物。指紋が変わったら（版が進んだら）読み直す。失敗は覚えない。 */
+class Slot<T> {
+  private entry: { key: string; value: Promise<T> } | undefined;
+  get(key: string, load: () => Promise<T>): Promise<T> {
+    if (this.entry?.key === key) return this.entry.value;
+    const entry = { key, value: load() };
+    this.entry = entry;
+    entry.value.catch(() => { if (this.entry === entry) this.entry = undefined; });
+    return entry.value;
+  }
+  clear(): void { this.entry = undefined; }
+}
+
+const discovery = new Slot<DiscoveryDataset>();
 export async function readReleaseDiscovery(): Promise<DiscoveryDataset> {
-  if (!discovery) {
-    discovery = readArtifact(manifest.discovery.key, manifest.discovery.hash)
-      .then(parseDiscoveryRelease)
-      .catch((error) => { discovery = undefined; throw error; });
-  }
-  return discovery;
+  const manifest = await getCatalogManifest();
+  return discovery.get(manifest.discovery.hash, async () => parseDiscoveryRelease(await readStoredArtifact(manifest.discovery.key, manifest.discovery.hash)));
 }
 
-export function decodeCatalogArtifact(bytes: Uint8Array, expectedHash: string): unknown {
-  const json = gunzipSync(bytes, { maxOutputLength: 24 * 1024 * 1024 });
-  if (createHash('sha256').update(json).digest('hex') !== expectedHash) throw new Error('Catalog artifact hash mismatch');
-  return JSON.parse(json.toString('utf8')) as unknown;
-}
-
-/** 公開目録の中身（要約・詳細）を読めない時の失敗。画面は「目録を読み込めません」と出し、見本データや全件索引には落とさない。 */
-export class CatalogUnavailableError extends Error {
-  constructor(message: string, options?: { cause?: unknown }) {
-    super(message, options);
-    this.name = 'CatalogUnavailableError';
-  }
-}
-
-function runsInWorkers(): boolean {
-  return typeof navigator !== 'undefined' && navigator.userAgent === 'Cloudflare-Workers';
-}
-
-/** 手元の公開版（`pnpm catalog:prepare` が作る .catalog-release/）から読む。Workers では読まない。 */
-async function readLocalArtifact(hash: string): Promise<unknown | null> {
-  if (runsInWorkers()) return null;
-  const directory = process.env.CATALOG_RELEASE_DIR?.trim() || resolve(process.cwd(), '.catalog-release');
-  try {
-    return decodeCatalogArtifact(await readFile(resolve(directory, `${hash}.json.gz`)), hash);
-  } catch {
-    return null;
-  }
-}
-
-async function readArtifact(key: string, hash: string): Promise<unknown> {
-  if (!key || !/^[a-f0-9]{64}$/.test(hash)) throw new CatalogUnavailableError('Catalog release has not been prepared');
-  const local = await readLocalArtifact(hash);
-  if (local !== null) return local;
-  try {
-    const object = await readR2Object(await getFoundationBucketAsync('lake'), key);
-    if (!object) throw new Error('Catalog release object is missing');
-    return decodeCatalogArtifact(object.body, hash);
-  } catch (error) {
-    throw new CatalogUnavailableError('Catalog release is unavailable', { cause: error });
-  }
-}
-
-let summaries: Promise<FinancialEntity[]> | undefined;
+const summaries = new Slot<FinancialEntity[]>();
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -164,13 +130,11 @@ export function parseCatalogSummaryRows(value: unknown, expectedCount: number): 
 }
 
 export async function readReleaseSummaries(): Promise<FinancialEntity[]> {
-  if (!summaries) {
-    summaries = readArtifact(manifest.summaries.key, manifest.summaries.hash).then((value) => {
-      const result = parseCatalogSummaryRows(value, manifest.publishedCount);
-      return filterToCatalog(result);
-    }).catch((error) => { summaries = undefined; throw error; });
-  }
-  return summaries;
+  const { manifest, membership } = await getResolvedManifest();
+  return summaries.get(manifest.summaries.hash, async () => {
+    const value = await readStoredArtifact(manifest.summaries.key, manifest.summaries.hash);
+    return membership.filterToCatalog(parseCatalogSummaryRows(value, manifest.publishedCount));
+  });
 }
 
 // 公開版の詳細はハッシュで中身が決まる（不変）。同じ isolate では1事例につき1回だけ読み、展開・検査する。
@@ -180,8 +144,9 @@ const RELEASE_ENTITY_CACHE_LIMIT = 128;
 const releaseEntities = new Map<string, Promise<FinancialEntity>>();
 
 export async function findReleaseEntity(id: string): Promise<FinancialEntity | null> {
-  const canonicalId = canonicalCatalogId(id);
-  const hash = catalogDetailHash(id);
+  const membership = await getCatalogMembership();
+  const canonicalId = membership.canonicalCatalogId(id);
+  const hash = membership.catalogDetailHash(id);
   if (!canonicalId || !hash) return null;
   const cacheKey = `${canonicalId}:${hash}`;
   let pending = releaseEntities.get(cacheKey);
@@ -190,7 +155,7 @@ export async function findReleaseEntity(id: string): Promise<FinancialEntity | n
     releaseEntities.delete(cacheKey);
     releaseEntities.set(cacheKey, pending);
   } else {
-    pending = readArtifact(getDossierStoragePath(canonicalId, hash), hash).then((value) => {
+    pending = readStoredArtifact(getDossierStoragePath(canonicalId, hash), hash).then((value) => {
       const parsed = parseFinancialEntitiesResiliently([value]);
       const entity = parsed.validEntities[0];
       if (!entity || entity.id !== canonicalId || !isPublishableEntity(entity)) throw new Error('Invalid catalog dossier');
@@ -206,30 +171,34 @@ export async function findReleaseEntity(id: string): Promise<FinancialEntity | n
   return pending;
 }
 
-/** テスト用: 詳細の isolate 内キャッシュを空にする。 */
+/** テスト用: 詳細・要約・探索・傾向の isolate 内キャッシュを空にする。 */
 export function clearReleaseEntityCacheForTest(): void {
   releaseEntities.clear();
+  discovery.clear();
+  summaries.clear();
+  patternCases.clear();
 }
 
-export function releaseApprovalCandidateIds(): Set<string> {
-  return new Set(manifest.approvalCandidateIds);
+export async function releaseApprovalCandidateIds(): Promise<Set<string>> {
+  return new Set((await getCatalogManifest()).approvalCandidateIds);
 }
 
 // 傾向画面用。公開目録の全事例の詳細（reader だけ）を読み、軽い形にして isolate 内に覚える。
 // 詳細は不変（ハッシュで決まる）なので、同じ版の間は1回だけ読む。失敗は覚えない。
-let patternCases: Promise<PatternCase[]> | undefined;
+const patternCases = new Slot<PatternCase[]>();
 
 export async function readReleasePatternCases(): Promise<PatternCase[]> {
-  if (!patternCases) {
-    patternCases = (async () => {
+  const { manifest, membership, manifestHash } = await getResolvedManifest();
+  // 詳細だけが変わった版でも作り直すよう、要約ではなく目録全体の指紋で覚える
+  return patternCases.get(manifestHash ?? `bundled:${manifest.summaries.hash}`, async () => {
       const rows = await readReleaseSummaries();
       const out: PatternCase[] = [];
       const queue = [...rows];
       const worker = async () => {
         for (let row = queue.shift(); row; row = queue.shift()) {
-          const hash = catalogDetailHash(row.id);
+          const hash = membership.catalogDetailHash(row.id);
           if (!hash) throw new CatalogUnavailableError('Catalog detail hash is missing');
-          const detail = await readArtifact(getDossierStoragePath(row.id, hash), hash);
+          const detail = await readStoredArtifact(getDossierStoragePath(row.id, hash), hash);
           if (!isRecord(detail) || detail.id !== row.id) throw new CatalogUnavailableError('Invalid catalog dossier');
           out.push(toPatternCase({
             id: row.id,
@@ -242,7 +211,5 @@ export async function readReleasePatternCases(): Promise<PatternCase[]> {
       };
       await Promise.all(Array.from({ length: 8 }, worker));
       return out.sort((a, b) => a.id.localeCompare(b.id));
-    })().catch((error) => { patternCases = undefined; throw error; });
-  }
-  return patternCases;
+  });
 }

@@ -3,13 +3,17 @@ import points from '../../data/success-points.json';
 import { isAbsenceOnly } from './absence-text';
 import { successPointsFor } from './success-points';
 import { textFingerprint } from './list-lines';
+import { displayForEntity, type DisplaySourceFiles } from './reader-display';
+
+const only = (name: keyof DisplaySourceFiles, rows: unknown): DisplaySourceFiles => ({ 'list-lines': [], 'summary-lines': [], 'detail-lines': [], 'success-points': [], 'case-chapters': [], [name]: rows }) as DisplaySourceFiles;
+const displayOf = (entityId: string) => displayForEntity(only('success-points', points), entityId);
 
 describe('success-points', () => {
   it('根拠の事実の文が変わったら、その1組は出さない', () => {
     const entry = (points as Array<{ entityId: string; points: Array<{ factId: string; factHash: string; head: string }> }>)[0];
     const first = entry.points[0];
-    expect(successPointsFor(entry.entityId, [{ id: first.factId, text: '別の文' }])).toEqual([]);
-    expect(successPointsFor('ent_none', [])).toEqual([]);
+    expect(successPointsFor(displayOf(entry.entityId), [{ id: first.factId, text: '別の文' }])).toEqual([]);
+    expect(successPointsFor(displayOf('ent_none'), [])).toEqual([]);
   });
   it('見出しは1行、根拠の文があり、「分からない」だけの文は無い', () => {
     for (const entry of points as Array<{ points: Array<{ head: string; body: string; factHash: string }> }>) {
