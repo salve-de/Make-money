@@ -101,6 +101,7 @@
 
 - 画面の層の文は、元の事実の指紋（`factHash` / `textHash`）に結ばれています。元の事実が変わると、古い文は出なくなります。元を直したら画面の層も作り直します。
 - 画面に出さない言葉（作る側の用語）は `data/reader-language.json` にあり、`pnpm case-text:verify` が見つけます。
+- **日本語の自然さの関門**: 話し言葉・業界用語・説明のない略語（「非公開版で回した」など）は `data/natural-japanese.json`、文法の誤りは textlint（`.textlintrc.json`）、料金の欄の意味の通らないプラン名や返金などの付帯条件も、同じ `pnpm case-text:verify` が言い換えの候補つきで落とします。落ちた行は手で直さず、`pnpm display:build --repair-only` が行の位置・出典・印を保ったまま言い回しだけを直します（基準は `docs/CASE_TEXT_STANDARD.md`）。
 
 ## 7. 人の許可が要る所
 
