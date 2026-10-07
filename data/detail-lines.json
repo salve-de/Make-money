@@ -96,7 +96,7 @@
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-competition",
     "textHash": "cbb722de",
-    "answer": "競合はGumroad。売るたびに手数料を取るGumroadに対し、E-junkieは月額固定",
+    "answer": "競合の商品販売サービスGumroadは販売ごとに手数料を取るが、このサービスE-junkieは月額固定。",
     "note": "Gumroadの直販は1件ごとに10%＋0.50ドル（約75円）（2025年1月・公式）。E-junkieは取引手数料なし。"
   },
   {
@@ -104,7 +104,7 @@
     "analysisId": "a-dependencies",
     "textHash": "5a32e0bf",
     "answer": "売り手の決済は、PayPalやStripeなど外部の決済会社に頼る",
-    "note": "取引の記録は決済会社の報告の写しで、お金の確認は決済会社の記録で行う。"
+    "note": "E-junkieの取引記録は、決済会社から届く報告を写したもの。お金の確認には、決済会社の記録を使う。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
