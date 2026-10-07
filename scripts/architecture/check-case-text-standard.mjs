@@ -123,7 +123,7 @@ for (const entry of coverage.cases) {
     const line = detailByKey.get(`${entry.entityId}\u0000${row.analysisId}`);
     const edited = line && line.textHash === row.textHash;
     if (edited) continue;
-    if (row.absence && row.item !== 'TIMELINE') continue; // 「分からない」だけの原文は画面が自動で落とす
+    if (row.absence && row.item !== 'TIMELINE') continue; // 「分からない」だけの原文は、画面が欄ごと落とす（物語の欄も StorySteps が出さない）
     problems.push(`${where(row)}: 編集文（data/detail-lines.json）が無いか、今の文の指紋 ${row.textHash} と合わず、推論の原文のまま画面に出る「${row.text.slice(0, 30)}…」`);
   }
 }

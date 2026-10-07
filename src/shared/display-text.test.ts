@@ -224,6 +224,11 @@ describe('withYenApprox', () => {
     expect(withYenApprox('年$1.2M')).toBe('年$1.2M（約1.8億円）');
     expect(withYenApprox('月49 USD・€20・£10・₹1,000')).toBe('月49 USD（約7,350円）・€20（約3,300円）・£10（約1,950円）・₹1,000（約1,750円）');
   });
+  it('範囲は両端を換算する', () => {
+    expect(withYenApprox('月額29〜99ドル')).toBe('月額29〜99ドル（約4,350円〜1万4,850円）');
+    expect(withYenApprox('$29〜$99')).toBe('$29〜$99（約4,350円〜1万4,850円）');
+    expect(withYenApprox('1〜2万ドル')).toBe('1〜2万ドル（約150万円〜300万円）');
+  });
   it('円の無い括弧の補足が続く時は、その括弧の頭に入れる', () => {
     expect(withYenApprox('月8ドル（商品10点・保存200MB）')).toBe('月8ドル（約1,200円、商品10点・保存200MB）');
   });

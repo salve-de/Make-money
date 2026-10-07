@@ -189,7 +189,9 @@ export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?
   const story = byItem(reader, 'STORY');
   if (!story) return null;
   const steps = splitStory(story.text);
-  if (!steps && detailLineFor(entityId, story)?.hidden) return null;
+  const edited = detailLineFor(entityId, story);
+  // 4段でない物語は、編集文で消した時と、出す文が「分からない」だけの時は欄ごと出さない（空の欄を残さない）
+  if (!steps && (edited?.hidden || isAbsenceOnly(edited?.answer ?? plainAnalysisText(story.text)))) return null;
   return (
     <Fold id="section-story" title={UI.GROUP_ORIGIN} defaultOpen mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
       {steps ? (
@@ -205,7 +207,7 @@ export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?
           ))}
         </ol>
       ) : (
-        <StoryProse text={plainAnalysisText(story.text)} edited={detailLineFor(entityId, story)} />
+        <StoryProse text={plainAnalysisText(story.text)} edited={edited} />
       )}
     </Fold>
   );

@@ -680,10 +680,14 @@ export function plainFactText(text: string): string {
  * すぐ後ろに円の額がある金額には足さない（二重にしない）。すぐ後ろに円の無い括弧の補足があれば、その括弧の頭に入れる。保存データは変えない。
  */
 const CURRENCY_YEN: Array<[RegExp, number]> = [[/^(?:ドル|US\$|\$|USD)$/, 150], [/^(?:ユーロ|€|EUR)$/, 165], [/^(?:ポンド|£|GBP)$/, 195], [/^(?:ルピー|₹|INR)$/, 1.75]];
-const NUM = '([0-9][0-9,]*(?:\\.[0-9]+)?)';
+const NUM = '[0-9][0-9,]*(?:\\.[0-9]+)?';
+const RANGE = '\\s?[〜~～\\-–—]\\s?';
+const PRE_CUR = '(?:US\\$|\\$|€|£|₹|(?:USD|EUR|GBP|INR)\\s?)';
+const PRE_SCALE = '(?:億|万|[kK](?![A-Za-z])|M(?![A-Za-z])|B(?![A-Za-z]))';
+// 範囲（「$10–$50」「$10-50」「29〜99ドル」）は両端をまとめて1つの金額として拾い、円も範囲で添える
 const FOREIGN_AMOUNT = new RegExp(
-  `(US\\$|\\$|€|£|₹|(?:USD|EUR|GBP|INR)\\s?)${NUM}(億|万|[kK](?![A-Za-z])|M(?![A-Za-z])|B(?![A-Za-z]))?`
-  + `|${NUM}\\s?(億|万)?\\s?(ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
+  `(?<pc>${PRE_CUR})(?<pn>${NUM})(?<ps>${PRE_SCALE})?(?:${RANGE}(?:${PRE_CUR})?(?<pn2>${NUM})(?<ps2>${PRE_SCALE})?)?`
+  + `|(?:(?<sn0>${NUM})\\s?(?<ss0>億|万)?${RANGE})?(?<sn>${NUM})\\s?(?<ss>億|万)?\\s?(?<sc>ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
 const SCALE: Record<string, number> = { 億: 1e8, 万: 1e4, k: 1e3, K: 1e3, M: 1e6, B: 1e9 };
 export function yenText(yen: number): string {
   const n = Math.round(yen);
@@ -699,16 +703,21 @@ export function withYenApprox(text: string): string {
   const out: string[] = [];
   let last = 0;
   for (const m of text.matchAll(FOREIGN_AMOUNT)) {
-    const [match, prefix, preNum, preScale, sufNum, sufScale, suffix] = m;
+    const g = m.groups ?? {};
+    const match = m[0];
     const end = (m.index ?? 0) + match.length;
     const rest = text.slice(end);
-    const currency = (prefix ?? suffix ?? '').trim();
+    const currency = (g.pc ?? g.sc ?? '').trim();
     const rate = CURRENCY_YEN.find(([re]) => re.test(currency))?.[1];
-    const amount = Number((preNum ?? sufNum).replace(/,/g, '')) * (SCALE[(preScale ?? sufScale) ?? ''] ?? 1);
-    if (!rate || !Number.isFinite(amount) || amount <= 0) continue;
+    const value = (num: string, scale: string | undefined) => Number(num.replace(/,/g, '')) * (SCALE[scale ?? ''] ?? 1);
+    const amount = g.pn ? value(g.pn, g.ps) : value(g.sn, g.ss);
+    // 範囲の下端。後ろに桁（万・k など）が付くのが上端だけの時は、下端にも同じ桁を当てる（「1〜2万ドル」）
+    const low = g.pn2 ? value(g.pn, g.ps ?? g.ps2) : g.sn0 ? value(g.sn0, g.ss0 ?? g.ss) : null;
+    const high = g.pn2 ? value(g.pn2, g.ps2) : amount;
+    if (!rate || !Number.isFinite(high) || high <= 0 || (low !== null && (!Number.isFinite(low) || low <= 0))) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
     if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest)) continue;
-    const yen = `約${yenText(amount * rate)}`;
+    const yen = low !== null ? `約${yenText(low * rate)}〜${yenText(high * rate)}` : `約${yenText(high * rate)}`;
     const paren = rest.match(/^\s*[（(]/);
     out.push(text.slice(last, end), paren ? `${paren[0]}${yen}、` : `（${yen}）`);
     last = end + (paren ? paren[0].length : 0);
