@@ -359,7 +359,7 @@ export function numberProblems(display: EntityDisplay, material: readonly number
 
 /** 検査スクリプトの出力から、違反の行だけを取り出す */
 export function parseCheckOutput(output: string): string[] {
-  return output.split('\n').map((l) => l.trim()).filter((l) => /^(detail-lines|success-points|case-chapters|list-lines|summary-lines) /.test(l));
+  return output.split('\n').map((l) => l.trim()).filter((l) => /^(detail-lines|success-points|case-chapters|list-lines|summary-lines|分析欄) /.test(l));
 }
 
 /** 差し替え後の違反のうち、差し替え前に無かった物（＝今回の事例の文が起こした違反）だけを返す */

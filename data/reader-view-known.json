@@ -8,6 +8,13 @@
  },
  {
   "id": "ent_myoperator_49c393230a2d",
+  "where": "section-reasoning",
+  "rule": "a.出どころの印",
+  "text": "（YourStory 2016年記事の再掲）",
+  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
+ },
+ {
+  "id": "ent_myoperator_49c393230a2d",
   "where": "section-chapter-practice と section-chapter-timeline",
   "rule": "b.同じ出典を章ごとに繰り返す",
   "text": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator",
@@ -151,13 +158,6 @@
   "where": "section-chapter-timeline / section-chapter-core",
   "rule": "e.同じ話が2か所以上",
   "text": "「始から2四半期で現金プラス1」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-group-customers / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「LenskartSnapde」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -365,6 +365,13 @@
  },
  {
   "id": "ent_codementor_ba692caa3db3",
+  "where": "数字の帯「調達額」 / section-group-secret",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "$1.6M（2か所）",
+  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
+ },
+ {
+  "id": "ent_codementor_ba692caa3db3",
   "where": "section-group-secret / section-chapter-timeline",
   "rule": "e.同じ数字が2か所以上",
   "text": "15万人（2か所）",
@@ -416,7 +423,14 @@
   "id": "ent_codementor_ba692caa3db3",
   "where": "一覧",
   "rule": "g.外貨に円換算が無い",
-  "text": "調達額$1.2M",
+  "text": "調達額$1.6M",
+  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
+ },
+ {
+  "id": "ent_codementor_ba692caa3db3",
+  "where": "section-group-secret",
+  "rule": "g.外貨に円換算が無い",
+  "text": "それ以前に120万ドル。",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
@@ -437,14 +451,14 @@
   "id": "ent_codementor_ba692caa3db3",
   "where": "section-metrics",
   "rule": "g.外貨に円換算が無い",
-  "text": "調達額3 2016-12のシード $1.6M",
+  "text": "2016-12のシード $1.6M",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
   "id": "ent_codementor_ba692caa3db3",
   "where": "section-metrics",
   "rule": "g.外貨に円換算が無い",
-  "text": "調達額3 2016-12までの早期資金（Techstars・500 Startups・個人） $1.2M",
+  "text": "2016-12までの早期資金（Techstars・500 Startups・個人） $1.2M",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
@@ -526,7 +540,7 @@
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "数字の帯「料金」 / section-group-secret / section-chapter-practice / section-chapter-core / section-chapter-start / section-chapter-price / section-group-money",
+  "where": "数字の帯「料金」 / section-group-secret / section-chapter-practice / section-chapter-core / section-chapter-start / section-chapter-price / section-group-first",
   "rule": "e.同じ数字が2か所以上",
   "text": "99ドル（7か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
@@ -568,7 +582,7 @@
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-group-secret / section-chapter-start / section-group-money",
+  "where": "section-group-secret / section-chapter-start / section-group-first",
   "rule": "e.同じ数字が2か所以上",
   "text": "12人（3か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
@@ -619,7 +633,7 @@
   "id": "ent_teamcamp_ae0c21986c4d",
   "where": "section-group-secret / section-group-first",
   "rule": "e.同じ話が2か所以上",
-  "text": "「た代理店の経営者に顧客用ポー」",
+  "text": "「先払いしてもよいと答えた12」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -627,6 +641,13 @@
   "where": "section-group-secret / section-chapter-start",
   "rule": "e.同じ話が2か所以上",
   "text": "「6か月の公開開発で登録43件」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_teamcamp_ae0c21986c4d",
+  "where": "section-group-secret / section-chapter-start / section-group-first",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「12人を見つけてから作り始め」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -722,13 +743,6 @@
  },
  {
   "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "数字の帯「月商」",
-  "rule": "a.出どころの印",
-  "text": "（本人の投稿「月の売上70K」）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
   "where": "section-group-secret",
   "rule": "a.出どころの印",
   "text": "（対談は1週間）",
@@ -760,13 +774,6 @@
   "where": "section-chapter-voices",
   "rule": "a.出どころの印",
   "text": "（SIR Glass、選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-metrics",
-  "rule": "a.出どころの印",
-  "text": "（本人の投稿「月の売上70K」）",
   "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
  },
  {
@@ -834,9 +841,9 @@
  },
  {
   "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "数字の帯「月商」 / section-chapter-timeline",
+  "where": "数字の帯「月商」 / section-group-secret / section-chapter-turning",
   "rule": "e.同じ数字が2か所以上",
-  "text": "$70K（2か所）",
+  "text": "$15K（3か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -872,13 +879,6 @@
   "where": "section-group-secret / section-chapter-turning",
   "rule": "e.同じ数字が2か所以上",
   "text": "170社（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-group-secret / section-chapter-turning",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "15,000ドル（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -948,7 +948,7 @@
   "id": "ent_referralrock_8c13d5ee4cfc",
   "where": "一覧",
   "rule": "g.外貨に円換算が無い",
-  "text": "月商$70K",
+  "text": "月商$15K",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
@@ -984,13 +984,6 @@
   "where": "section-facts-other",
   "rule": "g.外貨に円換算が無い",
   "text": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "月商2 2019-05（本人の投稿「月の売上70K」） $70K",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
@@ -1186,14 +1179,14 @@
   "id": "ent_ejunkie_7e9e46bd9643",
   "where": "section-reasoning",
   "rule": "g.外貨に円換算が無い",
-  "text": "Gumroad：10ドル×100件＝売上1,000ドル、1,000×0.10＝100ドル、0.50×100＝50ドル、合計150ドル。",
+  "text": "Gumroad：10ドル×100件＝売上1,000ドル、1,000×0.10＝100ドル、0.50×100＝50ドル、合計150ドル（Gumroadの料金ページの率。",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
   "id": "ent_ejunkie_7e9e46bd9643",
   "where": "section-reasoning",
   "rule": "g.外貨に円換算が無い",
-  "text": "E-junkie：公式料金の月8〜40ドル。",
+  "text": "E-junkie：公式料金の月8〜40ドル（決済会社の手数料は売り手の負担で別）。",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
@@ -1429,13 +1422,6 @@
  },
  {
   "id": "ent_rfrcui_64e924ac",
-  "where": "数字の帯「累計売上」",
-  "rule": "a.出どころの印",
-  "text": "（記事に期間の明記なし）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
   "where": "section-chapter-core",
   "rule": "a.出どころの印",
   "text": "（根拠: 約2年のツイートと記事）",
@@ -1446,13 +1432,6 @@
   "where": "section-chapter-voices",
   "rule": "a.出どころの印",
   "text": "（選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-metrics",
-  "rule": "a.出どころの印",
-  "text": "（記事に期間の明記なし）",
   "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
  },
  {
@@ -1548,6 +1527,13 @@
  },
  {
   "id": "ent_rfrcui_64e924ac",
+  "where": "数字の帯「累計売上」 / section-chapter-timeline",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "$2.5M（2か所）",
+  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
+ },
+ {
+  "id": "ent_rfrcui_64e924ac",
   "where": "数字の帯「料金」 / section-group-secret / section-chapter-price / section-group-money",
   "rule": "e.同じ数字が2か所以上",
   "text": "99ドル（4か所）",
@@ -1634,14 +1620,14 @@
   "id": "ent_rfrcui_64e924ac",
   "where": "一覧",
   "rule": "g.外貨に円換算が無い",
-  "text": "累計売上$1.35M",
+  "text": "累計売上$2.5M",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
   "id": "ent_rfrcui_64e924ac",
   "where": "数字の帯「累計売上」",
   "rule": "g.外貨に円換算が無い",
-  "text": "累計（記事に期間の明記なし）、135万ドル超",
+  "text": "2022年9月13日の投稿時点の累計（250万ドル超）",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
@@ -1677,13 +1663,6 @@
   "where": "section-metrics",
   "rule": "g.外貨に円換算が無い",
   "text": "累計売上2 2022年9月13日の投稿時点の累計（250万ドル超） $2.5M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "累計売上3 累計（記事に期間の明記なし）、135万ドル超 $1.35M",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
@@ -1947,16 +1926,16 @@
  },
  {
   "id": "ent_requestly_28e9f2",
-  "where": "数字の帯「料金」 / section-chapter-price / section-group-money",
+  "where": "数字の帯「料金」 / section-chapter-price",
   "rule": "e.同じ数字が2か所以上",
-  "text": "$10（3か所）",
+  "text": "$10（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
   "id": "ent_requestly_28e9f2",
-  "where": "数字の帯「料金」 / section-chapter-price / section-group-money",
+  "where": "数字の帯「料金」 / section-chapter-price",
   "rule": "e.同じ数字が2か所以上",
-  "text": "$15（3か所）",
+  "text": "$15（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -2010,44 +1989,9 @@
  },
  {
   "id": "ent_requestly_28e9f2",
-  "where": "section-group-secret / section-chapter-practice / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「StackExchangeの」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-group-secret / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「たRedditとHacker」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「検索で出る未回答のStack」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice / section-chapter-core / section-group-first",
+  "where": "section-chapter-practice / section-chapter-core",
   "rule": "e.同じ話が2か所以上",
   "text": "「未回答のStackExcha」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-start / section-story",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「ない人には使えず管理画面づく」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-price / section-group-money",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「月10ドル約1500円Tea」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -2339,16 +2283,9 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "数字の帯「年商」 / section-group-secret / section-chapter-timeline",
+  "where": "数字の帯「利用者数」 / section-group-secret / section-chapter-turning / section-chapter-timeline",
   "rule": "e.同じ数字が2か所以上",
-  "text": "$5,472（3か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "数字の帯「年商」 / section-group-secret / section-chapter-turning / section-chapter-timeline",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "489件（4か所）",
+  "text": "700,000人（4か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -2381,13 +2318,6 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-group-secret / section-chapter-turning / section-chapter-timeline",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "70万人（3か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-group-secret / section-chapter-core",
   "rule": "e.同じ数字が2か所以上",
   "text": "450人（2か所）",
@@ -2412,6 +2342,20 @@
   "where": "section-group-secret / section-chapter-core",
   "rule": "e.同じ数字が2か所以上",
   "text": "299ドル（2か所）",
+  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "section-group-secret / section-chapter-turning / section-chapter-timeline",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "489件（3か所）",
+  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "section-group-secret / section-chapter-timeline",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "5,472ドル（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -2486,16 +2430,16 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-turning / section-chapter-core",
+  "where": "section-chapter-practice / section-chapter-timeline / section-group-first",
   "rule": "e.同じ話が2か所以上",
-  "text": "「1520サイト向けの1ページ」",
+  "text": "「DaringFireball」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-core / section-group-first",
+  "where": "section-chapter-turning / section-chapter-core",
   "rule": "e.同じ話が2か所以上",
-  "text": "「はよく払いReddit経由は」",
+  "text": "「1520サイト向けの1ページ」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -2518,13 +2462,6 @@
   "rule": "d.概要に売り方の並べ立て",
   "text": "支払い方は、作者が作った文字の書体を買う、直接支払う、紙の本Typography for Lawyersを買う、の3つ。",
   "reason": "事例の文の担当が、売り方を概要から稼ぎ方の欄へ移す"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "年商$5,472",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -2621,28 +2558,21 @@
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-metrics",
   "rule": "g.外貨に円換算が無い",
-  "text": "年商1 公開1年目（〜2014年7月）の直接の支払い 321件 $3,676",
+  "text": "直接の支払い（フォントの売上を除く）1 公開1年目（2013年8月〜2014年7月）、321件 $3,676",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-metrics",
   "rule": "g.外貨に円換算が無い",
-  "text": "年商2 公開2年目の直接の支払い 244件 $3,030",
+  "text": "直接の支払い（フォントの売上を除く）2 公開2年目（〜2015年7月）、244件 $3,030",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-metrics",
   "rule": "g.外貨に円換算が無い",
-  "text": "年商3 公開3年目（〜2016年）の直接の支払い 489件 $5,472",
+  "text": "直接の支払い（フォントの売上を除く）3 公開3年目（〜2016年7月）、489件 $5,472",
   "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "数字の帯「年商」",
-  "rule": "h.項目名と中身の数字の種類が違う",
-  "text": "売上の欄に、売上の一部（特定の支払いだけ・件数）の数字: $5,472（約82.1万円） 公開3年目（〜2016年）の直接の支払い 489件",
-  "reason": "事例の文の担当が、項目名に合う数字を選ぶ"
  }
 ]
