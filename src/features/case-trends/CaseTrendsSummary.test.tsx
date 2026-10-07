@@ -36,7 +36,7 @@ describe('CaseTrendsSummary', () => {
     expect(output).toContain('$100');
     expect(output).toContain('class="term-num break-words text-term-fg-strong">$100</span>');
     expect(output).toContain('2024');
-    expect(output).toContain('提出書類');
+    expect(output).not.toContain('提出書類');
     expect(output).not.toContain('対象全体で比較できる');
     expect(output).not.toContain('%');
     expect(output).not.toContain('role="alert"');

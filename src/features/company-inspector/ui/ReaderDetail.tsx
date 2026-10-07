@@ -5,7 +5,7 @@ import {
   dedupeReaderSources,
   formatMetricAmount,
   metricListLabel,
-  metricOriginLabel,
+  metricEstimateLabel,
   plainFactText,
   readerSummaryFact,
 } from '@/shared/display-text';
@@ -79,7 +79,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
                     {m.statedAt && !m.period.includes(m.statedAt) && <span className="block text-xs text-term-label">{m.statedAt} {UI.METRIC_STATED_AT_SUFFIX}</span>}
                   </td>
                   <td className={`term-num px-2 py-1.5 text-right ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}`}>{formatMetricAmount(m)}</td>
-                  <td className={`px-2 py-1.5 text-xs ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}`}>{metricOriginLabel(m)}</td>
+                  <td className={`px-2 py-1.5 text-xs ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}`}>{metricEstimateLabel(m)}</td>
                 </tr>
               );
             })}
