@@ -66,8 +66,12 @@ for (const ent of entities) {
   // D. ドメイン一意性（同一企業の検死版POST_MORTEMは許容）
   if (ent.url && ent.pnl?.financialStatus !== 'POST_MORTEM' && !ent.name.includes('検死')) {
     try {
-      const domain = new URL(ent.url).hostname.replace(/^www\./, '').toLowerCase();
-      if (domain && !SHARED_PLATFORMS.has(domain)) {
+      const parsed = new URL(ent.url);
+      const domain = parsed.hostname.replace(/^www\./, '').toLowerCase();
+      // 記事のページ（パスあり）を url に持つ記録は、そのドメインの持ち主ではない（例: indiehackers.com/post/... の事例と Indie Hackers 本体）。
+      // 同じ公式サイトの判定は、サイトの入口を url に持つ記録どうしで行う（add-entity-records.ts の --apply と同じ規則）
+      const isSiteRoot = parsed.pathname.replace(/\/+$/, '') === '';
+      if (domain && isSiteRoot && !SHARED_PLATFORMS.has(domain)) {
         if (seenDomains.has(domain)) {
           errors.push(`[DUPLICATION ERROR] Duplicate official domain: "${domain}" for "${ent.name}" conflicts with "${seenDomains.get(domain).name}"`);
         } else {
