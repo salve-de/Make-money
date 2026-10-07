@@ -488,8 +488,9 @@ export function blameRows(problems: readonly string[], fixIds: readonly string[]
     else if (layer === 'summary-lines') ok = take('summary');
     else if (layer === 'detail-lines' && key) ok = take(field && field !== 'text' ? `detail.${key}.${field}` : `detail.${key}`);
     else if (layer === 'success-points' && key) {
-      const i = points.findIndex((pt) => pt.factId === key);
-      ok = i >= 0 && take(field && field !== 'text' ? `success.${i}.${field}` : `success.${i}`);
+      // 同じ事実から複数の点を作ることがある（factId は事例の中で一意でない）。どの点か決められないので、当たる点を全部戻す
+      const hits = points.map((pt, i) => (pt.factId === key ? i : -1)).filter((i) => i >= 0);
+      ok = hits.map((i) => take(field && field !== 'text' ? `success.${i}.${field}` : `success.${i}`)).some(Boolean);
     } else if (layer === 'case-chapters' && key) ok = take(`chapters.${key}`);
     if (!ok) return null;
   }

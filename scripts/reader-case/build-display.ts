@@ -392,7 +392,8 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
       if (still.length) continue;
       fixes = keep; applied = narrowed;
     }
-    if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], files: applied.files };
+    const heldIds = [...ids].filter((id) => !fixes.some((f) => f.id === id));
+    if (!REVIEW) return { ok: true, attempts: attempt, reasons: machine, files: applied.files, adopted: fixes.map((f) => f.id), held: heldIds };
     let review: CallResult;
     try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: fixes.map((f) => ({ id: f.id, text: f.text, before: rows.find((r) => r.id === f.id)?.text })) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 直しの確認 ${attempt}回目`); }
     catch (e) { return { ok: false, attempts: attempt, reasons: [`確認役の呼び出しに失敗: ${(e as Error).message}`] }; }
@@ -400,7 +401,6 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     recordCandidates(entityId, issues);
     const must = issues.filter((i) => i.severity === 'must');
     say(`${entityId}: 直し ${attempt}回目 — 確認役の指摘 必須${must.length}件・軽微${issues.length - must.length}件`);
-    const heldIds = [...ids].filter((id) => !fixes.some((f) => f.id === id));
     if (!must.length) return { ok: true, attempts: attempt, reasons: machine, files: applied.files, adopted: fixes.map((f) => f.id), held: heldIds };
     const mustIds = new Set(must.map((i) => i.id));
     problems = [...must.map((i) => `確認役: ${i.id}: ${i.problem}（直し案: ${i.fix}）`), ...machine];
