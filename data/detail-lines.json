@@ -139,19 +139,19 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-headline",
     "textHash": "68ae1889",
-    "answer": "元手210万円・5人。半年で有料200社、損益はトントン"
+    "answer": "元手210万円、社員5人の兄弟が、半年でインドの企業200社に電話サービスを売った"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-headline",
     "textHash": "f87ebe7a",
-    "answer": "無料動画を毎週出し続け、1人で月900万円の定期収入に（2021年11月・本人申告）"
+    "answer": "毎週無料の動画を出し続けた元受託開発者が、1人で月900万円売る会社にした（本人申告・2021年11月）"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-headline",
     "textHash": "eee18cd1",
-    "answer": "作る前から、登録ページだけで数千人が待っていた"
+    "answer": "作る前に「登録ページ」だけ置いたら、数千人が順番待ちに並んだ"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -225,7 +225,7 @@
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-headline",
     "textHash": "18e2c460",
-    "answer": "手渡しがだるくて自動化したら、それが商売になった"
+    "answer": "商品を手で送る毎日に疲れた男が、自動で売れる仕組みを作って商売にした"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -300,7 +300,7 @@
     "entityId": "ent_heygen_8f11a1",
     "analysisId": "a-headline",
     "textHash": "1e0a46a6",
-    "answer": "年間の定期収入300億円超。8か月で倍増（2026年6月・公式発表）",
+    "answer": "台本を書くだけで本人そっくりの人が話す動画ができる。毎年入る契約収入は300億円超（公式発表・2026年6月）",
     "note": "2026年6月25日時点の公式発表（自己申告）。"
   },
   {
@@ -361,7 +361,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-headline",
     "textHash": "030dbbee",
-    "answer": "無料で全部読める本が、フォントの客を連れてきた",
+    "answer": "無料で全部読める本を公開したら、そこから自作フォントを買う客がついた",
     "note": "直接の支払いだけでは続かず、フォントが稼ぎ頭だったと本人は書く。"
   },
   {
@@ -437,7 +437,7 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-headline",
     "textHash": "f951211c",
-    "answer": "外部資金なしで月売上1,050万円。きっかけは営業1人の採用（2019年5月・本人の投稿）"
+    "answer": "外部から資金を入れず、月の売上を1,050万円まで伸ばした。効いたのは営業をもう1人入れたこと（本人の投稿・2019年5月）"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -504,7 +504,7 @@
     "entityId": "ent_requestly_28e9f2",
     "analysisId": "a-headline",
     "textHash": "f52ca347",
-    "answer": "30分で作った拡張が、20万人に使われ、買収された（自己申告）",
+    "answer": "30分で作った小さなブラウザ拡張が、20万人に使われ、買収された（自己申告）",
     "note": "1万社超の企業が利用。Y Combinatorに採択され、Peak XV（旧Sequoia）などの出資も受けた。"
   },
   {
@@ -553,7 +553,7 @@
     "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-headline",
     "textHash": "8f8ec338",
-    "answer": "約2年の無料ツイートが、累計3億7,500万円の教材販売になった（2022年9月・自己申告）",
+    "answer": "2年間、無料でツイートし続けた2人組が、デザイン教材で3億7,500万円売った（2022年9月・自己申告）",
     "note": "2022年9月の本人投稿時点の累計（自己申告）。"
   },
   {
@@ -622,7 +622,7 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-headline",
     "textHash": "24cbfda8",
-    "answer": "2か月で継続率12%→41%、月の定期収入5万円→32万円（創業者の申告）"
+    "answer": "先に使い勝手を直したら、2か月で、続けて使う客が12%から41%に増えた（創業者の申告）"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
