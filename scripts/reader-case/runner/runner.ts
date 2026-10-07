@@ -97,6 +97,8 @@ export interface RunnerOptions {
   stage: StageName;
   /** 束の名前の前方一致（run-pipeline の ANALYZE_PREFIX / AUDIT_ONLY 相当。末尾の * は無視） */
   prefix?: string;
+  /** 束の名前（拡張子なし）をこの一覧に完全一致するものだけに絞る（事例ごとの束を並列に流す時、接頭辞の取り違えを避ける） */
+  only?: readonly string[];
   /** true なら既存の out を .bak に退避してから、全束をやり直す（保留も解除） */
   force?: boolean;
   maxAttempts?: number;
@@ -178,7 +180,7 @@ export function listBundles(o: RunnerOptions): string[] {
   if (!existsSync(dir)) return [];
   const pre = (o.prefix ?? '').replace(/\*+$/, '');
   return readdirSync(dir)
-    .filter((f) => def.bundleFile.test(f) && def.filterKey(f).startsWith(pre))
+    .filter((f) => def.bundleFile.test(f) && def.filterKey(f).startsWith(pre) && (!o.only || o.only.includes(f.replace(/\.json$/, ''))))
     .sort();
 }
 
