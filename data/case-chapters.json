@@ -1,0 +1,157 @@
+[
+  {
+    "entityId": "ent_gorails_640d8f688451",
+    "chapters": {
+      "practice": [
+        {
+          "text": "開始前の1年、ブログ読者のメールを集め、初日から売る相手がいた（本人）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        },
+        {
+          "text": "2012年8月、ブログのアンケートで講座の需要を先に確かめた（本人ブログ）",
+          "source": "https://excid3.com/blog/would-you-like-to-become-a-better-programmer"
+        },
+        {
+          "text": "配備手順のメモを公開し、検索とStack Overflowから最初の月に数千人が来た（本人）",
+          "source": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163"
+        },
+        {
+          "text": "無料動画を隔週で出し、Reddit・Rubyflow・メール一覧で共有した（本人）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        },
+        {
+          "text": "無料動画はYouTubeに置き、動画の配信費を抑えた（本人）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        },
+        {
+          "text": "週1本の月額動画に替えた2日目に、14人が購読した（本人）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        },
+        {
+          "text": "後発のHatchboxとJumpstartの最初の客は、GoRailsの会員だった（本人）",
+          "source": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 最初の講座は月2件・月約80ドル（約1.2万円）。後: 週1本の月額に替え、その年の9月に月450ドル（約6.75万円）・約45人（本人）",
+          "source": "https://mixergy.com/interviews/gorails-with-chris-oliver/"
+        },
+        {
+          "text": "前: 2014年9月に資金が尽きかけた。後: One Monthに加わりGoRailsを続け、約1年後に月約3,500ドル（約52.5万円）（本人）",
+          "source": "https://www.therubyonrailspodcast.com/552"
+        },
+        {
+          "text": "前: 月9ドル（約1,350円）では1本見て解約する客が多かった。後: 月19ドル（約2,850円）に上げ、その月の売上がほぼ倍になった（本人）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        },
+        {
+          "text": "前: 最初の動画は音声が悪く文字起こしも無いと批判された。後: マイクを買い、文字起こしを付けると返した（Hacker News）",
+          "source": "https://news.ycombinator.com/item?id=8040524"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2012年8月: ブログのアンケートで需要を確かめる",
+          "source": "https://excid3.com/blog/would-you-like-to-become-a-better-programmer"
+        },
+        {
+          "text": "2014年1月1日: 受託をやめ独立。数か月かけた受託が使われず燃え尽きたため。蓄えは約9か月分（本人）",
+          "source": "https://www.failory.com/interview/gorails"
+        },
+        {
+          "text": "2014年7月16日: Hacker Newsに掲載（152点・コメント55件、投稿は第三者）",
+          "source": "https://news.ycombinator.com/item?id=8040524"
+        },
+        {
+          "text": "2014年9月: 資金が尽きかけ、One Monthに就職",
+          "source": "https://www.therubyonrailspodcast.com/552"
+        },
+        {
+          "text": "2014年12月19日: One MonthがGoRailsを買収と報道。売上の25%を受け取る条件にした（本人）",
+          "source": "https://www.therubyonrailspodcast.com/552"
+        },
+        {
+          "text": "2016年12月: Hatchbox開始。客の提案を受け、人気の配備手順を自動化した（本人）",
+          "source": "https://www.therubyonrailspodcast.com/552"
+        },
+        {
+          "text": "2018年初め: GoRails単体で月約15,000ドル（約225万円）（本人）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        },
+        {
+          "text": "2020年8月: 累計売上100万ドル（約1.5億円）、開始から約6年半（本人）",
+          "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
+        },
+        {
+          "text": "2021年11月: 月次定期収入6万ドル（約900万円）。開発者とサポート担当の採用を始めた（本人）",
+          "source": "https://www.failory.com/interview/gorails"
+        }
+      ],
+      "core": [
+        {
+          "text": "売る前に、読者のメールとアンケートで需要を確かめる（根拠: 開始前1年のメール収集、2012年のアンケート）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        },
+        {
+          "text": "人気の手順メモを、製品に変える（根拠: 人気の配備手順からHatchboxを作った）",
+          "source": "https://www.therubyonrailspodcast.com/552"
+        },
+        {
+          "text": "同じ客に、次の商品を売る（根拠: 後発2製品の最初の客はGoRailsの会員）",
+          "source": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163"
+        }
+      ],
+      "start": [
+        {
+          "text": "元手は約9か月分の蓄え。共同創業者も投資もなく、1人で開始（本人）",
+          "source": "https://www.failory.com/interview/gorails"
+        },
+        {
+          "text": "開始前の月の経費は約99ドル（約1.5万円）（本人）",
+          "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
+        },
+        {
+          "text": "最初の無料公開は15本。最初の有料講座は39ドル（約5,850円）で、2か月に9件（本人）",
+          "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
+        }
+      ],
+      "price": [
+        {
+          "text": "GoRails: 月9ドル（約1,350円）で開始 → 月19ドル（約2,850円）・年190ドル（約2.85万円）",
+          "source": "https://gorails.com/pricing"
+        },
+        {
+          "text": "Jumpstart: 150ドル（約2.25万円）の買い切り → 更新が続く購読へ",
+          "source": "https://mixergy.com/interviews/gorails-with-chris-oliver/"
+        },
+        {
+          "text": "Hatchbox: 最低月29ドル（約4,350円）→ サーバー1台あたり月10ドル（約1,500円）",
+          "source": "https://www.therubyonrailspodcast.com/552"
+        },
+        {
+          "text": "古い月9ドル（約1,350円）のまま続ける会員が、約100人いる（本人）",
+          "source": "https://www.therubyonrailspodcast.com/552"
+        }
+      ],
+      "voices": [
+        {
+          "text": "「月に使う9ドル（約1,350円）で一番いい」「55か月以上購読」（公式の声のページ）",
+          "source": "https://gorails.com/testimonials"
+        },
+        {
+          "text": "「顧客です、GoRailsが続く限り使う」（Indie Hackers 投稿コメント）",
+          "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
+        },
+        {
+          "text": "初期の動画への指摘: 音声が悪い、文字起こしが無い、30分近くて長い（Hacker News）",
+          "source": "https://news.ycombinator.com/item?id=8040524"
+        },
+        {
+          "text": "開始時の月額に「誰だ、動画もないのに9ドル（約1,350円）か」という悪意あるコメントが付いた（本人の回想）",
+          "source": "https://mixergy.com/interviews/gorails-with-chris-oliver/"
+        }
+      ]
+    }
+  }
+]

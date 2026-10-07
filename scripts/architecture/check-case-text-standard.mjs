@@ -57,6 +57,20 @@ for (const entry of successPoints) {
     if (/(しよう|しろ|せよ|してください|すべき)/.test(point.head + point.body)) problems.push(`${where}: 真似の手順（命令形）になっている`);
   }
 }
+// 7. 事例の追加の章（data/case-chapters.json）。1行は90字以内、出典URL必須、円換算・「0円」・「未確認」の禁止、命令形の禁止。
+const CHAPTER_IDS = ['practice', 'turning', 'timeline', 'core', 'start', 'price', 'voices'];
+for (const entry of read('data/case-chapters.json')) {
+  for (const [id, rows] of Object.entries(entry.chapters)) {
+    if (!CHAPTER_IDS.includes(id)) problems.push(`case-chapters ${entry.entityId}: 知らない章「${id}」`);
+    for (const row of rows) {
+      const where = `case-chapters ${entry.entityId}/${id}`;
+      check(where, 'text', row.text, 90);
+      if (!/^https:\/\//.test(row.source ?? '')) problems.push(`${where}: 出典URLが無い「${row.text.slice(0, 20)}…」`);
+      if (/(しよう|しろ|せよ|してください|すべき)/.test(row.text)) problems.push(`${where}: 真似の手順（命令形）になっている「${row.text.slice(0, 20)}…」`);
+      if (id === 'turning' && !/^前[:：].+後[:：]/.test(row.text)) problems.push(`${where}: 「前: …。後: …」の形でない「${row.text.slice(0, 20)}…」`);
+    }
+  }
+}
 for (const line of read('data/list-lines.json')) check(`list-lines ${line.entityId}`, 'text', line.text, 45);
 
 if (problems.length) {
