@@ -10,6 +10,7 @@
     "catalog:publish": "pnpm catalog:screen-check && pnpm catalog:prepare && node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/publish-catalog-release.ts",
     "foundation:snapshots": "node scripts/foundation/build-foundation-snapshots.mjs",
     "foundation:snapshots:check": "node scripts/foundation/build-foundation-snapshots.mjs --check",
+    "predev": "node --import tsx scripts/ensure-local-catalog.ts",
     "dev": "next dev",
     "build": "pnpm lint && next build --webpack && node scripts/architecture/check-paid-bundle.mjs",
     "start": "node scripts/start-standalone.mjs",

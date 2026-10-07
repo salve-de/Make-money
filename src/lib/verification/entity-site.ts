@@ -1,4 +1,4 @@
-import { isCatalogId } from '@/shared/catalog-membership';
+import { getCatalogMembership } from '@/lib/company-access/release-manifest';
 
 /** 公開されている事例の正式なID（大文字小文字を直した形）と、公式サイトのURL。 */
 export interface EntitySite {
@@ -12,7 +12,7 @@ export interface EntitySite {
  * 一覧・詳細画面と同じ「公開してよい事例」の引き口だけを使う（収集基盤の非公開ビューは読まない）。
  */
 export async function findEntitySite(entityId: string): Promise<EntitySite | null> {
-  if (!isCatalogId(entityId)) return null;
+  if (!(await getCatalogMembership()).isCatalogId(entityId)) return null;
   const { findCachedPublishableEntity } = await import('@/lib/company-access/local-entity-index');
   const entity = await findCachedPublishableEntity(entityId);
   return entity ? { entityId: entity.id, url: entity.url?.trim() || null } : null;

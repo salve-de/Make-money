@@ -4,7 +4,7 @@ import sitemap from '@/app/sitemap';
 import { buildSitemapEntries, PUBLIC_STATIC_PATHS, SITEMAP_MAX_URLS } from './sitemap-entries';
 import { entityMetadata, noIndexMetadata, pageMetadata } from './metadata';
 import { serializeJsonLd, websiteJsonLd } from './json-ld';
-import { catalogIds } from '@/shared/catalog-membership';
+import { getCatalogMembership } from '@/lib/company-access/release-manifest';
 
 beforeEach(() => vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://example.com'));
 afterEach(() => vi.unstubAllEnvs());
@@ -28,13 +28,14 @@ describe('robots', () => {
 });
 
 describe('sitemap', () => {
-  it('固定ページと公開目録の事例だけを、絶対URLで返す', () => {
-    const entries = sitemap();
-    expect(entries.length).toBe(PUBLIC_STATIC_PATHS.length + catalogIds().length);
+  it('固定ページと公開目録の事例だけを、絶対URLで返す', async () => {
+    const catalogIds = (await getCatalogMembership()).catalogIds();
+    const entries = await sitemap();
+    expect(entries.length).toBe(PUBLIC_STATIC_PATHS.length + catalogIds.length);
     expect(entries[0].url).toBe('https://example.com/');
     expect(entries.every((entry) => entry.url.startsWith('https://example.com/'))).toBe(true);
     expect(entries.some((entry) => /\/(api|alerts|execute|maintenance)/.test(entry.url))).toBe(false);
-    const sample = catalogIds()[0];
+    const sample = catalogIds[0];
     expect(entries.map((entry) => entry.url)).toContain(`https://example.com/?entity=${encodeURIComponent(sample)}`);
   });
   it('5万URLの上限を超えず、固定ページは残る', () => {

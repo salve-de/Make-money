@@ -1,6 +1,6 @@
 import { findReleaseEntity } from '@/lib/company-access/catalog-release';
 import { readLatestNewArrivalsRelease } from '@/lib/foundation/business-reader';
-import { filterToCatalog } from '@/shared/catalog-membership';
+import { getCatalogMembership } from '@/lib/company-access/release-manifest';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { DigestDeps } from './digest';
 import { sendEmail } from './email';
@@ -9,11 +9,11 @@ import { listActiveSubscribers, listAlertRecipients, markSavedSearchesNotified }
 import { buildNewsletterUnsubscribeUrl } from './unsubscribe-link';
 
 /**
- * 配信に載せる事例。公開目録（data/catalog-release.json）にある事例だけを、画面の詳細と同じ公開版から読む。
+ * 配信に載せる事例。公開目録（いま公開している版）にある事例だけを、画面の詳細と同じ公開版から読む。
  * 目録に無い ID は黙って除く。保存先の読み取り失敗は例外にして、何も送る前に配信を止める。
  */
 export async function readPublishableEntities(ids: readonly string[]): Promise<FinancialEntity[]> {
-  const rows = await Promise.all(filterToCatalog(ids.map((id) => ({ id }))).map(({ id }) => findReleaseEntity(id)));
+  const rows = await Promise.all((await getCatalogMembership()).filterToCatalog(ids.map((id) => ({ id }))).map(({ id }) => findReleaseEntity(id)));
   return rows.filter((row): row is FinancialEntity => row !== null);
 }
 

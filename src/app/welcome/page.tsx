@@ -1,6 +1,6 @@
 import { readReleaseSummaries } from '@/lib/company-access/catalog-release';
 import type { FinancialEntity } from '@/shared/terminal';
-import manifest from '../../../data/catalog-release.json';
+import { getCatalogManifest } from '@/lib/company-access/release-manifest';
 import WelcomeClient from './WelcomeClient';
 
 export const dynamic = 'force-dynamic';
@@ -17,5 +17,5 @@ async function readPicks(): Promise<FinancialEntity[]> {
 }
 
 export default async function WelcomePage() {
-  return <WelcomeClient entities={await readPicks()} publishedCount={manifest.publishedCount} />;
+  return <WelcomeClient entities={await readPicks()} publishedCount={(await getCatalogManifest()).publishedCount} />;
 }

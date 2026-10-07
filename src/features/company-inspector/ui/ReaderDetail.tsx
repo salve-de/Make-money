@@ -179,10 +179,8 @@ export function ReaderSources({ reader, evidencePrefix = 'reader' }: ReaderProps
 }
 
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
-export function ReaderLedger({ reader: rawReader, entityId, detailState, onRetry, media }: {
+export function ReaderLedger({ reader: rawReader, detailState, onRetry, media }: {
   reader?: ReaderCase;
-  /** 一覧と同じ短い1行を概要に使うための事例の番号 */
-  entityId?: string;
   /** 詳細の取得状態。取得中・失敗を「準備中」と取り違えて出さないために使う */
   detailState?: 'loading' | 'failed';
   onRetry?: () => void;
@@ -214,13 +212,13 @@ export function ReaderLedger({ reader: rawReader, entityId, detailState, onRetry
   return (
     <>
       {status}
-      <WhatIs fact={summary} entityId={entityId} lead />
+      <WhatIs fact={summary} display={reader.display} lead />
       <KeyStrip reader={reader} plan={plan} />
       {media}
       {(hasDetails || reader.analysis.some((a) => a.item !== 'HEADLINE')) && <SectionGap />}
       {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
         <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
-          <AnalysisGroups reader={reader} usage={plan.usage} entityId={entityId} />
+          <AnalysisGroups reader={reader} usage={plan.usage} />
         </div>
       )}
       {hasDetails && (

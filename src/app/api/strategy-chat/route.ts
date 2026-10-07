@@ -2,7 +2,7 @@ import { readerContextText } from '@/shared/display-text';
 import { parseStrategyRequest, parseSynthesizedIdeas } from '@/shared/strategy-schema';
 import { NextRequest, NextResponse } from 'next/server';
 import { CatalogUnavailableError, findReleaseEntity, readReleaseSummaries } from '@/lib/company-access/catalog-release';
-import { filterToCatalog, isCatalogId } from '@/shared/catalog-membership';
+import { getCatalogMembership } from '@/lib/company-access/release-manifest';
 import { SynthesizedIdea, StrategyChatMessage, FinancialEntity } from '@/platform/types/terminal';
 import { queryD1, executeD1, batchD1 } from '@/lib/storage/d1';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
@@ -21,7 +21,7 @@ const SAFETY_BOUNDARY_NOTICE = '公開事例は事実の記録として扱い、
 
 /** 公開目録にある事例だけ。目録に無い ID は無かった扱い。 */
 async function findCatalogEntity(id: string | undefined): Promise<FinancialEntity | null> {
-  return id && isCatalogId(id) ? findReleaseEntity(id) : null;
+  return id && (await getCatalogMembership()).isCatalogId(id) ? findReleaseEntity(id) : null;
 }
 
 // =========================================================================
@@ -33,7 +33,8 @@ function generateFallbackSynthesis(
   notes: Record<string, { content: string; updatedAt: string }>,
   catalog: FinancialEntity[],
 ): SynthesizedIdea[] {
-  const chosenEntities = filterToCatalog(catalog).filter((e) =>
+  // catalog は readReleaseSummaries の結果（公開目録の事例だけ）
+  const chosenEntities = catalog.filter((e) =>
     selectedEntityIds.includes(e.id)
   );
   if (catalog.length === 0) throw new CatalogUnavailableError('Catalog is empty');

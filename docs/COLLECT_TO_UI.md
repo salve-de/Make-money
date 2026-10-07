@@ -51,7 +51,7 @@
 | 11 | 検査 | `pnpm case-text:verify`、`pnpm case-chapters:todo`、`pnpm lint`、`pnpm exec tsc --noEmit` | なし | 表示された行と理由を読んで、画面の層の文を直す |
 | 11b | 画面の自動監査（**必須**） | `pnpm build` の後に `pnpm reader-view:audit`（3100番が使用中なら `E2E_PORT=3110 pnpm reader-view:audit`） | なし（表は `test-results/reader-view-audit/report.md`） | 6b章。新しい違反が1つでもあれば落ちる。表の「事例・画面の箇所・該当文・規則」を見て画面の層の文を直す |
 | 12 | 公開データの作成 | `pnpm catalog:prepare` | `data/catalog-release.json`、`data/case-display.json`、`.catalog-release/` | 「撤回の明示が足りない」で止まったら、手元に既存の公開分の作業データが無いのが原因のことが多い（落とし穴の表 12） |
-| 13 | 公開（**人の許可が要る**） | 画像を保存先へ上げる（`scripts/media/upload-media-assets.ts`）→ `pnpm catalog:publish`（R2 へ）→ `pnpm deploy:workers`（本番）→ 本番の画面で1件開いて確かめる | R2 と本番 | 5章を読む。許可が無ければ 12 までで止める |
+| 13 | 公開（**人の許可が要る**） | 画像を保存先へ上げる（`scripts/media/upload-media-assets.ts`）→ `pnpm catalog:publish`（R2 へ書き、読み戻して確かめ、最後に「公開中の版の目印」を進める。画面の文の直しはこれだけで3分以内に本番へ出る。デプロイは要らない。10章）→ 本番の画面で1件開いて確かめる | R2 と本番 | 5章を読む。許可が無ければ 12 までで止める |
 
 - **世代（2026-10-08）**: 事例の世代（第N世代）は、取り込みファイルの `source.generation` で決まる。段3の `--from-research` / `--collect` が自動で書く（`--generation N` の指定 → 名前の `gen<N>-` → 取り込み済みの最大の世代、の順）。`--apply` が事例の記録へ `generation` を写し、`catalog:prepare` が一覧の要約へ運び、トップの一覧が世代ごとに区切って（新しい世代が上、「第N世代（M件）」）表示する。第1世代は記録に書かないので、既存の公開物は変わらない。新しい世代を始める時だけ `--generation N` を付ける。手書きの一覧は無い。
 - 段6〜9は `run-pipeline.sh` が1つの命令で続けて回します。止まった所から再実行すれば、済んだ段は飛ばします。
@@ -238,3 +238,29 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - [`CASE_TEXT_STANDARD.md`](./CASE_TEXT_STANDARD.md)、[`CASE_CHAPTER_PROCESS.md`](./CASE_CHAPTER_PROCESS.md): 画面の層の文の書き方
 - [`MEDIA_ASSETS_AND_PROVENANCE.md`](./MEDIA_ASSETS_AND_PROVENANCE.md): 画像
 - [`architecture/STORAGE.md`](./architecture/STORAGE.md): 保存先
+
+## 10. 画面の文を、ビルドとデプロイ無しで本番へ出す（2026-10-08 追加）
+
+**何が変わったか**: 一覧の1行・概要・分析欄・成功の秘訣・章（`data/list-lines.json` `summary-lines.json` `detail-lines.json` `success-points.json` `case-chapters.json`）は、事例ごとの公開データ（R2 の事例ファイル、`reader.display`）に入る。本番は「いま公開している版の目印」を実行時に読むので、文を直すのに本番のビルドもデプロイも要らない。
+
+- 目印の置き場: R2 の `views/make-money/catalog-v1/current.json`（1か所だけ上書きしてよい。事例データ・目録は新規作成のみで書き換えない）
+- 書き換えの記録: `views/make-money/catalog-v1/pointer-log/` に1回1件（いつ・どの版から・どの版へ）。消さない
+- 画面が読む順番: 手元の目印（開発サーバのみ）→ R2 の目印 → 同梱の `data/catalog-release.json`（目印が読めない時の最後の頼り）
+- 読み取りは成功なら3分、失敗なら30秒キャッシュする（R2 が一時的に落ちても直前の版で動く）
+
+**文を直して出す流れ（以後ずっとこれだけ）**
+1. 5つの `data/*.json` を直す（原文照合・自動検査は3.5章・3b章のとおり）
+2. `pnpm catalog:prepare`（`data/catalog-release.json` と `.catalog-release/` を更新）
+3. `pnpm catalog:publish`（R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない）
+4. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
+
+**戻す時**: `pnpm catalog:publish -- --point-to <戻したい版の manifestHash>`（記録にも残る）。目印だけ作らず確認したい時は `--skip-pointer`。
+
+**初回の切り替え（本番の読み方が変わる最初の1回だけ。指揮役の判断で行う）**
+- D1 の移行は要らない（目印は R2 に置くため）
+- 手順: ①この変更をマージ ②`pnpm catalog:prepare`（既存の公開10件は `--changed` に空ファイルを渡し、そのまま引き継ぐ）③`pnpm catalog:publish`（事例・目録・目印が R2 に入る。まだ本番の画面は変わらない）④`pnpm deploy:workers` を1回（新しい読み方のコードを本番へ）⑤本番で一覧と1件を開いて確かめる
+- 異常時は `--point-to` で前の版へ戻す。コードごと戻す時は前のデプロイへ
+
+**手元の開発サーバ**: `pnpm dev` の直前（predev）に、`.catalog-release/` が今の `data/catalog-release.json` と合っているか確かめ、無い・古い時だけ作り直す（`scripts/ensure-local-catalog.ts`、数十秒）。手元の画面は `.catalog-release/current.json` が指す版を読む。`CATALOG_RELEASE_DIR` を自分で指定した時はそちらを信じる。
+
+**注意**: 監査の証拠（`data/source-cache` `data/media-staging`）はコミットされない作業データ。別の作業場所にある時は、そこからリンクして使う。
