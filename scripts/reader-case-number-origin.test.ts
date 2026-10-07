@@ -54,3 +54,11 @@ test('confidence は無くても通り、あれば残る（旧データの互換
   assert.equal(noConf.confidence, undefined);
   assert.equal(run({ item: 'CUSTOMER_PAIN', text: '集計の手間が重い。', basis: ['f1'], confidence: 'LOW' }).kept[0].confidence, 'LOW');
 });
+
+test('式の無い事実の言い換えは、数字がすべて basis の事実にある時だけ「出典に載っている値」で通る', () => {
+  const ok = run({ item: 'PRICING', text: '月額29ドルの購読。', basis: ['f1'], presentation: 'FACT_SUMMARY' });
+  assert.equal(ok.kept.length, 1);
+  assert.equal(ok.kept[0]!.formula, '数字は出典に載っている値');
+  assert.deepEqual(reasons({ item: 'PRICING', text: '月額49ドルの購読。', basis: ['f1'], presentation: 'FACT_SUMMARY' }), ['number-without-formula']);
+  assert.deepEqual(reasons({ item: 'PRICING', text: '月額29ドルの購読。', basis: ['f1'] }, false), ['number-without-formula']);
+});

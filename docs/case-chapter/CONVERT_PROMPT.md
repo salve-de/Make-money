@@ -22,5 +22,11 @@
 - 「確認が要る点（画面には出さない）」の節に書かれた事項に関わる行は、確かな形に直す（食い違う数字・時期は出さず、確かな方だけにする）。
 - 事例どうしで文を使い回さない。
 
+## 章と一緒に作るもの（必須）
+章だけでは、章の下の分析欄が推論の原文（円換算なし・専門語あり）のまま画面に出る。同じ事例について、次の2つも出力する。形と基準は docs/CASE_CHAPTER_PROCESS.md の「分析欄の編集文と成功の秘訣」。
+- 分析欄の編集文（data/detail-lines.json の形）: 画面に出る推論1つにつき `{"entityId","analysisId","textHash","answer","note"}`。`analysisId` と `textHash` は `node --import tsx scripts/reader-case/detail-coverage.ts <entityId>` の出力から取る。答える材料が無い項目は `"answer":"-","hidden":true`。外貨には円の概算、data/reader-language.json の語と「公式サイトによると」「本人によると」は使わない。出典で確定できない年月は書かない。
+- 成功の秘訣（data/success-points.json の形）: `{"entityId","points":[{"head","body","factId","factHash"}]}` を3〜5点。head はやった事（40字以内）、body は根拠の事実（140字以内）、factId・factHash は根拠にした画面の事実とその指紋。
+出力先は章と同じ場所に、<事例名>.detail-lines.json と <事例名>.success-points.json。
+
 ## 報告
-作った JSON のパス、出した行数、落とした行とその理由、出典を付けるのに迷った行を、短く報告する。
+作った JSON のパス（章・分析欄の編集文・成功の秘訣）、出した行数、落とした行とその理由、出典を付けるのに迷った行を、短く報告する。

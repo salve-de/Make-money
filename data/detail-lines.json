@@ -326,6 +326,12 @@
     "note": "2016年の従業員125人のうち4割は直近6か月で採用。従業員には自社株を買う権利（ストックオプション）で報いた（本人申告）。"
   },
   {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-referral",
+    "textHash": "cd54604e",
+    "answer": "代理店が客への運用サービスの値段を自分で決め、MyOperatorは代理店に基盤の料金を請求する"
+  },
+  {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-story",
     "textHash": "787e6110",
@@ -664,5 +670,12 @@
     "textHash": "630b7eb2",
     "answer": "外の業界で初めて話した経営者の一言が、作り込みの方向を変えた（本人申告）",
     "note": "「顧客用ポータルは？白ラベルにできる？」と聞かれ、見た目より顧客とのやり取りの機能が要ると分かった。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-tools",
+    "textHash": "e0401d93",
+    "answer": "GitHub・GitLabと連携し、コードの変更の進み具合に合わせてタスクの状態が自動で動く",
+    "note": "変更の申請が出ると「レビュー」へ、取り込まれると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearのデータを取り込める。"
   }
 ]

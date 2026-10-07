@@ -139,6 +139,12 @@ export function checkItem(raw: RawItem, reader: ReaderCase, seen: Set<string>, o
   // 根拠の無い推論は出さない（根拠の事実・数字のIDが1件も無い）
   if (a.basis.length === 0) return { ok: false, reason: 'basis-empty' };
   if (WORK.test(a.text)) return { ok: false, reason: 'work-description' };
+  // 分析の指示は「式は推定（ESTIMATE）の時だけ」。事実の言い換え（FACT_SUMMARY）で、文の数字がすべて basis の事実・数値にある時は、
+  // 取り込み経路（import-case-rebuild.ts）と同じく「出典に載っている値」を式欄に入れて通す。出典に無い数字は従来どおり落とす
+  if (options.strictNumbers && !a.formula && a.presentation !== 'ESTIMATE' && MONEY.test(a.text)
+    && numbersMissingFrom(a.text, evidenceNumbers(reader.facts, reader.metrics, a.basis)).length === 0) {
+    a.formula = '数字は出典に載っている値';
+  }
   if (MONEY.test(a.text) && !a.formula) return { ok: false, reason: 'number-without-formula' };
   if (options.strictNumbers) {
     const reason = numberOriginProblem(a, typeof raw.formula === 'string' ? raw.formula : '', reader);
