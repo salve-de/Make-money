@@ -20,6 +20,17 @@ export function listMetricsOf(reader: ReaderCase | undefined): { main: ReaderMet
   return { main, profit: profit && profit.id !== main?.id ? profit : null };
 }
 
+/**
+ * 一覧の2つの数値欄。売上の欄は売上だけ（無ければ空）、規模の欄は売上以外（利用者数・調達額など）を名前付きで出す。
+ * 種類の違う数字を同じ欄に混ぜない。
+ */
+export function listColumnsOf(reader: ReaderCase | undefined): { revenue: ReaderMetric | null; scale: ReaderMetric | null; profit: ReaderMetric | null } {
+  if (!reader) return { revenue: null, scale: null, profit: null };
+  const revenue = pickListMetric({ ...reader, metrics: reader.metrics.filter((m) => m.measure === 'REVENUE') });
+  const scale = pickListMetric({ ...reader, metrics: reader.metrics.filter((m) => m.measure !== 'REVENUE' && !['OPERATING_INCOME', 'NET_INCOME', 'PROFIT'].includes(m.measure)) });
+  return { revenue, scale, profit: pickProfitMetric(reader) };
+}
+
 /** 事業の説明: summaryFactId の事実の1文目。無ければ強い一行（推測の印つき）。どちらも無ければ何も出さない。 */
 export function ListDescription({ reader, className }: { reader?: ReaderCase; className?: string }) {
   const fact = readerSummaryFact(reader);

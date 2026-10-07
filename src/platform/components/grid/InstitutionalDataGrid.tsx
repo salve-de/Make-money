@@ -11,7 +11,7 @@ import { pickEntityLogo } from '@/shared/media-display';
 import { useEntityMedia } from '../../hooks/useEntityMedia';
 import { EntityLogo } from './EntityLogo';
 import { UI, uiFormat } from '@/shared/ui-strings';
-import { ListDescription, ListMetricCell, listMetricsOf } from './ReaderListCells';
+import { ListDescription, ListMetricCell, listColumnsOf } from './ReaderListCells';
 
 const PAGE_SIZE = 250;
 
@@ -166,6 +166,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
           <colgroup>
             <col />
             {!isSplitView && <col className="w-[110px]" />}
+            <col className="w-[128px]" />
             <col className="w-[136px]" />
             {!isSplitView && <col className="w-[104px]" />}
             <col className="w-7" />
@@ -175,6 +176,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               <th className="px-2 font-normal">{UI.LIST_COL_NAME}</th>
               {!isSplitView && <th className="px-2 font-normal">{UI.LIST_COL_SECTOR}</th>}
               <th className="px-2 text-right font-normal">{UI.LIST_COL_REVENUE}</th>
+              <th className="px-2 text-right font-normal">{UI.LIST_COL_SCALE}</th>
               {!isSplitView && <th className="px-2 text-right font-normal">{UI.LIST_COL_PROFIT}</th>}
               <th className="px-1"><span className="sr-only">{UI.SAVE}</span></th>
             </tr>
@@ -182,7 +184,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             {visibleEntities.map((entity, index) => {
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
-              const { main, profit } = listMetricsOf(entity.reader);
+              const { revenue, scale, profit } = listColumnsOf(entity.reader);
               const sector = sectorLabel(entity);
               return (
                 <tbody
@@ -216,7 +218,10 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     <td className="truncate px-2 pt-1.5 text-xs text-term-muted">{sector}</td>
                   )}
                   <td className="term-num truncate px-2 pt-1.5 text-right">
-                    <ListMetricCell metric={main} expected={['REVENUE']} />
+                    <ListMetricCell metric={revenue} expected={['REVENUE']} />
+                  </td>
+                  <td className="term-num truncate px-2 pt-1.5 text-right">
+                    <ListMetricCell metric={scale} />
                   </td>
                   {!isSplitView && (
                     <td className="term-num truncate px-2 text-right">
@@ -236,7 +241,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   </td>
                   </tr>
                   <tr className="border-b border-term-line-soft">
-                    <td colSpan={isSplitView ? 3 : 5} className="overflow-hidden px-2 pb-1.5 pl-[34px]">
+                    <td colSpan={isSplitView ? 4 : 6} className="overflow-hidden px-2 pb-1.5 pl-[34px]">
                       <ListDescription reader={entity.reader} className="block truncate text-xs text-term-sub" />
                     </td>
                   </tr>

@@ -211,6 +211,7 @@ export const UI = {
   LIST_COL_INDEX: '#',
   LIST_COL_NAME: '事例',
   LIST_COL_SUMMARY: '概要',
+  LIST_COL_SCALE: '規模',
   LIST_COL_SECTOR: '分野',
   LIST_COL_ORIGIN: '由来',
   LIST_COL_AMOUNT: '金額',
