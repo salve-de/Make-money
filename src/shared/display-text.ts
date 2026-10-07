@@ -739,7 +739,10 @@ export function withYenApprox(text: string): string {
     if (/^[A-Za-z]/.test(rest)) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
     if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest)) continue;
-    const yen = low !== null ? `約${yenText(low * rate)}〜${yenText(high * rate)}` : `約${yenText(high * rate)}`;
+    // 金額の直前がマイナス記号（-$10・−$10・▲$10）なら、円の額にも同じ符号を付ける（赤字を黒字に見せない）
+    const neg = /(?:^|[^0-9A-Za-z])[-−▲△]$/.test(text.slice(0, m.index ?? 0));
+    const sg = neg ? '−' : '';
+    const yen = low !== null ? `約${sg}${yenText(low * rate)}〜${sg}${yenText(high * rate)}` : `約${sg}${yenText(high * rate)}`;
     const paren = rest.match(/^\s*[（(]/);
     out.push(text.slice(last, end), paren ? `${paren[0]}${yen}、` : `（${yen}）`);
     last = end + (paren ? paren[0].length : 0);
