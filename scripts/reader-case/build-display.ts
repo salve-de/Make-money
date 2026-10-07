@@ -12,6 +12,10 @@
  *   pnpm display:build --list                  AIを呼ばず、対象の事例と足りない層を出すだけ
  *   pnpm display:build --no-repair             今の文の言い回しの直し（下の流れの0）をしない
  *   pnpm display:build --repair-only           言い回しの直しだけをして、足りない層は作らない
+ *   pnpm display:build --reader                直しの前に、作る者と別のAIを「何も知らない読者」にして全行を読ませ、意味が取れない語句を直しの対象に足す
+ *                                              （指摘が出た行だけ3回判定して2回以上で採用。呼び出し回数・秒・費用は data/pipeline/reader-pass.jsonl）
+ *   pnpm display:build --reader-only           読者役だけを流して記録し、直さない（精度と時間を測る用。--id と並べて並列に流せる）
+ *                 --reader-votes 1|3（既定3）  --codex-effort low|medium|high（Codex の考える深さ。既定は Codex の既定）
  * 環境変数・引数: --agent auto|claude|codex（既定 auto: claude がログイン済みなら claude、無ければ codex）
  *                 --model / --review-model（AIの型。既定は各コマンドの既定）  --no-review（別のAIの確認を省く。既定は確認する）
  *                 --attempts N（既定3: 検査に落ちた時、理由を返して直させる回数の上限）
@@ -38,6 +42,7 @@ import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { type AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../architecture/natural-japanese.mjs';
+import { describeUnclear, findUnclear, loadClarityRules } from '../architecture/reader-clarity.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const read = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
@@ -82,7 +87,10 @@ const contract = read<{ items: ItemContract }>(join(ROOT, 'data/item-contract.js
 const language = read<Array<{ pattern: string; suggest: string }>>(join(ROOT, 'data/reader-language.json'));
 // 日本語の自然さと「読む人が知りたい事だけ」の関門。今の文が落ちる層は、事実が変わっていなくても作り直す対象にする
 const naturalRules = loadNaturalRules(join(ROOT, 'data/natural-japanese.json'));
-const unnatural = (text: string, ctx: { price: boolean } = { price: false }) => [...findUnnatural(text, naturalRules).map(describeHit), ...findNoise(text, ctx)];
+const clarityRules = loadClarityRules(join(ROOT, 'data/reader-clarity.json'));
+const unnatural = (text: string, ctx: { price: boolean } = { price: false }) => [...findUnnatural(text, naturalRules).map(describeHit), ...findNoise(text, ctx), ...findUnclear(text, clarityRules).map(describeUnclear)];
+// 自然で意味が取れる日本語の規則の正本（生成・直し・確認・読者役が同じ1枚を読む）
+const CLARITY_SKILL = readFileSync(join(ROOT, '.claude/skills/natural-japanese/SKILL.md'), 'utf8').replace(/^---[\s\S]*?---\n/, '');
 const naturalList = read<Array<{ pattern: string; suggest: string[]; bad?: string; good?: string }>>(join(ROOT, 'data/natural-japanese.json'));
 
 // ---------- 検査（一時コピーの data/ で、検査スクリプトを変えずに走らせる） ----------
@@ -92,7 +100,7 @@ function runCheck(files: DisplayFiles): { ok: boolean; problems: string[] } {
   try {
     mkdirSync(join(dir, 'data'));
     for (const f of DISPLAY_FILES) writeFileSync(join(dir, 'data', `${f}.json`), serialize(files[f]));
-    for (const f of ['item-contract.json', 'reader-language.json', 'natural-japanese.json']) copyFileSync(join(ROOT, 'data', f), join(dir, 'data', f));
+    for (const f of ['item-contract.json', 'reader-language.json', 'natural-japanese.json', 'reader-clarity.json']) copyFileSync(join(ROOT, 'data', f), join(dir, 'data', f));
     const r = spawnSync(process.execPath, [join(ROOT, 'scripts/architecture/check-case-text-standard.mjs')], { cwd: dir, encoding: 'utf8' });
     const output = `${r.stdout}\n${r.stderr}`;
     const problems = parseCheckOutput(output);
@@ -141,7 +149,8 @@ function callAgent(agent: Agent, system: string, user: string, schema: Record<st
     }
     const schemaFile = join(empty, 'schema.json'); const outFile = join(empty, 'out.json');
     writeFileSync(schemaFile, JSON.stringify(schema));
-    const args = ['exec', '--skip-git-repo-check', '--ephemeral', '-s', 'read-only', '--output-schema', schemaFile, '-o', outFile, '--json', '-C', empty, ...(model ? ['-m', model] : []), '-'];
+    const effort = argValue('--codex-effort');
+    const args = ['exec', '--skip-git-repo-check', '--ephemeral', '-s', 'read-only', '--output-schema', schemaFile, '-o', outFile, '--json', '-C', empty, ...(model ? ['-m', model] : []), ...(effort ? ['-c', `model_reasoning_effort=${effort}`] : []), '-'];
     const r = spawnSync('codex', args, { cwd: empty, input: `${system}\n\n## 材料と依頼（JSON）\n${user}\n\nツールやコマンドは使わず、指定の形の JSON だけを返す。`, encoding: 'utf8', timeout: 15 * 60_000, maxBuffer: 64 * 1024 * 1024 });
     if (r.status !== 0 || !existsSync(outFile)) throw new Error(`codex が失敗（${label}）: ${(r.stderr || r.stdout).slice(-300)}`);
     const tokens = { input: 0, output: 0 };
@@ -152,8 +161,8 @@ function callAgent(agent: Agent, system: string, user: string, schema: Record<st
   } finally { rmSync(empty, { recursive: true, force: true }); }
 }
 
-const SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-prompt.md'), 'utf8')}\n## 使わない語（左の形に当たる語は、右の言い方に直す）\n${language.map((r) => `- /${r.pattern}/ → ${r.suggest}`).join('\n')}\n\n## 使わない言い回し（話し言葉・業界のくだけた言い方。左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}${r.bad && r.good ? `（例: 「${r.bad}」→「${r.good}」）` : ''}`).join('\n')}\n`;
-const REVIEW_SYSTEM = readFileSync(join(ROOT, 'scripts/reader-case/display-review-prompt.md'), 'utf8');
+const SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-prompt.md'), 'utf8')}\n## 使わない語（左の形に当たる語は、右の言い方に直す）\n${language.map((r) => `- /${r.pattern}/ → ${r.suggest}`).join('\n')}\n\n## 使わない言い回し（話し言葉・業界のくだけた言い方。左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}${r.bad && r.good ? `（例: 「${r.bad}」→「${r.good}」）` : ''}`).join('\n')}\n\n${CLARITY_SKILL}`;
+const REVIEW_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-review-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}`;
 const REVIEW_SCHEMA = { type: 'object', properties: { issues: { type: 'array', items: { type: 'object', properties: { severity: { type: 'string', enum: ['must', 'minor'] }, kind: { type: 'string', enum: ['fact', 'natural', 'noise', 'other'] }, id: { type: 'string' }, problem: { type: 'string' }, fix: { type: 'string' }, phrase: { type: 'string' } }, required: ['severity', 'kind', 'id', 'problem', 'fix', 'phrase'], additionalProperties: false } } }, required: ['issues'], additionalProperties: false };
 
 function isAiOutput(v: unknown): v is AiOutput {
@@ -259,7 +268,61 @@ function recordCandidates(entityId: string, issues: Array<{ kind?: string; id: s
 }
 
 // ---------- 言い回しだけを直す（1件） ----------
-const REPAIR_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-repair-prompt.md'), 'utf8')}\n## 使わない言い回し（左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}`).join('\n')}\n`;
+const REPAIR_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-repair-prompt.md'), 'utf8')}\n## 使わない言い回し（左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}`).join('\n')}\n\n${CLARITY_SKILL}`;
+
+// ---------- 読者役（--reader）: 作る者と別のAIが「何も知らない読者」として全行を読み、意味が取れない語句をそのまま引用する ----------
+// 誤りの箇所を引用させる形（点数を聞かない）。指摘が出た行だけを、さらに2回読ませて3回中2回以上で採用する（判定のぶれを抑える）。
+// 採用した行は言い回しの直し（repairOne）に回り、作る側のAIが直し、確認役が「元と同じ事実か・意味が取れるか」を見てから反映する。
+const READER_ONLY = has('--reader-only');
+const READER = has('--reader') || READER_ONLY;
+const READER_VOTES = Number(argValue('--reader-votes') ?? 3);
+const READER_LOG = join(ROOT, 'data/pipeline/reader-pass.jsonl');
+const READER_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-reader-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}`;
+const READER_SCHEMA = { type: 'object', properties: { issues: { type: 'array', items: { type: 'object', properties: { id: { type: 'string' }, quote: { type: 'string' }, reason: { type: 'string' }, fix: { type: 'string' } }, required: ['id', 'quote', 'reason', 'fix'], additionalProperties: false } } }, required: ['issues'], additionalProperties: false };
+type ReaderIssue = { id: string; quote: string; reason: string; fix: string };
+function withReaderFlags(repairs: Array<{ id: string; rows: RepairRow[] }>, files: DisplayFiles, readers: Map<string, LiveReader>): Array<{ id: string; rows: RepairRow[] }> {
+  const agent = pickAgent();
+  const readerAgent = pickReviewer(agent);
+  if (!readerAgent) throw new Error('読者役に、作る者と別のAIを用意できない（--review-agent / --review-model を指定する）。--reader を付けたので止める');
+  const model = argValue('--review-model');
+  return repairs.map(({ id, rows }) => {
+    if (!readers.has(id)) return { id, rows };
+    const all = repairRows(id, files, () => ['_']).map((r) => ({ id: r.id, text: r.text }));
+    const textOf = new Map(all.map((r) => [r.id, r.text]));
+    const calls: CallResult[] = [];
+    const read = (subset: typeof all, round: number): ReaderIssue[] => {
+      const call = callAgent(readerAgent, READER_SYSTEM, JSON.stringify({ rows: subset }), READER_SCHEMA, model, `${id} 読者役 ${round}回目`);
+      calls.push(call);
+      mkdirSync(dirname(READER_LOG), { recursive: true });
+      appendFileSync(READER_LOG, `${JSON.stringify({ at: new Date().toISOString(), runId: RUN_ID, entityId: id, call: round, agent: readerAgent, seconds: Math.round(call.seconds), costUsd: call.costUsd, tokens: call.tokens, rows: subset.length, issues: (call.value as { issues?: unknown[] }).issues ?? [] })}\n`);
+      // 引用が行の文に一字一句ある指摘だけを数える（作り話の指摘を外す）
+      return ((call.value as { issues?: ReaderIssue[] }).issues ?? []).filter((i) => textOf.get(i.id)?.includes(i.quote.trim()) && i.quote.trim());
+    };
+    let first: ReaderIssue[];
+    try { first = read(all, 1); } catch (e) { say(`${id}: 読者役の呼び出しに失敗（${(e as Error).message}）。読者役は飛ばす`); return { id, rows }; }
+    const flagged = [...new Set(first.map((i) => i.id))];
+    const votes = new Map(flagged.map((rowId) => [rowId, 1]));
+    for (const round of READER_VOTES >= 3 ? [2, 3] : []) {
+      if (!flagged.length) break;
+      try { for (const rowId of new Set(read(all.filter((r) => flagged.includes(r.id)), round).map((i) => i.id))) votes.set(rowId, (votes.get(rowId) ?? 0) + 1); }
+      catch (e) { say(`${id}: 読者役 ${round}回目に失敗（${(e as Error).message}）`); }
+    }
+    const adopted = flagged.filter((rowId) => (votes.get(rowId) ?? 0) >= (READER_VOTES >= 3 ? 2 : 1));
+    const next = rows.map((r) => ({ ...r, problems: [...r.problems] }));
+    for (const rowId of adopted) {
+      const notes = first.filter((i) => i.id === rowId).map((i) => `読者役（3回中${votes.get(rowId)}回）: 「${i.quote}」${i.reason}（直し案: ${i.fix}）`);
+      const row = next.find((r) => r.id === rowId);
+      if (row) row.problems.push(...notes); else next.push({ id: rowId, text: textOf.get(rowId)!, problems: notes });
+    }
+    const seconds = calls.reduce((a, c) => a + c.seconds, 0);
+    const costUsd = calls.reduce((a, c) => a + (c.costUsd ?? 0), 0);
+    mkdirSync(dirname(READER_LOG), { recursive: true });
+    appendFileSync(READER_LOG, `${JSON.stringify({ at: new Date().toISOString(), runId: RUN_ID, entityId: id, summary: true, votes: READER_VOTES, agent: readerAgent, calls: calls.length, seconds: Math.round(seconds), costUsd, rows: all.length, flagged: flagged.length, adopted: adopted.length, issues: first.filter((i) => adopted.includes(i.id)) })}\n`);
+    say(`${id}: 読者役 ${all.length}行を読み、指摘${flagged.length}行・${READER_VOTES >= 3 ? '3回中2回以上' : '1回'}で採用${adopted.length}行（呼び出し${calls.length}回・${seconds.toFixed(0)}秒）`);
+    return { id, rows: next };
+  });
+}
+
 function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, rows: RepairRow[], files: DisplayFiles): { ok: boolean; attempts: number; reasons: string[]; files?: DisplayFiles } {
   const none = { list: false, summary: false, success: false, chapters: false, detail: [] };
   const material = buildMaterial(entityId, reader, none, { contract, files, exampleIds: [] });
@@ -309,7 +372,13 @@ function main() {
   const readers = liveReaders(ids);
   // 1. 今の文の言い回しの直し（関門に落ちた行だけ。行の位置・紐付けは保つ）
   if (!has('--list') && !has('--materials-only') && !has('--no-repair')) {
-    const repairs = ids.map((id) => ({ id, rows: repairRows(id, files, unnatural) })).filter((r) => r.rows.length && readers.has(r.id)).slice(0, MAX);
+    let repairs = ids.map((id) => ({ id, rows: repairRows(id, files, unnatural) }));
+    if (READER) {
+      // 外部のAIに送る前に、公開中の事例を --max 件までに絞る
+      repairs = withReaderFlags(repairs.filter((r) => readers.has(r.id)).slice(0, MAX), files, readers);
+      if (READER_ONLY) return 0;
+    }
+    repairs = repairs.filter((r) => r.rows.length && readers.has(r.id)).slice(0, MAX);
     if (repairs.length) {
       const agent = pickAgent();
       const repairReviewer = REVIEW ? pickReviewer(agent) : null;
