@@ -673,6 +673,73 @@ export function plainFactText(text: string): string {
   return /[。.!?]$/.test(cut) ? cut : `${cut}。`;
 }
 
+/**
+ * 本文の外貨の金額に、円のおおよその額を添える（「月99ドル」→「月99ドル（約1万4,850円）」、「$10」→「$10（約1,500円）」）。
+ * 為替は docs/CASE_TEXT_STANDARD.md の固定の概算（1ドル=150円・1ユーロ=165円・1ポンド=195円・1ルピー=1.75円）。
+ * 通貨は日本語の名前（ドル）・記号（$・€・£・₹）・ISO の略号（USD・EUR・GBP・INR）のどれでもよい。
+ * 米ドル以外のドル（CA$・A$ など）は換算しない。すぐ後ろに円の額がある金額には足さない（二重にしない）。すぐ後ろに円の無い括弧の補足があれば、その括弧の頭に入れる。保存データは変えない。
+ */
+const CURRENCY_YEN: Array<[RegExp, number]> = [[/^(?:ドル|US\$|\$|USD)$/, 150], [/^(?:ユーロ|€|EUR)$/, 165], [/^(?:ポンド|£|GBP)$/, 195], [/^(?:ルピー|₹|INR)$/, 1.75]];
+const NUM = '[0-9][0-9,]*(?:\\.[0-9]+)?';
+const RANGE = '\\s?[〜~～\\-–—]\\s?';
+const PRE_CUR = '(?:US\\$|\\$|€|£|₹|(?:USD|EUR|GBP|INR)\\s?)';
+// 桁: 億・万、k・K・M・B、MM・mn・bn・m、million・billion・thousand（前に空白があってもよい）
+const PRE_SCALE = '(?:億|万|\\s?(?:million|billion|thousand)(?![A-Za-z])|(?:MM|mn|bn|[kKmMB])(?![A-Za-z]))';
+// 範囲（「$10–$50」「$10-50」「29〜99ドル」）は両端をまとめて1つの金額として拾い、円も範囲で添える
+const FOREIGN_AMOUNT = new RegExp(
+  `(?<pc>${PRE_CUR})(?<pn>${NUM})(?<ps>${PRE_SCALE})?(?:${RANGE}(?:${PRE_CUR})?(?<pn2>${NUM})(?<ps2>${PRE_SCALE})?)?`
+  + `|(?:(?<sn0>${NUM})\\s?(?<ss0>${PRE_SCALE})?${RANGE})?(?<sn>${NUM})\\s?(?<ss>${PRE_SCALE})?\\s?(?<sc>ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
+const SCALE: Record<string, number> = { 億: 1e8, 万: 1e4, k: 1e3, K: 1e3, M: 1e6, B: 1e9, m: 1e6, MM: 1e6, mn: 1e6, bn: 1e9, million: 1e6, billion: 1e9, thousand: 1e3 };
+export function yenText(yen: number): string {
+  const n = Math.round(yen);
+  if (n >= 1e8) return `${trimNum(n / 1e8, 1)}億円`;
+  if (n >= 1e4) {
+    // 先に10円単位へ丸めてから万と端数に分ける（19,995円 → 2万円。「1万10,000円」にしない）
+    const r = Math.round(n / 10) * 10;
+    const man = Math.floor(r / 1e4);
+    const rest = r % 1e4;
+    return rest === 0 ? `${man.toLocaleString('en-US')}万円` : `${man.toLocaleString('en-US')}万${rest.toLocaleString('en-US')}円`;
+  }
+  return `${n.toLocaleString('en-US')}円`;
+}
+export function withYenApprox(text: string): string {
+  const out: string[] = [];
+  let last = 0;
+  for (const m of text.matchAll(FOREIGN_AMOUNT)) {
+    const g = m.groups ?? {};
+    const match = m[0];
+    const end = (m.index ?? 0) + match.length;
+    const rest = text.slice(end);
+    const currency = (g.pc ?? g.sc ?? '').trim();
+    const rate = CURRENCY_YEN.find(([re]) => re.test(currency))?.[1];
+    // 米ドル以外のドル（CA$・A$・NZ$・HK$・S$ や「$39 CAD」）は、為替の基準に無いので換算しない
+    if (g.pc && /[A-Za-z]$/.test(text.slice(0, m.index ?? 0)) && !/^US/.test(g.pc)) continue;
+    if (/^\s?(?:CAD|AUD|NZD|HKD|SGD|MXN|TWD)(?![A-Za-z])/.test(rest)) continue;
+    const value = (num: string, scale: string | undefined) => Number(num.replace(/,/g, '')) * (SCALE[(scale ?? '').trim()] ?? 1);
+    const amount = g.pn ? value(g.pn, g.ps) : value(g.sn, g.ss);
+    // 範囲の下端。後ろに桁（万・k など）が付くのが上端だけの時は、下端にも同じ桁を当てる（「1〜2万ドル」）
+    // ただし桁を当てると下端が上端を超える時（「$900〜1K」「$2,500〜3K」）は、下端は書かれたままの額にする
+    const lowOf = (num: string, own: string | undefined, upperNum: string, upperScale: string | undefined) => {
+      if (own || !upperScale) return value(num, own);
+      const inherited = value(num, upperScale);
+      return inherited <= value(upperNum, upperScale) ? inherited : value(num, undefined);
+    };
+    const low = g.pn2 ? lowOf(g.pn, g.ps, g.pn2, g.ps2) : g.sn0 ? lowOf(g.sn0, g.ss0, g.sn, g.ss) : null;
+    const high = g.pn2 ? value(g.pn2, g.ps2) : amount;
+    if (!rate || !Number.isFinite(high) || high <= 0 || (low !== null && (!Number.isFinite(low) || low <= 0))) continue;
+    // 金額のすぐ後ろに英字が続く（読めない桁や別の単位）時は、数字の頭だけを換算しない
+    if (/^[A-Za-z]/.test(rest)) continue;
+    // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
+    if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest)) continue;
+    const yen = low !== null ? `約${yenText(low * rate)}〜${yenText(high * rate)}` : `約${yenText(high * rate)}`;
+    const paren = rest.match(/^\s*[（(]/);
+    out.push(text.slice(last, end), paren ? `${paren[0]}${yen}、` : `（${yen}）`);
+    last = end + (paren ? paren[0].length : 0);
+  }
+  out.push(text.slice(last));
+  return out.join('');
+}
+
 /** 推測の文末「〜とみる。」「〜と見る。」「〜と推す。」を画面では省く（読む邪魔になるだけ）。前が短すぎる時は元のまま。 */
 const HEDGE_TAIL = /(?:と|ものと|ように)(?:みる|見る|みられる|見られる|推す|推測する|推測される|考えられる|考える|思われる)。?$/;
 export function plainAnalysisText(text: string): string {

@@ -104,6 +104,10 @@ describe('reader analysis', () => {
     expect(html).not.toContain('確度');
   });
 
+  it('4段の形でない STORY が「分からない」だけの文なら、欄ごと出さない', () => {
+    expect(renderToStaticMarkup(<StorySteps reader={{ ...withAnalysis, analysis: [{ ...withAnalysis.analysis[1], text: '未確認。' }] }} />)).toBe('');
+  });
+
   it('4段の形でない STORY はそのまま1つの文で出す', () => {
     const story = renderToStaticMarkup(<StorySteps reader={{ ...withAnalysis, analysis: [{ ...withAnalysis.analysis[1], text: '集計を自動化した。' }] }} />);
     expect(story).not.toContain('<li');

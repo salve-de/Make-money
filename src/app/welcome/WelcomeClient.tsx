@@ -1,6 +1,6 @@
 'use client';
 
-import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from '@/platform/components/grid/ReaderListCells';
+import { ListDescription, ListMetricCell, listMetricsOf } from '@/platform/components/grid/ReaderListCells';
 import { UI } from '@/shared/ui-strings';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import type { FinancialEntity } from '@/shared/terminal';
 
 
-const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_150px_90px]';
+const SAMPLE_GRID = 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_150px]';
 
 export default function WelcomeClient({
   entities,
@@ -83,7 +83,7 @@ export default function WelcomeClient({
           {entities.length > 0 ? (
             <div>
               <div className={`hidden h-[26px] items-center gap-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label md:grid ${SAMPLE_GRID}`}>
-                <span>{UI.LIST_COL_NAME}</span><span>{UI.LIST_COL_SUMMARY}</span><span className="text-right">{UI.LIST_COL_AMOUNT}</span><span>{UI.LIST_COL_ORIGIN}</span>
+                <span>{UI.LIST_COL_NAME}</span><span>{UI.LIST_COL_SUMMARY}</span><span className="text-right">{UI.LIST_COL_AMOUNT}</span>
               </div>
               {entities.map((entity, index) => {
                 const { main } = listMetricsOf(entity.reader);
@@ -96,7 +96,6 @@ export default function WelcomeClient({
                     <span className="font-semibold text-term-fg-strong">{entity.name}</span>
                     <ListDescription entityId={entity.id} reader={entity.reader} className="line-clamp-2 text-term-sub md:line-clamp-1" />
                     <span className="term-num md:text-right"><ListMetricCell metric={main} expected={['REVENUE']} /></span>
-                    <span className="text-xs md:text-sm"><ListOriginCell metric={main} /></span>
                   </Link>
                 );
               })}

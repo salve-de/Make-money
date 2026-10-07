@@ -5,7 +5,6 @@ import {
   formatMetricAmount,
   metricListLabel,
   metricMeasureLabel,
-  metricOriginLabel,
   pickListMetric,
   pickProfitMetric,
   readerSummaryFact,
@@ -54,33 +53,19 @@ export function ListDescription({ reader, className, entityId }: { reader?: Read
   );
 }
 
-/** 欄の名前・金額・期間・由来。売上が無い時は売却額・調達額などをその名前で出す。 */
-export function ListMetric({ metric, compact = false }: { metric: ReaderMetric | null; compact?: boolean }) {
-  if (!metric) return <span className="text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
-  return (
-    <span data-metric={metric.id} className="inline-flex flex-col items-end">
-      <span className="text-xs text-term-label">{metricListLabel(metric)}</span>
-      <span className={`term-num text-sm ${metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}`}>{formatMetricAmount(metric)}</span>
-      {!compact && (
-        <span className={`text-xs ${metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-label'}`}>
-          {metric.period} · {metricOriginLabel(metric)}
-        </span>
-      )}
-    </span>
-  );
-}
-
 /**
  * 表の1マス用（1行）。金額だけを出し、列の想定と違う種類（売却額・調達額など）の時だけ名前を前に付ける。
- * 期間と由来は title に入れる。無ければ「—」。
+ * 期間は title に入れる。無ければ「—」。
  */
 export function ListMetricCell({ metric, expected, aligned = false }: { metric: ReaderMetric | null; expected?: readonly Measure[]; aligned?: boolean }) {
   if (!metric) return <span className="block text-right font-sans text-xs text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
   const label = metricListLabel(metric);
   // 列の見出しと同じ種類でも、売上は月・年・累計で呼び分けるので、見出しと違う名前の時は前に付ける
   const showLabel = !expected || !expected.includes(metric.measure) || label !== metricMeasureLabel(metric);
-  const amount = <span className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}</span>;
-  const title = `${label} ${metric.period} · ${metricOriginLabel(metric)}`;
+  const estimated = metric.origin === 'ESTIMATED';
+  // 由来の語は一覧に出さない。推定だけは色に頼らず、読み上げ用の文字と title で伝える
+  const amount = <span className={estimated ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}{estimated && <span className="sr-only">（推定）</span>}</span>;
+  const title = `${label} ${metric.period}${estimated ? ' · 推定' : ''}`;
   // 名前は左・金額は右に固定し、行をまたいで数字の右端が揃うようにする
   if (aligned) {
     return (
@@ -94,16 +79,6 @@ export function ListMetricCell({ metric, expected, aligned = false }: { metric: 
     <span data-metric={metric.id} title={title}>
       {showLabel && <span className="mr-1 font-sans text-xs text-term-label">{label}</span>}
       {amount}
-    </span>
-  );
-}
-
-/** 由来の1語（提出書類・本人申告・記事・第三者・推定）。推定だけ橙。数値が無ければ「—」。 */
-export function ListOriginCell({ metric }: { metric: ReaderMetric | null }) {
-  if (!metric) return <span className="text-term-dim">{UI.LIST_REVENUE_UNKNOWN}</span>;
-  return (
-    <span data-metric={metric.id} className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}>
-      {metricOriginLabel(metric)}
     </span>
   );
 }

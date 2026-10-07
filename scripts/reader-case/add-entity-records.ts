@@ -11,6 +11,8 @@
  * 使い方:
  *   node --import tsx scripts/reader-case/add-entity-records.ts --collect --manifest <catalog.json> --artifacts <dir> --ids a,b --name <name> [--packs <dir>]
  *   （--packs: 根拠カードが無い記録に、事例担当の材料 packs/<id>.json の出典から根拠カードを付ける）
+ *   node --import tsx scripts/reader-case/add-entity-records.ts --from-research <records.json> --name <name>
+ *   （新しく調べた事例の記録を、形の検査と出所の指紋つきで足す。R2 には書かない）
  *   node --import tsx scripts/reader-case/add-entity-records.ts --apply [--dry-run]
  */
 import { createHash } from 'node:crypto';
@@ -77,6 +79,41 @@ export function collect(manifestPath: string, artifactsDir: string, ids: string[
   return { version: 1, source: { manifest: manifestPath, manifestSha256: sha256(text), artifactsDir, collectedAt: now.toISOString() }, records };
 }
 
+/**
+ * 新しく調べた事例の記録（調査担当が書いた記録の配列 JSON）から足す。
+ * 出所は調査ファイルのパスと指紋。記録ごとの detailsHash は記録そのものの指紋、artifactSha256 は調査ファイルの指紋。
+ */
+export function collectFromResearch(researchPath: string, now = new Date()): AdditionFile {
+  const text = readFileSync(researchPath, 'utf8');
+  const raw = JSON.parse(text) as unknown;
+  const list = (Array.isArray(raw) ? raw : [raw]) as Record<string, unknown>[];
+  if (!list.length) throw new Error('記録が1件も無い');
+  const records: AdditionFile['records'] = list.map((input) => {
+    const { reader: _reader, ...record } = input;
+    void _reader;
+    const id = String(record.id ?? '');
+    if (!/^ent_[\w-]+$/.test(id)) throw new Error(`id が ent_ で始まらない: ${id}`);
+    // 公式サイトが無い事例（店舗だけ・匿名・閉業など）も足す。目録の既存の記録と同じく url は空文字で持つ
+    if (typeof record.url !== 'string') record.url = '';
+    const tags = Array.isArray(record.tags) ? (record.tags as string[]) : [];
+    record.tags = tags.includes(REVIEW_TAG) ? tags : [...tags, REVIEW_TAG];
+    // 根拠カードが無いと公開区分の判定（hasValidEvidenceLocator）で必ず落ちる。調査の出典一覧（reaudit.sources）から出典の所在カードを作る
+    const cards = Array.isArray(record.evidenceCards) ? record.evidenceCards : [];
+    const auditSources = ((record.reaudit as { sources?: { url?: string; publisher?: string; checkedAt?: string }[] } | undefined)?.sources ?? []);
+    if (!cards.length && auditSources.length) {
+      // 公式サイトが無い時は、全ての出典を公式以外として扱う
+      const official = host(record.url);
+      record.evidenceCards = sourceCards(id, auditSources.map((s, i) => ({
+        id: String(i + 1), url: s.url, publisher: s.publisher, checkedAt: s.checkedAt, kind: official && host(s.url) === official ? 'OFFICIAL' : 'OTHER',
+      })));
+    }
+    return { id, provenance: { detailsHash: sha256(JSON.stringify(record)), artifactSha256: sha256(text) }, record };
+  });
+  const parsed = parseFinancialEntitiesResiliently(records.map((r) => r.record));
+  if (parsed.invalidEntities.length) throw new Error(`形式の検査に通らない記録がある: ${JSON.stringify(parsed.invalidEntities).slice(0, 800)}`);
+  return { version: 1, source: { manifest: researchPath, manifestSha256: sha256(text), artifactsDir: '', collectedAt: now.toISOString() }, records };
+}
+
 /** 目録に足す。足した id と、足さなかった id（理由）を返す。既存の記録は変えない */
 export function mergeInto(index: Record<string, unknown>[], additions: AdditionFile[]): { next: Record<string, unknown>[]; added: string[]; skipped: { id: string; reason: string }[] } {
   const ids = new Set(index.map((e) => String(e.id)));
@@ -116,6 +153,15 @@ function main() {
     console.log(JSON.stringify({ collected: file.records.length, file: `${ADDITIONS_DIR}/${name}.json` }));
     return;
   }
+  if (args.includes('--from-research')) {
+    const research = val('--from-research'); const name = val('--name');
+    if (!research || !name || !/^[\w-]+$/.test(name)) throw new Error('--from-research <records.json> --name <name> が要る');
+    const file = collectFromResearch(research);
+    mkdirSync(ADDITIONS_DIR, { recursive: true });
+    writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
+    console.log(JSON.stringify({ collected: file.records.length, file: `${ADDITIONS_DIR}/${name}.json` }));
+    return;
+  }
   if (args.includes('--apply')) {
     const path = 'data/entities-index.json';
     const index = JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>[];
@@ -124,7 +170,7 @@ function main() {
     console.log(JSON.stringify({ added, skipped, dryRun: args.includes('--dry-run') }));
     return;
   }
-  throw new Error('--collect か --apply を指定する');
+  throw new Error('--collect か --from-research か --apply を指定する');
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
