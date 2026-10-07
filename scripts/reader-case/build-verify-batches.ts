@@ -9,13 +9,15 @@ import { argValue, loadReaders, readIdsFile } from './load-readers';
 import { chunkSources, packByChunks } from './source-chunks';
 import { VERIFY_DIR, claimsOf, hasText, readCache, type Claim } from './verify-lib';
 
-const PER_BATCH = 25;
+// 事例ごとに束を分けたい時（pnpm case:run）は VERIFY_PER_BATCH=1 と --prefix で、その接頭辞の束だけを作り直す
+const PER_BATCH = Number(process.env.VERIFY_PER_BATCH ?? 25);
 
 function main() {
   const idsFile = argValue('--ids');
+  const prefix = argValue('--prefix') ?? 'batch-';
   const readers = loadReaders(idsFile ? readIdsFile(idsFile) : undefined);
   mkdirSync(`${VERIFY_DIR}/batches`, { recursive: true });
-  for (const f of readdirSync(`${VERIFY_DIR}/batches`)) if (f.startsWith('batch-')) rmSync(`${VERIFY_DIR}/batches/${f}`);
+  for (const f of readdirSync(`${VERIFY_DIR}/batches`)) if (f.startsWith(prefix)) rmSync(`${VERIFY_DIR}/batches/${f}`);
   const unreachable: { entityId: string; claimId: string; text: string; url: string; reason: string }[] = [];
   const cases: ({ sources: unknown[] } & Record<string, unknown>)[] = [];
   let claimTotal = 0;
@@ -41,7 +43,7 @@ function main() {
   }
   const batches = packByChunks(cases, (c) => c.sources.length, PER_BATCH);
   batches.forEach((b, i) => {
-    const name = `batch-${String(i + 1).padStart(3, '0')}`;
+    const name = `${prefix}${String(i + 1).padStart(3, '0')}`;
     writeFileSync(`${VERIFY_DIR}/batches/${name}.json`, JSON.stringify({ batch: name, cases: b }, null, 1));
   });
   writeFileSync(`${VERIFY_DIR}/unreachable.json`, JSON.stringify(unreachable, null, 1));

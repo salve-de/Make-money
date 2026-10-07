@@ -95,3 +95,7 @@ __pycache__/
 /data/pipeline/display-build/
 /data/pipeline/display-build-failures.jsonl
 /data/pipeline/natural-japanese-candidates.jsonl
+
+# pnpm case:run の実行記録（所要時間・各命令の出力・画面の文の作業場所）
+/data/pipeline/case-run/
+/data/pipeline/case-run.jsonl
