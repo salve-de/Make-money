@@ -188,8 +188,9 @@ export async function releaseApprovalCandidateIds(): Promise<Set<string>> {
 const patternCases = new Slot<PatternCase[]>();
 
 export async function readReleasePatternCases(): Promise<PatternCase[]> {
-  const { manifest, membership } = await getResolvedManifest();
-  return patternCases.get(manifest.summaries.hash, async () => {
+  const { manifest, membership, manifestHash } = await getResolvedManifest();
+  // 詳細だけが変わった版でも作り直すよう、要約ではなく目録全体の指紋で覚える
+  return patternCases.get(manifestHash ?? `bundled:${manifest.summaries.hash}`, async () => {
       const rows = await readReleaseSummaries();
       const out: PatternCase[] = [];
       const queue = [...rows];

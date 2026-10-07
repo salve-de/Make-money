@@ -26,7 +26,13 @@ export async function advanceReleasePointer(
   now: Date = new Date(),
 ): Promise<AdvanceResult> {
   const current = await store.read();
-  if (current?.pointer.manifestHash === next.manifestHash) return { status: 'UNCHANGED', to: next.manifestHash };
+  if (current?.pointer.manifestHash === next.manifestHash) {
+    // 目印は進んだのに記録の書き込みだけ失敗していた場合に備え、同じ内容の記録を置き直す。
+    // 記録の名前も中身も目印から決まり、同じものが既にあれば何も変わらないので、何度やっても安全。
+    const { pointer } = current;
+    await store.log({ version: 1, at: pointer.updatedAt, from: pointer.previous?.manifestHash ?? null, to: pointer.manifestHash, publishedCount: pointer.publishedCount });
+    return { status: 'UNCHANGED', to: next.manifestHash };
+  }
   const at = now.toISOString();
   const pointer: ReleasePointer = {
     version: 1,

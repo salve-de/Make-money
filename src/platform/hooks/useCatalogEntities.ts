@@ -208,7 +208,11 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
             const entity = parseFinancialEntity(payload.data);
             if (entity.id.toLowerCase() !== targetId.toLowerCase()) throw new Error('Detail entity identity mismatch');
             // 返ってきた正式な ID で覚える（大文字小文字の違う呼び方で来ても、画面は正式な ID で引く）
-            setDetailedEntities((prev) => ({ ...prev, [entity.id]: preferDetail(prev[entity.id], entity) }));
+            setDetailedEntities((prev) => {
+              const merged = preferDetail(prev[entity.id], entity);
+              // 呼び方（大文字小文字）が違う選択中の ID でも引けるよう、別名でも持つ
+              return targetId === entity.id ? { ...prev, [entity.id]: merged } : { ...prev, [entity.id]: merged, [targetId]: merged };
+            });
           }
         }
         markStatus('done');

@@ -42,13 +42,13 @@ describe('公開版の目印を進める', () => {
     expect(m.logs[0]).toMatchObject({ from: A, to: B, at: '2026-10-09T00:00:00.000Z', publishedCount: 12 });
   });
 
-  it('同じ版を指している時は何も書かず、記録も増やさない', async () => {
+  it('同じ版を指している時は目印を書かず、記録だけ置き直す（記録の書き込みが落ちた後の復旧）', async () => {
     const first = memoryStore();
     await advanceReleasePointer(first.store, { manifestHash: A, publishedCount: 10 });
     const m = memoryStore(first.now()!.pointer);
     expect(await advanceReleasePointer(m.store, { manifestHash: A, publishedCount: 10 })).toEqual({ status: 'UNCHANGED', to: A });
     expect(m.writes).toHaveLength(0);
-    expect(m.logs).toHaveLength(0);
+    expect(m.logs).toEqual(first.logs);
   });
 
   it('読んだ後に他で書き換えられていたら、上書きせずに失敗する', async () => {
