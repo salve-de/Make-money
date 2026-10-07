@@ -142,7 +142,7 @@
       ],
       "voices": [
         {
-          "text": "GoRailsの顧客から、サービスが続く限り使うというコメントがあった（起業家の交流サイトIndie Hackers）",
+          "text": "「顧客です、GoRailsが続く限り使う」（Indie Hackers 投稿コメント）",
           "source": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f"
         }
       ]
@@ -444,7 +444,7 @@
           "source": "https://wellfedwriter.com/still-love-e-junkie-e-book-sales-websites/"
         },
         {
-          "text": "「問題なく動き、メール配信サービスAWeberと決済サービスPayPalの連携が気に入った」（掲示板Warrior Forum、約2010年、第三者）",
+          "text": "「問題なく動き、AWeberとPayPalのつながりが気に入った」（Warrior Forum、約2010年、第三者）",
           "source": "https://www.warriorforum.com/main-internet-marketing-discussion-forum/299772-has-anyone-used-e-junkie-wso.html"
         }
       ]
@@ -771,7 +771,7 @@
           "source": "https://type-ed.com/resources/rag-right/2013/09/29/matthew-butterick-practical-typography"
         },
         {
-          "text": "公開当日、開発者向けの投稿サイトHacker Newsの紹介投稿は、評価472点を得た。コメントは159件だった（第三者）",
+          "text": "公開当日、Hacker Newsの紹介投稿に472点・コメント159件が付いた（第三者）",
           "source": "https://news.ycombinator.com/item?id=6094946"
         },
         {
@@ -935,11 +935,11 @@
           "source": "https://rg3.name/201308081610.html"
         },
         {
-          "text": "読んだ本の中で、この本が最も明快で役立つ（道具の紹介サイトCool Tools、2014年1月、第三者）",
+          "text": "読んだ本のうち、作者Butterickの本が最も明快で役立つ（Cool Tools、2014年1月、第三者）",
           "source": "https://kk.org/cooltools/buttericks-practical-typography/"
         },
         {
-          "text": "いつかこの本にお金を払ってもよいと思った。実際にフォント（文字の書体）のEquity Textを買った（書評サイトGoodreads、2018年1月、第三者）",
+          "text": "いつか払ってもいいと思うほどだった。実際にEquity Textを買った（Goodreads、2018年1月、第三者）",
           "source": "https://www.goodreads.com/book/show/18244760-butterick-s-practical-typography"
         },
         {
@@ -1352,7 +1352,7 @@
       ],
       "price": [
         {
-          "text": "発売時は基本版79ドル（約1.2万円）、上位版149ドル（約2.2万円）。元値は99ドル（約1.5万円）と249ドル（約3.7万円）で、最大40%引きとツイートで告知（第三者）",
+          "text": "発売時: 基本版99ドル→79ドル（約1.2万円）、上位版249ドル（約3.7万円）→149ドル（約2.2万円）。発売ツイートは最大40%引き（第三者）",
           "source": "https://marketingexamples.com/landing-page/pricing"
         },
         {

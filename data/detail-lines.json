@@ -17,7 +17,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-first_customers",
     "textHash": "e21d3a51",
-    "answer": "最初の客は、通販サイト作成ソフトMagentoを使う米国人の開発者。創業者が無料で30分教えた（本人申告）",
+    "answer": "最初の客は米国のMagento開発者。創業者が無料で30分指導した（本人申告）",
     "note": "約9か月は、登録者の中から選んだ人だけに利用してもらった。その後、相談に答える人を先に集め、客には無料で相談できる券を配った。"
   },
   {
@@ -76,7 +76,7 @@
     "analysisId": "a-first_customers",
     "textHash": "efc8e537",
     "answer": "最初の客は音楽家の友人たち。頼まれて、音楽ファイルを届けられるようサービスを調整した（本人申告）",
-    "note": "その後は、自費出版の著者へ、販売の設定を代行すると1人ずつメールした（本人申告）。"
+    "note": "その後は、自費出版の著者へ、設定を引き受けると1人ずつメールした（本人申告）。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -397,8 +397,8 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-channels",
     "textHash": "8e5e7a88",
-    "answer": "1年目は広告費なしで口コミ。2年目は開発者の投稿サイトHacker NewsやTwitter、まとめ記事で読者を集めた",
-    "note": "道具の紹介サイトCool Toolsや個人ブログDaring Fireballから来る読者は少なかった。一方、読者が多く来るサイトから来た人より、お金を払う人の割合は高かった（本人申告）。"
+    "answer": "1年目は広告費なしの口コミ、2年目は投稿サイトHacker NewsやTwitter、まとめ記事から読者が来た",
+    "note": "道具紹介サイトCool Toolsや個人ブログDaring Fireballから来た読者は、読者数の多い紹介元より支払う割合が高かった（本人申告）。"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -592,7 +592,7 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-channels",
     "textHash": "fab97a5e",
-    "answer": "代理店向けFacebookグループ15個で毎月の出費を尋ね、28日で試用127件、有料31件（本人申告、2025年9月）",
+    "answer": "代理店向けFacebookグループ15個に月の出費を聞いて回り、28日で試用127・有料31（本人申告、2025年9月）",
     "note": "新規登録の約4割は口コミ・紹介（2025年8月、本人申告）。公式は、ブログ運営者や比較サイトにも紹介を促す。"
   },
   {
