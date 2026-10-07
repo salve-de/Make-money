@@ -250,6 +250,12 @@ export const TerminalShell: React.FC<{
               bookmarkedIds={bookmarkedIds}
               onToggleBookmark={handleToggleBookmark}
               isSplitView={Boolean(selectedEntity)}
+              selectedTags={screenerFilters?.selectedTags ?? []}
+              onToggleTag={(tag) => {
+                const base = screenerFilters ?? { scales: [], minMargin: 0, maxCapital: null, moats: [] };
+                const current = base.selectedTags ?? [];
+                setScreenerFilters({ ...base, selectedTags: current.includes(tag) ? current.filter((t) => t !== tag) : [...current, tag] });
+              }}
               onLoadMore={loadMore}
               hasMore={hasMore}
               isLoadingMore={catalogLoading}
