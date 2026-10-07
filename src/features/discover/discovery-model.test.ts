@@ -197,7 +197,7 @@ describe("discovery model", () => {
     const item = deriveDiscoveryDataset([{ ...makeEntity("blk"), reader: block }]).cases[0];
     expect(item.resultLabel).toBe("売上");
     expect(item.resultValue).toBe("$24B");
-    expect(item.resultEvidenceLabel).toBe("提出書類");
+    expect(item.resultEvidenceLabel).toBe("");
     expect(item.resultPeriod).toBe("FY2025");
   });
 
