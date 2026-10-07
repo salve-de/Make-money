@@ -1,6 +1,6 @@
 import lines from '../../data/detail-lines.json';
 import { textFingerprint } from './list-lines';
-import { stripOriginTag } from './origin-tag';
+import { screenText } from './display-text';
 
 /**
  * 詳細の各章の「見出し＝答え」の言い切り。事例データ本体とは別に持つ画面用の編集文で、
@@ -23,5 +23,5 @@ const BY_KEY = new Map<string, DetailLine>((lines as DetailLine[]).map((line) =>
 export function detailLineFor(entityId: string | undefined, analysis: { id: string; text: string }): { answer: string; note?: string; hidden?: boolean } | null {
   const line = entityId ? BY_KEY.get(KEY(entityId, analysis.id)) : undefined;
   if (!line || line.textHash !== textFingerprint(analysis.text)) return null;
-  return { answer: stripOriginTag(line.answer), note: line.note ? stripOriginTag(line.note) : line.note, hidden: line.hidden };
+  return { answer: screenText(line.answer), note: line.note ? screenText(line.note) : line.note, hidden: line.hidden };
 }

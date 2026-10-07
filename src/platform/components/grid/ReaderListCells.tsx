@@ -8,6 +8,7 @@ import {
   pickListMetric,
   pickProfitMetric,
   readerSummaryFact,
+  screenText,
 } from '@/shared/display-text';
 import type { Measure, ReaderCase, ReaderMetric } from '@/shared/reader-case';
 import { UI } from '@/shared/ui-strings';
@@ -45,7 +46,7 @@ export function ListDescription({ reader, className, entityId }: { reader?: Read
     );
   }
   // 画面用の短い1行があれば、それを出す（元の要約と一致する時だけ）。無ければ元の要約の1文目
-  const text = listLineFor(entityId, fact) ?? firstSentence(fact.text);
+  const text = listLineFor(entityId, fact) ?? screenText(firstSentence(fact.text));
   return (
     <span className={className} data-fact={fact.id} title={text}>
       {text}
@@ -64,7 +65,7 @@ export function ListMetricCell({ metric, expected, aligned = false }: { metric: 
   const showLabel = !expected || !expected.includes(metric.measure) || label !== metricMeasureLabel(metric);
   const estimated = metric.origin === 'ESTIMATED';
   // 由来の語は一覧に出さない。推定だけは色に頼らず、読み上げ用の文字と title で伝える
-  const amount = <span className={estimated ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}{estimated && <span className="sr-only">（推定）</span>}</span>;
+  const amount = <span className={estimated ? 'text-term-accent' : 'text-term-fg-strong'}>{screenText(formatMetricAmount(metric))}{estimated && <span className="sr-only">（推定）</span>}</span>;
   const title = `${label} ${metric.period}${estimated ? ' · 推定' : ''}`;
   // 名前は左・金額は右に固定し、行をまたいで数字の右端が揃うようにする
   if (aligned) {

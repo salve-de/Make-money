@@ -1,5 +1,6 @@
 import type { ReaderCase, ReaderFact, ReaderMetric, ReaderSource } from './reader-case';
 import { metricWhen } from './metric-when';
+import { stripOriginTag } from './origin-tag';
 import { GENRE_LABELS, MEASURE_LABELS, ORIGIN_LABELS, UI, UNKNOWN_LABELS } from './ui-strings';
 
 /**
@@ -749,6 +750,11 @@ export function withYenApprox(text: string): string {
   }
   out.push(text.slice(last));
   return out.join('');
+}
+
+/** 画面に出す文の仕上げ: 出どころの印を外し、外貨の金額に円の概算を添える（どの欄の文にも同じ処理を通す）。 */
+export function screenText(text: string): string {
+  return withYenApprox(stripOriginTag(text));
 }
 
 /** 推測の文末「〜とみる。」「〜と見る。」「〜と推す。」を画面では省く（読む邪魔になるだけ）。前が短すぎる時は元のまま。 */

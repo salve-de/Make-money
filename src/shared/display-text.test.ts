@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel, withYenApprox, yenText } from './display-text';
+import { screenText, cleanDisplayText, listRevenueText, reportedAnnualReport, formatDisplayDate, formatSourceNote, stripSourceParenthetical, entityIdentityLine, estimationLogicLabel, isResearchTimelineEvent, originTypeLabel, sourceKindLabel, timelineEventLabel, toolCategoryLabel, withYenApprox, yenText } from './display-text';
 
 describe('formatSourceNote', () => {
   it('removes rights and facts-only, keeps URL and date', () => {
@@ -270,5 +270,14 @@ describe('withYenApprox', () => {
     expect(yenText(14850)).toBe('1万4,850円');
     expect(yenText(2.4e8)).toBe('2.4億円');
     expect(yenText(900)).toBe('900円');
+  });
+});
+
+describe('screenText（画面に出す文の仕上げ）', () => {
+  it('出どころの印を外し、外貨に円の概算を添える（両方を同じ関数で通す）', () => {
+    expect(screenText('調達はシード160万ドル（TechCrunch、2016年12月）。')).toBe('調達はシード160万ドル（約2.4億円）。');
+  });
+  it('円換算が済んだ文はそのまま', () => {
+    expect(screenText('月6ドル（約900円）')).toBe('月6ドル（約900円）');
   });
 });
