@@ -111,6 +111,8 @@ test('原文照合の不合格は公開データの作成から外すだけで�
   };
   const s = await runCases(opts(root), { exec, caller: fakeCaller(root, []) });
   assert.deepEqual(prepared.sort(), ['fx-001', 'fx-002']);
+  // 公開データの作成が拾う「仕上げ済み一覧」からも外れている
+  assert.ok(!readFileSync(join(root, 'data/catalog-finished-ids.txt'), 'utf8').split('\n').includes('fx-003'));
   assert.deepEqual(s.blockedFromPublish, ['fx-003']);
   assert.ok(calls.includes('audit-build'), '落ちた件も分析・監査は続く');
   assert.equal(s.failures.find((f) => f.id === 'fx-003')?.soft, true);

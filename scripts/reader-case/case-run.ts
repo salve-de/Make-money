@@ -254,6 +254,14 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
   await stage('prepare', async () => {
     const ids = publishable();
     if (!ids.length) return { skipped: '公開データへ進める事例が無い' };
+    // 原文照合で落ちた事例は、公開データの作成が「仕上げ済み一覧」から拾ってしまう（--changed は再評価の指定で絞り込みではない）。
+    // まだ公開していない分だけ一覧から外す（公開済みを外すと撤回になるので触らない）
+    const finishedFile = join(root, 'data/catalog-finished-ids.txt');
+    if (blocked.size && existsSync(finishedFile)) {
+      const published = new Set(Object.keys(readJson<{ details?: Record<string, string> }>(join(root, 'data/catalog-release.json'), {}).details ?? {}));
+      const drop = new Set([...blocked].filter((id) => !published.has(id)));
+      if (drop.size) writeFileSync(finishedFile, readFileSync(finishedFile, 'utf8').split('\n').filter((l) => !drop.has(l.trim())).join('\n'));
+    }
     const r = await deps.exec('prepare', ['pnpm', 'catalog:prepare', '--changed', idsFile('prepare', ids)]);
     if (r.code !== 0) throw new Error(`公開データの作成が失敗（終了コード ${r.code}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-3).join(' / ').slice(0, 300)}`);
     return { prepared: ids.length };
@@ -264,7 +272,9 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
     const cleanly = failures.length === 0;
     await stage('publish', async () => {
       if (!publishable().length) return { skipped: '公開へ進める事例が無い' };
-      if (!stages.find((s) => s.stage === 'prepare')?.ok) throw new Error('公開データの作成が通っていないので公開しない');
+      // 途中から再開した時（--from publish）は、前の実行で作った公開データをそのまま使う
+      const prepared = stages.find((s) => s.stage === 'prepare');
+      if (prepared ? !prepared.ok : opt.from !== 'publish') throw new Error('公開データの作成が通っていないので公開しない');
       const r = await deps.exec('publish', ['pnpm', 'catalog:publish']);
       if (r.code !== 0) throw new Error(`catalog:publish が失敗（終了コード ${r.code}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-3).join(' / ').slice(0, 300)}`);
       return { published: publishable().length, otherCasesFailed: !cleanly };
@@ -298,6 +308,10 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
   const conc = Number(val('--concurrency') ?? 4);
   if (!Number.isInteger(conc) || conc < 1) { console.error('--concurrency は1以上の整数'); process.exit(2); }
   if (val('--from') && !(STAGE_ORDER as readonly string[]).includes(val('--from')!)) { console.error(`--from は ${STAGE_ORDER.join(' / ')} のどれか`); process.exit(2); }
+  const att = val('--max-attempts');
+  if (att !== undefined && (!Number.isInteger(Number(att)) || Number(att) < 1)) { console.error('--max-attempts は1以上の整数'); process.exit(2); }
+  const stall = Number(val('--stall-minutes') ?? 10);
+  if (!(stall > 0)) { console.error('--stall-minutes は0より大きい数'); process.exit(2); }
   const agent = val('--agent'); const model = val('--model'); const effort = val('--codex-effort');
   return {
     root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'),
