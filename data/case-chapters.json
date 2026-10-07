@@ -40,7 +40,7 @@
           "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
         },
         {
-          "text": "前: 最初の動画は音声が悪く文字起こしも無いと批判された。後: マイクを買い、文字起こしを付けると返した（Hacker News）",
+          "text": "前: 最初の動画は音声が悪く文字起こしも無いと批判された。後: 作者はマイクを買い、批判した人に文字起こしを付けると答えた（Hacker News）",
           "source": "https://news.ycombinator.com/item?id=8040524"
         }
       ],
@@ -54,7 +54,7 @@
           "source": "https://www.failory.com/interview/gorails"
         },
         {
-          "text": "2014年7月16日: Hacker Newsに掲載（152点・コメント55件、投稿は第三者）",
+          "text": "2014年7月16日: GoRailsが開発者向けの投稿サイトHacker Newsに載った（投票152点・コメント55件、投稿は第三者）",
           "source": "https://news.ycombinator.com/item?id=8040524"
         },
         {
@@ -76,7 +76,7 @@
           "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
         },
         {
-          "text": "人気の公開手順のメモを、製品に変える（根拠: 人気の公開手順からHatchboxを作った）",
+          "text": "Webアプリをサーバーに公開する手順のメモを製品に変える（根拠: この手順のメモが人気で、そこからHatchboxを作った）",
           "source": "https://www.therubyonrailspodcast.com/552"
         },
         {
@@ -104,7 +104,7 @@
       ],
       "price": [
         {
-          "text": "2015年10月の公式: 月9ドル（約1,350円）",
+          "text": "2015年10月の公式サイトの会員料金: 月9ドル（約1,350円）",
           "source": "https://web.archive.org/web/20151024004421/https://gorails.com/pricing"
         },
         {
@@ -135,7 +135,7 @@
     "chapters": {
       "practice": [
         {
-          "text": "動く前に登録ページだけをHacker Newsに載せ、132点・コメント73件を得た（第三者）",
+          "text": "製品が動く前に登録ページだけをHacker Newsに載せ、賛成票132票とコメント73件を得た（第三者）",
           "source": "https://news.ycombinator.com/item?id=5799272"
         },
         {
@@ -151,7 +151,7 @@
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         },
         {
-          "text": "週ごとの新機能を試す客に、無料クレジットを配った（本人）",
+          "text": "毎週出す新機能を試す客に、無料で相談できるポイントを配った（本人）",
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         },
         {
@@ -209,7 +209,7 @@
           "source": "https://news.ycombinator.com/item?id=5799272"
         },
         {
-          "text": "メンターと客の両方が必要な場では、先に少数のメンターを確保する（根拠: 熱心なメンター確保と返事の速さ）",
+          "text": "メンターと客の両方が必要な場では、先に少数のメンターを確保する（根拠: 熱心なメンターを先に確保し、依頼への返事を速くした）",
           "source": "https://mixergy.com/interviews/codementor-with-weiting-liu/"
         },
         {
@@ -316,7 +316,7 @@
           "source": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f"
         },
         {
-          "text": "売り手が商品を紹介してもらう制度を作れ、紹介する人は無料で使える（公式）",
+          "text": "売り手は、他の人に商品を紹介してもらう制度を作れる。紹介する人はこのサービスを無料で使える（公式）",
           "source": "https://www.e-junkie.com/wiki/affiliates"
         },
         {
@@ -416,7 +416,7 @@
           "source": "https://allfreelancewriting.com/sell-your-own-information-products-with-e-junkie/"
         },
         {
-          "text": "「手数料型は私の売り方だと高くなる。E-junkieは売上無制限の定額」（同じ作家、2014年1月）",
+          "text": "「売るたびに手数料を取るサービスは、私の売り方だと高くなる。E-junkieは売上額に上限がなく、料金は定額」（同じ作家、2014年1月）",
           "source": "https://wellfedwriter.com/still-love-e-junkie-e-book-sales-websites/"
         },
         {
@@ -723,7 +723,7 @@
           "source": "https://practicaltypography.com/mb-fonts.html"
         },
         {
-          "text": "入口は5つの要点の短い入門ページ。1年目に最も読まれた（本人）",
+          "text": "本を読み始める人向けに、要点を5つにまとめた短い入門ページを置いた。1年目に最も読まれた（本人）",
           "source": "https://type-ed.com/resources/rag-right/2013/09/29/matthew-butterick-practical-typography"
         },
         {
@@ -813,7 +813,7 @@
           "source": "https://practicaltypography.com/to-pay-or-not-to-pay.html"
         },
         {
-          "text": "画面を荒らす催促を入れず、頼む場所を絞る（根拠: 文中への催促が最も効くと知りつつ見送り、専用ページに絞った）",
+          "text": "作者は、本文のあちこちに支払いの催促を入れなかった。本文に入れるのが最も効くと知っていたが、読みにくくなるので見送り、専用ページだけでお願いした。",
           "source": "https://practicaltypography.com/effluents-influence-affluence.html"
         }
       ],
@@ -895,7 +895,7 @@
           "source": "https://kk.org/cooltools/buttericks-practical-typography/"
         },
         {
-          "text": "いつか払ってもいいと思うほどだった。実際に作者のフォントEquity Textを買った（読書記録サイトGoodreads、2018年1月、第三者）",
+          "text": "いつかお金を払ってもいいと思うほど良い本だった。実際に作者のフォントEquity Textを買った（読書記録サイトGoodreads、2018年1月、第三者）",
           "source": "https://www.goodreads.com/book/show/18244760-butterick-s-practical-typography"
         },
         {
@@ -916,7 +916,7 @@
     "chapters": {
       "practice": [
         {
-          "text": "車の販売店で紹介の場面を見て、ジムや教室向けの紹介代行が無いか検索した（本人）",
+          "text": "創業者は車の販売店で客が知人を紹介する様子を見て、ジムや教室の紹介制度を代わりに運営するサービスがないか検索した（本人）",
           "source": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/"
         },
         {
@@ -936,7 +936,7 @@
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         },
         {
-          "text": "チャットを15分の画面共有に替え、成約が約3倍に増えた（本人）",
+          "text": "見込み客への説明を、チャットから15分の画面共有に替えた。契約に至る客が約3倍に増えた（本人）",
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         },
         {
@@ -964,7 +964,7 @@
       ],
       "timeline": [
         {
-          "text": "2013年: ディーラーで着想。12月にドメイン取得（本人）",
+          "text": "2013年: 車の販売店で着想。12月にサイトの住所（ドメイン）を取得（本人）",
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         },
         {
@@ -984,7 +984,7 @@
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         },
         {
-          "text": "2019年7月: 月70,000ドル（約1,050万円）・14人（本人）",
+          "text": "2019年7月: 月の売上70,000ドル（約1,050万円）。人員は14人（本人）",
           "source": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/"
         },
         {
@@ -994,7 +994,7 @@
       ],
       "core": [
         {
-          "text": "電話で聞いた客の話から値段と機能を決め、月250ドル（約3.75万円）・6か月契約のプランを加えた。成約は約3倍",
+          "text": "電話で聞いた客の話から値段と機能を決め、月250ドル（約3.75万円）・6か月契約のプランを加えた。契約に至る客は約3倍に増えた",
           "source": "https://referralrock.com/blog/full-referral-rock-story/"
         }
       ],
@@ -1057,7 +1057,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "「実際のサイトで動くプログラムを自分のパソコンに送る」など、使い方の例を1つずつ投稿した（本人）",
+          "text": "「実際のサイトで動くプログラムを、自分のパソコンのファイルに差し替えて試す」など、使い方の例を1つずつ投稿した（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1073,7 +1073,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "企業から問い合わせが来たので、利用資格を管理できる企業向けプランを用意した（本人）",
+          "text": "企業から問い合わせが来たので、社内の誰が使えるかを会社が管理できる企業向けプランを用意した（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1083,7 +1083,7 @@
       ],
       "turning": [
         {
-          "text": "前: 通信の変更規則を、相手が手作業で再設定。後: URLで共有できるSharedListを追加（本人）",
+          "text": "前: 通信の変更規則を同僚に渡すと、受け取った人が手作業で設定し直していた。後: 規則をURLで共有できるSharedListを追加（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
@@ -1091,7 +1091,7 @@
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {
-          "text": "前: 9割超がログインせず、更新を知らせられない。後: 2020年にメール登録を追加（本人）",
+          "text": "前: 利用者の9割超がログインしておらず、作者が更新を知らせる手段がない。後: 2020年にメール登録を追加（本人）",
           "source": "https://www.indiehackers.com/interview/c2b415aafd"
         },
         {

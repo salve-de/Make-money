@@ -17,7 +17,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-first_customers",
     "textHash": "e21d3a51",
-    "answer": "最初の客は米国のMagento開発者。創業者が無料で30分指導した（本人申告）",
+    "answer": "最初の客は、通販システムMagentoを扱う米国の開発者。創業者が無料で30分指導した（本人申告）",
     "note": "約9か月は、登録者の中から選んだ人だけに利用してもらった。その後、相談に答える人を先に集め、客には無料で相談できる券を配った。"
   },
   {
@@ -30,14 +30,14 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-business_model",
     "textHash": "135b4bb4",
-    "answer": "客が前払いのポイントで有料相談を買う。メンター料金にサービス手数料を上乗せ",
-    "note": "最低課金は15分分、その後は分単位（公式、2025年1月時点）。"
+    "answer": "客は前払いのポイントで有料相談を買う。メンターへの料金に運営の手数料を足して払う。",
+    "note": "最低でも15分の料金がかかり、その後は1分ごとに払う（公式、2025年1月時点）。"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-pivots",
     "textHash": "76363313",
-    "answer": "2016年12月時点の計画は、指導に加え、メンターの上位2%にフリーランス案件を紹介する市場に広げること（報道）"
+    "answer": "2016年12月、指導から、上位2%のメンターに個人で請け負う仕事も紹介する事業へ広げる計画（報道）"
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
@@ -76,28 +76,28 @@
     "analysisId": "a-first_customers",
     "textHash": "efc8e537",
     "answer": "最初の客は音楽家の友人たち。頼まれて、音楽ファイルを届けられるようサービスを調整した（本人申告）",
-    "note": "その後は、自費出版の著者へ、設定を引き受けると1人ずつメールした（本人申告）。"
+    "note": "その後、創業者は自費出版の著者に、電子書籍の販売設定を代行すると1人ずつメールで申し出た（本人申告）。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-channels",
     "textHash": "6b8ed7c0",
     "answer": "自費出版の著者への個別メールと、手作り品の市への訪問（本人申告）",
-    "note": "決済会社の掲示板で質問に答え、名前を広めた。"
+    "note": "創業者は決済会社の掲示板で質問に答え、サービスの名前を広めた。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-business_model",
     "textHash": "1550a9b9",
-    "answer": "売り手は月8〜40ドル（約1,200〜6,000円）を払い、配信・購入ボタン・簡易ショップ・紹介制度を使える（公式）",
-    "note": "取引手数料はなく、決済は売り手が自分の決済会社をつなぐ。"
+    "answer": "売り手は月8〜40ドル（約1,200〜6,000円）で商品の自動配信・購入ボタン・簡易ショップ・紹介制度を使える（公式）",
+    "note": "取引手数料はない。売り手は、自分が利用する決済会社をサービスにつなぐ。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-competition",
     "textHash": "cbb722de",
     "answer": "競合の商品販売サービスGumroadは販売ごとに手数料を取るが、このサービスE-junkieは月額固定。",
-    "note": "Gumroadの直販は1件ごとに10%＋0.50ドル（約75円）（2025年1月・公式）。E-junkieは取引手数料なし。"
+    "note": "Gumroadでは、売り手が自分で売った商品の手数料は1件ごとに売値の10%＋0.50ドル（約75円）（2025年1月・公式）。E-junkieは取引手数料なし。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -144,7 +144,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-channels",
     "textHash": "ba575442",
-    "answer": "Railsのメモを載せたGoRails.comで隔週に無料動画を出し、開発者の投稿サイトHacker Newsに載った",
+    "answer": "Railsのメモを載せ、隔週に無料動画を出したGoRails.comが開発者の投稿サイトHacker Newsに載った",
     "note": "Hacker News掲載の1日にメール登録が600件超。その登録者へのメルマガが事業の重要な柱になった（記事、2021年11月）。"
   },
   {
@@ -152,7 +152,7 @@
     "analysisId": "a-business_model",
     "textHash": "f16cd436",
     "answer": "無料動画で知ってもらい、メール読者に有料講座を売る",
-    "note": "同じ層に、サーバー貸しとひな形も重ねて売る。"
+    "note": "講座を買う開発者に、サーバー貸しとひな形も売る。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -177,7 +177,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-story",
     "textHash": "06c82327",
-    "answer": "数か月かけて依頼主のために作った物が使われず、燃え尽きて受託をやめた",
+    "answer": "依頼主のために数か月かけて作ったソフトが使われず、燃え尽きた。そこで、頼まれてソフトを作る仕事をやめた",
     "note": "2014年1月1日に受託をやめた。自分のRailsのメモを公開するためにGoRails.comのドメインを買い、サイトの訪問者に何か売ろうと考えた。"
   },
   {
@@ -185,7 +185,7 @@
     "analysisId": "a-first_customers",
     "textHash": "047e1859",
     "answer": "最初の客は、メモを読みに既にサイトへ来ていたRails開発者",
-    "note": "最初の2コースは無名のため売れなかった。毎週の無料動画で集めたメール読者が、後の客になった。"
+    "note": "最初の2コースは、作者が知られていなかったため売れなかった。毎週の無料動画で集めたメール読者が、後の客になった。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -357,7 +357,7 @@
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "analysisId": "a-customer",
     "textHash": "95249d79",
-    "answer": "文書を美しく作りたい書き手（弁護士向けの紙の本も出している）",
+    "answer": "文書を美しく作りたい書き手。作者は弁護士向けの紙の本も出している",
     "note": "最も読まれたのは短い入門ページ。読者の大半は無料のまま読んで去る。"
   },
   {
@@ -444,7 +444,7 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-channels",
     "textHash": "05446203",
-    "answer": "試験版の期間は、旧製品UberNoteの利用者リスト・Betalist・知人への告知（本人申告）",
+    "answer": "創業者が前に作った製品UberNoteの利用者リスト・紹介サイトBetalist・知人に試験版を告知した（本人申告）",
     "note": "2019年の伸びの主因は、ブログ記事でサイトに来る人を倍にし、電話・メールでの営業も倍にしたこと（本人申告）。"
   },
   {
@@ -471,7 +471,7 @@
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-failure_cause",
     "textHash": "bfb6ebfc",
-    "answer": "最初の営業は、研修と顧客理解が足りずに失敗した（本人申告）",
+    "answer": "最初に雇った営業担当は、研修と顧客理解が足りずにうまくいかなかった（本人申告）",
     "note": "2016年7月に雇った1人目の営業はうまくいかず、2か月分の売上を失った。10月に2人目を雇い直した。"
   },
   {
@@ -499,7 +499,7 @@
     "entityId": "ent_requestly_28e9f2",
     "analysisId": "a-story",
     "textHash": "bd25c412",
-    "answer": "公開中の圧縮されたJavaScriptの不具合を調べる際の苛立ちがきっかけ"
+    "answer": "公開中のサイトのJavaScriptは、圧縮されて読みにくかった。創業者は不具合調べに苛立ち、この道具を作り始めた。"
   },
   {
     "entityId": "ent_requestly_28e9f2",
