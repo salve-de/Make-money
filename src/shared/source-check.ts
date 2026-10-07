@@ -79,7 +79,9 @@ export function claimNumbers(text: string): { numbers: number[]; years: string[]
     if (m[3] === '年' || (m[3] === '月' && raw <= 12) || (m[3] === '日' && raw <= 31)) continue; // 日付の部品
     if (m[3] && YEN.test(m[3])) continue; // 円換算は原文に無い（画面の層が足した概算）
     const value = raw * (m[2] ? MULT[m[2]] : 1);
-    if (value <= 12 || /^(19|20)\d{2}$/.test(m[1])) continue;
+    // 12以下の小さい数は読み流す。ただし料金（$9、月9ドル）は誤りが致命的なので照らす
+    const money = /^\s*(?:ドル|ユーロ|ポンド)/.test(t.slice((m.index ?? 0) + m[0].length)) || t[(m.index ?? 0) - 1] === '$' || /[$€£]/.test(t.slice(Math.max(0, (m.index ?? 0) - 2), m.index ?? 0));
+    if ((value <= 12 && !money) || /^(19|20)\d{2}$/.test(m[1])) continue;
     numbers.push(value);
   }
   return { numbers, years };

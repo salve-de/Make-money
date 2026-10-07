@@ -141,8 +141,7 @@ export type CorrectionAction =
   | { target: 'claim'; claimId: string; unverified: string }
   | { target: 'chapter'; chapter: string; match: string; replace?: string; remove?: true }
   | { target: 'success'; factId: string; match: string; head?: string; body?: string; remove?: true }
-  | { target: 'detail'; analysisId: string; match: string; answer?: string; note?: string; hidden?: true }
-  | { target: 'summary'; match: string; text: string };
+  | { target: 'detail'; analysisId: string; match: string; answer?: string; note?: string; hidden?: true };
 
 /** 訂正した誤りが、画面の層のどこかに残っていないか（1か所直して他が残る、を止める） */
 export function forbiddenTextProblems(entityId: string, files: DisplayFiles, corrections: readonly FactCorrection[]): string[] {

@@ -15,7 +15,8 @@ describe('原文照合', () => {
 
   it('円換算と日付は照らす数に入れない', () => {
     expect(claimNumbers('2019年4月: 月収益470ドル（約7.1万円）').numbers).toEqual([470]);
-    expect(claimNumbers('月9ドル（約750〜1,500円）').numbers).toEqual([]);
+    expect(claimNumbers('月9ドル（約750〜1,500円）').numbers).toEqual([9]);
+    expect(claimNumbers('3人で作った').numbers).toEqual([]);
   });
 
   it('売上と呼べない数字（直接の支払い）に売上を付けると落ちる', () => {

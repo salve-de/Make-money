@@ -17,6 +17,6 @@
 ## 返す形
 `data/runner/inbox/recollect/<回の番号>.json` に、`data/fact-corrections.json` の1件と同じ形の配列で置く:
 `{ id, entityId, cause: WHEN|WHAT|CONFLICT|UNREACHABLE|DUPLICATE, finding, sourceUrl, quote, checkedAt, forbid?, actions: [...] }`
-actions は claim（fix か unverified）、chapter（match と replace か remove）、success、detail、summary のどれか。
+actions は claim（fix か unverified）、chapter（match と replace か remove）、success、detail のどれか（要約は画面の文の作り直しで作り直すので、直し方には無い）。
 
 ## 一覧

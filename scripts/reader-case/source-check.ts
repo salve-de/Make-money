@@ -191,6 +191,8 @@ async function main() {
   appendFileSync(LEDGER_FILE, `${JSON.stringify(line)}\n`);
   console.log(JSON.stringify(line));
   for (const r of failed) console.log(`不合格 ${r.key}: ${r.reasons.map((x) => REASON_LABELS[x]).join('、')}${r.detail.length ? `（${r.detail.join('／')}）` : ''}「${r.text.slice(0, 50)}」`);
+  // 不合格が残る間は異常終了にする（続けて回す側がここで止まれる）
+  if (failed.length) process.exitCode = 1;
 }
 
 if (process.argv[1]?.endsWith('source-check.ts')) void main();
