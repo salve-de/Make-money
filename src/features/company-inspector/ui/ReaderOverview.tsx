@@ -87,11 +87,20 @@ export function planKeyStrip(reader: ReaderCase) {
     if (a) { usage.items.add(item); analyses.push(a); }
   };
   if (!metric) take('REVENUE_ESTIMATE');
-  const priceFact: ReaderFact | undefined = reader.facts.find((f) => f.kind === 'PRICING' && f.id !== reader.summaryFactId);
+  // 料金の欄には、金額が書いてある事実だけを出す（売り方の説明文を「料金」と名乗らせない）
+  const priceFact: ReaderFact | undefined = reader.facts.find((f) => f.kind === 'PRICING' && f.id !== reader.summaryFactId && /[0-9０-９]/.test(f.text) && /(円|ドル|ルピー|ユーロ|ポンド|\$|USD|INR|EUR|GBP|無料|¥|€|£)/.test(f.text));
   if (priceFact) usage.factIds.add(priceFact.id);
   else take('PRICING');
   take('TAKE_HOME');
   return { metric, priceFact, analyses, usage };
+}
+
+const YEN_PER: Record<string, number> = { USD: 150, EUR: 165, GBP: 195, INR: 1.75 };
+
+/** 外貨の売上は、円のおおよその額を添える（為替は固定の目安: 1ドル=150円など）。 */
+function yenApprox(m: ReaderMetric): string | null {
+  const rate = m.currency ? YEN_PER[m.currency] : undefined;
+  return rate ? `約${formatMetricAmount({ amount: Math.round(m.amount * rate), currency: 'JPY', unit: m.unit })}` : null;
 }
 
 /** 主要な数字の帯: 売上（事実の数値。無ければ売上の推測）・料金・手残り。 */
@@ -103,7 +112,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
     cells.push(
       <StripCell key="metric" label={metricListLabel(metric)} inferred={false} attrs={{ 'data-metric': metric.id }}>
         <div className="flex items-end justify-between gap-2">
-          <span className="term-num text-[22px] font-semibold leading-none text-term-fg-strong">{formatMetricAmount(metric)}</span>
+          <span className="term-num text-[22px] font-semibold leading-none text-term-fg-strong">{formatMetricAmount(metric)}{yenApprox(metric) && <span className="ml-2 text-sm font-normal text-term-sub">（{yenApprox(metric)}）</span>}</span>
           {series.length > 0 && <Sparkline points={series.map((m) => m.amount)} />}
         </div>
         <div className="mt-1.5 text-xs leading-snug text-term-label">

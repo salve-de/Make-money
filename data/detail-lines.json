@@ -3,8 +3,8 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-customer_pain",
     "textHash": "4afc4022",
-    "answer": "インドの中小企業は、クラウド電話の存在自体を知らなかった",
-    "note": "創業者の見方。メール以上の技術に不慣れで、最初の3年は売る前に説明して回る作業が重かった。"
+    "answer": "インドの中小企業は、クラウド電話の存在自体を知らなかった（創業者の見方）",
+    "note": "メール以上の技術に不慣れで、最初の3年は売る前に説明して回る作業が重かった。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
@@ -24,7 +24,7 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-channels",
     "textHash": "5b9b2933",
-    "answer": "最初の3年は、市場への啓発と販売に力を注いだ。いまは代理店を通す",
+    "answer": "最初の3年は、市場への啓発と販売に力を注いだ（創業者の話）。いまは代理店を通す",
     "note": "代理店が、顧客向けの運用サービスの値段を自分で決める。"
   },
   {
@@ -45,8 +45,8 @@
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-capital_and_team",
     "textHash": "c43f9530",
-    "answer": "元手は自己資金12ラック・ルピー（概算で約200万円）",
-    "note": "主な使い道は技術開発とチーム。5人から125人に増え、外部資金は2016年時点でなし。"
+    "answer": "元手は自己資金120万ルピー（約210万円）",
+    "note": "主な使い道は技術開発とチーム。従業員は5人から、2016年に125人。外部資金は2016年時点でなし。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
@@ -86,8 +86,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-channels",
     "textHash": "ba575442",
-    "answer": "毎週の無料動画とニュースレターが中心",
-    "note": "Hacker News掲載、オープンソース、YouTube・Twitterでの発信。"
+    "answer": "毎週の無料動画、ニュースレター、Hacker News、オープンソース、YouTube・Twitter"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -100,7 +99,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-capital_and_team",
     "textHash": "0a736bbf",
-    "answer": "外部資金なし。独立時は約9か月分の蓄えで、最初の2年は無給",
+    "answer": "外部資金は未確認。独立時は約9か月分の蓄えで、最初の2年は無給",
     "note": "2021年11月も1人運営で、これから人を雇う段階。"
   },
   {
@@ -114,7 +113,7 @@
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-failure_cause",
     "textHash": "51f80931",
-    "answer": "最初の2コースは、無名で、受託の経験を商品に直しただけだったため売れなかった"
+    "answer": "最初の2コースは、本人が無名だったため売れなかった（本人の話）"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -134,18 +133,614 @@
     "analysisId": "a-story",
     "textHash": "6889fbf0",
     "answer": "音声サービスの経験があるAnkit Jainが、弟と2013年3月に自己資金で開始",
-    "note": "開始のきっかけは、材料に書かれていない（未確認）。開始から6か月で有料200社になり、損益が釣り合った。"
+    "note": "開始のきっかけは、材料に書かれていない（未確認）。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-headline",
     "textHash": "68ae1889",
-    "answer": "5人・自己資金約210万円で始め、半年で有料200社、3年目の年度に年商約3億円へ伸ばしたインドのクラウド電話屋"
+    "answer": "5人・自己資金約210万円で始め、半年で有料200社、2015-16年度の年商約3億円（本人公表）のインドのクラウド電話屋"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-headline",
     "textHash": "f87ebe7a",
-    "answer": "毎週の無料動画で信頼を貯め、Railsの開発者へ動画を売り、1人で月商約900万円に育てた元受託開発者"
+    "answer": "毎週の無料動画で信頼を貯め、Railsの開発者へ動画を売り、1人で月の定期収入約900万円（2021年11月・本人申告）に育てた元受託開発者"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-headline",
+    "textHash": "eee18cd1",
+    "answer": "開発者がその場で呼べる1対1相談所。登録ページだけで待機客を集めて始めた"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-story",
+    "textHash": "3b0eeeeb",
+    "answer": "若手エンジニアが設定の問題で2日止まったのを見て、すぐ呼べる専門家の需要を着想",
+    "note": "最初にやったのは、登録フォームだけのページの公開。製品は裏で作っていた。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-customer_pain",
+    "textHash": "18227e7d",
+    "answer": "設定やコードで詰まった時に、すぐ呼べる経験者がいない",
+    "note": "創業者の見方。その場で数千ドル（約45万円〜）払ってもよいと感じた。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-first_customers",
+    "textHash": "e21d3a51",
+    "answer": "最初は創業者自身が無料でメンター役を務めた30分。相手はMagento開発者の米国人",
+    "note": "以後は熱心なメンターを先に確保し、客には無料クレジットを配って使わせた。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-channels",
+    "textHash": "6a1bab0b",
+    "answer": "最初の集客はHacker Newsの投稿。トップに載り、待機リストに数千人"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-business_model",
+    "textHash": "135b4bb4",
+    "answer": "客が前払いクレジットで有料相談を買い、メンター料金にサービス手数料を上乗せ",
+    "note": "最低課金は15分分、その後は分単位。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-pivots",
+    "textHash": "76363313",
+    "answer": "学習者向けの指導から、必要な時に呼べる指導の層へ考え直した",
+    "note": "2016年には、上位メンターをフリーランス案件に紹介する市場へ広げる方針を出した。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-failure_cause",
+    "textHash": "7678853e",
+    "answer": "反省は、WebRTCの不具合で開発時間を食ったことと、公開が約3か月遅れたこと",
+    "note": "メンターが足りず客を待たせると体験が悪くなる点も難所だった。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-capital_and_team",
+    "textHash": "4a31d179",
+    "answer": "自己資金の方針から転換。早期資金120万ドル（約1.8億円）、のちシード160万ドル（約2.4億円）",
+    "note": "早期資金は2016年12月までの累計。1人開発が孤独で相談相手を求め、最初のシードは台湾の投資家から受けた。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-competition",
+    "textHash": "deb45d73",
+    "answer": "競合はFreelancer.com、Upwork、Toptalなどのフリーランス市場",
+    "note": "創業者は、指導と選抜型の紹介市場の掛け合わせで違いを出すと語った。"
+  },
+  {
+    "entityId": "ent_codementor_ba692caa3db3",
+    "analysisId": "a-timeline",
+    "textHash": "eb13dba2",
+    "answer": "2013年6月: Hacker Newsに登録ページを投稿。2014年春ごろ: 正式公開（登録ページの約9か月後）。2016年12月: シードを調達。2018年6月: 直近12か月の売上は500万〜1,000万（通貨不明、本人のアンケート回答）。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-headline",
+    "textHash": "18e2c460",
+    "answer": "支払いのたびの手渡しに疲れて配信を自動化し、販売カートに育てたRobin Singh"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-story",
+    "textHash": "152693cc",
+    "answer": "支払いのたびにメールで手渡す作業に疲れ、2003年末に配信を自動化した",
+    "note": "勤め先の収入の足しに自作ソフトを売り、3時間以内の納品を約束していた。友人の作家と音楽家に頼まれ、2004年半ばにサービス化した。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-customer",
+    "textHash": "58ae3c71",
+    "answer": "アート・電子書籍・音楽・ソフトなどを売る創作者と小さな販売者",
+    "note": "ゲームのコード、チケット、グッズも扱う。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-first_customers",
+    "textHash": "efc8e537",
+    "answer": "作家と音楽家の友人（電子書籍とMP3の配信）",
+    "note": "その後は、自費出版の著者へ1人ずつ営業した。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-channels",
+    "textHash": "6b8ed7c0",
+    "answer": "個別のメールと、職人市への訪問",
+    "note": "Googleで自費出版の著者を探してメールし、職人市では作家のためにオンラインショップを設けた。売り手が自分の商品に付ける紹介制度もある。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-business_model",
+    "textHash": "1550a9b9",
+    "answer": "売り手が月額固定（月8〜40ドル、約1,200〜6,000円）で、配信・ボタン・簡易ショップ・紹介制度を使う",
+    "note": "決済は、売り手が自分の決済会社をつなぐ。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-competition",
+    "textHash": "cbb722de",
+    "answer": "（推定の計算例）同じ売上でGumroadは約150ドル（約2.3万円）の手数料、E-junkieは月額固定",
+    "note": "月10ドル×100件＝売上1,000ドル（約15万円）に、Gumroadは1件10%＋0.50ドル。決済会社の手数料は別。件数は例。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-dependencies",
+    "textHash": "5a32e0bf",
+    "answer": "売り手の決済は、PayPalやStripeなど外部の決済会社に頼る",
+    "note": "取引ログは決済会社の報告の写しで、お金の確認は決済会社の記録で行う。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-capital_and_team",
+    "textHash": "7adc1311",
+    "answer": "外部資金の記述は無い。小さな開発チームがAWS上で動かす",
+    "note": "開発者・技術者・Linux担当で、アリゾナ州ツーソンとインドのダラムサラ近郊が中心。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-why_it_worked",
+    "textHash": "73c82633",
+    "answer": "取引手数料が無く月額固定なので、売れても売り手の取り分が減らない",
+    "note": "売り場を作る技術が無い作家や職人を、設定ごと引き受けて取り込んだ。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-timeline",
+    "textHash": "c8e85e6f",
+    "answer": "2003年末: 配信を自動化。2004年半ば: サービス化。2011年: 持分を売って退く。2017年12月: 創業者が経営へ復帰。2019年5月: 年間の定期売上100万ドル（約1.5億円）への到達を掲げたインタビュー。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-headline",
+    "textHash": "1e0a46a6",
+    "answer": "台本から本人そっくりの人物が話す動画を作り、年間の定期収入が2億ドル超（約300億円超）に",
+    "note": "2026年6月25日時点の公式発表（自己申告）。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-story",
+    "textHash": "eaf67816",
+    "answer": "Snap時代に「人は動画が好きなのにカメラの前には立ちたがらない」と気づいて始めた",
+    "note": "創業者のJoshua XuはSnapで広告とAIカメラの機能を作っていた。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-customer",
+    "textHash": "c83e1db0",
+    "answer": "個人の発信者・講師・不動産業者から、教育・営業・多言語化に使う大企業まで",
+    "note": "公式はフォーチュン100社の85%が使うと述べる（自己申告）。利用者は3,000万人超。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-customer_pain",
+    "textHash": "38fd8637",
+    "answer": "カメラの前に立ちたくない人と、撮影・編集・撮り直しに金と時間がかかる企業",
+    "note": "公式は、完成動画の制作費が1分あたり最低1,000ドル（約15万円）になりうると指摘する。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-channels",
+    "textHash": "e6d9d6d2",
+    "answer": "口コミが中心（公式の説明）",
+    "note": "具体的な経路は材料に書かれていない（未確認）。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-business_model",
+    "textHash": "b9c05bac",
+    "answer": "無料枠で試させ、月29ドル（約4,400円）のCreatorから段階的に課金する",
+    "note": "上にProと法人向けEnterprise。別に動画生成・翻訳・リップシンクのAPIを開発者に売る。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-capital_and_team",
+    "textHash": "f6faa529",
+    "answer": "従業員150人超（公式表示・日付なし）。調達額は非公表で、約7,400万ドル（約111億円）と推計"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-why_it_worked",
+    "textHash": "1d64c0f0",
+    "answer": "公式の主張（自己申告）: モデルから開発者ツールまで自社で作り、汎用の動画モデルより安くリアル",
+    "note": "長い動画でも一貫性が保てるとする。直近3か月で63の製品・機能を出荷した。"
+  },
+  {
+    "entityId": "ent_heygen_8f11a1",
+    "analysisId": "a-timeline",
+    "textHash": "2ef70e47",
+    "answer": "2020年: Joshua XuとWayne Liangが創業。2026年6月25日: 年間の定期収入が2億ドル超（約300億円超）と公式発表（自己申告、8か月で倍増）。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-headline",
+    "textHash": "030dbbee",
+    "answer": "広告も有料の壁も置かず、無料の組版の本から自作フォントを売った書体デザイナー",
+    "note": "直接の支払いだけでは続かず、フォントが稼ぎ頭だったと本人は書く。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-story",
+    "textHash": "787e6110",
+    "answer": "名の通った出版社から紙の本の話が来たが、デザインを任せてもらえず断り、Webで自分で出した",
+    "note": "読む前は払わせず、役立ったら支払うか自作フォントを買う形。払う人は読者の約650人に1人（2年目は約1,000人に1人）。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-customer",
+    "textHash": "95249d79",
+    "answer": "文書を美しく作りたい書き手、デザイナー、弁護士、開発者など",
+    "note": "最も読まれたのは短い入門ページ。読者の大半は無料のまま読んで去る。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-business_model",
+    "textHash": "44f189c8",
+    "answer": "本は無料で読ませ、自作フォント・直接の支払い・紙の本で稼ぐ",
+    "note": "直接の支払いは19〜49ドル（約2,850〜7,350円）の4段階、フォントは119ドル（約1.8万円）から、紙の本は40ドル（約6,000円）。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-cost_structure",
+    "textHash": "8f27de8b",
+    "answer": "費用は執筆・フォント設計・図版・出版ソフトPollenの開発・サーバー代。金額は未確認",
+    "note": "広告・PR費は1・2年目とも0ドル（0円）。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-channels",
+    "textHash": "48e0f072",
+    "answer": "中心は口コミ",
+    "note": "2年目の流入元はHacker News、Creative Bloq、Twitter、BuzzFeed、Reddit。流入が多い元ほど払う人は少なく、Cool Toolsなどは例外。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-capital_and_team",
+    "textHash": "d943cc87",
+    "answer": "文章・フォント・図版・出版ソフトまで、本人がすべて作った",
+    "note": "外部資金や社員の話は未確認。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-dependencies",
+    "textHash": "7ef4f8d0",
+    "answer": "収入はフォント販売に寄り、無料の読者は少数のサイトからの流入に偏る",
+    "note": "直接の支払いだけでは続かないと本人は書いている。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-competition",
+    "textHash": "8fdfc78d",
+    "answer": "比べる相手は紙の本",
+    "note": "本人は、平均的なノンフィクションは合計1,000〜3,000部、著者の取り分は1冊2〜3ドル（約300〜450円）と見る。1年目の直接の支払いは紙の1,200〜1,800部に当たる。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-why_it_worked",
+    "textHash": "d1f5559f",
+    "answer": "読者は、直接の支払いより自分の制作に使えるフォントに払いたがった、と読める（推論）",
+    "note": "当時の5〜20ドル（約750〜3,000円）の支払いより、59〜299ドル（約8,850円〜4.5万円）のフォントに払う意欲のある読者が約35%多く、2年続いた。"
+  },
+  {
+    "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "analysisId": "a-timeline",
+    "textHash": "32c2d4c5",
+    "answer": "2014年7月末: 公開1年。読者約65万人、直接の支払い321件で3,676ドル（約55万円）。2014年8月: 初の年次報告。時期不明: 2年目の報告。読者約70万人、244件で3,030ドル（約45万円）。2016年8月: 3年目の報告。読者約61.5万人、489件で5,472ドル（約82万円）。支払いのお願いページを出し、件数が約2倍に。"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-headline",
+    "textHash": "f951211c",
+    "answer": "外部資金なしで、月売上を2019年5月に7万ドル（約1,050万円・本人の投稿）まで伸ばした"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-story",
+    "textHash": "c3abfdda",
+    "answer": "2013年に小さな事業向けの紹介運営ソフトを思いつき、同年12月にドメインを取った",
+    "note": "ベータ期は受託を続けて家族を養い、最初の管理画面はSurvey Monkeyの回答フォームだった。"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-customer",
+    "textHash": "4b5ee105",
+    "answer": "紹介で客を増やしたい事業者",
+    "note": "住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、ECなど。"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-business_model",
+    "textHash": "44df0aa1",
+    "answer": "事業者が月額を払い、紹介リンク・追跡・報酬の払い出しをソフトで回す",
+    "note": "専任アドバイザーが制度の設定を手伝う。2016年2月には、月250ドル（約3.8万円）・6か月契約の上位プランで1社から1,500ドル（約22万円）が一度に入った。"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-first_customers",
+    "textHash": "bfd139e0",
+    "answer": "旧製品UberNoteの利用者・Betalist・知人に告知。最初の1年半で500社超がベータ登録",
+    "note": "2015年6月に月59ドル（約8,900円）で有料化し、2日後に最初の客、月末に4社。"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-channels",
+    "textHash": "05446203",
+    "answer": "営業を増やした後、サイトの文面・LP・申込ボタンを直して、見込み客を増やした（本人申告）"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-capital_and_team",
+    "textHash": "010553eb",
+    "answer": "外部資金なし（2016年末の申告）。2016年末は3.5人、2019年は営業2人体制"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-failure_cause",
+    "textHash": "ab50eeaf",
+    "answer": "2016年7月に雇った最初の営業は、研修と顧客理解が足りず失敗",
+    "note": "2か月分の売上を失った。10月に2人目を雇い直して営業が回り出した。"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-lock_in",
+    "textHash": "fc218485",
+    "answer": "導入時の立ち上げ会議と客ごとの専任担当で、解約を半分にした",
+    "note": "客には「代わりにやる」でなく「手伝う」と明確に伝えている。"
+  },
+  {
+    "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "analysisId": "a-why_it_worked",
+    "textHash": "10b4b47d",
+    "answer": "2019年5月の伸びの要因は、2人目の営業の採用（本人の投稿）",
+    "note": "リードが足りるか迷って数か月先延ばししたが、採用が先になりサイト改善に動いたと本人は振り返る。"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "analysisId": "a-headline",
+    "textHash": "f52ca347",
+    "answer": "30分で作った拡張が、20万人超（2025年5月時点・自己申告）の開発者に広まり、2025年に買収された",
+    "note": "1万社超の企業が利用。Y Combinatorに採択され、Peak XV（旧Sequoia）などの出資も受けた。"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "analysisId": "a-story",
+    "textHash": "73480c98",
+    "answer": "本番の圧縮されたJavaScriptを調べる苛立ちから、週末に個人で作り始めた",
+    "note": "2018年にJavaScriptの差し替えだけの道具として始まった。創業者はGoogleのインターンとアドビのエンジニアを経て起業。"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "analysisId": "a-business_model",
+    "textHash": "d3dd2136",
+    "answer": "無料のオープンソースを核に、チーム向けの有料プランを売る",
+    "note": "Teamは年払いで1人あたり月$10（約1,500円）、Team Proは$15（約2,250円）。"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "analysisId": "a-customer_pain",
+    "textHash": "25df5e7a",
+    "answer": "画面側の開発者は、バックエンドのAPI完成待ちと不安定さに作業を止められる",
+    "note": "偽の応答を返せれば、待たずに画面側を進められる。"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "analysisId": "a-channels",
+    "textHash": "eb8fa295",
+    "answer": "（Baremetricsの紹介文）Stack OverflowとGitHubが、販売戦略のすべてだった",
+    "note": "ランディングページやマーケティングには頼らず、自然に広まった。"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "analysisId": "a-competition",
+    "textHash": "8fa29b54",
+    "answer": "（公式発表）競合はデスクトップ型の傍受ツール。違いは、プロキシ設定も証明書も要らないこと",
+    "note": "ブラウザの機能で通信を傍受するので、会社のVPNでも動く。"
+  },
+  {
+    "entityId": "ent_requestly_28e9f2",
+    "analysisId": "a-pivots",
+    "textHash": "6db6329a",
+    "answer": "JS差し替えから、ヘッダー書き換え・チーム共有を経て、API応答のモックに絞った",
+    "note": "モックが最も製品に合うと見て、画面側の開発者向けに重心を移した。企業向けにSSOやSOC2 Type II認証も足した。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-headline",
+    "textHash": "8f8ec338",
+    "answer": "約2年の無料ツイートで読者を育て、デザイン教材で累計250万ドル超（約3億7,500万円）を売った2人組",
+    "note": "2022年9月の本人投稿時点の累計（自己申告）。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-business_model",
+    "textHash": "54cbd3e2",
+    "answer": "デザインの手順を教える教材を、現行は基本版99ドル（約1.5万円）と上位版149ドル（約2.2万円）の2段で売る"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-customer",
+    "textHash": "851d21e7",
+    "answer": "デザイナーに頼らず自分で画面まで作る開発者と、小さなチーム",
+    "note": "推薦文を寄せたのは SavvyCal・Clearbit・Transistor の創業者。3万部超を販売。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-customer_pain",
+    "textHash": "7a30e9f5",
+    "answer": "動くものは作れるのに、画面がなぜか素人くさく見える",
+    "note": "公式サイトの冒頭は、原因が分からず挫折してきた開発者の悩みから始まる。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-first_customers",
+    "textHash": "63806e9e",
+    "answer": "最初の買い手は、約2年のツイートや記事で2人を知っていた読者と見られる（推測）",
+    "note": "Adamは前の本の発売初週に約6万ドル（約920万円）を売った実績があった。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-channels",
+    "textHash": "8c63b232",
+    "answer": "発売前の約2年、デザインの小技を図解したツイートと記事を無料で配った",
+    "note": "1本に2週間近くかけたツイートもあり、5000リツイート・1万5千いいね前後に届いた。記事は長い間Mediumで歴代1位だった。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-capital_and_team",
+    "textHash": "b92ab390",
+    "answer": "著者は2人。外部資金は未確認",
+    "note": "以前から副業で組んでいた。Steveが画面設計、Adamが開発を受け持った。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-competition",
+    "textHash": "6766d219",
+    "answer": "既存のデザイン講座は原則に偏っている、と公式サイトは位置づける",
+    "note": "公式サイトは、すぐ使える具体策を売りにして差をつけている。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-dependencies",
+    "textHash": "7e1f1ed9",
+    "answer": "売れ行きは、約2年かけて育てたTwitterなどの読者に頼っている",
+    "note": "公式サイトの「Tailwind CSSの作者から」という売り文句の知名度も効いたと見られる（推測）。"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-pivots",
+    "textHash": "87d3f754",
+    "answer": "Adamは教材の前にNitpick CIを出して失敗した",
+    "note": "履歴書アプリ、リンク共有のSNS、売上税の徴収を代行する決済サービスは、完成させずにやめた。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-headline",
+    "textHash": "24cbfda8",
+    "answer": "代理店向けのプロジェクト管理ツールTeamcampを作る創業者Pratham Naik"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-story",
+    "textHash": "7323b807",
+    "answer": "SEO担当として複雑な管理ツールにうんざりし、自分で作り始めた",
+    "note": "最初は、インディー開発者の仲間の要望（ダークモード、API、Notion風ブロック）に沿って半年作り込んだ。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-customer",
+    "textHash": "2cb0ee68",
+    "answer": "開発会社・デザイン会社・マーケ代理店・フリーランスの小さな制作会社",
+    "note": "顧客に進捗や請求書を見せる必要がある会社。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-customer_pain",
+    "textHash": "9bb87774",
+    "answer": "複雑すぎる管理ツールの管理に、時間を取られる",
+    "note": "代理店の経営者が最初に求めたのは、顧客に見せる画面と白ラベルだった。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-first_customers",
+    "textHash": "786031fd",
+    "answer": "最初の手応えは、インディー界隈の外の代理店の経営者から出た",
+    "note": "初めて話した相手で、開発者仲間ではない。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-channels",
+    "textHash": "fab97a5e",
+    "answer": "新規登録の約4割は、口コミ・紹介（創業者の申告）",
+    "note": "公式は、ブログ運営者・比較サイト・インフルエンサーにも紹介を促す。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-referral",
+    "textHash": "1a4c69e6",
+    "answer": "紹介した客ごとに、生涯続く継続コミッションを払う",
+    "note": "買い切りの客は、月額の客の3.2倍を紹介すると創業者は書く。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-business_model",
+    "textHash": "e0fd3f26",
+    "answer": "代理店が案件管理・時間記録・請求書・顧客用画面を1つで使い、人数に応じた月額を払う",
+    "note": "工数の記録から、そのまま請求書を作れる。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-upfront_cash",
+    "textHash": "755f4da8",
+    "answer": "別の投稿は、先に99ドル（約1.5万円）の先払い意思がある12人を探す検証法を書いている",
+    "note": "買い切りは月額と4か月並べて売り、売上の約4割を占めたと創業者は書く。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-cost_structure",
+    "textHash": "ec60bf05",
+    "answer": "サーバー費は、利用量に比例して増える",
+    "note": "買い切りの客が50人規模のチームを入れると利益が崩れると、創業者自身が懸念を書いている。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-dependencies",
+    "textHash": "7d482cdf",
+    "answer": "開発案件では、GitHub・GitLabの動きに連動して動く",
+    "note": "コードのPRが開くとタスクが「レビュー」へ、マージで「完了」へ動き、請求用の時刻も記録する。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-lock_in",
+    "textHash": "2123912b",
+    "answer": "時間記録・請求書・顧客用画面・やり取りを1つに集め、顧客は専用画面で状況を見る",
+    "note": "買い切りの客の解約はゼロ（問い合わせは多い）と創業者は書く。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-competition",
+    "textHash": "a685f000",
+    "answer": "競合は Asana・Monday・Trello",
+    "note": "Asanaは重く、Mondayは使わない機能にも払い、Trelloは単純すぎた。Asana・ClickUp・Linearからデータを取り込める。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-why_it_worked",
+    "textHash": "031bf311",
+    "answer": "顧客に見せる画面が最大の差になった（創業者の申告）",
+    "note": "見た目と使える無料枠も効いた。2か月で継続率12%→41%、MRR（月の定期収入）347ドル（約5万円）→2,100ドル（約32万円）と創業者は書く。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-pivots",
+    "textHash": "c525863b",
+    "answer": "開発者仲間向けの作り込みをやめ、事業主との直接の会話に切り替えた",
+    "note": "仲間向けはProduct Huntで23票、初月の売上227ドル（約3.4万円）。別の投稿では、6か月の公開開発後にサインアップ43件・有料2件。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-failure_cause",
+    "textHash": "5e75a3bd",
+    "answer": "開発者仲間の称賛を頼りに半年足した機能が、有料の客につながらなかった",
+    "note": "仲間は、払う客の代表ではなかったと振り返っている。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-lesson",
+    "textHash": "630b7eb2",
+    "answer": "外の業界の最初の客の一言が、作り込みの方向を変えた",
+    "note": "「顧客用ポータルは？白ラベルにできる？」と聞かれ、見た目より顧客とのやり取りの機能が要ると分かった。"
+  },
+  {
+    "entityId": "ent_myoperator_49c393230a2d",
+    "analysisId": "a-cost_structure",
+    "textHash": "de01083e",
+    "answer": "始めの元手120万ルピー（約210万円）は、主に技術とチームづくりに使った",
+    "note": "従業員にはストックオプションで報いた。2016年時点で125人、うち4割は直近6か月の採用。"
   }
 ]

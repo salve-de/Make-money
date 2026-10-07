@@ -211,8 +211,8 @@ export function ReaderLedger({ reader, entityId, detailState, onRetry, media }: 
     <>
       {status}
       <Headline reader={reader} entityId={entityId} />
-      <KeyStrip reader={reader} plan={plan} />
       <WhatIs fact={summary} entityId={entityId} lead={!headlineOf(reader)} />
+      <KeyStrip reader={reader} plan={plan} />
       {media}
       {(hasDetails || reader.analysis.some((a) => a.item !== 'HEADLINE')) && <SectionGap />}
       {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
