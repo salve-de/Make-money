@@ -88,5 +88,14 @@
   "outputFile": "data/audit/out-2610062100001.json",
   "inputFileHash": "47972895522d2a3f8ec115c9f507a819787aa80d75c458ebbedc1801e5091772",
   "outputFileHash": "8557a6a83440c80cbdc3ac046d3d98889487576b9856dd84d285ce1cd7eb6305"
+ },
+ "ent_keygen_f67d337b226e": {
+  "version": 1,
+  "inputHash": "59ce3b81ff7a36b9b93983ba9505f6e8ba4f05d6e26f577a4002c21fec5418ee",
+  "approvedHash": "686fbb212f9c2405c6df10eb1681f996e25e8da3dc12d8cdbd6c0f0856c7f9e0",
+  "inputFile": "data/audit/in-99999926100715211708576001.json",
+  "outputFile": "data/audit/out-99999926100715211708576001.json",
+  "inputFileHash": "6f71a42966d9f138296e81528aa86b5379d80709f4ce10388a7ba92a69bbb094",
+  "outputFileHash": "c20bb687b852eb55a29b23af7f0ae2137bfab62d91fa4549bc129319db95cc1f"
  }
 }

@@ -182061,5 +182061,201 @@
    "checkedAt": "2026-10-06",
    "claimText": "項目=USERS / 期間=公開3年目の読者数（アクセス解析）(YEAR) / 金額=615000 人 / 由来=SELF_REPORTED"
   }
+ },
+ "ent_keygen_f67d337b226e": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Use Keygen's flagship software licensing API to add license key validation, device\nactivation and entitlements to any software product.",
+   "sourceUrl": "https://keygen.sh/about/",
+   "checkedAt": "2026-10-07",
+   "claimText": "ソフトを売る会社向けに、使用許可キーの確認、端末ごとの利用登録、利用できる機能の管理、ソフトの配布を外部の仕組み（API）として提供する。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Our customers range from Fortune 500 companies to fast-moving startups, to innovative AI companies, all the way to indie developers.",
+   "sourceUrl": "https://keygen.sh/about/",
+   "checkedAt": "2026-10-07",
+   "claimText": "大企業から新興企業、個人開発者まで数千社が使っていると公式サイトに記載がある。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "We are self-funded, profitable, and intentionally small.",
+   "sourceUrl": "https://keygen.sh/about/",
+   "checkedAt": "2026-10-07",
+   "claimText": "外部資金を入れずに自己資金で運営し、黒字で、意図して小さく保っていると公式サイトに記載がある。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "It was midnight on May 22nd, 2016 that I pushed my first commit to GitHub for a new idea.",
+   "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2016年5月22日の深夜に、新しい案の最初のコードをGitHubに上げた。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "was weird that I couldn't find any services that offered a licensing API like Stripe's billing API. I paused, logged a note to mentally explore the idea later, and continued writing the in-house licensing server.",
+   "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+   "checkedAt": "2026-10-07",
+   "claimText": "仲間と作っていたデスクトップアプリの使用許可の仕組みを自作していた時、決済のStripeのような使用許可の外部サービスが見当たらず、案として書き留めた。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "The desktop app I mentioned earlier flopped for various reasons, but this new project… I really thought I had something special. (We all do, probably.)\nI kept working on it during my nights and weekends. \"Stripe for software licensing\", I told myself. I ultimately launched around October, 2016.",
+   "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+   "checkedAt": "2026-10-07",
+   "claimText": "勤めながら夜と週末に作り、2016年10月ごろに公開した。仲間と作っていたデスクトップアプリは失敗した。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "I've been developing the API for over 6 months and figured I'd try and gather feedback on the product through a beta before the big launch day.",
+   "sourceUrl": "https://news.ycombinator.com/item?id=12870031",
+   "checkedAt": "2026-10-07",
+   "claimText": "2016年11月4日、Hacker Newsで製品を紹介した。本人は半年以上作り続けてきたと書き、先行利用の希望者が数百人集まったと投稿した。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "I went nearly 1 year without a paying customer.",
+   "sourceUrl": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+   "checkedAt": "2026-10-07",
+   "claimText": "有料の客が付かない期間が1年近く続いた。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "Because I got to the front page of HN twice three times, got product of the day on PH, and had multiple interviews on IH. All these channels ultimately do is serve as dopamine boosters. And dopamine doesn't pay the bills, sadly.",
+   "sourceUrl": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+   "checkedAt": "2026-10-07",
+   "claimText": "Hacker Newsの1面に3回載り、Product Huntでその日の1位になり、Indie Hackersで何度も取材を受けたが、有料の客にはつながりにくかったと振り返っている。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "I offer $24, $49 and $99/mo plans with custom plans offered to companies who have more than 5,000 active users (which is a lot if you've ever launched a product before). Either way, at the lowest plan you're spending $288/yr",
+   "sourceUrl": "https://news.ycombinator.com/item?id=14542966",
+   "checkedAt": "2026-10-07",
+   "claimText": "2017年6月、創業者は料金を月24ドル・49ドル・99ドルの3段と説明し、最安でも年288ドルで自作より安いと答えた。"
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "At the time, my side project, now a side business , was making about half of what my senior software engineer position at $CRYPTO_EXCHANGE was netting me",
+   "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2019年、副業の売上は暗号資産取引所での上級エンジニアの給与の約半分になっていた。"
+  },
+  "f12": {
+   "verdict": "SUPPORTED",
+   "quote": "The next day, I put in my letter of resignation.",
+   "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2019年、妻に相談し、翌日に退職届を出してKeygenを専業にした。"
+  },
+  "f13": {
+   "verdict": "PARTIAL",
+   "quote": "I just recently closed our first deal with an F500, helping them replace their legacy licensing system with us.",
+   "fix": {
+    "text": "2021年9月の記事で、大企業（Fortune 500）と、古い使用許可の仕組みを置き換える契約を最近結んだと書いている。"
+   },
+   "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2021年9月、大企業（Fortune 500）と、古い使用許可の仕組みを置き換える契約を結んだ。"
+  },
+  "f14": {
+   "verdict": "SUPPORTED",
+   "quote": "So, I turn those companies away if they aren't interested in my standard tiers.",
+   "sourceUrl": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+   "checkedAt": "2026-10-07",
+   "claimText": "大企業との年10万ドル超の商談もあったが、特別な要求で開発が遅くなるため、標準プランに乗らない大企業は断った。"
+  },
+  "f15": {
+   "verdict": "PARTIAL",
+   "quote": "So I started offering free trial extensions. I'd push this on my pricing page, in onboarding\nemails, in follow up emails, etc.",
+   "fix": {
+    "text": "最初は14日間の無料試用だったが、14日で組み込むのは難しいため、料金ページやメールで試用期間の延長を勧めた。延長を求めた客の方が有料になる割合が高かった。"
+   },
+   "sourceUrl": "https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+   "checkedAt": "2026-10-07",
+   "claimText": "最初は14日間の無料試用だったが、組み込みに時間がかかるため、試用期間の延長を個別にメールで勧めた。延長を求めた客の方が有料になりやすかった。"
+  },
+  "f16": {
+   "verdict": "SUPPORTED",
+   "quote": "I found paid sign ups also increased,\nwith conversion rate staying steady, but now with no manual work.",
+   "sourceUrl": "https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+   "checkedAt": "2026-10-07",
+   "claimText": "登録から支払いまでの日数の中央値は41日だった。期限のない無料枠を加えると、登録が増え、有料の登録も増え、有料になる割合は変わらず、手作業がなくなった。"
+  },
+  "f17": {
+   "verdict": "SUPPORTED",
+   "quote": "That month, I closed my first enterprise sale.\nIt was an F1000 company.",
+   "sourceUrl": "https://keygen.sh/blog/no-calls/",
+   "checkedAt": "2026-10-07",
+   "claimText": "電話営業の予約ボタンを料金ページに置いたが、数か月成約できなかった。ボタンを外し、メールに技術担当を入れてもらう形に変えると、その月に大企業（Fortune 1000）と契約した。"
+  },
+  "f18": {
+   "verdict": "SUPPORTED",
+   "quote": "After 7 years of being closed source, I'm incredibly excited to announce that Keygen is now open source !",
+   "sourceUrl": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2023年6月1日、7年間非公開だったソースコードを公開し、無料で自前設置できる版と、有料の企業向け自前設置版を出した。"
+  },
+  "f19": {
+   "verdict": "PARTIAL",
+   "quote": "Every enterprise I talk to wants to self-host Keygen. The reasons vary from compliance, to security, to fear of us being a small team, to fear of SaaS, to looming fear of the current financial market, to scaling.",
+   "fix": {
+    "text": "大企業はどこも自社内に設置したいと求めた。理由は規則への対応、安全面、運営が少人数であることへの不安などで、そのためソースコードを公開した。"
+   },
+   "sourceUrl": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+   "checkedAt": "2026-10-07",
+   "claimText": "どの企業も自社内に設置したいと求め、1人運営だと止まる不安も聞かれたため、ソースコードを公開した。"
+  },
+  "f20": {
+   "verdict": "SUPPORTED",
+   "quote": "Keygen has been profitable since year 1, and continues to grow >50% year over year (YoY).",
+   "sourceUrl": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2023年6月の時点で、1年目から黒字で、前年比50%超で伸び続けていると書いている。"
+  },
+  "f21": {
+   "verdict": "SUPPORTED",
+   "quote": "Revisiting the original problem with ELv2 — the risk of the licensor going bust",
+   "sourceUrl": "https://keygen.sh/blog/keygen-is-now-fair-source/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2024年8月6日、ソースコードの使用条件を、2年後に完全に自由な条件へ移る形（Fair Core License）に改めた。会社が無くなった時の不安を買い手から聞いたためだった。"
+  },
+  "f22": {
+   "verdict": "SUPPORTED",
+   "quote": "I already went fair source and that worked: it 2x'd growth",
+   "sourceUrl": "https://keygen.sh/blog/unicorn-dreams/",
+   "checkedAt": "2026-10-07",
+   "claimText": "ソースコードを公開して条件を改めたことで、伸びが2倍になったと書いている。"
+  },
+  "f23": {
+   "verdict": "PARTIAL",
+   "quote": "Almost a decade ago, I started at $9/mo. Not because the product was only worth that, but because I was desperate for customers.",
+   "fix": {
+    "text": "始めた時の料金は月9ドルで、製品の価値に見合う額ではなく、客がほしくて安くしていた。"
+   },
+   "sourceUrl": "https://keygen.sh/blog/price-so-its-interesting/",
+   "checkedAt": "2026-10-07",
+   "claimText": "始めた時の料金は月9ドルで、客がほしくて安くした。その後、価値に合わせて料金を上げた。"
+  },
+  "f24": {
+   "verdict": "SUPPORTED",
+   "quote": "The free Dev tier allows up to 100 active licensed users (ALUs) and 10 product releases.",
+   "sourceUrl": "https://keygen.sh/pricing/",
+   "checkedAt": "2026-10-07",
+   "claimText": "無料の開発用プランは、利用者100人と配布10件まで使える。"
+  },
+  "f25": {
+   "verdict": "SUPPORTED",
+   "quote": "Stopped doing nearly all high-touch support and sales, making self-serve\nthe default — for everybody!\nEliminated infrastructure and dependencies that didn't scale.\nHired out operational work like bookkeeping and taxes.",
+   "sourceUrl": "https://keygen.sh/blog/time-away/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2024年11月中旬から2か月以上仕事を離れたが、客はほとんど気づかなかった。客が自分で使い始められる形を標準にし、経理と税務は外に任せていた。"
+  },
+  "f26": {
+   "verdict": "SUPPORTED",
+   "quote": "We closed out 2025 with a revenue growth rate of over 40%, and with a churn rate of only 1.9%.",
+   "sourceUrl": "https://keygen.sh/blog/saas-is-not-dead/",
+   "checkedAt": "2026-10-07",
+   "claimText": "2025年の売上は前年から40%超伸び、解約率は1.9%だった。"
+  }
  }
 }

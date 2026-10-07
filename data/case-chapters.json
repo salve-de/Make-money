@@ -1520,5 +1520,122 @@
         }
       ]
     }
+  },
+  {
+    "entityId": "ent_keygen_f67d337b226e",
+    "factId": "f1",
+    "factHash": "a0feec56",
+    "chapters": {
+      "practice": [
+        {
+          "text": "ソフトを売る会社に、使用許可キーの確認・端末ごとの登録・機能の管理を外部の仕組みとして貸した",
+          "source": "https://keygen.sh/about/"
+        },
+        {
+          "text": "無料の開発用プランを用意し、客が必要な時に自分で有料プランへ切り替えられる形にした",
+          "source": "https://keygen.sh/pricing/"
+        },
+        {
+          "text": "客が自分で使い始められる形を標準にした",
+          "source": "https://keygen.sh/blog/time-away/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 無料試用は14日で、延長は個別に応じていた。後: 期限のない無料枠を設け、延長の個別対応が要らなくなった",
+          "source": "https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/"
+        },
+        {
+          "text": "前: 電話営業の予約ボタンを置いたが、数か月成約できなかった。後: メールでの相談に変え、その月に大企業と契約した",
+          "source": "https://keygen.sh/blog/no-calls/"
+        },
+        {
+          "text": "前: Keygenは客の自社内に設置できなかった。後: 2023年、自社内に設置できる無料版と企業向けの有料版を出した",
+          "source": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/"
+        },
+        {
+          "text": "前: 競合するサービスへの転用は禁止されていた。後: 各版の公開から2年後に、その制限が外れる使用条件へ改めた",
+          "source": "https://keygen.sh/blog/keygen-is-now-fair-source/"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2016年5月22日: 新しいサービスの最初のプログラムを保存した",
+          "source": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/"
+        },
+        {
+          "text": "2016年11月: Hacker Newsで紹介し、先行利用の希望者を数百人集めた",
+          "source": "https://news.ycombinator.com/item?id=12870031"
+        },
+        {
+          "text": "2019年: 会社を辞めて専業にした",
+          "source": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/"
+        },
+        {
+          "text": "2023年6月: プログラムの中身を公開した",
+          "source": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/"
+        },
+        {
+          "text": "2024年8月: 使用条件を改めた",
+          "source": "https://keygen.sh/blog/keygen-is-now-fair-source/"
+        },
+        {
+          "text": "2025年: 売上が前年から40%超伸びた",
+          "source": "https://keygen.sh/blog/saas-is-not-dead/"
+        }
+      ],
+      "core": [
+        {
+          "text": "共同で作っていたアプリに使用許可の仕組みが必要になり、ほかの開発者にも使える外部サービスを作り始めた",
+          "source": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/"
+        },
+        {
+          "text": "年10万ドル（約1,500万円）超の商談でも、標準プランに乗らない特別な要求は断った",
+          "source": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/"
+        },
+        {
+          "text": "使用条件を改めたあと、伸びが2倍になった",
+          "source": "https://keygen.sh/blog/unicorn-dreams/"
+        }
+      ],
+      "start": [
+        {
+          "text": "会社に勤めながら、副業として作り始めた",
+          "source": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/"
+        },
+        {
+          "text": "外部資金を入れず、自己資金で運営している",
+          "source": "https://keygen.sh/about/"
+        },
+        {
+          "text": "有料の客が付くまでに1年近くかかった",
+          "source": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/"
+        },
+        {
+          "text": "2019年、副業の売上が勤め先の給与の約半分になっていた",
+          "source": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/"
+        }
+      ],
+      "price": [
+        {
+          "text": "始めた時は月9ドル（約1,350円）。客がほしくて安くしていた",
+          "source": "https://keygen.sh/blog/price-so-its-interesting/"
+        },
+        {
+          "text": "2017年6月は月24・49・99ドル（約3,600円・約7,350円・約1万4,850円）の3段",
+          "source": "https://news.ycombinator.com/item?id=14542966"
+        },
+        {
+          "text": "最近90日以内に使った人100人と、ソフトの版10件まで扱える無料の開発用プランがある",
+          "source": "https://keygen.sh/pricing/"
+        }
+      ],
+      "voices": [
+        {
+          "text": "技術系の会社にソフトを売る開発者は、使用許可の仕組みの管理を任せるなら月100ドル（約1万5,000円）の価値があると書いた",
+          "source": "https://news.ycombinator.com/item?id=14541631"
+        }
+      ]
+    }
   }
 ]

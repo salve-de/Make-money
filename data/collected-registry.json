@@ -33525,5 +33525,15 @@
     "domain": "presentifyapp.com",
     "sector": "UNKNOWN",
     "status": "UNAVAILABLE"
+  },
+  {
+    "id": "ent_keygen_f67d337b226e",
+    "name": "Keygen",
+    "normName": "keygen",
+    "ticker": "KEYGEN",
+    "domain": "keygen.sh",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "claude_e2e_20261007"
   }
 ]

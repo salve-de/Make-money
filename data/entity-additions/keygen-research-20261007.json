@@ -1,0 +1,634 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/keygen/keygen-record.json",
+  "manifestSha256": "d15799b7473e32eb1f857cb5f90deeddc3133b4476f7d1930abb6be1570e0992",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T06:20:17.036Z"
+ },
+ "records": [
+  {
+   "id": "ent_keygen_f67d337b226e",
+   "provenance": {
+    "detailsHash": "2dafecf5a482e34ce0aac3aca630fccc465dbdd987ed72529b1279a054865c93",
+    "artifactSha256": "d15799b7473e32eb1f857cb5f90deeddc3133b4476f7d1930abb6be1570e0992"
+   },
+   "record": {
+    "id": "ent_keygen_f67d337b226e",
+    "ticker": "KEYGEN",
+    "name": "Keygen",
+    "legalEntity": "Keygen LLC（公式サイトの著作権表記）",
+    "tagline": "ソフトの使用許可キーの発行と確認を外部の仕組みとして売る開発者向けサービス。創業者が2016年に副業で始め、2019年に会社を辞めて1人で専業にした",
+    "description": "ソフトを売る会社向けに、使用許可キー（ライセンスキー）の発行・確認、端末ごとの利用登録、ソフトの配布を外部の仕組み（API）として提供する。創業者のZeke Gabrielseが2016年5月に副業で作り始め、2019年に勤め先を辞めて専業にした。外部資金を入れずに運営し、2023年にソースコードを公開した。",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Zeke Gabrielse（公式ブログの署名「Founder of Keygen」）",
+    "country": "未確認",
+    "url": "https://keygen.sh",
+    "officialUrl": "https://keygen.sh",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "ソフトの使用許可キーの発行・確認と配布を、利用量に応じた月額・年額で売る（自社運用のクラウド版、無料の自前設置版、有料の自前設置版）",
+    "pipelineStack": "未確認",
+    "targetPainWallet": "未確認",
+    "tags": [
+     "ソフトの使用許可",
+     "開発者向け",
+     "1人運営",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2016-05〜2026-01 の創業者ブログ",
+     "revenueLabel": "売上の金額は公表なし。本人申告で2023年に前年比50%超、2025年に40%超の伸び",
+     "sourceDoc": "https://keygen.sh/blog/saas-is-not-dead/",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "ソフトを売る会社向けに、使用許可キーの確認、端末ごとの利用登録、利用できる機能の管理、ソフトの配布を外部の仕組み（API）として提供する。",
+      "sourceUrl": "https://keygen.sh/about/"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "大企業から新興企業、個人開発者まで数千社が使っていると公式サイトに記載がある。",
+      "sourceUrl": "https://keygen.sh/about/"
+     },
+     {
+      "kind": "FUNDING",
+      "text": "外部資金を入れずに自己資金で運営し、黒字で、意図して小さく保っていると公式サイトに記載がある。",
+      "sourceUrl": "https://keygen.sh/about/"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "2016年5月22日の深夜に、新しい案の最初のコードをGitHubに上げた。",
+      "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "statedAt": "2021-09-21"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "仲間と作っていたデスクトップアプリの使用許可の仕組みを自作していた時、決済のStripeのような使用許可の外部サービスが見当たらず、案として書き留めた。",
+      "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "statedAt": "2021-09-21"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "勤めながら夜と週末に作り、2016年10月ごろに公開した。仲間と作っていたデスクトップアプリは失敗した。",
+      "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "statedAt": "2021-09-21"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "2016年11月4日、Hacker Newsで製品を紹介した。本人は半年以上作り続けてきたと書き、先行利用の希望者が数百人集まったと投稿した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=12870031",
+      "statedAt": "2016-11-04"
+     },
+     {
+      "kind": "OTHER",
+      "text": "有料の客が付かない期間が1年近く続いた。",
+      "sourceUrl": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+      "statedAt": "2021-09-28"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Hacker Newsの1面に3回載り、Product Huntでその日の1位になり、Indie Hackersで何度も取材を受けたが、有料の客にはつながりにくかったと振り返っている。",
+      "sourceUrl": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+      "statedAt": "2021-09-28"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2017年6月、創業者は料金を月24ドル・49ドル・99ドルの3段と説明し、最安でも年288ドルで自作より安いと答えた。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=14542966",
+      "statedAt": "2017-06-13"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2019年、副業の売上は暗号資産取引所での上級エンジニアの給与の約半分になっていた。",
+      "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "statedAt": "2021-09-21"
+     },
+     {
+      "kind": "TEAM",
+      "text": "2019年、妻に相談し、翌日に退職届を出してKeygenを専業にした。",
+      "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "statedAt": "2021-09-21"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2021年9月、大企業（Fortune 500）と、古い使用許可の仕組みを置き換える契約を結んだ。",
+      "sourceUrl": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "statedAt": "2021-09-21"
+     },
+     {
+      "kind": "OTHER",
+      "text": "大企業との年10万ドル超の商談もあったが、特別な要求で開発が遅くなるため、標準プランに乗らない大企業は断った。",
+      "sourceUrl": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+      "statedAt": "2021-09-28"
+     },
+     {
+      "kind": "OTHER",
+      "text": "最初は14日間の無料試用だったが、組み込みに時間がかかるため、試用期間の延長を個別にメールで勧めた。延長を求めた客の方が有料になりやすかった。",
+      "sourceUrl": "https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+      "statedAt": "2024-05-03"
+     },
+     {
+      "kind": "OTHER",
+      "text": "登録から支払いまでの日数の中央値は41日だった。期限のない無料枠を加えると、登録が増え、有料の登録も増え、有料になる割合は変わらず、手作業がなくなった。",
+      "sourceUrl": "https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+      "statedAt": "2024-05-03"
+     },
+     {
+      "kind": "OTHER",
+      "text": "電話営業の予約ボタンを料金ページに置いたが、数か月成約できなかった。ボタンを外し、メールに技術担当を入れてもらう形に変えると、その月に大企業（Fortune 1000）と契約した。",
+      "sourceUrl": "https://keygen.sh/blog/no-calls/",
+      "statedAt": "2025-01-16"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2023年6月1日、7年間非公開だったソースコードを公開し、無料で自前設置できる版と、有料の企業向け自前設置版を出した。",
+      "sourceUrl": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+      "statedAt": "2023-06-01"
+     },
+     {
+      "kind": "OTHER",
+      "text": "どの企業も自社内に設置したいと求め、1人運営だと止まる不安も聞かれたため、ソースコードを公開した。",
+      "sourceUrl": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+      "statedAt": "2023-06-01"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2023年6月の時点で、1年目から黒字で、前年比50%超で伸び続けていると書いている。",
+      "sourceUrl": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+      "statedAt": "2023-06-01"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2024年8月6日、ソースコードの使用条件を、2年後に完全に自由な条件へ移る形（Fair Core License）に改めた。会社が無くなった時の不安を買い手から聞いたためだった。",
+      "sourceUrl": "https://keygen.sh/blog/keygen-is-now-fair-source/",
+      "statedAt": "2024-08-06"
+     },
+     {
+      "kind": "OTHER",
+      "text": "ソースコードを公開して条件を改めたことで、伸びが2倍になったと書いている。",
+      "sourceUrl": "https://keygen.sh/blog/unicorn-dreams/",
+      "statedAt": "2025-05-07"
+     },
+     {
+      "kind": "PRICING",
+      "text": "始めた時の料金は月9ドルで、客がほしくて安くした。その後、価値に合わせて料金を上げた。",
+      "sourceUrl": "https://keygen.sh/blog/price-so-its-interesting/",
+      "statedAt": "2025-09-05"
+     },
+     {
+      "kind": "PRICING",
+      "text": "無料の開発用プランは、利用者100人と配布10件まで使える。",
+      "sourceUrl": "https://keygen.sh/pricing/"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2024年11月中旬から2か月以上仕事を離れたが、客はほとんど気づかなかった。客が自分で使い始められる形を標準にし、経理と税務は外に任せていた。",
+      "sourceUrl": "https://keygen.sh/blog/time-away/",
+      "statedAt": "2025-02-04"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2025年の売上は前年から40%超伸び、解約率は1.9%だった。",
+      "sourceUrl": "https://keygen.sh/blog/saas-is-not-dead/",
+      "statedAt": "2026-01-13"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "claude-e2e-20261007",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://keygen.sh/about/",
+       "publisher": "公式サイト",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/pricing/",
+       "publisher": "公式サイト（料金）",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-09-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-09-28",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2023-06-01",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-05-03",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/keygen-is-now-fair-source/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-08-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/no-calls/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-01-16",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/time-away/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-02-04",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/unicorn-dreams/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-05-07",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/price-so-its-interesting/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-09-05",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://keygen.sh/blog/saas-is-not-dead/",
+       "publisher": "公式ブログ（創業者）",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-01-13",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=12870031",
+       "publisher": "Hacker News（創業者の紹介投稿）",
+       "sourceType": "founder_post",
+       "publicationDate": "2016-11-04",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=14542966",
+       "publisher": "Hacker News（創業者の返答）",
+       "sourceType": "founder_post",
+       "publicationDate": "2017-06-13",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "売上・利益の金額（本人は伸び率と、2019年に給与の約半分だったことだけを公表）",
+      "人数の推移（2025年まで1人。経理と税務は外部、請負の手伝いあり）"
+     ],
+     "conflicts": [
+      "公開時期: 本人ブログ（2021-09-21）は2016年10月ごろ公開、Hacker Newsの2016-11-04の投稿は公開前の先行利用の募集。採用: 2016年10月ごろに公開、11月に先行利用を募集",
+      "最初の大企業契約: 2021-09-21の記事はFortune 500との契約を「最初」とし、2025-01-16の記事は電話をやめた月のFortune 1000を「最初の企業向け販売」とする。章では「最初」と書かない",
+      "黒字の時期: 2023年の記事は「1年目から黒字」、2021年の記事は「有料の客が付かない期間が1年近く」。章では黒字の時期を書かない"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2016,
+     "initialTractionPeriod": "2016年5月に作り始め、2016年10月ごろ公開。有料の客が付くまで1年近く",
+     "dataSnapshotPeriod": "2016-05〜2026-01 の創業者ブログと Hacker News の投稿（2026-10-07 確認）",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "未確認",
+     "currentViabilityAnalysis": "未確認",
+     "viabilityLabel": "未確認"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true,
+     "initialTeamSize": 0,
+     "currentTeamSize": 0
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "未確認",
+     "moatDescription": "未確認",
+     "secretInsight": "未確認",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": "未確認"
+    },
+    "essence": {
+     "whatItDoes": "ソフトの使用許可キーの発行・確認と配布を、外部の仕組みとして売る。",
+     "targetCustomer": "自社ソフトを売る会社と個人開発者",
+     "painRelief": "使用許可の仕組みを自作・保守する手間"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式サイト",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/about/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/about/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/about/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式サイト（料金）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/pricing/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/pricing/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/pricing/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/that-time-i-told-my-wife-i-wanted-to-quit-my-job/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/5-things-ive-learned-in-5-years/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/all-your-licensing-are-belong-to-you/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/your-14-day-free-trial-aint-gonna-cut-it/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/keygen-is-now-fair-source/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/keygen-is-now-fair-source/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/keygen-is-now-fair-source/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/no-calls/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/no-calls/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/no-calls/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/time-away/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/time-away/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/time-away/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/unicorn-dreams/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/unicorn-dreams/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/unicorn-dreams/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/price-so-its-interesting/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/price-so-its-interesting/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/price-so-its-interesting/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 公式ブログ（創業者）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://keygen.sh/blog/saas-is-not-dead/",
+       "ホスト: keygen.sh",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://keygen.sh/blog/saas-is-not-dead/",
+      "sourceNote": "official source listed in case-rebuild pack https://keygen.sh/blog/saas-is-not-dead/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker News（創業者の紹介投稿）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://news.ycombinator.com/item?id=12870031",
+       "ホスト: news.ycombinator.com",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://news.ycombinator.com/item?id=12870031",
+      "sourceNote": "secondary source listed in case-rebuild pack https://news.ycombinator.com/item?id=12870031",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_keygen_f67d337b226e_pack_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker News（創業者の返答）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://news.ycombinator.com/item?id=14542966",
+       "ホスト: news.ycombinator.com",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://news.ycombinator.com/item?id=14542966",
+      "sourceNote": "secondary source listed in case-rebuild pack https://news.ycombinator.com/item?id=14542966",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PUBLISHABLE",
+    "batchId": "claude_e2e_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "未確認",
+    "blindspot": "未確認",
+    "moatDescription": "未確認",
+    "unknownsNotes": [
+     "売上・利益の金額は公表なし"
+    ]
+   }
+  }
+ ]
+}
