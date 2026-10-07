@@ -677,7 +677,7 @@ export function plainFactText(text: string): string {
  * 本文の外貨の金額に、円のおおよその額を添える（「月99ドル」→「月99ドル（約1万4,850円）」、「$10」→「$10（約1,500円）」）。
  * 為替は docs/CASE_TEXT_STANDARD.md の固定の概算（1ドル=150円・1ユーロ=165円・1ポンド=195円・1ルピー=1.75円）。
  * 通貨は日本語の名前（ドル）・記号（$・€・£・₹）・ISO の略号（USD・EUR・GBP・INR）のどれでもよい。
- * すぐ後ろに円の額がある金額には足さない（二重にしない）。すぐ後ろに円の無い括弧の補足があれば、その括弧の頭に入れる。保存データは変えない。
+ * 米ドル以外のドル（CA$・A$ など）は換算しない。すぐ後ろに円の額がある金額には足さない（二重にしない）。すぐ後ろに円の無い括弧の補足があれば、その括弧の頭に入れる。保存データは変えない。
  */
 const CURRENCY_YEN: Array<[RegExp, number]> = [[/^(?:ドル|US\$|\$|USD)$/, 150], [/^(?:ユーロ|€|EUR)$/, 165], [/^(?:ポンド|£|GBP)$/, 195], [/^(?:ルピー|₹|INR)$/, 1.75]];
 const NUM = '[0-9][0-9,]*(?:\\.[0-9]+)?';
@@ -693,8 +693,10 @@ export function yenText(yen: number): string {
   const n = Math.round(yen);
   if (n >= 1e8) return `${trimNum(n / 1e8, 1)}億円`;
   if (n >= 1e4) {
-    const man = Math.floor(n / 1e4);
-    const rest = Math.round((n % 1e4) / 10) * 10;
+    // 先に10円単位へ丸めてから万と端数に分ける（19,995円 → 2万円。「1万10,000円」にしない）
+    const r = Math.round(n / 10) * 10;
+    const man = Math.floor(r / 1e4);
+    const rest = r % 1e4;
     return rest === 0 ? `${man.toLocaleString('en-US')}万円` : `${man.toLocaleString('en-US')}万${rest.toLocaleString('en-US')}円`;
   }
   return `${n.toLocaleString('en-US')}円`;
@@ -709,6 +711,9 @@ export function withYenApprox(text: string): string {
     const rest = text.slice(end);
     const currency = (g.pc ?? g.sc ?? '').trim();
     const rate = CURRENCY_YEN.find(([re]) => re.test(currency))?.[1];
+    // 米ドル以外のドル（CA$・A$・NZ$・HK$・S$ や「$39 CAD」）は、為替の基準に無いので換算しない
+    if (g.pc && /[A-Za-z]$/.test(text.slice(0, m.index ?? 0)) && !/^US/.test(g.pc)) continue;
+    if (/^\s?(?:CAD|AUD|NZD|HKD|SGD|MXN|TWD)(?![A-Za-z])/.test(rest)) continue;
     const value = (num: string, scale: string | undefined) => Number(num.replace(/,/g, '')) * (SCALE[scale ?? ''] ?? 1);
     const amount = g.pn ? value(g.pn, g.ps) : value(g.sn, g.ss);
     // 範囲の下端。後ろに桁（万・k など）が付くのが上端だけの時は、下端にも同じ桁を当てる（「1〜2万ドル」）

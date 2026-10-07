@@ -237,7 +237,15 @@ describe('withYenApprox', () => {
     expect(withYenApprox('月99ドル、約1万円')).toBe('月99ドル、約1万円');
     expect(withYenApprox('月980円')).toBe('月980円');
   });
+  it('米ドル以外のドルは換算しない', () => {
+    expect(withYenApprox('CA$280,000で売却')).toBe('CA$280,000で売却');
+    expect(withYenApprox('A$500と$10')).toBe('A$500と$10（約1,500円）');
+    expect(withYenApprox('$39 CAD/mo')).toBe('$39 CAD/mo');
+    expect(withYenApprox('US$10')).toBe('US$10（約1,500円）');
+  });
   it('円の書式', () => {
+    expect(yenText(19995)).toBe('2万円');
+    expect(yenText(29996)).toBe('3万円');
     expect(yenText(14850)).toBe('1万4,850円');
     expect(yenText(2.4e8)).toBe('2.4億円');
     expect(yenText(900)).toBe('900円');
