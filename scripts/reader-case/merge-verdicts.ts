@@ -34,7 +34,7 @@ function main() {
   const raws = new Map<string, Raw>();
   const outDir = `${VERIFY_DIR}/out`;
   for (const f of existsSync(outDir) ? readdirSync(outDir).sort() : []) {
-    if (!/^batch-\d+\.json$/.test(f)) continue;
+    if (!/^batch-[\w-]+\.json$/.test(f)) continue;
     const j = JSON.parse(readFileSync(`${outDir}/${f}`, 'utf8')) as { verdicts?: Raw[] };
     for (const v of j.verdicts ?? []) raws.set(`${v.entityId}\u0000${v.claimId}`, v);
   }
