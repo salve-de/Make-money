@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
+import { listLineFor } from '@/shared/list-lines';
 import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { checkLead } from '@/shared/lead-standard';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
@@ -124,12 +125,14 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
 }
 
 /** 概要。最初の1文を最上部に大きく、続きは畳まずそのまま下に出す。 */
-export function WhatIs({ fact }: { fact: ReaderFact | null | undefined }) {
+export function WhatIs({ fact, entityId }: { fact: ReaderFact | null | undefined; entityId?: string }) {
   if (!fact) return null;
   const text = plainFactText(fact.text);
   const end = text.indexOf('。');
-  const first = end >= 0 ? text.slice(0, end + 1) : text;
-  const rest = end >= 0 ? text.slice(end + 1).trim() : '';
+  // 一覧と同じ「短い1行」があればそれを大きく出し、元の要約は全文を下に続ける
+  const short = entityId ? listLineFor(entityId, fact) : null;
+  const first = short ?? (end >= 0 ? text.slice(0, end + 1) : text);
+  const rest = short ? text : end >= 0 ? text.slice(end + 1).trim() : '';
   return (
     <div data-fact={fact.id} className="px-2.5 pb-3 pt-3 sm:px-3">
       <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
@@ -145,12 +148,12 @@ export function Headline({ reader }: { reader: ReaderCase }) {
   // リードは基準（lead-standard.ts）を通った時だけ出す
   if (!a || !checkLead(a, reader).ok) return null;
   return (
-    <div data-analysis={a.id} className="border-b border-term-line px-2.5 py-2.5 sm:px-3">
-      <div className="mb-0.5 flex items-center gap-2 text-xs text-term-label">
+    <div data-analysis={a.id} className="border-b border-term-line bg-term-head px-2.5 py-3 sm:px-3">
+      <div className="mb-1 flex items-center gap-2 text-xs text-term-label">
         <span>{UI.HEADLINE_LABEL}</span>
         <InferenceMark analysis={a} />
       </div>
-      <h3 className="text-sm font-normal leading-relaxed text-term-fg [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
+      <h3 className="text-[18px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
     </div>
   );
 }
