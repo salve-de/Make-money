@@ -3,7 +3,7 @@
 import React from 'react';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { BusinessScale, MoatType } from '../../types/terminal';
-import { countScreenerMatches, screenerFacetAvailability } from '../../model/entity-filter';
+import { countScreenerMatches } from '../../model/entity-filter';
 import type { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 
 /**
@@ -96,11 +96,6 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
   allEntities,
 }) => {
   const current = filters ?? EMPTY;
-  // 全件が手元にある時、1件も当たらないまとまりは出さない（押せない項目の壁を作らない）
-  const facets = allEntities ? screenerFacetAvailability(allEntities) : null;
-  const shows = (key: 'scales' | 'margin' | 'capital' | 'moats') => !facets || facets[key];
-  const hasTags = (current.selectedTags?.length ?? 0) > 0;
-  if (facets && !facets.scales && !facets.margin && !facets.capital && !facets.moats && !hasTags) return null;
   // その条件だけを当てた時に1件も残らないか（全件が手元にある時だけ判定する）
   const isEmptyOption = (patch: Partial<ScreenerFilterState>): boolean =>
     Boolean(allEntities) && countScreenerMatches(allEntities ?? [], { ...EMPTY, ...patch }) === 0;
@@ -124,7 +119,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         </button>
       </div>
 
-      {shows('scales') && (
+      {(
         <>
       <GroupHeader>運営人数</GroupHeader>
       {SCALES.map((item) => (
@@ -133,7 +128,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         </>
       )}
 
-      {shows('margin') && (
+      {(
         <>
       <GroupHeader>営業利益率</GroupHeader>
       {MARGINS.map((item) => (
@@ -149,7 +144,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         </>
       )}
 
-      {shows('capital') && (
+      {(
         <>
       <GroupHeader>初期資金</GroupHeader>
       {CAPITALS.map((item) => (
@@ -165,7 +160,7 @@ export const LedgerFilterRail: React.FC<LedgerFilterRailProps> = ({
         </>
       )}
 
-      {shows('moats') && (
+      {(
         <>
       <GroupHeader>参入障壁</GroupHeader>
       {MOATS.map((item) => (
