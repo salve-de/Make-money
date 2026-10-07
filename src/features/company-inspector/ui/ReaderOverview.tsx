@@ -162,7 +162,7 @@ export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | nul
 const STORY_STEPS = ['前夜', '隙', '突破', '金が回る仕組み'] as const;
 
 /** 「前夜：…。隙：…。突破：…。金が回る仕組み：…」を4段に分ける。形が違えば null。 */
-function splitStory(text: string): Array<{ step: string; body: string }> | null {
+export function splitStory(text: string): Array<{ step: string; body: string }> | null {
   const re = new RegExp(`(${STORY_STEPS.join('|')})[:：]`, 'g');
   const marks = [...text.matchAll(re)];
   if (marks.length !== STORY_STEPS.length || marks.some((m, i) => m[1] !== STORY_STEPS[i])) return null;

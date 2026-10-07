@@ -109,7 +109,9 @@ for (const entry of coverage.cases) {
   for (const row of entry.strip) if (!row.absence) check(where(row), '原文', row.text, Infinity);
   const shown = [];
   const story = entry.analysis.find((row) => row.item === 'STORY');
-  if (story) shown.push(story);
+  // 4段の形の物語は、画面が編集文を使わず原文を出す（hidden も効かない）。原文そのものに同じ検査を掛ける。
+  if (story?.split) check(where(story), '原文（4段の物語）', story.text, Infinity);
+  else if (story) shown.push(story);
   for (const items of coverage.groups) {
     if (items.includes('WHY_IT_WORKED') && (secrets || chapterIds.size > 0)) continue;
     for (const item of items) {

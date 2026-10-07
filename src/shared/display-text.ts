@@ -674,12 +674,17 @@ export function plainFactText(text: string): string {
 }
 
 /**
- * 本文の外貨の金額に、円のおおよその額を添える（「月99ドル」→「月99ドル（約1万4,850円）」）。
+ * 本文の外貨の金額に、円のおおよその額を添える（「月99ドル」→「月99ドル（約1万4,850円）」、「$10」→「$10（約1,500円）」）。
  * 為替は docs/CASE_TEXT_STANDARD.md の固定の概算（1ドル=150円・1ユーロ=165円・1ポンド=195円・1ルピー=1.75円）。
- * すぐ後ろに円の額や括弧の補足がある金額には足さない（二重にしない）。保存データは変えない。
+ * 通貨は日本語の名前（ドル）・記号（$・€・£・₹）・ISO の略号（USD・EUR・GBP・INR）のどれでもよい。
+ * すぐ後ろに円の額がある金額には足さない（二重にしない）。すぐ後ろに円の無い括弧の補足があれば、その括弧の頭に入れる。保存データは変えない。
  */
-const TEXT_YEN_PER: Record<string, number> = { ドル: 150, ユーロ: 165, ポンド: 195, ルピー: 1.75 };
-const FOREIGN_AMOUNT = /([0-9][0-9,]*(?:\.[0-9]+)?)(億|万)?(ドル|ユーロ|ポンド|ルピー)/g;
+const CURRENCY_YEN: Array<[RegExp, number]> = [[/^(?:ドル|US\$|\$|USD)$/, 150], [/^(?:ユーロ|€|EUR)$/, 165], [/^(?:ポンド|£|GBP)$/, 195], [/^(?:ルピー|₹|INR)$/, 1.75]];
+const NUM = '([0-9][0-9,]*(?:\\.[0-9]+)?)';
+const FOREIGN_AMOUNT = new RegExp(
+  `(US\\$|\\$|€|£|₹|(?:USD|EUR|GBP|INR)\\s?)${NUM}(億|万|[kK](?![A-Za-z])|M(?![A-Za-z])|B(?![A-Za-z]))?`
+  + `|${NUM}\\s?(億|万)?\\s?(ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
+const SCALE: Record<string, number> = { 億: 1e8, 万: 1e4, k: 1e3, K: 1e3, M: 1e6, B: 1e9 };
 export function yenText(yen: number): string {
   const n = Math.round(yen);
   if (n >= 1e8) return `${trimNum(n / 1e8, 1)}億円`;
@@ -691,12 +696,25 @@ export function yenText(yen: number): string {
   return `${n.toLocaleString('en-US')}円`;
 }
 export function withYenApprox(text: string): string {
-  return text.replace(FOREIGN_AMOUNT, (match, num: string, scale: string | undefined, unit: string, offset: number, whole: string) => {
-    if (/^\s*[（(]/.test(whole.slice(offset + match.length)) || /^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(whole.slice(offset + match.length))) return match;
-    const amount = Number(num.replace(/,/g, '')) * (scale === '億' ? 1e8 : scale === '万' ? 1e4 : 1);
-    if (!Number.isFinite(amount) || amount <= 0) return match;
-    return `${match}（約${yenText(amount * TEXT_YEN_PER[unit])}）`;
-  });
+  const out: string[] = [];
+  let last = 0;
+  for (const m of text.matchAll(FOREIGN_AMOUNT)) {
+    const [match, prefix, preNum, preScale, sufNum, sufScale, suffix] = m;
+    const end = (m.index ?? 0) + match.length;
+    const rest = text.slice(end);
+    const currency = (prefix ?? suffix ?? '').trim();
+    const rate = CURRENCY_YEN.find(([re]) => re.test(currency))?.[1];
+    const amount = Number((preNum ?? sufNum).replace(/,/g, '')) * (SCALE[(preScale ?? sufScale) ?? ''] ?? 1);
+    if (!rate || !Number.isFinite(amount) || amount <= 0) continue;
+    // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
+    if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest)) continue;
+    const yen = `約${yenText(amount * rate)}`;
+    const paren = rest.match(/^\s*[（(]/);
+    out.push(text.slice(last, end), paren ? `${paren[0]}${yen}、` : `（${yen}）`);
+    last = end + (paren ? paren[0].length : 0);
+  }
+  out.push(text.slice(last));
+  return out.join('');
 }
 
 /** 推測の文末「〜とみる。」「〜と見る。」「〜と推す。」を画面では省く（読む邪魔になるだけ）。前が短すぎる時は元のまま。 */

@@ -93,16 +93,18 @@ export function collectFromResearch(researchPath: string, now = new Date()): Add
     void _reader;
     const id = String(record.id ?? '');
     if (!/^ent_[\w-]+$/.test(id)) throw new Error(`id が ent_ で始まらない: ${id}`);
-    if (!host(record.url)) throw new Error(`${id}: url（公式サイト）が無い`);
+    // 公式サイトが無い事例（店舗だけ・匿名・閉業など）も足す。目録の既存の記録と同じく url は空文字で持つ
+    if (typeof record.url !== 'string') record.url = '';
     const tags = Array.isArray(record.tags) ? (record.tags as string[]) : [];
     record.tags = tags.includes(REVIEW_TAG) ? tags : [...tags, REVIEW_TAG];
     // 根拠カードが無いと公開区分の判定（hasValidEvidenceLocator）で必ず落ちる。調査の出典一覧（reaudit.sources）から出典の所在カードを作る
     const cards = Array.isArray(record.evidenceCards) ? record.evidenceCards : [];
     const auditSources = ((record.reaudit as { sources?: { url?: string; publisher?: string; checkedAt?: string }[] } | undefined)?.sources ?? []);
     if (!cards.length && auditSources.length) {
+      // 公式サイトが無い時は、全ての出典を公式以外として扱う
       const official = host(record.url);
       record.evidenceCards = sourceCards(id, auditSources.map((s, i) => ({
-        id: String(i + 1), url: s.url, publisher: s.publisher, checkedAt: s.checkedAt, kind: host(s.url) === official ? 'OFFICIAL' : 'OTHER',
+        id: String(i + 1), url: s.url, publisher: s.publisher, checkedAt: s.checkedAt, kind: official && host(s.url) === official ? 'OFFICIAL' : 'OTHER',
       })));
     }
     return { id, provenance: { detailsHash: sha256(JSON.stringify(record)), artifactSha256: sha256(text) }, record };

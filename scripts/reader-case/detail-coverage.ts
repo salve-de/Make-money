@@ -16,7 +16,7 @@ import { textFingerprint } from '../../src/shared/list-lines';
 import { isAbsenceOnly } from '../../src/shared/absence-text';
 import { plainAnalysisText } from '../../src/shared/display-text';
 import { ANALYSIS_LABELS } from '../../src/shared/ui-strings';
-import { ANALYSIS_GROUPS, planKeyStrip } from '../../src/features/company-inspector/ui/ReaderOverview';
+import { ANALYSIS_GROUPS, planKeyStrip, splitStory } from '../../src/features/company-inspector/ui/ReaderOverview';
 
 const read = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
 const finished = readFileSync('data/catalog-finished-ids.txt', 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
@@ -25,7 +25,8 @@ const verdicts = read<VerdictsFile>(VERDICTS_FILE);
 const analysis: AnalysisFile = withReflectedAnalysis(existsSync('data/reader-analysis.json') ? read<AnalysisFile>('data/reader-analysis.json') : {}, readReflectState());
 const names = new Map(read<Array<{ id: string; name?: string }>>('data/entities-index.json').map((e) => [e.id, e.name ?? e.id]));
 
-type Row = { analysisId: string; item: string; label: string; textHash: string; text: string; absence: boolean };
+// split: 物語が「前夜：…。隙：…。突破：…。金が回る仕組み：…」の4段の形。画面はこの形の時、編集文を使わず原文を4段に分けて出す。
+type Row = { analysisId: string; item: string; label: string; textHash: string; text: string; absence: boolean; split: boolean };
 const cases: Array<{ entityId: string; name: string; strip: Row[]; analysis: Row[]; facts: Record<string, string> }> = [];
 const missing: string[] = [];
 const readers = loadReaders(ids);
@@ -34,7 +35,7 @@ for (const id of ids) {
   if (!base) { missing.push(id); continue; }
   const reader = preparePublicationReader(base, verdicts[id], analysis[id]).reader;
   const plan = planKeyStrip(reader);
-  const row = (a: (typeof reader.analysis)[number]): Row => ({ analysisId: a.id, item: a.item, label: ANALYSIS_LABELS[a.item], textHash: textFingerprint(a.text), text: plainAnalysisText(a.text), absence: isAbsenceOnly(plainAnalysisText(a.text)) });
+  const row = (a: (typeof reader.analysis)[number]): Row => ({ analysisId: a.id, item: a.item, label: ANALYSIS_LABELS[a.item], textHash: textFingerprint(a.text), text: plainAnalysisText(a.text), absence: isAbsenceOnly(plainAnalysisText(a.text)), split: a.item === 'STORY' && splitStory(a.text) !== null });
   cases.push({
     entityId: id,
     name: names.get(id) ?? id,
