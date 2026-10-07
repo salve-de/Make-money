@@ -352,6 +352,24 @@ export function unsupportedNumbers(text: string, material: readonly number[]): n
  * 他の行に同じ数字があれば、重複を外しただけなので消えたとは数えない（「同じ数字は1か所だけ」の規則）。
  * 2026-10-08: 直しで「事業の約20%」「報酬35%」が落ち、事例のどこにも残らなかったため足した。
  */
+/**
+ * 出典で確かめられない数字（dropping）を落とす時に、一緒に消えてよい数字。
+ * 落とす年に付いた月・日（「2018年12月」の12）と、落とす数字の直後の円換算（「190ドル（約2.85万円）」の28500）だけ。
+ * それ以外の小さい数（9ドル・5本など）は確かめられた事実なので、消えたら落とす。
+ */
+export function droppableNumbers(before: string, dropping: readonly number[]): number[] {
+  const out = new Set<number>(dropping);
+  for (const y of dropping.filter((n) => n >= 1900 && n <= 2099)) {
+    for (const m of before.matchAll(new RegExp(`${y}年(\\d{1,2})月(?:(\\d{1,2})日)?`, 'g'))) { out.add(Number(m[1])); if (m[2]) out.add(Number(m[2])); }
+  }
+  const values = dropping.filter((n) => n < 1900 || n > 2099);
+  for (const m of before.matchAll(/（約[^）]*円[^）]*）/g)) {
+    const head = before.slice(Math.max(0, (m.index ?? 0) - 15), m.index ?? 0);
+    if (extractNumbers(head).some((n) => values.includes(n))) for (const n of extractNumbers(m[0])) out.add(n);
+  }
+  return [...out];
+}
+
 export function lostNumbers(before: string, after: string, elsewhere: string): number[] {
   const kept = new Set([...extractNumbers(after), ...extractNumbers(elsewhere)]);
   return [...new Set(extractNumbers(before))].filter((n) => !kept.has(n));

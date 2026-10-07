@@ -39,6 +39,8 @@ describe('原文照合', () => {
     const src = body('Month Revenue Dec \'18 77854 Jan \'19 76317 Feb \'19 73605 Mar \'19 74479 Apr \'19 72384 and more text');
     expect(checkText('2018年12月〜2019年4月: 月の収入は約72,000〜78,000ドル（約1,080〜1,170万円）', src).ok).toBe(true);
     expect(checkText('2017年12月: 月の収入は約78,000ドル', src).reasons).toContain('YEAR_NOT_IN_SOURCE');
+    // 年だけの行（他に照らす数が無い）も、短い年で本文があると分かる
+    expect(checkText('2018年12月〜2019年4月: 月の収入の表を公開', src).ok).toBe(true);
   });
 
   it('時点の無い数字は落ちる', () => {
