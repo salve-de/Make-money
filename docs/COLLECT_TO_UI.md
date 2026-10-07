@@ -78,11 +78,11 @@ bash scripts/reader-case/run-reaudit.sh <直した事例IDを1行ずつ書いた
 
 | 段 | 何をするか | 備考 |
 |---|---|---|
-| 1 | 今の入力全体の監査の入力を作る（`build-audit-input.ts`） | 待ちで止まった後の再実行では同じ入力を使い続ける |
+| 1 | 今の入力全体の監査の入力を作る（`build-audit-input.ts`） | 待ちで止まった後の再実行では同じ入力を使い続ける（タグは `data/pipeline/reaudit-<一覧のファイル名>.tag`。完了したら捨てる） |
 | 2 | 別のAIが監査する（`run-audit.sh`） | 終了コード75ならサブエージェント待ち。出た指示書を別のAIに実行させ、結果を置いて同じ命令を再実行。自分で監査しない |
 | 3 | 取り込み（`merge-analysis.ts`） | 審査で直した推論は `data/reader-analysis.json`、受領書は `data/publication-audits.json` |
 | 4 | 反映（`case-reflect.ts`） | 受領書が審査した取り込み版にだけ、審査で直した推論を表示版（`data/case-reflect.json` の `approvedAnalysis`）へ届ける。取り込み出力（`data/case-import/`）が手元に無くても、反映記録の取り込み版から作る。受領書が審査していない版は通さない |
-| 5 | 画面の文を直す（`build-display.ts --repair-only`） | 章・成功の秘訣・詳細・一覧に直しを届ける。別のAIの確認つき。手で書き換えない |
+| 5 | 画面の文を作り直す（事例ごとに `build-display.ts --id <事例ID>`） | 一覧・要約・章・成功の秘訣・詳細のうち、古くなった層と足りない層を作る。別のAIの確認つき。手で書き換えない |
 | 6 | 目録の確認（`prepare-catalog-release.ts --dry-run --changed`） | 外れる事例が0件なら終了コード0。残れば事例ID・理由を出して終了コード1 |
 
 0件になったら `node --import tsx scripts/prepare-catalog-release.ts --changed <一覧>` で目録を更新する。

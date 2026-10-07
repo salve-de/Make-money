@@ -150,6 +150,10 @@ describe('検査の落ち理由', () => {
     expect(lines).toEqual(['detail-lines e0/a-story answer: 空', 'list-lines e1 text: 50字（上限45）']);
     expect(newProblems(['detail-lines e0/a-story answer: 空'], lines)).toEqual(['list-lines e1 text: 50字（上限45）']);
   });
+  it('「分析欄」で始まる違反の行も取り出す（読めずに0回で止まらない）', () => {
+    const output = '[case-text] 1件の違反（docs/CASE_TEXT_STANDARD.md）:\n分析欄 X（ent_x）の「物語」（a-story）: 編集文が無い\n';
+    expect(parseCheckOutput(output)).toEqual(['分析欄 X（ent_x）の「物語」（a-story）: 編集文が無い']);
+  });
 });
 
 describe('mergeEntity', () => {
