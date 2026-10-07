@@ -332,7 +332,7 @@
 あなたが外部AI（ChatGPT, Claude, Cursor等）にデータを集めさせる際、以下の1行をそのまま投げれば、AIはこのドキュメントを直接参照して過去のミスをゼロにして自走する：
 
 ```markdown
-GitHubのmainにある docs/OWNER_INTENT.md（https://raw.githubusercontent.com/salve-de/Make-money/main/docs/OWNER_INTENT.md）を最初に読み、そこから収集目録・保存契約・本マスターガイドを参照して、[業種/企業/件数] を調査せよ。10情報領域を上限や全件必須10章にせず、既存情報・重複状態を確認し、根拠と時点を保ち、権利・承認された保存経路を守れ。
+GitHubのmainにある docs/OWNER_INTENT.md（https://raw.githubusercontent.com/salve-de/Make-money/main/docs/OWNER_INTENT.md）を最初に読み、そこから収集目録・保存契約・本マスターガイドを参照して、[業種/企業/件数] を調査せよ。10情報領域を上限や全件必須10章にせず、既存情報・重複状態を確認し、根拠と時点を保ち、権利・承認された保存経路を守れ。集めた内容は事例ページ（一覧の文・概要・章・分析欄）に出る。何が画面に出るかを意識して、必要な材料を最初の1回で漏れなく集めよ。ただし画面用に整えず、集める層の記録の形のまま出せ。
 ```
 
 ---

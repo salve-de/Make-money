@@ -52,14 +52,20 @@
 
 ### `pnl`（損益）
 
-数の欄は形の都合で必須です。**分からない数は `0` にし、同じ欄の「未確認」の印を `true` にします。** 0円を事実として扱わないための印です（[OWNER_INTENT 3章](../OWNER_INTENT.md)）。
+今の形の検査は、数の欄に `null` を許しません（数でないと落ちる）。そのため、**分からない数は `0` を置き、必ず次の2つを付けます。**
+
+1. その欄の「未確認」の印（`isRevenueUnconfirmed` など）を `true` にする。
+2. 確かな数字が1つも無ければ `financialStatus: "UNAVAILABLE"` にする。
+
+この `0` は「0円だった」という意味ではありません（[OWNER_INTENT 3章](../OWNER_INTENT.md)）。画面の事実と数字は `facts` から作られ、`pnl` の数は画面に出ません。品質の検査も、この2つの印がある欄の計算は見ません。印を付けずに `0` を置くと、0円の事実として扱われるので禁止です。本人が公表した売上などの数字は、`pnl` に入れる前に、まず `facts` に元の通貨のまま書きます。
+（`null` を受け付ける形への見直しは、まだ決まっていません。）
 
 | 項目 | 印 | 型 |
 |---|---|---|
 | `monthlyRevenue` `cogs` `grossProfit` `grossMargin` `operatingProfit` `operatingMargin` `estimatedAnnualNetProfit` | **必須** | 数 |
 | `operatingExpenses` | **必須** | `serverAndApi` `advertising` `subcontracting` `toolsAndSaaS` `other` の5つの数がすべて必須 |
-| `isRevenueUnconfirmed` ほか `is...Unconfirmed` | 任意（0を入れたら必ず `true`） | 真偽 |
-| `financialStatus` | 任意 | `VERIFIED` `REPORTED` `ESTIMATED` `POST_MORTEM` `UNAVAILABLE` |
+| `isRevenueUnconfirmed` `isCogsUnconfirmed` `isGrossProfitUnconfirmed` `isGrossMarginUnconfirmed` `isCostsUnconfirmed` `isOperatingProfitUnconfirmed` `isMarginUnconfirmed` `isNetProfitUnconfirmed` | **0を置いた欄は必須で `true`**（形の検査は見ないので、書き忘れても落ちない。自分で確かめる） | 真偽 |
+| `financialStatus` | 確かな数字が無ければ `UNAVAILABLE` | `VERIFIED` `REPORTED` `ESTIMATED` `POST_MORTEM` `UNAVAILABLE` |
 | `sourceClass` | 任意 | `PRIMARY` `INDEPENDENT_SECONDARY` `COMMUNITY` `MODEL` |
 | `revenueLabel` `dataSnapshotPeriod` `sourceDoc` | 任意 | 文字列。`sourceDoc` は URL |
 

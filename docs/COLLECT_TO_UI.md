@@ -13,6 +13,8 @@
 読む人が1件を開けば、その事業の仕組みと規模感が分かり、自分の判断に使える状態を目指します。
 足りない所を作り話や一般論で埋めません。推測は推測と分かる形で、事実とは別の欄に置きます。
 
+収集は広く柔軟に行います。集めた内容は事例ページ（一覧の文・概要・章・分析欄）に出るので、何が画面に出るかを意識して、必要な材料を最初の1回で漏れなく集めます。あとで同じ事例を調べ直す無駄を無くすためです。ただし画面用の文に整えず、集める層の記録の形のまま残します（整えるのは段10）。
+
 - 何を・なぜ・どこまで: [`OWNER_INTENT.md`](./OWNER_INTENT.md)（2章: 集める10の領域、3章: 事実と推論、7章: 画像）
 - 収集の全体の決まりと過去の失敗: [`DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)
 - 項目の名前と型の旧い仕様（OWNER_INTENT と食い違う所は「廃止」と注記あり）: [`GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)
@@ -37,7 +39,7 @@
 |---|---|---|---|---|
 | 1 | 重複判定 | `pnpm dedup:check "社名"` と `pnpm dedup:check "公式ドメイン"`。`data/CLAIMED_TARGETS.txt` を検索し、無ければ末尾に社名を1行足す（予約） | `data/CLAIMED_TARGETS.txt` | 既にあれば新規に集めない。既存の事例を直す作業に切り替える |
 | 2 | 調査記録を書く | 出典を開いて事実を書く。形は [`research-record/`](./research-record/) の見本どおり | 作業用の JSON（どこでもよい） | 下の 3 で落ちたら、表示の `#/...` を見て直す（README の「落ちた時の表示の読み方」） |
-| 3 | 一覧に入れる | `node --import tsx scripts/reader-case/add-entity-records.ts --from-research <記録.json> --name <名前>` → `... add-entity-records.ts --apply` → `pnpm registry:sync` | `data/entity-additions/<名前>.json`、`data/entities-index.json`、`data/collected-registry.json` | 形の検査の表示を読んで記録を直す。同じ id・同じ公式サイトがあれば足されない（`skipped` に理由） |
+| 3 | 一覧に入れる | `node --import tsx scripts/reader-case/add-entity-records.ts --from-research <記録.json> --name <名前>` → `... add-entity-records.ts --apply` → `pnpm registry:sync` | コミットするのは `data/entity-additions/<名前>.json` だけ。`--apply` が書き換える `data/entities-index.json` と、`registry:sync` が書き換える `data/collected-registry.json` は手元で後の段を動かすためのもので、**コミットしない**（索引は約99MBで、GitHub の1ファイル100MBの上限に近い） | 形の検査の表示を読んで記録を直す。同じ id・同じ公式サイトがあれば足されない（`skipped` に理由） |
 | 4 | 出典の本文を取る | `node --import tsx scripts/reader-case/fetch-sources.ts --ids <idsファイル>` | `data/source-cache/`（git に入らない） | 403・CAPTCHA・ログインの壁は越えない。取れない出典は照合に回らない（`data/verify/unreachable.json`） |
 | 5 | 照合（事実が出典どおりか） | `build-verify-batches.ts --ids <idsファイル>` → `bash scripts/reader-case/run-verify.sh` → `merge-verdicts.ts --ids <idsファイル>`（いずれも `scripts/reader-case/`） | `data/verify/`、`data/reader-verdicts.json` | `run-verify.sh` が終了コード75で止まるのは正常。指示書 `data/runner/instructions/verify/` を別のAIが実行し、結果を `data/runner/inbox/verify/` に置いてから再実行する（[`pipeline/CLAUDE_RUNNER.md`](./pipeline/CLAUDE_RUNNER.md)） |
 | 5b | 画像を取って判定する | 4章の命令（公式サイト・App Store から取得 → 自動判定 → 保留の分は人が判定） | `data/media-staging/<事例ID>/`（git に入らない） | 段9より前に済ませる。「使ってよい」が1枚も無い事例は選別で落ちる |
@@ -72,7 +74,7 @@
 | 物 | 置き場所 | git に入るか |
 |---|---|---|
 | 調査記録（一覧への追加分） | `data/entity-additions/<名前>.json` | 入る |
-| 事例の索引 | `data/entities-index.json` | 入る（大きい。手で直さず道具で作る） |
+| 事例の索引 | `data/entities-index.json` | 今の版は入っているが、追加で書き換えた版はコミットしない（約99MB。手で直さず、`--apply` で手元に作り直す） |
 | 出典の本文 | `data/source-cache/` | 入らない |
 | 照合の結果 | `data/reader-verdicts.json` | 入る |
 | 分析 | `data/reader-analysis.json` | 入る |
@@ -132,7 +134,7 @@
 | 16 | `pnpm lint` が「登録の件数が索引と合わない」で落ちた | `--apply` の後に `pnpm registry:sync` を実行する |
 | 17 | 選別が `data/catalog-finished-ids.txt` を新しい1件だけに書き換えた | 作業用コピーでのこの差分はコミットしない |
 | 18 | 画面で見るには公開版が要るが、流れは公開版を作らない。分析欄はドル額に円換算が無く、専門語が残った | 確認だけなら手元で `prepare-catalog-release.ts` を動かし、確認後に元へ戻す。分析欄は `data/detail-lines.json` に読む人向けの文を作る（#164 で、無いと検査で落ちる） |
-| 19 | コミットに入れてはいけない作業データがあった | `data/catalog-finished-ids.txt`（作業用コピーの版）、`data/pipeline/`、`data/audit/`、`.catalog-release/` はコミットしない |
+| 19 | コミットに入れてはいけない作業データがあった | `data/catalog-finished-ids.txt`（作業用コピーの版）、`data/pipeline/`、`data/audit/`、`.catalog-release/`、`--apply` 後の `data/entities-index.json` と `data/collected-registry.json` はコミットしない |
 
 ## 9. 関連する正本
 
