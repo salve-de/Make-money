@@ -156,6 +156,12 @@ describe('数字の突き合わせ', () => {
     expect(lostNumbers(before, '月9ドル（約1,350円）で', '').filter((n) => !ok.includes(n))).toEqual([5]);
   });
 
+  it('月・日の値が日付の外にも現れる時は、消えてよい数に入れない。年でない4桁の金額は年として扱わない', () => {
+    expect(droppableNumbers('2016年12月: 月12ドルで5本', [2016])).not.toContain(12);
+    expect(droppableNumbers('2016年12月: 5本', [2016])).toContain(12);
+    expect(droppableNumbers('2,000ドル（約30万円）', [2000])).toContain(300000);
+  });
+
   it('機械の検査の指摘を、直した行の id に戻す（戻せない指摘があれば null）', () => {
     const files = { ...empty(), 'success-points': [{ entityId: 'e1', points: [{ head: 'h', body: 'b', factId: 'f1', factHash: 'x' }, { head: 'h2', body: 'b2', factId: 'f9', factHash: 'y' }] }] };
     const ids = ['list', 'detail.a-channels.answer', 'detail.a-channels.note', 'success.1.head', 'chapters.core.1', 'chapters.core.3', 'chapters.price.0'];

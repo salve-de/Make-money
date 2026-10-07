@@ -26,6 +26,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|core:a9c9852c": {
+  "textHash": "a9c9852c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=5799272",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|core:bc617139": {
   "textHash": "bc617139",
   "status": "PASS",
@@ -53,6 +62,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|core:d4baa3c1": {
+  "textHash": "d4baa3c1",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|practice:09074e93": {
+  "textHash": "09074e93",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|practice:0c8bcefa": {
   "textHash": "0c8bcefa",
   "status": "PASS",
@@ -78,6 +105,15 @@
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=5799272",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|practice:436f35bb": {
+  "textHash": "436f35bb",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=7932973",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|practice:4c0d6d36": {
@@ -116,6 +152,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|practice:72a3d78d": {
+  "textHash": "72a3d78d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=5799272",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|practice:7960c65d": {
   "textHash": "7960c65d",
   "status": "PASS",
@@ -123,6 +168,15 @@
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=5799272",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|practice:8577ed2c": {
+  "textHash": "8577ed2c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=5799272",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|practice:af37f797": {
@@ -152,6 +206,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|practice:dab86a92": {
+  "textHash": "dab86a92",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|price:044f6b34": {
   "textHash": "044f6b34",
   "status": "PASS",
@@ -159,6 +222,15 @@
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=5799272",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|price:0af21862": {
+  "textHash": "0af21862",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mashable.com/2014/09/29/codementor/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|price:0f31051a": {
@@ -170,6 +242,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|price:25a1fd6c": {
+  "textHash": "25a1fd6c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2015/08/26/codementor-live-classes",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|price:2e332d9d": {
   "textHash": "2e332d9d",
   "status": "PASS",
@@ -177,6 +258,24 @@
   "reasons": [],
   "sourceUrl": "https://mashable.com/2014/09/29/codementor/",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|price:6d6c4114": {
+  "textHash": "6d6c4114",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2013/08/01/codementor/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|price:732e20d2": {
+  "textHash": "732e20d2",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=5799272",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|price:92fa9be8": {
@@ -206,6 +305,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|price:bd22d6eb": {
+  "textHash": "bd22d6eb",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|price:bef4a9b2": {
   "textHash": "bef4a9b2",
   "status": "PASS",
@@ -222,6 +330,15 @@
   "reasons": [],
   "sourceUrl": "https://support.codementor.io/en/articles/4221825",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|start:1113932c": {
+  "textHash": "1113932c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2013/08/01/codementor/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|start:1283985d": {
@@ -260,6 +377,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|start:9c9c9a2d": {
+  "textHash": "9c9c9a2d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|start:f9e50a9a": {
   "textHash": "f9e50a9a",
   "status": "PASS",
@@ -269,6 +395,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|start:fea5c083": {
+  "textHash": "fea5c083",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|timeline:0d1d4260": {
   "textHash": "0d1d4260",
   "status": "PASS",
@@ -276,6 +411,15 @@
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers/",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|timeline:11f4ebf9": {
+  "textHash": "11f4ebf9",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.codementor.io/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|timeline:29c8c6db": {
@@ -316,6 +460,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|timeline:8efba99c": {
+  "textHash": "8efba99c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|timeline:9725dcff": {
   "textHash": "9725dcff",
   "status": "PASS",
@@ -334,6 +487,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|timeline:bf2b708d": {
+  "textHash": "bf2b708d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2013/08/01/codementor/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|timeline:e6630dc9": {
   "textHash": "e6630dc9",
   "status": "FAIL",
@@ -345,6 +507,15 @@
   "runId": "20261007T124832",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|timeline:fba45d99": {
+  "textHash": "fba45d99",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mashable.com/2014/09/29/codementor/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|timeline:fdc5107f": {
   "textHash": "fdc5107f",
   "status": "PASS",
@@ -352,6 +523,15 @@
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2013/08/01/codementor/",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_codementor_ba692caa3db3|chapter|turning:7e78dab9": {
+  "textHash": "7e78dab9",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mashable.com/2014/09/29/codementor/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|turning:984b1059": {
@@ -403,13 +583,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|turning:f727ed2c": {
+  "textHash": "f727ed2c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|voices:188554fa": {
   "textHash": "188554fa",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=7380441",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|voices:36c2f7df": {
@@ -421,13 +610,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_codementor_ba692caa3db3|chapter|voices:7374ac56": {
+  "textHash": "7374ac56",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_codementor_ba692caa3db3|chapter|voices:7bb9f333": {
   "textHash": "7bb9f333",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|chapter|voices:97285712": {
@@ -445,7 +643,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.codementor.io/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f10": {
@@ -454,7 +652,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://support.codementor.io/en/articles/4221825",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f11": {
@@ -463,7 +661,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f2": {
@@ -472,7 +670,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f3": {
@@ -481,7 +679,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f4": {
@@ -490,7 +688,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f5": {
@@ -499,7 +697,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f6": {
@@ -508,7 +706,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f7": {
@@ -517,7 +715,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f8": {
@@ -526,7 +724,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|fact|f9": {
@@ -537,7 +735,7 @@
    "NUMBER_NOT_IN_SOURCE"
   ],
   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|metric|m1": {
@@ -546,7 +744,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|metric|m2": {
@@ -555,7 +753,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|metric|m3": {
@@ -564,7 +762,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_codementor_ba692caa3db3|metric|m4": {
@@ -573,7 +771,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|core:269da8e2": {
@@ -600,7 +798,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|core:84bbc924": {
+  "textHash": "84bbc924",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|core:8610fa9f": {
@@ -657,6 +864,33 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:152add14": {
+  "textHash": "152add14",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:25ac7abd": {
+  "textHash": "25ac7abd",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:2bb16fef": {
+  "textHash": "2bb16fef",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.e-junkie.com/wiki/affiliates",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_ejunkie_7e9e46bd9643|chapter|practice:3264c439": {
   "textHash": "3264c439",
   "status": "PASS",
@@ -664,6 +898,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:3c3261a3": {
+  "textHash": "3c3261a3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|practice:4239ebf8": {
@@ -729,6 +972,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:7289e2a0": {
+  "textHash": "7289e2a0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://wellfedwriter.com/still-love-e-junkie-e-book-sales-websites/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_ejunkie_7e9e46bd9643|chapter|practice:83a164f3": {
   "textHash": "83a164f3",
   "status": "PASS",
@@ -756,6 +1008,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:c2d8107b": {
+  "textHash": "c2d8107b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:c4ba43ec": {
+  "textHash": "c4ba43ec",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_ejunkie_7e9e46bd9643|chapter|practice:d7ceb5ad": {
   "textHash": "d7ceb5ad",
   "status": "PASS",
@@ -763,6 +1033,24 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:daa159d7": {
+  "textHash": "daa159d7",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|practice:f058a070": {
+  "textHash": "f058a070",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|practice:f1607b24": {
@@ -809,7 +1097,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20060601/http://www.e-junkie.com/ej/pricing.htm",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|price:823efc04": {
+  "textHash": "823efc04",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.e-junkie.com/wiki/pricing",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|price:a73c41cd": {
@@ -836,7 +1133,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|start:0ae72b39": {
+  "textHash": "0ae72b39",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|start:201a908b": {
@@ -895,6 +1201,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_ejunkie_7e9e46bd9643|chapter|timeline:811b1adf": {
+  "textHash": "811b1adf",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://pulse2.com/fatfreecart-sell-products-checkout-the-fast-way/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|timeline:a59db9dd": {
+  "textHash": "a59db9dd",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_ejunkie_7e9e46bd9643|chapter|timeline:ae604819": {
   "textHash": "ae604819",
   "status": "PASS",
@@ -922,6 +1246,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_ejunkie_7e9e46bd9643|chapter|timeline:e3ed22c6": {
+  "textHash": "e3ed22c6",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_ejunkie_7e9e46bd9643|chapter|timeline:e810fc92": {
   "textHash": "e810fc92",
   "status": "FAIL",
@@ -933,13 +1266,22 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_ejunkie_7e9e46bd9643|chapter|turning:4aac43f3": {
+  "textHash": "4aac43f3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_ejunkie_7e9e46bd9643|chapter|turning:8ee9431a": {
   "textHash": "8ee9431a",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|turning:95b04cb6": {
@@ -948,7 +1290,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|turning:f01e2402": {
@@ -975,7 +1317,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://allfreelancewriting.com/sell-your-own-information-products-with-e-junkie/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_ejunkie_7e9e46bd9643|chapter|voices:695d9835": {
+  "textHash": "695d9835",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://wellfedwriter.com/still-love-e-junkie-e-book-sales-websites/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|chapter|voices:717d4fc7": {
@@ -998,13 +1349,22 @@
   "runId": "20261007T212115",
   "checkedAt": "2026-10-07"
  },
+ "ent_ejunkie_7e9e46bd9643|chapter|voices:afe63317": {
+  "textHash": "afe63317",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.warriorforum.com/main-internet-marketing-discussion-forum/299772-has-anyone-used-e-junkie-wso.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_ejunkie_7e9e46bd9643|fact|f1": {
   "textHash": "5a6c2944",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.e-junkie.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f10": {
@@ -1013,7 +1373,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://gumroad.com/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f2": {
@@ -1022,7 +1382,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.e-junkie.com/wiki/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f3": {
@@ -1031,7 +1391,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f4": {
@@ -1040,7 +1400,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f5": {
@@ -1049,7 +1409,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f6": {
@@ -1058,7 +1418,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f7": {
@@ -1067,7 +1427,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.e-junkie.com/wiki/about",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f8": {
@@ -1076,7 +1436,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.e-junkie.com/wiki/affiliates",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|fact|f9": {
@@ -1085,7 +1445,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.e-junkie.com/wiki/help-transaction-log",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_ejunkie_7e9e46bd9643|metric|m1": {
@@ -1096,7 +1456,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|core:4a189c0d": {
@@ -1106,6 +1466,15 @@
   "reasons": [],
   "sourceUrl": "https://www.therubyonrailspodcast.com/552",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_gorails_640d8f688451|chapter|core:a8c7e9b2": {
+  "textHash": "a8c7e9b2",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.therubyonrailspodcast.com/552",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|core:ba1f8e8e": {
@@ -1134,7 +1503,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_gorails_640d8f688451|chapter|practice:1b68ce08": {
+  "textHash": "1b68ce08",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|practice:2dfd96f9": {
@@ -1154,7 +1532,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|practice:34de6152": {
@@ -1166,6 +1544,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|practice:3dd04ae2": {
+  "textHash": "3dd04ae2",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://excid3.com/blog/would-you-like-to-become-a-better-programmer",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|practice:47715466": {
   "textHash": "47715466",
   "status": "PASS",
@@ -1173,6 +1560,24 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_gorails_640d8f688451|chapter|practice:48a2fd52": {
+  "textHash": "48a2fd52",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_gorails_640d8f688451|chapter|practice:4c4f87c0": {
+  "textHash": "4c4f87c0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|practice:58ae8dfe": {
@@ -1220,6 +1625,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|practice:ed9f5cd6": {
+  "textHash": "ed9f5cd6",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|practice:edab330d": {
   "textHash": "edab330d",
   "status": "PASS",
@@ -1227,6 +1641,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_gorails_640d8f688451|chapter|price:055f47b1": {
+  "textHash": "055f47b1",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.therubyonrailspodcast.com/552",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|price:11472879": {
@@ -1289,6 +1712,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|price:8e814b34": {
+  "textHash": "8e814b34",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20151024004421/https://gorails.com/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|price:9b2094e1": {
   "textHash": "9b2094e1",
   "status": "FAIL",
@@ -1320,6 +1752,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|price:e099626f": {
+  "textHash": "e099626f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://mixergy.com/interviews/gorails-with-chris-oliver/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|price:fb80180d": {
   "textHash": "fb80180d",
   "status": "PASS",
@@ -1329,13 +1770,31 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|price:ff8f0c19": {
+  "textHash": "ff8f0c19",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20170515000000/https://gorails.com/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_gorails_640d8f688451|chapter|start:4381c1fc": {
+  "textHash": "4381c1fc",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|start:7149a24b": {
   "textHash": "7149a24b",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|start:9c996d15": {
@@ -1347,6 +1806,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|start:ac3d99e0": {
+  "textHash": "ac3d99e0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.failory.com/interview/gorails",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|start:d72414c1": {
   "textHash": "d72414c1",
   "status": "PASS",
@@ -1354,6 +1822,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_gorails_640d8f688451|chapter|start:d8b14e1b": {
+  "textHash": "d8b14e1b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.therubyonrailspodcast.com/552",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|start:f0d85ee5": {
@@ -1405,6 +1882,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|timeline:29c889a5": {
+  "textHash": "29c889a5",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=8040524",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|timeline:4428cd55": {
   "textHash": "4428cd55",
   "status": "FAIL",
@@ -1425,6 +1911,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|timeline:8d618a0b": {
+  "textHash": "8d618a0b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|timeline:a5d40bd0": {
   "textHash": "a5d40bd0",
   "status": "PASS",
@@ -1440,7 +1935,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|chapter|timeline:a97629dc": {
@@ -1510,6 +2005,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|turning:51ac5c28": {
+  "textHash": "51ac5c28",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=8040524",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|turning:5de6d8c2": {
   "textHash": "5de6d8c2",
   "status": "FAIL",
@@ -1530,6 +2034,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|turning:ab52185f": {
+  "textHash": "ab52185f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|chapter|voices:92322309": {
   "textHash": "92322309",
   "status": "PASS",
@@ -1539,13 +2052,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_gorails_640d8f688451|chapter|voices:aa4524fb": {
+  "textHash": "aa4524fb",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_gorails_640d8f688451|fact|f1": {
   "textHash": "2a9eaa16",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://gorails.com",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f10": {
@@ -1554,7 +2076,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f11": {
@@ -1563,7 +2085,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f2": {
@@ -1572,7 +2094,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://gorails.com/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f3": {
@@ -1581,7 +2103,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f4": {
@@ -1590,7 +2112,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f5": {
@@ -1599,7 +2121,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f6": {
@@ -1608,7 +2130,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f7": {
@@ -1617,7 +2139,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f8": {
@@ -1626,7 +2148,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|fact|f9": {
@@ -1635,7 +2157,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|metric|m1": {
@@ -1644,7 +2166,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.failory.com/interview/gorails",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|metric|m2": {
@@ -1653,7 +2175,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_gorails_640d8f688451|metric|m3": {
@@ -1665,7 +2187,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://gorails.com",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|core:1b783dd7": {
@@ -1735,6 +2257,15 @@
   "runId": "20261007T212115",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|core:c0594250": {
+  "textHash": "c0594250",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|core:d22db35a": {
   "textHash": "d22db35a",
   "status": "PASS",
@@ -1753,6 +2284,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|core:e0ad323c": {
+  "textHash": "e0ad323c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|core:f7f03141": {
   "textHash": "f7f03141",
   "status": "FAIL",
@@ -1762,6 +2302,15 @@
   ],
   "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
   "runId": "20261007T124832",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|practice:0afec982": {
+  "textHash": "0afec982",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|practice:1887b8c5": {
@@ -1780,6 +2329,15 @@
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|practice:3328e4fe": {
+  "textHash": "3328e4fe",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|practice:3a317f40": {
@@ -1809,13 +2367,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|practice:4b2465bc": {
+  "textHash": "4b2465bc",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|practice:5c5ecf23": {
   "textHash": "5c5ecf23",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|practice:6b3d0353": {
@@ -1854,6 +2421,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|practice:99808963": {
+  "textHash": "99808963",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://research.contrary.com/company/heygen",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|practice:9daa390b": {
+  "textHash": "9daa390b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/geniverse/social-creator-program",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|practice:bba31ad9": {
   "textHash": "bba31ad9",
   "status": "PASS",
@@ -1881,6 +2466,24 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|practice:d1c9e9fc": {
+  "textHash": "d1c9e9fc",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|practice:d2bc2618": {
+  "textHash": "d2bc2618",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|practice:f9ee6a85": {
   "textHash": "f9ee6a85",
   "status": "PASS",
@@ -1899,6 +2502,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|price:6f2ffea9": {
+  "textHash": "6f2ffea9",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.ababnews.com/depth/heygen-ai",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|price:806e4df8": {
   "textHash": "806e4df8",
   "status": "PASS",
@@ -1906,6 +2518,15 @@
   "reasons": [],
   "sourceUrl": "https://www.ababnews.com/depth/heygen-ai",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|price:a8b5985b": {
+  "textHash": "a8b5985b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://sacra.com/c/heygen",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|price:b280c647": {
@@ -1935,6 +2556,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|start:2edea601": {
+  "textHash": "2edea601",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|start:7a14df5b": {
   "textHash": "7a14df5b",
   "status": "PASS",
@@ -1960,6 +2590,24 @@
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|start:ff3fbb84": {
+  "textHash": "ff3fbb84",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://research.contrary.com/company/heygen",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|timeline:25bac03d": {
+  "textHash": "25bac03d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.hunted.space/dashboard/movio-la/launches/talkingphoto-by-movio",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|timeline:3056eac0": {
@@ -2007,6 +2655,24 @@
   "runId": "20261007T124832",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|timeline:3e0a9822": {
+  "textHash": "3e0a9822",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|timeline:5daf2638": {
+  "textHash": "5daf2638",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|timeline:61d51a75": {
   "textHash": "61d51a75",
   "status": "PASS",
@@ -2045,6 +2711,15 @@
   "runId": "20261007T212115",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|timeline:89d229fd": {
+  "textHash": "89d229fd",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://research.contrary.com/company/heygen",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|timeline:9f3610c6": {
   "textHash": "9f3610c6",
   "status": "FAIL",
@@ -2054,6 +2729,15 @@
   ],
   "sourceUrl": "https://www.heygen.com/blog/announcing-our-series-a",
   "runId": "20261007T212115",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|timeline:b6b0c418": {
+  "textHash": "b6b0c418",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://research.contrary.com/company/heygen",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|timeline:b7885092": {
@@ -2114,13 +2798,40 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|timeline:e1f391df": {
+  "textHash": "e1f391df",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://research.contrary.com/company/heygen",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|timeline:f2a9fd97": {
+  "textHash": "f2a9fd97",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://research.contrary.com/company/heygen",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|turning:1a1677fc": {
+  "textHash": "1a1677fc",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|turning:467562cf": {
   "textHash": "467562cf",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|turning:55677e4f": {
@@ -2150,6 +2861,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|turning:8264346f": {
+  "textHash": "8264346f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|turning:aa360b14": {
   "textHash": "aa360b14",
   "status": "PASS",
@@ -2177,6 +2897,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_heygen_8f11a1|chapter|voices:29786511": {
+  "textHash": "29786511",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_heygen_8f11a1|chapter|voices:7942aee7": {
   "textHash": "7942aee7",
   "status": "PASS",
@@ -2184,6 +2913,15 @@
   "reasons": [],
   "sourceUrl": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|voices:7949a1a0": {
+  "textHash": "7949a1a0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|voices:9009d15c": {
@@ -2202,6 +2940,15 @@
   "reasons": [],
   "sourceUrl": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_heygen_8f11a1|chapter|voices:a691b95e": {
+  "textHash": "a691b95e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|chapter|voices:af216941": {
@@ -2228,7 +2975,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.upstartsmedia.com/p/exclusive-heygen-200m-arr-without-burn",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f1": {
@@ -2237,7 +2984,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f10": {
@@ -2246,7 +2993,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f11": {
@@ -2255,7 +3002,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/about",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f2": {
@@ -2264,7 +3011,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/about",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f3": {
@@ -2273,7 +3020,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/about",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f4": {
@@ -2282,7 +3029,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://en.wikipedia.org/wiki/HeyGen",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f5": {
@@ -2291,7 +3038,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f6": {
@@ -2300,7 +3047,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f7": {
@@ -2309,7 +3056,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/careers",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f8": {
@@ -2318,7 +3065,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|fact|f9": {
@@ -2327,7 +3074,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|metric|m1": {
@@ -2336,7 +3083,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_heygen_8f11a1|metric|m2": {
@@ -2345,7 +3092,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|core:284f6411": {
@@ -2373,6 +3120,24 @@
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|core:8f6ac665": {
+  "textHash": "8f6ac665",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|core:bfea825d": {
+  "textHash": "bfea825d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|core:c419b2ba": {
@@ -2411,6 +3176,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_myoperator_49c393230a2d|chapter|practice:1040c385": {
+  "textHash": "1040c385",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://inc42.com/resources/businesses-manage-calls-myoperator-way/amp/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_myoperator_49c393230a2d|chapter|practice:14a278bf": {
   "textHash": "14a278bf",
   "status": "PASS",
@@ -2426,7 +3200,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://telecomlead.com/telecom-services/voicetree-app-offers-solutions-for-missed-calls-58957",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|practice:2fd20862": {
@@ -2492,6 +3266,42 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_myoperator_49c393230a2d|chapter|practice:eb9b3a62": {
+  "textHash": "eb9b3a62",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|practice:ef2ee39a": {
+  "textHash": "ef2ee39a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://inc42.com/resources/businesses-manage-calls-myoperator-way/amp/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|price:16871891": {
+  "textHash": "16871891",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|price:48756b3c": {
+  "textHash": "48756b3c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_myoperator_49c393230a2d|chapter|price:75b74195": {
   "textHash": "75b74195",
   "status": "PASS",
@@ -2528,6 +3338,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_myoperator_49c393230a2d|chapter|start:8820fbf4": {
+  "textHash": "8820fbf4",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_myoperator_49c393230a2d|chapter|start:93947f4e": {
   "textHash": "93947f4e",
   "status": "PASS",
@@ -2546,6 +3365,15 @@
   ],
   "sourceUrl": "https://inc42.com/startup-essentials/myoperator/",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|timeline:06823951": {
+  "textHash": "06823951",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/about-us",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|timeline:0d84a120": {
@@ -2642,6 +3470,15 @@
   "runId": "20261007T214609",
   "checkedAt": "2026-10-07"
  },
+ "ent_myoperator_49c393230a2d|chapter|timeline:589a0392": {
+  "textHash": "589a0392",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://inc42.com/resources/businesses-manage-calls-myoperator-way/amp/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_myoperator_49c393230a2d|chapter|timeline:5c57409d": {
   "textHash": "5c57409d",
   "status": "PASS",
@@ -2658,6 +3495,24 @@
   "reasons": [],
   "sourceUrl": "https://myoperator.com/about-us",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|timeline:69a59bae": {
+  "textHash": "69a59bae",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|timeline:69ff07bb": {
+  "textHash": "69ff07bb",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|timeline:732ae1c1": {
@@ -2678,6 +3533,24 @@
   "reasons": [],
   "sourceUrl": "https://inc42.com/flash-feed/myoperator-mannkibaat-cloudtelephony",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|timeline:a24563a3": {
+  "textHash": "a24563a3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/about-us",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_myoperator_49c393230a2d|chapter|timeline:e45f2caa": {
+  "textHash": "e45f2caa",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|timeline:fcc782cf": {
@@ -2709,6 +3582,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_myoperator_49c393230a2d|chapter|turning:dbfce4a5": {
+  "textHash": "dbfce4a5",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://myoperator.com/about-us",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_myoperator_49c393230a2d|chapter|voices:22c539a7": {
   "textHash": "22c539a7",
   "status": "PASS",
@@ -2724,7 +3606,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/testimonials",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|voices:4ebab527": {
@@ -2742,7 +3624,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/testimonials",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|voices:558a29f6": {
@@ -2751,7 +3633,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/testimonials",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|voices:6cec006f": {
@@ -2760,7 +3642,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/testimonials",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|chapter|voices:99955849": {
@@ -2787,7 +3669,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f10": {
@@ -2796,7 +3678,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/partnership-program",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f2": {
@@ -2805,7 +3687,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f3": {
@@ -2814,7 +3696,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f4": {
@@ -2823,7 +3705,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f5": {
@@ -2832,7 +3714,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f6": {
@@ -2841,7 +3723,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f7": {
@@ -2850,7 +3732,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f8": {
@@ -2859,7 +3741,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|fact|f9": {
@@ -2868,7 +3750,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://myoperator.com/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|metric|m1": {
@@ -2879,7 +3761,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|metric|m2": {
@@ -2890,7 +3772,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|metric|m3": {
@@ -2901,7 +3783,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_myoperator_49c393230a2d|metric|m4": {
@@ -2912,7 +3794,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|core:1e1a66ce": {
@@ -2922,6 +3804,15 @@
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|core:245131d5": {
+  "textHash": "245131d5",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|core:272b7da4": {
@@ -2940,6 +3831,15 @@
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|core:5b6d7fb7": {
+  "textHash": "5b6d7fb7",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|core:5bfda2a7": {
@@ -3014,6 +3914,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:374c1cc9": {
+  "textHash": "374c1cc9",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20150905011158/http://practicaltypography.com/graylist.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:46c5e7a2": {
   "textHash": "46c5e7a2",
   "status": "PASS",
@@ -3023,6 +3932,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:48a62ae5": {
+  "textHash": "48a62ae5",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:6e8c52cc": {
+  "textHash": "6e8c52cc",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://type-ed.com/resources/rag-right/2013/09/29/matthew-butterick-practical-typography",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:6ea63e85": {
   "textHash": "6ea63e85",
   "status": "PASS",
@@ -3030,6 +3957,15 @@
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:7e7b5555": {
+  "textHash": "7e7b5555",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=6094946",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:942b4f4d": {
@@ -3048,6 +3984,15 @@
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/mb-fonts.html",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:a8d0ca9a": {
+  "textHash": "a8d0ca9a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/mb-fonts.html",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:ad6ec97b": {
@@ -3086,6 +4031,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:d526d85a": {
+  "textHash": "d526d85a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/why-theres-no-e-book-or-pdf.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|practice:e5813512": {
   "textHash": "e5813512",
   "status": "PASS",
@@ -3122,6 +4076,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:0ca6429c": {
+  "textHash": "0ca6429c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20220812/https://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:116d7d7e": {
   "textHash": "116d7d7e",
   "status": "PASS",
@@ -3149,6 +4112,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:43fe2014": {
+  "textHash": "43fe2014",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:44513196": {
   "textHash": "44513196",
   "status": "PASS",
@@ -3156,6 +4128,24 @@
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:45ad0762": {
+  "textHash": "45ad0762",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20191213/https://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:5a10dbe6": {
+  "textHash": "5a10dbe6",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20180601/https://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:5a570108": {
@@ -3174,6 +4164,15 @@
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:6638b824": {
+  "textHash": "6638b824",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20150813/https://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:70e3b0a9": {
@@ -3210,6 +4209,15 @@
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20150813/https://practicaltypography.com/how-to-pay-for-this-book.html",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:df273563": {
+  "textHash": "df273563",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20160802/https://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:e15e32de": {
@@ -3257,13 +4265,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|price:fe98a054": {
+  "textHash": "fe98a054",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/equity.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|start:00ad8d13": {
   "textHash": "00ad8d13",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|start:0ef4d873": {
@@ -3284,6 +4301,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|start:5c891dda": {
+  "textHash": "5c891dda",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|start:5d174ec6": {
   "textHash": "5d174ec6",
   "status": "PASS",
@@ -3293,13 +4319,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|start:5eb5ed17": {
+  "textHash": "5eb5ed17",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|start:86f62035": {
   "textHash": "86f62035",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/why-you-should-pay.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|start:8dd13532": {
@@ -3320,6 +4355,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|timeline:0968c1d4": {
+  "textHash": "0968c1d4",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://kk.org/cooltools/buttericks-practical-typography/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|timeline:3f22a433": {
   "textHash": "3f22a433",
   "status": "PASS",
@@ -3327,6 +4371,15 @@
   "reasons": [],
   "sourceUrl": "https://daringfireball.net/linked/2013/08/19/buttericks-practical-typography",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|timeline:497f6955": {
+  "textHash": "497f6955",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://daringfireball.net/linked/2013/08/19/buttericks-practical-typography",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|timeline:4ce1fdcf": {
@@ -3389,7 +4442,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=6094946",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|timeline:cd2b9a38": {
@@ -3416,7 +4469,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|timeline:e4937d71": {
+  "textHash": "e4937d71",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|turning:0233f957": {
@@ -3455,13 +4517,40 @@
   "runId": "20261007T212115",
   "checkedAt": "2026-10-07"
  },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|turning:a9b499ec": {
+  "textHash": "a9b499ec",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|turning:d66d2518": {
+  "textHash": "d66d2518",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|voices:0547ed2d": {
+  "textHash": "0547ed2d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.goodreads.com/book/show/18244760-butterick-s-practical-typography",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|voices:49036872": {
   "textHash": "49036872",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://kk.org/cooltools/buttericks-practical-typography/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|voices:7279b910": {
@@ -3497,7 +4586,25 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://rg3.name/201308081610.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|voices:9a5d295a": {
+  "textHash": "9a5d295a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.goodreads.com/book/show/18244760-butterick-s-practical-typography",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf|chapter|voices:a81e0bfa": {
+  "textHash": "a81e0bfa",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=6094946",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|voices:bfd92f8e": {
@@ -3506,7 +4613,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.goodreads.com/book/show/18244760-butterick-s-practical-typography",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|chapter|voices:e9a8c112": {
@@ -3524,7 +4631,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f10": {
@@ -3533,7 +4640,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f11": {
@@ -3542,7 +4649,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f12": {
@@ -3551,7 +4658,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f13": {
@@ -3560,7 +4667,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f14": {
@@ -3569,7 +4676,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/legal.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f15": {
@@ -3578,7 +4685,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f2": {
@@ -3587,7 +4694,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f3": {
@@ -3596,7 +4703,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/why-you-should-pay.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f4": {
@@ -3605,7 +4712,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f5": {
@@ -3614,7 +4721,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f6": {
@@ -3623,7 +4730,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f7": {
@@ -3632,7 +4739,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f8": {
@@ -3641,7 +4748,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|fact|f9": {
@@ -3650,7 +4757,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|metric|m1": {
@@ -3661,7 +4768,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|metric|m2": {
@@ -3672,7 +4779,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|metric|m3": {
@@ -3683,7 +4790,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|metric|m4": {
@@ -3694,7 +4801,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|metric|m5": {
@@ -3705,7 +4812,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_practicaltypographycom_e9aa6bc94ccf|metric|m6": {
@@ -3716,7 +4823,7 @@
    "WHEN_NOT_CONFIRMED"
   ],
   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|core:101dbee9": {
@@ -3737,13 +4844,22 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_referralrock_8c13d5ee4cfc|chapter|core:773b7423": {
+  "textHash": "773b7423",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_referralrock_8c13d5ee4cfc|chapter|practice:08022901": {
   "textHash": "08022901",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|practice:10d9b735": {
@@ -3782,6 +4898,33 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_referralrock_8c13d5ee4cfc|chapter|practice:3b86cf27": {
+  "textHash": "3b86cf27",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|practice:417aef9e": {
+  "textHash": "417aef9e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|practice:716a85fd": {
+  "textHash": "716a85fd",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_referralrock_8c13d5ee4cfc|chapter|practice:aab86be3": {
   "textHash": "aab86be3",
   "status": "PASS",
@@ -3798,6 +4941,15 @@
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|practice:b6b15d72": {
+  "textHash": "b6b15d72",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://gorelay.co/t/hey-oh-im-josh-founder-ceo-of-referral-rock-ama/738",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|practice:b992a01f": {
@@ -3854,6 +5006,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_referralrock_8c13d5ee4cfc|chapter|price:43f745df": {
+  "textHash": "43f745df",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20190309061204/https://referralrock.com/pricing/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_referralrock_8c13d5ee4cfc|chapter|price:94ac256c": {
   "textHash": "94ac256c",
   "status": "PASS",
@@ -3861,6 +5022,15 @@
   "reasons": [],
   "sourceUrl": "https://referralrock.com/pricing/",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|price:b93b4fa8": {
+  "textHash": "b93b4fa8",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|price:ba89b3eb": {
@@ -3883,13 +5053,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_referralrock_8c13d5ee4cfc|chapter|start:215ade92": {
+  "textHash": "215ade92",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_referralrock_8c13d5ee4cfc|chapter|start:69c3e424": {
   "textHash": "69c3e424",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|start:cc757cb2": {
@@ -3908,6 +5087,15 @@
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|timeline:32359510": {
+  "textHash": "32359510",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://gorelay.co/t/hey-oh-im-josh-founder-ceo-of-referral-rock-ama/738",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|timeline:371f577b": {
@@ -3937,6 +5125,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_referralrock_8c13d5ee4cfc|chapter|timeline:66a23b62": {
+  "textHash": "66a23b62",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|timeline:8a70aee0": {
+  "textHash": "8a70aee0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_referralrock_8c13d5ee4cfc|chapter|timeline:a9d1d986": {
   "textHash": "a9d1d986",
   "status": "PASS",
@@ -3953,6 +5159,24 @@
   "reasons": [],
   "sourceUrl": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|timeline:ca13810f": {
+  "textHash": "ca13810f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|timeline:da8a217c": {
+  "textHash": "da8a217c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|timeline:dd46ce28": {
@@ -3997,7 +5221,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/how-our-services-have-evolved/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|turning:754748bb": {
+  "textHash": "754748bb",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|turning:88cd144a": {
@@ -4025,6 +5258,15 @@
   "reasons": [],
   "sourceUrl": "https://referralrock.com/customers/grover/",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|voices:1b85fb56": {
+  "textHash": "1b85fb56",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/customers/sir-glass-auto/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|voices:4e245bde": {
@@ -4060,7 +5302,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/customers/coolbot/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|chapter|voices:a1683588": {
@@ -4087,7 +5329,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/case-study/feedxl/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_referralrock_8c13d5ee4cfc|chapter|voices:ec3c3e5e": {
+  "textHash": "ec3c3e5e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://referralrock.com/customers/grover/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f1": {
@@ -4096,7 +5347,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f10": {
@@ -4105,7 +5356,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/pricing/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f11": {
@@ -4114,7 +5365,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://product.referralrock.com/p/october-2025-exports",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f2": {
@@ -4123,7 +5374,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f3": {
@@ -4132,7 +5383,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f4": {
@@ -4141,7 +5392,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f5": {
@@ -4150,7 +5401,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f6": {
@@ -4159,7 +5410,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f7": {
@@ -4168,7 +5419,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|fact|f8": {
@@ -4177,7 +5428,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|metric|m1": {
@@ -4195,7 +5446,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_referralrock_8c13d5ee4cfc|metric|m3": {
@@ -4204,7 +5455,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|core:49d33fe7": {
@@ -4225,6 +5476,24 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|core:c806ecf0": {
+  "textHash": "c806ecf0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|core:d65acc7b": {
+  "textHash": "d65acc7b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|core:e2216692": {
   "textHash": "e2216692",
   "status": "PASS",
@@ -4241,6 +5510,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|practice:3d02b5fc": {
+  "textHash": "3d02b5fc",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|practice:3d9215b0": {
@@ -4276,7 +5554,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|practice:5b852815": {
@@ -4315,6 +5593,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|practice:e3ac9a29": {
+  "textHash": "e3ac9a29",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|practice:e3ec14e4": {
   "textHash": "e3ec14e4",
   "status": "PASS",
@@ -4322,6 +5609,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|price:07625107": {
+  "textHash": "07625107",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=30540735",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|price:22451633": {
@@ -4351,6 +5647,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|price:995d34b6": {
+  "textHash": "995d34b6",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://requestly.com/pricing/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|price:fc0c8df5": {
   "textHash": "fc0c8df5",
   "status": "PASS",
@@ -4375,7 +5680,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|start:22a2f406": {
+  "textHash": "22a2f406",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|start:332160ae": {
@@ -4405,6 +5719,24 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|timeline:167809f0": {
+  "textHash": "167809f0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|timeline:30ffb36a": {
+  "textHash": "30ffb36a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://requestly.com/blog/requestly-turns-6/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|timeline:3350291c": {
   "textHash": "3350291c",
   "status": "PASS",
@@ -4412,6 +5744,15 @@
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=20460703",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|timeline:399b420e": {
+  "textHash": "399b420e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=30540735",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|timeline:52e2f543": {
@@ -4434,6 +5775,15 @@
   "runId": "20261007T124832",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|timeline:6be5638e": {
+  "textHash": "6be5638e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|timeline:77879be9": {
   "textHash": "77879be9",
   "status": "PASS",
@@ -4441,6 +5791,15 @@
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=20460703",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|timeline:874642c4": {
+  "textHash": "874642c4",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|timeline:8bbe7a30": {
@@ -4488,6 +5847,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|timeline:daca2463": {
+  "textHash": "daca2463",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=20460703",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|timeline:e26d9ae5": {
+  "textHash": "e26d9ae5",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|timeline:eb8ce6fe": {
   "textHash": "eb8ce6fe",
   "status": "PASS",
@@ -4504,6 +5881,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|turning:31af220f": {
+  "textHash": "31af220f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|turning:5c630797": {
@@ -4553,6 +5939,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|turning:b240213e": {
+  "textHash": "b240213e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=30540735",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|turning:ca03013b": {
   "textHash": "ca03013b",
   "status": "PASS",
@@ -4571,6 +5966,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_requestly_28e9f2|chapter|turning:ea17f40a": {
+  "textHash": "ea17f40a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/interview/c2b415aafd",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_requestly_28e9f2|chapter|voices:37c2117b": {
   "textHash": "37c2117b",
   "status": "PASS",
@@ -4587,6 +5991,33 @@
   "reasons": [],
   "sourceUrl": "https://news.ycombinator.com/item?id=30540735",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|voices:71f4cf1a": {
+  "textHash": "71f4cf1a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=30540735",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|voices:7afff48d": {
+  "textHash": "7afff48d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=30540735",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_requestly_28e9f2|chapter|voices:94a3d84e": {
+  "textHash": "94a3d84e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=30540735",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|chapter|voices:9c7ae415": {
@@ -4631,7 +6062,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f10": {
@@ -4640,7 +6071,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f11": {
@@ -4649,7 +6080,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f12": {
@@ -4658,7 +6089,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f13": {
@@ -4667,7 +6098,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://requestly.com/pricing/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f15": {
@@ -4676,7 +6107,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://requestly.com/products/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f2": {
@@ -4685,7 +6116,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f3": {
@@ -4694,7 +6125,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f4": {
@@ -4703,7 +6134,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f5": {
@@ -4712,7 +6143,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f6": {
@@ -4721,7 +6152,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f7": {
@@ -4730,7 +6161,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f8": {
@@ -4739,7 +6170,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|fact|f9": {
@@ -4748,7 +6179,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_requestly_28e9f2|metric|m2": {
@@ -4757,7 +6188,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|core:3c5db67a": {
@@ -4767,6 +6198,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|core:7823f4e4": {
+  "textHash": "7823f4e4",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|core:977289e9": {
@@ -4784,7 +6224,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|practice:00749092": {
@@ -4805,6 +6245,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|practice:347eb1a0": {
+  "textHash": "347eb1a0",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://laravelpodcast.com/episodes/89e3758b/transcript",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|practice:4f3216f1": {
@@ -4879,6 +6328,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|practice:bc15c2a8": {
+  "textHash": "bc15c2a8",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://x.com/steveschoger/status/1001113443586527233",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|practice:c7ec922a": {
   "textHash": "c7ec922a",
   "status": "PASS",
@@ -4886,6 +6344,33 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|practice:eed98647": {
+  "textHash": "eed98647",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://x.com/steveschoger/status/1116062198974042113",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|price:2267a3df": {
+  "textHash": "2267a3df",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://alexsidorenko.com/blog/is-refactoring-ui-worth-it",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|price:4b2a10fa": {
+  "textHash": "4b2a10fa",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|price:5aeef09d": {
@@ -4933,6 +6418,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|price:bb3d8411": {
+  "textHash": "bb3d8411",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|price:c87ac711": {
   "textHash": "c87ac711",
   "status": "FAIL",
@@ -4942,6 +6436,15 @@
   ],
   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
   "runId": "20261007T212115",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|price:d5b0454c": {
+  "textHash": "d5b0454c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://refactoringui.com",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|start:342960c5": {
@@ -4980,6 +6483,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|start:ca3e7265": {
+  "textHash": "ca3e7265",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|start:d396aa17": {
   "textHash": "d396aa17",
   "status": "PASS",
@@ -4989,6 +6501,24 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|start:d73e2b9c": {
+  "textHash": "d73e2b9c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://laravelpodcast.com/episodes/89e3758b/transcript",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:0536bba2": {
+  "textHash": "0536bba2",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|timeline:102facc2": {
   "textHash": "102facc2",
   "status": "PASS",
@@ -4996,6 +6526,24 @@
   "reasons": [],
   "sourceUrl": "https://x.com/steveschoger/status/1337405551844659202",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:15d3824a": {
+  "textHash": "15d3824a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://fullstackradio.com/74",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:19302f4f": {
+  "textHash": "19302f4f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|timeline:1b10225b": {
@@ -5063,6 +6611,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|timeline:751c91c4": {
+  "textHash": "751c91c4",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://adamwathan.me/journal/2020/12/29/2020-year-in-review/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|timeline:7ac49efc": {
   "textHash": "7ac49efc",
   "status": "PASS",
@@ -5099,6 +6656,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|timeline:9827df12": {
+  "textHash": "9827df12",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://freek.dev/994-7-practical-tips-for-cheating-at-design",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|timeline:98ac290d": {
   "textHash": "98ac290d",
   "status": "PASS",
@@ -5106,6 +6672,24 @@
   "reasons": [],
   "sourceUrl": "https://laravelpodcast.com/episodes/89e3758b/transcript",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:99647af9": {
+  "textHash": "99647af9",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://x.com/adamwathan/status/1289702466754211842",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:a9d166a3": {
+  "textHash": "a9d166a3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://news.ycombinator.com/item?id=18655224",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|timeline:aee9b85a": {
@@ -5117,6 +6701,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|timeline:b17aa9ae": {
+  "textHash": "b17aa9ae",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://laravelpodcast.com/episodes/89e3758b/transcript",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|timeline:b7002541": {
   "textHash": "b7002541",
   "status": "PASS",
@@ -5126,6 +6719,33 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|timeline:d33adb60": {
+  "textHash": "d33adb60",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://x.com/adamwathan/status/1296447319953547265",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:d7d6d456": {
+  "textHash": "d7d6d456",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://x.com/adamwathan/status/1029110880913448960",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:e211091b": {
+  "textHash": "e211091b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://x.com/steveschoger/status/1337405551844659202",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|timeline:e3ae8eca": {
   "textHash": "e3ae8eca",
   "status": "PASS",
@@ -5133,6 +6753,15 @@
   "reasons": [],
   "sourceUrl": "https://x.com/adamwathan/status/1289702466754211842",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|timeline:eb111782": {
+  "textHash": "eb111782",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://laravelpodcast.com/episodes/89e3758b/transcript",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|turning:188430c1": {
@@ -5171,6 +6800,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|turning:9a00c49b": {
+  "textHash": "9a00c49b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://laravelpodcast.com/episodes/89e3758b/transcript",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|turning:aa940814": {
   "textHash": "aa940814",
   "status": "PASS",
@@ -5178,6 +6816,24 @@
   "reasons": [],
   "sourceUrl": "https://x.com/steveschoger/status/1085947409681797121",
   "runId": "20261007T125542",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|turning:d56b64e3": {
+  "textHash": "d56b64e3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://x.com/steveschoger/status/1085947409681797121",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|turning:e23475cd": {
+  "textHash": "e23475cd",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://laravelpodcast.com/episodes/89e3758b/transcript",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|voices:0ac7a9c7": {
@@ -5189,6 +6845,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|voices:4a5ee64f": {
+  "textHash": "4a5ee64f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://refactoringui.com",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|chapter|voices:532685c7": {
   "textHash": "532685c7",
   "status": "PASS",
@@ -5196,6 +6861,15 @@
   "reasons": [],
   "sourceUrl": "https://refactoringui.com",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|voices:5480d323": {
+  "textHash": "5480d323",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.jormars.com/book-refactoring-ui/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|chapter|voices:72eab1f2": {
@@ -5225,13 +6899,31 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_rfrcui_64e924ac|chapter|voices:d6f206c3": {
+  "textHash": "d6f206c3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://rosswintle.uk/2018/12/refactoring-ui/",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_rfrcui_64e924ac|chapter|voices:dc8c2a52": {
+  "textHash": "dc8c2a52",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://refactoringui.com",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_rfrcui_64e924ac|fact|f1": {
   "textHash": "0f9e8892",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://refactoringui.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f10": {
@@ -5240,7 +6932,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f11": {
@@ -5249,7 +6941,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f13": {
@@ -5258,7 +6950,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://refactoringui.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f2": {
@@ -5267,7 +6959,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://refactoringui.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f3": {
@@ -5276,7 +6968,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://refactoringui.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f4": {
@@ -5285,7 +6977,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://refactoringui.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f5": {
@@ -5294,7 +6986,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://refactoringui.com/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f6": {
@@ -5303,7 +6995,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f7": {
@@ -5312,7 +7004,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f8": {
@@ -5321,7 +7013,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|fact|f9": {
@@ -5330,7 +7022,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|metric|m1": {
@@ -5339,7 +7031,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_rfrcui_64e924ac|metric|m2": {
@@ -5353,13 +7045,22 @@
   "runId": "20261007T124832",
   "checkedAt": "2026-10-07"
  },
+ "ent_teamcamp_ae0c21986c4d|chapter|core:12732458": {
+  "textHash": "12732458",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_teamcamp_ae0c21986c4d|chapter|core:3da51b5c": {
   "textHash": "3da51b5c",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|core:b589bcf5": {
@@ -5467,7 +7168,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|practice:abbfe1e3": {
@@ -5479,6 +7180,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_teamcamp_ae0c21986c4d|chapter|practice:bb5aee67": {
+  "textHash": "bb5aee67",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|practice:d348bb84": {
+  "textHash": "d348bb84",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-was-spending-15-hours-week-answering-what-s-the-status-teamcamp-fixed-it-43c1ec2db7",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_teamcamp_ae0c21986c4d|chapter|practice:ee93d6a4": {
   "textHash": "ee93d6a4",
   "status": "PASS",
@@ -5486,6 +7205,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|practice:f1f0654e": {
+  "textHash": "f1f0654e",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|price:169cc070": {
@@ -5497,6 +7225,15 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_teamcamp_ae0c21986c4d|chapter|price:1d9a821b": {
+  "textHash": "1d9a821b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20251011030926id_/https://www.teamcamp.app/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_teamcamp_ae0c21986c4d|chapter|price:29cb99ed": {
   "textHash": "29cb99ed",
   "status": "PASS",
@@ -5504,6 +7241,15 @@
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20241106174914id_/https://www.teamcamp.app/pricing",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|price:44ed305a": {
+  "textHash": "44ed305a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20241106174914id_/https://www.teamcamp.app/pricing",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|price:601e98e3": {
@@ -5515,6 +7261,24 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_teamcamp_ae0c21986c4d|chapter|price:613ea8ca": {
+  "textHash": "613ea8ca",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20260219033023id_/https://www.teamcamp.app/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|price:d1400772": {
+  "textHash": "d1400772",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20240725064357id_/https://www.teamcamp.app/pricing",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_teamcamp_ae0c21986c4d|chapter|price:d5053748": {
   "textHash": "d5053748",
   "status": "PASS",
@@ -5524,13 +7288,22 @@
   "runId": "20261007T215130",
   "checkedAt": "2026-10-07"
  },
+ "ent_teamcamp_ae0c21986c4d|chapter|start:063cf37a": {
+  "textHash": "063cf37a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_teamcamp_ae0c21986c4d|chapter|start:40cb6832": {
   "textHash": "40cb6832",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|start:56e53fd4": {
@@ -5549,6 +7322,15 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|timeline:13b86bb7": {
+  "textHash": "13b86bb7",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://web.archive.org/web/20230723075620id_/https://www.teamcamp.app/",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|timeline:25dd2cf8": {
@@ -5578,6 +7360,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_teamcamp_ae0c21986c4d|chapter|timeline:99291c6c": {
+  "textHash": "99291c6c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://devhunt.org/tool/teamcamp",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_teamcamp_ae0c21986c4d|chapter|timeline:9d910e47": {
   "textHash": "9d910e47",
   "status": "PASS",
@@ -5596,6 +7387,15 @@
   "runId": "20261007T125542",
   "checkedAt": "2026-10-07"
  },
+ "ent_teamcamp_ae0c21986c4d|chapter|timeline:cbb4e160": {
+  "textHash": "cbb4e160",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
  "ent_teamcamp_ae0c21986c4d|chapter|timeline:ec2b1bc2": {
   "textHash": "ec2b1bc2",
   "status": "PASS",
@@ -5603,6 +7403,15 @@
   "reasons": [],
   "sourceUrl": "https://web.archive.org/web/20230723075620id_/https://www.teamcamp.app/",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|turning:5fb0b1ee": {
+  "textHash": "5fb0b1ee",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|turning:7d758a7d": {
@@ -5621,6 +7430,24 @@
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/i-was-spending-15-hours-week-answering-what-s-the-status-teamcamp-fixed-it-43c1ec2db7",
   "runId": "20261007T215130",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|voices:2f95f196": {
+  "textHash": "2f95f196",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.indiehackers.com/post/i-was-spending-15-hours-week-answering-what-s-the-status-teamcamp-fixed-it-43c1ec2db7",
+  "runId": "20261007T233411",
+  "checkedAt": "2026-10-07"
+ },
+ "ent_teamcamp_ae0c21986c4d|chapter|voices:84757f2b": {
+  "textHash": "84757f2b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.teamcamp.app/customers",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|chapter|voices:b1bc2588": {
@@ -5647,7 +7474,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.teamcamp.app/",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|fact|f2": {
@@ -5658,7 +7485,7 @@
    "NUMBER_NOT_IN_SOURCE"
   ],
   "sourceUrl": "https://www.teamcamp.app/pricing",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|fact|f3": {
@@ -5667,7 +7494,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.teamcamp.app/affiliate",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|fact|f4": {
@@ -5676,7 +7503,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|fact|f5": {
@@ -5685,7 +7512,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|fact|f6": {
@@ -5694,7 +7521,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|fact|f7": {
@@ -5703,7 +7530,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  },
  "ent_teamcamp_ae0c21986c4d|fact|f8": {
@@ -5712,7 +7539,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
-  "runId": "20261007T215130",
+  "runId": "20261007T233411",
   "checkedAt": "2026-10-07"
  }
 }

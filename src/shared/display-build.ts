@@ -359,10 +359,18 @@ export function unsupportedNumbers(text: string, material: readonly number[]): n
  */
 export function droppableNumbers(before: string, dropping: readonly number[]): number[] {
   const out = new Set<number>(dropping);
-  for (const y of dropping.filter((n) => n >= 1900 && n <= 2099)) {
-    for (const m of before.matchAll(new RegExp(`${y}年(\\d{1,2})月(?:(\\d{1,2})日)?`, 'g'))) { out.add(Number(m[1])); if (m[2]) out.add(Number(m[2])); }
+  const all = extractNumbers(before);
+  // 年かどうかは大きさでなく、直後に「年」が付くかで決める（「2,000ドル」は年ではない）
+  const years = dropping.filter((n) => n >= 1900 && n <= 2099 && new RegExp(`${n}年`).test(before));
+  const dateParts: number[] = [];
+  for (const y of years) {
+    for (const m of before.matchAll(new RegExp(`${y}年(\\d{1,2})月(?:(\\d{1,2})日)?`, 'g'))) { dateParts.push(Number(m[1])); if (m[2]) dateParts.push(Number(m[2])); }
   }
-  const values = dropping.filter((n) => n < 1900 || n > 2099);
+  // 月・日の値が、日付の外（「月12ドル」の12など）にも現れる時は、確かめられた事実と区別できないので消えてよい数に入れない
+  for (const n of new Set(dateParts)) {
+    if (all.filter((x) => x === n).length <= dateParts.filter((x) => x === n).length) out.add(n);
+  }
+  const values = dropping.filter((n) => !years.includes(n));
   for (const m of before.matchAll(/（約[^）]*円[^）]*）/g)) {
     const head = before.slice(Math.max(0, (m.index ?? 0) - 15), m.index ?? 0);
     if (extractNumbers(head).some((n) => values.includes(n))) for (const n of extractNumbers(m[0])) out.add(n);
