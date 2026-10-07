@@ -45,3 +45,28 @@ export const MOAT_OPTIONS: readonly { id: MoatType; label: string }[] = [
   { id: 'SCALE_ECONOMIES', label: '規模の経済' },
   { id: 'PROCESS_POWER', label: '独自の業務プロセス' },
 ];
+
+/** 特徴タグの一覧表示。数千件になっても重くならず、探せるようにする（検索は全件が対象）。 */
+export const TAG_PREVIEW_COUNT = 10;
+export const TAG_MAX_COUNT = 50;
+
+export function pickVisibleTags(input: {
+  tags: readonly string[];
+  counts: Record<string, number>;
+  selected: readonly string[];
+  query: string;
+  expanded: boolean;
+}): { shown: string[]; matched: number; hidden: number } {
+  const q = input.query.trim().toLowerCase();
+  const matched = input.tags.filter((tag) => tag.toLowerCase().includes(q));
+  // 選択中を先頭に、続けて件数の多い順（同数は五十音順）
+  const sorted = [...matched].sort((a, b) => {
+    const sa = input.selected.includes(a) ? 0 : 1;
+    const sb = input.selected.includes(b) ? 0 : 1;
+    return sa - sb || (input.counts[b] ?? 0) - (input.counts[a] ?? 0) || a.localeCompare(b, 'ja');
+  });
+  const limit = q || input.expanded ? TAG_MAX_COUNT : TAG_PREVIEW_COUNT;
+  const selectedInMatch = sorted.filter((tag) => input.selected.includes(tag)).length;
+  const shown = sorted.slice(0, Math.max(limit, selectedInMatch));
+  return { shown, matched: matched.length, hidden: matched.length - shown.length };
+}

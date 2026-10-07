@@ -1,17 +1,18 @@
-import React, { useId } from 'react';
+import React, { useId, useMemo } from 'react';
 
 import { ANALYSIS_ITEMS, type ReaderCase, type ReaderFact } from '@/shared/reader-case';
 import {
   dedupeReaderSources,
   formatMetricAmount,
-  metricMeasureLabel,
+  metricListLabel,
   metricOriginLabel,
   plainFactText,
   readerSummaryFact,
 } from '@/shared/display-text';
 import { createSentenceMemory, splitSentences } from '@/shared/case-text';
+import { scrubAbsence } from '@/shared/absence-text';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
-import { AnalysisGroups, Fold, Headline, KeyStrip, planKeyStrip, SectionNav, StorySteps, WhatIs } from './ReaderOverview';
+import { AnalysisGroups, Fold, KeyStrip, planKeyStrip, SectionGap, WhatIs } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
@@ -69,7 +70,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
               return (
                 <tr key={m.id} id={evidenceAnchor(evidencePrefix, m.id)} data-metric={m.id} className="scroll-mt-8 border-b border-term-line-soft align-top">
                   <td className="px-2 py-1.5 text-term-fg-strong">
-                    {metricMeasureLabel(m)}
+                    {metricListLabel(m)}
                     <SourceRef n={sourceNo.get(m.sourceId)} prefix={evidencePrefix} />
                     {m.basis && <span className="block text-xs text-term-label">{m.basis}</span>}
                   </td>
@@ -176,8 +177,10 @@ export function ReaderSources({ reader, evidencePrefix = 'reader' }: ReaderProps
 }
 
 /** 詳細画面（台帳タブ）の中身。reader だけを読む。screen-text の検査も同じ部品を描く。 */
-export function ReaderLedger({ reader, detailState, onRetry, media }: {
+export function ReaderLedger({ reader: rawReader, entityId, detailState, onRetry, media }: {
   reader?: ReaderCase;
+  /** 一覧と同じ短い1行を概要に使うための事例の番号 */
+  entityId?: string;
   /** 詳細の取得状態。取得中・失敗を「準備中」と取り違えて出さないために使う */
   detailState?: 'loading' | 'failed';
   onRetry?: () => void;
@@ -185,6 +188,7 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
   media?: React.ReactNode;
 }) {
   const evidencePrefix = `reader-${useId()}`;
+  const reader = useMemo(() => (rawReader ? scrubAbsence(rawReader) : rawReader), [rawReader]);
   // 一覧用に削った reader（listForm）は詳細の代わりにならない。完全な reader が無い間は取得状態を出す
   const incomplete = !reader || Boolean(reader.listForm);
   const status = incomplete && detailState === 'failed' ? (
@@ -203,21 +207,18 @@ export function ReaderLedger({ reader, detailState, onRetry, media }: {
   if (!reader) return <p className="px-2.5 py-3 text-sm text-term-muted sm:px-3">{UI.NO_READER}</p>;
   const plan = planKeyStrip(reader);
   const summary = readerSummaryFact(reader);
-  const hasStory = reader.analysis.some((a) => a.item === 'STORY');
   const hasDetails = reader.facts.length > 0 || reader.metrics.length > 0 || reader.sources.length > 0 || reader.analysis.some((a) => a.formula);
   // 並び: 何の事業か → 製品画面（横に送る。開いてすぐ見える位置） → 主要な数字 → ひとこと → 目次 → 稼ぎ方・客・強み・経緯（畳む） → 出典つきの事実・数値（畳む）
   return (
     <>
       {status}
-      <WhatIs fact={summary} />
-      {media}
+      <WhatIs fact={summary} entityId={entityId} lead />
       <KeyStrip reader={reader} plan={plan} />
-      <Headline reader={reader} />
-      <SectionNav reader={reader} usage={plan.usage} hasDetails={hasDetails} hasStory={hasStory} />
+      {media}
+      {(hasDetails || reader.analysis.some((a) => a.item !== 'HEADLINE')) && <SectionGap />}
       {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
         <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
-          <AnalysisGroups reader={reader} usage={plan.usage} />
-          <StorySteps reader={reader} />
+          <AnalysisGroups reader={reader} usage={plan.usage} entityId={entityId} />
         </div>
       )}
       {hasDetails && (

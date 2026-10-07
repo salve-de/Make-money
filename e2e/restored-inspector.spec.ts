@@ -11,7 +11,7 @@ for (const width of [390, 768, 960, 1440]) {
     await page.goto(`/?entity=${PRIMARY.id}`);
     const pane = page.getByRole('complementary', { name: `${PRIMARY.name}の企業事例インスペクター` });
     await expect(pane).toBeVisible();
-    await expect(pane.locator('[data-fact="f1"]')).toContainText('Ruby on Rails の動画講座とコース');
+    await expect(pane.locator('[data-fact="f1"]')).toContainText('Ruby on Rails の動画講座');
     await openDetails(page);
     const metrics = pane.locator('#section-metrics');
     await metrics.scrollIntoViewIfNeeded();

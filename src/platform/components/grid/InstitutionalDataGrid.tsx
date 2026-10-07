@@ -11,7 +11,7 @@ import { pickEntityLogo } from '@/shared/media-display';
 import { useEntityMedia } from '../../hooks/useEntityMedia';
 import { EntityLogo } from './EntityLogo';
 import { UI, uiFormat } from '@/shared/ui-strings';
-import { ListDescription, ListMetricCell, ListOriginCell, listMetricsOf } from './ReaderListCells';
+import { ListDescription, ListMetricCell, listColumnsOf } from './ReaderListCells';
 
 const PAGE_SIZE = 250;
 
@@ -71,6 +71,9 @@ interface InstitutionalDataGridProps {
   onRetry?: () => void;
   /** 読み込み中・失敗の表示を別に出している間は、0件の案内を出さない */
   suppressEmpty?: boolean;
+  /** 特徴のボタンを押した時の絞り込み。無ければボタンは出さない */
+  selectedTags?: readonly string[];
+  onToggleTag?: (tag: string) => void;
 }
 
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
@@ -88,6 +91,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   retryAvailable = false,
   onRetry,
   suppressEmpty = false,
+  selectedTags = [],
+  onToggleTag,
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const observerTargetRef = useRef<HTMLDivElement>(null);
@@ -164,35 +169,29 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
       <div data-variant="table" className="hidden w-full lg:block">
         <table className="w-full table-fixed border-collapse text-left text-[13px] [counter-reset:ledger-row]">
           <colgroup>
-            <col className="w-10" />
-            <col className={isSplitView ? 'w-[38%]' : 'w-[22%]'} />
-            {!isSplitView && <col />}
+            <col />
             {!isSplitView && <col className="w-[110px]" />}
-            <col className="w-[120px]" />
+            <col className="w-[176px]" />
             {!isSplitView && <col className="w-[104px]" />}
-            <col className="w-[72px]" />
-            <col className="w-8" />
+            <col className="w-7" />
           </colgroup>
           <thead>
             <tr className="h-[26px] border-b border-term-line bg-term-head text-xs text-term-label">
-              <th className="px-2 text-right font-normal">{UI.LIST_COL_INDEX}</th>
               <th className="px-2 font-normal">{UI.LIST_COL_NAME}</th>
-              {!isSplitView && <th className="px-2 font-normal">{UI.LIST_COL_SUMMARY}</th>}
               {!isSplitView && <th className="px-2 font-normal">{UI.LIST_COL_SECTOR}</th>}
               <th className="px-2 text-right font-normal">{UI.LIST_COL_REVENUE}</th>
               {!isSplitView && <th className="px-2 text-right font-normal">{UI.LIST_COL_PROFIT}</th>}
-              <th className="px-2 font-normal">{UI.LIST_COL_ORIGIN}</th>
               <th className="px-1"><span className="sr-only">{UI.SAVE}</span></th>
             </tr>
           </thead>
-          <tbody>
-            {visibleEntities.map((entity, index) => {
+            {visibleEntities.map((entity) => {
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
-              const { main, profit } = listMetricsOf(entity.reader);
+              const { revenue, scale, profit } = listColumnsOf(entity.reader);
+              const headline = revenue ?? scale;
               const sector = sectorLabel(entity);
               return (
-                <tr
+                <tbody
                   key={entity.id}
                   data-entity-id={entity.id}
                   onClick={() => onSelectEntity(entity.id)}
@@ -204,42 +203,47 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     }
                   }}
                   tabIndex={0}
-                  aria-selected={isSelected}
-                  className={`h-[29px] cursor-pointer border-b border-term-line-soft [counter-increment:ledger-row] focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent ${
+                  aria-current={isSelected ? "true" : undefined}
+                  className={`cursor-pointer focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent ${
                     isSelected
                       ? 'bg-term-select text-term-fg-strong'
-                      : `${index % 2 === 1 ? 'bg-term-row-alt' : ''} hover:bg-term-head`
+                      : 'hover:bg-term-head'
                   }`}
                 >
-                  {/* 行番号は CSS の連番で描く（画面の文字は事例の出典・数値・定数だけにする） */}
-                  <td className="term-num px-2 text-right text-xs text-term-dim before:content-[counter(ledger-row)]" />
-                  <td className="overflow-hidden px-2" title={entity.name}>
+                  <tr>
+                  <td className={`overflow-hidden border-l-2 px-2 pt-2 ${isSelected ? 'border-term-accent' : 'border-transparent'}`} title={entity.name}>
                     <span className="flex min-w-0 items-center gap-1.5">
                       <EntityLogo asset={pickEntityLogo(logos[entity.id])} name={entity.name} />
-                      <span className="truncate font-semibold text-term-fg-strong">{entity.name}</span>
+                      <span className="min-w-0 shrink truncate text-sm font-semibold text-term-fg-strong">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
+                      {onToggleTag && (entity.tags ?? []).slice(0, 3).map((tag) => {
+                        const on = selectedTags.includes(tag);
+                        return (
+                          <button
+                            key={tag}
+                            type="button"
+                            aria-pressed={on}
+                            onClick={(event) => { event.stopPropagation(); onToggleTag(tag); }}
+                            className={`hidden h-[18px] shrink-0 items-center whitespace-nowrap border px-1 text-[11px] xl:inline-flex ${on ? 'border-term-accent text-term-accent' : 'border-term-line-soft text-term-label hover:border-term-line hover:text-term-fg'}`}
+                          >
+                            {tag}
+                          </button>
+                        );
+                      })}
                     </span>
                   </td>
                   {!isSplitView && (
-                    <td className="overflow-hidden px-2 text-term-muted">
-                      <ListDescription reader={entity.reader} className="block truncate" />
-                    </td>
+                    <td className="truncate px-2 pt-1.5 text-xs text-term-muted">{sector}</td>
                   )}
-                  {!isSplitView && (
-                    <td className="truncate px-2 text-xs text-term-muted">{sector}</td>
-                  )}
-                  <td className="term-num truncate px-2 text-right">
-                    <ListMetricCell metric={main} expected={['REVENUE']} />
+                  <td className="term-num whitespace-nowrap px-2 pt-2 text-right text-sm">
+                    <ListMetricCell metric={headline} expected={['REVENUE']} />
                   </td>
                   {!isSplitView && (
                     <td className="term-num truncate px-2 text-right">
                       {profit ? <ListMetricCell metric={profit} expected={['OPERATING_INCOME']} /> : null}
                     </td>
                   )}
-                  <td className="truncate px-2 text-xs">
-                    <ListOriginCell metric={main} />
-                  </td>
-                  <td className="px-0 text-center">
+                  <td className="px-0 pt-1 text-center">
                     <button
                       type="button"
                       onClick={(e) => onToggleBookmark(entity.id, e)}
@@ -250,10 +254,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       <Bookmark className={`h-3.5 w-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
                     </button>
                   </td>
-                </tr>
+                  </tr>
+                  <tr className="border-b border-term-line">
+                    <td colSpan={isSplitView ? 3 : 5} className={`overflow-hidden border-l-2 px-2 pb-2 pl-[32px] ${isSelected ? 'border-term-accent' : 'border-transparent'}`}>
+                      <ListDescription entityId={entity.id} reader={entity.reader} className="mt-0.5 block truncate text-xs text-term-sub" />
+                    </td>
+                  </tr>
+                </tbody>
               );
             })}
-          </tbody>
         </table>
         {entities.length === 0 && !suppressEmpty && (
           <div className="px-3 py-6 text-sm text-term-muted">

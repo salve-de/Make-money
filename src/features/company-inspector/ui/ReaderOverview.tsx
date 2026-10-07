@@ -1,8 +1,11 @@
 import React from 'react';
 
 import type { AnalysisItem, ReaderAnalysis, ReaderCase, ReaderFact, ReaderMetric } from '@/shared/reader-case';
-import { formatMetricAmount, metricMeasureLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
-import { checkLead } from '@/shared/lead-standard';
+import { detailLineFor } from '@/shared/detail-lines';
+import { isAbsenceOnly, stripAbsence } from '@/shared/absence-text';
+import { successPointsFor } from '@/shared/success-points';
+import { listLineFor } from '@/shared/list-lines';
+import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -67,9 +70,11 @@ function StripCell({ label, mark, inferred, children, attrs }: { label: string; 
 }
 
 function AnalysisCell({ analysis }: { analysis: ReaderAnalysis }) {
+  const text = stripAbsence(plainAnalysisText(analysis.text));
+  if (text === '') return null;
   return (
     <StripCell label={ANALYSIS_LABELS[analysis.item]} mark={ANALYSIS_LABELS[analysis.item].includes('推') ? undefined : <InferenceMark analysis={analysis} />} inferred attrs={{ 'data-analysis': analysis.id }}>
-      <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(analysis.text)}</p>
+      <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{text}</p>
     </StripCell>
   );
 }
@@ -85,24 +90,32 @@ export function planKeyStrip(reader: ReaderCase) {
     if (a) { usage.items.add(item); analyses.push(a); }
   };
   if (!metric) take('REVENUE_ESTIMATE');
-  const priceFact: ReaderFact | undefined = reader.facts.find((f) => f.kind === 'PRICING' && f.id !== reader.summaryFactId);
+  // 料金の欄には、金額が書いてある事実だけを出す（売り方の説明文を「料金」と名乗らせない）
+  const priceFact: ReaderFact | undefined = reader.facts.find((f) => f.kind === 'PRICING' && f.id !== reader.summaryFactId && /[0-9０-９]/.test(f.text) && /(円|ドル|ルピー|ユーロ|ポンド|\$|USD|INR|EUR|GBP|無料|¥|€|£)/.test(f.text));
   if (priceFact) usage.factIds.add(priceFact.id);
   else take('PRICING');
   take('TAKE_HOME');
-  take('VIABILITY');
   return { metric, priceFact, analyses, usage };
 }
 
-/** 主要な数字の帯: 売上（事実の数値。無ければ売上の推測）・料金・手残り・今も通用するか。 */
+const YEN_PER: Record<string, number> = { USD: 150, EUR: 165, GBP: 195, INR: 1.75 };
+
+/** 外貨の売上は、円のおおよその額を添える（為替は固定の目安: 1ドル=150円など）。 */
+function yenApprox(m: ReaderMetric): string | null {
+  const rate = m.currency ? YEN_PER[m.currency] : undefined;
+  return rate ? `約${formatMetricAmount({ amount: Math.round(m.amount * rate), currency: 'JPY', unit: m.unit })}` : null;
+}
+
+/** 主要な数字の帯: 売上（事実の数値。無ければ売上の推測）・料金・手残り。 */
 export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnType<typeof planKeyStrip> }) {
   const { metric, priceFact, analyses } = plan;
   const cells: React.ReactNode[] = [];
   if (metric) {
     const series = seriesFor(reader, metric);
     cells.push(
-      <StripCell key="metric" label={metricMeasureLabel(metric)} inferred={false} attrs={{ 'data-metric': metric.id }}>
+      <StripCell key="metric" label={metricListLabel(metric)} inferred={false} attrs={{ 'data-metric': metric.id }}>
         <div className="flex items-end justify-between gap-2">
-          <span className="term-num text-[22px] font-semibold leading-none text-term-fg-strong">{formatMetricAmount(metric)}</span>
+          <span className="term-num text-[22px] font-semibold leading-none text-term-fg-strong">{formatMetricAmount(metric)}{yenApprox(metric) && <span className="ml-2 text-sm font-normal text-term-sub">（{yenApprox(metric)}）</span>}</span>
           {series.length > 0 && <Sparkline points={series.map((m) => m.amount)} />}
         </div>
         <div className="mt-1.5 text-xs leading-snug text-term-label">
@@ -124,42 +137,22 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   return <div className="grid grid-cols-1 gap-px border-b border-term-line bg-term-line sm:grid-cols-2 sm:[&>*:last-child:nth-child(odd)]:col-span-2">{cells}</div>;
 }
 
-/** 何の事業か。概要の最初の1文を、最上部に大きく。続きは畳む。 */
-export function WhatIs({ fact }: { fact: ReaderFact | null | undefined }) {
+/** 概要。最初の1文を最上部に大きく、続きは畳まずそのまま下に出す。 */
+export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | null | undefined; entityId?: string; lead?: boolean }) {
   if (!fact) return null;
-  const text = plainFactText(fact.text);
+  const text = stripAbsence(plainFactText(fact.text));
   const end = text.indexOf('。');
-  const first = end >= 0 ? text.slice(0, end + 1) : text;
+  // 一覧と同じ「短い1行」があればそれを大きく出し、元の要約は全文を下に続ける
+  const short = entityId ? listLineFor(entityId, fact) : null;
+  const first = short ?? (end >= 0 ? text.slice(0, end + 1) : text);
+  if (!first) return null;
+  // 短い1行と要約の1文目は同じことを言うので、続きは2文目から（同じ話を2度出さない）
   const rest = end >= 0 ? text.slice(end + 1).trim() : '';
   return (
     <div data-fact={fact.id} className="px-2.5 pb-3 pt-3 sm:px-3">
       <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
-      <p className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{first}</p>
-      {rest && (
-        <details className="group mt-2">
-          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1 text-xs text-term-sub hover:text-term-fg-strong lg:min-h-6 [&::-webkit-details-marker]:hidden">
-            <span aria-hidden="true" className="inline-block h-0 w-0 border-y-[4px] border-l-[5px] border-y-transparent border-l-current transition-transform group-open:rotate-90" />
-            {UI.WHAT_IS_MORE}
-          </summary>
-          <p className="pt-1 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{rest}</p>
-        </details>
-      )}
-    </div>
-  );
-}
-
-/** ひとこと（強い一行）。主役は「何の事業か」と数字の帯なので、ここでは小さめに。 */
-export function Headline({ reader }: { reader: ReaderCase }) {
-  const a = byItem(reader, 'HEADLINE');
-  // リードは基準（lead-standard.ts）を通った時だけ出す
-  if (!a || !checkLead(a, reader).ok) return null;
-  return (
-    <div data-analysis={a.id} className="border-b border-term-line px-2.5 py-2.5 sm:px-3">
-      <div className="mb-0.5 flex items-center gap-2 text-xs text-term-label">
-        <span>{UI.HEADLINE_LABEL}</span>
-        <InferenceMark analysis={a} />
-      </div>
-      <h3 className="text-sm font-normal leading-relaxed text-term-fg [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
+      <p className={lead ? 'text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]' : 'text-base font-medium leading-snug text-term-fg-strong [overflow-wrap:anywhere]'}>{first}</p>
+      {rest && <p className="mt-2 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{rest}</p>}
     </div>
   );
 }
@@ -177,13 +170,26 @@ function splitStory(text: string): Array<{ step: string; body: string }> | null 
   }));
 }
 
+/** 4段に分けられない物語。編集済みの「答え＋補足」があればそれを、無ければ原文のまま。 */
+function StoryProse({ text, edited }: { text: string; edited: { answer: string; note?: string } | null }) {
+  if (!edited) return <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{stripAbsence(text)}</p>;
+  const note = stripAbsence(edited.note ?? '');
+  return (
+    <p className="[overflow-wrap:anywhere]">
+      <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{stripAbsence(edited.answer)}</span>
+      {note && <span className="mt-1 block text-xs leading-relaxed text-term-sub">{note}</span>}
+    </p>
+  );
+}
+
 /** 物語を4段の流れで。各段の名前は原文の語のまま（推論の本文の一部）。 */
-export function StorySteps({ reader }: { reader: ReaderCase }) {
+export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?: string }) {
   const story = byItem(reader, 'STORY');
   if (!story) return null;
   const steps = splitStory(story.text);
+  if (!steps && detailLineFor(entityId, story)?.hidden) return null;
   return (
-    <Fold id="section-story" title={ANALYSIS_LABELS.STORY} mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
+    <Fold id="section-story" title={UI.GROUP_ORIGIN} defaultOpen mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
       {steps ? (
         <ol className="grid grid-cols-1 gap-x-3 gap-y-2.5 sm:grid-cols-2">
           {steps.map(({ step, body }, i) => (
@@ -197,19 +203,64 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
           ))}
         </ol>
       ) : (
-        <p className="whitespace-pre-line text-sm lg:text-[13px] leading-relaxed text-term-fg">{plainAnalysisText(story.text)}</p>
+        <StoryProse text={plainAnalysisText(story.text)} edited={detailLineFor(entityId, story)} />
       )}
     </Fold>
   );
 }
 
-/** 推測を4つのまとまりに。読む人の問い（どう稼ぐ・誰から・なぜ勝てる・いま真似できるか）の順。 */
-export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[] }> = [
+/** 推測を、読む人の疑問の順に並べる: 結論（成功の秘訣）→ 誰に売る → なぜ始めたか（着想） → 最初の客 → 金の回り → なぜ他に取られないか → 経緯。story は物語の4段（前夜・隙・突破…）をその位置に出す。 */
+export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[]; story?: boolean }> = [
+  { title: UI.GROUP_SECRET, items: ['WHY_IT_WORKED', 'LESSON'] },
+  { title: UI.GROUP_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN'] },
+  { title: UI.GROUP_ORIGIN, items: [], story: true },
+  { title: UI.GROUP_FIRST, items: ['FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
   { title: UI.GROUP_MONEY, items: ['BUSINESS_MODEL', 'PRICING', 'REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH', 'CAPITAL_AND_TEAM'] },
-  { title: UI.GROUP_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN', 'FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
-  { title: UI.GROUP_EDGE, items: ['WHY_IT_WORKED', 'INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
-  { title: UI.GROUP_NOW, items: ['VIABILITY', 'TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
+  { title: UI.GROUP_EDGE, items: ['INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
+  { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE'] },
 ];
+
+/** 「2010年: …。2013年: …。」の形の年表を行に分ける。形が違えば null。 */
+function splitTimeline(text: string): Array<{ when: string; what: string }> | null {
+  const parts = text.split(/。(?=[^。:：]{1,24}[:：])/).map((part) => part.trim().replace(/。$/, '')).filter(Boolean);
+  const rows = parts.map((part) => {
+    const m = part.match(/^([^:：]{1,24})[:：]\s*(.+)$/);
+    return m ? { when: m[1], what: m[2] } : null;
+  });
+  return rows.length >= 2 && rows.every(Boolean) ? (rows as Array<{ when: string; what: string }>) : null;
+}
+
+/** 項目の中身。編集済みの「答え＋補足」があればそれを、無ければ最初の1文を答えとして濃く、続きを薄く小さく出す。年表は行に分ける。 */
+function AnswerText({ analysis, entityId }: { analysis: ReaderAnalysis; entityId?: string }) {
+  const text = plainAnalysisText(analysis.text);
+  const edited = detailLineFor(entityId, analysis);
+  const line = analysis.item === 'TIMELINE' ? edited?.answer ?? text : stripAbsence(edited?.answer ?? text);
+  if (line === '') return null;
+  const timeline = analysis.item === 'TIMELINE' ? splitTimeline(line) : null;
+  if (timeline) {
+    return (
+      <dd className="min-w-0 border-l border-dashed border-term-accent-line pl-2.5">
+        <ol className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-3 gap-y-1">
+          {timeline.map(({ when, what }) => (
+            <li key={`${when}${what}`} className="contents">
+              <span className="term-num text-xs leading-relaxed text-term-label">{when}</span>
+              <span className="text-sm leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">{what}</span>
+            </li>
+          ))}
+        </ol>
+      </dd>
+    );
+  }
+  const end = line.indexOf('。');
+  const head = edited ? line : end >= 0 ? line.slice(0, end + 1) : line;
+  const tail = edited ? stripAbsence(edited.note ?? '') : end >= 0 ? line.slice(end + 1).trim() : '';
+  return (
+    <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 [overflow-wrap:anywhere]">
+      <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{head}</span>
+      {tail && <span className="mt-1 block text-xs leading-relaxed text-term-sub">{tail}</span>}
+    </dd>
+  );
+}
 
 /** 区切りの見える折りたたみ。見出しは大きく太く、背景帯と矢印で「ここから別の話」と分かるようにする。 */
 export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: { id: string; title: string; mark?: React.ReactNode; defaultOpen?: boolean; attrs?: Record<string, string>; children: React.ReactNode }) {
@@ -225,17 +276,36 @@ export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: 
   );
 }
 
-export const GROUP_IDS = ['section-group-money', 'section-group-customers', 'section-group-edge', 'section-group-now'] as const;
+export const GROUP_IDS = ['section-group-secret', 'section-group-customers', 'section-story', 'section-group-first', 'section-group-money', 'section-group-edge', 'section-group-now'] as const;
 
-/** まとまりごとに「項目名（細く）｜中身（主役）」の2列。折りたたみで、最初の「どう稼ぐか」だけ開く。推測は点線の左罫。 */
-export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: OverviewUsage }) {
+/** まとまりごとに「項目名（細く）｜中身（主役）」の2列。全部開いたまま並べる（読む人に開かせない）。推測は点線の左罫。 */
+export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase; usage: OverviewUsage; entityId?: string }) {
   return (
     <>
-      {ANALYSIS_GROUPS.map(({ title, items }, index) => {
-        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item));
+      {ANALYSIS_GROUPS.map(({ title, items, story }, index) => {
+        if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
+        const secrets = title === UI.GROUP_SECRET ? successPointsFor(entityId, reader.facts) : [];
+        if (secrets.length > 0) {
+          return (
+            <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>
+              <ol className="grid grid-cols-1 gap-3">
+                {secrets.map(({ head, body }, i) => (
+                  <li key={head} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
+                    <span className="term-num text-sm text-term-accent">{i + 1}</span>
+                    <div className="min-w-0 [overflow-wrap:anywhere]">
+                      <p className="text-sm font-semibold leading-snug text-term-fg-strong">{head}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-term-sub">{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </Fold>
+          );
+        }
+        const rows = items.filter((item) => !usage.items.has(item)).flatMap((item) => reader.analysis.filter((a) => a.item === item && !detailLineFor(entityId, a)?.hidden && (item === 'TIMELINE' || !isAbsenceOnly(detailLineFor(entityId, a)?.answer ?? plainAnalysisText(a.text)))));
         if (rows.length === 0) return null;
         return (
-          <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen={index === 0}>
+          <Fold key={title} id={GROUP_IDS[index]} title={title} defaultOpen>
             <dl className="divide-y divide-term-line-soft">
               {rows.map((a) => (
                 <div key={a.id} data-analysis={a.id} className="grid grid-cols-1 gap-x-3 gap-y-0.5 py-2 first:pt-0 last:pb-0 sm:grid-cols-[7.5rem_minmax(0,1fr)]">
@@ -243,7 +313,7 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
                     <span>{ANALYSIS_LABELS[a.item]}</span>
                     <InferenceMark analysis={a} />
                   </dt>
-                  <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 text-sm lg:text-[13px] leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</dd>
+                  <AnswerText analysis={a} entityId={entityId} />
                 </div>
               ))}
             </dl>
@@ -254,31 +324,7 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
   );
 }
 
-const GROUP_NAV = [UI.NAV_MONEY, UI.NAV_CUSTOMERS, UI.NAV_EDGE, UI.NAV_NOW] as const;
-
-/** 中身のあるまとまりだけを、目次の小さな札にして並べる（押すと開いてその位置へ）。 */
-export function SectionNav({ reader, usage, hasDetails, hasStory }: { reader: ReaderCase; usage: OverviewUsage; hasDetails: boolean; hasStory: boolean }) {
-  const chips: Array<{ id: string; label: string }> = [];
-  ANALYSIS_GROUPS.forEach(({ items }, index) => {
-    const has = items.some((item) => !usage.items.has(item) && reader.analysis.some((a) => a.item === item));
-    if (has) chips.push({ id: GROUP_IDS[index], label: GROUP_NAV[index] });
-  });
-  if (hasStory) chips.push({ id: 'section-story', label: ANALYSIS_LABELS.STORY });
-  if (hasDetails) chips.push({ id: 'section-details', label: UI.NAV_DETAILS });
-  if (chips.length < 2) return null;
-  const go = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (el instanceof HTMLDetailsElement) el.open = true;
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-  return (
-    <nav aria-label={UI.NAV_ARIA} className="sticky top-0 z-20 flex gap-px overflow-x-auto border-b border-term-line bg-term-line [scrollbar-width:none]">
-      {chips.map(({ id, label }) => (
-        <button key={id} type="button" onClick={() => go(id)} className="min-h-11 shrink-0 bg-term-panel px-3.5 text-sm text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:min-h-8 lg:text-xs">
-          {label}
-        </button>
-      ))}
-    </nav>
-  );
+/** 数字・ひとことの帯と、章の並びの境目。目次の代わりに、1本の太めの区切りだけを置く。 */
+export function SectionGap() {
+  return <div aria-hidden="true" className="h-3 border-b border-term-line bg-term-bg" />;
 }
