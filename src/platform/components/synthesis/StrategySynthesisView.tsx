@@ -3,10 +3,12 @@
 import React from 'react';
 import { FinancialEntity } from '../../types/terminal';
 import { useStrategySynthesis } from '../../hooks/useStrategySynthesis';
+import { openLedgerEntityUrl } from '../../utils/entityUrl';
 import { formatYen } from '../../utils/moneyDisplay';
 import { SynthesisEntitiesSidebar } from './SynthesisEntitiesSidebar';
 import { SynthesisConsolePane } from './SynthesisConsolePane';
 import { IdeaResearchPanel } from './IdeaResearchPanel';
+import { SavedTasteIdeas } from '@/features/saved-ideas';
 
 interface StrategySynthesisViewProps {
   allEntities: FinancialEntity[];
@@ -133,6 +135,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
   return (
     <div className="flex h-full min-h-0 flex-1 flex-col overflow-hidden bg-term-bg">
       <IdeaResearchPanel formatMoney={formatMoney} />
+      <SavedTasteIdeas allEntities={allEntities} bookmarkedIds={bookmarkedIds} onOpenCase={openLedgerEntityUrl} />
       {workspace}
     </div>
   );
