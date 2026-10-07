@@ -195,13 +195,13 @@ export function StorySteps({ reader }: { reader: ReaderCase }) {
 }
 
 /** 推測を、読む人の疑問の順に並べる: 誰に売る → なぜ始めたか（着想） → 最初の客 → 金の回り → なぜ他に取られないか → 経緯。story は物語の4段（前夜・隙・突破…）をその位置に出す。 */
-export const ANALYSIS_GROUPS: Array<{ title: string; nav: string; items: AnalysisItem[]; story?: boolean }> = [
-  { title: UI.GROUP_CUSTOMERS, nav: UI.NAV_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN'] },
-  { title: UI.GROUP_ORIGIN, nav: UI.NAV_ORIGIN, items: [], story: true },
-  { title: UI.GROUP_FIRST, nav: UI.NAV_FIRST, items: ['FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
-  { title: UI.GROUP_MONEY, nav: UI.NAV_MONEY, items: ['BUSINESS_MODEL', 'PRICING', 'REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH', 'CAPITAL_AND_TEAM'] },
-  { title: UI.GROUP_EDGE, nav: UI.NAV_EDGE, items: ['WHY_IT_WORKED', 'INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
-  { title: UI.GROUP_NOW, nav: UI.NAV_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
+export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[]; story?: boolean }> = [
+  { title: UI.GROUP_CUSTOMERS, items: ['CUSTOMER', 'CUSTOMER_PAIN'] },
+  { title: UI.GROUP_ORIGIN, items: [], story: true },
+  { title: UI.GROUP_FIRST, items: ['FIRST_CUSTOMERS', 'CHANNELS', 'REFERRAL'] },
+  { title: UI.GROUP_MONEY, items: ['BUSINESS_MODEL', 'PRICING', 'REVENUE_ESTIMATE', 'COST_STRUCTURE', 'TAKE_HOME', 'UPFRONT_CASH', 'CAPITAL_AND_TEAM'] },
+  { title: UI.GROUP_EDGE, items: ['WHY_IT_WORKED', 'INCUMBENT_BLINDSPOT', 'LOCK_IN', 'COMPETITION', 'DEPENDENCIES', 'TOOLS'] },
+  { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
 /** 区切りの見える折りたたみ。見出しは大きく太く、背景帯と矢印で「ここから別の話」と分かるようにする。 */
@@ -248,28 +248,7 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
   );
 }
 
-/** 中身のあるまとまりだけを、目次の小さな札にして並べる（押すと開いてその位置へ）。 */
-export function SectionNav({ reader, usage, hasDetails, hasStory }: { reader: ReaderCase; usage: OverviewUsage; hasDetails: boolean; hasStory: boolean }) {
-  const chips: Array<{ id: string; label: string }> = [];
-  ANALYSIS_GROUPS.forEach(({ items, nav, story }, index) => {
-    const has = story ? hasStory : items.some((item) => !usage.items.has(item) && reader.analysis.some((a) => a.item === item));
-    if (has) chips.push({ id: GROUP_IDS[index], label: nav });
-  });
-  if (hasDetails) chips.push({ id: 'section-details', label: UI.NAV_DETAILS });
-  if (chips.length < 2) return null;
-  const go = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (el instanceof HTMLDetailsElement) el.open = true;
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-  return (
-    <nav aria-label={UI.NAV_ARIA} className="sticky top-0 z-20 flex gap-px overflow-x-auto border-b border-term-line bg-term-line [scrollbar-width:none]">
-      {chips.map(({ id, label }) => (
-        <button key={id} type="button" onClick={() => go(id)} className="min-h-11 shrink-0 bg-term-panel px-3.5 text-sm text-term-fg hover:bg-term-head hover:text-term-fg-strong lg:min-h-8 lg:text-xs">
-          {label}
-        </button>
-      ))}
-    </nav>
-  );
+/** 数字・ひとことの帯と、章の並びの境目。目次の代わりに、1本の太めの区切りだけを置く。 */
+export function SectionGap() {
+  return <div aria-hidden="true" className="h-3 border-b border-term-line bg-term-bg" />;
 }
