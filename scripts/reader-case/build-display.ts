@@ -359,6 +359,8 @@ function withReaderFlags(repairs: Array<{ id: string; rows: RepairRow[] }>, file
 const EXTRA_DROP = new Map<string, number[]>();
 /** 外からの指摘で文が決まっている行（指揮役・オーナーの決定）。直した文はこれと同じでなければ機械の検査で落とす。確認役は分かりやすさだけを見る */
 const EXTRA_WANT = new Map<string, string>();
+/** 外からの指摘の理由。確認役にも渡し、直した理由（出典で確かめられない数字を落とした等）を踏まえて判定させる */
+const EXTRA_NOTE = new Map<string, string>();
 
 function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, rows: RepairRow[], files: DisplayFiles): { ok: boolean; attempts: number; reasons: string[]; files?: DisplayFiles; adopted?: string[]; held?: string[] } {
   const none = { list: false, summary: false, success: false, chapters: false, detail: [] };
@@ -377,6 +379,8 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     catch (e) { return { ok: false, attempts: attempt, reasons: [`AIの呼び出しに失敗: ${(e as Error).message}`] }; }
     previous = call.value;
     let fixes = ((call.value as { rows?: Array<{ id: string; text: string }> }).rows ?? []).filter((f) => ids.has(f.id));
+    // 文が決まっている行（外からの指摘の want）は、書き手の文でなく決まった文を候補にする。機械の検査と確認役はそのまま通す
+    for (const id of ids) { const want = EXTRA_WANT.get(`${entityId}|${id}`); if (want) fixes = [...fixes.filter((f) => f.id !== id), { id, text: want }]; }
     let applied = applyRepairs(files, entityId, fixes);
     const left = repairRows(entityId, applied.files, unnatural).filter((r) => ids.has(r.id)).map((r) => `${r.id}: まだ関門に落ちる「${r.text.slice(0, 30)}」: ${r.problems.join(' / ')}`);
     const missing = [...ids].filter((id) => !fixes.some((f) => f.id === id)).map((id) => `${id}: 直した文が返っていない`);
@@ -385,7 +389,10 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     // 元の行の数字は、言い回しの直しで落とさない（同じ事例の他の行に残る数字は、重複を外しただけなので許す）
     const shown = repairRows(entityId, applied.files, () => ['行']);
     const lost = fixes.flatMap((f) => {
-      const mayDrop = EXTRA_DROP.get(`${entityId}|${f.id}`) ?? [];
+      // 確かめられない数字を落とす行は、その数字に付いた円換算（「（約…円）」）と年月の部品（12以下）も一緒に消えてよい
+      const dropping = EXTRA_DROP.get(`${entityId}|${f.id}`) ?? [];
+      const before = rows.find((r) => r.id === f.id)?.text ?? '';
+      const mayDrop = dropping.length ? [...dropping, ...(before.match(/（約[^）]*円[^）]*）/g) ?? []).flatMap((y) => extractNumbers(y)), ...extractNumbers(before).filter((n) => n <= 12)] : [];
       const gone = lostNumbers(rows.find((r) => r.id === f.id)?.text ?? '', f.text, shown.filter((r) => r.id !== f.id).map((r) => r.text).join('\n')).filter((n) => !mayDrop.includes(n));
       return gone.length ? [`${f.id}: 元の文の数字 ${gone.join('、')} が消えた。言い回しだけを直し、数字は残す`] : [];
     });
@@ -420,7 +427,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     const heldIds = [...ids].filter((id) => !fixes.some((f) => f.id === id));
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: machine, files: applied.files, adopted: fixes.map((f) => f.id), held: heldIds };
     let review: CallResult;
-    try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: fixes.map((f) => ({ id: f.id, text: f.text, before: rows.find((r) => r.id === f.id)?.text })) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 直しの確認 ${attempt}回目`); }
+    try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: fixes.map((f) => ({ id: f.id, text: f.text, before: rows.find((r) => r.id === f.id)?.text, ...(EXTRA_NOTE.has(`${entityId}|${f.id}`) ? { why: EXTRA_NOTE.get(`${entityId}|${f.id}`) } : {}) })) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 直しの確認 ${attempt}回目`); }
     catch (e) { return { ok: false, attempts: attempt, reasons: [`確認役の呼び出しに失敗: ${(e as Error).message}`] }; }
     const issues = ((review.value as { issues?: Array<{ severity: string; kind?: string; id: string; problem: string; fix: string; phrase?: string }> }).issues ?? []);
     recordCandidates(entityId, issues);
@@ -471,7 +478,7 @@ function main() {
     if (extra) {
       // 外から渡した指摘（出典照合の不合格・指揮役の決定など）を直しの対象に足す。形は [{ entityId, id, problem }]。今の行の文に無い id は捨てる
       const notes = JSON.parse(readFileSync(resolve(extra), 'utf8')) as Array<{ entityId: string; id: string; problem: string; drop?: number[]; want?: string }>;
-      for (const n of notes) { if (n.drop?.length) EXTRA_DROP.set(`${n.entityId}|${n.id}`, n.drop); if (n.want) EXTRA_WANT.set(`${n.entityId}|${n.id}`, n.want); }
+      for (const n of notes) { if (n.drop?.length) EXTRA_DROP.set(`${n.entityId}|${n.id}`, n.drop); if (n.want) EXTRA_WANT.set(`${n.entityId}|${n.id}`, n.want); EXTRA_NOTE.set(`${n.entityId}|${n.id}`, n.problem); }
       repairs = repairs.map(({ id, rows }) => {
         const textOf = new Map(repairRows(id, files, () => ['_']).map((r) => [r.id, r.text]));
         const next = rows.map((r) => ({ ...r, problems: [...r.problems] }));

@@ -62,11 +62,11 @@
           "source": "https://news.ycombinator.com/item?id=8040524"
         },
         {
-          "text": "2014年9月: 資金が尽きかけ、講座を提供する会社One Monthに就職",
+          "text": "資金が尽きかけ、講座を提供する会社One Monthに就職した",
           "source": "https://www.therubyonrailspodcast.com/552"
         },
         {
-          "text": "2016年12月: Hatchbox開始。客の提案で、よく使われるサーバーへの公開手順を自動化した（本人）",
+          "text": "Hatchboxの提供を始めた。客の提案で、よく使われるサーバーへの公開手順を自動化した（本人）",
           "source": "https://www.therubyonrailspodcast.com/552"
         },
         {
@@ -84,7 +84,7 @@
       ],
       "core": [
         {
-          "text": "売る前に、読者のメールとアンケートで需要を確かめる（根拠: 開始前1年のメール収集、2012年のアンケート）",
+          "text": "売る前に、読者のメールとアンケートで需要を確かめる。開始前の1年にブログ読者のメールを集め、アンケートで講座の需要を調べた",
           "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
         },
         {
@@ -120,7 +120,7 @@
           "source": "https://web.archive.org/web/20151024004421/https://gorails.com/pricing"
         },
         {
-          "text": "2017年5月の公式: 月19ドル（約2,850円）・年190ドル（約2.85万円）",
+          "text": "2017年5月の公式: 月19ドル（約2,850円）",
           "source": "https://web.archive.org/web/20170515000000/https://gorails.com/pricing"
         },
         {
@@ -189,7 +189,7 @@
       ],
       "turning": [
         {
-          "text": "前: 2014年3月の公開時はメンター500人。後: 同年9月に1,200人超。7月の相談の70%は2回目以降の客からだった（第三者）",
+          "text": "前: 2014年3月に一般公開。後: 同年9月にはメンターが1,200人超に増えた。7月の相談の70%は2回目以降の客からだった（第三者）",
           "source": "https://mashable.com/2014/09/29/codementor/"
         },
         {
@@ -422,7 +422,7 @@
       ],
       "price": [
         {
-          "text": "2006年ごろ: 月5ドル（約750円）＝10商品から、月125ドル（約1.9万円）＝999商品まで（公式の保存ページ）",
+          "text": "2008年7月の公式ページでは、月5ドル（約750円）で10商品まで、月125ドル（約1.9万円）で999商品まで販売できた（公式の保存ページ）",
           "source": "https://web.archive.org/web/20060601/http://www.e-junkie.com/ej/pricing.htm"
         },
         {
@@ -444,7 +444,7 @@
           "source": "https://wellfedwriter.com/still-love-e-junkie-e-book-sales-websites/"
         },
         {
-          "text": "「問題なく動き、AWeberとPayPalのつながりが気に入った」（Warrior Forum、約2010年、第三者）",
+          "text": "「問題なく動き、AWeberとPayPalのつながりが気に入った」（Warrior Forum、第三者）",
           "source": "https://www.warriorforum.com/main-internet-marketing-discussion-forum/299772-has-anyone-used-e-junkie-wso.html"
         }
       ]
@@ -529,11 +529,11 @@
           "source": "https://www.hunted.space/dashboard/movio-la/launches/talkingphoto-by-movio"
         },
         {
-          "text": "2023年1月: 販売開始（2022年7月29日）から178日で年間の定期売上100万ドル（約1.5億円）（本人）",
+          "text": "販売開始（2022年7月29日）から178日で、年間の定期売上が100万ドル（約1.5億円）に達した（本人）",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
-          "text": "2023年4月4日: 社名をMovioからHeyGenへ変更（本人）",
+          "text": "社名をMovioからHeyGenへ変更した（本人）",
           "source": "https://www.heygen.com/article/movio-rebrands-to-heygen"
         },
         {
@@ -541,7 +541,7 @@
           "source": "https://research.contrary.com/company/heygen"
         },
         {
-          "text": "2024年6月: 年間の定期売上3,500万ドル超（約52.5億円）、有料の法人客4万社超（公式）",
+          "text": "年間の定期売上が3,500万ドル（約52.5億円）を超えた。有料の法人客は4万社を超えた（公式）",
           "source": "https://www.heygen.com/blog/announcing-our-series-a"
         },
         {
@@ -571,7 +571,7 @@
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
-          "text": "販売開始から217日（2023年3月上旬）で、創業者の生活費をまかなえる程度の黒字に（根拠: 本人の記事）",
+          "text": "販売開始から217日で、創業者の生活費をまかなえる程度の黒字になった（根拠: 本人の記事）",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         }
       ],
@@ -662,11 +662,11 @@
       ],
       "timeline": [
         {
-          "text": "2013年3月: 中小企業向けの通話管理MyOperatorを公開（本人）",
+          "text": "開始時: 中小企業向けの通話管理MyOperatorを公開（本人）",
           "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
         },
         {
-          "text": "2013年9月: 登録600人超・有料200社。開始から半年で、入るお金が出るお金を上回った（本人）",
+          "text": "開始から半年: 登録利用者600人超、有料200社。入るお金が出るお金を上回った（本人）",
           "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
         },
         {
@@ -801,7 +801,7 @@
           "source": "https://practicaltypography.com/to-pay-or-not-to-pay.html"
         },
         {
-          "text": "前: 「寄付」という呼び方に指摘を受けた。後: 「読者が作者に直接送るお金」という呼び方に直した（本人）",
+          "text": "前: 「寄付」と呼んでいた。後: 呼ぶのをやめ、読者が作者に直接お金を送る形だと言い換えた（本人）",
           "source": "https://practicaltypography.com/economics-year-one.html"
         }
       ],
@@ -1242,7 +1242,7 @@
           "source": "https://laravelpodcast.com/episodes/89e3758b/transcript"
         },
         {
-          "text": "2018年4月から、実在サイトを作り直す無料動画を5本出した（本人）",
+          "text": "4月から、実在サイトを作り直す無料動画を5本出した（本人）",
           "source": "https://x.com/steveschoger/status/1116062198974042113"
         },
         {
@@ -1352,7 +1352,7 @@
       ],
       "price": [
         {
-          "text": "発売時: 基本版99ドル→79ドル（約1.2万円）、上位版249ドル（約3.7万円）→149ドル（約2.2万円）。発売ツイートは最大40%引き（第三者）",
+          "text": "発売時: 基本版は99ドル（約1.5万円）から79ドル（約1.2万円）に値下げ。上位版は149ドル（約2.2万円）。発売ツイートは最大40%引き（第三者）",
           "source": "https://marketingexamples.com/landing-page/pricing"
         },
         {
