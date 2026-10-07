@@ -1,52 +1,10 @@
 [
  {
   "id": "ent_myoperator_49c393230a2d",
-  "where": "section-group-customers",
-  "rule": "a.出どころの印",
-  "text": "（創業者の見方）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
   "where": "section-reasoning",
   "rule": "a.出どころの印",
   "text": "（YourStory 2016年記事の再掲）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://inc42.com/resources/businesses-manage-calls-myoperator-way/amp/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-turning と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://myoperator.com/about-us",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-timeline と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_myoperator_49c393230a2d",
@@ -175,186 +133,18 @@
   "reason": "事例の文の担当が、略語を言い換えるか説明を添える"
  },
  {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "年商$2M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "同じ記事は競合として、Exotel（2012年にシリーズAで2.5クロール・ルピー）、Knowlarity（2014年7月にSequoia CapitalなどからシリーズBで1,600万ドル）、Ozonetelを挙げる。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "年商1 2015-16年度 $2M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "調達額1 2013年3月の開始時（創業者の自己資金） INR 1.2M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-group-secret",
-  "rule": "a.出どころの印",
-  "text": "（報道）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
   "id": "ent_codementor_ba692caa3db3",
   "where": "section-chapter-core",
   "rule": "a.出どころの印",
   "text": "（根拠: 公開前のHacker News投稿で132点・コメント73件）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Hacker News 2014年3月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（TechCrunch）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（人気の専門家、TechCrunch 2014年3月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-group-edge",
-  "rule": "a.出どころの印",
-  "text": "（報道）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_codementor_ba692caa3db3",
   "where": "section-facts-other",
   "rule": "a.出どころの印",
   "text": "（取材前アンケートの回答）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-turning と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://mashable.com/2014/09/29/codementor/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=5799272",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-timeline と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://techcrunch.com/2013/08/01/codementor/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=5799272",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-timeline と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://techcrunch.com/2013/08/01/codementor/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-turning と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://mashable.com/2014/09/29/codementor/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-timeline と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://techcrunch.com/2015/08/26/codementor-live-classes",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=7380441",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://techcrunch.com/2014/03/11/techstars-backed-codementor-launches-to-provide-programmers-with-one-on-one-help",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_codementor_ba692caa3db3",
@@ -418,118 +208,6 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「をHackerNewsに載せ」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "調達額$1.6M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-group-secret",
-  "rule": "g.外貨に円換算が無い",
-  "text": "それ以前に120万ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-facts-funding",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2016年12月、WI Harper主導でシード160万ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-facts-funding",
-  "rule": "g.外貨に円換算が無い",
-  "text": "それ以前にTechstars、500 Startups、個人から120万ドルを得ていた。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2016-12のシード $1.6M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2016-12までの早期資金（Techstars・500 Startups・個人） $1.2M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-reasoning",
-  "rule": "g.外貨に円換算が無い",
-  "text": "調達額は、TechCrunchの記事にある120万ドルと160万ドルをそのまま載せた。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Indie Hackers 投稿コメント）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-turning と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-turning と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-practice と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/i-was-spending-15-hours-week-answering-what-s-the-status-teamcamp-fixed-it-43c1ec2db7",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
@@ -687,6 +365,13 @@
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
+  "where": "section-chapter-practice / section-chapter-core",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「月400ドル約6万円超約6万」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_teamcamp_ae0c21986c4d",
   "where": "section-chapter-timeline / section-group-edge",
   "rule": "e.同じ話が2か所以上",
   "text": "「るとタスクがレビューへ取り込」",
@@ -700,123 +385,11 @@
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-facts-pricing",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2025年10月7日の本人投稿は、買い切り999ドル（ユーザーも案件も無制限）を、月額の選択肢と並べて4か月試した結果として、売上の約4割が買い切り、買い切りの客は月額の客の3.2倍を紹介、買い切り客の解約はゼロだが問い合わせは多いと書く。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2025年8月19日の本人投稿は、開始から6か月で稼働847チーム、MRR 4,200ドル（年末に10,000ドルが目標）、月の解約率8%、NPS 67と申告。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2025年11月3日の本人投稿は、インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作ったが、Product Huntは23票、初月売上は227ドルだったと書く。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "以後は事業主との直接の会話に切り替え、2か月で継続率が12%から41%、MRRが347ドルから2,100ドルになったという。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2025年9月30日の本人投稿は、3週間の聞き取りで「使いたい」という回答が200件超あり、6か月の毎日の公開開発を経ても、サインアップ43件・有料2件・MRR 18ドルだったと書く。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "以後は、不完全な解決策にすでに払っている人を探し、作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めた。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
   "id": "ent_referralrock_8c13d5ee4cfc",
   "where": "section-group-secret",
   "rule": "a.出どころの印",
   "text": "（対談は1週間）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（CoolBot、選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（SIR Glass、選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://referralrock.com/blog/full-referral-rock-story/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://referralrock.com/blog/full-referral-rock-story/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://saasclub.io/podcast/josh-ho-referral-rock-bootstrapped-saas-217/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://gorelay.co/t/hey-oh-im-josh-founder-ceo-of-referral-rock-ama/738",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://referralrock.com/blog/full-referral-rock-story/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://referralrock.com/blog/full-referral-rock-story/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-chapter-practice と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://referralrock.com/blog/full-referral-rock-story/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_referralrock_8c13d5ee4cfc",
@@ -904,6 +477,13 @@
  },
  {
   "id": "ent_referralrock_8c13d5ee4cfc",
+  "where": "数字の帯「料金」 / section-chapter-price",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「0ドル約3万7500円6か月」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_referralrock_8c13d5ee4cfc",
   "where": "section-group-secret / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「2015年6月に月59ドル約」",
@@ -929,153 +509,6 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「月59ドル約8900円で有料」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "月商$15K",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-facts-pricing",
-  "rule": "g.外貨に円換算が無い",
-  "text": "現在のOperatorプランは月250ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-facts-team",
-  "rule": "g.外貨に円換算が無い",
-  "text": "10月に2人目の営業を雇い、2016年末は顧客170社、3.5人、MRR約15,000ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-facts-event",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2015年6月に月59ドルの有料版を公開し、2日以内に最初の有料客が登録、月末には4社になった。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-facts-event",
-  "rule": "g.外貨に円換算が無い",
-  "text": "数か月で月約2,000ドルのMRRに達し、創業者は専業になった。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "月商1 2016年末のMRR（約） $15K",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "月商1 2015年有料版公開から数か月後のMRR（約） $2,000",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "数字の帯「年商」",
-  "rule": "a.出どころの印",
-  "text": "（インタビュー）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-core",
-  "rule": "a.出どころの印",
-  "text": "（根拠: 本人の説明）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（月5ドルは約750円。作家のブログ、2009年3月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Warrior Forum、約2010年）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-group-edge",
-  "rule": "a.出どころの印",
-  "text": "（2025年1月・公式）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-metrics",
-  "rule": "a.出どころの印",
-  "text": "（インタビュー）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-core と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://allfreelancewriting.com/sell-your-own-information-products-with-e-junkie/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-core と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://allfreelancewriting.com/sell-your-own-information-products-with-e-junkie/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-chapter-practice と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://wellfedwriter.com/still-love-e-junkie-e-book-sales-websites/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
  },
  {
   "id": "ent_ejunkie_7e9e46bd9643",
@@ -1125,181 +558,6 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「月5ドル約750円で10商品」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "年商$1M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-facts-pricing",
-  "rule": "g.外貨に円換算が無い",
-  "text": "競合のGumroadは、直販が1件ごとに10%＋0.50ドル（月額なし）、同社の販売サイト経由は30%。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "Indie Hackersのインタビューは、題で年間の定期売上（ARR）100万ドルへの到達を掲げる。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "年商1 過去ほぼ10年の年平均（インタビュー） $1M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-reasoning",
-  "rule": "g.外貨に円換算が無い",
-  "text": "Gumroad：10ドル×100件＝売上1,000ドル、1,000×0.10＝100ドル、0.50×100＝50ドル、合計150ドル（Gumroadの料金ページの率。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_ejunkie_7e9e46bd9643",
-  "where": "section-reasoning",
-  "rule": "g.外貨に円換算が無い",
-  "text": "E-junkie：公式料金の月8〜40ドル（決済会社の手数料は売り手の負担で別）。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "数字の帯「月商」",
-  "rule": "a.出どころの印",
-  "text": "（記事掲載時のMRR）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-group-secret",
-  "rule": "a.出どころの印",
-  "text": "（6万ドル、創業者の発言）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-turning",
-  "rule": "a.出どころの印",
-  "text": "（Hacker News）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-timeline",
-  "rule": "a.出どころの印",
-  "text": "（152点・コメント55件、投稿は第三者）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Indie Hackers 投稿コメント）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-metrics",
-  "rule": "a.出どころの印",
-  "text": "（記事掲載時のMRR）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://excid3.com/blog/would-you-like-to-become-a-better-programmer",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-turning と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=8040524",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-turning と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.therubyonrailspodcast.com/552",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-turning と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.therubyonrailspodcast.com/552",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/i-made-1-75m-bootstrapping-products-for-developers-ama-e053f2c163",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-timeline と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.failory.com/interview/gorails",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-timeline と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-turning と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.therubyonrailspodcast.com/552",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-turning と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.therubyonrailspodcast.com/552",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-chapter-timeline と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/my-first-1m-as-an-indie-dev-2b1afcf11f",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
  },
  {
   "id": "ent_gorails_640d8f688451",
@@ -1360,128 +618,16 @@
  {
   "id": "ent_gorails_640d8f688451",
   "where": "数字の帯「月商」",
-  "rule": "f.説明のない略語",
-  "text": "MRR: 2021-11（記事掲載時のMRR）",
-  "reason": "事例の文の担当が、略語を言い換えるか説明を添える"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "月商$60K",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-facts-team",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2021年11月時点で月次定期売上（MRR）は約6万ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2020年8月、3つの製品の累計売上が100万ドルに達したと創業者が自ら投稿した。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "月商1 2021-11（記事掲載時のMRR） $60K",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_gorails_640d8f688451",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "累計売上2 〜2020-08（3製品の累計） $1M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
+  "rule": "h.項目名と中身の数字の種類が違う",
+  "text": "月商の欄に、1か月の数字だと分かる期間が無い: $60K（約900万円） 2021-11",
+  "reason": "事例の文の担当が、項目名に合う数字を選ぶ"
  },
  {
   "id": "ent_rfrcui_64e924ac",
   "where": "section-chapter-core",
   "rule": "a.出どころの印",
   "text": "（根拠: 約2年のツイートと記事）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（選別あり）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://laravelpodcast.com/episodes/89e3758b/transcript",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://laravelpodcast.com/episodes/89e3758b/transcript",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-timeline と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://marketingexamples.com/landing-page/pricing",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://laravelpodcast.com/episodes/89e3758b/transcript",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-timeline と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://marketingexamples.com/landing-page/pricing",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-turning と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://refactoringui.com/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-chapter-turning と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://refactoringui.com/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_rfrcui_64e924ac",
@@ -1569,6 +715,13 @@
  },
  {
   "id": "ent_rfrcui_64e924ac",
+  "where": "数字の帯「累計売上」 / section-chapter-timeline",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「累計250万ドル約38億円超」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_rfrcui_64e924ac",
   "where": "section-group-secret / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「1本に2週間近くかけたツイー」",
@@ -1596,144 +749,11 @@
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "累計売上$2.5M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "数字の帯「累計売上」",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2022年9月13日の投稿時点の累計（250万ドル超）",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-facts-pricing",
-  "rule": "g.外貨に円換算が無い",
-  "text": "発売当初の価格は、基本版79ドル・上位版149ドルだった。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "Refactoring UIは2018年12月に書いた本で、2022年9月の投稿時点で累計250万ドル超。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2016年の最初の本は発売初週に61,392ドル、同年のTDD講座は累計100万ドル超、2018年のVue講座は約30万ドルと本人が書いている。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "同記事は、2年分の無料のツイート・動画・記事があったから149ドルを付けられた、と分析している。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_rfrcui_64e924ac",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "累計売上2 2022年9月13日の投稿時点の累計（250万ドル超） $2.5M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-core",
-  "rule": "a.出どころの印",
-  "text": "（根拠: 本人の記事）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（CrystalNinja創業者、Upstarts 2026年6月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（YouTube発信者、Upstarts）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（YouTube発信者、Upstarts）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
   "id": "ent_heygen_8f11a1",
   "where": "section-reasoning",
   "rule": "a.出どころの印",
   "text": "（ARRは2026-06-25時点、2.70は公式の「約」）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://research.contrary.com/company/heygen",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.hunted.space/dashboard/movio-la/launches/talkingphoto-by-movio",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.hunted.space/dashboard/movio-la/launches/talkingphoto-by-movio",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://research.contrary.com/company/heygen",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.heygen.com/blog/0-1m-arr-in-7-months",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_heygen_8f11a1",
@@ -1776,132 +796,6 @@
   "rule": "f.説明のない略語",
   "text": "CG: 前 CG風のアバターは客が付かなかった",
   "reason": "事例の文の担当が、略語を言い換えるか説明を添える"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "一覧",
-  "rule": "g.外貨に円換算が無い",
-  "text": "年換算売上$200M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-facts-event",
-  "rule": "g.外貨に円換算が無い",
-  "text": "公式ブログ（2026-06-25、署名Joshua Xu）は、年間経常収益（ARR）が2億ドルを超え、8か月で倍増したと発表。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "公式Aboutは、従来の動画づくりには撮影機材・俳優・場所・編集・撮り直しが要り、完成した動画の制作費が1分あたり最低1,000ドルになることもあると述べ、台本を書くだけで動画が作れる点を売りにしている。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "同ブログは、調達した株式資本1ドルあたりのARRが約2.70ドルで、ZoomやDatadogの上場時より資本効率が高いと主張する。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "年換算売上1 2026-06-25 $200M",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_heygen_8f11a1",
-  "where": "section-reasoning",
-  "rule": "g.外貨に円換算が無い",
-  "text": "調達した株式資本＝ARR2億ドル÷2.70＝約7,407万ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-group-secret",
-  "rule": "a.出どころの印",
-  "text": "（Hacker News）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Hacker News、2022-03-04）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Hacker News、2022-03-03）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Hacker News、2022-03-03）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/c2b415aafd",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/c2b415aafd",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-turning と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=30540735",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=34968998",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/c2b415aafd",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://www.indiehackers.com/interview/c2b415aafd",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-turning と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=30540735",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-turning と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=30540735",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
  },
  {
   "id": "ent_requestly_28e9f2",
@@ -1975,262 +869,24 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice",
-  "rule": "a.出どころの印",
-  "text": "（2013年7月の保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice",
-  "rule": "a.出どころの印",
-  "text": "（2015年9月の保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-timeline",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-chapter-core",
   "rule": "a.出どころの印",
   "text": "（根拠: 1年目、約450人がフォントの客になったと本人が見積もった）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-chapter-core",
   "rule": "a.出どころの印",
   "text": "（根拠: Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-start",
-  "rule": "a.出どころの印",
-  "text": "（2013年7月の保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-start",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "a.出どころの印",
-  "text": "（保存ページ）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Hacker News、2013年7月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-chapter-voices",
   "rule": "a.出どころの印",
   "text": "（個人ブログ、2013年8月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Cool Tools、2014年1月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Goodreads、2018年1月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Goodreads、2018年11月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-voices",
-  "rule": "a.出どころの印",
-  "text": "（Goodreads、2026年10月）",
-  "reason": "事例の文の担当が、出どころの印を外す（src/shared/origin-tag.ts の対象を広げる）"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-turning",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=6094946",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://daringfireball.net/linked/2013/08/19/buttericks-practical-typography",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://kk.org/cooltools/buttericks-practical-typography/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-turning と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/economics-year-one.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://web.archive.org/web/20150905011158/http://practicaltypography.com/graylist.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-timeline",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-turning と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/economics-year-one.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-timeline と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-core",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-timeline と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/effluents-influence-affluence.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-turning と section-chapter-start",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://practicaltypography.com/economics-year-one.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-price",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://web.archive.org/web/20130727060806/http://practicaltypography.com/how-to-pay-for-this-book.html",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://news.ycombinator.com/item?id=6094946",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice と section-chapter-voices",
-  "rule": "b.同じ出典を章ごとに繰り返す",
-  "text": "https://kk.org/cooltools/buttericks-practical-typography/",
-  "reason": "画面の担当が、出典の番号を章ごとでなく画面全体で1つに振る"
+  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
@@ -2395,13 +1051,6 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-practice / section-chapter-start",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「2013年7月の保存ページ1」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-chapter-practice / section-chapter-timeline / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「DaringFireball」",
@@ -2434,117 +1083,5 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「出版社から紙の本の話が来たが」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "g.外貨に円換算が無い",
-  "text": "119ドルのフォントもある（保存ページ）5",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-price",
-  "rule": "g.外貨に円換算が無い",
-  "text": "全8書体499ドル〜7",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-channel",
-  "rule": "g.外貨に円換算が無い",
-  "text": "1年目（2014年7月末まで）は読者約65万人（アクセス解析の数字）、広告・PR費は0ドルで、すべて口コミ。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "1年目の直接の支払いは321件で合計3,676ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "約230件は10ドル以下で、残りは11〜50ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "1件に25ドルの紹介料を割り当てると約11,250ドルになるが、これは実際の収入額ではない。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "他の収入は小さく、Typography for Lawyersの売上に目立つ変化はなく、他社フォントの紹介は多くて月25〜50ドル程度。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2年続けて、5〜20ドルの直接の支払いより、59〜299ドルのフォントのパッケージに支払う意欲のある読者のほうが約35%多かった。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "広告・PR費は引き続き0ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "直接の支払いは489件で5,472ドルと件数が約2倍になり、フォント取引は310件（25ドルを割り当てて7,750ドル）、合計約13,222ドル。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "本人は平均的なノンフィクションの本を、合計で1,000〜3,000部売れ、著者の取り分は1冊2〜3ドル程度と見ている。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-facts-other",
-  "rule": "g.外貨に円換算が無い",
-  "text": "1年目の直接の支払い3,676ドルは、紙の本なら1,200〜1,800部に当たると書く。",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "直接の支払い（フォントの売上を除く）1 公開1年目（2013年8月〜2014年7月）、321件 $3,676",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "直接の支払い（フォントの売上を除く）2 公開2年目（〜2015年7月）、244件 $3,030",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-metrics",
-  "rule": "g.外貨に円換算が無い",
-  "text": "直接の支払い（フォントの売上を除く）3 公開3年目（〜2016年7月）、489件 $5,472",
-  "reason": "画面の担当が、畳んだ事実・数値と一覧の外貨にも円換算を添える"
  }
 ]

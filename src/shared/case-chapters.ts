@@ -1,6 +1,6 @@
 import chapters from '../../data/case-chapters.json';
 import { textFingerprint } from './list-lines';
-import { stripOriginTag } from './origin-tag';
+import { screenText } from './display-text';
 
 /**
  * 事例ページの追加の章（実際にやったこと・つまずきと立て直し・時間順の流れ・真似るべき戦略の核・出発点・価格の変遷・客の声）。
@@ -37,6 +37,6 @@ export function caseChaptersFor(entityId: string | undefined, facts: ReadonlyArr
   const found = entry.chapters;
   return CHAPTER_IDS.flatMap((id) => {
     const rows = found[id];
-    return rows && rows.length > 0 ? [{ id, rows: rows.map((row) => ({ ...row, text: stripOriginTag(row.text) })) }] : [];
+    return rows && rows.length > 0 ? [{ id, rows: rows.map((row) => ({ ...row, text: screenText(row.text) })) }] : [];
   });
 }

@@ -1,5 +1,6 @@
 import type { ReaderCase, ReaderFact, ReaderMetric, ReaderSource } from './reader-case';
 import { metricWhen } from './metric-when';
+import { stripOriginTag } from './origin-tag';
 import { GENRE_LABELS, MEASURE_LABELS, ORIGIN_LABELS, UI, UNKNOWN_LABELS } from './ui-strings';
 
 /**
@@ -737,6 +738,8 @@ export function withYenApprox(text: string): string {
     if (!rate || !Number.isFinite(high) || high <= 0 || (low !== null && (!Number.isFinite(low) || low <= 0))) continue;
     // 金額のすぐ後ろに英字が続く（読めない桁や別の単位）時は、数字の頭だけを換算しない
     if (/^[A-Za-z]/.test(rest)) continue;
+    // すぐ前が円の額の括弧（「約900万円（6万ドル）」。円が先で外貨が後の並び）なら、もう換算してある
+    if (/円[（(]\s*$/.test(text.slice(0, m.index ?? 0))) continue;
     // すぐ後ろが円の額、または円の額を含む括弧なら、もう換算してある
     if (/^[、,\s]*(?:約|およそ)?[0-9][0-9,.万億]*円/.test(rest) || /^\s*[（(][^）)]*円/.test(rest)) continue;
     // 金額の直前がマイナス記号（-$10・−$10・▲$10）なら、円の額にも同じ符号を付ける（赤字を黒字に見せない）
@@ -749,6 +752,11 @@ export function withYenApprox(text: string): string {
   }
   out.push(text.slice(last));
   return out.join('');
+}
+
+/** 画面に出す文の仕上げ: 出どころの印を外し、外貨の金額に円の概算を添える（どの欄の文にも同じ処理を通す）。 */
+export function screenText(text: string): string {
+  return withYenApprox(stripOriginTag(text));
 }
 
 /** 推測の文末「〜とみる。」「〜と見る。」「〜と推す。」を画面では省く（読む邪魔になるだけ）。前が短すぎる時は元のまま。 */

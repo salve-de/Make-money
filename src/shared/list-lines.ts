@@ -1,4 +1,5 @@
 import lines from '../../data/list-lines.json';
+import { screenText } from './display-text';
 
 /**
  * 一覧の下の1行（何の事業かが一瞬でわかる短い文）。事例データ本体とは別に持つ画面用の編集文で、
@@ -27,5 +28,5 @@ const BY_ENTITY = new Map<string, ListLine>((lines as ListLine[]).map((line) => 
 export function listLineFor(entityId: string | undefined, fact: { id: string; text: string }): string | null {
   const line = entityId ? BY_ENTITY.get(entityId) : undefined;
   if (!line || line.factId !== fact.id || line.factHash !== textFingerprint(fact.text)) return null;
-  return line.text;
+  return screenText(line.text);
 }
