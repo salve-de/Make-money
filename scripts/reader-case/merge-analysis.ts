@@ -47,7 +47,13 @@ async function main() {
     const r = checkCase(entityId, items0, reader, { strictNumbers: true });
     dropped.push(...r.dropped);
     for (const d of r.dropped) byReason[d.reason] = (byReason[d.reason] ?? 0) + 1;
-    const merged = mergeAnalysisItems(result[entityId], r.kept);
+    // 事例の組み立てが変わって根拠の事実IDが消えた既存の項目は、残さない（残すと監査の入力づくりで basis-missing-id になって止まる）
+    const liveIds = new Set([...reader.facts.map((f) => f.id), ...reader.metrics.map((m) => m.id)]);
+    const existing = (result[entityId] ?? []).filter((p) => p.basis.every((b) => liveIds.has(b)));
+    const merged = mergeAnalysisItems(existing, r.kept);
+    if (!r.kept.length && existing.length !== (result[entityId] ?? []).length) {
+      if (existing.length) result[entityId] = existing; else delete result[entityId];
+    }
     if (r.kept.length) {
       result[entityId] = merged.items;
       rawHashes[entityId] = analysisHash(merged.items, verdicts[entityId], auditEvidence(reader, sourceTexts.get(entityId)));

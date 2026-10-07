@@ -19,6 +19,7 @@ import { evaluateForRelease, preparePublicationReader } from './reader-case/publ
 import { loadPublicationInput, readPublicationAudits } from './reader-case/publication-inputs';
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
 import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAnalysis } from './reader-case/case-reflect';
+import { rightsOptions } from './reader-case/load-readers';
 
 // 取り下げた旧表示（出典の無い数字や作文）は内部の監査記録。公開版には入れない
 function withoutWithdrawnSnapshot(entity: FinancialEntity): FinancialEntity {
@@ -107,7 +108,7 @@ for (const entity of publishable) {
   if (!rawRecord) { withheld.noRawRecord++; stamp(entity.id, 'HOLD_NO_RAW'); continue; }
   const reflectHold = reflectHoldReasons(reflectState, entity.id);
   if (reflectHold?.length) { withheld.imported++; stamp(entity.id, 'HOLD_IMPORT', reflectHold.join(' / ')); continue; }
-  const projected = projectReaderCase(rawRecord);
+  const projected = projectReaderCase(rawRecord, rightsOptions(rawRecord as Record<string, unknown>));
   const result = { ...projected, reader: reflectedReader(reflectState, entity.id) ?? projected.reader };
   totals.processDropped += result.stats.processDropped;
   totals.unbound += result.unbound.length;

@@ -20,6 +20,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFile
 import { gunzipSync } from 'node:zlib';
 import { pathToFileURL } from 'node:url';
 import { parseFinancialEntitiesResiliently } from '../../src/shared/financial-entity-schema';
+import ENTITY_SCHEMA from '../../src/shared/schemas/financial-entity.json';
 
 export const ADDITIONS_DIR = 'data/entity-additions';
 export const REVIEW_TAG = '収集事例';
@@ -27,11 +28,178 @@ export const REVIEW_TAG = '収集事例';
 export interface AdditionFile {
   version: 1;
   source: { manifest: string; manifestSha256: string; artifactsDir: string; collectedAt: string };
-  records: { id: string; provenance: { detailsHash: string; artifactSha256: string }; record: Record<string, unknown> }[];
+  records: { id: string; provenance: { detailsHash: string; artifactSha256: string }; workNotes?: string[]; record: Record<string, unknown> }[];
 }
 
 const sha256 = (b: Buffer | string) => createHash('sha256').update(b).digest('hex');
 const host = (u: unknown) => { try { return new URL(String(u)).hostname.replace(/^www\./, '').toLowerCase(); } catch { return ''; } };
+/**
+ * 公式サイトとして名乗っている時だけホストを返す（URL がサイトの入口＝パスが無い時）。
+ * 記事のページ（例 indiehackers.com/post/...）を url に持つ記録は、そのホストの持ち主ではないので、同じ公式サイトの判定に使わない。
+ */
+const officialHost = (u: unknown) => { try { const x = new URL(String(u)); return x.pathname.replace(/\/+$/, '') === '' ? host(u) : ''; } catch { return ''; } };
+
+type Rec = Record<string, unknown>;
+const isObj = (v: unknown): v is Rec => !!v && typeof v === 'object' && !Array.isArray(v);
+
+/**
+ * 調査記録（OWNER_INTENT 3章どおり、分からない数を null・分からない選択肢を空で書いた記録）を、目録の形に合わせる。
+ * 何も作らない: 分からない数は 0 と「未確認」の印の組（docs/research-record/README.md の決まり）、分からない選択肢は UNKNOWN／未審査 RAW に置くだけ。
+ * 変えた欄は返り値の changes に残す（記録の normalizedFromResearch にも書く）。
+ */
+interface SchemaNode { $ref?: string; type?: string | string[]; properties?: Record<string, SchemaNode>; required?: string[]; items?: SchemaNode; definitions?: Record<string, SchemaNode> }
+const SCHEMA_DEFS = (ENTITY_SCHEMA as SchemaNode).definitions ?? {};
+const deref = (n: SchemaNode | undefined): SchemaNode | undefined => (n?.$ref ? SCHEMA_DEFS[n.$ref.split('/').pop()!] : n);
+/** 形の定義をたどり、null の欄を任意なら外す・必須なら型の空の値（文字列 ''・数 0）にする */
+function nullsBySchema(value: unknown, node: SchemaNode | undefined, where: string, changes: string[]): void {
+  const n = deref(node);
+  if (!n) return;
+  if (Array.isArray(value)) { value.forEach((v, i) => nullsBySchema(v, n.items, `${where}${i}.`, changes)); return; }
+  if (!isObj(value) || !n.properties) return;
+  for (const [k, child] of Object.entries(n.properties)) {
+    if (!(k in value)) continue;
+    if (value[k] === null) {
+      const c = deref(child); const t = Array.isArray(c?.type) ? c?.type[0] : c?.type;
+      if (!(n.required ?? []).includes(k)) { delete value[k]; changes.push(`${where}${k}: null→欄を外す`); }
+      else if (t === 'string') { value[k] = ''; changes.push(`${where}${k}: null→''`); }
+      else if (t === 'number') { value[k] = 0; changes.push(`${where}${k}: null→0`); }
+      else if (t === 'array') { value[k] = []; changes.push(`${where}${k}: null→[]`); }
+      continue;
+    }
+    nullsBySchema(value[k], child, `${where}${k}.`, changes);
+  }
+}
+
+/** 調査担当の作業メモ（保存先・台帳・本番表示・一時置き場の話）。事業の観測ではない */
+const WORK_NOTE = /本記録は|一時保存先|中央台帳|R2|本番表示|調査成果/;
+/** 未取得・未確認の断り（観測ではなく、空欄の理由） */
+const UNKNOWN_NOTE = /未取得|未確認|確認できず|確認できない|見つからなかった/;
+
+export function normalizeResearchRecord(input: Rec): { record: Rec; changes: string[]; workNotes: string[] } {
+  const r = structuredClone(input) as Rec;
+  const changes: string[] = [];
+  const num = (o: Rec, k: string, flag: string | null, where: string) => {
+    if (typeof o[k] === 'number') return;
+    if (o[k] !== null && o[k] !== undefined && o[k] !== '') return; // 数でも空でもない値は検査に任せる（勝手に捨てない）
+    o[k] = 0; changes.push(`${where}${k}: 空→0`);
+    if (flag) { o[flag] = true; }
+  };
+  const optNum = (o: Rec, k: string, where: string) => { if (k in o && (o[k] === null || o[k] === '')) { delete o[k]; changes.push(`${where}${k}: 空→欄を外す`); } };
+  const en = (o: Rec, k: string, allowed: string[], fallback: string | null, map: Record<string, string> = {}, where = '') => {
+    const v = o[k];
+    if (typeof v === 'string' && allowed.includes(v)) return;
+    if (typeof v === 'string' && map[v]) { o[k] = map[v]; changes.push(`${where}${k}: ${v}→${map[v]}`); return; }
+    if (v === undefined) return;
+    if (fallback === null) { delete o[k]; changes.push(`${where}${k}: ${JSON.stringify(v)}→欄を外す`); return; }
+    o[k] = fallback; changes.push(`${where}${k}: ${JSON.stringify(v)}→${fallback}`);
+  };
+  const SOURCE_CLASS = ['PRIMARY', 'INDEPENDENT_SECONDARY', 'COMMUNITY', 'MODEL'];
+  const SC_MAP = { SECONDARY: 'INDEPENDENT_SECONDARY', OFFICIAL: 'PRIMARY' };
+
+  en(r, 'scale', ['SOLO', 'SMALL_TEAM', 'SCALEUP', 'ENTERPRISE', 'UNKNOWN'], 'UNKNOWN');
+  // 調査段の「要審査・未審査・空」は、目録では PARTIAL（公開の候補。承認済み PUBLISHABLE にはしない）。
+  // 公開してよいかは後の段（照合・監査・出典の利用条件・画像・選別）が決める。RAW にすると選別の入口で必ず落ち、後の段の審査に届かない
+  // 調査段の RAW は「公開審査をまだ通していない」の意味（調査メモの定義）。目録の RAW（公開候補にしない）とは別物なので PARTIAL にそろえる
+  if (r.publishability === 'RAW') { r.publishability = 'PARTIAL'; changes.push('publishability: RAW（調査段の未審査）→PARTIAL'); }
+  en(r, 'publishability', ['PUBLISHABLE', 'PARTIAL', 'RAW', 'ARCHIVED', 'REJECTED_AS_CASE'], 'PARTIAL', { REVIEW_REQUIRED: 'PARTIAL', UNREVIEWED: 'PARTIAL' });
+  num(r, 'growthRateYoY', 'isGrowthUnconfirmed', '');
+  if (typeof r.unknownsNotes === 'string') {
+    r.unknownsNotes = r.unknownsNotes.split(/／|\n/).map((s) => s.trim()).filter(Boolean);
+    changes.push('unknownsNotes: 文字列→配列');
+  }
+  if (isObj(r.pnl)) {
+    const p = r.pnl;
+    const flags: Record<string, string> = {
+      monthlyRevenue: 'isRevenueUnconfirmed', cogs: 'isCogsUnconfirmed', grossProfit: 'isGrossProfitUnconfirmed', grossMargin: 'isGrossMarginUnconfirmed',
+      operatingProfit: 'isOperatingProfitUnconfirmed', operatingMargin: 'isMarginUnconfirmed', estimatedAnnualNetProfit: 'isNetProfitUnconfirmed',
+    };
+    for (const [k, f] of Object.entries(flags)) num(p, k, f, 'pnl.');
+    if (isObj(p.operatingExpenses)) {
+      for (const k of ['serverAndApi', 'advertising', 'subcontracting', 'toolsAndSaaS', 'other']) num(p.operatingExpenses, k, null, 'pnl.operatingExpenses.');
+      if (changes.some((c) => c.startsWith('pnl.operatingExpenses.'))) p.isCostsUnconfirmed = true;
+    }
+    en(p, 'sourceClass', SOURCE_CLASS, null, SC_MAP, 'pnl.');
+    // 損益の欄には、どの資料を見てその状態（UNAVAILABLE など）にしたかの所在が要る（check-index-safety）。
+    // 空の時は、調査で開いた出典のうち公式サイトの1件目（無ければ1件目）を置く。数字は作らない
+    if (typeof p.sourceDoc !== 'string' || !p.sourceDoc.trim()) {
+      const srcs = ((r.reaudit as { sources?: { url?: string }[] } | undefined)?.sources ?? []).map((s) => s.url).filter((u): u is string => typeof u === 'string' && /^https?:\/\//.test(u));
+      const official = host(r.officialUrl ?? r.url);
+      const doc = srcs.find((u) => official && host(u) === official) ?? srcs[0];
+      if (doc) { p.sourceDoc = doc; changes.push(`pnl.sourceDoc: 空→${doc}`); }
+    }
+  }
+  if (isObj(r.operations)) {
+    const o = r.operations;
+    num(o, 'teamSize', 'isTeamSizeUnconfirmed', 'operations.');
+    num(o, 'weeklyHours', 'isWeeklyHoursUnconfirmed', 'operations.');
+    num(o, 'initialCapitalRequired', 'isCapitalUnconfirmed', 'operations.');
+    num(o, 'automationLevel', 'isAutomationUnconfirmed', 'operations.');
+    optNum(o, 'initialTeamSize', 'operations.');
+    optNum(o, 'currentTeamSize', 'operations.');
+    if (Array.isArray(o.toolStack) && o.toolStack.some((t) => typeof t === 'string')) {
+      // 文字列で書いた道具は、名前と括弧の補足（用途）に分けるだけ。費用は分からないので 0＋未確認
+      o.toolStack = o.toolStack.map((t) => {
+        if (typeof t !== 'string') return t;
+        const m = t.match(/^(.*?)\s*[（(](.+)[）)]\s*$/);
+        return { name: (m ? m[1] : t).trim(), category: 'UNKNOWN', monthlyCost: 0, isCostUnconfirmed: true, ...(m ? { purpose: m[2].trim() } : {}) };
+      });
+      changes.push('operations.toolStack: 文字列→名前と用途');
+    }
+  }
+  if (isObj(r.strategy)) en(r.strategy, 'moatType', ['COUNTER_POSITIONING', 'SWITCHING_COST', 'NETWORK_EFFECT', 'CORNERED_RESOURCE', 'SCALE_ECONOMIES', 'BRAND_PRESTIGE', 'PROCESS_POWER', 'UNKNOWN'], 'UNKNOWN', {}, 'strategy.');
+  if (Array.isArray(r.evidenceCards)) {
+    const types = ['THE_CRIME', 'SMOKING_GUN', 'DIRTY_GENESIS', 'ASYMMETRIC_LEVERAGE', 'INCUMBENT_TRAP', 'FATAL_BLEED', 'LOOT_BLUEPRINT', 'UNKNOWN_AUDIT'];
+    r.evidenceCards.forEach((c, i) => {
+      if (!isObj(c)) return;
+      en(c, 'type', types, 'UNKNOWN_AUDIT', {}, `evidenceCards.${i}.`);
+      en(c, 'sourceClass', SOURCE_CLASS, null, SC_MAP, `evidenceCards.${i}.`);
+    });
+  }
+  // 観測欄（画面の型外の欄に出る）に入った調査担当の作業メモ・未取得の断りを、読む人向けの観測から外す。
+  // 作業メモ（保存先・台帳・本番表示の話）は記録の外の workNotes へ、未取得・未確認の断りは unknownsNotes へ移す（消さない）
+  const workNotes: string[] = [];
+  if (Array.isArray(r.observations)) {
+    const keep: unknown[] = [];
+    for (const o of r.observations) {
+      // 観測を {type|kind, text} の形で書いた記録は、文に直す（「調査範囲」「収集の境界」は作業メモ）
+      if (isObj(o) && typeof o.text === 'string') {
+        const label = String(o.kind ?? o.type ?? '');
+        if (/調査範囲|収集の境界|作業/.test(label)) { workNotes.push(o.text); changes.push('observations: 作業メモ→workNotes'); continue; }
+        keep.push(o.text); changes.push('observations: 形→文'); continue;
+      }
+      // 文の無い構造の観測: 空欄の理由（gap）は unknownsNotes へ、画像などの材料の所在は記録の外の workNotes へ（消さない）
+      if (isObj(o)) {
+        if (typeof o.gap === 'string') {
+          r.unknownsNotes = [...(Array.isArray(r.unknownsNotes) ? r.unknownsNotes : []), `${o.domain ? `${String(o.domain)}: ` : ''}${o.gap}`];
+          changes.push('observations: 空欄の理由→unknownsNotes');
+        } else { workNotes.push(JSON.stringify(o)); changes.push('observations: 材料の所在→workNotes'); }
+        continue;
+      }
+      const t = typeof o === 'string' ? o : '';
+      if (t && WORK_NOTE.test(t)) { workNotes.push(t); changes.push('observations: 作業メモ→workNotes'); continue; }
+      if (t && UNKNOWN_NOTE.test(t)) {
+        r.unknownsNotes = [...(Array.isArray(r.unknownsNotes) ? r.unknownsNotes : []), t];
+        changes.push('observations: 未取得の断り→unknownsNotes'); continue;
+      }
+      keep.push(o);
+    }
+    r.observations = keep;
+  }
+  // 本質（essence）の3つの欄は、1つでも空だと画面が崩れるので検査で落ちる（check-ingest-quality）。
+  // 全部空なら欄を外し、一部だけ書かれていれば書かれた分を essencePartial に移して欄を外す（作文で埋めない）
+  if (isObj(r.essence)) {
+    const e = r.essence; const keys = ['whatItDoes', 'targetCustomer', 'painRelief'];
+    const filled = keys.filter((k) => typeof e[k] === 'string' && (e[k] as string).trim());
+    if (filled.length < keys.length) {
+      if (filled.length) r.essencePartial = Object.fromEntries(filled.map((k) => [k, e[k]]));
+      delete r.essence; changes.push(`essence: 空欄あり→${filled.length ? 'essencePartial へ移して' : ''}欄を外す`);
+    }
+  }
+  // 残りの空値（null）は、目録の形の定義に合わせて一律に扱う: 任意の欄は外し、必須の文字列は空文字、必須の数は 0（数の欄の未確認の印は上で付けた）
+  nullsBySchema(r, ENTITY_SCHEMA as SchemaNode, '', changes);
+  if (changes.length) r.normalizedFromResearch = changes;
+  return { record: r, changes, workNotes };
+}
 
 interface PackSource { id: string; kind?: string; publisher?: string; title?: string; url?: string; checkedAt?: string }
 
@@ -88,8 +256,9 @@ export function collectFromResearch(researchPath: string, now = new Date()): Add
   const raw = JSON.parse(text) as unknown;
   const list = (Array.isArray(raw) ? raw : [raw]) as Record<string, unknown>[];
   if (!list.length) throw new Error('記録が1件も無い');
-  const records: AdditionFile['records'] = list.map((input) => {
-    const { reader: _reader, ...record } = input;
+  const records: AdditionFile['records'] = list.map((raw) => {
+    const norm = normalizeResearchRecord(raw);
+    const { reader: _reader, ...record } = norm.record;
     void _reader;
     const id = String(record.id ?? '');
     if (!/^ent_[\w-]+$/.test(id)) throw new Error(`id が ent_ で始まらない: ${id}`);
@@ -107,7 +276,7 @@ export function collectFromResearch(researchPath: string, now = new Date()): Add
         id: String(i + 1), url: s.url, publisher: s.publisher, checkedAt: s.checkedAt, kind: official && host(s.url) === official ? 'OFFICIAL' : 'OTHER',
       })));
     }
-    return { id, provenance: { detailsHash: sha256(JSON.stringify(record)), artifactSha256: sha256(text) }, record };
+    return { id, provenance: { detailsHash: sha256(JSON.stringify(record)), artifactSha256: sha256(text) }, ...(norm.workNotes.length ? { workNotes: norm.workNotes } : {}), record };
   });
   const parsed = parseFinancialEntitiesResiliently(records.map((r) => r.record));
   if (parsed.invalidEntities.length) throw new Error(`形式の検査に通らない記録がある: ${JSON.stringify(parsed.invalidEntities).slice(0, 800)}`);
@@ -117,14 +286,15 @@ export function collectFromResearch(researchPath: string, now = new Date()): Add
 /** 目録に足す。足した id と、足さなかった id（理由）を返す。既存の記録は変えない */
 export function mergeInto(index: Record<string, unknown>[], additions: AdditionFile[]): { next: Record<string, unknown>[]; added: string[]; skipped: { id: string; reason: string }[] } {
   const ids = new Set(index.map((e) => String(e.id)));
-  const hosts = new Map(index.map((e) => [host(e.url), String(e.id)] as const).filter(([h]) => h));
+  // 同じ公式サイトの判定は、双方が url にサイトの入口を持つ時だけ（記事ページを url に持つ記録は持ち主ではない）
+  const hosts = new Map(index.map((e) => [officialHost(e.url), String(e.id)] as const).filter(([h]) => h));
   const added: string[] = [];
   const skipped: { id: string; reason: string }[] = [];
   const next = [...index];
   for (const file of additions) {
     for (const { id, record } of file.records) {
       if (ids.has(id)) { skipped.push({ id, reason: '同じ id が既にある' }); continue; }
-      const h = host(record.url);
+      const h = officialHost(record.url);
       if (h && hosts.has(h)) { skipped.push({ id, reason: `同じ公式サイトの事例が既にある: ${hosts.get(h)}` }); continue; }
       next.push(record);
       ids.add(id);
