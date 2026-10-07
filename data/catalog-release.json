@@ -4,14 +4,26 @@
   "sourceCount": 3354,
   "publishedCount": 10,
   "summaries": {
-    "hash": "b7b6d37de5c1fa1fbd75fd9d15ad0f3bb1fc752dd1c304ccd3e8e791215638df",
-    "key": "views/make-money/catalog-v1/objects/b7b6d37de5c1fa1fbd75fd9d15ad0f3bb1fc752dd1c304ccd3e8e791215638df.json.gz"
+    "hash": "8d92109fe3594ff3fb5aa4ec375e11e7e3719738f6d504def39c1ef79ca03743",
+    "key": "views/make-money/catalog-v1/objects/8d92109fe3594ff3fb5aa4ec375e11e7e3719738f6d504def39c1ef79ca03743.json.gz"
   },
   "discovery": {
-    "hash": "d20bfe9f0c3665230f476306a58010d4b2efe752341760993eab65912a1a13dd",
-    "key": "views/make-money/catalog-v1/objects/d20bfe9f0c3665230f476306a58010d4b2efe752341760993eab65912a1a13dd.json.gz"
+    "hash": "41a0f93282d2b5f6f5365fa49d390e2319716f9bac6d3cb3c0fb3d15639f545a",
+    "key": "views/make-money/catalog-v1/objects/41a0f93282d2b5f6f5365fa49d390e2319716f9bac6d3cb3c0fb3d15639f545a.json.gz"
   },
   "details": {
+    "ent_myoperator_49c393230a2d": "57eaa31075b4baf1e7e6e97caffbaef4c33ef889bbcd14712f4a2d08448c7d15",
+    "ent_codementor_ba692caa3db3": "b678e1dc5c339b9492988dd247ae93380765227fa2d6bf621440669da8efc418",
+    "ent_teamcamp_ae0c21986c4d": "bc00b371ac2b53ba190195e5f9909ded3562fcb444e9fc7edf1982cd1fbea718",
+    "ent_referralrock_8c13d5ee4cfc": "8f0ac052bc00f3e6bd6da6481f4d30257c8aae5eebd8774106dd3f21aed3d057",
+    "ent_ejunkie_7e9e46bd9643": "ae23736d02d6a36a91a7b044dce45ac6d7c3f2617ad829464d0f519bd4d54024",
+    "ent_gorails_640d8f688451": "76109ba89c5061ffe93062ee244490a3f19f983b92ec3e6d846764e7bf80e9c6",
+    "ent_rfrcui_64e924ac": "21ecfceeff72d900f9908a1895abe1c5fea45ed18082d076a304080be31bb529",
+    "ent_heygen_8f11a1": "0a525aef15b71d51ba830a1c2e03502d7eb35c1c85c53f086be1481395ba313a",
+    "ent_requestly_28e9f2": "2f0d63477a6d1a0194877f9169aa23274e4368b00dffb8ebcd93d9cc9c0e4113",
+    "ent_practicaltypographycom_e9aa6bc94ccf": "5af9bea27ab7d02507dcd732c43f61dfe29269f6d8c45c217f9742b5177630f7"
+  },
+  "coreDetails": {
     "ent_myoperator_49c393230a2d": "d358715c82e64e52fe6334755f5f114610c21f0ba2f185bcf338e3120390b388",
     "ent_codementor_ba692caa3db3": "9e2421c9a33dcc80223947e1098c1da5092aa1a478f30494b518478177df7052",
     "ent_teamcamp_ae0c21986c4d": "89ba6acdce17fcb059e349b8ff0e4a97534674d6adc5bb4147e2fed47fb63349",
