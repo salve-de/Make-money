@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import type { Caller } from '../agent-call';
+import { StallError, type Caller } from '../agent-call';
 import { runCases, type Exec } from '../case-run';
 import { STAGES } from './runner';
 
@@ -138,6 +138,22 @@ test('AIの呼び出しは同時に concurrency 本までで、束が3本なら3
   const inner2 = fakeCaller(root2, []);
   await runCases(opts(root2), { exec: fakeExec(root2, []), caller: async (req) => { running++; peak = Math.max(peak, running); await new Promise((r) => setTimeout(r, 20)); try { return await inner2(req); } finally { running--; } } });
   assert.equal(peak, 3);
+});
+
+test('AIが固まった件だけ失敗にして、ほかの件は最後まで進む', async () => {
+  const root = setupRoot();
+  const inner = fakeCaller(root, []);
+  const caller: Caller = async (req) => {
+    const [stage, name] = req.label.split(' ') as ['verify' | 'analyze' | 'audit', string];
+    const bundle = JSON.parse(readFileSync(join(root, STAGES[stage].bundleDir, `${name}.json`), 'utf8'));
+    if (stage === 'verify' && bundle.cases[0].entityId === 'fx-002') throw new StallError('claude が固まった（偽）');
+    return inner(req);
+  };
+  const s = await runCases(opts(root), { exec: fakeExec(root, []), caller });
+  assert.deepEqual(s.passed.sort(), ['fx-001', 'fx-003']);
+  const f = s.failures.find((x) => x.id === 'fx-002');
+  assert.equal(f?.stage, 'verify');
+  assert.match(f?.reason ?? '', /固まった/);
 });
 
 test('監査の入力を組めない事例が1件あっても、ほかの事例は監査まで進む', async () => {

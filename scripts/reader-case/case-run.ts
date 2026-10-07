@@ -4,7 +4,7 @@
  *   pnpm case:run --ids a,b,c            （公開はしない。公開データの作成まで）
  *   pnpm case:run --ids-file <file>      （事例IDを1行に1つ書いたファイル）
  *   pnpm case:run --ids a --publish      （最後に今の catalog:publish を呼ぶ。R2 への書き込みと本番反映は catalog:publish の中身に従う）
- *   オプション: --from <段>（その段から始める。段の名前は下）  --concurrency N（同時に流す束・事例の数。既定4）  --agent claude|codex|auto  --model <型>  --codex-effort low|medium|high
+ *   オプション: --from <段>（その段から始める。段の名前は下）  --stall-minutes N（出力も CPU の動きも無いまま N 分で固まったとみなし、止めて1回やり直す。既定10。やり直しても固まればその件だけ失敗）  --concurrency N（同時に流す束・事例の数。既定4）  --agent claude|codex|auto  --model <型>  --codex-effort low|medium|high
  *              --run-id <名前>  --max-attempts N（束ごとの拒否の上限。既定3）
  *
  * 段（この順）:
@@ -289,7 +289,7 @@ export function formatSummary(s: CaseRunSummary): string {
 }
 
 // ---------- コマンド ----------
-function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: string; effort?: string } {
+function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: string; effort?: string; stallMinutes: number } {
   const val = (n: string): string | undefined => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : undefined; };
   const idsArg = val('--ids');
   const idsFile = val('--ids-file');
@@ -302,6 +302,7 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
   return {
     root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'),
     from: val('--from'),
+    stallMinutes: Number(val('--stall-minutes') ?? 10),
     runId: val('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15),
     maxAttempts: val('--max-attempts') ? Number(val('--max-attempts')) : undefined,
     agent, model, effort,
@@ -313,7 +314,7 @@ async function main(): Promise<number> {
   const o = parseArgs(process.argv.slice(2));
   const agent: Agent = pickAgent((o.agent as Agent | 'auto' | undefined), (t) => console.log(`[case:run] ${t}`));
   const exec = makeExec(ROOT, join(ROOT, 'data/pipeline/case-run', o.runId, 'logs'));
-  const summary = await runCases(o, { exec, caller: makeCaller(agent, { model: o.model, codexEffort: o.effort }) });
+  const summary = await runCases(o, { exec, caller: makeCaller(agent, { model: o.model, codexEffort: o.effort, idleMs: o.stallMinutes * 60_000 }) });
   console.log(formatSummary(summary));
   writeFileSync(join(ROOT, 'data/pipeline/case-run', o.runId, 'summary.json'), JSON.stringify(summary, null, 1));
   return summary.ok ? 0 : 1;

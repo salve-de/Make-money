@@ -25,6 +25,8 @@ export interface AgentOptions {
   /** codex の考える深さ */
   codexEffort?: string;
   timeoutMs?: number;
+  /** 出力も CPU の動きも無いまま固まったとみなすまでの時間（既定 10 分） */
+  idleMs?: number;
 }
 
 /** build-display.ts の pickAgent と同じ決め方。環境変数は DISPLAY_BUILD_AGENT（同じ既定を共有する） */
@@ -37,31 +39,70 @@ export function pickAgent(want: Agent | 'auto' | undefined = undefined, log: (t:
   return 'codex';
 }
 
-interface Run { status: number | null; stdout: string; stderr: string; timedOut: boolean }
-function run(cmd: string, args: string[], input: string, cwd: string, timeoutMs: number): Promise<Run> {
+export interface Run { status: number | null; stdout: string; stderr: string; timedOut: boolean; stalled: boolean }
+export interface WatchOptions { timeoutMs: number; /** 出力も CPU の動きも無いまま、この時間が過ぎたら固まったとみなして止める */ idleMs: number; pollMs?: number }
+
+/** ps で子の CPU 時間（秒）を読む。読めなければ null */
+function cpuSeconds(pid: number | undefined): number | null {
+  if (!pid) return null;
+  const r = spawnSync('ps', ['-o', 'cputime=', '-p', String(pid)], { encoding: 'utf8' });
+  const t = r.stdout.trim();
+  if (r.status !== 0 || !t) return null;
+  return t.split(':').reduce((acc, x) => acc * 60 + parseFloat(x), 0);
+}
+
+/**
+ * 子を流す。入力は書き込んだらすぐ閉じる（入力待ちで固まらない）。
+ * 出力（stdout/stderr）も CPU 時間の増加も idleMs の間まったく無ければ、固まったとみなして止める。
+ */
+export function run(cmd: string, args: string[], input: string, cwd: string, w: WatchOptions): Promise<Run> {
   return new Promise((resolve, reject) => {
     const child = spawn(cmd, args, { cwd, stdio: ['pipe', 'pipe', 'pipe'] });
-    let stdout = ''; let stderr = ''; let timedOut = false;
-    const timer = setTimeout(() => { timedOut = true; child.kill('SIGKILL'); }, timeoutMs);
-    child.stdout.on('data', (d) => { stdout += d; });
-    child.stderr.on('data', (d) => { stderr += d; });
-    child.on('error', (e) => { clearTimeout(timer); reject(e); });
-    child.on('close', (status) => { clearTimeout(timer); resolve({ status, stdout, stderr, timedOut }); });
+    let stdout = ''; let stderr = ''; let timedOut = false; let stalled = false;
+    let lastActive = Date.now(); let lastCpu = -1;
+    const started = Date.now();
+    const poll = setInterval(() => {
+      const cpu = cpuSeconds(child.pid);
+      if (cpu !== null && cpu !== lastCpu) { lastCpu = cpu; lastActive = Date.now(); }
+      if (Date.now() - started > w.timeoutMs) { timedOut = true; child.kill('SIGKILL'); }
+      else if (Date.now() - lastActive > w.idleMs) { stalled = true; child.kill('SIGKILL'); }
+    }, w.pollMs ?? 5000);
+    const touch = (): void => { lastActive = Date.now(); };
+    child.stdout.on('data', (d) => { stdout += d; touch(); });
+    child.stderr.on('data', (d) => { stderr += d; touch(); });
+    child.on('error', (e) => { clearInterval(poll); reject(e); });
+    child.on('close', (status) => { clearInterval(poll); resolve({ status, stdout, stderr, timedOut, stalled }); });
     child.stdin.on('error', () => { /* 子が先に終わった */ });
     child.stdin.end(input);
   });
 }
 
+export class StallError extends Error {}
+
+/** 固まったら 1 回だけやり直す。やり直しても固まれば StallError を投げる（その件だけ失敗にして次へ進ませる） */
+export async function withStallRetry<T>(once: () => Promise<T>, retries = 1): Promise<T> {
+  for (let i = 0; ; i++) {
+    try { return await once(); } catch (e) {
+      if (!(e instanceof StallError) || i >= retries) throw e;
+    }
+  }
+}
+
 /** 実際に claude / codex を呼ぶ Caller を作る */
 export function makeCaller(agent: Agent, opt: AgentOptions = {}): Caller {
-  const timeoutMs = opt.timeoutMs ?? 20 * 60_000;
-  return async ({ system, user, label }) => {
+  const watch: WatchOptions = { timeoutMs: opt.timeoutMs ?? 20 * 60_000, idleMs: opt.idleMs ?? 10 * 60_000 };
+  return (req) => withStallRetry(() => callOnce(agent, opt, watch, req));
+}
+
+async function callOnce(agent: Agent, opt: AgentOptions, watch: WatchOptions, { system, user, label }: AskRequest): Promise<AskResult> {
+  {
     const started = Date.now();
     const empty = mkdtempSync(join(tmpdir(), 'case-run-agent-'));
     try {
       if (agent === 'claude') {
         const args = ['-p', '--output-format', 'json', '--tools', '', '--safe-mode', '--strict-mcp-config', '--no-session-persistence', '--system-prompt', system, ...(opt.model ? ['--model', opt.model] : [])];
-        const r = await run('claude', args, user, empty, timeoutMs);
+        const r = await run('claude', args, user, empty, watch);
+        if (r.stalled) throw new StallError(`claude が固まった（${label}）`);
         if (r.timedOut) throw new Error(`claude が時間切れ（${label}）`);
         let j: { is_error?: boolean; result?: string; total_cost_usd?: number; usage?: { input_tokens?: number; output_tokens?: number; cache_read_input_tokens?: number; cache_creation_input_tokens?: number } } = {};
         try { j = JSON.parse(r.stdout || '{}'); } catch { /* 下で失敗にする */ }
@@ -72,7 +113,8 @@ export function makeCaller(agent: Agent, opt: AgentOptions = {}): Caller {
       const outFile = join(empty, 'out.txt');
       writeFileSync(join(empty, '.keep'), '');
       const args = ['exec', '--skip-git-repo-check', '--ephemeral', '-s', 'read-only', '-o', outFile, '--json', '-C', empty, ...(opt.model ? ['-m', opt.model] : []), ...(opt.codexEffort ? ['-c', `model_reasoning_effort=${opt.codexEffort}`] : []), '-'];
-      const r = await run('codex', args, `${system}\n\n${user}\n\nツールやコマンドは使わず、指定の形の JSON だけを返す。`, empty, timeoutMs);
+      const r = await run('codex', args, `${system}\n\n${user}\n\nツールやコマンドは使わず、指定の形の JSON だけを返す。`, empty, watch);
+      if (r.stalled) throw new StallError(`codex が固まった（${label}）`);
       if (r.timedOut) throw new Error(`codex が時間切れ（${label}）`);
       if (r.status !== 0 || !existsSync(outFile)) throw new Error(`codex が失敗（${label}）: ${(r.stderr || r.stdout).slice(-300)}`);
       const tokens = { input: 0, output: 0 };
@@ -81,5 +123,5 @@ export function makeCaller(agent: Agent, opt: AgentOptions = {}): Caller {
       }
       return { text: readFileSync(outFile, 'utf8'), seconds: (Date.now() - started) / 1000, tokens };
     } finally { rmSync(empty, { recursive: true, force: true }); }
-  };
+  }
 }
