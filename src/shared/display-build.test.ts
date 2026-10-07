@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  applyRepairs, repairRows, assembleDisplay, buildMaterial, liveSuccessPoints, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers, lostNumbers,
+  applyRepairs, repairRows, assembleDisplay, buildMaterial, liveSuccessPoints, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers, lostNumbers, blameRows,
   type AiOutput, type DisplayFiles, type DisplayNeed, type LiveReader,
 } from './display-build';
 import { textFingerprint } from './list-lines';
@@ -143,6 +143,21 @@ describe('数字の突き合わせ', () => {
     expect(lostNumbers('新規契約の報酬35%を3か月払う', 'その契約の料金の35%を3か月間払う', '')).toEqual([]);
     expect(lostNumbers('資金あたりの定期収入が約2.7倍', '資金を効率よく使えた', '定期売上の1年換算額は調達資金の約2.7倍')).toEqual([]);
     expect(lostNumbers('月500ドル（約7.5万円）', '1か月に500ドル（約7.5万円）', '')).toEqual([]);
+  });
+
+  it('機械の検査の指摘を、直した行の id に戻す（戻せない指摘があれば null）', () => {
+    const files = { ...empty(), 'success-points': [{ entityId: 'e1', points: [{ head: 'h', body: 'b', factId: 'f1', factHash: 'x' }, { head: 'h2', body: 'b2', factId: 'f9', factHash: 'y' }] }] };
+    const ids = ['list', 'detail.a-channels.answer', 'detail.a-channels.note', 'success.1.head', 'chapters.core.1', 'chapters.core.3', 'chapters.price.0'];
+    expect([...blameRows(['detail-lines e1/a-channels answer: 61字（上限60）'], ids, files, 'e1')!]).toEqual(['detail.a-channels.answer']);
+    expect([...blameRows(['success-points e1/f9 head: 意味が取れない言い方'], ids, files, 'e1')!]).toEqual(['success.1.head']);
+    expect([...blameRows(['case-chapters e1/core text: 同じ話'], ids, files, 'e1')!].sort()).toEqual(['chapters.core.1', 'chapters.core.3']);
+    expect([...blameRows(['list-lines e1 text: 46字', 'chapters.price.0: 元の文の数字 35 が消えた', 'detail.a-x.answer: 直した文が返っていない'], ids, files, 'e1')!].sort()).toEqual(['chapters.price.0', 'list']);
+    expect(blameRows(['case-chapters e1: 元の事実との紐付けが合っていない'], ids, files, 'e1')).toBeNull();
+    expect(blameRows(['detail-lines e2/a-channels answer: 61字'], ids, files, 'e1')).toBeNull();
+    // 同じ事実から作った点が2つある時は、どちらも戻す（後ろの点だけを直した時も戻せる）
+    const twin = { ...empty(), 'success-points': [{ entityId: 'e1', points: [{ head: 'a', body: 'a', factId: 'f6', factHash: 'x' }, { head: 'b', body: 'b', factId: 'f6', factHash: 'x' }] }] };
+    expect([...blameRows(['success-points e1/f6 body: 61字'], ['success.0.body', 'success.1.body'], twin, 'e1')!].sort()).toEqual(['success.0.body', 'success.1.body']);
+    expect([...blameRows(['success-points e1/f6 body: 61字'], ['success.1.body'], twin, 'e1')!]).toEqual(['success.1.body']);
   });
   it('どの文の数字が材料に無いかを場所つきで返す', () => {
     const { display } = assembleDisplay('e1', reader, fullNeed, out({ list: '利用者30万人の道具' }));

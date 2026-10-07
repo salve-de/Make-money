@@ -99,6 +99,13 @@
  },
  {
   "id": "ent_myoperator_49c393230a2d",
+  "where": "section-chapter-practice / section-group-first",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「MyOperatorは代理店」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_myoperator_49c393230a2d",
   "where": "section-chapter-turning / section-chapter-timeline",
   "rule": "e.同じ話が2か所以上",
   "text": "「中小企業向けの通話管理MyO」",
@@ -108,14 +115,14 @@
   "id": "ent_myoperator_49c393230a2d",
   "where": "section-chapter-timeline / section-chapter-core / section-group-first",
   "rule": "e.同じ話が2か所以上",
-  "text": "「開始から2四半期で現金プラス」",
+  "text": "「開始から半年で入るお金が出る」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
   "id": "ent_myoperator_49c393230a2d",
   "where": "section-chapter-timeline / section-chapter-core",
   "rule": "e.同じ話が2か所以上",
-  "text": "「始から2四半期で現金プラス1」",
+  "text": "「るお金が出るお金を上回った1」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -367,7 +374,7 @@
   "id": "ent_teamcamp_ae0c21986c4d",
   "where": "section-chapter-practice / section-chapter-core",
   "rule": "e.同じ話が2か所以上",
-  "text": "「月400ドル約6万円超約6万」",
+  "text": "「は月400ドル約6万円超約6」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -550,6 +557,13 @@
   "where": "section-group-secret / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「設定を引き受けると1人ずつメ」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_ejunkie_7e9e46bd9643",
+  "where": "section-chapter-practice / section-chapter-timeline",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「頼まれサービスの利用を受け付」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -764,13 +778,6 @@
  },
  {
   "id": "ent_heygen_8f11a1",
-  "where": "section-chapter-timeline / section-chapter-core",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "100万ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_heygen_8f11a1",
   "where": "section-chapter-practice / section-chapter-timeline",
   "rule": "e.同じ話が2か所以上",
   "text": "「機能をProductHunt」",
@@ -855,9 +862,9 @@
  },
  {
   "id": "ent_requestly_28e9f2",
-  "where": "section-chapter-practice / section-chapter-core",
+  "where": "section-chapter-practice / section-chapter-start",
   "rule": "e.同じ話が2か所以上",
-  "text": "「未回答のStackExcha」",
+  "text": "「プログラムを自分のパソコンに」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -865,13 +872,6 @@
   "where": "section-chapter-core",
   "rule": "a.出どころの印",
   "text": "（根拠: 1年目、約450人がフォントの客になったと本人が見積もった）",
-  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-core",
-  "rule": "a.出どころの印",
-  "text": "（根拠: Cool Tools経由はよく払い、Reddit経由はほぼ払わなかった）",
   "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
  },
  {
@@ -1044,6 +1044,13 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+  "where": "section-group-secret / section-chapter-practice",
+  "rule": "e.同じ話が2か所以上",
+  "text": "「無料で読む人の多くが来る15」",
+  "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
   "where": "section-chapter-practice / section-chapter-timeline / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「DaringFireball」",
@@ -1058,16 +1065,9 @@
  },
  {
   "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-turning / section-chapter-core",
+  "where": "section-chapter-core / section-group-first",
   "rule": "e.同じ話が2か所以上",
-  "text": "「1520サイト向けの1ページ」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-  "where": "section-chapter-start / section-chapter-price",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「ドル約7501500円の目安」",
+  "text": "「紹介サイトCoolTools」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
