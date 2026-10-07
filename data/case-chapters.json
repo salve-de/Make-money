@@ -62,14 +62,6 @@
           "source": "https://news.ycombinator.com/item?id=8040524"
         },
         {
-          "text": "資金が尽きかけ、講座を提供する会社One Monthに就職した",
-          "source": "https://www.therubyonrailspodcast.com/552"
-        },
-        {
-          "text": "Hatchboxの提供を始めた。客の提案で、よく使われるサーバーへの公開手順を自動化した（本人）",
-          "source": "https://www.therubyonrailspodcast.com/552"
-        },
-        {
           "text": "2018年初め: GoRails単体で月約15,000ドル（約225万円）（本人）",
           "source": "https://www.indiehackers.com/interview/rails-and-revenue-how-to-build-a-screencast-business-8999c7ac7f"
         },
@@ -213,10 +205,6 @@
         {
           "text": "2014年9月: 専門家1,200人超、チーム7人（第三者）",
           "source": "https://mashable.com/2014/09/29/codementor/"
-        },
-        {
-          "text": "2015年8月: ライブ講座を追加。専門家3,000人、年換算売上は100万ドル（約1.5億円）超（本人）",
-          "source": "https://techcrunch.com/2015/08/26/codementor-live-classes"
         },
         {
           "text": "2016年12月: CodementorX開始。助けを求めた開発者15万人、メンター5,000人（第三者）",
@@ -533,16 +521,8 @@
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
-          "text": "社名をMovioからHeyGenへ変更した（本人）",
-          "source": "https://www.heygen.com/article/movio-rebrands-to-heygen"
-        },
-        {
           "text": "2023年10月: 年間の定期売上1,000万ドル（約15億円）（第三者）",
           "source": "https://research.contrary.com/company/heygen"
-        },
-        {
-          "text": "年間の定期売上が3,500万ドル（約52.5億円）を超えた。有料の法人客は4万社を超えた（公式）",
-          "source": "https://www.heygen.com/blog/announcing-our-series-a"
         },
         {
           "text": "2025年: 写真1枚と声で動画を作るAvatar IVを公開（第三者）",
@@ -662,14 +642,6 @@
       ],
       "timeline": [
         {
-          "text": "開始時: 中小企業向けの通話管理MyOperatorを公開（本人）",
-          "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
-        },
-        {
-          "text": "開始から半年: 登録利用者600人超、有料200社。入るお金が出るお金を上回った（本人）",
-          "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
-        },
-        {
           "text": "2014年3月: 累計有料357社（本人の寄稿）",
           "source": "https://inc42.com/resources/businesses-manage-calls-myoperator-way/amp/"
         },
@@ -716,6 +688,10 @@
         {
           "text": "2013年3月、兄弟2人が自己資金120万ルピー（約210万円）で開始。5人、初期の人材は新卒中心（本人）",
           "source": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors"
+        },
+        {
+          "text": "開始から半年: 登録利用者600人超、有料200社。入るお金が出るお金を上回った（本人）",
+          "source": "https://myoperator.com/blog/turning-profitable-within-two-quarters-of-its-inception-without-raising-any-investment-the-story-of-myoperator"
         }
       ],
       "price": [
@@ -1242,7 +1218,7 @@
           "source": "https://laravelpodcast.com/episodes/89e3758b/transcript"
         },
         {
-          "text": "4月から、実在サイトを作り直す無料動画を5本出した（本人）",
+          "text": "実在するサイトを作り直す無料動画を5本出した（本人）",
           "source": "https://x.com/steveschoger/status/1116062198974042113"
         },
         {
