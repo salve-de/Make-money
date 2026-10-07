@@ -37,7 +37,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  DISPLAY_FILES, applyRepairs, blameRows, extractNumbers, lostNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, dropFlagged, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
+  DISPLAY_FILES, applyRepairs, blameRows, droppableNumbers, extractNumbers, lostNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, dropFlagged, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
   type AiOutput, type DisplayFiles, type RepairRow, type DisplayNeed, type EntityDisplay, type ItemContract, type LiveReader,
 } from '../../src/shared/display-build';
 import { loadReaders, argValue } from './load-readers';
@@ -389,10 +389,10 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     // 元の行の数字は、言い回しの直しで落とさない（同じ事例の他の行に残る数字は、重複を外しただけなので許す）
     const shown = repairRows(entityId, applied.files, () => ['行']);
     const lost = fixes.flatMap((f) => {
-      // 確かめられない数字を落とす行は、その数字に付いた円換算（「（約…円）」）と年月の部品（12以下）も一緒に消えてよい
+      // 確かめられない数字を落とす行は、その数字に付いた円換算と、落とす年の月・日だけが一緒に消えてよい
       const dropping = EXTRA_DROP.get(`${entityId}|${f.id}`) ?? [];
       const before = rows.find((r) => r.id === f.id)?.text ?? '';
-      const mayDrop = dropping.length ? [...dropping, ...(before.match(/（約[^）]*円[^）]*）/g) ?? []).flatMap((y) => extractNumbers(y)), ...extractNumbers(before).filter((n) => n <= 12)] : [];
+      const mayDrop = droppableNumbers(before, dropping);
       const gone = lostNumbers(rows.find((r) => r.id === f.id)?.text ?? '', f.text, shown.filter((r) => r.id !== f.id).map((r) => r.text).join('\n')).filter((n) => !mayDrop.includes(n));
       return gone.length ? [`${f.id}: 元の文の数字 ${gone.join('、')} が消えた。言い回しだけを直し、数字は残す`] : [];
     });
