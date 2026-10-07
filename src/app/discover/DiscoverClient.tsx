@@ -101,7 +101,7 @@ export function DiscoveryRow({
       </span>
       <span className="hidden truncate text-term-muted xl:block">{item.sector}</span>
       <span className="text-right" {...metricAttrs(item)}>
-        <span className={`term-num ${valueTone(item)}`}>{resultText(item)}</span>
+        <span className={`term-num ${valueTone(item)}`}>{resultText(item)}{item.resultMetricId && item.resultEvidenceLabel.includes("推定") && <span className="sr-only">（推定）</span>}</span>
         <span className="ml-1 text-xs text-term-label">{item.resultLabel}</span>
       </span>
     </button>

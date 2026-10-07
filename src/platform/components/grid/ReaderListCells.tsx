@@ -62,8 +62,10 @@ export function ListMetricCell({ metric, expected, aligned = false }: { metric: 
   const label = metricListLabel(metric);
   // 列の見出しと同じ種類でも、売上は月・年・累計で呼び分けるので、見出しと違う名前の時は前に付ける
   const showLabel = !expected || !expected.includes(metric.measure) || label !== metricMeasureLabel(metric);
-  const amount = <span className={metric.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}</span>;
-  const title = `${label} ${metric.period}`;
+  const estimated = metric.origin === 'ESTIMATED';
+  // 由来の語は一覧に出さない。推定だけは色に頼らず、読み上げ用の文字と title で伝える
+  const amount = <span className={estimated ? 'text-term-accent' : 'text-term-fg-strong'}>{formatMetricAmount(metric)}{estimated && <span className="sr-only">（推定）</span>}</span>;
+  const title = `${label} ${metric.period}${estimated ? ' · 推定' : ''}`;
   // 名前は左・金額は右に固定し、行をまたいで数字の右端が揃うようにする
   if (aligned) {
     return (
