@@ -306,7 +306,10 @@ function ChapterRowView({ id, row }: { id: ChapterId; row: ChapterRow }) {
       return (
         <li className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-2 text-sm">
           <span className="term-num text-xs text-term-label">{parts.when}</span>
-          <span className="min-w-0 text-term-fg [overflow-wrap:anywhere]">{parts.what}</span>
+          <span className="min-w-0 text-term-fg [overflow-wrap:anywhere]">
+            {parts.what}
+            <SourceLink href={row.source} />
+          </span>
         </li>
       );
     }
@@ -319,17 +322,31 @@ function ChapterRowView({ id, row }: { id: ChapterId; row: ChapterRow }) {
           <span className="text-xs text-term-label">前</span>
           <span className="text-term-sub">{parts.before}</span>
           <span className="text-xs font-semibold text-term-accent">後</span>
-          <span className="font-semibold text-term-fg-strong">{parts.after}</span>
+          <span className="font-semibold text-term-fg-strong">
+            {parts.after}
+            <SourceLink href={row.source} />
+          </span>
         </li>
       );
     }
   }
-  return <li className="text-sm text-term-fg [overflow-wrap:anywhere]">{row.text}</li>;
+  return <li className="text-sm text-term-fg [overflow-wrap:anywhere]">
+      {row.text}
+      <SourceLink href={row.source} />
+    </li>;
+}
+
+function SourceLink({ href }: { href: string }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="ml-1 shrink-0 text-xs text-term-label underline decoration-dotted">
+      {UI.CHAPTER_SOURCE}
+    </a>
+  );
 }
 
 /** 事例ごとの追加の章。材料のある章だけを、決まった並びで全部開いたまま出す。 */
-export function CaseChapters({ entityId }: { entityId?: string }) {
-  const chapters = caseChaptersFor(entityId);
+export function CaseChapters({ entityId, facts }: { entityId?: string; facts: ReadonlyArray<{ id: string; text: string }> }) {
+  const chapters = caseChaptersFor(entityId, facts);
   if (chapters.length === 0) return null;
   return (
     <>
@@ -354,12 +371,12 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
     <>
       {ANALYSIS_GROUPS.map(({ title, items: allItems, story }, index) => {
         if (story) return <StorySteps key={title} reader={reader} entityId={entityId} />;
-        const hasChapter = (id: ChapterId) => caseChaptersFor(entityId).some((chapter) => chapter.id === id);
-        // 章が同じ話をしている欄は、重ねて出さない（年表→時間順の流れ、失敗・方向転換→つまずきと立て直し）。
-        const items = allItems.filter((item) => !((item === 'TIMELINE' && hasChapter('timeline')) || ((item === 'PIVOTS' || item === 'FAILURE_CAUSE') && hasChapter('turning')) || (item === 'CAPITAL_AND_TEAM' && hasChapter('start'))));
+        const hasChapter = (id: ChapterId) => caseChaptersFor(entityId, reader.facts).some((chapter) => chapter.id === id);
+        // 章が同じ話をしている欄は、重ねて出さない（年表→時間順の流れ、方向転換→つまずきと立て直し（失敗の理由の欄は残す））。
+        const items = allItems.filter((item) => !((item === 'TIMELINE' && hasChapter('timeline')) || (item === 'PIVOTS' && hasChapter('turning')) || (item === 'CAPITAL_AND_TEAM' && hasChapter('start'))));
         const secrets = title === UI.GROUP_SECRET ? successPointsFor(entityId, reader.facts) : [];
-        if (title === UI.GROUP_SECRET && secrets.length === 0 && caseChaptersFor(entityId).length > 0) {
-          return <CaseChapters key={title} entityId={entityId} />;
+        if (title === UI.GROUP_SECRET && secrets.length === 0 && caseChaptersFor(entityId, reader.facts).length > 0) {
+          return <CaseChapters key={title} entityId={entityId} facts={reader.facts} />;
         }
         if (secrets.length > 0) {
           return (
@@ -377,7 +394,7 @@ export function AnalysisGroups({ reader, usage, entityId }: { reader: ReaderCase
                 ))}
               </ol>
             </Fold>
-            <CaseChapters entityId={entityId} />
+            <CaseChapters entityId={entityId} facts={reader.facts} />
             </React.Fragment>
           );
         }

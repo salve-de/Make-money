@@ -122,6 +122,7 @@ export const UI = {
   CHAPTER_START: '出発点',
   CHAPTER_PRICE: '価格の変遷',
   CHAPTER_VOICES: '客の声',
+  CHAPTER_SOURCE: '出典',
   GROUP_CUSTOMERS: '誰に売っているか',
   GROUP_ORIGIN: 'なぜ始めたか・着想',
   GROUP_FIRST: '最初の客をどう取ったか',

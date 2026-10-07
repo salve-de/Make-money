@@ -1,6 +1,8 @@
 [
   {
     "entityId": "ent_gorails_640d8f688451",
+    "factId": "f1",
+    "factHash": "2a9eaa16",
     "chapters": {
       "practice": [
         {
@@ -148,6 +150,8 @@
   },
   {
     "entityId": "ent_codementor_ba692caa3db3",
+    "factId": "f1",
+    "factHash": "3938c8ce",
     "chapters": {
       "practice": [
         {
@@ -303,6 +307,8 @@
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
+    "factId": "f1",
+    "factHash": "5a6c2944",
     "chapters": {
       "practice": [
         {
@@ -450,6 +456,8 @@
   },
   {
     "entityId": "ent_heygen_8f11a1",
+    "factId": "f1",
+    "factHash": "d1217d65",
     "chapters": {
       "practice": [
         {
@@ -621,6 +629,8 @@
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
+    "factId": "f1",
+    "factHash": "0f0520a7",
     "chapters": {
       "practice": [
         {
@@ -744,6 +754,8 @@
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "factId": "f1",
+    "factHash": "526875fa",
     "chapters": {
       "practice": [
         {
@@ -947,6 +959,8 @@
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
+    "factId": "f1",
+    "factHash": "c804a794",
     "chapters": {
       "practice": [
         {
@@ -1086,6 +1100,8 @@
   },
   {
     "entityId": "ent_requestly_28e9f2",
+    "factId": "f1",
+    "factHash": "3f9c44d6",
     "chapters": {
       "practice": [
         {
@@ -1221,6 +1237,8 @@
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
+    "factId": "f1",
+    "factHash": "0f9e8892",
     "chapters": {
       "practice": [
         {
@@ -1380,6 +1398,8 @@
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
+    "factId": "f1",
+    "factHash": "cecd9426",
     "chapters": {
       "practice": [
         {

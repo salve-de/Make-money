@@ -59,7 +59,10 @@ for (const entry of successPoints) {
 }
 // 7. 事例の追加の章（data/case-chapters.json）。1行は90字以内、出典URL必須、円換算・「0円」・「未確認」の禁止、命令形の禁止。
 const CHAPTER_IDS = ['practice', 'turning', 'timeline', 'core', 'start', 'price', 'voices'];
+const listLineByEntity = new Map(read('data/list-lines.json').map((line) => [line.entityId, line]));
 for (const entry of read('data/case-chapters.json')) {
+  const anchor = listLineByEntity.get(entry.entityId);
+  if (!anchor || anchor.factId !== entry.factId || anchor.factHash !== entry.factHash) problems.push(`case-chapters ${entry.entityId}: 元の事実との紐付け（factId・factHash）が一覧の文と合っていない`);
   for (const [id, rows] of Object.entries(entry.chapters)) {
     if (!CHAPTER_IDS.includes(id)) problems.push(`case-chapters ${entry.entityId}: 知らない章「${id}」`);
     for (const row of rows) {

@@ -1,4 +1,5 @@
 import chapters from '../../data/case-chapters.json';
+import { textFingerprint } from './list-lines';
 
 /**
  * 事例ページの追加の章（やり方の具体・つまずきと立て直し・時間順の流れ・真似るべき戦略の核・出発点・価格の変遷・客の声）。
@@ -15,15 +16,23 @@ export interface ChapterRow {
 
 interface Entry {
   entityId: string;
+  factId: string;
+  factHash: string;
   chapters: Partial<Record<ChapterId, ChapterRow[]>>;
 }
 
-const BY_ENTITY = new Map<string, Entry['chapters']>((chapters as Entry[]).map((entry) => [entry.entityId, entry.chapters]));
+const BY_ENTITY = new Map<string, Entry>((chapters as Entry[]).map((entry) => [entry.entityId, entry]));
 
-/** 事例の章を、決まった並びで返す。行の無い章は含めない。 */
-export function caseChaptersFor(entityId: string | undefined): Array<{ id: ChapterId; rows: ChapterRow[] }> {
-  const found = entityId ? BY_ENTITY.get(entityId) : undefined;
-  if (!found) return [];
+/**
+ * 事例の章を、決まった並びで返す。行の無い章は含めない。
+ * 元の事例の要約の事実（factId）と文が一致する時だけ返す。事例が直された・取り下げられた時は、古い章を出さない。
+ */
+export function caseChaptersFor(entityId: string | undefined, facts: ReadonlyArray<{ id: string; text: string }>): Array<{ id: ChapterId; rows: ChapterRow[] }> {
+  const entry = entityId ? BY_ENTITY.get(entityId) : undefined;
+  if (!entry) return [];
+  const anchor = facts.find((fact) => fact.id === entry.factId);
+  if (!anchor || textFingerprint(anchor.text) !== entry.factHash) return [];
+  const found = entry.chapters;
   return CHAPTER_IDS.flatMap((id) => {
     const rows = found[id];
     return rows && rows.length > 0 ? [{ id, rows }] : [];
