@@ -302,7 +302,7 @@ function splitBeforeAfter(text: string): { before: string; after: string } | nul
   return m ? { before: m[1], after: m[2] } : null;
 }
 
-function ChapterRowView({ id, row }: { id: ChapterId; row: ChapterRow }) {
+function ChapterRowView({ id, row, no }: { id: ChapterId; row: ChapterRow; no: number }) {
   if (id === 'timeline') {
     const parts = splitWhen(row.text);
     if (parts) {
@@ -311,7 +311,7 @@ function ChapterRowView({ id, row }: { id: ChapterId; row: ChapterRow }) {
           <span className="term-num text-xs text-term-label">{parts.when}</span>
           <span className="min-w-0 text-term-fg [overflow-wrap:anywhere]">
             {parts.what}
-            <SourceLink href={row.source} />
+            <SourceMark no={no} />
           </span>
         </li>
       );
@@ -327,7 +327,7 @@ function ChapterRowView({ id, row }: { id: ChapterId; row: ChapterRow }) {
           <span className="text-xs font-semibold text-term-accent">後</span>
           <span className="font-semibold text-term-fg-strong">
             {parts.after}
-            <SourceLink href={row.source} />
+            <SourceMark no={no} />
           </span>
         </li>
       );
@@ -335,15 +335,42 @@ function ChapterRowView({ id, row }: { id: ChapterId; row: ChapterRow }) {
   }
   return <li className="text-sm text-term-fg [overflow-wrap:anywhere]">
       {row.text}
-      <SourceLink href={row.source} />
+      <SourceMark no={no} />
     </li>;
 }
 
-function SourceLink({ href }: { href: string }) {
+/** 行の末尾に出す、出典の番号（リンクは章の末尾の一覧にまとめる）。 */
+function SourceMark({ no }: { no: number }) {
+  return <sup className="ml-0.5 text-[10px] text-term-label">{no}</sup>;
+}
+
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+
+/** 章の出典を、同じURLは1つにまとめて「出典1」「出典2」と番号を振る。 */
+function numberSources(rows: ReadonlyArray<ChapterRow>): { urls: string[]; noOf: (row: ChapterRow) => number } {
+  const urls = Array.from(new Set(rows.map((row) => row.source)));
+  return { urls, noOf: (row) => urls.indexOf(row.source) + 1 };
+}
+
+function SourceList({ urls }: { urls: ReadonlyArray<string> }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="ml-1 shrink-0 text-xs text-term-label underline decoration-dotted">
-      {UI.CHAPTER_SOURCE}
-    </a>
+    <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 border-t border-term-line-soft pt-1.5 text-xs text-term-label">
+      {urls.map((url, i) => (
+        <li key={url}>
+          <a href={url} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted">
+            {UI.CHAPTER_SOURCE}
+            {i + 1}
+          </a>
+          <span className="ml-1">{hostOf(url)}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -353,15 +380,19 @@ export function CaseChapters({ entityId, facts }: { entityId?: string; facts: Re
   if (chapters.length === 0) return null;
   return (
     <>
-      {chapters.map(({ id, rows }) => (
-        <Fold key={id} id={`section-chapter-${id}`} title={CHAPTER_TITLES[id]} defaultOpen>
-          <ul className="grid grid-cols-1 gap-2">
-            {rows.map((row) => (
-              <ChapterRowView key={row.text} id={id} row={row} />
-            ))}
-          </ul>
-        </Fold>
-      ))}
+      {chapters.map(({ id, rows }) => {
+        const { urls, noOf } = numberSources(rows);
+        return (
+          <Fold key={id} id={`section-chapter-${id}`} title={CHAPTER_TITLES[id]} defaultOpen>
+            <ul className="grid grid-cols-1 gap-2">
+              {rows.map((row) => (
+                <ChapterRowView key={row.text} id={id} row={row} no={noOf(row)} />
+              ))}
+            </ul>
+            <SourceList urls={urls} />
+          </Fold>
+        );
+      })}
     </>
   );
 }

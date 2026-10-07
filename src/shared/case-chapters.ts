@@ -1,10 +1,12 @@
 import chapters from '../../data/case-chapters.json';
 import { textFingerprint } from './list-lines';
+import { stripOriginTag } from './origin-tag';
 
 /**
  * 事例ページの追加の章（実際にやったこと・つまずきと立て直し・時間順の流れ・真似るべき戦略の核・出発点・価格の変遷・客の声）。
  * 事例ごとに集めた公開情報を1行ずつ並べた画面用の編集文。各行は出典URLを持つ（画面には出さず、検査と確認用に残す）。
  * 材料の無い章は置かない（置かなければ画面にも出ない）。真似の手順にしない（その事例で起きた事の記録）。
+ * 文末の出どころの印（「（本人）」「（公式）」「（第三者）」など）は、データには残し、画面に出す時に外す。
  */
 export const CHAPTER_IDS = ['practice', 'turning', 'timeline', 'core', 'start', 'price', 'voices'] as const;
 export type ChapterId = (typeof CHAPTER_IDS)[number];
@@ -35,6 +37,6 @@ export function caseChaptersFor(entityId: string | undefined, facts: ReadonlyArr
   const found = entry.chapters;
   return CHAPTER_IDS.flatMap((id) => {
     const rows = found[id];
-    return rows && rows.length > 0 ? [{ id, rows }] : [];
+    return rows && rows.length > 0 ? [{ id, rows: rows.map((row) => ({ ...row, text: stripOriginTag(row.text) })) }] : [];
   });
 }
