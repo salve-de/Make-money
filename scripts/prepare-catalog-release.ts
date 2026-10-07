@@ -36,7 +36,7 @@ async function main() {
 // --withdrawals: 除外してよい事例IDの明示一覧。計画の除外と完全に一致しない限り、目録は書き換えない（黙って巻き戻らない）
 const dryRun = process.argv.includes('--dry-run');
 const flagValue = (name: string) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : undefined);
-const previous = JSON.parse(await readFile(flagValue('--previous') ?? 'data/catalog-release.json', 'utf8')) as { details: Record<string, string> };
+const previous = JSON.parse(await readFile(flagValue('--previous') ?? 'data/catalog-release.json', 'utf8')) as { details: Record<string, string>; coreDetails?: Record<string, string> };
 const withdrawalsPath = flagValue('--withdrawals');
 // --changed: 差分公開。この一覧の事例だけを受領書つきで評価し直す。いま公開中でこの一覧に無い事例は、受領書の再評価をせずに引き継ぐ。
 // ただし引き継いだ事例の中身（詳細の指紋）が公開中と1文字でも違えば止める（審査を経ない書き換えを出さない）
@@ -167,10 +167,17 @@ async function artifact(value: unknown, key?: string) {
   return { hash, key: storageKey };
 }
 const details: Record<string, string> = {};
+// 画面用の編集文（reader.display）を除いた中身の指紋。引き継ぐ事例が「審査を経ない書き換え」をされていないかは、編集文を除いて比べる
+// （編集文は出典と照合する別の検査 display:build を通す。事実・推論・数字が変わった時だけ、受領書の再評価が要る）
+const coreDetails: Record<string, string> = {};
 const carriedDrift: string[] = [];
 for (const entity of entities) {
   const hash = computeDossierContentHash(entity);
-  if (carried(entity.id) && previous.details[entity.id] !== hash) carriedDrift.push(entity.id);
+  const { display: _display, ...coreReader } = entity.reader ?? ({} as NonNullable<FinancialEntity['reader']>);
+  void _display;
+  const coreHash = entity.reader?.display ? computeDossierContentHash({ ...entity, reader: coreReader as NonNullable<FinancialEntity['reader']> }) : hash;
+  coreDetails[entity.id] = coreHash;
+  if (carried(entity.id) && (previous.coreDetails?.[entity.id] ?? previous.details[entity.id]) !== coreHash) carriedDrift.push(entity.id);
   await artifact(entity, getDossierStoragePath(entity.id, hash));
   details[entity.id] = hash;
 }
@@ -180,7 +187,7 @@ if (parseFinancialEntitiesResiliently(summaryRows).invalidEntities.length) throw
 const summaries = await artifact(summaryRows);
 const discovery = await artifact(deriveDiscoveryDataset(entities.map(publicEntity)));
 const manifest = { version: 1, sourceHash, sourceCount: parsed.validEntities.length, publishedCount: entities.length,
-  summaries, discovery, details, approvalCandidateIds: [...collectApprovalCandidateIds(raw)].sort() };
+  summaries, discovery, details, coreDetails, approvalCandidateIds: [...collectApprovalCandidateIds(raw)].sort() };
 const manifestText = `${JSON.stringify(manifest, null, 2)}\n`;
 // 版の目録そのものも、指紋で名前が決まる成果物として置く。本番は「目印」が指す目録を実行時に読む（ビルドし直さなくても版が進む）。
 const manifestJson = stringifyDeterministic(manifest);

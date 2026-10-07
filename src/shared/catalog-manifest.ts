@@ -33,6 +33,8 @@ export interface CatalogManifest {
   summaries: ArtifactRef;
   discovery: ArtifactRef;
   details: Record<string, string>;
+  /** 画面用の編集文を除いた中身の指紋（公開版を作る時の「引き継ぎ」の照合用。画面は読まない）。 */
+  coreDetails?: Record<string, string>;
   approvalCandidateIds: string[];
 }
 
