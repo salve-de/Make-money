@@ -82,7 +82,7 @@ export function applyCorrections(
         if (a.hidden) l!.hidden = true;
         applied += 1;
       } else {
-        fail(c, `未対応の直し方 ${a.target}`);
+        fail(c, `未対応の直し方 ${(a as { target: string }).target}`);
       }
     }
   }
