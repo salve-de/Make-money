@@ -165,8 +165,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left text-[13px] [counter-reset:ledger-row]">
           <colgroup>
             <col className="w-10" />
-            <col className={isSplitView ? 'w-[38%]' : 'w-[22%]'} />
-            {!isSplitView && <col />}
+            <col className={isSplitView ? 'w-[52%]' : undefined} />
             {!isSplitView && <col className="w-[110px]" />}
             <col className="w-[120px]" />
             {!isSplitView && <col className="w-[104px]" />}
@@ -177,7 +176,6 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             <tr className="h-[26px] border-b border-term-line bg-term-head text-xs text-term-label">
               <th className="px-2 text-right font-normal">{UI.LIST_COL_INDEX}</th>
               <th className="px-2 font-normal">{UI.LIST_COL_NAME}</th>
-              {!isSplitView && <th className="px-2 font-normal">{UI.LIST_COL_SUMMARY}</th>}
               {!isSplitView && <th className="px-2 font-normal">{UI.LIST_COL_SECTOR}</th>}
               <th className="px-2 text-right font-normal">{UI.LIST_COL_REVENUE}</th>
               {!isSplitView && <th className="px-2 text-right font-normal">{UI.LIST_COL_PROFIT}</th>}
@@ -205,7 +203,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   }}
                   tabIndex={0}
                   aria-selected={isSelected}
-                  className={`h-[29px] cursor-pointer border-b border-term-line-soft [counter-increment:ledger-row] focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent ${
+                  className={`min-h-[29px] cursor-pointer border-b border-term-line-soft [counter-increment:ledger-row] focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-term-accent ${
                     isSelected
                       ? 'bg-term-select text-term-fg-strong'
                       : `${index % 2 === 1 ? 'bg-term-row-alt' : ''} hover:bg-term-head`
@@ -213,18 +211,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                 >
                   {/* 行番号は CSS の連番で描く（画面の文字は事例の出典・数値・定数だけにする） */}
                   <td className="term-num px-2 text-right text-xs text-term-dim before:content-[counter(ledger-row)]" />
-                  <td className="overflow-hidden px-2" title={entity.name}>
+                  <td className="overflow-hidden px-2 py-1" title={entity.name}>
                     <span className="flex min-w-0 items-center gap-1.5">
                       <EntityLogo asset={pickEntityLogo(logos[entity.id])} name={entity.name} />
                       <span className="truncate font-semibold text-term-fg-strong">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
                     </span>
+                    <ListDescription reader={entity.reader} className="block truncate text-xs text-term-muted" />
                   </td>
-                  {!isSplitView && (
-                    <td className="overflow-hidden px-2 text-term-muted">
-                      <ListDescription reader={entity.reader} className="block truncate" />
-                    </td>
-                  )}
                   {!isSplitView && (
                     <td className="truncate px-2 text-xs text-term-muted">{sector}</td>
                   )}

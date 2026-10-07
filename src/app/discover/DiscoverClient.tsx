@@ -60,7 +60,7 @@ function metricAttrs(item: DiscoveryCase): Record<string, string> {
   return item.resultMetricId ? { "data-metric": item.resultMetricId } : {};
 }
 
-const ROW_GRID = "lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.3fr)_136px_72px] xl:grid-cols-[minmax(0,1.1fr)_88px_minmax(0,1.3fr)_136px_72px]";
+const ROW_GRID = "lg:grid-cols-[minmax(0,1fr)_136px_72px] xl:grid-cols-[minmax(0,1fr)_88px_136px_72px]";
 
 function ResultBlock({ item }: { item: DiscoveryCase }) {
   return (
@@ -95,16 +95,11 @@ export function DiscoveryRow({
       <span data-variant="mobile" className="min-w-0">
         <span className="block truncate font-semibold text-term-fg-strong">{item.name}</span>
         {item.summaryFactId && item.summaryText && (
-          <span data-fact={item.summaryFactId} className="mt-0.5 line-clamp-2 text-xs text-term-sub lg:hidden">{item.summaryText}</span>
+          <span data-fact={item.summaryFactId} className="mt-0.5 line-clamp-2 text-xs text-term-sub lg:line-clamp-1">{item.summaryText}</span>
         )}
         {item.sector && <span className="block truncate text-xs text-term-label lg:hidden">{item.sector}</span>}
       </span>
       <span className="hidden truncate text-term-muted xl:block">{item.sector}</span>
-      <span data-variant="wide" className="hidden min-w-0 lg:block">
-        {item.summaryFactId && item.summaryText && (
-          <span data-fact={item.summaryFactId} className="block truncate text-term-sub" title={item.summaryText}>{item.summaryText}</span>
-        )}
-      </span>
       <span className="text-right" {...metricAttrs(item)}>
         <span className={`term-num ${valueTone(item)}`}>{resultText(item)}</span>
         <span className="ml-1 text-xs text-term-label">{item.resultLabel}</span>
@@ -420,7 +415,6 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
           <div className={`hidden h-[26px] shrink-0 items-center gap-x-3 border-b border-term-line bg-term-head px-3 text-xs text-term-label lg:grid ${ROW_GRID}`}>
             <span>{UI.LIST_COL_NAME}</span>
             <span className="hidden xl:block">{UI.LIST_COL_SECTOR}</span>
-            <span>{UI.LIST_COL_SUMMARY}</span>
             <span className="text-right">{UI.LIST_COL_AMOUNT}</span>
             <span>{UI.LIST_COL_ORIGIN}</span>
           </div>

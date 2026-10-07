@@ -311,6 +311,7 @@ export const TerminalShell: React.FC<{
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}
+        allEntities={catalogUniverse}
         availableTags={availableTags}
         tagCounts={tagCounts}
         initialFilters={screenerFilters}

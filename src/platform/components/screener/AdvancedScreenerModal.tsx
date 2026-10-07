@@ -3,13 +3,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Check, RefreshCw, Search, X } from 'lucide-react';
 import { BusinessScale, MoatType } from '../../types/terminal';
-import { CAPITAL_OPTIONS, MARGIN_OPTIONS, MOAT_OPTIONS, SCALE_OPTIONS, SCREENER_LABELS } from './screener-options';
+import type { FinancialEntity } from '@/shared/terminal';
+import { countScreenerMatches } from '../../model/entity-filter';
+import { CAPITAL_OPTIONS, MARGIN_OPTIONS, MOAT_OPTIONS, SCALE_OPTIONS, SCREENER_LABELS, TAG_MAX_COUNT, pickVisibleTags } from './screener-options';
 
 interface AdvancedScreenerModalProps {
   /** 公開中の全事例（全件が手元にある時だけ）。1件も当たらないまとまりは出さない。 */
   isOpen: boolean;
   onClose: () => void;
   onApplyFilters: (filters: ScreenerFilterState) => void;
+  /** 公開中の全事例（全件が手元にある時だけ）。各項目の件数に使う。 */
+  allEntities?: readonly FinancialEntity[];
   availableTags?: string[];
   tagCounts?: Record<string, number>;
   initialFilters?: ScreenerFilterState | null;
@@ -42,6 +46,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   isOpen,
   onClose,
   onApplyFilters,
+  allEntities,
   availableTags = [],
   tagCounts = {},
   initialFilters,
@@ -54,9 +59,17 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   const [moats, setMoats] = useState<MoatType[]>(initialFilters?.moats || []);
   const [selectedTags, setSelectedTags] = useState<string[]>(initialFilters?.selectedTags || []);
   const [tagQuery, setTagQuery] = useState('');
+  const [tagsExpanded, setTagsExpanded] = useState(false);
   const [previousInputs, setPreviousInputs] = useState({ initialFilters, isOpen });
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  // 左の欄と同じ数え方。いま選んでいる他の条件はそのままで、その項目を選んだ時の件数を出す
+  const staged = { scales, minMargin, maxCapital, moats, selectedTags };
+  const countFor = (patch: Partial<ScreenerFilterState>): number | undefined =>
+    allEntities ? countScreenerMatches(allEntities, { ...staged, ...patch }) : undefined;
+  const countBadge = (count: number | undefined) =>
+    count === undefined ? null : <span className="term-num shrink-0 text-xs text-term-label">{count}</span>;
+  const tagView = pickVisibleTags({ tags: availableTags, counts: tagCounts, selected: selectedTags, query: tagQuery, expanded: tagsExpanded });
 
   if (previousInputs.initialFilters !== initialFilters || previousInputs.isOpen !== isOpen) {
     setPreviousInputs({ initialFilters, isOpen });
@@ -214,6 +227,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                     className={optionClass(selected)}
                   >
                     <span>{item.label}</span>
+                    {countBadge(countFor({ scales: [item.id] }))}
                     {selected && <Check className="h-4 w-4 shrink-0 text-term-accent" aria-hidden="true" />}
                   </button>
                 );
@@ -239,7 +253,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                     onClick={() => setMinMargin(value)}
                     className={`${optionClass(selected)} justify-center text-center`}
                   >
-                    {label}
+                    {label} {countBadge(countFor({ minMargin: value }))}
                   </button>
                 );
               })}
@@ -264,7 +278,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                     onClick={() => setMaxCapital(item.value)}
                     className={`${optionClass(selected)} justify-center text-center`}
                   >
-                    {item.label}
+                    {item.label} {countBadge(countFor({ maxCapital: item.value }))}
                   </button>
                 );
               })}
@@ -289,6 +303,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                     className={optionClass(selected)}
                   >
                     <span>{item.label}</span>
+                    {countBadge(countFor({ moats: [item.id] }))}
                     {selected && <Check className="h-4 w-4 shrink-0 text-term-accent" aria-hidden="true" />}
                   </button>
                 );
@@ -307,9 +322,9 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                   </span>
                 )}
               </legend>
-              <input type="search" aria-label={SCREENER_LABELS.tagSearch} placeholder={SCREENER_LABELS.tagSearch} value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-[13px] text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8" />
-              <div className="flex max-h-48 flex-wrap gap-1.5 overflow-y-auto border border-term-line-soft p-1.5">
-                {availableTags.filter((tag) => tag.toLowerCase().includes(tagQuery.trim().toLowerCase())).map((tag) => {
+              <input type="search" aria-label={SCREENER_LABELS.tagSearch} placeholder={`${SCREENER_LABELS.tagSearch}（${availableTags.length.toLocaleString()}件）`} value={tagQuery} onChange={(event) => setTagQuery(event.target.value)} className="h-11 w-full rounded-sm border border-term-line bg-term-bg px-3 text-[13px] text-term-fg-strong outline-none placeholder:text-term-dim focus:border-term-accent lg:h-8" />
+              <div className="flex flex-wrap gap-1.5 border border-term-line-soft p-1.5">
+                {tagView.shown.map((tag) => {
                   const selected = selectedTags.includes(tag);
                   const count = tagCounts[tag];
                   return (
@@ -325,12 +340,25 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
                       }`}
                     >
                       <span>{tag}</span>
-                      {count !== undefined && <span className="term-num text-xs text-term-label">{count}件</span>}
+                      {countBadge(count)}
                       {selected && <Check className="h-4 w-4 shrink-0 text-term-accent" aria-hidden="true" />}
                     </button>
                   );
                 })}
               </div>
+              {tagQuery && <p className="text-xs text-term-label">{tagView.matched.toLocaleString()}件が一致</p>}
+              {tagView.matched === 0 && <p className="text-xs text-term-label">一致する特徴はありません</p>}
+              {tagView.hidden > 0 && !tagQuery && !tagsExpanded && (
+                <button type="button" onClick={() => setTagsExpanded(true)} className="min-h-11 px-1 text-xs text-term-accent underline underline-offset-4 lg:min-h-7">
+                  ＋ もっと見る（残り{tagView.hidden.toLocaleString()}件）
+                </button>
+              )}
+              {tagView.hidden > 0 && (tagQuery || tagsExpanded) && (
+                <p className="text-xs text-term-label">他に{tagView.hidden.toLocaleString()}件あります。上の欄に語を入れて探してください（{TAG_MAX_COUNT}件まで表示）</p>
+              )}
+              {tagsExpanded && !tagQuery && (
+                <button type="button" onClick={() => setTagsExpanded(false)} className="min-h-11 px-1 text-xs text-term-muted underline underline-offset-4 lg:min-h-7">－ 表示を減らす</button>
+              )}
               {selectedTags.length > 0 && (
                 <button
                   type="button"
