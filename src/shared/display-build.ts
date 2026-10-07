@@ -112,6 +112,12 @@ export interface Material {
   examples: Array<Record<string, unknown>>;
 }
 
+/** 今の事実の指紋に結ばれている、すでにある成功の秘訣（古くなった点は含めない） */
+export function liveSuccessPoints(entityId: string, reader: LiveReader, files: DisplayFiles): SuccessPoint[] {
+  const factHash = new Map(reader.facts.map((f) => [f.id, textFingerprint(f.text)]));
+  return (files['success-points'].find((e) => e.entityId === entityId)?.points ?? []).filter((p) => factHash.get(p.factId) === p.factHash);
+}
+
 /** AIに渡す材料を作る。紐付けの値（指紋）はAIに見せない（AIは id だけを返し、指紋はここで付け直す） */
 export function buildMaterial(entityId: string, reader: LiveReader, need: DisplayNeed, opts: { name?: string; contract: ItemContract; files: DisplayFiles; exampleIds: readonly string[] }): Material {
   const { files, contract } = opts;
@@ -123,7 +129,9 @@ export function buildMaterial(entityId: string, reader: LiveReader, need: Displa
   const existing: Material['existing'] = {};
   if (!need.list && listLine) existing.list = listLine.text;
   if (!need.summary && summaryLine) existing.summary = summaryLine.text;
-  if (!need.success) existing.success = (files['success-points'].find((e) => e.entityId === entityId)?.points ?? []).map(({ head, body }) => ({ head, body }));
+  // 成功の秘訣は、足りない時も、今の事実に結ばれた有効な点は残す（AIには足りない分だけ作らせる）
+  const keptSuccess = liveSuccessPoints(entityId, reader, files);
+  if (!need.success || keptSuccess.length) existing.success = (need.success ? keptSuccess : files['success-points'].find((e) => e.entityId === entityId)?.points ?? []).map(({ head, body }) => ({ head, body }));
   const keptDetail = shownAnalysis(reader).map((a) => live(a.id)).filter((l): l is DetailLine => !!l);
   if (keptDetail.length) existing.detail = keptDetail.map(({ analysisId, answer, note }) => ({ analysisId, answer, ...(note ? { note } : {}) }));
   return {
@@ -194,7 +202,7 @@ export interface EntityDisplay {
 /**
  * AIの出力に、紐付け（指紋）と出典URLを機械で付ける。AIが材料に無い id を返した行は落とし、理由を返す（検査に回して直させる）。
  */
-export function assembleDisplay(entityId: string, reader: LiveReader, need: DisplayNeed, out: AiOutput): { display: EntityDisplay; problems: string[] } {
+export function assembleDisplay(entityId: string, reader: LiveReader, need: DisplayNeed, out: AiOutput, keptSuccess: readonly SuccessPoint[] = []): { display: EntityDisplay; problems: string[] } {
   const problems: string[] = [];
   const facts = new Map(reader.facts.map((f) => [f.id, f]));
   const metrics = new Map(reader.metrics.map((m) => [m.id, m]));
@@ -216,8 +224,8 @@ export function assembleDisplay(entityId: string, reader: LiveReader, need: Disp
   }
   for (const id of need.detail) if (!seen.has(id)) problems.push(`detail ${id}: 文が無い（材料に答えが無ければ hidden: true で返す）`);
   if (need.success) {
-    const points: SuccessPoint[] = [];
-    for (const p of out.success) {
+    const points: SuccessPoint[] = [...keptSuccess];
+    for (const p of out.success.slice(0, Math.max(0, 5 - keptSuccess.length))) {
       const fact = facts.get(p.factId);
       if (!fact) { problems.push(`success「${p.head.slice(0, 20)}」: factId ${p.factId} が事実の一覧に無い（facts の id を使う）`); continue; }
       points.push({ head: p.head.trim(), body: p.body.trim(), factId: fact.id, factHash: textFingerprint(fact.text) });
