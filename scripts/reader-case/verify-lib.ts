@@ -44,7 +44,9 @@ export interface MetricFix {
 }
 
 export interface VerdictEntry {
-  verdict: 'SUPPORTED' | 'PARTIAL';
+  /** HELD=原文照合（source-check.ts）でやり直しの上限まで不合格。画面に出さない（reason に理由） */
+  verdict: 'SUPPORTED' | 'PARTIAL' | 'HELD';
+  reason?: string;
   quote: string;
   fix?: { text?: string; metric?: MetricFix };
   sourceUrl: string;

@@ -1,4 +1,5 @@
 import type { ReaderCase, ReaderFact, ReaderMetric, ReaderSource } from './reader-case';
+import { metricWhen } from './metric-when';
 import { GENRE_LABELS, MEASURE_LABELS, ORIGIN_LABELS, UI, UNKNOWN_LABELS } from './ui-strings';
 
 /**
@@ -587,13 +588,15 @@ export function metricEstimateLabel(m: Pick<ReaderMetric, 'origin'>): string {
   return m.origin === 'ESTIMATED' ? ORIGIN_LABELS.ESTIMATED : '';
 }
 
-const recency = (m: ReaderMetric): string => m.statedAt ?? m.period;
+/** 新しさは数字が指す時点（年・月）で比べる。文字列の並びで比べると「累計（…）」と「2022年…」の比較が壊れる */
+const recency = (m: ReaderMetric): string => metricWhen(m) ?? '';
 
 /** 一覧に出す1件。売上を優先順位で選び、無ければ売却額・調達額などをその名前で出す。 */
 export function pickListMetric(reader: ReaderCase | undefined | null): ReaderMetric | null {
   if (!reader || reader.metrics.length === 0) return null;
   const rank = metricRank;
-  const newest = (list: ReaderMetric[]): ReaderMetric => list.slice().sort((a, b) => rank(a) - rank(b) || recency(b).localeCompare(recency(a)))[0];
+  // 同じ時点なら金額の大きい方（このラウンドとそれ以前の合計が並ぶ時など）
+  const newest = (list: ReaderMetric[]): ReaderMetric => list.slice().sort((a, b) => rank(a) - rank(b) || recency(b).localeCompare(recency(a)) || b.amount - a.amount)[0];
   const revenue = reader.metrics.filter((m) => m.measure === 'REVENUE');
   if (revenue.length) return newest(revenue);
   for (const measure of ['EXIT_VALUE', 'FUNDING', 'VALUATION', 'NET_INCOME', 'OPERATING_INCOME', 'PROFIT', 'USERS', 'PRICE'] as const) {

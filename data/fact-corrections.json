@@ -1,0 +1,44 @@
+[
+ {"id":"pt-direct-payments","entityId":"ent_practicaltypographycom_e9aa6bc94ccf","cause":"WHAT","finding":"「年商」は読者の直接の支払いだけの実額。フォントの売上は実額が公表されていない","sourceUrl":"https://practicaltypography.com/to-pay-or-not-to-pay.html","quote":"I collected 489 payments totaling $5472","checkedAt":"2026-10-07","forbid":["年商$5,472","年商 $5,472"],
+  "actions":[
+   {"target":"claim","claimId":"m1","fix":{"metric":{"measure":"OTHER","label":"直接の支払い（フォントの売上を除く）","period":"公開1年目（2013年8月〜2014年7月）、321件"}}},
+   {"target":"claim","claimId":"m2","fix":{"metric":{"measure":"OTHER","label":"直接の支払い（フォントの売上を除く）","period":"公開2年目（〜2015年7月）、244件"}}},
+   {"target":"claim","claimId":"m3","fix":{"metric":{"measure":"OTHER","label":"直接の支払い（フォントの売上を除く）","period":"公開3年目（〜2016年7月）、489件"}}}
+  ]},
+ {"id":"rui-when","entityId":"ent_rfrcui_64e924ac","cause":"WHEN","finding":"135万ドルは記事に時点が無い。100万ドルの日付は投稿日で、出来事は発売後1か月（2018年12月〜2019年1月）","sourceUrl":"https://x.com/adamwathan/status/1296447319953547265","checkedAt":"2026-10-07","forbid":["2020年8月20日: 売り出した最初の1か月"],
+  "actions":[
+   {"target":"claim","claimId":"m2","unverified":"時点が記事に無い（金額は出典どおり）。一覧には本人の最新値を出す"},
+   {"target":"chapter","chapter":"timeline","match":"2020年8月20日: 売り出した最初の1か月で約100万ドル（約1.5億円）（本人）","replace":"2018年12月〜2019年1月: 発売後1か月で約100万ドル（約1.5億円）。本人が2020年8月20日に投稿"},
+   {"target":"detail","analysisId":"a-customer","match":"3万部超を販売（公式発表）。","note":"3万部超を販売（公式サイト、2026年10月時点）。"}
+  ]},
+ {"id":"codementor-funding","entityId":"ent_codementor_ba692caa3db3","cause":"CONFLICT","finding":"160万ドルは最初の出資ではなく2016年12月のシード。それ以前に120万ドル。2018年の500万〜1,000万ドルはアンケートの区分","sourceUrl":"https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers","quote":"had previously raised $1.2 million in early-stage funding","checkedAt":"2026-10-07","forbid":["最初の出資160万ドル","創業初期の資金160万ドル"],
+  "actions":[
+   {"target":"claim","claimId":"m1","fix":{"metric":{"basis":"2016年12月のシード（このラウンド）"}}},
+   {"target":"claim","claimId":"m2","fix":{"metric":{"basis":"2016年12月より前の合計"}}},
+   {"target":"success","factId":"f7","match":"最初の出資を得て、","head":"シードを得て、上位メンターを案件につなぐ市場へ広げる計画を立てた"},
+   {"target":"success","factId":"f7","match":"2016年12月、最初の出資160万ドル（約2.4億円）。","body":"2016年12月、シード160万ドル（約2.4億円）を調達。それ以前に120万ドル。当時、助けを求めた開発者15万人、審査済みメンター5,000人（報道）。"},
+   {"target":"detail","analysisId":"a-timeline","match":"2016年12月: 創業初期の資金160万ドル（約2.4億円、報道）を調達。","answer":"2013年5月31日: Hacker Newsに登録ページを投稿。2014年春ごろ: 正式公開。2016年12月: シード160万ドル（約2.4億円、報道）を調達。それ以前に120万ドル。"},
+   {"target":"chapter","chapter":"timeline","match":"2018年6月: 直近12か月の売上は500万〜1,000万ドル","remove":true}
+  ]},
+ {"id":"heygen-when","entityId":"ent_heygen_8f11a1","cause":"WHEN","finding":"1,000万件は前身Surrealの別事業。178日・217日の起算点は販売開始2022年7月29日。第2四半期の黒字化は原文に無い","sourceUrl":"https://www.heygen.com/blog/0-1m-arr-in-7-months","checkedAt":"2026-10-07","forbid":["黒字化は2023年第2四半期"],
+  "actions":[
+   {"target":"chapter","chapter":"timeline","match":"2021年3月: 写真・動画の注文が累計約1,000万件（第三者）","replace":"2021年3月: 前身のSurreal（別事業）で、写真・動画の注文が累計約1,000万件（第三者）"},
+   {"target":"chapter","chapter":"timeline","match":"2023年初め: 販売178日で年間の定期売上100万ドル（約1.5億円）（本人）","replace":"2023年1月: 販売開始（2022年7月29日）から178日で年間の定期売上100万ドル（約1.5億円）（本人）"},
+   {"target":"chapter","chapter":"*","match":"黒字化は2023年第2四半期。販売開始から217日で「ラーメン黒字」（根拠: 本人の記事）","replace":"販売開始から217日（2023年3月上旬）で「ラーメン黒字」（根拠: 本人の記事）"}
+  ]},
+ {"id":"referral-unreachable","entityId":"ent_referralrock_8c13d5ee4cfc","cause":"UNREACHABLE","finding":"2019年5月の月商の出典（Indie Hackers）が403で読めない。2024年11月の価格は保存ページで読めない","sourceUrl":"https://www.indiehackers.com/product/referral-rock","checkedAt":"2026-10-07","forbid":["月175／350ドル"],
+  "actions":[
+   {"target":"claim","claimId":"m1","unverified":"出典が403で読めず、時点（2019年5月）を確かめられない。2019年7月の対談では月70,000ドル"},
+   {"target":"chapter","chapter":"*","match":"2024年11月: 月175／350ドル","remove":true}
+  ]},
+ {"id":"gorails-count","entityId":"ent_gorails_640d8f688451","cause":"DUPLICATE","finding":"講座826本（トップ）と動画650本超（料金ページ）が並ぶ。Hatchboxの「2026年10月から」は開始時期が未確認","sourceUrl":"https://gorails.com/pricing","checkedAt":"2026-10-07","forbid":["2026年10月から月15ドル","動画650本超"],
+  "actions":[
+   {"target":"claim","claimId":"f2","fix":{"text":"個人プランは月19ドル（Discordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。"}},
+   {"target":"chapter","chapter":"*","match":"→ 2026年10月から月15ドル（約2,250円）","replace":"→ 現在は1台月15ドル（約2,250円）"}
+  ]},
+ {"id":"requestly-months","entityId":"ent_requestly_28e9f2","cause":"WHAT","finding":"月収益は4月470・5月610・6月440ドル。「約500ドル」は本人の概数で、有料約50人と結び付けると1人約10ドルになり価格帯と合わない","sourceUrl":"https://www.indiehackers.com/interview/c2b415aafd","checkedAt":"2026-10-07","forbid":["月約500ドル"],
+  "actions":[
+   {"target":"chapter","chapter":"*","match":"、50人超が有料に。月約500ドル（約7.5万円）（本人）","replace":"、50人超が有料に（本人）"},
+   {"target":"chapter","chapter":"*","match":"月収益470ドル（約7.1万円）、5月は610ドル（約9.2万円）（本人）","replace":"月収益470ドル（約7.1万円）、5月610ドル（約9.2万円）、6月440ドル（約6.6万円）（本人）"}
+  ]}
+]

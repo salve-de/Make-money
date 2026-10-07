@@ -62,7 +62,7 @@
     "entityId": "ent_codementor_ba692caa3db3",
     "analysisId": "a-timeline",
     "textHash": "eb13dba2",
-    "answer": "2013年5月31日: Hacker Newsに登録ページを投稿。2014年春ごろ: 正式公開。2016年12月: 創業初期の資金160万ドル（約2.4億円、報道）を調達。"
+    "answer": "2013年5月31日: Hacker Newsに登録ページを投稿。2014年春ごろ: 正式公開。2016年12月: シード160万ドル（約2.4億円、報道）を調達。それ以前に120万ドル。"
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
@@ -513,7 +513,7 @@
     "analysisId": "a-customer",
     "textHash": "851d21e7",
     "answer": "デザイナーに頼らず自分で画面まで作る開発者と、小さなチーム",
-    "note": "3万部超を販売（公式発表）。"
+    "note": "3万部超を販売（公式サイト、2026年10月時点）。"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
