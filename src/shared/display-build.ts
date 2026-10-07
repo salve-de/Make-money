@@ -466,6 +466,42 @@ export function applyRepairs(files: DisplayFiles, entityId: string, fixes: Reado
   return { files: next, problems };
 }
 
+/**
+ * 機械の検査の指摘を、直した行の id に戻す（落ちた行だけを元の文に戻し、残りの行は確認役へ進めるため）。
+ * 2026-10-08: 1行が61字（上限60）になっただけで、その回の全行が確認役まで進めず捨てられていた。
+ * 指摘の書式: 自前は「<行のid>: …」、検査の出力は「detail-lines <事例>/<分析id> answer|note」「success-points <事例>/<事実id> head|body」
+ * 「case-chapters <事例>/<章>」（行の番号は出ないので、その章の直した行を全部戻す）「list-lines <事例>」「summary-lines <事例>」。
+ * どの行の指摘か分からない物が1つでもあれば null（行ごとに分けず、事例ごとやり直す）。
+ */
+export function blameRows(problems: readonly string[], fixIds: readonly string[], files: DisplayFiles, entityId: string): Set<string> | null {
+  const out = new Set<string>();
+  const points = files['success-points'].find((e) => e.entityId === entityId)?.points ?? [];
+  const take = (prefix: string) => {
+    const hit = fixIds.filter((id) => id === prefix || id.startsWith(`${prefix}.`));
+    for (const id of hit) out.add(id);
+    return hit.length > 0;
+  };
+  for (const raw of problems) {
+    const p = raw.replace(/^行ごとの反映で機械の検査に落ちた: /, '');
+    const own = p.match(/^([a-z]+(?:\.[^\s:]+)?): /);
+    if (own) { if (!take(own[1]) && !/^(list|summary|detail|success|chapters)\b/.test(own[1])) return null; continue; }
+    const m = p.match(/^(detail-lines|success-points|case-chapters|list-lines|summary-lines) (\S+?)(?:\/(\S+?))?(?: (answer|note|head|body|text))?:/);
+    if (!m || !m[2].startsWith(entityId)) return null;
+    const [, layer, , key, field] = m;
+    let ok = false;
+    if (layer === 'list-lines') ok = take('list');
+    else if (layer === 'summary-lines') ok = take('summary');
+    else if (layer === 'detail-lines' && key) ok = take(field && field !== 'text' ? `detail.${key}.${field}` : `detail.${key}`);
+    else if (layer === 'success-points' && key) {
+      // 同じ事実から複数の点を作ることがある（factId は事例の中で一意でない）。どの点か決められないので、当たる点を全部戻す
+      const hits = points.map((pt, i) => (pt.factId === key ? i : -1)).filter((i) => i >= 0);
+      ok = hits.map((i) => take(field && field !== 'text' ? `success.${i}.${field}` : `success.${i}`)).some(Boolean);
+    } else if (layer === 'case-chapters' && key) ok = take(`chapters.${key}`);
+    if (!ok) return null;
+  }
+  return out;
+}
+
 /** 言い回しの直しの出力の形 */
 export function repairSchema(): Record<string, unknown> {
   const str = { type: 'string' };
