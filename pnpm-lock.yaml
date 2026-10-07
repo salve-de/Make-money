@@ -71,6 +71,9 @@ devDependencies:
   '@tailwindcss/postcss':
     specifier: ^4
     version: 4.3.3
+  '@textlint-ja/textlint-rule-preset-ai-writing':
+    specifier: 1.7.0
+    version: 1.7.0
   '@types/node':
     specifier: ^22.20.2
     version: 22.20.2
@@ -101,6 +104,9 @@ devDependencies:
   textlint-rule-ja-unnatural-alphabet:
     specifier: 2.0.1
     version: 2.0.1
+  textlint-rule-max-ten:
+    specifier: 5.0.0
+    version: 5.0.0
   textlint-rule-no-double-negative-ja:
     specifier: 2.0.1
     version: 2.0.1
@@ -5094,6 +5100,14 @@ packages:
       tailwindcss: 4.3.3
     dev: true
 
+  /@textlint-ja/textlint-rule-preset-ai-writing@1.7.0:
+    resolution: {integrity: sha512-xq+y592q4qP4SK5Vs40JRi98BmpJJoIaUO8/U+puOErCyazQvoZqDswIuKsFi1IEFmZ/wNn8OkfJ/5GNhrppNw==}
+    dependencies:
+      '@textlint/regexp-string-matcher': 2.0.2
+      kuromojin: 3.0.1
+      textlint-util-to-string: 3.3.4
+    dev: true
+
   /@textlint/ast-node-types@13.4.1:
     resolution: {integrity: sha512-qrZyhCh8Ekk6nwArx3BROybm9BnX6vF7VcZbijetV/OM3yfS4rTYhoMWISmhVEP2H2re0CtWEyMl/XF+WdvVLQ==}
     dev: true
@@ -5271,6 +5285,15 @@ packages:
       lodash.uniq: 4.5.0
       lodash.uniqwith: 4.5.0
       to-regex: 3.0.2
+    dev: true
+
+  /@textlint/regexp-string-matcher@2.0.2:
+    resolution: {integrity: sha512-OXLD9XRxMhd3S0LWuPHpiARQOI7z9tCOs0FsynccW2lmyZzHHFJ9/eR6kuK9xF459Qf+740qI5h+/0cx+NljzA==}
+    dependencies:
+      escape-string-regexp: 4.0.0
+      lodash.sortby: 4.7.0
+      lodash.uniq: 4.5.0
+      lodash.uniqwith: 4.5.0
     dev: true
 
   /@textlint/resolver@15.8.0:
@@ -10427,6 +10450,15 @@ packages:
       '@textlint/regexp-string-matcher': 1.1.1
       match-index: 1.0.3
       regx: 1.0.4
+    dev: true
+
+  /textlint-rule-max-ten@5.0.0:
+    resolution: {integrity: sha512-EWOvbEa3Ukxz0+GAUEJ91DYFSC3IkyJ10dBcsU6VlL33k1BvTRoFr3m26w6upnXJffXQUI70Etn39I++2duyhA==}
+    dependencies:
+      kuromojin: 3.0.1
+      sentence-splitter: 5.0.1
+      textlint-rule-helper: 2.5.0
+      textlint-util-to-string: 3.3.4
     dev: true
 
   /textlint-rule-no-double-negative-ja@2.0.1:
