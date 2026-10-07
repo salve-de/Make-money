@@ -33,7 +33,7 @@ export function listColumnsOf(reader: ReaderCase | undefined): { revenue: Reader
 }
 
 /** 事業の説明: summaryFactId の事実の1文目。無ければ強い一行（推測の印つき）。どちらも無ければ何も出さない。 */
-export function ListDescription({ reader, className, entityId }: { reader?: ReaderCase; className?: string; entityId?: string }) {
+export function ListDescription({ reader, className }: { reader?: ReaderCase; className?: string }) {
   const fact = readerSummaryFact(reader);
   if (!fact) {
     const headline = reader?.analysis.find((a) => a.item === 'HEADLINE');
@@ -46,7 +46,7 @@ export function ListDescription({ reader, className, entityId }: { reader?: Read
     );
   }
   // 画面用の短い1行があれば、それを出す（元の要約と一致する時だけ）。無ければ元の要約の1文目
-  const text = listLineFor(entityId, fact) ?? screenText(firstSentence(fact.text));
+  const text = listLineFor(reader?.display, fact) ?? screenText(firstSentence(fact.text));
   return (
     <span className={className} data-fact={fact.id} title={text}>
       {text}

@@ -1,11 +1,10 @@
 import { NextResponse } from 'next/server';
 import { readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
 import { cachedPublicSummaryEntity } from '@/lib/company-access/projection-cache';
-import manifest from '../../../../data/catalog-release.json';
+import { getCatalogManifest } from '@/lib/company-access/release-manifest';
 import { matchesCatalogQuery, parseCatalogFilters } from '@/platform/model/entity-filter';
 
 export const dynamic = 'force-dynamic';
-const catalogGeneration = manifest.summaries.hash;
 // 公開版の要約は不変なので、同じ条件の応答本文は isolate 内で使い回せる。
 // Workers の1要求あたりの CPU 時間に収めるため、要求のたびに全行の絞り込み・変換・JSON 化をやり直さない。
 const BODY_CACHE_LIMIT = 64;
@@ -13,6 +12,8 @@ const bodyCache = new Map<string, string>();
 const CATALOG_HEADERS = { 'Cache-Control': 'private, max-age=30', 'Content-Type': 'application/json' };
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
+  // 版は目印から実行時に決まる（ビルドし直さなくても切り替わる）
+  const catalogGeneration = (await getCatalogManifest()).summaries.hash;
   const query = (params.get('q') ?? '').trim().toLowerCase();
   const offset = Number(params.get('offset') ?? '0');
   const requestedPageSize = Number(params.get('pageSize') ?? '100');

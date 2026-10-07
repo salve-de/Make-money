@@ -15,7 +15,11 @@ const mocks = fixture;
 vi.mock('../../../data/catalog-release.json', () => ({
   default: { summaries: { key: '', hash: '' }, discovery: { key: '', hash: '' }, details: { ent_cached: fixture.hash }, approvalCandidateIds: [], publishedCount: 1 },
 }));
-vi.mock('@/lib/storage/r2', () => ({ getFoundationBucketAsync: vi.fn().mockResolvedValue({}), readR2Object: fixture.readR2Object }));
+// 目印（現在の版を指す1枚）は無い扱い。同梱の版で動く。事例データの読みだけを数える
+vi.mock('@/lib/storage/r2', () => ({
+  getFoundationBucketAsync: vi.fn().mockResolvedValue({}),
+  readR2Object: (bucket: unknown, key: string) => (key === 'views/make-money/catalog-v1/current.json' ? Promise.resolve(null) : fixture.readR2Object(bucket, key)),
+}));
 vi.mock('@/shared/financial-entity-schema', () => ({
   parseFinancialEntitiesResiliently: (rows: unknown[]) => ({ validEntities: rows }),
 }));

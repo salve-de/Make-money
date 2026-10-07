@@ -8,7 +8,6 @@ import { useViewHistory } from './useViewHistory';
 import { isDetailSettled, preferDetail } from '@/shared/dossier-authority';
 import { useAuth } from '../../context/AuthContext';
 import { openEntityParam } from '../utils/entityUrl';
-import { canonicalCatalogId } from '@/shared/catalog-membership';
 
 interface UseSelectedEntityNavigationProps {
   entities: FinancialEntity[];
@@ -30,8 +29,11 @@ export function useSelectedEntityNavigation({
   const searchParams = useSearchParams();
   const queryParam = searchParams?.get('q') || '';
   const rawEntityParam = searchParams?.get('entity');
-  // ?entity=ENT_... の大文字小文字・空白の違いは、目録の正式な ID に直す（目録外はそのまま）
-  const entityParam = rawEntityParam ? (canonicalCatalogId(rawEntityParam) ?? rawEntityParam) : rawEntityParam;
+  // ?entity=ENT_... の大文字小文字・空白の違いは、手元の一覧にある正式な ID に直す（無ければ前後の空白だけ取る）
+  const trimmedEntityParam = rawEntityParam?.trim() ?? rawEntityParam;
+  const entityParam = trimmedEntityParam
+    ? (entities.find((e) => e.id.toLowerCase() === trimmedEntityParam.toLowerCase())?.id ?? trimmedEntityParam)
+    : trimmedEntityParam;
 
   const initialEntityId =
     entityParam ||

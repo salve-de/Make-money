@@ -7,7 +7,6 @@ import { useCuratedCatalog } from './useCuratedCatalog';
 import { fetchBusinessDetailResponse } from './foundation-detail-request';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 import { hasFullReader, isDetailSettled, preferDetail } from '@/shared/dossier-authority';
-import { canonicalCatalogId, filterToCatalog } from '@/shared/catalog-membership';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
 
@@ -43,7 +42,8 @@ export type DetailFetchStatus = 'failed' | 'done';
 export function useCatalogEntities(initialEntities: FinancialEntity[], searchQuery = '') {
   const [catalogFilters, setCatalogFilters] = useState('');
   const catalog = useCuratedCatalog(initialEntities, searchQuery, catalogFilters);
-  const coreEntities = useMemo(() => filterToCatalog(catalog.entities), [catalog.entities]);
+  // 一覧は /api/catalog が公開目録の事例だけを返す。画面側では版を持たない（版は実行時に目印で決まる）
+  const coreEntities = catalog.entities;
 
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
@@ -173,10 +173,18 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
     return next;
   }, [approvedIds, detailedEntities]);
 
+  // ?entity=ENT_... のような大文字小文字・前後の空白の違いは、手元の一覧にある正式な ID に直してから扱う。
+  // 公開目録に無い事例かどうかは、サーバー（/api/businesses）が 404 で答える（画面は版を持たない）。
+  const canonicalIdOf = useCallback((requestedId: string): string | undefined => {
+    const wanted = requestedId.trim();
+    if (!wanted) return undefined;
+    return coreEntities.find((item) => item.id.toLowerCase() === wanted.toLowerCase())?.id ?? wanted;
+  }, [coreEntities]);
+
   // オンデマンド詳細読み込み関数（公開目録の事例だけ。目録外は取りに行かない）
   const fetchEntityDetailOnDemand = useCallback((requestedId: string, latestDossierHash?: string) => {
     // ?entity=ENT_... のような大文字小文字・前後の空白の違いは、目録の正式な ID に直してから扱う
-    const targetId = canonicalCatalogId(requestedId);
+    const targetId = canonicalIdOf(requestedId);
     if (!targetId) return Promise.resolve();
     lastDetailHash.current.set(targetId, latestDossierHash);
     if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId) || detailFetchSettled.current.has(targetId)) return Promise.resolve();
@@ -198,8 +206,9 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
           const payload = json as { data?: unknown };
           if (payload.data && typeof payload.data === 'object') {
             const entity = parseFinancialEntity(payload.data);
-            if (entity.id !== targetId) throw new Error('Detail entity identity mismatch');
-            setDetailedEntities((prev) => ({ ...prev, [targetId]: preferDetail(prev[targetId], entity) }));
+            if (entity.id.toLowerCase() !== targetId.toLowerCase()) throw new Error('Detail entity identity mismatch');
+            // 返ってきた正式な ID で覚える（大文字小文字の違う呼び方で来ても、画面は正式な ID で引く）
+            setDetailedEntities((prev) => ({ ...prev, [entity.id]: preferDetail(prev[entity.id], entity) }));
           }
         }
         markStatus('done');
@@ -213,11 +222,11 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
       .finally(() => {
         detailFetchInProgress.current.delete(targetId);
       });
-  }, [detailedEntities]);
+  }, [detailedEntities, canonicalIdOf]);
 
   /** 詳細の取得に失敗した事例を、利用者の「再読み込み」で取り直す。 */
   const retryEntityDetail = useCallback((requestedId: string) => {
-    const targetId = canonicalCatalogId(requestedId);
+    const targetId = canonicalIdOf(requestedId);
     if (!targetId || detailStatus[targetId] !== 'failed' || detailFetchInProgress.current.has(targetId)) return Promise.resolve();
     detailFetchSettled.current.delete(targetId);
     setDetailStatus((prev) => {
@@ -226,7 +235,7 @@ export function useCatalogEntities(initialEntities: FinancialEntity[], searchQue
       return next;
     });
     return fetchEntityDetailOnDemand(targetId, lastDetailHash.current.get(targetId));
-  }, [detailStatus, fetchEntityDetailOnDemand]);
+  }, [detailStatus, fetchEntityDetailOnDemand, canonicalIdOf]);
 
   /** 詳細ペインに渡す取得状態。取得中・失敗を「準備中」と取り違えないために使う。取得が終わっていれば undefined。 */
   const detailStateFor = useCallback((entity: FinancialEntity): 'loading' | 'failed' | undefined => {

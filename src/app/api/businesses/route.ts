@@ -3,7 +3,7 @@ import { findCachedPublishableEntity } from '@/lib/company-access/local-entity-i
 import { cachedPublicEntity } from '@/lib/company-access/projection-cache';
 import { computeDossierContentHash } from '@/lib/foundation/dossier-projection';
 import { matchesCatalogQuery } from '@/platform/model/entity-filter';
-import { catalogDetailHash, filterToCatalog, isCatalogId } from '@/shared/catalog-membership';
+import { getCatalogMembership } from '@/lib/company-access/release-manifest';
 import { NextResponse } from 'next/server';
 
 /**
@@ -41,19 +41,20 @@ export async function GET(request: Request) {
     return response({ error: 'Invalid dossier hash' }, 400);
   }
 
+  const membership = await getCatalogMembership();
   if (entityId) {
     // 目録に無い事例は、保存先を読まずに先頭で 404
-    if (!isCatalogId(entityId)) {
+    if (!membership.isCatalogId(entityId)) {
       return response({ error: 'Not published' }, 404);
     }
     // ハッシュを指定する時は、目録のハッシュと一致する時だけ公開版から返す。違えば厳格に 404（別版を探さない）
-    if (requestedDossierHash && catalogDetailHash(entityId) !== requestedDossierHash) {
+    if (requestedDossierHash && membership.catalogDetailHash(entityId) !== requestedDossierHash) {
       return response({ error: 'Dossier snapshot not found for requested hash', dossier_hash: requestedDossierHash }, 404);
     }
     try {
       const entity = await findCachedPublishableEntity(entityId);
       if (!entity) return response({ error: 'Entity not found', entity_id: entityId }, 404);
-      const actualHash = entity.latestDossierHash || catalogDetailHash(entity.id) || computeDossierContentHash(entity);
+      const actualHash = entity.latestDossierHash || membership.catalogDetailHash(entity.id) || computeDossierContentHash(entity);
       const revision = entity.sourceRevision ?? 1;
       return response({
         source: 'catalog_release',
@@ -87,7 +88,7 @@ export async function GET(request: Request) {
 
   try {
     // 一覧・検索は公開版の要約だけ。出口でも目録の門を通す
-    const rows = filterToCatalog(await readReleaseSummaries()).filter((row) => matchesCatalogQuery(row, query));
+    const rows = membership.filterToCatalog(await readReleaseSummaries()).filter((row) => matchesCatalogQuery(row, query));
     const data = rows.slice(offset, offset + limit);
     const next = offset + data.length;
     return response({

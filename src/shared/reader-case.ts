@@ -129,6 +129,31 @@ export const ReaderAnalysisSchema = z.object({
   presentation: z.enum(['FACT_SUMMARY', 'ESTIMATE']).optional(),
 });
 
+/**
+ * 画面用の編集文（一覧の1行・概要の続き・各章の答え・成功の秘訣・追加の章）。事例の事実と同じ版（公開データの事例ごとの gz）に入れて運ぶ。
+ * 正本は data/list-lines.json など5つのファイル。公開版を作る時（scripts/prepare-catalog-release.ts）に事例ごとにここへ移す。
+ * どの文も、元の事実・推論の文の指紋（factHash / textHash）が合う時だけ画面に使う（src/shared/list-lines.ts など）。
+ */
+const anchoredLine = z.object({ factId: z.string().min(1), factHash: z.string().min(1), text: z.string() });
+export const ReaderDisplaySchema = z.object({
+  listLine: anchoredLine.optional(),
+  summaryRest: anchoredLine.optional(),
+  detailLines: z
+    .array(z.object({ analysisId: z.string().min(1), textHash: z.string(), answer: z.string(), note: z.string().optional(), hidden: z.boolean().optional() }))
+    .optional(),
+  successPoints: z
+    .array(z.object({ head: z.string(), body: z.string(), factId: z.string().min(1), factHash: z.string() }))
+    .optional(),
+  chapters: z
+    .object({
+      factId: z.string().min(1),
+      factHash: z.string(),
+      chapters: z.record(z.string(), z.array(z.object({ text: z.string(), source: z.string() }))),
+    })
+    .optional(),
+});
+export type ReaderDisplay = z.infer<typeof ReaderDisplaySchema>;
+
 export const ReaderCaseSchema = z
   .object({
     sources: z.array(ReaderSourceSchema),
@@ -138,6 +163,8 @@ export const ReaderCaseSchema = z
     /** 概要は DESCRIPTION の事実を指すだけ。自由文の概要は持たない。 */
     summaryFactId: z.string().min(1).optional(),
     analysis: z.array(ReaderAnalysisSchema).default([]),
+    /** 画面用の編集文。無い事例は元の文のまま出す。 */
+    display: ReaderDisplaySchema.optional(),
     /** 一覧用に削った形（lightReader）の印。これが付いた reader は詳細の代わりにならない。 */
     listForm: z.literal(true).optional(),
   })

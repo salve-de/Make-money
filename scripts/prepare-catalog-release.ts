@@ -20,6 +20,8 @@ import { loadPublicationInput, readPublicationAudits } from './reader-case/publi
 import { checkWithdrawals, planRelease } from './reader-case/release-plan';
 import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAnalysis } from './reader-case/case-reflect';
 import { rightsOptions } from './reader-case/load-readers';
+import { displayForEntity, DISPLAY_SOURCE_FILE_NAMES, type DisplaySourceFiles } from '../src/shared/reader-display';
+import { manifestObjectKey, type ReleasePointer } from '../src/shared/catalog-manifest';
 
 // 取り下げた旧表示（出典の無い数字や作文）は内部の監査記録。公開版には入れない
 function withoutWithdrawnSnapshot(entity: FinancialEntity): FinancialEntity {
@@ -77,6 +79,7 @@ try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf
 // 反映段（case-reflect.ts）: 取り込み版の事例は、その中身と推論で置き換える。取り込み版が基準に通らなければ旧版も出さない
 const reflectState = readReflectState();
 analysisFile = withReflectedAnalysis(analysisFile, reflectState);
+const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8')) as unknown]))) as unknown as DisplaySourceFiles;
 const withheld = { imported: 0, audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
 type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
@@ -135,7 +138,9 @@ for (const entity of publishable) {
   for (const m of missing) blanks.byItem[m] = (blanks.byItem[m] ?? 0) + 1;
   totals.facts += verified.reader.facts.length;
   totals.metrics += verified.reader.metrics.length;
-  entities.push({ ...entity, reader: verified.reader });
+  // 画面用の編集文（正本は data/list-lines.json など5つ）は、事例の事実と同じ版に入れて運ぶ（ビルドには同梱しない）
+  const display = displayForEntity(displaySources, entity.id);
+  entities.push({ ...entity, reader: display ? { ...verified.reader, display } : verified.reader });
 }
 const sourcelessExcluded = publishable.length - entities.length;
 if (process.env.READER_REPORT_DIR && !dryRun) {
@@ -177,6 +182,13 @@ const discovery = await artifact(deriveDiscoveryDataset(entities.map(publicEntit
 const manifest = { version: 1, sourceHash, sourceCount: parsed.validEntities.length, publishedCount: entities.length,
   summaries, discovery, details, approvalCandidateIds: [...collectApprovalCandidateIds(raw)].sort() };
 const manifestText = `${JSON.stringify(manifest, null, 2)}\n`;
+// 版の目録そのものも、指紋で名前が決まる成果物として置く。本番は「目印」が指す目録を実行時に読む（ビルドし直さなくても版が進む）。
+const manifestJson = stringifyDeterministic(manifest);
+const manifestHash = createHash('sha256').update(manifestJson).digest('hex');
+const manifestFile = `${directory}/${manifestHash}.json.gz`;
+if (!checkOnly && !dryRun) await writeFile(manifestFile, gzipSync(manifestJson));
+objects.push({ key: manifestObjectKey(manifestHash), file: manifestFile });
+const localPointer: ReleasePointer = { version: 1, manifestHash, manifestKey: manifestObjectKey(manifestHash), publishedCount: entities.length, updatedAt: new Date().toISOString(), previous: null };
 const plan = planRelease(previous, manifest);
 if (dryRun) {
   console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, caseStamps }));
@@ -184,7 +196,10 @@ if (dryRun) {
 }
 if (checkOnly || artifactsOnly) {
   if (await readFile('data/catalog-release.json', 'utf8') !== manifestText) throw new Error('Catalog release is stale; run pnpm catalog:prepare and publish before deployment');
+  // 手元の画面（開発サーバ・自動テスト）が、同梱の版と食い違わずに今の版を読めるよう、手元の目印を書く
+  if (artifactsOnly) await writeFile(`${directory}/current.json`, `${JSON.stringify(localPointer, null, 2)}\n`);
 } else {
+  await writeFile(`${directory}/current.json`, `${JSON.stringify(localPointer, null, 2)}\n`);
   await writeFile('data/catalog-release.json', manifestText);
   await writeFile('data/case-display.json', `${JSON.stringify(Object.fromEntries(Object.entries(caseStamps).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`);
   await writeFile(`${directory}/upload.json`, JSON.stringify(objects));
