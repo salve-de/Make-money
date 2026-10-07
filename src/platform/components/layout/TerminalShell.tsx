@@ -308,7 +308,6 @@ export const TerminalShell: React.FC<{
       />
 
       <AdvancedScreenerModal
-        allEntities={catalogUniverse}
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}
