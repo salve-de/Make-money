@@ -189,7 +189,7 @@
       ],
       "turning": [
         {
-          "text": "前: 2014年3月の公開時はメンター500人。後: 同年9月に1,200人超、7月の相談の70%が再利用の客（第三者）",
+          "text": "前: 2014年3月の公開時はメンター500人。後: 同年9月に1,200人超。7月の相談の70%は2回目以降の客からだった（第三者）",
           "source": "https://mashable.com/2014/09/29/codementor/"
         },
         {
@@ -390,7 +390,7 @@
       ],
       "core": [
         {
-          "text": "売り手の手作業を、貼るだけのリンクに変える（根拠: 自分の手動配信の自動化→受付サイト）",
+          "text": "売り手が手で商品を送る作業を、購入リンクを貼るだけで済む仕組みに変える（根拠: 自分の手動配信を自動化し、誰でも登録して売れるサイトを作った）",
           "source": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f"
         },
         {
@@ -503,7 +503,7 @@
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
-          "text": "前: 登録後に使わない客が多かった。後: 登録なしで試せるページと200超の雛形を用意し、転換が大きく上がった（本人）",
+          "text": "前: 登録後に使わない客が多かった。後: 登録なしで試せるページと200超の雛形を用意し、申し込む人の割合が大きく上がった（本人）",
           "source": "https://www.heygen.com/blog/0-1m-arr-in-7-months"
         },
         {
@@ -801,7 +801,7 @@
           "source": "https://practicaltypography.com/to-pay-or-not-to-pay.html"
         },
         {
-          "text": "前: 「寄付」という呼び方に指摘を受けた。後: 「直接の支払い」に直した（本人）",
+          "text": "前: 「寄付」という呼び方に指摘を受けた。後: 「読者が作者に直接送るお金」という呼び方に直した（本人）",
           "source": "https://practicaltypography.com/economics-year-one.html"
         }
       ],
@@ -1310,7 +1310,7 @@
           "source": "https://x.com/adamwathan/status/1289702466754211842"
         },
         {
-          "text": "2018年12月〜2019年1月: 発売後1か月で約100万ドル（約1.5億円）。本人が2020年8月20日に投稿",
+          "text": "2020年8月20日: 売り出した最初の1か月で約100万ドル（約1.5億円）（本人）",
           "source": "https://x.com/adamwathan/status/1296447319953547265"
         },
         {
