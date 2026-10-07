@@ -7,7 +7,7 @@ import { successPointsFor } from '@/shared/success-points';
 import { caseChaptersFor, type ChapterId, type ChapterRow } from '@/shared/case-chapters';
 import { listLineFor } from '@/shared/list-lines';
 import { summaryRestFor } from '@/shared/summary-lines';
-import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText } from '@/shared/display-text';
+import { formatMetricAmount, metricListLabel, metricOriginLabel, pickListMetric, plainAnalysisText, plainFactText, withYenApprox } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -129,7 +129,7 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   if (priceFact) {
     cells.push(
       <StripCell key="price" label={ANALYSIS_LABELS.PRICING} inferred={false} attrs={{ 'data-fact': priceFact.id }}>
-        <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainFactText(priceFact.text)}</p>
+        <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{withYenApprox(plainFactText(priceFact.text))}</p>
       </StripCell>,
     );
   }
@@ -162,7 +162,7 @@ export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | nul
 const STORY_STEPS = ['前夜', '隙', '突破', '金が回る仕組み'] as const;
 
 /** 「前夜：…。隙：…。突破：…。金が回る仕組み：…」を4段に分ける。形が違えば null。 */
-function splitStory(text: string): Array<{ step: string; body: string }> | null {
+export function splitStory(text: string): Array<{ step: string; body: string }> | null {
   const re = new RegExp(`(${STORY_STEPS.join('|')})[:：]`, 'g');
   const marks = [...text.matchAll(re)];
   if (marks.length !== STORY_STEPS.length || marks.some((m, i) => m[1] !== STORY_STEPS[i])) return null;
@@ -189,7 +189,9 @@ export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?
   const story = byItem(reader, 'STORY');
   if (!story) return null;
   const steps = splitStory(story.text);
-  if (!steps && detailLineFor(entityId, story)?.hidden) return null;
+  const edited = detailLineFor(entityId, story);
+  // 4段でない物語は、編集文で消した時と、出す文が「分からない」だけの時は欄ごと出さない（空の欄を残さない）
+  if (!steps && (edited?.hidden || isAbsenceOnly(edited?.answer ?? plainAnalysisText(story.text)))) return null;
   return (
     <Fold id="section-story" title={UI.GROUP_ORIGIN} defaultOpen mark={<InferenceMark analysis={story} />} attrs={{ 'data-analysis': story.id }}>
       {steps ? (
@@ -205,7 +207,7 @@ export function StorySteps({ reader, entityId }: { reader: ReaderCase; entityId?
           ))}
         </ol>
       ) : (
-        <StoryProse text={plainAnalysisText(story.text)} edited={detailLineFor(entityId, story)} />
+        <StoryProse text={plainAnalysisText(story.text)} edited={edited} />
       )}
     </Fold>
   );
