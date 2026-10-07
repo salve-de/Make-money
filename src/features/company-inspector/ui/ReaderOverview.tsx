@@ -213,6 +213,19 @@ export const ANALYSIS_GROUPS: Array<{ title: string; items: AnalysisItem[]; stor
   { title: UI.GROUP_NOW, items: ['TIMELINE', 'PIVOTS', 'FAILURE_CAUSE', 'LESSON'] },
 ];
 
+/** 項目の中身。最初の1文を「答え」として濃く、続き（根拠・補足）は一段薄く小さく出す。文は削らない。 */
+function AnswerText({ text }: { text: string }) {
+  const end = text.indexOf('。');
+  const head = end >= 0 ? text.slice(0, end + 1) : text;
+  const tail = end >= 0 ? text.slice(end + 1).trim() : '';
+  return (
+    <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 [overflow-wrap:anywhere]">
+      <span className="block text-sm font-medium leading-relaxed text-term-fg-strong">{head}</span>
+      {tail && <span className="mt-1 block text-xs leading-relaxed text-term-sub">{tail}</span>}
+    </dd>
+  );
+}
+
 /** 区切りの見える折りたたみ。見出しは大きく太く、背景帯と矢印で「ここから別の話」と分かるようにする。 */
 export function Fold({ id, title, mark, defaultOpen = false, attrs, children }: { id: string; title: string; mark?: React.ReactNode; defaultOpen?: boolean; attrs?: Record<string, string>; children: React.ReactNode }) {
   return (
@@ -246,7 +259,7 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
                     <span>{ANALYSIS_LABELS[a.item]}</span>
                     <InferenceMark analysis={a} />
                   </dt>
-                  <dd className="min-w-0 whitespace-pre-line border-l border-dashed border-term-accent-line pl-2.5 text-sm lg:text-[13px] leading-relaxed text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</dd>
+                  <AnswerText text={plainAnalysisText(a.text)} />
                 </div>
               ))}
             </dl>
