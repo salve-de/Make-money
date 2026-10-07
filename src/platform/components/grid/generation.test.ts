@@ -38,6 +38,14 @@ describe('世代の区切り', () => {
     expect(items.map((i) => (i.kind === 'heading' ? `H${i.generation}:${i.count}` : i.entity.id))).toEqual(['H2:2', 'a', 'b']);
   });
 
+  it('読み込み途中でも、見出しの件数は世代の全体の件数を出す', () => {
+    const items = buildGridItems([e('a', 2), e('b')], 250, { 2: 500, 1: 12 });
+    expect(items.filter((i) => i.kind === 'heading')).toEqual([
+      { kind: 'heading', generation: 2, count: 500 },
+      { kind: 'heading', generation: 1, count: 12 },
+    ]);
+  });
+
   it('0件なら何も出さない', () => {
     expect(buildGridItems([], 250)).toEqual([]);
   });

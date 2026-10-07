@@ -24,6 +24,17 @@ describe('取り込みの世代', () => {
     expect(next.find((r) => r.id === 'three')?.generation).toBe(3);
   });
 
+  it('記録に古い generation があっても、取り込みファイルの世代で置き換える（第1世代なら外す）', () => {
+    const withOld = (id: string, generation: number, fileGeneration: number): AdditionFile => {
+      const f = file(id, fileGeneration);
+      f.records[0].record.generation = generation;
+      return f;
+    };
+    const { next } = mergeInto([], [withOld('x', 2, 3), withOld('y', 2, 1)]);
+    expect(next.find((r) => r.id === 'x')?.generation).toBe(3);
+    expect(next.find((r) => r.id === 'y')).not.toHaveProperty('generation');
+  });
+
   it('ディレクトリから読むと名前の世代が入り、既定の世代は最大の世代になる', () => {
     const dir = mkdtempSync(join(tmpdir(), 'additions-'));
     try {

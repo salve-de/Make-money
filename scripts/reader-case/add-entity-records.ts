@@ -314,9 +314,11 @@ export function mergeInto(index: Record<string, unknown>[], additions: AdditionF
       if (ids.has(id)) { skipped.push({ id, reason: '同じ id が既にある' }); continue; }
       const h = officialHost(record.url);
       if (h && hosts.has(h)) { skipped.push({ id, reason: `同じ公式サイトの事例が既にある: ${hosts.get(h)}` }); continue; }
-      // 世代は事例の記録に持たせる（第1世代は書かない = 既存の公開物と同じ形のまま）
+      // 世代は取り込みファイルが決める。記録にある generation は、ファイルの世代で上書きする（第1世代は書かない = 既存の公開物と同じ形のまま）
+      const rest = { ...record };
+      delete rest.generation;
       const generation = file.source.generation ?? 1;
-      next.push(generation > 1 && record.generation === undefined ? { ...record, generation } : record);
+      next.push(generation > 1 ? { ...rest, generation } : rest);
       ids.add(id);
       if (h) hosts.set(h, id);
       added.push(id);

@@ -34,12 +34,17 @@ export type GridItem<T> =
   | { kind: 'row'; entity: T; index: number };
 
 /** 見出しと行を並べた表示順。行は limit 件まで（見出しは数えない）。行の index は表示順の通し番号 */
-export function buildGridItems<T extends Pick<FinancialEntity, 'generation'>>(entities: readonly T[], limit: number): GridItem<T>[] {
+export function buildGridItems<T extends Pick<FinancialEntity, 'generation'>>(
+  entities: readonly T[],
+  limit: number,
+  /** 世代ごとの全体の件数（読み込み途中でも見出しに全体を出す）。無ければ読み込んだ分を数える */
+  totals?: Readonly<Record<number, number>>,
+): GridItem<T>[] {
   const items: GridItem<T>[] = [];
   let index = 0;
   for (const group of groupByGeneration(entities)) {
     if (index >= limit) break;
-    items.push({ kind: 'heading', generation: group.generation, count: group.entities.length });
+    items.push({ kind: 'heading', generation: group.generation, count: Math.max(group.entities.length, totals?.[group.generation] ?? 0) });
     for (const entity of group.entities) {
       if (index >= limit) break;
       items.push({ kind: 'row', entity, index });

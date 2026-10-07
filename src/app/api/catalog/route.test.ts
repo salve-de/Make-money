@@ -32,6 +32,8 @@ describe('catalog paging and search', () => {
     expect(first.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_150', 'ent_3', 'ent_204', 'ent_0']);
     expect(first.data[0].generation).toBe(3);
     expect(first.data[3]).not.toHaveProperty('generation');
+    // 世代ごとの全体の件数（先頭のページに入らない分も数える）
+    expect(first.generationCounts).toEqual({ 3: 1, 2: 2, 1: 202 });
     rows[3].generation = undefined;
     rows[150].generation = undefined;
     rows[204].generation = undefined;

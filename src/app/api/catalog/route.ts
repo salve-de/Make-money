@@ -42,7 +42,10 @@ export async function GET(request: Request) {
       .sort((a, b) => (b.generation ?? 1) - (a.generation ?? 1));
     const data = filtered.slice(offset, offset + requestedPageSize).map(cachedPublicSummaryEntity);
     const nextOffset = offset + data.length;
-    const body = JSON.stringify({ data, total: filtered.length, generation: catalogGeneration,
+    // 世代ごとの件数（絞り込み後の全件。ページを読み込み切る前でも、一覧の見出しに全体の件数を出すため）
+    const generationCounts: Record<string, number> = {};
+    for (const entity of filtered) { const g = String(entity.generation ?? 1); generationCounts[g] = (generationCounts[g] ?? 0) + 1; }
+    const body = JSON.stringify({ data, total: filtered.length, generationCounts, generation: catalogGeneration,
       nextOffset: nextOffset < filtered.length ? nextOffset : null });
     if (bodyCache.size >= BODY_CACHE_LIMIT) bodyCache.delete(bodyCache.keys().next().value as string);
     bodyCache.set(cacheKey, body);

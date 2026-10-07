@@ -10,7 +10,19 @@ const ATTEMPT_TIMEOUT_MS = 15_000;
 /** この時間を過ぎても届かない時は、画面に「時間がかかっています」を出す。 */
 const SLOW_AFTER_MS = 6_000;
 
-type Page = { key: string; nextOffset: number | null; generation?: string; total: number | null };
+type Page = { key: string; nextOffset: number | null; generation?: string; total: number | null; generationCounts: Record<number, number> | null };
+
+/** API が返す世代ごとの件数（{"2": 3, "1": 10} の形）。形が違えば使わない */
+function parseGenerationCounts(value: unknown): Record<number, number> | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const out: Record<number, number> = {};
+  for (const [key, count] of Object.entries(value)) {
+    const generation = Number(key);
+    if (!Number.isInteger(generation) || generation < 1 || typeof count !== 'number' || !Number.isInteger(count) || count < 0) return null;
+    out[generation] = count;
+  }
+  return out;
+}
 export function mergeKnownCatalogEntities(initial: FinancialEntity[], rows: FinancialEntity[]): FinancialEntity[] {
   const merged = new Map([...initial, ...rows].map((entity) => [entity.id, entity]));
   // Paging returns summaries; it must not downgrade an SSR-selected full dossier.
@@ -21,7 +33,7 @@ export function mergeKnownCatalogEntities(initial: FinancialEntity[], rows: Fina
 }
 export function useCuratedCatalog(initial: FinancialEntity[], query: string, filters = '') {
   const [rows, setRows] = useState(initial);
-  const [page, setPage] = useState<Page>({ key: '', nextOffset: null, total: null });
+  const [page, setPage] = useState<Page>({ key: '', nextOffset: null, total: null, generationCounts: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [slow, setSlow] = useState(false);
@@ -46,6 +58,7 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
         generation: string;
         nextOffset: number | null;
         total: number;
+        generationCounts?: unknown;
       } | null = null;
       let lastError: unknown = null;
       for (let attempt = 0; attempt < 2; attempt += 1) {
@@ -69,6 +82,7 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
             generation: string;
             nextOffset: number | null;
             total: number;
+            generationCounts?: unknown;
           };
           break;
         } catch (cause) {
@@ -93,7 +107,7 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
       setRows((current) => offset === 0
         ? data
         : [...new Map([...current, ...data].map((entity) => [entity.id, entity])).values()]);
-      setPage({ key: requestKey, nextOffset: payload.nextOffset, generation: payload.generation, total: payload.total });
+      setPage({ key: requestKey, nextOffset: payload.nextOffset, generation: payload.generation, total: payload.total, generationCounts: parseGenerationCounts(payload.generationCounts) });
       setError(null);
       failedAt.current = null;
     } catch (cause) {
@@ -129,6 +143,7 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
     firstId,
     loadedCount: rows.length,
     totalCount: page.key === requestKey ? page.total : null,
+    generationCounts: page.key === requestKey ? page.generationCounts : null,
     hasMore: page.key === requestKey && page.nextOffset !== null,
     loading,
     loadMore,

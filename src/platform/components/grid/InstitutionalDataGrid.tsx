@@ -67,6 +67,8 @@ interface InstitutionalDataGridProps {
   isSplitView?: boolean;
   onLoadMore?: () => void;
   hasMore?: boolean;
+  /** 世代ごとの全体の件数。読み込み途中でも見出しに全体の件数を出す（全件が届いた後は使わない） */
+  generationTotals?: Readonly<Record<number, number>>;
   isLoadingMore?: boolean;
   retryAvailable?: boolean;
   onRetry?: () => void;
@@ -88,6 +90,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   isSplitView = false,
   onLoadMore,
   hasMore = false,
+  generationTotals,
   isLoadingMore = false,
   retryAvailable = false,
   onRetry,
@@ -109,7 +112,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
 
   // 1000件スケール耐性: 初期250件から段階的にDOM展開するプログレッシブ・ウィンドウイング
   // 世代ごとに区切る（新しい世代が上）。絞り込み・検索で並びが変わっても、区切りは保つ
-  const gridItems = useMemo(() => buildGridItems(entities, visibleCount), [entities, visibleCount]);
+  const gridItems = useMemo(() => buildGridItems(entities, visibleCount, generationTotals), [entities, visibleCount, generationTotals]);
   const visibleEntities = useMemo(
     () => gridItems.flatMap((item) => (item.kind === 'row' ? [item.entity] : [])),
     [gridItems],
