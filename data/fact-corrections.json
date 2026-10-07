@@ -40,5 +40,6 @@
   "actions":[
    {"target":"chapter","chapter":"*","match":"、50人超が有料に。月約500ドル（約7.5万円）（本人）","replace":"、50人超が有料に（本人）"},
    {"target":"chapter","chapter":"*","match":"月収益470ドル（約7.1万円）、5月は610ドル（約9.2万円）（本人）","replace":"月収益470ドル（約7.1万円）、5月610ドル（約9.2万円）、6月440ドル（約6.6万円）（本人）"}
-  ]}
+  ]},
+ {"id":"teamcamp-f7-when","entityId":"ent_teamcamp_ae0c21986c4d","cause":"CONFLICT","finding":"2025年9月30日の投稿の「6か月後に有料2件・MRR 18ドル」は、同じ作者の8月19日の投稿（稼働847チーム・MRR 4,200ドル）と食い違い、どの事業・時期の数字か確かめられない。確かめられない数字は落とす","sourceUrl":"https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034","checkedAt":"2026-10-08","actions":[{"target":"claim","claimId":"f7","unverified":"投稿日は2025-09-30だが、8月の847チーム・MRR 4,200ドルと食い違い、同じ事業の同じ時期の数字と確かめられない"},{"target":"chapter","chapter":"start","match":"6か月の公開開発で登録43件・有料2件に終わった後","remove":true},{"target":"success","factId":"f7","match":"作る前に、先払いしてもよいと答えた12人","remove":true},{"target":"detail","analysisId":"a-first_customers","match":"作る前に、99ドル（約1.5万円）を先払いしてもよいと答えた12人","hidden":true}]}
 ]

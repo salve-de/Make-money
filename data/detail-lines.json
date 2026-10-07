@@ -652,28 +652,16 @@
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
-    "analysisId": "a-story",
-    "textHash": "c003a41c",
-    "answer": "検索結果に出やすくする仕事で複数の顧客案件を抱え、複雑な管理ツールにうんざりして作り始めた（本人申告）",
-    "note": "Asanaは簡単なタスクを作るだけでも操作が複雑で、作業管理ツールMondayは使わない機能にも料金がかかり、同じ種類のTrelloは単純すぎたと感じていた。"
-  },
-  {
-    "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-first_customers",
     "textHash": "890ade68",
-    "answer": "作る前に、99ドル（約1.5万円）を先払いしてもよいと答えた12人を見つけてから作り始めた（本人申告）"
+    "answer": "作る前に、99ドル（約1.5万円）を先払いしてもよいと答えた12人を見つけてから作り始めた（本人申告）",
+    "hidden": true
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-upfront_cash",
     "textHash": "98b61909",
     "answer": "月額払いに加え、買い切りで代金をまとめて先に受け取る方式を試した（本人申告）"
-  },
-  {
-    "entityId": "ent_teamcamp_ae0c21986c4d",
-    "analysisId": "a-why_it_worked",
-    "textHash": "7ae85bc9",
-    "answer": "顧客用の画面が他の管理ツールとの最大の差になったと創業者は書く（本人申告）"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
@@ -686,5 +674,19 @@
     "analysisId": "a-lesson",
     "textHash": "cb251cf0",
     "answer": "売る相手に直接聞き、払う意思を先に確かめてから作る順番が、作り込みより効いたと創業者は振り返る（本人申告）"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-story",
+    "textHash": "7323b807",
+    "answer": "創業者は検索対策の担当として複数の顧客案件を抱え、複雑な管理ツールにうんざりして自分で作り始めた（本人申告）",
+    "note": "使っていた作業管理ツールには、簡単な作業1つを作るにも操作が複雑なものや、使わない機能にも料金がかかるものがあった。別のツールは単純すぎたという。"
+  },
+  {
+    "entityId": "ent_teamcamp_ae0c21986c4d",
+    "analysisId": "a-why_it_worked",
+    "textHash": "031bf311",
+    "answer": "顧客に見せる専用の画面が、他のツールとの一番の差になった（本人申告）",
+    "note": "転機は、初めて話した代理店の経営者の質問だった。顧客用の画面があるか、自社の名前で出せるかを聞かれ、創業者は見た目より顧客とのやり取りの機能が要ると分かった。"
   }
 ]
