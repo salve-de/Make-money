@@ -50,9 +50,9 @@
  },
  {
   "id": "ent_myoperator_49c393230a2d",
-  "where": "section-group-secret / section-chapter-timeline / section-chapter-core / section-group-first",
+  "where": "section-group-secret / section-chapter-core / section-group-first",
   "rule": "e.同じ数字が2か所以上",
-  "text": "200社（4か所）",
+  "text": "200社（3か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -64,9 +64,9 @@
  },
  {
   "id": "ent_myoperator_49c393230a2d",
-  "where": "section-group-secret / section-chapter-timeline / section-group-first",
+  "where": "section-group-secret / section-group-first",
   "rule": "e.同じ数字が2か所以上",
-  "text": "600人（3か所）",
+  "text": "600人（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -106,23 +106,9 @@
  },
  {
   "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-turning / section-chapter-timeline",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「中小企業向けの通話管理MyO」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-timeline / section-chapter-core / section-group-first",
+  "where": "section-chapter-core / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「開始から半年で入るお金が出る」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-chapter-timeline / section-chapter-core",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「るお金が出るお金を上回った1」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -186,13 +172,6 @@
   "where": "section-chapter-practice / section-chapter-core",
   "rule": "e.同じ数字が2か所以上",
   "text": "73件（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_codementor_ba692caa3db3",
-  "where": "section-chapter-practice / section-chapter-turning",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "500人（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
@@ -582,9 +561,9 @@
  },
  {
   "id": "ent_gorails_640d8f688451",
-  "where": "数字の帯「料金」 / section-chapter-turning / section-chapter-price",
+  "where": "数字の帯「料金」 / section-chapter-price",
   "rule": "e.同じ数字が2か所以上",
-  "text": "19ドル（3か所）",
+  "text": "19ドル（2か所）",
   "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
