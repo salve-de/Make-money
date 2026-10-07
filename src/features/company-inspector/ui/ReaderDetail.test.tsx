@@ -94,7 +94,7 @@ describe('reader analysis', () => {
   it('「ひとこと」の HEADLINE と、畳んだ4段の STORY。どちらにも推測の印を出す', () => {
     const html = ledger(withAnalysis);
     const head = renderToStaticMarkup(<Headline reader={withAnalysis} />);
-    expect(head).toMatch(/<h3 class="[^"]*text-\[18px\][^"]*">面倒な集計/);
+    expect(head).toMatch(/<h3 class="[^"]*text-\[20px\][^"]*">面倒な集計/);
     const story = renderToStaticMarkup(<StorySteps reader={withAnalysis} />);
     expect(story.match(/<li /g)).toHaveLength(4);
     expect(story).toContain('集計を自動化した');

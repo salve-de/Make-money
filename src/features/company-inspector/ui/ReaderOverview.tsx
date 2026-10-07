@@ -125,35 +125,41 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
 }
 
 /** 概要。最初の1文を最上部に大きく、続きは畳まずそのまま下に出す。 */
-export function WhatIs({ fact, entityId }: { fact: ReaderFact | null | undefined; entityId?: string }) {
+export function WhatIs({ fact, entityId, lead = true }: { fact: ReaderFact | null | undefined; entityId?: string; lead?: boolean }) {
   if (!fact) return null;
   const text = plainFactText(fact.text);
   const end = text.indexOf('。');
   // 一覧と同じ「短い1行」があればそれを大きく出し、元の要約は全文を下に続ける
   const short = entityId ? listLineFor(entityId, fact) : null;
   const first = short ?? (end >= 0 ? text.slice(0, end + 1) : text);
-  const rest = short ? text : end >= 0 ? text.slice(end + 1).trim() : '';
+  // 短い1行と要約の1文目は同じことを言うので、続きは2文目から（同じ話を2度出さない）
+  const rest = end >= 0 ? text.slice(end + 1).trim() : '';
   return (
     <div data-fact={fact.id} className="px-2.5 pb-3 pt-3 sm:px-3">
       <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
-      <p className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{first}</p>
+      <p className={lead ? 'text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]' : 'text-base font-medium leading-snug text-term-fg-strong [overflow-wrap:anywhere]'}>{first}</p>
       {rest && <p className="mt-2 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{rest}</p>}
     </div>
   );
 }
 
 /** ひとこと（強い一行）。主役は「何の事業か」と数字の帯なので、ここでは小さめに。 */
-export function Headline({ reader }: { reader: ReaderCase }) {
+/** 出せるひとこと。リードは基準（lead-standard.ts）を通った時だけ。 */
+export function headlineOf(reader: ReaderCase): ReaderAnalysis | null {
   const a = byItem(reader, 'HEADLINE');
-  // リードは基準（lead-standard.ts）を通った時だけ出す
-  if (!a || !checkLead(a, reader).ok) return null;
+  return a && checkLead(a, reader).ok ? a : null;
+}
+
+export function Headline({ reader }: { reader: ReaderCase }) {
+  const a = headlineOf(reader);
+  if (!a) return null;
   return (
-    <div data-analysis={a.id} className="border-b border-term-line bg-term-head px-2.5 py-3 sm:px-3">
+    <div data-analysis={a.id} className="border-b border-term-line px-2.5 py-3 sm:px-3">
       <div className="mb-1 flex items-center gap-2 text-xs text-term-label">
         <span>{UI.HEADLINE_LABEL}</span>
         <InferenceMark analysis={a} />
       </div>
-      <h3 className="text-[18px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
+      <h3 className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{plainAnalysisText(a.text)}</h3>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import {
 } from '@/shared/display-text';
 import { createSentenceMemory, splitSentences } from '@/shared/case-text';
 import { ANALYSIS_LABELS, FACT_SECTIONS, UI } from '@/shared/ui-strings';
-import { AnalysisGroups, Fold, Headline, KeyStrip, planKeyStrip, SectionGap, WhatIs } from './ReaderOverview';
+import { AnalysisGroups, Fold, Headline, headlineOf, KeyStrip, planKeyStrip, SectionGap, WhatIs } from './ReaderOverview';
 import { ReaderSection } from './ReaderSection';
 
 type ReaderProps = { reader?: ReaderCase; evidencePrefix?: string };
@@ -211,9 +211,9 @@ export function ReaderLedger({ reader, entityId, detailState, onRetry, media }: 
     <>
       {status}
       <Headline reader={reader} />
-      <WhatIs fact={summary} entityId={entityId} />
-      {media}
       <KeyStrip reader={reader} plan={plan} />
+      <WhatIs fact={summary} entityId={entityId} lead={!headlineOf(reader)} />
+      {media}
       {(hasDetails || reader.analysis.some((a) => a.item !== 'HEADLINE')) && <SectionGap />}
       {reader.analysis.some((a) => a.item !== 'HEADLINE') && (
         <div id="section-analysis" data-section="section-analysis" className="scroll-mt-8">
