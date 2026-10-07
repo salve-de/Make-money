@@ -1,5 +1,6 @@
 import type { DisplayFiles } from '../../src/shared/display-build';
 import { unitNumbers } from '../reader-view/rules.mjs';
+import { ANALYSIS_GROUPS } from '../../src/features/company-inspector/ui/ReaderOverview';
 
 /**
  * 画面の層をまたいだ「同じ数字・同じ話」の検出（画面の自動監査 e の規則と同じ見方）。
@@ -7,6 +8,14 @@ import { unitNumbers } from '../reader-view/rules.mjs';
  * 場所は 概要・成功の秘訣・分析欄・章。一覧の文は監査も見ないので外す。
  */
 const PHRASE_LEN = 14;
+
+/** 画面では同じ折りたたみ（ANALYSIS_GROUPS）の分析欄は1つの節として見るので、同じ節の中の重なりは違反にしない。 */
+function sectionOf(where: string): string {
+  if (!where.startsWith('分析欄 ')) return where;
+  const id = where.slice('分析欄 '.length).replace(/^a-/, '').toUpperCase();
+  const g = ANALYSIS_GROUPS.find((x) => (x.items as string[]).includes(id));
+  return g ? `分析欄グループ ${g.title}` : where;
+}
 
 function placesOf(entityId: string, files: DisplayFiles): Array<[string, string]> {
   const places: Array<[string, string]> = [];
@@ -31,7 +40,8 @@ export function findDuplicates(entityId: string, files: DisplayFiles): Array<{ m
       seen.set(n.key, e);
     }
   }
-  for (const { raw, at } of seen.values()) if (at.size >= 2) problems.push({ message: `同じ数字「${raw}」が ${[...at].join(' と ')} に重なっている（1か所だけにする。数字は最も合う1か所に残し、他は数字を使わない言い方にする）`, places: [...at] });
+  const sections = (at: Set<string>) => new Set([...at].map(sectionOf)).size;
+  for (const { raw, at } of seen.values()) if (sections(at) >= 2) problems.push({ message: `同じ数字「${raw}」が ${[...at].join(' と ')} に重なっている（1か所だけにする。数字は最も合う1か所に残し、他は数字を使わない言い方にする）`, places: [...at] });
   const phrases = new Map<string, Set<string>>();
   for (const [where, text] of places) {
     const flat = text.replace(/[\s、。，．,.・:：（）()「」『』〜~\-—–]/g, '');
@@ -43,7 +53,7 @@ export function findDuplicates(entityId: string, files: DisplayFiles): Array<{ m
   }
   const reported = new Set<string>();
   for (const [w, at] of phrases) {
-    if (at.size < 2) continue;
+    if (sections(at) < 2) continue;
     const pair = [...at].join(' と ');
     if (reported.has(pair)) continue;
     reported.add(pair);

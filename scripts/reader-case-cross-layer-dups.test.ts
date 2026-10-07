@@ -35,3 +35,13 @@ test('重なりを直す対象は概要と分析欄の行だけ。章と成功�
   assert.equal(duplicatesInvolving('e1', f, { summary: false, detail: [] }).length, 0);
   assert.ok(duplicatesInvolving('e1', f, { summary: false, detail: ['a-story'] }).length > 0);
 });
+
+test('同じ折りたたみ（WHY_IT_WORKED と LESSON）の中の重なりは指摘しない', () => {
+  const f = files({
+    'detail-lines': [
+      { entityId: 'e1', analysisId: 'a-why_it_worked', textHash: 'h', answer: '開始から6か月で847人が使った', note: '' },
+      { entityId: 'e1', analysisId: 'a-lesson', textHash: 'h', answer: '847人が使った', note: '' },
+    ],
+  });
+  assert.deepEqual(crossLayerDuplicates('e1', f), []);
+});

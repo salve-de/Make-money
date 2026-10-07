@@ -435,7 +435,7 @@ function main() {
   if (ONLY && !finished.includes(ONLY)) { say(`${ONLY} は仕上げ済み（data/catalog-finished-ids.txt）に無い。作らない`); return 0; }
   const readers = liveReaders(ids);
   // 1. 今の文の言い回しの直し（関門に落ちた行だけ。行の位置・紐付けは保つ）
-  if (!has('--list') && !has('--materials-only') && !has('--no-repair')) {
+  if (!has('--list') && !has('--materials-only') && !has('--no-repair') && !DEDUPE) {
     let repairs = ids.map((id) => ({ id, rows: repairRows(id, files, unnatural) }));
     if (READER) {
       // 外部のAIに送る前に、公開中の事例を --max 件までに絞る
