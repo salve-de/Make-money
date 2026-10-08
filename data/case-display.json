@@ -12480,8 +12480,8 @@
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
  },
  "ent_typedream_c02cf9d5426e": {
-  "display": "HOLD_QUEUE",
-  "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_typefully_7cd1f7": {
   "display": "HOLD_QUEUE",

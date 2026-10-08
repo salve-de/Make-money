@@ -154,20 +154,6 @@
   "reason": "事例の文の担当が、第2回の画面直しの続きで直す（#203の事実訂正で文が入れ替わった分）"
  },
  {
-  "id": "ent_churnkey_8d7f2b269c21",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "25,000ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_churnkey_8d7f2b269c21",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「5000ドル約375万円未満」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
   "id": "ent_hostifi_cf9ec73a42d2",
   "where": "数字の帯「料金」",
   "rule": "c.料金の付帯条件",
@@ -196,27 +182,6 @@
   "reason": "第2・第3世代の事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
  },
  {
-  "id": "ent_memberful_0dff1f9c00fa",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "49米ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_memberful_0dff1f9c00fa",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "4.9%（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_memberful_0dff1f9c00fa",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「ドル約7350円に取引額の4」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
   "id": "ent_poolsuite_6d5ad6895563",
   "where": "数字の帯「料金」",
   "rule": "c.料金が長い",
@@ -231,27 +196,6 @@
   "reason": "第2・第3世代の事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
  },
  {
-  "id": "ent_tuple_20261007",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "30ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_tuple_20261007",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「1人あたり月30ドル約450」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_userlist_a288fcf9f741",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "1,000人（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
   "id": "ent_userlist_a288fcf9f741",
   "where": "概要1行目 / section-group-customers",
   "rule": "e.同じ話が2か所以上",
@@ -264,13 +208,6 @@
   "rule": "c.料金が長い",
   "text": "2022年9月の本人回想では、支援（Patronage）は150ドル（約2万2,500円）の支払いで1年間の追加特典が付くもので、その後、年150ドル（約2万2,500円、または月20ドル（約3,000円））の支払いが新規入会者に必須となった。",
   "reason": "事例の文の担当が、料金を「プラン名＋月額＋上限」だけに短くする"
- },
- {
-  "id": "ent_button_shy_f1545f17d98e",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "15米ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
   "id": "ent_candy_japan_954236d663a8",
@@ -316,31 +253,10 @@
  },
  {
   "id": "ent_lunch_money_be2eeb1f4fdf",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "$10（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_lunch_money_be2eeb1f4fdf",
   "where": "数字の帯「料金」",
   "rule": "f.説明のない略語",
   "text": "US: /年へ変更。2023年夏は従来US$100（約1万5,000円）",
   "reason": "第2・第3世代の事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
- },
- {
-  "id": "ent_noteforms_003fcbdd14cf",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "$15（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_noteforms_003fcbdd14cf",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「競合の安いプランの約半分を目」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
   "id": "ent_noteforms_003fcbdd14cf",
@@ -351,52 +267,10 @@
  },
  {
   "id": "ent_quaderno_81236030d721",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "24ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_quaderno_81236030d721",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "48ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_quaderno_81236030d721",
   "where": "概要1行目 / section-group-money",
   "rule": "e.同じ話が2か所以上",
   "text": "「ネットで売る事業者に税の計算」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_quaderno_81236030d721",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「48ドル約7200円の料金に」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_snipcart_9a1012111695",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "$1,000（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_snipcart_9a1012111695",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "2%（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_snipcart_9a1012111695",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "$20（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
   "id": "ent_statusgator_316d3eb5edf6",
@@ -404,13 +278,6 @@
   "rule": "c.料金が長い",
   "text": "当時の有料プランは月9.99米ドル（約1,499円）と19.99米ドル（約2,998円）。企業向けには複数利用者のサインオン、年払い、経費精算用の領収書の入手などが必要だと述べる。",
   "reason": "事例の文の担当が、料金を「プラン名＋月額＋上限」だけに短くする"
- },
- {
-  "id": "ent_statusgator_316d3eb5edf6",
-  "where": "数字の帯「料金」 / section-chapter-price",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "19.99米ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
  },
  {
   "id": "ent_statusgator_316d3eb5edf6",

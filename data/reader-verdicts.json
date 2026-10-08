@@ -183803,33 +183803,33 @@
    "quote": "Sell digital products & give freebies\nEbooks, courses, templates, files, links, or accept payments for services.",
    "fix": {},
    "sourceUrl": "https://typedream.com/",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "コードを書かずにサイトを作り、電子書籍・講座・テンプレート・サービスを販売し、フォームでメールアドレスを集める機能を提供している。"
   },
   "f2": {
    "verdict": "PARTIAL",
-   "quote": "135K\nWebsites Created",
+   "quote": "135K\nWebsites Created\n2K+\nLink in bios shared",
    "fix": {
     "text": "公式サイトには、作成されたサイト135K（135,000件）と記載されている。"
    },
    "sourceUrl": "https://typedream.com/",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "公式サイトには、作成されたサイト135,000件と記載されている。累計作成数の表示であり、有料客数や稼働中サイト数ではない。"
   },
   "f3": {
    "verdict": "SUPPORTED",
-   "quote": "$15/mo (annual plan)\n$20/mo (monthly plan)\nStart for Free\nAll plans are per site",
+   "quote": "$15/mo (annual plan)\n$20/mo (monthly plan)\nStart for Free\nAll plans are per site\nEVERYTHING IN FREE, PLUS\n✓ For landing pages & product launches\n✓ Unlimited pages\n✓ Custom domain, SEO, code injection\n✓ Complete site analytics\n✓ 1 blog (CMS collection)",
    "fix": {},
    "sourceUrl": "https://typedream.com/pricing",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "現在のLaunchは1サイトごとに月払い$20、年払いは月額換算$15。独自ドメイン、無制限のページ、解析、ブログ1件を含む。"
   },
   "f4": {
    "verdict": "SUPPORTED",
-   "quote": "$42/mo (annual plan)\n$49/mo (monthly plan)\nStart for Free\nAll plans are per site",
+   "quote": "$42/mo (annual plan)\n$49/mo (monthly plan)\nStart for Free\nAll plans are per site\nEVERYTHING IN LAUNCH, PLUS\n✓ For growing your business\n✓ Unlimited blogs (CMS collections)\n✓ Unlimited form submissions",
    "fix": {},
    "sourceUrl": "https://typedream.com/pricing",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "現在のGrowは1サイトごとに月払い$49、年払いは月額換算$42。ブログ数とフォーム送信数の上限がなくなる。"
   },
   "f5": {
@@ -183837,25 +183837,25 @@
    "quote": "✓ Publish 1 page\n✓ Link in bio\n✓ Typedream.app domain\n✓ Typedream badge\n✓ 1 seat maximum\n✓ 5% transaction fee + credit card/Paypal fee",
    "fix": {},
    "sourceUrl": "https://typedream.com/pricing",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "無料枠は1ページを公開できる。商品販売の取引手数料は無料枠5%、LaunchとGrowは2%で、カードまたはPayPalの手数料は別にかかる。"
   },
   "f6": {
    "verdict": "SUPPORTED",
-   "quote": "When we started Typedream in 2021, we were just a group of college grads",
+   "quote": "When we started Typedream in 2021, we were just a group of college grads who believed we could make it easier for people to create beautiful websites on the internet.",
    "fix": {},
    "sourceUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Kevin Chandraは、Typedreamを2021年に始めたと記している。"
   },
   "f7": {
    "verdict": "PARTIAL",
    "quote": "Every call you joined, every feature request you made, and every bug report you submitted has helped us reach that goal.",
    "fix": {
-    "text": "顧客が参加した通話、機能要望、障害報告が、誰でも美しいサイトを作りやすくするという目標の達成を助けたと説明している。"
+    "text": "顧客が参加した通話、機能要望、障害報告が、美しいサイトを誰でも作りやすくするという目標の達成を助けたと説明している。"
    },
    "sourceUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "顧客との通話、機能要望、障害報告を受けながら製品を改善してきたと説明している。"
   },
   "f8": {
@@ -183863,17 +183863,17 @@
    "quote": "They won the #1 Product of the Month in July 2021 on Product Hunt.",
    "fix": {},
    "sourceUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "beehiivの発表によると、2021年7月にProduct Huntの月間1位になった。"
   },
   "f9": {
    "verdict": "PARTIAL",
    "quote": "Typedream is currently home to tens of thousands of active websites for companies, publishers, and creators.",
    "fix": {
-    "text": "2024年6月のbeehiivの公式発表では、Typedream上で企業・出版者・クリエイター向けの数万件のサイトが稼働していると説明した。"
+    "text": "2024年6月のbeehiivの公式発表では、Typedream上で企業・出版社・クリエイター向けの数万件のサイトが稼働していると説明した。"
    },
    "sourceUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "2024年6月の公式発表では、Typedream上で数万件のサイトが稼働していると説明した。有料客数の公表ではない。"
   },
   "f10": {
@@ -183881,49 +183881,49 @@
    "quote": "Were founded by 5 incredibly talented engineers.",
    "fix": {},
    "sourceUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "beehiivの発表は、Typedreamを5人の技術者が創業したサービスと説明している。"
   },
   "f11": {
    "verdict": "SUPPORTED",
-   "quote": "We dug deeper and got the answer that people like Notion's WYSIWYG interface in which they can type in the editor right away",
+   "quote": "We heard that several important aspects of websites are not intuitive. For example, there is no default way to make buttons. The workaround is to make them use callouts and edit the CSS. Another example is navbars: you have to make them manually using columns.",
    "fix": {},
    "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "認証サービスを作っていた際、Notionとの連携を求められた。利用者に聞くと、文章を直接編集できる操作が好まれ、ボタンやナビゲーションが不足していた。"
   },
   "f12": {
    "verdict": "SUPPORTED",
-   "quote": "We then added nice default styles to allow their sites to look good with no effort. And then we take care of everything else, like responsiveness, paddings, margins, etc.",
+   "quote": "We then added nice default styles to allow their sites to look good with no effort. And then we take care of everything else, like responsiveness, paddings, margins, etc., so they don't need to manually set different styles for different device sizes.",
    "fix": {},
    "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "その聞き取りから、文章編集の操作にサイト用の部品と標準デザインを足し、画面サイズへの対応も製品側で受け持つ形にした。"
   },
   "f13": {
    "verdict": "SUPPORTED",
-   "quote": "Interesting problem, we had a similar issue previously where we didn't define our users well. This time we rigorously interviewed potential users before even started anything",
+   "quote": "I see... Interesting problem, we had a similar issue previously where we didn't define our users well. This time we rigorously interviewed potential users before even started anything :D",
    "fix": {},
    "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Putri Karuniaは、以前は利用者を十分に定められなかったため、今回は制作前に候補利用者を徹底して聞き取ったと返答した。返答日は2021年11月3日。"
   },
   "f14": {
    "verdict": "PARTIAL",
-   "quote": "We're basing it off the price of other website builders.",
+   "quote": "Thank you! We're basing it off the price of other website builders. (For example, Webflow's Basic plan is $12 without their CMS feature).",
    "fix": {
     "text": "2021年11月2日の投稿でコメント投稿者が年$144の価格を挙げ、創業者は他のサイト作成サービスの価格を参考にしたと返答した。"
    },
    "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "2021年11月2日の投稿で試用者が年$144の価格を挙げ、創業者は他のサイト作成サービスの価格を参考にしたと返答した。料金表そのものの確認とは区別する。"
   },
   "f15": {
    "verdict": "SUPPORTED",
-   "quote": "so definitely something we should improve on! And yes the context menu is covered when it's near the top , a bug we need to fix.",
+   "quote": "Yes we actually did have a couple questions on how to change the background color, and realized that using a container is \"doable\" but \"not intuitive\", so definitely something we should improve on! And yes the context menu is covered when it's near the top , a bug we need to fix.",
    "fix": {},
    "sourceUrl": "https://news.ycombinator.com/item?id=29084309",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "試用者yutersはNotion利用者ならなじみやすいと評価した一方、背景色の変更と画面外に隠れる操作メニューを指摘。創業者は改善点と障害を認めた。"
   },
   "f16": {
@@ -183933,49 +183933,49 @@
     "text": "旧料金ページのLaunchは月払い$15、年払いは月額換算$12。公開ページ数無制限と独自ドメインを含む。"
    },
    "sourceUrl": "https://typedream.com/old-pricing",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "旧料金ページのLaunchは月払い$15、年払いは月額換算$12。公開ページ数無制限と独自ドメインを含む。適用開始日と終了日はページから分からない。"
   },
   "f17": {
    "verdict": "SUPPORTED",
-   "quote": "$20 /mo (billed yearly)\n$25/mo (billed monthly)",
+   "quote": "$20 /mo (billed yearly)\n$25/mo (billed monthly)\nAll plans are per site.\n✓ Everything in Launch\n✓ Advanced analytics\nLearn more →\n✓ Protected pages\n✓ Display data from Notion",
    "fix": {},
    "sourceUrl": "https://typedream.com/old-pricing",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "旧料金ページのProは月払い$25、年払いは月額換算$20。保護ページとNotionのデータ表示などを含む。"
   },
   "f18": {
    "verdict": "SUPPORTED",
-   "quote": "If you choose to cancel your subscription, your service will be cancelled at the end of your billing period.",
+   "quote": "Yes, the subscription is automatically renewed every month or year, depending on the billing you have chosen, and it is charged from the payment method on your account.\nIf you choose to cancel your subscription, your service will be cancelled at the end of your billing period.",
    "fix": {},
    "sourceUrl": "https://typedream.com/old-pricing",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "旧料金ページには、月または年ごとの自動更新と、解約時は支払期間末まで利用できることが記載されている。"
   },
   "f19": {
    "verdict": "SUPPORTED",
-   "quote": "The biggest benefit was that I was able to get it up and ready in like a day",
+   "quote": "The biggest benefit was that I was able to get it up and ready in like a day, because I had this idea in late December, and I had to get it obviously ready before January 1st.",
    "fix": {},
    "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Kyleigh Smithは、Dry January Challengeの募集ページを約1日で用意できたことが最大の利点だったと述べた。"
   },
   "f20": {
    "verdict": "SUPPORTED",
-   "quote": "There were just a few things I was struggling with like dragging things. It felt like there were just a few kinks to be ironed out.",
+   "quote": "And I tried the product probably a year prior to this. Okay. And I thought it was really good. There were just a few things I was struggling with like dragging things.",
    "fix": {},
    "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Kyleigh Smithは、約1年前の試用でドラッグ操作に困り、Unicorn Platformを使い続けたが、再試用では問題が解消され、Typedreamを採用したと述べた。"
   },
   "f21": {
    "verdict": "PARTIAL",
-   "quote": "I think I just sort of had seen you and your team around on Twitter and Product Hunt.",
+   "quote": "Yeah, I think I just sort of had seen you and your team around on Twitter and Product Hunt.",
    "fix": {
     "text": "Kyleigh Smithは、TwitterとProduct HuntでTypedreamのチームを見かけて知ったと述べた。"
    },
    "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Kyleigh Smithは、TwitterとProduct HuntでTypedreamのチームを見かけて知ったと述べた。販売促進経路の利用者側の証言である。"
   },
   "f22": {
@@ -183983,43 +183983,45 @@
    "quote": "Like you have those pre-built components that look great outta the box. At the same time, it's really easy to move things around and make it your own.",
    "fix": {},
    "sourceUrl": "https://typedream.com/blog/kyleigh-smith",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Kyleigh Smithは、あらかじめ整った部品を動かして自分の意図に合わせられることと、公開や修正の容易さを評価した。"
   },
   "f23": {
    "verdict": "PARTIAL",
    "quote": "Fourth, get monthly payouts via Paypal",
    "fix": {
-    "text": "紹介報酬の案内は、継続課金に対して20%の報酬を提示し、PayPalで毎月支払うと説明している。"
+    "text": "紹介報酬の案内は、20%の継続報酬を提示し、PayPalで毎月支払うと説明している。"
    },
    "sourceUrl": "https://typedream.com/affiliate",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "紹介報酬の案内は、継続課金に対して20%の報酬を提示し、PayPalで毎月支払うと説明している。実際の集客件数や費用ではない。"
   },
   "f24": {
-   "verdict": "SUPPORTED",
-   "quote": "I just built a landing page without coding in 5 minutes.",
-   "fix": {},
+   "verdict": "PARTIAL",
+   "quote": "I just built a landing page without coding in 5 minutes.\nNo-code is the future of web design.\nThank you @typedreamHQ pic.twitter.com/l4232X4jfL\n- Easlo (@heyeaslo) April 19, 2022",
+   "fix": {
+    "text": "紹介報酬ページには、2022年4月19日のEasloの投稿が掲載されている。本人がコードを書かずに5分でランディングページを作ったとする利用談である。"
+   },
    "sourceUrl": "https://typedream.com/affiliate",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "紹介報酬ページには、2022年4月19日のEasloの投稿が掲載されている。本人がTypedreamで募集ページを約5分で作ったとする利用談である。"
   },
   "f25": {
    "verdict": "SUPPORTED",
-   "quote": "You are eligible for a full refund if you purchased a new Paid Plan using a credit card within the last 14 days.",
+   "quote": "You are eligible for a full refund if you purchased a new Paid Plan using a credit card within the last 14 days.\nThe refund policy does not apply to renewal payments or upgrades of existing plans unless the original purchase of a Paid plan was made within the last 14 days.",
    "fix": {},
    "sourceUrl": "https://typedream.com/refund-policy",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "2023年5月9日更新の返金規定は、新規の有料プランをカードで購入した場合、最初の14日以内を全額返金の対象とする。更新料金は原則として対象外。"
   },
   "f26": {
    "verdict": "PARTIAL",
-   "quote": "2023-04-28\nExciting news from Typedream: We've made our free tier even more generous, unlocking Blog and Form features for everyone!",
+   "quote": "Market Analysis\n2023-04-28\nExciting news from Typedream: We've made our free tier even more generous, unlocking Blog and Form features for everyone!",
    "fix": {
     "text": "公式記事目録は、2023年4月28日に無料枠へブログとフォームを開放した記事を掲載している。"
    },
    "sourceUrl": "https://typedream.com/blog",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "公式記事目録は、2023年4月28日に無料枠へブログとフォームを開放した記事を掲載している。目録の要約確認であり、その時点の詳細上限は確認していない。"
   },
   "f27": {
@@ -184027,7 +184029,7 @@
    "quote": "From Dreams to Reality with Typedream: Kyleigh Smith\nSuccess Stories\n2023-05-15",
    "fix": {},
    "sourceUrl": "https://typedream.com/blog",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "公式記事目録には、2023年5月15日付でKyleigh Smithへの利用者インタビューが掲載されている。"
   }
  },

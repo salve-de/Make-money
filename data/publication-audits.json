@@ -7119,5 +7119,276 @@
   ],
   "lastAudit": "data/audit/in-99999926100801375989078002.json",
   "baseAnalysisHash": "56a77e530e40a9aa13454f63e36a2144ce620d5386fcbd321904281b6d4c984b"
+ },
+ "ent_typedream_c02cf9d5426e": {
+  "version": 2,
+  "caseHash": "15ab0fc2af03cb3fad807368d26eff30f2f1d2753d3d295b91663f60308831a5",
+  "items": {
+   "fact:f1": {
+    "hash": "17b6e1ec98856b80bea25c809a186d808ad36cf0010d6a216ccb9de1c86567e4",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f2": {
+    "hash": "8242cddf92ab5369daf9da5062c9ddac13cdb3f4208f157f4e300cea827e3790",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f3": {
+    "hash": "b8ed5f17a56be39203c7f39e9f05f7475f622bedd38a0e906a643d81d5d9dbc9",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f4": {
+    "hash": "b9369b42cafb304ee03231d2af8b1003440a8917587473f1e82672d90a237d0b",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f5": {
+    "hash": "a3b8736321a51095b75cf01fc97c31961b4648afd050ed023bec09387c01820a",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f6": {
+    "hash": "d64cd68315a63339d9ddd8060a58db638ee87f525be2ad4b301e7eba2a59dfa6",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f7": {
+    "hash": "0639482a1e27ab7f680bbbc2c7a4fa32bf5858ddea4f3f6c61d216e704e32367",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f8": {
+    "hash": "2beee14a8316369b407ce50f78b3a1e57f268a4ecf1dc01aa54c96ed8676897e",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f9": {
+    "hash": "4fee939f08e88b2a9d274b3e1d91427da362e381fac3e16b3b66322557fdd290",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f10": {
+    "hash": "6f457b5b41601e6adb9195d63a6e71833aeaae787752926b98bbd9c10afd70b2",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f11": {
+    "hash": "43fffdcb2f1813cfa23e4b62faa971cf8daea4d06b15b4a012053daf862391a1",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f12": {
+    "hash": "7daae3df5b066661dd7544282201d102697b2832c874751309796214046e0311",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f13": {
+    "hash": "14423acefcb91971406cf8e1af67ae7549a1958ca26ce80a3e78d2156e6fb02e",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f14": {
+    "hash": "cbe2f00807ae455be22b0da602856cfa288b27cb98d9ac45ce6da4ca3b82f439",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f15": {
+    "hash": "de8f23ad467d34c3febd451b9b174b6e5d0cd1851eb8ae2f43a0d3182fd88eb5",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f16": {
+    "hash": "6d21510cb61410339dae86898adcc6a0b15e90cb5d9d066ac90d71153a467194",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f17": {
+    "hash": "a15057363508febbdd3fb6cef9500c2e37eab848c7ac46a8b71aef797bc6229f",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f18": {
+    "hash": "836ffd518eafc66f75bd7f5966358fe586f4cf3698d4a890837f6d56582efdfc",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f19": {
+    "hash": "2b399c680b75225fc7e776ea02d8f69cc97ccd4cf33d03329979c6d0dfc3605a",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f20": {
+    "hash": "ebcb1d9a6f1b6bdfa34d7fe96ab0a4627736190a64b1ebf0216e24ef475003e7",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f21": {
+    "hash": "f3cb135f8ce98680ea586577984468a40d2a2129a02b42bfa1281745a7362f4f",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f22": {
+    "hash": "ef36bafb913ee4c2487d1ad4f29ded1944ce7fa0b25d2d941e55a2627d84fc71",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f23": {
+    "hash": "2120f310ce2296ed9bfbf9ec4a7c30a5bc1af3a6e79bc032e3af3e68268c6f78",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f24": {
+    "hash": "92b7ee3f8d8a72f34747c8d37e656e5270e3229bb08b4002285c72df8d21a6a3",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f25": {
+    "hash": "ef036e146e7c136398743c36e52506e24499543423830b56fa72aeb7cfc262fc",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f26": {
+    "hash": "9c2d6ba4d6ef5f607aa26cc54cab5c8cbcc10e89e8ed170dc347c74125bdc266",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "fact:f27": {
+    "hash": "35cd971c58f366e8aa7559a153c153cdffc5fbe8a7123dced86575e4740a5876",
+    "by": "data/audit/in-99999926100802341346921001.json"
+   },
+   "analysis:a-headline": {
+    "hash": "6aa94b8e887c30ccf1c5bb2bd554f74a2b950e95d0d79c0bb71511e960cb0d0a",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "認証サービスを作っていた5人の技術者は、Notion連携を求める利用者に理由を聞いた。答えは、文章をそのまま打てる操作は好きだが、ボタンとナビゲーションが足りないというものだった。彼らはその欠けた部品を足したサイト作成の道具に切り替え、2021年7月にProduct Huntの月間1位を取った。"
+    }
+   },
+   "analysis:a-business_model": {
+    "hash": "4bfd56e7e67856ad96bb6da33163a1d357f9f2f22372dc77452c625a724c0292",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "コードを書かずにサイトを作れる道具を、1サイトごとの月払いまたは年払いで売っている。利用者はそのサイト上で電子書籍・講座・テンプレート・サービスを販売でき、フォームでメールアドレスも集められる。商品が売れるたびに、売り手は取引手数料を払う。料率は無料枠で5%、有料のLaunchとGrowで2%。つまり稼ぎ口は、サイト単位の利用料と、利用者の売上から取る手数料の二本立てになっている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-customer": {
+    "hash": "7c64336288e200663ab94d494e602e350e00cb9430317f55c6c41f93bcfa9c54",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "beehiivの説明では、企業・出版社・クリエイター向けのサイトが数万件稼働している。具体例として、習慣記録サービスHaroldの共同創業者Kyleigh Smithがいる。彼女はDry January Challengeの参加者を募るページを作るためにTypedreamを採用した。紹介報酬ページには、コードを書かずに5分でランディングページを作ったというEasloの投稿も載っている。"
+    }
+   },
+   "analysis:a-customer_pain": {
+    "hash": "29ba48645af813d739c8e84a27b2870f08b63af59dfca461e035f1461dd19ec5",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "客の痛みは、思いついた企画の受付ページを公開日に間に合わせられないことだ。Kyleigh Smithが最大の利点に挙げたのは、Dry January Challengeの募集ページを約1日で用意できたことだった。あわせて、出来合いの部品を自分の意図どおりに動かせることと、公開や修正の手軽さも評価している。一方Notionでサイトを作っていた人たちは、ボタンもナビゲーションも無いまま、メモ用の道具を無理にサイトとして使っていた。"
+    }
+   },
+   "analysis:a-channels": {
+    "hash": "6f3d9149ca5ec93af0ab2852a79473031f453c6ecad203a767d1bd6983a13b20",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "Kyleigh Smithは、TwitterとProduct HuntでTypedreamのチームを見かけて知ったと述べている。Product Huntでは2021年7月に月間1位を取った。このほか、継続報酬を払う紹介制度でも客を呼び込んでいる。"
+    }
+   },
+   "analysis:a-cost_structure": {
+    "hash": "8eb8492d9bc595c0dba33b8a04299be6a647985744570299eaa070827d25cf49",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "紹介経由の客については、20%の継続報酬を毎月PayPalで紹介者に払っている。商品販売で発生するカードやPayPalの手数料は、Typedreamの取引手数料とは別立てで、売り手側にかかる。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-capital_and_team": {
+    "hash": "08c4c803c204ffb2b95c5ac5d2363c2c050edf7cf4996ca3fbf6d8ee6d484c11",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "beehiivの説明によると、Typedreamは5人の技術者が創業した。"
+    }
+   },
+   "analysis:a-dependencies": {
+    "hash": "918cf22d9c967951ab5ca2e9953eb6d2a70450dfb4503c5b8d98304254259135",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "利用者の商品販売は、カードとPayPalの決済に乗っている。紹介報酬の支払いもPayPalで行う。旧Proプランは、Notionのデータを表示する機能を売りにしていた。この形は、Notionの仕様に左右される。2024年6月以降はbeehiivの製品群に入ったため、今後の方向はbeehiiv側が決める。"
+    }
+   },
+   "analysis:a-lock_in": {
+    "hash": "16425222b943483b6c3a48036d8db752be30e02bedeb9fbc36a020b95f1249ec",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "弱い。契約は月か年ごとに自動更新される。解約しても支払期間の終わりまでは使える。サイト上の販売やメールアドレス集めを使い込んだ客ほど、他の道具へ移る手間は増える。"
+    }
+   },
+   "analysis:a-upfront_cash": {
+    "hash": "0f7e597a85d0ce838838dd21995bcfc0974b9ddd4bb57d8dacf8a542a244816f",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "各プランには年払いがあり、Launchは月額換算$15、Growは$42で、月払いより安い。年払いを選んだ客の1年分の料金は先に入る。契約は月または年ごとに自動で更新され、解約しても支払った期間の終わりまでは使える。新規の有料プランをカードで買った場合、最初の14日以内なら全額返金の対象になるが、更新料金は原則として対象外。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-referral": {
+    "hash": "0b09c5faa33fe6a870889c7b6464862bb7fa57c89323a1d901aa41e8c2515526",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "紹介者には20%の継続報酬を提示し、PayPalで毎月支払っている。紹介報酬ページには、Easloがコードを書かずに5分でランディングページを作ったという2022年4月19日の投稿が、利用談として載っている。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-competition": {
+    "hash": "bd7f752e66653a542e15345f783d106472697ea7ab7784f1659faa8b3d13109d",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "料金は他のサイト作成サービスを参考に決めており、年$144の価格はローンチの場でコメント投稿者に問われた。Kyleigh Smithは約1年前に試したとき、ドラッグ操作に困ってUnicorn Platformを使い続けた。再び試すと問題が解消されていたため、Typedreamに乗り換えた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-timeline": {
+    "hash": "5b73601972b6e29bd944470200cc64f9dd56dcf9e25ad57a715d8eb58d5cfe5a",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "2021年：Typedreamを開始。2021年7月：Product Huntで月間1位。2021年11月2日：投稿で年$144の価格について問われる。2022年4月19日：Easloの利用談投稿（のちに紹介報酬ページへ掲載）。2023年4月28日：無料枠でブログとフォームを開放。2023年5月9日：返金規定を更新。2023年5月15日：Kyleigh Smithへの利用者インタビューを掲載。2024年6月：beehiivが公式発表。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "d70294160f7f5da13d520d2ccc081f18c6e28e0e4cacbfdc061ada6f1f4243d6",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "当時、Notionで文章を打つ感覚のままサイトを作りたい人がいた。しかしNotionにはボタンやナビゲーションが無かった。その不満をそのまま製品にしたため、試用者からもNotion利用者ならすぐなじめると評価された。"
+    }
+   },
+   "analysis:a-viability": {
+    "hash": "50f72a94b4674c70dd0c60f8c781532b0445eb7ee63684eceeeb45ea85d3213e",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "特化しないと困難。サイト作成の分野には、Carrd・Webflow・Unicorn Platformなどの代わりの手段がすでに並んでいる。Typedream自身の価格も、それらと比べて突かれた。Typedreamは単独で走り続けず、2024年6月にニュースレターの会社beehiivの製品群に入った。"
+    }
+   },
+   "analysis:a-pivots": {
+    "hash": "95dd1eed0d2d7fdf90ed92de31cc2371880d6cb5c4713879326a83eec5888c08",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "Typedreamの前、チームは認証サービスを作っていた。そこでNotionとの連携を求められたことがきっかけで、サイト作成の道具に切り替えた。Putri Karuniaは、以前は利用者を十分に定められなかったと振り返っている。今回は作り始める前に、候補となる利用者に徹底して聞き取りをした。"
+    }
+   },
+   "analysis:a-lesson": {
+    "hash": "8193e6b01bc65115015f0c294003b4ef1a17701791dcafd44467094191344ac4",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "既存の道具を本来とは違う用途で無理に使っている客に、何が足りないかを直接聞く。そのうえで、欠けている部品だけを足し、慣れた操作はそのまま残す。"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "bfd67a75936d75331112fa289983c3b97c8de2262b93880b0b5ee70af36795ac",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "5人の技術者は、ノーコードのサイト作成サービス向けにパスワード不要の認証サービスを作っていた。そこで利用者からNotionとの連携を求められた。理由を聞くと、文章をその場で直接編集できる操作が好まれていた。一方で、Notionにはボタンやナビゲーションが無かった。そこで文章編集の操作にサイト用の部品と標準デザインを足し、画面サイズへの対応も製品側で受け持つ形にした。2021年に始め、同年7月にProduct Huntの月間1位を取った。2021年11月2日のHacker Newsでの公開では、年$144の価格が高いと突かれた。創業者は、他のサイト作成サービスの価格を参考にしたと返した。2023年4月28日には無料枠でもブログとフォームを使えるようにした。2024年6月にはbeehiivが発表し、beehiivの製品群に入った。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-tools": {
+    "hash": "f7e6d477a6021d73cc6dcb0ba7f3d5c39cade260fe03c72e316a917807c23d0b",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "創業者のHacker Newsでの説明では、技術の中身は次の通り。編集画面はSlateJSとReactで作る。ページはNext.jsで静的なページとして書き出し、VercelとDigitalOceanに置く。独自ドメインの証明書は、この二つの置き場所が自動で発行する。解析機能は、Plausibleを自前で動かして提供している。"
+    }
+   },
+   "analysis:a-incumbent_blindspot": {
+    "hash": "21176ad7d1a005c65bf0a548b42108bffedfbac3769321fd6fbe2786eaaadaf5",
+    "by": "data/audit/in-99999926100802341346921001.json",
+    "body": {
+     "text": "Notionはメモの道具で、利用者がサイト作りに使っても、ボタンやナビゲーションといったサイト用の部品は備えていなかった。Typedreamは、Notion利用者が好む「文章を直接編集する操作」を残したまま、サイトに必要な部品、標準デザイン、画面サイズへの対応を自分たちで引き受けた。"
+    }
+   }
+  },
+  "audits": [
+   {
+    "inputFile": "data/audit/in-99999926100802341346921001.json",
+    "outputFile": "data/audit/out-99999926100802341346921001.json",
+    "inputFileHash": "800c82138277f8b21e353f67a4ad92a4c8eefa36adfb6a6077a2da90f4a35767",
+    "outputFileHash": "78a6c3557c8570e38648c75ce9f94b421c6650bbc6bf583abd59dbc74fb1e8f7"
+   }
+  ],
+  "lastAudit": "data/audit/in-99999926100802341346921001.json",
+  "baseAnalysisHash": "6413b276a8e1bd36e932b2572d9580667ce385cb479672ca9912e1060c650fda"
  }
 }
