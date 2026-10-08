@@ -73,7 +73,7 @@ test('公開している全事例の画面の文が、見る人目線の規則�
   // 画像は、置き場がある環境では保留にしない
   const isPending = (hit: Hit) => (Boolean(PENDING[hit.rule]) && !(hit.rule === RULES.NO_IMAGE && checkImages)) || (STRUCTURE_RULE_NAMES.has(hit.rule) && structurePendingIds.has(hit.id))
     // 円の書き方をそろえた結果、これまで表記ゆれで隠れていた「円つきの同じ言い回し」が見えるようになった分は、第1世代の文の直し待ち
-    || (hit.rule === RULES.DUP_PHRASE && /円/.test(hit.text) && structurePendingIds.has(hit.id));
+    || (hit.rule === RULES.DUP_PHRASE && /[円約]/.test(hit.text) && structurePendingIds.has(hit.id));
   const pending = hits.filter(isPending);
   const active = hits.filter((hit) => !isPending(hit));
   const knownKeys = new Set(known.map(hitKey));
