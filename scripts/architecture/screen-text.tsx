@@ -212,6 +212,8 @@ for (const id of ids) {
   const hits = [...findHits(all), ...findHits(list, LIST_RULES)];
   // 出どころの検査: fact・metric・source の外にあって、ui-strings の許可リストにも無い文字 / 中身の無い見出し / 同じ fact の2回目
   const allowed = allowedUiTexts(entity.name);
+  // 事例が持つ札（一覧の行と詳細の見出しに出る。caseLabels）は事例のデータから来る文字
+  for (const tag of entity.tags ?? []) allowed.add(tag);
   const isAllowed = (t: string) => allowed.has(t) || isUnknownsLine(t) || isGenerationHeading(t);
   const factIds = new Set((entity.reader?.facts ?? []).map((f) => f.id));
   for (const [screen, html] of screens) {

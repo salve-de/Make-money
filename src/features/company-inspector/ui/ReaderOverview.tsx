@@ -7,7 +7,7 @@ import { successPointsFor } from '@/shared/success-points';
 import { caseChaptersFor, type ChapterId, type ChapterRow } from '@/shared/case-chapters';
 import { listLineFor } from '@/shared/list-lines';
 import { summaryRestFor } from '@/shared/summary-lines';
-import { formatMetricAmount, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, metricPeriodText, plainFactText, screenText } from '@/shared/display-text';
+import { formatMetricAmount, yenText, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, metricPeriodText, plainFactText, screenText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -106,7 +106,8 @@ const YEN_PER: Record<string, number> = { USD: 150, EUR: 165, GBP: 195, INR: 1.7
 /** 外貨の売上は、円のおおよその額を添える（為替は固定の目安: 1ドル=150円など）。 */
 function yenApprox(m: ReaderMetric): string | null {
   const rate = m.currency ? YEN_PER[m.currency] : undefined;
-  return rate ? `約${formatMetricAmount({ amount: Math.round(m.amount * rate), currency: 'JPY', unit: m.unit })}` : null;
+  // 一覧・本文の円換算（withYenApprox）と同じ書き方にそろえる（同じ額を別の形で出さない）
+  return rate ? `約${yenText(m.amount * rate)}` : null;
 }
 
 /** 主要な数字の帯: 売上（事実の数値。無ければ売上の推測）・料金・手残り。 */
