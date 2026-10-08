@@ -195,13 +195,11 @@ export function missingChapters(md: string, optional: readonly string[] = []): V
   return v;
 }
 
-/** この章を省いてよい事例（古い書き方の見本で、その章の材料が無いもの）。無い章は空にして、画面ではその章を出さない */
-export const OPTIONAL_CHAPTERS: Record<string, readonly string[]> = {
-  ent_button_shy_f1545f17d98e: [CHAPTER_HEADS.setbacks],
-};
+/** どの事例でも省いてよい章（つまずきの材料が無い事例もある）。無い章は空にして、画面ではその章を出さない */
+export const OPTIONAL_CHAPTERS: readonly string[] = [CHAPTER_HEADS.setbacks];
 
-export function checkMarkdown(md: string, entityId = ''): { page: CasePage | null; violations: Violation[] } {
-  const missing = missingChapters(md, OPTIONAL_CHAPTERS[entityId] ?? []);
+export function checkMarkdown(md: string): { page: CasePage | null; violations: Violation[] } {
+  const missing = missingChapters(md, OPTIONAL_CHAPTERS);
   if (missing.length > 0) return { page: null, violations: missing };
   try {
     const page = parseCasePage(md);

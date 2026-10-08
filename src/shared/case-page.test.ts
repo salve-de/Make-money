@@ -110,9 +110,9 @@ describe('番号つき見出しと任意の章', () => {
     expect(page.sources.length).toBeGreaterThan(5);
     expect(page.sources[0].no).toBe(1);
   });
-  it('「つまずきと立て直し」は、この事例だけ任意', () => {
-    expect(checkMarkdown(md, 'ent_button_shy_f1545f17d98e').violations).toEqual([]);
-    expect(checkMarkdown(md, 'ent_other').violations.some((v) => v.rule === 'missing-chapter')).toBe(true);
+  it('「つまずきと立て直し」は無くてよいが、ほかの章が欠けると落ちる', () => {
+    expect(checkMarkdown(md).violations).toEqual([]);
+    expect(checkMarkdown(md.replace('## 5. 料金', '## 5. 値段')).violations.some((v) => v.rule === 'missing-chapter')).toBe(true);
   });
   it('題の下の作業メモは画面の文に入らない', () => {
     expect(JSON.stringify(parseCasePage(md))).not.toContain('直した点');
@@ -138,7 +138,7 @@ describe('公開版への組み込み', () => {
     expect(built.length).toBeGreaterThan(0);
     for (const { entityId, page: p } of built) {
       const md = readFileSync(`data/case-pages/${entityId}.md`, 'utf8');
-      expect(checkMarkdown(md, entityId).violations, entityId).toEqual([]);
+      expect(checkMarkdown(md).violations, entityId).toEqual([]);
       expect(parseCasePage(md), entityId).toEqual(p);
     }
   });
