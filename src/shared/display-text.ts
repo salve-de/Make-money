@@ -1,5 +1,6 @@
-import type { ReaderCase, ReaderFact, ReaderMetric, ReaderSource } from './reader-case';
+import type { ReaderCase, ReaderDisplay, ReaderFact, ReaderMetric, ReaderSource } from './reader-case';
 import { metricWhen } from './metric-when';
+import { textFingerprint } from './text-fingerprint';
 import { stripOriginTag } from './origin-tag';
 import { GENRE_LABELS, MEASURE_LABELS, ORIGIN_LABELS, UI, UNKNOWN_LABELS } from './ui-strings';
 
@@ -851,9 +852,23 @@ const GENRE_RULES: Array<[RegExp, keyof typeof GENRE_LABELS]> = [
  * 事例が持つ事業の札を先頭から3つ。「収集事例」「新着」のような運営側の印は出さない。
  * 事業の札が1つも無い時だけ、事業を説明する一文から決まる分野（genreLabel）を1つ。それも決まらなければ空（札の欄を出さない）。
  */
+/** 札はこの数以上そろえる（事業の札がこれより少ない事例は、事業の中身から付けた札で補う） */
+export const MIN_LABELS = 2;
 const OPERATOR_TAGS = new Set(['収集事例', '新着', '未精査候補', '収益確認済']);
-export function caseLabels(entity: { tags?: readonly string[] | null; tagline?: string | null }): string[] {
+/** 札の言い直し。事例が持つ札が少ない時の補い。tagline の指紋が合う時だけ返す（data/fact-lines.json の kind: labels）。 */
+export function displayLabelsFor(display: ReaderDisplay | undefined, tagline: string | null | undefined): string[] {
+  const entry = display?.labels;
+  if (!entry || entry.hash !== textFingerprint((tagline ?? '').trim())) return [];
+  return entry.labels;
+}
+export function caseLabels(entity: { tags?: readonly string[] | null; tagline?: string | null; reader?: { display?: ReaderDisplay } | null }): string[] {
   const tags = [...new Set((entity.tags ?? []).map((tag) => tag.trim()).filter((tag) => tag && !OPERATOR_TAGS.has(tag)))].slice(0, 3);
+  // 事例が持つ事業の札が足りない時は、事業の中身から付けた札（画面の層の編集文）で2〜3個に補う
+  if (tags.length < MIN_LABELS) {
+    const extra = displayLabelsFor(entity.reader?.display, entity.tagline).filter((label) => !OPERATOR_TAGS.has(label) && !tags.includes(label));
+    const merged = [...tags, ...extra].slice(0, 3);
+    if (merged.length > tags.length) return merged;
+  }
   if (tags.length > 0) return tags;
   const genre = genreLabel(entity.tagline);
   return genre ? [genre] : [];

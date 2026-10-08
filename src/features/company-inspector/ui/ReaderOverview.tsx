@@ -5,7 +5,8 @@ import { detailLineFor } from '@/shared/detail-lines';
 import { isAbsenceOnly, stripAbsence } from '@/shared/absence-text';
 import { successPointsFor } from '@/shared/success-points';
 import { caseChaptersFor, type ChapterId, type ChapterRow } from '@/shared/case-chapters';
-import { listLineFor } from '@/shared/list-lines';
+import { factLineFor } from '@/shared/fact-lines';
+import { listLineFor, trimLineEnd } from '@/shared/list-lines';
 import { summaryRestFor } from '@/shared/summary-lines';
 import { formatMetricAmount, yenText, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, metricPeriodText, plainFactText, screenText } from '@/shared/display-text';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
@@ -71,9 +72,9 @@ function StripCell({ label, mark, inferred, children, attrs }: { label: string; 
   );
 }
 
-function AnalysisCell({ analysis }: { analysis: ReaderAnalysis }) {
+function AnalysisCell({ analysis, display }: { analysis: ReaderAnalysis; display?: ReaderDisplay }) {
   // 帯の推論は編集文を通らないので、外貨の金額に円換算の概算をここで添える（料金の事実の欄と同じ）
-  const text = screenText(stripAbsence(plainAnalysisText(analysis.text)));
+  const text = factLineFor(display, 'analysis', analysis.id, analysis.text) ?? screenText(stripAbsence(plainAnalysisText(analysis.text)));
   if (text === '') return null;
   return (
     <StripCell label={ANALYSIS_LABELS[analysis.item]} mark={ANALYSIS_LABELS[analysis.item].includes('推') ? undefined : <InferenceMark analysis={analysis} />} inferred attrs={{ 'data-analysis': analysis.id }}>
@@ -131,11 +132,11 @@ export function KeyStrip({ reader, plan }: { reader: ReaderCase; plan: ReturnTyp
   if (priceFact) {
     cells.push(
       <StripCell key="price" label={ANALYSIS_LABELS.PRICING} inferred={false} attrs={{ 'data-fact': priceFact.id }}>
-        <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{screenText(plainFactText(priceFact.text))}</p>
+        <p className="text-sm lg:text-[13px] leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{factLineFor(reader.display, 'fact', priceFact.id, priceFact.text) ?? screenText(plainFactText(priceFact.text))}</p>
       </StripCell>,
     );
   }
-  for (const a of analyses) cells.push(<AnalysisCell key={a.id} analysis={a} />);
+  for (const a of analyses) cells.push(<AnalysisCell key={a.id} analysis={a} display={reader.display} />);
   if (cells.length === 0) return null;
   // 奇数個なら最後のマスを横いっぱいに（空きマスを作らない）
   return <div className="grid grid-cols-1 gap-px border-b border-term-line bg-term-line sm:grid-cols-2 sm:[&>*:last-child:nth-child(odd)]:col-span-2">{cells}</div>;
@@ -148,7 +149,7 @@ export function WhatIs({ fact, display, lead = true }: { fact: ReaderFact | null
   const end = text.indexOf('。');
   // 一覧と同じ「短い1行」があればそれを大きく出し、元の要約は全文を下に続ける
   const short = listLineFor(display, fact);
-  const first = short ?? (end >= 0 ? text.slice(0, end + 1) : text);
+  const first = trimLineEnd(short ?? (end >= 0 ? text.slice(0, end + 1) : text));
   if (!first) return null;
   // 短い1行と要約の1文目は同じことを言うので、続きは2文目から（同じ話を2度出さない）
   const rest = summaryRestFor(display, fact) ?? (end >= 0 ? text.slice(end + 1).trim() : '');
