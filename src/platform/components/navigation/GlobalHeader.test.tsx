@@ -21,9 +21,10 @@ describe('GlobalHeader terminal navigation', () => {
     for (const removed of ['/radar', '/playbook', 'mode=ARCHETYPES', '/registry']) expect(html).not.toContain(removed);
   });
 
-  it('always renders 保存 and PRO as links when no handlers are supplied', () => {
+  it('renders 保存 as a link and no PRO entry when no handlers are supplied', () => {
     const html = renderToStaticMarkup(<GlobalHeader />);
-    expect(html).toContain('href="/?pro=1"');
+    expect(html).not.toContain('href="/?pro=1"');
+    expect(html).not.toContain('PRO の内容');
     expect(html).toContain('保存');
   });
 
