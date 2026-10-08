@@ -846,6 +846,18 @@ const GENRE_RULES: Array<[RegExp, keyof typeof GENRE_LABELS]> = [
   [/サイト$|サイトHealthPally$|サイトを名乗る$|ページ$|ギャラリー$|ディレクトリ$|コミュニティ$|掲載$/, 'SITE'],
   [/代理店$|コンサルティング$|代行$|開発会社$|デザイン会社|事業者$|会社$|ブローカー$|企業$/, 'AGENCY'],
 ];
+/**
+ * 名前の横に出す札（一覧の行も詳細の見出しも、必ずここから出す）。
+ * 事例が持つ事業の札を先頭から3つ。「収集事例」「新着」のような運営側の印は出さない。
+ * 事業の札が1つも無い時だけ、事業を説明する一文から決まる分野（genreLabel）を1つ。それも決まらなければ空（札の欄を出さない）。
+ */
+const OPERATOR_TAGS = new Set(['収集事例', '新着', '未精査候補', '収益確認済']);
+export function caseLabels(entity: { tags?: readonly string[] | null; tagline?: string | null }): string[] {
+  const tags = [...new Set((entity.tags ?? []).map((tag) => tag.trim()).filter((tag) => tag && !OPERATOR_TAGS.has(tag)))].slice(0, 3);
+  if (tags.length > 0) return tags;
+  const genre = genreLabel(entity.tagline);
+  return genre ? [genre] : [];
+}
 export function genreLabel(tagline: string | undefined | null): string | null {
   const t = (tagline ?? '').trim().split('。')[0].replace(/\s*[（(][^）)]*[）)]$/, '');
   for (const [re, key] of GENRE_RULES) if (re.test(t)) return GENRE_LABELS[key];

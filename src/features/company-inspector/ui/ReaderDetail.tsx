@@ -136,7 +136,7 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader', exclude }: Read
 
 /** 計算の前提。式のある項目だけを出す（「数字は出典に載っている値」のような式でない定型文と、事実の再掲は出さない）。 */
 // 作る側の注記（「そのまま載せた」「要約した。計算はない」）は、読む人に要らないので出さない
-const BOILERPLATE_FORMULA = /^数字は出典に載っている値$|そのまま(?:載せた|記載|載せ)|要約した。?\s*計算は(?:ない|無い)/;
+const BOILERPLATE_FORMULA = /^数字は出典に載っている値$|そのまま(?:載せた|記載|載せ)|計算は(?:ない|無い)/;
 export function ReaderEvidence({ reader }: ReaderProps) {
   if (!reader) return null;
   const rows = ANALYSIS_ITEMS.flatMap((item) => reader.analysis.filter((a) => a.item === item))
