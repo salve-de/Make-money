@@ -204,8 +204,8 @@
   {
     "entityId": "ent_heygen_8f11a1",
     "analysisId": "a-story",
-    "textHash": "eaf67816",
-    "answer": "創業者2人は内向的で、カメラの前に立つのが苦手だった。撮られたくない人が発信できる道具を作ろうとした"
+    "textHash": "ec8a4d88",
+    "answer": "人は動画が好きなのにカメラの前には立ちたがらない、というSnap時代の気づきから、台本だけで話す動画の商品を始めた"
   },
   {
     "entityId": "ent_heygen_8f11a1",
@@ -469,9 +469,8 @@
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-failure_cause",
-    "textHash": "bfb6ebfc",
-    "answer": "最初に雇った営業担当は、研修と顧客理解が足りずにうまくいかなかった（本人申告）",
-    "note": "2016年7月に雇った1人目の営業担当はうまくいかず、2か月分の売上を失った。10月に2人目を雇い直した。"
+    "textHash": "98d58252",
+    "answer": "2016年7月に雇った最初の営業担当は、研修と客への理解が足りず、採用に失敗した（本人申告）"
   },
   {
     "entityId": "ent_requestly_28e9f2",
@@ -535,19 +534,6 @@
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
-    "analysisId": "a-first_customers",
-    "textHash": "63806e9e",
-    "answer": "最初の買い手は、約2年のツイートや記事で教材を作った2人を知っていた読者（推測）"
-  },
-  {
-    "entityId": "ent_rfrcui_64e924ac",
-    "analysisId": "a-channels",
-    "textHash": "8c63b232",
-    "answer": "発売前の約2年、デザインの小技を図解したツイートと記事を無料で公開した（本人申告）",
-    "note": "1本の作成に2週間近くかけたツイートも多かった。反応は5000リツイート・1万5千いいね前後に達した。同じ内容の記事も公開した（本人申告）。"
-  },
-  {
-    "entityId": "ent_rfrcui_64e924ac",
     "analysisId": "a-competition",
     "textHash": "6766d219",
     "answer": "競合は、原則を教える既存のデザイン講座。この教材は、すぐに使える具体策を教える点が違う（公式サイトの位置づけ）"
@@ -572,6 +558,19 @@
     "analysisId": "a-dependencies",
     "textHash": "68ff3829",
     "answer": "売れ行きは、発売前に集めたTwitterなどの読者に頼る（第三者の分析）"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-first_customers",
+    "textHash": "8e0bc523",
+    "answer": "最初の買い手は、発売前の約2年間のツイートや記事で2人を知った読者（推測）"
+  },
+  {
+    "entityId": "ent_rfrcui_64e924ac",
+    "analysisId": "a-channels",
+    "textHash": "d8245307",
+    "answer": "発売前の約2年間、Twitterへの投稿や記事でデザインの小技を無料で紹介し、読者を集めた",
+    "note": "デザインの小技を7つ紹介した記事は、文章投稿サイトMediumで長い間、歴代1位だった（本人申告）。"
   },
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
@@ -677,7 +676,7 @@
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-story",
-    "textHash": "c003a41c",
+    "textHash": "7323b807",
     "answer": "創業者は複数の顧客の検索対策を担当するうちに、複雑な管理ツールにうんざりして自分で作り始めた（本人申告）",
     "note": "既存の管理ツールについて、Asanaは作業を1つ作るだけでも操作が複雑だったという。Mondayは使わない機能にも料金がかかり、Trelloは単純すぎた。"
   },
