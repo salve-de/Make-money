@@ -196,7 +196,7 @@
     "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008095734001.json",
+  "lastAudit": "data/audit/in-999999261008100903001.json",
   "baseAnalysisHash": "c5d1493d4b96f43ae0d59fa67df4f38ca6a9d0e87004f4cbca58330ccbaf0ff6"
  },
  "ent_codementor_ba692caa3db3": {
@@ -524,6 +524,30 @@
      "text": "売る相手に直接聞き、払う意思を先に確かめてから作る順番が、作り込みより効いたと創業者は振り返る。根拠に挙げる数字（初月227ドル、継続率12%から41%など）は本人の投稿どうしで時期と規模が合わず、どこまでがTeamcampの数字かは投稿からは決められない。",
      "formula": "数字は出典に載っている値"
     }
+   },
+   "analysis:a-headline": {
+    "hash": "919868c814c44029d932ba48bc072cbf04be24e26f58ca21edca9ed9f4d263c6",
+    "by": "data/audit/in-999999261008100903002.json",
+    "body": {
+     "text": "複数の顧客案件を抱えるSEO担当のPratham Naikは、複雑な管理ツールにうんざりしてTeamcampを作り始めた。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-story": {
+    "hash": "d8a1377547c1ec12d2899b32292a2beb402db96f0b24d7b967f741b4b827e7eb",
+    "by": "data/audit/in-999999261008100903002.json",
+    "body": {
+     "text": "創業者のPratham Naikは、SEO担当として複数の顧客案件を管理する中で、複雑な管理ツールにうんざりしてTeamcampを作り始めたと書く。Asanaは簡単なタスク作成にも操作が複雑で、Mondayは使わない機能にも料金を払い、Trelloは必要な用途には単純すぎたという。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-why_it_worked": {
+    "hash": "02afaf2146473f51930123992f2fb58b91059d9d2a6afa3ac262882c3caf7522",
+    "by": "data/audit/in-999999261008100903002.json",
+    "body": {
+     "text": "創業者は、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。",
+     "formula": "数字は出典に載っている値"
+    }
    }
   },
   "audits": [
@@ -538,9 +562,15 @@
     "outputFile": "data/audit/out-999999261008095734002.json",
     "inputFileHash": "04904a8751be9397bfa7695238156d564d57c551e6df759b0fdfe21cd5349182",
     "outputFileHash": "4fe1ebad991ba17d2aa67960757f8eaf9d9c9efa1309a48d1f775692779e4292"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008100903002.json",
+    "outputFile": "data/audit/out-999999261008100903002.json",
+    "inputFileHash": "f15fb17d99acaacb917f3d360e19f7d99a802a81da8b578cf8efc743dd59b55d",
+    "outputFileHash": "a9ca070bf9593e4e3e1903a5f67678ccfb18cfe2077c2369fe8d77d0741d26fc"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008095734002.json",
+  "lastAudit": "data/audit/in-999999261008100903002.json",
   "baseAnalysisHash": "ad8ddc717b98291f6fbcfe9a7fe8fe36560e6bd9fca3470137035d1475b3efb7"
  },
  "ent_referralrock_8c13d5ee4cfc": {
@@ -548,128 +578,128 @@
   "caseHash": "308deeba09b24e07d633da54b2a7e8c4fa2cc4e7b924a8a5f1c589302e3d195b",
   "items": {
    "fact:f1": {
-    "hash": "bae5993e21f72f5799d31107e351e6fa7fa9ee628b31bf951ac1d88036029967",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "cc83f4a713455934e1f37dc96b7fafc697c3086840dd288f38f1a784c06eeed9",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f2": {
-    "hash": "92e1fa069d5c605dab885b5fed68432387cc1e8572aae47a767301c46f95a02a",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "0dff70c3122222156832d84424a22340e4fd1b22792ca88e80dee17c2e9ff457",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f3": {
-    "hash": "e47754556cf60777f50ab23fa9785342b83e522f768e6bc71f901e23e1b11106",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "f001c88ae12dd16992ded4dad2e78fc9f698ff23109a624067662a03b9125bdc",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f4": {
-    "hash": "c2d4b078702b67442b908f0668c5fa45e851316d0c69bac680078be5f0320f8f",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "280a3a523f1b0f6985164ccaa3de3b79033682bd23119a3ee173caa692a5350d",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f5": {
-    "hash": "73072d6c8f2b734c234063dcb36bb9f3b57d73e02f00c061ff71f9a4918886f4",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "8a9f6f7480af808cedb66c08dc3dbc67339e3f38e73a67e2ad47726846cb19de",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f6": {
-    "hash": "253602eccd2fe5be437ed70cf67f1cda771b4dd469679ccd9f245f78587d7192",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "a610cf57f9fe8454703ee5127ca8ab5803c1d168dc51f86e0160cc83f9ae2614",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f7": {
-    "hash": "398dcdf90a6b1192bbfd11ba34db68f83563fd19a3ecdce1d11ccf8fd25acf28",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "a0a68b26fde80bb78e54471034e74df7f20c9ae906a50a51b1da08bf2075c7fd",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f8": {
-    "hash": "36f6fd3275ace1acf9b4200cef136231cd892573f5efcf8e7854c287f0cc4e4f",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "2391f112e7e258bb41b66fb06627d75135a773702d59c6d2a0d3c40672e4e3aa",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f10": {
-    "hash": "57933b6939a58da940043ff7f2ef78e5438a2c73781f56ed6eac61cb7c764362",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "fa03b7820370c533cd2802bde217c82bbedc9e2c626d450db812349fc7639d18",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "fact:f11": {
     "hash": "cd6a0024602d0e43661674522b1ba10264a4d8c93d7359db821252039f5fb533",
     "by": "data/audit/in-99999926100722513500175001.json"
    },
    "metric:m2": {
-    "hash": "5ef8ad87a444e3045df889c801e664668bd9dce56d14c5320946b18fdb79bed9",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "c45cbbe4a9ed13dafc8002401551da5ff48fc85b8d1c1cd9a89a7a02c5b2f800",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "metric:m3": {
-    "hash": "727e93bbcebd9ffe11d8d930a4e160fbc963661182c8338796312e4240e5ec1f",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "f1c9d56c8b15b8ad3962dda27da3e21c9bfb97db43505c1641d2adb8f68de515",
+    "by": "data/audit/in-999999261008100740002.json"
    },
    "analysis:a-headline": {
-    "hash": "ecac7121b3263a95e36117eabcccfb8b4fade5d7d34c7938477a585adf2f7455",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "58d4aea2e3b6f59c62c6638c95bc59c1dd7cda73b6a85582bb28de34a62b0281",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
-     "text": "月59ドルの有料版に2日で最初の客が付き、外部資金なしで営業を雇い直しながら、2019年に月70,000ドルまで伸ばした技術者Josh Ho",
+     "text": "月59ドルの有料版に2日で最初の客が付き、外部資金なしで営業を雇い直して、2016年末に顧客170社まで伸ばした技術者の創業者",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-story": {
-    "hash": "0ff5bc8b3c256f738ac281c4e8e5669a599dcc76634ef1abbf39925063978865",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "a579f184cda3b707cfb4e8db476babc904841bd0c4d54602139433f07623c1e3",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
      "text": "2013年12月にドメインを取り、受託で食べながら2014年に無料のベータを回した。最初の管理画面はSurvey Monkeyの回答フォーム。2015年6月に月59ドルで有料化すると2日で最初の客が付き、数か月で月約2,000ドルになって専業に移った。2016年2月に月250ドル・6か月契約を出して1社から1,500ドルが一度に入り、営業を雇い始めた。1人目は失敗、2人目で2016年末にMRR約15,000ドルへ。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-business_model": {
-    "hash": "266f801788ec791b3f89ab04f52d8d4e1b55062a2110da616e7facc6e7442b7c",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "4c5aa75efcfaaa0b9129941bd956523f30b614d561c09fb61c1a67a7195a23fb",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
      "text": "事業者が月額を払い、紹介リンク・追跡・報酬の払い出しをソフトで回す。専任アドバイザーが制度の設定を手伝う。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-customer": {
-    "hash": "8ff6731c1322e313e181557c269f3ec5f6fd0592ddad2594ee7314cfd1723180",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "a532440115abfcd3a28237560b8497b7da38d1a3e1ff4feae520c4fdb9d33b37",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
      "text": "紹介で客を増やしたい事業者。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、EC。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-first_customers": {
-    "hash": "b4a73795d1a809d38feed5b7789beefa69f23475d8bdc3fd7d98399f9006e8c3",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "f187b7171f59b275843ded218cd50e68588e37645361415a3353d1f7fccf4a98",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
-     "text": "旧製品UberNoteの利用者リスト、Betalist、知人に告知して、2014年前半に200超の接点、最初の1年半で500社超がベータに登録した。有料化の2日後に最初の有料客、月末に4社。",
+     "text": "旧製品UberNoteの利用者リスト、Betalist、知人に告知して、2014年前半に200超の接点、最初の1年半で500社超がベータに登録した。有料化から2日以内に最初の有料客が登録し、月末に4社になった。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-channels": {
-    "hash": "5720112a30c79cb28091ade5128439ff0dda3ea9918f25416c724fb41cde6014",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "7601751ee3f6616e83dfc2c609bc35789ec05528c9a95954cac4a76c29e35b8d",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
      "text": "2019年5月に月売上が70,000ドルに達した要因は、2人目の営業の採用だったと本人は書く。営業の増員後は、サイトの文面・LP・申込ボタンを直してリードを増やした。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-capital_and_team": {
-    "hash": "1f0d44a8a940b03b3f1b1aa894bb3c6f7cf37e0a03603dac72cdaa21d8bfc5d9",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "abefaf8a37d3fc5ce338ef4c8850d1f0ca97fa4490eae2220998adc2570a202b",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
-     "text": "外部資金なし。2016年末は3.5人、2019年は営業2人体制。創業者は製品と営業・サポートも兼ねた。",
+     "text": "外部資金なし。2016年末は常勤換算で3.5人分の体制、2019年は営業2人体制。創業者は製品開発と営業・サポートも兼ねた。",
      "formula": "本人の記述を要約した。計算はない。"
     }
    },
    "analysis:a-failure_cause": {
-    "hash": "61a3808a67cc575e36c3b463d849dd74a8a6203f5e94e987964a06c3e54cbe2b",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "04832776558bfdc0d0b617484e5ef816174db41f6005067db7d0a32ce7f391a6",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
      "text": "2016年7月に雇った最初の営業は、研修と顧客理解が足りずにうまくいかず、2か月分の売上を失った。10月に2人目の営業を雇って再挑戦し、そこから営業が回り出した。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-lock_in": {
-    "hash": "f0bf6eb3c0316b2cf2358c2f26c1baed990bf0f6ca6b485d7c2ffff879e97625",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "f03b42ebcb668c59ea763adf9ca3b1244bec05d0a188ab02b7fc63b778dbaf22",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
      "text": "導入時の立ち上げ会議と客ごとの専任担当を付けて、解約を半分にした。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-why_it_worked": {
-    "hash": "d05869bb0ead4fa04e158e9aaeb7cafa9d3bc06eb3fe83784243ecb7cb705cac",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "39b720e50325fdaad0eedabaf036d5b2d3a816d8f83fbadd6dfae9d6e496564b",
+    "by": "data/audit/in-999999261008100740002.json",
     "body": {
      "text": "2019年5月の月売上70,000ドルは、本人が2人目の営業の採用が要因と書く。リードが足りるか迷って先延ばしにしたが、採用が先になったことでサイト改善に動いたと振り返る。",
      "formula": "数字は出典に載っている値"
@@ -682,6 +712,10 @@
      "text": "公式は1,000社超が使うと掲げ、2025年10月も製品更新が続く。現在の売上や顧客数の内訳は公開されていない。",
      "formula": "数字は出典に載っている値"
     }
+   },
+   "metric:m1": {
+    "hash": "5e5cc8d73b4dafe0bc87712e5144d6cf604e02e4d38d39cbd3a36b0371b9a9c4",
+    "by": "data/audit/in-999999261008100740002.json"
    }
   },
   "audits": [
@@ -690,9 +724,15 @@
     "outputFile": "data/audit/out-99999926100722513500175001.json",
     "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
     "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008100740002.json",
+    "outputFile": "data/audit/out-999999261008100740002.json",
+    "inputFileHash": "f07da51da489cf5fbf35a6000718df07fa703bf835ed1c8c1a2641fb12c3568e",
+    "outputFileHash": "1f44ffff946ea58b97b0d5dabb8c55cd0254d439b7110004e7c0570c19947037"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008095734003.json",
+  "lastAudit": "data/audit/in-999999261008100740002.json",
   "baseAnalysisHash": "7294e939860f3c915454806de93d6b01ae84d040d703a274e07bc34bc0813698"
  },
  "ent_ejunkie_7e9e46bd9643": {
@@ -1504,8 +1544,8 @@
     "by": "data/audit/in-99999926100722513500175001.json"
    },
    "fact:f10": {
-    "hash": "251c3e100db5ed0e87effa7cacbd423af28d2805be3a162cf239c8723dfb7bd8",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "2fc9297a5d29b27e90b3c1dcef697ec7b40420e3ff3f060979bdec3180ee305e",
+    "by": "data/audit/in-999999261008100740003.json"
    },
    "fact:f11": {
     "hash": "2373934af10c1737e32e8c55c544d15b96c9963d40a74d117d6f9f991eb69dfc",
@@ -1632,8 +1672,8 @@
     }
    },
    "analysis:a-timeline": {
-    "hash": "0540ed626b2cec7fd1c66b0bc746e00b1130f2136b8491fbb386dfb42b84e9ae",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "80144dce0ff166efb8e9b04acd968e3e1e0520ea8d3dc9c40fa457a205ba16da",
+    "by": "data/audit/in-999999261008100740003.json",
     "body": {
      "text": "2014年7月末に公開から1年、同年8月に初の年次報告。2年目の報告、2016年8月に3年目の報告（支払いのお願いページを出した年）。",
      "formula": "数字は出典に載っている値"
@@ -1652,9 +1692,15 @@
     "outputFile": "data/audit/out-999999261008091237006.json",
     "inputFileHash": "0884fa047451d45cdeb9c493d38d902b9c35eb7e78fb57c83a91f2e78ab2293d",
     "outputFileHash": "262e1d5c5ba00e8739fcd84ce4571d77be1eeb16fd314e9f4be5449e024aa656"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008100740003.json",
+    "outputFile": "data/audit/out-999999261008100740003.json",
+    "inputFileHash": "3902afa452974c4a83e4209e0b7069959586077e862dc48b2a61213d98a99618",
+    "outputFileHash": "262e1d5c5ba00e8739fcd84ce4571d77be1eeb16fd314e9f4be5449e024aa656"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008095734004.json",
+  "lastAudit": "data/audit/in-999999261008100740003.json",
   "baseAnalysisHash": "119476d7bb322a65c3b689009d95c55b5702e5b2a3289c4f5ed5efa172a1eb09"
  }
 }

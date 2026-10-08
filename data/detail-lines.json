@@ -435,8 +435,8 @@
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
     "analysisId": "a-first_customers",
-    "textHash": "bfd139e0",
-    "answer": "旧製品の利用者・新サービス紹介サイトBetalist・知人に伝え、有料化後2日〜1週間以内に初の有料客を得た（本人申告）",
+    "textHash": "701de695",
+    "answer": "旧製品の利用者・新サービス紹介サイトBetalist・知人に伝え、有料化から2日以内に初の有料客を得た（本人申告）",
     "note": "最初の1年半で500社超が試験版に登録した。2015年6月に月59ドル（約8,900円）で有料化し、月末には4社が利用していた。"
   },
   {
@@ -676,7 +676,7 @@
   {
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "analysisId": "a-story",
-    "textHash": "7323b807",
+    "textHash": "3b4c1667",
     "answer": "創業者は複数の顧客の検索対策を担当するうちに、複雑な管理ツールにうんざりして自分で作り始めた（本人申告）",
     "note": "既存の管理ツールについて、Asanaは作業を1つ作るだけでも操作が複雑だったという。Mondayは使わない機能にも料金がかかり、Trelloは単純すぎた。"
   },
