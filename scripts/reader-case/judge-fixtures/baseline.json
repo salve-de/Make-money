@@ -1,0 +1,154 @@
+{
+  "ent_myoperator_49c393230a2d": {
+    "flags": 4,
+    "byKind": {
+      "e": 3,
+      "c": 1
+    }
+  },
+  "ent_codementor_ba692caa3db3": {
+    "flags": 2,
+    "byKind": {
+      "f": 2
+    }
+  },
+  "ent_teamcamp_ae0c21986c4d": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_referralrock_8c13d5ee4cfc": {
+    "flags": 3,
+    "byKind": {
+      "c": 3
+    }
+  },
+  "ent_ejunkie_7e9e46bd9643": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_gorails_640d8f688451": {
+    "flags": 8,
+    "byKind": {
+      "f": 1,
+      "c": 7
+    }
+  },
+  "ent_rfrcui_64e924ac": {
+    "flags": 1,
+    "byKind": {
+      "c": 1
+    }
+  },
+  "ent_heygen_8f11a1": {
+    "flags": 4,
+    "byKind": {
+      "c": 4
+    }
+  },
+  "ent_requestly_28e9f2": {
+    "flags": 1,
+    "byKind": {
+      "f": 1
+    }
+  },
+  "ent_practicaltypographycom_e9aa6bc94ccf": {
+    "flags": 8,
+    "byKind": {
+      "f": 3,
+      "c": 5
+    }
+  },
+  "ent_churnkey_8d7f2b269c21": {
+    "flags": 1,
+    "byKind": {
+      "f": 1
+    }
+  },
+  "ent_hostifi_cf9ec73a42d2": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_indiehackers_6548833164b0": {
+    "flags": 1,
+    "byKind": {
+      "d": 1
+    }
+  },
+  "ent_memberful_0dff1f9c00fa": {
+    "flags": 1,
+    "byKind": {
+      "f": 1
+    }
+  },
+  "ent_poolsuite_6d5ad6895563": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_tuple_20261007": {
+    "flags": 1,
+    "byKind": {
+      "f": 1
+    }
+  },
+  "ent_userlist_a288fcf9f741": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_wip_5eef8a985270": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_button_shy_f1545f17d98e": {
+    "flags": 1,
+    "byKind": {
+      "d": 1
+    }
+  },
+  "ent_candy_japan_954236d663a8": {
+    "flags": 2,
+    "byKind": {
+      "f": 1,
+      "a": 1
+    }
+  },
+  "ent_data_fetcher_8e6a5e22ce2a": {
+    "flags": 1,
+    "byKind": {
+      "a": 1
+    }
+  },
+  "ent_dnsimple_c8560498b136": {
+    "flags": 1,
+    "byKind": {
+      "a": 1
+    }
+  },
+  "ent_geocodio_c64c0721d500": {
+    "flags": 1,
+    "byKind": {
+      "d": 1
+    }
+  },
+  "ent_lunch_money_be2eeb1f4fdf": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_noteforms_003fcbdd14cf": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_quaderno_81236030d721": {
+    "flags": 0,
+    "byKind": {}
+  },
+  "ent_snipcart_9a1012111695": {
+    "flags": 2,
+    "byKind": {
+      "f": 2
+    }
+  },
+  "ent_statusgator_316d3eb5edf6": {
+    "flags": 0,
+    "byKind": {}
+  }
+}

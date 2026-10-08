@@ -4,12 +4,13 @@
  *   pnpm case:run --ids a,b,c            （公開はしない。公開データの作成まで）
  *   pnpm case:run --ids-file <file>      （事例IDを1行に1つ書いたファイル）
  *   pnpm case:run --ids a --publish      （最後に今の catalog:publish を呼ぶ。R2 への書き込みと本番反映は catalog:publish の中身に従う）
- *   オプション: --from <段>（その段から始める。段の名前は下）  --stall-minutes N（出力も CPU の動きも無いまま N 分で固まったとみなし、止めて1回やり直す。既定10。やり直しても固まればその件だけ失敗）  --concurrency N（同時に流す束・事例の数。既定4）  --agent claude|codex|auto  --model <型>  --codex-effort low|medium|high
+ *   オプション: --from <段>（その段から始める。段の名前は下）  --stall-minutes N（出力も CPU の動きも無いまま N 分で固まったとみなし、止めて1回やり直す。既定10。やり直しても固まればその件だけ失敗）  --concurrency N（同時に流す束・事例の数。既定4）  --agent claude|codex|auto  --model <型>  --codex-effort low|medium|high  --no-judge（judge 段を飛ばす）  --judge-agent claude|codex（判定役。既定は書き手と別の系統）  --judge-model <型>
  *              --run-id <名前>  --max-attempts N（束ごとの拒否の上限。既定3）
  *
  * 段（この順）:
  *   fetch 出典の取得 → verify 事実の照合 → source-check 原文照合 → analyze 分析 → audit 監査
- *   → select 仕上げ済みの選別 → display 画面の文 → case-text 文の検査 → prepare 公開データの作成 → publish（--publish の時だけ）
+ *   → select 仕上げ済みの選別 → display 画面の文 → case-text 文の検査 → prepare 公開データの作成
+ *   → judge 読み手の判定（描いた画面の文を機械の検査と別系統の AI の問いで見て、1文ずつ直す）→ publish（--publish の時だけ）
  * 照合・分析・監査は AI をその場で呼ぶ（runner/agent-run.ts）。終了コード 75 の待ち合わせは無い。
  * 束は事例ごと。1件が失敗しても他の件は止めず、失敗した件と理由は最後に一覧で出す。
  * 各段の所要時間は data/pipeline/case-run.jsonl に1行ずつ残す。
@@ -24,12 +25,13 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DISPLAY_FILES, mergeEntity, serialize, type DisplayFiles, type EntityDisplay } from '../../src/shared/display-build';
 import { makeCaller, pickAgent, type Agent, type Caller } from './agent-call';
+import { formatJudge, runJudge } from './judge-stage';
 import { runStageWithAgent, type AgentStageOptions, type BundleOutcome } from './runner/agent-run';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(HERE, '../..');
 
-export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'case-text', 'prepare', 'publish'] as const;
+export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'case-text', 'prepare', 'judge', 'publish'] as const;
 
 export interface ExecResult { code: number; stdout: string; stderr: string }
 /** 外の命令（node スクリプト・pnpm）を流す。試験では偽物に差し替える */
@@ -51,6 +53,8 @@ export interface CaseRunOptions {
 export interface CaseRunDeps {
   exec: Exec;
   caller: Caller;
+  /** 読み手の判定（judge 段）で言い回しを聞く AI。書き手（caller）とは別の系統にする。無ければ judge 段は飛ばす */
+  judge?: { caller: Caller; label: string; independent: boolean };
   runStage?: (o: AgentStageOptions) => Promise<BundleOutcome[]>;
   now?: () => number;
 }
@@ -272,11 +276,37 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
     return { prepared: ids.length };
   });
 
-  // 10. 公開（--publish の時だけ。中身は今の catalog:publish）
+  // 10. 読み手の判定（描いた画面の文を、機械の検査と別系統の AI の小さな問いで見て、1文ずつ直す。公開はしない）
+  const judgeBlocked = new Set<string>();
+  const judgeDep = deps.judge;
+  if (judgeDep) await stage('judge', async () => {
+    const ids = publishable();
+    if (!ids.length) return { skipped: '判定へ進める事例が無い' };
+    const sum = await runJudge(
+      { root, ids, runId, concurrency: opt.concurrency, independent: judgeDep.independent, judgeLabel: judgeDep.label, log: (t) => log(`judge: ${t}`) },
+      { exec: deps.exec, judge: judgeDep.caller, writer: deps.caller, now },
+    );
+    for (const f of sum.failed) fail(f.id, 'judge', f.reason);
+    for (const id of sum.blocked) {
+      const r = sum.results.find((x) => x.id === id);
+      judgeBlocked.add(id); blocked.add(id);
+      failures.push({ id, stage: 'judge', reason: `読み手の判定で止めた: ${(r?.blockReasons ?? []).join(' / ')}`, soft: true });
+    }
+    log(formatJudge(sum));
+    return {
+      judged: sum.results.length, blocked: sum.blocked.length, changedCases: sum.changedIds.length,
+      before: sum.results.reduce((a, r) => a + r.before.flags, 0), after: sum.results.reduce((a, r) => a + r.after.flags, 0),
+      perCaseSeconds: Object.fromEntries(sum.results.map((r) => [r.id, r.seconds])),
+    };
+  });
+
+  // 11. 公開（--publish の時だけ。中身は今の catalog:publish）
   if (opt.publish) {
     const cleanly = failures.length === 0;
     await stage('publish', async () => {
       if (!publishable().length) return { skipped: '公開へ進める事例が無い' };
+      // 判定で止めた事例は、公開データの作成まで進んでいて catalog:publish が拾ってしまうので、1件でもあれば公開しない
+      if (judgeBlocked.size) throw new Error(`読み手の判定で止めた事例があるので公開しない: ${[...judgeBlocked].join(', ')}`);
       // 途中から再開した時（--from publish）は、前の実行で作った公開データをそのまま使う
       const prepared = stages.find((s) => s.stage === 'prepare');
       if (prepared ? !prepared.ok : opt.from !== 'publish') throw new Error('公開データの作成が通っていないので公開しない');
@@ -329,11 +359,22 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
   };
 }
 
+const parseVal = (n: string): string | undefined => { const i = process.argv.indexOf(n); return i >= 0 ? process.argv[i + 1] : undefined; };
+
 async function main(): Promise<number> {
   const o = parseArgs(process.argv.slice(2));
   const agent: Agent = pickAgent((o.agent as Agent | 'auto' | undefined), (t) => console.log(`[case:run] ${t}`));
   const exec = makeExec(ROOT, join(ROOT, 'data/pipeline/case-run', o.runId, 'logs'));
-  const summary = await runCases(o, { exec, caller: makeCaller(agent, { model: o.model, codexEffort: o.effort, idleMs: o.stallMinutes * 60_000 }) });
+  const idleMs = o.stallMinutes * 60_000;
+  // 判定役は書き手と別の系統にする（書き手が claude なら codex、逆も同じ）。軽いモデル・浅い考えで足りる問いだけを聞く
+  const judgeAgent: Agent = (parseVal('--judge-agent') as Agent | undefined) ?? (agent === 'claude' ? 'codex' : 'claude');
+  const judgeModel = parseVal('--judge-model') ?? (judgeAgent === 'claude' ? 'haiku' : undefined);
+  const judge = process.argv.includes('--no-judge') ? undefined : {
+    caller: makeCaller(judgeAgent, { model: judgeModel, codexEffort: judgeAgent === 'codex' ? 'low' : undefined, idleMs }),
+    label: `${judgeAgent}${judgeModel ? `:${judgeModel}` : ''}`,
+    independent: judgeAgent !== agent,
+  };
+  const summary = await runCases(o, { exec, judge, caller: makeCaller(agent, { model: o.model, codexEffort: o.effort, idleMs }) });
   console.log(formatSummary(summary));
   writeFileSync(join(ROOT, 'data/pipeline/case-run', o.runId, 'summary.json'), JSON.stringify(summary, null, 1));
   return summary.ok ? 0 : 1;

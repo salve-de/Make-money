@@ -60,7 +60,7 @@ pnpm case:run --ids-file <idsファイル>   # 事例IDを1行に1つ書いた�
 pnpm case:run --ids a --publish          # 最後に今の catalog:publish を呼ぶ（--publish を付けた時だけ）
 ```
 
-オプション: `--from <段>`（その段から始める。段の名前は下の表。止まった所から続けたい時）、`--concurrency N`（同時に流す束・事例の数。既定4）、`--agent claude|codex|auto`（既定 auto = claude がログイン済みなら claude、無ければ codex。画面の文を作る `display:build` と同じ決め方）、`--model`、`--codex-effort`、`--max-attempts N`（束ごとに検査が拒否できる上限。既定3）、`--run-id`。
+オプション: `--from <段>`（その段から始める。段の名前は下の表。止まった所から続けたい時）、`--concurrency N`（同時に流す束・事例の数。既定4）、`--agent claude|codex|auto`（既定 auto = claude がログイン済みなら claude、無ければ codex。画面の文を作る `display:build` と同じ決め方）、`--model`、`--codex-effort`、`--max-attempts N`（束ごとに検査が拒否できる上限。既定3）、`--run-id`、`--no-judge`（読み手の判定を飛ばす）、`--judge-agent claude|codex`（判定役。既定は書き手と別の系統）、`--judge-model`（判定役のモデル。既定は claude なら haiku）。
 
 中身は次の順です。事例ごとに束を分け、AI の呼び出しは同時に最大4本まで流します。1件が落ちてもほかの件は止まりません。
 
@@ -75,7 +75,20 @@ pnpm case:run --ids a --publish          # 最後に今の catalog:publish を�
 | 7 | display | 画面の文（`build-display.ts`）。事例ごとに別の作業場所で並列に作り、できた分を1つずつ実ファイルに反映する | 作れなかった事例は外れる。理由は `data/pipeline/display-build-failures.jsonl` |
 | 8 | case-text | 文の検査（`pnpm case-text:verify`） | 落ちた行の事例が外れる（事例を特定できなければ全件） |
 | 9 | prepare | 公開データの作成（`pnpm catalog:prepare --changed`）。原文照合で落ちた事例は含めない | 作れなければ段ごと失敗 |
-| 10 | publish | `--publish` の時だけ `pnpm catalog:publish`（中で `catalog:screen-check` を通す。飛ばさない） | 公開データの作成と画面の検査が通っていなければ公開しない |
+| 10 | judge | 読み手の判定（下の「3a-2」）。公開はしない | 個人情報が画面に出る・作る側の言葉が外せない文に残る事例は「公開から外す」。1件でも止めたら publish は動かない |
+| 11 | publish | `--publish` の時だけ `pnpm catalog:publish`（中で `catalog:screen-check` を通す。飛ばさない） | 公開データの作成と画面の検査が通っていなければ公開しない |
+
+### 3a-2. 読み手の判定（judge 段。2026-10-08 追加）
+
+公開データの作成（prepare）のあとで、手元で描いた画面（詳細・一覧・探す。データでなく画面の文字）を、**初めて読む人**として見る。新しい事例が、手で直さなくても引っかからない文で出るための段。公開はしない。
+
+1. **機械で決まる検査はコードで判定する**（AI を使わない。`scripts/reader-case/judge-checks.ts`）。観点 a 文が途中で切れている・括弧の閉じ忘れ、b 作る側の言葉、c 同じ数字・話の重複と呼び名のゆれ、d 略語・固有名詞の初出に説明が無い、e 円の二重・ゆれ・円が付いていない外貨、f 指す相手が消えた（章の先頭が「同じ〜」「この〜」）・金額が欠けた、g 札、h 画面の崩れ。辞書は `data/reader-language.json`・`data/natural-japanese.json`・`data/reader-clarity.json`・`data/reader-terms.json`（呼び名のゆれと固有名詞の説明）。円換算の付け直しと一覧の句点は、検査の前に機械が直す。
+2. **言い回しだけを AI に聞く**（`judge-questions.ts`）。1回の呼び出しで1文・1観点を「はい／いいえ／分からない」で聞く（途中で切れていないか・直訳調でないか・1回読んで意味が取れるか）。判定役は **書き手と別の系統**（書き手が claude なら codex exec、逆も同じ。`--judge-agent` で変えられる）。軽いモデルで足りる。同じ文への答えは `data/pipeline/reader-judge-cache.json` に覚え、直していない文は2度聞かない。
+3. **直しは1文・1観点ずつ**（`judge-stage.ts`）。引っかかった「行×観点」を書き手に1回だけ直させ（`judge-fix-prompt.md`）、数字・年・名前が増減していないかを機械で確かめ（`paraphrase-check.ts` ほか）、全部の検査をやり直して **指摘が減った時だけ採る**。減らなければ戻す。全文の書き直しはしない。
+4. 直しを採れなかった行は、その行だけ外す（一覧の文は外せない。外すと文の検査に落ちる行は残す）。
+5. **事例ごと止める**のは、個人情報らしい文字列が画面に出る時と、作る側の言葉が外せない文（一覧・概要）に残る時だけ。嘘の数字と違法な手順の指南は、前の段（照合・文の検査）の担当で、この段では判定しない。
+6. 結果は事例ごとに `data/pipeline/reader-judge/<事例ID>.json`（行ごとの理由・直した／外した／直せない、前後の数）と `data/pipeline/reader-judge.jsonl`。札・画面の崩れ・事実の欄はこの段では直さず、結果に「直せない」と残す。画面の見た目（配置・はみ出し）は描いた文字からは分からないので、この段の対象外（画面の検査 `catalog:screen-check` の担当）。
+7. 固定の検査集: `scripts/reader-case/judge-fixtures/`（公開済みの事例の画面の層の件数と、第2回監査の引っかかり）を `pnpm test:runner` で毎回当て、機械の検査を変えて悪くなっていないかを見る。
 
 - **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所では「画像の権利または実体が未充足」「撤回の明示が足りない」で落ちます（落とし穴の表 12）。
 - 各段の所要時間は `data/pipeline/case-run.jsonl` に1行ずつ（`runId`・段・開始時刻・秒・対象件数・失敗件数）。実行ごとの記録は `data/pipeline/case-run/<runId>/`（`logs/` に各命令の出力、`summary.json` に最後の一覧）。

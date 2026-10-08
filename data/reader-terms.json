@@ -1,0 +1,18 @@
+{
+ "aliases": [
+  ["月額課金", "サブスクリプション", "サブスク"],
+  ["年商", "年間売上"],
+  ["創業者", "創設者"]
+ ],
+ "terms": [
+  { "term": "Shopify", "explain": "ネットショップ|EC|ストア|店" },
+  { "term": "Stripe", "explain": "決済|課金|支払い" },
+  { "term": "Zapier", "explain": "自動|連携" },
+  { "term": "WordPress", "explain": "ブログ|サイト|ホームページ" },
+  { "term": "Webflow", "explain": "ノーコード|サイト" },
+  { "term": "Product Hunt", "explain": "新製品|紹介|サイト" },
+  { "term": "Hacker News", "explain": "掲示板|ニュース|サイト" },
+  { "term": "Reddit", "explain": "掲示板|コミュニティ|サイト" },
+  { "term": "Wayback Machine", "explain": "保存|アーカイブ|過去" }
+ ]
+}

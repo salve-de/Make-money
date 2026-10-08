@@ -1,0 +1,16 @@
+[
+ { "from": "Teamcamp", "row": "detail", "text": "MRR 4,200ドル（約63万円）で、NPS も高い", "expect": ["d"] },
+ { "from": "Teamcamp", "row": "detail", "text": "MRR 4,200ドル（約63万円、年末に10,000ドル（約150万円）が目標）", "expect": ["d"] },
+ { "from": "Codementor", "row": "detail", "text": "5〜10 million の資金を集めた", "expect": [] },
+ { "from": "Requestly", "row": "chapters.price", "text": "現行の有料プランは、5人から契約できる", "expect": ["f"] },
+ { "from": "Practical Typography", "row": "chapters.price", "text": "自作フォント1書体の最低価格は1〜2人用。", "expect": ["f"] },
+ { "from": "Practical Typography", "row": "chapters.price", "text": "Kindle版は10ドルで売った", "expect": ["e"] },
+ { "from": "Refactoring UI", "row": "detail", "text": "発売初週に約6万ドルを売り上げた", "expect": ["e"] },
+ { "from": "Refactoring UI", "row": "detail", "text": "累計売上は250万ドル（約3.8億円）（約3.8億円）を超えた", "expect": ["e"] },
+ { "from": "E-junkie", "row": "chapters.reviews.0", "text": "同じ作家、2014年1月", "expect": ["f"] },
+ { "from": "HeyGen", "row": "detail", "text": "年換算売上の「（ARR」が伸びた", "expect": ["a"] },
+ { "from": "Requestly", "row": "detail", "text": "SSO と SLA に対応した", "expect": ["d"] },
+ { "from": "第2回監査", "row": "detail", "text": "月の売上70K", "expect": [], "note": "英字の略記。機械では決まらず、AIの問いでも拾えるか不明（記録のみ）" },
+ { "from": "第2回監査", "row": "detail", "text": "2019年5月 年間売上から経費を引いた利益は約50万ドル", "expect": [], "note": "何年の分か不明。機械では決まらない（記録のみ）" },
+ { "from": "第2回監査", "row": "detail", "text": "使い方の例を1つずつ投稿した", "expect": [], "note": "何の例か不明。AIの問い「意味が取れるか」の領分（記録のみ）" }
+]

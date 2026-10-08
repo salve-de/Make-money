@@ -22,41 +22,13 @@ export const KIND_LABEL: Record<Kind, string> = {
   a: '不自然・言いさし', b: '作る側の言葉', c: '重複・呼び名のゆれ', d: '説明のない固有名詞・略語',
   e: '円の二重・ゆれ', f: '意味が取れない・食い違い・金額が欠けた', g: '札', h: '画面の崩れ',
 };
-export type BlockKind = 'none' | 'fact' | 'builder' | 'legal' | 'privacy';
 
 /** 画面から取った文（scripts/reader-case/screen-lines.tsx の出力） */
 export interface RenderedScreen { id: string; ok: boolean; name?: string; tags?: string[]; detail: string[]; list: string[]; discover: string[]; error?: string }
 
-export interface ScreenLine { n: number; section: 'detail' | 'list' | 'discover'; text: string; rowId?: string }
-
-// ---------- 画面の行 → 画面の層の行 ----------
-const norm = (s: string): string => s.replace(/\s+/g, '');
-
 /** その事例の、画面の層の行（一覧・概要・分析欄・成功の秘訣・章）。id は build-display の repairRows と同じ形 */
 export function displayRows(entityId: string, files: DisplayFiles): Array<{ id: string; text: string }> {
   return repairRows(entityId, files, () => ['行']).map((r) => ({ id: r.id, text: r.text }));
-}
-
-/** 詳細・一覧・探す画面の文に行番号を振り、画面の層の行に当たる行にはその id を付ける */
-export function buildScreenLines(screen: RenderedScreen, files: DisplayFiles): ScreenLine[] {
-  const rows = displayRows(screen.id, files).map((r) => ({ ...r, key: norm(r.text) })).filter((r) => r.key.length >= 6);
-  const out: ScreenLine[] = [];
-  const push = (section: ScreenLine['section'], list: string[]): void => {
-    let prev = '';
-    for (const text of list) {
-      if (text === prev) continue; // 一覧は同じ行が二重に出る（スマホ用と表用）。判定には1回だけ見せる
-      prev = text;
-      const k = norm(text);
-      const hit = k.length < 6 ? undefined : rows
-        .filter((r) => k.includes(r.key) || (k.length >= 10 && r.key.includes(k)))
-        .sort((a, b) => b.key.length - a.key.length)[0];
-      out.push({ n: out.length + 1, section, text, ...(hit ? { rowId: hit.id } : {}) });
-    }
-  };
-  push('detail', screen.detail);
-  push('list', screen.list);
-  push('discover', screen.discover);
-  return out;
 }
 
 // ---------- 機械で先に直す・拾う ----------
@@ -114,46 +86,6 @@ export function machineFindings(entityId: string, files: DisplayFiles, rules: Ma
     for (const p of r.problems) { const [kind, ...rest] = p.split('|'); out.push({ rowId: r.id, kind: kind as Kind, reason: rest.join('|') }); }
   }
   return out;
-}
-
-// ---------- 判定役の入出力 ----------
-export interface JudgeIssue { line: number; quote: string; kind: Kind; reason: string; fix: string; also: number[]; block: BlockKind }
-
-export function buildJudgeUser(screen: RenderedScreen, lines: ScreenLine[]): string {
-  return JSON.stringify({ tags: screen.tags ?? [], lines: lines.map((l) => ({ n: l.n, section: l.section, text: l.text })) });
-}
-
-function jsonOf(text: string): unknown {
-  const t = text.trim().replace(/^```(?:json)?\s*|\s*```$/g, '');
-  try { return JSON.parse(t); } catch { /* 前後に文があれば、最初の { から最後の } までを読む */ }
-  const a = t.indexOf('{'); const b = t.lastIndexOf('}');
-  if (a >= 0 && b > a) return JSON.parse(t.slice(a, b + 1));
-  throw new Error('JSON として読めない');
-}
-
-/** 判定役の返答を検査して取り出す。引用がその行に一字一句ある指摘だけを採る（作り話の指摘は数えて捨てる） */
-export function parseJudgeOutput(text: string, lines: readonly ScreenLine[]): { issues: JudgeIssue[]; rejected: number } {
-  const raw = (jsonOf(text) as { issues?: unknown }).issues;
-  if (!Array.isArray(raw)) throw new Error('issues の配列が無い');
-  const byN = new Map(lines.map((l) => [l.n, l]));
-  const issues: JudgeIssue[] = [];
-  let rejected = 0;
-  for (const x of raw as Array<Record<string, unknown>>) {
-    const line = Number(x.line); const quote = String(x.quote ?? '').trim(); const kind = String(x.kind ?? '') as Kind;
-    const l = byN.get(line);
-    if (!l || !quote || !(KINDS as readonly string[]).includes(kind) || !norm(l.text).includes(norm(quote))) { rejected += 1; continue; }
-    const block = (['fact', 'builder', 'legal', 'privacy'] as const).find((b) => b === x.block) ?? 'none';
-    issues.push({ line, quote, kind, reason: String(x.reason ?? '').slice(0, 200), fix: String(x.fix ?? '').slice(0, 200), also: Array.isArray(x.also) ? x.also.map(Number).filter((n) => byN.has(n)) : [], block });
-  }
-  return { issues, rejected };
-}
-
-export function parseRepairOutput(text: string, ids: ReadonlySet<string>): Array<{ id: string; text: string }> {
-  const raw = (jsonOf(text) as { rows?: unknown }).rows;
-  if (!Array.isArray(raw)) throw new Error('rows の配列が無い');
-  return (raw as Array<{ id?: unknown; text?: unknown }>)
-    .filter((r) => typeof r.id === 'string' && typeof r.text === 'string' && ids.has(r.id))
-    .map((r) => ({ id: r.id as string, text: String(r.text).trim() }));
 }
 
 // ---------- 直しの不変の確認 ----------
