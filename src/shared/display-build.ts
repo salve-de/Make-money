@@ -404,9 +404,12 @@ export function parseCheckOutput(output: string): string[] {
 }
 
 /** 差し替え後の違反のうち、差し替え前に無かった物（＝今回の事例の文が起こした違反）だけを返す */
-export function newProblems(before: readonly string[], after: readonly string[]): string[] {
+export function newProblems(before: readonly string[], after: readonly string[], entityId?: string): string[] {
   const base = new Set(before);
-  return after.filter((l) => !base.has(l));
+  // 分析欄の違反は、行の頭に「分析欄 名前（事例ID）」が付く。entityId を渡した時は、ほかの事例の違反（この事例の直しとは関係なく、
+  // 事例を足すたびに検査の側で出入りする）を数えない。ほかの事例の文は、その事例の実行で見る
+  const other = (l: string) => { const m = /^分析欄 .*?（(ent_[\w]+)）/.exec(l); return !!entityId && !!m && m[1] !== entityId; };
+  return after.filter((l) => !base.has(l) && !other(l));
 }
 
 // ---------- 反映（その事例の分だけ差し替え） ----------

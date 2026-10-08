@@ -1,0 +1,1151 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen3/noteforms-record.json",
+  "manifestSha256": "07b8e95e7b6c131c311300f8e00eb2816ab3be27e60323956837697bb88d8496",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:26.663Z"
+ },
+ "records": [
+  {
+   "id": "ent_noteforms_003fcbdd14cf",
+   "provenance": {
+    "detailsHash": "10ee6f9c6dee6cf4d4565c002ff558b23ee1dbf5c6aa1bd3dceac14b134bc11f",
+    "artifactSha256": "07b8e95e7b6c131c311300f8e00eb2816ab3be27e60323956837697bb88d8496"
+   },
+   "record": {
+    "id": "ent_noteforms_003fcbdd14cf",
+    "ticker": "NOTEFORMS",
+    "name": "NoteForms（旧 NotionForms）",
+    "legalEntity": "SAS JhumanJ",
+    "tagline": "",
+    "description": "",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Julien Nahum",
+    "country": "フランス",
+    "url": "https://noteforms.com",
+    "officialUrl": "https://noteforms.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2026-10-07の現況の損益は未確認。過去の申告値は日付付きの個別事実へ保存。",
+     "revenueLabel": "",
+     "sourceDoc": "https://noteforms.com/"
+    },
+    "facts": [
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_1",
+      "kind": "DESCRIPTION",
+      "text": "Notionのデータベースと接続し、フォームの回答を保存する製品。",
+      "sourceUrl": "https://noteforms.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の説明・宣伝上の数字",
+      "sourceId": "note-home",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_2",
+      "kind": "EVENT",
+      "text": "公式サイトは以前の名称がNotionFormsだったと明記。",
+      "sourceUrl": "https://noteforms.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認。改称年月は不明",
+      "attribution": "公式の説明・宣伝上の数字",
+      "sourceId": "note-home",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_3",
+      "kind": "OTHER",
+      "text": "利用者と企業が合わせて130,000以上という案内がある。有料顧客数ではない。",
+      "sourceUrl": "https://noteforms.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の説明・宣伝上の数字",
+      "sourceId": "note-home",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_4",
+      "kind": "FOUNDING",
+      "text": "2021年5月13日のNotion外部接続機能の公開を見て着手したと記述。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2021-05-13",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_5",
+      "kind": "CHANNEL",
+      "text": "Redditの紹介は26票で、最初の1週間に20人超を獲得したと申告。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2021年5月の初動",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_6",
+      "kind": "CHANNEL",
+      "text": "FacebookのNotion Made Simpleへ投稿し、111件の反応と初期利用者を得た。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "創業初期",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_7",
+      "kind": "CHANNEL",
+      "text": "利用者の実演動画が376票超となり、登録が増えたと記述。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "創業から約2か月後",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_8",
+      "kind": "CHANNEL",
+      "text": "最初のProduct Hunt公開は予定外で27票。後の再公開はその日の1位。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "初回は創業初期、再公開日は別途未確認",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_9",
+      "kind": "OTHER",
+      "text": "最初の有料顧客は写真家Antoineの年払い。対応への感謝が理由と紹介。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "最初の有料化時。年月日未確認",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_10",
+      "kind": "PRICING",
+      "text": "共同作業と大容量添付のEnterpriseを月$39で追加。収入25%になったと申告。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2022-07まで",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_11",
+      "kind": "TOOL",
+      "text": "Crispで対応し、同じ質問が2度来たら説明記事を作る運用にした。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2022-07まで",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_12",
+      "kind": "TOOL",
+      "text": "CannyとNotionで要望を管理し、zcalで利用者との通話を予約した。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2022-07まで",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_13",
+      "kind": "TEAM",
+      "text": "問い合わせと不具合対応が増え、開始から約1年でChiragを最初の専任開発者として採用した。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2022年前半。正確な採用日未確認",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_14",
+      "kind": "OTHER",
+      "text": "2022年2月の2週間の休暇前、1週間は更新を止めた。休暇中も確認していた。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2022-02",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_15",
+      "kind": "REVENUE",
+      "text": "2022年7月1日に月次の継続課金売上$10,000へ到達したと申告。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2022-07-01",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_16",
+      "kind": "OTHER",
+      "text": "$65,000と$350,000の買収提案を断った。後者時の年換算継続売上は$85,000〜90,000。",
+      "sourceUrl": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "statedAt": "2022-07-26",
+      "checkedAt": "2026-10-07",
+      "period": "2022-07まで",
+      "attribution": "当事者の申告",
+      "sourceId": "note-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_17",
+      "kind": "FOUNDING",
+      "text": "2021年5月にAmazon Web Servicesを退職し、LondonからParisへ戻った。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "2021-05",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_18",
+      "kind": "OTHER",
+      "text": "生活費1〜2年分の貯蓄があり、必要なら受託開発へ戻る方針だった。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "退職時",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_19",
+      "kind": "FOUNDING",
+      "text": "使い慣れた構成と雛形で4日間で初版を作った。Notion接続に集中し、条件分岐・詳細な見た目変更・複数ページを省いた。事前の需要調査はしなかった。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "2021年5月",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_20",
+      "kind": "OTHER",
+      "text": "最初の2〜3か月は無料。初期のサーバー費は月$20と申告。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "創業初期",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_21",
+      "kind": "PRICING",
+      "text": "有料化は月$15の定額。利用量課金を避け、競合の安いプランの約半分を目安にした。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "最初の有料化時",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_22",
+      "kind": "PRICING",
+      "text": "見た目変更や添付など費用が出る機能を有料化。既存利用者へ生涯40%割引を配った。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "最初の有料化時",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_23",
+      "kind": "CHANNEL",
+      "text": "無料フォームの製品名表示と利用者の共有・リンクが集客を生んだと記述。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "2022-11まで",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_24",
+      "kind": "OTHER",
+      "text": "初期から利用者へ意見を求め、毎日通話し、Facebookグループも運営した。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "創業初期",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_25",
+      "kind": "REVENUE",
+      "text": "本文の時点で登録26,000人、有料850人、年換算の継続売上$182,000と申告。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "2022-11公表の本文時点",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_26",
+      "kind": "TOOL",
+      "text": "資料の利用ツール欄にLaravel・Vue・Amazon Web Services・Stripeを掲載。",
+      "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+      "statedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "period": "確認日は2026-10-07。欄の更新年月は未確認",
+      "attribution": "当事者の申告",
+      "sourceId": "note-starter",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_27",
+      "kind": "REVENUE",
+      "text": "登録42,000人、有料の契約者1,120人と本人が申告。",
+      "sourceUrl": "https://www.highsignal.io/270k-arr-notion-forms-app/",
+      "statedAt": "2023-05-30",
+      "checkedAt": "2026-10-07",
+      "period": "2023-05",
+      "attribution": "当事者の申告",
+      "sourceId": "note-highsignal",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_28",
+      "kind": "REVENUE",
+      "text": "月間売上$22,600超、年換算の継続売上$270,000と本人が申告。",
+      "sourceUrl": "https://www.highsignal.io/270k-arr-notion-forms-app/",
+      "statedAt": "2023-05-30",
+      "checkedAt": "2026-10-07",
+      "period": "2023-05",
+      "attribution": "当事者の申告",
+      "sourceId": "note-highsignal",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_29",
+      "kind": "TEAM",
+      "text": "3人で運営し、うち1人は短時間勤務と本人が申告。",
+      "sourceUrl": "https://www.highsignal.io/270k-arr-notion-forms-app/",
+      "statedAt": "2023-05-30",
+      "checkedAt": "2026-10-07",
+      "period": "2023-05",
+      "attribution": "当事者の申告",
+      "sourceId": "note-highsignal",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_30",
+      "kind": "OTHER",
+      "text": "過去の小さな売却の貯蓄と受託開発が資金を支えたと説明。",
+      "sourceUrl": "https://www.highsignal.io/270k-arr-notion-forms-app/",
+      "statedAt": "2023-05-30",
+      "checkedAt": "2026-10-07",
+      "period": "創業初期",
+      "attribution": "当事者の申告",
+      "sourceId": "note-highsignal",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_31",
+      "kind": "FOUNDING",
+      "text": "Notionにフォームがなく、別フォームからZapier経由で送る手間を簡単にしたかった。",
+      "sourceUrl": "https://www.highsignal.io/270k-arr-notion-forms-app/",
+      "statedAt": "2023-05-30",
+      "checkedAt": "2026-10-07",
+      "period": "創業時の本人の理由",
+      "attribution": "当事者の申告",
+      "sourceId": "note-highsignal",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_32",
+      "kind": "PRICING",
+      "text": "Basicは$0の表示。1利用者・1接続先、フォームと回答件数は無制限。",
+      "sourceUrl": "https://noteforms.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公開料金表の表示。実請求額や試用後の契約は未確認",
+      "sourceId": "note-pricing",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_33",
+      "kind": "PRICING",
+      "text": "Proは月当たり$20、Teamは月当たり$49と表示。年払い換算か月払いかは未確認。",
+      "sourceUrl": "https://noteforms.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07の抽出表示",
+      "attribution": "公開料金表の表示。実請求額や試用後の契約は未確認",
+      "sourceId": "note-pricing",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_34",
+      "kind": "OTHER",
+      "text": "Proは製品名表示の除去・条件分岐・10MB添付、Teamは複数利用者・独自ドメイン・100MB添付を案内。",
+      "sourceUrl": "https://noteforms.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公開料金表の表示。実請求額や試用後の契約は未確認",
+      "sourceId": "note-pricing",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_35",
+      "kind": "PRICING",
+      "text": "有料枠には3日間の試用を案内。個別契約や請求書払いも相談対象。",
+      "sourceUrl": "https://noteforms.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公開料金表の表示。実請求額や試用後の契約は未確認",
+      "sourceId": "note-pricing",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_36",
+      "kind": "CHANNEL",
+      "text": "紹介報酬を継続課金の30%、毎月PayPalで支払い、最低支払額なしと掲載。",
+      "sourceUrl": "https://noteforms.com/affiliates",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "制度の説明。適用年月未確認",
+      "attribution": "公式表示。実際の紹介売上や支払額は不明",
+      "sourceId": "note-affiliate",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_37",
+      "kind": "EVENT",
+      "text": "同じページで制度を閉じ、新規の紹介者を受け付けないと明記。",
+      "sourceUrl": "https://noteforms.com/affiliates",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認。終了日未確認",
+      "attribution": "公式表示。実際の紹介売上や支払額は不明",
+      "sourceId": "note-affiliate",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_38",
+      "kind": "OTHER",
+      "text": "利用条件は運営者をSAS JhumanJ、所在地をフランスと記載。",
+      "sourceUrl": "https://noteforms.com/terms-conditions",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2023-08-03更新版を2026-10-07確認",
+      "attribution": "公式条件の記載。法律上の有効性や実務を判断したものではない",
+      "sourceId": "note-terms",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_39",
+      "kind": "OTHER",
+      "text": "返金は不満がある場合に連絡・相談を案内。固定の返金期間は記載を確認できない。",
+      "sourceUrl": "https://noteforms.com/terms-conditions",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "同利用条件",
+      "attribution": "公式条件の記載。法律上の有効性や実務を判断したものではない",
+      "sourceId": "note-terms",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_40",
+      "kind": "OTHER",
+      "text": "素材の複製・配布は明示の許可を必要とする旨を記載。画像の転載許諾は未取得。",
+      "sourceUrl": "https://noteforms.com/terms-conditions",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "同利用条件",
+      "attribution": "公式条件の記載。法律上の有効性や実務を判断したものではない",
+      "sourceId": "note-terms",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_41",
+      "kind": "CHANNEL",
+      "text": "JhumanJは接続先とデータベースを選ぶだけで使える製品と実演のリンクを投稿。",
+      "sourceUrl": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "創業初期。投稿年月日は未確認",
+      "attribution": "投稿された内容の事実。利用者の評価や運用実態は未検証",
+      "sourceId": "note-first-reddit",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_42",
+      "kind": "OTHER",
+      "text": "GelatoInRomeは入力の手軽さを評価し、全データへのアクセス権を心配して質問した。",
+      "sourceUrl": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "コメント年月日未確認",
+      "attribution": "投稿された内容の事実。利用者の評価や運用実態は未検証",
+      "sourceId": "note-first-reddit",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_43",
+      "kind": "OTHER",
+      "text": "JhumanJは共有するデータベースを選べると返答。現在の安全性の保証として扱わない。",
+      "sourceUrl": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "コメント時点。年月日未確認",
+      "attribution": "投稿された内容の事実。利用者の評価や運用実態は未検証",
+      "sourceId": "note-first-reddit",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_44",
+      "kind": "OTHER",
+      "text": "neoscoobは料金の高さと基本機能が有料側にあることへ不満を投稿。",
+      "sourceUrl": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "コメント年月日未確認",
+      "attribution": "投稿された内容の事実。利用者の評価や運用実態は未検証",
+      "sourceId": "note-first-reddit",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_45",
+      "kind": "OTHER",
+      "text": "AssolutamenteSiは週間予定の入力用フォームをNotionへ埋め込んだ実演を投稿。",
+      "sourceUrl": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "投稿日未確認。創業者は開始約2か月後の投稿と紹介",
+      "attribution": "利用者投稿で確認した用途",
+      "sourceId": "note-user-demo",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_46",
+      "kind": "OTHER",
+      "text": "Thomasは無料の個人用フォームを保護できないことと、有料機能の割合へ不満を投稿。",
+      "sourceUrl": "https://feedback.noteforms.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "確認時に2か月前の表示",
+      "attribution": "投稿者の申告。原因・有料契約・修正状況は未確認",
+      "sourceId": "note-feedback",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_47",
+      "kind": "OTHER",
+      "text": "Chris Cireficeは関連項目の検索で候補が出ず、学期開始に再利用できないと投稿。",
+      "sourceUrl": "https://feedback.noteforms.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "確認時に9か月前の表示",
+      "attribution": "投稿者の申告。原因・有料契約・修正状況は未確認",
+      "sourceId": "note-feedback",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_48",
+      "kind": "OTHER",
+      "text": "Calabash Collectiveは長い複数ページの質問並べ替えが扱いにくいと投稿。",
+      "sourceUrl": "https://feedback.noteforms.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "確認時に10か月前の表示",
+      "attribution": "投稿者の申告。原因・有料契約・修正状況は未確認",
+      "sourceId": "note-feedback",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_fact_49",
+      "kind": "EVENT",
+      "text": "Notion本体がフォーム機能を公開。件数制限なしで無料、回答はデータベースへ保存。",
+      "sourceUrl": "https://www.notion.com/releases/2024-10-24",
+      "statedAt": "2024-10-24",
+      "checkedAt": "2026-10-07",
+      "period": "2024-10-24",
+      "attribution": "接続先であり競合でもあるNotionの公式発表",
+      "sourceId": "notion-native",
+      "dateNote": "公表日と出来事の時期を区別。"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "収集担当",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "id": "note-home",
+       "url": "https://noteforms.com/",
+       "publisher": "NoteForms 公式サイト",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "note-founder",
+       "url": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+       "publisher": "Julien Nahum の創業記録",
+       "sourceType": "founder_post",
+       "publicationDate": "2022-07-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "note-starter",
+       "url": "https://www.starterstory.com/stories/notionforms",
+       "publisher": "Starter Story 掲載の創業者取材",
+       "sourceType": "founder_interview",
+       "publicationDate": "2022-11-27",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "ログインせず読める本文を確認。上部の月$37,000は本文時点との混同を避けて採用しない。"
+      },
+      {
+       "id": "note-highsignal",
+       "url": "https://www.highsignal.io/270k-arr-notion-forms-app/",
+       "publisher": "High Signal 掲載の創業者取材",
+       "sourceType": "founder_interview",
+       "publicationDate": "2023-05-30",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "公開部分だけを確認。有料会員登録を求める「初期利用者獲得」以降は取得していない。"
+      },
+      {
+       "id": "note-pricing",
+       "url": "https://noteforms.com/pricing",
+       "publisher": "NoteForms 公式料金",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "料金の公開本文を確認。月払い・年払いの選択状態を本文抽出から判断できず、操作可能なブラウザも利用不可。表示額を月払いの確定額にしない。"
+      },
+      {
+       "id": "note-affiliate",
+       "url": "https://noteforms.com/affiliates",
+       "publisher": "NoteForms 公式紹介制度",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "note-terms",
+       "url": "https://noteforms.com/terms-conditions",
+       "publisher": "NoteForms 公式利用条件",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+       "updatedAt": "2023-08-03"
+      },
+      {
+       "id": "note-first-reddit",
+       "url": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+       "publisher": "Reddit の初期紹介と利用者の返答",
+       "sourceType": "founder_post",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "日付は相対表示。本文と個別コメントの投稿日を同一と見なさない。"
+      },
+      {
+       "id": "note-user-demo",
+       "url": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+       "publisher": "Reddit の利用者による週間予定の実演",
+       "sourceType": "customer_post",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "公開動画の説明と返答を閲覧。相対日付から投稿日を補わない。"
+      },
+      {
+       "id": "note-feedback",
+       "url": "https://feedback.noteforms.com/",
+       "publisher": "NoteForms の公開要望・不具合掲示板",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "投稿は相対日付。利用者を名乗る投稿者の申告であり、機能試験や障害監査は実施していない。"
+      },
+      {
+       "id": "notion-native",
+       "url": "https://www.notion.com/releases/2024-10-24",
+       "publisher": "Notion 公式機能公開",
+       "sourceType": "official_release",
+       "publicationDate": "2024-10-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "2026年の売上・有料契約者数・利益・個人の手取り: 現在の公式ページは利用者と企業の合算表示のみ。過去の申告から外挿しない。",
+      "初期投入資金の実額、給与・外注・決済・ツール・税金を含む費用総額: 貯蓄と受託の説明、初期サーバー費月$20は確認したが損益全体は不明。",
+      "現在の運営人数・週の労働時間・自動化率: 2023年に3人という資料しか確定できない。",
+      "現在の月払いと年払いそれぞれの確定料金、ドル記号の通貨コード: 公開本文では切り替え状態と通貨コードが未確認。",
+      "最初の有料顧客の契約年月日、初期有料化の正確な月、全改定日: 本人の振り返りに期間の食い違いがある。",
+      "年払いの先受け現金・解約率・獲得費・紹介制度の実収入: 年払いの初客と制度の説明は確認したが、実績金額や全期間の率は不明。",
+      "改称年月と紹介制度の終了日: 現在の表示だけでは日付を特定できない。",
+      "初期魚拓・製品画像の原物と転載許諾: 取得エラー。所在を記録したが転載可能な画面画像は未取得。",
+      "無料のNotion本体機能公開後の成約・解約への影響と現在の再現性: 公式機能公開は確認したが、NoteFormsの影響値は不明。",
+      "現在の実運用の技術構成・各ツール費: 取材のツール欄はあるが更新日不明。創業者の別製品の技術解説で補わない。"
+     ],
+     "conflicts": [
+      "2022年本人記事は開始から1か月超で有料化、2022年11月・2023年取材は最初の2〜3か月は無料と振り返る。正確な有料化月を確定しない。",
+      "Starter Story上部の月$37,000と2022年本文の年換算$182,000は時点不明の食い違い。上部数字を2022年売上にも2026年実額にも採用しない。",
+      "登録26,000→42,000と有料850→1,120はそれぞれ2022年・2023年。現在の130,000以上は利用者と企業の宣伝上の合算で、有料顧客数ではない。",
+      "創業者記事のFacebook経由80%は過去の別の市場型事業。NoteFormsの集客比率にしない。",
+      "初版4日という2022年資料と後年記事の6日という紹介は定義・時点が不明。4日を当該資料の本人申告として残す。",
+      "紹介30%の案内が残るが同ページは新規受付終了を明記。現在も募集しているとは書かない。",
+      "掲示板の€24という投稿はNotionの接続先契約を含むと述べ、対象製品が混ざっている可能性がある。公式価格の証拠に採用しない。",
+      "2023年は3人運営。現在も1人で月$22,600を稼ぐという表現に変換しない。",
+      "年換算の継続売上はその時点の契約を年換算した指標。実際に1年で入金された売上や個人の手取りと同一視しない。"
+     ],
+     "collectionContract": [
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/OWNER_INTENT.md",
+       "ref": "main",
+       "blobSha": "9cf4d6ef2c33cba0e76f3119e0e79bc61e55eefc",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md",
+       "ref": "main",
+       "blobSha": "b6a0593809cc697ab5646614bbb55f1883d714e0",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/architecture/STORAGE.md",
+       "ref": "main",
+       "blobSha": "d972fe577be780e2c5e01fa1785dfa258466e0c8",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/DATA_COLLECTION_MASTER_GUIDE.md",
+       "ref": "main",
+       "blobSha": "3edc604ba5ac4d1931d78aa03af0417a687295a9",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/COLLECTED_ENTITIES.md",
+       "ref": "main",
+       "blobSha": "eeb5a8ab2477ad76fe76dd0011df9a6796f12a78",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/data/collected-registry.json",
+       "ref": "main",
+       "blobSha": "4446291be4ed9d5aa1133a42b4b741b28038294a",
+       "checkedAt": "2026-10-07"
+      }
+     ],
+     "recordBoundary": "収集記録。記事本文・章・分析・公開判定は未作成。ユーザーの指定により円換算・リポジトリ編集・外部保存は行わない。",
+     "dateConvention": "statedAtは出典の公表日。公表日不明ならnull。periodは対象時点、checkedAtは確認日。相対日付から年月日を作らない。",
+     "currencyConvention": "原資料の金額と通貨表記を維持。USDが明記されないドル記号の通貨コードは未確認。",
+     "mediaMaterials": [
+      {
+       "sourceUrl": "https://www.starterstory.com/stories/notionforms",
+       "assetUrl": null,
+       "checkedAt": "2026-10-07",
+       "statedAt": "2022-11-27",
+       "location": "最初の紹介ページと製品画像の画像リンク",
+       "purpose": "初期の製品・紹介方法の視覚資料",
+       "status": "所在のみ確認",
+       "reason": "画像リンクの取得が内部エラー。原画像・権利は未確認。",
+       "commercialDisplayApproved": false
+      },
+      {
+       "sourceUrl": "https://noteforms.com/pricing",
+       "assetUrl": null,
+       "checkedAt": "2026-10-07",
+       "statedAt": null,
+       "location": "フォーム操作画面の画像リンク",
+       "purpose": "現在の製品の姿を確認する候補",
+       "status": "所在のみ確認",
+       "reason": "画像リンクの取得が内部エラー。利用条件で複製・配布は許可が必要と記載。",
+       "commercialDisplayApproved": false
+      }
+     ],
+     "researchAttempts": [
+      {
+       "url": "https://web.archive.org/web/20210601000000/https://notionforms.io/",
+       "checkedAt": "2026-10-07",
+       "result": "内部エラー。初期魚拓は未取得。"
+      },
+      {
+       "url": "https://www.growthmentor.com/blog/notions-forms-product-of-the-day-product-hunt/",
+       "checkedAt": "2026-10-07",
+       "result": "検索では取材抜粋が見えるが直接の本文は404。再公開の厳密な日付は確定事実に採用しない。"
+      },
+      {
+       "url": "https://noteforms.com/",
+       "checkedAt": "2026-10-07",
+       "result": "公式の採用情報を検索したが現在の人数・労働時間を立証する資料は見つからなかった。"
+      },
+      {
+       "url": "https://jhumanj.com/saas-custom-domain-feature-caddy-dynamodb",
+       "checkedAt": "2026-10-07",
+       "result": "一般的な技術解説。NoteFormsの実運用構成を示す根拠にしない。"
+      },
+      {
+       "url": "https://jhumanj.com/how-to-add-ai-to-any-saas-product",
+       "checkedAt": "2026-10-07",
+       "result": "OpnFormの技術解説。NoteFormsの構成・原価へ転用しない。"
+      }
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2021,
+     "initialTractionPeriod": "",
+     "dataSnapshotPeriod": "創業・初動2021年、本人の売上申告2022〜2023年、現行公開情報を2026-10-07確認",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: NoteForms 公式サイト",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://noteforms.com/",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://noteforms.com/",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Julien Nahum の創業記録",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+       "確認日: 2026-10-07",
+       "公表日: 2022-07-26"
+      ],
+      "url": "https://jhumanj.com/bootstrapping-notionforms-from-0-to-10k-mrr-in-a-year",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Starter Story 掲載の創業者取材",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.starterstory.com/stories/notionforms",
+       "確認日: 2026-10-07",
+       "公表日: 2022-11-27"
+      ],
+      "url": "https://www.starterstory.com/stories/notionforms",
+      "sourceNote": "ログインせず読める本文を確認。上部の月$37,000は本文時点との混同を避けて採用しない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: High Signal 掲載の創業者取材",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.highsignal.io/270k-arr-notion-forms-app/",
+       "確認日: 2026-10-07",
+       "公表日: 2023-05-30"
+      ],
+      "url": "https://www.highsignal.io/270k-arr-notion-forms-app/",
+      "sourceNote": "公開部分だけを確認。有料会員登録を求める「初期利用者獲得」以降は取得していない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: NoteForms 公式料金",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://noteforms.com/pricing",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://noteforms.com/pricing",
+      "sourceNote": "料金の公開本文を確認。月払い・年払いの選択状態を本文抽出から判断できず、操作可能なブラウザも利用不可。表示額を月払いの確定額にしない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: NoteForms 公式紹介制度",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://noteforms.com/affiliates",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://noteforms.com/affiliates",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: NoteForms 公式利用条件",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://noteforms.com/terms-conditions",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://noteforms.com/terms-conditions",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reddit の初期紹介と利用者の返答",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "sourceNote": "日付は相対表示。本文と個別コメントの投稿日を同一と見なさない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reddit の利用者による週間予定の実演",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+      "sourceNote": "公開動画の説明と返答を閲覧。相対日付から投稿日を補わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: NoteForms の公開要望・不具合掲示板",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://feedback.noteforms.com/",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://feedback.noteforms.com/",
+      "sourceNote": "投稿は相対日付。利用者を名乗る投稿者の申告であり、機能試験や障害監査は実施していない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_noteforms_003fcbdd14cf_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Notion 公式機能公開",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.notion.com/releases/2024-10-24",
+       "確認日: 2026-10-07",
+       "公表日: 2024-10-24"
+      ],
+      "url": "https://www.notion.com/releases/2024-10-24",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen3_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "2026年の売上・有料契約者数・利益・個人の手取り: 現在の公式ページは利用者と企業の合算表示のみ。過去の申告から外挿しない。",
+     "初期投入資金の実額、給与・外注・決済・ツール・税金を含む費用総額: 貯蓄と受託の説明、初期サーバー費月$20は確認したが損益全体は不明。",
+     "現在の運営人数・週の労働時間・自動化率: 2023年に3人という資料しか確定できない。",
+     "現在の月払いと年払いそれぞれの確定料金、ドル記号の通貨コード: 公開本文では切り替え状態と通貨コードが未確認。",
+     "最初の有料顧客の契約年月日、初期有料化の正確な月、全改定日: 本人の振り返りに期間の食い違いがある。",
+     "年払いの先受け現金・解約率・獲得費・紹介制度の実収入: 年払いの初客と制度の説明は確認したが、実績金額や全期間の率は不明。",
+     "改称年月と紹介制度の終了日: 現在の表示だけでは日付を特定できない。",
+     "初期魚拓・製品画像の原物と転載許諾: 取得エラー。所在を記録したが転載可能な画面画像は未取得。",
+     "無料のNotion本体機能公開後の成約・解約への影響と現在の再現性: 公式機能公開は確認したが、NoteFormsの影響値は不明。",
+     "現在の実運用の技術構成・各ツール費: 取材のツール欄はあるが更新日不明。創業者の別製品の技術解説で補わない。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: null→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceClass: \"\"→欄を外す",
+     "pnl.sourceDoc: 空→https://noteforms.com/",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す",
+     "essence: 空欄あり→欄を外す"
+    ]
+   }
+  }
+ ]
+}

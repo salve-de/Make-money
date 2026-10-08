@@ -1,0 +1,1512 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_tuple_20261007",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "離れた開発者が画面・音声を共有し、相手の端末を操作しながら共同でコードを書くためのソフト。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "DESCRIPTION",
+     "text": "公式サイトは最大5Kの画面共有と、C++で作った共通の処理基盤を説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "DESCRIPTION",
+     "text": "公式サイト掲載の Shopify の Farhan Thawar は、遠隔の共同開発で標準の道具になったと述べている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "PRICING",
+     "text": "確認時の開発チーム向け料金は1人あたり月30ドルで、共同作業の回数は無制限。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "PRICING",
+     "text": "14日間の無料試用があり、不満があれば直近の月額支払いを返金する方針を掲げている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "PRICING",
+     "text": "外部の協力者との通話は追加料金なし。通話中の少なくとも1人が有料利用者であればよく、招待客はブラウザから参加できる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "PRICING",
+     "text": "大企業向けは個別見積もりで、独自契約と請求書・発注書での支払いに対応する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "PRICING",
+     "text": "設立から2年未満で従業員50人未満の会社には、1年間90%割引を提供すると記載している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "FOUNDING",
+     "text": "2018年に創業し、2019年1月に招待制の初期版を提供した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "CHANNEL",
+     "text": "初期版は約12チームで始まり、待機名簿から約毎月招待した。2019年10月に利用者自身が登録できる形へ移った。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "TEAM",
+     "text": "2019年末のチームは共同創業者3人だった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "EVENT",
+     "text": "同月は応急修正と基盤強化を優先し、営業を非常勤の担当に任せた。対応の手伝いも後に雇い、月末には制御できる状態になったと振り返っている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "OTHER",
+     "text": "2020年3月に増えた売上は、その前の14か月で増えた売上の合計を上回ったと本人が述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "2020年には接続・操作・音声の処理を書き直し、公開前に外部の品質検査を受けるようにした。クラッシュは過去最少となり、通話品質評価の中央値は5点満点の5点だったという。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "EVENT",
+     "text": "初期の接続管理は Heroku 上の Action Cable だったが、能力を使い切っても数時間ごとに再起動が必要になり、Ably へ移行した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "OTHER",
+     "text": "他の基本ソフトへ展開するため Firebase を並行導入したが、異常切断した利用者が接続中のまま残る問題があり、採用を断念した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "EVENT",
+     "text": "その後、Go と Redis を使った独自の接続管理サービスを作り、既存基盤と並行して段階的に導入した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "OTHER",
+     "text": "負荷試験では数百万の同時接続とミリ秒単位の往復遅延を確認したという。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "PRICING",
+     "text": "2021年9月、公開ソフトの開発チームに対する無期限の無料提供を発表した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "OTHER",
+     "text": "更新頻度を減らしてほしいという複数の利用者の要望を受け、2020年8月に月1回の更新を試していると発表した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "EVENT",
+     "text": "2020年12月、3人目の参加者もキーボード・マウス操作、画面への描画、相手のクリップボードへの文字送信ができるようにした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f23",
+     "kind": "EVENT",
+     "text": "2024年5月24日、Windows 版の一般向け試用を公開した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f24",
+     "kind": "OTHER",
+     "text": "Windows 版では既存の GTK 版の移植を試した後、win32 の機能を直接使う方式へ変え、速度と安定性が向上したと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f25",
+     "kind": "OTHER",
+     "text": "Hacker News の Svetlitski は、大学のコンパイラ開発で数か月使い、長時間でも安定し、遅延が非常に小さかったと投稿した。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f26",
+     "kind": "OTHER",
+     "text": "仕事で使ったという bantmen は、価格が個人の開発や仕事外での共有を妨げたと投稿した。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f27",
+     "kind": "OTHER",
+     "text": "univerio は、映像が止まるため Zoom を併用したことと、更新後に通話を再開しづらいことを投稿した。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f28",
+     "kind": "PRICING",
+     "text": "以前は一括認証を通常の約2倍の料金の大企業向けに限定していたが、2022年6月1日から全プランで追加料金なしにした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f29",
+     "kind": "EVENT",
+     "text": "一括認証の無料化を受け、大企業向けの価値を独自契約、利用実績に応じた料金、段階的割引、監査・管理機能などへ置き換える方針を述べた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f30",
+     "kind": "OTHER",
+     "text": "公式顧客取材によると、Suppli の David Paluy は Slack の音声が不安定で WhatsApp も使っていたが、数人の技術者と Tuple を試すとチーム全体へ広がった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f31",
+     "kind": "OTHER",
+     "text": "Suppli は Tuple を、障害の調査、コード変更の確認、設計の相談、AI に作業を任せる前の計画づくりに使うと公式顧客取材にある。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f32",
+     "kind": "EVENT",
+     "text": "2026年9月29日、端末内の文字起こし機能を強化し、Capture として macOS と Windows の両方へ公開した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f33",
+     "kind": "DESCRIPTION",
+     "text": "Capture は通話の文字起こし、画面の画像、表示したアプリの情報を端末内に保存し、クラウドへ通話データを送らないと説明している。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://tuple.app/",
+     "publisher": "Tuple 公式サイト",
+     "snapshot": {
+      "url": "https://tuple.app/",
+      "finalUrl": "https://tuple.app/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:55.728Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "4749617828582e576984f6b6fed164c19afc9675ca808bdf5f714db8e2840ac4"
+     },
+     "text": "Tuple: the best remote pair programming app on macOS and Windows\nBuilt from the ground up to deliver razor sharp screen sharing, crisp audio, and seamless remote control. Because programmers deserve better than a generic screen sharing tool.\nTuple: the best remote pair programming app on macOS and Windows\nBuilt from the ground up to deliver razor sharp screen sharing, crisp audio, and seamless remote control. Because programmers deserve better than a generic screen sharing tool.\nTuple: the best remote pair programming app on macOS and Windows\nTuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nTuple for Linux alpha is available!\nThe best remote pair programming app on macOS and Windows\nBuilt from the ground up to deliver razor sharp screen sharing, crisp audio, and seamless\nremote control, so you can get into the flow with your teammates and do real work.\nStart your free trial\nFree for 14 days.\nCancel anytime.\n\nCode\nFile\nEdit\nView\nGo\nWindow\nHelp\nPaidUsersList.tsx\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23 const fetchUsersInPaidTeams = async (): Promise < User [] > = > {\nconst response = await fetch ( ` $ { API_BASE_URL } / v1/users ` )\nif (!response. ok ) throw new Error ( 'Failed to fetch users' )\nconst users : User [] = await response. json ()\nreturn users. filter ( user = > user. team . isPaid )\n}\nexport const PaidTeamUsers = ( ) = > {\nconst [users, setUsers] = useState < User [] | null > ( null )\nconst [error, setError] = useState < string | null > ( null )\nuseEffect ( () = > {\nfetchUsersInPaidTeams ()\n. then ( data = > setUsers (data))\n. catch ( err = > setError (err. message ))\n} , [])\nif (!users) return < Loading / >\nif (error) return < Error / >\nreturn < UserTable users = { users } / >\n}\nPaul\nSarah\nMike\nTrusted by thousands of teams\n*>*]:mx-6 [&>*>*]:h-6 md:[&>*>*]:mx-10 md:[&>*>*]:h-10 [&>*]:flex [&>*]:items-center\">\nBuilt for Pairing\nEngineers deserve sharp tools\nGeneric screen sharing tools just won't cut it. Tuple is purpose-built\nfor an exceptional pairing experience.\nRidiculously crisp audio and video\nTuple streams in super high resolution (up to 5K) so you can read your pair's tiny programming\nfont.\nEnd-to-end encryption\nAll audio, video, and screen share data is end-to-end encrypted, and is never sent to Tuple's\nservers. We take your privacy extremely seriously.\nSeamless collaboration\nSnappy remote control combined with clear audio and video make you feel like you're sitting\nright next to your pair.\nconst fetchUsersInPaidTeams = async (): Promise < User []> => {\nconst response = await fetch ( ` ${API_BASE_URL} / v1/users ` )\nif (!response. ok ) throw new Error ( 'Failed to fetch users' )\nconst users : User [] = await response. json ()\nreturn users. filter ( user => user. team . isPaid)\n}\nexport const PaidTeamUsers = ( ) => {\nconst [users, setUsers] = useState< User [] | null >( null )\nconst [error, setError] = useState< string | null >( null )\nuseEffect ( () => {\nfetchUsersInPaidTeams ()\n. then ( data => setUsers (data))\n. catch ( err => setError (err. message ))\n}, [])\nif (!users) return < Loading />\nif (error) return < Error />\nreturn < UserTable users = {users} />\n}\nOne click to swap who’s sharing\nIt just takes one click to switch who's sharing when you're on a call. Easily go back and\nforth with your pair on a tough problem.\nTestimonials\nDon't take our word for it\nHere are some of the nice things people have said about Tuple.\nTuple has become our default tool for remote pairing at Shopify . The teams love it.\nFarhan Thawar\nVP of Engineering, Shopify\nIt's the best tool for remote pair programming. Latency is important, keyboard binding all just works. It feels like you're working on a shared\ncomputer.\nAndrés Taylor\nDeveloper, PlanetScale\nSo impressed with Tuple. It makes pair programming remotely with co-workers and friends fun again .\nMichael Feldstein\nStaff Engineer, Figma\nTuple allows me to thrive as an independent developer , easily chatting with freelance clients, mentoring others, and collaborating on open-source\nprojects.\nMikaela Caron\nIndependent iOS Engineer\nTuple spread like wildfire throughout the entire Clerk team, and quickly became an\nintegral part of our internal communications .\nBraden Sidoti\nCo-founder & CTO, Clerk\nSmall footprint\nRespectful of system resources and screen real estate\nNative where it counts\nThe core of Tuple is a natively compiled, cross-platform C++ engine. It's not just another Electron app.\nObsessed with performance\nWe've been hacking on Tuple for years to make it as fast and efficient as possible. We're stingy with your CPU cycles.\nRuns in your menu bar\nDo you hate a cluttered dock or task bar? Well, us too. Tuple stays out of your way until you need it.\nDesigned for privacy\nFearless screen sharing with App Veil\nYour teammates only see what you want them to see, nothing more.\nFearless screen sharing with App Veil\nHide sensitive apps and notifications, and share your desktop with confidence.\nWorkflow\nBuilt for developers, by developers\nWe're programmers too. We built Tuple to fit the way engineers work.\nTuple call starts Participant joins Participant leaves Tuple call ends\ncall-initiated participant-joined participant-left call-ended event fires\ntriggers\ntriggers\npause-spotify\ncall-initiated\ncall-ended\nadd-git-coauthor\nparticipant-joined\nparticipant-left\ncall-initiated participant-joined participant-left call-ended\n1 #!/usr/bin/env osascript\n2\n3 tell application \"Spotify\" to pause 1 #!/usr/bin/env ruby\n2\n3 email = ENV . fetch ( \"TUPLE_TRIGGER_EMAIL\" )\n4 name = ENV . fetch ( \"TUPLE_TRIGGER_FULL_NAME\" )\n5\n6 File . open ( \" #{ Dir . home } /.gitmessage\" , \"a\" ) do | f |\n7 f . write ( \"Co-Authored-By: #{ name } < #{ email } >\\n\" )\n8 end 1 #!/usr/bin/env ruby\n2\n3 email = ENV . fetch ( \"TUPLE_TRIGGER_EMAIL\" )\n4 name = ENV . fetch ( \"TUPLE_TRIGGER_FULL_NAME\" )\n5\n6 content = File . read ( \" #{ Dir . home } /.gitmessage\" ) . split ( \"\\n\" )\n7 filtered = content . reject { | l | l .include?( \"Co-Authored-By: #{ name } < #{ email } >\" ) }\n8\n9 File . open ( \" #{ Dir . home } /.gitmessage\" , \"w\" ) do | f |\n10 f . write ( filtered )\n11 end 1 #!/usr/bin/env osascript\n2\n3 tell application \"Spotify\" to play\nAutomate your workflow with Triggers\nTools for programmers should be programmable.\nTriggers let you hook into Tuple's call\nevents and run arbitrary code.\nLearn more\n⌘\n⇧\n⌘\n⌥\nM\n⌘\nL\n⌘\nP\nCopy call link\nAdd a participant\nOpen Tuple popover\nToggle microphone\nCopy call link\nAdd a participant\nOpen Tuple popover\nToggle microphone\nKeyboard shortcuts for everything\nKeep your hands on the keyboard and stay in flow with fully customizable shortcuts.\nFor macOS and Windows\nIt doesn't matter whether your team is using macOS or Windows — Tuple works great on both.\nEffective and fun\nLiven up your pairing sessions\nBuild cool stuff with your teammates – and have a good time in the process.\nScreen annotations\nDraw or type on a shared screen to draw attention to something or emphasize a point. Or use\nTuple as a shared virtual whiteboard.\nEmoji reactions\nShow the rest of team how you're feeling with on-screen emoji reactions.\nAnimations\nFinally figure out that gnarly race condition? Drop a giant \"ship it\" animation into the\npairing session.\n❤️\n🤯\n🔥\n👍\n👏\nPete\nLet's Go\nReady to get started?\nGive Tuple a spin with a 14-day free trial .\nStart your free trial\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://tuple.app/pricing",
+     "publisher": "Tuple 公式料金",
+     "snapshot": {
+      "url": "https://tuple.app/pricing",
+      "finalUrl": "https://tuple.app/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:55.735Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "bab5c5ce4c99645a23976abd35e7d0e153483a501aed4650c685da808e85a98c"
+     },
+     "text": "Pricing · Tuple\nBuilt from the ground up to deliver razor sharp screen sharing, crisp audio, and seamless remote control. Because programmers deserve better than a generic screen sharing tool.\nPricing\nBuilt from the ground up to deliver razor sharp screen sharing, crisp audio, and seamless remote control. Because programmers deserve better than a generic screen sharing tool.\nPricing · Tuple\nTuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nPricing\nTuple pays for itself in happier, more productive engineers\nGet started with a 14-day free trial .\nEngineering teams\n$30 /\nper user\nper month\nUnlimited pairing sessions\nPair with external collaborators for free\nTo pair with Tuple, only one of the users in the session must be a paid\nuser. Guests can join from their browser, no install needed. Learn more\nSingle sign-on (SSO)\nGet started for free\nEnterprises\nCustom pricing available\nContact us for more information\nEverything on the teams plan\nCustom contracts\nPayment via invoice/PO\nContact sales\nNo love, no pay. If you're unhappy with\nTuple at any point, we'll refund your most recent monthly payment.\n*>*]:mx-6 [&>*>*]:h-6 md:[&>*>*]:mx-10 md:[&>*>*]:h-10 [&>*]:flex [&>*]:items-center\">\n90% off for a year for startups\nIf your company is less than two years old and has fewer than 50 employees, we'll add\na one-year 90% discount to your subscription.\nApply for discount\nTuple is free for OSS\nIf you do significant OSS work, we'll donate free Tuple licenses to collaborate with\ncontributors/maintainers.\nGet Tuple for free\nTestimonials\nDevelopers talk about Tuple best\nHere are some of the nice things folks have said about us.\nTuple is probably the highest rated tool we've implemented. The developers who use it can't imagine working remote without it .\nNick Cash\nVP of Engineering, Jam City\nI've been in meetings with 10 people on Tuple, cycling through who's driving, and it's been incredibly productive . If we had to try to do that on another platform, it wouldn't be worth it.\nCassidy Scheffer\nStaff Software Developer, Wealthsimple\nTuple is integral for us as a remote team. It creates the illusion that there is nothing in the way. It’s faster, easier and more\nseamless than anything else we’ve tried.\nIan Lesperance\nSenior Principal Software Engineer, Vimeo\nFAQ\nFrequently asked questions\nHere's what you need to know about your Tuple license, based on the questions we get asked\nthe most.\nWhat platforms do you support?\nThe Tuple app runs on macOS and Windows, and Linux is in alpha . Anyone can also join a call from their browser.\nCan people join a call without installing Tuple?\nYes! Anyone you invite can join from their browser to talk, turn on their webcam and view\nyour shared screen. To share their own screen, take remote control, or draw on screen, they\nneed the app. Learn more in our docs .\nDoes it cost anything to pair with people outside my organization?\nNope! Paid users (the default) can pair with external collaborators (clients,\nconsultants, interviewees) for free. Learn more in our docs .\nHow do you handle security and privacy?\nCarefully! Check out our security details and privacy policy .\nCan I get a refund?\nWe're not in the business of making money from unhappy users. If you're unhappy with\nTuple at any point, we'll refund your most recent monthly payment. See our refund policy for more details.\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://tuple.app/blog/2020-year-in-review",
+     "publisher": "Ben Orenstein の公式振り返り",
+     "snapshot": {
+      "url": "https://tuple.app/blog/2020-year-in-review",
+      "finalUrl": "https://tuple.app/blog/2020-year-in-review",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:55.739Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "4fec6c30eebd208a6271ba7a9e2d4648abbf0c869176b045fa8d57d71953ded5"
+     },
+     "text": "2020 Year in Review · Tuple\nJust a pretty normal year. Nothing to see here.\n2020 Year in Review\nJust a pretty normal year. Nothing to see here.\n2020 Year in Review · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\n2020 Year in Review\nBen Orenstein · @r00k · December 29, 2020\nFirst, a brief 2019 recap\nWe launched Tuple (a remote pair programming app for macOS), in January of 2019.\nWe began with a closed alpha of ~12 teams, and invited new cohorts from our waiting list every month or so. The app was invite-only until October, when we finally launched a self-serve sign up flow. (If you’re an indie hacker thinking you need to build out a sign up process early on, please consider that we hit five figures of MRR without so much as a pricing page.)\nOverall, 2019 was about rapidly shipping basic, tent pole features: webcam support, 3-way calls, dual cursors, a marketing site, and similar.\nAt the end of the year, the team was still just us three cofounders, and the business felt fairly simple.\nAnd then, 2020\nThe Ides of March\nWhen we founded Tuple in 2018, it felt clear to us that remote development was on the rise. We figured the market would grow a bit each year, and we could create a nice little business serving this small but growing segment.\nBy the start of 2020, it looked like we had been correct: we had hundreds of happy, paying customers. If you’d asked me how the business was doing, I would have described our growth in enthusiastic terms.\nThen, March happened.\nSuddenly, the percentage of developers working remotely rose to “approximately everyone.”\nFor us, several things blew up at once:\nOur largest customer told all of its thousands of developers to immediately start working from home, and to use Tuple to support their frequent pairing practice. The intentionally-naive architecture we used to display the list of online users promptly fell over, taking the service offline for nearly everyone.\nWhat had been a slow trickle of inbound inquiries for our Enterprise plan turned into a torrent, and I was suddenly staring at an inbox full of leads that wanted to go through a full sales process.\nOur support volume tripled.\nAnd so, we scrambled:\nWe dropped everything to focus on the scaling issues. We spent a hectic day pushing out hotfixes and constantly refreshing performance graphs and background job queues. If you’d like a full description of that crazy day, check out this podcast episode .\nWe hired a part-time sales person to take that responsibility off my plate (thank goodness).\nWe started devoting a large chunk of time to getting through the support queue each day. Later, we hired part-time help here as well.\nFortunately, by the end of the month, we felt like we had things under control. We’d hired where needed and made our infrastructure more resilient. The business itself was also healthier: in March, we added more revenue than we had in the 14 previous months combined.\nIt feels weird to acknowledge that we benefited from something so terrible, and I’d trade this reality for one in which Covid never happened in a second. That said, I’m grateful that we were able to provide something that made this year a little easier for folks. We get messages nearly every day saying that pairing over Tuple has made mandatory working from home a bit more tolerable, and that feels great.\nNew Tuplers\nWe added three awesome people to our team in 2020:\nA full-time macOS engineer, Mikey .\nA part-time sales person, Adam .\nA part-time support person, Lito .\nIn addition, we retained security and QA firms to check our work.\nHonestly, I had been skeptical about hiring until this year. We’re programmers wielding the awesome power of automation through code! Surely we could get by with just three founders, right?\nSure. Kind of. Except for two things.\nFirst, we were getting close to burn-out. The huge influx of customers in the Spring didn’t just stress our infrastructure and support process, it added mental stress. Tens of thousands of people were suddenly relying on Tuple to get their work done every day. Bugs in production could mean widespread disruption, and we started to feel anxiety around shipping new things. We were also feeling the pain of the tech debt we’d created in 2019, and taking on the necessary refactors was similarly scary.\nSecond, while I intellectually grasped that adding people to our team would improve our capabilities, I hadn’t truly internalized just how big a difference it could make: Mikey, Adam, and Lito have improved our product and company.\nJust one example: they’ve taken difficult work off our plates and done it better than we could. The parts of the sales process that drove me crazy barely bother Adam at all. Mikey dove into our large-scale refactorings and rewrites without fear. And Lito cranks through our sizable support queue while remaining pleasant and helpful.\nOn top of that, working with these folks has made our day-to-day experience far more fun. Turns out working with great people just makes things straight-up more enjoyable. Consider me a convert to the power of adding awesome people to your team.\nDebt payoff\nIf 2019 was about quickly shipping the first version of lots of features, 2020 was about coming back to battle-harden those things.\nIn 2020, we shipped near-complete rewrites of huge chunks of the Tuple client:\nWe completely redesigned our UI .\nWe massively refactored our signaling code (responsible for handling connections between clients).\nWe fleshed out our three-player mode .\nWe overhauled our mouse and keyboard handling.\nWe rewrote much of our audio-handling code.\nOn top of these large-scale rewrites, we fixed a ridiculous number of bugs and crashes (turns out a real-time streaming application written in C++ that interacts with native OS APIs is, well, a bit tricky). We add more automated tests each month, and each production release is now reviewed by our QA firm before going live.\nFortunately, this hard work has paid off: we’re seeing fewer crashes than ever, and our median call quality rating is a preposterous 5 out of 5.\nTo be completely honest, I wish we’d shipped more large-scale user-facing features in 2020. But with our cleaner codebase, I think we’re well poised to do a ton of it next year.\nA bright future\nI think 2021 is going to be a great year for Tuple.\nWe’ve got a strong team, a clean codebase, and infinite runway. I can’t wait to tackle some of the larger projects we’ve been dreaming about for years now.\nAlso, I’m having a great time working on this company. My cofounders are amazing, and our team just keeps getting stronger. What’s more, our customers continue to blow me away with how kind and helpful they are. I’m so glad I get to work on something that’s attracted such a great group of users.\nI’m excited about the future, and I hope you are too.\nThanks for reading!\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://tuple.app/blog/the-realness",
+     "publisher": "Mikey Pulaski の公式技術記録",
+     "snapshot": {
+      "url": "https://tuple.app/blog/the-realness",
+      "finalUrl": "https://tuple.app/blog/the-realness",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:56.534Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "ecfbfad8cccf340dfff511ddc539401553b038d207e84c812c9dd4a06fa565de"
+     },
+     "text": "Scaling Tuple's Service to Millions · Tuple\nThe journey which led us to write our own real-time service that can scale up to millions of concurrent connections.\nScaling Tuple\nThe journey which led us to write our own real-time service that can scale up to millions of concurrent connections.\nScaling Tuple's Service to Millions · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nScaling Tuple's Service to Millions\nMikey Pulaski · @YoungDynastyNet · November 7, 2022\nSince Tuple launched, there have been 4 different services used to track user presence and securely exchange messages between clients to start calls 1 .\nEach transition has had its own pain points, and I don’t say that lightly: swapping out network stacks in a native app while maintaining protocol compatibility is a real vibe.\nLet’s start by taking a quick look at the different solutions we’ve used over the years to get a better idea of the problems we’ve had to solve as we’ve grown, and how we ended up rolling our own blog-worthy service.\nFrom Action Cable to Ably\nBefore I joined, there were questionable decisions made when it came to scaling, but that’s super fair: the main goal up until that point was to get the product out and validate it.\nTuple launched using Action Cable to simplify operational overhead and keep everything running as a single service. Once the COVID hit, though, it quickly became a dumpster fire.\nThe service was running on Heroku with all of its Dynos maxed out. Despite this, it had to be monitored around the clock and restarted every few hours. Sprinkle a little pandemic in the mix, and you had the perfect recipe for a very bad time.\nThere were really only two choices to be made: continue maintaining it and figure out a way to scale, or find a provider which would do the heavy lifting.\nIt was ultimately decided to migrate clients over to Ably , which is a fully managed service where you pay based on usage. Ably provides several SDKs, including one in Objective-C which could be used natively.\nThere were issues related to Ably’s client stability, but we were able to commit fixes and have them merged upstream after I joined. I’m kind of a dinosaur on the Mac, so I’m pretty comfortable with Objective-C.\nRegardless, migrating to Ably was a huge win: we certainly never lost any sleep over service outages and could focus on building extremely important user-facing features, like sending confetti celebrations to your pair.\nGetting ready for Linux\nFast forward a year or two later, and we found ourselves wanting to target platforms other than the Mac. Linux, by popular demand, was at the top of the list.\nTuple’s engine relies on WebRTC , which we use directly rather than through a browser (or Electron). This lets us reduce overhead significantly and tweak codecs to deliver high-resolution screen shares with crisp text. WebRTC is written in C++, and up until this point we’ve chosen to tread very lightly around its code base to avoid complexity.\nOn the Mac side of things, we could interface with WebRTC through its Objective-C adapters which play nicely with Swift. The adapters let us maintain our protocol-specific code in Swift, iterate quickly with less boilerplate code, and keep the C++ demon in its cage. This wouldn’t really suit us moving forward, though: Swift isn’t a language we’d like to bet on using across different platforms.\nThe writing was on the wall: we were going to have to double down on C++ development. Time to enter the thunderdome!\nFirebase to the rescue\nIf we were going to invest more in our C++ codebase, we’d need to figure out how to bring Ably along. The only problem was, Ably doesn’t provide a C/C++ client, probably because they aren’t masochists.\nAs you can imagine, most service providers don’t provide bindings to lower level languages, let alone provide support for Linux. We were happy to find one exception: Google’s Firebase .\nFirebase is a collection of services that can be used as building blocks to deliver real-time features, like user presence 2 . It’s popular with game developers, so they have an actively maintained C++ SDK. Score one for Tuple. Our only apprehension was that Google has a history of killing off its products, but we felt fairly confident that Firebase might stand the test of time.\nFirebase was going to be our knight in shining armor. Or so we thought…\nSide-loading Firebase\nAfter a few weeks, we had a drop-in replacement for our Ably integration ready. The founders still had recurring nightmares about the migration from Action Cable, so we decided to try something clever. We weren’t jumping from a burning ship so we had time on our side to experiment.\nOur plan was to ship our Firebase integration alongside our existing Ably one so that both services could talk to each other. We built in a remote switch that we could use to roll specific users or teams to Firebase, all while maintaining compatibility with users who were still using Ably. This would let us switch users incrementally and keep an eye on our support queue. If our experiment started to fail, then we’d just switch everyone back to using Ably without needing to deploy client updates. 3\nOver the course of a few days, it became clear that Firebase did not work as advertised: some people would appear online indefinitely if their clients disconnected unexpectedly. This wouldn’t be a show stopper if it was a bug within the client, as it’s open source, but the problem appeared to originate remotely.\nWe spoke with Firebase support, opened up issues, and even were able to provide reproducible test cases, but we were told repeatedly that things were working as expected. It wasn’t until a year later that they acknowledged / fixed the bug. 4\nAfter taking a little time to lick our wounds and accept the fact that no one would save us, we knew we really only had two options: write our own Ably client, or write our own service.\nIt seemed like it was a good time to invest in ourselves.\nOur solution: The Realness\nPrior to joining Tuple, I took a few years off from developing platform-specific code and wrote real-time microservices in Go. I had a high degree of confidence that we could create our own service and make it scale. It was our destiny ✨\nThis time around, we knew we had a market fit with a very active user base, and knew exactly what features we’d need in our own service. This would make it much less complex to deliver a solution without extra cruft.\nI was able to write our service 5 mostly over the span of a few weeks: it felt so good to be writing Go again and reasoning about concurrency more naturally. Although I took the lead, I’d Tuple with other members on the team every day so that the service became familiar to everyone.\nWe wrote loads of tests together to simplify the amount of time it would take to validate each requirement we had for the service. Each server is backed by Redis in a way such that data from an unhealthy instance would be automatically deleted. Each test case uses actors connected to different servers, backed by Redis server(s). This made it relatively straightforward to cover tricky scenarios like scaling up or down, nodes dying unexpectedly, or replaying missed messages with microsecond precision.\nRolling it out\nOnce our service was ready, we started placing bets on whether or not we could bring it to its knees. Matt, one of the other engineers at Tuple, worked on setting up a stress testing environment which he deployed to multiple regions across the globe. I guess you could say things were getting pretty serious.\nWith a fleet of virtual honey badgers ready to attack our service, we felt drunk with nerd power. Over the course of a few runs, we managed to get up to a few million concurrent connections while maintaining round-trip times within milliseconds. Honestly, we never found the service’s limit, but we figured a few million should be our baseline because it sounded cool.\nWith our stress tests running, we validated that our servers would auto-scale and distribute their workload across multiple zones on demand. At this point, we felt pretty good about trying the side-loading approach again.\nWe deployed our home-brewed solution alongside Ably using the same approach as before, but we didn’t need to do any rollbacks this time. While none of our user’s noticed, we knew we hit a major milestone and had a solid foundation to start porting Tuple’s engine to other platforms. Our engineering channel on Discord was lit — sometimes the best releases are ones where you can hear crickets chirp.\nClosing thoughts\nToday, our real-time service powers both our Linux and Mac apps using a small, portable C++ client. It went live over a year ago and it hasn’t required any code changes in about 10 months. We hardly have to think about its maintenance and it’s added zero stress to our workload.\nAlthough we’ve switched our real-time infrastructure out a few times, we were able to move fast and not break things. We never felt like we were blocked from delivering new features while any of the transitions were happening behind the scenes. It really paid off to keep things simple until we were forced to solve problems which were no longer hypothetical.\nI hope you enjoyed reading about part of our journey.\nUntil next time!\nAbout the author\nHi! I’m Mikey, the first full-time engineer at Tuple. I was hired in the height of COVID and have helped Tuple scale while the world went remote. Since I’ve been on the team, my role has grown from being the Mac expert to a software architect, where I help shape our engine to grow alongside new hires, platforms and features.\nYou can find me on lurking on Twitter @YoungDynastyNet .\nFootnotes\nSee https://webrtc.org/getting-started/peer-connections for more information. ↩\nTheir documentation uses presence as an example application. They also have blog about it. ↩\nThis is something that’s easy to take for granted when targeting the web, but updating binaries running locally on people’s machines is a different beast which requires a lot more coordination. It also can be disruptive to people who are actively on a Tuple call. ↩\nBetter late than never! See this issue on their JS SDK. ↩\nAfter binge-watching Drag Race during COVID, I named the service the “Realness”. If you’re a fan of the show, you’re probably gooped and gagged. ↩\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://tuple.app/blog/helping-with-hacktoberfest",
+     "publisher": "Ben Orenstein の公式告知",
+     "snapshot": {
+      "url": "https://tuple.app/blog/helping-with-hacktoberfest",
+      "finalUrl": "https://tuple.app/blog/helping-with-hacktoberfest",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:56.655Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "8e8d48b6821aafa032917e98d1ad1312ed6d232ea24605704ccac0db2e5ada2e"
+     },
+     "text": "Helping with Hacktoberfest · Tuple\nTuple is free to try during Hacktoberfest (and free forever for OSS teams)\nHelping with Hacktoberfest\nTuple is free to try during Hacktoberfest (and free forever for OSS teams)\nHelping with Hacktoberfest · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nHelping with Hacktoberfest\nBen Orenstein · @r00k · September 28, 2021\nWhen we set out to build Tuple, we recognized that we could only do it with such a small team because of the generous OSS developers that had paved the way ahead of us. Fantastic tools like WebRTC and Rails likely saved us years of development time.\nWe’ve been inspired by Digital Ocean’s Hacktoberfest , and we’d like to join them in giving back to the OSS community. Here’s all the goodness we’re rolling out in October to give back. 🥳\nOpen source teams get Tuple for free (forever)\nMaintaining open source projects can be an arduous task. Doing it alone makes it even harder.\nWe want to ease the burden a bit by providing Tuple to any open source team that needs it.\nWant to knock out that one lingering issue in your backlog that’s a bit too complex to tackle alone? Are your docs getting a bit stale and in need of a documentation update pairing party? Whatever you’re feeling, we’ve got you covered.\nFill out this form with some basic information about your team and we’ll take care of the rest.\nExtended Tuple trials from October 1st - 15th\nFor the first two weeks of October, we want to help you make your Hacktoberfest contributions by extending our free trial period from 14 to 31 days. This gives you the entire month of October to pair with a fellow dev on your contributions (tip: check out git-pair to share credit).\nIf you need some help getting started with pair programming, check out our official Pair Programming Guide . It’s full of practical advice that will have you submitting your best work to the open source projects that need it.\nFinally, we’d love it if you’d share the open source PRs you made with @tuple ! We’re excited to see wait what you can contribute with a pair at your side 💪 .\nWe want to sponsor your OSS\nTuple wants to join GitHub in helping to make open source more sustainable through their GitHub Sponsorships program.\nWe’re going to be selecting a few open source contributors each quarter to sponsor, and you could be in the first round!\nFill out this form , follow @tuple , and we’ll announce the sponsors on Twitter by October 7th.\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://tuple.app/blog/august-2020-release",
+     "publisher": "Ben Orenstein の公式告知",
+     "snapshot": {
+      "url": "https://tuple.app/blog/august-2020-release",
+      "finalUrl": "https://tuple.app/blog/august-2020-release",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:56.720Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "d7e20f2f7a8b27d072bb05d4007a01703baa2a601f7cdd3873bb976a00fa1fb1"
+     },
+     "text": "Tuple's August Release & Other News · Tuple\nNew features, an open position, and improvements in the pipeline\nTuple\nNew features, an open position, and improvements in the pipeline\nTuple's August Release & Other News · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nTuple's August Release & Other News\nBen Orenstein · @r00k · August 3, 2020\nQuick summary\nWe’re hiring a WebRTC expert to bring mobbing support to Tuple. Please apply or share the job posting with someone great.\nWe added some new features: an (optional) persistent indicator showing which display you’re sharing, we now exclude the webcam window from your screen share, and made a bunch of small improvements to make Tuple more Mac-y.\nSSO users: you no longer have to sign in after every app restart. Woohoo!\nWe’re dropping High Sierra support in November, when Apple is expected to stop issuing security updates for it.\nWe have some solid improvements in the pipeline: fewer crashes, better automatic call reconnection, better support for 3-person calls, and some onboarding improvements.\nIf you could use someone to pair with, you can get $40 off your first Codementor session by signing up through this link .\nA short hello from Ben (and a favor request)\nNews items\nWe’re hiring a WebRTC expert (and would love your help)\nWe want to hire an experienced WebRTC programmer to help bring mobbing (meaning pairing sessions with more than 3 participants) to Tuple.\nIf this feature is on your wish-list, you can help out quite directly by referring awesome candidates to our job posting .\nWe’re moving to a monthly release cadence\nA number of you have requested that we update the app a bit less frequently. We’re going to test out doing monthly releases for a while to see how it feels.\nSo far, so good.\nWe’re dropping High Sierra support on November 1st\nNovember 1st is when Apple is expected to stop offering security updates for High Sierra.\nWe think it’s important to only run Tuple on secure systems, so we’ll disable the ability to run Tuple on High Sierra near that date.\nThis change affects less than 2% of you, but we wanted to give you plenty of notice anyway.\nWe’ve partnered with Codementor so you can pair with experts\nNeed someone to pair with? Want to get a quick tech question answered by an expert? Codementor is a great way to bring in short-term development help.\nAs a Tuple customer, following this link will give you $40 in free credits to use on mentoring sessions or freelance jobs. (Any unused credits will expire in 30 days.)\nNew stuff in Tuple\nWe pushed v0.78 today. Here’s what’s new.\nMore Macification\nThanks to our Mac expert Mikey , Tuple has been getting more and more Mac-y. Here are a few small examples:\nMore of Tuple’s sub-windows (like preferences or other models) now respond to standard macOS shortcuts like Command+w and Command+`.\nTuple now shows up in the Command+Tab results in a more predictable way.\nYou can now select a call rating by double-clicking the rating emoji or by pressing Command+[a number between 1 and 5] (and then Command+Return to submit).\nPreviously, if you were trying to type on a remote machine but had your mouse outside the Tuple window, we wouldn’t send your keystrokes. That wasn’t very Mac-like (it was more X11-y, really), so we changed it. Now, your keystrokes will be sent whenever the Tuple window has focus (provided you haven’t disabled this in the guest toolbar).\nNew: display sharing indicator\nLots of folks have told us that they love how unobtrusive the Tuple UI was, but said maybe we’d gone just a touch too far and should have a persistent element that makes it super clear when you’re sharing your screen.\nWe agreed, and added what we hope is a clear, but still-unobtrusive border:\nThis feature is on by default, but you can disable it in preferences if you prefer Tuple to run in stealth mode.\nNew: webcam sharing exclusion\nIf you’re sharing your screen, and someone shares their webcam with you, it creates a weird situation where they’re forced to watch a slightly-delayed version of their own webcam feed on your screen.\nThat’s distracting, but it’s also bad for CPU and bandwidth usage, since Tuple needs to capture/encode/transmit a live video feed as part of your screen share. Higher resource usage and (likely) more latency. Ew.\nTo get rid of this unfortunate situation, we now magically exclude the webcam window from your screen share.\nIn this first screenshot, I’m sharing my screen with Joel, and he’s turned on his webcam. This is what I see on my actual desktop:\nAnd here’s what Joel sees:\nPoof! No webcam.\nOne really cool detail: since your pair might click on the webcam window and not know they’re doing it, we automatically send their clicks through the window so they can interact with elements underneath it as normal. Kind of slick, right?\nBug fixes\nYou might not know this, but there’s a Tuple preference to persist all drawings on the screen until their creator has right-clicked. This used to only work for guests, but now it works for hosts as well. Paint away, friends.\nSSO folks: you should no longer have to sign in after every app restart. Sorry you had to live with this for so long.\nWhen you’re using the Tag Team mouse mode, there is just one mouse cursor, and each person takes turns using it. To get control when you don’t have it, you click one time. For guests, we’ve always swallowed this first click so you don’t accidentally click something when you’re just trying to get control. Now, we do this on the host side too.\nIf you’ve enabled the preference to automatically start a webcam feed when calls begin, this will be respected for audio-only calls too.\nUpcoming improvements\nHere’s a sneak-peek at what we’re shipping soonish:\nFixes for our most common crashes.\nFar fewer dropped calls.\nA fix for the issue where two people calling each other at the same time can lead to unpredictable behavior.\nA better first-run experience for the app.\nBetter support for 3-person calls (observer mode). Currently, observers can’t draw on the screen, and the presence of an observer adds surprising limitations on the other call participants. We’re going to do a pass on this feature to flesh it out and make it more useful.\nUntil next month!\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://tuple.app/blog/three-player-improvements",
+     "publisher": "Ben Orenstein の公式告知",
+     "snapshot": {
+      "url": "https://tuple.app/blog/three-player-improvements",
+      "finalUrl": "https://tuple.app/blog/three-player-improvements",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:57.189Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "129915d40cd0759bdbb905597e455b88faa92345b21123e83e10cd31f7107a6c"
+     },
+     "text": "Three-player improvements · Tuple\nA post from Tuple\nThree-player improvements\nA post from Tuple\nThree-player improvements · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nThree-player improvements\nBen Orenstein · @r00k · December 14, 2020\nWe’ve taken some big steps toward improving the experience of three-way pairing sessions on Tuple.\nObservers can now control the remote machine (and more)!\nThe increasingly-inaccurately-named observers now have way more abilities:\nRemote control with keyboard and mouse!\nDrawing on the screen.\nSending text to the host’s clipboard.\nTriggering the all-important celebration confetti.\nThere are still a few restrictions that differentiate an observer (the third person to join a call) from a guest (the second person to join), but those are next on the chopping block. Soon enough, we’ll remove those differences entirely, and a call will simply have a host and multiple equally-capable guests.\nDual/multi-cursors work with all pointing devices now\nTo support our new three-way pairing sessions, we needed a mouse mode that didn’t feel crazy with three participants.\nWe decided to expand our dual cursor mode into a multi-cursor mode, with one cursor for each participant.\nAs part of that refactoring, we rewrote the low-level code, fixing some long-standing bugs that prevented some mice/trackpads from using this nifty mode.\nEveryone can see who is in a three-way call\nAll participants can open their Tuple popover and see everyone who’s on the call.\nHosts can kick an observer from the call\nJust in case, you know?\nSmaller changes:\nWe removed the Highlight click mode. It’s been our least-used mode for a while, and with the new multi-cursor mode, it really felt like it wasn’t pulling its weight. If you really miss the old highlight circles, you can still trigger them by right-clicking when you don’t have cursor control in tag team mode.\nWe eliminated some crashes that could occur when your audio device becomes unavailable.\nMouse events are sent to your pair(s) more efficiently.\nThe UI no longer blocks while the webcam starts up.\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://tuple.app/blog/windows-public-beta",
+     "publisher": "Eli Goodman の公式告知",
+     "snapshot": {
+      "url": "https://tuple.app/blog/windows-public-beta",
+      "finalUrl": "https://tuple.app/blog/windows-public-beta",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:58.169Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "068910049f975688672b414191253585017533d5ecdd1b3a06045615f051794f"
+     },
+     "text": "Tuple for Windows Public Beta · Tuple\nTuple for Windows is ready for its big public debut. Come\nTuple for Windows Public Beta\nTuple for Windows is ready for its big public debut. Come\nTuple for Windows Public Beta · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nTuple for Windows Public Beta\nEli Goodman · @elimgoodman · May 24, 2024\nAfter months of hard work, hundreds of commits, and dozens of tickets closed, we’re thrilled to announce that the beta of Tuple for Windows is now available to everyone! You can grab it here .\nIt’s been quite a journey to get here, with lots of false starts, dead ends, and lessons learned. Here are a few reasons we’ve come to love Windows:\nMicrosoft’s commitment to backwards compatibility : Microsoft has made a huge effort to ensure that programs written for Windows continue to work for a looooong time. This is great on a number of levels. Because not only were we able to make use of some vintage developer tools, we were also able to utilize many stock libraries on Windows without worrying that they’d be quickly deprecated.\nThe rich set of libraries available out of the box : as mentioned, Windows comes with a ton of libraries that you can use from the drop, such as an HTTPS client, GDI, and Direct2D. It’s way easier to get started when so many batteries are included (and you can be confident about their stability).\nThe diversity of ways to distribute software : Windows gives you a ton of options for how you want to distribute your application, all with different pros and cons (i.e. self-contained EXEs, zip archives with files, installers, etc). We were able to choose a method that made sense for us; we may revisit this as the application gets more complex. But it’s nice to know that we’ve got lots of options at our disposal.\nWorking closer to the metal : we initially tried porting our existing GTK app to Windows, but ended up removing this abstraction and using the native win32 APIs instead. Doing so allowed us to gain more control over the most important parts of the pairing experience (rendering, input capture, etc). Windows gave us the freedom to do this, and doing so made the app faster, more reliable, and easier to reason about.\nOur awesome community : since the earliest alpha releases, we’ve relied on a fantastic group of early adopters who were brave enough to use a piece of software that was, at times….pretty raw. The feedback, bug reports, profiling info, and log files that they provided were invaluable, and helped guide our development process towards improvements that mattered. To all of you early testers - we appreciate you so much!\nIt’s honestly been a blast to work on Tuple for Windows - and we’re just getting started. This is still a beta, so we’re still actively adding features (webcam support is coming next!). And if you have any feedback at all (or if you encounter any bugs), please let us know !\nAgain, you can grab Tuple for Windows here . Happy pairing!\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s12",
+     "url": "https://news.ycombinator.com/item?id=29641907",
+     "publisher": "Hacker News の利用者投稿と創業者返信",
+     "snapshot": {
+      "url": "https://news.ycombinator.com/item?id=29641907",
+      "finalUrl": "https://news.ycombinator.com/item?id=29641907",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:58.258Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "c693cd50efb7dc3838c8537cc826df4aa92357c6c784f4d49ea83f847bb536ca"
+     },
+     "text": "Tuple: Pair Programming Tool for macOS | Hacker News\nTuple: Pair Programming Tool for macOS | Hacker News Hacker News new | past | comments | ask | show | jobs | submit login\nTuple: Pair Programming Tool for macOS ( tuple.app )\n276 points by gk1 on Dec 21, 2021 | hide | past | favorite | 144 comments\nSvetlitski on Dec 21, 2021 | next [–]\nI have nothing but the highest praise for Tuple, it blows all the other tools in this space out of the water. Used it for several months while working on a compilers project back in college, and over many many hours of usage it was rock solid. The latency is so low you practically feel like you’re in the same room as the person you’re communicating with. And the UI/UX is very thoughtful and intuitive, making it easy to point things out to your pair, take control when necessary, etc. I’d highly recommend checking it out.\nloehnsberg on Dec 21, 2021 | parent | next [–]\nI can only agree. Used it for a couple of weeks when live co-coding was indispensible. You cannot even compare this to similar features in Teams, Slack, and the like. The tool works seamlessly and has a super-smooth usability. I did not notice latency either. You can share screen and keyboard and work on the same codebase as if looking at the same screen and having a keyboard one for each. Audio worked extremely well. Did not use video for long because the fans spun on (2017 MBP). Without it, resource consumption was reasonable. Made us super-productive back then. Can definitely recommend it.\nDonHopkins on Dec 22, 2021 | prev | next [–]\nWhen working alone remotely from home, I simulate pair programming with a methodology I call \"The Stranger\". I sit on one of my hands until it becomes numb and tingly, and then it feels like somebody else is typing and moving the mouse!\njustsid on Dec 22, 2021 | parent | next [–]\nI do the same just not for programming.\nleokennis on Dec 22, 2021 | root | parent | next [–]\nStroke of genius right there.\nleobg on Dec 22, 2021 | root | parent | prev | next [–]\nYou cracked me up.\nr00k on Dec 21, 2021 | prev | next [–]\nHi folks! I'm one of Tuple's cofounders. Happy to hear any feedback or answer questions :)\nkccqzy on Dec 22, 2021 | parent | next [–]\nIn places I've worked in, there's very little pair programming culture. If a dev needs help, maybe the reaction is \"push your code to a special branch and I'll take a look later\" or if it's really urgent \"use screen sharing\" instead. A lot of that comes down to different environments: some use Emacs, others use Vim, yet others use VSCode, and remote control isn't really effective because of all the different shortcuts and UI and customizations. That's before even different personal preferences for different tools: I want IDE-like integrated error messages right beside my code, they want error messages in a separate terminal window, etc, etc. Simple screen sharing and dictating things to do is good enough in that case. And if both persons are at least somewhat familiar with the language, you wouldn't be dictating token-by-token. How do you solve that problem?\nsodapopcan on Dec 22, 2021 | root | parent | next [–]\nUntil recently, I spent the whole pandemic exclusively remote pairing. We always did driver/navigator and never did any controlling of each other screens. If we switched roles we’d just pull the branch and work on our own machines. Tuple is nice for doing that quickly as you can just take over sharing without having to ask the other person to stop first. Its markup tools are very nice and simple, too.\naeonflux on Dec 22, 2021 | root | parent | next [–]\nHaving a way to ping things or draw on screen is super useful even if everyone uses their own environment. No more \"no, not this line, the 4-th one from top, well now its on bottom, wait don't scroll\".\nsodapopcan on Dec 22, 2021 | root | parent | next [–]\nHa, ya. Tuple's are perfect as it gives you the \"draw quick attention to this spot\" and then the pen tool auto-disappears with a setting to make it stay forever with a quick shortcut to erase everything. I actually almost exclusively use the pen now, though I use to make a lot of use of the ping.\nstickfigure on Dec 22, 2021 | root | parent | prev | next [–]\nI can tell you how Pivotal solves this problem (or used to; my time was years ago): Standardize the configuration. If some special tool is making you more productive, share it with the team and get everyone on board. Don't try to be a special snowflake. IMO this is the right way to do pair programming. It tends to bring everyone up to speed with the latest tools, and it keeps eccentrics out of the weeds. It's not to everyone's taste, of course. But neither is pair programming.\ntoastal on Dec 22, 2021 | root | parent | next [–]\nCater to your own needs. \"Special snowflakes\" would include disabled folk that need special setups. If you need a special setup to avoid RSI or to be more productive, do it.\nbelfalas on Dec 22, 2021 | root | parent | next [–]\nFolks with disabilities would not be considered in the snowflake category. If a team member needs a certain setup then you have to support them, of course. Snowflake behavior is being the person who just can't use the terminal if it isn't \"set -o vi\" keys. Or insisting that Caps Lock be mapped to Ctrl/Esc/etc.\nvosper on Dec 22, 2021 | root | parent | next [–]\nBut if you are used to Caps Lock being mapped to Ctrl/Esc/etc and then suddenly it’s not it is actually pretty jarring. I don’t think that’s special snowflake. The problem is that it’s not absolutely trivial for whoever’s currently using the keyboard to put it in whatever mode they’re used to. Or that people are sharing a physical keyboard and having this problem at all. You can pair program with more than one keyboard.\ntoastal on Dec 22, 2021 | root | parent | next [–]\n'Dealing' with Esc for Vim would fall under RSI prevention in my book. Using Vim almost necessitates some form of easier switching modes; swapping Caps Lock, `jj`, etc. are all considered valid and 'normal' for the general Vim community and to say only one or even none of the options are \"okay\" in the company, well, unless it was my preference this would be an immediate resignation from me. That or the company better be shelling out and allowing time for employees to configure programmable keyboards they can pop in with their keys hardware configured.\nAeolun on Dec 22, 2021 | root | parent | prev | next [–]\nCaps lock has to be mapped to the command key, since my IBM Model M physically doesn’t have a command key. I guess you can call keyboards snowflakey too, but I don’t see why anyone should dictate what keyboard I use in my own home.\nstickfigure on Dec 22, 2021 | root | parent | prev | next [–]\nThe Pivotal sharing station has separate keyboards and mice for each developer. Many people bring their own keyboards and pointing devices. That's fine. \"I can only be productive in emacs\" doesn't fly, unless you happen to be paired with the rare snowflake that feels similarly.\nkarmajunkie on Dec 22, 2021 | root | parent | next [–]\nand THAT is why i’ve never been interested in applying to pivotal…\njck on Dec 22, 2021 | root | parent | prev | next [–]\nEveryone at your organization uses the same text editor and/or IDE?\nstickfigure on Dec 22, 2021 | root | parent | next [–]\nTeam, not organization. A big team might be 5 pairs. There was no hard rule that everyone had to use the same setup - you'd occasionally see pairs in vim or whatnot - but since you're switching computers and pairs almost every day, you tended to homogenize quickly. My team standardized on JetBrains. Even if someone is unfamiliar with the IDE, pairing gets them up to speed fast. Humans can learn any dev environment.\nbelfalas on Dec 22, 2021 | root | parent | prev | next [–]\nPivotal was fairly standardized on Jetbrains tools and VSCode, so yes. Many teams also used a combination of vim and tmux.\nbiztos on Dec 22, 2021 | parent | prev | next [–]\nHi there. I don't do pair programming and I'm pretty wary of it, but I checked out the site and watched the video and I have a suggestion. Suggestion: market this to remote teams regardless of whether they do \"pair programming\" per se! In my last job we had our team spread out over continents and time zones and home-offices and office-offices: bandwidth for meetings was super unpredictable. Thus anything with a live video component was hit-or-miss, and if you had something very technical to discuss, you often had to sync up to make sure everyone was reading the same page on Jira or whatever. I realize your tool is probably only for 1:1 conferencing, but even then, I think it could be compelling to have really good screen sharing with some annotation and the resolution control. Even if (especially if) it's only going to be used by two people at a time. (Maybe this needs a different kind of license though. If I have 10 people on a team and expect 5 of them will use it but I don't know in advance which 5 or when...) Also I would absolutely want something like this in a startup, even for managers, just to be able to go over stuff like AWS consoles (shudder) together. [edit: grammar]\nchrisseaton on Dec 22, 2021 | parent | prev | next [–]\nIt's a brilliant tool! Picture quality is excellent - I guess due to peer-to-peer - and the quality of the product also generally feels high. I recommended it to a new team just today. But the audio connection seems to keep going for a few seconds after you close the pairing screen. Could be seriously embarrassing if someone utters something after thinking they've ended the call.\nr00k on Dec 22, 2021 | root | parent | next [–]\n> the audio connection seems to keep going for a few seconds after you close the pairing screen I'm pretty sure this isn't true, but if you can reproduce it, please do let me know and we'll fix asap! ben@tuple.app.\nchrisseaton on Dec 22, 2021 | root | parent | next [–]\n> I'm pretty sure this isn't true Lol I'm not lying to you! I almost always hear an end-of-call sigh from the other person that I'm sure they aren't expecting to broadcast because they think they've ended the call, but nothing embarrassing yet! I'll try to screen-record my next interaction and show you. I think the problem is closing the window shuts down the screen link but not the whole pairing session, but people don't realise they need to separately end the call.\nr00k on Dec 22, 2021 | root | parent | next [–]\n> Lol I'm not lying to you! Sorry, didn't mean to imply you were :) > I think the problem is closing the window shuts down the screen link but not the whole pairing session, but people don't realise they need to separately end the call. Ah hah! This is totally it. Closing the screen share does not end the call (intentionally). I can decide I don't want to see your screen any more, but still want to talk to you. Definitely a debatable design decision, though. It actually used to work the other way.\nboaticus on Dec 22, 2021 | root | parent | next [–]\nI wonder if it would be helpful to let this be a user-configurable option? Tuck a checkbox in settings and let the users decide?\nbspammer on Dec 22, 2021 | root | parent | prev | next [–]\nThey doesn’t really seem like a bug then, it should be possible to close the screen sharing without ending the call. Maybe you want to continue chatting.\nweakwarm on Dec 21, 2021 | parent | prev | next [–]\nI adore Tuple and my team used it really effectively. It’s the best tool out there for remote collab as far as I’m concerned. And with a colleague on a 4G connection the way it’s economical with bandwidth is really appreciated. But we have a few teammates on Linux and we just had to drop it. Is there any possibility of a Linux version?\nr00k on Dec 21, 2021 | root | parent | next [–]\nYep! Hoping to make it GA soon. https://tuple.app/linux\nlatchkey on Dec 22, 2021 | root | parent | next [–]\nI just about closed the window and dismissed you entirely based on this on the pricing page... Do you support Linux and Windows?\nNot yet! We're Mac-only for now. If you'd like to hear when we launch support for those OSs, please drop your email in this form. If you have something in beta or coming soon, you should update it to send people to that more actionable link instead.\nr00k on Dec 22, 2021 | root | parent | next [–]\nGood point! Pushing an update now. Thank you.\nr00k on Dec 22, 2021 | parent | prev | next [–]\nOh, also: we're looking for an experienced Linux app developer to help us bring the app to, well, you know. https://tuple.app/jobs/senior-linux-app-developer\nkarmakaze on Dec 22, 2021 | parent | prev | next [–]\nI've been working at pairing culture companies for a good number of years now, initially in-person, but then increasingly remote with offices distributed in several cities. Tuple was such a great find, even in the earlier times when sometimes we had to wait for connections to establish (presumably from rapid growth/adoption). It is still amazingly good at what it does and each little new feature seems to be reading our minds about bothersome things. It's a clear sign that it's used internally and also that feedback is really used. I always try to fill out the end-of-sesson form/rating if I have anything specific to comment on. The best improvement was the clunky 'observer'-party that wasn't easily able to become the 'driver'. I think I actually received a reply on that one, plainly stating that it's a well-known issue that's being actively worked on, and not long after it began working seamlessly. I was about to ask about shortcuts, as moving the mouse to the menubar to temp-mute (or hang-up at end of call) can be a bit awkward if your screen is the one being shared--I just looked and there are Hotkey settings, just no defaults. Great stuff. There used to be some issues where leaving Tuple running for days/weeks(?) sometimes could have it consuming CPU while idling. I don't recall the OS-version specifics, but I've got into the habit of exiting and restarting it every day or so. The problems may have been fixed but I haven't tried leaving it running to find out. If there's a way of submitting diagnostics specifically for these sorts of issues, I'd like to know. It all it's as close to a perfect product as I use on a daily basis. Even with one team member's internet that can get slow at times, dropping to 1080p makes the text a bit chunky but still readable and able to follow along.\nceldon25 on Dec 21, 2021 | parent | prev | next [–]\nI use this on a daily basis. Really has been a game changer for my remote work. Thank you!\ndesireco42 on Dec 21, 2021 | parent | prev | next [–]\nHey R00k, Love Tuple, use it daily. It really is the best for pairing. The one thing that is annoying for me and can probably find out myself, but I think it maps cmd-a to something so I can't use it to select all.\nr00k on Dec 22, 2021 | root | parent | next [–]\nWe don't bind any global shortcuts, so it's probably not us. If, however, you only see that problem when Tuple is running or call is active, let me know and we'll look into it.\nbentice on Dec 22, 2021 | parent | prev | next [–]\nTuple is great! It would be crazy cool if we could share multiple screens at the same time. What could be cool as well is if I can share a viewable only screen to the person I'm pairing with while they share with me their regular tuple screen. Also, Tuple is waaay better than what we use when interviewing people with. Maybe some sort of hot seat feature where we could get people to download Tuple and interview/pair with them there.\nedenlinger on Dec 22, 2021 | root | parent | next [–]\nLooks like their faq under pricing says you can do this now! I wonder if it would work for interviews that have more than one interviewer? I might check this out for some of our needs too.\nTerretta on Dec 24, 2021 | parent | prev | next [–]\n> happy to hear feedback Move SSO to the $25/user plan. https://news.ycombinator.com/item?id=29673713 Table stakes security practices for a new business getting started right shouldn’t require a jump to $10K a month.\nmattjaynes on Dec 21, 2021 | parent | prev | next [–]\nLooks very cool - first time I've heard of this one. Minor feedback note: in your demo video, the top menu bar is mostly cut off (viewing on Chrome on Mac M1 Monterey), so when you are explaining the menu bar, I can only see the bottom sliver of it. I can use my imagination to figure it out, but ideally the video would be showing the whole menu bar. Other than that, looks great!\nr00k on Dec 21, 2021 | root | parent | next [–]\nDoh. Thanks for reporting!\nPascLeRasc on Dec 22, 2021 | parent | prev | next [–]\nThis is the best demo video I've ever seen. It seems like a really fantastic product. Good luck!\ngrandmczeb on Dec 21, 2021 | parent | prev | next [–]\nThe toolbar looks cut off in the demo video - this is what I see when the presenter says \"you can see the icon has gone red\" (cursor is from the video): https://imgur.com/UzpbGxS\nr00k on Dec 22, 2021 | root | parent | next [–]\nFixed! Thanks :)\nyalooze on Dec 22, 2021 | parent | prev | next [–]\nIs the work you’re doing for the Linux client also readying Windows support?\nr00k on Dec 22, 2021 | root | parent | next [–]\nIndeed! The bulk of the work to support Linux has been separating out a cross-platform real-time engine that the UI layers of each platform can plug into. Toppling the Linux domino will make Windows much easier.\nchadlavi on Dec 22, 2021 | prev | next [–]\nNot a single screenshot on the homepage? The number zeroth thing I want to see is a picture of the thing. Maybe even a gif or a silent autoplay video. I saw there's a video but it's a guy who's gonna talk. I just want to see the product.\nbspammer on Dec 22, 2021 | parent | next [–]\nIt’s basically just an icon in the top bar. There really isn’t much of an interface, which is wonderful.\nmavelikara on Dec 22, 2021 | parent | prev | next [–]\nPlease watch the video and then tell us what would have been a good screenshot.\nJohnCurran on Dec 22, 2021 | root | parent | next [–]\nI believe 0:19 would make for a better thumbnail than the current. Shows the video is actually a product demo and not fluff from a talking head As far as a screenshot for product? Not sure, it really stays out of the way which I like but that makes it difficult to convey visually. Which you seem to have realized :)\naeonflux on Dec 22, 2021 | root | parent | next [–]\nFunny thing is, this is a pairing app. It's actually better if it gets out of the way. But I agree, that thumbnail with both screen and speaker would be better. I think something with more on content on screen than just a dropdown from the contact list would look better. Either code or that fancy network monitor (plus the speaker).\nbrailsafe on Dec 22, 2021 | root | parent | prev | next [–]\nI didn't even realize there was a video, but I certainly wouldn't have watched it, that's just not super thoughtful design, and the thumbnail kind of looks like a chatbot sort of thing, which in 2021 is something I ignore like banner ads. I realize that watching a video is maybe how a lot of product companies wish potential customers made decisions, but much like an elevator pitch, if I can't scroll the website and have a glance at what the product looks like, I ain't gunna watch a vidya bud.\narmadsen on Dec 22, 2021 | prev | next [–]\nI've been using Tuple for the past year and a half or so, IIRC. It's just a really well done Mac app. One of those tools that \"just works\", is thoughtfully designed, and mostly just stays out of the way and does its job without doing anything annoying. We don't pair program as a regular thing, but we have junior engineers on our team, and often when they need help, or we're working through some bit of architecture, etc. I'll pair with them. Tuple is the best tool I've found for doing that (remotely). I'm not teaching full time any more, but if I were, I'd absolutely be using Tuple to do remote 1:1 sessions for that as well. Finally, I've interacted with Ben, the CEO of Tuple, and came away with a great impression of him and what he's trying to do.\nr00k on Dec 22, 2021 | parent | next [–]\nYou're too kind! <3\nrememberlenny on Dec 21, 2021 | prev | next [–]\nTuple is hands down the best pairing software. We use it because the latency is the best compared to other pairing tools, and it has the best UX for remote pairing. We even use it for pairing when we have people in the same room, and we need two people on their own machines.\nryukoposting on Dec 22, 2021 | prev | next [–]\nI've worked at companies with 20 employees, and companies with 100,000 employees, and not once have I ever been asked to participate in pair programming. It would have been immensely useful in college, but VS Code already has a built-in tool that would do the job... and VS Code works on operating systems that I actually use. Who is using this? What do you use it for? I don't mean to be facetious, I have just never been exposed to pair programming in a professional space.\njpgvm on Dec 22, 2021 | parent | next [–]\nThey are excellent for mentoring. As a remote senior engineer I'm not able to simply stand over someones shoulder but I can offer to drop into a peer programming session and help someone through a problem and be able to take the keyboard and show them different approaches etc.\nWithout these tools I don't think I could do my job effectively.\nsmashedtoatoms on Dec 22, 2021 | root | parent | next [–]\nSame! I also find I learn all kinds of new tricks from jr and sr devs alike. Pairing is programming with the cheat codes on.\nryukoposting on Dec 22, 2021 | root | parent | prev | next [–]\nMentoring! That makes sense, and depending on where you work, the obvious \"mac only\" limitation isn't a big deal. Thanks for the insight!\nsmashedtoatoms on Dec 22, 2021 | parent | prev | next [–]\nI have worked in FAANG and in 10 person startups and have paired in them all. VSCode is fine if you're all using VSCode and don't need to screen share anything outside of VSCode. If everyone is on mac though, there is nothing better than Tuple that I have used. If one party uses IntelliJ and another uses vim, and you need to have a db client or browser or something open as well, Tuple is fantastic.\narmadsen on Dec 22, 2021 | parent | prev | next [–]\nThere are plenty of programmers that don't/can't use VS Code, for one. I'm an iOS and Mac developer, so VS Code is of little use. I'm in Xcode all day. Tuple makes it so I can pair with Xcode, but also see/use the iOS simulator over the pairing connection.\nchana_masala on Dec 22, 2021 | parent | prev | next [–]\nThat's strangely the opposite of my experience. I think you have to work at a company that values engineering culture. Also, you could suggest it.\nryukoposting on Dec 22, 2021 | root | parent | next [–]\nPair programming isn't inherent to good engineering culture. I would say that my employers have had phenomenal engineering culture, and the first couple had the best mentorship experiences I could have ever asked for.\nchana_masala on Dec 22, 2021 | root | parent | next [–]\nHave you practiced it extensively though? You said you haven't professionally, so that leaves just personal experience. I would say it's not entirely critical, but I'd be very skeptical about a company's engineering if they didn't pair program. It would make me look closely at their other practices or lack of\naparsons on Dec 22, 2021 | root | parent | next [–]\nI very much get a cargo-cult vibe from this statement. In a 30-year career, I’ve pair-programmed under 100 times. Usually to get someone up to speed on a confusing part of the code base. In fact, I’d go as far as to say that if pair programming is a recurrent need, you need one or more of better engineers, better documentation, or better code reviews.\nchana_masala on Dec 22, 2021 | root | parent | next [–]\nThanks for the N=1. In my 5 year career I've pair programmed across the spectrum of experience roughly 500 times. I don't see it as only as a need to unblock someone. It's a great way learn and share from in a junior:senior dynamic, and also speaking strictly remotely, a nice way to socialize\nPascLeRasc on Dec 22, 2021 | parent | prev | next [–]\nYou've correctly identified why Windows isn't worth their time.\ntangoalpha on Dec 22, 2021 | prev | next [–]\nNice one. One suggestion. While you open the shared URL on the pair's browser automatically, there are still a bunch of steps involved in copying the url, pasting it in the app, and then hitting open, before the URL opens in the pair's browser. Instead, build a chrome/firefox extension that allows 'pushing' a tab into the pair's browser session. I find something good, I right click on the tab and click \" Send to Pair\" or similar.\nr00k on Dec 22, 2021 | parent | next [–]\nLove this! Thanks for the suggestion.\nbeebmam on Dec 21, 2021 | prev | next [–]\nThis looks cool, but I don't use proprietary operating systems for my work environments. Is there any planned support for X11 or Wayland based desktop environments?\nr00k on Dec 21, 2021 | parent | next [–]\nYes! https://tuple.app/linux\npsadauskas on Dec 21, 2021 | root | parent | next [–]\n> 2021 Only a few days left! I'm so excited :D\nr00k on Dec 21, 2021 | root | parent | next [–]\nWe'll miss that deadline, but are hoping to be close-ish :)\nskeletal88 on Dec 22, 2021 | root | parent | next [–]\nSome update to the Linux page would be good since it has been the same since at least march and it looks like there has been no progress. At work our project uses macs and most devs have also macs, but some have Linux personal computers and we can't pair from home with them using tuple\nalvarlagerlof on Dec 22, 2021 | root | parent | prev | next [–]\nPlease look into supporting DMA-BUF.\nberkes on Dec 22, 2021 | parent | prev | next [–]\nI worked on a team (of nine) which tupled a lot. Using Linux, I, and one other, was therefore not able to participate in a lot of work. Coworkers would pair with others because of familiarity, and because between macos and linux, there was more friction. This caused a severe schisma in an already disfunctional team. Management then disallowed tuple, because it was making things worse. But the practice continued. I quit. Not because of Tuple, but the entire distinction, of which Tuple was an ingredient. The choice to not support an important part of the developer community is understandable from technical perspective. But socially, in times of isolation, home offices etc, it is doing harm out there.\nAeolun on Dec 22, 2021 | root | parent | next [–]\nNobody is forced to use Tuple. If you blame anyone blame that company for allowing anyone to use Tuple in the first place, or the asshat engineers that held it against the Linux people.\nberkes on Dec 22, 2021 | root | parent | next [–]\nSure. My point is that any company that makes a co-operation product, but which excludes a demography from co-operating, should know they are causing harm. Imagine if slack excludes Android. Or Google Meet excludes Apple devices. That is not only a poor product, it causes minorities to be excluded. Or divides the companies or teams using it. This is what Tuple is doing. I'm blaming both Tuple for not including Windows and Linux up-front, just as well as management adopting such tech that has these clear limitations. In this practical case, the Linux (and Windows) users joined later into an \"mac-only\" team. Tuple, however, was the major cop-op tech: they refused Slack, accidentally used Telegram (!?) and email, and when using Google Meet all engineers refused to turn on webcams. So as a non-Tuple-using person you were really kept out of the loop.\ndaviddoran on Dec 21, 2021 | prev | next [–]\nTuple’s audio quality really is good enough to feel noticeably different to Zoom or other VC. Much more like your pairing partner is in the room talking into your ear.\nyodsanklai on Dec 22, 2021 | prev | next [–]\nI wonder how many programmers don't like pair programming. I love programming because it's me and the computer, working at my pace. When collaborating, asynchronous work better I feel.\netothepii on Dec 21, 2021 | prev | next [–]\nWhy would I use this over VSCode liveshare? Genuinely asking, why would I want to run video streaming if I can just send small amount of text deltas.\nr00k on Dec 22, 2021 | parent | next [–]\nLive Share is great if your pairing session is extremely code-focused. But if you're jumping between the browser, terminal, IDE, docs, Xcode simulator, etc., you begin to want to see your pair's entire desktop.\noneplane on Dec 21, 2021 | parent | prev | next [–]\nSo far it seems that this is intended as a type of remote KVM instead of a per-application collaboration. I've looked around on the site but haven't really seen any obvious screenshots. Maybe I've seen to much marketing pages and completely miss the 'click here to see how it works' link... Edit: and as I suspected, on second pass on the homepage it's right there in the middle in the purple bar. And it does seem like it's \"TeamViewer but for developers\". I suppose in the spirit of 'pair programming' that makes sense, but I'm not sure how streaming an entire desktop is better than streaming only application state if you just want to work together on the same thing.\nskeletal88 on Dec 22, 2021 | root | parent | next [–]\nIt is useful to stream the whole desktop because you don't only look at code while pair programming. We look at the stories in Pivotal, read slack, google stuff, read documents and so on, all of that needs to be shared also.\nmacintux on Dec 22, 2021 | parent | prev | next [–]\nHaven't seen either Tuple or your solution, but I assume at the very least Tuple wins out if the two programmers aren't using the same editor. And if all you're sharing is deltas, how do you discuss existing code interactively? Can you also share text selections and/or mouse movements?\nnextaccountic on Dec 22, 2021 | root | parent | next [–]\nWith Live Share you see their text selections, but not mouse movements. (except inside the Draw.io integration [0], then you see a remote mouse that is drawn by the extension itself). It's a bit like Google Docs or Etherpad, but for code. Also: other editors could implement the same protocol perhaps, it would be cool. [0] https://szymonkrajewski.pl/drawio-real-time-collaboration-in... here it says it doesn't show the cursor, but a new update does\nphaedryx on Dec 22, 2021 | root | parent | prev | next [–]\nLive Share lets you see which files your pair is looking at and what they have selected. You can also share a terminal session if you'd like. At work we mostly do Live Share + a Slack Huddle for audio. I think it works pretty well.\ndijit on Dec 21, 2021 | parent | prev | next [–]\nOr “Code with me” built in to jetbrains. Which works across platforms too.. which is nice. It’s the only thing I’ve tried and it works pretty nicely.\ngirvo on Dec 22, 2021 | parent | prev | next [–]\nFor more complicated things that require multiple applications working in concert maybe?\naeonflux on Dec 22, 2021 | prev | next [–]\nBen, one of Tuple co-founders cohosts the https://artofproductpodcast.com There is a lot of information about building and running this business, including the rationale for a lot of product/business decisions. I really enjoy it.\nvr46 on Dec 22, 2021 | prev | next [–]\nEvery time I have demonstrated Tuple to a colleague they have been left gobsmacked and short-changed by all other audio call and screen-sharing utilities. Clear sound is so critical and pairing with everything else feels like you're in a Christopher Nolan film with no idea what's going on.\nstephenpassero on Dec 21, 2021 | prev | next [–]\nAlso see Pop (pop.com). I’ve used it extensively in the past, and have loved it. It’s currently free, works very well, and has a very responsive team.\njshier on Dec 21, 2021 | parent | next [–]\nYes, it works well, but the only reason we used it instead of Tuple was that it's free right now. Tuple's pricing is rather absurd ($25/user/mo.) unless your org pairs so often you can justify it on the basis of 40 hour/week use. Pop's free tier lets us pop on actual controlled sharing when simple screen sharing isn't enough.\njamestimmins on Dec 22, 2021 | root | parent | next [–]\nEvery company has different budgets, which I get, but you're basically arguing it's only worth ~$0.16/hour (based on 160 hours/month), which seems pretty suspect given that developers (in the US) cost around $100/hour all in. Based on that cost structure, if it saves the average user 15 minutes per month then it has paid for itself. I make this argument solely because when it comes to developer/professional tools, tens of dollars per month is a fairly trivial cost.\narmadsen on Dec 22, 2021 | root | parent | prev | next [–]\nAnecdotally, I suggested Tuple to my boss (also co-founder of the very small company I work for) when I discovered it, and it took him all of 2 or 3 minutes to learn about it, decide the money was worth it, and sign up for a team account for all the engineers at our company. We've used it regularly in the year+ since. Whether or not $25/user/month is expensive is pretty situational.\nbantmen on Dec 21, 2021 | root | parent | prev | next [–]\nI have used Tuple at work, and its pricing was what kept me from using it for personal project and sharing with others outside of work.\nr00k on Dec 21, 2021 | root | parent | prev | next [–]\nI hear you. We're pricey. Just curious – what would a workable price/model been for you?\njshier on Dec 21, 2021 | root | parent | next [–]\nPerhaps it's just a value comparison thing. My company pays $5/user/mo. to GitHub for private repos, storage, and GitHub Actions. Every developer uses it every day to accomplish business critical project work. A pairing tool feels more optional to me, especially when Slack's built in screen sharing accomplishes 50% of what we need as part of another service we pay another per user per month fee for already. So a tool that's 5x the cost of GitHub that serves as an optimization for what we do is hard to justify. As a company we could afford it, it would just be a difficult sell, especially when a competitor is still free (turns out \"for the duration of the pandemic\" is a lot longer than they thought, oops). Of course, if we had a culture that paired on a regular basis, this might be easier, but it's more of a when you need help or want to work together thing, rather than being required. Additionally, as others have mentioned, I think some of the issue is the lack of a free or low cost personal tier that has some set of restrictions. What those would be for an arbitrary pairing tool I don't know, but it feels really pricey if I just want it available for one-off pairings. Now, personally, I could sign my OSS project up for a free version, but since I don't need (or want, lol) to pair with most contributors, that feels a bit wrong.\ndarrenwestall on Dec 21, 2021 | root | parent | prev | next [–]\nOn the flip side, I don’t think it’s pricey, $25 per user, per month for something that will make developers more efficient is well worth it. Sent to my Tech Lead to see if he wants to sign up.\nr00k on Dec 21, 2021 | root | parent | next [–]\nMy man!\nmacintux on Dec 22, 2021 | root | parent | prev | next [–]\nScreenHero, IIRC, went from free to roughly that same pricing, and crashed and burned because everyone had gotten used to free. I absolutely loved the software, but it wasn't critical to our workflow at my job at the time. Unfortunately Teams, while terrible, is sufficiently usable that I don't see being able to persuade my current environment to adopt Tuple either. I think, if I actually paired outside of work, I'd be willing to spend $5-$10/month just for casual non-commercial use. I'm not sure when I'd ever take advantage of such a pricing tier, sadly.\ngggritso on Dec 22, 2021 | root | parent | prev | next [–]\nWe don't have a strong pairing culture, but we're trying to create one! It's a little harder to justify the price because we don't know how many people will use it yet. Besides, programmers are often not the ones who are in charge of approving expenses. In any case, Tuple is really great. For us, I think it would become a no-brainer if it had a seat-based model. e.g., we pay for 4 pairing seats a month, and a max of 4 developer can use Tuple at any given time.\nhouse9-2 on Dec 22, 2021 | root | parent | prev | next [–]\n$10 for 15-20 hours of usage a month? Automatically bumps to the $25 price if you go over.\nbla3 on Dec 21, 2021 | root | parent | prev | next [–]\nFor me personally, I'd pay $99-$149 flat plus paid updates if I liked it. But I know what they say about asking your potential customers what they're willing to pay ;)\n_tom_ on Dec 22, 2021 | root | parent | prev | next [–]\nIt's totally reasonable. Don't take too much pricing advice from people who aren't using it. A limited free trial can be good. But if you make it cheaper or free now, it's way harder to go back up In Price than it is to cut price later.\njonsen on Dec 21, 2021 | root | parent | prev | next [–]\nFor private mentoring/tutoring programming learners, $1 per session.\nr00k on Dec 22, 2021 | root | parent | next [–]\nI'd rather just make this free. In fact, if you email support@tuple.app and say you want to use Tuple for educational purposes, we'll make you a free-forever account.\ndan-robertson on Dec 22, 2021 | root | parent | prev | next [–]\nIsn’t this a fraction of a percent of what most programmers are worth to their employers, at least in the US? I don’t think it needs to provide much benefit to justify the price.\nglenjamin on Dec 21, 2021 | prev | next [–]\nI really like using tuple, but there’s a couple of things I’d really like to see: - an idea of how much bandwidth it’s currently using or needs. I often find if I’m on a patchy connection it’s unclear how changing the settings will have an effect\n- make the video face stuff more prominent, especially for multiple monitors. I work 100% remote so when pairing I like to put my Co-workers full size on my second screen while I work on the primary screen, which helps us feel more connected.\nuniverio on Dec 21, 2021 | parent | next [–]\n+1 on making video better. The janky video feature feels like such an afterthought compared to the impeccable screensharing/pairing feature. I've had to resort to using Tuple with Zoom just for the video sometimes because the webcam freezes for no reason. I'll also offer one related piece of feedback: the \"calling\" metaphor for initiating a session is quite awkward. Compared to Zoom, where you share a link/code once and then you're free to join/leave the room, in Tuple you have to ask the other person to call you every time you drop; this in particular does not play well with the forced version upgrades -- you ask the other person to call you out-of-band, and you answer, except oops, you need to upgrade Tuple, so you upgrade and restart Tuple, and now Tuple has forgotten about the last call so now you have to ask the other person to call you out-of-band again! This is a UX wart that I'd love to see fixed!\nr00k on Dec 22, 2021 | root | parent | next [–]\nI agree with all of this! Thanks for writing it up. Improving webcams (a lot), URL-based rooms, and never having a call interrupted by a required update are all on my list for next year.\nr00k on Dec 21, 2021 | parent | prev | next [–]\nMessage received!\nandrewstuart on Dec 21, 2021 | prev | next [–]\nKinda weird to get your product featured on front page of Hacker News mid afternoon a couple of days before Christmas - not sure developers are fully focused right now.\ngk1 on Dec 21, 2021 | parent | next [–]\nBlame me. I just came across it for the first time and thought others might appreciate it. And if I didn't submit it right then and there then I'd forget to do it later.\njordanrobinson on Dec 21, 2021 | parent | prev | next [–]\nWould it be cheeky to take this opportunity to ask how the Linux version is going? I'm still looking forward to it and it's the main thing holding our team back from adopting it last I checked.\nr00k on Dec 21, 2021 | root | parent | next [–]\nIt's going well! We're inviting a new cohort in early Jan. We've got the app going in Flatpak and that lets us target a lot more distros. Hoping to ramp up invites pretty quickly if things go well.\nTerretta on Dec 24, 2021 | prev | next [–]\nAnother one for the SSO Wall of Shame: https://sso.tax/ With Microsoft M365 and Google Workspace available for startups, it’s a serious shame sites want to make you store additional credentials with them instead of getting started on security right leveraging SSO. - https://support.google.com/a/answer/60224?hl=en Kudos to SaaS offerings like Pipedrive CRM for including SSO from the basic plans, and to Azure for recognizing that: - https://docs.microsoft.com/en-us/azure/active-directory/saas... Managing AAA isn’t only for Enterprises at $10K a month. It’s for 3 devs in a garage too.\nspecific_nutmeg on Dec 22, 2021 | prev | next [–]\nI've been using Tuple professionally for a year and change and it's miles ahead of trying to share with Zoom or Slack. I love that it's not tied to a specific IDE, too! Being able to flip between terminals, IDEs, browsers, being able to paste directly into my pair's buffers, and take mouse control really make pairing remotely as great as possible. Almost as good as pairing with a shared workstation!\notterpro on Dec 22, 2021 | prev | next [–]\nI used to watch many of Ben Orenstein (CEO of tuple)'s Vim tutorial videos. His enthusiasm was much appreciated and helped me improve my vimming skill. [Improving Vim Speed - Ben Orenstein - YouTube]( https://www.youtube.com/watch?v=OnUiHLYZgaA )\nbelfalas on Dec 22, 2021 | prev | next [–]\nI will put in a shout out for Tuple - it's a great app that works well. And they are a nice team, I wish them the best!\nnetr0ute on Dec 22, 2021 | prev | next [–]\nI'd use this if there were a Linux version.\nd3mcfadden on Dec 22, 2021 | prev | next [–]\nWell, after reading all the high marks about Tuple in the comments I installed it and paired with a co-worker this morning. We got up and running in a matter of minutes. It just... worked. Such a more pleasant experience than a google meet. As an added bonus were able to understand and solve a bug that's been plaguing us for weeks now in our first session :-) I really like how it just stays out of the way. I threw out the link to the rest of my team to see if others will try it out as I want our team to get more comfortable with pairing. Well done and congrats on building a focused sustainable product!\ninvictus_78 on Dec 22, 2021 | prev | next [–]\nAs a junior engineer who started career in 2019, I pretty much owe all my knowledge to Tuple, which I've been using to pair program with senior engineers since pandemic started in early 2020!\nwinterplace on Dec 29, 2021 | parent | next [–]\nWhere did you find senior engineers to pair with?\ninvictus_78 on Jan 8, 2022 | root | parent | next [–]\nAt my company, we have a pairing buddy system for junior engineers. Each week a senior eng was my official \"buddy\" to help me in whatever I needed, then we would pair via Tuple. This was really great in order for me to grow.\nr00k on Dec 22, 2021 | parent | prev | next [–]\nPretty incredible to read this. Thanks for sharing!\nggoo on Dec 21, 2021 | prev | next [–]\nThis seems super interesting and I could totally see using it. At the same time, it's kind of funny that they couldn't get someone to pair with on the demo.\nr00k on Dec 21, 2021 | parent | next [–]\nHah, agreed! That demo is 3 years old at this point. I'm trying to find someone to help us redo it.\ngwambold on Dec 21, 2021 | prev | next [–]\nTuple is fantastic, glad to see it getting some HN love\nnicksont on Dec 22, 2021 | prev | next [–]\nI've used Tuple before and I think it's great but it's unfortunate that it doesn't allow for mobbing (4-5 people)\nr00k on Dec 22, 2021 | parent | next [–]\nAgreed. Coming next year.\nnicksont on Dec 23, 2021 | root | parent | next [–]\nAwesome, that's great to hear.\nigeligel_dev on Dec 22, 2021 | prev | next [–]\nUsing it at my current company and it’s great. Especially the little things like the ship it reaction! Super hilarious when I saw it for the first time. Thanks for that. Some constructive feedback: could not get my webcam (canon eos utility) working. But tbh nothing big because we never use Webcams.\neasterncalculus on Dec 22, 2021 | prev | next [–]\nWow, what a really great idea. I love the code snippet sharing box, that's perfect.\nlordleft on Dec 22, 2021 | parent | next [–]\nRight? A little but very useful thing\npxeger1 on Dec 21, 2021 | prev [8 more]\n[flagged]\nlatchkey on Dec 22, 2021 | parent | next [–]\nPivotal Labs is/was all Macs and has been \"pivotal\" in the pair programming era. Building apps is hard, period. Many thousands of hours go into making commercial products. Many thousands of hours go into learning how to do so. It isn't something you just stumble upon over night. Tone the language down a bit (\"stupid fanboy\"), it is unnecessary and doesn't work to convey your point at all.\njdminhbg on Dec 21, 2021 | parent | prev | next [–]\n> it's really not like it's hard to build cross-platform apps nowadays An app that shares screens and mouse pointers with simultaneous audio/video transmission is not the same kind of cross-platform undertaking as a to-do app.\nwilliamdclt on Dec 21, 2021 | parent | prev | next [–]\nThe entire point of this app is to share control of someone's computer, as well as drawing on their screens, having another cursor and this sort of stuff. It's a textbook example of an app that _would_ be very hard to build cross-platform.\nDenseComet on Dec 21, 2021 | parent | prev | next [–]\nBuild a native app and you get complaints about cross platform. Build an electron (or other cross platform toolkit) app and you get complaints about resource usage and non native ui. Seems to me that they know their target market (large tech shops with lots of devs on macos) and preferred to optimize for resource usage and user experience by going native. For another company, this could very well be the wrong choice, but they should look at the numbers and decide what makes sense for them.\nklabb3 on Dec 22, 2021 | root | parent | next [–]\n> Build a native app and you get complaints about cross platform. Build an electron (or other cross platform toolkit) app and you get complaints about resource usage and non native ui. This. I am currently making a productivity app and I had to actively unbias myself from the hackernews/prosumer mentality that I must write independent apps for at least 3 operating systems/GUI systems, and 2 more if I want to go mobile. It's a shame that interoperability has been an anti-priority from the OS providers (mainly MS, Apple and Google - if there was any standard Linux would follow). Even more sad is that the popular opinion is blaming developers for the situation.\nhave_faith on Dec 21, 2021 | parent | prev | next [–]\nThere’s a whole thriving ecosystem of paid apps for MacOS, most of which are native and have a look and feel that can’t be done cross platform without compromises.\njt2190 on Dec 22, 2021 | parent | prev [–]\nThe Linux client is under development: https://tuple.app/linux\nConsider applying for YC's Winter 2027 batch! Applications are open till November 2.\nGuidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact\nSearch:",
+     "policy": {
+      "policyId": "rights.hacker-news.v1",
+      "sourceId": "src.hacker-news",
+      "providerName": "Hacker News",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s13",
+     "url": "https://tuple.app/blog/sso-should-be-table-stakes",
+     "publisher": "Ben Orenstein の公式料金方針変更",
+     "snapshot": {
+      "url": "https://tuple.app/blog/sso-should-be-table-stakes",
+      "finalUrl": "https://tuple.app/blog/sso-should-be-table-stakes",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:58.614Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "694eefc58019cdfbc8d0ffda8eeab4b95385b1be668a46c8ca4249d014d0e6de"
+     },
+     "text": "SSO should be table stakes · Tuple\nWithholding security for money feels a little gray-hat.\nSSO should be table stakes\nWithholding security for money feels a little gray-hat.\nSSO should be table stakes · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nSSO should be table stakes\nBen Orenstein · @r00k · June 1, 2022\nOn its face, SAML-based Single Sign-On (SSO) is the perfect feature to push your bigger customers into your\nenterprise tier.\nYour small customers won’t care about it, but your bigger ones are often required to use it by their security\ndepartments.\nIf you’re a new SaaS founder and you want to maximize your revenue, I recommend you create an enterprise tier, put SSO\nin it, and charge 2-5x your normal pricing. Even with no other benefits, some customers will be forced to choose this option.\nPeople will get a little mad at you, but not much, because just about everyone does this .\n(Another reason this move is so popular is because offering SSO costs close to nothing after a little automation, so\nthis price increase is all profit.)\nWhen we were baby bootstrappers, we did exactly this. We put SSO in our enterprise tier, charged ~2x for it, and made a\nbunch of money.\nThe thing was, we always felt kind of gross about it.\nSSO support is a critical security feature. As the experts at Latacora say :\nYou need an inventory of your applications, a single place to disable access for users, and a way to force 2FA in as\nmany places as possible. The alternative is madness. Every CSO we’ve asked has SSO in their top 5 ‘first things they’d\ndo at a new company.’\nWithholding SSO from our customers made their organizations demonstrably less secure. We could have flipped a switch and\nfixed this at ~no cost to ourselves, but instead we charged a huge premium for it. This always felt a little gray hat to\nme. Not quite “I’ve encrypted your data and demand you send me Bitcoin,” but not something I’d be proud to bring up at\nThanksgiving.\nBack then, we were trying to make sure our company survived, and every dollar mattered to us (particularly because\nwe’re self-funded). We held our noses and did the thing because it was highly profitable and everyone else was\ndoing it.\nFortunately, our business is now profitable enough that we can stop making this crummy tradeoff.\nAs of today, we’re adding SSO to every Tuple plan at no additional charge.\nIn the short-term, this decision will almost certainly cost us money.\nIn the long-term, we hope to attract customers who appreciate our prioritization of security over chasing every dollar.\nAlready, this decision has had a pleasant side-effect – it’s forced us to offer better benefits to entice customers into our enterprise tier: service level agreements, active user pricing, custom terms of service, tiered discounts,\nand better auditing and control. We’ve still got work to do here, but I’m excited to sign up customers who are\nattracted to these features, rather than repulsed by the idea of less secure user accounts.\nIf you’re a Tuple customer, you can find instructions for enabling SSO for your team here .\nIf you’re not a customer, please consider becoming one to help replace those sweet enterprise dollars we likely just\nincinerated.\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s14",
+     "url": "https://tuple.app/blog/suppli-case-study",
+     "publisher": "Tuple 公式の Suppli 顧客取材",
+     "snapshot": {
+      "url": "https://tuple.app/blog/suppli-case-study",
+      "finalUrl": "https://tuple.app/blog/suppli-case-study",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:58.823Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "8127338ed0abf8053b08aac9a45b845c79c07ea7f670b89715c0d8ab614c0a32"
+     },
+     "text": "Case Study: Suppli · Tuple\nWhen your output triples, so does your need to talk.\nCase Study: Suppli\nWhen your output triples, so does your need to talk.\nCase Study: Suppli · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nCase Study: Suppli\nJack Hannah · @jack_hannah1 · March 24, 2026\nSuppli is rebuilding payments for the $500 billion construction materials industry. The Austin-based fintech gives independent distributors modern tools to manage credit, collect payments, and compete with national brands, powering billions of dollars in transactions since launching in 2021. They’ve stayed lean: one seed round, organic growth, and a remote engineering team spread across the U.S., Europe, and South America.\nCompany: Suppli\nFounded: Austin, TX · 2021\nTeam: ~17 builders across 3 continents\nAI productivity, amplified\nSuppli has been adopting AI tooling extremely quickly. As a small, lean team, they’ve been able to experiment with new workflows and bring on new tools much faster than most organizations. They’re now shipping 3x the pull requests they were before, and their hands-on CTO - David Paluy - expected the need for human interaction to go down. In practice, David’s observed the opposite.\nThe bottleneck for doing great work is no longer writing the code, but agreeing on what to build and how to steer the tools towards the right outcome. This requires more up-front alignment, and the team is using Tuple more than ever to get it.\n“We create a very robust plan together,” David explains. “Then we let AI work on it, build all the stuff. When the result is ready, we run quality gates, check everything works as expected, and deploy to production same day.”\nTuple shows up most during the planning phase, with a few engineers on a call, talking through tradeoffs, feeding context into an LLM, reviewing the proposed approach, and tightening the plan before handing it off.\nDavid also noticed the speed of learning increased using Tuple, which is easy to miss if you’re only focused on short-term output. When one engineer figures out a better way to use an agentic workflow, that advantage doesn’t help much if it stays in one person’s head.\n“I pair way more on AI stuff with our team members. If some team member has a better idea of doing a workflow with AI, everybody wins. The speed of learning when you are just a single person is way less.” — David Paluy, former CTO\nPairing made the learning transferable, and Tuple made pairing easy enough that it actually happened.\nThe backstory\nDavid joined Suppli as its founding CTO in 2021, after more than 25 years writing software. He stayed active in the codebase and with his team and was regularly pulled in when a production transaction didn’t look right.\nBut Suppli is remote, and engineers work across six U.S. states and multiple countries. As the team grew, David ran into a gap with his existing tools: the kind of quick, high-bandwidth collaboration he was used to in person just wasn’t happening. He couldn’t easily walk through a change with a junior engineer or pull two people in to debug an incident spontaneously.\nThey tried Slack first. It worked for coordination, but not for navigating code together. “I’d say ‘type this, no, not this, go there, not that one,’” David recalls. Audio reliability was also a problem. Sometimes he’d switch to WhatsApp just to get a call that didn’t cut out. Google Meet helped in some situations, but it still didn’t feel like sitting next to someone and working through a problem together.\nThe tools they were using weren’t failing dramatically; instead, they were creating just enough friction that folks wouldn’t collaborate unless it was absolutely essential and even then, it wasn’t enjoyable.\nHow Tuple became the default\nDavid wanted something that made informal pairing feel normal again, like it is when working together in-person . David had heard of Tuple years earlier, so on a whim, he gave it a shot with a few engineers. Tuple quickly spread across the entire team.\n“It’s a must-have tool for any engineering team that doesn’t sit in the same room together. You can’t really pair with anything else. Nothing provides the same quality.” — David Paluy, former CTO\nToday, Tuple is the default for collaborative work. Whether the team is debugging incidents, reviewing pull requests, talking through architecture decisions, or walking through unfamiliar parts of the codebase, the team chooses Tuple over everything else.\nThe only real hurdle was getting people to stop reaching for the tool they were used to. Once the team had a few successful sessions with crisp audio and clear and snappy screen share, Tuple became the thing everyone reached for first.\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s15",
+     "url": "https://tuple.app/blog/new-in-tuple-capture",
+     "publisher": "Eli Goodman の公式機能告知",
+     "snapshot": {
+      "url": "https://tuple.app/blog/new-in-tuple-capture",
+      "finalUrl": "https://tuple.app/blog/new-in-tuple-capture",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:58.942Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "368fd9a5bc684b377464a0ad061ee078c15ba5b2d4a71a0a78983e2b970d324f"
+     },
+     "text": "New in Tuple: Capture · Tuple\nRecord your calls locally and connect agents\nNew in Tuple: Capture\nRecord your calls locally and connect agents\nNew in Tuple: Capture · Tuple Tuple\nPricing\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nStart Tuple calls right from Slack\nGoogle Calendar\nAdd a Tuple call link to your calendar events\nApple Calendar\nSame as above, but for Apple Calendar\nTriggers API\nRun your own code in response to Tuple events\nJobs\nDownload\nLog in\nSign up\nPricing\nDownload\nLog in\nJobs\nSign up\nLearn\nDocs\nChangelog\nBlog\nPair programming guide\nDistributed Podcast\nIntegrations\nSlack\nGoogle Calendar\nApple Calendar\nTriggers\nNew in Tuple: Capture\nEli Goodman · @elimgoodman · September 29, 2026\nFor a few months, Tuple for macOS has included an alpha feature that allows you to transcribe calls locally. We’ve given the feature a significant upgrade, renamed it Capture , and released it on both macOS and Windows.\nThe way folks are using Tuple is changing. As more people lean on agents to build software, calls on Tuple look less like traditional pair programming, and instead revolve around big decisions, reviewing work, responding to incidents, and getting unstuck. These conversations contain extremely rich context; when agents can access that context easily, it creates a natural bridge between social interaction and deep work. Capture facilitates that process.\nCapture works completely locally. When enabled, it allows you to transcribe what’s said on calls and record screenshots (with annotations!) and metadata about which apps are shown on screen. All of your call data resides on your machine and nothing is sent to the cloud.\nCapture lets you do new things with Tuple, ranging from creating call summaries to asking agents to serve as real-time fact checkers. You can connect any agent harness to your calls - either in real time, or after the fact. We’ve designed it to be highly flexible; for inspiration, check out a few ways to use the feature .\nTuple\n© 2026 Tuple, LLC\nProduct\nPricing\nDownload\nChangelog\nDocs\nCompany\nPairing guide\nPodcast\nBlog\nJobs\nSupport\nPrivacy Policy\nTerms of Service\nSecurity\nBug bounty\nContact us\nStatus\n© 2026 Tuple, LLC",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "共同創業者3人だけで回していた開発者向け共同作業ソフトが、2020年3月の1か月で、それまで14か月分を合わせたより大きな売上の伸びを得た。その月の3人は新機能を止め、障害の応急修正に追われ、営業を非常勤の担当に任せた。",
+     "basis": [
+      "f11",
+      "f13",
+      "f14"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "2018年に創業し、2019年1月に約12チームの招待制で初期版を出した。待機名簿からほぼ毎月新しい組を招き、2019年10月に利用者が自分で登録できる形へ移った。2019年末の時点でもチームは共同創業者3人だった。2020年3月に在宅勤務へ移る開発者が一気に増え、オンライン利用者の一覧を出す簡素な仕組みが倒れた。3人は応急修正と基盤強化を最優先にし、営業は非常勤の担当に、問い合わせ対応も後に雇った手伝いに任せ、月末には制御できる状態に戻した。本人によると、同月に増えた売上はその前の14か月の増加分の合計を上回った。2020年は接続・操作・音声の処理を書き直し、公開前に外部の品質検査を通す形に変えた。クラッシュは過去最少になり、通話品質評価の中央値は5点満点の5点になったという。",
+     "basis": [
+      "f9",
+      "f10",
+      "f11",
+      "f13",
+      "f14",
+      "f15"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "離れた開発者同士が画面と音声を共有し、相手の端末を操作しながらコードを書くためのソフトを、開発チームに1人ごとの月額で売っている。払うのはチームの所属会社で、払った人数分だけ利用者が増える。社外の協力者は、通話中に1人でも有料利用者がいれば追加料金なしで、ブラウザから参加できる。大企業には個別見積もりの独自契約を結び、請求書や発注書で払わせる。",
+     "basis": [
+      "f1",
+      "f4",
+      "f6",
+      "f7"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "金を払っているのは、離れた場所の技術者同士でコードを一緒に書く開発チームを抱える会社。公式サイトには Shopify の Farhan Thawar が、遠隔の共同開発で標準の道具になったと寄せている。公式の顧客取材では、米国・欧州・南米に技術者が散らばる決済系スタートアップ Suppli が、障害の調査、コード変更の確認、設計の相談、AI に作業を任せる前の計画づくりに使っている。",
+     "basis": [
+      "f3",
+      "f30",
+      "f31"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "汎用の通話ソフトでは、相手の小さなコード用の文字が読めず、「その行じゃない、そこ」と口で場所を指し続けることになる。Suppli の David Paluy は Slack の音声が途切れるため、通話のたびに WhatsApp へ切り替えていた。Tuple は最大5Kで画面を流し、相手の端末を直接操作させることで、この口頭の道案内と音声の途切れを消す。",
+     "basis": [
+      "f2",
+      "f30"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "最初は約12チームだけの招待制で始め、待機名簿に並んだ希望者をほぼ毎月まとめて招き入れた。料金ページも自分で登録する仕組みも持たないまま招待で客を増やし、自分で登録できる形にしたのは2019年10月だった。",
+     "basis": [
+      "f9",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "広がり方は会社の中で下から上へ広がる形が中心。Suppli では CTO が数人の技術者と試したところ、チーム全体に広がった。社外の相手は追加料金なしでブラウザから通話に入れるため、客先・外部協力者・面接相手が Tuple に触れる機会が有料利用者1人から生まれる。2019年10月以降は、利用者が自分で登録できる。",
+     "basis": [
+      "f6",
+      "f10",
+      "f30"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "主な費用は人件費と外注。2020年3月以降は非常勤の営業担当と問い合わせ対応の手伝いを雇い、2020年には公開前の品質検査を外部の会社に任せた。接続管理は当初 Heroku 上の Action Cable、次に使った量に応じて払う Ably に乗せていたが、その後 Go と Redis で作った自前の接続管理サービスへ移した。音声・映像・画面のデータは端末同士の暗号化通信で、Tuple のサーバーを通らない。",
+     "basis": [
+      "f13",
+      "f15",
+      "f16",
+      "f18"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-tools",
+     "item": "TOOLS",
+     "text": "中核は C++ で作った共通の処理基盤で、ブラウザ用の部品を通さず WebRTC を直接使う。接続管理は Heroku 上の Action Cable から Ably へ移し、他の基本ソフトへ広げる際に Firebase を試したが断念し、Go と Redis の自前サービスに落ち着いた。Windows 版は既存の GTK 版の移植を試した後、win32 の機能を直接使う方式に変えた。",
+     "basis": [
+      "f2",
+      "f16",
+      "f17",
+      "f18",
+      "f24"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "土台の外部サービスに何度も首を握られかけた。Heroku 上の Action Cable は能力を使い切っても数時間ごとに再起動が要り、Ably には C/C++ 用の部品が無く、Firebase は異常切断した利用者が接続中のまま残る不具合を抱えていた。最後は接続管理を自前で持ち、負荷試験で数百万の同時接続を確認した。残る土台は macOS と Windows で、更新のたびに利用者の通話が途切れる手間が利用者から指摘されている。",
+     "basis": [
+      "f16",
+      "f17",
+      "f18",
+      "f19",
+      "f27"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "弱い。乗り換えを縛るのは溜まったデータではなく、日々の業務への組み込み。Suppli では障害調査、コード確認、設計相談、AI への作業指示の計画づくりの場がすべて Tuple の通話になっている。一方、Capture の文字起こしや画面の画像は利用者の端末内に保存され、クラウドへ送られないため、記録がTuple 側に溜まって離れにくくなる構造は無い。",
+     "basis": [
+      "f31",
+      "f33"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-incumbent_blindspot",
+     "item": "INCUMBENT_BLINDSPOT",
+     "text": "Slack・Google Meet などの汎用ツールは、調整の連絡には足りるが、コードの画面を一緒に動き回る用途には作られていない。Suppli は Slack で「これを打って、違う、そこじゃない」と口で指示し、音声が切れると WhatsApp に逃げていた。汎用ツールは致命的に壊れるわけではないため、開発者向けに音声・高解像度の画面・遠隔操作を作り込む理由が大手側に乏しい。",
+     "basis": [
+      "f30",
+      "f2"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "代わりの手段は Slack・Zoom・Google Meet の画面共有、VS Code の Live Share、JetBrains の Code with Me、無料の Pop など。Tuple は編集ソフトに縛られず、端末の画面全体を相手に操作させる点で勝ちに行く。弱点は価格で、仕事で使った利用者が、価格のせいで個人の開発や仕事外の共有に使えなかったと書いている。映像が止まって Zoom を併用したという声もある。",
+     "basis": [
+      "f26",
+      "f27",
+      "f30"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2018年創業。2019年1月に招待制の初期版、2019年10月に自分で登録できる形へ。2020年3月に売上の伸びが急増。2020年8月に月1回の更新を試行。2020年12月に3人目の参加者にも遠隔操作・描画・クリップボード送信を開放。2021年9月に公開ソフト開発チームへ無期限無料。2022年6月1日に一括認証を全プラン無料化。2024年5月24日に Windows 版の一般向け試用を公開。2026年9月29日に Capture を macOS と Windows に公開した。",
+     "basis": [
+      "f9",
+      "f10",
+      "f14",
+      "f21",
+      "f22",
+      "f20",
+      "f28",
+      "f23",
+      "f32"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "2018年の創業時、遠隔での開発は少しずつ増える小さな市場と見て始めた。そこへ2020年3月、在宅勤務が開発者ほぼ全員に一気に広がり、既に使い込まれた専用ツールを持っていたことで、1か月の売上の伸びがその前の14か月の合計を上回った。",
+     "basis": [
+      "f9",
+      "f14"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "先行者が強く後発は困難。中身は C++ で作った共通基盤と自前の接続管理サービスで、2020年は接続・操作・音声の処理を丸ごと書き直し、Windows 版も GTK 版の移植を捨てて作り直している。後から入る者は、この数年分の作り直しを同じだけ背負う。一方で使われ方は AI に作業を任せる前の計画づくりへ動いており、Capture のように通話の中身を AI に渡す方向で先行している。",
+     "basis": [
+      "f2",
+      "f15",
+      "f18",
+      "f24",
+      "f31",
+      "f32"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "儲かっていた一括認証の大企業向けの値上げを自ら外し、代わりに独自契約や利用実績に応じた料金で大企業を呼ぶ形に組み替えた。高い料金を取る理由が「客が逃げられないこと」から「客が欲しがる中身」に替わるよう、料金の取り方を見直す余地がある。",
+     "basis": [
+      "f28",
+      "f29"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f30",
+    "f31",
+    "f32",
+    "f33"
+   ],
+   "identity": {
+    "id": "ent_tuple_20261007",
+    "name": "Tuple",
+    "url": "https://tuple.app/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_2cc76d086ab882867038e743",
+      "entityId": "ent_tuple_20261007",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://tuple.app/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:05:44.669Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "2cc76d086ab882867038e74339a8447baa46208f8e398571413cccdcdd902507",
+      "bytes": 157617,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Tuple 公式サイト (https://tuple.app/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_tuple_20261007/2cc76d086ab882867038e74339a8447baa46208f8e398571413cccdcdd902507.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_0eb9a795aceb68d370bf3b8e",
+      "entityId": "ent_tuple_20261007",
+      "kind": "favicon",
+      "sourcePageUrl": "https://tuple.app/",
+      "assetUrl": "https://tuple.app/favicon.svg?2024",
+      "retrievedAt": "2026-10-07T10:05:44.762Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "0eb9a795aceb68d370bf3b8e416855c50552fc7c6ffb167423840615b6e9521c",
+      "bytes": 1482,
+      "contentType": "image/svg+xml",
+      "width": 16,
+      "height": 16,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Tuple 公式サイト (https://tuple.app/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:22.455Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 16x16)、SHA-256が台帳と一致 (0eb9a795aceb)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_tuple_20261007/0eb9a795aceb68d370bf3b8e416855c50552fc7c6ffb167423840615b6e9521c.svg",
+       "publicKey": "media/ent_tuple_20261007/0eb9a795aceb68d370bf3b8e416855c50552fc7c6ffb167423840615b6e9521c.svg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_0eb9a795aceb68d370bf3b8e",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:22.455Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 16x16)、SHA-256が台帳と一致 (0eb9a795aceb)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_188123bad7d39ba0ecaebdec",
+      "entityId": "ent_tuple_20261007",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://tuple.app/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:05:47.351Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "188123bad7d39ba0ecaebdeccc32634323ac83117497289690946b020cc5d119",
+      "bytes": 79228,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Tuple 公式サイト (https://tuple.app/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_tuple_20261007/188123bad7d39ba0ecaebdeccc32634323ac83117497289690946b020cc5d119.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_6bbcad0b018584549d54050d",
+      "entityId": "ent_tuple_20261007",
+      "kind": "og_image",
+      "sourcePageUrl": "https://tuple.app/",
+      "assetUrl": "https://tuple.app/assets/og.LpWM1zN3.jpg",
+      "retrievedAt": "2026-10-07T10:05:59.689Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "6bbcad0b018584549d54050d1b941b2c4d02271269ed8bafb721d3664454a83c",
+      "bytes": 365435,
+      "contentType": "image/jpeg",
+      "width": 1200,
+      "height": 630,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Tuple 公式サイト (https://tuple.app/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:22.174Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_tuple_20261007/6bbcad0b018584549d54050d1b941b2c4d02271269ed8bafb721d3664454a83c.jpg",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_6bbcad0b018584549d54050d",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:22.174Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_0eb9a795aceb68d370bf3b8e"
+    ],
+    "problems": []
+   },
+   "caseHash": "6c2f481f2fe26d705bf096e8dc5e4ea0e1b314d2b508f557d2d0352b237ed28b",
+   "itemHashes": {
+    "fact:f1": "178fdce9d96798909f27cc700efcd3f1d2ed2ed06e4620e15631520ec7adcdd4",
+    "fact:f2": "d4cfb9cf38ef0c9c87e79a9a1211314916f8b3b2867269bf088928ab9aed7245",
+    "fact:f3": "5e2afe7bc13d5a82f6944d3ff200e504c4d1ed29620382161045e41cc3f45b9b",
+    "fact:f4": "eab4666c0e4aa4df5ed4d92c0f803313fcabce5576e03407ea8400d2c4692bdd",
+    "fact:f5": "0011956625a6ae876ff3609c63da2708bf69680568ca112c8b33139ecd09cc73",
+    "fact:f6": "bb8a50d60cb53a7cb1edd9af00772c7c9b53bd7c727373eb7e40072556fa07b1",
+    "fact:f7": "57573d97c6c96b56209b392e13c919de93c5386899ad9d065c83effb8847f166",
+    "fact:f8": "165ecbaf3b7153103e2d3deecf79b50b15ac83b6210c001ea9edbc56ee4bdf47",
+    "fact:f9": "acac031c47767c83540f6e4337077ec37c8ca1ad40786212c102c1d3830db59c",
+    "fact:f10": "daaf87e557888fc3a02ee746005e2e16e5d7d1a48b732df54e87d077f804c132",
+    "fact:f11": "59bf9dc46ef7381666e196aa0507ab2fff072f2572b833db5c90a52255bc79f0",
+    "fact:f13": "f56bf58173e6cba46373d3f4970527fce77be3cd0c1afb317096e25ab01f9fa7",
+    "fact:f14": "73dd5c73a0a4d306f7e30c69becaf1374c128b8eb649fcc96e2b2ca5f7c6d9db",
+    "fact:f15": "f0f4cc1ac435b72c1cea04e47ee1fa035f8f937f19644a450c305e897187e8d3",
+    "fact:f16": "8c8d8291f6a3673d7063a32f81330c36d95f132eaa92a3ab52e8dbf8f967a32b",
+    "fact:f17": "2c033aadb5b5dbdaece466775bad68515203ab414bf53648986be05806e7f3ad",
+    "fact:f18": "f72ee691cee3177ac8e6d82234fdf6139f39c4807de63bb9c9b97fc83393b884",
+    "fact:f19": "09d99bfc329de5d7e252df187a1f1f9dca7652352a11db2e212b77a585991c1f",
+    "fact:f20": "4a6e992ddaa6476e581d7cd9e620e2daf5db2eacba84a2968afcead3f2c6499e",
+    "fact:f21": "fd1c60b58230095072619c2eee949f3270ff4f2ce6adeabc76f3c64d35a4b3c0",
+    "fact:f22": "7abdadc2078bbb1ab9cf7e570c48274d3f6220cd0a1f59bcfdbcb9f99dfb6711",
+    "fact:f23": "3faa1b95ae7388bdc33e99f1ccf12ee485ebf49a39e569f0fe4967e20b45f87d",
+    "fact:f24": "58de93e38e5ab24bbed6d9df7e39f475bffe510dd457965d9478399a7fba1e64",
+    "fact:f25": "6e45facfa1bf9c7f02afce2064724d5be4d07ccd879f7db26708704183141bff",
+    "fact:f26": "db1fb5de659511c849637dba1e3653c79911a0c8b0d43fd3b2b4ca3487c13d10",
+    "fact:f27": "dd1d3035354a6ffb980e5087b4a3def86c20536cc0935185acee18e460bc8b8d",
+    "fact:f28": "37e8f36e48f0208dca92d7b39900b4979e53df7bb0c2fb7c1748793440cabc8b",
+    "fact:f29": "b99506845bd19f9fdba848db8d8fc026f4c55ae5a6950a963589c8582b743e15",
+    "fact:f30": "facaad44124ef65c183b64eee26e884171d135dba47d5bdfbfb911a42db41bdb",
+    "fact:f31": "494f0eec42ef69edd2ed00163dc9ad70c9945fd249e01a5dc453da7f05d102c9",
+    "fact:f32": "8b035e6d72700acafac88588f51dd74530fcadaf766b20dd69d6ffec864baf6b",
+    "fact:f33": "bbf3ac5adf155d2170e44d53fbb5185a1309e08d748d33d9a2e19efec5656718",
+    "analysis:a-headline": "2304b231e98f604e4132d30b52055a93b57f1e2bccf84c5a6ef6149736b6b4fa",
+    "analysis:a-story": "98428a7905516e867eb2731e6226353dd1d45825c284d4a2e2db4f15bed5e6b0",
+    "analysis:a-business_model": "028ca14d9010ba95dd6880801ecd09ad535581d669037413ca2a53aa91566d74",
+    "analysis:a-customer": "41696b2a4d5c7392224757449b4edd63071a85d6a03eebbabf12d4c845739e07",
+    "analysis:a-customer_pain": "04d872a24ed58ee5d0852cef39b5e17e3c3a680cad5dacc28682d257b752189c",
+    "analysis:a-first_customers": "0d3f9a71030dad418166f72c29a89b260af0781a7c8606e4e4213f0d7136a5cb",
+    "analysis:a-channels": "f62f23369d04419c7fe03ccb50e55ad83292450d65d942af9b6216f19b866e47",
+    "analysis:a-cost_structure": "bcf44be825c8a9f4be409f2a90a1cec5d358da505582e331dd4ef16fa3ce30c2",
+    "analysis:a-tools": "6ab7fa3590e007fa6970604fca0a816052a7760f80edb838f52b6eb4b5aab078",
+    "analysis:a-dependencies": "917046f1f60d885b239c97941010b4f10f9b651d49fe406e707d4472ddfac36a",
+    "analysis:a-lock_in": "2dbe6636d3282e8f2d4637bad5642f48b1bb4e269d90832c3862ee214aa8a828",
+    "analysis:a-incumbent_blindspot": "c4b4da407672fcda1c1c8670c4700f6ab3f8a29bf9ffc3e477e94458ce48c998",
+    "analysis:a-competition": "8392ff85fe990862604d8bb3a6633fa71055f4d2f17f35671d1edd4217a9782e",
+    "analysis:a-timeline": "5d65ac052aeb4f6a0206c8124c33473c0e680c7b4d13d8e1063f1c71a58423f2",
+    "analysis:a-why_it_worked": "324241f58dc813d14c786c68a1dd0b00fa4812703e89ea7602335ceb533c1399",
+    "analysis:a-viability": "28b7450d4c1e7446a0a6460a43d4f60271df7e4934db36ab02f6523cf7d16c58",
+    "analysis:a-lesson": "7d13f2d7e85222d214fd652a5ea8a37e7820329faa72304a2a6fffcd7a813952"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f23",
+    "fact:f24",
+    "fact:f25",
+    "fact:f26",
+    "fact:f27",
+    "fact:f28",
+    "fact:f29",
+    "fact:f30",
+    "fact:f31",
+    "fact:f32",
+    "fact:f33",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-cost_structure",
+    "analysis:a-tools",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-incumbent_blindspot",
+    "analysis:a-competition",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-viability",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://tuple.app/",
+      "publisher": "Tuple 公式サイト",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s2",
+      "url": "https://tuple.app/pricing",
+      "publisher": "Tuple 公式料金",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://tuple.app/blog/2020-year-in-review",
+      "publisher": "Ben Orenstein の公式振り返り",
+      "publishedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://tuple.app/blog/the-realness",
+      "publisher": "Mikey Pulaski の公式技術記録",
+      "publishedAt": "2022-11-07",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://tuple.app/blog/helping-with-hacktoberfest",
+      "publisher": "Ben Orenstein の公式告知",
+      "publishedAt": "2021-09-28",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://tuple.app/blog/august-2020-release",
+      "publisher": "Ben Orenstein の公式告知",
+      "publishedAt": "2020-08-03",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "url": "https://tuple.app/blog/three-player-improvements",
+      "publisher": "Ben Orenstein の公式告知",
+      "publishedAt": "2020-12-14",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://tuple.app/blog/windows-public-beta",
+      "publisher": "Eli Goodman の公式告知",
+      "publishedAt": "2024-05-24",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s12",
+      "url": "https://news.ycombinator.com/item?id=29641907",
+      "publisher": "Hacker News の利用者投稿と創業者返信",
+      "publishedAt": "2021-12-21",
+      "checkedAt": "2026-10-07",
+      "kind": "THIRD_PARTY"
+     },
+     {
+      "id": "s13",
+      "url": "https://tuple.app/blog/sso-should-be-table-stakes",
+      "publisher": "Ben Orenstein の公式料金方針変更",
+      "publishedAt": "2022-06-01",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s14",
+      "url": "https://tuple.app/blog/suppli-case-study",
+      "publisher": "Tuple 公式の Suppli 顧客取材",
+      "publishedAt": "2026-03-24",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s15",
+      "url": "https://tuple.app/blog/new-in-tuple-capture",
+      "publisher": "Eli Goodman の公式機能告知",
+      "publishedAt": "2026-09-29",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "離れた開発者が画面・音声を共有し、相手の端末を操作しながら共同でコードを書くためのソフト。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "DESCRIPTION",
+      "text": "公式サイトは最大5Kの画面共有と、C++で作った共通の処理基盤を説明している。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "DESCRIPTION",
+      "text": "公式サイト掲載の Shopify の Farhan Thawar は、遠隔の共同開発で標準の道具になったと述べている。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "PRICING",
+      "text": "確認時の開発チーム向け料金は1人あたり月30ドルで、共同作業の回数は無制限。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "PRICING",
+      "text": "14日間の無料試用があり、不満があれば直近の月額支払いを返金する方針を掲げている。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "PRICING",
+      "text": "外部の協力者との通話は追加料金なし。通話中の少なくとも1人が有料利用者であればよく、招待客はブラウザから参加できる。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "PRICING",
+      "text": "大企業向けは個別見積もりで、独自契約と請求書・発注書での支払いに対応する。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "PRICING",
+      "text": "設立から2年未満で従業員50人未満の会社には、1年間90%割引を提供すると記載している。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "FOUNDING",
+      "text": "2018年に創業し、2019年1月に招待制の初期版を提供した。",
+      "sourceId": "s3",
+      "statedAt": "2020-12-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "CHANNEL",
+      "text": "初期版は約12チームで始まり、待機名簿から約毎月招待した。2019年10月に利用者自身が登録できる形へ移った。",
+      "sourceId": "s3",
+      "statedAt": "2020-12-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "TEAM",
+      "text": "2019年末のチームは共同創業者3人だった。",
+      "sourceId": "s3",
+      "statedAt": "2020-12-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "EVENT",
+      "text": "同月は応急修正と基盤強化を優先し、営業を非常勤の担当に任せた。対応の手伝いも後に雇い、月末には制御できる状態になったと振り返っている。",
+      "sourceId": "s3",
+      "statedAt": "2020-12-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "OTHER",
+      "text": "2020年3月に増えた売上は、その前の14か月で増えた売上の合計を上回ったと本人が述べる。",
+      "sourceId": "s3",
+      "statedAt": "2020-12-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "2020年には接続・操作・音声の処理を書き直し、公開前に外部の品質検査を受けるようにした。クラッシュは過去最少となり、通話品質評価の中央値は5点満点の5点だったという。",
+      "sourceId": "s3",
+      "statedAt": "2020-12-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "EVENT",
+      "text": "初期の接続管理は Heroku 上の Action Cable だったが、能力を使い切っても数時間ごとに再起動が必要になり、Ably へ移行した。",
+      "sourceId": "s4",
+      "statedAt": "2022-11-07",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "OTHER",
+      "text": "他の基本ソフトへ展開するため Firebase を並行導入したが、異常切断した利用者が接続中のまま残る問題があり、採用を断念した。",
+      "sourceId": "s4",
+      "statedAt": "2022-11-07",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "EVENT",
+      "text": "その後、Go と Redis を使った独自の接続管理サービスを作り、既存基盤と並行して段階的に導入した。",
+      "sourceId": "s4",
+      "statedAt": "2022-11-07",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "OTHER",
+      "text": "負荷試験では数百万の同時接続とミリ秒単位の往復遅延を確認したという。",
+      "sourceId": "s4",
+      "statedAt": "2022-11-07",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "PRICING",
+      "text": "2021年9月、公開ソフトの開発チームに対する無期限の無料提供を発表した。",
+      "sourceId": "s5",
+      "statedAt": "2021-09-28",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "OTHER",
+      "text": "更新頻度を減らしてほしいという複数の利用者の要望を受け、2020年8月に月1回の更新を試していると発表した。",
+      "sourceId": "s6",
+      "statedAt": "2020-08-03",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "EVENT",
+      "text": "2020年12月、3人目の参加者もキーボード・マウス操作、画面への描画、相手のクリップボードへの文字送信ができるようにした。",
+      "sourceId": "s7",
+      "statedAt": "2020-12-14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f23",
+      "kind": "EVENT",
+      "text": "2024年5月24日、Windows 版の一般向け試用を公開した。",
+      "sourceId": "s11",
+      "statedAt": "2024-05-24",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f24",
+      "kind": "OTHER",
+      "text": "Windows 版では既存の GTK 版の移植を試した後、win32 の機能を直接使う方式へ変え、速度と安定性が向上したと説明している。",
+      "sourceId": "s11",
+      "statedAt": "2024-05-24",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f25",
+      "kind": "OTHER",
+      "text": "Hacker News の Svetlitski は、大学のコンパイラ開発で数か月使い、長時間でも安定し、遅延が非常に小さかったと投稿した。",
+      "sourceId": "s12",
+      "statedAt": "2021-12-21",
+      "attribution": "THIRD_PARTY"
+     },
+     {
+      "id": "f26",
+      "kind": "OTHER",
+      "text": "仕事で使ったという bantmen は、価格が個人の開発や仕事外での共有を妨げたと投稿した。",
+      "sourceId": "s12",
+      "statedAt": "2021-12-21",
+      "attribution": "THIRD_PARTY"
+     },
+     {
+      "id": "f27",
+      "kind": "OTHER",
+      "text": "univerio は、映像が止まるため Zoom を併用したことと、更新後に通話を再開しづらいことを投稿した。",
+      "sourceId": "s12",
+      "statedAt": "2021-12-21",
+      "attribution": "THIRD_PARTY"
+     },
+     {
+      "id": "f28",
+      "kind": "PRICING",
+      "text": "以前は一括認証を通常の約2倍の料金の大企業向けに限定していたが、2022年6月1日から全プランで追加料金なしにした。",
+      "sourceId": "s13",
+      "statedAt": "2022-06-01",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f29",
+      "kind": "EVENT",
+      "text": "一括認証の無料化を受け、大企業向けの価値を独自契約、利用実績に応じた料金、段階的割引、監査・管理機能などへ置き換える方針を述べた。",
+      "sourceId": "s13",
+      "statedAt": "2022-06-01",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f30",
+      "kind": "OTHER",
+      "text": "公式顧客取材によると、Suppli の David Paluy は Slack の音声が不安定で WhatsApp も使っていたが、数人の技術者と Tuple を試すとチーム全体へ広がった。",
+      "sourceId": "s14",
+      "statedAt": "2026-03-24",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f31",
+      "kind": "OTHER",
+      "text": "Suppli は Tuple を、障害の調査、コード変更の確認、設計の相談、AI に作業を任せる前の計画づくりに使うと公式顧客取材にある。",
+      "sourceId": "s14",
+      "statedAt": "2026-03-24",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f32",
+      "kind": "EVENT",
+      "text": "2026年9月29日、端末内の文字起こし機能を強化し、Capture として macOS と Windows の両方へ公開した。",
+      "sourceId": "s15",
+      "statedAt": "2026-09-29",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f33",
+      "kind": "DESCRIPTION",
+      "text": "Capture は通話の文字起こし、画面の画像、表示したアプリの情報を端末内に保存し、クラウドへ通話データを送らないと説明している。",
+      "sourceId": "s15",
+      "statedAt": "2026-09-29",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "共同創業者3人だけで回していた開発者向け共同作業ソフトが、2020年3月の1か月で、それまで14か月分を合わせたより大きな売上の伸びを得た。その月の3人は新機能を止め、障害の応急修正に追われ、営業を非常勤の担当に任せた。",
+      "basis": [
+       "f11",
+       "f13",
+       "f14"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "2018年に創業し、2019年1月に約12チームの招待制で初期版を出した。待機名簿からほぼ毎月新しい組を招き、2019年10月に利用者が自分で登録できる形へ移った。2019年末の時点でもチームは共同創業者3人だった。2020年3月に在宅勤務へ移る開発者が一気に増え、オンライン利用者の一覧を出す簡素な仕組みが倒れた。3人は応急修正と基盤強化を最優先にし、営業は非常勤の担当に、問い合わせ対応も後に雇った手伝いに任せ、月末には制御できる状態に戻した。本人によると、同月に増えた売上はその前の14か月の増加分の合計を上回った。2020年は接続・操作・音声の処理を書き直し、公開前に外部の品質検査を通す形に変えた。クラッシュは過去最少になり、通話品質評価の中央値は5点満点の5点になったという。",
+      "basis": [
+       "f9",
+       "f10",
+       "f11",
+       "f13",
+       "f14",
+       "f15"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "離れた開発者同士が画面と音声を共有し、相手の端末を操作しながらコードを書くためのソフトを、開発チームに1人ごとの月額で売っている。払うのはチームの所属会社で、払った人数分だけ利用者が増える。社外の協力者は、通話中に1人でも有料利用者がいれば追加料金なしで、ブラウザから参加できる。大企業には個別見積もりの独自契約を結び、請求書や発注書で払わせる。",
+      "basis": [
+       "f1",
+       "f4",
+       "f6",
+       "f7"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "金を払っているのは、離れた場所の技術者同士でコードを一緒に書く開発チームを抱える会社。公式サイトには Shopify の Farhan Thawar が、遠隔の共同開発で標準の道具になったと寄せている。公式の顧客取材では、米国・欧州・南米に技術者が散らばる決済系スタートアップ Suppli が、障害の調査、コード変更の確認、設計の相談、AI に作業を任せる前の計画づくりに使っている。",
+      "basis": [
+       "f3",
+       "f30",
+       "f31"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "汎用の通話ソフトでは、相手の小さなコード用の文字が読めず、「その行じゃない、そこ」と口で場所を指し続けることになる。Suppli の David Paluy は Slack の音声が途切れるため、通話のたびに WhatsApp へ切り替えていた。Tuple は最大5Kで画面を流し、相手の端末を直接操作させることで、この口頭の道案内と音声の途切れを消す。",
+      "basis": [
+       "f2",
+       "f30"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "最初は約12チームだけの招待制で始め、待機名簿に並んだ希望者をほぼ毎月まとめて招き入れた。料金ページも自分で登録する仕組みも持たないまま招待で客を増やし、自分で登録できる形にしたのは2019年10月だった。",
+      "basis": [
+       "f9",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "広がり方は会社の中で下から上へ広がる形が中心。Suppli では CTO が数人の技術者と試したところ、チーム全体に広がった。社外の相手は追加料金なしでブラウザから通話に入れるため、客先・外部協力者・面接相手が Tuple に触れる機会が有料利用者1人から生まれる。2019年10月以降は、利用者が自分で登録できる。",
+      "basis": [
+       "f6",
+       "f10",
+       "f30"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "主な費用は人件費と外注。2020年3月以降は非常勤の営業担当と問い合わせ対応の手伝いを雇い、2020年には公開前の品質検査を外部の会社に任せた。接続管理は当初 Heroku 上の Action Cable、次に使った量に応じて払う Ably に乗せていたが、その後 Go と Redis で作った自前の接続管理サービスへ移した。音声・映像・画面のデータは端末同士の暗号化通信で、Tuple のサーバーを通らない。",
+      "basis": [
+       "f13",
+       "f15",
+       "f16",
+       "f18"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-tools",
+      "item": "TOOLS",
+      "text": "中核は C++ で作った共通の処理基盤で、ブラウザ用の部品を通さず WebRTC を直接使う。接続管理は Heroku 上の Action Cable から Ably へ移し、他の基本ソフトへ広げる際に Firebase を試したが断念し、Go と Redis の自前サービスに落ち着いた。Windows 版は既存の GTK 版の移植を試した後、win32 の機能を直接使う方式に変えた。",
+      "basis": [
+       "f2",
+       "f16",
+       "f17",
+       "f18",
+       "f24"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "土台の外部サービスに何度も首を握られかけた。Heroku 上の Action Cable は能力を使い切っても数時間ごとに再起動が要り、Ably には C/C++ 用の部品が無く、Firebase は異常切断した利用者が接続中のまま残る不具合を抱えていた。最後は接続管理を自前で持ち、負荷試験で数百万の同時接続を確認した。残る土台は macOS と Windows で、更新のたびに利用者の通話が途切れる手間が利用者から指摘されている。",
+      "basis": [
+       "f16",
+       "f17",
+       "f18",
+       "f19",
+       "f27"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "弱い。乗り換えを縛るのは溜まったデータではなく、日々の業務への組み込み。Suppli では障害調査、コード確認、設計相談、AI への作業指示の計画づくりの場がすべて Tuple の通話になっている。一方、Capture の文字起こしや画面の画像は利用者の端末内に保存され、クラウドへ送られないため、記録がTuple 側に溜まって離れにくくなる構造は無い。",
+      "basis": [
+       "f31",
+       "f33"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-incumbent_blindspot",
+      "item": "INCUMBENT_BLINDSPOT",
+      "text": "Slack・Google Meet などの汎用ツールは、調整の連絡には足りるが、コードの画面を一緒に動き回る用途には作られていない。Suppli は Slack で「これを打って、違う、そこじゃない」と口で指示し、音声が切れると WhatsApp に逃げていた。汎用ツールは致命的に壊れるわけではないため、開発者向けに音声・高解像度の画面・遠隔操作を作り込む理由が大手側に乏しい。",
+      "basis": [
+       "f30",
+       "f2"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "代わりの手段は Slack・Zoom・Google Meet の画面共有、VS Code の Live Share、JetBrains の Code with Me、無料の Pop など。Tuple は編集ソフトに縛られず、端末の画面全体を相手に操作させる点で勝ちに行く。弱点は価格で、仕事で使った利用者が、価格のせいで個人の開発や仕事外の共有に使えなかったと書いている。映像が止まって Zoom を併用したという声もある。",
+      "basis": [
+       "f26",
+       "f27",
+       "f30"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2018年創業。2019年1月に招待制の初期版、2019年10月に自分で登録できる形へ。2020年3月に売上の伸びが急増。2020年8月に月1回の更新を試行。2020年12月に3人目の参加者にも遠隔操作・描画・クリップボード送信を開放。2021年9月に公開ソフト開発チームへ無期限無料。2022年6月1日に一括認証を全プラン無料化。2024年5月24日に Windows 版の一般向け試用を公開。2026年9月29日に Capture を macOS と Windows に公開した。",
+      "basis": [
+       "f9",
+       "f10",
+       "f14",
+       "f21",
+       "f22",
+       "f20",
+       "f28",
+       "f23",
+       "f32"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "2018年の創業時、遠隔での開発は少しずつ増える小さな市場と見て始めた。そこへ2020年3月、在宅勤務が開発者ほぼ全員に一気に広がり、既に使い込まれた専用ツールを持っていたことで、1か月の売上の伸びがその前の14か月の合計を上回った。",
+      "basis": [
+       "f9",
+       "f14"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "先行者が強く後発は困難。中身は C++ で作った共通基盤と自前の接続管理サービスで、2020年は接続・操作・音声の処理を丸ごと書き直し、Windows 版も GTK 版の移植を捨てて作り直している。後から入る者は、この数年分の作り直しを同じだけ背負う。一方で使われ方は AI に作業を任せる前の計画づくりへ動いており、Capture のように通話の中身を AI に渡す方向で先行している。",
+      "basis": [
+       "f2",
+       "f15",
+       "f18",
+       "f24",
+       "f31",
+       "f32"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "儲かっていた一括認証の大企業向けの値上げを自ら外し、代わりに独自契約や利用実績に応じた料金で大企業を呼ぶ形に組み替えた。高い料金を取る理由が「客が逃げられないこと」から「客が欲しがる中身」に替わるよう、料金の取り方を見直す余地がある。",
+      "basis": [
+       "f28",
+       "f29"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f3"
+   }
+  }
+ ]
+}

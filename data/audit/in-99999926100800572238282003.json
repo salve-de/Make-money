@@ -1,0 +1,771 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_hostifi_cf9ec73a42d2",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "2018年に Reilly Chase が IT サービス事業 Locklin Networks の副業として開始。Ubiquiti 製品を導入する中で顧客ネットワークを1台のサーバーで一元管理したいと考えたことから生まれ、2019年に Calm Company Fund から10万ドルを調達したと公式が説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "OTHER",
+     "text": "公式の現在表示は顧客5000超。機器25台は月19ドルまたは年199ドル、250台は月99ドルまたは年999ドル、1000台は月249ドルまたは年2499ドル。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "上位プランでは更新の検査、長めのバックアップ保持、個別支援等を提供。30日返金保証を表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "OTHER",
+     "text": "代理運営事業者は独自ドメインで顧客へ再販売できる。顧客への請求は別途行う。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "無料プランは新規提供を終了。既存利用者は引き続き使え、共有のサーバー資源を使う。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "OTHER",
+     "text": "UniFi と UISP のサーバー上の機器データを CSV 形式で書き出すツールを提供する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "無料の機器発見ツールを提供し、廃止された Chrome アプリによる旧 Ubiquiti 機器発見ツールの代替として案内する。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.hostifi.com/",
+     "publisher": "HostiFi",
+     "snapshot": {
+      "url": "https://www.hostifi.com/",
+      "finalUrl": "https://www.hostifi.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:27.125Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "fc8e88f77d62b7a930d0313a8ed7df49d096479b8ce361da832b6ec844abfa61"
+     },
+     "text": "HostiFi - Fast and Reliable UniFi in the Cloud\nRemotely monitor and manage UniFi Network devices.\nHostiFi - Fast and Reliable UniFi in the Cloud\nRemotely monitor and manage UniFi Network devices.\nHostiFi - Fast and Reliable UniFi in the Cloud\nRemotely monitor and manage UniFi Network devices\nHostiFi - Fast and Reliable UniFi in the Cloud\nNEW UniFi OS Server hosting now available\nServices\nConsulting\nProfessional Services Cloud Hosting\nUniFi UISP\nFree Tools\nDevice Discovery Tool Device Export Tool\nResources\nWall of Love Blog Knowledge Base Slack Status\nStore Contact Login Sign Up Book a Demo Sign Up Book a Demo Menu\nUniFi Cloud Hosting\nPricing Benefits Testimonials\n300+ Google Reviews →\nUniFi OS Cloud Hosting\nRemotely monitor and manage UniFi Network devices\nSign Up X Book a Demo\nJoin Over 5,000 Happy Customers\nView Wall of Love\nWe shifted to HostiFi from Cloud Keys at dozens of customer sites; this has greatly improved our network managed services . It saves us time, keeps us more secure and it helps us sell more confidently.\nJeremy Treister\nCMIT Solutions\nHostiFi Pro team made a hostile takeover of a new clients network painless. Their assistance made the reprogramming of the network and getting the client back up and running a seamless process.\nScott Beck\nBeckTek\nI have been using HostiFi for just over a month and have to say the service they provide is excellent. Reilly and Safwan are both very knowledgeable on the UniFi product line and how the controller works. Keep up the good work and look forward to working with you for years to come!\nCody MacCallum\nMactelecom Networks\nVery knowledgeable about UniFi and routing/switching. Also very fun to work with. Went above and beyond to help me. Thanks! :-)\nMark van Staden\nBrainSoft ICT\nThanks to HostiFi's relentless dedication and the personal involvement of their owner, Reilly Chase, we turned the tide. Reilly even shared his direct cell number, showing their commitment to resolving the issue. With their expertise and tenacity, we successfully migrated the faulty controller, and they worked tirelessly to iron out the kinks. HostiFi truly went above and beyond! 💪 This is what a partnership looks like!\nAdam Orsak\nAdvanTech IT Services\nAwesome help and swift response!\nDustin Lassiter\nFuse.Cloud\nGreat company, great services and they look after you not like other providers.\nGlen Hale\nGH Services UK\nInstant Setup\nSetup and installation are automatic. Just a few minutes after subscribing, your server will be ready to add devices to.\nWe shifted to HostiFi from Cloud Keys at dozens of customer sites; this has greatly improved our network managed services. It saves us time, keeps us more secure and it helps us sell more confidently.\nJeremy Treister\nCMIT Solutions\nDedicated Support\nWe are available to help you support your network via live chat, phone, and email.\nSafwan from the support team is the best. He helped me with a lot of issues. I really appreciate that.\nRama Alsadi\nDalos\nSecure\nWe're on top of security. SSH access is key only, 2FA is implemented, servers are regularly updated, and open ports are limited to UniFi.\nGreat company, great services and they look after you not like other providers.\nGlen Hale\nGH Services UK\nAdd Your Whole MSP\nGive your team access to every UniFi site you manage, avoiding the manual setup required with on-prem servers.\nAbsolutely fantastic tech support and service! Explained the issues to me and educated me on how I could resolve them if I needed to moving forward.\nDan Stoddard\nAudiovations\nJames Turner\nSystems Architect\nAdam Reed\nNetwork Engineer\nLaura Bennett\nOperations Manager\nMichael Harris\nIT Director\nDaniel Price\nMSP Lead\nRachel Cooper\nSupport Technician\nCreate an Account\nYour UniFi cloud server will be ready instantly, and our support team will help you get migrated smoothly\nSign Up\nUpdates Included\nWe take care of testing and applying server updates. No downtime for your networks!\nFast support to upgrade our server! Thanks for your prompt assistance.\nJustin Ovenell\nTechNellogic\nAnd many more benefits...\nWe are committed to providing our customers with as much value as possible.\n24/7 Monitoring\nWe use Zabbix to monitor and alert us on dozens of data points including UniFi uptime, disk usage, memory, and more\nNightly Backups\nAll plans include nightly off-site backups to two locations which are securely stored on DigitalOcean Spaces and Backblaze B2\nMigration Support\nWe provide step by step instructions and live support for migrating sites from an existing controller or adding a device\nSSL\nAll servers come with Let’s Encrypt installed by default! No browser warnings or struggling with complicated scripts\nAbout HostiFi\nWe're a group of guys who have a shared obsession with Ubiquiti products. We're passionate about WiFi, Linux, and automating things with software. We have industry experience as ex-Ubiquiti employees, IT/MSP business owners, WISP operators, and software developers.\nReilly Chase founded HostiFi in 2018 as a side project of his IT services business Locklin Networks. He had the idea for a UniFi cloud hosting service when he was installing Ubiquiti products and wanted to centrally manage his customer networks from one server. He built HostiFi to provide that as a service for others.\nIn 2019 he raised $100K from Calm Company Fund and went full-time on the business. Since then it has grown to over $3M/year in revenue and employs a team of 10 people serving over 5,000 customers.\nStress-Free UniFi & UISP Management for MSPs\nReliable, scalable, and fully supported hosting for Ubiquiti networks, built for the way MSPs actually work.\nHostiFi Pro team made a hostile takeover of a new clients network painless. Their assistance made the reprogramming of the network and getting the client back up and running a seamless process.\nScott Beck\nBeckTek\nFast, Scalable Hosting\nHostiFi supports UniFi and UISP with managed updates, backups, and plans from $19/month, ideal for 5 to 5,000 devices.\nReal Support, When You Need It\nTalk to us via email, live chat, phone, or video. We also provide extensive guides and videos to help you troubleshoot fast.\nFree Migrations Included\nMoving from Dream Machine, UISP Cloud, or a local controller? We’ll migrate everything for free with minimal downtime.\nFully White-Labeled\nUse your own domain, branding, and client billing setup. Our Professional Services team can customize everything to match your brand.\n5,000+ Happy Customers\nSimple Pricing\nRemotely monitor and manage UniFi Network devices\nMonthly\nYearly • Save 16%\n25 UniFi Devices\n$19\nper month\nUp to 25 Devices\nUnlimited Sites\nUnlimited Users\nMigration Assistance\nCommunity Slack\n5 Days Backup\nAvailable in 32 Data Centers\nAutomated Updates\nSign Up\n250 UniFi Devices\n$99\nper month\nEverything in the $19 plan, plus...\nUp to 250 Devices\n30 Days Backup\nLive Chat, Email Support\nUpdate Testing\nUpdate Scheduling\nCustom Domains\nSign Up\n1,000 UniFi Devices\n$249\nper month\nEverything in the $99 plan, plus...\nUp to 1,000 Devices\n90 Days Backup\nPhone Support\nSSH Access\nCompliance Documentation\nCustom Firewall Rules\nSign Up\nEnterprise\nCustom\npricing for larger networks\nEverything in the $249 plan, plus...\nMore than 1,000 Devices\nUnlimited Days Backup\nPrivate Slack Support\nContracts\nPayment Via Invoice\nCustom Integrations\nTalk to Sales\n30-Day Money Back Promise\nGive us a try! If HostiFi isn’t a good fit get a full refund.\n25 UniFi Devices\n$199\nper year\nUp to 25 Devices\nUnlimited Sites\nUnlimited Users\nMigration Assistance\nCommunity Slack\n5 Days Backup\nAvailable in 32 Data Centers\nAutomated Updates\nSign Up\n250 UniFi Devices\n$999\nper year\nEverything in the $199 plan, plus...\nUp to 250 Devices\n30 Days Backup\nLive Chat, Email Support\nUpdate Testing\nUpdate Scheduling\nCustom Domains\nSign Up\n1,000 UniFi Devices\n$2,499\nper year\nEverything in the $999 plan, plus...\nUp to 1,000 Devices\n90 Days Backup\nPhone Support\nSSH Access\nCompliance Documentation\nCustom Firewall Rules\nSign Up\nEnterprise\nCustom\npricing for larger networks\nEverything in the $2,499 plan, plus...\nMore than 1,000 Devices\nUnlimited Days Backup\nPrivate Slack Support\nContracts\nPayment Via Invoice\nCustom Integrations\nTalk to Sales\n30-Day Money Back Promise\nGive us a try! If HostiFi isn’t a good fit get a full refund.\nGet the Ubiquiti Top 20\nEach month our team sifts through Ubiquiti news and content from around the web and delivers 20 of our favorite links to your inbox.\nView recent issues\nNo spam. Unsubscribe anytime.\n🤩\nDiscovered 3+ things that I did not know and will have a material impact on my business.\nNewsletter Subscriber\n🤩\nAll the info I want/need in a single clean thread! Perfect!\nNewsletter Subscriber\n🤩\nProviding super valuable information to keep the community in the know. Awesome links page, Thank You.\nNewsletter Subscriber\nFrequently Asked Questions\nWill my UniFi server be backed up with HostiFi?\nYes, this is supported on all our UniFi hosting plans. You get 5 days of backups with the $19/month plan, 30 days with the $99/month plan, and 90 days with the $249/month plan. For any custom Enterprise plans, unlimited backups are included.\nHow does HostiFi compare to using a UDM Pro for hosting the controller?\nUbiquiti's Dream Machine lineup works relatively well for single premise installations, but it has its risks. These range from potential hardware failures, power outages and any software update stability issues.\nBy moving the UniFi Controller into the cloud with HostiFi, you get automatic backups, tested updates and no hardware to maintain, which is perfect for growing MSPs or large installation environments.\nAnother major benefit is the user management. With HostiFi the tedious task of inviting new users to each UniFi Dream Machine you have is gone, simply invite them once to the HostiFi server.\nWhich UniFi devices are supported with HostiFi?\nWe do maintain a full list of the supported UniFi devices , but all UniFi access points, UniFi switches, UXG gateways and managed accessories are supported. Some accessories such as the UniFi Ultra switches and the UniFi UPS don't support SSH, but adoption can be completed with our free HostiFi Device Discovery Tool .\nCan I use a custom domain and with HostiFi UniFi hosting?\nYes. By default we will create a subdomain of hostifi.com for you to use, but you can also set up your own domain name for your server.\nDoes HostiFi support the UniFi mobile app?\nYes, we do. You can download the UniFi Network app from the App Store or Google Play , then follow our guide to connect it to your server.\nHow are UniFi firmware and software updates handled by HostiFi?\nWe handle all of the server and UniFi controller updates and roll out these out, once our testing process has been completed. If you do need your server updated before this however, please let us know . Updates for individual devices, such as gateways, access points and switches is under your control, so you can choose when and how to deploy them.\nCan I migrate my existing UniFi controller to HostiFi?\nYes, it's easy to migrate your existing sites using the site migration wizard built right into UniFi, and this can be done completely remotely. We also have a guide on how to add new devices . However, if you need assistance, every UniFi plan we offer - comes with included migration assistance for no additional charge, just reach out to our support team for help.\nWhere are your servers located?\nWe use Vultr as our infrastructure provider and we can move your server to a location of your choosing in North America, Europe, Asia, or Australia.\nIs it easy to upgrade if needed?\nYes, if you need to upgrade your plan, you can do so from app.hostifi.com or you can let our team know. We will take care of the server and billing changes. No migration or downtime involved.\nWhat is the scope of your support?\nOur team provides support for both the server and the devices via live chat, phone, and email.\nUniFi, UISP and Omada cloud hosting.\nFollow Us\n\n\n\n\nServices\nConsulting\nProfessional Services\nCloud Hosting\nUniFi\nUISP\nFree Tools\nDevice Discovery Tool\nDevice Export Tool\nResources\nWall of Love\nBlog\nKnowledge Base\nSlack\nStatus\nCompany\nContact\nStore\nsupport@hostifi.com ‍\nSuite 350\n41000 Woodward Ave\nBloomfield Twp\nMI 48304\n+1 (888) 566-1402\nPrivacy Policy\nTerms of Service",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://support.hostifi.com/en/articles/3446785-white-label",
+     "publisher": "HostiFi",
+     "snapshot": {
+      "url": "https://support.hostifi.com/en/articles/3446785-white-label",
+      "finalUrl": "https://www.hostifi.com/support/hostifi-white-labeling",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:29.574Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "9689a5f72648978b5194db469832a97896e3baaf89fab84b7ba04ba694221347"
+     },
+     "text": "HostiFi - HostiFi - White Labeling\nLearn about the white labelling services we offer\nHostiFi - HostiFi - White Labeling\nLearn about the white labelling services we offer\nHostiFi - HostiFi - White Labeling\nLearn about the white labelling services we offer\nHostiFi - HostiFi - White Labeling\nNEW UniFi OS Server hosting now available\nServices\nConsulting\nProfessional Services Cloud Hosting\nUniFi UISP\nFree Tools\nDevice Discovery Tool Device Export Tool\nResources\nWall of Love Blog Knowledge Base Slack Status\nStore Contact Login Sign Up Book a Demo Sign Up Book a Demo Menu\n← Categories\n•\nHostiFi\nHostiFi - White Labeling\nLearn about the white labelling services we offer\nReilly Chase\nLast updated: October 6, 2026\nThe majority of our customers are IT service providers, who are using our service as part of their offering to their own customers. As such, the ability to provide a completely white labeled product, in which the end user is unaware of HostiFi being the server provider, is important to our customers.\nWhite Label Servers\nBy default, HostiFi servers use a hostifi.com URL. If you want to use your own custom domain instead, setup a CNAME record with your DNS provider pointing to your HostiFi URL. See our guides on how to use your own custom domain name with your UniFi or UISP servers for more detailed instructions. Once you have customized your domain name, there is no remaining reference to HostiFi on your servers, and you will automatically have a valid certificate pointing to your domain.\nWhite Label Billing\nYou are able to purchase multiple HostiFi products, which you can then resell to your customers on whatever terms you have established with the customer. By billing your customer and paying HostiFi separately, your customer will not see any references to HostiFi.\nWhite Label Professional Services\nOur HostiFi Professional Services team can provide a white label experience by working with your customers using your ticket system, your domain for emails, or your phone number.\nAbout HostiFi\nHostiFi provides hosting for Ubiquiti software platforms, with servers for UniFi and UISP . We also offer network consulting, with HostiFi Professional Services .\nNeed more help?\nWe're here to help you with anything Ubiquiti related.\nContact Us\nGet the Ubiquiti Top 20\nEach month our team sifts through Ubiquiti news and content from around the web and delivers 20 of our favorite links to your inbox.\nView recent issues\nNo spam. Unsubscribe anytime.\n🤩\nDiscovered 3+ things that I did not know and will have a material impact on my business.\nNewsletter Subscriber\n🤩\nAll the info I want/need in a single clean thread! Perfect!\nNewsletter Subscriber\n🤩\nProviding super valuable information to keep the community in the know. Awesome links page, Thank You.\nNewsletter Subscriber\nUniFi, UISP and Omada cloud hosting.\nFollow Us\n\n\n\n\nServices\nConsulting\nProfessional Services\nCloud Hosting\nUniFi\nUISP\nFree Tools\nDevice Discovery Tool\nDevice Export Tool\nResources\nWall of Love\nBlog\nKnowledge Base\nSlack\nStatus\nCompany\nContact\nStore\nsupport@hostifi.com ‍\nSuite 350\n41000 Woodward Ave\nBloomfield Twp\nMI 48304\n+1 (888) 566-1402\nPrivacy Policy\nTerms of Service",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+     "publisher": "HostiFi",
+     "snapshot": {
+      "url": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+      "finalUrl": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:30.000Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "34dec11e1a197ffe91cc065ac3563fd33b8140bbb92b367d160ef8b1f974c08a"
+     },
+     "text": "HostiFi - HostiFi - Using the HostiFi Free Plan\nWe used to offer a free plan on a shared server, what happens if you are still on this?\nHostiFi - HostiFi - Using the HostiFi Free Plan\nWe used to offer a free plan on a shared server, what happens if you are still on this?\nHostiFi - HostiFi - Using the HostiFi Free Plan\nWe used to offer a free plan on a shared server, what happens if you are still on this?\nHostiFi - HostiFi - Using the HostiFi Free Plan\nNEW UniFi OS Server hosting now available\nServices\nConsulting\nProfessional Services Cloud Hosting\nUniFi UISP\nFree Tools\nDevice Discovery Tool Device Export Tool\nResources\nWall of Love Blog Knowledge Base Slack Status\nStore Contact Login Sign Up Book a Demo Sign Up Book a Demo Menu\n← Categories\n•\nHostiFi\nHostiFi - Using the HostiFi Free Plan\nWe used to offer a free plan on a shared server, what happens if you are still on this?\nAlex Lowe\nLast updated: September 26, 2026\nIn the past, we used to offer a free plan for UniFi hosting - however this was discontinued a while back, but existing users can still use it without any issues.\nHostiFi Free Plan vs HostiFi Paid Plans\nHostiFi Free Plan\nNo longer accepting new customer sign ups\nShared server resources\nUpdates are pushed out via HostiFi Devolpment Team and will apply to everyone\nHostiFi Paid Plan\nHave access to app.hostifi.com to add admins, users and more\nSupport for manually rebooting server\nDedicated server resource\nUniFi updates can be managed by customer\nHow do I know if I am on a free plan?\nOur paid UniFi servers URLs start with m0, UISP with n0 and Omada with o0. The free UniFi plan URL starts with p01.\nAbout HostiFi\nHostiFi provides hosting for Ubiquiti software platforms, with servers for UniFi and UISP . We also offer network consulting, with HostiFi Professional Services .\nNeed more help?\nWe're here to help you with anything Ubiquiti related.\nContact Us\nGet the Ubiquiti Top 20\nEach month our team sifts through Ubiquiti news and content from around the web and delivers 20 of our favorite links to your inbox.\nView recent issues\nNo spam. Unsubscribe anytime.\n🤩\nDiscovered 3+ things that I did not know and will have a material impact on my business.\nNewsletter Subscriber\n🤩\nAll the info I want/need in a single clean thread! Perfect!\nNewsletter Subscriber\n🤩\nProviding super valuable information to keep the community in the know. Awesome links page, Thank You.\nNewsletter Subscriber\nUniFi, UISP and Omada cloud hosting.\nFollow Us\n\n\n\n\nServices\nConsulting\nProfessional Services\nCloud Hosting\nUniFi\nUISP\nFree Tools\nDevice Discovery Tool\nDevice Export Tool\nResources\nWall of Love\nBlog\nKnowledge Base\nSlack\nStatus\nCompany\nContact\nStore\nsupport@hostifi.com ‍\nSuite 350\n41000 Woodward Ave\nBloomfield Twp\nMI 48304\n+1 (888) 566-1402\nPrivacy Policy\nTerms of Service",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://www.hostifi.com/support/what-is-hostifi-export",
+     "publisher": "HostiFi",
+     "snapshot": {
+      "url": "https://www.hostifi.com/support/what-is-hostifi-export",
+      "finalUrl": "https://www.hostifi.com/support/what-is-hostifi-export",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:30.107Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "80b747eda31b820868fd25d181d08ce9c9c0debe12a14510f53185b2a16d1540"
+     },
+     "text": "HostiFi - What is HostiFi Export?\nHostiFi Export helps you easily export data from UISP or UniFi servers\nHostiFi - What is HostiFi Export?\nHostiFi Export helps you easily export data from UISP or UniFi servers\nHostiFi - What is HostiFi Export?\nHostiFi Export helps you easily export data from UISP or UniFi servers\nHostiFi - What is HostiFi Export?\nNEW UniFi OS Server hosting now available\nServices\nConsulting\nProfessional Services Cloud Hosting\nUniFi UISP\nFree Tools\nDevice Discovery Tool Device Export Tool\nResources\nWall of Love Blog Knowledge Base Slack Status\nStore Contact Login Sign Up Book a Demo Sign Up Book a Demo Menu\n← Categories\n•\nDevice Export Tool\nWhat is HostiFi Export?\nHostiFi Export helps you easily export data from UISP or UniFi servers\nAlex Lowe\nLast updated: September 26, 2026\nHostiFi Export allows you easily export the data of what devices you have on UISP or UniFi servers. Data gets shown on the web interface and then you can export that data to a CSV format. The new app can found at export.hostifi.com .\nWhat data can I get from it?\nIt'll pull the following data:\nDevice Name\nDevice Model\nFirmware Version\nEOL or LTS Status\nSite attached to\nIP address\nURL to controller\nMAC Address\nBSSID(s)\nOffline or online status\nAbout HostiFi\nHostiFi provides hosting for Ubiquiti software platforms, with servers for UniFi and UISP . We also offer network consulting, with HostiFi Professional Services .\nNeed more help?\nWe're here to help you with anything Ubiquiti related.\nContact Us\nGet the Ubiquiti Top 20\nEach month our team sifts through Ubiquiti news and content from around the web and delivers 20 of our favorite links to your inbox.\nView recent issues\nNo spam. Unsubscribe anytime.\n🤩\nDiscovered 3+ things that I did not know and will have a material impact on my business.\nNewsletter Subscriber\n🤩\nAll the info I want/need in a single clean thread! Perfect!\nNewsletter Subscriber\n🤩\nProviding super valuable information to keep the community in the know. Awesome links page, Thank You.\nNewsletter Subscriber\nUniFi, UISP and Omada cloud hosting.\nFollow Us\n\n\n\n\nServices\nConsulting\nProfessional Services\nCloud Hosting\nUniFi\nUISP\nFree Tools\nDevice Discovery Tool\nDevice Export Tool\nResources\nWall of Love\nBlog\nKnowledge Base\nSlack\nStatus\nCompany\nContact\nStore\nsupport@hostifi.com ‍\nSuite 350\n41000 Woodward Ave\nBloomfield Twp\nMI 48304\n+1 (888) 566-1402\nPrivacy Policy\nTerms of Service",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+     "publisher": "HostiFi",
+     "snapshot": {
+      "url": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+      "finalUrl": "https://www.hostifi.com/support/hostifi-what-is-the-device-discovery-tool",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:30.183Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "f9bda959be1f3477c35e8d56bb5bd08cd25eb15718c582fa348125dddb11507f"
+     },
+     "text": "HostiFi - HostiFi - What Is the Device Discovery Tool?\nLearn about our new tool designed to replace the old Ubiquiti Device Discovery Tool\nHostiFi - HostiFi - What Is the Device Discovery Tool?\nLearn about our new tool designed to replace the old Ubiquiti Device Discovery Tool\nHostiFi - HostiFi - What Is the Device Discovery Tool?\nLearn about our new tool designed to replace the old Ubiquiti Device Discovery Tool\nHostiFi - HostiFi - What Is the Device Discovery Tool?\nNEW UniFi OS Server hosting now available\nServices\nConsulting\nProfessional Services Cloud Hosting\nUniFi UISP\nFree Tools\nDevice Discovery Tool Device Export Tool\nResources\nWall of Love Blog Knowledge Base Slack Status\nStore Contact Login Sign Up Book a Demo Sign Up Book a Demo Menu\n← Categories\n•\nDevice Discovery Tool\nHostiFi - What Is the Device Discovery Tool?\nLearn about our new tool designed to replace the old Ubiquiti Device Discovery Tool\nAlex Lowe\nLast updated: October 6, 2026\nThe new HostiFi Device Discovery Tool is now available and can be downloaded for macOS, Windows, Linux, iOS and Android.\nTo download, visit our mini-site here ‍\nThe app is designed to be a direct replacement for the legacy Ubiquiti Device Discovery Tool, that underneath was a legacy Chrome Application. Chrome Apps were killed off by Google, so you can’t download anymore and it is impossible to run. So we decided to make a replacement.\nFor now, the app allows you to scan a local subnet for nearby Ubiquiti devices that are pending adoption. It'll show you the firmware, IP address, MAC address, device type and device name.\nAbout HostiFi\nHostiFi provides hosting for Ubiquiti software platforms, with servers for UniFi and UISP . We also offer network consulting, with HostiFi Professional Services .\nNeed more help?\nWe're here to help you with anything Ubiquiti related.\nContact Us\nGet the Ubiquiti Top 20\nEach month our team sifts through Ubiquiti news and content from around the web and delivers 20 of our favorite links to your inbox.\nView recent issues\nNo spam. Unsubscribe anytime.\n🤩\nDiscovered 3+ things that I did not know and will have a material impact on my business.\nNewsletter Subscriber\n🤩\nAll the info I want/need in a single clean thread! Perfect!\nNewsletter Subscriber\n🤩\nProviding super valuable information to keep the community in the know. Awesome links page, Thank You.\nNewsletter Subscriber\nUniFi, UISP and Omada cloud hosting.\nFollow Us\n\n\n\n\nServices\nConsulting\nProfessional Services\nCloud Hosting\nUniFi\nUISP\nFree Tools\nDevice Discovery Tool\nDevice Export Tool\nResources\nWall of Love\nBlog\nKnowledge Base\nSlack\nStatus\nCompany\nContact\nStore\nsupport@hostifi.com ‍\nSuite 350\n41000 Woodward Ave\nBloomfield Twp\nMI 48304\n+1 (888) 566-1402\nPrivacy Policy\nTerms of Service",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "Reilly Chase は IT サービス事業 Locklin Networks で Ubiquiti 機器を入れて回るうちに、顧客ごとのネットワークを1台のサーバーでまとめて管理したくなった。2018年、その管理サーバーを副業として他社にも売り始め、2019年に Calm Company Fund から10万ドルを調達した。",
+     "basis": [
+      "f1"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "2018年、Reilly Chase が自分の IT サービス事業 Locklin Networks の副業として HostiFi を始めた。きっかけは、Ubiquiti 製品を導入するたびに増える顧客ネットワークを1台のサーバーで一元管理したいという自分の不便だった。2019年に Calm Company Fund から10万ドルを調達した。その後、共有サーバーで動かしていた無料プランの新規受付をやめ、有料プランに一本化した。既存の無料利用者はそのまま使える。公式サイトの現在の表示では顧客は5000超で、料金は機器25台なら月19ドルからとなっている。",
+     "basis": [
+      "f1",
+      "f5",
+      "f2"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "Ubiquiti の UniFi・UISP を動かすクラウドサーバーを、管理できる機器の台数で区切った月額または年額で売る。台数が多い上位プランほど、更新の事前検査、長めのバックアップ保持、個別支援が付く。客が代理運営事業者であれば、自社の独自ドメインで自分の顧客に再販できる。その場合、事業者は自分の顧客に別途請求し、HostiFi には利用分を払う。",
+     "basis": [
+      "f2",
+      "f3",
+      "f4",
+      "f6"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pricing",
+     "item": "PRICING",
+     "text": "料金は管理できる機器の台数で決まる。25台までは月19ドルまたは年199ドル、250台までは月99ドルまたは年999ドル、1000台までは月249ドルまたは年2499ドル。上位プランには更新の検査、長めのバックアップ保持、個別支援が付く。30日返金保証がある。無料プランは新規の受付を終えている。",
+     "basis": [
+      "f2",
+      "f3",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "払っているのは、Ubiquiti 機器で組んだ顧客のネットワークを代わりに運営する事業者だ。こうした事業者は HostiFi のサーバーを自社の独自ドメインで顧客に再販し、自分で請求をかける。創業者自身も、顧客網を一元管理したかった IT サービス事業者だった。",
+     "basis": [
+      "f4",
+      "f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "導入先が増えるたびに、顧客ごとの Ubiquiti ネットワークを別々に見て回る手間が増える。それを1台のサーバーに集めたいという、創業者自身が IT サービス業で抱えた不便が出発点だった。また、旧 Ubiquiti の機器発見ツールは廃止された Chrome アプリの上で動いていたため、使えなくなった。HostiFi はこの穴も無料ツールで埋めている。",
+     "basis": [
+      "f1",
+      "f7"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "独自ドメインで再販している事業者は、自分の顧客への名乗りと請求の仕組みを HostiFi のサーバーの上に組んでいるため、乗り換えるとその組み直しが要る。一方で、サーバー上の機器データは HostiFi 自身が CSV で書き出せるツールを出しているので、データを抱え込んで離れにくくする仕掛けは弱い。",
+     "basis": [
+      "f4",
+      "f6"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "売り物は Ubiquiti の UniFi・UISP を動かすサーバーで、無料ツールも Ubiquiti 機器のデータ書き出しと発見に特化している。そのため、事業の土台はまるごと Ubiquiti の製品群の上にある。一方で、Google が Chrome アプリを廃止して旧 Ubiquiti の機器発見ツールが使えなくなったことは、HostiFi が代わりの無料ツールを出す隙になった。",
+     "basis": [
+      "f1",
+      "f6",
+      "f7"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "機器発見ツールと機器データの CSV 書き出しツールを無料で配り、Ubiquiti 機器を扱う技術者との接点にしている。発見ツールは、廃止された旧 Ubiquiti ツールの代わりとして案内している。",
+     "basis": [
+      "f6",
+      "f7"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-tools",
+     "item": "TOOLS",
+     "text": "公式サイトによると、サーバー基盤は Vultr を使う。監視は Zabbix、証明書は Let's Encrypt で、バックアップは DigitalOcean Spaces と Backblaze B2 の2か所に毎晩保管している。",
+     "basis": [
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "本業の IT サービス事業 Locklin Networks の副業として始めた。外部資金は2019年に Calm Company Fund から調達した10万ドルである。",
+     "basis": [
+      "f1"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "競合は、顧客先に置く Ubiquiti の管理機器（Cloud Key や Dream Machine）と、自前で立てる管理サーバーである。HostiFi は無料の移行支援、更新の事前検査、自社ドメインでの再販売で、これらからの乗り換え先の座を取っている。",
+     "basis": [
+      "f3",
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2018年に Locklin Networks の副業として開始した。2019年に Calm Company Fund から10万ドルを調達した。その後、無料プランの新規受付を終えた。現在も営業中で、公式サイトには顧客5000超と表示されている。",
+     "basis": [
+      "f1",
+      "f5",
+      "f2"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "特化しないと困難。Ubiquiti の管理サーバー代行という狭い枠で、すでに顧客5000超の先行者がいる。さらに再販売の形で IT サービス事業者の商品に組み込まれており、同じ枠に後から入っても乗り換える理由を作りにくい。",
+     "basis": [
+      "f2",
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "自分の IT サービス業で必要になった管理サーバーを、同業者向けの月額サービスに切り出した。さらに同業者が自社名で再販できる形にしたことで、客の客まで取り込む売り物になった。",
+     "basis": [
+      "f1",
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ],
+   "identity": {
+    "id": "ent_hostifi_cf9ec73a42d2",
+    "name": "HostiFi",
+    "url": "https://www.hostifi.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_fc74c9b8a775f199d669414e",
+      "entityId": "ent_hostifi_cf9ec73a42d2",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://www.hostifi.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:03:45.791Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "fc74c9b8a775f199d669414e73ed54bd41f0b14558566ab998d74bbfd5d02c13",
+      "bytes": 569236,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: HostiFi 公式サイト (https://www.hostifi.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_hostifi_cf9ec73a42d2/fc74c9b8a775f199d669414e73ed54bd41f0b14558566ab998d74bbfd5d02c13.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_1779bf5a57acf7eded21250b",
+      "entityId": "ent_hostifi_cf9ec73a42d2",
+      "kind": "favicon",
+      "sourcePageUrl": "https://www.hostifi.com/",
+      "assetUrl": "https://cdn.prod.website-files.com/60617e0790b4c17829cf0fa4/66ba204e5e7ef334717c71a2_favicon-small.png",
+      "retrievedAt": "2026-10-07T10:03:46.210Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "1779bf5a57acf7eded21250bb320d4cffa6b2076fa628224f5203514b0b5c733",
+      "bytes": 4164,
+      "contentType": "image/png",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: HostiFi 公式サイト (https://www.hostifi.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:18.760Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (1779bf5a57ac)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_hostifi_cf9ec73a42d2/1779bf5a57acf7eded21250bb320d4cffa6b2076fa628224f5203514b0b5c733.png",
+       "publicKey": "media/ent_hostifi_cf9ec73a42d2/1779bf5a57acf7eded21250bb320d4cffa6b2076fa628224f5203514b0b5c733.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_1779bf5a57acf7eded21250b",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:18.760Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (1779bf5a57ac)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_232216b82683ebbeb13bc977",
+      "entityId": "ent_hostifi_cf9ec73a42d2",
+      "kind": "og_image",
+      "sourcePageUrl": "https://www.hostifi.com/",
+      "assetUrl": "https://cdn.prod.website-files.com/60617e0790b4c17829cf0fa4/66b9872d6f6c33d73988ee97_unifi-ss.png",
+      "retrievedAt": "2026-10-07T10:03:51.983Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "232216b82683ebbeb13bc977716514ec36a77920fbfdf669e7d472b767bc152b",
+      "bytes": 1843865,
+      "contentType": "image/png",
+      "width": 1910,
+      "height": 1000,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: HostiFi 公式サイト (https://www.hostifi.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:18.516Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_hostifi_cf9ec73a42d2/232216b82683ebbeb13bc977716514ec36a77920fbfdf669e7d472b767bc152b.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_232216b82683ebbeb13bc977",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:18.516Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_1779bf5a57acf7eded21250b"
+    ],
+    "problems": []
+   },
+   "caseHash": "e9da9d7412e634b8a34c71dd0cca55c79b61553572d78308d3cc5cf25c89462f",
+   "itemHashes": {
+    "fact:f1": "0cf2ec8318b5ed17b73758657d673e780091d06fdfc90a293ebc957253402cdb",
+    "fact:f2": "991d3f9f0634e0792ab1a8e621760b01add08840a243eb5bcca6bd6797053659",
+    "fact:f3": "1515333c1a420defb655eaa6dc870ee9188ff45ef8e6df134577f4fa74a9e8d3",
+    "fact:f4": "ee8b50c6d891d2ef17446b416ca60bb257dd3c83e3f89c125b1f62b35d119fad",
+    "fact:f5": "2f9ee93d58551e1fd64f8e9141c903073cd1820a7bd26251a148c9e0458c72be",
+    "fact:f6": "7f89fa3ed10b3758f9a5415f1b46b7d29b38e530580298358f92cb9206894987",
+    "fact:f7": "3ada38e977e92338c4520dd10acfe2a8ed808b24062ea41a982c8197a2dffff7",
+    "analysis:a-headline": "4fe73fcc9183a9f9bc6ea87831122130c3d7a0cb856f2841f97a4a73b09e803f",
+    "analysis:a-story": "5e0b7a0dd0322e751b7698a60b1323612db311c43a1254aeb3daec8aba065f65",
+    "analysis:a-business_model": "030abd9a10f3622da81e92c7f1fbe4f45ad607d447b43727e2005d117411f1aa",
+    "analysis:a-pricing": "adc5b4ac4548c0a2fc5c2506c0bde3acf21d558da4dc3cb43ff64aabe4cbb16d",
+    "analysis:a-customer": "3afc35e14b69dbc6d4680d78ecb4baf63ed95ff9b90ae504ddce7e0825ab3a24",
+    "analysis:a-customer_pain": "1dae8803d5b8e90836c6b09b216afd325590e654aaafad30ee1703d6bce5ccbe",
+    "analysis:a-lock_in": "58e4ffcdba109682916d40687d539ad78b3c47c45cd1882be4e8a42a734ff18e",
+    "analysis:a-dependencies": "3e4d449812b23d42cd6ec7e4eaad823deb0f63c3c0b67b7253ceb1ac4d9d295c",
+    "analysis:a-channels": "6ced0917f63175f51c97e94f54ae6f0663e5dd9ab52da1d314aeb9e9843afa4f",
+    "analysis:a-tools": "7937158e606b34008f60349b0c5a0b28fd2833cab5cbffc7e2ac74c2c1280cd4",
+    "analysis:a-capital_and_team": "58d7f2e1d2cd804b0acf51fee023b19f02c0bf640290e7798b4463f354c5568a",
+    "analysis:a-competition": "2c01a64b5d77ba8f9911dccdd8b2ebe02f8471b52b9528d35a03241a19260d5e",
+    "analysis:a-timeline": "ac2a19653d66f14e97bf40166c0bae439358488ceb827628bade5f8d7a706db7",
+    "analysis:a-viability": "811e51ae563896e21b16188789096f03f05b7e18e2ea9246401ec7d37cfceba9",
+    "analysis:a-lesson": "10c0abec8ac2d642fbcd366f0be7109807396dee40581b15504633ad1e8e8385"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-pricing",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-lock_in",
+    "analysis:a-dependencies",
+    "analysis:a-channels",
+    "analysis:a-tools",
+    "analysis:a-capital_and_team",
+    "analysis:a-competition",
+    "analysis:a-timeline",
+    "analysis:a-viability",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://www.hostifi.com/",
+      "publisher": "HostiFi",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://support.hostifi.com/en/articles/3446785-white-label",
+      "publisher": "HostiFi",
+      "publishedAt": "2022-06-22",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+      "publisher": "HostiFi",
+      "publishedAt": "2026-06-19",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://www.hostifi.com/support/what-is-hostifi-export",
+      "publisher": "HostiFi",
+      "publishedAt": "2026-09-26",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+      "publisher": "HostiFi",
+      "publishedAt": "2026-06-22",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "2018年に Reilly Chase が IT サービス事業 Locklin Networks の副業として開始。Ubiquiti 製品を導入する中で顧客ネットワークを1台のサーバーで一元管理したいと考えたことから生まれ、2019年に Calm Company Fund から10万ドルを調達したと公式が説明する。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "OTHER",
+      "text": "公式の現在表示は顧客5000超。機器25台は月19ドルまたは年199ドル、250台は月99ドルまたは年999ドル、1000台は月249ドルまたは年2499ドル。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "上位プランでは更新の検査、長めのバックアップ保持、個別支援等を提供。30日返金保証を表示する。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "OTHER",
+      "text": "代理運営事業者は独自ドメインで顧客へ再販売できる。顧客への請求は別途行う。",
+      "sourceId": "s8",
+      "statedAt": "2022-06-22",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "無料プランは新規提供を終了。既存利用者は引き続き使え、共有のサーバー資源を使う。",
+      "sourceId": "s9",
+      "statedAt": "2026-06-19",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "OTHER",
+      "text": "UniFi と UISP のサーバー上の機器データを CSV 形式で書き出すツールを提供する。",
+      "sourceId": "s10",
+      "statedAt": "2026-09-26",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "無料の機器発見ツールを提供し、廃止された Chrome アプリによる旧 Ubiquiti 機器発見ツールの代替として案内する。",
+      "sourceId": "s11",
+      "statedAt": "2026-06-22",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM",
+     "CHANNEL",
+     "TOOLS",
+     "PRICING",
+     "FOUNDED"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "Reilly Chase は IT サービス事業 Locklin Networks で Ubiquiti 機器を入れて回るうちに、顧客ごとのネットワークを1台のサーバーでまとめて管理したくなった。2018年、その管理サーバーを副業として他社にも売り始め、2019年に Calm Company Fund から10万ドルを調達した。",
+      "basis": [
+       "f1"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "2018年、Reilly Chase が自分の IT サービス事業 Locklin Networks の副業として HostiFi を始めた。きっかけは、Ubiquiti 製品を導入するたびに増える顧客ネットワークを1台のサーバーで一元管理したいという自分の不便だった。2019年に Calm Company Fund から10万ドルを調達した。その後、共有サーバーで動かしていた無料プランの新規受付をやめ、有料プランに一本化した。既存の無料利用者はそのまま使える。公式サイトの現在の表示では顧客は5000超で、料金は機器25台なら月19ドルからとなっている。",
+      "basis": [
+       "f1",
+       "f5",
+       "f2"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "Ubiquiti の UniFi・UISP を動かすクラウドサーバーを、管理できる機器の台数で区切った月額または年額で売る。台数が多い上位プランほど、更新の事前検査、長めのバックアップ保持、個別支援が付く。客が代理運営事業者であれば、自社の独自ドメインで自分の顧客に再販できる。その場合、事業者は自分の顧客に別途請求し、HostiFi には利用分を払う。",
+      "basis": [
+       "f2",
+       "f3",
+       "f4",
+       "f6"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pricing",
+      "item": "PRICING",
+      "text": "料金は管理できる機器の台数で決まる。25台までは月19ドルまたは年199ドル、250台までは月99ドルまたは年999ドル、1000台までは月249ドルまたは年2499ドル。上位プランには更新の検査、長めのバックアップ保持、個別支援が付く。30日返金保証がある。無料プランは新規の受付を終えている。",
+      "basis": [
+       "f2",
+       "f3",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "払っているのは、Ubiquiti 機器で組んだ顧客のネットワークを代わりに運営する事業者だ。こうした事業者は HostiFi のサーバーを自社の独自ドメインで顧客に再販し、自分で請求をかける。創業者自身も、顧客網を一元管理したかった IT サービス事業者だった。",
+      "basis": [
+       "f4",
+       "f1"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "導入先が増えるたびに、顧客ごとの Ubiquiti ネットワークを別々に見て回る手間が増える。それを1台のサーバーに集めたいという、創業者自身が IT サービス業で抱えた不便が出発点だった。また、旧 Ubiquiti の機器発見ツールは廃止された Chrome アプリの上で動いていたため、使えなくなった。HostiFi はこの穴も無料ツールで埋めている。",
+      "basis": [
+       "f1",
+       "f7"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "独自ドメインで再販している事業者は、自分の顧客への名乗りと請求の仕組みを HostiFi のサーバーの上に組んでいるため、乗り換えるとその組み直しが要る。一方で、サーバー上の機器データは HostiFi 自身が CSV で書き出せるツールを出しているので、データを抱え込んで離れにくくする仕掛けは弱い。",
+      "basis": [
+       "f4",
+       "f6"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "売り物は Ubiquiti の UniFi・UISP を動かすサーバーで、無料ツールも Ubiquiti 機器のデータ書き出しと発見に特化している。そのため、事業の土台はまるごと Ubiquiti の製品群の上にある。一方で、Google が Chrome アプリを廃止して旧 Ubiquiti の機器発見ツールが使えなくなったことは、HostiFi が代わりの無料ツールを出す隙になった。",
+      "basis": [
+       "f1",
+       "f6",
+       "f7"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "機器発見ツールと機器データの CSV 書き出しツールを無料で配り、Ubiquiti 機器を扱う技術者との接点にしている。発見ツールは、廃止された旧 Ubiquiti ツールの代わりとして案内している。",
+      "basis": [
+       "f6",
+       "f7"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-tools",
+      "item": "TOOLS",
+      "text": "公式サイトによると、サーバー基盤は Vultr を使う。監視は Zabbix、証明書は Let's Encrypt で、バックアップは DigitalOcean Spaces と Backblaze B2 の2か所に毎晩保管している。",
+      "basis": [
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "本業の IT サービス事業 Locklin Networks の副業として始めた。外部資金は2019年に Calm Company Fund から調達した10万ドルである。",
+      "basis": [
+       "f1"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "競合は、顧客先に置く Ubiquiti の管理機器（Cloud Key や Dream Machine）と、自前で立てる管理サーバーである。HostiFi は無料の移行支援、更新の事前検査、自社ドメインでの再販売で、これらからの乗り換え先の座を取っている。",
+      "basis": [
+       "f3",
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2018年に Locklin Networks の副業として開始した。2019年に Calm Company Fund から10万ドルを調達した。その後、無料プランの新規受付を終えた。現在も営業中で、公式サイトには顧客5000超と表示されている。",
+      "basis": [
+       "f1",
+       "f5",
+       "f2"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "特化しないと困難。Ubiquiti の管理サーバー代行という狭い枠で、すでに顧客5000超の先行者がいる。さらに再販売の形で IT サービス事業者の商品に組み込まれており、同じ枠に後から入っても乗り換える理由を作りにくい。",
+      "basis": [
+       "f2",
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "自分の IT サービス業で必要になった管理サーバーを、同業者向けの月額サービスに切り出した。さらに同業者が自社名で再販できる形にしたことで、客の客まで取り込む売り物になった。",
+      "basis": [
+       "f1",
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

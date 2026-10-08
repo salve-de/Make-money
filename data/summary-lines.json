@@ -58,5 +58,119 @@
     "factId": "f1",
     "factHash": "cecd9426",
     "text": "コードの変更履歴を管理するサービスGitHub・GitLabと連携する。コードの変更を申請すると、作業の状態が「レビュー」に変わる。変更を反映すると「完了」に変わる。請求に使う時刻も記録する"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "factId": "f9",
+    "factHash": "77a54a68",
+    "text": ""
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "factId": "f1",
+    "factHash": "e6941e7a",
+    "text": ""
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "factId": "f25",
+    "factHash": "04a8d6b7",
+    "text": ""
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "factId": "f3",
+    "factHash": "76f1a14a",
+    "text": ""
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "factId": "f23",
+    "factHash": "ba98376c",
+    "text": ""
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "factId": "f2",
+    "factHash": "805eab45",
+    "text": ""
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "factId": "f3",
+    "factHash": "6d3adbf8",
+    "text": ""
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "factId": "f1",
+    "factHash": "edd1af67",
+    "text": ""
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "factId": "f1",
+    "factHash": "e8496dcc",
+    "text": ""
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "factId": "f1",
+    "factHash": "150be182",
+    "text": "AIのOpenAI、アクセス解析のGoogle Analytics、広告のFacebook Adsなどのサービスから、データを取り込める。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "factId": "f1",
+    "factHash": "daf4e39e",
+    "text": ""
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "factId": "f14",
+    "factHash": "180d737b",
+    "text": ""
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "factId": "f1",
+    "factHash": "89000904",
+    "text": ""
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "factId": "f9",
+    "factHash": "d83eb04f",
+    "text": ""
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "factId": "f1",
+    "factHash": "94e288de",
+    "text": "銀行の取引を直接取り込めるほか、表計算の形式のファイルや、他のソフトとつなぐ接続口からも取り込める。複数の通貨に対応し、支出の分類ごとに月の予算を組める。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "factId": "f13",
+    "factHash": "9ace0ebc",
+    "text": ""
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "factId": "f3",
+    "factHash": "0993d387",
+    "text": "担当者が手早く作業できる対応画面に加え、他のソフトから制限なく操作できる接続の仕組み（GraphQL）を備える。問い合わせの割り当てや報告の仕組みを、客が自分で作れる。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "factId": "f23",
+    "factHash": "6c94e83c",
+    "text": ""
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "factId": "f1",
+    "factHash": "c6eeb229",
+    "text": ""
   }
 ]

@@ -1,0 +1,765 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/revue-record.json",
+  "manifestSha256": "6454518c205496518e6441573cdd0088546855193ceb71cd80465c733cb3e1e1",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:24.152Z"
+ },
+ "records": [
+  {
+   "id": "ent_revue_4fbfee0d2036",
+   "provenance": {
+    "detailsHash": "a59d459f487fe83c8be3a6808486eb1cd9f66c5dbdabd8b88f8b3f121e0c8465",
+    "artifactSha256": "6454518c205496518e6441573cdd0088546855193ceb71cd80465c733cb3e1e1"
+   },
+   "record": {
+    "id": "ent_revue_4fbfee0d2036",
+    "ticker": "REVUE",
+    "name": "Revue",
+    "legalEntity": "",
+    "tagline": "リンクの収集と見栄えの調整をまとめ、書き手が読者へ直接届けるメールマガジンを提供。読者数に応じた月額料金から、有料購読への手数料にも広げた",
+    "description": "個人の書き手や出版社が記事やリンクを編集し、メールマガジンとして届けるサービス。初期はProduct Huntで登録者を獲得し、読者数に応じて課金した。利用者の聞き取りと公開の開発予定への投票で機能を改善し、後に有料購読と出版社向け機能も提供した。2021年にTwitterが買収し、2023年1月に提供を終了した。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Martijn de Kuijper、Mohamed El Maslouhi",
+    "country": "オランダ",
+    "url": "https://www.getrevue.co/",
+    "officialUrl": "https://www.getrevue.co/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "初期は無料の小規模配信から読者数別の月額へつなぎ、有料購読の徴収手数料も設定。2021年にPro無料化と手数料5%を発表。",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "メールマガジン",
+     "記事の収集",
+     "Product Hunt",
+     "利用者への聞き取り",
+     "有料購読",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2015〜2023年の資料と、2026-10-07に確認した終了案内",
+     "revenueLabel": "",
+     "sourceDoc": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "集めたリンクをメールマガジンにまとめるサービス。創業者は、TwitterでBenedict Evansのリンクを見逃していたことが着想のきっかけだと説明した。",
+      "sourceUrl": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "statedAt": "2015-07-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "出発点",
+      "eventPeriod": "2015年までの経緯",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "TEAM",
+      "text": "2015年7月の取材時点では、Martijn de Kuijperが1人でRevueを作っていた。",
+      "sourceUrl": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "statedAt": "2015-07-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "出発点",
+      "eventPeriod": "2015-07-27",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Product Huntで紹介されてから3週間以内に2,000人超の利用者が登録したと創業者が説明した。",
+      "sourceUrl": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "statedAt": "2015-07-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2015年の初期公開後",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2015年7月の記事は利用者3,500人と報じた。支払客数の記載ではない。",
+      "sourceUrl": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "statedAt": "2015-07-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2015-07-27",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2015年7月には読者200人までは無料、それ以上の有料枠は月$5からで、追加の見た目の調整も含んだ。",
+      "sourceUrl": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "statedAt": "2015-07-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2015-07-27",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "企業内の共有に使われていると知り、公開プロフィールを一時的に非公開にする機能を追加した。",
+      "sourceUrl": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "statedAt": "2015-07-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2015-07-27までの経緯",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "初期に大量の要望と障害報告を受け、機能追加、修正、有料枠の追加を行った。一方、登録後に使い始めない人がいるとも述べた。",
+      "sourceUrl": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "statedAt": "2015-07-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "つまずきと立て直し",
+      "eventPeriod": "2015-07-27までの経緯",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "創業者は約4週間で初期版を作り、その後の約2週間で約2,000人が登録したと2018年の取材で振り返った。",
+      "sourceUrl": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+      "statedAt": "2018-05-18",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "出発点",
+      "eventPeriod": "2015年の初期開発・公開",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "リンク、文章、画像を編集画面に入れると体裁を整え、接続した情報源やChrome拡張から保存した記事をドラッグしてメールマガジンに加えられた。",
+      "sourceUrl": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+      "statedAt": "2018-05-18",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2018-05-18",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2018年5月の記事は利用者35,000人とし、多くは無料枠を使っていると記した。",
+      "sourceUrl": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+      "statedAt": "2018-05-18",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2018-05-18",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2018年5月の無料枠は読者50人まで、有料枠は読者数に応じて月$5〜$135と報じられた。",
+      "sourceUrl": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+      "statedAt": "2018-05-18",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2018-05-18",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2018年5月には有料購読のメールマガジンとStripeによる決済、複数人で管理する出版社向け機能を提供していた。",
+      "sourceUrl": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+      "statedAt": "2018-05-18",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2018-05-18まで",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者M.G. Sieglerは、事業の宣伝より読者と編集に重点があることを評価し、読者との1対1に近い関係が魅力だと述べた。",
+      "sourceUrl": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+      "statedAt": "2018-05-18",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2018-05-18",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "製品担当Nikky Hoflandは、参加後の最初の1か月に約50人の利用者を聞き取り、Lookbackで録画したと記した。",
+      "sourceUrl": "https://www.mindtheproduct.com/last-time-talked-customers/",
+      "statedAt": "2017-04-13",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2017-04-13までの取り組み",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "聞き取りで、利用者は読者からの返信や反応を特に喜ぶと知り、利用者自身のメールマガジンの重要性を伝える見せ方や、交流を重視する方向を再考した。",
+      "sourceUrl": "https://www.mindtheproduct.com/last-time-talked-customers/",
+      "statedAt": "2017-04-13",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "つまずきと立て直し",
+      "eventPeriod": "2017-04-13までの取り組み",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2017年初めにTrelloで開発予定を公開して投票を受け付けた。最も票を集めた複数号の同時編集を創業者が制作し、翌週に公開した。",
+      "sourceUrl": "https://www.mindtheproduct.com/last-time-talked-customers/",
+      "statedAt": "2017-04-13",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2017年初め",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "複数号の同時編集をIntercomで案内すると、利用者から多数の喜ぶ返答が届いたと製品担当が記した。売上や利用率の改善幅は記載されていない。",
+      "sourceUrl": "https://www.mindtheproduct.com/last-time-talked-customers/",
+      "statedAt": "2017-04-13",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "つまずきと立て直し",
+      "eventPeriod": "2017-04-13までの取り組み",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2017年2月には40人の利用者をSlackの専用窓口に招待し、制作中の機能を見せて話した。利用者同士も読者の増やし方や連携機能を相談した。",
+      "sourceUrl": "https://www.mindtheproduct.com/last-time-talked-customers/",
+      "statedAt": "2017-04-13",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2017年2月",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2017年4月の寄稿では、利用者約25,000人、月に250万通超の配信と説明した。配信通数と利用者数は別の指標である。",
+      "sourceUrl": "https://www.mindtheproduct.com/last-time-talked-customers/",
+      "statedAt": "2017-04-13",
+      "checkedAt": "2026-10-07",
+      "originLabel": "本人",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2017-04-13",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2021年1月26日、TwitterはRevueを買収したと発表した。",
+      "sourceUrl": "https://blog.x.com/en_us/topics/company/2021/making-twitter-a-better-home-for-writers",
+      "statedAt": "2021-01-26",
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2021-01-26",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "同日、全アカウントのPro機能を無料にし、有料購読のメールマガジンに対する手数料を5%へ下げると発表した。",
+      "sourceUrl": "https://blog.x.com/en_us/topics/company/2021/making-twitter-a-better-home-for-writers",
+      "statedAt": "2021-01-26",
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2021-01-26",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Twitterは、Revueを独立したサービスとして継続し、書き手の配信、読者獲得、収益化を支える方針を発表した。当時の方針の記録である。",
+      "sourceUrl": "https://blog.x.com/en_us/topics/company/2021/making-twitter-a-better-home-for-writers",
+      "statedAt": "2021-01-26",
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "実際にやったこと",
+      "eventPeriod": "2021-01-26",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Xの公式案内は、Revueの提供終了日を2023年1月18日としている。現在はRevueへログインできない。",
+      "sourceUrl": "https://help.x.com/en/using-x/revue",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "originLabel": "公式",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2023-01-18",
+      "dateNote": "公表日は記載なし。確認日を記録し、出来事の時期とは区別。"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Tweakersは、RevueがオランダのUtrechtにあり、2015年にMartijn de KuijperとMohamed El Maslouhiが設立したと報じた。",
+      "sourceUrl": "https://tweakers.net/nieuws/177310/twitter-neemt-nederlandse-dienst-revue-voor-betaalde-nieuwsbrieven-over.html",
+      "statedAt": "2021-01-26",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "出発点",
+      "eventPeriod": "2015年",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者fewipsは、Blendleの試用で知ってから数年間利用し、400人への配信に払っていた費用が無料になったことを歓迎するコメントを投稿した。",
+      "sourceUrl": "https://tweakers.net/nieuws/177310/twitter-neemt-nederlandse-dienst-revue-voor-betaalde-nieuwsbrieven-over.html",
+      "statedAt": "2021-01-26",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2021-01-26",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者Skit3000は、リンクを入れると見出し・要約・画像が整う点を評価する一方、表示の待ち時間や携帯での編集を不満として挙げた。コメントには2024年7月26日の編集表示がある。",
+      "sourceUrl": "https://tweakers.net/nieuws/177310/twitter-neemt-nederlandse-dienst-revue-voor-betaalde-nieuwsbrieven-over.html",
+      "statedAt": "2021-01-26",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "初回2021-01-26、編集2024-07-26",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "Axiosは、買収時点までの有料購読手数料を6%と報じた。",
+      "sourceUrl": "https://www.axios.com/2021/01/26/twitter-newsletter-publishing-revue",
+      "statedAt": "2021-01-26",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "価格の変遷",
+      "eventPeriod": "2021-01-26",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "公式発表を報じた記事では、技術、デザイン、調査、データ分析の担当者を追加する方針が紹介された。採用完了を示す記録ではない。",
+      "sourceUrl": "https://www.socialmediatoday.com/news/twitter-announces-acquisition-of-newsletter-platform-revue/594033/",
+      "statedAt": "2021-01-27",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "時間順の流れ",
+      "eventPeriod": "2021-01-27",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Lim Chee Aunは、Twitterとの連携を試す機会だと考え、2021年9月にRevueで自分のメールマガジンを始めたと記した。",
+      "sourceUrl": "https://cheeaun.com/blog/2022/01/2021-in-review/",
+      "statedAt": "2022-01-02",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2021年9月",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Lim Chee Aunは、2号目を送った時に書くことを楽しんでいると気づき、月末に送る形式を計画したと記した。",
+      "sourceUrl": "https://cheeaun.com/blog/2022/01/2021-in-review/",
+      "statedAt": "2022-01-02",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2021年の利用経験",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者mkr-hnは、RevueとTwitter連携で隔月の配信を試しており、プロフィールの購読ボタンにメールアドレスがあらかじめ入ることを報告した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=28591880",
+      "statedAt": "2021-09-20",
+      "checkedAt": "2026-10-07",
+      "originLabel": "第三者",
+      "materialSection": "客の声",
+      "eventPeriod": "2021-09-20",
+      "dateNote": "日付は資料の公表日。出来事の時期は別記。"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "codex_gen2_20261007",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+       "publisher": "Marketingfacts（創業者へのインタビュー）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2015-07-27",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+       "publisher": "Fast Company（創業者・利用者への取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2018-05-18",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.mindtheproduct.com/last-time-talked-customers/",
+       "publisher": "Mind the Product（Revue製品担当Nikky Hoflandの寄稿）",
+       "sourceType": "employee_post",
+       "publicationDate": "2017-04-13",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://blog.x.com/en_us/topics/company/2021/making-twitter-a-better-home-for-writers",
+       "publisher": "Twitter（公式発表、現在のX公式サイト）",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-01-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://help.x.com/en/using-x/revue",
+       "publisher": "X（Revueの終了案内）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tweakers.net/nieuws/177310/twitter-neemt-nederlandse-dienst-revue-voor-betaalde-nieuwsbrieven-over.html",
+       "publisher": "Tweakers（報道と利用者のコメント）",
+       "sourceType": "news_and_customer_comments",
+       "publicationDate": "2021-01-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.axios.com/2021/01/26/twitter-newsletter-publishing-revue",
+       "publisher": "Axios（料金に関する報道）",
+       "sourceType": "news",
+       "publicationDate": "2021-01-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.socialmediatoday.com/news/twitter-announces-acquisition-of-newsletter-platform-revue/594033/",
+       "publisher": "Social Media Today（公式発表に関する報道）",
+       "sourceType": "news",
+       "publicationDate": "2021-01-27",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://cheeaun.com/blog/2022/01/2021-in-review/",
+       "publisher": "Lim Chee Aun（利用者本人の記録）",
+       "sourceType": "customer_post",
+       "publicationDate": "2022-01-02",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=28591880",
+       "publisher": "Hacker News（利用者mkr-hnのコメント）",
+       "sourceType": "customer_post",
+       "publicationDate": "2021-09-20",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "売上・利益・原価・現金手残りの実額: 開いて確認できた本文には会社の損益実額がない。登録者数・配信通数・手数料から売上を逆算しない。",
+      "初期の元手・最初の有料客数・初期有料化率: 公開本文では確認できなかった。資金調達額や前職の資金は手順書の調査対象外。",
+      "立て直し前後の数値: 登録後の未利用、聞き取り、機能追加と好意的な反応は確認できたが、変更前後の利用率・売上・有料化率は見つからなかった。",
+      "初回公開の正確な日: 2015年7月の取材は公開から3か月と説明する一方、後年の取材は2015年を起点とする。月日は確定せず、年だけを採用。",
+      "初期2,000人までの期間: 2015年取材は3週間以内、2018年取材は約2週間と記す。起算点を照合できないため一本化しない。",
+      "全料金履歴と無料枠縮小の実施日: 2015年の読者200人、2018年の50人、2021年のPro無料化は確認できたが、200人から50人への切替日は見つからなかった。",
+      "現在の人数・作業時間・自動化率: 同じ定義と時点で確認できる資料なし。作業時間は手順書の対象外。終了後の現役サービスとして扱わない。",
+      "競合が参入しない理由・模倣の命令手順・現在の勝てる可能性: 根拠がないものと依頼範囲外のものは空欄。"
+     ],
+     "conflicts": [
+      "2,000人までの期間は2015年取材の3週間以内と、2018年取材の約2週間が一致しない。起算点を確認できず、各証言を公表日付きで併記する。",
+      "初期の公開時期は2015年7月記事の「3か月」と、2015年設立の表記だけでは正確な月日を確定できない。年のみ記録する。",
+      "無料読者枠200人（2015年）と50人（2018年）は観測時点が異なる。切替日は確認できない。",
+      "Tweakersの利用者Skit3000のコメントは2021年投稿・2024年編集と表示。すべてを2021年時点の内容と断定しない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2015,
+     "initialTractionPeriod": "2015年に公開。Product Hunt掲載後に2,000人超、同年7月に3,500人。",
+     "dataSnapshotPeriod": "2015〜2023年の資料と、2026-10-07に確認した終了案内",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true,
+     "initialTeamSize": 1
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "リンクや画像を整えて、編集記事をメールマガジンとして配信する。",
+     "targetCustomer": "個人の書き手、記者、出版社、メールで情報を届けたい小規模事業者",
+     "painRelief": "記事の収集、体裁の調整、配信の準備をまとめて行える。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_revue_4fbfee0d2036_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Marketingfacts（創業者へのインタビュー）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+       "公表日: 2015-07-27",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Fast Company（創業者・利用者への取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+       "公表日: 2018-05-18",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.fastcompany.com/40572973/email-yes-email-is-the-next-great-media-platform",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Mind the Product（Revue製品担当Nikky Hoflandの寄稿）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://www.mindtheproduct.com/last-time-talked-customers/",
+       "公表日: 2017-04-13",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.mindtheproduct.com/last-time-talked-customers/",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Twitter（公式発表、現在のX公式サイト）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://blog.x.com/en_us/topics/company/2021/making-twitter-a-better-home-for-writers",
+       "公表日: 2021-01-26",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://blog.x.com/en_us/topics/company/2021/making-twitter-a-better-home-for-writers",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: X（Revueの終了案内）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://help.x.com/en/using-x/revue",
+       "公表日: 記載なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://help.x.com/en/using-x/revue",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Tweakers（報道と利用者のコメント）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://tweakers.net/nieuws/177310/twitter-neemt-nederlandse-dienst-revue-voor-betaalde-nieuwsbrieven-over.html",
+       "公表日: 2021-01-26",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tweakers.net/nieuws/177310/twitter-neemt-nederlandse-dienst-revue-voor-betaalde-nieuwsbrieven-over.html",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Axios（料金に関する報道）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://www.axios.com/2021/01/26/twitter-newsletter-publishing-revue",
+       "公表日: 2021-01-26",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.axios.com/2021/01/26/twitter-newsletter-publishing-revue",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Social Media Today（公式発表に関する報道）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://www.socialmediatoday.com/news/twitter-announces-acquisition-of-newsletter-platform-revue/594033/",
+       "公表日: 2021-01-27",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.socialmediatoday.com/news/twitter-announces-acquisition-of-newsletter-platform-revue/594033/",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lim Chee Aun（利用者本人の記録）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://cheeaun.com/blog/2022/01/2021-in-review/",
+       "公表日: 2022-01-02",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://cheeaun.com/blog/2022/01/2021-in-review/",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_revue_4fbfee0d2036_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker News（利用者mkr-hnのコメント）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページを実際に開き、本文の該当箇所を確認。事実ごとの対応先は調査記録内に記載。",
+      "details": [
+       "出典URL: https://news.ycombinator.com/item?id=28591880",
+       "公表日: 2021-09-20",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://news.ycombinator.com/item?id=28591880",
+      "sourceNote": "公開資料の本文確認。日本語で要約し、原文の長い転載は行わない。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "codex_gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "売上・利益・原価・現金手残りの実額: 開いて確認できた本文には会社の損益実額がない。登録者数・配信通数・手数料から売上を逆算しない。",
+     "初期の元手・最初の有料客数・初期有料化率: 公開本文では確認できなかった。資金調達額や前職の資金は手順書の調査対象外。",
+     "立て直し前後の数値: 登録後の未利用、聞き取り、機能追加と好意的な反応は確認できたが、変更前後の利用率・売上・有料化率は見つからなかった。",
+     "初回公開の正確な日: 2015年7月の取材は公開から3か月と説明する一方、後年の取材は2015年を起点とする。月日は確定せず、年だけを採用。",
+     "初期2,000人までの期間: 2015年取材は3週間以内、2018年取材は約2週間と記す。起算点を照合できないため一本化しない。",
+     "全料金履歴と無料枠縮小の実施日: 2015年の読者200人、2018年の50人、2021年のPro無料化は確認できたが、200人から50人への切替日は見つからなかった。",
+     "現在の人数・作業時間・自動化率: 同じ定義と時点で確認できる資料なし。作業時間は手順書の対象外。終了後の現役サービスとして扱わない。",
+     "競合が参入しない理由・模倣の命令手順・現在の勝てる可能性: 根拠がないものと依頼範囲外のものは空欄。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: \"HOLD\"→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceDoc: 空→https://www.marketingfacts.nl/berichten/martijn-de-kuijper-revue-mail-is-het-nieuwe-bloggen-met-revue/",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1322 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_typedream_c02cf9d5426e",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "コードを書かずにサイトを作り、電子書籍・講座・テンプレート・サービスを販売し、フォームでメールアドレスを集める機能を提供している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "DESCRIPTION",
+     "text": "公式サイトには、作成されたサイト135K（135,000件）と記載されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "PRICING",
+     "text": "現在のLaunchは1サイトごとに月払い$20、年払いは月額換算$15。独自ドメイン、無制限のページ、解析、ブログ1件を含む。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "PRICING",
+     "text": "現在のGrowは1サイトごとに月払い$49、年払いは月額換算$42。ブログ数とフォーム送信数の上限がなくなる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "PRICING",
+     "text": "無料枠は1ページを公開できる。商品販売の取引手数料は無料枠5%、LaunchとGrowは2%で、カードまたはPayPalの手数料は別にかかる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "FOUNDING",
+     "text": "Kevin Chandraは、Typedreamを2021年に始めたと記している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "顧客が参加した通話、機能要望、障害報告が、誰でも美しいサイトを作りやすくするという目標の達成を助けたと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "EVENT",
+     "text": "beehiivの発表によると、2021年7月にProduct Huntの月間1位になった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "2024年6月のbeehiivの公式発表では、Typedream上で企業・出版者・クリエイター向けの数万件のサイトが稼働していると説明した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "TEAM",
+     "text": "beehiivの発表は、Typedreamを5人の技術者が創業したサービスと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "認証サービスを作っていた際、Notionとの連携を求められた。利用者に聞くと、文章を直接編集できる操作が好まれ、ボタンやナビゲーションが不足していた。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "その聞き取りから、文章編集の操作にサイト用の部品と標準デザインを足し、画面サイズへの対応も製品側で受け持つ形にした。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f13",
+     "kind": "OTHER",
+     "text": "Putri Karuniaは、以前は利用者を十分に定められなかったため、今回は制作前に候補利用者を徹底して聞き取ったと返答した。返答日は2021年11月3日。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f14",
+     "kind": "PRICING",
+     "text": "2021年11月2日の投稿でコメント投稿者が年$144の価格を挙げ、創業者は他のサイト作成サービスの価格を参考にしたと返答した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "試用者yutersはNotion利用者ならなじみやすいと評価した一方、背景色の変更と画面外に隠れる操作メニューを指摘。創業者は改善点と障害を認めた。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f16",
+     "kind": "PRICING",
+     "text": "旧料金ページのLaunchは月払い$15、年払いは月額換算$12。公開ページ数無制限と独自ドメインを含む。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "PRICING",
+     "text": "旧料金ページのProは月払い$25、年払いは月額換算$20。保護ページとNotionのデータ表示などを含む。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "OTHER",
+     "text": "旧料金ページには、月または年ごとの自動更新と、解約時は支払期間末まで利用できることが記載されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "OTHER",
+     "text": "Kyleigh Smithは、Dry January Challengeの募集ページを約1日で用意できたことが最大の利点だったと述べた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "OTHER",
+     "text": "Kyleigh Smithは、約1年前の試用でドラッグ操作に困り、Unicorn Platformを使い続けたが、再試用では問題が解消され、Typedreamを採用したと述べた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "OTHER",
+     "text": "Kyleigh Smithは、TwitterとProduct HuntでTypedreamのチームを見かけて知ったと述べた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "OTHER",
+     "text": "Kyleigh Smithは、あらかじめ整った部品を動かして自分の意図に合わせられることと、公開や修正の容易さを評価した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f23",
+     "kind": "OTHER",
+     "text": "紹介報酬の案内は、継続課金に対して20%の報酬を提示し、PayPalで毎月支払うと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f24",
+     "kind": "OTHER",
+     "text": "紹介報酬ページには、2022年4月19日のEasloの投稿が掲載されている。本人がTypedreamで募集ページを約5分で作ったとする利用談である。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f25",
+     "kind": "PRICING",
+     "text": "2023年5月9日更新の返金規定は、新規の有料プランをカードで購入した場合、最初の14日以内を全額返金の対象とする。更新料金は原則として対象外。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f26",
+     "kind": "EVENT",
+     "text": "公式記事目録は、2023年4月28日に無料枠へブログとフォームを開放した記事を掲載している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f27",
+     "kind": "EVENT",
+     "text": "公式記事目録には、2023年5月15日付でKyleigh Smithへの利用者インタビューが掲載されている。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://typedream.com/",
+     "publisher": "Typedream（公式製品紹介）",
+     "snapshot": {
+      "url": "https://typedream.com/",
+      "finalUrl": "https://typedream.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:30:49.292Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "3e88817ff8fd2aaca34c48632c87b098bf783b721515dd53f80471d244bc202e"
+     },
+     "text": "Typedream: AI Website Builder\nCreate stunning landing pages with just 1 sentence with AI.\nTypedream: AI Website Builder\nCreate stunning landing pages with just 1 sentence with AI.\nTypedream: AI Website Builder\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\n☁️ Typedream is acquired by beehiiv, read more →\nSell Digital Products\nLanding Page\nLink in Bio\nBlog\nForm\nLaunch your product template agency e-book course service newsletter in minutes\nBuild your site & sell online\nwith one no-code tool\nLaunch your product template agency e-book course service newsletter in minutes\nBuild your site & sell online\nwith one no-code tool\nGet started for free\nTHE GO-TO TOOL FOR CREATORS\nBuild anything, sell anything\nFrom consultation to online courses and templates\n“Thanks to Typedream, I launched my Notion template successfully. Their platform helped me create a landing page that converted over 2,000 paid customers.”\n✓ Notion Templates\n✓ Guides and Online Courses\n✓ Social Media Agency\n✓ E-Book\n✓ Newsletter\n✓ Coaching\n✓ Products & Software\nand more...\n135K\nWebsites Created\n2K+\nLink in bios shared\n800+\nProducts sold\nTHE GO-TO TOOL FOR CREATORS\nStart and reach limitless growth\nA complete toolkit to scale yourself\nSTART\nSell digital products & give freebies\nEbooks, courses, templates, files, links, or accept payments for services.\nStart selling products →\nLAUNCH\nLaunch your website in minutes\nAs easy as typing / to add blocks, with 100s of pre-designed templates\nNo-code site builder →\nSHARE\nCreate a link in bio you’re proud of\nDrag & drop widgets, add videos & images\nBuild your link in bio →\nGROW\nCollect emails & grow your audience\nAdd email signups & forms, analyze your web visits, and start optimizing\nEmail capture & forms →\nNOCODE & NO DESIGN\nEasy to customize, hard to mess up\nYour online presence always feels perfect\nTHE END OF JUGGLING MULTIPLE TOOLS\nYour all-in-one tool\nEverything to build and make money online\nShowcase your Products & Services\nSell freebies, digital products, accept payments\nBuild, own, and engage with your audience\nPERFECT ON MOBILE & DESKTOP\nConsistently impressive\nMeet your best link-in-bio yet\nWALL OF LOVE\nThey all love building on Typedream\nNow it’s your turn\nChris\n@chrisnotion\nGumroad landing pages are boring.\nAnd 95% of them aren’t even converting.\nHere's 9 steps to build a REAL landing page with Typedream:\nMilo | Notion4Teachers\n@Notion4Ts\nMy Gumroad Pages: 2% Conversion Rate\nMy @typedreamHQ Pages: 6-8% Conversion Rate\nMake custom landing pages 👍\nTechRally\n@TheTechRally\nShoutout to @michwirantono for helping me build my @typedreamHQ\nprofile! Really loving this layout~\nI miss my old hair cut sometimes 💇🏻🥲\nHarsh Makadia\n@MakadiaHarsh\nLove Typedream, I always loved the design I used for my landing page. Simple to build, easy to deploy. Can't thank you enough for all your generosity!\nAprilynne Alter\n@AprilynneAlter\nJust put up my new link in bio! 🎉\nIt's something I've been putting off for a while, and it feels SO GOOD to finally have it up\n(thanks @typedreamHQ for the beautiful design!)\nP.S. I've included something here that I haven't officially launched yet - can you spot it 👀\nDan Kulkov 🧲\n@DanKulkov\nThank you team!! Typedream is amazing. Everyone is asking how did we build such a beautiful landing page.\n💜 you!\nFREQUENTLY ASKED QUESTIONS\nStill have questions?\nWhat is Typedream?\nWhy build with Typedream?\nCan I make a website with Notion?\nIs Typedream SEO friendly?\nIs Typedream easy to use?\nSHIP IT TODAY\nIt's time to launch that product service course ebook side hustle template agency consultation\nGet started for free\nWe're a remote software company, building online tools for creators, builders, and side hustlers. We quit our 9-5 to pursue our dreams, and we want to help others do the same.\nCompay\nOur Journey\nAbout\nCareers\nSecurity\nBecome an Affiliate\nLegal\nTerms of Service\nPrivacy Policy\nRefund Policy\nAbuse\nResources\nPricing\nGuides & Tutorials\nChangelog\nTemplates\nShowcase\nBlog\nCreator Wiki\nContact\nTwitter\nInstagram\nTikTok\nLinkedin\nYoutube\nEmail\nCopyright © 2025 beehiiv, Inc. All rights reserved.\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://typedream.com/pricing",
+     "publisher": "Typedream（現在の料金表）",
+     "snapshot": {
+      "url": "https://typedream.com/pricing",
+      "finalUrl": "https://typedream.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:59.998Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "3f1b793a84b7d488e87f9bca43470ad9c41b4f241781ee43970a5cb48d166921"
+     },
+     "text": "Find the right pricing plan for you | Typedream\nStart building your dream site today. Try any plan with a 14-day money-back guarantee or start with a free plan!\nFind the right pricing plan for you | Typedream\nStart building your dream site today. Try any plan with a 14-day money-back guarantee or start with a free plan!\nFind the right pricing plan for you | Typedream\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\nBuild More. Pay Less.\nStart with a free plan or try any plan with a\n14-day money-back guarantee!\nFree\nFor building your first simple dream site.\n$0/mo\nStart for Free\nNo credit card required\nWHAT'S INCLUDED\n✓ For freebies & hobby Projects\n✓ Publish 1 page\n✓ Link in bio\n✓ Typedream.app domain\n✓ Typedream badge\n✓ 1 seat maximum\n✓ 5% transaction fee + credit card/Paypal fee\nSell Digital Products\nLanding Page\nLink in Bio\nLaunch\nFor product launches, landing pages, and simple sites\n$15/mo (annual plan)\n$20/mo (monthly plan)\nStart for Free\nAll plans are per site\nEVERYTHING IN FREE, PLUS\n✓ For landing pages & product launches\n✓ Unlimited pages\n✓ Custom domain, SEO, code injection\n✓ Complete site analytics\n✓ 1 blog (CMS collection)\n✓ 1000 form submissions\n✓ 2% transaction fee + credit card/Paypal fee\n✓ 1000 email marketing subscribers\n✓ 2 collaborators\n✓ Free 1-year .xyz domain\nLearn more →\nSell Digital Products\nLanding Page\nLink in Bio\nBlog\nForm\nGrow\nFor products, directories, and bigger sites\n$42/mo (annual plan)\n$49/mo (monthly plan)\nStart for Free\nAll plans are per site\nEVERYTHING IN LAUNCH, PLUS\n✓ For growing your business\n✓ Unlimited blogs (CMS collections)\n✓ Unlimited form submissions\n✓ 2% transaction fee + credit card/Paypal fee\n✓ 5000 email marketing subscribers\n✓ Password protect\n✓ 5 collaborators\n✓ Free 1-year .xyz domain\nLearn more →\nSell Digital Products\nLanding Page\nLink in Bio\nBlog\nForm\nEverything you need to grow your creator business.\nCustom Domain & Analytics\nLaunch\nGrow\nSell, Forms, Blogs\nLaunch\nGrow\nEmail Marketing\nLaunch\nGrow\nTrusted by more than\n100K+ Creators Coaches Startups Writers Artists Agencies\n“Thanks to Typedream, I launched my Notion template successfully. Their platform helped me create a landing page that converted over 2,000 paid customers.”\nFrequently Asked Questions\nWhy Typedream?\nWhat is a site?\nDoes my subscription auto renew?\nAre Typedream sites SEO friendly?\nCan I use subdomain or just root-level domain?\nCan I customize my website?\nHow do I track my site's analytics?\nI'm having difficulties setting up my site, where can I ask for help?\nI want to refer Typedream to my friends and family.\nWe're a remote software company, building online tools for creators, builders, and side hustlers. We quit our 9-5 to pursue our dreams, and we want to help others do the same.\nCompany\nOur Journey\nAbout\nCareers\nSecurity\nBecome an Affiliate\nLegal\nTerms of Service\nPrivacy Policy\nRefund Policy\nAbuse\nResources\nPricing\nGuides & Tutorials\nChangelog\nTemplates\nShowcase\nBlog\nCreator Wiki\nContact\nTwitter\nInstagram\nTikTok\nLinkedin\nYoutube\nEmail\nCopyright © 2025 beehiiv, Inc. All rights reserved.\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+     "publisher": "Typedream（Kevin Chandraの発表）",
+     "snapshot": {
+      "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+      "finalUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:00.112Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "75981592fcec1c352c3d44706850d385deb671b500c67d8279f7dece7a0e2d82"
+     },
+     "text": "Typedream Joins beehiiv\nCreate stunning landing pages with just 1 sentence with AI.\nTypedream Joins beehiiv\nCreate stunning landing pages with just 1 sentence with AI.\nTypedream Joins beehiiv\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\nTypedream Joins beehiiv\nHi Typedream! I’m excited to announce that Typedream is joining beehiiv.\nWhen we started Typedream in 2021, we were just a group of college grads who believed we could make it easier for people to create beautiful websites on the internet.\nOver the past three years, you have helped us achieve exactly that. Every call you joined, every feature request you made, and every bug report you submitted has helped us reach that goal.\nShoutout to Steven S., Armedi, Jessica, Eric, Isabella, Monica, Mughaz, Bayu, Indrayasa, Steven F., Ibe, Arya, Ridho, Reynaldo, Michelle A, Resi, Kevin A., and Dipta who made it happen throughout the years.\nWe loved every day working for you all.\nThe Future\nTypedream will become a part of beehiiv’s product suite, and we will be leading beehiiv’s efforts in the website-building space.\nbeehiiv is the newsletter platform built for growth, home to tens of thousands of the world's top newsletters.\nWe are thrilled to become a part of the team and bring our AI website-building technology to a wider audience!\nIn the meantime, Typedream customers will experience no immediate changes and will be able to continue using the platform as is.\nThank You\nI am profoundly grateful to all of Typedream’s customers and investors who have supported us since day one. My co-founders and I, a group of international students, were able to realize our dream of making it easy for anyone to create beautiful websites on the internet.\nWe’re pumped to continue working on our mission and to build the best AI website builder in the world!\nBest,\nKevin Chandra\nCEO\nTypedream\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+     "publisher": "beehiiv（公式発表）",
+     "snapshot": {
+      "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "finalUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:01.101Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "45f3fb31eec1c09dc921d728b28d07a0236c6c285332c460a241082b30d0e4d7"
+     },
+     "text": "beehiiv Acquires AI-Based Website Builder, Typedream | beehiiv Blog\nYour website, upgraded.\nbeehiiv Acquires AI-Based Website Builder, Typedream | beehiiv Blog\nYour website, upgraded.\nbeehiiv Acquires AI-Based Website Builder, Typedream | beehiiv Blog\nSign up\nProduct\nNewsletters Own your subscriber list\nPodcasts Turn listeners into subscribers\nDigital Products Sell guides, courses, and more\nCommunity Bring your audience together\nPublish\nEditor Customization beehiiv AI Automations Polls\nGrow\nRecommendations Subscribe Forms Pop-ups Referral Program Magic Links\nEarn\nAd Network Paid Subscriptions Recommendations Digital Products Direct Sponsorships\nAnalyze\nAnalytics A/B Testing Segmentation Surveys Verified Clicks\nConnect\nAPI Integrations Send API MCP\nSolutions\nFor publishers\nCreators & Publishers Publisher of a newsletter, podcast, or digital product\nNewsletter Business Established audiences (75k+ subscribers)\nMedia Companies Editorial brands and newsrooms with a content portfolio\nMarketing Teams Marketers nurturing an audience to drive pipeline or revenue\nFor advertisers & partners\nAdvertise with us Promote your brand to our audience\nBecome an affiliate partner Earn up to 60% commission on every sale\nBecome a creator partner Explore sponsorships and collaborations\nFeatured stories\nTIME TIME’s Shift From ESP Headaches to Newsletter-First Workflow\nMorning Brew How the beehiiv Ad Network drove efficient subscriber growth for Morning Brew\nStatus News Oliver Darcy’s Transformation From CNN Reporter to Media Entrepreneur\nSee all customer stories\nResources\nLearn\nBlog Help Center Migration Guide Changelog\nCompare\nvs. Substack vs. Kit vs. Mailchimp All comparisons\nConnect\nLive Events beehiiv Experts Customer Stories Creator Spotlight\nFeatured\nThe State of Newsletters 2026\nThe latest data, trends and innovations shaping the newsletter industry.\nEnterprise Ad Network Pricing\nLog in Get a demo Sign up for free\nHome\nPosts\nbeehiiv Acquires AI-Based Website Builder, Typedream\nAsk AI\nbeehiiv Acquires AI-Based Website Builder, Typedream\nThe future of beehiiv includes powerful newsletters and powerful websites, together.\nTyler Denk\nJune 25th, 2024\nToday I’m writing to share news that we have officially acquired Typedream , an AI-based website builder .\nYou can watch the announcement video we made here 👇️\ncouldn't be more thrilled to announce the acquisition of @TypedreamHQ — an AI-based website builder\nthe future of @beehiiv includes powerful newsletters AND powerful websites, together\nwe're truly just getting started... no one's safe 😈\n— Tyler Denk 🐝 (@denk_tweets)\n2:58 PM • Jun 25, 2024\nWith Typedream, users can turn their ideas into a full website in just minutes (content, structure, style, etc.) … all without ever needing to write a single line of code.\nIf you want to know a bit more about them, here’s some context:\nThey launched out of the Y Combinator Winter 2020 Cohort.\nWere founded by 5 incredibly talented engineers.\nThey won the #1 Product of the Month in July 2021 on Product Hunt.\nTypedream is currently home to tens of thousands of active websites for companies, publishers, and creators.\nSo you’re probably wondering — what does this all mean for me as a beehiiv user?\nYour website is about to get a massive upgrade: more templates, more customizations, more landing pages, more possibilities.\nI’m going to cheat and include a few images from their landing page to showcase the comprehensiveness of what they’ve built…\nOver the next several months you can expect all of that to be available totally native within the beehiiv platform. Plus…\nAn all new drag-and-drop web builder.\nA library of hundreds of different web templates to choose from.\nAn analytics suite to collect and analyze valuable data around performance and conversion.\nIntegrated AI tools to assist with building robust sitemaps, copy, design, and website optimizations.\nI’m confident our users will fall in love with the future web capabilities we have in store.\nOur mission has always been to build whatever helps you succeed — providing best-in-class tools for content creation, growth, and monetization. I think Typedream shares the same DNA, and together we are going to create some remarkable things.\nTo your continued success on beehiiv 🍻.\nP.S. If you’d like to read more about the backstory of the acquisition, I wrote a longer blog post about it here .\nCompany\nAbout Careers beehiiv for Advertisers beehiiv for Enterprise Become a Partner\nSolutions\nCreators & Publishers Newsletter Businesses Media Companies Marketing Teams\nConnect\nYouTube Facebook Instagram X (Twitter) LinkedIn\nProduct\nNewsletters Website Builder Podcasts Integrations\nResources\nBlog Help Center Support Comparisons Migration\nTerms of Use Privacy Policy California Privacy Acceptable Use\nYour Privacy Choices Security Report Abuse Sitemap\n© 2026 beehiiv. All rights reserved.\nGet beehiiv updates delivered to your inbox.\nBy subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.\nGet beehiiv updates delivered to your inbox.\nBy subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.\nCompany\nAbout Careers beehiiv for Advertisers beehiiv for Enterprise Become a Partner\nProduct\nNewsletters Website Builder Podcasts Integrations\nSolutions\nCreators & Publishers Newsletter Businesses Media Companies Marketing Teams\nResources\nBlog Help Center Support Comparisons Migration\nConnect\nYouTube Facebook Instagram X (Twitter) LinkedIn\nTerms of Use Privacy Policy California Privacy Acceptable Use Your Privacy Choices Security Report Abuse Sitemap\n© 2026 beehiiv. All rights reserved.\nTrial Premium Features",
+     "policy": {
+      "policyId": "rights.beehiiv.v1",
+      "sourceId": "src.beehiiv",
+      "providerName": "beehiiv newsletters",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://news.ycombinator.com/item?id=29084309",
+     "publisher": "Hacker News（創業者投稿と試用者の返答）",
+     "snapshot": {
+      "url": "https://news.ycombinator.com/item?id=29084309",
+      "finalUrl": "https://news.ycombinator.com/item?id=29084309",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:01.256Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7363dcf977f8a26f1614565c10d5a7e9cff790721a5b55436d82b62e138e7294"
+     },
+     "text": "Launch HN: Typedream (YC W20) – WYSIWYG website builder | Hacker News\nLaunch HN: Typedream (YC W20) – WYSIWYG website builder | Hacker News Hacker News new | past | comments | ask | show | jobs | submit login\nLaunch HN: Typedream (YC W20) – WYSIWYG website builder\n78 points by putrikarunia on Nov 2, 2021 | hide | past | favorite | 68 comments\nHi HN, we are Putri, Anthony, Michelle, Kevin, and Albert from Typedream ( https://typedream.com ). We make a website builder with a familiar text-editing interface that makes building websites fast and easy. You can see a bunch of examples here: https://typedream.com/showcase . We were building a passwordless authentication service [1] with tools and integrations for no-code website builders like Webflow, Bubble, etc. when people started asking us to integrate with Notion. We were surprised, as we didn't expect people to build websites on Notion when there’s a lot of other website builders out there. We dug deeper and got the answer that people like Notion's WYSIWYG interface in which they can type in the editor right away, and prefer it instead of selecting a block and making edits on the pop-up forms like you do on older website builders. Since Notion is a note-taking app rather than a website builder, we started asking Notion-to-website users what it was missing as a website builder. We heard that several important aspects of websites are not intuitive. For example, there is no default way to make buttons. The workaround is to make them use callouts and edit the CSS. Another example is navbars: you have to make them manually using columns. We saw an opportunity to present our solution so we decided to make Typedream: a WYSIWYG editor with features catered specifically for building websites. We adopt a text editing interface, something familiar like Google Docs. We realized most people have been exposed to text editors like Google Docs or MS Word, so they know the fundamentals on how to use it, how to type, make headings, change color, add images, etc. We then added nice default styles to allow their sites to look good with no effort. And then we take care of everything else, like responsiveness, paddings, margins, etc., so they don't need to manually set different styles for different device sizes. We also decided to adopt the `/` keyboard shortcut to add new blocks on the editor to make it faster for users who are familiar with it. Most website builders are needlessly complicated, and most of them do not adopt the familiar text-editing interface. Our interface makes building sites incredibly fast, with a low learning curve. How we’re different from other options: (1) Code: great for people who know how to code, but it takes too long for non-technical teammates to make small edits; (2) Webflow: too complicated, CSS knowledge required; (3) Squarespace: constrained to templates and not easily customizable as it looks inconsistent with the theme when you edit the template; (4)\nWix, Softr: not only are you constrained to their template, it is not a WYSIWYG editor—you can only insert text on the pop-up form on the left of the editor. Much like Notion and other block editing methods, site content is represented in a JSON format. Each block has a type, for example, a block of Paragraph would have the type \"Paragraph\" and would be represented by {\"type\":\"paragraph\", \"text\": \"Hello World\"}, and an image would have the type \"Image\" represented by {\"type\":\"image\", \"url\":\" http://placekitten.com/200/300 \"}.\nA page consists of an array of blocks representing the blocks in the page. A page that consists of a Heading, a Paragraph, and an Image would be represented by an array of maps with types “heading”, “paragraph”, and “image” respectively. A block can also have children. For example, a block of type “Container” may have 3 children of “Paragraph” blocks. It’s very similar to the DOM structure. This JSON value is then transformed into React components based on their types. So a block of type \"Paragraph\" will be rendered into a <p>, and a block of type \"Image\" will be rendered as an <img>, etc. We then use Next.JS to generate static pages using their ISR feature. Our users have built websites for landing pages, product showcases, blogs, portfolios, and supplementary pages like guides, job postings, and FAQs. A lot of them are founders looking to validate their ideas by putting the word out quickly. We charge a monthly or yearly subscription and we also have a free plan! The next steps for us would be to add a CMS functionality that connects to Notion/Airtable/built-in database, improve our site performance, and enable code export. We would love to hear more about your experiences with website builders! What are your biggest pain points and what services do you wish existed to solve those? Please let us know if you have questions, comments, or feedback, we'll be here all day to chat with you! [1] We launched it here: https://news.ycombinator.com/item?id=22538578 .\nyuters on Nov 2, 2021 | next [–]\nWhenever I test out a new website builder, the first basic thing I try to do is change the entire background color to some ugly color. Here's how that went: - Right clicking on the page outside the boxes, ok no special contextual menu - Went into the page settings (three dot menu) and try to find the option there - Tried to create a new block, saw \"container\" and see that I can add a background color and resize it to full width. That's not exactly what I want but it's close enough - Get rid of all the other blocks except container, now the second contextual menu to resize it is hidden at the top outside the viewport. - Create a navbar just to add a little space and be able to click it :) - Resize the box and add the background color (unfortunately for me, I can only choose presets of non-ugly colors) Besides this, I really like how if you already use notion you'll feel right at home. :) Edit: Just saw the \"custom color\" box at the end there. My bad.\nputrikarunia on Nov 2, 2021 | parent | next [–]\nYes we actually did have a couple questions on how to change the background color, and realized that using a container is \"doable\" but \"not intuitive\", so definitely something we should improve on! And yes the context menu is covered when it's near the top , a bug we need to fix. About the color, I am not sure whether you want the ugly color or you don't lol, but you seem to have figured it out :D Thanks for the feedback!\nMatthiasPortzel on Nov 2, 2021 | prev | next [–]\nI’m very impressed with what you’ve discussed here. I think there’s a real market for no-code website builders that are user-friendly. How do you justify charging $144/year for a static site? Carrd.co offers similar features and charges $19/year for their Pro plan. Serving a static site is basically free. If your editor itself is that valuable, why not sell the editor as a software package and let me take my built site files and host them anywhere?\nputrikarunia on Nov 2, 2021 | parent | next [–]\nThank you! We're basing it off the price of other website builders. (For example, Webflow's Basic plan is $12 without their CMS feature). From what I know, Carrd only give you 1 page per site. (We're also building our own CMS feature right now :D) And yes, it's the editor itself that is our biggest selling point, and we did have users who preferred to use the editor as a software, and then export the code and host them anywhere. Would love to get your thoughts on this approach! What kind of pricing model would work for you if we offer this as a software package?\nGerardox on Nov 2, 2021 | root | parent | next [–]\nHi there!\nAs I read this I wanted immediately to check it up and sign up right away since my ccard pro plan happens to expire tomorrow.\nThen the price...\nIt would be great to get some kind of very basic plan. I really only need a single page but it was pretty ridiculous in the end to get my website to look ALMOST (I wasn't able to get it to do what I wanted and in the end I wondered if I could not have fought with the html/css myself (I don't do any of this anymore but used to)) like I wanted it to look.\nCcars is 20 for a year. I would be willing to pay 3 times more, let's say. But 20/year vs 144/y is quite a difference :/\nI will surely save this and pass it on though. Hell, even use it for my dad's website for example :)\nCheers!\nputrikarunia on Nov 2, 2021 | root | parent | next [–]\nGot it, thanks for the feedback. You could give it a try with the free plan which allows you to publish 1 page for free, but you won't be able to connect a custom domain unfortunately. I'm not sure if you're saying you want to add html/css or you don't, but just letting you know that we do have a Code Injection feature to add code to the <head> and <body>.\nrchaud on Nov 2, 2021 | parent | prev | next [–]\nCarrd has a major limitation: it is explicitly a \"one-page site\" builder. You cannot create multiple pages and link them together. Unsurprisingly, most Carrd websites I see are promotional of some kind, linking out to a bunch of third party sites, or Amazon affiliate links.\nputrikarunia on Nov 2, 2021 | root | parent | next [–]\nYep, thanks for pointing that out!\nstevenicr on Nov 2, 2021 | parent | prev | next [–]\n\"charging $144/year for a static site?\" - thanks for posting this. I generally avoid software I can't buy and own, and with pricing like that it seems that are not trying to get pro / semi-pro site builders with this. With that price, I'd buy pinegrow and build lots of sites for about the same price. ( https://pinegrow.com/#buy ) I guess this is more trying to carve a niche within the niche of wix/ squarespace / wordpress.com / google sites / godaddy sitemaker / every other cpanel host that has a builder, maybe webflow. With the title 'WYSIWYG website builder' I was really hoping for a netobjects fusion remake - but it seems it's another recurring billing saas trying to take market share from the others already trying to be microsoft frontpage for the web. I guess this includes hosting (from reading the comments) - so maybe it's more like a DO hosting with premium page builder for an extra few bucks a year kind of thing. There's nothing wrong with that, wish it was in the title.\nputrikarunia on Nov 2, 2021 | root | parent | next [–]\nThanks for the input, yes it's a recurring billing saas model, includes hosting, and the WYSIWYG is referring to a WYSIWYG rich text editor, like Medium, Notion, etc. Thanks for pointing out about Pinegrow as well, this is my first time hearing about it! We focus more towards non-pro users and trying to make the UX as familiar and simple as possible. Seems like Pinegrow is somewhat similar to Webflow and the pricing is more \"per user\" than per site. Is there any specific reason why you would like build lots of sites? We did encounter some requests on enabling code export and make a software package pricing so users can host the exported sites themselves, would love to understand your use case!\nsimplify on Nov 3, 2021 | parent | prev | next [–]\nThis is an odd question. Since when do SaaS companies charge based on hosting cost? If their service is superior, people will pay for the saved time.\nmonkeynotes on Nov 2, 2021 | parent | prev | next [–]\n$144/year sounds about right to me. A little higher than SquareSpace and being the new cat in town I'd suggest undercutting them to get traction, but overall I don't think it's far out.\nrchaud on Nov 2, 2021 | prev | next [–]\nMy experience is with WYSIWIG tools like Dreamweaver and more recently, Bootstrap Studio, which includes all the UI elements of the BS library. Those let you build standard websites where HTML and CSS are separated. What was the reason for going with React components? I thought those were for web apps with a lot of interactivity and changing states. I don't know much about React/Vue beyong the fact that they use a virtual DOM, so I'm curious.\nputrikarunia on Nov 2, 2021 | parent | next [–]\nOh hmm I'm not familiar with Bootstrap Studio, but from what you described, it's quite different because our users don't interact with the underlying HTML/CSS of their sites. We use React because our editor is built in React (which does have a lot of interactivity and changing states), and so, since it's a WYSIWYG editor, the user will be seeing how their site is rendered as they are editing it, so we render their site in React as well. Also, we are using this React framework, Next.JS, which have a functionality to generate static pages from our React component. At the end of the day the React does get compiled into static pages in HTML/JS/CSS. I'm not sure if this answers your question though, would be happy to answer more questions\nrchaud on Nov 3, 2021 | root | parent | next [–]\nYes, I think I understand. Thanks for explaining. Does this mean that the sites won't render if JS is disabled? I have stopped/started learning React several times, because I always end up preferring go back to simple HTML/CSS pages. Bootstrap Studio is something that works for me because it's has that nice split between pure WYSIWIG view and code editing view.\nlucas_codes on Nov 3, 2021 | root | parent | next [–]\nNextJS static pages do render if JS is disabled.\nwhat_is_orcas on Nov 2, 2021 | prev | next [–]\nWow, I built a prototype of something almost exactly like at my last job. It didn't go anywhere after that for a variety of reasons, but I remember asking myself \"I wonder if this sort of thing would be worth releasing/open-sourcing?\" Looks like I won't have to wonder forever, I can just watch y'all and find out.\nputrikarunia on Nov 2, 2021 | parent | next [–]\nOh interesting, what sort of issues did you face? Perhaps we could learn from your experience!\nwhat_is_orcas on Nov 3, 2021 | root | parent | next [–]\nThe main issue we had, and a big part of why it didn't get picked up, if you ask me, really came down to defining our user. The design team who requested it originally made it sound like it would be a tool that product-owners would use to build their sites, get approval from the design team, and push to go live, but I later came to understand that it was for the design team to design the websites so that they could hand the designs off to developers, which raised the question of what the developer would actually want from a designer to make their lives easier. I (the only developer in the conversation) requested an internal component library, but when I left 6 months later they were still wrestling with the question of how to give developers designs... I hope y'all don't have anything to learn from that experience... at least y'all have gone to production =)\nputrikarunia on Nov 3, 2021 | root | parent | next [–]\nI see... Interesting problem, we had a similar issue previously where we didn't define our users well. This time we rigorously interviewed potential users before even started anything :D\ncodebeaker on Nov 2, 2021 | prev | next [–]\n>Much like Notion and other block editing methods, site content is represented in a JSON format. Each block has a type, for example, a block of Paragraph would have the type \"Paragraph\" and would be represented by {\"type\":\"paragraph\", \"text\": \"Hello World\"}, and an image would have the type \"Image\" represented by {\"type\":\"image\", \"url\":\" http://placekitten.com/200/300 \"}. A page consists of an array of blocks representing the blocks in the page. A page that consists of a Heading, a Paragraph, and an Image would be represented by an array of maps with types “heading”, “paragraph”, and “image” respectively. A block can also have children. For example, a block of type “Container” may have 3 children of “Paragraph” blocks. It’s very similar to the DOM structure. Why not make a DOM Editor then with virtual components? The JSON<>React serialization doesn't seem to offer much value, unless it's purely mechanical. I don't mean to detract from the praise your product is getting here, but I'm really curious about those motivations if you have time to answer my query in amongst the other more excited threads, I'd be glad to understand what the trade-off buys you?\nputrikarunia on Nov 2, 2021 | parent | next [–]\nI'm not sure I can visualize what you mean by a DOM Editor, would love it if you can expand on that. The JSON format allows us to only specify the main type/value of each block, while giving full flexibility on how to render them. I think there are several approaches to rich text editing out there, we picked this one because it seemed to be the most flexible and portable, as we need to invent our own types of standard \"blocks\", like columns, containers, etc. Not sure if this answers your question though, happy to go deeper if you have more thoughts on it.\nnawgz on Nov 2, 2021 | parent | prev | next [–]\n> The JSON<>React serialization doesn't seem to offer much value I mean, you don't see any value in being able to declaratively state an entire app? ...\niamstupidsimple on Nov 3, 2021 | root | parent | next [–]\nThe DOM is a declarative state for a document.\nnsonha on Nov 3, 2021 | root | parent | next [–]\nIs this a joke? Ask any mobile or desktop app developer (people who program UIs in a non-broken platform) how they think about having state inside the views. Only on the web there exist people who hack around for so long they actually believe the hack is the right way.\niamstupidsimple on Nov 3, 2021 | root | parent | next [–]\nReact is fine for web apps, but static sites are not web apps. Using the DOM where appropriate is perfectly fine.\nnawgz on Nov 4, 2021 | root | parent | next [–]\nHis point, stated with a bit too much ad hominem, is that with such a serialization you can scaffold entire dynamic web apps which can include form submission where the form dynamically updates based on rules & current state, uses a configurable method, and more, whereas DOM is inherently a \"view\" and has no concept of state\ntriumphantomato on Nov 12, 2021 | prev | next [–]\nHow do you guys handle backups? I signed up for a demo account and tried asking in the chat support feature but didn't get a substantial answer. What measures do you take to ensure users' data (the websites they build with you) are safe from data loss? From what I found for Webflow it looks like they maintain a second S3 bucket in a different region and also dump to cold storage periodically ( https://discourse.webflow.com/t/will-webflow-ever-crash-or-l... ). This is in addition to a managed database offering (mlab) for availability purposes, to reduce customer site downtime in the event of a hardware failure (keeps multiple follower copies replicated). How does Typedream approach this?\nryanSrich on Nov 2, 2021 | prev | next [–]\nInteresting UX. Certainly more complex sites would need more complex controls. I have a love hate relationship with Webflow. On one hand I'm much faster coding HTML and CSS by hand, but Webflow handles the things I don't want to handle. Stuff like collections, pagination, forms, etc. Can I build all of those things? Sure, but it's a waste of my time if I can click a button and get a form up that sends me an email in less than 30 seconds. There are so many things that Webflow does not do though. Stuff like excluding pages from an autogenerated sitemap (no idea how this isn't a feature), sending a follow up email when someone submits a form (I need to use Zapier to do this), gaited content that's user specific (something like memberstack, but better), more control over managing large numbers of pages. Like if I want to add a word to every page title instance of every page, I have to go into every single page's settings and update it. For a site with 100+ pages it's not feasible. I could list a dozen other missing features. So do you see Typedream competing with Webflow, and getting into more complex controls, and even building some of the integrations you have listed as native features (which I'd personally love so I don't have to have 1000 subscriptions just to run a marketing site), or is the vision to stay simple, and target other use cases?\nputrikarunia on Nov 2, 2021 | parent | next [–]\nInteresting question, to be honest we're still navigating this. Our goal is to stay simple, while reaching feature parity with other website builders. We want to take a different UX approach to most of the features necessary for website building, to make sure beginners can make a functional website with almost no learning curve. Of course, that's a huge challenge :D. And yes, we do plan on building the frequently-used integrations as native features. Our plan for the near future is to build a native CMS, forms, gated content like Memberstack, some simple animation, and email newsletter. We're sort of taking inspiration from Ghost & Notion on UX, and SquareSpace/Webflow/etc for features. However, we probably are not competing directly with Webflow, as our target users are quite different. Webflow seems to target designers that require complete control over every pixel. While for us, we focus more on builders/founders that want to get something out fast while keeping sites looking pretty & modern by providing design defaults.\nsandGorgon on Nov 2, 2021 | parent | prev | next [–]\n> Like if I want to add a word to every page title instance of every page This is interesting. what is the usecase here ? what other similar kinds of stuff do u need to do ?\nryanSrich on Nov 2, 2021 | root | parent | next [–]\nWell an easy use case is a name change, or even a convention change. Let's say I have 100 pages that have titles like this: <COMPANY NAME> | <PAGE NAME> | <CONTENT> Well, Webflow doesn't give me the ability to: 1. Change any of those variables (they're hardcoded text). The only templates you can use here are for collection items (ex: using the name of a blog post in the title). It doesn't give you any options for basic pages. 2. I can't change their order or anything about them at a higher level than on a per page basis. 3. And let's say for some dumb reason, 6 months down the line Google penalizes me for using \"|\" in the title, and now the convention is \"-\", I have to go into literally every single page and update it one by one.\nputrikarunia on Nov 2, 2021 | root | parent | next [–]\nAh really interesting, we haven't thought of this. We are building a CMS feature right now so probably similar to your first point, it could be possible by changing the CMS template. Have you had any solution that allows you to do this with other website builders?\nryanSrich on Nov 4, 2021 | root | parent | next [–]\nI've never seen a CMS implement something like this. Before I started my current company I would do web consulting on the side. I've built hundreds of Jekyll sites for people, and I would always create a variables file to manage information like this: - Company address - Primary email - Legal name - Display name - etc. Those would then all have key value pairs like: - legal_name=\"Company Co Inc.\" - display_name=\"Company\" It's a simple use case, but if the company ever changes their name, it's one change I have to make. Apply this to any repeatable bits of text and you can see how not having this is a major pain with tools like Webflow. The is especially true because I can't just globally search and replace like I can in a text editor.\nsplch on Nov 2, 2021 | prev | next [–]\nI noticed there're some trackers in the pages. Is it possible to completely remove all tracking and make the site have better privacy?\nputrikarunia on Nov 2, 2021 | parent | next [–]\nYes it's possible. By default we include a Google Analytics tag on published sites, but you can contact us to disable it on your site.\ndiskzero on Nov 2, 2021 | root | parent | next [–]\nYour product looks nice! Just a suggestion about the tracking; disable all tracking by default and provide an easy to find option to enable Google Analytics, etc.\nputrikarunia on Nov 2, 2021 | root | parent | next [–]\nThank you, that makes sense! We actually just released a built-in analytics feature a couple weeks ago\nkevsim on Nov 2, 2021 | prev | next [–]\nLooks very cool! Did you base it on an opensource editor or did you build it from scratch? Asking because my startup has invested a lot into building our editor with SlateJS, so I'm always curious what other teams settle on.\nputrikarunia on Nov 2, 2021 | parent | next [–]\nOh we use SlateJS as well! Mind sharing your experience with it?\nkevsim on Nov 3, 2021 | root | parent | next [–]\nWe've certainly had our battles. When we first made Kitemaker[0], we were using the \"old\" pre 0.5 version of Slate and we built a lot of functionality on that. When they did the total rewrite, we put off upgrading for a long time and that was probably a mistake because we just kept building up new things that needed to be ported. Earlier this year we bit the bullet and ported things over to the newest version. I like the API a lot and it works quite well for us. The best part is that internally slate is \"ready\" for building a collaborative editor, so that's what we did. Work items in Kitemaker are fully collaborative, using operational transformation. Downsides of slate for me are: - Docs are lacking still. They were better before the re-write IMO and still catching up - Memoization of leaf nodes doesn't work properly so you get a lot of unnecessary re-rendering (at least in the version we're using) 0: https://kitemaker.co\nputrikarunia on Nov 3, 2021 | root | parent | next [–]\nWow I can imagine the struggle of upgrading :D... But you did it, that's awesome! Real time collaboration is something we need to do very soon, glad to hear that. Thanks for sharing!\nSigKill9 on Nov 3, 2021 | root | parent | next [–]\nHappy to have a chat when you start diving into real time collaboration, I worked on this with kevsim and we have some learnings we haven't blogged about yet :)\nputrikarunia on Nov 3, 2021 | root | parent | next [–]\nAwesome, I'll reach out when we start building that! Thank you so much!\nbingohbangoh on Nov 2, 2021 | prev | next [–]\nThis is really impressive. It seems like Medium kicked off this block interface and I'm a big fan of the design trend. It's great for power users while not being too intimidating.\nputrikarunia on Nov 2, 2021 | parent | next [–]\nYes exactly! We had a great time using Medium, Ghost, and Notion, and thought this approach is quite easy and familiar for most people\ntriumphantomato on Nov 2, 2021 | prev | next [–]\nThis is super cool work, congrats! I've been looking for a good low/no-code tool to build a static website to sell some assets I've developed, wondering if TypeDream can fit the bill. How easy is it to: + A/B test pages (e.g. for conversions) + Measure user interaction to understand incoming referral, bounce rate, time on page, user journey, etc. + Integrate with other automation tools like n8n.io I'm new to this so apologies if some of this is better served by other tools (suggestions welcome!). For example, in addition to the stuff above, i'd like to: + send transactional emails to customers who buy a product + send update emails to customers when the product gets an update + add orders to Airtable/Google Sheets to track sales\n(these could be handled with some automation integrations like n8n) On the site itself, is it possible to: + allow comments (simple way to do this might be to include a twitter post with the article URL, displaying the twitter replies as comments on the TypeDream website) Thanks and really cool work!\nputrikarunia on Nov 2, 2021 | parent | next [–]\nOh that's really cool. To answer your questions: - A/B testing: not supported yet, although we are thinking on building this. Would love to learn more from your use case!\n- Incoming referral, bounce rate, time on page are available through our built-in analytics. If you're familiar with Plausible https://plausible.io , we're using their self-hosted version to offer the analytics feature, so you should get everything they offer.\n- Not familiar with n8n.io, looks like it's similar to Zapier. We don't have any integration like this yet, but most functional components that you can add to your Typedream site (like forms, waitlist, etc) can be done using HTML embeds. For example, to add a form, you can embed an Airtable form in your Typedream site. This means that any automation supported by those tools can be used. With that said, interactions such as allowing customer to buy a product, sending emails, and adding orders to Airtable/Google Sheets can be done by using a third party service, like Stripe Payment Links to allow users to buy a product, then use Stripe's functionality or Zapier/n8n.io integrations to send emails or add orders to Airtable/Google Sheets. This is also the case with comments, for example you can embed https://commentbox.io/ into your Typedream site to enable comments. Hope this makes sense!\ntriumphantomato on Nov 2, 2021 | root | parent | next [–]\nthanks for the reply! will have to check out Stripe's email/orderflow integrations, didn't know about those :) does TypeDream support custom email domains? (example: myemail@mysite.com) re: A/B testing - my use-case is pretty simple. i have some assets i'd like to sell and want to A/B test what landing page converts the best (could also be useful to A/B test what landing page converts to the highest price/longest subscription if someone's selling subs). alternative use-case -- A/B test what article titles lead to the most search engine (or other inbound referral) traffic. let's say i have a set of content i've created, i'd like to have test same blog post with different article titles to know which one performs the best does that help?\nputrikarunia on Nov 2, 2021 | root | parent | next [–]\nHere's a link to the Stripe payment links https://stripe.com/payments/payment-links . For email domains, we don't handle your emails. You could use any email provider that you want, like MailChimp, Sendgrid, etc. Since connecting custom domains doesn't require you to point your nameservers to Typedream, you can add MX records, etc. that is usually required for you to set up your email provider. Thanks for your explanation on A/B testing, that makes sense and we have had a couple of similar requests as well! This is definitely something we're looking to add as a feature.\nmwcampbell on Nov 2, 2021 | prev | next [–]\nCongrats on the launch. Have you taken any steps to make it easy for your customers to make their websites fully accessible, including for blind users? For example, making sure they put alt text on images, adding a \"main\" landmark at the start of the main content, encouraging semantic markup such as headings...\nputrikarunia on Nov 2, 2021 | parent | next [–]\nWe just added the feature to add alt text on images, and we do adopt the markup syntax such that bigger texts are available using headings 1, 2, and 3. But there's definitely a lot more for us to learn and implement on this.\nkrembanan on Nov 2, 2021 | prev | next [–]\nWow, this is really well done. Seems like you have some very talented React developers on the team :)\nputrikarunia on Nov 2, 2021 | parent | next [–]\nThank you!\nevangow on Nov 2, 2021 | prev | next [–]\nI'm curious as to how you all are providing SSL for custom domains\nputrikarunia on Nov 2, 2021 | parent | next [–]\nThe sites are deployed on Vercel and Digital Ocean. Both platforms allow users to connect their custom domains, and they auto-generate the SSL for these domains.\nevangow on Nov 2, 2021 | root | parent | next [–]\nGotcha. That makes sense since each site is deployed separately and not a subdomain of a single deploy. Thanks for sharing!\npwillia7 on Nov 2, 2021 | prev | next [–]\nAwesome! Since this is using next, could you build an ecommerce site using this and the next integrations? Does this support PWA? You guys should have presented at nextjsconf last week!\nputrikarunia on Nov 2, 2021 | parent | next [–]\nYou can't build an ecommerce site yet, but we are building the CMS feature that would allow you to do this somewhat. What do you mean by next integrations? It doesn't support PWA yet. Do you have input on this? And yes presenting on nextjsconf would have been really cool!!\npwillia7 on Nov 2, 2021 | root | parent | next [–]\nThanks! Next JS has a starter kit for a few different platforms called nextjs commerce - https://nextjs.org/commerce Getting to PWA would probably be pretty simple since you just need a service worker to qualify if I remember right -- https://developers.google.com/web/ilt/pwa/introduction-to-se... Making PWA valuable and doing things like prefetching pages would probably be a much bigger task but is really incredible to see live from a performance perspective. Here's a headless commerce-enabled PWA with prefetching to see what I mean. https://discountelectronics.com/\nputrikarunia on Nov 2, 2021 | root | parent | next [–]\nOh that's awesome, thanks for sharing this to me! I see, I personally haven't played around with PWA much, but that sounds like something we should look into, thank you!\nbko on Nov 2, 2021 | prev | next [–]\nThe page built from the demo ( https://typedream.com/cardy ) just spins... It would be cool if I could see the final result of the demo.\nputrikarunia on Nov 2, 2021 | parent | next [–]\nOh where did you find this link? This looks like a broken link that leads nowhere, we should update that. You can check out the showcase here https://typedream.com/showcase\nXCSme on Nov 3, 2021 | prev | next [–]\nLooks clean, but I can't trust a website builder that hides the scrollbar on their own landing page (a really, really poor UX practice).\nhyuuu on Nov 2, 2021 | prev | next [–]\nthe product looks very polished, congrats on the growth. As a fellow indonesian, It's nice to see more indo startups :)\nputrikarunia on Nov 2, 2021 | parent | next [–]\nThank you!\nnaderkhalil on Nov 2, 2021 | prev [–]\nThis is a really powerful tool. The interface is so slick, honestly hats off, well done!!\nputrikarunia on Nov 2, 2021 | parent [–]\nThank you!\nConsider applying for YC's Winter 2027 batch! Applications are open till November 2.\nGuidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact\nSearch:",
+     "policy": {
+      "policyId": "rights.hacker-news.v1",
+      "sourceId": "src.hacker-news",
+      "providerName": "Hacker News",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://typedream.com/old-pricing",
+     "publisher": "Typedream（旧料金ページ）",
+     "snapshot": {
+      "url": "https://typedream.com/old-pricing",
+      "finalUrl": "https://typedream.com/old-pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:01.562Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "a8fb3abe17aa08631aa9c6d80f546c280d82af4813f0a51c586a5a7d93c0108e"
+     },
+     "text": "Typedream Pricing\nFree Plan. Paid Plans starting $15/Month or $144/year. Get unlimited number of pages, custom domain, collaboration, SEO, and code injection.\nTypedream Pricing\nFree Plan. Paid Plans starting $15/Month or $144/year. Get unlimited number of pages, custom domain, collaboration, SEO, and code injection.\nTypedream Pricing\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\nChoose the right plan for you\nStart building your dream site today\nTry any plan with a 14-day money-back guarantee or start for free\nFree\nFor building your first simple dream site.\n$0 /mo\nNo credit card required.\n✓ Unlimited pages\n✓ Publish 1 page\n✓ Publish to typedream.app\n✓ Typedream badge\nStart for free\nLaunch\nFor product launches, landing pages and more.\n$12 /mo (billed yearly)\n$15/mo (billed monthly)\nAll plans are per site.\n✓ Publish unlimited number of pages\n✓ Custom domain\n✓ Team collaboration\n✓ SEO & Metadata\n✓ Code injection\n✓ Basic analytics\nLearn more →\nFree 1-Year .xyz domain →\nStart for free\nPro\nFor blogs, directories, and commercial websites.\n$20 /mo (billed yearly)\n$25/mo (billed monthly)\nAll plans are per site.\n✓ Everything in Launch\n✓ Advanced analytics\nLearn more →\n✓ Protected pages\n✓ Display data from Notion\n(5,000 items)\nLearn more →\nFree 1-Year .xyz domain →\nStart for free\n\"Typedream remains the fastest web builder for landing pages.\"\n– Easlo , Digital Creator\nFrequently asked questions\nWhy Typedream?\nPeople love Notion's What You See Is What You Get (WYSIWYG) interface a lot that they use Notion to build their websites. However, Notion is not a website builder so a lot of important website builder features, like buttons and navbars, are missing.\nTypedream is a Notion-like website builder.\nWhat is a site?\n1 site = 1 domain (example.com). You can have as many pages within each domain.\nDoes my subscription auto-renew?\nYes, the subscription is automatically renewed every month or year, depending on the billing you have chosen, and it is charged from the payment method on your account.\nIf you choose to cancel your subscription, your service will be cancelled at the end of your billing period. Learn more →\nAre Typedream sites SEO-friendly?\nYes! We'll automatically generate a sitemap from your pages. Also, static sites are preferred by search engines so your pages will be searchable and prioritized by Google.\nWays to improve SEO:\nEntire Site SEO: Site Settings → SEO Settings to update meta tags for search engines and social sharing.\nPer Page SEO: Click on the ••• symbol beside your page name → scroll to SEO & Sharing.\nAdd Alt Text to images by clicking the image → ••• symbol → SEO.\nCan I use a subdomain or just a root-level domain?\nYou can either use blog.example.com or example.com .\nCan I customize my website?\nWhile Typedream focuses on our opinionated design, you can inject <script> or <style> tags to customize your site using Code Injection.\nTo add more fonts, follow this guide .\nHow do I track my site's analytics?\nTypedream tracks the following metrics:\nUnique Visitors\nTotal Pageviews\nBounce Rate\nVisit Duration\nCurrent Visitors\nTop Sources\nTop Pages\nDevices\nCountries Map\nLearn more →\nOur analytics is currently an experimental feature.\nI'm having difficulties setting up my site, where can I ask for help?\nJoin us on Slack or chat with our support team by clicking on support chat in the bottom right corner of this page.\nI want to refer Typedream to my friends and family.\nBecome an affiliate and earn 20% recurring commission!\nTypedream\nCopyright © 2022 Govest, Inc. All rights reserved.\nCompany\nAbout\nCareers\nBecome an Affiliate\nLegal\nTerms of Service\nPrivacy Policy\nAbuse\nResources\nGuides & Tutorials\nPricing\nChangelog\nShowcase\nBlog\nContact\nTwitter\nLinkedin\nTikTok\nInstagram\nYoutube\nEmail\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://typedream.com/blog/kyleigh-smith",
+     "publisher": "Typedream（利用者Kyleigh Smithへのインタビュー）",
+     "snapshot": {
+      "url": "https://typedream.com/blog/kyleigh-smith",
+      "finalUrl": "https://typedream.com/blog/kyleigh-smith",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:01.709Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7ea9d5b0aadbbbf9d0f32a789fdedef20bfa622a97f1118779d9e678cb200677"
+     },
+     "text": "From Dreams to Reality with Kyleigh Smith and Typedream\nA fireside chat with Kyleigh Smith, the founder of Harold the Habit Tracker. In this interview, Kyleigh shares with us how she got started as an indie hacker and advice for aspiring solopreneurs!\nFrom Dreams to Reality with Kyleigh Smith and Typedream\nA fireside chat with Kyleigh Smith, the founder of Harold the Habit Tracker. In this interview, Kyleigh shares with us how she got started as an indie hacker and advice for aspiring solopreneurs!\nFrom Dreams to Reality with Kyleigh Smith and Typedream\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\nFrom Dreams to Reality with Typedream: Kyleigh Smith\n2023-05-15\nA fireside chat with Kyleigh Smith, the founder of Harold the Habit Tracker. In this interview, Kyleigh shares with us how she got started as an indie hacker and advice for aspiring solopreneurs!\nKyleigh Smith is the co-founder of Harold, an AI-powered, text-based habit tracker and the author of the Maker of Habit newsletter. She is also an expert in growth, helping indie makers and startup founders with SEO, retention, activation, and all that it takes to get on a rocket ship trajectory. Kyleigh uses Typedream to run the Dry January Challenge as a part of Harold’s growth campaign.\nAbout Kyleigh\nHi Kyleigh, can you tell us a little bit about yourself?\nI'm Kylie. I have a background in product design and user research. I started my indie hacking career like right after the pandemic. So like March, 2020 when we all had all this extra time on our hands, I was finally able to start playing with some of my ideas.\nSo that was sort of the beginning of my indie hacking career. I started with Harold, the Habit Tracker, which you mentioned that I'm still working on. And I've sort of been in and out of, I'll have a full-time job, then I'll go back to Indie hacking full-time. Right now I'm indie hacking and then doing some consulting.\nSo you mentioned that you jumped into the indie hacking journey during the pandemic. Did you drop your six-figure job to go indie hacking full-time or did you juggle both jobs?\nAt the time I was working as a senior product designer at a startup. And I just started building Harold on the side. That was around the time when all of these no-code tools started popping up, and so I was finally able to figure out how I could build one of my own ideas without trying to recruit a developer. So for the first year, I was working full-time and just working on Harold on nights and weekends, and mornings, and then that startup shut down.\nSo then I kind of took that opportunity to work on it full-time for about a year, and I was focused on Harold, but also trying many other ideas too. None of 'em were making money. So then I went back to a full-time job. I just realized I missed the early-stage indie hacking startup environment. So I ended up leaving and now I'm doing the consulting for Llama Life, another Twitter indie hacker friend that people should recognize. I've been doing some consulting for her and the Llama Life product and getting back to indie hacking on the side. So it's about 50-50 now.\nForced my hand a little bit and then the second time leaving the full-time job was really hard cuz I, yeah, I had a really good salary. It was a great company and a great role. I just like had this yearning to get back to the earlier stage stuff. So it keeps, keeps pulling me back.\nAbout Harold the Habit Tracker\nCan you tell us about Harold the Habit Tracker? How did you get the idea for it and where do you see it going?\nYeah, it's funny because habit trackers I feel like get such a bad rep because there are a million of them and it's everyone's first dev project when they try to build something. But Harold is different because it's all through SMS.\nSo my problem with habit trackers was I can never stick with them. I think some people have no problem. They're like, I'm gonna do this thing and then they do it and they have no problem. I would create these like, spreadsheets in my journal with all the habits I was gonna do. I would track for two days and then forget about it. Like I have pages where I set up a habit tracker and it's just empty.\nSo that was my issue, remembering to track and making a habit of tracking So I had this idea of making like a little SMS bot that just texted you: “Hey, did you meditate today?” “Hey, did you work out?” And I could just text back yes or no because that I can do like, I'm already texting.\nSo that's Harold. He's like a little SMS bot. He has some AI built in. I'm using the new chat GPT-3.5 model. So he's kind of funny and he congratulates you when you do your habits. So it's kind of a fun experience.\nYeah. And he just texts you, so even if you like forget to track and then you go to text your friend later, he's there and your messages and you're like, “Okay, fine. I'll just, I'll just respond to him.” So I was able to track for four months with my prototype that I started out with, and that's when I knew, okay, this is at least solving my problem.\nSo hopefully there are other people out there with the same problem.\nCan you talk about the highs and low of the indie-making journey?\nYeah, it's definitely a rollercoaster. So “highs and lows” is the right way to describe it.\nThe highs were just at the beginning. Like I put a link to my landing page and my Twitter bio and was just tweeting about it and then, you know, a random person signed up like that was so exciting, and then just having more people sign up and try it. I launched on Product Hunt and got, like 13th of the day, which was huge for me.\nI had like 300 upvotes and 300 signups. So that was really exciting for my first product. And then I ended up winning the Maker Grant.\nThen the lows I like are just as many. It's hard to keep the momentum and keep the motivation going when you don't have those signups when things aren't going well. There are always tons of other ideas and things you wanna do, so it's hard to stick with it. And so with Harold, I'm always asking myself like, “Is it time to move on to something else?” And then there's just something that keeps pulling me back to it.\nWhere Dry January comes in is where I'm starting to experiment with maybe different positioning or different markets. The product is great when people sign up. They retain for a really long time. I have people that have tracked for years. So like the product works, but the positioning is a habit tracker. I don't know, maybe it doesn't really excite people. So that's where the idea of Dry January came in. Like what are some specific use cases and niches that I can use the same stack but just like target those? That's where Typedream came in cuz it allowed me to really make that one-page landing page sign-up for Dry January Tracker and made everything really easy.\nI listened deeper into your success. So you mentioned that one of the highs was when you really just tweeted something and a random person signs up, right? What are your efforts in order to have these momentums? Is it mostly Twitter and ProductHunt?\nYeah, for the first year or two, it was almost exclusively Twitter and ProductHunt. Maybe a little bit of Indie Hackers. Yeah, just building in public on Twitter, trying to share my progress. I also joined the No Code program, which they don't do anymore, but that was a way for me to get to know other indie makers and engage with them and that was a huge help.\nTwitter was where like definitely the first hundred signups came from. And then this last year I've been trying to add SEO and Google as a channel with some success. So that's been bringing in some organic website visitors as well. Yeah, because Twitter runs out after a while.\nI got a few backlinks from doing things like this. Like other indie makers and founders will you know, start a new podcast or something. So I've done a few of those and gotten a few backlinks that way. I haven't really done a lot of outbound.\nFor backlinks, but even just with what I was able to get, sort of organically set me up as like a, I had a domain rating of like 20 or something, And then I've just learned a little bit about SEO and how to target, not the most popular words, you know, that everyone's trying to get, but try to find these words that have 200 or 300 search volume per month and trying to beat out, one or two of those articles to get to that top 10. So it's possible even with a low domain rating, maybe that's something that not everyone realizes.\nBuilding a landing page\nIn a tweet, you talked about your process to find the perfect website builder for your Dry January Challenge project. So at first, you were comparing Unicorn Platform versus Webflow, but at the end of the day, you decided to use Typedream. Can you maybe talk more about that?\nYeah. I'm so glad you dug this up. So yeah, my first go-to was the Unicorn Platform because that's what I used for Harold's. With Webflow, it's like very flexible and I know you can pretty much do anything you want on there, but that means a lot of time and the stage I'm at, you know, I'm, I was just testing this Dry January idea. I had no idea what was gonna happen with it, so I needed something quick.\nSo I think that's what it really came down to, and then what really sold me about Typedream was just how flexible it was. Like you have those pre-built components that look great outta the box. At the same time, it's really easy to move things around and make it your own.\nIt was just kind of a no-brainer. And then the process of like publishing and all that was just really easy. So That's amazing.\nHow did Typedream suddenly come into your world? Did you hear bout Typedream before or did you see a tweet of Typedream during that decision-making process?\nYeah, I think I just sort of had seen you and your team around on Twitter and Product Hunt. And I tried the product probably a year prior to this. Okay. And I thought it was really good. There were just a few things I was struggling with like dragging things. It felt like there were just a few kinks to be ironed out.\nYeah. So I kind of left and, and stayed with Unicorn and stuff, and then when I went back this time I was like, let me just see, let me try it again. You know, because I could see you guys tweeting and working hard on all this stuff. So, when I went back, all of that stuff had been ironed out.\nIt was clear, the team really focused on the product experience and made it super smooth. That also made me confident in the product. That this is something I should use for my products moving forward. Because you guys are listening to feedback, iterating, and improving the product, which is always good.\nIs there a particular feature that you like most from Typedream?\nI mean it's definitely the user experience. It's just so easy to use and I can really get it to do what I want it to do, and I do have design opinions and I want it to look a certain way and Typedream, was able to let me do that.\nHow did having a Typedream landing page help you with the campaign?\nThe biggest benefit was that I was able to get it up and ready in like a day, because I had this idea in late December, and I had to get it obviously ready before January 1st.\nYes. So that was the most critical, just being able to get it out and then being able to edit it really easily and make updates.\nWhat I liked about it is I had this study that links to the benefits of Dry January and it kind of looked like a research paper that you could click into and read more, which I think helped with conversion. I got a bunch of bunch of signups. I should have pulled up the numbers before this, but, I think I had like 75 people in the Dry January Challenge, which for reference, like for Harold, I probably have one person sign up a week or something. So to have 75 in a couple days for this one-month challenge was a 10x increase for me.\nTo close, if you were to share a word or two with a new indie hacker, what would it be? What would you say to help them get from zero to one?\nYeah, it's a good question. I wrote a whole book about it if people wanna check it out. It's called The Honest Guide to Indie Making. But if I were to choose one thing, the biggest thing I think is just getting, like you said, getting your idea out there. Don't be afraid to talk to people about it or tweet about it because you think someone's gonna steal it. In reality, execution is the hard part, and like distribution, there's like so many things that are hard about going from zero to one.\nSo you sort of just need to get started and if you try to keep your idea too close people aren't gonna find out about it. Talk about your idea, share it with people, get feedback, like build a landing page and describe your product.\nAnd then value proposition, that's always a good way to think through the value you're offering. It forces you to be really concise and just start sharing it. You really have to get comfortable with sharing things that aren't, you know, aren't finished or aren't perfect.\nAnd you have to also know that your first idea is probably not the best, or like, it's probably you need that feedback from other people and you need feedback from the market to refine your idea. I think everyone, if they're at that stage where they're trying to spin up a landing page for a new idea, definitely check out Typedream. It's super easy and I love it.\nFollow Kyleigh 👇🏼\nTwitter : https://twitter.com/bagelsangranola\nHarold the Habit Tracker : https://haroldthehabittracker.com/\nSee More Posts\nFrom Dreams to Reality With Typedream: Sveta Bay & Dan Kulkov\nInstagram Growth Hacks for Content Creators: Use Reels\nHow to Get 10,000 Instagram Followers in 30 Days: Your Ultimate Guide\nShow more\nWe're a remote software company, building online tools for creators, builders, and side hustlers. We quit our 9-5 to pursue our dreams, and we want to help others do the same.\nBacked by\nCompany\nOur Journey\nAbout\nCareers\nSecurity\nBecome an Affiliate\nLegal\nTerms of Service\nPrivacy Policy\nRefund Policy\nAbuse\nResources\nPricing\nGuides & Tutorials\nChangelog\nTemplates\nShowcase\nBlog\nCreator Wiki\nContact\nTwitter\nInstagram\nTikTok\nLinkedin\nYoutube\nEmail\nCopyright © 2023 Govest, Inc. All rights reserved.\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://typedream.com/affiliate",
+     "publisher": "Typedream（紹介報酬の案内）",
+     "snapshot": {
+      "url": "https://typedream.com/affiliate",
+      "finalUrl": "https://typedream.com/affiliate",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:01.982Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "4102aa9673dfee78ec8dd7f7a3ab39b80ae2cd0663f11a8c3a2767d87984123d"
+     },
+     "text": "Typedream Affiliate\nBecome a Typedream Affiliate and earn 20% recurring commission!\nTypedream Affiliate\nBecome a Typedream Affiliate and earn 20% recurring commission!\nTypedream Affiliate\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\nWe're stoked to have you as our affiliate!\n20% recurring commission\nBecome an affiliate →\nHow it works • Terms • How to share • How much you could earn • Our affiliates\n→ How it works\n🙋\nFirst, sign up to become an affiliate\n🗣\nSecond, share your link to friends, family, socials, etc.\nLearn more →\n📈\nThird, check how you're doing in your affiliate dashboard\n🤑\nFourth, get monthly payouts via Paypal\n→ Terms\nNo tricks 👻 just treats 🍭\nDo's\nShare your affiliate link with your friends & family\nShare your affiliate link on socials. Learn more →\nShare your affiliate link on community channels\nShare your affiliate link with your mailing list\nDon'ts\nRefer yourself (use your own affiliate link to sign up to Typedream)\nAct on our behalf\nWe reserve the right to change the Terms of Service for our affiliate program at any time.\n→ How to share\nSome ideas on how you can share your affiliate link 💡\nI just built a landing page without coding in 5 minutes.\nNo-code is the future of web design.\nThank you @typedreamHQ pic.twitter.com/l4232X4jfL\n- Easlo (@heyeaslo) April 19, 2022\n@shapingelements My top 3 nocode tools #nocode #nocodetools #startuptiktok #startupadvice #startupfounder #entrepreneurtok #entrepreneurship101 #businessadvice #startacompany #makemoneyonline #startanonlinebusiness #buildabusiness #websitebuilder #startupidea #techstartup #startupentrepreneurs ♬ I Wanted to Leave - SYML\n→ How much you could earn\n1 referral\n$25 x 1 x 20%\n$5/month\n10 referrals\n$25 x 10 x 20%\n$50/month\n100 referrals\n$25 x 100 x 20%\n$500/month\n→ Our affiliates\n325 affiliates 🙋‍♂️\nShahid Afridi\nCricket Athlete & Chairman @SAFoundationN\nDigital Samaritan (Kushank Aggarwal)\nDroppin’ value bombs for marketers & entrepreneurs\nEaslo\nThe Notion Guy\nDevin Schumacher\nEntrepreneur\nJoey Wei\nTikTok Creator\nChris Knight\nArtist & Photographer\nJoe Murfin\nBusiness, money, tech and Clown World\nSébastien Chopin\nCEO of Nuxtlabs.com\nRamon Williamson\nCreative Entrepreneur & Life Coach\nShow more\nReady to partner with us?\nBecome a Typedream affiliate today!\nBecome an affiliate →\nWe're a remote software company, building online tools for creators, builders, and side hustlers. We quit our 9-5 to pursue our dreams, and we want to help others do the same.\nCompany\nOur Journey\nAbout\nCareers\nSecurity\nBecome an Affiliate\nLegal\nTerms of Service\nPrivacy Policy\nRefund Policy\nAbuse\nResources\nPricing\nGuides & Tutorials\nChangelog\nTemplates\nShowcase\nBlog\nCreator Wiki\nContact\nTwitter\nInstagram\nTikTok\nLinkedin\nYoutube\nEmail\nCopyright © 2025 beehiiv, Inc. All rights reserved.\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://typedream.com/refund-policy",
+     "publisher": "Typedream（返金規定）",
+     "snapshot": {
+      "url": "https://typedream.com/refund-policy",
+      "finalUrl": "https://typedream.com/refund-policy",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:02.230Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "607c173619795fa83a334bd031b65ebd11466fbcdb9e7d70670c931b47914bf3"
+     },
+     "text": "Refund Policy\nCreate stunning landing pages with just 1 sentence with AI.\nRefund Policy\nCreate stunning landing pages with just 1 sentence with AI.\nRefund Policy\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\nLast edited at May 9, 2023\nRefund Policy for Paid Plans\nAt Typedream, we want to ensure that you are satisfied with your purchase. That's why we offer a 14-day, money-back guarantee when you purchase a paid plan.\nEligibility for a refund\nYou are eligible for a full refund if you purchased a new Paid Plan using a credit card within the last 14 days.\nThe refund policy does not apply to renewal payments or upgrades of existing plans unless the original purchase of a Paid plan was made within the last 14 days.\nAdditionally, the refund policy does not apply to the re-purchase of a Paid Plan on a site that has previously been upgraded. This means that if you upgrade to a Paid Plan, request a refund within the first 14 days, and then upgrade that site again on day 14 or later, you will not be eligible for a refund.\nIf you feel that you deserve a refund after the first 14 days have passed, please submit a support ticket , and we will review it.\nRequest process for a refund\nTo request a refund, submit a support ticket within the first 14 days of purchasing a Paid Plan. Please include the following information:\nClearly state that you are requesting a refund for a Paid Plan that you purchased.\nProvide the URL of the Typedream Site that you want to cancel and receive a refund for.\nMake sure to send the request within 14 days of purchasing the plan.\nOur customer support team will follow up with you if they have any questions to ensure that we cancel and refund your subscription on the intended site.\nImportant:\nTypedream is not responsible for any bank charges, commissions, or overdrafts. The only way to remove these charges is through direct negotiation with your bank.\nFor a complete policy of our services and fees, please refer to our Terms of Service\nHow to submit a support ticket\nAfter logging into your Typedream Site, you can find the button for Help & Resources within the platform:\nIn the Web Page Editor\nIn the Dashboard\nYou should see a popup with different resources, click Get Support\nClick Get Support\nIt should open a chat bubble on the right side. Select Sales and proceed with your request.\nSend a request for Sales\nIf you still have more questions\nGet in touch with our Customer Service - please use any of the options listed below:\nLive Chat support\nSend an email message to: [email protected]\nWe're a remote software company, building online tools for creators, builders, and side hustlers. We quit our 9-5 to pursue our dreams, and we want to help others do the same.\nCompany\nOur Journey\nAbout\nCareers\nSecurity\nBecome an Affiliate\nLegal\nTerms of Service\nPrivacy Policy\nRefund Policy\nAbuse\nResources\nPricing\nGuides & Tutorials\nChangelog\nTemplates\nShowcase\nBlog\nCreator Wiki\nContact\nTwitter\nInstagram\nTikTok\nLinkedin\nYoutube\nEmail\nCopyright © 2025 beehiiv, Inc. All rights reserved.\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://typedream.com/blog",
+     "publisher": "Typedream（記事目録）",
+     "snapshot": {
+      "url": "https://typedream.com/blog",
+      "finalUrl": "https://typedream.com/blog",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:52:02.725Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "90c0a11cad2ff27173bc53df1516f3fb755d511eca9b896070d05a532b1a2cbd"
+     },
+     "text": "Blog\nCreate stunning landing pages with just 1 sentence with AI.\nBlog\nCreate stunning landing pages with just 1 sentence with AI.\nBlog\nFeatures\nSites\nBuild your dream website\nLink in bio\nBring all your online presence into one!\nForms\nCreate forms to capture leads, surveys, and more\nBlog\nConnect your database and display contents\nProducts\nSell your digital products\nEmails\nAnnounce new products or offer deals to audience\nTemplates\nShowcase\nResources\nGuide & tutorials\nStart using Typedream to build your site\nIntegrations\nIntegrate external tools to your website\nChangelog\nA weekly update on new features & bug fixes\nBlog\nDiscover insights from Typedream team\nAssets\nElevate your website with asset-packs and tools\nPodcast\nAn unfiltered journal of our thoughts as a founder\nPricing\nLogin\nThe Typedream Blog\nDiscover website building insights from the Typedream team\nFrom Dreams to Reality With Typedream: Sveta Bay & Dan Kulkov\nSuccess Stories\n2023-07-05\nA fireside chat with Sveta Bay, co-founder of MakerBox. In this interview, Sveta talks about how she and her husband Dan became entrepreneurs and sheds light on the importance of marketing for indie hackers.\nInstagram Growth Hacks for Content Creators: Use Reels\nBecoming a Creator\n2023-06-16\nLearn effective Instagram growth hacks for content creators, including leveraging Reels, utilizing new content creation features, adapting to changing hashtag trends, staying updated with Instagram's latest features, and aiming for the verification badge to maximize reach and growth.\nHow to Get 10,000 Instagram Followers in 30 Days: Your Ultimate Guide\nBecoming a Creator\n2023-06-16\nDiscover a step-by-step plan to supercharge your Instagram growth and attract 10,000 followers within a month. Learn how to set the stage, optimize your profile, research content, plan your calendar, and craft compelling posts to make a lasting impression.\nWhat we learned at YC 🧠🧐\nOur Story\n2023-06-05\nA transcript of Episode 7 of our Young, Scrappy, and Hungry Podcast\nHow to use trending TikTok sounds to boost your post\nMarketing Tips, Making Money Online\n2023-05-19\nTrending sounds on TikTok for the second week of May\nViral sounds you NEED for your Instagram Reels - May 2023\nMarketing Tips, Making Money Online\n2023-05-16\nThe Top 10 Trending Sounds on Instagram in May 2023\nFrom Dreams to Reality with Typedream: Kyleigh Smith\nSuccess Stories\n2023-05-15\nA fireside chat with Kyleigh Smith, the founder of Harold the Habit Tracker. In this interview, Kyleigh shares with us how she got started as an indie hacker and advice for aspiring solopreneurs!\nChatGPT gave me boring content ideas 😭 (and how I fixed it!) with Putri\nOur Story\n2023-05-11\nA transcript of Episode 6 of our Young, Scrappy, and Hungry Podcast\nFrom Dreams to Reality with Typedream: Easlo the Notion Guy\nSuccess Stories\n2023-05-03\nA fireside chat with Easlo, where we discuss how he got from zero to one selling Notion templates and courses, and how he utilizes Typedream to create landing pages to market his digital products.\nOur Free Plan Just Got Even Better 🎉\nMarket Analysis\n2023-04-28\nExciting news from Typedream: We've made our free tier even more generous, unlocking Blog and Form features for everyone!\nChasing hype cycles with Anthony and Kevin\nOur Story\n2023-04-11\nA transcript of Episode 5 of our Young, Scrappy, and Hungry Podcast\nPick up lines for user interviews with Michelle\nOur Story\n2023-04-05\nA transcript of Episode 4 of our Young, Scrappy, and Hungry Podcast\nOverpromising with Kevin\nOur Story\n2023-04-01\nA transcript of Episode 3 of our Young, Scrappy, and Hungry Podcast\nIncreasing engineering productivity with Albert\nOur Story\n2023-03-29\nA transcript of Episode 2 of our Young, Scrappy, and Hungry Podcast\nThe importance of doing user interviews For a product designer with Putri\nOur Story\n2023-03-23\nA transcript of Episode 1 of our Young, Scrappy, and Hungry Podcast\n2 am thoughts with Michelle\nOur Story\n2023-03-20\nA transcript of Episode 0 of our Young, Scrappy, and Hungry Podcast\nI Got My “Extraordinary Ability” Visa 🇺🇸\nBuilding a Company\n2023-03-13\nA few years ago, if you ask this small-town girl how to be deemed as “Extraordinary” by the United States of America, I wouldn’t even dream of answering it. What is extraordinary? Working at Google? Building Google? It was a fantasy.\nHow We Structure Our Landing Page\nBuilding a Website\n2023-03-06\nA landing page is an essential part of product marketing.\nLet’s see how we build our landing page!\nThe Art of Copying\nBuilding a Website\n2023-02-27\nLike the title suggest, we’re breaking down how you can learn to build a website by copying other established website 👀\nHow We Got Typedream’s First 1,000 Customers\nBuilding a Company\n2023-02-20\nBreaking down how we, Typedream, got our first 1000 customers.\nAI Design Tools for Web Developers and Creators\nBuilding a Website\n2023-02-15\nAI design software can offer a range of benefits to content creators and web designers, including increased productivity and efficiency, improved design quality, and enhanced collaboration and communication.\nHow to Sell Your Notion Pages as Templates\nTutorials, Making Money Online\n2023-02-13\nWe at Typedream use Notion for everything. From planning our tasks, tracking our work, and many more.\nIf you’re like us, why not sell those pages as templates?\nEarly-Stage Companies Should Consider Marketing By Building In Public\nBuilding a Company\n2023-02-06\nEver wonder what marketing plan suits your company the best when you're just starting out?\n2023 Q1 Product Hunt Launches\nCompany Updates\n2023-01-30\nOur 2023 is going to be packed with Product Hunt launches!\n🚀\nPlanning to do 4 launches in Q1 2023 only 👇\nHow Link in Bios Prevent User Success According to Creators\nMarket Analysis\n2023-01-23\nAre link in bios actually helping your visitors discover your works?\nLet’s break it down!\n“If the product is good enough, it will market itself”. That’s BS\nBuilding a Company\n2023-01-16\nHow did we able to get 100 affiliates in a week?\nHow did we market it?\nWhat made it successful?\nHow To Start A User-Driven Approach To Software Development In A Startup Environment\nBuilding a Company\n2023-01-09\nBeing a technical founder has its own challenges. One of the biggest challenges is prioritizing what to work on.\nNever ending features, improvements, & bugs to work on but it seems like there’s not enough time & resources. 🤦‍♀️\nCheck out how one of our founders, Putri Karunia, deals with it.\nWe Made A HUGE Mistake\nBuilding a Company\n2023-01-02\nOur first ProductHunt launch for Typedream was great (statistically) but we made a HUGE mistake\nHow to Develop a Unique and Memorable Brand Identity\nMarketing Tips\n2022-12-27\nAs a startup founder and a digital creator, it is important to develop a brand identity that is both unique and memorable. This involves developing a brand voice and visual aesthetic distinct from your competitors while conveying your brand's core values.\nWhy We Think Y Combinator Accepted Us\nBuilding a Company\n2022-12-19\nCome and experience Typedream’s founders journey in pictures!\nWe Had to Fire Our Customers\nBuilding a Company\n2022-12-12\nFailure story: our Product Hunt launch was not all successful. We had to fire our customers.\nHow We Got Our First 10 Customers\nBuilding a Company\n2022-12-05\nThe #1 mistake startup founders make is thinking they need a perfect product before launching 💁‍♀️\nWe, Typedream, actually got our first 10 customers, without having a product 😮\nHow I Avoid Burnout & Deal with Anxiety as a Founder\nBuilding a Company\n2022-11-28\nBeing a founder is not easy, there’s always a thousand things going on at the same. Not knowing what comes next or if you’re doing enough can lead to burnout and anxiety. In this blog I’m sharing what I did to handle them.\nTop 3 Ways to Make Money Online\nMaking Money Online\n2022-11-22\nSeveral ways that the average person can start making their first dollar online and if done consistently can be a serious source of income.\nThoughts on The Current State of \"Link in Bio\" Websites\nMarket Analysis\n2022-08-08\nLink in bios are great to share links, but how do they fare in terms of conversion? We interviewed a couple of big players on Twitter to learn about their pain points. Here's what they have to say about it.\nHow Typedream's Twitter Grew To 7K Followers\nBuilding a Company\n2022-07-19\nA phase-by-phase recap on how we grew Typedream's Twitter account to 7k followers in 1 year.\nHow to Add Apple-like Gradients to Your Website\nTutorials\n2022-07-05\nTypedream offers a lot of pre-set gradients that you can just use on your website in 2 simple steps.\nTry it today at www.typedream.com!\nWhat we did to get Typedream #1 Product of the Day on ProductHunt\nBuilding a Company, Marketing Tips\n2022-07-05\nThe strategies we took before, during, and after the launch.\nHow to Add Apple-like Cards to Your Website, NoCode!\nTutorials\n2022-07-01\nIf you’ve ever admired Apple’s card design on their website, you can do the same in 3 easy steps with no coding required.\nTime to Branch Out to Other Social Medias for Marketing!\nMarketing Tips\n2022-06-29\nIn the past year, I've grown Typedream’s Twitter account to 13.5k followers and my personal account to 9.7k followers via #buildinpublic. It's time to branch out to other social medias for 3 main reasons 👇\nBuilding Typedream’s Mobile Version\nBuilding a Company\n2022-06-22\nI’m building Typedream’s Mobile Version to help mobile-first users build and edit their sites on the go! This is my progress in the first 2 weeks.\nDoubling Down on More Sustainable, Long-Term Growth Efforts\nBuilding a Company\n2022-06-21\nAs some of you might know, we launched the 2nd iteration of our product, Typedream CMS, to Product Hunt not too long ago. Now that we've launched, what's next for the team? We're doubling down on more sustainable, long-term growth efforts like Social Media Marketing & SEO 🤓⬇️\nTypedream Tutorial: Build an Animated Personal Site\nTutorials\n2022-06-20\nA fully-animated personal site designed for online and offline creators.\nAssets to Elevate Your Website\nBuilding a Website\n2022-04-30\nLooking for awesome graphics to add to your site? Here are some fresh assets and tools curated by the Typedream team.\nChoosing A Font to Make Your Landing Page Pop\nBuilding a Website\n2022-04-18\nChoosing a font for your site is not easy👀. Here's how we picked a font + a couple tips on how to make it POP on your site😉\nCommon Mistakes When Coming Up with Startup Ideas\nBuilding a Company\n2021-10-28\n“My startup idea has to be brilliant!”. Most successful companies were built from a good enough idea with an excellent execution.\nHow to Build a Startup 101\nBuilding a Company\n2021-10-01\nTarget a big market, build an MVP with the least amount of tech, and launch!\nGrowing Your Email Audience\nIncreasing Conversion\n2021-09-16\nA newsletter is a great way to keep your audience. After getting the initial signup, the goal is making those signups convert and keep coming back.\nHigh Converting Landing Page\nBuilding a Website, Tutorials\n2021-09-09\nUnderstand your target audience and design the right sections to communicate your value in a compelling way.\nHow to Rank #1 on Google\nBuilding a Website\n2021-08-14\nMost searchers do not go past the first page of search results - this is why it is important for your website to rank on the first page of Google.\nThe Top 5 Link-in-Bio Tools in 2024 - Maximize Your Social Media Presence\nRecommandations\nExplore 2024's top link-in-bio tools, including Typedream, for enhancing your social media. Discover innovative features and choose the best fit for your digital strategy.\nWe're a remote software company, building online tools for creators, builders, and side hustlers. We quit our 9-5 to pursue our dreams, and we want to help others do the same.\nCompany\nOur Journey\nAbout\nCareers\nSecurity\nBecome an Affiliate\nLegal\nTerms of Service\nPrivacy Policy\nRefund Policy\nAbuse\nResources\nPricing\nGuides & Tutorials\nChangelog\nTemplates\nShowcase\nBlog\nCreator Wiki\nContact\nTwitter\nInstagram\nTikTok\nLinkedin\nYoutube\nEmail\nCopyright © 2025 beehiiv, Inc. All rights reserved.\nMade in Typedream",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "認証サービスを作っていた5人の技術者は、利用者から「Notionと連携してほしい」と頼まれた。その理由を聞き込み、文章を打つ感覚でサイトを作れる道具に作り替えた結果、2021年7月にProduct Huntの月間1位を取った。",
+     "basis": [
+      "f10",
+      "f11",
+      "f12",
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "収入源は2つある。1つ目はサイトごとの月額・年額の利用料で、払うのはサイトの持ち主。独自ドメイン、無制限のページ、解析、ブログ、フォームの対価として払う。2つ目は、利用者がサイト上で電子書籍・講座・テンプレート・サービスを売ったときの取引手数料。無料枠では売上の5%、有料プランでは2%を取る。無料枠で1ページを公開させ、独自ドメインやページの追加が必要になった時点で有料プランへ移す形になっている。",
+     "basis": [
+      "f1",
+      "f3",
+      "f4",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "お金を払っているのは、電子書籍・講座・テンプレート・サービスを自分のサイトで売り、メールアドレスを集めたい企業・出版者・クリエイター。具体例として、習慣記録アプリを作るKyleigh Smithは、Dry January Challengeの募集ページをこのサービスで作った。",
+     "basis": [
+      "f1",
+      "f9",
+      "f19"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "客が困っていたのは主に2つ。1つ目は、Notionでサイトを作ろうとしても、ボタンやナビゲーションが無く形にならないこと。2つ目は、思いついた企画の締め切りまでに募集ページを公開しなければならない時間の切迫。Kyleigh Smithは、募集ページを約1日で用意できたことを最大の利点に挙げた。Easloは、募集ページを約5分で作ったという利用談を寄せている。",
+     "basis": [
+      "f11",
+      "f19",
+      "f24"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "客の入口は、運営チームのTwitterでの発信とProduct Huntでの露出。2021年7月にはProduct Huntで月間1位を取っている。Kyleigh Smithも、TwitterとProduct Huntでチームを見かけてこのサービスを知った。もう1つの入口は紹介報酬で、継続課金の20%を払う仕組みで紹介者経由の客を呼び込んでいる。",
+     "basis": [
+      "f8",
+      "f21",
+      "f23"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "紹介経由の客には、継続課金の20%を紹介者へ毎月PayPalで払い続ける。新規の有料プランをカードで買った客には、最初の14日以内なら全額を返金する。商品販売にかかるカードやPayPalの手数料は、運営側ではなく売り手が別途負担する。",
+     "basis": [
+      "f23",
+      "f25",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "beehiivの発表によると、創業者は5人の技術者。Y Combinatorの出身でもある。",
+     "basis": [
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "利用者の商品販売はカードやPayPalの決済に乗っていて、その手数料は取引手数料とは別に発生する。紹介者への報酬もPayPalで払っている。2024年6月にbeehiivが発表した後は、beehiivの事業の一部として運営されている。",
+     "basis": [
+      "f5",
+      "f23",
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "サイト上に、フォームで集めたメールアドレス、ブログ、販売中の商品ページが溜まっていく。独自ドメインもサイト単位で結び付く。このため、別のサービスへ移るには、これらをまとめて作り直す手間がかかる。",
+     "basis": [
+      "f1",
+      "f3",
+      "f4"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "年払いを選んだ客からは、1年分の利用料が最初にまとめて入る。現行Launchなら1サイトあたり$180、Growなら$504。契約は自動更新で、解約しても支払期間の終わりまでは使える。14日以内の全額返金は新規購入だけが対象で、更新料金は原則として返金されない。",
+     "basis": [
+      "f3",
+      "f4",
+      "f18",
+      "f25"
+     ],
+     "formula": "Launch年払い：月額換算$15 × 12か月 = $180／Grow年払い：月額換算$42 × 12か月 = $504（1サイトあたり）",
+     "presentation": "ESTIMATE"
+    },
+    {
+     "id": "a-referral",
+     "item": "REFERRAL",
+     "text": "紹介者には、紹介した客の継続課金の20%を毎月PayPalで払い続ける。紹介報酬の案内ページには、2022年4月19日のEasloの投稿を共有例として載せている。内容は、このサービスで募集ページを約5分で作ったという利用談。",
+     "basis": [
+      "f23",
+      "f24"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "価格は、他のサイト作成サービスの料金を参考に決めた。2021年11月2日の投稿では、年$144という価格がコメントで疑問視された。乗り換えの例もある。Kyleigh Smithは約1年前に試したとき、ドラッグ操作に困ってUnicorn Platformを使い続けた。その後再び試すと問題が直っていたため、Typedreamに切り替えた。",
+     "basis": [
+      "f14",
+      "f20"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2021年：Typedreamを開始。2021年7月：Product Huntで月間1位。2021年11月2日：Hacker Newsに投稿し、価格や操作について試用者とやり取り。2023年4月28日：無料枠にブログとフォームを開放。2023年5月9日：返金規定を更新。2024年6月：beehiivが発表し、その時点で数万件のサイトが稼働。",
+     "basis": [
+      "f6",
+      "f8",
+      "f14",
+      "f26",
+      "f25",
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "Notionでサイトを作ろうとする人がすでにいて、文章をそのまま書き換えられる操作に慣れていた。その人たちが欲しかったボタンやナビゲーションと整ったデザインを足したことが当たった。試用者も、Notionを使っている人ならすぐになじめると評価していた。",
+     "basis": [
+      "f11",
+      "f12",
+      "f15"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "特化しないと困難。料金は他のサイト作成サービスを参考にしていて、発表直後から年$144は高いという声が出た。利用者もUnicorn Platformなど他のサービスと比べたうえで選んでいる。単にサイトを作れるだけでは選ばれにくい。Notionに慣れた人向けの操作感や、数分から1日でページを出せる速さのような、狙った客にとってのはっきりした利点が必要になる。",
+     "basis": [
+      "f14",
+      "f20",
+      "f15",
+      "f19",
+      "f24"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "最初に作っていたのは認証サービスだった。そこへ来たNotion連携の要望を掘り下げ、サイト作成の道具に方向を変えた。創業者は、前の製品では利用者を十分に定められなかったと振り返っている。そのため今回は、作る前に候補利用者を徹底して聞き取った。",
+     "basis": [
+      "f11",
+      "f12",
+      "f13"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "この事例の核心は、手元に来た要望を額面どおりに作らず、その理由を掘り下げたこと。Notion連携の要望の裏には「Notionで無理にサイトを作っている人たち」がいて、チームは彼らに足りないボタンやナビゲーションだけを足した。その結果、すでに出来上がっていた使い方の習慣ごと客を取り込めた。",
+     "basis": [
+      "f11",
+      "f12",
+      "f13"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27"
+   ],
+   "identity": {
+    "id": "ent_typedream_c02cf9d5426e",
+    "name": "Typedream",
+    "url": "https://typedream.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_ad4262812cd2494b4eeded55",
+      "entityId": "ent_typedream_c02cf9d5426e",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://typedream.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:06:04.975Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "ad4262812cd2494b4eeded5545e65481ac5c65afc90feadcd6ae8cdae86224f0",
+      "bytes": 235135,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Typedream 公式サイト (https://typedream.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_typedream_c02cf9d5426e/ad4262812cd2494b4eeded5545e65481ac5c65afc90feadcd6ae8cdae86224f0.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_249a8d1f04fbb9d309959712",
+      "entityId": "ent_typedream_c02cf9d5426e",
+      "kind": "favicon",
+      "sourcePageUrl": "https://typedream.com/",
+      "assetUrl": "https://image.typedream.com/cdn-cgi/image/width=144,height=144,quality=100,fit=crop/https://api.typedream.com/v0/document/public/46d710fd-ec90-498a-901c-d6acd853f5fa/2VzZXWbYKmSfxvhmtwaxRpXSOaR_favicon.png",
+      "retrievedAt": "2026-10-07T10:06:05.195Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "249a8d1f04fbb9d309959712c3d90e63ddc698c11c141fb83cacb6f84a9cd783",
+      "bytes": 6979,
+      "contentType": "image/png",
+      "width": 144,
+      "height": 144,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Typedream 公式サイト (https://typedream.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:22.940Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 144x144)、SHA-256が台帳と一致 (249a8d1f04fb)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_typedream_c02cf9d5426e/249a8d1f04fbb9d309959712c3d90e63ddc698c11c141fb83cacb6f84a9cd783.png",
+       "publicKey": "media/ent_typedream_c02cf9d5426e/249a8d1f04fbb9d309959712c3d90e63ddc698c11c141fb83cacb6f84a9cd783.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_249a8d1f04fbb9d309959712",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:22.940Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 144x144)、SHA-256が台帳と一致 (249a8d1f04fb)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_48c62c0da34949083939c86e",
+      "entityId": "ent_typedream_c02cf9d5426e",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://typedream.com/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:06:08.120Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "48c62c0da34949083939c86e9ef514e91fc60540bbe54b23ab8b0d8525f664a9",
+      "bytes": 118588,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Typedream 公式サイト (https://typedream.com/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_typedream_c02cf9d5426e/48c62c0da34949083939c86e9ef514e91fc60540bbe54b23ab8b0d8525f664a9.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     }
+    ],
+    "displayableIds": [
+     "ma_249a8d1f04fbb9d309959712"
+    ],
+    "problems": []
+   },
+   "caseHash": "15ab0fc2af03cb3fad807368d26eff30f2f1d2753d3d295b91663f60308831a5",
+   "itemHashes": {
+    "fact:f1": "17b6e1ec98856b80bea25c809a186d808ad36cf0010d6a216ccb9de1c86567e4",
+    "fact:f2": "6f0a3848b3dc3220532dafecb05eb5970349a84a05b4297a3fc69dce7929cbed",
+    "fact:f3": "3ee8c4066913f94a2f79df1c22d0d2f2dc1e4e4666f137d1194fd1c3f2456056",
+    "fact:f4": "a84975e61b8081138f22b50c2674b9f3ad3fdc86f20e155ca4e91fa654e3b34f",
+    "fact:f5": "a3b8736321a51095b75cf01fc97c31961b4648afd050ed023bec09387c01820a",
+    "fact:f6": "b23a61791627822c79486607a3148815b0300724264a1e64295f80b839b89075",
+    "fact:f7": "328cdcb5392e1cc3d4cc9ed7bb45da298934659d63a4b3171f3e6d6545111098",
+    "fact:f8": "2beee14a8316369b407ce50f78b3a1e57f268a4ecf1dc01aa54c96ed8676897e",
+    "fact:f9": "5cb78f2b6b6aec2c052c1aa2ba3870f3ae48cdc3c7c4a032ec6a3efe5e245a34",
+    "fact:f10": "6f457b5b41601e6adb9195d63a6e71833aeaae787752926b98bbd9c10afd70b2",
+    "fact:f11": "06f7d30e9b8e238f31a8fcf9fb1ff79d9e87853d8c7a6a496aea8f577013179c",
+    "fact:f12": "d71eb8aeafd837a04e2dc5587f0dea94af26d9290101b68aeb461ef90bce0d0c",
+    "fact:f13": "f0fbdcef75e4a546763127359b5a0e7bd4f5feb1058f8ecabd437afaef3c73d2",
+    "fact:f14": "88d1129ba2a3ca4bb3310eabed993d04121f9db2db3468698ad6dc39a1d561b6",
+    "fact:f15": "2dc99caed9fc8f80b2bf007c67ce5948e5af184e66406c5b44c61745285a6e0a",
+    "fact:f16": "6d21510cb61410339dae86898adcc6a0b15e90cb5d9d066ac90d71153a467194",
+    "fact:f17": "a4b9e2229829d3df1d09b65689d487a118ed5287acc6c476d82c9ca5893f4d70",
+    "fact:f18": "241027a371c8b5c52c15aa603660e3108c95c433b40821f6167c5bc08a8b095c",
+    "fact:f19": "e1d558610bcfa0aa01bfb737527c143ba6913c5e8978a0ad6d065938492f4545",
+    "fact:f20": "7c7038636d4ea149b24c1009874997fb0edfad8049fec944c14db68afb7ad942",
+    "fact:f21": "439319aadff1f0ef83f58cb702a7969115f57c666084b95f49429834b02fef0e",
+    "fact:f22": "ef36bafb913ee4c2487d1ad4f29ded1944ce7fa0b25d2d941e55a2627d84fc71",
+    "fact:f23": "c7ee3da5694bde976706ff3ea96554cfcf00b92dfc4da0c5758b7395c21190c2",
+    "fact:f24": "327271e053e0f929a3c9ab48c08d98a181aabb4acd79480b31ec61fa2023af38",
+    "fact:f25": "7b40ae98855f9f3fa804afabaa98b552f0fd15ad2d804443c0e69d767d0480b7",
+    "fact:f26": "bc3dcc1be30a8cc5c9373e3ba740e02138e0392aef918482be4686e1d6fdb87d",
+    "fact:f27": "35cd971c58f366e8aa7559a153c153cdffc5fbe8a7123dced86575e4740a5876",
+    "analysis:a-headline": "3c181c847ca23851a0bf76244ea09a4aaedb2ac365666d17c9f92725bed77959",
+    "analysis:a-business_model": "7723881f58c6932e5809c56c78d04c090e9aa6bb959ddc1e4c3501b702fcf770",
+    "analysis:a-customer": "0fe6ad06036b7f786d7dc7d2b69a5268c01e20143ee2486b7fd230d4ca975331",
+    "analysis:a-customer_pain": "ad74d2788cd1d66a8d951fe8e5eb143f00e8034892ac657aab79c58b3d6f265a",
+    "analysis:a-channels": "fd188215e09edf5cdd57f160a4b1a2fc1bdc5e97c17ab19325340564f8064472",
+    "analysis:a-cost_structure": "471e15005a37cad67e6ab979b065451c77dfaf527d9f5e2b2be4c1e93385ee49",
+    "analysis:a-capital_and_team": "31c064334848955b3f6a364a1cbe1ea62aeebd966798e6094b0a51eacc100556",
+    "analysis:a-dependencies": "07216af26231062bc1d6c8d3fffc757253eb74bec66cabc38eeb7fb6fbde9952",
+    "analysis:a-lock_in": "0ca825c5ef458878aab5e3a50e79cb96f93036862ef163ca9ab3e8736d8822b5",
+    "analysis:a-upfront_cash": "cc177200286ac991f5175df85a50c91cf0dd06e635ca18a23f6b088b358741c8",
+    "analysis:a-referral": "d560523525b33c0c9daba44f2fa4612025728e59004c6f5eb630f2994255c3c6",
+    "analysis:a-competition": "e8ff8a81c774b3fbe8d125410a756f9f20cb5814e9586d18cf17bc41d07922e6",
+    "analysis:a-timeline": "18ea0fa9b6f904d32d359e8938b596b6a0c6ec62fff4d07f843a326502504de9",
+    "analysis:a-why_it_worked": "ca60c881232d085f9dbfd6f56f2965107c44359bb53136ae8be940abd0a27318",
+    "analysis:a-viability": "0f2503c79defb067da43c256728dc3e3bbb674d8a85d018b97f1097856db8660",
+    "analysis:a-pivots": "36d72c5bd4f9c024b58f33ca159a3180a9d26974ca1ace265c488f5fdb5af175",
+    "analysis:a-lesson": "b15c2e3a6925d7560498a055ef5e38aa63238feb4b33eabcf03245182868f064"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f23",
+    "fact:f24",
+    "fact:f25",
+    "fact:f26",
+    "fact:f27",
+    "analysis:a-headline",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-channels",
+    "analysis:a-cost_structure",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-upfront_cash",
+    "analysis:a-referral",
+    "analysis:a-competition",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-viability",
+    "analysis:a-pivots",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://typedream.com/",
+      "publisher": "Typedream（公式製品紹介）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s2",
+      "url": "https://typedream.com/pricing",
+      "publisher": "Typedream（現在の料金表）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+      "publisher": "Typedream（Kevin Chandraの発表）",
+      "publishedAt": "2024-06-25",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "publisher": "beehiiv（公式発表）",
+      "publishedAt": "2024-06-25",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://news.ycombinator.com/item?id=29084309",
+      "publisher": "Hacker News（創業者投稿と試用者の返答）",
+      "publishedAt": "2021-11-02",
+      "checkedAt": "2026-10-07",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s7",
+      "url": "https://typedream.com/old-pricing",
+      "publisher": "Typedream（旧料金ページ）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://typedream.com/blog/kyleigh-smith",
+      "publisher": "Typedream（利用者Kyleigh Smithへのインタビュー）",
+      "publishedAt": "2023-05-15",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://typedream.com/affiliate",
+      "publisher": "Typedream（紹介報酬の案内）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://typedream.com/refund-policy",
+      "publisher": "Typedream（返金規定）",
+      "publishedAt": "2023-05-09",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://typedream.com/blog",
+      "publisher": "Typedream（記事目録）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "コードを書かずにサイトを作り、電子書籍・講座・テンプレート・サービスを販売し、フォームでメールアドレスを集める機能を提供している。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "DESCRIPTION",
+      "text": "公式サイトには、作成されたサイト135K（135,000件）と記載されている。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "PRICING",
+      "text": "現在のLaunchは1サイトごとに月払い$20、年払いは月額換算$15。独自ドメイン、無制限のページ、解析、ブログ1件を含む。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "PRICING",
+      "text": "現在のGrowは1サイトごとに月払い$49、年払いは月額換算$42。ブログ数とフォーム送信数の上限がなくなる。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "PRICING",
+      "text": "無料枠は1ページを公開できる。商品販売の取引手数料は無料枠5%、LaunchとGrowは2%で、カードまたはPayPalの手数料は別にかかる。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "FOUNDING",
+      "text": "Kevin Chandraは、Typedreamを2021年に始めたと記している。",
+      "sourceId": "s3",
+      "statedAt": "2024-06-25",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "顧客が参加した通話、機能要望、障害報告が、誰でも美しいサイトを作りやすくするという目標の達成を助けたと説明している。",
+      "sourceId": "s3",
+      "statedAt": "2024-06-25",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "EVENT",
+      "text": "beehiivの発表によると、2021年7月にProduct Huntの月間1位になった。",
+      "sourceId": "s5",
+      "statedAt": "2024-06-25",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "2024年6月のbeehiivの公式発表では、Typedream上で企業・出版者・クリエイター向けの数万件のサイトが稼働していると説明した。",
+      "sourceId": "s5",
+      "statedAt": "2024-06-25",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "TEAM",
+      "text": "beehiivの発表は、Typedreamを5人の技術者が創業したサービスと説明している。",
+      "sourceId": "s5",
+      "statedAt": "2024-06-25",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "認証サービスを作っていた際、Notionとの連携を求められた。利用者に聞くと、文章を直接編集できる操作が好まれ、ボタンやナビゲーションが不足していた。",
+      "sourceId": "s6",
+      "statedAt": "2021-11-02",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f12",
+      "kind": "OTHER",
+      "text": "その聞き取りから、文章編集の操作にサイト用の部品と標準デザインを足し、画面サイズへの対応も製品側で受け持つ形にした。",
+      "sourceId": "s6",
+      "statedAt": "2021-11-02",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f13",
+      "kind": "OTHER",
+      "text": "Putri Karuniaは、以前は利用者を十分に定められなかったため、今回は制作前に候補利用者を徹底して聞き取ったと返答した。返答日は2021年11月3日。",
+      "sourceId": "s6",
+      "statedAt": "2021-11-03",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f14",
+      "kind": "PRICING",
+      "text": "2021年11月2日の投稿でコメント投稿者が年$144の価格を挙げ、創業者は他のサイト作成サービスの価格を参考にしたと返答した。",
+      "sourceId": "s6",
+      "statedAt": "2021-11-02",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "試用者yutersはNotion利用者ならなじみやすいと評価した一方、背景色の変更と画面外に隠れる操作メニューを指摘。創業者は改善点と障害を認めた。",
+      "sourceId": "s6",
+      "statedAt": "2021-11-02",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f16",
+      "kind": "PRICING",
+      "text": "旧料金ページのLaunchは月払い$15、年払いは月額換算$12。公開ページ数無制限と独自ドメインを含む。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "PRICING",
+      "text": "旧料金ページのProは月払い$25、年払いは月額換算$20。保護ページとNotionのデータ表示などを含む。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "OTHER",
+      "text": "旧料金ページには、月または年ごとの自動更新と、解約時は支払期間末まで利用できることが記載されている。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、Dry January Challengeの募集ページを約1日で用意できたことが最大の利点だったと述べた。",
+      "sourceId": "s8",
+      "statedAt": "2023-05-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、約1年前の試用でドラッグ操作に困り、Unicorn Platformを使い続けたが、再試用では問題が解消され、Typedreamを採用したと述べた。",
+      "sourceId": "s8",
+      "statedAt": "2023-05-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、TwitterとProduct HuntでTypedreamのチームを見かけて知ったと述べた。",
+      "sourceId": "s8",
+      "statedAt": "2023-05-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "OTHER",
+      "text": "Kyleigh Smithは、あらかじめ整った部品を動かして自分の意図に合わせられることと、公開や修正の容易さを評価した。",
+      "sourceId": "s8",
+      "statedAt": "2023-05-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f23",
+      "kind": "OTHER",
+      "text": "紹介報酬の案内は、継続課金に対して20%の報酬を提示し、PayPalで毎月支払うと説明している。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f24",
+      "kind": "OTHER",
+      "text": "紹介報酬ページには、2022年4月19日のEasloの投稿が掲載されている。本人がTypedreamで募集ページを約5分で作ったとする利用談である。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f25",
+      "kind": "PRICING",
+      "text": "2023年5月9日更新の返金規定は、新規の有料プランをカードで購入した場合、最初の14日以内を全額返金の対象とする。更新料金は原則として対象外。",
+      "sourceId": "s10",
+      "statedAt": "2023-05-09",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f26",
+      "kind": "EVENT",
+      "text": "公式記事目録は、2023年4月28日に無料枠へブログとフォームを開放した記事を掲載している。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f27",
+      "kind": "EVENT",
+      "text": "公式記事目録には、2023年5月15日付でKyleigh Smithへの利用者インタビューが掲載されている。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "CHANNEL",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "認証サービスを作っていた5人の技術者は、利用者から「Notionと連携してほしい」と頼まれた。その理由を聞き込み、文章を打つ感覚でサイトを作れる道具に作り替えた結果、2021年7月にProduct Huntの月間1位を取った。",
+      "basis": [
+       "f10",
+       "f11",
+       "f12",
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "収入源は2つある。1つ目はサイトごとの月額・年額の利用料で、払うのはサイトの持ち主。独自ドメイン、無制限のページ、解析、ブログ、フォームの対価として払う。2つ目は、利用者がサイト上で電子書籍・講座・テンプレート・サービスを売ったときの取引手数料。無料枠では売上の5%、有料プランでは2%を取る。無料枠で1ページを公開させ、独自ドメインやページの追加が必要になった時点で有料プランへ移す形になっている。",
+      "basis": [
+       "f1",
+       "f3",
+       "f4",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "お金を払っているのは、電子書籍・講座・テンプレート・サービスを自分のサイトで売り、メールアドレスを集めたい企業・出版者・クリエイター。具体例として、習慣記録アプリを作るKyleigh Smithは、Dry January Challengeの募集ページをこのサービスで作った。",
+      "basis": [
+       "f1",
+       "f9",
+       "f19"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "客が困っていたのは主に2つ。1つ目は、Notionでサイトを作ろうとしても、ボタンやナビゲーションが無く形にならないこと。2つ目は、思いついた企画の締め切りまでに募集ページを公開しなければならない時間の切迫。Kyleigh Smithは、募集ページを約1日で用意できたことを最大の利点に挙げた。Easloは、募集ページを約5分で作ったという利用談を寄せている。",
+      "basis": [
+       "f11",
+       "f19",
+       "f24"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "客の入口は、運営チームのTwitterでの発信とProduct Huntでの露出。2021年7月にはProduct Huntで月間1位を取っている。Kyleigh Smithも、TwitterとProduct Huntでチームを見かけてこのサービスを知った。もう1つの入口は紹介報酬で、継続課金の20%を払う仕組みで紹介者経由の客を呼び込んでいる。",
+      "basis": [
+       "f8",
+       "f21",
+       "f23"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "紹介経由の客には、継続課金の20%を紹介者へ毎月PayPalで払い続ける。新規の有料プランをカードで買った客には、最初の14日以内なら全額を返金する。商品販売にかかるカードやPayPalの手数料は、運営側ではなく売り手が別途負担する。",
+      "basis": [
+       "f23",
+       "f25",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "beehiivの発表によると、創業者は5人の技術者。Y Combinatorの出身でもある。",
+      "basis": [
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "利用者の商品販売はカードやPayPalの決済に乗っていて、その手数料は取引手数料とは別に発生する。紹介者への報酬もPayPalで払っている。2024年6月にbeehiivが発表した後は、beehiivの事業の一部として運営されている。",
+      "basis": [
+       "f5",
+       "f23",
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "サイト上に、フォームで集めたメールアドレス、ブログ、販売中の商品ページが溜まっていく。独自ドメインもサイト単位で結び付く。このため、別のサービスへ移るには、これらをまとめて作り直す手間がかかる。",
+      "basis": [
+       "f1",
+       "f3",
+       "f4"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "年払いを選んだ客からは、1年分の利用料が最初にまとめて入る。現行Launchなら1サイトあたり$180、Growなら$504。契約は自動更新で、解約しても支払期間の終わりまでは使える。14日以内の全額返金は新規購入だけが対象で、更新料金は原則として返金されない。",
+      "basis": [
+       "f3",
+       "f4",
+       "f18",
+       "f25"
+      ],
+      "formula": "Launch年払い：月額換算$15 × 12か月 = $180／Grow年払い：月額換算$42 × 12か月 = $504（1サイトあたり）",
+      "presentation": "ESTIMATE"
+     },
+     {
+      "id": "a-referral",
+      "item": "REFERRAL",
+      "text": "紹介者には、紹介した客の継続課金の20%を毎月PayPalで払い続ける。紹介報酬の案内ページには、2022年4月19日のEasloの投稿を共有例として載せている。内容は、このサービスで募集ページを約5分で作ったという利用談。",
+      "basis": [
+       "f23",
+       "f24"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "価格は、他のサイト作成サービスの料金を参考に決めた。2021年11月2日の投稿では、年$144という価格がコメントで疑問視された。乗り換えの例もある。Kyleigh Smithは約1年前に試したとき、ドラッグ操作に困ってUnicorn Platformを使い続けた。その後再び試すと問題が直っていたため、Typedreamに切り替えた。",
+      "basis": [
+       "f14",
+       "f20"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2021年：Typedreamを開始。2021年7月：Product Huntで月間1位。2021年11月2日：Hacker Newsに投稿し、価格や操作について試用者とやり取り。2023年4月28日：無料枠にブログとフォームを開放。2023年5月9日：返金規定を更新。2024年6月：beehiivが発表し、その時点で数万件のサイトが稼働。",
+      "basis": [
+       "f6",
+       "f8",
+       "f14",
+       "f26",
+       "f25",
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "Notionでサイトを作ろうとする人がすでにいて、文章をそのまま書き換えられる操作に慣れていた。その人たちが欲しかったボタンやナビゲーションと整ったデザインを足したことが当たった。試用者も、Notionを使っている人ならすぐになじめると評価していた。",
+      "basis": [
+       "f11",
+       "f12",
+       "f15"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "特化しないと困難。料金は他のサイト作成サービスを参考にしていて、発表直後から年$144は高いという声が出た。利用者もUnicorn Platformなど他のサービスと比べたうえで選んでいる。単にサイトを作れるだけでは選ばれにくい。Notionに慣れた人向けの操作感や、数分から1日でページを出せる速さのような、狙った客にとってのはっきりした利点が必要になる。",
+      "basis": [
+       "f14",
+       "f20",
+       "f15",
+       "f19",
+       "f24"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "最初に作っていたのは認証サービスだった。そこへ来たNotion連携の要望を掘り下げ、サイト作成の道具に方向を変えた。創業者は、前の製品では利用者を十分に定められなかったと振り返っている。そのため今回は、作る前に候補利用者を徹底して聞き取った。",
+      "basis": [
+       "f11",
+       "f12",
+       "f13"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "この事例の核心は、手元に来た要望を額面どおりに作らず、その理由を掘り下げたこと。Notion連携の要望の裏には「Notionで無理にサイトを作っている人たち」がいて、チームは彼らに足りないボタンやナビゲーションだけを足した。その結果、すでに出来上がっていた使い方の習慣ごと客を取り込めた。",
+      "basis": [
+       "f11",
+       "f12",
+       "f13"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f2"
+   }
+  }
+ ]
+}

@@ -1,0 +1,815 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/wip-record.json",
+  "manifestSha256": "d6776d5590b4101d89a950a2a9d9f34ab555b7e9189b7f2fdd1b3dd762bc7415",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:24.869Z"
+ },
+ "records": [
+  {
+   "id": "ent_wip_5eef8a985270",
+   "provenance": {
+    "detailsHash": "74fd3db4ca52320230370219406ea7d7741529fb3dd1df23869039cb49ca4134",
+    "artifactSha256": "d6776d5590b4101d89a950a2a9d9f34ab555b7e9189b7f2fdd1b3dd762bc7415"
+   },
+   "record": {
+    "id": "ent_wip_5eef8a985270",
+    "ticker": "WIPCO",
+    "name": "WIP",
+    "legalEntity": "",
+    "tagline": "作ったものを毎日報告し、仲間と進捗を続ける会員制の場。Telegramの小さな集まりから始まり、現在の新規料金は月29ドル・年199ドル",
+    "description": "Marc Köhlbruggeが2017年9月に始めた、製品を作る人が作業の完了を共有するコミュニティ。Telegramの集まりから、作業を記録する自動応答とウェブサイトへ広がった。無料、支援課金、新規入会の有料化、招待制の無料枠を経て、2024年に新規会員の有料化へ戻した。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "UNKNOWN",
+    "founder": "Marc Köhlbrugge",
+    "country": "",
+    "url": "https://wip.co",
+    "officialUrl": "https://wip.co",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "進捗の公開記録、会員同士の助言、有料の追加機能を、月額または年額の会員料金で提供する。",
+    "pipelineStack": "初期: Telegramの自動応答とウェブサイト。2024-01の本人説明: RenderからDigitalOceanへKamalとDockerで移行を試みた。移行の最終完了は未確認。",
+    "targetPainWallet": "",
+    "tags": [
+     "進捗共有",
+     "会員制コミュニティ",
+     "Telegram",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2014-02〜2026-10-07。収入の最後の明示的な観測は2024-08-29。",
+     "revenueLabel": "現在の売上は空欄。本人説明では2019-01の会費収入は年約40,000ドル、2022-09の平均月次継続売上は約2,000ドル、2024-08は約1,000ドル。現在へ延長せず事実欄に保存。",
+     "sourceDoc": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "毎日の進捗を共有し、助言を受け、目標を続ける製作者のコミュニティと公式に説明している。",
+      "sourceUrl": "https://wip.co/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_wip_5eef8a985270_fact_1",
+      "researchSection": "やり方の具体",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "USERS",
+      "text": "2026年10月7日に開いたトップページは3,822人の参加者を案内していた。有料会員数とは表示されていない。",
+      "sourceUrl": "https://wip.co/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_wip_5eef8a985270_fact_2",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2014年2月、メールで進捗を共有するAttaboyを試したが、利用は広がらなかった。",
+      "sourceUrl": "https://marc.io/the-history-of-wip",
+      "statedAt": "2018-08-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_3",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2014-02"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2015年2月の案は作り込みすぎ、2016年4月の案は途中で意欲を失い、どちらも公開しなかった。",
+      "sourceUrl": "https://marc.io/the-history-of-wip",
+      "statedAt": "2018-08-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_4",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2015-02〜2016-04"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "2017年9月、Pieter Levelsの提案でBetaListのTelegramの集まりを始めた。",
+      "sourceUrl": "https://marc.io/the-history-of-wip",
+      "statedAt": "2018-08-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_5",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2017-09"
+     },
+     {
+      "kind": "EVENT",
+      "text": "数日後に参加者が完了した作業を共有し始めたため、自動応答と簡単なサイトを作り、集まりをWIPへ改名した。",
+      "sourceUrl": "https://marc.io/the-history-of-wip",
+      "statedAt": "2018-08-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_6",
+      "researchSection": "やり方の具体",
+      "eventDate": "2017-09"
+     },
+     {
+      "kind": "TOOL",
+      "text": "短い音声番組をTelegramで記録するために以前作ったコードを、WIPの自動応答の出発点に使った。",
+      "sourceUrl": "https://marc.io/the-history-of-wip",
+      "statedAt": "2018-08-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_7",
+      "researchSection": "出発点",
+      "eventDate": "2017-09"
+     },
+     {
+      "kind": "REVENUE",
+      "text": "2018年8月の本人説明では、数百人の製作者が使い、月次継続売上は数千ドルだった。正確な金額は記載していない。",
+      "sourceUrl": "https://marc.io/the-history-of-wip",
+      "statedAt": "2018-08-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_8",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2018-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "2017年9月、Twitterで新しい集まりを知らせ、Pieterらの再投稿もあり、初日に数十人が参加したと本人が振り返っている。",
+      "sourceUrl": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+      "statedAt": "2019-01-15",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_9",
+      "researchSection": "出発点",
+      "eventDate": "2017-09"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "2019年1月の本人説明では、集客はほぼ口コミで、自身のTwitter発信と会員による友人の招待だった。",
+      "sourceUrl": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+      "statedAt": "2019-01-15",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_10",
+      "researchSection": "やり方の具体",
+      "eventDate": "2019-01"
+     },
+     {
+      "kind": "PRICING",
+      "text": "最初は無料で、会員が支援を申し出たため、任意の年100ドルの支援プランを作ったと本人が説明している。",
+      "sourceUrl": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+      "statedAt": "2019-01-15",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_11",
+      "researchSection": "価格の変遷",
+      "dateNote": "回想の公開日2019-01-15。支援プランの開始日は記載なし。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "新規参加者が増えて会話を乱すようになり、新規会員の支払いを必須にした。その後は入会数を抑えるため値上げし、2019年1月には月20ドルだった。",
+      "sourceUrl": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+      "statedAt": "2019-01-15",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_12",
+      "researchSection": "価格の変遷",
+      "eventDate": "2019-01"
+     },
+     {
+      "kind": "REVENUE",
+      "text": "2019年1月の本人説明では、WIPの会員料金による収入は年約40,000ドルだった。利益ではなく、対象の会計期間も明記されていない。",
+      "sourceUrl": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+      "statedAt": "2019-01-15",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_13",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2019-01"
+     },
+     {
+      "kind": "OTHER",
+      "text": "会話が大きくなりすぎる問題に対して、複数の集まりを試し、深い議論をウェブサイトへ移す方向を説明した。改善後の人数や売上は示していない。",
+      "sourceUrl": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+      "statedAt": "2019-01-15",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_14",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2019-01"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2022年9月6日、月20ドルの料金が入会の障壁になっているとして、無料、招待制、任意の有料機能を組み合わせる案を公開した。",
+      "sourceUrl": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "statedAt": "2022-09-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_15",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2022-09-06"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Martijn Verboveは月20ドルを払う価値を感じ、交流会が増えるならさらに払ってもよいと投稿した。",
+      "sourceUrl": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_wip_5eef8a985270_fact_16",
+      "researchSection": "客の声",
+      "dateNote": "記事公開日2022-09-06。コメントは「4年前」の相対表示のみで、投稿日は確定しない。"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Philip Thomasはコミュニティに払うことには納得するが、Telegramが好みでなく、参加を妨げているため、同時に接続しなくても参加できる形を望んだ。",
+      "sourceUrl": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_wip_5eef8a985270_fact_17",
+      "researchSection": "客の声",
+      "dateNote": "記事公開日2022-09-06。コメントは「4年前」の相対表示のみで、投稿日は確定しない。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2022年9月の本人回想では、支援プランは年150ドル、その後の新規入会は年150ドルまたは月20ドルだった。2019年の年100ドルという説明とは区別して保存する。",
+      "sourceUrl": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "statedAt": "2022-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_18",
+      "researchSection": "価格の変遷",
+      "eventDate": "2022-09"
+     },
+     {
+      "kind": "USERS",
+      "text": "2022年9月22日の本人説明では、前月の新規登録は3人だけだった。",
+      "sourceUrl": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "statedAt": "2022-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_19",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2022-08"
+     },
+     {
+      "kind": "REVENUE",
+      "text": "2022年9月の本人説明では、平均月次継続売上は約2,000ドルだった。平均を取った期間は示していない。",
+      "sourceUrl": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "statedAt": "2022-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_20",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2022-09"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2022年9月22日、招待制の無料会員枠を導入し、有料会員向けの追加機能を残した。新規登録を増やす実験であり、成功したとの結果は示していない。",
+      "sourceUrl": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "statedAt": "2022-09-22",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_21",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2022-09-22"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2022年12月5日、Marcは連続記録が途切れると意欲を失う人がいるとして、記録が全消去されない別の計算方式を提案した。実装完了の発表ではない。",
+      "sourceUrl": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+      "statedAt": "2022-12-05",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_22",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2022-12-05"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Nilsは1,373日続いた記録を入力忘れで失い、再開への意欲が落ちた一方、毎日続ける厳しい挑戦の価値も残したいと投稿した。",
+      "sourceUrl": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+      "statedAt": "2022-12-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_wip_5eef8a985270_fact_23",
+      "researchSection": "客の声",
+      "eventDate": "2022-12-06"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Rodは厳しい連続記録が意欲を保つ助けになっていると投稿した。",
+      "sourceUrl": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+      "statedAt": "2022-12-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_wip_5eef8a985270_fact_24",
+      "researchSection": "客の声",
+      "eventDate": "2022-12-06"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2024年1月25日、費用削減と速度改善のためRenderからDigitalOceanへKamalで移そうとして、停止が発生したと説明した。",
+      "sourceUrl": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+      "statedAt": "2024-01-25",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_25",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2024-01-25"
+     },
+     {
+      "kind": "OTHER",
+      "text": "停止で連続記録が途切れた会員に、完了した作業のリンクと時刻を送れば日付を直すと案内した。移行の継続かRenderへの復帰かは当時未決定だった。",
+      "sourceUrl": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+      "statedAt": "2024-01-25",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_26",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2024-01-25"
+     },
+     {
+      "kind": "REVENUE",
+      "text": "2024年8月29日の本人説明では、月次継続売上は約1,000ドルだった。現在の金額とは扱わない。",
+      "sourceUrl": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+      "statedAt": "2024-08-29",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_27",
+      "researchSection": "時間順の流れ",
+      "eventDate": "2024-08-29"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2024年8月29日、新規会員を月29ドルまたは年199ドルにし、1か月の無料試用を案内した。既存の無料会員と有料会員の条件は維持した。",
+      "sourceUrl": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+      "statedAt": "2024-08-29",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_28",
+      "researchSection": "価格の変遷",
+      "eventDate": "2024-08-29"
+     },
+     {
+      "kind": "OTHER",
+      "text": "料金変更後も招待制を維持する方針を示した。有料化後の登録数や売上の結果は本文にない。",
+      "sourceUrl": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+      "statedAt": "2024-08-29",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_29",
+      "researchSection": "つまずきと立て直し",
+      "eventDate": "2024-08-29"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Jill Binderは友人に合うコミュニティだとして招待の入手方法を質問した。会員が友人を連れてくる具体的な公開記録である。",
+      "sourceUrl": "https://wip.co/posts/getting-invites-t8wnyy",
+      "statedAt": "2024-09-10",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者",
+      "id": "ent_wip_5eef8a985270_fact_30",
+      "researchSection": "客の声",
+      "eventDate": "2024-09-10"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Marcは、招待枠はサイトの利用に応じて自動配布され、連続記録の節目は方法の1つだが必須ではないと返答した。",
+      "sourceUrl": "https://wip.co/posts/getting-invites-t8wnyy",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "本人",
+      "id": "ent_wip_5eef8a985270_fact_31",
+      "researchSection": "やり方の具体",
+      "dateNote": "記事公開日2024-09-10。返信の正確な日付は表示なし。確認日2026-10-07。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2026年10月7日に開いた入会ページでは、月29ドルまたは年199ドルと表示している。",
+      "sourceUrl": "https://wip.co/join",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_wip_5eef8a985270_fact_32",
+      "researchSection": "価格の変遷",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "PRICING",
+      "text": "現行の入会ページは買い切り会員を提供せず、世界共通の価格で、クレジットカードに対応すると説明している。",
+      "sourceUrl": "https://wip.co/join",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_wip_5eef8a985270_fact_33",
+      "researchSection": "価格の変遷",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "有料機能には連続記録の保護、製品の登録数制限の解除、利用状況の詳細、広告非表示、非公開の製品、外部連携などがある。",
+      "sourceUrl": "https://wip.co/pro",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式",
+      "id": "ent_wip_5eef8a985270_fact_34",
+      "researchSection": "やり方の具体",
+      "eventDate": "2026-10-07",
+      "dateNote": "出典の公開日は表示なし。確認日現在の公開表示を記録。"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "Codex",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://wip.co/",
+       "publisher": "WIP公式トップページ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://marc.io/the-history-of-wip",
+       "publisher": "Marc Köhlbruggeの創業経緯",
+       "sourceType": "official_blog",
+       "publicationDate": "2018-08-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+       "publisher": "HackerNoonのMarc Köhlbrugge本人インタビュー",
+       "sourceType": "founder_interview",
+       "publicationDate": "2019-01-15",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+       "publisher": "Marc Köhlbruggeの無料化・招待制の提案",
+       "sourceType": "official_blog",
+       "publicationDate": "2022-09-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+       "publisher": "Marc Köhlbruggeの料金・招待制変更発表",
+       "sourceType": "official_blog",
+       "publicationDate": "2022-09-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+       "publisher": "WIPの連続記録についての提案と利用者の声",
+       "sourceType": "founder_post",
+       "publicationDate": "2022-12-05",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+       "publisher": "Marc Köhlbruggeの障害説明",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-01-25",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+       "publisher": "Marc Köhlbruggeの新規会員向け料金変更発表",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-08-29",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://wip.co/posts/getting-invites-t8wnyy",
+       "publisher": "WIP利用者の招待相談とMarcの返答",
+       "sourceType": "forum_post",
+       "publicationDate": "2024-09-10",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://wip.co/join",
+       "publisher": "WIP公式入会・料金ページ",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://wip.co/pro",
+       "publisher": "WIP公式有料機能ページ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      }
+     ],
+     "supported": [
+      "ent_wip_5eef8a985270_fact_1",
+      "ent_wip_5eef8a985270_fact_2",
+      "ent_wip_5eef8a985270_fact_3",
+      "ent_wip_5eef8a985270_fact_4",
+      "ent_wip_5eef8a985270_fact_5",
+      "ent_wip_5eef8a985270_fact_6",
+      "ent_wip_5eef8a985270_fact_7",
+      "ent_wip_5eef8a985270_fact_8",
+      "ent_wip_5eef8a985270_fact_9",
+      "ent_wip_5eef8a985270_fact_10",
+      "ent_wip_5eef8a985270_fact_11",
+      "ent_wip_5eef8a985270_fact_12",
+      "ent_wip_5eef8a985270_fact_13",
+      "ent_wip_5eef8a985270_fact_14",
+      "ent_wip_5eef8a985270_fact_15",
+      "ent_wip_5eef8a985270_fact_16",
+      "ent_wip_5eef8a985270_fact_17",
+      "ent_wip_5eef8a985270_fact_18",
+      "ent_wip_5eef8a985270_fact_19",
+      "ent_wip_5eef8a985270_fact_20",
+      "ent_wip_5eef8a985270_fact_21",
+      "ent_wip_5eef8a985270_fact_22",
+      "ent_wip_5eef8a985270_fact_23",
+      "ent_wip_5eef8a985270_fact_24",
+      "ent_wip_5eef8a985270_fact_25",
+      "ent_wip_5eef8a985270_fact_26",
+      "ent_wip_5eef8a985270_fact_27",
+      "ent_wip_5eef8a985270_fact_28",
+      "ent_wip_5eef8a985270_fact_29",
+      "ent_wip_5eef8a985270_fact_30",
+      "ent_wip_5eef8a985270_fact_31",
+      "ent_wip_5eef8a985270_fact_32",
+      "ent_wip_5eef8a985270_fact_33",
+      "ent_wip_5eef8a985270_fact_34"
+     ],
+     "unknown": [
+      "2026年現在の売上、有料会員数、費用、利益、利益率、手残り。2024年8月の約1,000ドルから現在値を推計しない。",
+      "初期の元手、最初の有料会員数、最初の支払日、初期・現在の人数と準備に要した正確な日数。初日に数十人参加したこととコード再利用は確認できた。",
+      "支援料金を年100ドルから年150ドルに変えた正確な時期。2019年と2022年の本人説明が食い違い、どちらかを初値と断定できない。",
+      "2022年の無料化、2024年の有料化の後に登録数や売上がどう動いたかの前後比較。変更の理由と実施は確認できるが、回復を証明する結果はない。",
+      "2024年の配置移行の最終結果と費用削減額。障害説明は方針検討中の時点で終わっている。",
+      "2022年の代替連続記録方式の実装日・効果。提案の本文だけでは採用済みと扱えない。",
+      "現行の1か月無料試用と招待要否の実際の入会条件。2024年の発表では存在するが、現行の料金ページだけでは継続を確認できない。",
+      "一部の利用者コメントの正確な投稿日。相対表示のみの声は公開記事の日と確認日を分け、元の投稿日は空欄にした。",
+      "法人名、事業所在国、現行の全技術構成、堀、大手の盲点、客の心理、自動化率。創業者の出身国を法人所在国に置き換えない。"
+     ],
+     "conflicts": [
+      "支援プランの初値: 2019-01-15の本人インタビューは年100ドル、2022-09-22の回想は年150ドル。値上げの順序・日時は未解決。双方を出典別に記録。",
+      "創業時期: 2018年の創業経緯は2017年9月、2022年の回想は「約4年前」とする。年月が明示された本人記事の2017年9月を採用。",
+      "2019年の年約40,000ドルと2022年・2024年の月次継続売上は、期間と定義が違う。年額を12で割ったり、利益に変えたりしない。",
+      "参加者数は取得した別ページ・保存時点ごとに表示が異なる。現在のトップページの3,822人を確認日つきで採用し、有料会員数と混同しない。",
+      "2022年のコメントに過去の買い切り購入を述べる利用者がいるが、公式の販売期間・価格は確認できない。現在の買い切りなしという説明と過去販売の有無を混同しない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2017,
+     "initialTractionPeriod": "2017年9月にTelegramの集まりを公開。本人の回想では初日に数十人が参加し、数日後の完了報告を受けて自動応答とサイトを作った。",
+     "dataSnapshotPeriod": "2014-02〜2026-10-07。収入の最後の明示的な観測は2024-08-29。",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "Twitter",
+      "会員の口コミ・招待"
+     ],
+     "toolStack": [
+      {
+       "name": "Telegram",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_wip_5eef8a985270_chapter_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "作業の完了報告から自動応答とサイトへ",
+      "badge": "やり方の具体",
+      "evidenceStatus": "REPORTED",
+      "punchline": "観察した会員の使い方に合わせた変更と、口コミ・招待の記録。",
+      "details": [
+       "ent_wip_5eef8a985270_fact_1｜出典: https://wip.co/｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_wip_5eef8a985270_fact_6｜出典: https://marc.io/the-history-of-wip｜発言・公開日: 2018-08-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_10｜出典: https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c｜発言・公開日: 2019-01-15｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_31｜出典: https://wip.co/posts/getting-invites-t8wnyy｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_34｜出典: https://wip.co/pro｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式"
+      ],
+      "url": "https://wip.co/",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_wip_5eef8a985270_chapter_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "作り込みの失敗から小さな集まりへ",
+      "badge": "つまずきと立て直し",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開に至らなかった試作、入会の少なさ、料金・機能の変更を記録。変更後の成功は未実証。",
+      "details": [
+       "ent_wip_5eef8a985270_fact_3｜出典: https://marc.io/the-history-of-wip｜発言・公開日: 2018-08-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_4｜出典: https://marc.io/the-history-of-wip｜発言・公開日: 2018-08-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_14｜出典: https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c｜発言・公開日: 2019-01-15｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_19｜出典: https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua｜発言・公開日: 2022-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_21｜出典: https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua｜発言・公開日: 2022-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_22｜出典: https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z｜発言・公開日: 2022-12-05｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_26｜出典: https://wip.co/posts/about-wip-s-recent-downtime-6r6qas｜発言・公開日: 2024-01-25｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_29｜出典: https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf｜発言・公開日: 2024-08-29｜確認日: 2026-10-07｜印: 本人"
+      ],
+      "url": "https://marc.io/the-history-of-wip",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_wip_5eef8a985270_chapter_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "2017年の公開から無料枠と新規有料化へ",
+      "badge": "時間順の流れ",
+      "evidenceStatus": "REPORTED",
+      "punchline": "年と月のある出来事と、別の時点の収入を分けて記録。",
+      "details": [
+       "ent_wip_5eef8a985270_fact_2｜出典: https://wip.co/｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_wip_5eef8a985270_fact_5｜出典: https://marc.io/the-history-of-wip｜発言・公開日: 2018-08-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_8｜出典: https://marc.io/the-history-of-wip｜発言・公開日: 2018-08-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_13｜出典: https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c｜発言・公開日: 2019-01-15｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_15｜出典: https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4｜発言・公開日: 2022-09-06｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_20｜出典: https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua｜発言・公開日: 2022-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_25｜出典: https://wip.co/posts/about-wip-s-recent-downtime-6r6qas｜発言・公開日: 2024-01-25｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_27｜出典: https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf｜発言・公開日: 2024-08-29｜確認日: 2026-10-07｜印: 本人"
+      ],
+      "url": "https://wip.co/",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_wip_5eef8a985270_chapter_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "初日は数十人、以前のコードから開始",
+      "badge": "出発点",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開初日の参加と自動応答の再利用。資金と人数は空欄。",
+      "details": [
+       "ent_wip_5eef8a985270_fact_7｜出典: https://marc.io/the-history-of-wip｜発言・公開日: 2018-08-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_9｜出典: https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c｜発言・公開日: 2019-01-15｜確認日: 2026-10-07｜印: 本人"
+      ],
+      "url": "https://marc.io/the-history-of-wip",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_wip_5eef8a985270_chapter_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "無料、支援課金、招待制を経て月29ドルへ",
+      "badge": "価格の変遷",
+      "evidenceStatus": "REPORTED",
+      "punchline": "初期年額の食い違いを保持し、現在の新規料金を別に記録。",
+      "details": [
+       "ent_wip_5eef8a985270_fact_11｜出典: https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c｜発言・公開日: 2019-01-15｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_12｜出典: https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c｜発言・公開日: 2019-01-15｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_18｜出典: https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua｜発言・公開日: 2022-09-22｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_28｜出典: https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf｜発言・公開日: 2024-08-29｜確認日: 2026-10-07｜印: 本人",
+       "ent_wip_5eef8a985270_fact_32｜出典: https://wip.co/join｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式",
+       "ent_wip_5eef8a985270_fact_33｜出典: https://wip.co/join｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 公式"
+      ],
+      "url": "https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_wip_5eef8a985270_chapter_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "払う価値への評価と参加しづらさの声",
+      "badge": "客の声",
+      "evidenceStatus": "REPORTED",
+      "punchline": "会員自身の料金評価、Telegramへの要望、連続記録の良さと負担を記録。",
+      "details": [
+       "ent_wip_5eef8a985270_fact_16｜出典: https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 第三者",
+       "ent_wip_5eef8a985270_fact_17｜出典: https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4｜発言・公開日: 表示なし｜確認日: 2026-10-07｜印: 第三者",
+       "ent_wip_5eef8a985270_fact_23｜出典: https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z｜発言・公開日: 2022-12-06｜確認日: 2026-10-07｜印: 第三者",
+       "ent_wip_5eef8a985270_fact_24｜出典: https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z｜発言・公開日: 2022-12-06｜確認日: 2026-10-07｜印: 第三者",
+       "ent_wip_5eef8a985270_fact_30｜出典: https://wip.co/posts/getting-invites-t8wnyy｜発言・公開日: 2024-09-10｜確認日: 2026-10-07｜印: 第三者"
+      ],
+      "url": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "sourceNote": "実際に開いた公開本文の事実を日本語で要約。詳細は対応する事実の識別子を参照。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "codex_gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "2026年現在の売上、有料会員数、費用、利益、利益率、手残り。2024年8月の約1,000ドルから現在値を推計しない。",
+     "初期の元手、最初の有料会員数、最初の支払日、初期・現在の人数と準備に要した正確な日数。初日に数十人参加したこととコード再利用は確認できた。",
+     "支援料金を年100ドルから年150ドルに変えた正確な時期。2019年と2022年の本人説明が食い違い、どちらかを初値と断定できない。",
+     "2022年の無料化、2024年の有料化の後に登録数や売上がどう動いたかの前後比較。変更の理由と実施は確認できるが、回復を証明する結果はない。",
+     "2024年の配置移行の最終結果と費用削減額。障害説明は方針検討中の時点で終わっている。",
+     "2022年の代替連続記録方式の実装日・効果。提案の本文だけでは採用済みと扱えない。",
+     "現行の1か月無料試用と招待要否の実際の入会条件。2024年の発表では存在するが、現行の料金ページだけでは継続を確認できない。",
+     "一部の利用者コメントの正確な投稿日。相対表示のみの声は公開記事の日と確認日を分け、元の投稿日は空欄にした。",
+     "法人名、事業所在国、現行の全技術構成、堀、大手の盲点、客の心理、自動化率。創業者の出身国を法人所在国に置き換えない。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "essencePartial": {
+     "whatItDoes": "作業の進捗を公開し、製品を作る仲間と助言を交換する会員制の場を提供する。",
+     "targetCustomer": "自分の製品や事業を作り、進捗を続けたい人"
+    },
+    "normalizedFromResearch": [
+     "scale: \"\"→UNKNOWN",
+     "publishability: REVIEW_REQUIRED→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す",
+     "operations.toolStack: 文字列→名前と用途",
+     "evidenceCards.0.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.1.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.2.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.3.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.4.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "evidenceCards.5.type: \"RESEARCH_MATERIAL\"→UNKNOWN_AUDIT",
+     "essence: 空欄あり→essencePartial へ移して欄を外す"
+    ]
+   }
+  }
+ ]
+}

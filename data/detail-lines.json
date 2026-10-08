@@ -715,5 +715,1987 @@
     "analysisId": "a-why_it_worked",
     "textHash": "7ae85bc9",
     "answer": "顧客専用画面で、他の管理ツールと差を付けた（本人申告）"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-business_model",
+    "textHash": "732b75b4",
+    "answer": "製品への要望を集めて投票してもらう掲示板を、掲示板1つごとの月額で企業に売る",
+    "note": "払う額は、投票する人の数ではなく、掲示板の数で決まる。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-customer",
+    "textHash": "d15e8d39",
+    "answer": "製品の改善を受け持つ社員（プロダクトマネージャー）",
+    "note": "社員の知識や経験、社内で出し合った案、少数の法人顧客の要望を集めるために、非公開の掲示板を使う会社もあった（2018年、公式ブログ）。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-customer_pain",
+    "textHash": "04aaa780",
+    "answer": "少数の大口法人顧客から来る要望が会議やメールに散らばり、まとめる手間がかかる",
+    "note": "社員の知識や経験、社内で出し合った案も、集める場所がないと残らない。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-channels",
+    "textHash": "7c6e7855",
+    "answer": "2018年は、検索で上位に出る記事づくりに資金と手間をかけた",
+    "note": "外部の書き手と組んで、客を集め、使い始めてもらい、利用を続けてもらうための文章を作り直した。見込み客の指摘を受け、仕事向けの交流サイトLinkedInの会社ページも整えた。その後は多くの有料客が登録前にこのページを見ている。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-tools",
+    "textHash": "12ef051b",
+    "answer": "検索はAlgolia、画像の保存と配信はCloudinary、メール配信はPostmark、不具合の検知はSentry",
+    "note": "どれも自社で作らず、買って使う方針をとる。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-dependencies",
+    "textHash": "e241bd56",
+    "answer": "決済はStripeに頼り、製品の主な機能も外部の4社に任せている"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-lock_in",
+    "textHash": "31081158",
+    "answer": "客の要望と投票の履歴が掲示板に蓄積し、自社サイトの一部として作り込める",
+    "note": "自社のWebアドレスを使い、ロゴや配色、表示を調整できる。解約すると、支払い済みの期間の後に掲示板は非表示になり、データを書き出せるのはその後3か月まで。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-upfront_cash",
+    "textHash": "f2e764ba",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-capital_and_team",
+    "textHash": "042de345",
+    "answer": "外部の出資を受けず、自己資金で始めた",
+    "note": "設立9か月の時点では社員1人の会社だった。公式サイトでは黒字の事業としている。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-pivots",
+    "textHash": "c7968d3d",
+    "answer": "小さなソフト会社向けから、プロダクトマネージャー向けに狙いを絞った",
+    "note": "新興企業の創業者より長く払い続けると分かったため。自社サイトのトップと主な説明を作り直し、アイデア管理の記事で検索から人を呼ぶ形に変えた（2018年）。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-timeline",
+    "textHash": "4b1a82ca",
+    "answer": "2017年: スペインのBarbary Softwareが開始。2018年: 非公開での利用が多く、プロダクトマネージャーの客が長く払うと分かり、狙う客をこの層に移した。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-lesson",
+    "textHash": "f04c3948",
+    "answer": "想定と違う使い方をする客に事情を聞くと、新しい用途と長く払う客層が見える",
+    "note": "この会社は非公開での使い方を聞き取り、狙う客を決め直した。"
+  },
+  {
+    "entityId": "ent_feature_upvote_3d6a00d965f0",
+    "analysisId": "a-cost_structure",
+    "textHash": "52066557",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-business_model",
+    "textHash": "af1e4d68",
+    "answer": "音楽アプリは無料で配り、お金は日焼け止めVacationの販売で得る"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-pricing",
+    "textHash": "5fc94fbc",
+    "answer": "音楽アプリPoolsuite FMは無料（App Store、公式）"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-first_customers",
+    "textHash": "cc3135a9",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-channels",
+    "textHash": "5bad05ef",
+    "answer": "利用者から友人への口コミ（推測）と、実際に人が集まるパーティー",
+    "note": "2025年9月の取材の直前の週末に、ロサンゼルスでパーティーを開いた（本人）。アプリの外でも利用者との接点を作っている。"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-capital_and_team",
+    "textHash": "c710b826",
+    "answer": "友人の友人の協力で始めた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-dependencies",
+    "textHash": "d92ed457",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-lock_in",
+    "textHash": "f59e4a65",
+    "answer": "客が抜けにくくなる仕掛けは弱い（推測）",
+    "note": "アプリは無料で、音が出ない時にウェブ版へ移って聞いた利用者もいた。客をつなぎ止めているのは、主に見た目と世界観への好みだ（推測）。"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-timeline",
+    "textHash": "c63d6052",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "analysisId": "a-lesson",
+    "textHash": "56741e90",
+    "answer": "無料の音楽サイトで育てた世界観を、日焼け止めの物販に広げた"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-story",
+    "textHash": "2a8ee815",
+    "answer": "自分のITサービス業で増える顧客のネットワークを、1台のサーバーでまとめて管理したいと考えた",
+    "note": "創業者のReilly Chaseは、自身のITサービス会社の副業としてHostiFiを始めた。"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-business_model",
+    "textHash": "9f10c9c1",
+    "answer": "Ubiquiti機器を管理するサーバーを、管理できる台数に応じた月額か年額で売る"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-pricing",
+    "textHash": "78c09408",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-customer",
+    "textHash": "c43298fa",
+    "answer": "顧客のUbiquitiネットワークを代わりに運営する事業者"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-customer_pain",
+    "textHash": "56d3059a",
+    "answer": "導入先が増えるたびに、顧客ごとのネットワークを別々に見て回る手間が増える",
+    "note": "創業者自身がITサービス業で抱えていた不便が出発点だった。"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-lock_in",
+    "textHash": "b2044199",
+    "answer": "自社名で再販している事業者は、乗り換えると客への提供と請求の仕組みを組み直す必要がある（推測）"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-dependencies",
+    "textHash": "9d1d3ad6",
+    "answer": "事業の土台は、Ubiquitiの製品群に頼っている",
+    "note": "売り物も無料の道具も、Ubiquiti機器の管理・データの書き出し・機器探しに絞っている。"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-channels",
+    "textHash": "7393c3b5",
+    "answer": "自社サイトで機器探しとデータ書き出しの道具を無料で配り、機器を扱う技術者との接点にしている（推測）"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-tools",
+    "textHash": "b4e0fbe2",
+    "answer": "サーバーにはVultr、稼働状況の監視にはZabbix、証明書にはLet's Encryptを使う",
+    "note": "バックアップは毎晩、2か所の保存先に保管している（公式）。"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-capital_and_team",
+    "textHash": "0b770c0f",
+    "answer": "副業として始め、のちに外部から資金を得た",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-competition",
+    "textHash": "9249e5f7",
+    "answer": "競合は、顧客の会社に置くUbiquitiの管理機器と、自分で用意する管理サーバー",
+    "note": "HostiFiは無料の移行支援、更新前の検査、自社名での再販を用意している。"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-timeline",
+    "textHash": "0cee5dc5",
+    "answer": "2018年: HostiFiを開始。2019年: 投資会社から10万ドル（約1,500万円）を調達。"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "analysisId": "a-lesson",
+    "textHash": "896bf932",
+    "answer": "自分の仕事で必要だった管理サーバーを、同業者向けの月額サービスにした",
+    "note": "同業者が自社名で再販できるため、その同業者の顧客にも提供できる（推測）。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-business_model",
+    "textHash": "10106a1a",
+    "answer": "有料会員から年会費を受け取って稼ぐ",
+    "note": "会員は、取材の事例集や動向分析、会員用プロフィールを使える。Stripeに買われる前の収益は、スポンサーからのお金だった。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-customer",
+    "textHash": "45bca896",
+    "answer": "自分で稼ぐ事業や副業を始めたい人、伸ばしたい人",
+    "note": "他人の売上と進め方を、先に知りたいと考えている。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-customer_pain",
+    "textHash": "9f0c9dbd",
+    "answer": "具体的な金額がすぐ見えないと、読む価値があるか判断できない",
+    "note": "過去最高値だけを載せると盛った数字に見え、正直な売上表示を求める声が利用者から出た。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-first_customers",
+    "textHash": "22100a97",
+    "answer": "掲載者は創業者がメールで1人ずつ誘い、読者には開発者向けの投稿サイトHacker Newsで公開を知らせた"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-channels",
+    "textHash": "c299aeb0",
+    "answer": "初期はメールで取材を依頼して記事を作り、取材の手間を減らした後は掲示板と音声番組へ広げた（本人）"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-cost_structure",
+    "textHash": "f896ac9a",
+    "answer": "サイトを動かす外部サービスの利用代と、採用した執筆者への支払いがかかる",
+    "note": "外部サービスは、サーバーやデータの保存、ログインなどに使っている。掲示板は自社で開発した（公式）。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-capital_and_team",
+    "textHash": "3f0a2d3b",
+    "answer": "創業者1人で始め、2017年4月の買収で兄弟のChanningが共同創業者として加わった",
+    "note": "2023年3月の独立時には、Stripeが初期の出資者になった。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-dependencies",
+    "textHash": "56ac0733",
+    "answer": "2017年4月から2023年3月まで、決済会社Stripeの傘下にあった",
+    "note": "独立した時点では月の定期売上が無く、自前で稼ぐ形を作り直す必要があった（本人）。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-lock_in",
+    "textHash": "6657855a",
+    "answer": "抜けにくい仕掛けは弱く、解約しても支払済みの期間の終わりまで使える"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-timeline",
+    "textHash": "1176eafe",
+    "answer": "2016年8月: 創業。2017年4月: Stripeが買収。2023年3月: 独立企業に戻る。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-why_it_worked",
+    "textHash": "0d0a9601",
+    "answer": "各事業がいくら稼いだかを表紙に並べ、読む前に中身の価値が分かるようにした"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-pivots",
+    "textHash": "3da2154a",
+    "answer": "取材記事のサイトから、スポンサー収益や有料会員へと稼ぎ方を広げた",
+    "note": "独立後は、会員向けの読み物と資料づくりに力を入れた。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-lesson",
+    "textHash": "e6fe3402",
+    "answer": "他人の売上を見せる事業では、金額を表に出すと読者が集まり、その数字の正直さが信用を左右する"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "analysisId": "a-story",
+    "textHash": "ac3e4a3a",
+    "answer": "Indie Hackersを2016年に創業した",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-story",
+    "textHash": "f1d7f739",
+    "answer": "既存の会員制ソフトへの不満がきっかけで、創業者Drew Strojnyが始めた"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-business_model",
+    "textHash": "333ecacf",
+    "answer": "会員課金の道具を売り、月額料金と、会員の取引額に応じた手数料を受け取る",
+    "note": "会員の決済が増えるほど、Memberfulの取り分も増える。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-customer_pain",
+    "textHash": "2189a875",
+    "answer": "他のサービスから会員を移し、新しいサイトを公開するまでの手間"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-channels",
+    "textHash": "e32868e5",
+    "answer": "サイトを作る制作会社と提携し、そこから客が入る経路を作った",
+    "note": "提携先の制作会社Clockは、サイト作りの道具PayloadやWebflowで作ったサイトにMemberfulを組み込んでいる（公式）。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-capital_and_team",
+    "textHash": "68761f83",
+    "answer": "創業者が副業として始めた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-dependencies",
+    "textHash": "a6483218",
+    "answer": "決済には、利用者自身が接続する決済サービスStripeを使う",
+    "note": "サイト作成ソフトWordPressとも連携する。親会社は、クリエイターが支援者からお金を受け取るサービスPatreonで、Memberfulはその完全子会社である。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-lock_in",
+    "textHash": "76ee231d",
+    "answer": "抜けにくさは、他のソフトと会員情報を同期する仕組みから生まれる",
+    "note": "WordPress、メール配信のMailchimpやKit、会話の場を作るDiscordやDiscourseと、会員情報と閲覧の権限を同期する（公式）。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-referral",
+    "textHash": "5402f1f2",
+    "answer": "利用者は、紹介報酬を管理する道具Tapfiliateと連携して、自分の会員向けの紹介報酬制度を作れる",
+    "note": "Memberfulは、認定提携先の制作会社に見込み客を紹介する（公式）。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-competition",
+    "textHash": "fb169ae0",
+    "answer": "乗り換え元として挙がるのは、他社のSubstackやWooCommerce",
+    "note": "同じ会員課金のPatreonとは、親会社と子会社の関係のまま、別の製品として並んでいる。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-timeline",
+    "textHash": "8bb3c3c4",
+    "answer": "2018年8月8日: Patreonの完全子会社になると発表。",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-lesson",
+    "textHash": "625123ad",
+    "answer": "試用に期限を付けず、客が公開して会員からの支払いの受付を始める時点から料金が発生する",
+    "note": "会員の支払いは、客自身のStripeの口座に入る。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-customer",
+    "textHash": "4fdb50fb",
+    "answer": "自分のサイトやアプリで会員課金をするクリエイター・出版社・コミュニティ",
+    "note": "公式の顧客事例には、食事の作り置きの会員サービスWorkweek Lunchを始めたTalia Korenがいる。50人に3週間の無料試用をしてもらった後、メールとInstagramで告知した。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-cost_structure",
+    "textHash": "277dad32",
+    "answer": "会員の移行を手伝う担当者など、人手のかかる支援の費用を自社で抱える",
+    "note": "Stripeの決済手数料は、利用者側の口座で差し引かれる。"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "dbf6ab46",
+    "answer": "Patreonは自社内で完結する形、Memberfulは利用者のサイトで動く形に分けた",
+    "note": "両社は、同じ市場の別の層を狙うと位置づけた（2018年8月8日の発表）。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-story",
+    "textHash": "28bc6afa",
+    "answer": "前の事業で、新規登録が増えても解約のせいで売上の伸びが止まると気づいたのがきっかけ",
+    "note": "解約時に理由の入力を必須にすると、一時的に休みたい客の声が見つかった。この引き留めの道具を、他の会社にも提供しようと考えた。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-business_model",
+    "textHash": "6b6c79ac",
+    "answer": "定額課金の会社に、解約の引き留め画面と失敗した決済の回収を、固定の料金で売る",
+    "note": "引き留め画面では、休止・割引・チーム契約の席の移し替えを客に提案する。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-customer",
+    "textHash": "4b448f32",
+    "answer": "定額課金で稼ぐソフト会社",
+    "note": "自社サイトの事例には、メールアプリのSuperhumanや、建設会社向けの工程管理アプリBuildertrendが載る。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-customer_pain",
+    "textHash": "3f16f871",
+    "answer": "新規登録が増えても、解約に打ち消されて売上が伸びない",
+    "note": "創業者たちの前の事業では、Google広告にお金をかけても効果が乏しく、今の売上を保つのがやっとだった。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-first_customers",
+    "textHash": "d9fe3727",
+    "answer": "自社記事で前の事業の解約対策と数字を公開し、他の会社に先行利用を呼びかけた"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-channels",
+    "textHash": "bfe0e59a",
+    "answer": "解約率が伸びの上限をどこまで下げるかを図で示す、無料の計算機をサイトで公開した"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-capital_and_team",
+    "textHash": "e47c9934",
+    "answer": "共同創業者のNick Fogleが率いるチーム",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-tools",
+    "textHash": "3265f2ee",
+    "answer": "解約画面を作る部品を、Web画面づくりの道具React向けに無料で公開している",
+    "note": "失敗した決済を再試行する時刻も自動で調整する。支払い更新の通知は、顧客企業の名前と独自のドメインで送れる。決済サービスStripeの試験用の環境にも対応し、本番のデータと分けて扱う。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-dependencies",
+    "textHash": "5f52c6e9",
+    "answer": "客の会社の決済の仕組み（Stripeなど）につないで、休止や決済の再試行を動かす"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-lock_in",
+    "textHash": "c8127a24",
+    "answer": "使うほど解約理由のデータが溜まり、客の会社の製品づくりに組み込まれていく",
+    "note": "Buildertrendは、分類した解約理由を自社のデータ保存先へ自動で送っている。解約画面の部品は無料のため、引き留める力は溜まったデータと運用にある（推測）。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-competition",
+    "textHash": "9dee0980",
+    "answer": "競合は社内で作る解約画面や従来の回収業者。回収額から取り分を取らない固定料金で違いを出す",
+    "note": "解約画面の部品は公開ソフトとして全プラン無料で、自分で作る会社も使える。引き留めと決済の回収を1か所で扱える。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-why_it_worked",
+    "textHash": "bf3c2353",
+    "answer": "客が解約ボタンを押す瞬間の理由と対応に絞り、自社で効いた手順をそのまま商品にした"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-pivots",
+    "textHash": "5a2b607c",
+    "answer": "自社の解約対策の道具から、それを他の会社に売る事業へ切り替えた"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-timeline",
+    "textHash": "b9eea561",
+    "answer": "自社用の道具を他社に売り始め、後から決済の回収を加えた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-lesson",
+    "textHash": "990f4d2e",
+    "answer": "解約を止める手がかりは、要望の一覧ではなく、解約の瞬間に客が書く理由にあった"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-upfront_cash",
+    "textHash": "943f0474",
+    "answer": "入門プランは年払いのため、契約時に1年分の代金が先に入る",
+    "note": "1契約あたり年約3,000ドル（約45万円）になる。"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "fe35fc5e",
+    "answer": "回収額に応じて稼ぐ従来の業者は、取り分を取らない固定料金に合わせにくい（推測）",
+    "note": "Churnkeyは2022年の決済回収機能の公開時から、回収した売上の一定割合を手数料として取らない方針を示した。"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-story",
+    "textHash": "1142298d",
+    "answer": "新規入会の料金が入会の妨げになっていると考え、無料と招待制を組み合わせる案を出した",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-business_model",
+    "textHash": "1cd00e62",
+    "answer": "会員から会費を受け取り、コミュニティへの参加と有料機能を提供する"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-customer",
+    "textHash": "4b98afde",
+    "answer": "自分の製品を作って世に出す製作者"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-customer_pain",
+    "textHash": "2cbd62fc",
+    "answer": "長く続けた連続記録を、1日の入力忘れで失う不安",
+    "note": "1,373日続いた記録を入力忘れで失い、また始める意欲が落ちた会員がいた。"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-channels",
+    "textHash": "5f230527",
+    "answer": "今の会員からの招待で、新しい会員が入る",
+    "note": "会員のJill Binderは、友人に合うコミュニティだとして、招待の手に入れ方をサイトで尋ねた。"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-cost_structure",
+    "textHash": "63a2fedf",
+    "answer": "表に出ている費用はサーバー代",
+    "note": "運営者は費用を減らして動作を速くするため、サーバー会社の乗り換えを試みた。"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-tools",
+    "textHash": "754c59ee",
+    "answer": "サーバーをRenderからDigitalOceanへ移す作業に、移行用の道具Kamalを使った",
+    "note": "会員同士のやり取りには、チャットアプリのTelegramを使っていた。"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-dependencies",
+    "textHash": "3b0b7fbd",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-lock_in",
+    "textHash": "3322acea",
+    "answer": "毎日蓄えた連続記録が、退会しにくさにつながっている（推測）"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-upfront_cash",
+    "textHash": "145fa1fc",
+    "answer": "年払いを選んだ会員からは、1年分の会費が先に入る",
+    "note": "新規会員には1か月の無料試用があるため、入金は試用が終わった後になる。"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-timeline",
+    "textHash": "d5a3d8d0",
+    "answer": "2022年: 新規入会を無料の招待制にした。2024年: 新規会員を有料に戻した。",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-pivots",
+    "textHash": "8bd35029",
+    "answer": "新規入会を有料必須から招待制の無料に変え、2024年8月に有料へ戻した"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "analysisId": "a-lesson",
+    "textHash": "6131c410",
+    "answer": "無料にした後も売上が伸びたとは言えず、新規会員を有料に戻した",
+    "note": "月の定期売上は、2022年9月の平均2,000ドル（約30万円）から、2024年8月には約1,000ドル（約15万円）になった（運営者の説明）。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-story",
+    "textHash": "34d7ece2",
+    "answer": "2018年に創業した",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-business_model",
+    "textHash": "c32bb679",
+    "answer": "開発チームに、一緒にコードを書くためのソフトを1人単位の月額で売る",
+    "note": "大企業とは個別見積もりで契約し、請求書や発注書での支払いにも応じる（公式）。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-customer",
+    "textHash": "359c6844",
+    "answer": "離れた場所で共同開発をする、ソフト開発チームを持つ会社",
+    "note": "建材の決済を扱う Suppli は、障害の調査、コード変更の確認、設計の相談に使う。AI に作業を任せる前の計画づくりにも使っている（公式の顧客取材）。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-customer_pain",
+    "textHash": "c8072777",
+    "answer": "普通の通話ツールでは、コードの前に並んで作業する感覚が得られない",
+    "note": "障害の調査や設計の相談のたびに、声が聞き取れない、画面の場所を指し示せないといった手間が重なる（推測）。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-first_customers",
+    "textHash": "82720688",
+    "answer": "2019年1月、招待した約12チームが最初の客",
+    "note": "順番待ちの名簿から、ほぼ毎月新しいチームを招いた。誰でも自分で登録できる形にしたのは2019年10月だ。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-channels",
+    "textHash": "5922a9cc",
+    "answer": "社内の数人の技術者が試し、チーム全体へ広がった（Suppli の例）",
+    "note": "社外の相手は追加料金なしで、ブラウザから通話に入れる。有料の利用者が1人いれば、社外の人が Tuple に触れる経路ができる（推測）。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-cost_structure",
+    "textHash": "7a900e49",
+    "answer": "接続を管理するサーバー、人件費、公開前の外部の品質検査に費用がかかる",
+    "note": "接続の管理は、使った量に応じて料金を払う外部サービスから、自前のサービスへ移した。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-tools",
+    "textHash": "ff5d946d",
+    "answer": "製品の共通の処理部分は、プログラミング言語C++で作っている"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-dependencies",
+    "textHash": "b3cb4cfb",
+    "answer": "利用者の接続状態の管理を外部サービスに頼っていたが、自前のサービスへ移した"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-lock_in",
+    "textHash": "58129e39",
+    "answer": "抜けにくくする仕組みは弱く、日々の業務に組み込まれることで手放しにくくなる",
+    "note": "通話の文字起こしや画面の画像は利用者の端末内に保存される。客のデータが Tuple 側にたまり、乗り換えを妨げる形ではない。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "82f1dcd2",
+    "answer": "普通の通話ツールは、同じコードを見ながら相手の端末を操作する用途には作られていない",
+    "note": "Suppli は Slack の通話で口頭の指示を出していたが、音声が不安定なため WhatsApp も使っていた（公式の顧客取材）。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-competition",
+    "textHash": "ad20fac8",
+    "answer": "競合は Slack・WhatsApp・Zoom などの通話ツール。最大5Kの画面共有と相手の端末の操作で差をつける"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-timeline",
+    "textHash": "e0a1102a",
+    "answer": "2018年: 創業。2020年3月: 売上が急増。",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-why_it_worked",
+    "textHash": "7c5825bb",
+    "answer": "開発者向けの画面共有と遠隔操作に絞った製品を、需要が増える前から作っていた",
+    "note": "2020年3月に増えた売上は、その前の14か月で増えた売上の合計を上回った（公式）。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "analysisId": "a-lesson",
+    "textHash": "710e5ebf",
+    "answer": "料金の柱だった機能を無料にしても、大企業向けの価値は別の形で作り直せる",
+    "note": "一度のログインで社内の複数のサービスに入れる仕組みを無料にした後、大企業向けには独自の契約、利用実績に応じた料金、段階的な割引、監査・管理の機能を売る方針に変えた（公式）。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-story",
+    "textHash": "99bd2e4d",
+    "answer": "自社サービスTiny Reminderで、利用者の動きをつかめずに困ったのがきっかけ",
+    "note": "この困りごとを解決する道具として、新しい製品を考えた。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-business_model",
+    "textHash": "f40b8305",
+    "answer": "ソフトの会社に、客の利用者数に応じた月額でメール自動化を売る",
+    "note": "料金は、過去30日で最も多かった利用者数で決まる。配信の設計や文章づくりを代わりに行う導入支援も、別に売っている（公式）。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-customer",
+    "textHash": "238acee2",
+    "answer": "自社製品の利用者データを持つ、ネット経由で使うソフトの会社",
+    "note": "外部から集めた資金が50万ドル（約7,500万円）未満の新しい会社は、最初の12か月が半額になる制度がある（公式）。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-customer_pain",
+    "textHash": "e129dcad",
+    "answer": "自社の利用者が誰で何をしたかが見えず、行動に合わせた連絡を送れない"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-first_customers",
+    "textHash": "35b8dab3",
+    "answer": "初期の客には、先行販売で利用開始前に6か月分の代金を払ってもらった",
+    "note": "開発前の聞き取り相手は、知人やSlackのグループ、Twitterで集めた。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-channels",
+    "textHash": "e5467ff4",
+    "answer": "正式公開の前に、メール計画用の無料の記入表を配り、関心のある人の連絡先を集めた",
+    "note": "衝動買いされにくい製品だと考えたため。客のFileinboxは、起業家の集まりMicroConfでUserlistを知った（客の話）。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-capital_and_team",
+    "textHash": "24f3a972",
+    "answer": "共同創業者3人で始めた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-tools",
+    "textHash": "f17bba8d",
+    "answer": "聞き取りの会話を録画し、文字起こしサービスのRev.comで文字にして、表にまとめた"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-lock_in",
+    "textHash": "299aad53",
+    "answer": "導入時に客の製品とUserlistのデータをつなぎ、行動に応じた自動配信を組む"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-upfront_cash",
+    "textHash": "123ca4db",
+    "answer": "先行販売で、6か月分の代金を先に受け取った",
+    "note": "6か月の期間は使えるようになった時点から数え、全額返金の保証も付けた。現在も年払いは20％引き（公式）。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-referral",
+    "textHash": "eb45dc69",
+    "answer": "正式公開の告知で、提携制度への参加を呼びかけた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-competition",
+    "textHash": "35994d01",
+    "answer": "比べる相手は、顧客対応ツールのIntercomと自作",
+    "note": "2019年、説明を「メール自動化」から「顧客へのメッセージ」に変えた時に、この2つを名指しした。製品そのものは変えていない（公式ブログ）。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-timeline",
+    "textHash": "48089b5f",
+    "answer": "2017年10月: 共同創業の契約を結んだ。",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-why_it_worked",
+    "textHash": "c061a0c3",
+    "answer": "説明を変えた後、見込み客が製品の中身をすぐ理解し、価値を認めるようになった（本人申告）"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-pivots",
+    "textHash": "eed98c8e",
+    "answer": "製品はそのままで、説明の言葉を何度か変えた",
+    "note": "2022年3〜10月は、企業ごとのデータを使うメール自動化を前面に出した。しかし説明が伝わりにくく、企業向けにソフトを提供する会社のメール配信を支える道具、という説明に戻した（公式ブログ）。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-lesson",
+    "textHash": "5fe321b9",
+    "answer": "代わりの手段を名指しして比べる説明に変えた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-cost_structure",
+    "textHash": "ea0b7094",
+    "answer": "聞き取りの文字起こしの外注費と、初期の客ごとの導入面談に割く創業者の時間"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "d7ae1872",
+    "answer": "既存のIntercomでは、利用者一覧が使いにくく、メール編集に手間がかかり、利用者の行動も十分に分からなかった",
+    "note": "Userlistは、行動に応じて利用を促すメッセージに開発を絞った（公式ブログ）。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-story",
+    "textHash": "96679f9d",
+    "answer": "ゲーム『Movie Plotz』を、小さく送りやすいゲームとして支援募集にかけた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-business_model",
+    "textHash": "ef35e194",
+    "answer": "問屋を通さず、小型のカードゲームを遊び手へ直接売る",
+    "note": "新作はクラウドファンディングで予約を募る。自社のネット店舗では定価で売り、毎月ゲームが届く会員制もある。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-customer",
+    "textHash": "15e35031",
+    "answer": "小型のゲームを集めるボードゲームの愛好家",
+    "note": "毎月ゲームが届く会員と、新作の募集に予約で申し込む支援者がいる。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-channels",
+    "textHash": "192bbaa8",
+    "answer": "Kickstarterでの新作の募集と、自社から客へ送る便り",
+    "note": "海外向けには、手作り品などの通販サイトEtsyとeBayでも売る。レビューを発信する人の推薦で会員になった客もいる（第三者）。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-cost_structure",
+    "textHash": "edccc1e0",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-upfront_cash",
+    "textHash": "4bbe9f81",
+    "answer": "クラウドファンディングで、製造の前に予約代金を先に集める",
+    "note": "ある企画では、送料の17,000ドル（約255万円）も発送前に集めていた。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-capital_and_team",
+    "textHash": "b11f1964",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-dependencies",
+    "textHash": "02a4a2f1",
+    "answer": "予約はKickstarter、自社の店はネット店舗を作るサービスShopifyに頼る",
+    "note": "海外販売はEtsyとeBayに、発送は郵便と通関に頼っている。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-lock_in",
+    "textHash": "089c53ed",
+    "answer": "毎月ゲームが届く会員制で、続けるほど作品を集められる",
+    "note": "社内の新シリーズは部分ごとに売り、2〜3部分を組み合わせて遊ぶ構想だ（公式）。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "447cb633",
+    "answer": "問屋経由では採算に乗りにくい少量の小型ゲームを、自ら作って直接届けた（推測）"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-competition",
+    "textHash": "2bed5a6e",
+    "answer": "Amazonで既存の出品が小売価格の3倍で売られていたため、自ら出品を決めた"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-pivots",
+    "textHash": "ecac8209",
+    "answer": "主力商品の包装を、手で組む財布型から量産の箱型へ切り替えた",
+    "note": "手組みは、少量の実験的な社内シリーズにだけ残す。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-timeline",
+    "textHash": "a1371e6f",
+    "answer": "2015年1月: 財布型シリーズの2作目を予告した。",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-why_it_worked",
+    "textHash": "c93ece47",
+    "answer": "枚数の少ない小さなゲームを選び、低い募集目標でも出版できた",
+    "note": "包装の費用を予約で先に集め、在庫を抱える前に資金を得た（推測）。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-lesson",
+    "textHash": "fab64771",
+    "answer": "手間のかかる作り方は、規模が育てば手放してよい",
+    "note": "手組みの財布型で得た客を、量産の箱と追加商品の空の財布でつなぎ止めた（推測）。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-business_model",
+    "textHash": "59d1c86f",
+    "answer": "Airtableの利用者に、月の実行回数と取り込み件数の上限で段階を分けた利用権を売る",
+    "note": "1回の実行は外部への要求1件と数え、失敗した要求は数えない（公式）。上限に達すると自動実行が止まる。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-pricing",
+    "textHash": "ad97841a",
+    "answer": "無料枠は月100回まで、期限なしで使える。有料は年払いで月15ドル（約2,250円）から",
+    "note": "最安の段は1人・月3,000回。3人・月1万回で月30ドル（約4,500円）、20人・月8万回で月112ドル（約1万6,800円）。いずれも年払いの月換算。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-customer",
+    "textHash": "6fd529c7",
+    "answer": "Airtableで業務のデータを管理する組織",
+    "note": "公式の事例には、450か所の歯科診療所のデータ管理や、400人超の宣教師の管理がある。公式は、顧客を数百、利用者を数千としている。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-customer_pain",
+    "textHash": "11fc40d3",
+    "answer": "複数のソフトに散らばったデータを、Airtableへ手で写し続ける手間（推測）"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-first_customers",
+    "textHash": "1ddfcfe1",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-channels",
+    "textHash": "735e70f8",
+    "answer": "2022年3月時点で、客の70〜80%はAirtableの拡張機能の売り場から、約20%は記事・動画から来た",
+    "note": "のちの取材では、記事と動画から来る客が30〜40%になった（本人）。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-capital_and_team",
+    "textHash": "b7df80dc",
+    "answer": "外部の出資は受けず、専業で働くのは本人1人",
+    "note": "制作担当や元同僚の開発担当など、決まった時間だけ働く協力者がいる（記事）。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-tools",
+    "textHash": "619325d6",
+    "answer": "画面はReact、裏側の処理はNode.js、データ保存はPostgreSQLで作り、Herokuのサーバーで動かす",
+    "note": "プログラムを書く言語はTypeScript。メール配信にMailerliteとSendGrid、説明書の公開にGitBook、ブログの管理にGraphCMSを使う。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-dependencies",
+    "textHash": "e42a8e34",
+    "answer": "Airtableが用意する売り場と、Airtableのデータにつなぐ接続口に頼っている",
+    "note": "Airtableが無料プランから拡張機能を外し、料金を変えると、新規登録が減った。表の名前を変えると自動実行が失敗するなど、接続口の癖にも合わせ続けている（記事）。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-lock_in",
+    "textHash": "224bb74d",
+    "answer": "抜けにくい仕掛けは弱く、月の解約率は約10%（公式ブログ）",
+    "note": "自動実行の失敗につながる不具合を直して、解約を抑えようとした。1回きりの用途やAirtable離れによる解約は避けられない。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "801192f2",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-competition",
+    "textHash": "bd879809",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-why_it_worked",
+    "textHash": "dd232245",
+    "answer": "無料枠で試してもらい、無料で使う人の約1割が有料に移った（本人、2022年3月）"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-lesson",
+    "textHash": "cca243e6",
+    "answer": "年払いを50%割引にして最初から選ばれた状態で表示し、月の解約を10〜11%から約7%に下げた",
+    "note": "2023年8月から約5か月、伸びが止まっていた時の対策だった（記事）。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-story",
+    "textHash": "4cbec49f",
+    "answer": "Airtableの新しい拡張機能の売り場を見て、利用者の集まりで求められている物を調べ、そこ向けに作り始めた"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-upfront_cash",
+    "textHash": "5eb9b5d8",
+    "answer": "年払いを最大48%割り引き、1年分の代金を先に受け取る"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-timeline",
+    "textHash": "fff1dc61",
+    "answer": "2021年末: 本人が専業に移る。2021年12月: あらかじめ設定されたデータの取り込み先を増やした新版を出す。2023年8月: 伸びが止まり、約5か月続く。2023年12月: 年払いの割引を入れる。"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "analysisId": "a-pivots",
+    "textHash": "0eed35ab",
+    "answer": "業務管理サービスmonday.com向けを6週間試したが、更新の遅さと制限でやめ、Airtable向けに絞った"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-story",
+    "textHash": "8e502027",
+    "answer": "2011年に始めた",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-business_model",
+    "textHash": "f4463132",
+    "answer": "日本の菓子を詰めた箱を月2回、海外の購読者へ郵送し、月額の代金を受け取る",
+    "note": "菓子はスーパーから仕入れ、発送はスーパーの従業員が手伝う。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-pricing",
+    "textHash": "61367d45",
+    "answer": "月2箱で月29ドル（約4,350円）。1箱だけなら安くなる",
+    "note": "箱は17×23×4cmで、月2箱なら菓子が月に約400〜500g届く。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-customer",
+    "textHash": "3b04dfff",
+    "answer": "日本の外に住み、日本の菓子を毎月受け取りたい個人"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-customer_pain",
+    "textHash": "13df0e76",
+    "answer": "包装の表示が日本語のため、客は何の菓子かを読めない",
+    "note": "そのため、菓子の説明を紙ではなくメールで送っている。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-first_customers",
+    "textHash": "c7945d9a",
+    "answer": "以前営んでいた漫画通販の客2人。その後、開発者向けの投稿サイトHacker Newsへの投稿で約100人が加わった"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-channels",
+    "textHash": "09c0d66c",
+    "answer": "Hacker Newsへの投稿の後、ブログからのリンクと検索で客が増えた",
+    "note": "検索からのクリックは2016年の68,383件から2017年は41,358件に減った。YouTube投稿者180人への打診と試供品の企画に約1,000ドル（約15万円）を使ったが、新しい購読者は0人だった。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-cost_structure",
+    "textHash": "65b4e5b4",
+    "answer": "1人分の月の費用は送料6.40ドル（約960円）、菓子5.80ドル（約870円）、資材0.50ドル（約75円）",
+    "note": "2018年の費用の内訳は菓子44%、送料34%、箱8%、広告4%、その他10%。その他は配信文・経理・翻訳・客対応の外注費だ。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-take_home",
+    "textHash": "90895dd0",
+    "answer": "4月は、税・保険などを払った後の本人の収入を約1,600ドル（約24万円）と見積もった",
+    "note": "税・保険などは収入の約20%と見込んだ。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-capital_and_team",
+    "textHash": "79cf22d0",
+    "answer": "梱包は外注し、発送はスーパーの従業員が手伝う",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-tools",
+    "textHash": "1897afe4",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-dependencies",
+    "textHash": "436e82a8",
+    "answer": "国際郵便に頼る。ドイツ宛ての返送が増え、同国への配送を止めた"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-lock_in",
+    "textHash": "21098b66",
+    "answer": "客はいつでも解約できる",
+    "note": "解約後も、支払い済みの箱は届く。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-upfront_cash",
+    "textHash": "6b8df0dd",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-competition",
+    "textHash": "be3f6436",
+    "answer": "本人は、検索のクリックが減った理由を、競合との競争と需要の減少に求めた"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-why_it_worked",
+    "textHash": "d8cf0629",
+    "answer": "本人が挙げた理由は、当時の目新しさと、Hacker Newsに長く参加していたこと"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-failure_cause",
+    "textHash": "e1ec191b",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-timeline",
+    "textHash": "5cb1f2b5",
+    "answer": "2011年: 日本の菓子の定期便を始めた。2014年: 購読者が約3倍に増えた。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "analysisId": "a-lesson",
+    "textHash": "05ce4ec7",
+    "answer": "菓子と送料が費用の大半を占めるため、購読者が減ると利益がすぐに縮む"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-story",
+    "textHash": "a5376096",
+    "answer": "2014年にCarlosが創業した",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-business_model",
+    "textHash": "5d848004",
+    "answer": "ネットで売る事業者に、税の計算と請求書の機能を月額で売る",
+    "note": "料金を決める取引の件数には、販売だけでなく請求書・領収書・経費も入る（公式）。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-customer",
+    "textHash": "242c7f32",
+    "answer": "国や地域をまたいで、ネットで物やサービスを売る事業者",
+    "note": "自社サイトは、利用する事業者を2,300超、対応する国を150超と表示している。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-customer_pain",
+    "textHash": "ec782970",
+    "answer": "売るたびに、販売地ごとの税額を正しく出す手間",
+    "note": "税の登録が必要になる売上の基準を超える前に、それに気づく必要もある。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-referral",
+    "textHash": "01443e74",
+    "answer": "紹介した有料客の支払いの30%を、最長24か月払う（公式）",
+    "note": "報酬は3か月ごとに、PayPalかWiseで受け取る。申し込みは人が審査し、自分で自分を紹介することは禁じている。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-cost_structure",
+    "textHash": "db840fc5",
+    "answer": "紹介で客を連れてきた人への報酬が、費用として出ていく",
+    "note": "報酬は、紹介された有料客が払う料金の一部から、決まった期間だけ紹介者に払う。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-capital_and_team",
+    "textHash": "2c7b9303",
+    "answer": "外部の出資を受けず、4人のチームで始めた"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-upfront_cash",
+    "textHash": "2db1c824",
+    "answer": "月の料金は前払いで、返金はしない（規約）",
+    "note": "月の途中で解約しても、その月の全額がかかる。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-lock_in",
+    "textHash": "38ab934e",
+    "answer": "抜けにくい仕掛けは弱い。客はいつでも解約でき、データも無料で持ち出せる",
+    "note": "請求書・顧客・商品などを、整理された形式のデータで取り出せる（規約）。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-dependencies",
+    "textHash": "d0707407",
+    "answer": "Stripeの支払いデータに頼る形で始まった",
+    "note": "現在の規約も、外部サービスの利用条件を参照している。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-timeline",
+    "textHash": "56b29dc2",
+    "answer": "2014年: 公開。2014年5月: 最初の改善。",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-lesson",
+    "textHash": "44bede03",
+    "answer": "払う気のある見込客が挙げた障害を、数日のうちに取り除いた",
+    "note": "効いたのは集めた人数より、その指摘に素早く応えたことだった（推測）。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-first_customers",
+    "textHash": "413f17c1",
+    "answer": "公開時の投稿を見て登録した人のうち、2人が最初の有料客になった",
+    "note": "投稿から2週間で、月の定期売上は100ドル（約1万5,000円）になった（公式）。"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "analysisId": "a-pivots",
+    "textHash": "9648a9e0",
+    "answer": "Stripe向けの請求書作りから、販売地ごとの税の計算と申告の支援へ広げた"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-story",
+    "textHash": "c2984eaf",
+    "answer": "会社を辞めて独立し、需要を調べないまま作り始めた"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-business_model",
+    "textHash": "9ab00b41",
+    "answer": "Notionにつながるフォームを、月額で売る",
+    "note": "製品名の表示を消す機能、回答に応じて質問を変える機能、容量の大きいファイルの添付は、有料プランで使える（公式）。"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-customer_pain",
+    "textHash": "39aa3b6b",
+    "answer": "無料プランでは、個人用のフォームを保護できない"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-first_customers",
+    "textHash": "23307d2a",
+    "answer": "Notion利用者が集まる海外の掲示板Redditに、選ぶだけで使えると書き、実演のリンクを付けて告知した"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-channels",
+    "textHash": "249b574c",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-capital_and_team",
+    "textHash": "54426fb5",
+    "answer": "創業者個人に1〜2年分の蓄えがあったが、それを使わない計画で始めた",
+    "note": "必要なら受託の仕事を見つけられると考えていた（記事）。"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-dependencies",
+    "textHash": "a36fcaeb",
+    "answer": "Notionのデータベースとの接続に頼っている",
+    "note": "サーバーはAmazonの貸しサーバーAmazon Web Services、決済は決済サービスStripeを使う（記事）。"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-lock_in",
+    "textHash": "e64791ea",
+    "answer": "客が抜けにくくなる縛りは弱い",
+    "note": "作り直すと、Notionのページへの埋め込みや共有リンクを差し替える手間は出る。ただ、回答のデータはNotion側に残る（推測）。"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-referral",
+    "textHash": "ddbcf18b",
+    "answer": "紹介者に、紹介した客の継続課金の30%を毎月PayPalで払っていた",
+    "note": "最低支払額は設けていなかった。ただし制度はすでに閉じ、新しい紹介者は受け付けていない（公式）。"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-competition",
+    "textHash": "868acda0",
+    "answer": "競合は一般のフォーム作成ツール。Notionへの接続に絞った点が違う",
+    "note": "利用者の投稿には、料金が高く、基本の機能が有料側にあるという不満もある。"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-timeline",
+    "textHash": "802c5c28",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-why_it_worked",
+    "textHash": "443c1da1",
+    "answer": "フォームは他人に答えてもらう道具なので、製品名の表示を残すと、使われるほど宣伝になった"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-lesson",
+    "textHash": "d3577f0f",
+    "answer": "人目に触れる道具は、無料で使い放題にして名前を付けておくと、利用者が宣伝役になる",
+    "note": "課金は使う量にかけず、製品名を消す権利などにかけた。"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "analysisId": "a-cost_structure",
+    "textHash": "4a3fe4c1",
+    "answer": "初期の費用はサーバー代で、少額に抑えていた（記事）",
+    "note": "添付のように運営側に費用が出る機能は有料プランに入れ、無料の利用者が増えても費用が膨らみにくい形にした。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-business_model",
+    "textHash": "98138d6a",
+    "answer": "住所と位置の変換を、処理した単位の数に応じて売る",
+    "note": "1日2,500単位までは無料。量が多い客には、月額か年額で払う定額のFlexと、専用プランのUnlimitedがある（公式）。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-customer",
+    "textHash": "afebe05e",
+    "answer": "住所変換に1万ドル（約150万円）を払えない開発者から始まり、住所データを業務に使う企業も客になった"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-customer_pain",
+    "textHash": "36c61897",
+    "answer": "大量の住所の変換は他社だと高く、自作すると遅くて止まる",
+    "note": "Sherwin-Williamsの担当者の場合、他社では12,000件の住所に50〜60ドル（約7,500円〜9,000円）かかった。Excelで自作したGoogleへの接続は遅く、何度も止まった（公式の推薦文）。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-first_customers",
+    "textHash": "cbbd3ea1",
+    "answer": "Hacker Newsでの公開時の投稿に、創業者2人が利用者へ直接答えた",
+    "note": "安さと、データの使い方に制限が無いことを伝えた。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-channels",
+    "textHash": "f4c42845",
+    "answer": "開発者向けの投稿サイトHacker Newsで公開した",
+    "note": "販促の専任は長く置かず、初めての販促担当が加わったのは2025年だった（公式）。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-cost_structure",
+    "textHash": "e0618b55",
+    "answer": "英国のデータは利用者ごとに年契約の許諾が要り、使う人が増えるほど費用が増える",
+    "note": "米国では郵便公社のデータの利用許可も持つ。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-capital_and_team",
+    "textHash": "64452154",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-dependencies",
+    "textHash": "2af08a66",
+    "answer": "公開データと、郵便事業者などから利用の許可を得たデータに頼っている",
+    "note": "カナダの完全な郵便番号は郵便事業者Canada Postの財産のため、通常は先頭3文字しか返せない（公式）。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-lock_in",
+    "textHash": "5d28422a",
+    "answer": "一度組み込めば、仕様の変更で作り直しを迫られない",
+    "note": "定額契約に含まれる単位は、契約中だけ繰り越せる。値上げ前からの既存契約の割引も、解約して再契約すると失う（公式）。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-upfront_cash",
+    "textHash": "df425da9",
+    "answer": "定額のFlexは年払いができ、1年分を先に受け取る",
+    "note": "従量プランは、前月の利用分を翌月1日に請求する後払い。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-competition",
+    "textHash": "171c9eff",
+    "answer": "比べる相手はGoogle。精度よりも、安さとデータの使い方の自由で勝負した",
+    "note": "公開時の試験では、無作為に選んだ100住所のうち90件が、Googleの示す位置から1マイル以内だった（本人申告）。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-timeline",
+    "textHash": "7cfa933b",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-why_it_worked",
+    "textHash": "fc023cb2",
+    "answer": "他社の結果を転売せず、無料枠のある従量課金で、大きな契約を結べない開発者にも入口を開いた"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-lesson",
+    "textHash": "6a28b505",
+    "answer": "高い料金を払えない開発者に、無料枠と使い道の自由を用意した"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "analysisId": "a-story",
+    "textHash": "b945472e",
+    "answer": "住所変換に高い料金を払えない開発者でも使えるようにしたいと考えて始めた"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-business_model",
+    "textHash": "35647a67",
+    "answer": "家計アプリを個人に売り、月額か年額の購読料を受け取る",
+    "note": "月額と年額のどちらでも、すべての機能を使える（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-customer",
+    "textHash": "279423c7",
+    "answer": "自分の家計を管理したい個人や家族",
+    "note": "有料会員は13,000人超で、提供先は30か国超（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-customer_pain",
+    "textHash": "fd489a78",
+    "answer": "複数の通貨で払った支出を、表計算に手作業でつけ続ける手間"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-referral",
+    "textHash": "6e81a5e7",
+    "answer": "紹介者は、紹介した相手が料金を払うたびに、その10%を利用料の残高として受け取る（公式）",
+    "note": "現金では払わない。紹介された人は、無料試用の後に1か月無料になる（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-cost_structure",
+    "textHash": "e89bf0a4",
+    "answer": "主な費用は、非常勤の請負者への時給と、サーバーや外部サービスの利用料",
+    "note": "銀行連携のPlaid、メール送信のPostmark、決済のStripeなど、外部のサービスを組み合わせて使う（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-capital_and_team",
+    "textHash": "86d98975",
+    "answer": "外部の出資を受けず、購読料だけで運営している（公式）",
+    "note": "今の自社サイトは、創業者を含む中核のチームと、外部の協力者を紹介している。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-dependencies",
+    "textHash": "f50c8a0c",
+    "answer": "銀行口座の取込はPlaid、決済はStripeという外部のサービスに頼る"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-upfront_cash",
+    "textHash": "8949bfab",
+    "answer": "年額プランは1年分の前払いで、自動で更新される（公式）",
+    "note": "解約が適用されるのは、支払済みの期間が終わった時。残りの期間分は通常返金しない（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-competition",
+    "textHash": "d9ee3ec5",
+    "answer": "家計アプリMintの終了後、その代わりの移り先として選ばれた",
+    "note": "Mintから移った利用者は、データの移しやすさと、支出の分類を自由に決められる点を評価した（第三者）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-why_it_worked",
+    "textHash": "aa67eddb",
+    "answer": "複数の通貨で暮らす人の家計という、既存のアプリが手薄な用途から入った（推測）"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-lesson",
+    "textHash": "43521ec7",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-story",
+    "textHash": "72115458",
+    "answer": "多通貨の支出を表計算で1年半つけた創業者が、趣味としてアプリにして始めた",
+    "note": "表計算はGoogle Sheetsを使っていた。2019年に創業した（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-first_customers",
+    "textHash": "9708c942",
+    "answer": "最初の告知先は、開発者が集まる投稿サイトHacker Newsだった"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-channels",
+    "textHash": "20356cc9",
+    "answer": "利用者の紹介制度と、外部の紹介者に報酬を払う制度で、新しい客を集める（公式）",
+    "note": "DiscordとRedditに利用者の集まる場を持ち、要望の掲示板と合わせて意見を集めている（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-lock_in",
+    "textHash": "b0dbc4e1",
+    "answer": "解約する代わりに、データを残したまま休止できる（公式）",
+    "note": "料金は加入時か最後に選んだ額でずっと固定される。新規の年額の下限が上がっても、続けている人は前の額のままになる（公式）。"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "analysisId": "a-timeline",
+    "textHash": "8916ffbe",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-story",
+    "textHash": "6bc661b1",
+    "answer": "客の不具合を数時間調べたら、原因が他社の障害だった。この経験がきっかけ",
+    "note": "Facebookと外部のシステムをつなぐ機能に、障害が起きていた。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-business_model",
+    "textHash": "00f42658",
+    "answer": "他社サービスの障害情報を集めて知らせる。監視の件数などで区切ったプランを月払いか年払いで売る",
+    "note": "まず無料版で試してもらう。監視の件数、障害状況をまとめたページの数、管理者の人数、履歴の期間に応じて、有料プランへ上げてもらう。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-customer",
+    "textHash": "7a2b4308",
+    "answer": "外部のサービスに業務を頼る会社のIT担当や、学校",
+    "note": "公式の事例に出る利用企業Rock Paper Coinは、取引先の障害を知るために使う。通知は携帯のメッセージとSlackで受け取る。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-customer_pain",
+    "textHash": "dff2f9bd",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-channels",
+    "textHash": "34436cb8",
+    "answer": "広告は効果が乏しく、客は検索と口コミで来た",
+    "note": "開発者が使う技術を共有するサイトStackShareに寄せた記事は、長い間、読者を連れてきた。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-cost_structure",
+    "textHash": "c8499a21",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-take_home",
+    "textHash": "55fa9400",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-capital_and_team",
+    "textHash": "585d5d3f",
+    "answer": "外部からの資金調達は、2022年に育成プログラムTinySeedへ参加した時の1回だけ",
+    "note": "2016年は創業者に給与を払わずに運営した。今のチームは複数の国から遠隔で働く。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-dependencies",
+    "textHash": "69608788",
+    "answer": "他社が公開する稼働状況の情報を集めることに頼っている",
+    "note": "運営にはHerokuとAmazonのクラウドを使い、決済にはStripeを使う。携帯アプリはiOSとAndroid向けに出している。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-lock_in",
+    "textHash": "f4630f73",
+    "answer": "客は状況ページを社員や購読者に配り、障害の履歴もたまるため、乗り換えには手間がかかる",
+    "note": "履歴を12か月分ためられるプランもある。一方で、無料版を含む下位プランへはいつでも変えられる。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-upfront_cash",
+    "textHash": "df1d318d",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-timeline",
+    "textHash": "5c4a324f",
+    "answer": "2015年1月: 公開。",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-why_it_worked",
+    "textHash": "9016be3b",
+    "answer": "障害情報を1か所で見せ、学校が受ける問い合わせを減らす使い方を売った",
+    "note": "2020年、遠隔授業をしていた幼稚園から高校までの学校向けに提供を始めた。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-pivots",
+    "textHash": "88bb9cdd",
+    "answer": "個人向けの安い料金から、企業向けの段階料金に変えた",
+    "note": "企業には、複数人でのログインや年払い、経費精算用の領収書が要ると分かった。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-lesson",
+    "textHash": "752c7a84",
+    "answer": "自分が困った他社の障害を商品にし、学校や企業の問い合わせを減らす用途に広げた"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "analysisId": "a-referral",
+    "textHash": "66d4a7cc",
+    "answer": "紹介者への報酬ではなく、出資元の投資先などへの優待",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-story",
+    "textHash": "9398a770",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-business_model",
+    "textHash": "8a8a1d53",
+    "answer": "顧客対応ツールと外部のソフトから操作できる仕組みを、操作する人数に応じた年払いの料金で売る",
+    "note": "基本プランで操作できるのは最大5人。閲覧する人の数には制限がない（公式）。"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-customer",
+    "textHash": "fbdf9ae2",
+    "answer": "自社サービスへの問い合わせを抱える会社のチーム。数百のチームが使っている（公式）"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-upfront_cash",
+    "textHash": "bda62cd7",
+    "answer": "表示料金は年払いの単価で、年払いの客からは契約時に1年分の代金が先に入る（推測）"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-capital_and_team",
+    "textHash": "b01cb0c2",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-dependencies",
+    "textHash": "f40fadca",
+    "answer": "仕事用チャットのSlackなど、外部の製品との連携に頼っている（推測）",
+    "note": "Raycast は、Slack と開発の作業管理ツール Linear を使って開発側へ引き継ぐ。決済サービス Stripe の課金情報も同じ画面に出している（公式）。"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-pivots",
+    "textHash": "6c8c82cd",
+    "answer": "1か月に対応した顧客の人数で料金を決める方式から送信件数の方式へ変え、その後元に戻した",
+    "note": "最初の方式では最小の枠が250人で、伸びていた企業向けの用途には大きすぎた（公式）。"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-timeline",
+    "textHash": "4b42f1f9",
+    "answer": "2020年末: 2人の創業者が作り始めた。2022年11月: 誰でも試せる版を出し、初めて料金を示した。2023年6月: 料金体系を定額制に改めた。2023年6月21日: 受付用のメールアドレスを最大5件足せるようにした。2025年12月: Sourcegraph が乗り換えた。2026年3月: 創業者が最初の売り込み方を反省した。"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-lesson",
+    "textHash": "804ae7ef",
+    "answer": "料金の数え方は、客に減らしてほしくない行動と結び付けない方がよかった"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-customer_pain",
+    "textHash": "021527ab",
+    "answer": "問い合わせが窓口ごとに散らばることに困っている",
+    "note": "初期企業の導入検討563件（2025〜2026年）では、29%が連絡経路の分散を主な課題に挙げた（公式）。Raycast は以前、全件を同じ優先度で扱っていた。"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-lock_in",
+    "textHash": "af83c623",
+    "answer": "取り込んだ問い合わせの記録と、客が自分で作ったAIとの連携があると、乗り換えの手間が大きい（推測）"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-competition",
+    "textHash": "2d602e50",
+    "answer": "代わりの手段は、問い合わせ対応の道具を何種類も組み合わせて使うやり方",
+    "note": "受付、Slackとの連携、AIによる分類を、それぞれ別の道具でまかなう形だ（推測）。"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-why_it_worked",
+    "textHash": "11c9977b",
+    "answer": "外部から操作できる作りが、客が自前のAIを組み込む用途に合った（推測）"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-revenue_estimate",
+    "textHash": "feaa5537",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-channels",
+    "textHash": "46f97cd3",
+    "answer": "自社サイトの料金ページから、カードを登録せずに7日間無料で試せる"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "64436f60",
+    "answer": "既存の顧客対応ツールでは、外部のソフトから操作する仕組みが後回しにされてきた（推測）",
+    "note": "客が自前のAIを組み合わせたい時、既存のツールは設計から作り直す必要がある（推測）。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-story",
+    "textHash": "21c445dc",
+    "answer": "それまで使っていた別のサービスにうんざりし、2010年4月7日に作り始めた"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-business_model",
+    "textHash": "73a49ed3",
+    "answer": "ドメインの登録・更新代と、向け先の管理の月額料金で稼ぐ",
+    "note": "月額の基本料と、設定を置くドメイン1件ごとの月額がある。無料枠を超えて向け先を調べる通信が来ると、その分も払う。他社のドメインもここで管理できる。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-customer",
+    "textHash": "cffae860",
+    "answer": "個人から、複数人で使うチーム、企業、ドメインを再販する会社まで",
+    "note": "顧客のドメイン管理を請け負う会社も使っている（公式の導入事例）。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-customer_pain",
+    "textHash": "c1f2bfc4",
+    "answer": "ドメインの登録先とログイン情報が散らばり、管理に手間がかかる",
+    "note": "ある顧客は、前の委託先のメールアドレスで登録されたドメインを取り戻すのに数週間かかった（公式の導入事例）。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-first_customers",
+    "textHash": "07a244e3",
+    "answer": "5周年の公式記事は、初期の客としてJudi ClarkとKen Mayerの2人を挙げる"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-channels",
+    "textHash": "2c40a2c2",
+    "answer": "客を集める経路は技術者の集まりへの支援で、2025年も続けた",
+    "note": "2025年は、Xo Ruby、MicroConf Istanbul、CloudFest、DevOps LA、ElixirConf Orlandoなどを支援した。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-referral",
+    "textHash": "ea5f43b5",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-cost_structure",
+    "textHash": "53279dbe",
+    "answer": "登録事業者への卸値、サーバー、通信、運用の道具に費用がかかる",
+    "note": "これらの費用が上がり、旧来の再販向けの基本プランは数年間赤字だった（本人申告）。客の質問には開発者を含む全員で答え、この対応は高くつくと会社自身が認める。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-capital_and_team",
+    "textHash": "1f8341fe",
+    "answer": "出資を受けずに始め、2015年4月時点のチームは7人",
+    "note": "複数の国に住む人が、離れた場所から働く。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-dependencies",
+    "textHash": "52442130",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-upfront_cash",
+    "textHash": "1a0de8e3",
+    "answer": "向け先を調べる通信の従量料以外は前払い。向け先の管理を有効にしたままなら、使っていなくても毎月課金する",
+    "note": "下位プランへの変更は期間の終わりからで、残りの日数分は返さない。企業向けには年払いと、先に入金しておく残高も用意する。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-competition",
+    "textHash": "3e8d521d",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-why_it_worked",
+    "textHash": "98cae2c2",
+    "answer": "wwwを付けないドメインでも、別のドメイン名を向け先に指定できる機能を2011年11月に出した",
+    "note": "この機能は、アプリを置くサービスHerokuと相性が良く、開発者に選ばれた理由として掲示板で挙がった（第三者）。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "analysisId": "a-timeline",
+    "textHash": "4a7b2fdb",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-story",
+    "textHash": "1f4a8b7f",
+    "answer": "顧客の古いサイトに販売機能を足す仕事がきっかけ"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-business_model",
+    "textHash": "d8d265e4",
+    "answer": "既存サイトに後付けするカートを開発者に売り、店の取引に応じた料金を受け取る"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-customer",
+    "textHash": "2518c007",
+    "answer": "料金を払うのは商店主や上司。窓口は、自分でサイトの中身を書き換えられる開発者と制作会社"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-customer_pain",
+    "textHash": "d67fe0ca",
+    "answer": "作り直したくない古いサイトにも、販売機能を足す必要がある",
+    "note": "サイトの中身を書き換えられれば、サイト作りのソフトWordPressなど、今の仕組みを残したまま売り場を足せる（公式）。"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-first_customers",
+    "textHash": "2ae26006",
+    "answer": "最初の使い先は、母体の制作会社Spektrumが抱えていた顧客だった"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-channels",
+    "textHash": "878cf135",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-capital_and_team",
+    "textHash": "e81a57c2",
+    "answer": "元手の記録は無く、チームの人数も数字では出ていない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-dependencies",
+    "textHash": "d017db9d",
+    "answer": "決済そのものは外部の決済会社が担い、その手数料も別にかかる"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-lock_in",
+    "textHash": "d476242b",
+    "answer": "抜けにくい仕掛けは弱い。注文と顧客のデータは管理画面から書き出せる",
+    "note": "個人データの写しや削除もメールで頼める。解約は管理画面かメールでできる（公式）。"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-competition",
+    "textHash": "9e1eee87",
+    "answer": "比べられる販売サービスは、商店主ならネットショップ作りのShopify、開発者ならMoltinやFoxy.io"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-timeline",
+    "textHash": "5e6d3998",
+    "answer": "2013年8月: 最初の版を公開。2014年7月3日: 広告を試した結果を自社ブログで公開。"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "analysisId": "a-lesson",
+    "textHash": "8ace5e65",
+    "answer": "お金を払うのは商店主でも、カートを選ぶのは開発者。そこで開発者に売り、提案は開発者に任せた"
   }
 ]

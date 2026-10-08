@@ -1,0 +1,1151 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen3/statusgator-record.json",
+  "manifestSha256": "dc6834b2d7964c0aa101c264ec860d3bb87387150a686646693f378d75cd1095",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T11:28:53.278Z"
+ },
+ "records": [
+  {
+   "id": "ent_statusgator_316d3eb5edf6",
+   "provenance": {
+    "detailsHash": "0e76dc2cba3ca79aec3d4780de7d6065fe873ead457edfc652269ff0738ce2f2",
+    "artifactSha256": "dc6834b2d7964c0aa101c264ec860d3bb87387150a686646693f378d75cd1095"
+   },
+   "record": {
+    "id": "ent_statusgator_316d3eb5edf6",
+    "ticker": "STATUSGTR",
+    "name": "StatusGator",
+    "legalEntity": "Nimble Industries（公式会社紹介）",
+    "tagline": "外部サービスの障害情報、自社サイトの監視、利用者の障害報告をまとめ、組織の状況ページと通知を提供する。2015年に個人の副業として公開した。",
+    "description": "外部サービスの障害情報、自社サイトの監視、利用者の障害報告をまとめ、組織の状況ページと通知を提供する。2015年に個人の副業として公開した。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Colin Bartlett（創業）、Andy Libby（2018年に参加）",
+    "country": "米国",
+    "url": "https://statusgator.com/",
+    "officialUrl": "https://statusgator.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "小規模事業",
+     "収集記録",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "現在の完全な損益は未確認。歴史的な金額は時期別に事実欄へ保存。",
+     "revenueLabel": "現在の完全な損益は未確認。過去の原通貨の数字と限定条件を事実欄へ記録。",
+     "sourceDoc": "https://statusgator.com/blog/?p=76",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_001",
+      "kind": "FOUNDING",
+      "text": "Facebookの接続不具合を自分の実装の問題と思って数時間調べた経験から着想し、2015年1月に公開した。",
+      "sourceUrl": "https://statusgator.com/blog/?p=76",
+      "statedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "period": "2015年1月〜2016年12月",
+      "attribution": "創業者の本人申告。2024-07-11更新表示あり。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_002",
+      "kind": "OTHER",
+      "text": "2015年6月までに月1,000米ドルを目指したが届かず、2016年12月の継続月額売上は330米ドルだった。",
+      "sourceUrl": "https://statusgator.com/blog/?p=76",
+      "statedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "period": "2015年1月〜2016年12月",
+      "attribution": "創業者の本人申告。2024-07-11更新表示あり。",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_003",
+      "kind": "OTHER",
+      "text": "2016年12月の掲示費用はStripeが10米ドル、Herokuが154米ドル、DigitalOceanが5米ドル。差額を161米ドルと表示するが創業者給与と一部の小額費用を含まない。",
+      "sourceUrl": "https://statusgator.com/blog/?p=76",
+      "statedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "period": "2015年1月〜2016年12月",
+      "attribution": "創業者の本人申告。2024-07-11更新表示あり。",
+      "measure": "COST"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_004",
+      "kind": "OTHER",
+      "text": "当時は有料22人、無料1,159人。無料枠は3サービス監視で、旧利用者には5または10サービスを残した。",
+      "sourceUrl": "https://statusgator.com/blog/?p=76",
+      "statedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "period": "2015年1月〜2016年12月",
+      "attribution": "創業者の本人申告。2024-07-11更新表示あり。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_005",
+      "kind": "PRICING",
+      "text": "当時の有料プランは月9.99米ドルと19.99米ドル。企業向けの複数利用者、年払い、領収書への要望があった。",
+      "sourceUrl": "https://statusgator.com/blog/?p=76",
+      "statedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "period": "2015年1月〜2016年12月",
+      "attribution": "創業者の本人申告。2024-07-11更新表示あり。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_006",
+      "kind": "CHANNEL",
+      "text": "Facebook、Google AdWords、Twitterの広告を試したが効果が乏しく、検索と口コミを有効と報告。StackShareへの寄稿は長く流入を生んだ。",
+      "sourceUrl": "https://statusgator.com/blog/?p=76",
+      "statedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "period": "2015年1月〜2016年12月",
+      "attribution": "創業者の本人申告。2024-07-11更新表示あり。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_007",
+      "kind": "OTHER",
+      "text": "買収提案を受けたが希望額に合わず断った。提示額は不明。",
+      "sourceUrl": "https://statusgator.com/blog/?p=76",
+      "statedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "period": "2015年1月〜2016年12月",
+      "attribution": "創業者の本人申告。2024-07-11更新表示あり。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_008",
+      "kind": "TOOL",
+      "text": "試作は定期実行で障害情報を確認してメールする仕組み。製品化はRailsとHeroku、情報取得にはRubyの取得処理と公開接続を使用した。",
+      "sourceUrl": "https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2015年〜2021年、対談時点の年月は不明",
+      "attribution": "創業者の本人申告。媒体が売上を独立検証したものではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_009",
+      "kind": "TEAM",
+      "text": "2015年から2018年までは1人。2018年に友人が加わり2人となり、対談時点では約9人と説明。対談日の表示がなく、現在の人数へ転用できない。",
+      "sourceUrl": "https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2015年〜2021年、対談時点の年月は不明",
+      "attribution": "創業者の本人申告。媒体が売上を独立検証したものではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_010",
+      "kind": "CHANNEL",
+      "text": "初期は掲示板で告知し、最初の1〜2人の有料客で設備費を賄ったという。客名・初課金日は不明。",
+      "sourceUrl": "https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2015年〜2021年、対談時点の年月は不明",
+      "attribution": "創業者の本人申告。媒体が売上を独立検証したものではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_011",
+      "kind": "OTHER",
+      "text": "月1,000米ドルには約3年かかり、2021年に月10,000米ドルを超えたと述べる。現在の月額売上ではない。",
+      "sourceUrl": "https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2015年〜2021年、対談時点の年月は不明",
+      "attribution": "創業者の本人申告。媒体が売上を独立検証したものではない。",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_012",
+      "kind": "OTHER",
+      "text": "当初は開発者向けだったが、社内の情報システム担当の市場がより大きいと分かったと述べる。",
+      "sourceUrl": "https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2015年〜2021年、対談時点の年月は不明",
+      "attribution": "創業者の本人申告。媒体が売上を独立検証したものではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_013",
+      "kind": "FOUNDING",
+      "text": "Colin Bartlettが2014年に考案し、2015年に公開した。",
+      "sourceUrl": "https://statusgator.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014年〜2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_014",
+      "kind": "TEAM",
+      "text": "2018年にAndy Libbyが加わり、Nimble Industriesを作った。複数国の遠隔勤務で運営する。",
+      "sourceUrl": "https://statusgator.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014年〜2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_015",
+      "kind": "EVENT",
+      "text": "2020年に学校の遠隔授業での利用へ注力した。",
+      "sourceUrl": "https://statusgator.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014年〜2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_016",
+      "kind": "FUNDING",
+      "text": "2022年にTinySeedから初めて外部出資を受けた。金額と持分は未確認。",
+      "sourceUrl": "https://statusgator.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014年〜2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_017",
+      "kind": "EVENT",
+      "text": "2024年に、公式障害告知より早く異常を捉えるEarly Warning Signalsを一般提供した。",
+      "sourceUrl": "https://statusgator.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014年〜2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_018",
+      "kind": "DESCRIPTION",
+      "text": "確認時の会社紹介には11,220サービスと38,000人以上の利用者を表示。有料契約数や組織数と同じではない。",
+      "sourceUrl": "https://statusgator.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014年〜2026-10-07確認時",
+      "attribution": "公式の説明・自社申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_019",
+      "kind": "OTHER",
+      "text": "長期利用者5件を失った一方、新規9件を獲得し、上位プランへの変更もあったと報告。分母が不明で解約率にはできない。",
+      "sourceUrl": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+      "statedAt": "2020-05-02",
+      "checkedAt": "2026-10-07",
+      "period": "2020年4月",
+      "attribution": "Colin Bartlettの本人申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_020",
+      "kind": "OTHER",
+      "text": "月額継続売上は前月比15%増、3,000米ドルに近づいたと報告。3,000米ドル到達を確定する数字ではない。",
+      "sourceUrl": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+      "statedAt": "2020-05-02",
+      "checkedAt": "2026-10-07",
+      "period": "2020年4月",
+      "attribution": "Colin Bartlettの本人申告",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_021",
+      "kind": "PRICING",
+      "text": "解約した旧契約は現行最安より33〜66%安い料金だった。新しい段階料金により新規客単価が高くなったと述べる。",
+      "sourceUrl": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+      "statedAt": "2020-05-02",
+      "checkedAt": "2026-10-07",
+      "period": "2020年4月",
+      "attribution": "Colin Bartlettの本人申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_022",
+      "kind": "TEAM",
+      "text": "投稿時には常勤6人を雇用し、数百の情報システム部門が利用すると報告。現在の全人数や有料客数へ転用しない。",
+      "sourceUrl": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。割合の対象期間は明示を確認できず。",
+      "attribution": "創業者と同名の投稿者による本人申告。監査資料ではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_023",
+      "kind": "DESCRIPTION",
+      "text": "監視対象は開始時の50サービスから投稿時の6,000サービスになったと報告。",
+      "sourceUrl": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。割合の対象期間は明示を確認できず。",
+      "attribution": "創業者と同名の投稿者による本人申告。監査資料ではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_024",
+      "kind": "OTHER",
+      "text": "コメントで売上が百万米ドル台の規模と説明。正確な額と年額・累計の区別は確認できず、定量売上欄は空にする。",
+      "sourceUrl": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。割合の対象期間は明示を確認できず。",
+      "attribution": "創業者と同名の投稿者による本人申告。監査資料ではない。",
+      "measure": "REVENUE"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_025",
+      "kind": "OTHER",
+      "text": "コメントで粗利率86%、創業者報酬控除前の営業利益率57%と申告。対象期間・費用の定義・個人の着金額は不明。",
+      "sourceUrl": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。割合の対象期間は明示を確認できず。",
+      "attribution": "創業者と同名の投稿者による本人申告。監査資料ではない。",
+      "measure": "PROFIT"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_026",
+      "kind": "CHANNEL",
+      "text": "大きな一度の急増ではなく長年の継続が成長を支えたと回顧。値上げ、企業向け機能、業界会議、初期の寄稿を挙げる。",
+      "sourceUrl": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。割合の対象期間は明示を確認できず。",
+      "attribution": "創業者と同名の投稿者による本人申告。監査資料ではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_027",
+      "kind": "OTHER",
+      "text": "PagerDutyとの接続は一部の客には重要だったが、大きな成長は生まなかったと回答。",
+      "sourceUrl": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。割合の対象期間は明示を確認できず。",
+      "attribution": "創業者と同名の投稿者による本人申告。監査資料ではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_028",
+      "kind": "TEAM",
+      "text": "最初の開発担当の採用は情報源への接続保守が主目的。自動化しても保守作業は多いと説明。",
+      "sourceUrl": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。割合の対象期間は明示を確認できず。",
+      "attribution": "創業者と同名の投稿者による本人申告。監査資料ではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_029",
+      "kind": "OTHER",
+      "text": "見込み客と解約客から、公式の障害ページは告知が何時間も遅れたり更新されなかったりするため、単に集約するだけでは足りないと聞いたという。",
+      "sourceUrl": "https://www.reddit.com/r/micro_saas/comments/1njby5m/how_i_pivoted_my_status_page_aggregator_microsaas/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。前後の測定期間は不明。",
+      "attribution": "創業者と同名の投稿者による本人申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_030",
+      "kind": "EVENT",
+      "text": "以前は公式告知に依存するため改善できないと答えていたが、利用者の報告と第三者信号を取り入れて早期検知へ転換。反対理由が減ったと述べるが、成約率の前後数値は未確認。",
+      "sourceUrl": "https://www.reddit.com/r/micro_saas/comments/1njby5m/how_i_pivoted_my_status_page_aggregator_microsaas/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2025年の回顧投稿。前後の測定期間は不明。",
+      "attribution": "創業者と同名の投稿者による本人申告"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_031",
+      "kind": "PRICING",
+      "text": "無料版は監視3件、状況ページ1件、管理者1人、月10通知、履歴1か月。14日間の全機能試用はカード不要。",
+      "sourceUrl": "https://statusgator.com/plans",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_032",
+      "kind": "PRICING",
+      "text": "Starterは月払い79米ドル、年払いの月換算72米ドル。監視25件、状況ページ1件、管理者1人、通知購読者500人、履歴3か月。",
+      "sourceUrl": "https://statusgator.com/plans",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_033",
+      "kind": "PRICING",
+      "text": "Teamは月払い149米ドル、年払いの月換算137米ドル。監視75件、状況ページ3件、管理者3人、通知購読者1,000人、履歴6か月。",
+      "sourceUrl": "https://statusgator.com/plans",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_034",
+      "kind": "PRICING",
+      "text": "Corporateは月払い299米ドル、年払いの月換算274米ドル。監視150件、状況ページ5件、管理者10人、履歴12か月。",
+      "sourceUrl": "https://statusgator.com/plans",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_035",
+      "kind": "PRICING",
+      "text": "年払いは請求書と発注書に対応。複数年の前払いは追加割引の案内がある。状況ページの閲覧者は管理者人数の枠とは別。",
+      "sourceUrl": "https://statusgator.com/plans",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "公式の料金表示"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_036",
+      "kind": "TOOL",
+      "text": "契約の変更はStripeの支払い画面を使用。上位プランへの変更は即時に反映する。",
+      "sourceUrl": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+      "statedAt": "2026-06-12",
+      "checkedAt": "2026-10-07",
+      "period": "2026-06-12更新時",
+      "attribution": "公式の利用手順"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_037",
+      "kind": "OTHER",
+      "text": "無料版を含む下位プランへの変更はいつでも設定でき、次の更新時に反映する。月払い・年払いの変更も扱う。返金条件は別途未確認。",
+      "sourceUrl": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+      "statedAt": "2026-06-12",
+      "checkedAt": "2026-10-07",
+      "period": "2026-06-12更新時",
+      "attribution": "公式の利用手順"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_038",
+      "kind": "TOOL",
+      "text": "管理画面と外部接続はHerokuとAWS、配信にはCloudflareとVercel、決済はStripeを使用。利用者向けの状況ページは別の設備で動かす。",
+      "sourceUrl": "https://statusgator.com/trust",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時の直近12か月",
+      "attribution": "公式の自社説明・測定"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_039",
+      "kind": "OTHER",
+      "text": "直近12か月の稼働率99.92%、低下・停止は約7時間と自社表示。対象の細かな測定定義と第三者の検証は未確認。",
+      "sourceUrl": "https://statusgator.com/trust",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時の直近12か月",
+      "attribution": "公式の自社説明・測定"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_040",
+      "kind": "OTHER",
+      "text": "2025年からSOC 2 Type 2の監査を受け、最新報告日を2025-10-31と表示。報告書原本は申請が必要なため取得していない。",
+      "sourceUrl": "https://statusgator.com/trust",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時の直近12か月",
+      "attribution": "公式の自社説明・測定"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_041",
+      "kind": "FUNDING",
+      "text": "TinySeedの投資先一覧にもStatusGatorを掲載。出資関係は創業者側と出資者側で確認できるが、投資額と持分は不明。",
+      "sourceUrl": "https://tinyseed.com/portfolio/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認時",
+      "attribution": "出資者自身の公開一覧"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_042",
+      "kind": "CHANNEL",
+      "text": "TinySeedの投資先とSaaS Instituteの会員向けに、Teamを2年間無料、その後2年間は50%引きで提供する。紹介報酬制度ではなく関係者向け優待。",
+      "sourceUrl": "https://statusgator.com/blog/tinyseed-perk/",
+      "statedAt": "2025-01-07",
+      "checkedAt": "2026-10-07",
+      "period": "2025-01-07初出、2025-12-11更新",
+      "attribution": "公式の提携優待案内"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_043",
+      "kind": "OTHER",
+      "text": "ellen R（小売の情報システム責任者、2022-11-28）は監視追加の容易さを評価。一方、管理者を追加せず通知先を増やしたい、通知が頻繁で読み飛ばす、自社サイト監視が欲しいと述べる。現在は自社サイト監視を提供しており、過去の不満として保持。",
+      "sourceUrl": "https://www.capterra.com/p/252705/StatusGator/",
+      "statedAt": "2022-11-28",
+      "checkedAt": "2026-10-07",
+      "period": "2022年11月の投稿",
+      "attribution": "第三者の場での利用者の自己申告。以下の2件は謝礼ありの投稿。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_044",
+      "kind": "OTHER",
+      "text": "Glynn M（保険の運用開発担当、2022-11-23）はSlackとMicrosoft Teamsへの通知、必要な部品だけを監視する機能、追加要望への速い対応を評価。",
+      "sourceUrl": "https://www.capterra.com/p/252705/StatusGator/",
+      "statedAt": "2022-11-23",
+      "checkedAt": "2026-10-07",
+      "period": "2022年11月の投稿",
+      "attribution": "第三者の場での利用者の自己申告。以下の2件は謝礼ありの投稿。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_045",
+      "kind": "OTHER",
+      "text": "Rock Paper Coinの共同創業者Elizabeth Sheilsは、取引先の障害を把握するため状況ページ、必要な部品の監視、自社サイト監視、SMSとSlack通知を利用すると説明。",
+      "sourceUrl": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+      "statedAt": "2024-06-12",
+      "checkedAt": "2026-10-07",
+      "period": "2024年掲載の顧客利用",
+      "attribution": "公式が掲載した顧客発言。独立した成果検証ではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_046",
+      "kind": "OTHER",
+      "text": "同事例では、未対応のサービス追加を要望して数分で対応されたと述べる。問い合わせ件数や節約時間の前後数値はない。",
+      "sourceUrl": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+      "statedAt": "2024-06-12",
+      "checkedAt": "2026-10-07",
+      "period": "2024年掲載の顧客利用",
+      "attribution": "公式が掲載した顧客発言。独立した成果検証ではない。"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_047",
+      "kind": "OTHER",
+      "text": "教育関係の利用者191人が127種類のサービスを監視していたと自社集計。約55%は1サービスだけを監視しており、無料枠に収まる利用も多い。有料学校数ではない。",
+      "sourceUrl": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+      "statedAt": "2021-02-23",
+      "checkedAt": "2026-10-07",
+      "period": "2021年の記事に記載された学校利用",
+      "attribution": "自社の匿名利用情報による集計"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_048",
+      "kind": "EVENT",
+      "text": "iOSとAndroid向けに公開。状況ページの閲覧権限を持つ人が二次元コードで追加し、早期警告を含む通知、監視選択、通知停止、障害報告を使える。管理編集者である必要はない。",
+      "sourceUrl": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+      "statedAt": "2026-09-17",
+      "checkedAt": "2026-10-07",
+      "period": "2026-09-17公開時",
+      "attribution": "公式の機能告知"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_fact_049",
+      "kind": "OTHER",
+      "text": "公式の携帯端末向け製品の案内記事に、監視一覧画面の図へのリンクが掲載されている。",
+      "sourceUrl": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+      "statedAt": "2026-09-17",
+      "checkedAt": "2026-10-07",
+      "period": "2026-09-17公開時",
+      "attribution": "公式の機能告知",
+      "imageAsset": {
+       "url": "https://statusgator.com/blog/wp-content/uploads/2026/09/statusgator-mob-app-2-1.png",
+       "kind": "PRODUCT_SCREENSHOT",
+       "purpose": "携帯端末での監視一覧の所在",
+       "checkedAt": "2026-10-07",
+       "retrieved": false,
+       "visualVerified": false,
+       "reusePermission": null,
+       "reason": "公開ページの画像リンクは確認。本体取得は失敗。転載許諾は未確認。"
+      }
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "収集担当",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://statusgator.com/blog/?p=76",
+       "publisher": "Colin Bartlettの2016年副業回顧",
+       "sourceType": "official_blog",
+       "publicationDate": "2016-12-30",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "初出2016-12-30、更新2024-07-11。数字は本文の2016年末の時点として保持。"
+      },
+      {
+       "url": "https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+       "publisher": "BoringCashCowのColin Bartlett対談",
+       "sourceType": "founder_interview",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://statusgator.com/about",
+       "publisher": "StatusGatorの沿革と会社紹介",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+       "publisher": "Indie Hackersの創業者月次報告",
+       "sourceType": "founder_post",
+       "publicationDate": "2020-05-02",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日を本文または掲載一覧で確認。"
+      },
+      {
+       "url": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+       "publisher": "Redditのcbartlettによる10年回顧",
+       "sourceType": "founder_post",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日を日まで確定できず。投稿内の2015年公開から10年という回顧で2025年の資料と判断。相対表示から日付を推算しない。"
+      },
+      {
+       "url": "https://www.reddit.com/r/micro_saas/comments/1njby5m/how_i_pivoted_my_status_page_aggregator_microsaas/",
+       "publisher": "Redditのcbartlettによる機能転換の説明",
+       "sourceType": "founder_post",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "本文で10年の経緯を回顧。日単位の公開日は未確認。"
+      },
+      {
+       "url": "https://statusgator.com/plans",
+       "publisher": "StatusGatorの現在の料金",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+       "publisher": "StatusGatorのプラン変更手順",
+       "sourceType": "official_support",
+       "publicationDate": "2026-06-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日ではなく、ページの最終更新日を保持。"
+      },
+      {
+       "url": "https://statusgator.com/trust",
+       "publisher": "StatusGatorの運営設備と信頼性",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://tinyseed.com/portfolio/",
+       "publisher": "TinySeedの投資先一覧",
+       "sourceType": "investor_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://statusgator.com/blog/tinyseed-perk/",
+       "publisher": "StatusGatorのTinySeed関係者向け優待",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-01-07",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "初出2025-01-07、更新2025-12-11。"
+      },
+      {
+       "url": "https://www.capterra.com/p/252705/StatusGator/",
+       "publisher": "CapterraのStatusGator利用者投稿",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessMethod": "検索サービスに掲載された公開口コミ本文。",
+       "publicationDateNote": "公開日の表示を確認できず。確認日は公開日と別に保持。"
+      },
+      {
+       "url": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+       "publisher": "StatusGatorのRock Paper Coin利用事例",
+       "sourceType": "official_customer_case",
+       "publicationDate": "2024-06-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "初出2024-06-12、更新2024-11-19。"
+      },
+      {
+       "url": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+       "publisher": "StatusGatorの学校利用集計",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-02-23",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "初出2021-02-23、更新2023-09-04。集計期間の厳密な開始終了日は不明。"
+      },
+      {
+       "url": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+       "publisher": "StatusGatorの携帯端末向け製品公開",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-09-17",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessMethod": "公開本文",
+       "publicationDateNote": "公開日を本文または掲載一覧で確認。"
+      }
+     ],
+     "supported": [
+      "ent_statusgator_316d3eb5edf6_fact_001",
+      "ent_statusgator_316d3eb5edf6_fact_002",
+      "ent_statusgator_316d3eb5edf6_fact_003",
+      "ent_statusgator_316d3eb5edf6_fact_004",
+      "ent_statusgator_316d3eb5edf6_fact_005",
+      "ent_statusgator_316d3eb5edf6_fact_006",
+      "ent_statusgator_316d3eb5edf6_fact_007",
+      "ent_statusgator_316d3eb5edf6_fact_008",
+      "ent_statusgator_316d3eb5edf6_fact_009",
+      "ent_statusgator_316d3eb5edf6_fact_010",
+      "ent_statusgator_316d3eb5edf6_fact_011",
+      "ent_statusgator_316d3eb5edf6_fact_012",
+      "ent_statusgator_316d3eb5edf6_fact_013",
+      "ent_statusgator_316d3eb5edf6_fact_014",
+      "ent_statusgator_316d3eb5edf6_fact_015",
+      "ent_statusgator_316d3eb5edf6_fact_016",
+      "ent_statusgator_316d3eb5edf6_fact_017",
+      "ent_statusgator_316d3eb5edf6_fact_018",
+      "ent_statusgator_316d3eb5edf6_fact_019",
+      "ent_statusgator_316d3eb5edf6_fact_020",
+      "ent_statusgator_316d3eb5edf6_fact_021",
+      "ent_statusgator_316d3eb5edf6_fact_022",
+      "ent_statusgator_316d3eb5edf6_fact_023",
+      "ent_statusgator_316d3eb5edf6_fact_024",
+      "ent_statusgator_316d3eb5edf6_fact_025",
+      "ent_statusgator_316d3eb5edf6_fact_026",
+      "ent_statusgator_316d3eb5edf6_fact_027",
+      "ent_statusgator_316d3eb5edf6_fact_028",
+      "ent_statusgator_316d3eb5edf6_fact_029",
+      "ent_statusgator_316d3eb5edf6_fact_030",
+      "ent_statusgator_316d3eb5edf6_fact_031",
+      "ent_statusgator_316d3eb5edf6_fact_032",
+      "ent_statusgator_316d3eb5edf6_fact_033",
+      "ent_statusgator_316d3eb5edf6_fact_034",
+      "ent_statusgator_316d3eb5edf6_fact_035",
+      "ent_statusgator_316d3eb5edf6_fact_036",
+      "ent_statusgator_316d3eb5edf6_fact_037",
+      "ent_statusgator_316d3eb5edf6_fact_038",
+      "ent_statusgator_316d3eb5edf6_fact_039",
+      "ent_statusgator_316d3eb5edf6_fact_040",
+      "ent_statusgator_316d3eb5edf6_fact_041",
+      "ent_statusgator_316d3eb5edf6_fact_042",
+      "ent_statusgator_316d3eb5edf6_fact_043",
+      "ent_statusgator_316d3eb5edf6_fact_044",
+      "ent_statusgator_316d3eb5edf6_fact_045",
+      "ent_statusgator_316d3eb5edf6_fact_046",
+      "ent_statusgator_316d3eb5edf6_fact_047",
+      "ent_statusgator_316d3eb5edf6_fact_048",
+      "ent_statusgator_316d3eb5edf6_fact_049"
+     ],
+     "unknown": [
+      "現在の売上実額と有料契約組織数: 百万米ドル台という本人発言は期間・実額が不明。全利用人数とは分ける。",
+      "利益率の対象期間と完全な費用定義・個人の着金: 86%と57%は本人申告、57%は創業者報酬控除前。監査数字や税引後手残りは未確認。",
+      "現在の設備費・決済費・給与: 2016年の費用を現在に流用できず、現在の完全な内訳はない。",
+      "開始資金総額と初期・現在の労働時間: 試作の道具は分かったが総額と時間を示す資料は未確認。",
+      "初課金客の氏名・正確な課金日: 1〜2客で設備費を賄ったとの回顧のみ。",
+      "TinySeedの出資額と持分: 両者の出資関係は確認、金額・条件は未確認。",
+      "現在の全人数: 2025年の常勤6人と日付不明の対談の約9人は時点・数え方が違い、統合できない。",
+      "経路別売上・獲得単価・有料転換率・現在の解約率: 2020年の出入りだけでは率を求められない。",
+      "早期警告への転換前後の成約率と売上寄与: 拒絶理由が減ったとの申告のみで測定値はない。",
+      "紹介報酬制度と解約時の返金条件: 提携優待と変更手順は確認したが、紹介報酬や返金の定義は未確認。",
+      "初期の保存画面・画像本体・転載許諾: Wayback Machineと画像本体の取得は失敗。公開記事の所在のみ記録。",
+      "SOC 2の報告書原本・独立した稼働率の検証: 報告書は申請が必要なため取得せず、稼働率は自社表示に留める。"
+     ],
+     "conflicts": [
+      "2016年の利益161米ドルは一部の費用と創業者給与を除外。現在の営業利益や個人の手残りには使わない。",
+      "対談時の約9人と2025年の常勤6人は比較可能な全人数ではない。矛盾解消のため人数を作らない。",
+      "監視対象数: 2025年投稿の6,000と確認時会社紹介の11,220は時点が異なる。支払客数へ変換しない。",
+      "2022年投稿の自社サイト監視不足は当時の不満。現在の欠点とはしない。",
+      "粗利率86%と営業利益率57%は期間未特定、57%は創業者報酬前。2016年や2026年の損益欄と混合しない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2015,
+     "initialTractionPeriod": "2015年1月公開。月1,000米ドルに達するまで約3年。",
+     "dataSnapshotPeriod": "創業期から2026-10-07確認時まで。資料ごとの対象時期は事実欄に記録。",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "組織が依存する外部サービスの障害情報と監視を一か所に集約。",
+     "targetCustomer": "社内の情報システム担当、学校、開発会社、外部への運用代行会社。",
+     "painRelief": "外部サービスの障害を自社の不具合と誤認する調査時間、社内の問い合わせ、障害情報の見逃し。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_01",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Colin Bartlettの2016年副業回顧",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/blog/?p=76",
+       "公開日: 2016-12-30",
+       "確認日: 2026-10-07",
+       "情報の性質: 創業者の本人申告。2024-07-11更新表示あり。"
+      ],
+      "url": "https://statusgator.com/blog/?p=76",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_02",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: BoringCashCowのColin Bartlett対談",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 創業者の本人申告。媒体が売上を独立検証したものではない。"
+      ],
+      "url": "https://boringcashcow.com/interview/interview-with-the-founder-of-statusgator",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_03",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorの沿革と会社紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/about",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の説明・自社申告"
+      ],
+      "url": "https://statusgator.com/about",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_04",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Indie Hackersの創業者月次報告",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+       "公開日: 2020-05-02",
+       "確認日: 2026-10-07",
+       "情報の性質: Colin Bartlettの本人申告"
+      ],
+      "url": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_05",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Redditのcbartlettによる10年回顧",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 創業者と同名の投稿者による本人申告。監査資料ではない。"
+      ],
+      "url": "https://www.reddit.com/r/SideProject/comments/1ndcwkv/dont_give_up_i_built_a_status_page_aggregator_as/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_06",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Redditのcbartlettによる機能転換の説明",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.reddit.com/r/micro_saas/comments/1njby5m/how_i_pivoted_my_status_page_aggregator_microsaas/",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 創業者と同名の投稿者による本人申告"
+      ],
+      "url": "https://www.reddit.com/r/micro_saas/comments/1njby5m/how_i_pivoted_my_status_page_aggregator_microsaas/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_07",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorの現在の料金",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/plans",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の料金表示"
+      ],
+      "url": "https://statusgator.com/plans",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_08",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorのプラン変更手順",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+       "公開日: 2026-06-12",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の利用手順"
+      ],
+      "url": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_09",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorの運営設備と信頼性",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/trust",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の自社説明・測定"
+      ],
+      "url": "https://statusgator.com/trust",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: TinySeedの投資先一覧",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://tinyseed.com/portfolio/",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 出資者自身の公開一覧"
+      ],
+      "url": "https://tinyseed.com/portfolio/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorのTinySeed関係者向け優待",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/blog/tinyseed-perk/",
+       "公開日: 2025-01-07",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の提携優待案内"
+      ],
+      "url": "https://statusgator.com/blog/tinyseed-perk/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: CapterraのStatusGator利用者投稿",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://www.capterra.com/p/252705/StatusGator/",
+       "公開日: 未確認",
+       "確認日: 2026-10-07",
+       "情報の性質: 第三者の場での利用者の自己申告。以下の2件は謝礼ありの投稿。"
+      ],
+      "url": "https://www.capterra.com/p/252705/StatusGator/",
+      "sourceNote": "検索サービスに掲載された公開口コミ本文。。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorのRock Paper Coin利用事例",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+       "公開日: 2024-06-12",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式が掲載した顧客発言。独立した成果検証ではない。"
+      ],
+      "url": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorの学校利用集計",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/blog/top-tools-for-educational-orgs/",
+       "公開日: 2021-02-23",
+       "確認日: 2026-10-07",
+       "情報の性質: 自社の匿名利用情報による集計"
+      ],
+      "url": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_statusgator_316d3eb5edf6_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: StatusGatorの携帯端末向け製品公開",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。記事用の章・分析文は未作成。",
+      "details": [
+       "出典: https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+       "公開日: 2026-09-17",
+       "確認日: 2026-10-07",
+       "情報の性質: 公式の機能告知"
+      ],
+      "url": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+      "sourceNote": "公開本文。転載許諾は未確認。短い日本語の事実要約のみ記録。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen3_20261007_geocodio_statusgator",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "現在の売上実額と有料契約組織数: 百万米ドル台という本人発言は期間・実額が不明。全利用人数とは分ける。",
+     "利益率の対象期間と完全な費用定義・個人の着金: 86%と57%は本人申告、57%は創業者報酬控除前。監査数字や税引後手残りは未確認。",
+     "現在の設備費・決済費・給与: 2016年の費用を現在に流用できず、現在の完全な内訳はない。",
+     "開始資金総額と初期・現在の労働時間: 試作の道具は分かったが総額と時間を示す資料は未確認。",
+     "初課金客の氏名・正確な課金日: 1〜2客で設備費を賄ったとの回顧のみ。",
+     "TinySeedの出資額と持分: 両者の出資関係は確認、金額・条件は未確認。",
+     "現在の全人数: 2025年の常勤6人と日付不明の対談の約9人は時点・数え方が違い、統合できない。",
+     "経路別売上・獲得単価・有料転換率・現在の解約率: 2020年の出入りだけでは率を求められない。",
+     "早期警告への転換前後の成約率と売上寄与: 拒絶理由が減ったとの申告のみで測定値はない。",
+     "紹介報酬制度と解約時の返金条件: 提携優待と変更手順は確認したが、紹介報酬や返金の定義は未確認。",
+     "初期の保存画面・画像本体・転載許諾: Wayback Machineと画像本体の取得は失敗。公開記事の所在のみ記録。",
+     "SOC 2の報告書原本・独立した稼働率の検証: 報告書は申請が必要なため取得せず、稼働率は自社表示に留める。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: RAW（調査段の未審査）→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceDoc: 空→https://statusgator.com/blog/?p=76",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}
