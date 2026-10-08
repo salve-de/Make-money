@@ -63,55 +63,55 @@
     "entityId": "ent_poolsuite_6d5ad6895563",
     "factId": "f9",
     "factHash": "77a54a68",
-    "text": ""
+    "text": "音楽アプリは、iOSとAndroid向けの新しい版を公開した。macOS向けにも、安定性を高めた版を出している。"
   },
   {
     "entityId": "ent_hostifi_cf9ec73a42d2",
     "factId": "f1",
     "factHash": "e6941e7a",
-    "text": ""
+    "text": "代理運営事業者は、自社のドメインを使って顧客へ再販売できる。設定した機器の一覧を表にまとめて取り出すツールもある。"
   },
   {
     "entityId": "ent_indiehackers_6548833164b0",
     "factId": "f25",
     "factHash": "04a8d6b7",
-    "text": ""
+    "text": "事業や副業で収入を得ている創業者が自分の経験を載せ、読者はそこから学び、互いに助言を送り合える交流の場でもある。"
   },
   {
     "entityId": "ent_memberful_0dff1f9c00fa",
     "factId": "f3",
     "factHash": "76f1a14a",
-    "text": ""
+    "text": "会員の課金には、利用者自身のStripeの口座を接続して使う。WordPressやMailchimp、Discordなどとも連携し、会員情報と閲覧の権限をそろえる。"
   },
   {
     "entityId": "ent_churnkey_8d7f2b269c21",
     "factId": "f23",
     "factHash": "ba98376c",
-    "text": ""
+    "text": "決済の再試行に加え、メールやアプリ内表示でも利用者に支払いの更新を促して、失敗した決済の回収につなげる。"
   },
   {
     "entityId": "ent_wip_5eef8a985270",
     "factId": "f2",
     "factHash": "805eab45",
-    "text": ""
+    "text": "自社サイトのトップページは、製品を作る3,823人の製作者に向けて、この集まりへの参加を呼びかけていた。"
   },
   {
     "entityId": "ent_tuple_20261007",
     "factId": "f3",
     "factHash": "6d3adbf8",
-    "text": ""
+    "text": "公式サイトには、Shopify の Farhan Thawar が「遠隔での共同開発では標準の道具になった」と述べた言葉が載っている。"
   },
   {
     "entityId": "ent_userlist_a288fcf9f741",
     "factId": "f1",
     "factHash": "edd1af67",
-    "text": ""
+    "text": "個々の利用者の行動に加えて、利用者が所属する企業ごとにまとめたデータも使い、メールを自動で送る。ソフトの会社向けに、この2種類のデータを組み合わせて配信する。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "factId": "f1",
     "factHash": "e8496dcc",
-    "text": ""
+    "text": "企画制作、告知、試遊は社内の担当者で分け、美術と図案は社外の担当者に任せている。新作の募集は四半期ごとに行うと案内している。"
   },
   {
     "entityId": "ent_data_fetcher_8e6a5e22ce2a",
@@ -123,25 +123,25 @@
     "entityId": "ent_candy_japan_954236d663a8",
     "factId": "f1",
     "factHash": "daf4e39e",
-    "text": ""
+    "text": "アレルギーなど客ごとの事情には合わせず、全員に同じ内容の菓子を詰めて送る。"
   },
   {
     "entityId": "ent_quaderno_81236030d721",
     "factId": "f14",
     "factHash": "180d737b",
-    "text": ""
+    "text": "公式サイトは、150を超える国を支援すると表示している。"
   },
   {
     "entityId": "ent_noteforms_003fcbdd14cf",
     "factId": "f1",
     "factHash": "89000904",
-    "text": ""
+    "text": "運営者はフランスにあるJhumanJ。創業者は、貯蓄には手を付けない計画で、必要になれば受託の仕事を簡単に見つけられると考えて始めた。"
   },
   {
     "entityId": "ent_geocodio_c64c0721d500",
     "factId": "f9",
     "factHash": "d83eb04f",
-    "text": ""
+    "text": "カナダの住所では、利用者が入力した完全な郵便番号をそのまま返す場合があるが、その番号が正しいかどうかは確かめていないと案内している。"
   },
   {
     "entityId": "ent_lunch_money_be2eeb1f4fdf",
@@ -153,7 +153,7 @@
     "entityId": "ent_statusgator_316d3eb5edf6",
     "factId": "f13",
     "factHash": "9ace0ebc",
-    "text": ""
+    "text": "11,220以上の他社サービスの稼働状況を一か所に集め、38,000人以上の利用者に提供していると会社が案内している。"
   },
   {
     "entityId": "ent_plain_f8a62d87d9cb",
@@ -165,12 +165,18 @@
     "entityId": "ent_dnsimple_c8560498b136",
     "factId": "f23",
     "factHash": "6c94e83c",
-    "text": ""
+    "text": "ドメイン名を国際的に管理する組織から認定を受けた登録事業者で、同じ認定を持つ提携先の事業者とも組んで、ドメインの登録を扱っている。"
   },
   {
     "entityId": "ent_snipcart_9a1012111695",
     "factId": "f1",
     "factHash": "c6eeb229",
-    "text": ""
+    "text": "運営会社はカナダの法人で、Snipcart inc.という名前を掲げている。広告を試した後の振り返りでは、役立つ記事と製品を結びつける形を次に試すと述べている。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "factId": "f2",
+    "factHash": "67f47f4c",
+    "text": "作ったサイトでは、電子書籍や講座を売ることも、申込フォームで連絡先を集めることもできる。参加者を募る企画のページにも使われている。"
   }
 ]
