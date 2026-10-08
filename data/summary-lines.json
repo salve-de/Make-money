@@ -58,5 +58,119 @@
     "factId": "f1",
     "factHash": "cecd9426",
     "text": "作業管理、時間記録、請求書、顧客専用画面、GitHub・GitLab連携を備える。コードの変更を申請すると作業が「レビュー」、反映すると「完了」に移り、請求用の時刻も記録。Asana・ClickUp・Linearのデータを取り込める。"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "factId": "f9",
+    "factHash": "77a54a68",
+    "text": ""
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "factId": "f1",
+    "factHash": "e6941e7a",
+    "text": "公式サイトには、顧客は5000超と表示されている。"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "factId": "f25",
+    "factHash": "04a8d6b7",
+    "text": ""
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "factId": "f3",
+    "factHash": "76f1a14a",
+    "text": ""
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "factId": "f23",
+    "factHash": "ba98376c",
+    "text": "決済の再試行に加え、メールや携帯のショートメッセージ、アプリ内の表示で支払い情報の更新を促す。"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "factId": "f2",
+    "factHash": "805eab45",
+    "text": "トップページでは、3,823人の製作者に参加を呼びかけていた。"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "factId": "f3",
+    "factHash": "6d3adbf8",
+    "text": "Shopify の Farhan Thawar の「遠隔の共同開発で標準の道具になった」という評価が、自社サイトに載っている。"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "factId": "f1",
+    "factHash": "edd1af67",
+    "text": ""
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "factId": "f1",
+    "factHash": "e8496dcc",
+    "text": ""
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "factId": "f1",
+    "factHash": "150be182",
+    "text": "OpenAI・Google Analytics・Facebook Adsなどのサービスや、表形式などのファイルから、データをAirtableへ取り込める。"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "factId": "f1",
+    "factHash": "daf4e39e",
+    "text": ""
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "factId": "f14",
+    "factHash": "180d737b",
+    "text": ""
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "factId": "f1",
+    "factHash": "89000904",
+    "text": "無料でもフォームの数と回答件数に上限はない。複数人での利用や独自ドメインなどの機能は、有料で提供している（公式）。"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "factId": "f9",
+    "factHash": "d83eb04f",
+    "text": ""
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "factId": "f1",
+    "factHash": "94e288de",
+    "text": "銀行口座から取引を自動で取り込める。表形式のデータを保存したファイルや、ほかのソフトから送ったデータも取り込める。複数の通貨を扱え、項目ごとに月の予算を立てられる。"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "factId": "f13",
+    "factHash": "9ace0ebc",
+    "text": "会社紹介には、38,000人以上の利用者に提供したとある。"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "factId": "f3",
+    "factHash": "0993d387",
+    "text": "担当者が手早く作業できる対応画面に加え、他のソフトから制限なく操作できる接続の仕組み（GraphQL）を備える。問い合わせの割り当てや報告の仕組みを、客が自分で作れる。"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "factId": "f23",
+    "factHash": "6c94e83c",
+    "text": "2023年7月以降に契約した個人向け・チーム向けの利用者は新しい料金プランへ自動で移り、それ以前の利用者は移るかを選べると案内した。2024年には古いプランの廃止を始める方針を示した。"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "factId": "f1",
+    "factHash": "c6eeb229",
+    "text": ""
   }
 ]

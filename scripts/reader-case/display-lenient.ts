@@ -14,7 +14,9 @@ import { mergeEntity, type DisplayFiles, type EntityDisplay, type LiveReader } f
 import { findDuplicates } from './cross-layer-dups';
 
 const YEN_PAREN = /[（(]\s*約?[\d,.]+\s*[千万億]?(?:\s*[〜~～／/・、]\s*約?[\d,.]+\s*[千万億]?)*\s*円\s*[）)]/g;
-export const withCodeYen = (text: string): string => withYenApprox(text.replace(YEN_PAREN, '').trim());
+/** 冗長な「〜を行う」（回収を行う）は「〜する」に直す（textlint の冗長表現。意味は変わらない） */
+const PLAIN_VERB = /([一-龥]{2,})を行う/g;
+export const withCodeYen = (text: string): string => withYenApprox(text.replace(YEN_PAREN, '').replace(PLAIN_VERB, '$1する').trim());
 
 /** 円換算をコードで付け直し、年表を古い順に並べる */
 export function normalizeDisplay(d: EntityDisplay): EntityDisplay {
@@ -70,7 +72,7 @@ export function dropRows(d: EntityDisplay, ids: ReadonlySet<string>, reader: Liv
 }
 
 const chapOf = (d: EntityDisplay, k: string): Array<{ text: string; source: string }> => ((d.chapters?.chapters ?? {}) as Record<string, Array<{ text: string; source: string }> | undefined>)[k] ?? [];
-const IGNORED = /(作る対象の分析項目ではない|同じ項目を2回返した|文が無い（材料に答えが無ければ|factId .* 一覧に無い|factId .* 事実の一覧に無い|\d+点（3〜5点にする）|古い順に並んでいない)/;
+const IGNORED = /(^分析欄 [^（:]+$|作る対象の分析項目ではない|同じ項目を2回返した|文が無い（材料に答えが無ければ|factId .* 一覧に無い|factId .* 事実の一覧に無い|\d+点（3〜5点にする）|古い順に並んでいない)/;
 
 /** 検査の指摘1件が、どの行の指摘かを返す。突き止められなければ null。無視してよい指摘は [] */
 export function localize(problem: string, d: EntityDisplay): string[] | null {

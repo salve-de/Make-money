@@ -58,5 +58,119 @@
     "factId": "f1",
     "factHash": "cecd9426",
     "text": "開発・デザイン会社向けの、請求まで備えたプロジェクト管理ツール"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "factId": "f9",
+    "factHash": "77a54a68",
+    "text": "無料で配られている音楽アプリPoolsuite FM"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "factId": "f1",
+    "factHash": "e6941e7a",
+    "text": "通信機器メーカーUbiquitiの機器をまとめて管理するサーバーの貸し出し"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "factId": "f25",
+    "factHash": "04a8d6b7",
+    "text": "600件超の取材を含む事例集やアイデア資料を、有料会員に届けるサイト"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "factId": "f3",
+    "factHash": "76f1a14a",
+    "text": "決済サービスStripeの自分の口座をつないで、会員から料金を受け取れるサービス"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "factId": "f23",
+    "factHash": "ba98376c",
+    "text": "定額課金の会社向けに、解約の引き留めと失敗した決済の回収するサービス"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "factId": "f2",
+    "factHash": "805eab45",
+    "text": "作った物を世に出すまで助け合う、製作者の会員制コミュニティ"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "factId": "f3",
+    "factHash": "6d3adbf8",
+    "text": "離れた開発者が画面と操作を共有し、一緒にコードを書くためのソフト"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "factId": "f1",
+    "factHash": "edd1af67",
+    "text": "ネットで使うソフトの会社向けの、利用者の行動に合わせたメール自動送信の道具"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "factId": "f1",
+    "factHash": "e8496dcc",
+    "text": "問屋を通さず、作ったゲームを客へ直接届ける出版事業"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "factId": "f1",
+    "factHash": "150be182",
+    "text": "表で業務データを管理するAirtableに、外部のデータを取り込む追加機能"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "factId": "f1",
+    "factHash": "daf4e39e",
+    "text": "日本の菓子を詰めた箱を月2回、海外の購読者へ郵送する定期便"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "factId": "f14",
+    "factHash": "180d737b",
+    "text": "ネットで売る事業者向けに、販売地ごとの税の計算と請求書作りを引き受けるサービス"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "factId": "f1",
+    "factHash": "89000904",
+    "text": "メモ・データ管理アプリNotionの表に、フォームの回答を保存する道具"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "factId": "f9",
+    "factHash": "d83eb04f",
+    "text": "住所を地図上の位置に変換する、開発者向けのサービス"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "factId": "f1",
+    "factHash": "94e288de",
+    "text": "個人向けの家計簿・予算管理アプリ"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "factId": "f13",
+    "factHash": "9ace0ebc",
+    "text": "11,220以上の他社サービスの障害情報をまとめて知らせる監視サービス"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "factId": "f3",
+    "factHash": "0993d387",
+    "text": "問い合わせの管理から報告までを、自社に合わせて組み立てられる顧客対応ツール"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "factId": "f23",
+    "factHash": "6c94e83c",
+    "text": "ドメインの登録と、その向け先の管理を有料で提供するサービス"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "factId": "f1",
+    "factHash": "c6eeb229",
+    "text": "今あるWebサイトに買物カートを後付けできる、開発者と制作会社向けの製品"
   }
 ]

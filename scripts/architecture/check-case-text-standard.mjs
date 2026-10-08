@@ -126,7 +126,9 @@ for (const entry of coverage.cases) {
   const chapterIds = new Set(chapterEntries.filter((c) => c.entityId === entry.entityId && live(c.factId, c.factHash)).flatMap((c) => Object.entries(c.chapters).filter(([, rows]) => rows.length > 0).map(([id]) => id)));
   const secrets = successPoints.some((p) => p.entityId === entry.entityId && (p.points ?? []).some((point) => live(point.factId, point.factHash)));
   const where = (row) => `分析欄 ${entry.name}（${entry.entityId}）の「${row.label}」（${row.analysisId}）`;
-  for (const row of entry.strip) if (!row.absence) check(where(row), '原文', row.text, Infinity);
+  // 「出さない」にした行（hidden で文の指紋が今の原文と合う）は画面に出ないので、原文の検査から外す
+  const hiddenNow = (row) => { const l = detailByKey.get(`${entry.entityId}\u0000${row.analysisId}`); return !!l && l.hidden === true && l.textHash === row.textHash; };
+  for (const row of entry.strip) if (!row.absence && !hiddenNow(row)) check(where(row), '原文', row.text, Infinity);
   const shown = [];
   const story = entry.analysis.find((row) => row.item === 'STORY');
   // 4段の形の物語は、画面が編集文を使わず原文を出す（hidden も効かない）。原文そのものに同じ検査を掛ける。

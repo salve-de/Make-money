@@ -1,0 +1,1785 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "Airtable 内で外部データを取り込む拡張機能。REST、GraphQL、CSV、XML、RSS と、OpenAI・Google Analytics・Facebook Ads 等の接続を扱う。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "DESCRIPTION",
+     "text": "公式は自力資金で黒字、数百の顧客と数千の利用者に提供すると記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "DESCRIPTION",
+     "text": "運営者は England・Wales 登記の Influence Grid Ltd、会社番号12368646。現在は外注の協力者がいると紹介。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "DESCRIPTION",
+     "text": "無料枠は月100回実行、応答10,000件、保存した処理5件、1人。期限付き試用ではなく無料枠は期限なし。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "DESCRIPTION",
+     "text": "年払いの月換算表示は Starter が USD 15、Pro が USD 30、Business が USD 75、Business+ が USD 112。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "DESCRIPTION",
+     "text": "Starter は月3,000回・応答300,000件・1人・30分ごとの実行、Pro は10,000回・1,000,000件・3人・5分ごとの実行。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "DESCRIPTION",
+     "text": "Business は月40,000回・応答4,000,000件・10人、Business+ は80,000回・8,000,000件・20人と表示。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "DESCRIPTION",
+     "text": "1回の実行は外部への要求1件で、ページ分割は追加で数える。失敗した要求は数えず、変化のない応答も件数に数える。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "DESCRIPTION",
+     "text": "上限に達すると自動実行が止まる。決済は Stripe、いつでも解約でき、年払いは最大48%割引と表示。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "DESCRIPTION",
+     "text": "Google Sheets の API Connector と Airtable の利用者フォーラムを調べ、新しい拡張売り場向けに作ると決めた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "DESCRIPTION",
+     "text": "開始時は無料100回、課金は月 USD 12。価格を USD 15、18 へ上げても MRR は約 USD 600 で停滞し、その後最安プランを USD 24 へ上げたと回顧。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "DESCRIPTION",
+     "text": "Google Maps を取り込む動画は8視聴で1人が客になり、最も人気の動画は約1,000視聴で30人超の客につながったと本人が追跡。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "DESCRIPTION",
+     "text": "2021年末に専業へ移り、12月に用意済み接続を増やした改版を出した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "DESCRIPTION",
+     "text": "有料利用分を謝礼にした操作試験で、客が実際に使う場面を観察した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "DESCRIPTION",
+     "text": "月次の総解約約10%、純解約約5%と説明。自動実行の失敗に関わるエラーを直し、単発利用や Airtable 離脱による解約は避けられないと述べた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "DESCRIPTION",
+     "text": "Indeed で制作外注2人を採り、本人の制作週2〜3日を半日の確認へ変えたと記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "DESCRIPTION",
+     "text": "monday.com 向けを6週間試したが、更新の遅さと制限があり断念。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "DESCRIPTION",
+     "text": "Heroku と Redis 周りの障害対応や規模増への対応に数週間を使った。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "DESCRIPTION",
+     "text": "簡単な問い合わせ向けに管理画面を作り、Calendly で誰でも予約できるサポート通話を設け、通話は週に数時間を超えないと記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "DESCRIPTION",
+     "text": "2022年の取材流入と大口の契約後、MRR が USD 10,000 に達したと記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f26",
+     "kind": "DESCRIPTION",
+     "text": "記事の題名では MRR USD 8,600 とされ、最初の50人の客を得るまで約6か月と本人が回答。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f27",
+     "kind": "DESCRIPTION",
+     "text": "記事と動画からの客が30〜40%と回答。無料利用から数か月後、具体的な用途が生じて課金する客がいると説明。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f28",
+     "kind": "DESCRIPTION",
+     "text": "React、TypeScript、Airtable の Blocks SDK と、Node.js、TypeScript、PostgreSQL、GraphQL、Heroku を使うと回答。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f29",
+     "kind": "DESCRIPTION",
+     "text": "バックエンドは Airtable REST API に依存し、表の名前変更で自動実行が失敗するなどの癖への対応が必要と説明。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f30",
+     "kind": "DESCRIPTION",
+     "text": "取材後に MRR が USD 9,400 へ増えたと投稿。取材本文の USD 8,600 とは観測時点が違う。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f31",
+     "kind": "DESCRIPTION",
+     "text": "2024年の取材本文では MRR USD 23,000、利用者数千人、有料客数百人と記載。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f32",
+     "kind": "DESCRIPTION",
+     "text": "専業は本人1人で、制作担当と元同僚の開発担当などの時間勤務の協力者を使うと説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f33",
+     "kind": "DESCRIPTION",
+     "text": "2023年初めに1日2時間の客対応担当を採ったが、合わず終了したと説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f34",
+     "kind": "DESCRIPTION",
+     "text": "2023年8月から約5か月停滞し、月次解約は10〜11%。12月に年払い50%割引と年払いの初期表示を導入後、約7%になったと申告。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f35",
+     "kind": "DESCRIPTION",
+     "text": "説明文と商品を直し、顧客が増えても対応の件数を1日3件から2件へ減らしたと申告。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f36",
+     "kind": "DESCRIPTION",
+     "text": "接続先が40以上になり保守が重く、接続を増やす判断を慎重にしたと説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f37",
+     "kind": "DESCRIPTION",
+     "text": "Airtable の無料プランからの拡張機能削除や料金変更により新規登録が減り、API の実行回数制限への対応も必要になったと説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f38",
+     "kind": "DESCRIPTION",
+     "text": "2022年3月の本文では有料客190人、MRR USD 6,500。見出しの USD 23,000 をこの時点の売上に使わない。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f39",
+     "kind": "DESCRIPTION",
+     "text": "以前の Influence Grid は MRR USD 3,000 へ育て USD 55,000 で売却。代金を生活費・ドメイン・Heroku に使ったと説明。新事業の初期費用総額ではない。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f40",
+     "kind": "DESCRIPTION",
+     "text": "初版開発に1か月、審査にさらに3か月かかったと回顧。開発は本人が行い主な投資は時間だったと説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f41",
+     "kind": "DESCRIPTION",
+     "text": "Twitter で開発を伝えて案内ページにメールを集め、公開時に通知し Airtable の集まりへ投稿。最初の2週間で客を得たと説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f42",
+     "kind": "DESCRIPTION",
+     "text": "2022年3月時点は客の70〜80%が売り場、約20%が記事・動画経由。無料利用者の約10%が課金すると本人が説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f43",
+     "kind": "DESCRIPTION",
+     "text": "サーバーと道具は月約 USD 500、本人給与前の利益率約90%と表現。給与・外注・税等の全費用を含む純利益とは扱わない。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f44",
+     "kind": "DESCRIPTION",
+     "text": "Mailerlite、SendGrid、Airtable、GitBook、GraphCMS を運営に使用。GitBook と GraphCMS は無料枠と説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f45",
+     "kind": "DESCRIPTION",
+     "text": "外部投資は受けていないと説明した。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f46",
+     "kind": "DESCRIPTION",
+     "text": "初掲載は2020年12月15日、2.0 の掲載は2022年2月24日。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f47",
+     "kind": "DESCRIPTION",
+     "text": "最終更新表示は2025年4月10日。料金は返金不可、随時解約し支払済み期間は使えると記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f48",
+     "kind": "DESCRIPTION",
+     "text": "顧客データの所有は顧客にあり、サービス提供者は所有権を主張しないと記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f49",
+     "kind": "DESCRIPTION",
+     "text": "停止や中断があり得る条件と可用性保証をしない旨がある。取り込んだデータは利用者が確認する条件。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f50",
+     "kind": "DESCRIPTION",
+     "text": "Fox Logistics は Data Fetcher 導入後、人数を増やさず週の出荷が1,800件から2,500件に増えたと紹介。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f51",
+     "kind": "DESCRIPTION",
+     "text": "顧客の用途として、450か所の歯科診療所のデータ管理、400人超の宣教師の管理、従業員の工数・人事データの統合を掲載。各組織の人数は販売者の紹介。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://datafetcher.com/about",
+     "publisher": "Data Fetcher の公式紹介",
+     "snapshot": {
+      "url": "https://datafetcher.com/about",
+      "finalUrl": "https://datafetcher.com/about",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:04.076Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "80527cd221ca592697712c13d88a9562a61bb5ffe2d24fd16a8470b07bf432fe"
+     },
+     "text": "About - Data Fetcher\nAbout - Data Fetcher\nAbout - Data Fetcher\nIntegrations\nFeatures\nResources\nPricing\nSign in Try for free\nHelping 100s of happy customers connect Airtable to other tools\nData Fetcher, the tool\nData Fetcher is an Airtable extension that lets you connect to third-party applications and APIs. It's easy to get started for no-coders, but incredibly flexible for more technical users.\nData Fetcher's no-code Airtable integrations connect to dozens of applications like OpenAI, Google Analytics & Facebook Ads. Custom requests allow you to connect to any REST/ GraphQL API or import remote CSV/XML/RSS files.\nData Fetcher was one of the first extensions on the Airtable marketplace and has since been featured by Airtable and G2 .\nData Fetcher, the company\nData Fetcher is a bootstrapped, profitable company in its 6th year of serving 100s of customers and 1000s of users. Being bootstraped means we're not forced to seek exponential revenue growth and can focus instead on building a great product for our customers.\nInfluence Grid Ltd (trading as Data Fetcher) is registered in England and Wales with company number 12368646.\nData Fetcher, the people\nHello there! I'm Andy Cloke, the founder of Data Fetcher. I created the extension after I couldn't find an easy way to import stock prices into Airtable. I work on the extension with the help of some wonderful freelancers.\nBefore starting a SaaS company, I studied Engineering at the University of Oxford and worked as a software developer at several startups in London.\nGet in touch with us\nGet Data Fetcher\nResources\nHelp Center\nContact Support\nBlog\nVideo Tutorials\nPricing\nAbout\nCustomers\nFeatures\nAirtable Integrations\nImport Data to Airtable\nAirtable Automation\nAirtable ETL\nAirtable Generative AI\nAirtable Dashboards\nAirtable Charts\nAirtable Reports\nUse Cases\nAirtable CRM\nAirtable Project Management\nAirtable Inventory Management\nAirtable Ads Reporting\nAirtable SEO Tracking\nAirtable Web Scraping\nAll Airtable Use Cases\nTools\nAWS Signature Version 4 Calculator\nGraphQL to JSON Body Converter\nBasic Authentication Header Generator\nJavascript Formula Playground\nAI Landscape Design\n© 2026 Data Fetcher. All rights reserved.\nTerms · Privacy\nInfluence Grid Ltd, trading as Data Fetcher, is registered in England and Wales with company number 12368646",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://datafetcher.com/pricing",
+     "publisher": "Data Fetcher の公式料金",
+     "snapshot": {
+      "url": "https://datafetcher.com/pricing",
+      "finalUrl": "https://datafetcher.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:04.573Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "37083dafec1b2ba4a698c3502dd1bc8c750f3e5f1237ce73af608cf10f12ce6d"
+     },
+     "text": "Pricing - Data Fetcher for Airtable\nChoose a Data Fetcher pricing plan. Upgrade, downgrade, or cancel at any time.\nPricing - Data Fetcher for Airtable\nChoose a Data Fetcher pricing plan. Upgrade, downgrade, or cancel at any time.\nPricing - Data Fetcher for Airtable\nIntegrations\nFeatures\nResources\nPricing\nSign in Try for free\nPricing\nKeep your data fresh, automatically. Upgrade or downgrade anytime.\nMonthly Annually (save up to 48%)\nFree\n$ 0\nFree forever 100 runs\n10,000 response records\n5 saved requests\n1 user\nSchedule requests\nTriggers\nWebhook URLs\nAll integrations\nTry for free\nStarter\n$ 15 / month\nbilled annually 3,000 runs\n300,000 response records\nUnlimited saved requests\n1 user\nSchedule every 30 mins\nTriggers\nWebhook URLs\nAll integrations\nBuy plan\nMost Popular\nPro\n$ 30 / month\nbilled annually 10,000 runs\n1,000,000 response records\nUnlimited saved requests\n3 users\nSchedule every 5 mins\nTriggers\nWebhook URLs\nAll integrations\nBuy plan\nBusiness\n$ 75 / month\nbilled annually 40,000 runs\n4,000,000 response records\nUnlimited saved requests\n10 users\nSchedule every 5 mins\nTriggers\nWebhook URLs\nAll integrations\nBuy plan\nBusiness +\n$ 112 / month\nbilled annually 80,000 runs\n8,000,000 response records\nUnlimited saved requests\n20 users\nSchedule every 5 mins\nTriggers\nWebhook URLs\nAll integrations\nBuy plan\nNeed more runs or records? Contact us\nTrusted by teams at\nCompare all features\nFeatures Free Starter Pro Business Business +\nRuns\n100 3,000 10,000 40,000 80,000\nResponse records\n10,000 300,000 1,000,000 4,000,000 8,000,000\nSaved requests\n5 Unlimited Unlimited Unlimited Unlimited\nUsers\n1 1 3 10 20\nResponse fields\n50 100 150 200 200\nScheduling\nEvery 30 mins Every 5 mins Every 5 mins Every 5 mins\nTriggers\nWebhook URLs\nAll integrations\nSequences\nFixed IP address\nRun history\n31 days 31 days 90 days 90 days 90 days\nFile upload limits\n50 MB 150 MB 150 MB 250 MB 250 MB\nLoved by Airtable users like you\nData Fetcher customers spend less time copying data and more time using it.\nRead more reviews\n1 / 11\n\"Need data pumped into Airtable? Data Fetcher is the solution.\"\nData Fetcher is incredibly easy to use and understand. We have no API or data experience, yet our team can seamlessly integrate external data easily with Data Fetcher.\nThomas Coiner\nCEO, ProU Sports\nFrequently Asked Questions\nHow do I install Data Fetcher? You can add the Data Fetcher extension to your Airtable base for free from the Airtable marketplace . After installation, you'll need to sign up to start using the service.\nHow do I purchase a subscription? Add the Data Fetcher extension from the Airtable marketplace. Sign up for a free account in the Data Fetcher extension. Click the 'Upgrade' button on the Data Fetcher home screen. Select one of the pricing plans above and enter your payment details on the checkout page.\nIs there a free trial? There is no free trial, but we do offer a free plan that allows you to test Data Fetcher with limited usage (100 runs and 10,000 response records per month). This free plan never expires.\nDo you offer discounts? We currently don't offer discounts as we aim to provide high-quality service and support at fair and sustainable price points for our small team.\nCan I change my plan at any time? Yes, you can change your plan whenever you want. To change your plan, sign in , select your workspace and click 'Change plan, payment card or view invoices'.\nCan I cancel my subscription at any time? Yes, you can cancel your subscription whenever you want. To cancel your subscription, sign in , select your workspace and click 'Cancel subscription'.\nWhat happens if I exceed my plan limits? If you reach your monthly limit for runs or response records, you won't be able to run more requests until your limits reset at the beginning of your next billing cycle. Scheduled runs are paused when you hit your limit.\nIs my payment secure? Yes. All payment and billing are handled securely using Stripe. Data Fetcher does not see or store your card information at any point.\nWhat counts as a run? A run is one API request. Each time you fetch data, it counts as one run. Running on multiple Airtable records or paginated data uses additional runs (one per record/page). Failed requests don't count toward your limit. Learn more .\nWhat counts as a response record? Response records are the individual data items created when Data Fetcher transforms an API response for Airtable. Each item in the transformed response counts as one record, even if it doesn't change any data in your Airtable base. For example, 100 items from an API would count as 100 response records. Learn more .\nWhat counts as a response field? Response fields are the specific data points you map from an API response to Airtable fields. E.g., the Pro plan allows you to select up to 150 individual fields to import per request. Learn more .\nHow do I add my team members? Purchase a Pro, Business or Business + plan. Go to the account screen in the Data Fetcher extension and add your team members. Learn more .\nCan I use Data Fetcher across multiple Airtable bases and workspaces? Yes. Your subscription is tied to a Data Fetcher workspace, not individual bases. You can use Data Fetcher across different Airtable bases and workspaces, sharing your monthly allocation of runs and response records.\nGet in touch with us\nGet Data Fetcher\nResources\nHelp Center\nContact Support\nBlog\nVideo Tutorials\nPricing\nAbout\nCustomers\nFeatures\nAirtable Integrations\nImport Data to Airtable\nAirtable Automation\nAirtable ETL\nAirtable Generative AI\nAirtable Dashboards\nAirtable Charts\nAirtable Reports\nUse Cases\nAirtable CRM\nAirtable Project Management\nAirtable Inventory Management\nAirtable Ads Reporting\nAirtable SEO Tracking\nAirtable Web Scraping\nAll Airtable Use Cases\nTools\nAWS Signature Version 4 Calculator\nGraphQL to JSON Body Converter\nBasic Authentication Header Generator\nJavascript Formula Playground\nAI Landscape Design\n© 2026 Data Fetcher. All rights reserved.\nTerms · Privacy\nInfluence Grid Ltd, trading as Data Fetcher, is registered in England and Wales with company number 12368646",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr",
+     "publisher": "Andy Cloke の月間定期売上までの回顧",
+     "snapshot": {
+      "url": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr",
+      "finalUrl": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:04.663Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "66aec18bc3607894205a5a5dde5947172368719818f1f5694fd4adc75aaef5be"
+     },
+     "text": "The Journey Bootstrapping a SaaS to $10k MRR\nData Fetcher recently hit $10k MRR with one full-time team member. Here's the journey so far.\nThe Journey Bootstrapping a SaaS to $10k MRR\nData Fetcher recently hit $10k MRR with one full-time team member. Here's the journey so far.\nThe Journey Bootstrapping a SaaS to $10k MRR\nIntegrations\nFeatures\nResources\nPricing\nSign in Try for free\nBlog\nBootstrapping\nThe Journey Bootstrapping a SaaS to $10k MRR\nThe Journey Bootstrapping a SaaS to $10k MRR\nSep 12, 2022 • Andy Cloke\nContents\nIntro\nBackground\nThe Idea\nDevelopment\nLaunch\nThe Grind\nMarketing\nFull Time!\nGrowing Pains\n$10k MRR\nWhat’s next?\nTry for free\nData Fetcher recently hit $10k MRR. It’s still 100% bootstrapped with one full-time team member (me!).\nHere’s the journey from launching two years ago up to today.\nBackground\nI studied engineering at university but always wanted to have my own business. I figured it’s quite hard to build your own bridges or rocket ships, so after I graduated I moved home for a few months and learnt to code.\nAfter this, I worked for a few startups in London as a software developer whilst launching my own ideas on the side. One of these projects, a directory of TikTok influencers, started making some MRR. It was more of an opportunistic project than something I wanted to work on and I sold the tool after six months for $55k.\nI’d bought myself a few months to try and come up with the next idea. Each week, I’d launch a landing page for the next idea, decide it was no good (using Tyler Tringas’ approach ) and move on.\nHere are some of the ideas:\nColorizing black and white movies in the public domain and hosting them on a tube site with ads.\nA tool that scrolls a webpage and turns it into an MP4 video preview for social media.\nA newsletter for upcoming IPO alerts.\nThe IPO one is important because I decided to try and manage all the newsletter content from Airtable. I’d heard Airtable was getting really popular and figured this was a good project to try it on. But I couldn’t find an easy way to first import financial data, like stock prices, into Airtable, to include them in the newsletter. I didn’t know it at the time but the seed had been sown for Data Fetcher.\nThe Idea\nI was trawling Product Hunt looking for inspiration when I came across API Connector , a Google Sheets Addon that lets you connect to APIs and import data. It seemed quite successful, as it had 100,000+ installs at the time. Having run into the issue of importing stock prices into Airtable recently, I decided to try and build the same thing for Airtable.\nI dug around in the Airtable forums and found a few posts from people trying to connect to third-party APIs, especially ones that weren’t on Zapier. This was enough validation for me to think there was something there!\nAt the time Airtable’s marketplace only listed extensions from big companies like Typeform and SendGrid, but they’d hinted they would open it up to independent developers soon. I gambled and started developing an extension similar to API Connector, but for Airtable.\nDevelopment\nI kept the feature set as small as possible. The MVP basically let you sign up, enter API details and run the request manually or on a schedule if you upgraded. I had a huge backlog of things I wanted to add afterwards but I wanted to prove I could get one customer first.\nI used the tech stack I knew. For the front end that was React.js, TypeScript, GraphQL and Airtable’s extension SDK. For the back end, Node.js, TypeScript, PostgreSQL, GraphQL and Redis, all hosted on Heroku.\nOne tricky part of the development was that when a user runs a request in the extension, Airtable is updated via the extension SDK. When they schedule a run, it uses the Airtable REST API. There are significant differences between the two, so for lots of features, I had to write lots of similar but not identical code across two codebases.\nAirtable’s extension marketplace does not have billing, so I handled upgrades myself by sending users to datafetcher.com and using Stripe. Overall I’m happier with this, as I’m not paying any marketplace commission!\nBecause there were no paid marketplace extensions, coming up with pricing tiers was even tricker than it normally is. I knew I had a good value-based metric, the number of API runs per month. I looked to the Shopify app store for inspiration, a tactic I still use today, and opted for a freemium model. The free plan gives users 100 runs per month. For more runs, or to schedule runs, the paid plans started at $12 / month.\nA month or two into development, Airtable opened up the marketplace so anyone could submit an extension. Bingo! I submitted Data Fetcher, heard back after a few days and started addressing their feedback.\nThis process took several months. Airtable’s feedback always made sense but could be a bit slow. Their marketplace team was pretty new so understandably was still ramping up. They also needed to answer some security questions about what extensions should be allowed to do.\nI was still living off the savings from selling my last tool, and it took a lot of patience watching my bank balance go down each month whilst I waited to launch.\nLaunch\nIn November 2020, Data Fetcher was approved by Airtable and launched on their marketplace. It was a big day, but I wasn’t going to celebrate anything until I got my first customer.\nThere were a few free sign-ups coming in each day. Seeing people use the features I’d developed and the variety of use cases was awesome, but no one was upgrading...\nThen after a few days, boom, the first customer! The fact someone paid for the MVP, which was pretty terrible, was incredibly exciting.\nI started work on a more complete feature set. A big one was letting people customize the ‘field mapping’, i.e. how the fields in an API response map to the fields in their Airtable table. Data Fetcher makes suggestions, e.g. an attachment field in Airtable if all the API response values are .jpg URLs, but lets users override these. This is still one of the places where Data Fetcher adds value today.\nOnce I’d got a second version out, that I wasn’t totally embarrassed about, I did all the stuff that I used to think was a marketing strategy. I tweeted about it, shared it in a few Airtable communities and launched on Product Hunt .\nWhen I launched on Product Hunt, I credited API Connector and its founder, Ana, with the initial inspiration. It felt like the right thing to do and I knew I hadn’t just copied it. Ana was super supportive and we now catch up every few months. She’s even added Data Fetcher features, like cURL imports, into API Connector.\nThe launch went pretty well. I added a few new customers on the day and had about 10 in total after one month of being live. The total MRR was tiny (<$200), but there were some really positive signs.\nPeople were actually replying to my welcome email, with feature ideas and positive feedback. Someone bought an annual plan, which had never happened with my previous SaaS tool.\nNow I just need to get from $200 to $10k MRR without burning through all my savings.\nThe Grind\nAt $12/ month, it was going to take 833 customers to reach $10k MRR. I was adding a couple of customers per week, so this felt like it’d take a lifetime.\nApart from improving distribution, the conventional SaaS wisdom would be to raise prices. But Data Fetcher sells to price-sensitive prosumers and I didn’t feel I could justify increasing the prices whilst the functionality was so limited.\nI steadily added features, like OAuth, and fixed a lot of the bugs. When you build a tool that lets people connect to any API, the number of edge cases is wild. Early on, it was things like people trying to import 100MB of JSON and crashing my backend. Now, they’re subtler, like someone trying to import a CSV that has an empty row before the title row and messes up the field name.\nI now think of these fixes as a (small) technical moat. Someone could copy Data Fetcher’s surface-level functionality, but it’d be much harder to replicate the hundreds of edge cases that are now handled.\nI gradually increased the price successfully, first to $15/ month, then $18. Even with the price changes, the slow rate of adding customers and high churn meant MRR was hovering at around $600.\nThis meant two things: I needed to get a job and do some marketing. My two least favourite things.\nI found some full-time freelance work and devoted evenings and weekends to Data Fetcher. It was lockdown in London, which gave me a bit more time to work a full-time job and a side project. But trying to balance both of these was still an absolute slog.\nMarketing\nI wanted to find a scalable marketing channel. People seem to overcomplicate this. I think it comes down to looking at what channels similar companies use, trying those and doubling down on any that work. This is probably too simplistic if you’re competing against multiple VC-funded competitors, but it works for a niche tool like Data Fetcher.\nThis channel turned out to be SEO and YouTube videos. I looked at the most common customer use cases, wrote a tutorial for the Data Fetcher blog and recorded a tutorial for our no-code YouTube channel .\nIt started to work! The number of views on the content was tiny, but the intent behind those views was incredibly high. For example, I had a Google Maps to Airtable video with 8 views and one of those became a customer. At one point, my most popular video had 1000 views but had led to 30+ customers.\nI figured out a hacky way to do this attribution. In the tutorial, I would tell people to save the request with a particular name, e.g. ‘Fetch CoinGecko Prices’ and in the video, it’d be ‘Import CoinGecko Prices’. When users become customers, I can see if they came from the blog, YouTube or neither.\nDespite the success with content marketing, Data Fetcher still gets the majority (70-80%) of its customers via the Airtable marketplace. Being so early in the marketplace has clearly been a huge part of its growth.\nThis was partly luck, but I was also intentionally looking for a new, low-competition platform. I did the same with my SaaS business, building something that exists for Instagram but for TikTok. I think this is a great framework for low-competition business ideas .\nGiven most customers find it through the marketplace, I did some work to improve this funnel. I added testimonials to the marketplace listing, G2 reviews (since Airtable does not currently have marketplace reviews/ ratings) and Google Sign-in.\nWith some marketing and the improving product, MRR started growing! In June 2021, with MRR at about $2500, I switched from full-time freelancing to setting my own schedule and working on fixed-price projects. I now had way more time to devote to Data Fetcher and my weekends back!\nThe other big change around this time was increasing the cheapest plan’s price from $18 to $24/ month. The big effect was that the number of support emails reduced massively. I had heard this happened with price increases but didn’t expect it to be so dramatic.\nFull Time!\nAt the end of 2021, I wound down all remaining freelance work and went full-time! With the current growth rate and some savings in the bank I thought I could get to $5k MRR (London-ramen profitable!).\nThe first thing I focused on was the high churn rate (10% gross monthly and 5% net). I discovered that a lot of people cancel shortly after their scheduled runs start failing, so I addressed some of the common error messages with small new features or bug fixes.\nI also learnt that a lot of my churn is unavoidable. People would churn because they had a one-time use case or moved off Airtable. This made me stop worrying about these people, and prioritise improving scheduling, which is a much stickier feature.\nData Fetcher was incredibly flexible. People were using it to connect to over 2000 different APIs. But at this point users still needed to have at least a basic understanding of APIs to use it. I wanted to make it useful for less technical people too. It was time for v2!\nI added a totally new UX and pre-built integrations with popular APIs like Google Analytics , Google Sheets , Facebook Ads etc. This allowed non-technical users to import their data into Airtable. The existing functionality became ‘Custom requests’ so was still there for all the existing users to connect to REST or GraphQL APIs.\nIt was such a radical change to the product that I needed to user test it thoroughly. I offered customers free credits and roped in friends to help test the new functionality. The surprising thing here was that it revealed some massive issues with the existing UX. I realised I should have done this months ago!\nPrioritising user testing is one of my biggest learnings of the last two years. As my designer friend bluntly put it, ‘It’s better than guessing, yes’.\nI launched the new version in December 2021 and people liked it a lot. I updated all the existing YouTube videos and blog posts to reflect the new extension. The next few months were the best ever and I hit $5k MRR!\nTrying to build all the new integrations as well as create content around them became unmanageable. I hired two freelancer marketers to help write blog posts and record YouTube videos. I found them both by posting a job ad on Indeed, paying several applicants to do a sample piece of content and hiring the best two. The new no-code UX also meant the marketers did not need to understand APIs to do this!\nEach week, I’d build a new integration and write a content brief for a tutorial about it. The freelancers then turned this brief into blog posts and YouTube videos. This worked really well. Not only was the content better than what I could produce, I only spent half a day each week reviewing the content, not 2/3 days creating it.\nGrowing Pains\nWhat did I do with all this time back? Wasted it trying to develop a monday.com app of course!\nmonday.com reached out and asked me to build Data Fetcher for their app platform. I had already wanted to make Data Fetcher multi-platform and this felt like a pefect opportunity to do so. I did some research and spoke to other monday.com app developers, who said very positive things, so I went for it.\nI spent the next six weeks trying and failing to create a usable version of Data Fetcher for monday.com’s app marketplace. The critical technical issue was that it was impossible to create an equivalent app with good UX with their low API rate limits. Running a request would take 5-10 minutes to update the board.\nThere were lots of other issues, both technical and with their review process, throughout and I’ll write a full post-mortem here soon.\nDespite this distraction, MRR kept growing over the first half of 2022. But as the number of subscribers and requests being run grew, the infrastructure slowly but surely started to run into issues.\nI outgrew my Heroku database tier twice in quick succession and spent a horrendous day migrating to another Postgres provider then back again when that Provider was even slower (shout out to Michael from pgMustard for getting me through this). A couple of weeks later, I had to fix critical issues with Redis all night until 4.30 AM.\nCode which had worked at 100 customers no longer worked at 250. I realised where I’d cut corners in the backend code and spent a few weeks just working on stability, which improved it dramatically.\nAlongside these technical issues, the number of support requests started increasing. Every day, I’d deal with a handful of new support emails. Some would take a minute, some several hours.\nMy first instinct was to try and hire someone part-time to do support. But at least half the issues were bugs or limitations of the extension I hadn’t even considered (so couldn’t document). I was still learning so much about how I needed to improve the product. Delegating support would mean distancing myself from my best source of product ideas. Plus I could barely afford it!\nTo help with the low-hanging support issues, I built an admin dashboard where I can look up users by their email, reset someone their workspace’s usage, add myself to their Data Fetcher workspace etc. This has really helped and if I do eventually hire a support rep they will be able to use it too.\nI also added a Calendly link where any user, free or paid, can book me for a support call. This never takes more than a couple of hours per week and people seem to love that they can speak directly to the founder. I also see bugs that people wouldn’t email about, since it basically forces me to do user testing each week.\nThe calls have become a valuable source of more general feedback and advice. One customer told me I tried every other tool before mine because my landing page was so bad. I redid my landing page shortly after this!\nI launched a huge new feature, webhooks, and rewrote the entire help centre, adding more detail and examples to every page. All of a sudden, things stopped falling over and Data Fetcher started to feel much more complete. The compound effect of improving things a little each day is pretty amazing.\n$10k MRR\nAn interview I did went to the top of Hacker News , which led to a big spike in new sign-ups and customers. I also signed my biggest ‘Enterprise’ customer to date. MRR shot up to $10k! This was the target for the end of 2022. To hit it a few months ahead of schedule was even more exciting.\nIt feels like a really significant milestone. After costs and taxes, my take-home pay is similar to what I’d make as a (non-FAANG) developer in London. There’s no longer an opportunity cost to running my own thing, plus massive benefits in terms of lifestyle freedom and financially if it keeps growing.\nWhat’s next?\nI want to keep things super lean and grow Data Fetcher into an ambitious lifestyle business. I look at entrepreneurship as trying to create my perfect job: make a lot of money, work on interesting things how and when I want to, and work with talented people. Oh, and no meetings!\nThe plan is to keep growing through more of the same: more Airtable integrations , more content and more amazing support. The new goal for this year is $150k ARR and for next year is $250k ARR.\nLonger term, I think $500k ARR is doable. It might even be the ceiling to how big this can get. If churn stays at 5% and I add 50 customers each month, things would plateau around 1000 customers or $500k ARR.\nThere’s obviously a massive platform risk to the business. I used to think the solution was making Data Fetcher multi-platform. Now I think being coupled to one platform could actually be an advantage.\nThe reason I’ve got no big VC-backend competition in the marketplace is that the opportunity is way too small for venture capital. At the same time, I'm far enough along that no get-rich-quick indie hacker could copy Data Fetcher overnight and compete.\nI want to exploit this low-competition sweet spot for everything it’s worth and diversify the profits into index funds or even rental property. That’s my solution to the platform risk. Diversify the profits, not the product.\nI also have a couple of other SaaS ideas I’d like to launch in the next few years…\nYou can follow my journey on Twitter.\nOther Recent Posts\nHow to Make API Requests in Airtable\nLearn how to make API requests in Airtable using Data Fetcher. Connect Airtable to any REST API, import external data, and set up automatic syncing.\nJan 2, 2026\nCustom Requests\nHow to Import Google Alerts into Airtable Automatically\nLearn how to import Google Alerts into Airtable automatically using RSS feeds and Data Fetcher. Set up real-time monitoring with this step-by-step tutorial.\nOct 1, 2025\nRSS\nConnect to the OpenAI Responses API in Airtable (with Web Search)\nLearn how to connect the OpenAI responses API to Airtable with web search enabled. Automatically fetch daily stock news, headlines, and summaries into structured fields. No coding required.\nSep 12, 2025\nOpenAI\nLoved by Airtable users like you\nData Fetcher customers spend less time copying data and more time using it.\nRead more reviews\n1 / 11\n\"Need data pumped into Airtable? Data Fetcher is the solution.\"\nData Fetcher is incredibly easy to use and understand. We have no API or data experience, yet our team can seamlessly integrate external data easily with Data Fetcher.\nThomas Coiner\nCEO, ProU Sports\nReady to build with Data Fetcher?\nStart connecting your data sources with Airtable today.\nTry for free\nGet in touch with us\nGet Data Fetcher\nResources\nHelp Center\nContact Support\nBlog\nVideo Tutorials\nPricing\nAbout\nCustomers\nFeatures\nAirtable Integrations\nImport Data to Airtable\nAirtable Automation\nAirtable ETL\nAirtable Generative AI\nAirtable Dashboards\nAirtable Charts\nAirtable Reports\nUse Cases\nAirtable CRM\nAirtable Project Management\nAirtable Inventory Management\nAirtable Ads Reporting\nAirtable SEO Tracking\nAirtable Web Scraping\nAll Airtable Use Cases\nTools\nAWS Signature Version 4 Calculator\nGraphQL to JSON Body Converter\nBasic Authentication Header Generator\nJavascript Formula Playground\nAI Landscape Design\n© 2026 Data Fetcher. All rights reserved.\nTerms · Privacy\nInfluence Grid Ltd, trading as Data Fetcher, is registered in England and Wales with company number 12368646",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9",
+     "publisher": "Upen の取材に対する Andy Cloke の回答",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9",
+      "finalUrl": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:05.644Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "aabe3b83c2f2ba2010fe3d40f560a393d3e34023cb63f1b4f48d70481536c638"
+     },
+     "text": "This founder built $8600 MRR business on Airtable 😱😱 - Indie Hackers\nNotion and Airtable are two favorite tools for most people here. Anyone building products around these two niches excite me. I was connected with Andy b...\nNotion and Airtable are two favorite tools for most people here. Anyone building products around these two niches excite me. I was connected with Andy b...\nThis founder built $8600 MRR business on Airtable 😱😱\nThis founder built $8600 MRR business on Airtable 😱😱 - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n15\nUpvotes\n23 Comments\nThis founder built $8600 MRR business on Airtable 😱😱\nby Upen\nNotion and Airtable are two favorite tools for most people here. Anyone building products around these two niches excite me.\nI was connected with Andy building DataFetcher for some time on Twitter but never got into conversation with him.\nWhen I started Founder Beats - Founder Insights , Andy is one of the people who I have in mind to get on an interview.\nEvery IndieHacker has a strong story to share and I wanted to bring that story out.\nSome interesting notes\nHow long did it take you to acquire your first 50 customers, and what was your growth strategy?\nIt took about six months to reach the first 50 customers. Initially, I launched on forums, Product Hunt, Reddit etc. which got a handful of users.\nBeing early to a marketplace like Airtable means you get a handful of new users each day, even without doing any marketing. I think a big factor in converting these people was choosing a freemium pricing model. Some people would try Data Fetcher out on the free plan for months, then finally convert when they had a concrete use case.\nA few months in, I realised Data Fetcher wasn't going to grow properly unless I found a more scalable marketing channel. As for many bootstrapped products, this turned out to be SEO. Specifically, I would take common Data Fetcher use cases and create YouTube videos & written tutorials.\nToday, 30%-40% of my customers come through our YouTube videos or blog posts, and this % has steadily increased. The interesting thing is the number of views on the videos/ blog posts is tiny (e.g. <1000 total views for most videos), but the intent is super high, so the conversion rate is high.\nWhich technology stack are you using and what challenges and limitations does it pose?\nThe backend is written in Node.js, TypeScript, PostgresQL, GraphQL and hosted on Heroku. The frontend is React.js, TypeScript and Airtable's Blocks SDK.\nI chose this stack because I was already familiar with it, which is the approach I'd advise anyone to take.\nThere haven't been any serious limitations, but there have certainly been some Heroku growing pains, now that Data Fetcher users are doing 10,000s of runs (an import/export) per day. I've had to upgrade Heroku servers/ database in a hurry and add lots of monitoring to try and see this coming.\nThe backend relies on Airtable's REST API. It's solid enough but has some quirks I've had to build around. e.g. it uses names for tables rather than ids, which means when a user changes a table name their scheduled runs start failing. So gracious error handling and alerting the user has been very important.\nMore founder insights around building profitable Micro SaaS around Airtable from Andy here\nUpen\non August 18, 2022\n15\nUpvotes\nShare\nSay something nice to upenv…\nPost Comment\n4\nWell done. We are getting closer to £1k MRR for https://skilledup.life - free talent for tech startups (once subscribed).\nWe also took on a no-code approach by building on an CMS using a theme I bought.\nAs a two sided market place, our primary focus remains on the supply side. We now have 11,463 volunteers from 92 countries and looking to add 100,000 in our year 3 which we just started. On the customer side, the plan is to go from current 31 to 1,000 by end of year 3, which should see us break the £10k MRR barrier at some point.\nHere's to everyone who launches quickly through no code apps. We are here to help increase your odds of survival and growth without chasing investors.\nManojRanaweera\n&middot;\n4 years ago\n&middot;\nReply\n3\nGood start! It's great to see that more and more businesses are being built using no-code tools. Which ones are you using?\nWyeem\n&middot;\n4 years ago\n&middot;\nReply\n2\nWordPress. Lots of issues though.\nManojRanaweera\n&middot;\n4 years ago\n&middot;\nReply\n2\nThis is awesome. I'd love to know what channels have been the best for you in acquiring 11k+ volunteers?\nyuvraj\n&middot;\n4 years ago\n&middot;\nReply\n2\nWe have many channels and partnerships. We need to add 100,000 in year 3. All of this is done by our Volunteers. SkilledUp Life is me, 1 employee and 20+ volunteers.\nManojRanaweera\n&middot;\n4 years ago\n&middot;\nReply\n2\nGood to see that SkilledUpLife is picking up. I am glad that apart from generating revenue, this also helps so many volunteers.\nUpen\n&middot;\n4 years ago\n&middot;\nReply\n2\nYeap! I think once we hit 1,000,000 individuals, lot of interesting stuff would start to happen. I'm not getting carried away and saying a lots of NO to many people.\nManojRanaweera\n&middot;\n4 years ago\n&middot;\nReply\n2\nLove to see you hit 1,000,000 individuals!!\nUpen\n&middot;\n4 years ago\n&middot;\nReply\n2\nwow this is really useful information thanks for sharing man\nChristian_Koh\n&middot;\n4 years ago\n&middot;\nReply\n1\nThankyou. FounderBeats is all about how founders build profitable startups\nUpen\n&middot;\n4 years ago\n&middot;\nReply\n2\nthats great, thanks for sharing also found founderbeats to be interesting, there are other stories like this worth checking out.\npdyc\n&middot;\n4 years ago\n&middot;\nReply\n2\nThankyou. You can book mark Founder Beats Founder Insights\nWe have hundreds of interviews coming on in the next few weeks.\nUpen\n&middot;\n4 years ago\n&middot;\nReply\n2\nWhat an inspiring story, thanks for sharing! The part with getting your first 100 users is indeed the most challenging. 9/10 startups give up too early cause they don't make it to paying users. This video can be helpful - https://www.youtube.com/watch?v=EsRvTGoSB1w&t=17s\nDenis_Shatalin\n&middot;\n4 years ago\n&middot;\nReply\n1\ngreat video Denis, good luck with the channel :)\nIndieyal\n&middot;\n4 years ago\n&middot;\nReply\n1\nThankyou Denis!!\nUpen\n&middot;\n4 years ago\n&middot;\nReply\n1\nI am considering adding Airtable features to fabform.io\nI have a question. How are you attracting Airtable users to your service?\nfabform\n&middot;\n4 years ago\n&middot;\nReply\n1\nThere is some good discussion we have had on HN at https://news.ycombinator.com/item?id=32506627 You may check that\nUpen\n&middot;\n4 years ago\n&middot;\nReply\n1\nhow long have you been working on this in total?\nIndieyal\n&middot;\n4 years ago\n&middot;\nReply\n1\namazing.\nIndieyal\n&middot;\n4 years ago\n&middot;\nReply\n1\nThankyou!!\nUpen\n&middot;\n4 years ago\n&middot;\nReply\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://news.ycombinator.com/item?id=32506627",
+     "publisher": "Hacker News の andycloke の補足",
+     "snapshot": {
+      "url": "https://news.ycombinator.com/item?id=32506627",
+      "finalUrl": "https://news.ycombinator.com/item?id=32506627",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:06.364Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "1daac53a89c86eff4560a0c6eddff3eab6820d1e3bcbe2f8fe6e2dc8263f3e08"
+     },
+     "text": "$8600 MRR business on Airtable | Hacker News\n$8600 MRR business on Airtable | Hacker News Hacker News new | past | comments | ask | show | jobs | submit login\n$8600 MRR business on Airtable ( founderbeats.com )\n160 points by upen946 on Aug 18, 2022 | hide | past | favorite | 85 comments\nandycloke on Aug 18, 2022 | next [–]\nFounder here! Happy to answer any questions people have. I'm also building in public here: https://twitter.com/clokehead A couple of people have been confused by 'on Airtable' in the title. Data Fetcher ( https://datafetcher.com/ ) is an extension built (with code) on Airtable's marketplace in the same way you'd build on the App/ Play Store. It's not a no-code app built using Airtable. MRR is up to $9400 since I did this interview, and should hit $10k in the next month.\nrdm_blackhole on Aug 18, 2022 | parent | next [–]\nThis URL does not work: https://datafetcher.com/blog/blog/screenshots-from-urls-in-a... I thought you should know.\nandycloke on Aug 18, 2022 | root | parent | next [–]\nThank you! Fixed\nCSSer on Aug 19, 2022 | root | parent | next [–]\nHey there, still not working me for me (404).\nsaaspirant on Aug 19, 2022 | root | parent | next [–]\nhttps://datafetcher.com/blog/screenshots-from-urls-in-airtab...\nCSSer on Aug 19, 2022 | root | parent | next [–]\nThat did it!\nrexreed on Aug 18, 2022 | parent | prev | next [–]\nDo you handle payments outside of Airtable? Just curious how the payment system works and who controls the customer relationship and what Airtable takes as a cut, who handles the recurring payments, etc.\nandycloke on Aug 18, 2022 | root | parent | next [–]\nAirtable don't have billing for the marketplace so I handle everything, have a direct relationship with customers and pay no cut to Airtable.\nrexreed on Aug 18, 2022 | root | parent | next [–]\nHow does the subscription / onboarding process work, especially if they cancel their AirTable, etc? Did you already write any posts about how that flow works?\nandycloke on Aug 18, 2022 | root | parent | next [–]\nAll billing stuff is handled through datafetcher.com. Independent of Airtable so if they cancelled their Airtable they can still cancel on datafetcher.com.\nthrowoutway on Aug 18, 2022 | parent | prev | next [–]\nIs there a way to make money on airtable besides extensions? Can you sell subscriptions or access to data?\nupen946 on Aug 18, 2022 | parent | prev | next [–]\nThanks Andy for clarifying. You are moving way too fast :)\nz9znz on Aug 18, 2022 | prev | next [–]\nHe had/did the perfect combination: - right place at the right time (almost certainly a factor here) - actually building and releasing something - promoting it, letting the world know about him/it These success stories are really nice, but it's important to recognize that it usually takes all three of these key elements to be successful. Obviously if you don't do anything, you cannot get success. But if you do something, and the timing or market is wrong, you may not get much or any success. And if you do something but never make an effort to let the world know, then you may get a little growth but not real success. We can't control the market timing so much, mainly because we can't accurately predict the future. With some research, maybe we can improve on this, but it's still no guarantee. So, the best policy is to just stay in forward motion. Built a thing, promote it, and repeat. Maybe with 5 things in current operation, one of them catches.\nandycloke on Aug 18, 2022 | parent | next [–]\nFounder here - that's a great analysis. The way I manufactured right place/ right time was using this framework: https://twitter.com/clokehead/status/1340949414081392640?s=2...\nauspex on Aug 18, 2022 | root | parent | next [–]\nI got similar advice early in my career. You don’t have to create the wave. Find an existing wave grab a surf board and figure out a way to ride it.\nrchaud on Aug 18, 2022 | root | parent | next [–]\nThis is why we have a glut of indistinguishable \"50-hour video courses\" on every micro-topic imaginable. Everyone's trying to sell a shovel.\nz9znz on Aug 18, 2022 | root | parent | next [–]\nPerhaps, but some of those courses are actually useful; and some of the creators build solid businesses. What is becoming a problem is the super low quality, autogenerated derivatives. But those are more a symptom of a broken internet (youtube/google search) than anything else. Now that garbage on youtube cannot be downvoted, and since youtube does not (has never?) shown up/down rating numbers on content before you click to view it, it's exceedingly difficult for the viewers to find the good stuff.\nz9znz on Aug 18, 2022 | root | parent | prev | next [–]\nAwesome. Thanks for the advice!\nmehphp on Aug 18, 2022 | parent | prev | next [–]\nI think this is mostly right, but it makes it seem like successful apps are more of a crap shoot than they really are. Too many (most?) apps are built without spending any time researching whether it solves a real problem people have (and are willing to pay for). I get it, we want to build things, not do market research. Most people think that to build a successful app, you just have to \"come up\" with a brilliant idea and then go build it. That's not the case at all (while it does occasionally work, THAT is pure luck). Successful apps usually happen because the founder(s) saw a real pain point or gap in the market, and then build something to solve that. You'll notice that the approaches are almost completely opposite: - Build something and hope that people need it\n- Find a problem that people actually have and build a solution that solves it well Of course, this doesn't guarantee success (nothing does), but it vastly increases your chances of not wasting time building something nobody wants. Also, I'm not naive about the different backgrounds/privileges people have; of course luck plays a factor here. I'm speaking directly about people who are already in a position to create an app (i.e. a lot of HN readers)\nmritchie712 on Aug 18, 2022 | parent | prev | next [–]\n> So, the best policy is to just stay in forward motion. forget who said it, but I like the quote \"Action produces information\". If you just try a lot of stuff, at the very least you will learn what works and what doesn't.\nssharp on Aug 18, 2022 | prev | next [–]\nI'm curious how much time customer support takes for products around this price and how much impacts the viability of a business this size. At $8600 MRR * 12 ~= $103k. Obviously some level of expenses here but let's assume very high margins. $8600 / $40 plan = 215 customers. Given all that, how much time does it take to service 215 customers' support needs? Assuming profit would be in the $80-90k range, that's multiples lower than what a developer could make in a job, so is this a full-time work load or is it pretty minimal and could operate as a side-gig? It sounds like the plan here is to continue to grow well beyond the current state but just curious about this particular moment in the business and how sustainable it is if it doesn't grow.\nandycloke on Aug 18, 2022 | parent | next [–]\nSupport is roughly 10 hours per week and we're now up to 270 customers. The rest of the time is spent on product, reviewing marketing content and occasionaly sales. I've been full-time since $5k MRR as trying to juggle all this with a full time job was miserably + slowed down growth. $80-90k isn't actually that much less than a developer salary (in U.K., not U.S.), but it's an interesting question what I'd do if it didn't grow any more. I'd probably put it into maintenance-mode, and start another micro-saas, as I love the freedom of working where/when/how I want. I'm hopeful of hitting $150k ARR by end of year though, and $250k next year.\ntaylorhou on Aug 18, 2022 | root | parent | next [–]\nsuper cool to see the maturity in knowing what you want. i realize now that i was wayyyyy more profitable (cash money in my pocket) when my startup was literally 10x smaller. for those aspiring to be the next big blow up, as you grow/scale, overhead and the need to manage your own people start taking over from building product and supporting/making your customers happy. for context, i'm at ~$400k MRR/just shy of ~$5M ARR and i make way less (in cash) now than i did at $40k MRR. don't get me wrong, the enterprise value has supposedly gone up but that's a lottery ticket versus the consistent cash in your pocket.\nandycloke on Aug 18, 2022 | root | parent | next [–]\nThanks! Super interesting example. Do you prefer the day to day challenges now or when you were at $40k MRR? I basically look at entrepreneurship as trying to create my perfect job: make $200-500k/ year, work on what I want with smart people, don't have a boss etc. So a lifestyle business. But maybe I'll get bored and want to take a bigger swing, who knows.\nrexreed on Aug 18, 2022 | root | parent | prev | next [–]\nWhat customer support needs generally take up the most of your time? By rest of your time, are you talking 40 hour weeks? 60 hr weeks? Just trying to understand the time commitment for this amount of MRR\nandycloke on Aug 18, 2022 | root | parent | next [–]\nPeople finding bugs - it's a super flexible tool so lots of edge case bugs. Helping people set up their requests (e.g. no-coders who don't totally understand APIs or DF). Then boring stuff like billing queries/refunds etc. I probably work 30-40 hours a week total.\ncjrp on Aug 18, 2022 | root | parent | next [–]\nOut of interest, do you see that work increasing linearly with your number of customers?\nandycloke on Aug 18, 2022 | root | parent | next [–]\nProbably but I’ll be able to hire someone to help with it soon!\nbilsbie on Aug 18, 2022 | root | parent | prev | next [–]\nHow do you find Saas ideas?\nHandytinge on Aug 25, 2022 | parent | prev | next [–]\n> Assuming profit would be in the $80-90k range, that's multiples lower than what a developer could make in a job HN really lives in a bubble. $90k USD per year is more than double the median income in the highest earning countries in the world [0]. There are very few places in the world you could not live extremely comfortably on that income. Even for software engineering specifically, there are only two countries where the median is > $90k USD. [1] 0. https://en.wikipedia.org/wiki/Median_income\n1. https://codesubmit.io/blog/software-engineer-salary-by-count...\nbartkappenburg on Aug 18, 2022 | parent | prev | next [–]\nAnd don’t forget: building your own business adds value to an asset that YOU own. A regular dev job adds value to something someone else owns.\nrozenmd on Aug 18, 2022 | prev | next [–]\nThe actual business website explains what it does better: https://datafetcher.com/\nemptysea on Aug 18, 2022 | prev | next [–]\nI’m curious if you worry about Airtable incorporating your add on into their core offering? I feel that’s always my worry about building on top of someone else’s platform.\nandycloke on Aug 18, 2022 | parent | next [–]\n(Founder here) That's definitely the biggest risk to the business (other than competition). Airtable seem committed to being a platform that third-party developers can build businesses on, in the same way Shopify are. So I think (hope) they'd acquire me, rather than just cloning it, to maintain their reputation as a platform. But they definitely could do this and it's pretty scary! For now, my strategy is to try and grow to $350k+ ARR and diversify the profits into index funds etc. I also have a couple of other micro-saas ideas that aren't platform-dependent that I'll launch in the next couple of years.\nmritchie712 on Aug 18, 2022 | root | parent | next [–]\nyou can probably worry about this less. I had the same worry when building seekwell.io and it turned out to not matter at all. Google did eventually launch some things you could use instead of us, but they sucked and by the time they launched it we were way ahead in features. They also had a ton of restrictions that made sense for Google (e.g. mostly only supporting their own cloud products as a source), but didn't make sense for most customers. Not a single one of our customers has said \"we're using the built in Google features\" as a reason for cancelling. Airtable is likely better then Google is this respect (will listen more closely to their customers), but probably not much. They are still a big company and you can do better. ps - charge more!\nandycloke on Aug 18, 2022 | root | parent | next [–]\nInteresting, thanks! Probably not going to charge more any time soon. I'm in the prosumer space, not B2B, and people are more price sensitive than you might expect. Raising prices from $18/mo to $24 has massively reduced support, but we get a fair few people cancelling due to price, so any higher would probably be pushing it.\nonion2k on Aug 18, 2022 | parent | prev | next [–]\nEvery business has external threats that you have no control over. Is it really sensible to give up \"$8600/month * how long Airtable take to implement the feature\" due to that concern, or should you move fast and execute to maximize the time you're making that money?\nnathan_f77 on Aug 18, 2022 | prev | next [–]\nI'd be interested in the IPO alerts newsletter he mentioned at the beginning. I was recently thinking about building an IPO prediction website and newsletter, where users could vote on the probability that startups will have an IPO during a given year. (e.g. Q1 2023, Q2, Q3) It could be interesting to integrate a prediction market like PredictIt [1] (although I heard they got into some trouble recently.) I also started to worry about getting in trouble with the SEC, in case people start to win bets by using insider information. Anyway, does anyone have any predictions about the next IPO window? E.g. When do you think Stripe might have an IPO? [1] https://www.predictit.org\nandycloke on Aug 18, 2022 | parent | next [–]\nFounder here - one of the reasons I didn't do the IPO idea was I found this company doing a great job with their newsletter: https://www.renaissancecapital.com/IPO-Center/News\npdmfz on Aug 18, 2022 | parent | prev | next [–]\nI built an upcoming IPOs app ( https://ipowatch.app/ ). I monetized by creating mobile apps and showing banner ads there, but they didn't make much.\nupen946 on Aug 18, 2022 | prev | next [–]\nThe backend is written in Node.js, TypeScript, PostgresQL, GraphQL and hosted on Heroku. The frontend is React.js, TypeScript and Airtable's Blocks SDK.\ntluyben2 on Aug 18, 2022 | parent | next [–]\nNot sure how that is different from a 8600 mrr business running on postgres; seems putting airtable in the title is just for clicks? It would be very interesting to read about someone building a $$$$ mrr business on just airtable; no programming. Not that it is not impressive getting up a 8600 mrr business, so congrats.\nkaramanolev on Aug 18, 2022 | root | parent | next [–]\nI also got tricked, but it seems that \"on Airtable\" doesn't mean it's built on top of Airtable and is a \"no-code business\". It means built to interface with Airtable, as in \"a tool for Airtable\", for other no-code users. This is a very-much-code business.\nfxtentacle on Aug 18, 2022 | root | parent | prev | next [–]\nApparently, you didn't read the article? The product, DataFetcher, imports data into Airtable because the customers are no-code users.\nupen946 on Aug 18, 2022 | root | parent | next [–]\nThankyou. Yeah, thats what is means.\nwyem on Aug 18, 2022 | root | parent | prev | next [–]\nYou haven't read the article! He has made a no-code tool to import data from anywhere into Airtable! The backend is written in Node.js, TypeScript, PostgresQL, GraphQL and hosted on Heroku. The frontend is React.js, TypeScript and Airtable's Blocks SDK.\nupen946 on Aug 18, 2022 | root | parent | prev | next [–]\nSorry. Not meant to trick. I mean to say 'around Airtable' niche.\nIn anycase, its impressive.\njacquesm on Aug 18, 2022 | root | parent | prev | next [–]\nIt depends on what your definition of 'on' is.\nupen946 on Aug 18, 2022 | root | parent | next [–]\nOP here. Probably, my bad too - I meant 'around Airtable niche'\nghoshbishakh on Aug 18, 2022 | prev | next [–]\nAfter the initial publicity on HN and Reddit, what did the founders do periodically for marketing? Specially for a developer or tech savvy targetted product like this.\nandycloke on Aug 18, 2022 | parent | next [–]\nFounder here! Content marketing - look at common customer use cases and turn them into blog posts and YouTube videos. Check out our blog, https://datafetcher.com/blog , and YouTube channel, https://www.youtube.com/channel/UCnED2FBe_jzntrCiB759y9w/vid... , for examples! I've now hired 2 freelancers to produce these, so I can focus on product/ support.\nupen946 on Aug 18, 2022 | root | parent | next [–]\nThanks Andy for jumping in.\nburo9 on Aug 18, 2022 | prev | next [–]\nFor those also blocked by the newly registered domain: https://archive.ph/nsO2H\nupen946 on Aug 18, 2022 | parent | next [–]\nOh what does this mean? HN blocks newly registered domains? Or Some people's firewall blocks newly registered websites?\nburo9 on Aug 18, 2022 | root | parent | next [–]\nSome people's firewalls. It prevents a lot of crypto scams and malware. i.e. https://nextdns.io/ gives the option: Block domains registered less than 30 days ago. Those domains are known to be favored by threat actors to launch malicious campaigns Equivalents exist on corp firewalls, etc. Something like 70% of malware and phishing points to domains registered in the last 30 days. So it is an easy way to mitigate the risk of the majority of attacks.\nmywacaday on Aug 18, 2022 | root | parent | next [–]\nMy corporate firewall also blocks archive.ph :-) URL: https://archive.ph/nsO2H\nURL Categories: Anonymizing Utilities, Internet Services\nReputation: Minimal Risk\nupen946 on Aug 18, 2022 | root | parent | prev | next [–]\nOh never know this one. I know that emails are blocked/pushed to spam if the domain is new. But good to know this. In anycase, founderbeats.com is legitimate\nCthulhu_ on Aug 18, 2022 | root | parent | prev | next [–]\nI'm on a corporate network and am getting security errors, which likely means the corporate firewall has blocked it.\nupen946 on Aug 18, 2022 | root | parent | next [–]\nOops. As someone was mentioning, new websites gets blocked some times.\ntluyben2 on Aug 18, 2022 | prev | next [–]\nWhat are the costs for airtable specifically? I checked it out a few times but even for toy projects it seems to cost a kidney if you have a tiny bit of traffic.\nandycloke on Aug 18, 2022 | parent | next [–]\nFounder here. Airtable have a pretty generous free plan. In January, they changed it to let you install extensions (like Data Fetcher) on the free plan. It does get more expension if you have lots of collaborators ($24/ month/ user), but if you can use a tool like Softr to build user-facing portals without adding all your end-users as Airtable collaborators.\nehnto on Aug 18, 2022 | parent | prev | next [–]\nDepends on your business, but you could probably save a lot of money with caching, which some web services offer pretty easily.\nElevenLathe on Aug 18, 2022 | prev | next [–]\nIt seems like there is definitely an advantage to getting apps on these \"stores\" early in their lifecycle, though I never even hear about their existence until much later. Does anyone know a way to learn about new app stores/marketplaces early on, besides obsessing over tech news constantly?\nandycloke on Aug 18, 2022 | parent | next [–]\nFounder here. I use this site to find new platforms/ trends! https://explodingtopics.com/ then build them into tools using my framework: https://twitter.com/clokehead/status/1340949414081392640?s=2...\nElevenLathe on Aug 18, 2022 | root | parent | next [–]\nIs explodingtopics.com another project of yours?\nandycloke on Aug 18, 2022 | root | parent | next [–]\nNo! https://marker.medium.com/how-my-show-hn-project-got-acquire...\ntortilla on Aug 18, 2022 | parent | prev | next [–]\nYou could periodically skim the forums for pain points... I did this when Airtable first got off the ground. https://community.airtable.com I didn't do anything with the info as I didn't have extra time to devote to a new product. I'm sure other unicorn startups will have communities around them or subreddits.\nElevenLathe on Aug 18, 2022 | root | parent | next [–]\nYeah, once you know Airtable exists and has an app store. The question is how to find out about new platforms like this in the first place though.\ncallmekatootie on Aug 18, 2022 | prev | next [–]\nI have always wondered how does one go about restricting user actions based on which pricing plan they have selected? Do they have to code it manually or is there a SaaS / library that does the job?\nandycloke on Aug 18, 2022 | parent | next [–]\nI coded it manually as the business logic is so Data Fetcher specific I don't think a library would help much. This blog post does an amazing job of explaining the approach you need: https://blog.checklyhq.com/building-a-multi-tenant-saas-data...\ntnolet on Aug 18, 2022 | root | parent | next [–]\nCool to see that post pop up (I'm the author). Glad it helped!\ncallmekatootie on Aug 18, 2022 | root | parent | next [–]\nExcellent write up. Do you recommend any books or blogs that talk technical stuff equivalent to this, directed towards the Saas domain in general?\nwhoevercares on Aug 18, 2022 | prev | next [–]\nThis looks like AWS AppFlow https://aws.amazon.com/appflow/\nupen946 on Aug 18, 2022 | parent | next [–]\nHaha. Appflow needs some good tech knowledge though with an understanding of AWS ecosystem. But kind of yes, syncing/moving data between Apps.\nquickthrower2 on Aug 18, 2022 | root | parent | next [–]\nThere is a lot of money in \"thing AWS does\" ... \"for mortals\"\nwhoevercares on Aug 18, 2022 | root | parent | prev | next [–]\nwhat if I tell you that AppFlow is supposed to be easy to use haha\ncoffee on Aug 19, 2022 | prev | next [–]\nThanks for sharing Andy! > Today, 30%-40% of my customers come through our YouTube videos or blog posts Could you talk about how you get the other 60% to 70% of customers? Thanks!\nRektBoy on Aug 18, 2022 | prev | next [–]\nNever heard about Airtable, why would anybody use it since there's Excel?\nPainfullyNormal on Aug 18, 2022 | parent | next [–]\nFor the obvious reason: there are things Airtable can do that excel can't. For example, I'm using airtable to track my job applications. I save the job ad, my cover letter and the resume I used as a pdf and attach them to the row in a column designed for attaching files. You can't do that in excel (at least not that I've seen).\njen729w on Aug 18, 2022 | parent | prev | next [–]\nBecause Excel isn't a database and Airtable is?\nnoasaservice on Aug 18, 2022 | prev [–]\nReminder: Just because this person did it, does not mean his actions are reproducible. If it was reproducible, then every VC would be doing this.\nCrazyStat on Aug 18, 2022 | parent | next [–]\n> If it was reproducible, then every VC would be doing this. No they wouldn't. $8600 MRR is a lifestyle business, not a startup that can potentially 100x. To borrow an old Google saying, VCs have forgotten how to count that low. There's a lot of space for bootstrapped independent entrepreneurs at that level because VCs just don't care about a business that small. It's pocket change. The VCs will be focusing on finding the next platform (AirTable), not add-ons for existing platforms (this).\nlifeisstillgood on Aug 18, 2022 | parent | prev | next [–]\nMaybe they should. Find 1,000 half decent devs. Fund them for 1 year at 50K or so, with promise of 60% of company. Sprinkle over decent marketeers / designer / product mgrs. Cost is now 50M USD + change. Get to 10K MRR and its 120K pa, maybe 20-30K profit. Does it matter which ones are just paying back their investment over two years, and the 1/1000 that might be a unicorn? I just don't think VCs are playing the odds.\nmkl on Aug 18, 2022 | parent | prev | next [–]\nSo nobody should try anything that anyone else has had success with? An awful lot of successful companies wouldn't exist if people followed your thinking. These aren't the kind of numbers VCs like, anyway.\nrchaud on Aug 18, 2022 | parent | prev [–]\nThe first half of your sentence, while correct, is negated by the second half. VCs don't care about anything that isn't going to deliver a sure-fire IPO.\nConsider applying for YC's Winter 2027 batch! Applications are open till November 2.\nGuidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact\nSearch:",
+     "policy": {
+      "policyId": "rights.hacker-news.v1",
+      "sourceId": "src.hacker-news",
+      "providerName": "Hacker News",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://www.starterstory.com/stories/data-fetcher",
+     "publisher": "Starter Story の2024年の追跡取材",
+     "snapshot": {
+      "url": "https://www.starterstory.com/stories/data-fetcher",
+      "finalUrl": "https://www.starterstory.com/stories/data-fetcher",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:30:51.355Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7af4cc2087fdf148b9f32d8c529fb1c066178f84db60a664e1aac4e96d8a5f64"
+     },
+     "text": "My Airtable Plugin Grew 4X To $23K/Mo - Starter Story\nHello again! Remind us who you are and what business you started.Hey! My name is Andy Cloke, and I’m the founder of Data Fetcher. Data Fetcher is an Airtable extension that lets people import their data from other applications. For anyone who hasn’t heard of it, Airtable is a spreadshee...\nMy Airtable Plugin Grew 4X To $23K/Mo - Starter Story\nHello again! Remind us who you are and what business you started.Hey! My name is Andy Cloke, and I’m the founder of Data Fetcher. Data Fetcher is an Airtable extension that lets people import their data from other applications. For anyone who hasn’t heard of it, Airtable is a spreadshee...\nMy Airtable Plugin Grew 4X To $23K/Mo - Starter Story\ns\nStarter Story\nCase Studies\nData Fetcher\nSearch…\n⌘K\nLogin\nJoin Starter Story\nEsc\nHome\nData\nAll Ideas\nSaaS Ideas\nApp Ideas\nAI Ideas\nMore Ideas\nCase Studies\nAll Case Studies\nSaved\nRandom\nEpisodes\nAll Episodes\nMust Watch\nLearn\nAcademy\nBuild\nStarter Story is part of HubSpot.\nGet started free\nMy Airtable Plugin Grew 4X To $23K/Mo\nsave\nAbout\nBusiness\nTools\nBooks\nUpdates\nAndy Cloke\nFounder,\nData Fetcher\n$23K\nrevenue/mo\n1\nFounders\n0\nEmployees\nData Fetcher\ndatafetcher.com\nfrom\nLondon, England, United Kingdom\nstarted\nAugust 2020\n$23,000\nrevenue/mo\n1\nFounders\n0\nEmployees\nDiscover what tools recommends to grow your business!\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nplatform\nHeroku\nAmazon Web Se...\nemail\nMailerlite\nSendGrid\nhiring\nUpwork\ncustomer service\nHelpScout\nsms\nTwilio\nreviews\nG2 Crowd\nsocial media\nTwitter\naccounting\nXero\nproductivity\nCalendly\nAirtable\npayments\nStripe\nanalytics\nPlausible Ana...\ndesign\nFigma\nFigma\nstack\nReact\nNode.js\nseo\nAhrefs\nDiscover what books Andy recommends to grow your business!\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nHackers &amp; Painters: Big Ideas From The Computer Age\nPaul Graham\nSo Good They Can't Ignore You: Why Skills Trump Passion i...\nCal Newport\nLost and Founder: A Painfully Honest Field Guide to the S...\nRand Fishkin\nWant more updates on\nData Fetcher?\nCheck out these stories:\n1. How I Built An Airtable Plugin That Lets Users Manage Their Data Better [$270K/Year] (2022) ➜\nThis is a follow up story for\nData Fetcher.\nIf you're interested in reading how they got started, published over 4 years ago, check it out\nhere.\nHello again! Remind us who you are and what business you started.\nHey! My name is Andy Cloke, and I’m the founder of Data Fetcher . Data Fetcher is an Airtable extension that lets people import their data from other applications. For anyone who hasn’t heard of it, Airtable is a spreadsheet tool like Google Sheets, but with powerful automation and visualization features.\nThe Data Fetcher extension has no-code Airtable integrations (e.g. Facebook Ads, Google Analytics, OpenAI etc.), and custom requests for people familiar with APIs.\nData Fetcher has thousands of users and several hundred paying customers. We’re at $23,000 MRR with just one full-time employee (me!) and some part-time contractors.\nTell us about what you’ve been up to. Has the business been growing?\nSince we last spoke, the business has grown from $6,000 to $23,000 in MRR. In some ways, it’s been more of the same: developing new integrations and improvements, then creating blog posts and YouTube videos to tell people about the changes.\nI also started offering free support calls to both free and paid users. As a small company, this is an area where we can outcompete large competitors. It has been the main source of customer feedback that I’ve used to improve the product and only takes a couple of hours each week\nHaving a free plan is still a huge driver of growth. I think this is because Data Fetcher is in quite a price sensitive market, and has a good split between free and paid features. People can test 90% of the functionality for free, then upgrade weeks (or even months!) later when they have a real business use case.\nWhilst it’s no rocket ship, it’s now a really solid lifestyle business! I’ve also signed Data Fetcher’s first enterprise deals with household name companies, and the business was named one of G2’s new products of the year .\nOne of the biggest changes since we last spoke is I hired some amazing freelancers.\nThe first hire was a freelance content creator who makes all the videos for Data Fetcher’s YouTube channel . This has worked well, since YouTube is much less competitive than SEO for our target topics, and the videos convert well.\nThe second hire was a brilliant software developer who wanted some part-time work whilst backpacking through South America. He is a friend I’d worked with previously, and it was so stimulating and fun working together again. He massively improved the testing and stability of the backend, as well as developing major features and improvements.\nThere have definitely been some missteps along the way too, including a hire that did not work out so well. In early 2023, I was starting to drown in customer support emails, so I hired a technical customer support rep to work two hours per day.\nIt quickly became clear that her communication skills and technical proficiency were not at the level that was required, and I had to let her go. With hindsight, there were red flags in the interview process that I ignored.\nAnother mistake was launching a second product too early. I thought there was a gap in the market for a data visualization extension, and that I could promote it to the existing Data Fetcher audience.\nSo I launched a second Airtable extension, called Charts & Reports, under the Data Fetcher brand. Unfortunately, it has been stuck at $300 MRR for a year. It’s an unwanted distraction, and hard to justify working on it when it makes so little revenue. I may even get rid of it at some point.\nSomeone could copy the basic functionality of our extension and our marketing with a few months of effort. But it is much harder to copy the hundreds of edge-case bugs we’ve fixed, the five-star reviews, and our relationships with customers and Airtable.\nWhat have been your biggest challenges in the last year?\nData Fetcher hit a revenue plateau in August 2023, which lasted for 5 months! Every month, we would gain and lose the same number of subscribers. I knew what the issue was: the churn was stubbornly high (10-11%), but I couldn’t figure out how to reduce it. Nothing I tried worked, and I was starting to wonder if the business had hit its natural limit.\nA friend gave me the advice to add a large (50%) discount for annual plans. In December 2023, I made this change, as well as switching the default tab to annual billing on our pricing page. You can see the dramatic effect in the charts below: churn is down to 7% and MRR is growing again!\nThe other big challenge this year was the changes that Airtable made. They are moving upmarket towards enterprise customers, so customer support on their lower plans has become more limited and extensions were removed from the free plan.\nThey also introduced a pricing change where customers had to pay $54 instead of $24 to keep using certain features. The knock on effect of these changes has been a reduction in Data Fetcher sign-ups.\nAt a more technical level, they introduced rate limits on their API, which we rely on and had to mitigate. Platform risk is something I will always have to live with when running Data Fetcher, but this has been a particularly interesting few months.\nOver the next couple of years I want to hit 1000 customers and $500k in ARR. The aim is to do this whilst keeping the team very lean and getting money out of the business into index funds.\nWhat have been your biggest lessons learned in the last year?\nOne thing I’ve learned is that it’s possible to do technical support for hundreds of customers as a solo founder. After failing to hire and onboard a customer support rep, I took a different approach: every time there was a support ticket, I looked for an opportunity to improve the product or documentation to avoid that ticket happening again.\nFor example, I got a lot of support tickets about usage limits. So now when someone hits their usage limit, we show clearly when your usage cycle started, when it resets, and link to our documentation on how usage is calculated.\nDozens of minor improvements like this have reduced the number of support emails from 3 to 2 per day, even as the customer count has gone up, as shown in the graph below. It also means I am much closer to customer feedback.\nI’ve also learned to develop new integrations much more slowly! Data Fetcher has 40+ no-code integrations with the most popular third-party applications. It’s technically possible to add them very quickly since there is so much common code between them.\nHowever, each integration can require significant ongoing development, which becomes a real drag in developing other parts of the app.\nI’m now much more selective when adding new integrations, even if customers are requesting them. It’s a balancing act, and I still add popular applications when needed.\nWhat’s in the plans for the upcoming year, and the next 5 years?\nNow that Data Fetcher is more mature as a product, I want to position it more clearly in the market. I am going to figure out who our best customers are, and why they pick Data Fetcher over other tools. I will then redo the marketing website to reflect the new positioning, to increase conversions.\nThe new positioning should hopefully improve our marketing too. For example, the majority of our customers use Data Fetcher’s more technical custom request features, but our marketing focuses on the other no-code integrations. So I want to double down on marketing the things that make Data Fetcher most valuable.\nOver the next couple of years, I want to hit 1000 customers and $500k in ARR. The aim is to do this whilst keeping the team very lean and getting money out of the business into index funds. This is my strategy for reducing platform risk: diversify the profits, not the product.\nPeople often ask if I’d sell Data Fetcher, but I don’t see the point at this stage. I’ve created my perfect job: I love working on it, making more money than I ever have, and getting to enjoy the biggest benefit of a lifestyle business: lifestyle!\nSince we last spoke, I’ve taken extended trips to Brazil, America, Japan, and shorter trips all over Europe. I feel incredibly lucky to have had the lifestyle and financial freedom to do this in my 20s.\nOn top of this, I do not think it’s worth selling at this stage of ARR. If I sold now for a typical multiple, I could probably buy a home, but it would not be enough to stop working. So I’d have to start something else from scratch, which is difficult, or get a normal job, which doesn’t sound very exciting.\nThat calculus might change in a few years if I can keep growing the company.\nWhat’s the best thing you read in the last year?\nRange by David Epstein is a great book about how having a diverse range of careers and interests can lead to better outcomes than specializing too early. As someone who had no idea what I wanted to do for a long time, it connected with me.\nThe Psychology of Money by Morgan Housel is an amazing book. It taught me that wealth is relative and the importance of having an ‘enough number’. It motivated me to start saving and thinking about what I want from life, both now and in the future.\nMore closely related to SaaS, Starting and Sustaining by Garrett Dimon is a brilliant (and free!) e-book that comprehensively covers starting a SaaS business. It was written a few years ago, so some of the advice is a bit dated, but there is so much timeless advice.\nAdvice for other entrepreneurs who might be struggling to grow their business?\nOne thing I like to think about when looking at a business is what is easily copyable and what isn’t. For example, for Data Fetcher, someone could copy the basic functionality of our extension and our marketing with a few months of effort.\nBut it is much harder to copy the hundreds of edge-case bugs we’ve fixed, the five-star reviews, and our relationships with customers and Airtable. Data Fetcher also gets a decent amount of word of mouth recommendations and is reasonably well known in the Airtable community.\nThese things take much longer to build up. Thinking about them can help you analyze a business opportunity in the early stages and work out what to prioritize on later on.\nAnother thing I’d recommend is experimenting with pricing every few months. I mentioned the pricing change above that transformed Data Fetcher’s trajectory recently.\nThis is not the first pricing experiment I’ve tried, and it will not be the last. I’ve tried a free trial (alongside the free plan), making our usage limits more generous, and getting rid of pricing plans. None of these were as transformational, but the important thing is to keep tweaking things.\nWhere can we go to learn more?\nMy Twitter\nTwitter\nIf you have any questions or comments, drop a comment below!\nMore Case Studies Like This\nsoftware · saas · Paris, Ile-de-France, France\nGrowing A Cold Email Platform to $600K ARR in 18 months\nFirst, building a memorable brand is crucial in crowded markets to stand out beyond just having the best product. Second, enablement is key—positioning alone...\n$4M/mo\nWord of mouth\nBrand Authenticity\nSlack\nNotion\n12,238\nreads\nsoftware · saas · United States\nHow I Started A $1.6M/Month Online Surveys And Research Tools Software\nYou must have fun in what you are doing and enjoy the people you work with—if not, it’s time to rethink your path.\n$3M/mo\nDirect sales\nWord of mouth\nHubSpot\nCopper\n$60K to start\n15,911\nreads\nsoftware · saas · London, England, United Kingdom\nHow We Developed A $6K/Month Online Video Editing Software\nFirst, the first $5 revenue is more exciting than millions later and marks a critical milestone. Second, listening too closely to customers can sometimes be...\n$3M/mo\nSEO\nHow-To-Guide Content\nDrift\nStripe\n23,654\nreads\nsoftware · saas · Scottsdale, Arizona, USA\nHow I Grew A Training & Wiki Software Tool To $2M ARR\nFirst, I learned the importance of reaching profitability before fundraising, which built a strong foundation and credibility with customers. Second,...\n$3M/mo\nAffiliate program\nAdvertising on social media\nSlack\nTrello\n11,195\nreads\nStarter Story &times; HubSpot\nFree tools for every part of your business.\nFind customers, win deals, and automate the busywork with HubSpot's free tools.\nGet started free\nFull article is available for Starter Story premium members.\nUnlock it.\n×\nGet Access To All Startup Data Right Now (it's free)\nJoin our free newsletter to get unlimited access to all startup data. We just need your email:\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\n×\nS\nStarter Story\nWant to discover ideas that\nactually\nmake money?\nGet our 5-minute email newsletter packed with business ideas and money-making opportunities, backed by real-life case studies.\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nIt's free and read by 200,000+ founders\n×\nEmail Address\nor\nContinue with Google\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nHave an account? Login by entering your email or continuing with Google.\nPlease sign in.\nEmail Address\nPassword\nLog in without password\n|\nForgot your password?\nCreate A Password\nIf you are a human, ignore this field\nEmail Address\nPassword\n2 + 2 = ?\nCheck your email for a link to sign in\nCheck your email\nWe've sent you an email with a link to sign in. Click the link in the email to access your account.\nIf there's a Starter Story account associated with that email you'll get an email with a link to automatically log in. The link will expire in 24 hours.\nYour existing password still works, should you want to log in with it later.\nS\nStarter Story\nFind the business ideas that\nactually\nmake money.\nSearch 3,123+ real, revenue-generating projects — the tools they built on, how they grew, and the full breakdown behind each one.\nS\nStarter Story\nstarterstory.com/data\nLive\nIdea\nRevenue\nCrm marketing attri...\n$100K/mo\nNo-code Airtable AP...\n$20K/mo\nPdf bank statement ...\n$40K/mo\nAi music video gene...\n$20K/mo\nS\nStarter Story\nBuild a business that changes your life, in less than 5 weeks.\nDiscover a proven system to find, validate, and build your $1M business idea—alongside a community that won't let you fail.\nOur next sprint starts soon...\nS\ntarter Story\nBuild\nWith AI, you can build\nanything\nCome up with an idea, build it, and ship an app that gets users and payments—in just a few days.\nJoin thousands of builders who are turning their ideas into real products.\n×\n×\nS\nStarter Story\nAbout\nSupport\nPrivacy\nWebsite Terms of Use\nTerms",
+     "policy": {
+      "policyId": "rights.starter-story.v1",
+      "sourceId": "src.starter-story",
+      "providerName": "Starter Story",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year",
+     "publisher": "Starter Story の最初の取材本文",
+     "snapshot": {
+      "url": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year",
+      "finalUrl": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:06.654Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "3525665f25166e1213633c8ace86e115b9bcf16813914da5c81d136fef931a45"
+     },
+     "text": "How I Built An Airtable Plugin That Lets Users Manage Their Data\nHello! Who are you and what business did you start?Hi! My name is Andy Cloke and I am the founder of Data Fetcher. Data Fetcher is a way to import data from anywhere into Airtable. For anyone that hasn’t heard of Airtable, it’s basically Google Sheets on steroids. It lets you visualize ...\nHow I Built An Airtable Plugin That Lets Users Manage Their Data Better [$270K/Year] - Starter Story\nHello! Who are you and what business did you start?Hi! My name is Andy Cloke and I am the founder of Data Fetcher. Data Fetcher is a way to import data from anywhere into Airtable. For anyone that hasn’t heard of Airtable, it’s basically Google Sheets on steroids. It lets you visualize ...\nHow I Built An Airtable Plugin That Lets Users Manage Their Data\ns\nStarter Story\nCase Studies\nData Fetcher\nSearch…\n⌘K\nLogin\nJoin Starter Story\nEsc\nHome\nData\nAll Ideas\nSaaS Ideas\nApp Ideas\nAI Ideas\nMore Ideas\nCase Studies\nAll Case Studies\nSaved\nRandom\nEpisodes\nAll Episodes\nMust Watch\nLearn\nAcademy\nBuild\nStarter Story is part of HubSpot.\nGet started free\nHow I Built An Airtable Plugin That Lets Users Manage Their Data Better [$270K/Year]\nMarch 7th, 2022\nsave\nAbout\nBusiness\nTools\nBooks\nUpdates\nAndy Cloke\nFounder,\nData Fetcher\n$23K\nrevenue/mo\n1\nFounders\n0\nEmployees\nData Fetcher\ndatafetcher.com\nfrom\nLondon, England, United Kingdom\nstarted\nAugust 2020\n$23,000\nrevenue/mo\n1\nFounders\n0\nEmployees\nDiscover what tools recommends to grow your business!\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nplatform\nHeroku\nemail\nMailerlite\nSendGrid\nreviews\nProduct Hunt\nsocial media\nTwitter\nYouTube\nTikTok\nproductivity\nAirtable\nAirtable\nDiscover what books Andy recommends to grow your business!\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nHackers &amp; Painters: Big Ideas From The Computer Age\nPaul Graham\nSo Good They Can't Ignore You: Why Skills Trump Passion i...\nCal Newport\nLost and Founder: A Painfully Honest Field Guide to the S...\nRand Fishkin\nWant more updates on\nData Fetcher?\nCheck out these stories:\n1. My Airtable Plugin Grew 4X To $23K/Mo (2024) ➜\nHello! Who are you and what business did you start?\nHi! My name is Andy Cloke and I am the founder of Data Fetcher . Data Fetcher is a way to import data from anywhere into Airtable . For anyone that hasn’t heard of Airtable, it’s basically Google Sheets on steroids. It lets you visualize and manage your data in amazing ways, but sometimes it’s hard to get the data you need into it in the first place. That’s where Data Fetcher comes in!\nMy customers are all Airtable users but their use cases are very varied. Many are importing financial (stock prices, exchange rates) data, cryptocurrency prices, or marketing (e.g. Google Analytics) metrics. I also have a customer connecting to a vineyard CRM and another importing sewing patterns from a sewing social network called Ravelry ! People have connected to over 1000 different applications using Data Fetcher. The way my friend described it recently was ‘the long tail is much longer than you think’.\nJust over a year after launching, Data Fetcher has reached 190 paying customers and $6500 in MRR. I’m really happy with this consistent growth and it seems to be speeding up! The app has also become a critical part of many businesses’ operations around the world.\nRevenue growth since launch in November 2020\nWhat's your backstory and how did you come up with the idea?\nI studied engineering at university but never loved it, so after graduating I taught myself to code to get a career in software. I liked the idea of building my own projects and being able to work from anywhere. Whilst learning to code, I launched Verbly , a way to learn Spanish verb conjugations. It got to the front page of Hacker News and lots of people were using it! The dopamine hit of lots of people using something I built in my bedroom is something I’ve been fairly obsessed with ever since.\nI worked for a few startups as a freelance software (JavaScript & React.js) developer and launched more projects on the side. The first one to make any money was Influence Grid , a directory of TikTok influencers. I bootstrapped it to $3k MRR and then sold the app to another company for $55k. This was the first time one of my projects had made real money and it felt like massive validation of all the evenings/ weekends I was spending on my side projects.\nI follow a simple framework for coming up with business ideas, explained in this Tweet . Basically, you find a new platform that is growing massively, look at existing successful tools for more mature platforms and build an equivalent tool for the new platform. I noticed a Google Sheets add-on called API Connector and built the equivalent for Airtable.\nI did not copy API Connector mindlessly, as there are big differences between Sheets and Airtable, but the core app idea came from following this. I also gave credit to the founder of API connector when I launched. We now have a great working relationship and she has even copied Data Fetcher features into API Connector.\nAfter getting the first few Data Fetcher customers, I knew this was an idea I wanted to work on for the next few years. Looking at other app marketplaces, e.g. Shopify & Slack, it’s possible to bootstrap an app to life-changing revenue as a solo founder. That is the goal I’m working towards now.\nTake us through the process of designing, prototyping, and manufacturing your first product.\nThe timing of my idea for Data Fetcher was fortunate, as Airtable had just opened up their app marketplace to third-party developers. Airtable apps also use a technology (React.js) I had lots of experience with. I spent a month developing the first version of the app, and another three months getting it through Airtable’s app marketplace review process.\nThe first version of the app was pretty terrible, but it had the core functionality of being able to connect to an API. The Airtable app marketplace does not yet have a way to charge users for your app, so I had to build this myself. Although it was rudimentary, it was enough to get a few paying customers and know I was onto something! I then started working through the backlog of essential features. I also started getting user requests for features and adding these to the product too.\nAirtable apps are released like mobile apps, where you must submit to the app marketplace and wait for the approval. This means it’s hard to push quick fixes/ updates. Therefore I spent lots of time thoroughly testing every version of the app before release and making sure it did not break things for existing users. I also wrote a thorough Help Center with guides to all the features, to reduce the support after I launched.\nDescribe the process of launching the business.\nThere were minimal startup costs for the app. I did all the software development myself, so the main investment was simply my time. I had the funds from selling Influence Grid, which I used to live off and pay for a few things like the domain (from Namecheap ) and Heroku servers.\nAs I developed the app, I tweeted about what I was building and sent people who were interested in Twitter to a landing page, where I collected their emails. When the app went live, I emailed these people and posted on some Airtable social media groups/ forums. This helped drive some initial awareness and customers within the first two weeks. Shortly after that, I launched Data Fetcher on Product Hunt , which drove more customers.\nThe biggest lesson here was being patient. I also had to trust my gut that the app would attract customers and my hard work would be worth it. It took 3 months to get the app through Airtable’s app review process as the marketplace was so new at the time. There wasn’t much I could do to speed this up, so I had to sit tight.\nSince launch, what has worked to attract and retain customers?\nOne thing that’s really helped is how early I was in the Airtable app marketplace and the relative lack of competition. Around 70-80% of my customers simply discover the app through the marketplace. I’ve focused on improving the app marketplace listing with testimonials, clear feature descriptions, and links to helpful resources.\nThe fact that Data Fetcher has a freemium pricing model has really helped me get the most out of the marketplace channel. Users can install and try it for free and only pay once they reach certain usage limits. A healthy 10% of my free users convert to paying customers. People use the fact that ‘Freemium is a marketing strategy, not a revenue model’ as a way to bash freemium. But if it’s done correctly and you are aware of the risks (e.g. increased server costs and support), it can be very powerful.\nOne thing that has really helped is looking at where most of my customers are already coming from and reducing friction in this funnel.\nThere will definitely be more competition in the marketplace soon, so I’m working on developing other marketing channels. I’ve focused on content marketing, by creating Data Fetcher’s no-code blog and YouTube channel . The content is fairly simple. Each video/ blog post shows how to use Data Fetcher to do a certain task, e.g. import stock prices to Airtable , but it works very well! About 20% of my customers are now coming through these channels.\nI want to scale up this content marketing soon and start publishing content more consistently. As a technical founder, I think the easiest way to start marketing is to look at what channels similar products use and focus on those. But it’s good to try new ones occasionally. For example, I recently created a TikTok profile to test this channel. If there are any results, I’ll double down.\nHow are you doing today and what does the future look like?\nData Fetcher is making $6.5k from subscriptions each month. Servers and other tools (e.g. email marketing software) cost about $500/month, meaning a healthy 90% profit margin before my salary. It continues to grow by $500+ in new subscriptions each month.\nI recently launched a new version of the app that lets anyone use it. Before you needed to understand APIs, but now it’s truly a no-code tool. I’m focusing on improving this version and marketing it to a wider range of people.\nI’d love to take Data Fetcher to $30k+ in MRR and hire people part-time to handle customer support and produce marketing content. I have not taken any investment, so I can do this in my own time, but I am wary of competition in the app marketplace. I’ve also got some other Airtable apps I’d love to build in the next year or two.\nThrough starting the business, have you learned anything particularly helpful or advantageous?\nOne thing that has really helped is looking at where most of my customers are already coming from and reducing friction in this funnel. For example, I added Google login to the app and free sign-ups immediately increased.\nThe next was the value of doing proper user testing. Rather than just interviewing customers, I asked people to do certain tasks within the app. As a result of this, I improved the app’s UX more in a few hours than I had in the preceding few months.\nAvoid looking for a silver bullet rather than taking action.\nFinally, I’ve learned the value of reaching out to people you respect for guidance and mentorship. I reached out to two well-known bootstrappers on Twitter and they’ve both become mentors to me. I also joined an amazing bootstrapping community, Weekend Club , where I get lots of support and even met people to form a mastermind group with. Bootstrapping as a solo founder can be lonely without this. Learning to reach out has made a huge difference to both my business and my well-being.\nWhat platform/tools do you use for your business?\nI am in love with Heroku and how easy it makes it to host a backend, set up a database, etc. as a predominantly front-end developer. I send newsletters using Mailerlite and transactional emails using SendGrid ’s fantastic dynamic templates feature.\nI organize my work in Airtable of course! It has some lovely features like letting me connect a form that lets users send a feature/ integration suggestion. The Data Fetcher Help Center uses GitBook , which has an amazing free plan. Similarly, the blog uses GraphCMS ’s free plan to host blog and media content. I’m happy to pay for tools when needed, but you can get a long way on free tools like these.\nWhat have been the most influential books, podcasts, or other resources?\nPaul Graham’s book Hackers & Painters and Cal Newport’s So good they can’t ignore you are the reasons I got into software entrepreneurship and love what I do every day. Lost & Founder by Rand Fishkin helped me question a lot of the conventional wisdom around starting and running a company.\nStartup To Last is my favorite podcast as it shows the realities of running a bootstrapped software business beyond the first couple of years. Finally, I’d recommend reading Tyler Tringas’s Micro-saas ebook if you want to follow a similar path from a software developer to founder.\nAdvice for other entrepreneurs who want to get started or are just starting out?\nA huge thing is considering what market you are entering and how the specifics of it will affect your business. With Influence Grid, I struggled with 30% churn each month, and a lot of it was simply the campaign-based nature of the influencer marketing industry. I would never have even thought of that starting, but it seemed obvious in hindsight.\nWith Data Fetcher, I’m often selling to ‘prosumers’ so I’m never going to make $100s per customer, and I must carefully consider the price/ usage limits as people are fairly priced sensitive. But it also means the end-user has access to the credit card and self-serve billing works really well.\nThe next is to avoid looking for a silver bullet rather than taking action, particularly on the marketing side of things. I often get people on Twitter asking how to find customers, or asking for feedback before they launch. Their time would be better spent launching and trying 3-5 marketing channels, doubling down on what works. I had so many failed projects, but you learn loads just from launching and trying to market them.\nWhere can we go to learn more?\nTwitter\nWebsite\nYouTube\nIf you have any questions or comments, drop a comment below!\nMore Case Studies Like This\nsoftware · saas · London, England, United Kingdom\nHow We Developed A $6K/Month Online Video Editing Software\nFirst, the first $5 revenue is more exciting than millions later and marks a critical milestone. Second, listening too closely to customers can sometimes be...\n$3M/mo\nSEO\nHow-To-Guide Content\nDrift\nStripe\n23,654\nreads\nsoftware · saas · Paris, Ile-de-France, France\nGrowing A Cold Email Platform to $600K ARR in 18 months\nFirst, building a memorable brand is crucial in crowded markets to stand out beyond just having the best product. Second, enablement is key—positioning alone...\n$4M/mo\nWord of mouth\nBrand Authenticity\nSlack\nNotion\n12,238\nreads\nsoftware · saas · United States\nHow I Started A $1.6M/Month Online Surveys And Research Tools Software\nYou must have fun in what you are doing and enjoy the people you work with—if not, it’s time to rethink your path.\n$3M/mo\nDirect sales\nWord of mouth\nHubSpot\nCopper\n$60K to start\n15,911\nreads\nsoftware · saas · Scottsdale, Arizona, USA\nHow I Grew A Training & Wiki Software Tool To $2M ARR\nFirst, I learned the importance of reaching profitability before fundraising, which built a strong foundation and credibility with customers. Second,...\n$3M/mo\nAffiliate program\nAdvertising on social media\nSlack\nTrello\n11,195\nreads\nStarter Story &times; HubSpot\nFree tools for every part of your business.\nFind customers, win deals, and automate the busywork with HubSpot's free tools.\nGet started free\nFull article is available for Starter Story premium members.\nUnlock it.\n×\nGet Access To All Startup Data Right Now (it's free)\nJoin our free newsletter to get unlimited access to all startup data. We just need your email:\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\n×\nS\nStarter Story\nWant to discover ideas that\nactually\nmake money?\nGet our 5-minute email newsletter packed with business ideas and money-making opportunities, backed by real-life case studies.\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nIt's free and read by 200,000+ founders\n×\nEmail Address\nor\nContinue with Google\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nHave an account? Login by entering your email or continuing with Google.\nPlease sign in.\nEmail Address\nPassword\nLog in without password\n|\nForgot your password?\nCreate A Password\nIf you are a human, ignore this field\nEmail Address\nPassword\n2 + 2 = ?\nCheck your email for a link to sign in\nCheck your email\nWe've sent you an email with a link to sign in. Click the link in the email to access your account.\nIf there's a Starter Story account associated with that email you'll get an email with a link to automatically log in. The link will expire in 24 hours.\nYour existing password still works, should you want to log in with it later.\nS\nStarter Story\nFind the business ideas that\nactually\nmake money.\nSearch 3,123+ real, revenue-generating projects — the tools they built on, how they grew, and the full breakdown behind each one.\nS\nStarter Story\nstarterstory.com/data\nLive\nIdea\nRevenue\nCrm marketing attri...\n$100K/mo\nNo-code Airtable AP...\n$20K/mo\nPdf bank statement ...\n$40K/mo\nAi music video gene...\n$20K/mo\nS\nStarter Story\nBuild a business that changes your life, in less than 5 weeks.\nDiscover a proven system to find, validate, and build your $1M business idea—alongside a community that won't let you fail.\nOur next sprint starts soon...\nS\ntarter Story\nBuild\nWith AI, you can build\nanything\nCome up with an idea, build it, and ship an app that gets users and payments—in just a few days.\nJoin thousands of builders who are turning their ideas into real products.\n×\n×\nS\nStarter Story\nAbout\nSupport\nPrivacy\nWebsite Terms of Use\nTerms",
+     "policy": {
+      "policyId": "rights.starter-story.v1",
+      "sourceId": "src.starter-story",
+      "providerName": "Starter Story",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s12",
+     "url": "https://www.producthunt.com/products/data-fetcher-for-airtable",
+     "publisher": "Product Hunt の公開履歴",
+     "snapshot": {
+      "url": "https://www.producthunt.com/products/data-fetcher-for-airtable",
+      "finalUrl": "https://www.producthunt.com/products/data-fetcher-for-airtable",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:06.967Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "44a360f65f20fa478bb238893135ad4ecf7243ef6b211d6781df75ac099821a0"
+     },
+     "text": "Data Fetcher for Airtable: Run API requests without leaving Airtable | Product Hunt\nData Fetcher is an Airtable app that lets you run API requests. Import your marketing data, look up stock prices, send emails or do anything else you can think of using other APIs.\nData Fetcher for Airtable: Run API requests without leaving Airtable | Product Hunt\nData Fetcher is an Airtable app that lets you run API requests. Import your marketing data, look up stock prices, send emails or do anything else you can think of using other APIs.\nData Fetcher for Airtable: Run API requests without leaving Airtable | Product Hunt\nBest Products\nLaunches\nLaunch archive Most-loved launches by the community\nLaunch Guide Checklists and pro tips for launching\nNews\nNewsletter The best of Product Hunt, every day\nStories Tech news, interviews, and tips from makers\nChangelog New Product Hunt features and releases\nForums\nForums Ask questions, find support, and connect\nKitty Points Leaderboard The highest scoring community members\nStreaks The most active community members\nEvents Meet others online and in-person\nAdvertise\nSubscribe Sign in\nData Fetcher for Airtable\nRun API requests without leaving Airtable\n5.0 • 1 review • 15 followers\nRun API requests without leaving Airtable\n5.0 • 1 review • 15 followers\nVisit website\nAutomation tools\n• Marketing automation platforms\nData Fetcher is an Airtable app that lets you run API requests. Import your marketing data, look up stock prices, send emails or do anything else you can think of using other APIs.\nOverview\nLaunches 2\nReviews 1\nAlternatives\nTeam\nMore\nFollow Data Fetcher for Airtable Add to collection Share\nCompany Info\ndatafetcher.io\nData Fetcher for Airtable Info\nLaunched in 2020\nView 2 launches\nForum\np/data-fetcher-for-airtable\nSimilar Products\nAlbato\nAI-Powered No-Code Automation Platform\n4.8 ( 144 reviews ) No-code Platforms Automation tools\nZapier\nConnect your apps and automate workflows\n4.7 ( 67 reviews ) No-code Platforms Automation tools\nRelay.app\nBuild an AI team that works for you\n5.0 ( 43 reviews ) AI Workflow Automation No-Code AI Agent Builder\nPipedream\nConnect APIs, remarkably fast.\n5.0 ( 24 reviews ) No-code Platforms Automation tools\nBoltic\nAI-Powered Workflow & Automation for Enterprises\n5.0 ( 6 reviews ) No-code Platforms Data analysis tools\nView more\nSubscribe Sign in\nSocial X\nTop Product Categories\nEngineering & Development\nLLMs\nProductivity\nMarketing & Sales\nDesign & Creative\nSocial & Community\nFinance\nAI Agents\nEngineering & Development\nVibe Coding Tools\nAI Coding Agents\nAI Code Editors\nLLMs\nAI Chatbots\nAI Infrastructure Tools\nPrompt Engineering Tools\nProductivity\nAI notetakers\nNote and writing apps\nTeam collaboration software\nSearch\nAI Workflow Automation\nMarketing & Sales\nLead generation software\nMarketing automation platforms\nDesign & Creative\nVideo editing\nDesign resources\nGraphic design tools\nAI Generative Media\nSocial & Community\nSocial Networking\nProfessional networking platforms\nCommunity management\nFinance\nAccounting software\nFundraising resources\nInvesting\nAI Agents\nAI Voice Agents\nSee All Categories >>\nTrending categories\nTop reviewed\nTrending products\nTop forum threads\nTrending categories\nVibe Coding Tools\nAI Dictation Apps\nAI notetakers\nCode Review Tools\nNo-code Platforms\nFigma Plugins\nStatic site generators\nTop reviewed\nLovable\nn8n\nAttio\nPostHog\nVapi\nGranola\nRaycast\nSupabase\nTrending products\nLovable\nScreen Studio\nbolt.new\nWispr Flow\nFramer\nReplit\nVapi\nGranola\nTop forum threads\nCursor or Claude Code?\nPOLL: Domain or product first?\nYC deadline in <2 weeks; Who's applying?\nWe Got into YC, Got Kicked Out, and Fought Our Way Back\nHow Wispr Flow found PMF through pivot\nBest Vibe Coding tool so far?\nLanding page roast - 48 hours only\nFix your tagline with the PH CEO\n© 2026 Product Hunt\nNewsletter Apps About FAQ Terms Privacy & Cookies Privacy Choices Advertise llms.txt Contact us: hello@producthunt.com\nData Fetcher for Airtable Launches\nData Fetcher 2.0 Import data from anywhere into Airtable with no-code Launched on February 24th, 2022\n44\n173\nData Fetcher for Airtable Run API requests without leaving Airtable Launched on December 15th, 2020\n47\n205\n5.0\nBased on 1 review\nReview Data Fetcher for Airtable ?\nLeave a review\nReviews Most Informative\nView all\nOlivia Jeffers\n• 1 review\nDataFetcher is crucial to our operations – and as a plus, working with Andy is fantastic. He is responsive and understands our needs. New features are frequently added and the design is simplified – I can tell he's actively engaged and cares about the product.\nHelpful Share\nReport\n2 views 4yr ago\nAndy Cloke Data Fetcher for Airtable\nIncredibly kind, thank you!\nUpvote Report\nShare\n4yr ago",
+     "policy": {
+      "policyId": "rights.product-hunt.v2",
+      "sourceId": "src.product-hunt",
+      "providerName": "Product Hunt",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s13",
+     "url": "https://datafetcher.com/terms",
+     "publisher": "Data Fetcher の公式利用条件",
+     "snapshot": {
+      "url": "https://datafetcher.com/terms",
+      "finalUrl": "https://datafetcher.com/terms",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:06.981Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "38afb7a0ffb6e0c797c824fed4fa1f97c81ffe5e170193b236e1e0de44b64159"
+     },
+     "text": "Terms of Service\nThese Terms of Service govern your use of Data Fetcher's website and Airtable extension (the 'Service') operated by Influence Grid Ltd ('we,' 'our,' or 'us'). By using the Service, you agree to these Terms.\nTerms of Service\nThese Terms of Service govern your use of Data Fetcher's website and Airtable extension (the 'Service') operated by Influence Grid Ltd ('we,' 'our,' or 'us'). By using the Service, you agree to these Terms.\nTerms of Service\nIntegrations\nFeatures\nResources\nPricing\nSign in Try for free\nTerms of Service\nLast updated: 2025-04-10\n1. Introduction\nThese Terms of Service (\"Terms\") govern your use of Data Fetcher's website and Airtable extension (the \"Service\") operated by Influence Grid Ltd (\"we,\" \"our,\" or \"us\"). By using the Service, you agree to these Terms.\n2. Account Terms\n2.1 Account Creation\nTo access premium features, you must create an account with a valid email address and provide accurate billing information. You are responsible for maintaining the security of your account and for all activities that occur under your account.\n2.2 Accounts and Workspaces\nYou may access the Service through an individual user account associated with your email address\nYou are responsible for maintaining the security of your account credentials\nYou may be added to one or more workspaces, which are tied to subscriptions and usage quotas\nMultiple users may access a single workspace, and all users within a workspace share the subscription's usage limits\nYou agree not to share your account credentials with any other person\nYou agree not to misrepresent your identity or impersonate any other person\n2.3 Account Termination\nWe reserve the right to suspend or terminate accounts that violate these Terms\nWe may terminate or suspend access immediately without notice for conduct that we determine to be harmful\n3. Subscription and Payment\n3.1 Payment Terms\nSubscription fees are charged according to the plan you select\nWe offer a free plan with limited features\nAll fees are non-refundable\nPayment is processed securely through our payment processors\n3.2 Cancellation\nYou can cancel your subscription at any time by:\nVisiting datafetcher.com/sign-in\nClicking 'manage' on your workspace\nClicking 'Cancel subscription'\nUpon cancellation, you will maintain access to the Service until the end of your current billing period.\n4. Acceptable Use\n4.1 Usage Limits\nRuns and response record usage are limited based on your subscription plan\nYou agree not to attempt to circumvent these limits\n4.2 Prohibited Uses\nYou agree not to use the Service to:\nDevelop or distribute malware or malicious code\nAttempt to hack, probe, scan, or test the vulnerability of any system or network\nCircumvent any of the Service's limitations or security measures\nGenerate spam or engage in harassment\nConduct fraudulent activities\nImpersonate other individuals or services\nViolate any applicable laws or regulations\n4.3 Compliance\nYou agree to comply with all applicable local, state, national, and international laws and regulations when using the Service.\n5. Intellectual Property\n5.1 Your Content\nYou retain all rights to any data you create, import, or manage using the Service\nWe claim no intellectual property rights over the data you process\n5.2 Our Content\nThe Service, including its original content and functionality, is owned by Influence Grid Ltd and is protected by copyright and other intellectual property laws\n6. Disclaimers\n6.1 Service Availability\nWe strive to maintain the availability of our Service but do not guarantee uninterrupted access\nWe may modify, suspend, or discontinue any part of the Service at any time\n6.2 Data Processing\nThe Service processes data as provided\nWe are not responsible for the results or consequences of data processing or synchronization issues\nYou are responsible for testing and verifying your data integrations\n7. Limitation of Liability\nTo the fullest extent permitted by law, Influence Grid Ltd shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.\n8. Privacy Policy\nOur Privacy Policy, available at datafetcher.com/privacy , describes how we handle the information you provide to us when you use our Service. By using Data Fetcher, you agree to our collection, use, and disclosure practices as described in our Privacy Policy.\n9. Governing Law\nThese Terms shall be governed by and construed in accordance with the laws of the United Kingdom. Any disputes shall be subject to the exclusive jurisdiction of the courts of the United Kingdom.\n10. Changes to Terms\nWe reserve the right to modify these Terms at any time. We will notify users of any material changes by posting the new Terms on the website or through the extension.\n11. Contact Us\nIf you have any questions about these Terms, please contact us at [EMAIL_PROTECTED].\nGet in touch with us\nGet Data Fetcher\nResources\nHelp Center\nContact Support\nBlog\nVideo Tutorials\nPricing\nAbout\nCustomers\nFeatures\nAirtable Integrations\nImport Data to Airtable\nAirtable Automation\nAirtable ETL\nAirtable Generative AI\nAirtable Dashboards\nAirtable Charts\nAirtable Reports\nUse Cases\nAirtable CRM\nAirtable Project Management\nAirtable Inventory Management\nAirtable Ads Reporting\nAirtable SEO Tracking\nAirtable Web Scraping\nAll Airtable Use Cases\nTools\nAWS Signature Version 4 Calculator\nGraphQL to JSON Body Converter\nBasic Authentication Header Generator\nJavascript Formula Playground\nAI Landscape Design\n© 2026 Data Fetcher. All rights reserved.\nTerms · Privacy\nInfluence Grid Ltd, trading as Data Fetcher, is registered in England and Wales with company number 12368646",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s14",
+     "url": "https://datafetcher.com/customers/fox-logistics",
+     "publisher": "Data Fetcher の Fox Logistics 顧客紹介",
+     "snapshot": {
+      "url": "https://datafetcher.com/customers/fox-logistics",
+      "finalUrl": "https://datafetcher.com/customers/fox-logistics",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:07.285Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "cacf8aeaf90e2ce99ff7897360d7ee3a98504b82cb8b9adbb4d184a032863a68"
+     },
+     "text": "How Fox Logistics Increased Shipments 39% Using Airtable + APIs\nFox Logistics handles 100s of freight shipments daily across land, air, and sea. CEO Matt Lawrence used Data Fetcher to connect their Transportation Management System and carrier vetting tools directly to Airtable, automating processes that helped the company increase weekly shipments by 39% — without adding headcount.\nHow Fox Logistics Increased Shipments 39% Using Airtable + APIs\nFox Logistics handles 100s of freight shipments daily across land, air, and sea. CEO Matt Lawrence used Data Fetcher to connect their Transportation Management System and carrier vetting tools directly to Airtable, automating processes that helped the company increase weekly shipments by 39% — without adding headcount.\nHow Fox Logistics Increased Shipments 39% Using Airtable + APIs\nIntegrations\nFeatures\nResources\nPricing\nSign in Try for free\nCustomer Stories\nFox Logistics\nTransportation & Logistics\nHow Fox Logistics Increased Shipments 39% Using Airtable + APIs\nAutomation has made Fox Logistics a market leader in an industry where legacy technology is still commonplace. Their real-time tracking of every freight shipment—whether by land, air, or sea—places them in the top 98th percentile for on-time deliveries.\nMatt Lawrence\nCEO at Fox Logistics\n+39% Increase in shipment count from 1,800 to 2,500 per week after Data Fetcher integration, without additional headcount\nTop 2% In the market for on-time deliveries after integrating internal automatic processes\nAbout Fox Logistics\nIndustry\nTransportation & Logistics\nFounded\n1991\nEmployees\n50-200\nLocation\nRemote (HQ in Jacksonville, FL)\nRevenue\n$55M (2024)\nCEO Matt Lawrence uses Data Fetcher to integrate Airtable with Fox's Transportation Management System (TMS) and carrier vetting solution, Highway. This makes Airtable the control center for their operations and automates tasks that would require an entire team to manage manually.\nProblem Solution Impact\n• Operational data spread across multiple tools\n• Lack of Airtable / Zapier integrations\n• Using import bots was unreliable\n• Connect Airtable to third-party APIs using Data Fetcher\n• Bulk imports every few minutes\n• No-code automations triggered instantly\n• Increased shipment count from 1800 to 2500 without adding to headcount\n• Manual processes automated\n• Partners can keep using industry-specific tools, management has consolidated view of data in Airtable\nData everywhere\nFox handles 100 shipments per day. To achieve this, they must manage a network of carriers, track deliveries, and provide quotes and delivery updates to customers.\nThey rely on multiple industry-specific software tools:\nA transport management system (TMS) for tracking available carriers and deliveries\nA carrier identity solution to vet new carriers before working with them\nA freight automation platform for handling customer inquiries and providing quotes\nWith data split across various tools, Matt wanted to consolidate it into Airtable. This would give him a central source of truth, and allow him to build no-code automations on top of the data.\nA failed first attempt\nManually importing the data was out of the question: there is too much data, and it changes too frequently. Matt looked for a way to automatically import the data into Airtable.\nHe initially tried Robotic Process Automation (RPA): bots that access the third-party tools, download the data, and upload it to Airtable.\nHowever, the bots proved flaky, and the data could be inconsistent. Accurate, up-to-date information is critical to Fox’s freight customers having a good experience, so this method wasn’t good enough.\nAPIs to the rescue\nThe tools Fox uses don’t have Airtable or Zapier integrations, but they do provide REST APIs. Matt tried Data Fetcher — built natively for Airtable — as a way to connect these REST APIs directly into his base, without needing engineering support.\nMatt is a CEO, not a software developer, but he understands the fundamentals of APIs. He’s familiar with API clients like Postman, so Data Fetcher’s UI felt intuitive. Without writing code or hiring an engineer, he connected Airtable to the third-party APIs and synced in Fox’s operational data.\nData Fetcher syncs carrier, shipment, and compliance data into Airtable every five minutes, eliminating manual imports and stale dashboards. It’s faster and more reliable than downloading reports or relying on fragile bots.\nHaving the data in Airtable allows automations to be built on top of it. For example, when a new carrier submits a quote, Data Fetcher triggers an automatic vetting process through the carrier vetting solution, Highway’s API.\nFox also utilize Data Fetcher’s OpenAI integration to extract information from a picture of a driver's truck and commercial driving licence (CDL) to help verify their identity and prevent cargo theft.\nImpact of Data Fetcher\nThis approach — using Airtable as a control center and syncing live data from external systems via APIs — allows operational teams to scale without hiring engineers or rebuilding their existing systems.\nData Fetcher has allowed Airtable to become the central source of truth for Fox’s operational data. Their team and partners can keep using the industry-specific software tools they are used to, whilst giving management a consolidated view in Airtable.\nThe automations built with Data Fetcher replace tasks that used to be done manually, saving on staffing costs.\nMatt particularly loves Data Fetcher’s responsive customer support and affordable price point. In fact, he’s told us multiple times that we’re not charging Fox enough!\nWrapping up\nFox Logistics’s use of no-code has empowered their lean, remote team to earn a spot as the 230th fastest-growing company on the Inc. 5000 list and to be recognized as one of the best workplaces in 2023.\nWe’re excited to keep supporting Fox as they disrupt the logistics industry.\nWant to Airtable into your operations control center? Data Fetcher connects Airtable to any API — no engineering team required. Get started with Data Fetcher today.\nLoved by Airtable users like you\nData Fetcher customers spend less time copying data and more time using it.\nRead more reviews\n1 / 11\n\"Need data pumped into Airtable? Data Fetcher is the solution.\"\nData Fetcher is incredibly easy to use and understand. We have no API or data experience, yet our team can seamlessly integrate external data easily with Data Fetcher.\nThomas Coiner\nCEO, ProU Sports\nReady to build with Data Fetcher?\nStart connecting your data sources with Airtable today.\nTry for free\nGet in touch with us\nGet Data Fetcher\nResources\nHelp Center\nContact Support\nBlog\nVideo Tutorials\nPricing\nAbout\nCustomers\nFeatures\nAirtable Integrations\nImport Data to Airtable\nAirtable Automation\nAirtable ETL\nAirtable Generative AI\nAirtable Dashboards\nAirtable Charts\nAirtable Reports\nUse Cases\nAirtable CRM\nAirtable Project Management\nAirtable Inventory Management\nAirtable Ads Reporting\nAirtable SEO Tracking\nAirtable Web Scraping\nAll Airtable Use Cases\nTools\nAWS Signature Version 4 Calculator\nGraphQL to JSON Body Converter\nBasic Authentication Header Generator\nJavascript Formula Playground\nAI Landscape Design\n© 2026 Data Fetcher. All rights reserved.\nTerms · Privacy\nInfluence Grid Ltd, trading as Data Fetcher, is registered in England and Wales with company number 12368646",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s15",
+     "url": "https://datafetcher.com/customers",
+     "publisher": "Data Fetcher の顧客事例一覧",
+     "snapshot": {
+      "url": "https://datafetcher.com/customers",
+      "finalUrl": "https://datafetcher.com/customers",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:07.304Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "afe209e964a7a3a6e67524077fbb43399e3300c63c7c8128efd411b6d4893306"
+     },
+     "text": "Customer Stories - Data Fetcher\nSee how Airtable becomes even more powerful with Data Fetcher\nCustomer Stories - Data Fetcher\nSee how Airtable becomes even more powerful with Data Fetcher\nCustomer Stories - Data Fetcher\nIntegrations\nFeatures\nResources\nPricing\nSign in Try for free\nWhat Our Customers Are Building\nLearn how Airtable becomes even more powerful with Data Fetcher\nRead story\nManaging marketing performance across 450 dental clinics is complex. By centralizing campaign, analytics, and local SEO data in Airtable, this national dental group built a reporting system designed to scale as the network grows.\nAlly Woroniuk\nMarketing Technology Coordinator at 123Dentist\nRead story\nFox Logistics handles 100s of freight shipments daily across land, air, and sea. CEO Matt Lawrence used Data Fetcher to connect their Transportation Management System and carrier vetting tools directly to Airtable, automating processes that helped the company increase weekly shipments by 39% — without adding headcount.\nMatt Lawrence\nCEO at Fox Logistics\n+39% Increase in shipment count from 1,800 to 2,500 per week after Data Fetcher integration, without additional headcount\nTop 2% In the market for on-time deliveries after integrating internal automatic processes\nRead story\nBombayworks needed custom reports and consolidated data views that their time tracking and HR tools couldn't provide on their own. Operations Manager Karl Löfdahl connected these tools to Airtable through Data Fetcher, unlocking the ability to build internal apps and reporting dashboards without writing code.\nKarl Löfdahl\nOperations Manager at Bombayworks\nRead story\nWhen Free Methodist Church USA needed to automate background checks and onboarding for 400+ missionaries, NoCode Consulting turned to Data Fetcher to connect legacy systems with Airtable. The result: automated compliance tracking that replaced hours of manual verification with a reliable daily sync.\nConnor\nFounder at NoCode Consulting\nTrusted by teams at\nLoved by Airtable users like you\nData Fetcher customers spend less time copying data and more time using it.\nRead more reviews\n1 / 11\n\"Need data pumped into Airtable? Data Fetcher is the solution.\"\nData Fetcher is incredibly easy to use and understand. We have no API or data experience, yet our team can seamlessly integrate external data easily with Data Fetcher.\nThomas Coiner\nCEO, ProU Sports\nReady to build with Data Fetcher?\nStart connecting your data sources with Airtable today.\nTry for free\nGet in touch with us\nGet Data Fetcher\nResources\nHelp Center\nContact Support\nBlog\nVideo Tutorials\nPricing\nAbout\nCustomers\nFeatures\nAirtable Integrations\nImport Data to Airtable\nAirtable Automation\nAirtable ETL\nAirtable Generative AI\nAirtable Dashboards\nAirtable Charts\nAirtable Reports\nUse Cases\nAirtable CRM\nAirtable Project Management\nAirtable Inventory Management\nAirtable Ads Reporting\nAirtable SEO Tracking\nAirtable Web Scraping\nAll Airtable Use Cases\nTools\nAWS Signature Version 4 Calculator\nGraphQL to JSON Body Converter\nBasic Authentication Header Generator\nJavascript Formula Playground\nAI Landscape Design\n© 2026 Data Fetcher. All rights reserved.\nTerms · Privacy\nInfluence Grid Ltd, trading as Data Fetcher, is registered in England and Wales with company number 12368646",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "Google Sheets で売れていた API Connector と Airtable の利用者フォーラムを調べ、その Airtable 版を新しい拡張売り場に出した。開始時は月 USD 12 だった課金を、本人1人の専業体制のまま MRR USD 23,000 まで育てた。",
+     "basis": [
+      "f11",
+      "f12",
+      "f31",
+      "f32"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "Airtable の拡張売り場が独立開発者に開くことに賭けて開発を始めた。初版の開発に1か月、審査にさらに3か月かかり、2020年12月15日に初掲載された。開始時は無料100回、課金は月 USD 12。USD 15、18 へ値上げしても MRR は約 USD 600 で止まったため、最安プランを USD 24 へ上げた。2021年末に専業へ移り、12月に用意済みの接続を増やした改版を出した。2022年3月には有料客190人、MRR USD 6,500。同年、取材記事からの流入と大口契約が重なり、MRR USD 10,000 に達した。2023年8月からは約5か月伸びが止まり、月次解約は10〜11%だった。12月に年払い50%割引を入れ、料金表の初期表示を年払いに切り替えると、解約は約7%へ下がった。2024年の取材時点で MRR は USD 23,000。",
+     "basis": [
+      "f11",
+      "f40",
+      "f46",
+      "f12",
+      "f14",
+      "f38",
+      "f21",
+      "f34",
+      "f31"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "Airtable の中で外部 API・CSV・XML・RSS や Google Analytics・Facebook Ads・OpenAI のデータを取り込む拡張を売っている。拡張自体は無料で入れられ、取り込みの実行回数・応答件数・利用人数・自動実行の間隔で段階的に課金する。Airtable の売り場には課金の仕組みが無いため、本人が自社サイトで Stripe 決済を受け、売り場に手数料を払わない形をとる。月払いか年払いを選べ、上限に達すると自動実行が止まって上位プランへの切り替えを促す。",
+     "basis": [
+      "f1",
+      "f5",
+      "f7",
+      "f8",
+      "f9",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pricing",
+     "item": "PRICING",
+     "text": "無料枠は期限が無く、月100回実行・応答10,000件・保存した処理5件・1人まで。年払いの月換算は、Starter USD 15（月3,000回・応答300,000件・1人・30分ごとの自動実行）、Pro USD 30（10,000回・1,000,000件・3人・5分ごと）、Business USD 75（40,000回・4,000,000件・10人）、Business+ USD 112（80,000回・8,000,000件・20人）。年払いは最大48%の割引と表示している。1回の実行は外部への要求1件で、ページ分割した分は追加で数える。失敗した要求は数えないが、変化の無い応答も件数に入る。料金は返金不可で、いつでも解約でき、支払済みの期間は使える。",
+     "basis": [
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f10",
+      "f47"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "金を払っているのは、Airtable を業務の台帳に使う組織と個人。公式の顧客紹介には次の例が載っている。運送管理システムのデータを Airtable に集める Fox Logistics、450か所の歯科診療所のマーケティングデータを管理する歯科グループ、400人超の宣教師の身元確認と受け入れを管理する教会団体、従業員の工数・人事データを統合する会社。各組織の規模は販売者の紹介による。一方で本人は、主な客を値段に敏感な「プロシューマー」と位置づけている。無料枠で数か月使ったあと、具体的な用途ができてから課金する客もいる。",
+     "basis": [
+      "f50",
+      "f51",
+      "f27",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "業界専用のソフトにデータが散らばり、それぞれに Airtable や Zapier との連携が無い。手作業での取り込みは量も更新頻度も多すぎて回らない。Fox Logistics は先に RPA のボットで取り込みを試したが、動作が不安定でデータも食い違った。Data Fetcher に切り替えた後は、人数を増やさずに週の出荷件数を1,800件から2,500件へ伸ばした。",
+     "basis": [
+      "f50",
+      "f51"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "開発中から Twitter で進み具合を発信し、関心を持った人を案内ページに集めてメールアドレスを登録してもらった。公開と同時にその名簿へ通知し、Airtable の集まりやフォーラムにも投稿した結果、最初の2週間で客がついた。その後 Product Hunt でも公開している。最初の50人の客を得るまでには約6か月かかった。",
+     "basis": [
+      "f41",
+      "f26"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "2022年3月時点では、客の70〜80%が Airtable の拡張売り場から、約20%が記事と動画から来ていた。無料利用者の約10%が課金に進む。その後の取材では、記事と動画からの客が30〜40%まで増えたと本人が答えている。動画1本あたりの再生数は少ないが、見る人の目的がはっきりしていて客になりやすい。Google Maps を取り込む動画は8回の再生で1人が客になり、最も人気の動画は約1,000回の再生で30人超の客につながった。一方で、Airtable が無料プランから拡張機能を外したことなどで、売り場からの新規登録は減った。",
+     "basis": [
+      "f42",
+      "f27",
+      "f13",
+      "f37"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "外部から投資は受けていない。本人が以前作った Influence Grid を MRR USD 3,000 まで育てて USD 55,000 で売却し、その代金を開発期間中の生活費・ドメイン・Heroku に充てた。開発は本人1人で行い、主な投資は時間だった。専業は今も本人1人で、Indeed で採った制作外注2人に記事と動画を任せている。これで本人の制作作業は週2〜3日から、半日の確認に減った。2023年初めに1日2時間の客対応担当を採ったが、合わずに終わった。サポート通話は週に数時間以内に収めている。",
+     "basis": [
+      "f45",
+      "f39",
+      "f40",
+      "f32",
+      "f17",
+      "f33",
+      "f20"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-tools",
+     "item": "TOOLS",
+     "text": "画面側は React・TypeScript と Airtable の Blocks SDK、裏側は Node.js・TypeScript・PostgreSQL・GraphQL で作り、Heroku で動かしている。決済は Stripe。ニュースレターは Mailerlite、取引メールは SendGrid で送る。ヘルプセンターは GitBook、ブログは GraphCMS。誰でも予約できるサポート通話は Calendly で受け付け、簡単な問い合わせは自作の管理画面で処理している。",
+     "basis": [
+      "f28",
+      "f10",
+      "f44",
+      "f20"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "製品も集客も Airtable に依存している。客の大半は Airtable の売り場から来る。自動実行は Airtable の REST API に頼っており、利用者が表の名前を変えるだけで自動実行が失敗する。Airtable が無料プランから拡張機能を外し、料金を変えたときには新規登録が減った。API に実行回数の制限が入ったときも、対応に追われた。インフラは Heroku と Redis に乗っており、障害対応や規模の拡大への対応に数週間を取られた。利用条件では可用性を保証していない。",
+     "basis": [
+      "f29",
+      "f37",
+      "f42",
+      "f19",
+      "f49"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "客を引き留める仕組みは弱い。定期の自動実行を業務に組み込んだ客は抜けにくく、Fox Logistics は出荷データの同期を業務の中心に据えている。それでも月次の総解約は約10%、純解約は約5%あった。単発の用途で使った客や、Airtable 自体をやめた客の解約は止められない。データの所有権は客側にあり、乗り換えを妨げる条件は無い。2023年8月からの停滞期には、月次解約が10〜11%に戻った。",
+     "basis": [
+      "f16",
+      "f50",
+      "f48",
+      "f34"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-incumbent_blindspot",
+     "item": "INCUMBENT_BLINDSPOT",
+     "text": "Airtable の中で数百の客に月 USD 15〜112 を課金する市場は、ベンチャー投資の資金で動く会社が狙うには小さすぎる。本人もこの点を、売り場に大きな競合がいない理由として挙げている。Data Fetcher は外部資金を入れず自力で黒字を出しているので、急成長を求められずにこの規模の市場に居続けられる。最大の脅威は、Airtable 自身が同じ機能を本体に組み込むことである。",
+     "basis": [
+      "f3",
+      "f45",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "発想の元は Google Sheets 向けの API Connector で、その Airtable 版として後から出た。客の代わりの手段は、手作業での取り込みや RPA のボット、Zapier のような連携ツールである。ただし Fox Logistics が使う業界専用ソフトには、Airtable や Zapier との連携が無かった。表面の機能は数か月で真似できても、何百件と直してきた例外処理、レビュー、客や Airtable との関係は真似しにくい。一方で接続先が40以上に増えて保守が重くなり、接続の追加には慎重になった。",
+     "basis": [
+      "f11",
+      "f50",
+      "f36"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2020年12月15日に Airtable 向けの拡張として初掲載された。2021年末に本人が専業になり、12月に改版を出した。2022年2月24日に 2.0 を掲載し、2022年3月時点で有料客190人・MRR USD 6,500。2022年中に MRR USD 10,000 に達した。2023年8月から約5か月停滞し、12月に年払いの割引を導入した。2024年の取材時点で MRR USD 23,000。利用条件の最終更新は2025年4月10日で、事業は続いている。",
+     "basis": [
+      "f46",
+      "f14",
+      "f38",
+      "f21",
+      "f34",
+      "f31",
+      "f47"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "Airtable の拡張売り場が独立開発者に開いた直後に出した。競合のほとんどいない棚に並んだことで、宣伝をしなくても毎日少しずつ新規登録が入り、2022年3月時点で客の70〜80%がこの売り場から来ていた。期限の無い無料枠を置いたことで、数か月後に具体的な用途ができた時点で課金する客を逃さなかった。2021年12月の改版では用意済みの接続を増やし、API を知らない人でも使えるようにした。",
+     "basis": [
+      "f11",
+      "f42",
+      "f27",
+      "f14",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "先行者が強く後発は困難。Airtable が無料プランから拡張機能を外して料金も変えたため、売り場からの新規登録そのものが減っている。売り場の初期に棚を取った優位は、今から入る後発には無い。一方で Data Fetcher は接続先を40以上抱え、例外処理を積み重ねてきた。",
+     "basis": [
+      "f37",
+      "f42",
+      "f36"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "成熟した土台（Google Sheets）で売れている道具を、開いたばかりの土台（Airtable）の売り場へ持ち込み、競合のいない棚を先に取った。成長が止まった時期には値上げと年払いの割引で手を打ち、月次解約を10〜11%から約7%へ下げて伸びを取り戻した。",
+     "basis": [
+      "f11",
+      "f12",
+      "f34"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f30",
+    "f31",
+    "f32",
+    "f33",
+    "f34",
+    "f35",
+    "f36",
+    "f37",
+    "f38",
+    "f39",
+    "f40",
+    "f41",
+    "f42",
+    "f43",
+    "f44",
+    "f45",
+    "f46",
+    "f47",
+    "f48",
+    "f49",
+    "f50",
+    "f51"
+   ],
+   "identity": {
+    "id": "ent_data_fetcher_8e6a5e22ce2a",
+    "name": "Data Fetcher",
+    "url": "https://datafetcher.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_8c70d2149d3efdf91658d55b",
+      "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://datafetcher.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:38:49.193Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "8c70d2149d3efdf91658d55b0ad2e829e909fa4964068cd163f43fba8d6b339f",
+      "bytes": 385929,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Data Fetcher 公式サイト (https://datafetcher.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_data_fetcher_8e6a5e22ce2a/8c70d2149d3efdf91658d55b0ad2e829e909fa4964068cd163f43fba8d6b339f.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_f87668fb120381c0f7024f9d",
+      "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+      "kind": "favicon",
+      "sourcePageUrl": "https://datafetcher.com/",
+      "assetUrl": "https://datafetcher.com/favicon.ico",
+      "retrievedAt": "2026-10-07T10:38:49.487Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "f87668fb120381c0f7024f9d5d1a4ed09149131ab5269176de147228aa85a4ed",
+      "bytes": 69694,
+      "contentType": "image/vnd.microsoft.icon",
+      "width": 128,
+      "height": 128,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Data Fetcher 公式サイト (https://datafetcher.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:42:30.734Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/vnd.microsoft.icon 128x128)、SHA-256が台帳と一致 (f87668fb1203)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_data_fetcher_8e6a5e22ce2a/f87668fb120381c0f7024f9d5d1a4ed09149131ab5269176de147228aa85a4ed.ico",
+       "publicKey": "media/ent_data_fetcher_8e6a5e22ce2a/f87668fb120381c0f7024f9d5d1a4ed09149131ab5269176de147228aa85a4ed.ico"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_f87668fb120381c0f7024f9d",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:30.734Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/vnd.microsoft.icon 128x128)、SHA-256が台帳と一致 (f87668fb1203)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_21664d443fb7f3ebe6446f30",
+      "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://datafetcher.com/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:38:52.176Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "21664d443fb7f3ebe6446f3025cb655b8e376158cda1dd1e3ba77f27da4d8650",
+      "bytes": 255413,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Data Fetcher 公式サイト (https://datafetcher.com/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_data_fetcher_8e6a5e22ce2a/21664d443fb7f3ebe6446f3025cb655b8e376158cda1dd1e3ba77f27da4d8650.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_62687af68b4c5c985f870fe6",
+      "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+      "kind": "og_image",
+      "sourcePageUrl": "https://datafetcher.com/",
+      "assetUrl": "https://datafetcher.com/images/Data%20Fetcher%20OG.png",
+      "retrievedAt": "2026-10-07T10:38:58.273Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "62687af68b4c5c985f870fe6584b663a9d8c5e46b4409c60cee812d0f40265ab",
+      "bytes": 472414,
+      "contentType": "image/png",
+      "width": 1200,
+      "height": 630,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Data Fetcher 公式サイト (https://datafetcher.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:42:30.478Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_data_fetcher_8e6a5e22ce2a/62687af68b4c5c985f870fe6584b663a9d8c5e46b4409c60cee812d0f40265ab.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_62687af68b4c5c985f870fe6",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:30.478Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_f87668fb120381c0f7024f9d"
+    ],
+    "problems": []
+   },
+   "caseHash": "54514a8feb3ef26063960d6d1de91b7ca68581066f4a66b98f2d726e831ba9e1",
+   "itemHashes": {
+    "fact:f1": "a2cf09ba7a7ce19d3d358804ba1f2a6738369f8f2d92468ef49fa5c07266bda1",
+    "fact:f3": "b5a2a26017ed419796cd236f697a1f3233c07eb1d3ca053d9aa6ef0ee8fedd2f",
+    "fact:f4": "126e31798a758e1ea5e3379d6cffef718352ca54388a3519c39e2ee30f99a595",
+    "fact:f5": "efaa16de218e4738c625a2f97dfee8519d433ca8801f084e6f4de668fbb16b81",
+    "fact:f6": "5374ffde3cf981512c6fad44ab756cbd330545b9ee811fc1e1bc2161aa60615a",
+    "fact:f7": "26cd1d7affab39d6568cc2f425ff23d1a9d870a0420ef5afa85f36f3c6aaac35",
+    "fact:f8": "f3f9c541e60595032d2afd7479fd1c00540500f8c95b7de5c014debf976a34c6",
+    "fact:f9": "a20cfac891ac821692f9ad22f971a43dffdcc470fe7ad939c2bc9f91401c195e",
+    "fact:f10": "b1bbcf48ea2c7f977e3b68fc9c4e5b79fe9883ae34b8b354d1105cb0b23e18fd",
+    "fact:f11": "0a00908fd1a9b6679d106c703f10ff4fdf9bfa8102324a786aadba6753106c93",
+    "fact:f12": "cf12ba4ead584ad03ebec229294b7caeee1c63e946e2193c7b42fc7905cf1cc2",
+    "fact:f13": "f85c06aea28777ff71a7599641fcf6cd9303232b206dbc2ae4be491781abc12f",
+    "fact:f14": "dee7fab81f737572111f97417eac1efcf718738c083217151e0819bb0fdf233c",
+    "fact:f15": "f317bea05a08eb70a3b25b4b8ea27dc9f7a00b153063fadffe209b4f5bea9f43",
+    "fact:f16": "c0ca8c56099195f66fa876c3a160ec45b4e5e9d5ff74b75a013430d50584f08f",
+    "fact:f17": "4a74608074ad4d40db66824e9409e00925152b488fd23c5020b3de545a9f24a4",
+    "fact:f18": "0c5d445bdafc284715c72d6b834bde0658956f0c21a42b4de467afeaa280ca83",
+    "fact:f19": "10a4b8eaac59bdb905699e90f121269f53a9deac32c76edee825e6ec1a1b0234",
+    "fact:f20": "629368bd9d9d3bb5e15ecb9b8204007958ff9c91383a01b10ac25a758200c436",
+    "fact:f21": "f1b42662c1096e3c24db341927c0922b6ff20c10518b44780fdcbaa68db84a43",
+    "fact:f26": "f1224b457770ae4cce0708828179e95c283a61022cc57aeb113372a3fe1935e9",
+    "fact:f27": "2e0e351a1fcdf2539e50ecf7fd3a7fafa3363d79b69e1133108d6095c154764c",
+    "fact:f28": "6ff203c81bf9ea5b2af5085dfe877838af710c6d35dcec78679303d60c169bcd",
+    "fact:f29": "33d3d2041424314db3454b96a8ad265d3a646fd10bcca7708307577a5b5565dc",
+    "fact:f30": "c3b6a95bb8e9260b98192021dfdc462a62de4b8406f9dbfc3e9d81522a64b21b",
+    "fact:f31": "6e9160245ed31e5e0f274cd35df681765f448fddd3e86889a0bfd2ef5205151f",
+    "fact:f32": "d76f268d23a3ab97e59288abab21e8a8f44dec1019711fb48929dc6926fd7fc1",
+    "fact:f33": "8c0e31df8d463d17f29de4772a04114d97ef871272ade41500166354983bc736",
+    "fact:f34": "19fd10687cd0f0f2ce7f34f2b2f82d9f5665d0e68775faabea3e2819946416f5",
+    "fact:f35": "452c488c47be11b0a2b61159d4f8a9c852a6b806b5536657b1e6e6bc2485018a",
+    "fact:f36": "4bc351d61871a13f950bbcae2a96a5a9293c9aeffcff00e419a65739f1865846",
+    "fact:f37": "c6f592cb8d795319e12cbe3c59a5c94cf53c00419b07059a5ae4dd39ee396770",
+    "fact:f38": "b03230780d086b5ba48f3d7a0e4a396577f52b01218ea7b6039080093e07c380",
+    "fact:f39": "905029b36251ea19cb712d0b582d3c3feece780c10fe3d58d8187aa8c440c2ba",
+    "fact:f40": "1cde187d883b5463a32f6b980966f0dc34d717d1d148efe7e54a6998212a3b13",
+    "fact:f41": "c5cade0e45e199d2e699327df51227276a8e0686f6901476c9e9df4619797555",
+    "fact:f42": "eb64b7cfc2091a5b51b123ff0409e1f7ce96ca546aa1607b993c51cc94484cb2",
+    "fact:f43": "6779f438f6c25af7d8635f6c708527e449762d00aee929b606534518ab4e52ed",
+    "fact:f44": "02e96bfddfdc5f7a63c52b419df58db3d821ce3b1293800cf6b8e12e8976aa65",
+    "fact:f45": "b5c5ef39592fab2c48c3efa4c60e6235570015ce1983ede0b8da8bdb01445df2",
+    "fact:f46": "63a2c36ea81e715dddb30cd97e29b70b8d45c1291a81ba41a553101dbf858d7a",
+    "fact:f47": "e4fc1659bfdf1d07aaaedebf113ad32a1785d292212e99519dd1bcb75a3ab5de",
+    "fact:f48": "6faa422b2375f192776f6f61cd15aac9e4238b0cbc24200992de4d23773ea7f9",
+    "fact:f49": "f23060ae405aa3b1973d04c577acf72b6dce4e004913985a4a7399c22e5badd4",
+    "fact:f50": "5bd227b5b6a9874fc5166b822c149c38004aa703d99f15ea16f2bb9a1a470fa7",
+    "fact:f51": "991b777ab5464b4a431ade9567f2dbc1aedcc2bf89410b280ecbf1006c942f18",
+    "analysis:a-headline": "11ba264de0095b9d2bf4f17a00fa48248ca80c5766315e820a541f31432e4262",
+    "analysis:a-story": "353ebf452f9e9a6b962290728ddfc02edc395129089cc32ce1f36a18418e7e5c",
+    "analysis:a-business_model": "6248f81265b29b58ac47b377450529124c517d9df1ed4170c9710ce3495a7b51",
+    "analysis:a-pricing": "a44021468fae6dab12a2f69adb62b14ed6cbfda5290c368cc323f92c52b2e1ea",
+    "analysis:a-customer": "52bc3b4a646a2f19d48448c6c26a7c757ab92af972480ae066d2c86918d92a48",
+    "analysis:a-customer_pain": "302a8951227d8b3d1c29b30816f7a7a670bc409c568273610ada538be6fecc79",
+    "analysis:a-first_customers": "4c2970cdde89b359b4fb0c2fadd15491f6c22c2056b29da22139acb0ea7c5e63",
+    "analysis:a-channels": "e4f3f77ef90527cdedbbe992ee054a4c898265cd0d32e091d0151058f30c4e16",
+    "analysis:a-capital_and_team": "8c8c032c1dc040733f1dcc996b22aaa71debafa635d879e7a31f14bdbbfd4fe0",
+    "analysis:a-tools": "f0252625f7409052c26d7f18d1f309c0040e796dde969f827bf0abe73bdc66e3",
+    "analysis:a-dependencies": "18a2cb6884c71976c5aac51489e65112ae8527f4d08648fba55a23c3e1ccc9f8",
+    "analysis:a-lock_in": "000f8f8262a4cefb26cb63e663b3c0232eb39b4ca88c3ab6b516bb42393a3e06",
+    "analysis:a-incumbent_blindspot": "2a6458070213c5460440305cf30627e5c90aa35cf07657c129735a1e21e8434b",
+    "analysis:a-competition": "8126abe447ff3cd20f1de5f38f689d9b4066f1321fc5a0a3bf8ee6f127a80114",
+    "analysis:a-timeline": "ce32f416fbca464bccf9ed4219ef2f2e2e713b7b505f20e92eda9873fd46f8b0",
+    "analysis:a-why_it_worked": "b41fedd99314250bdd8b3a65e2ccd16970082903188ec97216451603d9e53f29",
+    "analysis:a-viability": "880300540b4d86b5666ec48b4d7a9d07f6bd6a8139b1e943dd25e3512e12bdc0",
+    "analysis:a-lesson": "544b8732856e27ce489530901ead8d3487cc242bd9df703a89bdf3baf05dabc9"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f26",
+    "fact:f27",
+    "fact:f28",
+    "fact:f29",
+    "fact:f30",
+    "fact:f31",
+    "fact:f32",
+    "fact:f33",
+    "fact:f34",
+    "fact:f35",
+    "fact:f36",
+    "fact:f37",
+    "fact:f38",
+    "fact:f39",
+    "fact:f40",
+    "fact:f41",
+    "fact:f42",
+    "fact:f43",
+    "fact:f44",
+    "fact:f45",
+    "fact:f46",
+    "fact:f47",
+    "fact:f48",
+    "fact:f49",
+    "fact:f50",
+    "fact:f51",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-pricing",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-tools",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-incumbent_blindspot",
+    "analysis:a-competition",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-viability",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://datafetcher.com/about",
+      "publisher": "Data Fetcher の公式紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s2",
+      "url": "https://datafetcher.com/pricing",
+      "publisher": "Data Fetcher の公式料金",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr",
+      "publisher": "Andy Cloke の月間定期売上までの回顧",
+      "publishedAt": "2022-09-12",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9",
+      "publisher": "Upen の取材に対する Andy Cloke の回答",
+      "publishedAt": "2022-08-18",
+      "checkedAt": "2026-10-07",
+      "kind": "LISTING"
+     },
+     {
+      "id": "s6",
+      "url": "https://news.ycombinator.com/item?id=32506627",
+      "publisher": "Hacker News の andycloke の補足",
+      "publishedAt": "2022-08-18",
+      "checkedAt": "2026-10-07",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s8",
+      "url": "https://www.starterstory.com/stories/data-fetcher",
+      "publisher": "Starter Story の2024年の追跡取材",
+      "checkedAt": "2026-10-07",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s9",
+      "url": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year",
+      "publisher": "Starter Story の最初の取材本文",
+      "publishedAt": "2022-03-07",
+      "checkedAt": "2026-10-07",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s12",
+      "url": "https://www.producthunt.com/products/data-fetcher-for-airtable",
+      "publisher": "Product Hunt の公開履歴",
+      "checkedAt": "2026-10-07",
+      "kind": "LISTING"
+     },
+     {
+      "id": "s13",
+      "url": "https://datafetcher.com/terms",
+      "publisher": "Data Fetcher の公式利用条件",
+      "publishedAt": "2025-04-10",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s14",
+      "url": "https://datafetcher.com/customers/fox-logistics",
+      "publisher": "Data Fetcher の Fox Logistics 顧客紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s15",
+      "url": "https://datafetcher.com/customers",
+      "publisher": "Data Fetcher の顧客事例一覧",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "Airtable 内で外部データを取り込む拡張機能。REST、GraphQL、CSV、XML、RSS と、OpenAI・Google Analytics・Facebook Ads 等の接続を扱う。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "DESCRIPTION",
+      "text": "公式は自力資金で黒字、数百の顧客と数千の利用者に提供すると記載。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "DESCRIPTION",
+      "text": "運営者は England・Wales 登記の Influence Grid Ltd、会社番号12368646。現在は外注の協力者がいると紹介。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "DESCRIPTION",
+      "text": "無料枠は月100回実行、応答10,000件、保存した処理5件、1人。期限付き試用ではなく無料枠は期限なし。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "DESCRIPTION",
+      "text": "年払いの月換算表示は Starter が USD 15、Pro が USD 30、Business が USD 75、Business+ が USD 112。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "DESCRIPTION",
+      "text": "Starter は月3,000回・応答300,000件・1人・30分ごとの実行、Pro は10,000回・1,000,000件・3人・5分ごとの実行。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "DESCRIPTION",
+      "text": "Business は月40,000回・応答4,000,000件・10人、Business+ は80,000回・8,000,000件・20人と表示。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "DESCRIPTION",
+      "text": "1回の実行は外部への要求1件で、ページ分割は追加で数える。失敗した要求は数えず、変化のない応答も件数に数える。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "DESCRIPTION",
+      "text": "上限に達すると自動実行が止まる。決済は Stripe、いつでも解約でき、年払いは最大48%割引と表示。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "DESCRIPTION",
+      "text": "Google Sheets の API Connector と Airtable の利用者フォーラムを調べ、新しい拡張売り場向けに作ると決めた。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "DESCRIPTION",
+      "text": "開始時は無料100回、課金は月 USD 12。価格を USD 15、18 へ上げても MRR は約 USD 600 で停滞し、その後最安プランを USD 24 へ上げたと回顧。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "DESCRIPTION",
+      "text": "Google Maps を取り込む動画は8視聴で1人が客になり、最も人気の動画は約1,000視聴で30人超の客につながったと本人が追跡。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "DESCRIPTION",
+      "text": "2021年末に専業へ移り、12月に用意済み接続を増やした改版を出した。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "DESCRIPTION",
+      "text": "有料利用分を謝礼にした操作試験で、客が実際に使う場面を観察した。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "DESCRIPTION",
+      "text": "月次の総解約約10%、純解約約5%と説明。自動実行の失敗に関わるエラーを直し、単発利用や Airtable 離脱による解約は避けられないと述べた。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "DESCRIPTION",
+      "text": "Indeed で制作外注2人を採り、本人の制作週2〜3日を半日の確認へ変えたと記載。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "DESCRIPTION",
+      "text": "monday.com 向けを6週間試したが、更新の遅さと制限があり断念。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "DESCRIPTION",
+      "text": "Heroku と Redis 周りの障害対応や規模増への対応に数週間を使った。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "DESCRIPTION",
+      "text": "簡単な問い合わせ向けに管理画面を作り、Calendly で誰でも予約できるサポート通話を設け、通話は週に数時間を超えないと記載。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "DESCRIPTION",
+      "text": "2022年の取材流入と大口の契約後、MRR が USD 10,000 に達したと記載。",
+      "sourceId": "s3",
+      "statedAt": "2022-09-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f26",
+      "kind": "DESCRIPTION",
+      "text": "記事の題名では MRR USD 8,600 とされ、最初の50人の客を得るまで約6か月と本人が回答。",
+      "sourceId": "s5",
+      "statedAt": "2022-08-18",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f27",
+      "kind": "DESCRIPTION",
+      "text": "記事と動画からの客が30〜40%と回答。無料利用から数か月後、具体的な用途が生じて課金する客がいると説明。",
+      "sourceId": "s5",
+      "statedAt": "2022-08-18",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f28",
+      "kind": "DESCRIPTION",
+      "text": "React、TypeScript、Airtable の Blocks SDK と、Node.js、TypeScript、PostgreSQL、GraphQL、Heroku を使うと回答。",
+      "sourceId": "s5",
+      "statedAt": "2022-08-18",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f29",
+      "kind": "DESCRIPTION",
+      "text": "バックエンドは Airtable REST API に依存し、表の名前変更で自動実行が失敗するなどの癖への対応が必要と説明。",
+      "sourceId": "s5",
+      "statedAt": "2022-08-18",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f30",
+      "kind": "DESCRIPTION",
+      "text": "取材後に MRR が USD 9,400 へ増えたと投稿。取材本文の USD 8,600 とは観測時点が違う。",
+      "sourceId": "s6",
+      "statedAt": "2022-08-18",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f31",
+      "kind": "DESCRIPTION",
+      "text": "2024年の取材本文では MRR USD 23,000、利用者数千人、有料客数百人と記載。",
+      "sourceId": "s8",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f32",
+      "kind": "DESCRIPTION",
+      "text": "専業は本人1人で、制作担当と元同僚の開発担当などの時間勤務の協力者を使うと説明。",
+      "sourceId": "s8",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f33",
+      "kind": "DESCRIPTION",
+      "text": "2023年初めに1日2時間の客対応担当を採ったが、合わず終了したと説明。",
+      "sourceId": "s8",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f34",
+      "kind": "DESCRIPTION",
+      "text": "2023年8月から約5か月停滞し、月次解約は10〜11%。12月に年払い50%割引と年払いの初期表示を導入後、約7%になったと申告。",
+      "sourceId": "s8",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f35",
+      "kind": "DESCRIPTION",
+      "text": "説明文と商品を直し、顧客が増えても対応の件数を1日3件から2件へ減らしたと申告。",
+      "sourceId": "s8",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f36",
+      "kind": "DESCRIPTION",
+      "text": "接続先が40以上になり保守が重く、接続を増やす判断を慎重にしたと説明。",
+      "sourceId": "s8",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f37",
+      "kind": "DESCRIPTION",
+      "text": "Airtable の無料プランからの拡張機能削除や料金変更により新規登録が減り、API の実行回数制限への対応も必要になったと説明。",
+      "sourceId": "s8",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f38",
+      "kind": "DESCRIPTION",
+      "text": "2022年3月の本文では有料客190人、MRR USD 6,500。見出しの USD 23,000 をこの時点の売上に使わない。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f39",
+      "kind": "DESCRIPTION",
+      "text": "以前の Influence Grid は MRR USD 3,000 へ育て USD 55,000 で売却。代金を生活費・ドメイン・Heroku に使ったと説明。新事業の初期費用総額ではない。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f40",
+      "kind": "DESCRIPTION",
+      "text": "初版開発に1か月、審査にさらに3か月かかったと回顧。開発は本人が行い主な投資は時間だったと説明。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f41",
+      "kind": "DESCRIPTION",
+      "text": "Twitter で開発を伝えて案内ページにメールを集め、公開時に通知し Airtable の集まりへ投稿。最初の2週間で客を得たと説明。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f42",
+      "kind": "DESCRIPTION",
+      "text": "2022年3月時点は客の70〜80%が売り場、約20%が記事・動画経由。無料利用者の約10%が課金すると本人が説明。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f43",
+      "kind": "DESCRIPTION",
+      "text": "サーバーと道具は月約 USD 500、本人給与前の利益率約90%と表現。給与・外注・税等の全費用を含む純利益とは扱わない。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f44",
+      "kind": "DESCRIPTION",
+      "text": "Mailerlite、SendGrid、Airtable、GitBook、GraphCMS を運営に使用。GitBook と GraphCMS は無料枠と説明。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f45",
+      "kind": "DESCRIPTION",
+      "text": "外部投資は受けていないと説明した。",
+      "sourceId": "s9",
+      "statedAt": "2022-03-07",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f46",
+      "kind": "DESCRIPTION",
+      "text": "初掲載は2020年12月15日、2.0 の掲載は2022年2月24日。",
+      "sourceId": "s12",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f47",
+      "kind": "DESCRIPTION",
+      "text": "最終更新表示は2025年4月10日。料金は返金不可、随時解約し支払済み期間は使えると記載。",
+      "sourceId": "s13",
+      "statedAt": "2025-04-10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f48",
+      "kind": "DESCRIPTION",
+      "text": "顧客データの所有は顧客にあり、サービス提供者は所有権を主張しないと記載。",
+      "sourceId": "s13",
+      "statedAt": "2025-04-10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f49",
+      "kind": "DESCRIPTION",
+      "text": "停止や中断があり得る条件と可用性保証をしない旨がある。取り込んだデータは利用者が確認する条件。",
+      "sourceId": "s13",
+      "statedAt": "2025-04-10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f50",
+      "kind": "DESCRIPTION",
+      "text": "Fox Logistics は Data Fetcher 導入後、人数を増やさず週の出荷が1,800件から2,500件に増えたと紹介。",
+      "sourceId": "s14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f51",
+      "kind": "DESCRIPTION",
+      "text": "顧客の用途として、450か所の歯科診療所のデータ管理、400人超の宣教師の管理、従業員の工数・人事データの統合を掲載。各組織の人数は販売者の紹介。",
+      "sourceId": "s15",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM",
+     "CHANNEL",
+     "TOOLS",
+     "PRICING",
+     "FOUNDED"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "Google Sheets で売れていた API Connector と Airtable の利用者フォーラムを調べ、その Airtable 版を新しい拡張売り場に出した。開始時は月 USD 12 だった課金を、本人1人の専業体制のまま MRR USD 23,000 まで育てた。",
+      "basis": [
+       "f11",
+       "f12",
+       "f31",
+       "f32"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "Airtable の拡張売り場が独立開発者に開くことに賭けて開発を始めた。初版の開発に1か月、審査にさらに3か月かかり、2020年12月15日に初掲載された。開始時は無料100回、課金は月 USD 12。USD 15、18 へ値上げしても MRR は約 USD 600 で止まったため、最安プランを USD 24 へ上げた。2021年末に専業へ移り、12月に用意済みの接続を増やした改版を出した。2022年3月には有料客190人、MRR USD 6,500。同年、取材記事からの流入と大口契約が重なり、MRR USD 10,000 に達した。2023年8月からは約5か月伸びが止まり、月次解約は10〜11%だった。12月に年払い50%割引を入れ、料金表の初期表示を年払いに切り替えると、解約は約7%へ下がった。2024年の取材時点で MRR は USD 23,000。",
+      "basis": [
+       "f11",
+       "f40",
+       "f46",
+       "f12",
+       "f14",
+       "f38",
+       "f21",
+       "f34",
+       "f31"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "Airtable の中で外部 API・CSV・XML・RSS や Google Analytics・Facebook Ads・OpenAI のデータを取り込む拡張を売っている。拡張自体は無料で入れられ、取り込みの実行回数・応答件数・利用人数・自動実行の間隔で段階的に課金する。Airtable の売り場には課金の仕組みが無いため、本人が自社サイトで Stripe 決済を受け、売り場に手数料を払わない形をとる。月払いか年払いを選べ、上限に達すると自動実行が止まって上位プランへの切り替えを促す。",
+      "basis": [
+       "f1",
+       "f5",
+       "f7",
+       "f8",
+       "f9",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pricing",
+      "item": "PRICING",
+      "text": "無料枠は期限が無く、月100回実行・応答10,000件・保存した処理5件・1人まで。年払いの月換算は、Starter USD 15（月3,000回・応答300,000件・1人・30分ごとの自動実行）、Pro USD 30（10,000回・1,000,000件・3人・5分ごと）、Business USD 75（40,000回・4,000,000件・10人）、Business+ USD 112（80,000回・8,000,000件・20人）。年払いは最大48%の割引と表示している。1回の実行は外部への要求1件で、ページ分割した分は追加で数える。失敗した要求は数えないが、変化の無い応答も件数に入る。料金は返金不可で、いつでも解約でき、支払済みの期間は使える。",
+      "basis": [
+       "f5",
+       "f6",
+       "f7",
+       "f8",
+       "f9",
+       "f10",
+       "f47"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "金を払っているのは、Airtable を業務の台帳に使う組織と個人。公式の顧客紹介には次の例が載っている。運送管理システムのデータを Airtable に集める Fox Logistics、450か所の歯科診療所のマーケティングデータを管理する歯科グループ、400人超の宣教師の身元確認と受け入れを管理する教会団体、従業員の工数・人事データを統合する会社。各組織の規模は販売者の紹介による。一方で本人は、主な客を値段に敏感な「プロシューマー」と位置づけている。無料枠で数か月使ったあと、具体的な用途ができてから課金する客もいる。",
+      "basis": [
+       "f50",
+       "f51",
+       "f27",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "業界専用のソフトにデータが散らばり、それぞれに Airtable や Zapier との連携が無い。手作業での取り込みは量も更新頻度も多すぎて回らない。Fox Logistics は先に RPA のボットで取り込みを試したが、動作が不安定でデータも食い違った。Data Fetcher に切り替えた後は、人数を増やさずに週の出荷件数を1,800件から2,500件へ伸ばした。",
+      "basis": [
+       "f50",
+       "f51"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "開発中から Twitter で進み具合を発信し、関心を持った人を案内ページに集めてメールアドレスを登録してもらった。公開と同時にその名簿へ通知し、Airtable の集まりやフォーラムにも投稿した結果、最初の2週間で客がついた。その後 Product Hunt でも公開している。最初の50人の客を得るまでには約6か月かかった。",
+      "basis": [
+       "f41",
+       "f26"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "2022年3月時点では、客の70〜80%が Airtable の拡張売り場から、約20%が記事と動画から来ていた。無料利用者の約10%が課金に進む。その後の取材では、記事と動画からの客が30〜40%まで増えたと本人が答えている。動画1本あたりの再生数は少ないが、見る人の目的がはっきりしていて客になりやすい。Google Maps を取り込む動画は8回の再生で1人が客になり、最も人気の動画は約1,000回の再生で30人超の客につながった。一方で、Airtable が無料プランから拡張機能を外したことなどで、売り場からの新規登録は減った。",
+      "basis": [
+       "f42",
+       "f27",
+       "f13",
+       "f37"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "外部から投資は受けていない。本人が以前作った Influence Grid を MRR USD 3,000 まで育てて USD 55,000 で売却し、その代金を開発期間中の生活費・ドメイン・Heroku に充てた。開発は本人1人で行い、主な投資は時間だった。専業は今も本人1人で、Indeed で採った制作外注2人に記事と動画を任せている。これで本人の制作作業は週2〜3日から、半日の確認に減った。2023年初めに1日2時間の客対応担当を採ったが、合わずに終わった。サポート通話は週に数時間以内に収めている。",
+      "basis": [
+       "f45",
+       "f39",
+       "f40",
+       "f32",
+       "f17",
+       "f33",
+       "f20"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-tools",
+      "item": "TOOLS",
+      "text": "画面側は React・TypeScript と Airtable の Blocks SDK、裏側は Node.js・TypeScript・PostgreSQL・GraphQL で作り、Heroku で動かしている。決済は Stripe。ニュースレターは Mailerlite、取引メールは SendGrid で送る。ヘルプセンターは GitBook、ブログは GraphCMS。誰でも予約できるサポート通話は Calendly で受け付け、簡単な問い合わせは自作の管理画面で処理している。",
+      "basis": [
+       "f28",
+       "f10",
+       "f44",
+       "f20"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "製品も集客も Airtable に依存している。客の大半は Airtable の売り場から来る。自動実行は Airtable の REST API に頼っており、利用者が表の名前を変えるだけで自動実行が失敗する。Airtable が無料プランから拡張機能を外し、料金を変えたときには新規登録が減った。API に実行回数の制限が入ったときも、対応に追われた。インフラは Heroku と Redis に乗っており、障害対応や規模の拡大への対応に数週間を取られた。利用条件では可用性を保証していない。",
+      "basis": [
+       "f29",
+       "f37",
+       "f42",
+       "f19",
+       "f49"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "客を引き留める仕組みは弱い。定期の自動実行を業務に組み込んだ客は抜けにくく、Fox Logistics は出荷データの同期を業務の中心に据えている。それでも月次の総解約は約10%、純解約は約5%あった。単発の用途で使った客や、Airtable 自体をやめた客の解約は止められない。データの所有権は客側にあり、乗り換えを妨げる条件は無い。2023年8月からの停滞期には、月次解約が10〜11%に戻った。",
+      "basis": [
+       "f16",
+       "f50",
+       "f48",
+       "f34"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-incumbent_blindspot",
+      "item": "INCUMBENT_BLINDSPOT",
+      "text": "Airtable の中で数百の客に月 USD 15〜112 を課金する市場は、ベンチャー投資の資金で動く会社が狙うには小さすぎる。本人もこの点を、売り場に大きな競合がいない理由として挙げている。Data Fetcher は外部資金を入れず自力で黒字を出しているので、急成長を求められずにこの規模の市場に居続けられる。最大の脅威は、Airtable 自身が同じ機能を本体に組み込むことである。",
+      "basis": [
+       "f3",
+       "f45",
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "発想の元は Google Sheets 向けの API Connector で、その Airtable 版として後から出た。客の代わりの手段は、手作業での取り込みや RPA のボット、Zapier のような連携ツールである。ただし Fox Logistics が使う業界専用ソフトには、Airtable や Zapier との連携が無かった。表面の機能は数か月で真似できても、何百件と直してきた例外処理、レビュー、客や Airtable との関係は真似しにくい。一方で接続先が40以上に増えて保守が重くなり、接続の追加には慎重になった。",
+      "basis": [
+       "f11",
+       "f50",
+       "f36"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2020年12月15日に Airtable 向けの拡張として初掲載された。2021年末に本人が専業になり、12月に改版を出した。2022年2月24日に 2.0 を掲載し、2022年3月時点で有料客190人・MRR USD 6,500。2022年中に MRR USD 10,000 に達した。2023年8月から約5か月停滞し、12月に年払いの割引を導入した。2024年の取材時点で MRR USD 23,000。利用条件の最終更新は2025年4月10日で、事業は続いている。",
+      "basis": [
+       "f46",
+       "f14",
+       "f38",
+       "f21",
+       "f34",
+       "f31",
+       "f47"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "Airtable の拡張売り場が独立開発者に開いた直後に出した。競合のほとんどいない棚に並んだことで、宣伝をしなくても毎日少しずつ新規登録が入り、2022年3月時点で客の70〜80%がこの売り場から来ていた。期限の無い無料枠を置いたことで、数か月後に具体的な用途ができた時点で課金する客を逃さなかった。2021年12月の改版では用意済みの接続を増やし、API を知らない人でも使えるようにした。",
+      "basis": [
+       "f11",
+       "f42",
+       "f27",
+       "f14",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "先行者が強く後発は困難。Airtable が無料プランから拡張機能を外して料金も変えたため、売り場からの新規登録そのものが減っている。売り場の初期に棚を取った優位は、今から入る後発には無い。一方で Data Fetcher は接続先を40以上抱え、例外処理を積み重ねてきた。",
+      "basis": [
+       "f37",
+       "f42",
+       "f36"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "成熟した土台（Google Sheets）で売れている道具を、開いたばかりの土台（Airtable）の売り場へ持ち込み、競合のいない棚を先に取った。成長が止まった時期には値上げと年払いの割引で手を打ち、月次解約を10〜11%から約7%へ下げて伸びを取り戻した。",
+      "basis": [
+       "f11",
+       "f12",
+       "f34"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

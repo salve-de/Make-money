@@ -182915,14 +182915,15 @@
    "claimText": "Workweek Lunch の Talia Koren は、50人に3週間の無料試用を実施した後、メールと Instagram で会員サービスを告知したと説明している。Memberful の集客施策ではなく顧客の実例である。"
   },
   "f12": {
-   "verdict": "PARTIAL",
+   "verdict": "HELD",
    "quote": "I have 750 members in just two months. It grew way faster than I thought it would grow.",
    "fix": {
     "text": "同じ顧客は、初期数週間に300人が登録し、開始2か月で750人の会員になったと述べた。"
    },
    "sourceUrl": "https://memberful.com/customers/workweek-lunch",
    "checkedAt": "2026-10-07",
-   "claimText": "同じ顧客は、初期数週間に300人が登録し、開始2か月で750人の会員になったと述べた。暦上の実施年月と会員の有料・無料の内訳は記載されていない。"
+   "claimText": "同じ顧客は、初期数週間に300人が登録し、開始2か月で750人の会員になったと述べた。暦上の実施年月と会員の有料・無料の内訳は記載されていない。",
+   "reason": "原文照合で1回不合格: 文の数字が原文に無い"
   },
   "f13": {
    "verdict": "SUPPORTED",
@@ -183261,14 +183262,15 @@
    "claimText": "n8n の事例は、週100件から2,000件へ問い合わせが増える中で、Plain の基盤に自社 AI を組み合わせたと説明する。導入後約1週間半で最初の AI 連携を公開した。"
   },
   "f29": {
-   "verdict": "PARTIAL",
+   "verdict": "HELD",
    "quote": "Before Plain, customers waited 2-3 weeks for responses. Now, enterprise customers get responses in 6-8 hours on average, with complex tickets fully resolved in 1-2 days.",
    "fix": {
     "text": "n8n は AI を問い合わせの60%に使い、問い合わせ20倍に対し対応チームを2倍にしたと説明している。導入前は顧客が応答を2〜3週間待っていたが、現在は企業顧客への応答が平均6〜8時間になったという。"
    },
    "sourceUrl": "https://www.plain.com/customers/n8n",
    "checkedAt": "2026-10-07",
-   "claimText": "n8n は AI を問い合わせの60%に使い、問い合わせ20倍に対し対応チームを2倍にしたと説明している。企業顧客への応答は導入前の2〜3週間から平均6〜8時間になったという。"
+   "claimText": "n8n は AI を問い合わせの60%に使い、問い合わせ20倍に対し対応チームを2倍にしたと説明している。企業顧客への応答は導入前の2〜3週間から平均6〜8時間になったという。",
+   "reason": "原文照合で1回不合格: 文の数字が原文に無い"
   },
   "f30": {
    "verdict": "SUPPORTED",
@@ -183299,12 +183301,13 @@
  },
  "ent_poolsuite_6d5ad6895563": {
   "f1": {
-   "verdict": "SUPPORTED",
+   "verdict": "HELD",
    "quote": "But everyone shares playlists that barely anyone listens to. I need to build an experience around it to make it spread.",
    "fix": {},
    "sourceUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
    "checkedAt": "2026-10-07",
-   "claimText": "Marty Bell は、プレイリストを共有するだけでは聞かれにくいと考え、音楽に 1980 年代の浜辺の映像を合わせた体験を作ろうとした。"
+   "claimText": "Marty Bell は、プレイリストを共有するだけでは聞かれにくいと考え、音楽に 1980 年代の浜辺の映像を合わせた体験を作ろうとした。",
+   "reason": "原文照合で1回不合格: 文の年が原文に無い"
   },
   "f2": {
    "verdict": "PARTIAL",
@@ -185404,14 +185407,15 @@
    "claimText": "取材後に MRR が USD 9,400 へ増えたと投稿。取材本文の USD 8,600 とは観測時点が違う。"
   },
   "f31": {
-   "verdict": "PARTIAL",
+   "verdict": "HELD",
    "quote": "Data Fetcher has thousands of users and several hundred paying customers. We’re at $23,000 MRR",
    "fix": {
     "text": "2024年の取材本文では MRR USD 23,000、利用者数千人、有料客数百人と記載。"
    },
    "sourceUrl": "https://www.starterstory.com/stories/data-fetcher",
    "checkedAt": "2026-10-07",
-   "claimText": "2024年の取材本文では MRR USD 23,000、利用者数千人、有料客数百人と記載。正確な人数はない。"
+   "claimText": "2024年の取材本文では MRR USD 23,000、利用者数千人、有料客数百人と記載。正確な人数はない。",
+   "reason": "原文照合で1回不合格: 文の年が原文に無い"
   },
   "f32": {
    "verdict": "SUPPORTED",
@@ -186452,12 +186456,13 @@
    "claimText": "同調査で導入が容易との回答82%、毎日または数日ごとの利用61%。有料継続率とは異なる。"
   },
   "f14": {
-   "verdict": "SUPPORTED",
+   "verdict": "HELD",
    "quote": "I'm really excited to share what I have been working on the side since late November last year. I am a one-person team",
    "fix": {},
    "sourceUrl": "https://news.ycombinator.com/item?id=20811287",
    "checkedAt": "2026-10-07",
-   "claimText": "Jenは2018年11月末から副業で開発し、1人で作ったと公開投稿した。"
+   "claimText": "Jenは2018年11月末から副業で開発し、1人で作ったと公開投稿した。",
+   "reason": "原文照合で1回不合格: 文の年が原文に無い"
   },
   "f15": {
    "verdict": "PARTIAL",
@@ -186736,14 +186741,15 @@
    "claimText": "公式サイトは以前の名称がNotionFormsだったと明記。"
   },
   "f3": {
-   "verdict": "PARTIAL",
+   "verdict": "HELD",
    "quote": "Trusted by 130.000+ users and companies",
    "fix": {
     "text": "利用者と企業が合わせて130,000以上という案内がある。"
    },
    "sourceUrl": "https://noteforms.com/",
    "checkedAt": "2026-10-07",
-   "claimText": "利用者と企業が合わせて130,000以上という案内がある。有料顧客数ではない。"
+   "claimText": "利用者と企業が合わせて130,000以上という案内がある。有料顧客数ではない。",
+   "reason": "原文照合で1回不合格: 文の数字が原文に無い"
   },
   "f4": {
    "verdict": "SUPPORTED",

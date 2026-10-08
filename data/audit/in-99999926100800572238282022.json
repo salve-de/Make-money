@@ -1,0 +1,1119 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_snipcart_9a1012111695",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "既存サイトに買物カートを追加する、開発者・制作会社向けの製品。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "TOOL",
+     "text": "サイトへJavaScriptを追加し、商品ボタンへHTML属性を付けて組み込む。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "HTMLを編集できればWordPressなど既存の仕組みと組み合わせられる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "OTHER",
+     "text": "所在地はカナダのQuébec City。著作権表記の法人名はSnipcart inc.。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "FOUNDING",
+     "text": "Charlesは最初の版を2013年8月に公開したと説明。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "FOUNDING",
+     "text": "Spektrumの顧客の古いASPサイトへ販売機能を追加する仕事が発端だった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "TEAM",
+     "text": "Franckは最初の従業員で、後にパートナーになったと説明。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "最初の2年間はJamstackを意識していなかったと説明。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "6月のCarbon Ads広告費は$1,575、表示は464,464回だったと記述。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "CHANNEL",
+     "text": "登録19件、実取引に至った利用者5人、1人当たり広告費$315と記述。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "専用の着地ページを用意すべきだったと記述。再び広告費を使うなら、Syndicateのように有用な内容を自社の製品と結びつける形を試すと記述。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "EVENT",
+     "text": "Carbon Ads実験記事の初出日を2014年7月3日と掲載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "CHANNEL",
+     "text": "開発者へ訴求し、実際に支払う商店主や上司へ提案してもらう形だった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "OTHER",
+     "text": "大企業の営業や個別要望を処理する余力がなく、個人の開発者へ広く訴求した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "商店主はShopify、開発者はMoltinやFoxy.ioを比較対象にしやすいと観察。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "PRICING",
+     "text": "取引額の2%を課金し、決済会社の手数料は別にかかる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "PRICING",
+     "text": "月販$1,000 USD未満は2%に代えて月額$20 USD。請求通貨はUSD。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "PRICING",
+     "text": "開発用の試験利用は期限なしで無料、カード登録も不要。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "OTHER",
+     "text": "通常プランは処理した月間販売額をもとに請求。料金はUSDで税別、返金不可と記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "OTHER",
+     "text": "価格変更は60日前にメール通知。管理画面かメールで解約でき、最終請求がある。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "TOOL",
+     "text": "注文・顧客の検索、編集、返金、書き出しを管理画面で扱うと説明。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "OTHER",
+     "text": "Ayo Adesinaの紹介文は導入の容易さとサポートチームの対応の良さを評価。公式の紹介ページに掲載された推薦文。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f26",
+     "kind": "OTHER",
+     "text": "最低料金$20の理由に、サポート品質と稼働しない店舗の抑制を挙げている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f27",
+     "kind": "OTHER",
+     "text": "注文・顧客の書き出しと、個人データの写し・削除のメール依頼窓口を案内。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://snipcart.com/about",
+     "publisher": "Snipcart 公式紹介",
+     "snapshot": {
+      "url": "https://snipcart.com/about",
+      "finalUrl": "https://snipcart.com/about",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:27.912Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "f3c615e3b77b456ce6497611d3e65bb88144f3d0c6688360f71b8d864445ccb8"
+     },
+     "text": "About - Snipcart\nAbout\nSnipcart is a flexible shopping cart platform for developers. Learn more about our team, background, philosophy and product.\nSnipcart is a flexible shopping cart platform for developers. Learn more about our team, background, philosophy and product.\nAbout - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nWho are we?\nWe’re a team of geeks from Québec City, Canada. We empower developers and agencies all over the world by offering them a flexible, HTML/JS-based shopping cart solution.\nAny street cred?\nSnipcart is an e-commerce solution that came straight out of Spektrum Media’s startup program. We’ve been crafting great software for important businesses and organizations in Canada and the US for a decade now. Our team of experienced developers, designers and managers has built extensive management platforms that range from a simple shopping cart to a complete inventory management system integrated with an ERP.\nWhat's our mission?\nCurrently, there is virtually no lean, easy solutions for e-commerce based on real developers and designers needs. Sure, there are TONS of e-commerce solutions designed for merchants, but almost none for web designers and developers that actually build the solution. In that sense, Snipcart has been created to remove the pain of building amazing e-commerce platforms into any website. As a dedicated team, we pledge to the following statements:\nDeliver a beautiful and easy to integrate shopping cart platform;\nDevelop user-driven features based on real pains and requirements;\nProvide out-of–this-world personalized support and help;\nAlways offer a developer-oriented product.\nWhy is our product awesome?\nBecause it’s technology-independent\nSnipcart has been built technology and CMS independent. Whether you use PHP, Ruby, Python, .NET, Java or God knows what, Snipcart can be plugged in, as long as you have control over your outputted HTML Markup. CMS, you say? No problem! If it’s WordPress, Joomla!, Drupal, Umbraco or your favourite homemade in-house platform, again, if you have access to the HTML you can easily use Snipcart and start selling online within minutes.\nBecause it’s fully customizable\nBy playing with the CSS and our API, you’ll be able to make sure your cart looks and acts the way you want it to. Cart design and behaviour are as customizable as you’ll need them to be. Visit this page on customization for more details. Of course, the cart is also fully responsive.\nBecause it’s simple\nIt’s a clean and simple solution, solely HTML-based, just like developers like it. To give you an idea, Snipcart can be integrated in 2 easy steps:\nIncluding the JavaScript magic script to your site (Just like you would with Google Analytics, for instance).\nAdding the markup for your products to any buttons or links.\nWant to learn more?\nIf you want to know more about ourselves or our product, you can read our blog , where we share insights on our startup journey, technical tips, and updates on our product development.\nJoin thousands of developers & merchants\nTry for free Testing is forever free, no credit card required\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+     "publisher": "Snipcart 公式対談",
+     "snapshot": {
+      "url": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "finalUrl": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:28.291Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "d696162a9b7f1d846590930ba10dfb7bc8feae5cc4c7018e6cf1a4cfbe45657a"
+     },
+     "text": "Jamstack E-Commerce: A Conversation - Snipcart\nJamstack E-Commerce: A Conversation\nDive into Jamstack e-commerce and tools. Read to this broad conversation between Static Bits host Josh and Snipcart founders Franck & Charles\nDive into Jamstack e-commerce and tools. Read to this broad conversation between Static Bits host Josh and Snipcart founders Franck & Charles\nJamstack E-Commerce: A Conversation - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nBlog\nJamstack\nUpdated on\nMar 21, 2022\nJamstack & E-Commerce: A Broad Discussion\nFrançois Lanthier Nadeau\nCEO, Snipcart\nIntroduction\nJosh: Welcome to another episode of Static Bits , a podcast that focuses on building web sites with the JAMstack and generally learning web development. In this episode we have two special guests from Snipcart which is a drop-in shopping cart solution for static web sites. We talk about building e-commerce on a static site , selling the JAMstack to clients, and contributing to the JAMstack in general. Check this one out, guys, I know you'll love it.\nJosh: How are you guys doing?\nFranck: Yeah doing great.\nCharles: Good too, yourself?\nJosh: Very good. And if you guys can introduce yourself...\nFranck: Yeah. So I'm Franck . I live in Quebec City, Canada. I'm a good friend of Charles, who's also on the podcast right now. And I've been working with Snipcart for something like five years. I was the first employee and became partner. I’m doing mostly content marketing, SEO, training new people, analytics on the product, trying to connect with developers... that kind of stuff.\nCharles: And I'm Charles , one of the co-founders of Snipcart. So I've been with Snipcart since the beginning and I mostly write code.\nJosh: Awesome. Well welcome on the show. This is this is such a pleasure!\nFranck: Yeah, it's a pleasure to be here. Thanks for having us.\nJosh: I kind of say this every time but I'm like besides myself with the way this podcast is going and it's totally organic. Like I had never heard of you guys until I think the second episode. I was talking to Leon Stafford and he said something about, you know, Snipcart and I'm like, \"What is this?\" And then two episodes later, here we are.\nFranck: That's awesome. I mean you had some great guests who are all representing cool tools, you know, in the ecosystem. So it's an honor to be here, and it's cool to connect with someone who's making his own effort to contribute to the JAMstack and the static site generator space.\nJosh: Right. Yeah, I think there is a lot of value in my kind of super newbie-ness... I'm just not afraid to say \"I don't know that, what are you talking about?”\nFranck: I think actually that's your USP. If I put on my annoying \"marketing guy hat\", it’s like your unique selling point with that podcast.\nJosh: There you go. I'm gonna need to learn more and more about all this marketing stuff because that's technically my job now at this company. My day job that is.\nSnipcart Origins\nJosh: So anyway I guess we'll jump right into the questions here. I prepared a little bit for you guys. So what is Snipcart?\nFranck: Charles you gonna do the classic one here?\nCharles: Yeah yeah I will. Basically, Snipcart is an e-commerce solution for developers. So you can very easily add an e-commerce solution to any website, just with some HTML markup and JavaScript inclusion. So it's very easy to work with the static sites, especially.\nFranck: Yes, it's very frontend centric. We rely mostly on HTML and JavaScript. The funny thing about Snipcart is that it has no JAMstack origins. Like we stumbled into the whole static site and JAMstack movement organically I'd like to say. \"By accident\" is the right way to say it.\nCharles: The first two years of Snipcart we never really heard about JAMstack or anything related to static site generators. We knew that they existed but it wasn't, like, a thing , like it is today.\nJosh: Right. What was the first site you guys supported... was it like WordPress at first or something?\nFranck: That's a great story. I don't remember the exact stack but here’s what happened. So Snipcart was launched inside a web development agency in Quebec City called Spektrum . These guys have been running for like 10 years now. And there was this old school client who supported Spektrum from the beginning and he wanted to have us add e-commerce to his site. But it was a dusty code base and Charles didn't want to get his hands dirty. So he had to try to figure out a workaround and some kind of fix for that. That's the shaky origin story of Snipcart!\nCharles: To give you an idea, it was classic ASP under the hood. So you don't want to touch that too much.\nJosh: Oh God yeah. I just don't even really know what that is. Is that Microsoft?\nCharles: Yeah. It's like an old Microsoft thing. It has nothing to do with what Microsoft is doing nowadays. It's like active server pages and it was not something very fun to work with. But at the time it was quite popular so that's why we wrote the initial website with that stack.\nJosh: Right. Did you guys have anything else to add to the origin story at all?\nFranck: We can expend just a little. Yeah. I mean that was 2013-ish. Maybe a little before Charles?\nCharles: Yeah actually we launched our first version on August 2013.\nFranck: So we didn't follow the traditional binary startup way you know, you either bootstrap or you get VC funding. We didn't do either. We really bootstrapped a product inside a web development agency that kind of acted as our first financier. That provided time, money and resources for Charles mostly to code on this project and encouraged him to basically quit his job, and stop being a developer at Spektrum but start being a founder and lead developer at Snipcart. So that's a cool hybrid part that I like to push a little bit...to realize there are more options to get your business off the ground.\nJosh: Yeah I love that. So basically... alternatively they could have just kind of said, \"No this is our software you're developing it on our dime.\" Right?\nCharles: Yeah, they could have. But this was one of the values that the agency likes to promote: intrapreneurship .\nSnipcart & Static Sites\nJosh: So you didn't start with static sites. Was it hard to adapt Snipcart to a static site or...?\nFranck: No not at all because... (Charles is going to correct me if I just say stupid development things because I'm not a developer per se. I know my way around some basic stuff). But yeah, that disclaimer being said: Snipcart from the get-go was hooked to the static part of any website. So regardless of your database, server, regardless of anything behind these static files, we didn't care. We could just plug into your HTML, add a JavaScript snippet, and then you were good to go.\nJosh: Wow. So you didn’t even know you were developing for the JAMstack. I mean... that term didn't exist then.\nCharles: No it didn't.\nFranck: I remember when it didn't exist at all. It’s funny because the guys at Netlify , the founders Mathias and Chris... I remember having a call or a few emails with them saying that they were talking with Tom Preston-Werner from GitHub and Jekyll, and they were just annoyed with the whole static vocabulary. They came up with the JAMstack term and coined it. At that time I was like, \"Hey I'm not sure but, you know, why not give it a go and try to do some content around that and push it and see if it sticks.\" I didn't know it would stick that well.\nJosh: Yeah well JAM is pretty sticky stuff. So how does Snipcart solve the problem of having a shopping cart on a static site?\nCharles: Actually Snipcart takes care of everything that you’d need a server for. In the JAMstack, it is the API part. We take care of ending the checkout process, keeping the cart in memory, we allow merchants to retarget their abandoned carts. Those are all things that you could not necessarily do only with a static site generator because you’d need a server... something to process that data.\nJosh: I think it's just so interesting that for you guys it was almost trivial to enter the JAMstack space because you were already there.\nCharles: Yes. On a static site, it's probably the most simple way to integrate Snipcart, because you just have some HTML and that's it.\nFranck: Yeah the product definition is basically HTML markup. It's data attributes that say what's the price, the name of the item, where it’s at, what's the image and description. Then we crawl that and add that to your JavaScript shopping cart. The one we handle and make pop on top of your website.\nJosh: Oh wow. That's so cool. So it's just like in a data tag or something like that?\nFranck: Yeah.\nJosh: I can't wait to mess with it. I plan on trying to do some sort of a little site for myself and just put a shopping cart in there. I don't know what I'm gonna sell yet. I'm just so excited to learn all this stuff and at the same time I'm not in a hurry, you know?\nFranck: Well maybe you can sell podcasts ads.\nJosh: There you go.\nDiscussing Jamstack Tools\nJosh: I do have a loose plan of rebuilding the entire Static Bits site myself.\nFranck: And what kind of JAM would you pick?\nJosh: Well right now I'm still just working with Jekyll for the most part.\nFranck: Cool.\nJosh: And I think it's enough. I still have a lot to learn there. I think a lot of it. In the TakeShape episode they were talking about how, for the most part, if I can understand how to write my own Jekyll templates, I should be able to go into GraphQL without much difficulty.\nFranck: The fun thing about Jekyll too is that it's the older brother, right? I mean it's got this more active community because it's been around longer. So all of the resources and the theming and the ecosystem around it. You've got Jekyll-specific CMSs that are very neat like CloudCannon . I think it's a super nice entry point into the static site generator space.\nJosh: Yeah.\nCharles: This is the first one that we tried at Snipcart, too.\nFranck: No actually Chuck it was, remember, Middleman .\nCharles: Yeah you're right.\nFranck: We were just trying stuff out on the blog. To see if some would stick in terms of marketing. Charles was like, \"Oh yeah I've seen this Middleman thing on XYZ forum.\" I was like, \"Okay let's do it. We're in experimentation phase anyway.” And this post ended up ranking high on Google and driving traffic and even sign-ups. We were like, \"Alright there's an appeal to this kind of tooling here, it’s evolving.\" That was 2015 if I'm not mistaken.\nJosh: That seems kind of like the turning point, 2015—2016. It started getting a lot more powerful... or not powerful but popular AND powerful.\nFranck: Yeah. And that's around the time BitBallon became Netlify, too, if I'm not mistaken. Or was it 2014? I.\nJosh: I think you're right. It's close.\nFranck: Yeah, anyway people can go listen to the Phil Hawksworth episode .\nJosh: Yeah. Phil might have said that that episode.\nFranck: And they can get, you know, his smooth British voice and accent instead of our violent French Canadian one.\nJosh: Yeah it was a pleasure to talk to him. You know it's like... it's great. But that's how it is with podcasting because I'm talking to people from around the world.\nFranck: And that's one of the beautiful things about development in general. There's just like... this cross-culture, cross-boundaries, cross-nationalities.\nFranck: Actually we just released a case study about a guy from Paris that did Maison Futari , which is kind of an e-commerce shop built in Vue with Snipcart but he's selling developer t-shirts with the word developer in a whole bunch of languages. Just this idea of connecting devs all around the world and it's super dope.\nChallenges of Building a Jamstack E-Commerce Solution\nJosh: What was the main hurdle you overcame with developing Snipcart?\nCharles: When we add buttons to the website, those are just HTML attributes. Anyone could alter those attributes with developer tools. So we needed to find a way to somehow validate the integrity of the order before processing the payment. So, yeah we ended up with a solution: when you create a product... when you and your “buy button” on your website, you have to specify the item URL with a specific attribute. And our servers would crawl back this URL and make sure that all the information about the product is all right so it has not been altered by someone with knowledge about how Chrome works.\nJosh: Was there any other more minor hurdles other than that?\nFranck: I guess, scale-wise we had some challenges.\nCharles: Snipcart grew quite a bit and it's the largest application that I've been working on. We ended up having some issues with database scaling that I never really had to deal with before because I was mostly working on client projects at the agency Spektrum. Those were more small-scale applications than Snipcart. But, I mean, that's fun stuff to learn and to work with!\nFranck: Yeah. And the good news is that if you're building with the JAMstack and some frontend centric project, you don't have to do that. We'll do it for you.\nJamstack vs. Full Stack, Frontend, Backend\nJosh: That's kind of the beauty of it. I feel — I think I said it on another episode — but I feel like I almost don't even have to worry about any server stuff at least for quite a little while. You know, as far as backend goes.\nFranck: Yeah, well it depends. Right? Because if you get into the whole serverless approach and stack a few functions then, depending on the tooling you're using there...there might be some issues. But generally speaking, I agree.\nJosh: Right. I guess that leads to a side question. So there's the term \"frontend,\" \"backend\" and then \"full stack.\" Do you guys think that the JAMstack is like the antithesis of \"full stack\"? Like is it really drawing a line in the sand between the front and backend?\nFranck: I'm going to try and answer and if I do massacre the paradigm or philosophy too much, Charles can interrupt me at any time. I think in a way it does draw a line in the sand. But the beauty of it is that... that line isn't hermetic or closed, meaning that you can do all of that... you generate all of your HTML, CSS, and JavaScript in the front and have your sweet hermetic JAMstack. But then if you decide that you want to play with data and play with servers or whatever, there's this door that's opening wider and wider, regarding serverless computing and these kinds of functions. There are all sorts of backend services, functions as a service platforms . So I'd say it depends. It is drawing a line but not that closed of a line. Am I making sense?\nJosh: It's not a border wall.\nFranck: If you're going to get political, sure!\nJosh: Ah man, anyway. What do you think about that, Charles?\nCharles: Yeah, I think Franck mostly had it right. I think that nowadays, no matter what you do on the web, the backend and frontend are getting closer and closer. When you work on an application, most of the time you're going to use a single page application framework such as React or Vue . And I think that it requires more development skills than it took a couple of years ago when you were working as a frontend developer on the web. I think that all those terms like \"frontend,\" \"backend,\" \"full-stack\" are coming together, especially in web development.\nJamstack, JavaScript Bloat & TypeScript\nJosh: Yeah I guess it's just a heavy dose of \"it depends,\" you know? It opens another question: do you think that the JAMstack leads to a lot of JavaScript bloat? Because this is what's kind of powering it.\nCharles: Yeah I think it can. It can lead to a lot of JavaScript, of course, but I think that it's where most of the web development is going anyway. So I don't think it's a bad thing.\nFranck: JavaScript is so open and so large as a language in itself and I feel like Javascript done right... it's all right if there's heaps and loads of JavaScript on your site. I know we have started experimenting with TypeScript which is way more secure, more rigid... like there's this uniformity and its scales better and there's less errors and whatnot. But yeah I think if you don't tread carefully you can have JS bloat in your app.\nCharles: But I think that, in general, JavaScript development has improved a lot since the last couple of years. I remember the days where you included jQuery and added a function that JS would find in the website and it was doing all of the work, all the animation and everything. We've come a long way from that stage.\nJosh: Yeah. So you're coding in TypeScript but it compiles into JavaScript in the end anyway. Right?\nCharles: Yeah. TypeScript is a superset of JavaScript. So basically all it does is add in IDE tools for your VS code and the likes. So you get IntelliSense and all those cool things about type checking. You can write plain JavaScript even if you are working with TypeScript. But when you're a team working on a project you can use TypeScript to ensure that everything is written the same way and the typing and everything helps a lot with maintaining a large code base.\nJosh: Yeah, I guess one of the thoughts behind my question is... it just seems like another piece of tooling that I don't need.\nFranck: I think I heard you mention Wes Bos a few times on the podcast so I'm guessing you're a listener of Syntax, the show they're doing.\nJosh: Yeah, I need to listen a little more. I haven't listened lately.\nFranck: So Scott and Wes, they tackle that question very thoroughly in one episode . And the question is like “should I learn TypeScript?” And there's a lot of, \"of course it depends\" and nuance in their answer. Basically I think that if you're starting out with JavaScript, you shouldn't bother with TypeScript right now. But the situation that Charles mentioned paints a picture of where it comes into play. When you've got a bigger team and a larger code base and there needs to be uniformity and scalability and easy tracking of what went wrong, now it might have value.\nFranck: But like you said there's—JavaScript bloat is one thing—but you mentioned on your show with Phil that there's tooling bloat also. There's just so, so many tools. And just trying to find, like, trying to find out how everything works is... well, can be intimidating in itself. Which kind of leads me to one of the coolest discussions I had in 2018 was with Ohad, one of the first investors in Netlify. Right now he's starting something called Stackbit and the whole idea is to simplify getting up and running with the JAMstack. To abstract all of that tooling stuff, and just give you some kind of a more beginner friendly UI and setup where you can say, \"All right, I'm gonna go with this as a headless CMS, I'm going to go with the static site generator and hosting/deployment is going to be on Netlify.\" And then they kind of bundle that initial setup for you. So you can focus on customizing and building that project in itself. This is something we should be on the lookout for in 2019. It's going to help bring onboard new developers to the JAMstack who are a bit intimidated, and rightfully so, If I may.\nE-Commerce Limitations on Static Sites\nJosh: Yeah. I guess we could move on to the next question here. What is and/or what are the limitations of e-commerce on a static site?\nFranck: Mm-hmm. Well, right off the bat there's the popular disclaimer that says limitations on static sites are disappearing by the minute because of the JAMstack. So the JAMstack comes in with all of these different APIs tools you can use. There's us for e-commerce, but there's a whole bunch of tools for search and what not. Any old school—not old school—but more traditional argument that went, \"Well you can’t do dynamic stuff like comments, forms, reviews, user authentication, CMS...\" This is all becoming false. You can do all of that right now because of the JAMstack tooling, not the static site in itself. If we were to go further in the question, the actual limits of e-commerce on a static site?\nThere's this: if you have a site with a very high number of pages, lots of data... the whole static build process can become huge and long. So building a huge e-commerce on a static basis might become problematic. But then again there's nuance like always. Gatsby made an announcement that said they were working on incremental builds for static sites so that might fix the problem.\nJosh: Wow that's cool.\nCharles: This is very exciting.\nFranck: Yeah. These guys are full speed, one gear, go. Since they became a company. It's beautiful to see that happen. I remember when Gab, one of the engineers on our team, was helping us out with some blog content and I was like, \"Yeah there's this guy, Kyle Matthews, that started this cool open source project,\" and he was like, \"Yeah Gatsby I heard about it let's try it!\" And it was just an open source repo on GitHub, basically. And that was it. There was not the whole organization and community and company around. And it's awesome to see businesses like that thrive in the JAMstack era.\nJosh: Oh yeah. That actually is something I am a little intimidated by, Gatsby.\nFranck: It's funny. Two weeks ago I tried installing Gatsby on my machine. It was a new reality check. I mean they've got awesome tutorials. Don't get me wrong. Their content team, in terms of documentation and recipes and tutorials... they're hand-holding you, a lot. But, even then, I had some NPM permissions issues and I had to go dig somewhere else for it, and I was swearing on my couch and my mom was like—I was visiting my mom—\"Why are you working during the weekend?\" I was like, \"I'm not working... I'm working on a fun project for myself.\" She said, \"It doesn't look like you're having fun at all!\" I ended up putting this on pause and getting some help from the devs here at Spektrum and Snipcart.\nCharles: I think that tools like Gatsby and Nuxt—it's like the equivalent but in Vue—are like that next step. Yeah... Gridsome , too. It's like the next step in terms of static site generators because you get all the benefits of having your websites statically generated so that hosting and SEO things work great. But you also have the feeling of having a single page application so the navigation for the end user is much more clean and everything works great and it's very nice when you need to add more custom features to your website. You have access to the whole React framework or Vue or whatever tool you are using but it really gives you much more power than the more simple static site generators like Jekyll or Middleman.\nJosh: It almost makes me wonder if maybe in the next 5 years Jekyll will lose its popularity. I think it might be one of the more popular ones, but it might lose that, too.\nCharles: Yeah, but Jekyll has its own purpose. If you need to have a blog or a static documentation, you might not need to go with Gatsby. I think that Jekyll will still do the job very well for a lot of years. But when you have to build something that feels more like an application but you still want to make something statically generated, I think the more advanced tools can become handy.\nFranck: Yeah I'm on staticgen.com right now and Jekyll is still way first. That being said, some other cool projects have caught up.\nJosh: The thing I really like about Jekyll is it's very un-intimidating for me because all I need is an HTML, CSS and maybe a JavaScript file and then I get a GitHub repo. And nothing else. I think that's important for my feedback loop of learning because I can just do it all locally and I still could just be using it like a file and then looking at it in the browser. A little bit of tooling is really cool. Just Jekyll... even though it's very dependency heavy, I feel like I can really understand what's going on, for the most part.\nFranck: I guess you're not alone. If I look at not only the GitHub stars and downloads, but just in our own analytics. We haven't counted them recently but it's over two hundred tutorials on the Snipcart blog, mostly frontend-centric and JAMstack-ish. But if I look at the analytics, we've got a post on Jekyll e-commerce and it's driving heaps of traffic ever since we published it in 2015 or 2016. And we refactored that post a few times. It's driving conversions and stuff. So yeah we're seeing it also in our own ecosystem of content.\nJosh: That's awesome. It's great to know.\nFranck: Maybe we can expand a bit more on the e-commerce part for static sites. Before you use the dynamic argument and say, \"well you cannot do e-commerce on a static site because there's lots of dynamic stuff you have to do like checkout and transactions and maybe even login and authentication.” Now, the cool thing is that you can do some of these yourself (maybe even all of them), but it would require lots of serverless functions. And I'm feeling like it might just become a whole dynamic app in itself, which could move you away from the simplicity of the static site.\nSo, it's always this balance of... should I be offloading most of that logic to an external API, like Snipcart and many others, or do I want to tackle all of this myself? That's an important question to ask yourself. But with the JAMstack it becomes not a sign of laziness to use an external AP, but a sign that you're able to bundle together the right tools. That bundling skill becomes valuable and respected in the community so you can focus on the stuff you want to focus on and offload the rest of the logic to other services. This is a very nice and modular approach and we've been preaching this for years now.\nCharles: I think one of the core principles of the JAMstack is about composition . You have to pick your APIs and tools and you compose your application using all these tools.\nFranck: Yeah I've gotten to saying, \"The art of tying it all together\" to sound fancy. But that feeds back into the Stackbit project where it becomes hard to pick the right tools because you've got the JavaScript, APIs and Markup. So how am I generating my site? Which content management system am I using? For these logins and comments and forms, what am I using? There are so many options. This is why it becomes really important to educate others and share your experience as a developer as much as you can, whether it's by guest posting, hopping on podcasts, starting a podcast like you did, or just writing about your experience in general and sharing. I think that's really key. You can do that with low friction, like participating in some cool slack communities, for instance.\nJosh: For sure. It’s interesting when you're talking about, I was thinking about... well, for one, just cost. It's probably a lot cheaper sometimes to use an external API then develop it yourself. You have to really look at if it's worth putting the money into it or not.\nFranck: Yeah definitely.\nJosh: And then putting the money into maintaining it. So it's like, we’ll just let those guys do that. It's almost like building a house. You don't really see a construction company that does framing through, like, finished work. I mean they're out there but more and more there's just different contractors that do all the different things.\nFranck: Yeah. And you've got the equivalent of a fully hosted WordPress instance also that comes in the pre-built house. I don’t want to go too analogy-ish.\nJosh: Right. We're going to wax philosophical here.\nFranck: Yeah, just to tie it up for the e-commerce part. Where we positioned ourself is: Okay, listen, you've got all of that logic and complex dynamic features in e-commerce. You can go Dunning-Kruger effect on that like, \"Well it's simple... you just accept payments online\" but when you start digging into it you realize, \"Oh jeez there's this login and address and refunds and discounts and...\" It's an endless well of features to handle. So we come in and we're handling that for you. Like we made it our day job to make a product that handles that for you. Now, you can use us for that but it doesn't mean you have to use a black box full on CMS that does everything—you just punch in your product and you point and click.\nWith JAMstack e-commerce you can do your own site and your own web app yourself. Then you offload that complex logic of e-commerce but you don't offload the theming and the styling and the performance that you want to work on, on your own site. So that really always was our positioning and I don't see it changing for a few years.\nJosh: Yeah. If anything, it's just going to get more popular.\nJosh: Anyway did you guys have anything else to add to the e-commerce part?\nFranck: Yeah, that covers it. I don't want to be preaching too much for our own thing.\nJosh: Yeah I know... I don't really have to say this but this podcast is not an ad, you know? I'm not getting paid by you guys or by anybody.\nFranck: No, no one's getting paid here.\nJosh: Right. I think Phil was actually able to bill his hours on my podcast.\nFranck: Well I'll have to reach out to him and so he can explain his tricks.\nJosh: But anyway, you know how people are, there are trolls on the Internet. Obviously... right? But this is not just one giant ad for.. well, I guess it is a giant ad for the JAMstack in general, but not for Snipcart.\nFranck: Well, if you were to think this is an ad for Snipcart, just consider our track record. We've been putting out free tutorials, editorial pieces, GitHub repos, live demos... we've been putting out free stuff like this for years. Some of it talks about Snipcart. A lot of it doesn't even talk about Snipcart. For instance, how to build a Vue.js blog. This education of our users has always been a core part of our values, and of course it's marketing too, it's part of the whole thing.\nFranck: But there's actual, factual value in you having that free stuff and that free content. So it's more than just pushing the product. It's pushing the paradigm that the product is part of, you know?\nSelling the Jamstack to Non-Technical Clients\nJosh: So I guess moving on here, next question. What are some ways to sell the JAMstack to non-technical clients?\nFranck: Yeah, that's a good question. We struggle with that a bit. Charles you want to go ahead?\nCharles: Yeah we could say that it's not really our problem since we are a service provider, but I think that, like Franck was talking about earlier, educating users about all those things is very important and for agencies and freelancers without...\nFranck: Without client money, basically.\nCharles: Yeah, I think that by educating our own users, agencies, and freelancers, this is how we're gonna end up selling the JAMstack to non-technical people.\nFranck: Yeah, sure. It's more than just giving them the tools. It's also giving them the rhetorical arguments and the language tooling around it. And that's super important because like Charlie was saying, if you don't have client money as an agency or a freelancer, you don't eat. So if your clients aren't in and you're pushing the JAMstack, well the JAMstack is out and that's it. I mean there were a lot of instances where people were reaching out on Twitter, reaching out on Intercom, and they were saying, \"Listen, I love this idea of dropping an e-commerce directly on my Jekyll site, for instance, but I don't know how to pitch it. I don't know how to pitch your model. I don't know how to convince my client to switch away from something like WordPress which we've been hearing about for years.\" So in that regard, as a developer you like the tooling, you understand the tooling, you know that there's more speed, it's a better user experience and whatnot, but this doesn't resonate necessarily with the client. The people that are paying you money to do that.\nYou need to turn these technical features into business benefits. You need to talk their lingo. Like we were saying, a static site is faster. So it's got a better UX... content appears almost instantly. And that kind of speed is now rewarded by Google, immensely. So you might have better Google rankings. And if you do that, well there's more traffic and more money in the bank because you know that you can convert that traffic into clients. So these kinds of trains of thoughts and equations that go from something technical to something business and tangible, that's very important.\nJosh: Just the money thing is where is you got to speak the lingo and I mean, the world doesn't run on happiness, unfortunately. So you know we all need to eat and we all need to pay for it. And for a client, if it is cheaper, in the long run, then it just makes sense and I guess it's just the developers job and/or the salesman's job at that point to explain how it's cheaper, right? Or how it makes you more money...\nFranck: Exactly. Sometimes you're going to have the history of the client playing in your favor. So clients have been around who have seen XYZ version of WordPress attacked with vulnerabilities and, I don't know which bugs... whatever, they know that they've gotta turn around and ask a developer to patch things up and “Oh there's this... I cannot upgrade because it's messing up my theme and this plugin and whatever…” So, maybe some of your clients have already lived through some of the pains of the traditional approach.\nJosh: Or Gutenberg.\nFranck: Maybe you can just go, \"You know what, with that static approach, you're still gonna be able to manage your content with that app. It's pretty neat. Looks like WordPress, you're not gonna be at a loss but the site in itself would be way simpler, way lighter, and I don't need to handle a bunch of different plugins and databases, so this reduces the number of attack vectors. So it's gonna be more secure, more reliable, and that means more peace of mind for you and less unpredicted expenses and late-night phone calls where you're panicking because your site is down or being hacked or I don't know what.\" There's all these business and emotional triggers that you can pull. They're gonna convince the client to say, \"okay, you know, let's try that JAMstack of yours.\"\nJosh: How much say does a developer have over it? Like a lot of times, in my experience, when I worked for Linda.com, I started in shipping there but then I ended up working as one of the runners in hospitality. So I was like everywhere and I would go down and kind of take care of developers. I would go shopping for them and stuff. I ended up making friends with them and that's kind of the genesis of my interest in web development. There was this guy named David Higby that was the lead developer there and he showed me Chrome dev tools and that I could go change the wording on a website and stuff. And that just was that little bit of a seed that then took root about a year ago. But it felt like the developers were kind of... they literally were, actually, they were in a separate building, in a separate city, sequestered away on their own, you know?\nBut I guess the question I'm trying to fish for is does it seem like that's changing more? Like developers have more of a say?\nFranck: Oh yeah, definitely. There is this old blog post. A woman that wrote this really cool piece, The Developer Renaissance .\nJosh: Oh wow.\nFranck: It's great, I'll send it to you. This is something we've been seeing, not only as a developer-first business, but as the mother agency, Spektrum, behind it. Business-wise, if you want to stay competitive, if you want to please your customers, you got to embrace technology. There's no two ways around it. Marc Andreessen said it, software is eating the world and there's nothing you can do about it. You got to get with the flow, at one point. That being said, the importance of providing experiences and products and services that are catering to the Internet, the mobile era, the smartphone era...\nThis is already becoming evidence for business people. Right? But smart business people will recognize that they do not necessarily have the skills to create such experiences. So very very smart business people will always surround themselves with people who are either smarter than them or very very good at stuff they're not. And in that sense if you mix the whole macro-economy of business moving towards the web and technology and better experiences, digitally speaking, you mix that with people like developers in businesses, they're getting way more share of voice and way more recognition. And when they speak up, people tend to listen more. Like the days of the old geek in his basement coding in I don't know what dead language... these are gone. Right? There's actually market and human value to technology. There's whole sorts of very helpful apps for mental health, for social accountability, for activism... there's not just businesses. As a species, we're doing digital stuff way more. So who can enable these experiences is developers. There's no two ways around it.\nJosh: Right.\nFranck: OK. There might be a shift, at some point, where lots of tools are making it easy for dumb people like me who don't know how to code to create digital experiences, sure. But at some point if you want a real edge and you want something custom and that's tailored to your audience, in terms of building an app, you're going to have to work with developers. So, yeah I think that these stereotypes or lack of empathy and listening towards developers, they might be around in some places. But if you're inside good, modern businesses with smart people in it, it's definitely not going to be the case.\nJosh: Yeah, for sure. That was a great answer. I'm glad I was able to fish for that.\nFranck: Yeah I got cosmic.\nJosh: I liked it. I really want to check out that \"Developer Renaissance\" article.\nFranck: Yeah sure. The last little thing I had is... people in general like to learn visually and see things for themselves. This has more impact psychologically speaking. So when you're trying to sell the JAMstack (to get back to that point just a little), you can just show clients. If you just use PageSpeed Insights, maybe if you've built some mockups of a more traditional site and the equivalent in JAMstack or just a site that you know is running JAMstack versus a similar site that's not...and you put them in PageSpeed Insights and you compare speed and you're like, \"Look at this. This is horrible in terms of performance. And this is awesome.\" This is one. And just, you know, name-drop... name-drop all of these big companies that have started using the JAMstack for XYZ project. I know MailChimp has been running a Middleman and I know Red Bull has some projects on the JAMstack. Yeah I'd have to dig more but there are heaps of examples.\nJosh: Yeah, I mean even just on my last episode the JFK [airport].\nFranck: Oh yeah, with the TakeShape guys? With Mark and...oh, that was awesome.\nJosh: Oh it's so insane. It blew my mind.\nFranck: Yeah I didn't even know that. Charles if you haven't listened to this one... it's that JFK airport, they have all of these screens that are showing data that's relevant to the passengers and stuff. And this is powered by the JAMstack behind it, basically.\nCharles: That's crazy. I actually listened to the podcast, too, with Mark from TakeShape. I listened to it a couple of days after trying the tool for the first time. I was very glad to see that they were doing great and having such clients.\nFranck: Yeah, we've published a post with TakeShape, recently and... it's a cool little demo, an online gratitude journal where you can punch in what you're grateful for and then we receive that data in the backend with TakeShape and then we can publish it or edit it and then it shows in the static fronted. That's cool.\nJosh: Yeah, I'm very excited to check out TakeShape but it's still... I feel like I still have so much to learn with Jekyll.\nFranck: Yeah, one thing at a time. I think Phil said that.\nStatic Site Generators Pros, Cons, Preferences\nJosh: Exactly. So moving on here. What are your thoughts on static site generators in general and the benefits and limitations? It's almost a redundant question, so I might add: What are your guys' preferences for different use-cases?\nCharles: Yeah I think my favorite static site generator, the one that I will use to build something would be Gridsome at the moment, since it's based on Vue and I'm a big fan of Vue.js in general. It’s very fun to use and it has all those features about GraphQL. It really makes it easy to build a very live application with static site rendering. But that will be for a use case where I have to build more of an application - not only like a blog. If I had to pick a more traditional static site generator to build my blog or something, I think that I'd go with that Middleman because this is the one that I’ve used the most. It supports things like multi-language, which we have to deal with a lot since we are based in Quebec and all our things must be in English and French.\nFranck: So, Charles is going with his first love for Valentine's Day. Because we are recording this on Valentine's Day, people.\nJosh: Yeah it is Valentine's day.\nFranck: That's dedication to the JAMstack. Our girlfriends are not happy about this at all.\nJosh: Yep yep. But that is some dedication, for sure.\nFranck: Of course I 'm not using most of these tools directly, so I don’t want to bullshit anyone and say, like, \"oh yeah, this is the best one.\" But the kind of tools I'm using directly will be headless CMSs, right? Because I'm more of a content guy. So TakeShape has a neat UI. I enjoyed my experience with the CMS! But I have to say that in terms of who's making noise right now? Sanity ...the guys at Sanity are just like... they're crazy good. And I was talking to Knut from Sanity, and he knows his stuff. Like he just pitched me a whole where and how Sanity shines in that ecosystem and for developers who want to really push things further headless CMS-wise, I think that one is definitely worth a mention.\nCharles: Yeah and actually we're working on a new version of the cart and we will be rebuilding our documentation and we plan on using Sanity as a headless CMS. So people at marketing will be able to tweak the wording and all of those things in the documentation as well without having to Git push.\nFranck: Yeah, all the typos that Chuck does when he writes the documentation.\nContributing to the Jamstack Community\nJosh: So back to the questions here. What are some ways to contribute to the JAMstack community? I guess other than starting a podcast and, you know, being a guest on one.\nCharles: Yeah. I think that for people like us at Snipcart, what we are doing is our own way to contribute to the community by writing tutorials , demos , having some open source code and participating to Slack communities. And I think that as a developer in the JAMstack community the biggest way to contribute is to do some open source thing... just play with the products and do some side projects using the JAMstack itself. And talk about this at your local dev MeetUp. I mean, it just needs to get talked about more. I'm going to quite a few dev MeetUps around Winnipeg where I live at the moment and I don't see a lot of people talking about it. So, I think that spreading the word is something that everybody can do.\nFranck: Yeah, and you just, I mean, you open up MeetUp.com and you literally filter by geography and say \"my area,\" you punch in \"JAMstack\" and if there's a JAMstack Meetup, just go to it. Just try to learn a thing or two, talk to a person or two, and then maybe it will get the ball rolling. But then again, if you do that and there's no JAMstack Meetup in your area, why not start one? Like I literally started a meetup a few weeks ago about online marketing, super small gathering for people in SaaS and building apps who wanted to get better. So it's just fun and it's easy. The onboarding is super simple and you can start that MeetUp anytime. And like you did with the podcast, you don't have to position yourself as an expert. You position yourself as a learner and a student. And that humility goes way way... it's just better.\nSo I really like that approach you did and I think people should try to see, \"Hmm, let's see. Is there an in real life, physical space where I could reproduce that dynamic? Is there a blog I could contribute to? You know FreeCodeCamp on Medium? They're accepting good quality posts. Why not challenge yourself to write about something you learned or something you don't agree with regarding the JAMstack and whatnot. And if it's good, they'll help you edit and they'll get you published and that will get the conversation going and you can have some feedback from devs all over the world. So there's that. There are very cool Slack communities. I can't name all of them... I'm part of one that's called The New Dynamic . Josh, you and I spoke on there, and it's a brilliant community full of very talented people.\nJosh: That's my favorite one that I've found.\nFranck: Exactly. So I try to hang out and lurk a little bit in there and ask some questions and get heaps of inspiration like content-wise and just better understanding of how the real developers are living that JAMstack transition. So participating in these is great. Of course, I don't want to over promote Netlify stuff but they're doing lots of great stuff for the community and they're organizing the JAMstack conference . We missed the first one, unfortunately, last year because we were spending all of our budget at the Vue conference in Toronto (which was awesome by the way... Charles gave a talk there). But this year we're kind of hesitating between going to JAMstack New York or S.F. and we'll have to talk about this literally, like, tomorrow.\nJust one last example I wanted to nudge in is... there was this guy who wrote about how he used Hugo with Git to create an editing and publishing workflow for some kind of online publication, online book, I don't remember. And it was just so in-depth and specific as a use case but at the same time really inspiring to see that \"Oh yeah. If I can manage to plug this with this then editors can edit it and it's very simple and...\" Like this is a good example of talking about your experiences and sharing them with the world, your JAMstack experiences. And it's one of the best ways to learn... to actually write about stuff.\nJosh: Yeah for sure.\nFranck: So I guess that's it. Yeah. And go subscribe to StaticBits and leave a review on iTunes...\nJosh: It was so awesome having you guys on here and like I said, I kind of just geek out every time I am able to chat with new guests and stuff. And you guys are so smart.\nFranck: Well we look smarter maybe than we are. Charles is very dumb. No! I love him to death and I can't wait for him to come back to Quebec and quit that cold city that is Winnipeg.\nCharles: Six months left.\nFranck: Yeah.\nJosh: Nice.\nFranck: Yeah it was a pleasure to be on. Josh, let's keep in touch and it's just a blast having this conversation.\nCharles: Yeah. Thank you very much.\nJosh: Yeah, thank you Charles. And so you guys' website is snipcart.com.\nFranck: Yeah. snipcart.com/blog if you want to learn and read some cool stuff about the JAMstack and more.\nJosh: And you guys can be found on Twitter.\nFranck: Yeah @snipcart . And for all of the people who were asking on Twitter or via intercom if we're dropping jQuery in Snipcart's next version , YES we are dropping jQuery in the v3.0 that's gonna be coming out in the end of March-ish.\nJosh: Oh nice\nFranck: I hate ETAs.\nJosh: Yeah. Don't ever give ETA's. All right. Well, thank you guys so much. It was a pleasure. You know I always extend the invite to be on again.\nFranck: Yeah, and maybe we could have you on the blog.\nJosh: Yeah. I'd love it...if I can find the time.\nFranck: Yeah. No rush.\nJosh: Awesome. Thank you guys so much.\nAbout the author\nFrançois Lanthier Nadeau CEO, Snipcart\nFrancois has worked in SaaS & digital marketing for over 7 years. He’s been published on Indie Hackers, The Startup, freeCodeCamp, Baremetrics, Wishpond, and Growth.org—among others. He’s spoken at 13+ startup and web development conferences in Canada, U.S.A., and Europe. He's been a vocal bootstrapping and Jamstack proponent for years.\nFollow him on Twitter .\nShopify Buy Button vs. Snipcart: The Side-By-Side Comparison\nRead next from François\nView more\nRecent articles\nin\nJamstack\nApr 11, 2022\nHeadless eCommerce: A Developer’s Guide\nFrançois Lanthier Nadeau\nCEO, Snipcart\nJamstack\nRead more Headless eCommerce: A Developer’s Guide\nMar 31, 2022\nNew to Jamstack? Everything You Need to Know to Get Started\nColby Fayock\nSenior Developer Experience Engineer at Cloudinary\nJamstack\nBlog Article\nRead more New to Jamstack? Everything You Need to Know to Get Started\nMar 28, 2022\nThe Top 6 Static Site Generators in 2022\nBrian Rinaldi\nDeveloper Advocate, StepZen\nJamstack\nSite Generators\nGuide\nRead more The Top 6 Static Site Generators in 2022\nMar 15, 2022\nWhat is Headless WordPress & Should You Use It?\nDiego Salinas Gardón\nContent Strategist and Jamstack Community Creator\nJamstack\nTutorial\nRead more What is Headless WordPress & Should You Use It?\nMar 7, 2022\nSvelte.js Guide: The Framework to Write Faster JavaScript\nDiego Salinas Gardón\nContent Strategist and Jamstack Community Creator\nJamstack\nFrameworks\nTutorial\nRead more Svelte.js Guide: The Framework to Write Faster JavaScript\n36 000+ geeks are getting our monthly newsletter: join them!\nEmail\nCount me in! Tutorials & editorials\nProduct updates\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+     "publisher": "Snipcart 公式広告実験記事",
+     "snapshot": {
+      "url": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "finalUrl": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:31:02.307Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "ccd4424b9e5d562c193a5ab1a0f46f27713c5afc229e9deb99ae7967f3bda07a"
+     },
+     "text": "Advertising for Developers with Carbon Ads - Snipcart\nAdvertising for Developers with Carbon Ads\nRead this post to learn about the details of our experience advertising our product, Snipcart, with Carbon Ads, a premium ad network.\nRead this post to learn about the details of our experience advertising our product, Snipcart, with Carbon Ads, a premium ad network.\nAdvertising for Developers with Carbon Ads - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nBlog\neCommerce\nUpdated on\nMar 21, 2022\nAdvertising for Developers with Carbon Ads: Our Detailed Experience\nFrançois Lanthier Nadeau\nCEO, Snipcart\nWe all need to hustle our way to success. However awesome a startup’s product or service may be, it won’t be worth a penny if the right people don’t know about it. If there is no significant growth in the user base over a significant period of time, the company will inevitably end up, like too many others, in the ever growing startup cemetery.\nThere are hundreds of ways for startups to make some noise in order to cut through the chatter and reach their target users. Some will incorporate virality into their products, looking for different ways to hack their growth. Some will build meaningful online communities, take part in key events, spend SEO dollars, and much more.\nRecently, we tried something else. We stumbled upon Carbon Ads , a premium ad network that rapidly caught our eye.\nWhy we chose to try Carbon Ads\nAt first, the team was divided over whether we should spend a chunk of marketing money on Carbon or not. After talking it through during a Kinect game of golf, the majority agreed to take this leap of advertising faith.\nWe had already tried some of the popular advertising options out there. As far as Facebook ads and promoted posts go, we sometimes found it hard to target the right audience. Our advertising with the Blue Giant didn’t generate interesting amounts of qualified traffic. AdRoll, on the other hand, can be a great tool, boosting your % of returning visitors, but sometimes, the re-targeting pops up in front of the user on sites completely out of context with our product.\nWe didn’t necessarily want to follow the classic online advertising road, so when we found out about Carbon Ads, we were excited to try something fresh. To be honest, their tagline worked like a charm on us: Connecting highly qualified audiences with highly relevant services, products and brands. With its audience-specific circles of publishers and users, Carbon seemed like a decent way to connect with the people that matter to us: the web developers and designers, those tech-savvy professionals Snipcart was built for in the first place. Of course, the idea of showing a single, clean ad unit to engaged audiences on relevant publishers’ sites was appealing to us. So we chose to advertise our product inside the Dev/Code Circle , eager to see if this premium, more focused way of reaching out to our audience would pay off.\nCarbon defines its Dev/Code Circle as a “mixture of how-tos, best practices, and information sharing.” A long list of interesting publishers is part of the circle, including the likes of Bootstrap , Coding Horror and JSHint .\nWe’re 100% positive every developer who’s also a Lakers fan clicked on this one.\nExtending our reach a bit\nAt the same time we ran the Carbon campaign, we were running an AdRoll campaign. This means every developer who’s clicked on our ads and been on our site has strong chances to come across Snipcart again in his future navigation (if he’s not using AdBlock, that is).\nLet’s talk numbers\nA full month of advertising (June) on Carbon cost us 1575 $. Our ads were seen 464 464 times.\nWhile our CTR mostly stayed higher than 1% during the first weeks, it ended up dropping to 0.39% at the end of the campaign. That’s 18 114 clicks for the month; with an average CPC of 0.08$. Carbon was one of our top referrers for those 30 days, accounting for about 20% of our overall traffic.\nAmong the clicks we obtained, our conversion rate was about 1.25%, which means 19 confirmed signups for our product. And since we’re talking numbers, here’s how much we paid for each of these qualified developers’ signup: 83$ .\nOur conversion rate once the user has signed up is around 25%. This means one quarter of the user who sign-up manage to go through all the account configuration steps, enter their credit card info and end up making one real transaction. Five new active users ended up actually using Snipcart thanks to our efforts on Carbon. We paid 315$ for each of these new customers.\nSo, do we think it was a good investment?\nWell, yes and no.\nFirst, an active Snipcart user can, in the long run, be worth way more than 315$.\nSecond, an important part of this campaign’s ROI will be hard if not impossible to calculate due to our adoption cycle often being long-term. A developer encountering an e-commerce solution like ours, however awesome it may be, won’t necessarily need it immediately. He might bookmark our site, share it with a community or on social media, suggest it to colleagues, but unless our solution answers to one of his urgent needs, this potential customer’s value simply can’t be evaluated on a short-term basis. However, it doesn’t mean this developer we reached has no value for us, quite the contrary. We believe that out of the thousands of developers that have clicked our ads, a lot of them will give some serious thought about using Snipcart next time they take on an e-commerce project (hence the ongoing AdRoll campaign).\nI love the @snipcart product but doubt I'll make another #ecommerce site anytime soon.\n— Niels Oeltjen (@NielsOeltjen) June 30, 2014\nOf course, conversions were not the only goal we had with this campaign. Brand exposure and awareness was also part of the plan, and with regards to this goal, we believe the marketing effort was worth it. We’re still a young startup (1 year old soon!), and we need to get out there and be seen as much as we can.\nMissing: landing pages\nSince we were spending some precious dollars on that advertising campaign, we should’ve taken the time to create specific landing pages for the users clicking our ads. We’re pretty sure our immediate conversion rate would’ve went up a bit if we did. Our homepage isn’t really conversion-optimized right about now. So, yeah, we’re definitely planning on designing and A/B testing some of them in our future marketing efforts.\nWhat we liked\nCarbon can sure send qualified users to your site, if that’s what you need. In our case, we realized our traffic was already well qualified; the conversion rate of our organic and paid traffic turned out to be very similar. Also, our CTR ended up being higher than what the Carbon managers told us in the first place.\nWhat we didn’t like\nSluggish support: responses were almost always delayed, and sometimes there just weren’t any.\nLousy admin panel: we tried numerous times to produce detailed reports, and they never showed up. (EDIT: Just before hitting publish on this post, we received an e-mail from Carbon exlpaining us what went wrong.)\nWould we do it again? No, we wouldn’t. Carbon Ads was our first big marketing push, and although it brought us signups, we believe we could’ve gotten them from producing our own relevant content. We had also looked carefully at Syndicate ’s native advertising network, and we’re considering giving it a try in the upcoming months. If we were to spend another 1500 dollars on online advertising, we’d try something in the vein of Syndicate: associating valuable content with our brand and product. We’ll keep you posted on our next experiment!\nFeel free to share your thoughts or experiences with any kind of online advertising in the comments!\nAbout the author\nFrançois Lanthier Nadeau CEO, Snipcart\nFrancois has worked in SaaS & digital marketing for over 7 years. He’s been published on Indie Hackers, The Startup, freeCodeCamp, Baremetrics, Wishpond, and Growth.org—among others. He’s spoken at 13+ startup and web development conferences in Canada, U.S.A., and Europe. He's been a vocal bootstrapping and Jamstack proponent for years.\nFollow him on Twitter .\nShopify Buy Button vs. Snipcart: The Side-By-Side Comparison\nRead next from François\nView more\nRecent articles\nin\neCommerce\nApr 29, 2022\nEcommerce Integration for Ghost in 10 Minutes\nLudovic Armand\nDigital Marketing Specialist\neCommerce\nCMS\nTutorial\nRead more Ecommerce Integration for Ghost in 10 Minutes\nApr 22, 2022\nWebflow eCommerce: Creating a Full-Featured Store\nLudovic Armand\nDigital Marketing Specialist\neCommerce\nComparison\nComparison\nRead more Webflow eCommerce: Creating a Full-Featured Store\nApr 19, 2022\nShopify Buy Button vs. Snipcart: The Side-By-Side Comparison\nFrançois Lanthier Nadeau\nCEO, Snipcart\neCommerce\nComparison\nComparison\nRead more Shopify Buy Button vs. Snipcart: The Side-By-Side Comparison\nJan 7, 2022\nAdd a Shopping Cart to a Website in 4 Simple Steps\nLouis Herman\nContent Writer\neCommerce\nTutorial\nRead more Add a Shopping Cart to a Website in 4 Simple Steps\nDec 9, 2021\nTop 5 Best Online Shopping Cart for 2022\nLudovic Armand\nDigital Marketing Specialist\neCommerce\nComparison\nComparison\nRead more Top 5 Best Online Shopping Cart for 2022\n36 000+ geeks are getting our monthly newsletter: join them!\nEmail\nCount me in! Tutorials & editorials\nProduct updates\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://snipcart.com/blog/topics/ecommerce/page/7",
+     "publisher": "Snipcart 公式記事目録",
+     "snapshot": {
+      "url": "https://snipcart.com/blog/topics/ecommerce/page/7",
+      "finalUrl": "https://snipcart.com/blog/topics/ecommerce/page/7",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:28.787Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "ac58203821bf0b435bab45df5da274ebf5fdbac0e64bf081881ec99324a1fd5c"
+     },
+     "text": "Learn E-commerce - Snipcart\nLearn E-commerce\nBecome a better e-commerce developer. From best practices (design, UX, checkout) to practical shopping cart integration tips, we share all we know!\nBecome a better e-commerce developer. From best practices (design, UX, checkout) to practical shopping cart integration tips, we share all we know!\nLearn E-commerce - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\neCommerce\neCommerce-related articles for today's web developers.\nAll\neCommerce\nJamstack\nWeb Development\nAll\neCommerce\nJamstack\nWeb Development\nAll\nCase study\nCMS\nComparison\nMarketing\nProgramming\nAll\nCase study\nCMS\nComparison\nMarketing\nProgramming\nSep 18, 2014\n7 Value-Added Services To Pitch E-Commerce Clients After Launch\nKyle Racki\neCommerce\nMarketing\nBlog Article\nRead more 7 Value-Added Services To Pitch E-Commerce Clients After Launch\nJul 3, 2014\nAdvertising for Developers with Carbon Ads: Our Detailed Experience\nFrançois Lanthier Nadeau\nCEO, Snipcart\neCommerce\nBlog Article\nRead more Advertising for Developers with Carbon Ads: Our Detailed Experience\nJun 16, 2014\nHow to Easily Manage Your Products Through WordPress\nCharles Ouellet\nCo-Founder & Product Owner\neCommerce\nCMS\nTutorial\nRead more How to Easily Manage Your Products Through WordPress\nApr 29, 2014\nSnipcart Webhooks: Zapier & Mailchimp Integration\nFrançois Lanthier Nadeau\nCEO, Snipcart\neCommerce\nBlog Article\nRead more Snipcart Webhooks: Zapier & Mailchimp Integration\nJan 30, 2014\nCustomizing Snipcart to Reflect the Style of Your Website\nStephanie Roy\nDeveloper\neCommerce\nRead more Customizing Snipcart to Reflect the Style of Your Website\nNov 26, 2013\nProduct Options: Altering Items Prices with Custom Fields\nGeorges Saad\nCo-Founder\neCommerce\nTutorial\nRead more Product Options: Altering Items Prices with Custom Fields\n...\n3\n4\n5\n6\n7\n36 000+ geeks are getting our monthly newsletter: join them!\nEmail\nCount me in! Tutorials & editorials\nProduct updates\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+     "publisher": "Snipcart 公式集客振り返り",
+     "snapshot": {
+      "url": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "finalUrl": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:28.800Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "6e9f5c8f2991c42072ef9b990ed96302864e950a6b1d9a8c7c0138eb81da9beb"
+     },
+     "text": "B2D: The Dynamics of Marketing & Selling to Developers\nB2D: The Dynamics of Marketing & Selling to Developers\nWhat is the B2D (business-to-developer) model exactly? Why should you consider selling to developers? Answers to all of this, along with transparent, road-tested B2D marketing tips, in this post. Have a look!\nWhat is the B2D (business-to-developer) model exactly? Why should you consider selling to developers? Answers to all of this, along with transparent, road-tested B2D marketing tips, in this post. Have a look!\nB2D: The Dynamics of Marketing & Selling to Developers\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nBlog\neCommerce\nMarketing\nUpdated on\nMar 21, 2022\nB2D: The No-BS Dynamics of Marketing & Selling to Devs\nFrançois Lanthier Nadeau\nCEO, Snipcart\n\"What's your business model?\"\n\" B2D .\"\n\"What?\"\n\"Business-to-developers. We're selling our product to developers.\"\n\"Wait, why? The B2C market is HUGE. The B2B market is MONEY $$$.\"\nSince we launched Snipcart in 2013, I went through countless variants of the above.\nFour years in and tens of thousands in MRR later, the question keeps popping up. In our recent interview on Indie Hackers , it was right there in the 1st comment:\nIf you're a developer yourself, or if you've been following the SaaS industry closely, you know the B2D market is a flourishing one.\nIt's funny, in the beginning, I was told that we shouldn't blog about cool tech stacks or developer issues . That we should simplify our message to seduce non-technical merchants. But it's marketing to developers that allowed us to grow from an in-house side project to a profitable, independent, healthy business .\nToday, I want to answer the question above + all others that came before and will come after. I want to dig deeper into the B2D lessons we've learned selling to developers for 4+ years.\nThis post will cover:\nWhat B2D really is—a precise definition\nReasons to consider going developer-first\nChallenges & particularities of the B2D market\nLet's dive in.\nWhat is B2D?\nSo, what is the B2D model exactly?\nB2D companies, or business-to-developers, build and market digital products specifically designed for software developers . They propose a simple exchange of value: developers (or company) money vs. an easier, faster, or more secure development workflow. B2D products take many forms, such as dedicated APIs, payment & e-commerce solutions, code editors, data & analytics tools, testing suites, deployment & hosting infrastructure, training resources, and more.\nIt may sound counterintuitive for B2D businesses to be on the rise in a period when tech is becoming more and more accessible to the masses. Think site builders like Squarespace, Wix, or even visual programming apps like Bubble . On the one hand, simple endeavours are becoming easier to accomplish. On the other though, advances in technology create knowledge and expertise gaps that, once filled by developers and dev tools, can significantly benefit organizations.\nSo B2D isn't a fringe model. Just take a look at the members of Heavybit —a program helping businesses bring developer products to market. Their roaster of startups is steadily growing. And of course, popular companies such as Stripe and Twilio have been clearing the business-to-developer path for years now.\nSo why sell to developers?\nFor starters, there are millions of developers in the US alone (see this Quora answer of mine for a more quantitative look at the B2D market).\nAnd here are, in my humble opinion, four reasons why developers constitute a viable (& fun) market:\nDevelopers—and their employers/clients—have an ever-growing number of pains to solve.\nIn a fast-paced, innovation-driven economy, both the old tech (maintenance, migration, deprecation) and the new tech (optimization, security, multi-platform support, data handling) lead to ripe entrepreneurial opportunities. Not too mention maintaining productivity !\nFor many B2D companies, the \"developer\" touch point is simply a stepping stone to deep pockets (enterprise) or many pockets (consumer).\nTweet this quote\nThis means new acronyms like B2D2B/B2D2C! But we're not naming droids here, so we'll stick with B2D.\n2. Developers are trusted by businesses & decision-makers.\nThe increasing importance of technology has turned developers into powerful agents of change. Their expertise now equals business influence. What does this mean? If you get developers to love your product, they'll funnel it back into their or their clients' companies.\nWhile tech democratization is definitely on the rise, LOTS of people still prefer to deal with professionals. Especially when it comes to advanced needs & custom solutions.\n3. Developers are uniquely empathetic.\nIf you're dogfooding a product—selling something you need yourself in the first place—you'll find the developer-to-developer relationship to be a super rich one. At Snipcart, our dev customers have:\nHelped us find & fix bugs\nShown understanding & patience with support & feature development\nDeveloped useful extensions for our product\nProvide out-of-this-world, extra valuable feedback from the beginning\nAll of the above have been immensely helpful in growing our business.\n4. Developers are community-driven & active sharers.\nI've been lurking in different dev communities over the years. I've found that most (good) developers champion values of meritocracy, transparency, assistance, sharing & camaraderie. If you provide value through honest, quality products, they'll be glad to act as product ambassadors, boosting word-of-mouth \"marketing.\"\nIn traditional markets, dynamics are often way different:\nB2B/enterprise customers want to stay competitive and won't necessarily talk about solutions they leverage.\nB2C/consumer customers, in many cases, might not be emotionally or intellectually involved enough to bother sharing your product with the world. And yeah, I know, it's not the case for B2C products with strong network effects.\nTakeaways on the particularities of B2D markets\nAt Snipcart, our developer-first approach often sounds off-target. Why? Because when it comes to the e-commerce projects we enable, it's usually merchants—not developers—who swipe the credit card. But once convinced of our solution's value, devs don't hesitate to push it to their clients, bosses, or colleagues. Indie Hackers is filled with small to medium bootstrapped businesses who share similar realities.\nFor other developer-centric businesses, however, dynamics are quite different. For instance, many B2D companies end up servicing enterprise clients. Why? Maybe they need a revenue-generation model that satisfies VCs & investors. Or maybe the nature of their product makes it more valuable to large organizations. In that context, their marketing often takes on the allure of traditional B2B approaches with sales teams & the likes.\nSide note: I wouldn't pretend to master the subtleties & processes of enterprise B2D. So here's a killer resource from Tomasz Tunguz at Redpoint Ventures:\nThe Go-To-Market Challenges Of B2D Companies\nSnipcart has a few enterprise-ish customers, but they're a minority of users. Being bootstrapped, we don't have the resources necessary to handle enterprise biz dev and feature requests. So we market to individual developers at scale, like a consumer-facing business would do.\nAnd we've learned a whole lot about it:\nMarketing to developers—things to get right\n1. Know the specifics of your business-to-developer funnel\nMore often than not, B2D products address more than one persona :\nPersona A = [developer]; persona B = [merchant|client|manager|boss]\nThis affects how their customer journey plays out. Let's look real quick at a classic conversion funnel:\nProtip: we found content marketing to be an effective way to help with all of these steps & more.\nIn many cases, persona A & B will both be involved in different steps, with different questions . At the comparison stage, for instance, persona B might want to compare prices, ROIs, time-to-market, or even consumer-facing solutions. Chances are these are way different from the technical, geeky questions you'll have answered for persona A, right? So you need to think of a second layer of business-driven arguments & benefits to convince persona B.\nDepending on your persona A, you'll be betting that they have 1) complete trust from B, or 2) the necessary skills to sell your product. If A has none, you're going to need to step in! How? With content marketing, case studies, demos, personal on-boarding, & even meetings if necessary.\nAgreed: this formula can’t be applied to all B2D businesses. But still, for most of them (including us), it’s an important reality to understand. A reality that doesn’t apply to typical B2C and B2B scenarios. The conversion funnel here does not imply convincing the end-user, but a messenger, an influencer.\n2. Keep it real\nFaking it is very hard with developers. That’s something you have to accept and even love. It’s hard to fool intelligent and professional users. And usually, that’s what good developers are.\nOur motto at Snipcart has always been to try and sell our product the way we'd like it to be sold to us. In other words: keep it as bullshitless as possible. How do we do that?\nFirst, we take our own interest in the tools & realities of modern developers and channel it into valuable, actionable, or thought-provoking content . Some might call this educational marketing, or brand building. I guess it's about showing devs we get them. And that they can trust they're not dealing with [ enter a politically correct way to say scammers in a blog post here ].\nSecond: when we're wrong, we bite the bullet. We don't delete comments, ignore emails or report tweets calling us out. We address all of them. Be it on our lack of documentation for some obscure feature, on bugs, on our pricing, on our roadmap velocity, on our (unfrequent) lapses in support. We let devs know when we've dropped the ball, when we don't agree, and when they're right. We don't hesitate to expose our bootstrapped reality and technical challenges to our community. In the end, this makes for maybe fewer, but at least better business relationships.\nBuilding this kind of proximity & transparency with developers is key to earning they trust—and their persona B's dollars.\n3. Competition isn’t always clear-cut: draw your own lines\nRemember our first point, about the B2D acquisition funnel? This multi-person conversion creates specific issues for developer-oriented products. For instance, you could be offering e-commerce, payments or VoIP, all without talking directly to the merchant.\nThe developer A using your product will usually deal with a clear-cut set of competitors. But sometimes, the end-user B will be exposed to a whole different and much broader range of viable alternatives.\nAsk any developer to choose between Stripe and PayPal. He’ll probably tell you Stripe. Now ask any non-technical merchant the same questions. Chances are the answer is PayPal.\nLet us clarify with an example of ours:\nA merchant might actively consider Shopify for her e-commerce needs. She will consider it a direct competitor to our solution. But a developer, on the other hand, will be more likely to consider options such as Moltin or Foxy.io as direct competitors.\nSo what's a B2D business to do?\nI'm afraid there's no magic formula here.\nWhen talking to developers, keep focusing heavily on the HOW (tech), not only the WHAT. Keep speaking their lingo at all times.\nWhen talking to non-technical persona B, try as much as possible to translate technical features into business benefits .\nIf you truly believe in the B2D approach, you also believe developers are messengers and agents of change for all businesses today.\nClosing thoughts\nLong one, wasn’t it? Time for a TL;DR.\nIf you’re running a B2D product, remember to:\nUnderstand the different steps and personas involved in your acquisition funnel\nKeep bullsh*t out of your marketing & communications as much as possible.\nFocus heavily on how your product works (for devs), but also on what it means for businesses.\nRemember that comment screenshot in the intro? Well, there's a part of my answer I believe is a great fit to end this post:\nShopify was cited as an example since it's quite popular, but it's indeed only one of many competitors. To answer your \"How do you beat them?\" question: we don't! If there's one thing I learned, it's that there is inherent diversity in any given industry, and rarely does a business find itself in a winner-takes-all scenario. I mean, even near-monopoly spaces like search engines (Google) see underdog products like DuckDuckGo carve niches.\nIf you take a meta look at all e-commerce platforms out there, you realize there's a WIDE spectrum of technical complexity, from point & click installations—grandma can use it—to completely custom-built shops—killer team of devs must code it. Depending on their pains, skills & needs, users will try to tune in to the level of complexity that best matches their needs. On that spectrum, Snipcart is almost in the middle, maybe leaning towards the \"complex\" end a little. It gives developers a pre-built set of e-commerce logic, backoffice & frontend cart that fast-tracks their development without restricting their possibilities too much.\nSo here's my question to you: is there a spot on your own industry-specific spectrum where developers are underserved? If so, why not try and answer that need?\nIt's a fun ride, I promise.\nIf you've enjoyed this post, please take a second to share it on Twitter . Got comments, questions? Hit the section below!\nAbout the author\nFrançois Lanthier Nadeau CEO, Snipcart\nFrancois has worked in SaaS & digital marketing for over 7 years. He’s been published on Indie Hackers, The Startup, freeCodeCamp, Baremetrics, Wishpond, and Growth.org—among others. He’s spoken at 13+ startup and web development conferences in Canada, U.S.A., and Europe. He's been a vocal bootstrapping and Jamstack proponent for years.\nFollow him on Twitter .\nShopify Buy Button vs. Snipcart: The Side-By-Side Comparison\nRead next from François\nView more\nRecent articles\nin\neCommerce\nApr 29, 2022\nEcommerce Integration for Ghost in 10 Minutes\nLudovic Armand\nDigital Marketing Specialist\neCommerce\nCMS\nTutorial\nRead more Ecommerce Integration for Ghost in 10 Minutes\nApr 22, 2022\nWebflow eCommerce: Creating a Full-Featured Store\nLudovic Armand\nDigital Marketing Specialist\neCommerce\nComparison\nComparison\nRead more Webflow eCommerce: Creating a Full-Featured Store\nApr 19, 2022\nShopify Buy Button vs. Snipcart: The Side-By-Side Comparison\nFrançois Lanthier Nadeau\nCEO, Snipcart\neCommerce\nComparison\nComparison\nRead more Shopify Buy Button vs. Snipcart: The Side-By-Side Comparison\nJan 7, 2022\nAdd a Shopping Cart to a Website in 4 Simple Steps\nLouis Herman\nContent Writer\neCommerce\nTutorial\nRead more Add a Shopping Cart to a Website in 4 Simple Steps\nDec 9, 2021\nTop 5 Best Online Shopping Cart for 2022\nLudovic Armand\nDigital Marketing Specialist\neCommerce\nComparison\nComparison\nRead more Top 5 Best Online Shopping Cart for 2022\n36 000+ geeks are getting our monthly newsletter: join them!\nEmail\nCount me in! Tutorials & editorials\nProduct updates\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://snipcart.com/pricing",
+     "publisher": "Snipcart 公式料金",
+     "snapshot": {
+      "url": "https://snipcart.com/pricing",
+      "finalUrl": "https://snipcart.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:29.049Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "41a68c81413d5c51f1eb53566f80cf77c214e0080acfb192e37ae936a386f547"
+     },
+     "text": "Pricing - Snipcart\nPricing\nClick to learn more details about our Standard & Enterprise pricing plans for our developer-centric shopping cart platform.\nClick to learn more details about our Standard & Enterprise pricing plans for our developer-centric shopping cart platform.\nPricing - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nPricing\nWe offer fair, scalable pricing for online businesses\n2 %\n/ transactions*\n+ Payment gateway fees\nYour revenues get directly deposited in your account, and we charge a tiny percentage based on the sales you made.\nRegister Now\n*For clients with monthly sales under $1000 USD, the 2% will be replaced by a $20 USD monthly fee. Note that you'll be charged in USD.\nWhat’s included\nForever free Test development\nResponsive technical support\nComprehensive merchant dashboard\nSecure transactions\nUnlimited products (physical, digital, subscriptions)\nUnlimited product variants & discounts\nUnlimited domains/subdomains\nUnlimited tax rates & customer accounts\nCustomizable shopping cart\nFull set of APIs & webhooks\n6 payment gateways\nCustom payment gateway\nPayPal Express Checkout\nCustom shipping methods\nCustomizable invoices\nMulti-currency\nAbandoned carts recovery\nReal-time shipping estimates\nInventory management\nCustom email templates\nTaxCloud & TaxJar integrations\nJoin thousands of developers & merchants\nTry for free Testing is forever free, no credit card required\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://snipcart.com/terms-of-service",
+     "publisher": "Snipcart 公式利用条件",
+     "snapshot": {
+      "url": "https://snipcart.com/terms-of-service",
+      "finalUrl": "https://snipcart.com/terms-of-service",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:29.494Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "2d4e8b935cc80294a177c4a26df6abfd12d699d01b8e92c612b88b02e854c761"
+     },
+     "text": "Terms of service - Snipcart\nTerms of service\nSnipcart\nSnipcart\nTerms of service - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nTerms of service\nBy using Snipcart, you're agreeing to the terms listed below.\nAccount terms\nYou must be 18 years of age or older to use Snipcart.\nYou must provide your full legal name, a valid email address, and any other required information to complete the sign-up process.\nWe cannot be held liable for any damage or loss that may result from your failure to protect your login information, including your password.\nWe’ll contact you by email regarding your account or any other reason related to your account.\nWhen using the services of payment gateways (Stripe, PayPal, Paymill, etc.) to manage your payments, you’ll have to respect their respective terms of service in order to use Snipcart.\nYou may not use Snipcart for any illegal or unauthorized purpose. You must not, in the use of Snipcart, violate any laws in your jurisdiction (including but not limited to copyright or trademark laws).\nGeneral conditions\nWe reserve the right to suspend, cancel and terminate any account for any reason, at any time, without notice.\nYour use of Snipcart is at your sole risk. It is provided on an \"as is\" and \"as available\" basis.\nVerbal, physical, written, or other forms of abuse (including threats of abuse or retribution) of any Snipcart customer, employee, member, or officer will result in immediate account termination.\nWe cannot be held responsible for any errors or frauds that can occur during the use of the service.\nPayments, fees, and pricing\nAll live accounts require a valid credit card. Test-only accounts are free.\nFor the Standard plan, fees will be billed monthly and are based on the total sales amount processed by Snipcart for the billing period.\nFor the Custom plan, fees will be billed monthly at the start of your billing period.\nPayments of fees are non-refundable.\nAll fees are in USD and exclusive of all taxes, levies, or duties imposed by taxing authorities. You shall be responsible for payment of all such taxes, levies, or duties.\nWe are not responsible for any price change of a third party you use in connection with Snipcart.\nIn the event of a price change, Snipcart will notify you by email 60 days in advance.\nCancellation and termination\nYou can cancel and terminate your account in the merchant dashboard, under Account .\nYou can also cancel and terminate your account by sending an email to geeks@snipcart.com .\nUpon cancellation, you’ll be billed a final invoice.\nPrivacy policy\nThe Snipcart website uses cookies, tracking pixels, and related technologies for targeted advertising purposes. The data collected from our website visitors may be used by third parties to target advertising on other sites based on their online activity.\nTo opt-out of receiving targeted advertising, we invite visitors to head over to the DAA opt-out site or the NAI opt-out site , or if they are in Europe, to the EDAA opt-out site .\nTo learn more about our GDPR compliance, consult our Data Processing Addendum .\nJoin thousands of developers & merchants\nTry for free Testing is forever free, no credit card required\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://snipcart.com/merchant-dashboard",
+     "publisher": "Snipcart 公式販売管理画面紹介",
+     "snapshot": {
+      "url": "https://snipcart.com/merchant-dashboard",
+      "finalUrl": "https://snipcart.com/merchant-dashboard",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:29.616Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "911d56f7bde9c2b44a06d160fd3e4e9a579249070e83b56fac8117399452a9fa"
+     },
+     "text": "Comprehensive E-Commerce Dashboard for Merchants - Snipcart\nComprehensive E-Commerce Dashboard for Merchants\nManage e-commerce operations in a full-blown dashboard: performance analytics, customer/order management, discounts, abandoned carts, & more.\nManage e-commerce operations in a full-blown dashboard: performance analytics, customer/order management, discounts, abandoned carts, & more.\nComprehensive E-Commerce Dashboard for Merchants - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nAll Features\nMerchant Dashboard\nMerchant Dashboard\nManage your e-commerce with a comprehensive dashboard\nHave a bird's eye view of your online business with our hosted, back-office management dashboard.\nWhat is Snipcart?\nPowerful, easy to install shopping cart platform.\nSnipcart is a powerful, developer-first HTML/JavaScript shopping cart platform. You can use it to add custom e-commerce to any sites or web applications in minutes.\nLeverage clear analytics to fine-tune your business\nGet period-specific performance insights on orders, sales, customers, products, subscriptions, taxes , & shipping.\nOrder management\nAccess actionable orders and customers info\nDig into your data: search, filter, edit, refund and export orders & customers. Reach out to customers without leaving the dashboard.\nBoost sales with abandoned carts recovery & discounts\nCreate highly-specific discounts & promotions. Send targeted, automatic multi-step email campaigns to recover abandoned carts.\nAbandoned carts\nConfigure payment gateways & flexible shipping methods\nAccept payments with 8+ global gateways. Couple any of them with PayPal. Or, use custom payment gateways to integrate with any payment method. Connect with worldwide shipping providers or define custom shipping methods.\nTechnical shipping details\nSet up various tax scenarios for your online shop\nCreate localized, precise tax rates for different markets. Automate all US tax calculation with a free TaxCloud integration.\nLearn more\nManage store configurations & account users\nEnable Google Analytics, inventory, multi-users, and cross-domain/subdomain shopping. Customize email templates, checkout, notifications, and webhooks integrations.\nStore configuration\nWhat makes Snipcart so compelling is how easy it makes ecommerce integration. Being able to drop in a snippet and quickly get up and running with a full shopping cart and checkout flow without having to deal with typical ecomm technical and UX challenges makes it easy for any business on any tech stack to get started.\nOn top of that, Snipcart comes with a fantastic team who's passionate about helping people get their products online.\nColby Fayock Senior Developer Experience Engineer at Cloudinary\nSnipcart makes it unbelievably easy to enable commerce anywhere. I can bring my products, drop a buy button and have a fully functioning cart and checkout in minutes. Tax and Shipping integrations with webhooks give me the ultimate flexibility to sell all over the world.\nJamie Barton Developer advocate at GraphCMS & GraphQL expert\nSnipcart is a great product. - In a very short space of time it has become a key component of our business. The documentation is clear and accurate. It's extremely easy to install, and has loads of features. The support team is very responsive and supportive. I love the way the product is constantly evolving to meet the challenges of creating and maintaining a successful e-commerce solution . - I highly recommend it.\nAyo Adesina Lead developer at AsoRock Restaurant\nJoin thousands of developers & merchants\nTry for free Testing is forever free, no credit card required\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s16",
+     "url": "https://snipcart.com/faq",
+     "publisher": "Snipcart 公式FAQ",
+     "snapshot": {
+      "url": "https://snipcart.com/faq",
+      "finalUrl": "https://snipcart.com/faq",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:31.412Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "92e0df5f152dc4ecf7b8b9164ed8a8fac29c1bb890405eb1aaa9553062a3da47"
+     },
+     "text": "FAQ - Snipcart\nFAQ\nSee helpful answers to general and specific questions users have before or after trying Snipcart on their site and reading our documentation.\nSee helpful answers to general and specific questions users have before or after trying Snipcart on their site and reading our documentation.\nFAQ - Snipcart\nFeatures\nPhysical Products\nDigital Products\nCustomer Dashboard\nMerchant Dashboard\neCommerce Integration\nQuick Set Up\nCustomization\nAPI & Webhooks\nResponsiveness\nDiscounts\nPayment Gateways\nShipping\nInvoice\nMulti-Currency\nInventory Management\nAbandoned Carts\nTax Management\nView All Features\nResources\nCommunity & Integration\nFAQ\nSupport Forum\nDocumentation\nCompare\nPricing\nBlog\nMore\nSecurity\nE-Commerce for Developers\nSign in\nGet started\nFAQ\nGetting Started\nConfiguration\nPayments\nGDPR Compliance\nPricing\nGetting Started\nWhen should I use Snipcart to sell online?\nAs developers, we want to have 100% control over the look and feel of the shopping cart and the product catalog. We want to be able to display and publish the products in a seamless manner that respects the brand and the design of the website.\nWhen using Snipcart, you have access to a shopping cart that is pure HTML/CSS, injected directly into your website's source code. You basically turn any links in your HTML into buyable buttons you display on your product pages. Those buttons will make our shopping cart pop. The cart itself can be skinned and customized by any developer: there are no creative limits! And since the checkout process is injected into your website, the customer never leaves your website and goes through a seamless navigating and shopping experience.\nOn the other hand, the catalog and products are managed within your CMS or static site generator, like any page and content type you already use and manage. So adding a product page basically means adding content. This means Snipcart will work seamlessly both on traditional CMS like WordPress and modern site generators like Gatsby or Nuxt .\nAs for the administration panel, it’s hosted on Snipcart. By logging into their dashboard, merchants will be able to configure their accounts and track their sales, payments, and shipping. In other words, we think we’ve nailed the best of both worlds: the cart is fully customizable and is “installed” – it’s a basic JavaScript inclusion – within the CMS and the invisible administration section that is hosted. Yet again, using our API, you could retrieve Snipcart data information and display it within your CMS.\nSo yes, Snipcart does require a minimum of HTML and CSS knowledge, and it’s certainly not a service that suits everybody. We’ve built Snipcart as developers and we know that it’ll be more suitable for developers who want to offer simple shopping carts to their customers without compromising the CMS or design of the whole online shop.\nHow can I sell Snipcart to non-technical users?\nGenerally speaking, developers dig Snipcart. It's a technical, clean and customizable e-commerce solution. By reading our code and looking at integration demos , they can see for themselves how good an e-commerce option our cart really is.\nUnfortunately, this smooth communication phenomenon doesn't happen as much when non-technical individuals stumble upon Snipcart. But we know how important it is for developers to justify their choices of tech to non-technical clients. So here’s a quick guide to selling Snipcart to these users.\n1. Vulgarize & turn technical features into tangible benefits . Example? Time = money. Since Snipcart is directly injected inside a website's code using pure HTML/JS, the shopping cart integration can be done very quickly . This is even truer if the client already has a website he wants to keep.\nAnother example? Infinite customization. With a few lines of CSS, you can make our pop-up shopping cart match your website's colors and branding. For the client, this means you can adapt Snipcart's look and feel to the existing online brand experience. Oh, and all this, without ever letting the customer leave the website.\n2. Show & compare. Show them the cart & checkout flow . If you head to our homepage and hit the “Try the cart” button our default cart will pop up with our minimalistic theme designed to fit most websites. Going through the whole checkout process should convince them of the smooth e-commerce UX Snipcart brings. If it’s not enough for them, go on and show comparisons to other e-commerce solutions.\n3. The merchant dashboard . The part of Snipcart these non-technical users will find themselves using the most in the dashboard. You can access it freely, no credit card required, by clicking the Sign up button. Walk them through the basic configurations & advanced e-commerce features to give them a sense of what Snipcart can do for their business.\nDoes Snipcart offer a merchant dashboard?\nYes we do! We offer you a lean, powerful cart in the front, and an effective, robust dashboard in the back.\nOnce you sign up for a free account , you'll access your own back-office merchant dashboard. From there, you'll be able to:\nTrack sales & orders with visual analytics\nManage and export orders & customers\nCreate and manage discounts & promotions\nSet up tax details for your online store\nConnect your payment gateway & shipping providers\nIntegrate with external systems using our webhooks\nStill got questions? Check out our documentation , or hit us up !\nCan I use Snipcart with WordPress?\nOf course! Snipcart is technology independent: this means that you can integrate it to any content management system (CMS) available out there, and WordPress is no exception.\nYou can read this post to learn about an easier way to manage your Snipcart products with a WordPress integration. Also, if you're a developer/designer looking to give more inventory management autonomy to your WordPress customers with Snipcart, this post is for you.\nIf you’re searching for some more in-depth explanations and examples of CMS integrations, go ahead and look up our comprehensive documentation section.\nWhat programming skills do I need to set up Snipcart?\nWhat you need to know is this: yes, integrating Snipcart with your website will require a basic amount of programming skills , whether they’re yours or somebody else’s.\nHTML: Basic Snipcart set up\nMinimal knowledge of HTML will be needed in order to get Snipcart (and your awesome new e-commerce site) up and running. You’ll need to be able to add and remove some HTML content from a web page. If you’re using a CMS, having direct access to your code so you can modify it will be key. Essentially, HTML manipulations will allow you to define and create buy buttons for your products.\nJavaScript and CSS: leveraging Snipcart features\nAn understanding of JavaScript will allow you to use Snipcart’s API (say, to make your cart autofill some fields) and to link your site with Google Analytics. As a matter of fact, if you’ve already integrated Google Analytics, you should do alright using Snipcart. An understanding of JavaScript events will also help.\nAs for the CSS , well, all your cart’s visual customization depends on it. You’ll need to understand CSS in order to customize the look, feel, dimensions, and user experience of your own shopping cart.\nHelp\nBut don’t worry, we’re a bunch of good guys over here at Snipcart, and we’ll be happy to help you and hopefully guide your decision-making process towards the right path. So if you’ve got doubts or questions about anything regarding Snipcart’s technical integration, feel free to drop us a line at geeks@snipcart.com .\nAnd if you’re looking for some more in-depth explanations and examples, go ahead and look up our comprehensive documentation section.\nDo I need an SSL/HTTPS certificate installed on my website?\nEven without an SSL/HTTPS certificate installed, we make sure all of your communication passes through HTTPS/SSL encryption even if there’s no green lock pad next to your URL.\nSnipcart’s shopping cart is injected through JavaScript into your website. Even though the cart pops up on your domain and website, all of the information submitted during checkout is directly sent to Snipcart, which is already equipped with an SSL/HTTPS certificate. Then, we ensure the communication encryption between the client’s browser and Snipcart’s servers. The information entered during checkout is directly submitted to Snipcart without going through your servers (the “powered and secured by Snipcart” inscription displayed at the bottom of the cart informs the user of that).\nAlthough you technically do not need any SSL/HTTPS certificate for Snipcart to work, we still strongly recommend you install one. Some browsers have now started flagging site pages with passwords & credit card forms on them as \"not secure\" when they're not using an HTTPS connexion. Visit Let's Encrypt to get a free SSL certificate.\nPlus, during checkout, your customers will feel more secure if you have a certificate installed. We’ve also gone further than just using SSL/HTTPS encryption in terms of security; you can read more about it in the security section of our documentation. Also, it protects your website from certain man-in-the-middle attacks.\nDo you handle recurring payments & subscriptions?\nYes! Snipcart allows you to set an unlimited configuration of plans, as well as physical products. Whether you're selling returning monthly products, magazine subscriptions, service memberships or any kind of recurring plan, we have you covered. Here’s a post introducing this feature , and here’s the documentation section to get you started with recurring payments.\nYou can also easily integrate a customer dashboard on your website to allow them to keep track of their transactions history or active/upcoming subscriptions. Learn how to do that here .\nCan I sell digital goods with Snipcart?\nYes, you can! We support all types of digital products, files, and downloads out-of-the-box. All you have to do is 1) upload files in your merchant dashboard , and 2) define digital products on your website.\nMore questions? Sign up for a free account and talk directly with our developers (lower right corner icon).\nCan I test Snipcart for free?\nSure thing!\nCreating an account and using Snipcart in the test environment is 100% free, with no credit card needed.\nRead the How much will it cost me to use Snipcart? section to learn more about our pricing\nCan I build a new website with Snipcart?\nNo, you can’t. Snipcart is not a fully-hosted e-commerce solution like Shopify. Nor is it a CMS (Content Management System) that allows you to create a website from scratch. Snipcart is an HTML and JavaScript-based shopping cart that you need to integrate into an existing website. Make sure you can access and modify your website’s HTML code before using Snipcart!\nConfiguration\nWhich languages are supported by Snipcart?\nAll of them! Well... let’s be more precise: we support any language that has been translated until now, and you can easily translate Snipcart on your own. While the merchant dashboard will stay in English, your shopping cart can be translated into any language (for instance, one of our users is fully set up in Turkish).\nSnipcart is fully customizable, from top to bottom. Simply define your own JavaScript file language and the job’s done. Moreover, the localization files are available on GitHub, so feel free to poke around add your own language if it isn’t there yet!\nFor a concrete example and some more details, head over to our documentation section.\nIn which countries is Snipcart available?\nMostly in all of them; we love the whole world! If there happens to be a problem with using Snipcart in your country, it will probably be because of the payment gateways, which, in some ways, we depend on. Since we’re neither brokers nor payment gateways, there are some variables (like these) over which we have little control.\nPlease note that we now support custom payment gateways. Should you need to accept a payment method we don't support out of the box, this could come in handy. Details here .\nHowever, if your problem has something to do with the fact that we do not support a specific gateway, feel free to email us and we’ll get back to you as soon as we’ve looked into it more deeply.\nI'm a developer; how should I set up Snipcart for my client?\nFor now, you can follow these 7 steps to set up your e-commerce client with Snipcart:\n1 - When you sign up for our service , the first email used to create the account is set to Admin. Use your own email at first.\n2 - Log in to the dashboard, under Account > Users, add your customer's email as an account user. This'll give him/her full access to the account during development (if you want to).\n3 - Remain in our Test environment (selected by default in the merchant dashboard), and integrate Snipcart on your client's site with the Test API key.\n4 - Define your store's products on your client's site , customize your shopping cart if you want , and go through all of your Store Configurations in the merchant dashboard.\n5 - A sk your client to enter his credit card information under Account > Billing & Payments in the merchant dashboard.\nThis will allow you to go live with Snipcart by swapping the Test API key for the Live API key on your client's website. You can find it under Account > API Keys.\nWe suggest importing your Test settings to your Live settings. Learn how to do so here .\n6 - Ask your client to connect his or her payment gateway account under Store > Payment Gateway. Simple instructions to do so will appear.\n7 - Contact us via email or Intercom and ask for your client's email to be made Admin.\nOnce your online store is live with Snipcart, your client will be able to manage everything e-commerce related in the merchant dashboard : orders, customers, discounts, abandoned carts & products.\nHow can I manage inventory for my store?\nSnipcart offers full online inventory management for your store.\nWhen you sign-up free for our shopping cart platform, you'll get access to a comprehensive merchant dashboard. From there, you can manage all of your e-commerce operations, including your store inventory and products stock.\nAmong other things, Snipcart allows you to manage inventory in real-time using single products or more detailed product options. You can even allow out-of-stock purchases by checking a simple setting in your inventory panel.\nTo learn more about how to manage inventory with Snipcart, check out this comprehensive documentation section .\nWhich currencies are supported by Snipcart?\nWe support all currencies. Within the Snipcart merchant dashboard, you can directly configure the currency you’d like to use for your online store. However, the currency you choose must be supported by your payment gateway. Make sure your Snipcart account and your payment gateway account both use the same currency. For instance, if your Stripe account is set up in Canadian dollars (CAD) and you set American dollars (US) in your Snipcart dashboard, then the payments won’t be processed. You’ll also be able to customize the numbers format within the dashboard. As for our billing, we’ll use the conversion rate at the time of billing.\nCheck out our supported payment gateways for more detailed information about the currencies they support.\nNote that we also have a custom payment gateway feature. It allows you to integrate Snipcart yourself with any payment method. Details here .\nHow can I cancel my account?\nThough we are sorry to see you leave, we understand that business models/needs can change. To cancel your Snipcart account:\nLog in to your merchant dashboard.\nMake sure you toggle the Live mode at the top of the screen.\nClick on the small user icon at the top right corner.\nUnder the Account section, click on Profile .\nClick on the black Cancel my account button.\nWe also really value feedback from our current or former customers. We would really, really appreciate it if you took a quick moment to write and tell us why you're cancelling your account! This helps us improve the quality of our product and customer service. Thanks!\nWhich browsers does Snipcart support?\nWe support Internet Explorer 11 and above (IE11+) and all evergreen browsers.\nHow do I handle chargebacks with Snipcart?\nChargebacks aren't directly handled through Snipcart. Your chosen payment gateway is the entity that'll be able to help you settle disputes & chargebacks. We'll gladly point you towards the right resources, should you need it.\nPayments\nCan I handle partial and total order refunds with Snipcart?\nOf course. Partial and total order refunds can be handled directly within the merchant dashboard. Go to Dashboard > Orders , click on any Invoice number . Beneath the Details section, you’ll find a Refund button.\nIf you prefer to handle refunds using API, head to this documentation section .\nWhat can I do if my payment gateway isn't supported?\nWell, first of all, what you can do is to tell us about it ! Right now, we’re doing our best to make Snipcart available to the most widely spread audience possible. See the e-commerce payment gateways we currently support .\nPlease note that we now support custom payment gateways. It lets you integrate Snipcart with any payment method on your end. Details here .\nIn order to make sure most merchants can use Snipcart, we also support PayPal Checkout , which is supported in most parts of the world. Now we know that PayPal Checkout isn’t la crème de la crème in terms of user experience: not keeping your customer on your site during checkout and payment processing is never an ideal solution. That’s why we try to include as many gateways as we can. Also, we’d be happy to look into integrating whatever payment gateways you suggest!\nWe’d love to see you using Snipcart too, so feel free to contact us at geeks@snipcart.com and we’ll try to integrate your payment gateway as quickly as we can!\nCan I use deferred payments with Snipcart?\nYour customers don’t have to pay online, and yes, you can bill them later. Our aim here is to accommodate different payment methods and facilitate the already existing relationships between you and your clients. If, say, your client is an institution, sometimes they won’t be able to pay online with a credit card number. It’s important to us that you can use Snipcart the way it suits you best. That’s why we support deferred payments.\nWhen configuring your Snipcart dashboard, you can choose to enable the \"bill me later\" option. By doing that, your customers will have an additional option when they reach the payment step inside the online shopping cart. They’ll be able to choose to pay later. No payments will be processed; you’ll be able to manage the transaction any way you see fit and bill them later!\nGDPR Compliance\nDo you have a Data Processing Agreement (DPA)?\nYes. We published a Data Processing Addendum (DPA) and included it in our Terms of Service . You can find a copy here .\nCan I delete my Snipcart data?\nYes. Send us an email at privacy@snipcart.com and we’ll take care of deleting all of sensitive, personal data associated with your account.\nCan I get a copy of all my Snipcart data?\nYes. Send us an email at privacy@snipcart.com and we’ll send you a file with all of your sensitive, personal data associated with your account.\nWhat happens if I get requests from my customers related to their data?\nAs of now, we’ll be the ones helping you out with this. Send us an email at privacy@snipcart.com , and we’ll provide you with requested customer data. The same thing applies if they wish to delete their data.\nPricing\nWhy do you charge a minimal monthly fee of $20 on the Standard plan?\nAt Snipcart, we believe in providing stellar support to all of our customers, regardless of the amount of monthly sales they generate. We also believe in offering a great product that will be used to create awesome web experiences, not online zombie stores.\nThis minimal $20 fee is a way of making sure we can achieve those two things.\nHow much will it cost me to use Snipcart?\nIt’ll cost you 2% on total monthly sales, with a minimal monthly fee of $20.\nSo:\nIf you’re selling over $1000 a month, it’ll cost you a 2% commission on your monthly sales to use Snipcart.\nIf you’re selling under $1000 a month, it’ll cost you $20 per month to use Snipcart.\nHow do pricings work?\nWe’ll only be billing you on a monthly basis. Every month, on the day you first went live, we’ll automatically calculate and charge 2% of your monthly sales on the credit card you entered to your account when setting up your Snipcart admin dashboard. We'll be charging you in US dollars (USD). Please note that we charge a $20 minimal monthly fee. This means that if you're selling under $1000 a month, you'll be charged a flat $20 to use Snipcart. If you're selling over $1000, you'll be charged the 2% fee.\n* Please note that some banks might require international transactions to be authorized before you start selling online. If your card doesn't seem to be working with Snipcart, this might be the reason.\nJoin thousands of developers & merchants\nTry for free Testing is forever free, no credit card required\nTerms of Service\nAbout Snipcart\nContact\nStatus\nFrançais\nStalk us here :\n© All rights reserved, Snipcart inc. 2023\nBuilt in Canada",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "制作会社Spektrumの顧客が持つ古いASPサイトに販売機能を足す仕事から生まれたカートが、6月に広告へ$1,575を投じた。登録は19件、実際に取引まで進んだ利用者は5人で、1人当たり$315かかった数字を自ら公開した。",
+     "basis": [
+      "f6",
+      "f9",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "発端は、Spektrumの顧客が持つ古いASPサイトに販売機能を追加する仕事だった。最初の版は2013年8月に公開した。その後、開発者向け広告網Carbon Adsに6月の1か月で$1,575を払い、広告は464,464回表示された。登録は19件、実取引まで進んだのは5人で、1人当たりの広告費は$315だった。この結果を2014年7月3日初出の記事で公開し、専用の着地ページを用意すべきだったと振り返った。次に広告費を使うなら、Syndicateのように役に立つ内容と自社製品を結びつける形を試すとした。最初の2年間は、のちに乗ることになるJamstackの流れを意識していなかった。",
+     "basis": [
+      "f6",
+      "f5",
+      "f9",
+      "f10",
+      "f12",
+      "f11",
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "既存のサイトに後付けする買物カートを、開発者と制作会社に売る。カートを選んで組み込むのは開発者だが、料金を払うのは店を持つ商店主や開発者の上司になる。課金は店の取引額の2%で、決済会社の手数料はこれとは別に店側にかかる。",
+     "basis": [
+      "f1",
+      "f13",
+      "f16"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "実際に払うのは、開発者からカートを勧められた商店主や上司だ。窓口になるのは、既存サイトのHTMLを触れる個人の開発者と制作会社である。大企業の営業や個別の要望に応える余力が無いため、個人の開発者に広く売る形をとった。",
+     "basis": [
+      "f13",
+      "f14",
+      "f1",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "古いASPサイトのように作り直したくないサイトにも、販売機能を足さなければならない場面がある。HTMLを編集できれば、WordPressなど今の仕組みを残したまま売り場を追加できる。",
+     "basis": [
+      "f6",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "最初の使い道は、母体の制作会社Spektrumが抱えていた顧客の古いASPサイトへの販売機能の追加だった。受託案件の顧客が、そのまま製品の出発点になった。",
+     "basis": [
+      "f6"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "開発者に訴求し、その開発者に商店主や上司への提案を任せる経路をとった。有料広告ではCarbon Adsに6月の1か月で$1,575を払い、464,464回の表示から登録19件、実取引5人を得た。",
+     "basis": [
+      "f13",
+      "f14",
+      "f9",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "制作会社Spektrumの受託案件から生まれた。Franckは最初の従業員として加わり、のちにパートナーになった。大企業向けの営業や個別要望を処理する人手は持たなかった。",
+     "basis": [
+      "f6",
+      "f7",
+      "f14"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "決済そのものは外部の決済会社が担い、その手数料も別にかかる。そのため、決済会社の条件が店の使い勝手を左右する。製品は、店がHTMLを編集できることを前提にしている。",
+     "basis": [
+      "f16",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "弱い。注文と顧客のデータは管理画面から書き出せ、個人データの写しや削除もメールで頼める。解約も管理画面かメールででき、手続きは最終請求の1回で終わる。",
+     "basis": [
+      "f21",
+      "f27",
+      "f20"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "比べられる相手は、相談する人によって変わる。商店主はShopifyと比べ、開発者はMoltinやFoxy.ioと比べやすい。月額$20の最低料金には、サポートの質を保ち、動いていない店を増やさない狙いがある。",
+     "basis": [
+      "f15",
+      "f26"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2013年8月に最初の版を公開した。2014年7月3日初出の記事で、Carbon Adsに広告を出した結果を公開した。",
+     "basis": [
+      "f5",
+      "f12"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "財布を持つのは商店主でも、選ぶのは開発者だ。そこでSnipcartは開発者に売り、商店主への提案は開発者に任せた。広告では、$1,575で実際に取引した利用者が5人だった数字を見て、次は専用の着地ページと、役に立つ内容と製品を結びつける形に切り替えるとした。",
+     "basis": [
+      "f13",
+      "f9",
+      "f10",
+      "f11"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f26",
+    "f27"
+   ],
+   "identity": {
+    "id": "ent_snipcart_9a1012111695",
+    "name": "Snipcart",
+    "url": "https://snipcart.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_2c4c6ce7b3d4ad9700976cf5",
+      "entityId": "ent_snipcart_9a1012111695",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://snipcart.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:41:25.840Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "2c4c6ce7b3d4ad9700976cf5ffc2ea88ce6225c470853daadf506c533b424f63",
+      "bytes": 99786,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Snipcart 公式サイト (https://snipcart.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_snipcart_9a1012111695/2c4c6ce7b3d4ad9700976cf5ffc2ea88ce6225c470853daadf506c533b424f63.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_fdac7cf75dec28a3d7d29b72",
+      "entityId": "ent_snipcart_9a1012111695",
+      "kind": "favicon",
+      "sourcePageUrl": "https://snipcart.com/",
+      "assetUrl": "https://snipcart.com/favicon-32x32.png",
+      "retrievedAt": "2026-10-07T10:41:26.788Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "fdac7cf75dec28a3d7d29b729ff80f7872bf372842c5f03f621b55bab9932b9e",
+      "bytes": 2450,
+      "contentType": "image/png",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Snipcart 公式サイト (https://snipcart.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:42:33.855Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (fdac7cf75dec)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_snipcart_9a1012111695/fdac7cf75dec28a3d7d29b729ff80f7872bf372842c5f03f621b55bab9932b9e.png",
+       "publicKey": "media/ent_snipcart_9a1012111695/fdac7cf75dec28a3d7d29b729ff80f7872bf372842c5f03f621b55bab9932b9e.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_fdac7cf75dec28a3d7d29b72",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:33.855Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (fdac7cf75dec)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_e7bf2cbdf7853492fea7906b",
+      "entityId": "ent_snipcart_9a1012111695",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://snipcart.com/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:41:30.399Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "e7bf2cbdf7853492fea7906b12c03cf4f94f74942b5bd020eeb3e7b0cdae0eda",
+      "bytes": 186818,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Snipcart 公式サイト (https://snipcart.com/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_snipcart_9a1012111695/e7bf2cbdf7853492fea7906b12c03cf4f94f74942b5bd020eeb3e7b0cdae0eda.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     }
+    ],
+    "displayableIds": [
+     "ma_fdac7cf75dec28a3d7d29b72"
+    ],
+    "problems": []
+   },
+   "caseHash": "1f610e0896ef53db052cda68af58824a10746b1d83106c03378ff85a4ae4af7a",
+   "itemHashes": {
+    "fact:f1": "1781ba42a037390118e7bc5a59ac61a6aab3f8a606be583302fc34639d7e590a",
+    "fact:f2": "465f378dc8950178a46ae652f8e7b0949d73b73aa550e30af91a3cb5ee7eca8f",
+    "fact:f3": "95417e3f7fce8f1c00cf112e9e105b20df5ea1e552370bfe615cbb03b2834bf5",
+    "fact:f4": "e01443bbadde6d5ba4687ccf79373ca6c2059a6dfdcadbd5c73ad2ed430ed20d",
+    "fact:f5": "9d23b8f82d8e84607a78c06c1adbbd656039abd02ec48b355aa29d318a8f34f7",
+    "fact:f6": "0272d382e0e218f6b8a703cb0e763f46f6a1e0c80c7efa2b158a217da3b95936",
+    "fact:f7": "6c6029663185a805be746e01cb6c84439f0f90035e078d4f4e11a019fd649a87",
+    "fact:f8": "6fd071d58561bc497d45f2bdfca490242ae16437cdf34489b1aafd4c48f95ad5",
+    "fact:f9": "92e04bff0f67ae929031f37acc95f2ce817ccc609840bb0fb1af91e8bbea2ae7",
+    "fact:f10": "277c13afc1fe4d12473c61d82a46b2ff2bae104b0c204fd64d3dc10e34832ba4",
+    "fact:f11": "51e2ed55fed7902f4a6cd060df76b7d25f8637244d7e5550a76bfd0fb2d23f6f",
+    "fact:f12": "0a66870dc4cc291b18ffa55fec1932f48466aee9675552c5363f667ddefe03a5",
+    "fact:f13": "365cc6b8c5bdcf84499c9f8b98d48fc07be6d1b8c5445cc105fdcf0dc44f2ab7",
+    "fact:f14": "b19a1c5e6e00bf36bedb63f8e5734e7663f0a4a4d09a82ed1d2c806c635b9189",
+    "fact:f15": "9d212372c20e2cd10ae422d91eb9173930bfc384b0869774642653b7af367fd6",
+    "fact:f16": "c247eadd5417d80a3a66deb09aa96734bdeb683008396b85a75e7b9309132c58",
+    "fact:f17": "bbb7c246b155fd505b0341fd8fdd098b36c66aabe6e4597586def7e549ba58c3",
+    "fact:f18": "5847a9de4e68e355ca64603085d3dcb850f0df3b8a02e9a700ab8b03392d8149",
+    "fact:f19": "34568b2adc9c9976d13f9e641ea6636433ef7a962649084152194405aa958311",
+    "fact:f20": "5951a59d1a6029ad3007f6b09789d0f45179c7533c4ac5ab5f55e1fc69c2323f",
+    "fact:f21": "da501ddac6273306a078d3290bca479544b5df13c0c7e2a6545af294a35ce190",
+    "fact:f22": "f24ae2883b8788130744ad9ada5cfbfa2fd04ca8181e321bbc735cf545c86366",
+    "fact:f26": "af60a6de6ae694e1ec4e6ed52d4a0d3bc2f6a49d1ab7d95b79ef6447702265ec",
+    "fact:f27": "9b41a71152d5e1408b75ac9034c6fe08e0fa3821b7a18514e49750cf11c7dfca",
+    "analysis:a-headline": "1e08daf5ea18b47f7c09d0d9b4985e23b1783e569b995c30010d8444e95a38a6",
+    "analysis:a-story": "1cf1a561ada85688fe89a7211f2fbb3d09f2616c217451504f1dcb871df8b079",
+    "analysis:a-business_model": "222ab11e7f053f608285d1cf0adedd648b85e455e6c1a528737cb484a0b10a4e",
+    "analysis:a-customer": "05404b04b05043889a2b3812c0f1eddeda7bc953054afbc60d64313d7eb90aaa",
+    "analysis:a-customer_pain": "0794cd768f252988873ab2c9704cc90d605a26b9c5b3ddb732a6bf4606642880",
+    "analysis:a-first_customers": "fc34c2f4cf2245a051269cb70f1911a89eb2492e41ef8e6d9cfd05595b1cacfd",
+    "analysis:a-channels": "75a118f2c6a405a648a1d51c352c2be76ddec2b58bd6ca08e0cebf7b834d51ac",
+    "analysis:a-capital_and_team": "8b7d64b0895ee29cbd8e488ddc29d0b2ce2e8efdf4e0a2bd92a95e6f30fe20f0",
+    "analysis:a-dependencies": "eedcd2fa1ca909d6b4193b0b6030e10c11d285ff3089cca724a702cc34c55778",
+    "analysis:a-lock_in": "b79387610f4303954a07daa6e12b5e21b1b7376dc9f25611377b7a0cc39669c2",
+    "analysis:a-competition": "34099de43c8d5d8f54f5492b30f17ccd9bd6fbe0cf6253262615b434f051f8cc",
+    "analysis:a-timeline": "38562e6bba0e3c7773ba147056d9885fe8d6c5fbaca178471edc94cfb17e637e",
+    "analysis:a-lesson": "27831f901874936be310451aa7ae7923b489ce8544251b52bfcead85e6640900"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f26",
+    "fact:f27",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-competition",
+    "analysis:a-timeline",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://snipcart.com/about",
+      "publisher": "Snipcart 公式紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s2",
+      "url": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "publisher": "Snipcart 公式対談",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "publisher": "Snipcart 公式広告実験記事",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://snipcart.com/blog/topics/ecommerce/page/7",
+      "publisher": "Snipcart 公式記事目録",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "url": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "publisher": "Snipcart 公式集客振り返り",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://snipcart.com/pricing",
+      "publisher": "Snipcart 公式料金",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://snipcart.com/terms-of-service",
+      "publisher": "Snipcart 公式利用条件",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://snipcart.com/merchant-dashboard",
+      "publisher": "Snipcart 公式販売管理画面紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s16",
+      "url": "https://snipcart.com/faq",
+      "publisher": "Snipcart 公式FAQ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "既存サイトに買物カートを追加する、開発者・制作会社向けの製品。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "TOOL",
+      "text": "サイトへJavaScriptを追加し、商品ボタンへHTML属性を付けて組み込む。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "HTMLを編集できればWordPressなど既存の仕組みと組み合わせられる。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "OTHER",
+      "text": "所在地はカナダのQuébec City。著作権表記の法人名はSnipcart inc.。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "FOUNDING",
+      "text": "Charlesは最初の版を2013年8月に公開したと説明。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "FOUNDING",
+      "text": "Spektrumの顧客の古いASPサイトへ販売機能を追加する仕事が発端だった。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "TEAM",
+      "text": "Franckは最初の従業員で、後にパートナーになったと説明。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "最初の2年間はJamstackを意識していなかったと説明。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "6月のCarbon Ads広告費は$1,575、表示は464,464回だったと記述。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "CHANNEL",
+      "text": "登録19件、実取引に至った利用者5人、1人当たり広告費$315と記述。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "専用の着地ページを用意すべきだったと記述。再び広告費を使うなら、Syndicateのように有用な内容を自社の製品と結びつける形を試すと記述。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "EVENT",
+      "text": "Carbon Ads実験記事の初出日を2014年7月3日と掲載。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "CHANNEL",
+      "text": "開発者へ訴求し、実際に支払う商店主や上司へ提案してもらう形だった。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "OTHER",
+      "text": "大企業の営業や個別要望を処理する余力がなく、個人の開発者へ広く訴求した。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "商店主はShopify、開発者はMoltinやFoxy.ioを比較対象にしやすいと観察。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "PRICING",
+      "text": "取引額の2%を課金し、決済会社の手数料は別にかかる。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "PRICING",
+      "text": "月販$1,000 USD未満は2%に代えて月額$20 USD。請求通貨はUSD。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "PRICING",
+      "text": "開発用の試験利用は期限なしで無料、カード登録も不要。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "OTHER",
+      "text": "通常プランは処理した月間販売額をもとに請求。料金はUSDで税別、返金不可と記載。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "OTHER",
+      "text": "価格変更は60日前にメール通知。管理画面かメールで解約でき、最終請求がある。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "TOOL",
+      "text": "注文・顧客の検索、編集、返金、書き出しを管理画面で扱うと説明。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "OTHER",
+      "text": "Ayo Adesinaの紹介文は導入の容易さとサポートチームの対応の良さを評価。公式の紹介ページに掲載された推薦文。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f26",
+      "kind": "OTHER",
+      "text": "最低料金$20の理由に、サポート品質と稼働しない店舗の抑制を挙げている。",
+      "sourceId": "s16",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f27",
+      "kind": "OTHER",
+      "text": "注文・顧客の書き出しと、個人データの写し・削除のメール依頼窓口を案内。",
+      "sourceId": "s16",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "制作会社Spektrumの顧客が持つ古いASPサイトに販売機能を足す仕事から生まれたカートが、6月に広告へ$1,575を投じた。登録は19件、実際に取引まで進んだ利用者は5人で、1人当たり$315かかった数字を自ら公開した。",
+      "basis": [
+       "f6",
+       "f9",
+       "f10"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "発端は、Spektrumの顧客が持つ古いASPサイトに販売機能を追加する仕事だった。最初の版は2013年8月に公開した。その後、開発者向け広告網Carbon Adsに6月の1か月で$1,575を払い、広告は464,464回表示された。登録は19件、実取引まで進んだのは5人で、1人当たりの広告費は$315だった。この結果を2014年7月3日初出の記事で公開し、専用の着地ページを用意すべきだったと振り返った。次に広告費を使うなら、Syndicateのように役に立つ内容と自社製品を結びつける形を試すとした。最初の2年間は、のちに乗ることになるJamstackの流れを意識していなかった。",
+      "basis": [
+       "f6",
+       "f5",
+       "f9",
+       "f10",
+       "f12",
+       "f11",
+       "f8"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "既存のサイトに後付けする買物カートを、開発者と制作会社に売る。カートを選んで組み込むのは開発者だが、料金を払うのは店を持つ商店主や開発者の上司になる。課金は店の取引額の2%で、決済会社の手数料はこれとは別に店側にかかる。",
+      "basis": [
+       "f1",
+       "f13",
+       "f16"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "実際に払うのは、開発者からカートを勧められた商店主や上司だ。窓口になるのは、既存サイトのHTMLを触れる個人の開発者と制作会社である。大企業の営業や個別の要望に応える余力が無いため、個人の開発者に広く売る形をとった。",
+      "basis": [
+       "f13",
+       "f14",
+       "f1",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "古いASPサイトのように作り直したくないサイトにも、販売機能を足さなければならない場面がある。HTMLを編集できれば、WordPressなど今の仕組みを残したまま売り場を追加できる。",
+      "basis": [
+       "f6",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "最初の使い道は、母体の制作会社Spektrumが抱えていた顧客の古いASPサイトへの販売機能の追加だった。受託案件の顧客が、そのまま製品の出発点になった。",
+      "basis": [
+       "f6"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "開発者に訴求し、その開発者に商店主や上司への提案を任せる経路をとった。有料広告ではCarbon Adsに6月の1か月で$1,575を払い、464,464回の表示から登録19件、実取引5人を得た。",
+      "basis": [
+       "f13",
+       "f14",
+       "f9",
+       "f10"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "制作会社Spektrumの受託案件から生まれた。Franckは最初の従業員として加わり、のちにパートナーになった。大企業向けの営業や個別要望を処理する人手は持たなかった。",
+      "basis": [
+       "f6",
+       "f7",
+       "f14"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "決済そのものは外部の決済会社が担い、その手数料も別にかかる。そのため、決済会社の条件が店の使い勝手を左右する。製品は、店がHTMLを編集できることを前提にしている。",
+      "basis": [
+       "f16",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "弱い。注文と顧客のデータは管理画面から書き出せ、個人データの写しや削除もメールで頼める。解約も管理画面かメールででき、手続きは最終請求の1回で終わる。",
+      "basis": [
+       "f21",
+       "f27",
+       "f20"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "比べられる相手は、相談する人によって変わる。商店主はShopifyと比べ、開発者はMoltinやFoxy.ioと比べやすい。月額$20の最低料金には、サポートの質を保ち、動いていない店を増やさない狙いがある。",
+      "basis": [
+       "f15",
+       "f26"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2013年8月に最初の版を公開した。2014年7月3日初出の記事で、Carbon Adsに広告を出した結果を公開した。",
+      "basis": [
+       "f5",
+       "f12"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "財布を持つのは商店主でも、選ぶのは開発者だ。そこでSnipcartは開発者に売り、商店主への提案は開発者に任せた。広告では、$1,575で実際に取引した利用者が5人だった数字を見て、次は専用の着地ページと、役に立つ内容と製品を結びつける形に切り替えるとした。",
+      "basis": [
+       "f13",
+       "f9",
+       "f10",
+       "f11"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

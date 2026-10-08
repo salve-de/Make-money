@@ -1,0 +1,1357 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_noteforms_003fcbdd14cf",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "Notionのデータベースと接続し、フォームの回答を保存する製品。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "EVENT",
+     "text": "公式サイトは以前の名称がNotionFormsだったと明記。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "DESCRIPTION",
+     "text": "利用者と企業が合わせて130,000以上という案内がある。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "FOUNDING",
+     "text": "2021年5月にAmazon Web Servicesを退職し、LondonからParisへ戻った。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "1〜2年分の貯蓄はあったが使わない計画で、必要なら受託の仕事を簡単に見つけられると考えていた。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f6",
+     "kind": "FOUNDING",
+     "text": "使い慣れた構成と雛形で4日間で初版を作った。Notion接続に集中し、条件分岐・詳細な見た目変更・複数ページを省いた。事前の需要調査はしなかった。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "最初の2〜3か月は無料。初期のサーバー費は月$20と申告。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f8",
+     "kind": "PRICING",
+     "text": "有料化は月$15の定額。利用量課金を避け、競合の安いプランの約半分を目安にした。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f9",
+     "kind": "PRICING",
+     "text": "見た目変更や添付など費用が出る機能を有料化。既存利用者へ生涯40%割引を配った。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f10",
+     "kind": "CHANNEL",
+     "text": "無料フォームの製品名表示と利用者の共有・リンクが集客を生んだと記述。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "初期から利用者へ意見を求め、毎日通話し、Facebookグループも運営した。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "本文の時点で登録26,000人、有料850人、年換算の継続売上$182,000と申告。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f13",
+     "kind": "TOOL",
+     "text": "資料の利用ツール欄にLaravel・Vue・Amazon Web Services・Stripeを掲載。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f14",
+     "kind": "PRICING",
+     "text": "Basicは$0の表示。1利用者・1接続先、フォームと回答件数は無制限。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "PRICING",
+     "text": "Proは月当たり$20、Teamは月当たり$49と表示。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "OTHER",
+     "text": "Proは製品名表示の除去・条件分岐・10MB添付、Teamは複数利用者・独自ドメイン・100MB添付を案内。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "PRICING",
+     "text": "有料枠には3日間の試用を案内。個別契約や請求書払いも相談対象。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "CHANNEL",
+     "text": "紹介報酬を継続課金の30%、毎月PayPalで支払い、最低支払額なしと掲載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "EVENT",
+     "text": "同じページで制度を閉じ、新規の紹介者を受け付けないと明記。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "OTHER",
+     "text": "利用条件は運営者をSAS JhumanJ、所在地をフランスと記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "OTHER",
+     "text": "返金は不満がある場合に連絡・相談を案内。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "OTHER",
+     "text": "素材の複製・配布は明示の許可を必要とする旨を記載。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f23",
+     "kind": "CHANNEL",
+     "text": "JhumanJは接続先とデータベースを選ぶだけで使える製品と実演のリンクを投稿。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f24",
+     "kind": "OTHER",
+     "text": "GelatoInRomeは入力の手軽さを評価し、全データへのアクセス権を心配して質問した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f25",
+     "kind": "OTHER",
+     "text": "JhumanJは共有するデータベースを選べると返答。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f26",
+     "kind": "OTHER",
+     "text": "neoscoobは料金の高さと基本機能が有料側にあることへ不満を投稿。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f27",
+     "kind": "OTHER",
+     "text": "AssolutamenteSiは週間予定の入力用フォームをNotionへ埋め込んだ実演を投稿。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f28",
+     "kind": "OTHER",
+     "text": "Thomasは無料の個人用フォームを保護できないことと、有料機能の割合へ不満を投稿。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f29",
+     "kind": "OTHER",
+     "text": "Chris Cireficeは関連項目の検索で候補が出ず、学期開始に再利用できないと投稿。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f30",
+     "kind": "OTHER",
+     "text": "Calabash Collectiveは長い複数ページの質問並べ替えが扱いにくいと投稿。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://noteforms.com/",
+     "publisher": "NoteForms 公式サイト",
+     "snapshot": {
+      "url": "https://noteforms.com/",
+      "finalUrl": "https://noteforms.com/?utm_source=failed_custom_domain_redirect",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:31:01.409Z",
+      "via": "direct",
+      "contentType": "text/html;charset=utf-8",
+      "textHash": "3af425014f394e21e98b0b74536d39900ef4aba99bfa25b7527833dbbce1ebc2"
+     },
+     "text": "Create beautiful forms to fill your Notion databases - NoteForms\nCreate beautiful forms to fill your Notion databases\nCreate beautiful forms to fill your Notion databases. Unlimited fields, unlimited submissions. It\nCreate beautiful forms to fill your Notion databases. Unlimited fields, unlimited submissions. It\nCreate beautiful forms to fill your Notion databases - NoteForms\nNoteForms Create Form\nTemplates Database Views Pricing Login Register\nLogin Create Form\nRated 4.9/5\nThe Best Form Builder\nfor Notion\nCreate beautiful forms and surveys without writing code. Receive submissions straight into Notion. Easy.\nCreate form for free No credit card required\nDemo\nYour browser does not support the video tag.\nNoteForms is an\nOfficial Notion integration\nTrusted by 130.000+ users and companies\nfield selection All the fields you need\nUse a wide selection of field types. From all the basic fields supported in your Notion table to ratings, signatures and more\nAll Notion fields. Use all field types available in your Notion table — text, numbers, select, date, checkbox, URL, email, phone and more.\nPerson fields. Allow the respondent to select a user from the same Notion workspace, and integrate this property with other features.\nRelation fields. Users can select entries from a related table\nFile uploads. Users can upload files that will get stored to your Notion table\nSignatures. Sign the form, signatures will get stored as images in Notion\nRatings. Star rating field will be mapped to a number value\nProgress bar. Customisable indicator to display form completion\nHidden fields. Add hidden fields with pre-filled values via URL parameters\ncustomisation Your forms, your style\nCustomise the style and content of your forms to match your brand\nCustomise colours and font. Choose the accent colours and font of your form or select one of the available themes\nExternal videos. Embed external videos from YouTube or Vimeo, or other elements through code blocks\nCustom CSS and JavaScript. Use custom code for a full control of your styling and logic\nFile uploads. Users can upload files that will be linked into your Notion databases\nMultipage forms. Divide your form in multiple pages for a better structured user flow\nlogic & rules Smarter forms with logic\nMake your forms smarter using conditional logic, validation rules, notifications, limits and signatures and more\nConditional logic. Control the flow of your form based on other field values. Hide, show or make a field required.\nNotifications. Receive an email, Slack, Discord and more whenever someone submits your form.\nSubmission confirmation. The submitter receives a confirmation email, optionally including their response\nEdit submissions. Allow the submitter to return to their submission and edit it afterwards.\nSet limits. Set a closing date for your form or a limit to the total number of submissions\nPrefilled fields. Pre-fill hidden fields with certain values, for example identifying the user\nWebhooks. Set a webhook to be called upon form submission\nForm protection. Protect your form with a password and/or a captcha\ntemplates Ready-made form templates\nStart with one of our ready-made form templates for common use cases or create your form from scratch\nSee all templates\nMore Features. More Possibilities. Much more powerful than Notion’s native forms\nDon’t settle for less. While Notion’s native form builder covers the basics, NoteForms takes it to the next level.\nDiscover how\nSeamless Integrations\nEmails, Notion, Google Sheets, Zapier and more.\nURL Pre-fill Feature\nBoost response rates with URL pre-fill options\nSmart Logic\nSmarter interactive forms with advanced logic\nCustomization options\nYour own branding, multi-Page forms, custom code etc\nSecure & Reliable\nPasswords, Captcha, Notion Auth and more\nEasy updates\nEdit form submissions and existing Notion Pages\nDiscover All Features\nTake your forms to the next level with Pro.\nSimple pricing.\nMonthly billing\nYearly billing\n2 months off\nBasic $0 /month\nThe basic toolset to create an unlimited number of forms with Notion.\n1 user\n1 Notion workspace\nUnlimited forms\nUnlimited submissions\nEmbed form anywhere\n1 database view\nStart now\nPro $20 /month\nEverything you need to create beautiful and professional forms.\n1 user\n1 Notion workspace\nRemove NoteForms branding\nFull form customization\nEnhanced form notifications\nIntegrations and form logic\n10 MB file uploads\nUnlimited database views\nStart 3-day trial\nTeam $49 /month\nFor companies that need to collaborate on their forms.\nUnlimited users\nMultiple Notion workspaces\nAll features from Pro plan\nEditable submissions\nCustom domains\nCustom sender email (SMTP)\n100 MB file uploads\nPriority support\nStart 3-day trial\nRead more about our different plans\nLoved by our customers\n130.000+ users and companies have chosen NoteForms to build beautiful forms with Notion\nNoteForms\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.\nResources\nDatabase Views\nForm Templates\nBlog\nPricing\nHelp\nFeatures\nGuides\nIntegrations\nProduct Updates\nFeature Requests\nReport Abuse\nNotion Glossary\nCommunity\nAffiliate Program\nCase Studies\nStudent Discount\nAcademic Discount\nNGO Discount\nOur Partners\nNotion Ambassadors\nTestimonials\nNotion Surveys\nFor Airtable Users\nComparison\nvs Notion Native Forms\nLegal\nPrivacy Policy\nTerms & Conditions\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://www.starterstory.com/stories/notionforms",
+     "publisher": "Starter Story 掲載の創業者取材",
+     "snapshot": {
+      "url": "https://www.starterstory.com/stories/notionforms",
+      "finalUrl": "https://www.starterstory.com/stories/notionforms",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:22.923Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "d6bd328fba2971ea3edfe8bdc1ac0bdf5e45907baafcb5ca48d108259546d559"
+     },
+     "text": "How I Bootstrapped My Notion Form Builder $180K ARR - Starter Story\nHello! Who are you and what business did you start?Hello, my name is Julien Nahum and I’m the founder of NoteForms, a SaaS company offering a form builder integration to Notion (the productivity software). At the time of writing this, NotionForms has a total of 26k users, 850 paid subsc...\nHow I Bootstrapped My Notion Form Builder $180K ARR - Starter Story\nHello! Who are you and what business did you start?Hello, my name is Julien Nahum and I’m the founder of NoteForms, a SaaS company offering a form builder integration to Notion (the productivity software). At the time of writing this, NotionForms has a total of 26k users, 850 paid subsc...\nHow I Bootstrapped My Notion Form Builder $180K ARR - Starter Story\ns\nStarter Story\nCase Studies\nNoteForms\nSearch…\n⌘K\nLogin\nJoin Starter Story\nEsc\nHome\nData\nAll Ideas\nSaaS Ideas\nApp Ideas\nAI Ideas\nMore Ideas\nCase Studies\nAll Case Studies\nSaved\nRandom\nEpisodes\nAll Episodes\nMust Watch\nLearn\nAcademy\nBuild\nStarter Story is part of HubSpot.\nGet started free\nHow I Bootstrapped My Notion Form Builder $180K ARR\nNovember 27th, 2022\nsave\nAbout\nBusiness\nTools\nJulien Nahum\nFounder,\nNoteForms\n$37K\nrevenue/mo\n1\nFounders\n1\nEmployees\nNoteForms\nnoteforms.com\nfrom\nParis, France\nstarted\nMay 2021\n$37,000\nrevenue/mo\n1\nFounders\n1\nEmployees\nDiscover what tools recommends to grow your business!\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nplatform\nAmazon Web Se...\ncustomer service\ncrisp\nsocial media\nFacebook\nTwitter\nYouTube\nLinkedIn\nproductivity\nNotion\npayments\nStripe\nanalytics\nGoogle Analytics\nProfitWell\nAmplitude\nadvertising\nGoogle Adwords\ndesign\nFigma\nstock images\nUnsplash\nfreelance\nFiverr\nstack\nLaravel\nVue\nDiscover what books Julien recommends to grow your business!\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nWant more updates on\nNoteForms?\nCheck out these stories:\nHello! Who are you and what business did you start?\nHello, my name is Julien Nahum and I’m the founder of NoteForms , a SaaS company offering a form builder integration to Notion (the productivity software).\nAt the time of writing this, NotionForms has a total of 26k users, 850 paid subscribers, and an ARR of $182k.\nIt has been growing very steadily since its launch, and it’s now being used internally by quite a few huge tech companies!\nWhat's your backstory and how did you develop the idea?\nIn May 2021, I left my job as an SDE at Amazon Web Services and moved back from London to Paris to focus on my projects. I did not have a specific project idea, I just wanted to give myself some time. I did have some savings (1~2 year), but my plan was not to use them. During my studies, I worked as a freelancer for a few tech companies so I knew I could easily find some gigs if needed.\nFor a few weeks, I worked on a few small projects. I didn’t finish building the MVPs as I was not convinced enough by the ideas. I also did some open-source work. Around the same time, Notion released its long-awaited API. Being a huge Notion fan, I decided that I wanted to build something with this API.\nFinding what to build didn’t take long. A few years before then, I discovered Airtable, a no-code tool to create collaborative databases. One of the cool features of these databases is that they could be transformed into forms in seconds.\nThese forms would automatically contain one field for each column in their database table and could be shared everywhere. Each form submission automatically lands in their Airtable database, which is super convenient. Notion databases are so similar to Airtable’s, so I remembered this form feature and decided to build a similar tool.\nTake us through designing, prototyping, and manufacturing your first product.\nI knew that the scope of this project wasn’t too large and that I could quickly build the first version of it, so I decided to build it without any kind of customer/product validation. I had already built many web projects before (SaaS, Marketplaces, etc), and even had a starter project template.\nI’ve been building with the same tech stack for the past 8 years. I don’t want to waste time learning new technologies while I’m focused on building a new product. Thanks to this, I was able to ship an MVP in 4 days. With this project, I decided to revive my old Twitter account and build this whole project in public.\nembed:tweet\nembed:tweet\nBuild in public. Just think about the content you’d like to see yourself and produce it. It does not have to be complicated.\nA form builder seems to be a relatively simple product. The advantage is that it’s easy to find inspiration from other products, but the drawback is that customers, who are familiar with similar products, come with expectations.\nMy goal with the MVP was to validate the fact that Notion users would be interested in having a dedicated form builder, offering an advanced integration with their favorite tool. Therefore, I focused mostly on the Notion part of the product, leaving aside some common form features such as logic, advanced customization, multi-pages forms, etc.\nDuring the first 2-3 months the product was entirely free. I built everything myself, so the costs were really low (only a $20/month server initially). NotionForms was ugly and buggy, but because it was free I managed to get quite a lot of early users.\nSince the very first days, I added some automations to request feedback from the users, and I created a Facebook group for users to ask questions or get updates on the product. There are so many form builders out there, so it was easy to build the first roadmap, but discussing intensively with users is what helped me focus on the right things. At the time, I was having calls with customers daily.\nNotionForms first landing page\nAfter a bit, the product was more stable, and I decided that it was time to monetize it. I always disliked usage-based pricing for form builders so I decided to keep it very simple with a unique flat price of $15 per month.\nI did not know what people were willing to pay for such a service, so I just picked this price because it was approximately 2 times cheaper than the cheapest plans of most form builders. I then decided on the features that were going to be in the paid plan. Generally, I included all UI customization features or features directly costing me money, such as file uploads.\nTo prepare for the launch of the paid plan, I emailed all users with a 40% lifetime discount code. It was a very stressful day, but it ended well since I got my first customer!\nembed:tweet\nDescribe the process of launching the business.\nWhen I initially launched the first free version of NotionForms in May 2021, I had no budget and no audience, and I was a nobody in the Notion community. I decided to give social media a try and posted in every Notion community I could find.\nI posted on Facebook groups, Reddit, and Twitter, and a random person even hunted NotionForms on a Product hunt. It’s not always easy to reach out to communities like this without sounding like a spammer.\nI believe that because NotionForms was entirely free, people positively welcomed my posts. The Notion community is very active and super involved. Thanks to this, other people started to share what they created with NotionForms!\nembed:tweet\nA few months into the project, I also did a successful product hunt launch , where NotionForms was voted product of the day. I also was awarded a Maker Grant by Product Hunt for NotionForms.\nembed:tweet\nSince launch, what has worked to attract and retain customers?\nHere’s the current breakdown of acquisition sources (self-reported by users):\nThe great thing about form builders such as NotionForms is that they are viral products. Indeed, users will start using your product, they’ll create forms, and they will start sharing them. Form respondents will then see these forms, discover NotionForms, and ultimately create a form.\nPeople also add links to their forms from their websites, essentially creating backlinks to NotionForms, which helps with SEO. Since its launch, it is this viral loop that has been responsible for its growth. The “Powered by NotionForms” below every free form is very similar to the “Sent from my iPhone” that Apple used when launching the iPhone. If we also count word of mouth (friend_colleague) on the graph above, then we can see that the “product viral loop” is responsible for more than 55% of acquisitions.\nIf you can find a similar feature for your product, an option that can be shared by users, a widget they can embed on their website, etc. then your users can do the marketing for you!\nIn terms of volume, there are more than 70k unique users that visit the site each month (including form respondents that do not necessarily know about the product).\nProducing content is also important for SEO. Unfortunately writing articles takes time, and I don’t like it that much so we don’t have many SEO articles on the main website. We have a help center, with many articles about the product.\nWe also have a Youtube channel with a few video tutorials showing how to use the product. It has around 13k views so far, and I generally have great feedback for them. We also offered the product for free to a dozen of international YouTubers that produced videos presenting NotionForms to their community.\nWe have a Twitter account , where we generally post new features & new content. NotionForms has a Facebook group with almost 2k members where we post news, and new content, and answer customer questions.\nI very recently started to experiment with Google paid Ads. I hired an expert to help me get started but unfortunately, results aren’t promising. I’m still learning about ads and I haven’t given up yet, but it’s not profitable for now.\nI don’t have any particular method to retain customers. Most of the time I spend on this project is to do customer support, and it seems to me that customers value that a lot.\nHow are you doing today and what does the future look like?\nToday the project is profitable. I stopped working as a freelancer more than a year ago. During the past year, NotionForms’ MRR has been growing at least 12% month over month. At the time of writing, MRR is $14.7k. As with many other SaaS products, costs are low.\nHere’s what the monthly cost breakdown looks like:\nSalary (for 2 people): $6k\nAWS: $180\nCrisp (customer support tool): $70\nProfitwell (Churn prevention & metrics): $100\nOthers: $50\nMRR Growth of the past year\nI’m also experiencing different acquisition channels. I’ve recently hired an expert to set up some ads for NotionForms (~$750 per month), a freelancer to produce educational videos showing how to use the product, and a copywriter to start writing some blog articles.\nIn terms of usage, around 80k people visited NotionForms last month (including form respondents). Every day, around 70 new users create an account and 100 new forms are created. The conversion rate from a free account to a paid subscription is at ~3.5%.\nCurrently, I work 1h per day to maintain NotionForms, split between customer support and preparation/review of the work done by my developer. Some weeks I work much more on the project, but generally, I try to automate as much as I can.\nThe short-term goal of the past 6 months was to reach $200k ARR. Hopefully, this will be achieved soon. Longer term, the goal is to reach $333k ARR by December 2023. To achieve this, I will work on improving conversion rates and reducing friction when onboarding new users to the product. Hopefully paid ads will also help.\nBuilding on top of Notion (or any other platform) offers a lot of advantages, but also comes with risks. Notion could suddenly decide to revoke my access to their API anytime, essentially killing the product. I’m currently working on other products. One of them is also a Notion product, but my main projects aren’t related to Notion, as I want to diversify the risks. My goal for the next 12 months is to get another new SaaS to $5k MRR.\nWhat platform/tools do you use for your business?\nI use the following tools:\nStripe for payments\nProfitwell for payment retention & financial metrics\nCrisp for customer support & emailing\nAmplitude for app usage analytics\nGoogle Analytics for website traffic analysis & event tracking\nGithub for code repositories, code building, etc.\nAWS for infrastructure, DevOps & monitoring\nSlack for communications and for alerts\nNotion for everything else: Roadmap, CMS, Task planning, Coordination with contractors, etc.\nWhat have been the most influential books, podcasts, or other resources?\nEven though I almost exclusively consume English content, I mostly listen to French podcasts. People I follow on Twitter influence me the most. There are so many inspiring entrepreneurs sharing their journey with great details. I find it easier for me to relate to them than to famous successful entrepreneurs such as Bezos or Musk. It would be super hard for me to list them all, but here are some entrepreneurs I’ve been following since the beginning of this journey: Andy Cloke , Noah Bragg , Damon Chen , Pierre de Wulf & many others!\nAdvice for other entrepreneurs who want to get started or are just starting out?\nTo me, the most important thing is just to get started. I see many people with great ambitions that struggle to get anything done. Don’t be afraid of doing things wrong. Entrepreneurship is nothing like a job, there’s no right way of doing things. You’re going to make mistakes and that’s ok. It’s the only way to learn!\nGo fast. Don’t spend a year building a product without showing it to anyone. That would most likely be a waste of time. Only users can decide if your product is excellent, so you should show them your product as soon as possible to start getting some feedback. Nowadays with all the no-code tools and platforms that exist, you should be able to quickly create an MVP. Confronting your product with users early will also help you realize when your product is bad.\nBe resilient. Building a company is hard, and you probably won’t succeed the first time. There’s always a part of luck when creating a project, so don’t be demotivated if a project fails. For NotionForms, I had great timing. I built the product right when they released their official API, by “luck” there was quite a lot of demand for it, and the community was growing super fast. But before NotionForms, I worked on many different projects that never made any money.\nFinally, build in public. If you’re not a heavy social network user (like I was), this can seem annoying or even frightening, but it’s worth it. Just think about the content you’d like to see yourself and produce it! It does not have to be complicated, many people are interested in seeing how others build companies. Entrepreneurship can also be very lonely. Building in public will allow you to meet other like-minded people, which is super valuable. I have amazing interactions with the people I met on Twitter: we help each other, we share tips, we inspire each other, etc. This community definitely helped me to stay motivated.\nWhere can we go to learn more?\nI’ve been building in public on Twitter since the very first day. It’s definitely the best place to follow my work and to reach out to me. I also have a blog , even though I struggle to post on it regularly. Finally, you can also contact me by email .\nIf you have any questions or comments, drop a comment below!\nMore Case Studies Like This\necommerce · productivity · Woodstock, IL, USA\nI Was Too Young To Drive But Started My Business Anyway: Now We're Approaching $200M/Year\nOWC Larry, founder and CEO of Other World Computing, shares how he started his business at a young age with just a credit card, now experiencing a solid...\n$10M/mo\nWord of mouth\nAdvertising on social media\nApple Search Ads\nInstagram\n$20K to start\n8,497\nreads\nsoftware · productivity · Timișoara, Romania\nHow We Started A $420K/Month Online Forms And Surveys Tool\n123FormBuilder co-founder and CEO, Florin Cornianu, shares how they grew their SaaS business to almost 100 employees, over a hundred thousand active users,...\n$3M/mo\nAdvertising on social media\nSEO\nAhrefs\nSlack\n7,909\nreads\nsoftware · productivity · Brussels, Brussels-Capital, Belgium\nHow We Launched A $2M/Month CRM Software\nEfficy, a European CRM software publisher founded 15 years ago by Cédric Pierrard, has seen €24M in revenue in 2019 and seeks to be 5 times bigger within...\n$2M/mo\nWord of mouth\nDirect sales\nYouTube\nTwitter\n10,112\nreads\nservices · productivity · Kirkland, WA, USA\nHiring One VA Inspired Me To Build A $6M/Year Business\nVirtudesk provides virtual assistant services to entrepreneurs and business owners, helping them to scale and automate their businesses with highly-trained...\n$2M/mo\nWord of mouth\nAdvertising on social media\nYouTube\nTwitter\n$2K to start\n11,236\nreads\nStarter Story &times; HubSpot\nFree tools for every part of your business.\nFind customers, win deals, and automate the busywork with HubSpot's free tools.\nGet started free\nFull article is available for Starter Story premium members.\nUnlock it.\n×\nGet Access To All Startup Data Right Now (it's free)\nJoin our free newsletter to get unlimited access to all startup data. We just need your email:\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\n×\nS\nStarter Story\nWant to discover ideas that\nactually\nmake money?\nGet our 5-minute email newsletter packed with business ideas and money-making opportunities, backed by real-life case studies.\nEmail address\nIf you are a human, ignore this field\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nIt's free and read by 200,000+ founders\n×\nEmail Address\nor\nContinue with Google\nHubSpot uses your information to contact you about our products and services, and you agree to share it with Starter Story for similar purposes. Unsubscribe from either at any time. For more, see our\nPrivacy Policy.\nHave an account? Login by entering your email or continuing with Google.\nPlease sign in.\nEmail Address\nPassword\nLog in without password\n|\nForgot your password?\nCreate A Password\nIf you are a human, ignore this field\nEmail Address\nPassword\n2 + 2 = ?\nCheck your email for a link to sign in\nCheck your email\nWe've sent you an email with a link to sign in. Click the link in the email to access your account.\nIf there's a Starter Story account associated with that email you'll get an email with a link to automatically log in. The link will expire in 24 hours.\nYour existing password still works, should you want to log in with it later.\nS\nStarter Story\nFind the business ideas that\nactually\nmake money.\nSearch 3,123+ real, revenue-generating projects — the tools they built on, how they grew, and the full breakdown behind each one.\nS\nStarter Story\nstarterstory.com/data\nLive\nIdea\nRevenue\nCrm marketing attri...\n$100K/mo\nNo-code Airtable AP...\n$20K/mo\nPdf bank statement ...\n$40K/mo\nAi music video gene...\n$20K/mo\nS\nStarter Story\nBuild a business that changes your life, in less than 5 weeks.\nDiscover a proven system to find, validate, and build your $1M business idea—alongside a community that won't let you fail.\nOur next sprint starts soon...\nS\ntarter Story\nBuild\nWith AI, you can build\nanything\nCome up with an idea, build it, and ship an app that gets users and payments—in just a few days.\nJoin thousands of builders who are turning their ideas into real products.\n×\n×\nS\nStarter Story\nAbout\nSupport\nPrivacy\nWebsite Terms of Use\nTerms",
+     "policy": {
+      "policyId": "rights.starter-story.v1",
+      "sourceId": "src.starter-story",
+      "providerName": "Starter Story",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://noteforms.com/pricing",
+     "publisher": "NoteForms 公式料金",
+     "snapshot": {
+      "url": "https://noteforms.com/pricing",
+      "finalUrl": "https://noteforms.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:23.575Z",
+      "via": "direct",
+      "contentType": "text/html;charset=utf-8",
+      "textHash": "dd7852bc71aae960c42a7e8540420d7836e1528d7eb30dc87ede790ea241492a"
+     },
+     "text": "Pricing - NoteForms\nPricing\nAll of our core features are free, and there is no quantity limit. You can also created more advanced and customized forms with NoteForms Pro.\nAll of our core features are free, and there is no quantity limit. You can also created more advanced and customized forms with NoteForms Pro.\nPricing - NoteForms\nNoteForms Create Form\nTemplates Database Views Login Register\nLogin Create Form\nAll our core features are free.\nStart creating powerful Notion forms today.\nCustom Domain: Your own branding, custom URL and emails from your domain\nSubmission limits: Limit submissions by date, count, or custom conditions\nCustom Code: Completely customize your form with custom JavaScript and CSS\nEmbed anywhere: Seamlessly integrate your form into any app, website or display it as a popup\nSignatures: Add a signature field to your form\nImages & Videos: Add images and videos to your form\nI have been searching for an alternative to Google forms for a while! Finding NoteForms was very exciting! Having the data automatically populate on notion saves me significant retrieval time. Keep up the good work you guys! Alana\nHappy NoteForms user\nRead more\nTake your forms to the next level with Pro.\nSimple pricing.\nEdit Submission\nCustomize Form\nEnable Notifications\nProgress Bar\nSubmission Limit\nAdd Password\nSignature Field\nBody Input\nCustom Code\nImages & Videos\nPre-fill Form\nLookup\nCaptcha\nFilter Relations\nCustom Domain\nIntegrate Google Sheet\nClose Form Date\nAdd Multi Pages\nMentions - Variables\nTranslations\nMatrix Input\nRight-to-Left Layout\nSend Email via own domain\nSubmissions Analytics\nRegex Conditions\nBarcode Input\nRichText Input\nAnd so much more!\nMonthly billing\nYearly billing\n2 months off\nBasic $0 /month\nThe basic toolset to create an unlimited number of forms with Notion.\n1 user\n1 Notion workspace\nUnlimited forms\nUnlimited submissions\nEmbed form anywhere\n1 database view\nStart now\nPro $20 /month\nEverything you need to create beautiful and professional forms.\n1 user\n1 Notion workspace\nRemove NoteForms branding\nFull form customization\nEnhanced form notifications\nIntegrations and form logic\n10 MB file uploads\nUnlimited database views\nStart 3-day trial\nTeam $49 /month\nFor companies that need to collaborate on their forms.\nUnlimited users\nMultiple Notion workspaces\nAll features from Pro plan\nEditable submissions\nCustom domains\nCustom sender email (SMTP)\n100 MB file uploads\nPriority support\nStart 3-day trial\nLooking for a custom plan?\nCustom file upload limit Enterprise level support Custom contract\nPayment via invoice/PO ...and more\nContact us\nTrusted by 130.000+ users and companies\nCompare plans and features\nPro Plan\nStart 3-day trial\nFree\nThe basic toolset to create forms with Notion.\nStart now\nPro\nEverything you need to create beautiful and professional forms.\nStart 3-day trial\nTeam\nFor companies that need to collaborate on their forms.\nStart 3-day trial\nUsage\nUnlimited forms\nUnlimited number of fields\nUnlimited submissions\nNotion workspaces 1 1 Unlimited\nUsers (collaboration) 1 1 Unlimited\nPremium support\nIntegrate anywhere\nFields\nRelation\nFile uploads\nFile upload size - 10 MB 100 MB\nPrefilled fields\nWrite in Notion page body\nMatrix input\nBarcode scanner\nSecret input\nCustomization\nDark mode\nCustom branding\nCustom styles and theme\nMulti-pages forms\nCustom scripts & CSS\nCustom domains\nCustom sender email (SMTP)\nCustom blocks\nUpdate records on submission\nForm translations\nFont styles\nRight-to-Left Layout\nNotifications\nEmail\nSlack\nDiscord\nSubmission confirmation email\nLogic\nConditional logic\nRedirect on submission\nForm ending date\nEditable submissions\nUnique submission IDs\nLookup pages\nDatabase views 1 Unlimited Unlimited\nWebhooks\nZapier integration\nAdmin and security\nBuilt-in analytics\nPassword protection\nCaptcha protection\nNotion workspace protection\nFrequently asked questions\nHow does NoteForms work?\nWhat are the key features of the Pro plan?\nIs there a free trial available?\nWhat payment methods do you accept?\nCan I switch between plans or cancel my subscription?\nIs my data secure with NoteForms?\nCan I integrate NoteForms with other tools and services?\nAre there any limitations on the number of forms or submissions?\nCreate your first form with Notion for free\nGet started\nNoteForms\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.\nResources\nDatabase Views\nForm Templates\nBlog\nPricing\nHelp\nFeatures\nGuides\nIntegrations\nProduct Updates\nFeature Requests\nReport Abuse\nNotion Glossary\nCommunity\nAffiliate Program\nCase Studies\nStudent Discount\nAcademic Discount\nNGO Discount\nOur Partners\nNotion Ambassadors\nTestimonials\nNotion Surveys\nFor Airtable Users\nComparison\nvs Notion Native Forms\nLegal\nPrivacy Policy\nTerms & Conditions\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://noteforms.com/affiliates",
+     "publisher": "NoteForms 公式紹介制度",
+     "snapshot": {
+      "url": "https://noteforms.com/affiliates",
+      "finalUrl": "https://noteforms.com/affiliates",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:23.974Z",
+      "via": "direct",
+      "contentType": "text/html;charset=utf-8",
+      "textHash": "d6c8fc562c34cfdc2ce96cb19418588a4207c9a535dfaeeaf39076cccce38ff2"
+     },
+     "text": "NotionForms affiliates program - NoteForms\nNotionForms affiliates program\nStart earning money by promoting your favourite Notion form builder. Earn 30% recurring commissions for every customer you refer.\nStart earning money by promoting your favourite Notion form builder. Earn 30% recurring commissions for every customer you refer.\nNotionForms affiliates program - NoteForms\nNoteForms Create Form\nTemplates Database Views Pricing Login Register\nLogin Create Form\nEarn money promoting your favourite Notion form builder\nParner with us and earn 30% recurring commissions for every referral to NoteForms. Join our affiliate program today and start earning money.\nAffiliate Program Closed\nThe affiliate program is now closed. Thank you for your interest.\nNo minimum payout via Paypal.\nSent every month!\nHow the program works\nThe affiliate program is currently closed and not accepting new partners.\nTrusted by 60.000+ users\nNoteForms\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.\nResources\nDatabase Views\nForm Templates\nBlog\nPricing\nHelp\nFeatures\nGuides\nIntegrations\nProduct Updates\nFeature Requests\nReport Abuse\nNotion Glossary\nCommunity\nAffiliate Program\nCase Studies\nStudent Discount\nAcademic Discount\nNGO Discount\nOur Partners\nNotion Ambassadors\nTestimonials\nNotion Surveys\nFor Airtable Users\nComparison\nvs Notion Native Forms\nLegal\nPrivacy Policy\nTerms & Conditions\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://noteforms.com/terms-conditions",
+     "publisher": "NoteForms 公式利用条件",
+     "snapshot": {
+      "url": "https://noteforms.com/terms-conditions",
+      "finalUrl": "https://noteforms.com/terms-conditions",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:24.162Z",
+      "via": "direct",
+      "contentType": "text/html;charset=utf-8",
+      "textHash": "dcf1d54fc0b334e22644b1f7ef2e9108b89b3a429fb72b6530fd1c5eacd506f4"
+     },
+     "text": "Terms & Conditions - NoteForms\nTerms & Conditions\nCreate beautiful forms to fill your Notion databases. Unlimited fields, unlimited submissions. It\nCreate beautiful forms to fill your Notion databases. Unlimited fields, unlimited submissions. It\nTerms & Conditions - NoteForms\nNoteForms Create Form\nTemplates Database Views Pricing Login Register\nLogin Create Form\nTerms & Conditions\nUpdated at 2023-08-03\nGeneral Terms\nBy accessing and placing an order with NoteForms, you confirm that you are in agreement with and bound by the terms of service contained in the Terms & Conditions outlined below. These terms apply to the entire website and any email or other type of communication between you and NoteForms.\nUnder no circumstances shall NoteForms team be liable for any direct, indirect, special, incidental or consequential damages, including, but not limited to, loss of data or profit, arising out of the use, or the inability to use, the materials on this site, even if NoteForms team or an authorized representative has been advised of the possibility of such damages. If your use of materials from this site results in the need for servicing, repair or correction of equipment or data, you assume any costs thereof.\nNoteForms will not be responsible for any outcome that may occur during the course of usage of our resources. We reserve the rights to change prices and revise the resources usage policy in any moment.\nLicense\nNoteForms grants you a revocable, non-exclusive, non-transferable, limited license to download, install and use the website strictly in accordance with the terms of this Agreement.\nThese Terms & Conditions are a contract between you and NoteForms (referred to in these Terms & Conditions as \"NoteForms\", \"us\", \"we\" or \"our\"), the provider of the NoteForms website and the services accessible from the NoteForms website (which are collectively referred to in these Terms & Conditions as the \"NoteForms Service\").\nYou are agreeing to be bound by these Terms & Conditions. If you do not agree to these Terms & Conditions, please do not use the NoteForms Service. In these Terms & Conditions, \"you\" refers both to you as an individual and to the entity you represent. If you violate any of these Terms & Conditions, we reserve the right to cancel your account or block access to your account without notice.\nDefinitions and key terms\nTo help explain things as clearly as possible in this Terms & Conditions, every time any of these terms are referenced, are strictly defined as:\nCookie: small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or login information.\nCompany: when this policy mentions “Company,” “we,” “us,” or “our,” it refers to SAS JhumanJ, Neuilly Sur Seine that is responsible for your information under this Terms & Conditions.\nCountry: where NoteForms or the owners/founders of NoteForms are based, in this case is FR\nDevice: any internet connected device such as a phone, tablet, computer or any other device that can be used to visit NoteForms and use the services.\nService: refers to the service provided by NoteForms as described in the relative terms (if available) and on this platform.\nThird-party service: refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you.\nWebsite: NoteForms site, which can be accessed via this URL: https://NoteForms.com/\nYou: a person or entity that is registered with NoteForms to use the Services.\nRestrictions\nYou agree not to, and you will not permit others to:\nLicense, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the website or make the platform available to any third party.\nModify, make derivative works of, disassemble, decrypt, reverse compile or reverse engineer any part of the website.\nRemove, alter or obscure any proprietary notice (including any notice of copyright or trademark) of NoteForms or its affiliates, partners, suppliers or the licensors of the website.\nReturn and Refund Policy\nThanks for shopping at NoteForms. We appreciate the fact that you like to buy the stuff we build. We also want to make sure you have a rewarding experience while you’re exploring, evaluating, and purchasing our products.\nAs with any shopping experience, there are terms and conditions that apply to transactions at NoteForms. We’ll be as brief as our attorneys will allow. The main thing to remember is that by placing an order or making a purchase at NoteForms, you agree to the terms along with NoteForms Privacy Policy.\nIf, for any reason, You are not completely satisfied with any good or service that we provide, don't hesitate to contact us and we will discuss any of the issues you are going through with our product.\nYour Suggestions\nAny feedback, comments, ideas, improvements or suggestions (collectively, \"Suggestions\") provided by you to NoteForms with respect to the website shall remain the sole and exclusive property of NoteForms.\nNoteForms shall be free to use, copy, modify, publish, or redistribute the Suggestions for any purpose and in any way without any credit or any compensation to you.\nYour Consent\nWe've updated our Terms & Conditions to provide you with complete transparency into what is being set when you visit our site and how it's being used. By using our website, registering an account, or making a purchase, you hereby consent to our Terms & Conditions.\nLinks to Other Websites\nThis Terms & Conditions applies only to the Services. The Services may contain links to other websites not operated or controlled by NoteForms. We are not responsible for the content, accuracy or opinions expressed in such websites, and such websites are not investigated, monitored or checked for accuracy or completeness by us. Please remember that when you use a link to go from the Services to another website, our Terms & Conditions are no longer in effect. Your browsing and interaction on any other website, including those that have a link on our platform, is subject to that website’s own rules and policies. Such third parties may use their own cookies or other methods to collect information about you.\nCookies\nNoteForms uses \"Cookies\" to identify the areas of our website that you have visited. A Cookie is a small piece of data stored on your computer or mobile device by your web browser. We use Cookies to enhance the performance and functionality of our website but are non-essential to their use. However, without these cookies, certain functionality like videos may become unavailable or you would be required to enter your login details every time you visit the website as we would not be able to remember that you had logged in previously. Most web browsers can be set to disable the use of Cookies. However, if you disable Cookies, you may not be able to access functionality on our website correctly or at all. We never place Personally Identifiable Information in Cookies.\nReferral Program\nOur referral program has some ground rules. We reserve the right to cancel a referral account breaching any of these rules at any time:\nSelf-referrals are not allowed (i.e. signing up for NoteForms through your own affiliate link)\nAbuse, gaming, or attempting to mislead (i.e. posting fake discounts to coupon-sharing websites) will result in your account being permanently banned.\nNo search engine ads (especially on branded terms or domain names), Facebook ads or other ads that would compete with our own marketing and cause potential confusion for customers.\nNo Facebook ads that link to our website or anything similar that would compete with our own paid marketing and drive up our costs and potentially cause confusion.\nNo pretending to be acting on behalf of us (ie. as an employee).\nWe reserve the right to change the Terms of Service for our affiliate program at any time.\nChanges To Our Terms & Conditions\nYou acknowledge and agree that may stop (permanently or temporarily) providing the Service (or any features within the Service) to you or to users generally at ’s sole discretion, without prior notice to you. You may stop using the Service at any time. You do not need to specifically inform when you stop using the Service. You acknowledge and agree that if disables access to your account, you may be prevented from accessing the Service, your account details or any files or other materials which is contained in your account.\nIf we decide to change our Terms & Conditions, we will post those changes on this page, and/or update the Terms & Conditions modification date below.\nModifications to Our website\nNoteForms reserves the right to modify, suspend or discontinue, temporarily or permanently, the website or any service to which it connects, with or without notice and without liability to you.\nUpdates to Our website\nNoteForms may from time to time provide enhancements or improvements to the features/ functionality of the website, which may include patches, bug fixes, updates, upgrades and other modifications (\"Updates\").\nUpdates may modify or delete certain features and/or functionalities of the website. You agree that NoteForms has no obligation to (i) provide any Updates, or (ii) continue to provide or enable any particular features and/or functionalities of the website to you.\nYou further agree that all Updates will be (i) deemed to constitute an integral part of the website, and (ii) subject to the terms and conditions of this Agreement.\nThird-Party Services\nWe may display, include or make available third-party content (including data, information, applications and other products services) or provide links to third-party websites or services (\"Third- Party Services\").\nYou acknowledge and agree that NoteForms shall not be responsible for any Third-Party Services, including their accuracy, completeness, timeliness, validity, copyright compliance, legality, decency, quality or any other aspect thereof. NoteForms does not assume and shall not have any liability or responsibility to you or any other person or entity for any Third-Party Services.\nThird-Party Services and links thereto are provided solely as a convenience to you and you access and use them entirely at your own risk and subject to such third parties' terms and conditions.\nTerm and Termination\nThis Agreement shall remain in effect until terminated by you or NoteForms.\nNoteForms may, in its sole discretion, at any time and for any or no reason, suspend or terminate this Agreement with or without prior notice.\nThis Agreement will terminate immediately, without prior notice from NoteForms, in the event that you fail to comply with any provision of this Agreement. You may also terminate this Agreement by deleting the website and all copies thereof from your computer.\nUpon termination of this Agreement, you shall cease all use of the website and delete all copies of the website from your computer.\nTermination of this Agreement will not limit any of NoteForms’ rights or remedies at law or in equity in case of breach by you (during the term of this Agreement) of any of your obligations under the present Agreement.\nCopyright Infringement Notice\nIf you are a copyright owner or such owner’s agent and believe any material on our website constitutes an infringement on your copyright, please contact us setting forth the following information: (a) a physical or electronic signature of the copyright owner or a person authorized to act on his behalf; (b) identification of the material that is claimed to be infringing; (c) your contact information, including your address, telephone number, and an email; (d) a statement by you that you have a good faith belief that use of the material is not authorized by the copyright owners; and (e) the a statement that the information in the notification is accurate, and, under penalty of perjury you are authorized to act on behalf of the owner.\nIndemnification\nYou agree to indemnify and hold NoteForms and its parents, subsidiaries, affiliates, officers, employees, agents, partners and licensors (if any) harmless from any claim or demand, including reasonable attorneys' fees, due to or arising out of your: (a) use of the website; (b) violation of this Agreement or any law or regulation; or (c) violation of any right of a third party.\nNo Warranties\nThe website is provided to you \"AS IS\" and \"AS AVAILABLE\" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, NoteForms, on its own behalf and on behalf of its affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the website, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, NoteForms provides no warranty or undertaking, and makes no representation of any kind that the website will meet your requirements, achieve any intended results, be compatible or work with any other software, , systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.\nWithout limiting the foregoing, neither NoteForms nor any NoteForms's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the website, or the information, content, and materials or products included thereon; (ii) that the website will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the website; or (iv) that the website, its servers, the content, or e-mails sent from or on behalf of NoteForms are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.\nSome jurisdictions do not allow the exclusion of or limitations on implied warranties or the limitations on the applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to you.\nLimitation of Liability\nNotwithstanding any damages that you might incur, the entire liability of NoteForms and any of its suppliers under any provision of this Agreement and your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by you for the website.\nTo the maximum extent permitted by applicable law, in no event shall NoteForms or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, for loss of data or other information, for business interruption, for personal injury, for loss of privacy arising out of or in any way related to the use of or inability to use the website, third-party software and/or third-party hardware used with the website, or otherwise in connection with any provision of this Agreement), even if NoteForms or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.\nSome states/jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so the above limitation or exclusion may not apply to you.\nSeverability\nIf any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.\nThis Agreement, together with the Privacy Policy and any other legal notices published by NoteForms on the Services, shall constitute the entire agreement between you and NoteForms concerning the Services. If any provision of this Agreement is deemed invalid by a court of competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of this Agreement, which shall remain in full force and effect. No waiver of any term of this Agreement shall be deemed a further or continuing waiver of such term or any other term, and NoteForms's failure to assert any right or provision under this Agreement shall not constitute a waiver of such right or provision. YOU AND NoteForms AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF OR RELATED TO THE SERVICES MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED.\nWaiver\nExcept as provided herein, the failure to exercise a right or to require performance of an obligation under this Agreement shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute waiver of any subsequent breach.\no failure to exercise, and no delay in exercising, on the part of either party, any right or any power under this Agreement shall operate as a waiver of that right or power. Nor shall any single or partial exercise of any right or power under this Agreement preclude further exercise of that or any other right granted herein. In the event of a conflict between this Agreement and any applicable purchase or other terms, the terms of this Agreement shall govern.\nAmendments to this Agreement\nNoteForms reserves the right, at its sole discretion, to modify or replace this Agreement at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.\nBy continuing to access or use our website after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use NoteForms.\nEntire Agreement\nThe Agreement constitutes the entire agreement between you and NoteForms regarding your use of the website and supersedes all prior and contemporaneous written or oral agreements between you and NoteForms.\nYou may be subject to additional terms and conditions that apply when you use or purchase other NoteForms' services, which NoteForms will provide to you at the time of such use or purchase.\nUpdates to Our Terms\nWe may change our Service and policies, and we may need to make changes to these Terms so that they accurately reflect our Service and policies. Unless otherwise required by law, we will notify you (for example, through our Service) before we make changes to these Terms and give you an opportunity to review them before they go into effect. Then, if you continue to use the Service, you will be bound by the updated Terms. If you do not want to agree to these or any updated Terms, you can delete your account.\nIntellectual Property\nThe website and its entire contents, features and functionality (including but not limited to all information, software, text, displays, images, video and audio, and the design, selection and arrangement thereof), are owned by NoteForms, its licensors or other providers of such material and are protected by FR and international copyright, trademark, patent, trade secret and other intellectual property or proprietary rights laws. The material may not be copied, modified, reproduced, downloaded or distributed in any way, in whole or in part, without the express prior written permission of NoteForms, unless and except as is expressly provided in these Terms & Conditions. Any unauthorized use of the material is prohibited.\nAgreement to Arbitrate\nThis section applies to any dispute EXCEPT IT DOESN’T INCLUDE A DISPUTE RELATING TO CLAIMS FOR INJUNCTIVE OR EQUITABLE RELIEF REGARDING THE ENFORCEMENT OR VALIDITY OF YOUR OR NoteForms's INTELLECTUAL PROPERTY RIGHTS. The term “dispute” means any dispute, action, or other controversy between you and NoteForms concerning the Services or this agreement, whether in contract, warranty, tort, statute, regulation, ordinance, or any other legal or equitable basis. “Dispute” will be given the broadest possible meaning allowable under law.\nNotice of Dispute\nIn the event of a dispute, you or NoteForms must give the other a Notice of Dispute, which is a written statement that sets forth the name, address, and contact information of the party giving it, the facts giving rise to the dispute, and the relief requested. You must send any Notice of Dispute via email to: [email protected] NoteForms will send any Notice of Dispute to you by mail to your address if we have it, or otherwise to your email address. You and NoteForms will attempt to resolve any dispute through informal negotiation within sixty (60) days from the date the Notice of Dispute is sent. After sixty (60) days, you or NoteForms may commence arbitration.\nBinding Arbitration\nIf you and NoteForms don’t resolve any dispute by informal negotiation, any other effort to resolve the dispute will be conducted exclusively by binding arbitration as described in this section. You are giving up the right to litigate (or participate in as a party or class member) all disputes in court before a judge or jury. The dispute shall be settled by binding arbitration in accordance with the commercial arbitration rules of the American Arbitration Association. Either party may seek any interim or preliminary injunctive relief from any court of competent jurisdiction, as necessary to protect the party’s rights or property pending the completion of arbitration. Any and all legal, accounting, and other costs, fees, and expenses incurred by the prevailing party shall be borne by the non-prevailing party.\nSubmissions and Privacy\nIn the event that you submit or post any ideas, creative suggestions, designs, photographs, information, advertisements, data or proposals, including ideas for new or improved products, services, features, technologies or promotions, you expressly agree that such submissions will automatically be treated as non-confidential and non-proprietary and will become the sole property of NoteForms without any compensation or credit to you whatsoever. NoteForms and its affiliates shall have no obligations with respect to such submissions or posts and may use the ideas contained in such submissions or posts for any purposes in any medium in perpetuity, including, but not limited to, developing, manufacturing, and marketing products and services using such ideas.\nPromotions\nNoteForms may, from time to time, include contests, promotions, sweepstakes, or other activities (“Promotions”) that require you to submit material or information concerning yourself. Please note that all Promotions may be governed by separate rules that may contain certain eligibility requirements, such as restrictions as to age and geographic location. You are responsible to read all Promotions rules to determine whether or not you are eligible to participate. If you enter any Promotion, you agree to abide by and to comply with all Promotions Rules.\nAdditional terms and conditions may apply to purchases of goods or services on or through the Services, which terms and conditions are made a part of this Agreement by this reference.\nTypographical Errors\nIn the event a product and/or service is listed at an incorrect price or with incorrect information due to typographical error, we shall have the right to refuse or cancel any orders placed for the product and/or service listed at the incorrect price. We shall have the right to refuse or cancel any such order whether or not the order has been confirmed and your credit card charged. If your credit card has already been charged for the purchase and your order is canceled, we shall immediately issue a credit to your credit card account or other payment account in the amount of the charge.\nMiscellaneous\nIf for any reason a court of competent jurisdiction finds any provision or portion of these Terms & Conditions to be unenforceable, the remainder of these Terms & Conditions will continue in full force and effect. Any waiver of any provision of these Terms & Conditions will be effective only if in writing and signed by an authorized representative of NoteForms. NoteForms will be entitled to injunctive or other equitable relief (without the obligations of posting any bond or surety) in the event of any breach or anticipatory breach by you. NoteForms operates and controls the NoteForms Service from its offices in FR. The Service is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation. Accordingly, those persons who choose to access the NoteForms Service from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable. These Terms & Conditions (which include and incorporate the NoteForms Privacy Policy) contains the entire understanding, and supersedes all prior understandings, between you and NoteForms concerning its subject matter, and cannot be changed or modified by you. The section headings used in this Agreement are for convenience only and will not be given any legal import.\nDisclaimer\nNoteForms is not responsible for any content, code or any other imprecision.\nNoteForms does not provide warranties or guarantees.\nIn no event shall NoteForms be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. The Company reserves the right to make additions, deletions, or modifications to the contents on the Service at any time without prior notice.\nThe NoteForms Service and its contents are provided \"as is\" and \"as available\" without any warranty or representations of any kind, whether express or implied. NoteForms is a distributor and not a publisher of the content supplied by third parties; as such, NoteForms exercises no editorial control over such content and makes no warranty or representation as to the accuracy, reliability or currency of any information, content, service or merchandise provided through or accessible via the NoteForms Service. Without limiting the foregoing, NoteForms specifically disclaims all warranties and representations in any content transmitted on or in connection with the NoteForms Service or on sites that may appear as links on the NoteForms Service, or in the products provided as a part of, or otherwise in connection with, the NoteForms Service, including without limitation any warranties of merchantability, fitness for a particular purpose or non-infringement of third party rights. No oral advice or written information given by NoteForms or any of its affiliates, employees, officers, directors, agents, or the like will create a warranty. Price and availability information is subject to change without notice. Without limiting the foregoing, NoteForms does not warrant that the NoteForms Service will be uninterrupted, uncorrupted, timely, or error-free.\nContact Us\nNoteForms\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.\nResources\nDatabase Views\nForm Templates\nBlog\nPricing\nHelp\nFeatures\nGuides\nIntegrations\nProduct Updates\nFeature Requests\nReport Abuse\nNotion Glossary\nCommunity\nAffiliate Program\nCase Studies\nStudent Discount\nAcademic Discount\nNGO Discount\nOur Partners\nNotion Ambassadors\nTestimonials\nNotion Surveys\nFor Airtable Users\nComparison\nvs Notion Native Forms\nLegal\nPrivacy Policy\nTerms & Conditions\nNotion and the Notion logo are trademarks of Notion Labs, Inc., and are used here with permission.\nNoteForms was previously known as NotionForms.\n© Copyright 2024 NoteForms. All rights reserved.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+     "publisher": "Reddit の初期紹介と利用者の返答",
+     "snapshot": {
+      "url": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "finalUrl": "https://web.archive.org/web/20250731063417/https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:24.178Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "3226b7a4fc474de7f827c253e2f5118ef1326021954c6fa5844262408cfc7bb5"
+     },
+     "text": "I created a tool to create notion forms in 1 min : r/Notion\n32 votes, 15 comments. Hello Reddit!In the past few days i\nr/Notion on Reddit: I created a tool to create notion forms in 1 min\nPosted by u/JhumanJ - 32 votes and 15 comments\nI created a tool to create notion forms in 1 min : r/Notion\n4 captures\n21 May 2021 - 31 Jul 2025\nJun\nJUL\nAug\n31\n2024\n2025\n2026\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20250731063417/https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/\nSkip to main content\nOpen menu\nOpen navigation\nGo to Reddit Home\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nA chip\nA close button\nLog In\nLog in to Reddit\nExpand user menu\nOpen settings menu\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nGo to Notion\nr/Notion\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\n•\nJhumanJ\nI created a tool to create notion forms in 1 min\nAPI\nHello Reddit!In the past few days i've been working on a small project: NotionForms . It allows Notion users to create form for their Notion databases. No need for Zappier or other automation tools, you just need to connect your workspace, and select a database!\nYou see a demo here .\nIf you guys have any feedback/feature ideas, please let me know !\nShare\nShare\nShare\nSort by:\nBest\nOpen comment sort options\nBest\nTop\nNew\nControversial\nOld\nQ&A\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nneoscoob\n•\nThis is an excellent add-on. But serious work is needed on your pricing.\nI sent you an email about this, sorry if it was really forward, but dang, this is literally more expensive than Amazon fricken Prime! Which has a ton of value for the cost. This is an add-on, a single feature of a huge product, the product itself being 3x lower cost than this one feature! Lemme know if you need help determining a price point - I'm quite well versed on the topic.\nLikewise, the division of free vs core features... it's not quite sensible, as many pro features are super basic, ought to be core.\nYou wanted feedback, you got it! Keep up the great work. Best of luck on the fine tuning and marketing. It's a key feature that is needed, and somehow Notion overlooked it.\nReply\nreply\nShare\nShare\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nNGRngr111\n•\n4 years later and it's still expensive af... they should have a student (.edu) plan available for this\nReply\nreply\nShare\nShare\nMore replies\nGelatoInRome\n•\nThis is wonderful. It will definitely make data entry simpler for some quick capture. One question about privacy… I understand the need to connect the form to a workspace and table, but does that mean I’m granting someone else (ie, NotionForms) access to all the data in my table or entire workspace?\nReply\nreply\nShare\nShare\nJhumanJ\n•\nVery good question! First of all, NotionForms can only add records. We don't have any data lookup code (expect to list databases). But more importantly you can select what databases you share with NotionForms, so I suggest you create a database dedicated to NotionForms, and only share this one!\nReply\nreply\nShare\nShare\nGelatoInRome\n•\nThanks, this is very helpful.\nReply\nreply\nShare\nShare\nMore replies\nMore replies\nyasmaj\n•\nThis is the icing on the cake that makes Notion make sense!!! Working beautifully for my CRM 😍 THANK YOU!\nReply\nreply\nShare\nShare\nJhumanJ\n•\nRight now, it results in CreatedBy as \"Forms\". This is ok for forms that are public facing, anonymous. But if the form is on a non-public page and the Notion user account is known, that really needs to be captured. Not sure if that would be as an override to the CreatedBy field (would the API allow that?), or as a separate field that the author of the form needs to set up.\nGlad you like it!!\nReply\nreply\nShare\nShare\nMore replies\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nResponsible-Ad4611\n•\ni have tried numerous 3pty forms which are capable connect to notion, this one is the best and easiest. two thumbs up!!!!\nReply\nreply\nShare\nShare\nJhumanJ\n•\nI updated the post to add a link to the demo: https://www.notion.so/Notion-Forms-Demo-3a2966760cba4855af7e066da0be9856\nHope you guys enjoy!\nReply\nreply\nShare\nShare\nrialakhani\n•\nTrying to find my way around this for a market research survey I’d like to put out!\nReply\nreply\nShare\nShare\ntoscaleblog\n•\nLegend\nReply\nreply\nShare\nShare\nGelatoInRome\n•\nThis is wonderful. It will definitely make data entry simpler for some quick capture. One question about privacy… I understand the need to connect the form to a workspace and table, but does that mean I’m granting someone else (ie, NotionForms) access to all the data in my table or entire workspace?\nReply\nreply\nShare\nShare\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nneoscoob\n•\nYou need to be able to capture which notion member or guest submitted the form and include that as a hidden field into the database.\nRight now, it results in CreatedBy as \"Forms\". This is ok for forms that are public facing, anonymous. But if the form is on a non-public page and the Notion user account is known, that really needs to be captured. Not sure if that would be as an override to the CreatedBy field (would the API allow that?), or as a separate field that the author of the form needs to set up.\nReply\nreply\nShare\nShare\nshyjal\n•\nGreat product.\nI also created a google form addon that helps people connect their existing google form to the notion table. Anyone that has an existing google form can use it for free.\nReply\nreply\nShare\nShare\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\n_philsimon\n•\nVery cool. I'm going to mention this in my new book.\nIs there a way to require fields? It doesn't look like it.\nReply\nreply\nShare\nShare\nMore posts you may like\nCreating forms in Notion to populate DBs\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nCreating forms in Notion to populate DBs\nupvote\n·\ncomments\nCreated my personal AI assistant to generate AI content in Notion!\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nCreated my personal AI assistant to generate AI content in Notion!\ncomments\nDo you use AI tools w/ Notion?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nDo you use AI tools w/ Notion?\nupvotes\n·\ncomments\nNotion Forms & Templates\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nNotion Forms & Templates\nupvotes\n·\ncomments\nInitial thoughts on the new form builder (it's pretty good)\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nInitial thoughts on the new form builder (it's pretty good)\nupvotes\n·\ncomments\nHow to create a contact form with Notion and NotionForms\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nHow to create a contact form with Notion and NotionForms\nyoutube\nupvotes\n·\ncomments\nHow do you get in the habit of constantly and consistently entering info in Notion?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nHow do you get in the habit of constantly and consistently entering info in Notion?\nupvotes\n·\ncomments\nMade a tool for making google form bots in 1 minute\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/IMadeThis\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/IMadeThis\nMembers\nOnline\nMade a tool for making google form bots in 1 minute\nupvote\nThoughts on the New Notion Forms Feature?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nThoughts on the New Notion Forms Feature?\nupvotes\n·\ncomments\nHow to create form? I can't find the option anywhere.\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nHow to create form? I can't find the option anywhere.\nupvote\n·\ncomments\nFree Notion Form That Populates Database\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nFree Notion Form That Populates Database\nupvote\n·\ncomments\nI tried every Notion form builder in the market. Here is the full list with pricing and my top picks.\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nI tried every Notion form builder in the market. Here is the full list with pricing and my top picks.\nupvotes\n·\ncomments\nHow does Notion not have simple forms yet?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nHow does Notion not have simple forms yet?\nupvotes\n·\ncomments\nWhat is your favorite form builder for Notion?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nWhat is your favorite form builder for Notion?\nupvotes\n·\ncomments\nWhat's the best way to use the new forms feature to create tasks?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nWhat's the best way to use the new forms feature to create tasks?\nupvotes\n·\ncomments\nNotion Forms\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nNotion Forms\nupvote\n·\ncomments\nBuilt a free tool to turn Notion pages into slides. Looking for feedback🛝✨\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nBuilt a free tool to turn Notion pages into slides. Looking for feedback🛝✨\nupvotes\n·\ncomments\nI made a prisma boilerplate code generator for nestJS\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/typescript\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/typescript\nTypeScript is a language for application-scale JavaScript development.\nTypeScript is a typed superset of JavaScript that compiles to plain JavaScript.\nMembers\nOnline\nI made a prisma boilerplate code generator for nestJS\nupvotes\n·\ncomments\nIs Notion a Good Tool for Organizing Ideas, Research, and Project Progress?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nIs Notion a Good Tool for Organizing Ideas, Research, and Project Progress?\nupvotes\n·\ncomments\nI made NotionForms: the easiest way to create forms with Notion\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/SideProject\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/SideProject\nr/SideProject is a subreddit for sharing and receiving constructive feedback on side projects.\nMembers\nOnline\nI made NotionForms: the easiest way to create forms with Notion\nupvotes\n·\ncomments\nHow do you guys advertise your Notion template without looking spammy?\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nHow do you guys advertise your Notion template without looking spammy?\ncomments\nI created a React library that generates preview cards for your links!\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Frontend\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Frontend\n/r/frontend is a subreddit for front end web developers who want to move the web forward or want to learn how. If you're looking to find or share the latest and greatest tips, links, thoughts, and discussions on the world of front web development, this is the place to do it.\nMembers\nOnline\nI created a React library that generates preview cards for your links!\nupvotes\n·\ncomments\nI’m new to using notion,I need a starter guide.\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nI’m new to using notion,I need a starter guide.\nupvotes\n·\ncomments\nA simpler way to use notion\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nA simpler way to use notion\nupvotes\n·\ncomments\nI made a little webapp to automatically create CSS particle effects for buttons\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/javascript\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full\n[&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/javascript\nChat about javascript and javascript related projects. Yes, typescript counts. Please keep self promotion to a minimum/reasonable level.\nMembers\nOnline\nI made a little webapp to automatically create CSS particle effects for buttons\nupvote\n·\ncomments\nTop Posts\nReddit\nreReddit: Top posts of May 21, 2021\nReddit\nreReddit: Top posts of May 2021\nReddit\nreReddit: Top posts of 2021\nReddit Rules\nPrivacy Policy\nUser Agreement\nAccessibility\nReddit, Inc. © 2025. All rights reserved.\nExpand Navigation\nCollapse Navigation\n&nbsp;\n&nbsp;\n&nbsp;\nTOPICS\nInternet Culture (Viral)\nAmazing\nAnimals & Pets\nCringe & Facepalm\nFunny\nInteresting\nMemes\nOddly Satisfying\nReddit Meta\nWholesome & Heartwarming\nGames\nAction Games\nAdventure Games\nEsports\nGaming Consoles & Gear\nGaming News & Discussion\nMobile Games\nOther Games\nRole-Playing Games\nSimulation Games\nSports & Racing Games\nStrategy Games\nTabletop Games\nQ&As\nQ&As\nStories & Confessions\nTechnology\n3D Printing\nArtificial Intelligence & Machine Learning\nComputers & Hardware\nConsumer Electronics\nDIY Electronics\nProgramming\nSoftware & Apps\nStreaming Services\nTech News & Discussion\nVirtual & Augmented Reality\nPop Culture\nCelebrities\nCreators & Influencers\nGenerations & Nostalgia\nPodcasts\nStreamers\nTarot & Astrology\nMovies & TV\nAction Movies & Series\nAnimated Movies & Series\nComedy Movies & Series\nCrime, Mystery, & Thriller Movies & Series\nDocumentary Movies & Series\nDrama Movies & Series\nFantasy Movies & Series\nHorror Movies & Series\nMovie News & Discussion\nReality TV\nRomance Movies & Series\nSci-Fi Movies & Series\nSuperhero Movies & Series\nTV News & Discussion\nRESOURCES\nAbout Reddit\nAdvertise\nReddit Pro\nBETA\nHelp\nBlog\nCareers\nPress\nCommunities\nBest of Reddit\nTopics\nLog In / Sign Up\nAdvertise on Reddit\nTry Reddit Pro\nBETA\nShop Collectible Avatars",
+     "policy": {
+      "policyId": "rights.reddit.v2",
+      "sourceId": "src.reddit",
+      "providerName": "Reddit",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+     "publisher": "Reddit の利用者による週間予定の実演",
+     "snapshot": {
+      "url": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+      "finalUrl": "https://web.archive.org/web/20250207124557/https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:24.205Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "84ff888c61e9c5efde0c559f36172d462622c57c268203bcdc05d89150c0e0fb"
+     },
+     "text": "Quick entries for my Notion Weekly To-Do List : widget from Notionforms.io : r/Notion\n378 votes, 18 comments. 384K subscribers in the Notion community. Write, plan, collaborate, and get organized. Notion is all you need — in one tool…\nr/Notion on Reddit: Quick entries for my Notion Weekly To-Do List : widget from Notionforms.io\nPosted by u/AssolutamenteSi - 378 votes and 18 comments\nQuick entries for my Notion Weekly To-Do List : widget from Notionforms.io : r/Notion\n11 captures\n08 Jul 2021 - 07 Feb 2025\nJan\nFEB\nMar\n07\n2024\n2025\n2026\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20250207124557/https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/\nSkip to main content\nOpen menu\nOpen navigation\nGo to Reddit Home\nr/Notion\nA chip\nA close button\nLog In\nLog in to Reddit\nExpand user menu\nOpen settings menu\nGo to Notion\nr/Notion\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\n•\nAssolutamenteSi\nQuick entries for my Notion Weekly To-Do List : widget from Notionforms.io\nTemplate\nShare\nAdd a comment\nSort by:\nBest\nOpen comment sort options\nBest\nTop\nNew\nControversial\nOld\nQ&A\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAssolutamenteSi\n•\nIt’s quite hard to start doing journals or proper agenda so I prefer my Weekly format planner.\nJust found out this amazing feature —> Embed http://notionforms.io widget for faster tasks input.\nGet the weekly planner template for free here : https://noobbaebae.gumroad.com/l/cIeAx\nReply\nreply\nwaterbottleoffacliff\n•\nwow this is so much like todoist—i use todoist for this exact function bc it's so much faster and functional than notion, but this is awesome!\nReply\nreply\nJadeMaveric\n•\nu/waterbottleoffacliff Me too! I'm working on a side project for Todoist+Notion users. I'd love you inputs...\nhttps://www.reddit.com/r/todoist/comments/nzmrs2/todoist_notion_users_whats_your_workflow_like/\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAssolutamenteSi\n•\nyou should consider this as alternative then! :) I add some other API automation with my outlook calendar and it works great for me ~\nReply\nreply\nMore replies\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nReasonZestyclose3\n•\nThere is not make sense use notion as to-do, cause on iOS no way received notifications from Notion with sound…\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAssolutamenteSi\n•\nAgree tho 🥲 they only way is to rely on another apps using API\nReply\nreply\nMore replies\n[deleted]\n•\ndo they allow us to create forms in light mode?\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAssolutamenteSi\n•\nyess! it follows your Notion page setting 🔥\nReply\nreply\nMore replies\nthe_karma_llama\n•\nTIL about Notion widgets\nReply\nreply\n[deleted]\n•\nHow are Badminton Play and TGIF tasks/to-dos? If anything, both would be appointments on a calendar.\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAssolutamenteSi\n•\nhey! the one that i recorded is my personal planner :) so maybe you miss some of the tasks on the shared template :) but yes it should be on the calendar also ~\nReply\nreply\nMore replies\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nysuleman\n•\nHow do you embed the form like that? I created the form on Notionforms.io.\nReply\nreply\nJhumanJ\n•\nJust do `/embed` and paste the like to you NotionForm!\nReply\nreply\nMore replies\nJhumanJ\n•\nGlad if you liked NotionForms! I'm the founder!\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAssolutamenteSi\n•\n🙌🙌🙌 amazing tools indeed!\nReply\nreply\nMore replies\nasubio\n•\nI cannot get Notionforms to connect to my pages. Keeps giving me a blank page and says “connection error.” Have you ever come across this?\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAssolutamenteSi\n•\nHi! Sorry for the late reply 😅 it has never happened to me so maybe you can reach u/JhumanJ as the founder\nReply\nreply\nJhumanJ\n•\nThanks for the headsup! Feel free to send me an email julien@notionforms.io if you need any help !\nReply\nreply\nMore replies\nMore replies\nTop 1%\nRank by size\nMore posts you may like\nr/nextjs\n•\nr/nextjs\nNext.js is a React framework for building full-stack web applications\nMembers\nOnline\ncreate-next-stack.com is now live! 🎉\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nI don't care about offline mode, I want a good mobile app design.\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nMy Second Brain Notion Homepage. Suggestions are very much appreciated!\n0:10\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nfinally established my own notion dashboard! :)\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nCollection of Widgets to Embed in Notion.. enjoy\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nMan I love this app\nupvotes\n·\ncomments\nr/neovim\n•\nr/neovim\nNeovim is a hyperextensible Vim-based text editor. Learn more at neovim.io.\nMembers\nOnline\nHow can I have project wide search and replace like vscode?\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nHas this subreddit ever been useful to you?\nupvotes\n·\ncomments\nr/selfhosted\n•\nr/selfhosted\nA place to share, discuss, discover, assist with, gain assistance for, and critique self-hosted alternatives to our favorite web apps, web services, and online tools.\nMembers\nOnline\nUptime Kuma - a fancy self-hosted monitoring tool, an alternative of UptimeRobot and statping\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nIt is coming...\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nWhy are certified Notion consultants becoming more harmful than helpful?\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nMy Home setup widgets :)\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nAre Notion integrations of any use?\nupvotes\n·\ncomments\nr/Angular2\n•\nr/Angular2\nAngular is Google's open source framework for crafting high-quality front-end web applications. r/Angular2 exists to help spread news, discuss current developments and help solve problems. Welcome!\nMembers\nOnline\nMy first Angular app - a straw poll app\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nI Spent 8 Months Building a Whole Business Around Notion—Here’s Why You Should Think Twice\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nNotion changed my life\nupvotes\n·\ncomments\nr/shortcuts\n•\nr/shortcuts\nThis subreddit is devoted to Shortcuts. Shortcuts is an Apple app for automation on iOS, iPadOS, and macOS.\nMembers\nOnline\nSimple video-guide to Add items to a database in Notion, with iOS Shortcuts\nyoutu\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nNotion Graph Update 🚀\n0:27\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nI made dark & light theme timer widgets!\n0:18\nupvotes\n·\ncomments\nr/SwiftUI\n•\nr/SwiftUI\nFor SwiftUI discussion, questions and showcasing\nSwiftUI is a UI development framework by Apple that lets you declare interfaces in an intuitive manner. Please keep content related to SwiftUI only.\nFor Swift programming related content, visit r/Swift.\nFor iOS programming related content, visit r/iOSProgramming\nMembers\nOnline\nHow can I achieve this “App Store” behaviour in SwiftUI? (Is there a better way than using .clipShape)\n0:08\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nFinally! No more rewriting formulas to manage decimals in Notion!!\nYou can now format formula & number properties directly in settings.\n0:17\nupvotes\n·\ncomments\nr/nocode\n•\nr/nocode\nCommunity dedicated to building cool things without needing to be a developer.\nMembers\nOnline\nNo-code relational DB designer + API generator?\nupvotes\n·\ncomments\nr/Notion\n•\nr/Notion\nWrite, plan, collaborate, and get organized. Notion is all you need — in one tool. This community-run subreddit is all about Notion, the future of productivity apps.\nMembers\nOnline\nI coded my first mini-tool for Notion - a ROI Calculator!\nupvotes\n·\ncomments\nr/vim\n•\nr/vim\nThe place for questions and conversation on the Vim editor\nMembers\nOnline\nHow to Create Vim Smart Autocomplete\nupvotes\n·\ncomments\nr/godot\n•\nr/godot\nThe official subreddit for the Godot Engine.\nMeet your fellow game developers as well as engine contributors, stay up to date on Godot news, and share your projects and resources with each other.\nMaintained by the Godot Foundation, the non-profit taking good care of the Godot project - consider donating to https://fund.godotengine.org/ to keep us going!\nMembers\nOnline\nTodot: a Todo List Dock for your Editor\n3\nupvotes\n·\ncomments\nTop Posts\nReddit\nreReddit: Top posts of July 8, 2021\nReddit\nreReddit: Top posts of July 2021\nReddit\nreReddit: Top posts of 2021\n&nbsp;\n&nbsp;\nTOPICS\nInternet Culture (Viral)\nAmazing\nAnimals & Pets\nCringe & Facepalm\nFunny\nInteresting\nMemes\nOddly Satisfying\nReddit Meta\nWholesome & Heartwarming\nGames\nAction Games\nAdventure Games\nEsports\nGaming Consoles & Gear\nGaming News & Discussion\nMobile Games\nOther Games\nRole-Playing Games\nSimulation Games\nSports & Racing Games\nStrategy Games\nTabletop Games\nQ&As\nQ&As\nStories & Confessions\nTechnology\n3D Printing\nArtificial Intelligence & Machine Learning\nComputers & Hardware\nConsumer Electronics\nDIY Electronics\nProgramming\nSoftware & Apps\nStreaming Services\nTech News & Discussion\nVirtual & Augmented Reality\nPop Culture\nCelebrities\nCreators & Influencers\nGenerations & Nostalgia\nPodcasts\nStreamers\nTarot & Astrology\nMovies & TV\nAction Movies & Series\nAnimated Movies & Series\nComedy Movies & Series\nCrime, Mystery, & Thriller Movies & Series\nDocumentary Movies & Series\nDrama Movies & Series\nFantasy Movies & Series\nHorror Movies & Series\nMovie News & Discussion\nReality TV\nRomance Movies & Series\nSci-Fi Movies & Series\nSuperhero Movies & Series\nTV News & Discussion\nRESOURCES\nAbout Reddit\nAdvertise\nHelp\nBlog\nCareers\nPress\nCommunities\nBest of Reddit\nTopics\nReddit Rules\nPrivacy Policy\nUser Agreement\nLog In / Sign Up\nAdvertise on Reddit\nShop Collectible Avatars\nReddit, Inc. © 2025. All rights reserved.",
+     "policy": {
+      "policyId": "rights.reddit.v2",
+      "sourceId": "src.reddit",
+      "providerName": "Reddit",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://feedback.noteforms.com/",
+     "publisher": "NoteForms の公開要望・不具合掲示板",
+     "snapshot": {
+      "url": "https://feedback.noteforms.com/",
+      "finalUrl": "https://feedback.noteforms.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:25.011Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "2f24f6f32626d99497fe624cb719f32ef8dedb411c512199dbccf699c6b03f30"
+     },
+     "text": "Feedback - NoteForms\nGive NoteForms feedback on how they could improve their product.\nFeedback - NoteForms\nGive NoteForms feedback on how they could improve their product.\nFeedback - NoteForms\nSkip to main content\nNoteForms\nFeedback\nRoadmap\nChangelog\nMore\nSearch… Toggle theme\nSign in Sign up\nOpen main menu\nHave something to say?\nTell us how we could make the product more useful to you.\nNew Top Trending\nSearch\nAll requests\nCreate A New Post\nAdd spacing controls to the Divider block\nIt would be helpful to use the Divider block purely as a spacing element between form fields, especially when field headers are removed and the inputs feel too crowded. Ideally, the Divider could have options to: Hide the divider line Set the divider height/spacing Add adjustable bottom margin This would provide more control over field spacing without requiring custom code.\nArchie in Feature Request 2 months ago\n6\nSandbox Feature\nI have created a complete form and put some effort to customize the form as I wanted. Pretty much 90% of it is paid, but still, I was going to use the free customizations. The real problem is that if you don't pay, your form is completely unprotected. It's impossible to create a form just for me to create tasks in my databases at Notion. You may call this section sandbox, because the the only purpose is to play with the tool and waste time.\nThomas Melison Rodrigues Mello in Feature Request 2 months ago\n1\n4\nPage Break Conditional Logic Request\nHi NoteForms team, could we request a feature? We’d love conditional logic on a Page break block that can hide an entire section, not just the Page break itself. Specifically: if a Page break is hidden by a condition, then all blocks until the next Page break should also be hidden. This would let us conditionally hide “pages” (sections) as a single unit, which would significantly improve our workflow and efficiency. Is something like this possible, and could it be considered for implementation? Thank you\nJoshua in Feature Request 4 months ago\n1\n3\nintegration with proton sheets\nThere is already an option with google sheets. It would be nice to have an integration between notionforms and proton sheets. Linking a form to a database will help with larger datafiles, as Notion tends to be really slow\nJip in Feature Request 4 months ago\n1\n3\nFeedback on pricing structure and suggestion for an \"Add-on\" plan\nDear Sales Team, I am writing to share some feedback regarding the current pricing for Notion Forms. As a \"full-Notion\" user, I would love to use your integrated forms. However, the current rate of €24/month is quite high for a small business with limited needs. I currently only have two active forms, making the cost-per-form hard to justify. Furthermore, the current plan includes a Notion workspace subscription. Since I already have a Pro account, this creates a redundant workspace that I do not use. Would your team consider creating an \"Add-on\" option for existing Pro subscribers? A more flexible, lower-priced tier for those of us who already pay for Notion would be a great way to keep users within your ecosystem rather than having us look for third-party alternatives. Thank you for your time and for considering this feedback. Best regards, Marie-Noël FRAS\nFRAS Marie-Noël in Feature Request 5 months ago\n2\nCompleted\nAllow “Open Link Button” to work in Table View even when URL column is hidden\nIn table view, the “Open Link Button” currently requires the URL column to be visible in order to function. If the column is hidden, the button becomes inactive. It would improve usability and layout flexibility if the button could still work even when the URL field is hidden—similar to how it behaves in gallery and board views. This would allow users to keep a clean table interface while maintaining full functionality.\nArchie in Feature Request 5 months ago\n3\nCompleted\nPrevent Duplicate Submissions from 2 Relation Fields\nAs of now we can only prevent duplicate submission on single input fields. It would be better to have a feature to prevent this from 2 relation fields.As of now we can only prevent duplicate submission on single input fields. It would be better to have a feature to prevent this from 2 relation fields.As of now we can only prevent duplicate submission on single input fields. It would be better to have a feature to prevent this from 2 relation fields.sdasdaasdas\ntea green in Feature Request 7 months ago\n2\n4\nUnable to link notion forms to my notion page\nStuck in a situation unable to publish unable to link.\nManoj Salian in Bug 7 months ago\n1\n2\nCapture requestor's email\nAutomatically add requestor’s email in the email notification integration. We don’t want to add another field in the database to show the email address but they should be included in the notification email on the cc field\nSheena Buenaventura in Feature Request 7 months ago\n1\n1\nClosed\nsubmission timestamp\nMccann Jakarta in Feature Request 8 months ago\n1\n2\nI have several forms (Class Project Proposal\nI have several forms that I recently updated with the new relation structure and the issue appears across all forms. Here’s an example: https://noteforms.com/forms/class-project-proposal-form-xkicwy The relation field search is simply not working – I have it set to search based on “Full Course Name” field, but when I search text that I know exists for several entries, there are no results. If I set it to search on the Title field (default), search also fails. I’ve included several screenshots. Perhaps it’s a search index issue, maybe that when the form structure was converted for the new relations, the fields weren’t indexed appropriately? In any case, our faculty need to be able to search based on keywords for their course so this is a deal-breaker for me re-enabling the forms for the start of the semester.\nChris Cirefice in Bug 9 months ago\n1\n1\nno more publish and no support\nCelerier in Bug 10 months ago\n1\n2\nBetter Question Sorting Functionality\nHi, just putting it out there that noteforms gets very clunky when putting together long forms with multiple pages or sections with the drag and drop method. There should be functionality that allows you to move specfic questions to different pages or sections, or a “move to front” /”move to back” tool\nCalabash Collective in Feature Request 10 months ago\n1\n1\nCompleted\nIn your affiliate it says: Parner with us and earn 30% recurring commissions for every referral to NoteForms. Join our affiliate program today and start earning money.\nAnton in Bug 11 months ago\n1\n2\nCompleted\nShop catalog\nHi! It would be nice to use notion database as a shop catalog (with or without payment method and for internal use) and QRcode for check-in and check-out product in orders management (quantity and stock management). Cheers! 🥳\nTimothée Leskens in Feature Request 11 months ago\n1\n2\nCompleted\nNotion Page Template\nAbility to create page using Notion Page templates on form submission\nJulien in Feature Request 11 months ago\n1\nCompleted\n1 question at a time (typeform)\nAnother presentation mode for the forms\nJulien in Feature Request 11 months ago\n4\nIn Progress\nPrevent Duplicate Submissions from 2 Relation Fields\nAs of now we can only prevent duplicate submission on single input fields. It would be better to have a feature to prevent this from 2 relation fields.\nArchie in Feature Request 11 months ago\n1\n4\nNested Bullets in Rich Text Fields\nCreate the option to nest or indent bullets in the rich text field options\nTem Lawal in Feature Request 11 months ago\n1\n2\nCustom headers for dynamic filtering in database view\nWe would love to see dynamic headers for dynamic database views. For example, showing the name of the customer or database view in the header, even if no entries/cards are in that view yet. It would be really helpful for us to confirm that the right links are going to the right people when we anticipate entries populating in that view, but they’re not there yet.\nDJ May in Feature Request 11 months ago\n1\n2\nLoad more\nCreate A New Post\n💡 Feature Request 🐞 Bug\nMost helpful\nNadja von Massow 63\nLocal Review 44\nBECKENZ GmbH 28\nInfo Tech 19\ndalak 18\nPowered by Featurebase\nPowered by Featurebase",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "2021年5月にAmazon Web Servicesを辞めてParisへ戻った開発者が、需要調査をせずに4日間でNotion専用のフォームを作った。まず無料で配り、その後に月$15の定額へ切り替えた。",
+     "basis": [
+      "f4",
+      "f6",
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "2021年5月、創業者はAmazon Web Servicesを退職し、LondonからParisへ戻った。1〜2年分の貯蓄はあったが手を付けない計画で、足りなければ受託仕事で稼ぐつもりだった。使い慣れた構成と雛形で、初版を4日間で作った。作り込んだのはNotionとの接続だけで、条件分岐、細かな見た目変更、複数ページは後回しにした。最初の2〜3か月は無料で、サーバー費は月$20だった。利用者とは毎日通話し、Facebookグループも運営した。製品が落ち着いた段階で、見た目変更や添付など費用がかかる機能を月$15の定額で有料化した。既存利用者には生涯40%割引を配った。創業者の申告では、その後に登録26,000人、有料850人、年換算の継続売上$182,000に達した。",
+     "basis": [
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f11",
+      "f12"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "Notionのデータベースに回答を直接書き込むフォーム作成ツールを売っている。フォーム数と回答件数は無料で無制限にした。そのうえで、製品名表示の除去、条件分岐、ファイル添付、複数利用者、独自ドメインといった機能に月額料金を取る。添付のように運営側に費用が出る機能と見た目の変更は、最初から有料側に置いた。",
+     "basis": [
+      "f1",
+      "f9",
+      "f14",
+      "f16"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "業務や予定をNotionで管理している個人とチームが客で、公式サイトは利用者と企業を合わせて130,000以上と案内している。使い方の例は幅広い。週間予定の入力欄をNotionに埋め込む個人がいる。学期の始まりに授業関連の申請フォームを使い回す教育現場もある。長い複数ページの質問票を組む団体もある。複数人で同じフォームを編集する会社は、月$49のTeamを払う。",
+     "basis": [
+      "f3",
+      "f27",
+      "f29",
+      "f30",
+      "f15",
+      "f16"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "Notionのデータベースに外部の人の回答や自分のメモを入れるには、手で打ち込むか別の自動化ツールをつなぐしかなかった。接続先とデータベースを選ぶだけでフォームが使えるこの製品は、その手間をなくした。利用者からは入力の手軽さが評価された。一方で、ワークスペース全体のデータを見られるのではという不安も出た。創業者は、共有するデータベースを選べると答えている。",
+     "basis": [
+      "f23",
+      "f24",
+      "f25",
+      "f27"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "創業者自身がRedditのNotion利用者の場に投稿した。「接続先とデータベースを選ぶだけで使える」と説明し、実演へのリンクを付けた。最初の2〜3か月は完全に無料で配り、利用者に意見を求める仕組みとFacebookグループで声を集めた。有料化の際は、既存の無料利用者全員に生涯40%割引を配り、無料の利用者から最初の払い手を探した。",
+     "basis": [
+      "f23",
+      "f7",
+      "f11",
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "主な集客は、製品が自分で広がる仕組みだと創業者側は説明している。無料フォームには製品名が表示される。利用者がフォームを共有したりリンクを貼ったりすると、回答した人が製品を知る。利用者が自分のNotionに埋め込んだ例をRedditで見せたこともある。継続課金の30%を払う紹介制度もあったが、すでに締め切られている。",
+     "basis": [
+      "f10",
+      "f27",
+      "f18",
+      "f19"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "創業者1人で、使い慣れた構成と雛形を使い、4日間で初版を出した。1〜2年分の貯蓄はあったが、使わない前提で始めた。足りなければ受託の仕事で稼ぐ逃げ道を用意していた。初期の固定費は月$20のサーバー代だけだった。",
+     "basis": [
+      "f5",
+      "f6",
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "製品の中身はNotionのデータベースへの接続そのものなので、Notionの接続の仕組みと利用者が与える共有権限がなければ動かない。利用者はワークスペースのデータへの権限を気にしており、どのデータベースを共有するかは客の側が決める。製品名から「Notion」を外してNoteFormsに改名した点も、土台の会社の名前に寄りかかった製品であることを示している。決済はStripe、基盤はAmazon Web Servicesに乗っている。",
+     "basis": [
+      "f1",
+      "f2",
+      "f24",
+      "f25",
+      "f13"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "弱い。回答は客自身のNotionデータベースに溜まるので、やめてもデータは手元に残る。乗り換えの手間として残るのは、サイトやNotionページに埋め込んだフォームや共有済みのリンクを差し替える作業くらいだ。",
+     "basis": [
+      "f1",
+      "f10",
+      "f27"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-referral",
+     "item": "REFERRAL",
+     "text": "紹介者には、紹介した客の継続課金の30%を毎月PayPalで払い、最低支払額は設けていなかった。ただし同じページで制度は締め切られており、新しい紹介者は受け付けていない。",
+     "basis": [
+      "f18",
+      "f19"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "一般向けのフォーム作成ツールと正面から機能を競わず、Notionとの接続に絞って入った。有料化の値付けは、競合の安いプランの約半分を目安にした月$15の定額だった。一方で利用者の不満も出ている。料金が高いうえ、基本機能が有料側にあるという声がある。無料では個人用フォームを保護できないという声もある。関連項目の検索や、長いフォームの質問の並べ替えが使いにくいという投稿も公開の要望板に並ぶ。",
+     "basis": [
+      "f6",
+      "f8",
+      "f26",
+      "f28",
+      "f29",
+      "f30"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2021年5月：創業者がAmazon Web Servicesを退職し、Parisへ戻る。\nその後：4日間で初版を公開し、最初の2〜3か月は無料で運営。\nその後：月$15の定額で有料化し、既存利用者に生涯40%割引を配る。\n現在：名称をNotionFormsからNoteFormsに改め、Basic・Pro・Teamの3段階で営業中。紹介制度は締め切り済み。",
+     "basis": [
+      "f4",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f2",
+      "f14",
+      "f15",
+      "f19"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "完全無料で始め、フォームに製品名を表示したので、利用者が共有したフォームそのものが広告になった。フォームは作った本人以外の回答者の目に触れるので、利用者1人が複数の見込み客を連れてくる。有料化の前に毎日の通話とFacebookグループで利用者の声を拾い、使われる形に直してから課金した。",
+     "basis": [
+      "f7",
+      "f10",
+      "f11"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "先行者が強く後発は困難。この製品はすでに利用者と企業で130,000以上を抱えている。無料フォームに付く製品名表示が、新しい客を呼び続ける仕組みとして回っている。後から同じ「Notion用フォーム」を出しても、不満の出ている料金や使い勝手の穴を突かない限り、乗り換える理由が薄い。",
+     "basis": [
+      "f3",
+      "f10",
+      "f26",
+      "f28"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "回答件数は無料で無制限にし、運営側に費用が出る添付と見た目の変更だけを有料にした。さらに無料フォームに製品名を残し、回答者を次の客に変えた。無料で配ることを集客の仕組みとして設計した点が核心だ。",
+     "basis": [
+      "f9",
+      "f10",
+      "f14"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f30"
+   ],
+   "identity": {
+    "id": "ent_noteforms_003fcbdd14cf",
+    "name": "NoteForms（旧 NotionForms）",
+    "url": "https://noteforms.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_bf17712bd2541c83d5ae5d4b",
+      "entityId": "ent_noteforms_003fcbdd14cf",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://noteforms.com/?utm_source=failed_custom_domain_redirect",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:40:28.265Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "bf17712bd2541c83d5ae5d4bce46def2027a7c11d59b4318bcfc0a19bef23329",
+      "bytes": 372133,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: NoteForms（旧 NotionForms） 公式サイト (https://noteforms.com/?utm_source=failed_custom_domain_redirect)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_noteforms_003fcbdd14cf/bf17712bd2541c83d5ae5d4bce46def2027a7c11d59b4318bcfc0a19bef23329.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_ad30dc46521b515714e4ea61",
+      "entityId": "ent_noteforms_003fcbdd14cf",
+      "kind": "favicon",
+      "sourcePageUrl": "https://noteforms.com/?utm_source=failed_custom_domain_redirect",
+      "assetUrl": "https://noteforms.com/favicon.ico",
+      "retrievedAt": "2026-10-07T10:40:28.869Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "ad30dc46521b515714e4ea61f67eb63b55b4e1fcaefaaf53acdb9b3c848b3340",
+      "bytes": 15406,
+      "contentType": "image/vnd.microsoft.icon",
+      "width": 48,
+      "height": 48,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: NoteForms（旧 NotionForms） 公式サイト (https://noteforms.com/?utm_source=failed_custom_domain_redirect)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:42:32.768Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/vnd.microsoft.icon 48x48)、SHA-256が台帳と一致 (ad30dc46521b)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_noteforms_003fcbdd14cf/ad30dc46521b515714e4ea61f67eb63b55b4e1fcaefaaf53acdb9b3c848b3340.ico",
+       "publicKey": "media/ent_noteforms_003fcbdd14cf/ad30dc46521b515714e4ea61f67eb63b55b4e1fcaefaaf53acdb9b3c848b3340.ico"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_ad30dc46521b515714e4ea61",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:32.768Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/vnd.microsoft.icon 48x48)、SHA-256が台帳と一致 (ad30dc46521b)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_51c56d16d8e57c47f2347d4c",
+      "entityId": "ent_noteforms_003fcbdd14cf",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://noteforms.com/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:40:33.658Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "51c56d16d8e57c47f2347d4c8596f3e7538c07bb5c32571b196f32370ae0da9f",
+      "bytes": 444391,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: NoteForms（旧 NotionForms） 公式サイト (https://noteforms.com/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_noteforms_003fcbdd14cf/51c56d16d8e57c47f2347d4c8596f3e7538c07bb5c32571b196f32370ae0da9f.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_340b95ad40cdb0f3b6891bda",
+      "entityId": "ent_noteforms_003fcbdd14cf",
+      "kind": "og_image",
+      "sourcePageUrl": "https://noteforms.com/?utm_source=failed_custom_domain_redirect",
+      "assetUrl": "https://noteforms.com/img/social-preview.jpg",
+      "retrievedAt": "2026-10-07T10:40:52.490Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "340b95ad40cdb0f3b6891bda6f53b731759b4499d05b6a24243ea467763eeaf5",
+      "bytes": 456835,
+      "contentType": "image/jpeg",
+      "width": 2000,
+      "height": 1125,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: NoteForms（旧 NotionForms） 公式サイト (https://noteforms.com/?utm_source=failed_custom_domain_redirect)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:42:32.529Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_noteforms_003fcbdd14cf/340b95ad40cdb0f3b6891bda6f53b731759b4499d05b6a24243ea467763eeaf5.jpg",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_340b95ad40cdb0f3b6891bda",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:32.529Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_ad30dc46521b515714e4ea61"
+    ],
+    "problems": []
+   },
+   "caseHash": "b09ef03801ba9ac3d9dd59b8a6af4ef64135740348092b0c3f967dfc2a6d475f",
+   "itemHashes": {
+    "fact:f1": "45d7a596213d16441a84ce5181afc4d79f3d9d562f2d810bc2ca0160db22f1a7",
+    "fact:f2": "4d45386a753f59ed8dec1f7a2f720046c1be9b5794014963ba8640a420808ef2",
+    "fact:f3": "6843864a762c146c87e1ea31b270a213d5c061a4f6fb8177b3f32909b6e95c5c",
+    "fact:f4": "564cb877a56d008ebc6b9b59ae51f51bc82619905371597851c37dc86e309e33",
+    "fact:f5": "cd0ad763c6aae41f044551b9cfdd30c34957ee8b3bbdd0892d44ae455047eb81",
+    "fact:f6": "f579ee5dd640c84f42d9e115c1f8a5a160a314dc804a5bd1977e003a27c28d4b",
+    "fact:f7": "552cf88e9c8fdd6f7aef5c7c1193023aa8b5d14da03337217328e3a95a96bc9b",
+    "fact:f8": "4923654ece1d997829fd223c054002a4721867bda129d5830a1840507cf08530",
+    "fact:f9": "fa4aa722f769487bd7198261dcc013189f158e7523f0868478b7f58e9ab83169",
+    "fact:f10": "e0d4f26949c397b64dc0a8b09cf567cc62a32a56a1ac8dd7a46eeca4b3fbdc43",
+    "fact:f11": "ff7da4ebac93db782214c5751e1655031c18a0164ff195b415df18eeae1913c0",
+    "fact:f12": "d3717c1db3492301f1dd12682869366b081f43663673da1431c9b465fd968653",
+    "fact:f13": "b877610f15884bc7ab0a8371f34b6a6c7f64b2ea1796dd4ffd968b18841179bc",
+    "fact:f14": "2b1cbbfc3743801ff140a9913860a926bb8708fd8c1d28a1eaee55aabbdf22d0",
+    "fact:f15": "3e22616480bdb433bfd0c2b4ced9503aa80a30dee3b1f5ab6e1cde0bdf40c31b",
+    "fact:f16": "4741aac8f94c4979d73683970ea35584f72da1e7a4629be42b116173040330fb",
+    "fact:f17": "4ea2bea73c7bb6d4abcaae4be256c78041e0a417c71e77d093d930ac8bb4e617",
+    "fact:f18": "79ee554252dc229c98ccc57887eabc3c78d3ace59cf1dac69bc5629d95a188b1",
+    "fact:f19": "685f2af6cae2b099b28662fb5b51f9bf380618eb7e1fc6e27ab18f2bde1f5f35",
+    "fact:f20": "b1366a12b3e2caca20a57094087d78b35b1bedafe5f7785bca05a5fe0f79203b",
+    "fact:f21": "3a7e8252439c6d5b90b6e380bcdd23b1f49e7d2744c689dddb8f99dd2f031c74",
+    "fact:f22": "84b4856ef59ae09a4230c5ec90e207c84086aa9b6c89d15509dd39c4e574f79a",
+    "fact:f23": "204c559e9a8a9e2bce545faf6da696a3b1a22d638a966bd65d2a01ff34af1c3a",
+    "fact:f24": "f2a76864733b91d8082545e82c92c477df9233eea65075ea5cd4b2c3049bc3ab",
+    "fact:f25": "32bdf0535ce4a8a483b77a339fff7808fb5112ece10b07372afbe8ac3a5d40d4",
+    "fact:f26": "10a5e30589ffd46bc56bb8116bac94dfad6e0f08caa0de0293288eb119ce7a1e",
+    "fact:f27": "447a21071d3ede7ba437351d44dd9cfbfc6a167296d300cb9100305f47fc2f7f",
+    "fact:f28": "635cbadc2bde2666d8d533a235f4c53aa5ee0192e57eeec8eca19f6c2cf0ded6",
+    "fact:f29": "535953703bf120cc320c022cb0278b8021dc561014b0f7df888ce7db5669bd0c",
+    "fact:f30": "d2e71bc29c9f1535ad08f45e6e90256bbda8e1e141169a2242cd14a688fb0728",
+    "analysis:a-headline": "a917e6a671be1f362c7155dcae461eda6bea76e9f6689a9ef24d5d425a00275f",
+    "analysis:a-story": "b8cc0be73ba20eb5b3549839b1c92ec650d98223220082becf9fe62961a4d0da",
+    "analysis:a-business_model": "19be65f6a994f13f94b302e8a831050cf521bcf87c0d442dba18610f5b0a5e5e",
+    "analysis:a-customer": "543188cc4f9b8cc7674b1760174f4d7b5fa0b37e916f050d0fe8b2f1226bead6",
+    "analysis:a-customer_pain": "1461f9b7bbfb5c76958b9e0189a58deb6d83413a182d42fcadb7b9164583dd46",
+    "analysis:a-first_customers": "4d4d063fd5386de79c2982fa2449276619b4ec644fe7fb17d020897e1f62951f",
+    "analysis:a-channels": "2d6a5f3a9aa67aac8dca28389404050fa45cfb3e69c169cbe22e2dd7e8511aea",
+    "analysis:a-capital_and_team": "01332478938220539ccee9307546d2b0109c6ad9ff2677b9cd39d38194829097",
+    "analysis:a-dependencies": "0263aa4067e3e97abac9cbffc14100bc0a0bee4849cb98b192eff7c239a7e149",
+    "analysis:a-lock_in": "11af311bb890c062ba04c521afe8ceffa2deee00ae712d45e608089afeb410d0",
+    "analysis:a-referral": "78afffbc726a5fad7130b9486e95db965660d5d3d1f5ecd60ff7698e48e54fc2",
+    "analysis:a-competition": "b2e8601cdb941ffbe4db56247940c9081fcfde0ed7acdbffe4a705bbe8cb99ab",
+    "analysis:a-timeline": "118076d8a0f9d98f6bcf7fe9c3a8534de8f39c8fb2f053b43273db79b3728e45",
+    "analysis:a-why_it_worked": "e3b90339d713b6760bb06c8e6c125f1d6f4a97d73abccb72edce861b85a1d65f",
+    "analysis:a-viability": "5cea4fd29a499ab2e97004a72cafc0f503b8a87bac477133c961902ddb1e14d8",
+    "analysis:a-lesson": "c658526ea22a88ce61083103cabfaa79b15d6e119e43b81885f748026dae609d"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f23",
+    "fact:f24",
+    "fact:f25",
+    "fact:f26",
+    "fact:f27",
+    "fact:f28",
+    "fact:f29",
+    "fact:f30",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-referral",
+    "analysis:a-competition",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-viability",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://noteforms.com/",
+      "publisher": "NoteForms 公式サイト",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://www.starterstory.com/stories/notionforms",
+      "publisher": "Starter Story 掲載の創業者取材",
+      "publishedAt": "2022-11-27",
+      "checkedAt": "2026-10-07",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s5",
+      "url": "https://noteforms.com/pricing",
+      "publisher": "NoteForms 公式料金",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://noteforms.com/affiliates",
+      "publisher": "NoteForms 公式紹介制度",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "url": "https://noteforms.com/terms-conditions",
+      "publisher": "NoteForms 公式利用条件",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "publisher": "Reddit の初期紹介と利用者の返答",
+      "checkedAt": "2026-10-07",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s9",
+      "url": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+      "publisher": "Reddit の利用者による週間予定の実演",
+      "checkedAt": "2026-10-07",
+      "kind": "THIRD_PARTY"
+     },
+     {
+      "id": "s10",
+      "url": "https://feedback.noteforms.com/",
+      "publisher": "NoteForms の公開要望・不具合掲示板",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "Notionのデータベースと接続し、フォームの回答を保存する製品。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "EVENT",
+      "text": "公式サイトは以前の名称がNotionFormsだったと明記。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "DESCRIPTION",
+      "text": "利用者と企業が合わせて130,000以上という案内がある。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "FOUNDING",
+      "text": "2021年5月にAmazon Web Servicesを退職し、LondonからParisへ戻った。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "1〜2年分の貯蓄はあったが使わない計画で、必要なら受託の仕事を簡単に見つけられると考えていた。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f6",
+      "kind": "FOUNDING",
+      "text": "使い慣れた構成と雛形で4日間で初版を作った。Notion接続に集中し、条件分岐・詳細な見た目変更・複数ページを省いた。事前の需要調査はしなかった。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "最初の2〜3か月は無料。初期のサーバー費は月$20と申告。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f8",
+      "kind": "PRICING",
+      "text": "有料化は月$15の定額。利用量課金を避け、競合の安いプランの約半分を目安にした。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f9",
+      "kind": "PRICING",
+      "text": "見た目変更や添付など費用が出る機能を有料化。既存利用者へ生涯40%割引を配った。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f10",
+      "kind": "CHANNEL",
+      "text": "無料フォームの製品名表示と利用者の共有・リンクが集客を生んだと記述。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "初期から利用者へ意見を求め、毎日通話し、Facebookグループも運営した。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f12",
+      "kind": "OTHER",
+      "text": "本文の時点で登録26,000人、有料850人、年換算の継続売上$182,000と申告。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f13",
+      "kind": "TOOL",
+      "text": "資料の利用ツール欄にLaravel・Vue・Amazon Web Services・Stripeを掲載。",
+      "sourceId": "s3",
+      "statedAt": "2022-11-27",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f14",
+      "kind": "PRICING",
+      "text": "Basicは$0の表示。1利用者・1接続先、フォームと回答件数は無制限。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "PRICING",
+      "text": "Proは月当たり$20、Teamは月当たり$49と表示。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "OTHER",
+      "text": "Proは製品名表示の除去・条件分岐・10MB添付、Teamは複数利用者・独自ドメイン・100MB添付を案内。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "PRICING",
+      "text": "有料枠には3日間の試用を案内。個別契約や請求書払いも相談対象。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "CHANNEL",
+      "text": "紹介報酬を継続課金の30%、毎月PayPalで支払い、最低支払額なしと掲載。",
+      "sourceId": "s6",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "EVENT",
+      "text": "同じページで制度を閉じ、新規の紹介者を受け付けないと明記。",
+      "sourceId": "s6",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "OTHER",
+      "text": "利用条件は運営者をSAS JhumanJ、所在地をフランスと記載。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "OTHER",
+      "text": "返金は不満がある場合に連絡・相談を案内。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "OTHER",
+      "text": "素材の複製・配布は明示の許可を必要とする旨を記載。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f23",
+      "kind": "CHANNEL",
+      "text": "JhumanJは接続先とデータベースを選ぶだけで使える製品と実演のリンクを投稿。",
+      "sourceId": "s8",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f24",
+      "kind": "OTHER",
+      "text": "GelatoInRomeは入力の手軽さを評価し、全データへのアクセス権を心配して質問した。",
+      "sourceId": "s8",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f25",
+      "kind": "OTHER",
+      "text": "JhumanJは共有するデータベースを選べると返答。",
+      "sourceId": "s8",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f26",
+      "kind": "OTHER",
+      "text": "neoscoobは料金の高さと基本機能が有料側にあることへ不満を投稿。",
+      "sourceId": "s8",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f27",
+      "kind": "OTHER",
+      "text": "AssolutamenteSiは週間予定の入力用フォームをNotionへ埋め込んだ実演を投稿。",
+      "sourceId": "s9",
+      "attribution": "THIRD_PARTY"
+     },
+     {
+      "id": "f28",
+      "kind": "OTHER",
+      "text": "Thomasは無料の個人用フォームを保護できないことと、有料機能の割合へ不満を投稿。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f29",
+      "kind": "OTHER",
+      "text": "Chris Cireficeは関連項目の検索で候補が出ず、学期開始に再利用できないと投稿。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f30",
+      "kind": "OTHER",
+      "text": "Calabash Collectiveは長い複数ページの質問並べ替えが扱いにくいと投稿。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "2021年5月にAmazon Web Servicesを辞めてParisへ戻った開発者が、需要調査をせずに4日間でNotion専用のフォームを作った。まず無料で配り、その後に月$15の定額へ切り替えた。",
+      "basis": [
+       "f4",
+       "f6",
+       "f8"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "2021年5月、創業者はAmazon Web Servicesを退職し、LondonからParisへ戻った。1〜2年分の貯蓄はあったが手を付けない計画で、足りなければ受託仕事で稼ぐつもりだった。使い慣れた構成と雛形で、初版を4日間で作った。作り込んだのはNotionとの接続だけで、条件分岐、細かな見た目変更、複数ページは後回しにした。最初の2〜3か月は無料で、サーバー費は月$20だった。利用者とは毎日通話し、Facebookグループも運営した。製品が落ち着いた段階で、見た目変更や添付など費用がかかる機能を月$15の定額で有料化した。既存利用者には生涯40%割引を配った。創業者の申告では、その後に登録26,000人、有料850人、年換算の継続売上$182,000に達した。",
+      "basis": [
+       "f4",
+       "f5",
+       "f6",
+       "f7",
+       "f8",
+       "f9",
+       "f11",
+       "f12"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "Notionのデータベースに回答を直接書き込むフォーム作成ツールを売っている。フォーム数と回答件数は無料で無制限にした。そのうえで、製品名表示の除去、条件分岐、ファイル添付、複数利用者、独自ドメインといった機能に月額料金を取る。添付のように運営側に費用が出る機能と見た目の変更は、最初から有料側に置いた。",
+      "basis": [
+       "f1",
+       "f9",
+       "f14",
+       "f16"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "業務や予定をNotionで管理している個人とチームが客で、公式サイトは利用者と企業を合わせて130,000以上と案内している。使い方の例は幅広い。週間予定の入力欄をNotionに埋め込む個人がいる。学期の始まりに授業関連の申請フォームを使い回す教育現場もある。長い複数ページの質問票を組む団体もある。複数人で同じフォームを編集する会社は、月$49のTeamを払う。",
+      "basis": [
+       "f3",
+       "f27",
+       "f29",
+       "f30",
+       "f15",
+       "f16"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "Notionのデータベースに外部の人の回答や自分のメモを入れるには、手で打ち込むか別の自動化ツールをつなぐしかなかった。接続先とデータベースを選ぶだけでフォームが使えるこの製品は、その手間をなくした。利用者からは入力の手軽さが評価された。一方で、ワークスペース全体のデータを見られるのではという不安も出た。創業者は、共有するデータベースを選べると答えている。",
+      "basis": [
+       "f23",
+       "f24",
+       "f25",
+       "f27"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "創業者自身がRedditのNotion利用者の場に投稿した。「接続先とデータベースを選ぶだけで使える」と説明し、実演へのリンクを付けた。最初の2〜3か月は完全に無料で配り、利用者に意見を求める仕組みとFacebookグループで声を集めた。有料化の際は、既存の無料利用者全員に生涯40%割引を配り、無料の利用者から最初の払い手を探した。",
+      "basis": [
+       "f23",
+       "f7",
+       "f11",
+       "f9"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "主な集客は、製品が自分で広がる仕組みだと創業者側は説明している。無料フォームには製品名が表示される。利用者がフォームを共有したりリンクを貼ったりすると、回答した人が製品を知る。利用者が自分のNotionに埋め込んだ例をRedditで見せたこともある。継続課金の30%を払う紹介制度もあったが、すでに締め切られている。",
+      "basis": [
+       "f10",
+       "f27",
+       "f18",
+       "f19"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "創業者1人で、使い慣れた構成と雛形を使い、4日間で初版を出した。1〜2年分の貯蓄はあったが、使わない前提で始めた。足りなければ受託の仕事で稼ぐ逃げ道を用意していた。初期の固定費は月$20のサーバー代だけだった。",
+      "basis": [
+       "f5",
+       "f6",
+       "f7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "製品の中身はNotionのデータベースへの接続そのものなので、Notionの接続の仕組みと利用者が与える共有権限がなければ動かない。利用者はワークスペースのデータへの権限を気にしており、どのデータベースを共有するかは客の側が決める。製品名から「Notion」を外してNoteFormsに改名した点も、土台の会社の名前に寄りかかった製品であることを示している。決済はStripe、基盤はAmazon Web Servicesに乗っている。",
+      "basis": [
+       "f1",
+       "f2",
+       "f24",
+       "f25",
+       "f13"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "弱い。回答は客自身のNotionデータベースに溜まるので、やめてもデータは手元に残る。乗り換えの手間として残るのは、サイトやNotionページに埋め込んだフォームや共有済みのリンクを差し替える作業くらいだ。",
+      "basis": [
+       "f1",
+       "f10",
+       "f27"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-referral",
+      "item": "REFERRAL",
+      "text": "紹介者には、紹介した客の継続課金の30%を毎月PayPalで払い、最低支払額は設けていなかった。ただし同じページで制度は締め切られており、新しい紹介者は受け付けていない。",
+      "basis": [
+       "f18",
+       "f19"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "一般向けのフォーム作成ツールと正面から機能を競わず、Notionとの接続に絞って入った。有料化の値付けは、競合の安いプランの約半分を目安にした月$15の定額だった。一方で利用者の不満も出ている。料金が高いうえ、基本機能が有料側にあるという声がある。無料では個人用フォームを保護できないという声もある。関連項目の検索や、長いフォームの質問の並べ替えが使いにくいという投稿も公開の要望板に並ぶ。",
+      "basis": [
+       "f6",
+       "f8",
+       "f26",
+       "f28",
+       "f29",
+       "f30"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2021年5月：創業者がAmazon Web Servicesを退職し、Parisへ戻る。\nその後：4日間で初版を公開し、最初の2〜3か月は無料で運営。\nその後：月$15の定額で有料化し、既存利用者に生涯40%割引を配る。\n現在：名称をNotionFormsからNoteFormsに改め、Basic・Pro・Teamの3段階で営業中。紹介制度は締め切り済み。",
+      "basis": [
+       "f4",
+       "f6",
+       "f7",
+       "f8",
+       "f9",
+       "f2",
+       "f14",
+       "f15",
+       "f19"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "完全無料で始め、フォームに製品名を表示したので、利用者が共有したフォームそのものが広告になった。フォームは作った本人以外の回答者の目に触れるので、利用者1人が複数の見込み客を連れてくる。有料化の前に毎日の通話とFacebookグループで利用者の声を拾い、使われる形に直してから課金した。",
+      "basis": [
+       "f7",
+       "f10",
+       "f11"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "先行者が強く後発は困難。この製品はすでに利用者と企業で130,000以上を抱えている。無料フォームに付く製品名表示が、新しい客を呼び続ける仕組みとして回っている。後から同じ「Notion用フォーム」を出しても、不満の出ている料金や使い勝手の穴を突かない限り、乗り換える理由が薄い。",
+      "basis": [
+       "f3",
+       "f10",
+       "f26",
+       "f28"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "回答件数は無料で無制限にし、運営側に費用が出る添付と見た目の変更だけを有料にした。さらに無料フォームに製品名を残し、回答者を次の客に変えた。無料で配ることを集客の仕組みとして設計した点が核心だ。",
+      "basis": [
+       "f9",
+       "f10",
+       "f14"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f3"
+   }
+  }
+ ]
+}
