@@ -96,7 +96,8 @@ export const SCREEN_ONLY_RES = [
   [/収益パターン候補/, '収益パターン候補'],
   [/外部リンク候補/, '外部リンク候補'],
   [/別途確認対象/, '別途確認対象'],
-  [/検索結果に/, '検索結果に'],
+  // 「検索結果に出やすい」「検索結果に出る」は検索サイトの普通の言い方なので、「出る」「出やすい／出やすく」だけ除く（「検索結果に出なかった」「出ない」「出たものだけ」など調査の記録の言い方は引き続き拾う）
+  [/検索結果に(?!出る|出や[すし])/, '検索結果に'],
   [/公開発言の検索|(?:検索|照会)（\d{4}-\d{2}/, 'の検索（'],
   [/記録していない/, '記録していない'],
   [/(?:実績|数値|金額)として配信しない/, '配信しない'],
@@ -128,7 +129,7 @@ export const STANDALONE_LINES = ['収集事例', '財務未確認', '公式サ�
 // ---- 出どころの検査（2026-09-30 13回目）-----------------------------------------------------
 // 画面の文字は fact・analysis（その計算と根拠＝data-evidence）・metric・source の要素の中か、ui-strings の許可リストのどちらかでなければならない。
 const VOID_TAGS = new Set(['br', 'img', 'input', 'hr', 'meta', 'link', 'wbr', 'source', 'col']);
-const OWNER_ATTRS = ['data-fact', 'data-metric', 'data-source', 'data-analysis', 'data-evidence'];
+const OWNER_ATTRS = ['data-fact', 'data-metric', 'data-source', 'data-analysis', 'data-evidence', 'data-success', 'data-chapter'];
 const ATTR_TEXTS = ['title', 'aria-label', 'alt', 'placeholder'];
 const decodeEntities = (s) => s
   .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
@@ -141,7 +142,7 @@ const attrOf = (tagSrc, name) => { const m = new RegExp(`\\s${name}="([^"]*)"`).
  * html を1画面ぶんとして調べる。
  *   isAllowed(text): ui-strings の許可リストに一致する文字か
  *   戻り値: unowned（出どころの無い文字）、emptyHeadings（中身の無い見出し）、dupFacts（同じ fact ID の2回目）、
- *           factCount / metricCount / sourceCount
+ *           successIds・chapterIds（成功の秘訣・章が根拠にした fact ID。呼び出し側が実在を照合する）、factCount / metricCount / sourceCount
  */
 export function analyzeScreen(html, isAllowed) {
   const clean = html.replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, '').replace(/<!--[\s\S]*?-->/g, '');
@@ -151,6 +152,8 @@ export function analyzeScreen(html, isAllowed) {
   const seenFacts = new Set();
   let currentVariant = '';
   const dupFacts = [];
+  const successIds = [];
+  const chapterIds = [];
   let factCount = 0, metricCount = 0, sourceCount = 0;
   const owned = () => stack.some((e) => e.owner);
   const re = /<(\/?)([a-zA-Z][a-zA-Z0-9-]*)([^>]*)>|([^<]+)/g;
@@ -190,6 +193,10 @@ export function analyzeScreen(html, isAllowed) {
       const key = `${currentVariant}|${fact}`;
       if (seenFacts.has(key)) dupFacts.push(fact); else seenFacts.add(key);
     }
+    const success = attrOf(attrs, 'data-success');
+    if (success !== undefined) successIds.push(success);
+    const chapter = attrOf(attrs, 'data-chapter');
+    if (chapter !== undefined) chapterIds.push(chapter);
     if (attrOf(attrs, 'data-metric') !== undefined) metricCount += 1;
     if (attrOf(attrs, 'data-source') !== undefined) sourceCount += 1;
     if (!owner && !owned()) {
@@ -201,5 +208,5 @@ export function analyzeScreen(html, isAllowed) {
     const selfClosing = /\/\s*$/.test(attrs) || VOID_TAGS.has(tag);
     if (!selfClosing) stack.push({ tag, owner, textLen: 0, headingLen: 0, firstHeading: undefined });
   }
-  return { unowned, emptyHeadings, dupFacts, factCount, metricCount, sourceCount };
+  return { unowned, emptyHeadings, dupFacts, successIds, chapterIds, factCount, metricCount, sourceCount };
 }
