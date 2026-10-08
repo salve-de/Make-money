@@ -46,7 +46,12 @@ async function main() {
     const input = await loadPublicationInput(normalizeFinancialEntity(reconcileFinancialEntity(entity)), prepared.reader, verdicts[id], { attestations: {} });
     const result = attestCase(input);
     if ('missing' in result) {
-      if (check) { unchecked++; continue; }
+      if (check) {
+        // 全部は揃わなくても、手元にある出典本文は証明書と突き合わせる（変わっていれば、古い証明書で判定が食い違う）
+        const stale = input.sources.some((src) => typeof src.snapshot?.text === 'string' && !!stored[id]?.sources[src.url] && stored[id].sources[src.url].textHash !== contentHash(src.snapshot.text));
+        if (stale) mismatched.push(id); else unchecked++;
+        continue;
+      }
       if (mustHave.has(id)) missing[id] = result.missing;
       else skipped.push(id);
       continue;

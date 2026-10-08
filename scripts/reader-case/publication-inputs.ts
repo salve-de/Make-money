@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 /** Local-only evidence reads. No network, API, R2 or source writes. */
 import { isPublishableEntity } from '../../src/lib/company-access/public-entity';
 import { sourcePolicy } from './source-policy';
@@ -43,6 +44,8 @@ export async function loadPublicationInput(entity: FinancialEntity, reader: Read
       // 抜粋せず全文（指紋は全文を元に作られる）
       return { sourceId: source.id, url: source.url, publisher: source.publisher, snapshot, text: snapshot.text, policy };
     }
+    // 保存ファイルは有るのに読めない（壊れている）時は、証明書に頼らず本文なしの不合格にする（壊れた保存を隠さない）
+    if (existsSync(cachePath(source.url))) return { sourceId: source.id, url: source.url, publisher: source.publisher, snapshot: null, text: '', policy };
     const proof = attested?.sources[source.url];
     if (!proof) {
       missingEvidence.push(`出典本文:${source.id}(${cachePath(source.url)})`);
