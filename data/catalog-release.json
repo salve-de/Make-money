@@ -4,12 +4,12 @@
   "sourceCount": 3377,
   "publishedCount": 29,
   "summaries": {
-    "hash": "40115a99bfbd4266c067410c44ef04417ba430db28f429013cba0dca75496d62",
-    "key": "views/make-money/catalog-v1/objects/40115a99bfbd4266c067410c44ef04417ba430db28f429013cba0dca75496d62.json.gz"
+    "hash": "e3c6d81ed3e3142438aa42baf6684110c2086efa7a1ef8200c9d5950aa69fd3e",
+    "key": "views/make-money/catalog-v1/objects/e3c6d81ed3e3142438aa42baf6684110c2086efa7a1ef8200c9d5950aa69fd3e.json.gz"
   },
   "discovery": {
-    "hash": "eb87a0c84d93bda2b3d3c1b4fd802e1208314f7e0c1a3d73c8328577350c7385",
-    "key": "views/make-money/catalog-v1/objects/eb87a0c84d93bda2b3d3c1b4fd802e1208314f7e0c1a3d73c8328577350c7385.json.gz"
+    "hash": "0e6a827a35241350a4a6beec527f01fa02a177650fb6e78b0dd2fe9127057f4a",
+    "key": "views/make-money/catalog-v1/objects/0e6a827a35241350a4a6beec527f01fa02a177650fb6e78b0dd2fe9127057f4a.json.gz"
   },
   "details": {
     "ent_myoperator_49c393230a2d": "0154cdd2077d23fbd901929d6a36eb3cfc7c387377f6eabac8492556ea4dc9fa",
@@ -23,7 +23,7 @@
     "ent_requestly_28e9f2": "3ef0b3dddefbbb7b88b059482817c4dbacc86243e9a499730ad8f8379b7945fb",
     "ent_practicaltypographycom_e9aa6bc94ccf": "45b5b49a586f1547b1e59c44797c591e021afed14449c7d4d73112c05747155a",
     "ent_churnkey_8d7f2b269c21": "ca78255e23197f839f67e7d1fedadd298c79fdcbe1a3665d9b083cd41ff264c6",
-    "ent_hostifi_cf9ec73a42d2": "898ae41d02fc975b70720913f690897294770235a3911a4404b0c08f0f73bf8d",
+    "ent_hostifi_cf9ec73a42d2": "b00fbe1a14d3bc4c22b454ef893aa42f77eedc30f0135bae5c04e4bc32622a2a",
     "ent_indiehackers_6548833164b0": "9c425f1eb09bbd434680e94f823eb4179b6624f6fd02cea4cade4d8cc2507209",
     "ent_memberful_0dff1f9c00fa": "fbd6bd8881bc29552175d8d9ff9c70f505bfca3a7db80a70f059bc5c966d1391",
     "ent_poolsuite_6d5ad6895563": "366beee4ae908478ffdbe06fefba3d2b99b8659dcb93dad982abbc1764ca1cee",
