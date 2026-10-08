@@ -13,7 +13,7 @@
  *  9. 仕上げ済みの事例で、画面の分析欄に出る推論の文に編集文（detail-lines）が結ばれている（無ければ原文のまま出るため）。
  */
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from './natural-japanese.mjs';
@@ -37,11 +37,11 @@ const clarityWarnings = [];
 // 文法の誤り（ら抜き・二重否定・冗長な言い回しなど）は、最後にまとめて textlint で見る（.textlintrc.json）
 const forTextlint = [];
 
-function check(where, field, text, max, { hedge = false, price = false } = {}) {
+function check(where, field, text, max, { hedge = false, price = false, yen = true } = {}) {
   for (const problem of findNoise(text, { price })) problems.push(`${where} ${field}: ${problem}`);
   if (typeof text !== 'string' || text.trim() === '') { problems.push(`${where} ${field}: 空`); return; }
   if (text.length > max) problems.push(`${where} ${field}: ${text.length}字（上限${max}）`);
-  if (FOREIGN.test(text) && !text.includes('円')) problems.push(`${where} ${field}: 外貨の数字に円換算（約◯円）が無い「${text.slice(0, 30)}…」`);
+  if (yen && FOREIGN.test(text) && !text.includes('円')) problems.push(`${where} ${field}: 外貨の数字に円換算（約◯円）が無い「${text.slice(0, 30)}…」`);
   if (/(?<![\d,.])0円/.test(text)) problems.push(`${where} ${field}: 「0円」は書かない（「かけていない」「無料」と言う）`);
   if (ABSENCE.test(text)) problems.push(`${where} ${field}: 「分からない・未確認」と言うだけの文は載せない（載せないのが正しい）`);
   for (const rule of READER_LANGUAGE) {
@@ -117,6 +117,8 @@ for (const line of read('data/summary-lines.json')) {
 //    推論の文と指紋は scripts/reader-case/detail-coverage.ts が、公開判定と同じ手順（照合・監査の反映の後）で出す（事例データはリポジトリ側）。
 //    どの欄が画面に出るか（章・成功の秘訣・hidden で消える欄）は、src/features/company-inspector/ui/ReaderOverview.tsx と同じ条件を、実行場所の data/ の編集文で判定する。
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const factLines = existsSync(resolve(process.cwd(), 'data/fact-lines.json')) ? read('data/fact-lines.json') : [];
+const factLineBy = new Map(factLines.map((l) => [`${l.entityId}\u0000${l.kind}\u0000${l.targetId}`, l]));
 const chapterEntries = read('data/case-chapters.json');
 const coverage = JSON.parse(execFileSync(process.execPath, ['--import', 'tsx', 'scripts/reader-case/detail-coverage.ts', ...chapterEntries.map((e) => e.entityId)], { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }));
 const detailByKey = new Map(read('data/detail-lines.json').map((line) => [`${line.entityId}\u0000${line.analysisId}`, line]));
@@ -128,7 +130,12 @@ for (const entry of coverage.cases) {
   const where = (row) => `分析欄 ${entry.name}（${entry.entityId}）の「${row.label}」（${row.analysisId}）`;
   // 「出さない」にした行（hidden で文の指紋が今の原文と合う）は画面に出ないので、原文の検査から外す
   const hiddenNow = (row) => { const l = detailByKey.get(`${entry.entityId}\u0000${row.analysisId}`); return !!l && l.hidden === true && l.textHash === row.textHash; };
-  for (const row of entry.strip) if (!row.absence && !hiddenNow(row)) check(where(row), '原文', row.text, Infinity);
+  for (const row of entry.strip) {
+    // 帯の推論は、data/fact-lines.json の言い直しが元の文と合う時はそちらを出す（その文は下の 10 で検査する）
+    const line = factLineBy.get(`${entry.entityId}\u0000analysis\u0000${row.analysisId}`);
+    if (line && line.hash === row.textHash) continue;
+    if (!row.absence && !hiddenNow(row)) check(where(row), '原文', row.text, Infinity);
+  }
   const shown = [];
   const story = entry.analysis.find((row) => row.item === 'STORY');
   // 4段の形の物語は、画面が編集文を使わず原文を出す（hidden も効かない）。原文そのものに同じ検査を掛ける。
@@ -150,10 +157,53 @@ for (const entry of coverage.cases) {
   }
 }
 
+// 10. 事実の記録の文（data/fact-lines.json）。画面の「出典を見る」の中の事実・数値の注記と期間・計算の前提・帯の推論は、集めた記録の文のまま出さず、
+//     読む人向けに言い直した文（画面の層）を優先して出す。言い直しは元の文の指紋に結ばれ、元の文が変わったら使われない。
+//     検査は2つ: (a) 言い直した文そのものが規則（字数・禁止語・自然さ・意味が取れるか）を守る。 (b) 仕上げ済みの事例の全欄で、画面に出る文
+//     （言い直しが有効ならそれ、無ければ元の文）が同じ規則を守る。円は書かずコードが付けるので、円換算の有無は見ない。
+//     札は、事例が持つ事業の札が2個未満なら、事業の中身から付けた札（kind: labels）で2〜3個にそろえる。
+const factCoverage = JSON.parse(execFileSync(process.execPath, ['--import', 'tsx', 'scripts/reader-case/fact-lines-coverage.ts'], { cwd: REPO, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }));
+const priceKeys = new Set(factCoverage.cases.flatMap((c) => c.targets.filter((t) => t.price).map((t) => `${c.entityId}\u0000${t.kind}\u0000${t.targetId}`)));
+const FACT_MAX = { fact: 200, basis: 70, period: 40, formula: 280, analysis: 150 };
+const OPERATOR_TAGS = new Set(['収集事例', '新着', '未精査候補', '収益確認済']);
+for (const line of factLines) {
+  const where = `fact-lines ${line.entityId}/${line.kind}:${line.targetId}`;
+  if (line.kind === 'labels') {
+    const labels = String(line.text).split('、').map((t) => t.trim()).filter(Boolean);
+    if (labels.length < 1 || labels.length > 3) problems.push(`${where}: 札は1〜3個（${labels.length}個）`);
+    for (const label of labels) {
+      if (label.length > 14) problems.push(`${where}: 札「${label}」が長い（14字以内）`);
+      if (OPERATOR_TAGS.has(label)) problems.push(`${where}: 札「${label}」は運営の印`);
+    }
+    continue;
+  }
+  if (!(line.kind in FACT_MAX)) { problems.push(`${where}: 知らない種類`); continue; }
+  check(where, 'text', line.text, priceKeys.has(`${line.entityId}\u0000${line.kind}\u0000${line.targetId}`) ? 70 : FACT_MAX[line.kind], { hedge: true, price: priceKeys.has(`${line.entityId}\u0000${line.kind}\u0000${line.targetId}`), yen: false });
+}
+for (const id of factCoverage.missing) problems.push(`記録の文 ${id}: 仕上げ済みだが事例データが読めない`);
+for (const entry of factCoverage.cases) {
+  for (const target of entry.targets) {
+    const line = factLineBy.get(`${entry.entityId}\u0000${target.kind}\u0000${target.targetId}`);
+    const where = `記録の文 ${entry.name}（${entry.entityId}）の ${target.where}`;
+    if (line && line.hash === target.hash) continue; // 言い直しが有効。文そのものは上で検査した
+    if (line) problems.push(`${where}: 言い直し（data/fact-lines.json）が今の元の文と合わない。元の文が変わったので作り直す（pnpm fact-lines:build --id ${entry.entityId}）`);
+    else {
+      // 言い直せなかった行は元の文のまま出る。数字の取り違えではなく言い回しの問題なので、関門にはせず警告で残す（言い直しは pnpm fact-lines:build）
+      const before = problems.length;
+      check(where, '原文', target.original, Infinity, { price: target.price, yen: false });
+      clarityWarnings.push(...problems.splice(before));
+    }
+  }
+  const own = [...new Set(entry.tags.map((t) => t.trim()).filter((t) => t && !OPERATOR_TAGS.has(t)))].slice(0, 3);
+  const extra = factLineBy.get(`${entry.entityId}\u0000labels\u0000labels`);
+  const extraLabels = extra && extra.hash === entry.taglineHash ? String(extra.text).split('、').map((t) => t.trim()).filter((t) => t && !own.includes(t)) : [];
+  if (Math.min(3, own.length + extraLabels.length) < 2) problems.push(`札 ${entry.name}（${entry.entityId}）: 札が${own.length + extraLabels.length}個（2〜3個にする。事業の中身から付けた札を data/fact-lines.json の labels に足す: pnpm fact-lines:build --id ${entry.entityId}）`);
+}
+
 const grammar = await lintJapanese(forTextlint.map((row) => row.text));
 // 意味が取れるかを見る textlint の規則（読点の数・AIの書き癖）は、公開10件を直すまで警告に留める（CLARITY_BLOCKING と一緒に関門へ上げる）
 const CLARITY_TEXTLINT = /（(?:max-ten|@textlint-ja\/ai-writing\/[^）]+)）$/;
-grammar.forEach((messages, i) => { for (const message of messages) (!CLARITY_BLOCKING && CLARITY_TEXTLINT.test(message) ? clarityWarnings : problems).push(`${forTextlint[i].where}: 日本語の誤り ${message}「${forTextlint[i].text.slice(0, 30)}…」`); });
+grammar.forEach((messages, i) => { for (const message of messages) (forTextlint[i].where.startsWith('記録の文 ') || (!CLARITY_BLOCKING && CLARITY_TEXTLINT.test(message)) ? clarityWarnings : problems).push(`${forTextlint[i].where}: 日本語の誤り ${message}「${forTextlint[i].text.slice(0, 30)}…」`); });
 
 if (clarityWarnings.length) console.warn(`[case-text] 警告: 意味が取れない言い方 ${clarityWarnings.length}件（直す経路: pnpm display:build --repair-only --reader）:\n${clarityWarnings.join('\n')}`);
 if (problems.length) {
