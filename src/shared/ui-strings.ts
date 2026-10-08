@@ -129,7 +129,7 @@ export const UI = {
   GROUP_MONEY: '金はどう回っているか',
   GROUP_EDGE: 'なぜ他に取られないか',
   GROUP_NOW: '今までの歩み',
-  SECTION_DETAILS: '数字と出典',
+  SECTION_DETAILS: '出典を見る',
   WHAT_IS: '概要',
   
   HEADLINE_LABEL: 'ひとこと',

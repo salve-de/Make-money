@@ -151,6 +151,13 @@ export const ReaderDisplaySchema = z.object({
       chapters: z.record(z.string(), z.array(z.object({ text: z.string(), source: z.string() }))),
     })
     .optional(),
+  /**
+   * 事実の記録の文（事実・数値の注記・計算の前提・帯の推論）を、読む人向けの1行に言い直した編集文。正本は data/fact-lines.json。
+   * 元の文の指紋（hash）が合う時だけ画面に使い、無い・合わない時は元の文のまま出す（src/shared/fact-lines.ts）。
+   */
+  factLines: z.array(z.object({ kind: z.enum(['fact', 'basis', 'period', 'formula', 'analysis']), targetId: z.string().min(1), hash: z.string().min(1), text: z.string() })).optional(),
+  /** 札（事業の中身から付けた分野）。事例が持つ札が少ない時だけ足す。tagline の指紋が合う時だけ使う。 */
+  labels: z.object({ hash: z.string().min(1), labels: z.array(z.string().min(1)).min(1).max(3) }).optional(),
 });
 export type ReaderDisplay = z.infer<typeof ReaderDisplaySchema>;
 
