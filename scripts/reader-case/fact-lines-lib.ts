@@ -78,10 +78,10 @@ export function newTokens(edited: string, original: string, haystack: string): s
 
 const COMMON_KATAKANA = new Set(['プラン', 'ベンチャー', 'ソフト', 'ツール', 'サービス', 'サイト', 'ページ', 'データ', 'アプリ', 'ユーザー', 'ブランド', 'コンテンツ', 'チーム', 'ビジネス', 'ネット', 'ネットワーク', 'システム', 'ソフトウェア', 'クラウド', 'メール', 'ファイル', 'テーマ', 'フォント', 'デザイン', 'ライセンス', 'パートナー', 'ブログ', 'ニュース', 'コミュニティ', 'マーケティング', 'ビデオ', 'アカウント', 'メンバー', 'キャンペーン', 'レビュー', 'サポート', 'オンライン', 'デジタル', 'リスト', 'クレジット', 'モデル', 'ロゴ', 'テンプレート', 'ひな形']);
 
-/** 式の中の数字（順番は問わない）と記号の種類。言葉を直す時に並びが変わっても、数字と演算が同じなら通す */
+/** 式の中の数字（順番は問わない）と、記号の並び（順番も見る。「100-20÷10」を「100÷20-10」に変えさせない） */
 export function formulaParts(formula: string): { nums: string[]; ops: string[] } {
   const t = formula.normalize('NFKC').replace(/(\d),(?=\d{3}\b)/g, '$1');
-  return { nums: (t.match(/\d+(?:\.\d+)?/g) ?? []).sort(), ops: [...new Set(t.match(/[+\-*/=×÷≒≈−]/g) ?? [])].sort() };
+  return { nums: (t.match(/\d+(?:\.\d+)?/g) ?? []).sort(), ops: t.match(/[+\-*/=×÷≒≈−]/g) ?? [] };
 }
 
 export interface LineProblem { key: string; problem: string }

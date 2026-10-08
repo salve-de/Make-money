@@ -157,9 +157,9 @@ async function buildOne(id: string, reader: ReaderCase, gen: Caller, review: Cal
         const verdict = new Map((rv.verdicts ?? []).filter((v) => v.key).map((v) => [v.key!, v]));
         for (const c of candidates) {
           const v = verdict.get(c.target.key);
-          if (v && v.ok === false) { problemsByKey.set(c.target.key, [`確認役: ${v.problem ?? ''}${v.fix ? `（直す案: ${v.fix}）` : ''}`]); previous.set(c.target.key, c.text); next.push(c.target); } else accepted.set(c.target.key, c.text);
+          if (!v || v.ok !== true) { problemsByKey.set(c.target.key, [v ? `確認役: ${v.problem || '不合格'}${v.fix ? `（直す案: ${v.fix}）` : ''}` : '確認役の応答にこの行が無い（通さない）']); previous.set(c.target.key, c.text); next.push(c.target); } else accepted.set(c.target.key, c.text);
         }
-        if (!labelsDone && labelsOk && rv.labelsOk === false) { labelsOk = false; labelProblems = [`確認役: ${rv.labelsProblem ?? ''}`]; }
+        if (!labelsDone && labelsOk && rv.labelsOk !== true) { labelsOk = false; labelProblems = [`確認役: ${rv.labelsProblem || '札の判定が無い（通さない）'}`]; }
       } catch (e) { log(`${id}: 確認役の呼び出しが失敗 ${(e as Error).message.slice(0, 120)}`); for (const c of candidates) { next.push(c.target); previous.set(c.target.key, c.text); problemsByKey.set(c.target.key, ['確認役が呼べなかった']); } labelsOk = false; }
     } else for (const c of candidates) accepted.set(c.target.key, c.text);
     if (!labelsDone && labelsOk) labelsDone = true;
