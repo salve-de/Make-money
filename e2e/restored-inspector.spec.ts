@@ -23,7 +23,7 @@ for (const width of [390, 768, 960, 1440]) {
     await expect(analysis.locator('[data-analysis]').first()).toBeVisible();
     const reasoning = pane.locator('#section-reasoning');
     await reasoning.scrollIntoViewIfNeeded();
-    await expect(reasoning).toContainText('推定');
+    await expect(reasoning).toContainText('計算の前提');
     const sources = pane.locator('#section-sources');
     await sources.scrollIntoViewIfNeeded();
     await expect(sources).toBeVisible();
