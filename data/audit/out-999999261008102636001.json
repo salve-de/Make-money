@@ -1,0 +1,1 @@
+{"cases":[{"entityId":"ent_myoperator_49c393230a2d","items":[{"analysisId":"a-upfront_cash","kind":"FACT_DISGUISED","severity":"FIX","why":"年払いであることは確認できるが、1年分を先払いするという支払時期は出典に明記されていない。","fix":"SaaSの利用料は年払い。現行の料金表も全プラン年払いとしている。"}]}]}

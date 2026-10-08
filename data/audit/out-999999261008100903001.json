@@ -1,0 +1,1 @@
+{"cases":[{"entityId":"ent_myoperator_49c393230a2d","items":[{"analysisId":"__case__","kind":"CONTRADICTS_FACT","severity":"BLOCK","why":"m3とm4は出典の「登録利用者25,000人超」「有料顧客2,000社超」から「超」を落として確定値にしているため、事実の再照合が必要です。"},{"analysisId":"a-upfront_cash","kind":"FACT_DISGUISED","severity":"FIX","why":"出典は年払いを示していますが、1年分を先に支払うという支払時期までは明記していません。","fix":"SaaSの年払いで利用料を受け取る。現行の料金表も全プラン年払い。"}]}]}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildGridItems, generationHeading, generationOf, groupByGeneration } from './generation';
+import { buildGridItems, generationHeading, generationOf, groupByGeneration, isGenerationHeading } from './generation';
 
 const e = (id: string, generation?: number) => ({ id, generation });
 
@@ -48,5 +48,15 @@ describe('世代の区切り', () => {
 
   it('0件なら何も出さない', () => {
     expect(buildGridItems([], 250)).toEqual([]);
+  });
+});
+
+describe('世代の見出しの判定（出どころの検査で飾りとして許可する）', () => {
+  it('generationHeading が作る形は許可し、似た別の文字は許可しない', () => {
+    expect(isGenerationHeading(generationHeading(1, 1))).toBe(true);
+    expect(isGenerationHeading(generationHeading(2, 1234))).toBe(true);
+    expect(isGenerationHeading('第1世代（1件）好きな文')).toBe(false);
+    expect(isGenerationHeading('第0世代（1件）')).toBe(false);
+    expect(isGenerationHeading('創業者は第1世代（1件）と言った')).toBe(false);
   });
 });

@@ -7,12 +7,12 @@ import type { ReaderDisplay } from './reader-case';
  * 根拠は reader.facts の1件に紐づき、その文が変わったら（指紋が合わなくなったら）その1組は出さない。
  * 元の事実に無い事は書かない。真似の手順にしない（やった事の記録）。
  */
-export function successPointsFor(display: ReaderDisplay | undefined, facts: ReadonlyArray<{ id: string; text: string }>): Array<{ head: string; body: string }> {
+export function successPointsFor(display: ReaderDisplay | undefined, facts: ReadonlyArray<{ id: string; text: string }>): Array<{ head: string; body: string; factId: string }> {
   const list = display?.successPoints;
   if (!list) return [];
   const byId = new Map(facts.map((fact) => [fact.id, fact.text]));
   return list.filter((p) => {
     const text = byId.get(p.factId);
     return text !== undefined && textFingerprint(text) === p.factHash;
-  }).map(({ head, body }) => ({ head: screenText(head), body: screenText(body) }));
+  }).map(({ head, body, factId }) => ({ head: screenText(head), body: screenText(body), factId }));
 }

@@ -7,7 +7,7 @@ import { parseCompanyAnalysis } from '@/lib/company-access/schema';
 import { useViewHistory } from './useViewHistory';
 import { isDetailSettled, preferDetail } from '@/shared/dossier-authority';
 import { useAuth } from '../../context/AuthContext';
-import { openEntityParam } from '../utils/entityUrl';
+import { closeEntityParam, openEntityParam } from '../utils/entityUrl';
 
 interface UseSelectedEntityNavigationProps {
   entities: FinancialEntity[];
@@ -105,6 +105,37 @@ export function useSelectedEntityNavigation({
     }
     previousEntityParam.current = entityParam ?? null;
   }, [entityParam, queryParam, entities, setSelectedEntityId]);
+
+  // 絞り込み・検索で、開いていた事例が一覧から外れたら、詳細に別の事例を残さない。
+  // 見えている先頭の事例を開く（詳細欄が出ない幅では閉じる）。結果が0件のままなら閉じる（結果が届くまでの短い空きは待つ）。
+  // 一覧に載ったことのない事例（共有リンクで直接開いた等）は動かさない
+  const wasListed = useRef<string | null>(null);
+  useEffect(() => {
+    if (!selectedEntityId) return;
+    if (filteredEntities.some((e) => e.id === selectedEntityId)) {
+      wasListed.current = selectedEntityId;
+      return;
+    }
+    if (wasListed.current !== selectedEntityId) return;
+    if (filteredEntities.length === 0) {
+      const timer = window.setTimeout(() => {
+        wasListed.current = null;
+        setSelectedEntityId(null);
+        closeEntityParam();
+      }, 800);
+      return () => window.clearTimeout(timer);
+    }
+    wasListed.current = null;
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      const first = filteredEntities[0];
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSelectedEntityId(first.id);
+      openEntityParam(first.id);
+    } else {
+      setSelectedEntityId(null);
+      closeEntityParam();
+    }
+  }, [selectedEntityId, filteredEntities, setSelectedEntityId]);
 
   // 閲覧履歴の自動追跡
   useEffect(() => {

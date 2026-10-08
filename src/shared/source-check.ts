@@ -141,15 +141,17 @@ export function checkText(text: string, sourceText: string, opts: { quote?: stri
   const pool = sourceNumbers(sourceText);
   const { numbers, years } = claimNumbers(text);
   const body0 = clean(sourceText);
+  // 英語の表の短い年（Dec '18・Jan ’19）も年として数える
+  const shortYear = (y: string) => new RegExp(`['’]${y.slice(2)}(?!\\d)`).test(body0);
   // 文の数も年も1つも本文に無い時は、文の誤りより先に「本文が取れていない」（後から描くページ・別のページ）を疑う。
   // 合格にはしない。取り直し（Web アーカイブ・別の出典）に回す
-  if (numbers.length + years.length >= 2 && !numbers.some((n) => hasNumber(pool, n)) && !years.some((y) => body0.includes(y))) {
+  if (numbers.length + years.length >= 2 && !numbers.some((n) => hasNumber(pool, n)) && !years.some((y) => body0.includes(y) || shortYear(y))) {
     return { ok: false, reasons: ['NO_SOURCE_TEXT'], detail: ['文の数と年が1つも本文に無い（本文が取れていない疑い）'] };
   }
   const missing = numbers.filter((n) => !hasNumber(pool, n));
   if (missing.length) { reasons.push('NUMBER_NOT_IN_SOURCE'); detail.push(`原文に無い数 ${missing.join('、')}`); }
   const body = clean(sourceText);
-  const missingYears = years.filter((y) => !body.includes(y) && !opts.publishedAt?.startsWith(y));
+  const missingYears = years.filter((y) => !body.includes(y) && !shortYear(y) && !opts.publishedAt?.startsWith(y));
   if (missingYears.length) { reasons.push('YEAR_NOT_IN_SOURCE'); detail.push(`原文に無い年 ${missingYears.join('、')}`); }
   return { ok: reasons.length === 0, reasons, detail };
 }

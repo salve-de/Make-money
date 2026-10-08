@@ -1,0 +1,851 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_referralrock_8c13d5ee4cfc",
+   "scope": "diff",
+   "auditScope": "差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "事業者が紹介プログラムを自動で運営するためのソフト。紹介リンク、紹介の追跡、報酬の条件と払い出しの管理をまとめる。全プランに、紹介制度の設定を支援する専任アドバイザーが付く。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、ECなどが使う。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "FOUNDING",
+     "text": "創業者Josh Hoは2013年に、小さな事業が自前で紹介プログラムを運営できる道具を思いつき、同年12月にドメインを登録した。ベータ期は家族を支えるため、ソフトの受託を副業で続けた。旧製品UberNoteの利用者リスト、Betalist、知人で告知し、2014年前半には200超の接点、最初の1年半で500社超が登録した。作業は月約20時間。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "最初の管理画面はSurvey Monkeyの回答フォームで、最初の版は古いHTMLの雛形と使い回しのコードで作った。本人は、出せずに終わった企画が少なくとも5つあるとも書く。客の話を聞いて気に入らない内容が出ても、作りたい製品の像を優先してまず出した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f4",
+     "kind": "EVENT",
+     "text": "2015年6月に月59ドルの有料版を公開し、2日以内に最初の有料客が登録、月末には4社になった。数か月で月約2,000ドルのMRRに達し、創業者は専業になった。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f5",
+     "kind": "PRICING",
+     "text": "2016年2月、ギフトカード報酬の処理を足し、月250ドル・6か月契約の上位プランを設けた。1社から一度に1,500ドルが入った。任意の「サクセス支援パッケージ」も作り、後に月払いでは必須にした。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f6",
+     "kind": "TEAM",
+     "text": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で失敗し、2か月分の売上を失った。10月に2人目の営業を雇い、2016年末は顧客170社、常勤換算で3.5人分の体制、MRR約15,000ドル。外部資金は受けていない。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "2019年7月の投稿は、導入時の立ち上げ会議と客ごとの専任サクセス担当で解約を半分に減らしたと書く。客には「代わりにやる」でなく「手伝う」と明確に伝えている。8月の投稿は、4か月連続でMRRが5%ずつ伸びたと書く。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f10",
+     "kind": "PRICING",
+     "text": "現在のOperatorプランは月250ドル。長期契約は不要、年払いは10%引き、専任アドバイザーとその支援チームが込みで、初期設定料は無い。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=REVENUE / 期間=2019年5月1日の投稿（月の売上70K）(MONTH) / 金額=70000 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m2",
+     "line": "項目=REVENUE / 期間=2016年末のMRR（約）(MONTH) / 金額=15000 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m3",
+     "line": "項目=REVENUE / 期間=2015年有料版公開から数か月後のMRR（約）(MONTH) / 金額=2000 USD / 由来=SELF_REPORTED"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://referralrock.com/blog/full-referral-rock-story/",
+     "publisher": "公式ブログ",
+     "snapshot": {
+      "url": "https://referralrock.com/blog/full-referral-rock-story/",
+      "finalUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:55.238Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "5ddd12688f0f4b94472ceb8210c485aabccf15234fb8dca12d69f5daa303dd9b"
+     },
+     "text": "The Referral Rock Story Part 1: From Beta to Business\nHow I went from idea -> beta -> real business in only 3 years with no funding, an all remote team, and never leaving my chair.\nThe Referral Rock Story Part 1: From Beta to Business\nHow I went from idea -> beta -> real business in only 3 years with no funding, an all remote team, and never leaving my chair.\nThe Referral Rock Story Part 1: From Beta to Business\nSkip to content\nHow it works\nProduct\nUse Cases\nPricing\nIntegrations\nResources\nClose Resources\nOpen Resources\nProduct Updates\nKeep up with product features, helpful articles, and data-driven insights\nSupport Center\nProduct help documentation to answer just about any question\nIntegration Docs\nIn-depth technical guides for third-party systems\nFree Tools\nReferral tools, worksheets, agreements, templates, calculators, and more\nMarketing Blog\nRead about referral and affiliate programs, growth marketing, and more\nReferral Program Ultimate Guide\nThe best of what we’ve learned through our years of referral programs and marketing\nAffiliate Marketing Ultimate Guide\nRun an affiliate program that can multiply your sales and raise your bottom line\nBook a demo\nStart for free\nUnder the Rock\nFrom beta to real business – Discovering inside sales\n(2015-2017) Referral Rock's story from beta -> real business in 3 years with no funding, an all remote team, and never leaving my chair (kinda)\n10 min read\nFebruary 21, 2019\nBy\nJosh Ho\nON THIS PAGE\nGrowing from an idea to business takes time, a lot of time! Especially when you are stubborn, don’t want to take funding, are more risk-averse than people think, and initially think you can do everything yourself. If you ever get that lucky, there is a lot you go through learning about yourself and other people (team and customers) to have the idea take flight to a fully sustainable business.\nBack in 2013, the idea of providing small businesses with the tools to run their own referral program was born. Not too long after in December 2013, referralrock.com was registered.\nBeta, MVP, and Launch (2014)\nSo many lessons learned from my past in building a startup led to Referral Rock. Like most businesses, the first few months of Referral Rock were focused on building the initial contacts and defining an ideal target market. All during this beta period, I was software consulting on the side to support myself and my family.\nMVP\nI want to say I formally went through a customer development process, but that’s not entirely true. The truth is I didn’t like what I heard from the initial group, and I had a vision for what I wanted the product to be, so I built an MVP anyway. As many projects die on the vine (at least five that never launched), I was at least smart enough to not put too much into the MVP. The first version I cobbled together was from some old HTML templates and some reusable code laying around; then I was off.\nSurvey Monkey was my first admin UI, where I used it as a form to complete a user’s program (i.e., logo, tagline, business name, referral offer). I then exported it to a CSV, then converted it to a resource file to match a subdomain in the system. If they wanted changes, I manually made them upon request. It was quick and dirty but saved me a lot of time to get something out to people without too much coding investment.\nLack of a launch\nSites like Product Hunt weren’t as big of a thing in 2014, and this was a time where listing sites still had a little weight. Sites like Betalist , personal contacts, and even the list of users from UberNote were used to get the word out. I didn’t care much about a big launch at this point as I was excited about the project but wasn’t confident it could be a business yet.\nWithin the first half of 2014, Referral Rock had a list of over 200 contacts. Referral Rock’s beta program had begun, and we had some live fire and opened the site up for registration. During this time, Referral Rock was a part-time gig, and working hours consisted of working nights and weekends. Thinking back, I’d estimate I was working about 20 hours a month on the project.\nWith over 500 businesses signed up, the first year and a half proved to me that there were customers in this market and that there was a need for the software.\nPaying customers (June 2015)\nI was chatting with a longtime startup friend of mine (Alex Black) with great excitement about everything I had done with Referral Rock, and he burst my bubble by mentioning this wasn’t a business unless I charged people. Initially, I was upset, but then I took that candid advice and turned it into a challenge to create a paid version overnight .\nIn June of 2015, the first paid version was launched. As luck would have it, the first paying customer signed up within two days! Beta users still had access, but sign-ups were now only for the paid version ($59 per month). By the end of the first month, I had four paying customers, and I was on cloud nine!\nThinking back, it makes me wonder how fragile I was at that point. If the paid version was up and there were no takers for a month or so, I’m not sure if my impatience would have gotten the best of me or not.\nOver the next few months, I slowly shut down the beta program. I made it clear up front that we would eventually charge, but I highly valued my early users. As I closed out the program, I emailed the most active beta users and sent them a coupon with a massive discount for life. I firmly believe in grandfathering all pricing as a sign of the gratitude and appreciation for anyone that has taken an early bet on us; it’s something we’ve continued to this day.\nI was on my way to the dream of building a little internet business that I could provide recurring income for my family and me. Within a few months, Referral Rock was making about $2k a month, and I reached a tipping point for myself. All I wanted to do was work on Referral Rock, and doing any other consulting work was starting to feel like a drag or even torture as I rushed through projects. I decided to make the jump to full-time.\nDiscovered “Inside Sales”\nCan I build a product and sell it to thousands of people and never have to actually talk to them? That’s the indie hacker dream, right? Well… when all your income is coming in small bite-sized chunks, and your marketing efforts are starting to normalize, you begin to follow the path presented. If I weren’t forced to need the money, maybe I would have continued down the road of a more self-service-oriented product.\nI started out doing all product support through chat, but then frustration set in, and I had those moments where I realized I was either going to spend the next 20 minutes on chat trying to explain something, or I could pick up the phone/screen share and talk to them to have the problem solved in 5 minutes. Path of least resistance? I picked up the phone.\nWithin a week, I found that talking to people in person resulted in more sales. In fact, the conversion rate practically tripled. I put up a demo request form and found that I needed to leave half my time open to scheduling demos. Who would have thought that actually talking to people and explaining the product and service in person is the key?! Brilliant, right?\nIt wasn’t until much later that I realized this was inside sales and founder selling at its finest. It was the birth of our consultative sales practices and laid the groundwork for what would genuinely get Referral Rock off the ground.\nGetting bigger than just me\nAfter inside sales were implemented and made an integral part of the sales process, it was evident that we needed to grow the team. At this point, I felt confident that customers could be acquired, we could provide value, and there was enough revenue coming in to support a business. More hands were needed as I would no longer be able to go at it alone.\nThe jump to building a team was scary as it wasn’t just me in the boat anymore. Yes, I had a family but was always confident I could provide, but bringing other people with me and having them depend on me was a different sort of risk. In the early days, I brought on some part-time people and others willing to take a chance on nights and weekends. As we grew in revenue, so did my confidence in bringing people on full-time.\nIn this time frame, there were moments where I kept wondering and having doubts. How big is this market? Last month we had 20 new customers, and this month there are only 10… Is this the new normal? This is around the time I discovered SaaStr, specifically through this post about 10 unaffiliated customers , and I no longer felt alone in what I was doing.\nI now find it interesting to compare how my startup beliefs changed on what was truly important for the business. Referral Rock did more in revenue in 1.5 years with a single founder than UberNote did in 4 years with a team of 4, some funding, and an accelerator. Not quite an apples-to-apples comparison, but a very different change in focus on revenue and sustainability vs. user acquisition and market share.\nBy the end of 2015, Referral Rock hired its first team member and got some outside technical assistance from an old high school friend as the business grew to 50 customers. So that put us at 2 FTEs across 3 people at $3k MRR.\nMuscle development with customers and sales (January 2016)\nThough the business had grown quite a bit, 2016 proved to be the real year of change for me. I wasn’t just coding anymore. As an engineer by trade, I was developing more skills in sales, marketing, and managing customers. This wasn’t totally foreign to me as I previously had a software consulting business, but that was dealing with 2-3 customers in a given month vs. having conversations and managing over 100 in a month. I had to grow all kinds of different muscles and fast.\nListening to customers\nListening to customers isn’t just about what features to build and listening to their feedback. It’s also about getting a feel for them and understanding their needs, even if they are not saying it.\nDuring this period, I was splitting my time between inside sales and developing the product. I had some early team members helping out, writing KB articles and marketing blog posts to support me.\nIn February 2016, Referral Rock raised the prices for the first time. I remember the day this all happened. I was on a call with a prospect hearing about how their sales process worked and how they were already using referrals. They spoke of the pain of issuing rewards and how much time it took to manage the referrals and rewards.\nReward fulfillment was a feature that we were considering, but we weren’t sure our $59 a month customer would really care. After they mentioned referral rewards in the amount of hundreds of dollars, I realized how much a new customer was worth to them and how trusting a $59 a month startup seemed iffy at best.\nBy the time we had our next call, I had added gift cards fulfillment to a new higher-priced plan at $250 a month with a 6-month commitment on our pricing page. I wasn’t quite sure how the next call would go as I was sure the price jump would scare the customer away. To my surprise, she mentioned she saw the new plan on the website and was happy to sign up. At that point, we were making $3.5k per month and just took in $1.5k in one swoop. This was a massive change vs. the microtransactions I was previously receiving. Maybe I can afford to pay a salesperson instead of me?\nScale-out sales (Attempt #1)\nJune quickly approached. Referral Rock hit a significant milestone as the anniversary of the ‘pay’ version arrived. During this time, the business grew to a total of 110 customers. It was then when I realized that so much time was taken up by sales demos and the product was developing much slower.\nWe needed to scale out sales! July came, and the first salesperson was hired. At this point, all I knew was what I was doing in sales but never considered myself an actual salesperson. I thought a salesperson was supposed to be “salesy” and what I was doing was a hack. So the first person I hired fit that mold, and as you probably can guess… I failed miserably for these key reasons:\nWe had ZERO onboarding and training for sales – I didn’t realize how much of a learning curve a new product and new customer profile mattered. I thought hiring a salesperson was just going to spin up and do what they do as a “real salesperson” in a matter of weeks. I think I even gave the new salesperson all the demos within about 2 weeks.\nWe didn’t have the right type of salesperson – There are different types of salespeople? My first hire had experience selling to SMBs, which was great, but didn’t have much marketing experience, which led to some challenges in picking up on the product and understanding the customer.\nThis was a hard lesson to learn as it killed 2 months of revenue, and I was pulled back into sales and lost valuable time and energy that could have gone to other areas of the business.\nScale-out sales (Attempt #2)\nIn October of 2016, it was time to take another at-bat. This time the training process, though still not 100% settled, was in a much better spot. In hindsight, we were actually very lucky in more than one way with finding our next salesperson.\nFirst, he actually found us. Mica was in limbo with his own startup. He didn’t want to give up on it, but couldn’t work on it full time either. So, he stumbled upon a Referral Rock listing and decided to reach out. He said right away that he could help with everything we needed and threw down the gauntlet by saying he could do anything I could do except code. I told him he didn’t know what he was getting into, but go ahead and put your money where your mouth is.\nSecond, Mica turned out to be much more than our first salesperson outside of me. He was just what we needed to get to the next level as he eventually took up the helm running both sales and what would become customer success.\nBy December, we were able to begin focusing on other areas of the business. Since sales had a new head honcho, it allowed the rest of the team members to dig into their core duties.\nPushing on customer pricing\nWith the help of Mica holding down the day-to-day sales and customer success, we were able to land our first large enterprise sale. It was for a lot of custom work on our end that honestly wasn’t even on the roadmap. So I priced it high because I viewed it as a distraction, but for the right amount, it could be worth it. This was a mental pricing exercise I learned from my consulting days that we still use today. Price it, so you’re happy if you win, but not upset if you lose. In this case, I priced it high enough that it was worth the distraction, and when the customer accepted, I was happy with it. In retrospect, it was a big distraction but added enough cash to the balance sheet for me to feel more comfortable pushing forward with some new hires.\nAnother significant change to the pricing model was that we added a new “Customer Success Package.” We started charging for most as a way to justify all the time we took to help customers use the product correctly and launch their programs. First, it was optional, then quickly moved it to a required setup fee for month-to-month commitments. Conversions to paid did not drop, and churn was reduced. Win-win! As a bonus, we also waived the fee for a longer commitment and got many converts to 6+ month contracts (yay cashflow).\nThe year ended with a total of 170 customers, 3.5 FTE, and $15k MRR. By this time, I stopped asking myself if this was sustainable and if this was a real business. The answer was a resounding yes! It only took 1.5 years of sales and 1,000 demos and trial users for me to believe.\nKey lessons so far:\nLet the customers and business unfold as you go\nBy listening to the customers and their needs, it’s led Referral Rock to be a totally different business from what I intended. The business has a life of its own and won’t necessarily end up where you designed, and that can be a good thing! We have gone from being a $50 per month self-service product meant to require little to no interaction, to being intimately involved in building relationships with our customers and their success and building a team.\nEverything takes longer than you think\n“In a month we can train a sales team with no materials, a founder shooting from the hip, and still keep up with existing sales”… Dying words! Don’t take for granted how long it takes to get people up to speed on everything that you’ve learned over 2 years.\nEverything slows down as you have customers. You have a drag of legacy customers, legacy features, that have to be managed as you grow. Your existing customers are what keep you alive, and they are the ones who invested in you early. Don’t piss them off!\nMore stories about our journey\nHow Referral Rock services have evolved over the years\n(2017-2024) Referral Rock customers kept coming back with questions or worse, would go quiet and suddenly cancel. We needed a better, more human approach to onboarding\n8+ Unhinged Social Media Experiments in 6 Months\nWhat happens when a business stops sounding like a robot that just keeps posting? Here’s what we found out when we went all-in on a human-first, unhinged social strategy.\nLessons learned from my first failed SaaS – UberNote\n(2006-2012) I learned enough about startups and SaaS from UberNote to actually be successful. Blindspots, a startup incubator, fund raising, first customers, to holding on too long.\nOur Journey into Social Listening Tools: A Reality Check\nWe tried social listening for our own company. Here’s what we learned, the pitfalls we ran into, and what we’d do differently.\nCOMPANY\nAbout Us\nServices\nPlans and Pricing\nStart a Free Referral Program\nTYPES OF SOFTWARE\nReferral Program Software\nAffiliate Marketing Software\nBrand Ambassador Software\nLinkedin\nTwitter\nFacebook\n© Copyright 2017-2026 Referral Rock Inc. All Rights Reserved.\nRESOURCES\nReferral Programs\nAffiliate Marketing\nGrowth Marketing\nReputation Management\nB2B Sales and Marketing\nBrand Strategy\nFREE TOOLS\nReferral Agreements / Contract Templates\nManual Referral Tracker [Spreadsheet]\nReferral Fee Calculator\nReferral Program Workbook\nGift Card Code Generator\nReferral Link Generator\nCoupon Code Generator\nReferral Code Generator\nOUR BEST CONTENT\nWord-of-Mouth Marketing\nReferral Marketing 101\nPromoting Your Program\nBrand Ambassadors\nHow to Ask for Referrals\nJoin our referral program",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://www.indiehackers.com/product/referral-rock",
+     "publisher": "Indie Hackers",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/product/referral-rock",
+      "finalUrl": "https://www.indiehackers.com/product/referral-rock",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:55.227Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "b6afd5269afa4f60b6b7821a3055fe9aac2a57f3bdd6775516c22bfaecebfba2"
+     },
+     "text": "Referral Rock - Indie Hackers\nGet more customers with referral marketing software that works along side any business. Automate the ask, nurture multiple shares, align incentives, conver\nGet more customers with referral marketing software that works along side any business. Automate the ask, nurture multiple shares, align incentives, conver\nReferral Rock on Indie Hackers\nReferral Rock - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\nReferral Rock\nWord of mouth on autopilot\nVisit Website\nReferral Rock Word of mouth on autopilot\nPosts 9\nRevenue $70K / mo\nWebsite Twitter Facebook\nAugust 1, 2019\n4 months of consecutive +5% MRR growth\nAll the changes we put in place in the previous 6 months continue to bear fruit.\nThe main items are:\nreduce customer churn\nincrease the efficiency of sales\nincrease conversion rates to a lead\nincrease site traffic and awareness\nIt's all about process and scaling the things that work.\nJosh Ho\n4 Likes\nComment\nJuly 2, 2019\nCut our churn in 1/2\nPersonalized on-boarding and dedicated customer success per account have helped us cut our churn in 1/2. We took the time and build a process around helping customers reach their goals.\nWe've always had a consultative inside sale, but in the early days just let them loose on the product after the sale and was reactive with support. Our on-boarding process is now a pro-active approach where we have a kick-off meeting and complete a profile on the customer.\nYou have to make it very clear to the customers and set the proper expectations. For example, we make it extremely clear to the customers throughout the whole process that \"we help you\" not \"do for you\".\nEvery SaaS business wants low/no touch these days, but customers do want personalized help. It may not work for every SaaS business as its very dependent on their pricing and type of customers they are attracting, but it's something you may want to do in the early days.\nAs an added benefit, our CSMs are exceptional contributors with product and customer feedback for both qualitative and quantitative information so we can build-in high impact features and functionality.\nJosh Ho\n3 Likes\n1 Comment\nSay something nice…\nPost Comment\n2\nEvery SaaS business wants low/no touch these days, but customers do want personalized help\nI think you get a good point here!\nCustomers want personalizations but don't want to lost time too.\nVokail\n&middot;\n7 years ago\n&middot;\nReply\nJune 17, 2019\nInterviewed on Indie Hackers\n\"The passion and insights you provide as a founder can go a long way when your product is not entirely proven.\"\nHow Talking to Customers Grew My Business to $70K/Month: https://www.indiehackers.com/interview/how-talking-to-customers-grew-my-business-to-70k-month-b46a87fe2a\nJosh Ho\n4 Likes\nComment\nMay 1, 2019\n70K a month in revenue\nLesson for me: Being a bit more aggressive vs what I am comfortable with. Be willing to double down on what is working even if you don't feel ready.\nThe source of this uptick was for us to hire a second sale-person. I was reluctant for a few months because I didn't think we had enough leads to feed 2 inside sales reps.\nBy pushing early to bring on an additional rep it actually put more pressure on me to get resourceful on generating more leads. By updating website copy, landing pages, and CTAs I was able to increase our lead volume.\nThen with another rep and an increased number of leads -> increased revenue.\nJosh Ho\n20 Likes\n8 Comments\nSay something nice…\nPost Comment\n3\nIt's all about how much attention you can get. Congrats!\nsethlouey\n&middot;\n7 years ago\n&middot;\nReply\n1\nCongrats!\nmaverik\n&middot;\n7 years ago\n&middot;\nReply\n1\nI totally agree. It's about taking risks.\nTo further expand on this, I think what scares us the most is making decisions. Especially make decisions that do not scare you that much faster! There was a quote \"If that decision was to easy to take, you probably made it too late\"\nNeed to build a website? Decide fast on what to do.\nNeed to hire or do it yourself? Decide (but take time to hire the right person)\nThis really helped me to execute faster / better.\nVinrob\n&middot;\n7 years ago\n&middot;\nReply\n1\nWhat do you sell?\nMarginai\n&middot;\n7 years ago\n&middot;\nReply\n1\nIt's a referral marketing SaaS. See the product link here: https://www.indiehackers.com/product/referral-rock\njlogic\n&middot;\n7 years ago\n&middot;\nReply\n1\nMore details? :)\nBut congrats anyway!\nflowdee\n&middot;\n7 years ago\n&middot;\nReply\n2\nAny particular details? There is a detailed interview published this week that gives a lot of details.\njlogic\n&middot;\n7 years ago\n&middot;\nReply\n1\nFYI here's the interview: https://www.indiehackers.com/interview/how-talking-to-customers-grew-my-business-to-70k-month-b46a87fe2a\njlogic\n&middot;\n7 years ago\n&middot;\nReply\nDecember 31, 2016\nReached 15k MRR\nThe year ended with a total of 170 customers, 3.5 FTE, and $15k MRR. By this time I stopped asking myself if this was sustainable and if this was a real business. The answer was a resounding yes! It only took 1.5 years of sales and 1000 demos and trial users for me to believe.\nJosh Ho\n3 Likes\nComment\nJuly 15, 2016\nMistakes with my first sales hire\nWe needed to scale out sales! July came and the first salesperson was hired. At this point, all I knew was what I was doing in sales but never considered myself an actual salesperson. I thought a salesperson was supposed to be “salesy” and what I was doing was a hack. So the first person I hired fit that mold and as you probably can guess… I failed miserably...\nOverall these were some mistakes with my first sales hire that hopefully others don't have to repeat.\nWe had ZERO onboarding and training for sales.\nI didn’t realize how much of a learning curve a new product and new customer profile mattered. I thought hiring a salesperson was just going to spin up and do what they do as a “real salesperson” in a matter of weeks. I think I even gave the new salesperson all the demos within about 2 weeks. Here's what I learned...\nBuild out at least the framework of some training, record more of my own demos, and come up with a basic level script that someone could pick up rather quickly.\nWe didn’t have the right type of salesperson\nThere are different types of salespeople? My first hire had experience selling to SMBs which was great but didn’t have much marketing experience which led to some challenges on picking up on the product and understanding the customer. Here's what I learned...\nGet rid of the picture in your head of what a sales person looks like, it will cloud your hiring judgement. Find someone who is coachable, understands at least the basics of digital marketing, is consultative and helpful vs salesy and pushy.\nThis was a hard lesson to learn as it killed 2 months of revenue and I was pulled back into sales and lost valuable time and energy that could have gone to other areas of the business.\n(Also note this was all 2.5 years ago. I added this milestone retroactively when filling out the product profile. I didn't know it would all show up here like it was current)\nJosh Ho\n4 Likes\n2 Comments\nSay something nice…\nPost Comment\n1\nThis comment was deleted 8 years ago\njlogic\n&middot;\n8 years ago\n1\nThis comment was deleted 8 years ago\nMazindy\n&middot;\n8 years ago\nOctober 23, 2015\nFell into inside sales\nI started out doing all product support through chat but then frustration sets in and you have those moments where you realize you’re going to either spend the next 20 minutes on chat trying to explain something, or you could pick up the phone/screen share and talk to them to have the problem solved in 5 min. Path of least resistance? I picked up the phone.\nWithin a week I found that talking to people in person resulted in more sales. In fact, the conversion rate practically tripled.\nIt wasn’t until much later that I realized this was inside sales and founder selling at it’s finest. It was the birth of our consultative sales practices and laid the groundwork for what would truly get Referral Rock off the ground.\nJosh Ho\n1 Like\nComment\nSeptember 5, 2015\nFull-time\nI was on my way to the dream of building a little internet business that I could provide recurring income for me and my family. Within a few months, Referral Rock was making about $2k a month and I reached a tipping point for myself. All I wanted to do was work on Referral Rock and doing any other consulting work was starting to feel like a drag or even torture as I rushed through projects. I decided to make the jump to full-time.\nJosh Ho\nLike\nComment\nJune 23, 2015\nFirst Paid User\nhttps://referralrock.com/blog/from-a-side-project-to-business-overnight/\nJosh Ho\n1 Like\nComment\nAbout\nGet more customers with referral marketing software that works along side any business. Automate the ask, nurture multiple shares, align incentives, convert to sales, then repeat for viral self feeding referral programs\nPeople\nJosh Ho Founder\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://referralrock.com",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://referralrock.com",
+      "finalUrl": "https://referralrock.com/",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:55.233Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "c704fb3754a54113f144ed3eb601a4a88d36084b41decf66dce54abd08a408da"
+     },
+     "text": "Referral Program Software, Done Right | Referral Rock\nReferral Program Software, Done Right | Referral Rock\nHow It Works\nProduct\nUse Cases\nPricing Resources\nLogin Book a demo Start for free\nA referral program platform for busy operators\nReferral Program Software That Runs in the Background\nReferral program software gives a business everything it needs to run an automated referral program — referral links, reward rules, and payout tracking.\nReferral Rock includes a dedicated advisor (on all plans) who configures the referral program to fit how your business works, so referrals come in day after day.\nUnique features\nBranded member portal to track referrals and rewards\nAutomated invites to customers sent at the right time\nRecruiter portal for frontline teams to enroll customers\nAn always-on system that works alongside your business\nBook a Demo Start Free Trial\nTrusted by home services, professional services, clinics and healthcare, financial services, franchises and multi-location brands, and agencies, plus SaaS and e-commerce.\n4.6 Capterra · 101 reviews\nTrusted by 1,000+ growing businesses\nTeams like yours run on Referral Rock\n\"A turnkey referral program software that allowed our team to automate our campaigns in days instead of months. The team is constantly innovating new features. Their hands-on support is impossible to beat.\"\nSIR Glass Auto\nVerified Customer\n\"Referral Rock has made the best customer referral software! It's super easy to manage and track analytics. The intuitive user interface simplifies the process for our members and staff.\"\nCatapult\nVerified Customer\n\"Experience has been great. The software has been able to do everything I wanted. Every time I've had a question or ran into an issue, customer support team helped figure out a solution right away.\"\nGrover\nVerified Customer\nSee more testimonials and customer stories →\nBuilt to run without you babysitting it\nA referral platform with everything you need to run a program, without the overhead.\nEverything runs automatically\nReferrals tracked, rewards sent, participants notified, without you touching it.\nEmail campaigns built in\nPromote your program and fire automatic welcome, reward, and re-engagement emails, with no separate email tool to buy or wire up.\nAdvisor-led setup included\nA dedicated advisor helps you launch faster and optimize from day one.\nNo more awkward asks\nYou did the hard work already. With our referral programs, customers are excited to share with their friends.\nReferral software by industry\nReferral software that fits how your business sells\nReferral Rock is built for operators, the teams that earn referrals through their work, from small businesses to multi-location brands. How referrals get tracked and rewarded depends on how customers buy, so we fit everything from relationship-led sales to high-volume checkouts.\nService & relationship-led businesses\nReferrals here come from great work and personal relationships, with a multi-step sale, so rewards need to fit a pipeline instead of a one-click checkout.\nWhat matters here\nReward at any CRM stage: a new lead, a closed deal, or a completed job\nProgram Recruiters let field and service teams enroll customers\nNative HubSpot & Salesforce sync\nHome services Professional services Financial services B2B SaaS Healthcare & wellness Solar & energy Real estate\nE-commerce & consumer brands\nHigh-volume, self-serve purchases where the reward fires the moment a friend checks out. Connect the store and the program runs on its own.\nWhat matters here\nTwo-sided rewards fire automatically at checkout\nOne-click, refer-a-friend sharing after every purchase\nShopify, BigCommerce & WooCommerce integrations\nRecurring commissions and subscription billing triggers for renewals\nE-commerce Consumer apps Subscriptions Education & courses\nMulti-location & franchise networks\nOne brand, many locations or partners, each running its own program under one view across the whole network.\nWhat matters here\nA separate program for each location, branch, or brand\nConsolidated reporting across every location\nRun it all from a single admin dashboard\nFranchises Multi-location brands Resellers Dealer networks\nNot sure a referral program is right for you yet? The readiness check is the honest version of who it fits, and if you're weighing the effort, here's building one yourself vs. using software .\nExplore all industry guides\nAdvisor-led setup\nWe help you launch it, then the software keeps it going\nEvery plan includes a real referral expert, not a chatbot or a help doc. They get your program launched right, then help you improve it as it grows.\nSee how one happy customer becomes the next\nEvery referral follows the same path, and Referral Rock handles each step for you.\nHow every referral happens\nA branded portal prompts a happy customer to share\nA friend hears a genuine recommendation from someone they trust\nThe friend signs up, and the referral is tracked back to its source\nThat new customer joins the program and shares in turn\nSee how a referral program works\nA real person helps you launch\nEvery business is different enough that a template won't always work. Your advisor gets the program as close to done-for-you as possible while keeping you in charge.\nEvery Referral Rock customer gets\nA dedicated program advisor\nReward recommendations based on your audience\nTailored program & campaign messaging written for you\nTechnical integration assistance as needed\nSee how advisor-led setup works\nCustomer referral automation\nOne system for the whole program, from enrollment to rewards\nReferral Rock runs your automated referral program end to end: more ways to get people in through enrollment, a member portal and sharing experience that make referring simple, and the rewards and program management to run it your way.\n01\nAutomatically invite the right people at the right time\nReferral Rock fills the program from every angle, without you working each one by hand.\nAutomated invites, sent only to customers who haven't joined yet\nProgram Recruiters let frontline teams enroll customers, with credit to the rep\nPasswordless, one-click access, no account to create\nSee how program promotion works\n02\nLet customers share & track it all in one place\nProgram members get one simple place to share and watch it pay off.\nShare by link, email, text, or social in a tap\nTrack every referral and reward in real time\nBranded member portal & notifications\nSee the sharing experience and the member portal\n03\nManage the program & rewards without the admin\nSet the rules that fit your business, then let Referral Rock handle the rest.\nTwo-sided, tiered & milestone rewards\nAutomatic payouts in gift cards, cash, or credit, with no commission taken\nOne dashboard for every program & location\nSee reward management and program management\nSee the full feature list\nReferral Rock at a glance\nStarting price $250/mo (Operator Plan)\nReferrals Unlimited\nSetup help Dedicated advisor on every plan\nIntegrations 50+ (CRM, e-commerce, email)\nProgram types Customer referral, brand ambassador, partner/affiliate\nBest fit Service, SaaS, e-commerce, multi-location/franchise\nFree plan No free plan — free trial available\nReferral marketing software, integrations, and program types\nReferral tracking software that integrates into how your business already works\nConnect your CRM, e-commerce, and email tools, and referral data flows into the systems you already have. Launch the referral, ambassador, or affiliate program that fits how you sell, all on one referral marketing platform with 50+ integrations.\nCustomer referral tracking that flows in and out of your systems\nSync with your CRM, e-commerce, and email platforms, and get referral tracking that fits the systems already in place.\nHubSpot\nSalesforce\nShopify\nZapier\nMailchimp\nStripe\nExplore all 50+ integrations\nLaunch the type of program that fits\nReferral marketing software for customer referrals, brand ambassadors, and partner programs, all on one platform.\nCustomer Referral Programs\nRefer-a-friend programs that turn happy customers into a steady source of new ones.\nBuild a customer referral program\nBrand Ambassador Programs\nInvite-only programs for your biggest fans: customers, partners, employees, or influencers.\nStart an ambassador program\nPartner & Affiliate Programs\nGive strategic partners and affiliates their own portal to share with their network and earn.\nLaunch an affiliate program\nCompare all three program types\nHow a referral platform compares\nSpreadsheet, a link tool, or a referral platform?\nMost referral programs start on a spreadsheet or a basic share-link tool. Here's where each one holds up, and where the work piles back on you.\nCapability Spreadsheet / DIY Basic link tool Referral Rock\nReferral tracking Manual, breaks as you grow Share links only Automatic, end-to-end\nRewards & payouts Track and pay by hand You handle payouts Automated payouts, no commission taken\nOngoing promotion You remember to do it Not included Automated invites to non-joiners\nFraud prevention None Limited IP, duplicate & activity monitoring\nSetup & support You figure it out Docs / chatbot Dedicated advisor on every plan\nWeighing it yourself? Here's an honest breakdown of building a referral program yourself vs. using Referral Rock .\nReferral program software FAQs\nWhat is Referral Rock?\nReferral Rock is a software service that businesses use to run their referral programs. Signing up or logging in from here is not joining a referral program. This site is for businesses who want to run one.\nWhat is referral program software?\nReferral program software provides what a business needs to run an automated referral program: a member portal, reward rules, payout management, and much more, all to help you get more referrals.\nIs Referral Rock a refer-a-friend platform?\nYes. Refer-a-friend is the customer referral program type, and Referral Rock runs it end to end: customers are enrolled automatically, every referral is tracked back to the person who sent it, and both sides can be rewarded. The same platform also runs brand ambassador and partner or affiliate programs, so one tool covers all three.\nIs a referral program right for my business?\nThe best sign you're ready is that customers already refer you on their own, even informally. A referral program organizes and rewards that word of mouth, so it works best when there's already some enthusiasm to build on and you have room to take on more business.\nHow you sell matters more than what industry you're in. See the readiness check for the honest version of who a program fits, and who it doesn't.\nShould I build a referral program myself or use software?\nYou can start with a spreadsheet and manual payouts, and many businesses do. A spreadsheet usually holds up until the program grows, then tracking who referred whom, preventing fraud, and paying rewards on time becomes real, ongoing work.\nSoftware takes over the parts that don't scale. We wrote an honest breakdown of the tradeoffs in building a referral program yourself vs. using Referral Rock .\nHow long does it take to see referrals coming in?\nFirst referrals usually arrive within the first few weeks of launch. How fast depends on the size of your existing customer base and how you promote the program. Your advisor helps you work that out before you go live.\nHow can I create a referral website?\nOur software makes it simple to create a referral website. We provide customizable landing and sharing pages so you can quickly set up a dedicated site for your program.\nYou can add sign-up forms, referral tracking, and reward information, and many of our clients launch a working referral website in just a few hours.\nHow does referral tracking integrate with my existing systems?\nOur referral tracking software connects to popular CRMs, e-commerce, and marketing platforms through pre-built integrations. Data flows both ways between your referral program and your other systems, so tracking stays accurate without manual work.\nIs it difficult to set up and manage a client referral program?\nModern referral program software is built to be user-friendly. Our platform offers templates and guided setup, so businesses of all sizes can launch and manage effective programs without deep technical knowledge.\nMany of our clients are up and running within hours, on their own or with help from a dedicated advisor.\nWhat are best practices for implementing referral software?\nStart with the fundamentals that separate programs that grow from programs that stall. Reward both sides, not just the referrer. In our analysis of 952 programs, 54% rewarded only the referrer, leaving the friend with no reason to act.\nSend people to a personalized referral page instead of your homepage, and invite customers while they're still excited. One Referral Rock customer saw 86% of their referrals come within the first 90 days.\nPromote continuously rather than relying on a single launch email, and lean on the dedicated advisor included with every plan to put these in place before you go live.\nWhat are the most common referral program mistakes to avoid?\nAcross 952 programs we've analyzed over 9 years, the biggest killers are inconsistent promotion after launch (behind 82% of stalled programs), rewarding only the referrer, and sending referred friends to a generic homepage or checkout form with no context (which 42% of programs do).\nFixing those three is usually what keeps a program producing referrals month after month instead of stalling out.\nHow can I promote my referral program to maximize participation?\nTreat referral as an ongoing system, not a one-time campaign. We recommend the 3 P's of continuous promotion: Proactive Invites (reach out right after a customer milestone), Passive Entry Points (make the program easy to find across your site, emails, and checkout), and Program Recruiters (let frontline and service teams enroll customers directly).\nReferral Rock automates ongoing campaigns that target only the customers who haven't joined yet, so promotion keeps running without manual effort.\nWhat rewards and incentives work best for referrals?\nReward choice depends on your audience, but the data points in clear directions. Two-sided rewards, something for both the referrer and the friend, consistently outperform one-sided ones, yet most programs still reward only the referrer.\nAmong Referral Rock customers, gift cards are the most popular member reward (61%), while referred friends respond best to discounts and gift cards. Most programs use fixed amounts (92%) rather than a percentage of the sale, which keeps budgeting simple.\nHow can I measure the ROI of my online referral program?\nOur referral program tracking captures the metrics that matter: shares, unique people reached, referrals generated, conversion rates, customer acquisition cost through referrals, lifetime value of referred customers, and overall program revenue and costs.\nWhat results can I expect from a referral program?\nResults vary by business, but referral traffic is high-intent. Among Referral Rock programs, referred visitors who become customers typically do so within about a day, each share reaches roughly 13 people, and programs average around 1,388 monthly website sessions from referral sources.\nManage the leading indicators (shares, then reach, then referrals) rather than waiting on the final count. Our analytics dashboard, brand-visit tracking, and data exports give you the numbers to prove ROI.\nHow secure is a referral system?\nSecurity is a top priority. Our referral system includes data encryption, secure reward distribution, and full compliance with relevant data-protection regulations like GDPR and CCPA, and we update our protocols regularly to keep your data and your customers' information protected.\nDoes Referral Rock help prevent fraudulent referrals?\nYes. Referral Rock includes fraud detection and prevention: IP tracking, duplicate-entry detection, and suspicious-activity monitoring to protect the integrity of your program. Clients see meaningful reductions in fraudulent activity after switching to our system.\nHow much does referral software typically cost?\nReferral Rock is one simple plan: the Operator Plan at $250 a month, with unlimited referrals and a dedicated referral expert included. There's no free plan, but you can try everything on a free trial before you commit. Add-ons cover the features not everyone needs, so you only pay for what you need.\nEnterprise and Multi-Org plans cover large brands and multi-location or franchise networks.\nLearn if a Referral Program Is Right for Your Business\nGet a free strategy session on whether referral marketing fits your business, what it takes to run a successful program, and how Referral Rock is different. Or start a trial and try the software yourself.\nBook a Demo Start Free Trial\nNot ready to talk? See a free referral flow &rarr;\nThe referral program software that helps businesses bring in customer referrals consistently, with smart automations and a dedicated advisor on every plan.\nProduct\nAll Features\nHow It Works\nPlans & Pricing\nIntegrations\nExperiences\nProgram Builder\nProgram Promotion\nSharing Experience\nMember Portal\nMember Email\nProgram Management\nProgram Management\nReward Management\nReferral Tracking\nAnalytics & Reporting\nUsers & Access\nProgram Recruiters\nProgram Types\nAll Program Types\nCustomer Referral Programs\nBrand Ambassador Programs\nAffiliate & Partner Programs\nIndustries\nAll Industries\nSmall Business\nProfessional Services\nHome Services\nSolar & Energy\nB2B SaaS\nMulti-Location & Franchises\nFinancial Services\nConsumer Apps & Subscriptions\nE-commerce\nHealthcare & Wellness\nReal Estate\nEducation & Training\nCustomers\nAll Customers & Reviews\nCatapult (Staffing)\nGrover (E-commerce)\nSIR Glass (Automotive)\nCoolBot (Home Tech)\nFeedXL (B2B SaaS)\nSupport & Services\nAdvisor-Led Setup\nSupport Center\nIntegration Docs\nAPI Documentation\nResources\nMarketing Blog\nLearning Hub\nWord of Mouth as a Channel\nReferral Program Ultimate Guide\nAffiliate Marketing Ultimate Guide\nAlternatives to Referral Rock\nFree Tools\nCompany\nAbout Us\nOur Story\nCareers\nContact Us\n&copy; 2026 Referral Rock. All rights reserved.\nPrivacy Policy\nTerms of Service\nSecurity\nGDPR",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://referralrock.com/pricing/",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://referralrock.com/pricing/",
+      "finalUrl": "https://referralrock.com/pricing/",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:55.288Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "21ec12473d65b5490d780b233ad622fc2b2bbd1a173789b43ce087cb87c29101"
+     },
+     "text": "Pricing & Plans | Referral Rock\nPricing & Plans | Referral Rock\nHow It Works\nProduct\nUse Cases\nPricing Resources\nLogin Book a demo Start for free\nPricing\nGrow referrals, not costs.\nSimple pricing for any business that wants to run a referral operating system instead of a marketing campaign.\nHome services Professional services B2B SaaS E-commerce Consumer apps Financial services Healthcare Education Real estate Solar energy Multi-location & franchise + See all\nThe system\nOperator Plan\n$250\nper month\nEverything a business needs to run an ongoing referral program in the background.\n10,000 base members\nA dedicated program advisor\nHosted member portal and landing pages\nLinks, codes, and QR sharing\nEmail invites and reminders, sent for you\nE-commerce and billing integrations\n10 user and 10 recruiter seats\nCustom domain and branding\nUnlimited referrals, plus add 1,000 rolling members each month\nPrograms should grow naturally over time without worrying about your bill going up.\nStart a trial or book a demo\nMonth to month, no long-term contract. Prefer annual? Save 10%. Multiple brands or locations? Enterprise & Multi-Org pricing\nDedicated Advisor Included\nAll our plans come with a dedicated program advisor who works with you one-on-one: program design, rewards, messaging, and launch. Behind them is a team of specialists for messaging, design, and integrations. You're not alone with getting your program running and it doesn't stop after you launch.\nOne-on-one help, no additional fees.\nSee how your advisor works\nStreamline the referral experience on one platform\nThe whole referral experience runs on Referral Rock, with nothing to buy or build yourself.\nHosted member portal with supporting pages\nPersonalized landing pages to capture referrals\nOne-click member access, no passwords\nAutomated emails & notifications\nMore on the member portal →\nInvolve your frontline team\nOur exclusive program recruiter features put the program in the hands of the people who talk to customers every day.\nA recruiter portal for sales reps and frontline staff\nSign customers up on the spot, credited to the rep\nRecruiter performance tracking\n10 recruiter seats included\nMore on recruiter portals →\nLet us run the hard parts behind the scenes\nWe run the sending, syncing, and tracking, so the program keeps working without your attention.\nSend emails that lands in inboxes, not spam\nTrack the full referral lifecycle\nIntegrations that are set up, monitored, and kept running\nDetailed program analytics, data exports, and audit logs\nMore on program management →\nAdd-ons\nTo expand usage.\n10,000 additional base members\nFor larger businesses migrating programs or working with larger customer bases.\n$125/mo\n1 additional program\nSet up another program for additional countries, languages, rewards, or by program type: customers, partners, brand ambassadors, or affiliates.\n$100/mo\n10 additional users\nSeats for admins and team members managing the program.\n$50/mo\n10 additional recruiters\nSeats for frontline recruiters.\n$50/mo\nFAQs\nWhat is a member? A member is one unique email address in your program.\nWhat is a referral? A referral is when a member shares your program and someone takes action, such as signing up, making a purchase, or completing a form.\nWhat are base members? Base members are the members you add yourself: manual imports, CSV uploads, and one-off additions. The Operator Plan includes 10,000, and you can buy more. Rolling members from automated sources never draw from base members.\nWhat are rolling members? Rolling members are members that get added from automated sources: web forms, HubSpot, Salesforce, Zapier, or the API. You get 1,000 free each month. The allowance resets monthly and doesn't carry over. Rolling members don't count against base members.\nDo disabled members count against my limits? No. When an email address stops working, that member is disabled automatically. Disabled members do not count against any limit.\nAre referrals really unlimited? Yes. There are no referral caps or overage fees on the Operator Plan. The price stays $250 a month at any referral volume.\nDo I need my own email tool or website? No. Referral Rock sends the invites, reminders, and reward emails, and hosts the member portal and landing pages. You can connect the tools you already run, but nothing else is required.\nWhat does the program advisor help with? Your advisor designs the program with you: the reward structure, the messaging your members see, and the integration setup. After launch, the same advisor keeps reviewing performance with you.\nIs there an onboarding fee? No. The dedicated program advisor and their team are included with every plan.\nWhich integrations are included? The Operator Plan includes the integrations that connect with field mapping: email tools, billing systems, and e-commerce platforms. Anything more advanced gets scoped with your advisor.\nWhat rewards can I offer? Coupons, pay-as-you-go gift cards, or custom rewards you fulfill yourself.\nIs Referral Rock only for tech companies? No. Referral Rock works for any business that earns customers through word of mouth. Home services, professional services, e-commerce, financial services, healthcare, and real estate all run on the Operator Plan.\nWhat if I have multiple brands, locations, or franchises? Multiple brands, locations, and franchises have their own plans. The Enterprise Plan scales one brand past standard volume. The Multi-Org Plan runs a separate program for each brand, location, or client under one account. The Enterprise & Multi-Org pricing page covers both.\nCan I try it before paying? Yes. There's a free 14-day trial. You can explore the software and design a program during it.\nThe referral program software that helps businesses bring in customer referrals consistently, with smart automations and a dedicated advisor on every plan.\nProduct\nAll Features\nHow It Works\nPlans & Pricing\nIntegrations\nExperiences\nProgram Builder\nProgram Promotion\nSharing Experience\nMember Portal\nMember Email\nProgram Management\nProgram Management\nReward Management\nReferral Tracking\nAnalytics & Reporting\nUsers & Access\nProgram Recruiters\nProgram Types\nAll Program Types\nCustomer Referral Programs\nBrand Ambassador Programs\nAffiliate & Partner Programs\nIndustries\nAll Industries\nSmall Business\nProfessional Services\nHome Services\nSolar & Energy\nB2B SaaS\nMulti-Location & Franchises\nFinancial Services\nConsumer Apps & Subscriptions\nE-commerce\nHealthcare & Wellness\nReal Estate\nEducation & Training\nCustomers\nAll Customers & Reviews\nCatapult (Staffing)\nGrover (E-commerce)\nSIR Glass (Automotive)\nCoolBot (Home Tech)\nFeedXL (B2B SaaS)\nSupport & Services\nAdvisor-Led Setup\nSupport Center\nIntegration Docs\nAPI Documentation\nResources\nMarketing Blog\nLearning Hub\nWord of Mouth as a Channel\nReferral Program Ultimate Guide\nAffiliate Marketing Ultimate Guide\nAlternatives to Referral Rock\nFree Tools\nCompany\nAbout Us\nOur Story\nCareers\nContact Us\n&copy; 2026 Referral Rock. All rights reserved.\nPrivacy Policy\nTerms of Service\nSecurity\nGDPR",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://product.referralrock.com/p/october-2025-exports",
+     "publisher": "公式の製品更新",
+     "snapshot": {
+      "url": "https://product.referralrock.com/p/october-2025-exports",
+      "finalUrl": "https://product.referralrock.com/p/october-2025-exports",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:55.241Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7954cd893cca9596182722ade8b74d368477a37b864db6cce70e933b45527853"
+     },
+     "text": "[Feature Update] 🌟 New Data Exports\nMore referral program visit and recruiter reports\n[Feature Update] 🌟 New Data Exports\nMore referral program visit and recruiter reports\n[Feature Update] 🌟 New Data Exports\nProduct Updates\nReferral Rock Support Center App Login Demo Request\nLogin Subscribe\n0\nProduct Updates\nPosts\n[Feature Update] 🌟 New Data Exports\n[Feature Update] 🌟 New Data Exports\nMore referral program visit and recruiter reports\nMica 🔷 Referral Rock\nOctober 23, 2025 • Estimated Reading Time: 2 minutes\nHey it's Mica,\nWe get a lot of requests from customers asking for more data. Last month, we asked readers about their biggest pain points and over 35% said \"Getting Data / Reports on Activity\" topped their list. We love data and are always happy to provide it where we can.\nThat’s why we made it easier to report on more of your data with three new data exports (without waiting on us):\nReferral Visits - Track how your program is being shared and how referrals interact with your site\nMember Visits - Analyze how members discover and engage with your program\nRecruiter Data - See how many members and referrals each recruiter works with\nUse these exports to further analyze your programs or drop them into your preferred analytics/AI tool to surface new insights.\nLet's dive in. 👇👇\n-Mica\nHead of Operations\n🔗 Referral Visit Export\nA referral visit happens when someone clicks a member's share link and visits your site or referral page.\nUse this data to:\nIdentify which share methods (email, social, direct link) convert best\nUnderstand how long a referral spends on your site\nFind friction points in your referral journey\nSpot high-intent visitors to investigate their full visit history\nWhat's included in the export:\nReferral Details - Date, Visitor ID, Referral ID, Email\nMember Attribution (who referred them) - Name, Email, Member ID\nEngagement Metrics - Page Views, Session Length\nTraffic Sources - Source, Medium, Country\nOpen Referral Visits\n🔍 Member Visit Export\nA member visit tracks when a member (or potential member) interacts with your referral program, whether logged in or not.\nUse this data to:\nFind your most engaged members (even if they haven't converted referrals yet)\nSpot engagement drop-offs and patterns\nIdentify which promotion channels drive member activity\nSee how members interact over time\nWhat's included in the export:\nMember Details - Date, Visitor ID, Member ID, Email\nEngagement Metrics - # of Views, # of Shares, Visit Type (first-time vs. returning)\nTraffic Source - Source, Medium, Country\nOpen Member Visits\n🧑‍🤝‍🧑 Recruiter Data Export\nRecruiters are team members (sales reps, customer service, field reps, etc.) who help grow your referral program by signing up new members during 1-on-1 interactions.\nUse this data to:\nIdentify top-performing recruiters and understand what they're doing differently\nSpot inactive team members who need coaching or reminders\nBuild incentive programs based on actual performance\nWhat's included in the export:\nRecruiter Details - Recruiter ID, Program, Last Access Date\nMember Activity - # of Members Assigned, Last Member Assigned, # of Members Sourced, Last Member Sourced\nReferral Activity - # of Referrals Assigned, Last Referral Assigned, # of Referrals Sourced, Last Referral Sourced\nOpen Reports\nExport limits: 50,000 rows by default. Need more? Reach out to discuss increasing your limit.\n⏮ And in case you missed it…\nHere are some more recent posts from our team that you may have missed!\n[Feature Update] 🌟 The new Recruiter Role is finally here\nBoost referral program enrollment in 1-on-1 interactions\nproduct.referralrock.com/p/september-2025-recruiter\n[Feature Update] 🌟 Syncing Data + New Referral Address Fields\nDedicated Address Fields & Aligning Teams Around Data\nproduct.referralrock.com/p/july-2025-address-fields\n[Feature Update] 🌟 Program Lifecycle 2.0\nNew member statuses, activation campaigns, & feature preview\nproduct.referralrock.com/p/april-2025-member-lifecycle\nProduct Updates\nKeep up with product features, monthly roundups, and data-driven insights\nHome\nPosts\nReferral Rock Home\nReferral Rock\nSupport Center\nSupport Center\n© 2026 Referral Rock Inc.\nPowered by beehiiv",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "月59ドルの有料版に2日で最初の客が付き、外部資金なしで営業を雇い直しながら、2019年に月70,000ドルまで伸ばした技術者Josh Ho",
+     "basis": [
+      "f4",
+      "f6",
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "2013年12月にドメインを取り、受託で食べながら2014年に無料のベータを回した。最初の管理画面はSurvey Monkeyの回答フォーム。2015年6月に月59ドルで有料化すると2日で最初の客が付き、数か月で月約2,000ドルになって専業に移った。2016年2月に月250ドル・6か月契約を出して1社から1,500ドルが一度に入り、営業を雇い始めた。1人目は失敗、2人目で2016年末にMRR約15,000ドルへ。",
+     "basis": [
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "事業者が月額を払い、紹介リンク・追跡・報酬の払い出しをソフトで回す。専任アドバイザーが制度の設定を手伝う。",
+     "basis": [
+      "f1",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "紹介で客を増やしたい事業者。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、EC。",
+     "basis": [
+      "f1"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "旧製品UberNoteの利用者リスト、Betalist、知人に告知して、2014年前半に200超の接点、最初の1年半で500社超がベータに登録した。有料化の2日後に最初の有料客、月末に4社。",
+     "basis": [
+      "f2",
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "2019年5月に月売上が70,000ドルに達した要因は、2人目の営業の採用だったと本人は書く。営業の増員後は、サイトの文面・LP・申込ボタンを直してリードを増やした。",
+     "basis": [
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "外部資金なし。2016年末は3.5人、2019年は営業2人体制。創業者は製品と営業・サポートも兼ねた。",
+     "basis": [
+      "f6",
+      "f7"
+     ],
+     "formula": "本人の記述を要約した。計算はない。",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-failure_cause",
+     "item": "FAILURE_CAUSE",
+     "text": "2016年7月に雇った最初の営業は、研修と顧客理解が足りず2か月で終わった。10月の再挑戦で営業が回り出した。",
+     "basis": [
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "導入時の立ち上げ会議と客ごとの専任担当を付けて、解約を半分にした。",
+     "basis": [
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "2019年5月の月売上70,000ドルは、本人が2人目の営業の採用が要因と書く。リードが足りるか迷って先延ばしにしたが、採用が先になったことでサイト改善に動いたと振り返る。",
+     "basis": [
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f10",
+    "m1",
+    "m2",
+    "m3"
+   ],
+   "identity": {
+    "id": "ent_referralrock_8c13d5ee4cfc",
+    "name": "Referral Rock",
+    "url": "https://referralrock.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_da56b2874f240a4f70fa8d1f",
+      "entityId": "ent_referralrock_8c13d5ee4cfc",
+      "kind": "favicon",
+      "sourcePageUrl": "https://referralrock.com/",
+      "assetUrl": "https://referralrock.com/favicon.ico",
+      "retrievedAt": "2026-09-29T13:13:44.490Z",
+      "capturedBy": "media-fetch-20260929",
+      "sha256": "da56b2874f240a4f70fa8d1f26611ffd47bab837e0c77bbc40e43f75652dff6b",
+      "bytes": 2231,
+      "contentType": "image/vnd.microsoft.icon",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Referral Rock 公式サイト (https://referralrock.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-01T05:34:20.075Z",
+       "notes": "自動判定 auto-rule-v3: favicon。画像として読める (image/vnd.microsoft.icon 32x32)、SHA-256が台帳と一致 (da56b2874f24)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。バナーや文言の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_referralrock_8c13d5ee4cfc/da56b2874f240a4f70fa8d1f26611ffd47bab837e0c77bbc40e43f75652dff6b.ico",
+       "publicKey": "media/ent_referralrock_8c13d5ee4cfc/da56b2874f240a4f70fa8d1f26611ffd47bab837e0c77bbc40e43f75652dff6b.ico"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_da56b2874f240a4f70fa8d1f",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v3",
+       "reviewedAt": "2026-10-01T05:34:20.075Z",
+       "note": "自動判定 auto-rule-v3: favicon。画像として読める (image/vnd.microsoft.icon 32x32)、SHA-256が台帳と一致 (da56b2874f24)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。バナーや文言の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_97269aa989c0e6ba1bc2b5e1",
+      "entityId": "ent_referralrock_8c13d5ee4cfc",
+      "kind": "og_image",
+      "sourcePageUrl": "https://referralrock.com/",
+      "assetUrl": "https://referralrock.com/assets/og/home.png",
+      "retrievedAt": "2026-09-29T13:13:44.621Z",
+      "capturedBy": "media-fetch-20260929",
+      "sha256": "97269aa989c0e6ba1bc2b5e19de80fb065e2a99f30bac216e1ae281c4216a3f1",
+      "bytes": 852403,
+      "contentType": "image/png",
+      "width": 2400,
+      "height": 1260,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Referral Rock 公式サイト (https://referralrock.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-01T23:12:55.140Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_referralrock_8c13d5ee4cfc/97269aa989c0e6ba1bc2b5e19de80fb065e2a99f30bac216e1ae281c4216a3f1.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_97269aa989c0e6ba1bc2b5e1",
+       "decision": "blocked",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-01T23:12:55.140Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     },
+     {
+      "assetId": "ma_01928cd7b6098a6fa9188efe",
+      "entityId": "ent_referralrock_8c13d5ee4cfc",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://referralrock.com/",
+      "assetUrl": "https://referralrock.com/assets/hero-homepage.B130JvO7_Z24LIo0.webp",
+      "retrievedAt": "2026-10-01T23:05:34.087Z",
+      "capturedBy": "media-fetch-20261001",
+      "sha256": "01928cd7b6098a6fa9188efeaeb782905d7f3c0ee82f6a0ef13cd44526f9bae0",
+      "bytes": 35502,
+      "contentType": "image/webp",
+      "width": 1065,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Referral Rock 公式サイト (https://referralrock.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-01T23:13:07.078Z",
+       "notes": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/webp 1065x800)、SHA-256が台帳と一致 (01928cd7b609)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_referralrock_8c13d5ee4cfc/01928cd7b6098a6fa9188efeaeb782905d7f3c0ee82f6a0ef13cd44526f9bae0.webp",
+       "publicKey": "media/ent_referralrock_8c13d5ee4cfc/01928cd7b6098a6fa9188efeaeb782905d7f3c0ee82f6a0ef13cd44526f9bae0.webp"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_01928cd7b6098a6fa9188efe",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-01T23:13:07.078Z",
+       "note": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/webp 1065x800)、SHA-256が台帳と一致 (01928cd7b609)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_7ebe373632a8ba559ce12084",
+      "entityId": "ent_referralrock_8c13d5ee4cfc",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://referralrock.com/product/program-promotion/",
+      "assetUrl": "https://referralrock.com/assets/recruiter-portal.CeA83G3h_1Llh9n.webp",
+      "retrievedAt": "2026-10-01T23:05:34.402Z",
+      "capturedBy": "media-fetch-20261001",
+      "sha256": "7ebe373632a8ba559ce120842e49bf4419329ce523c50f2622227b945154d2e3",
+      "bytes": 23246,
+      "contentType": "image/webp",
+      "width": 1280,
+      "height": 522,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Referral Rock 公式サイト (https://referralrock.com/product/program-promotion/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-01T23:25:20.395Z",
+       "notes": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_referralrock_8c13d5ee4cfc/7ebe373632a8ba559ce120842e49bf4419329ce523c50f2622227b945154d2e3.webp",
+       "publicKey": "media/ent_referralrock_8c13d5ee4cfc/7ebe373632a8ba559ce120842e49bf4419329ce523c50f2622227b945154d2e3.webp"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_7ebe373632a8ba559ce12084",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "claude-visual-2026-10-02",
+       "reviewedAt": "2026-10-01T23:25:20.395Z",
+       "note": "目視確認 (claude-visual-2026-10-02): screenshot_product。製品を実際に使っている画面（操作画面・管理画面・編集画面など）が主体で、宣伝用の飾り背景やロゴ主体の画像ではない。macOS Vision の顔検出で顔 0 件、人物が主題でない。同意バナー・個人情報・ログイン画面は写っていない（デモ用の表示名のみ）。識別・説明目的の小さな表示に限る。"
+      }
+     },
+     {
+      "assetId": "ma_a7685a1bca03cc6b59937e25",
+      "entityId": "ent_referralrock_8c13d5ee4cfc",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://referralrock.com/",
+      "assetUrl": "https://referralrock.com/assets/automated-referral-payments.DJxO3z97_19xsXO.webp",
+      "retrievedAt": "2026-10-01T23:05:34.755Z",
+      "capturedBy": "media-fetch-20261001",
+      "sha256": "a7685a1bca03cc6b59937e25b3f78a8800563d3547a85f28a791330bbf199f85",
+      "bytes": 39932,
+      "contentType": "image/webp",
+      "width": 1200,
+      "height": 1120,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Referral Rock 公式サイト (https://referralrock.com/)",
+       "decision": "held",
+       "reviewedAt": "2026-10-01T23:21:58.967Z",
+       "notes": "自動判定 auto-rule-v4: 製品画面の規則を厳しくしたため、実画面と言い切れない (shape:landscape,weak:admin)。目視するまで出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_referralrock_8c13d5ee4cfc/a7685a1bca03cc6b59937e25b3f78a8800563d3547a85f28a791330bbf199f85.webp",
+       "publicKey": null
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_a7685a1bca03cc6b59937e25",
+       "decision": "held",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-01T23:21:58.967Z",
+       "note": "自動判定 auto-rule-v4: 製品画面の規則を厳しくしたため、実画面と言い切れない (shape:landscape,weak:admin)。目視するまで出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_da56b2874f240a4f70fa8d1f",
+     "ma_01928cd7b6098a6fa9188efe",
+     "ma_7ebe373632a8ba559ce12084"
+    ],
+    "problems": []
+   },
+   "caseHash": "308deeba09b24e07d633da54b2a7e8c4fa2cc4e7b924a8a5f1c589302e3d195b",
+   "itemHashes": {
+    "fact:f1": "cc83f4a713455934e1f37dc96b7fafc697c3086840dd288f38f1a784c06eeed9",
+    "fact:f2": "0dff70c3122222156832d84424a22340e4fd1b22792ca88e80dee17c2e9ff457",
+    "fact:f3": "f001c88ae12dd16992ded4dad2e78fc9f698ff23109a624067662a03b9125bdc",
+    "fact:f4": "280a3a523f1b0f6985164ccaa3de3b79033682bd23119a3ee173caa692a5350d",
+    "fact:f5": "8a9f6f7480af808cedb66c08dc3dbc67339e3f38e73a67e2ad47726846cb19de",
+    "fact:f6": "a610cf57f9fe8454703ee5127ca8ab5803c1d168dc51f86e0160cc83f9ae2614",
+    "fact:f7": "a0a68b26fde80bb78e54471034e74df7f20c9ae906a50a51b1da08bf2075c7fd",
+    "fact:f8": "2391f112e7e258bb41b66fb06627d75135a773702d59c6d2a0d3c40672e4e3aa",
+    "fact:f10": "fa03b7820370c533cd2802bde217c82bbedc9e2c626d450db812349fc7639d18",
+    "fact:f11": "cd6a0024602d0e43661674522b1ba10264a4d8c93d7359db821252039f5fb533",
+    "metric:m1": "5e5cc8d73b4dafe0bc87712e5144d6cf604e02e4d38d39cbd3a36b0371b9a9c4",
+    "metric:m2": "c45cbbe4a9ed13dafc8002401551da5ff48fc85b8d1c1cd9a89a7a02c5b2f800",
+    "metric:m3": "f1c9d56c8b15b8ad3962dda27da3e21c9bfb97db43505c1641d2adb8f68de515",
+    "analysis:a-headline": "add6751a010006c5ceb56871bbb135b5a450b26182856f75272a0fbda9a1b5b7",
+    "analysis:a-story": "a579f184cda3b707cfb4e8db476babc904841bd0c4d54602139433f07623c1e3",
+    "analysis:a-business_model": "4c5aa75efcfaaa0b9129941bd956523f30b614d561c09fb61c1a67a7195a23fb",
+    "analysis:a-customer": "a532440115abfcd3a28237560b8497b7da38d1a3e1ff4feae520c4fdb9d33b37",
+    "analysis:a-first_customers": "b1f776f6008181aec059d32275fd80069c9fc36bc51e38b2960402b9aa85f33e",
+    "analysis:a-channels": "7601751ee3f6616e83dfc2c609bc35789ec05528c9a95954cac4a76c29e35b8d",
+    "analysis:a-capital_and_team": "d368500fb23793544b4dc4048abc8337dd883810c39e642b21ecb998c298c46f",
+    "analysis:a-failure_cause": "2d7f2157b16993a20434b585abd89a99dd69136841125220828cf2cb9a2d66b1",
+    "analysis:a-lock_in": "f03b42ebcb668c59ea763adf9ca3b1244bec05d0a188ab02b7fc63b778dbaf22",
+    "analysis:a-why_it_worked": "39b720e50325fdaad0eedabaf036d5b2d3a816d8f83fbadd6dfae9d6e496564b",
+    "analysis:a-viability": "d74215f427982b656a220d4d2a428a87f88fe5fb56d1e1120d7858dcdbead5c4"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f10",
+    "metric:m1",
+    "metric:m2",
+    "metric:m3",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-failure_cause",
+    "analysis:a-lock_in",
+    "analysis:a-why_it_worked"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "publisher": "公式ブログ",
+      "url": "https://referralrock.com/blog/full-referral-rock-story/",
+      "title": "The Referral Rock Story Part 1: From Beta to Business",
+      "publishedAt": "2019-02-21",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s2",
+      "publisher": "Indie Hackers",
+      "url": "https://www.indiehackers.com/product/referral-rock",
+      "title": "Referral Rock（掲載ページと創業者の投稿）",
+      "publishedAt": "2019-08",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s3",
+      "publisher": "公式サイト",
+      "url": "https://referralrock.com",
+      "title": "Referral Program Software, Done Right",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "publisher": "公式サイト",
+      "url": "https://referralrock.com/pricing/",
+      "title": "Pricing",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "publisher": "公式の製品更新",
+      "url": "https://product.referralrock.com/p/october-2025-exports",
+      "title": "October 2025 exports",
+      "publishedAt": "2025-10-23",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "事業者が紹介プログラムを自動で運営するためのソフト。紹介リンク、紹介の追跡、報酬の条件と払い出しの管理をまとめる。全プランに、紹介制度の設定を支援する専任アドバイザーが付く。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、ECなどが使う。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "FOUNDING",
+      "text": "創業者Josh Hoは2013年に、小さな事業が自前で紹介プログラムを運営できる道具を思いつき、同年12月にドメインを登録した。ベータ期は家族を支えるため、ソフトの受託を副業で続けた。旧製品UberNoteの利用者リスト、Betalist、知人で告知し、2014年前半には200超の接点、最初の1年半で500社超が登録した。作業は月約20時間。",
+      "sourceId": "s1",
+      "statedAt": "2019-02",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "最初の管理画面はSurvey Monkeyの回答フォームで、最初の版は古いHTMLの雛形と使い回しのコードで作った。本人は、出せずに終わった企画が少なくとも5つあるとも書く。客の話を聞いて気に入らない内容が出ても、作りたい製品の像を優先してまず出した。",
+      "sourceId": "s1",
+      "statedAt": "2019-02",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f4",
+      "kind": "EVENT",
+      "text": "2015年6月に月59ドルの有料版を公開し、2日以内に最初の有料客が登録、月末には4社になった。数か月で月約2,000ドルのMRRに達し、創業者は専業になった。",
+      "sourceId": "s1",
+      "statedAt": "2015-06",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f5",
+      "kind": "PRICING",
+      "text": "2016年2月、ギフトカード報酬の処理を足し、月250ドル・6か月契約の上位プランを設けた。1社から一度に1,500ドルが入った。任意の「サクセス支援パッケージ」も作り、後に月払いでは必須にした。",
+      "sourceId": "s1",
+      "statedAt": "2016-02",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f6",
+      "kind": "TEAM",
+      "text": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で失敗し、2か月分の売上を失った。10月に2人目の営業を雇い、2016年末は顧客170社、常勤換算で3.5人分の体制、MRR約15,000ドル。外部資金は受けていない。",
+      "sourceId": "s1",
+      "statedAt": "2016-12",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。",
+      "sourceId": "s2",
+      "statedAt": "2019-05",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "2019年7月の投稿は、導入時の立ち上げ会議と客ごとの専任サクセス担当で解約を半分に減らしたと書く。客には「代わりにやる」でなく「手伝う」と明確に伝えている。8月の投稿は、4か月連続でMRRが5%ずつ伸びたと書く。",
+      "sourceId": "s2",
+      "statedAt": "2019-07",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f10",
+      "kind": "PRICING",
+      "text": "現在のOperatorプランは月250ドル。長期契約は不要、年払いは10%引き、専任アドバイザーとその支援チームが込みで、初期設定料は無い。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。",
+      "sourceId": "s5",
+      "statedAt": "2025-10",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [
+     {
+      "id": "m1",
+      "measure": "REVENUE",
+      "periodKind": "MONTH",
+      "period": "2019年5月1日の投稿（月の売上70K）",
+      "amount": 70000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s2"
+     },
+     {
+      "id": "m2",
+      "measure": "REVENUE",
+      "periodKind": "MONTH",
+      "period": "2016年末のMRR（約）",
+      "amount": 15000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     },
+     {
+      "id": "m3",
+      "measure": "REVENUE",
+      "periodKind": "MONTH",
+      "period": "2015年有料版公開から数か月後のMRR（約）",
+      "amount": 2000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     }
+    ],
+    "unknowns": [
+     "PROFIT",
+     "COST",
+     "CHANNEL",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "月59ドルの有料版に2日で最初の客が付き、外部資金なしで営業を雇い直しながら、2019年に月70,000ドルまで伸ばした技術者Josh Ho",
+      "basis": [
+       "f4",
+       "f6",
+       "f7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "2013年12月にドメインを取り、受託で食べながら2014年に無料のベータを回した。最初の管理画面はSurvey Monkeyの回答フォーム。2015年6月に月59ドルで有料化すると2日で最初の客が付き、数か月で月約2,000ドルになって専業に移った。2016年2月に月250ドル・6か月契約を出して1社から1,500ドルが一度に入り、営業を雇い始めた。1人目は失敗、2人目で2016年末にMRR約15,000ドルへ。",
+      "basis": [
+       "f2",
+       "f3",
+       "f4",
+       "f5",
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "事業者が月額を払い、紹介リンク・追跡・報酬の払い出しをソフトで回す。専任アドバイザーが制度の設定を手伝う。",
+      "basis": [
+       "f1",
+       "f10"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "紹介で客を増やしたい事業者。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、EC。",
+      "basis": [
+       "f1"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "旧製品UberNoteの利用者リスト、Betalist、知人に告知して、2014年前半に200超の接点、最初の1年半で500社超がベータに登録した。有料化の2日後に最初の有料客、月末に4社。",
+      "basis": [
+       "f2",
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "2019年5月に月売上が70,000ドルに達した要因は、2人目の営業の採用だったと本人は書く。営業の増員後は、サイトの文面・LP・申込ボタンを直してリードを増やした。",
+      "basis": [
+       "f7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "外部資金なし。2016年末は3.5人、2019年は営業2人体制。創業者は製品と営業・サポートも兼ねた。",
+      "basis": [
+       "f6",
+       "f7"
+      ],
+      "formula": "本人の記述を要約した。計算はない。",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-failure_cause",
+      "item": "FAILURE_CAUSE",
+      "text": "2016年7月に雇った最初の営業は、研修と顧客理解が足りず2か月で終わった。10月の再挑戦で営業が回り出した。",
+      "basis": [
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "導入時の立ち上げ会議と客ごとの専任担当を付けて、解約を半分にした。",
+      "basis": [
+       "f8"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "2019年5月の月売上70,000ドルは、本人が2人目の営業の採用が要因と書く。リードが足りるか迷って先延ばしにしたが、採用が先になったことでサイト改善に動いたと振り返る。",
+      "basis": [
+       "f7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

@@ -29,6 +29,11 @@ export function generationHeading(generation: number, count: number): string {
   return `第${generation}世代（${count.toLocaleString('ja-JP')}件）`;
 }
 
+/** 画面の固定の飾り（世代の区切りの見出し）か。データの文ではないので、出どころの照合の対象にしない。形が違えば false */
+export function isGenerationHeading(text: string): boolean {
+  return /^第[1-9]\d*世代（[1-9]\d{0,2}(,\d{3})*件）$/.test(text);
+}
+
 export type GridItem<T> =
   | { kind: 'heading'; generation: number; count: number }
   | { kind: 'row'; entity: T; index: number };

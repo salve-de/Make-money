@@ -285,7 +285,13 @@ async function main() {
   const ids = val('--ids')?.split(',').map((s) => s.trim()).filter(Boolean);
   const { loadEntities } = await import('./load-readers');
   const { loadPublicationInput, readPublicationAudits } = await import('./publication-inputs');
-  const { evaluateForRelease, preparePublicationReader, contentHash: hashOf } = await import('./publication-evaluation');
+  const { evaluateForRelease: evaluateWithMedia, preparePublicationReader, contentHash: hashOf, MEDIA_UNMET } = await import('./publication-evaluation');
+  // 文の反映は文だけで判定する。画像の権利・実体は、画像を出すかどうか（公開の目録作り）にだけ効かせる
+  const evaluateForRelease: typeof evaluateWithMedia = (...a) => {
+    const r = evaluateWithMedia(...a);
+    const reasons = r.reasons.filter((x) => x !== MEDIA_UNMET);
+    return { ...r, reasons, publishable: reasons.length === 0 };
+  };
   const { ANALYSIS_FILE } = await import('./analysis-lib');
   const analysisFile = existsSync(ANALYSIS_FILE) ? readJson<AnalysisFile>(ANALYSIS_FILE) : {};
   const { VERDICTS_FILE } = await import('./verify-lib');

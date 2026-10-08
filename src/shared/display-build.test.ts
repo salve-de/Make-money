@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  applyRepairs, repairRows, assembleDisplay, buildMaterial, liveSuccessPoints, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers, lostNumbers, blameRows,
+  applyRepairs, repairRows, assembleDisplay, buildMaterial, liveSuccessPoints, displayGaps, dropFlagged, reviewRows, extractNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, structuralProblems, unsupportedNumbers, lostNumbers, blameRows, droppableNumbers,
   type AiOutput, type DisplayFiles, type DisplayNeed, type LiveReader,
 } from './display-build';
 import { textFingerprint } from './list-lines';
@@ -143,6 +143,23 @@ describe('数字の突き合わせ', () => {
     expect(lostNumbers('新規契約の報酬35%を3か月払う', 'その契約の料金の35%を3か月間払う', '')).toEqual([]);
     expect(lostNumbers('資金あたりの定期収入が約2.7倍', '資金を効率よく使えた', '定期売上の1年換算額は調達資金の約2.7倍')).toEqual([]);
     expect(lostNumbers('月500ドル（約7.5万円）', '1か月に500ドル（約7.5万円）', '')).toEqual([]);
+  });
+
+  it('確かめられない数字を落とす時は、その年の月・日と、その数字の円換算だけが一緒に消えてよい', () => {
+    const before = '2016年12月: 月9ドル（約1,350円）で5本、年190ドル（約2.85万円）';
+    const ok = droppableNumbers(before, [2016, 190]);
+    expect(ok).toEqual(expect.arrayContaining([2016, 12, 190, 28500]));
+    // 確かめられた小さい数（9ドル・5本）と、その円換算は消えてよい数に入らない
+    expect(ok).not.toContain(9);
+    expect(ok).not.toContain(5);
+    expect(ok).not.toContain(1350);
+    expect(lostNumbers(before, '月9ドル（約1,350円）で', '').filter((n) => !ok.includes(n))).toEqual([5]);
+  });
+
+  it('月・日の値が日付の外にも現れる時は、消えてよい数に入れない。年でない4桁の金額は年として扱わない', () => {
+    expect(droppableNumbers('2016年12月: 月12ドルで5本', [2016])).not.toContain(12);
+    expect(droppableNumbers('2016年12月: 5本', [2016])).toContain(12);
+    expect(droppableNumbers('2,000ドル（約30万円）', [2000])).toContain(300000);
   });
 
   it('機械の検査の指摘を、直した行の id に戻す（戻せない指摘があれば null）', () => {

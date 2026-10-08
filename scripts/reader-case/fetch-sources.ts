@@ -74,6 +74,13 @@ async function get(url: string): Promise<{ status: number; finalUrl: string; tex
   }
 }
 
+/** Web アーカイブの保存ページだけを取る（直接取得の本文が欠けている時の照らし直し用）。取れなければ undefined */
+export async function fetchArchive(url: string): Promise<SourceCacheRecord | undefined> {
+  const w = await get(`https://web.archive.org/web/2026/${url}`);
+  if (w.status !== 200 || w.text.length < MIN_TEXT) return undefined;
+  return { url, finalUrl: w.finalUrl, status: 200, fetchedAt: new Date().toISOString(), via: 'wayback', text: w.text, contentType: w.contentType };
+}
+
 export async function fetchOne(url: string): Promise<SourceCacheRecord> {
   const now = new Date().toISOString();
   let host = '';

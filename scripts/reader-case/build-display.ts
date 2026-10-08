@@ -17,6 +17,8 @@
  *                                              （指摘が出た行だけ3回判定して2回以上で採用。呼び出し回数・秒・費用は data/pipeline/reader-pass.jsonl）
  *   pnpm display:build --reader-only           読者役だけを流して記録し、直さない（精度と時間を測る用。--id と並べて並列に流せる）
  *   pnpm display:build --repair-only --reader --reader-run <runId>  読者役を呼ばず、display:build:parallel が先に記録した <runId> の結果を使って直す
+ *   pnpm display:build --repair-only --extra-issues <file> [--extra-only]  外から渡した指摘（[{ entityId, id: "chapters.<章>.<番号>", problem, drop?, want? }]）を
+ *                                              直しの対象に足す。出典照合の不合格の行・決まった言い換えを、手で書かずに直しと確認役に通す。drop は出典で確かめられないので残さない数字、want は決まった文。--extra-only はその行だけを直す
  *                 --reader-votes 1|3（既定3）  --codex-effort low|medium|high（Codex の考える深さ。既定は Codex の既定）
  * 環境変数・引数: --agent auto|claude|codex（既定 auto: claude がログイン済みなら claude、無ければ codex）
  *                 --model / --review-model（AIの型。既定は各コマンドの既定）  --no-review（別のAIの確認を省く。既定は確認する）
@@ -35,7 +37,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  DISPLAY_FILES, applyRepairs, blameRows, extractNumbers, lostNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
+  DISPLAY_FILES, applyRepairs, blameRows, droppableNumbers, extractNumbers, lostNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
   type AiOutput, type DisplayFiles, type RepairRow, type DisplayNeed, type EntityDisplay, type ItemContract, type LiveReader,
 } from '../../src/shared/display-build';
 import { loadReaders, argValue } from './load-readers';
@@ -370,6 +372,13 @@ function withReaderFlags(repairs: Array<{ id: string; rows: RepairRow[] }>, file
   });
 }
 
+/** 外からの指摘で「出典で確かめられないので落としてよい」とした数字（事例|行の id ごと） */
+const EXTRA_DROP = new Map<string, number[]>();
+/** 外からの指摘で文が決まっている行（指揮役・オーナーの決定）。直した文はこれと同じでなければ機械の検査で落とす。確認役は分かりやすさだけを見る */
+const EXTRA_WANT = new Map<string, string>();
+/** 外からの指摘の理由。確認役にも渡し、直した理由（出典で確かめられない数字を落とした等）を踏まえて判定させる */
+const EXTRA_NOTE = new Map<string, string>();
+
 function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, rows: RepairRow[], files: DisplayFiles): { ok: boolean; attempts: number; reasons: string[]; files?: DisplayFiles; adopted?: string[]; held?: string[] } {
   const none = { list: false, summary: false, success: false, chapters: false, detail: [] };
   const material = buildMaterial(entityId, reader, none, { contract, files, exampleIds: [] });
@@ -387,6 +396,8 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     catch (e) { return { ok: false, attempts: attempt, reasons: [`AIの呼び出しに失敗: ${(e as Error).message}`] }; }
     previous = call.value;
     let fixes = ((call.value as { rows?: Array<{ id: string; text: string }> }).rows ?? []).filter((f) => ids.has(f.id));
+    // 文が決まっている行（外からの指摘の want）は、書き手の文でなく決まった文を候補にする。機械の検査と確認役はそのまま通す
+    for (const id of ids) { const want = EXTRA_WANT.get(`${entityId}|${id}`); if (want) fixes = [...fixes.filter((f) => f.id !== id), { id, text: want }]; }
     let applied = applyRepairs(files, entityId, fixes);
     const left = repairRows(entityId, applied.files, unnatural).filter((r) => ids.has(r.id)).map((r) => `${r.id}: まだ関門に落ちる「${r.text.slice(0, 30)}」: ${r.problems.join(' / ')}`);
     const missing = [...ids].filter((id) => !fixes.some((f) => f.id === id)).map((id) => `${id}: 直した文が返っていない`);
@@ -395,14 +406,28 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     // 元の行の数字は、言い回しの直しで落とさない（同じ事例の他の行に残る数字は、重複を外しただけなので許す）
     const shown = repairRows(entityId, applied.files, () => ['行']);
     const lost = fixes.flatMap((f) => {
-      const gone = lostNumbers(rows.find((r) => r.id === f.id)?.text ?? '', f.text, shown.filter((r) => r.id !== f.id).map((r) => r.text).join('\n'));
+      // 確かめられない数字を落とす行は、その数字に付いた円換算と、落とす年の月・日だけが一緒に消えてよい
+      const dropping = EXTRA_DROP.get(`${entityId}|${f.id}`) ?? [];
+      const before = rows.find((r) => r.id === f.id)?.text ?? '';
+      const mayDrop = droppableNumbers(before, dropping);
+      const gone = lostNumbers(rows.find((r) => r.id === f.id)?.text ?? '', f.text, shown.filter((r) => r.id !== f.id).map((r) => r.text).join('\n')).filter((n) => !mayDrop.includes(n));
       return gone.length ? [`${f.id}: 元の文の数字 ${gone.join('、')} が消えた。言い回しだけを直し、数字は残す`] : [];
     });
     // 出どころの印（本人・公式・第三者など）は、言い回しの直しで変えない（行の出典URLはそのままなので、印だけ変わると食い違う）
     const marks = (text: string) => [...new Set(text.match(/本人申告|本人|公式|第三者|報道|推測|推論|保存ページ/g) ?? [])].sort().join('・');
     const markProblems = fixes.filter((f) => marks(f.text) !== marks(rows.find((r) => r.id === f.id)?.text ?? '')).map((f) => `${f.id}: 出どころの印が変わった（元: ${marks(rows.find((r) => r.id === f.id)?.text ?? '') || 'なし'} → 今: ${marks(f.text) || 'なし'}）。印は元のまま残す`);
+    // 外からの指摘: 出典で確かめられない数字は残さない。文が決まっている行はその文にする
+    const extraProblems = fixes.flatMap((f) => {
+      const key = `${entityId}|${f.id}`;
+      const still = (EXTRA_DROP.get(key) ?? []).filter((n) => extractNumbers(f.text).includes(n));
+      const want = EXTRA_WANT.get(key);
+      return [
+        ...(still.length ? [`${f.id}: 出典で確かめられない ${still.join('、')} がまだ残っている。落とすか、出典で確かめられる表現に整える`] : []),
+        ...(want && f.text !== want ? [`${f.id}: この行は決まった文「${want}」にする`] : []),
+      ];
+    });
     const check = runCheck(applied.files);
-    problems = [...applied.problems, ...missing, ...left, ...numbers, ...lost, ...markProblems, ...newProblems(baseline, check.problems, entityId)];
+    problems = [...applied.problems, ...missing, ...left, ...numbers, ...lost, ...markProblems, ...extraProblems, ...newProblems(baseline, check.problems, entityId)];
     say(`${entityId}: 直し ${attempt}回目 — 機械の検査の指摘 ${problems.length}件`);
     const machine = problems;
     if (machine.length) {
@@ -419,7 +444,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     const heldIds = [...ids].filter((id) => !fixes.some((f) => f.id === id));
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: machine, files: applied.files, adopted: fixes.map((f) => f.id), held: heldIds };
     let review: CallResult;
-    try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: fixes.map((f) => ({ id: f.id, text: f.text, before: rows.find((r) => r.id === f.id)?.text })) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 直しの確認 ${attempt}回目`); }
+    try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: fixes.map((f) => ({ id: f.id, text: f.text, before: rows.find((r) => r.id === f.id)?.text, ...(EXTRA_NOTE.has(`${entityId}|${f.id}`) ? { why: EXTRA_NOTE.get(`${entityId}|${f.id}`) } : {}) })) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 直しの確認 ${attempt}回目`); }
     catch (e) { return { ok: false, attempts: attempt, reasons: [`確認役の呼び出しに失敗: ${(e as Error).message}`] }; }
     const issues = ((review.value as { issues?: Array<{ severity: string; kind?: string; id: string; problem: string; fix: string; phrase?: string }> }).issues ?? []);
     recordCandidates(entityId, issues);
@@ -466,6 +491,23 @@ function main() {
   // 1. 今の文の言い回しの直し（関門に落ちた行だけ。行の位置・紐付けは保つ）
   if (!has('--list') && !has('--materials-only') && !has('--no-repair') && !DEDUPE) {
     let repairs = ids.map((id) => ({ id, rows: repairRows(id, files, unnatural) }));
+    const extra = argValue('--extra-issues');
+    if (extra) {
+      // 外から渡した指摘（出典照合の不合格・指揮役の決定など）を直しの対象に足す。形は [{ entityId, id, problem }]。今の行の文に無い id は捨てる
+      const notes = JSON.parse(readFileSync(resolve(extra), 'utf8')) as Array<{ entityId: string; id: string; problem: string; drop?: number[]; want?: string }>;
+      for (const n of notes) { if (n.drop?.length) EXTRA_DROP.set(`${n.entityId}|${n.id}`, n.drop); if (n.want) EXTRA_WANT.set(`${n.entityId}|${n.id}`, n.want); EXTRA_NOTE.set(`${n.entityId}|${n.id}`, n.problem); }
+      repairs = repairs.map(({ id, rows }) => {
+        const textOf = new Map(repairRows(id, files, () => ['_']).map((r) => [r.id, r.text]));
+        const next = rows.map((r) => ({ ...r, problems: [...r.problems] }));
+        for (const n of notes.filter((x) => x.entityId === id && textOf.has(x.id))) {
+          const row = next.find((r) => r.id === n.id);
+          if (row) row.problems.push(n.problem); else next.push({ id: n.id, text: textOf.get(n.id)!, problems: [n.problem] });
+        }
+        return { id, rows: next };
+      });
+      if (has('--extra-only')) repairs = repairs.map(({ id, rows }) => ({ id, rows: rows.filter((r) => notes.some((n) => n.entityId === id && n.id === r.id)) }));
+      say(`外からの指摘 ${notes.length}件を直しの対象に足した（${extra}）`);
+    }
     if (READER) {
       // 外部のAIに送る前に、公開中の事例を --max 件までに絞る
       repairs = withReaderFlags(repairs.filter((r) => readers.has(r.id)).slice(0, MAX), files, readers);

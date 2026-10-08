@@ -54,6 +54,8 @@ export function ReaderSummary({ reader, evidencePrefix = 'reader' }: ReaderProps
 export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps) {
   if (!reader) return null;
   const sourceNo = sourceNumbers(reader);
+  // 区分の列は、推定の印が付く行がある時だけ出す（全部空なら列ごと出さない）
+  const showOrigin = reader.metrics.some((m) => metricEstimateLabel(m) !== '');
   return (
     <ReaderSection id="section-metrics" title={UI.SECTION_METRICS} empty={reader.metrics.length === 0}>
       {/* 狭い画面では横に送る。キーボードでも送れるようにフォーカスを受ける */}
@@ -64,7 +66,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
               <th scope="col" className="px-2 font-normal">{UI.COL_MEASURE}</th>
               <th scope="col" className="px-2 font-normal">{UI.COL_PERIOD}</th>
               <th scope="col" className="px-2 text-right font-normal">{UI.COL_AMOUNT}</th>
-              <th scope="col" className="px-2 font-normal">{UI.COL_ORIGIN}</th>
+              {showOrigin && <th scope="col" className="px-2 font-normal">{UI.COL_ORIGIN}</th>}
             </tr>
           </thead>
           <tbody>
@@ -81,7 +83,7 @@ export function ReaderMetrics({ reader, evidencePrefix = 'reader' }: ReaderProps
                     {m.statedAt && !m.period.includes(m.statedAt) && <span className="block text-xs text-term-label">{m.statedAt} {UI.METRIC_STATED_AT_SUFFIX}</span>}
                   </td>
                   <td className={`term-num px-2 py-1.5 text-right ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-fg-strong'}`}>{screenText(formatMetricAmount(m))}</td>
-                  <td className={`px-2 py-1.5 text-xs ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}`}>{metricEstimateLabel(m)}</td>
+                  {showOrigin && <td className={`px-2 py-1.5 text-xs ${m.origin === 'ESTIMATED' ? 'text-term-accent' : 'text-term-muted'}`}>{metricEstimateLabel(m)}</td>}
                 </tr>
               );
             })}
@@ -132,8 +134,9 @@ export function ReaderFacts({ reader, evidencePrefix = 'reader', exclude }: Read
   );
 }
 
-/** 推定の計算と前提。式のある項目だけを出す（「数字は出典に載っている値」のような式でない定型文と、事実の再掲は出さない）。 */
-const BOILERPLATE_FORMULA = /^数字は出典に載っている値$/;
+/** 計算の前提。式のある項目だけを出す（「数字は出典に載っている値」のような式でない定型文と、事実の再掲は出さない）。 */
+// 作る側の注記（「そのまま載せた」「要約した。計算はない」）は、読む人に要らないので出さない
+const BOILERPLATE_FORMULA = /^数字は出典に載っている値$|そのまま(?:載せた|記載|載せ)|計算は(?:ない|無い)/;
 export function ReaderEvidence({ reader }: ReaderProps) {
   if (!reader) return null;
   const rows = ANALYSIS_ITEMS.flatMap((item) => reader.analysis.filter((a) => a.item === item))

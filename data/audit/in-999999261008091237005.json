@@ -1,0 +1,432 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_gorails_640d8f688451",
+   "scope": "diff",
+   "auditScope": "差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "Ruby on Rails の動画講座とコース。公式トップはチュートリアル826本・140時間超を掲げ、9万6千人超の開発者が学ぶと表示する。同じ会社がRails向けホスティングHatchboxと、SaaS用テンプレートJumpstart Railsも持つ。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "PRICING",
+     "text": "個人プランは月19ドル（Discordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "FOUNDING",
+     "text": "創業者Chris Oliverは受託開発をしていた。数か月かけた仕事が顧客に使われず無駄になることが続いて燃え尽き、2014年1月1日に受託をやめた。手元の資金は約9か月分だった。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f4",
+     "kind": "OTHER",
+     "text": "自分のRailsのメモを公開するためにGoRails.comのドメインを買ったところ、サイトのアクセスが増えた。その訪問者に何か売ろうと考えた。以前は集客のあてなしに作って客がつかなかったが、今回は既にいる読者に売る形だった。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "最初の9か月は画面録画に慣れることに使い、無料と有料の2つのコースを作った。自分の受託の経験を商品にしたが、無名だったため売れなかったと本人は話す。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f6",
+     "kind": "CHANNEL",
+     "text": "毎週1本の動画を無料で出し続けた。ある日、誰かがGoRailsをHacker Newsの上位に投稿し、その日にメールアドレス600件超が集まった。当時の本人は資金が尽きて就職先を探していた。このメールの一覧がニュースレターとなり、事業の重要な柱になった。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f7",
+     "kind": "TEAM",
+     "text": "2021年11月時点で月次定期売上（MRR）は約6万ドル。マーケティング、営業、サポート、開発を1人でこなしていたが、手に負えなくなり、開発者とサポート担当の採用を始めたと説明。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "最初の2年は自分に給料を払わなかった。本人は、もっと早くマーケティングと採用をすべきだったと振り返る。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "3つの製品を比べると、毎週の動画は時間を取られ続け、ホスティングのHatchboxは仕事が重いわりに利益が小さく、止まると困る客が多いので即応のサポートが要る。テンプレートのJumpstart Railsは、かけた時間あたりの利益が最も良いと本人は見ている。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f10",
+     "kind": "CHANNEL",
+     "text": "オープンソースの公開も集客に使う。自作のライブラリを使った人が本人を知り、動画を見に来る流れを狙っている。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "2020年8月、3つの製品の累計売上が100万ドルに達したと創業者が自ら投稿した。",
+     "attribution": "SELF_REPORTED"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=REVENUE / 期間=2021-11（記事掲載時のMRR）(MONTH) / 金額=60000 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m2",
+     "line": "項目=REVENUE / 期間=〜2020-08（3製品の累計）(CUMULATIVE) / 金額=1000000 USD / 由来=SELF_REPORTED"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.failory.com/interview/gorails",
+     "publisher": "Failory",
+     "snapshot": {
+      "url": "https://www.failory.com/interview/gorails",
+      "finalUrl": "https://www.failory.com/interview/gorails",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:40:57.946Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "44c6fa922908a3dd01ac5bee6450f47f1ace783c94f909b06646e00cde56b76d"
+     },
+     "text": "Bootstrapping a Ruby on Rails Educational Platform to $60k MRR\nChris founded GoRails, a Ruby on Rails educational platform. As a single-person business, it's doing $60k in MRR. He's now hiring the first employees.\nBootstrapping a Ruby on Rails Educational Platform to $60k MRR\nChris founded GoRails, a Ruby on Rails educational platform. As a single-person business, it's doing $60k in MRR. He's now hiring the first employees.\nBootstrapping a Ruby on Rails Educational Platform to $60k MRR\nFailory Interviews Blog Graveyard Products Subscribe →\nInterview with a Successful Startup Founder\nBootstrapping a Ruby on Rails Educational Platform to $60k MRR\nChris Oliver\nNovember 30, 2021\nEducation\nUnited States\n$25k-$100k/mo\nChris founded GoRails, a Ruby on Rails educational platform 7 years ago. As a single-person business, GoRails is doing $60,000 in MRR. But it has grown to more than what Chris can handle, so he is now focused on building a team of developers and customer support agents.\nHi Chris! Who are you and what are you currently working on?\nI’m Chris Oliver. I’m a 32-year-old Ruby on Rails developer from St. Louis, MO, USA.\nI’ve been spent the last handful of years building GoRails into an ecosystem of products to support the Ruby on Rails community.\nAt first, I started with screencasts for Ruby on Rails developers to help teach them how to build web applications. Over time, I added a hosting service for Ruby on Rails apps called Hatchbox.io . My latest project is JumpstartRails.com which is a business template for building SaaS apps quickly in Ruby on Rails.\nI do all the marketing, sales, support, and software development across the products. I’m starting to build up a team as it’s grown way past what I can do as a single person anymore.\nWhat's your backstory and how did you come up with the idea?\nBefore I started GoRails, I was working full-time consulting for startups and other small businesses. It was frustrating doing months of work to see it go to waste over and over again because our clients didn't implement it. I really, really wanted to build something that people used. This pushed me to burn out on consulting badly., so I had to figure out a way to make a successful product that motivated me.\nThe idea came to me after purchasing GoRails.com to share my notes for Ruby on Rails development publicly. My website started getting a lot of traffic. Since I had traffic already, I figured I’d try to sell something to these visitors.\nIn the past, I had always tried to build ideas without any way of marketing them. I am a developer, not a marketer, so I had always made products but never got any users. This time was different because I was selling to an audience I already had. Plus, they were people I love to talk with: other developers!\nHow did you go from idea to product?\nSelling my first product was pretty tough. I had tried for years to build something on nights and weekends. I know my psychology and realized if I were going to make something work, I’d have to force myself to figure it out.\nI burned the bridges and quit consulting completely on January 1st, 2014. I had enough runway for about 9 months of building my own thing, and then I’d have to get a job. My burn rate was low, so I figured I had a chance.\nI started out building a course to teach people Ruby on Rails. My thought process was that it’s my first product, and I don’t want to commit to anything that I may not want to do forever. By building a course, I wasn’t committing to doing anything long-term, and I could experiment.\nI spent those 9 months trying to get comfortable screencasting. It turned into two courses. One was free; one was paid. They were designed around what I was doing, which was consulting. I was taking my experience and trying to productize it, but it didn't work out because nobody knew who I was.\nThe All-In-One Newsletter for Startup Founders\n90% of startups fail. Learn how to not to with our weekly guides and stories. Join 40,000+ founders.\nSubscribe For Free →\nWhich were your marketing strategies to grow your business?\nI needed to get my name out, and I could do that by making free videos and sharing them.\nI started tu publish every new video for free. If I were publishing lots for free, it would build up trust, and then people would learn from me, and they’d be willing to buy from me. So I started publishing a video every single week.\nOne day, I was out of money looking for a job and found out someone had submitted GoRails to the top of Hacker News. Y Combinator startups had used Ruby on Rails to build their products. And that was a great place for GoRails to be. That day I got +600 email addresses, and I was able to use the email addresses to send them stuff about what I was doing, new videos, and keep them up to date. The newsletter became a pretty important piece of the business.\n‍\nHow are you doing today and what are your goals for the future?\nGoRails is doing $60,000 in MRR, which is very good as a single-person business. I have more and more ideas every day on things I wish I had the time to build. The business is bigger than I ever imagined. It has grown to more than I can handle as a single person, so I'm trying to grow the company and hire developers or support people.\nI've also been doing a lot of open source work lately. It’s a great marketing tactic because people use my JAM, learn about me and then find out that I make videos, and they'll probably check them out. I want to continue investing in the Ruby on Rails community.\nSince starting GoRails, what have been your main lessons?\nYou just have to build stuff and talk to people. You need to find those people to talk to and be sure you want to talk to them. I was selling to developers; these are the people I want to chat with all the time.\nOnce you've found a group of people, you can continue building products for them. That is something I just didn't grasp very well before I started.\nYou can look at Quip, for example, which sells toothbrushes on a subscription. They keep adding other products you will eventually need, like toothpaste, shaving cream, and razors, because their subscribers trust them.\nWhat were the biggest obstacles you overcame? What were your worst mistakes?\nI should've done more marketing and hired sooner. Things could have grown faster.\nI didn’t pay myself a salary for 2 years. I wouldn't ever want to start a business from scratch like that again. That was super hard. It’s a struggle that most people have when they're on their startup for the first time. You see a few people who build something and make $500,000 in the first year, but chances are they either got lucky or had an existing audience.\nI want to build something that's sustainable long-term. I'm not trying to build upon the current hype. Many bootcamps have raised tons of venture capital, and they tried to grow fast, and after a few years, they shut down and have to let go of all their employees.\nEverything depends on the product that you build. I built 3 very different products. Right now, I publish a screencast every week on GoRails, which is a time commitment. Then I have the hosting service, Hatchbox, an even bigger time commitment with less ROI than the others. And then the business template, JumpstartRails, which is probably the best ROI for the time that I give it. It's been fascinating to see those, compare them, and figure out where I want to invest my time.\nThe more your product is critical to the day-to-day operations of someone else's business, the more critical it is that you have perfect response times for support. Other products may grow slower but don't require hardly any support. Totally different businesses or products to run. It's been interesting to find a balance between all three that have different demands.\nWhat tools & resources do you recommend?\nI use YouTube and Twitter a lot to publish content.\nI used to listen to podcasts more when I was commuting. I listened to Startups For the Rest of Us . I think that the book that influenced me the most was probably Robert Greene's Mastery . Really hit me at a time where I realized what I wanted to do with my life. The book talks about people who become true masters. They find mentors, whether it's in person or through books and writing. You can have a mentor from a podcast host who doesn't know you exist. I realized I should find something to sink my teeth into and become an expert at, and that's was Ruby on Rails.\nWhere can we go to learn more?\nYou can check GoRails , Hatchbox , and JumpstartRails . You can find me on Twitter and my personal blog , which I don’t update much.\nThe All-In-One Newsletter for Startup Founders\n90% of startups fail. Learn how to not to with our weekly guides and stories. Join 40,000+ founders.\nSubscribe For Free →\nMore Interviews with Successful Startup Founders\nBootstrapping a User Feedback SaaS to $20,000 MRR in 3 Years\nSoftware & Hardware Netherlands $10k-$25k/mo\nMike Slaats\nNovember 30, 2021\nBuilding a Multi-Million Dollar Company with Zero Industry Experience\nHealth Australia +$500k/mo\nGareth Mahon\nMarch 3, 2021\nBeardbrand: Bootstrapped e-Commerce Making $100,000/Month\ne-Commerce United States $100k-$500k/mo\nEric Bandholz\nFebruary 21, 2019\nThe All-In-One Newsletter for Startup Founders\n90% of startups fail. Learn how not to with our weekly guides and stories. Join +40,000 other startup founders!\nSubscribe For Free →\nFailory\nAn all-in-one newsletter for startup founders, ruled by one philosophy: there's more to learn from failures than from successes.\nLearn\nInterviews Blog Podcast Startup Cemetery Google Cemetery Amazon Cemetery Products\nPitch Decks Unicorns Failed Startups Startups Accelerators & Incubators VC Firms\nOther\nSponsor Us Consultancy About Subscribe Privacy\nConnect\nFailory's Twitter Personal Twitter Email",
+     "policy": {
+      "url": "https://www.failory.com/interview/gorails",
+      "decision": "allowed",
+      "usage": "independently_worded_facts",
+      "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+      "reviewedAt": "2026-10-06T19:30:00+09:00",
+      "termsUrl": "https://www.failory.com/privacy",
+      "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き・本人申告ラベル。/startup/ 配下は取得しない。",
+      "recheckAfter": "2027-01-04T12:00:00+09:00"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
+     "publisher": "Indie Hackers",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
+      "finalUrl": "https://www.indiehackers.com/product/gorails",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:35:09.500Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "3f4800e72480c8fbc22237399f48aaaf59436c37b42623f77e1743ec32bbb753"
+     },
+     "text": "GoRails - Indie Hackers\nI created GoRails to publicly document my commonly repeated tasks with Rails and to take a stab at selling my first product.\nI created GoRails to publicly document my commonly repeated tasks with Rails and to take a stab at selling my first product.\nGoRails on Indie Hackers\nGoRails - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\nGoRails\nScreencasts for Ruby on Rails developers\nVisit Website\nGoRails Screencasts for Ruby on Rails developers\nPosts 3\nRevenue $50K / mo\nWebsite\nAugust 18, 2020\n$1M in revenue\nWe just crossed $1M in revenue across GoRails.com , Hatchbox.io and JumpstartRails.com . 🎉\nThis has been a long time coming over the last 6.5 years. Averaging that out gives me a pretty good salary, but the first few years earned very little money and were definitely a struggle.\nI shared some thoughts on this Twitter thread: https://twitter.com/excid3/status/1295730795148193792\ntwitter.com\nChris Oliver\n51 Upvotes\n30 Comments\nSay something nice…\nPost Comment\n5\nNice! We are using Jumpstart Rails on a project and love it. It has saved us so many hours of work.\na2k\n&middot;\n6 years ago\n&middot;\nReply\n1\nThat's amazing to hear @a2k! Makes my day!\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n4\nHello Chris!\nMy congratulations! That is an amazing milestone. Can you share some tips, that you have learned?\nnik333r\n&middot;\n6 years ago\n&middot;\nReply\n9\nI think the biggest thing I learned was just going out of my way to talk with people and help them, even if it didn't seem like it would grow my business. I'd learn a lot and build trust with people and that went a long ways towards growing my audience and getting customers.\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n2\nCould you share what the split is like between the three products? What has been challenging about each product?\nCongrats on the success!\nviperfx\n&middot;\n6 years ago\n&middot;\nReply\n2\nCurrently, I spend about half my time on Hatchbox, and 1/4th on GoRails and 1/4th on Jumpstart.\nHatchbox is tough because it's running other people's code and managing servers. Super complicated, technical stuff and needs constant support.\nGoRails is challenging because of churn. Teach someone what they need to know and they move on to the next thing. Plus, the never ending hamster wheel of producing content every week.\nJumpstart's challenge has been building features that everyone needs and sometimes those are quite complex. It's definitely the easiest of the 3 products by far.\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nThanks for the reply! I figured hatchbox would be the most complex. The DevOps world has evolved so much lately. Is hatchbox backed by docker or is it mostly well crafted bash scripts to do all the setup?\nDo most of your support come from people trying to do things with hatchbox that you don't officially support? Such as new tools or libraries?\nI'm curious if those complexities align with the revenue earned too? What is the profit split like between the three?\nviperfx\n&middot;\n6 years ago\n&middot;\nReply\n3\nI don't use Docker for it, but will probably support it in the future. The problem with Docker is it offloads the devops to the developer a lot and can make development a lot harder (and slower). I don't want to force anyone into that and hopefully it gets a lot better in the future.\nMost of the support is just from misconfigured apps and things. Sometimes it's from people doing things we don't support, but it's less common than you'd think. It's a lot of small mistakes, having to undo tweaks they made to use Heroku, forgotten env vars, too small of a server so assets won't compile, etc.\nThe complexities don't align with revenue (yet). Right now it's by far the least profitable of the 3 products, but also has the most potential. I'm willing to take that risk to see if I can make it more sustainable. If I can't figure it out, I can always sell it or something. It's valuable enough it wouldn't make sense to just shut down. I'm not sure the exact breakdown, but Hatchbox is probably about 1/4th revenue right now. Jumpstart is about 1/4th and GoRails is about 1/2.\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n2\nThat's awesome, congratulations!\ngilli\n&middot;\n6 years ago\n&middot;\nReply\n1\nThanks @gilli! 🙏\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n2\nCongratulations.\nI am a founder myself doing $200 MRR. I've built https://storycreatorapp.com and my goal is to hit $20k MRR.\nMy weakness is I keep building and avoid talking to users.\nWhat were some daily activites and habits you followed that helped you unlock your first 100 customers?\nI see you mentioned going out of your way to talk to people. I agree and have been doing the same thing. Sometimes I get tired and go back into the product, which takes away from time interacting -- bad. I find following up with sign ups and anyone who has shown interest to be good. With that said I have a few questions.\nHow would you manage leads who were interested in your product\nWhat were your daily habits on generating some momentum\nmotionbox\n&middot;\n6 years ago\n&middot;\nReply\n5\nI talk to people over email a LOT. It takes different energy for me too, so when I get burnt out of answering emails, I'll do something else like coding. That's totally fine. Different work is taxing in different ways (and different for each person).\nYou've probably seen automated emails from products you've signed up for, but I really liked the automated email that seems like a person hand wrote it. Just offer to help if they need anything, try not to include too many links, etc. It usually gets a lot of replies and that way you can help anyone new with the product. I try to prioritize answering those emails so they feel welcomed.\nFor momentum, I had to force myself to record videos for a minimum of 15 minutes a day. Whether I threw away the result or not. That got me past the feeling of frustration because I didn't like the end result I was producing. My work wasn't good enough, so forcing myself to practice got that better. Now I try to make sure I work on at least one feature a day so I can keep the momentum going there. I'll also alternate days or weeks on the different products so one doesn't get unfairly neglected.\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nAwesome! What were your top 3 watering holes? Watering holes meaning sources of leads that you would constantly resort to.\nFor me getting #1 on Hacker News drove 1k+ sign-ups. I'm going to try and reach out to all those sign-ups and see what happens.\nThe other ones would be going to Facebook groups and finding folks talking about the problem I am solving and messaging them directly.\nThen lastly there are groups within Instagram that are filled with creators that I am targeting with direct messages.\nexisting sign-ups\nFacebook groups\nInstagram communities\nmotionbox\n&middot;\n6 years ago\n&middot;\nReply\n3\nThat's great. Since my niche is Rails, I went to where people were discussing Ruby and Rails, so Reddit, Twitter, LinkedIn, etc. Really depends on where your customers are.\nSounds like you're taking a very similar approach. Curious to hear how it goes! 💪\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nI'm in the same shoes as you - although I know how to sell B2C and not B2B. And honestly, @excid3 b2d (developer) which I'm now doing b2d+b2b which is just like 0.0.....\nIt was way easier/more fun doing in app purchases with ads in addictive games and acquiring users was only a few hundred bucks to get a test going.... Dev tools so far... but <3 the challenge, but damn!!!\nAnyways love this thread, gonna try some automation mails with www.kintohub.com with less links (Thanks) and I'm gonna try doing a video per day trying to deploy a random tech stack on kinto that I find in the twitter community which is inspired by this thread.\nAnd I'll go ahead and increase your MRR on storycreatorapp since you have inspired it :)\nThanks again for the thoughts here guys!\ncodingcoop\n&middot;\n6 years ago\n&middot;\nReply\n1\nCongrats no your success\nMarky\n&middot;\n6 years ago\n&middot;\nReply\n1\nSuch a long and painful road to 1M in sales.\nWhat would you do differently this time if you could start over?\nAlexBuran\n&middot;\n6 years ago\n&middot;\nReply\n1\nCongratulations!\ntheonlykmac\n&middot;\n6 years ago\n&middot;\nReply\n1\nCongratulations!! I've been following GoRails for a long time. Keep up the great work!\nhyukki\n&middot;\n6 years ago\n&middot;\nReply\n1\nThanks @Perd!\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nThought of another question, this one's a thinker ...\nDo you think this success is possible without putting your personal brand behind it? Which of the products benefit most from it?\nIf you had a take a guess at the time spent so far, where would you rank them?\nviperfx\n&middot;\n6 years ago\n&middot;\nReply\n1\nDefinitely possible without the personal brand. You'd still want to create a brand of some kind for people to trust, but it doesn't have to be you or your face.\nGoRails obviously benefits the most from the personal brand because I'm the one talking in the videos, but you can easily have other teachers and still build a brand. MasterClass is a good example, as well as Egghead and others.\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nAwesome!!\nJust wanted to say I have been watching your videos on and off for 6 years. Every time I jump back into a Rails project I end up at GoRails and always find it great to get back to speed.\nRecently started a new venture, started with NuxtJS / VueJS and found some limitations and decided to go back to Rails and boy was I happy I did that because you introduced me to StimulusJS, CableReady, StimulusRelfex and so much more.\nI use TailwindCSS and one day googled StimulusJS + Tailwind and your Github for tailwind-stimulus project and got it running in minutes.\nAlso the notifications gem, I'm excited to use that in my project.\nOverall, you have a big impact on my development and I clicked this post and upvoted it before I even realized it was you, so it is great pleasure to post this and share my gratitude.\nYou rock, I know you can reach your next million in a 1/4 the time.\nKeep it up!\nwynterjones\n&middot;\n6 years ago\n&middot;\nReply\n2\nThat's amazing to hear @wynterjones! Glad I've been able to help make things easier for you. These are all things I wish were easier, so I guess I'm kind of helping myself and sharing it makes the world a better place. Stimulus + Tailwind really does make for a wonderful experience.\nYou'll have to send me a link to your new venture when it goes live!\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nCongrats! Nice milestone\nbrunor\n&middot;\n6 years ago\n&middot;\nReply\n1\nThanks @brunor! 🙏\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nCongrats!!\ntintuhd\n&middot;\n6 years ago\n&middot;\nReply\n1\nThanks! 💪\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nCongrats, FYI the link to the Twitter thread is missing...\nmubashariqbal\n&middot;\n6 years ago\n&middot;\nReply\n2\nThanks, for some reason it shows up on the product page, but not this one. Added the link.\nexcid3\n&middot;\n6 years ago\n&middot;\nReply\n1\nThis comment was deleted 6 years ago\nonerinas\n&middot;\n6 years ago\nJanuary 1, 2014\nGoRails Launches!\nI launched two courses and got about one sale a week. GoRails.com had already been live as a Rails app with a few static pages for the tutorials I had previously published. To sell the two courses, I built out payments with Stripe and the course functionality to watch videos using Wistia, track your progress, etc.\nGoRails - Learn Ruby on Rails with screencasts for Web Developers - GoRails\nShort screencasts for developers learning Ruby on Rails. Videos to help you learn any aspect of web development.\ngorails.com\nChris Oliver\n3 Upvotes\nComment\nAugust 1, 2013\nPreparation for Launch\nIt took me five months to plan, record, edit, and complete the first two courses. This took way more time than I expected because I just wasn't very comfortable recording screencasts. My daily routine was to record 15 minutes of video a day whether or not I threw away the recording later. I just needed the practice to create content I was happy with.\nChris Oliver\n2 Upvotes\nComment\nAbout\nI created GoRails to publicly document my commonly repeated tasks with Rails and to take a stab at selling my first product.\nPeople\nChris Oliver Founder\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://gorails.com",
+     "publisher": "GoRails",
+     "snapshot": {
+      "url": "https://gorails.com",
+      "finalUrl": "https://gorails.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:04:58.122Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "b53f1e20b37606d606a40d034b4307c02872bdb55f723216856386d51b13ef41"
+     },
+     "text": "Learn Ruby on Rails | GoRails\nLearn Ruby on Rails, Javascript, Hotwire, Turbo, Stimulus.js, PostgreSQL, MySQL, Ubuntu, and more with GoRails tutorials.\nLearn Ruby on Rails | GoRails\nLearn Ruby on Rails, Javascript, Hotwire, Turbo, Stimulus.js, PostgreSQL, MySQL, Ubuntu, and more with GoRails tutorials.\nLearn Ruby on Rails | GoRails\nGoRails\nPath\nSeries\nLessons\nForum\ndropdown#hide\"\ntabindex=\"0\"\nclass=\"hidden lg:inline nav-link px-3 py-2 rounded-md text-sm font-medium focus:outline-none hover:bg-gray-200 focus:bg-gray-200 dark:hover:bg-gray-700 dark:focus:bg-gray-700\">\nMore\nCourses\nLearn Hotwire\nLearn how to build fast, modern web apps with HTML over the wire.\nRails for Beginners\nHow to build a complete, real-world application from scratch with Ruby on Rails step by step.\nAdvanced Ruby: Behind the Magic\nA lot of Ruby code is \"magic\". We'll explain the magic and see how it works using the powerful tools Ruby gives us.\nPayments with Rails Master Class\nAccept subscription and one-time payments with Stripe in your Rails apps\nContent\nInstall and Deploy Rails Guides\nSetup your computer with Ruby on Rails and deploy to a production server.\nApps\nHatchbox.io\nCheap, easy hosting for Ruby and Rails apps.\nJumpstart Rails SaaS Template\nLaunch your product business way faster with our SaaS template.\nOther\nRemote Ruby Podcast\nA weekly podcast on web development and building products with Ruby, Rails, Javascript, and more.\nGoRails Open Source\nA few of the Open Source projects we do at GoRails.\nRuby on Rails Job Board\nFind your next Ruby on Rails Job.\nSearch\nPricing\nLog In\nSign Up\ntoggle#toggle touch->toggle#toggle\">\nRuby on Rails\ntraining for you and your team.\nMaster your craft. Join the ranks of the best Rails Developers.\nGet started\nExplore lessons\nLearn Ruby on Rails\nJoin 96,733+ developers learning, building, and\ndeploying Ruby on Rails apps for their ideas, products, and businesses.\nTrusted by Rails developers worldwide\nWe're here to help you grow your career as a developer.\nTutorials\n826\nHours of content\n140+\nRails Developers\n70,000+\nAverage Rails Salary\n$124,000\nDevelop faster\nLearn. Build. Deploy.\nWe can help with every aspect of learning Ruby on Rails. Learn with our tutorials, building\nSaaS products with our template, and deploying to production with our hosting service.\nWhether you're new to Ruby on Rails or a Rails veteran who wants to stay up-to-date,\nwe've got you covered. We're always teaching the latest and greated techniques.\nTry GoRails →\nJumpstart Pro is the best SaaS template for Ruby on Rails. It's been used by our\ncustomers to make millions of dollars and build many successful companies.\nYours is next.\nTry Jumpstart Pro →\nHatchbox.io is a modern Ruby on Rails hosting service designed to keep costs low.\nWe configure and deploy Rails applications on your own servers so you can deploy\nanywhere.\nTry Hatchbox.io →\nLong form content\nIn-Depth Ruby on Rails Courses\nDeep dives into specific topics outside of the screencasts.\nAdvanced Ruby: Behind the Magic\nYou might have heard people saying Rails is \"magic\", but is it? In this course,\nwe'll explore how Rails takes advantage of some incredible Ruby features that\nfeel like magic.\nRefactoring Rails\nBen Orenstein will teach you refactorings, patterns, and best practices to help you\nship quickly even as your Ruby on Rails app matures.\nPayments with Rails Master Class\nAn in-depth guide to integrating Stripe one-time payments and subscription billing\nwith your Ruby on Rails apps to help you build and ship products.\nTestimonials\nWe have taught with thousands of amazing developers\n“Tweet 2/2. Checkout what @excid3 does at https://t.co/XBu678HuIX, @onemonthedu, @GoRails and @Launch_Code. Awesome stuff by an awesome guy.”\nThibaud CLEMENT\n“Today was the 55th month I've been charged my @GoRails subscription. Worth every single penny and more for the help and friends I've gained from the community. Highly recommend you check it out if you haven't. #rails”\nAndrea Fomera\n“@schneems /r/ is becoming SO but I like /r/ruby, /r/rails, and /r/rubyonrails. Slack channels are better with… https://t.co/EWAGZsHhPY”\nGary\n“If you're looking at getting into rails or want to go further there's no greater value than @excid3 's @GoRails. S… https://t.co/U7O96jba0T”\nSteve\n“I just realized that @excid3's @GoRails is listed on the sidebar of the #ruby subreddit: https://t.co/D2JSdm3wME”\nRob Long\n“@excid3 @GoRails Watching now, thanks (btw: great work on GoRails!)”\nDamian Borowski\n“@johtani If you look for some good Rails screencasts, I recommend you to give a look to @GoRails. @excid3 provides… https://t.co/jjA0iCMPev”\nRenshuki\n“Go Rails is all the rage. Thanks @excid3 - really good stuff.”\nBrian Michel\n“The content for @GoRails is top knotch, BUT my favorite part since joining is the email content campaign. It's all so well done! Well written. Interesting. Insightful. Great job @excid3”\nmark hutter\nBoost your career.\nStart learning with GoRails today.\nRuby on Rails developers make $124,000/year on average and are in high demand. We can help\nyou get there.\nGet started\nLearn more →\nLearn Ruby on Rails, Javascript, Hotwire, Turbo, Stimulus.js, PostgreSQL, MySQL, Ubuntu, and more with GoRails tutorials.\nTwitter\nGitHub\nSolutions\nRuby on Rails Tutorials\nRails Learning Path\nRails Courses\nRails SaaS Template\nDeploy Ruby on Rails\nGoRails Open Source\nRuby on Rails Tools\nRuby on Rails Jobs\nSupport\nPricing\nTeams\nTestimonials\nHelp\nCompany\nAbout Us\nBlog\nRemote Ruby Podcast\nLegal\nPrivacy Policy\nTerms of Service\n&copy; 2026 GoRails, LLC. All rights reserved.\nProudly built with Jumpstart and hosted with Hatchbox and DigitalOcean .",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://gorails.com/pricing",
+     "publisher": "GoRails",
+     "snapshot": {
+      "url": "https://gorails.com/pricing",
+      "finalUrl": "https://gorails.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:35:08.609Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "6c194eae678a42d4d73be87ad734a222fe47eac58da1fb8f730a882f4781ad73"
+     },
+     "text": "Pricing: Ruby on Rails Screencasts & Courses | GoRails\nGoRails Pro pricing. Unlock every Ruby on Rails screencast, series, and course with simple monthly or yearly plans.\nPricing: Ruby on Rails Screencasts & Courses | GoRails\nGoRails Pro pricing. Unlock every Ruby on Rails screencast, series, and course with simple monthly or yearly plans.\nPricing: Ruby on Rails Screencasts & Courses | GoRails\nGoRails\nPath\nSeries\nLessons\nForum\ndropdown#hide\"\ntabindex=\"0\"\nclass=\"hidden lg:inline nav-link px-3 py-2 rounded-md text-sm font-medium focus:outline-none hover:bg-gray-200 focus:bg-gray-200 dark:hover:bg-gray-700 dark:focus:bg-gray-700\">\nMore\nCourses\nLearn Hotwire\nLearn how to build fast, modern web apps with HTML over the wire.\nRails for Beginners\nHow to build a complete, real-world application from scratch with Ruby on Rails step by step.\nAdvanced Ruby: Behind the Magic\nA lot of Ruby code is \"magic\". We'll explain the magic and see how it works using the powerful tools Ruby gives us.\nPayments with Rails Master Class\nAccept subscription and one-time payments with Stripe in your Rails apps\nContent\nInstall and Deploy Rails Guides\nSetup your computer with Ruby on Rails and deploy to a production server.\nApps\nHatchbox.io\nCheap, easy hosting for Ruby and Rails apps.\nJumpstart Rails SaaS Template\nLaunch your product business way faster with our SaaS template.\nOther\nRemote Ruby Podcast\nA weekly podcast on web development and building products with Ruby, Rails, Javascript, and more.\nGoRails Open Source\nA few of the Open Source projects we do at GoRails.\nRuby on Rails Job Board\nFind your next Ruby on Rails Job.\nSearch\nPricing\nLog In\nSign Up\ntoggle#toggle touch->toggle#toggle\">\nPricing Plans\nSimple, straightforward pricing for the best way to learn Ruby on Rails\nMonthly\nYearly\nPersonal\n$19\n/month\nGet Started\n650+ Ruby on Rails screencasts\nDiscord community with 6,000+ Rails developers\nNew tutorials added regularly\nTeam\n$19\n/ user\n/month\nGet Started\nMinimum 2 users\nAssign lessons\nTrack performance\nInstantly add/remove team members\n650+ Ruby on Rails screencasts\nDiscord community with 6,000+ Rails developers\nNew tutorials added regularly\nEnterprise\nLet's Talk\nContact Us\nIncludes everything in the Team plan\nSingle Sign-On\nTailored to your needs\nCustom invoicing\nJust have to say that @GoRails has probably been my best investment so far to date at $19 per month.\nJames Sheperd\nRuby on Rails Developer\nFrequently asked questions\nCan I cancel at any time?\nOf course. GoRails subscriptions renew automatically, just like Netflix or Hulu but we'd never lock you in.\nIf I sign up, do I get access to everything?\nYep! As soon as you sign up, you'll have access to our entire catalog exploring many different aspects of building apps with Ruby on Rails.\nDo you offer student discounts?\nWe want to make our tutorials as accessible as we can, so our normal price is as already cheap as we can make it. If you live in a country where $19/mo is prohibitively high (or the conversion rate is unreasonable), email chris@gorails.com and we'll see what we can do. Otherwise, please stick with the regular price so we can continue bringing you more tutorials! 🙏\nWill you cover _____ topic?\nVery likely! A lot of our episodes come from requests by community members. The forum is a great place to post episode ideas and example topics you would like to see covered.\nCan I post on the forums without a subscription?\nYes, you can. Our community is downright incredible and they're happy to help you with any questions you have. We love seeing questions that don't fit the StackOverflow mold. Questions about how should you approach a problem, architect a feature, or what you should learn next are all welcome!\nAnything else we can help with?\nWe'd be happy to help. Send us a message and we'll see what we can do for you!\nLove letters from our community members\nStart building fast, functional web apps with a GoRails subscription.\n“Belated christmas present to self: @GoRails subscription! 🤓\nLoving it from the first minute on.”\nMax\n“dear @excid3 I'd love to connect you to @ryanmulkowsky - he's fallen in love with Ruby on Rails &amp; I've told him you're tha man🤓 + @GoRails!”\nh\n“Thanks @excid3 and @GoRails! Saving me on the job one day at a time haha 🙌”\nDeeAnn\nSee more testimonials &rarr;\nLearn Ruby on Rails, Javascript, Hotwire, Turbo, Stimulus.js, PostgreSQL, MySQL, Ubuntu, and more with GoRails tutorials.\nTwitter\nGitHub\nSolutions\nRuby on Rails Tutorials\nRails Learning Path\nRails Courses\nRails SaaS Template\nDeploy Ruby on Rails\nGoRails Open Source\nRuby on Rails Tools\nRuby on Rails Jobs\nSupport\nPricing\nTeams\nTestimonials\nHelp\nCompany\nAbout Us\nBlog\nRemote Ruby Podcast\nLegal\nPrivacy Policy\nTerms of Service\n&copy; 2026 GoRails, LLC. All rights reserved.\nProudly built with Jumpstart and hosted with Hatchbox and DigitalOcean .",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "無料動画で名前を知ってもらい、メールの一覧に有料の講座を売る。同じ開発者層に、ホスティングとテンプレートという別の商品を重ねて売る。",
+     "basis": [
+      "f6",
+      "f1",
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "Railsを学ぶ初心者から、最新の書き方を追いたい経験者までの開発者。本人は、自分が毎日でも話したい相手に売れる点を強みに挙げている。",
+     "basis": [
+      "f1",
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2"
+   ],
+   "identity": {
+    "id": "ent_gorails_640d8f688451",
+    "name": "GoRails",
+    "url": "https://gorails.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [],
+    "displayableIds": [],
+    "problems": []
+   },
+   "caseHash": "92f639eb48bb71d235543ff923eb018865d422ccc3e742bdeac32e3cf9c8df5b",
+   "itemHashes": {
+    "fact:f1": "aca681de854d0b7ffc106a1b4d0523169caaa6f765f009c42c6c11ca74c40103",
+    "fact:f2": "2452b51fcdd352dfb067747e3d79f292266fd2e2888c3899aaec1c5c5725c3d5",
+    "fact:f3": "91b234c4536454613cd41264c2dc4ab0dae66dc3d80deba5e1b094cb6025aa2d",
+    "fact:f4": "7c35c804ee15c8d9507c4be015d8acdbf96486011edf134d93ea3d316a185a8c",
+    "fact:f5": "0996f9aec79cc2f917a92f5790ef99bef61d7c23d7c7cb9a31f8825ef07a5cd4",
+    "fact:f6": "d6b37eec6f25807e41494759022e602bd8060216aae73425c5359b0c34f8c476",
+    "fact:f7": "02905d96dbb92d7205a77a32e50214232ed2e8a3e59a72a568461b24915a3c51",
+    "fact:f8": "0f8148828cc629eaac142cc062318f81870bf4b39df500d9662ca70e0b485ec0",
+    "fact:f9": "3f1264603435b4189ca0efcdcdb4178acddfe81a9779c3d2151ffd71d66cf46c",
+    "fact:f10": "254ccf2a2613b985b438fc7aaa44df4ec6193675c761e7d6d4fd3a20b4c916ba",
+    "fact:f11": "cfde91ce09ebb5e0eee1e05b3f7c1ab4ccb2ff1d99197e148e3b5ba73160eaf5",
+    "metric:m1": "7ac509fbdadd76c315406dfbac45baacee2e5a8ed631d8a815accfaa39a49771",
+    "metric:m2": "f7962f20272ba60934648db70e84acba503fa6ab81732371b25e286dc74cc277",
+    "analysis:a-headline": "daac13935b8193f98884c2e266f6b832304d83381a6db4a74098e7ab1e6c4114",
+    "analysis:a-story": "4bbe988afcf01832fa80edbd171b9b6fb1cd0c7ca4099f54b237e69fd519c6bc",
+    "analysis:a-business_model": "6752ef1cf856d714bb290393b122f3b1ee622aa5ea4b5b626098d1e4e2c98838",
+    "analysis:a-customer": "20ae61981d9248e80a286b791019c09677c1e1da6155445ef6a130913a919cf6",
+    "analysis:a-first_customers": "97d29cb91dbc685ed41b81aea84380fe149dbcf50c0f6326ba5f82a05c4d3964",
+    "analysis:a-channels": "b749dfc8ed2a56a1d56ffc2fc0a1cd125fafbdeb98174019eb4d53aea9bdb967",
+    "analysis:a-capital_and_team": "d3f3ca5f674f978fc8c60323a6779804c744ebf1fc39c12f6377247f4eae9b70",
+    "analysis:a-why_it_worked": "f5eb39c9dd5a1fb9a7d79cea33acf8c0c934878c933bfe7f422a9737e6c43232",
+    "analysis:a-failure_cause": "8a2f751a178dd9e80f8a5306c164fe9015553b34fd9bd0d04fc048663c40480e",
+    "analysis:a-lesson": "6e2ae36f700128b61f50c31011af4b8b40c98ad9b614152fcafbb0273678dcd8",
+    "analysis:a-timeline": "c96b7322b3cea54d501d3b3e8dc142af6eb8cbbf19c756d27e986c1ea50eafa6"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "analysis:a-business_model",
+    "analysis:a-customer"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "publisher": "Failory",
+      "url": "https://www.failory.com/interview/gorails",
+      "title": "Bootstrapping a Ruby on Rails Educational Platform to $60k MRR",
+      "publishedAt": "2021-11",
+      "checkedAt": "2026-10-06",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s2",
+      "publisher": "Indie Hackers",
+      "url": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
+      "title": "創業者の投稿「$1M in revenue」",
+      "publishedAt": "2020-08",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s3",
+      "publisher": "GoRails",
+      "url": "https://gorails.com",
+      "title": "GoRails トップページ",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "publisher": "GoRails",
+      "url": "https://gorails.com/pricing",
+      "title": "GoRails 料金ページ",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "Ruby on Rails の動画講座とコース。公式トップはチュートリアル826本・140時間超を掲げ、9万6千人超の開発者が学ぶと表示する。同じ会社がRails向けホスティングHatchboxと、SaaS用テンプレートJumpstart Railsも持つ。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "PRICING",
+      "text": "個人プランは月19ドル（Discordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "FOUNDING",
+      "text": "創業者Chris Oliverは受託開発をしていた。数か月かけた仕事が顧客に使われず無駄になることが続いて燃え尽き、2014年1月1日に受託をやめた。手元の資金は約9か月分だった。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f4",
+      "kind": "OTHER",
+      "text": "自分のRailsのメモを公開するためにGoRails.comのドメインを買ったところ、サイトのアクセスが増えた。その訪問者に何か売ろうと考えた。以前は集客のあてなしに作って客がつかなかったが、今回は既にいる読者に売る形だった。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "最初の9か月は画面録画に慣れることに使い、無料と有料の2つのコースを作った。自分の受託の経験を商品にしたが、無名だったため売れなかったと本人は話す。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f6",
+      "kind": "CHANNEL",
+      "text": "毎週1本の動画を無料で出し続けた。ある日、誰かがGoRailsをHacker Newsの上位に投稿し、その日にメールアドレス600件超が集まった。当時の本人は資金が尽きて就職先を探していた。このメールの一覧がニュースレターとなり、事業の重要な柱になった。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f7",
+      "kind": "TEAM",
+      "text": "2021年11月時点で月次定期売上（MRR）は約6万ドル。マーケティング、営業、サポート、開発を1人でこなしていたが、手に負えなくなり、開発者とサポート担当の採用を始めたと説明。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "最初の2年は自分に給料を払わなかった。本人は、もっと早くマーケティングと採用をすべきだったと振り返る。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "3つの製品を比べると、毎週の動画は時間を取られ続け、ホスティングのHatchboxは仕事が重いわりに利益が小さく、止まると困る客が多いので即応のサポートが要る。テンプレートのJumpstart Railsは、かけた時間あたりの利益が最も良いと本人は見ている。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f10",
+      "kind": "CHANNEL",
+      "text": "オープンソースの公開も集客に使う。自作のライブラリを使った人が本人を知り、動画を見に来る流れを狙っている。",
+      "sourceId": "s1",
+      "statedAt": "2021-11",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "2020年8月、3つの製品の累計売上が100万ドルに達したと創業者が自ら投稿した。",
+      "sourceId": "s2",
+      "statedAt": "2020-08",
+      "attribution": "SELF_REPORTED"
+     }
+    ],
+    "metrics": [
+     {
+      "id": "m1",
+      "measure": "REVENUE",
+      "periodKind": "MONTH",
+      "period": "2021-11（記事掲載時のMRR）",
+      "amount": 60000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     },
+     {
+      "id": "m2",
+      "measure": "REVENUE",
+      "periodKind": "CUMULATIVE",
+      "period": "〜2020-08（3製品の累計）",
+      "amount": 1000000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s2"
+     }
+    ],
+    "unknowns": [
+     "PROFIT",
+     "COST",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "無料動画で名前を知ってもらい、メールの一覧に有料の講座を売る。同じ開発者層に、ホスティングとテンプレートという別の商品を重ねて売る。",
+      "basis": [
+       "f6",
+       "f1",
+       "f9"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "Railsを学ぶ初心者から、最新の書き方を追いたい経験者までの開発者。本人は、自分が毎日でも話したい相手に売れる点を強みに挙げている。",
+      "basis": [
+       "f1",
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}
