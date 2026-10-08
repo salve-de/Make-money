@@ -816,7 +816,7 @@ export function screenText(text: string): string {
  * 2. 億の単位で小数が2桁以上の概算（「約3.75億円」）は、小数1桁（「約3.8億円」）にする。
  */
 const FOREIGN_IN_PAREN = `(?:US\\$|\\$|€|£|₹)\\s?${NUM}\\s?(?:億|万|[kKMB])?|${NUM}\\s?(?:億|万)?\\s?(?:ドル|ユーロ|ポンド|ルピー)`;
-const YEN_THEN_FOREIGN = new RegExp(`(?:約|およそ)?(${NUM}(?:億|万)?(?:[0-9][0-9,]*)?円)[（(]\\s*(${FOREIGN_IN_PAREN})\\s*[）)]`, 'g');
+const YEN_THEN_FOREIGN = new RegExp(`(?<![0-9,.億万])(?:約|およそ)?(${NUM}億(?:${NUM}万)?円|${NUM}億(?:[0-9][0-9,]*)?円|${NUM}万(?:[0-9][0-9,]*)?円|${NUM}円)[（(]\\s*(${FOREIGN_IN_PAREN})\\s*[）)]`, 'g');
 export function unifyYenStyle(text: string): string {
   return text
     .replace(YEN_THEN_FOREIGN, (_all, yen: string, foreign: string) => `${foreign}（約${yen}）`)
