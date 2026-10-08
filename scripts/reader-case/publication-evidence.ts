@@ -9,6 +9,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { z } from 'zod';
+import { MEDIA_ASSET_ID_PATTERN } from '../../src/shared/media-asset-schema';
 import { contentHash, quoteKey, type PublicationInput } from './publication-evaluation';
 import { quoteInText, type SourceCacheRecord } from './verify-lib';
 
@@ -42,7 +43,7 @@ const SourceAttestationSchema = z.object({
 }).strict();
 const CaseAttestationSchema = z.object({
   sources: z.record(z.string(), SourceAttestationSchema),
-  media: z.object({ displayableIds: z.array(z.string()) }).strict(),
+  media: z.object({ displayableIds: z.array(z.string().regex(MEDIA_ASSET_ID_PATTERN)) }).strict(),
 }).strict();
 export const EvidenceEnvelopeSchema = z.object({ version: z.literal(1), note: z.string().optional(), cases: z.record(z.string(), CaseAttestationSchema) }).strict();
 

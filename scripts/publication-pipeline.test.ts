@@ -386,6 +386,8 @@ test('evidence attestation file: a malformed or unsupported envelope stops the g
   writeFileSync(file, JSON.stringify({ version: 2, cases: {} })); assert.throws(() => readAttestations(file), /形式が合わない/);
   writeFileSync(file, JSON.stringify({ version: 1, cases: { ent_x: { sources: { 'https://a/': { status: 200, fetchedAt: 'x', via: 'direct', textHash: 'zz', textLength: 300, quotes: [], quotesAbsent: [] } }, media: { displayableIds: [] } } } }));
   assert.throws(() => readAttestations(file), /形式が合わない/);
+  writeFileSync(file, JSON.stringify({ version: 1, cases: { ent_x: { sources: {}, media: { displayableIds: [''] } } } }));
+  assert.throws(() => readAttestations(file), /形式が合わない/);
   writeFileSync(file, '{ broken'); assert.throws(() => readAttestations(file), /壊れている/);
   writeFileSync(file, JSON.stringify({ version: 1, cases: {} })); assert.deepEqual(readAttestations(file), {});
 });
