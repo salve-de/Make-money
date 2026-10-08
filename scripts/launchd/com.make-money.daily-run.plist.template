@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  毎日1回、scripts/daily/run-daily-run.sh（pnpm daily:run）を走らせる LaunchAgent のひな形。置いてあるだけで、組み込み（launchctl）はしていない。
+  オーナーが入れると決めてから、docs/pipeline/DAILY_RUN.md の手順で __NODE_BIN_DIR__ / __HOME__ を置き換えて入れる。
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.make-money.daily-run</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Volumes/SS/Worktrees/Make-Money/daily-run/scripts/daily/run-daily-run.sh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Volumes/SS/Worktrees/Make-Money/daily-run</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>__NODE_BIN_DIR__:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+  <!-- 毎日 04:30。Mac が眠っていた場合は、起きたあとに1回実行される -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>4</integer>
+    <key>Minute</key>
+    <integer>30</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>__HOME__/Library/Logs/make-money-daily-run.log</string>
+  <key>StandardErrorPath</key>
+  <string>__HOME__/Library/Logs/make-money-daily-run.log</string>
+</dict>
+</plist>

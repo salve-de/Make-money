@@ -40,7 +40,7 @@ pnpm rights:seed [--dry-run]            # 公開中の事例が使う出典の�
 
 ## 法律・規約が変わった時
 
-1. `pnpm rights:review --fetch` で、規約ページの指紋が変わったサイトを見る（毎日の定期実行でも出る）。
+1. `pnpm rights:review --fetch` で、規約ページの指紋が変わったサイトを見る（毎日の定期実行 `pnpm daily:run` の `rights-review` 段と `run-daily.sh` からも呼ばれ、一覧を出すだけで公開は止めない）。
 2. 変わったサイトは規約を読み、台帳の確認3つ（`checks`）を直し、`pnpm rights:terms <ドメイン>` で新しい指紋を記録する。履歴に残る。
 3. 使えなくなったなら上の手順（`rights:suspend`）。法律の変更で全体に効く場合は、該当ドメインを1つずつ停止するか、標準の規則（Universal Foundation のスナップショット）側を更新する。
 4. 判断から180日（`reviewAfterDays`）たったサイトも `rights:review` に出る。確かめたら `decidedAt` を更新して履歴に残す。
