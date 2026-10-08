@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {
-  firstSentence,
   formatMetricAmount,
   metricListLabel,
   metricMeasureLabel,
@@ -12,7 +11,7 @@ import {
 } from '@/shared/display-text';
 import type { Measure, ReaderCase, ReaderMetric } from '@/shared/reader-case';
 import { UI } from '@/shared/ui-strings';
-import { listLineFor, trimLineEnd } from '@/shared/list-lines';
+import { summaryLineOf } from '@/shared/list-lines';
 
 /** 一覧の行が読むのは entity.reader だけ。売上欄と利益欄の1件ずつを選ぶ。 */
 export function listMetricsOf(reader: ReaderCase | undefined): { main: ReaderMetric | null; profit: ReaderMetric | null } {
@@ -46,7 +45,7 @@ export function ListDescription({ reader, className }: { reader?: ReaderCase; cl
     );
   }
   // 画面用の短い1行があれば、それを出す（元の要約と一致する時だけ）。無ければ元の要約の1文目
-  const text = listLineFor(reader?.display, fact) ?? trimLineEnd(screenText(firstSentence(fact.text)));
+  const text = summaryLineOf(reader) ?? '';
   return (
     <span className={className} data-fact={fact.id} title={text}>
       {text}

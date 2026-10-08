@@ -95,7 +95,7 @@ export function DiscoveryRow({
       <span data-variant="mobile" className="min-w-0">
         <span className="block truncate font-semibold text-term-fg-strong">{item.name}</span>
         {item.summaryFactId && item.summaryText && (
-          <span data-fact={item.summaryFactId} className="mt-0.5 line-clamp-2 text-xs text-term-sub lg:line-clamp-1">{item.summaryText}</span>
+          <span data-fact={item.summaryFactId} className="mt-0.5 line-clamp-2 text-xs text-term-sub">{item.summaryText}</span>
         )}
         {item.sector && <span className="block truncate text-xs text-term-label lg:hidden">{item.sector}</span>}
       </span>

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { displayForEntity, type DisplaySourceFiles } from './reader-display';
 import { caseChaptersFor } from './case-chapters';
 import { detailLineFor } from './detail-lines';
-import { listLineFor, textFingerprint } from './list-lines';
+import { listLineFor, summaryLineOf, textFingerprint } from './list-lines';
 import { successPointsFor } from './success-points';
 import { summaryRestFor } from './summary-lines';
 
@@ -40,5 +40,20 @@ describe('画面用の編集文を事例ごとにまとめる', () => {
   it('編集文が無い事例には欄を付けない', () => {
     expect(displayForEntity(files, 'e9')).toBeUndefined();
     expect(listLineFor(undefined, fact)).toBeNull();
+  });
+});
+
+describe('summaryLineOf', () => {
+  const text = '無料の巨人に、有料のブックマーク保存1つで8年挑み続けた1人。累計約2.2億円';
+  const reader = (hash: string) => ({
+    sources: [], facts: [{ id: 'f1', kind: 'DESCRIPTION', text, sourceId: 's', attribution: 'ARTICLE' }], metrics: [], unknowns: [], analysis: [],
+    summaryFactId: 'f1',
+    display: { listLine: { factId: 'f1', factHash: hash, text } },
+  }) as unknown as Parameters<typeof summaryLineOf>[0];
+  it('1行に句点が入っていても全文を返す', () => {
+    expect(summaryLineOf(reader(textFingerprint(text)))).toBe(text);
+  });
+  it('指紋が合わなければ1文目に戻る', () => {
+    expect(summaryLineOf(reader('00000000'))).toBe('無料の巨人に、有料のブックマーク保存1つで8年挑み続けた1人');
   });
 });

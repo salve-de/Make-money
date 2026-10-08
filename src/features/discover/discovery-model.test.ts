@@ -189,7 +189,7 @@ describe("discovery model", () => {
     expect(item.resultLabel).toBe("売却額");
     expect(item.resultValue).toBe("$4M");
     expect(item.resultMetricId).toBe("m1");
-    expect(item.summaryText).toBe("サブスク課金の指標を見せる分析ツール。");
+    expect(item.summaryText).toBe("サブスク課金の指標を見せる分析ツール");
     expect(item.resultEvidenceLabel).not.toBe("推定");
   });
 

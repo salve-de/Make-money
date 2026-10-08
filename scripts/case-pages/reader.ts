@@ -1,5 +1,6 @@
 import type { CasePage } from '../../src/shared/case-page';
 import type { ReaderCase, ReaderSource } from '../../src/shared/reader-case';
+import { textFingerprint } from '../../src/shared/text-fingerprint';
 
 const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; } };
 
@@ -36,6 +37,10 @@ export function buildCasePageReader(page: CasePage, base?: ReaderCase): ReaderCa
     unknowns: [],
     summaryFactId: 'case-page-summary',
     analysis: [],
-    display: { casePage: page },
+    display: {
+      casePage: page,
+      // 一覧の1行（「。」を含んでも全文）。要約の事実と指紋を合わせ、一覧・比較が1文目で切らないようにする
+      listLine: { factId: 'case-page-summary', factHash: textFingerprint(page.listLine), text: page.listLine },
+    },
   };
 }

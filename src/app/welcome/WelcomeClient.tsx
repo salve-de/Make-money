@@ -94,7 +94,7 @@ export default function WelcomeClient({
                     className={`grid min-h-11 grid-cols-1 gap-x-3 border-b border-term-line-soft px-3 py-2 text-sm hover:bg-term-select md:min-h-[29px] md:items-center md:py-1 ${SAMPLE_GRID} ${index % 2 ? 'bg-term-row-alt' : ''}`}
                   >
                     <span className="font-semibold text-term-fg-strong">{entity.name}</span>
-                    <ListDescription reader={entity.reader} className="line-clamp-2 text-term-sub md:line-clamp-1" />
+                    <ListDescription reader={entity.reader} className="line-clamp-2 text-term-sub" />
                     <span className="term-num md:text-right"><ListMetricCell metric={main} expected={['REVENUE']} /></span>
                   </Link>
                 );
