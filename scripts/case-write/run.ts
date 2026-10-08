@@ -9,7 +9,9 @@
  *
  * 段（1件ごと）:
  *   1. 書く: 事例まるごとを1回で（write-prompt.md ＋ 見本 Candy Japan ＋ オーナーとのやりとり ＋ 集めた事実と出典の本文）
+ *   1b. 事実を照らす: 別の呼び出しが、出来事・場所・やり方まで出典の本文と照らし、出典に無い物を外す（fact-prompt.md）
  *   2. 読む: 別の呼び出しが、前提ゼロの読む人として見本と並べて読み、見劣りする所だけ直す（事実は足さない。read-prompt.md）
+ *   2b. 1行を選ぶ: 書く段が出した一覧の1行の候補3つから、別の呼び出しが見本と並べて1つを選ぶか直す（select-prompt.md）
  *   3. 照らす: プログラムが、全章・です／ます・円概算・推定語・使えない出典・出典に無い数字と年・円の換算違いを見る（verify.ts）
  *      合わなければ、書く担当へ違反の一覧を返して直させ、もう一度照らす（上限 --max-repairs 回。超えたらその件は書き出さない）
  * 書き出した後の case-pages:build / check と公開は呼び出し側（case-run の display 段、または人）が行う。
@@ -36,7 +38,7 @@ export interface WriteOptions {
   rights?: Record<string, { decision?: string }>;
   log?: (t: string) => void;
 }
-export interface WriteResult { id: string; ok: boolean; md: string; /** 調べた側のメモ（画面に出さない） */ notes: string; calls: number; seconds: number; costUsd: number; rounds: Array<{ step: string; violations: number }>; violations: WriteViolation[] }
+export interface WriteResult { id: string; ok: boolean; md: string; /** 一覧の1行の候補と選んだ1行 */ leadPick?: { candidates: string; chosen: string }; /** 調べた側のメモ（画面に出さない） */ notes: string; calls: number; seconds: number; costUsd: number; rounds: Array<{ step: string; violations: number }>; violations: WriteViolation[] }
 
 /** AI の返事から markdown だけを取り出す（囲みや前置きが付いても、最初の「# 」の行から） */
 export function extractMarkdown(text: string): string {
@@ -53,15 +55,35 @@ function systemPrompt(root: string, file: string, hideNames: string[]): string {
 }
 
 export const NOTES_HEAD = '調べた側のメモ';
-/** 「## 調べた側のメモ」の章（画面に出さない）を本文から切り離す。メモは docs/owner/research-notes/<id>.md 側に残す */
-export function splitNotes(md: string): { page: string; notes: string } {
-  const m = md.match(new RegExp(`^##\\s+${NOTES_HEAD}\\s*$`, 'm'));
-  if (!m || m.index === undefined) return { page: md, notes: '' };
+export const CANDIDATES_HEAD = '一覧の1行の候補';
+
+/** 「## 見出し」の章を本文から切り離す（画面に出さない章: 調べた側のメモ・一覧の1行の候補） */
+export function splitSection(md: string, head: string): { page: string; body: string } {
+  const m = md.match(new RegExp(`^##\\s+${head}\\s*$`, 'm'));
+  if (!m || m.index === undefined) return { page: md, body: '' };
   const rest = md.slice(m.index + m[0].length);
   const next = rest.search(/^##\s/m);
-  const notes = (next >= 0 ? rest.slice(0, next) : rest).trim();
+  const body = (next >= 0 ? rest.slice(0, next) : rest).trim();
   const page = `${md.slice(0, m.index).trimEnd()}\n${next >= 0 ? `\n${rest.slice(next)}` : ''}`;
-  return { page: page.endsWith('\n') ? page : `${page}\n`, notes: /^なし。?$/.test(notes) ? '' : notes };
+  return { page: page.endsWith('\n') ? page : `${page}\n`, body };
+}
+
+/** 「## 調べた側のメモ」の章（画面に出さない）を本文から切り離す。メモは docs/owner/research-notes/<id>.md 側に残す */
+export function splitNotes(md: string): { page: string; notes: string } {
+  const { page, body } = splitSection(md, NOTES_HEAD);
+  return { page, notes: /^なし。?$/.test(body) ? '' : body };
+}
+
+/** 一覧の1行の章を差し替える */
+export function replaceLead(md: string, lead: string): string {
+  return md.replace(/(^##\s+一覧の1行\s*\n)([\s\S]*?)(?=^##\s)/m, `$1${lead.trim()}\n\n`);
+}
+
+/** 選ぶ担当の返事から1行だけを取り出す（前置き・引用符・番号を外す） */
+export function extractLine(text: string): string {
+  const lines = text.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#') && !l.startsWith('```'));
+  const last = lines.at(-1) ?? '';
+  return last.replace(/^(?:[-・*]|\d+[.．)])\s*/, '').replace(/^[「『"]|[」』"]$/g, '').trim();
 }
 
 export const formatViolations = (v: WriteViolation[]) => v.map((x) => `- [${x.where}] ${x.detail}`).join('\n');
@@ -70,6 +92,10 @@ export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOpti
   const hide = opt.hideNames ?? [];
   const writer = systemPrompt(opt.root, 'write-prompt.md', hide);
   const reader = systemPrompt(opt.root, 'read-prompt.md', hide);
+  const selector = systemPrompt(opt.root, 'select-prompt.md', hide);
+  // 事実を照らす段は文の良し悪しを見ないので、見本とオーナー資料は付けない（入力を小さくする）
+  const factChecker = readFileSync(join(HERE, 'fact-prompt.md'), 'utf8');
+  let leadPick: { candidates: string; chosen: string } | undefined;
   const material = renderInput(input);
   const started = Date.now();
   let calls = 0; let cost = 0;
@@ -83,17 +109,30 @@ export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOpti
   const notesParts: string[] = [];
   const keepNotes = (text: string) => { const x = splitNotes(text); if (x.notes) notesParts.push(x.notes); return x.page; };
   let md = keepNotes(await ask(writer, `${material}\n\n---\nこの事例の画面の文を、指示の形で事例まるごと書く。`, '書く'));
-  rounds.push({ step: '書く', violations: verifyDraft(md, input, opt.rights).length });
+  rounds.push({ step: '書く', violations: verifyDraft(splitSection(md, CANDIDATES_HEAD).page, input, opt.rights).length });
+  // 事実を照らす: 書いた者とは別の呼び出しが、出来事・場所・やり方まで出典の本文と照らし、出典に無い物を外す
+  md = keepNotes(await ask(factChecker, `${material}\n\n---\n## 照らす事例の文\n\n${md}`, '事実を照らす'));
+  // 読む: 前提ゼロの読む人として全文を読み直す
   md = keepNotes(await ask(reader, `## 読み直す事例の文\n\n${md}`, '読む'));
+  // 1行を選ぶ: 候補3つから、見本と並べて1つを選ぶか直す
+  const cut = splitSection(md, CANDIDATES_HEAD);
+  md = cut.page;
+  if (cut.body) {
+    calls++;
+    const r = await caller({ system: selector, user: `## 事例の文（候補を除く）\n\n${md}\n\n## 一覧の1行の候補\n${cut.body}\n\n## 出典で確かめられず外した事実（1行に使わない）\n${notesParts.join('\n').split('\n').filter((l) => l.includes('外した')).join('\n') || 'なし'}\n\n1行だけを返す。`, label: `${input.id} 1行を選ぶ` });
+    cost += r.costUsd ?? 0;
+    const lead = extractLine(r.text);
+    if (lead) { md = replaceLead(md, lead); leadPick = { candidates: cut.body, chosen: lead }; }
+  }
   let v = verifyDraft(md, input, opt.rights);
   rounds.push({ step: '読む', violations: v.length });
   for (let i = 0; i < (opt.maxRepairs ?? 2) && v.length > 0; i++) {
     opt.log?.(`${input.id}: 照合で ${v.length} 件合わない。書く担当へ返す（${i + 1}回目）`);
-    md = keepNotes(await ask(writer, `${material}\n\n---\n## 前に書いた事例の文\n\n${md}\n\n## プログラムの照合で合わなかった所（ここだけを直し、他の文は変えない。直せない数字は文ごと外すか「（推測）」の印を付ける）\n${formatViolations(v)}\n\n直した後の全体を、指示の形で返す。`, `直す${i + 1}`));
+    md = splitSection(keepNotes(await ask(writer, `${material}\n\n---\n## 前に書いた事例の文\n\n${md}\n\n## プログラムの照合で合わなかった所（ここだけを直し、他の文は変えない。直せない数字は文ごと外すか「（推測）」の印を付ける）\n${formatViolations(v)}\n\n直した後の全体を、指示の形で返す（一覧の1行の候補の章は要らない）。`, `直す${i + 1}`)), CANDIDATES_HEAD).page;
     v = verifyDraft(md, input, opt.rights);
     rounds.push({ step: `直す${i + 1}`, violations: v.length });
   }
-  return { id: input.id, ok: v.length === 0, md, notes: [...new Set(notesParts)].join('\n\n'), calls, seconds: Math.round((Date.now() - started) / 1000), costUsd: Number(cost.toFixed(3)), rounds, violations: v };
+  return { id: input.id, ok: v.length === 0, md, leadPick, notes: [...new Set(notesParts)].join('\n\n'), calls, seconds: Math.round((Date.now() - started) / 1000), costUsd: Number(cost.toFixed(3)), rounds, violations: v };
 }
 
 /**
@@ -148,8 +187,8 @@ async function main() {
       // 調べた側のメモは画面の正本に入れず、別の記録に残す（既定: docs/owner/research-notes/<id>.md、試し: <out-dir>/research-notes/<id>.md）
       const notesDir = defaultOut ? join(ROOT, 'docs/owner/research-notes') : join(outDir, 'research-notes');
       mkdirSync(notesDir, { recursive: true });
-      writeFileSync(join(notesDir, `${id}.md`), `# ${input.name}：調べた側のメモ（画面に出さない）\n\n${r.notes || 'なし'}\n\n## 照合の記録\n${r.rounds.map((x) => `- ${x.step}：合わない所 ${x.violations}件`).join('\n')}\n`);
-      appendFileSync(logFile, `${JSON.stringify({ at: new Date().toISOString(), agent, ...r, md: undefined, notes: undefined, violations: r.violations.slice(0, 20) })}\n`);
+      writeFileSync(join(notesDir, `${id}.md`), `# ${input.name}：調べた側のメモ（画面に出さない）\n\n${r.notes || 'なし'}\n\n## 一覧の1行の候補と選んだ1行\n${r.leadPick ? `${r.leadPick.candidates}\n\n選んだ1行：${r.leadPick.chosen}` : 'なし'}\n\n## 照合の記録\n${r.rounds.map((x) => `- ${x.step}：合わない所 ${x.violations}件`).join('\n')}\n`);
+      appendFileSync(logFile, `${JSON.stringify({ at: new Date().toISOString(), agent, ...r, md: undefined, notes: undefined, leadPick: r.leadPick?.chosen, violations: r.violations.slice(0, 20) })}\n`);
       console.log(`[case:write] ${id}: ${r.ok ? '合格' : `不合格（${r.violations.length}件）`} ${r.seconds}秒 呼び出し${r.calls}回 $${r.costUsd} → ${file}`);
       if (!r.ok) failed++;
     } catch (e) {

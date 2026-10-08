@@ -81,19 +81,19 @@ test('extractMarkdown: 前置きと囲みを外し、最初の「# 」から返�
 
 test('writeCase: 書く→読む→照らす。合わなければ書く担当へ返し、直れば合格', async () => {
   const seen: string[] = [];
-  const replies = [page({ did: '2015年に公開した。' }), page({ did: '2015年に公開した。' }), page()];
+  const replies = [page({ did: '2015年に公開した。' }), page({ did: '2015年に公開した。' }), page({ did: '2015年に公開した。' }), page()];
   const caller: Caller = async (req) => { seen.push(req.label); return { text: replies.shift()!, seconds: 0, costUsd: 0.1 }; };
   const r = await writeCase(input, caller, { root: ROOT, maxRepairs: 2 });
   assert.equal(r.ok, true);
-  assert.deepEqual(seen, ['ent_x 書く', 'ent_x 読む', 'ent_x 直す1']);
-  assert.equal(r.calls, 3);
+  assert.deepEqual(seen, ['ent_x 書く', 'ent_x 事実を照らす', 'ent_x 読む', 'ent_x 直す1']);
+  assert.equal(r.calls, 4);
 });
 
 test('writeCase: 直す上限を超えたら不合格のまま返す（書き出さないのは呼び側）', async () => {
   const caller: Caller = async () => ({ text: page({ did: '2015年に公開した。' }), seconds: 0 });
   const r = await writeCase(input, caller, { root: ROOT, maxRepairs: 1 });
   assert.equal(r.ok, false);
-  assert.equal(r.calls, 3);
+  assert.equal(r.calls, 4);
   assert.ok(r.violations.length > 0);
 });
 
@@ -121,4 +121,17 @@ test('splitNotes: 「調べた側のメモ」の章を本文から切り離す�
   assert.ok(r.page.includes('## 数字と出典'));
   assert.equal(splitNotes('# A\n\n## 調べた側のメモ\nなし\n').notes, '');
   assert.equal(splitNotes('# B\n').notes, '');
+});
+
+test('writeCase: 1行の候補3つから、選ぶ担当が選んだ1行に差し替え、候補の章は本文に残さない', async () => {
+  const withCandidates = `${page()}\n## 一覧の1行の候補\n- 候補A\n- 候補B\n- 候補C\n`;
+  const seen: string[] = [];
+  const replies = [withCandidates, withCandidates, withCandidates, '選びました。\n「2019年に公開し、年12万ドル（約1,800万円）を売る店」'];
+  const caller: Caller = async (req) => { seen.push(req.label); return { text: replies.shift()!, seconds: 0 }; };
+  const r = await writeCase(input, caller, { root: ROOT, maxRepairs: 0 });
+  assert.deepEqual(seen, ['ent_x 書く', 'ent_x 事実を照らす', 'ent_x 読む', 'ent_x 1行を選ぶ']);
+  assert.ok(r.md.includes('## 一覧の1行\n2019年に公開し、年12万ドル（約1,800万円）を売る店\n'));
+  assert.ok(!r.md.includes('候補A'));
+  assert.equal(r.leadPick?.chosen, '2019年に公開し、年12万ドル（約1,800万円）を売る店');
+  assert.equal(r.ok, true);
 });
