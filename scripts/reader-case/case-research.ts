@@ -84,6 +84,7 @@ const APPENDIX = `
 - web の検索と閲覧は使ってよい（公開ページだけ。ログインが要る所・規約で自動取得を禁じた所は使わない）。コマンド実行・ファイル作成はしない。
 - 出典の本文は依頼本文に貼ってある物がある。それ以外のページを開いた時は、そのページから原文を一字も変えずに写した引用だけを使う。引用は後で機械が出典の本文と照らし、無い物は捨てる。
 - 数字は出典に書かれた物だけ。推測・換算・平均を事実にしない。分からないことは unknown に書く。
+- 事実の文の数字は、同じ事実の quote に同じ数字がそのまま入っている形にする（検査が機械で照らす）。引用は英語か日本語の表記（例 "$50 million"、"5000万円"）の箇所を優先する。ポルトガル語などの "R$ 50 milhões"・小数点がカンマの "79,90" は機械が数として読めず、その数字は外れる。同じ数字を英語・日本語で書いた別の出典や箇所があればそちらを使う。
 - 最終メッセージは JSON だけ（前置き・説明・コードフェンス無し）。形:
 {"name":"事業名","tagline":"何の事業かの1〜2文(日本語)","description":"2〜3文(日本語)","sector":"NICHE_SAAS など","scale":"SOLO など","founder":"名前か未確認","country":"国か未確認","architecturePattern":"どう売っているかの1文","tags":["..."],"foundedYear":2016,
  "facts":[{"kind":"DESCRIPTION|PRICING|FOUNDING|TEAM|CHANNEL|TOOL|EVENT|EXIT|FUNDING|OTHER","text":"画面に出せる自然な日本語の1文","sourceUrl":"https://...","statedAt":"YYYY-MM か YYYY-MM-DD(任意)","quote":"原文の引用","numberKind":"数を含む事実は必須","asOf":"数を含む事実は必須"}],
@@ -91,10 +92,14 @@ const APPENDIX = `
  "sources":[{"url":"https://...","publisher":"公式サイト など","sourceType":"official_website|official_blog|article|forum|filing","publicationDate":"YYYY-MM-DD か null"}],
  "unknown":["取れなかったこと"],"conflicts":["出典どうしの食い違い"]}
 - sector は ${SECTORS.join(' / ')}、scale は ${SCALES.join(' / ')} のどれか。
+- 後の段（分析・リード）は、確かめられた事実だけを材料にする。「誰が・いつ・何をして・何が起きたか」が分かる具体的な行動と転機の事実（最初の客をどう得たか、何を変えて伸びたか、最初の1年の動き）を、数字の事実とは別に、できるだけ多く（目安10件以上）集める。製品の機能説明で件数を埋めない。
 - 先頭の事実は公式サイトを出典にした DESCRIPTION。創業(FOUNDING)と転機(EVENT/TEAM/CHANNEL/EXIT/FUNDING)の事実を必ず探す。見つからなければ unknown に書く。`;
 
+/** 調べる役は空の作業場所で動くのでファイルを開けない。文の書き方の正本（natural-japanese）はここに貼って渡す */
 export function collectSystem(root: string): string {
-  return readFileSync(join(root, 'scripts/reader-case/collect-prompt.md'), 'utf8') + APPENDIX;
+  const skillFile = join(root, '.claude/skills/natural-japanese/SKILL.md');
+  const skill = existsSync(skillFile) ? `\n\n## 文の書き方の正本（natural-japanese。上の指示で「必ず全部読む」とした物。ここに全文を貼る）\n${readFileSync(skillFile, 'utf8')}` : '';
+  return readFileSync(join(root, 'scripts/reader-case/collect-prompt.md'), 'utf8') + skill + APPENDIX;
 }
 
 function sourceBlock(texts: Map<string, string>): string {
