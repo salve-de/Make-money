@@ -40,7 +40,7 @@ Xbox Shop は2019年に公開した店。2021年の売上は12万ドル（約1,8
 ## 数字と出典
 1. 公式の紹介（公開年、2021年の売上、客の数）：${body.src ?? 'https://x.example/about'}
 
-- 円は1ドル＝150円の目安。
+- 1ドル＝150円で計算
 `;
 
 test('hideLines: 名前を含む行と、「名前:」の後の引用を外す', () => {
@@ -95,4 +95,30 @@ test('writeCase: 直す上限を超えたら不合格のまま返す（書き出
   assert.equal(r.ok, false);
   assert.equal(r.calls, 3);
   assert.ok(r.violations.length > 0);
+});
+
+test('sourceText: 試しで取ってきた本文は data/source-cache でなく指定の場所に残す', async () => {
+  const { mkdtempSync, existsSync, readdirSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { sourceText } = await import('../../case-write/input');
+  const root = mkdtempSync(join(tmpdir(), 'case-write-'));
+  const r = await sourceText(root, 'https://x.example/a', [], async (url) => ({ url, status: 200, fetchedAt: 't', via: 'direct', text: 'x'.repeat(300) }), 'data/source-cache.trial');
+  assert.equal(r?.text.length, 300);
+  assert.equal(existsSync(join(root, 'data/source-cache')), false);
+  assert.equal(readdirSync(join(root, 'data/source-cache.trial')).length, 1);
+  // 2回目は写しから読む（取りに行かない）
+  const again = await sourceText(root, 'https://x.example/a', [], async () => { throw new Error('取りに行った'); }, 'data/source-cache.trial');
+  assert.equal(again?.text.length, 300);
+});
+
+test('splitNotes: 「調べた側のメモ」の章を本文から切り離す（画面に出さない）', async () => {
+  const { splitNotes } = await import('../../case-write/run');
+  const md = '# A\n\n## 数字と出典\n1. x：https://a\n\n## 調べた側のメモ\n- 未確認：売上の期間\n';
+  const r = splitNotes(md);
+  assert.equal(r.notes, '- 未確認：売上の期間');
+  assert.ok(!r.page.includes('未確認'));
+  assert.ok(r.page.includes('## 数字と出典'));
+  assert.equal(splitNotes('# A\n\n## 調べた側のメモ\nなし\n').notes, '');
+  assert.equal(splitNotes('# B\n').notes, '');
 });

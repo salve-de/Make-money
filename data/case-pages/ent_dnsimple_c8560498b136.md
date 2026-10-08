@@ -54,15 +54,5 @@ DNSimple は、アメリカの開発者アンソニー・イーデン（Anthony 
 5. Garrett Dimon による本人への取材（2014年12月の DDoS、最初の客、案内サイト、不正検知と取り消しの見込み、VPS から anycast へ）：https://garrettdimon.com/starting-and-sustaining/interviews/anthony-eden
 6. 公式ブログ（2012年9月、RoboDomain の買収で Carletti が加わる）：https://blog.dnsimple.com/2012/09/dnsimple-acquires-robodomain/
 
-- 円は1ドル＝150円の目安。
+- 1ドル＝150円で計算
 - 数字の範囲：すべて DNSimple 全体の数字。
-- 未確認：現在の売上は非公開で、見つからなかった。2011年の年間売上は、本人が話した「年末の月1万〜1.2万ドル」からの年換算（計算値）で、年間の実績値は確かめていない。創業者は、公式の会社紹介が Eden と Carletti、2012年の公式ブログが Eden と兄（Darrin）とし、食い違う。本文は本人の取材に合わせ、兄と二人とした。人数は約20人（公式）と約25人（取材）で食い違う。「大手より障害が少ない」は着想の見立て（推測）。隠しの音楽プレーヤーと「動かしたくなくなる」は出典が見つからず推測。取材は第509回とGarrett Dimon、saas.group のページ本文と要約で読み、音声との一字一句の照合はしていない。
-
-## 権利の記録
-1. dnsimple.com/about：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-2. dnsimple.com/pricing：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-3. startupsfortherestofus.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-4. saas.group：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-5. garrettdimon.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-6. blog.dnsimple.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-- 読めなかった（本文に使っていない）：SaaSy as Fuck のページ（数字なし）。

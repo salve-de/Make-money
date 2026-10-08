@@ -47,17 +47,7 @@ GoRails は、会社員だったクリス・オリバーが、Web 開発の仕�
 3. VentureBeat の記事（2014年12月19日の買収発表、金額は非公開、計画）：https://venturebeat.com/business/one-month-acquires-gorails-to-expand-its-coding-courses
 4. 公式サイト（96,735人以上、動画826本・140時間以上、関連製品）：https://gorails.com
 5. 公式の料金ページ（個人・チーム・大企業向けの料金）：https://gorails.com/pricing
-6. Indie Hackers の投稿「From free Ruby-on-Rails course to 7-figure ARR ecosystem」（2020年8月18日に3つの事業で累計100万ドル超と発表。検索結果の要約のみ）：https://www.indiehackers.com/post/1Gf3lbbDa7nY8U6u7iuL
+6. Indie Hackers の投稿「From free Ruby-on-Rails course to 7-figure ARR ecosystem」（2020年8月18日に3つの事業で累計100万ドル超と発表）：https://www.indiehackers.com/post/1Gf3lbbDa7nY8U6u7iuL
 
-- 円は1ドル＝150円の目安。
+- 1ドル＝150円で計算
 - 数字の範囲：累計100万ドル超は GoRails・Hatchbox・Jumpstart Rails の合計で、利益ではなく売上。月3,500ドルなどは初期の GoRails だけ。
-- 未確認：Indie Hackers が載せた「運営4年目の月約1.5万ドル（約225万円）」という数字は、ページが読めず、検索結果の要約だけなので本文には使っていない。買収後の運営の経緯と、買収が実際に完了したかは確かめていない（VentureBeat は創業者がニューヨークの One Month のチームに加わると書く）。無料動画の隔週・Reddit と Rubyflow での共有・成長の大半が無料動画から、は出典に見つからず推測。ブラックフライデーが何年かは取材に明記が見つからない。
-
-## 権利の記録
-1. mixergy.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-2. bizarro.dev.to：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-3. venturebeat.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-4. gorails.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-5. gorails.com/pricing：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-6. indiehackers.com/post/1Gf3lbbDa7nY8U6u7iuL：検索結果の要約のみ確認（ページ本体は403で未読）／未確認／未確認／2026-10-08
-- 読めなかった（本文に使っていない）：Indie Hackers のインタビュー（403）。

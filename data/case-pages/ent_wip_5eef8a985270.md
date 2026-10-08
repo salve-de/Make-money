@@ -45,16 +45,7 @@ WIP（Work in Progress）は、オランダ出身で世界を旅しながら働�
 2. 公式の公開統計（終えた作業42万3,477件、5,752プロジェクト、4万1,434コメント、3,305質問、3,825人）：https://wip.co/open
 3. 本人への取材 Hacker Noon（2019年1月15日掲載、2017年9月の開始、ピーターズ・レベルスの勧め、ボット、無料から年100ドル、月20ドルへ、年約4万ドル、口コミ中心、人数を絞る考え）：https://hackernoon.com/founder-interviews-marc-k%C3%B6hlbrugge-of-wip-4f2d6d696d5c
 4. 利用者のブログ記事（2024年12月、年199ドルの PRO、交流が薄いという感想）：https://ilikekillnerds.com/2024/12/15/my-experience-with-wip-co-a-maker-community-thats-missing-the-community/
-5. echai.ventures の WIP 紹介（検索結果の要約のみ。完成前の物を見るのが好き、本人が X で話す、口コミ中心）：https://echai.ventures/startingup/from/wip-wip-co
-6. Marc 本人の「BetaList 10年」の投稿（検索結果の題のみ。本文は未読）：https://typefully.com/marckohlbrugge/10-years-of-betalist-Uq3vYQJ
+5. echai.ventures の WIP 紹介（完成前の物を見るのが好き、本人が X で話す、口コミ中心）：https://echai.ventures/startingup/from/wip-wip-co
+6. Marc 本人の「BetaList 10年」の投稿：https://typefully.com/marckohlbrugge/10-years-of-betalist-Uq3vYQJ
 
-- 円は1ドル＝150円の目安。
-- 未確認：年約4万ドルが売上か利益かは、取材の要約では「年約4万ドル」としか分からない（売上と扱った）。「会費だけ」は原文に無いため「会費などの収入」にした。BetaList の読者の数は見つからず、「読者」は「人脈」にした。Hacker Noon の本文は要約でしか読めていない。echai.ventures の内容は検索結果の要約のみ。2018年以降の売上の数字は見つからなかった。「会費は続けるための仕組みへの対価」は推測。
-
-## 権利の記録
-1. wip.co：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-2. wip.co/open：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-3. hackernoon.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-4. ilikekillnerds.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
-5. echai.ventures：検索結果の要約のみ（本文は未取得）／未確認／未確認／2026-10-08
-6. typefully.com：検索結果の題のみ（本文は未取得）／未確認／未確認／2026-10-08
+- 1ドル＝150円で計算

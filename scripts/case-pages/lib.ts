@@ -123,7 +123,7 @@ export function parseRights(md: string): CasePageRight[] {
 
 // ---- 軽い検査（4つだけ） ----
 
-export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate'; where: string; detail: string }
+export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate' | 'maker-memo'; where: string; detail: string }
 
 /** 一覧の1行に出さない語（推定の数字は嘘になりうるので出さない。文の良し悪しは機械で決めない） */
 const LIST_LINE_ESTIMATE = /推定|推測/g;
@@ -199,12 +199,28 @@ export function missingChapters(md: string, optional: readonly string[] = []): V
 /** どの事例でも省いてよい章（つまずきの材料が無い事例もある）。無い章は空にして、画面ではその章を出さない */
 export const OPTIONAL_CHAPTERS: readonly string[] = [CHAPTER_HEADS.setbacks];
 
+/** 調べた側のメモの言葉（読む人には要らない。権利・読めたか・未確認・作る側のやりとり）。画面の文に出さず、docs/owner/research-notes/<事例ID>.md へ置く */
+const MAKER_MEMO = /未確認|利用規約|ログインなし|有料の壁|本文に使っていない|読めなかった|集められなかった|見つからなかった|照合はまだ|指示を受けた|直した点|の目安|計算した/g;
+
+/** 言い回しと印の二重（「と推定される（推定）」「とみられる（推測）」）。印は1か所に1つだけ */
+const DOUBLE_HEDGE = /(?:と推定される|と推測される|と(?:み|見)られる|と思われる|とされる|と表示される)。?[（(](?:推定|推測)[）)]/g;
+
+export function checkMakerMemo(md: string): Violation[] {
+  const v: Violation[] = [];
+  for (const [name, lines] of sections(md)) {
+    if (name === RIGHTS_HEAD) continue;
+    lines.forEach((l) => { for (const m of l.matchAll(DOUBLE_HEDGE)) v.push({ rule: 'maker-memo', where: name, detail: `「${m[0]}」は言い回しと印の二重。印（推定・推測）だけ残す` }); });
+    lines.forEach((l) => { for (const m of l.matchAll(MAKER_MEMO)) v.push({ rule: 'maker-memo', where: name, detail: `「${m[0]}」は調べた側のメモ。画面の文に出さず docs/owner/research-notes/ へ移す（${l.trim().slice(0, 40)}）` }); });
+  }
+  return v;
+}
+
 export function checkMarkdown(md: string): { page: CasePage | null; violations: Violation[] } {
   const missing = missingChapters(md, OPTIONAL_CHAPTERS);
   if (missing.length > 0) return { page: null, violations: missing };
   try {
     const page = parseCasePage(md);
-    return { page, violations: checkCasePage(page) };
+    return { page, violations: [...checkCasePage(page), ...checkMakerMemo(md)] };
   } catch (e) {
     return { page: null, violations: [{ rule: 'missing-chapter', where: '全体', detail: `読めない: ${(e as Error).message.slice(0, 160)}` }] };
   }

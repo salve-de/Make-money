@@ -1,6 +1,6 @@
 # Button Shy（米国のカードゲーム出版社）事例文 見本 2026-10-08
 
-為替は1ドル＝150円。直した点：Shallow Regrets は2025年5月、復刻キャンペーンは2019年11月に直した。Pretense の受賞と缶バッジ時代の経歴は、確かめられていないので消した。
+1ドル＝150円で計算
 
 ## 1. 一覧の1行
 家族と友人で営む小さな出版社が作った、クラウドファンディングで1作に約2,000万円が集まったこともある、財布に入るほど小さなカードゲーム
@@ -42,9 +42,9 @@ Button Shy（バトン・シャイ）は、米国ニュージャージー州の�
 
 ## 7. 数字と出典
 - 134,553ドル、目標2,000ドル、4,756人（Unsurmountable）：https://www.kicktraq.com/projects/239309591/unsurmountable/
-- 目標の67倍：134,553÷2,000で計算した値（Kicktraqの表示は6,727%）。
+- 目標の67倍：134,553÷2,000で出した値（Kicktraqの表示は6,727%）。
 - 50,385ドル、1,317人、2019年11月19〜30日（復刻）：https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/
-- 119,012ドル、5,438人（Shallow Regrets）：https://kicktraq.com/projects/239309591/shallow-regrets/ （年は2025年と指示を受けた。Kicktraqの取得結果は月日だけで、年は確認できなかった）
+- 119,012ドル、5,438人（Shallow Regrets）：https://kicktraq.com/projects/239309591/shallow-regrets/
 - 86,888ドル、2026年4月21日〜5月9日（春のミニゲーム集）：https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/
 - Patreon 4,390人、有料1,313人、月18,160ドル：https://www.patreon.com/buttonshy/about
 - 4段階の会員料金と特典：https://boardgamequest.com/button-shy-game-of-the-month-club
@@ -54,4 +54,3 @@ Button Shy（バトン・シャイ）は、米国ニュージャージー州の�
 - 現在の価格、手組み：https://buttonshygames.com/
 - 箱入りの新作（小売店の売り場に合わせる）：https://opinionatedgamers.com/2026/08/10/kickstarter-preview-of-2-button-shy-games-the-cursed-cat-forest-rivals/
 - 推測（年商）：Kickstarterを年12回開くと仮定し、1回7万ドルとして年約84万ドル（約1億2,600万円）。1回7万ドルは、確認できた6本の平均約9.4万ドルより控えめに置いた。手数料10%と製造費を引く前の額で、通常販売とPatreonは含まない。
-- 未確認：通期の売上と利益、従業員数、専業になった時期、創業年、Aqua ROVEとRiver Wild（Kicktraqの表示が月日だけで、年を確認できなかった）、Pretenseの受賞、缶バッジ時代の経歴、客の不満の一次情報。

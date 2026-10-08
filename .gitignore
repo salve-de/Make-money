@@ -82,6 +82,7 @@ __pycache__/
 
 # 出典本文の照合（scripts/reader-case/fetch-sources.ts など）。結果の data/reader-verdicts.json だけコミットする
 /data/source-cache/
+/data/source-cache.trial/
 /data/verify/
 # 推論（reader.analysis）の作業ファイル。結果の data/reader-analysis.json だけコミットする
 /data/analyze/

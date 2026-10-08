@@ -37,8 +37,7 @@ const MD = `# 題（試し書き）2026-10-08
 1. 公式サイト（料金）：https://example.com/
 2. 本人の振り返り（売上）：https://example.com/review
 
-- 円は1ドル＝150円の目安。
-- 未確認：原文の照合はまだ。
+- 1ドル＝150円で計算
 
 ## 権利の記録
 1. example.com：ログインなしで読めた／2026-10-08
@@ -55,7 +54,7 @@ describe('章ごとの文を読む', () => {
     ]);
     expect(page.timeline[1]).toEqual({ when: '流行後', what: '受付を止める。' });
     expect(page.sources[1]).toEqual({ no: 2, label: '本人の振り返り（売上）', url: 'https://example.com/review' });
-    expect(page.notes).toEqual(['円は1ドル＝150円の目安。', '未確認：原文の照合はまだ。']);
+    expect(page.notes).toEqual(['1ドル＝150円で計算']);
     expect(JSON.stringify(page)).not.toContain('試し書き');
     expect(CasePageSchema.safeParse(page).success).toBe(true);
   });
@@ -101,6 +100,12 @@ describe('軽い検査（4つ）', () => {
     expect(foreignWithoutYen('3万6千ドル（約540万円）と50ドル')).toEqual(['50ドル']);
     expect(foreignWithoutYen('日本円で3,000円')).toEqual([]);
   });
+  it('調べた側のメモ（未確認・権利の記録など）が画面の章に入った文は止める', () => {
+    expect(checkMarkdown(MD.replace('駄菓子の定期便で累計1.5億円', '駄菓子の定期便で累計1.5億円')).violations).toEqual([]);
+    for (const w of ['未確認：売上は照合中。', '1ドル＝150円の目安。', '1ドル＝150円で計算した。', 'ログインなしで読めた。', '売上は約3万ドルと推定される（推定）。', '狙いだったとみられる（推測）。']) {
+      expect(checkMarkdown(MD.replace('- 掲示板に投稿した。', `- 掲示板に投稿した。${w}`)).violations.some((v) => v.rule === 'maker-memo'), w).toBe(true);
+    }
+  });
   it('利用が保留・不可の出典を挙げた文は止める', () => {
     expect(heldSources(page, { 'https://example.com/review/': { decision: 'held' }, 'https://example.com/': { decision: 'allowed' } }).map((v) => v.where)).toEqual(['出典2']);
     expect(heldSources(page, {})).toEqual([]);
@@ -117,7 +122,7 @@ describe('番号つき見出しと任意の章', () => {
   const md = readFileSync('data/case-pages/ent_button_shy_f1545f17d98e.md', 'utf8');
   it('見出しの番号を外して読み、無い章は空にする', () => {
     const page = parseCasePage(md);
-    expect(page.listLine).toBe('家族と友人で営む小さな出版社がほぼ毎月出し、新作1本がクラウドファンディングで12日間に2,018万円を集めた、財布に入る18枚以内のカードゲーム');
+    expect(page.listLine).toBe('家族と友人で営む小さな出版社が作った、クラウドファンディングで1作に約2,000万円が集まったこともある、財布に入るほど小さなカードゲーム');
     expect(page.setbacks).toEqual([]);
     expect(page.secrets).toHaveLength(5);
     expect(page.sources.length).toBeGreaterThan(5);

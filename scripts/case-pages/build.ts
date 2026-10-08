@@ -1,5 +1,5 @@
 /**
- * data/case-pages/<事例ID>.md を読み、画面用の data/case-pages.json を作り、権利の記録の章は出典の権利台帳（data/source-rights-ledger.json。docs/architecture/RIGHTS_LEDGER.md）へ取り込む（画面には出さない）。
+ * data/case-pages/<事例ID>.md を読み、画面用の data/case-pages.json を作り、権利の記録（docs/owner/research-notes/<事例ID>.md。古い形では正本の章）は出典の権利台帳（data/source-rights-ledger.json。docs/architecture/RIGHTS_LEDGER.md）へ取り込む（画面には出さない）。
  * --check: 書かずに、検査（です・ます／一覧の1行／外貨の円概算／全章／使えない出典）と、書き出し済みの json が md と合っているかを見る。
  * 使い方: node --import tsx scripts/case-pages/build.ts [--check]
  */
@@ -13,6 +13,7 @@ import type { CasePage } from '../../src/shared/case-page';
 export const CASE_PAGES_DIR = 'data/case-pages';
 export const CASE_PAGES_FILE = 'data/case-pages.json';
 export const SOURCE_RIGHTS_FILE = 'data/catalog-source-rights.json';
+export const RESEARCH_NOTES_DIR = 'docs/owner/research-notes';
 
 export const readJsonOr = <T,>(path: string, fallback: T): T => (existsSync(path) ? (JSON.parse(readFileSync(path, 'utf8')) as T) : fallback);
 
@@ -31,7 +32,9 @@ export function buildAll(dir = CASE_PAGES_DIR) {
     for (const v of checked.violations) violations.push({ entityId, ...v });
     if (checked.page) for (const v of heldSources(checked.page, sourceRights)) violations.push({ entityId, ...v });
     if (checked.page) pages.push({ entityId, page: parseCasePage(md) });
-    rights[entityId] = parseRights(md);
+    // 権利の記録は調べた側のメモ（docs/owner/research-notes/<事例ID>.md）に置く。画面の正本に残っている古い形も読む
+    const notesPath = `${RESEARCH_NOTES_DIR}/${entityId}.md`;
+    rights[entityId] = [...parseRights(md), ...(existsSync(notesPath) ? parseRights(readFileSync(notesPath, 'utf8')) : [])];
   }
   return { pages, rights, violations };
 }

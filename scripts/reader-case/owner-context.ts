@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 /** 自動の流れの AI はファイルを開けないので、オーナーとのやりとりと経緯の正本を、指示（system prompt）の末尾に貼って渡す */
-const FILES = ['docs/owner/LEAD_LINE_SHEET.md', 'docs/owner/OVERVIEW_SHEET.md', 'docs/owner/OWNER_DIALOGUE_LOG.md'];
+const FILES = ['docs/owner/READER_EYE.md', 'docs/owner/LEAD_LINE_SHEET.md', 'docs/owner/OVERVIEW_SHEET.md', 'docs/owner/OWNER_DIALOGUE_LOG.md'];
 
 export const OWNER_CONTEXT_HEADING = '## オーナーとのやりとりと経緯（必ず従う。決まりに無い場面は、ここにあるオーナーの理由から判断する）';
 

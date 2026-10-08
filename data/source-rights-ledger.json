@@ -8,10 +8,10 @@
    "siteUrl": "https://80.lv/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -21,7 +21,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -63,6 +63,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -71,10 +77,10 @@
    "siteUrl": "https://alternativeto.net/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -84,7 +90,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -126,6 +132,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -207,10 +219,10 @@
    "siteUrl": "https://arc.dev/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -220,7 +232,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -262,6 +274,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -270,10 +288,10 @@
    "siteUrl": "https://atticusli.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -283,7 +301,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -325,6 +343,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -417,10 +441,10 @@
    "siteUrl": "https://beautyindependent.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -430,7 +454,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -472,6 +496,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -553,10 +583,10 @@
    "siteUrl": "https://betakit.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -566,7 +596,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -608,6 +638,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -616,10 +652,10 @@
    "siteUrl": "https://betterlaunch.co/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -629,7 +665,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -671,6 +707,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -763,10 +805,10 @@
    "siteUrl": "https://btw.media/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -776,7 +818,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -818,6 +860,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -826,10 +874,10 @@
    "siteUrl": "https://businessofbusiness.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -839,7 +887,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -881,6 +929,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -1207,10 +1261,10 @@
    "siteUrl": "https://calmfund.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -1220,7 +1274,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（本文は取得できず（404）、検索結果の要約のみ／未確認／未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（本文は取得できず（404）、検索結果の要約のみ／未確認／未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -1262,6 +1316,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -1420,10 +1480,10 @@
    "siteUrl": "https://changelog.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -1433,7 +1493,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -1475,6 +1535,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -1799,10 +1865,10 @@
    "siteUrl": "https://costbench.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -1812,7 +1878,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -1854,6 +1920,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -1970,10 +2042,10 @@
    "siteUrl": "https://dev.to/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -1983,7 +2055,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2028,6 +2100,12 @@
     },
     {
      "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
@@ -2318,10 +2396,10 @@
    "siteUrl": "https://echai.ventures/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -2331,7 +2409,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果の要約のみ（本文は未取得）／未確認／未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約のみ（本文は未取得）／未確認／未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2373,6 +2451,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -2454,10 +2538,10 @@
    "siteUrl": "https://entrackr.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -2467,7 +2551,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2509,6 +2593,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -2666,10 +2756,10 @@
    "siteUrl": "https://fora.ie/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -2679,7 +2769,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2721,6 +2811,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -2802,10 +2898,10 @@
    "siteUrl": "https://fullstackradio.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -2815,7 +2911,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2857,6 +2953,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -2865,10 +2967,10 @@
    "siteUrl": "https://garrettdimon.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -2878,7 +2980,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -2920,6 +3022,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -3064,10 +3172,10 @@
    "siteUrl": "https://getapp.co.uk/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3077,7 +3185,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（本文は読まず、検索結果の要約のみ参照／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（本文は読まず、検索結果の要約のみ参照／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -3119,6 +3227,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -3127,10 +3241,10 @@
    "siteUrl": "https://getlatka.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3140,7 +3254,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（検索結果の要約のみ確認（ページ本体は未読）／未確認／未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた（要約）／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし（一部機能は会員向けの可能性）／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（検索結果の要約のみ確認（ページ本体は未読）／未確認／未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた（要約）／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし（一部機能は会員向けの可能性）／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -3185,6 +3299,12 @@
     },
     {
      "at": "2026-10-08T17:49:16+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
@@ -3261,10 +3381,10 @@
    "siteUrl": "https://glossy.co/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3274,7 +3394,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -3316,6 +3436,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -3404,10 +3530,10 @@
    "siteUrl": "https://grahammann.net/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3417,7 +3543,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -3459,6 +3585,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -3551,10 +3683,10 @@
    "siteUrl": "https://hackernoon.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3564,7 +3696,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -3606,6 +3738,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -3954,10 +4092,10 @@
    "siteUrl": "https://ilikekillnerds.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -3967,7 +4105,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4009,6 +4147,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4017,10 +4161,10 @@
    "siteUrl": "https://inc42.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4030,7 +4174,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4072,6 +4216,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4258,10 +4408,10 @@
    "siteUrl": "https://interiorai.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4271,7 +4421,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4313,6 +4463,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4321,10 +4477,10 @@
    "siteUrl": "https://jawapos.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4334,7 +4490,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果で確認／本文は未読／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果で確認／本文は未読／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4376,6 +4532,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -4384,10 +4546,10 @@
    "siteUrl": "https://lilys.ai/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4397,7 +4559,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4439,6 +4601,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4597,10 +4765,10 @@
    "siteUrl": "https://marclou.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4610,7 +4778,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4652,6 +4820,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -4744,10 +4918,10 @@
    "siteUrl": "https://matthewbutterick.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -4757,7 +4931,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -4799,6 +4973,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5135,10 +5315,10 @@
    "siteUrl": "https://netsolutions.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5148,7 +5328,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5190,6 +5370,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5263,10 +5449,10 @@
    "siteUrl": "https://news.ventureintelligence.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5276,7 +5462,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5318,6 +5504,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5556,10 +5748,10 @@
    "siteUrl": "https://om.co/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5569,7 +5761,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5611,6 +5803,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5619,10 +5817,10 @@
    "siteUrl": "https://onepage-research.sliplane.app/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5632,7 +5830,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（本文は読めず、検索結果の要約のみ／未確認／未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（本文は読めず、検索結果の要約のみ／未確認／未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5674,6 +5872,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -5682,10 +5886,10 @@
    "siteUrl": "https://pinboard.in/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5695,7 +5899,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／引用禁止の記載は見当たらず（規約は未確認）。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／引用禁止の記載は見当たらず（規約は未確認）。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。） / 章ごとの文の取り込み（ログインなし／有料の壁なし／規約は未確認。）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5737,6 +5941,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5745,10 +5955,10 @@
    "siteUrl": "https://podcast.creatorscience.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5758,7 +5968,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5800,6 +6010,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -5808,10 +6024,10 @@
    "siteUrl": "https://practicalfounders.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -5821,7 +6037,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -5863,6 +6079,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -6181,10 +6403,10 @@
    "siteUrl": "https://ramenclub.transistor.fm/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -6194,7 +6416,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -6236,6 +6458,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -6585,10 +6813,10 @@
    "siteUrl": "https://saas.group/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -6598,7 +6826,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -6640,6 +6868,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -6648,10 +6882,10 @@
    "siteUrl": "https://saastock.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -6661,7 +6895,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -6703,6 +6937,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -6711,10 +6951,10 @@
    "siteUrl": "https://ship30for30.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -6724,7 +6964,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -6766,6 +7006,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -6774,10 +7020,10 @@
    "siteUrl": "https://shipfa.st/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -6787,7 +7033,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -6829,6 +7075,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -6966,10 +7218,10 @@
    "siteUrl": "https://sourcify.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -6979,7 +7231,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7021,6 +7273,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7116,10 +7374,10 @@
    "siteUrl": "https://startupsfortherestofus.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7129,7 +7387,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7171,6 +7429,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7308,10 +7572,10 @@
    "siteUrl": "https://tbf.fm/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7321,7 +7585,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7363,6 +7627,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7458,10 +7728,10 @@
    "siteUrl": "https://tech.eu/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7471,7 +7741,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7513,6 +7783,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7601,10 +7877,10 @@
    "siteUrl": "https://techmonitor.ai/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7614,7 +7890,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7656,6 +7932,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7664,10 +7946,10 @@
    "siteUrl": "https://thebootstrappedfounder.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7677,7 +7959,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／規約は未確認）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7719,6 +8001,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7727,10 +8015,10 @@
    "siteUrl": "https://thehistoryoftheweb.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7740,7 +8028,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（照合役の検索結果で確認。本文は自分では未読／規約は未確認。）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（照合役の検索結果で確認。本文は自分では未読／規約は未確認。）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7782,6 +8070,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -7790,10 +8084,10 @@
    "siteUrl": "https://thepnr.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7803,7 +8097,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7845,6 +8139,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7853,10 +8153,10 @@
    "siteUrl": "https://theygotacquired.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7866,7 +8166,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7908,6 +8208,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7916,10 +8222,10 @@
    "siteUrl": "https://tighten.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7929,7 +8235,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -7971,6 +8277,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -7979,10 +8291,10 @@
    "siteUrl": "https://tooldirectory.ai/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -7992,7 +8304,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8034,6 +8346,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -8042,10 +8360,10 @@
    "siteUrl": "https://trustmrr.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -8055,7 +8373,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8097,6 +8415,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -8370,10 +8694,10 @@
    "siteUrl": "https://typefully.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -8383,7 +8707,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果の題のみ（本文は未取得）／未確認／未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の題のみ（本文は未取得）／未確認／未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8425,6 +8749,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -8433,10 +8763,10 @@
    "siteUrl": "https://upstartsmedia.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -8446,7 +8776,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8488,6 +8818,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -8653,10 +8989,10 @@
    "siteUrl": "https://vacation.inc/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -8666,7 +9002,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8708,6 +9044,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -8716,10 +9058,10 @@
    "siteUrl": "https://venturebeat.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -8729,7 +9071,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（検索結果で確認／本文は未読／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（検索結果で確認／本文は未読／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8771,6 +9113,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   },
@@ -8779,10 +9127,10 @@
    "siteUrl": "https://videohighlight.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -8792,7 +9140,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8834,6 +9182,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -8842,10 +9196,10 @@
    "siteUrl": "https://web.archive.org/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:51:40+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:51:40+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -8855,7 +9209,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -8897,6 +9251,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -9099,10 +9459,10 @@
    "siteUrl": "https://ycombinator.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T18:09:24+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T18:09:24+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -9112,7 +9472,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -9160,6 +9520,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -9168,10 +9534,10 @@
    "siteUrl": "https://yespress.io/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T16:33:11+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T16:33:11+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -9181,7 +9547,7 @@
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -9223,6 +9589,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },
@@ -9231,10 +9603,10 @@
    "siteUrl": "https://yourstory.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-09T00:02:36+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
-    "decidedBy": "AI（集める段の自動判断、2026-10-08）",
+    "decidedAt": "2026-10-09T00:02:36+09:00",
+    "decidedBy": "AI（集める段の自動判断、2026-10-09）",
     "basis": "ai_judgment",
     "policyIds": [],
     "reviewUrls": [],
@@ -9244,7 +9616,7 @@
      "loginFree": "unconfirmed",
      "noPaywall": "unconfirmed",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（検索結果の要約のみ確認（ページ本体は未読）／未確認／未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-09): 章ごとの文の取り込み（検索結果の要約のみ確認（ページ本体は未読）／未確認／未確認／2026-10-08）"
     },
     "termsUrl": null,
     "termsCheckedAt": null
@@ -9286,6 +9658,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-09T00:02:36+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=unconfirmed 有料の壁なし=unconfirmed 引用=unconfirmed）"
     }
    ]
   }

@@ -4,8 +4,8 @@
  * AI はファイルを開けないので、出典の本文もここで文字にして渡す。
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { cachePath, MIN_TEXT, type SourceCacheRecord } from '../reader-case/verify-lib';
+import { basename, dirname, join } from 'node:path';
+import { CACHE_DIR, cachePath, MIN_TEXT, type SourceCacheRecord } from '../reader-case/verify-lib';
 
 export interface CollectedFact { text: string; sourceUrl?: string; statedAt?: string | null; eventPeriod?: string; attribution?: string }
 export interface CollectedSource { no: number; url: string; text: string; via?: string; error?: string }
@@ -61,23 +61,27 @@ export function sourceUrlsOf(r: RawRecord): string[] {
 
 export type Fetcher = (url: string) => Promise<SourceCacheRecord>;
 
-/** 出典の本文を、取得済みの写し（root と cacheDirs）から読む。無ければ fetcher で取り、root の写しに残す */
-export async function sourceText(root: string, url: string, cacheDirs: readonly string[], fetcher?: Fetcher): Promise<SourceCacheRecord | undefined> {
-  for (const base of [root, ...cacheDirs]) {
-    const p = join(base, cachePath(url));
+/**
+ * 出典の本文を、取得済みの写し（root と cacheDirs の data/source-cache、と writeDir）から読む。無ければ fetcher で取り、root の writeDir に残す。
+ * writeDir の既定は data/source-cache。試しでは data/source-cache.trial にする（本番の写しは証拠の照合 evidence:check が読むので、試しで増やさない）。
+ */
+export async function sourceText(root: string, url: string, cacheDirs: readonly string[], fetcher?: Fetcher, writeDir = CACHE_DIR): Promise<SourceCacheRecord | undefined> {
+  const name = basename(cachePath(url));
+  const candidates = [...[root, ...cacheDirs].map((b) => join(b, CACHE_DIR, name)), join(root, writeDir, name)];
+  for (const p of candidates) {
     if (existsSync(p)) {
       try { const r = JSON.parse(readFileSync(p, 'utf8')) as SourceCacheRecord; if (r.text.length >= MIN_TEXT) return r; } catch { /* 次へ */ }
     }
   }
   if (!fetcher) return undefined;
   const r = await fetcher(url);
-  const p = join(root, cachePath(url));
+  const p = join(root, writeDir, name);
   mkdirSync(dirname(p), { recursive: true });
   writeFileSync(p, JSON.stringify(r));
   return r;
 }
 
-export interface InputOptions { cacheDirs?: readonly string[]; fetcher?: Fetcher; maxSources?: number; maxCharsPerSource?: number }
+export interface InputOptions { cacheDirs?: readonly string[]; fetcher?: Fetcher; /** 取ってきた本文を残す場所（root からの相対）。既定 data/source-cache */ writeCacheDir?: string; maxSources?: number; maxCharsPerSource?: number }
 
 export async function buildInput(root: string, id: string, opt: InputOptions = {}): Promise<CaseInput> {
   const r = findRecord(root, id);
@@ -86,7 +90,7 @@ export async function buildInput(root: string, id: string, opt: InputOptions = {
   const max = opt.maxCharsPerSource ?? 12_000;
   const sources: CollectedSource[] = [];
   for (const url of urls) {
-    const c = await sourceText(root, url, opt.cacheDirs ?? [], opt.fetcher);
+    const c = await sourceText(root, url, opt.cacheDirs ?? [], opt.fetcher, opt.writeCacheDir);
     sources.push({ no: sources.length + 1, url, text: (c?.text ?? '').slice(0, max), via: c?.via, ...(c && c.text.length >= MIN_TEXT ? {} : { error: c?.error ?? '本文を取れなかった' }) });
   }
   return {
