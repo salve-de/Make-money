@@ -13,3 +13,8 @@
 - 読めなかった（本文に使っていない）：Indie Hackers の本体（403。保存版で読んだ）、yespress.io（まとめサイト）。
 
 - 出典ラベルから外した断り書き：。検索結果の要約のみ）
+
+
+## 画面から外したメモ（2026-10-09 読み直し）
+- 出典6は Wayback Machine の保存版で読んだ。出典4の200万ドル近くは Tailwind UI の数字で、Refactoring UI ではない。
+- 100万ドルと300万ドルは Refactoring UI の売上で、利益ではない。プラン名 Essentials・Complete Package。

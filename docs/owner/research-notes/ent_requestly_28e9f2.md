@@ -13,3 +13,10 @@
 7. businesswire.com：検索結果の要約で確認／有料の壁なし／利用規約は未確認／2026-10-08
 - 読めなかった（本文に使っていない）：Indie Hackers の対談、thekredible.com。
 - 使わなかった：Y Combinator の掲載（利用の許可が保留のため）。
+
+
+## 画面から外したメモ（2026-10-09 読み直し）
+- 2024年度の売上と利益は Venture Intelligence の「約4 Cr」「約14 lakh」。Entrackr・BrowserStack の発表には載っていない。
+- Peak XV Partners は旧 Sequoia Capital India（2023年に改称）。
+- 料金の付帯：30日の試用（カード不要、上位版の全機能）。公開当初の値段は確認できていない。プラン名 Team・Team Pro・Enterprise。
+- 買収額は非公開。

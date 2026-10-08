@@ -10,3 +10,9 @@
 4. startupsfortherestofus.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
 5. getlatka.com：ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08
 - 読めなかった（本文に使っていない）：postandcourier.com（429）、charlestonbusiness.com／scbiz.com（403）。blog の「Introducing Churnkey」は内容が他社の話と思われ、使っていない。
+
+
+## 画面から外したメモ（2026-10-09 読み直し）
+- 料金の付帯条件（価格は12か月固定、14日間の無料お試し）は画面から外した。
+- プラン名：Starter 月250ドル（月払い300ドル）、Core 月500〜1,300ドル、Intelligence 月625〜1,425ドル。Core・Intelligence の額は月の解約額5万ドルまでの範囲。
+- 売上170万ドルは Latka（出所の明記が弱いまとめページ）の推定。Wavve の月15万ドルは継続収入（売上とは別の指標）。

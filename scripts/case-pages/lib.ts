@@ -200,7 +200,7 @@ export function missingChapters(md: string, optional: readonly string[] = []): V
 export const OPTIONAL_CHAPTERS: readonly string[] = [CHAPTER_HEADS.setbacks];
 
 /** 調べた側のメモの言葉（読む人には要らない。権利・読めたか・未確認・作る側のやりとり）。画面の文に出さず、docs/owner/research-notes/<事例ID>.md へ置く */
-const MAKER_MEMO = /未確認|利用規約|ログインなし|有料の壁|本文に使っていない|読めなかった|集められなかった|見つからなかった|照合はまだ|指示を受けた|直した点|の目安|計算した/g;
+const MAKER_MEMO = /未確認|利用規約|ログインなし|有料の壁|本文に使っていない|読めなかった|集められなかった|見つからなかった|照合はまだ|指示を受けた|直した点|の目安|計算した|数字の範囲[:：]|書き手不明|筆者の|計算値|照合は|要再確認|出所の明記/g;
 
 /** 言い回しと印の二重（「と推定される（推定）」「とみられる（推測）」）。印は1か所に1つだけ */
 const DOUBLE_HEDGE = /(?:と推定される|と推測される|と(?:み|見)られる|と思われる|とされる|と表示される)。?[（(](?:推定|推測)[）)]/g;
