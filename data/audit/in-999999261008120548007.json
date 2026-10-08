@@ -1,0 +1,634 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_heygen_8f11a1",
+   "scope": "diff",
+   "auditScope": "差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "文章・画像・音声・スライドから、本人そっくりのアバターが話す動画を作るAI動画サービス。カメラも編集ソフトも制作スキルも要らず、175以上の言語・方言への翻訳に対応し、動画生成・翻訳・リップシンクの開発者向けAPIもある。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "FOUNDING",
+     "text": "創業者のJoshua XuはSnapのエンジニアとして広告とAIカメラの機能を作っていたとき、人は動画が好きなのにカメラの前に立つのは嫌がる、という事実に気づいた。HeyGenはそこから生まれたと公式Aboutは語る。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "公式Aboutは、従来の動画づくりには撮影機材・俳優・場所・編集・撮り直しが要り、完成した動画の制作費が1分あたり最低1,000ドルになることもあると述べ、台本を書くだけで動画が作れる点を売りにしている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "FOUNDING",
+     "text": "英語版Wikipediaは、HeyGenを2020年にJoshua XuとWayne Liangが創業した、ロサンゼルス本社のAI動画の会社と記す。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f5",
+     "kind": "EVENT",
+     "text": "公式ブログ（2026-06-25、署名Joshua Xu）は、年間経常収益（ARR）が2億ドルを超え、8か月で倍増したと発表。利用者3,000万人超、196か国、フォーチュン100社の85%、これまでに作られた動画は1億1,800万本超とも記す。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "OTHER",
+     "text": "同ブログは、調達した株式資本1ドルあたりのARRが約2.70ドルで、ZoomやDatadogの上場時より資本効率が高いと主張する。要因として、技術基盤を端から端まで自社で持つこと、少人数で成果が高いこと、口コミ中心で伸びる商品の3点を挙げる。調達額そのものは記載がない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "TEAM",
+     "text": "公式の採用ページは、世界の従業員が150人超と表示する（表示時点の日付はない）。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "PRICING",
+     "text": "料金ページはFreeが月0ドル、Creatorが月29ドル、その上にPro、法人向けのEnterpriseを置く。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "直近3か月で63の製品・機能を出荷したと同ブログは述べる。15秒の動画から表情や身ぶりを再現するAvatar V、HeyGen MCP、オープンソース（Apache 2.0）の動画づくり枠組みHyperFramesなど。HyperFramesは公開1か月でGitHubスター2万1,600を集めた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "公式ブログの利用例。アーティストのKellie DeFriesは夜11時の撮影をデジタルツインに置き換えてオンライン講座を教えさせ、不動産業者のCraig Veroniは個人ブランドのInstagram動画に使い、Lisa Anugwom NarhはYouTubeのチャンネルを1回の収録から広げた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "FUNDING",
+     "text": "公式Aboutは出資者としてBenchmark、Conviction、Thrive Capital、Bondを挙げ、報道一覧にビジネスインサイダーの2024年9月9日の記事（見出しは「44 of the most promising AI startups of 2024, according to top VCs」）を載せている。調達額は記載がない。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=REVENUE / 名前=年間経常収益（ARR）、2億ドル超 / 期間=2026-06-25(POINT) / 金額=200000000 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m2",
+     "line": "項目=USERS / 名前=利用者数、3,000万人超 / 期間=2026-06-25(POINT) / 金額=30000000 人 / 由来=SELF_REPORTED"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+     "publisher": "HeyGen公式ブログ",
+     "snapshot": {
+      "url": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+      "finalUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:44:24.198Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7c5216ee0fade5b774deff9397d3e5e0dd22b0509aafcd50189c92d195a5d972"
+     },
+     "text": "HeyGen Surpasses $200M ARR as AI Video Adoption Accelerates\nHeyGen surpassed $200M ARR, serving 30M+ users worldwide. Learn how identity-first AI video is reshaping communication for creators and enterprises.\nHeyGen Surpasses $200M ARR as AI Video Adoption Accelerates\nHeyGen surpassed $200M ARR, serving 30M+ users worldwide. Learn how identity-first AI video is reshaping communication for creators and enterprises.\nHeyGen Surpasses $200M ARR as AI Video Adoption Accelerates\n|\nPlatform Use cases Developers Resources Enterprise Research Pricing EN\nContact sales\nSign in\nHeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT Install HeyGen Plugin for ChatGPT\nHome / Blog News\nHeyGen Doubles to $200M ARR in Eight Months on the Rise of Identity-First AI Video\nWritten by Joshua Xu\nLast Updated September 16th, 2026\nSummarize with:\nChatGPT Perplexity Claude Gemini Grok\nCreate AI videos, starring you in 177+ languages and dialects. Get started for free\nJump to section Category-leading efficiency\nA bet on identity, not slop\nOwning the stack — and building the video layer for agents\nAbout HeyGen\nSummarize with ChatGPT Perplexity Claude Gemini Grok\nAI video generator:\nCreate talking videos with AI\nStart creating for free\nSummary\nMore than 30 million users, customers across 196 countries, and adoption across 85% of the Fortune 100 signal the rise of identity-first AI video.\nLOS ANGELES, Calif. — June 25, 2026 — HeyGen, the identity-first AI video platform, today announced it has surpassed $200 million in annual recurring revenue, doubling in eight months. The milestone reflects a rapid shift in how individuals, small businesses, and enterprises are adopting AI video: as a scalable layer for human communication across languages, formats, and audiences.\nThat growth spans a community of more than 30 million users in 196 countries and 175+ languages and dialects, from solopreneurs and local businesses creating professional social video for the first time to 85% of the Fortune 100 using HeyGen for training, sales enablement, and localization. Together they have created more than 118 million videos.\nCategory-leading efficiency\nThat growth has come with category-leading capital efficiency. HeyGen generates roughly $2.70 in annual recurring revenue for every dollar of equity capital it has raised — making it more capital-efficient than Zoom or Datadog were at their IPOs, long the benchmarks for capital-efficient software, and a standout among today's venture-backed AI companies. HeyGen credits that efficiency to owning its technology stack end to end, a lean and high-output team, and a product that grows largely through word of mouth.\n\"Crossing $200 million in ARR is an important milestone, but the deeper signal is what our users are telling us,\" said Joshua Xu, CEO of HeyGen. \"People don't want more AI slop. They want to communicate with trust, clarity, and presence in every language and every format where their audience lives. HeyGen is building a future where anyone can scale their message without losing what makes it human.\"\nA bet on identity, not slop\nVideo has become the default language of the internet, but producing it has stayed slow and expensive. HeyGen took a different path: identity-first video, where the person, the voice, and the meaning stay central. For creators, founders, sales teams, educators, and enterprises, that means you can turn slides into video — or a script, image, PDF, or prompt — into a professional video in minutes, then adapt it across languages and formats without re-recording.\nAt the center is HeyGen’s proprietary Avatar V, the world's most advanced human-centric AI video model. With just a 15-second video, it reproduces the expressions, gestures, and micro-movements that make a digital twin read as human — which is why G2 rates HeyGen number one for the most realistic avatars in AI video. Kellie DeFries, the artist behind Crystal Ninja, replaced 11 p.m. shoots with a digital twin that teaches her online courses while she sleeps. Craig Veroni, a realtor serving Vancouver, uses it to build his personal brand on Instagram. Lisa Anugwom Narh scaled the BI Studio of Emotional Intelligence on YouTube from a single recording.\nOwning the stack — and building the video layer for agents\nThat difference comes from a vertically integrated approach few have attempted: HeyGen builds every core layer of its stack — from product and model orchestration to its proprietary avatar and voice models, production inference, and developer tools. Because each layer is optimized for one job rather than generic infrastructure, it delivers realism, consistency, and long-form generation at a fraction of the cost of general-purpose video models.\nThat velocity is accelerating: in the past three months HeyGen shipped 63 products and features, including Avatar V, the HeyGen MCP, and HyperFrames, its open-source (Apache 2.0) framework for agentic video creation. Just as vibe coding let anyone build software by describing it, HyperFrames lets an agent compose video while the user directs — reaching 21,600 GitHub stars in its first month. HeyGen is now the leader in agentic video creation: the video layer people and their AI agents both build on.\nAbout HeyGen\nHeyGen is the identity-first AI video platform that helps solo operators and small businesses grow by being everywhere their audience is, starring themselves, in minutes and without a camera or crew. Powered by HeyGen's proprietary Avatar V, the world's most advanced human-centric AI video model, HeyGen produces videos that look real, not AI-generated, for a community of over 30 million people, from individual creators to 85% of the Fortune 100. Learn more at heygen.com .\nMedia contact : [email protected]\nWritten by Joshua Xu\nAbout Meet Joshua Xu, co-founder and CEO of HeyGen, leading the mission to make AI-generated video accessible to everyone. With a Master’s degree in computer science from Carnegie Mellon University, he was previously a lead engineer at Snapchat, driving innovations in ads ranking, machine learning, and computational photography. His passion for AI video technology continues to shape the future of video creation.\nNews\nContinue Reading\nLatest blog posts related to HeyGen Doubles to $200M ARR in Eight Months on the Rise of Identity-First AI Video.\nBrowse All\nNews\nPublished August 27th, 2026\nHeyGen named leader in G2 Fall 2026 reports for AI video platform for small businesses\nSee why G2 named HeyGen a leader for for AI avatars, video translation, and AI video generation in Fall 2026, and how small businesses use AI video to create more content, reach new markets, and compete at scale.\nWritten by Tony Faccenda\nNews\nPublished August 11th, 2026\n15 Best Synthesia Alternatives in 2026, Ranked by Real Render Tests\nThe best Synthesia alternatives in 2026, tested: AI avatar renders timed, demos run, every plan priced to see which AI video tools beat the 10-minute cap.\nWritten by Lisa Tatum\nNews\nPublished May 29th, 2026\nHeyGen tops G2 Summer 2026 Reports with 281 badges and #1 ranking in 23 categories\nHeyGen dominated the G2 Summer 2026 Reports with 281 badges, 23 #1 rankings, and industry-leading scores for AI avatars, video translation, ease of use, and enterprise scalability.\nStart creating videos with AI\nSee how businesses like yours scale content creation and drive growth with the most innovative AI video.\nBook a meeting\nHome Blog HeyGen Doubles to $200M ARR in Eight Months on the Rise of Identity-First AI Video\nEnglish\nPricing\nPricing Plans\nAPI Pricing\nProducts\nVideo Avatar\nTalking Photo AI\nAPI\nVideo Translator\nLocalization\nLiveAvatar\nAI Video Generator\nAI Avatar Generator\nAI Voice Cloning\nAI Podcast Generator\nText to Video\nImage to Video\nAudio to Video\nLip Sync AI\nAI Tools\nAI Dubbing\nIndustry\nAgencies\nE-Learning\nMarketing\nLearning & Development\nLocalization\nSales Outreach\nResources\nBlog\nCustomers Stories\nAffiliate Program\nWebinars\nHelp Center\nCommunity\nHow To Guides\nAPI Docs\nFAQ\nAI Glossary\nEnterprise\nFor Enterprise\nLocalization\nContact Sales\nCompany\nAbout Us\nCareers\nAlternatives\nAI Research\nSecurity Portal\nTrust & Safety\nPrivacy Policy\nTerms of Service\nModeration Policy\nGDPR Compliance\nCopyright © 2026 HeyGen\n• Terms of Service\nContact sales",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://www.heygen.com/",
+     "publisher": "HeyGen公式サイト",
+     "snapshot": {
+      "url": "https://www.heygen.com/",
+      "finalUrl": "https://www.heygen.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:53.534Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "dd6fa97ab413dd3bf6cc609a66fa7a682d096e45d8b6659bee7130e86732603c"
+     },
+     "text": "HeyGen: Create Realistic AI Videos of Yourself in Minutes\nCreate AI videos from your ideas using HeyGen. Input text, image, or audio to create complete videos with narration, captions, visuals, and animations.\nFree AI Video Generator: Create Stunning Videos with AI\nGenerate AI videos from your ideas using HeyGen. Input text, image, or audio to create complete videos with narration, captions, visuals, and animations.\nHeyGen: Create Realistic AI Videos of Yourself in Minutes\n|\nPlatform Use cases Developers Resources Enterprise Research Pricing EN\nContact sales\nSign in\nHeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT Install HeyGen Plugin for ChatGPT\nThe State of AI Avatars 2026 report is here. See what we found\nAI videos starring you, made in minutes\nBe your best self, every time.\nGet started for free\nSocial Content\nOnline Courses\nLegal\nFinance\nReal Estate\n4.8 / 5 from 1,000+ reviews\nG2 #1 Most realistic avatars\nForbes AI 50 Company\nTrusted by over 1,000,000 developers and leading companies.\nAI Avatar Generator The most lifelike avatars in AI video\nCharacter consistency is what separates a useful avatar from a gimmick. Avatar V delivers it across every angle, every expression, and every video you create.\nGet started for free\nCharacter consistency\nAvatar V maintains a single, coherent identity across every video you create. The same face, the same micro-expressions, the same presence across a 30-second clip or a 10-minute course module. No drift. No artifacts. No uncanny valley.\nExplore Avatar V →\nTrained on your behavior\nAvatar V learns how you talk, gesture, and move, then generates video that's convincingly you. The same micro-expressions, the same presence, all from a single prompt.\nExplore Avatar V →\nMultiple angles\nWide shots, medium frames, and close-ups, all consistent, all from one recording. The angles that make a single avatar work across every format.\nExplore Avatar V →\nAccurate lip-sync\nPhoneme-level accuracy across every supported language. What you hear and what you see are in perfect agreement at any speed, in 175+ languages and dialects.\nExplore Avatar V →\nVoice-synced emotion\nFluid upper-body motion, responsive gestures, and consistent movement across scene changes. The difference between an avatar that presents and one that performs.\nExplore Avatar V →\nRated #1 most realistic on G2\n1,000+ reviews. Trusted by 85% of the Fortune 100\nGet started for free\nHeyGen Research Avatar V: Scaling video-reference avatar generation\nBuilt on a five-stage AI training pipeline that captures not just how you look, but how you move, gesture, and express yourself.\nRead the report\nOriginal Footage\nAvatar V Generated\nVideo Agent From idea to finished video with just a prompt\nType your idea. Click generate. Get a share-ready video faster than you can think. No camera, editing software, or production skills needed. Download it, edit it, and share it instantly.\n← →\nFully editable\nEvery motion element stays fully editable after generation. Adjust text, color, timing, or layout instantly in AI Studio without rendering the video again from scratch.\nExplore Video Agent →\nVisuals that connect\nGenerate motion graphics that work as part of a cohesive narrative. Visual overlays, explanatory animations, and B-roll footage all combine to tell your story.\nExplore Video Agent →\nLifelike A-roll\nAI-generated presenter footage anchors every narrative. Talking heads deliver your message with natural performance, serving as the foundation of your video.\nExplore Video Agent →\nRated #1 most realistic on G2\n1,000+ reviews. Trusted by 85% of the Fortune 100\nGet started for free\nAI Studio All your creative needs in one environment\nThe text-based editor makes AI video generation as easy as writing a document. Control tone, delivery, gestures, and emotion in one seamless platform built for human-first storytelling.\nScript-driven control\nDirect every word, gesture, and emotion through a text-based editor that works like writing a document. Tone, delivery, and pacing all respond to your script.\nExplore AI Studio →\nStudio-grade realism\nVoice Director, Voice Mirroring, Gesture Control, and Realistic Previews work together to eliminate the gap between AI-generated and human-recorded video.\nExplore AI Studio →\nTeam-ready workflow\nComments, tagging, and multi-user editing keep collaboration in one platform. Brand Kit, auto captions, and B-roll deliver finished videos without switching tools.\nExplore AI Studio →\nRated #1 most realistic on G2\n1,000+ reviews. Trusted by 85% of the Fortune 100\nGet started for free\nVideo Translation Break language barriers in one click\nAI video translation that preserves your tone, syncs your lips, and reaches global audiences across 175+ languages and dialects.\nEnglish German Korean Spanish\nEffortless translation\nUpload a file or paste a YouTube link to translate videos with one click. No reshoots, no manual dubbing. Just fast, affordable localization for any creators or business.\nExplore Video Translation →\nPerfect lip-sync\nVoice cloning preserves your unique tone and delivery in 175+ languages and dialects, while precise lip-sync aligns translated speech with facial movements.\nExplore Video Translation →\nBuilt for global scale\nTranslate existing footage or generate multilingual avatar videos from a single script. Brand glossary and a multi-lingual player give you full control across markets.\nExplore Video Translation →\nRated #1 most realistic on G2\n1,000+ reviews. Trusted by 85% of the Fortune 100\nGet started for free\nAI Tools Powerful AI tools for any creator\nHeyGen's AI video tools handle everything from avatar generation and voice cloning to captions, translation, and turning any input into polished video.\nGet started for free\nText to Video\nCreate complete videos from a script using Text to Video. Our generator handles end-to-end editing and produces videos with voiceovers, visuals, and avatars.\nExplore Tool →\nImage to Video\nTransform any image into a dynamic AI video in seconds. Add a script for realistic lip-sync, natural speech timing, and expressive voices.\nExplore Tool →\nAudio to Video\nTurn podcasts, voiceovers, or any audio file into engaging video with AI avatars, subtitles, and animations. No editing required.\nExplore Tool →\nAI Video Generator\nType your idea and click generate to get a finished video in minutes. No camera, editing software, or production skills needed. Download, edit, or share it.\nExplore Tool →\nAI Avatars\nCreate business presenters, talking avatars, or custom characters with studio-quality results. Type, upload, and generate to design, edit, and animate avatars.\nExplore Tool →\nPPT/PDF to Video\nImport your PPT or PDF and turn each slide into a scene with lifelike AI avatars and natural voiceovers. Transform static decks into engaging videos for any audience.\nExplore Tool →\nFast, secure, and ethical by design Built on verification, grounded in trust\nAI video has a trust problem. We built HeyGen to solve it with verified identity at the core, enforced moderation, and security stress-tested against the highest standards.\nLearn more\nVerified identity, every avatar\nEvery custom avatar requires on-camera identity verification from the person depicted. No verification, no avatar. Removal requests are always honored.\nModeration that holds up\nML scanning flags violations the moment content is generated. Trained human reviewers handle the edge cases. No violence, no political campaigning, no harm to minors. Enforced, not just promised.\nSecurity, stress-tested\nAnnual penetration testing, continuous vulnerability management, and around-the-clock monitoring. We treat compliance as the floor, not the ceiling.\nGDPR\nSOC 2 TYPE II\nCCPA\nAI ACT\nDPF\nUpdates What's new at HeyGen\nStay up to date with the latest from HeyGen, from new product releases and integrations to awards and milestones.\nAll updates\nJune 25, 2026 HeyGen doubles to $200M ARR in eight months\nMore than 30 million users, customers across 196 countries, and adoption across 85% of the Fortune 100 signal the rise of identity-first AI video.\nLearn more →\nApril 28, 2026 Meet HyperFrames, a new way of prompting\nHyperFrames is an open-source video rendering framework from HeyGen that lets AI agents create videos using HTML, CSS, and JavaScript.\nLearn more →\nApril 15, 2026 Avatar V, the most realistic AI avatars ever\nIntroducing Avatar V, HeyGen’s most advanced AI avatar model. It delivers unmatched realism and identity consistency.\nLearn more →\nApril 13, 2026 Introducing HeyGen for Developers\nHeyGen for Developers offers production-ready, scalable APIs, including Video Agent, Video Generation, Translation, and Lipsync models.\nLearn more →\nApril 2, 2026 Seedance 2.0 is now inside HeyGen\nSeedance 2.0 is now fully integrated into HeyGen, bringing cinematic AI video generation, realistic digital twins, and complete video creation workflows into one platform.\nLearn more →\nEvents HeyGen Community\nJoin us for our upcoming meetups. Whether you're a beginner or an experienced user, there's something for everyone. Don't miss out on the opportunity to learn, grow, and be inspired by the Geniverse community!\nView all events\nCommunity Meetup in Prague\nMeetup in Miami\nHeyGen × Seedance Demo in Barcelona\nMeetup in Barcelona\nHands on Lab in San Francisco\nMeetup in Accra, Ghana\nCustomer Stories Powering ambitious teams worldwide\nFrom solo creators to global enterprises, see the stories people are telling with HeyGen and the new possibilities AI video unlocks for every kind of creator.\n40% increase in video watch time\n25% boost in course completion rates\n\"This space moves quickly. If you’re not experimenting now, you’ll be behind later. HeyGen has become a critical part of our infrastructure.\"\nMustafa Furniturewala\nCTO at Coursera\nFAQs\nHow to create an AI video of yourself?\nUpload a short clip or reference image, then type your script in HeyGen. The platform will generate a video with realistic AI motion and voice. You can animate, adjust format, and make explainer videos or social clips with AI-powered editing tools.\nIs HeyGen free? What You Actually Get on the Free Plan\nYes. HeyGen offers a free plan that supports text-to-video and AI-generated video creation. Paid plans include advanced AI-powered video creation, video editor options, and support for multiple formats, depending on the AI product and model you choose.\nWhat types of input can I use to create videos in HeyGen?\nYou can generate AI videos using text and images, stock images, or audio. HeyGen can transform text into explainer or explainer videos with templates that make it easy to create and publish impactful content in multiple formats and styles.\nCan I convert audio to video with HeyGen?\nYes, you can convert audio to video with HeyGen.\nUpload your audio and HeyGen’s AI-powered system will generate videos automatically. It syncs speech and visuals to create realistic AI avatars and video clips, ideal for podcasts, explainer videos, and educational content that need visual context.\nCan I use text to video for business presentations on HeyGen?\nYes. With HeyGen’s text-to-video feature, you can create engaging explainer videos and slides from any text prompt. The AI image generator and video templates help you instantly create and publish videos in your preferred format for marketing, training, or product demos.\nCan AI videos replace traditional video production?\nYes. AI videos made with HeyGen can absolutely replace traditional production for most business, marketing, and training needs.\nYou can animate scenes, add motion, and generate a video that looks polished. It helps creators publish videos faster, keeping all edits within one video workflow, simple, scalable, and cost-effective.\nHow to make AI videos using HeyGen?\nTo make an AI video in HeyGen, pick an avatar, paste in what you want it to say (or upload a deck), and choose a voice and language. Then tweak the visuals and branding to match your style, hit generate, and export the finished video.\nCan I create AI videos using a reference image with HeyGen?\nYes. Upload a reference image to HeyGen and generate AI videos that look natural. You can use the AI to animate avatars or adjust expressions, creating personalized explainer videos or branded clips with realistic AI motion and audio sync.\nWhat types of videos can I create with the HeyGe?\nHeyGen’s AI Video Generator lets you create explainer videos, marketing and sales promos, product demos, training and onboarding content, personalized outreach videos, and social media clips, using realistic AI avatars, natural AI voices, and multilingual translation to produce videos quickly at scale.\nHow long does it take to generate an AI video?\nHeyGen is really fast, and many videos generate within a minute. If your video is longer, uses more scenes, or has heavier effects, it may take a little longer but still typically finishes in just a few minutes.\nIs HeyGen secure and ethical?\nYes. HeyGen keeps your data safe and creates avatars responsibly. You own your AI-generated videos and visuals, allowing you to publish content for marketing or training with confidence, knowing your materials are produced ethically and securely.\nStart creating videos with AI\nSee how businesses like yours scale content creation and drive growth with the most innovative AI video.\nGet started for free\nHome\nEnglish\nPricing\nPricing Plans\nAPI Pricing\nProducts\nVideo Avatar\nTalking Photo AI\nAPI\nVideo Translator\nLocalization\nLiveAvatar\nAI Video Generator\nAI Avatar Generator\nAI Voice Cloning\nAI Podcast Generator\nText to Video\nImage to Video\nAudio to Video\nLip Sync AI\nAI Tools\nAI Dubbing\nIndustry\nAgencies\nE-Learning\nMarketing\nLearning & Development\nLocalization\nSales Outreach\nResources\nBlog\nCustomers Stories\nAffiliate Program\nWebinars\nHelp Center\nCommunity\nHow To Guides\nAPI Docs\nFAQ\nAI Glossary\nEnterprise\nFor Enterprise\nLocalization\nContact Sales\nCompany\nAbout Us\nCareers\nAlternatives\nAI Research\nSecurity Portal\nTrust & Safety\nPrivacy Policy\nTerms of Service\nModeration Policy\nGDPR Compliance\nCopyright © 2026 HeyGen\n• Terms of Service\nContact sales",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://www.heygen.com/about",
+     "publisher": "HeyGen公式サイト",
+     "snapshot": {
+      "url": "https://www.heygen.com/about",
+      "finalUrl": "https://www.heygen.com/about",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:53.763Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "fd95dbb73dcc9554dd396a262c9280c3d29c2c30405a48ba571450c483ee4366"
+     },
+     "text": "AI Video Generation Made Easy with HeyGen | HeyGen\nDiscover HeyGen's innovative AI video generator tools that empower users to create engaging AI generated videos effortlessly. Join over 45,000 businesses using our AI video creation technologies to tell their story. So, why wait?\nAI Video Generation Made Easy with HeyGen | HeyGen\nDiscover HeyGen's innovative AI video generator tools that empower users to create engaging AI generated videos effortlessly. Join over 45,000 businesses using our AI video creation technologies to tell their story. So, why wait?\nAI Video Generation Made Easy with HeyGen | HeyGen\n|\nPlatform Use cases Developers Resources Enterprise Research Pricing EN\nContact sales\nSign in\nHeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT Install HeyGen Plugin for ChatGPT\nAbout HeyGen Free Your Story™\nAt HeyGen, our mission revolves around empowering individuals through accessible AI video generation. We believe that everyone should be able to express their creativity without the need for advanced equipment or unlimited resources to bring their ideas to life.\nContact Support\nContact Media Team\n170,474,539 Videos generated\n147,559,399 Avatars generated\n24,721,000 Videos translated\nTrusted by millions worldwide to bring their stories to life.\nOur Mission Everyone has a story. HeyGen allows you to tell it.\nWhy we’re building HeyGen. From idea to innovation\nHeyGen started with a simple idea—making video creation effortless. Today, we’re transforming storytelling with AI, empowering anyone to create high-quality videos without limits.\nWe live in a video-first world\nOver 1 billion hours of videos are watched daily on YouTube, and the average person watches 17 hours of video each week. So if a business wants customers, it needs videos. And videos need cameras — and actors, locations, editing software, reshoots… between all of that, finished videos can cost $1,000 per minute. At least.\nAnd then AI came along\nPeople love video. But most people hate being on camera. That's what founder Joshua Xu discovered when he was an engineer at Snap, building features for SnapChat Ads and the AI camera. But with AI video generation, everyone can unleash their inner storyteller — removing the camera actually unlocks creativity and freedom in visual storytelling. And so HeyGen was born.\nNow you only need a script\nWith HeyGen, businesses can simply write their script and generate their video. No camera, no budget, no headaches. We've helped over 100,000 companies and millions of people create, localize, and personalize videos at scale — and we're just getting started. As we set industry standards for the ethical use of AI video, and lead the charge towards more immersive AI experiences, we know this is only the beginning. We're excited to see where this story goes.\nBuilt for the best, backed by the best\nHeyGen is proud to be backed by leading investors including Benchmark, Conviction, Thrive Capital, and Bond, who share our vision of transforming storytelling through AI-powered video.\nAl Video Startup HeyGen Valued at $500 Million in Funding Round\nBloomberg\nJun 20, 2024\nBloomberg\nJun 20, 2024\nHeyGen Rides The AI Video Boom Rocket\nForbes\nNov 06, 2025\nForbes\nNov 06, 2025\n44 of the most promising AI startups of 2024, according to top VCs\nBusiness insider\nSep 9, 2024\nBusiness insider\nSep 9, 2024\nAl Video Startup HeyGen Valued at $500 Million in Funding Round\nForbes\nNov 29, 2023\nForbes\nNov 29, 2023\nOur offices\nOur global offices bring together the brightest minds to shape the future of AI-powered video creation.\nSee open roles\nLos Angeles\n12130 Millennium Drive, Suite 300\nLos Angeles, CA 90094\nSan Francisco\n180 Sansome Street\nSan Francisco, CA 94104\nPalo Alto\n3101 Park Blvd\nPalo Alto, CA 94306\nToronto\n1 University Ave\nToronto, ON M5J 1T1\nWe’re committed to doing things right\nTrust & Safety are paramount in our operations. Our advanced user verification protocols and robust content moderation efforts continually enhance the safety, responsibility, and ethical standards of our products.\nSOC 2 TYPE II\nGDPR\nCCPA\nDPF\nAI ACT\nLet’s work together\nThis could be the start of something special. Learn more about careers at HeyGen.\nSee open roles\nHave questions? We have answers\nDoes HeyGen’s AI dubbing tool offer the most natural lip sync capabilities?\nYes. HeyGen is built with advanced facial synchronization technology, ensuring lip movements match perfectly with voiceovers. This creates a natural, human-like dubbing experience that works seamlessly across different content formats, from marketing videos to training materials.\nWhat does HeyGen’s AI dubbing tool do?\nHeyGen’s voice dubber replaces original audio with AI-generated multilingual voiceovers while preserving tone, style, and lip sync. It allows creators to instantly produce polished, localized videos without complex editing or costly dubbing teams.\nCan HeyGen handle multiple languages effectively?\nYes. HeyGen supports multilingual dubbing in over 175 languages and dialects, enabling a single video to be quickly adapted into multiple languages. This makes global content distribution seamless for enterprises and content creators seeking consistent quality across international markets.\nHow does the AI maintain lip sync accuracy during dubbing?\nHeyGen aligns voice tracks with facial movements using AI-driven animation and timing models. This ensures the dubbed speech matches lip motions naturally, helping viewers focus on the message rather than noticing distracting sync issues.\nIs the voice dubbing human-sounding or robotic?\nHeyGen’s AI voices sound lifelike, expressive, and tailored for professional use. Unlike robotic text-to-speech tools, it delivers warm and natural audio, making videos feel authentic for learning, marketing, or storytelling.\nCan I choose different voices or accents when dubbing?\nYes. HeyGen provides a wide library of voices across genders, tones, and regional accents. This flexibility helps you match your video’s branding, audience expectations, and cultural context for maximum impact.\nDo I need video editing skills to use HeyGen AI dubbing?\nNo editing skills are required. Simply upload your video, choose a language and voice, and HeyGen handles everything automatically. The platform’s intuitive design makes dubbing accessible even for beginners.\nWill HeyGen make language dubbing easy for film and TV?\nHeyGen makes language dubbing easier for film and TV. It offers smooth voice adaptation in over 175 languages and dialects. This helps with global distribution while keeping the original feel and emotional impact.\nStart creating videos with AI\nSee how businesses like yours scale content creation and drive growth with the most innovative AI video.\nBook a meeting\nHome About Us\nEnglish\nPricing\nPricing Plans\nAPI Pricing\nProducts\nVideo Avatar\nTalking Photo AI\nAPI\nVideo Translator\nLocalization\nLiveAvatar\nAI Video Generator\nAI Avatar Generator\nAI Voice Cloning\nAI Podcast Generator\nText to Video\nImage to Video\nAudio to Video\nLip Sync AI\nAI Tools\nAI Dubbing\nIndustry\nAgencies\nE-Learning\nMarketing\nLearning & Development\nLocalization\nSales Outreach\nResources\nBlog\nCustomers Stories\nAffiliate Program\nWebinars\nHelp Center\nCommunity\nHow To Guides\nAPI Docs\nFAQ\nAI Glossary\nEnterprise\nFor Enterprise\nLocalization\nContact Sales\nCompany\nAbout Us\nCareers\nAlternatives\nAI Research\nSecurity Portal\nTrust & Safety\nPrivacy Policy\nTerms of Service\nModeration Policy\nGDPR Compliance\nCopyright © 2026 HeyGen\n• Terms of Service\nContact sales",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://www.heygen.com/careers",
+     "publisher": "HeyGen公式サイト",
+     "snapshot": {
+      "url": "https://www.heygen.com/careers",
+      "finalUrl": "https://www.heygen.com/careers",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:53.776Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "ea252094985936777bbb7a3dd76777c06ee8c1999b00a85685a2e96ddc474c5c"
+     },
+     "text": "Careers at HeyGen | Join Our Team\nJoin HeyGen and help everyone bring their story to life. Explore open roles in AI Research, Engineering, Marketing, Sales, and more.\nCareers at HeyGen | Join Our Team\nJoin HeyGen and help everyone bring their story to life. Explore open roles in AI Research, Engineering, Marketing, Sales, and more.\nCareers at HeyGen | Join Our Team\n|\nPlatform Use cases Developers Resources Enterprise Research Pricing EN\nContact sales\nSign in\nHeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT Install HeyGen Plugin for ChatGPT\nHelp everyone bring their story to life\nExplore open roles\nEmployee stories Why join HeyGen\nKarina Jhangiani\nHead of Enterprise Product\nBin Liu\nEngineering Lead\nNick Warner\nHead of Growth\nHolly Xiao\nHead of Content and Product Marketing\n150+ Global employees\n30M+ Users\n$150M+ ARR\nBenefits Perks that power your work and wellbeing\nEquity\nGenerous equity grant\nMeals\nDaily lunches to fuel your day (dinners optional)\nPerformance bonus\nCash and equity rewards for your impact\nParental leave\nPaid leave for birthing and non-birthing parent\nFlexible time off\nUnlimited paid vacation and sick days, including a company shut down at the end of the year\n401K\n4% company match to save for retirement\nCommuter benefit\n$200 monthly employer-funded commuter benefit\nRelocation bonus\nFinancial assistance if moving to the Bay Area\nMedical, dental, & vision\nCoverage for employees and dependents\nContinuous education\nLearning opportunities to grow professionally\nLife insurance\nBasic and supplemental life and AD&D\nAnnual company retreats\nEvery year, we bring the whole team together for a company-wide retreat to recharge and celebrate what we've built together.\n2024 San Diego\n2025 Las Vegas\n2026 Coming soon!\nJoin our team\nWe're looking for passionate people to join us on our mission. Check out our open roles.\nAll Department\nLocation\nSearch\nReady to build with us?\nView open roles\nHome Careers at HeyGen\nEnglish\nPricing\nPricing Plans\nAPI Pricing\nProducts\nVideo Avatar\nTalking Photo AI\nAPI\nVideo Translator\nLocalization\nLiveAvatar\nAI Video Generator\nAI Avatar Generator\nAI Voice Cloning\nAI Podcast Generator\nText to Video\nImage to Video\nAudio to Video\nLip Sync AI\nAI Tools\nAI Dubbing\nIndustry\nAgencies\nE-Learning\nMarketing\nLearning & Development\nLocalization\nSales Outreach\nResources\nBlog\nCustomers Stories\nAffiliate Program\nWebinars\nHelp Center\nCommunity\nHow To Guides\nAPI Docs\nFAQ\nAI Glossary\nEnterprise\nFor Enterprise\nLocalization\nContact Sales\nCompany\nAbout Us\nCareers\nAlternatives\nAI Research\nSecurity Portal\nTrust & Safety\nPrivacy Policy\nTerms of Service\nModeration Policy\nGDPR Compliance\nCopyright © 2026 HeyGen\n• Terms of Service\nContact sales",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://www.heygen.com/pricing",
+     "publisher": "HeyGen公式サイト",
+     "snapshot": {
+      "url": "https://www.heygen.com/pricing",
+      "finalUrl": "https://www.heygen.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:53.957Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "64cd5472f1f78712b1ec45e4e9bd05429c3c1c2af1fbae5645a3b52e23400e7e"
+     },
+     "text": "Pricing Plans for Creators and Marketers | HeyGen\nDiscover flexible pricing plans for creators and marketers using HeyGen's AI video generator, AI video maker, and more. Start for free at $0/mo with unlimited capabilities. Join over 100,000 businesses today!\nPricing Plans for Creators and Marketers | HeyGen\nDiscover flexible pricing plans for creators and marketers using HeyGen's AI video generator, AI video maker, and more. Start for free at $0/mo with unlimited capabilities. Join over 100,000 businesses today!\nPricing Plans for Creators and Marketers | HeyGen\n|\nPlatform Use cases Developers Resources Enterprise Research Pricing EN\nContact sales\nSign in\nHeyGen is now in ChatGPT. Install HeyGen Plugin for ChatGPT Install HeyGen Plugin for ChatGPT\nThe leading AI video generator Flexible pricing plans for every creator and team\nHeyGen empowers 100,000+ businesses to create, localize, scale, and collaborate on video, no camera or crew needed. Recognized as G2’s #1 Fastest Growing Product of 2025, we make professional video creation easier than ever.\nFor Individuals For Businesses\nFree Creator Pro\nMonthly Yearly\nFree\n$0/mo\nIdeal entry point for creators and marketers looking to test the waters with AI tools, like HeyGen’s AI video maker.\nGet started\nVideo Generation: 3 videos per month\nVideos up to 1 min\nAccess to Avatar IV\nStandard video processing\n500+ Stock Video Avatars\nFeatures you'll love: 1 Custom Video Avatar\n30+ languages\nMonthly Yearly\nCreator\n$29 / mo\nGenerative AI video creation for solo creators. Provides access to advanced features like the AI video generator and AI voice over.\nGet started\n600 credits\nVideo Generation: Videos up to 30 mins\n1080p video export\nExtended Avatar IV video generation\nFast video processing\nUnlimited Photo Avatars\nWatermark removal\nEverything in Free, plus Voice Cloning\n175+ languages and dialects\nCredit rollovers\nMonthly Yearly\nPro\n$49 / mo\nBuilt for advanced individuals creating premium content at scale. Unlock flexible usage and export in stunning 4K video quality.\nGet started\n1,000 credits\nVideo Generation: Videos up to 30 mins\n4K video export\nExtended Avatar IV video generation\nFaster video processing\nUnlimited Photo Avatars\nWatermark removal\nEverything in Creator, plus: Customizable monthly usage\nEdit & proofread translation script\nAccess to all Advanced AI models\nMonthly Yearly\nFree\n$0/mo\nIdeal entry point for creators and marketers looking to test the waters with AI tools, like HeyGen’s AI video maker.\nGet started\nVideo Generation: 3 videos per month\nVideos up to 1 min\nAccess to Avatar IV\nStandard video processing\n500+ Stock Video Avatars\nFeatures you'll love: 1 Custom Video Avatar\n30+ languages\nMonthly Yearly\nCreator\n$29 / mo\nGenerative AI video creation for solo creators. Provides access to advanced features like the AI video generator and AI voice over.\nGet started\n600 credits\nVideo Generation: Videos up to 30 mins\n1080p video export\nExtended Avatar IV video generation\nFast video processing\nUnlimited Photo Avatars\nWatermark removal\nEverything in Free, plus Voice Cloning\n175+ languages and dialects\nCredit rollovers\nMonthly Yearly\nPro\n$49 / mo\nBuilt for advanced individuals creating premium content at scale. Unlock flexible usage and export in stunning 4K video quality.\nGet started\n1,000 credits\nVideo Generation: Videos up to 30 mins\n4K video export\nExtended Avatar IV video generation\nFaster video processing\nUnlimited Photo Avatars\nWatermark removal\nEverything in Creator, plus: Customizable monthly usage\nEdit & proofread translation script\nAccess to all Advanced AI models\nMonthly Yearly\nBusiness\n$149 / mo\nAdditional Seats are $20/seat. Secure, scalable video creation for teams and businesses\nGet started\n1,500 credits\nVideo Generation: Videos up to 60 mins\n4k video export\nFaster video processing\n2x more concurrency than Pro\nEverything in Pro, plus: 5 Custom Video Avatars\nScale your brand and centralize assets\nSAML/ SSO\nCentralized billing\nFlexible top-up or auto-reload credits\nAdd team members for $20/seat/month\nWorkspace collaboration\nVideo draft commenting & editing\nInvites & team management\nInteractive Video (Quizzes, Links, more)\nSCORM Export\nLMS Integrations\nIntegrations with n8n, Make, Hubspot & Zapier\nMonthly Yearly\nEnterprise\nContact Sales\nStudio-quality video creation custom to your business needs.\nContact Sales\nVideo Generation: Flexible video generation\nNo video duration max\n4k video export\nFastest video processing\nHighest concurrency\nEverything in Business, plus: Multi-workspace control\nProofreader seats for video translation\nCentrally manage roles and access\nEnterprise-grade security & privacy\nSCIM User Provisioning\nTeam Member MFA\nCommercial terms\nPriority customer support\nDedicated customer success manager\nTailored onboarding\nEnterprise Community access\nInvoice billing\nExplore API pricing →\nPlan features Compare pricing plans and features\nFor Individuals For Businesses\nFree\nGet started →\nCreator\nGet started →\nPro\nGet started →\nBusiness\nGet started →\nEnterprise\nContact Sales →\nVideo Creation AI studio editor\nFull access\nFull access\nFull access\nMax duration per video\n1 minute\n30 minutes\n30 minutes\nVideo processing speed\nStandard\nFast\nFaster\nExport resolution\nUp to 1080P\nUp to 4K\nVideo templates\n75+\n75+\n75+\nPowerPoint & PDF Imports\nAudio input\nScreen recorder\nSave designs as templates\nWatermark removal\nAI Avatars & Voices Stock Video Avatars\n500+\n700+\n700+\nCustom Video Avatars\n1\n1+\n1+\nCustom Video Avatar Looks\n500\n500\n500\nAI Voice\n1,000+\n1,000+\n1,000+\nVoice Cloning\n1 voice clone\nExpanded usage\nMaximum Usage\nPhoto Avatars\nUp to 3\nUnlimited\nUnlimited\nAvatar IV Gen Minutes\nAvatar IV max duration per video\n1 minute\n30 minutes\n30 minutes\nMotion / Gesture Control\nGenerate Looks\nAI Model Training\nLook Packs\nProduct Placement\nCustom Voice Emotion\nAdditional Custom Video Avatars\nAdd-on\nAdd-on\nAI background removal\nVideo Translation & Languages Max duration per video\n1 minute\n30 minutes\n30 minutes\nVideo processing speed\nStandard\nFast\nFastest\nGlobal Language Suite\n30+ languages\n175 languages & dialects\n175 languages & dialects\nBrand voice (Brand glossary)\nUpload transcription as source\nEdit and proofread translation script\nSwitch voice\nLearning & Development Interactive Video\nVideo Link Embedding\nInteractive Quizzes\nVideo Branching & Decisioning\nSCORM Export\nWorkspace & Collaboration User seats\n1\n1\n1\nVideo comments\nBrand kit\nVideo draft collaboration\nTag and assign tasks\nCollaborative workspace\nTeam templates\nRole controls\nContent access controls\nGranular content access controls\nPrivacy & Security Multi-factor authentication (MFA)\nSAML/SSO\nSCIM\nPassword protected URLs\nAudit log\nTeam Member 2FA Enforcement\nSupport & Resources Live chat support\nVideo Creation\nAI studio editor\nFull access\nFull access\nFull access\nFull access\nFull access\nMax duration per video\n1 minute\n30 minutes\n30 minutes\n60 minutes\nNo video duration max\nVideo processing speed\nStandard\nFast\nFaster\nFaster\nFastest\nExport resolution\nUp to 1080P\nUp to 4K\nUp to 4K\nUp to 4K\nVideo templates\n75+\n75+\n75+\n75+\n75+\nPowerPoint & PDF Imports\nAudio input\nScreen recorder\nSave designs as templates\nWatermark removal\nAI Avatars & Voices\nStock Video Avatars\n500+\n700+\n700+\n700+\n700+\nCustom Video Avatars\n1\n1+\n1+\n5+\n10+\nCustom Video Avatar Looks\n500\n500\n500\n500\n500\nAI Voice\n1,000+\n1,000+\n1,000+\n1,000+\n1,000+\nVoice Cloning\n1 voice clone\nExpanded usage\nMaximum Usage\nMaximum Usage\nUnlimited\nPhoto Avatars\nUp to 3\nUnlimited\nUnlimited\nUnlimited\nUnlimited\nAvatar IV Gen Minutes\nAvatar IV max duration per video\n1 minute\n30 minutes\n30 minutes\n30 minutes\n30 minutes\nMotion / Gesture Control\nGenerate Looks\nAI Model Training\nLook Packs\nProduct Placement\nCustom Voice Emotion\nAdditional Custom Video Avatars\nAdd-on\nAdd-on\nAdd-on\nAdd-on\nAI background removal\nVideo Translation & Languages\nMax duration per video\n1 minute\n30 minutes\n30 minutes\n60 minutes\nNo video duration max\nVideo processing speed\nStandard\nFast\nFastest\nFaster\nFastest\nGlobal Language Suite\n30+ languages\n175 languages & dialects\n175 languages & dialects\n175 languages & dialects\n175 languages & dialects\nBrand voice (Brand glossary)\nUpload transcription as source\nEdit and proofread translation script\nSwitch voice\nLearning & Development\nInteractive Video\nVideo Link Embedding\nInteractive Quizzes\nVideo Branching & Decisioning\nSCORM Export\nWorkspace & Collaboration\nUser seats\n1\n1\n1\n1+\n1+\nVideo comments\nBrand kit\nVideo draft collaboration\nTag and assign tasks\nCollaborative workspace\nTeam templates\nRole controls\nContent access controls\nGranular content access controls\nPrivacy & Security\nMulti-factor authentication (MFA)\nSAML/SSO\nSCIM\nPassword protected URLs\nAudit log\nTeam Member 2FA Enforcement\nSupport & Resources\nLive chat support\nThe world's leading companies trust HeyGen\nPricing FAQs\nHow can I test HeyGen?\nYou can try HeyGen for free, no credit card required. The Free plan includes up to 3 videos per month, and limited trial access to premium features like Avatar IV, Video Agent, and lip-sync translation, so you can experience the product before upgrading.\nHow much does HeyGen cost?\nYou can use HeyGen for free and generate up to 3 videos a month, no credit card required. Paid plans include a monthly credit allocation you spend across all features. For solo creators, the Creator plan costs $29/month (or $24/month if you pay annually). For advanced individuals, Pro starts at $49/month and scales up to tiers with more credits per month. For teams looking to create and collaborate, the Business plan costs $149/month plus $20/seat/month.\nWhat are credits?\nCredits are HeyGen's single currency for video and asset creation. Every paid plan includes a monthly credit allocation, which you can use across different HeyGen features. The number of credits a video or asset uses can vary based on which AI model is used, video duration, and the complexity of the generation.\nDo credits roll over?\nYes. Monthly subscribers' unused credits roll over for one more month. Annual subscribers' credits accumulate until their annual renewal date. Credits do not carry over after cancellation — your previous cycle credits will expire and not roll over if your subscription is not active.\nHow can I get more credits?\nCreator and Pro users can upgrade to a higher plan or tier for more credits. Business users can purchase one-time credit packs or enable auto-reload. Upgrades take effect immediately, with prorated billing and credits added to your account right away.\nWhat's the difference between Pro plan tiers?\nAll Pro tiers include the same features: only the monthly credit allocation changes. Tiers range from 1,000 credits/mo at $49 to 100,000 credits/mo at $4,300. You can switch tiers anytime.\nWhat is the difference between a monthly & yearly subscription?\nMonthly subscriptions are billed each month; annual subscriptions are billed once a year at a lower effective monthly rate. Annual subscribers also get better credit rollover: credits accumulate all year until renewal, instead of for just one cycle.\nCan I switch or cancel my plan at any time?\nYes. Upgrades take effect immediately, with prorated billing and credits added right away. Downgrades and cancellations take effect at the end of your current billing cycle, so you keep your plan and credits until then. For support issues, reach out to us at [email protected] .\nWhat happens when I cancel my subscription?\nCancelling stops your next billing renewal. You keep your paid features and remaining credits until the end of your current billing cycle, after which your account moves to the Free plan. Unused credits do not carry over.\nTestimonials What customers are saying about us\nSpoiler, they’ve got some pretty nice things to say.\n5 out of 5 Stars\n“Great support and quality”\n\"I had an issue and their support responded within minutes. The avatar quality is amazing, and overall it`s a valuable tool.\"\n— Danielle U. on Capterra'\n5 out of 5 Stars\n“Revolutionary technology”\n\"This is revolutionary for our content creation. It saves time, money, and the results are highly professional. Truly impressive.\"\n— Manuel R. on Capterra\n5 out of 5 Stars\n“Lifelike avatars, simple UI”\n\"I love the lifelike avatars and how simple the UI is. Even our non-designers can create great videos with HeyGen.\"\n— Thomas V. on Product Hunt\n5 out of 5 Stars\n“Versatile and intuitive”\n\"The versatility of this tool is impressive. We make everything from ads to tutorials. HeyGen is intuitive and requires minimal effort.\"\n— Umair B. on Product Hunt\n5 out of 5 Stars\n“No camera needed!”\n\"I love that I don`t need any camera or crew now. I just type my script and get a video. It`s incredibly convenient and the results are great.\"\n— Wendy D. on Product Hunt\n5 out of 5 Stars\n“Perfect for global audience”\n\"HeyGen’s multi-language support is perfect for reaching a global audience. The translations and voice overs sound very natural.\"\n— Xiao L. on Product Hunt\n5 out of 5 Stars\n“Remarkable video creations”\n\"Coming from image generation, I found the video creation experience with HeyGen to be outstanding. It unlocks so much creativity with ease.\"\n— Bella M. on Capterra\n5 out of 5 Stars\n“Great for entrepreneurs”\n\"As a solo entrepreneur, HeyGen helps me create professional content without any production team. It`s very straightforward and effective.\"\n— Alexis N. on Product Hunt\nStart creating videos with AI\nSee how businesses like yours scale content creation and drive growth with the most innovative AI video.\nBook a meeting\nHome Pricing\nEnglish\nPricing\nPricing Plans\nAPI Pricing\nProducts\nVideo Avatar\nTalking Photo AI\nAPI\nVideo Translator\nLocalization\nLiveAvatar\nAI Video Generator\nAI Avatar Generator\nAI Voice Cloning\nAI Podcast Generator\nText to Video\nImage to Video\nAudio to Video\nLip Sync AI\nAI Tools\nAI Dubbing\nIndustry\nAgencies\nE-Learning\nMarketing\nLearning & Development\nLocalization\nSales Outreach\nResources\nBlog\nCustomers Stories\nAffiliate Program\nWebinars\nHelp Center\nCommunity\nHow To Guides\nAPI Docs\nFAQ\nAI Glossary\nEnterprise\nFor Enterprise\nLocalization\nContact Sales\nCompany\nAbout Us\nCareers\nAlternatives\nAI Research\nSecurity Portal\nTrust & Safety\nPrivacy Policy\nTerms of Service\nModeration Policy\nGDPR Compliance\nCopyright © 2026 HeyGen\n• Terms of Service\nContact sales",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://en.wikipedia.org/wiki/HeyGen",
+     "publisher": "Wikipedia",
+     "snapshot": {
+      "url": "https://en.wikipedia.org/wiki/HeyGen",
+      "finalUrl": "https://en.wikipedia.org/wiki/HeyGen",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:54.012Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "4a82c0f776a72e63ac8e005be463efab0e83a506e3c2102f22daab920748129a"
+     },
+     "text": "HeyGen - Wikipedia\nHeyGen - Wikipedia\nHeyGen - Wikipedia\nJump to content\nMain menu\nMain menu\nmove to sidebar\nhide\nNavigation\nMain page\nContents\nCurrent events\nRandom article\nAbout Wikipedia\nContact us\nContribute\nHelp\nLearn to edit\nCommunity portal\nRecent changes\nUpload file\nSpecial pages\nSearch\nSearch\nAppearance\nDonate\nCreate account\nLog in\nPersonal tools\nDonate\nCreate account\nLog in\nContents\nmove to sidebar\nhide\n(Top)\n1\nHistory\n2\nReferences\n3\nSee also\n4\nExternal links\nToggle the table of contents\nHeyGen\n3 languages\nFrançais\nIdo\n中文\nEdit links\nArticle\nTalk\nEnglish\nRead\nEdit\nView history\nTools\nTools\nmove to sidebar\nhide\nActions\nRead\nEdit\nView history\nGeneral\nWhat links here\nRelated changes\nUpload file\nPermanent link\nPage information\nCite this page\nGet shortened URL\nSwitch to legacy parser\nPrint/export\nDownload as PDF\nPrintable version\nIn other projects\nWikidata item\nAppearance\nmove to sidebar\nhide\nFrom Wikipedia, the free encyclopedia\nAvatar-generating machine learning model\n\"},\"founded\":{\"wt\":\"{{Start date and age|2020}}\"},\"founders\":{\"wt\":\"{{Plainlist|\\n* Joshua Xu\\n* Wayne Liang}}\"},\"defunct\":{\"wt\":\"<!-- {{End date|YYYY|MM|DD}} -->\"},\"fate\":{\"wt\":\"\"},\"successor\":{\"wt\":\"<!-- or: successors = -->\"},\"hq_location_city\":{\"wt\":\"[[Los Angeles, California]]\"},\"hq_location_country\":{\"wt\":\"U.S.\"},\"area_served\":{\"wt\":\"<!-- or: areas_served = -->\"},\"key_people\":{\"wt\":\"\"},\"products\":{\"wt\":\"HeyGen Avatar IV\"},\"owner\":{\"wt\":\"<!-- or: owners = -->\"},\"num_employees\":{\"wt\":\"\"},\"num_employees_year\":{\"wt\":\"<!-- Year of num_employees data (if known) -->\"},\"parent\":{\"wt\":\"\"},\"website\":{\"wt\":\"{{URL|https://www.heygen.com/|heygen.com}}\"}},\"i\":0}}]}'> HeyGen\nIndustry Artificial intelligence\nFounded 2020 ; 6 years ago ( 2020 )\nFounders\nJoshua Xu\nWayne Liang\nHeadquarters Los Angeles, California\n, U.S.\nProducts HeyGen Avatar IV\nWebsite heygen.com\nPart of a series on\nArtificial intelligence (AI)\nMajor goals\nArtificial general intelligence\nsuperintelligence\nIntelligent agent\nRecursive self-improvement\nPlanning\nComputer vision\nGeneral game playing\nKnowledge representation\nNatural language processing\nRobotics\nAI safety\nApproaches\nMachine learning\nData mining\nSymbolic\nDeep learning\nBayesian networks\nEvolutionary algorithms\nNeuro-symbolic AI\nSystems integration\nOpen-source\nOpen weights\nAI data centers\nApplications\nArt\nMusic\nBioinformatics\nDeepfake\nEarth sciences\nFinance\nGenerative AI\nAudio\nImages\nGovernment\nHealthcare\nIndustry\nSoftware development\nTranslation\nMilitary\nPhysics\nProjects\nPhilosophy\nAI alignment\nArtificial consciousness\nThe bitter lesson\nChinese room\nFriendly AI\nEthics\nExistential risk\nTuring test\nUncanny valley\nHuman–AI interaction\nHistory\nTimeline\nProgress\nAI winter\nAI boom\nAI build-out financing\nAI bubble\nControversies\nDeepfake pornography\nTaylor Swift deepfake pornography controversy\nGrok sexual deepfake scandal\nGoogle Gemini image generation controversy\nIt's the Most Terrible Time of the Year\nNavier–Stokes priority controversy\nPause Giant AI Experiments\nProject Panama\nRemoval of Sam Altman from OpenAI\nStatement on AI Risk\nTay (chatbot)\nThéâtre D'opéra Spatial\nVoiceverse NFT plagiarism scandal\nAI-generated violent extremist content\nGlossary\nv\nt\ne\nHeyGen is a generative artificial intelligence company that creates photo-realistic avatars via user-submitted photos and videos as well as a library of pre-made avatars and voices. [ 1 ] [ 2 ] The digital avatar can recite prompts in multiple languages. [ 1 ] [ 3 ]\nWhen submitting content to be used in the generation of a video, users are required to give verbal consent, along with a spoken password to verify their identity. Human moderators are used to remove and block any content used for the purpose of bullying, harassment, and the spread of disinformation , [ 4 ] in addition to the use of an automated content filter. [ 1 ]\nHistory\n[ edit ]\nHeyGen (originally named Surreal , later rebranded from Movio) [ 5 ] was founded by Joshua Xu and Wayne Liang in 2020. HeyGen established its headquarters in Los Angeles in 2022. [ 6 ] The company initially raised capital from investors including Sequoia China (now HongShan) and ZhenFund . [ 2 ]\nThe HeyGen app launched in September 2022. In November 2023, the company raised $5.6 million in funding from Sarah Guo ’s venture capital firm, Conviction. In exchange for the funding, Guo would replace HongShan’s seat on the board of directors. As of the same date, the company reported employing 25 people. [ 2 ]\nIn 2024, the service was used to translate and lip-sync Argentinian president Javier Milei 's speech to the World Economic Forum . [ 7 ]\nIn June 2024, HeyGen raised $60 million in a funding round that valued the company at $500 million. The funding was led by Benchmark , with participation from Conviction , Bond Capital, and Thrive Capital . As of that date, the company reported having more than 40,000 customers and an annualized recurring revenue of $35 million. [ 4 ]\nIn November 2024, HeyGen was recognized by Fast Company as part of the publication’s \"Next Big Things in Tech\" list. [ 8 ] The company was also recognized by Inc. as part of their 2024 \"Best in Business\" list. [ 9 ]\nHeyGen has been reported by media, as well as by Russian cybersecurity analysts Group-IB , as a tool used to create deepfakes in harmful videos, [ 10 ] ranging from consumer scams to deceptive health-related content [ 11 ] and geopolitical propaganda . [ 10 ] [ 12 ] The company website states, in 2026, that \"HeyGen is one of the leading online deepfake makers because it includes face swap technology, image to video deepfake tools, GIF creation, and avatar features.\" [ 13 ]\nReferences\n[ edit ]\n1 2 3 Fried, Ina (1 September 2023). \"How to create your own personal deepfake\" . Axios .\n1 2 3 Kai, Kenrick (29 November 2023). \"AI Video Startup HeyGen Launches Near-Instant Avatar Generator, Adds $5.6 Million In Funding\" . Forbes .\n↑ Herrman, Josh (28 March 2024). \"The Deodorant AI Spokesmodel Is a Real Person, Sort Of\" . New York Magazine .\n1 2 Metz, Rachel (20 June 2024). \"AI Video Startup HeyGen Valued at $500 Million in Funding Round\" . Bloomberg .\n↑ Le, Kelly (24 June 2024). \"AI start-up HeyGen raises US$60 million after pivoting away from mainland China investors\" . South China Morning Post .\n↑ Olcott, Eleanor (6 June 2024). \"US tech sector pressures Chinese venture capital to divest\" . Financial Times .\n↑ Thomas, Sean (20 January 2024). \"AI just changed the world. Again\" . The Spectator .\n↑ Sullivan, Mike (19 November 2024). \"The 11 next big things in AI and data innovations for 2024\" . Fast Company .\n↑ \"Best in Business 2024\" . Inc. Magazine . Retrieved 1 March 2025 .\n1 2 \"Unmasking deepfakes: What they are, how they're made, and how to detect them\" . group-ib.com . Retrieved March 5, 2026 .\n↑ \"AI hustlers stole women's faces to put in ads. The law can't help them\" . The Washington Post . 2024-03-28. ISSN 0190-8286 . Retrieved 2026-03-05 .\n↑ Criddle, Cristina; Murphy, Hannah (2024-04-05). \" 'I saw my face speaking a different language': the AI cloning influencers\" . Financial Times . Retrieved 2026-03-05 .\n↑ \"Free Deepfake Maker Online | Create Realistic AI Face Swaps\" . HeyGen . Retrieved 2026-03-05 .\nSee also\n[ edit ]\nTinder (app)\nExternal links\n[ edit ]\nOfficial website\nv\nt\ne\nGenerative AI\nConcepts\nAutoencoder\nDeep learning\nFine-tuning\nFoundation model\nGenerative adversarial network\nGenerative pre-trained transformer\nLarge language model\nModel Context Protocol\nNeural network\nPrompt engineering\nReinforcement learning from human feedback\nRetrieval-augmented generation\nSelf-supervised learning\nStochastic parrot\nSynthetic data\nTop-p sampling\nTransformer\nVariational autoencoder\nVibe coding\nVision transformer\nWord embedding\nModels\nText\nAmazon Nova\nCharacter.ai\nClaude\nCommand\nDeepSeek\nDoubao\nErnie\nEXAONE\nGemini\nGemma\nGLM\nGPT\nChatGPT\nGrok\nIBM Granite\nKimi\nMAI\nMicrosoft Copilot\nMistral\nMiniMax\nMuse Spark\nNemotron\nPerplexity\nSolar\nPoe\nHKChat\nQwen\nTencent Hy\nXiaomi MiMo\nYou.com\nImage\nAdobe Firefly\nFlux\nGPT Image\nIdeogram\nMidjourney\nNano Banana\nRecraft\nSeedream\nStable Diffusion\nVideo\nDream Machine\nGenie\nworld model\nMiniMax H3\nKling AI\nLTX\nRunway Gen\nSeedance\nSora\nVeo\nSpeech\n15.ai\nEleven\nGemini Speech\nMiniMax Speech\nMusic\nEleven Music\nEndel\nMiniMax Music\nRiffusion\nSuno\nUdio\nProducts\nCoding tools\nClaude Code\nCodex\nCursor\nDevin AI\nGitHub Copilot\nGoogle Antigravity\nReplit\nAgents\nAutoGPT\nChatGPT agent\nClaude Cowork\nGemini Spark\nManus\nMiniMax Agent\nOpenClaw\nApplications\nDeepfake\naudio\nSlop\nslopaganda\nCompanies\nAleph Alpha\nAnthropic\nAnysphere\nBaichuan\nCanva\nCognition AI\nCohere\nContextual AI\nDeepSeek\nDeepL\nEleutherAI\nElevenLabs\nGoogle\nAI\nDeepMind\nHeyGen\nHugging Face\nInflection AI\nInvisible Technologies\nKuaishou\nLightricks\nLovable\nLuma Labs\nMeta AI\nMeta Superintelligence Labs\nMicrosoft AI\nMiniMax\nMistral AI\nMoonshot AI\nOpenAI\nPerplexity AI\nRunway\nSafe Superintelligence\nSakana AI\nSalesforce\nScale AI\nSoundHound AI\nSpaceXAI\nStability AI\nStepFun\nSynthesia\nThinking Machines Lab\nUpstage\nXiaomi\nZ.ai\nControversies\nGenerative AI pornography\nDeepfake pornography\non Grok\nof Taylor Swift\nPause Giant AI Experiments\nRemoval of Sam Altman from OpenAI\nStatement on AI Risk\nTay (chatbot)\nThéâtre D'opéra Spatial\nVoiceverse NFT plagiarism\nCategory\nCommons\nRetrieved from \" https://en.wikipedia.org/w/index.php?title=HeyGen&oldid=1358779384 \"\nCategories : Text-to-image generation\nDeep learning software applications\nArtificial intelligence industry in the United States\nArtificial intelligence companies\nHidden categories: Articles with short description\nShort description is different from Wikidata\nThis page was last edited on 10 June 2026, at 22:19 (UTC) .\nPage was rendered with Parsoid .\nText is available under the Creative Commons Attribution-ShareAlike 4.0 License ;\nadditional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy . Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc. , a non-profit organization.\nPrivacy policy\nAbout Wikipedia\nDisclaimers\nContact Wikipedia\nLegal & safety contacts\nCode of Conduct\nDevelopers\nStatistics\nCookie statement\nMobile view\nSearch\nSearch\nToggle the table of contents\nHeyGen\n3 languages\nAdd topic",
+     "policy": {
+      "policyId": "rights.wikipedia.v1",
+      "sourceId": "src.wikipedia",
+      "providerName": "Wikipedia",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "Snapで広告とAIカメラを作っていた技術者が、人はカメラの前に立ちたがらないと気づいて起こし、調達した株式資本1ドルあたりARR約2.7ドルで、8か月でARRを2億ドル超へ倍増させた動画アバター屋",
+     "basis": [
+      "f2",
+      "f5",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "Snap時代の気づき（人は動画が好きだがカメラの前には立ちたがらない）から、台本だけで本人そっくりの人物が話す動画を作る商品を始めた。2020年創業で、2026年6月25日に公式がARR2億ドル超を発表し、直前の8か月で倍増したと述べた。",
+     "basis": [
+      "f2",
+      "f4",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "無料枠で作らせ、月29ドルのCreator、上位のPro、法人向けEnterpriseへ段階的に課金する。別にAPI（動画生成・翻訳・リップシンク）を開発者に売る。",
+     "basis": [
+      "f1",
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "個人の発信者・講師・不動産業者から、教育・営業・多言語化にこの動画を使う大企業まで。公式はフォーチュン100社の85%が使うと述べる。",
+     "basis": [
+      "f10",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "公式は商品が口コミ中心で伸びていると述べる。",
+     "basis": [
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "従業員は150人超（採用ページの表示、日付なし）。調達した株式資本1ドルあたりARRは約2.70ドルと公式が主張する。仮にARRを2億ドル、比率を2.70とすると、株式資本は約7,407万ドルに相当するが、実際の調達総額は不明。",
+     "basis": [
+      "f6",
+      "f7",
+      "m1"
+     ],
+     "formula": "参考計算：ARRを200,000,000ドル、ARR÷調達した株式資本の比率を2.70と仮定すると、株式資本＝200,000,000÷2.70≒74,074,074ドル＝約7,407万ドル。公式発表はARRが2億ドル超、比率が約2.70であり、実際の調達総額はこの計算から特定できない。",
+     "presentation": "ESTIMATE"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "公式は、動画のモデルから推論、開発者ツールまで自社で作る構えにより、汎用の動画モデルよりも低い費用で、リアルさと長い動画の一貫性を出せると説明する。",
+     "basis": [
+      "f6",
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2020年に創業。2024年6月に6,000万ドルを調達し、評価額は5億ドルと報じられた。2026年6月25日にARR2億ドル超を発表。",
+     "basis": [
+      "f4",
+      "f11",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "m1",
+    "m2"
+   ],
+   "identity": {
+    "id": "ent_heygen_8f11a1",
+    "name": "HeyGen",
+    "url": "https://heygen.com",
+    "publishability": "PARTIAL"
+   },
+   "caseHash": "d3b473ab51e7273e4950916e4864dd3eedc6d05942b184a9a4127ea3b7961cc4",
+   "itemHashes": {
+    "fact:f1": "7f9fa526b5b81b03531c93ef6e2b30dbc2e75b0f14df24f719b508efca6f3a31",
+    "fact:f2": "256e99c0ea2cba5ac1ea63adcc4dd2767b402d1f8c91f02de2fab9306a6ca3b6",
+    "fact:f3": "b1121f8bd80a4e58f3f25874650d0782fa3a279795915da0ae5235d1f4c9f691",
+    "fact:f4": "1995590c441dd0940e5d5d25faca7c378df641644c886e4b1241a416332df938",
+    "fact:f5": "d9f9bd2df4846f26216bdb11f174c196e9d1c53b9063d4d50c5366b378ad815c",
+    "fact:f6": "86d87692c1bde3f50f7fb2d1699e7e2f2ab05f7c90b9fd080c5c4a5b2319dbab",
+    "fact:f7": "fd83fcce660aaad0881025f7f5810edf50b450ee5146003ae6d1e3d8c117f00b",
+    "fact:f8": "046158255f0b53e8d77285c721ba02f4704ec0a348dd44289bf82460c6689cb5",
+    "fact:f9": "e52eec421542ae97385afffb01ca55d7e664f76f28ad3af7f5df139cde96e4e8",
+    "fact:f10": "982b966a50d421f5d3046fff7f373e6b7bd465be94aed008985b66304f34acd1",
+    "fact:f11": "3922e5dfa7be0654c7699eca3511b72fec1f561f97bb986e6dac0db87f1bdb13",
+    "metric:m1": "de0528e69e1fb635d8b6f99561400a46c72763c8f764657af7578aa765b8ed29",
+    "metric:m2": "222658ee31a4317c62efe74362863a42337fa079f3cb10a746de94b45a62baf2",
+    "analysis:a-headline": "5d4a2cc67f4d76c46eb5e38bb180ddbc72ddb74d59a65c00139bbda873e6e684",
+    "analysis:a-story": "4eeda5860d79eeaf16c399bc01e96df1a42efb0c8634c6a7c1510b849ac2f884",
+    "analysis:a-business_model": "35b4bac22f6bb95974c1672281e0fb252057785aaa053e5b16487463a5209c37",
+    "analysis:a-customer": "030483e5f292c7e320d203a4f37e9036df149749c02be7193fe10a203199c745",
+    "analysis:a-customer_pain": "db6e6f8fc46ce6466f9329ff4e9d99da15cbd5bd2bc65514511c6d064ab7f2bd",
+    "analysis:a-channels": "3b73c440983f54037a67854370cbe753111dd8373a4e9b640e582e3baa86240c",
+    "analysis:a-capital_and_team": "0ed43d6adf95c4de00a470c53e4c5cc0096942996056c98921f6ab2941e89da9",
+    "analysis:a-why_it_worked": "ef4b2c9bf648c70f8e60a92a4bf2d4a8fde64009a64f86618a99016a4fb0a972",
+    "analysis:a-timeline": "955460af74b02a52bd26883ee961be9e9d339955a7ce6faa3bb82ff822fb5533"
+   },
+   "review": [
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "metric:m1",
+    "metric:m2",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-why_it_worked",
+    "analysis:a-timeline"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "publisher": "HeyGen公式ブログ",
+      "url": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+      "title": "HeyGen Doubles to $200M ARR in Eight Months",
+      "publishedAt": "2026-06",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s2",
+      "publisher": "HeyGen公式サイト",
+      "url": "https://www.heygen.com/",
+      "title": "HeyGen トップ",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "publisher": "HeyGen公式サイト",
+      "url": "https://www.heygen.com/about",
+      "title": "HeyGenについて",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "publisher": "HeyGen公式サイト",
+      "url": "https://www.heygen.com/careers",
+      "title": "Careers at HeyGen",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "publisher": "HeyGen公式サイト",
+      "url": "https://www.heygen.com/pricing",
+      "title": "料金",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/HeyGen",
+      "title": "HeyGen",
+      "checkedAt": "2026-10-06",
+      "kind": "THIRD_PARTY"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "文章・画像・音声・スライドから、本人そっくりのアバターが話す動画を作るAI動画サービス。カメラも編集ソフトも制作スキルも要らず、175以上の言語・方言への翻訳に対応し、動画生成・翻訳・リップシンクの開発者向けAPIもある。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "FOUNDING",
+      "text": "創業者のJoshua XuはSnapのエンジニアとして広告とAIカメラの機能を作っていたとき、人は動画が好きなのにカメラの前に立つのは嫌がる、という事実に気づいた。HeyGenはそこから生まれたと公式Aboutは語る。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "公式Aboutは、従来の動画づくりには撮影機材・俳優・場所・編集・撮り直しが要り、完成した動画の制作費が1分あたり最低1,000ドルになることもあると述べ、台本を書くだけで動画が作れる点を売りにしている。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "FOUNDING",
+      "text": "英語版Wikipediaは、HeyGenを2020年にJoshua XuとWayne Liangが創業した、ロサンゼルス本社のAI動画の会社と記す。",
+      "sourceId": "s6",
+      "attribution": "THIRD_PARTY"
+     },
+     {
+      "id": "f5",
+      "kind": "EVENT",
+      "text": "公式ブログ（2026-06-25、署名Joshua Xu）は、年間経常収益（ARR）が2億ドルを超え、8か月で倍増したと発表。利用者3,000万人超、196か国、フォーチュン100社の85%、これまでに作られた動画は1億1,800万本超とも記す。",
+      "sourceId": "s1",
+      "statedAt": "2026-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "OTHER",
+      "text": "同ブログは、調達した株式資本1ドルあたりのARRが約2.70ドルで、ZoomやDatadogの上場時より資本効率が高いと主張する。要因として、技術基盤を端から端まで自社で持つこと、少人数で成果が高いこと、口コミ中心で伸びる商品の3点を挙げる。調達額そのものは記載がない。",
+      "sourceId": "s1",
+      "statedAt": "2026-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "TEAM",
+      "text": "公式の採用ページは、世界の従業員が150人超と表示する（表示時点の日付はない）。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "PRICING",
+      "text": "料金ページはFreeが月0ドル、Creatorが月29ドル、その上にPro、法人向けのEnterpriseを置く。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "直近3か月で63の製品・機能を出荷したと同ブログは述べる。15秒の動画から表情や身ぶりを再現するAvatar V、HeyGen MCP、オープンソース（Apache 2.0）の動画づくり枠組みHyperFramesなど。HyperFramesは公開1か月でGitHubスター2万1,600を集めた。",
+      "sourceId": "s1",
+      "statedAt": "2026-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "公式ブログの利用例。アーティストのKellie DeFriesは夜11時の撮影をデジタルツインに置き換えてオンライン講座を教えさせ、不動産業者のCraig Veroniは個人ブランドのInstagram動画に使い、Lisa Anugwom NarhはYouTubeのチャンネルを1回の収録から広げた。",
+      "sourceId": "s1",
+      "statedAt": "2026-06",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "FUNDING",
+      "text": "公式Aboutは出資者としてBenchmark、Conviction、Thrive Capital、Bondを挙げ、報道一覧にビジネスインサイダーの2024年9月9日の記事（見出しは「44 of the most promising AI startups of 2024, according to top VCs」）を載せている。調達額は記載がない。",
+      "sourceId": "s3",
+      "statedAt": "2024-09",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [
+     {
+      "id": "m1",
+      "measure": "REVENUE",
+      "periodKind": "POINT",
+      "period": "2026-06-25",
+      "amount": 200000000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "label": "年間経常収益（ARR）、2億ドル超",
+      "sourceId": "s1"
+     },
+     {
+      "id": "m2",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "period": "2026-06-25",
+      "amount": 30000000,
+      "unit": "人",
+      "origin": "SELF_REPORTED",
+      "label": "利用者数、3,000万人超",
+      "sourceId": "s1"
+     }
+    ],
+    "unknowns": [
+     "PROFIT",
+     "COST",
+     "CHANNEL",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "Snapで広告とAIカメラを作っていた技術者が、人はカメラの前に立ちたがらないと気づいて起こし、調達した株式資本1ドルあたりARR約2.7ドルで、8か月でARRを2億ドル超へ倍増させた動画アバター屋",
+      "basis": [
+       "f2",
+       "f5",
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "Snap時代の気づき（人は動画が好きだがカメラの前には立ちたがらない）から、台本だけで本人そっくりの人物が話す動画を作る商品を始めた。2020年創業で、2026年6月25日に公式がARR2億ドル超を発表し、直前の8か月で倍増したと述べた。",
+      "basis": [
+       "f2",
+       "f4",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "無料枠で作らせ、月29ドルのCreator、上位のPro、法人向けEnterpriseへ段階的に課金する。別にAPI（動画生成・翻訳・リップシンク）を開発者に売る。",
+      "basis": [
+       "f1",
+       "f8"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "個人の発信者・講師・不動産業者から、教育・営業・多言語化にこの動画を使う大企業まで。公式はフォーチュン100社の85%が使うと述べる。",
+      "basis": [
+       "f10",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "公式は商品が口コミ中心で伸びていると述べる。",
+      "basis": [
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "従業員は150人超（採用ページの表示、日付なし）。調達した株式資本1ドルあたりARRは約2.70ドルと公式が主張する。仮にARRを2億ドル、比率を2.70とすると、株式資本は約7,407万ドルに相当するが、実際の調達総額は不明。",
+      "basis": [
+       "f6",
+       "f7",
+       "m1"
+      ],
+      "formula": "参考計算：ARRを200,000,000ドル、ARR÷調達した株式資本の比率を2.70と仮定すると、株式資本＝200,000,000÷2.70≒74,074,074ドル＝約7,407万ドル。公式発表はARRが2億ドル超、比率が約2.70であり、実際の調達総額はこの計算から特定できない。",
+      "presentation": "ESTIMATE"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "公式は、動画のモデルから推論、開発者ツールまで自社で作る構えにより、汎用の動画モデルよりも低い費用で、リアルさと長い動画の一貫性を出せると説明する。",
+      "basis": [
+       "f6",
+       "f9"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2020年に創業。2024年6月に6,000万ドルを調達し、評価額は5億ドルと報じられた。2026年6月25日にARR2億ドル超を発表。",
+      "basis": [
+       "f4",
+       "f11",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

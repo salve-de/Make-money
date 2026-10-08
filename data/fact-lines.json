@@ -2720,49 +2720,56 @@
   "kind": "fact",
   "targetId": "f2",
   "hash": "35e8d9ca",
-  "text": "創業者のSachin Jainは、実際に使われている環境で圧縮されたJavaScriptの不具合を調べたいという苛立ちから、約30分でChrome用の追加機能の最初の版を作った。事業分析サービスBaremetricsの紹介文によれば、週末の個人制作から始まった。"
+  "text": "創業者Sachin Jainは、本番で動く圧縮されたJavaScriptの不具合を調べたいという苛立ちから、約30分でChrome拡張（ブラウザの追加機能）の最初の版を作った。Baremetricsの紹介文によると、週末の個人制作から始まった。"
  },
  {
   "entityId": "ent_requestly_28e9f2",
   "kind": "fact",
   "targetId": "f4",
   "hash": "bd74f6b4",
-  "text": "Sachin Jainは共同創業者で最高経営責任者。事業分析サービスBaremetricsの紹介文によれば、Googleのインターンとアドビのエンジニアを経て起業した。"
+  "text": "Sachin Jainは共同創業者でCEO（最高経営責任者）。Baremetricsの紹介文によると、Googleのインターンとアドビのエンジニアを経て起業した。"
  },
  {
   "entityId": "ent_requestly_28e9f2",
   "kind": "fact",
   "targetId": "f6",
   "hash": "ed351c60",
-  "text": "事業分析サービスBaremetricsの紹介文によれば、Requestlyは約1万7千件の応募から採択された414社の1社として、起業支援組織Y Combinatorに入った。"
+  "text": "Baremetricsの紹介文によると、Requestlyは、起業支援組織Y Combinatorに約1万7千件の応募から選ばれた414社のうちの1社だった。"
  },
  {
   "entityId": "ent_requestly_28e9f2",
   "kind": "fact",
   "targetId": "f7",
   "hash": "f62f91b0",
-  "text": "事業分析サービスBaremetricsの対談の紹介文は、宣伝用のページや販促に頼らず自然に広まり、質問サイトStack Overflowとコード共有サイトGitHubが販売戦略のすべてだったと説明する。"
+  "text": "Baremetricsの対談の紹介文によると、商品紹介用のページ（ランディングページ）やマーケティングに頼らず自然に広まった。販売戦略のすべては、質問サイトStack Overflowとコード共有サイトGitHubだったという。"
  },
  {
   "entityId": "ent_requestly_28e9f2",
   "kind": "fact",
   "targetId": "f8",
   "hash": "f40aea69",
-  "text": "収益化では、純粋な収益化よりオープンコアモデルを選んだ。"
+  "text": "収益化では、収益化だけを目指す形より、基本部分を公開して一部を有料にするオープンコアモデルを選んだ。"
  },
  {
   "entityId": "ent_requestly_28e9f2",
   "kind": "fact",
   "targetId": "f9",
   "hash": "6d0895eb",
-  "text": "発表によると、Requestlyは起業支援組織Y Combinator、投資会社Peak XV（旧Sequoia）、複数の著名なエンジェル（個人投資家）から出資を受けた。"
+  "text": "発表によると、RequestlyはY Combinator、投資会社Peak XV（旧Sequoia）、複数の著名なエンジェル投資家（個人の投資家）から出資を受けた。"
+ },
+ {
+  "entityId": "ent_requestly_28e9f2",
+  "kind": "fact",
+  "targetId": "f10",
+  "hash": "53af1431",
+  "text": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表によると、Requestlyは独立したオープンソースの道具として続け、今後はモバイル端末や模擬端末向けに、通信の傍受と仮の応答を返す機能を出す計画。"
  },
  {
   "entityId": "ent_requestly_28e9f2",
   "kind": "fact",
   "targetId": "f11",
   "hash": "92eb1741",
-  "text": "発表によれば、買収時のRequestlyは20万人超の開発者、1万社超の企業が使っていた。Chromeストアの評価は1,200件超のレビューで4.3。創業者Sachin Jainの説明では、開発環境やサーバー側の処理を担当する人に依存してコード全体の動作確認が止まり、開発時間が無駄になる苛立ちから生まれた。"
+  "text": "発表によると、買収時のRequestlyは20万人超の開発者、1万社超の企業が使い、Chromeストアの評価は1,200件超のレビューで4.3だった。Sachin Jainによると、テスト環境やサーバー側の担当者への依存で、一連の動作を確かめるテストが止まり、開発時間が無駄になる苛立ちから生まれた。"
  },
  {
   "entityId": "ent_requestly_28e9f2",
@@ -2775,8 +2782,8 @@
   "entityId": "ent_requestly_28e9f2",
   "kind": "fact",
   "targetId": "f15",
-  "hash": "dbf56c0e",
-  "text": "公式の製品ページは、通信を書き換えるルール機能、サーバーに要求を送って試す画面、試験用の仮のサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを並べ、30万人超の開発者に使われているとうたう。"
+  "hash": "405d0407",
+  "text": "2026年10月に保存した公式の製品ページによると、通信を書き換えるルール機能、他のソフトとの通信を試す機能、仮の応答を返すサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを備え、30万人超の開発者に使われている。"
  },
  {
   "entityId": "ent_requestly_28e9f2",

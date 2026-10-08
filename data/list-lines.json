@@ -21,19 +21,19 @@
     "entityId": "ent_heygen_8f11a1",
     "factId": "f1",
     "factHash": "d1217d65",
-    "text": "文章などから、本人そっくりの分身が話す動画を作るAIサービス。"
+    "text": "本人そっくりのアバターが、入力した文章を話す動画を作るAIサービス"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
     "factId": "f1",
     "factHash": "0f0520a7",
-    "text": "電話やWhatsAppで、人工知能による自動応答や自動音声案内を提供する会社"
+    "text": "電話やWhatsAppで、AIによる自動応答や自動音声案内を提供する会社"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "factId": "f1",
     "factHash": "526875fa",
-    "text": "文字の組み方を教えるWebの本。広告を載せず、読者のお金で成り立つ。"
+    "text": "文字の組み方を教えるWebの本。広告は載せない"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -57,7 +57,7 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "factId": "f1",
     "factHash": "cecd9426",
-    "text": "開発会社・デザイン会社向けに、案件管理と請求の機能を提供する。"
+    "text": "開発会社・デザイン会社向けに、案件管理と請求の機能を提供する"
   },
   {
     "entityId": "ent_poolsuite_6d5ad6895563",
