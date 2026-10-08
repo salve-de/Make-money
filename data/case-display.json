@@ -1307,6 +1307,10 @@
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
+ "ent_button_shy_f1545f17d98e": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_buttondown_573bd3808b0c701ad7ee": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -1406,6 +1410,10 @@
  "ent_candor_bf1c87b2d523": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_candy_japan_954236d663a8": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_canny_951d05": {
   "display": "HOLD_QUEUE",
@@ -1830,6 +1838,10 @@
  "ent_chtnod_0f1ccb93": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_churnkey_8d7f2b269c21": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_cigardirectory_2cb73d4f19f4": {
   "display": "HOLD_QUEUE",
@@ -2443,6 +2455,10 @@
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
+ "ent_data_fetcher_8e6a5e22ce2a": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_datadog_X8L2P6QK": {
   "display": "HOLD_THIN",
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
@@ -2654,6 +2670,10 @@
  "ent_dlsite_4a63b2": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_dnsimple_c8560498b136": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_docgpt_8785430a": {
   "display": "HOLD_QUEUE",
@@ -6207,6 +6227,10 @@
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
+ "ent_feature_upvote_3d6a00d965f0": {
+  "display": "HOLD_QUEUE",
+  "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
  "ent_featurebase_e78725": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -6695,6 +6719,10 @@
   "display": "HOLD_THIN",
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
  },
+ "ent_geocodio_c64c0721d500": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_getform_1cdea4": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -7179,6 +7207,10 @@
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
+ "ent_hostifi_cf9ec73a42d2": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_hostman_75a8a8241b36": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -7382,6 +7414,10 @@
  "ent_indieaffiliate_efafd13a6a1a": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_indiehackers_6548833164b0": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_indiesecurity_2d4e774d524f": {
   "display": "HOLD_UNVERIFIED",
@@ -8287,6 +8323,10 @@
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
+ "ent_lunch_money_be2eeb1f4fdf": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_lusha_690033": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -8550,6 +8590,10 @@
  "ent_meloletter_dabf3c8f3d5e": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_memberful_0dff1f9c00fa": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_memberpress_8b1a90": {
   "display": "HOLD_QUEUE",
@@ -9022,6 +9066,10 @@
  "ent_notebridge_dbd264117062": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_noteforms_003fcbdd14cf": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_noteplan_2a34b2": {
   "display": "HOLD_QUEUE",
@@ -9719,6 +9767,10 @@
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
+ "ent_plain_f8a62d87d9cb": {
+  "display": "HOLD_QUEUE",
+  "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
  "ent_plangy_d20052dea6b9": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -9802,6 +9854,10 @@
  "ent_poolfish_7991167a5fd9": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_poolsuite_6d5ad6895563": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_popal_b071c2f09044": {
   "display": "HOLD_QUEUE",
@@ -10130,6 +10186,10 @@
  "ent_qrgenlabs_b8db2033a49a": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_quaderno_81236030d721": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_quadlock_3a9e10": {
   "display": "HOLD_QUEUE",
@@ -10512,6 +10572,10 @@
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
  "ent_revova_d70e8fc0b848": {
+  "display": "HOLD_QUEUE",
+  "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_revue_4fbfee0d2036": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
@@ -11283,6 +11347,10 @@
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
+ "ent_snipcart_9a1012111695": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_snipfeed_88740def1b12": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -11567,6 +11635,10 @@
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
+ "ent_statusgator_316d3eb5edf6": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_statuspal_9b4e13": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
@@ -11596,6 +11668,10 @@
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
  },
  "ent_stopwatchliveclock_9feaf511748a": {
+  "display": "HOLD_QUEUE",
+  "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
+ },
+ "ent_storemapper_a848df77867b": {
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
@@ -12359,6 +12435,10 @@
   "display": "HOLD_QUEUE",
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
+ "ent_tuple_20261007": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
+ },
  "ent_turbo_ai_19ab59": {
   "display": "HOLD_THIN",
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
@@ -12398,6 +12478,10 @@
  "ent_typebot_beda1e": {
   "display": "HOLD_THIN",
   "reason": "データが少ない（事実2件以下で数字なし）。一次情報を探し直す"
+ },
+ "ent_typedream_c02cf9d5426e": {
+  "display": "HOLD_QUEUE",
+  "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_typefully_7cd1f7": {
   "display": "HOLD_QUEUE",
@@ -12526,6 +12610,10 @@
  "ent_userdesk_55159a": {
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
+ },
+ "ent_userlist_a288fcf9f741": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_usrflw_5a583bfd": {
   "display": "HOLD_QUEUE",
@@ -13018,6 +13106,10 @@
  "ent_windscribe_8a23d4": {
   "display": "HOLD_UNVERIFIED",
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
+ },
+ "ent_wip_5eef8a985270": {
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_wirecard_Z6P2M8QK": {
   "display": "HOLD_UNVERIFIED",

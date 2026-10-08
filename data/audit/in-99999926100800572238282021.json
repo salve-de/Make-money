@@ -1,0 +1,1430 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_quaderno_81236030d721",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "FOUNDING",
+     "text": "Carlos が2014年に公開し、外部出資に頼らず始めたと会社は説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "OTHER",
+     "text": "最初の公開前に約1か月、夜間に開発したと振り返っている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "TEAM",
+     "text": "公開時は資源の限られた4人のチームだったと振り返っている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "EVENT",
+     "text": "2014年5月14日に Hacker News へ Stripe 向け請求書サービスとして投稿された。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f5",
+     "kind": "CHANNEL",
+     "text": "投稿はトップページに8時間掲載されたと本人は報告している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "CHANNEL",
+     "text": "投稿の2週間後の集計は訪問410人、登録19人、Stripe 接続5人、有料客2人だったと報告している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "この掲載から有料客2人、月次継続売上100ドルを得たと報告している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "見込客 jot は3社分を契約したかったが、Stripe の取引に必要な情報を加えるにはコードを書く必要があることや、Stripe 接続が設定の5番目の手順であることなどが障害だったと投稿した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f9",
+     "kind": "EVENT",
+     "text": "創業者は同日、Stripe 接続を登録手順の最初に移したと返答した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f10",
+     "kind": "EVENT",
+     "text": "5月19日の返答では、追加情報の設定なしでも Stripe の支払から付加価値税を算出できるようにしたと報告した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "顧客データを第三者へ渡す不安と自前設置版の要望が出たが、創業者は当時その版を開発する予定はないと返答した。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f12",
+     "kind": "PRICING",
+     "text": "当時の投稿者は月24ドルと48ドルの料金に言及している。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f13",
+     "kind": "DESCRIPTION",
+     "text": "オンライン販売者向けに販売地別の税額算出、請求書、税登録のしきい値通知、申告支援を提供する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "DESCRIPTION",
+     "text": "公式トップは利用事業者2,300超と表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "公式トップは Quaderno を通じて処理された売上が140億ドル超と表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "OTHER",
+     "text": "150超の国を支援すると表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "PRICING",
+     "text": "月額は Hobby 29、Startup 49、Business 99、Growth 149。料金表はユーロとドルを併記している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "PRICING",
+     "text": "月の取引上限は順に25、250、1,000、2,500件。連携の呼出し上限は取引上限の10倍。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "PRICING",
+     "text": "取引件数には請求書・領収書・貸方票・経費が含まれる。販売件数だけを数える料金ではない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "PRICING",
+     "text": "Hobby は1利用者・1税管轄・1連携。他の料金段階ではそれらを制限しない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "PRICING",
+     "text": "単月の超過は1取引25セントで対応でき、2か月連続で超過すると自動で上位料金へ移ると記載されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "PRICING",
+     "text": "稼働水準の特別契約は月10,000取引以上の料金段階からと記載する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f23",
+     "kind": "PRICING",
+     "text": "料金ページはカード不要の7日間の試用と、最初の設定の個別相談を案内している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f24",
+     "kind": "PRICING",
+     "text": "料金ページは、上限を超えると次の料金段階へ自動で変更されると説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f25",
+     "kind": "CHANNEL",
+     "text": "紹介した有料客の支払から30％を最長24か月支払うと案内する。申込は人が審査する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f26",
+     "kind": "CHANNEL",
+     "text": "紹介報酬の支払は四半期ごと、最低100ドルと有効な紹介先3件が条件。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f27",
+     "kind": "CHANNEL",
+     "text": "PayPal または Wise で報酬を支払う。自己紹介は禁止し、追跡には閲覧者の Cookie 許可が必要とする。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f28",
+     "kind": "CHANNEL",
+     "text": "紹介制度のヘルプは最低支払額50ドル、支払は1月・4月・7月・10月の最初の週と記載する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f30",
+     "kind": "OTHER",
+     "text": "利用規約は提供主体を Recrea Systems, SL と記載する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f31",
+     "kind": "PRICING",
+     "text": "規約は月の料金を前払い・返金なしとし、月途中の解約でもその月の全額が必要と記載する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f32",
+     "kind": "OTHER",
+     "text": "規約は随時解約と無料のデータ取出しを認め、請求書・顧客・商品などを構造化データで取得できると記載する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f33",
+     "kind": "OTHER",
+     "text": "解約後の削除時期は第5節が6か月、第6節が30日の取出し期間後と記載し、同一規約内で食い違う。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f34",
+     "kind": "OTHER",
+     "text": "規約は第三者サービスとして Zamp Technologies, Inc. と Global VAT Compliance B.V. の条件を参照する。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://quaderno.io/about-quaderno/",
+     "publisher": "公式の会社紹介",
+     "snapshot": {
+      "url": "https://quaderno.io/about-quaderno/",
+      "finalUrl": "https://quaderno.io/about-quaderno/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:25.161Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "d1e9fcee6c3fa74e388aaa70e7107be555b101f299ed34e982b87f4a750bc9a5"
+     },
+     "text": "Quaderno - Worldwide tax compliance software\nQuaderno is an automated tax compliance software that calculates and tracks sales tax, VAT, and GST for online businesses. Try Quaderno today risk-free.\nQuaderno - Worldwide tax compliance software\nQuaderno is an automated tax compliance software that calculates and tracks sales tax, VAT, and GST for online businesses. Try Quaderno today risk-free.\nQuaderno - Worldwide tax compliance software Skip to main content Opens in a new window Opens in a modal window Opens an external site Opens an external site in a new window\nMenu Try it for free\nProduct Get to know the Quaderno platform\nMonitor Track tax thresholds before you cross them\nTax Engine Calculate sales tax, VAT, and GST at checkout\nE-Invoicing Send compliant invoices and e-invoices\nFiling File returns yourself or let us do it\nConnect Offer tax compliance to your sellers\nTalk to a product specialist\nSee Quaderno in action and find the right plan for your business.\nRequest a demo\nBuild with our API\nAdd tax calculations, invoicing, and reporting to your product with one REST API.\nExplore the API\nSolutions How Quaderno helps your business\nDigital creators Sell courses and digital products worldwide\nE-commerce Handle tax on every order, in every market\nSaaS Tax compliance for recurring subscriptions\nPlatforms & Marketplaces Handle tax for every seller on your platform\nAccountants Manage tax compliance for all your clients\nTalk to a specialist\nTell us how you sell and we’ll show you the right setup for your business.\nGet expert advice\nCustomer stories\nSee how businesses like yours automate tax compliance with Quaderno.\nRead their stories\nIntegrations E-commerce\nShopify\nWooCommerce\nAmazon FBA\nView all integrations\nPayments & billing\nStripe\nPayPal\nGoCardless\nView all integrations\nDon’t see your tool?\nConnect Quaderno to thousands of apps with Zapier.\nExplore Zapier\nResources Learn\nBlog Tax news and practical guides for online sellers\nTax guides Sales tax, VAT, and GST rules by country\nWebinars Sessions with our tax experts\nCustomer stories How businesses use Quaderno\nTools & help\nSales tax calculator Find the sales tax rate for any US address\nHelp center Answers and setup guides\nDevelopers API docs and developer tools\nTax Made Simple Newsletter\nWant updates on global tax rules that impact your business? Join Tax Made Simple.\nSign up today\nPricing\nLog in\nLog in\nTry it for free\nAbout Quaderno\nOur purpose\nOur mission is to empower online sellers to maintain compliance with indirect tax regulations globally, ensuring seamless and accurate tax management across all jurisdictions.\nOur goal is simple. You should spend more time growing your business and building meaningful products, and less time worrying about tax rules, filings, and compliance updates.\nOur product\nQuaderno is tax compliance software that automates sales tax, VAT , and GST for SaaS , e-commerce, and digital businesses. We help online businesses navigate international regulations without the headache of manual workflows.\nWith Quaderno, online business owners can:\nAutomate tax calculations\nCalculate the correct tax in real-time based on your customer’s precise location.\nHandle Sales Tax, VAT, and GST compliance\nCollect and store mandatory location evidence automatically for every sale.\nValidate B2B VAT numbers instantly to handle tax-exempt sales correctly.\nSimplify tax reporting, threshold monitoring, and filing\nGenerate instant, jurisdiction-specific reports that make filing a seamless task.\nTrack your sales volume in every region and receive alerts before you hit tax registration thresholds.\nHave tax registration and filing tasks done on your behalf - Quaderno takes care of it all.\nStreamline global digital tax management\nSend automated, compliant invoices in your customer’s local language and currency.\nSync your sales data seamlessly across Stripe, PayPal, GoCardless, and even accounting tools like Xero.\nWho we serve\nQuaderno is built for online-first businesses, including:\nSaaS companies\nE-commerce businesses\nDigital service providers\nSubscription platforms\nWe primarily support companies that sell across borders and need a simple, reliable way to manage tax compliance in multiple countries and regions.\nOur story\nQuaderno launched in 2014 by our founder Carlos, who bootstrapped for 10 years. We built with focus and discipline, growing carefully and keeping operations lean while improving our product and supporting customers around the world.\nIn 2023, we joined the Visma family, one of Europe’s leading providers of mission-critical business software. This partnership strengthened our infrastructure, security, and product capabilities while allowing us to continue operating with independence and long term vision, and of course, offering the best to our clients.\nToday, we combine startup agility with enterprise stability to deliver reliable tax automation for growing businesses. Our team (and many of our customers) have been with us since 2014, a reflection of the long-term relationships we’ve built along the way.\nOrigin of our name\nIn 1494, Luca Pacioli laid the foundations of modern accounting in a book in which, among many other interesting topics, he explained the accounting techniques of his time. He also described the quaderno , the main ledger that contained a merchant’s complete accounting records.\nThat historical ledger inspired our name.\nSix centuries later, we carry that tradition forward by improving tax management with a simple and powerful automation platform. We believe you should spend more time doing meaningful work and less time worrying about taxes.\nMeet the team\nRemote first and async\nThe Quaderno tax team works remotely from Spain, Italy, the UK , and the US . We believe you must live in the place that makes you happiest.\nWe work 5 hour days and we’re profitable. No toxic meetings, no endless phone calls, no nonsense. Just focused work. The rest of the day is dedicated to family, friends, pets, and hobbies, and personal growth (you know, the important stuff).\nIf you would like to visit or simply say hello, feel free to reach out to us at any time with questions, feedback, or just a friendly message.\nOur brand\nAs our product evolved to meet the changing needs of our customers, our brand evolved as well.\nWe welcome everyone who becomes part of our journey. If you need our logo or brand assets, you can download them here:\nDownload assets\nAlthough our team is fully remote, we meet twice a year at the office at C/ Venegas, 2A Local 1 - 35003 Las Palmas, Spain.\nProduct\nMonitor\nTax Engine\nE-Invoicing\nFiling\nConnect\nAPI\nResources\nBlog\nTax Made Simple Newsletter\nTax Guides\nSales tax calculator\nCustomer stories\nHelp center\nDevelopers\nSystem status\nIntegrations\nWooCommerce\nShopify\nStripe\nGoCardless\nPayPal\nAll integrations\nCompany\nAbout us\nAffiliates\nEnvironment\nJobs\nContact\nCompare\nQuaderno vs. Avalara\nQuaderno vs. Stripe Tax\nQuaderno vs. Taxually\nQuaderno vs. Anrok\nQuaderno vs. TaxJar\nYour privacy matters to us\nEnglish\nEspañol\nFrançais\n&copy; 2026 Quaderno\nLegal\nVisma Spain\nVisma Group",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/",
+     "publisher": "公式の公開時の振り返り記事",
+     "snapshot": {
+      "url": "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/",
+      "finalUrl": "https://web.archive.org/web/20251122102535/https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:25.538Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "34a78c2ef1c286af71b1e0ed9317733323528395df7c1bd8d3408e32ed765776"
+     },
+     "text": "Is Hacker News A Good Platform To Launch Your Product?\nHacker News is a forum to share and discuss links to content that may be interesting to the community, a developers/makers-community. But, Is it a good platform to launch your product?\nIs Hacker News A Good Platform To Launch Your Product?\nHacker News is a forum to share and discuss links to content that may be interesting to the community, a developers/makers-community. But, Is it a good platform to launch your product?\n31 captures\n10 Jun 2016 - 22 Nov 2025\nOct\nNOV\nDec\n22\n2024\n2025\n2026\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20251122102535/https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/\nIs Hacker News A Good Platform To Launch Your Product?\nSkip to main content Opens in a new window Opens in a modal window Opens an external site Opens an external site in a new window\nYou're here:\nBlog\nBusiness\nIs Hacker News A Good Platform To Launch Your Product?\nPosted by Carlos\n• Created on May 8, 2023\n• Updated on Feb 2, 2025\nIn this article\nGood and Bad Experiences\nThe Facts\nSubmit your product to HN should not be the only core-step of your launch\nTwo weeks ago we decided to “officially” launch our little new product, a Stripe add-on on steroids to generate invoices . About time!\nAfter one month of night coding, pizza eating, surfing, and much more coding, we were looking forward getting the first reactions from outsiders.\nSpecially Hacker News , among other sites, was definitely one of the places where we wanted to showcase what we had been building. HN has been the virtual place where we have read great insights and shared feedback about others’ projects. Now it was our turn.\nGood and Bad Experiences\n“Why HN?”, you may be wondering. “Is not a place full of negative wannabes ?”\nSo far, our experience has not been that bad. It’s true that when people can hide themselves behind a nickname, they tend to be more critic with your thing. But those are the less cases.\nFor a long time, HN has been the place to be, the place where all the startups want to make their mise en scène , with the hope of getting thousands of signups and paying customers.\nI know. It’s so naïve… But people still think that way.\nHowever, we have to asume the reality, a reality that can be cruel sometimes. The fact that HN audience might be interested in what you have built does not make intrinsically that they are ‘your targeted audience’. At least not in most of the cases. In fact, most of the showcased projects get almost nothing. Nada.\nHN is a forum, a place to share and discuss links to content that may be interesting to the community, a developers/makers-community. Not a signups machine.\nBasecamp received 105,000 visits from HN one month before launching their last version. They got 97 signups (0,09%) and 14 paying customers (0,01%). Yeah!\nThe guys from Groove stated they received 33,198 visits after one of their posts was published on HN . They got 96 signups (0,29%) and 12 paying customers (0,04%). We’re improving!\nIt’s not so bad to get 12 or 14 paying customers for free, but these conversion rates are not as high as you expected, right?\nThere’re also some counterexamples. Josh Pigford got $1,500 in MRR after one of his articles was posted on HN.\nI like his explanation about it:\nIt’s not that Hacker News doesn’t have any legitimate business owners that can convert to paying customers, it’s that most of the content that gets posted there targets the wrong people…the “early stage startups” and “wantrepreneurs” with no money who argue about inconsequential things while the real business owners are out building real businesses. Josh Pigford. “So, why did you want to appear on HN?”\nBecause we wanted to make a little market research. That’s all. We thought HN was a perfect place to pose this question:\nAre people out there interested in an invoice generator for Stripe? And HN is a good place to ask the community and get their feedback.\nThe Facts\nOn May 14th we posted the next post: \" Show HN: Quaderno.io - Billing for Stripe \". The post was on the homepage for 8 hours , and received 69 votes and 42 comments.\nThese were our metrics two weeks later:\n410 visitors\n19 signups (5.26%)\n5 qualified leads (1.22%)\n2 customers (0.49%)\nInvaluable feedback from our targeted potential users\nFYI, for us a qualified lead is someone who has connected his Stripe account with Quaderno.io.\n2 customers and $100 MRR. Not so bad for a free post. But the best part was the feedback we got. Definitely.\nThose 42 comments were pure gold .\nWe exhibited our small project in front of people that we were looking for a solution like this. And in return we obtained feedback on:\nthe concept ,\nour onboarding process ,\nthe VAT feature , that took as to create a proper landing page to disclose more in detail something that was not that obvious in our main landing.\nThank you to all the people whom gave us their feedback!\nWe are a 4-people startup with limited resources (development time, marketing budget) so it was a key element for us to know if we were building something that could solve a real pain. Initial traction proofed us that we were not wrong. We know there is still tons of work to do, but we took the decision to keep on working on it.\nSubmit your product to HN should not be the only core-step of your launch\nThink about it. You have 1 or 2 opportunities to get the attention among 600/700 links submitted per day – you can see easily all the links submitted for the last day if you enter ‘*’ into the search box + ‘Last 24 hours’ in the UI. That’s a 0.25% probabilities of being upvoted!\nI’m trying to help here, not being negative just a bit realistic. I just want to point out that HN should be more like ‘another speaker’ that can take your launch to more people. For sure, you should consider other ways of getting attention to your product besides HN.\nWith that being said, if your product or idea is tech-oriented and you are willing to discuss your ideas, and having 1-1 feedback that might be not always as positive as you though, I really encourage you to submit it to HackerNews.\nHave you ever published a project on HN? I’d like to know your experience.\nNote: At Quaderno we love providing helpful information and best practices about taxes, but we are not certified tax advisors. For further help, or if you are ever in doubt, please consult a professional tax advisor or the tax authorities.\nKeep reading\n3 keys to SaaS growth in 2023 and beyond\nSaaS growth is always a hot topic, but these three trends will mean success in the new era: product-led growth, data analytics, and a metrics-focused team\nStay on top of tax compliance\nSubscribe to our free newsletter and we'll keep you informed on tax compliance updates that may be impacting your business.\nEmail\nYou have read and accept our Privacy Policy\nProduct\nRegistration\nCalculation\nReporting & Filing\nInvoicing\nCheckout\nConnect\nAPI\nResources\nBlog\nTax Made Simple Newsletter\nTax Guides\nSales tax calculator\nCustomer stories\nHelp & Support\nDevelopers\nSystem status\nIntegrations\nWooCommerce\nShopify\nStripe\nGoCardless\nPayPal\nKajabi\nAll integrations\nCompany\nAbout us\nAffiliates\nEnvironment\nJobs\nContact\nCompare\nQuaderno vs. Avalara\nQuaderno vs. Stripe Tax\nQuaderno vs. Anrok\nQuaderno vs. Taxually\nYour privacy matters to us\nEnglish\nEspañol\n&copy; 2025 Quaderno\nLegal\nCookie settings\nVisma Spain\nVisma Group",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://news.ycombinator.com/item?id=7742719",
+     "publisher": "Hacker News の公開時の投稿と返答",
+     "snapshot": {
+      "url": "https://news.ycombinator.com/item?id=7742719",
+      "finalUrl": "https://news.ycombinator.com/item?id=7742719",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:26.901Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "d29abea29da8528a72caeb34b8a31960d96b0351cf9e8b4a38acb85819f46e4e"
+     },
+     "text": "Show HN: Quaderno.io – Invoicing for Stripe | Hacker News\nShow HN: Quaderno.io – Invoicing for Stripe | Hacker News Hacker News new | past | comments | ask | show | jobs | submit login\nShow HN: Quaderno.io – Invoicing for Stripe ( quaderno.io )\n69 points by polimorfico on May 14, 2014 | hide | past | favorite | 41 comments\nzaroth on May 14, 2014 | next [–]\nIs there an easy way to see some sample invoices/receipts? I didn't notice it. You should let prospects enter their email and get some fake invoices sent along to see how it looks. Sounds like a good incentive for me to give you my email address. Do you think it's best for YOU to send the email directly to my customer, or really shouldn't it come from me? What about the confidentiality of my customer records. You mention 3GB of storage, are you keeping these invoices around on your server? The Stripe API is powerful, but you definitely open up your data to 3rd parties when you leverage it like this. Could you bundle a 'self-hosted' version which could be run internally?\nlifeisstillgood on May 14, 2014 | parent | next [–]\n> You should let prospects enter their email and get some fake invoices sent along to see how it looks. Sounds like a good incentive for me to give you my email address. And that's why we love HN. I suspect they are working on it right now:-) I would be concerned about the customer record confidentiality issue. Here in Europe we could only consider working with you if you were signed up to the EU Safe Harbor Act. Its pretty minimal for you - and makes my life easier as I can actually not break UK law.\npolimorfico on May 14, 2014 | root | parent | next [–]\nActually we are a EU base company, so we support the Data Protection Directive :)\nlifeisstillgood on May 14, 2014 | root | parent | next [–]\nAha (sheepish look) That's great really - I guess there is a new -ism, sexism, ageism now Delawareism - the unjustified prejudice that everything is an American company. Good luck !\nundergrowth54 on May 14, 2014 | root | parent | prev | next [–]\nWhere in the EU, OOC?\npolimorfico on May 14, 2014 | root | parent | next [–]\nSpain and Germany.\npolimorfico on May 14, 2014 | parent | prev | next [–]\nThe sample invoices are a very good idea :) We send the invoices on your behalf. Your customers will see only you emails address, not ours. As we're an European based company, we support the European Data Protection Directive. All your customer records are safe. At this moment we don't have plan to develop a 'self-hosted' version. But we can considere it in the future. Thanks for your feedback!! ;-)\nceejayoz on May 14, 2014 | root | parent | next [–]\n> We send the invoices on your behalf. Your customers will see only you emails address, not ours. If you're not doing this with my SMTP credentials those emails are going to go straight into most folks' spam folders, as I have properly set up SPF records.\npolimorfico on May 14, 2014 | root | parent | next [–]\nIn that case you can add our mail server to your SPF records.\njot on May 14, 2014 | prev | next [–]\nFantastic value proposition with perfect timing. Three companies I'm working with need a solution to this problem in the next 10 days. I would literally have paid for three $24 subscriptions by now but sadly it failed to meet my expectations. Some immediate problems: 1) I can't add the metadata it requires to my Stripe transactions without writing code which I will then have to maintain. I'm using WuFoo's Stripe integration to create the transactions. 2) I connected a Stripe account but I can't work out how to import existing transactions at all. (Maybe above issue is blocking this.) 3) Why is connecting Stripe the 5th step in setup when it's the core part of the value proposition and could be first? 4) I'm feeling annoyed and frustrated that time has been wasted building features I don't care about (Expenses, Estimates, Contacts and Delivery Notes) when it doesn't do the core thing I want to buy it for. Here's how I'd like it to work: Step 1) I sign up and give my credit card details immediately. (I would have trusted you with a money back guarantee) Step 2) I connect my Stripe account and you instantly show me a list of invoices I can download or email to customers. Step 3) I change my company details until invoices are rendered correctly. No step 4 or 5. An extra bit of logic which would be fine for my immediate purposes: - When I add my UK/EU VAT registration number include VAT, at the UK rate, on all invoices where Stripe reports that country of the customer to be an EU country. e.g. A $50 payment in Stripe from someone in the UK, France etc should result in an invoice for $41.67 + $8.33 VAT A $50 payment in Stripe from someone in the US, Canada etc should result in an invoice for $50 + $0.00 VAT (Once we hit significant revenue we might need something more complex but right now all I care about is making sure we're properly accounting for VAT.) Brilliant idea! I very much hope all this is helpful.\npolimorfico on May 14, 2014 | parent | next [–]\nWe have already fixed the issue #3. You're right: Stripe connection should be the first step. Metadata are optional. You only have to use them if you need to add extra info, like VAT rates. I see you include the VAT on the final amount. But there are some people who prefer to add the VAT to the final amount if needed. In your case, $60 for EU customers and $50 for non-EU customers. With the use of metadata, the user decides which logic he prefers. Thanks for all your feedback! There are some really interesting and useful ideas. Hope to give you some good news soon ;-)\njot on May 14, 2014 | root | parent | next [–]\nGood stuff! It's still not pulled in any payments for me (I tried reconnecting). On the VAT rate it wouldn't matter which way I (or other customers) preferred to do it. That decision would have already been made when the payment was taken otherwise I'd have to process another payment via Stripe - very messy for accounting. The example could have also been: A $60 payment in Stripe from someone in the UK, France etc should result in an invoice for $50 + $10 VAT A $50 payment in Stripe from someone in the US, Canada etc should result in an invoice for $50 + $0.00 VAT Something like this should do the trick (I guess you have the second half of this already): def get_tax_amount(stripe_payment)\nif stripe_payment.metadata.tax.nil?\nif customer.auto_eu_vat_on? && EU_COUNTRY_CODES.include?(stripe_payment.country_code)\nreturn stripe_payment.amount * (EU_VAT_RATES[customer.country_code]/100)\nend\nelse\nreturn 0.0\nend\nelse\nreturn stripe_payment.amount * (stripe_payment.metadata.tax/100)\nend\nend\nCritically with my current payment mechanisms I only find out the customer's country when they checkout with Stripe. I don't want to ask them before that to keep the form field count low and work within WuFoo's constraints. I don't know if I need to charge a customer VAT until after they have paid. (I conscious that I'm effectively either my giving EU customers a discount or charging non-EU customers a premium but that's not a concern at the moment.) The only cases I can think of that would require metatdata are: 1) A $60 payment in Stripe from someone in Germany where the company's EU VAT number is provided in metadata should result in an invoice for $60 + $0.00 VAT 2) If I'm selling products that have different VAT rates. That's unlikely if your market is primarily software / digital products like Stripe's market.\npolimorfico on May 19, 2014 | root | parent | next [–]\nGood news! We've developed a new feature in Quaderno.io to automatically calculate the EU VAT after the payment was taken. And you do not have to use Stripe metadata! Hope you like it ;)\nlogn on May 14, 2014 | prev | next [–]\nI feel less guilty about buying something simple like this (when I could make it myself) when there's a reasonable one-time payment. I bought the optional features at http://invoiceable.co/ for about $150 for PayPal invoicing. Note that I'm not totally happy with them though because they have mixed content on their SSL invoice page for clients and use non-SSL links in default emails. Also for the price of Quaderno you could just buy http://xero.com and get a lot more features. They too do Stripe invoicing.\nPanMan on May 14, 2014 | prev | next [–]\nSo, this sends an invoice after your customers paid? Isn't it normal that you send an invoice which the customer then pays?\nmichokest on May 14, 2014 | parent | next [–]\nSpain requires invoices after paying, for tax purposes, and they are slightly different than a receipt if you want to claim money back for them when doing your taxes.\nrecentdarkness on May 14, 2014 | parent | prev | next [–]\nYeah, to me that rather sounds like a receipt not an invoice.\nLeonM on May 14, 2014 | root | parent | next [–]\nWhere I live (the Netherlands), a receipt is usually just a small slip of paper you receive in a supermarket of gas station (as a private person). An invoice is usually only send to businesses and are more comprehensive than receipts. A lot of e-merchants I order at (even professionally) require immediate payment during checkout, and send the invoice only after the order is shipped. Back on topic: I rather like these \"simple\" solutions, but the pricing seems to high for my taste, if you think of it: they are just generating and mailing PDF's.\nAlso, invoices usually have requirements that are different per country, so I doubt their solution is universal enough.\npolimorfico on May 14, 2014 | root | parent | next [–]\nThanks for the comment! Yes, pricing might seem a little bit high, but the service also includes expenses tracking, estimates, multi-users access, invoice customization... Invoices are equal in all the EU countries: number, date, customer data, vendor data, items, VAT... And Quaderno supports multi-currencies, multi-languages, and multi-taxes :)\npolimorfico on May 14, 2014 | parent | prev | next [–]\nIn most European countries, Canada, Australia... customers always need an invoice to properly include the expense and the taxes in their accounting books.\nelithrar on May 14, 2014 | root | parent | next [–]\nTypically called a \"tax receipt\" - i.e. a receipt that breaks down the tax component and includes the seller's business number and trading name. Receipts from larger companies are often tax receipts; it's typically smaller businesses that you may need to specifically request from (usually from those with simple registers). Tax invoices are still invoices: issued before payment.\nxytop on May 14, 2014 | root | parent | prev | next [–]\nBut this is called 'receipt' :)\npolimorfico on May 14, 2014 | root | parent | prev | next [–]\nA Stripe receipt doesn't include customer data, taxes, discounts, Tax ID, etc.\nlbotos on May 14, 2014 | parent | prev | next [–]\nIn the US, I often times see invoice/receipt used interchangeably.\nxytop on May 14, 2014 | prev | next [–]\nYou should think about price per invoice generated.\nFor small site it can be expensive to spend 24$ each month if they have just few customers.\nFrom other side, big services which handle hundreds of thousands of customers will be very happy with 48$ but I doubt that you will be happy with such client :)\njot on May 14, 2014 | parent | next [–]\nVAT support could be a good price differentiator in the EU. A VAT registered company should be turning over so much that this cost is negligible. I'd recommend against price per invoice. Most businesses prefer fixed, predictable costs for things like this.\nthibaut_barrere on May 14, 2014 | prev | next [–]\nSpeaking of \"XXX for Stripe\", is there someone working on a \"EU VAT handling for Stripe\" ? Currently, implementing VAT on Stripe (like Recurly does [1]) is a major pain, and I know of several companies which turned to other subscription systems just because of this. [1] https://docs.recurly.com/vat#vat_valueadded_tax\njamesdeer on May 14, 2014 | parent | next [–]\nNeed to be able to handle UK only VAT as well. Recurly is a pain in the ass as it forces you to charge VAT on all EU customers when under UK law we do not need to. RARGH!\nmalditojavi on May 14, 2014 | root | parent | next [–]\nOnly if you and your customer are VAT registered https://www.gov.uk/invoicing-and-taking-payment-from-custome...\nthibaut_barrere on May 14, 2014 | root | parent | prev | next [–]\nVAT is a pain in the ass in general :/\npolimorfico on May 14, 2014 | parent | prev | next [–]\nQuaderno manages all the EU VAT. You just have to include some metadata in your Stripe charges and Quaderno makes the Tax Invoice.\nthibaut_barrere on May 14, 2014 | root | parent | next [–]\nBy handling VAT properly, I mean this, to be accurate: - determine automatically if VAT is applicable based on buyer and seller countries, and show the appropriate price on checkout - support VAT bypassing when a valid VAT id is entered (if valid + buyer in EU but not in seller country, then the VAT must be removed) - if US buyer pricing is 100, in my case for a french buyer the pricing will be 100 + 20 of VAT, so the total is increased - handle invoicing Does Quaderno handles this? I was under the impression that not, but could be mistaken!\npolimorfico on May 14, 2014 | root | parent | next [–]\nYes, Quaderno handles many of that requirements. Just create a Stripe Plan for every VAT case and assign a plan to your customer based on his country. Quaderno will create an invoice with tax amounts and all the tax data. I've just updated the homepage to add an example. Thanks for the feedback!\nthibaut_barrere on May 14, 2014 | root | parent | prev | next [–]\nForgot to add - thanks for shipping this! Will be most likely useful to some of my clients :-)\nTomGullen on May 14, 2014 | root | parent | prev | next [–]\nIncluding reverse charging? VAT is complicated! Varies a lot depending on the goods you are selling as well.\nSilhouette on May 14, 2014 | root | parent | next [–]\nIt also depends on whether it is goods you are selling. If you're providing services rather than a physical product, it's even worse, because now you don't even know where the services are deemed to have been supplied until you've read a whole bunch of rules.\nTomGullen on May 21, 2014 | root | parent | next [–]\nHere in the UK HMRC let you geolocate the buyer on IP address which is handy\npolimorfico on May 14, 2014 | root | parent | prev | next [–]\nThat's the next step we want to give: send a credit note every time you make a reverse charging.\ntnorthcutt on May 14, 2014 | prev | next [–]\nTo clarify for US readers that might be confused, as I was initially: think of this as \"(Tax) Receipts for Stripe\".\nwebbruce on May 14, 2014 | prev | next [–]\nWould be nice to see an example invoice\nDiabloD3 on May 14, 2014 | prev [–]\nSo when is Stripe going to buy these guys out?\nConsider applying for YC's Winter 2027 batch! Applications are open till November 2.\nGuidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact\nSearch:",
+     "policy": {
+      "policyId": "rights.hacker-news.v1",
+      "sourceId": "src.hacker-news",
+      "providerName": "Hacker News",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://quaderno.io/",
+     "publisher": "公式の製品紹介",
+     "snapshot": {
+      "url": "https://quaderno.io/",
+      "finalUrl": "https://quaderno.io/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:27.061Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "3cff6c3a3006279978be8faa5a41e9c0dd411c47a70d0dff684e093634b5bdbc"
+     },
+     "text": "Global Tax Compliance Software: Sales Tax, VAT & GST | Quaderno\nAutomate sales tax, VAT, and GST compliance in 150+ countries with Quaderno, the tax compliance software built for SaaS, e-commerce, and digital platforms.\nGlobal Tax Compliance Software: Sales Tax, VAT & GST | Quaderno\nAutomate sales tax, VAT, and GST compliance in 150+ countries with Quaderno, the tax compliance software built for SaaS, e-commerce, and digital platforms.\nGlobal Tax Compliance Software: Sales Tax, VAT & GST | Quaderno Skip to main content Opens in a new window Opens in a modal window Opens an external site Opens an external site in a new window\nMenu Try it for free\nProduct Get to know the Quaderno platform\nMonitor Track tax thresholds before you cross them\nTax Engine Calculate sales tax, VAT, and GST at checkout\nE-Invoicing Send compliant invoices and e-invoices\nFiling File returns yourself or let us do it\nConnect Offer tax compliance to your sellers\nTalk to a product specialist\nSee Quaderno in action and find the right plan for your business.\nRequest a demo\nBuild with our API\nAdd tax calculations, invoicing, and reporting to your product with one REST API.\nExplore the API\nSolutions How Quaderno helps your business\nDigital creators Sell courses and digital products worldwide\nE-commerce Handle tax on every order, in every market\nSaaS Tax compliance for recurring subscriptions\nPlatforms & Marketplaces Handle tax for every seller on your platform\nAccountants Manage tax compliance for all your clients\nTalk to a specialist\nTell us how you sell and we’ll show you the right setup for your business.\nGet expert advice\nCustomer stories\nSee how businesses like yours automate tax compliance with Quaderno.\nRead their stories\nIntegrations E-commerce\nShopify\nWooCommerce\nAmazon FBA\nView all integrations\nPayments & billing\nStripe\nPayPal\nGoCardless\nView all integrations\nDon’t see your tool?\nConnect Quaderno to thousands of apps with Zapier.\nExplore Zapier\nResources Learn\nBlog Tax news and practical guides for online sellers\nTax guides Sales tax, VAT, and GST rules by country\nWebinars Sessions with our tax experts\nCustomer stories How businesses use Quaderno\nTools & help\nSales tax calculator Find the sales tax rate for any US address\nHelp center Answers and setup guides\nDevelopers API docs and developer tools\nTax Made Simple Newsletter\nWant updates on global tax rules that impact your business? Join Tax Made Simple.\nSign up today\nPricing\nLog in\nLog in\nTry it for free\nGlobal tax compliance, solved\nThe tax compliance platform that takes sales tax, VAT, and GST off your plate in 150+ countries.\nSchedule a demo Start free trial Trusted by 2,300+ businesses · Rated 4.7★ on G2 and 4.6★ on Trustpilot\nOne platform. Complete global tax compliance\nFrom tracking sales thresholds to submitting returns, Quaderno’s tax compliance software handles every stage behind the scenes.\n01 Monitor\nAnticipate global tax thresholds\nTrack sales volume, US economic nexus, and international VAT and GST thresholds in real time, so you never miss a registration deadline.\nExplore Monitor\n02 Tax Engine\nCalculate exact taxes instantly\nCalculate sales tax, VAT, and GST in milliseconds, without adding friction to your checkout.\nExplore Tax Engine\n03 E-Invoicing\nClear e-invoicing mandates\nIssue structured digital invoices and send real-time transaction data to tax authorities across Europe.\nExplore E-Invoicing\n04 Filing\nSubmit audit-ready tax returns\nTurn thousands of transactions into clean, location-specific reports, or let Quaderno file directly with tax authorities.\nExplore Filing\nBuilt for how you sell\nSales tax compliance software shaped around your business model.\nSaaS Tax compliance for recurring subscriptions See how it works\nE-commerce Handle tax on every order, in every market See how it works\nDigital creators Sell courses and digital products worldwide See how it works\nPlatforms & Marketplaces Handle tax for every seller on your platform See how it works\nWhatever you sell and wherever you sell it, Quaderno handles the tax\nSchedule a demo Start free trial\nWorks seamlessly with the tools you already use\nPlug-and-play setup\nConnect Quaderno to platforms like Stripe or Shopify in a few clicks. Your sales sync automatically to calculate taxes and issue invoices, without a line of code.\nAll your channels in one place\nBring together sales from every storefront, shopping cart, and payment gateway in a single, audit-ready dashboard.\nBuilt for custom checkouts\nAdd tax compliance to your own platform with our lightweight REST API , calculating real-time rates and generating compliant invoices.\nAlways up to date\nNew sales, refunds, and chargebacks sync automatically, so your tax records and reports always match your revenue.\nView all integrations\nTrusted by 2,300+ businesses selling across borders\nFrom high-growth SaaS startups to digital product creators, modern companies rely on Quaderno to automate tax compliance in 150+ countries.\nFounder\n“It's rare that I come across a SaaS product that just jumps out as where have you been all my life! If you need to automate VAT compliance, Quaderno will wow you.”\nAnthony Rose\nCEO, Seedlegals\nFinance lead\n“We are particularly pleased to have found in Quaderno a reliable partner for both invoicing and VAT reporting.\nOur rapid global expansion requires frequent registrations in new territories, and Quaderno effectively supports us in scaling internationally.”\nVictoria Puyuelo\nHead of Finance, MentorShow\nTech lead\n“Thanks to Quaderno's well-documented API, we have been able to integrate invoicing with our internal management system for years, issuing invoices, receipts, and credit notes for clients from every country. On top of that, Quaderno's support is fantastic — always ready to resolve our questions and help with any queries.”\nJosé Alberto Hernandis\nCTO, Arcadina.com\nGDPR compliant\nPeppol and VIES integrated\n99.99% uptime SLA\nVisma Security Program Gold\n$14B+ in sales processed through Quaderno\n150+ countries covered for sales tax, VAT, and GST\n15+ hours saved every month on manual tax work\nReal people behind your tax compliance\nHumans, not bots\nOur support team answers your questions directly, from your first setup to your first tax return.\nReal tax know-how\nGet clear answers from a team that follows tax rule changes in every market we cover.\nSupport in your language\nGet help in English, Spanish, and French.\nOn your side as you grow\nSelling in new markets? Talk to a specialist about your next registrations and filings.\nFrequently Asked Questions\nWhat is tax compliance software? Tax compliance software, sometimes called sales tax software or tax automation software, automates the work of collecting and reporting indirect taxes like sales tax, VAT, and GST. It tracks where you owe tax, calculates the right rate on every sale, issues compliant invoices, and prepares or files your tax returns, so you don’t have to manage tax rules and deadlines in spreadsheets.\nWhat does Quaderno do? Quaderno is a tax compliance platform for online businesses, covering everything from sales tax automation to filing returns. It handles every stage of indirect tax compliance with four products: Monitor tracks tax thresholds, Tax Engine calculates tax at checkout, E-Invoicing issues compliant invoices and e-invoices, and Filing prepares and files your returns.\nWhich taxes and countries does Quaderno cover? Quaderno handles sales tax in every US state with sales tax, EU and UK VAT, GST in countries such as Canada and Australia, and tax rules in more than 150 countries. It files returns in more than 40 jurisdictions and supports e-invoicing mandates in Spain, France, and Belgium. For the rules in each country and US state, see our tax guides .\nDoes Quaderno work with my tools? Yes. Quaderno connects in a few clicks to platforms like Stripe, Shopify, WooCommerce, PayPal, and Amazon, and to thousands of other apps through Zapier. For custom checkouts, you can use the Quaderno API . See all integrations .\nHow does Quaderno compare to Avalara, TaxJar, and Stripe Tax? Quaderno covers the whole tax compliance lifecycle in one platform, from threshold monitoring and tax calculation to invoicing, e-invoicing, and filing, with transparent pricing based on your sales volume. See how it compares with Avalara , TaxJar , and Stripe Tax .\nHow much does Quaderno cost? Quaderno plans are priced by monthly transaction volume, and every plan starts with a 7-day free trial, with no credit card required. See all plans and prices .\nSell everywhere. Think about tax nowhere\nJoin the tax compliance platform that tracks thresholds, calculates tax, sends invoices, and files returns for businesses selling worldwide.\nSchedule a demo Start free trial 7-day free trial · No credit card required\nProduct\nMonitor\nTax Engine\nE-Invoicing\nFiling\nConnect\nAPI\nResources\nBlog\nTax Made Simple Newsletter\nTax Guides\nSales tax calculator\nCustomer stories\nHelp center\nDevelopers\nSystem status\nIntegrations\nWooCommerce\nShopify\nStripe\nGoCardless\nPayPal\nAll integrations\nCompany\nAbout us\nAffiliates\nEnvironment\nJobs\nContact\nCompare\nQuaderno vs. Avalara\nQuaderno vs. Stripe Tax\nQuaderno vs. Taxually\nQuaderno vs. Anrok\nQuaderno vs. TaxJar\nYour privacy matters to us\nEnglish\nEspañol\nFrançais\n&copy; 2026 Quaderno\nLegal\nVisma Spain\nVisma Group",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://support.quaderno.io/article/492-plans-pricing",
+     "publisher": "公式の料金ヘルプ",
+     "snapshot": {
+      "url": "https://support.quaderno.io/article/492-plans-pricing",
+      "finalUrl": "https://support.quaderno.io/article/492-plans-pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:27.250Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "f52e803ed5e182e2a684de4e794ca348405ff21dd6e0f02f3245ea4d4270d72a"
+     },
+     "text": "Plans & pricing - Quaderno Support\nQuaderno plans are based on: the number of transactions (invoices, receipts, credit notes, and expenses). the number of calls to the Quaderno API. You can check\nPlans & pricing - Quaderno Support\nToggle Navigation\nUser Manual\nIntegrations\nSign in\nEN\nES\nFR\nContact\nContact\nPlans & pricing\nQuaderno plans are based on:\nthe number of transactions (invoices, receipts, credit notes, and expenses).\nthe number of calls to the Quaderno API .\nYou can check our plans in the table below:\nPlan\nTransactions\nAPI calls\nMonthly price (€/$)\nHobby*\n25\n250\n29\nStartup\n250\n2.5k\n49\nBusiness\n1k\n10k\n99\nGrowth\n2.5k\n25k\n149\nEnterprise\n5k\n50k\n249\nEnterprise\n10k\n100k\n500\nEnterprise\n25k\n250k\n750\nEnterprise\n50k\n500k\n1000\nEnterprise\n100k\n1M\n1500\nEnterprise\n200k\n2M\n2500\nEnterprise\n300k\n3M\n3500\nEnterprise\n400k\n4M\n4500\nEnterprise\n500k\n5M\n5500\nEnterprise\n1M\n10M\n10500\n(*) The Hobby plan is ideal for solo users, providing support for 1 user, 1 tax jurisdiction, and 1 integration. For growing needs, our other plans include unlimited users, tax jurisdictions, and integrations.\nWhat if I go over the transaction limit of my current plan?\nWe keep an eye on that for you! As you approach the transaction limit for your plan, we’ll notify you that you’ve reached 90% and 100% of your limit. These alerts give you time to upgrade your Quaderno subscription so that it’ll cover your booming business.\nYou can always upgrade your subscription to a higher plan on the billing details page .\nAs a courtesy, we also offer the option to pay extra transactions for 25 cents each . That way you are not forced to upgrade if you hit the plan limit in a single month because of a peak in volume. When you exceed your plan’s limits two months in a row, the system will automatically upgrade your plan to the next appropriate plan.\nDo you have a Service-Level Agreement (SLA)?\nWe offer a premium SLA to customers starting at the 10k transactions per month tier. You can check our uptime at quaderno.statuspage.io .\nDid this answer your question?\nThanks for the feedback\nThere was a problem submitting your feedback. Please try again later.\nYes\nNo\nStill need help?\nContact Us\nContact Us\nLast updated on March 31, 2026\nRelated Articles\nManaging your subscription\nClosing your account\nQuaderno Connect for platforms and marketplaces\nToggle Search\nCategories\nGetting Started\nTaxes\nReports\nDocuments\nContacts\nProducts\nSettings\nAccount Management\nCompliance\nGlossary\nNo results found\n&copy;\nQuaderno\n2026. Powered by Help Scout",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://quaderno.io/pricing/",
+     "publisher": "公式の料金ページ",
+     "snapshot": {
+      "url": "https://quaderno.io/pricing/",
+      "finalUrl": "https://quaderno.io/pricing/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:27.281Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "2009463bf7f59eab7f6549af9a51a712caffcf23d54ced4df790bf9ea573dc67"
+     },
+     "text": "Pricing\nQuaderno is way cheaper than a conflict with the tax office. Check our simple and transparent pricing, and start the free trial now!\nPricing\nQuaderno is way cheaper than a conflict with the tax office. Check our simple and transparent pricing, and start the free trial now!\nPricing Skip to main content Opens in a new window Opens in a modal window Opens an external site Opens an external site in a new window\nMenu Try it for free\nProduct Get to know the Quaderno platform\nMonitor Track tax thresholds before you cross them\nTax Engine Calculate sales tax, VAT, and GST at checkout\nE-Invoicing Send compliant invoices and e-invoices\nFiling File returns yourself or let us do it\nConnect Offer tax compliance to your sellers\nTalk to a product specialist\nSee Quaderno in action and find the right plan for your business.\nRequest a demo\nBuild with our API\nAdd tax calculations, invoicing, and reporting to your product with one REST API.\nExplore the API\nSolutions How Quaderno helps your business\nDigital creators Sell courses and digital products worldwide\nE-commerce Handle tax on every order, in every market\nSaaS Tax compliance for recurring subscriptions\nPlatforms & Marketplaces Handle tax for every seller on your platform\nAccountants Manage tax compliance for all your clients\nTalk to a specialist\nTell us how you sell and we’ll show you the right setup for your business.\nGet expert advice\nCustomer stories\nSee how businesses like yours automate tax compliance with Quaderno.\nRead their stories\nIntegrations E-commerce\nShopify\nWooCommerce\nAmazon FBA\nView all integrations\nPayments & billing\nStripe\nPayPal\nGoCardless\nView all integrations\nDon’t see your tool?\nConnect Quaderno to thousands of apps with Zapier.\nExplore Zapier\nResources Learn\nBlog Tax news and practical guides for online sellers\nTax guides Sales tax, VAT, and GST rules by country\nWebinars Sessions with our tax experts\nCustomer stories How businesses use Quaderno\nTools & help\nSales tax calculator Find the sales tax rate for any US address\nHelp center Answers and setup guides\nDevelopers API docs and developer tools\nTax Made Simple Newsletter\nWant updates on global tax rules that impact your business? Join Tax Made Simple.\nSign up today\nPricing\nLog in\nLog in\nTry it for free\nTransparent pricing to grow with your business\nMonthly Yearly\nGrowth\n2,500 transactions / month\nUnlimited users\nUnlimited jurisdictions\nUnlimited integrations\n124 / month\nStart free trial\nMost popular Business\n1,000 transactions / month\nUnlimited users\nUnlimited jurisdictions\nUnlimited integrations\n83 / month\nStart free trial\nStartup\n250 transactions / month\nUnlimited users\nUnlimited jurisdictions\nUnlimited integrations\n41 / month\nStart free trial\nHobby\n25 transactions / month\n1 user\n1 jurisdiction\n1 integration\n24 / month\nStart free trial\nEnterprise\nDo you have 2,500+ transactions per month? Contact our product experts to tailor your plan.\nGet in touch\n7 day free trial · No credit card required\nCommon features\nInternational tax calculations\nInstantly calculates the correct sales tax, VAT, and GST, no matter where you sell.\nNexus & threshold alerts\nIf your business needs to register in a new place, you're notified right away.\nUnlimited users\nAll plans, except Hobby, let you add your accountant, CFO, sales manager, even your dog (if they're good with taxes).\nAutomatic invoices\nTax-compliant invoices that are customized to your brand & localized to your customer.\nFive-star support\nReal human experts on taxes and Quaderno, so you can stay focused on your growth.\nMultichannel tax reports\nInstant, easy-to-read reports to quickly fill out tax returns or share with your tax advisor.\nUnlimited integrations\nConnect all the sales platforms & payment processors you use, as many as you want. Limited to one in the Hobby plan.\nOnboarding assistance\nPersonalized calls for all new users, to answer your questions and customize setup.\nE-invoicing compliance\nStay ahead of e-invoicing mandates worldwide, with integrations built to each government's specifications.\nQuaderno automates your sales tax and invoicing\nQuaderno simplifies tax compliance from start to finish. Here's how the process works.\nTrack your sales data\nSend your sales data to Quaderno directly or through one of our native integrations.\nNever miss a tax threshold\nAutomatically detect where you reach economic nexus or other thresholds. We send you alerts so you can register on time.\nCollect accurate tax at checkout\nReal-time tax calculations based on local laws around the world, so the right amount is applied to every sale.\nSend invoices automatically\nAutomatic, customizable invoices that save you time and boost your customer's experience.\nFile tax returns effortlessly\nQuaderno Reports make it easy to fill out tax returns on your own – or we can file returns for you.\nRegistration & tax returns done for you\nDon't worry about deadlines. Quaderno can file and register for you, and we're always on time!\nWant taxes off your plate? Let's talk.\nBook a free call\nI like being able to combine multiple invoices into one PDF so you can go through your customer’s entire history. Tick all the boxes and it would generate a PDF for the whole time they have been with you. It’s really a time saver.\nMurat Mutlu Co-founder and CEO, Marvel\nI like being able to combine multiple invoices into one PDF so you can go through your customer’s entire history. Tick all the boxes and it would generate a PDF for the whole time they have been with you. It’s really a time saver.\nMurat Mutlu Co-founder and CEO, Marvel\nFrequently Asked Questions\nWhat does Quaderno do exactly? Quaderno automates many parts of tax compliance for you. Our tax engine uses data about your product and customer's location to calculate the correct tax amount on each sale – and sends invoices automatically, every time you get paid. The app also tracks your sales around the world and alerts you when your business will soon be liable for taxes in a new place. Quaderno will actually register for taxes for you, then set up the new jurisdiction in your account. Thanks to instant, easy-to-read tax reports by state and country, you can file returns in minutes. Or hire us to file returns for you automatically!\nUltimately, Quaderno keeps your business tax compliant, saves you hours of manual accounting and gives you peace of mind. So you can get back to doing what you love.\nWhat if I sell in several countries? Selling in several countries is perfectly fine. Quaderno fully supports tax rules worldwide, making global sales seamless for your business.\nHow does Quaderno's pricing work? Quaderno offers a simple, flat-rate monthly pricing structure. Each plan includes a generous volume of transactions and API calls. A transaction is defined as any sale, refund, or purchase recorded within the app. The limit for API calls is 10 times the number of transactions included in each plan, ensuring ample capacity for your business.\nWhat counts as a transaction? A transaction is defined as any sale, refund, or purchase recorded within the app.\nWhat if I exceed my plan's transaction limit? Quaderno alerts you when your business approaches the transaction limit before you pass it. If you exceed your plan's limit, you will be automatically upgraded to the next subscription tier. From experience we learned that upgrading our customers is actually cheaper for them than charging overage fees.\nHow does Quaderno help with tax filing? Quaderno fully supports your tax filing needs in any country or US state. We can file returns on your behalf, completely automating your tax compliance process from start to finish. For detailed information and a personalized overview, please book a call with one of our product experts!\nStart free trial\nCreate a new account and get a 7-day free trial with no obligation.\nIntegrate Quaderno\nUse one of our native integrations or our flexible API to send your sales data directly to Quaderno.\nForget taxes\nForget taxes and focus on the work you love.\nReady to get started?\nTry it for free\nProduct\nMonitor\nTax Engine\nE-Invoicing\nFiling\nConnect\nAPI\nResources\nBlog\nTax Made Simple Newsletter\nTax Guides\nSales tax calculator\nCustomer stories\nHelp center\nDevelopers\nSystem status\nIntegrations\nWooCommerce\nShopify\nStripe\nGoCardless\nPayPal\nAll integrations\nCompany\nAbout us\nAffiliates\nEnvironment\nJobs\nContact\nCompare\nQuaderno vs. Avalara\nQuaderno vs. Stripe Tax\nQuaderno vs. Taxually\nQuaderno vs. Anrok\nQuaderno vs. TaxJar\nYour privacy matters to us\nEnglish\nEspañol\nFrançais\n&copy; 2026 Quaderno\nLegal\nVisma Spain\nVisma Group",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://quaderno.io/affiliates/",
+     "publisher": "公式の紹介報酬条件",
+     "snapshot": {
+      "url": "https://quaderno.io/affiliates/",
+      "finalUrl": "https://quaderno.io/affiliates/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:27.384Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "0f04155a9cc54618c260e64c710aa28cfb62e894d9fe8cc4b54785a0e63f0d14"
+     },
+     "text": "Quaderno - Worldwide tax compliance software\nQuaderno is an automated tax compliance software that calculates and tracks sales tax, VAT, and GST for online businesses. Try Quaderno today risk-free.\nQuaderno - Worldwide tax compliance software\nQuaderno is an automated tax compliance software that calculates and tracks sales tax, VAT, and GST for online businesses. Try Quaderno today risk-free.\nQuaderno - Worldwide tax compliance software Skip to main content Opens in a new window Opens in a modal window Opens an external site Opens an external site in a new window\nMenu Try it for free\nProduct Get to know the Quaderno platform\nMonitor Track tax thresholds before you cross them\nTax Engine Calculate sales tax, VAT, and GST at checkout\nE-Invoicing Send compliant invoices and e-invoices\nFiling File returns yourself or let us do it\nConnect Offer tax compliance to your sellers\nTalk to a product specialist\nSee Quaderno in action and find the right plan for your business.\nRequest a demo\nBuild with our API\nAdd tax calculations, invoicing, and reporting to your product with one REST API.\nExplore the API\nSolutions How Quaderno helps your business\nDigital creators Sell courses and digital products worldwide\nE-commerce Handle tax on every order, in every market\nSaaS Tax compliance for recurring subscriptions\nPlatforms & Marketplaces Handle tax for every seller on your platform\nAccountants Manage tax compliance for all your clients\nTalk to a specialist\nTell us how you sell and we’ll show you the right setup for your business.\nGet expert advice\nCustomer stories\nSee how businesses like yours automate tax compliance with Quaderno.\nRead their stories\nIntegrations E-commerce\nShopify\nWooCommerce\nAmazon FBA\nView all integrations\nPayments & billing\nStripe\nPayPal\nGoCardless\nView all integrations\nDon’t see your tool?\nConnect Quaderno to thousands of apps with Zapier.\nExplore Zapier\nResources Learn\nBlog Tax news and practical guides for online sellers\nTax guides Sales tax, VAT, and GST rules by country\nWebinars Sessions with our tax experts\nCustomer stories How businesses use Quaderno\nTools & help\nSales tax calculator Find the sales tax rate for any US address\nHelp center Answers and setup guides\nDevelopers API docs and developer tools\nTax Made Simple Newsletter\nWant updates on global tax rules that impact your business? Join Tax Made Simple.\nSign up today\nPricing\nLog in\nLog in\nTry it for free\nAffiliates\nRefer and earn\nWe are so glad you’re here and want to learn more about The Quaderno Affiliate Program!\nFirst things first, affiliates are an essential part of our growth strategy. We have many successful affiliate partners who earn thousands in recurring revenue from our program each month because of our continued commitment to creating opportunities for our affiliates to earn commissions.\nAs a Quaderno affiliate, you’ll earn a recurring 30% commission for up to 24 months for every paid customer you send our way. Joining our affiliate program is simple. Just click the button below to get started.\nJoining our affiliate program is simple. Just click the button below to get started.\nJoin the Affiliate Program\nThe process\nJoining the Quaderno Affiliate Program is pretty simple. Here’s the process, just to make everything crystal clear:\nUse the link above to sign up and we will review your application and approve it manually if it seems to be a good fit.\nIf approved, you will receive an email with the affiliate dashboard link and your password. Once you sign in, you can see all your stats, enter your PayPal or Wise payment information, and download any logos or assets you need.\nStart promoting! We send you a 30% commission for 24 months for every account who signs up and becomes a paying customer on Quaderno through your affiliate link . The more you promote Quaderno to your audience, the greater the opportunity to earn more commissions.\nPromotion ideas\nHere are a few promotion ideas to get you started:\nWrite a review about Quaderno and publish that on your blog and send it out to your email list.\nAdd details about Quaderno, along with your affiliate link, to any pages or posts you have on how to create a business or handle receipts or taxes.\nPartner with us for a webinar that you promote to your list and we will teach one hour of free content on taxes and accounting.\nAdd Quaderno to your Resources page on your blog as your recommended accounting tool.\nAnything else you can think of!\nIt’s good to have you on board!\nTerms and conditions\nThe rules on our affiliate program are pretty simple:\nPayouts are fulfilled quarterly during the first two weeks of January, April, July, and October. (If you are located in the Canary Islands (Spain), you will need to send us an invoice in advance)\nYou need to earn $100 minimum before being paid out.\nYou are required to have at least three active referrals to get paid out. If you have fewer, any commissions you earn will continue to accumulate until three referred accounts are active. That said, you can only have one account per referral . You will not receive commission on any additional Quaderno accounts that your referral may create after that.\nSelf-referrals are not allowed . The point is to get you to refer other people. This is not a way to get a discount on your own account.\nYou may use paid advertising to promote Quaderno. We recommend linking these ads to your own optimized landing pages specific to each campaign. You may not impersonate Quaderno or link directly to our website from your ad without prior written permission .\nAbuse, gaming, or shady behavior will get your account banned. Just be cool.\nIn some cases, we can give credit to an affiliate even if the customer didn’t sign up through their link by mistake. If you have a case like that, contact us first so we can help.\nKeep in mind that if the referral doesn’t accept all cookies, we won’t be able to track them.\nWe reserve the right to change the terms at anytime.\nNow, with those details out of the way, we can go about paying you for sending great customers our way!\nJoin the Affiliate Program\nProduct\nMonitor\nTax Engine\nE-Invoicing\nFiling\nConnect\nAPI\nResources\nBlog\nTax Made Simple Newsletter\nTax Guides\nSales tax calculator\nCustomer stories\nHelp center\nDevelopers\nSystem status\nIntegrations\nWooCommerce\nShopify\nStripe\nGoCardless\nPayPal\nAll integrations\nCompany\nAbout us\nAffiliates\nEnvironment\nJobs\nContact\nCompare\nQuaderno vs. Avalara\nQuaderno vs. Stripe Tax\nQuaderno vs. Taxually\nQuaderno vs. Anrok\nQuaderno vs. TaxJar\nYour privacy matters to us\nEnglish\nEspañol\nFrançais\n&copy; 2026 Quaderno\nLegal\nVisma Spain\nVisma Group",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s12",
+     "url": "https://support.quaderno.io/article/544-quaderno-affiliate-program",
+     "publisher": "公式の紹介制度ヘルプ",
+     "snapshot": {
+      "url": "https://support.quaderno.io/article/544-quaderno-affiliate-program",
+      "finalUrl": "https://support.quaderno.io/article/544-quaderno-affiliate-program",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:24:48.549Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "e9dad87958b44cd1e7fce1438196d96d3b53ba1227cb0bf69e8d7ec0531203fa"
+     },
+     "text": "Quaderno affiliate program - Quaderno Support\nAffiliates are a very important part of our growth strategy. You can join the Affiliate Program here. Joining the Quaderno Affiliate Program Use this link to si\nQuaderno affiliate program - Quaderno Support\nToggle Navigation\nUser Manual\nIntegrations\nSign in\nEN\nES\nFR\nContact\nContact\nQuaderno affiliate program\nAffiliates are a very important part of our growth strategy. You can join the Affiliate Program here .\nJoining the Quaderno Affiliate Program\nUse this link to sign up and our team will review your application and approve it manually if it seems to be a good fit.\nIf approved, you will receive an email with the affiliate dashboard link and your password. Once you sign in you can see all your stats, enter your PayPal payment information, and download any logos or assets you need.\nStart promoting! You’ll see any clicks or activity reflected in your account.\nCommon Questions\nWhat commission can I expect as an Affiliate?\nAs a Quaderno affiliate, you will earn a 30% commission each month for every paying customer you refer. That means if you send us an account worth €49/month, you’ll earn €14.70. Every month.\nDo you offer special discounts for affiliate audiences?\nAt the moment, we don't offer special discounts for affiliate audiences. However, when we do promo campaigns, we always include our affiliates and allow them to extend the same offer to their audience (for example, Black Friday promo).\nDo you have any promotion ideas?\nHere are a few promotion ideas to get you started:\nWrite a review about Quaderno and publish that on your blog and send it out to your email list.\nAdd details about Quaderno, along with your affiliate link, to any pages or posts you have on how to create a business or handle receipts or taxes.\nPartner with us for a webinar that you promote to your list and we will teach one hour of free content on taxes and accounting.\nAdd Quaderno to your Resources page on your blog as your recommended accounting tool.\nAnything else you can think of!\nWhen payouts are made?\nPayouts are currently made the first week of January, April, July, and October.\nIs there a minimum for the payouts\nYou need to earn $50 minimum before being paid out.\nTroubleshooting\nI completed the form and clicked on \"I accept terms\" but it reloads the page before I click on \"Sign up\".\nWhen you click on \"I agree to affiliate terms\", another tab opens where you can see exactly the same info (the affiliate terms & conditions). You need to first scroll down then you will be able to go back and click the box, so you can sign-up\nDid this answer your question?\nThanks for the feedback\nThere was a problem submitting your feedback. Please try again later.\nYes\nNo\nStill need help?\nContact Us\nContact Us\nLast updated on March 31, 2026\nToggle Search\nCategories\nGetting Started\nTaxes\nReports\nDocuments\nContacts\nProducts\nSettings\nAccount Management\nCompliance\nGlossary\nNo results found\n&copy;\nQuaderno\n2026. Powered by Help Scout",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s16",
+     "url": "https://quaderno.io/legal/terms/",
+     "publisher": "公式の利用規約",
+     "snapshot": {
+      "url": "https://quaderno.io/legal/terms/",
+      "finalUrl": "https://quaderno.io/legal/terms/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:27.743Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "d014a07a62ca2819edb9b6877a28145f73afa3923eaa5d2fc8ff2e6902c58a80"
+     },
+     "text": "Quaderno - Worldwide tax compliance software\nQuaderno is an automated tax compliance software that calculates and tracks sales tax, VAT, and GST for online businesses. Try Quaderno today risk-free.\nQuaderno - Worldwide tax compliance software\nQuaderno is an automated tax compliance software that calculates and tracks sales tax, VAT, and GST for online businesses. Try Quaderno today risk-free.\nQuaderno - Worldwide tax compliance software Skip to main content Opens in a new window Opens in a modal window Opens an external site Opens an external site in a new window\nMenu Try it for free\nProduct Get to know the Quaderno platform\nMonitor Track tax thresholds before you cross them\nTax Engine Calculate sales tax, VAT, and GST at checkout\nE-Invoicing Send compliant invoices and e-invoices\nFiling File returns yourself or let us do it\nConnect Offer tax compliance to your sellers\nTalk to a product specialist\nSee Quaderno in action and find the right plan for your business.\nRequest a demo\nBuild with our API\nAdd tax calculations, invoicing, and reporting to your product with one REST API.\nExplore the API\nSolutions How Quaderno helps your business\nDigital creators Sell courses and digital products worldwide\nE-commerce Handle tax on every order, in every market\nSaaS Tax compliance for recurring subscriptions\nPlatforms & Marketplaces Handle tax for every seller on your platform\nAccountants Manage tax compliance for all your clients\nTalk to a specialist\nTell us how you sell and we’ll show you the right setup for your business.\nGet expert advice\nCustomer stories\nSee how businesses like yours automate tax compliance with Quaderno.\nRead their stories\nIntegrations E-commerce\nShopify\nWooCommerce\nAmazon FBA\nView all integrations\nPayments & billing\nStripe\nPayPal\nGoCardless\nView all integrations\nDon’t see your tool?\nConnect Quaderno to thousands of apps with Zapier.\nExplore Zapier\nResources Learn\nBlog Tax news and practical guides for online sellers\nTax guides Sales tax, VAT, and GST rules by country\nWebinars Sessions with our tax experts\nCustomer stories How businesses use Quaderno\nTools & help\nSales tax calculator Find the sales tax rate for any US address\nHelp center Answers and setup guides\nDevelopers API docs and developer tools\nTax Made Simple Newsletter\nWant updates on global tax rules that impact your business? Join Tax Made Simple.\nSign up today\nPricing\nLog in\nLog in\nTry it for free\nYou're here:\nLegal\nTerms of Service\nRecrea Systems, SL (‘Recrea’), with company registration number B35635648 and headquartered at Venegas 2A - Local 1, 35003 Las Palmas, Spain, provides the Quaderno site and its related services (“Services”) to the customer (“You”), in accordance with the terms and conditions (“Terms of Service”) outlined below.\nPlease read these carefully before proceeding to use the services provided. Recrea reserves the right to update and edit the Terms of Service without any prior notice.\nThe new features that may be added to the Services will be subject to the Terms of Service. Use of the Services after any of these modifications have been implemented will constitute your implicit acceptance of the said modifications. If You do not accept the modifications, the Customer must stop using the Services and terminate the agreement. You can always consult the most recent version of the Terms of Service at https://quaderno.io/legal/terms/ .\nShould You breach any of the terms in this Terms of Service, your account will be terminated without prior notice.\n1. Description of Services\nRecrea offers a cloud-based software solution called Quaderno, designed to simplify the management of indirect taxes and invoicing for businesses. Key services include:\nTax Management : Automates the calculation, collection, and reporting of indirect taxes like VAT, GST, and sales tax across multiple jurisdictions, ensuring compliance and reducing administrative effort.\nInvoicing : Enables the creation and management of professional invoices, supporting features like recurring billing to enhance cash flow.\nTax Reports : Provides detailed tax reports and transaction summaries to assist in preparing accurate tax filings and maintaining compliance with international tax regulations.\nGlobal Support : Offers multi-currency and multi-language features to facilitate global business operations.\nIntegration : Seamlessly connects with e-commerce platforms, payment processors, and accounting software, with API access for custom integrations.\nQuaderno employs advanced security measures to protect user data, while users are responsible for maintaining accurate financial information within the platform.\n2. Account Terms\nThe person signing up on Your behalf must be over the age of sixteen (16) to create an account and access the Services.\nYou must provide a full legal name, an email address, and any other required information about the legal entity to complete the registration process.\nYou are responsible for maintaining the privacy of your account. Recrea will not be held responsible for any damage or loss resulting from your failure to protect your access information, including your password.\nOne person may not have more than one trial account, which is offered at Recrea’s sole discretion.\n3. Payment and Access\nA valid payment card is needed to make payments. Recrea reserves the right to freeze Your account in case of non-payments. A payment card is not required to create or use a trial account.\nRecrea will charge You a monthly fee based on your account type at the applicable price rates stated on Recrea’s website. The services are charged a month in advance and fees are non-refundable. There will be no refunds or credits for partial months of service, nor refunds made should You not use the Services during a period of time as long as your account is active. No exceptions will be made.\nIf You change Your subscribed services, Your payment card will be charged the new billing amount immediately. From this point on, Your payment card will be charged the new billing rate every 30 days unless You cancel Your account.\nAll fees are exclusive of all taxes or duties imposed by governing authorities. You have sole responsibility for paying all such taxes or duties.\n4. Modifications to the Services and Fees\nRecrea reserves the right to temporarily or permanently edit or suspend the Services at any time for any reason. Recrea shall notify You via email to Your registered email if we suspend the Services.\nRecrea reserves the right to change their fees with 15 days notice. Fee change notices will be posted on the website Quaderno .\n5. Cancellation and Termination\nYou alone are responsible for the proper cancellation of your account. You may cancel your account at any time by clicking on the Subscription link in the navigation menu of the Service.\nYour account and all of its content will be deleted 6 months after Your cancellation. You remain solely responsible for exporting Your data, using the means described above, before that deletion occurs.\nYou may cancel your account at any time, but You will remain liable for all charges accrued up to that time, including the full monthly charges for the month in which You cancelled.\nRecrea reserves the right to temporarily or permanently edit, suspend, or terminate Your account at any time for any reason without notice or refund. Recrea also reserves the right to delete all content associated with your account. Recrea may refuse Service to any physical or juridical entity for any reason at any time.\n6. Data Portability and Switching\nIn accordance with Article 25 of Regulation (EU) 2023/2854 (the “Data Act”), You may at any time request to switch to another provider of data processing services, to an on-premises infrastructure, or to have Your exportable data erased.\nNotice period . No advance notice is required. You may initiate switching at any time via the API described below, without needing to wait out the two-month maximum notice period permitted under the Data Act.\nTransitional and retrieval period . Recrea provides Your data without undue delay via its API ( developers.quaderno.io/api ). Following cancellation under Section 5, API access remains available for a retrieval period of 30 days before Your account and data are deleted.\nExportable data . Available categories include, at minimum: invoices, receipts, credit notes, expenses, customer records, and products, all provided in structured, machine-readable JSON format via the API.\nTechnical information . Up-to-date information on the data structures, formats, and technical specifications for the exportable data described above is available at developers.quaderno.io/api . Recrea will keep this information current and will provide advance notice of any material changes to the structure or format of the exportable data.\nContinuity and security . Recrea maintains reasonable technical and organizational security measures throughout the export and retrieval period, and continues providing the Services in accordance with this Agreement until Your account is cancelled or terminated.\nSwitching charges . Recrea does not charge any fee for data export or switching.\n7. Copyright and Intellectual Ownership\nRecrea, its affiliates or its suppliers own the Intellectual Property rights to any and all protectable components of the Service, including but not limited to the name of the Service, graphic material, all software associated with the Service and end-user interface elements contained within the Service, many of the individual features, and the related documentation.\nSubject to compliance with these Terms and timely payment of applicable fees, Recrea grants the Customer a limited, non-exclusive, non-transferable, non-sublicensable, revocable licence to access and use the Services solely for the Customer’s internal business purposes during the term of this Agreement. The restrictions set out below apply to this licence in full. Direct competitors of Recrea may not access the Services under any arrangement. Authorised users within the Customer’s group companies may use the Services, provided the Customer remains liable for such use and ensures compliance with these Terms.\nYou may not copy, edit, adapt, reproduce, distribute, reverse engineer, decompile, or disassemble any aspect of the Service which Recrea, its affiliates or its suppliers own. You also agree and undertake to not use robots, spiders, other automated devices, or manual processes to control or copy any content or parts of the Service.\nRecrea claims no Intellectual Property rights over the Content You upload or provide to the Service. However, by using the Service to send Content, You agree that others may view and share your Content.\n8. Privacy and Data Protection\nWhen You enter or upload your data into our Services, we don’t own that data but You grant us a licence to use, copy, transmit, store, analyse, and back up all data You submit to us through our Services, including personal data of yourself and others, to:\nEnable You to use our Services\nAllow us to improve, develop and protect our Services\nCreate new Services\nCommunicate with You about your subscription\nSend You information we think may be of interest to you based on your marketing preferences\nPlease refer to our Privacy Policy for details on our privacy practices through the use of Quaderno. By using Quaderno, You acknowledge that We may collect information which is considered as being personal information under applicable laws. In cases where Recrea processes personal information on Your behalf, the parties shall adhere to Recrea’s Data Processing Agreement as an integral part of this agreement.\nYou acknowledge that You shall be solely and exclusively responsible to provide all the necessary controls on Your website as well as obtain any consent, which You might be legally obliged to obtain from Your customers.\nBy accepting the terms contained within this agreement, including its annexes, You acknowledge, represent and warrant that You will not store any sensitive personal information (within the meaning of the GDPR) in the Services and You shall comply with all applicable laws, including but not limited to data protection and privacy laws and that You shall indemnify Recrea against any Third Party claims related to Your violation of such applicable laws or the terms of this agreement in connection with the use of the Services.\n9. Confidential Information\nWhile using our services, You may share confidential information with us, and You may become aware of confidential information about us including, but not limited to, company internal information and information related to the IPR, services, specifications, marketing information and similar sensitive information. You and we both agree to take reasonable steps to protect the other party’s confidential information from being accessed by unauthorised individuals. The parties hereby agree that they will use such confidential information solely for the purposes of performing the agreement. The parties may share each other’s confidential information with their respective affiliates, subprocessors, and professional advisers who have a need to know such information for service delivery or advisory purposes, provided such persons are bound by confidentiality obligations at least equivalent to those in this Section 8. You or we may only share each other’s confidential information with legal or regulatory authorities if required to do so.\nThe foregoing provisions will not prevent the disclosure or use by the parties of any information that is or becomes, through no fault of the party, public knowledge or to the extent required by mandatory law.\nThe parties agree to hold the other party harmless and indemnified against any loss or cost related to any breach of such obligations of confidentiality. Such breach of confidentiality will always be deemed as a material breach of contract.\n10. Limitations of Liability\nRecrea’s total aggregate liability shall not exceed the total net fees paid by you to Recrea for the use of our services in the twelve (12) calendar months immediately preceding the event giving rise to the claim.\nNeither Recrea, its affiliates nor sponsors shall be liable for any indirect, incidental, consequential, or special loss or damage arising out of or in connection with the Services or this Agreement, including but not limited to: loss of profit; loss of revenue; loss of business opportunity; loss of anticipated savings; loss of goodwill; loss of data; business interruption; and any claims brought against the Customer by a third party. The liability cap set out above constitutes Recrea’s entire financial liability to the Customer in respect of the Services.\nNothing in this Terms of Service limits or excludes liability for: (i) fraud or fraudulent misrepresentation; (ii) gross negligence (negligencia grave) or wilful misconduct (dolo) under Spanish law; or (iii) any other liability that cannot be excluded or limited under applicable Spanish law.\n11. General Conditions\nYou understand and agree that the Service is provided “as is” and “as available”. Recrea declines all liability for the availability, opportunity, security or reliability of the Service. You assume total responsibility and risk for your use of this Service.\nYou agree not to resell, duplicate, reproduce or exploit any part of the Service without the express written permission of Recrea. You may not use the Service to store, host, or send damaging or unsolicited email (spam).\nYou understand that the Service can be used for transmission of your content, and that during processing, your content, including invoices, payment reminders, and personal messages, may be transferred unencrypted over the Internet.\nYou may not use the service to transmit any viruses, worms, or any type of malicious or damaging content.\nWithout prejudice to the obligations set out elsewhere in these Terms, the Customer shall: (i) implement and maintain appropriate security measures for access to the Services, including enabling multi-factor authentication where available, and promptly notify Recrea of any suspected security incident or unauthorised access; and (ii) ensure that its use of any third-party integrations with the Services is at its sole risk and responsibility, Recrea bearing no liability for any loss or damage arising from such integrations.\nRecrea makes no guarantees regarding (a) your ability to use the Service, (b) your satisfaction with the Service, (c) that the Service will be available at all times, uninterrupted, and error-free, (d) the accuracy of mathematical calculations performed by the Service, and (e) that errors in the Service will be corrected.\nIf any provision of the terms described here is held invalid or otherwise unenforceable, the enforceability of the remaining provisions shall not be impaired thereby.\nYou agree to protect and fully compensate Recrea and its affiliates, representatives and employees from any and all third party claims arising from your use of the Service, including responsibility or expense incurred through claims, losses, any kind of damages, litigations, resolutions, legal costs and lawyers fees. In such a case, Recrea will notify You in writing of said claim, litigation or action.\nAny questions regarding the Terms of Service should be addressed to the technical support team of Quaderno: [email protected] .\nThe failure of Recrea to exercise any right provided for in these Terms of Service shall not be deemed a waiver of any right hereunder.\nThe agreement sets forth the entire understanding between You and Recrea as to the Service and supersedes any prior agreements between You and Recrea (including, but not limited to, prior versions of the Terms of service).\nRecrea may transfer or assign any of its rights or obligations under this agreement to another company within the same group of companies upon two months’ written notice.\n12. Force Majeure\nNeither party shall be liable to the other for any delay or failure to perform its obligations under this Agreement to the extent that such delay or failure is caused by a force majeure event, meaning any event beyond that party’s reasonable control that was unforeseeable at the time the relevant obligation was incurred, including but not limited to: acts of governmental or public authorities; war, terrorism, or civil unrest; unforeseeable changes in applicable law or regulation; natural disasters; pandemics or public health emergencies; cyber attacks or security incidents that the affected party could not reasonably have prevented despite implementing appropriate industry-standard security measures; telecommunications or infrastructure failures.\nThe party affected by a force majeure event shall: (i) notify the other party in writing as soon as reasonably practicable after becoming aware of the event and its anticipated impact on performance; and (ii) use commercially reasonable efforts to mitigate the effects of the event and to resume performance of its obligations as soon as reasonably possible..\nIf a force majeure event continues for more than 90 consecutive days, either party may terminate the affected Services on written notice to the other, without liability for such termination. Quaderno shall refund any fees prepaid by the Customer attributable to the period after the effective date of termination. No damages shall be payable by either party solely by reason of a termination under this clause.\nA force majeure event does not excuse any payment obligation that fell due prior to the commencement of that event.\n13. Third Party Services\nRecrea may resell services provided by a third-party software provider. All third-party software and services are subject to specific terms and conditions detailed by the software provider. Recrea do not assume any responsibility for the performance, non-performance, availability, or quality of such third-party services. Any disputes relating to the third-party services shall be solely between You and the third party software provider. By ordering services from third party software providers through Recrea, You accept to be bound by the general terms of service outlined by the third-party software provider. Recrea shall make such general terms available.\nFor services from Zamp Technologies, Inc., refer to Zamp’s General Terms and Conditions, available at https://zamp.com/terms-conditions/ or upon request.\nFor services from Global VAT Compliance B.V., refer to GVC’s General Terms and Conditions, available at https://www.globalvatcompliance.com/gvc-business-terms/ or upon request.\n15. Amendments\nQuaderno may update these Terms of Service from time to time to reflect changes in services, pricing, or applicable law. We will notify you of any changes with at least 15 days’ prior written notice via email or through the Quaderno platform.\nFor material changes affecting the scope of services, liability, or client obligations, you may terminate the contract without penalty before the effective date of the amendment by providing written notice to [email protected] . If you do not terminate before the effective date, continued use of the services will constitute your acceptance of the updated terms.\n15. Jurisdictions and Governing Law\nThe agreement, as well as your relation to Recrea in accordance with the said agreement, will be bound by Spanish Law. You and Recrea agree to be subject to the exclusive jurisdiction of the Las Palmas de Gran Canaria Courts in order to resolve any legal issue concerning or associated with the agreement. Without prejudice to the above, You agree to Recrea’s right to request the adoption of precautionary measures (or any other equivalent urgent measures) under any jurisdiction.\nUpdated at 15 September, 2026 · Effective as of 1 October, 2026\nProduct\nMonitor\nTax Engine\nE-Invoicing\nFiling\nConnect\nAPI\nResources\nBlog\nTax Made Simple Newsletter\nTax Guides\nSales tax calculator\nCustomer stories\nHelp center\nDevelopers\nSystem status\nIntegrations\nWooCommerce\nShopify\nStripe\nGoCardless\nPayPal\nAll integrations\nCompany\nAbout us\nAffiliates\nEnvironment\nJobs\nContact\nCompare\nQuaderno vs. Avalara\nQuaderno vs. Stripe Tax\nQuaderno vs. Taxually\nQuaderno vs. Anrok\nQuaderno vs. TaxJar\nYour privacy matters to us\nEnglish\nEspañol\nFrançais\n&copy; 2026 Quaderno\nLegal\nVisma Spain\nVisma Group",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "外部出資なしの4人のチームが、約1か月夜間に作ったStripe向け請求書サービスを2014年5月14日にHacker Newsへ出し、有料客2人と月次継続売上100ドルを得た。同じ日には見込客の不満を受けて、Stripe接続を登録手順の最初に移した。",
+     "basis": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f7",
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "2014年、創業者Carlosが外部出資に頼らずQuadernoを公開した。公開前は約1か月、夜間に開発し、チームは資源の限られた4人だった。2014年5月14日、Stripe向け請求書サービスとしてHacker Newsへ投稿し、トップページに8時間載った。見込客jotは3社分の契約を望んだが、Stripeの取引に必要な情報を足すにはコードを書く必要があること、Stripe接続が設定の5番目の手順であることを障害に挙げた。創業者は同日、Stripe接続を登録手順の最初に移した。5月19日には、追加情報を設定しなくてもStripeの支払から付加価値税を算出できるようにした。2週間後の集計は訪問410人、登録19人、Stripe接続5人、有料客2人で、月次継続売上は100ドルだった。",
+     "basis": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "オンライン販売者に、販売地別の税額算出、請求書、税登録のしきい値通知、申告支援を月額で売る。料金は月の取引件数で段階が分かれ、取引には販売だけでなく請求書・領収書・貸方票・経費も含まれる。客の事業が伸びて件数が増えるほど、上の段階へ移る形になっている。",
+     "basis": [
+      "f13",
+      "f17",
+      "f18",
+      "f19",
+      "f24"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "金を払っているのは、国や地域をまたいで売るオンライン販売者である。公式トップは利用事業者を2,300超、支援する国を150超、Quadernoを通じて処理された売上を140億ドル超と表示している。公開時の見込客jotは、関わる3社分をまとめて契約したいと申し出た。",
+     "basis": [
+      "f13",
+      "f14",
+      "f15",
+      "f16",
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "売るたびに販売地ごとの税額を正しく出し、税登録が必要になるしきい値を超える前に気づかなければならない。公開当初は、Stripe の取引に付加価値税の情報を足すためだけにコードを書いて保守する手間を、見込客が嫌った。",
+     "basis": [
+      "f13",
+      "f8",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-referral",
+     "item": "REFERRAL",
+     "text": "公式の紹介制度は、紹介した有料客の支払の30％を最長24か月払う。申込は人が審査する。支払は四半期ごとで、報酬はPayPalまたはWiseで受け取る。支払条件は、紹介報酬の案内では最低100ドルかつ有効な紹介先3件だが、ヘルプでは最低支払額を50ドルとしている。自分で自分を紹介することは禁止で、紹介の追跡には閲覧者のCookie許可が要る。",
+     "basis": [
+      "f25",
+      "f26",
+      "f27",
+      "f28"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "紹介経由の有料客については、その客の支払の30%が最長24か月、紹介者への報酬として出ていく。規約は、一部の第三者サービスとして Zamp Technologies, Inc. と Global VAT Compliance B.V. の条件を参照している。",
+     "basis": [
+      "f25",
+      "f34"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "外部出資に頼らず始めた。公開時は資源の限られた4人のチームで、最初の公開前に約1か月、夜間に開発した。",
+     "basis": [
+      "f1",
+      "f2",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "規約は月の料金を前払い・返金なしと定めている。月の途中で解約してもその月の全額がかかるため、毎月の現金はサービスを提供する前に入る。",
+     "basis": [
+      "f31"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "弱い。規約は随時の解約と無料のデータ取出しを認めており、請求書・顧客・商品などを構造化データで持ち出せる。解約後の削除時期は、同じ規約の中で第5節が6か月、第6節が30日の取出し期間の後と書いていて、食い違っている。",
+     "basis": [
+      "f32",
+      "f33"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "出発点はStripeの支払データの上に請求書を作るサービスで、公開直後の改善もStripe接続の順番と、Stripeの支払からの付加価値税算出だった。現在は、規約が第三者サービスとしてZamp Technologies, Inc.とGlobal VAT Compliance B.V.の条件を参照している。これらの提供条件が変わると、その部分は外部の事業者に左右される。",
+     "basis": [
+      "f4",
+      "f9",
+      "f10",
+      "f34"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2014年、Carlosが外部出資なしで公開した。2014年5月14日にHacker Newsへ投稿し、同日にStripe接続を登録手順の最初へ移した。5月19日には、Stripeの支払から付加価値税を算出する機能を加えた。",
+     "basis": [
+      "f1",
+      "f4",
+      "f9",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "訪問410人から有料客は2人だった。最初の公開で効いたのは集客の数ではなく、3社分払う意思を示した見込客が挙げた障害（接続が5番目の手順、税の情報にコードが必要）を、同日と数日後に潰したことだった。",
+     "basis": [
+      "f6",
+      "f8",
+      "f9",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "2014年5月14日、Hacker NewsにStripe向け請求書サービスとして投稿し、トップページに8時間載った。2週間で訪問410人、登録19人、Stripe接続5人を集め、そのうち2人が有料客になった。月次継続売上は100ドルだった。",
+     "basis": [
+      "f4",
+      "f5",
+      "f6",
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "2014年はStripe向けの請求書サービスとして投稿した。公開直後に見込客から、税の情報を足すのにコードが要る点を障害として指摘され、5月19日に追加設定なしでStripeの支払から付加価値税を算出する機能を入れた。現在は、販売地別の税額算出、税登録のしきい値通知、申告支援を売っている。",
+     "basis": [
+      "f4",
+      "f8",
+      "f10",
+      "f13"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "先行者が強く後発は困難。公式トップは150超の国への対応、利用事業者2,300超、処理された売上140億ドル超を掲げており、国ごとの税の規則への対応の幅と利用実績で後発との差がついている。",
+     "basis": [
+      "f14",
+      "f15",
+      "f16"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27",
+    "f28",
+    "f30",
+    "f31",
+    "f32",
+    "f33",
+    "f34"
+   ],
+   "identity": {
+    "id": "ent_quaderno_81236030d721",
+    "name": "Quaderno",
+    "url": "https://quaderno.io/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_2ecdf2f6ddf96edf9ce51c5b",
+      "entityId": "ent_quaderno_81236030d721",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://quaderno.io/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:40:54.936Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "2ecdf2f6ddf96edf9ce51c5ba203dd8013c7f9c134fbcfd1879900e203dfcbdc",
+      "bytes": 177023,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Quaderno 公式サイト (https://quaderno.io/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_quaderno_81236030d721/2ecdf2f6ddf96edf9ce51c5ba203dd8013c7f9c134fbcfd1879900e203dfcbdc.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_3f98ec9a35e6596cbecbf3a0",
+      "entityId": "ent_quaderno_81236030d721",
+      "kind": "favicon",
+      "sourcePageUrl": "https://quaderno.io/",
+      "assetUrl": "https://quaderno.io/favicon.svg",
+      "retrievedAt": "2026-10-07T10:40:55.035Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "3f98ec9a35e6596cbecbf3a0761195bbe51390c259d14905f94ac6aa54cd2807",
+      "bytes": 1286,
+      "contentType": "image/svg+xml",
+      "width": 128,
+      "height": 128,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Quaderno 公式サイト (https://quaderno.io/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:42:33.340Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 128x128)、SHA-256が台帳と一致 (3f98ec9a35e6)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_quaderno_81236030d721/3f98ec9a35e6596cbecbf3a0761195bbe51390c259d14905f94ac6aa54cd2807.svg",
+       "publicKey": "media/ent_quaderno_81236030d721/3f98ec9a35e6596cbecbf3a0761195bbe51390c259d14905f94ac6aa54cd2807.svg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_3f98ec9a35e6596cbecbf3a0",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:33.340Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 128x128)、SHA-256が台帳と一致 (3f98ec9a35e6)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_0df351ad327cc5408eea99cc",
+      "entityId": "ent_quaderno_81236030d721",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://quaderno.io/pricing/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:40:57.766Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "0df351ad327cc5408eea99cc7092668629c3be91cf58563e0b444ad79c9dbefd",
+      "bytes": 111204,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Quaderno 公式サイト (https://quaderno.io/pricing/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_quaderno_81236030d721/0df351ad327cc5408eea99cc7092668629c3be91cf58563e0b444ad79c9dbefd.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_7dc5ee071e076f96ba2870a9",
+      "entityId": "ent_quaderno_81236030d721",
+      "kind": "og_image",
+      "sourcePageUrl": "https://quaderno.io/",
+      "assetUrl": "https://quaderno.io/images/og/og-en.png",
+      "retrievedAt": "2026-10-07T10:41:18.782Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "7dc5ee071e076f96ba2870a939559c2da02b9093372a8a26e0e9606f9c2bab33",
+      "bytes": 158534,
+      "contentType": "image/png",
+      "width": 1200,
+      "height": 630,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Quaderno 公式サイト (https://quaderno.io/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:42:33.029Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_quaderno_81236030d721/7dc5ee071e076f96ba2870a939559c2da02b9093372a8a26e0e9606f9c2bab33.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_7dc5ee071e076f96ba2870a9",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:33.029Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_3f98ec9a35e6596cbecbf3a0"
+    ],
+    "problems": []
+   },
+   "caseHash": "1eea727c463c3d8501880f8edc8247c714d013c1b20ca2fd78197147320b0bb6",
+   "itemHashes": {
+    "fact:f1": "2ee5593d8ef30cf73e5f8c8c7af3addbb9bf0d6dd7712fcad43a2736299598c3",
+    "fact:f2": "ee152909172d0a0509e0dcaff25a423f1bd219afadbd89ff56df55a54d28a2ed",
+    "fact:f3": "1afde433f61e16e86d97f87fd2ed5dbe89fd67abef3ed6a1471ec2c6c98b30b3",
+    "fact:f4": "63642c73c038693a31ba0f5de635c662f4ab31b1b425e57815ee70c91431fda2",
+    "fact:f5": "b14efe7282a527f4c7706420781a8d76e539be90001350c2cb74972ad8bc044c",
+    "fact:f6": "ed5bac00f29453b0383972dcd300e3f3aea982c5d1d0292373e365daf7f1f7b7",
+    "fact:f7": "cd8a1cf2cd16c8df106e0e8ddd294ef72eaa12f35387ecc24d5deb2e24caa2be",
+    "fact:f8": "be56a324527a76b43d8334eba4ea6077405b785fb2b8b1a2636552ba080ae559",
+    "fact:f9": "c5f20e5e8c45faddb4a7bc09f9b58b3889c518acc83fcd7798d094d9c836936f",
+    "fact:f10": "c8676a2da27d997e2dd9db74f0c15024aac5b57b59e7a3daa46b682f1ead16a9",
+    "fact:f11": "43b70ccd029f9a07cb2cc1fdc000b529de715f77bd8cc7e7271e2b7b2806ca91",
+    "fact:f12": "aced6d42740e7a6fbd048592fc5a3a612633d6ffa530e8e2ebb7c88078d68c8f",
+    "fact:f13": "8828e353c28e9fa5847701f395fbdec3342df9c9e95ee779d6d9323343a97bc7",
+    "fact:f14": "3e485923bb439cc68d789bf98d139a5a7cf7d4dcb7b674c89182d1779d17be7c",
+    "fact:f15": "4e5d0a984d9ad972524867e87da76e522ca89a57538db3416e2928ee77c61c77",
+    "fact:f16": "17e47e8d39a559d5b51c31065586ec0d8fd3d2b4d2fb7845bced8fe16c787807",
+    "fact:f17": "38ad897594360b86c9fda075e9a6fafa9473fb5349f845dc0825736c509bc472",
+    "fact:f18": "e94047de27246467ff0caff84a8ef0b3aa04b82c880cf9611c3a47f9a00ab683",
+    "fact:f19": "3653abdae536ce2e8d2f7921ead26f25338881f526a0c71f9b75d66ae6fe387e",
+    "fact:f20": "f20b2c55bd441f10c987299851f8a18fbcb264e34df1e7567ec5d5adb30024c4",
+    "fact:f21": "b4d86c96cf6153b90b79902a3f16ef871cd2c358ab44fc063009a8c9eb5ca5c0",
+    "fact:f22": "5d2b95e98150fcb2bbc4f95b61da42da95c9c41bb960e6734916e71f3a0406b5",
+    "fact:f23": "f420e5ec637e6944d31093504a34a1b9b6aa61405a80c73b1a99fa61df449915",
+    "fact:f24": "34cf09d595ce01563c6f9a689bed20e17f753154eae34620884d25fad0d514f6",
+    "fact:f25": "fb94731ac5e6dc5f13d6c70133a47819337e90ba7ae96a9a89a1fbecab3d5e81",
+    "fact:f26": "e26ed8ec57a6f13f7d5c2f7280dd340c5aa2c184cf3e0f0dd64e58f1a9c7e515",
+    "fact:f27": "c5bca92250c34728e21e136a2b5126d4d5fb4250a1cf62ee3baaf21fd5c2e040",
+    "fact:f28": "b720bcde1f48f004c4f9b8210ce72e8663b67d9ed087dd9610eda2bb6e731d4d",
+    "fact:f30": "b17592dfd5bae99d17282dc11509ef0bb81a7504ca70be51fe6c00ffeb33726f",
+    "fact:f31": "6ba4988366e3d1297dd079fe5471e7ca2604b2038c7a864a8164c7a7d2acaf34",
+    "fact:f32": "368c80b3a7f88cb1b2d2a93df39999be34ac9dd4d55a010ee893eee4bc7ce2cb",
+    "fact:f33": "aa917507fc1ff5f2a6011402d511cac5639e72930a15649baf9eb105d9b9bde0",
+    "fact:f34": "b340e7a3bb24b6910a93378022235c262dae7d8d9ff02cd297711d99dec593e0",
+    "analysis:a-headline": "783c38a11cf9e09265337f13cdc72c9aa194b8ee3af7eaecf69da0fea3ed0aca",
+    "analysis:a-story": "b9cd2a9878cc82369e4ce79455b0e406d5eb119d45cc8e73b5d503a2ee12ff7b",
+    "analysis:a-business_model": "99a3876b1ad5e905d518546660eebc218c825c6657cdde99dc7d2f1b255370e9",
+    "analysis:a-customer": "75d5537caa0e05028a1a8e98b991148e7b79502fdc53d4039e9a3f6ed9338099",
+    "analysis:a-customer_pain": "1450d747c953bdedbc548d16732ec05732c8c8fdc430740ce226db44116977b5",
+    "analysis:a-referral": "5fcb121e9ad6b118bd92bc7d5da681785c7451a74998f2e3265ee29bdbc702cf",
+    "analysis:a-cost_structure": "235b6dc33de086ab54fd3cc2008afe7195f7abe2c74026b9f80d259fc6f84fef",
+    "analysis:a-capital_and_team": "38f420a0bc1c97a25a3c2b999e8f999b98b34e5d9d664776551d470caf0b95a6",
+    "analysis:a-upfront_cash": "4329fadb03081cbb681a89c9404e094d6f8361d9f97e57495ce23bf2297729a6",
+    "analysis:a-lock_in": "0365999492376f98a2e2888f2454c8ae81614eb3f76273ecc5e2ec8573ad3fb7",
+    "analysis:a-dependencies": "add2b621ea72e84804ebb0e28785d720ffc3b9daf1febbbad693d00149c83bba",
+    "analysis:a-timeline": "a7b380e67ae8a19466ab118610035030bfec8529dbad0a1192bf41fec19b4677",
+    "analysis:a-lesson": "3834fb08c928e0662828faf09cb162147e4c4b57a509191c013be80c37035ebf",
+    "analysis:a-first_customers": "bc378153c5020db486aa48be574b78481c3fde35aa991f39aab1585011ee2c5c",
+    "analysis:a-pivots": "8395a94beac49c1431deee63de7aab3e101dd258c70a6669db4b4a70047d6894",
+    "analysis:a-viability": "9087908720645af28e31de8b9da5c29ca3995759b6fd8976f8e39a074590b887"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f23",
+    "fact:f24",
+    "fact:f25",
+    "fact:f26",
+    "fact:f27",
+    "fact:f28",
+    "fact:f30",
+    "fact:f31",
+    "fact:f32",
+    "fact:f33",
+    "fact:f34",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-referral",
+    "analysis:a-cost_structure",
+    "analysis:a-capital_and_team",
+    "analysis:a-upfront_cash",
+    "analysis:a-lock_in",
+    "analysis:a-dependencies",
+    "analysis:a-timeline",
+    "analysis:a-lesson",
+    "analysis:a-first_customers",
+    "analysis:a-pivots",
+    "analysis:a-viability"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://quaderno.io/about-quaderno/",
+      "publisher": "公式の会社紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/",
+      "publisher": "公式の公開時の振り返り記事",
+      "publishedAt": "2023-05-08",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://news.ycombinator.com/item?id=7742719",
+      "publisher": "Hacker News の公開時の投稿と返答",
+      "publishedAt": "2014-05-14",
+      "checkedAt": "2026-10-07",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s8",
+      "url": "https://quaderno.io/",
+      "publisher": "公式の製品紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://support.quaderno.io/article/492-plans-pricing",
+      "publisher": "公式の料金ヘルプ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://quaderno.io/pricing/",
+      "publisher": "公式の料金ページ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://quaderno.io/affiliates/",
+      "publisher": "公式の紹介報酬条件",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s12",
+      "url": "https://support.quaderno.io/article/544-quaderno-affiliate-program",
+      "publisher": "公式の紹介制度ヘルプ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s16",
+      "url": "https://quaderno.io/legal/terms/",
+      "publisher": "公式の利用規約",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "FOUNDING",
+      "text": "Carlos が2014年に公開し、外部出資に頼らず始めたと会社は説明している。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "OTHER",
+      "text": "最初の公開前に約1か月、夜間に開発したと振り返っている。",
+      "sourceId": "s3",
+      "statedAt": "2023-05-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "TEAM",
+      "text": "公開時は資源の限られた4人のチームだったと振り返っている。",
+      "sourceId": "s3",
+      "statedAt": "2023-05-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "EVENT",
+      "text": "2014年5月14日に Hacker News へ Stripe 向け請求書サービスとして投稿された。",
+      "sourceId": "s4",
+      "statedAt": "2014-05-14",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f5",
+      "kind": "CHANNEL",
+      "text": "投稿はトップページに8時間掲載されたと本人は報告している。",
+      "sourceId": "s3",
+      "statedAt": "2023-05-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "CHANNEL",
+      "text": "投稿の2週間後の集計は訪問410人、登録19人、Stripe 接続5人、有料客2人だったと報告している。",
+      "sourceId": "s3",
+      "statedAt": "2023-05-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "この掲載から有料客2人、月次継続売上100ドルを得たと報告している。",
+      "sourceId": "s3",
+      "statedAt": "2023-05-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "見込客 jot は3社分を契約したかったが、Stripe の取引に必要な情報を加えるにはコードを書く必要があることや、Stripe 接続が設定の5番目の手順であることなどが障害だったと投稿した。",
+      "sourceId": "s4",
+      "statedAt": "2014-05-14",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f9",
+      "kind": "EVENT",
+      "text": "創業者は同日、Stripe 接続を登録手順の最初に移したと返答した。",
+      "sourceId": "s4",
+      "statedAt": "2014-05-14",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f10",
+      "kind": "EVENT",
+      "text": "5月19日の返答では、追加情報の設定なしでも Stripe の支払から付加価値税を算出できるようにしたと報告した。",
+      "sourceId": "s4",
+      "statedAt": "2014-05-19",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "顧客データを第三者へ渡す不安と自前設置版の要望が出たが、創業者は当時その版を開発する予定はないと返答した。",
+      "sourceId": "s4",
+      "statedAt": "2014-05-14",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f12",
+      "kind": "PRICING",
+      "text": "当時の投稿者は月24ドルと48ドルの料金に言及している。",
+      "sourceId": "s4",
+      "statedAt": "2014-05-14",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f13",
+      "kind": "DESCRIPTION",
+      "text": "オンライン販売者向けに販売地別の税額算出、請求書、税登録のしきい値通知、申告支援を提供する。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "DESCRIPTION",
+      "text": "公式トップは利用事業者2,300超と表示する。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "公式トップは Quaderno を通じて処理された売上が140億ドル超と表示する。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "OTHER",
+      "text": "150超の国を支援すると表示する。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "PRICING",
+      "text": "月額は Hobby 29、Startup 49、Business 99、Growth 149。料金表はユーロとドルを併記している。",
+      "sourceId": "s9",
+      "statedAt": "2026-03-31",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "PRICING",
+      "text": "月の取引上限は順に25、250、1,000、2,500件。連携の呼出し上限は取引上限の10倍。",
+      "sourceId": "s9",
+      "statedAt": "2026-03-31",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "PRICING",
+      "text": "取引件数には請求書・領収書・貸方票・経費が含まれる。販売件数だけを数える料金ではない。",
+      "sourceId": "s9",
+      "statedAt": "2026-03-31",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "PRICING",
+      "text": "Hobby は1利用者・1税管轄・1連携。他の料金段階ではそれらを制限しない。",
+      "sourceId": "s9",
+      "statedAt": "2026-03-31",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "PRICING",
+      "text": "単月の超過は1取引25セントで対応でき、2か月連続で超過すると自動で上位料金へ移ると記載されている。",
+      "sourceId": "s9",
+      "statedAt": "2026-03-31",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "PRICING",
+      "text": "稼働水準の特別契約は月10,000取引以上の料金段階からと記載する。",
+      "sourceId": "s9",
+      "statedAt": "2026-03-31",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f23",
+      "kind": "PRICING",
+      "text": "料金ページはカード不要の7日間の試用と、最初の設定の個別相談を案内している。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f24",
+      "kind": "PRICING",
+      "text": "料金ページは、上限を超えると次の料金段階へ自動で変更されると説明している。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f25",
+      "kind": "CHANNEL",
+      "text": "紹介した有料客の支払から30％を最長24か月支払うと案内する。申込は人が審査する。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f26",
+      "kind": "CHANNEL",
+      "text": "紹介報酬の支払は四半期ごと、最低100ドルと有効な紹介先3件が条件。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f27",
+      "kind": "CHANNEL",
+      "text": "PayPal または Wise で報酬を支払う。自己紹介は禁止し、追跡には閲覧者の Cookie 許可が必要とする。",
+      "sourceId": "s11",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f28",
+      "kind": "CHANNEL",
+      "text": "紹介制度のヘルプは最低支払額50ドル、支払は1月・4月・7月・10月の最初の週と記載する。",
+      "sourceId": "s12",
+      "statedAt": "2026-03-31",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f30",
+      "kind": "OTHER",
+      "text": "利用規約は提供主体を Recrea Systems, SL と記載する。",
+      "sourceId": "s16",
+      "statedAt": "2026-09-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f31",
+      "kind": "PRICING",
+      "text": "規約は月の料金を前払い・返金なしとし、月途中の解約でもその月の全額が必要と記載する。",
+      "sourceId": "s16",
+      "statedAt": "2026-09-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f32",
+      "kind": "OTHER",
+      "text": "規約は随時解約と無料のデータ取出しを認め、請求書・顧客・商品などを構造化データで取得できると記載する。",
+      "sourceId": "s16",
+      "statedAt": "2026-09-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f33",
+      "kind": "OTHER",
+      "text": "解約後の削除時期は第5節が6か月、第6節が30日の取出し期間後と記載し、同一規約内で食い違う。",
+      "sourceId": "s16",
+      "statedAt": "2026-09-15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f34",
+      "kind": "OTHER",
+      "text": "規約は第三者サービスとして Zamp Technologies, Inc. と Global VAT Compliance B.V. の条件を参照する。",
+      "sourceId": "s16",
+      "statedAt": "2026-09-15",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "外部出資なしの4人のチームが、約1か月夜間に作ったStripe向け請求書サービスを2014年5月14日にHacker Newsへ出し、有料客2人と月次継続売上100ドルを得た。同じ日には見込客の不満を受けて、Stripe接続を登録手順の最初に移した。",
+      "basis": [
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "f7",
+       "f9"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "2014年、創業者Carlosが外部出資に頼らずQuadernoを公開した。公開前は約1か月、夜間に開発し、チームは資源の限られた4人だった。2014年5月14日、Stripe向け請求書サービスとしてHacker Newsへ投稿し、トップページに8時間載った。見込客jotは3社分の契約を望んだが、Stripeの取引に必要な情報を足すにはコードを書く必要があること、Stripe接続が設定の5番目の手順であることを障害に挙げた。創業者は同日、Stripe接続を登録手順の最初に移した。5月19日には、追加情報を設定しなくてもStripeの支払から付加価値税を算出できるようにした。2週間後の集計は訪問410人、登録19人、Stripe接続5人、有料客2人で、月次継続売上は100ドルだった。",
+      "basis": [
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "f5",
+       "f6",
+       "f7",
+       "f8",
+       "f9",
+       "f10"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "オンライン販売者に、販売地別の税額算出、請求書、税登録のしきい値通知、申告支援を月額で売る。料金は月の取引件数で段階が分かれ、取引には販売だけでなく請求書・領収書・貸方票・経費も含まれる。客の事業が伸びて件数が増えるほど、上の段階へ移る形になっている。",
+      "basis": [
+       "f13",
+       "f17",
+       "f18",
+       "f19",
+       "f24"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "金を払っているのは、国や地域をまたいで売るオンライン販売者である。公式トップは利用事業者を2,300超、支援する国を150超、Quadernoを通じて処理された売上を140億ドル超と表示している。公開時の見込客jotは、関わる3社分をまとめて契約したいと申し出た。",
+      "basis": [
+       "f13",
+       "f14",
+       "f15",
+       "f16",
+       "f8"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "売るたびに販売地ごとの税額を正しく出し、税登録が必要になるしきい値を超える前に気づかなければならない。公開当初は、Stripe の取引に付加価値税の情報を足すためだけにコードを書いて保守する手間を、見込客が嫌った。",
+      "basis": [
+       "f13",
+       "f8",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-referral",
+      "item": "REFERRAL",
+      "text": "公式の紹介制度は、紹介した有料客の支払の30％を最長24か月払う。申込は人が審査する。支払は四半期ごとで、報酬はPayPalまたはWiseで受け取る。支払条件は、紹介報酬の案内では最低100ドルかつ有効な紹介先3件だが、ヘルプでは最低支払額を50ドルとしている。自分で自分を紹介することは禁止で、紹介の追跡には閲覧者のCookie許可が要る。",
+      "basis": [
+       "f25",
+       "f26",
+       "f27",
+       "f28"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "紹介経由の有料客については、その客の支払の30%が最長24か月、紹介者への報酬として出ていく。規約は、一部の第三者サービスとして Zamp Technologies, Inc. と Global VAT Compliance B.V. の条件を参照している。",
+      "basis": [
+       "f25",
+       "f34"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "外部出資に頼らず始めた。公開時は資源の限られた4人のチームで、最初の公開前に約1か月、夜間に開発した。",
+      "basis": [
+       "f1",
+       "f2",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "規約は月の料金を前払い・返金なしと定めている。月の途中で解約してもその月の全額がかかるため、毎月の現金はサービスを提供する前に入る。",
+      "basis": [
+       "f31"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "弱い。規約は随時の解約と無料のデータ取出しを認めており、請求書・顧客・商品などを構造化データで持ち出せる。解約後の削除時期は、同じ規約の中で第5節が6か月、第6節が30日の取出し期間の後と書いていて、食い違っている。",
+      "basis": [
+       "f32",
+       "f33"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "出発点はStripeの支払データの上に請求書を作るサービスで、公開直後の改善もStripe接続の順番と、Stripeの支払からの付加価値税算出だった。現在は、規約が第三者サービスとしてZamp Technologies, Inc.とGlobal VAT Compliance B.V.の条件を参照している。これらの提供条件が変わると、その部分は外部の事業者に左右される。",
+      "basis": [
+       "f4",
+       "f9",
+       "f10",
+       "f34"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2014年、Carlosが外部出資なしで公開した。2014年5月14日にHacker Newsへ投稿し、同日にStripe接続を登録手順の最初へ移した。5月19日には、Stripeの支払から付加価値税を算出する機能を加えた。",
+      "basis": [
+       "f1",
+       "f4",
+       "f9",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "訪問410人から有料客は2人だった。最初の公開で効いたのは集客の数ではなく、3社分払う意思を示した見込客が挙げた障害（接続が5番目の手順、税の情報にコードが必要）を、同日と数日後に潰したことだった。",
+      "basis": [
+       "f6",
+       "f8",
+       "f9",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "2014年5月14日、Hacker NewsにStripe向け請求書サービスとして投稿し、トップページに8時間載った。2週間で訪問410人、登録19人、Stripe接続5人を集め、そのうち2人が有料客になった。月次継続売上は100ドルだった。",
+      "basis": [
+       "f4",
+       "f5",
+       "f6",
+       "f7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "2014年はStripe向けの請求書サービスとして投稿した。公開直後に見込客から、税の情報を足すのにコードが要る点を障害として指摘され、5月19日に追加設定なしでStripeの支払から付加価値税を算出する機能を入れた。現在は、販売地別の税額算出、税登録のしきい値通知、申告支援を売っている。",
+      "basis": [
+       "f4",
+       "f8",
+       "f10",
+       "f13"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "先行者が強く後発は困難。公式トップは150超の国への対応、利用事業者2,300超、処理された売上140億ドル超を掲げており、国ごとの税の規則への対応の幅と利用実績で後発との差がついている。",
+      "basis": [
+       "f14",
+       "f15",
+       "f16"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f14"
+   }
+  }
+ ]
+}

@@ -134,7 +134,8 @@ export function auditCaseEntry(input: PublicationInput, scope: AuditedCase['scop
     entityId: input.identity.id, scope,
     ...(scope === 'diff' ? { auditScope: '差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）' } : {}),
     ...auditEvidence(input.reader, auditable.sources), analysis, changedClaims,
-    identity: auditable.identity, media: auditable.media,
+    // 画像の権利は文の監査に入れない（画像を出すかどうかの関門だけが見る）。入れると事例全体が止まり、文と事実が監査されなくなる
+    identity: auditable.identity,
     caseHash: publicationCaseHash(input), itemHashes: publicationItemHashes(input), review,
     reader: { ...input.reader, analysis },
   };

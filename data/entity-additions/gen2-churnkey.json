@@ -1,0 +1,1070 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/churnkey-record.json",
+  "manifestSha256": "38f20c1f3762d796620708ae5b1d38ee7677e7bd4ca8b9b3ac2ab673a29dfbb2",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:23.214Z"
+ },
+ "records": [
+  {
+   "id": "ent_churnkey_8d7f2b269c21",
+   "provenance": {
+    "detailsHash": "2d999eb37fe571e3c4061272bd472bdefb23ba96ad4fe29156e63612c1d331fb",
+    "artifactSha256": "38f20c1f3762d796620708ae5b1d38ee7677e7bd4ca8b9b3ac2ab673a29dfbb2"
+   },
+   "record": {
+    "id": "ent_churnkey_8d7f2b269c21",
+    "ticker": "CHURNKEY",
+    "name": "Churnkey",
+    "legalEntity": "Churnkey, Inc.（公式サイト表記）",
+    "tagline": "解約時の休止提案と失敗した決済の回収を、定額で継続課金事業へ提供する。",
+    "description": "Wavve の解約問題への対処から生まれた、継続課金事業向けの解約防止と決済回収の仕組み。2020年9月に先行利用を告知した。",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "Nick Fogle、Baird Hall、Scott Hurff",
+    "country": "",
+    "url": "https://churnkey.co",
+    "officialUrl": "https://churnkey.co",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "定額の契約で、解約画面・決済回収・利用継続の分析を提供",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "解約防止",
+     "決済回収",
+     "継続課金",
+     "顧客の声",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2026-10-07 確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://churnkey.co/blog/announcing-churnkey"
+    },
+    "facts": [
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_001",
+      "kind": "FOUNDING",
+      "text": "Wavve が顧客1,000人に近づき、月120〜150件の新規登録を得ていた時、解約により月額売上が30,000ドルで頭打ちになるという予測が出た。Churnkey 自体の売上ではない。",
+      "sourceUrl": "https://churnkey.co/blog/announcing-churnkey",
+      "statedAt": "2020-09-01",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "出発点"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_002",
+      "kind": "OTHER",
+      "text": "不具合修正と要望の多い機能追加を進めても、解約率は下がらなかったと報告している。",
+      "sourceUrl": "https://churnkey.co/blog/announcing-churnkey",
+      "statedAt": "2020-09-01",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_003",
+      "kind": "OTHER",
+      "text": "解約時の理由入力を必須にすると、一時的に休みたいという声が見つかり、契約の休止を追加した。本人の報告では解約率が15％下がった。比較する率の実数はない。",
+      "sourceUrl": "https://churnkey.co/blog/announcing-churnkey",
+      "statedAt": "2020-09-01",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_004",
+      "kind": "OTHER",
+      "text": "その後6か月の改善で解約率をさらに30％下げ、年間継続売上25,000ドル相当を維持したという。Wavve の成果であり、Churnkey の損益ではない。",
+      "sourceUrl": "https://churnkey.co/blog/announcing-churnkey",
+      "statedAt": "2020-09-01",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_005",
+      "kind": "EVENT",
+      "text": "2020年9月1日の記事で、他の SaaS 事業へ解約対応の道具を提供する Churnkey の先行利用を告知した。",
+      "sourceUrl": "https://churnkey.co/blog/announcing-churnkey",
+      "statedAt": "2020-09-01",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_006",
+      "kind": "OTHER",
+      "text": "2021年の年初からの成果として、解約画面に入った利用者の平均40％を維持し、累計3,000人超の継続課金利用者を維持したと公表した。Churnkey の顧客企業数ではない。",
+      "sourceUrl": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+      "statedAt": "2021-04-14",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_007",
+      "kind": "EVENT",
+      "text": "解約画面の事前表示と、契約の支払間隔・プラン別に絞り込む分析機能を追加した。",
+      "sourceUrl": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+      "statedAt": "2021-04-14",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_008",
+      "kind": "CHANNEL",
+      "text": "解約率が成長の上限に与える影響を図示する無料の計算機を公開した。利用者数や集客成果は記載していない。",
+      "sourceUrl": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+      "statedAt": "2021-04-14",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_009",
+      "kind": "EVENT",
+      "text": "2022年8月31日に、失敗した決済を回収する機能の公開を告知した。",
+      "sourceUrl": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+      "statedAt": "2022-08-31",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_010",
+      "kind": "PRICING",
+      "text": "決済回収機能の公開時は初月無料で、月額継続売上25,000ドル未満の事業は同機能を恒久無料と案内した。当時の機能限定の条件であり、現行料金とは扱わない。",
+      "sourceUrl": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+      "statedAt": "2022-08-31",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_011",
+      "kind": "PRICING",
+      "text": "公開時の課金方針は固定料金で、回収した売上の一定割合を手数料として取らないと説明した。",
+      "sourceUrl": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+      "statedAt": "2022-08-31",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_012",
+      "kind": "OTHER",
+      "text": "対談の紹介文は、資金がほぼ尽きた状態から8か月で黒字化し売上が300％成長したと述べる。要約のみ確認。売上実額、期間の開始日、具体的な立て直し手段は本文にない。",
+      "sourceUrl": "https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+      "statedAt": "2023-08-17",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_013",
+      "kind": "FOUNDING",
+      "text": "Scott Hurff は Nick Fogle を共同創業者と紹介し、自分も共同創業者であると説明している。",
+      "sourceUrl": "https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+      "statedAt": "2023-08-17",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "出発点"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_014",
+      "kind": "OTHER",
+      "text": "2024年4月の報告では顧客企業が数百社に達したと述べる。正確な社数は記載していない。",
+      "sourceUrl": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+      "statedAt": "2024-04-25",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_015",
+      "kind": "OTHER",
+      "text": "自社の売上を7桁、既存顧客の売上継続率を純増と表現している。売上の実額・通貨・対象期間は示されず、損益欄に金額を置いていない。",
+      "sourceUrl": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+      "statedAt": "2024-04-25",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_016",
+      "kind": "EVENT",
+      "text": "直前1年に、解約画面の比較試験、決済の再試行、感情別の再契約促進、顧客の離脱リスク採点を追加したと報告した。",
+      "sourceUrl": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+      "statedAt": "2024-04-25",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "記事時点から直前1年"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_017",
+      "kind": "DESCRIPTION",
+      "text": "公式紹介の担当は、Nick Fogle が最高経営責任者、Baird Hall が営業と広報、Scott Hurff が製品責任者。紹介された3人を全従業員数とは扱わない。",
+      "sourceUrl": "https://churnkey.co/team",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "出発点"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_018",
+      "kind": "OTHER",
+      "text": "Wavve では月の解約率が14％程度に達し、Google と Facebook の広告で新規顧客を増やしても、解約分を埋める状態だったと振り返る。",
+      "sourceUrl": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+      "statedAt": "2025-12-15",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "出発点"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_019",
+      "kind": "OTHER",
+      "text": "相談した専門家は導入時の支援を重視したが、本人たちは解約する瞬間の理由と対応に焦点を移したと説明している。",
+      "sourceUrl": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+      "statedAt": "2025-12-15",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_020",
+      "kind": "OTHER",
+      "text": "Nick Fogle は解約対応を始めて数か月で月の解約率が14％から12％になったと述べる。暦上の実施年月は記載していない。",
+      "sourceUrl": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+      "statedAt": "2025-12-15",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_021",
+      "kind": "OTHER",
+      "text": "Baird Hall は約1年半の改善後には解約率が8％程度の月もあったと述べる。2020年の記事の減少率と同じ計測区間とは断定しない。",
+      "sourceUrl": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+      "statedAt": "2025-12-15",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_022",
+      "kind": "DESCRIPTION",
+      "text": "継続課金事業向けに、解約時の休止・割引・契約席の移譲と、失敗した決済の回収を提供する。",
+      "sourceUrl": "https://churnkey.co/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_023",
+      "kind": "OTHER",
+      "text": "決済の再試行に加え、メール・SMS・アプリ内表示で支払いの更新を促す。",
+      "sourceUrl": "https://churnkey.co/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_024",
+      "kind": "OTHER",
+      "text": "Feedback AI で解約理由を分類し、関連する月額継続売上と結び付けて分析する。",
+      "sourceUrl": "https://churnkey.co/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_025",
+      "kind": "DESCRIPTION",
+      "text": "公式サイトの法人名表記は Churnkey, Inc.。",
+      "sourceUrl": "https://churnkey.co/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "出発点"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_026",
+      "kind": "PRICING",
+      "text": "現行の決済回収紹介も固定料金とし、回収額の取り分を請求しないと説明している。",
+      "sourceUrl": "https://churnkey.co/feature/payment-recovery",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_027",
+      "kind": "OTHER",
+      "text": "Precision Retries は失敗した決済の再試行時刻を調整する。顧客の名称と独自ドメインを用いた通知にも対応する。",
+      "sourceUrl": "https://churnkey.co/feature/payment-recovery",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_028",
+      "kind": "OTHER",
+      "text": "VEED は製品・分析・支援の担当と Churnkey の共通 Slack を設け、解約画面の文言・顧客別の提案を比較試験した。",
+      "sourceUrl": "https://churnkey.co/case-studies/veed",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_029",
+      "kind": "OTHER",
+      "text": "公式取材は VEED で約5,000人の解約希望者を維持し、14,000件超の決済失敗を回収、継続を選ぶ割合が約35％改善したと記載する。暦上の計測期間や改善前の率はない。",
+      "sourceUrl": "https://churnkey.co/case-studies/veed",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_030",
+      "kind": "OTHER",
+      "text": "VEED の John Hamilton は、集めた解約理由を製品改善に使える点を評価している。公式サイトに掲載された顧客発言。",
+      "sourceUrl": "https://churnkey.co/case-studies/veed",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_031",
+      "kind": "OTHER",
+      "text": "Buildertrend は解約理由の記録が一貫せず支援担当へ負担が集中していたため、Feedback AI の分類と、自社のデータ保存先への通知連携を導入した。",
+      "sourceUrl": "https://churnkey.co/case-studies/buildertrend",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_032",
+      "kind": "OTHER",
+      "text": "取材記事は5か月で再契約率45％、顧客あたりの維持売上570ドルを報告する。率の母集団、570ドルの集計期間、開始年月は記載していない。",
+      "sourceUrl": "https://churnkey.co/case-studies/buildertrend",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_033",
+      "kind": "OTHER",
+      "text": "Charley Burtwistle は解約理由と定量的な指標が使えるようになった点を評価している。公式サイト掲載の顧客発言。",
+      "sourceUrl": "https://churnkey.co/case-studies/buildertrend",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_034",
+      "kind": "OTHER",
+      "text": "Superhuman はチーム契約の席を削除する場面で、別のメンバーへ席を移す提案を表示した。その後、個人契約の解約対応にも広げた。",
+      "sourceUrl": "https://churnkey.co/case-studies/superhuman",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_035",
+      "kind": "OTHER",
+      "text": "取材記事は導入から数か月で、チーム契約の席の削除が15％減り、解約対応からの継続が4％向上したと報告する。比較前の実数や暦上の期間は記載していない。",
+      "sourceUrl": "https://churnkey.co/case-studies/superhuman",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_036",
+      "kind": "OTHER",
+      "text": "Ben Ophoven-Baldwin は、顧客が何を求めているかを学べることも導入の利点だと述べている。公式サイト掲載の顧客発言。",
+      "sourceUrl": "https://churnkey.co/case-studies/superhuman",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_037",
+      "kind": "OTHER",
+      "text": "HostiFi の Reilly Chase は、通常の月に20,000ドル超の売上と200人超の顧客を維持していると述べる。発言時点と算出方法は記載していない。",
+      "sourceUrl": "https://churnkey.co/customers",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_038",
+      "kind": "OTHER",
+      "text": "OneUp の Davis Baer は、解約理由を集めて学ぶ価値も料金を払う理由だと述べている。公式サイト掲載の顧客発言。",
+      "sourceUrl": "https://churnkey.co/customers",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_039",
+      "kind": "OTHER",
+      "text": "Ben の投稿は、実装しやすい説明書と売上維持を評価し、自分の要望が製品に反映されたと述べている。本人の感想であり効果額はない。",
+      "sourceUrl": "https://www.trustpilot.com/review/churnkey.co",
+      "statedAt": "2025-12-05",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "第三者",
+      "chapter": "客の声",
+      "eventPeriod": "体験日2025-12-04"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_040",
+      "kind": "OTHER",
+      "text": "Ahmed は2点評価で、試用2日目に Stripe Sandbox、決済リンク、試験用時計、再契約メールを十分に試せず、人的支援も遅かったと投稿した。当時の利用者の申告。",
+      "sourceUrl": "https://www.trustpilot.com/review/churnkey.co",
+      "statedAt": "2025-11-03",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "第三者",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_041",
+      "kind": "OTHER",
+      "text": "Scott の公式返信は、2026年4月1日から Stripe Sandbox に対応したと説明し、試験機能を改善したことを認めている。返信の更新日は4月8日。",
+      "sourceUrl": "https://www.trustpilot.com/review/churnkey.co",
+      "statedAt": "2026-04-08",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "つまずきと立て直し",
+      "eventPeriod": "2026-04-01"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_042",
+      "kind": "PRICING",
+      "text": "同返信では Starter の月額を300ドルと説明し、投稿者が挙げた最低600ドルという認識を訂正している。",
+      "sourceUrl": "https://www.trustpilot.com/review/churnkey.co",
+      "statedAt": "2026-04-08",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_043",
+      "kind": "OTHER",
+      "text": "現行説明書は Stripe Sandbox を扱う環境を記載し、本番・試験環境からデータが分離されると説明する。実際の動作試験はしていない。",
+      "sourceUrl": "https://docs.churnkey.co/cancel-flows/further-configuration/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_044",
+      "kind": "PRICING",
+      "text": "確認時の Starter は年払いで月あたり250ドル。対象は月の解約による売上流出が5,000ドル未満の事業であり、事業全体の売上条件ではない。",
+      "sourceUrl": "https://churnkey.co/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_045",
+      "kind": "PRICING",
+      "text": "Starter は解約画面、決済回収、分析機能を含み、カード登録不要の14日間試用を案内している。",
+      "sourceUrl": "https://churnkey.co/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_046",
+      "kind": "PRICING",
+      "text": "Core と Intelligence は月の解約による売上流出10,000ドル以上の事業向けと案内する。Intelligence と Enterprise は見積もり制で、本文から Core の固定額も確認できない。",
+      "sourceUrl": "https://churnkey.co/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_047",
+      "kind": "PRICING",
+      "text": "React SDK と MCP サーバーは公開ソフトとして全プランで無料。解約画面を自社運用する場合は Churnkey のアカウントも不要と記載する。",
+      "sourceUrl": "https://churnkey.co/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_fact_048",
+      "kind": "OTHER",
+      "text": "Austin Bouley は最初の20人の登録者の1人だったと投稿している。本人の申告で、登録年月と有料利用だったかは記載していない。",
+      "sourceUrl": "https://www.trustpilot.com/review/churnkey.co",
+      "statedAt": "2023-04-05",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "第三者",
+      "chapter": "出発点"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "Codex",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://churnkey.co/blog/announcing-churnkey",
+       "publisher": "Churnkey（Nick Fogle の先行利用告知）",
+       "sourceType": "founder_post",
+       "publicationDate": "2020-09-01",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      },
+      {
+       "url": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+       "publisher": "Churnkey（Nick Fogle の2021年機能更新）",
+       "sourceType": "founder_post",
+       "publicationDate": "2021-04-14",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      },
+      {
+       "url": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+       "publisher": "Churnkey（Scott Hurff の決済回収機能公開）",
+       "sourceType": "founder_post",
+       "publicationDate": "2022-08-31",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      },
+      {
+       "url": "https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+       "publisher": "Churnkey（Scott Hurff と Nick Fogle の対談紹介）",
+       "sourceType": "founder_post",
+       "publicationDate": "2023-08-17",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      },
+      {
+       "url": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+       "publisher": "Churnkey（Nick Fogle の2024年事業報告）",
+       "sourceType": "founder_post",
+       "publicationDate": "2024-04-25",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      },
+      {
+       "url": "https://churnkey.co/team",
+       "publisher": "Churnkey（公式チーム紹介）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+       "publisher": "Churnkey（Baird Hall と Nick Fogle の対談本文）",
+       "sourceType": "founder_post",
+       "publicationDate": "2025-12-15",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      },
+      {
+       "url": "https://churnkey.co/",
+       "publisher": "Churnkey（公式製品紹介）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://churnkey.co/feature/payment-recovery",
+       "publisher": "Churnkey（決済回収の公式仕様）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://churnkey.co/case-studies/veed",
+       "publisher": "Churnkey（VEED の顧客取材）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://churnkey.co/case-studies/buildertrend",
+       "publisher": "Churnkey（Buildertrend の顧客取材）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://churnkey.co/case-studies/superhuman",
+       "publisher": "Churnkey（Superhuman の顧客取材）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://churnkey.co/customers",
+       "publisher": "Churnkey（公式掲載の顧客発言）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://www.trustpilot.com/review/churnkey.co",
+       "publisher": "Trustpilot（利用者投稿と公式返信）",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceMark": "第三者"
+      },
+      {
+       "url": "https://docs.churnkey.co/cancel-flows/further-configuration/",
+       "publisher": "Churnkey（解約画面の公式説明書）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://churnkey.co/pricing",
+       "publisher": "Churnkey（現行公式料金）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "自社の売上・原価・経費・粗利・営業利益・純利益・前年比成長率: 2024年の7桁という表現は金額・通貨・期間を欠き、2023年の300％成長も比較金額がない。損益欄は null。Wavve と顧客企業の金額は移さない。",
+      "最初の有料顧客の獲得日・件数、初期の成約経路と売上: 先行利用告知と後年の顧客規模は確認したが、最初の販売実績を揃えた資料は見つからなかった。 初期登録者20人に含まれたという利用者の申告はあるが、支払いの確認にはならない。",
+      "開始時の全人数と準備期間、現在の全従業員数: 共同創業者の紹介はあるが、創業者以外を含む人数と対象時点が揃わない。Wavve 内の開発と独立製品の準備期間も分離できない。 法人所在地は一次資料で確認できず、国の欄も空にした。",
+      "2023年の資金不足からの立て直し手段、売上と利益の前後の実額: 公開の対談紹介の要約のみ確認。音声本文の具体的な手段と数字を確認できず補っていない。",
+      "全改定日を通した価格履歴、現在の Core・Intelligence・Enterprise の見積もり額: 当時の機能別無料条件と現在の提示条件だけを採用。300ドルの返信と250ドルの年払いは条件が異なり、値下げとは判定しない。",
+      "顧客成果の正確な計測年月・比較前の実数・算出方法: 個別取材や投稿が示す範囲だけを採用。顧客の自社報告であり、独立した因果検証ではない。",
+      "現在の自社内部設備一式、顧客獲得費、紹介報酬率: 顧客への連携と機能は確認したが、自社の全構成や経費・報酬実額は確認できなかった。",
+      "参入障壁、大手の自爆、顧客心理、将来の再現性、真似の手順: 推測や命令文を作らない指定に従い、該当する分析欄と実行手順欄を空にした。",
+      "創業者の過去の職歴・資金、週間作業時間、売却、将来の依存リスク: 手引きの対象外。元手・週間時間・自動化比率は調査していないため null。"
+     ],
+     "conflicts": [
+      "公開時期: 2020年9月1日に先行利用を告知。2024年の報告は事業開始を2020年後半と表現。先行利用と正式事業開始を区別し、正式発売の月日は断定しない。",
+      "料金: 2026年4月の公式返信は Starter 月300ドル、現行料金は年払いで月換算250ドル。課金期間が異なるため値下げの証拠にしない。投稿者の600ドルを Starter の最低額としない。",
+      "試験環境: 2025年11月の不足の申告、2026年4月の改善の公式返信、現行説明書の Sandbox 記載を順に記録。過去の不足を現在の仕様とは扱わない。動作自体は未検証。",
+      "解約改善の割合: 2020年の記事の15％と追加30％を足さず、14％から12％・その後8％という後年の回顧とも同じ期間とは扱わない。",
+      "2021年の更新記事: 過去の表示で4月13日も確認したが、最終確認時の本文表示は4月14日。記録は本文の現行表示4月14日を採用。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2020,
+     "initialTractionPeriod": "Wavve で解約対応を開発し、2020年9月に先行利用を告知",
+     "dataSnapshotPeriod": "2020年〜2026年の経緯と2026-10-07の公開ページ確認",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "解約希望者への休止・割引提案と、失敗した決済の再回収を自動化する。",
+     "targetCustomer": "継続課金事業",
+     "painRelief": "新規顧客を獲得しても、解約と決済失敗で売上が流出する問題"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Nick Fogle の先行利用告知）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/blog/announcing-churnkey",
+       "公開日: 2020-09-01",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/blog/announcing-churnkey",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Nick Fogle の2021年機能更新）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/blog/churnkey-springtime-product-updates/",
+       "公開日: 2021-04-14",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Scott Hurff の決済回収機能公開）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+       "公開日: 2022-08-31",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Scott Hurff と Nick Fogle の対談紹介）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+       "公開日: 2023-08-17",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+      "sourceNote": "本人または公式の公開資料。対談の紹介文のみ確認。音声本文は確認していない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Nick Fogle の2024年事業報告）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+       "公開日: 2024-04-25",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（公式チーム紹介）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/team",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/team",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Baird Hall と Nick Fogle の対談本文）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+       "公開日: 2025-12-15",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（公式製品紹介）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（決済回収の公式仕様）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/feature/payment-recovery",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/feature/payment-recovery",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（VEED の顧客取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/case-studies/veed",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/case-studies/veed",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Buildertrend の顧客取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/case-studies/buildertrend",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/case-studies/buildertrend",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（Superhuman の顧客取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/case-studies/superhuman",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/case-studies/superhuman",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（公式掲載の顧客発言）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/customers",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/customers",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Trustpilot（利用者投稿と公式返信）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://www.trustpilot.com/review/churnkey.co",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.trustpilot.com/review/churnkey.co",
+      "sourceNote": "第三者の投稿と公式返信。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（解約画面の公式説明書）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://docs.churnkey.co/cancel-flows/further-configuration/",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://docs.churnkey.co/cancel-flows/further-configuration/",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_churnkey_8d7f2b269c21_source_16",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Churnkey（現行公式料金）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://churnkey.co/pricing",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://churnkey.co/pricing",
+      "sourceNote": "本人または公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "自社の売上・原価・経費・粗利・営業利益・純利益・前年比成長率: 2024年の7桁という表現は金額・通貨・期間を欠き、2023年の300％成長も比較金額がない。損益欄は null。Wavve と顧客企業の金額は移さない。",
+     "最初の有料顧客の獲得日・件数、初期の成約経路と売上: 先行利用告知と後年の顧客規模は確認したが、最初の販売実績を揃えた資料は見つからなかった。 初期登録者20人に含まれたという利用者の申告はあるが、支払いの確認にはならない。",
+     "開始時の全人数と準備期間、現在の全従業員数: 共同創業者の紹介はあるが、創業者以外を含む人数と対象時点が揃わない。Wavve 内の開発と独立製品の準備期間も分離できない。 法人所在地は一次資料で確認できず、国の欄も空にした。",
+     "2023年の資金不足からの立て直し手段、売上と利益の前後の実額: 公開の対談紹介の要約のみ確認。音声本文の具体的な手段と数字を確認できず補っていない。",
+     "全改定日を通した価格履歴、現在の Core・Intelligence・Enterprise の見積もり額: 当時の機能別無料条件と現在の提示条件だけを採用。300ドルの返信と250ドルの年払いは条件が異なり、値下げとは判定しない。",
+     "顧客成果の正確な計測年月・比較前の実数・算出方法: 個別取材や投稿が示す範囲だけを採用。顧客の自社報告であり、独立した因果検証ではない。",
+     "現在の自社内部設備一式、顧客獲得費、紹介報酬率: 顧客への連携と機能は確認したが、自社の全構成や経費・報酬実額は確認できなかった。",
+     "参入障壁、大手の自爆、顧客心理、将来の再現性、真似の手順: 推測や命令文を作らない指定に従い、該当する分析欄と実行手順欄を空にした。",
+     "創業者の過去の職歴・資金、週間作業時間、売却、将来の依存リスク: 手引きの対象外。元手・週間時間・自動化比率は調査していないため null。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "scale: \"\"→UNKNOWN",
+     "publishability: \"\"→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceClass: \"\"→欄を外す",
+     "pnl.sourceDoc: 空→https://churnkey.co/blog/announcing-churnkey",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}

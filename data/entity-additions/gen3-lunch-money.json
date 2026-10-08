@@ -1,0 +1,1693 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen3/lunch-money-record.json",
+  "manifestSha256": "8ed70fa710b82073567f019b566fde08b1040f77a287c07932e6adcaf4e78947",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T11:28:53.025Z"
+ },
+ "records": [
+  {
+   "id": "ent_lunch_money_be2eeb1f4fdf",
+   "provenance": {
+    "detailsHash": "8234feaae101d57896f49caef4c7ca7ab770c85383ab2879f53b2421429042e6",
+    "artifactSha256": "8ed70fa710b82073567f019b566fde08b1040f77a287c07932e6adcaf4e78947"
+   },
+   "record": {
+    "id": "ent_lunch_money_be2eeb1f4fdf",
+    "ticker": "LUNCHMNY",
+    "name": "Lunch Money",
+    "legalEntity": "Lunchbag Labs, Inc.（公式媒体資料）",
+    "tagline": "多通貨の家計管理を購読料で売るサービス。Jen Yipが1人で始め、2024年3月にMRR $34,000を申告した。",
+    "description": "銀行連携や取引の分類、予算管理を提供する。自分用の多通貨管理から2019年に公開し、Hacker Newsで登録を集めた。現在は中核5人と外部協力者を紹介する。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Jen Yip",
+    "country": "Canada（公式媒体資料の本拠地）",
+    "url": "https://lunchmoney.app",
+    "officialUrl": "https://lunchmoney.app",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "個人・家庭向けの月額・年額購読。銀行連携はPlaidに依存し、CSV・APIによる取込も用意する。",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "家計管理",
+     "多通貨",
+     "個人開発から小規模運営",
+     "収集記録",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2018年の開発開始〜2026-10-07の公開情報",
+     "revenueLabel": "2020-05 ARR $45,000、2024-03 MRR $34,000は本人申告。現時点の売上・利益は未確認。",
+     "sourceDoc": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "id": "lunch-money-f001",
+      "kind": "DESCRIPTION",
+      "text": "家計管理をブラウザで行うサービス。銀行同期、CSV・API取込、多通貨、予算、共同管理を提供する。",
+      "sourceUrl": "https://lunchmoney.app/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "確認日現在",
+      "attribution": "公式説明",
+      "sourceLocator": "製品の機能紹介"
+     },
+     {
+      "id": "lunch-money-f002",
+      "kind": "DESCRIPTION",
+      "text": "取引の分類ルール、支出分析、純資産の追跡を提供する。",
+      "sourceUrl": "https://lunchmoney.app/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "確認日現在",
+      "attribution": "公式説明",
+      "sourceLocator": "製品の機能紹介"
+     },
+     {
+      "id": "lunch-money-f003",
+      "kind": "FOUNDING",
+      "text": "2019年創業。創業者は多通貨をGoogle Sheetsで1年半管理した後、自分用のアプリにしたと説明する。",
+      "sourceUrl": "https://lunchmoney.app/about/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "創業前〜2019",
+      "attribution": "公式説明",
+      "sourceLocator": "冒頭の数値・沿革・チーム紹介"
+     },
+     {
+      "id": "lunch-money-f004",
+      "kind": "FUNDING",
+      "text": "外部投資を受けず、利用者の購読料のみで運営すると記載する。",
+      "sourceUrl": "https://lunchmoney.app/about/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "確認日現在",
+      "attribution": "公式説明",
+      "sourceLocator": "冒頭の数値・沿革・チーム紹介"
+     },
+     {
+      "id": "lunch-money-f005",
+      "kind": "REVENUE",
+      "text": "有料会員13,000人超、提供先30か国超と公式サイトに表示されている。観測日の数字である。",
+      "sourceUrl": "https://lunchmoney.app/about/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "冒頭の数値・沿革・チーム紹介"
+     },
+     {
+      "id": "lunch-money-f006",
+      "kind": "TEAM",
+      "text": "最初の5年間はJen主体の1人会社だったと説明する。外注まで存在しなかったという意味ではない。",
+      "sourceUrl": "https://lunchmoney.app/about/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019〜初期5年間",
+      "attribution": "公式説明",
+      "sourceLocator": "冒頭の数値・沿革・チーム紹介"
+     },
+     {
+      "id": "lunch-money-f007",
+      "kind": "TEAM",
+      "text": "中核チームとして創業者、顧客対応、開発者支援、開発、販促の5人を紹介し、別に外部協力者を載せる。",
+      "sourceUrl": "https://lunchmoney.app/about/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "冒頭の数値・沿革・チーム紹介"
+     },
+     {
+      "id": "lunch-money-f008",
+      "kind": "TOOL",
+      "text": "公開APIと利用者制作の道具を案内し、Discord、Reddit、要望掲示板で意見を集める。",
+      "sourceUrl": "https://lunchmoney.app/about/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "確認日現在",
+      "attribution": "公式説明",
+      "sourceLocator": "冒頭の数値・沿革・チーム紹介"
+     },
+     {
+      "id": "lunch-money-f009",
+      "kind": "OTHER",
+      "text": "運営会社はLunchbag Labs, Inc.。本拠地はToronto、Ontario、Canadaと記載する。",
+      "sourceUrl": "https://lunchmoney.app/media-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "確認日現在",
+      "attribution": "公式説明",
+      "sourceLocator": "会社情報・2025年調査・画面素材・利用指針"
+     },
+     {
+      "id": "lunch-money-f010",
+      "kind": "TEAM",
+      "text": "Jen YipはUniversity of Waterlooで計算機工学を学び、Twitterで開発職を経験した。",
+      "sourceUrl": "https://lunchmoney.app/media-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "創業前",
+      "attribution": "公式説明",
+      "sourceLocator": "会社情報・2025年調査・画面素材・利用指針"
+     },
+     {
+      "id": "lunch-money-f011",
+      "kind": "OTHER",
+      "text": "2025年の自社利用者調査は1,170人。満足度平均8.4/10、NPSは57と公表する。第三者監査値ではない。",
+      "sourceUrl": "https://lunchmoney.app/media-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2025",
+      "attribution": "公式説明",
+      "sourceLocator": "会社情報・2025年調査・画面素材・利用指針"
+     },
+     {
+      "id": "lunch-money-f012",
+      "kind": "OTHER",
+      "text": "同調査で導入が容易との回答82%、毎日または数日ごとの利用61%。有料継続率とは異なる。",
+      "sourceUrl": "https://lunchmoney.app/media-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2025",
+      "attribution": "公式説明",
+      "sourceLocator": "会社情報・2025年調査・画面素材・利用指針"
+     },
+     {
+      "id": "lunch-money-f013",
+      "kind": "OTHER",
+      "text": "実製品の予算画面と取引画面の素材URLが公開されている。画像本体は保存していない。",
+      "sourceUrl": "https://lunchmoney.app/media-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "会社情報・2025年調査・画面素材・利用指針",
+      "assetCandidates": [
+       {
+        "url": "https://lunchmoney.app/assets/images/cms/budgeting-full.webp",
+        "depicts": "予算画面"
+       },
+       {
+        "url": "https://lunchmoney.app/assets/images/cms/transactions-full.webp",
+        "depicts": "取引画面"
+       }
+      ],
+      "assetRights": "転載許諾未確定。商用表示前に確認が必要。"
+     },
+     {
+      "id": "lunch-money-f014",
+      "kind": "FOUNDING",
+      "text": "Jenは2018年11月末から副業で開発し、1人で作ったと公開投稿した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20811287",
+      "statedAt": "2019-08-29",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2018-11〜2019-08",
+      "attribution": "本人投稿",
+      "sourceLocator": "投稿者jnfrの紹介と返信"
+     },
+     {
+      "id": "lunch-money-f015",
+      "kind": "CHANNEL",
+      "text": "2019年8月29日にShow HNへ公開した。初期の需要確認の場所はHacker Newsだった。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20811287",
+      "statedAt": "2019-08-29",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-08-29",
+      "attribution": "本人投稿",
+      "sourceLocator": "投稿者jnfrの紹介と返信"
+     },
+     {
+      "id": "lunch-money-f016",
+      "kind": "TOOL",
+      "text": "公開時の構成はNode.js、TypeScript、React、Semantic UI、PostgreSQL、Redis、Bullと本人が説明した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20811287",
+      "statedAt": "2019-08-29",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-08-29",
+      "attribution": "本人投稿",
+      "sourceLocator": "投稿者jnfrの紹介と返信"
+     },
+     {
+      "id": "lunch-money-f017",
+      "kind": "OTHER",
+      "text": "Fiahilは画面を評価した一方、金融情報をクラウドに預けたくないとして自前設置を望んだ。実購入者かは未確認。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20811287",
+      "statedAt": "2019-08-30",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-08-30",
+      "attribution": "第三者の個別投稿",
+      "sourceLocator": "Fiahil・jval43のコメント。購入確認なし"
+     },
+     {
+      "id": "lunch-money-f018",
+      "kind": "OTHER",
+      "text": "jval43は携帯端末から入力する機能を求めた。全利用者の意見を代表するとは扱わない。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=20811287",
+      "statedAt": "2019-08-30",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-08-30",
+      "attribution": "第三者の個別投稿",
+      "sourceLocator": "Fiahil・jval43のコメント。購入確認なし"
+     },
+     {
+      "id": "lunch-money-f019",
+      "kind": "EVENT",
+      "text": "公開約1時間後、Plaidを開発用設定のままにしていたため、接続100口座の上限に達して銀行接続が失敗した。",
+      "sourceUrl": "https://lunchbag.ca/lunch-money-mistakes/",
+      "statedAt": "2020-02-17",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-08",
+      "attribution": "本人申告",
+      "sourceLocator": "公開時の障害・料金・試用・本人紹介の各節"
+     },
+     {
+      "id": "lunch-money-f020",
+      "kind": "EVENT",
+      "text": "Sendgridの無料枠100通/日を超え、有料化後も送信制限に遭遇してサポートで解消した。",
+      "sourceUrl": "https://lunchbag.ca/lunch-money-mistakes/",
+      "statedAt": "2020-02-17",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-08",
+      "attribution": "本人申告",
+      "sourceLocator": "公開時の障害・料金・試用・本人紹介の各節"
+     },
+     {
+      "id": "lunch-money-f021",
+      "kind": "PRICING",
+      "text": "初期料金は$3/月・$29/年。本人は4週間で月額を$3→$5→$6→$8に変えたと記す。",
+      "sourceUrl": "https://lunchbag.ca/lunch-money-mistakes/",
+      "statedAt": "2020-02-17",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019年公開後。詳細時期に別資料との不一致あり",
+      "attribution": "本人申告",
+      "sourceLocator": "公開時の障害・料金・試用・本人紹介の各節"
+     },
+     {
+      "id": "lunch-money-f022",
+      "kind": "EVENT",
+      "text": "試用45日＋延長14日を14日＋延長7日に短縮し、同日に$8へ値上げした。登録減の原因を分離できなかった。",
+      "sourceUrl": "https://lunchbag.ca/lunch-money-mistakes/",
+      "statedAt": "2020-02-17",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "公開後。年月未確定",
+      "attribution": "本人申告",
+      "sourceLocator": "公開時の障害・料金・試用・本人紹介の各節"
+     },
+     {
+      "id": "lunch-money-f023",
+      "kind": "PRICING",
+      "text": "短い試用を維持し、Cyber Weekの30%引き後に20%引き、実効$6.40/月へ変更した。",
+      "sourceUrl": "https://lunchbag.ca/lunch-money-mistakes/",
+      "statedAt": "2020-02-17",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-02-17以前",
+      "attribution": "本人申告",
+      "sourceLocator": "公開時の障害・料金・試用・本人紹介の各節"
+     },
+     {
+      "id": "lunch-money-f024",
+      "kind": "CHANNEL",
+      "text": "当初は1人運営を伏せていたが、2019年10月5日に会社紹介を公開し、歓迎メールでも本人を紹介した。",
+      "sourceUrl": "https://lunchbag.ca/lunch-money-mistakes/",
+      "statedAt": "2020-02-17",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-10-05",
+      "attribution": "本人申告",
+      "sourceLocator": "公開時の障害・料金・試用・本人紹介の各節"
+     },
+     {
+      "id": "lunch-money-f025",
+      "kind": "OTHER",
+      "text": "資料サイトはThemeforestのJekyllひな型を一度$49で買い、GitHubとNetlifyで無料公開した。",
+      "sourceUrl": "https://lunchbag.ca/how-my-startup-saves-100-dollars-a-month-with-home-grown-solutions/",
+      "statedAt": "2019-11-21",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-11時点",
+      "attribution": "本人申告",
+      "sourceLocator": "資料サイト・問い合わせ・試用中メールの各節"
+     },
+     {
+      "id": "lunch-money-f026",
+      "kind": "EVENT",
+      "text": "Mailgun無料枠で問い合わせを転送したが、Outlook・Hotmailへの到達問題からGSuiteへ移った。費用を$6/月と記す。",
+      "sourceUrl": "https://lunchbag.ca/how-my-startup-saves-100-dollars-a-month-with-home-grown-solutions/",
+      "statedAt": "2019-11-21",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-11時点",
+      "attribution": "本人申告",
+      "sourceLocator": "資料サイト・問い合わせ・試用中メールの各節"
+     },
+     {
+      "id": "lunch-money-f027",
+      "kind": "TOOL",
+      "text": "試用中メールはRedisとBullで自作し、Stripeの課金状態と送信済み状態を確認してPostmarkから送った。",
+      "sourceUrl": "https://lunchbag.ca/how-my-startup-saves-100-dollars-a-month-with-home-grown-solutions/",
+      "statedAt": "2019-11-21",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-11時点",
+      "attribution": "本人申告",
+      "sourceLocator": "資料サイト・問い合わせ・試用中メールの各節"
+     },
+     {
+      "id": "lunch-money-f028",
+      "kind": "OTHER",
+      "text": "メール処理の実装と検査に3時間と記す。月$80の節約は代替サービスとの比較による本人推計であり実請求の減額ではない。",
+      "sourceUrl": "https://lunchbag.ca/how-my-startup-saves-100-dollars-a-month-with-home-grown-solutions/",
+      "statedAt": "2019-11-21",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019-11時点",
+      "attribution": "本人申告",
+      "sourceLocator": "資料サイト・問い合わせ・試用中メールの各節"
+     },
+     {
+      "id": "lunch-money-f029",
+      "kind": "REVENUE",
+      "text": "本人は利用者600人超、ARR $45,000と記した。600人全員が有料とは本文に明記されていない。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05",
+      "attribution": "本人申告",
+      "sourceLocator": "業績・業務量・自動化・Plaid費用・集客と開発の連携"
+     },
+     {
+      "id": "lunch-money-f030",
+      "kind": "OTHER",
+      "text": "直近14日で問い合わせ239件を受け、メール358通を送ったと記す。労働時間への換算はできない。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05記事直前の14日",
+      "attribution": "本人申告",
+      "sourceLocator": "業績・業務量・自動化・Plaid費用・集客と開発の連携"
+     },
+     {
+      "id": "lunch-money-f031",
+      "kind": "EVENT",
+      "text": "500人超の段階で変更を分岐し、自己レビューと既存利用者による試用確認を導入した。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05以前",
+      "attribution": "本人申告",
+      "sourceLocator": "業績・業務量・自動化・Plaid費用・集客と開発の連携"
+     },
+     {
+      "id": "lunch-money-f032",
+      "kind": "TOOL",
+      "text": "集計メールは数か月手動で送り、開封と反応を観測してから毎月5日・25日の自動送信へ移した。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05以前",
+      "attribution": "本人申告",
+      "sourceLocator": "業績・業務量・自動化・Plaid費用・集客と開発の連携"
+     },
+     {
+      "id": "lunch-money-f033",
+      "kind": "CHANNEL",
+      "text": "当時の紹介特典は両者1か月分の残高。追加利用者11人にとどまり、報酬処理は自動化せず手動にした。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05以前",
+      "attribution": "本人申告",
+      "sourceLocator": "業績・業務量・自動化・Plaid費用・集客と開発の連携"
+     },
+     {
+      "id": "lunch-money-f034",
+      "kind": "OTHER",
+      "text": "Plaidが月単位課金のため月末登録で2か月分の費用が発生すると説明。未課金者の保持30日→5日、集客を月初へ変え、次の請求が初めて減った。減額は非公開。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05以前",
+      "attribution": "本人申告",
+      "sourceLocator": "業績・業務量・自動化・Plaid費用・集客と開発の連携"
+     },
+     {
+      "id": "lunch-money-f035",
+      "kind": "CHANNEL",
+      "text": "流入後に利用者の要望を修正し、試用終了約3日前に更新案内、期限前後に通知を送った。本人は終了付近で課金が多いと観測した。率は非公開。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05時点",
+      "attribution": "本人申告",
+      "sourceLocator": "業績・業務量・自動化・Plaid費用・集客と開発の連携"
+     },
+     {
+      "id": "lunch-money-f036",
+      "kind": "FOUNDING",
+      "text": "開始前にTwitterの複数チームで4年間開発し、Rails・Backbone・Scalaなどを経験したと記す。",
+      "sourceUrl": "https://lunchbag.ca/preparing-for-solopreneurship/",
+      "statedAt": "2020-10-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "創業前",
+      "attribution": "本人申告",
+      "sourceLocator": "過去の職務・個人制作の説明"
+     },
+     {
+      "id": "lunch-money-f037",
+      "kind": "EVENT",
+      "text": "以前の音楽イベント情報サイトfuturaretroは週1,000人超の利用に達したが、本人の関心が薄れて終了した。Lunch Moneyの売上ではない。",
+      "sourceUrl": "https://lunchbag.ca/preparing-for-solopreneurship/",
+      "statedAt": "2020-10-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "創業前",
+      "attribution": "本人申告",
+      "sourceLocator": "過去の職務・個人制作の説明"
+     },
+     {
+      "id": "lunch-money-f038",
+      "kind": "REVENUE",
+      "text": "取材ではMRR $34,000と紹介する。2024年3月の本人申告であり、現時点の売上や利益ではない。",
+      "sourceUrl": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "statedAt": "2024-03-22",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2024-03",
+      "attribution": "取材中の本人申告",
+      "sourceLocator": "開始・集客・Mint終了・急増時の対応"
+     },
+     {
+      "id": "lunch-money-f039",
+      "kind": "CHANNEL",
+      "text": "自分、友人、母親が先に使い、数週間の反応を見てShow HNへ投稿し、1日1,000件超の登録を得たと振り返る。有料人数ではない。",
+      "sourceUrl": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "statedAt": "2024-03-22",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2019年公開前後",
+      "attribution": "取材中の本人申告",
+      "sourceLocator": "開始・集客・Mint終了・急増時の対応"
+     },
+     {
+      "id": "lunch-money-f040",
+      "kind": "CHANNEL",
+      "text": "最初の2年は個人ブログとX、Hacker News・Indie Hackersの反応、口コミを中心に広がった。広告・アフィリエイト・有料記事は成果が弱かったという。",
+      "sourceUrl": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "statedAt": "2024-03-22",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "初期〜2021ごろ",
+      "attribution": "取材中の本人申告",
+      "sourceLocator": "開始・集客・Mint終了・急増時の対応"
+     },
+     {
+      "id": "lunch-money-f041",
+      "kind": "CHANNEL",
+      "text": "2021年から検索向けの継続して読める記事に取り組み、Mint関連のRedditで既存利用者が紹介したと述べる。",
+      "sourceUrl": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "statedAt": "2024-03-22",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2021〜2024",
+      "attribution": "取材中の本人申告",
+      "sourceLocator": "開始・集客・Mint終了・急増時の対応"
+     },
+     {
+      "id": "lunch-money-f042",
+      "kind": "EVENT",
+      "text": "Mint終了発表後、日々の登録が5倍超の状態で数週間続き、MRRが$10,000超増えたと申告する。独立した会計検証はない。",
+      "sourceUrl": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "statedAt": "2024-03-22",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2023年終了発表後",
+      "attribution": "取材中の本人申告",
+      "sourceLocator": "開始・集客・Mint終了・急増時の対応"
+     },
+     {
+      "id": "lunch-money-f043",
+      "kind": "EVENT",
+      "text": "急増で基盤と問い合わせ対応が逼迫し、新規登録を約1週間止めて待機登録へ切り替えた。",
+      "sourceUrl": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "statedAt": "2024-03-22",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "Mint終了発表後の急増期",
+      "attribution": "取材中の本人申告",
+      "sourceLocator": "開始・集客・Mint終了・急増時の対応"
+     },
+     {
+      "id": "lunch-money-f044",
+      "kind": "PRICING",
+      "text": "2021年1月に$10/月・$100/年へ変更。2023年夏は従来US$100/年から$40〜$150/年の任意価格へ移した。",
+      "sourceUrl": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "statedAt": "2024-07-16",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2021-01・2023年夏",
+      "attribution": "本人申告",
+      "sourceLocator": "料金履歴・変更後の結果・運営構成"
+     },
+     {
+      "id": "lunch-money-f045",
+      "kind": "OTHER",
+      "text": "直近10か月でMRRはほぼ倍増したが、Mint終了も重なり、料金変更単独の効果は切り分けられないと本人が書く。",
+      "sourceUrl": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "statedAt": "2024-07-16",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2024-07から遡る10か月",
+      "attribution": "本人申告",
+      "sourceLocator": "料金履歴・変更後の結果・運営構成"
+     },
+     {
+      "id": "lunch-money-f046",
+      "kind": "OTHER",
+      "text": "新料金利用者の約37%が年$100超相当を払い、該当者が新料金由来収入の60%超を占めると記す。月$10利用者も含む。",
+      "sourceUrl": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "statedAt": "2024-07-16",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2024-07記事時点",
+      "attribution": "本人申告",
+      "sourceLocator": "料金履歴・変更後の結果・運営構成"
+     },
+     {
+      "id": "lunch-money-f047",
+      "kind": "EVENT",
+      "text": "2023年8月に大量の不正登録があり、Stripeの月次指標が歪んだと記す。実顧客の増減として扱わない。",
+      "sourceUrl": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "statedAt": "2024-07-16",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2023-08",
+      "attribution": "本人申告",
+      "sourceLocator": "料金履歴・変更後の結果・運営構成"
+     },
+     {
+      "id": "lunch-money-f048",
+      "kind": "TEAM",
+      "text": "Jen以外に5人の非常勤請負者。ほぼ会議をせず、Discordで非同期に仕事を進めると記す。",
+      "sourceUrl": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "statedAt": "2024-07-16",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2024-07",
+      "attribution": "本人申告",
+      "sourceLocator": "料金履歴・変更後の結果・運営構成"
+     },
+     {
+      "id": "lunch-money-f049",
+      "kind": "EVENT",
+      "text": "購読を解約する代わりにデータを残して休止する選択肢を追加した。継続率改善の実数は載せていない。",
+      "sourceUrl": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "statedAt": "2024-07-16",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2024-07以前",
+      "attribution": "本人申告",
+      "sourceLocator": "料金履歴・変更後の結果・運営構成"
+     },
+     {
+      "id": "lunch-money-f050",
+      "kind": "PRICING",
+      "text": "現行表示はUS$10/月、年額の標準表示US$100。30日無料試用はカード不要と記載する。",
+      "sourceUrl": "https://lunchmoney.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "月額・年額・試用・収益の説明"
+     },
+     {
+      "id": "lunch-money-f051",
+      "kind": "PRICING",
+      "text": "支払額にかかわらず全機能を利用でき、購読を継続する間は料金を固定すると説明する。",
+      "sourceUrl": "https://lunchmoney.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "確認日現在",
+      "attribution": "公式説明",
+      "sourceLocator": "月額・年額・試用・収益の説明"
+     },
+     {
+      "id": "lunch-money-f052",
+      "kind": "FUNDING",
+      "text": "購読料のみで運営し、広告や利用者データの販売を収益源にしないと説明する。黒字の実額は非公開。",
+      "sourceUrl": "https://lunchmoney.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "確認日現在",
+      "attribution": "公式説明",
+      "sourceLocator": "月額・年額・試用・収益の説明"
+     },
+     {
+      "id": "lunch-money-f053",
+      "kind": "PRICING",
+      "text": "2026年3月15日から新規の年額下限を$50→$60へ変更すると通知した。既存の継続購読者は従来額を保つ。",
+      "sourceUrl": "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+      "statedAt": "2026-01-12",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-03-15発効",
+      "attribution": "公式説明",
+      "sourceLocator": "発効日・既存購読者・通貨"
+     },
+     {
+      "id": "lunch-money-f054",
+      "kind": "PRICING",
+      "text": "料金はUSD・CAD・EURで提供すると記載する。各通貨の額を相互換算しているとは記載しない。",
+      "sourceUrl": "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+      "statedAt": "2026-01-12",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-01-12",
+      "attribution": "公式説明",
+      "sourceLocator": "発効日・既存購読者・通貨"
+     },
+     {
+      "id": "lunch-money-f055",
+      "kind": "TOOL",
+      "text": "基盤としてHeroku、Netlify、Cloudflare、Node.js、React、TypeScript、PostgreSQL、Redis、Bullを掲載する。",
+      "sourceUrl": "https://lunchmoney.app/stack",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "開発・基盤・外部API・業務ツール"
+     },
+     {
+      "id": "lunch-money-f056",
+      "kind": "TOOL",
+      "text": "外部連携はStripe、Plaid、Fixer.io、Twilio、Postmark、CoinGeckoなど。個別の利用料金は載せていない。",
+      "sourceUrl": "https://lunchmoney.app/stack",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "開発・基盤・外部API・業務ツール"
+     },
+     {
+      "id": "lunch-money-f057",
+      "kind": "TOOL",
+      "text": "業務にFront、Discord、Canny、PostHog、Customer.io、Sentry、CircleCI、GitHubなどを掲載する。",
+      "sourceUrl": "https://lunchmoney.app/stack",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "開発・基盤・外部API・業務ツール"
+     },
+     {
+      "id": "lunch-money-f058",
+      "kind": "CHANNEL",
+      "text": "紹介された人は試用後の1か月無料、紹介者は相手の継続請求ごとに10%を口座残高として受け取る。現金報酬ではない。",
+      "sourceUrl": "https://lunchmoney.app/referral",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "紹介者と新規購読者の特典"
+     },
+     {
+      "id": "lunch-money-f059",
+      "kind": "CHANNEL",
+      "text": "アフィリエイトは有料利用者1人につき$15と本文に記載。FirstPromoterで審査し、支払最低額はUS$30。永久的な継続報酬額は確認できない。",
+      "sourceUrl": "https://lunchmoney.app/affiliate-program",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "報酬・支払条件・申請"
+     },
+     {
+      "id": "lunch-money-f060",
+      "kind": "EVENT",
+      "text": "現在は公式iOS・Android補助アプリを提供している。2024年の公式アプリ未提供という状態を現在へ引き継がない。",
+      "sourceUrl": "https://lunchmoney.app/download",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "iOS・Android向け案内"
+     },
+     {
+      "id": "lunch-money-f061",
+      "kind": "TEAM",
+      "text": "遠隔の請負者を募集する方針で、時給は事前に合意。機材・保険などの従業員福利は提供しないと説明。観測時の公開募集はない。",
+      "sourceUrl": "https://lunchmoney.app/hiring",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07",
+      "attribution": "公式説明",
+      "sourceLocator": "請負契約・報酬・募集状況"
+     },
+     {
+      "id": "lunch-money-f062",
+      "kind": "OTHER",
+      "text": "投稿者はMintからの取引取込と分類の柔軟さ、CIBC・BMO・Simpliiの同期を評価する。匿名の利用体験で契約や操作は未検証。",
+      "sourceUrl": "https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "投稿日未確定",
+      "attribution": "第三者の個別投稿",
+      "sourceLocator": "投稿者workingandwondering。絶対日付は本文表示から確定できず"
+     },
+     {
+      "id": "lunch-money-f063",
+      "kind": "OTHER",
+      "text": "同じ投稿者はQuestrade・CIBC・Sunlifeの投資口座非対応とグラフ表示を不満とする。後の返信では銀行口座の再連携の手間も指摘する。",
+      "sourceUrl": "https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "投稿日・返信日未確定",
+      "attribution": "第三者の個別投稿",
+      "sourceLocator": "投稿者workingandwondering。絶対日付は本文表示から確定できず"
+     },
+     {
+      "id": "lunch-money-f064",
+      "kind": "PRICING",
+      "text": "月額・年額は自動更新。休止中は更新せず未使用分を再開時の残高にし、解約は支払済み期間の終わりに効くと規定する。",
+      "sourceUrl": "https://lunchmoney.app/terms/consumer/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07確認の規約",
+      "attribution": "公式規約",
+      "sourceLocator": "課金・休止・解約・知的財産の節"
+     },
+     {
+      "id": "lunch-money-f065",
+      "kind": "OTHER",
+      "text": "解約時の残期間は通常返金しないが個別相談を認める。2025年11月3日前後で休止残高の返金条件が分かれている。",
+      "sourceUrl": "https://lunchmoney.app/terms/consumer/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07確認の規約",
+      "attribution": "公式規約",
+      "sourceLocator": "課金・休止・解約・知的財産の節"
+     },
+     {
+      "id": "lunch-money-f066",
+      "kind": "OTHER",
+      "text": "製品内容や画像の保存・転載には原則書面の同意を要求する。媒体資料があるだけで商用転載許諾が済んだとは扱わない。",
+      "sourceUrl": "https://lunchmoney.app/terms/consumer/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2026-10-07確認の規約",
+      "attribution": "公式規約",
+      "sourceLocator": "課金・休止・解約・知的財産の節"
+     },
+     {
+      "id": "lunch-money-f067",
+      "kind": "FOUNDING",
+      "text": "開始後も2社の請負仕事と7か月並走してから専業へ移ったと記す。副業収入の額・専業化した月は不明。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "開始後の7か月",
+      "attribution": "本人申告",
+      "sourceLocator": "自己管理の節"
+     },
+     {
+      "id": "lunch-money-f068",
+      "kind": "TOOL",
+      "text": "問い合わせを利用者側で分類してGmailの別フォルダに振り分けた。銀行同期専用の案内で二段階認証などを先に確認する形へ変えた。",
+      "sourceUrl": "https://lunchbag.ca/company-of-one/",
+      "statedAt": "2020-05-18",
+      "checkedAt": "2026-10-07",
+      "eventPeriod": "2020-05以前",
+      "attribution": "本人申告",
+      "sourceLocator": "問い合わせ分類と銀行同期の節"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "収集担当",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://lunchmoney.app/",
+       "publisher": "Lunch Money 公式製品ページ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "製品の機能紹介",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/about/",
+       "publisher": "Lunch Money 公式会社紹介",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "冒頭の数値・沿革・チーム紹介",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/media-kit/",
+       "publisher": "Lunch Money 公式媒体資料",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "会社情報・2025年調査・画面素材・利用指針",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=20811287",
+       "publisher": "Hacker News 創業者の公開投稿",
+       "sourceType": "founder_post",
+       "publicationDate": "2019-08-29",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "本人投稿",
+       "locator": "投稿者jnfrの紹介と返信",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=20811287",
+       "publisher": "Hacker News 初期の利用希望者の反応",
+       "sourceType": "customer_post",
+       "publicationDate": "2019-08-30",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "第三者の個別投稿",
+       "locator": "Fiahil・jval43のコメント。購入確認なし",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchbag.ca/lunch-money-mistakes/",
+       "publisher": "Jen Yip 個人ブログの失敗記録",
+       "sourceType": "founder_blog",
+       "publicationDate": "2020-02-17",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "本人申告",
+       "locator": "公開時の障害・料金・試用・本人紹介の各節",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchbag.ca/how-my-startup-saves-100-dollars-a-month-with-home-grown-solutions/",
+       "publisher": "Jen Yip 個人ブログの初期費用",
+       "sourceType": "founder_blog",
+       "publicationDate": "2019-11-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "本人申告",
+       "locator": "資料サイト・問い合わせ・試用中メールの各節",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchbag.ca/company-of-one/",
+       "publisher": "Jen Yip 個人ブログの1人運営",
+       "sourceType": "founder_blog",
+       "publicationDate": "2020-05-18",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "本人申告",
+       "locator": "業績・業務量・自動化・Plaid費用・集客と開発の連携",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchbag.ca/preparing-for-solopreneurship/",
+       "publisher": "Jen Yip 個人ブログの開始前経験",
+       "sourceType": "founder_blog",
+       "publicationDate": "2020-10-18",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "本人申告",
+       "locator": "過去の職務・個人制作の説明",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+       "publisher": "Indie Hackers 創業者への取材",
+       "sourceType": "founder_interview",
+       "publicationDate": "2024-03-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "取材中の本人申告",
+       "locator": "開始・集客・Mint終了・急増時の対応",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+       "publisher": "Lunch Money 公式ブログの料金変更",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-07-16",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "本人申告",
+       "locator": "料金履歴・変更後の結果・運営構成",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/pricing",
+       "publisher": "Lunch Money 現行公式料金",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "月額・年額・試用・収益の説明",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+       "publisher": "Lunch Money 年額下限の変更通知",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-01-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "発効日・既存購読者・通貨",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/stack",
+       "publisher": "Lunch Money 公式使用ツール",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "開発・基盤・外部API・業務ツール",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/referral",
+       "publisher": "Lunch Money 公式利用者紹介制度",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "紹介者と新規購読者の特典",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/affiliate-program",
+       "publisher": "Lunch Money 公式紹介報酬制度",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "報酬・支払条件・申請",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/download",
+       "publisher": "Lunch Money 公式アプリ案内",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "iOS・Android向け案内",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/hiring",
+       "publisher": "Lunch Money 公式採用案内",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式説明",
+       "locator": "請負契約・報酬・募集状況",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+       "publisher": "Reddit Mintから移行したという利用者",
+       "sourceType": "customer_post",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "第三者の個別投稿",
+       "locator": "投稿者workingandwondering。絶対日付は本文表示から確定できず",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      },
+      {
+       "url": "https://lunchmoney.app/terms/consumer/",
+       "publisher": "Lunch Money 消費者向け利用規約",
+       "sourceType": "official_terms",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "attribution": "公式規約",
+       "locator": "課金・休止・解約・知的財産の節",
+       "reuseNote": "公開ページから短い事実を独自の日本語で記録。全文・画像本体の保存や転載の許諾を意味しない。"
+      }
+     ],
+     "supported": [
+      "lunch-money-f001",
+      "lunch-money-f002",
+      "lunch-money-f003",
+      "lunch-money-f004",
+      "lunch-money-f005",
+      "lunch-money-f006",
+      "lunch-money-f007",
+      "lunch-money-f008",
+      "lunch-money-f009",
+      "lunch-money-f010",
+      "lunch-money-f011",
+      "lunch-money-f012",
+      "lunch-money-f013",
+      "lunch-money-f014",
+      "lunch-money-f015",
+      "lunch-money-f016",
+      "lunch-money-f017",
+      "lunch-money-f018",
+      "lunch-money-f019",
+      "lunch-money-f020",
+      "lunch-money-f021",
+      "lunch-money-f022",
+      "lunch-money-f023",
+      "lunch-money-f024",
+      "lunch-money-f025",
+      "lunch-money-f026",
+      "lunch-money-f027",
+      "lunch-money-f028",
+      "lunch-money-f029",
+      "lunch-money-f030",
+      "lunch-money-f031",
+      "lunch-money-f032",
+      "lunch-money-f033",
+      "lunch-money-f034",
+      "lunch-money-f035",
+      "lunch-money-f036",
+      "lunch-money-f037",
+      "lunch-money-f038",
+      "lunch-money-f039",
+      "lunch-money-f040",
+      "lunch-money-f041",
+      "lunch-money-f042",
+      "lunch-money-f043",
+      "lunch-money-f044",
+      "lunch-money-f045",
+      "lunch-money-f046",
+      "lunch-money-f047",
+      "lunch-money-f048",
+      "lunch-money-f049",
+      "lunch-money-f050",
+      "lunch-money-f051",
+      "lunch-money-f052",
+      "lunch-money-f053",
+      "lunch-money-f054",
+      "lunch-money-f055",
+      "lunch-money-f056",
+      "lunch-money-f057",
+      "lunch-money-f058",
+      "lunch-money-f059",
+      "lunch-money-f060",
+      "lunch-money-f061",
+      "lunch-money-f062",
+      "lunch-money-f063",
+      "lunch-money-f064",
+      "lunch-money-f065",
+      "lunch-money-f066",
+      "lunch-money-f067",
+      "lunch-money-f068"
+     ],
+     "unknown": [
+      "創業時の現金元手・貯蓄・外注費合計：本人の開始前経験と費用記事を調べたが総額は未公表。initialCapitalRequiredはnull。",
+      "初課金日・最初の購入者・有料100人到達日：公開投稿と回想は登録人数のみ。推定しない。",
+      "2026年のMRR・ARR実額：有料人数は公表されるが旧価格・複数通貨が混在し、人数×現行料金で売上を作らない。",
+      "原価・粗利・営業利益・税後利益・創業者個人の手残り：Stripe、Plaid、基盤、請負、人件費、税、返金の実請求・損益は未公表。pnlはnull。",
+      "週の実労働時間・自動化率：問い合わせ件数や業務の説明はあるが時間・率に直さない。",
+      "現在の雇用人数総数・常勤換算：中核5人と外部協力者の紹介はあるが、全員の契約区分・稼働率を確定できない。",
+      "CAC・有料転換率・解約率・LTV・再現時の利益：傾向のみ。値下げ、Mint終了、機能改善、休止制度の効果を独立分離できない。",
+      "料金変更の細かい年月：2020年と2024年の回想に不一致。旧試用14日と現在30日の切替日も未確認。",
+      "個別レビューの絶対投稿日と本人性：Reddit表示は相対日付。確認日を記録し、絶対日は空欄。",
+      "初期Wayback実保存版：取得エラー。本人の当時記事は読めたがアーカイブを読めたとはしない。",
+      "画像の保存・商用転載許諾：実画面URLのみ。原文・画像本体・個人金融データ・ログイン後画面は保存しない。",
+      "規制適合性・国別銀行対応の網羅・銀行側契約条件：公開規約と連携事実まで。法的適合や全口座対応を認定しない。"
+     ],
+     "conflicts": [
+      "月額$8への変更：2020-02-17の記事は既に$8から20%割引済み、2024-07-16の記事は$8到達を2020年3月とする。年月は採用保留。価格の順序だけ記録。",
+      "初期の「1人会社」と外注：2024年記事ではJen以外に請負者5人、最長の契約は約5年。「最初の5年間、他者への支払ゼロ」としない。",
+      "2019年費用記事の自作メール：3時間×$75/時=$150との表記は計算不整合（積は$225）。推計原価として採用せず、実装時間のみ記録。",
+      "2024年3月取材の任意料金結果と7月記事の割合は観測時点が異なる。後者の37%・60%を前者時点へ戻さない。",
+      "紹介報酬ページの継続報酬を思わせる見出しに対し本文は有料客1人$15。永久的な歩合制度と解釈しない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2019,
+     "initialTractionPeriod": "2018年11月末に開発開始、2019年8月29日公開。1日1,000件超は登録人数。初課金日は不明。",
+     "dataSnapshotPeriod": "2018年の開発開始〜2026-10-07の公開情報",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "Hacker News",
+      "本人ブログ",
+      "X",
+      "検索記事",
+      "口コミ",
+      "Reddit",
+      "紹介制度"
+     ],
+     "toolStack": [
+      {
+       "name": "Node.js",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "React",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "TypeScript",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "PostgreSQL",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Redis",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Bull",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Heroku",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Netlify",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Cloudflare",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Stripe",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Plaid",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Postmark",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Front",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "Discord",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true,
+     "initialTeamSize": 1
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "多通貨の家計管理、銀行取引の取込・分類・予算管理を提供する。",
+     "targetCustomer": "自分や家庭の支出を管理する個人、複数通貨を扱う人。",
+     "painRelief": "表計算での多通貨管理や取引分類の手間。創業動機と公式機能に基づく。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式製品ページ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/",
+      "sourceNote": "製品の機能紹介",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式会社紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/about/",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/about/",
+      "sourceNote": "冒頭の数値・沿革・チーム紹介",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式媒体資料",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/media-kit/",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/media-kit/",
+      "sourceNote": "会社情報・2025年調査・画面素材・利用指針",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker News 創業者の公開投稿",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://news.ycombinator.com/item?id=20811287",
+       "発行日: 2019-08-29",
+       "確認日: 2026-10-07",
+       "記述主体: 本人投稿"
+      ],
+      "url": "https://news.ycombinator.com/item?id=20811287",
+      "sourceNote": "投稿者jnfrの紹介と返信",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker News 初期の利用希望者の反応",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://news.ycombinator.com/item?id=20811287",
+       "発行日: 2019-08-30",
+       "確認日: 2026-10-07",
+       "記述主体: 第三者の個別投稿"
+      ],
+      "url": "https://news.ycombinator.com/item?id=20811287",
+      "sourceNote": "Fiahil・jval43のコメント。購入確認なし",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Jen Yip 個人ブログの失敗記録",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchbag.ca/lunch-money-mistakes/",
+       "発行日: 2020-02-17",
+       "確認日: 2026-10-07",
+       "記述主体: 本人申告"
+      ],
+      "url": "https://lunchbag.ca/lunch-money-mistakes/",
+      "sourceNote": "公開時の障害・料金・試用・本人紹介の各節",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Jen Yip 個人ブログの初期費用",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchbag.ca/how-my-startup-saves-100-dollars-a-month-with-home-grown-solutions/",
+       "発行日: 2019-11-21",
+       "確認日: 2026-10-07",
+       "記述主体: 本人申告"
+      ],
+      "url": "https://lunchbag.ca/how-my-startup-saves-100-dollars-a-month-with-home-grown-solutions/",
+      "sourceNote": "資料サイト・問い合わせ・試用中メールの各節",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Jen Yip 個人ブログの1人運営",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchbag.ca/company-of-one/",
+       "発行日: 2020-05-18",
+       "確認日: 2026-10-07",
+       "記述主体: 本人申告"
+      ],
+      "url": "https://lunchbag.ca/company-of-one/",
+      "sourceNote": "業績・業務量・自動化・Plaid費用・集客と開発の連携",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Jen Yip 個人ブログの開始前経験",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchbag.ca/preparing-for-solopreneurship/",
+       "発行日: 2020-10-18",
+       "確認日: 2026-10-07",
+       "記述主体: 本人申告"
+      ],
+      "url": "https://lunchbag.ca/preparing-for-solopreneurship/",
+      "sourceNote": "過去の職務・個人制作の説明",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Indie Hackers 創業者への取材",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+       "発行日: 2024-03-22",
+       "確認日: 2026-10-07",
+       "記述主体: 取材中の本人申告"
+      ],
+      "url": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "sourceNote": "開始・集客・Mint終了・急増時の対応",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式ブログの料金変更",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/blog/we-lowered-our-pricing",
+       "発行日: 2024-07-16",
+       "確認日: 2026-10-07",
+       "記述主体: 本人申告"
+      ],
+      "url": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "sourceNote": "料金履歴・変更後の結果・運営構成",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 現行公式料金",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/pricing",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/pricing",
+      "sourceNote": "月額・年額・試用・収益の説明",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 年額下限の変更通知",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+       "発行日: 2026-01-12",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+      "sourceNote": "発効日・既存購読者・通貨",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式使用ツール",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/stack",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/stack",
+      "sourceNote": "開発・基盤・外部API・業務ツール",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式利用者紹介制度",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/referral",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/referral",
+      "sourceNote": "紹介者と新規購読者の特典",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_16",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式紹介報酬制度",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/affiliate-program",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/affiliate-program",
+      "sourceNote": "報酬・支払条件・申請",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_17",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式アプリ案内",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/download",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/download",
+      "sourceNote": "iOS・Android向け案内",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_18",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 公式採用案内",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/hiring",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式説明"
+      ],
+      "url": "https://lunchmoney.app/hiring",
+      "sourceNote": "請負契約・報酬・募集状況",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_19",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reddit Mintから移行したという利用者",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 第三者の個別投稿"
+      ],
+      "url": "https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+      "sourceNote": "投稿者workingandwondering。絶対日付は本文表示から確定できず",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_lunch_money_be2eeb1f4fdf_source_20",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Lunch Money 消費者向け利用規約",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典。独立監査・公開審査の完了を表すものではない。",
+      "details": [
+       "出典URL: https://lunchmoney.app/terms/consumer/",
+       "発行日: 記載なし・未確定",
+       "確認日: 2026-10-07",
+       "記述主体: 公式規約"
+      ],
+      "url": "https://lunchmoney.app/terms/consumer/",
+      "sourceNote": "課金・休止・解約・知的財産の節",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen3_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "創業時の現金元手・貯蓄・外注費合計：本人の開始前経験と費用記事を調べたが総額は未公表。initialCapitalRequiredはnull。",
+     "初課金日・最初の購入者・有料100人到達日：公開投稿と回想は登録人数のみ。推定しない。",
+     "2026年のMRR・ARR実額：有料人数は公表されるが旧価格・複数通貨が混在し、人数×現行料金で売上を作らない。",
+     "原価・粗利・営業利益・税後利益・創業者個人の手残り：Stripe、Plaid、基盤、請負、人件費、税、返金の実請求・損益は未公表。pnlはnull。",
+     "週の実労働時間・自動化率：問い合わせ件数や業務の説明はあるが時間・率に直さない。",
+     "現在の雇用人数総数・常勤換算：中核5人と外部協力者の紹介はあるが、全員の契約区分・稼働率を確定できない。",
+     "CAC・有料転換率・解約率・LTV・再現時の利益：傾向のみ。値下げ、Mint終了、機能改善、休止制度の効果を独立分離できない。",
+     "料金変更の細かい年月：2020年と2024年の回想に不一致。旧試用14日と現在30日の切替日も未確認。",
+     "個別レビューの絶対投稿日と本人性：Reddit表示は相対日付。確認日を記録し、絶対日は空欄。",
+     "初期Wayback実保存版：取得エラー。本人の当時記事は読めたがアーカイブを読めたとはしない。",
+     "画像の保存・商用転載許諾：実画面URLのみ。原文・画像本体・個人金融データ・ログイン後画面は保存しない。",
+     "規制適合性・国別銀行対応の網羅・銀行側契約条件：公開規約と連携事実まで。法的適合や全口座対応を認定しない。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: RAW（調査段の未審査）→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.currentTeamSize: 空→欄を外す",
+     "operations.toolStack: 文字列→名前と用途"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,836 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_poolsuite_6d5ad6895563",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "FOUNDING",
+     "text": "Marty Bell は、プレイリストを共有するだけでは聞かれにくいと考え、音楽に 1980 年代の浜辺の映像を合わせた体験を作ろうとした。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f2",
+     "kind": "FOUNDING",
+     "text": "開発者を一人も知らなかったため、友人の友人（Grant Mac）に案を話し、すぐに協力を得た。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f3",
+     "kind": "CHANNEL",
+     "text": "2014 年に Product Hunt で Poolside FM として公開し、Reddit の r/InternetIsBeautiful にも投稿した。記事によると、Reddit で「少し」話題になり、公開は Vice と Manrepeller に取り上げられた。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f4",
+     "kind": "TEAM",
+     "text": "2021 年 6 月の取材では、Poolsuite に取り組むチームは 10 人と紹介された。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f5",
+     "kind": "EVENT",
+     "text": "2021 年 6 月 10 日の記事は、Vacation by Poolsuite の正式発売が当日で、Product Hunt の先行公開は 4 月だったと記載した。Vacation by Poolsuite は同社の新しい日焼け止めで、最初の物理的な製品である。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f6",
+     "kind": "EVENT",
+     "text": "本人は Jacuzzi Club の Slack で相談し、日焼け止めの処方を開発していた Lach と Dakota から連絡を受け、後に Vacation の共同創業者に加わったと説明した。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "Vacation の Classic Lotion SPF 50 は、2023 年の登場以来、2025 年 9 月の取材までに約 150 万本販売したと本人が述べた。これは Vacation の商品販売数であり、Poolsuite の売上ではない。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f8",
+     "kind": "EVENT",
+     "text": "2025 年 9 月の本人回答では、Poolsuite は iOS と Android の新しい音楽アプリを公開し、直前の週末に Los Angeles でパーティーを開いた。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f9",
+     "kind": "DESCRIPTION",
+     "text": "App Store の掲載では、販売者は POOLSIDE WORLDWIDE CORPORATION LTD で、Poolsuite FM は無料と表示されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "2020 年 10 月 1 日の Trevor Peach のレビューは、最初は見た目で入れたが使ってから気に入り、友人にも勧め、ほかの音楽アプリの多くを使わなくなったと述べた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "2021 年 10 月 12 日の Mikezila のレビューは、見た目と機能を評価する一方、SoundCloud の上限表示で音が出ないことが多く、代わりにウェブ版を使っていると述べた。これは 1 人の当時の経験である。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "App Store の版 2.0.0 の変更説明は、常時流れる新しい音楽配信を備え、安定性を高めた macOS 版を公開したと記載している。表示には 4 月 21 日のみで年がないため、年は採用しない。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+     "publisher": "Product Hunt（Marty Bell の取材）",
+     "snapshot": {
+      "url": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "finalUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:30:48.784Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "6ef3af7020436e17eb7e4f3d5120e8ced88c8fb9f44dcca26eed292b021cfa3b"
+     },
+     "text": "What Marty Bell, founder of Poolsuite, has to say about building for fun | Product Hunt\nPoolsuite doesn’t track KPIs. Bell doesn’t call himself a CEO. He and the ragtag group of designers & developers who work on the “virtual vacation” station just have fun.\nWhat Marty Bell, founder of Poolsuite, has to say about building for fun | Product Hunt\nPoolsuite doesn’t track KPIs. Bell doesn’t call himself a CEO. He and the ragtag group of designers & developers who work on the “virtual vacation” station just have fun.\nWhat Marty Bell, founder of Poolsuite, has to say about building for fun | Product Hunt\nBest Products\nLaunches\nLaunch archive Most-loved launches by the community\nLaunch Guide Checklists and pro tips for launching\nNews\nNewsletter The best of Product Hunt, every day\nStories Tech news, interviews, and tips from makers\nChangelog New Product Hunt features and releases\nForums\nForums Ask questions, find support, and connect\nKitty Points Leaderboard The highest scoring community members\nStreaks The most active community members\nEvents Meet others online and in-person\nAdvertise\nSubscribe Sign in\nStories\nWhat Marty Bell, founder of Poolsuite, has to say about building for fun\nPoolsuite doesn’t track KPIs. Bell doesn’t call himself a CEO. He and the ragtag group of designers & developers who work on the “virtual vacation” station just have fun.\nSarah Wright June 10th, 2021\nAbout Poolsuite Poolsuite is the ultimate summer music player.\nGrab another Banana Daiquiri and pick from a number of sun-drenched music channels, each lovingly curated with the sole purpose of lifting your spirits.\nAvailable on web, iOS and Android\nMarty Bell may be from the (stunning yet) cold Scottish Highlands, but that hasn’t stopped him from being the unofficial keeper of summer.\nBell is the founder of Poolsuite (formerly Poolside FM ), the radio station, website, and brand that epitomizes summer nostalgia with retro 80s graphics and vibey relaxing music. As a recent Maker Grant recipient and off today's official launch of Vacation by Poolsuite (which pre-launched on Product Hunt in April), I spoke with Bell about his maker story.\nWe started by talking about how the dreary weather may have been part of why he started working on Poolsuite.\n“Everyone thinks we’re from LA... I was probably subconsciously trying to getaway from the grey of Scotland when the idea arose,” he explained.\nPoolsuite just became a finalist for the 2021 Apple Design Awards and made news for its partnership with Playdate . It’s also a favorite in the Product Hunt community too (we sometimes kick off our all-hands meetings here with the station while we wait for everyone to join the Zoom). Take a look at a few of the latest Poolsuite comments.\nThe vibes are unreal!!! 🤙🌴🍹Thank you for this!!!! ! Jan Köster\nIt's a modern time capsule of sexy. Chad Fullerton\nI am not leaving this app anytime soon. Aakarshna Anand\nAs a native Angeleno living in London, I can’t help but feel nostalgic myself when I’m on Poolsuite, but I love that you don’t have to live anywhere or be born at any one time to appreciate it. The aesthetics and jams are inclusive in a way that people all over the world can enjoy a bit of ultra summer.\nHow it started\nToday, community is the foundation many makers build their products upon. Experts often tout the importance of having peers so you can support each other’s projects and find early adopters. As it happened, Bell didn’t have any following or community before he started Poolsuite.\n“When I first launched it I wasn’t building digital products, I was building brands and making physical products. Then I stumbled upon this super-happy genre-spanning kind of music and I loved it so much; it felt like (and still does feel like) a direct hit of serotonin straight to the brain to me.. I thought ‘I could build a playlist and share it with people. But everyone shares playlists that barely anyone listens to. I need to build an experience around it to make it spread.’”\nBell wanted to pair the music with something else that would make it even more powerful. Even though the music was new, it reminded him of 80s summer beach movies, the kind you instinctively picture coming on a VHS tape (if you’re old enough to have used one regularly).\nThe idea to create an 80s style website dawned on Bell.\n“When I think of the 80s in the U.S. I always picture some kind of LA beach scene in my head, bursting with carefree good times and positivity. No iPhones, no WiFi, no plans.”\nThe only problem was...\n“I didn’t even know a single developer at the time. I didn’t know what web apps were outside of the terrible things I was installing on some very questionable WordPress site builds around that time. But I reached out to a friend of a friend (shoutout Grant Mac!) and pitched him the idea, he said he was in immediately.\"\nThe friend was thrilled to help — it sounded like fun. Bell got to work pulling creative assets to “throw together” a website. What the movies were didn’t even matter. He hadn’t seen half of them. What was important was pairing the scenes with music so that he could re-create the feeling he got while listening.\nThat’s part of the brilliance of Poolsuite. The site isn’t so closely tied to one source of inspiration or reference to pop culture. It truly is a vibe.\nHow it's going\nBell launched Poolside FM on Product Hunt in 2014, i.e. not long after Product Hunt was born. It's since undergone a re-name to Poolsuite (Bell and team explained the change here ).\nSince it was seven years ago, Bell had to go back through his profile history to try to remember what happened at the beginning. Though the comments on the post are few, they are as welcoming and energetic as the Poolsuite app that launched last week.\nI'm in love. Totally rad! Big 80s fan so loving the vibe. Will be great on TV for summer time parties. :) - Corey Gwin\nBookmarked this immediately <3 - Lejla Bajgoric\nAwesome find! Really love the 80s feel! - Adrian Grant\nBeyond Product Hunt, Bell posted Poolsuite to the subreddit r/InternetIsBeautiful/, where it went “a bit viral” and the launch was covered by Vice and Manrepeller.\n“From then, I’ve never tried to turn it into a business. This has been a fun thing on the side — a digital playground. Our incredibly talented gang of designers & developers jam on it and we see how fast we can push things out in evenings and weekends. Most of my job is to curate the content and make sure the contriburing team are having a great time.”\nBell curates and art directs Poolsuite and its products, including Vacation by Poolsuite , the company’s new sunscreen, and first physical product. He stressed though that he’s “definitely not a designer,” a job that’s handled by Neik Dekker, one of a team of 10 people currently working on the Poolsuite. Still, he works side-by-side with Neik, obsessing over the design research and “over-doing things” authentically.\nWe touched on how the old school operating system design that you see when you launch Poolsuite is core to the experience (and how Poparazzi’s onboarding flow recently exploded in a similar vein).\n“I love any products that make you think 'Wait, what the hell is this thing?!' Things that take people a few seconds to work out. We like to see the Poolsuite website and apps like mini sensory experiences, or virtual toys.\"\nExpansion doesn’t have to be a buzzkill\nMost of what Poolsuite puts out is still free and Bell keeps it that way.\n“My job is to make it fun. We don’t try to track KPIs or metrics. I think that comes out in the product. I’ve seen a few tweets that said something along the lines of 'I can tell how much fun this team is having just by using the app/site,' and that’s absolutely true. We’re optimizing for fun, and excitement —even just our own. Nothing else. I think the whole project would’ve died a long time ago if I took it too seriously or tried to directly monetize it.”\nThat’s not to say he’s always had a clear picture of what to do with the product and community he’s built. He reached out to his Slack community, Jacuzzi Club, a couple of years ago for help deciding what to do next with Poolsuite while he was too busy with another startup to focus his energy on it.\nThat’s how he met Lach Hall & Dakota Green, a match made in poolside heaven. Hall & Green had the concept and formulation for a new sunscreen but no brand. They were just about to raise money for the new company when Bell entered the chat looking for new opportunities, both of the fun and business nature. That’s how Vacation was born.\n“Sunscreen is the perfect product. We’d been offered dozens of opportunities and collabs over the years — craft beer, swimwear brands, pool floats. Everything obvious wasn’t exciting to me. We like to go all-in on stuff and go deep on brand and personality. Sunscreen is one of the few products you can layer deep nostalgia into.”\nAnd they went all-in on “The World’s Best Smelling Sunscreen.” The product was crafted to transport you to the summer of 1986, Miami, Florida, and not just via the smell — which incorporates scents of coconut and banana — but through the whole experience, from the way the packaging opens to the receipt printed on old school 80s printer paper.\nBuilding for fun\nThis is one of the key reasons Poolsuite has kept its cool factor and edge over the last seven years (and growing) — Bell’s insistency on keeping it a side project. He has never been focused on growth metrics and really is just having fun.\n“In building projects, so many people are so obsessed with being a founder. Especially when you’re younger. But whatever you can do to make your projects more relaxed you should do. There’s no advantage to being overly serious … except maybe in something like medicine.”\nBell tells aspiring makers that the way they position something they’re working on matters. He calls what he’s working on “experiments” and that leaves him open to working with friends. He doesn’t position himself as a CEO and would caution others on doing so quickly too. When you’re a CEO, you have to do everything right.\n“There’s been no pressure on me to deliver whatsoever. If you’re having fun with everything, and keep your project lighthearted, when there’s a bug or critical failure, you can laugh it off.”\nThis attitude has allowed Bell to pull in talented developers to work on Poolsuite in return for a stress-free space to get creative, hone their skills, and have a good time.\n“A product is a vehicle to have a fun exciting life and no one thinks about it that way. You can build a brand or project and, even if it just covers costs but you get an opportunity to meet interesting people and learn how building stuff works, it’s more than worthwhile.\nThere should be a course on how to build a really fun side project. Not to make money, just to make your life more exciting.”\nWho else would take that class?\nSubscribe Sign in\nTop Product Categories\nEngineering & Development\nLLMs\nProductivity\nMarketing & Sales\nDesign & Creative\nSocial & Community\nFinance\nAI Agents\nEngineering & Development\nVibe Coding Tools\nAI Coding Agents\nAI Code Editors\nLLMs\nAI Chatbots\nAI Infrastructure Tools\nPrompt Engineering Tools\nProductivity\nAI notetakers\nNote and writing apps\nTeam collaboration software\nSearch\nAI Workflow Automation\nMarketing & Sales\nLead generation software\nMarketing automation platforms\nDesign & Creative\nVideo editing\nDesign resources\nGraphic design tools\nAI Generative Media\nSocial & Community\nSocial Networking\nProfessional networking platforms\nCommunity management\nFinance\nAccounting software\nFundraising resources\nInvesting\nAI Agents\nAI Voice Agents\nSee All Categories >>\nTrending categories\nTop reviewed\nTrending products\nTop forum threads\nTrending categories\nVibe Coding Tools\nAI Dictation Apps\nAI notetakers\nCode Review Tools\nNo-code Platforms\nFigma Plugins\nStatic site generators\nTop reviewed\nLovable\nn8n\nAttio\nPostHog\nVapi\nGranola\nRaycast\nSupabase\nTrending products\nLovable\nScreen Studio\nbolt.new\nWispr Flow\nFramer\nReplit\nVapi\nGranola\nTop forum threads\nCursor or Claude Code?\nPOLL: Domain or product first?\nYC deadline in <2 weeks; Who's applying?\nWe Got into YC, Got Kicked Out, and Fought Our Way Back\nHow Wispr Flow found PMF through pivot\nBest Vibe Coding tool so far?\nLanding page roast - 48 hours only\nFix your tagline with the PH CEO\n© 2026 Product Hunt\nNewsletter Apps About FAQ Terms Privacy & Cookies Privacy Choices Advertise llms.txt Contact us: hello@producthunt.com",
+     "policy": {
+      "policyId": "rights.product-hunt.v2",
+      "sourceId": "src.product-hunt",
+      "providerName": "Product Hunt",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+     "publisher": "Hannah’s List（Marty Bell の取材）",
+     "snapshot": {
+      "url": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "finalUrl": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:46.995Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "77bb52fcba97e29c19eb82d610d32827dbbe758465ad45f695a75b6e3da0f6dc"
+     },
+     "text": "Q&A: Poolsuite and Vacation®'s Marty Bell\nQ&A: Poolsuite and Vacation®'s Marty Bell\n\"A poolside daiquiri, a 1983 hotel TV commercial, a beach bag full of coconut-banana-scented memories.\"\n\"A poolside daiquiri, a 1983 hotel TV commercial, a beach bag full of coconut-banana-scented memories.\"\nQ&A: Poolsuite and Vacation®'s Marty Bell\nSubscribe Sign in\nQ&A: Poolsuite and Vacation®'s Marty Bell\n\"A poolside daiquiri, a 1983 hotel TV commercial, a beach bag full of coconut-banana-scented memories.\"\nHannah Bronfman\nSep 05, 2025\n4\nShare\nThis Hannah’s List series highlights the founders (and strategies) behind the brands we love. In this edition: Marty Bell, co-founder of Poolsuite and Vacation®.\nHave you ever come across that quote — and I’m definitely paraphrasing it here — but it goes something like: I’m nostalgic for summer but for summer 1993. I think about that all the time. There’s something about the way certain seasons, certain years, stick with you. And scent plays such a big role in that. It’s like an instant time machine. And for so many of us, the smell of sunscreen immediately brings us back to a carefree childhood summers. Everyone is nostalgic for the smell of SPF.\nThe contents of my Cabo beach bag. The Vacation® Classic Lotion has the brand’s signature scent: notes of coconut, banana (and pool water, pool toy and swimsuit). The formula is dreamy. Rubs in fast and uses coconut oil, aloe vera, banana extract, vitamin d, and niacinamide.\nSubscribe\nNow that technology is at our fingertips, most of us are much more mindful about the products we use. Efficacy has become the #1 priority which is (mostly) great. The flip side of that is a lot of products end up feeling really clinical which can come across as intimidating or, honestly, boring. That’s what makes Vacation® different. The packaging is fun and clever, think the original Baywatch in a bottle, but the real reason people keep coming back — it actually works.\nI don’t think I’ve packed a single beach bag without at least one Vacation® product since the brand launched. My regulars are the Super Spritz SPF 50 (easy to reapply) and the Classic Lotion (no white cast).\nI got to chat with Marty Bell about the brand and the digital mixtapes (yes, really) that lead to the creation of this kitschy and cool SPF universe.\nA snapshot of the Vacation® product ~suite~\n\"A poolside daiquiri, a 1983 hotel TV commercial, a beach bag full of coconut-banana-scented memories.\"\nTell us a bit about your early career. Where did you start, and what were your initial aspirations?\nI attempted university for a year in Edinburgh, Scotland but dropped out after falling head over heels in love with the idea of the lifestyle brand. I realised you could wrap a bunch of your interests in a thing called a brand, then try to make a business out of it. My first business at the age of 18 was a small-time nightlife-focused internet clothing brand selling basic merch and throwing parties with some of our favourite DJs. I did that for ~4 very chaotic years before realising I was ready to try something a bit more serious. I then started an internet sunglasses brand, and around the same time, a little music website called Poolside FM which would end up dramatically changing the trajectory of my life.\nThe Poolsuite mix tapes are genuinely so good. Hannah-the-DJ-approved.\nWhat was the moment you knew you wanted to start a sunscreen brand? And how did it go from idea to reality?\nSeven years into running that music website, which had by then renamed to ‘Poolsuite’, it suddenly hit a major organic viral streak with over a million people tuning-in a year. I was caught up in a fintech startup I co-founded, with little time to know what to do with all the hype and attention it was receiving. I posted in a Slack channel for founders I’d put together - Jacuzzi Club - asking for advice, and shortly after received a DM from a strange Australian and American duo named Lach & Dakota who told me they’d been developing ‘leisure-enhancing’ sunscreen formulas and wondered if there may be a way to build out a sunscreen company as an extension of the eccentric Poolsuite brand world. I instantly fell in love with the idea and flew to meet them in NYC a few weeks later. Shortly after, I joined as a co-founder of Vacation®.\nThe Vacation® website is super interactive with all these nods to nostalgia. This little coupon section at the bottom of the site is my favorite.\nGive us a bit of a company overview, from concept to cult-gether.\nVacation was born out of an obsession with bringing back the joy we saw in sunscreen brands of the ‘80s, before everything went (rightfully) ultra-clinical and serious. In the depths of Covid, we decided to immerse ourselves in the leisure lifestyle and hunkered down together in a tiny tropical beach town in the Dominican Republic for what was meant to be a month-long creative retreat, which somehow turned into almost a year. I had a golf cart as my daily driver, and Lach & I engaged in deeply humiliating personal training sessions 3 times a week in front of the local beach bar, trying to work off the banana daiquiris which were powering the product, brand & launch strategy that was slowly but surely coming together.\nOn whiteboards set up by the pool, we mapped out the concept for the honorary job roles we’d give out to anyone who wanted to be a part of the brand, like Breakfast Buffet Specialist and Hot Tub Temperature Analyst; which ~10,000 people ended up claiming pre-launch. But beneath all the silliness in the brand was also true innovation and science - a luxurious SPF formula developed with Dr. Elizabeth Hale, leading dermatologist, packaging designed to make you smile, and an iconic scent developed by Carlos Huber of ARQUISTE Parfumeur and Rodrigo Flores-Roux of Givaudan.\nVacation is all about making SPF fun. What did “fun” mean to you when you first launched, and how has that evolved?\nWe wanted to flip the script and bring joy back to the sunscreen aisle. To us, fun meant reveling in that universally shared, quintessential “vacation” mindset. A poolside daiquiri, a 1983 hotel TV commercial, a beach bag full of coconut-banana-scented memories. People want to feel good about taking care of themselves. If our whipped-cream sunscreen makes you smile, you’ll probably reach for it more often . That’s real impact.\nSunscreen can feel clinical and boring. What was the biggest challenge in flipping that perception?\nThe challenge was getting people to believe we could be fun while still being serious about sun protection. When you’re launching sunscreen in a whipped cream can, people assume it’s all novelty. But we worked with Dr. Elizabeth Hale, a leading dermatologist and SVP of the Skin Cancer Foundation, and top-tier FDA-certified labs to make formulas that really work. It had to be fun, effective, and safe at the end of it all. Once people tried it, they got it.\nYou’ve had some pretty iconic product drops. Which launch felt like, OK we’re doing something special here?\nFor me, it was our very first product - The Classic Lotion SPF 30. It launched with no legacy, no track record, just a wild brand idea and a commitment to making sunscreen fun again. But people got it instantly. The retro-style packaging, the nostalgic scent, the tone of voice - it all clicked. It was then that it became clear we weren’t just launching a product, we were building a brand world that people wanted to be a part of.\nWhat has been your biggest failure? Your biggest success?\nBiggest failure is maybe not launching Vacation® in 2017… or not hiring a Head of Sales earlier… or our continued failure to convince the board we must acquire a corporate seaplane for “business” throughout the Florida Keys. In terms of success, we’ve had nearly 1.5 million tubes of our Classic Lotion SPF 50 sold to date since its original inception back in 2023, and I’d also say another huge success is the organic viral traction we’ve received on TikTok with Classic Whip receiving hundreds of millions of views. We designed these products with a whole lot of love and attention to detail, so to witness a community who loves them and genuinely wants to talk about them is incredible to see.\nWhat’s a piece of advice you’d go back and tell yourself when you first launched?\nWhen I first launched Poolsuite, I wish I’d given myself more time and space to explore ideas just for the sake of it, without any kind of business model or strategy.\n“Looking back, the projects I started purely to make money have almost never worked. Poolsuite was just a web music player with looping ‘80s beach scenes, and Vacation® began with a ridiculous 42-page pitch novella. My best work always seems to start with a weird idea that I can’t stop thinking about.”\nWe love a teaser. Can you give us a hint at what’s coming next? Even just a vibe?\nOn the Vacation® side, expect more leisure-enhancing formats, some surprising collaborations, and some pretty wild campaigns next year. Same mission: make sunscreen fun. At Poolsuite we’re building out our suite of ultra-summer apps (we just released our beautiful new music app on iOS and Android) and we’re putting together a bunch more parties like the one we just hosted in LA over the weekend, with some of the hottest DJs around.\nAnyone you want to see in the next Q&A? Drop their names in the comments.\nThe Q&A with Hannah Bronfman\nQ&A: Poppy Seed Health's Simmone Taitt\nHannah Bronfman\n·\nAugust 29, 2025\nRead full story\nQ&A: ShopMy's Tiffany Lopinsky\nHannah Bronfman\n·\nAugust 15, 2025\nRead full story\nQ&A: Sienna Naturals' Hannah Diop\nHannah Bronfman\n·\nJune 20, 2025\nRead full story\nHannah’s List by Hannah Bronfman\nSubscribe\n4\nShare\nPrevious Next\nDiscussion about this post\nComments Restacks\nTop Latest Discussions\nNo posts\nReady for more?\nSubscribe\n© 2026 Hannah Bronfman · Privacy ∙ Terms ∙ Collection notice\nStart your Substack Get the app\nSubstack is the home for great culture",
+     "policy": {
+      "policyId": "rights.substack.v1",
+      "sourceId": "src.substack",
+      "providerName": "Substack newsletters",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+     "publisher": "App Store（開発元掲載と利用者レビュー）",
+     "snapshot": {
+      "url": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "finalUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:48.450Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "38473cbf0f65a19930086384eb7c0890b14ee5929e31186a25de37c1fdee711c"
+     },
+     "text": "‎Poolsuite FM App - App Store\nDownload Poolsuite FM by POOLSIDE WORLDWIDE CORPORATION LTD on the App Store. See screenshots, ratings and reviews, user tips, and more apps like Poolsuite FM.\nPoolsuite FM App - App Store\nDownload Poolsuite FM by POOLSIDE WORLDWIDE CORPORATION LTD on the App Store. See screenshots, ratings and reviews, user tips, and more apps like Poolsuite FM.\n‎Poolsuite FM App - App Store\nSearch\nDiscover\nArcade\nCreate\nWork\nPlay\nDevelop\nCategories\nPlatform\niPhone\niPad\nMac\nVision\nWatch\nTV\nPoolsuite FM\nThe super-summer music player\nFree\nShare\n444 Ratings\n4.9\nAge Rating\n13+ Years\nCategory\nMusic\nDeveloper\nPOOLSIDE WORLDWIDE CORPORATION LTD\nLanguage\nEN English\nSize\n12.8 MB\nMac, iPhone\nPoolsuite FM is the ultra-summer music player for Macintosh Computer; transporting you to a virtual vacation where the sun never sets.\nFormerly \"Poolside FM\".\n\"A retro digital oasis for your summer\" – The Verge\n\"A project of pure fun and joy\" – It's Nice That\nAlso seen in Harpers Bazaar, TechCrunch, Fortune, Vanity Fair & more.\nmore\nRatings & Reviews\n4.9\nout of 5\n444 Ratings\nThe app itself is great, but it usually doesn't work\n10/12/2021 Mikezila\nThe app itself has a nice retro design, is very functional, and when it works, it works great. The problem is that 4 out of 5 times when I open it, no music plays. I get a notice that they've overloaded their soundcloud API and to try again later. No matter how long I leave it open, it never starts. The website seems to work, so usually I just use that. It's a shame, because the app itself is a great throwback to how music players use to look, and I'd like to use it. The problem is that this great app usually just...doesn't.\nThe app itself is great, but it usually doesn't work\n10/12/2021 Mikezila\nThe app itself has a nice retro design, is very functional, and when it works, it works great. The problem is that 4 out of 5 times when I open it, no music plays. I get a notice that they've overloaded their soundcloud API and to try again later. No matter how long I leave it open, it never starts. The website seems to work, so usually I just use that. It's a shame, because the app itself is a great throwback to how music players use to look, and I'd like to use it. The problem is that this great app usually just...doesn't.\nPsychedelics? Who? I only know of Poolside FM!\n10/01/2020 Trevor Peach\nI'm not lying when I say I've CRIED bc of beautifully designed this app is. It was made for people like me. Been recommending it to all my friends like crazy!! I've abandond most of my other music player apps too. This app is spectacular, heavenly made, and divine! At first, I downloaded it for the aesthetic and forgot about it for months, but when I stumbled upon it accidently while clearing up some apps on my Mac n actually tried it for the first time I fell in LOVE. i was SMITTEN. The whole easthetic in the app, website, soundclod, ig, and the MUSIC (oh the music) makes me feel like floating over the clouds. LOVE IT!! xo\nPsychedelics? Who? I only know of Poolside FM!\n10/01/2020 Trevor Peach\nI'm not lying when I say I've CRIED bc of beautifully designed this app is. It was made for people like me. Been recommending it to all my friends like crazy!! I've abandond most of my other music player apps too. This app is spectacular, heavenly made, and divine! At first, I downloaded it for the aesthetic and forgot about it for months, but when I stumbled upon it accidently while clearing up some apps on my Mac n actually tried it for the first time I fell in LOVE. i was SMITTEN. The whole easthetic in the app, website, soundclod, ig, and the MUSIC (oh the music) makes me feel like floating over the clouds. LOVE IT!! xo\nJust What the World Needed during Quarantine\n08/21/2020 RigeNige\nSaw this and didn't think much of it, but the aesthetics caught my attention, and holy moly the website, the app, the instagram and the overall experience is ON POINT!! Quick plug, they have a donate option, and I can say they deserve the support because they really delivered, but hey no pressure, just my opinion. Thank you to the folks at Poolside FM!! Sincerely,Rige\nJust What the World Needed during Quarantine\n08/21/2020 RigeNige\nSaw this and didn't think much of it, but the aesthetics caught my attention, and holy moly the website, the app, the instagram and the overall experience is ON POINT!! Quick plug, they have a donate option, and I can say they deserve the support because they really delivered, but hey no pressure, just my opinion. Thank you to the folks at Poolside FM!! Sincerely,Rige\nSOMA FM's 16-bit baby sister?\n08/19/2021 Tofu Musubi\nPoolsuite FM app feels like SOMA FM's 16-bit baby sister. Poolsuite FM similarly streams music in a selection of channels. There are currently six channels: Poolsuite FM; Latest 20 Tracks; Indie Summer; Hangover Club; Tokyo Disco; and Friday Nite Heat. There's little difference between these; all channels play synth-driven, dreamy vocal tracks with a late 80s / early 90s vibe. If you're looking for light, vaguely pleasant but ultimately forgettable music to stream in a coffeeshop background inoffensively, Poolsuite FM may be the app for you.\nSOMA FM's 16-bit baby sister?\n08/19/2021 Tofu Musubi\nPoolsuite FM app feels like SOMA FM's 16-bit baby sister. Poolsuite FM similarly streams music in a selection of channels. There are currently six channels: Poolsuite FM; Latest 20 Tracks; Indie Summer; Hangover Club; Tokyo Disco; and Friday Nite Heat. There's little difference between these; all channels play synth-driven, dreamy vocal tracks with a late 80s / early 90s vibe. If you're looking for light, vaguely pleasant but ultimately forgettable music to stream in a coffeeshop background inoffensively, Poolsuite FM may be the app for you.\nWhat’s New\nVersion History\nMinor fixes to track title handling.\n2.2.2 Sep 23\nSome very minor bug fixes and copy changes. Bigger updates soon!\n2.2.1 Sep 9\nWe've added account creation/login support, favourite handling, and a bunch of bug fixes and minor UX improvements.\n2.2.0 Jun 5\nThemes are back! Click the icon in the task bar and select your favourite. Also plenty of bug fixes and improvements to stability in this version.\n2.1.0 May 19\nUI issues fixed! A number of users reported the interface not appearing when they opened the app. It appears a cooling pipe in our backend (used to circulate sub-zero banana daiquiri mix around our server stack for optimal thermal performance) was temporarily, and covertly, re-routed to a technician’s desk. This caused the entire stack to overheat, briefly taking the frontend display server offline for some users. The issue has now been resolved, and both the grooves and our proprietary cooling system should once again be flowing at a leisurely pace. We won't be naming the technician at this time.\n2.0.1 Apr 28\nA new, more stable macOS app featuring a new always-on live music stream, featuring hundreds of new tracks. Updates to follow will re-introduce user login.\n2.0.0 Apr 21\nOkay the Mac app was like... just completely broken. Apparently something to do with a crack in our 10,000 gallon HQ aquarium sending dozens of thousand-dollar koi flying into the Mac app's mainframe hardware. Thanks to Niek's suspiciously impressive bare-hand-fish-catching abilities our koi were returned without harm. Thanks to FLEX TAPE®, THE SUPER STRONG WATERPROOF TAPE, our aquarium is re-sealed*. And most importantly, the Mac app is back online.\n*Pun not intended\n1.2.1 10/16/2021\nWE HAVE A NEW NAME... Introducing \"Poolsuite\"\nDear Beloved Patrons of the Pool,\nYou have been with us through doubt and through certitude. Through thick and thin. And once again, we ask for your unwavering support.\nUnbeknownst to many, Poolside FM has undergone an ocean liner sized challenge with the law regarding intellectual property rights surrounding \"Poolside FM\" as our associated brand name. What would begin as a trademark infringement lawsuit would soon develop into a saga of contention, malfeasance, and deceit.\nTroubled Times\nFor almost 4 years we have evaded the hard hand of the law through a multitude of high-stakes relocations throughout the Caribbean basin. Grasping dearly to the household name you all know and love. Out of desperation we made a questionable arrangement with the St Lucian Mafioso to protect us from the USPTO and various international rights holders. Inevitably, this only deepened our Mariana Trench of problems. Spending days in reckless speedboat chases and sleepless nights on uncharted islands, with nothing but cocktail napkins for blankets. It was only a few years ago that mounting a D-30 turbofan jet engine to a 1986 Wellcraft 38 Scarab KV would be a misuse of the company budget. But a few wrong moves with the Caribbean Cartel would prove this procedure to be an extortionate yet core component to our survival.\nMoving Forward\nWe have gone to the ends of the earth – literally – to avoid drastic measures, with generous plea bargains put forth by our team of nautical attorneys. But ultimately not even collections of valuable tropical fish, light aircrafts filled with Lambrusco wine and fine Italian meats, or a specially built sea-faring Ferrari 308 GTS would be enough to feed the USPTO’s insatiable hunger for injustice. The only way out was to wave a white sail. Not as a surrender to the law. But as a token to mark the monumental restructuring of our corporate identity.\nToday we resign our troubled past overseas. Today we make a new name for ourselves. Today we return home as…\nPoolsuite™\nLuxurious yet leisurely. Frivolous yet sophisticated. The same sweet sound of summer— turned up to 11. Pack your virtual bags as you've been upgraded from sitting poolside to a private cabana at The Poolsuite. Lie back as we embark on an ambitious worldwide expansion, bringing you a rich suite of virtual tools & leisure products to give you delicately towards \"The Good Life\" from the comfort of your daybed.\nThank you for your unshakeable commitment to our cherished enterprise.\nAnd as always, we'll see you by the pool.\n1.2.0 06/03/2021\nAdded AirPod control support. \"When I withdraw an AirPod from my auditory canal to request my servants fetch me more port, it automatically halts the musical performance. Most wonderful!\" – A rich person with AirPods, probably\n1.1.2 09/09/2020\n- Equalizer bars now show progress and can be clicked to jump through tracks!\n- Keyboard controls for Play, Pause, Next, and Previous should work better!\n- If you are over 3 seconds into a track and press the previous button you will jump to the beginning of the song rather than to the previous track!\n1.1.1 08/31/2020\n- Added AirPlay 2 support for users running MacOS 10.15+!\n- Added support for pressing the Space Bar to pause the current song\n1.1.0 08/24/2020\n- Fixed bugs related to Favourites playlist and the About window\n- Reduced minimum MacOS version to 10.11\n1.0.1 08/17/2020\n1.0 08/12/2020\nMinor fixes to track title handling.\nmore\nVersion 2.2.2 Sep 23\nApp Privacy\nApp Privacy\nThe developer, POOLSIDE WORLDWIDE CORPORATION LTD , indicated that the app’s privacy practices may include handling of data as described below. This information has not been verified by Apple. For more information, see the developer’s privacy policy .\nTo help you better understand the developer’s responses, see Privacy Definitions and Examples .\nPrivacy practices may vary, for example, based on the features you use or your age. Learn More\nData Linked to You\nThe following data, which may be collected and linked to your identity, may be used for the following purposes:\nDeveloper’s Advertising or Marketing\nContact Info Email Address\nAnalytics\nContact Info Email Address\nIdentifiers User ID\nDiagnostics Crash Data\nProduct Personalization\nIdentifiers User ID\nApp Functionality\nContact Info Email Address\nIdentifiers User ID\nData Not Linked to You\nThe following data, which may be collected but is not linked to your identity, may be used for the following purposes:\nAnalytics\nIdentifiers Device ID\nUsage Data Other Usage Data\nThe developer, POOLSIDE WORLDWIDE CORPORATION LTD , indicated that the app’s privacy practices may include handling of data as described below. For more information, see the developer’s privacy policy .\nData Linked to You\nThe following data may be collected and linked to your identity:\nContact Info\nIdentifiers\nDiagnostics\nData Not Linked to You\nThe following data may be collected but it is not linked to your identity:\nIdentifiers\nUsage Data\nPrivacy practices may vary, for example, based on the features you use or your age. Learn More\nAccessibility\nThe developer has not yet indicated which accessibility features this app supports. Learn More\nInformation\nSeller POOLSIDE WORLDWIDE CORPORATION LTD\nSize 12.8 MB\nCategory Music\nCompatibility Requires iOS 15.1 or later. iPhone\nRequires iOS 15.1 or later.\niPod touch\nRequires iOS 15.1 or later.\nMac\nRequires macOS 10.13 or later.\nApple Vision\nRequires visionOS 1.0 or later.\nLanguages English\nAge Rating 13+ 13+\nLearn More\nInfrequent\nProfanity or Crude Humor\nMature or Suggestive Themes\nAlcohol, Tobacco, Drug Use or References\nCopyright © Poolside Worldwide Corporation LTD, 2026\nDeveloper Website\nPrivacy Policy\nFeatured In\nTRY SOMETHING NEW Indispensable Affordable Apps\nSimple but super-useful apps that won’t break the bank.\nAPPS WE LOVE Take an Aural Vacation\nPoolsuite FM is all about those summer-radio feelings.\nYou Might Also Like\nView\nIDAGIO Stream Classical Music\nClassical Music Streaming\nView\nOdio: Spatial Soundscapes\nImmersive sound, shaped by you\nView\nNTS RADIO\nLive radio & music discovery\nView\nMusicHarbor - Track New Music\nFind album releases by artist\nView\nSwipefy: Find Music on Spotify\nPlaylist maker & song finder\nView\nDoppler MP3 & FLAC Player\nOffline Music MP3 FLAC WAV AAC\nView\nSmart Music Playlist Maker\nFilter by genre, mood & bpm\nView\nTape It - Pro Audio Recorder\nSongwriting & recording app\nView\nPlaylisty for Apple Music\nPlaylist import & transfer\nView\nNintendo Music\nEnjoy Nintendo game music!\nUnited States Español (México)\nالعربية\nРусский\n简体中文\nFrançais (France)\n한국어\nPortuguês (Brazil)\nTiếng Việt\n繁體中文 (台灣)\nSelect a country or region\nAfrica, Middle East, and India\nSee All\nAlgeria\nAngola\nArmenia\nAzerbaijan\nBahrain\nBenin\nBotswana\nBurkina Faso\nCameroun\nCape Verde\nChad\nCôte d’Ivoire\nCongo, The Democratic Republic Of The\nEgypt\nEswatini\nGabon\nGambia\nGhana\nGuinea-Bissau\nIndia\nIraq\nIsrael\nJordan\nKenya\nKuwait\nLebanon\nLiberia\nLibya\nMadagascar\nMalawi\nMali\nMauritania\nMauritius\nMorocco\nMozambique\nNamibia\nNiger (English)\nNigeria\nOman\nQatar\nCongo, Republic of\nRwanda\nSão Tomé and Príncipe\nSaudi Arabia\nSenegal\nSeychelles\nSierra Leone\nSouth Africa\nSri Lanka\nTajikistan\nTanzania, United Republic Of\nTunisia\nTurkmenistan\nUnited Arab Emirates\nUganda\nYemen\nZambia\nZimbabwe\nAsia Pacific\nSee All\nAfghanistan\nAustralia\nBhutan\nBrunei Darussalam\nCambodia\n中国大陆\nFiji\n香港\nIndonesia (English)\n日本\nKazakhstan\n대한민국\nKyrgyzstan\nLao People's Democratic Republic\n澳門\nMalaysia (English)\nMaldives\nMicronesia, Federated States of\nMongolia\nMyanmar\nNauru\nNepal\nNew Zealand\nPakistan\nPalau\nPapua New Guinea\nPhilippines\nSingapore\nSolomon Islands\n台灣\nThailand\nTonga\nTurkmenistan\nUzbekistan\nVanuatu\nVietnam\nEurope\nSee All\nAlbania\nArmenia\nÖsterreich\nBelarus\nBelgium\nBosnia and Herzegovina\nBulgaria\nCroatia\nCyprus\nCzechia\nDenmark\nEstonia\nFinland\nFrance (Français)\nGeorgia\nDeutschland\nGreece\nHungary\nIceland\nIreland\nItalia\nKosovo\nLatvia\nLithuania\nLuxembourg (English)\nMalta\nMoldova, Republic Of\nMontenegro\nNederland\nNorth Macedonia\nNorway\nPoland\nPortugal (Português)\nRomania\nРоссия\nSerbia\nSlovakia\nSlovenia\nEspaña\nSverige\nSchweiz\nTürkiye (English)\nUkraine\nUnited Kingdom\nLatin America and the Caribbean\nSee All\nAnguilla\nAntigua and Barbuda\nArgentina (Español)\nBahamas\nBarbados\nBelize\nBermuda\nBolivia (Español)\nBrasil\nVirgin Islands, British\nCayman Islands\nChile (Español)\nColombia (Español)\nCosta Rica (Español)\nDominica\nRepública Dominicana\nEcuador (Español)\nEl Salvador (Español)\nGrenada\nGuatemala (Español)\nGuyana\nHonduras (Español)\nJamaica\nMéxico\nMontserrat\nNicaragua (Español)\nPanamá\nParaguay (Español)\nPerú\nSt. Kitts and Nevis\nSaint Lucia\nSt. Vincent and The Grenadines\nSuriname\nTrinidad and Tobago\nTurks and Caicos\nUruguay (English)\nVenezuela (Español)\nThe United States and Canada\nSee All\nCanada (English)\nCanada (Français)\nUnited States\nEstados Unidos (Español México)\nالولايات المتحدة\nСША\n美国 (简体中文)\nÉtats-Unis (Français France)\n미국\nEstados Unidos (Português Brasil)\nHoa Kỳ\n美國 (繁體中文台灣)\nCopyright © 2026 Apple Inc. All rights reserved.\nInternet Service Terms\nApp Store & Privacy\nCookie Warning\nSupport",
+     "policy": {
+      "policyId": "rights.app-stores.v1",
+      "sourceId": "src.app-stores",
+      "providerName": "Apple App Store and Google Play public listings",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "開発者を一人も知らなかった Marty Bell は、友人の友人に案を持ち込み、1980年代の浜辺の映像に音楽を重ねた無料の音楽サイトを作った。のちにその世界観のまま日焼け止めを売り出した。",
+     "basis": [
+      "f1",
+      "f2",
+      "f5",
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "音楽アプリ Poolsuite FM は App Store で無料で配っている。金を取る商品は、同じ世界観で売る日焼け止め Vacation だ。Vacation の Classic Lotion SPF 50 は、2023年の登場から2025年9月までに約150万本売れたと本人が述べた。ただしこれは Vacation の商品販売数で、Poolsuite の売上ではない。",
+     "basis": [
+      "f5",
+      "f7",
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pricing",
+     "item": "PRICING",
+     "text": "Poolsuite FM は App Store で無料。販売者は POOLSIDE WORLDWIDE CORPORATION LTD。",
+     "basis": [
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "最初の利用者は2014年の Product Hunt 公開と、Reddit の r/InternetIsBeautiful への投稿から来た。Reddit で少し話題になり、Vice と Manrepeller の記事が後押しした。公開前の時点で、Bell に開発者の人脈は無かった。",
+     "basis": [
+      "f2",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "利用者の間では口コミが働いている。2020年10月1日の App Store レビューで、ある利用者は、見た目に惹かれて入れたアプリを使ううちに気に入ったと書いた。友人にも勧め、ほかの音楽アプリの多くを使わなくなったという。2025年9月には Los Angeles でパーティーを開き、画面の外でも接点を作っている。",
+     "basis": [
+      "f10",
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "始めた時点で Bell には開発者の知り合いがおらず、友人の友人 Grant Mac が開発に加わった。2021年6月の取材では、Poolsuite に取り組むチームは10人と紹介された。Vacation は、日焼け止めの処方を持っていた Lach と Dakota に Bell が共同創業者として加わる形で立ち上がった。",
+     "basis": [
+      "f2",
+      "f4",
+      "f6"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "アプリは App Store で配信され、曲の再生は SoundCloud に頼っていた。2021年10月12日のレビューでは、ある利用者が、SoundCloud の上限表示で音が出ないことが多く、代わりにウェブ版を使っていると書いた。外部の音源の上限に当たると、アプリの再生そのものが止まる。",
+     "basis": [
+      "f9",
+      "f11"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "弱い。音楽アプリは無料で、レビューでは、アプリで音が出ない時にウェブ版へ移る使い方がされている。客をつなぎ止めているのは見た目と世界観への好みだ。",
+     "basis": [
+      "f9",
+      "f10",
+      "f11"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2014年: Product Hunt で Poolside FM として公開。2021年4月: Product Hunt で日焼け止め Vacation by Poolsuite を先行公開。2021年6月10日: Vacation by Poolsuite を正式発売。2023年: Classic Lotion SPF 50 が登場。2025年9月: iOS と Android の新しい音楽アプリを公開し、Los Angeles でパーティーを開催。",
+     "basis": [
+      "f3",
+      "f5",
+      "f7",
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "Bell は、プレイリストを並べただけでは聞かれないと見て、映像と組み合わせた体験を無料で配った。そこで育てた世界観に、日焼け止めという現物を載せて売っている。",
+     "basis": [
+      "f1",
+      "f5",
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12"
+   ],
+   "identity": {
+    "id": "ent_poolsuite_6d5ad6895563",
+    "name": "Poolsuite",
+    "url": "https://poolsuite.net",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_51a95ef322db7d15936fbf8a",
+      "entityId": "ent_poolsuite_6d5ad6895563",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://poolsuite.net/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:05:25.054Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "51a95ef322db7d15936fbf8aaefae6e2d229f96ee743cab09114e1464e7aa931",
+      "bytes": 362321,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Poolsuite 公式サイト (https://poolsuite.net/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_poolsuite_6d5ad6895563/51a95ef322db7d15936fbf8aaefae6e2d229f96ee743cab09114e1464e7aa931.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_1dfc62adcd84fca9af603eb2",
+      "entityId": "ent_poolsuite_6d5ad6895563",
+      "kind": "favicon",
+      "sourcePageUrl": "https://poolsuite.net/",
+      "assetUrl": "https://poolsuite.net/favicon.png",
+      "retrievedAt": "2026-10-07T10:05:25.362Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "1dfc62adcd84fca9af603eb2c4bb6510de1007297cf1f6466a2e8c377c480f28",
+      "bytes": 322,
+      "contentType": "image/png",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Poolsuite 公式サイト (https://poolsuite.net/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:21.152Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (1dfc62adcd84)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_poolsuite_6d5ad6895563/1dfc62adcd84fca9af603eb2c4bb6510de1007297cf1f6466a2e8c377c480f28.png",
+       "publicKey": "media/ent_poolsuite_6d5ad6895563/1dfc62adcd84fca9af603eb2c4bb6510de1007297cf1f6466a2e8c377c480f28.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_1dfc62adcd84fca9af603eb2",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:21.152Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (1dfc62adcd84)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_8f5cc1b9bdadcfb3d4bf83b6",
+      "entityId": "ent_poolsuite_6d5ad6895563",
+      "kind": "og_image",
+      "sourcePageUrl": "https://poolsuite.net/",
+      "assetUrl": "https://poolsuite.net/og.png",
+      "retrievedAt": "2026-10-07T10:05:27.525Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "8f5cc1b9bdadcfb3d4bf83b6ba2b1e274eeddd213291d8ade1b73bb79130a641",
+      "bytes": 284561,
+      "contentType": "image/png",
+      "width": 1648,
+      "height": 868,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Poolsuite 公式サイト (https://poolsuite.net/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:20.886Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_poolsuite_6d5ad6895563/8f5cc1b9bdadcfb3d4bf83b6ba2b1e274eeddd213291d8ade1b73bb79130a641.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_8f5cc1b9bdadcfb3d4bf83b6",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:20.886Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     },
+     {
+      "assetId": "ma_2494f229a0dd2f89df28aba5",
+      "entityId": "ent_poolsuite_6d5ad6895563",
+      "kind": "app_icon",
+      "sourcePageUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4",
+      "assetUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fb/cd/9d/fbcd9d4a-4a2e-839f-e4a5-b10a3ff59761/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "retrievedAt": "2026-10-07T10:07:16.494Z",
+      "capturedBy": "media-appstore-20261007",
+      "sha256": "2494f229a0dd2f89df28aba5a50388f48ec1cb310002720c84b935eb73aad57e",
+      "bytes": 32657,
+      "contentType": "image/jpeg",
+      "width": 512,
+      "height": 512,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Poolsuite App Store 掲載画像 (https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:21.154Z",
+       "notes": "自動判定 auto-rule-v4: app_icon。画像として読める (image/jpeg 512x512)、SHA-256が台帳と一致 (2494f229a0dd)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_poolsuite_6d5ad6895563/2494f229a0dd2f89df28aba5a50388f48ec1cb310002720c84b935eb73aad57e.jpg",
+       "publicKey": "media/ent_poolsuite_6d5ad6895563/2494f229a0dd2f89df28aba5a50388f48ec1cb310002720c84b935eb73aad57e.jpg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_2494f229a0dd2f89df28aba5",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:21.154Z",
+       "note": "自動判定 auto-rule-v4: app_icon。画像として読める (image/jpeg 512x512)、SHA-256が台帳と一致 (2494f229a0dd)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_d7bc898b4b4ba3e0c78f385f",
+      "entityId": "ent_poolsuite_6d5ad6895563",
+      "kind": "store_screenshot",
+      "sourcePageUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4",
+      "assetUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/31/96/b4/3196b428-c2f2-d00d-84b7-3b50b5f19e70/Variant10.png/320x480bb.jpg",
+      "retrievedAt": "2026-10-07T10:07:16.534Z",
+      "capturedBy": "media-appstore-20261007",
+      "sha256": "d7bc898b4b4ba3e0c78f385f37ad50be40f43b161a6f68f09386c8edd1c4fea7",
+      "bytes": 35986,
+      "contentType": "image/jpeg",
+      "width": 221,
+      "height": 480,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Poolsuite App Store 掲載画像 (https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:21.156Z",
+       "notes": "自動判定 auto-rule-v4: store_screenshot。画像として読める (image/jpeg 221x480)、SHA-256が台帳と一致 (d7bc898b4b4b)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_poolsuite_6d5ad6895563/d7bc898b4b4ba3e0c78f385f37ad50be40f43b161a6f68f09386c8edd1c4fea7.jpg",
+       "publicKey": "media/ent_poolsuite_6d5ad6895563/d7bc898b4b4ba3e0c78f385f37ad50be40f43b161a6f68f09386c8edd1c4fea7.jpg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_d7bc898b4b4ba3e0c78f385f",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:21.156Z",
+       "note": "自動判定 auto-rule-v4: store_screenshot。画像として読める (image/jpeg 221x480)、SHA-256が台帳と一致 (d7bc898b4b4b)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_9b006f1b1f7d724bdc2c6e32",
+      "entityId": "ent_poolsuite_6d5ad6895563",
+      "kind": "store_screenshot",
+      "sourcePageUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4",
+      "assetUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7e/dc/47/7edc4757-69d6-2d6e-decd-eb18d0c385ba/Variant9.png/320x480bb.jpg",
+      "retrievedAt": "2026-10-07T10:07:16.551Z",
+      "capturedBy": "media-appstore-20261007",
+      "sha256": "9b006f1b1f7d724bdc2c6e328e5c4f87b02c7d7b7ca62ab1f6cc108675af74eb",
+      "bytes": 32753,
+      "contentType": "image/jpeg",
+      "width": 221,
+      "height": 480,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Poolsuite App Store 掲載画像 (https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:21.157Z",
+       "notes": "自動判定 auto-rule-v4: store_screenshot。画像として読める (image/jpeg 221x480)、SHA-256が台帳と一致 (9b006f1b1f7d)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_poolsuite_6d5ad6895563/9b006f1b1f7d724bdc2c6e328e5c4f87b02c7d7b7ca62ab1f6cc108675af74eb.jpg",
+       "publicKey": "media/ent_poolsuite_6d5ad6895563/9b006f1b1f7d724bdc2c6e328e5c4f87b02c7d7b7ca62ab1f6cc108675af74eb.jpg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_9b006f1b1f7d724bdc2c6e32",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:21.157Z",
+       "note": "自動判定 auto-rule-v4: store_screenshot。画像として読める (image/jpeg 221x480)、SHA-256が台帳と一致 (9b006f1b1f7d)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_3853f75887b0366a0ccf7149",
+      "entityId": "ent_poolsuite_6d5ad6895563",
+      "kind": "store_screenshot",
+      "sourcePageUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4",
+      "assetUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/68/59/ef/6859ef6e-fcd8-34e2-8e94-78d61b17c5d9/Variant7.png/320x480bb.jpg",
+      "retrievedAt": "2026-10-07T10:07:16.566Z",
+      "capturedBy": "media-appstore-20261007",
+      "sha256": "3853f75887b0366a0ccf7149c3f84b2509bb9fc3bd362781b44dfa60dcb39010",
+      "bytes": 30218,
+      "contentType": "image/jpeg",
+      "width": 221,
+      "height": 480,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Poolsuite App Store 掲載画像 (https://apps.apple.com/us/app/poolsuite-fm/id1514817810?uo=4)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:21.158Z",
+       "notes": "自動判定 auto-rule-v4: store_screenshot。画像として読める (image/jpeg 221x480)、SHA-256が台帳と一致 (3853f75887b0)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_poolsuite_6d5ad6895563/3853f75887b0366a0ccf7149c3f84b2509bb9fc3bd362781b44dfa60dcb39010.jpg",
+       "publicKey": "media/ent_poolsuite_6d5ad6895563/3853f75887b0366a0ccf7149c3f84b2509bb9fc3bd362781b44dfa60dcb39010.jpg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_3853f75887b0366a0ccf7149",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:21.158Z",
+       "note": "自動判定 auto-rule-v4: store_screenshot。画像として読める (image/jpeg 221x480)、SHA-256が台帳と一致 (3853f75887b0)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_1dfc62adcd84fca9af603eb2",
+     "ma_2494f229a0dd2f89df28aba5",
+     "ma_d7bc898b4b4ba3e0c78f385f",
+     "ma_9b006f1b1f7d724bdc2c6e32",
+     "ma_3853f75887b0366a0ccf7149"
+    ],
+    "problems": []
+   },
+   "caseHash": "a1e9e3f21d74e5684008286e75f613cbe5ff226b2263a5255acc7e0c3ed748b8",
+   "itemHashes": {
+    "fact:f1": "7a102483d6d59201d9d3a67abf04b2b1484571869576a7d225f62ccd48c4984f",
+    "fact:f2": "0b06ef8db4f7cc51f3df8ced7c651354dbd1799f34188d4cdb19bcda1de86b96",
+    "fact:f3": "b91138931bcb96898cb52d550aea8d5dd031c5257e992dc39b08fb696adc77b4",
+    "fact:f4": "bf85d3fadf1fe402f2f9524fff08f54fb0b7abf1bf29ff6e4d787cf8068132c5",
+    "fact:f5": "1a151e19b1470a448b705205eedd48ca98826c581f27041d7fd199a737a30e35",
+    "fact:f6": "c3c40ec1cc52680f52e6d6cfd81f36123d891cebed4ee28caf573b9fccd6d848",
+    "fact:f7": "831acd4be8d38228f4dfcdc00b2303fd13256b97f9e4c8c5b7de01e421771b8e",
+    "fact:f8": "9956fdfcbcbb6d24b9fbb2833b321d9e6088d5a8fc1b5836a755f13a02537a4c",
+    "fact:f9": "f1ce4d5e3f58d6f2bc51afa75f0272d96cb4eb1a2ec20d8324bd71898493fd75",
+    "fact:f10": "0eb2f4e25799bc955dc239c792fe48198240f2de8132411cf4a9799b00dedebc",
+    "fact:f11": "c3d9c03f280e21b2648f378d58b7e1239ba4222ab87f845c3831618c3787e3cb",
+    "fact:f12": "c3b7a5881741a0b3539f057204f5359893050f75151d47c62e152c2683fb76a1",
+    "analysis:a-headline": "bbb503f60c99b9391db642f2f080d3b7f0fe5623967776082ff80fcebcaa8ce0",
+    "analysis:a-business_model": "f61435f8ab3537ae75c1b3f0575e3cb0d30d97671d2454f547449a51d40d73b3",
+    "analysis:a-pricing": "c0c106d466558b490baa5e747bec0fdbbbda771389e3094422b019c58f02f480",
+    "analysis:a-first_customers": "7306ea4ce953ca9571af2f203cbc066816428538869de8886a922bf0deae2ab2",
+    "analysis:a-channels": "12b696d0ec2877bfc5f4b69c8ac89540a8b85b7ccb9299f191497c02d0a89d7b",
+    "analysis:a-capital_and_team": "a8aedf107da77d3c9ddc0efcd0eceb9ed44be20bcd7f864bfc4e5d19af73d298",
+    "analysis:a-dependencies": "47edb5c7bc8e751a5183f488431b63805f37acb5f8f283834154b066f0c1af80",
+    "analysis:a-lock_in": "1284b6ad1684de37fef7b36e0472022288bcfd0d9a99fd9aaec9150e94916695",
+    "analysis:a-timeline": "4e24eec0a240736affb76822ba843c42458bc66eb2a94695383f9d06efa2e5b5",
+    "analysis:a-lesson": "f7031b481cd698102b4e46c13996ca77bd6b682079a235756c98d82c96f19ba3"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "analysis:a-headline",
+    "analysis:a-business_model",
+    "analysis:a-pricing",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-timeline",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "publisher": "Product Hunt（Marty Bell の取材）",
+      "publishedAt": "2021-06-10",
+      "checkedAt": "2026-10-07",
+      "kind": "LISTING"
+     },
+     {
+      "id": "s4",
+      "url": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "publisher": "Hannah’s List（Marty Bell の取材）",
+      "publishedAt": "2025-09-05",
+      "checkedAt": "2026-10-07",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s9",
+      "url": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "publisher": "App Store（開発元掲載と利用者レビュー）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "FOUNDING",
+      "text": "Marty Bell は、プレイリストを共有するだけでは聞かれにくいと考え、音楽に 1980 年代の浜辺の映像を合わせた体験を作ろうとした。",
+      "sourceId": "s1",
+      "statedAt": "2021-06-10",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f2",
+      "kind": "FOUNDING",
+      "text": "開発者を一人も知らなかったため、友人の友人（Grant Mac）に案を話し、すぐに協力を得た。",
+      "sourceId": "s1",
+      "statedAt": "2021-06-10",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f3",
+      "kind": "CHANNEL",
+      "text": "2014 年に Product Hunt で Poolside FM として公開し、Reddit の r/InternetIsBeautiful にも投稿した。記事によると、Reddit で「少し」話題になり、公開は Vice と Manrepeller に取り上げられた。",
+      "sourceId": "s1",
+      "statedAt": "2021-06-10",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f4",
+      "kind": "TEAM",
+      "text": "2021 年 6 月の取材では、Poolsuite に取り組むチームは 10 人と紹介された。",
+      "sourceId": "s1",
+      "statedAt": "2021-06-10",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f5",
+      "kind": "EVENT",
+      "text": "2021 年 6 月 10 日の記事は、Vacation by Poolsuite の正式発売が当日で、Product Hunt の先行公開は 4 月だったと記載した。Vacation by Poolsuite は同社の新しい日焼け止めで、最初の物理的な製品である。",
+      "sourceId": "s1",
+      "statedAt": "2021-06-10",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f6",
+      "kind": "EVENT",
+      "text": "本人は Jacuzzi Club の Slack で相談し、日焼け止めの処方を開発していた Lach と Dakota から連絡を受け、後に Vacation の共同創業者に加わったと説明した。",
+      "sourceId": "s4",
+      "statedAt": "2025-09-05",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "Vacation の Classic Lotion SPF 50 は、2023 年の登場以来、2025 年 9 月の取材までに約 150 万本販売したと本人が述べた。これは Vacation の商品販売数であり、Poolsuite の売上ではない。",
+      "sourceId": "s4",
+      "statedAt": "2025-09-05",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f8",
+      "kind": "EVENT",
+      "text": "2025 年 9 月の本人回答では、Poolsuite は iOS と Android の新しい音楽アプリを公開し、直前の週末に Los Angeles でパーティーを開いた。",
+      "sourceId": "s4",
+      "statedAt": "2025-09-05",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f9",
+      "kind": "DESCRIPTION",
+      "text": "App Store の掲載では、販売者は POOLSIDE WORLDWIDE CORPORATION LTD で、Poolsuite FM は無料と表示されている。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "2020 年 10 月 1 日の Trevor Peach のレビューは、最初は見た目で入れたが使ってから気に入り、友人にも勧め、ほかの音楽アプリの多くを使わなくなったと述べた。",
+      "sourceId": "s9",
+      "statedAt": "2020-10-01",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "2021 年 10 月 12 日の Mikezila のレビューは、見た目と機能を評価する一方、SoundCloud の上限表示で音が出ないことが多く、代わりにウェブ版を使っていると述べた。これは 1 人の当時の経験である。",
+      "sourceId": "s9",
+      "statedAt": "2021-10-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "OTHER",
+      "text": "App Store の版 2.0.0 の変更説明は、常時流れる新しい音楽配信を備え、安定性を高めた macOS 版を公開したと記載している。表示には 4 月 21 日のみで年がないため、年は採用しない。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TOOLS",
+     "PRICING"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "開発者を一人も知らなかった Marty Bell は、友人の友人に案を持ち込み、1980年代の浜辺の映像に音楽を重ねた無料の音楽サイトを作った。のちにその世界観のまま日焼け止めを売り出した。",
+      "basis": [
+       "f1",
+       "f2",
+       "f5",
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "音楽アプリ Poolsuite FM は App Store で無料で配っている。金を取る商品は、同じ世界観で売る日焼け止め Vacation だ。Vacation の Classic Lotion SPF 50 は、2023年の登場から2025年9月までに約150万本売れたと本人が述べた。ただしこれは Vacation の商品販売数で、Poolsuite の売上ではない。",
+      "basis": [
+       "f5",
+       "f7",
+       "f9"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pricing",
+      "item": "PRICING",
+      "text": "Poolsuite FM は App Store で無料。販売者は POOLSIDE WORLDWIDE CORPORATION LTD。",
+      "basis": [
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "最初の利用者は2014年の Product Hunt 公開と、Reddit の r/InternetIsBeautiful への投稿から来た。Reddit で少し話題になり、Vice と Manrepeller の記事が後押しした。公開前の時点で、Bell に開発者の人脈は無かった。",
+      "basis": [
+       "f2",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "利用者の間では口コミが働いている。2020年10月1日の App Store レビューで、ある利用者は、見た目に惹かれて入れたアプリを使ううちに気に入ったと書いた。友人にも勧め、ほかの音楽アプリの多くを使わなくなったという。2025年9月には Los Angeles でパーティーを開き、画面の外でも接点を作っている。",
+      "basis": [
+       "f10",
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "始めた時点で Bell には開発者の知り合いがおらず、友人の友人 Grant Mac が開発に加わった。2021年6月の取材では、Poolsuite に取り組むチームは10人と紹介された。Vacation は、日焼け止めの処方を持っていた Lach と Dakota に Bell が共同創業者として加わる形で立ち上がった。",
+      "basis": [
+       "f2",
+       "f4",
+       "f6"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "アプリは App Store で配信され、曲の再生は SoundCloud に頼っていた。2021年10月12日のレビューでは、ある利用者が、SoundCloud の上限表示で音が出ないことが多く、代わりにウェブ版を使っていると書いた。外部の音源の上限に当たると、アプリの再生そのものが止まる。",
+      "basis": [
+       "f9",
+       "f11"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "弱い。音楽アプリは無料で、レビューでは、アプリで音が出ない時にウェブ版へ移る使い方がされている。客をつなぎ止めているのは見た目と世界観への好みだ。",
+      "basis": [
+       "f9",
+       "f10",
+       "f11"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2014年: Product Hunt で Poolside FM として公開。2021年4月: Product Hunt で日焼け止め Vacation by Poolsuite を先行公開。2021年6月10日: Vacation by Poolsuite を正式発売。2023年: Classic Lotion SPF 50 が登場。2025年9月: iOS と Android の新しい音楽アプリを公開し、Los Angeles でパーティーを開催。",
+      "basis": [
+       "f3",
+       "f5",
+       "f7",
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "Bell は、プレイリストを並べただけでは聞かれないと見て、映像と組み合わせた体験を無料で配った。そこで育てた世界観に、日焼け止めという現物を載せて売っている。",
+      "basis": [
+       "f1",
+       "f5",
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f9"
+   }
+  }
+ ]
+}

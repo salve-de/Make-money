@@ -1,0 +1,853 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/poolsuite-record.json",
+  "manifestSha256": "79a749a91f2c8a89172e4e4ad81224c2443f66c9ef02116abea376030a967c4c",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:23.976Z"
+ },
+ "records": [
+  {
+   "id": "ent_poolsuite_6d5ad6895563",
+   "provenance": {
+    "detailsHash": "42b7f20216964e5779ce731c455de2c8576a151d369b3ba44c04aff246f8dd29",
+    "artifactSha256": "79a749a91f2c8a89172e4e4ad81224c2443f66c9ef02116abea376030a967c4c"
+   },
+   "record": {
+    "id": "ent_poolsuite_6d5ad6895563",
+    "ticker": "POOLSUIT",
+    "name": "Poolsuite",
+    "legalEntity": "POOLSIDE WORLDWIDE CORPORATION LTD（App Store の販売者表記）",
+    "tagline": "夏の音楽と昔の映像の無料体験から、0.2 ETH の会員権と関連事業 Vacation へ広がったブランド",
+    "description": "Marty Bell が 2014 年に始めた Poolside FM を前身とする、夏向けの音楽と昔の映像を組み合わせるサービス。2019 年に画面を改装し、商標問題を機に Poolsuite に改名した。2021 年には NFT の会員権を発売した。関連する日焼け止め事業 Vacation の売上と Poolsuite の売上は分けて扱う。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "UNKNOWN",
+    "founder": "Marty Bell",
+    "country": "",
+    "url": "https://poolsuite.net",
+    "officialUrl": "https://poolsuite.net",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "音楽アプリは無料で提供し、NFT の会員権で制作活動と催しにつながる参加資格を販売。関連事業 Vacation は別に日焼け止めと香水を販売。",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "音楽配信",
+     "会員権",
+     "夏の体験",
+     "関連商品の集客",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2014-02〜2025-09 の取材と公式告知、App Store の公開掲載（2026-10-07 確認）",
+     "revenueLabel": "月間売上・利益の実額は確認できない。会員権発売後の 200 万ドル（原文表記 $2m）という公式の資金表現を、売上や利益へ変換しない。",
+     "sourceDoc": "https://t.me/s/poolsuite?before=29",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "kind": "FOUNDING",
+      "text": "Marty Bell は、プレイリストを共有するだけでは聞かれにくいと考え、音楽に 1980 年代の浜辺の映像を合わせた体験を作ろうとした。",
+      "sourceUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "statedAt": "2021-06-10",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "開発者を知らなかったため、知人を介して Grant MacLennan に案を話し、協力を得た。",
+      "sourceUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "statedAt": "2021-06-10",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "2014 年に Product Hunt で公開し、Reddit の r/InternetIsBeautiful にも投稿した。本人は Reddit で広がり、VICE と Manrepeller に取り上げられたと述べた。",
+      "sourceUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "statedAt": "2021-06-10",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "TEAM",
+      "text": "2021 年 6 月の取材では、Poolsuite に取り組むチームは 10 人と紹介された。",
+      "sourceUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "statedAt": "2021-06-10",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2021 年 6 月 10 日の記事は、Vacation の正式発売が当日で、Product Hunt の先行公開は同年 4 月だったと記載した。Vacation は日焼け止めを扱う関連事業である。",
+      "sourceUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "statedAt": "2021-06-10",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "本人は Poolside FM を、夏向けの音楽に VHS 映像と昔のコンピューター風画面を重ねた、仮想の休暇として説明した。",
+      "sourceUrl": "https://www.domusweb.it/en/design/gallery/2020/07/08/poolsidefm-is-a-window-to-the-happiest-eighties-right-into-the-web-browser.amp.amp.gallery.html",
+      "statedAt": "2020-07-09",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "TRACTION",
+      "text": "2020 年 7 月の取材で、過去 12 か月に 70 万人超の個別聴取者が約 130 万回の聴取を行ったと本人が答えた。",
+      "sourceUrl": "https://www.domusweb.it/en/design/gallery/2020/07/08/poolsidefm-is-a-window-to-the-happiest-eighties-right-into-the-web-browser.amp.amp.gallery.html",
+      "statedAt": "2020-07-09",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "FINANCIAL",
+      "text": "2020 年 7 月の本人回答では、利益事業ではなく、収入は運営費を賄う程度だった。売上・利益の実額は記載されていない。",
+      "sourceUrl": "https://www.domusweb.it/en/design/gallery/2020/07/08/poolsidefm-is-a-window-to-the-happiest-eighties-right-into-the-web-browser.amp.amp.gallery.html",
+      "statedAt": "2020-07-09",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "TURNAROUND",
+      "text": "Poolside FM から Poolsuite への改名理由として商標問題が記され、本人は新名称がオンラインと現実の両方で使う道具群という方向を明確にしたと答えた。",
+      "sourceUrl": "https://www.biasmag.com/p/poolsuite-the-future-of-leisure-and",
+      "statedAt": "2022-05-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "MONETIZATION",
+      "text": "本人は、NFT 会員権を出す前には Patreon の月額支払いで制作活動を支える案を立てたが、NFT を会員証として使う例を見て計画を変更したと説明した。Patreon 案を実際に発売したとは書かれていない。",
+      "sourceUrl": "https://www.biasmag.com/p/poolsuite-the-future-of-leisure-and",
+      "statedAt": "2022-05-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2022 年 5 月 24 日の取材で、直前の 2 週間に London と New York で最初の 2 回の招待制パーティーを開いたと本人が説明した。",
+      "sourceUrl": "https://www.biasmag.com/p/poolsuite-the-future-of-leisure-and",
+      "statedAt": "2022-05-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "PRODUCT",
+      "text": "Apple Wallet への会員証対応は、開発者 Ryan の提案から数時間で試作品ができたと本人が説明した。",
+      "sourceUrl": "https://www.biasmag.com/p/poolsuite-the-future-of-leisure-and",
+      "statedAt": "2022-05-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "本人は Jacuzzi Club の Slack で相談し、日焼け止めを開発していた Lach Hall と Dakota Green に連絡を受け、後に Vacation の共同創業者に加わったと説明した。",
+      "sourceUrl": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "statedAt": "2025-09-05",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "SALES",
+      "text": "Vacation の Classic Lotion SPF 50 は、2023 年の登場以来、2025 年 9 月の取材までに約 150 万本販売したと本人が述べた。これは Vacation の商品販売数であり、Poolsuite の売上ではない。",
+      "sourceUrl": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "statedAt": "2025-09-05",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2025 年 9 月の本人回答では、Poolsuite は iOS と Android の新しい音楽アプリを公開し、直前の週末に Los Angeles でパーティーを開いた。",
+      "sourceUrl": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "statedAt": "2025-09-05",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2025 年 9 月 24 日の取材の紹介文は、Club Poolsuite を、選ばれた参加者が場所や道具や商品の案内を共同で編む次の計画として説明した。サービスの完成や販売開始を示す記述ではない。",
+      "sourceUrl": "https://www.cosmos.so/sequence/marty-bell",
+      "statedAt": "2025-09-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Vacation の発売前企画では、Poolside FM のアプリ起動時とサイト訪問時に、名誉職を受け取れる Vacation のページへ案内した。",
+      "sourceUrl": "https://builtin.com/articles/vacation-poolside-fm",
+      "statedAt": "2021-05-26",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Vacation の企画は名前と携帯電話番号を受け取り、架空の名誉職入り名刺を作った。Lach Hall は、この拡散で 12,500 人を集めたと説明した。",
+      "sourceUrl": "https://builtin.com/articles/vacation-poolside-fm",
+      "statedAt": "2021-05-26",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "取材記者は登録後に紹介リンクを受け取り、リンク経由で 3 人が日焼け止めを買うと 1 本無料になる案内を確認した。",
+      "sourceUrl": "https://builtin.com/articles/vacation-poolside-fm",
+      "statedAt": "2021-05-26",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Vacation は発売日に Instagram のフォロワーが 4,000 人超増えたと取材に回答した。一方、日焼け止めの予約購入数は開示しなかった。",
+      "sourceUrl": "https://builtin.com/articles/vacation-poolside-fm",
+      "statedAt": "2021-05-26",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "OPERATIONS",
+      "text": "2020 年 5 月の取材では、Marty Bell がすべての選曲を担当し、曲の 10〜20% は利用者からの投稿だった。音楽は SoundCloud、映像は YouTube から提供されていた。",
+      "sourceUrl": "https://www.waterandmusic.com/poolside-fms-four-step-blueprint-for-music-curation/",
+      "statedAt": "2020-05-31",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "本人は 2020 年 5 月、TuneIn 経由の再生が全体の 25〜30% を占め、物販がサイトの費用を支えていると説明した。",
+      "sourceUrl": "https://www.waterandmusic.com/poolside-fms-four-step-blueprint-for-music-curation/",
+      "statedAt": "2020-05-31",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "SETBACK",
+      "text": "2020 年 5 月の取材では、SoundCloud の再生要求が 1 日 15,000 回に制限され、Twitter や Reddit で広がるたびサイトが止まると説明された。本人は上限緩和と正式な連携を SoundCloud と協議していた。協議の完了はこの記事からは確認できない。",
+      "sourceUrl": "https://www.waterandmusic.com/poolside-fms-four-step-blueprint-for-music-curation/",
+      "statedAt": "2020-05-31",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2019 年 7 月 26 日に PoolOS と呼ぶ新しい画面を公開した。当時は 3 種の再生リスト、5 種の配色、曲のお気に入り登録、投稿、訪問記録への書き込みがあった。",
+      "sourceUrl": "https://thenextweb.com/news/retro-os-mac-windows-music-poolside",
+      "statedAt": "2019-07-26",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "PRODUCT",
+      "text": "Niek Dekker は、画面の主な参照元は Mac OS 9 で、初期の Windows と Xerox の画面も調べ、文字と画素の表示を合わせたと説明した。",
+      "sourceUrl": "https://thenextweb.com/news/retro-os-mac-windows-music-poolside",
+      "statedAt": "2019-07-26",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "App Store の掲載では、販売者は POOLSIDE WORLDWIDE CORPORATION LTD で、Poolsuite FM は無料と表示されている。",
+      "sourceUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "CUSTOMER_VOICE",
+      "text": "2020 年 10 月 1 日の Trevor Peach のレビューは、最初は見た目で入れたが使ってから気に入り、友人にも勧め、ほかの音楽アプリの多くを使わなくなったと述べた。",
+      "sourceUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "statedAt": "2020-10-01",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CUSTOMER_VOICE",
+      "text": "2021 年 10 月 12 日の Mikezila のレビューは、見た目と機能を評価する一方、SoundCloud の上限表示で音が出ないことが多く、代わりにウェブ版を使っていると述べた。これは 1 人の当時の経験である。",
+      "sourceUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "statedAt": "2021-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "TURNAROUND",
+      "text": "App Store の版 2.0.0 の変更説明は、常時流れる新しい音楽配信を備え、安定性を高めた macOS 版を公開したと記載している。表示には 4 月 21 日のみで年がないため、年は採用しない。",
+      "sourceUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "公式 Telegram の告知では、11 月 26 日に Executive Club の会員権を発売し、Executive Member は 0.2 ETH、用意した数は 2,500 件とした。年はこの告知本文にはなく、翌日付の購入者記録が 2021 年の発売を裏付ける。",
+      "sourceUrl": "https://t.me/s/poolsuite?before=29",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "FINANCIAL",
+      "text": "発売後の公式 Telegram に掲載された公式投稿は、会社の資金が 200 万ドル（原文表記 $2m）になったと述べた。会員権の発売後の資金表現であり、月間売上・純利益・創業者の手取りとは扱わない。",
+      "sourceUrl": "https://t.me/s/poolsuite?before=29",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "SALES",
+      "text": "2021 年 11 月 27 日の購入者 Ryan Wigley の記録では、前日の発売開始から 1 時間以内に 0.2 ETH の会員権 2,500 件が売り切れた。販売状況については購入者の報告である。",
+      "sourceUrl": "https://rywigs.medium.com/onboarding-to-web3-should-always-be-this-fun-1134fb53e7a9",
+      "statedAt": "2021-11-27",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CUSTOMER_VOICE",
+      "text": "Ryan Wigley は、会員権を購入後に財布を接続すると会員として認識され、会員向け再生リストと今後の計画へ進めた体験を高く評価した。",
+      "sourceUrl": "https://rywigs.medium.com/onboarding-to-web3-should-always-be-this-fun-1134fb53e7a9",
+      "statedAt": "2021-11-27",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CUSTOMER_VOICE",
+      "text": "同じ購入者は、初心者向け説明が足りないこと、OpenSea に偽物の出品があったこと、すぐ受け取れる特典が少ないことを改善点として挙げた。",
+      "sourceUrl": "https://rywigs.medium.com/onboarding-to-web3-should-always-be-this-fun-1134fb53e7a9",
+      "statedAt": "2021-11-27",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "PRODUCT",
+      "text": "Benzinga の公開記事は、Poolsuite の会員証を Apple Wallet に追加する機能を紹介し、実際に追加した Jeremiah Owyang と Ryan Hoover の反応を掲載した。世界初という主張の独立検証は行わない。",
+      "sourceUrl": "https://www.inkl.com/news/poolsuite-nft-is-this-the-first-nft-to-get-apple-wallet-integration",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "SETBACK",
+      "text": "初期の本人は HTML を試して作り方が分からないと気づき、Reddit で協力者を探した。元のサイトが何年も続き、無報酬で十分な時間を出す制作チームを組むのに数年かかったと振り返った。",
+      "sourceUrl": "https://www.worklife.vc/blog/founder-of-poolside-fm-knows-how-to-make-shit-go-viral",
+      "statedAt": "2021-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "TURNAROUND",
+      "text": "2019 年は Lewis King と Niek Dekker が開発とデザインで加わり、改装したサイトを公開したと取材記事は記している。",
+      "sourceUrl": "https://www.worklife.vc/blog/founder-of-poolside-fm-knows-how-to-make-shit-go-viral",
+      "statedAt": "2021-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "FINANCIAL",
+      "text": "2021 年 10 月の取材では、Poolsuite の月間運営費は少ない場合で 200 ドル（原文表記 $200）と記載された。費目別内訳や常時この額だったことは確認できない。",
+      "sourceUrl": "https://www.worklife.vc/blog/founder-of-poolside-fm-knows-how-to-make-shit-go-viral",
+      "statedAt": "2021-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Grant MacLennan が 2 時間以内で試作品を作り、1 週間後に公開した。公開後 3 日の個別訪問者は 12,000 人だった。",
+      "sourceUrl": "https://www.vice.com/en/article/you-can-now-create-your-own-80s-music-videos-on-demand/",
+      "statedAt": "2014-02-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "gen2_poolsuite_20261007",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+       "publisher": "Product Hunt（Marty Bell の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2021-06-10",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.domusweb.it/en/design/gallery/2020/07/08/poolsidefm-is-a-window-to-the-happiest-eighties-right-into-the-web-browser.amp.amp.gallery.html",
+       "publisher": "Domus（Marty Bell の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2020-07-09",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.biasmag.com/p/poolsuite-the-future-of-leisure-and",
+       "publisher": "BIAȘ（Marty Bell の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2022-05-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+       "publisher": "Hannah’s List（Marty Bell の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2025-09-05",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.cosmos.so/sequence/marty-bell",
+       "publisher": "Cosmos（Marty Bell の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2025-09-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://builtin.com/articles/vacation-poolside-fm",
+       "publisher": "Built In（Marty Bell と Lach Hall の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2021-05-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.waterandmusic.com/poolside-fms-four-step-blueprint-for-music-curation/",
+       "publisher": "Water & Music（Marty Bell の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2020-05-31",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://thenextweb.com/news/retro-os-mac-windows-music-poolside",
+       "publisher": "The Next Web（Marty Bell と Niek Dekker の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2019-07-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+       "publisher": "App Store（開発元掲載と利用者レビュー）",
+       "sourceType": "official_app_store",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://t.me/s/poolsuite?before=29",
+       "publisher": "Poolsuite（公式公開 Telegram）",
+       "sourceType": "official_post",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://rywigs.medium.com/onboarding-to-web3-should-always-be-this-fun-1134fb53e7a9",
+       "publisher": "Ryan Wigley（購入者の公開記録）",
+       "sourceType": "customer_post",
+       "publicationDate": "2021-11-27",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.inkl.com/news/poolsuite-nft-is-this-the-first-nft-to-get-apple-wallet-integration",
+       "publisher": "Benzinga（inkl の公開転載）",
+       "sourceType": "media_article",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.worklife.vc/blog/founder-of-poolside-fm-knows-how-to-make-shit-go-viral",
+       "publisher": "Worklife（Marty Bell の取材）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2021-10-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.vice.com/en/article/you-can-now-create-your-own-80s-music-videos-on-demand/",
+       "publisher": "VICE（初期の取材）",
+       "sourceType": "media_article",
+       "publicationDate": "2014-02-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "月間売上、売上原価、粗利、営業利益、純利益、創業者の手取り",
+      "開始時の元手と現在の正確な人数",
+      "会員権の価格変更の全履歴と現在の一次販売価格",
+      "つまずきの解決前後の利用者数・売上の比較",
+      "Poolsuite と Vacation の財務・持分関係"
+     ],
+     "conflicts": [
+      "2020 年の本人は運営費を賄うと説明したが、2021 年の Built In では赤字が続くという本人発言、2022 年の BIAȘ では NFT 前に売上も有料客もなかったという回顧がある。物販の記述も存在するため、期間別の発言を残し、売上ゼロや一貫した黒字を断定しない。",
+      "2021 年の Vacation 企画の登録数は Built In で 12,500 人、2025 年の回顧では約 10,000 人。集計時点と厳密な対象の違いを解決できず、2021 年の取材に帰属させ、共通の確定数にはまとめない。",
+      "2020 年・2021 年の聴取者数と聴取回数は異なる指標。2025 年の年間 100 万人超の本人回顧を、以前の約 100 万回の聴取回数と同じ指標で比較しない。",
+      "公式の改名説明や更新説明には架空の豪華な企業像を演じる文章がある。船、犯罪組織、水槽、冷却設備などの演出を実在の出来事や設備として採用しない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2014,
+     "initialTractionPeriod": "2014 年の公開と Product Hunt・Reddit への投稿",
+     "dataSnapshotPeriod": "2014-02〜2025-09 の取材と公式告知、App Store の公開掲載（2026-10-07 確認）",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "Product Hunt",
+      "Reddit",
+      "SoundCloud",
+      "Instagram",
+      "TuneIn"
+     ],
+     "toolStack": [
+      {
+       "name": "SoundCloud",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2020 年取材"
+      },
+      {
+       "name": "YouTube",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2020 年取材"
+      },
+      {
+       "name": "Zyper",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2020 年取材のチャット"
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "夏向けの音楽と昔の映像を組み合わせる無料体験を提供し、会員権と催しへ展開した。",
+     "targetCustomer": "夏の音楽や昔の映像を楽しむ聴取者と会員",
+     "painRelief": "本人が仮想の休暇と表現する、日常から気分を切り替える体験"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Product Hunt（Marty Bell の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "音楽を体験として広めた理由、初期投稿、Vacation につながった接点を確認。",
+      "details": [
+       "出典: https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+       "公表日: 2021-06-10",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Domus（Marty Bell の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "過去 12 か月の聴取者数と聴取回数、当時の採算について本人回答を確認。",
+      "details": [
+       "出典: https://www.domusweb.it/en/design/gallery/2020/07/08/poolsidefm-is-a-window-to-the-happiest-eighties-right-into-the-web-browser.amp.amp.gallery.html",
+       "公表日: 2020-07-09",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.domusweb.it/en/design/gallery/2020/07/08/poolsidefm-is-a-window-to-the-happiest-eighties-right-into-the-web-browser.amp.amp.gallery.html",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: BIAȘ（Marty Bell の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "商標問題による改名、Patreon 案から会員権への変更、実施済みの催しを確認。",
+      "details": [
+       "出典: https://www.biasmag.com/p/poolsuite-the-future-of-leisure-and",
+       "公表日: 2022-05-24",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.biasmag.com/p/poolsuite-the-future-of-leisure-and",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hannah’s List（Marty Bell の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "Vacation との関係、別事業の商品販売数、Poolsuite のアプリと催しの近況を確認。",
+      "details": [
+       "出典: https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+       "公表日: 2025-09-05",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Cosmos（Marty Bell の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "紹介文で Club Poolsuite が計画として説明されていることを確認。",
+      "details": [
+       "出典: https://www.cosmos.so/sequence/marty-bell",
+       "公表日: 2025-09-24",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.cosmos.so/sequence/marty-bell",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Built In（Marty Bell と Lach Hall の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "Poolside FM から Vacation の告知へ送った仕組みと連絡先獲得数を確認。",
+      "details": [
+       "出典: https://builtin.com/articles/vacation-poolside-fm",
+       "公表日: 2021-05-26",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://builtin.com/articles/vacation-poolside-fm",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Water & Music（Marty Bell の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "選曲と投稿の割合、TuneIn の割合、再生制限と協議を確認。",
+      "details": [
+       "出典: https://www.waterandmusic.com/poolside-fms-four-step-blueprint-for-music-curation/",
+       "公表日: 2020-05-31",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.waterandmusic.com/poolside-fms-four-step-blueprint-for-music-curation/",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: The Next Web（Marty Bell と Niek Dekker の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "当日の改装公開、画面の参照元、利用できた機能を確認。",
+      "details": [
+       "出典: https://thenextweb.com/news/retro-os-mac-windows-music-poolside",
+       "公表日: 2019-07-26",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://thenextweb.com/news/retro-os-mac-windows-music-poolside",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: App Store（開発元掲載と利用者レビュー）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "販売者名、無料表示、日付付きレビュー、版 2.0.0 の変更説明を確認。",
+      "details": [
+       "出典: https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+       "公表日: 本文では確認できない",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Poolsuite（公式公開 Telegram）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "会員権の発売告知、価格と件数、資金の本人側発表を確認。表示は時刻のみ。",
+      "details": [
+       "出典: https://t.me/s/poolsuite?before=29",
+       "公表日: 本文では確認できない",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://t.me/s/poolsuite?before=29",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ryan Wigley（購入者の公開記録）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "購入者が経験した購入と接続、売り切れの記述、満足と改善要望を確認。",
+      "details": [
+       "出典: https://rywigs.medium.com/onboarding-to-web3-should-always-be-this-fun-1134fb53e7a9",
+       "公表日: 2021-11-27",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://rywigs.medium.com/onboarding-to-web3-should-always-be-this-fun-1134fb53e7a9",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Benzinga（inkl の公開転載）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "Apple Wallet 対応の紹介と利用者発言を確認。取得本文では公表日を確認できない。",
+      "details": [
+       "出典: https://www.inkl.com/news/poolsuite-nft-is-this-the-first-nft-to-get-apple-wallet-integration",
+       "公表日: 本文では確認できない",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.inkl.com/news/poolsuite-nft-is-this-the-first-nft-to-get-apple-wallet-integration",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Worklife（Marty Bell の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "初期開発と人集めの難航、2019 年の改装、当時の運営費発言を確認。",
+      "details": [
+       "出典: https://www.worklife.vc/blog/founder-of-poolside-fm-knows-how-to-make-shit-go-viral",
+       "公表日: 2021-10-12",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.worklife.vc/blog/founder-of-poolside-fm-knows-how-to-make-shit-go-viral",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_poolsuite_6d5ad6895563_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: VICE（初期の取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "初期準備と訪問者数を本文確認。",
+      "details": [
+       "出典: https://www.vice.com/en/article/you-can-now-create-your-own-80s-music-videos-on-demand/",
+       "公表日: 2014-02-12",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.vice.com/en/article/you-can-now-create-your-own-80s-music-videos-on-demand/",
+      "sourceNote": "公開本文を開いて確認。ログインせず閲覧。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "月間売上、売上原価、粗利、営業利益、純利益、創業者の手取り",
+     "開始時の元手と現在の正確な人数",
+     "会員権の価格変更の全履歴と現在の一次販売価格",
+     "つまずきの解決前後の利用者数・売上の比較",
+     "Poolsuite と Vacation の財務・持分関係"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: \"未審査の調査記録\"→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す",
+     "operations.toolStack: 文字列→名前と用途"
+    ]
+   }
+  }
+ ]
+}

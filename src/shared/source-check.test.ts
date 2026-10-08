@@ -72,4 +72,18 @@ describe('数字の約束', () => {
     const reader = { sources: [], facts: [], unknowns: [], analysis: [], metrics: [m('a', '累計（記事に期間の明記なし）', 1350000), m('b', '2022年9月13日の投稿時点の累計', 2500000)] } as unknown as ReaderCase;
     expect(pickListMetric(reader)?.id).toBe('b');
   });
+
+  it('文の「135K」は135ではなく135,000として読み、13と取り違えない', () => {
+    expect(claimNumbers('作成されたサイト135K（135,000件）と記載').numbers).toEqual([135000, 135000]);
+    expect(checkText('作成されたサイト135K（135,000件）と記載', body('135K Websites Created')).ok).toBe(true);
+  });
+
+  it('原文の「464 464 times」のように空白で桁を区切る数を1つの数として読む', () => {
+    expect(sourceNumbers('Our ads were seen 464 464 times.')).toContain(464464);
+    expect(checkText('表示は464,464回だった。', body('Our ads were seen 464 464 times.')).ok).toBe(true);
+  });
+
+  it('原文の「per million queries」は100万として読む', () => {
+    expect(sourceNumbers('$0.10 per million queries per zone')).toContain(1000000);
+  });
 });

@@ -1,0 +1,487 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_myoperator_49c393230a2d",
+   "scope": "diff",
+   "auditScope": "差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "通話とWhatsApp向けに、AIチャットボット、音声ボット、IVR（電話の自動案内）、キャンペーン管理を売る会社。運営法人はVoicetree Technologies。小売・医療・教育・不動産・金融などの営業・マーケ・サポート部門が客。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "FOUNDING",
+     "text": "2013年3月、CEOのAnkit Jain（当時30歳）と弟で公認会計士のPrateek Jain（当時27歳）が開始。元手は兄弟の自己資金12ラック・ルピーで、主に技術とチームづくりに使った。2016年時点で外部資金はなし。Ankitは2010年に最初の音声サービスVoice Jadooを始めていた。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f3",
+     "kind": "EVENT",
+     "text": "開始から6か月で登録利用者600人超、うち有料200社。客にはアーム・アードミ党、Lenskart、Snapdeal、Shop.IRCTCなどがいた。この間に損益が釣り合った（赤字を脱した）と説明している。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f4",
+     "kind": "TEAM",
+     "text": "5人で始め、2016年には125人。このうち4割は直近6か月で採用した。従業員にはストックオプション（ESOP）で報いたと説明している。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "2016年時点で登録利用者25,000人超、有料顧客2,000社超。新しい客にCanon、Fabindia、Cashkaro、DHLが加わったと説明している。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f6",
+     "kind": "PRICING",
+     "text": "売り方はSaaSの年払い。他社との違いは、設定作業なしで通話管理を1分で立ち上げられる点だとAnkitは語る。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "創業者が挙げた難所は、チームづくりと、市場でこの技術があまり知られていないこと。開始からの3年間は、市場への啓発と販売に力を割いたと語る。中小企業の技術利用はメール止まりだというのが本人の見方。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "同じ記事は競合として、Exotel（2012年にシリーズAで2.5クロール・ルピー）、Knowlarity（2014年7月にSequoia CapitalなどからシリーズBで1,600万ドル）、Ozonetelを挙げる。MyOperatorはその間、外部資金なしで走ったと位置づけている。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f9",
+     "kind": "PRICING",
+     "text": "現行の料金表は、Sedanが月5,000ルピー、SUVが月15,000ルピーで、どちらも10ユーザー。全プラン年払いで、GSTとMetaの料金は別。冒頭に30日間の全額返金を掲げる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "CHANNEL",
+     "text": "パートナー制度では、代理店が顧客向けの運用サービスの価格を決め、MyOperatorはパートナー用の基盤の費用を請求する形を示している。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=REVENUE / 期間=2015〜2016年度(FISCAL_YEAR) / 金額=2000000 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m3",
+     "line": "項目=USERS / 期間=2016年の登録利用者(POINT) / 金額=25000 人 / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m4",
+     "line": "項目=USERS / 期間=2016年の有料顧客(POINT) / 金額=2000 社 / 由来=SELF_REPORTED"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+     "publisher": "MyOperator 公式ブログ（YourStory 2016年記事の再掲）",
+     "snapshot": {
+      "url": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+      "finalUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:04:48.439Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "1317f48214f1f7c5101a4c4646d1df2ac23c8e62882456d3156b5fc710c7f2c0"
+     },
+     "text": "How this cloud telephony platform is thriving without a single penny from investors\nMyOperator, a cloud telephony platform flourises inspite of being bootstrapped for the last 3 years. Learn more about it.\nHow this cloud telephony platform is thriving without a single penny from investors\nMyOperator, a cloud telephony platform flourises inspite of being bootstrapped for the last 3 years. Learn more about it.\nHow this cloud telephony platform is thriving without a single penny from investors\nTalk To Sales:\n+91 92129 92129\nhello@myoperator.com\nLogin\nPricing\nPlatform\nBusiness AI Operator\nAI Suite\nWhatsApp Marketing Suite\nCall Management Suite\nBusiness AI Operator\nAutomate business operations with a unified AI system\nAI Suite\nIntelligent AI chatbots and voicebots for omnichannel communication\nWhatsApp Marketing Suite\nOfficial WhatsApp Marketing Suite for unified customer communication\nCall Management Suite\nSmart IVR, routing, and call management with WhatsApp sync\nUnified Analytics & Reporting\nTrack performances and metrics for a multi-channel system in real time\nSee MyOperator in Action\nA focused consultation to evaluate fit, use cases, and scale.\nBook Demo\nAI Suite\nDeploy and manage intelligent agents across channels\nAI Voicebot for Calls\nEnable intelligent voice interactions\nWhatsApp AI Chatbot\nDeploy conversational AI chatbots for WhatsApp\nSales AI Agent\nDrive conversions through automated chats\nSupport AI Agent\nSupport & resolve queries instantly with AI chatbots\nLead Gen AI Agent\nQualify, score, and capture high-intent leads\nAI Receptionist\nAutomate call handling with a digital front desk\nMultilingual AI Chatbot\nConnect with customers in their local language\nNo-Code AI Chatbot\nBuild and deploy AI bots without coding\nWhatsApp Marketing Suite\nScale engagement with an official WhatsApp suite\nWhatsApp Business API\nAutomate customer chats securely\nWhatsApp Broadcast\nSend WhatsApp messages at scale\nWhatsApp Campaigns\nRun campaigns for engagement\nWhatsApp Marketing\nUse WhatsApp with end to end automation\nMulti-Agent Chat\nGet one business number for multiple agents\nWhatsApp OTP Sender\nSecure authentication delivery via WhatsApp\nWhatsApp Automation\nEngage leads with automated workflows\nBlue Tick Verification\nBuild brand trust with official Meta verification\nCTWA Integration\nEnable leads to start conversations with a click\nWhatsApp Chatbot\nAutomate customer support with 24/7 AI\nCall Management Suite\nOptimize communications with a unified calling system\nIVR System\nAutomate calls with interactive voice menus\nInbound Call Center\nRoute and manage incoming call traffic\nToll-Free\nGet free-to-call business numbers\nVirtual Number\nGet a business number for nationwide presence\nCall Recording\nSecurely store and access customer calls\nBarging & Whispering\nMonitor and guide agents during live conversations\nClick To Call\nConnect with leads instantly with one click\nLive Call Dashboard\nMonitor real-time calling activity and metrics\nSolution\nBy Use Case\nBy Size\nBy Industry\nBy Integrations\nSales\nAccelerate your sales pipeline with a unified AI platform\nMarketing\nRun targeted multi-channel campaigns with AI analytics\nCustomer Support\nDeliver faster resolutions with human + AI support\nStartups\nAgile communication platform for fast-growing teams\nSMBs\nScalable AI solutions to mature business operations\nEnterprises\nBusiness-grade platform for high volume communication\nRetail & Ecommerce\nConvert leads and recover carts\nIT & BPO\nAutomate & optimize services at scale\nTours & Travels\nCapture & convert travel inquiries\nEducation\nSimplify admissions and engagement\nFood & Hospitality\nManage inquiries, bookings, and feedback\nHealthcare\nBuild reliable patient communication systems\nLogistics/Manufacturing\nDeliver instant shipping & tracking updates\nBFSI\nDeploy secure & compliant messaging\nMedia & Advertising\nManage high-volume inquiries & campaign\nRecruitment\nImprove hiring comms & follow-ups\nNGO\nEngage donors & volunteers at scale\nReal Estate\nEngage & convert property leads instantly\nAutomotive\nStreamline bookings & support conversations\nTelcos & ISPs\nScale support, renewals & support\nGovt & PSU\nModernize citizen engagement\nShopify\nSync store data for personalized messaging\nZoho CRM\nSync CRM with WhatsApp + Calls workflows\nZoho Recruit\nOptimize hiring with integrated WhatsApp + Calls\nZoho PhoneBridge\nConnect telephony with Zoho applications\nFreshdesk\nConnect Freshdesk with WhatsApp + Call flows\nLeadSquared\nSync data for calls, chats, and leads automatically\nSalezshark\nStreamline outreach with CRM-integrated conversations\nTruecaller for Business\nGet verified business numbers with caller identity\nBulk SMS API\nSend high-volume SMS campaigns at scale\nZoho Desk\nSupport customers with integrated WhatsApp + Calls\nAPI & Webhooks\nBuild and manage custom communication workflows\nBigin by Zoho CRM\nSync calls and WhatsApp communication workflows\nView All Integrations\nResources\nLearn\nBlog\nInsights on business communication\nDiscover\nSuccess Stories\nGrowth stories from customers\nEvents\nReal-world implementation examples\nConnect\nHelp Center\n24/7 help and documentation\nWhatsApp Business FAQs\nWhatsApp Business Platform Guide\nSee MyOperator in Action\nWant to see MyOperator in action?\nBook Demo\nCompany\nAbout Us\nAn introduction to the company, vision and values at MyOperator\nPartner With Us\nGrow your business with MyOperator network\nCareers\nJoin our growing team of entrepreneurs\nContact Us\nReach us anytime for sales & support queries\nHEAR FROM MYOPERATOR CUSTOMERS\nLearn how top brands used our unified multi-channel communication system to transform customer experiences.\nRead Testimonials\nLog in Get Started\nGet Started\nLog in Sign Up\nSign Up\nHome\nBlog\nHow this cloud telephony platform is thriving without a single penny from investors\nMyOperator, a cloud telephony platform flourises inspite of being bootstrapped for the last 3 years. Learn more about it.\n- min read\n· Updated On :\nFebruary 11, 2026\nBlog Share Icons\nHow this cloud telephony platform is thriving without a single penny from investors\nMyOperator, a cloud telephony platform flourises inspite of being bootstrapped for the last 3 years. Learn more about it.\nUpdated On :\nFebruary 11, 2026\nHome\nBlog\nHow this cloud telephony platform is thriving without a single penny from investors\nHow this cloud telephony platform is thriving without a single penny from investors\nMyOperator, a cloud telephony platform flourises inspite of being bootstrapped for the last 3 years. Learn more about it.\nUpdated On :\nFebruary 11, 2026\nHome\nBlog\nHow this cloud telephony platform is thriving without a single penny from investors\nOn this page\nTable of Contents\nSummarize with:\nAt a time when dark clouds are hovering over the startup ecosystem, with a dearth of high value funding and increasing shutdowns, is cloud telephony platform also suffering?Ankit Jain insists that it’s not. “ Cloud telephony is continuously growing and is in no way affected by the downturn in the startup ecosystem. With the growth in the sector, we are growing simultaneously,” quips Ankit (30), CEO and Co-founder of MyOperator.Launched in March 2013 by Ankit and Prateek Jain (27), MyOperator is a cloud-based call management system that provides solutions such as IVR service , virtual number , company number call , cloud EPABX, automatic call distribution, call tracking, recording and reports for business.Ankit is a graduate in computer science from BIT-Mesra University and has been following entrepreneurship for the past six years, ever since he launched his first platform, Voice Jadoo, in the year 2010. His brother Prateek is a chartered accountant.Ankit explains that the penetration of technology in SME business hasn’t gone beyond email. Now, lakhs of businesses require cloud telephony technology to organise themselves and get the maximum out of the market. He aims to offer the same to SME businesses.“Our growth figures throw light on the rising need for cloud technology across sectors and the thriving market opportunity for businesses like us,” says Ankit.\nGrowth story\nWithin six months of its launch, the startup had over 600 registered users, including 200 paying clients, the Aam Aadmi Party, Aamrapali O2, Lenskart, Snapdeal, Shop.IRCTC, Berger Emulsions, Allschoolstuff and Network Bulls among them. And during this time, the business broke even.Today, the platform claims to have over 25,000 registered users, with more than 2,000 paying clients. The new clients include the likes of Canon, Fabindia, Cashkaro and DHL.The team at the company has grown alongside the business. The platform, which started out with a five-member team, has grown to 125 people.“This growth largely happened in the last six months. Of 125 people, 40 percent were hired in that time,” says Ankit.On revenue growth, he says that MyOperator clocked a revenue of $2 million in the last financial year. He aims to double that in the financial year 2016-2017.“At a time when heavily funded startups like Flipkart, Zomato and Housing have laid off hundreds of employees and the whole ecosystem is going downhill, MyOperator, which has been successfully bootstrapped for the last three years, acknowledged the contribution of its employees in business growth by rewarding them with ESOPs,” says Ankit.[Tweet \"Ankit Jain, the CEO, acknowledges the contribution of #employees by rewarding #ESOPs.\"]\nBehind the scenes\nAnkit and Prateek bootstrapped the platform with an initial investment of Rs 12 lakh, which was primarily spent on building the technology and team.“Building a capable and effective team was the biggest challenge we faced. More than experience, we tried to focus on the attitude of the team. Another issue we came across was the lack of awareness in the market about such technology,” says Ankit.He adds that in the past three years, the platform has tried very hard to raise the required awareness among businesses and sell the technology solution to them.When the Jain brothers launched the platform, there were other players in the cloud telephony market as well. They thought to differentiate themselves from their competitors..“Unlike its competitors, MyOperator enables businesses to set up a call management system within a minute, without going into any configuration. And this is how it also differentiates itself from other startups in the segment,” says Ankit.The platform follows a SaaS-based revenue model, where customers have to pay on yearly basis for using the service.\nCompetitive market\nThough there are no track reports by research firms like Gartner or Frost & Sullivan available to assess the size of the sector in India, with about two million SMEs in the country, industry players estimate the domestic market size to be around $6 billion.In 2014, Exotel acquired Croak.it , a voice-based social media app. The company sees the move as a step closer to becoming a one-stop voice solution. In 2012, Exotel raised Rs 2.5 crore in Series A funding from Blume Ventures and Mumbai Angels in return for a 25 percent stake.In January 2014,Knowlarity acquired Unicom Techlabs, a startup in the same sector. Unicom had more than 200 customers, whom it handed over to Knowlarity along with all the intellectual property it had developed.In July 2014, Knowlarity raised $16 million in Series Bfunding from Sequoia Capital and Mayfield Advisors. Previously, in January 2012, it had raisedRs 34 crore from Sequoia Capital. The Gurgaon-based company has also received funding from Emergic Venture Capital in the past.In August 2014, Ozonetel acquired Yantra Software’s speech recognition vertical in a pay-out model. In February 2013, the company signed a strategic partnershipwith Resolvity Information Technologies in order to acquire the customers of Resolvity’s VoiceGain product.This article was originally published on YourStory .\nSummarize with:\nScale every\ncustomer conversation.\nOne platform for calls,\nWhatsApp, and AI agents.\nSee it in action.\nBook A Demo\nBook A Demo\nBook A Demo\nBook A Demo\nJoin for the blogs and insights\nNo items found.\nLet's Gear Up For A\nGreat Ride\nTry MyOperator For Free\nTry MyOperator For Free\nPopular Features\nWhatsApp Business API IVR System No-code Chatbot Builder WhatsApp AI Chatbot CTWA Setup Shopify Integration\nProducts\nBusiness AI Operator WhatsApp Marketing Suite Call Management Suite AI Suite\nCompare\nMyOperator vs Exotel MyOperator vs Wati MyOperator vs Gallabox MyOperator vs Knowlarity MyOperator vs Interakt MyOperator vs Tata Tele MyOperator vs Phone.com MyOperator vs Ozonetel MyOperator vs Grasshopper MyOperator vs ElevenLabs\nCompany\nAbout Us Partnership Program Testimonials Careers Knowledge Base\nDownload App\nContact\nTalk To Sales\n+91 92129 92129\nTalk To Support\n+91 81029 81029\nhello@myoperator.com\nConnect with us\nCopyright © 2026. Voicetree Technologies Pvt Ltd. All rights reserved.\nTerms & Conditions\nPrivacy Policy\nRefund Policy\nFair Usage Policy\nSecurity",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://myoperator.com",
+     "publisher": "MyOperator 公式サイト",
+     "snapshot": {
+      "url": "https://myoperator.com",
+      "finalUrl": "https://myoperator.com/",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:38:53.228Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "e2685492584025876517220c545959d782adef0b2d658d62abd0b0f102f12fdd"
+     },
+     "text": "MyOperator - Business AI Operator For WhatsApp + Calls\nUnify WhatsApp, calls, and AI agents with MyOperator. An all-in-one AI-powered platform for campaigns, automation, and 24/7 customer engagement.\nMyOperator - Business AI Operator For WhatsApp + Calls\nUnify WhatsApp, calls, and AI agents with MyOperator. An all-in-one AI-powered platform for campaigns, automation, and 24/7 customer engagement.\nMyOperator - Business AI Operator For WhatsApp + Calls\nTalk To Sales:\n+91 92129 92129\nhello@myoperator.com\nLogin\nPricing\nPlatform\nBusiness AI Operator\nAI Suite\nWhatsApp Marketing Suite\nCall Management Suite\nBusiness AI Operator\nAutomate business operations with a unified AI system\nAI Suite\nIntelligent AI chatbots and voicebots for omnichannel communication\nWhatsApp Marketing Suite\nOfficial WhatsApp Marketing Suite for unified customer communication\nCall Management Suite\nSmart IVR, routing, and call management with WhatsApp sync\nUnified Analytics & Reporting\nTrack performances and metrics for a multi-channel system in real time\nSee MyOperator in Action\nA focused consultation to evaluate fit, use cases, and scale.\nBook Demo\nAI Suite\nDeploy and manage intelligent agents across channels\nAI Voicebot for Calls\nEnable intelligent voice interactions\nWhatsApp AI Chatbot\nDeploy conversational AI chatbots for WhatsApp\nSales AI Agent\nDrive conversions through automated chats\nSupport AI Agent\nSupport & resolve queries instantly with AI chatbots\nLead Gen AI Agent\nQualify, score, and capture high-intent leads\nAI Receptionist\nAutomate call handling with a digital front desk\nMultilingual AI Chatbot\nConnect with customers in their local language\nNo-Code AI Chatbot\nBuild and deploy AI bots without coding\nWhatsApp Marketing Suite\nScale engagement with an official WhatsApp suite\nWhatsApp Business API\nAutomate customer chats securely\nWhatsApp Broadcast\nSend WhatsApp messages at scale\nWhatsApp Campaigns\nRun campaigns for engagement\nWhatsApp Marketing\nUse WhatsApp with end to end automation\nMulti-Agent Chat\nGet one business number for multiple agents\nWhatsApp OTP Sender\nSecure authentication delivery via WhatsApp\nWhatsApp Automation\nEngage leads with automated workflows\nBlue Tick Verification\nBuild brand trust with official Meta verification\nCTWA Integration\nEnable leads to start conversations with a click\nWhatsApp Chatbot\nAutomate customer support with 24/7 AI\nCall Management Suite\nOptimize communications with a unified calling system\nIVR System\nAutomate calls with interactive voice menus\nInbound Call Center\nRoute and manage incoming call traffic\nToll-Free\nGet free-to-call business numbers\nVirtual Number\nGet a business number for nationwide presence\nCall Recording\nSecurely store and access customer calls\nBarging & Whispering\nMonitor and guide agents during live conversations\nClick To Call\nConnect with leads instantly with one click\nLive Call Dashboard\nMonitor real-time calling activity and metrics\nSolution\nBy Use Case\nBy Size\nBy Industry\nBy Integrations\nSales\nAccelerate your sales pipeline with a unified AI platform\nMarketing\nRun targeted multi-channel campaigns with AI analytics\nCustomer Support\nDeliver faster resolutions with human + AI support\nStartups\nAgile communication platform for fast-growing teams\nSMBs\nScalable AI solutions to mature business operations\nEnterprises\nBusiness-grade platform for high volume communication\nRetail & Ecommerce\nConvert leads and recover carts\nIT & BPO\nAutomate & optimize services at scale\nTours & Travels\nCapture & convert travel inquiries\nEducation\nSimplify admissions and engagement\nFood & Hospitality\nManage inquiries, bookings, and feedback\nHealthcare\nBuild reliable patient communication systems\nLogistics/Manufacturing\nDeliver instant shipping & tracking updates\nBFSI\nDeploy secure & compliant messaging\nMedia & Advertising\nManage high-volume inquiries & campaign\nRecruitment\nImprove hiring comms & follow-ups\nNGO\nEngage donors & volunteers at scale\nReal Estate\nEngage & convert property leads instantly\nAutomotive\nStreamline bookings & support conversations\nTelcos & ISPs\nScale support, renewals & support\nGovt & PSU\nModernize citizen engagement\nShopify\nSync store data for personalized messaging\nZoho CRM\nSync CRM with WhatsApp + Calls workflows\nZoho Recruit\nOptimize hiring with integrated WhatsApp + Calls\nZoho PhoneBridge\nConnect telephony with Zoho applications\nFreshdesk\nConnect Freshdesk with WhatsApp + Call flows\nLeadSquared\nSync data for calls, chats, and leads automatically\nSalezshark\nStreamline outreach with CRM-integrated conversations\nTruecaller for Business\nGet verified business numbers with caller identity\nBulk SMS API\nSend high-volume SMS campaigns at scale\nZoho Desk\nSupport customers with integrated WhatsApp + Calls\nAPI & Webhooks\nBuild and manage custom communication workflows\nBigin by Zoho CRM\nSync calls and WhatsApp communication workflows\nView All Integrations\nResources\nLearn\nBlog\nInsights on business communication\nDiscover\nSuccess Stories\nGrowth stories from customers\nEvents\nReal-world implementation examples\nConnect\nHelp Center\n24/7 help and documentation\nWhatsApp Business FAQs\nWhatsApp Business Platform Guide\nSee MyOperator in Action\nWant to see MyOperator in action?\nBook Demo\nCompany\nAbout Us\nAn introduction to the company, vision and values at MyOperator\nPartner With Us\nGrow your business with MyOperator network\nCareers\nJoin our growing team of entrepreneurs\nContact Us\nReach us anytime for sales & support queries\nHEAR FROM MYOPERATOR CUSTOMERS\nLearn how top brands used our unified multi-channel communication system to transform customer experiences.\nRead Testimonials\nLog in Get Started\nGet Started\nLog in Sign Up\nSign Up\nEngage. Sell. Support.\nOn WhatsApp & Calls. With Your Team &\nOur AI Agents .\nCampaigns | AI Bots | IVR | Live Call & Chat | Customer Intelligence\nStart Free Trial\nStart Free Trial\nBook a demo\nBook a demo\n15 Years of Trust. 12,000+ Brands Strong.\nTwo Channels. Two Workforces. One Platform.\nThe Channels\nWhatsApp Suite\nOfficial WhatsApp Business API with automation, campaigns, and shared inboxes.\nBroadcasts, CTWA, and AI replies\nMulti-agent chat and handovers\nBlue tick and verification\nCall Suite\nCloud calling built for high-volume inbound and outbound operations.\nIVR, virtual numbers, and dialers\nTracking, recordings, and smart routing\nSynced with WhatsApp & AI flows\nThe Workforces\nAI Agents\nAI voicebots and chatbots for first response, qualification, and routing.\nUnified across WhatsApp + Calls\nSelf-learning from real conversation data\nEscalation only when essential\nHuman Experts\nSales and support teams step in with complete conversation context.\nFull view of past chats and calls\nFaster resolution and follow-ups\nBetter outcomes across the funnel\nFor Every Team That Talks\nSales\nMarketing\nSupport\nAccelerate Revenue\nEquip your sales team with predictive dialers, automated\nfollow-ups, and AI that qualifies leads before they reach a human.\nQualify Leads Automatically\nAI agents engage & qualify leads, routing high-intent conversations to your team.\nNever Miss a Follow-Up\nAutomated WhatsApp reminders and call follow-ups ensure no deal stalls.\nOne View for Every Conversation\nSwitch between WhatsApp and Calls with all interactions tied to the same contact.\n35%\nIncrease in Conversion\nMaximize ROI\nTrack every campaign source, automate broadcasts, and identify which channels drive high-value conversations.\nWhatsApp Campaigns That Convert\nRun personalized campaigns with clear visibility into responses and outcomes.\nClick-to-WhatsApp Ads\nTurn ad clicks into real-time WhatsApp conversations to engage leads.\nAutomated Nurturing Journeys\nTrigger follow-ups, reminders, and offers based on the customer journey.\n2.5X\nBetter Ad Spend Efficiency\nElevate Customer Experience\nResolve queries faster with AI-led first responses and intelligent routing to the right expert.\nAI-Powered 24×7 Resolution\nHandle common issues instantly using WhatsApp chatbots or voicebots.\nContext-Rich Conversations\nAgents see the complete chat and call history before engaging with customers.\nSmarter Support Over Time\nAI improves resolution quality by learning from recurring issues and agent interactions.\n70%\nReduction in Wait Time\nA Complete CX Communication Platform\nMost businesses use 5 tools to manage business communication. MyOperator replaces them with one.\n40%\nFaster deal closures\n3x\nConversations per agent\n20%\nFaster ticket resolution\nIntroducing Your Business AI Operator\nMyOperator blends the empathy of humans with the efficiency of AI to deliver intelligent business conversations.\nExplore Our Vision\nExplore Our Vision\nSmarter With Every Chat Call Conversation\nAI Agents That Think\nBuild intelligent voice & chat agents that understand context & emotion.\nNo-Code Bot Creator\nDesign and deploy AI agents for calls or WhatsApp without code.\nLearning That Compounds\nEvery interaction trains the AI to improve accuracy and tone.\nSeamless Human + AI Sync\nHuman and AI agents share context for seamless handovers.\nWhat Businesses Say\nAbout MyOperator\n“The platform's ability to handle high call volumes and WhatsApp services have been great, making our engagement with students smoother and more productive.”\nFarooq Khan / VP of Admission Support\n12,000+ Businesses Activated, 2.5 Billion Conversations Enabled,\n‍ 4.5 Google Rating\n“MyOperator’s WhatsApp Business API has been a game-changer. The panel is super interactive and simple. Direct access to the support and marketing team has been invaluable.”\nPratanu Mohanty / Head of Revenue Maximisation - Big FM\n12,000+ Businesses Activated, 2.5 Billion Conversations Enabled,\n‍ 4.5 Google Rating\n“The IVR support and SMS portal have greatly streamlined our communication processes, allowing us to easily manage student inquiries and provide timely support.”\nDr. Debajyoti Kar, / CEO, PrepMed NEET\n12,000+ Businesses Activated, 2.5 Billion Conversations Enabled,\n‍ 4.5 Google Rating\n“With MyOperator's IVR + WhatsApp Business Solution, we have greatly improved our client relationships and business operations.”\nPrajnay Garg / Founder & CEO, Darkins Chocolate\n12,000+ Businesses Activated, 2.5 Billion Conversations Enabled,\n‍ 4.5 Google Rating\n“Best advantage of MyOperator is how it connects all the stakeholders. Managing the team feels like a comfort zone now with better connectivity.”\nAman Agarwal / Director, KV Developers\n12,000+ Businesses Activated, 2.5 Billion Conversations Enabled,\n‍ 4.5 Google Rating\n“MyOperator handles our complete support team. I would recommend it to every business owner who directly deals with their customers.”\nUjjawal Chauhan / Co-Founder, SkillBee\n12,000+ Businesses Activated, 2.5 Billion Conversations Enabled,\n‍ 4.5 Google Rating\nBuilt On Trust.\nBacked By The Best.\nLet's Gear Up For A Great Ride\nTry MyOperator For Free\nTry MyOperator For Free\nPopular Features\nWhatsApp Business API IVR System No-code Chatbot Builder WhatsApp AI Chatbot CTWA Setup Shopify Integration\nProducts\nBusiness AI Operator WhatsApp Marketing Suite Call Management Suite AI Suite\nCompare\nMyOperator vs Exotel MyOperator vs Wati MyOperator vs Gallabox MyOperator vs Knowlarity MyOperator vs Interakt MyOperator vs Tata Tele MyOperator vs Phone.com MyOperator vs Ozonetel MyOperator vs Grasshopper MyOperator vs ElevenLabs\nCompany\nAbout Us Partnership Program Testimonials Careers Knowledge Base\nDownload App\nContact\nTalk To Sales\n+91 92129 92129\nTalk To Support\n+91 81029 81029\nhello@myoperator.com\nConnect with us\nCopyright © 2026. Voicetree Technologies Pvt Ltd. All rights reserved.\nTerms & Conditions\nPrivacy Policy\nRefund Policy\nFair Usage Policy\nSecurity",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://myoperator.com/pricing",
+     "publisher": "MyOperator 公式料金表",
+     "snapshot": {
+      "url": "https://myoperator.com/pricing",
+      "finalUrl": "https://myoperator.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:38:54.249Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "e787a0fb33754a6eb2c3854611e9039b3d9528904270b31460ea9976122a4ec3"
+     },
+     "text": "Pricing - Explore MyOperator's Tiers\nFind the best MyOperator plan for your business. Compare pricing, features & add-ons for WhatsApp, Calls and AI Agents across startups, SMBs, and enterprises.\nPricing - Explore MyOperator's Tiers\nFind the best MyOperator plan for your business. Compare pricing, features & add-ons for WhatsApp, Calls and AI Agents across startups, SMBs, and enterprises.\nPricing - Explore MyOperator's Tiers\nTalk To Sales:\n+91 92129 92129\nhello@myoperator.com\nLogin\nPricing\nPlatform\nBusiness AI Operator\nAI Suite\nWhatsApp Marketing Suite\nCall Management Suite\nBusiness AI Operator\nAutomate business operations with a unified AI system\nAI Suite\nIntelligent AI chatbots and voicebots for omnichannel communication\nWhatsApp Marketing Suite\nOfficial WhatsApp Marketing Suite for unified customer communication\nCall Management Suite\nSmart IVR, routing, and call management with WhatsApp sync\nUnified Analytics & Reporting\nTrack performances and metrics for a multi-channel system in real time\nSee MyOperator in Action\nA focused consultation to evaluate fit, use cases, and scale.\nBook Demo\nAI Suite\nDeploy and manage intelligent agents across channels\nAI Voicebot for Calls\nEnable intelligent voice interactions\nWhatsApp AI Chatbot\nDeploy conversational AI chatbots for WhatsApp\nSales AI Agent\nDrive conversions through automated chats\nSupport AI Agent\nSupport & resolve queries instantly with AI chatbots\nLead Gen AI Agent\nQualify, score, and capture high-intent leads\nAI Receptionist\nAutomate call handling with a digital front desk\nMultilingual AI Chatbot\nConnect with customers in their local language\nNo-Code AI Chatbot\nBuild and deploy AI bots without coding\nWhatsApp Marketing Suite\nScale engagement with an official WhatsApp suite\nWhatsApp Business API\nAutomate customer chats securely\nWhatsApp Broadcast\nSend WhatsApp messages at scale\nWhatsApp Campaigns\nRun campaigns for engagement\nWhatsApp Marketing\nUse WhatsApp with end to end automation\nMulti-Agent Chat\nGet one business number for multiple agents\nWhatsApp OTP Sender\nSecure authentication delivery via WhatsApp\nWhatsApp Automation\nEngage leads with automated workflows\nBlue Tick Verification\nBuild brand trust with official Meta verification\nCTWA Integration\nEnable leads to start conversations with a click\nWhatsApp Chatbot\nAutomate customer support with 24/7 AI\nCall Management Suite\nOptimize communications with a unified calling system\nIVR System\nAutomate calls with interactive voice menus\nInbound Call Center\nRoute and manage incoming call traffic\nToll-Free\nGet free-to-call business numbers\nVirtual Number\nGet a business number for nationwide presence\nCall Recording\nSecurely store and access customer calls\nBarging & Whispering\nMonitor and guide agents during live conversations\nClick To Call\nConnect with leads instantly with one click\nLive Call Dashboard\nMonitor real-time calling activity and metrics\nSolution\nBy Use Case\nBy Size\nBy Industry\nBy Integrations\nSales\nAccelerate your sales pipeline with a unified AI platform\nMarketing\nRun targeted multi-channel campaigns with AI analytics\nCustomer Support\nDeliver faster resolutions with human + AI support\nStartups\nAgile communication platform for fast-growing teams\nSMBs\nScalable AI solutions to mature business operations\nEnterprises\nBusiness-grade platform for high volume communication\nRetail & Ecommerce\nConvert leads and recover carts\nIT & BPO\nAutomate & optimize services at scale\nTours & Travels\nCapture & convert travel inquiries\nEducation\nSimplify admissions and engagement\nFood & Hospitality\nManage inquiries, bookings, and feedback\nHealthcare\nBuild reliable patient communication systems\nLogistics/Manufacturing\nDeliver instant shipping & tracking updates\nBFSI\nDeploy secure & compliant messaging\nMedia & Advertising\nManage high-volume inquiries & campaign\nRecruitment\nImprove hiring comms & follow-ups\nNGO\nEngage donors & volunteers at scale\nReal Estate\nEngage & convert property leads instantly\nAutomotive\nStreamline bookings & support conversations\nTelcos & ISPs\nScale support, renewals & support\nGovt & PSU\nModernize citizen engagement\nShopify\nSync store data for personalized messaging\nZoho CRM\nSync CRM with WhatsApp + Calls workflows\nZoho Recruit\nOptimize hiring with integrated WhatsApp + Calls\nZoho PhoneBridge\nConnect telephony with Zoho applications\nFreshdesk\nConnect Freshdesk with WhatsApp + Call flows\nLeadSquared\nSync data for calls, chats, and leads automatically\nSalezshark\nStreamline outreach with CRM-integrated conversations\nTruecaller for Business\nGet verified business numbers with caller identity\nBulk SMS API\nSend high-volume SMS campaigns at scale\nZoho Desk\nSupport customers with integrated WhatsApp + Calls\nAPI & Webhooks\nBuild and manage custom communication workflows\nBigin by Zoho CRM\nSync calls and WhatsApp communication workflows\nView All Integrations\nResources\nLearn\nBlog\nInsights on business communication\nDiscover\nSuccess Stories\nGrowth stories from customers\nEvents\nReal-world implementation examples\nConnect\nHelp Center\n24/7 help and documentation\nWhatsApp Business FAQs\nWhatsApp Business Platform Guide\nSee MyOperator in Action\nWant to see MyOperator in action?\nBook Demo\nCompany\nAbout Us\nAn introduction to the company, vision and values at MyOperator\nPartner With Us\nGrow your business with MyOperator network\nCareers\nJoin our growing team of entrepreneurs\nContact Us\nReach us anytime for sales & support queries\nHEAR FROM MYOPERATOR CUSTOMERS\nLearn how top brands used our unified multi-channel communication system to transform customer experiences.\nRead Testimonials\nLog in Get Started\nGet Started\nLog in Sign Up\nSign Up\nPlans & Pricing\n12000+ Businesses | 15+ Years of Trust | 30-Day FULL REFUND POLICY\nCommunication Platform as a Service\nCPaaS (Calls + WhatsApp)\nSedan\n₹5,000 /month\n10 Users\nUnlimited Calling & WhatsApp*\nStart Free Trial\nInclusions:\nIVR system\nUnlimited In-Out calling\nCall recording\nWhatsApp chat\nSticky agents\nWhatsApp broadcasts\nTeam and department setup\nBasic performance reports\nShopify integration\nStart Free Trial\nSUV\n₹15,000 /month\n10 Users\nMore Capacity, Integration & Reporting\nStart Free Trial\nEverything in Sedan, plus:\nCalling & Routing\nHigher calling capacity\nWeb-call + Whispering & Barging\nSmart IVR + call routing\nWhatsApp\nHigher broadcast limits\nAfter-call WhatsApp automation\nAnalytics & Integrations\nCRM and 100+ Integrations\nWebhooks and API access\nReal-time dashboards and reporting\nAgent shift management\n&nbsp\nStart Free Trial\nBusiness AI Operator\nCPaaS + AI Agents + Managed Services\nAI Team\nMOST POPULAR\nCustom\n10 Users + AI Agents + AI Manager\nFor AI Team & Managed Services\nStart Free Trial\nEverything in SUV, plus:\nAI Agents\nVoice and/or Chat AI agents\nAI automations and workflows\nAgent deployment & management\nSmart human handover\nAdvanced agent integrations\nManaged Services\nAI Agent Manager\nFDE for agent building\nAgent performance optimization\nAnalytics & Support\nUnified AI + human dashboard\nPriority support\nStart Free Trial\n* Meta charges are additional.\nAll plans are billed yearly. GST applicable.\nHaving a hard time deciding?\nAsk your favorite AI assistant, or talk to our team to see how MyOperator can help your business.\nAsk ChatGPT\nAsk Claude\nAsk Perplexity\nTalk To Us\nTalk To Us\nWhy managed?\nEvery team needs a manager. Your AI team too.\nAI agents are not set-and-forget. Business conversations evolve, and without continuous optimization, performance declines.\nEvery Business AI Operator plan comes with a dedicated AI Agent Manager - a human expert who knows how to build, train, and optimize AI agents for real business conversations.\nYour AI agents are your AI team. Every team needs a manager.\nA fully managed AI communication team, for a fraction of what building one with people would cost.\nBuilds & Deploys\nSet up from scratch, configured to your actual conversations and use cases.\nMonitors & Refines\nCatches drops, fixes flows, improves resolution rates before they become problems.\nReports & Recommends\nMonthly reviews on what's working, what's changed, and what to do next.\nEnterprise Plan\nCustom agent deployment, SLA-backed support, and a dedicated team built around your scale.\nCustom AI agent deployment\nCustom users & channel configuration\nDedicated Customer Success Manager\nSLA-backed uptime guarantee\nEnterprise governance & audit logs\nQuarterly business reviews\nTalk to Sales\nPower-Ups And Charges\nTruecaller Business\nStarts @ ₹30,000/month\nLeverage the power of Truecaller Business to grow your reach and reputation.\n1800 Toll-Free\nStarts @ ₹500/month\nStrengthen your brand accessibility with a professional 1800 line.\nAuto-Dialer**\nStarts @ ₹700/user/month\nAvailable for SUV & AI Team plans as an add-on per user.\nWhatsApp Messages*\nMarketing\n₹ 0.95\nAuthentication\n₹ 0.13\nUtility\n₹ 0.13\nService\nFree\n*Price for Indian destination numbers. Subjected to change as per Meta’s policies.\nManaged Services\nAvailable as standalone add-ons, and included in the Business AI Operator plan.\nDedicated Onboarding\n₹20,000 /ONE TIME FEE\nCut adoption time. Start seeing ROI faster.\nIncludes\nStart Your Channels: Get help setting up your Call and WhatsApp channels.\nSet Up Your Agent: We’ll help you activate your first Chat or Voice Agent.\nBegin Training: 10 hours of personalized training on the dashboard, agent setup, and campaign management.\nShow details Talk to us\nTalk to us\nAccount Manager\nAnnually\n₹15,000 /MONTH\nDedicated expert for your business.\nIncludes\nYour Personal Manager: A single POC for all your strategy and tech questions.\nProactive Monitoring: Proactive monitoring to catch problems early.\nHands-On Support: Guided troubleshooting for automation logic, agent actions, and linked platforms.\nPriority Escalation: Critical issues get top priority across calls, chats, and more.\nShow details Talk to us\nTalk to us\nManaged Services\nQuarterly\n₹50,000 /MONTH\nEnd-to-end execution by experts.\nIncludes\nAdvanced Agents: Custom Chat & Voice agents for lead capture, support, and engagement.\nCustom Workflows: Automated campaigns, sales, follow-ups, reminders.\nSeamless Integration: Connect easily with your existing business tools.\nWeekly Performance Calls: Stay aligned and on track through regular check-ins.\nShow details Talk to us\nTalk to us\nFrequently Asked Questions\nHow are the three plans structured?\nSedan and SUV are our CPaaS plans — built for teams that want professional, reliable communication infrastructure on call and WhatsApp. Business AI Operator plan is a comprehensive plan that gives you CPaaS + AI Agents and a manager for your AI agents — for teams ready to deploy AI that actively runs their customer communication, managed end-to-end by MyOperator. Start where your business is; scale as it grows.\nWhat does 'managed' mean in the AI plans?\nIt means a real person from MyOperator is accountable for your AI agents. They build them, deploy them, monitor performance, and continuously refine them as your business conversations evolve. You don't configure anything. We run the operation.\nWhy do AI agents need a manager?\nAI agents aren't set-and-forget. Business conversations change — new queries, new flows, new edge cases emerge constantly. Without active monitoring and tuning, agent performance degrades over time. Think of it like any high-performing team: the output is only as good as the management behind it. Every Business AI Operator plan includes that management layer from our team.\nWhat is AI Capacity and how is it different from the number of AI agents deployed?\nAI Capacity is the total volume of AI work included in your plan — measured in credits consumed per voice minute, chat response, or workflow execution. The number of agents deployed, and the scope of each agent, is determined when we scope your AI team plan together. Your AI Capacity powers those agents and varies as per your plan. When the included Capacity is exhausted, additional usage is billed at the published credit rates.\nIs the Business AI Operator replacing my human team?\nNo. Every AI Team plan in Business AI Operator is designed to extend your team's capacity — handling high-volume, repeatable conversations so your human agents can focus on complex, high-value interactions. The MyOperator AI Agent Manager works alongside your team, not instead of it.\nWhy is an AI plan more cost-effective than building a human team?\nBuilding a team of sales or support agents with a dedicated manager is a significant commitment in salaries, training, and operational overhead — and that team only works business hours. Business AI Operator gives you an AI-powered team running 24/7, with a MyOperator manager already included, for a fraction of what traditional hiring would cost.\nIs there a free trial?\nYes. We offer a short onboarding demo and a limited feature trial so you can experience MyOperator firsthand before committing. Our team can set up a sandbox account for you to test WhatsApp campaigns, call routing, or AI agents.\nWhat happens if I cancel my plan?\nYou can cancel anytime. Your data remains secure for 30 days, allowing smooth reactivation or export.\nStart Your MyOperator Journey Today.\nSign Up Now\nSign Up Now\nPopular Features\nWhatsApp Business API IVR System No-code Chatbot Builder WhatsApp AI Chatbot CTWA Setup Shopify Integration\nProducts\nBusiness AI Operator WhatsApp Marketing Suite Call Management Suite AI Suite\nCompare\nMyOperator vs Exotel MyOperator vs Wati MyOperator vs Gallabox MyOperator vs Knowlarity MyOperator vs Interakt MyOperator vs Tata Tele MyOperator vs Phone.com MyOperator vs Ozonetel MyOperator vs Grasshopper MyOperator vs ElevenLabs\nCompany\nAbout Us Partnership Program Testimonials Careers Knowledge Base\nDownload App\nContact\nTalk To Sales\n+91 92129 92129\nTalk To Support\n+91 81029 81029\nhello@myoperator.com\nConnect with us\nCopyright © 2026. Voicetree Technologies Pvt Ltd. All rights reserved.\nTerms & Conditions\nPrivacy Policy\nRefund Policy\nFair Usage Policy\nSecurity",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://myoperator.com/partnership-program",
+     "publisher": "MyOperator 公式パートナー案内",
+     "snapshot": {
+      "url": "https://myoperator.com/partnership-program",
+      "finalUrl": "https://myoperator.com/partnership-program",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:38:53.976Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "d807fc7126d32e4bd247aa8f4e5bb4744928e5a5f3b2875ea49d247491ebd255"
+     },
+     "text": "MyOperator Partner Program | AI Infrastructure for Marketing Agencies\nJoin the MyOperator Partner Program to deliver AI-powered call and WhatsApp agents built on your client's real conversations. Get certified, launch in days, and own the strategy and delivery.\nMyOperator Partner Program | AI Infrastructure for Marketing Agencies\nJoin the MyOperator Partner Program to deliver AI-powered call and WhatsApp agents built on your client's real conversations. Get certified, launch in days, and own the strategy and delivery.\nMyOperator Partner Program | AI Infrastructure for Marketing Agencies\nTalk To Sales:\n+91 92129 92129\nhello@myoperator.com\nLogin\nPricing\nPlatform\nBusiness AI Operator\nAI Suite\nWhatsApp Marketing Suite\nCall Management Suite\nBusiness AI Operator\nAutomate business operations with a unified AI system\nAI Suite\nIntelligent AI chatbots and voicebots for omnichannel communication\nWhatsApp Marketing Suite\nOfficial WhatsApp Marketing Suite for unified customer communication\nCall Management Suite\nSmart IVR, routing, and call management with WhatsApp sync\nUnified Analytics & Reporting\nTrack performances and metrics for a multi-channel system in real time\nSee MyOperator in Action\nA focused consultation to evaluate fit, use cases, and scale.\nBook Demo\nAI Suite\nDeploy and manage intelligent agents across channels\nAI Voicebot for Calls\nEnable intelligent voice interactions\nWhatsApp AI Chatbot\nDeploy conversational AI chatbots for WhatsApp\nSales AI Agent\nDrive conversions through automated chats\nSupport AI Agent\nSupport & resolve queries instantly with AI chatbots\nLead Gen AI Agent\nQualify, score, and capture high-intent leads\nAI Receptionist\nAutomate call handling with a digital front desk\nMultilingual AI Chatbot\nConnect with customers in their local language\nNo-Code AI Chatbot\nBuild and deploy AI bots without coding\nWhatsApp Marketing Suite\nScale engagement with an official WhatsApp suite\nWhatsApp Business API\nAutomate customer chats securely\nWhatsApp Broadcast\nSend WhatsApp messages at scale\nWhatsApp Campaigns\nRun campaigns for engagement\nWhatsApp Marketing\nUse WhatsApp with end to end automation\nMulti-Agent Chat\nGet one business number for multiple agents\nWhatsApp OTP Sender\nSecure authentication delivery via WhatsApp\nWhatsApp Automation\nEngage leads with automated workflows\nBlue Tick Verification\nBuild brand trust with official Meta verification\nCTWA Integration\nEnable leads to start conversations with a click\nWhatsApp Chatbot\nAutomate customer support with 24/7 AI\nCall Management Suite\nOptimize communications with a unified calling system\nIVR System\nAutomate calls with interactive voice menus\nInbound Call Center\nRoute and manage incoming call traffic\nToll-Free\nGet free-to-call business numbers\nVirtual Number\nGet a business number for nationwide presence\nCall Recording\nSecurely store and access customer calls\nBarging & Whispering\nMonitor and guide agents during live conversations\nClick To Call\nConnect with leads instantly with one click\nLive Call Dashboard\nMonitor real-time calling activity and metrics\nSolution\nBy Use Case\nBy Size\nBy Industry\nBy Integrations\nSales\nAccelerate your sales pipeline with a unified AI platform\nMarketing\nRun targeted multi-channel campaigns with AI analytics\nCustomer Support\nDeliver faster resolutions with human + AI support\nStartups\nAgile communication platform for fast-growing teams\nSMBs\nScalable AI solutions to mature business operations\nEnterprises\nBusiness-grade platform for high volume communication\nRetail & Ecommerce\nConvert leads and recover carts\nIT & BPO\nAutomate & optimize services at scale\nTours & Travels\nCapture & convert travel inquiries\nEducation\nSimplify admissions and engagement\nFood & Hospitality\nManage inquiries, bookings, and feedback\nHealthcare\nBuild reliable patient communication systems\nLogistics/Manufacturing\nDeliver instant shipping & tracking updates\nBFSI\nDeploy secure & compliant messaging\nMedia & Advertising\nManage high-volume inquiries & campaign\nRecruitment\nImprove hiring comms & follow-ups\nNGO\nEngage donors & volunteers at scale\nReal Estate\nEngage & convert property leads instantly\nAutomotive\nStreamline bookings & support conversations\nTelcos & ISPs\nScale support, renewals & support\nGovt & PSU\nModernize citizen engagement\nShopify\nSync store data for personalized messaging\nZoho CRM\nSync CRM with WhatsApp + Calls workflows\nZoho Recruit\nOptimize hiring with integrated WhatsApp + Calls\nZoho PhoneBridge\nConnect telephony with Zoho applications\nFreshdesk\nConnect Freshdesk with WhatsApp + Call flows\nLeadSquared\nSync data for calls, chats, and leads automatically\nSalezshark\nStreamline outreach with CRM-integrated conversations\nTruecaller for Business\nGet verified business numbers with caller identity\nBulk SMS API\nSend high-volume SMS campaigns at scale\nZoho Desk\nSupport customers with integrated WhatsApp + Calls\nAPI & Webhooks\nBuild and manage custom communication workflows\nBigin by Zoho CRM\nSync calls and WhatsApp communication workflows\nView All Integrations\nResources\nLearn\nBlog\nInsights on business communication\nDiscover\nSuccess Stories\nGrowth stories from customers\nEvents\nReal-world implementation examples\nConnect\nHelp Center\n24/7 help and documentation\nWhatsApp Business FAQs\nWhatsApp Business Platform Guide\nSee MyOperator in Action\nWant to see MyOperator in action?\nBook Demo\nCompany\nAbout Us\nAn introduction to the company, vision and values at MyOperator\nPartner With Us\nGrow your business with MyOperator network\nCareers\nJoin our growing team of entrepreneurs\nContact Us\nReach us anytime for sales & support queries\nHEAR FROM MYOPERATOR CUSTOMERS\nLearn how top brands used our unified multi-channel communication system to transform customer experiences.\nRead Testimonials\nLog in Get Started\nGet Started\nLog in Sign Up\nSign Up\nPartnership Program\nBuild a high-margin\nAI agent business\nPowered by MyOperator.\nMyOperator gives your agency AI agents, calling, and WhatsApp infrastructure. You own the client relationship, the delivery, and the pricing.\nPartner with MyOperator\nPartner with MyOperator\n15 Years of Trust. 12,000+ Brands Strong.\nIntroducing the MyOperator Partner Program\nThe MyOperator Partner Program turns marketing and growth agencies into certified delivery partners for AI agents. You bring client relationships and service delivery. MyOperator brings a unified infrastructure for AI agents, calls, and WhatsApp with 15 years of platform reliability. You price and invoice your services directly, the way an agency prices its work on top of any platform it builds on.\n60d → 2d\nImplementation time\n30x\nFaster deployments\n2B+\nConversations processed\nThe right partners for this program\nBuilt for agencies that already own the client relationship, not for teams trying to build AI infrastructure from scratch.\nMarketing & Growth Agencies\nAgencies delivering digital, growth, or customer engagement services for long-term client accounts.\nAI Implementation Teams\nAI-first agencies building agentic workflows for clients who need communication infrastructure.\nNon-technical operators\nAgencies delivering AI-powered operations without building or maintaining infrastructure.\nWhat you get as a partner\nEverything you need to sell, deploy, and manage AI agents for your clients, without building any of the underlying technology.\nPlatform & Panel Access\nAccess to MyOperator’s partner panel with AI agents, calling, and WhatsApp infrastructure.\nAI Performance Analytics\nAI performance and diagnostics data to power consulting and advisory revenue.\nTraining & certification\nGet certified with a MyOperator Partner badge that signals your credibility to deliver AI solutions.\nSales Kit and Support\nQualified referrals, joint pitches & ready-made decks for retail, healthcare, education & BFSI.\nWhat sets the MyOperator Partner Program apart\nMost AI agents on the market are built once, generically. This program is built for agencies that deliver, refine, and manage agents on real client data.\nContent type\nGeneric AI agent builds\nMyOperator Partner Program\nBuild method\nBuilt from generic training data and guesswork\nBuilt from client's real call and WhatsApp data\nInfrastructure\nRequires your own calling line or WhatsApp number\nOwns the unified calls and WhatsApp stack\nPartner role\nAgencies act as resellers or referrers\nManage strategy, delivery, and accounts\nSpeed to launch\nWeeks of manual build, testing, and integration\nPlatform builds AI; partners refine & launch in days\nTooling\nSeparate tools for calls, WhatsApp, and CRM\nUnified platform and panel across every channel\nScaling across clients\nAdds operational load with every new client\nStandard playbook for repeat multi-client delivery\nFrequently asked questions\nHow fast can we get a client live?\nMost implementations that used to take weeks of manual build and testing now take about two days, because the platform handles setup and partners refine from there.\nDoes MyOperator send partners new clients too?\nYes. Growth runs both ways. You bring your own book of clients, and MyOperator routes qualified implementation opportunities back to you, matched to your team's strengths and capacity.\nWho owns the client relationship?\nYou do. Partners own client strategy, delivery, pricing, and the day-to-day relationship. MyOperator provides the AI infrastructure and platform behind it.\nHow does the partnership work financially?\nYour client pays for two things: the MyOperator platform subscription and your managed service on top of it. You set your own pricing for the service and strategy you deliver, we charge for the partner platform cost.\nWill my clients see MyOperator's platform?\nYes. Partners get a Certified Partner badge and a dedicated panel, and clients see the underlying platform. You still own the strategy, the delivery, and the relationship.\nIs technical or AI expertise required to join?\nNo. The program is built for agencies that understand their clients' operations, not for teams building AI systems. MyOperator's platform handles the technical layer.\nCan I deliver AI agents for multiple clients?\nYes. The platform and partner tools are built for repeatable, multi-client deployment, with standardized playbooks as you scale.\nLet's scope a pilot\nSee the platform live and scope your first client deployment in one session.\nPartner With MyOperator\n‍\nTry MyOperator For Free\nYou bring the client relationship and delivery. We bring the platform, the infrastructure, and continuous improvement.\nPopular Features\nWhatsApp Business API IVR System No-code Chatbot Builder WhatsApp AI Chatbot CTWA Setup Shopify Integration\nProducts\nBusiness AI Operator WhatsApp Marketing Suite Call Management Suite AI Suite\nCompare\nMyOperator vs Exotel MyOperator vs Wati MyOperator vs Gallabox MyOperator vs Knowlarity MyOperator vs Interakt MyOperator vs Tata Tele MyOperator vs Phone.com MyOperator vs Ozonetel MyOperator vs Grasshopper MyOperator vs ElevenLabs\nCompany\nAbout Us Partnership Program Testimonials Careers Knowledge Base\nDownload App\nContact\nTalk To Sales\n+91 92129 92129\nTalk To Support\n+91 81029 81029\nhello@myoperator.com\nConnect with us\nCopyright © 2026. Voicetree Technologies Pvt Ltd. All rights reserved.\nTerms & Conditions\nPrivacy Policy\nRefund Policy\nFair Usage Policy\nSecurity",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "WhatsApp向けの料金には、MyOperatorの利用料とは別にMetaの料金が乗る。",
+     "basis": [
+      "f1",
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "SaaSの年払いで、客は1年分を先に払う。現行の料金表も全プラン年払い。",
+     "basis": [
+      "f6",
+      "f9"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2010年: Ankit Jainが最初の音声サービスVoice Jadooを開始。2013年3月: MyOperatorを開始。開始から6か月: 登録利用者600人超、有料200社、損益が釣り合う。2016年: 登録利用者25,000人超、有料2,000社超、従業員125人。2015-16年度: 売上200万ドル（本人公表）。現在: 公式サイトが運営法人Voicetree Technologiesの名で営業を続け、現行の料金表を掲げている。",
+     "basis": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f9",
+      "m1"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "先行者が強く後発は困難。同じ分野には、2012年にシリーズAを調達したExotel、2014年7月に1,600万ドルを調達したKnowlarityなど、資金を入れた先行者が複数いる。MyOperatorは2013年の開始から営業を続け、現行の料金表とパートナー制度を掲げ、サービスをWhatsAppとAIボットへ広げている。",
+     "basis": [
+      "f1",
+      "f2",
+      "f8",
+      "f9",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f9",
+    "m1",
+    "m3",
+    "m4"
+   ],
+   "identity": {
+    "id": "ent_myoperator_49c393230a2d",
+    "name": "MyOperator",
+    "url": "https://myoperator.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [],
+    "displayableIds": [],
+    "problems": []
+   },
+   "caseHash": "a9bb45a6c85e68d93c164a19990a7db9079e595add20f0b350812c6f549d3a5b",
+   "itemHashes": {
+    "fact:f1": "699e84c370f741df3a9eaca496974b1c3a734b59e8c4904c0d914f35eb51a913",
+    "fact:f2": "dbb713bae91e5b86a110dca014139044eb40c292fe488e11440db91820a69787",
+    "fact:f3": "43db816c90aafc3c792a8b8f26fdf108cd35ad54d7a22a4f623ef5dcff099498",
+    "fact:f4": "14bd7228801199ccb02ab6eb90647eb4a840a5f6f995ff98abe09d2eea9f8f7e",
+    "fact:f5": "253d9e29cb850ba52a8289302215a7b0690f7543a873abf79b98aee21e8c1703",
+    "fact:f6": "bde85bb1db19d1581b3e284a982f65b60b082790a194e580b91cc3ef528a7c32",
+    "fact:f7": "4e317a740e7b0171521c5dd4cec2937f37d329d899e53cf02ef6a5f7c426f9a7",
+    "fact:f8": "44a47ca357358f0c5aa255123d63131ee74c3b640c61d3e89b293d31336ae4d0",
+    "fact:f9": "36d857a156c33bee9cf4389d417765fca4e5f202de21dfc11a29cba193126c8e",
+    "fact:f10": "f689b12801f983e041a761bb65a4f8ddd016855279addbe382e79a9bad71961a",
+    "metric:m1": "964cfb1c4d1f0694adb1487aea1705c36e19a0d905e014ee3e7d242bac690471",
+    "metric:m3": "d83411a616a3cd81a22a7c9abe616081089505a683c7128624e8dad85a871275",
+    "metric:m4": "19390881c005159f1494c6ba761a4494d250320580a9afb38db9c76c995f337a",
+    "analysis:a-headline": "5cdd5868b62a0bf7a021c8ce29959229b044ff2a87537c941e29829862b70351",
+    "analysis:a-business_model": "c4075ed44bfc971c2c6693339116e5aaa9a511242a08fa0819307b80ade16e80",
+    "analysis:a-customer_pain": "7b4d0f7da390b5eaab587eaa570bc5e6543e33a5d4e6601fc7c3df166fc1efc3",
+    "analysis:a-referral": "d18569030b59aa7b7b76005f54464dd5ebc9d928e7436d33e4acbaa0754cc504",
+    "analysis:a-competition": "ef6e82ad7d947768f3edc20a26cacdcc3c2610765de78aa1b9fa6eac14cc195d",
+    "analysis:a-capital_and_team": "bd015188c98e1a6ba57463154f2c6211a1d950c7c47ef40a8a46cbf6057dd28a",
+    "analysis:a-story": "f4e458c8c1294adb67346d01662eb010ed5bf298d0af4ecb545f4a9a3b564077",
+    "analysis:a-customer": "f8c7e21839e2f4d32dd3309bbe826ace6befe77b91f79e4d3689f8010cf3cfb6",
+    "analysis:a-first_customers": "5dbab03c09438812f4432dba4c783233a0808b1d30c8c7449c6baed372dfc032",
+    "analysis:a-channels": "4bf4cb7644adba82be2448fc7c4b439989101ffbb1b6aa48b65ea45e29bcdc02",
+    "analysis:a-dependencies": "4bac2ad8ce1e9c0cc98ead8224a108627ab1d37d3f1be583237f33e936c712a7",
+    "analysis:a-upfront_cash": "1056cada26b3203f0e04c9685b1523f2ab71fbf0a50062f153001a53ba6fe20d",
+    "analysis:a-timeline": "061bd1466258412e77a4793f77e25f837cb2db399fc80ab29931986f0fa122c3",
+    "analysis:a-viability": "2c1a100d8de46a8f30061e0e62621a96c65d8f4b2d14c73ce0b916fee826ba8f",
+    "analysis:a-lesson": "857e1e5e716f6166746e3ccbda53d163997fb26aff67de52aa0a89f087a26c0e"
+   },
+   "review": [
+    "fact:f9",
+    "metric:m1",
+    "metric:m3",
+    "metric:m4",
+    "analysis:a-dependencies",
+    "analysis:a-upfront_cash",
+    "analysis:a-timeline",
+    "analysis:a-viability"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "publisher": "MyOperator 公式ブログ（YourStory 2016年記事の再掲）",
+      "url": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+      "title": "How this cloud telephony platform is thriving without a single penny from investors",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s2",
+      "publisher": "MyOperator 公式サイト",
+      "url": "https://myoperator.com",
+      "title": "MyOperator - Business AI Operator For WhatsApp + Calls",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "publisher": "MyOperator 公式料金表",
+      "url": "https://myoperator.com/pricing",
+      "title": "Pricing - Explore MyOperator's Tiers",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "publisher": "MyOperator 公式パートナー案内",
+      "url": "https://myoperator.com/partnership-program",
+      "title": "MyOperator Partner Program",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "通話とWhatsApp向けに、AIチャットボット、音声ボット、IVR（電話の自動案内）、キャンペーン管理を売る会社。運営法人はVoicetree Technologies。小売・医療・教育・不動産・金融などの営業・マーケ・サポート部門が客。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "FOUNDING",
+      "text": "2013年3月、CEOのAnkit Jain（当時30歳）と弟で公認会計士のPrateek Jain（当時27歳）が開始。元手は兄弟の自己資金12ラック・ルピーで、主に技術とチームづくりに使った。2016年時点で外部資金はなし。Ankitは2010年に最初の音声サービスVoice Jadooを始めていた。",
+      "sourceId": "s1",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f3",
+      "kind": "EVENT",
+      "text": "開始から6か月で登録利用者600人超、うち有料200社。客にはアーム・アードミ党、Lenskart、Snapdeal、Shop.IRCTCなどがいた。この間に損益が釣り合った（赤字を脱した）と説明している。",
+      "sourceId": "s1",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f4",
+      "kind": "TEAM",
+      "text": "5人で始め、2016年には125人。このうち4割は直近6か月で採用した。従業員にはストックオプション（ESOP）で報いたと説明している。",
+      "sourceId": "s1",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "2016年時点で登録利用者25,000人超、有料顧客2,000社超。新しい客にCanon、Fabindia、Cashkaro、DHLが加わったと説明している。",
+      "sourceId": "s1",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f6",
+      "kind": "PRICING",
+      "text": "売り方はSaaSの年払い。他社との違いは、設定作業なしで通話管理を1分で立ち上げられる点だとAnkitは語る。",
+      "sourceId": "s1",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "創業者が挙げた難所は、チームづくりと、市場でこの技術があまり知られていないこと。開始からの3年間は、市場への啓発と販売に力を割いたと語る。中小企業の技術利用はメール止まりだというのが本人の見方。",
+      "sourceId": "s1",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "同じ記事は競合として、Exotel（2012年にシリーズAで2.5クロール・ルピー）、Knowlarity（2014年7月にSequoia CapitalなどからシリーズBで1,600万ドル）、Ozonetelを挙げる。MyOperatorはその間、外部資金なしで走ったと位置づけている。",
+      "sourceId": "s1",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f9",
+      "kind": "PRICING",
+      "text": "現行の料金表は、Sedanが月5,000ルピー、SUVが月15,000ルピーで、どちらも10ユーザー。全プラン年払いで、GSTとMetaの料金は別。冒頭に30日間の全額返金を掲げる。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "CHANNEL",
+      "text": "パートナー制度では、代理店が顧客向けの運用サービスの価格を決め、MyOperatorはパートナー用の基盤の費用を請求する形を示している。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [
+     {
+      "id": "m1",
+      "measure": "REVENUE",
+      "periodKind": "FISCAL_YEAR",
+      "period": "2015〜2016年度",
+      "amount": 2000000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     },
+     {
+      "id": "m3",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "period": "2016年の登録利用者",
+      "amount": 25000,
+      "unit": "人",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     },
+     {
+      "id": "m4",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "period": "2016年の有料顧客",
+      "amount": 2000,
+      "unit": "社",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     }
+    ],
+    "unknowns": [
+     "PROFIT",
+     "COST",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "WhatsApp向けの料金には、MyOperatorの利用料とは別にMetaの料金が乗る。",
+      "basis": [
+       "f1",
+       "f9"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "SaaSの年払いで、客は1年分を先に払う。現行の料金表も全プラン年払い。",
+      "basis": [
+       "f6",
+       "f9"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2010年: Ankit Jainが最初の音声サービスVoice Jadooを開始。2013年3月: MyOperatorを開始。開始から6か月: 登録利用者600人超、有料200社、損益が釣り合う。2016年: 登録利用者25,000人超、有料2,000社超、従業員125人。2015-16年度: 売上200万ドル（本人公表）。現在: 公式サイトが運営法人Voicetree Technologiesの名で営業を続け、現行の料金表を掲げている。",
+      "basis": [
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "f5",
+       "f9",
+       "m1"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "先行者が強く後発は困難。同じ分野には、2012年にシリーズAを調達したExotel、2014年7月に1,600万ドルを調達したKnowlarityなど、資金を入れた先行者が複数いる。MyOperatorは2013年の開始から営業を続け、現行の料金表とパートナー制度を掲げ、サービスをWhatsAppとAIボットへ広げている。",
+      "basis": [
+       "f1",
+       "f2",
+       "f8",
+       "f9",
+       "f10"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

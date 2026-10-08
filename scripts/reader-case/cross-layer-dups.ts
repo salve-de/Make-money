@@ -29,9 +29,9 @@ function placesOf(entityId: string, files: DisplayFiles): Array<[string, string]
 }
 
 /** 同じ数字・同じ言い回しが2か所以上にある時の指摘（重なっている場所つき）。 */
-export function findDuplicates(entityId: string, files: DisplayFiles): Array<{ message: string; places: string[] }> {
+export function findDuplicates(entityId: string, files: DisplayFiles): Array<{ message: string; places: string[]; needle: { kind: 'number' | 'phrase'; value: string } }> {
   const places = placesOf(entityId, files);
-  const problems: Array<{ message: string; places: string[] }> = [];
+  const problems: Array<{ message: string; places: string[]; needle: { kind: 'number' | 'phrase'; value: string } }> = [];
   const seen = new Map<string, { raw: string; at: Set<string> }>();
   for (const [where, text] of places) {
     for (const n of unitNumbers(text)) {
@@ -41,7 +41,7 @@ export function findDuplicates(entityId: string, files: DisplayFiles): Array<{ m
     }
   }
   const sections = (at: Set<string>) => new Set([...at].map(sectionOf)).size;
-  for (const { raw, at } of seen.values()) if (sections(at) >= 2) problems.push({ message: `同じ数字「${raw}」が ${[...at].join(' と ')} に重なっている（1か所だけにする。数字は最も合う1か所に残し、他は数字を使わない言い方にする）`, places: [...at] });
+  for (const [key, { raw, at }] of seen) if (sections(at) >= 2) problems.push({ message: `同じ数字「${raw}」が ${[...at].join(' と ')} に重なっている（1か所だけにする。数字は最も合う1か所に残し、他は数字を使わない言い方にする）`, places: [...at], needle: { kind: 'number', value: key } });
   const phrases = new Map<string, Set<string>>();
   for (const [where, text] of places) {
     const flat = text.replace(/[\s、。，．,.・:：（）()「」『』〜~\-—–]/g, '');
@@ -57,7 +57,7 @@ export function findDuplicates(entityId: string, files: DisplayFiles): Array<{ m
     const pair = [...at].join(' と ');
     if (reported.has(pair)) continue;
     reported.add(pair);
-    problems.push({ message: `同じ話「${w}」が ${pair} に重なっている（1か所だけにし、他は言い方と焦点を変える）`, places: [...at] });
+    problems.push({ message: `同じ話「${w}」が ${pair} に重なっている（1か所だけにし、他は言い方と焦点を変える）`, places: [...at], needle: { kind: 'phrase', value: w } });
   }
   return problems;
 }

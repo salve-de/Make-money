@@ -1,0 +1,1 @@
+{"cases":[{"entityId":"ent_hostifi_cf9ec73a42d2","items":[{"analysisId":"a-capital_and_team","kind":"FACT_DISGUISED","severity":"FIX","why":"「外部資金は10万ドルである」と書くと調達がこの1回だけだと言い切ることになるが、出典が示すのは2019年に10万ドルを調達した事実だけで、ほかに調達がなかったことまでは確かめられない。","fix":"本業の IT サービス事業 Locklin Networks の副業として始めた。2019年には Calm Company Fund から10万ドルを調達している。","fixFormula":"数字は出典に載っている値"}]}]}

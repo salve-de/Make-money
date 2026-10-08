@@ -1,1 +1,74 @@
-[]
+[
+ {
+  "key": "ent_memberful_0dff1f9c00fa|fact|f12",
+  "entityId": "ent_memberful_0dff1f9c00fa",
+  "kind": "fact",
+  "id": "f12",
+  "text": "同じ顧客は、初期数週間に300人が登録し、開始2か月で750人の会員になったと述べた。",
+  "sourceUrl": "https://memberful.com/customers/workweek-lunch",
+  "reasons": [
+   "NUMBER_NOT_IN_SOURCE"
+  ],
+  "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_plain_f8a62d87d9cb|fact|f29",
+  "entityId": "ent_plain_f8a62d87d9cb",
+  "kind": "fact",
+  "id": "f29",
+  "text": "n8n は AI を問い合わせの60%に使い、問い合わせ20倍に対し対応チームを2倍にしたと説明している。導入前は顧客が応答を2〜3週間待っていたが、現在は企業顧客への応答が平均6〜8時間になったという。",
+  "sourceUrl": "https://www.plain.com/customers/n8n",
+  "reasons": [
+   "NUMBER_NOT_IN_SOURCE"
+  ],
+  "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_poolsuite_6d5ad6895563|fact|f1",
+  "entityId": "ent_poolsuite_6d5ad6895563",
+  "kind": "fact",
+  "id": "f1",
+  "text": "Marty Bell は、プレイリストを共有するだけでは聞かれにくいと考え、音楽に 1980 年代の浜辺の映像を合わせた体験を作ろうとした。",
+  "sourceUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+  "reasons": [
+   "YEAR_NOT_IN_SOURCE"
+  ],
+  "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_data_fetcher_8e6a5e22ce2a|fact|f31",
+  "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+  "kind": "fact",
+  "id": "f31",
+  "text": "2024年の取材本文では MRR USD 23,000、利用者数千人、有料客数百人と記載。",
+  "sourceUrl": "https://www.starterstory.com/stories/data-fetcher",
+  "reasons": [
+   "YEAR_NOT_IN_SOURCE"
+  ],
+  "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_lunch_money_be2eeb1f4fdf|fact|f14",
+  "entityId": "ent_lunch_money_be2eeb1f4fdf",
+  "kind": "fact",
+  "id": "f14",
+  "text": "Jenは2018年11月末から副業で開発し、1人で作ったと公開投稿した。",
+  "sourceUrl": "https://news.ycombinator.com/item?id=20811287",
+  "reasons": [
+   "YEAR_NOT_IN_SOURCE"
+  ],
+  "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_noteforms_003fcbdd14cf|fact|f3",
+  "entityId": "ent_noteforms_003fcbdd14cf",
+  "kind": "fact",
+  "id": "f3",
+  "text": "利用者と企業が合わせて130,000以上という案内がある。",
+  "sourceUrl": "https://noteforms.com/",
+  "reasons": [
+   "NUMBER_NOT_IN_SOURCE"
+  ],
+  "heldAt": "2026-10-08"
+ }
+]

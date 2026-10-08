@@ -158,6 +158,9 @@ export function preparePublicationReader(reader: ReaderCase, verdicts: VerdictsF
   return { reader: reflectAnalysis(applied.reader, checked.kept), problems: checked.dropped.map((x) => `推論:${x.item}:${x.reason}`) };
 }
 
+/** 画像の権利・実体が未充足の理由。文の反映（case-reflect）は無視し、公開の目録作り（prepare-catalog-release）だけが効かせる */
+export const MEDIA_UNMET = '画像の権利または実体が未充足';
+
 export function evaluatePublication(input: PublicationInput, audit: PublicationAudit | undefined, problems: string[] = []) {
   const reasons = [...problems];
   const { reader, identity } = input;
@@ -192,7 +195,7 @@ export function evaluatePublication(input: PublicationInput, audit: PublicationA
   const claimIds = [...reader.facts, ...reader.metrics].map((c) => c.id);
   if (new Set(claimIds).size !== claimIds.length || new Set(reader.sources.map((s) => s.id)).size !== reader.sources.length) reasons.push('根拠IDが重複');
   for (const metric of reader.metrics) if (metric.origin === 'ESTIMATED' && !metric.basis?.trim()) reasons.push(`推定の根拠:${metric.id}`);
-  if (input.media.problems.length || !input.media.displayableIds.length) reasons.push('画像の権利または実体が未充足');
+  if (input.media.problems.length || !input.media.displayableIds.length) reasons.push(MEDIA_UNMET);
   const hash = publicationHash(input);
   const unaudited = unauditedItems(input, audit);
   if (unaudited.caseLevel) reasons.push(CASE_UNAUDITED);

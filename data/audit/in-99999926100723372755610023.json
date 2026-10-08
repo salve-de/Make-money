@@ -1,0 +1,1364 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_statusgator_316d3eb5edf6",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "FOUNDING",
+     "text": "顧客の不具合を数時間調べたところ、原因がFacebook APIの障害だった経験から着想し、2015年1月に公開した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "OTHER",
+     "text": "2015年6月までに月1,000米ドルを目指したが届かず、2016年12月の継続月額売上は330米ドルだった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "2016年12月の掲示費用はStripeが10米ドル、Herokuが154米ドル、DigitalOceanが5米ドル。差額を161米ドルと表示するが創業者給与と一部の小額費用を含まない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "OTHER",
+     "text": "当時は有料22人、無料1,159人。無料枠は3サービス監視で、旧利用者には5または10サービスを残した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "PRICING",
+     "text": "当時の有料プランは月9.99米ドルと19.99米ドル。企業向けには複数利用者のサインオン、年払い、経費精算用の領収書の入手などが必要だと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "CHANNEL",
+     "text": "Facebook、Google AdWords、Twitterの広告を試したが効果が乏しく、検索と口コミを有効と報告。StackShareへの寄稿は長く流入を生んだ。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "買収提案を1件受けたが、提示額が小さく応じる気にならなかった。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "FOUNDING",
+     "text": "Colin Bartlettが2014年に考案し、2015年に公開した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "TEAM",
+     "text": "2018年にAndy Libbyが加わり、Nimble Industriesを作った。複数国の遠隔勤務で運営する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "EVENT",
+     "text": "2020年にK12向けの提供を始め、遠隔授業中の学校の問い合わせ削減を支援した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "FUNDING",
+     "text": "2022年にTinySeedに参加し、最初で唯一の資金調達を行った。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "EVENT",
+     "text": "2024年に、公式障害告知より早く異常を捉えるEarly Warning Signalsを一般提供した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "DESCRIPTION",
+     "text": "会社紹介では11,220以上のサービスの状況を集約し、38,000人以上の利用者に提供したと表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "OTHER",
+     "text": "長期利用者5件を失った一方、新規9件を獲得し、既存客の上位プランへの変更も過去最多だったと報告。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "月額継続売上は前月比で純15%増え、3,000米ドル近くに達したと報告。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f16",
+     "kind": "PRICING",
+     "text": "解約した旧契約は現行最安より33〜66%安い料金だった。新しい段階料金により新規客単価が高くなったと述べる。",
+     "attribution": "LISTING"
+    },
+    {
+     "id": "f26",
+     "kind": "PRICING",
+     "text": "無料版は監視3件、状況ページ1件、管理者1人、月10通知、履歴1か月。14日間の全機能試用はカード不要。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f27",
+     "kind": "PRICING",
+     "text": "Starterは月払い79米ドル、年払いの月換算72米ドル。監視25件、状況ページ1件、管理者1人、通知購読者500人、履歴3か月。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f28",
+     "kind": "PRICING",
+     "text": "Teamは月払い149米ドル、年払いの月換算137米ドル。監視75件、状況ページ3件、管理者3人、通知購読者1,000人、履歴6か月。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f29",
+     "kind": "PRICING",
+     "text": "Corporateは月払い299米ドル、年払いの月換算274米ドル。監視150件、状況ページ5件、管理者10人、履歴12か月。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f31",
+     "kind": "TOOL",
+     "text": "上位プランへの変更はStripeで支払い情報を入力して完了し、確認後すぐに反映する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f32",
+     "kind": "OTHER",
+     "text": "無料版を含む下位プランへの変更はいつでもできる。月払いと年払いを切り替えると更新日程がそれに応じて調整される。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f33",
+     "kind": "TOOL",
+     "text": "管理画面と外部接続はHerokuとAWS、配信にはCloudflareとVercel、決済はStripeを使用。利用者向けの状況ページは別の設備で動かす。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f34",
+     "kind": "OTHER",
+     "text": "直近12か月の稼働率99.92%、低下・停止は年間約7時間と自社表示。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f35",
+     "kind": "OTHER",
+     "text": "2025年からSOC 2 Type 2の認証を受け、最新の監査報告日を2025-10-31と表示。報告書は申請フォームで請求できる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f36",
+     "kind": "CHANNEL",
+     "text": "TinySeedの投資先とSaaS Instituteの会員向けに、Teamを2年間無料、その後2年間は任意のプランを50%引きで提供する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f37",
+     "kind": "OTHER",
+     "text": "事例記事では、Rock Paper Coinが取引先の障害を把握するため、状況ページ、関係する部品に絞った監視、自社サイト監視、SMSとSlack通知を利用していると紹介。共同創業者兼CEOのElizabeth Sheilsは、導入前は取引先サイトが停止しても状況が分からなかったと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f38",
+     "kind": "OTHER",
+     "text": "同事例では、未対応のサービス追加を要望し、要望から数分で追加されたと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f39",
+     "kind": "OTHER",
+     "text": "教育関係の利用者191人が127種類のサービスを監視していたと自社集計。約55%は1サービスだけを監視しており、無料枠で多くの教育機関の需要を満たすと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f40",
+     "kind": "EVENT",
+     "text": "iOSとAndroid向けに公開。状況ページにアクセスできる人は誰でもQRコードで追加でき、早期警告を含む通知、監視選択、通知停止、障害報告を使える。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://statusgator.com/blog/?p=76",
+     "publisher": "Colin Bartlettの2016年副業回顧",
+     "snapshot": {
+      "url": "https://statusgator.com/blog/?p=76",
+      "finalUrl": "https://statusgator.com/blog/?p=76",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:31.516Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "27be296690ae6ee0318b580b0c43d2d1935e208383bf2242ea4c231c7caeae5f"
+     },
+     "text": "Anatomy of a Profitable Side Project: StatusGator 2016 Review | StatusGator\nAnatomy of a Profitable Side Project: StatusGator 2016 Review | StatusGator\nBackground In 2016, my side project StatusGator garnered enough paying customers to be profitable. I have wanted to document and share what I’ve learned along the way for months. But doing so ... Read more\nAnatomy of a Profitable Side Project: StatusGator 2016 Review | StatusGator\nSkip to content\nUse Cases\nFeatures\nPricing\nIntegrations\nBlog\nSign In\nSign Up\nIT Teams\nStay informed of outages\nand reduce tickets\nDevOps\nOne status page for all your\nproviders\nEducation\nFeatures designed\nspecifically for K12\nEnterprise\nAdvanced features\ndesigned for enterprise\nManaged service providers\nImpress clients with\nproactive monitoring\nCompetitive intelligence\nAnalyze and compare peer\nperformance\nE-commerce\nMonitor dependencies to\nprevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nGitHub outage on August 17, 2026: seven hours of Unicorn errors and Copilot failures\nRead more\nStatus page\nA status page with service,\nwebsite, and custom monitors built-in\nStatus aggregation\nAggregate the status of all\nvendors to a single page\nCloud monitoring\nMonitor all your cloud\nservices from a single\ndashboard\nWebsite monitoring\nMonitor your website with\nuptime monitoring built-in\nPing monitoring\nMonitor network\nconnectivity\nIncidents\nControl the status of\ncustom monitors manually\nwith incidents\nEarly warning signals\nGet notified of disruptions\nbefore they become public\nMonitor dependencies now available in the v3 API\nRead more\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nChat\nEmbeds\nDigital Signage\nKnowledge Base\nNotifications\nHelp Desk\nThird-party Status Pages\nIncident Management\nMonitoring\nPrivate Status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nSchedule a Demo\nUse cases\nIT Teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly warning signals\nGet notified of disruptions before they become public\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital Signage\nOptiSigns\nRise Vision\nTV\nKnowledge Base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party Status Pages\nAtlassian Statuspage\nStatusHub\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate Status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign In\nSign Up\nAnatomy of a Profitable Side Project: StatusGator 2016 Review\nTable of contents\nBackground\nA peek at the financials\nI am the worst marketer\n2017 and beyond\nBackground\nIn 2016, my side project StatusGator garnered enough paying customers to be profitable. I have wanted to document and share what I’ve learned along the way for months. But doing so requires confronting the reality that my side project is not the runaway success that I had hoped it would be, but rather a useful tool for myself and for others, that can exist forever thanks to the fact that it ekes out a meager profit on paper. In fact, StatusGator wouldn’t be profitable at all if I were to value my time anywhere above nil, but I suspect that’s true for quite a lot of small businesses.\nStatusGator aggregates status pages . It monitors the status pages of all the services you use, then aggregates them into a single status page that you can share with your team. It optionally alerts you to status changes via Email, Slack, or anything else so you can stay on top of what’s happening with the services you depend on. StatusGator’s origin story involves hours spent debugging an issue for a client, which turned out to be caused by a Facebook API outage. Why hadn’t I thought to check their status page first!? I launched StatusGator in January 2015 and my goal was $1,000 of monthly recurring revenue by June 2015.\nA peek at the financials\nStatusGator makes a profit on paper, thanks to the fact that I built and maintain all of it myself and I work for free, supported by other gigs. The handful of paying customers I have do cover the minimal hosting expenses and then some. StatusGator currently makes about $160 per month, quite a bit short of my original goal. Here’s the breakdown:\nRecurring Revenue: $ 330\nStripe Fees - $ 10\nHeroku - $ 154\nDigital Ocean - $ 5\n-----------------------------\nNet Profit: = $ 161 /month\nThe revenue comes from 22 paying customers who pay either $9.99 or $19.99 a month. The expenses are almost entirely Heroku and third-party add-ons, along with Digital Ocean which hosts this blog, and of course the 2.9% off the top to Stripe. There are a few minor expenses like domain names, DNSimple hosting, and some MailChimp credits which are not significant amortized out over the year.\nA paid StatusGator account just lets you monitor more status pages. The Free Forever plan allows 3 status pages to be monitored, though I have experimented with various plans over the last two years and have always allowed people to keep their plan. Therefore, some users get 5 or even 10 services monitored for free.\nThe remaining 1,159 users are on the free plan. Which means that 1.8% of the users pay for the resources needed to support the other 98.2% of the user base. Fortunately, StatusGator could scale vastly without significant additional hosting cost so even if that minimal paid conversion rate continues, it’s still maintainable.\nI am the worst marketer\nStatusGator’s growth has been completely organic and mostly linear. I have tried all kinds of marketing: Facebook, Google Adwords, Twitter, but just organic search engine traffic and word of mouth have been the only effective channels. A post I wrote early on for StackShare has continued to trickle in users. I occasionally reference StatusGator in posts on HackerNews, though I try to do so tastefully so as not to blatantly advertise. That usually brings a bump in users.\nThe biggest lesson learned is that I am a terrible marketer and that is reflected in the pretty meager conversion of free customers to paid customers. I’m dreadfully afraid to spam people, so much that I stopped sending email newsletters with new product features. I don’t have good insights into how to reach my core audience of developers and start ups.\nI’ve also discovered that products aimed at even modestly sized enterprises need completely different features than consumer-focused products. Multi-user sign on, annual billing, access to receipts for expense reports, these are all things that anyone who is working on a team needs in order to make the friction of use low enough to justify the effort. I’ve built some of these, but hope to add a lot more team-oriented features in the future.\n2017 and beyond\nI get immense personal value out of StatusGator. The alerts to Slack about what’s up and what’s down are just absolutely essential to my workflow. So despite the minimal profit generated, I expect StatusGator to live on forever. In fact, I’m emboldened to build out some more features that would be useful to myself, hoping that others might find them useful as well. An iOS mobile app would allow me to consume notifications on my preferred platform. A calendar-like feed of upcoming maintenance schedules aggregated from all services I use, could help me plan for downtime better. And more granular notification selections would help me keep the noise down on services with many moving parts such as AWS. If you have further ideas, I’d love to hear them .\nDoes StatusGator have an exit strategy? Not specifically, as I’d be happy to keep running it forever though I would like to make it a more substantial slice of my income so I can justify the time I spend keeping it running. I had one offer to buy StatusGator but wasn’t motivated enough by the small amount offered, and it would not have been valuable enough to the acquirer for them offer more. Ultimately, my dream is not raising money, growing at lightning speed and selling out to the man, but rather building a sizable enough income stream that I could quit my consulting work. Isn’t that every hacker’s dream?\nUncategorized\n❮ Previous article\n❯ Next article\nPublished: December 30, 2016\nby\nUpdated: July 11, 2024\nby\nShare this\nColin Bartlett\nColin Bartlett is co-founder of StatusGator and Nimble Industries, a seasoned Ruby engineer and entrepreneur who launched StatusGator in 2015 and later grew it into a full-fledged company.\nFollow on Linkedin\nRecent posts\nSeptember 2026 product updates\nGet a weekly view of your service reliability\nSeptember 2026 Early Warning Signals\nTable of contents\nTable of contents\nBackground\nA peek at the financials\nI am the worst marketer\n2017 and beyond\nStatusGator: Early outage alerts\nUnified status page\nCloud service monitoring\nEarly Warning Signals\nIntegrated with dozens of tools\nWebsite monitoring\nSchedule a demo\nShare this\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent monitoring service tracking the availability of more than 10,430 services since 2015. References to third-party services are for identification purposes only. It is not endorsed by or affiliated with the services we monitor. All trademarks are the property of their respective owners. Copyright © 2026 Nimble Industries, Inc.\nClose Use Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nStatus aggregation\nCloud monitoring\nWebsite monitoring\nPing monitoring\nIncidents\nEarly warning signals\nPricing\nBusiness\nEducation\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nTV\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nMeraki\nNeat Pulse\nTrackSSL\nNotifications\nEmail\nSMS\nPrivate Status\nAT&T status\nAWS status\nAzure status\nMicrosoft 365 status\nZendesk status\nStatus Pages\nAtlassian Statuspage\nStatusHub\nAdvanced\nFirehose\nWebhook\nBlog\nSearch for:",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://statusgator.com/about",
+     "publisher": "StatusGatorの沿革と会社紹介",
+     "snapshot": {
+      "url": "https://statusgator.com/about",
+      "finalUrl": "https://statusgator.com/about",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:32.071Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "66e0fa79635bcdad0e81d7ebc4fb88be75ff08de4114d15381ea3f1bc27e6acd"
+     },
+     "text": "About StatusGator | The most trusted status page aggregator\nLearn about StatusGator, the most trusted status page aggregator platform, founded in 2015. We aggregate status data from thousands of services to keep teams informed.\nAbout StatusGator | The most trusted status page aggregator\nLearn about StatusGator, the most trusted status page aggregator platform, founded in 2015. We aggregate status data from thousands of services to keep teams informed.\nAbout StatusGator | The most trusted status page aggregator\nSkip to main content\nSee the biggest outages we detected early in August 2026\nLearn more\nabout\nSee the biggest outages we detected early in August 2026\nCan't find service?\nRequest service\nUse cases\nIT teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nSeptember 2026 Early Warning Signals\nRead more\nabout September 2026 Early Warning Signals\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly Warning Signals\nGet notified of disruptions before they become public\nSeptember 2026 product updates\nRead more\nabout September 2026 product updates\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nEmbeds\nDigital signage\nKnowledge base\nNotifications\nHelp desk\nThird-party status pages\nIncident management\nMonitoring\nPrivate status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital signage\nOptiSigns\nRise Vision\nTV\nKnowledge base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party status pages\nAtlassian Statuspage\nStatusHub\nIncident management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign in\nSign up\nSign in\nSign up\nAbout StatusGator\nStatusGator is the original and most trusted status page\naggregator and early outage alerting platform. Founded in 2015\nand built to help teams stay informed about the status of the\nservices they rely on, StatusGator solves a common problem: the\nscattered and inconsistent nature of status information across\ncloud providers and tools.\nToday, StatusGator aggregates and normalizes status data from\nmore than 11,220\nservices, notifying users of outages before providers acknowledge\nthem. Thousands of enterprise IT teams trust StatusGator to keep\ntheir teams informed.\n5.0\nRated on\nCapterra ,\nGetApp ,\nSoftware Advice\n11\nYears in operation\n10b+\nStatus checks performed\n23m+\nNotifications sent\n11k+\nServices monitored\n38k+\nUsers served\nOur journey\n2014\nInvented\nThe status page aggregator was invented by StatusGator co-founder, Colin Bartlett.\n2015\nLaunched\nStatusGator was launched with a simple goal: create a single pane of glass for your cloud services.\n2018\nNimble Industries founded\nColin joined forces with Andy Libby to form Nimble Industries, a holding company for StatusGator.\n2020\nEntered K12 market\nStatusGator launched a K12-focused offering, helping schools to reduce support tickets during remote learning.\n2022\nTinySeed accelerator\nIn joining the TinySeed accelerator, StatusGator raised its first and only funding round.\n2024\nEarly Warning Signals\nStatusGator's industry-first early outage detection feature became generally available.\nTrusted by thousands\n\"Kudos on the product! I loved your product when we first brought you on but the changes you've made recently have made this an amazing product! 10/10 stars!!!\"\n– Mark Racine, Boston Public Schools\nSchedule a demo\n5.0\nRated on\nCapterra ,\nGetApp ,\nSoftware Advice\nWe are global\nStatusGator is powered by a distributed team across multiple countries, working together to build reliable monitoring and status communication for the world.\nOur values\nPeople over profits\nWe put people – our team and our customers – above profits and growth-at-all-costs. Our success is measured by well-being and satisfaction, not just the bottom line.\nEmpowerment and ownership\nEveryone at Nimble has the autonomy to make decisions and the responsibility to drive outcomes. We trust each other, and every team member's expertise is valued.\nRespect for time and place\nWe fiercely protect our team's most valuable asset: time. As a remote-only company, we believe in flexibility, avoiding busywork, pointless meetings, and any culture that glorifies overwork. Our company is a place to do great work, not burn out.\nHumility in everything\nWe approach every problem and every conversation with humility. We listen, learn, and seek to improve—never letting ego get in the way of growth or teamwork.\nCustomer-guided innovation\nWe let our customers lead the way. Their feedback drives our priorities, and we adapt quickly to their needs—balancing iteration with reliability for the enterprises who depend on us.\nThoughtful engineering\nWe build with intention–automating where it matters, keeping the developer experience smooth, and considering security in every decision. Quality and thoughtful craft are at the heart of our engineering.\nWhat our customers say\n\"StatusGator is hands down the best 3rd party service we've used for our company.\"\nJeff R.\nIT Director\n\"StatusGator has really helped our teachers.\"\nNic E.\nDirector of Technology\n\"It's given us great stuff. The business absolutely loves this.\"\nAlistair C.\nIT Manager\n5.0\nRated on\nCapterra ,\nGetApp ,\nSoftware Advice\nSchedule a demo\nSchedule a free 30-min demo\nWe'll show how StatusGator can benefit your team. No strings attached.\nSchedule a demo\nUse cases\nIT teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the media\nService directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent\nmonitoring service tracking the availability of more than\n11,220 services since\n2015. References to third-party services are for identification\npurposes only. It is not endorsed by or affiliated with the\nservices we monitor. All trademarks are the property of their\nrespective owners. Copyright &copy;\n2026 Nimble Industries, Inc.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+     "publisher": "Indie Hackersの創業者月次報告",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+      "finalUrl": "https://www.indiehackers.com/product/statusgator",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:32.370Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "dd206f4108c5f9536f420c6d0caf2f3926a2c4b25b0d1cbb3bd5ad7bd4bf6fbe"
+     },
+     "text": "StatusGator - Indie Hackers\nAfter spending hours debugging a problem at work, I realized a cloud service we used was down. I wanted a way to notified when a service goes down. And I w\nAfter spending hours debugging a problem at work, I realized a cloud service we used was down. I wanted a way to notified when a service goes down. And I w\nStatusGator on Indie Hackers\nStatusGator - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\nStatusGator\nStatus page monitoring service\nVisit Website\nStatusGator Status page monitoring service\nPosts 25\nRevenue $21K / mo\nWebsite Twitter Facebook\nJanuary 23, 2022\n$17,000 MRR\nStatusGator , the status page aggregation tool I started in 2014, recently crossed $17,000 MRR. 📈 This is a tremendous milestone I thought we would never achieve given that I have been grinding away at this on the side for more than 7 years. Our growth in recent months has been consistent. We made huge improvements to the product in 2021 and are working on some exciting new features that I know will rocket us forward. 🚀\nProduct concept\nIf you’ve used any cloud service in the past 10 years, you are likely familiar with the concept of a status page. Services large and small, from Amazon Web Services to Postmark , publish status pages as a way to communicate outages, maintenance, and downtime. If you build and operate your own web service or you manage IT of any kind, you’re likely dependent on dozens or even hundreds of different providers, each of whom has their own status page.\nStatusGator is an aggregator of this status data. We collect the published service status from thousands of status pages, normalize it and aggregate it into a single location. Our users can create and publish an internal dashboard of the status of all the services they depend on. They can also receive notifications when the services they depend on go up and down — Slack is our most popular integration.\nHow we got here\nI’ve written a lot about the growth of StatusGator here on IndieHackers before. It took more than 3 years to hit $1,000 MRR , something I was hoping to achieve in 3 months. I gave up half the company and got a partner, but built something much larger because two heads are better than one . We had some success with content marketing and we hired out the skills we lacked, such as marketing . All of our growth has been organic via SEO and referrals. We have never had much success with paid marketing though we'd love to figure that out. (If you have tips, let us know down below.)\nWhat we're doing\nRight now, Andy and I are heads down on building out some big new features that make StatusGator more applicable to a wider variety of use cases. In the early days, our focus was on notifications — sending alerts via email, Slack, or SMS whenever a status page changed. The genesis of the idea was when I had spent an entire day debugging an issue for a client, only to later find out the issue was with the Facebook API. Why couldn’t I get notified when Facebook had an outage posted on their status page? StatusGator was born.\nOver time, customers told us they were more interested in a publishable status page showing the aggregated status of their services. Most of our recent work has been around this dashboard use case. Corporate IT departments love this capability because they can direct their users to their StatusGator dashboard first. If Zoom is down, for example, their dashboard will show it and users won't need to submit a helpdesk ticket. Currently, our fastest growing vertical is K12 education because of the rapid shift to digital learning during the pandemic and the huge numbers of users that school IT departments need to support. (Anyone have insights into how to reach school technology leaders? Please post in the comments.)\nOur biggest lesson\nThe most important thing we have done in the last 7 years is to listen to our customers. We solicit feedback everywhere and anywhere. In the early days, I would give the product away just to get real feedback. These days, we place a huge emphasis on asking for customer feedback in every interaction. For example, we might close a support ticket email with something like: “It would be a huge favor to Andy and I if we could have your feedback on StatusGator. Is there anything you think it’s missing?” We have to over emphasize the feedback part in order to get enough real, actionable advice. And that advice is what drives our product development strategy today. (And so I’ll ask this community: How could StatusGator be more useful? Post a comment.)\nThe future\nStatusGator has been a labor of love for many years. We still have yet to get out a fraction of the value of all the time we have put in. But for the first time ever, it feels like a real business. We were able to take some money from it finally this past year. My partner and I have the ultimate goal of being able to quit our consulting work and go full-time on StatusGator. And with 2022 already off to a fantastic start, we’re stoked that this dream might finally become a reality this year or next.\nPS: StatusGator monitors around 1,500 services but we add new ones every day. If you know of any services with status pages missing on StatusGator, please post links to them below so we can add them.\nColin Bartlett\n19 Upvotes\n19 Comments\nSay something nice…\nPost Comment\n2\nHey, I loved your idea about how you guys placed this product. Let me know what difficulties you have faced with paid promotion. On what platforms did you monetise and what content flow was used to reach the target audience. I guess we can definitely find a solution to that.\nI would love to help you find the right audience segment to market your product.\nThat_Digitalguy\n&middot;\n5 years ago\n&middot;\nReply\n2\nCongrats on the huge milestone! Are you scraping the status pages of each service or do you use an api like downdetector to get statuses?\nRankpush\n&middot;\n5 years ago\n&middot;\nReply\n2\nThanks!\nIt's a mix. If a status page publishes an API we prefer that. If no API is published, sometimes we reverse engineer it, otherwise we scrape.\nalibby\n&middot;\n5 years ago\n&middot;\nReply\n1\nGreat job! Most sites are using statuspage, are you having issues scraping them?\nRankpush\n&middot;\n5 years ago\n&middot;\nReply\n1\nStatusPage has been great to work with. Very rarely do they have issues. Having said that in general we've spent a lot of time and effort making the scraping resiliant\nalibby\n&middot;\n5 years ago\n&middot;\nReply\n2\nWoohoo! Congrats buddy, well psyched for you guys. This is so encouraging and exciting for others to see.\nIf you don't mind me asking, how did you create those cool animations on your site? I absolutely LOVE them!!\nincogniito\n&middot;\n5 years ago\n&middot;\nReply\n1\nThanks! We hired a designer to do them, I believe he used Figma and they are exported to LottieFiles.\ncbartlett\n&middot;\n5 years ago\n&middot;\nReply\n1\nThank you!\nincogniito\n&middot;\n5 years ago\n&middot;\nReply\n2\nCongratulations! Loved the idea and am happy to see the platform grow.\nshaiq\n&middot;\n5 years ago\n&middot;\nReply\n1\nThanks! Appreciate the encouragement.\ncbartlett\n&middot;\n5 years ago\n&middot;\nReply\n2\nCongratulations mate, pretty exciting journey. Thanks for sharing!\nI would love to know what have you guys tried with paid ads that have not worked? Maybe what campaigns, audiences, creatives, and budget as well you've tried.\nSo I can bring on some tips and get more specific in which direction to go, that have worked for myself and my clients in the past 5 years.\nPS: The brand and website are great-looking.\nleonardokrebs\n&middot;\n5 years ago\n&middot;\nReply\n1\nThe biggest challenge we had for a long time was defining our audience. I think we still struggle with this. We have people from companies large and small in many different roles using StatusGator. In the early days we thought our target market was people in DevOps, but so far it's shaken out more to people managing IT and internal support helpdesks, a distinction.\nRecently, we hit on this K12 education segment which is working well. This, at least, is a well-defined persona. The problem there is this segment is very expensive to reach. There are newsletters and communities for education technology leaders but they are saturated with advertisers selling multi-million dollar cloud deals so they are very expensive.\nOn top of that, there are basically zero direct competitors the product category itself is not well-known and not something people are looking for. That makes it tough to explain in the tiny creative space of an ad.\ncbartlett\n&middot;\n5 years ago\n&middot;\nReply\n2\nwe hired out the skills we lacked, such as marketing\nAny tips on hiring marketing freelancers?\nXCS\n&middot;\n5 years ago\n&middot;\nReply\n2\nWe have hired out various tasks via both Fiverr and Upwork. I think Fiverr is a great place to start because tasks are more well-defined. We tried a few different people but one in particular was great. He wrote the article we requested but then told us all the reasons we were targeting the wrong keywords and presented a much better plan on what we should be doing. So we hired him to execute on that plan! For me, finding someone we felt comfortable with was the hard part so getting to try various people via small, well-defined tasks from Fiverr worked well.\ncbartlett\n&middot;\n5 years ago\n&middot;\nReply\n1\nThanks a lot for the tips! I tried Fiverr for a while, but I felt that the quality of the work was all over the place, and it was more like a lottery trying to find a dependable person. I will give it another go.\nXCS\n&middot;\n5 years ago\n&middot;\nReply\n2\nCongrats, that's a huge milestone!\nNote that on your landing page, the carousel with \"Solutions for Everyone\" is not working for me (in Brave).\nXCS\n&middot;\n5 years ago\n&middot;\nReply\n1\nFunny you mention that, there's an PR to fix it! Should get merged and deployed today.\ncbartlett\n&middot;\n5 years ago\n&middot;\nReply\n2\nGreat update - thanks for sharing all of the details!\nCongratulations on sticking it out and getting to this point\nRamy\n&middot;\n5 years ago\n&middot;\nReply\n1\nThank you! In the early years it helped a lot that it was very inexpensive to keep going and that I used it personally myself and really relied on it. That was motivation enough to keep sinking time and money into it. Eventually, the MRR exceeded the hosting costs and then I felt like I could keep it going forever, even if it never grew. But getting a partner and doubling down on it is what really helped explode the growth.\ncbartlett\n&middot;\n5 years ago\n&middot;\nReply\nMay 21, 2021\n$10,000 MRR\nIt's been a few months since my last update but StatusGator's growth has been steady. It's our goal to grow 10% every month and we're tracking about that now. We recently crossed the $10,000 MRR mark -- a symbolic but small step towards our goal of $100,000 MRR.\nWe recently realized that we will never meet our revenue goal without hiring more help. We hired a part-time CMO a few months back and that's been working out great. But what we really need now is help with customer service and account administration. So we're starting the daunting task of hiring a full-time Customer Success Manager. Our hope is that this will help lift the admin burden from us a bit so we can focus more on product development.\nMost of our time and energy outside of admin tasks has been on a massive redesign. We're really excited to modernize our look and feel and bring much-needed product education features to the onboarding experience. I really believe we might be able to go full-time on StatusGator in the next 18 months and we're working hard to accelerate that timeline.\nIt's crazy to think it's taken 7 years to get here, but we are incredibly bullish on the next few months.\nColin Bartlett\n1 Upvote\n1 Comment\nSay something nice…\nPost Comment\n2\nHey Colin, found your products and just skim through your product journey. Wow, congrats for grinding through 7 years and hitting a meaningful milestone. Really reminds me of the adage \"The goal is to not give up\". It's very inspiring! Hope to see more updates from you guys. Cheers.\nChoongWho\n&middot;\n5 years ago\n&middot;\nReply\nFebruary 17, 2021\n$7,500 MRR\nIt's been more than 6 years, but StatusGator has crossed $7,500 MRR this month. Growth has slowed the last few months and it's been difficult to stay positive. But after retooling our strategy, we are optimistic that some forthcoming improvements will get growth kickstarted again.\nWe are earning this revenue while keeping the costs consistent. Our IT and software expenses are around $800 per month meaning our profit margin is holding steady around 90%.\nWe are hoping that 2021 will be a breakout year for StatusGator!\nColin Bartlett\n1 Upvote\nComment\nSeptember 25, 2020\n$5,000 MRR\nIt's been almost 6 years of grinding, but StatusGator has crossed the $5k MRR threshold. Growth has been slow but steady the last few months and this milestone is a huge one for us mentally. More importantly than just this number is what lines beneath it though: Our gross profit on this revenue is about 88% and we're growing at a consistent 10% rate every month now.\nWe did, however, recently stop publishing our MRR here on IndieHackers and wrote about why on our blog. The main reason is that the number was pretty inaccurate at times. Plus, it seems silly for everyone to compare themselves with a number that's quite meaningless in a vacuum.\nRegardless, we don't mind sharing our accurate numbers openly. And we're excited to have reached this milestone! Andy and I can both see a path forward for us to quit our consulting and work full time on StatusGator. In fact, we are already starting to pull back on our consulting so we can invest more time in growth.\nIt has always been my dream to stop trading time for dollars and to instead build my own products. I cannot believe it has taken 6 years to get to this point. But I am thrilled that we're actually making it work and cautiously optimistic that growth will continue.\nWhy we stopped publishing our revenue on Indie Hackers | Nimble Industries\nWe recently stopped publishing the StatusGator MRR (Monthly Recurring Revenue) on IndieHackers. Here's why...\nnimbleindustries.io\nColin Bartlett\n2 Upvotes\nComment\nJune 30, 2020\n#1 on Hacker News\nGood news:\nThe blog post which we spent many hours creating in hopes that it would be a viral hit on Hacker News, was indeed a hit! It ended up #1 on Hacker News for several hours yesterday. Our blog got more than 10,000 visits yesterday, compared with the usual 10. Interestingly enough, I had actually written this post off entirely. I published it almost a month ago after several weeks of data analysis, writing, and even hiring an infographic designer on Fiverr. After publishing, I submitted to Hacker News, tweeted it, cross posted it to Dev.to , and... flop! Nothing. Barely a handful of hits. However, yesterday, in a reply to another post on Hacker News, I linked our article. Someone must have found it and submitted separately because within a few minutes it was #1 and our site was getting slammed with traffic.\nTherein lies the bad news:\nWe stupidly did not prepare for an onslaught of traffic and our site was barely accessible during the initial crush. How embarrassing to spend so much time creating a post in hopes it gets a crush of traffic, only for that to happen and to be unprepared for it! It's especially embarrassing that this happened to us once before, and I'd forgotten. Anyway, it was resolved in relatively short order by throwing Cloudflare in front of our Wordpress blog.\nThe the end, we got a handful of free signups to StatusGator from our post which is not as great as we had hope. I think moving our blog to our product's site rather than our company's site will help, and that is in the works. But in the end, it was still heartening to see people appreciated and were interested in our content. It's motivating me to continue writing.\nHas GitHub Been Down More Since Its Acquisition by Microsoft? | StatusGator\nWas GitHub down more after Microsoft acquired them? We analyzed their status page and found a 41% increase in disruptions.\nnimbleindustries.io\nColin Bartlett\n3 Upvotes\nComment\nMay 2, 2020\nBig losses (but bigger gains!)\nApril was an epic month for StatusGator , our status page monitoring service.\nThe bad news first 👎\nWe lost more customers this month than ever before. Several really long term customers, as well. All of them were from voluntary churn. That is, they cancelled their account personally, rather than being involuntarily cancelled for a declining credit card. One actually told me they liked the service and \"would be back\" in the future. Another was clearly in an industry hard-hit by COVID.\nNow the good news 👍\nBoth plan upgrades from existing customers and new brand new customers also reached new records in April! Despite losing 5 long-term customers, we gained 9 brand new customers. Plus, our newer pricing plans and better differentiation between plans has lead to a much higher ARPU across new customers, especially relative to the old ones. In fact, all of the customers that churned were on old, outdated plans that ranged from 66% to 33% lower than the cheapest plan we currently offer.\nThe bottom line: A net 15% increase in our MRR which is the highest month over month increase in our more than 5 year history. It's been a very slow and steady journey to almost $3,000 MRR.\nI am incredibly excited for the future of StatusGator and promise to keep updating here with good and bad news alike.\nColin Bartlett\n2 Upvotes\nComment\nApril 29, 2020\nLaunched organization accounts!\nIt's time to go after those bigger fish!\nSeveral times throughout the last five years of StatusGator , we have received requests for organizational accounts. As more and larger teams have joined, there’s been a steady increase in requests for multi-user accounts. Last week I took the time to bang out a first pass of organization accounts. It took less than a day -- what was I waiting for!?\nOur first implementation of this is quite simple: separate user accounts are joined together by linking them to a parent Organization record. Each of these users has one of three roles:\nLeader: That’s the organization member in charge of billing and has access to everything.\nAdmin: That’s an organization member who can manage other users including inviting them and signing in as them, but can’t manage billing.\nMember: No ability to manage or invite users and only has access to their own StatusGator dashboard.\nThere are several different scenarios that make StatusGator organizational accounts attractive, even in their current, rather basic, form. The first is where an organization wishes to provide multiple members of their team access to create a StatusGator dashboard, complete with notification preferences, Slack integration, component filters, and more. The organization leader can invite other members, each of whom can subscribe to status page change notifications and create a single unified dashboard of their personal, or team, service dependencies.\nThe second, is when a team of users each wants to each be able to edit and maintain a single dashboard of service dependencies. In this case, each user would need to be granted Organization Admin privileges. Each user would sign in with their own login and password and then, in order to maintain their master dashboard, would sign in as (impersonate) the organization’s main user.\nLastly, a variation of this is a bit of a trick: Even if you are only one user managing your StatusGator account, but you need different sets of service dependencies to get notified to different places, such as different Slack rooms, you can use an organization account for yourself. Simply invite another email address, impersonate that user, and you’ll have a separate StatusGator dashboard.\nOur organizational features are just beginning and have a long way to go. Right now, they are not much more than a hack of tape and glue to link together accounts. But if there's interest, and if they help encourage users to sign up for our more expensive plan, then we will put more time and effort into fleshing them out.\nColin Bartlett\n2 Upvotes\nComment\nApril 18, 2020\n100 Customers, finally... After 5 Years\nStatusGator has finally reached 100 paying customers, all of whom use it to monitor the status pages of the services they rely on. Wow, that took much monger than anticipated.\nThinking back to when I started this whole thing in 2014, if you had told me then it would take more than 5 years (and thousands of hours of work) to get just 100 paying customers, I certainly would never have built it. Back then, all starry eyed, my goal was $1,000 in monthly revenue to supplement my consulting and my timeline was 6 months. That goal alone took more than 4 years to achieve.\nI'm still bullish on StatusGator. The truth is, I use the service every day, I rely on it every day, and I can't imagine maintaining a software product or service without it. Others do, too -- hopefully all 100 of those. But the market is absolutely huge. How many software development or devops teams are there out there, with critical infrastructure in the cloud? Over a million for certain. Even narrowing that to teams of a certain size, the market is still clearly in the tens of thousands, meaning the potential for StatusGator is still enormous.\nSo 100 customers after 5 years. What's the next goal? That 100 just needs another zero after it. Let's hope it doesn't take 50 years to get there.\nColin Bartlett\n7 Upvotes\n19 Comments\nSay something nice…\nPost Comment\n3\nYour perseverance is terrific! A hearty congratulations!!!\nButcholboy\n&middot;\n7 years ago\n&middot;\nReply\n3\nThis product is a fantastic idea. Congrats on the 100 customers!\ntwosmalltrees\n&middot;\n7 years ago\n&middot;\nReply\n3\nCongratulations 🍾\nI really do hope I won’t have to wait 5 years ... 😢\nNavinp\n&middot;\n7 years ago\n&middot;\nReply\n3\nWow! 5 years?! It is really inspiring you didn't give up. Good luck with the next 100\nashwinvasudevan\n&middot;\n7 years ago\n&middot;\nReply\n1\nThanks, it's been a long road of continual improvements so I never really felt like giving up at any point. The only time growth plateaued was when I had taken a very demanding full-time job, instead of consulting. It was after that job ended that I took on a partner and really doubled down. That's when it got really exciting.\ncbartlett\n&middot;\n7 years ago\n&middot;\nReply\n3\nWell still congrats mate!\nWhat would you have done different 5 years ago with the knowledge you have now?\nDailyDevTips\n&middot;\n7 years ago\n&middot;\nReply\n4\nIn addition to my other comment about maybe starting the free trial earlier, I also would have taken on a partner earlier.\nI started StatusGator by myself and it grew at quite a slow rate when it was just me. But having a partner, someone to hold me accountable, someone to bounce ideas off of, someone who took on a share of the burden of maintenance and feature development and customer service (and on and on...) really helped accelerate growth.\nI gave up half the pie but now the pie is more than twice as large.\ncbartlett\n&middot;\n7 years ago\n&middot;\nReply\n1\nThanks for the explanation, really valuable to see what drives business to be succesfull.\nDailyDevTips\n&middot;\n7 years ago\n&middot;\nReply\n2\nColin, congrats. What are your biggest lessons for getting to 100? Going back to 2014, what would you have done earlier ?\nAlso, I think you are in good company, hopefully your success compounds from here!\nMirv\n&middot;\n7 years ago\n&middot;\nReply\n1\nThanks! Most everything has been very incremental. But I probably would have added a free trial plan earlier. I've always had a freemium model with a free plan that lets you monitor 3 services and I figured that was enough to show people why they should upgrade.\nBut you can't really get the full value of the service, nor understand it, unless you monitor all the things you depend on. Plus, the more you monitor, the more likely one of those is to experience an outage and send you a notification, thus demonstrating the value of the product. So adding a one-month all-you-eat free trial period has really helped.\ncbartlett\n&middot;\n7 years ago\n&middot;\nReply\n1\nVery great lesson and also very useful to know this\nNavinp\n&middot;\n7 years ago\n&middot;\nReply\n1\n@cbartlett first of all congrats!! What do you think is better, 30 days money-back guarantee or 1 month free trial?\ntoughyear\n&middot;\n7 years ago\n&middot;\nReply\n2\nIt's inspiring that you keep going even though it took you five years! I wonder, what's the conversion rate of your homepage? Cause I think this tool definitely has potential in it!\nMrAtiebatie\n&middot;\n7 years ago\n&middot;\nReply\n1\nThanks. Nearly all of our acquisition comes from organic search. Really by accident, we managed to get pretty good rankings for \"{service name} status\" on many services. The good news is that, there's a ton of free traffic we get from that. The bad news, it converts pretty poorly, less than half a percent. Most people bounce when they realize it's not the official status page. But a tiny fraction do sign up. And a tiny sliver of those do convert to paid.\ncbartlett\n&middot;\n7 years ago\n&middot;\nReply\n3\nOk, so you have an organic source of traffic which is very nice! I'd say that if your website doesn't convert *at least 1% * it's a bad sign. Landing pages are often known to achieve a conversion rate up to 8%. With the last 2 landing pages, I've made I achieved an average of 6% conversion.\nSo it might not be what you'd like to hear, but I think the website could use a redesign which looks a little bit more modern... I'd create separate feature blocks on your pages with the features you've now displayed above the fold. Especially if people are visiting your website for the status of a specific service, create a separate landing page for the service with the current status. Showcase some other features on the page as well and try to convert them. Maybe start with 5 popular services people visit your website for.\nIf you'd like to talk a little bit more about how you can improve your website lets have a chat. I couldn't find a way to send my email address in a private message to you but you can hit me up on https://linkedin.com/in/sjorsvandongen\nMrAtiebatie\n&middot;\n7 years ago\n&middot;\nReply\n1\nFirst, congratulations with 100. I agree with @MrAtiebatie. I'm definitely in your target group but not a customer. Ive found (earlier) statusgator but didn't sign up. Here's what I remember happened and my thoughts back then:\nSearched for statuspage saas\nFound your site\nWeird name, something alligator? (I'm not native English). Name didn't sit well.\nLooks homegrown. Not strong and reliable.\nLeft site\n--\nI suggest redesign and a/b split test and redesign like a mad man 😁\njesperordrup\n&middot;\n7 years ago\n&middot;\nReply\n2\nCongrats Colin.\nshiva_prabhakaran\n&middot;\n7 years ago\n&middot;\nReply\n1\nThanks, Shiva!\ncbartlett\n&middot;\n7 years ago\n&middot;\nReply\n1\nCongratulations. I took two years to get to one customer and I look forward to the possibility of faster growth that you are dangling in front of me! Seriously though, there is a huge success bias in all reporting of start-ups so it is great that you share.\njames_CRYPTOSTAR\n&middot;\n7 years ago\n&middot;\nReply\nApril 5, 2020\nLaunched Microsoft Teams Integration\nIntegration of StatusGator with Microsoft Teams has been requested more and more over the last few weeks and months. It seems that since the COVID-19 lockdown, a lot of companies started using Teams or relying on it more. We decided to finally tackle this feature, so I took a stab at launching an MVP of the integration.\nI was shocked at how easy it was to crank out this new feature, and a little embarrassed that I hadn't tried to before. In fact, it took twice as long to figure out how to create a Teams account for testing and to invite my team than it did to actually write the first version of the working feature. For now, the feature is very basic but already 6 people have started using it. We're going to continue to solicit feedback and watch the numbers closely from our Metabase dashboard. If more people start using Teams, we might put more effort into a deeper integration.\nI posted more details on our blog .\nStatus Page Monitoring in Microsoft Teams | Nimble Industries\nMonitor status pages from Microsoft Teams with StatusGator's Teams integration. Get instant notifications in a channel when services go down.\nnimbleindustries.io\nColin Bartlett\n3 Upvotes\nComment\nMarch 27, 2020\nOur biggest week ever: A coronavirus boost?\nOver the last two weeks we've seen a sizable uptick in traffic and signups to StatusGator, our status page monitoring service. This week is so far our biggest week on record, having recorded 100 new users, pushing our total active users over 5,000. We also had 5 new paid subscriptions purchased in 24 hours, another new record.\nWe're not entirely sure what to correlate this uptick in business to, but appears to be related to the surge in users of chat apps like Slack and Teams, most likely due to coronavirus-induced work-at-home policies. Our product integrates with chat services like Slack and sends notifications to your channel when cloud services post downtime.\nThere is also a large surge in users monitoring video chat applications, specifically Zoom. When these services have outages, people search for their status page on Google. Some stumble across our service, a few sign up, and a small fraction end up converting to paid users. These small fractions are starting to add up and as the \"top of the funnel\" gets fatter, so do our user and engagement metrics.\nBased on a surge in requests over the last week, we're going to focus on Microsoft Teams integration next. We're hoping this attracts new (and larger) companies who might gravitate towards Teams instead of Slack.\nColin Bartlett\n2 Upvotes\nComment\nAbout\nAfter spending hours debugging a problem at work, I realized a cloud service we used was down. I wanted a way to notified when a service goes down. And I wanted to see the status of all my dependencies in one place.\nPeople\nAndy Libby Co-founder\nColin Bartlett Co-founder\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://statusgator.com/plans",
+     "publisher": "StatusGatorの現在の料金",
+     "snapshot": {
+      "url": "https://statusgator.com/plans",
+      "finalUrl": "https://statusgator.com/plans",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:33.440Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "ccabda01c5ca24dff80163b97c58acc2d0cca1d6eebde70b76a71f5ae3c3bac6"
+     },
+     "text": "Pricing Plans for Business | StatusGator\nExplore flexible pricing plans for individuals, teams, and enterprises. Start monitoring cloud services with StatusGator today.\nPricing Plans for Business | StatusGator\nExplore flexible pricing plans for individuals, teams, and enterprises. Start monitoring cloud services with StatusGator today.\nPricing Plans for Business | StatusGator\nSkip to main content\nSee the biggest outages we detected early in August 2026\nLearn more\nabout\nSee the biggest outages we detected early in August 2026\nCan't find service?\nRequest service\nUse cases\nIT teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nSeptember 2026 Early Warning Signals\nRead more\nabout September 2026 Early Warning Signals\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly Warning Signals\nGet notified of disruptions before they become public\nSeptember 2026 product updates\nRead more\nabout September 2026 product updates\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nEmbeds\nDigital signage\nKnowledge base\nNotifications\nHelp desk\nThird-party status pages\nIncident management\nMonitoring\nPrivate status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital signage\nOptiSigns\nRise Vision\nTV\nKnowledge base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party status pages\nAtlassian Statuspage\nStatusHub\nIncident management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign in\nSign up\nSign in\nSign up\nThe outage visibility you've been missing\nNo credit card required\nFree for 14 days\nTry all features\nBusiness\nEnterprise\nEducation\nAnnually\nSave up to 20%\nMonthly\nFree\nFree\nFree forever\nSign up\nMonitors\nA monitor represents an item on your status page\n3\nBoards\nEach board can have one status page\n1\nAdmin users\nPeople who sign in to StatusGator to configure monitors\n1\n100 Status page subscribers\nPeople who can subscribe to your status page updates\n1 month of data\nSee historical data about vendor reliability\nAdmin SSO\nSecure StatusGator dashboard admin access with SAML SSO\n10 notifications per month\nMaximum outage alerts each month\nMonthly or annual credit card billing\nPay by credit card on a monthly or annual basis\nChat integrations\nIncludes Discord, Google Chat, Microsoft Teams, Slack, and Webex\nEmbed integrations\nIncludes Iframe, Status Embed, and Status Modal\nHelp desk integrations\nIncludes Freshdesk, Freshservice, Incident IQ, and Zendesk\nThird-party status page integrations\nIncludes Atlassian Statuspage and StatusHub\nMonitoring integrations\nIncludes Datadog, Meraki, Neat Pulse, TrackSSL, and Zoom Rooms\nIncident management integrations\nIncludes Better Uptime, FireHydrant, Opsgenie, and PagerDuty\nPrivate status integrations\nIncludes AWS status, Azure status, Google Cloud status, Microsoft 365 status, and Zendesk status\nAuthenticated status page\nRestrict your status page to specific users\nSee all features\nStarter\n$72\n$79\nUSD\nper month/paid annually\n$864\nper year\nper month\nStart trial\nMonitors\nA monitor represents an item on your status page\n25\nBoards\nEach board can have one status page\n1\nAdmin users\nPeople who sign in to StatusGator to configure monitors\n1\n500 Status page subscribers\nPeople who can subscribe to your status page updates\n3 months of data\nSee historical data about vendor reliability\nAdmin SSO\nSecure StatusGator dashboard admin access with SAML SSO\nUnlimited notifications\nMaximum outage alerts each month\nMonthly or annual credit card billing\nPay by credit card on a monthly or annual basis\nChat integrations\nIncludes Discord, Google Chat, Microsoft Teams, Slack, and Webex\nEmbed integrations\nIncludes Iframe, Status Embed, and Status Modal\nHelp desk integrations\nIncludes Freshdesk, Freshservice, Incident IQ, and Zendesk\nThird-party status page integrations\nIncludes Atlassian Statuspage and StatusHub\nMonitoring integrations\nIncludes Datadog, Meraki, Neat Pulse, TrackSSL, and Zoom Rooms\nIncident management integrations\nIncludes Better Uptime, FireHydrant, Opsgenie, and PagerDuty\nPrivate status integrations\nIncludes AWS status, Azure status, Google Cloud status, Microsoft 365 status, and Zendesk status\nAuthenticated status page\nRestrict your status page to specific users\nSee all features\nTeam\nTop plan\n$137\n$149\nUSD\nper month/paid annually\n$1,644\nper year\nper month\nStart trial\nMonitors\nA monitor represents an item on your status page\n75\nBoards\nEach board can have one status page\n3\nAdmin users\nPeople who sign in to StatusGator to configure monitors\n3\n1,000 Status page subscribers\nPeople who can subscribe to your status page updates\n6 months of data\nSee historical data about vendor reliability\nAdmin SSO\nSecure StatusGator dashboard admin access with SAML SSO\nUnlimited notifications\nMaximum outage alerts each month\nMonthly or annual credit card billing\nPay by credit card on a monthly or annual basis\nChat integrations\nIncludes Discord, Google Chat, Microsoft Teams, Slack, and Webex\nEmbed integrations\nIncludes Iframe, Status Embed, and Status Modal\nHelp desk integrations\nIncludes Freshdesk, Freshservice, Incident IQ, and Zendesk\nThird-party status page integrations\nIncludes Atlassian Statuspage and StatusHub\nMonitoring integrations\nIncludes Datadog, Meraki, Neat Pulse, TrackSSL, and Zoom Rooms\nIncident management integrations\nIncludes Better Uptime, FireHydrant, Opsgenie, and PagerDuty\nPrivate status integrations\nIncludes AWS status, Azure status, Google Cloud status, Microsoft 365 status, and Zendesk status\nAuthenticated status page\nRestrict your status page to specific users\nSee all features\nCorporate\n$274\n$299\nUSD\nper month/paid annually\n$3,288\nper year\nper month\nStart trial\nMonitors\nA monitor represents an item on your status page\n150\nBoards\nEach board can have one status page\n5\nAdmin users\nPeople who sign in to StatusGator to configure monitors\n10\n1,000 Status page subscribers\nPeople who can subscribe to your status page updates\n12 months of data\nSee historical data about vendor reliability\nAdmin SSO\nSecure StatusGator dashboard admin access with SAML SSO\nUnlimited notifications\nMaximum outage alerts each month\nMonthly or annual credit card billing\nPay by credit card on a monthly or annual basis\nChat integrations\nIncludes Discord, Google Chat, Microsoft Teams, Slack, and Webex\nEmbed integrations\nIncludes Iframe, Status Embed, and Status Modal\nHelp desk integrations\nIncludes Freshdesk, Freshservice, Incident IQ, and Zendesk\nThird-party status page integrations\nIncludes Atlassian Statuspage and StatusHub\nMonitoring integrations\nIncludes Datadog, Meraki, Neat Pulse, TrackSSL, and Zoom Rooms\nIncident management integrations\nIncludes Better Uptime, FireHydrant, Opsgenie, and PagerDuty\nPrivate status integrations\nIncludes AWS status, Azure status, Google Cloud status, Microsoft 365 status, and Zendesk status\nAuthenticated status page\nRestrict your status page to specific users\nSee all features\nView plans comparison\nRated on Capterra, GetApp, Software Advice\nSchedule a free 30-min demo\nWe'll show how StatusGator can benefit your team. No strings attached\nSchedule a demo\n14-day free trial\nExperience the full power of StatusGator free for 14 days!\nNo credit card\nNo credit card required during free trial.\nCancel anytime\nCancel anytime before the trial ends without being charged.\nTry all features\nAll paid features are available during the trial.\nCompare plan features\nPlan features\nFree\nFree forever\nFree\nSign up\nStarter\nFree for 14 days\n$72/mo\n$79/mo\nStart trial\nTeam\nFree for 14 days\n$137/mo\n$149/mo\nStart trial\nCorporate\nFree for 14 days\n$274/mo\n$299/mo\nStart trial\nEnterprise\nSchedule a demo\nCustom\nSchedule demo\nGeneral\nMonitors\nA monitor represents an item on your status page\n3\n25\n75\n150\nMore\nBoards\nEach board can have one status page\n1\n1\n3\n5\nMore\nAdmin users\nPeople who sign in to StatusGator to configure monitors\n1\n1\n3\n10\nMore\nStatus page subscribers\nPeople who can subscribe to your status page updates\n100\n500\n1,000\n1,000\nMore\nNotifications\nMaximum outage alerts each month\n10\nUnlimited\nUnlimited\nUnlimited\nUnlimited\nHistorical data limit\nPull reports and do analysis about vendor reliability\n1 month\n3 months\n6 months\n12 months\n24 months\nPublic status pages\nPublish your status page publicly\nPrivate status pages\nProtect your status page with a password\nCustom domains\nHost your status page on your own custom domain\nHide StatusGator branding\nRemove StatusGator from your status page footer\nEarly Warning Signals\nGet notified before providers acknowledge outages\nTwo-factor auth\nRequire two-factor authentication for security\nAPI limits\nGet detailed status data and history via API\n15 req/min\n30 req/min\n60 req/min\n60 req/min\n120 req/min\nAdmin SSO\nSecure StatusGator dashboard admin access with SAML SSO\nAuthenticated status pages\nRestrict your status page to specific users\nCustom email sender\nSend emails from your own domain\nAdvanced privacy controls\nPrevent analysis and training on your data\nPriority support\nDirect access to our engineering team\nCustom enterprise agreements\nContract readlines, security audit forms\nIntegrations\nChat\nDiscord\nSend notifications to a Discord channel.\nGoogle Chat\nSend notifications to a Google Chat channel.\nMicrosoft Teams\nSend notifications to a Microsoft Teams channel.\nSlack\nGet notifications and report issues in Slack.\nWebex\nSend notifications to a Webex space.\nEmbeds\nIframe\nEmbed your status page on your website.\nStatus Embed\nEmbed a summary and link to your status page.\nStatus Modal\nEmbed a summary and link to your status page.\nDigital signage\nOptiSigns\nShow your status page on OptiSigns digital signage.\nRise Vision\nShow your status page on Rise Vision digital signage.\nTV\nDisplay your status page on a TV.\nKnowledge base\nConfluence\nEmbed StatusGator dashboards directly into Confluence pages.\nNotion\nEmbed StatusGator dashboards directly into Notion using embed blocks.\nSharePoint\nEmbed StatusGator dashboards directly into SharePoint.\nNotifications\nEmail\nSend email notifications to your team.\nSMS\nSend SMS notifications to your team.\nHelp desk\nFreshdesk\nCreate tickets in Freshdesk for outage reports.\nFreshservice\nCreate tickets in Freshservice for outage reports.\nIncident IQ\nUpdate your Incident IQ status board automatically.\nZendesk\nSend outage reports to your Zendesk help desk.\nMonitoring\nDatadog\nEmbed StatusGator dashboards directly into Datadog using iframe widgets.\nMeraki\nMonitor connectivity to your Cisco Meraki devices.\nNeat Pulse\nMonitor connectivity to your Neat meeting room devices.\nTrackSSL\nMonitor SSL certificate expiration\nZoom Rooms\nMonitor connectivity to your Zoom Rooms devices.\nThird-party status pages\nAtlassian Statuspage\nShow StatusGator data on your Atlassian Statuspage.\nStatusHub\nIntegrate StatusGator with you StatusHub status page.\nIncident management\nBetter Uptime\nOpen and resolve incidents at Better Uptime.\nFireHydrant\nOpen and resolve incidents at FireHydrant.\nOpsgenie\nOpen and resolve incidents at Opsgenie.\nPagerDuty\nOpen and resolve incidents at PagerDuty.\nPrivate status\nAWS status\nGet notified about AWS outages affecting your infrastructure.\nAzure status\nMonitor your Azure infrastructure health and receive status updates about your resources.\nGoogle Cloud status\nIngest the status of your specific infrastructure, instead of the public status.\nMicrosoft 365 status\nGet alerts about outages affecting your specific tenant.\nZendesk status\nGet notified about Zendesk outages affecting your instance.\nAdvanced\nFirehose\nRealtime stream of every outage worldwide.\nMCP Server\nIntegrate StatusGator with your AI agents.\nREST API\nProgrammatic access to your StatusGator dashboard.\nWebhook\nRealtime status data to your own webhook URL.\nSchedule a free 30-min demo\nWe'll show how StatusGator can benefit your team. No strings attached\nSchedule a demo\nFrequently asked questions\nCan't find your question?\nEmail us\nto arrange a time to discuss. We'd love to chat!\nUse cases\nIT teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the media\nService directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent\nmonitoring service tracking the availability of more than\n11,220 services since\n2015. References to third-party services are for identification\npurposes only. It is not endorsed by or affiliated with the\nservices we monitor. All trademarks are the property of their\nrespective owners. Copyright &copy;\n2026 Nimble Industries, Inc.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+     "publisher": "StatusGatorのプラン変更手順",
+     "snapshot": {
+      "url": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+      "finalUrl": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:33.764Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "d8619f9b6d3eb73ef845338b572db4d8a731e18d4498b5df8360dc25720891fc"
+     },
+     "text": "Upgrade your StatusGator plan : StatusGator Support\nUpgrade your StatusGator plan\nYou can upgrade your StatusGator subscription at any time from the Plan and Billing section of your board. Upgrading gives you access to higher limits and additional features such as more monitors, multiple boards, more users, and advanced integr...\nUpgrade your StatusGator plan : StatusGator Support\nStatusGator Support\ntoggle menu\nEnter your search term here...\nSearch\nEnter your search term here...\nSearch\nBack to website\nSubmit a ticket\nWelcome\nLogin Sign up\nStatusGator Support\nSolution home\nBilling and subscription\nSubscription plan\nUpgrade your StatusGator plan\nValeria Kurolapova\nModified on: Fri, 12 Jun, 2026 at 7:33 PM\nOverview\nGetting started\nQuick start guide\nWhat StatusGator is and how it works\nStatusGator terminology glossary\nStatusGator reliability\nMonitor types overview\nStatusGator Accessibility Conformance Report (VPAT)\nMonitors\nService monitors\nAdd a service monitor\nService monitor overview\nConfigure a service monitor\nFilter service components\nDisplay components separately\nChange a monitor’s name or icon\nAdd or edit service descriptions\nOverride a service status\nReorder, sort and filter monitors\nUse the service directory\nSuggest a new service monitor\nUnderstanding monitor statuses\nDelete a monitor\nLimit notifications to major incidents\nEarly Warning Signals\nReport an outage\nService descriptions\nMonitor services without status pages\nHow does StatusGator monitor services?\nMonitor groups\nWhat's the difference between Microsoft 365 Suite, Apps, and Web?\nOrganize your monitors using Metadata\nWebsite monitors\nAdd a website monitor\nConfigure a website monitor\nWebsite monitor overview\nMonitor website content\nCustomizing website monitor User-Agent\nAdjust timeout for website monitors\nWhitelist StatusGator IPs\nTips for dealing with flaky website monitors\nMonitor regions for website monitors\nPause website monitor\nSet alert sensitivity for website monitors\nAdvanced website monitoring\nAllow website monitoring in Cloudflare\nMonitor SSL certificate expiration\nPing monitors\nAdd a ping monitor\nConfigure a ping monitor\nAdjust timeout for ping monitors\nPing monitor overview\nMonitor regions for ping monitors\nSet alert sensitivity for ping monitors\nPause ping monitor\nCustom monitors\nIntroduction to custom monitors and incidents\nAdd a custom monitor\nConfigure a custom monitor\nCustom monitor overview\nCreate and manage incidents\nUpdate or edit an incident\nRemove an incident\nUnderstand incident severity, phases, and affected monitor status\nCan I restore an incident?\nCan I create an incident for my service monitor?\nCreate and manage scheduled maintenance\nIncident templates\nStatus page\nStatus page\nStatus page overview\nCustomize status page\nBrand your status page\nHost your status page on a custom domain\nDefault to dark mode on status page\nStatus page privacy options\nPublic status page\nSwitch between multiple status pages\nManage status page subscribers\nStatus page analytics\nStatus page caching and refresh rates\nHide monitors on your status page\nSet a status page favicon\nCustomize your status page hostname\nCustomize your status page colors\nConfigure status page SSO with Azure\nConfigure status page SSO with Google\nConfigure status page SSO with Okta\nUnderstanding status page ratings\nConfigure status page SSO with a custom SAML provider\nIntegrations\nChat\nConnect StatusGator to Slack\nManage your Slack integration\nSend alerts to different Slack channels\nSlack permissions\nConnect StatusGator to Microsoft Teams using Workflows\nConnect StatusGator to Microsoft Teams using Connectors (to be retired)\nConnect StatusGator to Google Chat\nConnect StatusGator to Discord\nConnect StatusGator to Webex\nEmbeds\nStatus embed\nIframe embed\nStatus modal embed\nTV integration\nSupportSystem iFrame embed\nHelp Desk\nConnect StatusGator to Freshdesk\nConnect StatusGator to Freshservice\nConnect StatusGator to Zendesk\nConnect StatusGator to Incident IQ\nIncident Management\nConnect StatusGator to Better Uptime\nConnect StatusGator to PagerDuty\nConnect StatusGator with FireHydrant\nConnect StatusGator with Opsgenie\nMonitoring\nConnect StatusGator to TrackSSL\nConnect StatusGator to Cisco Meraki\nConnect StatusGator to Neat Pulse\nConnect StatusGator to Datadog\nConnect StatusGator to Zoom Rooms\nNotifications\nGlobal notifications\nEmail integration with StatusGator\nBrand emails with your logo and sender\nSMS integration with StatusGator\nTest notifications\nPrivate Status\nPrivate status integrations\nZendesk status\nMicrosoft status\nAT&T status\nAWS status\nAzure status\nGoogle Cloud status (Beta)\nAzure service principal integration setup\nAzure status integration: Service Principal vs. OAuth\nStatus Pages\nConnect StatusGator to Atlassian Statuspage\nConnect StatusGator to StatusHub\nAdvanced\nConnect StatusGator to Webhooks\nWebhook version 2.0\nWebhook version 3.0\nStatusGator MCP server\nKnowledge Base\nConnect StatusGator to Notion\nConnect StatusGator to SharePoint\nConnect StatusGator to Confluence\nDigital Signage\nConnect StatusGator to OptiSigns\nConnect StatusGator to Rise Vision\nAPI\nAPI\nAdvanced integrations with the StatusGator API\nBoards\nBoards\nCreate additional boards\nBoard settings\nAccount and Team management\nAccount management\nCreate and manage your StatusGator account\nManage your organization account\nProfile vs. organization account\nChange your organization’s timezone\nDelete your StatusGator account\nData collection and privacy\nManage your organization privacy settings\nTeam management\nManage your team members\nSet user permissions\nAuthentication options (2FA, SSO)\nAuthentication options (2FA and SSO)\nConfigure admin SSO with Okta\nConfigure admin SSO with Azure\nConfigure admin SSO with Google\nTroubleshooting common SSO issues\nEnable two-factor authentication (2FA)\nDisable two-factor authentication (2FA)\nDifference between Admin SSO and Status Page SSO\nConfigure admin SSO with a custom SAML provider\nReports\nHistorical data\nHistorical report exports\nBilling and subscription\nPayments\nPay for StatusGator by annual invoice\nSave with annual billing\nView and download invoices and receipts\nChange payment method\nDoes StatusGator notify me about upcoming plan payments?\nRefund policy\nSubscription plan\nUpgrade your StatusGator plan\nCancel your StatusGator subscription\nDiscounts\nDiscounts for non-profits\nDiscounts for education\nOpen navigation\nUpgrade your StatusGator plan\nYou can upgrade your StatusGator subscription at any time from the Plan and Billing section of your board. Upgrading gives you access to higher limits and additional features such as more monitors, multiple boards, more users, and advanced integrations.\nHow to upgrade\nLog in to your StatusGator account.\nFrom the left-hand menu, click Plan and Billing .\nGo to the Plans tab.\nBrowse the available plans (Starter, Team, Corporate, Enterprise). Switch between Annual and Monthly billing at the top. Annual billing saves up to 20%.\nClick Choose Plan under the plan that fits your needs.\nComplete the upgrade in Stripe by entering your payment details.\nOnce confirmed, your account will be upgraded immediately and you’ll have access to the new plan’s features and limits.\nNotes\nYou can downgrade back to a lower plan, including the free plan, at any time.\nSwitching between annual and monthly billing will adjust your renewal schedule accordingly.\nAll limits (monitors, boards, users, subscribers) will update right after upgrading.\nIf you have any questions or problems, please email us or submit a ticket .\nDid you find it helpful?\nYes\nNo\nSend feedback Sorry we couldn't be helpful. Help us improve this article with your feedback.\nRelated Articles\nCancel your StatusGator subscription\nCopyright &copy; 2022 Nimble Industries, Inc. All rights reserved.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://statusgator.com/trust",
+     "publisher": "StatusGatorの運営設備と信頼性",
+     "snapshot": {
+      "url": "https://statusgator.com/trust",
+      "finalUrl": "https://statusgator.com/trust",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:33.773Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "a074b045d14473520d270a0187821489f37ee55cd0313ffa211908af370e251e"
+     },
+     "text": "Trust and security | StatusGator\nStatusGator prioritizes trust, transparency, and reliability. Discover our uptime performance, security practices, and customer commitments.\nTrust and security | StatusGator\nStatusGator prioritizes trust, transparency, and reliability. Discover our uptime performance, security practices, and customer commitments.\nTrust and security | StatusGator\nSkip to main content\nSee the biggest outages we detected early in August 2026\nLearn more\nabout\nSee the biggest outages we detected early in August 2026\nCan't find service?\nRequest service\nUse cases\nIT teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nSeptember 2026 Early Warning Signals\nRead more\nabout September 2026 Early Warning Signals\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly Warning Signals\nGet notified of disruptions before they become public\nSeptember 2026 product updates\nRead more\nabout September 2026 product updates\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nEmbeds\nDigital signage\nKnowledge base\nNotifications\nHelp desk\nThird-party status pages\nIncident management\nMonitoring\nPrivate status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital signage\nOptiSigns\nRise Vision\nTV\nKnowledge base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party status pages\nAtlassian Statuspage\nStatusHub\nIncident management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign in\nSign up\nSign in\nSign up\nTrust and security\nStatusGator is the world's premier status data platform.\nWe've been operating since 2015, collecting the status of thousands of services and aggregating them into our platform.\nThousands of IT teams trust StatusGator to monitor their vendor statuses and host their team status page.\nWe're a small but mighty company, doing one thing better than anyone else on earth: aggregating vendor status data.\nOur founders each have more than 20 years of software development and management experience.\nWe combine that experience with a world-class team and industry-leading security\nand infrastructure providers to produce a platform you can trust.\n11\nYears in operation\n10b+\nStatus checks performed\n23m+\nNotifications sent\n11k+\nServices monitored\n38k+\nUsers served\nStart a free trial\nSOC 2 Type 2 certified\nStatusGator is committed to maintaining the highest standards of security and reliability. We are SOC 2 Type 2 certified since 2025. To receive a copy of our SOC 2 report, please fill out our request form .\nLast audit report date: October 31, 2025\nRequest access\nInfrastructure\nWe host our dashboard and API backend on Heroku, the renowned platform-as-a-service hosting solution provided by Salesforce. By utilizing Heroku, our data remains safely stored in Amazon Web Services and backed by a team of 24x7x365 engineering support. The virtually limitless scalability of Heroku gives you the peace of mind to know that StatusGator will be there when you need it. In addition, we utilize both Cloudflare and Vercel CDN platforms to bring higher performance and stability.\nRead more\nAuthentication\nStatusGator supports 2FA and SAML-based SSO for increased security and credential management. Usernames and passwords are one of the easiest targets for cybercriminals and StatusGator protects your account by reducing the credential surface area with SAML Single Sign On, keeping you compliant. Our two-factor authentication uses one-time passwords (OTP) from a secure authenticator device. We do not support the less secure SMS-based 2FA.\nRead more\nUptime\nStatusGator is incredibly stable. Over the past 12 months, our uptime is 99.92% with approximately 7 hours of service degradation or downtime over the course of a year. Our\nstatus page\nis hosted entirely separately from the rest of our infrastructure so you can be sure it's accessible even in unlikely event of a StatusGator platform outage.\nRead more\nEncryption\nAll StatusGator data is encrypted at rest using AES-256 block-level storage encryption, part of the Heroku platform with keys managed by Amazon Web Services' EBS encryption. Our API, dashboard, and hosted customer status pages, are all only available via TLS/SSL meaning they are only available via HTTPS. Our SSL monitoring is provided by TrackSSL, our own certificate visibility and transparency platform. We use HSTS to prevent protocol-downgrade attacks.\nRead more\nData privacy\nAccess to customer data is limited to select few engineers needing to investigate specific production issues. Because StatusGator collects very little customer data – essentially a list of vendors and limited user information such as name and email, the amount of data available in our systems is limited.\nRead more\nPayment security\nOur payment process, Stripe, is the world leader in SaaS subscription payments and they are the only ones who ever see your payment method details. As a PCI Service Provider Level 1, Stripe's security infrastructure is second-to-none and entirely separate from our own. We have no ability to see your specific payment information and only select few StatusGator employees have access to see summary payment details.\nRead more\nVulnerability disclosure\nStatusGator utilizes two separate industry-standard vulnerability detection platforms to keep track of vulnerable packages and to prevent security vulnerabilities from being deployed. In addition, we maintain a bug bounty program and vulnerability disclosure policy which allows the ethical hacking community to help keep StatusGator data secure.\nRead more\nBacking\nStatusGator has grown organically for more than 11 years and was proudly profitable from the very early days. We're now backed by TinySeed , a start up accelerator. With TinySeed's investment, we're growing StatusGator's base of rabid fans to include IT and DevOps teams from around the world.\nRead more\nSafety features\nRole-based access control\nAudit logging\nEncryption at rest\nContinuous data protection\nOffsite backups\nVulnerability disclosure policy\nData erasure procedure\n30 day log retention\nStatic code analysis\nPrivacy Policy\nTerms of Service\nSAML Single Sign-On\n2-factor authentication\nStart a free trial\nUse cases\nIT teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the media\nService directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent\nmonitoring service tracking the availability of more than\n11,220 services since\n2015. References to third-party services are for identification\npurposes only. It is not endorsed by or affiliated with the\nservices we monitor. All trademarks are the property of their\nrespective owners. Copyright &copy;\n2026 Nimble Industries, Inc.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://statusgator.com/blog/tinyseed-perk/",
+     "publisher": "StatusGatorのTinySeed関係者向け優待",
+     "snapshot": {
+      "url": "https://statusgator.com/blog/tinyseed-perk/",
+      "finalUrl": "https://statusgator.com/blog/tinyseed-perk/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:34.303Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "85df9d6648d35a29421e49052614aa03d62542837d543d81bcf615fca8a6b585"
+     },
+     "text": "TinySeed Perk: 2 Years of StatusGator for FREE | StatusGator\nTinySeed portfolio companies can get StatusGator status pages and monitoring free for 2 years, thanks to our exclusive TinySeed perk.\nTinySeed Perk: 2 Years of StatusGator for FREE | StatusGator\nTinySeed portfolio companies can get StatusGator status pages and monitoring free for 2 years, thanks to our exclusive TinySeed perk.\nTinySeed Perk: 2 Years of StatusGator for FREE | StatusGator\nSkip to content\nUse Cases\nFeatures\nPricing\nIntegrations\nBlog\nSign In\nSign Up\nIT Teams\nStay informed of outages\nand reduce tickets\nDevOps\nOne status page for all your\nproviders\nEducation\nFeatures designed\nspecifically for K12\nEnterprise\nAdvanced features\ndesigned for enterprise\nManaged service providers\nImpress clients with\nproactive monitoring\nCompetitive intelligence\nAnalyze and compare peer\nperformance\nE-commerce\nMonitor dependencies to\nprevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nGitHub outage on August 17, 2026: seven hours of Unicorn errors and Copilot failures\nRead more\nStatus page\nA status page with service,\nwebsite, and custom monitors built-in\nStatus aggregation\nAggregate the status of all\nvendors to a single page\nCloud monitoring\nMonitor all your cloud\nservices from a single\ndashboard\nWebsite monitoring\nMonitor your website with\nuptime monitoring built-in\nPing monitoring\nMonitor network\nconnectivity\nIncidents\nControl the status of\ncustom monitors manually\nwith incidents\nEarly warning signals\nGet notified of disruptions\nbefore they become public\nMonitor dependencies now available in the v3 API\nRead more\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nChat\nEmbeds\nDigital Signage\nKnowledge Base\nNotifications\nHelp Desk\nThird-party Status Pages\nIncident Management\nMonitoring\nPrivate Status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nSchedule a Demo\nUse cases\nIT Teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly warning signals\nGet notified of disruptions before they become public\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital Signage\nOptiSigns\nRise Vision\nTV\nKnowledge Base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party Status Pages\nAtlassian Statuspage\nStatusHub\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate Status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign In\nSign Up\nTinySeed Perk: 2 Years of StatusGator for FREE\nStatusGator is committed to making monitoring and communication available to teams of all sizes and at all stages. And as a TinySeed Portfolio company, we’re especially grateful for the community of support provided by other portfolio companies. That’s why we’re offering 2 years of the StatusGator Team plan for free to all TinySeed portfolio companies or SaaS Institute members.\nAfter 2 years (or at any time requested earlier) TinySeed portfolio companies or SaaS Institute members can get 50% off of any StatusGator plan for an 2 additional years, further extending the value as you scale and grow operations.\nWhat is StatusGator?\nStatusGator is a status page service with a unique monitoring solution built-in. We monitor the status of more than 6,950 services, websites, and cloud platforms and notify you when your providers have outages. We even notify you before providers acknowledge the outage with Early Warning Signals .\nBeyond tracking hundreds of popular services like AWS and Google Cloud, StatusGator has built-in website monitoring and ping monitoring , giving you the ability to monitor your own website, applications, APIs, and health check end points. All of these alerts can go your team in Slack, Teams, or other chat applications along with an internal status page that’s completely automated.\nIn addition to notifying your team about outages, you can also proactively communicate incidents with your own applications on a public status page you share with your customers. Your public status page can be published on your own domain such as status.yourcompany.com and branded with your name, colors, and logo. This keeps everyone informed\nWhat you get from StatusGator\nA single dashboard for 6,950+ cloud service monitors\nStatusGator aggregates real-time status data from more than 6,950 online services – SaaS tools, cloud platforms, APIs, developer services, and more – into one consistent, unified dashboard. No more checking dozens of individual status pages.\nUptime monitoring for your own websites and systems\nAdd monitors for your own websites, APIs, servers, and internal tools. View their uptime alongside the third-party services you depend on for a complete operational picture.\nEarly Warning Signals for faster outage detection\nDetect issues even before they appear on official status pages. Early Warning Signals flag unusual incident activity and emerging outages, helping you quickly answer the critical question: “Is it us or is it them?”\nInstant alerts wherever your team works\nReceive real-time notifications through email, SMS, Slack, Microsoft Teams, Discord, Google Chat, Webex, and webhooks. Ensure the right people are alerted the moment a service experiences an issue.\nIncident and maintenance communication for Custom monitors\nPublish incident updates and scheduled maintenance for the custom monitors you’ve created – each one representing a part of your product or service. These updates appear on your status page, giving customers or internal teams a clear, centralized place to follow outages, maintenance events, and other service-impacting changes.\nHistorical uptime insights and exportable reports\nExplore detailed uptime history for every monitored service. Export reports for analysis, postmortems, or internal reviews — all from one centralized source of truth.\nCustomizable, branded status pages\nCreate a professional status page with your logo, theme, layout, and custom domain. Set privacy controls to decide who can access updates or subscribe to notifications.\nWhy use StatusGator?\nAside from the sweet deal and deep discount, StatusGator offers significant benefits to other status page solutions, including:\nBuilt-in monitoring: Other services have website monitoring built in but StatusGator is the original Status Page Aggregator, bringing together the status of more than 4,000 cloud services that you depend on to keep your product up and running.\nProactive alerts : In addition to regular notifications from official sources, our Early Warning Signals notify you of disruptions even before they’re officially reported, giving you more time to react.\nCustomizable notifications : Filter the types of notifications your team receives to avoid alert fatigue and focus on the issues that matter.\nImproved transparency : Keep your customers informed of service health with easy-to-share unified status page that can even be embedded on your website or in your support portal.\nTinySeed offer details\nWe’re offering TinySeed portfolio companies or SaaS Institute members an incredible deal: enjoy 2 years of our Team Plan completely free , giving your team full access to all our premium features. After the 2 years, you’ll receive a 50% discount on any plan you choose for 2 additional years.\nIf you’re already a StatusGator customer,\nHow to receive your discount\nGetting started with StatusGator is simple, just sign up for a free trial . Then submit a ticket to us with a screenshot of your listing on the TinySeed website or the SaaS Institute dashboard.\nHelp and feedback\nOur support team is here to ensure you get the most out of StatusGator. If you have any questions or need assistance with setup, don’t hesitate to reach out to us at hi@statusgator.com . We are committed to making StatusGator the perfect status page solution for B2B SaaS so we’d love your feedback on what we can do to make it even more useful. Please reach out to us with ideas, suggestions, and comments.\nPublished: January 7, 2025\nby\nUpdated: December 11, 2025\nby\nShare this\nTable of contents\nTable of contents\nWhat is StatusGator?\nWhat you get from StatusGator\nWhy use StatusGator?\nTinySeed offer details\nHow to receive your discount\nHelp and feedback\nStatusGator: Early outage alerts\nUnified status page\nCloud service monitoring\nEarly Warning Signals\nIntegrated with dozens of tools\nWebsite monitoring\nSchedule a demo\nShare this\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent monitoring service tracking the availability of more than 10,430 services since 2015. References to third-party services are for identification purposes only. It is not endorsed by or affiliated with the services we monitor. All trademarks are the property of their respective owners. Copyright © 2026 Nimble Industries, Inc.\nClose Use Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nStatus aggregation\nCloud monitoring\nWebsite monitoring\nPing monitoring\nIncidents\nEarly warning signals\nPricing\nBusiness\nEducation\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nTV\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nMeraki\nNeat Pulse\nTrackSSL\nNotifications\nEmail\nSMS\nPrivate Status\nAT&T status\nAWS status\nAzure status\nMicrosoft 365 status\nZendesk status\nStatus Pages\nAtlassian Statuspage\nStatusHub\nAdvanced\nFirehose\nWebhook\nBlog\nSearch for:",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s13",
+     "url": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+     "publisher": "StatusGatorのRock Paper Coin利用事例",
+     "snapshot": {
+      "url": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+      "finalUrl": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:34.645Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "a18175c6b5660e53d3ddefaa95353c2a8b964d0d4d8471609e403b8b42b9fe76"
+     },
+     "text": "Case Study: How event planning SaaS Rock Paper Coin monitors integrations with StatusGator | StatusGator\nDiscover how Rock Paper Coin improved real-time updates, communication, workflow, and proactive responses with StatusGator. Gain insights into minimizing downtime, enhancing customer communication, centralizing monitoring, and anticipating site issues for better reliability and satisfaction.\nCase Study: How event planning SaaS Rock Paper Coin monitors integrations with StatusGator | StatusGator\nDiscover how Rock Paper Coin improved real-time updates, communication, workflow, and proactive responses with StatusGator. Gain insights into minimizing downtime, enhancing customer communication, centralizing monitoring, and anticipating site issues for better reliability and satisfaction.\nCase Study: How event planning SaaS Rock Paper Coin monitors integrations with StatusGator | StatusGator\nSkip to content\nUse Cases\nFeatures\nPricing\nIntegrations\nBlog\nSign In\nSign Up\nIT Teams\nStay informed of outages\nand reduce tickets\nDevOps\nOne status page for all your\nproviders\nEducation\nFeatures designed\nspecifically for K12\nEnterprise\nAdvanced features\ndesigned for enterprise\nManaged service providers\nImpress clients with\nproactive monitoring\nCompetitive intelligence\nAnalyze and compare peer\nperformance\nE-commerce\nMonitor dependencies to\nprevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nGitHub outage on August 17, 2026: seven hours of Unicorn errors and Copilot failures\nRead more\nStatus page\nA status page with service,\nwebsite, and custom monitors built-in\nStatus aggregation\nAggregate the status of all\nvendors to a single page\nCloud monitoring\nMonitor all your cloud\nservices from a single\ndashboard\nWebsite monitoring\nMonitor your website with\nuptime monitoring built-in\nPing monitoring\nMonitor network\nconnectivity\nIncidents\nControl the status of\ncustom monitors manually\nwith incidents\nEarly warning signals\nGet notified of disruptions\nbefore they become public\nMonitor dependencies now available in the v3 API\nRead more\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nChat\nEmbeds\nDigital Signage\nKnowledge Base\nNotifications\nHelp Desk\nThird-party Status Pages\nIncident Management\nMonitoring\nPrivate Status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nSchedule a Demo\nUse cases\nIT Teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly warning signals\nGet notified of disruptions before they become public\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital Signage\nOptiSigns\nRise Vision\nTV\nKnowledge Base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party Status Pages\nAtlassian Statuspage\nStatusHub\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate Status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign In\nSign Up\nCase Study: How event planning SaaS Rock Paper Coin monitors integrations with StatusGator\nTable of contents\nIntro\nSummary\nOverview and Challenges\nImplementation\nImpact Outcomes:\nIntro\nWelcome to StatusGator case study series, where we bring you firsthand accounts from our valued customers, showcasing how StatusGator provides significant business impact in a wide variety of use cases. In this series, we’re excited to present the experiences of industry leaders like Elizabeth Sheils, Co-Founder and CEO of Rock Paper Coin , as they navigate the challenges of their respective industries with StatusGator as their trusted ally.\nSummary\nIn the following post, we’ll delve into the specifics of how StatusGator has been integrated into our clients’ workflows, the challenges it has helped them overcome, and the tangible advantages they’ve gained. Through these conversations, we aim to offer you valuable insights into how StatusGator can enhance your own operations.\nOverview and Challenges\nRock Paper Coin is a software-as-a-service (SaaS) company that specializes in providing digital solutions for the event and wedding industry. Launched in 2019, Rock Paper Coin offers a suite of tools designed to streamline and simplify the booking and planning of events, particularly weddings. These tools include features for contract management, invoicing, payments, and communication, all tailored to meet the unique needs of event professionals and their clients.\nLike most modern software tools, Rock Paper Coin depends on multiple third-party services to stay up and running. Specifically, they have integrations with a range of partners and external tools that allow them to bolster their platform’s capabilities. Although use third-party integrations can help build out capabilities quickly, software companies become dependent on those providers’ reliability. The status of third-party providers is a common blind-spot for SaaS companies — a key challenge that StatusGator solves.\nRock Paper Coin noticed that during instances when partner services encountered outages, they lacked the means to promptly detect issues or inform customers. It was this gap that led them to find a monitoring solution. StatusGator’s long history and industry reputation was the key driver of their decision to adopt it as their SaaS monitoring tool.\nImplementation\nAfter deciding to move forward with StatusGator, the implementation process for Rock Paper Coin was straightforward. Within a few minutes, they were able to build a board that monitors all their third-party services. For each service, they configured component filters that ensured their would only get notified about the parts of the partner service that were relevant to their integration.\nAs part of their monitoring configuration process, Rock Paper Coin found several services that were not yet monitored by StatusGator and they submitted support requests to add them. StatusGator aims to add all requested services within 3 business days and often adds them much sooner. In this case, we added each service to the StatusGator platform within a few minutes of the request.\nTo complete their board configuration, Rock Paper Coin configured website monitors for their application and marketing sites to ensure they were notified of any outages. For Rock Paper Coin, immediacy of notification was paramount. StatusGator’s SMS notifications proved to be a valuable way they could be quickly notified of critical outages, day or night. Plus, the StatusGator Slack app is able to notify them directly where their team already congregates.\nLastly, with a few clicks, Rock Paper Coin configured their status page, a central place for their team to see the status of all their systems.\nImpact\nThe Rock Paper Coin team speaks highly of the impact StatusGator provided to their technical operations and customer support:\nStatusGator has been a game-changer for us. Before implementing, we were constantly flying blind whenever our partner sites went down.\nElizabeth Sheils, Co-Founder and CEO of Rock Paper Coin\nThe introduction of StatusGator into Rock Paper Coin’s operations has been transformative. Prior to this, the team often grappled with a lack of visibility into the status of their partner sites, a challenge that is not uncommon in the SaaS landscape. This shift, however, was not just about problem-solving. It was a proactive step towards operational excellence and customer transparency.\nWith StatusGator, the Rock Paper Coin team is no longer reacting to outages after the fact. Instead, they are equipped with the tools to anticipate and mitigate potential issues before they impact customers, enhancing overall reliability and customer satisfaction.\nOutcomes:\nRock Paper Coin’s integration of StatusGator yielded tangible benefits across their operations:\nReal-Time Updates: With StatusGator’s notifications feature, Rock Paper Coin gained real-time updates on partner site outages. This enabled them to promptly detect and address issues, minimizing downtime and ensuring uninterrupted service for their customers.\nImproved Communication: By leveraging StatusGator’s status page feature, Rock Paper Coin enhanced communication with their customers. They could now provide timely updates on site status, keeping customers informed and alleviating concerns during outages.\nEnhanced Workflow: StatusGator simplified Rock Paper Coin’s workflow by centralizing monitoring activities in one platform. With features like embeds seamlessly integrated into their existing infrastructure, they could efficiently track site status without disrupting their workflow.\nProactive Response: Armed with StatusGator’s insights, Rock Paper Coin adopted a proactive approach to addressing site issues. Instead of reacting to problems after they occurred, they could anticipate and mitigate potential issues before they impacted customers, enhancing overall reliability and customer satisfaction.\nIf you have a story to share or would like to learn more about how StatusGator can benefit your business, please don’t hesitate to reach out to us at hi@statusgator.com . We’d love to hear from you and feature your experiences in our series.\nCase study , SaaS\n❮ Previous article\n❯ Next article\nPublished: June 12, 2024\nby\nUpdated: November 19, 2024\nby\nShare this\nColin Bartlett\nColin Bartlett is co-founder of StatusGator and Nimble Industries, a seasoned Ruby engineer and entrepreneur who launched StatusGator in 2015 and later grew it into a full-fledged company.\nFollow on Linkedin\nRecent posts\nSeptember 2026 product updates\nGet a weekly view of your service reliability\nSeptember 2026 Early Warning Signals\nTable of contents\nTable of contents\nIntro\nSummary\nOverview and Challenges\nImplementation\nImpact Outcomes:\nStatusGator: Early outage alerts\nUnified status page\nCloud service monitoring\nEarly Warning Signals\nIntegrated with dozens of tools\nWebsite monitoring\nSchedule a demo\nShare this\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent monitoring service tracking the availability of more than 10,430 services since 2015. References to third-party services are for identification purposes only. It is not endorsed by or affiliated with the services we monitor. All trademarks are the property of their respective owners. Copyright © 2026 Nimble Industries, Inc.\nClose Use Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nStatus aggregation\nCloud monitoring\nWebsite monitoring\nPing monitoring\nIncidents\nEarly warning signals\nPricing\nBusiness\nEducation\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nTV\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nMeraki\nNeat Pulse\nTrackSSL\nNotifications\nEmail\nSMS\nPrivate Status\nAT&T status\nAWS status\nAzure status\nMicrosoft 365 status\nZendesk status\nStatus Pages\nAtlassian Statuspage\nStatusHub\nAdvanced\nFirehose\nWebhook\nBlog\nSearch for:",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s14",
+     "url": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+     "publisher": "StatusGatorの学校利用集計",
+     "snapshot": {
+      "url": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+      "finalUrl": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:34.974Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "fa603014ad818370a35a5a481b2650739e755fefb085b27c465f1627429fa0bb"
+     },
+     "text": "The State of EdTech 2021: Education Software Usage Analyzed | StatusGator\n[Based on Data] We analyzed which tools are used by 191 schools/colleges/universities and this is what we found…\nThe State of EdTech 2021: Education Software Usage Analyzed | StatusGator\n[Based on Data] We analyzed which tools are used by 191 schools/colleges/universities and this is what we found…\nThe State of EdTech 2021: Education Software Usage Analyzed | StatusGator\nSkip to content\nUse Cases\nFeatures\nPricing\nIntegrations\nBlog\nSign In\nSign Up\nIT Teams\nStay informed of outages\nand reduce tickets\nDevOps\nOne status page for all your\nproviders\nEducation\nFeatures designed\nspecifically for K12\nEnterprise\nAdvanced features\ndesigned for enterprise\nManaged service providers\nImpress clients with\nproactive monitoring\nCompetitive intelligence\nAnalyze and compare peer\nperformance\nE-commerce\nMonitor dependencies to\nprevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nGitHub outage on August 17, 2026: seven hours of Unicorn errors and Copilot failures\nRead more\nStatus page\nA status page with service,\nwebsite, and custom monitors built-in\nStatus aggregation\nAggregate the status of all\nvendors to a single page\nCloud monitoring\nMonitor all your cloud\nservices from a single\ndashboard\nWebsite monitoring\nMonitor your website with\nuptime monitoring built-in\nPing monitoring\nMonitor network\nconnectivity\nIncidents\nControl the status of\ncustom monitors manually\nwith incidents\nEarly warning signals\nGet notified of disruptions\nbefore they become public\nMonitor dependencies now available in the v3 API\nRead more\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nChat\nEmbeds\nDigital Signage\nKnowledge Base\nNotifications\nHelp Desk\nThird-party Status Pages\nIncident Management\nMonitoring\nPrivate Status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nSchedule a Demo\nUse cases\nIT Teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly warning signals\nGet notified of disruptions before they become public\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital Signage\nOptiSigns\nRise Vision\nTV\nKnowledge Base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party Status Pages\nAtlassian Statuspage\nStatusHub\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate Status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign In\nSign Up\nThe State of EdTech 2021: Education Software Usage Analyzed\nTable of contents\nGeneral Insights Tools by categories\nUsers by categories\nServices by users\nTop Monitored Services Education\nCommunication\nProductivity\nUsers who do monitoring correctly\nThe data behind the report\nConclusions\nToday we will share our list of the most popular software tools used by educational institutions. Why is this important? If you are managing technology in education you need to make the best choice from among many available tools. Discovering the most popular tools used by other education professionals can help you make an informed choice.\nAfter reading the report you’ll know which tools are relied upon by primary and secondary schools, colleges, and universities in the United States. This is based on a unique dataset from StatusGator . The dataset includes the tools and services that are monitored by educational organizations :\nprimary schools\nsecondary schools\ncolleges and universities, both public and private\nReduce Student Support Burden – Provide Your Students/Teachers/Parents with a Status dashboard\nDisclaimer : The data is depersonalized as we selected all StatusGator users with “k12”, “edu” or “school” in their domain. The main goal of this report is to understand what are the most popular and important tools for the educational industry. Keep in mind that the free plan from StatusGator covers up to 3 tools and the paid one covers up to 500 tools, so budget limitations are not a concern for organizations that monitor only a few services. Hopefully, this research will help you to add more tools to the current stack and monitor it more efficiently.\nGeneral Insights\nBelow is the general list of tools used by various educational organizations, monitored using StatusGator. This list is later split by categories, users, and services.\nThere are 127 unique services used by educational organizations. These tools are listed under various categories, and sometimes one tool might fall under several categories because it fills more than one role.\nTools by categories\nNow, let’s split these tools into categories.\nKey insights:\nEducational services account for only 39 of the 127 services monitored. Of course, there are also a lot of other tools in various categories that are important and widely used by schools and colleges.\nThere is a surprisingly low number of providers in the communication and chat category. Most likely this is due to the market being almost monopolized by Zoom , Slack , and a few other ubiquitously used tools.\nAs we can see, despite DevOps, cybersecurity, productivity tools, and Big Data analytics becoming increasingly popular in the IT industry, they are almost never used by educators. While the most obvious reasons are a lack of funds, knowledge, or need for such tools, this poses a potential concern — at least in terms of the security of personal details and the speed of applying patches and fixes when the need arises.\nSince most institutions monitor education-specific software, they either don’t use or don’t monitor their DevOps, cloud infrastructure , communication, and other tools. With educational organizations being so tightly regulated and required to protect their learners’ personal details , the lack of attention to security tools is concerning.\nUsers by categories\nThis shows how many unique users are monitoring various categories of tools.\nKey insights:\nThere are 191 unique users, but only 150 of them monitor tools from the Education Category. So ~25% of educational organizations do not use (or monitor) any of the tools from the Education category. Perhaps, they use custom solutions or combine tools from other categories to fill the gap.\n125 users monitor communication and chat applications. So 35% do not find communication tools important enough to monitor.\nCloud infrastructure is important for ~50% of users. The rest will likely use on-prem infrastructure, perhaps this applies to colleges and universities.\nNaturally, many educational organizations use video editing, LMS , and course design tools to create proprietary learning content, as well as designing eye-catching business cards for networking and promotional purposes. But why do so few monitor it? Are the rest using on-prem solutions instead of cloud-based ones, or don’t they think it is important enough to monitor?\nServices by users\nThis shows how users are divided by the number of services they monitor.\nKey insights:\nNearly 55% of users monitor only one service. This certainly does not mean they don’t want to monitor more tools (StatusGator’s free plan covers up to 3), as a single system is clearly not enough to cover an educational organization.\n13% of users monitor 5+ services and 6% monitor 10+ services.\nThe majority of users monitor a small number of services. This means only a small number of services are really important for them.\nAs you can see, even a free StatusGator plan meets the needs of most educational organizations, and it can be easily upgraded should the need arise to monitor more tools.\nTop Monitored Services\nLet’s now analyze the most popular tools monitored by educational organizations. They can be split into three main categories: educational software, communication tools and performance management systems.\nEducation\nBelow are the tools from the education category, listed in order of popularity:\nCanvas by Instructure — one of the most popular LMS or Learning Management Systems\nCle ver — an API provider to connect Student Information Systems to third-party software\nPowerSchool — a K-12 education technology provider\nSeesaw — a student engagement and creativity management platform\nSchoology — a social networking and virtual learning environment management platform for K-12 schools and higher institutions\nFlipgrid — a free-to-use service for Microsoft or Google users, where teachers can create and share educational content with their learners\nBlackboard — another popular LMS and virtual learning environment software\nPear Deck — an interactive tool for creating presentations using Google Drive services\nNearpod — a tool for creating interactive presentations for classes or virtual classrooms\nScreencastify — a Chrome browser extension for recording the learner’s screen, face, and voice – used for performing online assessments and exams.\nCommunication\nBelow are the tools from the communication category, listed in order of popularity:\nZoom — unsurprisingly, the leader of remote communication\nGoogle Workspace (formerly G Suite) — Google Meet and other tools\nMicrosoft Office — Microsoft services for communication and collaboration\nSlack — the most popular business messenger around\nDiscord — a VoIP and community management service\nProductivity\nBelow are the tools from the performance category, listed in order of popularity:\nMicrosoft 365 — a productivity suite used by many educational organizations\nBox — a collaboration and productivity service providing secure access to content\nWebex — a web-based learning management tool to host, attend, and track classes\nSmartsheet — a tool for synchronizing the curriculum and enrollment of students moving from one school to another or across district boundaries\nAtlassian Support — a support service for Atlassian University online courses\nPlanview — a content portfolio and work management solution\nMiro — a free-to-use virtual whiteboard for teacher-learner collaboration\nPrezi — a tool for creating interactive presentations with advanced effects\nDropbox — a collaborative workspace for learners, educators and faculty teams\nUsers who do monitoring correctly\nWhat kind of monitoring is ideal for schools and universities? Which StatusGator users have optimal monitoring configurations? Below we explain why we consider some companies to be monitored correctly and what best practices you should follow to be among them.\nOnly 6% of users who monitor 10+ services can be considered experts. This means they adopt new technologies and have DevOps in place, which makes them more secure, more stable, and better prepared for future challenges.\nThe organizations that monitor fewer than 5-7 services probably do not realize how many services they depend on OR realize they do not have monitoring set up properly. This means their cloud storage can be down for days and they won’t ever find out.\nThe data behind the report\nHow can we be so sure our research results are valid and credible? Below are the answers to some questions you might have.\nThe data comprises anonymized statistics from StatusGator. There are 191 users from the education industry — public and private elementary, middle and higher schools, colleges, and universities. They monitor 127 important services in total.\nWhy do we use the word “ important ”? Because these are the tools they monitor, thus meaning they are dependent on them, and every minute of downtime counts.\nHow can we be sure we don’t miss any services? At this moment we monitor more than 2,800 services. We constantly add new services to the list. We ask our customers what they want us to add — and we add them, usually within hours or days. StatusGator monitors many small, niche regional services as well such as testing providers.\nWe, therefore, have the most complete list of services monitored. As long as they have a status page, we can monitor them. (Those that do not provide transparency with a status page are relics of a bygone era. How can your customers know when you’re down? These services found out the hard way in Q2 2020 .\nHow did we split the tools by categories? Why do some categories have multiple names? We split tools based on their main use case. If we know there are several main use cases like Communication and Productivity, we add multiple words\nStatusGator is an independent status monitoring platform that provides a single dashboard to monitor the status of all the services your company uses. It can be either public or private status page . Even the free StatusGator plan provides a convenient and reliable end-to-end monitoring and alerting service, greatly decreasing helpdesk workload and making everything more transparent.\nReceive Instant Notifications When Any of Your Services Go Down\nConclusions\nThere are some unexpected tools on this list. For example, while seeing various CRM and security software is understandable, having e-commerce or telephony solutions like Brightpearl or Bandwidth was somewhat surprising.\nOne thing we found interesting in the data is that in some ways, Education customers aren’t that different from commercial customers: A lot of them rely on the big cloud providers: Amazon / Azure /Google/etc. Apple is also very common, reflecting Apple’s large market share in the education space.\nAs you can see, different educational organizations use different software tools to interact with their learners. Thus, having a single, easily configurable dashboard to monitor the performance of your IT infrastructure, regardless of its complexity can be a lifesaver.\nCheck it out for yourself. Subscribe to a free plan from StatusGator and reduce student, teacher, and parent support burden!\nEducation\n❮ Previous article\n❯ Next article\nPublished: February 23, 2021\nby\nUpdated: September 4, 2023\nby\nShare this\nColin Bartlett\nColin Bartlett is co-founder of StatusGator and Nimble Industries, a seasoned Ruby engineer and entrepreneur who launched StatusGator in 2015 and later grew it into a full-fledged company.\nFollow on Linkedin\nRecent posts\nSeptember 2026 product updates\nGet a weekly view of your service reliability\nSeptember 2026 Early Warning Signals\nTable of contents\nTable of contents\nGeneral Insights Tools by categories\nUsers by categories\nServices by users\nTop Monitored Services Education\nCommunication\nProductivity\nUsers who do monitoring correctly\nThe data behind the report\nConclusions\nStatusGator: Early outage alerts\nUnified status page\nCloud service monitoring\nEarly Warning Signals\nIntegrated with dozens of tools\nWebsite monitoring\nSchedule a demo\nShare this\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent monitoring service tracking the availability of more than 10,430 services since 2015. References to third-party services are for identification purposes only. It is not endorsed by or affiliated with the services we monitor. All trademarks are the property of their respective owners. Copyright © 2026 Nimble Industries, Inc.\nClose Use Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nStatus aggregation\nCloud monitoring\nWebsite monitoring\nPing monitoring\nIncidents\nEarly warning signals\nPricing\nBusiness\nEducation\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nTV\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nMeraki\nNeat Pulse\nTrackSSL\nNotifications\nEmail\nSMS\nPrivate Status\nAT&T status\nAWS status\nAzure status\nMicrosoft 365 status\nZendesk status\nStatus Pages\nAtlassian Statuspage\nStatusHub\nAdvanced\nFirehose\nWebhook\nBlog\nSearch for:",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s15",
+     "url": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+     "publisher": "StatusGatorの携帯端末向け製品公開",
+     "snapshot": {
+      "url": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+      "finalUrl": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:38:35.017Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "d8568fab4b7cd7c68657f7d3891bde3c2ed784c89d53830f39f5ae861fddf141"
+     },
+     "text": "The StatusGator mobile app is here | StatusGator\nThe StatusGator mobile app is now available for iOS and Android. Get outage alerts and Early Warning Signals, monitor status pages, and report outages from your phone.\nThe StatusGator mobile app is here | StatusGator\nThe StatusGator mobile app is now available for iOS and Android. Get outage alerts and Early Warning Signals, monitor status pages, and report outages from your phone.\nThe StatusGator mobile app is here | StatusGator\nSkip to content\nUse Cases\nFeatures\nPricing\nIntegrations\nBlog\nSign In\nSign Up\nIT Teams\nStay informed of outages\nand reduce tickets\nDevOps\nOne status page for all your\nproviders\nEducation\nFeatures designed\nspecifically for K12\nEnterprise\nAdvanced features\ndesigned for enterprise\nManaged service providers\nImpress clients with\nproactive monitoring\nCompetitive intelligence\nAnalyze and compare peer\nperformance\nE-commerce\nMonitor dependencies to\nprevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nGitHub outage on August 17, 2026: seven hours of Unicorn errors and Copilot failures\nRead more\nStatus page\nA status page with service,\nwebsite, and custom monitors built-in\nStatus aggregation\nAggregate the status of all\nvendors to a single page\nCloud monitoring\nMonitor all your cloud\nservices from a single\ndashboard\nWebsite monitoring\nMonitor your website with\nuptime monitoring built-in\nPing monitoring\nMonitor network\nconnectivity\nIncidents\nControl the status of\ncustom monitors manually\nwith incidents\nEarly warning signals\nGet notified of disruptions\nbefore they become public\nMonitor dependencies now available in the v3 API\nRead more\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nChat\nEmbeds\nDigital Signage\nKnowledge Base\nNotifications\nHelp Desk\nThird-party Status Pages\nIncident Management\nMonitoring\nPrivate Status\nAdvanced\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nIframe\nStatus Embed\nStatus Modal\nOptiSigns\nRise Vision\nTV\nConfluence\nNotion\nSharePoint\nEmail\nSMS\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nAtlassian Statuspage\nStatusHub\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nFirehose\nMCP Server\nREST API\nWebhook\nSchedule a Demo\nUse cases\nIT Teams\nStay informed of outages and reduce tickets\nDevOps\nOne status page for all your providers\nEducation\nFeatures designed specifically for K12\nEnterprise\nAdvanced features designed for enterprise\nManaged service providers\nImpress clients with proactive monitoring\nCompetitive intelligence\nAnalyze and compare peer performance\nE-commerce\nMonitor dependencies to prevent revenue loss\nSaaS providers\nCreate and manage custom status pages for your product\nFeatures\nStatus page\nA status page with service, website, and custom monitors built-in\nStatus aggregation\nAggregate the status of all vendors to a single page\nCloud monitoring\nMonitor all your cloud services from a single dashboard\nWebsite monitoring\nMonitor your website with uptime monitoring built-in\nPing monitoring\nMonitor network connectivity\nIncidents\nControl the status of custom monitors manually with incidents\nEarly warning signals\nGet notified of disruptions before they become public\nPricing\nBusiness\nFor growing teams and organizations\nEnterprise\nFor larger companies with unique needs\nEducation\nSpecial plans and discounts for K12 and higher ed\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nDigital Signage\nOptiSigns\nRise Vision\nTV\nKnowledge Base\nConfluence\nNotion\nSharePoint\nNotifications\nEmail\nSMS\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nThird-party Status Pages\nAtlassian Statuspage\nStatusHub\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nDatadog\nMeraki\nNeat Pulse\nTrackSSL\nZoom Rooms\nPrivate Status\nAWS status\nAzure status\nGoogle Cloud status\nMicrosoft 365 status\nZendesk status\nAdvanced\nFirehose\nMCP Server\nREST API\nWebhook\nBlog\nSign In\nSign Up\nThe StatusGator mobile app is here\nTable of contents\nYour status page, now in a dedicated app\nGet outage alerts and Early Warning Signals on your phone\nSee the services you depend on at a glance\nReport an outage from your phone\nAdd a status page in seconds\nEverything you need to monitor services on the go\nDownload the StatusGator mobile app\nWe’re excited to launch the StatusGator mobile app for iOS and Android, designed to put outage alerts right in the palm of your hand.\nYour StatusGator status page is the central hub for your entire organization to view and understand the status of all your services. These pages have always been accessible on mobile. Now, with the dedicated app, end users of your status page can take the services they depend on with them and receive updates directly on their phones.\nAnyone with access to your status page – whether it’s public or authenticated – can add it to the app. Getting started takes just a few seconds: click Subscribe to update then choose Mobile app , then scan the QR code with the StatusGator app. The entire status page and its monitors are added automatically.\nFrom there, users can check service status, receive push notifications, including Early Warning Signals , choose which monitors they want alerts for, and report outages – all from the StatusGator app.\nThe app is available now on the Apple App Store and Google Play .\nYour status page, now in a dedicated app\nThe app works with the status page you already publish.\nSimply scan the QR code to add your status page app and you can see all of its monitors and their current statuses at a glance. Does your team use more than one status page? You can add multiple pages and easily switch between them, keeping all the services you depend on within easy reach.\nWhen something goes wrong, you can quickly see which service is affected and open the monitor for more information about its current status.\nGet outage alerts and Early Warning Signals on your phone\nOne of the biggest advantages of the dedicated app is push notifications directly on your phone.\nStatusGator can notify you about outages, incidents, recoveries, and other status changes. You can also receive Early Warning Signals when we detect a potential outage before the provider acknowledges it on their official status page.\nThis means you can find out about third-party issues earlier and quickly determine whether a problem your team is experiencing may be caused by a service you depend on.\nYou’re also in control of which alerts you receive. Choose which individual monitors you want notifications for, or mute notifications for an entire status page when you don’t need them.\nSee the services you depend on at a glance\nOpen a status page in the app to see all of its monitors and their current statuses in one place.\nTap any monitor to see more details, including its current status, incident information, and recent uptime history. You can also quickly open the provider’s official status page when you need more information.\nInstead of checking multiple provider status pages, you have the services that matter to you together in one mobile view.\nReport an outage from your phone\nThink a service is down?\nYou can report an outage directly from the StatusGator app. Select the affected monitor, enter your email, describe what you’re experiencing, and submit your report—all from your phone.\nThese reports contribute to the outage signals StatusGator uses to identify potential service problems. Give back to the broader community by reporting what you see happening.\nAdd a status page in seconds\nGetting your status pages into the app is super easy.\nOn your StatusGator status page, click Subscribe to updates then Mobile app to display the QR code.\nThen open the StatusGator app , tap Scan QR code , and scan it.\nThat’s it. The status page and all of its monitors are added to your app.\nYou can repeat the same process to add multiple status pages and easily switch between them in the app.\nDon’t have the app yet? Scan the QR code with your phone’s camera to download StatusGator, or get it directly from the App Store or Google Play .\nEverything you need to monitor services on the go\nWith the StatusGator mobile app, you can:\nView all monitors from your status pages in one place\nFollow multiple status pages and easily switch between them\nGet push notifications for outages, incidents, recoveries, and other status changes\nReceive Early Warning Signals before a provider acknowledges an outage\nChoose which monitors you want notifications for\nMute notifications for individual monitors or an entire status page\nView current service status, incident details, and recent uptime\nReport outages directly from your phone\nQuickly access providers’ official status pages\nDownload the StatusGator mobile app\nThe StatusGator app is available now for iOS and Android .\niOS: Download StatusGator on the App Store\nAndroid: Get StatusGator on Google Play\nThis is our first release, and we’re just getting started. Try the app and let us know what you’d like us to improve or add next.\nAnnouncements , Changelog\n❮ Previous article\n❯ Next article\nPublished: September 17, 2026\nby\nShare this\nValeria Kurolapova\nValeria Kurolapova is the Senior Product Designer and UX Manager at StatusGator. She manages product design initiatives, focusing on improving user experience.\nFollow on Linkedin\nRecent posts\nSeptember 2026 product updates\nGet a weekly view of your service reliability\nSeptember 2026 Early Warning Signals\nTable of contents\nTable of contents\nYour status page, now in a dedicated app\nGet outage alerts and Early Warning Signals on your phone\nSee the services you depend on at a glance\nReport an outage from your phone\nAdd a status page in seconds\nEverything you need to monitor services on the go\nDownload the StatusGator mobile app\nStatusGator: Early outage alerts\nUnified status page\nCloud service monitoring\nEarly Warning Signals\nIntegrated with dozens of tools\nWebsite monitoring\nSchedule a demo\nShare this\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nUse Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nPrivate status page\nStatus aggregation\nStatus page aggregator\nCloud monitoring\nWebsite monitoring\nEarly Warning Signals\nPing monitoring\nIncidents\nMulti-region monitoring\nPricing\nBusiness\nEducation\nStatusGator vs.\nOther status page tools\nOther monitoring tools\nOther status aggregators\nMore\nAbout us\nIn the Media\nService Directory\nIntegrations\nBrowser extension\nSupport\nBlog\nChangelog\nTrust and security\nVulnerability\nPrivacy\nTerms\nFAQs\nPopular Services\nAWS status\nAzure status\nCloudflare status\nGitHub status\nGoogle Cloud status\nGoogle Workspace status\nMicrosoft Teams status\nMicrosoft 365 status\nOkta status\nOpenAI status\nSalesforce status\nSlack status\nZoom status\nStatusGator is a status page aggregator and independent monitoring service tracking the availability of more than 10,430 services since 2015. References to third-party services are for identification purposes only. It is not endorsed by or affiliated with the services we monitor. All trademarks are the property of their respective owners. Copyright © 2026 Nimble Industries, Inc.\nClose Use Cases\nIT Teams\nDevOps\nEducation\nEnterprise\nManaged service providers\nCompetitive intelligence\nE-commerce\nSaaS providers\nFeatures\nStatus page\nStatus aggregation\nCloud monitoring\nWebsite monitoring\nPing monitoring\nIncidents\nEarly warning signals\nPricing\nBusiness\nEducation\nIntegrations\nChat\nDiscord\nGoogle Chat\nMicrosoft Teams\nSlack\nWebex\nEmbeds\nIframe\nStatus Embed\nStatus Modal\nTV\nHelp Desk\nFreshdesk\nFreshservice\nIncident IQ\nZendesk\nIncident Management\nBetter Uptime\nFireHydrant\nOpsgenie\nPagerDuty\nMonitoring\nMeraki\nNeat Pulse\nTrackSSL\nNotifications\nEmail\nSMS\nPrivate Status\nAT&T status\nAWS status\nAzure status\nMicrosoft 365 status\nZendesk status\nStatus Pages\nAtlassian Statuspage\nStatusHub\nAdvanced\nFirehose\nWebhook\nBlog\nSearch for:",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "顧客の不具合を数時間調べたら、原因はFacebook APIの障害だった。この経験から生まれた障害監視の副業は、月1,000米ドルを目標にしたが、2016年12月の継続月額売上は330米ドルにとどまった。",
+     "basis": [
+      "f1",
+      "f2"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "Colin Bartlettは2014年に考案し、2015年1月に公開した。目標は2015年6月までに月1,000米ドルだったが届かず、2016年12月の継続月額売上は330米ドルだった。この時点の利用者は有料22人、無料1,159人。費用はHerokuの154米ドルが最も大きく、差額は月161米ドルだった。買収提案が1件来たが、提示額が小さく断った。2018年にAndy Libbyが加わり、Nimble Industriesを設立した。2020年に学校（K12）向けの提供を始め、遠隔授業中の問い合わせ削減を支援した。2022年にTinySeedに参加し、最初で唯一の資金調達を行った。2024年には、公式の障害告知より早く異常を捉えるEarly Warning Signalsを一般提供した。",
+     "basis": [
+      "f8",
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f7",
+      "f9",
+      "f10",
+      "f11",
+      "f12"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "11,220以上の外部サービスの稼働状況を1か所にまとめ、障害を通知する。状況ページも作れる。無料版は監視3件・月10通知まで。監視件数、状況ページの数、管理者数、履歴の期間を広げたい組織が月額の有料プランに上げる。支払いはStripeで行う。",
+     "basis": [
+      "f13",
+      "f26",
+      "f27",
+      "f28",
+      "f29",
+      "f31"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "結婚式・イベント業界向けSaaSのRock Paper Coinは、取引先サービスの障害を把握するために使っている。もう一つの客層は、遠隔授業中に問い合わせが殺到した学校のIT部門。自社集計では、教育関係の利用者191人が127種類のサービスを監視していた。",
+     "basis": [
+      "f37",
+      "f10",
+      "f39"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "自社の不具合だと思って数時間調べたら、原因は取引先の障害だった。この空振りが痛みの中身である。Rock Paper Coinは導入前、取引先サイトが止まっても状況が分からなかった。学校のIT部門は、遠隔授業中に押し寄せる問い合わせへの対応に追われていた。",
+     "basis": [
+      "f1",
+      "f37",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "Facebook、Google AdWords、Twitterの広告は効果が乏しかった。効いたのは検索と口コミで、初期にStackShareへ寄稿した記事は長く利用者を運び続けた。現在は、TinySeedの投資先とSaaS Instituteの会員に、Teamプランを2年間無料、その後2年間は任意のプランを50%引きで提供している。",
+     "basis": [
+      "f6",
+      "f36"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "2016年12月の費用は、Heroku 154米ドル、Stripe 10米ドル、DigitalOcean 5米ドル。費用の大半はサーバー代が占めた。現在の設備はHeroku・AWS・Cloudflare・Vercelで、決済はStripeを使う。",
+     "basis": [
+      "f3",
+      "f33"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-take_home",
+     "item": "TAKE_HOME",
+     "text": "2016年12月の手元の差額は月161米ドル。創業者の給与は差し引いていない。",
+     "basis": [
+      "f2",
+      "f3"
+     ],
+     "formula": "継続月額売上330米ドル − Stripe 10米ドル − Heroku 154米ドル − DigitalOcean 5米ドル = 161米ドル（創業者給与と一部の小額費用は含まない）",
+     "presentation": "ESTIMATE"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "Colin Bartlettが一人で考案・公開した。2018年にAndy Libbyが加わってNimble Industriesを作り、複数国の遠隔勤務で運営している。外部資金は2022年のTinySeed参加時の1回だけ。",
+     "basis": [
+      "f8",
+      "f9",
+      "f11"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "商品は、11,220以上の他社が出す稼働状況の情報を集めることで成り立っている。運営はHeroku・AWSに、課金はStripeに乗る。携帯版はiOSとAndroid向けに出しているため、App StoreとGoogle Playにも依存する。",
+     "basis": [
+      "f13",
+      "f33",
+      "f40"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "客は状況ページを公開し、部品単位の絞り込み監視とSMS・Slack通知を業務に組み込む。上位プランでは最大12か月の履歴も貯まる。携帯版は、状況ページにアクセスできる人なら誰でも追加できる。一方で、無料版を含む下位プランへの変更はいつでもできる。",
+     "basis": [
+      "f37",
+      "f29",
+      "f40",
+      "f32"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "全有料プランに年払いがあり、月換算で月払いより安い。Starterは72米ドル対79米ドル、Corporateは274米ドル対299米ドル。年払いを選んだ客からは、1年分の代金が先に入る。",
+     "basis": [
+      "f27",
+      "f28",
+      "f29"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2014年に考案し、2015年1月に公開した。2016年12月の継続月額売上は330米ドル。2018年にNimble Industriesを設立し、2020年にK12向けの提供を開始した。2022年にTinySeedから資金を調達し、2024年にEarly Warning Signalsを一般提供した。2025年からSOC 2 Type 2の認証を受けている。",
+     "basis": [
+      "f8",
+      "f1",
+      "f2",
+      "f9",
+      "f10",
+      "f11",
+      "f12",
+      "f35"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "2020年、遠隔授業で学校への問い合わせが増えたところにK12向けの提供を始めた。障害を先に知らせて問い合わせを減らすという用途が、学校のIT部門の困りごとと重なった。",
+     "basis": [
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "当初は月9.99米ドルと19.99米ドルの個人向け価格だった。その後、企業向けに複数利用者のサインオン、年払い、経費精算用の領収書が要ると気づいた。新しい段階料金に移ると、新規客の単価が上がった。解約したのは現行最安より33〜66%安い旧契約の客で、上位プランへの変更は過去最多になった。",
+     "basis": [
+      "f5",
+      "f16",
+      "f14"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "有料22人・月330米ドルで止まっていた道具を事業に変えたのは、チームで払う組織向けの機能と価格への作り直しだった。安い旧契約の客が抜けても、単価の高い新規客が増えれば売上は伸びる。",
+     "basis": [
+      "f4",
+      "f2",
+      "f5",
+      "f16",
+      "f14"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f31",
+    "f32",
+    "f33",
+    "f34",
+    "f35",
+    "f36",
+    "f37",
+    "f38",
+    "f39",
+    "f40"
+   ],
+   "identity": {
+    "id": "ent_statusgator_316d3eb5edf6",
+    "name": "StatusGator",
+    "url": "https://statusgator.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_27c12e74c0fd89162932c6df",
+      "entityId": "ent_statusgator_316d3eb5edf6",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://statusgator.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:42:04.519Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "27c12e74c0fd89162932c6df3814e8532fdb668db4272f8d5c48bb65039bd1fb",
+      "bytes": 138313,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: StatusGator 公式サイト (https://statusgator.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_statusgator_316d3eb5edf6/27c12e74c0fd89162932c6df3814e8532fdb668db4272f8d5c48bb65039bd1fb.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_6ba6dcb496f326d8f782ef34",
+      "entityId": "ent_statusgator_316d3eb5edf6",
+      "kind": "favicon",
+      "sourcePageUrl": "https://statusgator.com/",
+      "assetUrl": "https://static.statusgator.com/assets/favicon-e1da350e1afc97132f1902311d78c2d5fc0cbbb9be1c866e4e15d93d9a7bac0a.png",
+      "retrievedAt": "2026-10-07T10:42:04.824Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "6ba6dcb496f326d8f782ef34bc05fec24b9ef00cc59c257939e17098a3a3c374",
+      "bytes": 3780,
+      "contentType": "image/png",
+      "width": 160,
+      "height": 160,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: StatusGator 公式サイト (https://statusgator.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:42:34.359Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 160x160)、SHA-256が台帳と一致 (6ba6dcb496f3)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_statusgator_316d3eb5edf6/6ba6dcb496f326d8f782ef34bc05fec24b9ef00cc59c257939e17098a3a3c374.png",
+       "publicKey": "media/ent_statusgator_316d3eb5edf6/6ba6dcb496f326d8f782ef34bc05fec24b9ef00cc59c257939e17098a3a3c374.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_6ba6dcb496f326d8f782ef34",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:34.359Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 160x160)、SHA-256が台帳と一致 (6ba6dcb496f3)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_a965f97c8a76a95764c10bfa",
+      "entityId": "ent_statusgator_316d3eb5edf6",
+      "kind": "og_image",
+      "sourcePageUrl": "https://statusgator.com/",
+      "assetUrl": "https://static.statusgator.com/assets/og/og-home-017ab4c85f74782c23db73e036d5bd5e8805393e25f6c59a71b6a461f12c1140.png",
+      "retrievedAt": "2026-10-07T10:42:27.884Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "a965f97c8a76a95764c10bfa588cc0ce9b3db17de55b6302ee1864c94cc99f6b",
+      "bytes": 80094,
+      "contentType": "image/png",
+      "width": 1200,
+      "height": 630,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: StatusGator 公式サイト (https://statusgator.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:42:34.116Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_statusgator_316d3eb5edf6/a965f97c8a76a95764c10bfa588cc0ce9b3db17de55b6302ee1864c94cc99f6b.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_a965f97c8a76a95764c10bfa",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:34.116Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_6ba6dcb496f326d8f782ef34"
+    ],
+    "problems": []
+   },
+   "caseHash": "882d241f6ef7204c1690765211a2387ec3021ebee8640d9346834fbdb9d1d042",
+   "itemHashes": {
+    "fact:f1": "7670da3229c847900558a56387173371c69bb36a3af67ab309435998db86f61d",
+    "fact:f2": "9dcfb0f7f3113396b750fb2cfe628872fccc367e8d82973a5f3a0f14d568489f",
+    "fact:f3": "7e8b9beec43906cca610e3a248f581e6c2ac0a6dccc0c240c0ab29daf3fae6f8",
+    "fact:f4": "9a156a1eda42a941aee296ffc689bd66c2dff64658bd79e72d3ca158bfc7296e",
+    "fact:f5": "4b204717d6a6e4f9184f00aa187312a37f670aa94f6f822077bf14f47a6a94fd",
+    "fact:f6": "59e03a98785786c544c850c4faa97e69e1449a72a3d4c19d040486ad85bc9965",
+    "fact:f7": "4ad4daac865626644634076fd50aad38c9d60d95b98665de388e6ad4a89b1569",
+    "fact:f8": "af3e6536b32161ad82dc99d8fa1dc17777dd3cde01e637656bb3b096b6049609",
+    "fact:f9": "50d0cd0ec9455783a168fb725ad14b6463e1066cfd8daed565510822ef660c43",
+    "fact:f10": "86cf99939139b0cce9ed58f22649c1b26f303211145e93b307dd928c30b3390f",
+    "fact:f11": "a47ef6e7f56d4944baaf1c228f2afbb1d3c2ca614b7631bb4c45543da1687505",
+    "fact:f12": "e6d356e1a434542afc84dcb34d9da01835bc6270948dfd2b0d3d50ad0d08b0a2",
+    "fact:f13": "5a0705dcebf7a2d114e1d9e4561ec9adb42b5c26562dccd754a1e85730da0a8d",
+    "fact:f14": "6edde441edd3d9d8c471f316102dae1ece77a417288438bb01ba70f453514df4",
+    "fact:f15": "2ad538247106b466dd927df72ecffda4311ce3d3b87256e0fad59f5e245cf8ad",
+    "fact:f16": "0544cb0a22a55d808395df47d83311f827efb01dd0b9f12a63c3118a7584314f",
+    "fact:f26": "492dc5e36f863c5e0b60571210c719d53a1cd1c6049f5112dd57c1adb63aa879",
+    "fact:f27": "c20be655af1952f2549323bab8643eaf339dd21c9d5c699fdd5d03d08ecc991c",
+    "fact:f28": "2cc5e343141e64a289c6f199744bdcdf9efa33969d366771f041b963fe2c8eef",
+    "fact:f29": "b376ff73433fb08e5f5d87b5f44727942232fd04189a3837994d3e5b0b16d9f5",
+    "fact:f31": "66a481eebe433286fb7c09e3c71cc4e543921964d4120c2df3a9f160717d3acc",
+    "fact:f32": "e46aae54b075e939c9cdd0049150f8acc440534984c302c679f8f4985bdda931",
+    "fact:f33": "d75d3a83c1ea007ce9ccf60ab4e8472a218ad3de51dca34fcd12f74102f47257",
+    "fact:f34": "75af959d46632474a88be915fbfae79b596c96349042ed090c9bd77a25b74497",
+    "fact:f35": "6ac7e19c2d94d64743764419fac27ede04b4e93ff4c4e2e08ee08a2ee0ff1045",
+    "fact:f36": "733b0d79cbbc8e651d4bcea2b5beb6360fbf867fec432eae0c6f88eaa826f170",
+    "fact:f37": "ee4aafa69e94d5c9a9270607aa54c415cead9fb0915f407894bfde541f150620",
+    "fact:f38": "e1e6625a7df8529781af4c0d1e0b7ab30debc2440a853784111dc4408ef42193",
+    "fact:f39": "1e3e0462cf8ec577b88e35326e5818320efb13538e9b2d7c60f93cfa51337144",
+    "fact:f40": "d00e676504c96669017e837fa8663c53303ba29163e2e0aa1c6a2f4d208c7687",
+    "analysis:a-headline": "1f7d85965c63035f581d25e26660916014d220ba8dd20a45310d2024521ed2e8",
+    "analysis:a-story": "5f16b76d28fae2dead27987405856983356800bfc01a66bc5e0a8d70b7e942b4",
+    "analysis:a-business_model": "e01f6d91eb5aab32e1528cbc9bb2e32a61b16b72e09cb64ab68d81326630091a",
+    "analysis:a-customer": "08562faaca6ccea7b62c75c2ab06a68231b0b4c1ee25c59d882a4d015de68999",
+    "analysis:a-customer_pain": "837d6021b67f141c97d3b0d7ae6a273f718187855b029bb7d887ebe4291821ee",
+    "analysis:a-channels": "3651c4969778b24cc9b469b60f95f7bc5c14722643ae8a0699dff027b0fafcb7",
+    "analysis:a-cost_structure": "761568850506180c1a2c536d304df6229c2bcd4f69bcd519e8b6822924ca7706",
+    "analysis:a-take_home": "cc243e1fc416d5f2af26c2565f48dd4cccdd1a5a25c8bc43081f60f40c49a7a9",
+    "analysis:a-capital_and_team": "40503295936e2e022fbe619337754422c24a391b20a856b090efd24876d668c9",
+    "analysis:a-dependencies": "ca380f62be8982a98d783d71b002159e5b536d98defcf780378faf63a72bf83d",
+    "analysis:a-lock_in": "ed66f15599ce921f91a0f354dbe9016980a9eadaa7cdbcb6689f6f9e4e2f0481",
+    "analysis:a-upfront_cash": "16f4b522ec2c149bc7c8270bb5d089280c96c16e4d59e7810e759c40168ce3ca",
+    "analysis:a-timeline": "fa3ac23d0bac3904bdd96c05b14032a9db673e24ddfb4e24f8a12aef69d528da",
+    "analysis:a-why_it_worked": "d5a0e44a14b9334cb5394c7f94f76d925473300d661d776f89c3fef45ae469c6",
+    "analysis:a-pivots": "59755899263acbb7bce8139a671f35e3a302d46d384c8fb9e5ed4f853990abf3",
+    "analysis:a-lesson": "5d39ca747468f8163eb56eb4203daf90c76934e5c213bee9e170e65fa9f8c90c"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f26",
+    "fact:f27",
+    "fact:f28",
+    "fact:f29",
+    "fact:f31",
+    "fact:f32",
+    "fact:f33",
+    "fact:f34",
+    "fact:f35",
+    "fact:f36",
+    "fact:f37",
+    "fact:f38",
+    "fact:f39",
+    "fact:f40",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-customer_pain",
+    "analysis:a-channels",
+    "analysis:a-cost_structure",
+    "analysis:a-take_home",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-upfront_cash",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-pivots",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://statusgator.com/blog/?p=76",
+      "publisher": "Colin Bartlettの2016年副業回顧",
+      "publishedAt": "2016-12-30",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "url": "https://statusgator.com/about",
+      "publisher": "StatusGatorの沿革と会社紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+      "publisher": "Indie Hackersの創業者月次報告",
+      "publishedAt": "2020-05-02",
+      "checkedAt": "2026-10-07",
+      "kind": "LISTING"
+     },
+     {
+      "id": "s7",
+      "url": "https://statusgator.com/plans",
+      "publisher": "StatusGatorの現在の料金",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+      "publisher": "StatusGatorのプラン変更手順",
+      "publishedAt": "2026-06-12",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://statusgator.com/trust",
+      "publisher": "StatusGatorの運営設備と信頼性",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://statusgator.com/blog/tinyseed-perk/",
+      "publisher": "StatusGatorのTinySeed関係者向け優待",
+      "publishedAt": "2025-01-07",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s13",
+      "url": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+      "publisher": "StatusGatorのRock Paper Coin利用事例",
+      "publishedAt": "2024-06-12",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s14",
+      "url": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+      "publisher": "StatusGatorの学校利用集計",
+      "publishedAt": "2021-02-23",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s15",
+      "url": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+      "publisher": "StatusGatorの携帯端末向け製品公開",
+      "publishedAt": "2026-09-17",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "FOUNDING",
+      "text": "顧客の不具合を数時間調べたところ、原因がFacebook APIの障害だった経験から着想し、2015年1月に公開した。",
+      "sourceId": "s1",
+      "statedAt": "2016-12-30",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "OTHER",
+      "text": "2015年6月までに月1,000米ドルを目指したが届かず、2016年12月の継続月額売上は330米ドルだった。",
+      "sourceId": "s1",
+      "statedAt": "2016-12-30",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "2016年12月の掲示費用はStripeが10米ドル、Herokuが154米ドル、DigitalOceanが5米ドル。差額を161米ドルと表示するが創業者給与と一部の小額費用を含まない。",
+      "sourceId": "s1",
+      "statedAt": "2016-12-30",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "OTHER",
+      "text": "当時は有料22人、無料1,159人。無料枠は3サービス監視で、旧利用者には5または10サービスを残した。",
+      "sourceId": "s1",
+      "statedAt": "2016-12-30",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "PRICING",
+      "text": "当時の有料プランは月9.99米ドルと19.99米ドル。企業向けには複数利用者のサインオン、年払い、経費精算用の領収書の入手などが必要だと述べる。",
+      "sourceId": "s1",
+      "statedAt": "2016-12-30",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "CHANNEL",
+      "text": "Facebook、Google AdWords、Twitterの広告を試したが効果が乏しく、検索と口コミを有効と報告。StackShareへの寄稿は長く流入を生んだ。",
+      "sourceId": "s1",
+      "statedAt": "2016-12-30",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "買収提案を1件受けたが、提示額が小さく応じる気にならなかった。",
+      "sourceId": "s1",
+      "statedAt": "2016-12-30",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "FOUNDING",
+      "text": "Colin Bartlettが2014年に考案し、2015年に公開した。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "TEAM",
+      "text": "2018年にAndy Libbyが加わり、Nimble Industriesを作った。複数国の遠隔勤務で運営する。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "EVENT",
+      "text": "2020年にK12向けの提供を始め、遠隔授業中の学校の問い合わせ削減を支援した。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "FUNDING",
+      "text": "2022年にTinySeedに参加し、最初で唯一の資金調達を行った。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "EVENT",
+      "text": "2024年に、公式障害告知より早く異常を捉えるEarly Warning Signalsを一般提供した。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "DESCRIPTION",
+      "text": "会社紹介では11,220以上のサービスの状況を集約し、38,000人以上の利用者に提供したと表示する。",
+      "sourceId": "s3",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "OTHER",
+      "text": "長期利用者5件を失った一方、新規9件を獲得し、既存客の上位プランへの変更も過去最多だったと報告。",
+      "sourceId": "s4",
+      "statedAt": "2020-05-02",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "月額継続売上は前月比で純15%増え、3,000米ドル近くに達したと報告。",
+      "sourceId": "s4",
+      "statedAt": "2020-05-02",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f16",
+      "kind": "PRICING",
+      "text": "解約した旧契約は現行最安より33〜66%安い料金だった。新しい段階料金により新規客単価が高くなったと述べる。",
+      "sourceId": "s4",
+      "statedAt": "2020-05-02",
+      "attribution": "LISTING"
+     },
+     {
+      "id": "f26",
+      "kind": "PRICING",
+      "text": "無料版は監視3件、状況ページ1件、管理者1人、月10通知、履歴1か月。14日間の全機能試用はカード不要。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f27",
+      "kind": "PRICING",
+      "text": "Starterは月払い79米ドル、年払いの月換算72米ドル。監視25件、状況ページ1件、管理者1人、通知購読者500人、履歴3か月。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f28",
+      "kind": "PRICING",
+      "text": "Teamは月払い149米ドル、年払いの月換算137米ドル。監視75件、状況ページ3件、管理者3人、通知購読者1,000人、履歴6か月。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f29",
+      "kind": "PRICING",
+      "text": "Corporateは月払い299米ドル、年払いの月換算274米ドル。監視150件、状況ページ5件、管理者10人、履歴12か月。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f31",
+      "kind": "TOOL",
+      "text": "上位プランへの変更はStripeで支払い情報を入力して完了し、確認後すぐに反映する。",
+      "sourceId": "s8",
+      "statedAt": "2026-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f32",
+      "kind": "OTHER",
+      "text": "無料版を含む下位プランへの変更はいつでもできる。月払いと年払いを切り替えると更新日程がそれに応じて調整される。",
+      "sourceId": "s8",
+      "statedAt": "2026-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f33",
+      "kind": "TOOL",
+      "text": "管理画面と外部接続はHerokuとAWS、配信にはCloudflareとVercel、決済はStripeを使用。利用者向けの状況ページは別の設備で動かす。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f34",
+      "kind": "OTHER",
+      "text": "直近12か月の稼働率99.92%、低下・停止は年間約7時間と自社表示。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f35",
+      "kind": "OTHER",
+      "text": "2025年からSOC 2 Type 2の認証を受け、最新の監査報告日を2025-10-31と表示。報告書は申請フォームで請求できる。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f36",
+      "kind": "CHANNEL",
+      "text": "TinySeedの投資先とSaaS Instituteの会員向けに、Teamを2年間無料、その後2年間は任意のプランを50%引きで提供する。",
+      "sourceId": "s11",
+      "statedAt": "2025-01-07",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f37",
+      "kind": "OTHER",
+      "text": "事例記事では、Rock Paper Coinが取引先の障害を把握するため、状況ページ、関係する部品に絞った監視、自社サイト監視、SMSとSlack通知を利用していると紹介。共同創業者兼CEOのElizabeth Sheilsは、導入前は取引先サイトが停止しても状況が分からなかったと述べる。",
+      "sourceId": "s13",
+      "statedAt": "2024-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f38",
+      "kind": "OTHER",
+      "text": "同事例では、未対応のサービス追加を要望し、要望から数分で追加されたと述べる。",
+      "sourceId": "s13",
+      "statedAt": "2024-06-12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f39",
+      "kind": "OTHER",
+      "text": "教育関係の利用者191人が127種類のサービスを監視していたと自社集計。約55%は1サービスだけを監視しており、無料枠で多くの教育機関の需要を満たすと述べる。",
+      "sourceId": "s14",
+      "statedAt": "2021-02-23",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f40",
+      "kind": "EVENT",
+      "text": "iOSとAndroid向けに公開。状況ページにアクセスできる人は誰でもQRコードで追加でき、早期警告を含む通知、監視選択、通知停止、障害報告を使える。",
+      "sourceId": "s15",
+      "statedAt": "2026-09-17",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "STATUS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "顧客の不具合を数時間調べたら、原因はFacebook APIの障害だった。この経験から生まれた障害監視の副業は、月1,000米ドルを目標にしたが、2016年12月の継続月額売上は330米ドルにとどまった。",
+      "basis": [
+       "f1",
+       "f2"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "Colin Bartlettは2014年に考案し、2015年1月に公開した。目標は2015年6月までに月1,000米ドルだったが届かず、2016年12月の継続月額売上は330米ドルだった。この時点の利用者は有料22人、無料1,159人。費用はHerokuの154米ドルが最も大きく、差額は月161米ドルだった。買収提案が1件来たが、提示額が小さく断った。2018年にAndy Libbyが加わり、Nimble Industriesを設立した。2020年に学校（K12）向けの提供を始め、遠隔授業中の問い合わせ削減を支援した。2022年にTinySeedに参加し、最初で唯一の資金調達を行った。2024年には、公式の障害告知より早く異常を捉えるEarly Warning Signalsを一般提供した。",
+      "basis": [
+       "f8",
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "f7",
+       "f9",
+       "f10",
+       "f11",
+       "f12"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "11,220以上の外部サービスの稼働状況を1か所にまとめ、障害を通知する。状況ページも作れる。無料版は監視3件・月10通知まで。監視件数、状況ページの数、管理者数、履歴の期間を広げたい組織が月額の有料プランに上げる。支払いはStripeで行う。",
+      "basis": [
+       "f13",
+       "f26",
+       "f27",
+       "f28",
+       "f29",
+       "f31"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "結婚式・イベント業界向けSaaSのRock Paper Coinは、取引先サービスの障害を把握するために使っている。もう一つの客層は、遠隔授業中に問い合わせが殺到した学校のIT部門。自社集計では、教育関係の利用者191人が127種類のサービスを監視していた。",
+      "basis": [
+       "f37",
+       "f10",
+       "f39"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "自社の不具合だと思って数時間調べたら、原因は取引先の障害だった。この空振りが痛みの中身である。Rock Paper Coinは導入前、取引先サイトが止まっても状況が分からなかった。学校のIT部門は、遠隔授業中に押し寄せる問い合わせへの対応に追われていた。",
+      "basis": [
+       "f1",
+       "f37",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "Facebook、Google AdWords、Twitterの広告は効果が乏しかった。効いたのは検索と口コミで、初期にStackShareへ寄稿した記事は長く利用者を運び続けた。現在は、TinySeedの投資先とSaaS Instituteの会員に、Teamプランを2年間無料、その後2年間は任意のプランを50%引きで提供している。",
+      "basis": [
+       "f6",
+       "f36"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "2016年12月の費用は、Heroku 154米ドル、Stripe 10米ドル、DigitalOcean 5米ドル。費用の大半はサーバー代が占めた。現在の設備はHeroku・AWS・Cloudflare・Vercelで、決済はStripeを使う。",
+      "basis": [
+       "f3",
+       "f33"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-take_home",
+      "item": "TAKE_HOME",
+      "text": "2016年12月の手元の差額は月161米ドル。創業者の給与は差し引いていない。",
+      "basis": [
+       "f2",
+       "f3"
+      ],
+      "formula": "継続月額売上330米ドル − Stripe 10米ドル − Heroku 154米ドル − DigitalOcean 5米ドル = 161米ドル（創業者給与と一部の小額費用は含まない）",
+      "presentation": "ESTIMATE"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "Colin Bartlettが一人で考案・公開した。2018年にAndy Libbyが加わってNimble Industriesを作り、複数国の遠隔勤務で運営している。外部資金は2022年のTinySeed参加時の1回だけ。",
+      "basis": [
+       "f8",
+       "f9",
+       "f11"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "商品は、11,220以上の他社が出す稼働状況の情報を集めることで成り立っている。運営はHeroku・AWSに、課金はStripeに乗る。携帯版はiOSとAndroid向けに出しているため、App StoreとGoogle Playにも依存する。",
+      "basis": [
+       "f13",
+       "f33",
+       "f40"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "客は状況ページを公開し、部品単位の絞り込み監視とSMS・Slack通知を業務に組み込む。上位プランでは最大12か月の履歴も貯まる。携帯版は、状況ページにアクセスできる人なら誰でも追加できる。一方で、無料版を含む下位プランへの変更はいつでもできる。",
+      "basis": [
+       "f37",
+       "f29",
+       "f40",
+       "f32"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "全有料プランに年払いがあり、月換算で月払いより安い。Starterは72米ドル対79米ドル、Corporateは274米ドル対299米ドル。年払いを選んだ客からは、1年分の代金が先に入る。",
+      "basis": [
+       "f27",
+       "f28",
+       "f29"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2014年に考案し、2015年1月に公開した。2016年12月の継続月額売上は330米ドル。2018年にNimble Industriesを設立し、2020年にK12向けの提供を開始した。2022年にTinySeedから資金を調達し、2024年にEarly Warning Signalsを一般提供した。2025年からSOC 2 Type 2の認証を受けている。",
+      "basis": [
+       "f8",
+       "f1",
+       "f2",
+       "f9",
+       "f10",
+       "f11",
+       "f12",
+       "f35"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "2020年、遠隔授業で学校への問い合わせが増えたところにK12向けの提供を始めた。障害を先に知らせて問い合わせを減らすという用途が、学校のIT部門の困りごとと重なった。",
+      "basis": [
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "当初は月9.99米ドルと19.99米ドルの個人向け価格だった。その後、企業向けに複数利用者のサインオン、年払い、経費精算用の領収書が要ると気づいた。新しい段階料金に移ると、新規客の単価が上がった。解約したのは現行最安より33〜66%安い旧契約の客で、上位プランへの変更は過去最多になった。",
+      "basis": [
+       "f5",
+       "f16",
+       "f14"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "有料22人・月330米ドルで止まっていた道具を事業に変えたのは、チームで払う組織向けの機能と価格への作り直しだった。安い旧契約の客が抜けても、単価の高い新規客が増えれば売上は伸びる。",
+      "basis": [
+       "f4",
+       "f2",
+       "f5",
+       "f16",
+       "f14"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f13"
+   }
+  }
+ ]
+}

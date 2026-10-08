@@ -1,0 +1,849 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/plain-record.json",
+  "manifestSha256": "af8bdd7b08bba94974343397bf80907448bc88bc049048b3df2c34b0537f43d4",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:23.794Z"
+ },
+ "records": [
+  {
+   "id": "ent_plain_f8a62d87d9cb",
+   "provenance": {
+    "detailsHash": "88fb26b69b5ed6d36f23b30b963254ad0dc2ec810fa2134b014d7d98714850c4",
+    "artifactSha256": "af8bdd7b08bba94974343397bf80907448bc88bc049048b3df2c34b0537f43d4"
+   },
+   "record": {
+    "id": "ent_plain_f8a62d87d9cb",
+    "ticker": "PLAIN",
+    "name": "Plain",
+    "legalEntity": "Not Just Tickets Ltd（公式サイトの表記）",
+    "tagline": "問い合わせと顧客情報を同じ基盤に置き、席課金と処理量の枠で提供する。",
+    "description": "企業向けに、メールや Slack 等の問い合わせ、顧客情報、開発への引き継ぎを同じ基盤で扱うソフトを提供する。創業者の問題発見、料金の試行、社内対応の改善、顧客が自社の仕組みと連携した実例を確認した。",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "Simon Rohrbach、Matt Vagni",
+    "country": "",
+    "url": "https://plain.com",
+    "officialUrl": "https://plain.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "問い合わせと顧客情報をまとめる基盤を利用席に応じて提供し、外部連携と AI の処理量に対応した料金枠を設ける。",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "顧客サポート",
+     "企業向け",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2020年末の開始〜2026年10月の料金・公開顧客事例（2026-10-07確認）",
+     "revenueLabel": "",
+     "sourceDoc": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain"
+    },
+    "facts": [
+     {
+      "kind": "FOUNDING",
+      "text": "Simon Rohrbach と Matt Vagni は、2020年末に Plain の開発を始めたと説明している。",
+      "sourceUrl": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "statedAt": "2021-12-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "さまざまな規模の会社と話す中で、顧客サポートの道具が使いにくく顧客情報が分散するという経験が共通の問題だと確かめた。聞き取り件数は記載されていない。",
+      "sourceUrl": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "statedAt": "2021-12-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "担当者向け画面と GraphQL を同じ基盤に置き、問い合わせの管理・割り当て・報告を既存システムと組み合わせられる製品として作った。",
+      "sourceUrl": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "statedAt": "2021-12-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "TOOL",
+      "text": "2021年の発表では、小さなデザイン・開発チームで TypeScript を使い基盤を作っていた。人数の実数は記載されていない。",
+      "sourceUrl": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "statedAt": "2021-12-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2022年11月9日の Index Ventures の発表は、その前週の Web Summit Lisbon で公開試用版を始めたと記録している。",
+      "sourceUrl": "https://www.indexventures.com/perspectives/plain-raises-6-million-to-build-api-first-platform-that-will-transform-customer-support-for-businesses/",
+      "statedAt": "2022-11-09",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式（出資者）"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2023年6月の料金記事は、2022年11月の公開試用版で最初の料金を公表したと記載している。",
+      "sourceUrl": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "statedAt": "2023-06-12",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "初期は月間対応顧客数に応じて課金し、最小枠を250人にしたが、伸びていた企業向け用途には枠が大きすぎた。",
+      "sourceUrl": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "statedAt": "2023-06-12",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "次にメールやチャット等の送信件数で課金したが、丁寧な対応ほど料金が増える問題が出たため、月間対応顧客数に戻して枠を小さくした。",
+      "sourceUrl": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "statedAt": "2023-06-12",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "料金検討では月額200米ドルと追加顧客1人0.70米ドル、顧客1人1.5米ドル、月額200米ドルと追加100人50米ドルという案を試した。各案の適用日は記載されていない。",
+      "sourceUrl": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "statedAt": "2023-06-12",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2023年6月時点では全機能と一定数の月間対応顧客を含む固定料金に整理した。変更後の売上や成約率は記載されていない。",
+      "sourceUrl": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "statedAt": "2023-06-12",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "公開試用版の発表本文では、約1年半かけて作ったと述べている。ページ表示日は2023年11月8日だが、公開開始年は別出典と食い違うため、この期間から開始年月は逆算していない。",
+      "sourceUrl": "https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+      "statedAt": "2023-11-08",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2023年6月21日、要望が多かった複数の問い合わせ先メールアドレスに対応した。従来の1件に加えて別のアドレスを最大5件登録できるようになった。",
+      "sourceUrl": "https://www.plain.com/changelog/multiple-emails",
+      "statedAt": "2023-06-21",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2024年6月の記事では、毎週技術職と非技術職の2人を顧客対応に割り当て、顧客の相談を毎日共有し、週末に振り返っていた。",
+      "sourceUrl": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+      "statedAt": "2024-06-28",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "毎週金曜にチームで小さな改善を拾う時間を設け、顧客対応で見つかった問題を製品修正へつなげていた。",
+      "sourceUrl": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+      "statedAt": "2024-06-28",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2024年8月の記事は、全員が自由に顧客対応する状態から、毎週2人が通常業務と兼務する状態を経て、1人が対応を専任しもう1人が補助する状態へ変えたと説明している。",
+      "sourceUrl": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+      "statedAt": "2024-08-19",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "兼務制では担当者の開発が止まり、担当の所在が曖昧になった。専任制では主担当が解決まで持ち、補助担当が小さな製品修正を行うようにした。効果の前後の実測値は記載されていない。",
+      "sourceUrl": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+      "statedAt": "2024-08-19",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2026年3月、当初の提案は顧客サポート版の Stripe だったが、コードで拡張できることだけでは費用を正当化する価値が不足していたと創業者が振り返った。",
+      "sourceUrl": "https://www.plain.com/open-by-default",
+      "statedAt": "2026-03-05",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "TOOL",
+      "text": "同じ記事では、画面で行う操作を外部からも実行できる基盤とし、顧客自身の AI や業務手順を接続する構成を説明している。",
+      "sourceUrl": "https://www.plain.com/open-by-default",
+      "statedAt": "2026-03-05",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "USERS",
+      "text": "2026年10月7日に開いた顧客一覧は、数百のチームが利用していると記載する。有料契約数や総利用者数の内訳は記載されていない。",
+      "sourceUrl": "https://www.plain.com/customers",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2026年10月7日に開いた料金ページでは、年払いの Foundation は1人あたり月額45米ドル、Horizon は1人あたり月額99米ドル、Frontier は個別見積もり。",
+      "sourceUrl": "https://www.plain.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "同ページの比較表では、Foundation の操作席は最大5席、Horizon は最低3席から最大10席で、閲覧席はいずれも無制限。クレジットは Foundation の年払いで月1,000、Horizon で月2,500を含む。",
+      "sourceUrl": "https://www.plain.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "同ページでは、カード登録不要の7日間の無料試用を提供している。",
+      "sourceUrl": "https://www.plain.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2026年4月29日公開・5月12日更新の公式記事には、Foundation は年払いで1席月額35米ドル、Horizon は月額269米ドルという記載が残る。現在の料金としては採用していない。",
+      "sourceUrl": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+      "statedAt": "2026-05-12",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "同じ記事では、2025〜2026年の初期企業563件の導入検討を集計し、29%が連絡経路の分散を主な課題として挙げたと述べる。契約件数や市場全体の割合ではない。",
+      "sourceUrl": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+      "statedAt": "2026-05-12",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Sourcegraph は2025年12月に移行し、26,000件の問い合わせ記録と約100の Slack チャンネルを取り込み、数日でメールと Slack の運用を始めたと説明されている。",
+      "sourceUrl": "https://www.plain.com/customers/sourcegraph",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式掲載の顧客事例"
+     },
+     {
+      "kind": "OTHER",
+      "text": "同事例では、まず移行とラベル分類を整え、その後 AI による分類を有効にした。別々だった3種類の道具を Plain にまとめた。",
+      "sourceUrl": "https://www.plain.com/customers/sourcegraph",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式掲載の顧客事例"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Sourcegraph の初回応答時間の中央値は2時間から40分へ短くなり、記事は67%改善と表示する。Plain 自身の売上成長率ではない。",
+      "sourceUrl": "https://www.plain.com/customers/sourcegraph",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式掲載の顧客事例"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Sourcegraph の Enrique Gonzalez は、会話・内部メモ・開発への引き継ぎが1か所にあり、担当者がどう考えたかを管理側も確認できると評価した。発言日は記載されていない。",
+      "sourceUrl": "https://www.plain.com/customers/sourcegraph",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（公式掲載の顧客発言）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "n8n の事例は、週100件から2,000件へ問い合わせが増える中で、Plain の基盤に自社 AI を組み合わせたと説明する。導入後約1週間半で最初の AI 連携を公開した。",
+      "sourceUrl": "https://www.plain.com/customers/n8n",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式掲載の顧客事例"
+     },
+     {
+      "kind": "OTHER",
+      "text": "n8n は AI を問い合わせの60%に使い、問い合わせ20倍に対し対応チームを2倍にしたと説明している。企業顧客への応答は導入前の2〜3週間から平均6〜8時間になったという。",
+      "sourceUrl": "https://www.plain.com/customers/n8n",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式掲載の顧客事例"
+     },
+     {
+      "kind": "OTHER",
+      "text": "n8n の Gualter Augusto は、導入検証中に Plain のチームが質問へ対応し、素早い連携開発につながったと評価している。",
+      "sourceUrl": "https://www.plain.com/customers/n8n",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（公式掲載の顧客発言）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Raycast は分散していた問い合わせをまとめ、Slack と Linear による開発への引き継ぎ、顧客情報や Stripe の課金情報の表示を組み合わせた。",
+      "sourceUrl": "https://www.plain.com/customers/raycast",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式掲載の顧客事例"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Raycast の Tirta Wulandari は、以前は全件を同じ優先度で扱っていたと述べる。導入後は緊急度の分類を自動化したが、応答時間の前後の実数は記載されていない。",
+      "sourceUrl": "https://www.plain.com/customers/raycast",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（公式掲載の顧客発言）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2026年9月2日の Nurul S. の投稿は、外部システムの情報を顧客カードへ取り込める点と Zendesk からの移行支援を評価し、携帯端末用アプリが欲しいと述べている。投稿は販売側からの招待によるものと表示されている。",
+      "sourceUrl": "https://www.g2.com/products/plain/reviews",
+      "statedAt": "2026-09-02",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（G2 の利用者投稿）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2026年9月3日の匿名利用者の投稿は、使いやすさと Ari を評価する一方、処理手順の複製ができないことや表示順が再読込で戻ることを不満として挙げる。投稿は販売側からの招待によるものと表示されている。",
+      "sourceUrl": "https://www.g2.com/products/plain/reviews",
+      "statedAt": "2026-09-03",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（G2 の利用者投稿）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2026年9月10日の匿名利用者の投稿は、対応の速さや急ぎの案件の自動識別を評価する一方、独自の分析に使う報告データを取り出しにくいと述べる。投稿は自発的な投稿と表示されている。",
+      "sourceUrl": "https://www.g2.com/products/plain/reviews",
+      "statedAt": "2026-09-10",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（G2 の利用者投稿）"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "Codex",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+       "publisher": "Plain（創業者2人の開始経緯）",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-12-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/blog/redefining-pricing-for-support",
+       "publisher": "Plain（料金の試行と変更）",
+       "sourceType": "official_blog",
+       "publicationDate": "2023-06-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/pricing",
+       "publisher": "Plain（料金）",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+       "publisher": "Plain（公開試用版の発表）",
+       "sourceType": "official_blog",
+       "publicationDate": "2023-11-08",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.indexventures.com/perspectives/plain-raises-6-million-to-build-api-first-platform-that-will-transform-customer-support-for-businesses/",
+       "publisher": "Index Ventures（同時期の公開試用版発表）",
+       "sourceType": "investor_announcement",
+       "publicationDate": "2022-11-09",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+       "publisher": "Plain（全員で顧客対応する仕組み）",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-06-28",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+       "publisher": "Plain（顧客対応の改善経緯）",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-08-19",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/customers",
+       "publisher": "Plain（顧客一覧）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/open-by-default",
+       "publisher": "Plain（Simon Rohrbach の製品方針）",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-03-05",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/customers/n8n",
+       "publisher": "Plain（n8n の顧客事例）",
+       "sourceType": "official_customer_story",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/customers/sourcegraph",
+       "publisher": "Plain（Sourcegraph の顧客事例）",
+       "sourceType": "official_customer_story",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/customers/raycast",
+       "publisher": "Plain（Raycast の顧客事例）",
+       "sourceType": "official_customer_story",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.plain.com/changelog/multiple-emails",
+       "publisher": "Plain（複数メールアドレスの対応）",
+       "sourceType": "official_changelog",
+       "publicationDate": "2023-06-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.g2.com/products/plain/reviews",
+       "publisher": "G2（Plain 利用者の投稿）",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+       "publisher": "Plain（顧客の導入検討の集計と過去料金の記載）",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-04-29",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "Plain 自身の売上・月次経常売上・年間経常売上・利益・原価の金額: 開いた公開記事と顧客事例では確認できない。顧客数の概数・価格・顧客側の改善を代用せず、pnl の金額は null。",
+      "最初の外部有料顧客の氏名・支払日・金額、最初の100件の獲得経路: 聞き取りと公開試用版の発表は見つかったが、最初の有料契約へ至る個別記録は見つからなかった。",
+      "開始時の元手の金額・全チームの人数・正確な準備期間: 開始年末と創業者2人の氏名は確認できたが、全チーム人数を2人と断定できない。準備期間の記事は日付の食い違いがある。資金の背景と前職は手順書の対象外なので追加調査していない。",
+      "料金変更・顧客対応の改善前後の売上や成約率: 理由と変更内容は公開されていたが、自社の業績の前後数値は見つからなかった。顧客の応答時間の改善を自社の売上改善に置き換えていない。",
+      "全ての料金変更の適用日・各料金案の採用期間: 2023年の試行、2026年春の記事の料金、現在の料金は確認できた。席課金へ切り替わった日、現行料金の適用開始日、2023年の各案を全顧客に実施したかは確認できなかった。",
+      "顧客事例の発表日・発言日: n8n、Sourcegraph、Raycast の本文に表示がない。statedAt は null。Sourcegraph の移行年月など本文中の出来事だけを記録。",
+      "全有料顧客数、継続率、集客費と獲得単価: 顧客一覧の数百チームには支払い区分・対象期間がない。導入検討563件は契約数ではない。実数を補っていない。",
+      "現在の全従業員数・作業時間・所在地: 紹介記事の小さなチームという表現から人数を推定していない。国の法的所在地の照合は未実施。作業時間は手順書の対象外。",
+      "現在の月払い料金の全条件: 本文には Foundation の55と45という価格が併記されるが、切替表示との対応を実画面では照合していない。年払い45米ドルと99米ドルだけを確定料金として採用した。",
+      "再現性、競合が動けない理由、真似の手順: 事実の記録に限定し、成功保証・推測・命令形の手順は入れていない。strategy の該当欄は空欄。"
+     ],
+     "conflicts": [
+      "公開開始年: 公式の公開試用版発表は表示日が2023-11-08。一方、2023-06-12の公式料金記事は2022年11月開始と明記し、Index Ventures の2022-11-09発表は前週に Web Summit Lisbon で開始したと記録。公開開始は2022年11月を採用。公式ページの表示日そのものは改変せず出典に残した。",
+      "創業年: 2021年の本人記事は2020年末の開始を明記し、Index Ventures も2020年創業と記録。2026年3月の記事の5年前という丸めた表現から2021年へ変更していない。",
+      "現在の料金: 2026年春の公式記事と G2 は Foundation を1席35米ドルと記載。2026-10-07に開いた公式料金ページの年払い45米ドルを現在の料金として採用。改定日を特定できないため値上げの実施日・理由は補っていない。",
+      "n8n の問い合わせ数: 本文は週2,000件、上部の概要欄は月間2,000件と表記している。集計対象が食い違うため本文の週単位の説明だけを本人の申告として記録し、月間件数は不採用。",
+      "n8n の60%は本文では AI を前段に置く割合とも述べられている。人手不要の完全解決率と断定せず、AI を使う割合として記録した。",
+      "Sourcegraph の67%は2時間から40分への中央値の変化を丸めた表示。n8n の数値と合算せず、Plain 全体の改善率として扱わない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2020,
+     "initialTractionPeriod": "2020年末に開発開始。2022年11月に公開試用版。最初の有料契約日は未取得。",
+     "dataSnapshotPeriod": "2020年末の開始〜2026年10月の料金・公開顧客事例（2026-10-07確認）",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "問い合わせと顧客情報を同じ基盤に置き、席課金と処理量の枠で提供する。",
+     "targetCustomer": "開発者向け製品や企業向けソフトの顧客サポート担当者と開発チーム",
+     "painRelief": "分散した問い合わせ、顧客情報の検索、開発への引き継ぎの手間"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（創業者2人の開始経緯）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+       "発表日: 2021-12-06",
+       "確認日: 2026-10-07",
+       "印: 本人"
+      ],
+      "url": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（料金の試行と変更）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/blog/redefining-pricing-for-support",
+       "発表日: 2023-06-12",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/blog/redefining-pricing-for-support",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（料金）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/pricing",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/pricing",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（公開試用版の発表）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+       "発表日: 2023-11-08",
+       "確認日: 2026-10-07",
+       "印: 本人"
+      ],
+      "url": "https://www.plain.com/blog/announcing-our-open-beta-and-usd6m-seed-fundraise",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Index Ventures（同時期の公開試用版発表）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.indexventures.com/perspectives/plain-raises-6-million-to-build-api-first-platform-that-will-transform-customer-support-for-businesses/",
+       "発表日: 2022-11-09",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.indexventures.com/perspectives/plain-raises-6-million-to-build-api-first-platform-that-will-transform-customer-support-for-businesses/",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（全員で顧客対応する仕組み）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+       "発表日: 2024-06-28",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/blog/why-whole-company-support-works-at-plain",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（顧客対応の改善経緯）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+       "発表日: 2024-08-19",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（顧客一覧）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/customers",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/customers",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（Simon Rohrbach の製品方針）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/open-by-default",
+       "発表日: 2026-03-05",
+       "確認日: 2026-10-07",
+       "印: 本人"
+      ],
+      "url": "https://www.plain.com/open-by-default",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（n8n の顧客事例）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/customers/n8n",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/customers/n8n",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（Sourcegraph の顧客事例）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/customers/sourcegraph",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/customers/sourcegraph",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（Raycast の顧客事例）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/customers/raycast",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/customers/raycast",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（複数メールアドレスの対応）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/changelog/multiple-emails",
+       "発表日: 2023-06-21",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/changelog/multiple-emails",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: G2（Plain 利用者の投稿）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.g2.com/products/plain/reviews",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 第三者"
+      ],
+      "url": "https://www.g2.com/products/plain/reviews",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_plain_f8a62d87d9cb_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Plain（顧客の導入検討の集計と過去料金の記載）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+       "発表日: 2026-04-29",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://www.plain.com/blog/ai-support-strategy-early-stage-saas-2026",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "Plain 自身の売上・月次経常売上・年間経常売上・利益・原価の金額: 開いた公開記事と顧客事例では確認できない。顧客数の概数・価格・顧客側の改善を代用せず、pnl の金額は null。",
+     "最初の外部有料顧客の氏名・支払日・金額、最初の100件の獲得経路: 聞き取りと公開試用版の発表は見つかったが、最初の有料契約へ至る個別記録は見つからなかった。",
+     "開始時の元手の金額・全チームの人数・正確な準備期間: 開始年末と創業者2人の氏名は確認できたが、全チーム人数を2人と断定できない。準備期間の記事は日付の食い違いがある。資金の背景と前職は手順書の対象外なので追加調査していない。",
+     "料金変更・顧客対応の改善前後の売上や成約率: 理由と変更内容は公開されていたが、自社の業績の前後数値は見つからなかった。顧客の応答時間の改善を自社の売上改善に置き換えていない。",
+     "全ての料金変更の適用日・各料金案の採用期間: 2023年の試行、2026年春の記事の料金、現在の料金は確認できた。席課金へ切り替わった日、現行料金の適用開始日、2023年の各案を全顧客に実施したかは確認できなかった。",
+     "顧客事例の発表日・発言日: n8n、Sourcegraph、Raycast の本文に表示がない。statedAt は null。Sourcegraph の移行年月など本文中の出来事だけを記録。",
+     "全有料顧客数、継続率、集客費と獲得単価: 顧客一覧の数百チームには支払い区分・対象期間がない。導入検討563件は契約数ではない。実数を補っていない。",
+     "現在の全従業員数・作業時間・所在地: 紹介記事の小さなチームという表現から人数を推定していない。国の法的所在地の照合は未実施。作業時間は手順書の対象外。",
+     "現在の月払い料金の全条件: 本文には Foundation の55と45という価格が併記されるが、切替表示との対応を実画面では照合していない。年払い45米ドルと99米ドルだけを確定料金として採用した。",
+     "再現性、競合が動けない理由、真似の手順: 事実の記録に限定し、成功保証・推測・命令形の手順は入れていない。strategy の該当欄は空欄。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceClass: \"\"→欄を外す",
+     "pnl.sourceDoc: 空→https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}

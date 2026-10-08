@@ -1,0 +1,847 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/memberful-record.json",
+  "manifestSha256": "cb045ff560ab47620dcb9d479a1b42dbab7bb3784339205020dd2f1f9a6947ff",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:23.610Z"
+ },
+ "records": [
+  {
+   "id": "ent_memberful_0dff1f9c00fa",
+   "provenance": {
+    "detailsHash": "b6be5f24850f253a4d2ac0b2a2463e1526e81f53b29ea010796532846f06e806",
+    "artifactSha256": "cb045ff560ab47620dcb9d479a1b42dbab7bb3784339205020dd2f1f9a6947ff"
+   },
+   "record": {
+    "id": "ent_memberful_0dff1f9c00fa",
+    "ticker": "MEMBERFUL",
+    "name": "Memberful",
+    "legalEntity": "Memberful LLC（公式サイトの著作権表記）",
+    "tagline": "自社サイトの会員課金とアクセス管理をつなぎ、月額料金と取引手数料で提供する。",
+    "description": "自社サイトで有料会員を運営する事業者向けに、課金・会員管理・アクセス権の同期を提供する。自社で試した仕組みを外部へ公開し、月額料金と取引手数料で提供している。",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "Drew Strojny",
+    "country": "",
+    "url": "https://memberful.com",
+    "officialUrl": "https://memberful.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "月額利用料金に取引手数料を加え、利用者自身の Stripe と既存のサイト・配信・コミュニティの道具をつなぐ。",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "会員課金",
+     "自社サイト",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2013年の公開試用版〜2026年10月の製品更新・料金（2026-10-07確認）",
+     "revenueLabel": "",
+     "sourceDoc": "https://memberful.com/blog/joining-patreon"
+    },
+    "facts": [
+     {
+      "kind": "FOUNDING",
+      "text": "2018年の発表で、既存の会員制ソフトへの不満から5年前に副業として始めたと Drew Strojny が説明している。",
+      "sourceUrl": "https://memberful.com/blog/joining-patreon",
+      "statedAt": "2018-08-08",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "The Theme Foundry の定期課金に使うために開発し、自社の実際の販売で動作を試してから外部へ提供した。",
+      "sourceUrl": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+      "statedAt": "2019-11-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "TEAM",
+      "text": "初期の売上が数か月伸びない時期にも、本人と開発者1人の体制で費用を抑えていた。",
+      "sourceUrl": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+      "statedAt": "2019-11-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "公開後1年以内に損益分岐へ達し、その後利益が出たと本人が述べている。金額は述べていない。",
+      "sourceUrl": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+      "statedAt": "2019-11-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "多機能化を試みたが、会員課金に集中し、既存の道具との連携を優先した。",
+      "sourceUrl": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+      "statedAt": "2019-11-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "ソフトの利用者間で口コミが広がったと本人が説明している。流入件数と契約件数の記載はない。",
+      "sourceUrl": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+      "statedAt": "2019-11-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "利用者でもある Jon Henshaw は、WordPress の邪魔をせず必要な機能に絞った使い勝手を評価した。",
+      "sourceUrl": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+      "statedAt": "2019-11-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（利用者）"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2013年2月6日の Torque の報道では、関心を伝える連絡を送って参加する試用版を提供していた。",
+      "sourceUrl": "https://torquemag.io/2013/02/memberful-beta/",
+      "statedAt": "2013-02-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "同じ報道の執筆者は、以前登録したメール一覧から Memberful の案内を受け取ったと書いている。",
+      "sourceUrl": "https://torquemag.io/2013/02/memberful-beta/",
+      "statedAt": "2013-02-06",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "自社サイトやアプリで会員課金とコンテンツ提供を行うクリエイター、出版社、コミュニティ向けサービスである。",
+      "sourceUrl": "https://memberful.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "TOOL",
+      "text": "利用者自身の Stripe アカウントを接続して課金する。",
+      "sourceUrl": "https://memberful.com/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2026年10月7日に開いた料金ページでは Standard は月額49米ドルに取引額の4.9%を加える。Enterprise は個別見積もり。",
+      "sourceUrl": "https://memberful.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "試用は期限なしで、本番公開して支払いを受け付け始める時点から利用料金が発生する。",
+      "sourceUrl": "https://memberful.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2018年8月8日の報道では Pro は月額25米ドルと取引額の4.9%だった。",
+      "sourceUrl": "https://techcrunch.com/2018/08/08/patronage-empire/",
+      "statedAt": "2018-08-08",
+      "checkedAt": "2026-10-07",
+      "attribution": "第三者"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2018年の公式発表では既存客の価格を維持し、新規客のみ Pro と Premium の取引手数料を上げた。改定率は記載していない。",
+      "sourceUrl": "https://memberful.com/blog/joining-patreon",
+      "statedAt": "2018-08-08",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2018年8月8日の発表で、Patreon の完全子会社となり、Memberful を別製品として続けると説明した。",
+      "sourceUrl": "https://memberful.com/blog/joining-patreon",
+      "statedAt": "2018-08-08",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2018年の発表では、数百の独立出版社、教育者、クリエイターとともに成長し、黒字で拡大していたと述べている。売上と利益の実額はない。",
+      "sourceUrl": "https://memberful.com/blog/joining-patreon",
+      "statedAt": "2018-08-08",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人"
+     },
+     {
+      "kind": "USERS",
+      "text": "会社紹介には100万人超の会員を支えるとある。Memberful に料金を払う事業者数ではなく、その先の会員の数である。",
+      "sourceUrl": "https://memberful.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Workweek Lunch の Talia Koren は、50人に3週間の無料試用を実施した後、メールと Instagram で会員サービスを告知したと説明している。Memberful の集客施策ではなく顧客の実例である。",
+      "sourceUrl": "https://memberful.com/customers/workweek-lunch",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（公式掲載の顧客発言）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "同じ顧客は、初期数週間に300人が登録し、開始2か月で750人の会員になったと述べた。暦上の実施年月と会員の有料・無料の内訳は記載されていない。",
+      "sourceUrl": "https://memberful.com/customers/workweek-lunch",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（公式掲載の顧客発言）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2021年11月24日、誤って本番公開して不要な課金が発生する問題に対し、Stripe 接続時の追加確認を導入した。",
+      "sourceUrl": "https://memberful.com/blog/billing-updates",
+      "statedAt": "2021-11-24",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2021年11月24日、従来サポートへの連絡が必要だった Premium への変更を、自分で行えるようにした。",
+      "sourceUrl": "https://memberful.com/blog/billing-updates",
+      "statedAt": "2021-11-24",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2025年5月8日、従来スタッフが代行していた複数契約の請求日・自動更新設定の変更を、管理画面から一括操作できるようにした。",
+      "sourceUrl": "https://memberful.com/blog/edit-subscriptions",
+      "statedAt": "2025-05-08",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2026年10月1日、WordPress で一定数の無料記事を読んだ後に課金案内を表示する機能と、コードを書かずに課金案内を作る機能を追加した。",
+      "sourceUrl": "https://memberful.com/docs/changelog",
+      "statedAt": "2026-10-01",
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "TOOL",
+      "text": "WordPress、Mailchimp、Kit、Discord、Discourse 等と連携し、会員情報とアクセス権を同期する。",
+      "sourceUrl": "https://memberful.com/integrations",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "TOOL",
+      "text": "GraphQL と Webhook による独自連携、および Tapfiliate による利用者自身の紹介報酬制度の連携を提供する。Memberful が同率の報酬を払うという意味ではない。",
+      "sourceUrl": "https://memberful.com/integrations",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "認定提携先制度では、制作会社の紹介記事、公式一覧への掲載、共同営業資料、技術支援、見込み客の紹介を提供する。",
+      "sourceUrl": "https://memberful.com/become-a-partner",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "提携先一覧にある Clock は Payload や Webflow のサイトに Memberful を組み込んでいると説明されている。",
+      "sourceUrl": "https://memberful.com/preferred-partners",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "移行担当者が顧客ごとに計画を作り、Substack や WooCommerce 等から何千人もの会員を移してきたと説明している。",
+      "sourceUrl": "https://memberful.com/migration",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "移行支援ページに掲載された Chris Gresham-Britt の発言では、移行が円滑で公開時の負担が軽くなったと評価されている。発言日は記載されていない。",
+      "sourceUrl": "https://memberful.com/migration",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（公式掲載の顧客発言）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2024年9月30日の Jessica Z. の投稿では、契約前から移行の相談に素早く対応し、自社サイトに内容を置ける点が評価されている。",
+      "sourceUrl": "https://www.g2.com/products/memberful/reviews",
+      "statedAt": "2024-09-30",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（G2 の利用者投稿）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2024年9月18日の Jean-Maxime C. の投稿では、課金処理を自作せずに済む点を評価する一方、他のサービスに比べ料金が高いと述べている。",
+      "sourceUrl": "https://www.g2.com/products/memberful/reviews",
+      "statedAt": "2024-09-18",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（G2 の利用者投稿）"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2024年9月17日の Jared N. の投稿では、外部の道具をつなぐ柔軟性とサポートを評価する一方、内容を Memberful 内に置く方向への開発を望んでいないと述べている。当時の個人の評価である。",
+      "sourceUrl": "https://www.g2.com/products/memberful/reviews",
+      "statedAt": "2024-09-17",
+      "checkedAt": "2026-10-07",
+      "attribution": "本人（G2 の利用者投稿）"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "Codex",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://memberful.com/blog/joining-patreon",
+       "publisher": "Memberful（Drew Strojny の発表）",
+       "sourceType": "official_blog",
+       "publicationDate": "2018-08-08",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/pricing",
+       "publisher": "Memberful（料金）",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+       "publisher": "Coywolf（Drew Strojny と利用者の対談）",
+       "sourceType": "founder_interview",
+       "publicationDate": "2019-11-01",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/",
+       "publisher": "Memberful（公式サイト）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/about",
+       "publisher": "Memberful（会社紹介）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/customers/workweek-lunch",
+       "publisher": "Memberful（Workweek Lunch の顧客事例）",
+       "sourceType": "official_customer_story",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/docs/changelog",
+       "publisher": "Memberful（製品変更履歴）",
+       "sourceType": "official_changelog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/preferred-partners",
+       "publisher": "Memberful（提携先一覧）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/migration",
+       "publisher": "Memberful（移行支援）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/integrations",
+       "publisher": "Memberful（外部サービス連携）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/become-a-partner",
+       "publisher": "Memberful（提携先向け制度）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/blog/billing-updates",
+       "publisher": "Memberful（請求画面の改善）",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-11-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://memberful.com/blog/edit-subscriptions",
+       "publisher": "Memberful（契約の一括更新）",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-05-08",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://www.g2.com/products/memberful/reviews",
+       "publisher": "G2（Memberful 利用者の投稿）",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://torquemag.io/2013/02/memberful-beta/",
+       "publisher": "Torque（公開試用版の同時期報道）",
+       "sourceType": "news",
+       "publicationDate": "2013-02-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://techcrunch.com/2018/08/08/patronage-empire/",
+       "publisher": "TechCrunch（2018年の料金報道）",
+       "sourceType": "news",
+       "publicationDate": "2018-08-08",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "売上・月次経常売上・年間経常売上・利益・原価の金額: 開いた本人対談と公式発表では黒字という説明までで、実額は確認できなかった。pnl の金額は null。",
+      "最初の外部有料顧客の氏名・契約日・契約額・獲得件数: 自社利用から外部提供した順序とメール案内・口コミは確認できたが、初回契約の記録は見つからなかった。",
+      "開始時の元手の金額・正確な準備期間: 金額と開始日を照合できる公開本文を取得できなかった。資金の背景は手順書の対象外なので追加調査していない。",
+      "つまずきと立て直しの前後の売上数値: 売上停滞、機能への集中、請求画面の改善は確認できたが、変更前後の売上・成約率は記載されていない。",
+      "全ての過去料金と変更日: 2018年の Pro の料金と新規客のみの手数料改定、現在の料金は確認できた。創業時の料金、改定率、Standard に変わった正確な日付は確認できなかった。",
+      "現在の全従業員数・国・創業者の作業時間: 紹介ページの掲載人数を全従業員数とみなさず空欄にした。所在地の照合は未実施。作業時間は手順書の対象外。",
+      "日付のない顧客事例と評価: Workweek Lunch と移行支援の本文には発表日・発言日がない。statedAt は null とし、確認日だけを記録した。年月は補っていない。",
+      "Mixergy の対談本文: https://mixergy.com/interviews/memberful-with-drew-strojny/ は取得エラー。検索要約の準備期間・初期料金・人数は事実として採用していない。",
+      "The Theme Foundry の当時の本文: https://thethemefoundry.com/blog/launch-memberful-beta/ は取得エラー。当時の記事の内容は採用していない。",
+      "再現性、競合が動けない理由、真似の手順: 今回は確認できた事実の記録だけが目的なので推測と命令形の手順は入れず、strategy の該当欄は空欄。"
+     ],
+     "conflicts": [
+      "創業・公開年: 2018年の本人発表は5年前の開始、Torque は2013-02-06に試用版を報道。同紙は自社で1年以上利用済みとも述べる。foundedYear は外部提供が確認できる2013年とし、内部開発開始日や法人設立日とは区別。",
+      "2018年の手数料: TechCrunch は Pro の4.9%を報道する一方、公式発表は新規客の手数料を上げたとだけ説明する。改定前後の率は確定せず、報道時の料金と公式の改定対象を別事実にした。",
+      "顧客の750会員と公式の100万人超の会員は Memberful 自身の有料契約数や売上ではない。集計対象を区別した。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2013,
+     "initialTractionPeriod": "2013年2月に外部向け試用版の報道。自社で試した後に外部提供。最初の有料契約日は未取得。",
+     "dataSnapshotPeriod": "2013年の公開試用版〜2026年10月の製品更新・料金（2026-10-07確認）",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "自社サイトの会員課金とアクセス管理をつなぎ、月額料金と取引手数料で提供する。",
+     "targetCustomer": "出版社、教育者、クリエイター、会員制コミュニティの運営者",
+     "painRelief": "会員課金・登録・権限管理を自作し、複数の道具へ同期する手間"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（Drew Strojny の発表）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/blog/joining-patreon",
+       "発表日: 2018-08-08",
+       "確認日: 2026-10-07",
+       "印: 本人"
+      ],
+      "url": "https://memberful.com/blog/joining-patreon",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（料金）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/pricing",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/pricing",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Coywolf（Drew Strojny と利用者の対談）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+       "発表日: 2019-11-01",
+       "確認日: 2026-10-07",
+       "印: 本人"
+      ],
+      "url": "https://coywolf.com/news/entrepreneurship/drew-strojny-interview/",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（公式サイト）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（会社紹介）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/about",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/about",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（Workweek Lunch の顧客事例）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/customers/workweek-lunch",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/customers/workweek-lunch",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（製品変更履歴）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/docs/changelog",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/docs/changelog",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（提携先一覧）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/preferred-partners",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/preferred-partners",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（移行支援）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/migration",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/migration",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（外部サービス連携）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/integrations",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/integrations",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（提携先向け制度）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/become-a-partner",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/become-a-partner",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（請求画面の改善）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/blog/billing-updates",
+       "発表日: 2021-11-24",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/blog/billing-updates",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Memberful（契約の一括更新）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://memberful.com/blog/edit-subscriptions",
+       "発表日: 2025-05-08",
+       "確認日: 2026-10-07",
+       "印: 公式"
+      ],
+      "url": "https://memberful.com/blog/edit-subscriptions",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: G2（Memberful 利用者の投稿）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://www.g2.com/products/memberful/reviews",
+       "発表日: 本文に日付表示なし",
+       "確認日: 2026-10-07",
+       "印: 第三者"
+      ],
+      "url": "https://www.g2.com/products/memberful/reviews",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Torque（公開試用版の同時期報道）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://torquemag.io/2013/02/memberful-beta/",
+       "発表日: 2013-02-06",
+       "確認日: 2026-10-07",
+       "印: 第三者"
+      ],
+      "url": "https://torquemag.io/2013/02/memberful-beta/",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_memberful_0dff1f9c00fa_source_16",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: TechCrunch（2018年の料金報道）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開本文を開いて確認した出典。対応する事実は facts に記録。",
+      "details": [
+       "出典: https://techcrunch.com/2018/08/08/patronage-empire/",
+       "発表日: 2018-08-08",
+       "確認日: 2026-10-07",
+       "印: 第三者"
+      ],
+      "url": "https://techcrunch.com/2018/08/08/patronage-empire/",
+      "sourceNote": "本文を実際に開いて確認。英語本文は日本語で要約。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "売上・月次経常売上・年間経常売上・利益・原価の金額: 開いた本人対談と公式発表では黒字という説明までで、実額は確認できなかった。pnl の金額は null。",
+     "最初の外部有料顧客の氏名・契約日・契約額・獲得件数: 自社利用から外部提供した順序とメール案内・口コミは確認できたが、初回契約の記録は見つからなかった。",
+     "開始時の元手の金額・正確な準備期間: 金額と開始日を照合できる公開本文を取得できなかった。資金の背景は手順書の対象外なので追加調査していない。",
+     "つまずきと立て直しの前後の売上数値: 売上停滞、機能への集中、請求画面の改善は確認できたが、変更前後の売上・成約率は記載されていない。",
+     "全ての過去料金と変更日: 2018年の Pro の料金と新規客のみの手数料改定、現在の料金は確認できた。創業時の料金、改定率、Standard に変わった正確な日付は確認できなかった。",
+     "現在の全従業員数・国・創業者の作業時間: 紹介ページの掲載人数を全従業員数とみなさず空欄にした。所在地の照合は未実施。作業時間は手順書の対象外。",
+     "日付のない顧客事例と評価: Workweek Lunch と移行支援の本文には発表日・発言日がない。statedAt は null とし、確認日だけを記録した。年月は補っていない。",
+     "Mixergy の対談本文: https://mixergy.com/interviews/memberful-with-drew-strojny/ は取得エラー。検索要約の準備期間・初期料金・人数は事実として採用していない。",
+     "The Theme Foundry の当時の本文: https://thethemefoundry.com/blog/launch-memberful-beta/ は取得エラー。当時の記事の内容は採用していない。",
+     "再現性、競合が動けない理由、真似の手順: 今回は確認できた事実の記録だけが目的なので推測と命令形の手順は入れず、strategy の該当欄は空欄。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceClass: \"\"→欄を外す",
+     "pnl.sourceDoc: 空→https://memberful.com/blog/joining-patreon",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}
