@@ -23,3 +23,16 @@ export type CasePage = z.infer<typeof CasePageSchema>;
 
 /** 出典ごとの権利の記録（画面には出さない） */
 export interface CasePageRight { no: number; host: string; text: string }
+
+/** 画面に出る文字の一覧（文字の出どころの検査 scripts/architecture/screen-text.tsx が、この事例のデータから来た文字として許すため） */
+export function casePageTexts(page: CasePage): string[] {
+  const host = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; } };
+  return [
+    page.listLine, page.overview,
+    ...page.secrets.flatMap((x) => [x.head, x.body]),
+    ...page.did, ...page.setbacks, ...page.pricing,
+    ...page.timeline.flatMap((x) => [x.when, x.what]),
+    ...page.sources.flatMap((x) => [String(x.no), x.label, host(x.url)]),
+    ...page.notes,
+  ].map((t) => t.trim()).filter(Boolean);
+}

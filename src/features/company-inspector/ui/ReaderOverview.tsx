@@ -498,7 +498,7 @@ export function CasePageView({ page, media }: { page: CasePage; media?: React.Re
       <Fold id="section-group-secret" title={UI.GROUP_SECRET} defaultOpen>
         <ol className="grid grid-cols-1 gap-3">
           {page.secrets.map(({ head, body }, i) => (
-            <li key={head} data-success={`case-page-${i + 1}`} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
+            <li key={head} data-case-page-secret={i + 1} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
               <span className="term-num text-sm text-term-accent">{i + 1}</span>
               <div className="min-w-0 [overflow-wrap:anywhere]">
                 <p className="text-sm font-semibold leading-snug text-term-fg-strong">{head}</p>
