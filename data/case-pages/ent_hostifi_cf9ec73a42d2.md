@@ -37,7 +37,7 @@ HostiFi は、アメリカの IT 業者レイリー・チェイスが2018年に�
 ## 数字と出典
 1. 公式サイト（創業2018年、創業者、Locklin Networks の副業として創業、専業化、2019年の10万ドル、年商300万ドル超、従業員10人、顧客5,000超、料金4段階、年払い16%引き、32か所）：https://www.hostifi.com/
 2. Latka の HostiFi ページ（書き手不明のまとめのため推定扱い）（2020〜2024年の売上推移、従業員8人）：https://getlatka.com/companies/hostifi-1
-3. Web 検索結果に出た Calm Company Fund 関連の記述（最初の投資先、申し込み時の月間売上約2,300ドルから2021年2月に約5.3万ドルへ）：https://calmfund.com/writing/should-you-raise-money-reilly-chase-calm-company-founder
+3. Calm Company Fund の記事（最初の投資先、申し込み時の月間売上約2,300ドルから2021年2月に約5.3万ドルへ）：https://calmfund.com/writing/should-you-raise-money-reilly-chase-calm-company-founder
 4. 公式サイトの比較ページ（公式のUniFi預かりサービスなどの代わりとして自社を案内）：https://www.hostifi.com/alternatives/official-unifi-hosting
 
 - 円は1ドル＝150円の目安。

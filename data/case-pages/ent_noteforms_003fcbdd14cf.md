@@ -46,7 +46,7 @@ NoteForms（旧 NotionForms）は、フランス出身のジュリアン・ナ�
 2. Indie Hackers の記事の転載ページ（月3万7千ドル、OpnForm、改名後の料金24ドルとの記述、口コミ中心の成長。転載なので原文との照合は未了）：https://matthews-newsletter-35a04a.beehiiv.com/p/grew-simple-notion-extension-37kmonth-business
 3. 公式サイト（無料・月20ドル・月49ドル、13万人超、年払い割引）：https://noteforms.com
 4. Starter Story の収益ページ（月15ドルで出発、7月1日に月1万ドル到達、現在およそ3.7万ドル。見出しの3.7万ドルは1の本文でも確認）：https://www.starterstory.com/businesses/notion-forms/monetization
-5. 検索結果に出た改名・OpnForm の紹介（2023年6月の改名と商標、2023年1月の OpnForm。書き手不明のため推定）：https://onepage-research.sliplane.app/products/noteforms
+5. 改名・OpnForm の紹介ページ（2023年6月の改名と商標、2023年1月の OpnForm。書き手不明のため推定）：https://onepage-research.sliplane.app/products/noteforms
 
 - 円は1ドル＝150円の目安。
 - 数字の範囲：どちらの数字も月の定期売上で、利益ではない。2022年11月は月の費用が約6,400ドルなので、手元に残る額は約8,300ドル（約125万円）と計算できる（推測）。
