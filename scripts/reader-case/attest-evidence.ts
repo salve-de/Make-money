@@ -30,7 +30,8 @@ async function main() {
   const entities = loadEntities(ids);
   const readers = loadReaders(ids);
   const stored = readAttestations();
-  const next: EvidenceAttestations = idsPath ? { ...stored } : {};
+  const inScope = new Set(ids);
+  const next: EvidenceAttestations = Object.fromEntries(Object.entries(stored).filter(([id]) => idsPath || inScope.has(id)));
   // 既定の対象から外れた事例（公開をやめた事例）の証明書は残さない。--ids の時は他の事例の証明書をそのまま残す
   const missing: Record<string, string[]> = {};
   const mismatched: string[] = [];
