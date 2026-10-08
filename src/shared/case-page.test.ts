@@ -79,12 +79,20 @@ describe('軽い検査（4つ）', () => {
       expect(checkCasePage({ ...page, did: [bad] }).map((v) => v.rule)).toContain('polite');
     }
   });
-  it('一覧の1行は40字まで', () => {
-    expect(checkCasePage({ ...page, listLine: 'あ'.repeat(40) })).toEqual([]);
-    expect(checkCasePage({ ...page, listLine: 'あ'.repeat(41) }).map((v) => v.rule)).toEqual(['list-line-length']);
+  it('一覧の1行は60字まで', () => {
+    expect(checkCasePage({ ...page, listLine: 'あ'.repeat(60) })).toEqual([]);
+    expect(checkCasePage({ ...page, listLine: 'あ'.repeat(61) }).map((v) => v.rule)).toEqual(['list-line-length']);
   });
-  it('一覧の1行に買収・売却を書かない', () => {
+  it('一覧の1行に買収・売却・推定を書かず、「に／へ」で終わらせない', () => {
     expect(checkCasePage({ ...page, listLine: '30分で作った道具が使われ、買収された' }).map((v) => v.rule)).toEqual(['list-line-outcome']);
+    expect(checkCasePage({ ...page, listLine: '1人で回して年30億円（推定）' }).map((v) => v.rule)).toEqual(['list-line-outcome']);
+    expect(checkCasePage({ ...page, listLine: '副業の道具が年1億円超に' }).map((v) => v.rule)).toEqual(['list-line-outcome']);
+    expect(checkCasePage({ ...page, listLine: '海外へ届けて累計1.5億円' })).toEqual([]);
+  });
+  it('一覧の1行に専門語を入れない', () => {
+    expect(checkCasePage({ ...page, listLine: '副業の30分で作った拡張機能で年約7,200万円' }).map((v) => v.rule)).toEqual(['list-line-jargon']);
+    expect(checkCasePage({ ...page, listLine: 'APIの継続売上が月500万円' }).map((v) => v.rule)).toEqual(['list-line-jargon', 'list-line-jargon']);
+    expect(checkCasePage({ ...page, listLine: 'サイトを本番のまま安全に試せる道具を副業の30分で作り、広告なしで年約7,200万円' })).toEqual([]);
   });
   it('外貨の数字の直後に円の概算があるか', () => {
     expect(foreignWithoutYen('売上は25万ドルだった')).toEqual(['25万ドル']);

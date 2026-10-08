@@ -15,6 +15,7 @@
 
 収集は広く柔軟に行います。集めた内容は事例ページ（一覧の文・概要・章・分析欄）に出るので、何が画面に出るかを意識して、必要な材料を最初の1回で漏れなく集めます。あとで同じ事例を調べ直す無駄を無くすためです。事実の1文は、そのまま画面に出せる自然な日本語で書きます（2026-10-07 夜の決定。書き方の正本は `.claude/skills/natural-japanese/SKILL.md`、例は `DATA_COLLECTION_MASTER_GUIDE.md` Ⅶ）。出典の原文の引用は別欄 `quote` に残します。集める範囲は狭めません。取り込みが同じ検査を掛け、落ちた文は取り込まずに収集役へ差し戻します（段3）。
 
+- 作業の前に `docs/owner/OWNER_DIALOGUE_LOG.md`（オーナーとのやりとりの全記録）を読む。決まりに無い場面は、そこにある理由から判断する。
 - 何を・なぜ・どこまで: [`OWNER_INTENT.md`](./OWNER_INTENT.md)（2章: 集める10の領域、3章: 事実と推論、7章: 画像）
 - 収集の全体の決まりと過去の失敗: [`DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)
 - 項目の名前と型の旧い仕様（OWNER_INTENT と食い違う所は「廃止」と注記あり）: [`GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)
@@ -176,7 +177,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 
 | 画面の場所 | 元のデータ |
 |---|---|
-| 一覧の1行（何の事業か） | `data/list-lines.json`。無ければ事実の1文目 |
+| 一覧の1行（何の事業か。書き方は `docs/owner/LEAD_LINE_SHEET.md` の関門） | `data/list-lines.json`。無ければ事実の1文目 |
 | アイコン | 「使ってよい」と判定されたアイコン画像 |
 | 概要（2文目以降） | `data/summary-lines.json` |
 | 章7つ: 実際にやったこと・つまずきと立て直し・時間順の流れ・戦略の核・出発点・価格の変遷・客の声 | `data/case-chapters.json`（材料の無い章は出ない） |
