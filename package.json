@@ -22,6 +22,8 @@
     "natural-ja:report": "node scripts/architecture/report-natural-japanese.mjs",
     "case-chapters:todo": "node --import tsx scripts/reader-case/chapter-gaps.ts",
     "case:run": "node --import tsx scripts/reader-case/case-run.ts",
+    "case:discover": "node --import tsx scripts/reader-case/case-discover.ts",
+    "case:research": "node --import tsx scripts/reader-case/case-research.ts",
     "display:build": "node --import tsx scripts/reader-case/build-display.ts",
     "fact-lines:build": "node --import tsx scripts/reader-case/build-fact-lines.ts",
     "template-prose:verify": "node scripts/architecture/check-template-prose.mjs",

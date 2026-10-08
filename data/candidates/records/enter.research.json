@@ -1,0 +1,387 @@
+[
+ {
+  "id": "ent_enter_79c6d488adb7",
+  "ticker": "ENTER",
+  "name": "Enter",
+  "tagline": "ブラジルの大企業に、訴訟の資料整理や答弁書の作成を支援するAIを提供する事業。",
+  "description": "Enterは、企業が抱える民事訴訟や労働訴訟について、資料の読み取り、証拠の収集、文書作成を支援する。訴訟への対応方針は、顧客企業の法務担当者や弁護士が決める。顧客から技術利用料を前払いで受け取り、訴訟の成果に応じた料金も受け取る。",
+  "sector": "AI_AUTOMATION",
+  "scale": "SCALEUP",
+  "founder": "Mateus Costa-Ribeiro、Michael Mac-Vicar、Henrique Vaz",
+  "country": "ブラジル",
+  "url": "https://getenter.ai/",
+  "officialUrl": "https://getenter.ai/",
+  "verifiedBadge": false,
+  "growthRateYoY": 0,
+  "isGrowthUnconfirmed": true,
+  "architecturePattern": "大企業の法務部門に訴訟対応を支援するAIを販売し、技術利用料の前払いと成果に応じた料金を組み合わせて受け取る。",
+  "pipelineStack": "未確認",
+  "targetPainWallet": "未確認",
+  "tags": [
+   "企業向け",
+   "訴訟対応",
+   "法務AI",
+   "ブラジル",
+   "成果連動料金"
+  ],
+  "pnl": {
+   "monthlyRevenue": 0,
+   "cogs": 0,
+   "grossProfit": 0,
+   "grossMargin": 0,
+   "operatingExpenses": {
+    "serverAndApi": 0,
+    "advertising": 0,
+    "subcontracting": 0,
+    "toolsAndSaaS": 0,
+    "other": 0
+   },
+   "operatingProfit": 0,
+   "operatingMargin": 0,
+   "estimatedAnnualNetProfit": 0,
+   "isRevenueUnconfirmed": true,
+   "isOperatingProfitUnconfirmed": true,
+   "isMarginUnconfirmed": true,
+   "isGrossProfitUnconfirmed": true,
+   "isGrossMarginUnconfirmed": true,
+   "isCogsUnconfirmed": true,
+   "isCostsUnconfirmed": true,
+   "isNetProfitUnconfirmed": true,
+   "financialStatus": "UNAVAILABLE",
+   "sourceClass": "PRIMARY",
+   "sourceDoc": "https://www.infomoney.com.br/mercados/startups-quem-e-a-enter-unicornio-brasileiro-de-ia-do-setor-juridico/"
+  },
+  "operations": {
+   "teamSize": 0,
+   "weeklyHours": 0,
+   "initialCapitalRequired": 0,
+   "automationLevel": 0,
+   "primaryChannels": [],
+   "toolStack": [],
+   "isTeamSizeUnconfirmed": true,
+   "isWeeklyHoursUnconfirmed": true,
+   "isCapitalUnconfirmed": true,
+   "isAutomationUnconfirmed": true
+  },
+  "strategy": {
+   "moatType": "UNKNOWN",
+   "blindspot": "未確認",
+   "moatDescription": "未確認",
+   "initialTraction": [],
+   "actionPlaybook": []
+  },
+  "temporal": {
+   "foundedYear": 2023,
+   "initialTractionPeriod": "未確認",
+   "dataSnapshotPeriod": "2026-10-08 時点の公開情報",
+   "viabilityStatus": "UNKNOWN",
+   "viabilityLabel": "未確認",
+   "eraContext": "未確認",
+   "currentViabilityAnalysis": "未確認"
+  },
+  "facts": [
+   {
+    "kind": "DESCRIPTION",
+    "text": "Enterは、大企業向けに、訴訟ごとの事情に合わせた答弁書の作成を支援するAIを提供している。",
+    "sourceUrl": "https://getenter.ai/",
+    "quote": "Contestações ultra-customizadas em escala para grandes empresas.",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "FOUNDING",
+    "text": "Mateus Costa-Ribeiroは、Michael Mac-VicarとHenrique Vazとともに、2023年9月にEnterを創業した。",
+    "sourceUrl": "https://www.infomoney.com.br/mercados/startups-quem-e-a-enter-unicornio-brasileiro-de-ia-do-setor-juridico/",
+    "quote": "Fundada em setembro 2023",
+    "numberKind": "OTHER",
+    "label": "創業年月",
+    "asOf": "2023-09",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "FOUNDING",
+    "text": "Enterの創業者たちは、ブラジルの訴訟にかかる高い費用と、企業を狙った不当な訴訟を減らすために事業を始めた。",
+    "sourceUrl": "https://exame.com/negocios/enter-como-uma-startup-brasileira-de-ia-atraiu-us-55-milhoes-da-sequoia/",
+    "quote": "os custos elevados e a litigância predatória",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "TEAM",
+    "text": "Mateus Costa-Ribeiroは、2023年12月にEnterの事業へ専念するため、スタンフォード大学の経営学修士課程を辞めることを決めた。",
+    "sourceUrl": "https://www.getenter.ai/noticias/os-bastidores-de-como-a-enter-virou-o-primeiro-investimento-da-sequoia-no-brasil-em-12-anos",
+    "quote": "Decidi então abandonar o MBA.",
+    "statedAt": "2025-03-08",
+    "asOf": "2023-12",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "CHANNEL",
+    "text": "Enterは、大企業との契約を得る前に、法律事務所へ有料でサービスを提供していた。",
+    "sourceUrl": "https://www.getenter.ai/noticias/enter-os-primeiros-dois-anos",
+    "quote": "escritórios de advocacia eram clientes pagantes.",
+    "statedAt": "2025-09-23",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "CHANNEL",
+    "text": "Mateus Costa-Ribeiroは、最初の大企業顧客となる銀行の法務責任者に、AIによる訴訟文書の作成支援を提案した。",
+    "sourceUrl": "https://www.getenter.ai/noticias/enter-os-primeiros-dois-anos",
+    "quote": "ao diretor jurídico daquele banco",
+    "statedAt": "2025-09-23",
+    "asOf": "2024-05",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "EVENT",
+    "text": "Enterは、銀行の法務責任者から聞いた文書作成の問題に対応するため、その銀行が試せる製品を開発した。",
+    "sourceUrl": "https://www.getenter.ai/noticias/enter-os-primeiros-dois-anos",
+    "quote": "entregar a plataforma",
+    "statedAt": "2025-09-23",
+    "asOf": "2024-05",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "創業者によると、2023年12月時点でEnterの月間売上は8万ブラジルレアルだった。",
+    "sourceUrl": "https://www.getenter.ai/noticias/os-bastidores-de-como-a-enter-virou-o-primeiro-investimento-da-sequoia-no-brasil-em-12-anos",
+    "quote": "de R$8 mil para R$80 mil por mês",
+    "numberKind": "REVENUE",
+    "asOf": "2023-12",
+    "periodKind": "MONTH",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "PRICING",
+    "text": "Enterは、顧客企業から技術利用料を前払いで受け取り、訴訟の成果に応じた料金も受け取る。",
+    "sourceUrl": "https://www.infomoney.com.br/mercados/startups-quem-e-a-enter-unicornio-brasileiro-de-ia-do-setor-juridico/",
+    "quote": "pagamento antecipado pelo uso da tecnologia com uma parcela variável atrelada ao desempenho",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "PRICING",
+    "text": "Enterの収益モデルでは、訴訟での成功に左右される部分が約30%を占める。",
+    "sourceUrl": "https://www.infomoney.com.br/mercados/startups-quem-e-a-enter-unicornio-brasileiro-de-ia-do-setor-juridico/",
+    "quote": "cerca de 30% depende do sucesso nas ações",
+    "numberKind": "OTHER",
+    "label": "収益モデルのうち訴訟の成功に左右される割合",
+    "asOf": "2026",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "Enterは、2025年に、継続収益を年間に換算した指標であるARRが5000万ブラジルレアルに達したと公表している。",
+    "sourceUrl": "https://www.infomoney.com.br/mercados/startups-quem-e-a-enter-unicornio-brasileiro-de-ia-do-setor-juridico/",
+    "quote": "alcançou receita recorrente anualizada (ARR) de R$ 50 milhões",
+    "numberKind": "REVENUE",
+    "asOf": "2025",
+    "periodKind": "YEAR",
+    "basis": "年間換算の継続収益であるARRであり、年間売上実績ではない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "FUNDING",
+    "text": "Enterは、2026年5月5日に発表したシリーズBの資金調達で、1億米ドルを超える資金を集めた。",
+    "sourceUrl": "https://www.getenter.ai/noticias/enter-levanta-mais-de-us-100-milhoes-e-se-torna-o-primeiro-unicornio-de-ia-da-america-latina",
+    "quote": "Levantamos mais de US$ 100 milhões em nossa Série B",
+    "numberKind": "FUNDING",
+    "asOf": "2026-05-05",
+    "basis": "シリーズB単独の調達額。1億米ドル超。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "Enterの企業評価額は、2026年5月5日に発表したシリーズBの資金調達で12億米ドルとなった。",
+    "sourceUrl": "https://www.getenter.ai/noticias/enter-levanta-mais-de-us-100-milhoes-e-se-torna-o-primeiro-unicornio-de-ia-da-america-latina",
+    "quote": "a um valuation de US$ 1,2 bilhão",
+    "numberKind": "VALUATION",
+    "asOf": "2026-05-05",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "2026年10月に確認した公式サイトでは、Enterの技術を利用する企業は40社を超えると説明されている。",
+    "sourceUrl": "https://www.getenter.ai/sobre-nos",
+    "quote": "mais de 40 empresas",
+    "numberKind": "USERS",
+    "asOf": "2026-10",
+    "basis": "個人利用者数ではなく、技術を利用する企業数。",
+    "checkedAt": "2026-10-08"
+   }
+  ],
+  "metrics": [
+   {
+    "numberKind": "REVENUE",
+    "amount": 80,
+    "currency": "BRL",
+    "unit": "千（原文の mil）",
+    "label": "月間売上",
+    "asOf": "2023-12",
+    "periodKind": "MONTH",
+    "quote": "de R$8 mil para R$80 mil por mês",
+    "sourceUrl": "https://www.getenter.ai/noticias/os-bastidores-de-como-a-enter-virou-o-primeiro-investimento-da-sequoia-no-brasil-em-12-anos",
+    "origin": "SELF_REPORTED",
+    "basis": "amount 80 は原文の「80 mil」で、8万レアルの意味。原文は月ごとの売上と記載しており、MRRとは記載していない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "numberKind": "REVENUE",
+    "amount": 50,
+    "currency": "BRL",
+    "unit": "百万（原文の milhões）",
+    "label": "年間換算の継続収益（ARR）",
+    "asOf": "2025",
+    "periodKind": "YEAR",
+    "quote": "alcançou receita recorrente anualizada (ARR) de R$ 50 milhões",
+    "sourceUrl": "https://www.infomoney.com.br/mercados/startups-quem-e-a-enter-unicornio-brasileiro-de-ia-do-setor-juridico/",
+    "origin": "SELF_REPORTED",
+    "basis": "amount 50 は原文の「50 milhões」で、5000万レアルの意味。会社が公表した数字を記事が紹介している。2025年中の到達値であり、年間売上実績でも年末値でもない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "numberKind": "FUNDING",
+    "amount": 100,
+    "currency": "USD",
+    "unit": "百万（原文の milhões）",
+    "label": "シリーズB調達額の下限",
+    "asOf": "2026-05-05",
+    "quote": "Levantamos mais de US$ 100 milhões em nossa Série B",
+    "sourceUrl": "https://www.getenter.ai/noticias/enter-levanta-mais-de-us-100-milhoes-e-se-torna-o-primeiro-unicornio-de-ia-da-america-latina",
+    "origin": "SELF_REPORTED",
+    "basis": "amount 100 は原文の「100 milhões」で、1億米ドル超の意味。境界値であり、正確な調達総額ではない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "numberKind": "VALUATION",
+    "amount": 1.2,
+    "currency": "USD",
+    "unit": "十億（原文の bilhão）",
+    "label": "シリーズB時の企業評価額",
+    "asOf": "2026-05-05",
+    "quote": "a um valuation de US$ 1,2 bilhão",
+    "sourceUrl": "https://www.getenter.ai/noticias/enter-levanta-mais-de-us-100-milhoes-e-se-torna-o-primeiro-unicornio-de-ia-da-america-latina",
+    "origin": "SELF_REPORTED",
+    "basis": "amount 1.2 は原文の「1,2 bilhão」で、12億米ドルの意味。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "numberKind": "USERS",
+    "amount": 40,
+    "unit": "社",
+    "label": "技術を利用する企業数の下限",
+    "asOf": "2026-10",
+    "quote": "mais de 40 empresas",
+    "sourceUrl": "https://www.getenter.ai/sobre-nos",
+    "origin": "SELF_REPORTED",
+    "basis": "40社超。amountは境界値であり、正確な企業数ではない。",
+    "checkedAt": "2026-10-08"
+   }
+  ],
+  "reaudit": {
+   "status": "PARTIAL",
+   "auditDate": "2026-10-08",
+   "timezone": "Asia/Tokyo",
+   "auditOwner": "case:research",
+   "method": "MANUAL_REAUDIT",
+   "family": "new-collection",
+   "sources": [
+    {
+     "url": "https://getenter.ai/",
+     "publisher": "Enter",
+     "sourceType": "official_website",
+     "publicationDate": null,
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://www.getenter.ai/sobre-nos",
+     "publisher": "Enter",
+     "sourceType": "official_website",
+     "publicationDate": null,
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://www.getenter.ai/noticias/os-bastidores-de-como-a-enter-virou-o-primeiro-investimento-da-sequoia-no-brasil-em-12-anos",
+     "publisher": "Enter／Mateus Costa-Ribeiro",
+     "sourceType": "official_blog",
+     "publicationDate": "2025-03-08",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://www.getenter.ai/noticias/enter-os-primeiros-dois-anos",
+     "publisher": "Enter／Mateus Costa-Ribeiro",
+     "sourceType": "official_blog",
+     "publicationDate": "2025-09-23",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://www.getenter.ai/noticias/enter-levanta-mais-de-us-100-milhoes-e-se-torna-o-primeiro-unicornio-de-ia-da-america-latina",
+     "publisher": "Enter",
+     "sourceType": "official_blog",
+     "publicationDate": "2026-05-05",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://exame.com/negocios/enter-como-uma-startup-brasileira-de-ia-atraiu-us-55-milhoes-da-sequoia/",
+     "publisher": "Exame／Leo Branco",
+     "sourceType": "article",
+     "publicationDate": "2025-03-10",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER2_FACTS_ONLY"
+    },
+    {
+     "url": "https://www.infomoney.com.br/mercados/startups-quem-e-a-enter-unicornio-brasileiro-de-ia-do-setor-juridico/",
+     "publisher": "Startups.com.br／Gabriela Del Carmen、掲載先InfoMoney",
+     "sourceType": "article",
+     "publicationDate": "2026-05-07",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER2_FACTS_ONLY"
+    }
+   ],
+   "supported": [],
+   "unknown": [
+    "最初の有料顧客だった法律事務所の名前と、その顧客に接触した経路は確認できなかった。",
+    "創業者が最初の大企業顧客として説明する銀行の名前と、法務責任者との面談を得た経路は確認できなかった。",
+    "前払いの技術利用料、成果に応じた料金の具体額、最低契約額、過去の料金改定は確認できなかった。",
+    "成果に左右される約30%について、契約ごとの料金構成か、会社全体の収益構成かは記事から確定できなかった。この割合は期間の数字として扱えないため、metricsから外し、事実の文だけに残した。",
+    "2025年のARRが5000万ブラジルレアルに到達した月は示されていない。",
+    "InfoMoney記事のARRが13倍に増えたという記述は、比較期間と到達時点が明確でないため、現在のARRの計算には使わなかった。",
+    "2026年10月時点の従業員数は確認できなかった。",
+    "2024年5月に銀行向け製品を開発した時点のチーム人数（原文では「éramos sete」と数を語で記載）は、数字そのものを含む引用が取れないため、事実と数字から外した。",
+    "創業年（2023年9月）は期間の数字ではないため、metricsから外し、FOUNDINGの事実と foundedYear に残した。",
+    "2023年12月の売上に関する記事は、その前の5か月間の成長も説明しているが、2023年9月の法人創業との期間関係は確認できなかった。",
+    "事業売却や株式公開の完了は確認できなかった。",
+    "指定されたローカルのREADME、見本、OWNER_INTENT、natural-japaneseの全文は、この実行方式で利用できる閲覧手段では確認できなかった。",
+    "コマンド実行とファイル作成をしない指示に従い、取り込みスクリプトは実行していないため、unconfirmedFactsとthinCasesが0件であることは未検証。"
+   ],
+   "conflicts": [
+    "2026年のシリーズB調達額は、InfoMoneyが5億ブラジルレアル、公式発表が1億米ドル超と記載している。同じ調達の異なる通貨表記だが、換算条件と正確な総額は確認できないため、metricsには公式発表の米ドル表記を採用し、両者を加算していない。",
+    "顧客企業数は、2026年5月のInfoMoney記事では約40社、2026年10月に確認した公式会社紹介では40社超となっている。同一時点の厳密な件数ではないため、metricsには取得時点の公式表示を下限として記録した。",
+    "成長倍率は、InfoMoney記事がARRの13倍増、公式シリーズB発表がシリーズA以降の売上の10倍超増と説明している。指標と比較期間が一致しないため、同じ数字として扱わず、現在の売上額やARRを逆算していない。"
+   ]
+  },
+  "observationsStream": [],
+  "observations": [],
+  "claimBindings": [],
+  "publishability": "PUBLISHABLE",
+  "batchId": "research_enter_20261008",
+  "financialStatus": "UNAVAILABLE",
+  "unknownsNotes": [
+   "最初の有料顧客だった法律事務所の名前と、その顧客に接触した経路は確認できなかった。",
+   "創業者が最初の大企業顧客として説明する銀行の名前と、法務責任者との面談を得た経路は確認できなかった。",
+   "前払いの技術利用料、成果に応じた料金の具体額、最低契約額、過去の料金改定は確認できなかった。",
+   "成果に左右される約30%について、契約ごとの料金構成か、会社全体の収益構成かは記事から確定できなかった。この割合は期間の数字として扱えないため、metricsから外し、事実の文だけに残した。",
+   "2025年のARRが5000万ブラジルレアルに到達した月は示されていない。",
+   "InfoMoney記事のARRが13倍に増えたという記述は、比較期間と到達時点が明確でないため、現在のARRの計算には使わなかった。",
+   "2026年10月時点の従業員数は確認できなかった。",
+   "2024年5月に銀行向け製品を開発した時点のチーム人数（原文では「éramos sete」と数を語で記載）は、数字そのものを含む引用が取れないため、事実と数字から外した。",
+   "創業年（2023年9月）は期間の数字ではないため、metricsから外し、FOUNDINGの事実と foundedYear に残した。",
+   "2023年12月の売上に関する記事は、その前の5か月間の成長も説明しているが、2023年9月の法人創業との期間関係は確認できなかった。",
+   "事業売却や株式公開の完了は確認できなかった。",
+   "指定されたローカルのREADME、見本、OWNER_INTENT、natural-japaneseの全文は、この実行方式で利用できる閲覧手段では確認できなかった。",
+   "コマンド実行とファイル作成をしない指示に従い、取り込みスクリプトは実行していないため、unconfirmedFactsとthinCasesが0件であることは未検証。"
+  ]
+ }
+]
