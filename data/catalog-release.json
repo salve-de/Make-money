@@ -4,12 +4,12 @@
   "sourceCount": 3377,
   "publishedCount": 29,
   "summaries": {
-    "hash": "e3c6d81ed3e3142438aa42baf6684110c2086efa7a1ef8200c9d5950aa69fd3e",
-    "key": "views/make-money/catalog-v1/objects/e3c6d81ed3e3142438aa42baf6684110c2086efa7a1ef8200c9d5950aa69fd3e.json.gz"
+    "hash": "13a23d841d66cbce606c7cec18c1ee64ec3fc69ea62dca015596274ec8a0e6a0",
+    "key": "views/make-money/catalog-v1/objects/13a23d841d66cbce606c7cec18c1ee64ec3fc69ea62dca015596274ec8a0e6a0.json.gz"
   },
   "discovery": {
-    "hash": "0e6a827a35241350a4a6beec527f01fa02a177650fb6e78b0dd2fe9127057f4a",
-    "key": "views/make-money/catalog-v1/objects/0e6a827a35241350a4a6beec527f01fa02a177650fb6e78b0dd2fe9127057f4a.json.gz"
+    "hash": "85c2a2d535646a0f7f574c20c85c134c4a8538241fea2b176f371905eabff36f",
+    "key": "views/make-money/catalog-v1/objects/85c2a2d535646a0f7f574c20c85c134c4a8538241fea2b176f371905eabff36f.json.gz"
   },
   "details": {
     "ent_myoperator_49c393230a2d": "0154cdd2077d23fbd901929d6a36eb3cfc7c387377f6eabac8492556ea4dc9fa",
@@ -26,7 +26,7 @@
     "ent_hostifi_cf9ec73a42d2": "b00fbe1a14d3bc4c22b454ef893aa42f77eedc30f0135bae5c04e4bc32622a2a",
     "ent_indiehackers_6548833164b0": "9c425f1eb09bbd434680e94f823eb4179b6624f6fd02cea4cade4d8cc2507209",
     "ent_memberful_0dff1f9c00fa": "fbd6bd8881bc29552175d8d9ff9c70f505bfca3a7db80a70f059bc5c966d1391",
-    "ent_poolsuite_6d5ad6895563": "366beee4ae908478ffdbe06fefba3d2b99b8659dcb93dad982abbc1764ca1cee",
+    "ent_poolsuite_6d5ad6895563": "3d86de9955dbf3ebafca9955f220d343c3d2dc88aa7704a7dd700c52e258f448",
     "ent_tuple_20261007": "b0f862fd408881b101266b7f9953076b7012029bfdbe9b74496e77c5418c49c4",
     "ent_typedream_c02cf9d5426e": "3b50ee4f2a6e5fb3b38a716ceffc174a110f6cb9cc2a4f9298e75eb69a610b19",
     "ent_userlist_a288fcf9f741": "e5817e871dd52f8706903636551e5bd407677008124c9b95fdda45d0304ca2c2",
