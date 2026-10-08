@@ -3,8 +3,11 @@
  "cases": {
   "ent_codementor_ba692caa3db3": {
    "id": "ent_codementor_ba692caa3db3",
-   "state": "SHOW",
-   "reasons": [],
+   "state": "HOLD",
+   "stage": "RELEASE",
+   "reasons": [
+    "画像の権利または実体が未充足"
+   ],
    "importHash": "77bba70c988b041e84b41ba722d4ae037ba8f09da71ec31e5a3491ae2d50db12",
    "reader": {
     "sources": [
@@ -428,7 +431,7 @@
     {
      "id": "a-timeline",
      "item": "TIMELINE",
-     "text": "2013年6月 Hacker Newsに登録ページを投稿。約9か月後に正式公開。2016年12月 シード160万ドル。2018年6月 直近12か月の売上500万〜1,000万ドル（本人の区分回答）。",
+     "text": "2013年6月 Hacker Newsに登録ページを投稿。約9か月後に正式公開。2016年12月 シード160万ドル。2018年6月 直近12か月の売上は「5〜10 million」の区分と回答（本人申告・通貨不明）。",
      "basis": [
       "f3",
       "f4",
@@ -440,13 +443,16 @@
     }
    ],
    "ruleVersion": "case-reflect-v1",
-   "hash": "c5ab2859d2a6a930a3f16894aa6ab4d82b442808b59915ceb52ce4ad0afc2e0a",
-   "reflectedAt": "2026-10-07T14:14:22.460Z"
+   "hash": "c1cf4b737e18f20eb63ed3e48553dfd8386a0f3f4a0f183b507524446b701014",
+   "reflectedAt": "2026-10-08T00:13:55.254Z"
   },
   "ent_ejunkie_7e9e46bd9643": {
    "id": "ent_ejunkie_7e9e46bd9643",
-   "state": "SHOW",
-   "reasons": [],
+   "state": "HOLD",
+   "stage": "RELEASE",
+   "reasons": [
+    "画像の権利または実体が未充足"
+   ],
    "importHash": "b19ac6134a4db99f7d426d1def9be03a4cadd9c165111c7059882c30dceccd9e",
    "reader": {
     "sources": [
@@ -763,7 +769,7 @@
     {
      "id": "a-story",
      "item": "STORY",
-     "text": "勤め先の収入の足しに自作のソフトを売っていた創業者は、3時間以内の納品を約束したため、支払い通知のたびにメールで手渡しして疲れ切った。2003年末に配信を自動化し、作家と音楽家の友人に頼まれて、2004年半ばに誰でも使えるサービスにした。最初の客は、Googleで探した著者へ個別にメールし、職人市に出向いてその場で店を作って増やした。2011年に持分を手放し、2017年12月に経営へ戻っている。",
+     "text": "勤め先の収入を補うために自作のソフトを売っていた創業者は、3時間以内の納品を約束し、支払い通知のたびにメールで届けていた。本人によると、これに疲れて2003年末に配信を自動化し、作家と音楽家の友人に頼まれて、2004年半ばに誰でも使えるサービスにした。著者への個別メールや、職人市への訪問とオンラインショップの設定も行った。2011年に持分を手放し、2017年12月に経営へ戻っている。",
      "basis": [
       "f3",
       "f4",
@@ -840,7 +846,7 @@
     {
      "id": "a-capital_and_team",
      "item": "CAPITAL_AND_TEAM",
-     "text": "E-junkieを持つのは創業者一家の非公開会社。小さな開発チームで、AWS上で動かす。創業者は2011年に持分を売って離れ、のちに買い戻して2017年12月に経営へ戻った。",
+     "text": "本人は2019年のインタビューで、E-junkieを所有する家族経営の非公開会社の持分を売り、後に買い戻したと述べている。公式サイトによると、小さな開発チームがAWS上でサービスを運営する。本人の投稿では、2011年に事業から退き、2017年12月に経営へ戻ったとしている。",
      "basis": [
       "f5",
       "f7"
@@ -851,7 +857,7 @@
     {
      "id": "a-why_it_worked",
      "item": "WHY_IT_WORKED",
-     "text": "取引ごとの手数料がなく月額が固定なので、売れるほど売り手の取り分が減らない。作家や職人のように、自分で売り場を作る技術が無い売り手を、設定ごと引き受けて取り込んだ。",
+     "text": "E-junkieの利用料は月額固定で、同社の取引手数料はない。この料金体系は、売上に比例する利用料を避けたい売り手に選ばれる理由になったと考えられる。著者への個別メールやオンラインショップの設定代行も、売り手が販売を始める負担を減らしたと考えられる。",
      "basis": [
       "f2",
       "f4"
@@ -883,13 +889,16 @@
     }
    ],
    "ruleVersion": "case-reflect-v1",
-   "hash": "830cc062b869d09a79e3de79dbe71d262e980353270a7ff2f31a80de3a815bbf",
-   "reflectedAt": "2026-10-07T14:14:22.460Z"
+   "hash": "3cfa9ce57fb391d628d35fbd048c8193bdd4649190f0f0485379e67767f2e26d",
+   "reflectedAt": "2026-10-08T00:13:55.254Z"
   },
   "ent_gorails_640d8f688451": {
    "id": "ent_gorails_640d8f688451",
-   "state": "SHOW",
-   "reasons": [],
+   "state": "HOLD",
+   "stage": "RELEASE",
+   "reasons": [
+    "画像の権利または実体が未充足"
+   ],
    "importHash": "3670a474c3c311058361a42dc1ded82cfc8038c368389f7bd206e4d79a3a9d8a",
    "reader": {
     "sources": [
@@ -1315,8 +1324,8 @@
     }
    ],
    "ruleVersion": "case-reflect-v1",
-   "hash": "53093eead8f55510b7b4e0ddcfa098744f4253848a6841e9bf2fe669211b8646",
-   "reflectedAt": "2026-10-07T14:14:22.460Z"
+   "hash": "cb3df92fe6f73a78c67823b1bd1daea40f501e08fe05043c5dbeceec732b9191",
+   "reflectedAt": "2026-10-08T00:13:55.254Z"
   },
   "ent_heygen_8f11a1": {
    "id": "ent_heygen_8f11a1",
@@ -1703,8 +1712,11 @@
   },
   "ent_myoperator_49c393230a2d": {
    "id": "ent_myoperator_49c393230a2d",
-   "state": "SHOW",
-   "reasons": [],
+   "state": "HOLD",
+   "stage": "RELEASE",
+   "reasons": [
+    "画像の権利または実体が未充足"
+   ],
    "importHash": "e9749674eda0dad5f48687f68ac75e606b9098839245776f5d561dc8f57b0063",
    "reader": {
     "sources": [
@@ -2049,205 +2061,17 @@
      }
     ]
    },
-   "approvedAnalysis": [
-    {
-     "id": "a-headline",
-     "item": "HEADLINE",
-     "text": "5人・自己資金12ラック・ルピーで始め、半年で有料200社、3年目の年度に売上2百万ドルへ伸ばしたインドのクラウド電話屋",
-     "basis": [
-      "f2",
-      "f3",
-      "f5"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-business_model",
-     "item": "BUSINESS_MODEL",
-     "text": "中小企業にクラウド電話（IVR、番号、通話記録、振り分け）を年払いで売る。いまはWhatsAppとAIの応対ボットまで広げ、代理店経由の販売も用意している。",
-     "basis": [
-      "f1",
-      "f6",
-      "f10"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-customer_pain",
-     "item": "CUSTOMER_PAIN",
-     "text": "創業者の見方では、インドの中小企業はメール以上の技術を使い慣れておらず、クラウド電話の存在自体が知られていなかった。そのため3年間は、売る前に説明して回る作業が重かった。",
-     "basis": [
-      "f7"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-referral",
-     "item": "REFERRAL",
-     "text": "代理店が顧客への運用サービスの値段を自分で決め、MyOperatorは代理店に基盤料金を請求する。固定の紹介料率は公開されていない。",
-     "basis": [
-      "f10"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-competition",
-     "item": "COMPETITION",
-     "text": "競合のExotelとKnowlarityは資金調達や買収で規模を広げていた。MyOperatorは「設定なしで1分で立ち上がる」を違いに掲げた。",
-     "basis": [
-      "f8",
-      "f6"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-capital_and_team",
-     "item": "CAPITAL_AND_TEAM",
-     "text": "元手は12ラック・ルピーで、主な使い道は技術開発とチーム。5人から125人まで増え、ESOPで従業員に報いている。",
-     "basis": [
-      "f2",
-      "f4"
-     ],
-     "formula": "元手12ラック・ルピー、人数5人→125人は、いずれも本人の説明（YourStory 2016年記事の再掲）をそのまま載せた。",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-story",
-     "item": "STORY",
-     "text": "CEOのAnkit Jainは2010年に最初の音声サービスVoice Jadooを始めていた。2013年3月、当時30歳のAnkitと27歳で公認会計士の弟Prateekが、自己資金12ラック・ルピーでMyOperatorを開始した。開始から6か月で登録利用者は600人超、有料は200社になり、この間に損益が釣り合った。開始からの3年間は、市場への啓発と販売に力を割いた。2016年時点で登録利用者は25,000人超、有料顧客は2,000社超、従業員は5人から125人に増えた。2016年時点で外部資金はなく、従業員にはストックオプションで報いた。",
-     "basis": [
-      "f2",
-      "f3",
-      "f4",
-      "f5",
-      "f7"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-customer",
-     "item": "CUSTOMER",
-     "text": "小売・医療・教育・不動産・金融などの企業の営業・マーケ・サポート部門。開始から6か月の有料客にはLenskart、Snapdeal、Shop.IRCTCなど、2016年にはCanon、Fabindia、Cashkaro、DHLが加わった。",
-     "basis": [
-      "f1",
-      "f3",
-      "f5"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-first_customers",
-     "item": "FIRST_CUSTOMERS",
-     "text": "開始から6か月で登録利用者600人超、うち有料200社を得た。客にはアーム・アードミ党、Lenskart、Snapdeal、Shop.IRCTCなどがいた。",
-     "basis": [
-      "f3"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-channels",
-     "item": "CHANNELS",
-     "text": "開始からの3年間は、市場への啓発と販売に力を割いたと創業者は語る。現在は代理店を通すパートナー制度があり、代理店が顧客向けの運用サービスの価格を決める。",
-     "basis": [
-      "f7",
-      "f10"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-cost_structure",
-     "item": "COST_STRUCTURE",
-     "text": "始めの12ラック・ルピーは主に技術とチームづくりに使った。従業員にはストックオプションで報いた。2016年時点の従業員は125人で、4割は直近6か月で採用した。",
-     "basis": [
-      "f2",
-      "f4",
-      "m2"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-dependencies",
-     "item": "DEPENDENCIES",
-     "text": "WhatsApp向けの料金には、MyOperatorの利用料とは別にMetaの料金が乗る。",
-     "basis": [
-      "f1",
-      "f9"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-upfront_cash",
-     "item": "UPFRONT_CASH",
-     "text": "SaaSの年払いで、客は1年分を先に払う。現行の料金表も全プラン年払い。",
-     "basis": [
-      "f6",
-      "f9"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-timeline",
-     "item": "TIMELINE",
-     "text": "2010年: Ankit Jainが最初の音声サービスVoice Jadooを開始。2013年3月: MyOperatorを開始。開始から6か月: 登録利用者600人超、有料200社、損益が釣り合う。2016年: 登録利用者25,000人超、有料2,000社超、従業員125人。2015-16年度: 売上200万ドル（本人公表）。現在: 公式サイトが運営法人Voicetree Technologiesの名で営業を続け、現行の料金表を掲げている。",
-     "basis": [
-      "f1",
-      "f2",
-      "f3",
-      "f4",
-      "f5",
-      "f9",
-      "m1"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-viability",
-     "item": "VIABILITY",
-     "text": "先行者が強く後発は困難。同じ分野には、2012年にシリーズAを調達したExotel、2014年7月に1,600万ドルを調達したKnowlarityなど、資金を入れた先行者が複数いる。MyOperatorは2013年の開始から営業を続け、現行の料金表とパートナー制度を掲げ、サービスをWhatsAppとAIボットへ広げている。",
-     "basis": [
-      "f1",
-      "f2",
-      "f8",
-      "f9",
-      "f10"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    },
-    {
-     "id": "a-lesson",
-     "item": "LESSON",
-     "text": "市場にこの技術があまり知られていない中で、3年間は啓発と販売に力を割いた。外部資金なしで始め、開始から6か月で損益が釣り合った。",
-     "basis": [
-      "f3",
-      "f6",
-      "f7"
-     ],
-     "formula": "数字は出典に載っている値",
-     "presentation": "FACT_SUMMARY"
-    }
-   ],
    "ruleVersion": "case-reflect-v1",
-   "hash": "0ebe21e30b9328420607aa9e129953d46cc4eb0ca4187381b8c06087c31bea3e",
-   "reflectedAt": "2026-10-07T14:14:22.460Z"
+   "hash": "d05c613181b6d8284c2f9bb8fb7cc00de7a8ea95d1167ccacfb61a5567897387",
+   "reflectedAt": "2026-10-08T00:13:55.254Z"
   },
   "ent_practicaltypographycom_e9aa6bc94ccf": {
    "id": "ent_practicaltypographycom_e9aa6bc94ccf",
-   "state": "SHOW",
-   "reasons": [],
+   "state": "HOLD",
+   "stage": "RELEASE",
+   "reasons": [
+    "画像の権利または実体が未充足"
+   ],
    "importHash": "f10f584dc68dd6227dffd03e134c9f31b396e5e58c01c35438f93cd7d694248e",
    "reader": {
     "sources": [
@@ -2753,8 +2577,8 @@
     }
    ],
    "ruleVersion": "case-reflect-v1",
-   "hash": "b8b21fdad3bc86ea8578e8f29fb79bfd2d9f7a9981d5b1381e68b8c3e61476d2",
-   "reflectedAt": "2026-10-07T14:14:22.460Z"
+   "hash": "f806209eaf3c0ca64eb3348a18f8eea701eb0236b50d3ae28cc35c96c63b29ed",
+   "reflectedAt": "2026-10-08T00:13:55.254Z"
   },
   "ent_referralrock_8c13d5ee4cfc": {
    "id": "ent_referralrock_8c13d5ee4cfc",
@@ -3917,8 +3741,12 @@
   },
   "ent_teamcamp_ae0c21986c4d": {
    "id": "ent_teamcamp_ae0c21986c4d",
-   "state": "SHOW",
-   "reasons": [],
+   "state": "HOLD",
+   "stage": "RELEASE",
+   "reasons": [
+    "画像の権利または実体が未充足",
+    "リードを書き直す:リード（HEADLINE）が無い"
+   ],
    "importHash": "90a58bf67057e5509e7d3b34e02881ce31534d809983e6f1dfebaf7dacc4a10b",
    "reader": {
     "sources": [
@@ -4490,8 +4318,8 @@
     }
    ],
    "ruleVersion": "case-reflect-v1",
-   "hash": "6703aca115bb98c565556ecbb53289b7294a85ec9c89caed53a5d1884e68dfa9",
-   "reflectedAt": "2026-10-07T14:27:06.172Z"
+   "hash": "0c71c68c1171cbb164eb4276c02f1c73308f783f909d17dbaf6921d43b6dc97a",
+   "reflectedAt": "2026-10-08T00:13:55.254Z"
   }
  }
 }

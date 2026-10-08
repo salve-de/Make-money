@@ -1,0 +1,550 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
+   "scope": "diff",
+   "auditScope": "差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "Practical Typographyは、広告のないオンラインの本で、読者の支払いで支えられている。支払いの選択肢は、作者の自作フォントの購入、直接の支払い、紙の本（Typography for Lawyers）の購入の3つ。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "PRICING",
+     "text": "直接の支払いは19・29・39・49ドルの4段階。PDFや電子書籍は存在せず、支払ってもダウンロードは付かない。自作フォントは119ドルから、関連する紙の本（Typography for Lawyers）は40ドル。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "OTHER",
+     "text": "「なぜ払うのか」ページの主張は、この本の収入源は読者だけで、払わなければ本が消える、というもの。本人は文章・フォント・図版を作り、出版ソフトPollenを開発し、サーバー代も払ったと書く。読む前に払わせない代わりに、役立ったなら払ってほしいという形にしている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "CHANNEL",
+     "text": "1年目（2014年7月末まで）は読者約65万人（アクセス解析の数字）、広告・PR費は0ドルで、すべて口コミ。最も読まれたのは「Typography in Ten Minutes」。読者のうち約650人に1人が支払いか購入をした。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "1年目の直接の支払いは321件で合計3,676ドル。約230件は10ドル以下で、残りは11〜50ドル。大きな支払いが合計の約半分を占めた。流入元で差があり、Cool Tools経由の読者はよく払い、Reddit経由はほとんど払わなかった。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f6",
+     "kind": "OTHER",
+     "text": "1年目、読者のうち約450人が自作フォントの客になったと、本人が販売の傾向の変化から見積もった。1件に25ドルの紹介料を割り当てると約11,250ドルになるが、これは実際の収入額ではない。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f7",
+     "kind": "OTHER",
+     "text": "本人は、フォントが売れなければこの企画は費用の掛かる趣味だったと書く。他の収入は小さく、Typography for Lawyersの売上に目立つ変化はなく、他社フォントの紹介は多くて月25〜50ドル程度。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "2年続けて、5〜20ドルの直接の支払いより、59〜299ドルのフォントのパッケージに支払う意欲のある読者のほうが約35%多かった。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）。広告・PR費は引き続き0ドル。読者が増えたのに払う人の割合は、約1,000人に1人まで下がった。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になり、フォント取引は310件（25ドルを割り当てて7,750ドル）、合計約13,222ドル。支払った読者は799人。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f11",
+     "kind": "EVENT",
+     "text": "3年目の工夫は、無料の読者が15〜20のサイトに集中していると気づき、その流入元から来た人にだけ「この本を存続させるために」と支払いを頼むページを1枚出したこと。サーバーの設定（.htaccess）で出し分けた。本人は「効いた」と書いている。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "支払いの催促を本のあちこちに入れる方法は、読みにくくなるので採らなかった。公開前には、名の通った出版社から紙の本の話があったが、本人がデザインできないと分かって断った。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f13",
+     "kind": "OTHER",
+     "text": "本人は平均的なノンフィクションの本を、合計で1,000〜3,000部売れ、著者の取り分は1冊2〜3ドル程度と見ている。1年目の直接の支払い3,676ドルは、紙の本なら1,200〜1,800部に当たると書く。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f14",
+     "kind": "TOOL",
+     "text": "広告・アフィリエイトの網には参加せず、他社製品の推薦で報酬も受け取っていない。支払いの処理はStripe、訪問者の基本情報の収集にはClickyを使う。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "OTHER",
+     "text": "一部の読者から「寄付」と呼ぶのはおかしいと言われ、本人は直接の支払いの呼び方を改めた。慈善活動ではなく、書き手と読み手の経済関係として説明している。",
+     "attribution": "SELF_REPORTED"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=OTHER / 名前=直接の支払い（フォントの売上を除く） / 期間=公開1年目（〜2014年の夏）、321件(YEAR) / 金額=3676 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m2",
+     "line": "項目=OTHER / 名前=直接の支払い（フォントの売上を除く） / 期間=公開2年目（〜2015年の夏）、244件(YEAR) / 金額=3030 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m3",
+     "line": "項目=OTHER / 名前=直接の支払い（フォントの売上を除く） / 期間=公開3年目（〜2016年の夏）、489件(YEAR) / 金額=5472 USD / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m4",
+     "line": "項目=USERS / 期間=公開1年目（〜2014年の夏）の読者数（アクセス解析）(YEAR) / 金額=650000 人 / 由来=SELF_REPORTED"
+    },
+    {
+     "id": "m6",
+     "line": "項目=USERS / 期間=公開3年目（〜2016年の夏）の読者数（アクセス解析）(YEAR) / 金額=615000 人 / 由来=SELF_REPORTED"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://practicaltypography.com/economics-year-one.html",
+     "publisher": "Matthew Butterick",
+     "snapshot": {
+      "url": "https://practicaltypography.com/economics-year-one.html",
+      "finalUrl": "https://practicaltypography.com/economics-year-one.html",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:05:06.556Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "8e420f3480a653d3257049b431ff29c1a0394a22cc32f3d4ac6aa63978594ca1"
+     },
+     "text": "The economics of a web-based book: year one | Butterick’s Practical Typography\nButterick’s Practical Typography\nThe economics of a web-based book: year one | Butterick’s Practical Typography\nButterick’s Practical Typography\nThe economics of a web-based book: year one | Butterick’s Practical Typography\nThe economics of a web-based book: year one At the end of July 2014, this book com­pleted its first year on­line. When it launched, I de­scribed it as “partly an ex­per­i­ment in tak­ing the web se­ri­ously as a book-pub­lish­ing medium”.\nIn the in­ter­ests of sci­ence, a few words about how that ex­per­i­ment is go­ing. Noth­ing here is in­tended as a hum­ble­brag. Rather, I be­lieve in the po­ten­tial of the web as a book-pub­lish­ing medium. I want to en­cour­age more au­thors to try it. Shar­ing in­for­ma­tion is one way I can do that. (Re­leas­ing my pub­lish­ing tools for free is an­other way.)\nSince I’m not the NSA, there’s no pre­cise way for me to cor­re­late read­ing be­hav­ior with pur­chase be­hav­ior. My es­ti­mates are based on the data I have, which has been nudged to re­flect other fac­tors I’m aware of.\nMy pol­icy for Prac­ti­cal Ty­pog­ra­phy was sim­ple: read­ing the book would re­quire no pre­pay­ment. Rather, on a page called how to pay for this book —no hid­ing the ball here—I asked read­ers to sup­port the book as they wished, rang­ing from a $5 di­rect pay­ment, to buy­ing a pack­age of my fonts, which to­day top out at $299. Call it an honor sys­tem. I’ve never used the term free to de­scribe the book, be­cause I don’t see it that way.\nOf course, oth­ers do. This is the web, af­ter all. I es­ti­mate that about one in 650 read­ers has sup­ported the book with a pay­ment or pur­chase. The other 649 have not. Maybe they will later. Maybe they don’t know they can or should. Or maybe they just think in­for­ma­tion on the in­ter­net should be free.\nIn­de­pen­dent of my in­ter­ests as an au­thor, I con­tinue to find this view cor­ro­sive and dan­ger­ous. Last year I gave a talk sug­gest­ing that we’d traded good gov­ern­ment for ban­ner ads. But the rip­ple ef­fects are wider still.\nCon­sider that Google’s bell­wether cost per ad click has de­clined for 12 (!) straight quar­ters. Ad clicks are de­clin­ing in value be­cause the qual­ity of at­ten­tion is get­ting worse. So far, the so­lu­tion has been—yep, more ads. As an eco­nomic mat­ter, this is unsustainable.\nTake the ex­am­ple of desk­top web browsers. Let’s face it, un­less you’re really slow on the up­take, you’ve out­fit­ted your web browser with an ad blocker. Ha ha, you win! But wait—that means most web ads are only reach­ing those who are really slow on the up­take. So their dol­lars are dis­pro­por­tion­ately im­por­tant in sup­port­ing the writ­ing you’re get­ting ad-free. “Not my prob­lem,” you say. Oh really? Since those peo­ple are the only ones fi­nan­cially sup­port­ing the writ­ing, pub­lish­ers in­creas­ingly are shap­ing their sto­ries to ap­peal to them. Even­tu­ally, the writ­ing you liked—well, didn’t like it enough to pay for it—will be gone.\nWhy? Be­cause you starved it to death. The im­mutable law re­mains: you can’t get some­thing for noth­ing. The web has been able to de­fer the con­se­quences of this prin­ci­ple by shift­ing the costs of the writ­ten word off read­ers and onto ad­ver­tis­ers. But if read­ers per­ma­nently with­draw as eco­nomic par­tic­i­pants in the writ­ing in­dus­try—i.e., refuse to vote with their wal­lets—then they’ll have no rea­son to protest as the uni­verse of good writ­ing shrinks. (And make no mis­take—it’s al­ready happening.)\nStill, read­ers could rea­son­ably com­plain that they haven’t been given enough op­por­tu­ni­ties to change their habit. So here you have it: a book that in­vites you to pay. Not be­cause you have to. Not be­cause you want to. Not even be­cause you should. Rather, be­cause the al­ter­na­tive—starv­ing the writ­ing you en­joy—is against your interests.\nSo what’s been hap­pen­ing here?\nRead­ers . I track us­age with Google An­a­lyt­ics. As­sum­ing it’s ac­cu­rate, it claims that about 650,000 read­ers vis­ited the site in the first 12 months. I can tell you for cer­tain that my mar­ket­ing / PR bud­get dur­ing that time was $0. So this read­er­ship is based en­tirely on word of mouth. I’m grate­ful to every­one who has of­fered kind words. (It won’t sur­prise you to hear that the most pop­u­lar page was ty­pog­ra­phy in ten min­utes .)\nDi­rect pay­ments . I got 321 pay­ments to­tal­ing $3676. About 230 were $10 or less. The rest ranged from $11–50. De­spite the im­bal­ance, the larger pay­ments still made up about half the to­tal. I ap­pre­ci­ate these pay­ments, but on their own, they wouldn’t be enough to sus­tain the project.\nI ex­pected that di­rect pay­ments would rise and fall with traf­fic. But I was sur­prised to see that cer­tain sources of traf­fic were far more likely to pay than oth­ers. For in­stance, read­ers who came from Cool Tools paid fre­quently; read­ers who came from Red­dit, al­most never.\nSales of Ty­pog­ra­phy for Lawyers . TFL has been plug­ging away steadily since its re­lease in 2010. While I know that some read­ers of Prac­ti­cal Ty­pog­ra­phy have got­ten copies, it hasn’t cre­ated a no­tice­able de­vi­a­tion from the usual sales pat­tern. Prob­a­bly it’s also de­terred a few peo­ple from buy­ing copies, since most of the ma­te­r­ial is avail­able here. So I’ll call it a neu­tral influence.\nRe­fer­ral sales of other fonts through this site . Not a big con­trib­u­tor. At best, per­haps $25–50 a month.\nRe­fer­ral sales of my fonts Her­mes, Her­ald Gothic, or Wes­sex . No de­vi­a­tion from the his­tor­i­cal sales pat­terns, so I’ll call it neutral.\nSales of Eq­uity, Con­course, and Trip­li­cate . The good news for the 649,000 or so read­ers who didn’t pay (yet?) is that I sold a lot of fonts. Good news be­cause if it weren’t for the fonts, this project would be an ex­pen­sive hobby.\nTo be fair, by any ra­tio­nal eco­nomic mea­sure, most of the book-pub­lish­ing in­dus­try is an ex­pen­sive hobby. Citable au­thor­ity is hard to find, but avail­able fig­ures ( for in­stance ) sug­gest that non­fic­tion books sell a to­tal of 1000–3000 copies on av­er­age. Sup­pose fur­ther that the au­thor gets about $2–3 per book. Even in rough terms, we can see that most au­thors are get­ting paid a pit­tance to write.\nI say this not to tee up some sen­ti­men­tal ar­gu­ment that writ­ers and artists are en­ti­tled to such-and-such pay­ment for their work. They’re not. But when we think about tak­ing the web se­ri­ously as a book-pub­lish­ing medium, we should have a re­al­is­tic bench­mark in mind. I said ear­lier that $3676 in di­rect pay­ments was rel­a­tively small. But if I had pub­lished this work as a pa­per­back, that would cor­re­spond to first-year sales of 1200–1800 copies. In other words, I’d be off to a good start.\nThat said, hold­ing one­self to low ex­pec­ta­tions is just a recipe for stag­na­tion ( for in­stance ). It would be nice to think we can use the web to do better.\nBased on changes to my usual sales pat­terns, I es­ti­mate that about 450 Prac­ti­cal Ty­pog­ra­phy read­ers be­came font cus­tomers. What that means in terms of dol­lars at­trib­ut­able to Prac­ti­cal Ty­pog­ra­phy is hard to say, since these read­ers were get­ting some­thing of in­de­pen­dent value (i.e., a font li­cense). But even if I as­sign a $25 “re­fer­ral fee” to each of these trans­ac­tions, that means about $11,250, which still far ex­ceeds the other sources of rev­enue from the book.\nWhat’s most in­ter­est­ing to me, how­ever, is that so many more read­ers were will­ing to buy a font li­cense (at $59–299) than to make a di­rect pay­ment (at $5–10). Don’t get me wrong—I’m ut­terly grate­ful. But it’s coun­ter­in­tu­itive: I never ex­pected that the cheaper op­tion would be so much less pop­u­lar. Econ­o­mists, I in­vite your explanations.\nSo far, I con­sider Prac­ti­cal Ty­pog­ra­phy to be a suc­cess­ful ex­per­i­ment in web-based book pub­lish­ing. Though I did con­sider mak­ing it a pa­per­back, as a prob­a­bilis­tic mat­ter, I can’t say that I would’ve been bet­ter off do­ing so. Fi­nan­cially, this web-based book has per­formed at least as well.\nMore­over, I’m de­lighted that 650,000 read­ers have paid at­ten­tion. Even with­out pay­ment, that at­ten­tion is valu­able. That kind of reach would’ve been im­pos­si­ble with a pa­per­back (or even an e-book). True, ex­po­sure can’t re­place money. But it’s a pre­req­ui­site. The fate of most books is to be ig­nored. The fact that so many peo­ple are en­joy­ing the ma­te­r­ial & putting it to work is a great plea­sure. The web has made it possible.\nTo be fair, the 649 : 1 ra­tio of un­paid to paid read­er­ship would be prob­lem­atic with fewer read­ers. This is a book of use­ful in­for­ma­tion, ap­plic­a­ble to a wide au­di­ence. But most books are not. For web-based book pub­lish­ing to be vi­able, au­thors need to be able to at­tain pa­per­back-level fi­nan­cial re­wards with con­sid­er­ably fewer than 650,000 read­ers. This is an area where I’d like to do bet­ter. Es­pe­cially get­ting more read­ers to pay small amounts—not be­cause it makes a big fi­nan­cial dif­fer­ence, but be­cause it in­stills a vir­tu­ous habit.\nFor a non­fic­tion book, the fluid na­ture of web pub­lish­ing has been a valu­able perk. When read­ers find ty­pos, I can fix them in­stantly. When I want to add or up­date pages, I can. As an au­thor, I have an in­cen­tive to be steadily re­vis­it­ing and re­vis­ing the ma­te­r­ial. The book is a liv­ing thing.\nPrac­ti­cal Ty­pog­ra­phy has also been a proof of my friend Richard Nash’s the­ory that au­thors shouldn’t think of a book as the end of a re­la­tion­ship with the reader, but as the be­gin­ning. The book be­comes an in­tro­duc­tion to a range of pos­si­bil­i­ties. Cur­mud­geons might grum­ble that writ­ing the book should be enough in it­self. Per­haps. But that’s never been true off the web. So the idea that the web should mag­i­cally re­pair the frac­tured eco­nom­ics of the book in­dus­try is unreasonable.\nWhat’s not un­rea­son­able is to think of the web as a place where writ­ers and read­ers can try new ideas that pre­vi­ously weren’t pos­si­ble. Be­cause let’s not kid our­selves—printed books are on their way out. What will re­place them? We get to choose. We get to vote with our time, our wal­lets, and our at­ten­tion. We can choose a world of dig­i­tal books con­trolled by a hand­ful of tech­nol­ogy be­he­moths, who de­ter­mine what gets sold, how you get to read it, and what you pay for it. Or we can choose the web, where writ­ers get to pub­lish what they want, read­ers get to read what they want, and they can work out to­gether how to pay for it.\nTo me, that choice is easy. But what counts is back­ing it up with ac­tion. Thank you to every­one who sup­ported Prac­ti­cal Ty­pog­ra­phy in its first year. Let’s keep going.\n—Matthew But­t­er­ick\n6 Aug 2014\nby the way\nA few read­ers ob­jected to my use of the term “do­na­tions” to de­scribe di­rect pay­ments. That’s a fair point. I’ve changed it. I agree that “do­na­tion” con­notes a char­i­ta­ble gift. I’m not hold­ing my­self out as a char­ity. More broadly, while the term is com­monly ap­plied to vol­un­tary pay­ments, I don’t think that’s the right way to char­ac­ter­ize the eco­nomic re­la­tion­ship be­tween writ­ers and readers.\nI shouldn’t have used the word “con­tent” to de­scribe what writ­ers make. Writ­ers make writ­ing. So let’s call it that. Be­cause “con­tent” isn’t a neu­tral word. It’s anes­thetiz­ing jar­gon that en­cour­ages us to see the best (and worst) parts of the web as fun­gi­ble com­modi­ties, like soy­beans. Writ­ers are not con­tent farm­ers. Rec­og­niz­ing that fact is a pre­req­ui­site to im­prov­ing the eco­nom­ics of writing.\nundock &#xe128\nmove &#xe118\nHeliotrope\nEquity\nValkyrie\nCentury Supra\nConcourse\nTriplicate\nbuy font &#xe085\nclose &#xe043\n← Why there’s no e-book or PDF\ntop\nchapter\nWhy Racket? Why Lisp? →",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://practicaltypography.com/effluents-influence-affluence.html",
+     "publisher": "Matthew Butterick",
+     "snapshot": {
+      "url": "https://practicaltypography.com/effluents-influence-affluence.html",
+      "finalUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:05:06.948Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "0ddc8020146b51376e33fb79ff0cea00fc255b3410489bf076e740154b9232c8"
+     },
+     "text": "Effluents influence affluence | Butterick’s Practical Typography\nButterick’s Practical Typography\nEffluents influence affluence | Butterick’s Practical Typography\nButterick’s Practical Typography\nEffluents influence affluence | Butterick’s Practical Typography\nEffluents influence affluence:\nThe economics of a web-based book, year two This book has now com­pleted its sec­ond year on­line. Last year, in my in­au­gural re­port, I de­scribed the rev­enue sources for the book. One of my find­ings was that only a small frac­tion of read­ers—about one in 650—sup­ported the book with any kind of payment.\nFor year two, I set a goal of “get­ting more read­ers to pay small amounts—not be­cause it makes a big fi­nan­cial dif­fer­ence, but be­cause it in­stills a vir­tu­ous habit”.\nDid it work? Sort of. Though rev­enue met my ex­pec­ta­tions, I had to re­vise my view of how traf­fic re­lates to revenue.\nGo­ing into year two, I ex­pected rev­enue to drop. Why? Be­cause I ex­pected traf­fic to drop too. In year one, the book got a lot of good word-of-mouth be­cause it was new. For which I’m grate­ful. But you only get to be new once. The greater chal­lenge—as it is for au­thors of printed books—would be turn­ing the book into source of sus­tain­able, re­cur­ring rev­enue. (And not be­cause this is how you get rich in pub­lish­ing—rather, it’s how you have any chance of break­ing even.)\nHow did I change the book to en­cour­age more di­rect pay­ments? Not as much as I could have, I con­cede. In how to pay for this book , I re­duced the num­ber of sug­gested op­tions. I made it eas­ier to make a di­rect pay­ment with a credit card.\nBut I didn’t do the thing I knew would be most ef­fec­tive: namely, load­ing up the rest of the book with links to the pay­ment page, along with in­ces­sant nag­ging and wheedling. Have you paid yet? No you haven’t. Here’s how you pay. Click here. Hey, you’re not click­ing. Please click. Please please please. PLEEEEEEEEAAAAA—\nWhy not? Be­cause it would have been eff­ing aw­ful. Like so much of the web in 2015. Haven’t you no­ticed? A cou­ple years ago, we saw the omi­nous cel­lu­lar mu­ta­tions—web­sites on tablets and phones were be­com­ing ads for apps.\nNow, the can­cer has metas­ta­sized onto the desk­top. I’m not talk­ing about ban­ner ads—we clev­erly blocked those, of course. But the re­ward for our clev­er­ness has been a web that in­creas­ingly re­lies on wheedling, whin­ing, and nag­ging. The pariah popup win­dow of yore has been rein­vented as the home­page-hog­ging in­put form. Most com­monly, this nag­ging is a de­mand that we sign up for an email list (aka more nag­ging, di­rect to your in­box) or that we com­plete an ob­vi­ously un­nec­es­sary reg­is­tra­tion—which usu­ally im­plies join­ing an email list, which in turn means … right.\nThe work & the terms\nI say this not to gripe. I say this be­cause though I un­der­stand why this shift is ac­cel­er­at­ing—in short, be­cause the web is ter­ri­ble at mak­ing in­for­ma­tion ex­pen­sive —it’s not a shift I want to be part of.\n“Be­cause you’re a sen­si­tive artiste who con­sid­ers him­self above the com­mer­cial fray?” No. I do this for work. Mean­ing, it is in­her­ently a com­mer­cial activity.\nAn idea that plays a lead­ing role in The bil­lion­aire’s type­writer .\nRather, be­cause every com­mer­cial artist—sen­si­tive or not—con­trols only two things: their work, and the terms un­der which their work is of­fered. By terms , I mean con­sid­er­a­tions of pric­ing, con­text, tim­ing, au­di­ence, and so forth. Granted, it’s more fun to think about the work it­self. But the terms en­com­pass the harder, more con­se­quen­tial choices. Harder be­cause they of­ten re­quire say­ing “no” to things that are clearly in one’s short-term in­ter­est. More con­se­quen­tial be­cause they shape one’s long-term interest.\nPart of why this book works is that it’s not pol­luted with nag­ging and wheedling. I specif­i­cally wanted it to be a calm oa­sis on the noisy web—a chance to re­dis­cover some­thing we like about printed books, which is the im­mer­sion and fo­cus that can be cre­ated by noth­ing but text and ty­pog­ra­phy. That part is not in­ci­den­tal; it’s intrinsic.\nIn fact, be­fore I set to work pub­lish­ing this book on­line, a book agent got me a very nice of­fer to turn this ma­te­r­ial into a pa­per­back for a name-brand pub­lisher. Tempted, I was. But when I asked whether I’d be al­lowed to de­sign it, her an­swer was swift. “Of course not,” she said. “Why would you think they’d let you do that?”\nOh, I don’t know.\nI walked away. The agent was flab­ber­gasted. To her, my job as an au­thor was to pro­duce a se­quence of words that other peo­ple would shep­herd to mar­ket. Per­haps if my topic were dif­fer­ent, that would be true. But a book about ty­pog­ra­phy nec­es­sar­ily in­volves show­ing, not just telling.\nSo here we are.\nDirect payments\nIn year one, I col­lected 321 pay­ments to­tal­ing $3676. In year two, con­sis­tent with my re­duced ex­pec­ta­tions, I col­lected 244 pay­ments to­tal­ing $3030. Not bad. The 25% drop in trans­ac­tions was off­set by a higher pay­ment amount, so the gross rev­enue was only 18% less.\nRe­call from last year’s re­port that the av­er­age pa­per­back sells a to­tal of about 1000–3000 copies, with the au­thor get­ting about $2–3 per book. On that ba­sis, I can’t say I’m do­ing worse than I would’ve had I taken that pa­per­back offer.\nTrue—de­spite my ob­jec­tions to the nag­ging econ­omy, I’m sure I could’ve dis­cov­ered some sub­tle ways to in­duce more di­rect pay­ments, had I spent more time on the prob­lem. And some might say that my re­fusal to do so makes my web-pub­lish­ing ex­per­i­ment un­re­li­able. Perhaps.\nThe rub, how­ever, is that de­vel­op­ing and test­ing these tech­niques is it­self ex­pen­sive. If I spent a month on this prob­lem and raised the an­nu­al­ized rate of pay­ment by 25%, that would be a solid im­prove­ment. It would also im­ply that I got paid $750 for a month of la­bor. Not so good. Whereas if I could raise the pay­ment rate by 300–500%, then the re­turn on a month of la­bor would be worth­while. But that kind of im­prove­ment would be lu­di­crously unrealistic.\nMore­over, it would prove noth­ing gen­er­al­iz­able. I’m some­one who’s pretty de­cent at this web stuff. For a non-tech­ni­cally-minded au­thor, these chal­lenges would sim­ply be insurmountable.\nFont sales\nAs was the case last year, what really pro­pelled this book fi­nan­cially were font sales. In year one, I es­ti­mated that 450 read­ers be­came font cus­tomers, and I as­signed a “re­fer­ral fee” of $25 to each of those trans­ac­tions, for im­puted rev­enue of $11,250.\nFor year two, I es­ti­mate that there were 325 font sales at­trib­ut­able to Prac­ti­cal Ty­pog­ra­phy , and by the same met­ric, im­puted rev­enue of $8,125. That rep­re­sents an 18% drop—the same as the per­cent­age drop in di­rect-pay­ment revenue.\nThis, in turn, sug­gests that a con­sis­tent ra­tio might emerge be­tween the num­ber of read­ers in­ter­ested in pay­ing for the book vs. how much they want to spend. For two years run­ning, about 35% more read­ers were in­ter­ested in pay­ing $59–299 for a pack­age of fonts than $5–20 for a di­rect pay­ment for the book. (For that rea­son, if I were to spend a hy­po­thet­i­cal month im­prov­ing sales rates, it would make more sense to fo­cus on in­creas­ing sales of fonts, not di­rect payments.)\nTraffic\nMy mar­ket­ing & PR bud­get re­mained un­changed from year one—still $0.\nThe sur­prises arose with traf­fic. Re­call that I ex­pected sales to drop be­cause I ex­pected traf­fic to drop. And sales did drop. But traf­fic ac­tu­ally went up —from about 650,000 read­ers in year one to about 700,000 in year two.\nThis was both good news and bad news. Good news in the sense that traf­fic ex­ceeded ex­pec­ta­tions. Bad news in the sense that the frac­tion of read­ers fi­nan­cially sup­port­ing the book de­creased—from the year-one ra­tio of 649 : 1 to an even weaker 1000 : 1 or so.\nLa­trines at Hadrian’s wall, built—to last—in the year 124.\nIn the broad­est sense, we can say that more traf­fic is al­ways bet­ter than less. But be­yond that, we can sketch out two ba­sic theories.\nThe first the­ory is that web traf­fic is like pan­ning for gold in a river. The river con­tains a cer­tain per­cent­age of gold by vol­ume. The longer you stay in the river, the more gold you’ll find.\nThe sec­ond the­ory also holds that web traf­fic is like pan­ning for gold in a river. Oc­ca­sion­ally, a mas­sive sewer line bursts near the river, drench­ing you in a lot more liq­uid, but the same amount of gold. Now you have to stay longer in the river whether you want to or not.\nI’m com­ing around to the sec­ond theory.\nThere have oc­ca­sion­ally been traf­fic flows that had a high ra­tio of pay­ing read­ers— Cool Tools comes to mind, as does Dar­ing Fire­ball (John Gru­ber, your next din­ner at Musso & Frank will be my treat). But these are very much the exception.\nAs a rule, quan­tity and qual­ity have a neg­a­tive cor­re­la­tion. Let’s go to the countdown:\nTop sources of visitors in year two\nHacker News. I can’t say I un­der­stand the pur­pose of this site, founded by ven­ture cap­i­tal­ist Paul Gra­ham. I have two guesses. One is that it’s like Red­dit for pro­gram­mers, but they can claim that us­ing it is work, not goof­ing off. My other guess, since it has no ads, is that it acts as Mr. Graham’s panop­ti­con into his com­mu­nity of in­ter­est, as Cere­bro does for Prof. Xavier. Any­how, what­ever bored pro­gram­mers are spend­ing their money on, it’s def­i­nitely not me.\nCre­ative Bloq. Like a lot of de­sign-ori­ented sites of­fer­ing “tips and in­spi­ra­tion”, this one holds out the promise that if you just browse the web hard enough, you can be­come a bet­ter de­signer. No sur­prise that a site with a some­thing-for-noth­ing phi­los­o­phy mostly sends read­ers who don’t pay. (To be fair, its name plainly fore­tells the likely re­sult of this approach.)\nTwit­ter. I’ve oc­ca­sion­ally been crit­i­cized for my “write-only” pol­icy on Twit­ter. What can I say? Its 140-char­ac­ter limit per­ma­nently rel­e­gates it to the low­est tier of con­ver­sa­tion, and thus also at­ten­tion. Read­ers from Twit­ter flit in, flit out, leav­ing no trace.\nBuz­zFeed. Grudg­ingly, I re­spect BuzzFeed . They’re at least hon­est about what they’re do­ing—per­fect­ing click­bait—and dis­ci­plined about their ap­proach. My vis­i­tors ar­rive from this quin­tes­sen­tially Buz­zFeedy lis­ti­cle that has amassed 5.5 mil­lion views. But do these read­ers pay? Heav­ens no. It would prac­ti­cally be un-American.\nRed­dit. Ugh. Red­dit’s busi­ness plan is ap­par­ently to mon­e­tize as much vile toxic waste—racism, sex­ism, anti-Semi­tism, stolen celebrity nudes—as it can get away with. True, that ma­te­r­ial has al­ways been avail­able on the in­ter­net. But it wasn’t un­til re­cently that it was fu­eled by mil­lions in ven­ture cap­i­tal. What an ac­com­plish­ment. Fit­tingly, many of my Red­dit vis­i­tors ar­rive from a page ti­tled “Where do you go once Red­dit has bored you?” Glad to help.\nThe top five articles visited in year two\nOb­vi­ously, a big rea­son much of this read­er­ship is un­paid is be­cause these web­sites spe­cial­ize in pass­ing along sin­gle links, of which these were the most popular—\nThe Bil­lion­aire’s Type­writer. De­spite its huge traf­fic, it did not even make me a hundredaire.\nTy­pog­ra­phy in Ten Min­utes. Al­ways a favorite.\nPrac­ti­cal Ty­pog­ra­phy was made with Pollen, a book-pub­lish­ing sys­tem I wrote in Racket. Pollen is also open source.\nWhy Racket? Why Lisp? OK, this was a case where raw quan­tity was use­ful. This ar­ti­cle was ba­si­cally a sales pitch for the open-source Racket pro­gram­ming lan­guage. If I got a few peo­ple in­ter­ested, then it was worth­while. (If you’re vis­it­ing from Hacker News, you might en­joy it more than this one.)\nThe eco­nom­ics of a web-based book: year one. How meta.\nThe In­fi­nite-Pixel Screen. Though judg­ing from the time spent on the page, many fewer fin­ished it.\nI’m not com­plain­ing about hav­ing a large un­paid read­er­ship. That de­scribes most—nearly all?—web­sites. It’s more that as an au­thor, I won­der what my re­la­tion­ship with these high-quan­tity / low-qual­ity traf­fic gen­er­a­tors ought to be.\nSure, it’s my re­spon­si­bil­ity to con­vince vis­i­tors to click from their land­ing page to some­thing else. But the most com­mon way to ac­com­plish this is through more wheedling and nag­ging. I don’t dis­pute it would work. I just don’t feel that spend­ing my time hip-deep in sewage will pro­duce a worth­while re­turn. It would also make the site mis­er­able for the nice peo­ple who do pay for it.\nThe virtue of exclusivity\nIn­stead, what if I to­tally blocked vis­i­tors from those five sites, and other traf­fic farms? Would it af­fect the rev­enue for this book? I doubt it. I wouldn’t mind find­ing out.\nDon’t panic—I’m not really go­ing to do that. Open­ness has ben­e­fits. It also has costs. I ac­cept the costs be­cause I be­lieve in the ben­e­fits. But it’s a wor­thy thought ex­per­i­ment: can some­thing be open to every­one, yet not really be for everyone?\nThis leads back to the ear­lier is­sue of terms. Ex­clu­siv­ity—mean­ing, se­lect­ing a cus­tomer base for qual­ity, not just quan­tity—is of­ten an im­por­tant con­sid­er­a­tion in mak­ing a work suc­cess­ful. Af­ter year two, I sus­pect it’s also true for book au­thors. For year three, I’d like to re­duce the ra­tio of un­paid to paid read­er­ship, even if it means re­duc­ing traf­fic. But I’m still work­ing out how I can bal­ance open­ness with ex­clu­siv­ity—with­out us­ing blunt instruments.\nFor in­stance, Ap­ple is of­ten cred­ited with prov­ing that de­sign ex­cel­lence leads to mar­ket suc­cess. Not really. Ap­ple’s resur­gence is only in­ci­den­tally about de­sign. Mostly, it’s about care­fully se­lect­ing a ter­ri­tory of valu­able cus­tomers—in Ap­ple’s case, sta­tus-con­scious peo­ple with co­pi­ous dis­pos­able in­come—and de­fend­ing that ter­ri­tory tooth and nail. Ap­ple does not sell great de­sign. It sells de­sign that flat­ters its owner. (And Ap­ple’s tim­ing has been per­fect to ex­ploit the ris­ing tide of wealth inequality.)\nThe effluent economy\nIt’s per­haps fit­ting that down the road from Ap­ple, we have bot­tom-feed­ing be­he­moths like Face­book and Google. These com­pa­nies are the sewage-treat­ment plants of the in­for­ma­tion age: shov­el­ing the worst qual­ity of hu­man at­ten­tion into piles, sea­son­ing it with sur­veil­lance data, and pack­ag­ing it into re­sal­able chunks. But it’s an open ques­tion whether their skill is ex­tract­ing hid­den value from the web, or merely or­ga­niz­ing its disappointments.\nIn that way, these web-ad­ver­tis­ing com­pa­nies re­mind me mostly of the in­vest­ment banks of 10 years ago that learned to per­form sim­i­lar alchemy on sim­i­lar dis­ap­point­ments—namely, our na­tion’s sub­prime mort­gages. If you just kept slic­ing and dic­ing and shift­ing, the think­ing went, you could per­suade oth­ers that the value would ul­ti­mately emerge.\nWell, we know how that turned out.\nAs an au­thor, part of me would like to opt out of the web that the Red­dits and Cre­ative Bloqs and Twit­ters are pro­mot­ing. But in the long term, it’s un­nec­es­sary. Be­cause by fail­ing to in­vest in any­thing of en­dur­ing value, they’ve al­ready con­signed them­selves to a per­ma­nent state of root­less­ness. (Just like the last gen­er­a­tion of in­ter­net com­pa­nies.) To beat them, I don’t have to out­spend them, out­run them, or out­wit them.\nI just have to out­last them. So be­gins year three.\n—Matthew But­t­er­ick\n8 Aug 2015\nby the way\nI feel I ought to show you how to pay for this book , but let’s just say I’m keep­ing my ex­pec­ta­tions modest.\nundock &#xe128\nmove &#xe118\nHeliotrope\nEquity\nValkyrie\nCentury Supra\nConcourse\nTriplicate\nbuy font &#xe085\nclose &#xe043\n← The infinite-pixel screen\ntop\nchapter\nVote with your wallet, not your ad blocker →",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+     "publisher": "Matthew Butterick",
+     "snapshot": {
+      "url": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+      "finalUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:05:08.087Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "e44e9e7312c2d9c591172959fc30a63705a5b8772038b793fae1041e56853279"
+     },
+     "text": "To pay or not to pay | Butterick’s Practical Typography\nButterick’s Practical Typography\nTo pay or not to pay | Butterick’s Practical Typography\nButterick’s Practical Typography\nTo pay or not to pay | Butterick’s Practical Typography\nTo pay or not to pay:\nhow I profited from gentle shame Re­cently, Prac­ti­cal Ty­pog­ra­phy com­pleted its third year on­line. Last year, in my sec­ond an­nual re­port, I de­scribed hav­ing to face the co­nun­drum shared by many on­line pub­lish­ers: how to con­vert a mas­sive flow of un­paid read­er­ship into dollars.\nTo ad­dress this prob­lem, I tried an idea that I was pretty sure wouldn’t work. But to my sur­prise, it did. More about that below.\nThe great­est mag­a­zine cover of all time, and the great­est sales pitch of all time. De­signed by Michael Gross.\nConfidential to the paying readers\nFirst, how­ever, I want to thank all the read­ers who have paid for this book over the last year—ei­ther with a di­rect pay­ment, or in­di­rectly, by li­cens­ing my fonts. You’ve made it pos­si­ble for me to keep im­prov­ing this book, along with its un­der­ly­ing pub­lish­ing soft­ware, Pollen.\nWhen I launched this book, I said it was “partly an ex­per­i­ment in tak­ing the web se­ri­ously as a book-pub­lish­ing medium”. In turn, I called upon read­ers to join me in prov­ing that this ex­per­i­ment—re­ly­ing on vol­un­tary sup­port by read­ers, rather than DRM and cor­po­rate in­ter­me­di­aries—can work. I’m sat­is­fied that it has. In fact, I’m suf­fi­ciently well per­suaded that I’m work­ing on a new book that will be pub­lished on­line in a sim­i­lar way.\nRead­ers who pay for books are the best read­ers in the world. With­out you, there won’t be any more books. Thank you for do­ing your part and sup­port­ing the writ­ing you find valuable.\nRecap of last year’s findings\nBy stim­u­lat­ing font sales and di­rect pay­ments, Prac­ti­cal Ty­pog­ra­phy gen­er­ated rea­son­able rev­enue in its sec­ond year—about $11,155. But that was a de­cline from its first year, when it gen­er­ated about $14,926.\nI had ex­pected rev­enue to go down. What I hadn’t ex­pected is that in the sec­ond year, traf­fic went up . That meant that a smaller per­cent­age of read­ers were sup­port­ing the book with any kind of pay­ment. Why? And was there a way to re­verse the tide?\nIn a non-sci­en­tific way, I the­o­rized that the prob­lem was the flow of “ef­flu­ents”—high-vol­ume, low-qual­ity traf­fic—pumped in my di­rec­tion by web­sites like Cre­ative Bloq and Buz­zFeed. Since the be­gin­ning of the web, it’s been an ar­ti­cle of faith that more traf­fic is bet­ter. Clearly, that hasn’t been true for a while. We’re deep into the click­bait econ­omy. The con­tin­ued dom­i­nance of ad­ver­tis­ing, and the neg­a­tive-se­lec­tion ef­fects of ad block­ers, have meant that the web in­creas­ingly caters to those with the short­est at­ten­tion spans.\nAs I saw it, the chal­lenge was how to con­vert more of those short-at­ten­tion-span read­ers to pay­ing cus­tomers, with­out turn­ing Prac­ti­cal Ty­pog­ra­phy into a non­stop pa­rade of wheedling, beg­ging, and nagging.\nSo what hap­pened in the third year?\nTraffic\nIn year one, I got about 650,000 read­ers. This in­creased to about 700,000 read­ers in year two. In year three, how­ever, traf­fic went down to about 615,000 read­ers—roughly a 13% drop. Since I track these num­bers with Google An­a­lyt­ics, it’s pos­si­ble the drop is over­stated be­cause of the ac­cel­er­at­ing rise of ad block­ers (in­clud­ing the con­tent block­ers sup­ported by iOS 9, start­ing last Sep­tem­ber ), which of­ten block Google An­a­lyt­ics as well.\nBut con­sis­tent with my com­ments last year, I think it’s wise for web au­thors to de­tach them­selves from their traf­fic fig­ures (or Twit­ter fol­low­ers, or Face­book likes, or Stack Over­flow rep, or GitHub stars). Ex­po­sure doesn’t have any pre­dictable re­la­tion­ship to money. Never has.\nIn­deed, if you be­lieve that it costs money to serve web pages—and yes, it does—then maybe the best out­come is to col­lect more money from fewer read­ers, as it sug­gests you’re get­ting bet­ter at find­ing the peo­ple who will pay for your work.\nFont sales\nAs in the pre­vi­ous two years, font sales were the foun­da­tion of the book’s rev­enue. In year one, I es­ti­mated there were 450 font trans­ac­tions at­trib­ut­able to Prac­ti­cal Ty­pog­ra­phy , and im­puted a $25 “re­fer­ral fee” to each, for a to­tal of $11,250. In year two, 325 trans­ac­tions, with im­puted rev­enue of $8125 (an 18% de­cline). In year three, I es­ti­mate the book stim­u­lated 310 trans­ac­tions, for im­puted rev­enue of $7750—less than a 5% de­cline. So that’s pretty good.\nDirect payments\nThe big change was in di­rect pay­ments—where I ask read­ers to vol­un­tar­ily send be­tween $5 and $20, as be­fits their ap­pre­ci­a­tion of the book. In year one, I col­lected 321 pay­ments to­tal­ing $3676. In year two, 244 pay­ments to­tal­ing $3030. But in year three, I col­lected 489 pay­ments to­tal­ing $5472—a 100% in­crease in pay­ments, and an 48% in­crease in revenue.\nIn sum\nNot bad! That means that to­tal rev­enue for Prac­ti­cal Ty­pog­ra­phy in­creased from $11,155 in year two to $13,222 this past year—an 18% rev­enue in­crease de­spite a 13% traf­fic drop. A to­tal of 799 read­ers opened their wal­lets, which is bet­ter than the first or sec­ond year.\nOf course, this is not life-chang­ing, quit-your-day-job money for any­one. But as I said in my first re­port, it’s un­rea­son­able to ex­pect book pub­lish­ing on the web to ex­ceed the eco­nom­ics of print pub­lish­ing. As I said then, sup­pose the typ­i­cal non­fic­tion book sells about 1000-3000 copies over its life­time, with the au­thor get­ting about $2-3 per book. Even lean­ing op­ti­mistic, that’s to­tal rev­enue of only about $5000-8000. So if the ques­tion is “would I have been bet­ter off pub­lish­ing Prac­ti­cal Ty­pog­ra­phy as a pa­per­back?”—the an­swer re­mains, em­phat­i­cally, no.\nThe fancy sauce\nAt the end of year two, I thought about ways I could en­cour­age more read­ers to pay. As I said above, non­stop wheedling and beg­ging was out—that would’ve made the book per­ma­nently ugly & an­noy­ing. Not really what I’m go­ing for.\nA few self-styled web-pub­lish­ing pros sent me well-mean­ing ad­vice—like in­te­grat­ing such-and-such app into the web­site, or start­ing an email newslet­ter, so I could ha­rass read­ers more of­ten, etc. These are nice ideas. If they work for oth­ers, great. But my time is lim­ited. I can’t spend dol­lars to chase dimes.\nWhat I re­al­ized af­ter last year’s re­port is that these mas­sive flows of un­paid traf­fic em­anated from only about 15–20 web­sites. Also, re­call­ing the Na­tional Lam­poon cover, I won­dered if maybe a life-or-death ap­peal might move the needle.\nSo I set­tled on a strat­egy of gen­tle, tar­geted sham­ing. I added ex­actly one page to this web­site, and then up­dated my .htac­cess file so that vis­i­tors from only those 15–20 sites would see that page when they arrived:\nHELP KEEP THIS BOOK ALIVE\n(click to see the whole thing)\nA lit­tle dra­matic? Maybe. So what? It’s all true: I am sick of bot­tom-feed­ing click­baiters and so­cial-net­work­ing bil­lion­aires prof­it­ing from my ma­te­r­ial, while con­tribut­ing noth­ing in re­turn. (Re­mem­ber: ex­po­sure isn’t money.)\n“Hey man, that’s just the way the web works. Haven’t you heard? In­for­ma­tion wants to be—” Yeah, I’ve heard. How’s that work­ing out for you? Do you like the web you’re get­ting for free?\nDon’t worry—as a web au­thor, I know bet­ter than to yell at clouds. The click­bait econ­omy will al­ways be part of the web, just like ad-sup­ported net­work tele­vi­sion. I ac­cept it. (Though to be fair to net­work tele­vi­sion, they do pay for what they broadcast.)\nBut I con­tinue to be­lieve that there’s room for more than just that. Un­for­tu­nately, when we as read­ers click from link to link, and noth­ing is ever asked of us, some­thing gets lost in trans­la­tion: that what makes the web good at all are the in­di­vid­ual hu­mans who share their writ­ing, their pho­tos, their mu­sic, their videos.\n“Help keep this book alive” is just a way of re­mind­ing read­ers that the in­for­ma­tion here wasn’t gen­er­ated by a piece of soft­ware. There’s a per­son be­hind it. And if the click­baiters are com­fort­able sell­ing ads against my ma­te­r­ial, why shouldn’t I be equally com­fort­able ask­ing those read­ers to pay some­thing? You could call it a quixotic pur­suit, ex­cept for one thing—\nIt worked.\n—Matthew But­t­er­ick\n5 Aug 2016\nundock &#xe128\nmove &#xe118\nHeliotrope\nEquity\nValkyrie\nCentury Supra\nConcourse\nTriplicate\nbuy font &#xe085\nclose &#xe043\n← Drowning the Crystal Goblet\ntop\nchapter\nThe scorpion express →",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+     "publisher": "Matthew Butterick",
+     "snapshot": {
+      "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "finalUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:35:54.655Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "543b8a502f33cac062d2ed2da191f7a57fc63e3b2d382c25989550fca1592d11"
+     },
+     "text": "How to pay for this book | Butterick’s Practical Typography\nButterick’s Practical Typography\nHow to pay for this book | Butterick’s Practical Typography\nButterick’s Practical Typography\nHow to pay for this book | Butterick’s Practical Typography\nHow to pay for this book Be­cause of se­cu­rity con­sid­er­a­tions, my pay­ment links do not sup­port In­ter­net Ex­plorer 11 or ear­lier . Please use a dif­fer­ent browser.\nThank you for be­ing here! I hope you’ve en­joyed Prac­ti­cal Ty­pog­ra­phy so far. This book has no ads. It’s sup­ported by read­ers like you.\nSkep­ti­cal? Please see why you should pay .\nNot skep­ti­cal? Keep reading.\nBuy my fonts. ($119+)\nI’ve been de­sign­ing fonts for over 25 years, in­clud­ing all the fonts used in this book. Yes, you can buy them and use them in your own projects. They’re only avail­able from me.\nFonts de­signed by MB $119+\nSend money. ($19-49)\nUse your credit card to quickly send the pay­ment that best re­flects your ap­pre­ci­a­tion. (To be clear, this is a pay­ment for the on­line book you see here. You won’t get a link for a PDF or e-book , be­cause they don’t ex­ist. ) Get your track­pad fin­ger ready—\nkind pay­ment $19\ngen­er­ous pay­ment $29\nsu­per fan­tas­tic pay­ment $39\namaz­ing and won­der­ful pay­ment $49\nBuy the Ty­pog­ra­phy for Lawyers pa­per­back. ($40)\nYou can or­der it from my pub­lisher, O’Con­nor’s (an im­print of Thom­son Reuters) or Ama­zon. Much of the ma­te­r­ial here was adapted from TFL. So if you’re a law­yer, you’ll love this book. If you’re not a law­yer, give it to your fa­vorite law­yer, who will love the book, and by ex­ten­sion, you.\nTFL at Thom­son Reuters\nTFL at Amazon\nTell peo­ple about it. (free)\nEx­po­sure isn’t a sub­sti­tute for money. But money plus ex­po­sure is bet­ter than money alone. So in ad­di­tion to the op­tions above, tell your friends. Your col­leagues. Fren­e­mies. Strangers. All are welcome.\nundock &#xe128\nmove &#xe118\nHeliotrope\nEquity\nValkyrie\nCentury Supra\nConcourse\nTriplicate\nbuy font &#xe085\nclose &#xe043\n← Legal\ntop\nWhy you should pay →",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://practicaltypography.com/why-you-should-pay.html",
+     "publisher": "Matthew Butterick",
+     "snapshot": {
+      "url": "https://practicaltypography.com/why-you-should-pay.html",
+      "finalUrl": "https://practicaltypography.com/why-you-should-pay.html",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:35:55.329Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "768feade9db65aca1fe3a6a6e3efd9c31362b01c73940a3c2687a17a3835cde1"
+     },
+     "text": "Why you should pay | Butterick’s Practical Typography\nButterick’s Practical Typography\nWhy you should pay | Butterick’s Practical Typography\nButterick’s Practical Typography\nWhy you should pay | Butterick’s Practical Typography\nWhy you should pay The short answer\nBe­cause this book’s only source of rev­enue is read­ers like you. If you don’t pay, the book dies.\nThe long answer\nThis book is partly an on­go­ing ex­per­i­ment in tak­ing the web se­ri­ously as a book-pub­lish­ing medium. I have a role to play in mak­ing the ex­per­i­ment work. And so do you.\nFor my part, I wanted to de­liver a level of writ­ing and de­sign qual­ity that you’d find in a printed book. Not that print will al­ways be the gold stan­dard. But to­day it is. Be­cause so far, web-based books—nice ones, any­how—have been slow to emerge.\nYet these books can’t emerge un­til writ­ers put in the ef­fort to make them. So I did. I wrote the text. I de­signed the fonts. I made the il­lus­tra­tions. I cre­ated a book-pub­lish­ing sys­tem called Pollen. I paid for the web servers. It was, in short, expensive.\nBut I don’t want you to pay for this book be­cause it was a lot of work. So what? All books are. Rather, I want you to judge it on the cri­te­ria you’d ap­ply to any other book. Most of all:\nWas it worth your time as a reader?\nBe­cause your time is ex­pen­sive too. This is a fact of­ten over­looked in de­bates about how much a dig­i­tal book should cost. Read­ing a book is a big un­der­tak­ing. What you spend to buy a book—whether $5 or $50—is small com­pared to the hours you’ll spend read­ing it. Every great book is un­der­priced; no bad book is cheap enough. So to min­i­mize your risk, you don’t have to pay be­fore you read this book.\nBut that doesn’t mean the book is free. If you like the book, I’m re­ly­ing on you—yes, you, not the guy over there—to help sus­tain the ef­fort. I want you to en­joy the book, learn from the book, but also sup­port the book. If it was worth your time, please pay for it. See how to pay for this book .\nAnd if you dis­agree, please—no need to send an email ex­plain­ing why, e.g., “you don’t take Bit­coin” or “this would be a great use case for mi­cro­pay­ments”. Thanks bro. But I’ve been pub­lish­ing books on­line since 2008. I’ve heard all the ex­cuses. As an au­thor, the bot­tom line is sim­ple: those who pay for the book, what­ever their rea­sons, are help­ing to keep it avail­able for those who don’t, what­ever their reasons.\nPlease also note that there are no ads on this web­site, and as long as read­ers keep pay­ing, there won’t be. I be­lieve that reader-sup­ported pub­lish­ing can work on the web. But I also dis­like pay­walls. Don’t you? So let’s skip it. I’ve done my part. I trust you to do yours.\n—Matthew Butterick\nby the way\nI wrote about the fi­nan­cial re­sults of this ex­per­i­ment af­ter the first year, sec­ond year, and third year.\nundock &#xe128\nmove &#xe118\nHeliotrope\nEquity\nValkyrie\nCentury Supra\nConcourse\nTriplicate\nbuy font &#xe085\nclose &#xe043\n← How to pay for this book\ntop\nMB fonts →",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://practicaltypography.com/legal.html",
+     "publisher": "Matthew Butterick",
+     "snapshot": {
+      "url": "https://practicaltypography.com/legal.html",
+      "finalUrl": "https://practicaltypography.com/legal.html",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:35:58.816Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "08dbdc22d86df23e3377c7375844c9fc09650a65aa883bb9f62f303daec03071"
+     },
+     "text": "Legal | Butterick’s Practical Typography\nButterick’s Practical Typography\nLegal | Butterick’s Practical Typography\nButterick’s Practical Typography\nLegal | Butterick’s Practical Typography\nLegal Prac­ti­cal Ty­pog­ra­phy is © 2010–26 Matthew But­t­er­ick.\nAll rights reserved.\nNo part of this book may be re­pro­duced with­out writ­ten per­mis­sion from me. Send re­quests to mb@mb­type.com. Re­pro­duc­tions that qual­ify as fair use un­der U.S. copy­right law do not re­quire permission.\nCopy­righted ma­te­ri­als are re­pro­duced ei­ther with per­mis­sion of their own­ers or un­der fair use. Trade­marks are the prop­erty of their re­spec­tive own­ers. No en­dorse­ment is implied.\nI have not been com­pen­sated to rec­om­mend any of the third-party prod­ucts men­tioned in the text. I do not par­tic­i­pate in any ad­ver­tis­ing or af­fil­i­ate net­works. So if you don’t pay me, no­body does.\nThis book is not le­gal advice.\nThe pa­per­back edi­tion is pub­lished by O’Con­nor’s, an im­print of Thom­son Reuters.\nPrivacy\nI use Clicky to col­lect ba­sic vis­i­tor in­for­ma­tion for di­ag­nos­tic pur­poses, with max­i­mum pri­vacy set­tings. I do not share this in­for­ma­tion. I do not oth­er­wise col­lect, store, or share per­sonal in­for­ma­tion. In par­tic­u­lar, there are no so­cial-me­dia or ad-net­work track­ers on this site.\nThis web­site uses cook­ies to store for­mat­ting preferences.\nPay­ments are han­dled se­curely by Stripe.\n“Ozymandias” by Percy Bysshe Shelley\nI met a trav­eller from an an­tique land,\nWho said— “Two vast and trun­k­less legs of stone\nStand in the desert. . . . Near them, on the sand,\nHalf sunk a shat­tered vis­age lies, whose frown,\nAnd wrin­kled lip, and sneer of cold com­mand,\nTell that its sculp­tor well those pas­sions read\nWhich yet sur­vive, stamped on these life­less things,\nThe hand that mocked them, and the heart that fed;\nAnd on the pedestal, these words ap­pear:\nMy name is Ozy­man­dias, King of Kings;\nLook on my Works, ye Mighty, and de­spair!\nNoth­ing be­side re­mains. Round the de­cay\nOf that colos­sal Wreck, bound­less and bare\nThe lone and level sands stretch far away.”\nundock &#xe128\nmove &#xe118\nHeliotrope\nEquity\nValkyrie\nCentury Supra\nConcourse\nTriplicate\nbuy font &#xe085\nclose &#xe043\n← About Matthew Butterick\ntop\nHow to pay for this book →",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [],
+   "changedClaims": [
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "m6"
+   ],
+   "identity": {
+    "id": "ent_practicaltypographycom_e9aa6bc94ccf",
+    "name": "Practical Typography",
+    "url": "https://practicaltypography.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [],
+    "displayableIds": [],
+    "problems": []
+   },
+   "caseHash": "f6f9409fba26b976d1300b2a5383f3f589ac72c2e03f9959c7a0de477b20a823",
+   "itemHashes": {
+    "fact:f1": "fc863f8b7ed2c258b27d41abd290ff8ba9866ca368c407543ff9c934ae21ac33",
+    "fact:f2": "853df883a45ed0a2a65c3fd61878fd270761b62383de27f8f5bb125fad6b257e",
+    "fact:f3": "4a857111be47c19fb17e0bdbe39f6e91ff753caf187c6161cfade1939aa3fbd4",
+    "fact:f4": "cdf98ff4165cdc0ead0ef36d251e020434a17ebedeaf98770e91600f24df3789",
+    "fact:f5": "0342c3c4a7b60ce6d6c15ef4501a62efe3f00e8804d99c5046ecea16272cb61e",
+    "fact:f6": "b39c97b0bff4201ceab4737f93b13c3eb8220a907cf8e106954cc69f7854e4ef",
+    "fact:f7": "7d96442fbebe81f65982b09b4a53f9e8c54f6ab8f238c07efa96fe9b8c1949ea",
+    "fact:f8": "b0f8433643e09ba2f597a556d3bfd82b07216c0ee04019a72710a35b4d45093e",
+    "fact:f9": "f06e23ff20e278c9ff9524826ea4712ac87b7706a6aab97624e56a8d5300509e",
+    "fact:f10": "251c3e100db5ed0e87effa7cacbd423af28d2805be3a162cf239c8723dfb7bd8",
+    "fact:f11": "2373934af10c1737e32e8c55c544d15b96c9963d40a74d117d6f9f991eb69dfc",
+    "fact:f12": "348f52763c1c860013c5d8b6efb112b1c582c12caaf2b331ad4ab8afd2eda15a",
+    "fact:f13": "1453d6bf13798acae02ed2737b2286e69b0a13f2ea32e2db9bf26590a0b42e53",
+    "fact:f14": "758f91cb937376ba761bb75c3d5eeda728abe7177568b03c5a083d9f836d178d",
+    "fact:f15": "9ef1200dad9fd84dbe0693e0a1d2e3cc2fa55d6a7993f035bb2259c1125716e3",
+    "metric:m1": "de5d0e9d183ea3423360b3c0d0455c43016cb9fe403811c58b9c3085e77eda37",
+    "metric:m2": "10e5c8c146b9d3291974f760e271287744b204eb38c85a8d3fcf98037e4863cd",
+    "metric:m3": "dc523f8e77975c12e4ba383c5c66f9b6098a3a0c07c709517bbe84aa461c316c",
+    "metric:m4": "c8096535c2a3407d1b85637aa39407f70f88d7d651fd8f38db5eefce49a0b440",
+    "metric:m6": "b6b3226b018b37096eee549af3aca432e9ea2c728b34c67b7d146a5b486fc4f2",
+    "analysis:a-headline": "06ce8ceef245be56cbe47757590446ae229f12e6cf64d9c4d60aa93f604ae1e0",
+    "analysis:a-story": "c8e044a78224b528876007b0c50ae2b37213e0b0a2c83b89b2dae72d44b946d4",
+    "analysis:a-business_model": "e76865c4ca11edfab36c099578ea5ff0dbcd4fe69e60958ed40111090f33815c",
+    "analysis:a-customer": "ba14fdbff0eb607ae7bb1ffddc7460050e1af0cd77b9c204c992c8e1538d0fe6",
+    "analysis:a-cost_structure": "35a4834e6dbc98affa3be6492e9e3dcb5ccb427df07ec0a656a16de22e2416f1",
+    "analysis:a-channels": "4903557b70f06be711aed4e242719c53d1a591afead1324fcf59a6f1d9b98ce2",
+    "analysis:a-capital_and_team": "4a0a290c96b938656d4c131973c3a92008d66c56caffc87037613a1b68da1a53",
+    "analysis:a-dependencies": "d35335e997a2498b4970097e91357c9c68378b0c469755bacf4a6e59f6d3e46f",
+    "analysis:a-competition": "494935dddb4e1ec84547e6609db32b42d12d272c48e16b991610aa2f7e4befe5",
+    "analysis:a-why_it_worked": "e03be9920a207a1dff027ac0c1805935416c55d5406c73b97fa5cc9add33a2ea",
+    "analysis:a-timeline": "0540ed626b2cec7fd1c66b0bc746e00b1130f2136b8491fbb386dfb42b84e9ae"
+   },
+   "review": [
+    "metric:m1",
+    "metric:m2",
+    "metric:m3",
+    "metric:m4",
+    "metric:m6"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "publisher": "Matthew Butterick",
+      "url": "https://practicaltypography.com/economics-year-one.html",
+      "title": "The economics of a web-based book: year one",
+      "publishedAt": "2014-08",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s2",
+      "publisher": "Matthew Butterick",
+      "url": "https://practicaltypography.com/effluents-influence-affluence.html",
+      "title": "Effluents influence affluence: The economics of a web-based book, year two",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s3",
+      "publisher": "Matthew Butterick",
+      "url": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+      "title": "To pay or not to pay: how I profited from gentle shame",
+      "publishedAt": "2016-08",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s4",
+      "publisher": "Matthew Butterick",
+      "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "title": "How to pay for this book",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "publisher": "Matthew Butterick",
+      "url": "https://practicaltypography.com/why-you-should-pay.html",
+      "title": "Why you should pay",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "publisher": "Matthew Butterick",
+      "url": "https://practicaltypography.com/legal.html",
+      "title": "Legal",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "Practical Typographyは、広告のないオンラインの本で、読者の支払いで支えられている。支払いの選択肢は、作者の自作フォントの購入、直接の支払い、紙の本（Typography for Lawyers）の購入の3つ。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "PRICING",
+      "text": "直接の支払いは19・29・39・49ドルの4段階。PDFや電子書籍は存在せず、支払ってもダウンロードは付かない。自作フォントは119ドルから、関連する紙の本（Typography for Lawyers）は40ドル。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "OTHER",
+      "text": "「なぜ払うのか」ページの主張は、この本の収入源は読者だけで、払わなければ本が消える、というもの。本人は文章・フォント・図版を作り、出版ソフトPollenを開発し、サーバー代も払ったと書く。読む前に払わせない代わりに、役立ったなら払ってほしいという形にしている。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "CHANNEL",
+      "text": "1年目（2014年7月末まで）は読者約65万人（アクセス解析の数字）、広告・PR費は0ドルで、すべて口コミ。最も読まれたのは「Typography in Ten Minutes」。読者のうち約650人に1人が支払いか購入をした。",
+      "sourceId": "s1",
+      "statedAt": "2014-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "1年目の直接の支払いは321件で合計3,676ドル。約230件は10ドル以下で、残りは11〜50ドル。大きな支払いが合計の約半分を占めた。流入元で差があり、Cool Tools経由の読者はよく払い、Reddit経由はほとんど払わなかった。",
+      "sourceId": "s1",
+      "statedAt": "2014-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f6",
+      "kind": "OTHER",
+      "text": "1年目、読者のうち約450人が自作フォントの客になったと、本人が販売の傾向の変化から見積もった。1件に25ドルの紹介料を割り当てると約11,250ドルになるが、これは実際の収入額ではない。",
+      "sourceId": "s1",
+      "statedAt": "2014-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f7",
+      "kind": "OTHER",
+      "text": "本人は、フォントが売れなければこの企画は費用の掛かる趣味だったと書く。他の収入は小さく、Typography for Lawyersの売上に目立つ変化はなく、他社フォントの紹介は多くて月25〜50ドル程度。",
+      "sourceId": "s1",
+      "statedAt": "2014-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "2年続けて、5〜20ドルの直接の支払いより、59〜299ドルのフォントのパッケージに支払う意欲のある読者のほうが約35%多かった。",
+      "sourceId": "s2",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）。広告・PR費は引き続き0ドル。読者が増えたのに払う人の割合は、約1,000人に1人まで下がった。",
+      "sourceId": "s2",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になり、フォント取引は310件（25ドルを割り当てて7,750ドル）、合計約13,222ドル。支払った読者は799人。",
+      "sourceId": "s3",
+      "statedAt": "2016-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f11",
+      "kind": "EVENT",
+      "text": "3年目の工夫は、無料の読者が15〜20のサイトに集中していると気づき、その流入元から来た人にだけ「この本を存続させるために」と支払いを頼むページを1枚出したこと。サーバーの設定（.htaccess）で出し分けた。本人は「効いた」と書いている。",
+      "sourceId": "s3",
+      "statedAt": "2016-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f12",
+      "kind": "OTHER",
+      "text": "支払いの催促を本のあちこちに入れる方法は、読みにくくなるので採らなかった。公開前には、名の通った出版社から紙の本の話があったが、本人がデザインできないと分かって断った。",
+      "sourceId": "s2",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f13",
+      "kind": "OTHER",
+      "text": "本人は平均的なノンフィクションの本を、合計で1,000〜3,000部売れ、著者の取り分は1冊2〜3ドル程度と見ている。1年目の直接の支払い3,676ドルは、紙の本なら1,200〜1,800部に当たると書く。",
+      "sourceId": "s1",
+      "statedAt": "2014-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f14",
+      "kind": "TOOL",
+      "text": "広告・アフィリエイトの網には参加せず、他社製品の推薦で報酬も受け取っていない。支払いの処理はStripe、訪問者の基本情報の収集にはClickyを使う。",
+      "sourceId": "s6",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "OTHER",
+      "text": "一部の読者から「寄付」と呼ぶのはおかしいと言われ、本人は直接の支払いの呼び方を改めた。慈善活動ではなく、書き手と読み手の経済関係として説明している。",
+      "sourceId": "s1",
+      "statedAt": "2014-08",
+      "attribution": "SELF_REPORTED"
+     }
+    ],
+    "metrics": [
+     {
+      "id": "m1",
+      "measure": "OTHER",
+      "periodKind": "YEAR",
+      "period": "公開1年目（〜2014年の夏）、321件",
+      "amount": 3676,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1",
+      "label": "直接の支払い（フォントの売上を除く）"
+     },
+     {
+      "id": "m2",
+      "measure": "OTHER",
+      "periodKind": "YEAR",
+      "period": "公開2年目（〜2015年の夏）、244件",
+      "amount": 3030,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s2",
+      "label": "直接の支払い（フォントの売上を除く）"
+     },
+     {
+      "id": "m3",
+      "measure": "OTHER",
+      "periodKind": "YEAR",
+      "period": "公開3年目（〜2016年の夏）、489件",
+      "amount": 5472,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s3",
+      "label": "直接の支払い（フォントの売上を除く）"
+     },
+     {
+      "id": "m4",
+      "measure": "USERS",
+      "periodKind": "YEAR",
+      "period": "公開1年目（〜2014年の夏）の読者数（アクセス解析）",
+      "amount": 650000,
+      "unit": "人",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     },
+     {
+      "id": "m6",
+      "measure": "USERS",
+      "periodKind": "YEAR",
+      "period": "公開3年目（〜2016年の夏）の読者数（アクセス解析）",
+      "amount": 615000,
+      "unit": "人",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s3"
+     }
+    ],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM",
+     "FOUNDED"
+    ],
+    "analysis": [],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

@@ -108,31 +108,31 @@
   },
   {
     "entityId": "ent_ejunkie_7e9e46bd9643",
-    "analysisId": "a-why_it_worked",
-    "textHash": "73c82633",
-    "answer": "取引手数料がなく月額固定なので、商品が売れても、手数料で売り手の取り分が減らない（推測）",
-    "note": "（推測）売り場を作る技術がない著者の販売設定を個別に代行し、客を獲得した。"
-  },
-  {
-    "entityId": "ent_ejunkie_7e9e46bd9643",
-    "analysisId": "a-story",
-    "textHash": "726bcf08",
-    "answer": "支払いから3時間以内に自作ソフトをメールで届けると約束した。その対応に疲れ、配信を自動化した",
-    "note": "勤め先の収入を補うために自作ソフトを売っていた。外食中や就寝中でも、支払い通知のたびに対応していた（本人申告）。"
-  },
-  {
-    "entityId": "ent_ejunkie_7e9e46bd9643",
-    "analysisId": "a-capital_and_team",
-    "textHash": "97951e44",
-    "answer": "小さな開発チームが、AWS上でサービスを運営している",
-    "hidden": true
-  },
-  {
-    "entityId": "ent_ejunkie_7e9e46bd9643",
     "analysisId": "a-timeline",
     "textHash": "abd0552b",
     "answer": "2003年末に配信を自動化し、2004年半ばに誰でも使えるダウンロード販売サービスにした",
     "note": "2011年: 創業者が持分を売って事業から退いた。2017年12月: 経営に戻った（本人申告）。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-story",
+    "textHash": "48163e4c",
+    "answer": "支払いのたびに、手作業でソフトを届ける作業に疲れたことがきっかけ（本人申告）",
+    "note": "創業者は勤め先の収入を補うために、自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払いの知らせが来るたびにメールで送っていた。"
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-capital_and_team",
+    "textHash": "94205b9e",
+    "answer": "家族経営の非公開会社が持ち、小さな開発チームが運営する",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_ejunkie_7e9e46bd9643",
+    "analysisId": "a-why_it_worked",
+    "textHash": "f6add7e8",
+    "answer": "売上が増えても利用料が変わらない料金と、販売設定の代行で、売り手が始めやすくなった（推測）",
+    "note": "売上に応じて利用料が増えるのを避けたい売り手に選ばれた。設定を引き受けたことで、販売を始める手間も減った（推測）。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
@@ -343,9 +343,8 @@
   {
     "entityId": "ent_myoperator_49c393230a2d",
     "analysisId": "a-lesson",
-    "textHash": "e75aaf34",
-    "answer": "この技術があまり知られていない市場で、3年間は技術を知ってもらうことと販売に力を注いだ",
-    "note": "外部から資金を調達せずに始め、開始から6か月で収入と支出が釣り合った（本人申告）。"
+    "textHash": "31897a45",
+    "answer": "客から1年分を先に受け取る年払いで売り、外部の出資なしで開始半年に収入と支出を釣り合わせた（本人申告）"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
