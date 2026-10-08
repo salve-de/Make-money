@@ -4,15 +4,15 @@
   "sourceCount": 3380,
   "publishedCount": 33,
   "summaries": {
-    "hash": "58472930e3ac75cf406bb09020b10d8a86daeeb7a441362d21706086b65797a4",
-    "key": "views/make-money/catalog-v1/objects/58472930e3ac75cf406bb09020b10d8a86daeeb7a441362d21706086b65797a4.json.gz"
+    "hash": "387778d8236be0f9a7d5b232fd5710ab559e275cccb6a9f64fe4b72163f7116d",
+    "key": "views/make-money/catalog-v1/objects/387778d8236be0f9a7d5b232fd5710ab559e275cccb6a9f64fe4b72163f7116d.json.gz"
   },
   "discovery": {
-    "hash": "b5837865d83f1049b2c655a82b92d210d4eb4ba3f767dec577cddd36974472be",
-    "key": "views/make-money/catalog-v1/objects/b5837865d83f1049b2c655a82b92d210d4eb4ba3f767dec577cddd36974472be.json.gz"
+    "hash": "4e9dda6ea16ae7a00ba4ca945886c783f40c572c759e74f7457d9ae164096393",
+    "key": "views/make-money/catalog-v1/objects/4e9dda6ea16ae7a00ba4ca945886c783f40c572c759e74f7457d9ae164096393.json.gz"
   },
   "details": {
-    "ent_myoperator_49c393230a2d": "c6d5b162dc30977870892b75810f70265fca481a362e431bc5ad2d23b0ed00b2",
+    "ent_myoperator_49c393230a2d": "914056b2c78ff6fd4e477f05d63be654f9c7a585e7d61d2bea3e5d83beebd85a",
     "ent_codementor_ba692caa3db3": "3a5235ec6c3b48cabd2982856d40b240ac715d2f21361ecf98d7e46db6869fb8",
     "ent_teamcamp_ae0c21986c4d": "ab7a08bcdb3276aaf044571a75f41161ffd43f446add7c082c474f9bcf77436a",
     "ent_referralrock_8c13d5ee4cfc": "2451771cc266b1926fae97ca52abbdb933ac13a29e9734a904db877223b416f6",
@@ -47,7 +47,7 @@
     "ent_interior_ai_8db5ebe8d424": "478f33527053caaea3126046c86e1b7e56adef88ba158b322dd6399a0f0b4309"
   },
   "coreDetails": {
-    "ent_myoperator_49c393230a2d": "7c030f2713b438daabcbd153f1f5ab5a5e96554884e3fc73a01f7d0680e58fb7",
+    "ent_myoperator_49c393230a2d": "f2d1b5f12bff381d87649a9ea14590e7152bdf50b1645089eb288a04c4be9540",
     "ent_codementor_ba692caa3db3": "87eed1e97c0cb2a44271b6f17d14d3066a5cb1fe545528d048b8672d72e11732",
     "ent_teamcamp_ae0c21986c4d": "de898aea3c2de3f5fceea14cf70dae0f7b4f7644e697456aa2dafc690c7b1cd2",
     "ent_referralrock_8c13d5ee4cfc": "e5873e63f23bcf32f0465ba30048b19e0f76a84e40fa0043a594aec02d6ebe4c",
