@@ -123,9 +123,10 @@ export function parseRights(md: string): CasePageRight[] {
 
 // ---- 軽い検査（4つだけ） ----
 
-export interface Violation { rule: 'polite' | 'list-line-length' | 'yen-after-foreign' | 'missing-chapter' | 'held-source'; where: string; detail: string }
+export interface Violation { rule: 'polite' | 'list-line-length' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-outcome'; where: string; detail: string }
 
 export const LIST_LINE_MAX = 40;
+const LIST_LINE_OUTCOME = /買収|売却|身売り|手放し/g;
 const POLITE = /(です|ます|ました|でした)。/g;
 // 数字（「3万6千」「1.8千」「1,793」「250,000」）＋外貨の単位
 const FOREIGN = /(?:[0-9０-９][0-9０-９,，.]*(?:[万千億百])?)\s*(?:ドル|ユーロ|ポンド|ルピー)|[$＄]\s*[0-9０-９]/g;
@@ -171,6 +172,8 @@ export function checkCasePage(page: CasePage): Violation[] {
   }
   for (const note of page.notes) for (const m of note.matchAll(POLITE)) v.push({ rule: 'polite', where: '注記', detail: `「${m[0]}」は常体に直す` });
   for (const s of page.sources) for (const m of s.label.matchAll(POLITE)) v.push({ rule: 'polite', where: `出典${s.no}`, detail: `「${m[0]}」は常体に直す` });
+  // 一覧の1行は「何をする物か＋どう支持されたか」。買収・売却は結果であって、ここに出す内容ではない（2026-10-08 オーナー指示）
+  for (const m of page.listLine.matchAll(LIST_LINE_OUTCOME)) v.push({ rule: 'list-line-outcome', where: '一覧の1行', detail: `「${m[0]}」は結果。何をする物かと、どう支持されたかを書く` });
   const len = [...page.listLine].length;
   if (len > LIST_LINE_MAX) v.push({ rule: 'list-line-length', where: '一覧の1行', detail: `${len}字（${LIST_LINE_MAX}字以内）` });
   return v;

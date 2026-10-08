@@ -83,6 +83,9 @@ describe('軽い検査（4つ）', () => {
     expect(checkCasePage({ ...page, listLine: 'あ'.repeat(40) })).toEqual([]);
     expect(checkCasePage({ ...page, listLine: 'あ'.repeat(41) }).map((v) => v.rule)).toEqual(['list-line-length']);
   });
+  it('一覧の1行に買収・売却を書かない', () => {
+    expect(checkCasePage({ ...page, listLine: '30分で作った道具が使われ、買収された' }).map((v) => v.rule)).toEqual(['list-line-outcome']);
+  });
   it('外貨の数字の直後に円の概算があるか', () => {
     expect(foreignWithoutYen('売上は25万ドルだった')).toEqual(['25万ドル']);
     expect(foreignWithoutYen('売上は25万ドル（約3,750万円）だった')).toEqual([]);
