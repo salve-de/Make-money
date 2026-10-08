@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { CasePageSchema } from './case-page';
-import { checkCasePage, checkMarkdown, foreignWithoutYen, missingChapters, parseCasePage, parseRights } from '../../scripts/case-pages/lib';
+import { checkCasePage, checkMarkdown, foreignWithoutYen, heldSources, missingChapters, parseCasePage, parseRights } from '../../scripts/case-pages/lib';
 import { displayForEntity, type DisplaySourceFiles } from './reader-display';
 import { buildCasePageReader } from '../../scripts/case-pages/reader';
 import { ReaderCaseSchema } from './reader-case';
@@ -91,6 +91,10 @@ describe('軽い検査（4つ）', () => {
     expect(foreignWithoutYen('1.5億〜4.5億円（100万〜300万ドル）')).toEqual([]);
     expect(foreignWithoutYen('3万6千ドル（約540万円）と50ドル')).toEqual(['50ドル']);
     expect(foreignWithoutYen('日本円で3,000円')).toEqual([]);
+  });
+  it('利用が保留・不可の出典を挙げた文は止める', () => {
+    expect(heldSources(page, { 'https://example.com/review/': { decision: 'held' }, 'https://example.com/': { decision: 'allowed' } }).map((v) => v.where)).toEqual(['出典2']);
+    expect(heldSources(page, {})).toEqual([]);
   });
   it('章が足りない・空・出典のリンクが無い文書は止める', () => {
     expect(missingChapters(MD)).toEqual([]);

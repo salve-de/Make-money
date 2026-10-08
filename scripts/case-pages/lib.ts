@@ -123,7 +123,7 @@ export function parseRights(md: string): CasePageRight[] {
 
 // ---- 軽い検査（4つだけ） ----
 
-export interface Violation { rule: 'polite' | 'list-line-length' | 'yen-after-foreign' | 'missing-chapter'; where: string; detail: string }
+export interface Violation { rule: 'polite' | 'list-line-length' | 'yen-after-foreign' | 'missing-chapter' | 'held-source'; where: string; detail: string }
 
 export const LIST_LINE_MAX = 40;
 const POLITE = /(です|ます|ました|でした)。/g;
@@ -207,4 +207,11 @@ export function checkMarkdown(md: string): { page: CasePage | null; violations: 
   } catch (e) {
     return { page: null, violations: [{ rule: 'missing-chapter', where: '全体', detail: `読めない: ${(e as Error).message.slice(0, 160)}` }] };
   }
+}
+
+/** 使ってはいけない出典（data/catalog-source-rights.json で allowed 以外）を出典に挙げていないか。末尾の「/」の有無は同じ扱い */
+export function heldSources(page: CasePage, rights: Record<string, { decision?: string }>): Violation[] {
+  const norm = (u: string) => u.replace(/\/+$/, '');
+  const blocked = new Set(Object.entries(rights).filter(([, r]) => r.decision !== 'allowed').map(([u]) => norm(u)));
+  return page.sources.filter((s) => blocked.has(norm(s.url))).map((s) => ({ rule: 'held-source' as const, where: `出典${s.no}`, detail: `${s.url} は利用が保留・不可。出典と、それに頼る事実を外す` }));
 }

@@ -9099,24 +9099,22 @@
    "siteUrl": "https://ycombinator.com/",
    "status": "active",
    "statusReason": "使用中",
-   "statusChangedAt": "2026-10-08T17:49:16+09:00",
+   "statusChangedAt": "2026-10-08T18:09:24+09:00",
    "decision": {
-    "decidedAt": "2026-10-08T17:49:16+09:00",
+    "decidedAt": "2026-10-08T18:09:24+09:00",
     "decidedBy": "AI（集める段の自動判断、2026-10-08）",
     "basis": "ai_judgment",
     "policyIds": [],
-    "reviewUrls": [
-     "https://www.ycombinator.com/companies/requestly"
-    ],
-    "displayTier": "facts_only",
+    "reviewUrls": [],
+    "displayTier": "unconfirmed",
     "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
     "checks": {
      "loginFree": "yes",
      "noPaywall": "yes",
      "quoteTerms": "unconfirmed",
-     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 個別審査(2026-10-06): 承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: スクレイピングと商用での複製の禁止が明文。事実を自分の言葉で書くことが「複製」に当たるかの線引きが法的に微妙。自動取得は不可、人が確認した事実のみの運用でよいかをオーナーが決める。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08） / 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 AIの判断(2026-10-08): 章ごとの文の取り込み（ログインなしで読めた／有料の壁なし／利用規約は未確認／2026-10-08）"
     },
-    "termsUrl": "https://www.ycombinator.com/legal",
+    "termsUrl": null,
     "termsCheckedAt": null
    },
    "ownerWords": [
@@ -9156,6 +9154,12 @@
      "by": "case-pages 取り込み",
      "action": "seed",
      "reason": "集める段でAIが3基準で判断して記録"
+    },
+    {
+     "at": "2026-10-08T18:09:24+09:00",
+     "by": "case-pages 取り込み",
+     "action": "seed",
+     "reason": "AIの権利判断で更新（active→active。確認: ログイン不要=yes 有料の壁なし=yes 引用=unconfirmed）"
     }
    ]
   },

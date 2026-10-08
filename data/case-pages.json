@@ -219,7 +219,7 @@
  {
   "entityId": "ent_churnkey_8d7f2b269c21",
   "page": {
-   "listLine": "売却で学んだ解約の痛手を製品にし、年商約2.6億円と推定",
+   "listLine": "売却で学んだ解約の痛手を製品にし、ほぼ自己資金で客は数百社",
    "overview": "Churnkey は、定期課金の会社向けに、解約の引き止めと支払い失敗の回収を自動でする米国のサービス。創業者ニック・フォーグルが、前の会社 Wavve を売る時に「解約が多くて希望の値が付かない」と言われた経験から（推測）、自社の社内ツールを製品にして（推測）2020年に始めた。2025年の売上は約170万ドル（約2.6億円）と推定される（推定）。ほぼ自己資金で伸ばし、顧客は数百社。",
    "secrets": [
     {
@@ -257,7 +257,7 @@
     },
     {
      "when": "2021年3月",
-     "what": "Wavve を売却（ピーク時は月15万ドル（約2,250万円）＝約2,250万円の継続収入）。"
+     "what": "Wavve を売却（ピーク時は継続収入が月15万ドル（約2,250万円））。"
     },
     {
      "when": "2021年秋",
@@ -275,8 +275,8 @@
    "sources": [
     {
      "no": 1,
-     "label": "公式サイト（解約を最大54％減、支払い回収最大89％、平均で解約32％低下・LTV14％増）",
-     "url": "https://churnkey.co"
+     "label": "創業者による資金調達の発表（2020年後半創業、ほぼ自己資金、顧客数百社、2024年4月に150万ドル、チームを倍に、A/B テストなどの機能）",
+     "url": "https://churnkey.co/blog/churnkey-fundraise-creativeco/"
     },
     {
      "no": 2,
@@ -285,8 +285,8 @@
     },
     {
      "no": 3,
-     "label": "創業者による資金調達の発表（2020年後半創業、ほぼ自己資金、顧客数百社、2024年4月に150万ドル、チームを倍に、A/B テストなどの機能）",
-     "url": "https://churnkey.co/blog/churnkey-fundraise-creativeco/"
+     "label": "公式サイト（解約を最大54％減、支払い回収最大89％、平均で解約32％低下・LTV14％増）",
+     "url": "https://churnkey.co"
     },
     {
      "no": 4,
@@ -2283,11 +2283,11 @@
   "entityId": "ent_requestly_28e9f2",
   "page": {
    "listLine": "30分で作った拡張機能が、開発者20万人超の道具になり買収",
-   "overview": "Requestly は、インドの開発者サチン・ジェイン（Sachin Jain）が、Google と Adobe での経験から、副業として30分で最初の版を作った、通信を書き換えて試すための Chrome 拡張機能。ウェブ開発者が本番サイトで自分の修正を試せる道具で、2021年に会社になり、Y Combinator（有名な起業家育成の機関）の2022年冬の期に採用された。20万人超の開発者、1万社超が使うまでに広がり、2025年5月にテスト大手 BrowserStack に買収された。買収額は非公開。買収前の2024年度は、営業収入が約4,000万ルピー（約7,200万円）、税引き後の利益が約140万ルピー（約252万円）と報じられている。",
+   "overview": "Requestly は、インドの開発者サチン・ジェイン（Sachin Jain）が副業として30分で最初の版を作った、通信を書き換えて試すための Chrome 拡張機能。ウェブ開発者が本番サイトで自分の修正を試せる道具で、のちに Y Combinator（有名な起業家育成の機関）の支援を受けた。20万人超の開発者、1万社超が使うまでに広がり、2025年5月にテスト大手 BrowserStack に買収された。買収額は非公開。買収前の2024年度は、営業収入が約4,000万ルピー（約7,200万円）、税引き後の利益が約140万ルピー（約252万円）と報じられている。",
    "secrets": [
     {
      "head": "「本番サイトで自分の修正を試したい」という開発者自身の不満を、そのまま道具にした",
-     "body": "サチンは Google などで、手元の JavaScript の変更を、検証用の環境を待たずに本物のサイトで確かめたかったとみられる（推測）。自分が毎日困ることだったので、最初の版を30分で作れ、使う人の悩みも外さなかった（推測）。"
+     "body": "サチンは、手元の JavaScript の変更を、検証用の環境を待たずに本物のサイトで確かめたかったとみられる（推測）。自分が毎日困ることだったので、最初の版を30分で作れ、使う人の悩みも外さなかった（推測）。"
     },
     {
      "head": "開発者が答えを探しに来る場所に、道具を置いた",
@@ -2302,8 +2302,7 @@
     "副業で作り始め、続けるうちに専業にしたとみられる（推測）。",
     "公式は「ブラウザ上で通信を捕まえ、書き換え、模擬の応答を返す」道具として、API の設計・テストを行うデスクトップ版にも広げた。",
     "開発者の質問に答える形で Stack Overflow と GitHub で知られ、Chrome の拡張機能のストアの利用が20万超に達した。",
-    "2022年冬に Y Combinator に採用され、Y Combinator と Peak XV Partners（旧 Sequoia Capital India、2023年に改称）から合わせて12.5万ドル（約1,875万円）の資金を得た。",
-    "2025年時点でチームは19人（Y Combinator の掲載）。",
+    "Y Combinator と Peak XV Partners（旧 Sequoia Capital India、2023年に改称）から合わせて12.5万ドル（約1,875万円）の資金を得た。",
     "買収では、価格より「ふさわしい買い手」を優先したと本人が語っている。"
    ],
    "setbacks": [
@@ -2315,12 +2314,8 @@
    ],
    "timeline": [
     {
-     "when": "2021年",
-     "what": "会社になる（Y Combinator の掲載）。"
-    },
-    {
-     "when": "2022年冬",
-     "what": "Y Combinator に採用される。12.5万ドル（約1,875万円）の出資を受ける。"
+     "when": "買収より前",
+     "what": "Y Combinator と Peak XV Partners から12.5万ドル（約1,875万円）の出資を受ける。"
     },
     {
      "when": "2025年5月6日",
@@ -2339,36 +2334,31 @@
     },
     {
      "no": 2,
-     "label": "Y Combinator の掲載（2021年創業、2022年冬の期、19人、20万超のインストール）",
-     "url": "https://www.ycombinator.com/companies/requestly"
-    },
-    {
-     "no": 3,
      "label": "Baremetrics の創業者との対談（30分で最初の版、Stack Overflow と GitHub が集客のすべて、オープンコア、「価格でなくふさわしい買い手」）",
      "url": "https://baremetrics.com/founder-chats/sachin-jain"
     },
     {
-     "no": 4,
+     "no": 3,
      "label": "Requestly の公式料金ページ（Team 1人月10ドル、Team Pro 1人月15ドル、30日の試用）",
      "url": "https://requestly.com/pricing/"
     },
     {
-     "no": 5,
+     "no": 4,
      "label": "Entrackr の記事（Y Combinator・Peak XV から12.5万ドルの出資、20万超の開発者・1万超の企業）",
      "url": "https://entrackr.com/snippets/browserstack-acquires-requestly-9042128"
     },
     {
-     "no": 6,
+     "no": 5,
      "label": "Requestly の公式サイト（製品内容、BrowserStack 傘下であること、GitHub の公開）",
      "url": "https://requestly.com"
     },
     {
-     "no": 7,
+     "no": 6,
      "label": "Venture Intelligence の記事（2024年度の営業収入 約4 Cr、税引き後利益 約14 lakh）",
      "url": "https://news.ventureintelligence.com/private-equity/browserstack-acquires-developer-tools-startup-requestly"
     },
     {
-     "no": 8,
+     "no": 7,
      "label": "Business Wire の発表（Sequoia India & Southeast Asia が2023年6月に Peak XV Partners へ改称）",
      "url": "https://www.businesswire.com/news/home/20230606005677/en/Sequoia-India-Southeast-Asia-Is-Now-Peak-XV-Partners"
     }
@@ -2376,7 +2366,7 @@
    "notes": [
     "円は1ドル＝150円の目安。",
     "数字の範囲：2024年度の売上と利益は、Venture Intelligence の記事に「約4 Cr（クロール、1クロール＝1,000万）」「約14 lakh（ラーク、1ラーク＝10万）」とある。約4,000万ルピー、約140万ルピーの意味（検索の要約の「約4億」「約14万」は桁の取り違え）。元の登記情報までは読めていない。Entrackr・BrowserStack の発表には載っていない。1ルピー＝1.8円の目安。",
-    "未確認：買収額は非公開。売上の別の出所は確認できていない。Baremetrics は「30分で最初の版」まで（Google・Adobe での経歴は Y Combinator の掲載で確認）。失敗や減った時期の記述は今回の出典では見つからなかった。"
+    "未確認：買収額は非公開。売上の別の出所は確認できていない。出資を受けた時期と、創業者の前の勤め先は、使える出典で確認できていない。失敗や減った時期の記述は今回の出典では見つからなかった。"
    ]
   }
  },
