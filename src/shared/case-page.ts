@@ -1,0 +1,25 @@
+import { z } from 'zod';
+
+/**
+ * 事例の「章ごとの文」（case-page）。正本は data/case-pages/<事例ID>.md、
+ * scripts/case-pages/ が読んで data/case-pages.json に直し、公開版を作る時に事例の reader.display.casePage へ入れる。
+ * 事例にこれがある時、詳細画面はここにある章だけを出す（古い章は出さない）。
+ */
+export const CasePageSchema = z.object({
+  /** 一覧の1行（40字以内） */
+  listLine: z.string().min(1),
+  overview: z.string().min(1),
+  secrets: z.array(z.object({ head: z.string().min(1), body: z.string() })).min(1),
+  did: z.array(z.string().min(1)).min(1),
+  setbacks: z.array(z.string().min(1)).min(1),
+  pricing: z.array(z.string().min(1)).min(1),
+  timeline: z.array(z.object({ when: z.string(), what: z.string().min(1) })).min(1),
+  /** 数字と出典。番号つきのリンク */
+  sources: z.array(z.object({ no: z.number().int().positive(), label: z.string().min(1), url: z.url() })).min(1),
+  /** 出典の下に出す注記（円の目安・数字の範囲・未確認） */
+  notes: z.array(z.string().min(1)),
+});
+export type CasePage = z.infer<typeof CasePageSchema>;
+
+/** 出典ごとの権利の記録（画面には出さない） */
+export interface CasePageRight { no: number; host: string; text: string }

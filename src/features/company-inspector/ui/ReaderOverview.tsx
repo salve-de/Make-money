@@ -9,6 +9,7 @@ import { factLineFor } from '@/shared/fact-lines';
 import { listLineFor, trimLineEnd } from '@/shared/list-lines';
 import { summaryRestFor } from '@/shared/summary-lines';
 import { formatMetricAmount, yenText, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, metricPeriodText, plainFactText, screenText } from '@/shared/display-text';
+import type { CasePage } from '@/shared/case-page';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -471,4 +472,75 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
 /** 数字・ひとことの帯と、章の並びの境目。目次の代わりに、1本の太めの区切りだけを置く。 */
 export function SectionGap() {
   return <div aria-hidden="true" className="h-3 border-b border-term-line bg-term-bg" />;
+}
+
+/**
+ * 章ごとの文（case-page）がある事例の詳細。概要 → 成功の秘訣 → 実際にやったこと → つまずきと立て直し → 料金 → 時間順の流れ → 数字と出典。
+ * 古い章（誰に売っているか・金はどう回っているか など）は出さない。文は書いたとおりに出す（円の概算も文に入っている）。
+ */
+export function CasePageView({ page, media }: { page: CasePage; media?: React.ReactNode }) {
+  const list = (items: string[]) => (
+    <ul className="grid grid-cols-1 gap-2">
+      {items.map((t) => (
+        <li key={t} className="text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{t}</li>
+      ))}
+    </ul>
+  );
+  return (
+    <>
+      <div data-case-page="overview" className="px-2.5 pb-3 pt-3 sm:px-3">
+        <p className="mb-1 text-xs text-term-label">{UI.WHAT_IS}</p>
+        <p className="text-[20px] font-semibold leading-snug text-term-fg-strong [overflow-wrap:anywhere]">{trimLineEnd(page.listLine)}</p>
+        <p className="mt-2 text-sm leading-relaxed text-term-fg [overflow-wrap:anywhere]">{page.overview}</p>
+      </div>
+      {media}
+      <SectionGap />
+      <Fold id="section-group-secret" title={UI.GROUP_SECRET} defaultOpen>
+        <ol className="grid grid-cols-1 gap-3">
+          {page.secrets.map(({ head, body }, i) => (
+            <li key={head} data-success={`case-page-${i + 1}`} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
+              <span className="term-num text-sm text-term-accent">{i + 1}</span>
+              <div className="min-w-0 [overflow-wrap:anywhere]">
+                <p className="text-sm font-semibold leading-snug text-term-fg-strong">{head}</p>
+                {body && <p className="mt-0.5 text-xs leading-relaxed text-term-sub">{body}</p>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Fold>
+      <Fold id="section-chapter-practice" title={UI.CHAPTER_PRACTICE} defaultOpen>{list(page.did)}</Fold>
+      <Fold id="section-chapter-turning" title={UI.CHAPTER_TURNING} defaultOpen>{list(page.setbacks)}</Fold>
+      <Fold id="section-chapter-price" title={UI.CASE_PAGE_PRICE} defaultOpen>{list(page.pricing)}</Fold>
+      <Fold id="section-chapter-timeline" title={UI.CHAPTER_TIMELINE} defaultOpen>
+        <ul className="grid grid-cols-1 gap-2">
+          {page.timeline.map(({ when, what }) => (
+            <li key={`${when}${what}`} className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-2 text-sm">
+              <span className="term-num text-xs text-term-label">{when}</span>
+              <span className="min-w-0 text-term-fg [overflow-wrap:anywhere]">{what}</span>
+            </li>
+          ))}
+        </ul>
+      </Fold>
+      <Fold id="section-chapter-numbers" title={UI.CASE_PAGE_SOURCES} defaultOpen>
+        <ol className="grid grid-cols-1 gap-1.5">
+          {page.sources.map(({ no, label, url }) => (
+            <li key={no} data-source={url} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5 text-sm">
+              <span className="term-num text-xs text-term-label">{no}</span>
+              <span className="min-w-0 [overflow-wrap:anywhere]">
+                <a href={url} target="_blank" rel="noopener noreferrer" className="text-term-fg underline underline-offset-2 hover:text-term-fg-strong">{label}</a>
+                <span className="ml-1.5 text-xs text-term-label">{hostOf(url)}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+        {page.notes.length > 0 && (
+          <ul className="mt-2 grid grid-cols-1 gap-1 border-t border-term-line-soft pt-1.5 text-xs leading-relaxed text-term-sub">
+            {page.notes.map((n) => (
+              <li key={n} className="[overflow-wrap:anywhere]">{n}</li>
+            ))}
+          </ul>
+        )}
+      </Fold>
+    </>
+  );
 }

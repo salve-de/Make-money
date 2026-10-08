@@ -33755,5 +33755,35 @@
     "sector": "NICHE_SAAS",
     "status": "UNAVAILABLE",
     "batchId": "gen3_20261007_geocodio_statusgator"
+  },
+  {
+    "id": "ent_pinboard_dee894c32b25",
+    "name": "Pinboard",
+    "normName": "pinboard",
+    "ticker": "PINBOARD",
+    "domain": "pinboard.in",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen4_case_pages_20261008"
+  },
+  {
+    "id": "ent_ship_30_for_30_f54113b59b9a",
+    "name": "Ship 30 for 30",
+    "normName": "ship30for30",
+    "ticker": "SHIP30",
+    "domain": "ship30for30.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "UNAVAILABLE",
+    "batchId": "gen4_case_pages_20261008"
+  },
+  {
+    "id": "ent_interior_ai_8db5ebe8d424",
+    "name": "Interior AI",
+    "normName": "interiorai",
+    "ticker": "INTERIORAI",
+    "domain": "interiorai.com",
+    "sector": "AI_AUTOMATION",
+    "status": "UNAVAILABLE",
+    "batchId": "gen4_case_pages_20261008"
   }
 ]
