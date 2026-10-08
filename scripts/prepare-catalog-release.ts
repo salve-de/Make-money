@@ -22,6 +22,7 @@ import { readReflectState, reflectHoldReasons, reflectedReader, withReflectedAna
 import { rightsOptions } from './reader-case/load-readers';
 import { withoutSuspendedSources } from './reader-case/source-policy';
 import { displayForEntity, DISPLAY_SOURCE_FILE_NAMES, type DisplaySourceFiles } from '../src/shared/reader-display';
+import { buildCasePageReader } from './case-pages/reader';
 import { heldChapterRemovals, readHeld, withoutHeldClaims, withoutHeldDisplay, type HeldRemoval } from './reader-case/held-items';
 import { manifestObjectKey, type ReleasePointer } from '../src/shared/catalog-manifest';
 
@@ -46,7 +47,9 @@ const changedPath = flagValue('--changed');
 const changedIds = changedPath
   ? new Set((await readFile(changedPath, 'utf8')).split(/\r?\n/).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')))
   : null;
-const carried = (id: string) => changedIds !== null && !changedIds.has(id) && id in previous.details;
+// 章ごとの文（case-page）の事例は、毎回この実行で組み直す（引き継がない）
+let casePageIds = new Set<string>();
+const carried = (id: string) => changedIds !== null && !changedIds.has(id) && id in previous.details && !casePageIds.has(id);
 const authorizedWithdrawals = withdrawalsPath
   ? new Set((await readFile(withdrawalsPath, 'utf8')).split(/\r?\n/).map((x) => x.trim()).filter((x) => x && !x.startsWith('#')))
   : new Set<string>();
@@ -82,6 +85,7 @@ try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf
 const reflectState = readReflectState();
 analysisFile = withReflectedAnalysis(analysisFile, reflectState);
 const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8').catch(() => '[]')) as unknown]))) as unknown as DisplaySourceFiles;
+casePageIds = new Set(((displaySources['case-pages'] ?? []) as Array<{ entityId: string }>).map((x) => x.entityId));
 const withheld = { imported: 0, audit: 0, evidence: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
 type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE' | 'HOLD_EVIDENCE';
@@ -123,7 +127,7 @@ for (const entity of publishable) {
   const rawRecord = rawById.get(entity.id);
   if (!rawRecord) { withheld.noRawRecord++; stamp(entity.id, 'HOLD_NO_RAW'); continue; }
   const reflectHold = reflectHoldReasons(reflectState, entity.id);
-  if (reflectHold?.length) { withheld.imported++; stamp(entity.id, 'HOLD_IMPORT', reflectHold.join(' / ')); continue; }
+  if (reflectHold?.length && !casePageIds.has(entity.id)) { withheld.imported++; stamp(entity.id, 'HOLD_IMPORT', reflectHold.join(' / ')); continue; }
   const projected = projectReaderCase(rawRecord, rightsOptions(rawRecord as Record<string, unknown>));
   const result = { ...projected, reader: ((r) => (r ? withoutSuspendedSources(r) : projected.reader))(reflectedReader(reflectState, entity.id)) };
   totals.processDropped += result.stats.processDropped;
@@ -131,6 +135,20 @@ for (const entity of publishable) {
   if (result.unbound.length) unboundAll.push({ id: entity.id, lines: result.unbound });
   if (result.review.length) reviewAll.push({ id: entity.id, items: result.review });
   const verified = applyVerdicts(result.reader, verdicts[entity.id]);
+  // 章ごとの文（data/case-pages/<事例ID>.md）がある事例: 古い監査の受領証・順番待ち・推論の空欄は求めない。文は軽い検査（pnpm case-pages:check）が見る
+  const casePage = (displaySources['case-pages'] ?? []).find((x) => x.entityId === entity.id)?.page;
+  if (casePage) {
+    // 原文照合で保留にした数値は、章ごとの文の事例でも出さない
+    const heldFor = heldAll.filter((h) => h.entityId === entity.id);
+    const base = verified && heldFor.length ? withoutHeldClaims(verified.reader, heldFor, (claimId) => verdicts[entity.id]?.[claimId]?.verdict === 'HELD').reader : verified?.reader;
+    const reader = buildCasePageReader(casePage, base);
+    if (validateReader(reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }
+    stamp(entity.id, 'SHOW', '章ごとの文（case-page）で公開');
+    totals.facts += reader.facts.length;
+    totals.metrics += reader.metrics.length;
+    entities.push({ ...entity, reader });
+    continue;
+  }
   if (!verified) { withheld.unverified++; stamp(entity.id, 'HOLD_UNVERIFIED'); continue; }
   verified.reader = reflectAnalysis(verified.reader, analysisFile[entity.id]);
   const heldHere = heldAll.filter((h) => h.entityId === entity.id);

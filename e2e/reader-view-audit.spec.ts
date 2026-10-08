@@ -13,6 +13,9 @@ import { collectInspector, type ScreenCase } from './support/reader-view-collect
 const ROOT = process.cwd();
 const ids = Object.keys((JSON.parse(readFileSync(resolve(ROOT, 'data/catalog-release.json'), 'utf8')) as { details: Record<string, string> }).details);
 const KNOWN_FILE = resolve(ROOT, 'data/reader-view-known.json');
+// 章ごとの文（data/case-pages/）の事例は、専用の4つの検査（pnpm case-pages:check）で守る。古い規則（出典の番号・同じ数字の重複など）は掛けない
+const CASE_PAGE_FILE = resolve(ROOT, 'data/case-pages.json');
+const casePageIds = new Set<string>(existsSync(CASE_PAGE_FILE) ? (JSON.parse(readFileSync(CASE_PAGE_FILE, 'utf8')) as Array<{ entityId: string }>).map((entry) => entry.entityId) : []);
 type Hit = { id: string; where: string; rule: string; text: string };
 type Known = Hit & { reason: string };
 const known = JSON.parse(readFileSync(KNOWN_FILE, 'utf8')) as Known[];
@@ -67,7 +70,7 @@ test('公開している全事例の画面の文が、見る人目線の規則�
     await page.waitForLoadState('networkidle');
     screens.push({ id, list: list.get(id) ?? '', ...(await aside.evaluate(collectInspector)) });
   }
-  const hits: Hit[] = screens.flatMap((screen) => [...auditScreen(screen), ...auditStructure(screen)]);
+  const hits: Hit[] = screens.filter((screen) => !casePageIds.has(screen.id)).flatMap((screen) => [...auditScreen(screen), ...auditStructure(screen)]);
   for (const screen of screens) if (!list.get(screen.id)) hits.push({ id: screen.id, where: '一覧', rule: '一覧に行が無い', text: screen.name });
   expect(screens.length, '公開している事例が1件も描けていない').toBeGreaterThan(0);
   // 画像は、置き場がある環境では保留にしない

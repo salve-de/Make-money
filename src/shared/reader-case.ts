@@ -9,6 +9,7 @@
  * 公開版を作る時（scripts/prepare-catalog-release.ts）に entity.reader へ入れる。
  */
 import { z } from 'zod';
+import { CasePageSchema } from './case-page';
 
 export const SOURCE_KINDS = ['OFFICIAL', 'FILING', 'LISTING', 'ARTICLE', 'SELF_REPORTED', 'THIRD_PARTY', 'ARCHIVE'] as const;
 export const FACT_KINDS = ['DESCRIPTION', 'PRICING', 'FOUNDING', 'TEAM', 'CHANNEL', 'TOOL', 'EVENT', 'EXIT', 'FUNDING', 'OTHER'] as const;
@@ -156,6 +157,8 @@ export const ReaderDisplaySchema = z.object({
    * 元の文の指紋（hash）が合う時だけ画面に使い、無い・合わない時は元の文のまま出す（src/shared/fact-lines.ts）。
    */
   factLines: z.array(z.object({ kind: z.enum(['fact', 'basis', 'period', 'formula', 'analysis']), targetId: z.string().min(1), hash: z.string().min(1), text: z.string() })).optional(),
+  /** 章ごとの文（data/case-pages/<事例ID>.md が正本）。あれば詳細はこの章だけを出す。 */
+  casePage: CasePageSchema.optional(),
   /** 札（事業の中身から付けた分野）。事例が持つ札が少ない時だけ足す。tagline の指紋が合う時だけ使う。 */
   labels: z.object({ hash: z.string().min(1), labels: z.array(z.string().min(1)).min(1).max(3) }).optional(),
 });

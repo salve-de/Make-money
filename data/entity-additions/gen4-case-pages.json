@@ -1,0 +1,637 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "data/case-pages/*.md",
+  "manifestSha256": "5282edbb86ef9dc58ea4e70cc6c5cc1c90da41279b1f008f3ff4ca883ccc07da",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-08T00:00:00.000Z",
+  "generation": 4
+ },
+ "records": [
+  {
+   "id": "ent_pinboard_dee894c32b25",
+   "provenance": {
+    "detailsHash": "7636dc1e9ca4f90aef5782f4d4bcc0fd82bf5e09832e81f762684abae1bfee18",
+    "artifactSha256": "6bd921c3a27d867a85e93fdd6c1d819e2f33f58d2607d3ea735a02aa3197bd53"
+   },
+   "record": {
+    "id": "ent_pinboard_dee894c32b25",
+    "ticker": "PINBOARD",
+    "name": "Pinboard",
+    "tagline": "先行サービスが揺らぐ隙に有料で入り、1人で8年、累計約2.2億円",
+    "description": "Pinboard は、ポーランド生まれのマチェイ・チェグウォフスキが2009年7月に始めた、ブックマーク保存の有料サービス。無料で大手資本の先行サービス Delicious に、有料の対抗馬としてぶつけた。外部資金は受けず、本人1人の運営で、2010〜2017年の8年間の売上は合計約150万ドル（約2.2億円）。2017年には、そのDeliciousを買い取った。",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Maciej Ceglowski",
+    "country": "未確認",
+    "url": "https://pinboard.in/about/",
+    "officialUrl": "https://pinboard.in/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "ブックマーク保存",
+     "有料サービス",
+     "1人運営",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "各事実の対象期間を参照。現在の完全な損益は未確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://blog.pinboard.in/2017/07/eight_years_of_victory/"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "pinboard-S1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典1：本人の8周年の記事（2010〜2017年の売上と活動中の利用者数、Delicio",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://blog.pinboard.in/2017/07/eight_years_of_victory/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://blog.pinboard.in/2017/07/eight_years_of_victory/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "pinboard-S2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典2：本人のブログ（2019年に活動中の利用者が1.9万人まで減少、外部資金は0、大量",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://blog.pinboard.in",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://blog.pinboard.in",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "pinboard-S3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典3：公式の質問ページ（現行料金 年22ドル・保存つき年39ドル、運営者本人の説明、保",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://pinboard.in/faq/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://pinboard.in/faq/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "pinboard-S4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典4：公式の概要ページ（2009年春に個人の企画として開発）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://pinboard.in/about/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://pinboard.in/about/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "pinboard-S5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典5：TechCrunch の2010年1月の記事（登録者約1,200人、保存プラン年",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://techcrunch.com/2010/01/12/pinboard-delicious-bookmarking",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://techcrunch.com/2010/01/12/pinboard-delicious-bookmarking",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "pinboard-S6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典6：Wikipedia「Pinboard (website)」（2009年7月公開、",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://en.wikipedia.org/wiki/Pinboard_(website)",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://en.wikipedia.org/wiki/Pinboard_(website)",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "pinboard-S7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典7：The History of the Web「One Step Ahead: P",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://thehistoryoftheweb.com/postscript/one-step-ahead-pinboard-beat-delicious/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://thehistoryoftheweb.com/postscript/one-step-ahead-pinboard-beat-delicious/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen4_case_pages_20261008",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [],
+    "isGrowthUnconfirmed": true
+   }
+  },
+  {
+   "id": "ent_ship_30_for_30_f54113b59b9a",
+   "provenance": {
+    "detailsHash": "6fd884077408964780599f2a96e272de1f52e1f74ee959512ded92a382dd43f5",
+    "artifactSha256": "de08784a982c7a24f781a12a860e9cc21b446ff449b63b5aa6e880be8024b566"
+   },
+   "record": {
+    "id": "ent_ship_30_for_30_f54113b59b9a",
+    "ticker": "SHIP30",
+    "name": "Ship 30 for 30",
+    "tagline": "「30日で30本書く」習慣を講座にして、数億円規模（推定）",
+    "description": "Ship 30 for 30 は、Dickie Bush と Nicolas Cole が2020〜21年に始めた、ネットで文章を書く習慣を作るオンライン講座。始まりは、Bush が「毎日書く仲間を募る」とツイートしたこと。参加者が毎日投稿する文章がそのまま宣伝になり、受講者は2022年4月までに4,000人を超えた。受講料だけで1.5億〜4.5億円（100万〜300万ドル）規模と見積もられている。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SMALL_TEAM",
+    "founder": "Dickie Bush, Nicolas Cole",
+    "country": "未確認",
+    "url": "https://www.ship30for30.com/cohort",
+    "officialUrl": "https://www.ship30for30.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "オンライン講座",
+     "書く習慣",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "各事実の対象期間を参照。現在の完全な損益は未確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://ship30for30.com/"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ship_30_for_30-S1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典1：公式サイト（今の料金、卒業生1万人超、24回、10月5日開始、800ドルだった点",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://ship30for30.com/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://ship30for30.com/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ship_30_for_30-S2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典2：Community Playbook の記事（最初の回171人・17時間帯、2回",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://communityplaybooks.substack.com/p/community-playbook-ship-30-for-30",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://communityplaybooks.substack.com/p/community-playbook-ship-30-for-30",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ship_30_for_30-S3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典3：Creator Science のポッドキャスト（499〜799ドル、4,000",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://podcast.creatorscience.com/dickie-bush-returns/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://podcast.creatorscience.com/dickie-bush-returns/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ship_30_for_30-S4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典4：The Bootstrapped Founder の対談（2020年11月のツイ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://thebootstrappedfounder.com/dickie-bush-the-power-of-digital-writing/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://thebootstrappedfounder.com/dickie-bush-the-power-of-digital-writing/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ship_30_for_30-S5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典5：Business of Business の動画記事（2021年9月、約350ド",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.businessofbusiness.com/videos/meet-dickie-bush-the-25-year-old-finance-pro-launching-a-fleet-of-online-writers-ship-30-for-30/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://www.businessofbusiness.com/videos/meet-dickie-bush-the-25-year-old-finance-pro-launching-a-fleet-of-online-writers-ship-30-for-30/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ship_30_for_30-S6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典6：Graham Mann の書評（2024年以降は各自のペース、返金インセンティブ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://grahammann.net/blog/ship-30-for-30-review",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://grahammann.net/blog/ship-30-for-30-review",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ship_30_for_30-S7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典7：Callum McDonnell の記事（段階制の値付け、ハッシュタグ付き投稿が",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://callummcdonnell.substack.com/p/dickiebushship30for30",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://callummcdonnell.substack.com/p/dickiebushship30for30",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ship_30_for_30-S8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典8：10日間のメール講座（第三者のまとめ）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://growingviral.beehiiv.com/p/ship-30-making-millions-cohort-course",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://growingviral.beehiiv.com/p/ship-30-making-millions-cohort-course",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen4_case_pages_20261008",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [],
+    "isGrowthUnconfirmed": true
+   }
+  },
+  {
+   "id": "ent_interior_ai_8db5ebe8d424",
+   "provenance": {
+    "detailsHash": "9e14b91bdad5d967017b91abc6fb56920b52bcb8ff1a1253dbd141fd16d972a0",
+    "artifactSha256": "0c99e597c924ccfc4352a57d4e89c7ce37c8f567b781fb2cb2e922316f849c9b"
+   },
+   "record": {
+    "id": "ent_interior_ai_8db5ebe8d424",
+    "ticker": "INTERIORAI",
+    "name": "Interior AI",
+    "tagline": "部屋の写真を50様式に作り替えるAIで、月600万円規模を1人で稼ぐ",
+    "description": "Interior AI は、オランダ出身の個人開発者ピーター・レベルス（Pieter Levels）が2022年に公開した、部屋の写真から内装の案を AI で作るウェブサービス。壁・床・家具の位置を読み取り、骨組みを残したまま様式だけを入れ替える。公開から約1年後の時点で、契約は1,000件を超え、月の定期収入は4万ドル（約600万円）。内装の設計事務所や不動産会社が使っているとも本人は書いている。1人で運営している。",
+    "sector": "AI_AUTOMATION",
+    "scale": "SOLO",
+    "founder": "Pieter Levels",
+    "country": "未確認",
+    "url": "https://interiorai.com/",
+    "officialUrl": "https://interiorai.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "内装のAI",
+     "1人運営",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "各事実の対象期間を参照。現在の完全な損益は未確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://interiorai.com"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "interior_ai-S1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典1：公式サイト（今の料金3段階、月の案の数、仮想ステージング・VRの対象、Netfl",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://interiorai.com",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://interiorai.com",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "interior_ai-S2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典2：Product Hunt の本人投稿（契約1,000件超、月4万ドル、設計事務所",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://www.producthunt.com/p/interiorai/interior-ai",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://www.producthunt.com/p/interiorai/interior-ai",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "interior_ai-S3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典3：80.lv の記事（2022年10月14日、機能の説明、公開時の料金 月29ドル",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://80.lv/articles/a-new-ai-tool-for-interior-design/",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://80.lv/articles/a-new-ai-tool-for-interior-design/",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "interior_ai-S4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典4：Wouter のニュースレター（初版2022年10月、更新版2023年8月、公開",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://wouter.beehiiv.com/p/solopreuner-makes-3-million-using-twitter",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://wouter.beehiiv.com/p/solopreuner-makes-3-million-using-twitter",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "interior_ai-S5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典5：Latka の企業ページ（書き手不明。2023年の売上60万ドル、従業員1名）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://getlatka.com/companies/InteriorAI",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://getlatka.com/companies/InteriorAI",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "interior_ai-S6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典6：YesPress のレベルス紹介ページ（書き手不明。公開後に月5万ドルへ早く到達",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://yespress.io/pieter-levels.md",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://yespress.io/pieter-levels.md",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "interior_ai-S7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典7：DEV Community の記事（書き手不明。2026年半ばの月収入一覧で I",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://dev.to/promptway/he-built-a-flight-simulator-in-three-hours-and-hit-1m-a-year-in-17-days-then-it-went-to-zero-1b1l",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://dev.to/promptway/he-built-a-flight-simulator-in-three-hours-and-hit-1m-a-year-in-17-days-then-it-went-to-zero-1b1l",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "interior_ai-S8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典8：Tool Directory の紹介（書き手不明。2022年公開）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在。数字の読み方は事例の画面の注記に従う",
+      "details": [
+       "URL：https://tooldirectory.ai/tools/interior-ai",
+       "確認日：2026-10-08"
+      ],
+      "url": "https://tooldirectory.ai/tools/interior-ai",
+      "sourceNote": "公開部分を読み、事実を自分の言葉で書いた。本文・画像は転載しない",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ],
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen4_case_pages_20261008",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [],
+    "isGrowthUnconfirmed": true
+   }
+  }
+ ]
+}
