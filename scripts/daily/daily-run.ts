@@ -240,6 +240,13 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     // 調べた件数は、この命令が返したIDだけ(候補探しが同じファイルに書いた分は数えない)
     rec.counts.researched = parseIds(r.stdout).length || fileIds().filter((id) => !beforeFile.has(id)).length; return { status: 'ok' };
   });
+  // 出典の権利の見直し(判断から180日・規約ページの指紋の変化・個別審査の期限)。一覧を出すだけで、公開は止めない・失敗にもしない(docs/architecture/RIGHTS_LEDGER.md)
+  await stage('rights-review', async () => {
+    if (!d.hasScript('rights:review')) return { status: 'skipped', note: 'rights:review がまだ無い' };
+    const r = await d.exec(['pnpm', 'rights:review', '--fetch']);
+    const head = r.stdout.split('\n').find((l) => l.startsWith('[rights:review]')) ?? '';
+    return { status: 'ok', note: r.code === 0 ? head.replace('[rights:review] ', '').slice(0, 200) : `実行に失敗(続行): ${tail(r)}` };
+  });
   rec.ids = uniq([...o.ids, ...rec.ids]);
 
     let passed: string[] = [];
@@ -317,6 +324,17 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   while (!rec.verify.ok && d.now() < waitUntil) { await d.sleep(20_000); rec.verify = await verifyProduction(o, d, rec.publishedIds, prevGen); }
   rec.stages.verify = { status: rec.verify.ok ? 'ok' : 'failed', seconds: Number(((d.now() - s0) / 1000).toFixed(1)) };
   if (!rec.verify.ok) flag('verify', `本番の確認で不一致: ${rec.verify.checks.filter((c) => c.status === 'problem').map((c) => `${c.name}: ${c.note}`).join(' / ').slice(0, 400)}`);
+
+  // オーナー決定の画面確認（data/owner-decisions.json）。公開を止める関門ではない。違反は記録して知らせるだけ（soft）。
+  if (d.hasScript('decisions:check')) {
+    const s1 = d.now();
+    const dc = await d.exec(['pnpm', '-s', 'decisions:check', '--site-url', o.siteUrl]);
+    const lines = dc.stdout.trim().split('\n').filter(Boolean);
+    const summary = lines.filter((l) => /^\s*違反|違反なし|読めなかった/.test(l)).join(' / ').slice(0, 400);
+    rec.stages.decisions = { status: dc.code === 0 ? 'ok' : dc.code === 1 ? 'failed' : 'skipped', seconds: Number(((d.now() - s1) / 1000).toFixed(1)), note: summary || (dc.code === 2 ? '画面を開けず確認できない' : undefined) };
+    if (dc.code === 1) flag('decisions', `オーナーが決めた「出さない物」が本番の画面に出ている: ${summary}`, true);
+    else if (dc.code !== 0) flag('decisions-unavailable', `オーナー決定の画面確認が最後まで終わらず、確認しきれていない: ${summary || dc.stderr.trim().slice(0, 200) || `終了コード ${dc.code}`}`, true);
+  }
 
   rec.finishedAt = new Date(d.now()).toISOString(); rec.seconds = Number(((d.now() - t0) / 1000 + (resume?.seconds ?? 0)).toFixed(1));
   rec.ok = rec.abnormal.every((a) => a.soft); rec.status = rec.ok ? 'DONE' : 'FAILED'; save();

@@ -260,6 +260,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 
 - [`OWNER_INTENT.md`](./OWNER_INTENT.md): 何を・なぜ・どこまで（いちばん上の正本）
 - [`DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md): 収集の決まりと過去の失敗
+- [`architecture/RIGHTS_LEDGER.md`](./architecture/RIGHTS_LEDGER.md): 出典ごとの権利の台帳。**集める時は出典ごとに権利の根拠（ログイン不要・有料の壁なし・引用を禁じていない）を記録する**。苦情・規約変更の手順もここ
 - [`research-record/README.md`](./research-record/README.md): 調査記録の必須項目と見本
 - [`pipeline/CLAUDE_RUNNER.md`](./pipeline/CLAUDE_RUNNER.md)、[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)、[`pipeline/DISPLAY_CONTRACT.md`](./pipeline/DISPLAY_CONTRACT.md): 照合・分析・監査の流れと画面に出す項目
 - [`CASE_TEXT_STANDARD.md`](./CASE_TEXT_STANDARD.md)、[`CASE_CHAPTER_PROCESS.md`](./CASE_CHAPTER_PROCESS.md): 画面の層の文の書き方

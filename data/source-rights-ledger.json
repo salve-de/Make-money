@@ -1,0 +1,4851 @@
+{
+ "version": 1,
+ "note": "出典の権利台帳（ドメインごと）。手で直してよい。使い方と手順は docs/architecture/RIGHTS_LEDGER.md。pnpm rights:where / rights:suspend / rights:review",
+ "reviewAfterDays": 180,
+ "domains": {
+  "apps.apple.com": {
+   "siteName": "App Store（開発元掲載と利用者レビュー）",
+   "siteUrl": "https://apps.apple.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.app-stores.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.app-stores.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_poolsuite_6d5ad6895563",
+      "url": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+      "textHash": "38473cbf0f65a19930086384eb7c0890b14ee5929e31186a25de37c1fdee711c",
+      "fetchedAt": "2026-10-07T09:51:48.450Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "baremetrics.com": {
+   "siteName": "Baremetrics Founder Chats",
+   "siteUrl": "https://baremetrics.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-10-06T19:30:00+09:00",
+    "decidedBy": "オーナー承認（調整役経由、2026-10-06）／台帳への記録は担当(2026-10-08)",
+    "basis": "individual_review",
+    "policyIds": [],
+    "reviewUrls": [
+     "https://baremetrics.com/founder-chats/sachin-jain"
+    ],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 個別審査(2026-10-06): 承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得の禁止が明文(対象は「サービス」)。人が確認した事実のみ・自分の言葉・リンク付き・本人申告ラベル。自動再取得しない。"
+    },
+    "termsUrl": "https://baremetrics.com/terms",
+    "termsCheckedAt": "2026-10-08T14:47:51+09:00"
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": {
+     "url": "https://baremetrics.com/terms",
+     "hash": "955786ac028a878af2fb4a8de61ea382e3b39954a7497ed9a47245171377bce1",
+     "fetchedAt": "2026-10-08T14:47:51+09:00",
+     "textLength": 24645
+    },
+    "sourcePages": [
+     {
+      "caseId": "ent_requestly_28e9f2",
+      "url": "https://baremetrics.com/founder-chats/sachin-jain",
+      "textHash": "1f0dc780d61633d2029130c443c6408161168b3e13a1c27e60db5f9380485041",
+      "fetchedAt": "2026-10-07T23:35:50.913Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    },
+    {
+     "at": "2026-10-08T14:47:51+09:00",
+     "by": "担当(rights:terms)",
+     "action": "terms-snapshot",
+     "reason": "規約ページの指紋を記録（955786ac、24645文字）"
+    }
+   ]
+  },
+  "beehiiv.com": {
+   "siteName": "beehiiv（公式発表）",
+   "siteUrl": "https://beehiiv.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.beehiiv.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.beehiiv.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+      "textHash": "45f3fb31eec1c09dc921d728b28d07a0236c6c285332c460a241082b30d0e4d7",
+      "fetchedAt": "2026-10-07T09:52:01.101Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "browserstack.com": {
+   "siteName": "BrowserStack プレスリリース",
+   "siteUrl": "https://browserstack.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-10-06T19:30:00+09:00",
+    "decidedBy": "オーナー承認（調整役経由、2026-10-06）／台帳への記録は担当(2026-10-08)",
+    "basis": "individual_review",
+    "policyIds": [],
+    "reviewUrls": [
+     "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests"
+    ],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 個別審査(2026-10-06): 承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: プレスリリースは周知目的の公開物。事実のみ・自分の言葉・出典と日付付き。本文転載・画像なし。買収額などは発表者の自己申告と明記。"
+    },
+    "termsUrl": "https://www.browserstack.com/terms",
+    "termsCheckedAt": "2026-10-08T14:47:51+09:00"
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": {
+     "url": "https://www.browserstack.com/terms",
+     "hash": "f7f1ed9ff4205eb6a02ca2004db0cd64037b51999242913e85142c96fdf2c374",
+     "fetchedAt": "2026-10-08T14:47:51+09:00",
+     "textLength": 66964
+    },
+    "sourcePages": [
+     {
+      "caseId": "ent_requestly_28e9f2",
+      "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+      "textHash": "e13cbdc935f7ec20406ba7285d0a1690e846f77dcbe89d408c77724cdeaa9bda",
+      "fetchedAt": "2026-10-07T23:35:50.699Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    },
+    {
+     "at": "2026-10-08T14:47:51+09:00",
+     "by": "担当(rights:terms)",
+     "action": "terms-snapshot",
+     "reason": "規約ページの指紋を記録（f7f1ed9f、66964文字）"
+    }
+   ]
+  },
+  "buttonshygames.com": {
+   "siteName": "公式の会社紹介",
+   "siteUrl": "https://buttonshygames.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.com/pages/about-us",
+      "textHash": "e0211d01f83526db166106c908d118ac33732c0afafda31d468db52022173c2a",
+      "fetchedAt": "2026-10-07T10:37:56.923Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+      "textHash": "68bca14761f1cd3c2d77ad81a438026f0b7fbe629b13d3eecefbf632c8a67f18",
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+      "textHash": "e4d796516117c9a90c3e9096c12840759f56bb3895f5373e1547e8c24b475d74",
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+      "textHash": "180b500f10f23f6242ce714148be0bfd214a9c771e9217d74a3f1cff8cd9faf6",
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+      "textHash": "be54b16245d1c9b015e643c5eead5af639aed2b37e33a2df2b034c6dc22b4457",
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.com/products/sprawlopolis",
+      "textHash": "8c18927bc01215ae39631199a68a798d46119c548c72233dfafab3ad43050777",
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.com/pages/international-orders",
+      "textHash": "98f43bb2afcb1b4f49861015ee21854eb4a1238b4b97bd60ec28d3d031f51acc",
+      "fetchedAt": "2026-10-07T10:37:57.646Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "buttonshygames.substack.com": {
+   "siteName": "公式のチーム紹介",
+   "siteUrl": "https://buttonshygames.substack.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.substack.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.substack.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+      "textHash": "88ec581425e22c3811565ead30fe4ff5b5a6a28c6719bf9cb2edfd207779b2bf",
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "candyjapan.com": {
+   "siteName": "Candy Japan の4月収支公開",
+   "siteUrl": "https://candyjapan.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/april-profit-report",
+      "textHash": "3533556e0cacbac77acbd10fee4702c6a396428f11aaaf9ab81ab5b0a0e886a5",
+      "fetchedAt": "2026-10-07T10:37:58.301Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/how-did-you-get-your-first-subscribers",
+      "textHash": "8d96b4cc93bfdd6fa88a455033b76ec90f8936051328f67bff4a67f0b65d3355",
+      "fetchedAt": "2026-10-07T10:37:59.313Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/candy-japan-crosses-10000-mrr",
+      "textHash": "7edd6f39fb46c737ca7c867b87132dc6a3c998d41f3b644aa4d678b1750f4328",
+      "fetchedAt": "2026-10-07T10:37:59.346Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/2017-year-in-review",
+      "textHash": "ec7a2100fc75f717140d4476218de08ddca873eb8a51e2a99a5c619278853595",
+      "fetchedAt": "2026-10-07T10:37:59.673Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/2018-year-in-review",
+      "textHash": "f68d66f79dde27eed4c221b9e3f4898830587ea0b946fb0450479178d1dff97d",
+      "fetchedAt": "2026-10-07T10:37:59.729Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review",
+      "textHash": "98f0221bc31b98d1bce589c79aafb87e2bdc5afc7e8fae6632dc54ac85b72a00",
+      "fetchedAt": "2026-10-07T10:38:00.443Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/on-pause-due-to-covid19",
+      "textHash": "9f0544ef666f524f45452de193b48d96550d84b9faf3ebc36222a419207f5f45",
+      "fetchedAt": "2026-10-07T10:38:01.248Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/",
+      "textHash": "b1095a0cff0ae3edddb6c0e8b18b1f2ebdf201b9ce816c6861bd03a07adbe83a",
+      "fetchedAt": "2026-10-07T10:38:01.628Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/faq",
+      "textHash": "a8830db9824bdfb0f47a071cddb0603ef8c94cae313733c3cd669c09203bf828",
+      "fetchedAt": "2026-10-07T23:30:50.374Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/how-i-got-credit-card-fraud-somewhat-under-control",
+      "textHash": "c21f48118ca6a0aba3ad0295b7d1e86b0f6720c33c559f0dc5554a62caf15cc0",
+      "fetchedAt": "2026-10-07T10:38:02.322Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/running-costs-for-candy-japan",
+      "textHash": "890819187aff1710d18f006f4293c38adbd0d611e122aeb4e24ea5e6a5d57033",
+      "fetchedAt": "2026-10-07T10:38:02.649Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.candyjapan.com/behind-the-scenes/sales-cross-million-dollars",
+      "textHash": "740f89bc2d04c8d6b73533c2fe19f7bceeb9a9e1928446c50e89470537acddc0",
+      "fetchedAt": "2026-10-07T10:38:02.745Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "churnkey.co": {
+   "siteName": "Churnkey（Nick Fogle の先行利用告知）",
+   "siteUrl": "https://churnkey.co/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/blog/announcing-churnkey",
+      "textHash": "6b8aa801ce8a9a568dcb2bb1bc4de432cb41fff17369f2dd94ffa3201515d16d",
+      "fetchedAt": "2026-10-07T09:51:13.926Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+      "textHash": "5b4bce0c6e8183931fbe9e7d3919994f658e90bf0311d129eb17ea1cac1d1e35",
+      "fetchedAt": "2026-10-07T09:51:13.928Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+      "textHash": "288a47adbebc3d1c7a779501db4950045044234fabf346ebf1be7ebe5a0868c6",
+      "fetchedAt": "2026-10-07T09:51:13.928Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+      "textHash": "64e53360f6ca9c214c2cd727fe76d3c7a0832d5020c90368940e10fa5cc6471f",
+      "fetchedAt": "2026-10-07T09:51:13.928Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+      "textHash": "8d6b61f3b7f4855b217df504e53657de8fb4e14c3caf65ab46f8210a619c82ef",
+      "fetchedAt": "2026-10-07T09:51:13.928Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/team",
+      "textHash": "89facd5bfba8153dcb76292d1a2387fefc9ec667fe371fd1862407bb17f72b23",
+      "fetchedAt": "2026-10-07T09:51:13.928Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+      "textHash": "e0a2693c8f98ebc898a347a0646daea36b21ee18a6a8e9b480ac1371440930cd",
+      "fetchedAt": "2026-10-07T09:51:13.928Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/",
+      "textHash": "cbddfe49d6aea8d731ed206193f409a4ec020e057587da50069eebc1644a0f6e",
+      "fetchedAt": "2026-10-07T09:51:13.928Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/feature/payment-recovery",
+      "textHash": "c2b6c7c5280a21f880593689197f74c40be075d71b4e73aca49bc6b0fddf7a42",
+      "fetchedAt": "2026-10-07T09:51:14.981Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/case-studies/veed",
+      "textHash": "608e6a865252ad3bcbfa748697f0b098cf50e5f5a1a4b443df86eae1cd9730ff",
+      "fetchedAt": "2026-10-07T09:51:15.690Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/case-studies/buildertrend",
+      "textHash": "b2fe16fc12485b8d524ff9846d441d27501b6f729e48536ab85150af996b4a19",
+      "fetchedAt": "2026-10-07T09:51:16.473Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/case-studies/superhuman",
+      "textHash": "9dbd74774c7b66b696674ed5bf7b7509afd845c7868306b57152cfcd92ed42db",
+      "fetchedAt": "2026-10-07T09:51:17.658Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/customers",
+      "textHash": "1929608ebf648877707f2ba46ce8c6a5771a184ec32019ccbe91482c217630ff",
+      "fetchedAt": "2026-10-07T09:51:18.687Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://docs.churnkey.co/cancel-flows/further-configuration/",
+      "textHash": "9230ca7f51007e5fa07b829dd233b57aaffb8cc9ab79d50bb0ecc0a952db6583",
+      "fetchedAt": "2026-10-07T09:51:20.187Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_churnkey_8d7f2b269c21",
+      "url": "https://churnkey.co/pricing",
+      "textHash": "20b45cebe9888ba7fd11174aade829b39361a6dca54969d21f3515aad39b1ba8",
+      "fetchedAt": "2026-10-07T09:51:20.686Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "codementor.io": {
+   "siteName": "Codementor 公式サイト",
+   "siteUrl": "https://codementor.io/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_codementor_ba692caa3db3",
+      "url": "https://www.codementor.io/",
+      "textHash": "53cfbdc1dc4d8cd067cdb6309ced03522b69b2970f189224720ec79eab4051b6",
+      "fetchedAt": "2026-09-30T04:39:00.221Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_codementor_ba692caa3db3",
+      "url": "https://support.codementor.io/en/articles/4221825",
+      "textHash": "52e208e662896781559bf7f9c18401ae53ca03d434de4244139b7b462d105c0c",
+      "fetchedAt": "2026-09-30T04:39:02.112Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "datafetcher.com": {
+   "siteName": "Data Fetcher の公式紹介",
+   "siteUrl": "https://datafetcher.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://datafetcher.com/about",
+      "textHash": "80527cd221ca592697712c13d88a9562a61bb5ffe2d24fd16a8470b07bf432fe",
+      "fetchedAt": "2026-10-07T10:38:04.076Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://datafetcher.com/pricing",
+      "textHash": "37083dafec1b2ba4a698c3502dd1bc8c750f3e5f1237ce73af608cf10f12ce6d",
+      "fetchedAt": "2026-10-07T10:38:04.573Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr",
+      "textHash": "66aec18bc3607894205a5a5dde5947172368719818f1f5694fd4adc75aaef5be",
+      "fetchedAt": "2026-10-07T10:38:04.663Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://datafetcher.com/terms",
+      "textHash": "38afb7a0ffb6e0c797c824fed4fa1f97c81ffe5e170193b236e1e0de44b64159",
+      "fetchedAt": "2026-10-07T10:38:06.981Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://datafetcher.com/customers/fox-logistics",
+      "textHash": "cacf8aeaf90e2ce99ff7897360d7ee3a98504b82cb8b9adbb4d184a032863a68",
+      "fetchedAt": "2026-10-07T10:38:07.285Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://datafetcher.com/customers",
+      "textHash": "afe209e964a7a3a6e67524077fbb43399e3300c63c7c8128efd411b6d4893306",
+      "fetchedAt": "2026-10-07T10:38:07.304Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "dnsimple.com": {
+   "siteName": "DNSimple 公式会社紹介",
+   "siteUrl": "https://dnsimple.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://dnsimple.com/about",
+      "textHash": "f59f18c21be6ecbc5892b5daf36fcb4de07605309ebc95d95159a7aef607fcd1",
+      "fetchedAt": "2026-10-07T10:38:07.697Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2015/04/5-years-of-dnsimple/",
+      "textHash": "b858b70beac523cbabbcdba9e2e219a0b6ac2121034ba293b37d7f54215ff118",
+      "fetchedAt": "2026-10-07T10:38:08.276Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2012/12/2012-in-review/",
+      "textHash": "bf8916fc3eee9252272c6394f24e2731711eb8c101557bd0631b7e061a2e5f9a",
+      "fetchedAt": "2026-10-07T10:38:08.285Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2016/10/lessons-learned-about-running-a-small-business/",
+      "textHash": "9a4dea89326e129131d023d3b9df22c61067875d70bea6d019310759c8fc8f7e",
+      "fetchedAt": "2026-10-07T10:38:08.624Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2015/06/multiple-accounts-new-plans-and-new-features/",
+      "textHash": "d1806f8074cdadaf6ee78cb115634e9491358c8a66099018eb3d5c38e61824ef",
+      "fetchedAt": "2026-10-07T10:38:08.908Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2023/10/pricing-updates/",
+      "textHash": "df766ef33786bad121a1d6e187ba517b155290dc7697cb97241c8d2c95168710",
+      "fetchedAt": "2026-10-08T00:07:22.871Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://dnsimple.com/pricing",
+      "textHash": "bf5f25e614ec8e368a8e3365f44ca6332f4b809b20f76775f7d137cc0630ec0d",
+      "fetchedAt": "2026-10-08T00:07:23.345Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://support.dnsimple.com/articles/understanding-invoice/",
+      "textHash": "6c6a014aef05422ce1b68aaccd93fab951a64e16c2bc9ae9ff1aa286f2533be7",
+      "fetchedAt": "2026-10-07T10:38:09.524Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://dnsimple.com/resellers",
+      "textHash": "cdbcbdefac9093a0d271eae1f02788f8c79d527c631cbd9447a744fe789d586c",
+      "fetchedAt": "2026-10-07T10:38:09.661Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://dnsimple.com/customers/always-beyond/",
+      "textHash": "6679eeb696be5711d7366d1ffb984a19df7b488150f2da64db65cfeb59a5c872",
+      "fetchedAt": "2026-10-07T10:38:09.973Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2014/12/incident-report-ddos/",
+      "textHash": "9be50e80aa07d14ec472871f4b509e01be1599901bf057bddb34a08a7d1d8619",
+      "fetchedAt": "2026-10-07T10:38:10.127Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2021/04/how-we-support-our-customers-reflection/",
+      "textHash": "ab7850a2ed7381ce86c3b585bb2f325432db2d909ddb70b128dbad0c6b526e36",
+      "fetchedAt": "2026-10-07T10:38:10.551Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2025/04/pir2025-04-07/",
+      "textHash": "af9e9f1bbd0a653908f4e14c4f60f9628749610e88d2e5d6ec996195373389e0",
+      "fetchedAt": "2026-10-07T10:38:10.592Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2026/08/building-our-fully-independent-dns-edge/",
+      "textHash": "bef0e49e131c33378af311f53f5a4ce0470864e16469491adc1b43f0bac155d6",
+      "fetchedAt": "2026-10-07T10:38:10.620Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2017/06/referral-revamp/",
+      "textHash": "70d3bffb47c63e628b85d45d2c7a20f450c6d7fd887baa0ce5e617d0f90b2a88",
+      "fetchedAt": "2026-10-07T10:38:10.846Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://blog.dnsimple.com/2025/12/2025-year-in-review/",
+      "textHash": "f8df02fac37e961b9a7e3ae234391750de1f09930076c58feb263251d641ef77",
+      "fetchedAt": "2026-10-07T10:38:11.898Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "e-junkie.com": {
+   "siteName": "公式サイト",
+   "siteUrl": "https://e-junkie.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://www.e-junkie.com/",
+      "textHash": "be424f07cda6c4365fdbbbfdbbb9f83c9bc510a6afd3d6fe5f5026b5a0d600ad",
+      "fetchedAt": "2026-09-30T04:39:55.813Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://www.e-junkie.com/wiki/about",
+      "textHash": "a59beaee8b61c67d7b75f278b99882b5fe929319facf80d01e2b8d98ef544e14",
+      "fetchedAt": "2026-09-30T04:39:56.699Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://www.e-junkie.com/wiki/help-transaction-log",
+      "textHash": "6bf08e7ff1d6c355f6ece434018e28a2844e58919fd7e5b6342e1af50a0ce80f",
+      "fetchedAt": "2026-09-30T04:39:57.128Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://www.e-junkie.com/wiki/affiliates",
+      "textHash": "867c12cd0e5cd0b74645cdf43efea49ecb11f7c5796e46c0c37f0e57f6ed0f8d",
+      "fetchedAt": "2026-09-30T04:39:57.136Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://www.e-junkie.com/wiki/pricing",
+      "textHash": "c3ed1cf9f67962aaf645c4a6f5aec37b0fc3687f578e25f198b611db2c735c03",
+      "fetchedAt": "2026-09-30T04:40:09.202Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "en.wikipedia.org": {
+   "siteName": "Wikipedia",
+   "siteUrl": "https://en.wikipedia.org/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.wikipedia.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.wikipedia.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_heygen_8f11a1",
+      "url": "https://en.wikipedia.org/wiki/HeyGen",
+      "textHash": "4a82c0f776a72e63ac8e005be463efab0e83a506e3c2102f22daab920748129a",
+      "fetchedAt": "2026-09-30T05:24:35.988Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "example.test": {
+   "siteName": "運営者",
+   "siteUrl": "https://example.test/",
+   "status": "active",
+   "statusReason": "使用中",
+   "statusChangedAt": "2026-10-08T14:52:41+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得記録なし（未確認）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": []
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:52:41+09:00",
+     "by": "import-case-rebuild",
+     "action": "seed",
+     "reason": "既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "failory.com": {
+   "siteName": "Failory",
+   "siteUrl": "https://failory.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-10-06T19:30:00+09:00",
+    "decidedBy": "オーナー承認（調整役経由、2026-10-06）／台帳への記録は担当(2026-10-08)",
+    "basis": "individual_review",
+    "policyIds": [],
+    "reviewUrls": [
+     "https://www.failory.com/interview/gorails"
+    ],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 個別審査(2026-10-06): 承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き・本人申告ラベル。/startup/ 配下は取得しない。"
+    },
+    "termsUrl": "https://www.failory.com/privacy",
+    "termsCheckedAt": "2026-10-08T14:47:52+09:00"
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": {
+     "url": "https://www.failory.com/privacy",
+     "hash": "64b30548a5e3d8f00ab25f77a05187818577a7b226c6582a7f5a844a6a22be6f",
+     "fetchedAt": "2026-10-08T14:47:52+09:00",
+     "textLength": 16319
+    },
+    "sourcePages": [
+     {
+      "caseId": "ent_gorails_640d8f688451",
+      "url": "https://www.failory.com/interview/gorails",
+      "textHash": "44c6fa922908a3dd01ac5bee6450f47f1ace783c94f909b06646e00cde56b76d",
+      "fetchedAt": "2026-09-30T04:40:57.946Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    },
+    {
+     "at": "2026-10-08T14:47:52+09:00",
+     "by": "担当(rights:terms)",
+     "action": "terms-snapshot",
+     "reason": "規約ページの指紋を記録（64b30548、16319文字）"
+    }
+   ]
+  },
+  "foundersconfidential418.substack.com": {
+   "siteName": "Ottoの執筆経験の公開記録",
+   "siteUrl": "https://foundersconfidential418.substack.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.substack.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.substack.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_indiehackers_6548833164b0",
+      "url": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+      "textHash": "103af9f582c25eab6bfa5306cf15987745aeb83d6e941317c2379a38f4266ca1",
+      "fetchedAt": "2026-10-07T09:51:32.818Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "geocod.io": {
+   "siteName": "Geocodioの会社紹介",
+   "siteUrl": "https://geocod.io/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/about",
+      "textHash": "384f1c2d746fefc9003dd78359253b29c497b17cd94611f1d5e3862a2ad88a9a",
+      "fetchedAt": "2026-10-07T10:38:12.689Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/",
+      "textHash": "fadfd66a7f0f67e7df15d7fd0be1711f89a9d4d3cc6ae52dd6e1154829d8059a",
+      "fetchedAt": "2026-10-07T10:38:13.310Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/pricing",
+      "textHash": "7ba752f5abf6827156cd538998b5474fd0ac3b150cc5a8d26e09a1269f69838a",
+      "fetchedAt": "2026-10-07T10:38:13.645Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+      "textHash": "b755b03fdaa91b09e61c83b12976c4d3e0b05d81d37694394ed4961a0d0639f7",
+      "fetchedAt": "2026-10-07T10:38:13.814Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+      "textHash": "3ded92ea30f147601dad9a792020682cc49bae359a346c7e5f563b9e7110cc1f",
+      "fetchedAt": "2026-10-07T10:38:14.052Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/data-sources",
+      "textHash": "5a38266cb8a6a3fd2343e4795a2bc6612a1331c54807279d6e101367975393b1",
+      "fetchedAt": "2026-10-07T10:38:14.905Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+      "textHash": "4c83085d5d900472f4282d3d20f89d24b8172224ff047844e23180c6b73d1133",
+      "fetchedAt": "2026-10-07T10:38:15.120Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+      "textHash": "26fb7717150839b7c733fa35c0988c7f65bc6db3892cb1218aef2778b8f788fe",
+      "fetchedAt": "2026-10-07T10:38:15.739Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+      "textHash": "4188457a9cd1c2060155e47aedab2b4cb21698c3c6747e0e16fe80e03208e20f",
+      "fetchedAt": "2026-10-08T00:07:05.810Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://www.geocod.io/geocode-spreadsheets",
+      "textHash": "679ed4aabc634d11e2c4522ef6d5e54071a178a2df76f9032bf64cd3d69e3806",
+      "fetchedAt": "2026-10-07T10:38:16.803Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "gorails.com": {
+   "siteName": "GoRails",
+   "siteUrl": "https://gorails.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-08ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_gorails_640d8f688451",
+      "url": "https://gorails.com",
+      "textHash": "b53f1e20b37606d606a40d034b4307c02872bdb55f723216856386d51b13ef41",
+      "fetchedAt": "2026-10-08T00:04:58.122Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_gorails_640d8f688451",
+      "url": "https://gorails.com/pricing",
+      "textHash": "6c194eae678a42d4d73be87ad734a222fe47eac58da1fb8f730a882f4781ad73",
+      "fetchedAt": "2026-10-07T23:35:08.609Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "gumroad.com": {
+   "siteName": "Gumroad",
+   "siteUrl": "https://gumroad.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-10-06T19:30:00+09:00",
+    "decidedBy": "オーナー承認（調整役経由、2026-10-06）／台帳への記録は担当(2026-10-08)",
+    "basis": "individual_review",
+    "policyIds": [],
+    "reviewUrls": [
+     "https://gumroad.com/pricing"
+    ],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 個別審査(2026-10-06): 承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得は規約で禁止。価格の事実を人が確認して記録し、自動再取得しないこと。該当事例の公式サイトなら公式サイト方針(automatic)と重なるため、そちらで足りるか要確認。"
+    },
+    "termsUrl": "https://gumroad.com/terms",
+    "termsCheckedAt": "2026-10-08T14:47:52+09:00"
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": {
+     "url": "https://gumroad.com/terms",
+     "hash": "4ab58f8493b962a003a541f7b848dcf86fa42dd72e6235dfdea12193726afa4a",
+     "fetchedAt": "2026-10-08T14:47:52+09:00",
+     "textLength": 110737
+    },
+    "sourcePages": [
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://gumroad.com/pricing",
+      "textHash": "7a490fad4f6922c5ca4b3cc681de6a69286bac3dec0771503830c096f5163903",
+      "fetchedAt": "2026-09-30T04:39:57.274Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    },
+    {
+     "at": "2026-10-08T14:47:52+09:00",
+     "by": "担当(rights:terms)",
+     "action": "terms-snapshot",
+     "reason": "規約ページの指紋を記録（4ab58f84、110737文字）"
+    }
+   ]
+  },
+  "hannahslist.substack.com": {
+   "siteName": "Hannah’s List（Marty Bell の取材）",
+   "siteUrl": "https://hannahslist.substack.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.substack.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.substack.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_poolsuite_6d5ad6895563",
+      "url": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+      "textHash": "77bb52fcba97e29c19eb82d610d32827dbbe758465ad45f695a75b6e3da0f6dc",
+      "fetchedAt": "2026-10-07T09:51:46.995Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "heygen.com": {
+   "siteName": "HeyGen公式サイト",
+   "siteUrl": "https://heygen.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_heygen_8f11a1",
+      "url": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+      "textHash": "523f010897d59837f7c9ed4793a93b2938c0a07abfa76364cfa4d09218bacdaf",
+      "fetchedAt": "2026-09-30T05:24:34.813Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_heygen_8f11a1",
+      "url": "https://www.heygen.com/",
+      "textHash": "dd6fa97ab413dd3bf6cc609a66fa7a682d096e45d8b6659bee7130e86732603c",
+      "fetchedAt": "2026-10-07T23:35:42.112Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_heygen_8f11a1",
+      "url": "https://www.heygen.com/about",
+      "textHash": "fd95dbb73dcc9554dd396a262c9280c3d29c2c30405a48ba571450c483ee4366",
+      "fetchedAt": "2026-10-07T23:35:42.247Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_heygen_8f11a1",
+      "url": "https://www.heygen.com/careers",
+      "textHash": "3c6ceffe409d0c8692229b95a2e5023503cca2bc10fdf7b71cc73f81943db536",
+      "fetchedAt": "2026-09-30T05:24:35.318Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_heygen_8f11a1",
+      "url": "https://www.heygen.com/pricing",
+      "textHash": "989d61d9a915b6f7ee73e57467411076a17bb5aa740b61814d34f887ec876eda",
+      "fetchedAt": "2026-09-30T05:24:35.573Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "hostifi.com": {
+   "siteName": "HostiFi",
+   "siteUrl": "https://hostifi.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_hostifi_cf9ec73a42d2",
+      "url": "https://www.hostifi.com/",
+      "textHash": "fc8e88f77d62b7a930d0313a8ed7df49d096479b8ce361da832b6ec844abfa61",
+      "fetchedAt": "2026-10-07T09:51:27.125Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_hostifi_cf9ec73a42d2",
+      "url": "https://support.hostifi.com/en/articles/3446785-white-label",
+      "textHash": "9689a5f72648978b5194db469832a97896e3baaf89fab84b7ba04ba694221347",
+      "fetchedAt": "2026-10-07T09:51:29.574Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_hostifi_cf9ec73a42d2",
+      "url": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+      "textHash": "34dec11e1a197ffe91cc065ac3563fd33b8140bbb92b367d160ef8b1f974c08a",
+      "fetchedAt": "2026-10-07T09:51:30.000Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_hostifi_cf9ec73a42d2",
+      "url": "https://www.hostifi.com/support/what-is-hostifi-export",
+      "textHash": "80b747eda31b820868fd25d181d08ce9c9c0debe12a14510f53185b2a16d1540",
+      "fetchedAt": "2026-10-07T09:51:30.107Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_hostifi_cf9ec73a42d2",
+      "url": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+      "textHash": "f9bda959be1f3477c35e8d56bb5bd08cd25eb15718c582fa348125dddb11507f",
+      "fetchedAt": "2026-10-07T09:51:30.183Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "indiehackers.com": {
+   "siteName": "Indie Hackers（創業者の投稿）",
+   "siteUrl": "https://indiehackers.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.indiehackers.v2"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.indiehackers.v2"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_teamcamp_ae0c21986c4d",
+      "url": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+      "textHash": "a1b12d014b84b78cd3743a79bd2f7d5272a56a0a649751e2e38cd6d37c2afce1",
+      "fetchedAt": "2026-09-30T04:39:48.541Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_teamcamp_ae0c21986c4d",
+      "url": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+      "textHash": "7eefedb899b7320753a48a493f2880ea07a430214ec9942a94294f6ead2d7f61",
+      "fetchedAt": "2026-10-07T23:34:32.937Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_referralrock_8c13d5ee4cfc",
+      "url": "https://www.indiehackers.com/product/referral-rock",
+      "textHash": "b6afd5269afa4f60b6b7821a3055fe9aac2a57f3bdd6775516c22bfaecebfba2",
+      "fetchedAt": "2026-09-30T04:39:55.227Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+      "textHash": "8b5164bc6c08a41ddbda0d4e64f04836e04f9236fb9f97b37ecbb0a93bf6001f",
+      "fetchedAt": "2026-10-08T00:04:56.207Z",
+      "via": "wayback"
+     },
+     {
+      "caseId": "ent_ejunkie_7e9e46bd9643",
+      "url": "https://www.indiehackers.com/product/e-junkie",
+      "textHash": "1939b8c86637ecc71ec3ff95e141ad39f622cd6eecaade6f8c20247377f5e7a4",
+      "fetchedAt": "2026-09-30T04:39:55.961Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_gorails_640d8f688451",
+      "url": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
+      "textHash": "3f4800e72480c8fbc22237399f48aaaf59436c37b42623f77e1743ec32bbb753",
+      "fetchedAt": "2026-10-07T23:35:09.500Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_rfrcui_64e924ac",
+      "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+      "textHash": "9dd12286632e89e148e0830ee6864f3d2d903ef481971dddbb87ce68a9e9c1fb",
+      "fetchedAt": "2026-09-30T05:23:44.905Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_indiehackers_6548833164b0",
+      "url": "https://www.indiehackers.com/about",
+      "textHash": "93ec8809be97997904058bd410b4f8b7fbb12afef4a88f86037c3a06771d743b",
+      "fetchedAt": "2026-10-07T09:51:31.965Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_indiehackers_6548833164b0",
+      "url": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+      "textHash": "3b9b41e441b4e2109f95fc359de635beae5ad6bc8909ee4c689c38809a5a43bc",
+      "fetchedAt": "2026-10-07T09:51:32.447Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_indiehackers_6548833164b0",
+      "url": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+      "textHash": "df8f54ee31c94c48e74a664156ad98808a77b35c4e608f00ae615fd3b558c21d",
+      "fetchedAt": "2026-10-07T09:51:32.576Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_indiehackers_6548833164b0",
+      "url": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+      "textHash": "da2090a2210c0da9d6b2af82a9c7bee973baa24a19545315def9d98b93f13149",
+      "fetchedAt": "2026-10-07T09:51:32.720Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_indiehackers_6548833164b0",
+      "url": "https://www.indiehackers.com/plus",
+      "textHash": "b86caf419f6b1ed5da2138732c4c3d9bb5e77f924574e3979a196bae2e725eb2",
+      "fetchedAt": "2026-10-07T09:51:32.910Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://www.indiehackers.com/post/candy-japan-total-sales-cross-1m-894xrpGu02dfGOUbHfx5",
+      "textHash": "fece8939523969095923b16f9e3c29c435d96ca891e6208a67588d565e2994f5",
+      "fetchedAt": "2026-10-07T10:38:03.682Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9",
+      "textHash": "aabe3b83c2f2ba2010fe3d40f560a393d3e34023cb63f1b4f48d70481536c638",
+      "fetchedAt": "2026-10-07T10:38:05.644Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+      "textHash": "42ded7c051f7d580b7832d337bacd6d1e73bebb6864a6b383d645cc748ec927a",
+      "fetchedAt": "2026-10-07T10:38:19.065Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+      "textHash": "dd206f4108c5f9536f420c6d0caf2f3926a2c4b25b0d1cbb3bd5ad7bd4bf6fbe",
+      "fetchedAt": "2026-10-07T10:38:32.370Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "lunchmoney.app": {
+   "siteName": "Lunch Money 公式製品ページ",
+   "siteUrl": "https://lunchmoney.app/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/",
+      "textHash": "ca54184c9655f841e63927f3d98b31bf5d43f6e6dc3cadbd101cd21884eb40f9",
+      "fetchedAt": "2026-10-07T10:38:17.054Z",
+      "via": "wayback"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/about/",
+      "textHash": "b5d4e11f1acc404c1bfe96e74ec42fe745a79fab860ccfafed84e4611f46c6cd",
+      "fetchedAt": "2026-10-07T10:38:17.718Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/media-kit/",
+      "textHash": "5c520626124f6e860f0ecd4fc58c814dd275e552d5b93a37e76ef3befc6bd54e",
+      "fetchedAt": "2026-10-07T10:38:18.046Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+      "textHash": "4f278deaafe34d50c3faf2663ac83f2c647f97975eacd37fd76d542de7ddbba8",
+      "fetchedAt": "2026-10-07T10:38:19.084Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/pricing",
+      "textHash": "641831a6d69175ea015a9b6b009c7ea2c30a776ef92f36f13e7c86dc29604cca",
+      "fetchedAt": "2026-10-07T10:38:19.416Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+      "textHash": "b5b012cf0409c10a9839585cd44a2804c661abb18dbe1e83ddce6aebee00c392",
+      "fetchedAt": "2026-10-07T10:38:19.495Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/stack",
+      "textHash": "a505e9ee228484205017bc7b60d93b27ca1570a3a174dd3c241c1fe58fc689b6",
+      "fetchedAt": "2026-10-07T10:38:19.642Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/referral",
+      "textHash": "d3b9204c2dc05b84949f45291ec1663148617666aad0bbeb73148e5a7d51e50c",
+      "fetchedAt": "2026-10-07T10:38:19.651Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/affiliate-program",
+      "textHash": "5d3d6210ae2a2ce266fab17dca57c0e89306c0c578590b35ace5ce8f576f6624",
+      "fetchedAt": "2026-10-07T10:38:20.135Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/download",
+      "textHash": "555357170203104087576ced44d5eb2c2b25fe20887749a42994e739e4ae752d",
+      "fetchedAt": "2026-10-07T10:38:20.991Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/hiring",
+      "textHash": "0c9e7f2f9325c36890ac86fce6c1c1974e3575258b4c26ce0d3df1026b47a477",
+      "fetchedAt": "2026-10-07T23:30:58.798Z",
+      "via": "wayback"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://lunchmoney.app/terms/consumer/",
+      "textHash": "e4cfcb90f964e16612620f15f5b97ecade92af2f4e442bea8d3a2d0a6e411b9c",
+      "fetchedAt": "2026-10-07T10:38:22.217Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "marketingexamples.com": {
+   "siteName": "Marketing Examples",
+   "siteUrl": "https://marketingexamples.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-10-06T19:30:00+09:00",
+    "decidedBy": "オーナー承認（調整役経由、2026-10-06）／台帳への記録は担当(2026-10-08)",
+    "basis": "individual_review",
+    "policyIds": [],
+    "reviewUrls": [
+     "https://marketingexamples.com/landing-page/pricing"
+    ],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 個別審査(2026-10-06): 承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き。ページは著者の編集物なので、手口の文章や図は載せない。"
+    },
+    "termsUrl": "https://marketingexamples.com/",
+    "termsCheckedAt": "2026-10-08T14:47:53+09:00"
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": {
+     "url": "https://marketingexamples.com/",
+     "hash": "d887f7bb8d9faa3bbd9eb532fea943a33997a4c1c40aa2adc9392bd385fff660",
+     "fetchedAt": "2026-10-08T14:47:53+09:00",
+     "textLength": 6593
+    },
+    "sourcePages": [
+     {
+      "caseId": "ent_rfrcui_64e924ac",
+      "url": "https://marketingexamples.com/landing-page/pricing",
+      "textHash": "18c233af655d1f880384786bf8725da7a590ea75ffbff591d4a32c89f0b91104",
+      "fetchedAt": "2026-10-07T23:35:27.665Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    },
+    {
+     "at": "2026-10-08T14:47:53+09:00",
+     "by": "担当(rights:terms)",
+     "action": "terms-snapshot",
+     "reason": "規約ページの指紋を記録（d887f7bb、6593文字）"
+    }
+   ]
+  },
+  "memberful.com": {
+   "siteName": "Memberful（Drew Strojny の発表）",
+   "siteUrl": "https://memberful.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/blog/joining-patreon",
+      "textHash": "23f599d3851a0a95074b590d0da65e4fc522e93a91ade00a8a6540b4fed35a25",
+      "fetchedAt": "2026-10-07T09:51:33.304Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/",
+      "textHash": "2d66d77351cebd3401f283d7e8a0929f4a7b658b9a73763c4b4542e4fdafb69f",
+      "fetchedAt": "2026-10-07T09:51:34.136Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/pricing",
+      "textHash": "62ee1fdc7b76f37911cf917ea133ffc7cd4d175717765f81c6e4600822a515a5",
+      "fetchedAt": "2026-10-07T09:51:34.400Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/about",
+      "textHash": "7a6f59f8b8e6d328367705326a8eef26e857ab2932202aa52a4b93c21863d30d",
+      "fetchedAt": "2026-10-08T00:07:20.049Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/customers/workweek-lunch",
+      "textHash": "11e8ae347fa868e755fcf104ea406f91f3ad6721cbbbb642b1a4984a6a51e52d",
+      "fetchedAt": "2026-10-08T00:50:17.567Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/blog/billing-updates",
+      "textHash": "12c26f9149ad12e4c455c2e2569f03c2222713b1e8910f133309166e9d2a59f5",
+      "fetchedAt": "2026-10-07T09:51:35.038Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/blog/edit-subscriptions",
+      "textHash": "2fa93e3e970430adef77183eea845a2b172abeb377a991c4a1e4b9fb6fd92dd8",
+      "fetchedAt": "2026-10-07T09:51:35.348Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/docs/changelog",
+      "textHash": "8f64c67ae4943477fbf6c9420da27af477a241498d825ee92977dcd61ec59aae",
+      "fetchedAt": "2026-10-07T09:51:35.387Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/integrations",
+      "textHash": "a16abdab12f10a83e45f6b879631756327224df6f61fafaca438b0bbe2b510ae",
+      "fetchedAt": "2026-10-07T09:51:35.613Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/become-a-partner",
+      "textHash": "be48b8275e788a7553ebad54d3051ff2b02b155be7906ebb495a588d8387dafb",
+      "fetchedAt": "2026-10-07T09:51:36.286Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/preferred-partners",
+      "textHash": "4fb44b4fff507d129b8c645ad21e222a4293faa10bebf6eaa45e5ee3ddf7fbb7",
+      "fetchedAt": "2026-10-07T09:51:37.154Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://memberful.com/migration",
+      "textHash": "874132b06c6cb3da3b4897a4c1e6765bf0101c3cbf59983858cab9aec1677bcc",
+      "fetchedAt": "2026-10-07T09:51:37.704Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "mixergy.com": {
+   "siteName": "Mixergy（創業者へのインタビュー）",
+   "siteUrl": "https://mixergy.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-10-06T19:30:00+09:00",
+    "decidedBy": "オーナー承認（調整役経由、2026-10-06）／台帳への記録は担当(2026-10-08)",
+    "basis": "individual_review",
+    "policyIds": [],
+    "reviewUrls": [
+     "https://mixergy.com/interviews/codementor-with-weiting-liu/"
+    ],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-08ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 個別審査(2026-10-06): 承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 規約が見つからないため明示の禁止なし。ただし許諾の証拠でもない。事実のみ・自分の言葉・出典リンク付き、本人申告ラベル。引用・転載・画像なし。"
+    },
+    "termsUrl": "https://mixergy.com/",
+    "termsCheckedAt": "2026-10-08T14:47:53+09:00"
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": {
+     "url": "https://mixergy.com/",
+     "hash": "3a8e266c951311a0af0b25cda588d985ad24eb22a55f8c9b204ef983a3c6c046",
+     "fetchedAt": "2026-10-08T14:47:53+09:00",
+     "textLength": 7984
+    },
+    "sourcePages": [
+     {
+      "caseId": "ent_codementor_ba692caa3db3",
+      "url": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+      "textHash": "c86e32038c4652d9dc29484bf66f13da64cd0fb70e2675efe18ca9af3a52e844",
+      "fetchedAt": "2026-10-08T00:04:49.530Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    },
+    {
+     "at": "2026-10-08T14:47:53+09:00",
+     "by": "担当(rights:terms)",
+     "action": "terms-snapshot",
+     "reason": "規約ページの指紋を記録（3a8e266c、7984文字）"
+    }
+   ]
+  },
+  "myoperator.com": {
+   "siteName": "MyOperator 公式ブログ（YourStory 2016年記事の再掲）",
+   "siteUrl": "https://myoperator.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-08ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_myoperator_49c393230a2d",
+      "url": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+      "textHash": "1317f48214f1f7c5101a4c4646d1df2ac23c8e62882456d3156b5fc710c7f2c0",
+      "fetchedAt": "2026-10-08T00:35:57.121Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_myoperator_49c393230a2d",
+      "url": "https://myoperator.com",
+      "textHash": "e2685492584025876517220c545959d782adef0b2d658d62abd0b0f102f12fdd",
+      "fetchedAt": "2026-09-30T04:38:53.228Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_myoperator_49c393230a2d",
+      "url": "https://myoperator.com/pricing",
+      "textHash": "e787a0fb33754a6eb2c3854611e9039b3d9528904270b31460ea9976122a4ec3",
+      "fetchedAt": "2026-09-30T04:38:54.249Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_myoperator_49c393230a2d",
+      "url": "https://myoperator.com/partnership-program",
+      "textHash": "d807fc7126d32e4bd247aa8f4e5bb4744928e5a5f3b2875ea49d247491ebd255",
+      "fetchedAt": "2026-09-30T04:38:53.976Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "news.ycombinator.com": {
+   "siteName": "Hacker News公開時の投稿と返信",
+   "siteUrl": "https://news.ycombinator.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.hacker-news.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.hacker-news.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_indiehackers_6548833164b0",
+      "url": "https://news.ycombinator.com/item?id=12269425",
+      "textHash": "4f6183ebc0719e00722a07a32990d58071a41d8a2d28ef8e9abf8c041ecc7a85",
+      "fetchedAt": "2026-10-07T09:51:32.118Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://news.ycombinator.com/item?id=29641907",
+      "textHash": "c693cd50efb7dc3838c8537cc826df4aa92357c6c784f4d49ea83f847bb536ca",
+      "fetchedAt": "2026-10-07T09:51:58.258Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://news.ycombinator.com/item?id=29084309",
+      "textHash": "7363dcf977f8a26f1614565c10d5a7e9cff790721a5b55436d82b62e138e7294",
+      "fetchedAt": "2026-10-07T09:52:01.256Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_candy_japan_954236d663a8",
+      "url": "https://news.ycombinator.com/item?id=16461187",
+      "textHash": "f2f56d0efa3eb21426b96b3393d993bc5a4680ea057be4c9e49e953ffc273719",
+      "fetchedAt": "2026-10-07T10:38:01.840Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://news.ycombinator.com/item?id=32506627",
+      "textHash": "1daac53a89c86eff4560a0c6eddff3eab6820d1e3bcbe2f8fe6e2dc8263f3e08",
+      "fetchedAt": "2026-10-07T10:38:06.364Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_dnsimple_c8560498b136",
+      "url": "https://news.ycombinator.com/item?id=42307604",
+      "textHash": "c204edddabf85e7226a2ab5cfdb4ae52dd8c300729627859d009b174c45f0677",
+      "fetchedAt": "2026-10-07T10:38:11.977Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_geocodio_c64c0721d500",
+      "url": "https://news.ycombinator.com/item?id=7095228",
+      "textHash": "8a7926d1fa526b1d030901727223fe4ae7b1d4b7671286cd0f34fb589cebb417",
+      "fetchedAt": "2026-10-07T10:38:12.454Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://news.ycombinator.com/item?id=20811287",
+      "textHash": "7fad04e8320dcbbf1a79dfb96d53b0d0e172d5ff85bcf11a19d1e00f9ed89190",
+      "fetchedAt": "2026-10-08T00:50:20.267Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://news.ycombinator.com/item?id=7742719",
+      "textHash": "d29abea29da8528a72caeb34b8a31960d96b0351cf9e8b4a38acb85819f46e4e",
+      "fetchedAt": "2026-10-07T10:38:26.901Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "noteforms.com": {
+   "siteName": "NoteForms 公式サイト",
+   "siteUrl": "https://noteforms.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-08ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://noteforms.com/",
+      "textHash": "3af425014f394e21e98b0b74536d39900ef4aba99bfa25b7527833dbbce1ebc2",
+      "fetchedAt": "2026-10-08T00:50:20.872Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://noteforms.com/pricing",
+      "textHash": "dd7852bc71aae960c42a7e8540420d7836e1528d7eb30dc87ede790ea241492a",
+      "fetchedAt": "2026-10-07T10:38:23.575Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://noteforms.com/affiliates",
+      "textHash": "d6c8fc562c34cfdc2ce96cb19418588a4207c9a535dfaeeaf39076cccce38ff2",
+      "fetchedAt": "2026-10-07T10:38:23.974Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://noteforms.com/terms-conditions",
+      "textHash": "dcf1d54fc0b334e22644b1f7ef2e9108b89b3a429fb72b6530fd1c5eacd506f4",
+      "fetchedAt": "2026-10-07T10:38:24.162Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://feedback.noteforms.com/",
+      "textHash": "2f24f6f32626d99497fe624cb719f32ef8dedb411c512199dbccf699c6b03f30",
+      "fetchedAt": "2026-10-07T10:38:25.011Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "practicaltypography.com": {
+   "siteName": "Matthew Butterick",
+   "siteUrl": "https://practicaltypography.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_practicaltypographycom_e9aa6bc94ccf",
+      "url": "https://practicaltypography.com/economics-year-one.html",
+      "textHash": "8e420f3480a653d3257049b431ff29c1a0394a22cc32f3d4ac6aa63978594ca1",
+      "fetchedAt": "2026-10-08T00:05:06.556Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_practicaltypographycom_e9aa6bc94ccf",
+      "url": "https://practicaltypography.com/effluents-influence-affluence.html",
+      "textHash": "0ddc8020146b51376e33fb79ff0cea00fc255b3410489bf076e740154b9232c8",
+      "fetchedAt": "2026-10-08T00:05:06.948Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_practicaltypographycom_e9aa6bc94ccf",
+      "url": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+      "textHash": "e44e9e7312c2d9c591172959fc30a63705a5b8772038b793fae1041e56853279",
+      "fetchedAt": "2026-10-08T00:05:08.087Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_practicaltypographycom_e9aa6bc94ccf",
+      "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+      "textHash": "543b8a502f33cac062d2ed2da191f7a57fc63e3b2d382c25989550fca1592d11",
+      "fetchedAt": "2026-10-07T23:35:54.655Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_practicaltypographycom_e9aa6bc94ccf",
+      "url": "https://practicaltypography.com/why-you-should-pay.html",
+      "textHash": "768feade9db65aca1fe3a6a6e3efd9c31362b01c73940a3c2687a17a3835cde1",
+      "fetchedAt": "2026-10-07T23:35:55.329Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_practicaltypographycom_e9aa6bc94ccf",
+      "url": "https://practicaltypography.com/legal.html",
+      "textHash": "08dbdc22d86df23e3377c7375844c9fc09650a65aa883bb9f62f303daec03071",
+      "fetchedAt": "2026-10-07T23:35:58.816Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "producthunt.com": {
+   "siteName": "Product Hunt（Marty Bell の取材）",
+   "siteUrl": "https://producthunt.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.product-hunt.v2"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-08ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.product-hunt.v2"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_poolsuite_6d5ad6895563",
+      "url": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+      "textHash": "6ef3af7020436e17eb7e4f3d5120e8ced88c8fb9f44dcca26eed292b021cfa3b",
+      "fetchedAt": "2026-10-08T00:50:17.886Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://www.producthunt.com/products/data-fetcher-for-airtable",
+      "textHash": "44a360f65f20fa478bb238893135ad4ecf7243ef6b211d6781df75ac099821a0",
+      "fetchedAt": "2026-10-07T10:38:06.967Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "quaderno.io": {
+   "siteName": "公式の会社紹介",
+   "siteUrl": "https://quaderno.io/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://quaderno.io/about-quaderno/",
+      "textHash": "d1e9fcee6c3fa74e388aaa70e7107be555b101f299ed34e982b87f4a750bc9a5",
+      "fetchedAt": "2026-10-07T10:38:25.161Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/",
+      "textHash": "34a78c2ef1c286af71b1e0ed9317733323528395df7c1bd8d3408e32ed765776",
+      "fetchedAt": "2026-10-07T10:38:25.538Z",
+      "via": "wayback"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://quaderno.io/",
+      "textHash": "3cff6c3a3006279978be8faa5a41e9c0dd411c47a70d0dff684e093634b5bdbc",
+      "fetchedAt": "2026-10-07T10:38:27.061Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://support.quaderno.io/article/492-plans-pricing",
+      "textHash": "f52e803ed5e182e2a684de4e794ca348405ff21dd6e0f02f3245ea4d4270d72a",
+      "fetchedAt": "2026-10-07T10:38:27.250Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://quaderno.io/pricing/",
+      "textHash": "2009463bf7f59eab7f6549af9a51a712caffcf23d54ced4df790bf9ea573dc67",
+      "fetchedAt": "2026-10-07T10:38:27.281Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://quaderno.io/affiliates/",
+      "textHash": "0f04155a9cc54618c260e64c710aa28cfb62e894d9fe8cc4b54785a0e63f0d14",
+      "fetchedAt": "2026-10-07T10:38:27.384Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://support.quaderno.io/article/544-quaderno-affiliate-program",
+      "textHash": "e9dad87958b44cd1e7fce1438196d96d3b53ba1227cb0bf69e8d7ec0531203fa",
+      "fetchedAt": "2026-10-07T23:24:48.549Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_quaderno_81236030d721",
+      "url": "https://quaderno.io/legal/terms/",
+      "textHash": "d014a07a62ca2819edb9b6877a28145f73afa3923eaa5d2fc8ff2e6902c58a80",
+      "fetchedAt": "2026-10-07T10:38:27.743Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "reddit.com": {
+   "siteName": "Reddit の匿名投稿者",
+   "siteUrl": "https://reddit.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.reddit.v2"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.reddit.v2"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_button_shy_f1545f17d98e",
+      "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+      "textHash": "9ac3048654a35d20f9d5663721276dfc4379dc1bdf5f6bcd8302685d83dc25f7",
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "wayback"
+     },
+     {
+      "caseId": "ent_lunch_money_be2eeb1f4fdf",
+      "url": "https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+      "textHash": "21521bb28c4ebd2980dacbaa34cc92a2e20e196e70c4d8f84c9b2c541f1571b2",
+      "fetchedAt": "2026-10-07T10:38:22.002Z",
+      "via": "wayback"
+     },
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+      "textHash": "3226b7a4fc474de7f827c253e2f5118ef1326021954c6fa5844262408cfc7bb5",
+      "fetchedAt": "2026-10-07T10:38:24.178Z",
+      "via": "wayback"
+     },
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+      "textHash": "84ff888c61e9c5efde0c559f36172d462622c57c268203bcdc05d89150c0e0fb",
+      "fetchedAt": "2026-10-07T10:38:24.205Z",
+      "via": "wayback"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "refactoringui.com": {
+   "siteName": "Refactoring UI（公式サイト）",
+   "siteUrl": "https://refactoringui.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_rfrcui_64e924ac",
+      "url": "https://refactoringui.com/",
+      "textHash": "09ff6fa2d8501ea8d7b15c767bf3c24d458e173e49d8161abb7af493f16a55a0",
+      "fetchedAt": "2026-10-07T23:35:26.524Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "referralrock.com": {
+   "siteName": "公式サイト",
+   "siteUrl": "https://referralrock.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_referralrock_8c13d5ee4cfc",
+      "url": "https://referralrock.com/blog/full-referral-rock-story/",
+      "textHash": "5ddd12688f0f4b94472ceb8210c485aabccf15234fb8dca12d69f5daa303dd9b",
+      "fetchedAt": "2026-09-30T04:39:55.238Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_referralrock_8c13d5ee4cfc",
+      "url": "https://referralrock.com",
+      "textHash": "c704fb3754a54113f144ed3eb601a4a88d36084b41decf66dce54abd08a408da",
+      "fetchedAt": "2026-09-30T04:39:55.233Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_referralrock_8c13d5ee4cfc",
+      "url": "https://referralrock.com/pricing/",
+      "textHash": "21ec12473d65b5490d780b233ad622fc2b2bbd1a173789b43ce087cb87c29101",
+      "fetchedAt": "2026-09-30T04:39:55.288Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_referralrock_8c13d5ee4cfc",
+      "url": "https://product.referralrock.com/p/october-2025-exports",
+      "textHash": "7954cd893cca9596182722ade8b74d368477a37b864db6cce70e933b45527853",
+      "fetchedAt": "2026-09-30T04:39:55.241Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "requestly.com": {
+   "siteName": "Requestly公式サイト（製品ページ）",
+   "siteUrl": "https://requestly.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_requestly_28e9f2",
+      "url": "https://requestly.com/products/",
+      "textHash": "0f2394e0c80741f4599969d33662a1ebf33543c5b93507b9de2703fc271d2b62",
+      "fetchedAt": "2026-09-30T05:32:29.740Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_requestly_28e9f2",
+      "url": "https://requestly.com/pricing/",
+      "textHash": "9f4f9c51036c558524dd1020626d28c416ae2753325a5d9c91569d4c311c1894",
+      "fetchedAt": "2026-09-30T05:32:30.510Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "snipcart.com": {
+   "siteName": "Snipcart 公式紹介",
+   "siteUrl": "https://snipcart.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "unconfirmed",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 一部または全部を魚拓経由で取得しており、直接は未確認。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/about",
+      "textHash": "f3c615e3b77b456ce6497611d3e65bb88144f3d0c6688360f71b8d864445ccb8",
+      "fetchedAt": "2026-10-07T10:38:27.912Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "textHash": "d696162a9b7f1d846590930ba10dfb7bc8feae5cc4c7018e6cf1a4cfbe45657a",
+      "fetchedAt": "2026-10-07T10:38:28.291Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "textHash": "ccd4424b9e5d562c193a5ab1a0f46f27713c5afc229e9deb99ae7967f3bda07a",
+      "fetchedAt": "2026-10-07T23:31:02.307Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/blog/topics/ecommerce/page/7",
+      "textHash": "ac58203821bf0b435bab45df5da274ebf5fdbac0e64bf081881ec99324a1fd5c",
+      "fetchedAt": "2026-10-07T10:38:28.787Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "textHash": "6e9f5c8f2991c42072ef9b990ed96302864e950a6b1d9a8c7c0138eb81da9beb",
+      "fetchedAt": "2026-10-07T10:38:28.800Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/pricing",
+      "textHash": "41a68c81413d5c51f1eb53566f80cf77c214e0080acfb192e37ae936a386f547",
+      "fetchedAt": "2026-10-07T10:38:29.049Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/terms-of-service",
+      "textHash": "2d4e8b935cc80294a177c4a26df6abfd12d699d01b8e92c612b88b02e854c761",
+      "fetchedAt": "2026-10-07T10:38:29.494Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/merchant-dashboard",
+      "textHash": "911d56f7bde9c2b44a06d160fd3e4e9a579249070e83b56fac8117399452a9fa",
+      "fetchedAt": "2026-10-07T10:38:29.616Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_snipcart_9a1012111695",
+      "url": "https://snipcart.com/faq",
+      "textHash": "92e0df5f152dc4ecf7b8b9164ed8a8fac29c1bb890405eb1aaa9553062a3da47",
+      "fetchedAt": "2026-10-07T10:38:31.412Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "starterstory.com": {
+   "siteName": "Starter Story の2024年の追跡取材",
+   "siteUrl": "https://starterstory.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.starter-story.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-08ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.starter-story.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://www.starterstory.com/stories/data-fetcher",
+      "textHash": "7af4cc2087fdf148b9f32d8c529fb1c066178f84db60a664e1aac4e96d8a5f64",
+      "fetchedAt": "2026-10-08T00:50:18.613Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_data_fetcher_8e6a5e22ce2a",
+      "url": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year",
+      "textHash": "3525665f25166e1213633c8ace86e115b9bcf16813914da5c81d136fef931a45",
+      "fetchedAt": "2026-10-07T10:38:06.654Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_noteforms_003fcbdd14cf",
+      "url": "https://www.starterstory.com/stories/notionforms",
+      "textHash": "d6bd328fba2971ea3edfe8bdc1ac0bdf5e45907baafcb5ca48d108259546d559",
+      "fetchedAt": "2026-10-07T10:38:22.923Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "statusgator.com": {
+   "siteName": "Colin Bartlettの2016年副業回顧",
+   "siteUrl": "https://statusgator.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/blog/?p=76",
+      "textHash": "27be296690ae6ee0318b580b0c43d2d1935e208383bf2242ea4c231c7caeae5f",
+      "fetchedAt": "2026-10-07T10:38:31.516Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/about",
+      "textHash": "66e0fa79635bcdad0e81d7ebc4fb88be75ff08de4114d15381ea3f1bc27e6acd",
+      "fetchedAt": "2026-10-07T10:38:32.071Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/plans",
+      "textHash": "ccabda01c5ca24dff80163b97c58acc2d0cca1d6eebde70b76a71f5ae3c3bac6",
+      "fetchedAt": "2026-10-07T10:38:33.440Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+      "textHash": "d8619f9b6d3eb73ef845338b572db4d8a731e18d4498b5df8360dc25720891fc",
+      "fetchedAt": "2026-10-07T10:38:33.764Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/trust",
+      "textHash": "a074b045d14473520d270a0187821489f37ee55cd0313ffa211908af370e251e",
+      "fetchedAt": "2026-10-07T10:38:33.773Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/blog/tinyseed-perk/",
+      "textHash": "85df9d6648d35a29421e49052614aa03d62542837d543d81bcf615fca8a6b585",
+      "fetchedAt": "2026-10-07T10:38:34.303Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+      "textHash": "a18175c6b5660e53d3ddefaa95353c2a8b964d0d4d8471609e403b8b42b9fe76",
+      "fetchedAt": "2026-10-07T10:38:34.645Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+      "textHash": "fa603014ad818370a35a5a481b2650739e755fefb085b27c465f1627429fa0bb",
+      "fetchedAt": "2026-10-07T10:38:34.974Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_statusgator_316d3eb5edf6",
+      "url": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+      "textHash": "d8568fab4b7cd7c68657f7d3891bde3c2ed784c89d53830f39f5ae861fddf141",
+      "fetchedAt": "2026-10-07T10:38:35.017Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "teamcamp.app": {
+   "siteName": "公式サイト",
+   "siteUrl": "https://teamcamp.app/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-09-30ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_teamcamp_ae0c21986c4d",
+      "url": "https://www.teamcamp.app/",
+      "textHash": "594209a2bfcdc7ed26d5335dc1850b823c01bead9e333f288e5852a769cdd167",
+      "fetchedAt": "2026-09-30T04:39:49.041Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_teamcamp_ae0c21986c4d",
+      "url": "https://www.teamcamp.app/affiliate",
+      "textHash": "c62013a10f0ed41407d38e7e7bc60aa544fe7487ade93083654f5978cc277cac",
+      "fetchedAt": "2026-09-30T04:39:49.306Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_teamcamp_ae0c21986c4d",
+      "url": "https://www.teamcamp.app/pricing",
+      "textHash": "3b7d42f3eb47ee5c0c6c1498699d44dbe7d1e509758fbde3a61f6526ea76f1f4",
+      "fetchedAt": "2026-10-08T00:04:51.779Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "techcrunch.com": {
+   "siteName": "TechCrunch",
+   "siteUrl": "https://techcrunch.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.techcrunch.v2"
+    ],
+    "reviewUrls": [],
+    "displayTier": "facts_only",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.techcrunch.v2"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_codementor_ba692caa3db3",
+      "url": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+      "textHash": "ede5e4c87673a92a6fa16f871ad91d82bc3ea2d6bccd50a6a1dce87ab4b40512",
+      "fetchedAt": "2026-10-07T23:34:20.976Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_memberful_0dff1f9c00fa",
+      "url": "https://techcrunch.com/2018/08/08/patronage-empire/",
+      "textHash": "9e1de42693b639a2da8c07e1200eca769670cccb0e95a28d102c456fcc47fee9",
+      "fetchedAt": "2026-10-07T09:51:34.442Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "tuple.app": {
+   "siteName": "Ben Orenstein の公式告知",
+   "siteUrl": "https://tuple.app/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/",
+      "textHash": "4749617828582e576984f6b6fed164c19afc9675ca808bdf5f714db8e2840ac4",
+      "fetchedAt": "2026-10-07T09:51:55.728Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/pricing",
+      "textHash": "bab5c5ce4c99645a23976abd35e7d0e153483a501aed4650c685da808e85a98c",
+      "fetchedAt": "2026-10-07T09:51:55.735Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/2020-year-in-review",
+      "textHash": "4fec6c30eebd208a6271ba7a9e2d4648abbf0c869176b045fa8d57d71953ded5",
+      "fetchedAt": "2026-10-07T09:51:55.739Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/the-realness",
+      "textHash": "ecfbfad8cccf340dfff511ddc539401553b038d207e84c812c9dd4a06fa565de",
+      "fetchedAt": "2026-10-07T09:51:56.534Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/helping-with-hacktoberfest",
+      "textHash": "8e8d48b6821aafa032917e98d1ad1312ed6d232ea24605704ccac0db2e5ada2e",
+      "fetchedAt": "2026-10-07T09:51:56.655Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/august-2020-release",
+      "textHash": "d7e20f2f7a8b27d072bb05d4007a01703baa2a601f7cdd3873bb976a00fa1fb1",
+      "fetchedAt": "2026-10-07T09:51:56.720Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/three-player-improvements",
+      "textHash": "129915d40cd0759bdbb905597e455b88faa92345b21123e83e10cd31f7107a6c",
+      "fetchedAt": "2026-10-07T09:51:57.189Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/windows-public-beta",
+      "textHash": "068910049f975688672b414191253585017533d5ecdd1b3a06045615f051794f",
+      "fetchedAt": "2026-10-07T09:51:58.169Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/sso-should-be-table-stakes",
+      "textHash": "694eefc58019cdfbc8d0ffda8eeab4b95385b1be668a46c8ca4249d014d0e6de",
+      "fetchedAt": "2026-10-07T09:51:58.614Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/suppli-case-study",
+      "textHash": "8127338ed0abf8053b08aac9a45b845c79c07ea7f670b89715c0d8ab614c0a32",
+      "fetchedAt": "2026-10-07T09:51:58.823Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_tuple_20261007",
+      "url": "https://tuple.app/blog/new-in-tuple-capture",
+      "textHash": "368fd9a5bc684b377464a0ad061ee078c15ba5b2d4a71a0a78983e2b970d324f",
+      "fetchedAt": "2026-10-07T09:51:58.942Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "typedream.com": {
+   "siteName": "Typedream（公式製品紹介）",
+   "siteUrl": "https://typedream.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/",
+      "textHash": "3e88817ff8fd2aaca34c48632c87b098bf783b721515dd53f80471d244bc202e",
+      "fetchedAt": "2026-10-07T23:30:49.292Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/pricing",
+      "textHash": "3f1b793a84b7d488e87f9bca43470ad9c41b4f241781ee43970a5cb48d166921",
+      "fetchedAt": "2026-10-07T09:51:59.998Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+      "textHash": "75981592fcec1c352c3d44706850d385deb671b500c67d8279f7dece7a0e2d82",
+      "fetchedAt": "2026-10-07T09:52:00.112Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/old-pricing",
+      "textHash": "a8fb3abe17aa08631aa9c6d80f546c280d82af4813f0a51c586a5a7d93c0108e",
+      "fetchedAt": "2026-10-07T09:52:01.562Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/blog/kyleigh-smith",
+      "textHash": "7ea9d5b0aadbbbf9d0f32a789fdedef20bfa622a97f1118779d9e678cb200677",
+      "fetchedAt": "2026-10-07T09:52:01.709Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/affiliate",
+      "textHash": "4102aa9673dfee78ec8dd7f7a3ab39b80ae2cd0663f11a8c3a2767d87984123d",
+      "fetchedAt": "2026-10-07T09:52:01.982Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/refund-policy",
+      "textHash": "607c173619795fa83a334bd031b65ebd11466fbcdb9e7d70670c931b47914bf3",
+      "fetchedAt": "2026-10-07T09:52:02.230Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_typedream_c02cf9d5426e",
+      "url": "https://typedream.com/blog",
+      "textHash": "90c0a11cad2ff27173bc53df1516f3fb755d511eca9b896070d05a532b1a2cbd",
+      "fetchedAt": "2026-10-07T09:52:02.725Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "userlist.com": {
+   "siteName": "Userlist（公式紹介）",
+   "siteUrl": "https://userlist.com/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/press-kit/",
+      "textHash": "f54ccdc89746e87848778eac8bed02791fa3c283d4ce030c0b549358f2f1a1fc",
+      "fetchedAt": "2026-10-07T09:52:02.898Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+      "textHash": "27803455495c655163cec043145c3d19c5428d564133badd7ee0fb6f6a192889",
+      "fetchedAt": "2026-10-07T09:52:03.743Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/customer-research-process/",
+      "textHash": "a126d68dc287dbf379699d42d6dba741febfdc417c7e2cfdde3be693ce849104",
+      "fetchedAt": "2026-10-07T09:52:04.053Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/pre-orders/",
+      "textHash": "de15b22c4d6ff86eb229d2f9b0bfa62afd99d052c63e246f8a8a4371ce18ef80",
+      "fetchedAt": "2026-10-07T09:52:04.280Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/early-product-design-decisions/",
+      "textHash": "2d7c53e79d33941e67671aab66891622d5b2db91a1868f51e57b0f9e34d8b66a",
+      "fetchedAt": "2026-10-07T09:52:04.707Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/launch-strategy/",
+      "textHash": "bf8eb24ac22310ba806834565d5f9a288cf80cf4aeda17bf2b702816d5566aab",
+      "fetchedAt": "2026-10-07T09:52:04.906Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/userlist-officially-live/",
+      "textHash": "c7cef77a446fcca82bfa5f2259ae7629ab34dbfbb89cfa63a8a6d1027698de1d",
+      "fetchedAt": "2026-10-07T09:52:05.108Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/positioning-overhaul/",
+      "textHash": "cafcd44ead38d88d334b5474e930a3d8b3fbf79b6159113aa448e3c8d4fabcc7",
+      "fetchedAt": "2026-10-07T09:52:05.512Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/pricing/",
+      "textHash": "cb6ca77e06d7cdfff1536b6159cb7380a5b3d8f9d738641c07cf0ee164c1da44",
+      "fetchedAt": "2026-10-07T09:52:05.623Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/services/customer-loyalty-kit/",
+      "textHash": "6c0f9666bad24cf68fbda4ed4cffecfbf23230b814e18ce1aa4c10ddece0ed90",
+      "fetchedAt": "2026-10-07T09:52:05.924Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/case-studies/agent-methods/",
+      "textHash": "ed38961eb88f3baa9c34ad4fd42fc926ed9cd5b7ee71730c27fa28554833cf52",
+      "fetchedAt": "2026-10-07T09:52:06.477Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/case-studies/fileinbox/",
+      "textHash": "917995a7f39738e4cee892aed57f012d7bb9d20272830565301fcb58c87b9aac",
+      "fetchedAt": "2026-10-07T09:52:06.662Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_userlist_a288fcf9f741",
+      "url": "https://userlist.com/blog/how-we-redesigned-userlist/",
+      "textHash": "55e0975bbc9cf629a67952c1784e06e9c0fcfe653a0966d21082478529a2cfff",
+      "fetchedAt": "2026-10-07T09:52:08.433Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  },
+  "wip.co": {
+   "siteName": "WIP公式トップページ",
+   "siteUrl": "https://wip.co/",
+   "status": "active",
+   "statusReason": "公開中の事例で使用中",
+   "statusChangedAt": "2026-10-08T14:45:50+09:00",
+   "decision": {
+    "decidedAt": "2026-09-29T09:00:00+09:00",
+    "decidedBy": "標準の権利規則（Universal Foundation の審査）／台帳への記録は担当(2026-10-08)",
+    "basis": "registry",
+    "policyIds": [
+     "rights.official-company-website.v1"
+    ],
+    "reviewUrls": [],
+    "displayTier": "automatic",
+    "usage": "数字と事実だけを自分の言葉で書き、出典の名前・URL・日付を付ける。文章・画像は写さない（本人の発言は「本人申告」と表示）",
+    "checks": {
+     "loginFree": "yes",
+     "noPaywall": "unconfirmed",
+     "quoteTerms": "unconfirmed",
+     "note": "ログイン不要: 取得時（2026-10-07ほか）に直接取得で本文を読めた（HTTP 200）。 有料の壁・規約の引用禁止条項: 未確認（確かめたら rights:review で更新する）。 標準の規則: rights.official-company-website.v1"
+    },
+    "termsUrl": null,
+    "termsCheckedAt": null
+   },
+   "ownerWords": [
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "お前の方で大丈夫なやつを選んで出すんだよ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "それらも記録してね　権利関係",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "あとで誰かに何か言われたら柔軟にできるように",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "法的に変わったりしたらとかさ",
+     "verbatim": true
+    },
+    {
+     "at": "2026-10-08T00:00:00+09:00",
+     "text": "今後は絶対にそれも加味して集めるようにして、できるようにして",
+     "verbatim": true
+    }
+   ],
+   "evidence": {
+    "terms": null,
+    "sourcePages": [
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/",
+      "textHash": "8f5c3822d6dcf44fee5e5166dbe48f65c63c2ad0620febd1be4c87dc179c9060",
+      "fetchedAt": "2026-10-07T09:52:09.445Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+      "textHash": "8d6c809fee9c17afc5f6543ff8ef95592acc0e58cd717cbebcd5744bf40881f9",
+      "fetchedAt": "2026-10-07T09:52:10.393Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+      "textHash": "2669dfecd4e05ddacf12e385914f88aa999b2beebf0fa2fd285e10a3f066c383",
+      "fetchedAt": "2026-10-07T09:52:11.116Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+      "textHash": "68c4fb5b8479350571d7667e9b0d9c29cbec72fcc5f2b9384f6c9bf0431ef46e",
+      "fetchedAt": "2026-10-07T09:52:11.226Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+      "textHash": "29e06934da53bbf40bdf79c1a4644a96264a20dca3a877fbc6d6f169827f335e",
+      "fetchedAt": "2026-10-07T09:52:11.325Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+      "textHash": "dd3a751c69fcd5e6755ff4cd6d859634afb7256e4c04e787603cd9461d7c16a1",
+      "fetchedAt": "2026-10-07T09:52:11.704Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/posts/getting-invites-t8wnyy",
+      "textHash": "33f39fa2fcc5117a10c56e62c646ffccbcb85b9498ab9a74d0b163efd010e8bc",
+      "fetchedAt": "2026-10-07T09:52:11.797Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/join",
+      "textHash": "b2073ee12b213e5dce8e6a62e237c3823a9f5f6026de76e478c361fcdbd21d41",
+      "fetchedAt": "2026-10-07T09:52:12.480Z",
+      "via": "direct"
+     },
+     {
+      "caseId": "ent_wip_5eef8a985270",
+      "url": "https://wip.co/pro",
+      "textHash": "a4260a7f34aee747c518d28f68b57fab694f91dedebad69198766d92f617a63f",
+      "fetchedAt": "2026-10-07T09:52:12.991Z",
+      "via": "direct"
+     }
+    ]
+   },
+   "history": [
+    {
+     "at": "2026-10-08T14:45:50+09:00",
+     "by": "担当(rights-ledger)",
+     "action": "seed",
+     "reason": "公開中の事例が使う出典として、既存の権利判断から台帳に記録"
+    }
+   ]
+  }
+ }
+}

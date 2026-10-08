@@ -23,8 +23,6 @@ interface AuditedSource {
   publicationDate: string | null;
   checkedAt: string | null;
   tierLabel: string | null;
-  selfReported: boolean;
-  articleEstimate: boolean;
   unreachable: boolean;
 }
 
@@ -43,7 +41,7 @@ function stringField(record: Record<string, unknown>, key: string): string | nul
   return typeof value === 'string' && value.trim() ? value.trim() : null;
 }
 
-/** Re-audit sources carry per-source provenance (publisher, dates) and the registry display tier. */
+/** Re-audit sources carry per-source provenance (publisher, dates) and the registry display tier. 出どころの印（本人申告など）は画面に出さない（OWNER_INTENT 20章1）。 */
 export function auditedSources(reaudit: unknown): AuditedSource[] {
   const sources = reaudit && typeof reaudit === 'object' ? (reaudit as { sources?: unknown }).sources : undefined;
   if (!Array.isArray(sources)) return [];
@@ -59,8 +57,6 @@ export function auditedSources(reaudit: unknown): AuditedSource[] {
       publicationDate: formatDisplayDate(stringField(record, 'publicationDate')) || null,
       checkedAt: formatDisplayDate(stringField(record, 'checkedAt')) || null,
       tierLabel: TIER_LABELS[stringField(record, 'displayTier') ?? 'unregistered'] ?? null,
-      selfReported: /SELF_REPORT|REPORTED_BY_SUBJECT|(FOUNDER|COMPANY|OWNER)_(SELF|STATEMENT)/.test(claim),
-      articleEstimate: /ESTIMATE_BY_ARTICLE/.test(claim),
       unreachable: claim === 'UNREACHABLE',
     }];
   });
@@ -73,8 +69,6 @@ export function mergeAuditedSources(sources: AuditedSource[]): AuditedSource[] {
     const key = `${source.publisher ?? ''}|${new URL(source.url).hostname}`;
     const current = merged.get(key);
     if (!current) { merged.set(key, { ...source }); continue; }
-    current.selfReported ||= source.selfReported;
-    current.articleEstimate ||= source.articleEstimate;
     current.unreachable &&= source.unreachable;
     if (source.checkedAt && (!current.checkedAt || source.checkedAt > current.checkedAt)) current.checkedAt = source.checkedAt;
     if (!current.publicationDate) current.publicationDate = source.publicationDate;
@@ -172,8 +166,6 @@ export function SourcesSection({ entity }: Pick<InspectorSectionProps, 'entity' 
               <ExternalLink aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
             </a>
             <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1">
-              {source.selfReported && <span className="text-term-accent">本人申告（独立確認なし）</span>}
-              {source.articleEstimate && <span className="text-term-accent">記事の推計（本人の申告ではない）</span>}
               {source.unreachable && <span className="text-term-label">確認時に到達不能</span>}
               {source.publicationDate && <span>掲載 {source.publicationDate}</span>}
               {source.checkedAt && <span>確認 {source.checkedAt}</span>}
