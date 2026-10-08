@@ -4,12 +4,12 @@
   "sourceCount": 3377,
   "publishedCount": 29,
   "summaries": {
-    "hash": "53b25a7f9de5073dd135d2b247d8e83ab6c70b5d54827f29d1e846588d85f790",
-    "key": "views/make-money/catalog-v1/objects/53b25a7f9de5073dd135d2b247d8e83ab6c70b5d54827f29d1e846588d85f790.json.gz"
+    "hash": "40115a99bfbd4266c067410c44ef04417ba430db28f429013cba0dca75496d62",
+    "key": "views/make-money/catalog-v1/objects/40115a99bfbd4266c067410c44ef04417ba430db28f429013cba0dca75496d62.json.gz"
   },
   "discovery": {
-    "hash": "17dd0d725bedb25124830c6f9f4a080aa15fa8c05c96cae1fc2ecb28dc26b930",
-    "key": "views/make-money/catalog-v1/objects/17dd0d725bedb25124830c6f9f4a080aa15fa8c05c96cae1fc2ecb28dc26b930.json.gz"
+    "hash": "eb87a0c84d93bda2b3d3c1b4fd802e1208314f7e0c1a3d73c8328577350c7385",
+    "key": "views/make-money/catalog-v1/objects/eb87a0c84d93bda2b3d3c1b4fd802e1208314f7e0c1a3d73c8328577350c7385.json.gz"
   },
   "details": {
     "ent_myoperator_49c393230a2d": "0154cdd2077d23fbd901929d6a36eb3cfc7c387377f6eabac8492556ea4dc9fa",
@@ -23,12 +23,12 @@
     "ent_requestly_28e9f2": "3ef0b3dddefbbb7b88b059482817c4dbacc86243e9a499730ad8f8379b7945fb",
     "ent_practicaltypographycom_e9aa6bc94ccf": "45b5b49a586f1547b1e59c44797c591e021afed14449c7d4d73112c05747155a",
     "ent_churnkey_8d7f2b269c21": "ca78255e23197f839f67e7d1fedadd298c79fdcbe1a3665d9b083cd41ff264c6",
-    "ent_hostifi_cf9ec73a42d2": "03857febca326cf3d24b3b4432a6fc82eca60db8ffb04b88a00aa97a38773b9a",
+    "ent_hostifi_cf9ec73a42d2": "898ae41d02fc975b70720913f690897294770235a3911a4404b0c08f0f73bf8d",
     "ent_indiehackers_6548833164b0": "9c425f1eb09bbd434680e94f823eb4179b6624f6fd02cea4cade4d8cc2507209",
-    "ent_memberful_0dff1f9c00fa": "1095154e735bdb406ab581aaf368f31e35d4e1adf03ca554a40c6036d91f084a",
+    "ent_memberful_0dff1f9c00fa": "fbd6bd8881bc29552175d8d9ff9c70f505bfca3a7db80a70f059bc5c966d1391",
     "ent_poolsuite_6d5ad6895563": "366beee4ae908478ffdbe06fefba3d2b99b8659dcb93dad982abbc1764ca1cee",
     "ent_tuple_20261007": "b0f862fd408881b101266b7f9953076b7012029bfdbe9b74496e77c5418c49c4",
-    "ent_typedream_c02cf9d5426e": "7395a443a14d970350fb5c0abd5baf1a3b6132b4b381d23322bbe40606e18362",
+    "ent_typedream_c02cf9d5426e": "3b50ee4f2a6e5fb3b38a716ceffc174a110f6cb9cc2a4f9298e75eb69a610b19",
     "ent_userlist_a288fcf9f741": "e5817e871dd52f8706903636551e5bd407677008124c9b95fdda45d0304ca2c2",
     "ent_wip_5eef8a985270": "e0d5e059c80fbcc57dd7bbfe43ddbd2811cc51cb7dd962dfaff939032207be61",
     "ent_button_shy_f1545f17d98e": "41dffac41b339b9c5e8f771f5597136a826fd773695876656848ca3505374505",
