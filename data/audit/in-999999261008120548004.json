@@ -1,0 +1,636 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_ejunkie_7e9e46bd9643",
+   "scope": "diff",
+   "auditScope": "差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "コピペしたボタンやリンクで、ダウンロード商品・ゲームのコード・チケット・現物の商品を、どのサイト、ブログ、SNS、メールからでも売れるようにするサービス。5分で簡易ショップも作れる。売り手はPayPal、Stripe、Braintree、Authorize.Net、2Checkout、Razorpayなど自分の決済会社をつなぐ。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "PRICING",
+     "text": "料金は月額固定の4段。月8ドル（商品10点・保存200MB）、月10ドル（40点・2GB）、月20ドル（150点・8GB）、月40ドル（商品・保存とも無制限）。全プランで販売数とダウンロード数は無制限、取引手数料なし。14日間の無料試用にカードは要らない。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "FOUNDING",
+     "text": "創業者Robin Singhは、勤め先の収入を補うために自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払い通知のたびにメールで手渡しした。2003年末に配信を自動化するスクリプトを書き、作家の友人と音楽家の友人に電子書籍とMP3の配信用にカスタマイズを頼まれ、2004年半ばに誰でも使えるダウンロード販売サービスにした。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f4",
+     "kind": "CHANNEL",
+     "text": "本人は、Googleで著者を探し、自費出版の電子書籍があれば、設定を引き受けると個別にメールした。職人市にも出向き、作家のためにオンラインショップを設けた。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f5",
+     "kind": "EXIT",
+     "text": "2019年4月の本人の投稿によると、2011年にE-junkieを持つ会社の持分を売って事業から退き、動物保護施設と有機農場を始めた。2017年12月に経営へ戻って立て直しを進めている。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f6",
+     "kind": "OTHER",
+     "text": "Indie Hackersのインタビューは、題で年間の定期売上（ARR）100万ドルへの到達を掲げる。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f7",
+     "kind": "TEAM",
+     "text": "チームは開発者、技術者、Linux担当で、アリゾナ州ツーソンとインドのダラムサラ近郊が中心。公式の沿革は、客が今では数千に達していると書く。AWS上の分散アプリとして動く。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "OTHER",
+     "text": "出店者は自分の商品に紹介（アフィリエイト）制度を作れる。紹介者の側は、システムの利用が無料。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "取引ログは、決済会社が報告した内容を受け取った二次情報にすぎず、会計や金額の確認には決済会社の記録を使うよう、公式が注意書きを付けている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "PRICING",
+     "text": "競合のGumroadは、直販が1件ごとに10%＋0.50ドル（月額なし）、同社の販売サイト経由は30%。2025年1月1日から売上税の徴収・納付を同社が代行する。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [
+    {
+     "id": "m1",
+     "line": "項目=REVENUE / 期間=過去ほぼ10年の年平均（2019年5月のインタビュー）(YEAR) / 金額=1000000 USD / 由来=SELF_REPORTED"
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+     "publisher": "Indie Hackers（インタビュー）",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+      "finalUrl": "https://web.archive.org/web/20221205114704/https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+      "status": 200,
+      "fetchedAt": "2026-10-06T09:31:35.990Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "8b5164bc6c08a41ddbda0d4e64f04836e04f9236fb9f97b37ecbb0a93bf6001f"
+     },
+     "text": "Overcoming Technical Roadblocks to Achieve $1 Million ARR - Indie Hackers\nHi, I\nHi, I\nOvercoming Technical Roadblocks to Achieve $1 Million ARR - Indie Hackers\nOvercoming Technical Roadblocks to Achieve $1 Million ARR - Indie Hackers\n8 captures\n18 Sep 2019 - 05 Dec 2022\nNov\nDEC\nJan\n05\n2021\n2022\n2023\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20221205114704/https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f\nExplore\nCommunity\nConnect with other founders and creators.\nExplore\nBrowse the best of Indie Hackers.\nProducts\nSee what everyone's working on.\nPodcasts\nLearn while you're on the go.\nMeetups\nMeet indie hackers across the globe.\nStore\nBuy an Indie Hackers t-shirt.\nNewsletter\nStay up-to-date in 5 minutes or less.\nLog In\nSign Up\nRobin Singh\nOvercoming Technical Roadblocks to Achieve $1 Million ARR\nE-junkie\nCopy-paste purchase links and landing pages for creators.\nPosts\n3\nRevenue\n$70K\n/\nmo\nWebsite\nHello! What's your background, and what are you working on?\nHi, I'm Robin. I started working with computers in 1991 with a DOS and BASIC manual to write and play games since I didn’t fit in well with other kids.\nWhen the internet was introduced in India there was no clear documented procedure for getting access. Regrettably, I had to resort to “social engineering” and writing trojans in order to get access. Deciding to put my coding skills to more acceptable use, I started making websites and web applications in Flash. A misspelled email to a client put me in touch with Danny, an ex-punk rocker and the producer of the movie Spun. He was also running a startup webshop in the US. Next thing I knew, I was building kevinspacey.com! After 18 months and numerous projects together we decided to work to grow Danny’s shop since we were working in the same space. I moved to Tucson, AZ, in 2003.\nAdjusting to adobe houses and quiet streets was quite a culture shock. But having access to high-speed internet, a vast public library system, and coffee shops changed my life forever. Eventually, I fell in love with the desert.\nAlthough I’ve always liked tech (and still do), I used to see it as a means to an end; my short term goal was financial freedom, which would allow me the ability to pause and be non-utilitarian within a conventional value system.\nMy plan was to save up some money, take a year off, and completely focus on a content publishing platform. This had started off as a personal project where I channeled my obsession for documenting new observations. I ended up generating $300-$400 a month from Google Adsense. I thought if I could get to the point where I could make $3,000 I would be set for life. I kept my expenses at an all-time low to save up for my one-year hiatus.\nTo supplement my income I also sold a small graphic utility. I promised to buyers that I would deliver their goods in 4 hours or less. Whenever PayPal texted my phone about the sale, I had to rush back home or roll out of bed and email the file. Once I got fed up with that, I decided to write a script to automate it and called it “PayPal IPN.” I started selling it and also charged for setup.\nWhat motivated you to get started with E-junkie?\nThings changed in 2004 when a few of my musician friends asked me to help them set up the PayPal IPN script to deliver their MP3s. Even though it would have been great for exposure, they didn't want to send their fans to the iTunes store for their music. They wanted them to buy their music from their actual site and avoid the fees.\nAround the same time, I got a cease and desist from PayPal that I shouldn’t be using their name.\nThat’s when the idea of E-junkie was born: a self-service website where people can upload their products, link to their payment account, and get a purchase link to use anywhere.\nWhat went into building the initial product?\nI rented a few blades in a server farm across town and started coding. I didn’t need much money to start E-junkie and the code I wrote wasn’t complex. I was able to set up the servers, fix the DNS, and create graphics myself.\nI worked my day job and then continued to work on E-junkie at night. When it grew so large that I needed more hours, I hired the webshop I worked for using my Adsense income.\nMy approach has always been hackish; I paid little attention to “good practices.” I’m an innovator and a problem solver, not a business person. And sales and marketing were foreign to me. It became clear then that my salvation would come from E-junkie, so I abandoned my content publishing website.\nAround 2006, Google approached me, asking if I was interested in being part of Google Checkout beta and implementing it in E-junkie. This was a game changer. At that point, E-junkie was only providing PayPal \"Buy Now\" buttons for makers who sold anything digitally (like files or access codes). Most of the folks using E-junkie were artists, software developers, and authors.\nIn order to offer two different payment processors, E-junkie needed a shopping cart. At that point third-party carts were ugly; as far as I remember they did not do digital delivery complete with files, access codes, etc. So I started working on a cart that would work inside the merchant’s website in a lightbox.\nThere was nothing like that at the time, and for good reason — there was no way to implement something like that. So I wrote my own program which I called JSOD (Javascript on Demand). With some hacks, the JS code was generated on E-junkie servers and then embedded itself in the DOM of the page where our cart was being generated. I called it “Fat Free Cart.” It became widely popular; we were featured on TechCrunch, and PayPal loved it so much that I was even on the banners of the PayPal Innovate Conference.\nOur clients were still DIY artsy people who didn’t have the need for too many custom solutions. They liked us for the ease of use. We had dissolved the technological barrier to entry for enabling e-commerce on a website. Big companies like MTV and Google Kitchen even started using E-junkie.\nI became a victim of my own success. After being a one-man army I knew I needed people for customer support, writing docs, and development. I needed to build a functioning business.\nE-junkie did not start with a grand vision or a master plan. We kept adding what our clients wanted, and most of those features helped us bring in more clients.\nTweet\nShare\nWhat's funny is that the whole idea of E-junkie originated from my not wanting to wake up in the middle of the night to manually deliver, but at that point I was waking up in the middle of the night to reconcile any customer support emails. My partner Shivani was helping me, but living and working together gives rise to a lot of personal tension, too.\nHiring and team building were so alien to me (remember that I started coding to be away from people). For most of what I needed in life (buying things, selling things, help with moving) I went to Craigslist. I loved the website, and I liked Craig. He actually responded when I sent him an email. :)\nSo naturally, I posted an ad on Craigslist and met Tyson, our first customer support person (other than Shivani and I). Then later I found Thad, a second developer.\nBy then we had outgrown the server farm and invested in a few boxes of our own — running CentOS, firewalls, switches, KVM, power strip with remote access, the works. We moved to Login, a highly secure co-lo facility. Not very long after moving we got DDoSed. There were sleepless nights of manually finding and adding the offending IPs to the firewall.\nLuckily for us, there was a startup called RioRey which shipped us two of their boxes overnight. I was able to work with them to modify the firmware and add a feature that helped us tweak its filtering for the attack specific to us.\nMost of the initial years were overcoming very tangible technical hurdles. Things which seem so simple and stupid now that we have AWS. E-junkie did not start with a grand vision or a master plan. We kept adding what our clients wanted, and most of those features helped us bring in more clients.\nHow have you attracted users and grown E-junkie?\nIt was one-on-one, for the most part. I met people at craft fairs and sent emails to people who were selling digital products manually, like me. I researched authors who were publishing books independently and emailed them. I helped a lot of folks in marketing and payment processor forums as a way to get the name in front of them. Still, I’d say my efforts were more focused on brand-awareness than selling. I was happy to send clients to the competition if it seemed like their plans or features were a better fit.\nI used to fly Southwest often between Tucson and San Francisco; I read in their magazine once that they considered themselves to be in the business of customer service and flying planes. Taking a page from their book, we focused heavily on great customer service and turned a lot of our clients into our evangelists.\nWe started a re-seller program which brought us 20% of our business. This was scrapped by the new management, and I am in the process of reviving it now.\nWhat's your business model, and how have you grown your revenue?\nFrom the get-go, I didn’t want artists to think that I was here to get rich off of their efforts. I was against profit shaving. Our model is a flat fee for the use of the software. If you make or do something awesome, I don’t see any reason why I should get paid for your output.\nOur primary revenue stream is the monthly subscription amount merchants pay to use our service. When merchants want to send their buyers product updates, we charge a tiny fee per update. Once we were processing decent volumes, the payment processors did a rev share with us, which was pretty sweet.\nFor almost a decade now we have averaged $1MM a year in revenue. After expenses (but before taxes), E-junkie is netting about $500k a year. Our biggest expense after salaries is the PayPal fee and AWS charges, as we serve terabytes of data each month.\nMonth\nRevenue\nDec '18\n77854\nJan '19\n76317\nFeb '19\n73605\nMar '19\n74479\nApr '19\n72384\nMy monetary goals were met back in 2011, and through hard work I was able to afford the biggest luxury money can buy: freedom. I took the time to figure out what to do with that freedom and ended up starting an animal rescue and organic farm in 2014.\nWe have a 20-person team helping us run the farm. I’ve since bought back E-junkie and have been re-building it over the past year with my amazing team. I don’t take any money from E-junkie since I have minimal living expenses while living on the farm.\nAs much as I used to like things being perfect, I don’t strive for perfection; just improvement and getting the job done. That approach helped me get E-junkie off the ground.\nTweet\nShare\nWhat are your goals for the future?\nMy biggest failure with E-junkie was leaving it too early — we had a great team and amazing clients, but we lacked structural leadership and a unified vision. I failed my product, my team, and my clients. Now, I want to focus on people and turn E-junkie into an employee-owned company with a bigger team and stronger leadership. I also want to re-focus on my true definition of \"life’s work.\"\nI want to learn how to sell in order to help me grow E-junkie; it will help materialize my ideas and make them accessible while attracting talented people to join us.\nWhat are the biggest challenges you've faced and obstacles you've overcome? If you had to start over, what would you do differently?\nAs much as I used to like things being perfect, I don’t strive for perfection, just improvement and getting the job done. That approach helped me get E-junkie off the ground. But there is a balance between striving for excellence at the cost of missed opportunity. If I could do this over, I’d learn proper coding standards before building out E-junkie.\nHave you found anything particularly helpful or advantageous?\nI didn’t listen to the naysayers telling me that “nobody wants to read e-books,” or that “you can’t give unlimited bandwidth for five bucks.” I went with my gut and most times it turned out okay, and the times it didn’t, at least I didn’t have anybody else to blame.\nI give a lot of credit to fortune and misfortune. For me to get where I am now, there were a series of intricately linked events, like meeting the right people at the right time. And why I didn’t become a billionaire before I exited E-junkie is also not meeting the right people at the right time. :) Among the numerous factors that influence the outcome of events, the right people may just be the X-factor.\nI’ve chosen to believe that waking life is the working life. I don’t do work-life balance. People around me know that. I work 10-hour days seven days a week. I switch between projects that I handle to avoid being burnt out.\nMy balance hinges on six key things:\nPersonal care, so I can function efficiently\nWork that makes money\nWork that utilizes that money\nDelegating menial tasks that steal your productivity\nLeisure time, which is when I get to play with ideas and experiment\nRest time before sleep so I don’t sleep wound up\nI maintain a broad structure for the day. I limit my exposure to things — people, noise, projects — which can distract me. I like being focused, so I can make sure that I (and the people around me) know what to ignore.\nWhat's your advice for indie hackers who are just starting out?\nMy biggest learning has been from a quote by Rumi: “The art of knowing is knowing what to ignore.\" We have a tendency to read, learn, and know…and that’s great for free association. But we know a lot more beyond what we need to know and that extra knowledge just clutters up your brain.\nI see people trying to make the next big thing and overlooking small opportunities, like creating useful tools, utilities, and services. Especially if people are quitting jobs to start something, they expect to reach that level of income from the business in some unrealistic period of time. If what you want is financial freedom, lower your expenses and save up enough to tide you over for a year or two. Then the target income at the end of that year shouldn’t be the package you walked away from, but the minimum you need to sustain yourself.\nI am still a big fan of the quick and dirty “get it done and do it by feel” approach, but now I temper that with a procedure (I’m not talking about just code but any kind of process).\nI like the book Kluge by Gary Marcus. It was the first book which explained why people and conversations are not linear and rational. Being able to factor that into my thought process helped me adapt better to social situations.\nCognitive Surplus by Clay Shirky and Drive by Daniel Pink have great insight into understanding people further, especially helpful if you have a team.\nWhere can we go to learn more?\nE-junkie’s website is www.e-junkie.com , and my animal rescue’s site is www.peepalfarm.org . I mostly muse at https://facebook.com/locaterobin . I’ve also penned my thought process from the time I exited E-junkie to the time I started Peepal Farm.\nFor me, sharing ideas and scaling ideas are related. I’ll be happy to take a crack at answering any questions you might have.\nThank you!\n—\nRobin Singh\n, Founder of E-junkie\nWant to build your own business like E-junkie?\nYou should join the Indie Hackers community ! 🤗\nWe're a few thousand founders helping each other build profitable businesses\nand side projects. Come share what you're working on and get feedback from\nyour peers.\nNot ready to get started on your product yet? No problem. The community is a\ngreat place to meet people, learn, and get your feet wet. Feel free to\njust browse !\n—\nCourtland Allen\n, Indie Hackers founder\n27\nvotes\nSign in to comment…\nPost Comment\n1\nWow, one of the most interesting stories here, thank you for sharing!\nI especially love your organic and rescue farm, and that you want to turn E-Junkie into an employee-owned business. I am always glad to hear that there are goals and drives outside of just money.\nAgain, thanks for sharing and I wish you good fortune with everything, may you continue to meet the right people!\nBadestrand\n·\n4 years ago\n·\nReply\n1\nThank you for your good wishes! :)\nlocaterobin\n·\n4 years ago\n·\nReply\n1\nGreat story - would be curious to hear more about how/when you sold and then the re-purchase..\nTonyDehnke\n·\n4 years ago\n·\nReply\n1\nIt wasn't a big acquisition. I'd sold my share in the family owned private company that owns E-junkie, and then rebought it later.\nlocaterobin\n·\n4 years ago\n·\nReply\n1\nHi Robin, love the story and especially your philosophy for minimalism and frugal life. To the point! (plus, I've used e-junkie!). Good luck!\nmilachervenkova\n·\n4 years ago\n·\nReply\n1\nThank you Mila :) My next step is to start a small project - \"school of happiness\" - which will be about necessity of a philosophy of life and also wanting what you already have.\nlocaterobin\n·\n4 years ago\n·\nReply\nMore Interviews\nRead the stories behind hundreds of profitable businesses and side projects.\nZepto\nWorld's Simplest AI Powered Cloud based Data Analytics Tool.\n$1.7K/mo\nApurvaUdeshi\nPhotoEditor SDK\nA Photo Editor for your app\n$120K/mo\nDanielHauschildt\nZepto\nWorld's Simplest AI Powered Cloud based Data Analytics Tool.\n$1.7K/mo\nApurvaUdeshi\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nby\n@csallen\nat\nLearn from the founders behind hundreds of profitable online businesses, and connect with others who are starting and growing their own companies.\n© Stripe\n·\nFAQ\n·\nTerms\n·\nPrivacy\n·\nCookie Settings ,\nPolicy\n·\nCommunity\nGroups\nMeetups\nTop Today\nTop This Week\nTop This Month\nJoin\nProducts\nAll Products\nHighest Revenue\nSide Projects\nSelf-Funded\nAdd Yours\nLearn\nExplore\nStart Here\nPodcasts\nContribute",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://www.e-junkie.com/",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.e-junkie.com/",
+      "finalUrl": "https://www.e-junkie.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:46.572Z",
+      "via": "direct",
+      "contentType": "text/html;charset=UTF-8",
+      "textHash": "be424f07cda6c4365fdbbbfdbbb9f83c9bc510a6afd3d6fe5f5026b5a0d600ad"
+     },
+     "text": "Sell Downloads | E-junkie\nCopy-paste buy-now, and cart buttons for selling digital goods, downloads, codes and physical goods on any website, blog, social media, email and messenger!\nSell Downloads | E-junkie\nCopy-paste buy-now, and cart buttons for selling digital goods, downloads, codes and physical goods on any website, blog, social media, email and messenger!\nSell Downloads | E-junkie\nSOLUTIONS\nFEATURES\nPRICING\nDISCOVER PRODUCTS\nCONTACT\nHELP DOCS\nLogin\nWe help you sell downloads\nCopy-paste a link to sell downloads, or physical goods on any website. Or, create a simple shop in 5 minutes. Sell art, ebooks, comics, game codes, merchandise, and more!\nSee how it works\nGet Started\nTry E-junkie free for 14 days\nNo credit card required\nSell on\nWebsite & Social Media\nCreate\nYour online shop\nSell\nDigital goods on ebay\nStart selling in 3 easy steps.\nSell on your website, blog, social networks, Whatsapp, Messenger, everywhere!\nStep 1\nLink your payment processor.\n(PayPal, Stripe, Braintree, Authorize.Net, 2Checkout and more)\nStep 2\nAdd your product details\n(Sell file downloads, codes, tickets, tangible items!)\nStep 3\nCopy-Paste the button codes or links in your website, blog or social networks.\nSee all payment integrations\nWhat all can I sell on E-junkie ?\nFrom file downloads for comics, ebooks, art, music, video, software to\ncodes for games, tickets, gift cards to tangible items which require\nshipping calculation ... you can sell it all! Sell for a fixed price\nor at a \"pay what you want\" pricing Or even accept donations. E-junkie\ndoes it all.\nAll the features you need\nSecure digital delivery\nInstant download of your files and codes after a successful payment.\nShipping calculation\nUnless you are delivering on your bike, use our cart to happily calculate shipping and handling using a variety of methods, including UPS, USPS, flat rate and other custom shipping rules.\nAffiliate programs\nWant to recruit your fans to increase sales? Start signing up affiliates right away with our affiliate sign-up links.\nVIEW ALL FEATURES\nTRY DEMO\nLive Sales\nStart selling\nStart your 14 day free trial\nContact\nProduct\nSolutions\nFeatures\nPricing\nSolutions\nBuy Now Button\nShopping Cart\nProduct Page\nHosted Shop\nSelf Hosted Shop\neBay Digital Delivery\nPayment Methods\nPayPal Standard\nPayPal Payments Pro\nStripe\nBraintree\nAuthorize.net\n2Checkout\nPayPal Advanced\nPayPal Payflow Pro\nPayPal Payflow Link\nRazorpay\nInstamojo\nPaytm\nFeatures\nSell Files\nSell Codes\nOffer Pay-what-you-want\nOffer Free Checkout\nSell Downloads Offline\nDiscounts\nPDF Stamping\nAffiliate Network\nProduct Bundles\nProduct Variations\nSell Physical Goods\nAnd more...\nCompany\nAbout Us\nTerms of Service\nPrivacy Policy\nEnd User Privacy Policy\nGDPR\nData Processing Addendum\nHelp\nDocumentation\nForums\nContact Us\n14-Day FREE Trial\nRegister today and get a 14 day free trial period (normally 7 days)\nGET IT NOW\nLimited Offer",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s3",
+     "url": "https://www.indiehackers.com/product/e-junkie",
+     "publisher": "Indie Hackers",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/product/e-junkie",
+      "finalUrl": "https://www.indiehackers.com/product/e-junkie",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:46.836Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "57f9bf2b05a8f50774a6178db9da9da2316d71b0c93d449af2e37ee1a9b3a57f"
+     },
+     "text": "E-junkie - Indie Hackers\nE-junkie removes technology barrier for creators - who want to sell their digital and tangible goods on any website, blog or social media platform - by pro\nE-junkie removes technology barrier for creators - who want to sell their digital and tangible goods on any website, blog or social media platform - by pro\nE-junkie on Indie Hackers\nE-junkie - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\nE-junkie\nCopy-paste purchase links and landing pages for creators.\nVisit Website\nE-junkie Copy-paste purchase links and landing pages for creators.\nPosts 3\nRevenue $70K / mo\nWebsite\nApril 13, 2019\nI exited in 2011\nI sold my interest in the company that owned E-junkie, and started an animal rescue and an organic farm. In December 2017, I took over again and am turning it around.\nRobin Singh\n4 Upvotes\n6 Comments\nSay something nice…\nPost Comment\n2\nThat's incredible!\nVinrob\n&middot;\n7 years ago\n&middot;\nReply\n1\nThank you :D\nlocaterobin\n&middot;\n7 years ago\n&middot;\nReply\n1\nAwesome! I sold my first ever online info product back in the day through e-junkie, felt good. Here's to your success\nnandreev\n&middot;\n7 years ago\n&middot;\nReply\n1\nRobin, I had read your story on Yourstory or something. I was there at Ghoomakad, Kangra last December for around 40 days.\nWanted badly to visit Peepal Farm but couldn't.\nAnyways good to see you here.\nGood luck to you.\nprimelabs\n&middot;\n8 years ago\n&middot;\nReply\n2\nHey Siddharth, oh you should have! Our lead programmer now is from hill hacks :)\nChalo, next time!\nlocaterobin\n&middot;\n8 years ago\n&middot;\nReply\n2\nI am planning to go to this year's hillhacks, given I am able to meet my deadlines this month.\nWill try to meet you definitely.\nprimelabs\n&middot;\n8 years ago\n&middot;\nReply\nApril 13, 2019\nBooks and Craft fairs\nI'd just look up authors on Google and email them one on one asking if there is an ebook they have self pubished that they'd like technological help selling, and would go on and set everything up for them. I also went to craft fairs and set up online shops for the artists.\nRobin Singh\nUpvote\nComment\nApril 13, 2019\nSupplementing my income\nI used to sell a software to supplement the income from my job. I was guranteeing that I'l deliver the software within 3 hours of payments, which meant rushing to home if I was out for dinner, or roll out of the bed and email the software, every time my phone got a text for an incoming payment. Tired of that, I decided to automate the delivery. I wrote a script towards end of 2003, to do that and then an author friend and a couple musician friends made me customize it to automate the delivery of their ebook and mp3, and so in mid 2004 I converted it to a service that anyone could use for selling digital downloads.\nRobin Singh\n1 Upvote\nComment\nAbout\nE-junkie removes technology barrier for creators - who want to sell their digital and tangible goods on any website, blog or social media platform - by providing copy-paste purchase buttons and product landing pages.\nPeople\nRobin Singh Founder\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://www.e-junkie.com/wiki/about",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.e-junkie.com/wiki/about",
+      "finalUrl": "https://www.e-junkie.com/wiki/about",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:47.455Z",
+      "via": "direct",
+      "contentType": "text/html;charset=UTF-8",
+      "textHash": "a59beaee8b61c67d7b75f278b99882b5fe929319facf80d01e2b8d98ef544e14"
+     },
+     "text": "About Us\nE-junkie is a shopping cart and digital-delivery service that helps you sell online with PayPal, 2Checkout, Authorize.Net and others.\nAbout Us\nE-junkie is a shopping cart and digital-delivery service that helps you sell online with PayPal, 2Checkout, Authorize.Net and others.\nAbout Us\nSOLUTIONS\nFEATURES\nPRICING\nDISCOVER PRODUCTS\nCONTACT\nHELP DOCS\nLogin\nE-junkie Help >\nAbout Us\nE-junkie is operated by a team of web developers, technicians and a Linux guru based primarily in downtown Tucson, Arizona and near Dharamsala, India. We all have one thing in common: we love e-commerce (among other wonders of the Internet). Come to think of it, we all love math and nerd culture as well.\nInfrastructure\nE-junkie is a distributed application running in the Amazon Web Services (AWS) server cloud . They manage the hardware and networking to ensure highly robust data availability, performance, scalability, and reliability, which in turn lets us focus on managing and improving our software for you, our clientele, and your buyers. Our provisions at AWS are parallelized and cross-redundant to ensure that a glitch in any single part of our system cannot take the whole system down.\nTo put it in simple words, our servers (the cornerstone of your online business) are Amazon-strong mean machines connected to the Internet with a plethora of big, fat pipes to move data through.\nName & Logo\nOur E-junkie brand was coined with the meaning of \"junkie\" in the common colloquial sense of a person dedicated to something they find compelling-e.g., NPR's Political Junkie , or grannies calling themselves a \"scrapbooking junkie\" or the like-in our case, all modern Internet technologies commonly prefixed with \"e-\", including e-mail, e-media and e-commerce in particular. If we'd been founded after the iPod and iMac became popular, we might have gone with iJunkie.\nThe mascot in our logo represents a guardian spirit or golem, an ancient concept in many cultures referring to a being which gives insight, inspiration and protection, an invisible servant which looks out for your best interests and does your bidding. Since E-junkie automates many aspects of your online business, it seemed like a good concept to base our name and logo on. As for the mean look it has... well, we thought it just looks cool, that's all. 🙂\nHistory\nE-junkie started as a script I wrote for myself when I was selling a $4 software app in the year 2003. I did not want to wake up in the middle of the night to check my e-mail and send it out using my dial-up connection, so I wrote this script to do it for me, which worked great. Soon, a couple of my friends started using it, and I kept modifying the script to suit their needs. It was a fun project to begin with, a labor of love kind of thing.\nThings started to get out of hand as a couple of friends told a couple others and soon there were hundreds of people using the system. E-junkie went from a script, to a small site on a shared server, to a distributed application spanning multiple servers. It evolved from one guy's hobby to a full time service managed by a small team of developers who are in love with ecommerce, with clients numbering in the many thousands by now. I am thankful to those who inspired me to build E-junkie and I am thankful to those who use E-junkie. With your support we can keep on improving it every day.\nRobin K\nFounder\nEmail Support\nEmail Support at\nsupport@e-junkie.com\nChat Support\nChat with us in\nMessenger\nHelp Center\nRead more\nhere\nStart selling\nStart your 14 day free trial\nContact\nProduct\nSolutions\nFeatures\nPricing\nSolutions\nBuy Now Button\nShopping Cart\nProduct Page\nHosted Shop\nSelf Hosted Shop\neBay Digital Delivery\nPayment Methods\nPayPal Standard\nPayPal Payments Pro\nStripe\nBraintree\nAuthorize.net\n2Checkout\nPayPal Advanced\nPayPal Payflow Pro\nPayPal Payflow Link\nRazorpay\nInstamojo\nPaytm\nFeatures\nSell Files\nSell Codes\nOffer Pay-what-you-want\nOffer Free Checkout\nSell Downloads Offline\nDiscounts\nPDF Stamping\nAffiliate Network\nProduct Bundles\nProduct Variations\nSell Physical Goods\nAnd more...\nCompany\nAbout Us\nTerms of Service\nPrivacy Policy\nEnd User Privacy Policy\nGDPR\nData Processing Addendum\nHelp\nDocumentation\nForums\nContact Us\n14-Day FREE Trial\nRegister today and get a 14 day free trial period (normally 7 days)\nGET IT NOW\nLimited Offer",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://www.e-junkie.com/wiki/help-transaction-log",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.e-junkie.com/wiki/help-transaction-log",
+      "finalUrl": "https://www.e-junkie.com/wiki/help-transaction-log",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:47.616Z",
+      "via": "direct",
+      "contentType": "text/html;charset=UTF-8",
+      "textHash": "6bf08e7ff1d6c355f6ece434018e28a2844e58919fd7e5b6342e1af50a0ce80f"
+     },
+     "text": "Transaction Log\nAll of the order data we receive is permanently stored in your E-junkie Transaction Log\nTransaction Log\nAll of the order data we receive is permanently stored in your E-junkie Transaction Log\nTransaction Log\nSOLUTIONS\nFEATURES\nPRICING\nDISCOVER PRODUCTS\nCONTACT\nHELP DOCS\nLogin\nHelp with E-junkie Features\nTransaction Log\nView or download details of your E-junkie sales\nYour E-junkie Transaction Log lists every order our system has processed for you after completion of the buyer's payment. All of the data we receive for each order is permanently stored in this log for your reference.\nThis log is only intended as an order history and should not be used for financial tracking or accounting purposes, as all of the information we can show there is \"secondhand\", reflecting whatever the payment processor (e.g. PayPal) reported to us. If you have concerns about any actual funds paid, reversed, or refunded, you should rely on your payment processor account records (e.g. PayPal History) to get that data straight from the source, use that history as your primary financial/accounting reference for online sales, and consult the payment processor's help pages or support staff with any further questions you may have about anything you find there.\nViewing your log\nYou can access this from your E-junkie Dashboard by going to View Order History > Transaction Log . For each transaction, the first row (grey-shaded) provides general details for the transaction as a whole; you can click any of these rows to toggle temporary highlighting on/off for that row. Below that, you can click Show Items to display additional separate rows for each item in the order, providing details for that item; these item sub-rows have their own column headers.\nYou can also test the download link(s) issued to a specific buyer. Just click the Transaction ID for any order in the log, or the Item Name of any digital item in that order. That will bring up the thank-you page we would generate for that buyer according to your current settings, where you can test their download links (note that your own test would count against the number of download Attempts you allow for that buyer's link).\nWhenever you first view this log, it initially shows all orders within the past 30 days. You can also select a custom date range, specific product, and/or specific affiliate and click View Log to run a search for orders meeting those criteria. Every log view includes a summary at the top calculating the total number of transactions , number of discrete items sold , and total sale amount , followed by itemized details for each order.\nPlease choose your custom log search criteria to be as narrow/specific as possible -e.g., don't query the log for the maximum possible date range when you know you're really only interested in transactions from a narrower time frame; the more transaction results your query needs to return, the longer it will take, which could bog down the log server for everyone else until your query concludes.\nDownloading your log\nAfter you click View Log to run a custom log search, you can then export those search results by clicking the Download Log button. This will save a tab-delimited .txt file to your computer with the log data you were viewing, so you may need to specify TAB as the separator/delimiter character when you open/import this file in your spreadsheet app-see further tips on how to do that for popular spreadsheet apps listed here:\nMicrosoft Excel\nApple iWork Numbers\nLibreOffice Calc\nGoogle Sheets\nFree downloads log\nYou also have a separate log for any free download links you issue manually from E-junkie Dashboard by using either Send Free Download Link/Code or via mass-email Updates . You can access this log in your E-junkie Dashboard under View Order History > Free Downloads Log . Free links issued via our Free Checkout feature would still appear in your main Transaction Log (not in the Free Downloads Log).\nData fields logged\nThe Web-based Transaction Log view is intended as a human-readable format for your easy reference, which differs somewhat from the downloadable log-export file format we provide in a machine-readable format suitable for spreadsheet apps and other software tools. As such, the fields (columns) we provide differ slightly between Web-based log views vs. downloaded log files:\nView Log\nDownload Log\nPayment Date (MST)\nPayment Date (MST)\nProcessed by E-j (MST)\nProcessed by E-j (MST)\nTransaction ID\nTransaction ID\nPayment Processor\nPayment Processor\nE-j Internal Txn ID\nE-j Internal Txn ID\nPayment Status\nPayment Status\nFirst Name\nFirst Name\nLast Name\nLast Name\nPayer E-mail\nPayer E-mail\nBilling Info\nBilling Info\nPayer Phone\nCard Last 4\nCard Type\nPayer IP\nPassed Custom Param.\nPassed Custom Param.\nDiscount Codes\nDiscount Codes\nInvoice\nInvoice\nShipping Info\nShipping Info\nShipping Method\nShipping Phone\nShipping\nShipping\nTax\nTax\neBay Auction Buyer ID\neBay Auction Buyer ID\nAffiliate E-mail\nAffiliate E-mail\nAffiliate Name\nAffiliate ID\nAffiliate Link Type\nCurrency\nCurrency\nItem Name\nItem Name\nVariations/Variants\nVariations/Variants\nItem Number\nItem Number\nSKU\nSKU\nQuantity\nQuantity\nAmount\nAmount\nAffiliate Share (per item)\nAffiliate Share (per item)\nDownload Info\nDownload Info\nKey/Code (if any)\nKey/Code (if any)\neBay Auction ID\neBay Auction ID\nPayment Acct Country\nGeoIP\nDigitals Country\nDigitals VAT\nTangibles Country\nTangibles VAT\nItem VAT Rate\nItem VAT Country\nItem VAT Type\nPayer Business\nPayer Street\nPayer City\nPayer State\nPayer Zip\nPayer Country\nShipping Business\nShipping Name\nShipping Street\nShipping City\nShipping State\nShipping Zip\nShipping Country\nShipping Phone\nFor an explanation of VAT-related fields, please see our help page on Sales Tax & VAT Settings .\nSee Also\nCustomize Thank-you Pages\nCreate and manage an affiliate program\nSelling Ebooks and PDF Stamping\nSending Updates and Newsletters\nCustomize Thank-you Email\nDiscounts and Sales\nSales Tracking with Google Analytics, AdWords, Facebook Pixel, etc.\nCharging Sales Tax and VAT\nIntegration with custom scripts and third-party services\nBlock Buyers/Transactions\nShipping and Packaging calculator\nInventory Management\nWebhook integration with custom scripts and third-party services\nEmail Support\nEmail Support at\nsupport@e-junkie.com\nChat Support\nChat with us in\nMessenger\nHelp Center\nRead more\nhere\nStart selling\nStart your 14 day free trial\nContact\nProduct\nSolutions\nFeatures\nPricing\nSolutions\nBuy Now Button\nShopping Cart\nProduct Page\nHosted Shop\nSelf Hosted Shop\neBay Digital Delivery\nPayment Methods\nPayPal Standard\nPayPal Payments Pro\nStripe\nBraintree\nAuthorize.net\n2Checkout\nPayPal Advanced\nPayPal Payflow Pro\nPayPal Payflow Link\nRazorpay\nInstamojo\nPaytm\nFeatures\nSell Files\nSell Codes\nOffer Pay-what-you-want\nOffer Free Checkout\nSell Downloads Offline\nDiscounts\nPDF Stamping\nAffiliate Network\nProduct Bundles\nProduct Variations\nSell Physical Goods\nAnd more...\nCompany\nAbout Us\nTerms of Service\nPrivacy Policy\nEnd User Privacy Policy\nGDPR\nData Processing Addendum\nHelp\nDocumentation\nForums\nContact Us\n14-Day FREE Trial\nRegister today and get a 14 day free trial period (normally 7 days)\nGET IT NOW\nLimited Offer",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://www.e-junkie.com/wiki/affiliates",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.e-junkie.com/wiki/affiliates",
+      "finalUrl": "https://www.e-junkie.com/wiki/affiliates",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:47.756Z",
+      "via": "direct",
+      "contentType": "text/html;charset=UTF-8",
+      "textHash": "867c12cd0e5cd0b74645cdf43efea49ecb11f7c5796e46c0c37f0e57f6ed0f8d"
+     },
+     "text": "E-junkie Affiliate Network\nBecome an affiliate of E-junkie merchants; earn commission on sales generated by your referrals.\nE-junkie Affiliate Network\nBecome an affiliate of E-junkie merchants; earn commission on sales generated by your referrals.\nE-junkie Affiliate Network\nSOLUTIONS\nFEATURES\nPRICING\nDISCOVER PRODUCTS\nCONTACT\nHELP DOCS\nLogin\nE-junkie Help >\nE-junkie Affiliate Network\nSellers:\nIf you are here to set up an affiliate program for your products, please do so from your E-junkie Dashboard under Manage Affiliate Program > Affiliate Program Settings .\nThis help page explains our affiliate system and related settings for sellers.\nAffiliates:\nLog into Affiliate Admin if you have already joined an affiliate program and wish to get your link codes, view your earnings, contact your merchants, etc.\nIf you cannot find the merchant listed in your Affiliate Admin > Your Affiliate Programs menu, stay logged in and go click the merchant's sign-up link again.\nThis help page for affiliates explains how our affiliate system works and how affiliates can use it.\nFor all other questions, please contact the merchant who operates your affiliate program; once you have joined their program, you can select them in your Affiliate Admin and click Contact Merchant to send them a message.\nTo find and join affiliate programs offered by any of our merchants, browse our Marketplace for products in affiliate programs , where you can also search for products of more specific interest to you and then tick the Affiliate box to filter the results for merchants that have an affiliate program.\nIMPORTANT NOTICE:\nE-junkie's affiliate system is free for affiliates to use at no charge . We forbid merchants from requiring payment of any kind of fee for their E-junkie affiliate programs, and we will suspend any merchant accounts in our system who are discovered to be conducting such schemes. If you have been asked to pay any fees for any affiliate program, please notify us of who it was, and we would strongly recommend that you attempt to get the charges reversed through your credit card issuer or by filing a complaint with the online payment service which handled your checkout for that fee (this should be shown on your receipt email for that fee payment).\nEmail Support\nEmail Support at\nsupport@e-junkie.com\nChat Support\nChat with us in\nMessenger\nHelp Center\nRead more\nhere\nStart selling\nStart your 14 day free trial\nContact\nProduct\nSolutions\nFeatures\nPricing\nSolutions\nBuy Now Button\nShopping Cart\nProduct Page\nHosted Shop\nSelf Hosted Shop\neBay Digital Delivery\nPayment Methods\nPayPal Standard\nPayPal Payments Pro\nStripe\nBraintree\nAuthorize.net\n2Checkout\nPayPal Advanced\nPayPal Payflow Pro\nPayPal Payflow Link\nRazorpay\nInstamojo\nPaytm\nFeatures\nSell Files\nSell Codes\nOffer Pay-what-you-want\nOffer Free Checkout\nSell Downloads Offline\nDiscounts\nPDF Stamping\nAffiliate Network\nProduct Bundles\nProduct Variations\nSell Physical Goods\nAnd more...\nCompany\nAbout Us\nTerms of Service\nPrivacy Policy\nEnd User Privacy Policy\nGDPR\nData Processing Addendum\nHelp\nDocumentation\nForums\nContact Us\n14-Day FREE Trial\nRegister today and get a 14 day free trial period (normally 7 days)\nGET IT NOW\nLimited Offer",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://gumroad.com/pricing",
+     "publisher": "Gumroad",
+     "snapshot": {
+      "url": "https://gumroad.com/pricing",
+      "finalUrl": "https://gumroad.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:47.770Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7a490fad4f6922c5ca4b3cc681de6a69286bac3dec0771503830c096f5163903"
+     },
+     "text": "Gumroad pricing: 10% + 50¢ direct, 30% via Discover\nGumroad pricing: 10% + 50¢ direct, 30% via Discover\nDirect sales: 10% + 50¢ per sale, $0 monthly. Discover marketplace sales: 30%. Gumroad handles sales tax worldwide as Merchant of Record, at no extra cost.\nDirect sales: 10% + 50¢ per sale, $0 monthly. Discover marketplace sales: 30%. Gumroad handles sales tax worldwide as Merchant of Record, at no extra cost.\nGumroad pricing: 10% + 50¢ direct, 30% via Discover\n9.7K\nDiscover Blog Pricing Features About Gumclaw\nLog in Start selling\nDiscover Blog Pricing Features About Gumclaw\nLog in Start selling\nPricing\nSimple, transparent pricing\nWe believe in transparent pricing that helps you grow. No hidden fees, no monthly charges.\n10% + $0.50\nPer transaction for all sales through your profile or direct links to your customers.\n30%\nPer transaction when new customers find and buy from you through our discover marketplace.\nTax management\nWe're a Merchant\nof Record\nSince January 1, 2025, Gumroad handles ALL your tax obligations. Yes, you read that right – we manage sales tax collection and remittance worldwide.\nWhat this means for you\nBuild your creative business with confidence. We're taking care of all tax complexity worldwide, so you can focus on what you do best: creating.\n→\nNo more tax headaches - we handle everything\n→\nSimplified global selling - we manage international tax compliance\n→\nMore time for creating - less time dealing with paperwork\nFrequently asked questions\nWhat can I sell on Gumroad?\nDigital products, e-books, courses, tutorials, and memberships—almost anything! Creators in just about every industry use (and love) Gumroad, from digital artists, writers, musicians and other creative-types to business-minded entrepreneurs and tech gurus like our SaaS creators. A better question is, \"What can't I sell on Gumroad?\"\nWhat can't I sell on Gumroad?\nOutside of physical goods, things like illegal or illicit goods or services, securities & financial instruments, credit repair, gambling & lotteries, harassment & extremist content, copyright infringement & piracy, or obscene or adult content are not permitted on Gumroad. A full list can be found here .\nHow do I get paid?\nGumroad's goal is to help creators make a living doing what they love, so we make it as simple as possible to get paid. How we pay creators, whether through direct deposit or PayPal, varies by country.\nWhat are the fees?\nUnlike other platforms, Gumroad doesn't charge you a monthly fee. Instead, our fees are deducted as a small percentage of every sale, so we only make money when you do.\nCan I use Gumroad for memberships?\nYes!\nWhether it's for a podcast, online course, or SaaS subscriptions, Gumroad makes it easy to manage memberships.\nWhat's changing with taxes?\nWe're becoming your merchant of record, which means Gumroad will automatically handle all sales tax collection and remittance worldwide. You won't need to manage any tax settings or applications - we'll take care of everything.\nWhat do I need to do to prepare for this change?\nNothing! The transition will happen automatically on January 1, 2025. Our updated Terms of Service will reflect these changes. You can continue selling as usual.\nWhat about international sales?\nWe'll handle all tax obligations for your global sales automatically. You don't need to worry about VAT, GST, or any other international tax requirements.\nWhat happens to my tax collection settings?\nAll tax settings will be automatically disabled in your dashboard. This includes both the state tax settings in your creator profile and any product-specific tax settings. You won't need to manage these anymore since we'll handle all tax collection automatically.\nWill Gumroad collect taxes everywhere?\nWe'll collect taxes in regions where we have tax obligations as a merchant of record. This varies by location, and we'll automatically handle the appropriate tax collection for each sale.\nNeed a Reseller Certificate from Gumroad?\nSome creators may have an obligation to file sales tax (or other indirect tax) returns already, and will need to report their sales on Gumroad as \"sales to other retailers for purposes of resale\", which are not taxable. To justify this treatment to your tax authority, you will need to download and save this Reseller Certificate .\nShare your work.\nSomeone out there needs it.\nStart selling\nSubscribe to get tips and tactics to grow the way you want.\n→\nⒸ Gumroad, Inc.\nDiscover\nBlog\nPricing\nFeatures\nAbout\nGumclaw\nSmall Bets\nHelp\nBoard meetings\nTerms of Service\nPrivacy Policy",
+     "policy": {
+      "url": "https://gumroad.com/pricing",
+      "decision": "allowed",
+      "usage": "independently_worded_facts",
+      "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+      "reviewedAt": "2026-10-06T19:30:00+09:00",
+      "termsUrl": "https://gumroad.com/terms",
+      "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得は規約で禁止。価格の事実を人が確認して記録し、自動再取得しないこと。該当事例の公式サイトなら公式サイト方針(automatic)と重なるため、そちらで足りるか要確認。",
+      "recheckAfter": "2027-01-04T12:00:00+09:00"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://www.e-junkie.com/wiki/pricing",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.e-junkie.com/wiki/pricing",
+      "finalUrl": "https://www.e-junkie.com/wiki/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T12:39:47.885Z",
+      "via": "direct",
+      "contentType": "text/html;charset=UTF-8",
+      "textHash": "c3ed1cf9f67962aaf645c4a6f5aec37b0fc3687f578e25f198b611db2c735c03"
+     },
+     "text": "Pricing | E-junkie\nNo transaction fee. No bandwidth limit. Just pay a flat monthly fee to use our buy-now, shopping cart and donate buttons to accept payments for digital and physical goods.\nPricing | E-junkie\nNo transaction fee. No bandwidth limit. Just pay a flat monthly fee to use our buy-now, shopping cart and donate buttons to accept payments for digital and physical goods.\nPricing | E-junkie\nSOLUTIONS\nFEATURES\nPRICING\nDISCOVER PRODUCTS\nCONTACT\nHELP DOCS\nLogin\nSet up your products now,\npick a plan later\nNo transaction limit\nNo transaction fee\nNo bandwidth limit\nGet Started\nTry E-junkie free for 14 days\nNo credit card required\n$8 /mo\n$10 /mo\n$20 /mo\n$40 /mo\nNumber of products\n10\n40\n150\nUnlimited\nDownload File Storage\n200 MB\n2 GB\n8 GB\nUnlimited\nStorefront\nUnlimited Sales\nUnlimited Downloads\nStart Your 14-Day Free Trial\nNo credit card required.\nMonthly plan prices listed in USD.\nCancel or change your subscription anytime.\nStart selling\nStart your 14 day free trial\nContact\nProduct\nSolutions\nFeatures\nPricing\nSolutions\nBuy Now Button\nShopping Cart\nProduct Page\nHosted Shop\nSelf Hosted Shop\neBay Digital Delivery\nPayment Methods\nPayPal Standard\nPayPal Payments Pro\nStripe\nBraintree\nAuthorize.net\n2Checkout\nPayPal Advanced\nPayPal Payflow Pro\nPayPal Payflow Link\nRazorpay\nInstamojo\nPaytm\nFeatures\nSell Files\nSell Codes\nOffer Pay-what-you-want\nOffer Free Checkout\nSell Downloads Offline\nDiscounts\nPDF Stamping\nAffiliate Network\nProduct Bundles\nProduct Variations\nSell Physical Goods\nAnd more...\nCompany\nAbout Us\nTerms of Service\nPrivacy Policy\nEnd User Privacy Policy\nGDPR\nData Processing Addendum\nHelp\nDocumentation\nForums\nContact Us\n14-Day FREE Trial\nRegister today and get a 14 day free trial period (normally 7 days)\nGET IT NOW\nLimited Offer",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "支払いから3時間以内の手渡しに疲れて配信を自動化し、著者へのメールと職人市で一軒ずつ売り先を増やして、年約100万ドルの販売カートに育てた創業者Robin Singh",
+     "basis": [
+      "f3",
+      "f4",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "勤め先の収入を補うために自作のソフトを売っていた創業者は、3時間以内の納品を約束し、支払い通知のたびにメールで届けていた。本人によると、これに疲れて2003年末に配信を自動化し、作家と音楽家の友人に頼まれて、2004年半ばに誰でも使えるサービスにした。著者への個別メールや、職人市への訪問とオンラインショップの設定も行った。2011年に持分を手放し、2017年12月に経営へ戻っている。",
+     "basis": [
+      "f3",
+      "f4",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "最初は作家と音楽家の友人が、自分の電子書籍やMP3の配信に使ってくれた。その後、自費出版の著者を1人ずつ探して設定ごと引き受けた。",
+     "basis": [
+      "f3",
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "営業は個別のメールと職人市への訪問。売り手が自分の商品に付けられる紹介制度の網もある。",
+     "basis": [
+      "f4",
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "本人は2019年のインタビューで、E-junkieを所有する家族経営の非公開会社の持分を売り、後に買い戻したと述べている。公式サイトによると、小さな開発チームがAWS上でサービスを運営する。本人の投稿では、2011年に事業から退き、2017年12月に経営へ戻ったとしている。",
+     "basis": [
+      "f5",
+      "f7"
+     ],
+     "formula": "公式の沿革と本人の投稿を要約した。計算はない。",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "E-junkieの利用料は月額固定で、同社の取引手数料はない。この料金体系は、売上に比例する利用料を避けたい売り手に選ばれる理由になったと考えられる。著者への個別メールやオンラインショップの設定代行も、売り手が販売を始める負担を減らしたと考えられる。",
+     "basis": [
+      "f2",
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2003年末に配信の自動化。2004年半ばにサービス化。2011年に持分を手放す。2017年12月に創業者が経営へ復帰。2019年のインタビューで、ほぼ10年にわたり年平均100万ドルの売上と語る。",
+     "basis": [
+      "f3",
+      "f5",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f3",
+    "f4",
+    "f5"
+   ],
+   "identity": {
+    "id": "ent_ejunkie_7e9e46bd9643",
+    "name": "E-junkie",
+    "url": "https://www.e-junkie.com/",
+    "publishability": "PARTIAL"
+   },
+   "caseHash": "26abc818a248f4fb534a4fdb1bd49091fe1e0f04ae07081d46aaddd06dfb76fc",
+   "itemHashes": {
+    "fact:f1": "c492a3010120277718a88789517cb5c04bd5a5485b3ca1a89580863999171181",
+    "fact:f2": "cd3d4d943c6703c9ac55000ffdb72eea9341329ace47828914b9a188bc788a8f",
+    "fact:f3": "c6e4215c92c86fcf9af188bc08b3a47e22bc439a49a75fd556e8aac93126198c",
+    "fact:f4": "437e5968f7d3b88de33af1ebd731ad4246b9086bdb058024ed1c84696b008fed",
+    "fact:f5": "e4f809e933c2f9881c4dd669cf2769177d19a9b5f0cf49b5a84c83e51e9d2ba9",
+    "fact:f6": "f56368b5817e0d75982850a3c2480164c5d94a7a1758821a39744ec7605708ba",
+    "fact:f7": "225f293fd12cff732d100f9db1628b9eb6c256b801fff0cf4cc022ea065e5c08",
+    "fact:f8": "399857c05c75464922673cca1f111217da95911e1b0d899fcc4b7675136c50c8",
+    "fact:f9": "5e729971ef53b4554f5d23ec2e89ccee7e732ecd02d6626f188b038c10aaeb8e",
+    "fact:f10": "86c7aaec24541d8bf3726bf2b790bc2f555579f4ec5dbe3ac408dfd4f5279ff6",
+    "metric:m1": "6b2342db03d6b81bf584c44b62df67ad5a31cbfcb9fb77035a2e71a0a5e6ed1e",
+    "analysis:a-headline": "8fdb82258a12d6ce9d18c6d8829ff5c84d6c29bcad478678734b05fefdf49aea",
+    "analysis:a-story": "31a7c2b741d10db885f16b7d33d48b5bf6b5251c035b7ca1bb6c6e8a27679661",
+    "analysis:a-business_model": "a926c6f3f4a4153a04868709065d796b2bdbd95cd0a1437f78e58ec400481cad",
+    "analysis:a-customer": "0c233a36d3e872337d75a34f0380298df55a84b1065756dbb04dc9fd2e694ef0",
+    "analysis:a-first_customers": "134ebcd4bd081b415be159fe1952805b87243a8e9152185983839e2eca4c1601",
+    "analysis:a-channels": "6ebfa08b551615528e8900f33b80a9312644a8c797f20f52aea6ce039f6e0a3a",
+    "analysis:a-dependencies": "240fc8d795fc1b6e3a22e8df0cd6e14e83136d0911eaf1d11f72d3a10b6b4ed5",
+    "analysis:a-competition": "0780709585a6ba17ecd077fb5b78a1b541924de0dd5c56b3b91bc03f9eec1428",
+    "analysis:a-capital_and_team": "4eb71eda7230515abbd3690b6526fcf82811c2d2be45e22b244fbbb220558a65",
+    "analysis:a-why_it_worked": "62a6ea9663b3928d756b6af3f61c7be7f65361aa037887192ea43f4ec7a20213",
+    "analysis:a-viability": "b82ccacb401db7971ddb2e67c1e4080cf1fbeaca6d622cb8999cb307dd2927b1",
+    "analysis:a-timeline": "e703d54e9c221ac9c4f2b1c6cdea6f54dabd6ec8621d10f612970ad37c702477"
+   },
+   "review": [
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-first_customers",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-why_it_worked",
+    "analysis:a-timeline"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "publisher": "Indie Hackers（インタビュー）",
+      "url": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+      "title": "Overcoming Technical Roadblocks to Achieve $1 Million ARR",
+      "publishedAt": "2019-05-20",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s2",
+      "publisher": "公式サイト",
+      "url": "https://www.e-junkie.com/",
+      "title": "Sell Downloads | E-junkie",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s3",
+      "publisher": "Indie Hackers",
+      "url": "https://www.indiehackers.com/product/e-junkie",
+      "title": "E-junkie（掲載ページと創業者の投稿）",
+      "publishedAt": "2019-04-13",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s4",
+      "publisher": "公式サイト",
+      "url": "https://www.e-junkie.com/wiki/about",
+      "title": "About Us",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "publisher": "公式サイト",
+      "url": "https://www.e-junkie.com/wiki/help-transaction-log",
+      "title": "Transaction Log",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "publisher": "公式サイト",
+      "url": "https://www.e-junkie.com/wiki/affiliates",
+      "title": "E-junkie Affiliate Network",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s7",
+      "publisher": "Gumroad",
+      "url": "https://gumroad.com/pricing",
+      "title": "Gumroad pricing",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "publisher": "公式サイト",
+      "url": "https://www.e-junkie.com/wiki/pricing",
+      "title": "Pricing",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "コピペしたボタンやリンクで、ダウンロード商品・ゲームのコード・チケット・現物の商品を、どのサイト、ブログ、SNS、メールからでも売れるようにするサービス。5分で簡易ショップも作れる。売り手はPayPal、Stripe、Braintree、Authorize.Net、2Checkout、Razorpayなど自分の決済会社をつなぐ。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "PRICING",
+      "text": "料金は月額固定の4段。月8ドル（商品10点・保存200MB）、月10ドル（40点・2GB）、月20ドル（150点・8GB）、月40ドル（商品・保存とも無制限）。全プランで販売数とダウンロード数は無制限、取引手数料なし。14日間の無料試用にカードは要らない。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "FOUNDING",
+      "text": "創業者Robin Singhは、勤め先の収入を補うために自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払い通知のたびにメールで手渡しした。2003年末に配信を自動化するスクリプトを書き、作家の友人と音楽家の友人に電子書籍とMP3の配信用にカスタマイズを頼まれ、2004年半ばに誰でも使えるダウンロード販売サービスにした。",
+      "sourceId": "s3",
+      "statedAt": "2019-04",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f4",
+      "kind": "CHANNEL",
+      "text": "本人は、Googleで著者を探し、自費出版の電子書籍があれば、設定を引き受けると個別にメールした。職人市にも出向き、作家のためにオンラインショップを設けた。",
+      "sourceId": "s3",
+      "statedAt": "2019-04",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f5",
+      "kind": "EXIT",
+      "text": "2019年4月の本人の投稿によると、2011年にE-junkieを持つ会社の持分を売って事業から退き、動物保護施設と有機農場を始めた。2017年12月に経営へ戻って立て直しを進めている。",
+      "sourceId": "s3",
+      "statedAt": "2019-04",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f6",
+      "kind": "OTHER",
+      "text": "Indie Hackersのインタビューは、題で年間の定期売上（ARR）100万ドルへの到達を掲げる。",
+      "sourceId": "s1",
+      "statedAt": "2019-05",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f7",
+      "kind": "TEAM",
+      "text": "チームは開発者、技術者、Linux担当で、アリゾナ州ツーソンとインドのダラムサラ近郊が中心。公式の沿革は、客が今では数千に達していると書く。AWS上の分散アプリとして動く。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "OTHER",
+      "text": "出店者は自分の商品に紹介（アフィリエイト）制度を作れる。紹介者の側は、システムの利用が無料。",
+      "sourceId": "s6",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "取引ログは、決済会社が報告した内容を受け取った二次情報にすぎず、会計や金額の確認には決済会社の記録を使うよう、公式が注意書きを付けている。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "PRICING",
+      "text": "競合のGumroadは、直販が1件ごとに10%＋0.50ドル（月額なし）、同社の販売サイト経由は30%。2025年1月1日から売上税の徴収・納付を同社が代行する。",
+      "sourceId": "s7",
+      "statedAt": "2025-01",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [
+     {
+      "id": "m1",
+      "measure": "REVENUE",
+      "periodKind": "YEAR",
+      "period": "過去ほぼ10年の年平均（2019年5月のインタビュー）",
+      "amount": 1000000,
+      "currency": "USD",
+      "origin": "SELF_REPORTED",
+      "sourceId": "s1"
+     }
+    ],
+    "unknowns": [
+     "PROFIT",
+     "COST",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "支払いから3時間以内の手渡しに疲れて配信を自動化し、著者へのメールと職人市で一軒ずつ売り先を増やして、年約100万ドルの販売カートに育てた創業者Robin Singh",
+      "basis": [
+       "f3",
+       "f4",
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "勤め先の収入を補うために自作のソフトを売っていた創業者は、3時間以内の納品を約束し、支払い通知のたびにメールで届けていた。本人によると、これに疲れて2003年末に配信を自動化し、作家と音楽家の友人に頼まれて、2004年半ばに誰でも使えるサービスにした。著者への個別メールや、職人市への訪問とオンラインショップの設定も行った。2011年に持分を手放し、2017年12月に経営へ戻っている。",
+      "basis": [
+       "f3",
+       "f4",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-first_customers",
+      "item": "FIRST_CUSTOMERS",
+      "text": "最初は作家と音楽家の友人が、自分の電子書籍やMP3の配信に使ってくれた。その後、自費出版の著者を1人ずつ探して設定ごと引き受けた。",
+      "basis": [
+       "f3",
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "営業は個別のメールと職人市への訪問。売り手が自分の商品に付けられる紹介制度の網もある。",
+      "basis": [
+       "f4",
+       "f8"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "本人は2019年のインタビューで、E-junkieを所有する家族経営の非公開会社の持分を売り、後に買い戻したと述べている。公式サイトによると、小さな開発チームがAWS上でサービスを運営する。本人の投稿では、2011年に事業から退き、2017年12月に経営へ戻ったとしている。",
+      "basis": [
+       "f5",
+       "f7"
+      ],
+      "formula": "公式の沿革と本人の投稿を要約した。計算はない。",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "E-junkieの利用料は月額固定で、同社の取引手数料はない。この料金体系は、売上に比例する利用料を避けたい売り手に選ばれる理由になったと考えられる。著者への個別メールやオンラインショップの設定代行も、売り手が販売を始める負担を減らしたと考えられる。",
+      "basis": [
+       "f2",
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2003年末に配信の自動化。2004年半ばにサービス化。2011年に持分を手放す。2017年12月に創業者が経営へ復帰。2019年のインタビューで、ほぼ10年にわたり年平均100万ドルの売上と語る。",
+      "basis": [
+       "f3",
+       "f5",
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

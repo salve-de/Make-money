@@ -77,11 +77,12 @@ export function applyCorrections(
         const l = files.detail.find((x) => x.entityId === c.entityId && x.analysisId === a.analysisId);
         if (!l) fail(c, `分析欄 ${a.analysisId} が無い`);
         if (!`${l!.answer} ${l!.note ?? ''}`.includes(a.match)) {
-          if ((a.answer && l!.answer === a.answer) || (a.note && l!.note === a.note)) { skipped += 1; continue; }
+          if ((a.answer && l!.answer === a.answer) || (a.note && l!.note === a.note) || (a.note === '' && l!.note === undefined)) { skipped += 1; continue; }
           fail(c, `分析欄の文「${a.match}」が無い`);
         }
         if (a.answer) l!.answer = a.answer;
-        if (a.note) l!.note = a.note;
+        if (a.note === '') delete l!.note;
+        else if (a.note) l!.note = a.note;
         if (a.hidden) l!.hidden = true;
         applied += 1;
       } else {
