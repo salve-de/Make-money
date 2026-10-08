@@ -89,7 +89,7 @@ const APPENDIX = `
 {"name":"事業名","tagline":"何の事業かの1〜2文(日本語)","description":"2〜3文(日本語)","sector":"NICHE_SAAS など","scale":"SOLO など","founder":"名前か未確認","country":"国か未確認","architecturePattern":"どう売っているかの1文","tags":["..."],"foundedYear":2016,
  "facts":[{"kind":"DESCRIPTION|PRICING|FOUNDING|TEAM|CHANNEL|TOOL|EVENT|EXIT|FUNDING|OTHER","text":"画面に出せる自然な日本語の1文","sourceUrl":"https://...","statedAt":"YYYY-MM か YYYY-MM-DD(任意)","quote":"原文の引用","numberKind":"数を含む事実は必須","asOf":"数を含む事実は必須"}],
  "metrics":[{"numberKind":"REVENUE など","amount":24,"currency":"USD","unit":"任意","label":"何の数字か","asOf":"YYYY など","periodKind":"期間の数字は必須","quote":"数字を含む原文の引用","sourceUrl":"https://...","origin":"SELF_REPORTED|ARTICLE|FILED|THIRD_PARTY","basis":"任意"}],
- "sources":[{"url":"https://...","publisher":"公式サイト など","sourceType":"official_website|official_blog|article|forum|filing","publicationDate":"YYYY-MM-DD か null"}],
+ "sources":[{"url":"https://...","publisher":"公式サイト など","sourceType":"official_website|official_blog|article|forum|filing","publicationDate":"YYYY-MM-DD か null","rights":{"loginFree":"yes|no|unconfirmed","noPaywall":"yes|no|unconfirmed","quoteTerms":"permits|prohibits|silent|unconfirmed","termsUrl":"規約ページの URL か null","note":"判断の根拠を1〜2文"}}],
  "unknown":["取れなかったこと"],"conflicts":["出典どうしの食い違い"]}
 - sector は ${SECTORS.join(' / ')}、scale は ${SCALES.join(' / ')} のどれか。
 - 後の段（分析・リード）は、確かめられた事実だけを材料にする。「誰が・いつ・何をして・何が起きたか」が分かる具体的な行動と転機の事実（最初の客をどう得たか、何を変えて伸びたか、最初の1年の動き）を、数字の事実とは別に、できるだけ多く（目安10件以上）集める。製品の機能説明で件数を埋めない。
@@ -118,7 +118,7 @@ export interface Compact {
   name?: string; tagline?: string; description?: string; sector?: string; scale?: string; founder?: string; country?: string;
   architecturePattern?: string; tags?: string[]; foundedYear?: number;
   facts?: Record<string, unknown>[]; metrics?: Record<string, unknown>[];
-  sources?: { url?: string; publisher?: string; sourceType?: string; publicationDate?: string | null }[];
+  sources?: { url?: string; publisher?: string; sourceType?: string; publicationDate?: string | null; rights?: Record<string, unknown> }[];
   unknown?: string[]; conflicts?: string[];
 }
 
@@ -169,7 +169,7 @@ export function buildRecord(c: Candidate, m: Compact, today: string, dropped: st
     const own = !!officialDomain && (entityDomain(url) === officialDomain || entityDomain(url).endsWith(`.${officialDomain}`));
     srcMap.set(url, { url, publisher: own ? '公式サイト' : entityDomain(url), sourceType: own ? 'official_website' : 'article', publicationDate: null, checkedAt: today, rightsTier: own ? 'TIER1_OFFICIAL' : 'TIER2_FACTS_ONLY', ...extra });
   };
-  for (const s of m.sources ?? []) if (isUrl(s.url)) addSrc(s.url, { ...(s.publisher ? { publisher: s.publisher } : {}), ...(s.sourceType ? { sourceType: s.sourceType } : {}), publicationDate: s.publicationDate ?? null });
+  for (const s of m.sources ?? []) if (isUrl(s.url)) addSrc(s.url, { ...(s.publisher ? { publisher: s.publisher } : {}), ...(s.sourceType ? { sourceType: s.sourceType } : {}), publicationDate: s.publicationDate ?? null, ...(s.rights && typeof s.rights === 'object' ? { rights: s.rights } : {}) });
   for (const x of [...facts, ...metrics]) if (isUrl(x.sourceUrl)) addSrc(x.sourceUrl);
   const unknown = [...(m.unknown ?? []), ...dropped.map((d) => `出典で確かめられず外した: ${d}`)];
   const slug = slugify(name);

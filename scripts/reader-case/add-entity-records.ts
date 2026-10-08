@@ -16,6 +16,7 @@
  *   node --import tsx scripts/reader-case/add-entity-records.ts --apply [--dry-run]
  */
 import { createHash } from 'node:crypto';
+import { recordRecordsToLedger } from '../rights/record-sources';
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { pathToFileURL } from 'node:url';
@@ -418,6 +419,10 @@ async function main() {
     file.source.generation = chosenGeneration(val('--generation'), name);
     mkdirSync(ADDITIONS_DIR, { recursive: true });
     writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
+    // 出典ごとの権利の記録（data/source-rights-ledger.json）。台帳に無いドメインは自動で欄を作る（根拠が無ければ未確認。止めない）
+    const ledgerResult = recordRecordsToLedger(file.records.map((r) => r.record as Record<string, unknown>), 'add-entity-records(--from-research)');
+    if (ledgerResult.error) console.error(`[rights] 権利台帳への記録に失敗（取り込みは続行）: ${ledgerResult.error}`);
+    else if (ledgerResult.added.length) console.error(`[rights] 権利台帳に新しく記録: ${ledgerResult.added.join(', ')}`);
     // 数字の決まりを満たさず分けた数字（事例ごと）。0件でない時は、調査記録を直すか再収集する
     const back = returnToCollector(name, file);
     writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
@@ -430,7 +435,12 @@ async function main() {
   if (args.includes('--apply')) {
     const path = 'data/entities-index.json';
     const index = JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>[];
-    const { next, added, skipped } = mergeInto(index, readAdditions());
+    const additions = readAdditions();
+    const { next, added, skipped } = mergeInto(index, additions);
+    if (!args.includes('--dry-run')) {
+      const lr = recordRecordsToLedger(additions.flatMap((a) => a.records).filter((r) => added.includes(r.id)).map((r) => r.record as Record<string, unknown>), 'add-entity-records(--apply)');
+      if (lr.error) console.error(`[rights] 権利台帳への記録に失敗（取り込みは続行）: ${lr.error}`);
+    }
     if (added.length && !args.includes('--dry-run')) { writeFileSync(`${path}.tmp`, JSON.stringify(next)); renameSync(`${path}.tmp`, path); }
     console.log(JSON.stringify({ added, skipped, dryRun: args.includes('--dry-run') }));
     return;

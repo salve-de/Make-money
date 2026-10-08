@@ -15,6 +15,7 @@
  *
  * 使い方: node --import tsx scripts/reader-case/import-case-rebuild.ts [--ids a,b] [--src <dir>] [--data data] [--no-gate] [--dry-run]
  */
+import { recordSourcesToLedger } from '../rights/record-sources';
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { ReaderCaseSchema, UNKNOWN_ITEMS, type ReaderCase } from '../../src/shared/reader-case';
@@ -239,6 +240,9 @@ export async function importCases(opts: ImportOptions, deps: ImportDeps): Promis
     const dir = `${opts.dataDir}/case-import/${id}`;
     mkdirSync(dir, { recursive: true });
     writeJson(`${dir}/reader.json`, reader);
+    // 出典ごとの権利の記録。台帳に無いドメインは自動で欄を作る（根拠が無ければ未確認。取り込みは止めない）
+    const lr = recordSourcesToLedger(reader.sources.map((s) => ({ caseId: id, url: s.url, publisher: s.publisher, entityUrl: input.identity.url ?? '' })), 'import-case-rebuild');
+    if (lr.error) console.error(`[rights] 権利台帳への記録に失敗（取り込みは続行）: ${lr.error}`);
     writeJson(`${dir}/analysis.json`, analysis);
     writeJson(`${dir}/audit-input.json`, auditCase);
     writeJson(manifestPath, {
