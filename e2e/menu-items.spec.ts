@@ -23,7 +23,6 @@ const ITEMS: { label: string; path: RegExp }[] = [
   { label: '保存した条件', path: /\/alerts$/ },
   { label: '自分の商品', path: /\/marketplace\/activity#activity-listings$/ },
   { label: '紹介と取引', path: /\/marketplace\/activity#activity-referrals$/ },
-  { label: 'PRO の内容を見る', path: /\/\?pro=1$/ },
 ];
 
 const noOverflow = (page: Page) => page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
@@ -55,7 +54,6 @@ for (const viewport of [{ label: 'スマホ390', width: 390, height: 844 }, { la
     console.log(`${viewport.label} メニュー項目数 ${labels.length}: ${labels.join(' | ')}`);
 
     for (const item of ITEMS) {
-      if (item.label === 'PRO の内容を見る') continue; // 画面の中のダイアログを開く（遷移先は /?pro=1）
       await page.goto('/', { waitUntil: 'domcontentloaded' });
       const link = page.getByRole('dialog').getByRole('link', { name: item.label });
       await clickUntilVisible(() => page.getByRole('button', { name: 'メニューを開く' }).click({ timeout: 5000 }), () => expect(link).toBeVisible({ timeout: 3000 }));
@@ -77,8 +75,7 @@ test('PC：「その他」にスマホと同じ項目が並ぶ', async ({ page }
     async () => { if (!(await menu.evaluate((node) => (node as HTMLDetailsElement).open))) await page.locator('summary', { hasText: 'その他' }).click({ timeout: 5000 }); },
     () => expect(menu.getByRole('link', { name: ITEMS[0].label })).toBeVisible({ timeout: 3000 }),
   );
-  // PRO は画面内のダイアログを開くボタン（他の項目は画面のリンク）
-  for (const item of ITEMS) await expect(menu.getByRole(item.label === 'PRO の内容を見る' ? 'button' : 'link', { name: item.label })).toBeVisible({ timeout: 120_000 });
+  for (const item of ITEMS) await expect(menu.getByRole('link', { name: item.label })).toBeVisible({ timeout: 120_000 });
   await shoot(page, 'PC1440-more');
   const count = await menu.getByRole('link').filter({ hasNot: page.locator('[href^="/legal"]') }).count();
   console.log(`PC その他の項目数（法務リンクを除く） ${count}`);

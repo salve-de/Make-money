@@ -1,4 +1,4 @@
-import { Bookmark, BellRing, CircleUserRound, Gem, GitCompareArrows, Handshake, Package, type LucideIcon } from 'lucide-react';
+import { Bookmark, BellRing, CircleUserRound, GitCompareArrows, Handshake, Package, type LucideIcon } from 'lucide-react';
 
 export type GlobalNavSection =
   | 'LEDGER'
@@ -81,7 +81,6 @@ export const MORE_MENU_ITEMS: MenuItem[] = [
   { key: 'ALERTS', label: '保存した条件', href: '/alerts', icon: BellRing, section: 'ALERTS' },
   { key: 'MY_PRODUCTS', label: '自分の商品', href: '/marketplace/activity#activity-listings', icon: Package },
   { key: 'REFERRALS', label: '紹介と取引', href: '/marketplace/activity#activity-referrals', icon: Handshake },
-  { key: 'PRO', label: 'PRO の内容を見る', href: PRO_HREF, icon: Gem },
 ];
 
 /** ログイン状態で変わる行。ログイン中は「会員設定」、未ログインは「ログイン・新規登録」。ログインの仕組みが無い環境では出さない */

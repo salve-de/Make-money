@@ -24,7 +24,6 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DISPLAY_FILES, mergeEntity, serialize, type DisplayFiles, type EntityDisplay } from '../../src/shared/display-build';
 import { makeCaller, pickAgent, type Agent, type Caller } from './agent-call';
-import { checkRunSlow } from '../daily/slow-alert';
 import { runStageWithAgent, type AgentStageOptions, type BundleOutcome } from './runner/agent-run';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -349,8 +348,6 @@ async function main(): Promise<number> {
   const summary = await runCases(o, { exec, caller: makeCaller(agent, { model: o.model, codexEffort: o.effort, idleMs: o.stallMinutes * 60_000 }) });
   console.log(formatSummary(summary));
   writeFileSync(join(ROOT, 'data/pipeline/case-run', o.runId, 'summary.json'), JSON.stringify(summary, null, 1));
-  // 遅れの見張り（1件の1段で15分、実行全体で1件あたり30分を超えたら Mac の通知と GitHub の issue）。知らせに失敗しても結果は変えない
-  await checkRunSlow(ROOT, o.runId, { stallMinutes: o.stallMinutes, concurrency: o.concurrency }).catch((e) => console.log(`[case:run] 遅れの見張りに失敗: ${(e as Error).message}`));
   return summary.ok ? 0 : 1;
 }
 

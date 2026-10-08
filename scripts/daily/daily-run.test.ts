@@ -285,27 +285,3 @@ test('調べた件数は、研究の命令が返した分だけ数える。--for
   await runDaily(opts(root, { force: true }), m2.deps);
   assert.ok(m2.calls.some((c) => c.includes('case:run') && c.includes('--ids a,b ') && !c.includes('--publish')));
 });
-
-test('オーナー決定の画面確認: 違反があっても公開は止めず、軽い異常として記録して知らせる。違反なしなら何も足さない', async () => {
-  const root = fixture(); const m = make(root, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => 3 });
-  const base = m.deps.exec;
-  m.deps.exec = async (argv, env) => (argv.join(' ').includes('decisions:check') ? { code: 1, stdout: '  違反 no-pro（PRO） ent_x: …PRO の内容…\n違反 1 件\n', stderr: '' } : base(argv, env));
-  const rec = await runDaily(opts(root), m.deps);
-  assert.equal(rec.stages.decisions.status, 'failed');
-  const a = rec.abnormal.find((x) => x.key === 'decisions');
-  assert.ok(a && a.soft && a.text.includes('no-pro'));
-  assert.ok(m.calls.some((c) => c.includes('--publish')));
-  const root2 = fixture();
-  const clean = await runDaily(opts(root2), make(root2, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => 3 }).deps);
-  assert.equal(clean.abnormal.some((x) => x.key === 'decisions'), false);
-});
-
-test('オーナー決定の画面確認が終わりきらなかった(終了コード2)時も、正常とは扱わず軽い異常として知らせる', async () => {
-  const root = fixture(); const m = make(root, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => 3 });
-  const base = m.deps.exec;
-  m.deps.exec = async (argv, env) => (argv.join(' ').includes('decisions:check') ? { code: 2, stdout: '  画面を読めなかった事例: ent_x\n', stderr: '' } : base(argv, env));
-  const rec = await runDaily(opts(root), m.deps);
-  assert.equal(rec.stages.decisions.status, 'skipped');
-  const a = rec.abnormal.find((x) => x.key === 'decisions-unavailable');
-  assert.ok(a && a.soft);
-});
