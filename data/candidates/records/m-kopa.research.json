@@ -1,0 +1,492 @@
+[
+ {
+  "id": "ent_m_kopa_65b3df092175",
+  "ticker": "MKOPA",
+  "name": "M-KOPA",
+  "tagline": "アフリカで日々の収入で暮らす人に、スマートフォンを分割払いで提供する事業。",
+  "description": "顧客は頭金を払ってスマートフォンを受け取り、残額を分割で支払う。M-KOPAは返済履歴を使い、顧客に追加の融資や保険を提供する。太陽光の照明設備から始まり、スマートフォンや電動バイクへ商品を広げた。",
+  "sector": "FINTECH_INFRA",
+  "scale": "SCALEUP",
+  "founder": "Jesse Moore、Nick Hughes、Chad Larson",
+  "country": "英国（本社）、ケニア（事業の出発地）",
+  "url": "https://www.m-kopa.com/",
+  "officialUrl": "https://www.m-kopa.com/",
+  "verifiedBadge": false,
+  "growthRateYoY": 0,
+  "isGrowthUnconfirmed": true,
+  "architecturePattern": "頭金と分割払いで機器を提供し、その返済履歴を追加融資の審査に使う。",
+  "pipelineStack": "未確認",
+  "targetPainWallet": "未確認",
+  "tags": [
+   "アフリカ",
+   "スマートフォン",
+   "分割払い",
+   "融資",
+   "太陽光発電",
+   "電動バイク"
+  ],
+  "pnl": {
+   "monthlyRevenue": 0,
+   "cogs": 0,
+   "grossProfit": 0,
+   "grossMargin": 0,
+   "operatingExpenses": {
+    "serverAndApi": 0,
+    "advertising": 0,
+    "subcontracting": 0,
+    "toolsAndSaaS": 0,
+    "other": 0
+   },
+   "operatingProfit": 0,
+   "operatingMargin": 0,
+   "estimatedAnnualNetProfit": 0,
+   "isRevenueUnconfirmed": true,
+   "isOperatingProfitUnconfirmed": true,
+   "isMarginUnconfirmed": true,
+   "isGrossProfitUnconfirmed": true,
+   "isGrossMarginUnconfirmed": true,
+   "isCogsUnconfirmed": true,
+   "isCostsUnconfirmed": true,
+   "isNetProfitUnconfirmed": true,
+   "financialStatus": "UNAVAILABLE",
+   "sourceClass": "PRIMARY",
+   "sourceDoc": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/"
+  },
+  "operations": {
+   "teamSize": 0,
+   "weeklyHours": 0,
+   "initialCapitalRequired": 0,
+   "automationLevel": 0,
+   "primaryChannels": [],
+   "toolStack": [],
+   "isTeamSizeUnconfirmed": true,
+   "isWeeklyHoursUnconfirmed": true,
+   "isCapitalUnconfirmed": true,
+   "isAutomationUnconfirmed": true
+  },
+  "strategy": {
+   "moatType": "UNKNOWN",
+   "blindspot": "未確認",
+   "moatDescription": "未確認",
+   "initialTraction": [],
+   "actionPlaybook": []
+  },
+  "temporal": {
+   "foundedYear": 2010,
+   "initialTractionPeriod": "未確認",
+   "dataSnapshotPeriod": "2026-10-08 時点の公開情報",
+   "viabilityStatus": "UNKNOWN",
+   "viabilityLabel": "未確認",
+   "eraContext": "未確認",
+   "currentViabilityAnalysis": "未確認"
+  },
+  "facts": [
+   {
+    "kind": "DESCRIPTION",
+    "text": "M-KOPAは、アフリカで日々の収入で暮らす人に、頭金と分割払いでスマートフォンを提供している。",
+    "sourceUrl": "https://www.m-kopa.com/",
+    "quote": "Make a deposit and instantly take home the latest smartphone.",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "FOUNDING",
+    "text": "M-KOPAは、携帯電話での少額決済と機器の通信機能を組み合わせ、生活に必要な商品を買えるようにするために2010年に創業したと公式サイトで説明している。",
+    "sourceUrl": "https://www.m-kopa.com/about",
+    "quote": "M-KOPA was founded in 2010",
+    "numberKind": "OTHER",
+    "label": "公式サイトが示す創業年",
+    "asOf": "2010",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "CHANNEL",
+    "text": "M-KOPAは、ケニアのリフトバレー地域で初期の顧客向け試験を行った。",
+    "sourceUrl": "https://www.london.edu/think/m-kopa-let-there-be-light",
+    "quote": "The initial customer pilot of M-KOPA in the Rift Valley, Kenya, was a success.",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "CHANNEL",
+    "text": "M-KOPAは、ケニアの携帯電話会社Safaricomと提携し、2012年6月に本格的な商業販売を始めた。",
+    "sourceUrl": "https://www.london.edu/think/m-kopa-let-there-be-light",
+    "quote": "in June 2012, M-KOPA began its full-scale commercial launch",
+    "numberKind": "OTHER",
+    "label": "商業販売の開始時期",
+    "asOf": "2012-06",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "EVENT",
+    "text": "太陽光の照明設備から事業を始めたM-KOPAは、2020年にスマートフォンを商品に加えた。",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-raises-over-250m-in-new-financing",
+    "quote": "In 2020 we introduced smartphones",
+    "numberKind": "OTHER",
+    "label": "スマートフォンの導入年",
+    "asOf": "2020",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "TEAM",
+    "text": "M-KOPAは、2019年から2021年にかけて正社員の雇用を944人分増やした。",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-releases-annual-impact-report",
+    "quote": "944 additional jobs created",
+    "numberKind": "OTHER",
+    "label": "正社員の追加雇用",
+    "asOf": "2021",
+    "periodKind": "CUMULATIVE",
+    "basis": "2019年から2021年までの追加雇用であり、社員総数ではない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "CHANNEL",
+    "text": "M-KOPAの販売代理人は、2021年末に10,000人になった。",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-releases-annual-impact-report",
+    "quote": "10,000 income-earning agents",
+    "numberKind": "OTHER",
+    "label": "販売代理人数",
+    "asOf": "2021",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "FUNDING",
+    "text": "M-KOPAは、2023年に出資と借入を合わせて2億5,000万米ドル超を調達したと発表した。",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-raises-over-250m-in-new-financing",
+    "quote": "over USD $250m",
+    "numberKind": "FUNDING",
+    "asOf": "2023",
+    "basis": "出資と借入の合計であり、出資だけの金額ではない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "EVENT",
+    "text": "M-KOPAは、2023年に電動バイクの試験提供を行っていた。",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-raises-over-250m-in-new-financing",
+    "quote": "in 2023 we are testing electric motorcycles",
+    "numberKind": "OTHER",
+    "label": "電動バイクの試験提供年",
+    "asOf": "2023",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "PRICING",
+    "text": "2026年10月に確認した公式ページでは、電動バイクRoam Airのバッテリー単体構成の料金例として、頭金25,000ケニアシリングを掲載している。",
+    "sourceUrl": "https://www.m-kopa.com/blog/what-first-time-electric-motorcycle-buyers-should-expect",
+    "quote": "KSH 25,000 for the Roam Air",
+    "numberKind": "PRICE",
+    "asOf": "2026-10",
+    "basis": "取得月の掲載例であり、料金の適用開始日や現在の契約条件は未確認。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "PRICING",
+    "text": "2026年10月に確認した公式ページでは、電動バイクRoam Airのバッテリー単体構成の料金例として、頭金とは別に1日550ケニアシリングの分割払いを掲載している。",
+    "sourceUrl": "https://www.m-kopa.com/blog/what-first-time-electric-motorcycle-buyers-should-expect",
+    "quote": "KSH 550 daily on instalments",
+    "numberKind": "PRICE",
+    "asOf": "2026-10",
+    "basis": "取得月の掲載例であり、支払日数と総支払額は未確認。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "TIMEは、M-KOPAの2023年の売上を2億4,800万米ドルと報じた。",
+    "sourceUrl": "https://time.com/collections/time100-companies-2024/6980472/m-kopa-2/",
+    "quote": "With $248 million in revenue last year",
+    "numberKind": "REVENUE",
+    "asOf": "2023",
+    "periodKind": "YEAR",
+    "basis": "2024年の記事が前年の売上として報じた金額であり、ナイジェリア事業だけの売上ではない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "M-KOPAのナイジェリア事業は、2025年に2,310億ナイラ超の融資を実行したとTechpoint Africaが報じた。",
+    "sourceUrl": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/",
+    "quote": "the company disbursed more than ₦231 billion in loans.",
+    "numberKind": "OTHER",
+    "label": "融資実行額",
+    "asOf": "2025",
+    "periodKind": "YEAR",
+    "basis": "ナイジェリア事業の融資実行額であり、売上ではない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "M-KOPAのナイジェリア事業の顧客数は、2025年に100万人を超えたとTechpoint Africaが報じた。",
+    "sourceUrl": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/",
+    "quote": "M-KOPA surpassed one million customers in Nigeria in 2025.",
+    "numberKind": "USERS",
+    "asOf": "2025",
+    "basis": "ナイジェリア事業の顧客数であり、全社の顧客数ではない。",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "EVENT",
+    "text": "M-KOPAのナイジェリア事業は、スマートフォンの返済データを融資審査に使っていると説明している。",
+    "sourceUrl": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/",
+    "quote": "credit-scoring engine built on smartphone repayment data",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "EVENT",
+    "text": "M-KOPAのナイジェリア事業は、スマートフォン以外の商品への融資を広げる方針を示した。",
+    "sourceUrl": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/",
+    "quote": "M-KOPA Nigeria is looking to expand beyond smartphone financing",
+    "checkedAt": "2026-10-08"
+   },
+   {
+    "kind": "OTHER",
+    "text": "2026年10月に確認したM-KOPAの公式トップページでは、累計顧客数を1,000万人超と表示している。",
+    "sourceUrl": "https://www.m-kopa.com/",
+    "quote": "10 million customers across five markets",
+    "numberKind": "USERS",
+    "asOf": "2026-10",
+    "basis": "取得月の公式表示であり、利用中の顧客数とは区別する。",
+    "checkedAt": "2026-10-08"
+   }
+  ],
+  "metrics": [
+   {
+    "numberKind": "OTHER",
+    "amount": 944,
+    "unit": "人分",
+    "label": "正社員の追加雇用",
+    "asOf": "2021",
+    "periodKind": "CUMULATIVE",
+    "quote": "944 additional jobs created",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-releases-annual-impact-report",
+    "checkedAt": "2026-10-08",
+    "origin": "SELF_REPORTED",
+    "basis": "2019年から2021年までの追加雇用であり、社員総数ではない。"
+   },
+   {
+    "numberKind": "OTHER",
+    "amount": 10000,
+    "unit": "人",
+    "label": "販売代理人数",
+    "asOf": "2021",
+    "quote": "10,000 income-earning agents",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-releases-annual-impact-report",
+    "checkedAt": "2026-10-08",
+    "origin": "SELF_REPORTED",
+    "basis": "2021年末の販売代理人であり、正社員数ではない。"
+   },
+   {
+    "numberKind": "FUNDING",
+    "amount": 250000000,
+    "currency": "USD",
+    "label": "出資と借入による調達額（超）",
+    "asOf": "2023",
+    "quote": "over USD $250m",
+    "sourceUrl": "https://www.m-kopa.com/newsroom/m-kopa-raises-over-250m-in-new-financing",
+    "checkedAt": "2026-10-08",
+    "origin": "SELF_REPORTED",
+    "basis": "出資と借入の合計。原文はこの金額を超えると述べており、正確な総額ではない。"
+   },
+   {
+    "numberKind": "PRICE",
+    "amount": 25000,
+    "currency": "KES",
+    "label": "Roam Airの頭金の掲載例",
+    "asOf": "2026-10",
+    "quote": "KSH 25,000 for the Roam Air",
+    "sourceUrl": "https://www.m-kopa.com/blog/what-first-time-electric-motorcycle-buyers-should-expect",
+    "checkedAt": "2026-10-08",
+    "origin": "SELF_REPORTED",
+    "basis": "バッテリー単体構成。取得月の掲載例であり、料金の適用開始日や現在の契約条件は未確認。"
+   },
+   {
+    "numberKind": "PRICE",
+    "amount": 550,
+    "currency": "KES",
+    "unit": "日",
+    "label": "Roam Airの日額分割払いの掲載例",
+    "asOf": "2026-10",
+    "quote": "KSH 550 daily on instalments",
+    "sourceUrl": "https://www.m-kopa.com/blog/what-first-time-electric-motorcycle-buyers-should-expect",
+    "checkedAt": "2026-10-08",
+    "origin": "SELF_REPORTED",
+    "basis": "頭金とは別の支払い。取得月の掲載例であり、支払日数と総支払額は未確認。"
+   },
+   {
+    "numberKind": "REVENUE",
+    "amount": 248000000,
+    "currency": "USD",
+    "label": "2023年の売上",
+    "asOf": "2023",
+    "periodKind": "YEAR",
+    "quote": "With $248 million in revenue last year",
+    "sourceUrl": "https://time.com/collections/time100-companies-2024/6980472/m-kopa-2/",
+    "checkedAt": "2026-10-08",
+    "origin": "ARTICLE",
+    "basis": "M-KOPA全体について報じた金額。提出済み決算書との照合は未実施。"
+   },
+   {
+    "numberKind": "OTHER",
+    "amount": 231000000000,
+    "currency": "NGN",
+    "label": "ナイジェリア事業の年間融資実行額（超）",
+    "asOf": "2025",
+    "periodKind": "YEAR",
+    "quote": "the company disbursed more than ₦231 billion in loans.",
+    "sourceUrl": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/",
+    "checkedAt": "2026-10-08",
+    "origin": "ARTICLE",
+    "basis": "依頼本文で提供された記事本文に基づく。融資実行額であり、売上・利益・調達額ではない。"
+   },
+   {
+    "numberKind": "USERS",
+    "amount": 1000000,
+    "unit": "人",
+    "label": "ナイジェリア事業の顧客数（超）",
+    "asOf": "2025",
+    "quote": "M-KOPA surpassed one million customers in Nigeria in 2025.",
+    "sourceUrl": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/",
+    "checkedAt": "2026-10-08",
+    "origin": "ARTICLE",
+    "basis": "依頼本文で提供された記事本文に基づく。ナイジェリア事業のみ。"
+   },
+   {
+    "numberKind": "USERS",
+    "amount": 10000000,
+    "unit": "人",
+    "label": "全社の累計顧客数（超）",
+    "asOf": "2026-10",
+    "quote": "10 million customers across five markets",
+    "sourceUrl": "https://www.m-kopa.com/",
+    "checkedAt": "2026-10-08",
+    "origin": "SELF_REPORTED",
+    "basis": "依頼本文で提供された公式トップページの表示。全市場の累計顧客数であり、利用中の顧客数ではない。"
+   }
+  ],
+  "reaudit": {
+   "status": "PARTIAL",
+   "auditDate": "2026-10-08",
+   "timezone": "Asia/Tokyo",
+   "auditOwner": "case:research",
+   "method": "MANUAL_REAUDIT",
+   "family": "new-collection",
+   "sources": [
+    {
+     "url": "https://www.m-kopa.com/",
+     "publisher": "M-KOPA",
+     "sourceType": "official_website",
+     "publicationDate": null,
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://www.m-kopa.com/about",
+     "publisher": "M-KOPA",
+     "sourceType": "official_website",
+     "publicationDate": null,
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://efficiencyforaccess.org/wp-content/uploads/Energy_Report_CS_VF.pdf",
+     "publisher": "Efficiency for Access掲載の調査報告書",
+     "sourceType": "article",
+     "publicationDate": null,
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER2_FACTS_ONLY"
+    },
+    {
+     "url": "https://www.london.edu/think/m-kopa-let-there-be-light",
+     "publisher": "London Business School",
+     "sourceType": "article",
+     "publicationDate": "2013-04-29",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER2_FACTS_ONLY"
+    },
+    {
+     "url": "https://www.m-kopa.com/newsroom/m-kopa-raises-over-250m-in-new-financing",
+     "publisher": "M-KOPA",
+     "sourceType": "official_blog",
+     "publicationDate": "2023-05-15",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://www.m-kopa.com/newsroom/m-kopa-releases-annual-impact-report",
+     "publisher": "M-KOPA",
+     "sourceType": "official_blog",
+     "publicationDate": "2022-09-12",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://www.m-kopa.com/blog/what-first-time-electric-motorcycle-buyers-should-expect",
+     "publisher": "M-KOPA",
+     "sourceType": "official_blog",
+     "publicationDate": "2026-06-01",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER1_OFFICIAL"
+    },
+    {
+     "url": "https://time.com/collections/time100-companies-2024/6980472/m-kopa-2/",
+     "publisher": "TIME",
+     "sourceType": "article",
+     "publicationDate": "2024-05-30",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER2_FACTS_ONLY"
+    },
+    {
+     "url": "https://techpoint.africa/insight/m-kopa-nigeria-targets-informal-economy-expansion/",
+     "publisher": "Techpoint Africa",
+     "sourceType": "article",
+     "publicationDate": "2026-02-26",
+     "checkedAt": "2026-10-08",
+     "rightsTier": "TIER2_FACTS_ONLY"
+    }
+   ],
+   "supported": [],
+   "unknown": [
+    "最初の有料顧客の名前と、その顧客を個別に獲得した方法は確認できなかった。初期の顧客向け試験の場所と、商業販売時の提携先は確認できた。",
+    "創業時の社員数と、創業者が専業になった時期は確認できなかった。",
+    "スマートフォンの機種別の頭金・日額・支払日数・総支払額と、その変更履歴は確認できなかった。公式のナイジェリア・ケニア向けページには、取得できた本文の範囲で金額表示がなかった。",
+    "GSMAの創業者インタビューと初期料金の資料は403で本文を取得できなかった。試したWebアーカイブのURLも取得できず、検索結果に出た料金は採用しなかった。",
+    "初期スマートフォン料金を扱うTechCabalの記事は本文を取得できず、料金の出典として採用しなかった。",
+    "公式ブログにはSamsung A12の日額600ナイラの顧客談があるが、契約した時期が分からないため、日付が必須の料金指標には採用しなかった。",
+    "Roam Airの料金例の適用開始日、現在の提供条件、支払日数、総支払額は確認できなかった。",
+    "スマートフォン導入後の顧客増加について、導入だけが成長の原因だったとは確認できなかった。",
+    "ナイジェリア事業の累計融資実行額3,200億ナイラは、集計の終了時点が本文から確定できないため採用しなかった。",
+    "ナイジェリア事業の売上は提供された記事本文でも非開示とされている。納税額から推測した売上は採用しなかった。",
+    "売上4億1,600万米ドルと初の黒字化については、対象年を確定するためのTechCabal記事が403で読めず、Webアーカイブも取得できなかったため採用しなかった。",
+    "企業の売却・上場の有無は確認できなかった。",
+    "docs/research-record/README.md、docs/research-record/keygen.example.json、docs/OWNER_INTENT.md、.claude/skills/natural-japanese/SKILL.mdは、今回使用できる閲覧手段では読めなかったため、依頼本文の形式と文章規則に基づいて作成した。",
+    "指定された実行方式に従い、コマンド実行・ファイル作成・取り込み検証は行っていない。unconfirmedFactsとthinCasesが0件になることは未確認。",
+    "出典で確かめられず外した: 事実「Jesse Moore、Nick Hughes、」: 出典の本文を取得できない（https://efficiencyforaccess.org/wp-content/uploads/Energy_Report_CS_VF.pdf）"
+   ],
+   "conflicts": [
+    "創業年は公式Aboutページが2010年、London Business Schoolと調査報告書が2011年としている。foundedYearには公式の2010年を採用したが、両年の違いが準備開始と会社設立の違いなのかは未確認。商業販売の開始は別の出来事として2012年6月に記録した。",
+    "公式Aboutページの顧客数500万人超と、依頼本文の公式トップページの1,000万人超は、更新時点をそろえられない。取得月の規模にはトップページの表示を採用し、両数字から増加率は計算しなかった。",
+    "依頼本文のTechpoint Africa記事は2026年の記事で、売上4億1,600万米ドルと初の黒字化を前年の出来事としている。一方、検索で見つかったTechCabal記事は2024年の出来事としている。TechCabal本文を取得できず突き合わせが完了しなかったため、売上4億1,600万米ドルと黒字化の年は採用しなかった。",
+    "2025年のナイジェリアの融資実行額2,310億ナイラ超、2023年の全社売上2億4,800万米ドル、2023年の調達額2億5,000万米ドル超は、対象地域・期間・数字の種類が異なるため、同じ規模指標として比較していない。"
+   ]
+  },
+  "observationsStream": [],
+  "observations": [],
+  "claimBindings": [],
+  "publishability": "PUBLISHABLE",
+  "batchId": "research_m-kopa_20261008",
+  "financialStatus": "UNAVAILABLE",
+  "unknownsNotes": [
+   "最初の有料顧客の名前と、その顧客を個別に獲得した方法は確認できなかった。初期の顧客向け試験の場所と、商業販売時の提携先は確認できた。",
+   "創業時の社員数と、創業者が専業になった時期は確認できなかった。",
+   "スマートフォンの機種別の頭金・日額・支払日数・総支払額と、その変更履歴は確認できなかった。公式のナイジェリア・ケニア向けページには、取得できた本文の範囲で金額表示がなかった。",
+   "GSMAの創業者インタビューと初期料金の資料は403で本文を取得できなかった。試したWebアーカイブのURLも取得できず、検索結果に出た料金は採用しなかった。",
+   "初期スマートフォン料金を扱うTechCabalの記事は本文を取得できず、料金の出典として採用しなかった。",
+   "公式ブログにはSamsung A12の日額600ナイラの顧客談があるが、契約した時期が分からないため、日付が必須の料金指標には採用しなかった。",
+   "Roam Airの料金例の適用開始日、現在の提供条件、支払日数、総支払額は確認できなかった。",
+   "スマートフォン導入後の顧客増加について、導入だけが成長の原因だったとは確認できなかった。",
+   "ナイジェリア事業の累計融資実行額3,200億ナイラは、集計の終了時点が本文から確定できないため採用しなかった。",
+   "ナイジェリア事業の売上は提供された記事本文でも非開示とされている。納税額から推測した売上は採用しなかった。",
+   "売上4億1,600万米ドルと初の黒字化については、対象年を確定するためのTechCabal記事が403で読めず、Webアーカイブも取得できなかったため採用しなかった。",
+   "企業の売却・上場の有無は確認できなかった。",
+   "docs/research-record/README.md、docs/research-record/keygen.example.json、docs/OWNER_INTENT.md、.claude/skills/natural-japanese/SKILL.mdは、今回使用できる閲覧手段では読めなかったため、依頼本文の形式と文章規則に基づいて作成した。",
+   "指定された実行方式に従い、コマンド実行・ファイル作成・取り込み検証は行っていない。unconfirmedFactsとthinCasesが0件になることは未確認。",
+   "出典で確かめられず外した: 事実「Jesse Moore、Nick Hughes、」: 出典の本文を取得できない（https://efficiencyforaccess.org/wp-content/uploads/Energy_Report_CS_VF.pdf）"
+  ]
+ }
+]
