@@ -1,13 +1,6 @@
 [
  {
   "id": "ent_myoperator_49c393230a2d",
-  "where": "section-reasoning",
-  "rule": "a.出どころの印",
-  "text": "（YourStory 2016年記事の再掲）",
-  "reason": "事例の文の担当が、中身のある括弧（点数・件数・但し書き）は括弧を外して文に言い換え、出どころの呼び名だけ消す"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
   "where": "数字の帯「料金」",
   "rule": "c.料金の付帯条件",
   "text": "「GST」: 現行の料金表は、Sedanが月5,000ルピー（約8,750円）、SUVが月15,000ルピー（約2万6,250円）で、どちらも10ユーザー。全プラン年払いで、GSTとMetaの料金は別。冒頭に30日間の全額返金を掲げる。",
@@ -88,13 +81,6 @@
   "where": "概要 / section-group-customers",
   "rule": "e.同じ話が2か所以上",
   "text": "「小売医療教育不動産金融などの」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_myoperator_49c393230a2d",
-  "where": "section-group-secret / section-chapter-start",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「自己資金120万ルピー約21」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -288,23 +274,9 @@
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-group-secret / section-chapter-price / section-group-money",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「買い切り999ドル約15万円」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
   "where": "section-group-secret / section-group-edge",
   "rule": "e.同じ話が2か所以上",
   "text": "「はいなかった2025年10月」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-practice / section-chapter-core",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「は月400ドル約6万円超約6」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -403,13 +375,6 @@
   "where": "section-group-secret / section-group-first",
   "rule": "e.同じ話が2か所以上",
   "text": "「した2015年6月に月59ド」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_referralrock_8c13d5ee4cfc",
-  "where": "section-group-secret / section-chapter-start",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「月の売上が約2000ドル約3」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
