@@ -4,24 +4,24 @@
   "sourceCount": 3354,
   "publishedCount": 10,
   "summaries": {
-    "hash": "f196574f0f039cb64dcd64845f583847a4310064a8a508dd7512b525773673a0",
-    "key": "views/make-money/catalog-v1/objects/f196574f0f039cb64dcd64845f583847a4310064a8a508dd7512b525773673a0.json.gz"
+    "hash": "4114d24407cfa3c3297491431667f49a7a88058325a17387ac49a23c48a1fcfc",
+    "key": "views/make-money/catalog-v1/objects/4114d24407cfa3c3297491431667f49a7a88058325a17387ac49a23c48a1fcfc.json.gz"
   },
   "discovery": {
-    "hash": "12e8c8a75fbb0d804be9e44bf09d01507a72765a7551efd1da6005d887f6527d",
-    "key": "views/make-money/catalog-v1/objects/12e8c8a75fbb0d804be9e44bf09d01507a72765a7551efd1da6005d887f6527d.json.gz"
+    "hash": "8db216b972ce28b9f7bf3b95c4b4751574f02bda8b46be18be3dfcd536e1000a",
+    "key": "views/make-money/catalog-v1/objects/8db216b972ce28b9f7bf3b95c4b4751574f02bda8b46be18be3dfcd536e1000a.json.gz"
   },
   "details": {
-    "ent_myoperator_49c393230a2d": "fa477f7f3c7efa68678664101b3aeeabced3b93da4f501f454b1b59fc3861a59",
-    "ent_codementor_ba692caa3db3": "cff93879790cff02347407a47f6ad0adcca2d7f679f30f16319eebb0bd9c7171",
-    "ent_teamcamp_ae0c21986c4d": "bacf0cad595f1890e9064fb6d21f16041541b230295223322e87b615897c49bd",
-    "ent_referralrock_8c13d5ee4cfc": "259baac9739606acc6f1ca6ea57f5c5ac9f72c859e3626e762a86379642f0f48",
-    "ent_ejunkie_7e9e46bd9643": "85c7dc592df4caad453b568a54a1d63abb83aa65dad653a63eb6bafe1ab80eca",
-    "ent_gorails_640d8f688451": "a9d93f652baf42bc740531b100294f3297f66ce1513ad64af06bf62087434b12",
-    "ent_rfrcui_64e924ac": "7ef93385320180452752672af00119c5f893e3c746eed2304009c662aef36293",
-    "ent_heygen_8f11a1": "77751adb22d19a1b7171db0dea3ea8fc8d7675ef5d2d46bb994a8a02546e17a7",
-    "ent_requestly_28e9f2": "be5bbb0b99655970c21b7694a3d26f5ec77ba67c9a063b4e2f3ffb80673a14fb",
-    "ent_practicaltypographycom_e9aa6bc94ccf": "23298a2215d35da6e402f0d60c82b86e56d4a2f51b51ac3e80133bc01da887df"
+    "ent_myoperator_49c393230a2d": "611fd4757bebeb291d4e43ee0fc80781f3cee9d3cd9a6185b4e03e72d154b01c",
+    "ent_codementor_ba692caa3db3": "4888d2d0a7cc5d8b8a616c4b131028ec493b3a99b3c4f9e44157edb50f831180",
+    "ent_teamcamp_ae0c21986c4d": "0ec75d858ba5fe3236292c6a7fa69f221cae927c287d9b1e8e48e66cb26acabc",
+    "ent_referralrock_8c13d5ee4cfc": "5dc7d3b416f5c62be8dc9f4d6f07da25970caee93fc2c00144ff88b78354273a",
+    "ent_ejunkie_7e9e46bd9643": "062b9058f4abf36146457133bd7d5cfbf913093855a67d905eaaf01537c25be3",
+    "ent_gorails_640d8f688451": "4b76c3fb5bbb18f79c926e91c2443e0b9cdda2672cbd7b26a9614bbc841ba3b3",
+    "ent_rfrcui_64e924ac": "6bec2d02c8ac44d6f6d3a4e8853ef819cdebc5b46012085bd5e91f85afa16e02",
+    "ent_heygen_8f11a1": "1b438d92b0cc336026e156c76e4ed6f3206a3743ee1c93c66d7fec85ecabb620",
+    "ent_requestly_28e9f2": "3ef0b3dddefbbb7b88b059482817c4dbacc86243e9a499730ad8f8379b7945fb",
+    "ent_practicaltypographycom_e9aa6bc94ccf": "1a6ea1dff6e4bab90426b0d9d1b5a29cbe2017205f1fcb66729e2b5c00f84bc0"
   },
   "coreDetails": {
     "ent_myoperator_49c393230a2d": "d358715c82e64e52fe6334755f5f114610c21f0ba2f185bcf338e3120390b388",
