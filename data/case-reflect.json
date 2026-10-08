@@ -1995,17 +1995,6 @@
       "presentation": "FACT_SUMMARY"
      },
      {
-      "id": "a-upfront_cash",
-      "item": "UPFRONT_CASH",
-      "text": "SaaSの年払いで、客は1年分を先に払う。現行の料金表も全プラン年払い。",
-      "basis": [
-       "f6",
-       "f9"
-      ],
-      "formula": "数字は出典に載っている値",
-      "presentation": "FACT_SUMMARY"
-     },
-     {
       "id": "a-timeline",
       "item": "TIMELINE",
       "text": "2010年: Ankit Jainが最初の音声サービスVoice Jadooを開始。2013年3月: MyOperatorを開始。開始から6か月: 登録利用者600人超、有料200社、損益が釣り合う。2016年: 登録利用者25,000人超、有料2,000社超、従業員125人。2015-16年度: 売上200万ドル（本人公表）。現在: 公式サイトが運営法人Voicetree Technologiesの名で営業を続け、現行の料金表を掲げている。",
@@ -2038,7 +2027,7 @@
      {
       "id": "a-lesson",
       "item": "LESSON",
-      "text": "市場にこの技術があまり知られていない中で、3年間は啓発と販売に力を割き、年払いの前金と外部資金なしで開始半年で損益を釣り合わせた。",
+      "text": "市場にこの技術があまり知られていない中で、3年間は啓発と販売に力を割いた。外部資金なしで始め、開始から6か月で損益が釣り合った。",
       "basis": [
        "f3",
        "f6",
@@ -2050,8 +2039,8 @@
     ]
    },
    "ruleVersion": "case-reflect-v1",
-   "hash": "5cc69895309ab0da5ca55ea01a4aa20fb97983b981eb51fade1aa1ede232a0c2",
-   "reflectedAt": "2026-10-08T00:39:22.783Z"
+   "hash": "9ded8fe8649a29a2955eb076ef5d068ae793eab743f3a308ab2079eed1f8a42a",
+   "reflectedAt": "2026-10-08T01:28:19.629Z"
   },
   "ent_practicaltypographycom_e9aa6bc94ccf": {
    "id": "ent_practicaltypographycom_e9aa6bc94ccf",

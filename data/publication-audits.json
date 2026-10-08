@@ -36,28 +36,28 @@
     "by": "data/audit/in-99999926100722513500175001.json"
    },
    "fact:f9": {
-    "hash": "d10eb495a3e336fd50a1ca23799b4ef650737b0857ef07599a4f4e6c14e32970",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "36d857a156c33bee9cf4389d417765fca4e5f202de21dfc11a29cba193126c8e",
+    "by": "data/audit/in-999999261008102636001.json"
    },
    "fact:f10": {
     "hash": "f689b12801f983e041a761bb65a4f8ddd016855279addbe382e79a9bad71961a",
     "by": "data/audit/in-99999926100722513500175001.json"
    },
    "metric:m1": {
-    "hash": "2e50d0e26bbfdfabd59a40be54e537d2bef648e8b29b485fda689cd5a10b9130",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "964cfb1c4d1f0694adb1487aea1705c36e19a0d905e014ee3e7d242bac690471",
+    "by": "data/audit/in-999999261008102636001.json"
    },
    "metric:m2": {
     "hash": "0cb6e30352e81bf0eb80002e7f7f3f25f57f678c18abd890904449075b82635a",
     "by": "data/audit/in-99999926100722513500175001.json"
    },
    "metric:m3": {
-    "hash": "241d195f2091f0b13386339f1044e0402a3b948a3f09c3e4ff5c3766cf3d1220",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "b45f6a9e5d475680661760adfc7ad0071160be32dfcfb82ce4fe21ae550a6127",
+    "by": "data/audit/in-999999261008102636001.json"
    },
    "metric:m4": {
-    "hash": "cf8753d7c6264887806c6bea9109581d4ece42ba2c5c8e264f8800566d8380ca",
-    "by": "data/audit/in-99999926100722513500175001.json"
+    "hash": "d93364466463447231ba53a8391830426d1ef303be887aff13c5b9fb85b1104c",
+    "by": "data/audit/in-999999261008102636001.json"
    },
    "analysis:a-headline": {
     "hash": "5cdd5868b62a0bf7a021c8ce29959229b044ff2a87537c941e29829862b70351",
@@ -148,32 +148,32 @@
     }
    },
    "analysis:a-dependencies": {
-    "hash": "7d6fe47abc22d293e2b65ff5750b49a74dca1a222c557ae55ba476723fd7cc83",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "4bac2ad8ce1e9c0cc98ead8224a108627ab1d37d3f1be583237f33e936c712a7",
+    "by": "data/audit/in-999999261008102636001.json",
     "body": {
      "text": "WhatsApp向けの料金には、MyOperatorの利用料とは別にMetaの料金が乗る。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-upfront_cash": {
-    "hash": "32f034799b7b3146472c320c211df276545bd04d0aeec7af2c7805db659c0cb8",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "0306501a8cbd3cbdb733439a20f28cfe1e75cb4bd9a598b8d95a783c19b06a8b",
+    "by": "data/audit/in-999999261008102721001.json",
     "body": {
-     "text": "SaaSの年払いで、客は1年分を先に払う。現行の料金表も全プラン年払い。",
+     "text": "SaaSの利用料金は年払いで、現行の料金表も全プラン年払いとしている。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-timeline": {
-    "hash": "65ad018065cf06ddeb7cdfbc64e40db579979038c83c51537d19a123f459fdad",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "061bd1466258412e77a4793f77e25f837cb2db399fc80ab29931986f0fa122c3",
+    "by": "data/audit/in-999999261008102636001.json",
     "body": {
      "text": "2010年: Ankit Jainが最初の音声サービスVoice Jadooを開始。2013年3月: MyOperatorを開始。開始から6か月: 登録利用者600人超、有料200社、損益が釣り合う。2016年: 登録利用者25,000人超、有料2,000社超、従業員125人。2015-16年度: 売上200万ドル（本人公表）。現在: 公式サイトが運営法人Voicetree Technologiesの名で営業を続け、現行の料金表を掲げている。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-viability": {
-    "hash": "478b85fa73aa5b8e493b160ca76a93db9684e8335b64b131decdd0d9d0eb9f66",
-    "by": "data/audit/in-99999926100722513500175001.json",
+    "hash": "2c1a100d8de46a8f30061e0e62621a96c65d8f4b2d14c73ce0b916fee826ba8f",
+    "by": "data/audit/in-999999261008102636001.json",
     "body": {
      "text": "先行者が強く後発は困難。同じ分野には、2012年にシリーズAを調達したExotel、2014年7月に1,600万ドルを調達したKnowlarityなど、資金を入れた先行者が複数いる。MyOperatorは2013年の開始から営業を続け、現行の料金表とパートナー制度を掲げ、サービスをWhatsAppとAIボットへ広げている。",
      "formula": "数字は出典に載っている値"
@@ -194,9 +194,21 @@
     "outputFile": "data/audit/out-99999926100722513500175001.json",
     "inputFileHash": "199c04c23102e526ab95b2576542ff16f4ae7d6aafef7c9898d23634b307f100",
     "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008102636001.json",
+    "outputFile": "data/audit/out-999999261008102636001.json",
+    "inputFileHash": "5c9174ce5cd2b68f91032738fac8294b348e1b8f4be0ae46b75397647f2b9880",
+    "outputFileHash": "2d2dbb7ee96dcbb30079ec099048df25f6106ba154ff3640797d114f821b538e"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008102721001.json",
+    "outputFile": "data/audit/out-999999261008102721001.json",
+    "inputFileHash": "94f9df743f641a59792a91596b4f86ede13d4c5a055d2951221813edf44f662c",
+    "outputFileHash": "433d94cd93f30c6b3179326751d47cfd18c844bb22b0609748ed0b7f4bfce207"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008101332001.json",
+  "lastAudit": "data/audit/in-999999261008102721001.json",
   "baseAnalysisHash": "c5d1493d4b96f43ae0d59fa67df4f38ca6a9d0e87004f4cbca58330ccbaf0ff6"
  },
  "ent_codementor_ba692caa3db3": {

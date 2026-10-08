@@ -71601,7 +71601,9 @@
    "claimText": "項目=USERS / 期間=2016年の登録利用者(POINT) / 金額=25000 人 / 由来=SELF_REPORTED",
    "fix": {
     "metric": {
-     "amount": 25000
+     "amount": 25000,
+     "label": "登録利用者（25,000人以上）",
+     "basis": "出典は「25,000人超」と書く。確定値でなく下限"
     }
    }
   },
@@ -71613,7 +71615,9 @@
    "claimText": "項目=USERS / 期間=2016年の有料顧客(POINT) / 金額=2000 社 / 由来=SELF_REPORTED",
    "fix": {
     "metric": {
-     "amount": 2000
+     "amount": 2000,
+     "label": "有料顧客（2,000社以上）",
+     "basis": "出典は「2,000社超」と書く。確定値でなく下限"
     }
    }
   }
