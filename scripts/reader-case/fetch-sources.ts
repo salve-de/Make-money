@@ -27,6 +27,8 @@ export function htmlToText(html: string): string {
   const body = html
     .replace(/<!--[\s\S]*?-->/g, ' ')
     .replace(/<(script|style|noscript|svg|template|iframe)[\s\S]*?<\/\1>/gi, ' ')
+    // Kicktraq は企画の期間の年を title 属性にだけ持つ。年が本文に出るよう、日付の title を文字にする
+    .replace(/<a\b[^>]*class="datelink"[^>]*title="([^"]*)"[^>]*>/gi, ' $1 ')
     .replace(/<\/(p|div|li|h[1-6]|tr|br|section|article)>|<br\s*\/?>/gi, '\n')
     .replace(/<[^>]+>/g, ' ');
   const decoded = `${meta.join('\n')}\n${body}`

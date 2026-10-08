@@ -4,163 +4,317 @@
  "cases": {
   "ent_button_shy_f1545f17d98e": {
    "sources": {
+    "https://www.kicktraq.com/projects/239309591/aqua-rove/": {
+     "url": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:38:45.016Z",
+     "via": "direct",
+     "textHash": "9b0f65efc8857308a62319f5ef5773e6dff48d65907b4c1917006af9d26ccb51",
+     "textLength": 6848,
+     "quotes": [
+      "177b5bb284c74733336fc7034a250b468e5540fb6e8127b8247fa8dd24a33f7e",
+      "3c9563d9bf008b13a92f9d3b261a90d270742654874ceec616ca9716c46a92db",
+      "e53627a0299979a4b6f22af4f4cd5a157b364b573e6125f1311f33d843130f52"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://www.kicktraq.com/projects/239309591/unsurmountable/": {
+     "url": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:38:45.017Z",
+     "via": "direct",
+     "textHash": "9a2d2d506ae25ae6b9e00cd3ba363a72229542dc63e7f4029e43a1ea8a79ba0c",
+     "textLength": 6162,
+     "quotes": [
+      "905c3afef818e8d59c4759629cccde105f38d37feeb5f5e0c7e46c8d28a481b4",
+      "d7ed5e0046db0fbb0e37c5eee04849daefd603923d0b2475868afde6bdc5bc28",
+      "ff435f76cea95da39825d4327cd8d32e89cc081762db063c0b49292dfa061ebc"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://kicktraq.com/projects/239309591/shallow-regrets/": {
+     "url": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:38:45.018Z",
+     "via": "direct",
+     "textHash": "0ee0bb275c757d745a6fca97db0f4dc329c73f26f70eff3f957ec71b5c9dbd28",
+     "textLength": 6764,
+     "quotes": [
+      "1850f14a3cf897701a66a394435f2e8c3942afb823c8b5ec50957ef2094c3421",
+      "a92f41fe03ab85105e7fda6e43c2c70dbfc2bdd09229583fbaa72c815a064528"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/": {
+     "url": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:44:25.636Z",
+     "via": "direct",
+     "textHash": "c0203d988cd3479a311fd9f0e2c547bdef2240529d023306b23613143087b689",
+     "textLength": 7369,
+     "quotes": [
+      "67ae850f04e79efa49c9c14ce46d3e6570c8c7a5f333b127259d68ab26aebf72"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/": {
+     "url": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:38:45.018Z",
+     "via": "direct",
+     "textHash": "560b3b911489880c45b6094b941d796380fb6b0ae0080f76c7293155e3a6cbf9",
+     "textLength": 9618,
+     "quotes": [
+      "5f8ae5a5e123f114b529bac18fb8d9234529e29e54df2505cd78c7a616939948",
+      "635eaaa7cca5e6234f2ea084580c5f19468b020bd057cb552c247b5f30000dc1",
+      "8e3807d3f4d4a5531f9fa1b2fcc9db1f92405a2f7d19fc789e3ed6e2894b1ae7"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://www.patreon.com/buttonshy/about": {
+     "url": "https://www.patreon.com/buttonshy/about",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:44:28.807Z",
+     "via": "direct",
+     "textHash": "c8325ea2e945e0421fe924a3a37d4c7373b903e8abf3f8953198c05ca5ae1b24",
+     "textLength": 3450,
+     "quotes": [
+      "0c5db406a35fd33d6df4c139498bc7655ad632db858b6769418ee51785ea6a77",
+      "39c2a0051fdb7e49e475dd95675e8d42c73acc7eeda91fdd7322c42395055d58",
+      "af5e31e2c8389c975c0c706eaf419966706a114ec12ed0df65cb1e556c974026"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.patreon.com/buttonshy/about",
+     "contentType": "text/html; charset=utf-8"
+    },
     "https://buttonshygames.com/pages/about-us": {
      "url": "https://buttonshygames.com/pages/about-us",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.923Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.com/pages/about-us",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "e0211d01f83526db166106c908d118ac33732c0afafda31d468db52022173c2a",
      "textLength": 10487,
      "quotes": [
       "32543a0dd8018920f530d2cdba5ab586172dd077423550d9a94a8f1300bb0e16",
-      "69eda03f6988b4b5045fd8058b61d55494d138461a2c973557304832728a263d"
+      "38063f65c683c3c0d2d3a073d03840e78f7e89ae7628b7fd76d5ea4112cdb2f5"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/pages/about-us",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding": {
      "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.956Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "68bca14761f1cd3c2d77ad81a438026f0b7fbe629b13d3eecefbf632c8a67f18",
      "textLength": 12768,
      "quotes": [
-      "16fcdb066c956ccd6743b6f28e2882e22f43c54027ab4e7dc29b2a3efff08072",
+      "1b35dcb20311c7438669600eac5e745efabd9590e42ebe47bdebfad519c2dbd9",
       "2951af3bb37104317d6bb847f7458f6e3daafd20943a3deb8c37ae4c44ed5c95",
-      "6fa3affc98cad73fc9d1d528c15cfeb81b56c14c9cf3bc1ba4a4f7c33bb6ecb3",
-      "9dbaa67d2708809412e9eb16b52d5463fdf7f7a8dcb1dc3594d8d760dc60d72b",
+      "3856da376f9db8fde1d7d4b2efbc6a3204ef3091d5c56f5f0ba104eecec41f73",
       "9ede010d847253c53e4e60e4cbf2729801ce7cfa3d737879466d9b36832f5578",
-      "f4debd9d437fe09f110632f8267f2b4cc353db690e954ab2023c72ca5d77376e"
+      "a8448f0deed80a24046621be7e90f00fa251ef9d85e8b231de7ff7da37eac622",
+      "cb5e2772ec71efcd549c57eed2992a3bd521ada265a61ef6882843dd7d6c13ff"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week": {
      "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.956Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "e4d796516117c9a90c3e9096c12840759f56bb3895f5373e1547e8c24b475d74",
      "textLength": 12782,
      "quotes": [
-      "0ab68938120b30c8cd15ca9deef6bce03c8219fedbc46508d010ec891d3d0769",
+      "238ca39b6c29e8263a97180a3bb3ca3cf20e4412c7dd69c5e2db8bf0818216b9",
       "4a0e437bc755bfbdfb78a67aafa8c9ee3c75762696c81ed79348df8771391718",
-      "5ac6b40a4616a71c1cb9147cfe1855e57bbbc0fdbb968c5927fabf8451632a2a",
-      "cb63ee2a69b1128440761d75cae01be03f903dcf2673f11292be1c8985ad4cda"
+      "732cf87f4ab6bed51690af2706f64353a5184675b45f06c044491ea05f0998a3",
+      "f540d60ad0c7aeb7b8bcb7f7b604d42ae4621882ebccf9309220b4c11ffbba36"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules": {
      "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.956Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "180b500f10f23f6242ce714148be0bfd214a9c771e9217d74a3f1cff8cd9faf6",
      "textLength": 17877,
      "quotes": [
-      "007a2a60ab1d6e783807d49d3b094aa5a12f47083f57ce28143e70b1a001e413",
       "0f1ae017c01af9b21ec6db0c184edc9b0207b471e72adedcadfe0f5dcb7b2f00",
-      "363489c7b93cc2cecc46cd837d8aecc811074eac7187b65000077f39ec592832",
+      "35c99211fe46fa7d6da832ca1aed28beed124c7281f743fc9028b23e41f1deed",
+      "5579ea3fce168292e6dac9721abb615cbbcb2ea0d5a98dc39e4cc39a381f902e",
       "6786323740736051a5cd5b13a9b45112f377c4cecdb867264b494098c1fce7b3",
-      "69ef4642169ebc8861317ab28b79b0ea0ac12dc8fa89a89366b88b40663b2bdd",
       "7f6314ed38ca80c42827120ed8b97e16994bad6e516b59573590d18db3b23016",
       "804dc8243f6d0dc2be082d9842cd76afe6e301f28fedcb840493b98341c116c6",
       "8cc30326448d9f2f1672bc594e3d37cf1f4afde975d004b7bf57241b4efb5f67",
+      "922038e8449865d225db2c005818269b73803fb67f8f759433b8a5fdd0d45867",
+      "a753111fcedd818818ffcbb7542695009bce3d91748318834d16efe40fe55500",
       "d270344b55410fc216dfe5eb9f072ccae26039dd0e67a27accb30f6fdba87f45",
       "e920d7f7f25b7d575fff7d11c2689981004120525ba55c1618acacfedf967c86",
-      "f28c6636b5f8698af33534f855e5491be4bb617a444d24b0dc8f2ed3d74ee2c5",
       "fab49412498d69c794f65464ed8a853cb9506bd3e3b3a52195f8bea903c7dc1f"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://buttonshygames.com/pages/wallet-games-are-now-15": {
      "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.956Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "be54b16245d1c9b015e643c5eead5af639aed2b37e33a2df2b034c6dc22b4457",
      "textLength": 11921,
      "quotes": [
       "3edaab330be22b7ba86378b6132219302d31751467c4253160fa85b3e932acb8",
-      "7a21b29893c7848f37747c0063edd9d9952fb0df63f6b4c9d137ec7220869b6b",
+      "89e9855b07e364698899d4da29273361c0038804ae57b6ad86dd428e33ceacf8",
       "b83e14f589b606366bcb502f866732e5d075cb1b9857b3e8efadc8c13643346e"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://buttonshygames.substack.com/p/introducing-the-modular-team": {
      "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.956Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "88ec581425e22c3811565ead30fe4ff5b5a6a28c6719bf9cb2edfd207779b2bf",
      "textLength": 5035,
      "quotes": [
+      "2038bf7e3ba1b2ef8ac83c9754bb79c98c2fdaa52b54eac1934c3792e4aedc8c",
       "9056bd3c47d34c9732f3532187a7d852b3d7507efd3d3e284c62c269e957ebd1",
-      "aa93c70335e700e3d0e1f46cfdb4f7ab84f1cd8edd5b6ae7ee1fbb3366f79635",
       "cf8bcb9cbb3004e47d5a04e491eea42ace3c0e5eee7c3093a8315d4adf9e07db",
-      "ff0f93ee54fb5db8a54611896c128bbf163b3081af4a34a8e37b0e47c2ea8807"
+      "d862815b86dad625b8718d8d7bb9b1a61c36b705de1f9db62a76c04fa40bc195"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://buttonshygames.com/products/sprawlopolis": {
      "url": "https://buttonshygames.com/products/sprawlopolis",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.956Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.com/products/sprawlopolis",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "8c18927bc01215ae39631199a68a798d46119c548c72233dfafab3ad43050777",
      "textLength": 15505,
      "quotes": [
-      "017ffda6efe1c63e71164859de75ca2eab8b58dd80fcf92e701fcda28abce9c8",
       "1f940648a37c4793739a8559aee1a5be8d6586da86abe70e613e2edda0fd9d42",
-      "945ff6bb3244f36dacb3d289e9572e809b18f61b598b28d4278235902cf72206",
-      "c4ac481f3ce1eea85d68b32d7872f2649086105317be7624ff68d7ab0a5895f0",
-      "f7199343ed0fcda157c18cea377bd0bc56db360b0386ccfd0e59bacdd1c378a2"
+      "2dbac538779b787b4083121252e117d2dfff6795ca114336e028ac5bcc53a3d5",
+      "8a1ea0d08438dbf579df59b48603a2d03521f7cef347f9343030bc7e2dc57574",
+      "9aa404a86f8438f01ea0b33ce853b72876db06dd1e02cead19df1d28afc8fe24"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/products/sprawlopolis",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/": {
      "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:56.956Z",
      "via": "wayback",
-     "finalUrl": "https://web.archive.org/web/20250325134147/https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "9ac3048654a35d20f9d5663721276dfc4379dc1bdf5f6bcd8302685d83dc25f7",
      "textLength": 33737,
      "quotes": [
-      "9132a2782604309c1d1b764d3d327c93c9047431e052bd4fc279de3775a8cd3f",
-      "d9e32c1e1d6d81028911f4840b4d929dd3fd1a696e89a5fe16f2ee282d5d21a8"
+      "3e0d721ebccc62ee9fcefc3c18341940ed2be7111ff524e41ecf4b92645f16d4",
+      "ffaf37620fb7a098ae6d8d57ae44c4d51587e2153c48f4eacb39c8f04350a53f"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://web.archive.org/web/20250325134147/https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+     "contentType": "text/html; charset=utf-8"
     },
     "https://buttonshygames.com/pages/international-orders": {
      "url": "https://buttonshygames.com/pages/international-orders",
      "status": 200,
      "fetchedAt": "2026-10-07T10:37:57.646Z",
      "via": "direct",
-     "finalUrl": "https://buttonshygames.com/pages/international-orders",
-     "contentType": "text/html; charset=utf-8",
      "textHash": "98f43bb2afcb1b4f49861015ee21854eb4a1238b4b97bd60ec28d3d031f51acc",
      "textLength": 12163,
      "quotes": [
-      "21b297a0a59aa155df4b04d6423397370787a594049552b4e88e84f2e9fbaf25",
-      "e0eac200e67409276e53c6726b71f6e606cf0a676456ade37c02464b9db4fe2a",
-      "ea7aee5f036a6f6ce792b665ea959e6c5e7c273e60a3e155b196006d0eff0c8f"
+      "14ee421e4d0ad87301c679a5b824f54ea39a39e2ba14ee91902a4b691cf758a0",
+      "4bf0a039caad668102df3838242960503cb0a7187325ab777773b979f807c536",
+      "99e044887b74b3b9f6cceaf4521716ebacbd7e06af6c3d03931513f2d25e07d7"
      ],
-     "quotesAbsent": []
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/pages/international-orders",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://boardgamequest.com/button-shy-game-of-the-month-club": {
+     "url": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:38:45.018Z",
+     "via": "direct",
+     "textHash": "9109c7ea39c215ddbb3c16123f4aca2b76560e3b6b03f499e779eefee4d04d6a",
+     "textLength": 7465,
+     "quotes": [
+      "45d7e821eb063e70078d524cdc9c2806b1e9edf94830383f9f947c330adfebd5",
+      "4e8f223e09159271f4b7e6df977d0f9e1fb8a5e0eeafe99b82c53ea1f50d91e9",
+      "b3ba646095c6d93efaf712d6086dab7f260f33f9fd99ed3312e05c2564bc7cfa"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.boardgamequest.com/button-shy-game-of-the-month-club/",
+     "contentType": "text/html; charset=UTF-8"
+    },
+    "https://buttonshygames.com/": {
+     "url": "https://buttonshygames.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:34:54.510Z",
+     "via": "direct",
+     "textHash": "0b2e5cc80980f778a4d5b36692dc8f76c011b90c845715db65e1c18ddf1404b5",
+     "textLength": 12084,
+     "quotes": [
+      "8e3053c005c6f8453825df4f459dfa87d23413cfc4ebcd7060581fcde4138495"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://buttonshygames.com/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://www.spritesanddice.com/posts/spotlight-button-shy-games": {
+     "url": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:38:45.018Z",
+     "via": "direct",
+     "textHash": "a9eb6b4f6bd1b98db05764acfffc0448f0f2623e6bd89aa33f1524a928cc6658",
+     "textLength": 7234,
+     "quotes": [
+      "58a7c2059f76b0e9dada7ee1152e2ee9131afec6623231a7ddbecd23e66d64b7",
+      "6472e9e6b627df95eab3849d29bd63af1571f13a2fae0717f1e86d3746f179e8",
+      "dbbeb916bdec342d8ba77b0ccf022b5c1ce75800c4641bc1a4bf99020098a08b"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/": {
+     "url": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T05:38:45.657Z",
+     "via": "direct",
+     "textHash": "b76be0dcb56b52962962ab99f4a4112ca1eec7fc6ab292b13c623f2c0bb0d935",
+     "textLength": 21442,
+     "quotes": [
+      "12e66db4ca1f3ebcbb41074b1cb96a15c71cc07f1c05cac088e03379cc3989e2",
+      "67a7a96745a0c7af40293ef911f9ecefa6e1b8b804cc2ac49dee5568adbbebfd",
+      "e0f45bf17e05c5f5ee85dab16a16852f3ff4525b294d9c9084f9d695912391e4"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+     "contentType": "text/html; charset=UTF-8"
     }
    },
    "media": {
@@ -3718,21 +3872,23 @@
      "status": 200,
      "fetchedAt": "2026-10-07T23:30:49.292Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "3e88817ff8fd2aaca34c48632c87b098bf783b721515dd53f80471d244bc202e",
      "textLength": 4709,
      "quotes": [
       "0e50b95f8ab60799cff370921d6312ff242693c79df992327a1d3ff8f830ad0f",
       "81bb3436a34867b6589d081a62c8759fc5d24adc395b420c577da1057f2aa8d5"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/pricing": {
      "url": "https://typedream.com/pricing",
      "status": 200,
      "fetchedAt": "2026-10-07T09:51:59.998Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/pricing",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "3f1b793a84b7d488e87f9bca43470ad9c41b4f241781ee43970a5cb48d166921",
      "textLength": 3687,
      "quotes": [
@@ -3740,30 +3896,30 @@
       "4078c7844432623e292badb1c3a3963519f8d4a3e45ece5cd04c2ab472e03240",
       "b7f50866452350d0331c49b9d56d721de3395abc991d9273872ba1ff611c1838"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/pricing",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024": {
      "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:00.112Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "75981592fcec1c352c3d44706850d385deb671b500c67d8279f7dece7a0e2d82",
      "textLength": 2473,
      "quotes": [
       "47684020054e7eb1f9053601bd0a579d0f0ecefc10f6870a2cc0b037782a47ed",
       "5aa5204f5b0a480807a31d2e73014e5049629b6f611add3811f0b4223e6abf95"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream": {
      "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.101Z",
      "via": "direct",
+     "finalUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "45f3fb31eec1c09dc921d728b28d07a0236c6c285332c460a241082b30d0e4d7",
      "textLength": 5685,
      "quotes": [
@@ -3771,15 +3927,15 @@
       "3e13b8e5c9af785a2e53cc966b09a9be831d1815de25d7ba718793f66ec121dc",
       "a0965eba49e27c620c60c80ffad6629ccc059772a101bed77ead1ce8cc5b87fb"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://news.ycombinator.com/item?id=29084309": {
      "url": "https://news.ycombinator.com/item?id=29084309",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.256Z",
      "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=29084309",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "7363dcf977f8a26f1614565c10d5a7e9cff790721a5b55436d82b62e138e7294",
      "textLength": 34127,
      "quotes": [
@@ -3789,15 +3945,15 @@
       "ccf3a847f798c6abb4fdbb5b659f196833c679b35cd012bd6169dc5e956401ca",
       "d70dfddb837085d56683f911861e5b95a647a000fd24783520ec1916e0a1474d"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://news.ycombinator.com/item?id=29084309",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/old-pricing": {
      "url": "https://typedream.com/old-pricing",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.562Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/old-pricing",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "a8fb3abe17aa08631aa9c6d80f546c280d82af4813f0a51c586a5a7d93c0108e",
      "textLength": 4369,
      "quotes": [
@@ -3805,15 +3961,15 @@
       "3ec536fafe4916fa65b6a0ca7d1ea2c9168e698df5064b622b4118e8f481c2bf",
       "5af7bfc3f71179b122e1205cf8499140f3a09ecabae30f99a19590ab323331c9"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/old-pricing",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/blog/kyleigh-smith": {
      "url": "https://typedream.com/blog/kyleigh-smith",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.709Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/blog/kyleigh-smith",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "7ea9d5b0aadbbbf9d0f32a789fdedef20bfa622a97f1118779d9e678cb200677",
      "textLength": 14845,
      "quotes": [
@@ -3822,53 +3978,51 @@
       "bef6410363b8d55e2834a0c0b1e3d72ff2ebd7400b427d8426ca7d3287c9b0a4",
       "d0461f3ea27ffe9ce540cf2e1f2a5dbf23a35c838c22029e44ffee5230838207"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/blog/kyleigh-smith",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/affiliate": {
      "url": "https://typedream.com/affiliate",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:01.982Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/affiliate",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "4102aa9673dfee78ec8dd7f7a3ab39b80ae2cd0663f11a8c3a2767d87984123d",
      "textLength": 3412,
      "quotes": [
       "4e76f713be4cc9e6fb26bbdd3b175008d5bb21b2f18bddaca3bfbefb07ccff4b",
       "6e9373357e4fa11a98f9cd6e158a5edf2ea45f006c06616e9e64a197cd0d75c4"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/affiliate",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/refund-policy": {
      "url": "https://typedream.com/refund-policy",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:02.230Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/refund-policy",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "607c173619795fa83a334bd031b65ebd11466fbcdb9e7d70670c931b47914bf3",
      "textLength": 3652,
      "quotes": [
       "eacbd3c8eec49f65a71294dec7719a6306053415e1aad0de719c7cf5b118541c"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/refund-policy",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     },
     "https://typedream.com/blog": {
      "url": "https://typedream.com/blog",
      "status": 200,
      "fetchedAt": "2026-10-07T09:52:02.725Z",
      "via": "direct",
+     "finalUrl": "https://typedream.com/blog",
+     "contentType": "text/html; charset=utf-8",
      "textHash": "90c0a11cad2ff27173bc53df1516f3fb755d511eca9b896070d05a532b1a2cbd",
      "textLength": 12120,
      "quotes": [
       "333f947ef3339eb2e2bc83e4e4224f5350e958ed31307d3c462ed1e566247f61",
       "3b3b3fd07e3d824bc2b6efd3277664e656087e0d775ec8e0bc4aa5541f52c7c9"
      ],
-     "quotesAbsent": [],
-     "finalUrl": "https://typedream.com/blog",
-     "contentType": "text/html; charset=utf-8"
+     "quotesAbsent": []
     }
    },
    "media": {

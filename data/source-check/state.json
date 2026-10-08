@@ -1,11 +1,128 @@
 {
+ "ent_button_shy_f1545f17d98e|chapter|core:216ce587": {
+  "textHash": "216ce587",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|practice:11aa28c8": {
+  "textHash": "11aa28c8",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|practice:b30ac473": {
+  "textHash": "b30ac473",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|practice:f79d6724": {
+  "textHash": "f79d6724",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|price:ec3eb6e9": {
+  "textHash": "ec3eb6e9",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|price:f48b4002": {
+  "textHash": "f48b4002",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|start:9126f92a": {
+  "textHash": "9126f92a",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|start:af1b1377": {
+  "textHash": "af1b1377",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|timeline:11eb462f": {
+  "textHash": "11eb462f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|timeline:71b965a8": {
+  "textHash": "71b965a8",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|turning:315d7441": {
+  "textHash": "315d7441",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|turning:c49a4a73": {
+  "textHash": "c49a4a73",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|chapter|voices:69bee084": {
+  "textHash": "69bee084",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
  "ent_button_shy_f1545f17d98e|fact|f1": {
-  "textHash": "e8496dcc",
+  "textHash": "ba5456d7",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/about-us",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f10": {
@@ -14,7 +131,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f11": {
@@ -23,16 +140,16 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f12": {
-  "textHash": "27d4707a",
+  "textHash": "5cd6b5be",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f13": {
@@ -41,7 +158,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f14": {
@@ -50,7 +167,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f15": {
@@ -59,7 +176,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f16": {
@@ -68,7 +185,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f17": {
@@ -77,7 +194,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f18": {
@@ -86,34 +203,34 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f19": {
-  "textHash": "c397421d",
+  "textHash": "1a5fb332",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f2": {
-  "textHash": "03e4d6e2",
+  "textHash": "5b3814ae",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/about-us",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f20": {
-  "textHash": "596b11f6",
+  "textHash": "384c2d77",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f21": {
@@ -122,25 +239,25 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f22": {
-  "textHash": "04daa7ef",
+  "textHash": "f4edd2c8",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f23": {
-  "textHash": "0335fb60",
+  "textHash": "7a476fac",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f24": {
@@ -149,7 +266,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f25": {
@@ -158,7 +275,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f26": {
@@ -167,7 +284,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f27": {
@@ -176,7 +293,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f28": {
@@ -185,7 +302,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f29": {
@@ -198,12 +315,12 @@
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f3": {
-  "textHash": "62f19b4f",
+  "textHash": "34642965",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f30": {
@@ -212,43 +329,43 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f31": {
-  "textHash": "23b86abe",
+  "textHash": "1e603fc0",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f32": {
-  "textHash": "0777a833",
+  "textHash": "df55ae3a",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f33": {
-  "textHash": "90db5338",
+  "textHash": "addd15a7",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f34": {
-  "textHash": "c6789f81",
+  "textHash": "37bca736",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f36": {
@@ -257,7 +374,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/international-orders",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f37": {
@@ -266,52 +383,52 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/international-orders",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f38": {
-  "textHash": "848e425e",
+  "textHash": "2a15c136",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/international-orders",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f39": {
-  "textHash": "dda496ed",
+  "textHash": "87feb829",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f4": {
-  "textHash": "0cf4a5b7",
+  "textHash": "b8f4cd99",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f40": {
-  "textHash": "fedb31d6",
+  "textHash": "5880b31a",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f41": {
-  "textHash": "18b3511a",
+  "textHash": "8d9a491f",
   "status": "PASS",
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f42": {
@@ -320,7 +437,70 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f43": {
+  "textHash": "071da6bb",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f44": {
+  "textHash": "baf56353",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f45": {
+  "textHash": "fee1b866",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f46": {
+  "textHash": "d6ecffc5",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f47": {
+  "textHash": "5064c48f",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f48": {
+  "textHash": "c41ae5cf",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f49": {
+  "textHash": "ff0eef71",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.patreon.com/buttonshy/about",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f5": {
@@ -329,7 +509,88 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f50": {
+  "textHash": "27814496",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.patreon.com/buttonshy/about",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f51": {
+  "textHash": "9fce2829",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.patreon.com/buttonshy/about",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f52": {
+  "textHash": "1a2ee5a3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f53": {
+  "textHash": "35bf3d7b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f55": {
+  "textHash": "ec275b5d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f56": {
+  "textHash": "cc2ba0b3",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f57": {
+  "textHash": "699c3231",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f58": {
+  "textHash": "c29e256b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f59": {
+  "textHash": "fedf13e2",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f6": {
@@ -338,7 +599,52 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f60": {
+  "textHash": "1c1ee6da",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f61": {
+  "textHash": "d7b6c5ef",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f62": {
+  "textHash": "285d6cbe",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f63": {
+  "textHash": "1785ee66",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://buttonshygames.com/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|fact|f64": {
+  "textHash": "fa0a455d",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f7": {
@@ -347,7 +653,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f8": {
@@ -356,7 +662,7 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_button_shy_f1545f17d98e|fact|f9": {
@@ -365,7 +671,65 @@
   "attempts": 0,
   "reasons": [],
   "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-  "runId": "20261008T005014",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|metric|m1": {
+  "textHash": "a1e3dcfa",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|metric|m2": {
+  "textHash": "6d599b9c",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|metric|m3": {
+  "textHash": "0637bd1b",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|metric|m4": {
+  "textHash": "0cc68c95",
+  "status": "HELD",
+  "attempts": 1,
+  "reasons": [
+   "AMOUNT_NOT_IN_QUOTE"
+  ],
+  "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|metric|m5": {
+  "textHash": "f5d3cec6",
+  "status": "PASS",
+  "attempts": 0,
+  "reasons": [],
+  "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+  "runId": "20261008T054413",
+  "checkedAt": "2026-10-08"
+ },
+ "ent_button_shy_f1545f17d98e|metric|m6": {
+  "textHash": "9d44a3d6",
+  "status": "HELD",
+  "attempts": 1,
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "sourceUrl": "https://www.patreon.com/buttonshy/about",
+  "runId": "20261008T054413",
   "checkedAt": "2026-10-08"
  },
  "ent_candy_japan_954236d663a8|fact|f1": {

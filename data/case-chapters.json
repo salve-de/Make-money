@@ -1462,21 +1462,29 @@
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
-    "factId": "f1",
-    "factHash": "e8496dcc",
+    "factId": "f63",
+    "factHash": "1785ee66",
     "chapters": {
       "practice": [
         {
-          "text": "1企画で500個未満を作り、財布の形の包装にカード12〜20枚と説明書を収めた（2015年1月時点）",
-          "source": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week"
+          "text": "1本ごとにKickstarterを12日間ほど開き、買い手の支援金を先に集める",
+          "source": "https://www.kicktraq.com/projects/239309591/aqua-rove/"
         },
         {
-          "text": "ボードゲームの情報サイトBoardGameGeekで包装を紹介した。反応と議論は集めたが、支援は増えなかった（本人）",
-          "source": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding"
+          "text": "組み立て（カードをケースに入れる作業）は、タグマイアと家族・友人が手でやる（2018年5月の紹介記事）",
+          "source": "https://www.spritesanddice.com/posts/spotlight-button-shy-games"
         },
         {
-          "text": "18枚で都市を作る1〜4人用の協力型ゲーム『Sprawlopolis』は、遊び方を増やす追加商品も売る。追加商品をまとめたセットもある",
-          "source": "https://buttonshygames.com/products/sprawlopolis"
+          "text": "ファン向けにデザインコンテスト「18枚チャレンジ」を開き、そこから商品になった作品がある",
+          "source": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/"
+        },
+        {
+          "text": "ブログ（Substack）で新作の経過を公開している",
+          "source": "https://buttonshygames.com/"
+        },
+        {
+          "text": "Patreonの会員には、印刷して遊べるファイル（プリント&プレイ）と、毎月の新作の割引が付く",
+          "source": "https://boardgamequest.com/button-shy-game-of-the-month-club"
         }
       ],
       "turning": [
@@ -1493,6 +1501,22 @@
         {
           "text": "2015年1月: 財布型シリーズの2作目 Pretense の募集を予告した",
           "source": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week"
+        },
+        {
+          "text": "2019年11月: 復刻キャンペーンを12日間開き、50,385ドル（約756万円）を集めた",
+          "source": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/"
+        },
+        {
+          "text": "2021年9月: 「Unsurmountable」が12日間で134,553ドル（約2,018万円）を集めた",
+          "source": "https://www.kicktraq.com/projects/239309591/unsurmountable/"
+        },
+        {
+          "text": "2024年4月: 「Aqua ROVE」が12日間で79,243ドル（約1,189万円）を集めた",
+          "source": "https://www.kicktraq.com/projects/239309591/aqua-rove/"
+        },
+        {
+          "text": "2025年5月: 「Shallow Regrets」が12日間で119,012ドル（約1,785万円）を集めた",
+          "source": "https://kicktraq.com/projects/239309591/shallow-regrets/"
         },
         {
           "text": "2026年5月28日: ニュージャージー州の事務所に6人がいると紹介した",
@@ -1517,12 +1541,20 @@
       ],
       "price": [
         {
-          "text": "クラウドファンディングの予約価格: 1作の基本が10ドル（約1,500円）、追加商品込みで最大14ドル（約2,100円）",
+          "text": "財布型のゲーム: 公式の基本価格は15ドル（約2,300円）",
           "source": "https://buttonshygames.com/pages/wallet-games-are-now-15"
         },
         {
-          "text": "Sprawlopolis の基本商品: 自社の店での表示価格は2,500円",
-          "source": "https://buttonshygames.com/products/sprawlopolis"
+          "text": "箱入りの新作: 定価18ドル（約2,700円）。セール中は15ドル",
+          "source": "https://buttonshygames.com/"
+        },
+        {
+          "text": "月額の会員制（Patreon）: 1ドル（約150円）、5ドル（約750円）、10ドル（約1,500円）、20ドル（約3,000円）の4段階",
+          "source": "https://boardgamequest.com/button-shy-game-of-the-month-club"
+        },
+        {
+          "text": "昔の値段: 2018年5月はおよそ12ドル（約1,800円）、2021年9月は10ドル（約1,500円）、2024年4月は12ドル",
+          "source": "https://www.spritesanddice.com/posts/spotlight-button-shy-games"
         }
       ],
       "voices": [

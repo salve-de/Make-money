@@ -1161,6 +1161,193 @@
       "originType": "reported",
       "metrics": [],
       "qualification": "公開資料の記載を確認。内部帳簿・取引原票による独立監査は行っていない。"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2024年4月、ゲーム『Aqua ROVE』をKickstarterに出し、12日間で79,243ドルの支援を集めた。目標は2,000ドル。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+      "quote": "Funded: $79,243 of $2,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2024-04"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2021年9月、ゲーム『Unsurmountable』をKickstarterに出し、12日間で134,553ドルの支援を集めた。目標は2,000ドル。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+      "quote": "Funded: $134,553 of $2,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2021-09"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2025年5月、ゲーム『Shallow Regrets』をKickstarterに出し、12日間で119,012ドルの支援を集めた。目標は2,000ドル。",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+      "quote": "Funded: $119,012 of $2,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2025-05"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2026年4〜5月、春の4本のミニゲーム集をKickstarterに出し、19日間で86,888ドルの支援を集めた。目標は10,000ドル。",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+      "quote": "Funded: $86,888 of $10,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2026-04"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2019年11月、絶版の旧作の復刻キャンペーンをKickstarterに出し、12日間で50,385ドルの支援を集めた。目標は3,500ドル。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+      "quote": "Funded: $50,385 of $3,500",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2019-11"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "復刻キャンペーンでは、再び作る旧作を支援者が選んだ。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+      "quote": "All games chosen by the backers!",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Patreonで「Board Game of the Month Club」という月額の会員制を運営している。有料会員は1,313人。",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "quote": "1,313 Paid members",
+      "checkedAt": "2026-10-08",
+      "numberKind": "USERS",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Patreonの会員は、無料の会員を含めて合計4,390人。",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "quote": "4,390 Total members",
+      "checkedAt": "2026-10-08",
+      "numberKind": "USERS",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Patreonの月の収入は、18,160ドルと表示されている。",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "quote": "$18,160 / month",
+      "checkedAt": "2026-10-08",
+      "numberKind": "DIRECT_PAYMENT",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "月額の会員制は、1ドル、5ドル、10ドル、20ドルの4段階の料金がある。",
+      "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+      "quote": "start at $1, $5, $10, or $20",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "10ドルの段階の会員は、財布型のゲームを半額で買える。",
+      "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+      "quote": "half-off their wallet games",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "箱入りの新作の公式サイトの価格は定価18ドルで、セール中は15ドル。",
+      "sourceUrl": "https://buttonshygames.com/",
+      "quote": "Regular price $ 18.00 USD Sale price $ 15.00 USD",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2018年5月の紹介記事は、1本の価格をおよそ12ドルと書いている。",
+      "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+      "quote": "usually around $12 apiece",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2018-05"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2021年9月の『Unsurmountable』の募集は、1本10ドルだった。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+      "quote": "Scott Almes and Button Shy. Only $10!",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2021-09"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2024年4月の『Aqua ROVE』の募集は、1本12ドルだった。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+      "quote": "ROVE Jr. $12 each, both $20.",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2024-04"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "Button Shyのゲームは、18枚以内のカードを、ポケットに入る財布型のケースに入れて売る形が基本。",
+      "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+      "quote": "no more than 18 cards",
+      "checkedAt": "2026-10-08",
+      "numberKind": "OTHER",
+      "label": "カードの枚数の上限",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "会員制のPatreonでは、毎月その月の新作を受け取れる。",
+      "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+      "quote": "receive the newest release each month",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "TEAM",
+      "text": "紹介記事は、会社を創業者のジェイソン・タグマイアと、数人の友人・家族の小さな体制と書いている。",
+      "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+      "quote": "literally one dude, Jason Tagmire",
+      "checkedAt": "2026-10-08",
+      "statedAt": "2018-05-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "ゲームを財布に入れる組み立ては、手作業でしている。",
+      "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+      "quote": "quite literally put them together",
+      "checkedAt": "2026-10-08",
+      "statedAt": "2018-05-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "ファン向けに、テーマごとのデザインコンテストを開き、そこから商品になった作品がある。",
+      "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+      "quote": "came out of those 18 Card Challenges",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "公式サイトで、新作の経過を載せるブログをSubstackで更新している。",
+      "sourceUrl": "https://buttonshygames.com/",
+      "quote": "Our semi-daily blog at Substack",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "PRICING",
+      "text": "Patreonの会員には、印刷して遊べるファイルと、毎月の新作の割引が付く。",
+      "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+      "quote": "print-and-play copies of upcoming games",
+      "checkedAt": "2026-10-08"
      }
     ],
     "reaudit": {
@@ -1394,6 +1581,96 @@
        "accessStatus": "公開された紹介文を確認。音声の全編と逐語記録は未取得。",
        "sourceLocator": null,
        "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "url": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.patreon.com/buttonshy/about",
+       "publisher": "Patreonの公式ページ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://buttonshygames.com/",
+       "publisher": "公式サイト",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+       "publisher": "ボードゲーム紹介サイト",
+       "sourceType": "media",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+       "publisher": "ボードゲーム紹介サイト",
+       "sourceType": "media",
+       "publicationDate": "2018-05-08",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+       "publisher": "ボードゲーム紹介サイト",
+       "sourceType": "media",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
       }
      ],
      "supported": [
@@ -1965,6 +2242,98 @@
      "temporal.viabilityLabel: null→''",
      "temporal.eraContext: null→''",
      "temporal.currentViabilityAnalysis: null→''"
+    ],
+    "metrics": [
+     {
+      "numberKind": "FUNDING",
+      "amount": 79243,
+      "currency": "USD",
+      "label": "Aqua ROVEの支援額（目標2,000ドル）",
+      "asOf": "2024-04",
+      "quote": "Funded: $79,243 of $2,000",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2024-04",
+      "period": "2024-04"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 134553,
+      "currency": "USD",
+      "label": "Unsurmountableの支援額（目標2,000ドル）",
+      "asOf": "2021-09",
+      "quote": "Funded: $134,553 of $2,000",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2021-09",
+      "period": "2021-09"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 119012,
+      "currency": "USD",
+      "label": "Shallow Regretsの支援額（目標2,000ドル）",
+      "asOf": "2025-05",
+      "quote": "Funded: $119,012 of $2,000",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2025-05",
+      "period": "2025-05"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 86888,
+      "currency": "USD",
+      "label": "春の4本のミニゲーム集の支援額（目標10,000ドル）",
+      "asOf": "2026-04",
+      "quote": "Funded: $86,888 of $10,000",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2026-04",
+      "period": "2026-04"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 50385,
+      "currency": "USD",
+      "label": "復刻キャンペーンの支援額（目標3,500ドル）",
+      "asOf": "2019-11",
+      "quote": "Funded: $50,385 of $3,500",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2019-11",
+      "period": "2019-11"
+     },
+     {
+      "numberKind": "DIRECT_PAYMENT",
+      "amount": 18160,
+      "currency": "USD",
+      "label": "Patreonの月の収入（表示）",
+      "asOf": "2026-10",
+      "quote": "$18,160 / month",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "checkedAt": "2026-10-08",
+      "origin": "SELF_REPORTED",
+      "periodKind": "MONTH",
+      "period": "2026年10月",
+      "measure": "OTHER",
+      "statedAt": "2026-10"
+     }
     ]
    }
   }

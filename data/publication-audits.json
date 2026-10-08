@@ -3946,301 +3946,418 @@
   "caseHash": "17ecbb515aa93cc296b058383dbeb6ac6e11d30e39d3cc8412621cc8b0bfb132",
   "items": {
    "fact:f1": {
-    "hash": "7dd4b69d239be30bc9f2d931cff76b26da415693beffd277e7007fe7f323c744",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "0d90c48269a98bbb8135786582ab8a4a820687e7bc2561563f11ef6e5dac0fb8",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f2": {
-    "hash": "aa3b0e46286df68bf1855ef89a33772f4d94280069886a3c3b903f69ca6f14e1",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "d250a2856ccb0f10efe53cabb30ae990e64a03e0ee0c07676f362fa84088b9e0",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f3": {
-    "hash": "6e272d0873885a974ece527d090babf94170b33d720bcf2ea7f3b07e2d078039",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "b38723565a5a6d16ec0700ebc272ac5edd33943191a325d259f69888f4da9058",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f4": {
-    "hash": "cc296894e673ad510a6ed2e8409b1ff45a66938b54fe8c9e05afea92c9c586c4",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "e93a127840342f0e0e28a0507848378b09b9b380c0d16fb17ed335bc817e8e1f",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f5": {
-    "hash": "7cb292fb4d8a49e7c1e4f016e383547b05a19373d28468905b58fc51fb3bb799",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "bd31116855cec101c50675b12c106ecbc97a209ed67abd00f4d9de9f15cd9f6c",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f6": {
-    "hash": "f1f572f1b0fd8d5396dfbccf83c856599d95e5f7a132816266047f4e09618473",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "532a45b8b6efec0bcc39c37798914d85ab8b39ae7086b971a9efda5c30e642bd",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f7": {
-    "hash": "d332d3b98a11b0570bc0103b80fa2db3546b4a6dd42c9d01a92cdf5698216e5f",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "3b9cb8af1ebbef95ffeaa3c78f95345f7072fb8bdb44eb13a05d8c3d65750efd",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f8": {
-    "hash": "55a357347334ad3731ad4137890f874165f844e3cc9f6d7995e3e5d328d307cb",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "b261a6530421f9e9a0b28cae71640b04e4c83acfe1c4a3d81aba22cd40a37613",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f9": {
-    "hash": "c9798ef38831d966a6d6b7b8a6a6a128cd2c32cddf62c74e13f2fce25771f649",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "199a9802903b9f4a6e347446e1d4fb1b53df912f0c54876084aa768dc91fc33b",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f10": {
-    "hash": "636196ceab327284e99329ff3c51bbf3aad78b1e79c75215cdb0fe9fdbdda600",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "53e2e914a3ad1427ae2732c39424df7283f3ee6668421c5dbb2aafb60b630731",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f11": {
-    "hash": "13882a8a9f12e8fa707bddeb6156f1300c10f9f680766fc160e011e5252db006",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "04404a52611c5f17b13698d4ff9c5958e249bdf72753583dec0a0a35e7119b4a",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f12": {
-    "hash": "efe47fad05c108d3ed96cdf978619158d76b72e01e554ac5a8731ef9d6cd1e10",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "8ae42fbf602beb67619d6906da973efd2cf980e48a37601cfcd284013c7defe1",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f13": {
-    "hash": "ff02ac4df5972ef0aa9d916efc2320bfa387b43fdd016b953e399d2b60838d8c",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "3413d4ed6a9c5227d4bb94bcae8019e224af34c8200243a1c3979a11c8b3b488",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f14": {
-    "hash": "6b1ef9b8336cec85f57b0df0fecf26cc9fc84b9fb67c13e5d93dd788a74e9268",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "b4134904ab97bb9b2bcececa8ace8f725340db393834eba0952e860435b751ea",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f15": {
-    "hash": "786cfdbc976200a5eaeaf268f14817474bf9cc4adeacac8f60910b1b5a386503",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "6faf5819827b5da4bf18fb5123d8a7fc340f0642f0e66a8ffe8ad8cb7758ed46",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f16": {
-    "hash": "a2c58129cfb9946f8a9e0476316e89c889927ba42b402da0cbef6bbb48039dff",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "d7d835a3b9f1e40ca6cb4e24a324f5387c07de6f425f13860f34553fc530bea2",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f17": {
-    "hash": "5d5fbf905cc27d28543168ed81b5a738e92f3e7099041667f625210e242dee54",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "93cff323d1faac57487447bf90a05362ada444412a42984f34b5d08cfa60edc1",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f18": {
-    "hash": "6ba6a1128b0926dd465caa1cd28d5db12008e41f45a97d73838af7b3b9543750",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "83956c06f3651a4cfd7ba63b1346cd6fbe61045577faac843bb9d81852405bd4",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f19": {
-    "hash": "ca06bbc345767c18205faf0f4551231315febb36be352dc6e9d656283690661a",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "da481e2021a383ab4fbac57289f26008e90ffec894885073ee2d609c8c054f86",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f20": {
-    "hash": "f32946f792316db22ee690e89e1c632ebd1881039a2c65ec15b9328e77771feb",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "0a6c3cb99d5fbe10634493c2fdde522c53a87993e10d70c24aef9cae64de1c2d",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f21": {
-    "hash": "b74d1f38270addf16b1da1f2c26ae71c2ec92144ea7504b8384fe55d9f7de113",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "cb36e025aee985faa4099c14f3992d881ed0c1e6f62b451f879518aa25720b3c",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f22": {
-    "hash": "464250af599ca4edca34db0487b5771a75eb00e614bd4acefee97aaaa5a23b86",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "f732a794471d52cee1ccffc3ad99e0ebf9f5851a3f512bd7a50c44ca9128a02e",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f23": {
-    "hash": "7e3a1a2859e88fd9f6058b6341abea822ac0814f5ac8ef5dafab88a26d513d19",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "2cf8833de802857cce8a87f74978fa4107b0250fb74603073415734a0fd30b6b",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f24": {
-    "hash": "626bdf9c0dc4811252ac81c9eee2c12ce2245f5f958afd142231e55c8ff1265b",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "68e4fa7f62568dec573407050ab7511531fea691a63b6b7f876edf292f837716",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f25": {
-    "hash": "84fd10909b8f0d4831b4af92bc9c08c1a057593d7d3ef89f0ddc8b6a5f97bb03",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "045eb231d81387e9e5e738dfc455c483f8c8eb94456f6be122303774ccc501ba",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f26": {
-    "hash": "e94ffe933a261fcc5e766e206c23926d721b8f489820a893d5405db510bcfd93",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "f6dee66fb7688c99ef4ed7d5f34572254f00362eab9d7296c5ff056616ead061",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f27": {
-    "hash": "c4cc55734f0fae3ae829c08029c9d5aaa9c4ebd87ed64a17fefd6a668777096b",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "ffdf200b4c5ae0fdd9f2847be0ba7f33dc7240a161b4d6d2b9c71a2759f04ff5",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f28": {
-    "hash": "e1703474996b87c7aecad03938433bb1371b607427a580b13ea126c77a347aa4",
-    "by": "data/audit/in-99999926100800572238282014.json"
-   },
-   "fact:f29": {
-    "hash": "b15c907ff18b5acc7d37888f92797e3934911f816c6476c5a4c7b7a235e3da22",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "e72d9a2f0019c9a00fcdcee98caafa7eb8f22760c551cc87437cce39f35b7686",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f30": {
-    "hash": "e81c8911c066810ef872e92dd5bcffb6aa47f384c03dab7f504fc040323e8d13",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "4a1ab0d5e26141a14c26eadb6efb61e2076e5aab4b44c38b50d45acc1ca0b3e8",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f31": {
-    "hash": "315e42a7a7fa58fd1c84cc8792f1302baa0b582e93a8a9c677ff7577e98730ce",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "96c49190ccdcff5d4ce50d2cd09a848f558ab9089521429bb50cbef929524d20",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f32": {
-    "hash": "c3dd88b7a485c336527fc1db1326080aec1f1a3369b08aaefb6d1cd881c0302f",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "5c44a494d477da2af3517c4fa7d74ccd93c3e15b4cfd2e1f13f4552c3022b6cd",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f33": {
-    "hash": "b52c9b402b6750332b6582ba6b9eeb3d1abcfe9d7f4501dae4b5a7fe8a12c972",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "5842107e64b52c42503bc23ed8245bdb8d692e5ec72935a6cd2932ca05ee403c",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f34": {
-    "hash": "8c36b6e85b9b8804fa2fb7bfa9c44a1acdb681e6efcae5804d1d7e6d9e81b9a9",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "93c5dd159fde2ecfcaa313c1f0f888eb5ae71cb732afeb4db9c4d76eb7f2bdb9",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f36": {
-    "hash": "f8230717e801c80100a98b9a7aa49101f787a8bac4fc95ff5ffb6b180f576de1",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "b28be99ba989176e5b90c1a9066304fa806adaa1904a29d3b49b330751f6a373",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f37": {
-    "hash": "959332ba2abfb4c10215e338e39bf4dd8420d98e4a63c576e7922d964a529898",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "f3b916ea0c27cc313bb1ec95172e8575dde35332d2f9380197271805a3715870",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f38": {
-    "hash": "eb4af67b1a1764c6a960244e8e1763e99f0e219602892d32b2087c4ccbf17ca4",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "71a47f1c29e8fe65b1ce739449a210862dc1b04c5681d2acf1d5193eda3e6af3",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f39": {
-    "hash": "810a09c92c972baa1180525204a357f9b2342e417648e3bc3079b76cd4538319",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "320b7a7126ac476b54e4dbe8c85cd2590302f2f13c36c02cf6ee9f4706a329e4",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f40": {
-    "hash": "4f7995ad91cb60fa571179b3034e269cd38eb6a9e8f43332d33eaee8e4abc944",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "c21cca0906774dbcf47c7b4503d19a93a5fcc07a74a350750226346ca435549b",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f41": {
-    "hash": "2896a61ae3b20dabd3cceb1cd6a2f5718eacebba990c50b1bdf167679a295fe3",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "afcacfeacb0d824a72f355311a90451da8b075a45d6d087179ca3c3d8af420ea",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "fact:f42": {
-    "hash": "5862c9fda98436ef519210747b27fc7fcadca907d5638d495e8a915bcdf8bc07",
-    "by": "data/audit/in-99999926100800572238282014.json"
+    "hash": "2992aef9309f01104d403bdbad5778d9b22ad5f5a750e362541ffd3cacd2bc8a",
+    "by": "data/audit/in-99999926100806010682880001.json"
    },
    "analysis:a-headline": {
-    "hash": "78aac898494d058c72e704e5ad81a5b1cf5b0c49c84fde5f213d73879f5375e0",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "3e2495f5726274d3e54ab11ab0f61d739cf6ef399dab4d6301a510b4ec448606",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "Pixel Lincoln の作者 Jason Tagmire は、目標1,000米ドルの Kickstarter が2日目で約35%に止まると、遊びから生まれた猫の架空映画の画像を投稿した。同じ朝に約800人へ便りも送り、数時間で支援額は倍になった。",
+     "text": "Button Shyは、18枚以内のカードを財布型の小袋に手作業で詰めて売ってきた。2021年9月の募集では目標2,000ドルに対して12日間で134,553ドルを集めた。いまはPatreonの会員制に有料会員1,313人がいて、表示上の月額は18,160ドルになっている。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-story": {
-    "hash": "9761996b9bdb689d965c1ba53e1f5cf7abecac89e3d34ee092db4cad00af7e8b",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "82c1863f300d1d0d5696bd5e026dcd0acea198b08d5fcd5bce570791e30cad3d",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
      "text": "Alex Strang の Movie Plotz を Kickstarter で募集し、初日は目標の約25%、2日目は約35%まで進んだ。猫の架空映画の画像投稿と約800人への便りが重なった後、数時間で支援額が倍になった。2015年1月には Pretense を財布型シリーズの2作目として予告し、1企画500個未満を少量生産していた。その後、手組みに時間を取られ、箱がないと売りにくい販路もあったため、主力を量産の箱型へ切り替えた。海外送料は上がり続け、通関で郵便物がまとめて戻って約500米ドルを失ったこともあり、海外直送を絞った。財布型の基本価格は5年以上据え置いた後に15米ドルへ上げた。2026年5月28日時点で事務所は6人になり、手組みの時間をゲーム制作に回している。",
      "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-business_model": {
-    "hash": "70ab48dd8917dd54aada7109942857d184ae49cd6e9446d6bf902e0a5ba89735",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "3300f0c43fa555be573f79e3a0db1dafb05e1e9ac227d37c5e080ef59d525977",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "問屋を通さず、18枚前後の小型カードゲームを遊び手へ直接売る。クラウドファンディングでは発送前に予約代金を集め、自社の Shopify 店で定価販売し、月次会員には毎月ゲームを送る。海外向けには Etsy・eBay でも売る。Amazon へは、転売品が小売価格の3倍で売られていることを理由に自ら出品を決めた。"
+     "text": "売っているのは、18枚以内のカードをポケットに入る財布型ケースに収めた小型ゲームで、問屋を通さず客へ直接届ける。お金の入口は次の4つ。\n・Kickstarterでの予約募集\n・自社の公式店\n・Patreonの月額会員制「Board Game of the Month Club」（毎月その月の新作が届く）\n・Etsy・eBayでの海外向け販売\n会員制は月1・5・10・20ドルの4段階で、段階に応じて新作の割引や印刷して遊べる版が付く。",
+     "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-customer": {
-    "hash": "bd20caaf7ba946e3796e5db5b4021abe440afe9b69b081ef2ca13eb012a319d9",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "cf17bb63e840bb311f0597637c61148ed246f36448e42738259b0915fb10f053",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "小型ゲームを集めるボードゲーム愛好家が客だ。毎月ゲームが届く月次会員と、新作の募集に予約で乗るクラウドファンディングの支援者がいる。レビュー動画の推薦をきっかけに会員になった利用者もいる。"
+     "text": "お金を払っているのは主に次の客である。\n・Kickstarterの募集に予約で支援する人\n・Patreonの有料会員1,313人（無料会員を含めると4,390人）\nレビューでの絶賛を見て会員制の最上位に入った利用者もいる。米国外の客は送料の高さを抱えており、公式はまとめ注文・現地の販売提携・印刷用データを案内している。"
     }
    },
    "analysis:a-channels": {
-    "hash": "d7c449ea3d75049e7414efc18442946112400e6a9ef9aaa082b2d4c2d0390762",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "29a3f1cda8bcfb11426c79d5d9ddba72eaeee955b2c4f8a70fdfb8c1873c5020",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "主な入口は Kickstarter の募集と、約800人に届く自社の便り。BoardGameGeek での包装紹介は反応と議論を集めたが、支援の増加にはつながらなかった。新作の募集では旧作を割り引いた組合せを出し、全作品を揃えると Pretense が実質無料になる売り方をした。海外は Etsy に主要5作品を置き、eBay では箱型作品を売っている。第三者の投稿では、レビュー発信者の推薦から会員になった例がある。"
+     "text": "いま客が来る経路は次のとおり。\n・Kickstarterの募集：新作の主な入口で、数作をまとめた募集では旧作の割引セットも付ける\n・Patreonの月額会員制\n・Shopifyの公式店\n・Etsy：海外向けに主要5作品を扱う\n・eBay：箱型作品を販売\n・Amazon：販売することに決めた\n・Substackのブログ：新作の経過を発信\n・ファン向けのデザインコンテスト：ここから商品になった作品もある"
     }
    },
    "analysis:a-cost_structure": {
-    "hash": "2623919eb80216214f1c4d96f3d74fb6856667b3e198a7b9e88edbee74fa8127",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "9bc5e1d5b6dc00a6e8dd4e82f66a5ed9e00b20d698709972b9929fb4f8e28376",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "財布型の包装と折りたたみ説明書、カードの製造費がかかる。美術と図案は社外の担当者に頼んでいる。職員の給与と送料も負担で、ある企画では送料として17,000米ドルを支援者から集めていた。通関で郵便物がまとめて戻り、約500米ドルを失ったこともある。値上げの理由には、原価の上昇と関税を挙げている。"
+     "text": "主な費用は次のとおり。\n・材料：財布型包装と折りたたみ説明書（初期の目標1,000米ドルはこの費用のため）\n・関税と原価：30％の関税と全般的な原価高\n・海外送料：翌週から8％上がった（直前にKickstarterで送料として17,000米ドルを集めたばかりだった）\n・通関の差し戻し：郵便物がまとめて戻され、約500米ドルの損失（本人説明）\n・人件費：職員の給与\n・外注：美術と図案は社外のMilanとFilipが担当",
+     "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-upfront_cash": {
-    "hash": "2800ec2b81c72b7e728c3edd4fe67ab40a5b6a2f1dc7a583be38162ca08ca3ba",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "bd59a929dc31628fdee0f677fa51ef7e13279d69d55901de3c80170836d11132",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "クラウドファンディングでは、製造前に予約代金が入る。目標額そのものが包装と説明書の製造費に充てられ、ある企画では送料17,000米ドルも発送前に集めていた。予約は定価より安い10米ドルで、早く払う客を優遇している。"
+     "text": "作る前に客のお金が入る構造になっている。\n・Kickstarterの予約：募集の目標額を包装や説明書の費用に充てる\n・送料：Kickstarterの企画で17,000米ドルを先に集めていた\n・Patreon：会員が毎月払う"
     }
    },
    "analysis:a-capital_and_team": {
-    "hash": "d3a8c20077068620286b91c06285567acb8ff5d27f5d4426cbd19bd1fa071249",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "4b2500c74cb45be225846c8b600ac02a091bad9cc6c89de2674e6f4687e36ec3",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
      "text": "Movie Plotz の募集目標は1,000米ドルで、使い道は包装と説明書の費用だった。2026年5月28日時点で、ニュージャージー州の事務所に6人いる。企画制作は Jason Tagmire、George Tagmire、Andrew Basile の3人が担う。告知は Elle、試遊は Long と Anthony が担当し、美術と図案は社外の Milan と Filip に任せている。"
     }
    },
    "analysis:a-dependencies": {
-    "hash": "643c4b2d6ec73ee1a8fa466109b295ca38b5f009dad14307789c8c42873765e5",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "0414ed2b20720eb7a5fe8ee625a48e2074a2e08d6a840792552e84aaf675281d",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "新作の資金と予約は Kickstarter の募集に、店は Shopify に、海外販売は Etsy・eBay に頼っている。郵便と通関にも首を握られている。海外送料の上昇と通関差し戻しで全地域への直送が難しくなり、現地の提携先探しに追われた。関税は原価を押し上げ、値上げの理由にもなった。"
+     "text": "新作の資金はKickstarter、継続収入はPatreon、店はShopifyに乗っている。最大の弱みは物流と関税である。海外送料の上昇と通関の差し戻しで、全地域への直送が難しくなり、提携先探しに追い込まれた。30％の関税は、5年以上据え置いた価格を上げる理由になった。会員向けの毎月の発送期限と職員の給与があるため、海外の提携がまとまるまで米国での販売を止めることもできない。",
+     "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-lock_in": {
-    "hash": "fe8b830a5de726805984ef2498d325ccc159c97983b9d549d99eadf7e2839bec",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "45cb552504b90203780628c5e1ab8ee4d5701558031e19e5051c9de4c1ac2f25",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "月次会員は発送期限つきで毎月ゲームを受け取る仕組みで、続けて払うほど手元に作品が揃う。社内の新シリーズは部分ごとに売り、2〜3部分を組み合わせて遊ぶ構想だ。単品の買い切りでは、客を引き留める力は弱い。"
+     "text": "客がやめにくくなる仕掛けは次の3つ。\n・会員制：毎月その月の新作が届き、段階に応じて財布型ゲームの割引が付く\n・拡張：SprawlopolisにはWrecktar・Beaches・Interstate・Roadworkなどの拡張があり、全拡張をまとめた商品もある\n・構想中の社内シリーズ：部分ごとに売り、遊ぶには2〜3部分を組み合わせる"
     }
    },
    "analysis:a-incumbent_blindspot": {
-    "hash": "8bceadb52a1c088bba46d99fbadc2f4f68dd08fa90bf1d0ddad93c0d6c4658d9",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "7ba80500d3f29eab054e38f3313ebe6cdb7c7a75b0b937d9e83d882329e7bbd2",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
      "text": "普通の出版社は問屋を通して店に並べる。Button Shy は1企画500個未満という少量を手で組み、財布型の包装に12〜20枚を収めて直接届けた。問屋経由では採算に乗りにくい少量の小型ゲームを、自分の手で回してきた。"
     }
    },
    "analysis:a-competition": {
-    "hash": "1d2aec76057383fa90c6373447e15d46b6bc2f37e13378b8519d301791217488",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "c1f1d1383d6b836c698f9c5225b055765c1fe79d3750f0bfbab41034f2e516cd",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
      "text": "自社の作品が Amazon で小売価格の3倍で売られていた。これを理由に、自ら Amazon で売ることを決めた。"
     }
    },
    "analysis:a-pivots": {
-    "hash": "9dc7899c989570cc5b0dc79e51be55d9de4758f16ee28435a8bd5650fcab58c5",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "7e956f04737b6e7b222bf555450b83905a1187ab65c2490d3db8323f621a7729",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "看板だった手組みの財布型は、時間を食い、箱なしでは売りにくい販路があったため、量産の箱型に切り替えた。財布型を好む客には空の財布を追加商品として売り、箱は財布が収まる寸法にした。18枚のゲームは Wallet Games から Micro Games に名前を変え、四半期ごとに募集する。手組みは小規模な実験シリーズにだけ残した。"
+     "text": "財布型の手組みは時間を取り、箱がないと売りにくい販路もあった。そこで主力を量産の箱型へ切り替えた。\n・財布型を望む客には、空の財布を追加商品として売る\n・箱は財布を中に収められる寸法にした\n・主力18枚のシリーズは四半期ごとの募集に変えた\n・手組みは、少量の実験的な社内シリーズにだけ残した\n本人は、手組みに使っていた時間を制作へ回せたことを喜び、もっと早く変えてもよかったとしている。"
     }
    },
    "analysis:a-timeline": {
-    "hash": "8441c7289d59a70c6f9b042c006de2c6f203173c6801047509ff5f7a65665543",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "46e3960ec97a960544d40c3bcb51a08bf35439f27bda9d3add50b6be29cb9b9f",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "2015年1月に、財布型シリーズの2作目 Pretense を予告した。2026年5月28日時点で、ニュージャージー州の事務所に6人を抱えて営業している。"
+     "text": "・2015年1月：財布型シリーズ2作目Pretenseを予告\n・2018年5月：紹介記事が手作業での組み立てを報じる\n・2019年11月：旧作の復刻企画\n・2021年9月：Unsurmountable\n・2024年4月：Aqua ROVE\n・2025年5月：Shallow Regrets\n・2026年4〜5月：箱型に移った春の4作の企画\n・2026年5月28日：6人体制の紹介"
     }
    },
    "analysis:a-why_it_worked": {
-    "hash": "638313c0bfb978330a38a7fcd819916ea6f50dad023569f7b76f0eca3dd5f068",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "c24eacf3d77659999d10c54e2d8eb7fe091148f720ff1bf39ac481162e54f67b",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
      "text": "小さく送りやすい少数枚のゲームを選んだことで、1,000米ドルという低い目標でも出版できた。生産も1企画500個未満の少量で済んだ。Kickstarter の予約で包装の費用を先に集めたため、在庫を抱える前に資金が回った。"
     }
    },
    "analysis:a-viability": {
-    "hash": "7a3069c164134ae443aaa1bb1d116be21de5da513485b4cd74c894559934fa88",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "559dedf3d6e43c87cbf9c28e628af06b5cc5c88e2af41be016da913162f99dfd",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "特化しないと困難。小さく送りやすいゲームという利点は、海外送料の上昇、通関差し戻し、関税で削られている。創業者自身も、全地域への直送をやめて提携先を探し、5年以上据え置いた価格を上げた。"
+     "text": "今も有効。2026年4〜5月の春の4作の募集も、目標10,000ドルに対して19日間で86,888ドルを集めた。ただし、30％の関税と原価高で、5年以上据え置いた財布型の価格を15ドルへ上げた。海外への直送も、送料の上昇と通関の差し戻しで絞り込んでいる。",
+     "formula": "数字は出典に載っている値"
     }
    },
    "analysis:a-lesson": {
-    "hash": "577ed1f2fbee7ccf9599bb18929bff64d0ae9e89ed00caebf48a578601563801",
-    "by": "data/audit/in-99999926100800572238282014.json",
+    "hash": "8b1237e5e1d46db8772098cf0d27d6b4bf2d864fcf1686fb7b584354732149b7",
+    "by": "data/audit/in-99999926100806010682880001.json",
     "body": {
-     "text": "手作りの財布型で見つけた客を、量産の箱と追加商品の空財布で引き止めた。手間のかかる作り方は、看板でも規模が育てば手放してよい。"
+     "text": "財布型の小袋と18枚以内という形を変えずに新作を出し続け、その新作を毎月届ける会員制にして、月18,160ドルの継続収入に変えた。手組みが伸びの足かせになった時点で量産の箱へ切り替え、浮いた時間をゲーム制作へ回した。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "fact:f43": {
+    "hash": "9071f188f32600bc88ffe7620758b8e1e54902566bd29f9b03d2aecfd330e08f",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f44": {
+    "hash": "de1825176a090a0cec1da57832763ab9f32d7ed55fb82eeb2abc32d94c3c75e2",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f45": {
+    "hash": "71971068b042034b7397afb26654b244b4bf9290c8e44dab453c105f9b7467dc",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f46": {
+    "hash": "4e1111ed7f26e457b2bbac177489a5d0d51cb3cc878d2d9c483c0a1f1f4defe4",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f47": {
+    "hash": "c53c6de6cd0f624a8a2d796eafb88c601ae9df6c44c0bd9ae814ae998e87d14e",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f48": {
+    "hash": "f003eb289e3609d2e8687712ad6c920aca7d3be5f6579d8cffe92ecb7dd4cdc5",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f49": {
+    "hash": "c85974f3e0a51cdf4da3161cfd1e46d503ea9d267b5df225c6acc50d8186aaf5",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f50": {
+    "hash": "16cb7c4513316ff174cb0b8650bb9ea1c82a4ec4ffd336e260e2d4768682ee34",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f51": {
+    "hash": "5154a0abbe31aec210ee684e39adc6523b5d5cd74b2b8e11e1256e6ad1e2db6c",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f52": {
+    "hash": "24633b0c5af9b14d8b629d8aadb5e01ed94b906b760f8cd5e93d62c168d69477",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f53": {
+    "hash": "49d2034d185130c1e724043e895988ace43712f73c3be619a473d9ae24fc2efa",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f55": {
+    "hash": "3ca3efb6398632f3c48417c90e67d3e2ffbb8e2564224617420965893b27379f",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f56": {
+    "hash": "4ed2fc2b37c55f876c0404c6c34cd970538bc96560bb7efa86db5055983b7c7d",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f57": {
+    "hash": "f8dd9ae687552674da395824619a2068d7945d28a1183ddf38659801027ae534",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f58": {
+    "hash": "c2b52fa2bd23a2d87675178dc2fab3defaf5f9898f038e99fc6d5aae558d05bb",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f59": {
+    "hash": "4949022e1a73f3d90aaf6b7c8e870961bc5a00b507ddee807699616987659e79",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f60": {
+    "hash": "b272166864e1f6daf8fc577015b8f55cb6533861ad88ade872907e7cdf849d47",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f61": {
+    "hash": "ac58350b731b0a892f7f42259d2138598b4aee10071ddb9a29fb1586b74d49d9",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f62": {
+    "hash": "0d90968857d2aa82f4208d7c1e6eed80bb395c11519c68dbe30e9815ff4825cd",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f63": {
+    "hash": "78e3e4ec665238e62902448455c9428b06e722b72b5290c4b121e56b3951afb0",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "fact:f64": {
+    "hash": "90ef90f84a2eabf0dde08f84dfeb38e8ec2859e0fb10d29c902a98cdf5e4203a",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "metric:m1": {
+    "hash": "865f828ae7c7a45e0c8b051af7ad7f48f6018d9036fff557a9df595e3ccd75aa",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "metric:m2": {
+    "hash": "9409c6fc78d30894584967ba9cf7b6e1fa0044d198ddbfc8aad524ad3f1ee5b0",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "metric:m3": {
+    "hash": "35ac0ea0eeaa7c0382000b55f1b1bb06e24d53f00425914e2a78ddfe9d980a8b",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "metric:m5": {
+    "hash": "6039144acf050922d3dd0b40349333ec1f266be1b8de28721dca381cabdcebf9",
+    "by": "data/audit/in-99999926100806010682880001.json"
+   },
+   "analysis:a-customer_pain": {
+    "hash": "59bbd7a117cab1c0de1ab93fd6dc1eab1a0a4986d023fb565ea9a741045f20f6",
+    "by": "data/audit/in-99999926100806010682880001.json",
+    "body": {
+     "text": "Button Shyのゲームは、Amazonで小売価格の3倍で売られていた。公式のクラウドファンディングで予約すれば、1作10米ドルで手に入る。財布型の定価は15米ドルである。",
+     "formula": "数字は出典に載っている値"
+    }
+   },
+   "analysis:a-first_customers": {
+    "hash": "e89cac06fb935d5969337ec83cab2da2c7e101fa78fc7c4e7d1647032ae7175b",
+    "by": "data/audit/in-99999926100806010682880001.json",
+    "body": {
+     "text": "Movie Plotzの企画は、初日に目標の約25％、2日目に約35％までしか進まなかった。BoardGameGeekに包装の紹介記事を出すと反応と議論は集まったが、支援の増加にはつながらなかった。その後、試遊の内容から作った猫の架空映画の画像を投稿すると、数時間で支援額が倍になった。ただ、同じ朝に約800人へ便りも送っており、どちらが効いたかは本人も判定できないとしている。",
+     "formula": "数字は出典に載っている値"
     }
    }
   },
   "audits": [
    {
-    "inputFile": "data/audit/in-99999926100800572238282014.json",
-    "outputFile": "data/audit/out-99999926100800572238282014.json",
-    "inputFileHash": "11fc3713b970b0375e7adaab708f24dea89d09433010bdef7e2b705043218b6b",
-    "outputFileHash": "d2f533a26e9fcbb4f0da6fbe0529f9a390b7908751ab169a1c4573884b8cbe96"
+    "inputFile": "data/audit/in-99999926100806010682880001.json",
+    "outputFile": "data/audit/out-99999926100806010682880001.json",
+    "inputFileHash": "22f0456061297433d326a8b33d859193cb9175b5af832c211a210ad3e907316e",
+    "outputFileHash": "a4dbe4afe6d80bd880b9d970bad4adf94b8c901cee9bb5472cf2a04045249fdf"
    }
   ],
-  "lastAudit": "data/audit/in-99999926100800572238282014.json",
-  "baseAnalysisHash": "818d5b2bcd0d7450dd7a25bd9584d16f5dd7a4916f0a3578d84811aeac3a6f27"
+  "lastAudit": "data/audit/in-99999926100806010682880001.json",
+  "baseAnalysisHash": "85b4093e65007bc232c23420a34332e89b57531e8a509fde7e4cded2d394e99f"
  },
  "ent_candy_japan_954236d663a8": {
   "version": 2,

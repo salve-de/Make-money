@@ -70,5 +70,29 @@
    "NUMBER_NOT_IN_SOURCE"
   ],
   "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_button_shy_f1545f17d98e|metric|m4",
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "metric",
+  "id": "m4",
+  "text": "項目=FUNDING / 名前=春の4本のミニゲーム集の支援額（目標10,000ドル） / 期間=2026-04-21〜2026-05-09(POINT) / 金額=86888 USD / 由来=THIRD_PARTY / 記載日=2026-04",
+  "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+  "reasons": [
+   "AMOUNT_NOT_IN_QUOTE"
+  ],
+  "heldAt": "2026-10-08"
+ },
+ {
+  "key": "ent_button_shy_f1545f17d98e|metric|m6",
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "metric",
+  "id": "m6",
+  "text": "項目=OTHER / 名前=Patreonの月の収入（表示） / 期間=Per month（時点の記載なし）(MONTH) / 金額=18160 USD / 由来=SELF_REPORTED / 記載日=2026-10",
+  "sourceUrl": "https://www.patreon.com/buttonshy/about",
+  "reasons": [
+   "WHEN_NOT_CONFIRMED"
+  ],
+  "heldAt": "2026-10-08"
  }
 ]

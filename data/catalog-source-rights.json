@@ -1,112 +1,193 @@
 {
- "https://artofproductpodcast.com/episode-70": {
-  "url": "https://artofproductpodcast.com/episode-70",
-  "decision": "held",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://artofproductpodcast.com/",
-  "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き・ゲスト発言は本人申告ラベル。音声・書き起こしの転載なし。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://baremetrics.com/founder-chats/sachin-jain": {
-  "url": "https://baremetrics.com/founder-chats/sachin-jain",
-  "decision": "allowed",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://baremetrics.com/terms",
-  "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得の禁止が明文(対象は「サービス」)。人が確認した事実のみ・自分の言葉・リンク付き・本人申告ラベル。自動再取得しない。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://gumroad.com/pricing": {
-  "url": "https://gumroad.com/pricing",
-  "decision": "allowed",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://gumroad.com/terms",
-  "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得は規約で禁止。価格の事実を人が確認して記録し、自動再取得しないこと。該当事例の公式サイトなら公式サイト方針(automatic)と重なるため、そちらで足りるか要確認。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://marketingexamples.com/landing-page/pricing": {
-  "url": "https://marketingexamples.com/landing-page/pricing",
-  "decision": "allowed",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://marketingexamples.com/",
-  "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き。ページは著者の編集物なので、手口の文章や図は載せない。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://mixergy.com/interviews/codementor-with-weiting-liu/": {
-  "url": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-  "decision": "allowed",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://mixergy.com/",
-  "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 規約が見つからないため明示の禁止なし。ただし許諾の証拠でもない。事実のみ・自分の言葉・出典リンク付き、本人申告ラベル。引用・転載・画像なし。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://neon.fund/blog/how-requestly-became-a-developer-favourite/": {
-  "url": "https://neon.fund/blog/how-requestly-became-a-developer-favourite/",
-  "decision": "held",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://neon.fund/terms",
-  "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: 個人利用に限る旨が明文で、商用の当方の利用は許諾の外。事実のみ・リンク付きでも規約上は灰色。不可寄り。投資ファンドの記事なので自己宣伝の数字は本人申告扱い。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://requestly.com/blog/requestly-joins-browserstack-building-the-future-of-testing-together/": {
-  "url": "https://requestly.com/blog/requestly-joins-browserstack-building-the-future-of-testing-together/",
-  "decision": "held",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://requestly.com/",
-  "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: 対象9件の外だが事例に使われている。事例当事者の公式サイトなら公式サイト方針で足りる可能性あり。別途確認が必要。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools": {
-  "url": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
-  "decision": "held",
-  "usage": "independently_worded_facts",
-  "reviewer": "提案のみ（オーナー承認待ち）",
-  "reviewedAt": "2026-10-06T21:15:00+09:00",
-  "termsUrl": "https://hashnode.com/terms",
-  "note": "提案: 条件付きで allowed。Hashnode の規約は、著作権は投稿者に残ると定める。第三者が事実を自分の言葉で書くことには触れていない。自動取得は「妥当な範囲を超える」ものを禁止。条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／記事本文に著者名が無く、持ち主であることから本人と判断するので「本人申告」と表示／自動で再取得しない。承認されるまで held。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests": {
-  "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-  "decision": "allowed",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://www.browserstack.com/terms",
-  "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: プレスリリースは周知目的の公開物。事実のみ・自分の言葉・出典と日付付き。本文転載・画像なし。買収額などは発表者の自己申告と明記。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://www.failory.com/interview/gorails": {
-  "url": "https://www.failory.com/interview/gorails",
-  "decision": "allowed",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://www.failory.com/privacy",
-  "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き・本人申告ラベル。/startup/ 配下は取得しない。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- },
- "https://www.ycombinator.com/companies/requestly": {
-  "url": "https://www.ycombinator.com/companies/requestly",
-  "decision": "held",
-  "usage": "independently_worded_facts",
-  "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
-  "reviewedAt": "2026-10-06T19:30:00+09:00",
-  "termsUrl": "https://www.ycombinator.com/legal",
-  "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: スクレイピングと商用での複製の禁止が明文。事実を自分の言葉で書くことが「複製」に当たるかの線引きが法的に微妙。自動取得は不可、人が確認した事実のみの運用でよいかをオーナーが決める。",
-  "recheckAfter": "2027-01-04T12:00:00+09:00"
- }
+  "https://artofproductpodcast.com/episode-70": {
+    "url": "https://artofproductpodcast.com/episode-70",
+    "decision": "held",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://artofproductpodcast.com/",
+    "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き・ゲスト発言は本人申告ラベル。音声・書き起こしの転載なし。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://baremetrics.com/founder-chats/sachin-jain": {
+    "url": "https://baremetrics.com/founder-chats/sachin-jain",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://baremetrics.com/terms",
+    "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得の禁止が明文(対象は「サービス」)。人が確認した事実のみ・自分の言葉・リンク付き・本人申告ラベル。自動再取得しない。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://gumroad.com/pricing": {
+    "url": "https://gumroad.com/pricing",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://gumroad.com/terms",
+    "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 gumroad・baremetrics は人が確認した事実だけを使い、自動で再取得しない。 審査の根拠: 自動取得は規約で禁止。価格の事実を人が確認して記録し、自動再取得しないこと。該当事例の公式サイトなら公式サイト方針(automatic)と重なるため、そちらで足りるか要確認。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://marketingexamples.com/landing-page/pricing": {
+    "url": "https://marketingexamples.com/landing-page/pricing",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://marketingexamples.com/",
+    "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き。ページは著者の編集物なので、手口の文章や図は載せない。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://mixergy.com/interviews/codementor-with-weiting-liu/": {
+    "url": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://mixergy.com/",
+    "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 規約が見つからないため明示の禁止なし。ただし許諾の証拠でもない。事実のみ・自分の言葉・出典リンク付き、本人申告ラベル。引用・転載・画像なし。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://neon.fund/blog/how-requestly-became-a-developer-favourite/": {
+    "url": "https://neon.fund/blog/how-requestly-became-a-developer-favourite/",
+    "decision": "held",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://neon.fund/terms",
+    "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: 個人利用に限る旨が明文で、商用の当方の利用は許諾の外。事実のみ・リンク付きでも規約上は灰色。不可寄り。投資ファンドの記事なので自己宣伝の数字は本人申告扱い。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://requestly.com/blog/requestly-joins-browserstack-building-the-future-of-testing-together/": {
+    "url": "https://requestly.com/blog/requestly-joins-browserstack-building-the-future-of-testing-together/",
+    "decision": "held",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://requestly.com/",
+    "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: 対象9件の外だが事例に使われている。事例当事者の公式サイトなら公式サイト方針で足りる可能性あり。別途確認が必要。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools": {
+    "url": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
+    "decision": "held",
+    "usage": "independently_worded_facts",
+    "reviewer": "提案のみ（オーナー承認待ち）",
+    "reviewedAt": "2026-10-06T21:15:00+09:00",
+    "termsUrl": "https://hashnode.com/terms",
+    "note": "提案: 条件付きで allowed。Hashnode の規約は、著作権は投稿者に残ると定める。第三者が事実を自分の言葉で書くことには触れていない。自動取得は「妥当な範囲を超える」ものを禁止。条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／記事本文に著者名が無く、持ち主であることから本人と判断するので「本人申告」と表示／自動で再取得しない。承認されるまで held。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests": {
+    "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://www.browserstack.com/terms",
+    "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: プレスリリースは周知目的の公開物。事実のみ・自分の言葉・出典と日付付き。本文転載・画像なし。買収額などは発表者の自己申告と明記。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://www.failory.com/interview/gorails": {
+    "url": "https://www.failory.com/interview/gorails",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://www.failory.com/privacy",
+    "note": "承認: 条件付きで allowed。共通条件: 事実だけを自分の言葉で書く／提供元名・URL・日付を付ける／本文と画像は転載しない／本人の発言は「本人申告」と表示。 審査の根拠: 利用条項なし。事実のみ・自分の言葉・リンク付き・本人申告ラベル。/startup/ 配下は取得しない。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://www.ycombinator.com/companies/requestly": {
+    "url": "https://www.ycombinator.com/companies/requestly",
+    "decision": "held",
+    "usage": "independently_worded_facts",
+    "reviewer": "オーナー判断待ちから不承認（調整役経由で伝達、2026-10-06）",
+    "reviewedAt": "2026-10-06T19:30:00+09:00",
+    "termsUrl": "https://www.ycombinator.com/legal",
+    "note": "承認しない（held のまま）。この出典の事実を使う事例は、他の出典で作り直すかその事実を外す。審査の根拠: スクレイピングと商用での複製の禁止が明文。事実を自分の言葉で書くことが「複製」に当たるかの線引きが法的に微妙。自動取得は不可、人が確認した事実のみの運用でよいかをオーナーが決める。",
+    "recheckAfter": "2027-01-04T12:00:00+09:00"
+  },
+  "https://boardgamequest.com/button-shy-game-of-the-month-club": {
+    "url": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://boardgamequest.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/": {
+    "url": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.kicktraq.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://kicktraq.com/projects/239309591/shallow-regrets/": {
+    "url": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.kicktraq.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://www.kicktraq.com/projects/239309591/aqua-rove/": {
+    "url": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.kicktraq.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/": {
+    "url": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.kicktraq.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://www.kicktraq.com/projects/239309591/unsurmountable/": {
+    "url": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.kicktraq.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/": {
+    "url": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.meeplemountain.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://www.patreon.com/buttonshy/about": {
+    "url": "https://www.patreon.com/buttonshy/about",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.patreon.com/policy/legal",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  },
+  "https://www.spritesanddice.com/posts/spotlight-button-shy-games": {
+    "url": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+    "decision": "allowed",
+    "usage": "independently_worded_facts",
+    "reviewer": "指揮（オーナーの委任）",
+    "reviewedAt": "2026-10-08T15:00:00+09:00",
+    "termsUrl": "https://www.spritesanddice.com/",
+    "note": "2026-10-08 オーナー『お前の方で大丈夫なやつを選んで出す』により指揮が判断。公開ページの数字・事実をリンク付きで出す。文章は写さない"
+  }
 }
