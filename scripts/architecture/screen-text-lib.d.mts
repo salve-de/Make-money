@@ -7,6 +7,8 @@ export function analyzeScreen(html: string, isAllowed: (text: string) => boolean
   unowned: string[];
   emptyHeadings: string[];
   dupFacts: string[];
+  successIds: string[];
+  chapterIds: string[];
   factCount: number;
   metricCount: number;
   sourceCount: number;
