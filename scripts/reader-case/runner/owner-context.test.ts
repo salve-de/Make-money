@@ -7,7 +7,7 @@ import { OWNER_CONTEXT_HEADING, ownerContext } from '../owner-context';
 
 const tmp = (): string => { const r = mkdtempSync(join(tmpdir(), 'owner-ctx-')); mkdirSync(join(r, 'docs/owner'), { recursive: true }); return r; };
 
-test('ownerContext: 2つとも無ければ空文字', () => {
+test('ownerContext: どれも無ければ空文字', () => {
   assert.equal(ownerContext(tmp()), '');
 });
 
