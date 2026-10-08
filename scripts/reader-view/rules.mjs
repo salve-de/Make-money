@@ -82,7 +82,7 @@ const FOREIGN = /(\$\s?[0-9]|[0-9][0-9,.]*\s*(?:億|万|千|[kKMB])?\s*(?:米ド
 /** 外貨の金額があるのに、同じ文（句点まで）に円が無い文 @param {string} text @returns {string[]} */
 export function missingYen(text) {
   // 0ドルは換算しても0円なので、円を添えなくてよい
-  const ZERO = /(?<![0-9.,])0(?:\.0+)?\s*(?:米ドル|ドル|ルピー|ユーロ|ポンド)/g;
+  const ZERO = /(?<![0-9.,])0(?:\.0+)?\s*(?:米ドル|ドル|ルピー|ユーロ|ポンド)|\$\s?0(?![0-9.,])/g;
   return text.split(/(?<=[。\n])/).map((s) => s.trim()).filter((s) => FOREIGN.test(s.replace(ZERO, '')) && !/円/.test(s));
 }
 

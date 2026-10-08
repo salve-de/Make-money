@@ -20,6 +20,7 @@ import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } fr
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../architecture/natural-japanese.mjs';
+import { priceExtras } from '../reader-view/rules.mjs';
 import { describeUnclear, findUnclear, loadClarityRules } from '../architecture/reader-clarity.mjs';
 import { textFingerprint } from '../../src/shared/text-fingerprint';
 import type { ReaderCase } from '../../src/shared/reader-case';
@@ -29,7 +30,7 @@ import { preparePublicationReader } from './publication-evaluation';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { withReflectedAnalysis, readReflectState } from './case-reflect';
 import type { AnalysisFile } from './analysis-lib';
-import { checkLabels, checkLine, collectTargets, entryFor, replaceEntity, type FactLineEntry, type FactTarget } from './fact-lines-lib';
+import { checkLabels, checkLine, collectTargets, entryFor, isPriceTarget, mergePrice, replaceEntity, type FactLineEntry, type FactTarget } from './fact-lines-lib';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 process.chdir(ROOT);
@@ -40,6 +41,8 @@ const FAILURES = join(ROOT, 'data/pipeline/fact-lines-failures.jsonl');
 const ATTEMPTS = Number(argValue('--attempts') ?? 3);
 const CONCURRENCY = Number(argValue('--concurrency') ?? 4);
 const DRY = has('--dry-run');
+/** 数字の帯の「料金」の事実だけを作り直す（他の行は残す）。通らなかった料金の行は外す（長い・付帯条件つきの文を帯に出さない） */
+const PRICE_ONLY = has('--price-only');
 const REVIEW = !has('--no-review');
 const say = (t: string) => console.log(`[fact-lines] ${t}`);
 
@@ -62,6 +65,7 @@ function languageProblems(text: string, target: FactTarget): string[] {
   for (const rule of language) { const hit = text.match(rule.re); if (hit) out.push(`読む人に分かりにくい語「${hit[0]}」→ ${rule.suggest}`); }
   for (const hit of findUnnatural(text, naturalRules)) out.push(describeHit(hit));
   out.push(...findNoise(text, { price: target.where.includes('料金') }));
+  if (isPriceTarget(target)) for (const x of priceExtras(text)) out.push(`料金に付帯条件「${x}」（税・別料金・返金・無料試用は料金で知りたい事ではない。消す）`);
   for (const hit of findUnclear(text, clarityRules)) out.push(describeUnclear(hit));
   return out;
 }
@@ -98,12 +102,12 @@ const parseJson = (text: string): unknown => JSON.parse(text.replace(/^\s*```(?:
 interface GenOut { lines?: Array<{ key?: string; text?: string }>; labels?: string[] }
 interface ReviewOut { verdicts?: Array<{ key?: string; ok?: boolean; problem?: string; fix?: string }>; labelsOk?: boolean; labelsProblem?: string }
 
-async function buildOne(id: string, reader: ReaderCase, gen: Caller, review: Caller | null, log: (t: string) => void): Promise<{ entries: FactLineEntry[]; failed: Array<{ key: string; problems: string[] }>; calls: number }> {
+async function buildOne(id: string, reader: ReaderCase, gen: Caller, review: Caller | null, log: (t: string) => void): Promise<{ entries: FactLineEntry[]; failed: Array<{ key: string; problems: string[] }>; calls: number; targetCount: number }> {
   const entry = index.find((e) => e.id === id);
-  const targets = collectTargets(reader);
+  const targets = collectTargets(reader).filter((t) => !PRICE_ONLY || isPriceTarget(t));
   const haystack = [...reader.facts.map((f) => f.text), ...reader.metrics.map((m) => `${m.label ?? ''} ${m.basis ?? ''}`), ...reader.analysis.map((a) => `${a.text} ${a.formula ?? ''}`), entry?.name ?? '', entry?.tagline ?? ''].join('\n');
   const existingLabels = [...new Set((entry?.tags ?? []).map((t) => t.trim()).filter((t) => t && !OPERATOR_TAGS.has(t)))].slice(0, 3);
-  const labelsNeeded = existingLabels.length < 2;
+  const labelsNeeded = !PRICE_ONLY && existingLabels.length < 2;
   const accepted = new Map<string, string>();
   let pending = [...targets];
   let labels: string[] = [];
@@ -168,7 +172,7 @@ async function buildOne(id: string, reader: ReaderCase, gen: Caller, review: Cal
   if (labelsNeeded && labelsDone && labels.length > 0) entries.push({ entityId: id, kind: 'labels', targetId: 'labels', hash: textFingerprint((entry?.tagline ?? '').trim()), text: labels.join('、') });
   const failed = pending.map((t) => ({ key: t.key, problems: problemsByKey.get(t.key) ?? [] }));
   if (labelsNeeded && !labelsDone) failed.push({ key: 'labels', problems: labelProblems });
-  return { entries, failed, calls };
+  return { entries, failed, calls, targetCount: targets.length };
 }
 
 async function main(): Promise<void> {
@@ -200,9 +204,9 @@ async function main(): Promise<void> {
       const started = Date.now();
       try {
         const r = await buildOne(id, reader, gen, review, say);
-        const targets = collectTargets(reader).length;
+        const targets = r.targetCount;
         totalTargets += targets; totalAccepted += r.entries.filter((e) => e.kind !== 'labels').length; totalFailed += r.failed.length;
-        if (!DRY) { all = replaceEntity(all, id, r.entries); writeFileSync(OUT, `${JSON.stringify(all, null, 1)}\n`); }
+        if (!DRY) { all = PRICE_ONLY ? mergePrice(all, id, reader, r.entries) : replaceEntity(all, id, r.entries); writeFileSync(OUT, `${JSON.stringify(all, null, 1)}\n`); }
         if (r.failed.length > 0) { mkdirSync(dirname(FAILURES), { recursive: true }); appendFileSync(FAILURES, `${JSON.stringify({ at: new Date().toISOString(), entityId: id, failed: r.failed })}\n`); }
         say(`${id}: 保存${r.entries.length}行、通らず${r.failed.length}件、AI呼び出し${r.calls}回、${Math.round((Date.now() - started) / 1000)}秒`);
       } catch (e) { say(`${id}: 失敗 ${(e as Error).message.slice(0, 200)}`); totalFailed += 1; }

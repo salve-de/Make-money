@@ -15,6 +15,8 @@ export interface FactLineEntry { entityId: string; kind: StoredKind; targetId: s
 /** 画面に出る欄の対象1件。key は AI に渡す名前（kind:targetId） */
 export interface FactTarget { key: string; kind: FactLineKind; targetId: string; where: string; original: string; max: number }
 
+/** 数字の帯の「料金」は70字まで（scripts/reader-view/rules.mjs PRICE_MAX。円換算の（約…）を除く） */
+export const PRICE_MAX = 70;
 export const MAX_LEN: Record<FactLineKind, number> = { fact: 200, basis: 70, period: 40, formula: 280, analysis: 150 };
 
 // 画面（ReaderDetail.tsx の BOILERPLATE_FORMULA）が出さない式は、言い直さない
@@ -29,7 +31,7 @@ export function collectTargets(reader: ReaderCase): FactTarget[] {
   const out: FactTarget[] = [];
   for (const f of reader.facts) {
     if (f.id === reader.summaryFactId) continue; // 概要は list-lines・summary-lines が受け持つ
-    out.push({ key: `fact:${f.id}`, kind: 'fact', targetId: f.id, where: `出典を見る > ${sectionTitle(f.kind)}${f.kind === 'PRICING' ? '（料金の帯にも出る）' : ''}`, original: f.text, max: MAX_LEN.fact });
+    out.push({ key: `fact:${f.id}`, kind: 'fact', targetId: f.id, where: `出典を見る > ${sectionTitle(f.kind)}${f.kind === 'PRICING' ? '（料金の帯にも出る）' : ''}`, original: f.text, max: f.kind === 'PRICING' ? PRICE_MAX : MAX_LEN.fact });
   }
   for (const m of reader.metrics) {
     // 期間の列は「2019年5月1日の投稿（月の売上70K）」のように記録の言い方が混ざる事がある。日付・年・年度だけの期間は直さない
@@ -38,7 +40,7 @@ export function collectTargets(reader: ReaderCase): FactTarget[] {
   }
   for (const a of reader.analysis) {
     if (a.formula && !BOILERPLATE_FORMULA.test(a.formula.trim())) out.push({ key: `formula:${a.id}`, kind: 'formula', targetId: a.id, where: `計算の前提 > ${a.item}`, original: a.formula, max: MAX_LEN.formula });
-    if (STRIP_ITEMS.has(a.item)) out.push({ key: `analysis:${a.id}`, kind: 'analysis', targetId: a.id, where: `冒頭の数字の帯 > ${a.item}`, original: a.text, max: MAX_LEN.analysis });
+    if (STRIP_ITEMS.has(a.item)) out.push({ key: `analysis:${a.id}`, kind: 'analysis', targetId: a.id, where: `冒頭の数字の帯 > ${a.item}`, original: a.text, max: a.item === 'PRICING' ? PRICE_MAX : MAX_LEN.analysis });
   }
   return out;
 }
@@ -104,6 +106,15 @@ export function checkLine(target: FactTarget, text: string, haystack: string, ex
 export function replaceEntity(all: FactLineEntry[], entityId: string, mine: FactLineEntry[]): FactLineEntry[] {
   const order: Record<StoredKind, number> = { fact: 0, basis: 1, period: 2, formula: 3, analysis: 4, labels: 5 };
   return [...all.filter((x) => x.entityId !== entityId), ...mine].sort((a, b) => a.entityId.localeCompare(b.entityId) || order[a.kind] - order[b.kind] || a.targetId.localeCompare(b.targetId, 'en', { numeric: true }));
+}
+
+/** 料金の事実の行だけを差し替える。この事例の料金の対象にあった古い行は、新しい行が無ければ外す。 */
+export const isPriceTarget = (t: FactTarget): boolean => (t.kind === 'fact' && t.where.includes('料金')) || (t.kind === 'analysis' && t.where.includes('PRICING'));
+
+export function mergePrice(all: FactLineEntry[], entityId: string, reader: ReaderCase, mine: FactLineEntry[]): FactLineEntry[] {
+  const price = collectTargets(reader).filter(isPriceTarget);
+  const kept = all.filter((x) => !(x.entityId === entityId && price.some((t) => t.kind === x.kind && t.targetId === x.targetId)));
+  return replaceEntity(kept, entityId, [...kept.filter((x) => x.entityId === entityId), ...mine]);
 }
 
 export const entryFor = (entityId: string, target: FactTarget, text: string): FactLineEntry => ({ entityId, kind: target.kind, targetId: target.targetId, hash: textFingerprint(target.original), text });

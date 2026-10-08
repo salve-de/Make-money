@@ -11,7 +11,7 @@ import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { type AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { textFingerprint } from '../../src/shared/text-fingerprint';
-import { collectTargets } from './fact-lines-lib';
+import { collectTargets, isPriceTarget } from './fact-lines-lib';
 
 const read = <T>(file: string): T => JSON.parse(readFileSync(file, 'utf8')) as T;
 const finished = readFileSync('data/catalog-finished-ids.txt', 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'));
@@ -32,7 +32,7 @@ for (const id of ids) {
     name: entry?.name ?? id,
     tags: entry?.tags ?? [],
     taglineHash: textFingerprint((entry?.tagline ?? '').trim()),
-    targets: collectTargets(reader).map((t) => ({ key: t.key, kind: t.kind, targetId: t.targetId, where: t.where, original: t.original, hash: textFingerprint(t.original), price: t.where.includes('料金') })),
+    targets: collectTargets(reader).map((t) => ({ key: t.key, kind: t.kind, targetId: t.targetId, where: t.where, original: t.original, hash: textFingerprint(t.original), price: isPriceTarget(t) })),
   });
 }
 console.log(JSON.stringify({ ids, missing, cases }));

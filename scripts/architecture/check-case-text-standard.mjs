@@ -178,7 +178,7 @@ for (const line of factLines) {
     continue;
   }
   if (!(line.kind in FACT_MAX)) { problems.push(`${where}: 知らない種類`); continue; }
-  check(where, 'text', line.text, FACT_MAX[line.kind], { hedge: true, price: priceKeys.has(`${line.entityId}\u0000${line.kind}\u0000${line.targetId}`), yen: false });
+  check(where, 'text', line.text, priceKeys.has(`${line.entityId}\u0000${line.kind}\u0000${line.targetId}`) ? 70 : FACT_MAX[line.kind], { hedge: true, price: priceKeys.has(`${line.entityId}\u0000${line.kind}\u0000${line.targetId}`), yen: false });
 }
 for (const id of factCoverage.missing) problems.push(`記録の文 ${id}: 仕上げ済みだが事例データが読めない`);
 for (const entry of factCoverage.cases) {
