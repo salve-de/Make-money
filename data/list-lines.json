@@ -21,19 +21,19 @@
     "entityId": "ent_heygen_8f11a1",
     "factId": "f1",
     "factHash": "d1217d65",
-    "text": "文章などから、本人そっくりのアバターが話す動画を作るAIサービス"
+    "text": "文章などから、本人そっくりの分身が話す動画を作るAIサービス。"
   },
   {
     "entityId": "ent_myoperator_49c393230a2d",
     "factId": "f1",
     "factHash": "0f0520a7",
-    "text": "電話やメッセージアプリWhatsAppで使う、AIによる自動応答や自動音声案内を売る会社"
+    "text": "電話やWhatsAppで、人工知能による自動応答や自動音声案内を提供する会社"
   },
   {
     "entityId": "ent_practicaltypographycom_e9aa6bc94ccf",
     "factId": "f1",
     "factHash": "526875fa",
-    "text": "文字の組み方を教える、無料で読めるWebの本。広告は載せず、読者のお金で成り立つ"
+    "text": "文字の組み方を教えるWebの本。広告を載せず、読者のお金で成り立つ。"
   },
   {
     "entityId": "ent_referralrock_8c13d5ee4cfc",
@@ -45,7 +45,7 @@
     "entityId": "ent_requestly_28e9f2",
     "factId": "f1",
     "factHash": "3f9c44d6",
-    "text": "Webサイトの通信内容を書き換えて動作を試せる、開発者向けツール"
+    "text": "Webサイトの通信内容を書き換え、動作を試せる開発者向けツール"
   },
   {
     "entityId": "ent_rfrcui_64e924ac",
@@ -57,6 +57,6 @@
     "entityId": "ent_teamcamp_ae0c21986c4d",
     "factId": "f1",
     "factHash": "cecd9426",
-    "text": "開発会社・デザイン会社向けの、請求機能も備えたプロジェクト管理ツール"
+    "text": "開発会社・デザイン会社向けに、案件管理と請求の機能を提供する。"
   }
 ]
