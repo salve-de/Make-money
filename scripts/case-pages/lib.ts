@@ -25,7 +25,7 @@ function sections(md: string): Map<string, string[]> {
   let current: string | null = null;
   for (const raw of md.split(/\r?\n/)) {
     if (/^#\s/.test(raw)) { current = null; continue; }
-    const h = raw.match(/^##\s+(.+?)\s*$/);
+    const h = raw.match(/^##\s+(?:\d+[.．]\s*)?(.+?)\s*$/);
     if (h) {
       const name = h[1].startsWith(RIGHTS_HEAD) ? RIGHTS_HEAD : h[1];
       current = name;
@@ -68,13 +68,27 @@ function parseTimeline(lines: string[]): CasePage['timeline'] {
   });
 }
 
-/** 「説明文（…）：https://…」を、ラベルとリンクに分ける */
+/** 出典の行。番号つき（「1. 説明：https://…」）か、番号なしの箇条書き（「- 説明：https://…」）。リンクのある行が出典、無い行は注記 */
+function sourceRows(lines: string[]): Array<{ body: string; url: string }> {
+  const rows: Array<{ body: string; url: string }> = [];
+  const numberedRows = numbered(lines);
+  const bodies = numberedRows.length > 0 ? numberedRows.map((r) => r.body) : bullets(lines);
+  for (const body of bodies) {
+    const m = body.match(/^(.+?)[:：]\s*(https?:\/\/\S+)(?:\s+(.+))?$/);
+    rows.push(m ? { body: `${m[1].trim()}${m[3] ? `${m[3].trim()}` : ''}`, url: m[2] } : { body, url: '' });
+  }
+  return rows;
+}
+
+/** 「説明文（…）：https://…」を、ラベルとリンクに分ける。リンクの後ろの補足は、ラベルの後ろに足す */
 function parseSources(lines: string[]): { sources: CasePage['sources']; notes: string[] } {
-  const sources = numbered(lines).map(({ no, body }) => {
-    const m = body.match(/^(.+?)[:：]\s*(https?:\/\/\S+)\s*$/);
-    return m ? { no, label: m[1].trim(), url: m[2] } : { no, label: body, url: '' };
-  });
-  return { sources, notes: bullets(lines) };
+  const rows = sourceRows(lines);
+  const withUrl = rows.filter((r) => r.url);
+  const sources = withUrl.map((r, i) => ({ no: i + 1, label: r.body, url: r.url }));
+  const hasNumbers = numbered(lines).length > 0;
+  // 番号つきの形では、注記は番号の無い箇条書き。番号なしの形では、リンクの無い箇条書き
+  const notes = hasNumbers ? bullets(lines) : rows.filter((r) => !r.url).map((r) => r.body);
+  return { sources, notes };
 }
 
 export function parseCasePage(md: string): CasePage {
@@ -163,26 +177,31 @@ export function checkCasePage(page: CasePage): Violation[] {
 }
 
 /** 全章がそろっているか（markdown の段階。空の章・出典のリンク切れ・番号の飛びを見つける） */
-export function missingChapters(md: string): Violation[] {
+export function missingChapters(md: string, optional: readonly string[] = []): Violation[] {
   const s = sections(md);
   const v: Violation[] = [];
   for (const name of Object.values(CHAPTER_HEADS)) {
+    if (optional.includes(name) && (!s.has(name) || !(s.get(name) ?? []).some((l) => l.trim()))) continue;
     if (!s.has(name)) v.push({ rule: 'missing-chapter', where: name, detail: '章が無い' });
     else if (!(s.get(name) ?? []).some((l) => l.trim())) v.push({ rule: 'missing-chapter', where: name, detail: '章が空' });
   }
   if (s.has(CHAPTER_HEADS.sources)) {
-    const rows = numbered(s.get(CHAPTER_HEADS.sources)!);
-    if (rows.length === 0) v.push({ rule: 'missing-chapter', where: CHAPTER_HEADS.sources, detail: '番号つきの出典が無い' });
-    rows.forEach((r, i) => {
-      if (r.no !== i + 1) v.push({ rule: 'missing-chapter', where: CHAPTER_HEADS.sources, detail: `番号が${i + 1}でない（${r.no}）` });
-      if (!/https?:\/\/\S+\s*$/.test(r.body)) v.push({ rule: 'missing-chapter', where: CHAPTER_HEADS.sources, detail: `出典${r.no}にリンクが無い` });
-    });
+    const rows = sourceRows(s.get(CHAPTER_HEADS.sources)!);
+    if (!rows.some((r) => r.url)) v.push({ rule: 'missing-chapter', where: CHAPTER_HEADS.sources, detail: 'リンクつきの出典が無い' });
+    if (numbered(s.get(CHAPTER_HEADS.sources)!).length > 0) {
+      rows.forEach((r, i) => { if (!r.url) v.push({ rule: 'missing-chapter', where: CHAPTER_HEADS.sources, detail: `出典${i + 1}にリンクが無い` }); });
+    }
   }
   return v;
 }
 
-export function checkMarkdown(md: string): { page: CasePage | null; violations: Violation[] } {
-  const missing = missingChapters(md);
+/** この章を省いてよい事例（古い書き方の見本で、その章の材料が無いもの）。無い章は空にして、画面ではその章を出さない */
+export const OPTIONAL_CHAPTERS: Record<string, readonly string[]> = {
+  ent_button_shy_f1545f17d98e: [CHAPTER_HEADS.setbacks],
+};
+
+export function checkMarkdown(md: string, entityId = ''): { page: CasePage | null; violations: Violation[] } {
+  const missing = missingChapters(md, OPTIONAL_CHAPTERS[entityId] ?? []);
   if (missing.length > 0) return { page: null, violations: missing };
   try {
     const page = parseCasePage(md);

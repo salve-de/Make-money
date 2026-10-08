@@ -11,7 +11,8 @@ export const CasePageSchema = z.object({
   overview: z.string().min(1),
   secrets: z.array(z.object({ head: z.string().min(1), body: z.string() })).min(1),
   did: z.array(z.string().min(1)).min(1),
-  setbacks: z.array(z.string().min(1)).min(1),
+  /** 材料の無い事例では空（画面ではその章を出さない） */
+  setbacks: z.array(z.string().min(1)),
   pricing: z.array(z.string().min(1)).min(1),
   timeline: z.array(z.object({ when: z.string(), what: z.string().min(1) })).min(1),
   /** 数字と出典。番号つきのリンク */

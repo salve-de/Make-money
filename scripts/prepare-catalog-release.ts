@@ -23,6 +23,7 @@ import { rightsOptions } from './reader-case/load-readers';
 import { withoutSuspendedSources } from './reader-case/source-policy';
 import { displayForEntity, DISPLAY_SOURCE_FILE_NAMES, type DisplaySourceFiles } from '../src/shared/reader-display';
 import { buildCasePageReader } from './case-pages/reader';
+import { heldChapterRemovals, readHeld, withoutHeldClaims, withoutHeldDisplay, type HeldRemoval } from './reader-case/held-items';
 import { manifestObjectKey, type ReleasePointer } from '../src/shared/catalog-manifest';
 
 // 取り下げた旧表示（出典の無い数字や作文）は内部の監査記録。公開版には入れない
@@ -104,6 +105,9 @@ const DISPLAY_REASON: Record<Display, string> = {
 // 仕上げ済み（全項目の推論と抜き取り監査が済んだ）事例の一覧。ファイルがあれば、載っている事例だけを出す
 let finishedIds: Set<string> | null = null;
 try { finishedIds = new Set((await readFile('data/catalog-finished-ids.txt', 'utf8')).split('\n').map((x) => x.trim()).filter((x) => x && !x.startsWith('#'))); } catch { /* 無ければ全件が対象 */ }
+// 原文照合で保留にした項目（data/source-check/held.json）。case:run を通さず手で公開しても、保留の事実とそれに頼る文は画面へ出さない
+const heldAll = readHeld();
+const heldRemoved: Record<string, HeldRemoval[]> = {};
 const caseStamps: Record<string, { display: Display; reason: string }> = {};
 // 判定に要る証拠が手元にも証明書にも無い事例 → 足りない物。不合格ではないので、公開中の事例でも取り下げ扱いにしない（引き継いだ形で計画に残し、反映は止める）
 const insufficientEvidence: Record<string, string[]> = {};
@@ -134,7 +138,10 @@ for (const entity of publishable) {
   // 章ごとの文（data/case-pages/<事例ID>.md）がある事例: 古い監査の受領証・順番待ち・推論の空欄は求めない。文は軽い検査（pnpm case-pages:check）が見る
   const casePage = (displaySources['case-pages'] ?? []).find((x) => x.entityId === entity.id)?.page;
   if (casePage) {
-    const reader = buildCasePageReader(casePage, verified?.reader);
+    // 原文照合で保留にした数値は、章ごとの文の事例でも出さない
+    const heldFor = heldAll.filter((h) => h.entityId === entity.id);
+    const base = verified && heldFor.length ? withoutHeldClaims(verified.reader, heldFor, (claimId) => verdicts[entity.id]?.[claimId]?.verdict === 'HELD').reader : verified?.reader;
+    const reader = buildCasePageReader(casePage, base);
     if (validateReader(reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }
     stamp(entity.id, 'SHOW', '章ごとの文（case-page）で公開');
     totals.facts += reader.facts.length;
@@ -144,6 +151,13 @@ for (const entity of publishable) {
   }
   if (!verified) { withheld.unverified++; stamp(entity.id, 'HOLD_UNVERIFIED'); continue; }
   verified.reader = reflectAnalysis(verified.reader, analysisFile[entity.id]);
+  const heldHere = heldAll.filter((h) => h.entityId === entity.id);
+  let heldIds = new Set<string>();
+  let heldList: HeldRemoval[] = [];
+  if (heldHere.length) {
+    const cut = withoutHeldClaims(verified.reader, heldHere, (claimId) => verdicts[entity.id]?.[claimId]?.verdict === 'HELD');
+    verified.reader = cut.reader; heldIds = cut.removedIds; heldList = cut.removed;
+  }
   if (validateReader(verified.reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }
   if (verified.reader.facts.length <= 2 && verified.reader.metrics.length === 0) { withheld.thin++; stamp(entity.id, 'HOLD_THIN'); continue; }
   if (citesRestrictedSource(verified.reader)) { withheld.resource++; stamp(entity.id, 'HOLD_RESOURCE'); continue; }
@@ -178,7 +192,9 @@ for (const entity of publishable) {
   totals.facts += verified.reader.facts.length;
   totals.metrics += verified.reader.metrics.length;
   // 画面用の編集文（正本は data/list-lines.json など5つ）は、事例の事実と同じ版に入れて運ぶ（ビルドには同梱しない）
-  const display = displayForEntity(displaySources, entity.id);
+  const display = withoutHeldDisplay(displayForEntity(displaySources, entity.id), heldIds, heldHere, heldList);
+  heldList.push(...heldChapterRemovals(displayForEntity(displaySources, entity.id), heldHere));
+  if (heldList.length) heldRemoved[entity.id] = heldList;
   entities.push({ ...entity, reader: display ? { ...verified.reader, display } : verified.reader });
 }
 const sourcelessExcluded = publishable.length - entities.length;
@@ -241,7 +257,7 @@ objects.push({ key: manifestObjectKey(manifestHash), file: manifestFile });
 const localPointer: ReleasePointer = { version: 1, manifestHash, manifestKey: manifestObjectKey(manifestHash), publishedCount: entities.length, updatedAt: new Date().toISOString(), previous: null };
 const plan = planRelease(previous, manifest);
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed && !evidenceBlocked, withdrawalApproval, insufficientEvidence, withheld, hiddenItems, paraphrasedItems, caseStamps }));
+  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed && !evidenceBlocked, withdrawalApproval, insufficientEvidence, withheld, heldRemoved, hiddenItems, paraphrasedItems, caseStamps }));
   return;
 }
 if (checkOnly || artifactsOnly) {
@@ -254,7 +270,7 @@ if (checkOnly || artifactsOnly) {
   await writeFile('data/case-display.json', `${JSON.stringify(Object.fromEntries(Object.entries(caseStamps).sort(([x], [y]) => x.localeCompare(y))), null, 1)}\n`);
   await writeFile(`${directory}/upload.json`, JSON.stringify(objects));
 }
-console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, hiddenItems, paraphrasedItems, totals,
+console.log(JSON.stringify({ sourceHash, sourceCount: manifest.sourceCount, publishedCount: entities.length, sourcelessExcluded, plan, withheld, heldRemoved, hiddenItems, paraphrasedItems, totals,
   blankRate: blanks.cells ? Number((blanks.empty / blanks.cells).toFixed(4)) : null, blanks, objects: objects.length }));
 }
 void main().catch((error) => { console.error(error); process.exitCode = 1; });

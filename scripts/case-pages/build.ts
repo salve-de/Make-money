@@ -25,7 +25,7 @@ export function buildAll(dir = CASE_PAGES_DIR) {
   const violations: Array<{ entityId: string } & Violation> = [];
   for (const entityId of listCasePageIds(dir)) {
     const md = readFileSync(`${dir}/${entityId}.md`, 'utf8');
-    const checked = checkMarkdown(md);
+    const checked = checkMarkdown(md, entityId);
     for (const v of checked.violations) violations.push({ entityId, ...v });
     if (checked.page) pages.push({ entityId, page: parseCasePage(md) });
     rights[entityId] = parseRights(md);

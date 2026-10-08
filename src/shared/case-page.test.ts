@@ -100,6 +100,25 @@ describe('軽い検査（4つ）', () => {
   });
 });
 
+describe('番号つき見出しと任意の章', () => {
+  const md = readFileSync('data/case-pages/ent_button_shy_f1545f17d98e.md', 'utf8');
+  it('見出しの番号を外して読み、無い章は空にする', () => {
+    const page = parseCasePage(md);
+    expect(page.listLine).toBe('財布に入る18枚のカードゲームが、目標の67倍の支援を集めた');
+    expect(page.setbacks).toEqual([]);
+    expect(page.secrets).toHaveLength(5);
+    expect(page.sources.length).toBeGreaterThan(5);
+    expect(page.sources[0].no).toBe(1);
+  });
+  it('「つまずきと立て直し」は、この事例だけ任意', () => {
+    expect(checkMarkdown(md, 'ent_button_shy_f1545f17d98e').violations).toEqual([]);
+    expect(checkMarkdown(md, 'ent_other').violations.some((v) => v.rule === 'missing-chapter')).toBe(true);
+  });
+  it('題の下の作業メモは画面の文に入らない', () => {
+    expect(JSON.stringify(parseCasePage(md))).not.toContain('直した点');
+  });
+});
+
 describe('公開版への組み込み', () => {
   const page = parseCasePage(MD);
   it('正本の json から事例の display.casePage に入る', () => {
@@ -119,7 +138,7 @@ describe('公開版への組み込み', () => {
     expect(built.length).toBeGreaterThan(0);
     for (const { entityId, page: p } of built) {
       const md = readFileSync(`data/case-pages/${entityId}.md`, 'utf8');
-      expect(checkMarkdown(md).violations, entityId).toEqual([]);
+      expect(checkMarkdown(md, entityId).violations, entityId).toEqual([]);
       expect(parseCasePage(md), entityId).toEqual(p);
     }
   });

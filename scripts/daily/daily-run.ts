@@ -280,7 +280,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     const plan = w.code === 0 ? parseWithdrawals(w.stdout) : null;
     if (!plan) return { status: 'failed', note: `取り下げの事前確認が読めない: ${tail(w)}` };
     if (plan.withdrawn.length || !plan.canApply) { flag('withdraw', `公開中の事例の取り下げの判定が出た（${plan.withdrawn.length} 件。公開を止めた。取り下げは自動でしない）`); return { status: 'failed', note: `取り下げの判定 ${plan.withdrawn.length} 件で公開を止めた` }; }
-    const r2 = await d.exec(['pnpm', 'case:run', '--ids', toPublish.join(','), '--run-id', `${runId}-pub`, '--from', 'publish', '--publish']);
+    const r2 = await d.exec(['pnpm', 'case:run', '--ids', toPublish.join(','), '--run-id', `${runId}-pub`, '--from', 'publish', '--publish', '--allow-non-main']);
     if (r2.code !== 0) return { status: 'failed', note: `公開が失敗(次の起動でやり直す): ${tail(r2)}` };
     rec.publishedIds = uniq([...rec.publishedIds, ...toPublish]); rec.counts.published += toPublish.length; rec.pending = rec.pending.filter((x) => !toPublish.includes(x)); writePending(o.root, rec.pending); save();
     return { status: 'ok', note: `${toPublish.length} 件を公開` };

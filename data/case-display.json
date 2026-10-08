@@ -1308,8 +1308,8 @@
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
  "ent_button_shy_f1545f17d98e": {
-  "display": "CARRIED",
-  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
+  "display": "SHOW",
+  "reason": "章ごとの文（case-page）で公開"
  },
  "ent_buttondown_573bd3808b0c701ad7ee": {
   "display": "HOLD_QUEUE",

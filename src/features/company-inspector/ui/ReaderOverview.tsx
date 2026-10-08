@@ -509,7 +509,7 @@ export function CasePageView({ page, media }: { page: CasePage; media?: React.Re
         </ol>
       </Fold>
       <Fold id="section-chapter-practice" title={UI.CHAPTER_PRACTICE} defaultOpen>{list(page.did)}</Fold>
-      <Fold id="section-chapter-turning" title={UI.CHAPTER_TURNING} defaultOpen>{list(page.setbacks)}</Fold>
+      {page.setbacks.length > 0 && <Fold id="section-chapter-turning" title={UI.CHAPTER_TURNING} defaultOpen>{list(page.setbacks)}</Fold>}
       <Fold id="section-chapter-price" title={UI.CASE_PAGE_PRICE} defaultOpen>{list(page.pricing)}</Fold>
       <Fold id="section-chapter-timeline" title={UI.CHAPTER_TIMELINE} defaultOpen>
         <ul className="grid grid-cols-1 gap-2">

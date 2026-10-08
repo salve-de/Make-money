@@ -35,6 +35,11 @@ describe('章ごとの文（case-page）の詳細画面', () => {
     expect(html).toContain('円は1ドル＝150円の目安。');
     expect(html).toContain('未確認：照合はまだ。');
   });
+  it('つまずきの章が空なら、その章を出さない', () => {
+    const empty = renderToStaticMarkup(<ReaderLedger reader={{ ...baremetrics, display: { casePage: { ...page, setbacks: [] } } } as ReaderCase} />);
+    expect(empty).not.toContain('section-chapter-turning');
+    expect(html).toContain('section-chapter-turning');
+  });
   it('casePage が無い事例は今のまま', () => {
     const old = renderToStaticMarkup(<ReaderLedger reader={baremetrics} />);
     expect(old).not.toContain('数字と出典');
