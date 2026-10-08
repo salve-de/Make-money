@@ -15,10 +15,10 @@ if ! git merge --no-edit origin/main; then
   echo "メインの最新を取り込めない。作業場所 $WORK の状態を確認する（手元の変更が申請に入っているか）" >&2; exit 1
 fi
 pnpm install --frozen-lockfile --prefer-offline >/dev/null || { echo "pnpm install に失敗" >&2; exit 1; }
-# 監査の証拠は gitignore なので、元から足りない分だけ写す（既にあるものは上書きしない）
+# 監査の証拠は gitignore なので、元から足りない分と、元の方が新しい分を写す（判定の記録は追記で変わるため、新しい方を残す）
 for d in data/source-cache data/media-staging; do
   if [ -d "$SRC/$d" ]; then
-    mkdir -p "$d" && rsync -a --ignore-existing "$SRC/$d/" "$d/" || { echo "証拠の同期に失敗: $d" >&2; exit 1; }
+    mkdir -p "$d" && rsync -a --update "$SRC/$d/" "$d/" || { echo "証拠の同期に失敗: $d" >&2; exit 1; }
   elif [ ! -d "$d" ]; then
     echo "監査の証拠が無い: $SRC/$d も $WORK/$d も見つからない（DAILY_EVIDENCE_SRC を確認）。証拠なしでは公開中の事例が全部取り下げ扱いになるので止める" >&2; exit 2
   fi

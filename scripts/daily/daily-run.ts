@@ -99,12 +99,14 @@ export function parseWithdrawals(stdout: string): { withdrawn: string[]; canAppl
 function acquireLock(root: string): (() => void) | null {
   const lock = join(root, DAILY_DIR, 'daily-run.lock');
   mkdirSync(join(root, DAILY_DIR), { recursive: true });
-  const take = (): boolean => { try { mkdirSync(lock); writeFileSync(join(lock, 'pid'), String(process.pid)); return true; } catch { return false; } };
+  const take = (): boolean => { try { mkdirSync(lock); writeFileSync(join(lock, 'pid'), String(process.pid)); writeFileSync(join(lock, 'since'), String(Date.now())); return true; } catch { return false; } };
   if (!take()) {
-    const pid = Number(readFileSync(join(lock, 'pid'), 'utf8').trim() || 0);
+    let pid = 0; try { pid = Number(readFileSync(join(lock, 'pid'), 'utf8').trim() || 0); } catch { pid = 0; }
     let alive = false;
     if (pid) { try { process.kill(pid, 0); alive = true; } catch { alive = false; } }
-    if (alive) return null;
+    // 再起動などで別のプロセスが同じ番号を使い回していることがある。毎日の実行は半日もかからないので、12時間より古いロックは捨てる
+    let since = 0; try { since = Number(readFileSync(join(lock, 'since'), 'utf8').trim() || 0); } catch { since = 0; }
+    if (alive && (!since || Date.now() - since < 12 * 3600_000)) return null;
     rmSync(lock, { recursive: true, force: true });
     if (!take()) return null;
   }
@@ -181,7 +183,8 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   const t0 = d.now();
   const file = dayFile(o.root, o.date, o.dryRun);
   const prev = readJson<DayRecord | null>(file, null);
-  const resume = !o.force && prev && prev.status !== 'DONE' ? prev : null; // 終えた日は何もしない。止まった日だけ続きから
+  // 終えた日は何もしない。止まった日は続きから。--force は段をやり直すが、今日の持ち越し・公開した記録は引き継ぐ
+  const resume = prev && (o.force || prev.status !== 'DONE') ? (o.force ? { ...prev, stages: {}, abnormal: [], failures: [] } : prev) : null;
   const rec: DayRecord = resume ?? {
     date: o.date, startedAt: new Date(t0).toISOString(), dryRun: o.dryRun, status: 'RUNNING', stages: {}, ids: [], deferred: [], pending: [], publishedIds: [],
     counts: { discovered: 0, researched: 0, passed: 0, published: 0, failed: 0 }, failures: [], abnormal: [], ok: false, seconds: 0,

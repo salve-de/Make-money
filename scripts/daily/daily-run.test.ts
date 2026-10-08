@@ -232,3 +232,13 @@ test('記録の途中(commit済みで push が失敗)から再開しても、続
   const second = await runDaily(opts(root), m.deps);
   assert.equal(second.stages['record-data'].status, 'ok'); assert.ok(m.calls.some((c) => c.startsWith('gh pr create')));
 });
+
+test('--force でも、今日の持ち越しと公開した記録は消えない', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'a,b,c,d', passed: ['a', 'b', 'c'], catalogTotal: () => 2 });
+  const first = await runDaily(opts(root), m.deps);
+  assert.deepEqual(first.deferred, ['d']);
+  const m2 = make(root, { passed: [], catalogTotal: () => 2 });
+  const forced = await runDaily(opts(root, { force: true }), m2.deps);
+  assert.deepEqual(forced.publishedIds, ['a', 'b', 'c']);
+  assert.ok(forced.ids.includes('d'));
+});
