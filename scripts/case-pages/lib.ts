@@ -123,14 +123,10 @@ export function parseRights(md: string): CasePageRight[] {
 
 // ---- 軽い検査（4つだけ） ----
 
-export interface Violation { rule: 'polite' | 'list-line-length' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-outcome' | 'list-line-jargon'; where: string; detail: string }
+export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate'; where: string; detail: string }
 
-export const LIST_LINE_MAX = 60;
-const LIST_LINE_OUTCOME = /買収|売却|身売り|手放し|推定|推測/g;
-/** 一覧の1行に出さない専門語（普通の言葉で書き、説明は下の文へ。LEAD_LINE_SHEET の関門） */
-const LIST_LINE_JARGON = /拡張機能|ひな形|テンプレート|(?<![A-Za-z])(?:API|JavaScript|SDK|SaaS|MRR|ARR)s?(?![A-Za-z])|プラグイン|ホスティング|継続売上|継続収入/gi;
-/** 「〜に」「〜へ」で終わる「〜になった」型の締めは弱い（2026-10-08 オーナー指示） */
-const LIST_LINE_WEAK_END = /[にへ][。．]?$/;
+/** 一覧の1行に出さない語（推定の数字は嘘になりうるので出さない。文の良し悪しは機械で決めない） */
+const LIST_LINE_ESTIMATE = /推定|推測/g;
 const POLITE = /(です|ます|ました|でした)。/g;
 // 数字（「3万6千」「1.8千」「1,793」「250,000」）＋外貨の単位
 const FOREIGN = /(?:[0-9０-９][0-9０-９,，.]*(?:[万千億百])?)\s*(?:ドル|ユーロ|ポンド|ルピー)|[$＄]\s*[0-9０-９]/g;
@@ -176,12 +172,8 @@ export function checkCasePage(page: CasePage): Violation[] {
   }
   for (const note of page.notes) for (const m of note.matchAll(POLITE)) v.push({ rule: 'polite', where: '注記', detail: `「${m[0]}」は常体に直す` });
   for (const s of page.sources) for (const m of s.label.matchAll(POLITE)) v.push({ rule: 'polite', where: `出典${s.no}`, detail: `「${m[0]}」は常体に直す` });
-  // 一覧の1行は人物と戦い方で引き込む文。買収・売却は結果、推定の数字はリードに出さない（docs/CASE_TEXT_STANDARD.md「一覧の1行」）
-  for (const m of page.listLine.matchAll(LIST_LINE_OUTCOME)) v.push({ rule: 'list-line-outcome', where: '一覧の1行', detail: `「${m[0]}」は一覧の1行に出さない（結果・推定）` });
-  for (const m of new Set([...page.listLine.matchAll(LIST_LINE_JARGON)].map((x) => x[0]))) v.push({ rule: 'list-line-jargon', where: '一覧の1行', detail: `「${m}」は専門語。一覧の1行は普通の言葉で書き、説明は下の文に回す` });
-  if (LIST_LINE_WEAK_END.test(page.listLine.trim())) v.push({ rule: 'list-line-outcome', where: '一覧の1行', detail: '「〜に」「〜へ」で終わらせず、強い事実で言い切る' });
-  const len = [...page.listLine].length;
-  if (len > LIST_LINE_MAX) v.push({ rule: 'list-line-length', where: '一覧の1行', detail: `${len}字（${LIST_LINE_MAX}字以内）` });
+  // 一覧の1行で機械が見るのは推定・推測の語だけ（書き方は docs/owner/LEAD_LINE_SHEET.md の見本）
+  for (const m of page.listLine.matchAll(LIST_LINE_ESTIMATE)) v.push({ rule: 'list-line-estimate', where: '一覧の1行', detail: `「${m[0]}」は一覧の1行に出さない（推定の数字は使わない）` });
   return v;
 }
 
