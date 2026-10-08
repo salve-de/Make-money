@@ -119,7 +119,7 @@ describe('番号つき見出しと任意の章', () => {
   const md = readFileSync('data/case-pages/ent_button_shy_f1545f17d98e.md', 'utf8');
   it('見出しの番号を外して読み、無い章は空にする', () => {
     const page = parseCasePage(md);
-    expect(page.listLine).toBe('財布に入る18枚のカードゲームが、目標の67倍の支援を集めた');
+    expect(page.listLine).toBe('財布に入る18枚以内のカードゲームを毎月出す小さな出版社。新作1本が12日で2,018万円');
     expect(page.setbacks).toEqual([]);
     expect(page.secrets).toHaveLength(5);
     expect(page.sources.length).toBeGreaterThan(5);
