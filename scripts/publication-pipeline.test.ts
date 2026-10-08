@@ -43,6 +43,11 @@ const audit = (i: PublicationInput, items: unknown[] = []) => {
   const output = { cases: [{ entityId: i.identity.id, items }] };
   return applyAuditDocument(undefined, i.identity.id, { inputFile: 'data/audit/in-100.json', outputFile: 'data/audit/out-100.json', input, output });
 };
+test('text audit input carries no image rights data, so image rights cannot block the text audit', () => {
+  const e = auditCaseEntry(input(), 'full', Object.keys(publicationItemHashes(input()))) as Record<string, unknown>;
+  assert.equal('media' in e, false);
+  assert.ok(!JSON.stringify(e).includes('displayableIds'));
+});
 /** 旧形式（事例丸ごとの snapshot）の入力でも同じ記録になる */
 const legacyAudit = (i: PublicationInput, items: unknown[] = []) => applyAuditDocument(undefined, i.identity.id, {
   inputFile: 'data/audit/in-100.json', outputFile: 'data/audit/out-100.json',
