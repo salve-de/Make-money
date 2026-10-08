@@ -23,6 +23,7 @@ import { pathToFileURL } from 'node:url';
 import { parseFinancialEntitiesResiliently } from '../../src/shared/financial-entity-schema';
 import ENTITY_SCHEMA from '../../src/shared/schemas/financial-entity.json';
 import { applyNumberContract, basicFactTextCheck, type FactTextCheck } from './number-contract';
+import { ownerContext } from './owner-context';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../architecture/natural-japanese.mjs';
 
 export const ADDITIONS_DIR = 'data/entity-additions';
@@ -382,7 +383,7 @@ export function returnToCollector(name: string, file: AdditionFile): { returned:
   if (back.length) {
     mkdirSync(RETURN_DIR, { recursive: true });
     const prompt = readFileSync('scripts/reader-case/collect-prompt.md', 'utf8');
-    writeFileSync(`${RETURN_DIR}/${name}.md`, `${prompt}\n\n## 差し戻し（${back.length}項目。上限${MAX_RETURNS}回）\n\n直した記録を同じ調査記録に書き戻し、もう一度 --from-research を実行する。\n\n\`\`\`json\n${JSON.stringify(back, null, 1)}\n\`\`\`\n`);
+    writeFileSync(`${RETURN_DIR}/${name}.md`, `${prompt}${ownerContext('.')}\n\n## 差し戻し（${back.length}項目。上限${MAX_RETURNS}回）\n\n直した記録を同じ調査記録に書き戻し、もう一度 --from-research を実行する。\n\n\`\`\`json\n${JSON.stringify(back, null, 1)}\n\`\`\`\n`);
   }
   return { returned: back.length, held };
 }

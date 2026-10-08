@@ -26,6 +26,7 @@ import { textFingerprint } from '../../src/shared/text-fingerprint';
 import type { ReaderCase } from '../../src/shared/reader-case';
 import { makeCaller, pickAgent, type Agent, type Caller } from './agent-call';
 import { loadReaders, argValue } from './load-readers';
+import { ownerContext } from './owner-context';
 import { preparePublicationReader } from './publication-evaluation';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { withReflectedAnalysis, readReflectState } from './case-reflect';
@@ -53,8 +54,8 @@ const language = read<Array<{ pattern: string; suggest: string }>>(join(ROOT, 'd
 const naturalRules = loadNaturalRules(join(ROOT, 'data/natural-japanese.json'));
 const clarityRules = loadClarityRules(join(ROOT, 'data/reader-clarity.json'));
 const SKILL = readFileSync(join(ROOT, '.claude/skills/natural-japanese/SKILL.md'), 'utf8').replace(/^---[\s\S]*?---\n/, '');
-const GEN_PROMPT = `${readFileSync(join(ROOT, 'scripts/reader-case/fact-lines-prompt.md'), 'utf8')}\n${SKILL}`;
-const REVIEW_PROMPT = readFileSync(join(ROOT, 'scripts/reader-case/fact-lines-review-prompt.md'), 'utf8');
+const GEN_PROMPT = `${readFileSync(join(ROOT, 'scripts/reader-case/fact-lines-prompt.md'), 'utf8')}\n${SKILL}${ownerContext(ROOT)}`;
+const REVIEW_PROMPT = readFileSync(join(ROOT, 'scripts/reader-case/fact-lines-review-prompt.md'), 'utf8') + ownerContext(ROOT);
 
 /** 文の機械の検査（辞書・意味・禁止語）。数字と名前の照合・字数・式の骨格は checkLine が見る */
 function languageProblems(text: string, target: FactTarget): string[] {

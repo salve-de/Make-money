@@ -28,6 +28,7 @@ import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
 import { checkMetric, checkText, REASON_LABELS, type CheckReason } from '../../src/shared/source-check';
 import { textFingerprint } from '../../src/shared/list-lines';
 import { serialize, type ChapterEntry } from '../../src/shared/display-build';
+import { ownerContext } from './owner-context';
 
 export const STATE_FILE = 'data/source-check/state.json';
 export const LEDGER_FILE = 'data/source-check/ledger.jsonl';
@@ -173,7 +174,7 @@ async function main() {
     mkdirSync(RECOLLECT_DIR, { recursive: true });
     const prompt = readFileSync('scripts/reader-case/recollect-prompt.md', 'utf8');
     const list = recollect.map((r) => ({ key: r.key, entityId: r.entityId, kind: r.kind, id: r.id, text: r.text, sourceUrl: r.sourceUrl, quote: r.quote, reasons: r.reasons.map((x) => REASON_LABELS[x]), detail: r.detail, attempt: state[r.key].attempts, maxAttempts }));
-    writeFileSync(`${RECOLLECT_DIR}/${runId}.md`, `${prompt}\n\n## 入力（${list.length}項目）\n\n結果の書き先: data/runner/inbox/recollect/${runId}.json\n\n\`\`\`json\n${JSON.stringify(list, null, 1)}\n\`\`\`\n`);
+    writeFileSync(`${RECOLLECT_DIR}/${runId}.md`, `${prompt}${ownerContext('.')}\n\n## 入力（${list.length}項目）\n\n結果の書き先: data/runner/inbox/recollect/${runId}.json\n\n\`\`\`json\n${JSON.stringify(list, null, 1)}\n\`\`\`\n`);
   }
 
   mkdirSync(RUNS_DIR, { recursive: true });

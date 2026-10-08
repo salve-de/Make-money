@@ -14,6 +14,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { makeCaller, mapPool, type Agent, type Caller } from './agent-call';
 import { fetchOne } from './fetch-sources';
+import { ownerContext } from './owner-context';
 import { buildDedupIndex, extractJson, priorityOf, readQueue, timed, toCandidate, updateCandidates, type Candidate, type CandidateSource, type RawCandidate } from './candidates-lib';
 import { sourcePolicy } from './source-policy';
 import { cachePath, MIN_TEXT, quoteInText } from './verify-lib';
@@ -63,7 +64,7 @@ export const defaultCheck: SourceChecker = async (url, quote) => {
 };
 
 function systemPrompt(root: string): string {
-  return readFileSync(join(root, 'scripts/reader-case/discover-prompt.md'), 'utf8');
+  return readFileSync(join(root, 'scripts/reader-case/discover-prompt.md'), 'utf8') + ownerContext(root);
 }
 
 function userPrompt(angle: { id: string; text: string }, ask: number, avoid: readonly string[]): string {

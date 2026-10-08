@@ -20,6 +20,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { entityDomain } from '../pipeline/entity-identity.mjs';
 import { makeCaller, mapPool, pickAgent, type Agent, type Caller } from './agent-call';
+import { ownerContext } from './owner-context';
 import { buildDedupIndex, claimTarget, extractJson, slugify, timed, updateCandidates, type Candidate } from './candidates-lib';
 import { fetchOne } from './fetch-sources';
 import { cachePath, MIN_TEXT, quoteInText } from './verify-lib';
@@ -99,7 +100,7 @@ const APPENDIX = `
 export function collectSystem(root: string): string {
   const skillFile = join(root, '.claude/skills/natural-japanese/SKILL.md');
   const skill = existsSync(skillFile) ? `\n\n## 文の書き方の正本（natural-japanese。上の指示で「必ず全部読む」とした物。ここに全文を貼る）\n${readFileSync(skillFile, 'utf8')}` : '';
-  return readFileSync(join(root, 'scripts/reader-case/collect-prompt.md'), 'utf8') + skill + APPENDIX;
+  return readFileSync(join(root, 'scripts/reader-case/collect-prompt.md'), 'utf8') + skill + APPENDIX + ownerContext(root);
 }
 
 function sourceBlock(texts: Map<string, string>): string {
