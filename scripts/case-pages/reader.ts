@@ -8,8 +8,23 @@ const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^w
  * 数値は、出典と照合済みの旧版（base）が持つものをそのまま残す（一覧の売上の欄のため）。旧版が無ければ数値なし。
  * 古い監査の受領証・推論・旧版の編集文は持ち込まない。
  */
+const numbersOf = (text: string) => new Set((text.replace(/,/g, '').match(/\d+(?:\.\d+)?/g) ?? []).filter((n) => n.length >= 2 || n.includes('.')));
+
+/** 一覧の1行を支える出典。1行に出てくる数字を最も多くラベルに含む出典を選ぶ（共通の数字が無ければ先頭） */
+export function headlineSource(page: CasePage): CasePage['sources'][number] {
+  const want = numbersOf(page.listLine);
+  let best = page.sources[0];
+  let bestHit = 0;
+  for (const source of page.sources) {
+    const have = numbersOf(source.label);
+    const hit = [...want].filter((n) => have.has(n)).length;
+    if (hit > bestHit) { best = source; bestHit = hit; }
+  }
+  return best;
+}
+
 export function buildCasePageReader(page: CasePage, base?: ReaderCase): ReaderCase {
-  const first = page.sources[0];
+  const first = headlineSource(page);
   const own: ReaderSource = { id: 'case-page-1', publisher: hostOf(first.url), url: first.url, kind: 'ARTICLE' };
   const metrics = base?.metrics ?? [];
   const need = new Set(metrics.map((m) => m.sourceId));
