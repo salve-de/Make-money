@@ -1,4 +1,4 @@
-{"id":"ent_myoperator_49c393230a2d","result":"REPLACED","state":"SHOW","reasons":[]}
+{"id":"ent_myoperator_49c393230a2d","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_codementor_ba692caa3db3","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_teamcamp_ae0c21986c4d","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_referralrock_8c13d5ee4cfc","result":"UNCHANGED","state":"SHOW","reasons":[]}
@@ -8,4 +8,4 @@
 {"id":"ent_heygen_8f11a1","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_requestly_28e9f2","result":"UNCHANGED","state":"SHOW","reasons":[]}
 {"id":"ent_practicaltypographycom_e9aa6bc94ccf","result":"UNCHANGED","state":"SHOW","reasons":[]}
-{"changed":true,"show":10,"hold":0,"withdrawals":[]}
+{"changed":false,"show":10,"hold":0,"withdrawals":[]}

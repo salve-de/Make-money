@@ -5,6 +5,7 @@ import type { FinancialEntity } from '@/shared/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
 import { Bookmark, X } from 'lucide-react';
 import { sectorLabel } from './sectorLabel';
+import { caseLabels } from '@/shared/display-text';
 import { useVerifiedEntityIds } from '@/platform/hooks/useVerifiedEntityIds';
 import { VerifiedMark } from './VerifiedMark';
 import { pickEntityLogo } from '@/shared/media-display';
@@ -243,15 +244,18 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       <EntityLogo asset={pickEntityLogo(logos[entity.id])} name={entity.name} />
                       <span className="min-w-0 shrink truncate text-sm font-semibold text-term-fg-strong">{entity.name}</span>
                       {verifiedIds.has(entity.id) && <VerifiedMark />}
-                      {onToggleTag && (entity.tags ?? []).slice(0, 3).map((tag) => {
+                      {caseLabels(entity).map((tag) => {
                         const on = selectedTags.includes(tag);
+                        const tagClass = `hidden h-[18px] shrink-0 items-center whitespace-nowrap border px-1 text-[11px] xl:inline-flex`;
+                        // 事例が持つ札は押すと絞り込める。事業の説明から決めた分野の札は、絞り込みの札ではないので押せない
+                        if (!onToggleTag || !(entity.tags ?? []).includes(tag)) return <span key={tag} className={`${tagClass} border-term-line-soft text-term-label`}>{tag}</span>;
                         return (
                           <button
                             key={tag}
                             type="button"
                             aria-pressed={on}
                             onClick={(event) => { event.stopPropagation(); onToggleTag(tag); }}
-                            className={`hidden h-[18px] shrink-0 items-center whitespace-nowrap border px-1 text-[11px] xl:inline-flex ${on ? 'border-term-accent text-term-accent' : 'border-term-line-soft text-term-label hover:border-term-line hover:text-term-fg'}`}
+                            className={`${tagClass} ${on ? 'border-term-accent text-term-accent' : 'border-term-line-soft text-term-label hover:border-term-line hover:text-term-fg'}`}
                           >
                             {tag}
                           </button>

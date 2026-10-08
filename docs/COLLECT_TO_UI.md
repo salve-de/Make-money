@@ -194,6 +194,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - **実行**: `pnpm reader-view:audit`（中身は `e2e/reader-view-audit.spec.ts`）。自動テストの「E2E smoke」が `pnpm test:e2e` で毎回これも回します（定常の検査）。
 - **一覧**: 一覧は10件ずつ段階で読み込むので、末尾までスクロールして全事例の行が描かれてから読む。
 - **時間**: 公開10件で約10.5秒（2026-10-07、手元の実測。サーバー起動を含めて約13秒）。1件あたり約1秒なので、数百件になったら手分けして回す（Playwright の `--shard`）か、夜間の実行へ移す。
+- **画面の仕組みの規則**（`scripts/reader-view/structure-rules.mjs`、2026-10-08）: 同じ外貨の額が違う円の形で出る・円の二重（円が先の並びも）・作る側の言葉の章の見出しと注記（「出典つきの事実・数値」「由来」「そのまま載せた」など）を落とします。第1世代の10件は文の直しが済むまで `data/reader-view-pending-ids.json` で保留（表に出るが落とさない）。新しい事例は保留なしで一発で通す。直し終えたらこの一覧を空にします。
 - **規則**（`scripts/reader-view/rules.mjs`、誤検出の確認は `scripts/reader-view/rules.test.mjs`）:
 
 | 規則 | 落とすもの |

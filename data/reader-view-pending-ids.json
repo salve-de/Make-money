@@ -1,0 +1,15 @@
+{
+ "_説明": "画面の仕組みの規則（scripts/reader-view/structure-rules.mjs）のうち、第1世代の公開事例の文の直しが済むまで保留にする事例。ここに無い事例（新しく足す事例）は、新しい規則で1件でも出たら落ちる。文を直し終えたら、この一覧を空にして（ファイルごと消してよい）規則を全事例に効かせる。",
+ "ids": [
+  "ent_myoperator_49c393230a2d",
+  "ent_codementor_ba692caa3db3",
+  "ent_teamcamp_ae0c21986c4d",
+  "ent_referralrock_8c13d5ee4cfc",
+  "ent_ejunkie_7e9e46bd9643",
+  "ent_gorails_640d8f688451",
+  "ent_rfrcui_64e924ac",
+  "ent_heygen_8f11a1",
+  "ent_requestly_28e9f2",
+  "ent_practicaltypographycom_e9aa6bc94ccf"
+ ]
+}
