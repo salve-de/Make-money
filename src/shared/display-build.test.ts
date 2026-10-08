@@ -275,4 +275,9 @@ describe('成功の秘訣の保持', () => {
     const { display } = assembleDisplay('e1', reader, fullNeed, out({ success: [{ head: '足す点', body: 'b2', factId: 'f2' }] }), [live]);
     expect(display.success?.points.map((p) => p.head)).toEqual(['残す点', '足す点']);
   });
+  it('事例IDを渡した時は、ほかの事例の分析欄の違反を新しい違反に数えない', () => {
+    const after = ['分析欄 W（ent_w）の「年表」（a-timeline）: 編集文が無い', '分析欄 S（ent_s）の「年表」（a-timeline）: 編集文が無い', 'list-lines ent_s text: 50字'];
+    expect(newProblems([], after, 'ent_s')).toEqual(['分析欄 S（ent_s）の「年表」（a-timeline）: 編集文が無い', 'list-lines ent_s text: 50字']);
+    expect(newProblems([], after)).toHaveLength(3);
+  });
 });

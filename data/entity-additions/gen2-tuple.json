@@ -1,0 +1,888 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/tuple-record.json",
+  "manifestSha256": "a324767d0e57b7dc2c72b3f23072b13a8847fa74d4c78482321a21b501ab741a",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:24.334Z"
+ },
+ "records": [
+  {
+   "id": "ent_tuple_20261007",
+   "provenance": {
+    "detailsHash": "5efefe971f25c0f1f0966687adf8b61e608a0b829f21b91288b3d0e7678c54f6",
+    "artifactSha256": "a324767d0e57b7dc2c72b3f23072b13a8847fa74d4c78482321a21b501ab741a"
+   },
+   "record": {
+    "id": "ent_tuple_20261007",
+    "ticker": "TUPLE",
+    "name": "Tuple",
+    "legalEntity": "Tuple, LLC（公式サイトの著作権表記）",
+    "tagline": "離れた開発者が同じ画面を操作できるソフト。完成前に年契約を売り、招待制から組織内の共同開発へ広げた",
+    "description": "開発者向けに高精細の画面共有、音声、遠隔操作を提供する。2018年に創業し、2019年1月に初期版を招待制で提供した。2020年の障害から基盤と品質検査を整え、Windows 版や端末内の記録機能へ展開した。",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "Ben Orenstein、Joel、Spencer（本人取材に登場する共同創業者）",
+    "country": "",
+    "url": "https://tuple.app/",
+    "officialUrl": "https://tuple.app/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "開発チームへ1人あたりの月額利用料で画面共有と共同操作を提供し、大企業は個別契約で扱う。",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "共同開発",
+     "遠隔操作",
+     "開発者向け",
+     "先行販売",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2020年の本人取材を含む公開資料（2026-10-07確認）",
+     "revenueLabel": "",
+     "sourceDoc": "https://tuple.app/"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "離れた開発者が画面・音声を共有し、相手の端末を操作しながら共同でコードを書くためのソフト。",
+      "sourceUrl": "https://tuple.app/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "公式サイトは最大5Kの画面共有と、C++で作った共通の処理基盤を説明している。",
+      "sourceUrl": "https://tuple.app/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "公式サイト掲載の Shopify の Farhan Thawar は、遠隔の共同開発で標準の道具になったと述べている。発言日は記載がない。",
+      "sourceUrl": "https://tuple.app/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "確認時の開発チーム向け料金は1人あたり月30ドルで、共同作業の回数は無制限。",
+      "sourceUrl": "https://tuple.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "14日間の無料試用があり、不満があれば直近の月額支払いを返金する方針を掲げている。",
+      "sourceUrl": "https://tuple.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "外部の協力者との通話は追加料金なし。通話中の少なくとも1人が有料利用者であればよく、招待客はブラウザから参加できる。",
+      "sourceUrl": "https://tuple.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "大企業向けは個別見積もりで、独自契約と請求書・発注書での支払いに対応する。",
+      "sourceUrl": "https://tuple.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "設立から2年未満で従業員50人未満の会社には、1年間90%割引を提供すると記載している。",
+      "sourceUrl": "https://tuple.app/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "2018年に創業し、2019年1月に招待制の初期版を提供した。",
+      "sourceUrl": "https://tuple.app/blog/2020-year-in-review",
+      "statedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "初期版は約12チームで始まり、待機名簿から約毎月招待した。2019年10月に利用者自身が登録できる形へ移った。",
+      "sourceUrl": "https://tuple.app/blog/2020-year-in-review",
+      "statedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "TEAM",
+      "text": "2019年末のチームは共同創業者3人だった。",
+      "sourceUrl": "https://tuple.app/blog/2020-year-in-review",
+      "statedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2020年3月、最大顧客の数千人の開発者が在宅勤務へ移り、接続中の利用者一覧の仕組みが崩れて、ほぼ全利用者が使えなくなった。問い合わせ対応量も3倍になった。",
+      "sourceUrl": "https://tuple.app/blog/2020-year-in-review",
+      "statedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "同月は応急修正と基盤強化を優先し、営業を非常勤の担当に任せた。対応の手伝いも後に雇い、月末には制御できる状態になったと振り返っている。",
+      "sourceUrl": "https://tuple.app/blog/2020-year-in-review",
+      "statedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2020年3月に増えた売上は、その前の14か月で増えた売上の合計を上回ったと本人が述べる。金額や売上の集計方法は示されていない。",
+      "sourceUrl": "https://tuple.app/blog/2020-year-in-review",
+      "statedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "2020年には接続・操作・音声の処理を書き直し、公開前に外部の品質検査を受けるようにした。クラッシュは過去最少となり、通話品質評価の中央値は5点満点の5点だったという。",
+      "sourceUrl": "https://tuple.app/blog/2020-year-in-review",
+      "statedAt": "2020-12-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "初期の接続管理は Heroku 上の Action Cable だったが、能力を使い切っても数時間ごとに再起動が必要になり、Ably へ移行した。",
+      "sourceUrl": "https://tuple.app/blog/the-realness",
+      "statedAt": "2022-11-07",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "他の基本ソフトへ展開するため Firebase を並行導入したが、異常切断した利用者が接続中のまま残る問題があり、採用を断念した。",
+      "sourceUrl": "https://tuple.app/blog/the-realness",
+      "statedAt": "2022-11-07",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "EVENT",
+      "text": "その後、Go と Redis を使った独自の接続管理サービスを作り、既存基盤と並行して段階的に導入した。",
+      "sourceUrl": "https://tuple.app/blog/the-realness",
+      "statedAt": "2022-11-07",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "試験では数百万の同時接続とミリ秒単位の往復遅延を確認したという。この数は負荷試験の接続数で、実際の顧客数ではない。",
+      "sourceUrl": "https://tuple.app/blog/the-realness",
+      "statedAt": "2022-11-07",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2021年9月、公開ソフトの開発チームに対する無期限の無料提供を発表した。",
+      "sourceUrl": "https://tuple.app/blog/helping-with-hacktoberfest",
+      "statedAt": "2021-09-28",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "更新頻度を減らしてほしいという複数の利用者の要望を受け、2020年8月に月1回の更新を試していると発表した。",
+      "sourceUrl": "https://tuple.app/blog/august-2020-release",
+      "statedAt": "2020-08-03",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2020年12月、3人目の参加者もキーボード・マウス操作、画面への描画、相手のクリップボードへの文字送信ができるようにした。",
+      "sourceUrl": "https://tuple.app/blog/three-player-improvements",
+      "statedAt": "2020-12-14",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Ben Orenstein は、Screenhero 終了後に周囲の開発者が代替を見つけられなかったことを取材で説明した。",
+      "sourceUrl": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+      "statedAt": "2020-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "初期版は3度目の全面的な作り直しだった。Electron では性能が足りず、C++などで端末を細かく制御する方式へ変えた。",
+      "sourceUrl": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+      "statedAt": "2020-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "コードを書き始める前に紹介ページを作り、メールアドレスを集めた。初期顧客は本人の開発者とのつながりから来たという。",
+      "sourceUrl": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+      "statedAt": "2020-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "初期は Stripe の請求書を個別に送り、入金後に裏側でチームを作って招待リンクを送った。",
+      "sourceUrl": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+      "statedAt": "2020-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "開発者が試用し、上司に説明し、招待で組織内に広がり、30〜50人規模になると上位の責任者の予算へ移る形だったと述べている。",
+      "sourceUrl": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+      "statedAt": "2020-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2020年10月の取材で、取材者は当時の通常料金を1人月25ドル、大企業向けを年600ドルと紹介した。現在の料金とは区別する。",
+      "sourceUrl": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+      "statedAt": "2020-10-12",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "PRICING",
+      "text": "講演記録によると、製品完成前の年契約を Adam Wathan に149ドルで先行販売し、別の客には199、249、549ドルで売れた。1席あたり749ドルでも買った客がいた。",
+      "sourceUrl": "https://microconf.gen.co/ben-orenstein/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "MicroConf の紹介記事は、最初の10顧客が同コミュニティから来たと記録している。",
+      "sourceUrl": "https://microconf.com/latest/how-to-validate-your-startup-idea",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "MicroConf の記事は、準備期間を7か月、初期提供日を2019年1月7日と記録している。",
+      "sourceUrl": "https://microconf.com/latest/how-to-validate-your-startup-idea",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "満足した初期顧客に、短い操作で Twitter に投稿できるリンクを送って紹介を頼んだと記事にある。",
+      "sourceUrl": "https://microconf.com/latest/how-to-validate-your-startup-idea",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2024年5月24日、Windows 版の一般向け試用を公開した。",
+      "sourceUrl": "https://tuple.app/blog/windows-public-beta",
+      "statedAt": "2024-05-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Windows 版では既存の GTK 版の移植を試した後、win32 の機能を直接使う方式へ変え、速度と安定性が向上したと説明している。",
+      "sourceUrl": "https://tuple.app/blog/windows-public-beta",
+      "statedAt": "2024-05-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Hacker News の Svetlitski は、大学のコンパイラ開発で数か月使い、長時間でも安定し、遅延が非常に小さかったと投稿した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29641907",
+      "statedAt": "2021-12-21",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "OTHER",
+      "text": "仕事で使ったという bantmen は、価格が個人の開発や仕事外での共有を妨げたと投稿した。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29641907",
+      "statedAt": "2021-12-21",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "OTHER",
+      "text": "univerio は、映像が止まるため Zoom を併用したことと、更新後に通話を再開しづらいことを投稿した。利用者の経験の記録であり、現在の不具合を示すものではない。",
+      "sourceUrl": "https://news.ycombinator.com/item?id=29641907",
+      "statedAt": "2021-12-21",
+      "checkedAt": "2026-10-07",
+      "sourceType": "第三者"
+     },
+     {
+      "kind": "PRICING",
+      "text": "以前は一括認証を通常の約2倍の料金の大企業向けに限定していたが、2022年6月1日から全プランで追加料金なしにした。",
+      "sourceUrl": "https://tuple.app/blog/sso-should-be-table-stakes",
+      "statedAt": "2022-06-01",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "EVENT",
+      "text": "一括認証の無料化を受け、大企業向けの価値を独自契約、利用実績に応じた料金、段階的割引、監査・管理機能などへ置き換える方針を述べた。",
+      "sourceUrl": "https://tuple.app/blog/sso-should-be-table-stakes",
+      "statedAt": "2022-06-01",
+      "checkedAt": "2026-10-07",
+      "sourceType": "本人"
+     },
+     {
+      "kind": "OTHER",
+      "text": "公式顧客取材で Suppli の David Paluy は、Slack の音声が不安定で WhatsApp も使っていたが、数人で Tuple を試すとチーム全体へ広がったと説明している。",
+      "sourceUrl": "https://tuple.app/blog/suppli-case-study",
+      "statedAt": "2026-03-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Suppli は Tuple を、障害の調査、コード変更の確認、設計の相談、AI に作業を任せる前の計画づくりに使うと公式顧客取材にある。",
+      "sourceUrl": "https://tuple.app/blog/suppli-case-study",
+      "statedAt": "2026-03-24",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2026年9月29日、端末内の文字起こし機能を強化し、Capture として macOS と Windows の両方へ公開した。",
+      "sourceUrl": "https://tuple.app/blog/new-in-tuple-capture",
+      "statedAt": "2026-09-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "Capture は通話の文字起こし、画面の画像、表示したアプリの情報を端末内に保存し、クラウドへ通話データを送らないと説明している。",
+      "sourceUrl": "https://tuple.app/blog/new-in-tuple-capture",
+      "statedAt": "2026-09-29",
+      "checkedAt": "2026-10-07",
+      "sourceType": "公式"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "Codex",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://tuple.app/",
+       "publisher": "Tuple 公式サイト",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/pricing",
+       "publisher": "Tuple 公式料金",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/blog/2020-year-in-review",
+       "publisher": "Ben Orenstein の公式振り返り",
+       "sourceType": "official_blog",
+       "publicationDate": "2020-12-29",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/blog/the-realness",
+       "publisher": "Mikey Pulaski の公式技術記録",
+       "sourceType": "official_blog",
+       "publicationDate": "2022-11-07",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/blog/helping-with-hacktoberfest",
+       "publisher": "Ben Orenstein の公式告知",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-09-28",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/blog/august-2020-release",
+       "publisher": "Ben Orenstein の公式告知",
+       "sourceType": "official_blog",
+       "publicationDate": "2020-08-03",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/blog/three-player-improvements",
+       "publisher": "Ben Orenstein の公式告知",
+       "sourceType": "official_blog",
+       "publicationDate": "2020-12-14",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+       "publisher": "Mixergy の Ben Orenstein 本人取材",
+       "sourceType": "founder_interview",
+       "publicationDate": "2020-10-12",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://microconf.gen.co/ben-orenstein/",
+       "publisher": "Christian Genco の MicroConf 講演記録",
+       "sourceType": "conference_report",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://microconf.com/latest/how-to-validate-your-startup-idea",
+       "publisher": "MicroConf の講演紹介記事",
+       "sourceType": "conference_report",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://tuple.app/blog/windows-public-beta",
+       "publisher": "Eli Goodman の公式告知",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-05-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://news.ycombinator.com/item?id=29641907",
+       "publisher": "Hacker News の利用者投稿と創業者返信",
+       "sourceType": "user_post",
+       "publicationDate": "2021-12-21",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://tuple.app/blog/sso-should-be-table-stakes",
+       "publisher": "Ben Orenstein の公式料金方針変更",
+       "sourceType": "official_blog",
+       "publicationDate": "2022-06-01",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/blog/suppli-case-study",
+       "publisher": "Tuple 公式の Suppli 顧客取材",
+       "sourceType": "official_case_study",
+       "publicationDate": "2026-03-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://tuple.app/blog/new-in-tuple-capture",
+       "publisher": "Eli Goodman の公式機能告知",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-09-29",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "売上・利益・原価・費用・創業者の手残りの具体額と対応期間",
+      "開始時の元手の金額",
+      "現在の人数と継続的な人数の推移",
+      "先行販売と招待の実施日・人数・購入率の完全な推移",
+      "月25ドルから月30ドルへの改定日と中間料金",
+      "障害修復前後の顧客数・解約率・通話失敗率の対応する数値",
+      "国・法人の登記情報",
+      "再現性・競合の障壁・顧客心理についての事実として断定できる材料"
+     ],
+     "conflicts": [
+      "準備期間は MicroConf の記事で7か月、Mixergy の対話では8か月と語られる。正確な準備期間の欄は設けず、7か月は出典の記載として保持する。",
+      "先行販売の上限は講演記録で1席749ドル、MicroConf の紹介記事では599〜799ドルの範囲。価格実験として区別し、統一された公開料金とは扱わない。",
+      "最初の10顧客は MicroConf、初期版の約12チームは公式振り返り。対象の単位・時点が違うため同じ数と扱わない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2018,
+     "initialTractionPeriod": "2019年1月に約12チームへ提供。2019年10月に利用者自身が登録できる形へ移行。",
+     "dataSnapshotPeriod": "2018年創業から2026-09の告知まで（2026-10-07確認）",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true,
+     "initialTeamSize": 3
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "離れた開発者が画面と音声を共有し、相手の端末を操作しながら共同でコードを書くソフト。",
+     "targetCustomer": "遠隔で共同開発する開発チームと企業",
+     "painRelief": "通常の通話・画面共有では伝えにくいコードの共同操作"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_tuple_20261007_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Tuple 公式サイト",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "遠隔共同開発の機能と掲載された顧客の声",
+      "details": [
+       "URL: https://tuple.app/",
+       "公表日: 本文で年月日を特定できず",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Tuple 公式料金",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "現在の月額料金、試用、返金、割引条件",
+      "details": [
+       "URL: https://tuple.app/pricing",
+       "公表日: 本文で年月日を特定できず",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/pricing",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ben Orenstein の公式振り返り",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "2018年創業、2019年提供、2020年の障害と修復",
+      "details": [
+       "URL: https://tuple.app/blog/2020-year-in-review",
+       "公表日: 2020-12-29",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/2020-year-in-review",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Mikey Pulaski の公式技術記録",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "接続管理基盤の変更、失敗、負荷試験",
+      "details": [
+       "URL: https://tuple.app/blog/the-realness",
+       "公表日: 2022-11-07",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/the-realness",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ben Orenstein の公式告知",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ソフトの開発チームへの無期限無料提供",
+      "details": [
+       "URL: https://tuple.app/blog/helping-with-hacktoberfest",
+       "公表日: 2021-09-28",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/helping-with-hacktoberfest",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ben Orenstein の公式告知",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "顧客の要望による月次更新の試行",
+      "details": [
+       "URL: https://tuple.app/blog/august-2020-release",
+       "公表日: 2020-08-03",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/august-2020-release",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ben Orenstein の公式告知",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "3人目の参加者への遠隔操作機能追加",
+      "details": [
+       "URL: https://tuple.app/blog/three-player-improvements",
+       "公表日: 2020-12-14",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/three-player-improvements",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Mixergy の Ben Orenstein 本人取材",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "製品の作り直し、手動販売、顧客内での広まり方",
+      "details": [
+       "URL: https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+       "公表日: 2020-10-12",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://mixergy.com/interviews/tuple-with-ben-orenstein/",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Christian Genco の MicroConf 講演記録",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "先行販売の具体的な購入者と価格実験",
+      "details": [
+       "URL: https://microconf.gen.co/ben-orenstein/",
+       "公表日: 本文で年月日を特定できず",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://microconf.gen.co/ben-orenstein/",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: MicroConf の講演紹介記事",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "最初の顧客、準備期間、価格と紹介依頼",
+      "details": [
+       "URL: https://microconf.com/latest/how-to-validate-your-startup-idea",
+       "公表日: 本文で年月日を特定できず",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://microconf.com/latest/how-to-validate-your-startup-idea",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Eli Goodman の公式告知",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "Windows 版の一般試用と実装方針の変更",
+      "details": [
+       "URL: https://tuple.app/blog/windows-public-beta",
+       "公表日: 2024-05-24",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/windows-public-beta",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Hacker News の利用者投稿と創業者返信",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "低遅延への評価、料金や映像機能への不満",
+      "details": [
+       "URL: https://news.ycombinator.com/item?id=29641907",
+       "公表日: 2021-12-21",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://news.ycombinator.com/item?id=29641907",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Ben Orenstein の公式料金方針変更",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "追加料金なしの全プランへの一括認証導入",
+      "details": [
+       "URL: https://tuple.app/blog/sso-should-be-table-stakes",
+       "公表日: 2022-06-01",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/sso-should-be-table-stakes",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Tuple 公式の Suppli 顧客取材",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "Suppli 内での試用、導入、共同作業の用途",
+      "details": [
+       "URL: https://tuple.app/blog/suppli-case-study",
+       "公表日: 2026-03-24",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/suppli-case-study",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_tuple_20261007_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Eli Goodman の公式機能告知",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "端末内での文字起こしと記録機能の公開",
+      "details": [
+       "URL: https://tuple.app/blog/new-in-tuple-capture",
+       "公表日: 2026-09-29",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://tuple.app/blog/new-in-tuple-capture",
+      "sourceNote": "公開本文を開いて確認。長文引用をせず、事実の日本語要約を記録した。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "売上・利益・原価・費用・創業者の手残りの具体額と対応期間",
+     "開始時の元手の金額",
+     "現在の人数と継続的な人数の推移",
+     "先行販売と招待の実施日・人数・購入率の完全な推移",
+     "月25ドルから月30ドルへの改定日と中間料金",
+     "障害修復前後の顧客数・解約率・通話失敗率の対応する数値",
+     "国・法人の登記情報",
+     "再現性・競合の障壁・顧客心理についての事実として断定できる材料"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "scale: \"\"→UNKNOWN",
+     "publishability: UNREVIEWED→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceClass: \"\"→欄を外す",
+     "pnl.sourceDoc: 空→https://tuple.app/",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.currentTeamSize: 空→欄を外す",
+     "strategy.moatType: \"\"→UNKNOWN"
+    ]
+   }
+  }
+ ]
+}

@@ -96402,5 +96402,4109 @@
    "formula": "数字は出典に載っている値",
    "presentation": "FACT_SUMMARY"
   }
+ ],
+ "ent_churnkey_8d7f2b269c21": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "顧客1,000人を目前にして、月額継続売上30,000ドルが成長の天井だという予測が出た。創業者たちは解約理由の入力を必須にし、契約の休止を選べるようにして解約率を15％下げた。この自作の道具を、他のSaaS事業に売り始めた。",
+   "basis": [
+    "f1",
+    "f3",
+    "f5"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "前の事業では、月に120〜150件の新規登録があっても、解約が伸びを打ち消し、月額継続売上30,000ドルで頭打ちになるという予測が出た。不具合修正や要望の多い機能の追加では、解約率は下がらなかった。そこで解約時の理由入力を必須にした。すると一時的に休みたいという声が見つかり、休止を加えたところ解約率は15％下がった。その後6か月の改善でさらに30％下げ、年間継続売上25,000ドルを守った。後年の対談では、前の事業の解約率が14％程度に達し、Google 広告に費用を注いでも現状を保つだけだったとも振り返っている。2020年9月1日、この道具を他社向けに Churnkey として先行公開した。2022年8月31日には、失敗した決済を回収する機能を加えた。対談の紹介文によると、資金がほぼ尽きた状態から8か月で黒字化し、売上は300％伸びた。2024年4月時点の顧客は数百社。",
+   "basis": [
+    "f1",
+    "f18",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f9",
+    "f12",
+    "f14"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "継続課金で稼ぐ事業に、二つの機能を売る。一つは利用者が解約しようとする瞬間に休止・割引・席の移譲を出す解約画面。もう一つは、失敗したカード決済を再試行し、メール・SMS・アプリ内表示で支払い情報の更新を促す仕組み。客は固定料金を払う。回収した売上から一定割合を取る形は取らないと、公式に説明している。",
+   "basis": [
+    "f22",
+    "f23",
+    "f11",
+    "f26",
+    "f40"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "金を払っているのは、月ごとに解約や決済失敗で売上が漏れている継続課金の事業者。料金は月の解約額で分かれ、5,000ドル未満の小さなチームから、10,000ドル以上が漏れる大きなチームまでいる。公式に名前が出ている顧客は次の通り。チーム契約の席の削除に悩んでいた Superhuman。解約理由の記録がばらばらだった Buildertrend。製品・分析・支援の担当が共通の Slack で関わる VEED。決済失敗の回収に使う HostiFi。",
+   "basis": [
+    "f40",
+    "f42",
+    "f34",
+    "f31",
+    "f28",
+    "f37"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "新規の客を取っても解約で売上が相殺され、伸びが止まる恐怖が一つ目。創業者自身、解約率14％の時は Google 広告に金を注いでも現状を保つだけだった。二つ目は、解約理由の記録が一貫せず支援担当に負担が集中する手間で、Buildertrend がこれを抱えていた。三つ目は、払う気のある客をカード決済の失敗で失う損失。HostiFi は、通常の月に20,000ドル超の売上をこれで取り戻していると述べる。",
+   "basis": [
+    "f1",
+    "f18",
+    "f31",
+    "f37"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "2020年9月1日の自社記事で、前の事業で解約と戦った経緯と数字を公開し、同じ道具の先行利用を他の SaaS 事業に呼びかけた。",
+   "basis": [
+    "f5",
+    "f1",
+    "f3",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "自社の記事で解約対策の成果を出して客を呼んでいる。あわせて、解約率が成長の天井をどこまで押し下げるかを図で示す無料の計算機を公開し、解約に悩む事業者の入口にしている。",
+   "basis": [
+    "f5",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "共同創業者の Nick Fogle が CEO を務め、Baird Hall が営業とマーケティング、Scott Hurff が製品責任者（CPO）を担うと、公式のチーム紹介に載っている。",
+   "basis": [
+    "f13",
+    "f17"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "Stripe と連携して動き、Stripe の本番・試験環境とは別の Sandbox 環境にも対応する。React SDK と MCP サーバーは公開ソフトとして配っている。自由記述の解約理由は Feedback AI が分類し、月額継続売上と結び付けて影響の大きい順に並べる。",
+   "basis": [
+    "f39",
+    "f43",
+    "f24"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "客の課金を管理する Stripe などの決済基盤につないで動く。決済回収は、決済の再試行と、メール・SMS・アプリ内表示での連絡に頼っている。休止や再試行といった操作は、決済基盤側の仕様の範囲でしかできない。",
+   "basis": [
+    "f39",
+    "f23",
+    "f27"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "使うほど解約理由のデータが溜まり、それが客の製品づくりに組み込まれていく。VEED は共通の Slack で文言や提案の比較試験を重ね、Buildertrend は分類結果を自社のデータ保存先に流している。顧客の発言でも、溜まったデータから新機能の手がかりを得た点が評価されている。一方で、解約画面だけなら公開ソフトを使い、Churnkey のアカウントなしで自社運用できる。",
+   "basis": [
+    "f28",
+    "f31",
+    "f30",
+    "f33",
+    "f43"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "代わりの手段はいくつかある。一つは専門家への相談で、創業者自身が相談した専門家は導入時の支援を重視していた。Churnkey はそれと違い、解約する瞬間の理由と対応に絞った。もう一つは自社での作り込みで、公開ソフトを使えば自前で解約画面を運用できる。決済回収では2010年代からある既存の専門業者と競い、固定料金で回収額から取り分を取らないことを売りにしている。",
+   "basis": [
+    "f19",
+    "f43",
+    "f11",
+    "f26"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "製品を直しても解約が減らないという、創業者自身の失敗が出発点にある。解約の瞬間に理由を聞き、休止という逃げ道を用意するだけで解約率が15％下がった。これを他社でも再現でき、2021年の年初からの実績では、顧客企業が解約画面に入った利用者の平均40％を引き留めた。",
+   "basis": [
+    "f2",
+    "f3",
+    "f6"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "顧客企業は数百社に達している。直前1年だけでも、解約画面の比較試験、決済の再試行、感情別の再契約促進、離脱リスクの採点を積み上げた。一方で、解約画面の部品は公開ソフトとして無料で配っており、単純な解約画面だけでは対価を取りにくい。",
+   "basis": [
+    "f14",
+    "f16",
+    "f43"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "最初は不具合修正と要望の多い機能の追加で解約を止めようとしたが、効かなかった。導入時の支援を重視する専門家の助言からも離れた。転機は、解約する瞬間に理由を必須で聞くことに焦点を移した時だった。休止を足して解約率は15％下がった。後年の対談で Nick Fogle は、解約理由を理解して引き留めることで、数か月で解約率が14％から12％になったとも振り返っている。",
+   "basis": [
+    "f2",
+    "f19",
+    "f3",
+    "f20"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2020年9月1日、先行利用を告知。2021年の年初からの実績として、3,000人超の継続課金利用者を引き留めたと公表。2022年8月31日、決済回収の機能を公開。2024年4月の報告で、顧客企業が数百社に達したと述べた。",
+   "basis": [
+    "f5",
+    "f6",
+    "f9",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "自分の事業で血を流した問題を、解約理由という溜まるデータごと他社に売れば、売り込みの前に実績が証拠になる。客の声を聞く場所を、問い合わせ窓口から解約の瞬間に移しただけで、打ち手が変わった。",
+   "basis": [
+    "f3",
+    "f4",
+    "f5",
+    "f2"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_feature_upvote_3d6a00d965f0": [
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "製品の要望を集めて投票させる掲示板を、掲示板1枚ごとの月額で売る。払うのはソフトや製品を持つ会社で、エンドユーザーの投票者と投稿数は無制限。非公開掲示板、独自ドメイン、ロゴや配色、CSS による見た目の調整まで含め、自社サイトの一部に見える要望窓口を借りる対価として払う。支払いは Stripe 経由のカード払いで、一定額以上の年払いは銀行振込も受ける。",
+   "basis": [
+    "f2",
+    "f3",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "中心はプロダクトマネージャー。自社製品への要望を外の客から集める会社に加え、ボードを非公開にして社員のアイデアを集める会社、アイデアの日を開く会社、少数の法人顧客の要望を会議やメールに散らさず1か所にまとめたい会社が払っている。公式サイトによると、ゲーム会社、自己資金のスタートアップ、慈善団体、政府機関、銀行、教育機関も客にいる。",
+   "basis": [
+    "f4",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "要望の優先順位が、声の大きい客やしつこく催促する客に引きずられて決まってしまう。客の言い分をメールや会議、表計算ソフトに散らしたまま整理に時間を取られ、作った機能が外れる損失を払っている。",
+   "basis": [
+    "f4",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "2018年は、検索で上位に出る記事を作る SEO に資金と手間を寄せた。試した期間の成果が良く、安く伸ばせる経路だったため。外部の書き手と組み、客の獲得・導入・継続それぞれの文章を作り直した。LinkedIn の会社ページも整えた。ある見込み客から、社員1人で設立9か月の会社では UserVoice と比べて上司を説得しにくいと言われたのがきっかけで、その後は多くの有料客が登録前に LinkedIn のページを見ている。",
+   "basis": [
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "検索に Algolia、画像に Cloudinary、メール配信に Postmark、不具合検知に Sentry、決済に Stripe を使う。",
+   "basis": [
+    "f3",
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "決済は Stripe、検索・画像・メール配信・不具合検知は Algolia、Cloudinary、Postmark、Sentry に任せている。どれかが値上げや障害を起こせば、検索やメール通知など客が日々触る部分が止まる。",
+   "basis": [
+    "f3",
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "解約すると、払い済みの期間が終わった時点で掲示板が非表示になる。書き出せるのは3か月だけで、その後は投稿・コメント・投票がすべて消える。独自ドメインと自社の配色で客向けの窓口として公開していれば、やめると客の目に触れる窓口ごと作り直しになる。",
+   "basis": [
+    "f9",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "年払いを選んだ客からは1年分が初回に入る。1掲示板あたり49ドルのプランで約470ドル、99ドルのプランで約950ドル。一定額以上の年払いは銀行振込でも受ける。",
+   "basis": [
+    "f2",
+    "f3"
+   ],
+   "formula": "年払い額 = 月額 × 12 × (1 − 20%)。49ドル × 12 × 0.8 = 470.4ドル、99ドル × 12 × 0.8 = 950.4ドル（掲示板1枚あたり、公式料金）",
+   "presentation": "ESTIMATE"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "外部の出資を受けず自己資金で始め、黒字で回している。",
+   "basis": [
+    "f1"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "2017年の開始時は、客の要望を手軽に集めたい小さなソフト会社を狙っていた。同業の経営者の助言と、非公開ボードの思わぬ使われ方をきっかけに、狙いをプロダクトマネージャーに絞った。新興SaaSの創業者より長く払い続けると分かったためで、トップページと主要な説明を作り直し、アイデア管理の記事などで検索から呼び込む形に変えた。",
+   "basis": [
+    "f1",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2017年：Barbary Software が開始。2018年：非公開での使われ方とプロダクトマネージャーの継続性に気づき、狙いを絞る。その後も自己資金・黒字で営業を続けている。",
+   "basis": [
+    "f1",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "特化しないと困難。要望投票ボードは開発の腕があればほぼ資金無しで作れるため、競合は増え続ける。勝てたのは、潰れにくく長く払うプロダクトマネージャーに客を絞り、掲示板単位の安い月額と単純さで高価格の競合と分けたからで、汎用の要望ボードをもう一つ出すだけでは埋もれる。",
+   "basis": [
+    "f2",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "客の名簿を「誰が長く払い続けるか」で見直すと、狙う相手が変わる。この会社は潰れやすい新興SaaSの創業者から、会社に根を張るプロダクトマネージャーへ乗り換えて伸ばした。",
+   "basis": [
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_hostifi_cf9ec73a42d2": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "IT サービス業 Locklin Networks を営む Reilly Chase は、Ubiquiti 機器を入れて回るうちに顧客のネットワークを1台のサーバーでまとめて管理したくなった。2018年にその仕組みを副業として他社向けに売り始め、2019年に Calm Company Fund から10万ドルを調達した。",
+   "basis": [
+    "f1"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "2018年、Reilly Chase が自社の IT サービス事業 Locklin Networks の副業として開始した。自分で Ubiquiti 製品を導入する中で、顧客ネットワークを1台のサーバーで一元管理したいと考えたのが出発点である。2019年に Calm Company Fund から10万ドルを調達した。かつては共有サーバーでの無料プランも出していたが、新規受付を終了し、既存利用者だけが使い続けている。公式の現在の表示は顧客5000超で、有料は機器台数で区切った月額・年額プランが中心である。",
+   "basis": [
+    "f1",
+    "f2",
+    "f5"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "Ubiquiti の UniFi・UISP の管理サーバーを、HostiFi がクラウド上で代わりに運用して貸す。客は管理する機器の台数に応じた月額か年額を払う。上位プランほど、更新の事前検査、長いバックアップ保持、個別支援が厚くなる。代理運営事業者は自社ドメインでこのサーバーを自分の顧客に再販売でき、その顧客への請求は事業者が別に行う。HostiFi の名前は表に出ない。",
+   "basis": [
+    "f2",
+    "f3",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pricing",
+   "item": "PRICING",
+   "text": "機器25台まで月19ドルまたは年199ドル、250台まで月99ドルまたは年999ドル、1000台まで月249ドルまたは年2499ドル。上位プランには更新の検査、長めのバックアップ保持、個別支援が付く。30日返金保証がある。無料プランは新規提供を終了した。",
+   "basis": [
+    "f2",
+    "f3",
+    "f5"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "公式サイトによると、客の大半は IT サービス事業者である。HostiFi のサーバーを自社サービスに組み込み、独自ドメインで自分の顧客に再販売する代理運営事業者が中心で、公式の表示では顧客は5000超いる。",
+   "basis": [
+    "f2",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "多数の顧客先に散らばった Ubiquiti 機器を、拠点ごとの管理機器で個別に面倒を見る手間が痛みになっている。創業者自身もこの手間を抱えていた。公式サイトは、現地に置く管理機器の故障・停電・更新後の不安定さを危険として挙げている。HostiFi はその代わりに、更新の事前検査とバックアップ保持を売っている。",
+   "basis": [
+    "f1",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "代理運営事業者は HostiFi のサーバーを自社ドメインで自分の顧客に再販売し、請求も自社で行う。サービスが自社商品として顧客との契約に組み込まれるため、乗り換えると自分の顧客側の設定と請求をやり直すことになる。一方で HostiFi は機器データを CSV で書き出すツールを出しており、データを人質にする形にはしていない。",
+   "basis": [
+    "f4",
+    "f6"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "事業の中心は Ubiquiti の UniFi・UISP というソフトの上に乗っている。Ubiquiti が自社クラウド管理を強めたり仕様を変えたりすれば、そのまま影響を受ける。土台側の変更の実例もある。Google が Chrome アプリを廃止し、旧 Ubiquiti 機器発見ツールが動かなくなった。HostiFi はこの穴を無料の代替ツールで埋めた。",
+   "basis": [
+    "f1",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "機器発見ツールと機器データの CSV 書き出しツールを無料で配り、Ubiquiti 機器を扱う技術者との接点にしている。発見ツールは、廃止された旧 Ubiquiti ツールの代わりとして案内している。",
+   "basis": [
+    "f6",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "公式サイトによると、サーバー基盤は Vultr を使う。監視は Zabbix、証明書は Let's Encrypt で、バックアップは DigitalOcean Spaces と Backblaze B2 の2か所に毎晩保管している。",
+   "basis": [
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "本業の IT サービス事業の傍ら、副業として始めた。2019年に Calm Company Fund から10万ドルを調達した。",
+   "basis": [
+    "f1"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "競合は、顧客先に置く Ubiquiti の管理機器（Cloud Key や Dream Machine）と、自前で立てる管理サーバーである。HostiFi は無料の移行支援、更新の事前検査、自社ドメインでの再販売で、これらからの乗り換え先の座を取っている。",
+   "basis": [
+    "f3",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2018年：Locklin Networks の副業として開始。2019年：Calm Company Fund から10万ドルを調達。その後：無料プランの新規提供を終了。現在：顧客5000超と表示し、営業中。",
+   "basis": [
+    "f1",
+    "f2",
+    "f5"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "特化しないと困難。Ubiquiti の管理サーバー代行という狭い枠で、すでに顧客5000超の先行者がいる。さらに再販売の形で IT サービス事業者の商品に組み込まれており、同じ枠に後から入っても乗り換える理由を作りにくい。",
+   "basis": [
+    "f2",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "自分の IT 業務で毎日ぶつかっていた手間を、同業者が自社の名前で売れる形にして卸したことが核である。売る相手を自分と同じ業者に絞ったことで、客がそのまま販路になった。",
+   "basis": [
+    "f1",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_indiehackers_6548833164b0": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "収益のある個人事業の創業者に1人ずつメールで掲載を頼み、回答にも追加の質問を返し、Hacker Newsの公開投稿で971ポイントを集めて場を立ち上げたCourtland Allen。",
+   "basis": [
+    "f2",
+    "f6",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "収益のある事業の創業者が経験を公開し、読者が学び、助言を交換する場を運営している。初期の収益源はスポンサーで、2018年11月の質疑で本人は「この前の4月」の売上を記憶では約6,000ドルと答えた。独立後は有料会員Indie Hackers Plusを年額で売り、600件超の取材を含む事例集、アイデア資料、動向分析、会員用プロフィールの対価として読者から直接受け取っている。",
+   "basis": [
+    "f1",
+    "f12",
+    "f11",
+    "f24",
+    "f25"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "有料会員は、他人の稼いだ事例と事業アイデアの調査資料を買う、これから自分で稼ぐ事業を始めたい・伸ばしたい人。公式ページでは、数か月読み続けたことがKey Valuesを始めた理由だとするLynne Tyeの推薦文を載せている。",
+   "basis": [
+    "f24",
+    "f25",
+    "f27"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "他の個人がいくら稼いでいるかが分からないこと。公開時、利用者の1人は表紙で具体的な金額がすぐ見えたことで読む価値があると判断した。一方で過去最高値の表示には「誤解を招く」と正直な売上表示を求める声も出た。",
+   "basis": [
+    "f10",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "最初の掲載者は、Courtlandが個別メールで1人ずつ誘い、回答後にも追加質問を返して話を具体化させた創業者たち。最初の読者はHacker Newsの公開投稿から流れ込み、投稿は971ポイントと184件のコメントを集めた。",
+   "basis": [
+    "f7",
+    "f6"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "立ち上げはHacker Newsへの投稿。その後は掲示板、音声番組、公式ニュースレターが読者の入口になった。各経路の比重を示す数字は公表されていない。",
+   "basis": [
+    "f6",
+    "f12",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "サーバーと基盤はRender、Google Cloud、Firebase、Cloudflareで、掲示板は自社開発。2023年7月には、従来型の迷惑投稿の検出にGPT-4を使っていると本人が説明していた。文章へ重点を移してからは執筆者を採用しており、人件費がかかると見られる。",
+   "basis": [
+    "f5",
+    "f22",
+    "f23"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "Courtland Allenが1人で作り、2017年4月のStripe買収時に兄弟のChanningが共同創業者として加わった。2023年3月の独立ではStripeが初期出資者になった。その後、資料づくりのために執筆者を採用している。",
+   "basis": [
+    "f2",
+    "f3",
+    "f4",
+    "f23"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "立ち上げの客はHacker Newsの1投稿に頼った。運営基盤はRender・Google Cloud・Firebase・Cloudflareに乗る。迷惑投稿対策として、2022年の大部分は招待コードを使い、2023年には従来型の迷惑投稿の検出にGPT-4を使っていたが、本人も生成文の迷惑投稿に同じ効果があるとはしていない。投稿の質が落ちれば場の価値が崩れると見られる。",
+   "basis": [
+    "f6",
+    "f5",
+    "f22"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱い。会員用プロフィールはあるが、解約しても支払済み期間の終わりまで使え、30日以内なら比例計算で返金されるため、やめる手間はほぼ無い。",
+   "basis": [
+    "f25",
+    "f26"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2016年8月：Courtland Allenが創業し、2016年8月11日にHacker Newsで公開。2017年4月：Stripeが買収し、Channingが共同創業者に。2022年の大部分：招待コードで迷惑投稿をほぼ無くす。2023年3月：独立企業へ戻り、Stripeは初期出資者に。2023年4月6日：公式ニュースレターが独立を告知。2024年11月：文章重視への転換で採用された執筆者が80社の調査を記録。",
+   "basis": [
+    "f2",
+    "f6",
+    "f3",
+    "f21",
+    "f4",
+    "f19",
+    "f23"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "表紙に各事業の具体的な月商を並べたことで、読む価値がひと目で伝わった。最高値の表示を批判されると、Courtlandは100ドル単位に丸めていたと説明し、最高値と平均値を両方載せると即答した。掲載者には個別メールで取材のように追加質問を返し、掲載者自身を味方に付けた。",
+   "basis": [
+    "f10",
+    "f8",
+    "f9",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "先行者が強く後発は困難。600件超の取材を積み上げた事例集とアイデア資料を有料で売っており、同じ量の実名・実数字の取材を後から揃えるには年単位の手間がかかる。",
+   "basis": [
+    "f25",
+    "f2"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "取材記事の場から始め、取材を効率化した後に掲示板・音声番組・スポンサー収益へ広げた。共同創業者探しなどのハッシュタグで需要を試してから機能を作った。独立時は月次継続売上0ドルからの再出発で、その後は文章へ重点を移し、事例集とアイデア資料を年額の有料会員で売る形に変えた。",
+   "basis": [
+    "f12",
+    "f13",
+    "f20",
+    "f23",
+    "f24"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "「誰がいくら稼いでいるか」を表紙に数字で出すことが読者を引きつけた。一方で最高値だけの表示は誤解を招くと批判され、Courtlandはその場で最高値と平均値を両方載せると応じた。数字を見せる場では、どの数字をどう見せるかが信頼に直結すると見られる。",
+   "basis": [
+    "f10",
+    "f8",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_memberful_0dff1f9c00fa": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "既存の会員制ソフトに不満を抱いた Drew Strojny が副業として始めた会員課金の仕組みは、数百の独立出版社・教育者・クリエイターを抱えて黒字で拡大し、2018年に Patreon の完全子会社になった。",
+   "basis": [
+    "f1",
+    "f9",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Drew Strojny は、既存の会員制ソフトへの不満から副業として Memberful を始めた。2018年の発表時点では、数百の独立出版社、教育者、クリエイターとともに黒字で拡大していた。2018年8月8日、Patreon の完全子会社になり、Memberful は別製品として続けると説明した。同時に、既存客の価格は据え置き、新規客だけ Pro と Premium の取引手数料を上げた。報道によると、当時の Pro は月額25米ドルと取引額の4.9%だった。",
+   "basis": [
+    "f1",
+    "f9",
+    "f8",
+    "f7",
+    "f6"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "クリエイター、出版社、コミュニティが自社サイトやアプリで会員から課金し、会員だけにコンテンツを届けるための仕組みを売る。会員からの支払いは、利用者自身の Stripe アカウントに入る。Memberful は利用者から月額の固定料金と取引額に応じた手数料を受け取る。",
+   "basis": [
+    "f2",
+    "f3",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "金を払っているのは、自社サイトで会員課金をするクリエイター、出版社、コミュニティである。2018年時点では、数百の独立出版社、教育者、クリエイターが客だった。公式の顧客事例では、Workweek Lunch の Talia Koren が食事作りの会員サービスを始めた。開始2か月で会員750人に達したという。",
+   "basis": [
+    "f2",
+    "f9",
+    "f11",
+    "f12"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "他の会員制サービスから乗り換える時、何千人もの会員の課金を止めずに移す作業が客の負担になる。Memberful は移行担当者が顧客ごとに計画を作り、Substack や WooCommerce などから会員を移してきた。移行した客の Chris Gresham-Britt は、移行が円滑で、公開時の負担が軽くなったと評価している。",
+   "basis": [
+    "f21",
+    "f22"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "認定提携先制度を持ち、制作会社の紹介記事、公式一覧への掲載、共同営業資料を用意している。これにより、Web 制作会社が自分の客に Memberful を勧めて組み込む経路ができている。提携先の Clock は、Payload や Webflow のサイトに Memberful を組み込んでいる。もう1つの経路は、Substack や WooCommerce などからの乗り換え客で、移行担当者が受け入れている。",
+   "basis": [
+    "f19",
+    "f20",
+    "f21"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "創業者 Drew Strojny の副業として始まった。",
+   "basis": [
+    "f1"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "決済は Stripe に乗っており、Stripe を接続しないと本番公開できない。WordPress 向けの追加機能でも会員向けの表示を提供しており、メール配信やコミュニティは Mailchimp・Kit・Discord など他社サービスとの連携に頼る。会社としては Patreon の完全子会社である。",
+   "basis": [
+    "f3",
+    "f13",
+    "f16",
+    "f17",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "WordPress、メール配信、Discord などとの間で会員情報とアクセス権を同期させるため、使うほど客の業務の配線に組み込まれる。GraphQL や Webhook で独自の連携を作った客は、乗り換えるとその連携を作り直すことになる。一方で、決済の口座と会員データは利用者自身の Stripe にあるため、支払いの記録は手元に残る。",
+   "basis": [
+    "f17",
+    "f18",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-referral",
+   "item": "REFERRAL",
+   "text": "認定提携先制度では、Memberful が提携先の制作会社に見込み客を紹介し、制作会社は共同営業資料を使って自分の客に Memberful を売る。報酬の率は示されていない。別に、利用者が自分の会員向けに紹介報酬制度を作れるよう、Tapfiliate との連携を用意している。",
+   "basis": [
+    "f19",
+    "f18"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "乗り換え元として挙がっているのは Substack や WooCommerce である。親会社の Patreon も会員課金を扱うが、Memberful は Patreon に吸収されず、別製品として続いている。違いは、利用者自身のサイトとアプリの上で、利用者自身の Stripe に入金させる点である。",
+   "basis": [
+    "f21",
+    "f8",
+    "f2",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2018年8月8日、Patreon の完全子会社になり、別製品として続けると発表した。2021年11月24日、誤って本番公開して不要な課金が出る問題に対し、Stripe 接続時の追加確認を入れた。同じ日に、Premium への変更を客が自分で行えるようにした。2025年5月8日、スタッフが代行していた複数契約の請求日・自動更新設定の変更を、管理画面から一括でできるようにした。2026年10月1日には、WordPress で一定数の無料記事を読んだ後に課金案内を出す機能を加えた。",
+   "basis": [
+    "f8",
+    "f13",
+    "f14",
+    "f15",
+    "f16"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "先行者が強く後発は困難。Memberful は100万人超の会員を支え、Patreon の完全子会社として資本の後ろ盾を持つ。WordPress、メール配信、Discord など多数の外部サービスとの連携と、制作会社の提携網もすでにある。",
+   "basis": [
+    "f10",
+    "f8",
+    "f17",
+    "f19"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "決済の口座を客自身に持たせ、こちらは月額料金と取引額の一定率だけを取る形なら、客は自分の会員と入金を手放さずに済む。そのため、大手の一体型サービスの隣でも別の客層を取れる。",
+   "basis": [
+    "f3",
+    "f4",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_plain_f8a62d87d9cb": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "自分たちだけの悩みだと思っていた顧客対応ツールの不満が、多くの会社との会話で共通の問題だと分かり、2人の創業者は2020年末に Plain を作り始めた。料金の数え方を何度も作り直した末、n8n が問い合わせ20倍を対応チーム2倍で回す土台になった。",
+   "basis": [
+    "f1",
+    "f2",
+    "f6",
+    "f7",
+    "f29"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Simon Rohrbach と Matt Vagni は2020年末に開発を始めた。2022年11月の公開試用版で最初の料金を出した。月間対応顧客数で課金し、最小枠を250人にしたが、伸びていた企業向けの客には枠が大きすぎた。次にメールやチャットの送信件数で課金すると、丁寧に対応する客ほど料金が上がってしまった。そこで顧客数課金に戻して枠を小さくし、2023年6月には全機能込みの固定料金にまとめた。2024年には毎週2人が通常業務と兼務で顧客対応をしていたが、開発が止まり担当もあいまいになった。そのため、1人が専任で解決まで持ち、もう1人が小さな修正を受け持つ形に変えた。2026年3月、創業者は当初の売り文句「顧客サポート版の Stripe」について、コードで拡張できるだけでは費用に見合う価値が足りなかったと振り返った。",
+   "basis": [
+    "f1",
+    "f5",
+    "f6",
+    "f7",
+    "f9",
+    "f12",
+    "f14",
+    "f15",
+    "f16"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "顧客対応の画面と GraphQL API を一緒に売る。2021年の説明では、API は制限なく使え、客は問い合わせの管理・割り当て・報告を自社の都合に合わせて組めるとしていた。画面でできる操作は外部からも実行でき、客は自社の AI や業務手順をつなげる。いまの課金は操作する人の席数に応じた料金で、料金ページは年払いの価格を表示している。AI 機能に使うクレジットは月ごとの枠として料金に含まれる。",
+   "basis": [
+    "f3",
+    "f17",
+    "f19",
+    "f20"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "公式の顧客一覧によると、数百のチームが使っている。公開事例に出てくる客は Sourcegraph、n8n、Raycast。Sourcegraph は26,000件の問い合わせ記録と約100の Slack チャンネルを抱えていた。n8n は問い合わせが週100件から2,000件へ増えた。Raycast は顧客情報と Stripe の課金情報を問い合わせ画面に出して使っている。",
+   "basis": [
+    "f18",
+    "f24",
+    "f28",
+    "f31"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "問い合わせがあちこちの経路に散らばり、誰も全体を見られない痛み。2025〜2026年に集計した初期企業563件の導入検討では、29%が連絡経路の分散を一番の課題に挙げた。n8n では導入前、客が返事を2〜3週間待っていた。Raycast は全件を同じ優先度で扱っていた。Sourcegraph は3種類の道具を別々に動かしていた。",
+   "basis": [
+    "f23",
+    "f29",
+    "f32",
+    "f25"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "料金ページの Foundation と Horizon は年払いで、1年分の利用料を先に受け取る形になっている。Horizon を最低席数の3席で契約した客1社からは、年約3,564米ドルが先に入る。",
+   "basis": [
+    "f19",
+    "f20"
+   ],
+   "formula": "Horizon 1人月額99米ドル（年払い, f19）× 最低3席（f20）× 12か月 = 3,564米ドル/年。公式記事の Horizon 月額269米ドル（f22）は料金ページと異なるため使っていない",
+   "presentation": "ESTIMATE"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "2021年の時点では、小さなデザイン・開発チームで基盤を作っていた。顧客対応だけを担う人は採用せず、2024年には毎週技術職と非技術職の2人を顧客対応に回していた。客の相談は毎日共有し、週末に振り返った。さらに毎週金曜はチーム全員で数時間、小さな改善を拾う時間を設けていた。",
+   "basis": [
+    "f4",
+    "f12",
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "客の問い合わせの入口として Slack に大きく頼っている。Sourcegraph は約100の Slack チャンネルを Plain に取り込み、Raycast は Slack と Linear を使って開発へ引き継いでいる。Slack 側の仕様や接続条件が変わると、中核の使い道が直接影響を受ける。",
+   "basis": [
+    "f24",
+    "f31"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "会話・内部メモ・開発への引き継ぎが1か所に積み上がる。Sourcegraph は26,000件の記録を移し、3つの道具を Plain にまとめた。n8n は Plain の土台の上に自社 AI を組み込み、問い合わせの60%に使っている。記録と自作の連携が Plain に乗るほど、ほかの道具への乗り換えは重い作業になる。",
+   "basis": [
+    "f24",
+    "f25",
+    "f27",
+    "f28",
+    "f29"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "最初の売り文句は「顧客サポート版の Stripe」だったが、コードで拡張できるだけでは費用に見合う価値が足りなかったと、創業者が2026年3月に振り返っている。その後は、画面の操作を外部から実行できる基盤として打ち出し、客が自社の AI をつなぐ使い方を前に出した。料金の数え方も、月間対応顧客数、送信件数、再び顧客数と移り、2023年6月には固定料金に整理した。いまは操作する人の席数に応じた料金になっている。",
+   "basis": [
+    "f16",
+    "f17",
+    "f6",
+    "f7",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2020年末に開発開始。2022年11月の公開試用版で最初の料金を公表。2023年6月、料金を固定料金に整理。2023年6月21日、問い合わせ先メールアドレスを最大5件まで追加できるようにした。2025年12月、Sourcegraph が移行した。2026年3月、創業者が当初の売り文句を振り返った。",
+   "basis": [
+    "f1",
+    "f5",
+    "f9",
+    "f11",
+    "f10",
+    "f24",
+    "f16"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "客が自社で AI を組むようになり、その AI をつなげる土台として価値が出た。n8n は導入から約1週間半で最初の AI 連携を公開し、問い合わせの60%に AI を使っている。問い合わせが20倍になっても、対応チームは2倍で済んだ。「コードで拡張できる」だけでは足りなかった売り物に、自社 AI を接続するという使い道が加わった。",
+   "basis": [
+    "f16",
+    "f17",
+    "f28",
+    "f29"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "公式の顧客一覧では数百のチームが使っている。客が自社の AI を顧客対応に組み込む動きがあり、n8n は AI を問い合わせの60%に使い、企業顧客への応答を平均6〜8時間に縮めた。外から全操作を実行できる土台への需要は、この動きとともに広がると見られる。",
+   "basis": [
+    "f17",
+    "f28",
+    "f29"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "何を数えて課金するかで、客のふるまいが変わる。送信件数で課金したら、丁寧に返事をする客ほど料金が上がった。客にしてほしい行動に罰金をかける課金単位は、早めに捨てたほうがよい。",
+   "basis": [
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_poolsuite_6d5ad6895563": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "開発者を一人も知らなかった Marty Bell は、友人の友人に案を持ち込み、1980年代の浜辺の映像に音楽を重ねた無料の音楽サイトを作った。のちにその世界観のまま日焼け止めを売り出した。",
+   "basis": [
+    "f1",
+    "f2",
+    "f5",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "音楽アプリ Poolsuite FM は App Store で無料で配っている。金を取る商品は、同じ世界観で売る日焼け止め Vacation だ。Vacation の Classic Lotion SPF 50 は、2023年の登場から2025年9月までに約150万本売れたと本人が述べた。ただしこれは Vacation の商品販売数で、Poolsuite の売上ではない。",
+   "basis": [
+    "f5",
+    "f7",
+    "f9"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pricing",
+   "item": "PRICING",
+   "text": "Poolsuite FM は App Store で無料。販売者は POOLSIDE WORLDWIDE CORPORATION LTD。",
+   "basis": [
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "最初の利用者は2014年の Product Hunt 公開と、Reddit の r/InternetIsBeautiful への投稿から来た。Reddit で少し話題になり、Vice と Manrepeller の記事が後押しした。公開前の時点で、Bell に開発者の人脈は無かった。",
+   "basis": [
+    "f2",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "口コミで広がっている可能性がある。2020年10月1日の App Store レビューで、ある利用者は、見た目に惹かれて入れたアプリを使ううちに気に入ったと書いた。友人にも勧め、ほかの音楽アプリの多くを使わなくなったという。2025年9月の取材で Bell は、直前の週末に Los Angeles でパーティーを開いたと述べており、画面の外でも接点を作っている。",
+   "basis": [
+    "f10",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "始めた時点で Bell には開発者の知り合いがおらず、友人の友人 Grant Mac が開発に加わった。2021年6月の取材では、Poolsuite に取り組むチームは10人と紹介された。Vacation は、日焼け止めの処方を持っていた Lach と Dakota に Bell が共同創業者として加わる形で立ち上がった。",
+   "basis": [
+    "f2",
+    "f4",
+    "f6"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "アプリは App Store で配信され、曲の再生には SoundCloud を使っていた時期がある。2021年10月12日のレビューでは、ある利用者が、SoundCloud の上限表示で音が出ないことが多く、代わりにウェブ版を使っていると書いた。外部の音源に頼ると、その上限がアプリの再生を止める弱点になりうる。",
+   "basis": [
+    "f9",
+    "f11"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱いと見られる。音楽アプリは無料で、1件のレビューでは、アプリで音が出ない時にウェブ版へ移って聞いていたと書かれている。客をつなぎ止めているのは、主に見た目と世界観への好みだと推す。",
+   "basis": [
+    "f9",
+    "f10",
+    "f11"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2014年: Product Hunt で Poolside FM として公開。2021年4月: Product Hunt で日焼け止め Vacation by Poolsuite を先行公開。2021年6月10日: Vacation by Poolsuite を正式発売。2023年: Classic Lotion SPF 50 が登場。2025年9月の取材: iOS と Android の新しい音楽アプリを公開したこと、直前の週末に Los Angeles でパーティーを開いたことを本人が語る。",
+   "basis": [
+    "f3",
+    "f5",
+    "f7",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "Bell は、プレイリストを並べただけでは聞かれないと見て、映像と組み合わせた体験を無料で配った。そこで育てた世界観に、日焼け止めという現物を載せて売っている。",
+   "basis": [
+    "f1",
+    "f5",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_revue_4fbfee0d2036": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "2021年1月26日にTwitterが買い取り、その日のうちにPro機能を全員無料にして有料メルマガの手数料を5%へ下げた書き手向け配信サービスは、2023年1月18日に親会社の手で閉じられ、ログインもできなくなった。",
+   "basis": [
+    "f1",
+    "f2",
+    "f4"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "2021年1月26日、TwitterがRevueの買収を発表した。同日、全アカウントのPro機能を無料にし、有料メルマガの手数料を5%へ下げた。あわせて、Revueを独立したサービスとして投資を続け、チームは書き手のメルマガ作成、読者獲得、収益化の改善に取り組むと発表した。その後、Twitter連携で、プロフィールの購読ボタンにメールアドレスがあらかじめ入る仕組みを使った書き手も現れた。しかしXは提供終了日を2023年1月18日とし、いまはログインできない。",
+   "basis": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "書き手が読者から取る有料購読料から、Revueが手数料を差し引く形。Twitterの公式発表によると、買収と同時にこの手数料を5%へ下げ、書き手の手元に残る購読収入を増やした。Pro機能は全アカウントで無料にしたため、主な課金点は有料メルマガの売上に対する歩合になったと見られる。",
+   "basis": [
+    "f2"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "メルマガを書いて読者を集め、購読料を取りたい書き手。Twitterの公式発表では、個人の作り手から記者、出版社までを対象とした。",
+   "basis": [
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "Twitterのプロフィールが読者の入口になった。利用者mkr-hnによると、Twitter連携でプロフィールに購読ボタンが付き、押すとメールアドレスがあらかじめ入る。この利用者は、この仕組みで隔月のメルマガを試していた。",
+   "basis": [
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "買収後は、Twitter（現X）の一部門としての判断にサービスの存続そのものが握られていた。Xが提供終了日を2023年1月18日と決めた結果、書き手はログインできなくなった。Xの終了案内によると、過去に配信したメルマガも閲覧・ダウンロードできない。",
+   "basis": [
+    "f1",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2021年1月26日：Twitterが買収を発表。同日、Pro機能を無料化し、有料メルマガの手数料を5%へ引き下げた。2023年1月18日：Xの案内による提供終了日。現在はログインできない。",
+   "basis": [
+    "f1",
+    "f2",
+    "f4"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-failure_cause",
+   "item": "FAILURE_CAUSE",
+   "text": "致命傷は、親会社が下した終了の判断だった。Twitterは買収時に、独立したサービスとして投資を続けると発表していた。しかし、そのTwitter（現X）自身が2023年1月18日でサービスを閉じた。",
+   "basis": [
+    "f3",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "手数料5%・Pro機能無料という好条件は、Twitterの都合で出されたものだった。そのTwitterの都合で、2023年1月18日に過去の配信ごと閉じられた。他社の配信基盤で読者と原稿を抱える書き手は、条件の良さより先に、退出時に何が手元に残るかを確かめるべきだ。",
+   "basis": [
+    "f2",
+    "f4"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_storemapper_a848df77867b": [
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "店舗検索地図(ストアロケーター)を企業のウェブサイトに埋め込むサービスを、月額または年額の定額で売る。利用規約によると、所有・運営者はカナダ法人のSureSwift Capital Inc.。顧客は配布されたJavaScriptを自社ページのHTMLに貼り、訪問者が住所や郵便番号から近くの店舗を探せるようにする。プランは機能と登録できる店舗数で分かれ、公式サイトは契約後の追加の従量課金は無いとしている。",
+   "basis": [
+    "f3",
+    "f1"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pricing",
+   "item": "PRICING",
+   "text": "中位のProプランは、支援資料では月39.99ドル・年399ドル。公式料金ページでは上段が月49.99ドル・年499ドル、下の比較表が月39.99ドル・年399ドルで、同じページの中で価格が食い違っている。年払いは月払いより割安に設定されている。",
+   "basis": [
+    "f1",
+    "f2"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "利用規約によると、料金は利用の有無に関係なく月単位または年単位で前払いになる。返金は返金保証期間を除いて行わず、未使用の月の分も返さない。Proを年払いで契約すると、年399ドル(料金ページ上段の表示では年499ドル)が契約時にまとめて入る。",
+   "basis": [
+    "f1",
+    "f2",
+    "f3"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "利用規約は、契約相手を事業者に限っている。料金ページは、複数の店舗・販売店・代理店を持つブランドを想定し、上位プランを大規模な販売網向けとしている。料金ページの導入例には、小売や衣料のブランド名が並ぶ。",
+   "basis": [
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "利用規約によると、支払いはStripeを通したクレジットカード(Visa・Mastercard・Amex)払いに限られ、売上ごとにStripeの決済手数料がかかる。ハードウェア、ホスティング、課金、保存などは外部の業者に頼っていると規約に明記されている。",
+   "basis": [
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "利用規約によると、解約すると契約終了日に登録した店舗データがすべて自動で削除され、復元できない。過去のレポートも見られなくなり、自社ページから埋め込みスクリプトを外す義務も負う。店舗データはCSVで書き出せるため一覧そのものは持ち出せるが、地図の見た目や絞り込みなどの設定、埋め込み先の差し替えはやり直しになる。そのため、乗り換えには一定の手間がかかると推す。",
+   "basis": [
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "決済はStripeに頼っている。料金ページによると、Shopify、Squarespace、BigCommerce、WordPress、Wixなど多数のサイト作成サービスと連携している。上位プランの機能には、GoogleドライブとGoogleレビューの連携、Facebookページとの統合が含まれる。これらの外部サービスの仕様が変わると、機能が止まる危険がある。",
+   "basis": [
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "公式サイトには「Elfsight Alternative」「Stockist Alternative」という比較ページがあり、同種の店舗検索アプリを競合として名指ししている。料金ページは、絞り込み、大量の店舗の一括管理、分析、複数の地図、独自のブランド表示を、より単純なアプリとの違いとしている。",
+   "basis": [
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "店舗データを預かり、解約時にデータと設定が消える仕組みにすると、書き出し機能があっても設定や埋め込みのやり直しが手間になる。そのため、月数十ドルの小さな埋め込みツールでも客が離れにくくなると推す。規約上、このサービスはSureSwift Capital Inc.が所有・運営している。",
+   "basis": [
+    "f3",
+    "f2"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_tuple_20261007": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "共同創業者3人だけで回していた開発者向け共同作業ソフトが、2020年3月の1か月で、それまで14か月分を合わせたより大きな売上の伸びを得た。その月の3人は新機能を止め、障害の応急修正に追われ、営業を非常勤の担当に任せた。",
+   "basis": [
+    "f11",
+    "f13",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "2018年に創業し、2019年1月に約12チームの招待制で初期版を出した。待機名簿からほぼ毎月新しい組を招き、2019年10月に利用者が自分で登録できる形へ移った。2019年末の時点でもチームは共同創業者3人だった。2020年3月に在宅勤務へ移る開発者が一気に増え、オンライン利用者の一覧を出す簡素な仕組みが倒れた。3人は応急修正と基盤強化を最優先にし、営業は非常勤の担当に、問い合わせ対応も後に雇った手伝いに任せ、月末には制御できる状態に戻した。本人によると、同月に増えた売上はその前の14か月の増加分の合計を上回った。2020年は接続・操作・音声の処理を書き直し、公開前に外部の品質検査を通す形に変えた。クラッシュは過去最少になり、通話品質評価の中央値は5点満点の5点になったという。",
+   "basis": [
+    "f9",
+    "f10",
+    "f11",
+    "f13",
+    "f14",
+    "f15"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "離れた開発者同士が画面と音声を共有し、相手の端末を操作しながらコードを書くためのソフトを、開発チームに1人ごとの月額で売っている。払うのはチームの所属会社で、払った人数分だけ利用者が増える。社外の協力者は、通話中に1人でも有料利用者がいれば追加料金なしで、ブラウザから参加できる。大企業には個別見積もりの独自契約を結び、請求書や発注書で払わせる。",
+   "basis": [
+    "f1",
+    "f4",
+    "f6",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "金を払っているのは、離れた場所の技術者同士でコードを一緒に書く開発チームを抱える会社。公式サイトには Shopify の Farhan Thawar が、遠隔の共同開発で標準の道具になったと寄せている。公式の顧客取材では、米国・欧州・南米に技術者が散らばる決済系スタートアップ Suppli が、障害の調査、コード変更の確認、設計の相談、AI に作業を任せる前の計画づくりに使っている。",
+   "basis": [
+    "f3",
+    "f30",
+    "f31"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "汎用の通話ソフトでは、相手の小さなコード用の文字が読めず、「その行じゃない、そこ」と口で場所を指し続けることになる。Suppli の David Paluy は Slack の音声が途切れるため、通話のたびに WhatsApp へ切り替えていた。Tuple は最大5Kで画面を流し、相手の端末を直接操作させることで、この口頭の道案内と音声の途切れを消す。",
+   "basis": [
+    "f2",
+    "f30"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "最初は約12チームだけの招待制で始め、待機名簿に並んだ希望者をほぼ毎月まとめて招き入れた。料金ページも自分で登録する仕組みも持たないまま招待で客を増やし、自分で登録できる形にしたのは2019年10月だった。",
+   "basis": [
+    "f9",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "広がり方は会社の中で下から上へ広がる形が中心。Suppli では CTO が数人の技術者と試したところ、チーム全体に広がった。社外の相手は追加料金なしでブラウザから通話に入れるため、客先・外部協力者・面接相手が Tuple に触れる機会が有料利用者1人から生まれる。2019年10月以降は、利用者が自分で登録できる。",
+   "basis": [
+    "f6",
+    "f10",
+    "f30"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "主な費用は人件費と外注。2020年3月以降は非常勤の営業担当と問い合わせ対応の手伝いを雇い、2020年には公開前の品質検査を外部の会社に任せた。接続管理は当初 Heroku 上の Action Cable、次に使った量に応じて払う Ably に乗せていたが、その後 Go と Redis で作った自前の接続管理サービスへ移した。音声・映像・画面のデータは端末同士の暗号化通信で、Tuple のサーバーを通らない。",
+   "basis": [
+    "f13",
+    "f15",
+    "f16",
+    "f18"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "中核は C++ で作った共通の処理基盤で、ブラウザ用の部品を通さず WebRTC を直接使う。接続管理は Heroku 上の Action Cable から Ably へ移し、他の基本ソフトへ広げる際に Firebase を試したが断念し、Go と Redis の自前サービスに落ち着いた。Windows 版は既存の GTK 版の移植を試した後、win32 の機能を直接使う方式に変えた。",
+   "basis": [
+    "f2",
+    "f16",
+    "f17",
+    "f18",
+    "f24"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "土台の外部サービスに何度も首を握られかけた。Heroku 上の Action Cable は能力を使い切っても数時間ごとに再起動が要り、Ably には C/C++ 用の部品が無く、Firebase は異常切断した利用者が接続中のまま残る不具合を抱えていた。最後は接続管理を自前で持ち、負荷試験で数百万の同時接続を確認した。残る土台は macOS と Windows で、更新のたびに利用者の通話が途切れる手間が利用者から指摘されている。",
+   "basis": [
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f27"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱い。乗り換えを縛るのは溜まったデータではなく、日々の業務への組み込み。Suppli では障害調査、コード確認、設計相談、AI への作業指示の計画づくりの場がすべて Tuple の通話になっている。一方、Capture の文字起こしや画面の画像は利用者の端末内に保存され、クラウドへ送られないため、記録がTuple 側に溜まって離れにくくなる構造は無い。",
+   "basis": [
+    "f31",
+    "f33"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-incumbent_blindspot",
+   "item": "INCUMBENT_BLINDSPOT",
+   "text": "Slack・Google Meet などの汎用ツールは、調整の連絡には足りるが、コードの画面を一緒に動き回る用途には作られていない。Suppli は Slack で「これを打って、違う、そこじゃない」と口で指示し、音声が切れると WhatsApp に逃げていた。汎用ツールは致命的に壊れるわけではないため、開発者向けに音声・高解像度の画面・遠隔操作を作り込む理由が大手側に乏しい。",
+   "basis": [
+    "f30",
+    "f2"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "代わりの手段は Slack・Zoom・Google Meet の画面共有、VS Code の Live Share、JetBrains の Code with Me、無料の Pop など。Tuple は編集ソフトに縛られず、端末の画面全体を相手に操作させる点で勝ちに行く。弱点は価格で、仕事で使った利用者が、価格のせいで個人の開発や仕事外の共有に使えなかったと書いている。映像が止まって Zoom を併用したという声もある。",
+   "basis": [
+    "f26",
+    "f27",
+    "f30"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2018年創業。2019年1月に招待制の初期版、2019年10月に自分で登録できる形へ。2020年3月に売上の伸びが急増。2020年8月に月1回の更新を試行。2020年12月に3人目の参加者にも遠隔操作・描画・クリップボード送信を開放。2021年9月に公開ソフト開発チームへ無期限無料。2022年6月1日に一括認証を全プラン無料化。2024年5月24日に Windows 版の一般向け試用を公開。2026年9月29日に Capture を macOS と Windows に公開した。",
+   "basis": [
+    "f9",
+    "f10",
+    "f14",
+    "f21",
+    "f22",
+    "f20",
+    "f28",
+    "f23",
+    "f32"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "2018年の創業時、遠隔での開発は少しずつ増える小さな市場と見て始めた。そこへ2020年3月、在宅勤務が開発者ほぼ全員に一気に広がり、既に使い込まれた専用ツールを持っていたことで、1か月の売上の伸びがその前の14か月の合計を上回った。",
+   "basis": [
+    "f9",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "先行者が強く後発は困難。中身は C++ で作った共通基盤と自前の接続管理サービスで、2020年は接続・操作・音声の処理を丸ごと書き直し、Windows 版も GTK 版の移植を捨てて作り直している。後から入る者は、この数年分の作り直しを同じだけ背負う。一方で使われ方は AI に作業を任せる前の計画づくりへ動いており、Capture のように通話の中身を AI に渡す方向で先行している。",
+   "basis": [
+    "f2",
+    "f15",
+    "f18",
+    "f24",
+    "f31",
+    "f32"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "儲かっていた一括認証の大企業向けの値上げを自ら外し、代わりに独自契約や利用実績に応じた料金で大企業を呼ぶ形に組み替えた。高い料金を取る理由が「客が逃げられないこと」から「客が欲しがる中身」に替わるよう、料金の取り方を見直す余地がある。",
+   "basis": [
+    "f28",
+    "f29"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_typedream_c02cf9d5426e": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "認証サービスを作っていた5人の技術者は、利用者から「Notionと連携してほしい」と頼まれた。その理由を聞き込み、文章を打つ感覚でサイトを作れる道具に作り替えた結果、2021年7月にProduct Huntの月間1位を取った。",
+   "basis": [
+    "f10",
+    "f11",
+    "f12",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "収入源は2つある。1つ目はサイトごとの月額・年額の利用料で、払うのはサイトの持ち主。独自ドメイン、無制限のページ、解析、ブログ、フォームの対価として払う。2つ目は、利用者がサイト上で電子書籍・講座・テンプレート・サービスを売ったときの取引手数料。無料枠では売上の5%、有料プランでは2%を取る。無料枠で1ページを公開させ、独自ドメインやページの追加が必要になった時点で有料プランへ移す形になっている。",
+   "basis": [
+    "f1",
+    "f3",
+    "f4",
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "お金を払っているのは、電子書籍・講座・テンプレート・サービスを自分のサイトで売り、メールアドレスを集めたい企業・出版者・クリエイター。具体例として、習慣記録アプリを作るKyleigh Smithは、Dry January Challengeの募集ページをこのサービスで作った。",
+   "basis": [
+    "f1",
+    "f9",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "客が困っていたのは主に2つ。1つ目は、Notionでサイトを作ろうとしても、ボタンやナビゲーションが無く形にならないこと。2つ目は、思いついた企画の締め切りまでに募集ページを公開しなければならない時間の切迫。Kyleigh Smithは、募集ページを約1日で用意できたことを最大の利点に挙げた。Easloは、募集ページを約5分で作ったという利用談を寄せている。",
+   "basis": [
+    "f11",
+    "f19",
+    "f24"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "客の入口は、運営チームのTwitterでの発信とProduct Huntでの露出。2021年7月にはProduct Huntで月間1位を取っている。Kyleigh Smithも、TwitterとProduct Huntでチームを見かけてこのサービスを知った。もう1つの入口は紹介報酬で、継続課金の20%を払う仕組みで紹介者経由の客を呼び込んでいる。",
+   "basis": [
+    "f8",
+    "f21",
+    "f23"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "紹介経由の客には、継続課金の20%を紹介者へ毎月PayPalで払い続ける。新規の有料プランをカードで買った客には、最初の14日以内なら全額を返金する。商品販売にかかるカードやPayPalの手数料は、運営側ではなく売り手が別途負担する。",
+   "basis": [
+    "f23",
+    "f25",
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "beehiivの発表によると、創業者は5人の技術者。Y Combinatorの出身でもある。",
+   "basis": [
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "利用者の商品販売はカードやPayPalの決済に乗っていて、その手数料は取引手数料とは別に発生する。紹介者への報酬もPayPalで払っている。2024年6月にbeehiivが発表した後は、beehiivの事業の一部として運営されている。",
+   "basis": [
+    "f5",
+    "f23",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "サイト上に、フォームで集めたメールアドレス、ブログ、販売中の商品ページが溜まっていく。独自ドメインもサイト単位で結び付く。このため、別のサービスへ移るには、これらをまとめて作り直す手間がかかる。",
+   "basis": [
+    "f1",
+    "f3",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "年払いを選んだ客からは、1年分の利用料が最初にまとめて入る。現行Launchなら1サイトあたり$180、Growなら$504。契約は自動更新で、解約しても支払期間の終わりまでは使える。14日以内の全額返金は新規購入だけが対象で、更新料金は原則として返金されない。",
+   "basis": [
+    "f3",
+    "f4",
+    "f18",
+    "f25"
+   ],
+   "formula": "Launch年払い：月額換算$15 × 12か月 = $180／Grow年払い：月額換算$42 × 12か月 = $504（1サイトあたり）",
+   "presentation": "ESTIMATE"
+  },
+  {
+   "id": "a-referral",
+   "item": "REFERRAL",
+   "text": "紹介者には、紹介した客の継続課金の20%を毎月PayPalで払い続ける。紹介報酬の案内ページには、2022年4月19日のEasloの投稿を共有例として載せている。内容は、このサービスで募集ページを約5分で作ったという利用談。",
+   "basis": [
+    "f23",
+    "f24"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "価格は、他のサイト作成サービスの料金を参考に決めた。2021年11月2日の投稿では、年$144という価格がコメントで疑問視された。乗り換えの例もある。Kyleigh Smithは約1年前に試したとき、ドラッグ操作に困ってUnicorn Platformを使い続けた。その後再び試すと問題が直っていたため、Typedreamに切り替えた。",
+   "basis": [
+    "f14",
+    "f20"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2021年：Typedreamを開始。2021年7月：Product Huntで月間1位。2021年11月2日：Hacker Newsに投稿し、価格や操作について試用者とやり取り。2023年4月28日：無料枠にブログとフォームを開放。2023年5月9日：返金規定を更新。2024年6月：beehiivが発表し、その時点で数万件のサイトが稼働。",
+   "basis": [
+    "f6",
+    "f8",
+    "f14",
+    "f26",
+    "f25",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "Notionでサイトを作ろうとする人がすでにいて、文章をそのまま書き換えられる操作に慣れていた。その人たちが欲しかったボタンやナビゲーションと整ったデザインを足したことが当たった。試用者も、Notionを使っている人ならすぐになじめると評価していた。",
+   "basis": [
+    "f11",
+    "f12",
+    "f15"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "特化しないと困難。料金は他のサイト作成サービスを参考にしていて、発表直後から年$144は高いという声が出た。利用者もUnicorn Platformなど他のサービスと比べたうえで選んでいる。単にサイトを作れるだけでは選ばれにくい。Notionに慣れた人向けの操作感や、数分から1日でページを出せる速さのような、狙った客にとってのはっきりした利点が必要になる。",
+   "basis": [
+    "f14",
+    "f20",
+    "f15",
+    "f19",
+    "f24"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "最初に作っていたのは認証サービスだった。そこへ来たNotion連携の要望を掘り下げ、サイト作成の道具に方向を変えた。創業者は、前の製品では利用者を十分に定められなかったと振り返っている。そのため今回は、作る前に候補利用者を徹底して聞き取った。",
+   "basis": [
+    "f11",
+    "f12",
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "この事例の核心は、手元に来た要望を額面どおりに作らず、その理由を掘り下げたこと。Notion連携の要望の裏には「Notionで無理にサイトを作っている人たち」がいて、チームは彼らに足りないボタンやナビゲーションだけを足した。その結果、すでに出来上がっていた使い方の習慣ごと客を取り込めた。",
+   "basis": [
+    "f11",
+    "f12",
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_userlist_a288fcf9f741": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "完成前のメール自動化ツールを6か月分前払いで売り、買った客一社ずつに創業者3人で1時間の導入面談を付け、送信機能すら外した試作品から使わせ始めた SaaS の作り手たち",
+   "basis": [
+    "f19",
+    "f20",
+    "f21"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Jane Portman は自社製品 Tiny Reminder の利用者が誰で何をしているかを把握できなかった。Intercom を入れても、利用者一覧の使いにくさやメール編集の手間が残った。2017年10月に共同創業契約を結び、2017年末に作業を始めた。知人・Slack グループ・Twitter から聞き取り相手を集め、16件を予約して12件を実施した。行動に応じて利用を促すメッセージに開発の焦点を絞った。2018年4月4日から11日に6か月分前払いの先行販売を行い、2018年10月に非公開の試用版で有料顧客の導入を始めた。2019年には説明を「顧客へのメッセージ」に変えた。2019年8月6日に正式公開し、Product Hunt で当日1位になった。",
+   "basis": [
+    "f9",
+    "f10",
+    "f2",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f18",
+    "f3",
+    "f28",
+    "f26",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "SaaS 企業に、利用者の行動と企業単位のデータを使ったメール自動化を月額で売る。料金は客が抱える利用者数に応じて上がる。これとは別に導入支援を案件単位で売る。その一つの Customer Loyalty Kit では、行動による顧客分類と、継続利用を促す10通のメールの計画・執筆・設定を代行する。",
+   "basis": [
+    "f1",
+    "f31",
+    "f34",
+    "f35"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "金を払うのは、自社製品の利用者データを持つ SaaS 企業。公式サイトに載る客には、AgentMethods の Aaron Kassover や Fileinbox の Christian Genco がいる。調達総額50万米ドル未満の新規 SaaS 企業向けに最初の12か月を50％引きにする制度があり、外部資金の少ない立ち上げ期の SaaS も客にしている。",
+   "basis": [
+    "f1",
+    "f36",
+    "f38",
+    "f33"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "自社の利用者が誰で、製品の中で何をしているかが見えない。そのため、行動に応じた連絡を送れない。Intercom を入れても、利用者一覧が使いにくく、メール編集に手間がかかり、行動も十分につかめなかった。AgentMethods は、少数の自動配信によって3か月で解約を約25％減らし、支援対応の量も減ったと述べている。",
+   "basis": [
+    "f9",
+    "f10",
+    "f36",
+    "f37"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "最初の客は2018年4月の先行販売で掴んだ。条件は6か月分の前払い、全額返金保証、創業者による導入支援。客ごとに創業者3人で1時間の導入面談を行い、Benedikt がデータ連携を、Claire が支援を必要とする客に限って追跡する行動と配信内容の設計を手伝った。初回は送信機能を外し、利用者一覧と個別の行動記録だけを先に渡した。2018年10月に、非公開の試用版で有料顧客の導入を始めた。",
+   "basis": [
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "2019年8月の正式公開では Product Hunt で当日1位になった。衝動買いされにくい製品だとみて、メール計画用の無料ワークシートを配り、関心を持った人の連絡先を集めている。公開告知では、自分の読者を持つ人に提携制度への参加を募った。客の側では、Fileinbox の創業者が MicroConf で知って導入している。",
+   "basis": [
+    "f4",
+    "f25",
+    "f27",
+    "f38"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "2017年10月に共同創業契約を結んだ。創業者は Jane Portman と Benedikt Deicke で、マーケティング担当の3人目 Claire Suellentrop は1年後に離れた。初期の客には3人そろって1時間の導入面談を行い、データ連携は Benedikt が受け持った。",
+   "basis": [
+    "f2",
+    "f20"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "聞き取りの会話は録画し、Rev.com で文字に起こして表に整理した。その結果から、行動に応じて利用を促すメッセージに開発を絞った。",
+   "basis": [
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "客の製品から、利用者の行動と企業単位のデータを連携して取り込み、その行動を条件に自動配信を組む。初期はデータ連携を創業者が客と一緒に行った。導入支援の Customer Loyalty Kit では、行動による顧客分類と10通のメールを設定したうえで引き渡す。",
+   "basis": [
+    "f1",
+    "f20",
+    "f35"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "先行販売では6か月分を即時に請求し、6か月の期間は使えるようになった時点から数えた。製品の完成より先に代金が入ったが、全額返金保証が付いていた。現行も年払いを20％引きで用意している。導入支援の Customer Loyalty Kit は3,290米ドルの案件単位で売る。",
+   "basis": [
+    "f19",
+    "f32",
+    "f34"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-referral",
+   "item": "REFERRAL",
+   "text": "2019年8月6日の正式公開告知で、自分の読者を持つ人に提携制度への参加を募った。",
+   "basis": [
+    "f26",
+    "f27"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "比較相手は Intercom と自作。2019年に説明を「メール自動化」から「顧客へのメッセージ」に変え、この2つを名指しで比べる形にした。Intercom を使っても、利用者一覧の使いにくさ、メール編集の手間、行動の把握不足が残っていた。2022年3〜10月は企業単位のメール自動化を前面に出したが、説明が分かりにくかった。そのため、法人向け SaaS のメール配信基盤という説明に戻した。",
+   "basis": [
+    "f10",
+    "f28",
+    "f30"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2017年10月に共同創業契約。2018年10月に非公開の試用版で有料顧客の導入を開始。2019年8月に正式公開し、Product Hunt で当日1位。2020年5月にアプリ内メッセージを追加。2021年4月に企業アカウントを追加し、同年10月にマーケティングメールを導入。2022年3〜10月は企業単位の自動化を訴求。2023年1月に動的メール編集機能を公開。2025年9月9日に、案内と情報密度を改めた新版を公開した。",
+   "basis": [
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f30",
+    "f7",
+    "f40"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "製品自体は変えず、説明を「メール自動化」から「顧客へのメッセージ」に変えて、Intercom と自作を比較相手に名指しした。その後、見込み客がすぐに内容を理解し、価値を認めるようになったと本人は述べている。正式公開の前には、試用版という表示が登録を妨げているとみて、有料顧客の利用実績と面談結果をもとに試用版を終えた。",
+   "basis": [
+    "f28",
+    "f29",
+    "f23"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "2019年は製品を変えずに説明だけを変えた。2021年10月には、顧客ライフサイクルのメッセージに加えてマーケティングメールを導入した。2022年3〜10月は企業単位のメール自動化を訴求したが分かりにくく、法人向け SaaS のメール配信基盤という説明に戻した。開発中は見栄えを整えたメールを用意する計画だったが、客が個人から届いたような簡素なメールを好んだため、両方を選べる形を検討した。",
+   "basis": [
+    "f28",
+    "f6",
+    "f30",
+    "f22"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "説明の枠を「顧客へのメッセージ」に変え、客が実際に比べている相手（Intercom と自作）を名指しすると、製品を変えなくても見込み客の理解が変わったと本人は述べている。完成前でも、6か月分の前払いと創業者の付き添いを条件にして、最初の客から代金と使い方の声を同時に得た例である。",
+   "basis": [
+    "f28",
+    "f29",
+    "f19",
+    "f20"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_wip_5eef8a985270": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "前月の新規登録がわずか3人、月次継続売上の平均が2,000ドルという状況で、製作者コミュニティWIPの運営者は2022年9月22日に有料の壁を外し、招待制の無料枠を始めた。2024年8月29日には月次継続売上が約1,000ドルになっており、新規会員を月29ドルか年199ドルの有料制に戻した。",
+   "basis": [
+    "f7",
+    "f8",
+    "f9",
+    "f15",
+    "f16"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "当初は支援（Patronage）という任意の制度で、150ドル払うと1年間の追加特典が付いた。その後、年150ドルか月20ドルの支払いが新規入会者に必須になった。2022年9月6日、運営者は月20ドルが入会の障壁になっているとして、無料・招待制・任意の有料機能を組み合わせる案を公開した。本人説明では、前月の新規登録は3人、平均の月次継続売上は2,000ドルだった。同月22日に有料の壁を外して招待制の無料枠を設け、有料会員の特典は残した。本人はこれを実験と位置づけた。2024年1月25日には、費用削減と速度改善のためにRenderからDigitalOceanへ移そうとして停止が起きた。2024年8月29日時点で月次継続売上は約1,000ドルとなり、新規会員を月29ドルまたは年199ドルにして、1か月の無料試用を付けた。招待制は維持した。",
+   "basis": [
+    "f6",
+    "f3",
+    "f7",
+    "f8",
+    "f9",
+    "f13",
+    "f15",
+    "f16",
+    "f17"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "毎日の作業を公開し、互いに進捗の説明責任を持つ製作者の集まりへの入会権を、会費として売っている。招待制なので、既存会員の招待が入口になる。新規会員は月額または年額の会費をクレジットカードで払う。有料会員には、連続記録の保護、製品の登録数制限の解除、利用状況の詳細、広告非表示、非公開の製品、外部連携が付く。2024年8月29日より前に入った無料会員は無料のまま残している。",
+   "basis": [
+    "f1",
+    "f16",
+    "f17",
+    "f21",
+    "f22"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "払っているのは、自分の製品を作って出荷する個人の製作者だ。トップページは3,823人の製作者に参加を呼びかけている。会員のMartijn Verboveは月20ドルを払う価値を感じており、交流会が増えるならさらに払ってもよいと投稿した。",
+   "basis": [
+    "f1",
+    "f2",
+    "f4"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "毎日の作業記録が途切れることへの不安と、途切れた後の脱力感が、会費を払う動機の1つになっていると見られる。Nilsは1,373日続いた記録を入力忘れで失い、再開する意欲が落ちたと投稿した。Rodは、厳しい連続記録が意欲を保つ助けになっていると書いた。有料機能には、この連続記録を守る保護機能が入っている。",
+   "basis": [
+    "f11",
+    "f12",
+    "f22"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "2024年8月時点の方針では招待制を維持しており、既存会員の招待が主な入口になる。招待枠はサイトの利用に応じて自動で配られる。連続記録の節目は配られる条件の1つだが、必須ではない。会員のJill Binderは、友人に合うコミュニティだと考えて招待の入手方法を尋ねた。会員が友人に勧める口コミが経路の1つになっていると見られる。",
+   "basis": [
+    "f17",
+    "f18",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "事実として出ている費用はサーバー代だ。2024年1月25日、運営者は費用を減らして速度を上げるため、ホスティングをRenderからDigitalOceanへ移そうとした。",
+   "basis": [
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "サイトはRenderで運用していた。2024年1月25日、Kamalを使ってDigitalOceanへ移そうとした。",
+   "basis": [
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "ホスティング先の乗り換えがそのまま停止を生み、会員の連続記録を途切れさせた。運営者は、完了した作業のリンクと時刻を送れば日付を手作業で直すと案内した。会話の場にはTelegramを使っており、Philip Thomasは、Telegramが好みでないことが参加の妨げになっていると投稿した。",
+   "basis": [
+    "f13",
+    "f14",
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "毎日積み上げる連続記録そのものが、やめにくさになっている。Nilsの記録は1,373日に達していた。記録を失うと意欲が落ちるほどの重みがあるので、有料機能でその記録を守らせている。",
+   "basis": [
+    "f11",
+    "f22"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "新規会員は年199ドルの年払いを選べる。選んだ会員からは、1年分の会費が先に入る。",
+   "basis": [
+    "f16",
+    "f20"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2022年9月6日、無料・招待制・任意の有料機能を組み合わせる案を公開した。2022年9月22日、有料の壁を外して招待制の無料枠を始めた。2022年12月5日、記録が全部は消えない連続記録の計算方式を提案した。2024年1月25日、ホスティングの移行中に停止が発生した。2024年8月29日、新規会員を月29ドルか年199ドルの有料制に戻した。",
+   "basis": [
+    "f3",
+    "f9",
+    "f10",
+    "f13",
+    "f16"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "料金は、任意の支援制度から始まった。その後、年150ドルか月20ドルの必須会費になり、2022年9月22日に招待制の無料枠へ切り替えた。2024年8月29日には、新規会員だけを月29ドルか年199ドルの有料制に戻した。2022年9月に始めた招待制は、この有料化の後も維持した。",
+   "basis": [
+    "f6",
+    "f9",
+    "f16",
+    "f17"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "特化しないと困難。月次継続売上は、2022年9月の平均2,000ドルから、2024年8月29日には約1,000ドルに下がった。招待制で入会者を絞る形は、そのまま規模の上限にもなっている。",
+   "basis": [
+    "f8",
+    "f15",
+    "f17"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_button_shy_f1545f17d98e": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "問屋を通さず財布型の小さなカードゲームを客に直接売る Jason Tagmire は、目標1,000米ドルの募集が2日目に約35％で止まると、遊んだ内容から作った猫の架空映画の画像を投稿した。同じ朝に約800人へ便りも送り、支援額は数時間で倍になった。",
+   "basis": [
+    "f1",
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Alex Strang の Movie Plotz を、小さく送りやすいゲームとして Kickstarter で募集した。目標1,000米ドルは財布型の包装と折りたたみ説明書の費用に充てる額だった。初日は約25％、2日目は約35％で伸び悩んだ。BoardGameGeek の包装紹介は議論を呼んだが、支援は増えなかった。猫の架空映画の画像を投稿し、同じ朝に約800人へ便りを送ると、数時間で支援額が倍になった。どちらが効いたかは本人も判定できていない。2015年1月の Pretense 予告では、財布型シリーズの2作目、1企画500個未満の生産と説明した。その後、手組みに時間を取られ、箱の無い商品は置けない販路もあったため、主力を量産の箱型へ切り替えた。",
+   "basis": [
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f15"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "自社で出版した小型カードゲームを、問屋を通さず客へ直接売る。主な売り場は、Kickstarter の予約、Shopify の公式店、毎月ゲームが届く月次会員、そして Etsy と eBay での販売である。Amazon での販売も準備している。扱う作品の一つ Sprawlopolis は18枚のカードで遊ぶ。拡張を何種類も売り、全拡張をまとめた Expansion Collection もある。",
+   "basis": [
+    "f1",
+    "f3",
+    "f18",
+    "f19",
+    "f28",
+    "f31",
+    "f32",
+    "f37",
+    "f38"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "Kickstarter の支援者、公式店で買う個人、毎月届く会員がいる。利用者の投稿には、Foster the Meeple の推薦を見て会員になった人がいる。この人は12月と1月の2か月分を払ったが、3月22日時点でも届いていないと訴えていた。一方で、遅れても常に埋め合わせてもらえたという会員もいる。",
+   "basis": [
+    "f18",
+    "f33",
+    "f34"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "中心は Kickstarter の募集で、18枚のゲーム（現 Micro Games）は四半期ごとに募集する。ほかの集客経路は次のとおり。\n・約800人への便り\n・新作募集で旧作を割引して同梱する組合せ販売（全作品をまとめて買うと Pretense が実質無料）\n・Etsy（米国内と海外向け、主要5作品）\n・eBay（箱型作品）\n・Amazon（準備中）\n利用者の投稿には、外部の推薦者の紹介で会員になった例がある。BoardGameGeek の記事は話題にはなったが、支援には結び付かなかった。",
+   "basis": [
+    "f7",
+    "f8",
+    "f11",
+    "f19",
+    "f33",
+    "f37",
+    "f38"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "主な費用は次のとおり。\n・財布型の包装と説明書の制作費\n・量産の箱型の生産費\n・社外の美術・図案担当への支払い\n・職員の給与\n・原価の上昇と関税\n・海外送料：ある企画では17,000米ドルを集めたが、その直後に8％の値上げが控えていた\n・通関の差戻し：郵便物がまとめて戻り、約500米ドルの損失になった",
+   "basis": [
+    "f4",
+    "f15",
+    "f18",
+    "f22",
+    "f26",
+    "f39",
+    "f40"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "Kickstarter の予約で、作る前に客の金が入る。Movie Plotz の募集では、目標1,000米ドルで包装と説明書の費用を賄う計画だった。海外送料も企画の段階で客から集めており、ある企画では17,000米ドルを先に受け取っている。",
+   "basis": [
+    "f4",
+    "f39"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "2026年5月28日の紹介では、ニュージャージー州の事務所に6人がいる。企画制作は Jason Tagmire、George Tagmire、Andrew Basile の3人。Elle が告知、Long と Anthony が試遊を担当する。美術と図案は社外の Milan と Filip に任せている。",
+   "basis": [
+    "f24",
+    "f25",
+    "f26"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "資金集めは Kickstarter、店は Shopify に頼っている。海外への配送は郵便料金と各国の通関しだいである。送料は上がり続け、通関で荷物がまとめて戻されたこともあり、全地域への直送は難しくなった。そのため、海外販売を現地の提携先に頼る方向に動いている。",
+   "basis": [
+    "f3",
+    "f17",
+    "f32",
+    "f36",
+    "f39",
+    "f40"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱めだが、やめにくくする仕掛けはある。月次会員には毎月ゲームが届く。Sprawlopolis のように拡張を重ねる作品が多い。さらに、箱型に変えた後も、箱を財布が収まる寸法にした。財布型でそろえてきた客が、同じ形で集め続けられるようにしている。",
+   "basis": [
+    "f16",
+    "f18",
+    "f31"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-incumbent_blindspot",
+   "item": "INCUMBENT_BLINDSPOT",
+   "text": "多くの出版社は問屋を通して店に並べる。Button Shy は、1企画500個未満を手組みの財布型で作り、その少量を直販で売る形を取った。本人も、ボードゲームの少量生産はふつう採算が取れないと述べており、店に置く前提の出版社が手を出しにくい量である。",
+   "basis": [
+    "f1",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "自社の作品が Amazon で小売価格の3倍で売られていた。これを理由に、自ら Amazon で売ることを決めた。",
+   "basis": [
+    "f38"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "初期は1企画500個未満を手組みし、財布型の包装で出していた。しかし手組みに時間を取られ、箱の無い商品は置けない販路もあった。そこで主力を量産の箱型に切り替え、財布は空のものを追加商品として売る形にした。浮いた時間はゲーム制作に回し、本人はもっと早く変えてもよかったと振り返る。手組みは、社内で少量作る実験的なシリーズだけに残した。このシリーズは、サイコロは客が用意し、説明書はオンラインに置き、部分ごとに売る構想である。",
+   "basis": [
+    "f10",
+    "f15",
+    "f16",
+    "f20",
+    "f27",
+    "f41",
+    "f42"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2015年1月：Pretense の予告で、財布型シリーズの2作目と紹介。\n2026年5月28日：事務所に6人の体制で、社内の新シリーズを開発中と紹介。",
+   "basis": [
+    "f9",
+    "f24"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "小さく送りやすい少数枚のゲームを選んだことで、1,000米ドルという低い目標でも出版できた。生産も1企画500個未満の少量で済んだ。Kickstarter の予約で包装の費用を先に集めたため、在庫を抱える前に資金が回った。",
+   "basis": [
+    "f3",
+    "f4",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "特化しないと困難。海外送料の上昇と通関での差戻しにより、全地域への直送はこの会社でも難しくなっている。原価の上昇と関税で5年以上据え置いた価格も上げた。手組みも規模が大きくなると回らなくなった。",
+   "basis": [
+    "f15",
+    "f17",
+    "f22",
+    "f40"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "小さく作って予約で先に集金する形は、始めるには強い。ただし規模が大きくなると、手組みの時間と海外への配送が首を絞める。この会社は、売れた後に作り方と配送の方法を自ら作り替えた。",
+   "basis": [
+    "f4",
+    "f15",
+    "f17",
+    "f27"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_candy_japan_954236d663a8": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "旧漫画通販の客2人に日本の菓子を送るところから始め、Hacker News への投稿1本で約100人の購読者を集めた、日本菓子の月2便の定期便。",
+   "basis": [
+    "f5",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "2011年に開始した。初めの2か月は旧漫画通販の客2人だけだったが、Hacker News への投稿で約100人が加わり、ブログのリンクと検索流入で1年後に300人に達した。2011〜2014年は約300人で横ばいが続き、2014年に約3倍に増えた。2015年に1,200人を超えたが、800人より先は不正決済による偽の登録だった。2017年は636人から385人へ減り、翌年は385人から323人、2019年は1月314人から12月207人まで落ちた。感染症の流行で SAL と航空便が止まり、配送を休止して前払い約 USD 3,500 を返金した。",
+   "basis": [
+    "f5",
+    "f11",
+    "f12",
+    "f13",
+    "f16",
+    "f25",
+    "f31"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "日本の菓子を詰めた箱を月2便で海外の購読者に送り、購読者は月額を払う。中身は一律で、個別のアレルギー対応はしない。仕入れは地元のスーパー経由で、スーパーの従業員が発送を手伝う。宛名と税関書類は自作の Python スクリプトが PDF で作る。決済は当初 PayPal で、のちに Stripe へ移った。",
+   "basis": [
+    "f7",
+    "f8",
+    "f34",
+    "f1",
+    "f23"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pricing",
+   "item": "PRICING",
+   "text": "当初は月2便で月額 USD 25。のちに月2便で月額 USD 29 とし、前半便のみ月額 USD 12.95、後半便のみ月額 USD 17.95 の選択肢を加えた。月2箱で菓子は月約400〜500g、箱は17×23×4cm。いつでも解約でき、払い済みの分は配送する。",
+   "basis": [
+    "f7",
+    "f27",
+    "f33",
+    "f34"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "日本国外に住み、日本の菓子を定期的に受け取りたい個人。ドイツの客が全体の約10%を占めた時期がある。単発の贈り物として買いたい検索客もいて、その買い方を説明する記事などからは6件が購読に転じた。",
+   "basis": [
+    "f19",
+    "f21",
+    "f8"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "包装の表示が日本語で、客は自分で何を食べているのか分からない。そのため菓子の説明を紙ではなくメールで送っている。この説明文の調査と執筆に、毎月1日以上かかる。",
+   "basis": [
+    "f10",
+    "f35"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "初めの2か月の客は、以前に営んでいた漫画通販の客2人だけだった。その後 Hacker News に投稿すると約100人が購読した。続いてブログのリンクと検索流入で客が増え、1年後に300人になった。",
+   "basis": [
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "初期の客は Hacker News、ブログのリンク、検索から来た。その後、検索からのクリックは2016年の68,383件から2017年は41,358件に減った。新しい経路の試みはほぼ空振りだった。YouTube 投稿者180人への打診と試供品に約 USD 1,000 を使ったが新規は0人。Instagram は6か月で51投稿、フォロワー40人、売上0。Google Discover から約15,000クリックを得たが新規購読は0人。Product Hunt は訪問約6,000件で販売2件だった。",
+   "basis": [
+    "f5",
+    "f15",
+    "f20",
+    "f28",
+    "f29"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "ある4月の1人あたり月額費用は、送料 USD 6.40、菓子 USD 5.80、資材 USD 0.50。ほかに経理費が月 USD 100、広告実験が USD 260 かかり、梱包は外注、再送は無料で負担した。別の年の費用内訳は菓子44%、送料34%、箱8%、広告4%、その他10%で、その他には配信文・経理・翻訳・客対応の外注費が入る。2019年の月平均は菓子 USD 2,450、送料 USD 1,800、広告 USD 310。Stripe への移行で中間決済費を年約 USD 2,000 削った。",
+   "basis": [
+    "f2",
+    "f3",
+    "f17",
+    "f25",
+    "f26",
+    "f23"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-take_home",
+   "item": "TAKE_HOME",
+   "text": "本人申告によると、ある4月は購読者312人で売上 USD 7,234、PayPal 手数料を引いて USD 6,895。諸費用を引いた本人収入は約 USD 2,000、約20%の税・保険等を引いて約 USD 1,600 が手元に残った。2017年の利益は USD 38,374、翌年は約 USD 13,000、2019年は月平均 USD 1,290 まで縮んだ。",
+   "basis": [
+    "f1",
+    "f4",
+    "f14",
+    "f16",
+    "f25"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "本人の作業時間は1日約3時間、年約1,000時間と見積もられている。梱包は外注し、発送はスーパーの従業員が手伝う。配信文と客対応も外注していたが、のちに外注の2人を止め、月 USD 120 を浮かせた。",
+   "basis": [
+    "f18",
+    "f3",
+    "f8",
+    "f26"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "すでに習得していた Python と Google App Engine で自前の仕組みを組み、税関書類付きの発送用 PDF を自動で作る。配信は Mailchimp、客対応は Zendesk、継続課金は Recurly を使い、のちに Stripe へ移った。月 USD 20 の Basecamp はテキストファイルに置き換えた。",
+   "basis": [
+    "f38",
+    "f8",
+    "f23"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "郵便網と決済網に首を握られている。ドイツ宛ての返送が増えると配送を止めるしかなく、約10%の客を失った。感染症の流行で SAL と航空便が止まると、事業ごと休止に追い込まれた。カード決済では不正で数千 USD を失い、一時 PayPal だけに絞った。客の入口だった検索からのクリックも、2016年の68,383件から2017年は41,358件に落ちた。",
+   "basis": [
+    "f19",
+    "f31",
+    "f37",
+    "f15"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱い。いつでも解約でき、払い済みの分は配送される。中身は全員一律で、客ごとの好みや履歴が積み上がる仕組みも無い。",
+   "basis": [
+    "f34"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "発送は毎月14日と28日の一括で、客の月額は発送より先に入る。配送休止の時点で前払いが約 USD 3,500 溜まっており、全額を返金した。",
+   "basis": [
+    "f35",
+    "f31"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "本人は、検索からのクリックが減った理由に競争の激化と需要の減少を挙げている。中身は全員一律で個別対応ができず、品揃えでは差をつけにくい。メーカーから550セットを直接仕入れて原価を下げた回もあったが、商品がラムネ中心で続けられなかった。",
+   "basis": [
+    "f15",
+    "f34",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "本人は、当時は菓子の定期便という形自体が珍しかったこと、Hacker News に長く参加していたこと、そして運を挙げている。2014年には、自分で特に手を打たないまま、日本の菓子への関心の波で購読者が約3倍になった。",
+   "basis": [
+    "f6",
+    "f11"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "当時限定。本人も、同じ方法が今も通用するとは保証していない。後年は検索からの流入が減り、Instagram・YouTube 投稿者・Google Discover のどれからも新規購読を得られなかった。",
+   "basis": [
+    "f6",
+    "f15",
+    "f20",
+    "f28"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-failure_cause",
+   "item": "FAILURE_CAUSE",
+   "text": "購読者は2017年に636人から385人、2019年には207人まで減った。ドイツへの配送停止で約10%の客を失い、事業は生活費を完全には賄えなくなった。最後は感染症の流行で SAL と航空便が止まって配送を休止し、約200箱の在庫が残った。",
+   "basis": [
+    "f13",
+    "f25",
+    "f19",
+    "f24",
+    "f31"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2011年に開始。2014年に購読者が約3倍に増えた。2015年に1,200人を超えたが、不正決済が混じっていた。2017年8月25日に累計売上 USD 1,000,000 超えを公開した。同年、購読者は636人から385人に減った。2019年は1月314人から12月207人に減った。その後、感染症の流行で配送を休止し、公式トップには休止の案内が出ている。",
+   "basis": [
+    "f11",
+    "f12",
+    "f39",
+    "f41",
+    "f13",
+    "f25",
+    "f31",
+    "f32"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "菓子と送料が費用の大半を占める物販の定期便では、2017年に USD 141,220 を売っても USD 102,846 が費用で消えた。そのうえ郵便網が止まれば事業ごと止まる。物を送る定期便の利益は、自分では動かせない原価と配送網に左右される。",
+   "basis": [
+    "f14",
+    "f17",
+    "f31"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_data_fetcher_8e6a5e22ce2a": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "Google Sheets で売れていた API Connector と Airtable の利用者フォーラムを調べ、その Airtable 版を新しい拡張売り場に出した。開始時は月 USD 12 だった課金を、本人1人の専業体制のまま MRR USD 23,000 まで育てた。",
+   "basis": [
+    "f11",
+    "f12",
+    "f31",
+    "f32"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "Airtable の中で外部 API・CSV・XML・RSS や Google Analytics・Facebook Ads・OpenAI のデータを取り込む拡張を売っている。拡張自体は無料で入れられ、取り込みの実行回数・応答件数・利用人数・自動実行の間隔で段階的に課金する。Airtable の売り場には課金の仕組みが無いため、本人が自社サイトで Stripe 決済を受け、売り場に手数料を払わない形をとる。月払いか年払いを選べ、上限に達すると自動実行が止まって上位プランへの切り替えを促す。",
+   "basis": [
+    "f1",
+    "f5",
+    "f7",
+    "f8",
+    "f9",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pricing",
+   "item": "PRICING",
+   "text": "無料枠は期限が無く、月100回実行・応答10,000件・保存した処理5件・1人まで。年払いの月換算は、Starter USD 15（月3,000回・応答300,000件・1人・30分ごとの自動実行）、Pro USD 30（10,000回・1,000,000件・3人・5分ごと）、Business USD 75（40,000回・4,000,000件・10人）、Business+ USD 112（80,000回・8,000,000件・20人）。年払いは最大48%の割引と表示している。1回の実行は外部への要求1件で、ページ分割した分は追加で数える。失敗した要求は数えないが、変化の無い応答も件数に入る。料金は返金不可で、いつでも解約でき、支払済みの期間は使える。",
+   "basis": [
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f47"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "金を払っているのは、Airtable を業務の台帳に使う組織と個人。公式の顧客紹介には次の例が載っている。運送管理システムのデータを Airtable に集める Fox Logistics、450か所の歯科診療所のマーケティングデータを管理する歯科グループ、400人超の宣教師の身元確認と受け入れを管理する教会団体、従業員の工数・人事データを統合する会社。各組織の規模は販売者の紹介による。一方で本人は、主な客を値段に敏感な「プロシューマー」と位置づけている。無料枠で数か月使ったあと、具体的な用途ができてから課金する客もいる。",
+   "basis": [
+    "f50",
+    "f51",
+    "f27",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "業界専用のソフトにデータが散らばり、それぞれに Airtable や Zapier との連携が無い。手作業での取り込みは量も更新頻度も多すぎて回らない。Fox Logistics は先に RPA のボットで取り込みを試したが、動作が不安定でデータも食い違った。Data Fetcher に切り替えた後は、人数を増やさずに週の出荷件数を1,800件から2,500件へ伸ばした。",
+   "basis": [
+    "f50",
+    "f51"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "開発中から Twitter で進み具合を発信し、関心を持った人を案内ページに集めてメールアドレスを登録してもらった。公開と同時にその名簿へ通知し、Airtable の集まりやフォーラムにも投稿した結果、最初の2週間で客がついた。その後 Product Hunt でも公開している。最初の50人の客を得るまでには約6か月かかった。",
+   "basis": [
+    "f41",
+    "f26"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "2022年3月時点では、客の70〜80%が Airtable の拡張売り場から、約20%が記事と動画から来ていた。無料利用者の約10%が課金に進む。その後の取材では、記事と動画からの客が30〜40%まで増えたと本人が答えている。動画1本あたりの再生数は少ないが、見る人の目的がはっきりしていて客になりやすい。Google Maps を取り込む動画は8回の再生で1人が客になり、最も人気の動画は約1,000回の再生で30人超の客につながった。一方で、Airtable が無料プランから拡張機能を外したことなどで、売り場からの新規登録は減った。",
+   "basis": [
+    "f42",
+    "f27",
+    "f13",
+    "f37"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "外部から投資は受けていない。本人が以前作った Influence Grid を MRR USD 3,000 まで育てて USD 55,000 で売却し、その代金を開発期間中の生活費・ドメイン・Heroku に充てた。開発は本人1人で行い、主な投資は時間だった。2022年には Indeed で採った制作外注2人に記事と動画を任せ、本人の制作作業は週2〜3日から半日の確認に減った。2024年の取材時点でも専業は本人1人で、制作担当と元同僚の開発担当が時間単位で協力している。2023年初めに1日2時間の客対応担当を採ったが、合わずに終わった。サポート通話は週に数時間以内に収めている。",
+   "basis": [
+    "f45",
+    "f39",
+    "f40",
+    "f32",
+    "f17",
+    "f33",
+    "f20"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-tools",
+   "item": "TOOLS",
+   "text": "画面側は React・TypeScript と Airtable の Blocks SDK、裏側は Node.js・TypeScript・PostgreSQL・GraphQL で作り、Heroku で動かしている。決済は Stripe。ニュースレターは Mailerlite、取引メールは SendGrid で送る。ヘルプセンターは GitBook、ブログは GraphCMS。誰でも予約できるサポート通話は Calendly で受け付け、簡単な問い合わせは自作の管理画面で処理している。",
+   "basis": [
+    "f28",
+    "f10",
+    "f44",
+    "f20"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "製品も集客も Airtable に依存している。客の大半は Airtable の売り場から来る。自動実行は Airtable の REST API に頼っており、利用者が表の名前を変えるだけで自動実行が失敗する。Airtable が無料プランから拡張機能を外し、料金を変えたときには新規登録が減った。API に実行回数の制限が入ったときも、対応に追われた。インフラは Heroku と Redis に乗っており、障害対応や規模の拡大への対応に数週間を取られた。利用条件では可用性を保証していない。",
+   "basis": [
+    "f29",
+    "f37",
+    "f42",
+    "f19",
+    "f49"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "客を引き留める仕組みは弱い。定期の自動実行を業務に組み込んだ客は抜けにくく、Fox Logistics は出荷データの同期を業務の中心に据えている。それでも月次の総解約は約10%、純解約は約5%あった。単発の用途で使った客や、Airtable 自体をやめた客の解約は止められない。データの所有権は客側にあり、乗り換えを妨げる条件は無い。2023年8月からの停滞期には、月次解約が10〜11%に戻った。",
+   "basis": [
+    "f16",
+    "f50",
+    "f48",
+    "f34"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-incumbent_blindspot",
+   "item": "INCUMBENT_BLINDSPOT",
+   "text": "Airtable の中で数百の客に月 USD 15〜112 を課金する市場は、ベンチャー投資の資金で動く会社が狙うには小さすぎる。本人もこの点を、売り場に大きな競合がいない理由として挙げている。Data Fetcher は外部資金を入れず自力で黒字を出しているので、急成長を求められずにこの規模の市場に居続けられる。最大の脅威は、Airtable 自身が同じ機能を本体に組み込むことである。",
+   "basis": [
+    "f3",
+    "f45",
+    "f6"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "発想の元は Google Sheets 向けの API Connector で、その Airtable 版として後から出た。客の代わりの手段は、手作業での取り込みや RPA のボット、Zapier のような連携ツールである。ただし Fox Logistics が使う業界専用ソフトには、Airtable や Zapier との連携が無かった。表面の機能は数か月で真似できても、何百件と直してきた例外処理、レビュー、客や Airtable との関係は真似しにくい。一方で接続先が40以上に増えて保守が重くなり、接続の追加には慎重になった。",
+   "basis": [
+    "f11",
+    "f50",
+    "f36"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2020年11月に Airtable の売り場で公開され、12月15日に Product Hunt へ初掲載した。2021年末に本人が専業になり、12月に改版を出した。2022年2月24日に Product Hunt へ 2.0 を掲載し、2022年3月時点で有料客190人・MRR USD 6,500。2022年中に MRR USD 10,000 に達した。2023年8月から約5か月停滞し、12月に年払いの割引を導入した。2024年の取材時点で MRR USD 23,000。利用条件の最終更新は2025年4月10日で、事業は続いている。",
+   "basis": [
+    "f46",
+    "f14",
+    "f38",
+    "f21",
+    "f34",
+    "f31",
+    "f47"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "Airtable の拡張売り場が独立開発者に開いた直後に出した。競合のほとんどいない棚に並んだことで、宣伝をしなくても毎日少しずつ新規登録が入り、2022年3月時点で客の70〜80%がこの売り場から来ていた。期限の無い無料枠を置いたことで、数か月後に具体的な用途ができた時点で課金する客を逃さなかった。2021年12月の改版では用意済みの接続を増やし、API を知らない人でも使えるようにした。",
+   "basis": [
+    "f11",
+    "f42",
+    "f27",
+    "f14",
+    "f5"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "先行者が強く後発は困難。Airtable が無料プランから拡張機能を外して料金も変えたため、先行する Data Fetcher ですら新規登録が減った。売り場の初期に棚を取った優位は、今から入る後発には無い。一方で Data Fetcher は接続先を40以上抱え、例外処理を積み重ねてきた。",
+   "basis": [
+    "f37",
+    "f42",
+    "f36"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "成熟した土台（Google Sheets）で売れている道具を、開いたばかりの土台（Airtable）の売り場へ持ち込み、競合の少ない棚を先に取った。2023年に成長が止まった時期には、年払いの50%割引と料金表の初期表示を年払いに変える手を打ち、月次解約を10〜11%から約7%へ下げて伸びを取り戻した。",
+   "basis": [
+    "f11",
+    "f12",
+    "f34"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_dnsimple_c8560498b136": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "名前を伏せた既存サービスにうんざりして2010年4月7日に最初のコミットを打ち、外部資金なしでサーバー代をクレジットカードで払った。初日から課金して無料版を置かず、2015年4月には顧客15,000人超を抱えたドメイン・DNSの会社。",
+   "basis": [
+    "f4",
+    "f11",
+    "f12",
+    "f6"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "2010年4月7日に最初のコミット。2011年11月にALIASを導入した。2012年は顧客が年初の2,000人強から年末に5,000人超へ増え、同年半ばにRoboDomain Inc.を買収してSimone Carlettiが加わり、11月にDarrinが専業化して常勤が2人になった。2013年12月にAnycastへ移行。2014年12月1日、最大25gb/sの攻撃で同社サイトと顧客サイトが大きく止まった。これを受けて外部のDNS防御と予備DNSの整備へ進み、2015年1月に予備DNSを導入した。2015年4月時点で顧客15,000人超、チームは7人。2019年4月に顧客対応責任者を採用し、2026年7月末に4つのネームサーバーの応答経路すべてを自前管理へ移した。",
+   "basis": [
+    "f4",
+    "f2",
+    "f7",
+    "f9",
+    "f10",
+    "f37",
+    "f39",
+    "f6",
+    "f5",
+    "f40",
+    "f48"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "ドメイン登録とDNS管理を売る。他の登録事業者やプロバイダーにあるドメインやDNSも同じ画面とAPIで管理させる。収入は2本立てになっている。1本目は定期料金で、プラン基本料、DNSを置くゾーンごとの月額、無料枠を超えた問い合わせの従量料から成る。2本目はドメインの登録・更新と証明書の購入代金で、別請求になる。ICANN認定登録事業者として登録を扱う。再販者はAPIで登録・更新・DNSを自社の仕組みに組み込み、自分の価格とブランドで客に売れる。",
+   "basis": [
+    "f1",
+    "f24",
+    "f29",
+    "f33",
+    "f31"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "金を払う客は3種類いる。1つ目は、顧客ごとにドメインとDNSを預かる業者。公式の導入談では、カナダ・カルガリーで中小企業のIT管理を請け負う会社が、顧客別アカウント・権限・請求分離とAPIを理由に選んだ。2つ目は、APIで登録・DNSを自社製品に組み込み、自分のブランドで売る再販事業者。3つ目は、個人用と業務用を分けて複数アカウントを持つ開発者や個人。",
+   "basis": [
+    "f35",
+    "f17",
+    "f31",
+    "f24"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "客の痛みは、ドメインの登録先と認証情報が散らばることだ。公式の導入談の顧客は、前の委託先のメールアドレスで登録されていた主力ドメインを取り戻すのに数週間かかった。ドメインを握れない恐怖が乗り換えの引き金になっている。この顧客は導入後に月5〜10時間以上を節約したと述べるが、公式が選んだ体験談であり、独立した実測ではない。",
+   "basis": [
+    "f34",
+    "f36"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "初期はカンファレンスで広まり、フランスのヌガーやキャンディーも助けになった。公式の沿革では、Ruby Confでのデモが最初の顧客獲得の節目になっている。初期の紹介制度は影響力のある利用者の助けで成功した。5周年記事は初期の顧客としてJudi ClarkとKen Mayerを挙げる。",
+   "basis": [
+    "f13",
+    "f50",
+    "f56"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "開発者向けイベントへの露出が続いている。2025年にはXo Ruby、MicroConf Istanbul、CloudFest、DevOps LA、ElixirConf Orlandoなどを支援した。利用者紹介の制度は2017年に刷新して再開したが、2024年6月の追記で終了を告知した。再販者が自社ブランドで登録・DNSを売る経路は、営業窓口経由で開いている。",
+   "basis": [
+    "f52",
+    "f50",
+    "f51",
+    "f31",
+    "f32"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-referral",
+   "item": "REFERRAL",
+   "text": "初期の紹介制度は影響力のある利用者の助けで成功したが、その後は目立たなくなった。2017年に刷新して再開したものの、2024年6月の追記で終了を告知した。いま残る配管は再販制度で、再販者がAPIで登録・更新・DNSを組み込み、自分の価格とブランドで売る。再販向け料金はEnterprise顧客向けに出している。",
+   "basis": [
+    "f50",
+    "f51",
+    "f31",
+    "f32"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "主な費用は次のとおり。\n- 登録事業者への卸値\n- サーバー基盤\n- 通信\n- 監視などの運用ツール\n創業者はこれらがすべて上がったと説明し、旧Basic Resellerプランは数年間赤字だったと述べた（本人の説明）。\n- DDoS防御：2014年の攻撃後はCloudflare DNS Firewallを使ったが、値上げの提案を受けて自前側へ移った。\n- 問い合わせ対応：開発者が自ら答えるため高くつき、他の作業を遅らせると会社自身が認めている。",
+   "basis": [
+    "f54",
+    "f45",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "外部資金なしで始め、資金が無い中でサーバー代をクレジットカードで払った。2012年11月にDarrinが専業化して常勤が2人になり、2015年4月の5周年時点でチームは7人。複数国に散った遠隔チームで、全員が問い合わせに答える。通常1日33件の問い合わせを受け、各員が月平均32件を担当し、時差を使ってほぼ24時間を覆う。",
+   "basis": [
+    "f11",
+    "f10",
+    "f5",
+    "f6",
+    "f14",
+    "f42"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "登録の土台はICANN認定と、ICANN認定パートナーとの連携にある。ドメインの卸値は登録事業者側が決めるため、その値上げを自社では抑えられない。DNS防御ではCloudflareに乗った時期があり、IPアドレスを相手が保有していたので、抜けるのに1年以上かかりうる状態だった。2026年7月末に自前管理へ移り、いまは2つの供給先・16拠点に分散している。それでも上流の通信業者が通信を遮断し、Latitude.sh・Cogent・GTTとの調整を要した。",
+   "basis": [
+    "f33",
+    "f54",
+    "f45",
+    "f46",
+    "f48",
+    "f49"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "問い合わせの従量料を除く定期料金は前払いが前提で、上位プランへ変えると残り日数分を日割り残高にする。下位プランへの変更は期間末まで待たせ、日割り残高は戻さない。使っていなくても有効なゾーンは毎月課金される。Enterprise顧客と再販向けには年払いやデジタル残高への入金を用意しており、客の金が先に入る。",
+   "basis": [
+    "f29",
+    "f30",
+    "f32"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "公式の導入談の顧客は、DNS Made EasyやCloudflare for Teamsとも比べた。決め手は、顧客別アカウント・権限・請求分離とAPIだった。料金の改定時には、プランを勝手に移されたことに怒った利用者がドメインを移管して去っており、価格で動く客には乗り換え先がある。2026年7月末に応答経路を自前管理へ移した後は、大手クラウドに頼らない独立したDNSを売りにしている。",
+   "basis": [
+    "f35",
+    "f55",
+    "f48"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "ドメインの頭（apex）にCNAMEのような向け先を置けるALIASを、2011年11月に出した。掲示板では、これがHerokuと相性が良く開発者に選ばれた理由として挙がっている。売り込みの舞台は開発者のカンファレンスで、無料版を置かず初日から課金したため、外部資金なしでも現金が回った。",
+   "basis": [
+    "f2",
+    "f13",
+    "f12",
+    "f11"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "先行者が強く後発は困難。この商売では、他人の客に向けた攻撃もまとめて受け止めなければならない。2014年12月1日には最大25gb/sの攻撃で同社と顧客のサイトが大きく止まり、会社は自前の防御を担う資金と技能が足りないと認めた。応答網を自前で持つには、多数の業者の検証と、上流の通信業者との調整が要る。2026年7月末にようやく16拠点の自前網を完成させた。",
+   "basis": [
+    "f37",
+    "f39",
+    "f47",
+    "f48",
+    "f49"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_geocodio_c64c0721d500": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "住所変換に1万米ドルを払えない開発者のために夫婦で作った住所変換サービスが、2014年の開始以降15万人以上に使われ、数十億件の住所を処理した。",
+   "basis": [
+    "f1",
+    "f4",
+    "f5"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "米国・カナダ・メキシコ・英国の住所と座標の相互変換、住所整形、地域・選挙区・時間帯などの付加情報を売る。客は接続仕様（API）から呼び出すか、CSV・Excel・TSVを渡して処理する。代金は処理単位で数え、住所1件と付加情報1種がそれぞれ別の単位になる。そのため、付加情報を足すほど1件あたりの単位が増える。支払いは、使った分を翌月に払う従量、月額か年額のFlex、月額のUnlimitedから選ぶ。",
+   "basis": [
+    "f8",
+    "f32",
+    "f11",
+    "f13",
+    "f16"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "住所変換に1万米ドルを払えない開発者、従量プランを使う個人。加えて、Sherwin-Williamsの営業分析担当のように12,000件の住所を一括で座標にしたい企業の担当者や、SimplyRETSのように数年にわたり中核設備として組み込む開発会社がいる。英国住所が要る組織と、請求書払い・口座振替を求める組織はFlex以上で払う。",
+   "basis": [
+    "f1",
+    "f19",
+    "f9",
+    "f10",
+    "f20"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "他社では12,000件の住所処理に50〜60米ドルかかり、GoogleへのつなぎをExcelで自作すると遅いうえに頻繁に止まる。大手への年1万米ドルは個人開発者には出せない。一度組み込んだ後は、住所が正しく変換されない原因の調査に時間を取られることが痛みになる。",
+   "basis": [
+    "f9",
+    "f1",
+    "f10"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "公開時のHacker Newsへの投稿で、共同創業者2人が利用者の質問に直接答えた。大量の住所を一度の接続でまとめて処理する方式は、通信往復が減ると利用者に歓迎された。一方で、精度、海外対応、無料の代替との差を問う声も出た。",
+   "basis": [
+    "f1",
+    "f2",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "2025年に初のマーケティング担当が加わるまで、専任の販促要員を置いていなかった。Googleの住所変換から乗り換えやすくするGoogle互換接続と公式Pythonライブラリを追加し、開発者が既存の書き方のまま移れる入口を用意した。",
+   "basis": [
+    "f26",
+    "f25"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "原価は地理データで、米国国勢調査・OpenStreetMap・OpenAddressesなど2,000以上の公開情報源を自社の住所変換基盤で処理している。英国ではOrdnance SurveyやRoyal Mailの郵便住所ファイルなどの許諾データを使い、許諾は利用者ごとの年契約になる。米国ではUSPSの非独占的な許諾を持つ。ほかに技術者・技術対応・経営補助・マーケティングの人件費がかかる。従量プランはカード払いに限るため、カードの決済手数料も発生する。",
+   "basis": [
+    "f21",
+    "f22",
+    "f20",
+    "f26",
+    "f27",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "最高経営責任者のMichele Hansenと最高技術責任者のMathias Hansenの夫婦が率い、意図して小さな会社にしている。2025年に設備担当の主任技術者、経営補助、初のマーケティング担当の3人が加わり、さらに開発担当と技術対応担当を米国東部時間帯で募集している。",
+   "basis": [
+    "f4",
+    "f26",
+    "f27",
+    "f28"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "商品の中身は他者のデータに乗っている。米国はUSPSの非独占的な許諾、英国はOrdnance SurveyやRoyal Mailの許諾データに頼る。英国の許諾は利用者ごとの年契約を求めるため従量課金と合わない。数か月の交渉の末、英国対応を従量プランから外し、定額のFlexと英国対応のUnlimitedに限る形へ料金表を作り直した。カナダの完全な郵便番号はCanada Postの独自財産のため、通常は先頭3文字しか返せない。",
+   "basis": [
+    "f22",
+    "f20",
+    "f12",
+    "f23"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "最初の接続仕様の版を今も動かし続け、互換性を壊す変更は別の版に分けるため、一度組み込んだ客は作り直す理由がない。SimplyRETSは数年にわたり中核設備として組み込んでいる。定額契約の未使用単位は契約が有効な間しか繰り越せない。既存客の値上げ後の割引も、解約して再契約すると消える。",
+   "basis": [
+    "f6",
+    "f10",
+    "f14",
+    "f17"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "Flexには年額があり、Flex 350の年3,250米ドルは月額325米ドルの10か月分にあたる。年額を選んだ客からは1年分の代金がまとめて入る。別途購入する処理単位は失効しない形で先に売られる。これに対し、従量プランは使った後の翌月1日に請求する後払いである。",
+   "basis": [
+    "f13",
+    "f14",
+    "f11"
+   ],
+   "formula": "Flex 350 年額 3,250米ドル ÷ 月額 325米ドル = 10か月分（f13）。Flex 650: 6,000 ÷ 600 = 10、Flex 850: 7,750 ÷ 775 = 10",
+   "presentation": "ESTIMATE"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "競合はGoogle Maps APIと無料の代替手段である。公開時の精度は、無作為の100住所のうち90件がGoogleの位置から1マイル以内という水準で、利用者からは精度・海外対応・無料の代替との差を問われた。勝ち筋は、データの使い方に制限を設けないこと、他社で12,000件50〜60米ドルかかる処理を安く済ませること、他社製品の再販売ではない自社基盤を持つことにある。Google互換接続で、乗り換えの手間も削っている。",
+   "basis": [
+    "f3",
+    "f1",
+    "f9",
+    "f21",
+    "f25"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2014年に開始し、同年からLaravelとPHPで構築した。2025年に主要リリースを12回行い、3人を採用した。2026年1月31日時点で有効なUnlimited契約には値上げ後も割引を続ける。その後の9月7日、展開中止で2台のサーバーの防壁が無効のまま残り、9月16日に一時保存サーバーへの不正アクセスが見つかった。20:58から23:24（UTC）までに対処した。",
+   "basis": [
+    "f5",
+    "f27",
+    "f24",
+    "f26",
+    "f17",
+    "f29",
+    "f30"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "公開時は米国国勢調査のデータを自社の変換基盤で処理し、他社の結果を再販売しない作りにした。1日2,500件の無料枠を出したうえで、1,000件あたり1米ドルと大手より安い価格を置いた。その後、約10年は1,000単位あたり0.50米ドルで据え置き、2026年2月に1米ドルへ戻した。大手に1万米ドルを払えない開発者に対し、価格と使い方の制限の両面で入口を開けた。",
+   "basis": [
+    "f21",
+    "f15",
+    "f1"
+   ],
+   "formula": "数字は公開時の投稿（1件0.001米ドル＝1,000件あたり1米ドル、1日2,500件無料）と料金改定告知（0.50米ドル→1米ドル、約10年据え置き）に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "新しく参入する側が同じ水準に追いつくには時間がかかる。2,000以上の公開情報源の統合、USPSの許諾、英国のOrdnance Survey・Royal Mailの許諾データの利用、15万人以上の利用実績が積み上がっている。そのうえ最初の接続仕様を維持し続けているため、組み込み済みの客が乗り換える理由が薄い。",
+   "basis": [
+    "f21",
+    "f22",
+    "f5",
+    "f6"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "大手に年1万米ドルを払えない開発者という取り残された層に、無料枠と使い方の制限なしで入った。そのうえで最初の接続仕様を壊さず守り続け、地味な部品のまま客の設備の中核に居座った。",
+   "basis": [
+    "f1",
+    "f11",
+    "f6",
+    "f10"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_lunch_money_be2eeb1f4fdf": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "元Twitterの開発者Jen Yipは、多通貨の支出をGoogle Sheetsで1年半管理していた。それを趣味でアプリにし、最初の5年を1人会社で回して、有料会員13,000人超の購読制家計簿に育てた。",
+   "basis": [
+    "f3",
+    "f10",
+    "f6",
+    "f5"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Jenは2018年11月末から副業で1人で開発し、2019年8月29日にShow HNで公開した（本人投稿）。創業は2019年。2021年1月に料金を$10/月・$100/年へ変更した。2023年夏には年額をUS$100から$40〜$150の任意価格へ移した。2023年8月にはスパム業者が数千の新規アカウントを作り、その月の指標が歪んだ。Stripeからはそのデータを除けない。Mint終了も重なり、本人によると直近10か月でMRRはほぼ倍増した。2024年3月22日の取材記事は、MRR $34,000への到達を紹介している。その後、2026年3月15日から新規の年額下限を$50から$60へ上げると通知した。",
+   "basis": [
+    "f14",
+    "f15",
+    "f3",
+    "f25",
+    "f28",
+    "f26",
+    "f19",
+    "f34"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "個人向けの家計管理アプリを、利用者本人に月額か年額の購読で売る。対価は銀行からの取込、多通貨対応、カテゴリ別の月次予算、ルールによる自動化、純資産の月次追跡。収入は購読料だけで、広告は載せず、利用者データも第三者に売らない。公式によると、任意価格の新料金では利用者の約37%が年$100超を払い、この層が収入の60%超を占める（月$10の利用者を含む）。",
+   "basis": [
+    "f1",
+    "f2",
+    "f4",
+    "f33",
+    "f27"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "30か国超の個人が、有料会員として13,000人超いる。公式サイトは多通貨対応を売りにし、国をまたいで暮らす人や夫婦・家族など幅広い利用者を挙げている。第三者の投稿者の例では、Mintから乗り換えた人がCIBC・BMO・Simpliiの口座を同期して使っている。",
+   "basis": [
+    "f5",
+    "f1",
+    "f43"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "複数の通貨にまたがる支出を、表計算で手作業で追い続ける手間が出発点だった。Mintから乗り換えたある投稿者は、データ移行の容易さと分類の自由度を評価している。一方で、外出先で入力したい人や、銀行口座をクラウドの家計簿に預けること自体を怖がる人もいる。",
+   "basis": [
+    "f3",
+    "f43",
+    "f18",
+    "f17"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "2019年8月29日、Show HNに「副業で1人で作った」と公開投稿した。そこで、画面が簡潔で速いという評価が出た。同時に、銀行口座を連携したくないという声や、モバイルアプリを求める声も直接集まった。",
+   "basis": [
+    "f15",
+    "f14",
+    "f17",
+    "f18"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-referral",
+   "item": "REFERRAL",
+   "text": "紹介制度では、紹介された人は試用後の1か月が無料になる。紹介者は、相手の継続請求のたびに10%を口座残高として受け取る（現金ではない）。アフィリエイトは新規有料利用者1人につき$15。First Promoterで登録し、申請は手動で審査する。支払いの最低額はUS$30。",
+   "basis": [
+    "f39",
+    "f40"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "人件費は請負者への支払い。2024年7月時点ではJen以外に非常勤の請負者5人がいた。現在の公式紹介では、創業者を含む中核5人に加えて外部協力者がいる。採用は遠隔の請負契約で、応募時に時給を尋ね、福利厚生は出さない。基盤はHeroku・Netlify・Cloudflare。外部APIはStripe（決済）・Plaid（銀行取込）・Fixer.io・Twilio・Postmark・CoinGeckoなど。業務ツールはFront・Canny・PostHog・Customer.io・Sentry・CircleCI・GitHubなど。",
+   "basis": [
+    "f29",
+    "f42",
+    "f36",
+    "f37",
+    "f38"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "外部投資は受けず、購読料だけで運営する。最初の5年間はJenの1人会社で、開発・デザイン・サポート・マーケティングを全部こなした。いまは中核チームが創業者・顧客対応・開発者支援・開発・販促の5人で、ほかに外部協力者がいる。会議はほぼせず、Discordで非同期に仕事を進める。",
+   "basis": [
+    "f4",
+    "f6",
+    "f7",
+    "f29"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "銀行からの取込はPlaid、課金はStripeに乗っている。Stripeについては、スパム業者の大量登録で歪んだ月のデータを除けない状態にある。第三者の投稿者は、Plaid経由の投資口座に対応していない点と、銀行口座の再連携の手間に不満を書いている。",
+   "basis": [
+    "f37",
+    "f28",
+    "f44"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "年額は自動更新の前払いで、1年分の現金が先に入る。解約しても効くのは支払済み期間の終わりからで、残り期間は通常返金しない（個別相談は可）。2025年11月3日以降に休止した分の未使用期間は返金せず、再開時の残高として残る。",
+   "basis": [
+    "f31",
+    "f45",
+    "f46"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "Mintの終了時に、データ移行の容易さを武器に受け皿になった。一方で、銀行口座をクラウドに預けず自前設置を絶対条件にする層は、そもそも対象外になっている。",
+   "basis": [
+    "f26",
+    "f43",
+    "f17"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2018年11月末、副業で開発を始めた。2019年に創業し、同年8月29日にShow HNで公開。2021年1月、$10/月・$100/年に変更。2023年夏、年額を任意価格に移行。2024年3月22日、取材記事がMRR $34,000を紹介。2026年3月15日、新規の年額下限を$60に引き上げ。現在も料金を掲示して営業中。",
+   "basis": [
+    "f14",
+    "f3",
+    "f15",
+    "f25",
+    "f19",
+    "f34",
+    "f31"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "2023年夏に年額を$40からの任意価格へ下げた。その数か月後にMint終了が重なり、MRRは10か月でほぼ倍増した。料金変更の効果だけを切り分けることは、本人も難しいとしている。2025年の調査（1,170人）では、満足度の平均が8.4/10、NPSは57だった。",
+   "basis": [
+    "f25",
+    "f26",
+    "f11"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "特化しないと困難。伸びの引き金は、Mint終了という一度きりの出来事だった。入口も、汎用の家計簿ではなく「多通貨の支出を表計算で回す」という狭い痛みだった。",
+   "basis": [
+    "f26",
+    "f3",
+    "f1"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "自分が1年半表計算で回していた多通貨の痛みを、そのまま商品にした。その上で、料金の永久固定と「解約より休止」の選択肢で、既存客が出ていく理由を先に潰した。",
+   "basis": [
+    "f3",
+    "f32",
+    "f30"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_noteforms_003fcbdd14cf": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "2021年5月にAmazon Web Servicesを辞めてParisへ戻った開発者が、需要調査をせずに4日間でNotion専用のフォームを作った。まず無料で配り、その後に月$15の定額へ切り替えた。",
+   "basis": [
+    "f4",
+    "f6",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "2021年5月、創業者はAmazon Web Servicesを退職し、LondonからParisへ戻った。1〜2年分の貯蓄はあったが手を付けない計画で、足りなければ受託仕事で稼ぐつもりだった。使い慣れた構成と雛形で、初版を4日間で作った。作り込んだのはNotionとの接続だけで、条件分岐、細かな見た目変更、複数ページは後回しにした。最初の2〜3か月は無料で、サーバー費は月$20だった。利用者とは毎日通話し、Facebookグループも運営した。製品が落ち着いた段階で、見た目変更や添付など費用がかかる機能を月$15の定額で有料化した。既存利用者には生涯40%割引を配った。創業者の申告では、その後に登録26,000人、有料850人、年換算の継続売上$182,000に達した。",
+   "basis": [
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f11",
+    "f12"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "Notionのデータベースに回答を直接書き込むフォーム作成ツールを売っている。フォーム数と回答件数は無料で無制限にした。そのうえで、製品名表示の除去、条件分岐、ファイル添付、複数利用者、独自ドメインといった機能に月額料金を取る。添付のように運営側に費用が出る機能と見た目の変更は、最初から有料側に置いた。",
+   "basis": [
+    "f1",
+    "f9",
+    "f14",
+    "f16"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "業務や予定をNotionで管理している個人とチームが客で、公式サイトは利用者と企業を合わせて130,000以上と案内している。使い方の例は幅広い。週間予定の入力欄をNotionに埋め込む個人がいる。学期の始まりに授業関連の申請フォームを使い回す教育現場もある。長い複数ページの質問票を組む団体もある。複数人で同じフォームを編集する会社は、月$49のTeamを払う。",
+   "basis": [
+    "f3",
+    "f27",
+    "f29",
+    "f30",
+    "f15",
+    "f16"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "Notionのデータベースに外部の人の回答や自分のメモを入れるには、手で打ち込むか別の自動化ツールをつなぐしかなかった。接続先とデータベースを選ぶだけでフォームが使えるこの製品は、その手間をなくした。利用者からは入力の手軽さが評価された。一方で、ワークスペース全体のデータを見られるのではという不安も出た。創業者は、共有するデータベースを選べると答えている。",
+   "basis": [
+    "f23",
+    "f24",
+    "f25",
+    "f27"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "創業者自身がRedditのNotion利用者の場に投稿した。「接続先とデータベースを選ぶだけで使える」と説明し、実演へのリンクを付けた。最初の2〜3か月は完全に無料で配り、利用者に意見を求める仕組みとFacebookグループで声を集めた。有料化の際は、既存の無料利用者全員に生涯40%割引を配り、無料の利用者から最初の払い手を探した。",
+   "basis": [
+    "f23",
+    "f7",
+    "f11",
+    "f9"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "主な集客は、製品が自分で広がる仕組みだと創業者側は説明している。無料フォームには製品名が表示される。利用者がフォームを共有したりリンクを貼ったりすると、回答した人が製品を知る。利用者が自分のNotionに埋め込んだ例をRedditで見せたこともある。継続課金の30%を払う紹介制度もあったが、すでに締め切られている。",
+   "basis": [
+    "f10",
+    "f27",
+    "f18",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "創業者1人で、使い慣れた構成と雛形を使い、4日間で初版を出した。1〜2年分の貯蓄はあったが、使わない前提で始めた。足りなければ受託の仕事で稼ぐ逃げ道を用意していた。初期の固定費は月$20のサーバー代だけだった。",
+   "basis": [
+    "f5",
+    "f6",
+    "f7"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "製品の中身はNotionのデータベースへの接続そのものなので、Notionの接続の仕組みと利用者が与える共有権限がなければ動かない。利用者はワークスペースのデータへの権限を気にしており、どのデータベースを共有するかは客の側が決める。製品名から「Notion」を外してNoteFormsに改名した点も、土台の会社の名前に寄りかかった製品であることを示している。決済はStripe、基盤はAmazon Web Servicesに乗っている。",
+   "basis": [
+    "f1",
+    "f2",
+    "f24",
+    "f25",
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱い。回答は客自身のNotionデータベースに溜まるので、やめてもデータは手元に残る。乗り換えの手間として残るのは、サイトやNotionページに埋め込んだフォームや共有済みのリンクを差し替える作業くらいだ。",
+   "basis": [
+    "f1",
+    "f10",
+    "f27"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-referral",
+   "item": "REFERRAL",
+   "text": "紹介者には、紹介した客の継続課金の30%を毎月PayPalで払い、最低支払額は設けていなかった。ただし同じページで制度は締め切られており、新しい紹介者は受け付けていない。",
+   "basis": [
+    "f18",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "一般向けのフォーム作成ツールと正面から機能を競わず、Notionとの接続に絞って入った。有料化の値付けは、競合の安いプランの約半分を目安にした月$15の定額だった。一方で利用者の不満も出ている。料金が高いうえ、基本機能が有料側にあるという声がある。無料では個人用フォームを保護できないという声もある。関連項目の検索や、長いフォームの質問の並べ替えが使いにくいという投稿も公開の要望板に並ぶ。",
+   "basis": [
+    "f6",
+    "f8",
+    "f26",
+    "f28",
+    "f29",
+    "f30"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2021年5月：創業者がAmazon Web Servicesを退職し、Parisへ戻る。\nその後：4日間で初版を公開し、最初の2〜3か月は無料で運営。\nその後：月$15の定額で有料化し、既存利用者に生涯40%割引を配る。\n現在：名称をNotionFormsからNoteFormsに改め、Basic・Pro・Teamの3段階で営業中。紹介制度は締め切り済み。",
+   "basis": [
+    "f4",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f2",
+    "f14",
+    "f15",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY",
+   "formula": "数字は出典に載っている値"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "完全無料で始め、フォームに製品名を表示したので、利用者が共有したフォームそのものが広告になった。フォームは作った本人以外の回答者の目に触れるので、利用者1人が複数の見込み客を連れてくる。有料化の前に毎日の通話とFacebookグループで利用者の声を拾い、使われる形に直してから課金した。",
+   "basis": [
+    "f7",
+    "f10",
+    "f11"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-viability",
+   "item": "VIABILITY",
+   "text": "先行者が強く後発は困難。この製品はすでに利用者と企業で130,000以上を抱えている。無料フォームに付く製品名表示が、新しい客を呼び続ける仕組みとして回っている。後から同じ「Notion用フォーム」を出しても、不満の出ている料金や使い勝手の穴を突かない限り、乗り換える理由が薄い。",
+   "basis": [
+    "f3",
+    "f10",
+    "f26",
+    "f28"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "回答件数は無料で無制限にし、運営側に費用が出る添付と見た目の変更だけを有料にした。さらに無料フォームに製品名を残し、回答者を次の客に変えた。無料で配ることを集客の仕組みとして設計した点が核心だ。",
+   "basis": [
+    "f9",
+    "f10",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_quaderno_81236030d721": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "4人のチームが Stripe 向け請求書サービスを Hacker News に投稿した。その日のうちに見込客の指摘を受けて Stripe 接続を設定の5番目から登録の最初へ移し、投稿の2週間後までに有料客2人と月次継続売上100ドルを得た。",
+   "basis": [
+    "f3",
+    "f4",
+    "f8",
+    "f9",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Carlos が外部出資なしで2014年に公開した。公開前に約1か月、夜間に開発し、公開時のチームは資源の限られた4人だった。5月14日に Stripe 向け請求書サービスとして Hacker News に投稿し、トップページに8時間載った。見込客 jot は3社分を契約したかったが、障害を挙げた。Stripe の取引に必要な情報を足すにはコードを書く必要があり、Stripe 接続は設定の5番目の手順だった。創業者は同日、Stripe 接続を登録手順の最初に移した。5月19日には、追加情報を設定しなくても Stripe の支払から付加価値税を算出できるようにした。投稿の2週間後の集計は、訪問410人、登録19人、Stripe 接続5人、有料客2人で、月次継続売上は100ドルだった。",
+   "basis": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f8",
+    "f9",
+    "f10",
+    "f6",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "オンライン販売者に、販売地別の税額算出、請求書、税登録のしきい値通知、申告支援を月額で売る。料金は月の取引件数で段階が上がる。数える件数には販売だけでなく、請求書・領収書・貸方票・経費も含まれる。",
+   "basis": [
+    "f13",
+    "f17",
+    "f18",
+    "f19"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "国や地域をまたいで売り、販売地ごとに税額を出す必要があるオンライン販売者。公式トップは利用事業者2,300超、支援国150超と表示する。公開当初の見込客には、関わる3社分の契約を一度に検討した jot のように、複数の会社の請求を受け持つ立場の人もいた。",
+   "basis": [
+    "f13",
+    "f14",
+    "f16",
+    "f8"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "売るたびに販売地ごとの税額を正しく出し、税登録が必要になるしきい値を超える前に気づかなければならない。公開当初は、Stripe の取引に付加価値税の情報を足すためだけにコードを書いて保守する手間を、見込客が嫌った。",
+   "basis": [
+    "f13",
+    "f8",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-referral",
+   "item": "REFERRAL",
+   "text": "紹介した有料客の支払から30%を、最長24か月払う紹介制度がある。申込は人が審査する。報酬は四半期ごとに PayPal か Wise で払い、有効な紹介先3件が条件。最低支払額は公式ページが100ドル、ヘルプが50ドルとしていて食い違う。ヘルプは支払時期を1月・4月・7月・10月の最初の週とする。自己紹介は禁止で、紹介の追跡には閲覧者の Cookie 許可が要る。",
+   "basis": [
+    "f25",
+    "f26",
+    "f27",
+    "f28"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "紹介経由の有料客については、その客の支払の30%が最長24か月、紹介者への報酬として出ていく。規約は、一部の第三者サービスとして Zamp Technologies, Inc. と Global VAT Compliance B.V. の条件を参照している。",
+   "basis": [
+    "f25",
+    "f34"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "外部出資に頼らずに始めた。公開前の約1か月は夜間に開発し、公開時は資源の限られた4人のチームだった。",
+   "basis": [
+    "f1",
+    "f2",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "規約では月の料金を前払い・返金なしとしている。月の途中で解約しても、その月の全額が必要になる。",
+   "basis": [
+    "f31"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱い。規約は随時の解約と無料のデータ取出しを認め、請求書・顧客・商品などを構造化データで持ち出せる。ただし解約後の削除時期は、第5節が6か月、第6節が30日の取出し期間後と書いていて、同じ規約の中で食い違う。",
+   "basis": [
+    "f32",
+    "f33"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "出発点は Stripe 向けの請求書サービスで、価値の中心は Stripe 接続と Stripe の支払データだった。初期の改良も、Stripe 接続を登録の最初に移すことと、Stripe の支払から付加価値税を出すことだった。一部のサービスは Zamp Technologies, Inc. と Global VAT Compliance B.V. の条件に乗っている。",
+   "basis": [
+    "f4",
+    "f9",
+    "f10",
+    "f34"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2014年に Carlos が公開した。同年5月14日に Hacker News へ投稿し、同日 Stripe 接続を登録手順の最初へ移した。5月19日には、追加設定なしで付加価値税を算出する機能を報告した。",
+   "basis": [
+    "f1",
+    "f4",
+    "f9",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "投稿で来た訪問410人のうち、払ったのは2人だけだった。代わりに、3社分を買いかけて離れた見込客の不満を同日と5日後に製品へ反映した。最初の公開で取るべきものは売上より、買う寸前で止まった客の具体的な障害だ。",
+   "basis": [
+    "f6",
+    "f8",
+    "f9",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_snipcart_9a1012111695": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "制作会社Spektrumの古くからの顧客の、古いASPサイトに販売機能を足す仕事を発端に、2013年8月に最初の版を出したケベック発の後付け買物カート",
+   "basis": [
+    "f6",
+    "f5",
+    "f4"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "発端は、制作会社Spektrumの顧客の古いASPサイトに販売機能を追加する仕事だった。2013年8月に最初の版を公開した。最初の2年間はJamstackを意識していなかった。初期の大きな集客策として開発者向け広告網のCarbon Adsに6月の1か月で$1,575を使った。広告は464,464回表示され、登録19件、実取引まで進んだ利用者は5人で、1人当たりの広告費は$315だった。2014年7月3日にこの結果を公開し、専用の着地ページを用意すべきだったと振り返った。次に広告費を使うなら、Syndicateのように有用な内容と自社製品を結びつける形を試すとした。最初の従業員Franckは、後にパートナーになった。",
+   "basis": [
+    "f6",
+    "f5",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f7"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "既存サイトに後付けする買物カートを、開発者と制作会社に向けて売る。代金を払うのは、カートを組み込んでもらう商店主や開発者の上司で、店の取引額の2%を毎月払う（月販$1,000未満なら月額$20）。組み込み自体は開発者が無料の試験環境で済ませ、本番に切り替えた時点から課金が始まる。",
+   "basis": [
+    "f1",
+    "f13",
+    "f16",
+    "f18",
+    "f19"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "組み込みを決めるのは、HTMLを編集できる個人の開発者や制作会社。実際にカードで払うのは、その開発者に提案された商店主や上司になる。大企業は営業や個別要望に応える余力がないため、主な狙いから外している。",
+   "basis": [
+    "f1",
+    "f3",
+    "f13",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "手入れしたくない古いASPのサイトにも、WordPressなどで作った既存のサイトにも、作り直さずに販売機能を付けたい。この悩みに対し、JavaScriptを足して商品ボタンにHTML属性を付けるだけで済ませる。",
+   "basis": [
+    "f6",
+    "f3",
+    "f2"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-first_customers",
+   "item": "FIRST_CUSTOMERS",
+   "text": "最初の利用場面は、母体の制作会社Spektrumの顧客だった。その顧客の古いASPサイトに販売機能を付ける受託の仕事から、製品が生まれた。",
+   "basis": [
+    "f6"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "売り込む相手は開発者で、開発者が商店主や上司に提案して契約が決まる。大企業向けの営業はせず、個人の開発者に広く訴求する。有料広告のCarbon Adsは、$1,575をかけて登録19件、実取引に至った利用者は5人で、1人当たり$315かかった。",
+   "basis": [
+    "f13",
+    "f14",
+    "f9",
+    "f10"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "制作会社Spektrumの受託の仕事の中から始まった。最初の従業員Franckは後にパートナーになった。大企業の営業や個別要望を処理する余力がない少人数の体制だった。",
+   "basis": [
+    "f6",
+    "f7",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "決済そのものは外部の決済会社に乗っており、その手数料は別にかかる。組み込めるのは、HTMLを編集できるサイトに限られる。",
+   "basis": [
+    "f16",
+    "f3"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "弱い。注文と顧客のデータは管理画面に溜まるが、書き出しができる。個人データの写しや削除もメールで依頼でき、解約も管理画面かメールで済む。",
+   "basis": [
+    "f21",
+    "f27",
+    "f20"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-competition",
+   "item": "COMPETITION",
+   "text": "Snipcart自身の観察では、商店主はShopifyを、開発者はMoltinやFoxy.ioを比較の対象にしやすい。払う人と選ぶ人で比べる相手が違うため、開発者向けの比較では技術で勝負し、商店主には開発者経由で売る形を取っている。",
+   "basis": [
+    "f15",
+    "f13"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2013年8月に最初の版を公開した。2014年7月3日に、Carbon Adsの広告実験の結果を記事として公開した。",
+   "basis": [
+    "f5",
+    "f12"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "財布を持つ商店主ではなく、組み込む開発者を口説き、期限なし・カード不要の試験環境で先に作り込ませた。支払いを決める上司や店主への提案は、開発者に任せている。",
+   "basis": [
+    "f13",
+    "f18",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
+ ],
+ "ent_statusgator_316d3eb5edf6": [
+  {
+   "id": "a-headline",
+   "item": "HEADLINE",
+   "text": "顧客の不具合を数時間調べたら、原因はFacebook APIの障害だった。この経験から生まれた障害監視の副業は、月1,000米ドルを目標にしたが、2016年12月の継続月額売上は330米ドルにとどまった。",
+   "basis": [
+    "f1",
+    "f2"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-story",
+   "item": "STORY",
+   "text": "Colin Bartlettは2014年に考案し、2015年1月に公開した。目標は2015年6月までに月1,000米ドルだったが届かず、2016年12月の継続月額売上は330米ドルだった。この時点の利用者は有料22人、無料1,159人。費用はHerokuの154米ドルが最も大きく、差額は月161米ドルだった。買収提案が1件来たが、提示額が小さく断った。2018年にAndy Libbyが加わり、Nimble Industriesを設立した。2020年に学校（K12）向けの提供を始め、遠隔授業中の問い合わせ削減を支援した。2022年にTinySeedに参加し、最初で唯一の資金調達を行った。2024年には、公式の障害告知より早く異常を捉えるEarly Warning Signalsを一般提供した。",
+   "basis": [
+    "f8",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f7",
+    "f9",
+    "f10",
+    "f11",
+    "f12"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-business_model",
+   "item": "BUSINESS_MODEL",
+   "text": "11,220以上の外部サービスの稼働状況を1か所にまとめ、障害を通知する。状況ページも作れる。無料版は監視3件・月10通知まで。監視件数、状況ページの数、管理者数、履歴の期間を広げたい組織が月額の有料プランに上げる。支払いはStripeで行う。",
+   "basis": [
+    "f13",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f31"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer",
+   "item": "CUSTOMER",
+   "text": "結婚式・イベント業界向けSaaSのRock Paper Coinは、取引先サービスの障害を把握するために使っている。もう一つの客層は、遠隔授業中に問い合わせが殺到した学校のIT部門。自社集計では、教育関係の利用者191人が127種類のサービスを監視していた。",
+   "basis": [
+    "f37",
+    "f10",
+    "f39"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-customer_pain",
+   "item": "CUSTOMER_PAIN",
+   "text": "自社の不具合だと思って数時間調べたら、原因は取引先の障害だった。この空振りが痛みの中身である。Rock Paper Coinは導入前、取引先サイトが止まっても状況が分からなかった。学校のIT部門は、遠隔授業中に押し寄せる問い合わせへの対応に追われていた。",
+   "basis": [
+    "f1",
+    "f37",
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-channels",
+   "item": "CHANNELS",
+   "text": "Facebook、Google AdWords、Twitterの広告は効果が乏しかった。効いたのは検索と口コミで、初期にStackShareへ寄稿した記事は長く利用者を運び続けた。現在は、TinySeedの投資先とSaaS Instituteの会員に、Teamプランを2年間無料、その後2年間は任意のプランを50%引きで提供している。",
+   "basis": [
+    "f6",
+    "f36"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-cost_structure",
+   "item": "COST_STRUCTURE",
+   "text": "2016年12月の費用は、Heroku 154米ドル、Stripe 10米ドル、DigitalOcean 5米ドル。費用の大半はサーバー代が占めた。現在の設備はHeroku・AWS・Cloudflare・Vercelで、決済はStripeを使う。",
+   "basis": [
+    "f3",
+    "f33"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-take_home",
+   "item": "TAKE_HOME",
+   "text": "2016年12月の事業の売上と主な費用の差額は月161米ドルと推す。創業者の給与と一部の小額費用は差し引いておらず、創業者個人の所得ではない。",
+   "basis": [
+    "f2",
+    "f3"
+   ],
+   "formula": "継続月額売上330米ドル − Stripe 10米ドル − Heroku 154米ドル − DigitalOcean 5米ドル = 161米ドル（事業の差額。創業者給与と一部の小額費用は含まない）",
+   "presentation": "ESTIMATE"
+  },
+  {
+   "id": "a-capital_and_team",
+   "item": "CAPITAL_AND_TEAM",
+   "text": "Colin Bartlettが一人で考案・公開した。2018年にAndy Libbyが加わってNimble Industriesを作り、複数国の遠隔勤務で運営している。外部資金は2022年のTinySeed参加時の1回だけ。",
+   "basis": [
+    "f8",
+    "f9",
+    "f11"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-dependencies",
+   "item": "DEPENDENCIES",
+   "text": "商品は、11,220以上の他社が出す稼働状況の情報を集めることで成り立っている。運営はHeroku・AWSに、課金はStripeに乗る。携帯版はiOSとAndroid向けに出しているため、App StoreとGoogle Playにも依存する。",
+   "basis": [
+    "f13",
+    "f33",
+    "f40"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lock_in",
+   "item": "LOCK_IN",
+   "text": "客は状況ページを公開し、部品単位の絞り込み監視とSMS・Slack通知を業務に組み込む。Corporateプランでは12か月分の履歴も貯まる。携帯版は、状況ページにアクセスできる人なら誰でも追加できる。一方で、無料版を含む下位プランへの変更はいつでもできる。",
+   "basis": [
+    "f37",
+    "f29",
+    "f40",
+    "f32"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-upfront_cash",
+   "item": "UPFRONT_CASH",
+   "text": "全有料プランに年払いがあり、月換算で月払いより安い。Starterは72米ドル対79米ドル、Corporateは274米ドル対299米ドル。年払いを選んだ客からは、1年分の代金が先に入る。",
+   "basis": [
+    "f27",
+    "f28",
+    "f29"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-timeline",
+   "item": "TIMELINE",
+   "text": "2014年に考案し、2015年1月に公開した。2016年12月の継続月額売上は330米ドル。2018年にNimble Industriesを設立し、2020年にK12向けの提供を開始した。2022年にTinySeedから資金を調達し、2024年にEarly Warning Signalsを一般提供した。2025年からSOC 2 Type 2の認証を受けている。",
+   "basis": [
+    "f8",
+    "f1",
+    "f2",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f35"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-why_it_worked",
+   "item": "WHY_IT_WORKED",
+   "text": "2020年、遠隔授業で学校への問い合わせが増えたところにK12向けの提供を始めた。障害を先に知らせて問い合わせを減らすという用途が、学校のIT部門の困りごとと重なった。",
+   "basis": [
+    "f10"
+   ],
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-pivots",
+   "item": "PIVOTS",
+   "text": "当初は月9.99米ドルと19.99米ドルの個人向け価格だった。その後、企業向けに複数利用者のサインオン、年払い、経費精算用の領収書が要ると気づいた。新しい段階料金に移ると、新規客の単価が上がった。解約したのは現行最安より33〜66%安い旧契約の客で、上位プランへの変更は過去最多になった。",
+   "basis": [
+    "f5",
+    "f16",
+    "f14"
+   ],
+   "formula": "数字は出典に載っている値",
+   "presentation": "FACT_SUMMARY"
+  },
+  {
+   "id": "a-lesson",
+   "item": "LESSON",
+   "text": "有料22人・月330米ドルの時期から伸びた背景には、2018年のAndy Libbyの参加に加え、チームで払う組織向けの機能と価格への作り直しがあったと見られる。2020年4月には、安い旧契約の客5件が抜けても、新規9件と上位プランへの変更で売上が伸びた。",
+   "basis": [
+    "f4",
+    "f2",
+    "f5",
+    "f16",
+    "f14"
+   ],
+   "presentation": "FACT_SUMMARY"
+  }
  ]
 }

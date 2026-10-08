@@ -240,7 +240,7 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
     const { display, problems: assembly } = assembleDisplay(entityId, reader, need, call.value, liveSuccessPoints(entityId, reader, files));
     const merged = mergeEntity(files, entityId, display);
     const check = runCheck(merged);
-    problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems), ...dupGate(merged)];
+    problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems, entityId), ...dupGate(merged)];
     say(`${entityId}: ${attempt}回目 — 機械の検査の指摘 ${problems.length}件（${call.seconds.toFixed(0)}秒）`);
     if (problems.length) { writeFileSync(join(WORK, `${entityId}.attempt${attempt}.problems.txt`), problems.join('\n')); continue; }
     if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], calls, display };
@@ -259,7 +259,7 @@ function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader
     const cut = dropFlagged(display, must.map((i) => i.id));
     if (cut.blocked.length) return { ok: false, attempts: attempt, reasons: problems, calls };
     const recheck = runCheck(mergeEntity(files, entityId, cut.display));
-    const left = [...structuralProblems(cut.display), ...newProblems(baseline, recheck.problems), ...dupGate(mergeEntity(files, entityId, cut.display))];
+    const left = [...structuralProblems(cut.display), ...newProblems(baseline, recheck.problems, entityId), ...dupGate(mergeEntity(files, entityId, cut.display))];
     if (left.length) return { ok: false, attempts: attempt, reasons: [...problems, ...left], calls };
     say(`${entityId}: 確認役が指摘した ${cut.dropped.join('、')} を外して出す`);
     return { ok: true, attempts: attempt, reasons: [], calls, display: cut.display, minor: issues, dropped: cut.dropped };
@@ -385,7 +385,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     const marks = (text: string) => [...new Set(text.match(/本人申告|本人|公式|第三者|報道|推測|推論|保存ページ/g) ?? [])].sort().join('・');
     const markProblems = fixes.filter((f) => marks(f.text) !== marks(rows.find((r) => r.id === f.id)?.text ?? '')).map((f) => `${f.id}: 出どころの印が変わった（元: ${marks(rows.find((r) => r.id === f.id)?.text ?? '') || 'なし'} → 今: ${marks(f.text) || 'なし'}）。印は元のまま残す`);
     const check = runCheck(applied.files);
-    problems = [...applied.problems, ...missing, ...left, ...numbers, ...lost, ...markProblems, ...newProblems(baseline, check.problems)];
+    problems = [...applied.problems, ...missing, ...left, ...numbers, ...lost, ...markProblems, ...newProblems(baseline, check.problems, entityId)];
     say(`${entityId}: 直し ${attempt}回目 — 機械の検査の指摘 ${problems.length}件`);
     const machine = problems;
     if (machine.length) {
@@ -394,7 +394,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
       const keep = bad ? fixes.filter((f) => !bad.has(f.id)) : [];
       if (!keep.length) continue;
       const narrowed = applyRepairs(files, entityId, keep);
-      const still = [...narrowed.problems, ...newProblems(baseline, runCheck(narrowed.files).problems)];
+      const still = [...narrowed.problems, ...newProblems(baseline, runCheck(narrowed.files).problems, entityId)];
       say(`${entityId}: 直し ${attempt}回目 — 機械の検査に落ちた ${fixes.length - keep.length}行を元の文に戻すと、残り ${keep.length}行の指摘 ${still.length}件`);
       if (still.length) continue;
       fixes = keep; applied = narrowed;
@@ -419,7 +419,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     if (ok.length) {
       const applied = applyRepairs(files, entityId, ok);
       const after = runCheck(applied.files);
-      const fresh = [...applied.problems, ...newProblems(baseline, after.problems)];
+      const fresh = [...applied.problems, ...newProblems(baseline, after.problems, entityId)];
       if (!fresh.length) return { ok: true, attempts: reviewed.attempt, reasons: reviewed.reasons, files: applied.files, adopted: ok.map((f) => f.id), held: [...ids].filter((id) => !ok.some((f) => f.id === id)) };
       problems = [...reviewed.reasons, ...fresh.map((p) => `行ごとの反映で機械の検査に落ちた: ${p}`)];
     }

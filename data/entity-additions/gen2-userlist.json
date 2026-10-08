@@ -1,0 +1,982 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/userlist-record.json",
+  "manifestSha256": "c0146bc644852b9a50d96496fc41851072b7ba65e5c820e0b40d56aa54a64987",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:24.686Z"
+ },
+ "records": [
+  {
+   "id": "ent_userlist_a288fcf9f741",
+   "provenance": {
+    "detailsHash": "aacc10df3fd9a97c8bacba049c1e5909d2929f5576aa78c19e26ce5f9778224a",
+    "artifactSha256": "c0146bc644852b9a50d96496fc41851072b7ba65e5c820e0b40d56aa54a64987"
+   },
+   "record": {
+    "id": "ent_userlist_a288fcf9f741",
+    "ticker": "USERLIST",
+    "name": "Userlist",
+    "legalEntity": "Userlist, Inc.（公式連絡先表記）",
+    "tagline": "利用行動に応じたメールを SaaS 企業へ売り、導入の計画と執筆も有料で引き受ける。",
+    "description": "利用者と企業単位の行動データから、導入案内や継続利用を促すメールを自動配信する。2018年に6か月分の先行販売を行い、2019年8月に正式公開した。",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "Jane Portman、Benedikt Deicke、Claire Suellentrop（創業時）",
+    "country": "米国（公式連絡先住所）",
+    "url": "https://userlist.com",
+    "officialUrl": "https://userlist.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "利用者数に応じた月額・年額のメール配信基盤と、案件単位の有料導入支援",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "メール自動化",
+     "SaaS企業向け",
+     "企業アカウント",
+     "導入支援",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2026-10-07 確認",
+     "revenueLabel": "",
+     "sourceDoc": "https://userlist.com/press-kit/"
+    },
+    "facts": [
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_001",
+      "kind": "DESCRIPTION",
+      "text": "SaaS企業向けに、利用行動と企業単位のデータを使ったメール自動化を提供する。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_002",
+      "kind": "FOUNDING",
+      "text": "2017年10月に共同創業契約を結んだ。創業者として Jane Portman、Benedikt Deicke、Claire Suellentrop を紹介している。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "出発点",
+      "eventPeriod": "2017-10"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_003",
+      "kind": "EVENT",
+      "text": "2018年10月に非公開の試用版で最初の有料顧客の導入を始めたと記載している。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "2018-10"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_004",
+      "kind": "CHANNEL",
+      "text": "2019年8月の正式公開で Product Hunt の当日1位になったと公式に記載している。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "2019-08"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_005",
+      "kind": "EVENT",
+      "text": "2020年5月にアプリ内メッセージを追加した。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "2020-05"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_006",
+      "kind": "EVENT",
+      "text": "2021年4月に企業アカウントを追加し、同年10月には既存顧客向けメールに加えて見込み客向けメールを導入した。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "2021-04、2021-10"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_007",
+      "kind": "EVENT",
+      "text": "2023年1月に新しい動的メール編集機能を公開した。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "2023-01"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_008",
+      "kind": "DESCRIPTION",
+      "text": "公式サイトの法人名は Userlist, Inc.、連絡先住所は米国 Georgia 州 Atlanta にある。",
+      "sourceUrl": "https://userlist.com/press-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "出発点"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_009",
+      "kind": "FOUNDING",
+      "text": "Tiny Reminder の利用者と行動を把握できず、行動に応じた連絡を送りたいという課題が、新製品の出発点になった。",
+      "sourceUrl": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+      "statedAt": "2018-02-20",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "出発点",
+      "eventPeriod": "2017年"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_010",
+      "kind": "OTHER",
+      "text": "Intercom を採用しても、利用者一覧の使いにくさやメール編集の手間、行動を十分把握できない問題が残ったと説明している。",
+      "sourceUrl": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+      "statedAt": "2018-02-20",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_011",
+      "kind": "FOUNDING",
+      "text": "2017年末に Userlist の作業を始め、2018年2月の記事では数か月の調査と設計を終えて最初の版を開発していた。",
+      "sourceUrl": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+      "statedAt": "2018-02-20",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "出発点",
+      "eventPeriod": "2017年末〜2018-02"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_012",
+      "kind": "CHANNEL",
+      "text": "聞き取り相手の多くは、個人の知人、Slack グループ、Twitter から集めた。16件を予約し、12件を実施した。",
+      "sourceUrl": "https://userlist.com/blog/customer-research-process/",
+      "statedAt": "2018-04-24",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_013",
+      "kind": "OTHER",
+      "text": "機能の感想よりも、相手が利用者の行動をどう把握し、どのように連絡しているか、既存のやり方の困り事を聞いた。",
+      "sourceUrl": "https://userlist.com/blog/customer-research-process/",
+      "statedAt": "2018-04-24",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_014",
+      "kind": "OTHER",
+      "text": "会話を録画し、Rev.com で文字に起こして表に整理し、行動に応じて利用を促すメッセージへ開発の焦点を絞った。",
+      "sourceUrl": "https://userlist.com/blog/customer-research-process/",
+      "statedAt": "2018-04-24",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_015",
+      "kind": "OTHER",
+      "text": "自作を好み、外部の仕組みに不満を感じない創業者の聞き取り結果は除外したと明記している。調査対象全員の需要を示す結果ではない。",
+      "sourceUrl": "https://userlist.com/blog/customer-research-process/",
+      "statedAt": "2018-04-24",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "出発点"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_016",
+      "kind": "PRICING",
+      "text": "2018年4月の通常月額は、Basic が利用者1,000人まで49米ドル、Growth が5,000人まで99米ドルだった。",
+      "sourceUrl": "https://userlist.com/blog/pre-orders/",
+      "statedAt": "2018-04-04",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_017",
+      "kind": "PRICING",
+      "text": "同じ告知の Scale は20,000人まで月229米ドル、Enterprise は100,000人まで月499米ドルだった。",
+      "sourceUrl": "https://userlist.com/blog/pre-orders/",
+      "statedAt": "2018-04-04",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_018",
+      "kind": "PRICING",
+      "text": "2018年4月4日から11日までの先行販売は、最初の6か月を30％引きとし、各プランを205・415・961・2,095米ドルで提示した。",
+      "sourceUrl": "https://userlist.com/blog/pre-orders/",
+      "statedAt": "2018-04-04",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_019",
+      "kind": "OTHER",
+      "text": "先行販売では6か月分を即時請求し、利用できるようになってから期間を開始、創業者が導入を支援し、全額返金保証を付けた。",
+      "sourceUrl": "https://userlist.com/blog/pre-orders/",
+      "statedAt": "2018-04-04",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_020",
+      "kind": "OTHER",
+      "text": "初期顧客ごとに創業者3人で1時間の導入面談を行い、Benedikt がデータ連携、Claire が追跡する行動と配信内容の設計を支援した。",
+      "sourceUrl": "https://userlist.com/blog/early-product-design-decisions/",
+      "statedAt": "2018-06-05",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_021",
+      "kind": "OTHER",
+      "text": "初回は送信機能を外し、利用者一覧と個別の行動記録を先に渡した。顧客の反応を早く得て、開発の順序を決めるためだった。",
+      "sourceUrl": "https://userlist.com/blog/early-product-design-decisions/",
+      "statedAt": "2018-06-05",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_022",
+      "kind": "OTHER",
+      "text": "見栄えを整えたメールを用意する計画だったが、顧客は個人から届いたような簡素なメールを好み、両方を選べる形を検討した。実装完了の記載ではない。",
+      "sourceUrl": "https://userlist.com/blog/early-product-design-decisions/",
+      "statedAt": "2018-06-05",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_023",
+      "kind": "OTHER",
+      "text": "正式公開前には、試用版の表示が登録を妨げていると捉え、有料顧客の利用実績と面談結果を踏まえて公開を決めた。",
+      "sourceUrl": "https://userlist.com/blog/launch-strategy/",
+      "statedAt": "2019-07-26",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_024",
+      "kind": "CHANNEL",
+      "text": "2019年8月6日の Product Hunt 公開を予定し、準備の可否を7月23日に判断する日程を組んだ。",
+      "sourceUrl": "https://userlist.com/blog/launch-strategy/",
+      "statedAt": "2019-07-26",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "2019-07〜2019-08"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_025",
+      "kind": "CHANNEL",
+      "text": "衝動買いされにくい製品だと認識し、メール計画用の無料ワークシートで関心を持った人の連絡先を集めた。",
+      "sourceUrl": "https://userlist.com/blog/launch-strategy/",
+      "statedAt": "2019-07-26",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_026",
+      "kind": "EVENT",
+      "text": "2019年8月6日に試用版を終えて正式公開し、Product Hunt に掲載したと当日の記事で告知した。",
+      "sourceUrl": "https://userlist.com/blog/userlist-officially-live/",
+      "statedAt": "2019-08-06",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_027",
+      "kind": "CHANNEL",
+      "text": "正式公開告知では紹介者向けの提携制度への参加を募った。この記事には報酬率や成約件数の記載はない。",
+      "sourceUrl": "https://userlist.com/blog/userlist-officially-live/",
+      "statedAt": "2019-08-06",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_028",
+      "kind": "OTHER",
+      "text": "2019年の検討では、メール自動化という説明から顧客へのメッセージという説明に変え、Intercom と自作を比較対象として明示した。製品自体は変えなかった。",
+      "sourceUrl": "https://userlist.com/blog/positioning-overhaul/",
+      "statedAt": "2022-11-04",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し",
+      "eventPeriod": "2019年"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_029",
+      "kind": "OTHER",
+      "text": "説明の変更後に顧客が価値を理解しやすくなったと本人は述べるが、登録率や売上の前後の数字は記載していない。",
+      "sourceUrl": "https://userlist.com/blog/positioning-overhaul/",
+      "statedAt": "2022-11-04",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し",
+      "eventPeriod": "2019年"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_030",
+      "kind": "EVENT",
+      "text": "2022年3〜10月は企業単位のメール自動化を訴求したが、説明が分かりにくく、2022年以降は法人向け SaaS のメール配信基盤という説明に戻した。",
+      "sourceUrl": "https://userlist.com/blog/positioning-overhaul/",
+      "statedAt": "2022-11-04",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "時間順の流れ",
+      "eventPeriod": "2022年"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_031",
+      "kind": "PRICING",
+      "text": "確認時の追加利用者1,000人あたりの月額は Basic が10米ドル、Professional が12米ドル。料金は過去30日の最大利用者数で計算する。",
+      "sourceUrl": "https://userlist.com/pricing/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_032",
+      "kind": "PRICING",
+      "text": "年払いは20％引き。全プランに14日の無料試用があり、開始時にカード情報が必要と記載している。",
+      "sourceUrl": "https://userlist.com/pricing/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_033",
+      "kind": "PRICING",
+      "text": "調達総額50万米ドル未満の新規 SaaS 企業向けに、最初の12か月を50％引きにする制度がある。",
+      "sourceUrl": "https://userlist.com/pricing/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_034",
+      "kind": "PRICING",
+      "text": "Customer Loyalty Kit は3,290米ドル、期間の目安は2〜3週間。既に導入支援を購入した顧客は10％引きと提示している。",
+      "sourceUrl": "https://userlist.com/services/customer-loyalty-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "価格の変遷"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_035",
+      "kind": "OTHER",
+      "text": "この支援は行動による顧客分類と、継続利用を促す10通のメールを計画・執筆・設定する。設計の承認後に文章を作り、引き渡しの面談を行う。",
+      "sourceUrl": "https://userlist.com/services/customer-loyalty-kit/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "公式",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_036",
+      "kind": "OTHER",
+      "text": "AgentMethods の Aaron Kassover は、行動に応じた少数のメッセージで3か月の解約率を約25％減らしたと述べている。元の率や測定期間の暦日は記載がない。",
+      "sourceUrl": "https://userlist.com/case-studies/agent-methods/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_037",
+      "kind": "OTHER",
+      "text": "AgentMethods は、顧客の特定の行動を手がかりに自動配信を作り、支援対応の量を減らし、起こりそうな問題に先回りできるようになったと述べる。",
+      "sourceUrl": "https://userlist.com/case-studies/agent-methods/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_038",
+      "kind": "CHANNEL",
+      "text": "Fileinbox の Christian Genco は MicroConf で Userlist を知り、組み込み済みのメール見本を出発点に導入したと述べている。",
+      "sourceUrl": "https://userlist.com/case-studies/fileinbox/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "やり方の具体"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_039",
+      "kind": "OTHER",
+      "text": "Christian Genco は、行動に応じた導入案内が試用から有料への転換に役立ったと述べている。増加幅の数字は掲載していない。",
+      "sourceUrl": "https://userlist.com/case-studies/fileinbox/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_040",
+      "kind": "OTHER",
+      "text": "2020年9月28日の Jonny の投稿は、簡潔な操作と柔軟な配信を評価する一方、時系列の報告をもっと詳しくしてほしいと述べている。",
+      "sourceUrl": "https://www.capterra.co.uk/software/209961/userlist",
+      "statedAt": "2020-09-28",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "第三者",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_041",
+      "kind": "OTHER",
+      "text": "2020年9月22日の Christian の投稿は Rails への連携とメール作成を評価し、既存配信を見て改善を助言する相談サービスを求めている。",
+      "sourceUrl": "https://www.capterra.co.uk/software/209961/userlist",
+      "statedAt": "2020-09-22",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "第三者",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_042",
+      "kind": "OTHER",
+      "text": "2020年9月22日の Daniel の投稿は導入支援を評価し、携帯向けアプリがないことを不満として挙げている。当時の利用者の感想として記録する。",
+      "sourceUrl": "https://www.capterra.co.uk/software/209961/userlist",
+      "statedAt": "2020-09-22",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "第三者",
+      "chapter": "客の声"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_fact_043",
+      "kind": "EVENT",
+      "text": "機能が増える一方で余白の多さ、狭い入力欄、整理不足の案内が問題となり、2025年9月9日に案内と情報密度を改めた新版を公開した。",
+      "sourceUrl": "https://userlist.com/blog/how-we-redesigned-userlist/",
+      "statedAt": "2025-09-09",
+      "checkedAt": "2026-10-07",
+      "sourceMark": "本人",
+      "chapter": "つまずきと立て直し"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "Codex",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://userlist.com/press-kit/",
+       "publisher": "Userlist（公式紹介）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+       "publisher": "Userlist（Claire Suellentrop の創業経緯）",
+       "sourceType": "official_blog",
+       "publicationDate": "2018-02-20",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人",
+       "updatedAt": "2023-04-17"
+      },
+      {
+       "url": "https://userlist.com/blog/customer-research-process/",
+       "publisher": "Userlist（Claire Suellentrop の顧客調査）",
+       "sourceType": "official_blog",
+       "publicationDate": "2018-04-24",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人",
+       "updatedAt": "2025-10-24"
+      },
+      {
+       "url": "https://userlist.com/blog/pre-orders/",
+       "publisher": "Userlist（Claire Suellentrop の先行販売告知）",
+       "sourceType": "official_blog",
+       "publicationDate": "2018-04-04",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人",
+       "updatedAt": "2023-04-17"
+      },
+      {
+       "url": "https://userlist.com/blog/early-product-design-decisions/",
+       "publisher": "Userlist（Jane Portman の初期開発記録）",
+       "sourceType": "official_blog",
+       "publicationDate": "2018-06-05",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人",
+       "updatedAt": "2024-11-19"
+      },
+      {
+       "url": "https://userlist.com/blog/launch-strategy/",
+       "publisher": "Userlist（Jane Portman の公開準備記録）",
+       "sourceType": "official_blog",
+       "publicationDate": "2019-07-26",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人",
+       "updatedAt": "2025-10-17"
+      },
+      {
+       "url": "https://userlist.com/blog/userlist-officially-live/",
+       "publisher": "Userlist（Jane Portman の正式公開告知）",
+       "sourceType": "official_blog",
+       "publicationDate": "2019-08-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      },
+      {
+       "url": "https://userlist.com/blog/positioning-overhaul/",
+       "publisher": "Userlist（Jane Portman の訴求変更記録）",
+       "sourceType": "official_blog",
+       "publicationDate": "2022-11-04",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人",
+       "updatedAt": "2025-10-17"
+      },
+      {
+       "url": "https://userlist.com/pricing/",
+       "publisher": "Userlist（公式料金）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://userlist.com/services/customer-loyalty-kit/",
+       "publisher": "Userlist（公式導入支援料金）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://userlist.com/case-studies/agent-methods/",
+       "publisher": "Userlist（AgentMethods の顧客取材）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://userlist.com/case-studies/fileinbox/",
+       "publisher": "Userlist（Fileinbox の顧客取材）",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "公式"
+      },
+      {
+       "url": "https://www.capterra.co.uk/software/209961/userlist",
+       "publisher": "Capterra（Userlist の利用者投稿）",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceMark": "第三者"
+      },
+      {
+       "url": "https://userlist.com/blog/how-we-redesigned-userlist/",
+       "publisher": "Userlist（Jane Portman の2025年改修記録）",
+       "sourceType": "official_blog",
+       "publicationDate": "2025-09-09",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceMark": "本人"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "自社の売上・原価・経費・粗利・営業利益・純利益・前年比成長率: 開いた資料には損益の実額と期間を揃えた数値がない。顧客の成果を自社損益へ入れない。数値欄は null。",
+      "先行販売の購入件数・売上総額、最初の顧客数、経路ごとの成約件数: 募集条件と導入経緯は確認できたが件数の記載がない。",
+      "訴求変更前後の登録率・売上: 理解が進んだという本人の説明だけで前後の比較値はない。",
+      "現在の基本月額と2018年以降の改定日を通した価格表: 公式料金本文では基本額が記号表示。追加料金と割引だけ採用。公開画面を描画できるブラウザも利用不可。第三者の99米ドルを現行料金として代用しない。",
+      "現在の全従業員数、国際チームの所在: 確認資料では人数と対象時点を確定できない。創業時3人と法人連絡先を分けて記録。",
+      "自社の内部設備一式、顧客獲得費、紹介報酬率: 調査で使った道具と提携制度の存在は記録できたが、現在の全体や金額は確認できない。",
+      "参入障壁、大手の自爆、顧客心理、将来の再現性、真似の手順: 推測や命令文を作らない指定に従い、該当する分析欄と実行手順欄を空にした。",
+      "創業者の過去の職歴・資金、作業時間、売却、将来の依存リスク: 手引きの対象外。元手・週間時間・自動化比率は調査していないため null。"
+     ],
+     "conflicts": [
+      "初期有料顧客の時期: 公式紹介は2018年10月、2018年6月の初期開発記事は有料の先行顧客への面談を記載。4月の前払い予約と10月の非公開試用版導入を区別し、最初の支払い日を断定しない。",
+      "顧客調査の人数: 創業経緯の記事は数十人という表現、調査手順の記事は予約16件・実施12件を記載。具体的な件数は後者の調査実施報告に限定し、総聞き取り人数と断定しない。",
+      "価格: Capterra の99米ドルと公式本文の基本額欠落から、現在の基本額は確定しない。2018年の料金と現行追加料金は同じ利用枠の単純な値上げ比較にしない。",
+      "過去の機能不足は当時の感想であり、2026年にも不足していると扱わない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2017,
+     "initialTractionPeriod": "2017年末に着手、2018年4月に先行販売、2019年8月に正式公開",
+     "dataSnapshotPeriod": "2017年〜2025年の経緯と2026-10-07の公開ページ確認",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true,
+     "initialTeamSize": 3
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "essence": {
+     "whatItDoes": "利用者の行動に応じたメールを自動配信する。",
+     "targetCustomer": "SaaS企業",
+     "painRelief": "利用者の行動把握と連絡配信を別々に自作する手間"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_userlist_a288fcf9f741_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（公式紹介）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/press-kit/",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/press-kit/",
+      "sourceNote": "公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Claire Suellentrop の創業経緯）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/why-another-tool-for-saas-founders/",
+       "公開日: 2018-02-20",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Claire Suellentrop の顧客調査）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/customer-research-process/",
+       "公開日: 2018-04-24",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/customer-research-process/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Claire Suellentrop の先行販売告知）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/pre-orders/",
+       "公開日: 2018-04-04",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/pre-orders/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Jane Portman の初期開発記録）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/early-product-design-decisions/",
+       "公開日: 2018-06-05",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/early-product-design-decisions/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Jane Portman の公開準備記録）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/launch-strategy/",
+       "公開日: 2019-07-26",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/launch-strategy/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Jane Portman の正式公開告知）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/userlist-officially-live/",
+       "公開日: 2019-08-06",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/userlist-officially-live/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Jane Portman の訴求変更記録）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/positioning-overhaul/",
+       "公開日: 2022-11-04",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/positioning-overhaul/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（公式料金）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/pricing/",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/pricing/",
+      "sourceNote": "公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（公式導入支援料金）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/services/customer-loyalty-kit/",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/services/customer-loyalty-kit/",
+      "sourceNote": "公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（AgentMethods の顧客取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/case-studies/agent-methods/",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/case-studies/agent-methods/",
+      "sourceNote": "公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Fileinbox の顧客取材）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/case-studies/fileinbox/",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/case-studies/fileinbox/",
+      "sourceNote": "公式の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Capterra（Userlist の利用者投稿）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://www.capterra.co.uk/software/209961/userlist",
+       "公開日: 日付表示なし",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://www.capterra.co.uk/software/209961/userlist",
+      "sourceNote": "第三者の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_userlist_a288fcf9f741_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Userlist（Jane Portman の2025年改修記録）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "公開ページの本文を開いて確認。採用した内容は事実欄に出典と時点を記録。",
+      "details": [
+       "出典: https://userlist.com/blog/how-we-redesigned-userlist/",
+       "公開日: 2025-09-09",
+       "確認日: 2026-10-07"
+      ],
+      "url": "https://userlist.com/blog/how-we-redesigned-userlist/",
+      "sourceNote": "本人の公開資料。原文の転載ではなく、必要な事実を日本語で要約。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen2_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "自社の売上・原価・経費・粗利・営業利益・純利益・前年比成長率: 開いた資料には損益の実額と期間を揃えた数値がない。顧客の成果を自社損益へ入れない。数値欄は null。",
+     "先行販売の購入件数・売上総額、最初の顧客数、経路ごとの成約件数: 募集条件と導入経緯は確認できたが件数の記載がない。",
+     "訴求変更前後の登録率・売上: 理解が進んだという本人の説明だけで前後の比較値はない。",
+     "現在の基本月額と2018年以降の改定日を通した価格表: 公式料金本文では基本額が記号表示。追加料金と割引だけ採用。公開画面を描画できるブラウザも利用不可。第三者の99米ドルを現行料金として代用しない。",
+     "現在の全従業員数、国際チームの所在: 確認資料では人数と対象時点を確定できない。創業時3人と法人連絡先を分けて記録。",
+     "自社の内部設備一式、顧客獲得費、紹介報酬率: 調査で使った道具と提携制度の存在は記録できたが、現在の全体や金額は確認できない。",
+     "参入障壁、大手の自爆、顧客心理、将来の再現性、真似の手順: 推測や命令文を作らない指定に従い、該当する分析欄と実行手順欄を空にした。",
+     "創業者の過去の職歴・資金、作業時間、売却、将来の依存リスク: 手引きの対象外。元手・週間時間・自動化比率は調査していないため null。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "scale: \"\"→UNKNOWN",
+     "publishability: \"\"→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceClass: \"\"→欄を外す",
+     "pnl.sourceDoc: 空→https://userlist.com/press-kit/",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.currentTeamSize: 空→欄を外す"
+    ]
+   }
+  }
+ ]
+}
