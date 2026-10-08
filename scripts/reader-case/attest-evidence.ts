@@ -15,7 +15,7 @@ import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
 import { preparePublicationReader, contentHash } from './publication-evaluation';
 import { loadPublicationInput } from './publication-inputs';
-import { attestCase, PUBLICATION_EVIDENCE_FILE, readAttestations, type EvidenceAttestations } from './publication-evidence';
+import { attestCase, attestLocalSources, PUBLICATION_EVIDENCE_FILE, readAttestations, type EvidenceAttestations } from './publication-evidence';
 
 async function main() {
   const check = process.argv.includes('--check');
@@ -48,7 +48,8 @@ async function main() {
     if ('missing' in result) {
       if (check) {
         // 全部は揃わなくても、手元にある出典本文は証明書と突き合わせる（変わっていれば、古い証明書で判定が食い違う）
-        const stale = input.sources.some((src) => typeof src.snapshot?.text === 'string' && !!stored[id]?.sources[src.url] && stored[id].sources[src.url].textHash !== contentHash(src.snapshot.text));
+        const local = attestLocalSources(input);
+        const stale = Object.entries(local).some(([url, proof]) => !stored[id]?.sources[url] || contentHash(stored[id].sources[url]) !== contentHash(proof));
         if (stale) mismatched.push(id); else unchecked++;
         continue;
       }

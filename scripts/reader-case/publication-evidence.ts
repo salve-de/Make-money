@@ -68,14 +68,13 @@ export function readAttestations(path = PUBLICATION_EVIDENCE_FILE): EvidenceAtte
   return memo.value;
 }
 
-/** 手元の完全な証拠（本文・台帳）から証明書を作る。証拠が欠けていれば作れないので、足りない物を返す */
-export function attestCase(input: PublicationInput): { attestation: CaseAttestation } | { missing: string[] } {
-  if (input.missingEvidence?.length) return { missing: input.missingEvidence };
+/** 手元に本文がある出典だけの証明書（本文が無い出典は含めない）。同じ URL を指す出典が2つ以上ある時は引用の鍵を足し合わせる */
+export function attestLocalSources(input: PublicationInput): Record<string, SourceAttestation> {
   const sources: Record<string, SourceAttestation> = {};
   const claims = [...input.reader.facts, ...input.reader.metrics];
   for (const source of input.sources) {
     const snap = source.snapshot as (Omit<SourceCacheRecord, 'text'> & { text?: string }) | null;
-    if (!snap || typeof snap.text !== 'string') return { missing: [`出典本文:${source.sourceId}`] };
+    if (!snap || typeof snap.text !== 'string') continue;
     const textHash = contentHash(snap.text);
     const quotes: string[] = [];
     const quotesAbsent: string[] = [];
@@ -84,13 +83,20 @@ export function attestCase(input: PublicationInput): { attestation: CaseAttestat
       if (!verdict || verdict.sourceUrl !== source.url) continue;
       (quoteInText(verdict.quote, snap.text) ? quotes : quotesAbsent).push(quoteKey(claim.id, verdict.quote, textHash));
     }
-    // 同じ URL を指す出典が2つ以上ある時は、引用の鍵を足し合わせる（主張ごとに鍵が違うので混ざらない）
     const prior = sources[source.url];
     sources[source.url] = {
       url: snap.url, status: snap.status, fetchedAt: snap.fetchedAt, via: snap.via, textHash, textLength: snap.text.length, quotes: [...new Set([...(prior?.quotes ?? []), ...quotes])].sort(), quotesAbsent: [...new Set([...(prior?.quotesAbsent ?? []), ...quotesAbsent])].sort(),
       ...(snap.finalUrl ? { finalUrl: snap.finalUrl } : {}), ...(snap.contentType ? { contentType: snap.contentType } : {}), ...(snap.error ? { error: snap.error } : {}),
     };
   }
+  return sources;
+}
+
+/** 手元の完全な証拠（本文・台帳）から証明書を作る。証拠が欠けていれば作れないので、足りない物を返す */
+export function attestCase(input: PublicationInput): { attestation: CaseAttestation } | { missing: string[] } {
+  if (input.missingEvidence?.length) return { missing: input.missingEvidence };
+  const sources = attestLocalSources(input);
+  for (const source of input.sources) if (!sources[source.url]) return { missing: [`出典本文:${source.sourceId}`] };
   if (input.media.problems.length) return { missing: [`画像台帳に問題があり証明できない:${input.media.problems.join(' / ').slice(0, 120)}`] };
   return { attestation: { sources, media: { displayableIds: [...input.media.displayableIds].sort() } } };
 }
