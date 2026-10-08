@@ -53,7 +53,12 @@ test('一覧の見出しが検索・絞り込みに合わせて更新され、�
 
   await search.fill('');
   await expect(title).toContainText('条件なし');
-  await expect(title).toContainText(`${PUBLISHED_COUNT}件`);
+  // 一覧は10件ずつ読み足す。末尾まで下げて、公開目録の件数に達することを確かめる
+  await expect.poll(async () => {
+    await page.mouse.move(700, 500);
+    await page.mouse.wheel(0, 4000);
+    return (await title.textContent()) ?? '';
+  }, { timeout: 15000 }).toContain(`${PUBLISHED_COUNT}件`);
 
   await page.goto('/?filter=SOLO');
   await expect(title).toContainText('一人で運営');
