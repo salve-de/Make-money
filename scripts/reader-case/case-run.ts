@@ -56,7 +56,8 @@ export interface CaseRunDeps {
   now?: () => number;
 }
 
-export interface StageRecord { runId: string; stage: string; startedAt: string; seconds: number; ids: number; failed: number; ok: boolean; detail?: Record<string, unknown> }
+/** invocation: この起動の開始時刻。同じ回の名前で再開・やり直した時に、起動ごとの所要時間を混ぜないための印 */
+export interface StageRecord { runId: string; invocation?: string; stage: string; startedAt: string; seconds: number; ids: number; failed: number; ok: boolean; detail?: Record<string, unknown> }
 export interface Failure { id: string; stage: string; reason: string; soft?: boolean }
 export interface CaseRunSummary { runId: string; stages: StageRecord[]; failures: Failure[]; passed: string[]; blockedFromPublish: string[]; ok: boolean; seconds: number }
 
@@ -108,7 +109,7 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
     let detail: Record<string, unknown> | void;
     let ok = true;
     try { detail = await body(); } catch (e) { ok = false; detail = { error: (e as Error).message }; failAll(name, (e as Error).message); }
-    const rec: StageRecord = { runId, stage: name, startedAt: new Date(t0).toISOString(), seconds: Number(((now() - t0) / 1000).toFixed(1)), ids: n, failed: failures.length - failedBefore, ok: ok && failures.length === failedBefore, ...(detail ? { detail } : {}) };
+    const rec: StageRecord = { runId, invocation: new Date(started).toISOString(), stage: name, startedAt: new Date(t0).toISOString(), seconds: Number(((now() - t0) / 1000).toFixed(1)), ids: n, failed: failures.length - failedBefore, ok: ok && failures.length === failedBefore, ...(detail ? { detail } : {}) };
     stages.push(rec);
     try { mkdirSync(dirname(timingFile), { recursive: true }); appendFileSync(timingFile, `${JSON.stringify(rec)}\n`); } catch { /* 記録できなくても流れは止めない */ }
     log(`${name}: ${rec.seconds} 秒、失敗 ${rec.failed} 件`);

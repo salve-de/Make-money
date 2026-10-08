@@ -22,8 +22,10 @@ export const SLOW_CASE_MINUTES = 30;
 export const DEFAULT_CONCURRENCY = 4;
 export const CASE_RUN_FILE = 'data/pipeline/case-run.jsonl';
 
-export interface StageRow { runId: string; stage: string; seconds: number; ids: number; detail?: Record<string, unknown> }
+/** invocation: 起動ごとの印（case-run が付ける）。無い古い行は同じ回の名前でまとめて1起動とみなす */
+export interface StageRow { runId: string; invocation?: string; stage: string; seconds: number; ids: number; detail?: Record<string, unknown> }
 export interface SlowLimits { stageMinutes: number; caseMinutes: number; concurrency: number }
+/** key: 回の名前を含まない。同じ段の遅れが続く時に同じ課題へまとめる鍵 */
 export interface SlowFinding { key: string; text: string; runId: string; stage?: string; minutes: number; limit: number }
 
 export function limitsFor(o: { stallMinutes?: number; stageMinutes?: number; caseMinutes?: number; concurrency?: number } = {}): SlowLimits {
@@ -41,17 +43,18 @@ const round1 = (x: number): number => Number(x.toFixed(1));
 export function findSlow(rows: readonly StageRow[], limits: SlowLimits = limitsFor()): SlowFinding[] {
   const out: SlowFinding[] = [];
   const byRun = new Map<string, StageRow[]>();
-  for (const r of rows) byRun.set(r.runId, [...(byRun.get(r.runId) ?? []), r]);
-  for (const [runId, list] of byRun) {
+  for (const r of rows) { const k = `${r.runId}|${r.invocation ?? ''}`; byRun.set(k, [...(byRun.get(k) ?? []), r]); }
+  for (const list of byRun.values()) {
+    const runId = list[0].runId;
     for (const r of list) {
       const conc = Number(r.detail?.concurrency) > 0 ? Number(r.detail?.concurrency) : limits.concurrency;
       const waves = Math.max(1, Math.ceil(Math.max(1, r.ids) / conc));
       const minutes = r.seconds / 60 / waves;
-      if (minutes > limits.stageMinutes) out.push({ key: `stage:${runId}:${r.stage}`, runId, stage: r.stage, minutes: round1(minutes), limit: limits.stageMinutes, text: `処理が遅い: ${runId} の「${r.stage}」が1件あたり約${round1(minutes)}分（上限${limits.stageMinutes}分。${r.ids}件を${round1(r.seconds / 60)}分）` });
+      if (minutes > limits.stageMinutes) out.push({ key: `stage:${r.stage}`, runId, stage: r.stage, minutes: round1(minutes), limit: limits.stageMinutes, text: `処理が遅い: ${runId} の「${r.stage}」が1件あたり約${round1(minutes)}分（上限${limits.stageMinutes}分。${r.ids}件を${round1(r.seconds / 60)}分）` });
     }
     const cases = Math.max(1, ...list.map((r) => r.ids));
     const total = list.reduce((s, r) => s + r.seconds, 0) / 60 / cases;
-    if (total > limits.caseMinutes) out.push({ key: `run:${runId}`, runId, minutes: round1(total), limit: limits.caseMinutes, text: `処理が遅い: ${runId} の実行全体が1件あたり約${round1(total)}分（上限${limits.caseMinutes}分。${cases}件、合計${round1(list.reduce((s, r) => s + r.seconds, 0) / 60)}分）` });
+    if (total > limits.caseMinutes) out.push({ key: 'run', runId, minutes: round1(total), limit: limits.caseMinutes, text: `処理が遅い: ${runId} の実行全体が1件あたり約${round1(total)}分（上限${limits.caseMinutes}分。${cases}件、合計${round1(list.reduce((s, r) => s + r.seconds, 0) / 60)}分）` });
   }
   return out;
 }
@@ -69,8 +72,11 @@ export function readRows(file = CASE_RUN_FILE): StageRow[] {
   return rows;
 }
 
+/** その回の、一番新しい起動の行だけ（同じ回の名前で再開・やり直した時に、古い起動の所要時間を足さない） */
 export function rowsOfRun(rows: readonly StageRow[], runId: string): StageRow[] {
-  return rows.filter((r) => r.runId === runId);
+  const mine = rows.filter((r) => r.runId === runId);
+  const last = [...mine].reverse().find((r) => r.invocation)?.invocation;
+  return last ? mine.filter((r) => r.invocation === last) : mine.filter((r) => !r.invocation);
 }
 export const latestRunId = (rows: readonly StageRow[]): string | undefined => rows[rows.length - 1]?.runId;
 
@@ -83,12 +89,12 @@ export interface AlertDeps {
 export async function alertSlow(findings: readonly SlowFinding[], d: AlertDeps): Promise<string[]> {
   const sent: string[] = [];
   for (const f of findings) {
-    const keyText = `・${f.text.slice(0, 40)}`;
-    const title = `処理の遅れ${keyText}`;
+    // 課題の名前は回の名前を含めない（遅れが続く間は同じ課題にコメントを足す）
+    const title = `処理の遅れ・${f.stage ? `「${f.stage}」の段` : '実行全体'}`;
     await d.notify('Make-Money 処理の遅れ', f.text.slice(0, 120)).catch(() => undefined);
     const list = await d.exec(['gh', 'issue', 'list', '--state', 'open', '--search', '処理の遅れ in:title', '--json', 'number,title', '--limit', '50']);
     let existing: number | undefined;
-    try { existing = (JSON.parse(list.stdout || '[]') as { number: number; title: string }[]).find((i) => i.title.includes(keyText))?.number; } catch { /* 読めなければ新しく立てる */ }
+    try { existing = (JSON.parse(list.stdout || '[]') as { number: number; title: string }[]).find((i) => i.title === title)?.number; } catch { /* 読めなければ新しく立てる */ }
     const body = `回: ${f.runId}${f.stage ? `\n段: ${f.stage}` : ''}\n理由: ${f.text}\n\n記録: ${CASE_RUN_FILE}（上限は ${f.limit} 分。固まり検出は case:run の --stall-minutes）`;
     const r = existing ? await d.exec(['gh', 'issue', 'comment', String(existing), '--body', body]) : await d.exec(['gh', 'issue', 'create', '--title', title, '--body', body]);
     sent.push(existing ? `コメント #${existing}` : (r.code === 0 ? '新しい issue' : 'issue 失敗'));

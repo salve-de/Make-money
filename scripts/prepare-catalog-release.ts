@@ -136,7 +136,7 @@ for (const entity of publishable) {
   let heldIds = new Set<string>();
   let heldList: HeldRemoval[] = [];
   if (heldHere.length) {
-    const cut = withoutHeldClaims(verified.reader, heldHere);
+    const cut = withoutHeldClaims(verified.reader, heldHere, (claimId) => verdicts[entity.id]?.[claimId]?.verdict === 'HELD');
     verified.reader = cut.reader; heldIds = cut.removedIds; heldList = cut.removed;
   }
   if (validateReader(verified.reader)) { withheld.schemaInvalid++; stamp(entity.id, 'HOLD_SCHEMA'); continue; }

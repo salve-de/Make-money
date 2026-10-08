@@ -36,6 +36,8 @@ export interface HeldRemoval {
   reasons: string[];
   /** 頼っていたため一緒に外した物（推論・画面の文） */
   dependents: string[];
+  /** 誰が外したか: prepare=公開版の組み立てがこの場で外した／verdict=照合の判定(HELD)で既に外れていた（同期済み） */
+  via: 'prepare' | 'verdict';
 }
 
 export function readHeld(file = HELD_FILE): HeldRecord[] {
@@ -45,29 +47,37 @@ export function readHeld(file = HELD_FILE): HeldRecord[] {
   return parsed as HeldRecord[];
 }
 
-/** 事実・数字を保留の一覧で外し、それに頼る推論も外す。 */
-export function withoutHeldClaims(reader: ReaderCase, held: readonly HeldRecord[]): { reader: ReaderCase; removed: HeldRemoval[]; removedIds: Set<string> } {
+/**
+ * 事実・数字を保留の一覧で外し、それに頼る推論も外す。
+ * 照合の判定が HELD になっていて、事実がもう reader に無い時（source-check --apply の後）も、その id を removedIds に入れる。
+ * 画面の文（一覧の1行・成功の秘訣・言い直し）は判定とは別のファイルから来るので、消えた事実に頼る文が残らないようにするため。
+ */
+export function withoutHeldClaims(reader: ReaderCase, held: readonly HeldRecord[], isHeldVerdict: (claimId: string) => boolean = () => false): { reader: ReaderCase; removed: HeldRemoval[]; removedIds: Set<string> } {
   const removed: HeldRemoval[] = [];
   const keys: string[] = [];
   for (const h of held) {
     if (h.kind === 'fact') {
       const f = reader.facts.find((x) => x.id === h.id);
-      if (f && f.text === h.text) { keys.push(`fact:${f.id}`); removed.push({ key: h.key, kind: 'fact', id: h.id, text: h.text, reasons: h.reasons, dependents: [] }); }
+      if (f && f.text === h.text) { keys.push(`fact:${f.id}`); removed.push({ key: h.key, kind: 'fact', id: h.id, text: h.text, reasons: h.reasons, dependents: [], via: 'prepare' }); }
+      else if (!f && isHeldVerdict(h.id)) { removed.push({ key: h.key, kind: 'fact', id: h.id, text: h.text, reasons: h.reasons, dependents: [], via: 'verdict' }); }
     } else if (h.kind === 'metric') {
       const m = reader.metrics.find((x) => x.id === h.id);
-      if (m && metricLine(m) === h.text) { keys.push(`metric:${m.id}`); removed.push({ key: h.key, kind: 'metric', id: h.id, text: h.text, reasons: h.reasons, dependents: [] }); }
+      if (m && metricLine(m) === h.text) { keys.push(`metric:${m.id}`); removed.push({ key: h.key, kind: 'metric', id: h.id, text: h.text, reasons: h.reasons, dependents: [], via: 'prepare' }); }
+      else if (!m && isHeldVerdict(h.id)) { removed.push({ key: h.key, kind: 'metric', id: h.id, text: h.text, reasons: h.reasons, dependents: [], via: 'verdict' }); }
     }
   }
-  if (!keys.length) return { reader, removed, removedIds: new Set() };
-  const next = withoutUnaudited(reader, keys);
-  const gone = new Set(keys.map((k) => k.split(':')[1]));
-  const liveAnalysis = new Set(next.analysis.map((a) => a.id));
+  if (!removed.length) return { reader, removed, removedIds: new Set() };
+  const next = keys.length ? withoutUnaudited(reader, keys) : reader;
+  const gone = new Set(removed.map((r) => r.id));
+  const afterAnalysis = next.analysis.filter((a) => !a.basis.some((b) => gone.has(b)));
+  const finalReader = afterAnalysis.length === next.analysis.length ? next : ({ ...next, analysis: afterAnalysis } as ReaderCase);
+  const liveAnalysis = new Set(finalReader.analysis.map((a) => a.id));
   const droppedAnalysis = reader.analysis.filter((a) => !liveAnalysis.has(a.id));
   for (const r of removed) {
     r.dependents.push(...droppedAnalysis.filter((a) => a.basis.includes(r.id)).map((a) => `analysis:${a.id}`));
   }
   const removedIds = new Set<string>([...gone, ...droppedAnalysis.map((a) => a.id)]);
-  return { reader: next, removed, removedIds };
+  return { reader: finalReader, removed, removedIds };
 }
 
 /** 画面の文のうち、外した事実・推論に頼る物と、保留の章の行を外す。 */
@@ -117,7 +127,7 @@ export function heldChapterRemovals(display: ReaderDisplay | undefined, held: re
     if (h.kind !== 'chapter' || !h.chapter) continue;
     const hash = h.id.split(':')[1];
     const rows = display.chapters.chapters[h.chapter] ?? [];
-    if (rows.some((row) => textFingerprint(row.text) === hash)) out.push({ key: h.key, kind: 'chapter', id: h.id, text: h.text, reasons: h.reasons, dependents: [] });
+    if (rows.some((row) => textFingerprint(row.text) === hash)) out.push({ key: h.key, kind: 'chapter', id: h.id, text: h.text, reasons: h.reasons, dependents: [], via: 'prepare' });
   }
   return out;
 }

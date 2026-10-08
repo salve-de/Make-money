@@ -36,6 +36,17 @@ describe('保留の事実を公開版から外す', () => {
     expect(r.removed).toHaveLength(0);
   });
 
+  it('照合の判定(HELD)で事実が既に外れていても、それに頼る画面の文は外す', () => {
+    const already = { ...reader, facts: reader.facts.filter((f) => f.id !== 'f2'), analysis: reader.analysis.filter((a) => a.id === 'a1') } as ReaderCase;
+    const cut = withoutHeldClaims(already, [heldFact], (id) => id === 'f2');
+    expect(cut.removed.map((r) => r.via)).toEqual(['verdict']);
+    expect(cut.removedIds.has('f2')).toBe(true);
+    const out = withoutHeldDisplay({ listLine: { factId: 'f2', factHash: 'h', text: 'x' }, factLines: [{ kind: 'fact', targetId: 'f2', hash: 'h', text: 'y' }, { kind: 'fact', targetId: 'f1', hash: 'h', text: 'z' }] }, cut.removedIds, [heldFact], cut.removed)!;
+    expect(out.listLine).toBeUndefined();
+    expect(out.factLines?.map((l) => l.targetId)).toEqual(['f1']);
+    expect(withoutHeldClaims(already, [heldFact]).removed).toHaveLength(0); // 判定がHELDでなければ何もしない
+  });
+
   it('保留が無ければ何も変えない', () => {
     expect(withoutHeldClaims(reader, []).reader).toBe(reader);
   });

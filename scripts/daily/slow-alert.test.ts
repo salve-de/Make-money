@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { alertSlow, checkRunSlow, findSlow, latestRunId, limitsFor, readRows, type AlertDeps, type StageRow } from './slow-alert';
+import { alertSlow, checkRunSlow, findSlow, latestRunId, limitsFor, readRows, rowsOfRun, type AlertDeps, type StageRow } from './slow-alert';
 
 const row = (stage: string, seconds: number, ids = 1, runId = 'r1', detail?: Record<string, unknown>): StageRow => ({ runId, stage, seconds, ids, ...(detail ? { detail } : {}) });
 
@@ -24,7 +24,7 @@ test('並列の波で割る: 8件を並列4で流した段は、2波ぶんの時
 test('実行全体は1件あたり30分。段ごとは上限内でも合計で超えれば知らせる', () => {
   const rows = [row('a', 800), row('b', 800), row('c', 400)]; // 合計2000秒=33分、1件
   const f = findSlow(rows);
-  assert.deepEqual(f.map((x) => x.key), ['run:r1']);
+  assert.deepEqual(f.map((x) => x.key), ['run']);
   assert.equal(findSlow([row('a', 800, 2), row('b', 800, 2)]).length, 0); // 2件で26分
 });
 
@@ -56,8 +56,10 @@ test('知らせ: Mac の通知と GitHub の新しい issue。同じ理由が開
   assert.ok(a.calls.some((c) => c[2] === 'create'));
   const created = a.calls.find((c) => c[2] === 'create')!;
   const issueTitle = created[created.indexOf('--title') + 1];
+  assert.ok(!issueTitle.includes('r1')); // 回の名前を含めない
   const b = fakeDeps([{ number: 7, title: issueTitle }]);
-  assert.deepEqual(await alertSlow(f, b.deps), ['コメント #7']);
+  // 別の回で同じ段が遅くても、同じ課題にコメントを足す
+  assert.deepEqual(await alertSlow(findSlow([row('analyze', 1500, 1, 'r2')]), b.deps), ['コメント #7']);
   assert.ok(b.calls.some((c) => c[2] === 'comment' && c[3] === '7'));
 });
 
@@ -74,4 +76,13 @@ test('遅れが無ければ何も知らせない／記録ファイルから読�
   const loud = fakeDeps();
   assert.equal((await checkRunSlow(root, 'slow1', { deps: loud.deps, log: () => undefined })).length, 2); // 段も実行全体も超えた
   assert.equal(loud.notices.length, 2);
+});
+
+test('同じ回の名前で再開しても、起動ごとに数える（古い起動の時間を足さない）', () => {
+  const old = { ...row('a', 1000), invocation: '2026-10-08T00:00:00Z' };
+  const fresh = { ...row('a', 60), invocation: '2026-10-08T05:00:00Z' };
+  assert.deepEqual(findSlow(rowsOfRun([old, fresh], 'r1')), []); // 最新の起動だけを見る
+  assert.equal(findSlow(rowsOfRun([old], 'r1')).length, 1);
+  // 古い行（印なし）と新しい行が混ざっても、新しい起動の行だけ
+  assert.deepEqual(findSlow(rowsOfRun([row('a', 2000), fresh], 'r1')), []);
 });
