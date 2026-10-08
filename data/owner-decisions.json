@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "about": "オーナーが決めた「画面に出さない物」の台帳。1件ずつ、決めた日・オーナーの言葉・画面に出ていてはいけない文字・確かめ方を持つ。pnpm decisions:check が本番の事例の詳細画面（読む人に見える文）に掛ける。足す時は、この配列に1件足し、scripts/decisions/owner-decisions.test.mjs に悪い例と通すべき例を足す。",
+  "decisions": [
+    {
+      "id": "no-mna",
+      "date": "2026-10-07",
+      "ownerWords": "M&A（事業の売買）は画面に出さない。",
+      "source": "docs/OWNER_INTENT.md 20章 / memory owner-instruction-ledger-all-2026-10-07",
+      "forbidden": [{ "label": "M&A", "pattern": "M\\s*[&＆]\\s*A" }],
+      "how": "事例の詳細画面の文に「M&A」が出ていないこと"
+    },
+    {
+      "id": "no-pro",
+      "date": "2026-10-07",
+      "ownerWords": "PRO（有料の誘導）は画面に出さない。",
+      "source": "memory owner-instruction-ledger-all-2026-10-07",
+      "forbidden": [{ "label": "PRO", "pattern": "\\bPRO\\b" }],
+      "how": "事例の詳細画面の文に大文字の「PRO」が出ていないこと"
+    },
+    {
+      "id": "no-ten-of-ten",
+      "date": "2026-10-07",
+      "ownerWords": "10/10（点数の表示）は画面に出さない。",
+      "source": "memory owner-instruction-ledger-all-2026-10-07",
+      "forbidden": [{ "label": "10/10", "pattern": "(?<![0-9/])10\\s*/\\s*10(?![0-9])" }],
+      "how": "事例の詳細画面の文に「10/10」が出ていないこと"
+    },
+    {
+      "id": "no-hitokoto",
+      "date": "2026-10-07",
+      "ownerWords": "ひとこと（一言の評）は出さない。",
+      "source": "memory owner-instruction-ledger-all-2026-10-07",
+      "forbidden": [{ "label": "ひとこと", "pattern": "ひとこと|ひと言" }],
+      "how": "事例の詳細画面の文に「ひとこと」「ひと言」が出ていないこと"
+    },
+    {
+      "id": "no-can-i-do-it",
+      "date": "2026-10-07",
+      "ownerWords": "「自分にもできるか」は事例画面に出さない。事例画面はその事例の成功の事実だけ。",
+      "source": "memory case-page-chapters-owner-decision-2026-10-07 / case-page-scope-only-this-case",
+      "forbidden": [{ "label": "自分にもできるか", "pattern": "自分にも(?:でき|やれ|真似)" }],
+      "how": "事例の詳細画面の文に「自分にもできる(か)」が出ていないこと"
+    },
+    {
+      "id": "no-common-principles",
+      "date": "2026-10-07",
+      "ownerWords": "共通原則は事例画面に出さない（別機能）。",
+      "source": "memory case-page-scope-only-this-case",
+      "forbidden": [{ "label": "共通原則", "pattern": "共通原則" }],
+      "how": "事例の詳細画面の文に「共通原則」が出ていないこと"
+    },
+    {
+      "id": "no-luck-section",
+      "date": "2026-10-07",
+      "ownerWords": "運・追い風の開示は入れない。",
+      "source": "memory case-page-chapters-owner-decision-2026-10-07",
+      "forbidden": [{ "label": "運・追い風", "pattern": "運・追い風|運と追い風|追い風の開示" }],
+      "how": "事例の詳細画面に「運・追い風」の章が出ていないこと"
+    },
+    {
+      "id": "no-will-it-last",
+      "date": "2026-10-07",
+      "ownerWords": "続くか・依存リスク・今も通じるかの判定は入れない。",
+      "source": "memory case-page-chapters-owner-decision-2026-10-07",
+      "forbidden": [{ "label": "続くか", "pattern": "続くか|依存リスク|今も通じるか" }],
+      "how": "事例の詳細画面に「続くか」「依存リスク」「今も通じるか」が出ていないこと"
+    },
+    {
+      "id": "no-founder-hand",
+      "date": "2026-10-07",
+      "ownerWords": "創業者の持ち札（前職・技能・資金）、作業時間・売却・出口は入れない。",
+      "source": "memory case-page-chapters-owner-decision-2026-10-07",
+      "forbidden": [{ "label": "持ち札", "pattern": "持ち札" }],
+      "how": "事例の詳細画面に「持ち札」の章が出ていないこと"
+    },
+    {
+      "id": "no-negative-section",
+      "date": "2026-10-07",
+      "ownerWords": "知りたいのはプラス方面（どうやって成功したか）だけ。マイナス面の章は出さない。",
+      "source": "memory case-page-chapters-owner-decision-2026-10-07",
+      "forbidden": [{ "label": "マイナス面", "pattern": "マイナス面|デメリット" }],
+      "how": "事例の詳細画面に「マイナス面」「デメリット」が出ていないこと"
+    },
+    {
+      "id": "no-howto",
+      "date": "2026-09-30",
+      "ownerWords": "真似の手順（How-to）は出さない。合法な戦略の参考として事実だけ出す。",
+      "source": "docs/OWNER_INTENT.md 6章",
+      "forbidden": [{ "label": "How-to", "pattern": "How-?\\s?to|ハウツー|真似の手順|真似る手順" }],
+      "how": "事例の詳細画面に手順書の言い回しが出ていないこと"
+    },
+    {
+      "id": "no-absence-text",
+      "date": "2026-10-07",
+      "ownerWords": "「未確認」「不明」など、無いと言うだけの文は画面に出さない。無い項目は載せずに消す。",
+      "source": "docs/CASE_TEXT_STANDARD.md / src/shared/absence-text.ts",
+      "forbidden": [{ "label": "未確認・不明", "pattern": "未確認|不明|材料に書かれていない|公開されていない" }],
+      "how": "事例の詳細画面に「未確認」「不明」などが出ていないこと"
+    },
+    {
+      "id": "no-origin-marks",
+      "date": "2026-10-07",
+      "ownerWords": "出どころの印（本人申告・第三者など）は画面に出さない。画面に出す印は「推定」だけ。出典は番号と出典名とリンクだけ。",
+      "source": "docs/OWNER_INTENT.md 20章1",
+      "forbidden": [
+        { "label": "括弧つきの印", "pattern": "[（(](?:(?:公式|本人|第三者|記事|提出書類)(?:[、,・][^）)]*)?|(?:本人|第三者)[^）)]*)[）)]" },
+        { "label": "印の言い回し", "pattern": "本人申告|独立確認なし|記事の推計|本人の申告ではない|第三者による記録" },
+        { "label": "単独の印", "pattern": "^(?:本人|公式|第三者|記事|提出書類|事実)$", "flags": "m" }
+      ],
+      "how": "事例の詳細画面に出どころの印が出ていないこと（「推定」は出してよい）"
+    }
+  ]
+}

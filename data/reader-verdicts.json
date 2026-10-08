@@ -71622,6 +71622,1079 @@
    }
   }
  },
+ "ent_codementor_ba692caa3db3": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "12000+ top developers anytime",
+   "sourceUrl": "https://www.codementor.io/",
+   "checkedAt": "2026-10-06",
+   "claimText": "開発者にライブで1対1の質問ができる指導と、フリーランス開発者の紹介を行う市場。コードレビューやペアプログラミングも扱う。公式サイトは専門家1万2千人超を掲げ、大きな採用向けには姉妹のArcを案内する。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "we grew very quickly from two people all the way to 50 people in like, less than two years",
+   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+   "checkedAt": "2026-10-06",
+   "claimText": "創業者Weiting Liuは、Y Combinator出身のSocialPicks（株式投資家向けSNS）を売ったあと、台湾で弟とSNSマーケ会社（社員50人）を運営。若手エンジニアが設定の問題で2日詰まったのを見て、すぐ呼べる専門家がいれば数千ドル払うと考えたのが着想だと語る。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "thousands of people sign up on the waiting list waiting to be invited in into the platform",
+   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+   "checkedAt": "2026-10-06",
+   "claimText": "2013年6月1日、登録フォームだけのページを作ってHacker Newsに載せたところ、トップページに出て待機リストに数千人が登録した。このとき製品はまだ動いておらず、裏で作っていた。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "The site, the official site did not launch until, like what? Nine months later.",
+   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+   "checkedAt": "2026-10-06",
+   "claimText": "正式公開まで約9か月。その間は待機リストから選んで招く非公開版で回した。最初の実際の相談は、本人がメンター役を無料で務め、台湾でバーベキュー店を営みながらMagento開発をする米国人に、Ruby on Railsを勧めた30分だった。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "we actually needed to, like seed a few, like very dedicated mentors, just at least to be responsive to the client’s request.",
+   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+   "checkedAt": "2026-10-06",
+   "claimText": "市場は片側から固める方針で、先に少数の熱心なメンターを確保して依頼への返事を速くした。Techstars期間中は客に無料クレジットを配って使ってもらい、開発者への報酬は自社が負担した。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "had I had a chance to go back to do the same thing all over again, I would just use Skype",
+   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+   "checkedAt": "2026-10-06",
+   "claimText": "初期の音声・映像はWebRTCとOpenTok、画面共有はScreenhero。WebRTCの不具合で開発時間を大きく取られ、やり直せるならSkypeを使うと本人は語る。予定調整は、Clarity.fmを参考に、客が3つの候補時間を出して開発者が選ぶ方式を取り入れた。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "Codementor (incorporated as Peer Idea Inc.) has raised $1.6 million in seed funding",
+   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+   "checkedAt": "2026-10-06",
+   "claimText": "2016年12月、WI Harper主導でシード160万ドル。それ以前にTechstars、500 Startups、個人から120万ドルを得ていた。当時は、指導の場から、上位2%のメンターをフリーランス案件につなぐ市場へ広げる計画で、助けを求めた開発者15万人、審査済みメンター5,000人。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "we raised a first seed round from an investor based in Taiwan.",
+   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+   "checkedAt": "2026-10-06",
+   "claimText": "当初は自己資金で運営する方針（37signalsの影響）だったが、1人での開発が孤独で、相談相手として台湾の投資家から最初のシード資金を受けた。公開は3か月早くするべきだったとも語る。"
+  },
+  "f9": {
+   "verdict": "PARTIAL",
+   "quote": "they tier that I put down with between five to 10 million.",
+   "fix": {
+    "text": "2018年6月の取材前アンケートで、直近12か月の売上は「5〜10 million」の区分と答えた。通貨は発言に出てこない。黒字ではなく人員を増やしている、とも答えた。"
+   },
+   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2018年6月の取材で、直近12か月の売上は「500万〜1,000万ドル」の区分（取材前アンケートの回答）、黒字ではなく人員を増やしている、と答えた。"
+  },
+  "f10": {
+   "verdict": "PARTIAL",
+   "quote": "The minimum charge of a paid session is the mentor's 15-minute rate.",
+   "fix": {
+    "text": "客は前払いクレジットかカード登録で有料セッションを始める。メンターの料金に別途サービス手数料が付く。最低課金は15分分で、その後は分単位。クレジットで始めるには20分相当の残高が要る。"
+   },
+   "sourceUrl": "https://support.codementor.io/en/articles/4221825",
+   "checkedAt": "2026-10-06",
+   "claimText": "客は前払いクレジットかカード登録で有料セッションを始める。メンターの料金に別途サービス手数料が付く。最低課金は15分分で、その後は分単位。クレジットで始めるには20分相当の残高が要る。未使用クレジットは購入後90日以内なら返金でき、サービス手数料は返金されない。"
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "competitors include: Freelancer.com, GitHub Jobs, Guru.com, Upwork and Toptal.",
+   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+   "checkedAt": "2026-10-06",
+   "claimText": "TechCrunchは競合として、Freelancer.com、GitHub Jobs、Guru.com、Upwork、Toptalを挙げた。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "has raised $1.6 million in seed funding",
+   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=FUNDING / 期間=2016-12のシード(POINT) / 金額=1600000 USD / 由来=ARTICLE",
+   "fix": {
+    "metric": {
+     "basis": "2016年12月のシード（このラウンド）"
+    }
+   }
+  },
+  "m2": {
+   "verdict": "PARTIAL",
+   "quote": "had previously raised $1.2 million in early-stage funding",
+   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=FUNDING / 期間=2016-12までの早期資金（Techstars・500 Startups・個人）(CUMULATIVE) / 金額=1200000 USD / 由来=ARTICLE",
+   "fix": {
+    "metric": {
+     "basis": "2016年12月より前の合計"
+    }
+   }
+  },
+  "m3": {
+   "verdict": "SUPPORTED",
+   "quote": "the company counts 150,000 developers who have sought programming help",
+   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=USERS / 期間=2016-12 助けを求めた開発者(POINT) / 金額=150000 人 / 由来=ARTICLE"
+  },
+  "m4": {
+   "verdict": "SUPPORTED",
+   "quote": "5,000 vetted developer-mentors",
+   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=USERS / 期間=2016-12 審査済みメンター(POINT) / 金額=5000 人 / 由来=ARTICLE"
+  }
+ },
+ "ent_teamcamp_ae0c21986c4d": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Import your data from Asana, ClickUp, or Linear in minutes.",
+   "sourceUrl": "https://www.teamcamp.app/",
+   "checkedAt": "2026-10-06",
+   "claimText": "開発会社、デザイン会社、マーケティング代理店、フリーランス向けのプロジェクト管理ツール。タスク管理、時間記録、請求書、顧客に見せる専用画面、GitHub・GitLab連携をまとめている。コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearからデータを取り込める。"
+  },
+  "f2": {
+   "verdict": "PARTIAL",
+   "quote": "per month, unlimited user, billed annually",
+   "sourceUrl": "https://www.teamcamp.app/pricing",
+   "checkedAt": "2026-10-08",
+   "claimText": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）、保存500GB。",
+   "fix": {
+    "text": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）。"
+   }
+  },
+  "f3": {
+   "verdict": "PARTIAL",
+   "quote": "Join the Teamcamp Affiliate Program today and earn lifetime recurring revenue for every referral.",
+   "fix": {
+    "text": "紹介プログラムは、紹介した客1人ごとに生涯続く継続コミッションを払う。募集先はブログ運営者、比較サイト、インフルエンサー、既存の客。"
+   },
+   "sourceUrl": "https://www.teamcamp.app/affiliate",
+   "checkedAt": "2026-10-06",
+   "claimText": "紹介プログラムは、紹介した客1人ごとに生涯続く継続コミッションを払う。募集先はブログ運営者、比較サイト、インフルエンサー、既存の客。率は公開されていない。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "As an SEO executive managing multiple client projects, I was drowning in overly complex PM tools.",
+   "sourceUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+   "checkedAt": "2026-10-06",
+   "claimText": "創業者Pratham Naikは、SEO担当として複数の顧客案件を抱え、複雑な管理ツールにうんざりして作り始めたと書く。Asanaは簡単なタスクを作るだけで宇宙船の操縦のようで、Mondayは使わない機能にも払っており、Trelloは単純すぎたという。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "MRR: $4,200 (target: $10k by end of year)",
+   "sourceUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+   "checkedAt": "2026-10-06",
+   "claimText": "2025年8月19日の本人投稿は、開始から6か月で稼働847チーム、MRR 4,200ドル（年末に10,000ドルが目標）、月の解約率8%、NPS 67と申告。新規登録の約4割は口コミ・紹介で、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。"
+  },
+  "f6": {
+   "verdict": "HELD",
+   "quote": "Real retention jumped from 12% to 41% in two months. MRR went from $347 to $2,100.",
+   "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
+   "checkedAt": "2026-10-08",
+   "claimText": "2025年11月3日の本人投稿は、インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作ったが、Product Huntは23票、初月売上は227ドルだったと書く。初めて話した代理店の経営者（インディー界隈の外の最初の客）に「顧客用ポータルは？白ラベルにできる？」と聞かれ、見た目より顧客とのやり取りの機能が要ると分かった。以後は事業主との直接の会話に切り替え、2か月で継続率が12%から41%、MRRが347ドルから2,100ドルになったという。",
+   "reason": "継続率12%→41%の投稿は同じ創業者Pratham Naikの名義だが、本人の返信では「Bearconnect」という別の製品の話として書かれていて、Teamcampの数字と確かめられない"
+  },
+  "f7": {
+   "verdict": "HELD",
+   "quote": "6 months later: 43 total signups, 2 paying customers, $18 MRR.",
+   "sourceUrl": "https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034",
+   "checkedAt": "2026-10-08",
+   "claimText": "日付不明の本人投稿は、200人超の関心を集め、3週間の聞き取りと6か月の毎日の公開開発を経ても、サインアップ43件・有料2件・MRR 18ドルだったと書く。以後は、競合にすでに払っている人を探し、作る前に12人へ99ドルで先売りする検証に変えた。",
+   "reason": "投稿日は2025-09-30だが、8月の847チーム・MRR 4,200ドルと食い違い、同じ事業の同じ時期の数字と確かめられない"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "40% of revenue comes from lifetime deals",
+   "sourceUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+   "checkedAt": "2026-10-06",
+   "claimText": "2025年10月7日の本人投稿は、買い切り999ドル（ユーザーも案件も無制限）を、月額の選択肢と並べて4か月試した結果として、売上の約4割が買い切り、買い切りの客は月額の客の3.2倍を紹介、買い切り客の解約はゼロだが問い合わせは多いと書く。懸念として、サーバー費は利用に比例するので、買い切りの客が50人規模のチームを入れると利益が崩れると自分で書いている。"
+  }
+ },
+ "ent_referralrock_8c13d5ee4cfc": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Referral Rock includes a dedicated advisor (on all plans) who configures the referral program to fit how your business works",
+   "sourceUrl": "https://referralrock.com",
+   "checkedAt": "2026-10-06",
+   "claimText": "事業者が紹介プログラムを自動で運営するためのソフト。紹介リンク、紹介の追跡、報酬の条件と払い出しの管理をまとめる。全プランに、紹介制度の設定を支援する専任アドバイザーが付く。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、ECなどが使う。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Not too long after in December 2013, referralrock.com was registered.",
+   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+   "checkedAt": "2026-10-06",
+   "claimText": "創業者Josh Hoは2013年に、小さな事業が自前で紹介プログラムを運営できる道具を思いつき、同年12月にドメインを登録した。ベータ期は家族を支えるため、ソフトの受託を副業で続けた。旧製品UberNoteの利用者リスト、Betalist、知人で告知し、2014年前半には200超の接点、最初の1年半で500社超が登録した。作業は月約20時間。"
+  },
+  "f3": {
+   "verdict": "PARTIAL",
+   "quote": "The first version I cobbled together was from some old HTML templates and some reusable code laying around",
+   "fix": {
+    "text": "最初の管理画面はSurvey Monkeyの回答フォームで、最初の版は古いHTMLの雛形と使い回しのコードで作った。本人は、出せずに終わった企画が少なくとも5つあるとも書く。客の話を聞いて気に入らない内容が出ても、作りたい製品の像を優先してまず出した。"
+   },
+   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+   "checkedAt": "2026-10-06",
+   "claimText": "最初の管理画面はSurvey Monkeyの回答フォームで、客の顧客向け画面は古いHTMLの雛形と使い回しのコードで作った。本人は、出せずに終わった企画が少なくとも5つあるとも書く。客の話を聞いて気に入らない内容が出ても、作りたい製品の像を優先してまず出した。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "Beta users still had access, but sign-ups were now only for the paid version ($59 per month).",
+   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+   "checkedAt": "2026-10-06",
+   "claimText": "2015年6月に月59ドルの有料版を公開し、2日以内に最初の有料客が登録、月末には4社になった。数か月で月約2,000ドルのMRRに達し、創業者は専業になった。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "I had added gift cards fulfillment to a new higher-priced plan at $250 a month with a 6-month commitment on our pricing page.",
+   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+   "checkedAt": "2026-10-06",
+   "claimText": "2016年2月、ギフトカード報酬の処理を足し、月250ドル・6か月契約の上位プランを設けた。1社から一度に1,500ドルが入った。任意の「サクセス支援パッケージ」も作り、後に月払いでは必須にした。"
+  },
+  "f6": {
+   "verdict": "PARTIAL",
+   "quote": "The year ended with a total of 170 customers, 3.5 FTE, and $15k MRR.",
+   "fix": {
+    "text": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で失敗し、2か月分の売上を失った。10月に2人目の営業を雇い、2016年末は顧客170社、常勤換算で3.5人分の体制、MRR約15,000ドル。外部資金は受けていない。"
+   },
+   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で2か月で終わった。10月に2人目の営業を雇い、2016年末は顧客170社、3.5人、MRR約15,000ドル。外部資金は受けていない。"
+  },
+  "f7": {
+   "verdict": "PARTIAL",
+   "quote": "May 1, 2019 70K a month in revenue Lesson for me: Being a bit more aggressive vs what I am comfortable with. Be willing to double down on what is working even if you don't feel ready. The source of this uptick was for us to hire a second sale-person.",
+   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
+   "checkedAt": "2026-10-08",
+   "claimText": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。",
+   "reason": "2019年5月に月売上70,000ドルという時点・金額は、出典の原文で確かめられない（引用は2人目の営業の採用だけ）",
+   "fix": {
+    "text": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。"
+   }
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "Personalized on-boarding and dedicated customer success per account have helped us cut our churn in 1/2.",
+   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
+   "checkedAt": "2026-10-06",
+   "claimText": "2019年7月の投稿は、導入時の立ち上げ会議と客ごとの専任サクセス担当で解約を半分に減らしたと書く。客には「代わりにやる」でなく「手伝う」と明確に伝えている。8月の投稿は、4か月連続でMRRが5%ずつ伸びたと書く。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "Month to month, no long-term contract. Prefer annual? Save 10%.",
+   "sourceUrl": "https://referralrock.com/pricing/",
+   "checkedAt": "2026-10-06",
+   "claimText": "現在のOperatorプランは月250ドル。長期契約は不要、年払いは10%引き、専任アドバイザーとその支援チームが込みで、初期設定料は無い。"
+  },
+  "f11": {
+   "verdict": "PARTIAL",
+   "quote": "Export limits: 50,000 rows by default.",
+   "fix": {
+    "text": "2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。"
+   },
+   "sourceUrl": "https://product.referralrock.com/p/october-2025-exports",
+   "checkedAt": "2026-10-06",
+   "claimText": "公式は1,000社超が使うと掲げる。2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "May 1, 2019 70K a month in revenue",
+   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=REVENUE / 期間=2019-05（本人の投稿「月の売上70K」）(MONTH) / 金額=70000 USD / 由来=SELF_REPORTED",
+   "reason": "出典が403で読めず、時点（2019年5月）を確かめられない。2019年7月の対談では月70,000ドル",
+   "fix": {
+    "metric": {
+     "period": "2019年5月1日の投稿（月の売上70K）"
+    }
+   }
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "The year ended with a total of 170 customers, 3.5 FTE, and $15k MRR.",
+   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=REVENUE / 期間=2016年末のMRR（約）(MONTH) / 金額=15000 USD / 由来=SELF_REPORTED"
+  },
+  "m3": {
+   "verdict": "SUPPORTED",
+   "quote": "Within a few months, Referral Rock was making about $2k a month",
+   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=REVENUE / 期間=2015年有料版公開から数か月後のMRR（約）(MONTH) / 金額=2000 USD / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_ejunkie_7e9e46bd9643": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "Copy-paste a link to sell downloads, or physical goods on any website. Or, create a simple shop in 5 minutes.",
+   "sourceUrl": "https://www.e-junkie.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "コピペしたボタンやリンクで、ダウンロード商品・ゲームのコード・チケット・現物の商品を、どのサイト、ブログ、SNS、メールからでも売れるようにするサービス。5分で簡易ショップも作れる。売り手はPayPal、Stripe、Braintree、Authorize.Net、2Checkout、Razorpayなど自分の決済会社をつなぐ。"
+  },
+  "f2": {
+   "verdict": "PARTIAL",
+   "quote": "No transaction fee. No bandwidth limit. Just pay a flat monthly fee",
+   "fix": {
+    "text": "料金は月額固定の4段。月8ドル（商品10点・保存200MB）、月10ドル（40点・2GB）、月20ドル（150点・8GB）、月40ドル（商品・保存とも無制限）。全プランで販売数とダウンロード数は無制限、取引手数料なし。14日間の無料試用にカードは要らない。"
+   },
+   "sourceUrl": "https://www.e-junkie.com/wiki/pricing",
+   "checkedAt": "2026-10-06",
+   "claimText": "料金は月額固定の4段。Starterは月8ドル（商品10点・保存200MB）、Professionalは月10ドル（40点・2GB）、Businessは月20ドル（150点・8GB）、Enterpriseは月40ドルで無制限。全プランで販売数とダウンロード数は無制限、取引手数料なし。14日間の無料試用にカードは要らない。"
+  },
+  "f3": {
+   "verdict": "PARTIAL",
+   "quote": "mid 2004 I converted it to a service that anyone could use for selling digital downloads.",
+   "fix": {
+    "text": "創業者Robin Singhは、勤め先の収入を補うために自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払い通知のたびにメールで手渡しした。2003年末に配信を自動化するスクリプトを書き、作家の友人と音楽家の友人に電子書籍とMP3の配信用にカスタマイズを頼まれ、2004年半ばに誰でも使えるダウンロード販売サービスにした。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
+   "checkedAt": "2026-10-06",
+   "claimText": "創業者Robin Singhは、勤め先の収入を補うために自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払い通知のたびにメールで手渡しした。2003年末に配信を自動化するスクリプトを書き、作家の友人と音楽家の友人に電子書籍とMP3の配信用にカスタマイズを頼まれ、2004年半ばに誰でも使えるダウンロード販売サービスにした。公式の沿革は、2003年にダイヤルアップ回線で4ドルのソフトを手送りしていたのが出発点だとする。"
+  },
+  "f4": {
+   "verdict": "PARTIAL",
+   "quote": "I'd just look up authors on Google and email them one on one",
+   "fix": {
+    "text": "本人は、Googleで著者を探し、自費出版の電子書籍があれば、設定を引き受けると個別にメールした。職人市にも出向き、作家のためにオンラインショップを設けた。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
+   "checkedAt": "2026-10-06",
+   "claimText": "最初の売り先は、本人が1人ずつ口説いた。Googleで著者を探し、自費出版の電子書籍があれば、設定を引き受けると個別にメールした。職人市にも出向き、作家の店をオンラインに設置した。"
+  },
+  "f5": {
+   "verdict": "PARTIAL",
+   "quote": "I sold my interest in the company that owned E-junkie, and started an animal rescue and an organic farm. In December 2017, I took over again and am turning it around.",
+   "fix": {
+    "text": "2019年4月の本人の投稿によると、2011年にE-junkieを持つ会社の持分を売って事業から退き、動物保護施設と有機農場を始めた。2017年12月に経営へ戻って立て直しを進めている。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
+   "checkedAt": "2026-10-06",
+   "claimText": "2019年4月の本人の投稿によると、2011年に会社の持分を手放して事業から退き、2017年12月に経営へ戻って立て直しを進めている。本人はコメントで、大きな買収ではなく、E-junkieを持つ家族経営の非公開会社の持分を売り、あとで買い戻したと説明した。"
+  },
+  "f6": {
+   "verdict": "PARTIAL",
+   "quote": "Overcoming Technical Roadblocks to Achieve $1 Million ARR",
+   "fix": {
+    "text": "Indie Hackersのインタビューは、題で年間の定期売上（ARR）100万ドルへの到達を掲げる。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+   "checkedAt": "2026-10-06",
+   "claimText": "2019年5月20日のIndie Hackersのインタビューは、題で年間の定期売上100万ドルへの到達を掲げる。全文は登録者向けの公開。"
+  },
+  "f7": {
+   "verdict": "PARTIAL",
+   "quote": "E-junkie is operated by a team of web developers, technicians and a Linux guru based primarily in downtown Tucson, Arizona and near Dharamsala, India.",
+   "fix": {
+    "text": "チームは開発者、技術者、Linux担当で、アリゾナ州ツーソンとインドのダラムサラ近郊が中心。公式の沿革は、客が今では数千に達していると書く。AWS上の分散アプリとして動く。"
+   },
+   "sourceUrl": "https://www.e-junkie.com/wiki/about",
+   "checkedAt": "2026-10-06",
+   "claimText": "チームは開発者、技術者、Linux担当で、アリゾナ州ツーソンとインドのダラムサラ近郊が中心。専業になる時点で客は数千に達していたと公式の沿革が書く。AWS上の分散アプリとして動く。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "E-junkie's affiliate system is free for affiliates to use at no charge",
+   "sourceUrl": "https://www.e-junkie.com/wiki/affiliates",
+   "checkedAt": "2026-10-06",
+   "claimText": "出店者は自分の商品に紹介（アフィリエイト）制度を作れる。紹介者の側は、システムの利用が無料。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "you should rely on your payment processor account records (e.g. PayPal History) to get that data straight from the source",
+   "sourceUrl": "https://www.e-junkie.com/wiki/help-transaction-log",
+   "checkedAt": "2026-10-06",
+   "claimText": "取引ログは、決済会社が報告した内容を受け取った二次情報にすぎず、会計や金額の確認には決済会社の記録を使うよう、公式が注意書きを付けている。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "Direct sales: 10% + 50¢ per sale, $0 monthly. Discover marketplace sales: 30%.",
+   "sourceUrl": "https://gumroad.com/pricing",
+   "checkedAt": "2026-10-06",
+   "claimText": "競合のGumroadは、直販が1件ごとに10%＋0.50ドル（月額なし）、同社の販売サイト経由は30%。2025年1月1日から売上税の徴収・納付を同社が代行する。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "For almost a decade now we have averaged $1MM a year in revenue.",
+   "fix": {
+    "metric": {
+     "period": "過去ほぼ10年の年平均（2019年5月のインタビュー）",
+     "periodKind": "YEAR"
+    }
+   },
+   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=REVENUE / 期間=2019-05（インタビューの題が掲げる年間の定期売上）(YEAR) / 金額=1000000 USD / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_gorails_640d8f688451": {
+  "f1": {
+   "verdict": "PARTIAL",
+   "quote": "Tutorials\n826\nHours of content\n140+",
+   "fix": {
+    "text": "Ruby on Rails の動画講座とコース。公式トップはチュートリアル826本・140時間超を掲げ、9万6千人超の開発者が学ぶと表示する。同じ会社がRails向けホスティングHatchboxと、SaaS用テンプレートJumpstart Railsも持つ。"
+   },
+   "sourceUrl": "https://gorails.com",
+   "checkedAt": "2026-10-06",
+   "claimText": "Ruby on Rails の動画講座とコース。公式トップは動画825本・140時間超を掲げ、9万6千人超の開発者が学ぶと表示する。同じ会社がRails向けホスティングHatchboxと、SaaS用テンプレートJumpstart Railsも持つ。"
+  },
+  "f2": {
+   "verdict": "PARTIAL",
+   "quote": "Team\n$19\n/ user\n/month\nGet Started\nMinimum 2 users",
+   "sourceUrl": "https://gorails.com/pricing",
+   "checkedAt": "2026-10-07",
+   "claimText": "個人プランは月19ドル（動画650本超とDiscordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。",
+   "fix": {
+    "text": "個人プランは月19ドル（Discordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。"
+   }
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "I burned the bridges and quit consulting completely on January 1st, 2014.",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "創業者Chris Oliverは受託開発をしていた。数か月かけた仕事が顧客に使われず無駄になることが続いて燃え尽き、2014年1月1日に受託をやめた。手元の資金は約9か月分だった。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "The idea came to me after purchasing GoRails.com to share my notes for Ruby on Rails development publicly.",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "自分のRailsのメモを公開するためにGoRails.comのドメインを買ったところ、サイトのアクセスが増えた。その訪問者に何か売ろうと考えた。以前は集客のあてなしに作って客がつかなかったが、今回は既にいる読者に売る形だった。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "I spent those 9 months trying to get comfortable screencasting. It turned into two courses.",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "最初の9か月は画面録画に慣れることに使い、無料と有料の2つのコースを作った。自分の受託の経験を商品にしたが、無名だったため売れなかったと本人は話す。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "That day I got +600 email addresses",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "毎週1本の動画を無料で出し続けた。ある日、誰かがGoRailsをHacker Newsの上位に投稿し、その日にメールアドレス600件超が集まった。当時の本人は資金が尽きて就職先を探していた。このメールの一覧がニュースレターとなり、事業の重要な柱になった。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "GoRails is doing $60,000 in MRR, which is very good as a single-person business.",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "2021年11月時点で月次定期売上（MRR）は約6万ドル。マーケティング、営業、サポート、開発を1人でこなしていたが、手に負えなくなり、開発者とサポート担当の採用を始めたと説明。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "I didn’t pay myself a salary for 2 years.",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "最初の2年は自分に給料を払わなかった。本人は、もっと早くマーケティングと採用をすべきだったと振り返る。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "And then the business template, JumpstartRails, which is probably the best ROI for the time that I give it.",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "3つの製品を比べると、毎週の動画は時間を取られ続け、ホスティングのHatchboxは仕事が重いわりに利益が小さく、止まると困る客が多いので即応のサポートが要る。テンプレートのJumpstart Railsは、かけた時間あたりの利益が最も良いと本人は見ている。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "people use my JAM, learn about me and then find out that I make videos",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "オープンソースの公開も集客に使う。自作のライブラリを使った人が本人を知り、動画を見に来る流れを狙っている。"
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "We just crossed $1M in revenue across GoRails.com",
+   "sourceUrl": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
+   "checkedAt": "2026-10-06",
+   "claimText": "2020年8月、3つの製品の累計売上が100万ドルに達したと創業者が自ら投稿した。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "GoRails is doing $60,000 in MRR, which is very good as a single-person business.",
+   "sourceUrl": "https://www.failory.com/interview/gorails",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=REVENUE / 期間=2021-11（記事掲載時のMRR）(MONTH) / 金額=60000 USD / 由来=SELF_REPORTED"
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "We just crossed $1M in revenue across GoRails.com",
+   "sourceUrl": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=REVENUE / 期間=〜2020-08（3製品の累計）(CUMULATIVE) / 金額=1000000 USD / 由来=SELF_REPORTED"
+  },
+  "m3": {
+   "verdict": "HELD",
+   "quote": "Join 96,721+ developers learning, building, and",
+   "sourceUrl": "https://gorails.com",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公式トップの表示（開発者数）(POINT) / 金額=96669 人 / 由来=SELF_REPORTED",
+   "reason": "公式トップの開発者数は日々変わる表示で、いつ時点かを原文から確かめられない"
+  }
+ },
+ "ent_rfrcui_64e924ac": {
+  "f1": {
+   "verdict": "SUPPORTED",
+   "quote": "The 218-page book in PDF format",
+   "sourceUrl": "https://refactoringui.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "開発者が自分で画面を整えられるようにするデザイン教材。218ページのPDF（50章）、3本の動画（合計約41分）、200点超の部品見本、十数種の配色、30超のフォント案、200点のSVGアイコンが一式になっている。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "The Essentials\n$99\nUSD\nplus local taxes",
+   "sourceUrl": "https://refactoringui.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "価格は、本と動画だけのEssentialsが99ドル、素材まで全部入りのComplete Packageが149ドル（いずれも税別）。チーム向けはComplete Packageが3人399ドル、5人649ドル、10人1,249ドル、25人2,749ドルなどの人数別。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "him handling the UI design and me taking care of development",
+   "sourceUrl": "https://refactoringui.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "著者はAdam Wathan（開発者）とSteve Schoger（UIデザイナー）。長年の友人で、共作の副業ではSteveが画面設計、Adamが開発を受け持っていた。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "take all of the tips and tricks we’ve shared on Twitter , bundle them up into one resource, and put it out into the world.",
+   "sourceUrl": "https://refactoringui.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "当初は、2人がTwitterで配ってきた小技を1つにまとめるだけの予定だった。計画を進めるうちに、本だけでなく動画・部品見本・配色・フォント・アイコンまで含む「一式」に広げた。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "They focus so much on high level principles like color theory and typography",
+   "sourceUrl": "https://refactoringui.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "売り文句は「才能ではなく手順」。例として、枠線を減らし、影・背景色の差・余白で要素を分ける方法を挙げる。多くのデザイン講座は色彩理論などの大きな原則に偏り、すぐ画面を良くする具体策が足りないと批判している。"
+  },
+  "f6": {
+   "verdict": "PARTIAL",
+   "quote": "Many of those tweets took two weeks of near full-time effort to craft and make perfect, but that's why they would get like 5000 RTs and 15,000 likes.",
+   "fix": {
+    "text": "発売前の約2年、ツイートを多く流した。1本に2週間近いほぼフルタイムの作業をかけたものも多く、5000リツイート・1万5千いいね前後に届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+   "checkedAt": "2026-10-06",
+   "claimText": "発売前の約2年、デザインの小技を図解したツイートを大量に流した。1本に2週間近くかけたものも多く、数千リツイート・1万5千いいねに届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。"
+  },
+  "f7": {
+   "verdict": "PARTIAL",
+   "quote": "In December 2018, I wrote Refactoring UI with my friend Steve Schoger, which has done over $2.5m and continues to sell well four years later.",
+   "fix": {
+    "text": "Refactoring UIは2018年12月に書いた本で、2022年9月の投稿時点で累計250万ドル超。4年たっても売れ続けていると本人が書いている。"
+   },
+   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+   "checkedAt": "2026-10-06",
+   "claimText": "Refactoring UIは2018年12月に発売し、2022年9月時点で累計250万ドル超。発売から4年たっても売れ続けていると本人が書いている。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "I went solo after writing my first book in 2016, which did $61,392 in the first week",
+   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+   "checkedAt": "2026-10-06",
+   "claimText": "Adamは教材の前にも実績があった。2016年の最初の本は発売初週に61,392ドル、同年のTDD講座は累計100万ドル超、2018年のVue講座は約30万ドルと本人が書いている。2019年1月からTailwind CSSに専念し、2020年にTailwind UIを出した。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "The only real failure that I actually launched was Nitpick CI, all of my other failed projects I actually failed to finish/launch",
+   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+   "checkedAt": "2026-10-06",
+   "claimText": "Adamが実際に出して失敗したのはNitpick CIだけで、履歴書アプリ、リンク共有のSNS、売上税の徴収を代行する決済サービスは、完成させずにやめたと本人が答えている。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "78% of total purchases (6765) favoured the higher tier (as of Jan 10, 2019)",
+   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+   "checkedAt": "2026-10-06",
+   "claimText": "発売当初の価格は、基本版79ドル・上位版149ドルだった。上位版の値引きを40%、基本版を25%と見せ、上位版を大きく目立つ見た目にしたところ、2019年1月10日時点の購入の約78%が上位版だったという。"
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "Only in serving up two years worth of free tips, screencasts, and articles is this price possible.",
+   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+   "checkedAt": "2026-10-06",
+   "claimText": "同記事は、2年分の無料のツイート・動画・記事があったから149ドルを付けられた、と分析している。Amazonの電子書籍の相場から外れるよう、自前のサイトで動画・素材と組にした点も挙げる。"
+  },
+  "f12": {
+   "verdict": "PARTIAL",
+   "quote": "Promotion via email, newsletter, social media, case studies, and screencasts to grow number of subscribers/followers",
+   "fix": {
+    "text": "2019年1月10日公開のポッドキャスト回で、メール・ニュースレター・SNS・事例記事・画面録画動画で購読者やフォロワーを増やす方法と、本・動画などの組み方、価格の付け方が話題になった。"
+   },
+   "sourceUrl": "https://artofproductpodcast.com/episode-70",
+   "checkedAt": "2026-10-06",
+   "claimText": "発売直後の2019年1月、2人はポッドキャストで、メール・SNS・事例記事・画面録画動画で購読者を増やした方法と、本・動画・素材の組み方、価格の付け方を語った。"
+  },
+  "f13": {
+   "verdict": "SUPPORTED",
+   "quote": "Over 30,000 copies sold\n4.68 stars on Goodreads",
+   "sourceUrl": "https://refactoringui.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "公式サイトは3万部超の販売、Goodreads評価4.68、SavvyCal・Clearbit・Transistorの創業者の推薦文を掲げる。購入は2つの価格帯の「Buy now」から。決済はLink by Stripe。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "which has done over $2.5m and continues to sell well four years later",
+   "fix": {
+    "metric": {
+     "period": "2022年9月13日の投稿時点の累計（250万ドル超）"
+    }
+   },
+   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2022年9月の累計（250万ドル超）(CUMULATIVE) / 金額=2500000 USD / 由来=SELF_REPORTED"
+  },
+  "m2": {
+   "verdict": "HELD",
+   "quote": "Refactoring UI ended up grossing over $1.35M",
+   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
+   "checkedAt": "2026-10-07",
+   "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2019年初め（終点は記事に明記なし）、135万ドル超(CUMULATIVE) / 金額=1350000 USD / 由来=THIRD_PARTY",
+   "reason": "時点が記事に無い（金額は出典どおり）。一覧には本人の最新値を出す"
+  }
+ },
+ "ent_heygen_8f11a1": {
+  "f1": {
+   "verdict": "PARTIAL",
+   "quote": "No camera, editing software, or production skills needed.",
+   "fix": {
+    "text": "文章・画像・音声・スライドから、本人そっくりのアバターが話す動画を作るAI動画サービス。カメラも編集ソフトも制作スキルも要らず、175以上の言語・方言への翻訳に対応し、動画生成・翻訳・リップシンクの開発者向けAPIもある。"
+   },
+   "sourceUrl": "https://www.heygen.com/",
+   "checkedAt": "2026-10-06",
+   "claimText": "文章・画像・音声・スライドから、本人そっくりのアバターが話す動画を作るAI動画サービス。撮影も俳優も編集ソフトも使わず台本だけで作れ、175以上の言語・方言への吹き替えと、動画生成・翻訳・リップシンクの開発者向けAPIもある。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "That's what founder Joshua Xu discovered when he was an engineer at Snap, building features for SnapChat Ads and the AI camera.",
+   "sourceUrl": "https://www.heygen.com/about",
+   "checkedAt": "2026-10-06",
+   "claimText": "創業者のJoshua XuはSnapのエンジニアとして広告とAIカメラの機能を作っていたとき、人は動画が好きなのにカメラの前に立つのは嫌がる、という事実に気づいた。HeyGenはそこから生まれたと公式Aboutは語る。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "finished videos can cost $1,000 per minute. At least.",
+   "sourceUrl": "https://www.heygen.com/about",
+   "checkedAt": "2026-10-06",
+   "claimText": "公式Aboutは、従来の動画づくりには撮影機材・俳優・場所・編集・撮り直しが要り、完成した動画の制作費が1分あたり最低1,000ドルになることもあると述べ、台本を書くだけで動画が作れる点を売りにしている。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "was founded by Joshua Xu and Wayne Liang in 2020.",
+   "sourceUrl": "https://en.wikipedia.org/wiki/HeyGen",
+   "checkedAt": "2026-10-06",
+   "claimText": "英語版Wikipediaは、HeyGenを2020年にJoshua XuとWayne Liangが創業した、ロサンゼルス本社のAI動画の会社と記す。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "HeyGen, the identity-first AI video platform, today announced it has surpassed $200 million in annual recurring revenue, doubling in eight months.",
+   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+   "checkedAt": "2026-10-06",
+   "claimText": "公式ブログ（2026-06-25、署名Joshua Xu）は、年間経常収益（ARR）が2億ドルを超え、8か月で倍増したと発表。利用者3,000万人超、196か国、フォーチュン100社の85%、これまでに作られた動画は1億1,800万本超とも記す。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "HeyGen generates roughly $2.70 in annual recurring revenue for every dollar of equity capital it has raised",
+   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+   "checkedAt": "2026-10-06",
+   "claimText": "同ブログは、調達した株式資本1ドルあたりのARRが約2.70ドルで、ZoomやDatadogの上場時より資本効率が高いと主張する。要因として、技術基盤を端から端まで自社で持つこと、少人数で成果が高いこと、口コミ中心で伸びる商品の3点を挙げる。調達額そのものは記載がない。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "150+ Global employees",
+   "sourceUrl": "https://www.heygen.com/careers",
+   "checkedAt": "2026-10-06",
+   "claimText": "公式の採用ページは、世界の従業員が150人超と表示する（表示時点の日付はない）。"
+  },
+  "f8": {
+   "verdict": "SUPPORTED",
+   "quote": "For solo creators, the Creator plan costs $29/month (or $24/month if you pay annually).",
+   "sourceUrl": "https://www.heygen.com/pricing",
+   "checkedAt": "2026-10-06",
+   "claimText": "料金ページはFreeが月0ドル、Creatorが月29ドル、その上にPro、法人向けのEnterpriseを置く。"
+  },
+  "f9": {
+   "verdict": "SUPPORTED",
+   "quote": "in the past three months HeyGen shipped 63 products and features, including Avatar V, the HeyGen MCP, and HyperFrames, its open-source (Apache 2.0) framework for agentic video creation.",
+   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+   "checkedAt": "2026-10-06",
+   "claimText": "直近3か月で63の製品・機能を出荷したと同ブログは述べる。15秒の動画から表情や身ぶりを再現するAvatar V、HeyGen MCP、オープンソース（Apache 2.0）の動画づくり枠組みHyperFramesなど。HyperFramesは公開1か月でGitHubスター2万1,600を集めた。"
+  },
+  "f10": {
+   "verdict": "SUPPORTED",
+   "quote": "Craig Veroni, a realtor serving Vancouver, uses it to build his personal brand on Instagram.",
+   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+   "checkedAt": "2026-10-06",
+   "claimText": "公式ブログの利用例。アーティストのKellie DeFriesは夜11時の撮影をデジタルツインに置き換えてオンライン講座を教えさせ、不動産業者のCraig Veroniは個人ブランドのInstagram動画に使い、Lisa Anugwom NarhはYouTubeのチャンネルを1回の収録から広げた。"
+  },
+  "f11": {
+   "verdict": "PARTIAL",
+   "quote": "HeyGen is proud to be backed by leading investors including Benchmark, Conviction, Thrive Capital, and Bond",
+   "fix": {
+    "text": "公式Aboutは出資者としてBenchmark、Conviction、Thrive Capital、Bondを挙げ、報道一覧にビジネスインサイダーの2024年9月9日の記事（見出しは「44 of the most promising AI startups of 2024, according to top VCs」）を載せている。調達額は記載がない。"
+   },
+   "sourceUrl": "https://www.heygen.com/about",
+   "checkedAt": "2026-10-06",
+   "claimText": "公式Aboutは出資者としてBenchmark、Conviction、Thrive Capital、Bondを挙げ、報道一覧にビジネスインサイダーの2024年9月の記事（見出しは資金調達ラウンドで評価額5億ドル）を載せている。調達額は記載がない。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "HeyGen, the identity-first AI video platform, today announced it has surpassed $200 million in annual recurring revenue, doubling in eight months.",
+   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=REVENUE / 名前=年間経常収益（ARR）、2億ドル超 / 期間=2026-06-25(POINT) / 金額=200000000 USD / 由来=SELF_REPORTED"
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "a community of more than 30 million users in 196 countries",
+   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=USERS / 名前=利用者数、3,000万人超 / 期間=2026-06-25(POINT) / 金額=30000000 人 / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_requestly_28e9f2": {
+  "f1": {
+   "verdict": "PARTIAL",
+   "quote": "the popular open-source HTTP interception and API mocking tool",
+   "fix": {
+    "text": "ブラウザのHTTP通信を途中で書き換えたり、モック（偽の応答）にしたりする開発者向けのオープンソースツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。"
+   },
+   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+   "checkedAt": "2026-10-06",
+   "claimText": "ブラウザやアプリのHTTP通信を途中で書き換えたり、偽の応答を返したりする開発者向けツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。オープンソースで、API設計・テスト用のAPIクライアントも持つ。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "transforming a weekend Chrome extension project into a Y Combinator-backed company",
+   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+   "checkedAt": "2026-10-08",
+   "claimText": "創業者Sachin Jainは、本番環境の圧縮されたJavaScriptをデバッグしたいという苛立ちから、約30分でChrome拡張の最初の版を作った。Baremetricsの紹介文は、週末の個人制作から始まったと説明する。"
+  },
+  "f3": {
+   "verdict": "PARTIAL",
+   "quote": "What began in 2018 as a simple tool to redirect JavaScript files for local testing",
+   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+   "checkedAt": "2026-10-08",
+   "claimText": "2018年、JavaScriptファイルを差し替えるだけの道具として始まった。変更を試すためだけに配備し直す手間を省く道具で、のちにコンテンツセキュリティポリシーに当たった開発者向けにHTTPヘッダーの書き換えも加わった。デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、システム全体のプロキシ設定や証明書の導入が要らず、会社のVPNでも動く。その後、チームで設定を共有する機能が加わった。",
+   "fix": {
+    "text": "JavaScriptファイルを差し替えるだけの道具として始まった。変更を試すためだけに配備し直す手間を省く道具で、のちにコンテンツセキュリティポリシーに当たった開発者向けにHTTPヘッダーの書き換えも加わった。デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、システム全体のプロキシ設定や証明書の導入が要らず、会社のVPNでも動く。その後、チームで設定を共有する機能が加わった。"
+   }
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "His journey from Google intern and Adobe engineer to successful founder",
+   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+   "checkedAt": "2026-10-06",
+   "claimText": "Sachin Jainは共同創業者でCEO。Baremetricsの紹介文によれば、Googleのインターンとアドビのエンジニアを経て起業した。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "the team refocused on helping developers work independently from backend dependencies",
+   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+   "checkedAt": "2026-10-06",
+   "claimText": "チームは、API応答の偽装（モック）が最も製品に合っていると見て、バックエンドの完成待ちから画面側の開発者を解放する方向へ軸足を移した。企業向けにはSSO、SLA、分析と報告、役割別の権限管理、SOC2 Type II認証を足した。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "one of 414 accepted from 17,000 applications",
+   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+   "checkedAt": "2026-10-06",
+   "claimText": "Baremetricsの紹介文によれば、Requestlyは約1万7千件の応募から採択された414社の1社としてY Combinatorに入った。"
+  },
+  "f7": {
+   "verdict": "PARTIAL",
+   "quote": "how Stack Overflow and GitHub became their entire GTM strategy",
+   "fix": {
+    "text": "Baremetricsの対談の紹介文は、ランディングページやマーケティングに頼らず自然に広まり、Stack OverflowとGitHubが販売戦略のすべてだったと説明する。"
+   },
+   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+   "checkedAt": "2026-10-06",
+   "claimText": "Baremetricsの対談の紹介文は、ランディングページや広告に頼らず自然に広まり、Stack OverflowとGitHubが販売経路のすべてだったと説明する。"
+  },
+  "f8": {
+   "verdict": "PARTIAL",
+   "quote": "why he chose the open core model over pure monetization",
+   "fix": {
+    "text": "収益化では、純粋な収益化よりオープンコアモデルを選んだ。"
+   },
+   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+   "checkedAt": "2026-10-06",
+   "claimText": "収益化では、利益の最大化より開発者への浸透を優先し、基本機能を公開する「オープンコア」を選んだ。無料の個人利用に加えて、チームや企業向けに有料のプランを売る。"
+  },
+  "f9": {
+   "verdict": "PARTIAL",
+   "quote": "Requestly was funded by YCombinator, PeakXV partners (formerly Sequoia SEA), and many marquee angels.",
+   "fix": {
+    "text": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）、複数の著名エンジェルの出資を受けたと書く。"
+   },
+   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+   "checkedAt": "2026-10-06",
+   "claimText": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）のSurge、複数の著名エンジェルの出資を受けたと書く。出資額は記載がない。"
+  },
+  "f10": {
+   "verdict": "PARTIAL",
+   "quote": "DUBLIN—May 6, 2025 — BrowserStack today announced the acquisition of Requestly",
+   "fix": {
+    "text": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。"
+   },
+   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+   "checkedAt": "2026-10-06",
+   "claimText": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。買収額の記載はない。"
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "trusted by 200,000+ developers from 10,000+ companies, ranging from Fortune 500 to startups",
+   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+   "checkedAt": "2026-10-06",
+   "claimText": "発表によれば、買収時のRequestlyは20万人超の開発者、1万社超の企業が使い、Chromeストアの評価は1,200件超のレビューで4.3。Sachin Jainは、環境とバックエンド担当への依存でコードの通しテストが止まる無駄な開発時間への苛立ちから生まれたと述べている。"
+  },
+  "f12": {
+   "verdict": "SUPPORTED",
+   "quote": "the acquisition framework that prioritizes the right buyer over the right price",
+   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+   "checkedAt": "2026-10-06",
+   "claimText": "売り先の選び方について、創業者は価格より適した買い手を優先する考え方を語っている。"
+  },
+  "f13": {
+   "verdict": "SUPPORTED",
+   "quote": "$10 / user / month",
+   "sourceUrl": "https://requestly.com/pricing/",
+   "checkedAt": "2026-10-06",
+   "claimText": "料金ページはAPI PlatformのTeamを年払いで1利用者あたり月換算$10、Team Proを$15と表示する。"
+  },
+  "f14": {
+   "verdict": "SUPPORTED",
+   "quote": "Requestly is used by more than 180,000+ developers across 5000+ organizations around the globe.",
+   "sourceUrl": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
+   "checkedAt": "2026-10-06",
+   "claimText": "創業者本人のブログは、2023年3月時点でRequestlyを5,000超の組織の18万人超の開発者が使うと書く。Chrome DevToolsにはHTTP要求・応答を書き換える機能が無く、その穴を埋める道具だという位置づけ。"
+  },
+  "f15": {
+   "verdict": "PARTIAL",
+   "quote": "Trusted by 300,000+ developers, from next-gen startups to Fortune 500 companies.",
+   "sourceUrl": "https://requestly.com/products/",
+   "checkedAt": "2026-10-08",
+   "claimText": "公式の製品ページは、通信を書き換えるルール機能、APIクライアント、モックサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを並べ、30万人超の開発者に使われているとうたう。",
+   "fix": {
+    "text": "2026年10月に保存した公式の製品ページは、通信を書き換えるルール機能、APIクライアント、モックサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを並べ、30万人超の開発者に使われているとうたう。"
+   }
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "Requestly is used by more than 180,000+ developers across 5000+ organizations around the globe.",
+   "sourceUrl": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=USERS / 期間=2023-03(POINT) / 金額=180000 人 / 由来=SELF_REPORTED"
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "empowering 200,000+ developers across 10,000+ companies",
+   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+   "checkedAt": "2026-10-06",
+   "claimText": "項目=USERS / 期間=2025-05(POINT) / 金額=200000 人 / 由来=SELF_REPORTED"
+  }
+ },
+ "ent_practicaltypographycom_e9aa6bc94ccf": {
+  "f1": {
+   "verdict": "PARTIAL",
+   "quote": "This book has no ads. It’s sup­ported by read­ers like you.",
+   "fix": {
+    "text": "Practical Typographyは、広告のないオンラインの本で、読者の支払いで支えられている。支払いの選択肢は、作者の自作フォントの購入、直接の支払い、紙の本（Typography for Lawyers）の購入の3つ。"
+   },
+   "sourceUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "Matthew Butterick（作家・組版デザイナー・プログラマー・弁護士）が書いた、オンラインで読める組版の本。読む前の支払いは不要で、広告も置かない。収入の柱は、読者が選ぶ直接の支払い、作者の自作フォント、紙の本の3つ。"
+  },
+  "f2": {
+   "verdict": "SUPPORTED",
+   "quote": "Send money. ($19-49)",
+   "sourceUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "直接の支払いは19・29・39・49ドルの4段階。PDFや電子書籍は存在せず、支払ってもダウンロードは付かない。自作フォントは119ドルから、関連する紙の本（Typography for Lawyers）は40ドル。"
+  },
+  "f3": {
+   "verdict": "SUPPORTED",
+   "quote": "Be­cause this book’s only source of rev­enue is read­ers like you. If you don’t pay, the book dies.",
+   "sourceUrl": "https://practicaltypography.com/why-you-should-pay.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "「なぜ払うのか」ページの主張は、この本の収入源は読者だけで、払わなければ本が消える、というもの。本人は文章・フォント・図版を作り、出版ソフトPollenを開発し、サーバー代も払ったと書く。読む前に払わせない代わりに、役立ったなら払ってほしいという形にしている。"
+  },
+  "f4": {
+   "verdict": "SUPPORTED",
+   "quote": "I es­ti­mate that about one in 650 read­ers has sup­ported the book with a pay­ment or pur­chase.",
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "1年目（2014年7月末まで）は読者約65万人（アクセス解析の数字）、広告・PR費は0ドルで、すべて口コミ。最も読まれたのは「Typography in Ten Minutes」。読者のうち約650人に1人が支払いか購入をした。"
+  },
+  "f5": {
+   "verdict": "SUPPORTED",
+   "quote": "I got 321 pay­ments to­tal­ing $3676. About 230 were $10 or less. The rest ranged from $11–50.",
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "1年目の直接の支払いは321件で合計3,676ドル。約230件は10ドル以下で、残りは11〜50ドル。大きな支払いが合計の約半分を占めた。流入元で差があり、Cool Tools経由の読者はよく払い、Reddit経由はほとんど払わなかった。"
+  },
+  "f6": {
+   "verdict": "SUPPORTED",
+   "quote": "I es­ti­mate that about 450 Prac­ti­cal Ty­pog­ra­phy read­ers be­came font cus­tomers.",
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "1年目、読者のうち約450人が自作フォントの客になったと、本人が販売の傾向の変化から見積もった。1件に25ドルの紹介料を割り当てると約11,250ドルになるが、これは実際の収入額ではない。"
+  },
+  "f7": {
+   "verdict": "SUPPORTED",
+   "quote": "Not a big con­trib­u­tor. At best, per­haps $25–50 a month.",
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "本人は、フォントが売れなければこの企画は費用の掛かる趣味だったと書く。他の収入は小さく、Typography for Lawyersの売上に目立つ変化はなく、他社フォントの紹介は多くて月25〜50ドル程度。"
+  },
+  "f8": {
+   "verdict": "PARTIAL",
+   "quote": "about 35% more read­ers were in­ter­ested in pay­ing $59–299 for a pack­age of fonts than $5–20 for a di­rect pay­ment for the book.",
+   "fix": {
+    "text": "2年続けて、5〜20ドルの直接の支払いより、59〜299ドルのフォントのパッケージに支払う意欲のある読者のほうが約35%多かった。"
+   },
+   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "5〜10ドルの直接の支払いより、59〜299ドルのフォントを買う読者のほうが多かった。2年続けて、フォントを買う読者が直接の支払いをする読者より約35%多かった。本人は予想外だったと書く。"
+  },
+  "f9": {
+   "verdict": "PARTIAL",
+   "quote": "I col­lected 244 pay­ments to­tal­ing $3030.",
+   "fix": {
+    "text": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）。広告・PR費は引き続き0ドル。読者が増えたのに払う人の割合は、約1,000人に1人まで下がった。"
+   },
+   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）、合計約11,155ドル。広告・PR費は引き続き0ドル。読者が増えたのに払う人の割合は、約1,000人に1人まで下がった。"
+  },
+  "f10": {
+   "verdict": "PARTIAL",
+   "quote": "I col­lected 489 pay­ments to­tal­ing $5472",
+   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+   "checkedAt": "2026-10-08",
+   "claimText": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になり、フォント取引は310件（25ドルを割り当てて7,750ドル）、合計約13,222ドル。支払った読者は799人。",
+   "fix": {
+    "text": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になった。フォント取引は件数だけで、金額は仮の割り当てなので実収入には数えない。支払った読者は799人。"
+   }
+  },
+  "f11": {
+   "verdict": "SUPPORTED",
+   "quote": "mas­sive flows of un­paid traf­fic em­anated from only about 15–20 web­sites.",
+   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "3年目の工夫は、無料の読者が15〜20のサイトに集中していると気づき、その流入元から来た人にだけ「この本を存続させるために」と支払いを頼むページを1枚出したこと。サーバーの設定（.htaccess）で出し分けた。本人は「効いた」と書いている。"
+  },
+  "f12": {
+   "verdict": "SUPPORTED",
+   "quote": "a book agent got me a very nice of­fer to turn this ma­te­r­ial into a pa­per­back for a name-brand pub­lisher.",
+   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "支払いの催促を本のあちこちに入れる方法は、読みにくくなるので採らなかった。公開前には、名の通った出版社から紙の本の話があったが、本人がデザインできないと分かって断った。"
+  },
+  "f13": {
+   "verdict": "PARTIAL",
+   "quote": "non­fic­tion books sell a to­tal of 1000–3000 copies on av­er­age.",
+   "fix": {
+    "text": "本人は平均的なノンフィクションの本を、合計で1,000〜3,000部売れ、著者の取り分は1冊2〜3ドル程度と見ている。1年目の直接の支払い3,676ドルは、紙の本なら1,200〜1,800部に当たると書く。"
+   },
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "本人は平均的な教養書を、生涯で1,000〜3,000部、著者の取り分は1冊2〜3ドル、合計5,000〜8,000ドル程度と見ている。1年目の直接の支払い3,676ドルは、紙の本なら1,200〜1,800部に当たると書く。"
+  },
+  "f14": {
+   "verdict": "PARTIAL",
+   "quote": "I do not par­tic­i­pate in any ad­ver­tis­ing or af­fil­i­ate net­works.",
+   "fix": {
+    "text": "広告・アフィリエイトの網には参加せず、他社製品の推薦で報酬も受け取っていない。支払いの処理はStripe、訪問者の基本情報の収集にはClickyを使う。"
+   },
+   "sourceUrl": "https://practicaltypography.com/legal.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "広告・アフィリエイトの網には参加せず、他社製品の推薦で報酬も受け取っていない。支払いの処理はStripe、アクセス解析はClickyを使う。出版ソフトPollenはRacketで自作し、オープンソースで公開している。"
+  },
+  "f15": {
+   "verdict": "SUPPORTED",
+   "quote": "A few read­ers ob­jected to my use of the term “do­na­tions” to de­scribe di­rect pay­ments.",
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-06",
+   "claimText": "一部の読者から「寄付」と呼ぶのはおかしいと言われ、本人は直接の支払いの呼び方を改めた。慈善活動ではなく、書き手と読み手の経済関係として説明している。"
+  },
+  "m1": {
+   "verdict": "PARTIAL",
+   "quote": "I got 321 pay­ments to­tal­ing $3676.",
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=REVENUE / 期間=公開1年目（〜2014年7月）の直接の支払い 321件(YEAR) / 金額=3676 USD / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "measure": "OTHER",
+     "label": "直接の支払い（フォントの売上を除く）",
+     "period": "公開1年目（〜2014年の夏）、321件"
+    }
+   }
+  },
+  "m2": {
+   "verdict": "PARTIAL",
+   "quote": "I col­lected 244 pay­ments to­tal­ing $3030.",
+   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=REVENUE / 期間=公開2年目の直接の支払い 244件(YEAR) / 金額=3030 USD / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "measure": "OTHER",
+     "label": "直接の支払い（フォントの売上を除く）",
+     "period": "公開2年目（〜2015年の夏）、244件"
+    }
+   }
+  },
+  "m3": {
+   "verdict": "PARTIAL",
+   "quote": "I col­lected 489 pay­ments to­tal­ing $5472",
+   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=REVENUE / 期間=公開3年目（〜2016年）の直接の支払い 489件(YEAR) / 金額=5472 USD / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "measure": "OTHER",
+     "label": "直接の支払い（フォントの売上を除く）",
+     "period": "公開3年目（〜2016年の夏）、489件"
+    }
+   }
+  },
+  "m4": {
+   "verdict": "PARTIAL",
+   "quote": "it claims that about 650,000 read­ers vis­ited the site in the first 12 months.",
+   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公開1年目の読者数（アクセス解析）(YEAR) / 金額=650000 人 / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "period": "公開1年目（〜2014年の夏）の読者数（アクセス解析）"
+    }
+   }
+  },
+  "m5": {
+   "verdict": "HELD",
+   "quote": "from about 650,000 read­ers in year one to about 700,000 in year two.",
+   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公開2年目の読者数（アクセス解析）(YEAR) / 金額=700000 人 / 由来=SELF_REPORTED",
+   "reason": "2年目の読者数は引用の近くに年が無く、いつの数字かを原文から確かめられない"
+  },
+  "m6": {
+   "verdict": "PARTIAL",
+   "quote": "traf­fic went down to about 615,000 read­ers",
+   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=USERS / 期間=公開3年目の読者数（アクセス解析）(YEAR) / 金額=615000 人 / 由来=SELF_REPORTED",
+   "fix": {
+    "metric": {
+     "period": "公開3年目（〜2016年の夏）の読者数（アクセス解析）"
+    }
+   }
+  }
+ },
  "ent_ncacheinmemorydistributedcache_7a2cf8d54c52": {
   "f1": {
    "verdict": "SUPPORTED",
@@ -71860,129 +72933,6 @@
    "sourceUrl": "https://www.starterstory.com/stories/mazeengineers-8ef9cd4b-0af9-4dc8-86e1-191744ccb2c4",
    "checkedAt": "2026-09-30",
    "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=100000 USD / 由来=SELF_REPORTED"
-  }
- },
- "ent_codementor_ba692caa3db3": {
-  "f1": {
-   "verdict": "SUPPORTED",
-   "quote": "12000+ top developers anytime",
-   "sourceUrl": "https://www.codementor.io/",
-   "checkedAt": "2026-10-06",
-   "claimText": "開発者にライブで1対1の質問ができる指導と、フリーランス開発者の紹介を行う市場。コードレビューやペアプログラミングも扱う。公式サイトは専門家1万2千人超を掲げ、大きな採用向けには姉妹のArcを案内する。"
-  },
-  "f2": {
-   "verdict": "SUPPORTED",
-   "quote": "we grew very quickly from two people all the way to 50 people in like, less than two years",
-   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者Weiting Liuは、Y Combinator出身のSocialPicks（株式投資家向けSNS）を売ったあと、台湾で弟とSNSマーケ会社（社員50人）を運営。若手エンジニアが設定の問題で2日詰まったのを見て、すぐ呼べる専門家がいれば数千ドル払うと考えたのが着想だと語る。"
-  },
-  "f3": {
-   "verdict": "SUPPORTED",
-   "quote": "thousands of people sign up on the waiting list waiting to be invited in into the platform",
-   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-06",
-   "claimText": "2013年6月1日、登録フォームだけのページを作ってHacker Newsに載せたところ、トップページに出て待機リストに数千人が登録した。このとき製品はまだ動いておらず、裏で作っていた。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "The site, the official site did not launch until, like what? Nine months later.",
-   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-06",
-   "claimText": "正式公開まで約9か月。その間は待機リストから選んで招く非公開版で回した。最初の実際の相談は、本人がメンター役を無料で務め、台湾でバーベキュー店を営みながらMagento開発をする米国人に、Ruby on Railsを勧めた30分だった。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "we actually needed to, like seed a few, like very dedicated mentors, just at least to be responsive to the client’s request.",
-   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-06",
-   "claimText": "市場は片側から固める方針で、先に少数の熱心なメンターを確保して依頼への返事を速くした。Techstars期間中は客に無料クレジットを配って使ってもらい、開発者への報酬は自社が負担した。"
-  },
-  "f6": {
-   "verdict": "SUPPORTED",
-   "quote": "had I had a chance to go back to do the same thing all over again, I would just use Skype",
-   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-06",
-   "claimText": "初期の音声・映像はWebRTCとOpenTok、画面共有はScreenhero。WebRTCの不具合で開発時間を大きく取られ、やり直せるならSkypeを使うと本人は語る。予定調整は、Clarity.fmを参考に、客が3つの候補時間を出して開発者が選ぶ方式を取り入れた。"
-  },
-  "f7": {
-   "verdict": "SUPPORTED",
-   "quote": "Codementor (incorporated as Peer Idea Inc.) has raised $1.6 million in seed funding",
-   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-06",
-   "claimText": "2016年12月、WI Harper主導でシード160万ドル。それ以前にTechstars、500 Startups、個人から120万ドルを得ていた。当時は、指導の場から、上位2%のメンターをフリーランス案件につなぐ市場へ広げる計画で、助けを求めた開発者15万人、審査済みメンター5,000人。"
-  },
-  "f8": {
-   "verdict": "SUPPORTED",
-   "quote": "we raised a first seed round from an investor based in Taiwan.",
-   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-06",
-   "claimText": "当初は自己資金で運営する方針（37signalsの影響）だったが、1人での開発が孤独で、相談相手として台湾の投資家から最初のシード資金を受けた。公開は3か月早くするべきだったとも語る。"
-  },
-  "f9": {
-   "verdict": "PARTIAL",
-   "quote": "they tier that I put down with between five to 10 million.",
-   "fix": {
-    "text": "2018年6月の取材前アンケートで、直近12か月の売上は「5〜10 million」の区分と答えた。通貨は発言に出てこない。黒字ではなく人員を増やしている、とも答えた。"
-   },
-   "sourceUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
-   "checkedAt": "2026-10-08",
-   "claimText": "2018年6月の取材で、直近12か月の売上は「500万〜1,000万ドル」の区分（取材前アンケートの回答）、黒字ではなく人員を増やしている、と答えた。"
-  },
-  "f10": {
-   "verdict": "PARTIAL",
-   "quote": "The minimum charge of a paid session is the mentor's 15-minute rate.",
-   "fix": {
-    "text": "客は前払いクレジットかカード登録で有料セッションを始める。メンターの料金に別途サービス手数料が付く。最低課金は15分分で、その後は分単位。クレジットで始めるには20分相当の残高が要る。"
-   },
-   "sourceUrl": "https://support.codementor.io/en/articles/4221825",
-   "checkedAt": "2026-10-06",
-   "claimText": "客は前払いクレジットかカード登録で有料セッションを始める。メンターの料金に別途サービス手数料が付く。最低課金は15分分で、その後は分単位。クレジットで始めるには20分相当の残高が要る。未使用クレジットは購入後90日以内なら返金でき、サービス手数料は返金されない。"
-  },
-  "f11": {
-   "verdict": "SUPPORTED",
-   "quote": "competitors include: Freelancer.com, GitHub Jobs, Guru.com, Upwork and Toptal.",
-   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-06",
-   "claimText": "TechCrunchは競合として、Freelancer.com、GitHub Jobs、Guru.com、Upwork、Toptalを挙げた。"
-  },
-  "m1": {
-   "verdict": "PARTIAL",
-   "quote": "has raised $1.6 million in seed funding",
-   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-07",
-   "claimText": "項目=FUNDING / 期間=2016-12のシード(POINT) / 金額=1600000 USD / 由来=ARTICLE",
-   "fix": {
-    "metric": {
-     "basis": "2016年12月のシード（このラウンド）"
-    }
-   }
-  },
-  "m2": {
-   "verdict": "PARTIAL",
-   "quote": "had previously raised $1.2 million in early-stage funding",
-   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-07",
-   "claimText": "項目=FUNDING / 期間=2016-12までの早期資金（Techstars・500 Startups・個人）(CUMULATIVE) / 金額=1200000 USD / 由来=ARTICLE",
-   "fix": {
-    "metric": {
-     "basis": "2016年12月より前の合計"
-    }
-   }
-  },
-  "m3": {
-   "verdict": "SUPPORTED",
-   "quote": "the company counts 150,000 developers who have sought programming help",
-   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=2016-12 助けを求めた開発者(POINT) / 金額=150000 人 / 由来=ARTICLE"
-  },
-  "m4": {
-   "verdict": "SUPPORTED",
-   "quote": "5,000 vetted developer-mentors",
-   "sourceUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=2016-12 審査済みメンター(POINT) / 金額=5000 人 / 由来=ARTICLE"
   }
  },
  "ent_seaverse_f455506839ca": {
@@ -75503,72 +76453,6 @@
    "claimText": "項目=REVENUE / 期間=2021-08（ベスト月）(MONTH) / 金額=43000 USD / 由来=SELF_REPORTED"
   }
  },
- "ent_teamcamp_ae0c21986c4d": {
-  "f1": {
-   "verdict": "SUPPORTED",
-   "quote": "Import your data from Asana, ClickUp, or Linear in minutes.",
-   "sourceUrl": "https://www.teamcamp.app/",
-   "checkedAt": "2026-10-06",
-   "claimText": "開発会社、デザイン会社、マーケティング代理店、フリーランス向けのプロジェクト管理ツール。タスク管理、時間記録、請求書、顧客に見せる専用画面、GitHub・GitLab連携をまとめている。コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearからデータを取り込める。"
-  },
-  "f2": {
-   "verdict": "PARTIAL",
-   "quote": "per month, unlimited user, billed annually",
-   "sourceUrl": "https://www.teamcamp.app/pricing",
-   "checkedAt": "2026-10-08",
-   "claimText": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）、保存500GB。",
-   "fix": {
-    "text": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）。"
-   }
-  },
-  "f3": {
-   "verdict": "PARTIAL",
-   "quote": "Join the Teamcamp Affiliate Program today and earn lifetime recurring revenue for every referral.",
-   "fix": {
-    "text": "紹介プログラムは、紹介した客1人ごとに生涯続く継続コミッションを払う。募集先はブログ運営者、比較サイト、インフルエンサー、既存の客。"
-   },
-   "sourceUrl": "https://www.teamcamp.app/affiliate",
-   "checkedAt": "2026-10-06",
-   "claimText": "紹介プログラムは、紹介した客1人ごとに生涯続く継続コミッションを払う。募集先はブログ運営者、比較サイト、インフルエンサー、既存の客。率は公開されていない。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "As an SEO executive managing multiple client projects, I was drowning in overly complex PM tools.",
-   "sourceUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者Pratham Naikは、SEO担当として複数の顧客案件を抱え、複雑な管理ツールにうんざりして作り始めたと書く。Asanaは簡単なタスクを作るだけで宇宙船の操縦のようで、Mondayは使わない機能にも払っており、Trelloは単純すぎたという。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "MRR: $4,200 (target: $10k by end of year)",
-   "sourceUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
-   "checkedAt": "2026-10-06",
-   "claimText": "2025年8月19日の本人投稿は、開始から6か月で稼働847チーム、MRR 4,200ドル（年末に10,000ドルが目標）、月の解約率8%、NPS 67と申告。新規登録の約4割は口コミ・紹介で、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。"
-  },
-  "f6": {
-   "verdict": "HELD",
-   "quote": "Real retention jumped from 12% to 41% in two months. MRR went from $347 to $2,100.",
-   "sourceUrl": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
-   "checkedAt": "2026-10-08",
-   "claimText": "2025年11月3日の本人投稿は、インディー開発者仲間の要望（ダークモード、API、Notion風ブロック）で6か月作ったが、Product Huntは23票、初月売上は227ドルだったと書く。初めて話した代理店の経営者（インディー界隈の外の最初の客）に「顧客用ポータルは？白ラベルにできる？」と聞かれ、見た目より顧客とのやり取りの機能が要ると分かった。以後は事業主との直接の会話に切り替え、2か月で継続率が12%から41%、MRRが347ドルから2,100ドルになったという。",
-   "reason": "継続率12%→41%の投稿は同じ創業者Pratham Naikの名義だが、本人の返信では「Bearconnect」という別の製品の話として書かれていて、Teamcampの数字と確かめられない"
-  },
-  "f7": {
-   "verdict": "HELD",
-   "quote": "6 months later: 43 total signups, 2 paying customers, $18 MRR.",
-   "sourceUrl": "https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034",
-   "checkedAt": "2026-10-08",
-   "claimText": "日付不明の本人投稿は、200人超の関心を集め、3週間の聞き取りと6か月の毎日の公開開発を経ても、サインアップ43件・有料2件・MRR 18ドルだったと書く。以後は、競合にすでに払っている人を探し、作る前に12人へ99ドルで先売りする検証に変えた。",
-   "reason": "投稿日は2025-09-30だが、8月の847チーム・MRR 4,200ドルと食い違い、同じ事業の同じ時期の数字と確かめられない"
-  },
-  "f8": {
-   "verdict": "SUPPORTED",
-   "quote": "40% of revenue comes from lifetime deals",
-   "sourceUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
-   "checkedAt": "2026-10-06",
-   "claimText": "2025年10月7日の本人投稿は、買い切り999ドル（ユーザーも案件も無制限）を、月額の選択肢と並べて4か月試した結果として、売上の約4割が買い切り、買い切りの客は月額の客の3.2倍を紹介、買い切り客の解約はゼロだが問い合わせは多いと書く。懸念として、サーバー費は利用に比例するので、買い切りの客が50人規模のチームを入れると利益が崩れると自分で書いている。"
-  }
- },
  "ent_alitu_109fc9f85569": {
   "f1": {
    "verdict": "SUPPORTED",
@@ -75768,221 +76652,6 @@
    "sourceUrl": "https://www.indiehackers.com/product/alitu",
    "checkedAt": "2026-09-30",
    "claimText": "項目=REVENUE / 期間=月(MONTH) / 金額=70000 USD / 由来=SELF_REPORTED"
-  }
- },
- "ent_referralrock_8c13d5ee4cfc": {
-  "f1": {
-   "verdict": "SUPPORTED",
-   "quote": "Referral Rock includes a dedicated advisor (on all plans) who configures the referral program to fit how your business works",
-   "sourceUrl": "https://referralrock.com",
-   "checkedAt": "2026-10-06",
-   "claimText": "事業者が紹介プログラムを自動で運営するためのソフト。紹介リンク、紹介の追跡、報酬の条件と払い出しの管理をまとめる。全プランに、紹介制度の設定を支援する専任アドバイザーが付く。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、ECなどが使う。"
-  },
-  "f2": {
-   "verdict": "SUPPORTED",
-   "quote": "Not too long after in December 2013, referralrock.com was registered.",
-   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者Josh Hoは2013年に、小さな事業が自前で紹介プログラムを運営できる道具を思いつき、同年12月にドメインを登録した。ベータ期は家族を支えるため、ソフトの受託を副業で続けた。旧製品UberNoteの利用者リスト、Betalist、知人で告知し、2014年前半には200超の接点、最初の1年半で500社超が登録した。作業は月約20時間。"
-  },
-  "f3": {
-   "verdict": "PARTIAL",
-   "quote": "The first version I cobbled together was from some old HTML templates and some reusable code laying around",
-   "fix": {
-    "text": "最初の管理画面はSurvey Monkeyの回答フォームで、最初の版は古いHTMLの雛形と使い回しのコードで作った。本人は、出せずに終わった企画が少なくとも5つあるとも書く。客の話を聞いて気に入らない内容が出ても、作りたい製品の像を優先してまず出した。"
-   },
-   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-06",
-   "claimText": "最初の管理画面はSurvey Monkeyの回答フォームで、客の顧客向け画面は古いHTMLの雛形と使い回しのコードで作った。本人は、出せずに終わった企画が少なくとも5つあるとも書く。客の話を聞いて気に入らない内容が出ても、作りたい製品の像を優先してまず出した。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "Beta users still had access, but sign-ups were now only for the paid version ($59 per month).",
-   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-06",
-   "claimText": "2015年6月に月59ドルの有料版を公開し、2日以内に最初の有料客が登録、月末には4社になった。数か月で月約2,000ドルのMRRに達し、創業者は専業になった。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "I had added gift cards fulfillment to a new higher-priced plan at $250 a month with a 6-month commitment on our pricing page.",
-   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-06",
-   "claimText": "2016年2月、ギフトカード報酬の処理を足し、月250ドル・6か月契約の上位プランを設けた。1社から一度に1,500ドルが入った。任意の「サクセス支援パッケージ」も作り、後に月払いでは必須にした。"
-  },
-  "f6": {
-   "verdict": "PARTIAL",
-   "quote": "The year ended with a total of 170 customers, 3.5 FTE, and $15k MRR.",
-   "fix": {
-    "text": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で失敗し、2か月分の売上を失った。10月に2人目の営業を雇い、2016年末は顧客170社、常勤換算で3.5人分の体制、MRR約15,000ドル。外部資金は受けていない。"
-   },
-   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-08",
-   "claimText": "2016年7月に最初の営業を雇ったが、研修と顧客理解の不足で2か月で終わった。10月に2人目の営業を雇い、2016年末は顧客170社、3.5人、MRR約15,000ドル。外部資金は受けていない。"
-  },
-  "f7": {
-   "verdict": "PARTIAL",
-   "quote": "May 1, 2019 70K a month in revenue Lesson for me: Being a bit more aggressive vs what I am comfortable with. Be willing to double down on what is working even if you don't feel ready. The source of this uptick was for us to hire a second sale-person.",
-   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-   "checkedAt": "2026-10-08",
-   "claimText": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。",
-   "reason": "2019年5月に月売上70,000ドルという時点・金額は、出典の原文で確かめられない（引用は2人目の営業の採用だけ）",
-   "fix": {
-    "text": "2019年5月の本人の投稿は、月の売上が70,000ドルに達したと書き、要因は2人目の営業の採用だったとする。リードが足りるか心配で数か月迷ったが、採用後はサイトの文面・LP・申込ボタンを直してリードを増やした。"
-   }
-  },
-  "f8": {
-   "verdict": "SUPPORTED",
-   "quote": "Personalized on-boarding and dedicated customer success per account have helped us cut our churn in 1/2.",
-   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-   "checkedAt": "2026-10-06",
-   "claimText": "2019年7月の投稿は、導入時の立ち上げ会議と客ごとの専任サクセス担当で解約を半分に減らしたと書く。客には「代わりにやる」でなく「手伝う」と明確に伝えている。8月の投稿は、4か月連続でMRRが5%ずつ伸びたと書く。"
-  },
-  "f10": {
-   "verdict": "SUPPORTED",
-   "quote": "Month to month, no long-term contract. Prefer annual? Save 10%.",
-   "sourceUrl": "https://referralrock.com/pricing/",
-   "checkedAt": "2026-10-06",
-   "claimText": "現在のOperatorプランは月250ドル。長期契約は不要、年払いは10%引き、専任アドバイザーとその支援チームが込みで、初期設定料は無い。"
-  },
-  "f11": {
-   "verdict": "PARTIAL",
-   "quote": "Export limits: 50,000 rows by default.",
-   "fix": {
-    "text": "2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。"
-   },
-   "sourceUrl": "https://product.referralrock.com/p/october-2025-exports",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式は1,000社超が使うと掲げる。2025年10月23日の更新で、紹介先訪問・会員訪問・紹介担当者データの書き出しを追加した（上限は標準50,000行）。"
-  },
-  "m1": {
-   "verdict": "PARTIAL",
-   "quote": "May 1, 2019 70K a month in revenue",
-   "sourceUrl": "https://www.indiehackers.com/product/referral-rock",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=REVENUE / 期間=2019-05（本人の投稿「月の売上70K」）(MONTH) / 金額=70000 USD / 由来=SELF_REPORTED",
-   "reason": "出典が403で読めず、時点（2019年5月）を確かめられない。2019年7月の対談では月70,000ドル",
-   "fix": {
-    "metric": {
-     "period": "2019年5月1日の投稿（月の売上70K）"
-    }
-   }
-  },
-  "m2": {
-   "verdict": "SUPPORTED",
-   "quote": "The year ended with a total of 170 customers, 3.5 FTE, and $15k MRR.",
-   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=2016年末のMRR（約）(MONTH) / 金額=15000 USD / 由来=SELF_REPORTED"
-  },
-  "m3": {
-   "verdict": "SUPPORTED",
-   "quote": "Within a few months, Referral Rock was making about $2k a month",
-   "sourceUrl": "https://referralrock.com/blog/full-referral-rock-story/",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=2015年有料版公開から数か月後のMRR（約）(MONTH) / 金額=2000 USD / 由来=SELF_REPORTED"
-  }
- },
- "ent_ejunkie_7e9e46bd9643": {
-  "f1": {
-   "verdict": "SUPPORTED",
-   "quote": "Copy-paste a link to sell downloads, or physical goods on any website. Or, create a simple shop in 5 minutes.",
-   "sourceUrl": "https://www.e-junkie.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "コピペしたボタンやリンクで、ダウンロード商品・ゲームのコード・チケット・現物の商品を、どのサイト、ブログ、SNS、メールからでも売れるようにするサービス。5分で簡易ショップも作れる。売り手はPayPal、Stripe、Braintree、Authorize.Net、2Checkout、Razorpayなど自分の決済会社をつなぐ。"
-  },
-  "f2": {
-   "verdict": "PARTIAL",
-   "quote": "No transaction fee. No bandwidth limit. Just pay a flat monthly fee",
-   "fix": {
-    "text": "料金は月額固定の4段。月8ドル（商品10点・保存200MB）、月10ドル（40点・2GB）、月20ドル（150点・8GB）、月40ドル（商品・保存とも無制限）。全プランで販売数とダウンロード数は無制限、取引手数料なし。14日間の無料試用にカードは要らない。"
-   },
-   "sourceUrl": "https://www.e-junkie.com/wiki/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "料金は月額固定の4段。Starterは月8ドル（商品10点・保存200MB）、Professionalは月10ドル（40点・2GB）、Businessは月20ドル（150点・8GB）、Enterpriseは月40ドルで無制限。全プランで販売数とダウンロード数は無制限、取引手数料なし。14日間の無料試用にカードは要らない。"
-  },
-  "f3": {
-   "verdict": "PARTIAL",
-   "quote": "mid 2004 I converted it to a service that anyone could use for selling digital downloads.",
-   "fix": {
-    "text": "創業者Robin Singhは、勤め先の収入を補うために自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払い通知のたびにメールで手渡しした。2003年末に配信を自動化するスクリプトを書き、作家の友人と音楽家の友人に電子書籍とMP3の配信用にカスタマイズを頼まれ、2004年半ばに誰でも使えるダウンロード販売サービスにした。"
-   },
-   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者Robin Singhは、勤め先の収入を補うために自作のソフトを売っていた。支払いから3時間以内に届けると約束していたため、外食中でも寝床からでも、支払い通知のたびにメールで手渡しした。2003年末に配信を自動化するスクリプトを書き、作家の友人と音楽家の友人に電子書籍とMP3の配信用にカスタマイズを頼まれ、2004年半ばに誰でも使えるダウンロード販売サービスにした。公式の沿革は、2003年にダイヤルアップ回線で4ドルのソフトを手送りしていたのが出発点だとする。"
-  },
-  "f4": {
-   "verdict": "PARTIAL",
-   "quote": "I'd just look up authors on Google and email them one on one",
-   "fix": {
-    "text": "本人は、Googleで著者を探し、自費出版の電子書籍があれば、設定を引き受けると個別にメールした。職人市にも出向き、作家のためにオンラインショップを設けた。"
-   },
-   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
-   "checkedAt": "2026-10-06",
-   "claimText": "最初の売り先は、本人が1人ずつ口説いた。Googleで著者を探し、自費出版の電子書籍があれば、設定を引き受けると個別にメールした。職人市にも出向き、作家の店をオンラインに設置した。"
-  },
-  "f5": {
-   "verdict": "PARTIAL",
-   "quote": "I sold my interest in the company that owned E-junkie, and started an animal rescue and an organic farm. In December 2017, I took over again and am turning it around.",
-   "fix": {
-    "text": "2019年4月の本人の投稿によると、2011年にE-junkieを持つ会社の持分を売って事業から退き、動物保護施設と有機農場を始めた。2017年12月に経営へ戻って立て直しを進めている。"
-   },
-   "sourceUrl": "https://www.indiehackers.com/product/e-junkie",
-   "checkedAt": "2026-10-06",
-   "claimText": "2019年4月の本人の投稿によると、2011年に会社の持分を手放して事業から退き、2017年12月に経営へ戻って立て直しを進めている。本人はコメントで、大きな買収ではなく、E-junkieを持つ家族経営の非公開会社の持分を売り、あとで買い戻したと説明した。"
-  },
-  "f6": {
-   "verdict": "PARTIAL",
-   "quote": "Overcoming Technical Roadblocks to Achieve $1 Million ARR",
-   "fix": {
-    "text": "Indie Hackersのインタビューは、題で年間の定期売上（ARR）100万ドルへの到達を掲げる。"
-   },
-   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-   "checkedAt": "2026-10-06",
-   "claimText": "2019年5月20日のIndie Hackersのインタビューは、題で年間の定期売上100万ドルへの到達を掲げる。全文は登録者向けの公開。"
-  },
-  "f7": {
-   "verdict": "PARTIAL",
-   "quote": "E-junkie is operated by a team of web developers, technicians and a Linux guru based primarily in downtown Tucson, Arizona and near Dharamsala, India.",
-   "fix": {
-    "text": "チームは開発者、技術者、Linux担当で、アリゾナ州ツーソンとインドのダラムサラ近郊が中心。公式の沿革は、客が今では数千に達していると書く。AWS上の分散アプリとして動く。"
-   },
-   "sourceUrl": "https://www.e-junkie.com/wiki/about",
-   "checkedAt": "2026-10-06",
-   "claimText": "チームは開発者、技術者、Linux担当で、アリゾナ州ツーソンとインドのダラムサラ近郊が中心。専業になる時点で客は数千に達していたと公式の沿革が書く。AWS上の分散アプリとして動く。"
-  },
-  "f8": {
-   "verdict": "SUPPORTED",
-   "quote": "E-junkie's affiliate system is free for affiliates to use at no charge",
-   "sourceUrl": "https://www.e-junkie.com/wiki/affiliates",
-   "checkedAt": "2026-10-06",
-   "claimText": "出店者は自分の商品に紹介（アフィリエイト）制度を作れる。紹介者の側は、システムの利用が無料。"
-  },
-  "f9": {
-   "verdict": "SUPPORTED",
-   "quote": "you should rely on your payment processor account records (e.g. PayPal History) to get that data straight from the source",
-   "sourceUrl": "https://www.e-junkie.com/wiki/help-transaction-log",
-   "checkedAt": "2026-10-06",
-   "claimText": "取引ログは、決済会社が報告した内容を受け取った二次情報にすぎず、会計や金額の確認には決済会社の記録を使うよう、公式が注意書きを付けている。"
-  },
-  "f10": {
-   "verdict": "SUPPORTED",
-   "quote": "Direct sales: 10% + 50¢ per sale, $0 monthly. Discover marketplace sales: 30%.",
-   "sourceUrl": "https://gumroad.com/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "競合のGumroadは、直販が1件ごとに10%＋0.50ドル（月額なし）、同社の販売サイト経由は30%。2025年1月1日から売上税の徴収・納付を同社が代行する。"
-  },
-  "m1": {
-   "verdict": "PARTIAL",
-   "quote": "For almost a decade now we have averaged $1MM a year in revenue.",
-   "fix": {
-    "metric": {
-     "period": "過去ほぼ10年の年平均（2019年5月のインタビュー）",
-     "periodKind": "YEAR"
-    }
-   },
-   "sourceUrl": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=REVENUE / 期間=2019-05（インタビューの題が掲げる年間の定期売上）(YEAR) / 金額=1000000 USD / 由来=SELF_REPORTED"
   }
  },
  "ent_quotaguard_d9a6b3bacb63": {
@@ -79073,113 +79742,6 @@
    "sourceUrl": "https://www.yo-kart.com",
    "checkedAt": "2026-09-30",
    "claimText": "バージョン10の資料、AI機能の新着バナー、導入事例、デモの導線あり。"
-  }
- },
- "ent_gorails_640d8f688451": {
-  "f1": {
-   "verdict": "PARTIAL",
-   "quote": "Tutorials\n826\nHours of content\n140+",
-   "fix": {
-    "text": "Ruby on Rails の動画講座とコース。公式トップはチュートリアル826本・140時間超を掲げ、9万6千人超の開発者が学ぶと表示する。同じ会社がRails向けホスティングHatchboxと、SaaS用テンプレートJumpstart Railsも持つ。"
-   },
-   "sourceUrl": "https://gorails.com",
-   "checkedAt": "2026-10-06",
-   "claimText": "Ruby on Rails の動画講座とコース。公式トップは動画825本・140時間超を掲げ、9万6千人超の開発者が学ぶと表示する。同じ会社がRails向けホスティングHatchboxと、SaaS用テンプレートJumpstart Railsも持つ。"
-  },
-  "f2": {
-   "verdict": "PARTIAL",
-   "quote": "Team\n$19\n/ user\n/month\nGet Started\nMinimum 2 users",
-   "sourceUrl": "https://gorails.com/pricing",
-   "checkedAt": "2026-10-07",
-   "claimText": "個人プランは月19ドル（動画650本超とDiscordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。",
-   "fix": {
-    "text": "個人プランは月19ドル（Discordコミュニティ付き）、チームプランは1人月19ドルで2人から、大企業向けは個別見積もり。"
-   }
-  },
-  "f3": {
-   "verdict": "SUPPORTED",
-   "quote": "I burned the bridges and quit consulting completely on January 1st, 2014.",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者Chris Oliverは受託開発をしていた。数か月かけた仕事が顧客に使われず無駄になることが続いて燃え尽き、2014年1月1日に受託をやめた。手元の資金は約9か月分だった。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "The idea came to me after purchasing GoRails.com to share my notes for Ruby on Rails development publicly.",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "自分のRailsのメモを公開するためにGoRails.comのドメインを買ったところ、サイトのアクセスが増えた。その訪問者に何か売ろうと考えた。以前は集客のあてなしに作って客がつかなかったが、今回は既にいる読者に売る形だった。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "I spent those 9 months trying to get comfortable screencasting. It turned into two courses.",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "最初の9か月は画面録画に慣れることに使い、無料と有料の2つのコースを作った。自分の受託の経験を商品にしたが、無名だったため売れなかったと本人は話す。"
-  },
-  "f6": {
-   "verdict": "SUPPORTED",
-   "quote": "That day I got +600 email addresses",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "毎週1本の動画を無料で出し続けた。ある日、誰かがGoRailsをHacker Newsの上位に投稿し、その日にメールアドレス600件超が集まった。当時の本人は資金が尽きて就職先を探していた。このメールの一覧がニュースレターとなり、事業の重要な柱になった。"
-  },
-  "f7": {
-   "verdict": "SUPPORTED",
-   "quote": "GoRails is doing $60,000 in MRR, which is very good as a single-person business.",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "2021年11月時点で月次定期売上（MRR）は約6万ドル。マーケティング、営業、サポート、開発を1人でこなしていたが、手に負えなくなり、開発者とサポート担当の採用を始めたと説明。"
-  },
-  "f8": {
-   "verdict": "SUPPORTED",
-   "quote": "I didn’t pay myself a salary for 2 years.",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "最初の2年は自分に給料を払わなかった。本人は、もっと早くマーケティングと採用をすべきだったと振り返る。"
-  },
-  "f9": {
-   "verdict": "SUPPORTED",
-   "quote": "And then the business template, JumpstartRails, which is probably the best ROI for the time that I give it.",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "3つの製品を比べると、毎週の動画は時間を取られ続け、ホスティングのHatchboxは仕事が重いわりに利益が小さく、止まると困る客が多いので即応のサポートが要る。テンプレートのJumpstart Railsは、かけた時間あたりの利益が最も良いと本人は見ている。"
-  },
-  "f10": {
-   "verdict": "SUPPORTED",
-   "quote": "people use my JAM, learn about me and then find out that I make videos",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "オープンソースの公開も集客に使う。自作のライブラリを使った人が本人を知り、動画を見に来る流れを狙っている。"
-  },
-  "f11": {
-   "verdict": "SUPPORTED",
-   "quote": "We just crossed $1M in revenue across GoRails.com",
-   "sourceUrl": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
-   "checkedAt": "2026-10-06",
-   "claimText": "2020年8月、3つの製品の累計売上が100万ドルに達したと創業者が自ら投稿した。"
-  },
-  "m1": {
-   "verdict": "SUPPORTED",
-   "quote": "GoRails is doing $60,000 in MRR, which is very good as a single-person business.",
-   "sourceUrl": "https://www.failory.com/interview/gorails",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=2021-11（記事掲載時のMRR）(MONTH) / 金額=60000 USD / 由来=SELF_REPORTED"
-  },
-  "m2": {
-   "verdict": "SUPPORTED",
-   "quote": "We just crossed $1M in revenue across GoRails.com",
-   "sourceUrl": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=〜2020-08（3製品の累計）(CUMULATIVE) / 金額=1000000 USD / 由来=SELF_REPORTED"
-  },
-  "m3": {
-   "verdict": "HELD",
-   "quote": "Join 96,721+ developers learning, building, and",
-   "sourceUrl": "https://gorails.com",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=USERS / 期間=公式トップの表示（開発者数）(POINT) / 金額=96669 人 / 由来=SELF_REPORTED",
-   "reason": "公式トップの開発者数は日々変わる表示で、いつ時点かを原文から確かめられない"
   }
  },
  "ent_deploybotcom_f06300cc1ada": {
@@ -135340,128 +135902,6 @@
    "claimText": "項目=REVENUE / 名前=単発ライセンスの売上 / 期間=公開から約1年(2022年11月の公開後)(CUMULATIVE) / 金額=23000 USD / 由来=SELF_REPORTED / 基準=単発ライセンスの売上 / 記載日=2023-12-31"
   }
  },
- "ent_rfrcui_64e924ac": {
-  "f1": {
-   "verdict": "SUPPORTED",
-   "quote": "The 218-page book in PDF format",
-   "sourceUrl": "https://refactoringui.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "開発者が自分で画面を整えられるようにするデザイン教材。218ページのPDF（50章）、3本の動画（合計約41分）、200点超の部品見本、十数種の配色、30超のフォント案、200点のSVGアイコンが一式になっている。"
-  },
-  "f2": {
-   "verdict": "SUPPORTED",
-   "quote": "The Essentials\n$99\nUSD\nplus local taxes",
-   "sourceUrl": "https://refactoringui.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "価格は、本と動画だけのEssentialsが99ドル、素材まで全部入りのComplete Packageが149ドル（いずれも税別）。チーム向けはComplete Packageが3人399ドル、5人649ドル、10人1,249ドル、25人2,749ドルなどの人数別。"
-  },
-  "f3": {
-   "verdict": "SUPPORTED",
-   "quote": "him handling the UI design and me taking care of development",
-   "sourceUrl": "https://refactoringui.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "著者はAdam Wathan（開発者）とSteve Schoger（UIデザイナー）。長年の友人で、共作の副業ではSteveが画面設計、Adamが開発を受け持っていた。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "take all of the tips and tricks we’ve shared on Twitter , bundle them up into one resource, and put it out into the world.",
-   "sourceUrl": "https://refactoringui.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "当初は、2人がTwitterで配ってきた小技を1つにまとめるだけの予定だった。計画を進めるうちに、本だけでなく動画・部品見本・配色・フォント・アイコンまで含む「一式」に広げた。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "They focus so much on high level principles like color theory and typography",
-   "sourceUrl": "https://refactoringui.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "売り文句は「才能ではなく手順」。例として、枠線を減らし、影・背景色の差・余白で要素を分ける方法を挙げる。多くのデザイン講座は色彩理論などの大きな原則に偏り、すぐ画面を良くする具体策が足りないと批判している。"
-  },
-  "f6": {
-   "verdict": "PARTIAL",
-   "quote": "Many of those tweets took two weeks of near full-time effort to craft and make perfect, but that's why they would get like 5000 RTs and 15,000 likes.",
-   "fix": {
-    "text": "発売前の約2年、ツイートを多く流した。1本に2週間近いほぼフルタイムの作業をかけたものも多く、5000リツイート・1万5千いいね前後に届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。"
-   },
-   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-   "checkedAt": "2026-10-06",
-   "claimText": "発売前の約2年、デザインの小技を図解したツイートを大量に流した。1本に2週間近くかけたものも多く、数千リツイート・1万5千いいねに届いた。記事「7 Practical Tips for Cheating at Design」は、長い間Mediumで歴代1位の記事だったという。"
-  },
-  "f7": {
-   "verdict": "PARTIAL",
-   "quote": "In December 2018, I wrote Refactoring UI with my friend Steve Schoger, which has done over $2.5m and continues to sell well four years later.",
-   "fix": {
-    "text": "Refactoring UIは2018年12月に書いた本で、2022年9月の投稿時点で累計250万ドル超。4年たっても売れ続けていると本人が書いている。"
-   },
-   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-   "checkedAt": "2026-10-06",
-   "claimText": "Refactoring UIは2018年12月に発売し、2022年9月時点で累計250万ドル超。発売から4年たっても売れ続けていると本人が書いている。"
-  },
-  "f8": {
-   "verdict": "SUPPORTED",
-   "quote": "I went solo after writing my first book in 2016, which did $61,392 in the first week",
-   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-   "checkedAt": "2026-10-06",
-   "claimText": "Adamは教材の前にも実績があった。2016年の最初の本は発売初週に61,392ドル、同年のTDD講座は累計100万ドル超、2018年のVue講座は約30万ドルと本人が書いている。2019年1月からTailwind CSSに専念し、2020年にTailwind UIを出した。"
-  },
-  "f9": {
-   "verdict": "SUPPORTED",
-   "quote": "The only real failure that I actually launched was Nitpick CI, all of my other failed projects I actually failed to finish/launch",
-   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-   "checkedAt": "2026-10-06",
-   "claimText": "Adamが実際に出して失敗したのはNitpick CIだけで、履歴書アプリ、リンク共有のSNS、売上税の徴収を代行する決済サービスは、完成させずにやめたと本人が答えている。"
-  },
-  "f10": {
-   "verdict": "SUPPORTED",
-   "quote": "78% of total purchases (6765) favoured the higher tier (as of Jan 10, 2019)",
-   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "発売当初の価格は、基本版79ドル・上位版149ドルだった。上位版の値引きを40%、基本版を25%と見せ、上位版を大きく目立つ見た目にしたところ、2019年1月10日時点の購入の約78%が上位版だったという。"
-  },
-  "f11": {
-   "verdict": "SUPPORTED",
-   "quote": "Only in serving up two years worth of free tips, screencasts, and articles is this price possible.",
-   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "同記事は、2年分の無料のツイート・動画・記事があったから149ドルを付けられた、と分析している。Amazonの電子書籍の相場から外れるよう、自前のサイトで動画・素材と組にした点も挙げる。"
-  },
-  "f12": {
-   "verdict": "PARTIAL",
-   "quote": "Promotion via email, newsletter, social media, case studies, and screencasts to grow number of subscribers/followers",
-   "fix": {
-    "text": "2019年1月10日公開のポッドキャスト回で、メール・ニュースレター・SNS・事例記事・画面録画動画で購読者やフォロワーを増やす方法と、本・動画などの組み方、価格の付け方が話題になった。"
-   },
-   "sourceUrl": "https://artofproductpodcast.com/episode-70",
-   "checkedAt": "2026-10-06",
-   "claimText": "発売直後の2019年1月、2人はポッドキャストで、メール・SNS・事例記事・画面録画動画で購読者を増やした方法と、本・動画・素材の組み方、価格の付け方を語った。"
-  },
-  "f13": {
-   "verdict": "SUPPORTED",
-   "quote": "Over 30,000 copies sold\n4.68 stars on Goodreads",
-   "sourceUrl": "https://refactoringui.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式サイトは3万部超の販売、Goodreads評価4.68、SavvyCal・Clearbit・Transistorの創業者の推薦文を掲げる。購入は2つの価格帯の「Buy now」から。決済はLink by Stripe。"
-  },
-  "m1": {
-   "verdict": "PARTIAL",
-   "quote": "which has done over $2.5m and continues to sell well four years later",
-   "fix": {
-    "metric": {
-     "period": "2022年9月13日の投稿時点の累計（250万ドル超）"
-    }
-   },
-   "sourceUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2022年9月の累計（250万ドル超）(CUMULATIVE) / 金額=2500000 USD / 由来=SELF_REPORTED"
-  },
-  "m2": {
-   "verdict": "HELD",
-   "quote": "Refactoring UI ended up grossing over $1.35M",
-   "sourceUrl": "https://marketingexamples.com/landing-page/pricing",
-   "checkedAt": "2026-10-07",
-   "claimText": "項目=REVENUE / 期間=2018年12月の発売〜2019年初め（終点は記事に明記なし）、135万ドル超(CUMULATIVE) / 金額=1350000 USD / 由来=THIRD_PARTY",
-   "reason": "時点が記事に無い（金額は出典どおり）。一覧には本人の最新値を出す"
-  }
- },
  "ent_tnyplt_f2fb3c69": {
   "f1": {
    "verdict": "PARTIAL",
@@ -138633,105 +139073,6 @@
    "sourceUrl": "https://equals.com/pricing/",
    "checkedAt": "2026-09-30",
    "claimText": "公式の料金ページは、年契約の3段階(年2.4万ドル、Businessが年3.6万ドル、Enterpriseが年6万ドル)を表示し、AI利用枠は月250ドル、500ドル、1,000ドル込みで、席数は無制限、SSOは年2.4万ドルの別項目と記している。"
-  }
- },
- "ent_heygen_8f11a1": {
-  "f1": {
-   "verdict": "PARTIAL",
-   "quote": "No camera, editing software, or production skills needed.",
-   "fix": {
-    "text": "文章・画像・音声・スライドから、本人そっくりのアバターが話す動画を作るAI動画サービス。カメラも編集ソフトも制作スキルも要らず、175以上の言語・方言への翻訳に対応し、動画生成・翻訳・リップシンクの開発者向けAPIもある。"
-   },
-   "sourceUrl": "https://www.heygen.com/",
-   "checkedAt": "2026-10-06",
-   "claimText": "文章・画像・音声・スライドから、本人そっくりのアバターが話す動画を作るAI動画サービス。撮影も俳優も編集ソフトも使わず台本だけで作れ、175以上の言語・方言への吹き替えと、動画生成・翻訳・リップシンクの開発者向けAPIもある。"
-  },
-  "f2": {
-   "verdict": "SUPPORTED",
-   "quote": "That's what founder Joshua Xu discovered when he was an engineer at Snap, building features for SnapChat Ads and the AI camera.",
-   "sourceUrl": "https://www.heygen.com/about",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者のJoshua XuはSnapのエンジニアとして広告とAIカメラの機能を作っていたとき、人は動画が好きなのにカメラの前に立つのは嫌がる、という事実に気づいた。HeyGenはそこから生まれたと公式Aboutは語る。"
-  },
-  "f3": {
-   "verdict": "SUPPORTED",
-   "quote": "finished videos can cost $1,000 per minute. At least.",
-   "sourceUrl": "https://www.heygen.com/about",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式Aboutは、従来の動画づくりには撮影機材・俳優・場所・編集・撮り直しが要り、完成した動画の制作費が1分あたり最低1,000ドルになることもあると述べ、台本を書くだけで動画が作れる点を売りにしている。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "was founded by Joshua Xu and Wayne Liang in 2020.",
-   "sourceUrl": "https://en.wikipedia.org/wiki/HeyGen",
-   "checkedAt": "2026-10-06",
-   "claimText": "英語版Wikipediaは、HeyGenを2020年にJoshua XuとWayne Liangが創業した、ロサンゼルス本社のAI動画の会社と記す。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "HeyGen, the identity-first AI video platform, today announced it has surpassed $200 million in annual recurring revenue, doubling in eight months.",
-   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式ブログ（2026-06-25、署名Joshua Xu）は、年間経常収益（ARR）が2億ドルを超え、8か月で倍増したと発表。利用者3,000万人超、196か国、フォーチュン100社の85%、これまでに作られた動画は1億1,800万本超とも記す。"
-  },
-  "f6": {
-   "verdict": "SUPPORTED",
-   "quote": "HeyGen generates roughly $2.70 in annual recurring revenue for every dollar of equity capital it has raised",
-   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-   "checkedAt": "2026-10-06",
-   "claimText": "同ブログは、調達した株式資本1ドルあたりのARRが約2.70ドルで、ZoomやDatadogの上場時より資本効率が高いと主張する。要因として、技術基盤を端から端まで自社で持つこと、少人数で成果が高いこと、口コミ中心で伸びる商品の3点を挙げる。調達額そのものは記載がない。"
-  },
-  "f7": {
-   "verdict": "SUPPORTED",
-   "quote": "150+ Global employees",
-   "sourceUrl": "https://www.heygen.com/careers",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式の採用ページは、世界の従業員が150人超と表示する（表示時点の日付はない）。"
-  },
-  "f8": {
-   "verdict": "SUPPORTED",
-   "quote": "For solo creators, the Creator plan costs $29/month (or $24/month if you pay annually).",
-   "sourceUrl": "https://www.heygen.com/pricing",
-   "checkedAt": "2026-10-06",
-   "claimText": "料金ページはFreeが月0ドル、Creatorが月29ドル、その上にPro、法人向けのEnterpriseを置く。"
-  },
-  "f9": {
-   "verdict": "SUPPORTED",
-   "quote": "in the past three months HeyGen shipped 63 products and features, including Avatar V, the HeyGen MCP, and HyperFrames, its open-source (Apache 2.0) framework for agentic video creation.",
-   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-   "checkedAt": "2026-10-06",
-   "claimText": "直近3か月で63の製品・機能を出荷したと同ブログは述べる。15秒の動画から表情や身ぶりを再現するAvatar V、HeyGen MCP、オープンソース（Apache 2.0）の動画づくり枠組みHyperFramesなど。HyperFramesは公開1か月でGitHubスター2万1,600を集めた。"
-  },
-  "f10": {
-   "verdict": "SUPPORTED",
-   "quote": "Craig Veroni, a realtor serving Vancouver, uses it to build his personal brand on Instagram.",
-   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式ブログの利用例。アーティストのKellie DeFriesは夜11時の撮影をデジタルツインに置き換えてオンライン講座を教えさせ、不動産業者のCraig Veroniは個人ブランドのInstagram動画に使い、Lisa Anugwom NarhはYouTubeのチャンネルを1回の収録から広げた。"
-  },
-  "f11": {
-   "verdict": "PARTIAL",
-   "quote": "HeyGen is proud to be backed by leading investors including Benchmark, Conviction, Thrive Capital, and Bond",
-   "fix": {
-    "text": "公式Aboutは出資者としてBenchmark、Conviction、Thrive Capital、Bondを挙げ、報道一覧にビジネスインサイダーの2024年9月9日の記事（見出しは「44 of the most promising AI startups of 2024, according to top VCs」）を載せている。調達額は記載がない。"
-   },
-   "sourceUrl": "https://www.heygen.com/about",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式Aboutは出資者としてBenchmark、Conviction、Thrive Capital、Bondを挙げ、報道一覧にビジネスインサイダーの2024年9月の記事（見出しは資金調達ラウンドで評価額5億ドル）を載せている。調達額は記載がない。"
-  },
-  "m1": {
-   "verdict": "SUPPORTED",
-   "quote": "HeyGen, the identity-first AI video platform, today announced it has surpassed $200 million in annual recurring revenue, doubling in eight months.",
-   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=REVENUE / 名前=年間経常収益（ARR）、2億ドル超 / 期間=2026-06-25(POINT) / 金額=200000000 USD / 由来=SELF_REPORTED"
-  },
-  "m2": {
-   "verdict": "SUPPORTED",
-   "quote": "a community of more than 30 million users in 196 countries",
-   "sourceUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 名前=利用者数、3,000万人超 / 期間=2026-06-25(POINT) / 金額=30000000 人 / 由来=SELF_REPORTED"
   }
  },
  "ent_synthesia_7f11a1": {
@@ -161495,142 +161836,6 @@
    "claimText": "公式ドキュメントは2025年11月時点で月間ユニーク利用者40万人、購読顧客3000件と記載している。"
   }
  },
- "ent_requestly_28e9f2": {
-  "f1": {
-   "verdict": "PARTIAL",
-   "quote": "the popular open-source HTTP interception and API mocking tool",
-   "fix": {
-    "text": "ブラウザのHTTP通信を途中で書き換えたり、モック（偽の応答）にしたりする開発者向けのオープンソースツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。"
-   },
-   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-   "checkedAt": "2026-10-06",
-   "claimText": "ブラウザやアプリのHTTP通信を途中で書き換えたり、偽の応答を返したりする開発者向けツール。画面側の開発者が、バックエンド担当のAPI完成待ちや、不安定なバックエンドに作業を止められる問題に応える。オープンソースで、API設計・テスト用のAPIクライアントも持つ。"
-  },
-  "f2": {
-   "verdict": "SUPPORTED",
-   "quote": "transforming a weekend Chrome extension project into a Y Combinator-backed company",
-   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者Sachin Jainは、本番環境の圧縮されたJavaScriptをデバッグしたいという苛立ちから、約30分でChrome拡張の最初の版を作った。Baremetricsの紹介文は、週末の個人制作から始まったと説明する。"
-  },
-  "f3": {
-   "verdict": "SUPPORTED",
-   "quote": "What began in 2018 as a simple tool to redirect JavaScript files for local testing",
-   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-   "checkedAt": "2026-10-06",
-   "claimText": "2018年、JavaScriptファイルを差し替えるだけの道具として始まった。変更を試すためだけに配備し直す手間を省く道具で、のちにコンテンツセキュリティポリシーに当たった開発者向けにHTTPヘッダーの書き換えも加わった。デスクトップ型の傍受ツールと違い、ブラウザの機能で通信を傍受するため、システム全体のプロキシ設定や証明書の導入が要らず、会社のVPNでも動く。その後、チームで設定を共有する機能が加わった。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "His journey from Google intern and Adobe engineer to successful founder",
-   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-   "checkedAt": "2026-10-06",
-   "claimText": "Sachin Jainは共同創業者でCEO。Baremetricsの紹介文によれば、Googleのインターンとアドビのエンジニアを経て起業した。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "the team refocused on helping developers work independently from backend dependencies",
-   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-   "checkedAt": "2026-10-06",
-   "claimText": "チームは、API応答の偽装（モック）が最も製品に合っていると見て、バックエンドの完成待ちから画面側の開発者を解放する方向へ軸足を移した。企業向けにはSSO、SLA、分析と報告、役割別の権限管理、SOC2 Type II認証を足した。"
-  },
-  "f6": {
-   "verdict": "SUPPORTED",
-   "quote": "one of 414 accepted from 17,000 applications",
-   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-   "checkedAt": "2026-10-06",
-   "claimText": "Baremetricsの紹介文によれば、Requestlyは約1万7千件の応募から採択された414社の1社としてY Combinatorに入った。"
-  },
-  "f7": {
-   "verdict": "PARTIAL",
-   "quote": "how Stack Overflow and GitHub became their entire GTM strategy",
-   "fix": {
-    "text": "Baremetricsの対談の紹介文は、ランディングページやマーケティングに頼らず自然に広まり、Stack OverflowとGitHubが販売戦略のすべてだったと説明する。"
-   },
-   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-   "checkedAt": "2026-10-06",
-   "claimText": "Baremetricsの対談の紹介文は、ランディングページや広告に頼らず自然に広まり、Stack OverflowとGitHubが販売経路のすべてだったと説明する。"
-  },
-  "f8": {
-   "verdict": "PARTIAL",
-   "quote": "why he chose the open core model over pure monetization",
-   "fix": {
-    "text": "収益化では、純粋な収益化よりオープンコアモデルを選んだ。"
-   },
-   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-   "checkedAt": "2026-10-06",
-   "claimText": "収益化では、利益の最大化より開発者への浸透を優先し、基本機能を公開する「オープンコア」を選んだ。無料の個人利用に加えて、チームや企業向けに有料のプランを売る。"
-  },
-  "f9": {
-   "verdict": "PARTIAL",
-   "quote": "Requestly was funded by YCombinator, PeakXV partners (formerly Sequoia SEA), and many marquee angels.",
-   "fix": {
-    "text": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）、複数の著名エンジェルの出資を受けたと書く。"
-   },
-   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-   "checkedAt": "2026-10-06",
-   "claimText": "発表は、RequestlyがY Combinator、Peak XV（旧Sequoia）のSurge、複数の著名エンジェルの出資を受けたと書く。出資額は記載がない。"
-  },
-  "f10": {
-   "verdict": "PARTIAL",
-   "quote": "DUBLIN—May 6, 2025 — BrowserStack today announced the acquisition of Requestly",
-   "fix": {
-    "text": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。"
-   },
-   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-   "checkedAt": "2026-10-06",
-   "claimText": "2025年5月6日、BrowserStackがRequestlyの買収を発表した。発表は、Requestlyを独立したオープンソースの道具として続け、今後はモバイル端末やシミュレータ向けの傍受・モック機能を出す計画としている。買収額の記載はない。"
-  },
-  "f11": {
-   "verdict": "SUPPORTED",
-   "quote": "trusted by 200,000+ developers from 10,000+ companies, ranging from Fortune 500 to startups",
-   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-   "checkedAt": "2026-10-06",
-   "claimText": "発表によれば、買収時のRequestlyは20万人超の開発者、1万社超の企業が使い、Chromeストアの評価は1,200件超のレビューで4.3。Sachin Jainは、環境とバックエンド担当への依存でコードの通しテストが止まる無駄な開発時間への苛立ちから生まれたと述べている。"
-  },
-  "f12": {
-   "verdict": "SUPPORTED",
-   "quote": "the acquisition framework that prioritizes the right buyer over the right price",
-   "sourceUrl": "https://baremetrics.com/founder-chats/sachin-jain",
-   "checkedAt": "2026-10-06",
-   "claimText": "売り先の選び方について、創業者は価格より適した買い手を優先する考え方を語っている。"
-  },
-  "f13": {
-   "verdict": "SUPPORTED",
-   "quote": "$10 / user / month",
-   "sourceUrl": "https://requestly.com/pricing/",
-   "checkedAt": "2026-10-06",
-   "claimText": "料金ページはAPI PlatformのTeamを年払いで1利用者あたり月換算$10、Team Proを$15と表示する。"
-  },
-  "f14": {
-   "verdict": "SUPPORTED",
-   "quote": "Requestly is used by more than 180,000+ developers across 5000+ organizations around the globe.",
-   "sourceUrl": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
-   "checkedAt": "2026-10-06",
-   "claimText": "創業者本人のブログは、2023年3月時点でRequestlyを5,000超の組織の18万人超の開発者が使うと書く。Chrome DevToolsにはHTTP要求・応答を書き換える機能が無く、その穴を埋める道具だという位置づけ。"
-  },
-  "f15": {
-   "verdict": "SUPPORTED",
-   "quote": "Trusted by 300,000+ developers, from next-gen startups to Fortune 500 companies.",
-   "sourceUrl": "https://requestly.com/products/",
-   "checkedAt": "2026-10-06",
-   "claimText": "公式の製品ページは、通信を書き換えるルール機能、APIクライアント、モックサーバー、チーム共有、暗号化した秘密情報の保管、自動テストを並べ、30万人超の開発者に使われているとうたう。"
-  },
-  "m1": {
-   "verdict": "SUPPORTED",
-   "quote": "Requestly is used by more than 180,000+ developers across 5000+ organizations around the globe.",
-   "sourceUrl": "https://sachinjain.hashnode.dev/the-missing-piece-in-chrome-devtools",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=2023-03(POINT) / 金額=180000 人 / 由来=SELF_REPORTED"
-  },
-  "m2": {
-   "verdict": "SUPPORTED",
-   "quote": "empowering 200,000+ developers across 10,000+ companies",
-   "sourceUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
-   "checkedAt": "2026-10-06",
-   "claimText": "項目=USERS / 期間=2025-05(POINT) / 金額=200000 人 / 由来=SELF_REPORTED"
-  }
- },
  "ent_kirby_cms_c4770b": {
   "f1": {
    "verdict": "PARTIAL",
@@ -181933,205 +182138,6 @@
    "sourceUrl": "https://www.hulkapps.com/pages/services-packages-terms-of-service",
    "checkedAt": "2026-09-30",
    "claimText": "公式のサービスパッケージ規約のページは、PlanetXがHulkAppsに買収されたと告知している。"
-  }
- },
- "ent_practicaltypographycom_e9aa6bc94ccf": {
-  "f1": {
-   "verdict": "PARTIAL",
-   "quote": "This book has no ads. It’s sup­ported by read­ers like you.",
-   "fix": {
-    "text": "Practical Typographyは、広告のないオンラインの本で、読者の支払いで支えられている。支払いの選択肢は、作者の自作フォントの購入、直接の支払い、紙の本（Typography for Lawyers）の購入の3つ。"
-   },
-   "sourceUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "Matthew Butterick（作家・組版デザイナー・プログラマー・弁護士）が書いた、オンラインで読める組版の本。読む前の支払いは不要で、広告も置かない。収入の柱は、読者が選ぶ直接の支払い、作者の自作フォント、紙の本の3つ。"
-  },
-  "f2": {
-   "verdict": "SUPPORTED",
-   "quote": "Send money. ($19-49)",
-   "sourceUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "直接の支払いは19・29・39・49ドルの4段階。PDFや電子書籍は存在せず、支払ってもダウンロードは付かない。自作フォントは119ドルから、関連する紙の本（Typography for Lawyers）は40ドル。"
-  },
-  "f3": {
-   "verdict": "SUPPORTED",
-   "quote": "Be­cause this book’s only source of rev­enue is read­ers like you. If you don’t pay, the book dies.",
-   "sourceUrl": "https://practicaltypography.com/why-you-should-pay.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "「なぜ払うのか」ページの主張は、この本の収入源は読者だけで、払わなければ本が消える、というもの。本人は文章・フォント・図版を作り、出版ソフトPollenを開発し、サーバー代も払ったと書く。読む前に払わせない代わりに、役立ったなら払ってほしいという形にしている。"
-  },
-  "f4": {
-   "verdict": "SUPPORTED",
-   "quote": "I es­ti­mate that about one in 650 read­ers has sup­ported the book with a pay­ment or pur­chase.",
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "1年目（2014年7月末まで）は読者約65万人（アクセス解析の数字）、広告・PR費は0ドルで、すべて口コミ。最も読まれたのは「Typography in Ten Minutes」。読者のうち約650人に1人が支払いか購入をした。"
-  },
-  "f5": {
-   "verdict": "SUPPORTED",
-   "quote": "I got 321 pay­ments to­tal­ing $3676. About 230 were $10 or less. The rest ranged from $11–50.",
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "1年目の直接の支払いは321件で合計3,676ドル。約230件は10ドル以下で、残りは11〜50ドル。大きな支払いが合計の約半分を占めた。流入元で差があり、Cool Tools経由の読者はよく払い、Reddit経由はほとんど払わなかった。"
-  },
-  "f6": {
-   "verdict": "SUPPORTED",
-   "quote": "I es­ti­mate that about 450 Prac­ti­cal Ty­pog­ra­phy read­ers be­came font cus­tomers.",
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "1年目、読者のうち約450人が自作フォントの客になったと、本人が販売の傾向の変化から見積もった。1件に25ドルの紹介料を割り当てると約11,250ドルになるが、これは実際の収入額ではない。"
-  },
-  "f7": {
-   "verdict": "SUPPORTED",
-   "quote": "Not a big con­trib­u­tor. At best, per­haps $25–50 a month.",
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "本人は、フォントが売れなければこの企画は費用の掛かる趣味だったと書く。他の収入は小さく、Typography for Lawyersの売上に目立つ変化はなく、他社フォントの紹介は多くて月25〜50ドル程度。"
-  },
-  "f8": {
-   "verdict": "PARTIAL",
-   "quote": "about 35% more read­ers were in­ter­ested in pay­ing $59–299 for a pack­age of fonts than $5–20 for a di­rect pay­ment for the book.",
-   "fix": {
-    "text": "2年続けて、5〜20ドルの直接の支払いより、59〜299ドルのフォントのパッケージに支払う意欲のある読者のほうが約35%多かった。"
-   },
-   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "5〜10ドルの直接の支払いより、59〜299ドルのフォントを買う読者のほうが多かった。2年続けて、フォントを買う読者が直接の支払いをする読者より約35%多かった。本人は予想外だったと書く。"
-  },
-  "f9": {
-   "verdict": "PARTIAL",
-   "quote": "I col­lected 244 pay­ments to­tal­ing $3030.",
-   "fix": {
-    "text": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）。広告・PR費は引き続き0ドル。読者が増えたのに払う人の割合は、約1,000人に1人まで下がった。"
-   },
-   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "2年目は読者約70万人、直接の支払い244件で3,030ドル、フォント取引325件（25ドルを割り当てて8,125ドル）、合計約11,155ドル。広告・PR費は引き続き0ドル。読者が増えたのに払う人の割合は、約1,000人に1人まで下がった。"
-  },
-  "f10": {
-   "verdict": "PARTIAL",
-   "quote": "I col­lected 489 pay­ments to­tal­ing $5472",
-   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-08",
-   "claimText": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になり、フォント取引は310件（25ドルを割り当てて7,750ドル）、合計約13,222ドル。支払った読者は799人。",
-   "fix": {
-    "text": "3年目（2016年8月の報告）は読者約61.5万人。直接の支払いは489件で5,472ドルと件数が約2倍になった。フォント取引は件数だけで、金額は仮の割り当てなので実収入には数えない。支払った読者は799人。"
-   }
-  },
-  "f11": {
-   "verdict": "SUPPORTED",
-   "quote": "mas­sive flows of un­paid traf­fic em­anated from only about 15–20 web­sites.",
-   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "3年目の工夫は、無料の読者が15〜20のサイトに集中していると気づき、その流入元から来た人にだけ「この本を存続させるために」と支払いを頼むページを1枚出したこと。サーバーの設定（.htaccess）で出し分けた。本人は「効いた」と書いている。"
-  },
-  "f12": {
-   "verdict": "SUPPORTED",
-   "quote": "a book agent got me a very nice of­fer to turn this ma­te­r­ial into a pa­per­back for a name-brand pub­lisher.",
-   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "支払いの催促を本のあちこちに入れる方法は、読みにくくなるので採らなかった。公開前には、名の通った出版社から紙の本の話があったが、本人がデザインできないと分かって断った。"
-  },
-  "f13": {
-   "verdict": "PARTIAL",
-   "quote": "non­fic­tion books sell a to­tal of 1000–3000 copies on av­er­age.",
-   "fix": {
-    "text": "本人は平均的なノンフィクションの本を、合計で1,000〜3,000部売れ、著者の取り分は1冊2〜3ドル程度と見ている。1年目の直接の支払い3,676ドルは、紙の本なら1,200〜1,800部に当たると書く。"
-   },
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "本人は平均的な教養書を、生涯で1,000〜3,000部、著者の取り分は1冊2〜3ドル、合計5,000〜8,000ドル程度と見ている。1年目の直接の支払い3,676ドルは、紙の本なら1,200〜1,800部に当たると書く。"
-  },
-  "f14": {
-   "verdict": "PARTIAL",
-   "quote": "I do not par­tic­i­pate in any ad­ver­tis­ing or af­fil­i­ate net­works.",
-   "fix": {
-    "text": "広告・アフィリエイトの網には参加せず、他社製品の推薦で報酬も受け取っていない。支払いの処理はStripe、訪問者の基本情報の収集にはClickyを使う。"
-   },
-   "sourceUrl": "https://practicaltypography.com/legal.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "広告・アフィリエイトの網には参加せず、他社製品の推薦で報酬も受け取っていない。支払いの処理はStripe、アクセス解析はClickyを使う。出版ソフトPollenはRacketで自作し、オープンソースで公開している。"
-  },
-  "f15": {
-   "verdict": "SUPPORTED",
-   "quote": "A few read­ers ob­jected to my use of the term “do­na­tions” to de­scribe di­rect pay­ments.",
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-06",
-   "claimText": "一部の読者から「寄付」と呼ぶのはおかしいと言われ、本人は直接の支払いの呼び方を改めた。慈善活動ではなく、書き手と読み手の経済関係として説明している。"
-  },
-  "m1": {
-   "verdict": "PARTIAL",
-   "quote": "I got 321 pay­ments to­tal­ing $3676.",
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=REVENUE / 期間=公開1年目（〜2014年7月）の直接の支払い 321件(YEAR) / 金額=3676 USD / 由来=SELF_REPORTED",
-   "fix": {
-    "metric": {
-     "measure": "OTHER",
-     "label": "直接の支払い（フォントの売上を除く）",
-     "period": "公開1年目（〜2014年の夏）、321件"
-    }
-   }
-  },
-  "m2": {
-   "verdict": "PARTIAL",
-   "quote": "I col­lected 244 pay­ments to­tal­ing $3030.",
-   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=REVENUE / 期間=公開2年目の直接の支払い 244件(YEAR) / 金額=3030 USD / 由来=SELF_REPORTED",
-   "fix": {
-    "metric": {
-     "measure": "OTHER",
-     "label": "直接の支払い（フォントの売上を除く）",
-     "period": "公開2年目（〜2015年の夏）、244件"
-    }
-   }
-  },
-  "m3": {
-   "verdict": "PARTIAL",
-   "quote": "I col­lected 489 pay­ments to­tal­ing $5472",
-   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=REVENUE / 期間=公開3年目（〜2016年）の直接の支払い 489件(YEAR) / 金額=5472 USD / 由来=SELF_REPORTED",
-   "fix": {
-    "metric": {
-     "measure": "OTHER",
-     "label": "直接の支払い（フォントの売上を除く）",
-     "period": "公開3年目（〜2016年の夏）、489件"
-    }
-   }
-  },
-  "m4": {
-   "verdict": "PARTIAL",
-   "quote": "it claims that about 650,000 read­ers vis­ited the site in the first 12 months.",
-   "sourceUrl": "https://practicaltypography.com/economics-year-one.html",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=USERS / 期間=公開1年目の読者数（アクセス解析）(YEAR) / 金額=650000 人 / 由来=SELF_REPORTED",
-   "fix": {
-    "metric": {
-     "period": "公開1年目（〜2014年の夏）の読者数（アクセス解析）"
-    }
-   }
-  },
-  "m5": {
-   "verdict": "HELD",
-   "quote": "from about 650,000 read­ers in year one to about 700,000 in year two.",
-   "sourceUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=USERS / 期間=公開2年目の読者数（アクセス解析）(YEAR) / 金額=700000 人 / 由来=SELF_REPORTED",
-   "reason": "2年目の読者数は引用の近くに年が無く、いつの数字かを原文から確かめられない"
-  },
-  "m6": {
-   "verdict": "PARTIAL",
-   "quote": "traf­fic went down to about 615,000 read­ers",
-   "sourceUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
-   "checkedAt": "2026-10-08",
-   "claimText": "項目=USERS / 期間=公開3年目の読者数（アクセス解析）(YEAR) / 金額=615000 人 / 由来=SELF_REPORTED",
-   "fix": {
-    "metric": {
-     "period": "公開3年目（〜2016年の夏）の読者数（アクセス解析）"
-    }
-   }
   }
  },
  "ent_churnkey_8d7f2b269c21": {

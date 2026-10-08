@@ -325,6 +325,17 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   rec.stages.verify = { status: rec.verify.ok ? 'ok' : 'failed', seconds: Number(((d.now() - s0) / 1000).toFixed(1)) };
   if (!rec.verify.ok) flag('verify', `本番の確認で不一致: ${rec.verify.checks.filter((c) => c.status === 'problem').map((c) => `${c.name}: ${c.note}`).join(' / ').slice(0, 400)}`);
 
+  // オーナー決定の画面確認（data/owner-decisions.json）。公開を止める関門ではない。違反は記録して知らせるだけ（soft）。
+  if (d.hasScript('decisions:check')) {
+    const s1 = d.now();
+    const dc = await d.exec(['pnpm', '-s', 'decisions:check', '--site-url', o.siteUrl]);
+    const lines = dc.stdout.trim().split('\n').filter(Boolean);
+    const summary = lines.filter((l) => /^\s*違反|違反なし|読めなかった/.test(l)).join(' / ').slice(0, 400);
+    rec.stages.decisions = { status: dc.code === 0 ? 'ok' : dc.code === 1 ? 'failed' : 'skipped', seconds: Number(((d.now() - s1) / 1000).toFixed(1)), note: summary || (dc.code === 2 ? '画面を開けず確認できない' : undefined) };
+    if (dc.code === 1) flag('decisions', `オーナーが決めた「出さない物」が本番の画面に出ている: ${summary}`, true);
+    else if (dc.code !== 0) flag('decisions-unavailable', `オーナー決定の画面確認が最後まで終わらず、確認しきれていない: ${summary || dc.stderr.trim().slice(0, 200) || `終了コード ${dc.code}`}`, true);
+  }
+
   rec.finishedAt = new Date(d.now()).toISOString(); rec.seconds = Number(((d.now() - t0) / 1000 + (resume?.seconds ?? 0)).toFixed(1));
   rec.ok = rec.abnormal.every((a) => a.soft); rec.status = rec.ok ? 'DONE' : 'FAILED'; save();
   return rec;

@@ -81,7 +81,7 @@ describe('all public case records remain reachable', () => {
     const html = renderToStaticMarkup(<SourcesSection entity={entity} isHazardMode={false} />);
     expect(html).toContain('data-testid="audited-sources"');
     expect(html).toContain('Indie Hackers'); expect(html).toContain('掲載 2021-04-01'); expect(html).toContain('確認 2026-09-29');
-    expect(html).not.toContain('事実のみ・出典表示必須'); expect(html).not.toContain('出典表示で掲載可'); expect(html).toContain('本人申告（独立確認なし）');
+    expect(html).not.toContain('事実のみ・出典表示必須'); expect(html).not.toContain('出典表示で掲載可'); expect(html).not.toContain('本人申告'); expect(html).not.toContain('独立確認なし');
     expect(html).not.toContain('>公式サイト<'); expect(html).not.toContain('rawStoredPrivately');
   });
 });
