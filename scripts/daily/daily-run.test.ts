@@ -48,9 +48,14 @@ function make(root: string, s: Script = {}) {
     exec, now: () => (clock += 1000), sleep: async () => undefined, notify: async (_t, b) => { notices.push(b); },
     hasScript: (n) => (n === 'case:discover' || n === 'case:research' ? s.hasDiscover !== false : true),
     fetchJson: async (url) => {
-      if (url.includes('/api/health')) return { status: 'ok', release: published ? 'abcdef123456' : 'abcdef123456' };
+      if (url.includes('/api/health')) return { status: 'ok', release: 'abcdef123456' };
+      if (url.includes('/api/businesses')) {
+        const id = decodeURIComponent(url.split('entity_id=')[1]);
+        if (!published || !ids.includes(id)) throw new Error('404');
+        return { data: { id, reader: { display: { listLine: { text: '一行' } } } } };
+      }
       const total = s.catalogTotal ? s.catalogTotal(published) : 2 + (published ? ids.length : 0);
-      return { data: ids.filter(() => published).map((id) => ({ id, reader: { display: { listLine: { text: '一行' } } } })), total, generationCounts: { 1: total }, nextOffset: null };
+      return { data: [], total, generationCounts: { 1: total }, nextOffset: null };
     },
   };
   return { deps, calls, issues, comments, notices };
@@ -210,7 +215,7 @@ test('case:run が結果を書けずに落ちた時、前回の結果を使っ�
 test('公開した全件の画面の文を確かめる。鍵が無い(終了コード78)時は鮮度の確認だけ飛ばす', async () => {
   const root = fixture(); const m = make(root, { researchIds: 'n1,n2', passed: ['n1', 'n2'], catalogTotal: () => 2 });
   const base = m.deps.fetchJson; const baseExec = m.deps.exec;
-  m.deps.fetchJson = async (url) => { const r = await base(url) as { data?: { id: string }[] }; if (r.data) r.data = r.data.filter((e) => e.id !== 'n2'); return r; };
+  m.deps.fetchJson = async (url) => { if (url.includes('entity_id=n2')) throw new Error('404'); return base(url); };
   m.deps.exec = async (argv, env) => (argv.join(' ').includes('check-freshness') ? { code: 78, stdout: '', stderr: '' } : baseExec(argv, env));
   const rec = await runDaily(opts(root), m.deps);
   assert.equal(rec.verify?.checks.find((c) => c.name === '新しい事例の詳細')?.status, 'problem');

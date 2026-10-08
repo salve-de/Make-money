@@ -136,14 +136,7 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
   const local = localRelease(o.root);
   let total: number | undefined; let gen: Record<string, number> | undefined;
   try {
-    const rows: CatalogPage['data'] = [];
-    let offset: number | null = 0; let first: CatalogPage | null = null;
-    const have = new Set<string>();
-    // 今日公開した事例がすべて見つかるまで読み進める(見つからなければ最後まで。件数の上限は置かない)
-    while (offset !== null && (first === null || publishedIds.some((id) => !have.has(id)))) {
-      const page = await d.fetchJson(`${o.siteUrl}/api/catalog?pageSize=100&offset=${offset}`) as CatalogPage;
-      first ??= page; rows.push(...page.data); for (const r of page.data) have.add(r.id); offset = page.nextOffset;
-    }
+    const first = await d.fetchJson(`${o.siteUrl}/api/catalog?pageSize=1`) as CatalogPage;
     total = first!.total; gen = first!.generationCounts;
     const sum = Object.values(gen).reduce((a, b) => a + b, 0);
     if (sum !== total) add('件数の内訳', 'problem', `世代ごとの合計 ${sum} が総数 ${total} と合わない`); else add('件数の内訳', 'ok', `総数 ${total}、世代ごと ${JSON.stringify(gen)}`);
@@ -158,10 +151,16 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
       add('世代ごとの件数', dropped.length ? 'problem' : 'ok', dropped.length ? `前回より減った世代: ${dropped.join(',')}` : '前回より減っていない（手元に版が無いため前回比のみ）');
     } else add('世代ごとの件数', 'skipped', '比べる相手が無い');
     // 新しい事例の詳細
-    const byId = new Map(rows.map((r) => [r.id, r]));
     if (!publishedIds.length) add('新しい事例の詳細', 'skipped', '今日公開した事例が無い');
     else {
-      const bad = publishedIds.filter((id) => !byId.get(id)?.reader?.display?.listLine?.text);
+      // 公開した事例を1件ずつ名指しで取る(一覧を端から読まない)
+      const bad: string[] = [];
+      for (const id of publishedIds) {
+        try {
+          const r = await d.fetchJson(`${o.siteUrl}/api/businesses?entity_id=${encodeURIComponent(id)}`) as { data?: { reader?: { display?: { listLine?: { text?: string } } } } };
+          if (!r.data?.reader?.display?.listLine?.text) bad.push(id);
+        } catch { bad.push(id); }
+      }
       add('新しい事例の詳細', bad.length ? 'problem' : 'ok', bad.length ? `本番に無い、または画面の文が空: ${bad.join(', ')}` : `公開した ${publishedIds.length} 件すべてで画面の文が出ている`);
     }
   } catch (e) { add('本番の取得', 'problem', `本番の一覧を取れない: ${(e as Error).message}`); }
