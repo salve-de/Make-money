@@ -96255,7 +96255,7 @@
   {
    "id": "a-story",
    "item": "STORY",
-   "text": "最初は、本番環境の圧縮されたJavaScriptを調べる苛立ちから、創業者が約30分で作ったChrome拡張だった。2018年に、JavaScriptの差し替えだけの道具として出発し、ヘッダーの書き換え、通信の傍受、チームでの共有へ広げた。広告やランディングページには頼らず、Stack OverflowとGitHubで開発者の間に広まった。Y Combinatorに採択され、API応答のモックに軸足を絞って企業向けの認証も足し、2025年5月にBrowserStackへ加わった。",
+   "text": "最初は、本番環境の圧縮されたJavaScriptを調べる苛立ちから、創業者が約30分で作ったChrome拡張だった。JavaScriptの差し替えだけの道具として出発し、ヘッダーの書き換え、通信の傍受、チームでの共有へ広げた。広告やランディングページには頼らず、Stack OverflowとGitHubで開発者の間に広まった。Y Combinatorに採択され、API応答のモックに軸足を絞って企業向けの認証も足し、2025年5月にBrowserStackへ加わった。",
    "basis": [
     "f2",
     "f3",

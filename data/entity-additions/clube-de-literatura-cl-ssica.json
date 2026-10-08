@@ -1,0 +1,595 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/Volumes/SS/Worktrees/Make-Money/case-discover/data/candidates/records/clube-de-literatura-cl-ssica.research.json",
+  "manifestSha256": "435c2238ebd5f1d3889a8fd764858885ba5c1bae4a0663124301315fd7872100",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-08T03:46:12.977Z",
+  "generation": 3
+ },
+ "records": [
+  {
+   "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059",
+   "provenance": {
+    "detailsHash": "c62c4616f7c37842a8108a26ff339759f8aa6823a04db7ba8469c08d111d7cff",
+    "artifactSha256": "435c2238ebd5f1d3889a8fd764858885ba5c1bae4a0663124301315fd7872100"
+   },
+   "record": {
+    "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059",
+    "ticker": "CLUBEDEL",
+    "name": "Clube de Literatura Clássica",
+    "tagline": "ブラジルの読者に、古典文学の本と付録を毎月届ける定期配送サービス。",
+    "description": "創業者のLucas Fischer Zapeliniは、友人との読書会で古典文学の良質な版が足りないと感じ、事業を始めた。書籍の配送に加えて、講義や読書計画表で作品を読む手助けをしている。公式サイトの年契約プランは、月額79.90ブラジルレアルに送料が加わる。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SCALEUP",
+    "founder": "Lucas Fischer Zapelini",
+    "country": "ブラジル",
+    "url": "https://literaturaclassica.com.br/",
+    "officialUrl": "https://literaturaclassica.com.br/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "読者から定期購読料を受け取り、古典文学の書籍と付録を毎月配送し、会員向けに過去の刊行物も販売する。",
+    "pipelineStack": "未確認",
+    "targetPainWallet": "未確認",
+    "tags": [
+     "古典文学",
+     "書籍出版",
+     "定期配送",
+     "読書会",
+     "ブラジル",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "sourceClass": "PRIMARY",
+     "sourceDoc": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "未確認",
+     "moatDescription": "未確認",
+     "initialTraction": [],
+     "actionPlaybook": []
+    },
+    "temporal": {
+     "foundedYear": 2019,
+     "initialTractionPeriod": "未確認",
+     "dataSnapshotPeriod": "2026-10-08 時点の公開情報",
+     "viabilityStatus": "UNKNOWN",
+     "viabilityLabel": "未確認",
+     "eraContext": "未確認",
+     "currentViabilityAnalysis": "未確認"
+    },
+    "facts": [
+     {
+      "kind": "DESCRIPTION",
+      "text": "Clube de Literatura Clássicaは、古典文学を読みたい人に本と付録を毎月届ける定期配送サービスである。",
+      "sourceUrl": "https://literaturaclassica.com.br/",
+      "quote": "Nossos assinantes recebem, todos os meses , um clássico da literatura e brindes.",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "創業者のLucas Fischer Zapeliniは、友人と古典文学を話し合う読書会から事業の着想を得た。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "quote": "A ideia nasceu de um clube de leitores formado por amigos",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Zapeliniは、古典文学に良質な装丁や翻訳を備えた版が足りないと感じた。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "quote": "faltava que aquelas obras tivessem uma edição com uma qualidade maior",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "FOUNDING",
+      "text": "Clube de Literatura Clássicaの事業は2019年に始まった。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "quote": "O negócio começou em 2019",
+      "numberKind": "OTHER",
+      "label": "事業開始年",
+      "asOf": "2019",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Clube de Literatura Clássicaは、2020年5月にダンテの『神曲』を最初の商品として発売した。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "statedAt": "2020-05",
+      "quote": "primeiro lançamento em maio de 2020, com uma edição de “A Divina Comédia”",
+      "numberKind": "OTHER",
+      "label": "最初の商品発売年",
+      "asOf": "2020-05",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Clube de Literatura Clássicaは、商品の販売をオンラインで行っている。",
+      "sourceUrl": "https://jornaldoisirmaos.com.br/noticia/03042026-clube-de-literatura-classica--do-sonho-a-heranca-para-as-proximas-geracoes",
+      "quote": "As vendas acontecem unicamente de forma on-line",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Zapeliniによると、同社はInstagramへの投稿とYouTubeの動画で読者向けの解説を発信している。",
+      "sourceUrl": "https://gauchazh.clicrbs.com.br/cultura-e-lazer/conteudo-de-marca/2025/08/clube-de-literatura-classica-aposta-em-edicoes-exclusivas-para-atrair-leitores-cmergltj400bv0149de7nvbn9.html",
+      "quote": "Por meio de postagens no Instagram e vídeos no YouTube, compartilhamos conteúdos",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Clube de Literatura Clássicaは、講義や読書計画表で会員が作品を読む手助けをしている。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "quote": "criamos canais de facilitação da leitura, como aulas e planners",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "Clube de Literatura Clássicaは、既存の翻訳の使用権を交渉するか、新しい翻訳を発注している。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "quote": "a empresa negocia direitos autorais de traduções existentes ou encomenda novos trabalhos",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "EVENT",
+      "text": "Clube de Literatura Clássicaは、2021年に本社をNovo HamburgoからDois Irmãosへ移した。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "quote": "mudou sua sede para Dois Irmãos, também no Rio Grande do Sul, em 2021.",
+      "numberKind": "OTHER",
+      "label": "本社移転年",
+      "asOf": "2021",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "TEAM",
+      "text": "Clube de Literatura Clássicaは、本社に在庫管理・出荷・顧客対応と管理業務の一部を集め、残りのスタッフは離れた場所で働いている。",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "quote": "O restante da equipe trabalha de forma distribuída.",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2026年10月に取得した公式の商品ページでは、四半期契約プランの月額料金は99.90ブラジルレアルで、送料は別にかかる。",
+      "sourceUrl": "https://literaturaclassica.com.br/a-vida-nova",
+      "quote": "3x\n\nR$99,90\n\n＋frete",
+      "numberKind": "PRICE",
+      "asOf": "2026-10",
+      "periodKind": "MONTH",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "PRICING",
+      "text": "年契約プランに入ると、会員は過去の刊行物を販売する同社の店を利用できる。",
+      "sourceUrl": "https://literaturaclassica.com.br/",
+      "quote": "Tenha acesso liberado à loja do Clube para adquirir edições passadas.",
+      "checkedAt": "2026-10-08"
+     }
+    ],
+    "metrics": [
+     {
+      "numberKind": "PRICE",
+      "amount": 99.9,
+      "currency": "BRL",
+      "unit": "月",
+      "label": "四半期契約プランの月額料金",
+      "asOf": "2026-10",
+      "periodKind": "MONTH",
+      "quote": "3x\n\nR$99,90\n\n＋frete",
+      "sourceUrl": "https://literaturaclassica.com.br/a-vida-nova",
+      "checkedAt": "2026-10-08",
+      "origin": "SELF_REPORTED",
+      "basis": "取得時の公式表示。送料別。四半期契約の各月の支払額。",
+      "measure": "PRICE",
+      "statedAt": "2026-10",
+      "period": "2026-10"
+     },
+     {
+      "numberKind": "REVENUE",
+      "amount": 28,
+      "currency": "BRL",
+      "unit": "百万",
+      "label": "2025年の年間売上",
+      "asOf": "2025",
+      "periodKind": "YEAR",
+      "quote": "R$ 28 milhões de faturamento em 2025",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "checkedAt": "2026-10-08",
+      "origin": "ARTICLE",
+      "basis": "創業者取材記事に記載された同社の売上（原文は28 milhões、つまり2800万ブラジルレアル）。監査済み決算書による確認はしていない。",
+      "measure": "REVENUE",
+      "statedAt": "2025",
+      "period": "2025"
+     },
+     {
+      "numberKind": "USERS",
+      "amount": 28,
+      "unit": "千人",
+      "label": "2025年に達した定期購読者数",
+      "asOf": "2025",
+      "quote": "28 mil assinantes",
+      "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "checkedAt": "2026-10-08",
+      "origin": "ARTICLE",
+      "basis": "原文は28 mil、つまり2万8000人。写真説明が年を明記している。年末時点か、年中に達した人数かは未確認。",
+      "measure": "USERS",
+      "periodKind": "POINT",
+      "statedAt": "2025",
+      "period": "2025"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-08",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "case:research",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://literaturaclassica.com.br/",
+       "publisher": "Clube de Literatura Clássica",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://literaturaclassica.com.br/a-vida-nova",
+       "publisher": "Clube de Literatura Clássica",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER1_OFFICIAL"
+      },
+      {
+       "url": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+       "publisher": "Exame",
+       "sourceType": "article",
+       "publicationDate": "2026-06-11",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://jornaldoisirmaos.com.br/noticia/03042026-clube-de-literatura-classica--do-sonho-a-heranca-para-as-proximas-geracoes",
+       "publisher": "Jornal Dois Irmãos",
+       "sourceType": "article",
+       "publicationDate": "2026-04-03",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://gauchazh.clicrbs.com.br/cultura-e-lazer/conteudo-de-marca/2025/08/clube-de-literatura-classica-aposta-em-edicoes-exclusivas-para-atrair-leitores-cmergltj400bv0149de7nvbn9.html",
+       "publisher": "GZH／RBS Conteúdo para Marcas（同社の広告記事）",
+       "sourceType": "article",
+       "publicationDate": "2025-08-27",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      },
+      {
+       "url": "https://www.abcmais.com/regiao/desvendando-o-mundo-dos-classicos-clube-de-literatura-classica-de-dois-irmaos-conquista-o-brasil/",
+       "publisher": "abc+",
+       "sourceType": "article",
+       "publicationDate": "2024-01-25",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "最初の購入者をどこで得たかは確認できなかった。友人との読書会は着想の出所であり、その参加者が最初の客だったとは確認できない。",
+      "創業時の人数、Zapeliniが建設会社の仕事を辞めた時期、事業に専念した時期は確認できなかった。",
+      "Jornal Dois Irmãosにはスタッフ数の記載があるが、人数の集計時点が明記されていないため、日付付きの数値として採用していない。",
+      "Exameには累計配送冊数と刊行タイトル数の記載があるが、集計時点が明記されていないため、記事の公開日をasOfに代用していない。",
+      "施策変更の前後の売上や契約者数を比較できる出典は確認できず、特定の変更が成長を起こしたとは断定できない。",
+      "創業時の料金と、その後の値上げ・値下げの実施日は確認できなかった。",
+      "調達、売却、利益、創業資金、顧客獲得費用は確認できなかった。",
+      "Forbesの過去記事は本文を取得できず、Webアーカイブの保存版も取得できなかったため、その記事を根拠にした数字は採用していない。",
+      "abc+の記事は公開後に更新され、検索結果と現在の本文にも違いがあるため、人数の過去推移や共同創業者の断定には使っていない。",
+      "事業開始年（2019）・最初の商品発売（2020年5月）・本社移転（2021年）は時点の出来事であり期間の数字ではないため、metricsからは外し、事実の文（facts）にのみ記載した。"
+     ],
+     "conflicts": [
+      "創業時期の表現が異なる。Exameは事業開始を2019年、最初の商品発売を2020年5月と記載し、Jornal Dois Irmãosは正式な創業と最初の販売を2020年5月と記載する。foundedYearには事業開始年の2019を採用し、商品発売を別の出来事として記録した。",
+      "料金の記載が異なる。GZHの2025年8月27日公開の広告記事は年契約の月額を74.90 BRL、四半期契約を84.90 BRLと記載し、Exameの2026年6月11日公開記事は年契約を89 BRLと記載する。2026年10月8日に取得した公式表示は年契約の割引月額79.90 BRL、四半期契約99.90 BRLだった。現在の料金には公式表示を採用した。過去記事は料金の適用開始日やキャンペーン条件を明記しておらず、差を値上げ・値下げと断定していない。",
+      "Exameの見出しの3000万 BRLと本文の2800万 BRLは対象が異なる。2800万 BRLは2025年の売上実績、3000万 BRLは2026年の予測である。売上実績には2800万 BRLを採用し、予測を実績に混ぜていない。",
+      "公式トップページの年契約と四半期契約との差額の説明は、取得した商品ページの料金差と整合しないため、年間の節約額は採用していない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "claimBindings": [],
+    "publishability": "PUBLISHABLE",
+    "batchId": "research_clube-de-literatura-cl-ssica_20261008",
+    "financialStatus": "UNAVAILABLE",
+    "unknownsNotes": [
+     "最初の購入者をどこで得たかは確認できなかった。友人との読書会は着想の出所であり、その参加者が最初の客だったとは確認できない。",
+     "創業時の人数、Zapeliniが建設会社の仕事を辞めた時期、事業に専念した時期は確認できなかった。",
+     "Jornal Dois Irmãosにはスタッフ数の記載があるが、人数の集計時点が明記されていないため、日付付きの数値として採用していない。",
+     "Exameには累計配送冊数と刊行タイトル数の記載があるが、集計時点が明記されていないため、記事の公開日をasOfに代用していない。",
+     "施策変更の前後の売上や契約者数を比較できる出典は確認できず、特定の変更が成長を起こしたとは断定できない。",
+     "創業時の料金と、その後の値上げ・値下げの実施日は確認できなかった。",
+     "調達、売却、利益、創業資金、顧客獲得費用は確認できなかった。",
+     "Forbesの過去記事は本文を取得できず、Webアーカイブの保存版も取得できなかったため、その記事を根拠にした数字は採用していない。",
+     "abc+の記事は公開後に更新され、検索結果と現在の本文にも違いがあるため、人数の過去推移や共同創業者の断定には使っていない。",
+     "事業開始年（2019）・最初の商品発売（2020年5月）・本社移転（2021年）は時点の出来事であり期間の数字ではないため、metricsからは外し、事実の文（facts）にのみ記載した。"
+    ],
+    "unconfirmedFacts": [
+     {
+      "where": "metrics",
+      "index": 0,
+      "reasons": [
+       "QUOTE_TOO_SHORT",
+       "AMOUNT_NOT_IN_QUOTE"
+      ],
+      "item": {
+       "numberKind": "PRICE",
+       "amount": 79.9,
+       "currency": "BRL",
+       "unit": "月",
+       "label": "年契約プランの割引月額料金",
+       "asOf": "2026-10",
+       "periodKind": "MONTH",
+       "quote": "R$ 79,90",
+       "sourceUrl": "https://literaturaclassica.com.br/",
+       "checkedAt": "2026-10-08",
+       "origin": "SELF_REPORTED",
+       "basis": "取得時の公式表示。送料別。年契約プランの月額料金であり、年間総額ではない。"
+      },
+      "reasonLabels": [
+       "引用が短すぎる（数字だけ・2語以下。原文の文の一部を写す）",
+       "数字が引用に無い"
+      ]
+     },
+     {
+      "where": "metrics",
+      "index": 2,
+      "reasons": [
+       "QUOTE_TOO_SHORT",
+       "AMOUNT_NOT_IN_QUOTE"
+      ],
+      "item": {
+       "numberKind": "PRICE",
+       "amount": 9.9,
+       "currency": "BRL",
+       "unit": "月",
+       "label": "四半期契約プランの月ごとの送料",
+       "asOf": "2026-10",
+       "periodKind": "MONTH",
+       "quote": "frete 9,90",
+       "sourceUrl": "https://literaturaclassica.com.br/a-vida-nova",
+       "checkedAt": "2026-10-08",
+       "origin": "SELF_REPORTED",
+       "basis": "取得時の商品ページに表示された送料。契約料金とは別の支払い。"
+      },
+      "reasonLabels": [
+       "引用が短すぎる（数字だけ・2語以下。原文の文の一部を写す）",
+       "数字が引用に無い"
+      ]
+     },
+     {
+      "where": "facts",
+      "index": 11,
+      "reasons": [
+       "QUOTE_TOO_SHORT",
+       "AMOUNT_NOT_IN_QUOTE"
+      ],
+      "item": {
+       "kind": "PRICING",
+       "text": "2026年10月に取得した公式サイトでは、年契約プランの割引料金は月額79.90ブラジルレアルで、送料は別にかかる。年契約の会員は、同社の店で過去の刊行物を買える。",
+       "sourceUrl": "https://literaturaclassica.com.br/",
+       "quote": "R$ 79,90",
+       "numberKind": "PRICE",
+       "asOf": "2026-10",
+       "periodKind": "MONTH",
+       "checkedAt": "2026-10-08"
+      },
+      "reasonLabels": [
+       "引用が短すぎる（数字だけ・2語以下。原文の文の一部を写す）",
+       "数字が引用に無い"
+      ]
+     },
+     {
+      "where": "facts",
+      "index": 13,
+      "reasons": [
+       "QUOTE_TOO_SHORT"
+      ],
+      "item": {
+       "kind": "PRICING",
+       "text": "2026年10月に取得した公式の商品ページでは、四半期契約プランの送料は毎月9.90ブラジルレアルと表示されている。",
+       "sourceUrl": "https://literaturaclassica.com.br/a-vida-nova",
+       "quote": "frete 9,90",
+       "numberKind": "PRICE",
+       "asOf": "2026-10",
+       "periodKind": "MONTH",
+       "checkedAt": "2026-10-08"
+      },
+      "reasonLabels": [
+       "引用が短すぎる（数字だけ・2語以下。原文の文の一部を写す）"
+      ]
+     },
+     {
+      "where": "facts",
+      "index": 15,
+      "reasons": [
+       "AMOUNT_NOT_IN_QUOTE"
+      ],
+      "item": {
+       "kind": "OTHER",
+       "text": "Exameの創業者取材によると、Clube de Literatura Clássicaの2025年の年間売上は2800万ブラジルレアルだった。",
+       "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+       "quote": "R$ 28 milhões de faturamento em 2025",
+       "numberKind": "REVENUE",
+       "asOf": "2025",
+       "periodKind": "YEAR",
+       "checkedAt": "2026-10-08"
+      },
+      "reasonLabels": [
+       "数字が引用に無い"
+      ]
+     },
+     {
+      "where": "facts",
+      "index": 16,
+      "reasons": [
+       "AMOUNT_NOT_IN_QUOTE"
+      ],
+      "item": {
+       "kind": "OTHER",
+       "text": "Exameの記事の写真説明によると、Clube de Literatura Clássicaの定期購読者数は2025年に2万8000人に達した。",
+       "sourceUrl": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+       "quote": "28 mil assinantes",
+       "numberKind": "USERS",
+       "asOf": "2025",
+       "checkedAt": "2026-10-08"
+      },
+      "reasonLabels": [
+       "数字が引用に無い"
+      ]
+     }
+    ],
+    "normalizedFromResearch": [
+     "metrics.0: 数字の決まりを満たさない（QUOTE_TOO_SHORT,AMOUNT_NOT_IN_QUOTE）→unconfirmedFacts",
+     "metrics.2: 数字の決まりを満たさない（QUOTE_TOO_SHORT,AMOUNT_NOT_IN_QUOTE）→unconfirmedFacts",
+     "facts.11: 数字の決まりを満たさない（QUOTE_TOO_SHORT,AMOUNT_NOT_IN_QUOTE）→unconfirmedFacts",
+     "facts.13: 数字の決まりを満たさない（QUOTE_TOO_SHORT）→unconfirmedFacts",
+     "facts.15: 数字の決まりを満たさない（AMOUNT_NOT_IN_QUOTE）→unconfirmedFacts",
+     "facts.16: 数字の決まりを満たさない（AMOUNT_NOT_IN_QUOTE）→unconfirmedFacts"
+    ],
+    "evidenceCards": [
+     {
+      "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059_pack_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clube de Literatura Clássica",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://literaturaclassica.com.br/",
+       "ホスト: literaturaclassica.com.br",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://literaturaclassica.com.br/",
+      "sourceNote": "official source listed in case-rebuild pack https://literaturaclassica.com.br/",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059_pack_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Clube de Literatura Clássica",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://literaturaclassica.com.br/a-vida-nova",
+       "ホスト: literaturaclassica.com.br",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://literaturaclassica.com.br/a-vida-nova",
+      "sourceNote": "official source listed in case-rebuild pack https://literaturaclassica.com.br/a-vida-nova",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059_pack_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Exame",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+       "ホスト: exame.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://exame.com/negocios/ele-largou-a-engenharia-para-faturar-r-30-milhoes-com-um-clube-de-livros-classicos/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059_pack_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Jornal Dois Irmãos",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://jornaldoisirmaos.com.br/noticia/03042026-clube-de-literatura-classica--do-sonho-a-heranca-para-as-proximas-geracoes",
+       "ホスト: jornaldoisirmaos.com.br",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://jornaldoisirmaos.com.br/noticia/03042026-clube-de-literatura-classica--do-sonho-a-heranca-para-as-proximas-geracoes",
+      "sourceNote": "secondary source listed in case-rebuild pack https://jornaldoisirmaos.com.br/noticia/03042026-clube-de-literatura-classica--do-sonho-a-heranca-para-as-proximas-geracoes",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059_pack_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: GZH／RBS Conteúdo para Marcas（同社の広告記事）",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://gauchazh.clicrbs.com.br/cultura-e-lazer/conteudo-de-marca/2025/08/clube-de-literatura-classica-aposta-em-edicoes-exclusivas-para-atrair-leitores-cmergltj400bv0149de7nvbn9.html",
+       "ホスト: gauchazh.clicrbs.com.br",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://gauchazh.clicrbs.com.br/cultura-e-lazer/conteudo-de-marca/2025/08/clube-de-literatura-classica-aposta-em-edicoes-exclusivas-para-atrair-leitores-cmergltj400bv0149de7nvbn9.html",
+      "sourceNote": "secondary source listed in case-rebuild pack https://gauchazh.clicrbs.com.br/cultura-e-lazer/conteudo-de-marca/2025/08/clube-de-literatura-classica-aposta-em-edicoes-exclusivas-para-atrair-leitores-cmergltj400bv0149de7nvbn9.html",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     },
+     {
+      "id": "ent_clube_de_literatura_cl_ssica_8f8c049c6059_pack_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: abc+",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "事例の材料に使った出典の所在。内容の照合は事例の照合段で行う。",
+      "details": [
+       "URL: https://www.abcmais.com/regiao/desvendando-o-mundo-dos-classicos-clube-de-literatura-classica-de-dois-irmaos-conquista-o-brasil/",
+       "ホスト: abcmais.com",
+       "確認日: 2026-10-08"
+      ],
+      "url": "https://www.abcmais.com/regiao/desvendando-o-mundo-dos-classicos-clube-de-literatura-classica-de-dois-irmaos-conquista-o-brasil/",
+      "sourceNote": "secondary source listed in case-rebuild pack https://www.abcmais.com/regiao/desvendando-o-mundo-dos-classicos-clube-de-literatura-classica-de-dois-irmaos-conquista-o-brasil/",
+      "sourceClass": "INDEPENDENT_SECONDARY"
+     }
+    ]
+   }
+  }
+ ]
+}
