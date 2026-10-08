@@ -18,7 +18,7 @@ function fixture(published = 2) {
 }
 interface Script { discoverIds?: string; researchIds?: string; passed?: string[]; failures?: { id: string; reason: string }[]; withdrawn?: string[]; publishCode?: number; catalogTotal?: (published: boolean) => number; hasDiscover?: boolean; discoverCode?: number }
 function make(root: string, s: Script = {}) {
-  const calls: string[] = []; let published = false; const issues: { title: string; body?: string }[] = []; const comments: number[] = []; const notices: string[] = [];
+  let clock = 1_700_000_000_000; const calls: string[] = []; let published = false; const issues: { title: string; body?: string }[] = []; const comments: number[] = []; const notices: string[] = [];
   const exec: Deps['exec'] = async (argv) => {
     const line = argv.join(' '); calls.push(line);
     if (line.startsWith('pnpm case:discover')) return { code: s.discoverCode ?? 0, stdout: s.discoverIds ? `DAILY_IDS=${s.discoverIds}\n` : '', stderr: s.discoverCode ? 'エラー' : '' };
@@ -27,6 +27,10 @@ function make(root: string, s: Script = {}) {
       const id = argv[argv.indexOf('--run-id') + 1];
       mkdirSync(join(root, 'data/pipeline/case-run', id), { recursive: true });
       writeFileSync(join(root, 'data/pipeline/case-run', id, 'summary.json'), JSON.stringify({ passed: s.passed ?? [], failures: s.failures ?? [] }));
+      // 本物の prepare と同じく、通った事例を手元の目録に入れる
+      const rel = JSON.parse(readFileSync(join(root, 'data/catalog-release.json'), 'utf8'));
+      for (const p of s.passed ?? []) rel.details[p] = 'h';
+      writeFileSync(join(root, 'data/catalog-release.json'), JSON.stringify(rel));
       return ok();
     }
     if (line.includes('prepare-catalog-release')) return ok(`log\n${JSON.stringify({ dryRun: true, plan: { withdrawn: s.withdrawn ?? [] }, canApply: !(s.withdrawn ?? []).length })}`);
@@ -39,7 +43,7 @@ function make(root: string, s: Script = {}) {
   };
   const ids = [...(s.passed ?? [])];
   const deps: Deps = {
-    exec, now: () => 1_700_000_000_000, notify: async (_t, b) => { notices.push(b); },
+    exec, now: () => (clock += 1000), sleep: async () => undefined, notify: async (_t, b) => { notices.push(b); },
     hasScript: (n) => (n === 'case:discover' || n === 'case:research' ? s.hasDiscover !== false : true),
     fetchJson: async (url) => {
       if (url.includes('/api/health')) return { status: 'ok', release: published ? 'abcdef123456' : 'abcdef123456' };
@@ -49,7 +53,7 @@ function make(root: string, s: Script = {}) {
   };
   return { deps, calls, issues, comments, notices };
 }
-const opts = (root: string, over: Partial<Options> = {}): Options => ({ root, date: '2026-10-08', dryRun: false, force: false, ids: [], count: 10, next: 5, cap: 3, siteUrl: SITE, log: () => undefined, ...over });
+const opts = (root: string, over: Partial<Options> = {}): Options => ({ root, date: '2026-10-08', dryRun: false, force: false, ids: [], count: 10, next: 5, cap: 3, siteUrl: SITE, verifyWaitMs: 60_000, log: () => undefined, ...over });
 
 test('通しの正常系: 発見→調査→仕上げ→公開→本番の確認、知らせなし', async () => {
   const root = fixture();
@@ -95,6 +99,7 @@ test('2日止まると見張りが知らせる', async () => {
   assert.equal(lastSuccessDate(root, '2026-10-08'), '2026-10-04');
   const rec = await runDaily(opts(root), m.deps);
   assert.ok(rec.abnormal.some((a) => a.key === 'stall'));
+  assert.equal(rec.ok, true, '止まりの知らせだけなら、今回の実行は成功として基準を更新する');
   // 2日前なら止まりとみなさない
   const root2 = fixture(); const m2 = make(root2);
   mkdirSync(join(root2, 'data/pipeline/daily'), { recursive: true });
@@ -131,4 +136,39 @@ test('--dry-run は公開しない。発見と調査の命令が無い間は飛�
   assert.equal(rec.stages.discover.status, 'skipped');
   assert.ok(!m.calls.some((c) => c.includes('--publish')));
   assert.equal(lastSuccessDate(root), null, '公開なしの試しは成功の日に数えない');
+});
+
+test('公開に失敗した事例は、翌日の起動で公開だけやり直す(取りこぼさない)', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'n1', passed: ['n1'], publishCode: 1, catalogTotal: () => 2 });
+  const day1 = await runDaily(opts(root), m.deps);
+  assert.deepEqual(day1.pending, ['n1']);
+  const m2 = make(root, { passed: [], catalogTotal: () => 2 });
+  const day2 = await runDaily(opts(root, { date: '2026-10-09' }), m2.deps);
+  assert.ok(m2.calls.some((c) => c.includes('--from publish --publish') && c.includes('--ids n1')));
+  assert.deepEqual(day2.pending, []); assert.equal(day2.counts.published, 1);
+});
+
+test('上限を超えた分は翌日に持ち越して仕上げる', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'a,b,c,d', passed: ['a', 'b', 'c'], catalogTotal: () => 2 });
+  await runDaily(opts(root), m.deps);
+  const m2 = make(root, { passed: ['d'], catalogTotal: () => 2 });
+  await runDaily(opts(root, { date: '2026-10-09' }), m2.deps);
+  assert.ok(m2.calls.some((c) => c.includes('case:run') && c.includes('--ids d ')));
+});
+
+test('公開した日は、公開データを変更の申請に残す。公開なしの日は残さない', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => 2 });
+  await runDaily(opts(root), m.deps);
+  assert.ok(m.calls.some((c) => c.startsWith('git commit')) && m.calls.some((c) => c.startsWith('gh pr create')));
+  const root2 = fixture(); const m2 = make(root2, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => 2 });
+  await runDaily(opts(root2, { dryRun: true }), m2.deps);
+  assert.ok(!m2.calls.some((c) => c.startsWith('git commit')));
+});
+
+test('公開の直後に本番の版が遅れて追いつく場合は、待ってから判定する', async () => {
+  const root = fixture(); let n = 0;
+  const m = make(root, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => (++n <= 2 ? 2 : 3) });
+  writeFileSync(join(root, 'data/catalog-release.json'), JSON.stringify({ publishedCount: 3, details: { old0: 'h', old1: 'h' }, summaries: { hash: 'abcdef123456789' } }));
+  const rec = await runDaily(opts(root), m.deps);
+  assert.equal(rec.verify?.ok, true, JSON.stringify(rec.verify?.checks));
 });
