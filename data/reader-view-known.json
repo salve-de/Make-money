@@ -474,5 +474,40 @@
   "rule": "h.項目名と中身の数字の種類が違う",
   "text": "人数の欄に人数が無い: 外部からの資金調達は、2022年に育成プログラムTinySeedへ参加した時の1回だけ 2016年は創業者に給与を払わずに運営した。今のチームは複数の国から遠隔で働く。",
   "reason": "第2・第3世代の事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
+ },
+ {
+  "id": "ent_typedream_c02cf9d5426e",
+  "where": "section-group-secret",
+  "rule": "a.出どころの印",
+  "text": "（beehiivの発表）",
+  "reason": "事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
+ },
+ {
+  "id": "ent_typedream_c02cf9d5426e",
+  "where": "section-chapter-start",
+  "rule": "a.出どころの印",
+  "text": "（beehiivの発表）",
+  "reason": "事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
+ },
+ {
+  "id": "ent_typedream_c02cf9d5426e",
+  "where": "section-chapter-price",
+  "rule": "c.料金の付帯条件",
+  "text": "「が無い」: 現在: 上位プランは1サイト月49ドル（約7,350円）、年払いなら月42ドル（約6,300円）。ブログとフォーム送信の上限が無い8",
+  "reason": "事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
+ },
+ {
+  "id": "ent_typedream_c02cf9d5426e",
+  "where": "数字の帯「料金」 / section-chapter-price",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "$20（2か所）",
+  "reason": "事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
+ },
+ {
+  "id": "ent_typedream_c02cf9d5426e",
+  "where": "数字の帯「料金」 / section-chapter-price",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "$15（2か所）",
+  "reason": "事例の文の担当が、規則に合わせて直す（2026-10-08 追加分）"
  }
 ]
