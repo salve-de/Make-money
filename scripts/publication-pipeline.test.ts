@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, existsSync, renameSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { contentHash, evaluateForRelease, evaluatePublication, parseFinishedManifest, preparePublicationReader, publicationHash, publicationItemHashes, unauditedItems, withoutUnaudited, type PublicationInput } from './reader-case/publication-evaluation';
+import { contentHash, evaluateForRelease, evaluatePublication, parseFinishedManifest, preparePublicationReader, publicationHash, publicationItemHashes, quoteKey, unauditedItems, withoutUnaudited, type PublicationInput } from './reader-case/publication-evaluation';
 import { applyAuditDocument, auditCaseEntry } from './reader-case/publication-audit';
 import { factTokens, formulaSkeleton, newFactTokens } from './reader-case/paraphrase-check';
 import { checkCase, missingRequired } from './reader-case/analysis-lib';
@@ -13,6 +13,7 @@ import { identifyEntity, normalizeEntityName } from './pipeline/entity-identity.
 import { cachePath, type SourceCacheRecord } from './reader-case/verify-lib';
 import { sourcePolicy } from './reader-case/source-policy';
 import { readPublicationAudits } from './reader-case/publication-inputs';
+import { attestCase, attestedSnapshot, type CaseAttestation } from './reader-case/publication-evidence';
 import { projectReaderCase } from '../src/lib/company-access/reader-case-projection';
 import { stageEntity, review } from '../src/lib/media/media-test-fixtures';
 import { parseFinancialEntity } from '../src/shared/financial-entity-schema';
@@ -287,6 +288,27 @@ test('CLI select → prepare dry-run shares gate; fresh audit passes, cache chan
     saveEvidence('addition-dry-run.json', dry.stdout);
     assert.equal(dry.status, 0, dry.stderr); assert.deepEqual(JSON.parse(dry.stdout).plan.added, ['ent_fixture']);
     assert.equal(readFileSync('data/catalog-release.json', 'utf8'), before); assert.equal(existsSync('.catalog-release'), false);
+    // 証拠の証明書: 手元に本文・台帳が無い作業場所でも、公開中の事例を取り下げ扱いにしない（不合格ではなく「証拠不足」）
+    writeFileSync('data/catalog-release.json', JSON.stringify({ details: { ent_fixture: hash('a') } }));
+    const attested = run(dir, 'scripts/reader-case/attest-evidence.ts');
+    assert.equal(attested.status, 0, attested.stderr); assert.ok(existsSync('data/publication-evidence.json'));
+    const off = (path: string) => renameSync(path, `${path}.off`); const on = (path: string) => renameSync(`${path}.off`, path);
+    off('data/source-cache'); off('data/media-staging');
+    const viaProof = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
+    assert.equal(viaProof.status, 0, viaProof.stderr);
+    assert.deepEqual(JSON.parse(viaProof.stdout).plan.withdrawn, []); assert.deepEqual(JSON.parse(viaProof.stdout).insufficientEvidence, {});
+    assert.equal(JSON.parse(viaProof.stdout).caseStamps.ent_fixture.display, 'SHOW');
+    off('data/publication-evidence.json');
+    const noProof = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
+    assert.equal(noProof.status, 0, noProof.stderr);
+    assert.deepEqual(JSON.parse(noProof.stdout).plan.withdrawn, []); assert.equal(JSON.parse(noProof.stdout).plan.after, 1);
+    assert.deepEqual(Object.keys(JSON.parse(noProof.stdout).insufficientEvidence), ['ent_fixture']); assert.equal(JSON.parse(noProof.stdout).canApply, false);
+    assert.equal(JSON.parse(noProof.stdout).caseStamps.ent_fixture.display, 'CARRIED');
+    const blockedByEvidence = run(dir, 'scripts/prepare-catalog-release.ts');
+    assert.notEqual(blockedByEvidence.status, 0); assert.match(blockedByEvidence.stderr, /lack the evidence/);
+    assert.equal(existsSync('.catalog-release'), false);
+    on('data/publication-evidence.json'); on('data/source-cache'); on('data/media-staging');
+    writeFileSync('data/catalog-release.json', JSON.stringify({ details: {} }));
     // Retain the selection, mutate source text beyond an unchanged quote: publication must still recheck audit.
     writeFileSync(cachePath(cache.url), JSON.stringify({ ...cache, text: cache.text + ' update' }));
     const changed = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
@@ -325,4 +347,29 @@ test('CLI select → prepare dry-run shares gate; fresh audit passes, cache chan
     writeFileSync(outputFile, JSON.stringify({ ...outputDoc, changed: true })); assert.deepEqual(readPublicationAudits(), {});
     assert.equal(contentHash(inputDoc), contentHash(JSON.parse(readFileSync(inputFile, 'utf8'))));
   } finally { process.chdir(root); }
+});
+
+test('evidence attestation: judging from the certificate equals judging from the local body; a real mismatch is still a failure', () => {
+  const full = input();
+  const made = attestCase(full);
+  assert.ok('attestation' in made);
+  const proof = (made as { attestation: CaseAttestation }).attestation;
+  const url = full.sources[0].url;
+  const fromProof = (p: CaseAttestation): PublicationInput => ({ ...full,
+    sources: [{ ...full.sources[0], text: '', snapshot: attestedSnapshot(url, p.sources[url]), evidence: 'attested', attestedQuotes: p.sources[url].quotes }],
+    media: { assets: [], displayableIds: p.media.displayableIds, problems: [], evidence: 'attested' } });
+  const attestedInput = fromProof(proof);
+  assert.deepEqual(publicationItemHashes(attestedInput), publicationItemHashes(full));
+  assert.deepEqual(evaluatePublication(attestedInput, undefined).reasons, evaluatePublication(full, undefined).reasons);
+  // 引用が本文に無い（本物の不一致）は、証明書でも不合格のまま
+  const bad: PublicationInput = { ...full, verdicts: { f1: { ...full.verdicts!.f1, quote: '本文に無い引用' } } };
+  const badProof = (attestCase(bad) as { attestation: CaseAttestation }).attestation;
+  assert.ok(badProof.sources[url].quotesAbsent.length === 1);
+  assert.ok(evaluatePublication(fromProof(badProof), undefined).reasons.some((r) => r.startsWith('根拠の不一致')));
+  // 本文が変わった（指紋が変わった）証明書では、元の引用の鍵は合わない
+  assert.ok(!proof.sources[url].quotes.includes(quoteKey('f1', '店舗向けの予約管理サービス。', 'x'.repeat(64))));
+  // 本文の無い入力から証明書は作れない
+  assert.ok('missing' in attestCase({ ...full, missingEvidence: ['出典本文:s1'] }));
+  // 本文が無い（証明書だけの）入力では、監査の入力を作らない
+  assert.throws(() => auditCaseEntry(attestedInput, 'full', Object.keys(publicationItemHashes(attestedInput))), /出典本文が手元に無く/);
 });

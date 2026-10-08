@@ -4,7 +4,7 @@ import { ReaderCaseSchema, type ReaderCase } from '../../src/shared/reader-case'
 import { applyVerdicts } from '../../src/lib/company-access/reader-verdicts';
 import { checkCase, citesRestrictedSource, reflectAnalysis, type StoredAnalysis } from './analysis-lib';
 import { THIN_PREFIX, displayMinimumProblems } from '../../src/shared/display-contract';
-import { hasText, metricLine, quoteInText, type SourceCacheRecord, type VerdictsFile } from './verify-lib';
+import { hasText, MIN_TEXT, metricLine, quoteInText, type SourceCacheRecord, type VerdictsFile } from './verify-lib';
 import { formulaSkeleton, newFactTokens } from './paraphrase-check';
 
 export const PUBLICATION_AUDITS_FILE = 'data/publication-audits.json';
@@ -13,10 +13,14 @@ export interface PublicationSource {
   url: string;
   publisher: string;
   text: string;
-  snapshot: (Omit<SourceCacheRecord, 'text'> & { text?: string; textHash?: string }) | null;
+  snapshot: (Omit<SourceCacheRecord, 'text'> & { text?: string; textHash?: string; textLength?: number }) | null;
   policy: unknown | null;
+  /** 'attested': 手元に本文が無く、証明書（publication-evidence.ts）の記録で判定する。省略は手元の本文を読んだ（完全な証拠） */
+  evidence?: 'attested';
+  /** attested の時、本文に実在すると確かめた引用の鍵 */
+  attestedQuotes?: string[];
 }
-export interface PublicationMedia { assets: unknown[]; displayableIds: string[]; problems: string[] }
+export interface PublicationMedia { assets: unknown[]; displayableIds: string[]; problems: string[]; /** 手元に台帳が無く、証明書で判定した */ evidence?: 'attested' }
 export interface PublicationInput {
   identity: { id: string; name: string; url?: string | null; publishability?: string };
   reader: ReaderCase;
@@ -24,7 +28,14 @@ export interface PublicationInput {
   sources: PublicationSource[];
   media: PublicationMedia;
   entityEligible: boolean;
+  /**
+   * 判定に要る手元の証拠で、手元にも証明書にも無いもの。1つでもあれば「判定できない」（不合格ではない）。
+   * 取り下げの根拠にしてはならない。prepare-catalog-release が止めて、足りない物を出す
+   */
+  missingEvidence?: string[];
 }
+/** 引用が、この指紋の本文にあると確かめた、という鍵。主張・引用・本文のどれが変わっても合わなくなる */
+export const quoteKey = (claimId: string, quote: string, textHash: string): string => contentHash({ claimId, quote, textHash });
 /** 監査した入力・結果のファイルの身元（中身の指紋）。どちらかが書き換わったら、その監査で通した項目は無効 */
 export interface AuditFileRef { inputFile: string; outputFile: string; inputFileHash: string; outputFileHash: string }
 /**
@@ -160,6 +171,16 @@ export function evaluatePublication(input: PublicationInput, audit: PublicationA
   for (const source of reader.sources) {
     const current = input.sources.find((s) => s.sourceId === source.id && s.url === source.url);
     if (!current?.policy || (typeof current.policy === 'object' && 'decision' in current.policy && current.policy.decision !== 'allowed')) reasons.push(`利用条件:${source.id}`);
+    if (current?.evidence === 'attested') {
+      // 手元に本文が無い。証明書の記録（取得結果・本文の長さ・照合済みの引用）で、本文ありの場合と同じ基準を当てる
+      const snap = current.snapshot;
+      if (!snap || snap.url !== source.url || snap.status !== 200 || !!snap.error || !snap.textHash || (snap.textLength ?? 0) < MIN_TEXT) { reasons.push(`出典本文:${source.id}`); continue; }
+      for (const claim of [...reader.facts, ...reader.metrics].filter((c) => c.sourceId === source.id)) {
+        const verdict = input.verdicts?.[claim.id];
+        if (!verdict || !['SUPPORTED', 'PARTIAL'].includes(verdict.verdict) || verdict.sourceUrl !== source.url || !current.attestedQuotes?.includes(quoteKey(claim.id, verdict.quote, snap.textHash))) reasons.push(`根拠の不一致:${claim.id}`);
+      }
+      continue;
+    }
     if (!current?.snapshot || current.snapshot.url !== source.url || current.snapshot.status !== 200 || typeof current.snapshot.text !== 'string' || !hasText(current.snapshot as SourceCacheRecord) || !!current.snapshot.error) {
       reasons.push(`出典本文:${source.id}`); continue;
     }

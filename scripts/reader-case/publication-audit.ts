@@ -123,6 +123,9 @@ export function migrateLegacyAudit(id: string, legacy: LegacyPublicationAudit, d
  * changedClaims は前の監査から中身が変わった事実・数字（確かめる対象）。
  */
 export function auditCaseEntry(input: PublicationInput, scope: AuditedCase['scope'], review: string[]) {
+  // 監査役は出典の本文を読む。証明書だけ（本文が手元に無い）の入力では監査を作れない
+  const noBody = input.sources.filter((s) => s.evidence === 'attested' || !s.snapshot).map((s) => s.sourceId);
+  if (noBody.length) throw new Error(`${input.identity.id}: 出典本文が手元に無く監査の入力を作れない（${noBody.join(', ')}）。data/source-cache を揃えてから実行する`);
   const auditable = auditSnapshot(input);
   const keys = new Set(review);
   const analysis = input.reader.analysis.filter((a) => keys.has(`analysis:${a.id}`));

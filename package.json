@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "catalog:prepare": "node --import tsx scripts/prepare-catalog-release.ts",
+    "evidence:attest": "node --import tsx scripts/reader-case/attest-evidence.ts",
+    "evidence:check": "node --import tsx scripts/reader-case/attest-evidence.ts --check",
     "catalog:check": "node --import tsx scripts/prepare-catalog-release.ts --check",
     "catalog:screen-check": "tsx scripts/architecture/screen-text.tsx --check",
     "catalog:audit": "node --import tsx scripts/audit-catalog-coverage.ts",

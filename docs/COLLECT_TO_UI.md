@@ -77,7 +77,7 @@ pnpm case:run --ids a --publish          # 最後に今の catalog:publish を�
 | 9 | prepare | 公開データの作成（`pnpm catalog:prepare --changed`）。原文照合で落ちた事例は含めない | 作れなければ段ごと失敗 |
 | 10 | publish | `--publish` の時だけ `pnpm catalog:publish`（中で `catalog:screen-check` を通す。飛ばさない） | 公開データの作成と画面の検査が通っていなければ公開しない |
 
-- **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所では「画像の権利または実体が未充足」「撤回の明示が足りない」で落ちます（落とし穴の表 12）。
+- **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所でも、公開中の事例の判定は証明書（`data/publication-evidence.json`）で再現されます。証明書にも無い事例は「証拠不足」と出て止まります（取り下げにはなりません。落とし穴の表 12・24）。
 - 各段の所要時間は `data/pipeline/case-run.jsonl` に1行ずつ（`runId`・段・開始時刻・秒・対象件数・失敗件数）。実行ごとの記録は `data/pipeline/case-run/<runId>/`（`logs/` に各命令の出力、`summary.json` に最後の一覧）。
 - 束は `batch-r<runId>-NNN`（照合・分析）と監査の `in-999999…` で、1束に1事例。従来の `run-verify.sh` / `run-analyze.sh` / `run-audit.sh`（終了コード75で待つ版）は、毎日の自動実行と公開中の事例の直し（3b）がまだ使うので残してあります。
 - 実体: `scripts/reader-case/case-run.ts`（順番と失敗の扱い）、`scripts/reader-case/runner/agent-run.ts`（束ごとにAIを呼んで受理するまで）、`scripts/reader-case/agent-call.ts`（`claude -p` / `codex exec` の呼び出し）。試験: `pnpm test:runner`。
@@ -127,7 +127,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 守ること:
 - 推論の正本は `data/reader-analysis.json`。`approvedAnalysis` は反映の段が受領書と突き合わせて作る写しで、手で書かない。
 - 出典本文の保存（`data/source-cache`）を照合などで上書きすると、元の引用が消えて「根拠の不一致」になる。受領書の取り直しは、審査した時の保存で行う。
-- 手元にしかない証拠（画像台帳 `data/media-staging`、出典本文の保存）が無い作業場所では、公開の関門が通らない。持っている作業場所へつなぐ（コミットしない）。
+- 手元にしかない証拠（画像台帳 `data/media-staging`、出典本文の保存）が無い作業場所でも、公開中の事例を取り下げ扱いにはしない。判定は「証拠の証明書」（`data/publication-evidence.json`、下の「公開の手順」）で行い、証明書にも無い物は「証拠不足で判定できない」として止まり、足りない物を出す。
 
 ## 3.6 試しに集めた事例を公開してよい形にする（2026-10-07 追加）
 
@@ -238,7 +238,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 | 9 | 監査が直す前の分析で進み、増えた項目は次の回に回った | 分析を直したら、監査をもう一度回す |
 | 10 | 選別で「公開区分または根拠が無効」で落ちた（根拠カードが無い） | `--from-research` が `reaudit.sources` から根拠カードを作る。`reaudit.sources` を必ず書く |
 | 11 | トップ・料金ページの画面写真が「保留」で止まった | 同意バナーの写り込みは人が見て判定する（7章） |
-| 12 | 公開版の計画が「10 → 0（撤回10件）」で止まった | 作業用コピーに既存の公開分の作業データが無いため。新しい1件は `data/pipeline/select.json` の理由で確かめる。公開は元の作業場所で行う |
+| 12 | 公開版の計画が「10 → 0（撤回10件）」で止まった | 以前は作業用コピーに既存の公開分の証拠が無いために起きた。今は証明書（`data/publication-evidence.json`）で再現され、証明書にも無い時は取り下げず「証拠不足」で止まる（`insufficientEvidence` を読む）。新しい1件は `data/pipeline/select.json` の理由で確かめる |
 | 13 | 監査の2回目で仕上げ済みに入った | 9 と同じ。12 の止まりは作業用コピーのせい |
 | 14 | 一覧の文の `factHash` の写し元が無かった。JSON の字下げを変えて全行の差分が出た | 新しい事例は `textFingerprint`（`src/shared/list-lines.ts`）で要約の事実 f1 から計算する。JSON は元のファイルと同じ2字下げで書く |
 | 15 | 別のAIの全行確認で26行中15行が不合格（専門語、1行に答え2つ、出典より言い過ぎ、時期の食い違い） | 書いた後に必ず別のAIに出典と照らして確認させ、直した後にもう一度確認させる |
@@ -273,18 +273,27 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - 画面が読む順番: 手元の目印（開発サーバのみ）→ R2 の目印 → 同梱の `data/catalog-release.json`（目印が読めない時の最後の頼り）
 - 読み取りは成功なら3分、失敗なら30秒キャッシュする（R2 が一時的に落ちても直前の版で動く）
 
-**文を直して出す流れ（以後ずっとこれだけ）**
+**証拠の証明書（2026-10-08。どの作業場所でも同じ公開の判定にするため）**
+- 公開の関門は、出典本文（`data/source-cache`）と画像台帳（`data/media-staging`）を読む。この2つは大きく、権利上 git に入れないので、作業場所ごとに有る・無いが分かれる。
+- そこで、判定に要る最小の事実（本文の指紋・本文で確かめた引用の鍵・表示してよい画像の識別子）だけを `data/publication-evidence.json`（git に入る）に記録する。作るのは `pnpm evidence:attest`（手で書かない）。
+- 判定の優先順位: ①手元に本文・台帳があればそれを正とする ②無ければ証明書 ③どちらも無ければ「証拠不足」。③は不合格ではない。公開中の事例は取り下げずに計画へ残し（`caseStamps` が `CARRIED`、理由に足りない物）、`insufficientEvidence` に事例ごとの足りない物を出し、`canApply` は false、実際の反映（`pnpm catalog:prepare` / `pnpm catalog:publish`）は止まる。新しい事例（まだ公開していない）は `HOLD_EVIDENCE` で外れるだけで、ほかを止めない。
+- 出典本文を取り直した・引用や主張を直した・画像の判定が変わった時は、証拠の元（手元の本文・台帳）がある作業場所で `pnpm evidence:attest` を流して証明書を新しくし、一緒にコミットする。`pnpm evidence:check` は、手元に証拠がある事例について証明書が合っているかを確かめる（ずれたら終了コード1）。
+- 手元に本文・台帳が無い作業場所で、証明書にも無い事例を公開に載せたい時は、先に元の作業場所で証明書を作ってコミットする。作業場所をつなぐ（連結する）必要はもう無い。
+- 監査の入力づくり（`build-audit-input.ts` / `diff-audit.ts`）だけは出典本文そのものを監査役に読ませるので、本文が手元に無いと止まる。
+
+**公開の手順（抜け道なし。以後ずっとこれだけ）**
 1. 5つの `data/*.json` を直す（原文照合・自動検査は3.5章・3b章のとおり）
-2. `pnpm catalog:prepare`（`data/catalog-release.json` と `.catalog-release/` を更新）
-3. `pnpm catalog:screen-check`（公開中の全件の画面を描き、画面に出さない言い回しと、出どころの無い文字がないかを調べる。**飛ばさない**。落ちたら文を直して2へ戻る。手元に `.catalog-release/` が無い作業場所では、持っている場所から連結してから動かす）
-4. `pnpm catalog:publish`（中で `screen-check` → `prepare` を通してから R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない。`publish-catalog-release.ts` を直接動かして検査を迂回しない）
-5. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
+2. 証拠が変わったなら `pnpm evidence:attest`（上の「証拠の証明書」）。その後 `pnpm catalog:prepare --dry-run` で、追加・訂正・取り下げの計画と `insufficientEvidence`（空であること）を確かめる。取り下げが出たら、本物の不合格（理由は `caseStamps`）なので、直すか、明示の `--withdrawals` 一覧で承認する。
+3. `pnpm catalog:prepare`（`data/catalog-release.json` と `.catalog-release/` を更新）。**公開中の事例を引き継ぐための空の `--changed` ファイルは使わない**（審査を経ずに出ることになる。`--changed` は「直した事例だけを評価し直す」差分公開の時に、直した事例の一覧を渡すためだけに使う）。
+4. `pnpm catalog:screen-check`（公開中の全件の画面を描き、画面に出さない言い回しと、出どころの無い文字がないかを調べる。**飛ばさない**。落ちたら文を直して2へ戻る。手元に `.catalog-release/` が無い作業場所では、持っている場所から連結してから動かす）
+5. `pnpm catalog:publish`（中で `screen-check` → `prepare` を通してから R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない。`publish-catalog-release.ts` を直接動かして検査を迂回しない）
+6. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
 
 **戻す時**: `pnpm catalog:publish -- --point-to <戻したい版の manifestHash>`（記録にも残る）。目印だけ作らず確認したい時は `--skip-pointer`。
 
 **初回の切り替え（本番の読み方が変わる最初の1回だけ。指揮役の判断で行う）**
 - D1 の移行は要らない（目印は R2 に置くため）
-- 手順: ①この変更をマージ ②`pnpm catalog:prepare`（既存の公開10件は `--changed` に空ファイルを渡し、そのまま引き継ぐ）③`pnpm catalog:publish`（事例・目録・目印が R2 に入る。まだ本番の画面は変わらない）④`pnpm deploy:workers` を1回（新しい読み方のコードを本番へ）⑤本番で一覧と1件を開いて確かめる
+- 手順: ①この変更をマージ ②`pnpm catalog:prepare`（空の `--changed` で引き継ぐ抜け道は使わない。上の「公開の手順」のとおり）③`pnpm catalog:publish`（事例・目録・目印が R2 に入る。まだ本番の画面は変わらない）④`pnpm deploy:workers` を1回（新しい読み方のコードを本番へ）⑤本番で一覧と1件を開いて確かめる
 - 異常時は `--point-to` で前の版へ戻す。コードごと戻す時は前のデプロイへ
 
 **手元の開発サーバ**: `pnpm dev` の直前（predev）に、`.catalog-release/` が今の `data/catalog-release.json` と合っているか確かめ、無い・古い時だけ作り直す（`scripts/ensure-local-catalog.ts`、数十秒）。手元の画面は `.catalog-release/current.json` が指す版を読む。`CATALOG_RELEASE_DIR` を自分で指定した時はそちらを信じる。

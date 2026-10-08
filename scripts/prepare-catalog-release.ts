@@ -80,9 +80,9 @@ try { analysisFile = JSON.parse(await readFile('data/reader-analysis.json', 'utf
 const reflectState = readReflectState();
 analysisFile = withReflectedAnalysis(analysisFile, reflectState);
 const displaySources = Object.fromEntries(await Promise.all(DISPLAY_SOURCE_FILE_NAMES.map(async (name) => [name, JSON.parse(await readFile(`data/${name}.json`, 'utf8').catch(() => '[]')) as unknown]))) as unknown as DisplaySourceFiles;
-const withheld = { imported: 0, audit: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
+const withheld = { imported: 0, audit: 0, evidence: 0, schemaInvalid: 0, thin: 0, noRawRecord: 0, unverified: 0, resource: 0, queued: 0 };
 // 事例ごとのスタンプ（画面に出すか・出さない理由）。捨てずに保存し、探し直しの対象にする
-type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE';
+type Display = 'SHOW' | 'CARRIED' | 'HOLD_IMPORT' | 'HOLD_AUDIT' | 'HOLD_NO_RAW' | 'HOLD_UNVERIFIED' | 'HOLD_SCHEMA' | 'HOLD_THIN' | 'HOLD_RESOURCE' | 'HOLD_QUEUE' | 'HOLD_EVIDENCE';
 const DISPLAY_REASON: Record<Display, string> = {
   SHOW: '出典と照合した事実がある',
   HOLD_IMPORT: '作り直した版（取り込み）が基準に通っていない。旧版は出さない（data/case-reflect.json）',
@@ -93,12 +93,16 @@ const DISPLAY_REASON: Record<Display, string> = {
   HOLD_RESOURCE: '出典に利用規約で商用の表示を禁じる紹介サイト（eBiz Facts）を含む。本人・公式の一次情報に付け替えるまで出さない',
   HOLD_AUDIT: '事例の監査記録が無い（身元が変わった・未監査）、または出典・画像・権利の再確認に通らない。文を直しただけなら、その項目だけが隠れて事例は外れない',
   CARRIED: '公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）',
+  HOLD_EVIDENCE: '判定に要る手元の証拠（出典本文・画像台帳）が無く、判定できない（不合格ではない）。証拠を揃えてから再実行する',
   HOLD_QUEUE: '順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）',
 };
 // 仕上げ済み（全項目の推論と抜き取り監査が済んだ）事例の一覧。ファイルがあれば、載っている事例だけを出す
 let finishedIds: Set<string> | null = null;
 try { finishedIds = new Set((await readFile('data/catalog-finished-ids.txt', 'utf8')).split('\n').map((x) => x.trim()).filter((x) => x && !x.startsWith('#'))); } catch { /* 無ければ全件が対象 */ }
 const caseStamps: Record<string, { display: Display; reason: string }> = {};
+// 判定に要る証拠が手元にも証明書にも無い事例 → 足りない物。不合格ではないので、公開中の事例でも取り下げ扱いにしない（引き継いだ形で計画に残し、反映は止める）
+const insufficientEvidence: Record<string, string[]> = {};
+const evidenceCarried = new Set<string>();
 // 事例は出すが、未監査のため隠した項目（'analysis:<id>' / 'fact:<id>' / 'metric:<id>'）
 const hiddenItems: Record<string, string[]> = {};
 // 言い回しだけの直しとして、機械の照合で監査済みのまま出す項目（数字・年月日・固有名が増えていない）
@@ -132,7 +136,13 @@ for (const entity of publishable) {
     // select-finished.ts と同じ入力（照合後の事実＋機械検査を通った推論）で評価する。指紋が一致しなければ受領書は無効
     const prepared = preparePublicationReader(result.reader, verdicts[entity.id], analysisFile[entity.id]);
     const input = await loadPublicationInput(entity, prepared.reader, verdicts[entity.id]);
-    const evaluated = evaluateForRelease(input, audited[entity.id], prepared.problems);
+    if (input.missingEvidence?.length) {
+      insufficientEvidence[entity.id] = input.missingEvidence;
+      if (!(entity.id in previous.details)) { withheld.evidence++; stamp(entity.id, 'HOLD_EVIDENCE', `${DISPLAY_REASON.HOLD_EVIDENCE}: ${input.missingEvidence.join(' / ')}`); continue; }
+      evidenceCarried.add(entity.id);
+    }
+    const evaluated = evidenceCarried.has(entity.id) ? null : evaluateForRelease(input, audited[entity.id], prepared.problems);
+    if (evaluated) {
     // 未監査の項目を隠した結果として薄くなった時も、どの項目を隠したかを理由に残す（差分監査を流せば戻る）
     if (!evaluated.publishable) { withheld.audit++; stamp(entity.id, 'HOLD_AUDIT', [...evaluated.reasons, ...evaluated.unaudited.map((k) => `未監査で隠した:${k}`)].join(' / ')); continue; }
     // 監査の後に中身が変わった項目（未監査）は、その項目だけを画面から隠す。差分監査（run-diff-audit.sh）を通ると戻る
@@ -141,8 +151,10 @@ for (const entity of publishable) {
       verified.reader = withoutUnaudited(verified.reader, evaluated.unaudited);
       hiddenItems[entity.id] = evaluated.unaudited;
     }
+    }
   }
-  stamp(entity.id, carried(entity.id) ? 'CARRIED' : 'SHOW');
+  if (evidenceCarried.has(entity.id)) stamp(entity.id, 'CARRIED', `${DISPLAY_REASON.HOLD_EVIDENCE}。公開中の版を取り下げずに残した: ${insufficientEvidence[entity.id].join(' / ')}`);
+  else stamp(entity.id, carried(entity.id) ? 'CARRIED' : 'SHOW');
   const missing = missingRequired(verified.reader);
   blanks.cells += REQUIRED_ITEMS.length;
   blanks.empty += missing.length;
@@ -165,6 +177,9 @@ const checkOnly = process.argv.includes('--check');
 const artifactsOnly = process.argv.includes('--artifacts-only');
 const withdrawnIds = Object.keys(previous.details).filter((id) => !entities.some((e) => e.id === id));
 const withdrawalApproval = checkWithdrawals(withdrawnIds, authorizedWithdrawals);
+// 証拠不足は不合格ではない。公開中の事例を取り下げずに計画へ残すが、判定していない版は反映しない（足りない物を揃えて再実行する）
+const evidenceBlocked = Object.keys(insufficientEvidence).length > 0;
+if (!dryRun && !verifyOnly && evidenceBlocked) throw new Error(`Catalog release blocked: ${Object.keys(insufficientEvidence).length} cases lack the evidence needed to judge (not a failure; nothing was withdrawn or changed). Provide the missing evidence and rerun: ${JSON.stringify(insufficientEvidence)}`);
 if (!dryRun && !verifyOnly && !withdrawalApproval.allowed) throw new Error(`Catalog release needs explicit --withdrawals approval: ${JSON.stringify(withdrawalApproval)}. Inspect --dry-run first; no manifest was changed.`);
 if (!checkOnly && !dryRun) await mkdir(directory, { recursive: true });
 const objects: { key: string; file: string }[] = [];
@@ -188,7 +203,7 @@ for (const entity of entities) {
   void _display;
   const coreHash = entity.reader?.display ? computeDossierContentHash({ ...entity, reader: coreReader as NonNullable<FinancialEntity['reader']> }) : hash;
   coreDetails[entity.id] = coreHash;
-  if (carried(entity.id) && (previous.coreDetails?.[entity.id] ?? previous.details[entity.id]) !== coreHash) carriedDrift.push(entity.id);
+  if (carried(entity.id) && !evidenceCarried.has(entity.id) && (previous.coreDetails?.[entity.id] ?? previous.details[entity.id]) !== coreHash) carriedDrift.push(entity.id);
   await artifact(entity, getDossierStoragePath(entity.id, hash));
   details[entity.id] = hash;
 }
@@ -209,7 +224,7 @@ objects.push({ key: manifestObjectKey(manifestHash), file: manifestFile });
 const localPointer: ReleasePointer = { version: 1, manifestHash, manifestKey: manifestObjectKey(manifestHash), publishedCount: entities.length, updatedAt: new Date().toISOString(), previous: null };
 const plan = planRelease(previous, manifest);
 if (dryRun) {
-  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed, withdrawalApproval, withheld, hiddenItems, paraphrasedItems, caseStamps }));
+  console.log(JSON.stringify({ dryRun: true, plan, canApply: withdrawalApproval.allowed && !evidenceBlocked, withdrawalApproval, insufficientEvidence, withheld, hiddenItems, paraphrasedItems, caseStamps }));
   return;
 }
 if (checkOnly || artifactsOnly) {
