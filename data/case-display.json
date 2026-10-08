@@ -1412,8 +1412,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_candy_japan_954236d663a8": {
-  "display": "CARRIED",
-  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_canny_951d05": {
   "display": "HOLD_QUEUE",
@@ -1840,8 +1840,8 @@
   "reason": "順番待ち。全項目の推論と抜き取り監査が済んだら出す（data/catalog-finished-ids.txt に載せる）"
  },
  "ent_churnkey_8d7f2b269c21": {
-  "display": "CARRIED",
-  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
+  "display": "SHOW",
+  "reason": "出典と照合した事実がある"
  },
  "ent_cigardirectory_2cb73d4f19f4": {
   "display": "HOLD_QUEUE",

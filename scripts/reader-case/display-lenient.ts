@@ -14,8 +14,8 @@ import { mergeEntity, type DisplayFiles, type EntityDisplay, type LiveReader } f
 import { findDuplicates } from './cross-layer-dups';
 
 const YEN_PAREN = /[（(]\s*約?[\d,.]+\s*[千万億]?(?:\s*[〜~～／/・、]\s*約?[\d,.]+\s*[千万億]?)*\s*円\s*[）)]/g;
-/** 冗長な「〜を行う」（回収を行う）は「〜する」に直す（textlint の冗長表現。意味は変わらない） */
-const PLAIN_VERB = /([一-龥]{2,})を行う/g;
+/** 冗長な文末や読点の前の「〜を行う」（回収を行う。）は「〜する」に直す（textlint の冗長表現。意味は変わらない） */
+const PLAIN_VERB = /([一-龥]{2,})を行う(?=[。、）」]|$)/g;
 export const withCodeYen = (text: string): string => withYenApprox(text.replace(YEN_PAREN, '').replace(PLAIN_VERB, '$1する').trim());
 
 /** 円換算をコードで付け直し、年表を古い順に並べる */
