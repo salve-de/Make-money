@@ -17,3 +17,4 @@
 {"runId":"20261008T004326","at":"2026-10-08T00:43:26.833Z","label":"full","mode":"full","apply":false,"cases":10,"casesWithFailure":1,"total":371,"failed":1,"failRate":0.0027,"reasons":{"YEAR_NOT_IN_SOURCE":1},"recollect":0,"held":0}
 {"runId":"20261008T004353","at":"2026-10-08T00:43:53.216Z","label":"full","mode":"full","apply":false,"cases":10,"casesWithFailure":0,"total":370,"failed":0,"failRate":0,"reasons":{},"recollect":0,"held":0}
 {"runId":"20261008T005246","at":"2026-10-08T00:52:46.729Z","label":"full","mode":"full","apply":false,"cases":10,"casesWithFailure":0,"total":370,"failed":0,"failRate":0,"reasons":{},"recollect":0,"held":0}
+{"runId":"20261008T010550","at":"2026-10-08T01:05:50.446Z","label":"full","mode":"full","apply":false,"cases":10,"casesWithFailure":0,"total":366,"failed":0,"failRate":0,"reasons":{},"recollect":0,"held":0}

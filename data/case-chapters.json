@@ -1091,12 +1091,7 @@
           "source": "https://www.indiehackers.com/post/i-was-spending-15-hours-week-answering-what-s-the-status-teamcamp-fixed-it-43c1ec2db7"
         }
       ],
-      "turning": [
-        {
-          "text": "前: 開発者仲間向けは継続率12%、月の定期売上347ドル（約5.2万円）。後: 経営者と電話し2か月後に41%、2,100ドル（約31.5万円）になった（本人、2025年11月）",
-          "source": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc"
-        }
-      ],
+      "turning": [],
       "timeline": [
         {
           "text": "2023年7月: 公式サイトに「顧客専用画面」「請求書」「時間記録」が掲載されていた（公式の保存ページ）",
@@ -1115,18 +1110,9 @@
         {
           "text": "同業者がツールに払う費用を先に調べた。出費は月400ドル超（約6万円超）だった。複数のツールの機能を1つにまとめ、月99ドル（約1.5万円）の定額で提供した。",
           "source": "https://www.indiehackers.com/post/i-got-127-agency-signups-in-28-days-by-solving-one-expensive-problem-95be6c4715"
-        },
-        {
-          "text": "開発者仲間でなく、料金を払う側の経営者の一言で作る物を決める（根拠: 継続率12%→41%）",
-          "source": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc"
         }
       ],
-      "start": [
-        {
-          "text": "最初の月の売上は227ドル（約3.4万円）だった。Product Huntでの得票数は23票だった（本人、2025年11月）",
-          "source": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc"
-        }
-      ],
+      "start": [],
       "price": [
         {
           "text": "2024年7月: 料金は5段階で、5人まで使えて月25ドル（約3,750円）から、人数無制限で月299ドル（約4.5万円）までだった",
