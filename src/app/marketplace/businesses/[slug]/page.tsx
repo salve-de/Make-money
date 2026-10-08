@@ -17,16 +17,16 @@ const loadListing = cache((slug: string) => getPublishedBusinessSaleBySlug(slug)
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  if (!validSlug(slug)) return { title: '事業の売買 | Make-Money' };
+  if (!validSlug(slug)) return { title: '事業の売買 | Make Money' };
   try {
     const listing = await loadListing(slug);
-    if (!listing) return { title: '事業の売買 | Make-Money' };
+    if (!listing) return { title: '事業の売買 | Make Money' };
     return {
-      title: `${listing.title} | 事業の売買 | Make-Money`,
+      title: `${listing.title} | 事業の売買 | Make Money`,
       description: listing.summary.slice(0, 120),
     };
   } catch {
-    return { title: '事業の売買 | Make-Money' };
+    return { title: '事業の売買 | Make Money' };
   }
 }
 

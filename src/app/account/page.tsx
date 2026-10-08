@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { AccountView } from '@/components/auth/AccountView';
 
-export const metadata: Metadata = { title: '会員設定', robots: { index: false } };
+export const metadata: Metadata = { title: '会員設定 | Make Money', robots: { index: false } };
 
 export default function AccountPage() {
   return (

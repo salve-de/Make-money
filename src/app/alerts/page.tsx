@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { SavedSearchesView } from '@/platform/components/alerts/SavedSearchesView';
 
-export const metadata: Metadata = { title: '保存した条件' };
+export const metadata: Metadata = { title: '保存した条件 | Make Money' };
 
 export default function AlertsPage() {
   return (

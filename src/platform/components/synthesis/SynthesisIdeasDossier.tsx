@@ -56,7 +56,7 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
           {selectedEntityIds.size === 0 ? (
             <div className="text-sm">
               <p className="text-term-fg-strong">企画案がここに並びます</p>
-              <p className="mt-1 text-term-sub">左の事例を1件以上選び、「企画案を作る」を押してください。</p>
+              <p className="mt-1 text-term-sub">検討に使う事例を1件以上選び、「企画案を作る」を押してください。</p>
             </div>
           ) : (
             <div className="flex min-w-0 flex-1 flex-wrap gap-2">

@@ -90,15 +90,15 @@ describe('generateMetadata', () => {
   it('uses the business name and the start of the description', async () => {
     state.get.mockResolvedValue(detail({ summary: 'あ'.repeat(300) }));
     const metadata = await generateMetadata(params('camera-shop-0123456789'));
-    expect(metadata.title).toBe('中古カメラ専門のネットショップ | 事業の売買 | Make-Money');
+    expect(metadata.title).toBe('中古カメラ専門のネットショップ | 事業の売買 | Make Money');
     expect(String(metadata.description)).toHaveLength(120);
   });
 
   it('falls back to a generic title when the listing is missing, malformed or the database fails', async () => {
     state.get.mockResolvedValue(null);
-    expect((await generateMetadata(params('camera-shop-0123456789'))).title).toBe('事業の売買 | Make-Money');
-    expect((await generateMetadata(params('UPPER'))).title).toBe('事業の売買 | Make-Money');
+    expect((await generateMetadata(params('camera-shop-0123456789'))).title).toBe('事業の売買 | Make Money');
+    expect((await generateMetadata(params('UPPER'))).title).toBe('事業の売買 | Make Money');
     state.get.mockRejectedValue(new Error('down'));
-    expect((await generateMetadata(params('camera-shop-0123456789'))).title).toBe('事業の売買 | Make-Money');
+    expect((await generateMetadata(params('camera-shop-0123456789'))).title).toBe('事業の売買 | Make Money');
   });
 });

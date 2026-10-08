@@ -4,7 +4,7 @@ import { ActivityView } from '@/components/marketplace/commerce/ActivityView';
 import { MarketplaceTabs } from '@/components/marketplace/business/MarketplaceTabs';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 
-export const metadata: Metadata = { title: '取引・紹介 | Make-Money', robots: { index: false } };
+export const metadata: Metadata = { title: '取引・紹介 | Make Money', robots: { index: false } };
 
 export default function MarketplaceActivityPage() {
   return (

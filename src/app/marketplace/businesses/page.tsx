@@ -11,7 +11,7 @@ import { parseBusinessSaleFilter, type BusinessSaleFilter } from '@/shared/busin
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '事業の売買 | Make-Money',
+  title: '事業の売買 | Make Money',
   description: '売り手が申告した月商・月の利益・希望価格を並べた、小さな事業の売り出し一覧。掲載内容は売り手の申告で、金鉱録は売買を仲介しません。',
 };
 

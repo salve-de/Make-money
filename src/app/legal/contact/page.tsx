@@ -3,7 +3,7 @@ import { LegalPage, LegalTable } from '@/components/legal/LegalPage';
 import { OPERATOR_ENV_NAMES, readOperatorInfo } from '@/lib/legal/operator';
 
 export const dynamic = 'force-dynamic';
-export const metadata: Metadata = { title: 'お問い合わせ・削除依頼' };
+export const metadata: Metadata = { title: 'お問い合わせ・削除依頼 | Make Money' };
 
 function mailto(email: string, subject: string) {
   return `mailto:${email}?subject=${encodeURIComponent(subject)}`;

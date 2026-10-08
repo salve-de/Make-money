@@ -25,15 +25,15 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const listing = await loadListing(slug);
-    if (!listing) return { title: '掲載サービス' };
+    if (!listing) return { title: '掲載サービス | Make Money' };
     return {
-      title: `${listing.title} | Make-Money`,
+      title: `${listing.title} | Make Money`,
       description: listing.summary,
       openGraph: { title: listing.title, description: listing.summary, type: 'website' },
       twitter: { card: 'summary', title: listing.title, description: listing.summary },
     };
   } catch {
-    return { title: 'Make-Money サービス紹介' };
+    return { title: 'サービス紹介 | Make Money' };
   }
 }
 

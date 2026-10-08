@@ -5,7 +5,7 @@ import { BusinessSaleEditor } from '@/components/marketplace/business/BusinessSa
 import { BUSINESS_SALE_ID_PATTERN } from '@/shared/business-sale';
 
 export const metadata: Metadata = {
-  title: '事業を掲載 | Make-Money',
+  title: '事業を掲載 | Make Money',
   robots: { index: false },
 };
 

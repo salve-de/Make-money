@@ -6,7 +6,7 @@ import { CompareView } from '@/platform/components/compare/CompareView';
 import { COMPARE_LIMIT, parseCompareIds } from '@/platform/model/compare-ids';
 
 export const dynamic = 'force-dynamic';
-export const metadata: Metadata = { title: '事例の比較' };
+export const metadata: Metadata = { title: '事例の比較 | Make Money' };
 
 export default async function ComparePage({ searchParams }: { searchParams: Promise<{ ids?: string | string[] }> }) {
   const raw = (await searchParams).ids;
