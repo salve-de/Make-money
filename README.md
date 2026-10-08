@@ -359,6 +359,7 @@ WORLD (世界中のノイズ・一次情報)
 * [`CLAUDE.md`](./CLAUDE.md): AIエージェント最高運用プロトコル・禁止事項
 * [`AGENTS.md`](./AGENTS.md): リポジトリ全体に対するエージェント行動規範
 * [`docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md`](./docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md): 戦略マスター白書・意思決定全史（Phase 0〜209）
+* [`docs/UI_UX_HUMAN_BEHAVIOR_FOUNDATION.md`](./docs/UI_UX_HUMAN_BEHAVIOR_FOUNDATION.md): 人間心理・行動研究と現行コードを突き合わせたUI/UX設計正本。ページ別役割、信頼・密度・認知負荷・モバイル・アクセシビリティ、根拠/推論/留保を記録。
 * [`docs/DATA_COLLECTION_CONTRACT.md`](./docs/DATA_COLLECTION_CONTRACT.md): データ収集・検証契約規律
 * [docs/OPPORTUNITY_BUILDER.md](./docs/OPPORTUNITY_BUILDER.md): Opportunity Builder実行レイヤーの設計正本、意思決定史、費用・所有権・provider境界
 
