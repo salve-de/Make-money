@@ -2160,5 +2160,94 @@
         }
       ]
     }
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "factId": "f2",
+    "factHash": "67f47f4c",
+    "chapters": {
+      "practice": [
+        {
+          "text": "文章を直接編集する操作に、サイト用の部品と標準デザインを足した。画面サイズへの対応も製品側で受け持った（本人申告）",
+          "source": "https://news.ycombinator.com/item?id=29084309"
+        },
+        {
+          "text": "作ったサイトで電子書籍・講座・テンプレート・サービスを売れるようにした。フォームでメールアドレスも集められる",
+          "source": "https://typedream.com/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 約1年前の試用ではドラッグ操作に困り、客は別のサイト作成サービスを使い続けた。後: 再び試すと解消されていて、その客はTypedreamを採用した",
+          "source": "https://typedream.com/blog/kyleigh-smith"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2021年: Kevin Chandraが事業を立ち上げた",
+          "source": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024"
+        },
+        {
+          "text": "2023年4月28日: 無料枠でもブログとフォームを使えるようにした",
+          "source": "https://typedream.com/blog"
+        },
+        {
+          "text": "2023年5月15日: 利用者Kyleigh Smithへのインタビューを公開した",
+          "source": "https://typedream.com/blog"
+        },
+        {
+          "text": "2024年6月: beehiivの発表では、Typedream上で企業・出版社・クリエイター向けの数万件のサイトが動いていた",
+          "source": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream"
+        }
+      ],
+      "core": [
+        {
+          "text": "Notionをサイト作りに使う人に理由を聞いた。文章を直接編集できる操作が好まれ、ボタンやナビゲーションが足りないと分かった（本人申告）",
+          "source": "https://news.ycombinator.com/item?id=29084309"
+        }
+      ],
+      "start": [
+        {
+          "text": "5人の技術者で創業した（beehiivの発表）",
+          "source": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream"
+        }
+      ],
+      "price": [
+        {
+          "text": "旧料金: 基本プランは月15ドル（約2,250円）、年払いなら月12ドル（約1,800円）。ページ数無制限で独自ドメインも使えた",
+          "source": "https://typedream.com/old-pricing"
+        },
+        {
+          "text": "旧料金: 上位プランは月25ドル（約3,750円）、年払いなら月20ドル（約3,000円）。閲覧を制限できるページなどが付いた",
+          "source": "https://typedream.com/old-pricing"
+        },
+        {
+          "text": "現在: 基本プランは1サイト月20ドル（約3,000円）、年払いなら月15ドル（約2,250円）",
+          "source": "https://typedream.com/pricing"
+        },
+        {
+          "text": "現在: 上位プランは1サイト月49ドル（約7,350円）、年払いなら月42ドル（約6,300円）。ブログとフォーム送信の上限が無い",
+          "source": "https://typedream.com/pricing"
+        },
+        {
+          "text": "無料枠は1ページを公開できる。商品が売れると、無料枠は売上の5%、有料プランは2%の手数料がかかる",
+          "source": "https://typedream.com/pricing"
+        }
+      ],
+      "voices": [
+        {
+          "text": "Kyleigh Smithは、企画の参加者を募るページを約1日で用意できたことを、最大の利点に挙げた",
+          "source": "https://typedream.com/blog/kyleigh-smith"
+        },
+        {
+          "text": "同じ客は、整った部品を動かして意図に合わせられることと、公開や修正の手軽さを評価した",
+          "source": "https://typedream.com/blog/kyleigh-smith"
+        },
+        {
+          "text": "Easloは、コードを書かずに5分で宣伝用のページを作ったと投稿した（2022年4月）",
+          "source": "https://typedream.com/affiliate"
+        }
+      ]
+    }
   }
 ]
