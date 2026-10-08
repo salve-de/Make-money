@@ -5,7 +5,7 @@
  * 失敗しても取り込みは止めない（警告だけ）。
  */
 import { nowIso, readLedger, writeLedger } from './ledger-lib';
-import { ensureDomainEntries, type AiRights, type SourceRef } from './seed';
+import type { AiRights, SourceRef } from './seed';
 
 type Rec = Record<string, unknown>;
 const str = (v: unknown): string => (typeof v === 'string' ? v : '');
@@ -28,8 +28,10 @@ export function sourceRefsOfRecord(record: Rec): SourceRef[] {
   return [...refs.values()];
 }
 
-export function recordSourcesToLedger(refs: SourceRef[], by: string): { added: string[]; error?: string } {
+/** seed.ts は標準の規則(@/ の別名を使う)を読むので、使う時にだけ読み込む。読めない環境（別の作業場所など）でも取り込みは止めず、警告にする */
+export async function recordSourcesToLedger(refs: SourceRef[], by: string): Promise<{ added: string[]; error?: string }> {
   try {
+    const { ensureDomainEntries } = await import('./seed');
     const ledger = readLedger();
     const added = ensureDomainEntries(ledger, refs, by, nowIso());
     if (added.length) writeLedger(ledger);
@@ -37,6 +39,6 @@ export function recordSourcesToLedger(refs: SourceRef[], by: string): { added: s
   } catch (e) { return { added: [], error: e instanceof Error ? e.message : String(e) }; }
 }
 
-export function recordRecordsToLedger(records: Rec[], by: string): { added: string[]; error?: string } {
+export function recordRecordsToLedger(records: Rec[], by: string): Promise<{ added: string[]; error?: string }> {
   return recordSourcesToLedger(records.flatMap(sourceRefsOfRecord), by);
 }

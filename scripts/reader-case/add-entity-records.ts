@@ -420,7 +420,7 @@ async function main() {
     mkdirSync(ADDITIONS_DIR, { recursive: true });
     writeFileSync(`${ADDITIONS_DIR}/${name}.json`, `${JSON.stringify(file, null, 1)}\n`);
     // 出典ごとの権利の記録（data/source-rights-ledger.json）。台帳に無いドメインは自動で欄を作る（根拠が無ければ未確認。止めない）
-    const ledgerResult = recordRecordsToLedger(file.records.map((r) => r.record as Record<string, unknown>), 'add-entity-records(--from-research)');
+    const ledgerResult = await recordRecordsToLedger(file.records.map((r) => r.record as Record<string, unknown>), 'add-entity-records(--from-research)');
     if (ledgerResult.error) console.error(`[rights] 権利台帳への記録に失敗（取り込みは続行）: ${ledgerResult.error}`);
     else if (ledgerResult.added.length) console.error(`[rights] 権利台帳に新しく記録: ${ledgerResult.added.join(', ')}`);
     // 数字の決まりを満たさず分けた数字（事例ごと）。0件でない時は、調査記録を直すか再収集する
@@ -438,7 +438,7 @@ async function main() {
     const additions = readAdditions();
     const { next, added, skipped } = mergeInto(index, additions);
     if (!args.includes('--dry-run')) {
-      const lr = recordRecordsToLedger(additions.flatMap((a) => a.records).filter((r) => added.includes(r.id)).map((r) => r.record as Record<string, unknown>), 'add-entity-records(--apply)');
+      const lr = await recordRecordsToLedger(additions.flatMap((a) => a.records).filter((r) => added.includes(r.id)).map((r) => r.record as Record<string, unknown>), 'add-entity-records(--apply)');
       if (lr.error) console.error(`[rights] 権利台帳への記録に失敗（取り込みは続行）: ${lr.error}`);
     }
     if (added.length && !args.includes('--dry-run')) { writeFileSync(`${path}.tmp`, JSON.stringify(next)); renameSync(`${path}.tmp`, path); }
