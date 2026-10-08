@@ -123,13 +123,15 @@ test('splitNotes: 「調べた側のメモ」の章を本文から切り離す�
   assert.equal(splitNotes('# B\n').notes, '');
 });
 
-test('writeCase: 1行の候補3つから、選ぶ担当が選んだ1行に差し替え、候補の章は本文に残さない', async () => {
+test('writeCase: 1行の候補を2回書かせて6つにし、選ぶ担当が選んだ1行に差し替え、候補の章は本文に残さない', async () => {
   const withCandidates = `${page()}\n## 一覧の1行の候補\n- 候補A\n- 候補B\n- 候補C\n`;
   const seen: string[] = [];
-  const replies = [withCandidates, withCandidates, withCandidates, '選びました。\n「2019年に公開し、年12万ドル（約1,800万円）を売る店」'];
-  const caller: Caller = async (req) => { seen.push(req.label); return { text: replies.shift()!, seconds: 0 }; };
+  const users: string[] = [];
+  const replies = [withCandidates, withCandidates, withCandidates, '- 候補D\n- 候補E\n- 候補F\n- 候補G', '選びました。\n「2019年に公開し、年12万ドル（約1,800万円）を売る店」'];
+  const caller: Caller = async (req) => { seen.push(req.label); users.push(req.user); return { text: replies.shift()!, seconds: 0 }; };
   const r = await writeCase(input, caller, { root: ROOT, maxRepairs: 0 });
-  assert.deepEqual(seen, ['ent_x 書く', 'ent_x 事実を照らす', 'ent_x 読む', 'ent_x 1行を選ぶ']);
+  assert.deepEqual(seen, ['ent_x 書く', 'ent_x 事実を照らす', 'ent_x 読む', 'ent_x 1行の候補を足す', 'ent_x 1行を選ぶ']);
+  assert.ok(users[4].includes('- 候補A') && users[4].includes('- 候補F') && !users[4].includes('候補G'));
   assert.ok(r.md.includes('## 一覧の1行\n2019年に公開し、年12万ドル（約1,800万円）を売る店\n'));
   assert.ok(!r.md.includes('候補A'));
   assert.equal(r.leadPick?.chosen, '2019年に公開し、年12万ドル（約1,800万円）を売る店');

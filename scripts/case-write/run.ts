@@ -118,11 +118,16 @@ export async function writeCase(input: CaseInput, caller: Caller, opt: WriteOpti
   const cut = splitSection(md, CANDIDATES_HEAD);
   md = cut.page;
   if (cut.body) {
+    const dropped = notesParts.join('\n').split('\n').filter((l) => l.includes('外した')).join('\n') || 'なし';
+    // 揺れを抑える: 書く担当にもう一度、切り口を変えた候補を3つ書かせ、6つから選ぶ
+    const more = (await ask(writer, `## 事例の文（照らして読み直した後）\n\n${md}\n\n## もう出ている一覧の1行の候補\n${cut.body}\n\n## 出典で確かめられず外した事実（1行に使わない）\n${dropped}\n\n一覧の1行の候補だけを、上と違う切り口で新しく3つ書く。使う事実は上の事例の文にある物だけ。「- 」で1行ずつ、3行だけを返す。`, '1行の候補を足す'))
+      .split('\n').map((l) => l.trim()).filter((l) => /^[-・*]\s*\S/.test(l)).slice(0, 3).map((l) => `- ${l.replace(/^[-・*]\s*/, '')}`);
+    const candidates = [cut.body.trim(), ...more].filter(Boolean).join('\n');
     calls++;
-    const r = await caller({ system: selector, user: `## 事例の文（候補を除く）\n\n${md}\n\n## 一覧の1行の候補\n${cut.body}\n\n## 出典で確かめられず外した事実（1行に使わない）\n${notesParts.join('\n').split('\n').filter((l) => l.includes('外した')).join('\n') || 'なし'}\n\n1行だけを返す。`, label: `${input.id} 1行を選ぶ` });
+    const r = await caller({ system: selector, user: `## 事例の文（候補を除く）\n\n${md}\n\n## 一覧の1行の候補\n${candidates}\n\n## 出典で確かめられず外した事実（1行に使わない）\n${dropped}\n\n1行だけを返す。`, label: `${input.id} 1行を選ぶ` });
     cost += r.costUsd ?? 0;
     const lead = extractLine(r.text);
-    if (lead) { md = replaceLead(md, lead); leadPick = { candidates: cut.body, chosen: lead }; }
+    if (lead) { md = replaceLead(md, lead); leadPick = { candidates, chosen: lead }; }
   }
   let v = verifyDraft(md, input, opt.rights);
   rounds.push({ step: '読む', violations: v.length });
