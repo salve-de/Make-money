@@ -2456,8 +2456,8 @@
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
  "ent_data_fetcher_8e6a5e22ce2a": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_datadog_X8L2P6QK": {
   "display": "HOLD_THIN",
@@ -8324,8 +8324,8 @@
   "reason": "出典と照合できた事実が無い（出典が開けない・消えた・未照合）。一次情報を探し直す"
  },
  "ent_lunch_money_be2eeb1f4fdf": {
-  "display": "SHOW",
-  "reason": "出典と照合した事実がある"
+  "display": "CARRIED",
+  "reason": "公開中の版を引き継いだ（差分公開。中身が公開中と同じことを指紋で確かめた）"
  },
  "ent_lusha_690033": {
   "display": "HOLD_QUEUE",
