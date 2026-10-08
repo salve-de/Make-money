@@ -61,7 +61,6 @@ describe('GlobalHeader terminal navigation', () => {
       '保存した条件',
       '自分の商品',
       '紹介と取引',
-      'PRO の内容を見る',
     ]);
     expect(new Set(MORE_MENU_ITEMS.map((item) => item.key)).size).toBe(MORE_MENU_ITEMS.length);
     const tabLabels = PRIMARY_NAV_ITEMS.map((item) => item.label);
