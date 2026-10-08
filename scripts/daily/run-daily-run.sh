@@ -8,6 +8,10 @@ SRC="${DAILY_EVIDENCE_SRC:-/Volumes/SS/Worktrees/Make-Money/honest-catalog}"
 [ -d "$WORK/.git" ] || [ -f "$WORK/.git" ] || { echo "作業場所が無い: $WORK（docs/pipeline/DAILY_RUN.md の準備を先に行う）" >&2; exit 2; }
 cd "$WORK" || exit 2
 git fetch origin main || { echo "git fetch に失敗" >&2; exit 1; }
+# 公開できずに残った手元の変更(公開データ)は、取り込む前にコミットして失わない・merge を邪魔させない
+if [ -n "$(git status --porcelain data)" ]; then
+  git add data && git commit -q -m "毎日の自動実行: 公開待ちの手元の公開データを退避" || { echo "手元の公開データをコミットできない" >&2; exit 1; }
+fi
 # 前回の公開データは daily:run が auto/daily-<日付> に残して変更の申請にする。手元に残る分はコミット済みなので、通常の merge で取り込む
 if ! git merge --no-edit origin/main; then
   git merge --abort 2>/dev/null

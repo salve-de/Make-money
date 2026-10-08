@@ -240,7 +240,8 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     const already = localRelease(o.root).ids;
     const pendingNow = rec.pending;
     const fresh = rec.ids.filter((id) => !already.has(id) && !pendingNow.includes(id));
-    rec.deferred = fresh.slice(o.cap); const target = fresh.slice(0, o.cap);
+    const target = fresh.slice(0, o.cap);
+    rec.deferred = fresh; save(); // 仕上げが終わるまでは、今日扱う分も含めて持ち越しのまま残す(途中で落ちても失わない)
     if (!target.length && !pendingNow.length) return { status: 'skipped', note: '新しい事例が無い' };
     const runId = `daily-${o.date}`;
     if (target.length) {
@@ -248,6 +249,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
       const r1 = await d.exec(['pnpm', 'case:run', '--ids', target.join(','), '--run-id', runId]);
       const sum = readJson<{ passed?: string[]; failures?: { id: string; reason: string }[] } | null>(join(o.root, 'data/pipeline/case-run', runId, 'summary.json'), null);
       if (!sum) return { status: 'failed', note: `case:run の結果が読めない: ${tail(r1)}` };
+      rec.deferred = fresh.slice(o.cap); // 結果が読めた分は片付いた(落ちた事例は検査の理由つきで記録済みなので持ち越さない)
       passed = sum.passed ?? [];
       rec.counts.passed += passed.length; rec.failures.push(...(sum.failures ?? []).map((f) => ({ id: f.id, reason: f.reason })));
       rec.counts.failed = new Set(rec.failures.map((f) => f.id)).size;
