@@ -42,6 +42,8 @@ export interface CaseRunOptions {
   runId: string;
   concurrency: number;
   publish: boolean;
+  /** catalog:publish に --allow-non-main を渡す（毎日の自動実行の専用作業場所用） */
+  allowNonMain?: boolean;
   maxAttempts?: number;
   /** この段から始める（それより前の段は飛ばす）。止まった所から続きを流す時や、前の段の結果が手元に既にある時に使う */
   from?: string;
@@ -291,7 +293,7 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
       // 途中から再開した時（--from publish）は、前の実行で作った公開データをそのまま使う
       const prepared = stages.find((s) => s.stage === 'prepare');
       if (prepared ? !prepared.ok : opt.from !== 'publish') throw new Error('公開データの作成が通っていないので公開しない');
-      const r = await deps.exec('publish', ['pnpm', 'catalog:publish']);
+      const r = await deps.exec('publish', ['pnpm', 'catalog:publish', ...(opt.allowNonMain ? ['--allow-non-main'] : [])]);
       if (r.code !== 0) throw new Error(`catalog:publish が失敗（終了コード ${r.code}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-3).join(' / ').slice(0, 300)}`);
       return { published: publishable().length, otherCasesFailed: !cleanly };
     });
@@ -330,7 +332,7 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
   if (!(stall > 0)) { console.error('--stall-minutes は0より大きい数'); process.exit(2); }
   const agent = val('--agent'); const model = val('--model'); const effort = val('--codex-effort');
   return {
-    root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'),
+    root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'), allowNonMain: argv.includes('--allow-non-main'),
     from: val('--from'),
     stallMinutes: Number(val('--stall-minutes') ?? 10),
     runId: val('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15),

@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { assertPublishPosition } from './publish-guard';
 import { getFoundationBucket, putR2MutableView, putR2ObjectCreateOnly, readR2Object } from '../src/lib/storage/r2';
 import { advanceReleasePointer, pointerLogKey, type PointerStore } from '../src/lib/company-access/release-pointer';
 import { decodeCatalogArtifact } from '../src/lib/company-access/release-store';
@@ -21,6 +22,7 @@ import {
  *
  *   pnpm catalog:publish                      … .catalog-release/upload.json の成果物を書き、目印を進める
  *   pnpm catalog:publish --point-to <hash>    … 書き込み済みの manifest へ目印を付け替える（巻き戻しにも使う）
+ *   位置の関門: 手元の位置が origin/main と同じ時だけ動く。違えば止まる（--allow-non-main で通す。scripts/publish-guard.ts）
  *   pnpm catalog:publish --skip-pointer       … 成果物を書くだけで、目印は進めない
  */
 const bucket = () => getFoundationBucket('lake');
@@ -59,6 +61,8 @@ async function assertManifestReadable(manifestHash: string): Promise<{ published
 
 async function main() {
   const args = process.argv.slice(2);
+  // 公開の直前に、手元の位置が origin/main と同じか確かめる（別の作業場所の公開を上書きしない）
+  assertPublishPosition(args.includes('--allow-non-main'));
   const pointTo = args.includes('--point-to') ? args[args.indexOf('--point-to') + 1] : undefined;
   if (pointTo !== undefined && !/^[a-f0-9]{64}$/.test(pointTo ?? '')) throw new Error('--point-to には manifest の指紋（64桁）を渡してください');
 
