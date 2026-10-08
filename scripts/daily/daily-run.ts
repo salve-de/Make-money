@@ -220,7 +220,8 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     log(`${name}: ${r.status}${r.note ? `（${r.note}）` : ''}`); save();
   };
   const idsFile = join(o.root, DAILY_DIR, `${o.date}.ids`);
-  const collect = (r: ExecResult): string[] => uniq([...parseIds(r.stdout), ...(existsSync(idsFile) ? readFileSync(idsFile, 'utf8').split('\n').map((s) => s.trim()).filter(Boolean) : [])]);
+  const fileIds = (): string[] => (existsSync(idsFile) ? readFileSync(idsFile, 'utf8').split('\n').map((x) => x.trim()).filter(Boolean) : []);
+  const collect = (r: ExecResult): string[] => uniq([...parseIds(r.stdout), ...fileIds()]);
   const env = { DAILY_IDS_FILE: idsFile };
   const tail = (r: ExecResult): string => `${r.stderr}\n${r.stdout}`.trim().split('\n').slice(-2).join(' / ').slice(0, 250);
 
@@ -232,9 +233,12 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   });
   await stage('research', async () => {
     if (!d.hasScript('case:research')) return { status: 'skipped', note: 'case:research がまだ無い' };
+    const beforeFile = new Set(fileIds());
     const r = await d.exec(['pnpm', 'case:research', '--next', String(o.next)], env);
     if (r.code !== 0) return { status: 'failed', note: tail(r) };
-    const got = collect(r); rec.ids = uniq([...rec.ids, ...got]); rec.counts.researched = got.length; return { status: 'ok' };
+    const got = collect(r); rec.ids = uniq([...rec.ids, ...got]);
+    // 調べた件数は、この命令が返したIDだけ(候補探しが同じファイルに書いた分は数えない)
+    rec.counts.researched = parseIds(r.stdout).length || fileIds().filter((id) => !beforeFile.has(id)).length; return { status: 'ok' };
   });
   rec.ids = uniq([...o.ids, ...rec.ids]);
 
@@ -242,7 +246,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   await stage('run', async () => {
     const already = localRelease(o.root).ids;
     const pendingNow = rec.pending;
-    const fresh = rec.ids.filter((id) => (!already.has(id) || rec.retry.includes(id)) && !pendingNow.includes(id));
+    const fresh = rec.ids.filter((id) => (o.force || !already.has(id) || rec.retry.includes(id)) && !pendingNow.includes(id));
     const target = fresh.slice(0, o.cap);
     rec.retry = target; rec.deferred = fresh; save(); // 仕上げが終わるまでは、今日扱う分も含めて持ち越しのまま残す(途中で落ちても失わない)
     if (!target.length && !pendingNow.length) return { status: 'skipped', note: '新しい事例が無い' };

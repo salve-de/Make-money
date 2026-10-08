@@ -276,3 +276,12 @@ test('仕上げの途中で落ちて結果が読めなかった事例は、目�
   assert.ok(m.calls.filter((c) => c.includes('case:run') && c.includes('--ids n1')).length >= 2, '結果が読めなかった事例を流し直していない');
   assert.equal(second.stages.run.status, 'ok');
 });
+
+test('調べた件数は、研究の命令が返した分だけ数える。--force は仕上げ済みの事例も流し直す', async () => {
+  const root = fixture(); const m = make(root, { discoverIds: 'a,b', passed: ['a', 'b'], catalogTotal: () => 2 });
+  const rec = await runDaily(opts(root), m.deps);
+  assert.equal(rec.counts.discovered, 2); assert.equal(rec.counts.researched, 0);
+  const m2 = make(root, { passed: ['a', 'b'], catalogTotal: () => 2 });
+  await runDaily(opts(root, { force: true }), m2.deps);
+  assert.ok(m2.calls.some((c) => c.includes('case:run') && c.includes('--ids a,b ') && !c.includes('--publish')));
+});
