@@ -1,0 +1,1414 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_memberful_0dff1f9c00fa",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "FOUNDING",
+     "text": "2018年の発表で、既存の会員制ソフトへの不満から5年前に副業として始めたと Drew Strojny が説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "DESCRIPTION",
+     "text": "自社サイトやアプリで会員課金とコンテンツ提供を行うクリエイター、出版社、コミュニティ向けサービスである。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "DESCRIPTION",
+     "text": "利用者自身の Stripe アカウントを接続して課金する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "PRICING",
+     "text": "料金ページでは Standard は月額49米ドルに取引額の4.9%を加える。Enterprise は個別見積もり。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "PRICING",
+     "text": "試用は期限なしで、本番公開して支払いを受け付け始める時点から利用料金が発生する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "PRICING",
+     "text": "2018年8月8日の報道では Pro は月額25米ドルと取引額の4.9%だった。",
+     "attribution": "ARTICLE"
+    },
+    {
+     "id": "f7",
+     "kind": "PRICING",
+     "text": "2018年の公式発表では既存客の価格を維持し、新規客のみ Pro と Premium の取引手数料を上げた。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "EVENT",
+     "text": "2018年8月8日の発表で、Patreon の完全子会社となり、Memberful を別製品として続けると説明した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "OTHER",
+     "text": "2018年の発表では、数百の独立出版社、教育者、クリエイターとともに成長し、黒字で拡大していたと述べている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "会社紹介には100万人超の会員を支えるとある。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "OTHER",
+     "text": "Workweek Lunch の Talia Koren は、50人に3週間の無料試用を実施した後、メールと Instagram で会員サービスを告知したと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "OTHER",
+     "text": "2021年11月24日、誤って本番公開して不要な課金が発生する問題に対し、Stripe 接続時の追加確認を導入した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "EVENT",
+     "text": "2021年11月24日、従来サポートへの連絡が必要だった Premium への変更を、自分で行えるようにした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "EVENT",
+     "text": "2025年5月8日、従来スタッフが代行していた複数契約の請求日・自動更新設定の変更を、管理画面から一括操作できるようにした。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "EVENT",
+     "text": "2026年10月1日、WordPress で一定数の無料記事を読んだ後に課金案内を表示する機能と、コードを書かずに課金案内を作る機能を追加した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "TOOL",
+     "text": "WordPress、Mailchimp、Kit、Discord、Discourse 等と連携し、会員情報とアクセス権を同期する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "TOOL",
+     "text": "GraphQL と Webhook による独自連携、および Tapfiliate による利用者自身の紹介報酬制度の連携を提供する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "CHANNEL",
+     "text": "認定提携先制度では、制作会社の紹介記事、公式一覧への掲載、共同営業資料、技術支援、見込み客の紹介を提供する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "OTHER",
+     "text": "提携先一覧にある Clock は Payload や Webflow のサイトに Memberful を組み込んでいると説明されている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "OTHER",
+     "text": "移行担当者が顧客ごとに計画を作り、Substack や WooCommerce 等から何千人もの会員を移してきたと説明している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "OTHER",
+     "text": "移行支援ページに掲載された Chris Gresham-Britt の発言では、移行が円滑で公開時の負担が軽くなったと評価されている。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://memberful.com/blog/joining-patreon",
+     "publisher": "Memberful（Drew Strojny の発表）",
+     "snapshot": {
+      "url": "https://memberful.com/blog/joining-patreon",
+      "finalUrl": "https://memberful.com/blog/joining-patreon",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:33.304Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "23f599d3851a0a95074b590d0da65e4fc522e93a91ade00a8a6540b4fed35a25"
+     },
+     "text": "Joining Patreon | Memberful\nTogether we're building a better future for publishers, educators, and creators.\nJoining Patreon\nTogether we're building a better future for publishers, educators, and creators.\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nInsights\nJoining Patreon\nBy Drew Strojny on Aug 8, 2018\nTogether we're building a better future for publishers, educators, and creators.\nWe've got some big news to share.\nMemberful started as a side project five years ago, born out of frustration with existing membership software. Since then, we've been pushing hard to build something great, and we're making exciting progress toward that goal. Memberful has grown quickly and profitably, and we've watched hundreds of independent publishers, educators, and creators grow right along with us. It's been inspiring and motivating for all of us to see these folks connect directly with their audience and get paid to do what they love.\nToday, we're announcing we've been acquired by Patreon . In Patreon, we found a team that cares deeply about many of the same things we do. We both see a future where creators work for their audience, not for massive advertising companies as underpaid content suppliers. We both see a future where creators are free to maintain direct relationships with their audience on their terms, unencumbered by the whims of the latest social platform. We both see a future where creators can do what they love while being directly supported financially by their biggest fans through memberships. Patreon asked if we'd join them in building this future, and we said yes.\nAs a Memberful customer, you might be surprised by this news. You might also be concerned about the future of Memberful. Are we giving up? Are we shutting down? Quite the opposite. Memberful has been growing fast, and our growth has even accelerated in 2018. We're partnering with Patreon to take this to the next level. Patreon brings capital, expertise, and resources that will help us make Memberful even better for you .\nBoth Memberful and Patreon offer membership software, but Memberful is focused on building a decentralized white-label membership solution that lives on your website and integrates with your favorite third-party tools and services; while Patreon is more focused on providing an all-in-one solution. We believe these are different segments within the same larger market. Each segment has unique needs and is therefore better served by separate products.\nUnderstandably, you probably still have some questions.\nWhat's happening to the Memberful product?\nBusiness as usual, but better, faster. We're now a wholly-owned subsidiary of Patreon, but we're still running Memberful the same way. We'll be expanding our product team over the coming months. This will give us more resources to build exciting new features and functionality. Expect to see more of the things you've been asking for like group memberships, better language support, form customizations, taxes, and more integrations.\nIf you're a developer looking to join a small and hungry remote-first product team that’s on a mission to build a world-class tool for publishers, educators, and creators, we're hiring .\nAre you changing prices?\nPricing is not changing for existing customers. The transaction fee on our Pro and Premium plans has increased for new customers only . As part of Patreon, we're still committed to profitability and independence over the long term, and this pricing update will help us meet those goals.\nWhat's happening to the team?\nAll full-time members of the team are still here and plan to be here (including myself). If you're used to hearing from Lauren, Patrik, or me, you'll continue to hear from us, and we'll work to provide the best possible customer support.\nFrom the beginning, we've been committed to building great membership software for you, one feature at a time, one day at time. That isn't changing, and we can’t wait to continue building a better future for creators together with Patreon.\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA\nJoining Patreon | Memberful",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://memberful.com/",
+     "publisher": "Memberful（公式サイト）",
+     "snapshot": {
+      "url": "https://memberful.com/",
+      "finalUrl": "https://memberful.com/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:34.136Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "2d66d77351cebd3401f283d7e8a0929f4a7b658b9a73763c4b4542e4fdafb69f"
+     },
+     "text": "Memberful | Build a membership that’s truly yours\nSell subscriptions, share content, and connect with your audience, all on your own website or app.\nMemberful | Build a membership that’s truly yours\nSell subscriptions, share content, and connect with your audience, all on your own website or app.\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nBuild a membership that’s truly yours\nSell subscriptions, share content, and connect with your audience, all on your own website or app.\nGet Started\nSome platforms promise simplicity but take control.\nMemberful is different.\nWe help creators, publishers, and communities launch beautiful paid memberships without sacrificing ownership.\nWe built Memberful with a clear point of view\nOwnership is everything\nYou shouldn’t have to rent space on someone else’s platform. With Memberful, you own your experience, your audience, and your future, entirely.\nExplore the Product\nPut your brand first\nYour brand should be the only one your audience sees. That’s why every page, from checkout to member accounts, carries your name not ours—always on your domain.\nControl your payments and data\nYou connect your own Stripe account, which means you’re in total control of your audience. Not just your email list, but payments, too.\nShare content across channels\nMemberful makes it easy to publish and deliver content wherever your members are—newsletters, podcasts, digital downloads, community content, and more.\nGrow your business your way\nEvery business is different. Choose what works for yours, from simple subscriptions to complex tiered offerings. Memberful adapts to your model with straightforward pricing that scales with you.\nMonthly, annual, or custom subscriptions\nChoose what you pay\nOne-time payments\nGroup subscriptions\nInternational payment support\nYour members should remember your name, not ours\nMemberful powers millions of members and the businesses behind them. You’d never know it, and that’s by design.\nRead the Case Studies\nHow Molly Baz Built an Exclusive Recipe Membership Community\nLearn how\nFrom day one, you’ve been exceptional in working with us and enabling us to scale the subscription side of our business.\nRachel at\nPunchbowl News\nMemberful truly embraces their job of handling the difficult part of online memberships without getting in the way.\nJesse at\nTeam Flower\nEvery membership is different. Use the tools you want.\nBuild the exact membership you want with the tools you already use. Memberful connects natively with tools like WordPress, Discord, Mailchimp, and Kit, syncing members, permissions, and more into an easy-to-use dashboard.\nLearn how it works See all integrations\nLaunch quickly with a proven team behind you\nFrom guided onboarding to human support and launch playbooks, Memberful makes every step easy. If you’re migrating an existing membership, our dedicated team will personally handle the setup.\nBuilt in from day one\nCheckout\nOne-click checkout\nFree and paid trials\nPassword or sign-in link\nCoupons and discounts\nWebsite\nWordPress plugin for existing sites\nWebsite builder for new sites\nSimple API for custom sites\nMember management\nSubscriptions and refunds\nUnlimited staff accounts\nPrivate notes\nAcquisition insights\nYou have everything you need to build steady, sustainable revenue\nYour audience already believes in what you do. Turn that trust into predictable income. Memberful has built-in analytics, payment automations, and a powerful dashboard to manage it all.\nNo two memberships are exactly alike. The best are crafted with intention and built to last.\nBuild yours with Memberful.\nGet Started\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA\nMemberful | Build a membership that’s truly yours",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://memberful.com/pricing",
+     "publisher": "Memberful（料金）",
+     "snapshot": {
+      "url": "https://memberful.com/pricing",
+      "finalUrl": "https://memberful.com/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:34.400Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "62ee1fdc7b76f37911cf917ea133ffc7cd4d175717765f81c6e4600822a515a5"
+     },
+     "text": "Pricing | Memberful\nBuild a membership that’s truly yours\nPricing\nBuild a membership that’s truly yours\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nPricing\nTry for free, scale intentionally.\nNo surprises, no gotchas—just transparent pricing that grows with your membership.\nStandard\n$49 / month + 4.9% transaction fee\nAccess everything Memberful has to offer for one monthly price. Try it for free for as long as you like. You'll only be charged when you go live and start accepting payments.\nGet Started Today\nEnterprise\nCustom Pricing\nDedicated support and the flexibility to build exactly what your members deserve. Tell us about your vision, and we'll show you what's possible.\nCustom volume-based pricing to fit your business model\nAccess to premium services and success management\nCustom migration and implementation support\nContact Us\nIncluded in Every Plan\nFast & powerful checkout\nApple Pay and Google Pay\nCoupons and discounts\nCustom fields\n15 language translations\nGlobal tax collection\nGift purchases\nSubscriptions of any kind\nFree and paid trials\nFree registration\nGroup plans\nOne-time payments\nMonthly, annual, weekly\nChoose what to pay\nEasy member management\nGrowth metrics and reporting\nBuilt-in referral program\nAutomated retention discounts\nCancellation surveys\nCustom transactional emails\nStaff accounts\nSupport for all types of content\nPodcasts\nNewsletters\nCommunities\nCourses\nDownloads\nWebsite & newsletter builder\nLanding page builder\nCustom domains\nDynamic paywalls\nCustom themes and branding\nIntegrated comments\nManaged integrations\nWordPress\nMailchimp\nDiscord\nKit\nMany more …\n“ It does what it says on the tin quickly, without issue, and without frustration.\nMax M.\nFrequently Asked Questions\nHow do transaction fees work?\nDo I need a Stripe account? What is Stripe?\nCan I try it for free?\nCan I cancel any time?\nIs there a limit on how many members I can have?\nIs Memberful PCI Compliant and secure?\nAlways included : Unlimited members, SSL security, and high-availability backups.\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA\nPricing | Memberful",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://techcrunch.com/2018/08/08/patronage-empire/",
+     "publisher": "TechCrunch（2018年の料金報道）",
+     "snapshot": {
+      "url": "https://techcrunch.com/2018/08/08/patronage-empire/",
+      "finalUrl": "https://techcrunch.com/2018/08/08/patronage-empire/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:34.442Z",
+      "via": "direct",
+      "contentType": "text/html; charset=UTF-8",
+      "textHash": "9e1de42693b639a2da8c07e1200eca769670cccb0e95a28d102c456fcc47fee9"
+     },
+     "text": "Patreon buys Memberful but keeps it indie as patronage consolidates | TechCrunch\nPatreon is forming a patronage empire. Today it acquired white-labeled subscription membership platform Memberful, which lets creators sell exclusive\nPatreon buys Memberful but keeps it indie as patronage consolidates | TechCrunch\nPatreon is forming a patronage empire. Today it acquired white-labeled subscription membership platform Memberful, which lets creators sell exclusive\nPatreon buys Memberful but keeps it indie as patronage consolidates | TechCrunch\n–:–:–:–\nLast day to exhibit your breakthrough to 10,000+ tech leaders at Disrupt is on Oct 2 . Book Exhibit Table Now.\nDisrupt doors open Oct. 13. Get your pass and bring someone with you at 50% off. REGISTER NOW.\nClose\nTechCrunch Desktop Logo\nTechCrunch Mobile Logo\nLatest\nStartups\nVenture\nApple\nSecurity\nAI\nApps\nDisrupt 2026\nEvents\nPodcasts\nNewsletters\nSearch Submit\nSite Search Toggle\nMega Menu Toggle\nTopics\nLatest\nAI\nAmazon\nApps\nBiotech & Health\nClimate\nCloud Computing\nCommerce\nCrypto\nEnterprise\nEVs\nFintech\nFundraising\nGadgets\nGaming\nGoogle\nGovernment & Policy\nHardware\nInstagram\nLayoffs\nMedia & Entertainment\nMeta\nMicrosoft\nPrivacy\nRobotics\nSecurity\nSocial\nSpace\nStartups\nTikTok\nTransportation\nVenture\nMore from TechCrunch\nStaff\nEvents\nStartup Battlefield\nStrictlyVC\nNewsletters\nPodcasts\nVideos\nPartner Content\nTechCrunch Brand Studio\nContact Us\nPatreon buys Memberful but keeps it indie as patronage consolidates\nJosh Constine\n9:00 AM PDT · August 8, 2018\nPatreon is forming a patronage empire. Today it acquired white-labeled subscription membership platform Memberful , which lets creators sell exclusive access to content through their own site instead of a centralized platform like Patreon. Rather than being folded into a Patreon feature, Memberful will run as an independent brand, maintaining its tiered pricing structure, though new sign-ups will get a rate closer to Patreon’s low 5 percent rake.\nTerms weren’t disclosed for the deal that brings Memberful’s whole seven-person team and 500 paying clients aboard. But Patreon clearly sees rolling up competitors and complements in the patronage space as a worthy use of its $60 million raise at a $450 million valuation late last year that brought it to $105 million in funding. In June, Patreon bought Kit to let creators bundle in merchandise with their perks for paying monthly subscribers. It also bought out competitor Subbable back in 2015.\nBy teaming up, Patreon and Memberful will be able to provide subscription patronage services for creators, whether they want their fan community to live on Patreon, or through Memberful on their own WordPress or website with integrations of Stripe and MailChimp. Patreon already has 2 million patrons paying an average of $12 each to a total of 100,000 creators, and it expects to pay out $300 million in 2018 alone. The acquisition could let Patreon move up market, recruiting comedians, illustrators, game developers and vloggers that already have an established audience elsewhere.\n“I think membership is on the up and is going to grow for the next decade,” says Patreon VP of Product Wyatt Jenkins. “Our strategy is to be an open, neutral platform,” as opposed to focusing on one type of content like YouTube with videos or Twitch with streaming where you’re locked into that platform’s tools. Memberful, launched in 2013, has bootstrapped the creation of its white-labeled tools without the need for venture funding.\nMemberful gives creators like Stratechery’s Ben Thompson (who has an interview with Patreon CEO Jack Conte about the acquisition) and podcast producer Gimlet Media full control over branding, with no Patreon chrome. But it’s more expensive and also requires more work as creators have to manage their own site, customer service and payment processing. Memberful takes a 10 percent cut with no monthly fee for its limited basic tier, or $25 per month plus 4.9 percent for the full-featured pro version, though it also offers enterprise pricing. That pricing will remain for existing users, but “new customers will see a transaction fee closer to Patreon’s,” which is a flat 5 percent, a Patreon spokesperson tells me. Patreon does basically everything for a creator, but it also ropes them into the Patreon-branded ecosystem that also promotes other content makers.\nSometimes Patreon handling everything can be a problem, though. Last week it experienced a higher-than-normal volume of declines from banks of charges to patrons. That left some creators without their expected income, and required patrons to deal with the chore of calling their bank to tell them paying $1, $5 or $20 per month to their favorite creator wasn’t fraud. Patreon now tells me that “as of Friday , we let everyone know that we were back to normal decline rates, and were going to continue retrying the rest of the cards like we normally do.”\nIt makes sense for Patreon to race to consolidate the patronage industry as it’s being invaded by giant incumbents. Twitch, YouTube and Facebook all offer their own versions of paid subscriptions to creators that get patrons extra perks like exclusive content or badges so they stick out in chat rooms full of fans. While those platforms are all focused on video streamers, they still pose a threat to Patreon, which needs to maximize the number of successful creators it hosts in order to earn enough from its tiny cut of payments. Facebook especially could muscle in, as many creators already run their own Facebook Pages.\nAsked about competition from those platforms, Jenkins said, “I think there’s a strong chance it’s a tailwind. The concept of membership is pretty new. If those big companies are going to drop millions of dollars into marketing the concept of membership I think that’s great.” He stressed the question of “Do you want to own your fan base? On YouTube, those aren’t your fans, they’re YouTube users. YouTube is incentivized to keep them watching videos so it can show ads.”\nThat might lead fans to unsubscribe from a creator as YouTube promotes other similar ones they could watch instead. “You don’t own the relationship.” Facebook Page admins have found that out the hard way as algorithm changes prioritize friends over public figures, making it tough to reach the followers they spent years begging to like them. If Patreon can offer creators audience growth through discovery on its interconnected network without cannibalizing anyone’s member counts, its neutrality and focus could make it a leader in this new wing of the digital economy.\nTopics\nFintech , Media & Entertainment , memberful , Patreon , Startups , subscription\nWhen you purchase through links in our articles, we may earn a small commission . This doesn’t affect our editorial independence.\nJosh Constine\nVenture Partner\nJosh Constine is a Venture Partner at ~$3 billion AUM early-stage VC fund SignalFire where he invests in pre-seed startups with a focus on consumer. He teaches startup pitch writing and fundraising strategy as a recurring lecturer at the Stanford Graduate School Of Business, and with accelerators like Z Fellows, Inception Studios, and Stanford ASES.\nPreviously, Constine was Editor-At-Large for TechCrunch where he wrote 4000 articles and was ranked the #1 most cited tech journalist in the world from 2016-2020 by Techmeme. Constine has led 300+ on-stage interviews and keynotes in 18 countries with luminaries including Mark Zuckerberg and the CEOs of Shopify, DoorDash, Snapchat, Instagram, and more. Constine graduated from Stanford University with a Master’s degree he designed in Cybersociology, and wrote his thesis in 2008 on why remixable memes would be the future of marketing. He has been quoted in the NYT and WSJ, is regularly featured on CNN for his thoughts on AI and Silicon Valley, and advises startups on PR, fundraising, and organic growth.\nView Bio\nOctober 13 – 15\nSan Francisco\nGet 50% off a second pass\nThe Disrupt experience is meant to be shared. Get your pass and bring a colleague, partner, or peer at 50% off. Cover more ground by making connections, building momentum, and discovering what’s next in the startup ecosystem.\nBOOK NOW\nMost Popular\nAt 19, founder raises $11M for Ghost, maker of a $3,499 computer for personal AI\nDominic-Madori Davis\nFederal judge calls Flock ‘indiscriminate mass surveillance’\nAnthony Ha\nAmazon responds to data center backlash, says it no longer uses NDAs\nAnthony Ha\nOpenAI safety employee resigns, claiming the company’s ‘culture is broken’\nAnthony Ha\nMeta wants your next gadget to be Muse-infused\nKirsten Korosec\nGoogle thinks SpaceX’s Starship has to launch 1,800 times before space data centers get off the ground\nTim Fernholz\nWorld’s first enhanced geothermal power plant completed in just 23 months\nTim De Chant\nLoading the next article\nError loading the next article\nX\nLinkedIn\nFacebook\nInstagram\nyouTube\nMastodon\nThreads\nBluesky\nTechCrunch\nStaff\nContact Us\nAdvertise\nSite Map\nTerms of Service\nPrivacy Policy\nRSS Terms of Use\nCode of Conduct\nOpenAI\nHugging Face\nFlock\nStartup Battlefield\nDisrupt 2026\nTech Layoffs\nChatGPT\n© 2026 TechCrunch Media LLC.",
+     "policy": {
+      "policyId": "rights.techcrunch.v2",
+      "sourceId": "src.techcrunch",
+      "providerName": "TechCrunch",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s7",
+     "url": "https://memberful.com/about",
+     "publisher": "Memberful（会社紹介）",
+     "snapshot": {
+      "url": "https://memberful.com/about",
+      "finalUrl": "https://memberful.com/about",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:07:20.049Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7a6f59f8b8e6d328367705326a8eef26e857ab2932202aa52a4b93c21863d30d"
+     },
+     "text": "About Memberful | Memberful\nWe help founders and teams craft elevated membership experiences that are entirely their own.\nAbout Memberful\nWe help founders and teams craft elevated membership experiences that are entirely their own.\nAbout Memberful | Memberful\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nWe help founders\nand\nteams\ncraft elevated\nmembership\nexperiences\nthat are entirely their own.\nWe help founders and teams craft elevated membership experiences that are entirely their own.\nAs algorithms push for more content, faster, it can feel like the whole internet is optimizing for the quick win. But we’ve been around long enough to know, you can’t growth hack your way to a great membership. Those are made with intention. We built our platform to prove it.\nFor a membership that’s never one-size-fits-all\nMemberful is built on a deep belief that every membership is one of one. It should reflect the best of your business, your brand, and your audience. That’s why flexibility is at the heart of everything we do.\nPowering over one million members and creative businesses of all kinds\nOur customers are continuously pushing the bounds of what’s possible with Memberful. Their memberships are widely varied and wildly inspiring.\nPeople matter. Meet our team.\nMemberful isn’t just software. It’s a partnership between our team and yours. These are the folks behind the scenes that make Memberful what it is.\nPassionate about helping. Loves traveling and finding great street food.\nEyal Avital\nCustomer Happiness\nPrefers simplicity over complexity. Loves downhill mountain biking.\nPatrik Bona\nEngineering\nLoves building, solving problems, and having fun while doing it.\nDan Carson\nHead of Memberful\nHas a checklist for every situation. Big genealogy nerd.\nLauren Gilbert\nCustomer Happiness\nBelieves there’s a great story that’s always worth telling. Probably making coffee.\nMichael Gillespie\nCreator Growth\nAlways has the hottest take. Probably rationalizing a comic book splurge.\nTony Hardy Jr.\nCustomer Happiness\nAddicted to design, code, good BBQ, and music.\nAndy Leverenz\nDesign\nLoves playing games and reading books. Has a new hobby every other month.\nLucas Mansur\nEngineering\nAlways up for a chat. Probably playing ice hockey.\nJen Matichuk\nCreator Partnerships\nLikes writing both code and words. Watches way too many movies.\nJake Paul\nEngineering\nAlways trying to explore something new. Learning to skydive.\nGui Sarmento\nDesign\nWe’re creating a home for the world’s best memberships. Come build it with us .\nSee our open roles\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://memberful.com/customers/workweek-lunch",
+     "publisher": "Memberful（Workweek Lunch の顧客事例）",
+     "snapshot": {
+      "url": "https://memberful.com/customers/workweek-lunch",
+      "finalUrl": "https://memberful.com/customers/workweek-lunch",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:50:17.567Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "11e8ae347fa868e755fcf104ea406f91f3ad6721cbbbb642b1a4984a6a51e52d"
+     },
+     "text": "Cooking up a successful membership site. | Memberful\nBuild a membership that’s truly yours\nCooking up a successful membership site.\nBuild a membership that’s truly yours\nCooking up a successful membership site. | Memberful\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nCustomer Story\nCooking up a successful membership site.\nAfter learning about subscription and membership site models earlier this year, Talia Koren took the leap toward monetization by launching the Workweek Lunch meal prep program. Discover how Workweek Lunch found the recipe for membership success.\n“I used to be a health journalist. I was on the other side writing dieting articles and I knew all along, ‘this is not right, I hate telling people this.’ I just hated that I was writing stuff that I knew was negative. There are so many ways to go about being healthy that have nothing to do with trying to lose weight. I wanted to teach people that there are better or more important things to accomplish in life than losing 50 pounds then regaining it.” That was the original mission behind Talia Koren’s Instagram account, Workweek Lunch , where she shares menus, meal plans, and advice with thousands of healthy food lovers. “The Instagram took off because it was easy to stand out in a place where people were just hearing the same things over and over again — counting calories and whatever else people don’t want to do because they know it doesn’t work. I came in with my intuitive eating and anti-diet and it was really refreshing for people.” Standing out gave Koren the opportunity to amass 140k engaged Instagram followers, however, she had no idea at the time that she could convert those followers into paying subscribers. “I knew that monetization was always part of it from day one, but didn’t know that a membership would be part of it.” After learning about subscription and membership site models earlier this year, Koren took the leap toward monetization by launching the Workweek Lunch meal prep program .\nFirst, the test kitchen.\nInstead of jumping in and immediately trying to convert her followers into subscribers Koren focused on experimentation and beta testing before launching her subscription site. Her test gave her valuable insights that made it easier to launch, and in her opinion, any creator starting a membership site should not only test whether or not their followers are willing to become subscribers, but also make sure they have the bandwidth to keep up the content needed to maintain the membership site. “My advice is to treat everything like a test. Try different things, take small groups and test things. I did a beta test of the subscription without Memberful first. I took 50 email subscribers that I chose for a free trial and did that for three weeks before I launched to see if it was sticky and to see if I could come up with a meal plan every week.” Koren also shared eBooks and one-off downloads with her followers to see if they were interested in downloading content long before she decided on subscriptions.\nFree samples.\nOne of the strategies Koren used as she came closer to the official launch was boosting follower and subscriber excitement by hinting at what she was about to share. “I built up a lot of anticipation prior to the launch. I made [my followers] guess at what I was going to launch and they were all like ‘cookbook!’ They had no idea what I was going to launch, I kept it a secret and put it together in just two months.” Koren also put all of her pre-launch research into play by using what she had learned from her beta test and by taking advantage of her growing email list and social media followers. “It took a lot of planning and I made sure to use both channels available to me— email and Instagram. I also gave my customers a bonus for signing up in the first week and I got three hundred sign-ups in those first weeks.”\nPricing the menu.\nAlthough Koren knew she was ready to start driving revenue for Workweek Lunch, she was still nervous about how her followers would react to her new membership plan, and whether or not they would be turned off by asking them to pay for her meal plans. “That was really hard to get over because I’d been giving away recipes away for free for two years. I just kept telling myself that [my followers] were basically on a two-year free trial. They saw what I had to offer and the people who really supported me jumped at the opportunity to buy a membership.\" Because of Koren’s testing, engagement, and willingness to experiment with what her subscribers wanted, she quickly found success after launching her membership. “I have 750 members in just two months. It grew way faster than I thought it would grow.”\nTime to build something that's entirely yours.\nGet Started\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://memberful.com/blog/billing-updates",
+     "publisher": "Memberful（請求画面の改善）",
+     "snapshot": {
+      "url": "https://memberful.com/blog/billing-updates",
+      "finalUrl": "https://memberful.com/blog/billing-updates",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:35.038Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "12c26f9149ad12e4c455c2e2569f03c2222713b1e8910f133309166e9d2a59f5"
+     },
+     "text": "Enhanced Memberful billing experience | Memberful\nAt Memberful one of our core goals is making our products easy to use for our customers.\nEnhanced Memberful billing experience\nAt Memberful one of our core goals is making our products easy to use for our customers.\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nProduct Update\nEnhanced Memberful billing experience\nBy Andy Leverenz on Nov 24, 2021\nOur billing experience just got a makeover.\nAt Memberful one of our core goals is making our products easy to use for our customers. With this in mind, we're excited to announce the launch of our fresh new Memberful billing experience. Improvements range from seamlessly changing between all Memberful plans to having a chronological history of receipts on file. Find more details about what we improved and why we chose to do so below.\nIf you have feedback or suggestions we want to hear from you! Use the chat bubble to your right to get in touch today.\nAn easier way to take your Memberful site live\nTo take a site live at Memberful we require a successful connection to Stripe (our partner for accepting payments securely ). Stripe allows you to receive automatic and secure payouts based on your membership offerings. When a successful connection is made and you meet the minimum requirements to go live, your site can then begin accepting real payments.\nIn the past, customers would sometimes go live mistakenly. This resulted in unecessary charges and a bit of headache to revert back to test mode. To help counter the possibility of this reoccurring, we chose to craft a new Activate Account page that acts as a one-stop resource used to start earning quickly with your memberships.\nOn this page you can compare and choose your Memberful plan, add billing details, and connect with Stripe to receive payouts from your memberships.\nIn this same view, we display a prompt to take your site live. If you are ready to \"Connect with Stripe\", we now display an additional confirmation step to hopefully ward off mistakes when going live.\nSeamlessly upgrade to our Premium plan\nHistorically, our premium plan was not a self-serve option. Customers interested in that plan would be required to reach out to our customer happiness team and do things more manually. This is inefficient for multiple parties so we improved it. To learn more about our Premium plan and pricing head to our pricing page .\nReceipts\nMemberful previously sent receipts via email. This worked fine but wasn't as organized as we or our customers would prefer. Now, a dedicated billing page is available to view and download any receipts on file. If you are an existing Memberful customer all of your previous receipts will display here as well. This is great for tax time, accounting, and a general reflection of choosing Memberful for your membership business.\nBilling address\nIf you prefer to have a saved address on file you can add or edit it at any time. The address data will display on your receipts which might be useful for accounting purposes. Once your site is live your receipts will begin to display billing address data if added.\nCredit card improvements\nManaging your credit card on file has become much simpler. Once your site is live the new dedicated billing tab allows you to change your saved payment method if there isn't one already. Our legacy solution for this was harder to find and a bit cumbersome to use.\nUnderneath the hood\nBehind the scenes we made more changes to improve the technology, speed, and efficiency of our internal billing logic. While it's not visible our application is now more lean, fit, and ready for the future.\nWe hope these improvements make Memberful even easier to use than before. We're excited to release these improvements and hope they continue to make our customers' membership businesses successful.\nFeatured photo by Visual Stories || Micheile on Unsplash\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA\nEnhanced Memberful billing experience | Memberful",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://memberful.com/blog/edit-subscriptions",
+     "publisher": "Memberful（契約の一括更新）",
+     "snapshot": {
+      "url": "https://memberful.com/blog/edit-subscriptions",
+      "finalUrl": "https://memberful.com/blog/edit-subscriptions",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:35.348Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "2fa93e3e970430adef77183eea845a2b172abeb377a991c4a1e4b9fb6fd92dd8"
+     },
+     "text": "Update multiple subscriptions at once | Memberful\n“Easily adjust billing dates, renewal settings, and more—all in one streamlined workflow.”\nUpdate multiple subscriptions at once\n“Easily adjust billing dates, renewal settings, and more—all in one streamlined workflow.”\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nProduct Update\nUpdate multiple subscriptions at once\nBy Lauren Gilbert on May 8, 2025\nEasily adjust billing dates, renewal settings, and more—all in one streamlined workflow.\nWe’ve all been there: You're managing dozens (or thousands) of active members, and suddenly, you need to make the same update to a whole group of them. Maybe you're adjusting billing dates or disabling auto-renew.\nPreviously, this was only possible with our assistance. Now, you can do it on your own, quickly and at scale.\nBulk updates, made simple\nEdit Subscriptions is a brand new tool that lets you update multiple subscriptions at once—right from your admin dashboard. Whether you're updating 20 subscriptions or 2,000+, you can now filter by plan, creation date, expiration date, or autorenew status.\nThen choose the actions you want to take and confirm your updates.\nWhite-glove service, built right into the platform\nUntil now, bulk updates were something our team handled for you. And we were happy to help! This new feature gives you a faster, more flexible way to handle updates yourself—backed by the same support if you ever need it.\nNow available to all admins\nThe Edit Subscriptions feature is rolling out starting today. You’ll find it in the Subscriptions section of your dashboard.\nCheck it out →\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA\nUpdate multiple subscriptions at once | Memberful",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://memberful.com/docs/changelog",
+     "publisher": "Memberful（製品変更履歴）",
+     "snapshot": {
+      "url": "https://memberful.com/docs/changelog",
+      "finalUrl": "https://memberful.com/docs/changelog",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:35.387Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "8f64c67ae4943477fbf6c9420da27af477a241498d825ee92977dcd61ec59aae"
+     },
+     "text": "Changelog - Memberful\nRecent product updates, new features, and improvements in Memberful, covering plans, payments, the member website, integrations, and the Memberful dashboard.\nChangelog - Memberful\nRecent product updates, new features, and improvements in Memberful, covering plans, payments, the member website, integrations, and the Memberful dashboard.\nChangelog - Memberful\nDocumentation Index\nFetch the complete documentation index at: /docs/llms.txt\nUse this file to discover all available pages before exploring further.\nSkip to main content\nMemberful home page\nSearch...\n⌘ K\nStatus\nGet Started\nGet Started\nSearch...\nNavigation\nChangelog\nDocumentation\nAPI reference\nChangelog\nChangelog\nFilters Clear\nWordPress plugin Member experience Website Builder Admin dashboard Memberships and plans Hosted member site Integrations Developers Checkout and payments Plans Checkout\nChangelog\nCopy page Copy page\nRecent product updates, new features, and improvements in Memberful, covering plans, payments, the member website, integrations, and the Memberful dashboard.\nCopy page Copy page\n​\nOctober 1, 2026 WordPress plugin\n​\nSet up a metered paywall in WordPress\nGive readers access to a limited number of public posts before showing your paywall. You can set different limits for anonymous visitors and free members, choose which public content is metered, and customize the messages readers see as they approach their limit. Read the docs →\n​\nOctober 1, 2026 WordPress plugin\n​\nBuild a custom WordPress paywall without code\nThe new visual paywall builder lets you create a branded paywall without writing HTML or CSS. Choose an Inline or Card layout, customize the message and benefits, adjust the colors and button style, and preview your changes as you work. Read the docs →\n​\nOctober 1, 2026 WordPress plugin\n​\nChoose how many paragraphs appear before your paywall in WordPress\nYou can now control how much of a protected post readers see before they reach your paywall. Choose the number of paragraphs to display to give readers a preview of your content and encourage them to subscribe. Read the docs →\n​\nOctober 1, 2026 WordPress plugin\n​\nControl Beaver Builder component visibility\nPlans are now available as a visibility option for Beaver Builder components. You can show or hide components, such as rows, based on a member’s plan to create more personalized pages and layouts. Read the docs →\n​\nOctober 1, 2026 WordPress plugin\n​\nProtect WP Recipe Maker recipe cards by plan\nYou can now control which plan members can access a WP Recipe Maker recipe card. This lets you protect the recipe itself while keeping introductions, photos, and other content in the post visible. Read the docs →\n​\nSeptember 23, 2026 Member experience\n​\nAdd a sign-up link to your sign-in form\nYou can now add a “Don’t have an account? Sign up” link beneath your sign-in form, giving visitors without an account a clear next step. Go to Website → General settings and choose an option from Call to action under sign-in form. The link appears on both the email and password steps wherever the sign-in form appears.\nRead the docs →\n​\nSeptember 17, 2026 Hosted member site\n​\nAdd testimonials with the new Quote block\nAdd a Quote block to any page on your member website to highlight testimonials or member feedback. Include a name and subtitle, upload a photo, add a link, and customize the background color and spacing.\nRead the docs →\n​\nSeptember 16, 2026 Website Builder\n​\nMore fonts for your member website\nYou can now choose from 12 font families when customizing your member website, including Inter, DM Sans, Merriweather, Playfair Display, and more. Choose different fonts for body text and titles to give your site a look that better matches your brand.\nRead the docs →\n​\nSeptember 2, 2026 Checkout and payments Admin dashboard\n​\nCreate and manage coupons more easily\nCoupons now have a separate internal label and list of codes, making it easier to organize your offers and track how each code performs. You can add up to 1,000 codes at once directly from the Memberful dashboard, which previously required the API, and view the redemption count and most recent redemption date for each code.\nYou can also manage codes individually. Delete a code to prevent future use without affecting members who already redeemed it, or move an existing code to another coupon. Deleted codes remain visible with their redemption history. After a coupon has been redeemed, its discount amount, format, and duration are locked so existing members keep the discount they received. To offer a different discount, duplicate the coupon and update the copied settings. Read the docs →\n​\nAugust 27, 2026 Admin dashboard\n​\nHide revenue figures with Privacy Mode\nYou can now hide revenue figures and other sensitive metrics throughout your Memberful dashboard. Open your profile menu and toggle on Privacy Mode before sharing your screen or working in public.\n​\nAugust 25, 2026 Website Builder\n​\nChoose your subscribe button label\nYou can now choose the label used on join buttons throughout your member website. Choose from Subscribe , Join , Donate , Support , or Become a Member to better match how you describe your membership. Your selected label appears on join buttons in the member website header, footer, and paywall. Read the docs →\n​\nAugust 20, 2026 Website Builder\n​\nNew Downloads block for member website pages\nYou can now add a Downloads block to pages on your Memberful member website, making it easy to share files like PDFs, MP3s, and other resources for members to download. Read the docs →\n​\nAugust 7, 2026 WordPress plugin\n​\nLink members directly to their subscriptions\nYou can now use the memberful_subscriptions_link shortcode to add a link anywhere on your WordPress site that takes members directly to their subscriptions page .\nRead the docs →\n​\nAugust 5, 2026 Hosted member site\n​\nPublish pages without adding them to your navigation\nPages on your member site can now be set to Unlisted. The page stays live at its URL, but is removed from your navigation menu, making it easy to share through emails, external websites, or direct links. A new copy button in the page settings lets you quickly copy the page URL and share it wherever you need. Read the docs →\n​\nAugust 4, 2026 Hosted member site\n​\nAdd an announcement banner to your member site\nYou can now display a dismissible announcement banner at the top of your member site hosted by Memberful. Use it to share important updates, promote new content, or direct members to a specific page. Read the docs →\n​\nJuly 30, 2026 Member experience\n​\nUpload a profile image directly to Memberful\nMembers can now upload and update their profile image directly from their member account. They no longer need to use Gravatar to add a photo.\nRead the docs →\n​\nJuly 28, 2026 Website Builder Plans\n​\nAdd gift buttons to your subscription page\nYou can now add customizable gift buttons to eligible plans on your Memberful-hosted subscription page, making it easier for visitors to purchase a membership for someone else. Read the docs →\n​\nJuly 23, 2026 Integrations Developers\n​\nIdentify subscription reactivations\nWebhooks and Zapier can now distinguish when a lapsed member reactivates their subscription from a regular renewal. Use the new subscription.reactivated webhook event or Subscription Reactivated Zapier trigger to create automations specifically for returning members. For example, restore their access to Slack or Circle, or notify your team to follow up.\nExisting integrations that use subscription renewal events will continue working without any changes. Read the docs →\n​\nJuly 21, 2026 Member experience Memberships and plans\n​\nRenewal reminders for more membership terms\nRenewal reminder emails now go to members on plans lasting three months or longer, including quarterly and semi-annual memberships. Members on these plans receive the reminder 14 days before renewal, helping reduce surprise charges and avoidable refund requests. Members on annual plans will continue receiving their reminder 31 days before renewal.\nNo action is needed if renewal reminders are already enabled for your account.\n​\nJuly 20, 2026 Website Builder\n​\nCustomize spacing on your member website\nNew spacing controls let you adjust the space around titles and content blocks. Choose from four options to create tighter or more open page layouts.\nRead the docs →\n​\nJuly 15, 2026 Checkout Plans\n​\nGift group subscriptions\nCustomers can now purchase group subscriptions as gifts, making it easy to give access to a team, family, or community. Offer and manage gifts →\n​\nJuly 13, 2026 Website Builder\n​\nContent blocks now support background colors\nContent blocks now support background color settings, bringing them in line with the other block types in the Website Builder. Use background colors to make sections stand out and create more visually engaging page layouts. Read the docs →\n​\nJune 29, 2026 Checkout\n​\nSet a custom redirect after standalone download purchases\nStandalone downloads can now have their own after checkout redirect . Instead of sending customers back to your site’s default page, you can choose a custom URL for each downloadable product. This makes it easier to guide customers to a thank-you page, onboarding instructions, or anywhere else you want them to go immediately after completing their purchase.\nRead the docs →\n​\nJune 17, 2026 Memberships and plans\n​\nChoose how plan price changes affect members\nPlan price changes now work differently to help you avoid unexpected billing changes for existing members. When updating a plan’s price, you’ll choose whether the change applies only to new signups or also affects existing members. This gives you more flexibility when introducing new pricing while maintaining the experience you want for current members. Read the docs →\n​\nJune 16, 2026 WordPress plugin\n​\nMembership expiry warning banner in WordPress\nThe Memberful WordPress plugin can now display a banner to members whose memberships are expiring soon or have already expired, making it easier for members to renew and maintain access. Read the docs →\n​\nJune 11, 2026 Admin dashboard Memberships and plans\n​\nFilter and sort plans by plan changes\nYou can now filter plans by their plan change settings and sort plans based on available plan changes, making it easier to review and manage upgrade and downgrade paths.\n​\nJune 11, 2026 Hosted member site\n​\nAdd a post archive to your member website\nYou can now add a post archive link to your member website’s navigation, making it easier for members to discover and explore posts beyond your latest updates. The archive works alongside your existing post categories, helping members find more of the content they’re looking for.\nRead the docs →\n​\nJune 2, 2026 Integrations Member experience\n​\nSeparate Discord roles for trial and paid members\nAssign different Discord roles based on a member’s subscription status, so trial members and paying members can get different community access and permissions. Read the docs →\n​\nMay 27, 2026 Admin dashboard Memberships and plans\n​\nMove prices between plans with bulk moves\nBulk moves now support moving a price between plans without changing what members pay, making it easier to consolidate plans and update member access. We’ve also improved how scheduled plan changes are handled during moves. Read the docs →\n​\nMay 12, 2026 Checkout and payments Member experience\n​\nStripe Link support\nMembers can securely save and reuse their payment details across sites that use Stripe, autofilling at checkout for faster returning purchases.\n​\nMay 6, 2026 Admin dashboard Memberships and plans\n​\nImport custom fields\nBring custom field data along when importing members, so member records arrive complete. Read the docs →\n​\nApril 15, 2026 WordPress plugin\n​\nChoose exactly where protected content begins\nYou can now use Memberful’s Paywall Divider to control exactly where protected content starts within a post or page. Content above the divider remains visible to visitors, while content below it is protected and available only to members. Place the divider where you want the preview to end and members-only content to begin.\nRead the docs →\n​\nApril 13, 2026 Memberships and plans Checkout and payments\n​\nMultiple prices in a single plan\nOffer monthly, annual, or alternative pricing within one plan instead of duplicating plans — same member benefits and access rules. Read the docs →\n​\nFebruary 25, 2026 WordPress plugin Member experience Integrations\n​\nHide ads for members\nAutomatically hide ads for paying members by integrating with popular ad platforms — an ad-free experience as a membership benefit, with no custom development. Members get fewer distractions while ad revenue from non-members stays intact. Read the docs →\n​\nFebruary 23, 2026 Integrations\n​\nActiveCampaign integration\nKeep ActiveCampaign contacts in sync as memberships change, so you can automate segmentation and campaigns based on membership activity. Read the docs →\n​\nJanuary 20, 2026 Admin dashboard Member experience\n​\nA new Memberful experience\nA refreshed brand identity, an updated dashboard, and a redesigned website that better reflect how customers use Memberful at scale. Read more →\n​\nJanuary 19, 2026 WordPress plugin Developers\n​\nUser roles by plan\nAssign different WordPress user roles based on a member’s plan for finer-grained control over permissions and access. Read the docs →\n​\nJanuary 19, 2026 WordPress plugin Developers\n​\nControl block visibility\nShow or hide individual blocks by membership status, login state, or plan — build mixed public and member-only pages without shortcodes. Read the docs →\n​\nJanuary 19, 2026 WordPress plugin Developers\n​\nMembers-only content in search\nA new plugin setting lets protected content appear in search results, plus a filter for developers to customize how protected content is handled. Read the docs →\nWas this page helpful?\nYes No\nMemberful home page x\nResources\nOperator Customers Preferred Partners Request a Demo DMCA\nCompany\nJobs Product Updates Security Data Protection\nPolicies\nTerms of Service Privacy Policy Cookie Policy DPA\nx\nPowered by This documentation is built and hosted on Mintlify, a developer documentation platform",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s12",
+     "url": "https://memberful.com/integrations",
+     "publisher": "Memberful（外部サービス連携）",
+     "snapshot": {
+      "url": "https://memberful.com/integrations",
+      "finalUrl": "https://memberful.com/integrations",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:35.613Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "a16abdab12f10a83e45f6b879631756327224df6f61fafaca438b0bbe2b510ae"
+     },
+     "text": "Memberful integrations | Memberful\nMemberful handles the hard stuff — always-on syncing, keeping up to date with the latest APIs, and supporting new partner features as they launch.\nMemberful integrations\nMemberful handles the hard stuff — always-on syncing, keeping up to date with the latest APIs, and supporting new partner features as they launch.\nMemberful integrations | Memberful\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nIntegrations\nMemberful handles the hard stuff — always-on syncing, keeping up to date with the latest APIs, and supporting new partner features as they launch.\nWebsite\nWordPress\nShare members-only content on your WordPress website. Protect your content server-side so it's 100% secure and can only be accessed by paying members.\nLearn More\nEmail\nMailchimp\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nEmail\nKit\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nCommunity\nDiscord\nCreate a members-only chat forum. We'll invite paid members to your Discord server and automatically remove their access once their subscription expires.\nLearn More\nEmail\nCampaign Monitor\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nEmail\nActiveCampaign\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nEmail\nklaviyo\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nEmail\nMailerlite\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nEmail\nSailthru\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nEmail\nDrip\nKeep your member list in sync, send exclusive emails to all members or members from a specific plan. Target and re-engage inactive members.\nLearn More\nCommunity\nDiscourse\nCreate a private, members-only discussion forum. We'll keep your paid members in sync and remove their access once their subscription expires.\nLearn More\nAnalytics\nGoogle Analytics\nTrack conversions when someone signs up for a new membership on your website and we'll send a transaction event to your Google Analytics account.\nLearn More\nCommunity\nbbPress\nCreate a members-only discussion forum on your WordPress site. We'll keep your paid members in sync and remove their access once their subscription expires.\nLearn More\nAffiliate Tracking\nTapfiliate\nCreate and track your own affiliate programs. Track referrals and issue commissions for each of your plans in Memberful.\nLearn More\nLearning Management\nLearnDash\nCreate members-only lessons, topics, and quizzes on your WordPress site.\nLearn More\nOnline Learning\nSensei\nCreate members-only modules, lessons, and quizzes on your WordPress site.\nLearn More\nCustom\nZapier\nConnect with thousands of third-party applications. Trigger automated workflows when members and subscriptions are created or updated.\nLearn More\nCustom\nAPI & Webhooks\nLeverage our fully integrated GraphQL API and Webhooks to build powerful, custom applications on top of your Memberful account.\nLearn More\nMemberful is free to try for as long as you like, so you can get into the details.\nGet Started\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s13",
+     "url": "https://memberful.com/become-a-partner",
+     "publisher": "Memberful（提携先向け制度）",
+     "snapshot": {
+      "url": "https://memberful.com/become-a-partner",
+      "finalUrl": "https://memberful.com/become-a-partner",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:36.286Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "be48b8275e788a7553ebad54d3051ff2b02b155be7906ebb495a588d8387dafb"
+     },
+     "text": "Memberful preferred partners | Memberful\nJoin our partner network\nMemberful preferred partners\nJoin our partner network\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nBecome a Partner\nJoin our partner network\nWe love connecting our customers with developers and agencies we trust. Interested in being our next partner? Learn more and apply below.\nApply Now\nThe benefits of being a preferred partner\nThis program is intended to be mutually beneficial for you and customers looking to create the best membership possible.\n1\nAn interview with your company published on Memberful.com\n2\nCo-branded collateral to sell Memberful to your clients\n3\nA partnership handbook and launch checklist\n4\nA public profile listing on Memberful.com\n5\nImmediate access to technical help from our team\n6\nWe send potential clients your way\nPartner success stories\nView All Partners\nGarbage World\nMemberful partner, Wonderly , helped transform the digital home of Casey & Danielle’s Garbage World .\nThe Club by Molly Baz\nMemberful partner, Wonderly , designed and built Molly Baz’s recipe hub The Club .\nMythical Society\nMemberful partner, Clock , helped create the extremely popular Mythical Society membership experience.\nFuture Women\nMemberful partner, Code.Co , designed and built the beautiful WordPress community hub for FW .\nHighland Academy\nMemberful partner, Find & Supply , designed the thriving founders community hub for Highland Academy .\nView All Partners Previous Next\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA\nMemberful preferred partners | Memberful",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s14",
+     "url": "https://memberful.com/preferred-partners",
+     "publisher": "Memberful（提携先一覧）",
+     "snapshot": {
+      "url": "https://memberful.com/preferred-partners",
+      "finalUrl": "https://memberful.com/preferred-partners",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:37.154Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "4fb44b4fff507d129b8c645ad21e222a4293faa10bebf6eaa45e5ee3ddf7fbb7"
+     },
+     "text": "Memberful preferred partners | Memberful\nGreat memberships aren’t built alone.\nMemberful preferred partners\nGreat memberships aren’t built alone.\nMemberful preferred partners | Memberful\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nPreferred Partners\nGreat memberships\naren’t built alone.\nWe’ve curated a network of specialists who understand what makes a membership one of one. Together, we help you create something lasting.\nAgency\nThe Code Company\nThe Code Company is a specialist technical agency that focuses exclusively on digital publishing. TCC are engineering experts in WordPress, and work on everything from large-scale redesigns to migrations and complex data integrations. The company has built hundreds of tech stacks for hundreds of publishers of all shapes and sizes.\nView their website\nAgency\nClock Limited\nClock is a global technology and innovation company that solves tricky business problems using custom tech. We design and build websites, mobile apps, develop custom software and integrate platforms to perform seamlessly for some of the world's largest global brands. Clock has integrated Memberful to non-WordPress sites such as Payload and Webflow, with more available. Clock has been fiercely independent since 1997.\nVisit their website\nAgency\nWonderly\nWonderly partners exclusively with personality-driven brands—chefs, digital educators, and niche creators—to design strategic digital experiences that amplify their impact, energize loyal fanbases, and drive sustainable growth.\nVisit their website\nAgency\nFind & Supply\nFind & Supply is a creative studio that helps startups and founders launch, grow, and elevate their brands through thoughtful design and development. We create clean, modern websites that combine strategic thinking with refined visuals to deliver fast, functional, and beautiful digital experiences.\nVisit their website\nAgency\nWheelhouse\nWheelhouse is a multidisciplinary digital product strategy and design studio based in Miami and New York City. Through bold thinking and strategic design, we propel brands forward.\nVisit their website\nPublishing Agency\nBlueLena\nBlueLena is creating a sustainable future for over 200 independent local media organizations across North America. It does so by deploying world class technology, optimizing user conversion and funnel management, engineering data integrations and then delivering the expertise and professional services to build and support subscription, membership and donation models for long-term success.\nVisit their website\nWordPress Hosting\nBigScoots\nBigScoots is a fully managed hosting and site performance services provider for WordPress and WooCommerce sites that supports content creators, as well as the highly complex needs of enterprise and e-commerce clients. Since 2010, BigScoots has been recognized for unparalleled client service with 24/7 support, access to real human experts within 90 seconds, and site-specific management. With its own hardware and network infrastructure inside a world-class data center, and a team of in-house engineers, BigScoots collaborates closely with clients to deliver robust client hosting services.\nVisit their website\nAgency\nLevel Up Creators\nWith your expertise as our focus, Level Up's team of strategists, marketers, sales pros, product developers, administrators, and tech gurus handle the heavy-lifting of building and optimizing a profitable business that will transform your life for good. We do any or all parts of running a creator-first business, with a special emphasis on full customer lifecycle management within recurring revenue products and services.\nVisit their website\nAgency\nInteractux\nInteractux is an independent digital consultancy with expertise in the entire user experience design and development workflow, helping both our clients and their customers reach their goals. We take a strategic approach to understanding your digital challenge at hand. Then, we use tools like Memberful, WordPress and most importantly, our brains, to craft a solution that delivers tangible results.\nVisit their website\nWordPress Agency\nMagicoders\nAt Magicoders, this small team of two is all about finding simple solutions to complex problems, and delivering high-quality work that meets business goals. With attention to detail and a performance-oriented approach, Magicoders helps businesses that need a reliable and capable go-to developer for WordPress website development, creating custom features, and extending Memberful in special ways.\nVisit their website\nWordPress Development\nCWPDEV\nCWPDEV works with organizations running WordPress to see how they can tailor their site to meet their unique value proposition, streamline operations, and engage their audience. Within WordPress, CWPDEV's specialties include Memberful, LearnDash, WooCommerce and custom API integrations.\nContact them\nFreelance Developer\nMaximilian Mackson\nMax keeps a low profile as the tech-savvy \"secret weapon\" for a small number of lean teams, where he uses his business knowledge and technical expertise to build fast and reliable automated systems and integrations. Preferring quality over quantity, he works 1-on-1 with clients to supercharge their sales + marketing and impress their customers. His empathy-driven architectures, eye for detail, and occasional doses of good humor make him exactly who you've been looking for.\nContact them\nFreelance Developer\nBrock Martin\nBrock is a website and WordPress developer with years of experience creating beautiful, interactive websites for hundreds of clients. He specializes in custom, hand-coded websites and have been the developer behind many successful membership-based businesses. His goal is to provide an outstanding experience from start to finish. With his background in running an agency and managing hundreds of projects, he's well-equipped to guide you through any technical details and questions you might have.\nVisit their website\nAgency\nSelland Technologies\nWhen you are facing a challenge and wondering where to begin, start where you are. At Selland Technologies we use this as a guiding principle to help you build and grow. We ensure your next step is moving in the right direction by taking time to understand your business and customers goals, strategies, and mission.\nVisit their website\nWordPress Hosting\nDeep Roots Hosting\nDeep Roots Hosting is a boutique web host with over 25 years of experience catering to independent publishers, lifestyle bloggers, and all types of other clients. We combine fast, reliable web hosting with the best personal service you’re likely ever going to experience - no more feeling like you’re just a number amidst a million other customers!\nVisit their website\nAgency\nTeknoFlair\nTeknoFlair is a WordPress Development Services agency that provides entire site builds, customization, and ongoing support services. We specialise in WordPress based E-Learning and Membership Website Development, Consultancy and Customization. Our customization and development services includes full website build, membership plugin configuration, plugin migrations, technical and strategy support, figma to web design, custom plugin development and API integrations.\nVisit their website\nBecome a Partner\nLet’s build beautiful memberships together\nWe love connecting our customers with developers and agencies we trust. Interested in being our next partner?\nLearn more\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s15",
+     "url": "https://memberful.com/migration",
+     "publisher": "Memberful（移行支援）",
+     "snapshot": {
+      "url": "https://memberful.com/migration",
+      "finalUrl": "https://memberful.com/migration",
+      "status": 200,
+      "fetchedAt": "2026-10-07T09:51:37.704Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "874132b06c6cb3da3b4897a4c1e6765bf0101c3cbf59983858cab9aec1677bcc"
+     },
+     "text": "Migrate to Memberful | Memberful\nLet's plan your move to Memberful\nMigrate to Memberful\nLet's plan your move to Memberful\nMigrate to Memberful | Memberful\nSkip to Main Content\nMemberful Product The Memberful Platform\nExplore our all-in-one platform that’s never one size fits all.\nMemberful for\nCreators Podcasters, bloggers, food creators, artists, and more\nIndependent Publishers Writers, journalists, and newsrooms\nCommunities Clubs, associations, and finance communities\nEnterprise\nCustomers\nResources Operator\nBig ideas for membership driven business.\nExplore\nIntegrations Fully native, no coding required.\nDocumentation Learn quickly, build confidently.\nBlog Insights, updates, and teaching.\nOur company Learn what makes us different.\nPricing\nSign In\nBook a Demo\nTry for Free\nTry for Free Menu\nProduct\nEnterprise Customers Resources\nPricing Sign In\nTry for Free Book a Demo\nMigration Concierge\nLet's plan your move to Memberful\nWe’ve transitioned many thousands of members to Memberful from all kinds of platforms including Substack and WooCommerce. We'll tailor a migration plan unique to your membership and work with you every step of the way.\nFirst Name *\nEmail Address *\nMembership Name\nWebsite or Social Media URL\nWhat platform are you currently using?\nHow many members are you migrating?\nAre you already using Stripe? Yes No\nLet's get started By submitting this form, you agree to our terms .\n“ Thank you so much for all the time and effort you and the team put into making this migration so seamless. It made the launch SO much less stressful and the new site is working great! ”\nChris Gresham-Britt\nat Caffeine Powered Digital\nFrequently asked questions\nHow much does it cost to migrate to Memberful?\nWill my members payments be disrupted?\nHow long will the migration take?\nCan you migrate members from my current system?\nWhat kind of support do you offer post-migration?\nStill not sure?\nCurious to see what makes Memberful the solution chosen by some of the biggest creators in the world? We’d be happy to offer you a tour, answer your questions, and help you determine if we’re the perfect fit for your business.\nBook a demo\nFresh insights on the art and science of membership delivered to your inbox weekly\nSubscribe\nProduct\nThe Memberful Platform\nEnterprise\nPricing\nFor Creators\nFor Media Companies\nFor Communities\nWordPress\nNewsletters\nPodcasts\nWebsite Builder\nDiscord\nResources\nDocumentation\nChangelog\nIntegrations\nCustomers\nOperator\nBlog\nMemberful Alternatives\nPreferred Partners\nBecome a Partner\nMigrate to Memberful\nCompare\nCompany\nAbout\nCareers\nBrand assets\nSupport\nContact\nHelp\nStatus\nMemberful Memberful is a Patreon company\nCopyright © 2013-2026 Memberful LLC. All rights reserved.\nSecurity Data Protection Terms of Service Privacy Policy Cookie Policy Data Processing Addendum DMCA",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "Drew Strojny は既存の会員制ソフトに不満を持ち、副業として会員課金の道具を作り始めた。数百の独立出版社・教育者・クリエイターとともに黒字で伸ばし、2018年に Patreon の完全子会社となった後も、別製品として続けている。",
+     "basis": [
+      "f1",
+      "f9",
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "Drew Strojny は、既存の会員制ソフトへの不満から副業として Memberful を始めた。2018年の発表時点では、数百の独立出版社、教育者、クリエイターとともに黒字で拡大していた。2018年8月8日、Patreon の完全子会社になり、Memberful は別製品として続けると説明した。同時に、既存客の価格は据え置き、新規客だけ Pro と Premium の取引手数料を上げた。報道によると、当時の Pro は月額25米ドルと取引額の4.9%だった。",
+     "basis": [
+      "f1",
+      "f9",
+      "f8",
+      "f7",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "売っているのは、クリエイター・出版社・コミュニティが自分のサイトやアプリで会員課金とコンテンツ提供をするための道具である。会員からの支払いは、利用者自身の Stripe アカウントに入る。Memberful はその利用者から、月額料金と会員取引額の4.9%を受け取る。会員の決済が増えるほど、Memberful の取り分も増える。",
+     "basis": [
+      "f2",
+      "f3",
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer_pain",
+     "item": "CUSTOMER_PAIN",
+     "text": "利用者が抱える面倒は、主に3つある。1つ目は、他の場所から会員を移すときの公開時の負担である。移行支援ページには、移行が円滑で公開時の負担が軽くなったとする利用者の評価が載っている。2つ目は、何千人もの会員を Substack や WooCommerce から移す手間である。3つ目は、多数の契約の請求日や自動更新をまとめて変える作業で、以前はスタッフに頼むしかなかった。",
+     "basis": [
+      "f21",
+      "f22",
+      "f15"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "公式の経路の一つが認定提携先制度である。制作会社には、紹介記事・公式一覧への掲載・共同の営業資料・技術支援・見込み客の紹介が提供される。提携先の Clock は、Payload や Webflow で作ったサイトに Memberful を組み込んでいる。このため、WordPress 以外のサイトからも客が入る。",
+     "basis": [
+      "f19",
+      "f20"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "創業者の Drew Strojny が副業として始めた。",
+     "basis": [
+      "f1"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "本番公開には利用者自身の Stripe アカウントの接続が必要で、課金の土台は Stripe である。サイト側の主な土台は WordPress で、新しい機能も WordPress 向けに追加されている。資本の面では Patreon の完全子会社である。",
+     "basis": [
+      "f3",
+      "f13",
+      "f16",
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "支払いの縛りは弱い。会員の支払いは利用者自身の Stripe アカウントに入るため、決済の情報は Memberful の手元に残らない。やめにくさを生むのは業務への組み込みである。WordPress・Mailchimp・Kit・Discord・Discourse との間で、会員情報とアクセス権を常に同期している。",
+     "basis": [
+      "f3",
+      "f17"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-referral",
+     "item": "REFERRAL",
+     "text": "流れ込む配管は2本ある。1本目は認定提携先制度で、Memberful が制作会社に見込み客を紹介し、紹介記事・一覧掲載・共同営業資料で後押しする。2本目は、利用者が Tapfiliate と連携して自分の会員向け紹介報酬制度を作れる仕組みである。",
+     "basis": [
+      "f19",
+      "f18"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "乗り換え元として名指しされているのは Substack と WooCommerce である。Memberful は移行担当者が顧客ごとに計画を作り、そこから何千人もの会員を移してきた。同じ会員課金の Patreon とは、親子会社でありながら別製品として並んでいる。",
+     "basis": [
+      "f21",
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2018年8月8日、Patreon の完全子会社になると発表した。2021年11月24日、Stripe 接続時の追加確認と、Premium への自分での変更を導入した。2025年5月8日、複数契約の一括操作を導入した。2026年10月1日、WordPress で無料記事の本数を区切って課金案内を出す機能を追加した。",
+     "basis": [
+      "f8",
+      "f13",
+      "f14",
+      "f15",
+      "f16"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "先行者が強く後発は困難。Memberful は Patreon の完全子会社として資本の後ろ盾を持つ。会社紹介によると、100万人超の会員を支えている。WordPress・Discord・メール配信との同期や、他社からの移行代行を積み上げてきたため、後発は同じ連携と移行の手間を一から揃える必要がある。",
+     "basis": [
+      "f8",
+      "f10",
+      "f17",
+      "f21"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "会員の支払いは客自身の Stripe に入れ、自社は月額料金と取引額の4.9%だけを取る。試用には期限を付けず、課金は本番公開の時点から始める。この設計にしたことで、客が稼ぎ始めてから料金が発生する。",
+     "basis": [
+      "f3",
+      "f4",
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "金を払っているのは、自分のサイトやアプリで会員課金をするクリエイター・出版社・コミュニティである。公式の顧客事例には、食事の作り置きプログラム Workweek Lunch を会員制で始めた Talia Koren がいる。2018年の時点では、数百の独立出版社・教育者・クリエイターが利用者だった。",
+     "basis": [
+      "f2",
+      "f11",
+      "f9"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "人手のかかる支援を自社で抱えている。移行担当者が顧客ごとに移行計画を作る。2025年5月8日に管理画面で一括操作できるようにするまでは、複数契約の請求設定の変更をスタッフが代行していた。会員の決済は利用者自身の Stripe で処理されるため、Stripe の決済手数料は利用者側の口座で差し引かれる。",
+     "basis": [
+      "f21",
+      "f15",
+      "f3"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-incumbent_blindspot",
+     "item": "INCUMBENT_BLINDSPOT",
+     "text": "親会社の Patreon 自身が、Memberful を吸収せず別製品として残した。2018年8月8日の発表によると、Patreon はすべてを自社内で完結させる形に寄せている。Memberful は利用者のサイト上で動き、外部の道具とつながる形をとる。両社は、同じ市場の別の層を狙うと位置づけた。",
+     "basis": [
+      "f8"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22"
+   ],
+   "identity": {
+    "id": "ent_memberful_0dff1f9c00fa",
+    "name": "Memberful",
+    "url": "https://memberful.com",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_7ed4c2143f37cc4c81f7c926",
+      "entityId": "ent_memberful_0dff1f9c00fa",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://memberful.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:04:15.269Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "7ed4c2143f37cc4c81f7c9265f56d74956a1c8d630be3ffab773713eea825a7b",
+      "bytes": 124571,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Memberful 公式サイト (https://memberful.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_memberful_0dff1f9c00fa/7ed4c2143f37cc4c81f7c9265f56d74956a1c8d630be3ffab773713eea825a7b.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_248f8884623a5486de0d2edd",
+      "entityId": "ent_memberful_0dff1f9c00fa",
+      "kind": "favicon",
+      "sourcePageUrl": "https://memberful.com/",
+      "assetUrl": "https://memberful.com/icon0.svg?icon0.83bf604d.svg",
+      "retrievedAt": "2026-10-07T10:04:15.303Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "248f8884623a5486de0d2edddcb2ae215bac31ce3d23fc169b548ac66c064edc",
+      "bytes": 1721,
+      "contentType": "image/svg+xml",
+      "width": 512,
+      "height": 512,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Memberful 公式サイト (https://memberful.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:19.957Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 512x512)、SHA-256が台帳と一致 (248f8884623a)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_memberful_0dff1f9c00fa/248f8884623a5486de0d2edddcb2ae215bac31ce3d23fc169b548ac66c064edc.svg",
+       "publicKey": "media/ent_memberful_0dff1f9c00fa/248f8884623a5486de0d2edddcb2ae215bac31ce3d23fc169b548ac66c064edc.svg"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_248f8884623a5486de0d2edd",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:19.957Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/svg+xml 512x512)、SHA-256が台帳と一致 (248f8884623a)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_93df3ee1530a8e81b2152e4d",
+      "entityId": "ent_memberful_0dff1f9c00fa",
+      "kind": "screenshot_pricing",
+      "sourcePageUrl": "https://memberful.com/pricing",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:04:17.443Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "93df3ee1530a8e81b2152e4d5d8bd1e4825e315ea6ff87c296738618996259ab",
+      "bytes": 61706,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Memberful 公式サイト (https://memberful.com/pricing)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_memberful_0dff1f9c00fa/93df3ee1530a8e81b2152e4d5d8bd1e4825e315ea6ff87c296738618996259ab.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_75b9c163ab063e84c435b4bf",
+      "entityId": "ent_memberful_0dff1f9c00fa",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://memberful.com/",
+      "assetUrl": "https://sanity-assets.memberful.com/images/dvnoujul/production/9e4f5704f83833826723e9b2f8771200d35f8d55-2680x1334.png?w=3072&fit=max&auto=format",
+      "retrievedAt": "2026-10-07T10:04:39.459Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "75b9c163ab063e84c435b4bf2b5cca2ff2fd83b7e68fff8c8c985d586e53e439",
+      "bytes": 813561,
+      "contentType": "image/png",
+      "width": 2680,
+      "height": 1334,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Memberful 公式サイト (https://memberful.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:19.959Z",
+       "notes": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/png 2680x1334)、SHA-256が台帳と一致 (75b9c163ab06)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_memberful_0dff1f9c00fa/75b9c163ab063e84c435b4bf2b5cca2ff2fd83b7e68fff8c8c985d586e53e439.png",
+       "publicKey": "media/ent_memberful_0dff1f9c00fa/75b9c163ab063e84c435b4bf2b5cca2ff2fd83b7e68fff8c8c985d586e53e439.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_75b9c163ab063e84c435b4bf",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:19.959Z",
+       "note": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/png 2680x1334)、SHA-256が台帳と一致 (75b9c163ab06)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_d6c7c52f76a9a5ee6eadc2d7",
+      "entityId": "ent_memberful_0dff1f9c00fa",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://memberful.com/product",
+      "assetUrl": "https://sanity-assets.memberful.com/images/dvnoujul/production/8f7dae930d96addb8f753b63fbe2702e04f52b46-1312x732.png?w=3072&fit=max&auto=format",
+      "retrievedAt": "2026-10-07T10:04:40.375Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "d6c7c52f76a9a5ee6eadc2d709fa02fe2ed6325f106be919cfe8123cd3756cf8",
+      "bytes": 113014,
+      "contentType": "image/png",
+      "width": 1312,
+      "height": 732,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Memberful 公式サイト (https://memberful.com/product)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:19.961Z",
+       "notes": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/png 1312x732)、SHA-256が台帳と一致 (d6c7c52f76a9)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_memberful_0dff1f9c00fa/d6c7c52f76a9a5ee6eadc2d709fa02fe2ed6325f106be919cfe8123cd3756cf8.png",
+       "publicKey": "media/ent_memberful_0dff1f9c00fa/d6c7c52f76a9a5ee6eadc2d709fa02fe2ed6325f106be919cfe8123cd3756cf8.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_d6c7c52f76a9a5ee6eadc2d7",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:19.961Z",
+       "note": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/png 1312x732)、SHA-256が台帳と一致 (d6c7c52f76a9)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_4560ffe8a7f2a83aea42ee72",
+      "entityId": "ent_memberful_0dff1f9c00fa",
+      "kind": "screenshot_product",
+      "sourcePageUrl": "https://memberful.com/",
+      "assetUrl": "https://sanity-assets.memberful.com/images/dvnoujul/production/2a7e423e8b3fd348a844d6183381ed1549a5395e-1030x712.png?w=3072&fit=max&auto=format",
+      "retrievedAt": "2026-10-07T10:04:41.757Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "4560ffe8a7f2a83aea42ee72db7dbfc5be9abf8e9f9194957fd17f5a2386024b",
+      "bytes": 746110,
+      "contentType": "image/png",
+      "width": 1030,
+      "height": 712,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Memberful 公式サイト (https://memberful.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:07:19.962Z",
+       "notes": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/png 1030x712)、SHA-256が台帳と一致 (4560ffe8a7f2)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_memberful_0dff1f9c00fa/4560ffe8a7f2a83aea42ee72db7dbfc5be9abf8e9f9194957fd17f5a2386024b.png",
+       "publicKey": "media/ent_memberful_0dff1f9c00fa/4560ffe8a7f2a83aea42ee72db7dbfc5be9abf8e9f9194957fd17f5a2386024b.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_4560ffe8a7f2a83aea42ee72",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:19.962Z",
+       "note": "自動判定 auto-rule-v4: screenshot_product。公式サイトの製品画面（product-screen-rule:v1 を再判定して screen）。画像として読める (image/png 1030x712)、SHA-256が台帳と一致 (4560ffe8a7f2)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_5d451b99233df591f1bb130f",
+      "entityId": "ent_memberful_0dff1f9c00fa",
+      "kind": "og_image",
+      "sourcePageUrl": "https://memberful.com/",
+      "assetUrl": "https://sanity-assets.memberful.com/images/dvnoujul/production/da7e702ea14237c984060bd203186f101bc4d8b4-2400x1260.jpg?w=1200&h=630&fit=crop&auto=format",
+      "retrievedAt": "2026-10-07T10:04:42.491Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "5d451b99233df591f1bb130fcf1846160459fccd4ab4a6dd6cfd3f9672cad85f",
+      "bytes": 35546,
+      "contentType": "image/jpeg",
+      "width": 1200,
+      "height": 630,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Memberful 公式サイト (https://memberful.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:07:19.580Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_memberful_0dff1f9c00fa/5d451b99233df591f1bb130fcf1846160459fccd4ab4a6dd6cfd3f9672cad85f.jpg",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_5d451b99233df591f1bb130f",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:07:19.580Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_248f8884623a5486de0d2edd",
+     "ma_75b9c163ab063e84c435b4bf",
+     "ma_d6c7c52f76a9a5ee6eadc2d7",
+     "ma_4560ffe8a7f2a83aea42ee72"
+    ],
+    "problems": []
+   },
+   "caseHash": "aed8f8dc45d0e2469f1c3251e997d1ea8535c321f7692cdde8eb63deeac4dfbb",
+   "itemHashes": {
+    "fact:f1": "c272c0d62682be927d22db7945d20f74c2a958c6eb1f0d2b516b247cc9e8de56",
+    "fact:f2": "86685a450261ba4ceac737e1e6423bbd9c6559ff979c5b5837af44691a66f5ca",
+    "fact:f3": "0d9c0fa7e963f70fd57e0c9334321bc8f6d78bb4451d365f7a56713074fbc0b1",
+    "fact:f4": "490c1e76c0c447c9d2da049c7badb11eababa1eb5af71ab5fe9f0ef4c672fb5e",
+    "fact:f5": "165eea9d1915db0952bc76f43d1009efecb7968f3a21d6e887d3ba2fbffac074",
+    "fact:f6": "608275fa2da73030a8f2e0a3605b363d6968976da656d758ec53b8f035022d79",
+    "fact:f7": "aae138172aacb74deb264b60dee604c43d7c62b53d36cd9737cdbad6dae1160a",
+    "fact:f8": "0dd4ab3d5668838162c7908c2f73307ddd4a71523938aa86e649a933e690fdc6",
+    "fact:f9": "a9e00b613cfe8551b665d1b33736ece75808b8b1696b16c4b4a7c97bf78cbd01",
+    "fact:f10": "6b5347ed45c6a371a3cd54351d4fcdb1e0cf9013d5d08384a77bd8b812b22728",
+    "fact:f11": "1d981a58116ac306349c0f1662e6cde223a42f36ab5ad29a073722e57694841a",
+    "fact:f13": "dffddba982a5bae24be6e752783773900bf17552018bec5050f5c419a88f3513",
+    "fact:f14": "47941cd8f7d8122d687026525196f456796ad5ade0dad9fc9c7cb4418ad33672",
+    "fact:f15": "b8d39857c8b10903db199693109db6e2ec4cfb3b2c4e3d3b6fcd28eae12804c0",
+    "fact:f16": "6f33c0a1d9eee7074b4247551d70a878c1f465ec48a2c8c856b94d8c1e9d8a8a",
+    "fact:f17": "e4c3820f48098cddf9d0b3f233f495fd2d01ced8882c8a3f25e37d0b6f0a3c12",
+    "fact:f18": "9d4311db758c46534ccff523910f7805c9103082cbc26272e4c927d5875dbe3c",
+    "fact:f19": "79fad491d043e30a5c31387f37014f1b1855e4881ab36daaae6af33712ad1f23",
+    "fact:f20": "1d89b233f5894f032c64c3795e6e6ac7fcfbea16a3028197bcf598ff862642c0",
+    "fact:f21": "635d03b5dc13a0e34591f79fb87b629e0062ba3193f4c1f8189924d171401744",
+    "fact:f22": "e4ee061fad3e53e0e440a7cc17c920dbc0c11e349bc66a12a1971139de3a1ae7",
+    "analysis:a-headline": "51d012176b9557eb729a0702faf11c2580163424d967d3193afcabe744b7cc14",
+    "analysis:a-story": "2abba4643d44bf20a351b0d926a7c5e3397fcbd8cce41193779af219c1502ec9",
+    "analysis:a-business_model": "b287c22b235e3402e2e0d08e497bca44294202b5d68f75646a1ff3b36bcdfcc9",
+    "analysis:a-customer_pain": "0f06ec64befbd7e3a7d5421cb302cc9ca5daef0012c38454ed05536d6521a5e8",
+    "analysis:a-channels": "ded6b4d257ffe2fe4fe66ce8b5d29613ff89d83601c98e77c239b8c657e9745c",
+    "analysis:a-capital_and_team": "41035098f205113fb7adc079ea5b58976129088d9e7e56db6e88bd6d72b949ec",
+    "analysis:a-dependencies": "eb53064c31ef412e4599584962fa64ab6ea9f8040dd4e7d62f59b53dfbb2af12",
+    "analysis:a-lock_in": "aa1b83671791850767bb8f898de8c3bff815eef4c35e4dc52c9fe5a5db7bff97",
+    "analysis:a-referral": "0fab26fb324506f862e687d9e0edcede31885b8e74648ae88739b4027feaeb3b",
+    "analysis:a-competition": "f4fc549855d3166b2f08919a9db8420cbef039db542f56a32bebca0d907cd6d4",
+    "analysis:a-timeline": "bb66d8ac33bfbf99234fbbcff0da224d6ea4744fceab7659a0ff46f0050736a7",
+    "analysis:a-viability": "0aeb14422da665f7d1964484601b78a344cc0e86094eecfec785c74080d5bb38",
+    "analysis:a-lesson": "2182bf37b87e29b96d91f7f7f4e933751a3507ada744257b6d18195cdf0a402f",
+    "analysis:a-customer": "d0f50d7f63443ff6ae98ae572d6a27007dfa8ef2d0c557869f1e93d501f18994",
+    "analysis:a-cost_structure": "0bd36c64b2fe5787b9b42b6d44f9319d4c6fc1798bf3ee61d8e93f672fb5ea80",
+    "analysis:a-incumbent_blindspot": "f007b06184cc763d8cd064967d9923a0c6db11373b5b121cb9009b9e3073d3bc"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer_pain",
+    "analysis:a-channels",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-referral",
+    "analysis:a-competition",
+    "analysis:a-timeline",
+    "analysis:a-viability",
+    "analysis:a-lesson",
+    "analysis:a-customer",
+    "analysis:a-cost_structure",
+    "analysis:a-incumbent_blindspot"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://memberful.com/blog/joining-patreon",
+      "publisher": "Memberful（Drew Strojny の発表）",
+      "publishedAt": "2018-08-08",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://memberful.com/",
+      "publisher": "Memberful（公式サイト）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "url": "https://memberful.com/pricing",
+      "publisher": "Memberful（料金）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://techcrunch.com/2018/08/08/patronage-empire/",
+      "publisher": "TechCrunch（2018年の料金報道）",
+      "publishedAt": "2018-08-08",
+      "checkedAt": "2026-10-07",
+      "kind": "ARTICLE"
+     },
+     {
+      "id": "s7",
+      "url": "https://memberful.com/about",
+      "publisher": "Memberful（会社紹介）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "url": "https://memberful.com/customers/workweek-lunch",
+      "publisher": "Memberful（Workweek Lunch の顧客事例）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://memberful.com/blog/billing-updates",
+      "publisher": "Memberful（請求画面の改善）",
+      "publishedAt": "2021-11-24",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://memberful.com/blog/edit-subscriptions",
+      "publisher": "Memberful（契約の一括更新）",
+      "publishedAt": "2025-05-08",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://memberful.com/docs/changelog",
+      "publisher": "Memberful（製品変更履歴）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s12",
+      "url": "https://memberful.com/integrations",
+      "publisher": "Memberful（外部サービス連携）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s13",
+      "url": "https://memberful.com/become-a-partner",
+      "publisher": "Memberful（提携先向け制度）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s14",
+      "url": "https://memberful.com/preferred-partners",
+      "publisher": "Memberful（提携先一覧）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s15",
+      "url": "https://memberful.com/migration",
+      "publisher": "Memberful（移行支援）",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "FOUNDING",
+      "text": "2018年の発表で、既存の会員制ソフトへの不満から5年前に副業として始めたと Drew Strojny が説明している。",
+      "sourceId": "s1",
+      "statedAt": "2018-08-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "DESCRIPTION",
+      "text": "自社サイトやアプリで会員課金とコンテンツ提供を行うクリエイター、出版社、コミュニティ向けサービスである。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "DESCRIPTION",
+      "text": "利用者自身の Stripe アカウントを接続して課金する。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "PRICING",
+      "text": "料金ページでは Standard は月額49米ドルに取引額の4.9%を加える。Enterprise は個別見積もり。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "PRICING",
+      "text": "試用は期限なしで、本番公開して支払いを受け付け始める時点から利用料金が発生する。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "PRICING",
+      "text": "2018年8月8日の報道では Pro は月額25米ドルと取引額の4.9%だった。",
+      "sourceId": "s6",
+      "statedAt": "2018-08-08",
+      "attribution": "ARTICLE"
+     },
+     {
+      "id": "f7",
+      "kind": "PRICING",
+      "text": "2018年の公式発表では既存客の価格を維持し、新規客のみ Pro と Premium の取引手数料を上げた。",
+      "sourceId": "s1",
+      "statedAt": "2018-08-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "EVENT",
+      "text": "2018年8月8日の発表で、Patreon の完全子会社となり、Memberful を別製品として続けると説明した。",
+      "sourceId": "s1",
+      "statedAt": "2018-08-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "OTHER",
+      "text": "2018年の発表では、数百の独立出版社、教育者、クリエイターとともに成長し、黒字で拡大していたと述べている。",
+      "sourceId": "s1",
+      "statedAt": "2018-08-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "会社紹介には100万人超の会員を支えるとある。",
+      "sourceId": "s7",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "OTHER",
+      "text": "Workweek Lunch の Talia Koren は、50人に3週間の無料試用を実施した後、メールと Instagram で会員サービスを告知したと説明している。",
+      "sourceId": "s8",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "OTHER",
+      "text": "2021年11月24日、誤って本番公開して不要な課金が発生する問題に対し、Stripe 接続時の追加確認を導入した。",
+      "sourceId": "s9",
+      "statedAt": "2021-11-24",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "EVENT",
+      "text": "2021年11月24日、従来サポートへの連絡が必要だった Premium への変更を、自分で行えるようにした。",
+      "sourceId": "s9",
+      "statedAt": "2021-11-24",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "EVENT",
+      "text": "2025年5月8日、従来スタッフが代行していた複数契約の請求日・自動更新設定の変更を、管理画面から一括操作できるようにした。",
+      "sourceId": "s10",
+      "statedAt": "2025-05-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "EVENT",
+      "text": "2026年10月1日、WordPress で一定数の無料記事を読んだ後に課金案内を表示する機能と、コードを書かずに課金案内を作る機能を追加した。",
+      "sourceId": "s11",
+      "statedAt": "2026-10-01",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "TOOL",
+      "text": "WordPress、Mailchimp、Kit、Discord、Discourse 等と連携し、会員情報とアクセス権を同期する。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "TOOL",
+      "text": "GraphQL と Webhook による独自連携、および Tapfiliate による利用者自身の紹介報酬制度の連携を提供する。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "CHANNEL",
+      "text": "認定提携先制度では、制作会社の紹介記事、公式一覧への掲載、共同営業資料、技術支援、見込み客の紹介を提供する。",
+      "sourceId": "s13",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "OTHER",
+      "text": "提携先一覧にある Clock は Payload や Webflow のサイトに Memberful を組み込んでいると説明されている。",
+      "sourceId": "s14",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "OTHER",
+      "text": "移行担当者が顧客ごとに計画を作り、Substack や WooCommerce 等から何千人もの会員を移してきたと説明している。",
+      "sourceId": "s15",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "OTHER",
+      "text": "移行支援ページに掲載された Chris Gresham-Britt の発言では、移行が円滑で公開時の負担が軽くなったと評価されている。",
+      "sourceId": "s15",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "Drew Strojny は既存の会員制ソフトに不満を持ち、副業として会員課金の道具を作り始めた。数百の独立出版社・教育者・クリエイターとともに黒字で伸ばし、2018年に Patreon の完全子会社となった後も、別製品として続けている。",
+      "basis": [
+       "f1",
+       "f9",
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "Drew Strojny は、既存の会員制ソフトへの不満から副業として Memberful を始めた。2018年の発表時点では、数百の独立出版社、教育者、クリエイターとともに黒字で拡大していた。2018年8月8日、Patreon の完全子会社になり、Memberful は別製品として続けると説明した。同時に、既存客の価格は据え置き、新規客だけ Pro と Premium の取引手数料を上げた。報道によると、当時の Pro は月額25米ドルと取引額の4.9%だった。",
+      "basis": [
+       "f1",
+       "f9",
+       "f8",
+       "f7",
+       "f6"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "売っているのは、クリエイター・出版社・コミュニティが自分のサイトやアプリで会員課金とコンテンツ提供をするための道具である。会員からの支払いは、利用者自身の Stripe アカウントに入る。Memberful はその利用者から、月額料金と会員取引額の4.9%を受け取る。会員の決済が増えるほど、Memberful の取り分も増える。",
+      "basis": [
+       "f2",
+       "f3",
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer_pain",
+      "item": "CUSTOMER_PAIN",
+      "text": "利用者が抱える面倒は、主に3つある。1つ目は、他の場所から会員を移すときの公開時の負担である。移行支援ページには、移行が円滑で公開時の負担が軽くなったとする利用者の評価が載っている。2つ目は、何千人もの会員を Substack や WooCommerce から移す手間である。3つ目は、多数の契約の請求日や自動更新をまとめて変える作業で、以前はスタッフに頼むしかなかった。",
+      "basis": [
+       "f21",
+       "f22",
+       "f15"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "公式の経路の一つが認定提携先制度である。制作会社には、紹介記事・公式一覧への掲載・共同の営業資料・技術支援・見込み客の紹介が提供される。提携先の Clock は、Payload や Webflow で作ったサイトに Memberful を組み込んでいる。このため、WordPress 以外のサイトからも客が入る。",
+      "basis": [
+       "f19",
+       "f20"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "創業者の Drew Strojny が副業として始めた。",
+      "basis": [
+       "f1"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "本番公開には利用者自身の Stripe アカウントの接続が必要で、課金の土台は Stripe である。サイト側の主な土台は WordPress で、新しい機能も WordPress 向けに追加されている。資本の面では Patreon の完全子会社である。",
+      "basis": [
+       "f3",
+       "f13",
+       "f16",
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "支払いの縛りは弱い。会員の支払いは利用者自身の Stripe アカウントに入るため、決済の情報は Memberful の手元に残らない。やめにくさを生むのは業務への組み込みである。WordPress・Mailchimp・Kit・Discord・Discourse との間で、会員情報とアクセス権を常に同期している。",
+      "basis": [
+       "f3",
+       "f17"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-referral",
+      "item": "REFERRAL",
+      "text": "流れ込む配管は2本ある。1本目は認定提携先制度で、Memberful が制作会社に見込み客を紹介し、紹介記事・一覧掲載・共同営業資料で後押しする。2本目は、利用者が Tapfiliate と連携して自分の会員向け紹介報酬制度を作れる仕組みである。",
+      "basis": [
+       "f19",
+       "f18"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "乗り換え元として名指しされているのは Substack と WooCommerce である。Memberful は移行担当者が顧客ごとに計画を作り、そこから何千人もの会員を移してきた。同じ会員課金の Patreon とは、親子会社でありながら別製品として並んでいる。",
+      "basis": [
+       "f21",
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2018年8月8日、Patreon の完全子会社になると発表した。2021年11月24日、Stripe 接続時の追加確認と、Premium への自分での変更を導入した。2025年5月8日、複数契約の一括操作を導入した。2026年10月1日、WordPress で無料記事の本数を区切って課金案内を出す機能を追加した。",
+      "basis": [
+       "f8",
+       "f13",
+       "f14",
+       "f15",
+       "f16"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "先行者が強く後発は困難。Memberful は Patreon の完全子会社として資本の後ろ盾を持つ。会社紹介によると、100万人超の会員を支えている。WordPress・Discord・メール配信との同期や、他社からの移行代行を積み上げてきたため、後発は同じ連携と移行の手間を一から揃える必要がある。",
+      "basis": [
+       "f8",
+       "f10",
+       "f17",
+       "f21"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "会員の支払いは客自身の Stripe に入れ、自社は月額料金と取引額の4.9%だけを取る。試用には期限を付けず、課金は本番公開の時点から始める。この設計にしたことで、客が稼ぎ始めてから料金が発生する。",
+      "basis": [
+       "f3",
+       "f4",
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "金を払っているのは、自分のサイトやアプリで会員課金をするクリエイター・出版社・コミュニティである。公式の顧客事例には、食事の作り置きプログラム Workweek Lunch を会員制で始めた Talia Koren がいる。2018年の時点では、数百の独立出版社・教育者・クリエイターが利用者だった。",
+      "basis": [
+       "f2",
+       "f11",
+       "f9"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "人手のかかる支援を自社で抱えている。移行担当者が顧客ごとに移行計画を作る。2025年5月8日に管理画面で一括操作できるようにするまでは、複数契約の請求設定の変更をスタッフが代行していた。会員の決済は利用者自身の Stripe で処理されるため、Stripe の決済手数料は利用者側の口座で差し引かれる。",
+      "basis": [
+       "f21",
+       "f15",
+       "f3"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-incumbent_blindspot",
+      "item": "INCUMBENT_BLINDSPOT",
+      "text": "親会社の Patreon 自身が、Memberful を吸収せず別製品として残した。2018年8月8日の発表によると、Patreon はすべてを自社内で完結させる形に寄せている。Memberful は利用者のサイト上で動き、外部の道具とつながる形をとる。両社は、同じ市場の別の層を狙うと位置づけた。",
+      "basis": [
+       "f8"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f3"
+   }
+  }
+ ]
+}

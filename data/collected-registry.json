@@ -33525,5 +33525,235 @@
     "domain": "presentifyapp.com",
     "sector": "UNKNOWN",
     "status": "UNAVAILABLE"
+  },
+  {
+    "id": "ent_churnkey_8d7f2b269c21",
+    "name": "Churnkey",
+    "normName": "churnkey",
+    "ticker": "CHURNKEY",
+    "domain": "churnkey.co",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen2_20261007"
+  },
+  {
+    "id": "ent_feature_upvote_3d6a00d965f0",
+    "name": "Feature Upvote",
+    "normName": "featureupvote",
+    "ticker": "FUPVOTE",
+    "domain": "featureupvote.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "codex_three_success_20261007"
+  },
+  {
+    "id": "ent_hostifi_cf9ec73a42d2",
+    "name": "HostiFi",
+    "normName": "hostifi",
+    "ticker": "HOSTIFI",
+    "domain": "hostifi.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "codex_three_success_20261007"
+  },
+  {
+    "id": "ent_indiehackers_6548833164b0",
+    "name": "Indie Hackers",
+    "normName": "indiehackers",
+    "ticker": "INDIEHCK",
+    "domain": "indiehackers.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "UNAVAILABLE",
+    "batchId": "codex_gen2_20261007"
+  },
+  {
+    "id": "ent_memberful_0dff1f9c00fa",
+    "name": "Memberful",
+    "normName": "memberful",
+    "ticker": "MEMBERFUL",
+    "domain": "memberful.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen2_20261007"
+  },
+  {
+    "id": "ent_plain_f8a62d87d9cb",
+    "name": "Plain",
+    "normName": "plain",
+    "ticker": "PLAIN",
+    "domain": "plain.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen2_20261007"
+  },
+  {
+    "id": "ent_poolsuite_6d5ad6895563",
+    "name": "Poolsuite",
+    "normName": "poolsuite",
+    "ticker": "POOLSUIT",
+    "domain": "poolsuite.net",
+    "sector": "CONTENT_MEDIA",
+    "status": "UNAVAILABLE",
+    "batchId": "gen2_20261007"
+  },
+  {
+    "id": "ent_revue_4fbfee0d2036",
+    "name": "Revue",
+    "normName": "revue",
+    "ticker": "REVUE",
+    "domain": "getrevue.co",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "codex_gen2_20261007"
+  },
+  {
+    "id": "ent_storemapper_a848df77867b",
+    "name": "Storemapper",
+    "normName": "storemapper",
+    "ticker": "STOREMAP",
+    "domain": "storemapper.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "codex_three_success_20261007"
+  },
+  {
+    "id": "ent_tuple_20261007",
+    "name": "Tuple",
+    "normName": "tuple",
+    "ticker": "TUPLE",
+    "domain": "tuple.app",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen2_20261007"
+  },
+  {
+    "id": "ent_typedream_c02cf9d5426e",
+    "name": "Typedream",
+    "normName": "typedream",
+    "ticker": "TYPEDREAM",
+    "domain": "typedream.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "codex_gen2_20261007"
+  },
+  {
+    "id": "ent_userlist_a288fcf9f741",
+    "name": "Userlist",
+    "normName": "userlist",
+    "ticker": "USERLIST",
+    "domain": "userlist.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen2_20261007"
+  },
+  {
+    "id": "ent_wip_5eef8a985270",
+    "name": "WIP",
+    "normName": "wip",
+    "ticker": "WIPCO",
+    "domain": "wip.co",
+    "sector": "CONTENT_MEDIA",
+    "status": "UNAVAILABLE",
+    "batchId": "codex_gen2_20261007"
+  },
+  {
+    "id": "ent_button_shy_f1545f17d98e",
+    "name": "Button Shy",
+    "normName": "buttonshy",
+    "ticker": "BUTTON.SHY",
+    "domain": "buttonshygames.com",
+    "sector": "PHYSICAL_ASSET",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_candy_japan_954236d663a8",
+    "name": "Candy Japan",
+    "normName": "candyjapan",
+    "ticker": "CANDY.JP",
+    "domain": "candyjapan.com",
+    "sector": "PHYSICAL_ASSET",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_data_fetcher_8e6a5e22ce2a",
+    "name": "Data Fetcher",
+    "normName": "datafetcher",
+    "ticker": "DATA.FTCH",
+    "domain": "datafetcher.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_dnsimple_c8560498b136",
+    "name": "DNSimple",
+    "normName": "dnsimple",
+    "ticker": "DNSIMPLE",
+    "domain": "dnsimple.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_geocodio_c64c0721d500",
+    "name": "Geocodio",
+    "normName": "geocodio",
+    "ticker": "GEOCODIO",
+    "domain": "geocod.io",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007_geocodio_statusgator"
+  },
+  {
+    "id": "ent_lunch_money_be2eeb1f4fdf",
+    "name": "Lunch Money",
+    "normName": "lunchmoney",
+    "ticker": "LUNCHMNY",
+    "domain": "lunchmoney.app",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_noteforms_003fcbdd14cf",
+    "name": "NoteForms（旧 NotionForms）",
+    "normName": "noteforms旧notionforms",
+    "ticker": "NOTEFORMS",
+    "domain": "noteforms.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_quaderno_81236030d721",
+    "name": "Quaderno",
+    "normName": "quaderno",
+    "ticker": "QUADERNO",
+    "domain": "quaderno.io",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_snipcart_9a1012111695",
+    "name": "Snipcart",
+    "normName": "snipcart",
+    "ticker": "SNIPCART",
+    "domain": "snipcart.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007"
+  },
+  {
+    "id": "ent_statusgator_316d3eb5edf6",
+    "name": "StatusGator",
+    "normName": "statusgator",
+    "ticker": "STATUSGTR",
+    "domain": "statusgator.com",
+    "sector": "NICHE_SAAS",
+    "status": "UNAVAILABLE",
+    "batchId": "gen3_20261007_geocodio_statusgator"
   }
 ]

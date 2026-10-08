@@ -1,0 +1,1552 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_button_shy_f1545f17d98e",
+   "scope": "full",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "Jason Tagmire と仲間による出版事業で、問屋を通さず客へ直接ゲームを届ける DIY／インディーの方式と紹介する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "FOUNDING",
+     "text": "Jason Tagmire は Pixel Lincoln や Maximum Throwdown などのゲーム制作者として紹介される。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "DESCRIPTION",
+     "text": "Alex Strang の Movie Plotz を、小さく送りやすいゲームとして Kickstarter で募集した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "OTHER",
+     "text": "目標1,000米ドルは財布型の包装と折りたたみ説明書の費用のためと本人は説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f5",
+     "kind": "CHANNEL",
+     "text": "初日は目標の約25％、2日目は約35％まで進んだと本人は記録する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f6",
+     "kind": "CHANNEL",
+     "text": "その後、遊んだ内容から猫を使った架空映画の画像を投稿し、数時間で支援額が倍になったと記録する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f7",
+     "kind": "CHANNEL",
+     "text": "同じ朝に約800人へ便りも送っており、画像と便りのどちらが効いたかは判定できないと明記する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f8",
+     "kind": "CHANNEL",
+     "text": "BoardGameGeek の包装紹介は反応と議論を得たが、支援の増加には結び付かなかったと振り返る。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f9",
+     "kind": "EVENT",
+     "text": "2015年1月の Pretense 予告では、小型の財布型シリーズの2作目と紹介している。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f10",
+     "kind": "OTHER",
+     "text": "当時は1企画500個未満を作り、財布型包装に12〜20枚と説明書を収める設計と説明した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f11",
+     "kind": "CHANNEL",
+     "text": "新作の募集で旧作も割引して合わせて提供し、全作品の組合せでは Pretense を実質無料にすると案内した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f12",
+     "kind": "OTHER",
+     "text": "Pretense の絵は、以前 Seven7s で組んだ Fabrice Weiss に頼んだと説明した。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f13",
+     "kind": "EVENT",
+     "text": "春企画の4作を Astro ROVE、The Rise Of A Jarl、Everything Machine、Shaper と説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f14",
+     "kind": "OTHER",
+     "text": "複数作を一緒に募集すると、それぞれの魅力を短い告知枠で伝えにくいと創業者は述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f15",
+     "kind": "EVENT",
+     "text": "手組みが時間を取り、箱なしでは売りにくい販路があるため、主力を量産の箱型へ変えると説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f16",
+     "kind": "DESCRIPTION",
+     "text": "財布型を望む客には空の財布を追加商品として売り、箱は財布を中に収められる寸法にすると説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f17",
+     "kind": "OTHER",
+     "text": "海外送料の上昇と通関差戻しで、全地域への直送が難しくなり、提携先を探していると説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f18",
+     "kind": "OTHER",
+     "text": "月次会員向けの発送期限と職員の給与があるため、海外の提携成立を待って米国での販売を止められないと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f19",
+     "kind": "EVENT",
+     "text": "18枚のゲーム（旧 Wallet Games、現 Micro Games）は四半期ごとに募集すると説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f20",
+     "kind": "OTHER",
+     "text": "少量の実験的な社内制作シリーズでは、手組みを小規模に行う方針と説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f21",
+     "kind": "PRICING",
+     "text": "公式は財布型の基本価格を15米ドルへ上げ、拡張も1米ドル値上げしたと説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f22",
+     "kind": "OTHER",
+     "text": "5年以上値上げしておらず、原価上昇と関税を理由に挙げる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f23",
+     "kind": "PRICING",
+     "text": "クラウドファンディングの予約価格は基本10米ドル、拡張込み最大14米ドルと案内する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f24",
+     "kind": "TEAM",
+     "text": "2026年5月28日の紹介は、ニュージャージー州の事務所に6人いるとする。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f25",
+     "kind": "TEAM",
+     "text": "社内の企画制作担当は Jason Tagmire、George Tagmire、Andrew Basile の3人と紹介する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f26",
+     "kind": "OTHER",
+     "text": "Elle は告知、Long と Anthony は試遊、社外の Milan と Filip は美術と図案を担当すると紹介する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f27",
+     "kind": "EVENT",
+     "text": "手組みに使っていた時間をゲーム制作へ移したことを喜び、もっと早く変えてもよかったと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f28",
+     "kind": "DESCRIPTION",
+     "text": "Sprawlopolis は18枚で都市を作る1〜4人の協力型ゲームとして売られている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f29",
+     "kind": "PRICING",
+     "text": "Sprawlopolis の基本商品の表示価格は2,500円。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f30",
+     "kind": "OTHER",
+     "text": "制作者は Steven Aramini、Danny Devine、Paul Kluka、絵は Danny Devine と明示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f31",
+     "kind": "DESCRIPTION",
+     "text": "Sprawlopolis には複数の拡張があり、全拡張をまとめた Expansion Collection も扱われている。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f32",
+     "kind": "TOOL",
+     "text": "公式店のページは Shopify を使用しているとフッターに表示する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f33",
+     "kind": "OTHER",
+     "text": "投稿者は Foster the Meeple の推薦をきっかけに会員となったが、12月と1月の2か月分を払っても届かず、3月22日時点でも未着だと訴える。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f34",
+     "kind": "OTHER",
+     "text": "別の利用者は、発送が遅れたことはあるが常に埋め合わせてもらえたと述べる。",
+     "attribution": "THIRD_PARTY"
+    },
+    {
+     "id": "f36",
+     "kind": "CHANNEL",
+     "text": "海外向け案内はまとめ注文で1個あたり送料を下げる方法、現地の販売提携、印刷用データを挙げる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f37",
+     "kind": "CHANNEL",
+     "text": "海外販売は Etsy で主要5作品を扱うと案内する。eBay では箱型作品を既に売り、店の拡充は準備中と記載する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f38",
+     "kind": "OTHER",
+     "text": "Amazon で販売することにした理由に、そこで既に小売価格の3倍で売られていることを挙げる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f39",
+     "kind": "OTHER",
+     "text": "海外送料が翌週8％上がると説明し、その前に企画の送料17,000米ドルを集めていたと述べる。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f40",
+     "kind": "OTHER",
+     "text": "通関で郵便物がまとめて戻り、約500米ドルの損失になったと本人は説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f41",
+     "kind": "DESCRIPTION",
+     "text": "社内の新シリーズは、客がサイコロ等を用意し、説明書はオンラインに置く構想と説明する。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f42",
+     "kind": "DESCRIPTION",
+     "text": "同じ新シリーズは部分ごとに売り、遊ぶには2〜3部分を組み合わせる構想と説明する。",
+     "attribution": "OFFICIAL"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://buttonshygames.com/pages/about-us",
+     "publisher": "公式の会社紹介",
+     "snapshot": {
+      "url": "https://buttonshygames.com/pages/about-us",
+      "finalUrl": "https://buttonshygames.com/pages/about-us",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.923Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "e0211d01f83526db166106c908d118ac33732c0afafda31d468db52022173c2a"
+     },
+     "text": "About Us\n- Button Shy\nButton Shy is the cardboard world of Jason Tagmire and friends. Jason is the designer of Pixel Lincoln, Maximum Throwdown and more. Here at Button Shy, he is taking the role of the publisher and getting some unique games directly to the customers. It's a very DIY / indie approach, as most publishers would work with a d\nAbout Us\nButton Shy is the cardboard world of Jason Tagmire and friends. Jason is the designer of Pixel Lincoln, Maximum Throwdown and more. Here at Button Shy, he is taking the role of the publisher and getting some unique games directly to the customers. It's a very DIY / indie approach, as most publishers would work with a d\nAbout Us\n- Button Shy\n&times;\nSkip to content\nIn order to meet customer demand and evolving US and international market standards, all Button Shy hand assembled games will be labeled for ages 14+.\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nLog in\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nSearch\nLog in\nCart\nItem added to your cart\nView cart\nCheck out\nContinue shopping\nAbout Us\nButton Shy is the cardboard world of Jason Tagmire and friends. Jason is the designer of Pixel Lincoln, Maximum Throwdown and more. Here at Button Shy, he is taking the role of the publisher and getting some unique games directly to the customers. It's a very DIY / indie approach, as most publishers would work with a distributor in getting games into stores. At Button Shy, we're doing it all ourselves and trying to build things from the ground up. It's a challenging approach, but it's also a deeply personal approach. We care about what we do, and we want to make sure it's done the way we intended.\nEnter\nInvalid Password\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nPayment methods\n&copy; 2026, Button Shy\nPowered by Shopify\nChoosing a selection results in a full page refresh.\nOpens in a new window.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+     "publisher": "公式の初期企画の振り返り",
+     "snapshot": {
+      "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+      "finalUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "68bca14761f1cd3c2d77ad81a438026f0b7fbe629b13d3eecefbf632c8a67f18"
+     },
+     "text": "How a cat photo doubled our funding\n- Button Shy\nHere's a Kickstarter life lesson for those of you who are having trouble funding, or for anyone in their mid-campaign slump... WHEN ALL ELSE FAILS, POST A CAT PHOTO! I did this, and it worked. Here's the story.My campaign for Alex Strang's Movie Plotz opened to about 25% on its first day and had a few pledges bringing\nHow a cat photo doubled our funding\nHere's a Kickstarter life lesson for those of you who are having trouble funding, or for anyone in their mid-campaign slump... WHEN ALL ELSE FAILS, POST A CAT PHOTO! I did this, and it worked. Here's the story.My campaign for Alex Strang's Movie Plotz opened to about 25% on its first day and had a few pledges bringing\nHow a cat photo doubled our funding\n- Button Shy\n&times;\nSkip to content\nIn order to meet customer demand and evolving US and international market standards, all Button Shy hand assembled games will be labeled for ages 14+.\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nLog in\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nSearch\nLog in\nCart\nItem added to your cart\nView cart\nCheck out\nContinue shopping\nHow a cat photo doubled our funding\nSeptember 8, 2014\nShare\nShare\nLink\nClose share\nCopy link\nHere's a Kickstarter life lesson for those of you who are having trouble funding, or for anyone in their mid-campaign slump...\nWHEN ALL ELSE FAILS, POST A CAT PHOTO!\nI did this, and it worked. Here's the story.\nMy campaign for Alex Strang's Movie Plotz opened to about 25% on its first day and had a few pledges bringing it up to about 35% by the end of day two. I was a little stressed out because I had hoped it would have done better, but at the same time I wasn't too worried because I knew it usually works out by the end.\nOur goal was just $1000 (to cover costs for our travel wallet packaging and fancy bulk folded rules), so 25 and 35% still feels very low. We also have a low base pledge level, so it kind of balances out. I'm just used to seeing a large backer count on opening day, whether it's a Kickstarter of mine, one I'm part of, or one that I'm just watching. Movie Plotz had a few immediate Kickstarter strikes against it (party game, storytelling and very little art), but I still saw it's potential and wanted to bring it out to a larger audience. With it being small and easy to ship, it balances out once again. Lots of balancing on this project!\nBy the end of day two I was scratching my head. If we had a higher funding goal I would have been in full-on panic mode, but I was thinking of how we would reach a larger audience??? I posted a Boardgamegeek article about \" How To Package A Microgame \" and it had a bit of buzz going. Lots of thumbs, favorites and retweets. Some people even jumped in on the discussion, which is near impossible when you post directly about your game. This didn't translate to funding, but that wasn't the point. It was to show off our new form of microgame packaging... as seen in Movie Plotz on Kickstarter . <wink!>\nEverything changed on day three when I posted this:\nPoor Ernie's Catastrophe is a fake movie that was made up in a session of Movie Plotz. The session was videotaped and available on youtube when I was thinking of making a fake poster. This one turned out great (designers Jay Treat , Bonnie Neubauer and David Dunham really nailed it) and being able to share the video made it the perfect choice.\nWithin a few hours we had doubled our funding and our worries turned from \"what happens if the lull continues?\" to \"uh-oh, it's time to announce some stretch goals!\". Not a bad problem to have.\nSo that is what happens when you post a cat photo to your Kickstarter. INSTANT FUNDING!*\n*I should note that I also sent out the Button Shy newsletter the same morning to about 800 of our followers, but I cannot conclude whether our surge was due to the newsletter or the cat photo. You'll have to try it yourself and let me know if it works. :)\nBack to blog\nEnter\nInvalid Password\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nPayment methods\n&copy; 2026, Button Shy\nPowered by Shopify\nChoosing a selection results in a full page refresh.\nOpens in a new window.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s6",
+     "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+     "publisher": "公式の Pretense 発売予告",
+     "snapshot": {
+      "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+      "finalUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "e4d796516117c9a90c3e9096c12840759f56bb3895f5373e1547e8c24b475d74"
+     },
+     "text": "Pretense will be launching on Kickstarter this week\n- Button Shy\nAfter a bunch of number crunching, rules editing, video production, and all that fun stuff... I've gotten Pretense to the point where it's ready to go on Kickstarter. I'll be launching it Wednesday with a cool $500 goal. Why so low of a goal? Well, that's the minimum it's going to take to get the wallet game process go\nPretense will be launching on Kickstarter this week\nAfter a bunch of number crunching, rules editing, video production, and all that fun stuff... I've gotten Pretense to the point where it's ready to go on Kickstarter. I'll be launching it Wednesday with a cool $500 goal. Why so low of a goal? Well, that's the minimum it's going to take to get the wallet game process go\nPretense will be launching on Kickstarter this week\n- Button Shy\n&times;\nSkip to content\nIn order to meet customer demand and evolving US and international market standards, all Button Shy hand assembled games will be labeled for ages 14+.\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nLog in\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nSearch\nLog in\nCart\nItem added to your cart\nView cart\nCheck out\nContinue shopping\nPretense will be launching on Kickstarter this week\nJanuary 26, 2015\nShare\nShare\nLink\nClose share\nCopy link\nAfter a bunch of number crunching, rules editing, video production, and all that fun stuff... I've gotten Pretense to the point where it's ready to go on Kickstarter. I'll be launching it Wednesday with a cool $500 goal. Why so low of a goal? Well, that's the minimum it's going to take to get the wallet game process going. I've paid for the art, so while it would be nice to make it back, it's not crucial in getting to the next stage of production. I need to fund the wallets, rules and card production and $500 is just enough to start. Obviously, I hope to make more to cover costs of the art, bring down the price of components, and make everything just a little less stressful, but that's the fun of Kickstarter.\nIf this is the first time you are seeing Pretense, let me explain it. Like everything we've done so far, it's a little outside of the norm. Pretense is a game night social metagame. Essentially it's a game that you play DURING other games. You have a secret role and a secret objective, and if you accomplish it, you gain a point AND you steal someone's role. With that role you can try to gain more points and more roles. It plays from 2-12 and is great on a good sized game night with about 5-6 people.\nThe art on Pretense was done by French illustrator Fabrice Weiss, who I previously worked with on Seven7s with Eagle Gryphon. Fabrice is an amazing artist and great to work with, and I guarantee I will be collaborating with him again. Even with a light language barrier, he quickly nailed exactly what I wanted (1970's social gathering).\nOne of the things we'll be doing is having package deals that include Storyteller Cards, Storyteller Cards: Fantasy and Movie Plotz. You'll save a few dollars on the package deals and if you go for all of them you'll actually end up getting Pretense for free. If you haven't picked up any of our other products, these bundles are a great time to jump onboard.\nAnd finally, Pretense is packaged in a wallet. It's the second in our line of wallet games and I'm really excited about expanding the line. There are a few other wallet games on the horizon, but... DESIGNERS: if you are interested in making a wallet game, let me know. The wallets are an awesome solution to the nightmare of packaging a microgame . They have custom logos on top, room for rules and about 12-20 cards (or card like things). I do these on short run production (<500 units), and while small press in boardgames is usually impossible and unaffordable, these wallet games just make the cut.\nI hope to see some of you on Wednesday when Pretense launches. It'll be a quick campaign, and fulfill in late February / early March.\nBack to blog\nEnter\nInvalid Password\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nPayment methods\n&copy; 2026, Button Shy\nPowered by Shopify\nChoosing a selection results in a full page refresh.\nOpens in a new window.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s9",
+     "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+     "publisher": "公式の生産方式変更の説明",
+     "snapshot": {
+      "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+      "finalUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "180b500f10f23f6242ce714148be0bfd214a9c771e9217d74a3f1cff8cd9faf6"
+     },
+     "text": "Working Out Some Games: A Challenging Day That Ends With Us Breaking A\n- Button Shy\nTesting… can you hear me? I am at the gym and I’ll be here for the next 30 to 45 minutes and figured I would try something out. I am nearly whispering using voice to text… so the people around me might be concerned, or annoyed by me, so we’ll see how this works. But I wanted to use this time to talk about what’s going\nWorking Out Some Games: A Challenging Day That Ends With Us Breaking A\nTesting… can you hear me? I am at the gym and I’ll be here for the next 30 to 45 minutes and figured I would try something out. I am nearly whispering using voice to text… so the people around me might be concerned, or annoyed by me, so we’ll see how this works. But I wanted to use this time to talk about what’s going\nWorking Out Some Games: A Challenging Day That Ends With Us Breaking A\n- Button Shy\n&times;\nSkip to content\nIn order to meet customer demand and evolving US and international market standards, all Button Shy hand assembled games will be labeled for ages 14+.\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nLog in\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nSearch\nLog in\nCart\nItem added to your cart\nView cart\nCheck out\nContinue shopping\nWorking Out Some Games: A Challenging Day That Ends With Us Breaking All Of Our Rules\nTesting… can you hear me? I am at the gym and I’ll be here for the next 30 to 45 minutes and figured I would try something out. I am nearly whispering using voice to text… so the people around me might be concerned, or annoyed by me, so we’ll see how this works. But I wanted to use this time to talk about what’s going on in the world of Button Shy, and maybe do this again if it works out.\nToday is a really interesting one as we launched our new Kickstarter campaign for what we call our Spring Collection. And includes four games (Astro ROVE, The Rise Of A Jarl, Everything Machine, and Shaper) and we’re about 12 hours into it.\nA multi-game campaign has its positives and negatives, and we know the standard struggles. If you haven’t run one before, you likely backed or saw one. The biggest struggle is making each game stand out among the crowd, which is a crowd that you created by bundling a bunch of games together. It’s also tough to really say something interesting about any of games in most social spaces where there’s only enough space to mention the group of games. So your marketing may appear as quantity over quality, and the entire campaign you will fight to prove it’s not that.\nBut those are the normal struggles. This time we have additional struggles as we have a few big changes to our product model that everybody knows and loves. We decided earlier this year to stop hand assembling games. Long story, but we’ve sort of outgrown it. It was getting very time consuming and at our size we are struggling to sell in certain markets without boxes. Unfortunately there’s no affordable way to hand assemble a box. Our wallet line has just grown to the point where it needs to be mass produced, and we’ve accepted that.\nThat’s great right? Well, yes and no. It’s quite a consistent line of games, so any change is tough. While the change here is pretty necessary for survival and growth, that doesn’t mean that all of our fans are going to like it.\nOne of the emails I received today.\nSo we found a way to get the best of both worlds. Put the games in boxes, but offer empty wallets as a sort of deluxe add-on item for the people who want them. And also make the boxes big enough to fit the wallets inside.\nAlong with this, we found a pretty awesome replacement for the wallets with these cool envelopes that hold the games inside. They are very much inspired by manual library catalog systems, and I think they scratch a similar indie itch. We haven’t really shown off the backs yet, so here’s a peek of both sides:\nIf there’s anything that screams Button Shy to me, it’s these little button-like circles on the back.\nAnd finally to complicate things even more, international shipping has just become more and more difficult over the last few months, to the point where we can’t offer it directly from us in all regions. The prices were ridiculous before and will jump 8% (as of next week (which causes its own issues after we just collected $17,000 for shipping a Kickstarter campaign). There are also other complications in regions like the EU which has gotten more strict in its import requirements (we received a whole mail bin of packages back recently, marked as “Denied at border” with no other details. That’s an easy $500 out the door, and a whole lot of stressful uncertainty.)\nSo with that in mind, we had to kind of limit our direct to consumer international shipping and start looking for partners. Those deals take a long time and we couldn’t really hold off on US sales as we have a lot of things that ride on the timing of selling / receiving games. With the Board Game of the Month Club we have deadlines for monthly games. But we also have staff that needs to be paid, so we need to make sure the process is moving forward for our new games. So we launched today’s campaign with limited international options, and a plan to have answers as soon as possible. We were able to fully lock in Canada today, and have made progress on other regions as well. Great news, but it’s still not ideal.\nEnough about today’s struggles. Let’s talk about what going on in the rest of the world of Button Shy.\nThe new 18 card games (formerly known as Wallet Games and now known as Micro Games) will have quarterly campaigns. The next up is Summer and we will be teasing it all very soon. But it leaves a lot of time in between campaigns. The in-house team here has been working on some small projects that we want to get out there , and they are more in line with our early wallet games - with hand assembly and more experimental concepts. While we said we’re finished with assembly, we plan to do this on a much smaller level that is reasonable for our team to handle. And we have lower expectations for how far and wide the games can reach.\nSo we’re working on something that we are calling “modular games” for now. And these break a lot of the rules we have for the wallet line.\nBROKEN RULE #1 - COMPONENTS\nThe first rule that we break is that players will provide their own dice and cubes . Each game may use dice, cubes, or both, and the player will need to provide them. If you played our games Chain Mail, or The Final Lightyear, you’ll have a taste of this. We probably would make some cube and dice kits at The Game Crafter for those that want to buy them, but a lot of you either already have the components, or have access to them.\nBROKEN RULE #2 - PACKAGING\nThe next rule we break is that they will not have any packaging . The cards will likely be in a clear sleeve and will not be set up for sales outside of our website. This means players will need to get crafty with their packaging, just like they’ve done with our wallet line for years. And like Chain Mail, we could always make a cool box at The Game Crafter.\nBROKEN RULE #3 - RULES\nAnother rule we break, and this one is a little bit of a doozy, is that they will not come with printed rules . Not that we’re entitled to do so, but we’re taking a little tip from CCG’s where the rules are all online. They will be formatted to print, but in order to fully realize this model there is no great way to supply printed rules.\nBROKEN RULE #4 - PLAYABILITY\nAnd here’s the final rule that these games break. Our games normally must be playable on their own outside of the box. We’ve broken that rule with expansion collections, but this breaks it as part of the model. Each module will be one part of a game, but you will need two parts (or in some cases maybe three) to play. So imagine a fighting game where you need two heroes to play. We would just sell heroes individually and you would need to make sure you had any two. We don’t have a fighting game planned, but it’s a very basic idea to show the concept. We would have to make sure that we always have a few in stock to really make all of this work, but it opens things up in a really interesting way.\nIt allows us to make parts of a larger game, but keep them fresh and affordable and always playable.\nIt also allows us to quickly get you something small and new, instead of waiting for a whole big game to come together.\nAll of these broken rules sound pretty intense, but it opens up so much interesting (product and game) design space that we are unable to find with our standard games.\nWe have two games that we’ve made significant progress on in this model so far. We have a few others that are in early stages. I can share that one of them is solo, and one of them is two player. I think the next post here might be a bit of a design diary on one of them. We’ll see about that tomorrow. But in the meantime very curious about your thoughts.\nThanks for reading everyone. I didn’t get a ton of dirty looks here at the gym, so maybe I can keep working out some games while working out.\nEnter\nInvalid Password\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nPayment methods\n&copy; 2026, Button Shy\nPowered by Shopify\nChoosing a selection results in a full page refresh.\nOpens in a new window.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s10",
+     "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+     "publisher": "公式の値上げ説明",
+     "snapshot": {
+      "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+      "finalUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "be54b16245d1c9b015e643c5eead5af639aed2b37e33a2df2b034c6dc22b4457"
+     },
+     "text": "Wallet Games are now $15\n- Button Shy\nWallet games are going up to $15, and expansions are all going up by $1. Yes, this is a bummer. We've been holding out. It’s been over 5 years since we’ve raised prices and it’s been a tough 5. The 30% tariffs are painful. We’ve absorbed that (as well as the 10%, 154% and everything in between) for a year and know th\nWallet Games are now $15\nWallet games are going up to $15, and expansions are all going up by $1. Yes, this is a bummer. We've been holding out. It’s been over 5 years since we’ve raised prices and it’s been a tough 5. The 30% tariffs are painful. We’ve absorbed that (as well as the 10%, 154% and everything in between) for a year and know th\nWallet Games are now $15\n- Button Shy\n&times;\nSkip to content\nIn order to meet customer demand and evolving US and international market standards, all Button Shy hand assembled games will be labeled for ages 14+.\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nLog in\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nSearch\nLog in\nCart\nItem added to your cart\nView cart\nCheck out\nContinue shopping\nWallet Games are now $15\nWallet games are going up to $15, and expansions are all going up by $1.\nYes, this is a bummer. We've been holding out. It’s been over 5 years since we’ve raised prices and it’s been a tough 5. The 30% tariffs are painful. We’ve absorbed that (as well as the 10%, 154% and everything in between) for a year and know that it’s unsustainable. But that’s not the only thing. Costs are currently high across the board and we want to make sure we aren’t pricing ourselves too low. It stinks, I know.\nThere are lots of ways to save money on wallet games. Some of these are known to some or all, others maybe not.\nKickstarter/Crowdfunding preorders are going to be $10 for a game, and max out at $14 for a game and expansion. This is a savings of $5-6 on a $15-20 purchase, which puts it close to 25-30% off retail at our crowdfunding pages. So hot tip: order early for the lowest price you’ll see.\nThe Board Game of the Month Club gets more discounts. Club Members already get the game as part of their rewards, but they also get solid coupon codes, some harder to find games and expansions, and an exclusive package for a year of activity. The club is US only, with UK on a trial period right now, but we are working on ways to expand everything we can.\nDuring all crowdfunding campaigns we offer a 15% off code to our website. This helps drop the cost of each game down, and it’s usually active for the 10 days that the campaign runs, and then usually a week or two after as well. So if you keep an eye on our active crowdfunding campaigns, you can likely save a few bucks.\nAnd if you can make it out to our retail store in NJ, all games are $10. It's a small perk to making that trek into South Jersey.\nAnd then any other promotions we can offer. We’ll be bringing back the game of the week with limited copies of a single game available for just $10 for the week. We also have our big Black Friday sale with 25% off coupon codes. And hopefully more chances to drop below the MSRP.\nEnter\nInvalid Password\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nPayment methods\n&copy; 2026, Button Shy\nPowered by Shopify\nChoosing a selection results in a full page refresh.\nOpens in a new window.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s11",
+     "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+     "publisher": "公式のチーム紹介",
+     "snapshot": {
+      "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+      "finalUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "88ec581425e22c3811565ead30fe4ff5b5a6a28c6719bf9cb2edfd207779b2bf"
+     },
+     "text": "Introducing the Modular team - Button Shy Games\nIntroducing the Modular team\nSo we’ve been talking about Modular Games here for a bit, but I don’t know if we’ve properly introduced the team as of yet.\nSo we’ve been talking about Modular Games here for a bit, but I don’t know if we’ve properly introduced the team as of yet.\nIntroducing the Modular team - Button Shy Games\nButton Shy Games\nSubscribe Sign in\nIntroducing the Modular team\nButton Shy Games\nMay 28, 2026\n10\nShare\nSo we’ve been talking about Modular Games here for a bit, but I don’t know if we’ve properly introduced the team as of yet. And this is a team a little different than most of our games, so let’s jump in.\nThe Modular Games are all designed and developed in-house. By in-house we mean the team at our office in NJ. There are 6 people in the office, and while all 6 will have their hands on the games somehow, there are 3 of us working on the design and development side.\nThanks for reading! Subscribe for free to receive new posts and support my work.\nSubscribe\nThat team is me (Jason Tagmire), George Tagmire, and Andrew Basile.\nSo let’s talk about each of for a moment.\nI’ll knock myself out quickly. I’m Jason Tagmire. I’ve been doing this Button Shy thing for a while now and primarily sign games, and nowadays work with a great team to make them look and play the best that they can. I’ve designed a bunch of games for us (Twin Stars, Banned Books, The Walking Dead: Surrounded), designed some of our expansions (Sprawlopolis: Beaches), and designed a handful outside of Button Shy (Seven7s, Pixel Lincoln, Dungeon Pages). I prefer to be behind the camera instead of in front of it (I went to school for film and video and photograph a ton of concerts on side), so here’s the best we’ll get of a photo of me.\nNext up is George Tagmire. I don’t know how long he’s been at Button Shy because he’s my brother and he’s kind of been around forever. I’ve worked with George on creative projects for decades, whether it was a board game, video game, music, film/video, and so many other things. George handles a little of everything at Button Shy, but has recently been handling design and development as part of this new team. He has a very specific taste in games (Wherever King of Tokyo and Discworld meet is probably the sweet spot) that aligns closely with mine as well. George brings a lot of positivity and energy to the table when we’re working. If he likes something, you will know and he lights up. And he also brings the physical skills to make everything from prototypes to props, like today’s massive DIE Ball.\nAndrew Basile is technically the newest member of the team, but he’s been working with us for a few years now. He’s done a little bit of everything here from assembling wallet games to running events at our shop. As we started to form this design/dev team, Andrew’s name would come up regularly. The first thing is that I don’t know anyone that teaches games better than him. If we want to learn a game, it’s best to just hand him the rules. But Andrew also brings his deep knowledge of Euro games to match our Ameritrash roots (I should note that we all cross lines when it comes to Unmatched, so there is some common ground between all three of us). Andrew comes with another skillset that really rounds out the team and that’s his technical and creative writing skills. This isn’t just useful in rules writing and marketing, but instead it’s been helpful in shaping our games each day. Sometimes it’s easy to get lost in the mechanics or even just the numbers of a game, and Andrew is turning those values into full on characters and really shaping the worlds we are working in.\nTo help balance the team we have a few more people that I’m sure you’ll see or hear more about. Elle’s been working on social media (and making props with George). Long and Anthony have been doing some in-house testing. And off-site are Milan and Filip who handle art and graphic design for the main line of wallet/boxed games, but we pulled them into the Modular Games just to make them look the best they can, and they are looking great.\nAnd even today we started on another in-house project that’s actually not a modular game, but will be coming from the same team. This is barely worth sharing beyond just proof of existence, but we started throwing ideas around for a game that has almost no size limitations, and what that could be.\nWe’re going to let it burn slowly and become what it becomes, if anything. But either way, it’s been exciting to make this little switch in our office from spending our time hand assembling games to instead spending our time making games. I kind of wish we’d started on this sooner.\nThanks for reading! Subscribe for free to receive new posts and support my work.\nSubscribe\n10\nShare\nDiscussion about this post\nComments Restacks\nTop Latest Discussions\nNo posts\nReady for more?\nSubscribe\n© 2026 Button Shy Games · Privacy ∙ Terms ∙ Collection notice\nStart your Substack Get the app\nSubstack is the home for great culture",
+     "policy": {
+      "policyId": "rights.substack.v1",
+      "sourceId": "src.substack",
+      "providerName": "Substack newsletters",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s12",
+     "url": "https://buttonshygames.com/products/sprawlopolis",
+     "publisher": "公式の Sprawlopolis 商品ページ",
+     "snapshot": {
+      "url": "https://buttonshygames.com/products/sprawlopolis",
+      "finalUrl": "https://buttonshygames.com/products/sprawlopolis",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "8c18927bc01215ae39631199a68a798d46119c548c72233dfafab3ad43050777"
+     },
+     "text": "Sprawlopolis\n- Button Shy\nFor all wallet games and small expansions currently available in the Sprawlopolis line, click here. In Sprawlopolis, 1-4 players work together to build a new city from the ground up. Using only 18 cards and a variable scoring system, the game is never the same twice. Each turn, players will play 1 card from their hand\nSprawlopolis\nFor all wallet games and small expansions currently available in the Sprawlopolis line, click here. In Sprawlopolis, 1-4 players work together to build a new city from the ground up. Using only 18 cards and a variable scoring system, the game is never the same twice. Each turn, players will play 1 card from their hand\nSprawlopolis\n- Button Shy\n&times;\nSkip to content\nIn order to meet customer demand and evolving US and international market standards, all Button Shy hand assembled games will be labeled for ages 14+.\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nLog in\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nSearch\nLog in\nCart\nItem added to your cart\nView cart\nCheck out\nContinue shopping\nSkip to product information\nOpen media 1 in modal\nOpen media 2 in modal\n1\n/\nof\n2\nSprawlopolis\nSprawlopolis\nRegular price\n¥2,500 JPY\nRegular price\nSale price\n¥2,500 JPY\nUnit price\n/\nper\nSale\nSold out\nQuantity\n( 0 in cart)\nDecrease quantity for Sprawlopolis\nIncrease quantity for Sprawlopolis\nAdd to cart\nFor all wallet games and small expansions currently available in the Sprawlopolis line, click here .\nIn Sprawlopolis , 1-4 players work together to build a new city from the ground up. Using only 18 cards and a variable scoring system, the game is never the same twice. Each turn, players will play 1 card from their hand to the growing city, trying to score as many points as possible. Players will have to communicate and plan without revealing their own cards in order to most efficiently develop large areas in each of the 4 zone types. Watch out though, the city hates paying for road maintenance so each road will cost you points in the end. When all cards have been placed, the game ends and players see if they have met dynamically generated minimum score for their game. Can you meet the demands of the officials, work with your fellow planners and build the ultimate urban wonder? It’s time to find out!\nJackhammers chattering, trucks beeping, engines roaring, the sounds of construction are everywhere. Sprawlopolis is growing and YOU are in charge of it all. The last team of planners couldn't cut it, so the city turned to your team, the best of the best. If anyone can turn this tiny town into a thriving civic center it's you.\nPlayers: 1-4\nLength: 15-20 minutes\nAges: 14+\nButton Shy hand assembled games are labeled for ages 14+.\nREVIEWS\n“I think the main reason I love it so much is because each game is so totally and completely different.” - Everything Board Games\nhttp://www.everythingboardgames.com/2018/05/sprawlopolis-kickstarter-preview.html\n“Sprawlopolis is a game that makes you use all of your brain. All of it. It makes you think, and it makes you think all of the best ways.” - Open Seat Gaming\nhttps://openseatgaming.com/2018/05/11/kickstarter-preview-sprawlopolis/\nEXPANSIONS\nWrecktar, Construction Zones and Points of Interest Expansions (1 Wrecktar card, 4 Construction Zones Block/Goal cards, 1 Points of Interest card)\nA monster is rampaging through the city, taking down building with every step! A one card disaster, hits Sprawlopolis .\nWrecktar adds a card to the deck that covers the previously played card when it comes to the top of the draw pile and incurs scoring penalties.\nConstruction has started and is adding an unwelcome wrinkle to your city planning! A four card irritation comes to Sprawlopolis .\nOne Construction Zone requirement is added to the game goals. The other three go into deck. If the construction blocks are not completed (built over) by game end, they incur scoring penalties.\nBuilders from the next city over have come to help get you started! A one card assistant visits Sprawlopolis .\nPoints of Interest helps you by giving you a starting card that has a point of interest that generates scoring for surrounding it with appropriate block types.\nBeaches Expansion (4 Beach Block/Goal cards)\nIt's time to build this little beach town into a sprawling maritime city! A four card coast shapes Sprawlopolis .\nOne Beaches requirement is added to the game goals 3 scoring conditions. The other three go into deck . When you draw a Beach card, you must play it immediately. Each Beach will create a new border that you cannot cross with other cards. During the game, you must define 3 out of 4 borders (north, south, east, west) and continue to build your city within those edges.\nInterstate Expansion (4 Interstate Block/Goal cards)\nThe city has been divided in two by a massive Interstate highway. Zoning rules don't allow you to cross the Interstate, so you must work with what you've got... a smaller, more competitive Sprawlopolis! A four card highway divides Sprawlopolis .\nThe 4-card Interstate highway divides your city into two halves. Play options include 2-player cooperative, 2-player competitive, and Solo. In solo, each turn you alternate which side you play on. In competitive games, 3 cards are used to build the Interstate, and one chosen is added to the game goals 3 scoring conditions.\nRoadwork Expansion (4 Roadwork Block/Goal cards)\nTraffic congestion is a high point. Ease your commuters’ anguish with new roads to keep the city moving.\nEach player will get one of the four cards in this expansion, and if they don’t play the card before the end of the game it will cost you points. The catch, of course, is that it must integrate seamlessly with roads in your city in order to be placed, which players of Sprawlopolis already know is rarely going to be as easy to accomplish as it sounds. You can also scale up the difficulty, giving more of these cards to the group playing.\nSprawlopolis Expansion Collection\nA compilation of all expansions for Sprawlopolis (Points of Interest, Construction Zones, Wrecktar, Beaches, Interstate, Roadwork) packed in a wallet.\nCREDITS\nDesigned by Steven Aramini, Danny Devine, Paul Kluka\nArt by Danny Devine\nVERSIONS\nSprawlopolis Wallet Game - the base game in a vinyl wallet\nSprawlopolis Expansion Collection - Points of Interest, Construction Zones, Wrecktar, Beaches, Interstate, Roadwork in a vinyl wallet\nShare\nShare\nLink\nClose share\nCopy link\nView full details\nMailing list\nStay in the loop — sign up for updates, offers, and more!\nSubscribe Here\nBoard Game of the Month Club\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nJoin Now\nEnter\nInvalid Password\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nPayment methods\n&copy; 2026, Button Shy\nPowered by Shopify\nChoosing a selection results in a full page refresh.\nOpens in a new window.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s14",
+     "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+     "publisher": "Reddit の利用者投稿",
+     "snapshot": {
+      "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+      "finalUrl": "https://web.archive.org/web/20250325134147/https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:56.956Z",
+      "via": "wayback",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "9ac3048654a35d20f9d5663721276dfc4379dc1bdf5f6bcd8302685d83dc25f7"
+     },
+     "text": "Button Shy Woes : r/soloboardgaming\nHas anyone else had a problem with Button Shy? After seeing Foster the Meeple rave about them so much I decided to take a plunge and join the Patreon…\nr/soloboardgaming on Reddit: Button Shy Woes\nPosted by u/Safe_Virus1039 - 6 votes and 26 comments\nButton Shy Woes : r/soloboardgaming\n1 capture\n25 Mar 2025\nFeb\nMAR\nApr\n25\n2024\n2025\n2026\nsuccess\nfail\nAbout this capture\nTIMESTAMPS\nThe Wayback Machine - https://web.archive.org/web/20250325134147/https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/\nSkip to main content\nOpen menu\nOpen navigation\nGo to Reddit Home\nr/soloboardgaming\nA chip\nA close button\nLog In\nLog in to Reddit\nExpand user menu\nOpen settings menu\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nGo to soloboardgaming\nr/soloboardgaming\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\n•\nSafe_Virus1039\nButton Shy Woes\nHas anyone else had a problem with Button Shy? After seeing Foster the Meeple rave about them so much I decided to take a plunge and join the Patreon at the highest level to get the game of the month. December went by I received nothing. January went by I still received nothing. So I canceled. February 21st I got an email saying a label had been created for my shipment. Now it is 3/22 and still just says label created. I emailed and they said the post office lost shipments. I’m suspicious. Anyone else having a problem?? So disappointed I want to try them but paid for two months and receiving nothing is very discouraging\nShare\nAdd a comment\nSort by:\nBest\nOpen comment sort options\nBest\nTop\nNew\nControversial\nOld\nQ&A\nwakasm\n•\n•\nEdited\nTop 1% Commenter\nButton Shy is basically the example of a small team, bootstrapping crazy ideas, for the love of a hobby. Their release schedule, and churn alone, alongside all their other efforts (they also run pnparcade - i think -, a physical store in NJ, community stuff, etc) it already pretty insane that they've kept up with it all these years.\nDo they do things backwards and weird sometimes? Absolutely.\nBut they, as far as I know, aren't in the business of screwing over their customers. Sometimes things are slower or because of their monthly release schedule, things get delayed, but personally, I've never had an issue with eventually getting things.\n(I own like 25+ button shy games at this point).\nIf the game of the month model isn't for you, then maybe just do their kickstarters and back things more piecemeal or just buy from their store. I personally don't do the monthly, just because for the most part, I don't really play their multiplayer games anymore, although lately, almost everything they make has solo in it, and once you buy things out of order, you end up with situations where you can get dupes, etc. I found just backing what I wanted and purchasing piece meal to be better, even if it's more.\nThat said, they are often very reachable on their discord, email, even here sometimes. I'm somewhat sure they will fix it or it would be fixed had you hung in there. But also, I understand the \"Kickstart\" or \"Support a passionate artist\" model is not for everyone if all you care about is getting good deals or getting final products (which is often why people stay away from out of the box models like their monthly club stuff). Not saying this is you, but, I do know that is the grey area where people struggle.\nObviously, you SHOULD be getting your stuff on time, so it's not an excuse for them either, but, generally speaking, a more relaxed mindset is probably warranted with them.\nReply\nreply\nKoholintCustoms\n•\nDo they run pnparcade? I thought that was affiliated but separate\nReply\nreply\nwakasm\n•\nTop 1% Commenter\nThat's why I put \"I think\". I actually am never sure. I know Jason is involved, I always see him speaking on behalf of pnparcade. I don't really know how it's structured from a company/financial point of view, but there is certainly some amount of overlap from at least individual efforts and most of their games can be found there.\nReply\nreply\nWilleth\n•\nIt's a separate company, but of course as they share staff it's a lot easier for Button Shy stuff to be published there.\nReply\nreply\nKoholintCustoms\n•\nGotcha. Thanks!\nReply\nreply\nMore replies\nMore replies\nMore replies\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nMeepleMover\n•\nI've had a few late shipments and sometimes they'll bundle multiple months together if they get behind, but they've always made me whole.\nThe one game a month pace is crazy. Especially for a small team. Best to give them grace. Their Discord is a great way to keep a pulse on things. I got nervous like you when I didn't receive a game one month, but saw a discussion on Discord about how they were behind on shipping because of the holidays. Saved me sending a frustrated email.\nReply\nreply\nkaysn\n•\nJust buy the games you want from them retail. And that way, you will get the game you actually want to play. I have bought Button Shy games from local stores when they get them in stock. Instead of direct because those are more convenient and reliable to me.\nReply\nreply\nJamesGecko\n•\nButton Shy’s primary focus is direct to customer. I’ve never seen more than one or two of their games in retail.\nBecause of the small size of print runs and the effort required to run so many Kickstarters, the club is hands down the most reliable way to get a lot of their newest games and expansions. Not everything gets kickstarted, and the ones that don’t tend to have limited stock on the store.\nReply\nreply\nMore replies\nWilleth\n•\nIf it's helpful, I've been a member for years and trust them implicitly. There have been times (years ago) with the club where it's been running at a significant delay, but they have always made sure everyone gets what they subscribed for. I am certain if anything has gone wrong with your games they will sort it out.\nHave a look at the Patreon posts, you may still have access if you cancelled during March. They lay out everything each month in update posts about club status. At the moment they're running about right, with the game for each month being delivered in the following month - I expect to get the March's wallet in April.\nThere was a bit of a backlog over December due to holidays, conventions and Black Friday fulfillment, and Jan's package was delayed to be sent with Feb's. You just happen to have joined at one of the busier times.\nThe USPS delays are real, but I totally get your reticence if this is your experience! Their Discord has lots of people reporting the same thing but I believe some of the packages are getting unjammed now. I'm in the UK so fortunately didn't get caught in that.\nThis year they're Kickstarting a lot more of their catalogue, so the club seems to be getting fewer exclusives - so if you wanted to just follow them there, back a la carte, and see how they handle the campaigns, that might be one way of clearing the bad taste without committing if you're not comfortable.\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nPontiacsentinel\n•\nTop 1% Commenter\nI would ask them point blank what you need to do to get the 3 games. I have always had positive experiences when I shopped there. I prefer buying what I want periodically though, to be sure I don't pay for a monthly game that is a bad fit.\nReply\nreply\nLock_Down_Leo\n•\nTop 1% Commenter\nThe monthly club is a lot more caught up now than it used to be! That being said there is still a delay sometimes, but I've never not received my game from it. For a pure solo gamer I think you'd be better off just buying the games you want. I think it's a great company and I love the games they make, so being a club member is a no brainer for me.\nReply\nreply\nmrausgor\n•\nTop 1% Commenter\nI’ve had a lot of experience with them and none of it has ever been negative. The one time I did have a shipping issue it was actually my fault for using an old saved address and they charged me $5 and resent it out quickly. Sorry to hear that you are having a rough experience.\nThat said, I really did not like their Patreon deal. Expansions I didn’t need and games that I could have just ordered individually. Just didn’t make sense to me why I would go that route instead of just buying what I wanted, so I cancelled it.\nReply\nreply\nvacasmagras\n•\nMy customer service experience with Buttonshy has always been very good.\nReply\nreply\nSea_Flamingo626\n•\nI've ordered a number of times, from Kickstarter and straight from their website. No issues\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nrambell\n•\nYeah the 2/21 shipments got delayed (USPS problem). I am still waiting for mine too (but retail website). You could always drop them an email or reach out on Discord. They are very responsive so that's good at least.\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nSafe_Virus1039\n•\nOk good to know they are a great company that makes me feel better!! Maybe I just didn’t understand the way the Patreon works. For the record no stores around me sell their games so I have to order off the website\nReply\nreply\nWilleth\n•\n•\nEdited\nYou can order from the website without having to be a Patreon member if you don't want. If you're still a member until the end of next week you might want to take the opportunity to use your discount code while it's still valid.\nThey occasionally do brief restocks and sales throughout the year. If you jump into their Discord you can see when those are, they don't tend to publicise them elsewhere.\nReply\nreply\nMore replies\nMonkeyATX\n•\nI don’t belong to their game of the month club (didn’t want to risk getting something I already had or wouldn’t play), but I have ordered a lot of games from them and I have backed their last several kickstarters. I think they are just in the process of growing as they have games coming out in retail now and I imagine you might just be experiencing the results of their growth. I would definitely reach out and let them know you haven’t received anything and want to make sure your information is correct, etc. you can also sign up for their updates.\nReply\nreply\nWilleth\n•\ndidn’t want to risk getting something I already had or wouldn’t play\nJust to flag, it's set up so this won't happen. Each new month is a new game to their catalogue, and if you have Kickstarted it or you don't think you'll like it, you can tell them and they'll swap the game for something else in stock.\nReply\nreply\nMonkeyATX\n•\nThanks. That is good to know. I thought they also sent re-releases. So. They let you know ahead of time what is going to be sent so you can swap it out? Is there a limit on how many months you can swap out?\nReply\nreply\nWilleth\n•\n•\nEdited\nYeah, every month they post on Patreon exactly what's coming, and post a Google Form to swap out if you don't want it. There's no limit on how many months you can swap - it's a limited selection of what they have in stock that you can swap for, though, it's not absolutely everything. If you think you'll be swapping often then it's probably wiser to just buy what you want from the store a la carte or through Kickstarter.\nThey also do a preview of what's coming each year so you can make a judgement call if you want on that. I think that post is public, let me know if this link works: https://www.patreon.com/posts/117894869\nFour of those in the initial image have already been crowdfunded. The Movie Plotz special edition has also been switched into being a monthly wallet rather than an extra like was planned.\nReply\nreply\nMore replies\nMore replies\nMore replies\njbabel1012\n•\nI’ve never done the game of the month so I can’t comment on that. However I have just started getting their games and have done 3 separate orders from their website in the last 2 months. All have been delivered without issue from them. 1 had a slight 2 day shipping delay but that was due to usps. As others have said, reach out via email/discord and they should make it right.\nReply\nreply\nmbsisktb\n•\nWhile I gad some of the same woes with their patreon during November/December I’m guessing the onslaught of Black Friday orders was more then expected and got them slammed.\nI had put in two BF orders about 2-3 hours apart. They were something like 500-600 order numbers apart. I’ve placed orders on different days that were closer in order number.\nThat being said they did make me whole and were great about it if a little uncommunicative but given their team size it’s understandable.\nThey’ve been pretty spot on with the patreon and communicative for the stuff going on and so far have always made me whole if a little behind. But their product always stands up to the test of time and I’ve never had an issue with the product just delays given the time of year.\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nkloc_\n•\nI have had two way back when.\nI used to do their game of the month but never received anything for a year. Took a chargeback threat for them to actually refund me. Then a year or so later there was a game I bought for my wedding and it just never came. When my spouse emailed them for support, they just said it’s the mails fault and we are sol/have to buy a new one (on one hand I understand but on the other I didn’t think it’ll break them by sending a $12 replacement).\nThat being said they have great games that I genuinely enjoy playing but I personally would only back their Kickstarters now because I’ve never had a problem getting my games when it’s through that platform. Also my two negatives were over 3 years ago so there’s a high chance they figured out a much better workflow since then.\nReply\nreply\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nAtomicColaAu\n•\nI had an issue with my kickstarter product just never arriving. Emailed them and they were super lovely, personable, and fast to fix the issue. I would support them again purely based on how they handled it. They were great.\nReply\nreply\nNew to Reddit?\nCreate your account and connect with a world of communities.\nContinue with Email\nContinue With Phone Number\nBy continuing, you agree to our\nUser Agreement\nand acknowledge that you understand the\nPrivacy Policy .\nMore posts you may like\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/AskAcademia\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/AskAcademia\nThis subreddit is for discussing academic life, and for asking questions directed towards people involved in academia, (both science and humanities).\nMembers\nOnline\nIs it possible to be published even as a non-profesional?\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/scientology\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/scientology\nA sub for the discussion of all things Scientology related.\nMembers\nOnline\nHeads up. This Guy Literally Ran Scientology's Harassment Department ( O.S.A. ) For Several Decades. If you're at all curious about THAT whole thing, get it before whoever's selling it, takes it down. I'm pretty sure I smell a lawsuit. Or several. As many as is legally plausible\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nPlayed my first \"no-kill\" game of Ragemore over lunch today, followed by my first ever game of Sprawlopolis (which was a win with 35 of the required 34 points). Really liking my Button Shy lineup so far.\n2\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nIt's been said before, but this community is amazing and *extremely* generous!\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nI love soloboardgaming\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nButtonshy Games Battlecrest kickstarter just went live - includes a free solo expansion!\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nFavorite Solo Game\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nThe Elder Scrolls: Betrayal of the Second Era. This thing is intimidating! Wish me luck. :)\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nVoidfall : absolutely crushed the Voidborn, love the game!\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nRobinson Crusoe or how to be taught how to miserably die.\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nADHD guy checking in. Often i cannot push myself to break open a short game. So i figured i'd have them waiting for me all setup and ready to go when the motivation strikes. MAQUIS/COFFE ROASTER/CALICO\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nWhen you're victorious knowing you accidentally messed up the rules to your advantage\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nGames you regret buying?\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nTiny Epic Games are fun solo games\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nDragons of Etchinstone by Chip Theory Games First Look\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nOne Deck Dungeon solo with warrior\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nLet's see what the fuss is about - For Northwood\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nI thought I was out, but it pulled me back in\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nFinally starting my first session of Elder Scrolls: Betrayal of The Second Era after getting my preorder copy!\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\n1 week and 2 days in…\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nLearning a new game before work. (Warp’s Edge)\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nArkham Horror 3rd Edition\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nAgricola solo on a rainy day\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nBarnes and Nobles Score\nupvotes\n·\ncomments\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\n•\n:first-child]:h-full [&>:first-child]:w-full [&>:first-child]:mb-0 [&>:first-child]:rounded-[inherit] h-full w-full [&>:first-child]:overflow-hidden [&>:first-child]:max-h-full\">\nr/soloboardgaming\nAll about exploring, discussing, and playing board games solo... as in solitary, alone, one-player, without others, etc. Solitaire Board Gaming: Get together and play by yourself!\nMembers\nOnline\nLittle over a few months in and my boardgaming addiction took over my vinyl cabinet.\nupvotes\n·\ncomments\nTop 3%\nRank by size\nReddit Rules\nPrivacy Policy\nUser Agreement\nReddit, Inc. © 2025. All rights reserved.\nExpand Navigation\nCollapse Navigation\n&nbsp;\n&nbsp;\nTOPICS\nInternet Culture (Viral)\nAmazing\nAnimals & Pets\nCringe & Facepalm\nFunny\nInteresting\nMemes\nOddly Satisfying\nReddit Meta\nWholesome & Heartwarming\nGames\nAction Games\nAdventure Games\nEsports\nGaming Consoles & Gear\nGaming News & Discussion\nMobile Games\nOther Games\nRole-Playing Games\nSimulation Games\nSports & Racing Games\nStrategy Games\nTabletop Games\nQ&As\nQ&As\nStories & Confessions\nTechnology\n3D Printing\nArtificial Intelligence & Machine Learning\nComputers & Hardware\nConsumer Electronics\nDIY Electronics\nProgramming\nSoftware & Apps\nStreaming Services\nTech News & Discussion\nVirtual & Augmented Reality\nPop Culture\nCelebrities\nCreators & Influencers\nGenerations & Nostalgia\nPodcasts\nStreamers\nTarot & Astrology\nMovies & TV\nAction Movies & Series\nAnimated Movies & Series\nComedy Movies & Series\nCrime, Mystery, & Thriller Movies & Series\nDocumentary Movies & Series\nDrama Movies & Series\nFantasy Movies & Series\nHorror Movies & Series\nMovie News & Discussion\nReality TV\nRomance Movies & Series\nSci-Fi Movies & Series\nSuperhero Movies & Series\nTV News & Discussion\nRESOURCES\nAbout Reddit\nAdvertise\nReddit Pro\nBETA\nHelp\nBlog\nCareers\nPress\nCommunities\nBest of Reddit\nTopics\nLog In / Sign Up\nAdvertise on Reddit\nTry Reddit Pro\nBETA\nShop Collectible Avatars",
+     "policy": {
+      "policyId": "rights.reddit.v2",
+      "sourceId": "src.reddit",
+      "providerName": "Reddit",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s16",
+     "url": "https://buttonshygames.com/pages/international-orders",
+     "publisher": "公式の海外販売案内",
+     "snapshot": {
+      "url": "https://buttonshygames.com/pages/international-orders",
+      "finalUrl": "https://buttonshygames.com/pages/international-orders",
+      "status": 200,
+      "fetchedAt": "2026-10-07T10:37:57.646Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "98f43bb2afcb1b4f49861015ee21854eb4a1238b4b97bd60ec28d3d031f51acc"
+     },
+     "text": "International Orders\n- Button Shy\nWe are offering our games internationally with the following options:Etsy - US and International orders - Shipping from US  As of right now our top 5 best sellers are there. We’ll be adding more each day as we learn the system. LINK: https://www.etsy.com/shop/ButtonShyGames Ebay - US and International orders - Shipping\nInternational Orders\nWe are offering our games internationally with the following options:Etsy - US and International orders - Shipping from US  As of right now our top 5 best sellers are there. We’ll be adding more each day as we learn the system. LINK: https://www.etsy.com/shop/ButtonShyGames Ebay - US and International orders - Shipping\nInternational Orders\n- Button Shy\n&times;\nSkip to content\nIn order to meet customer demand and evolving US and international market standards, all Button Shy hand assembled games will be labeled for ages 14+.\nWant to receive wallet games in your mailbox every month? Check out our Board Game of the Month Club at Patreon.\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nLog in\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nHome\nNew Boxed Games\nClassic Wallet Games\nExpansions\nShop By Player Count\n1 Player Games\n2 Player Games\n3 Player Games\n4 Player Games\n5 (or more) Player Games\nInternational Orders\nSearch\nLog in\nCart\nItem added to your cart\nView cart\nCheck out\nContinue shopping\nInternational Orders\nWe are offering our games internationally with the following options:\nEtsy - US and International orders - Shipping from US\nAs of right now our top 5 best sellers are there. We’ll be adding more each day as we learn the system. LINK: https://www.etsy.com/shop/ButtonShyGames\nEbay - US and International orders - Shipping from US\nWe’ve been selling our boxed titles here briefly over the last year or so, and plan to build a full store there. This will be coming shortly.\nAmazon - US and International orders - Shipping from US\nWe’ve avoided Amazon forever, but decided to sell there since our games are already being sold there for 3X the retail price. We’d prefer you to get them at much more reasonable prices.   This will be coming shortly.\nCrowdfunding (Kickstarter/Gamefound) - US and International orders - Shipping from US\nWe launch new campaigns almost monthly and offer worldwide shipping. The featured game and many add-ons are available at each campaign. Our active campaigns are linked below: None at this time. Next launches Tuesday February 3rd\nIPA Game Shop - International Orders only - Shipping from EU   We will be offering a large selection our best sellers and newest games in the IPA Game Shop to ship from inside the EU. This is coming soon.\nPatreon - US orders only (with a small trial period running for UK) - Shipping from US, with a test run with a forwarder to the UK We are continuing this as US only, but trying a forwarder for UK subscribers. If the prices work out, we can continue this and hopefully offer in more locations.\nPNP Games from a variety of PNP sites - No shipping needed!\nWe’re going to be adding our PNPs to as many the PNP sites as we can, starting with Itch.io.\nA few notes on international shipping. We know it’s expensive and it just keeps going up. The best suggestions to keep costs down are to do a group order (either multiple games for yourself or people in your region) to bring down the shipping cost per unit as the price starts to settle as you order more games, or to order PNPs, or look for local licensors that localize our games in your region. We’re looking to help better share the group orders that we know about, and to continue to expand our network of localizers.\nEnter\nInvalid Password\nCountry/region\nJapan |\nJPY\n¥\nSearch\nAustralia\nAUD\n$\nCanada\nCAD\n$\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nAfghanistan\nAFN\n؋\nÅland Islands\nEUR\n€\nAlbania\nALL\nL\nAlgeria\nDZD\nد.ج\nAndorra\nEUR\n€\nAngola\nUSD\n$\nAnguilla\nXCD\n$\nAntigua & Barbuda\nXCD\n$\nArgentina\nUSD\n$\nArmenia\nAMD\nդր.\nAruba\nAWG\nƒ\nAscension Island\nSHP\n£\nAustralia\nAUD\n$\nAustria\nEUR\n€\nAzerbaijan\nAZN\n₼\nBahamas\nBSD\n$\nBahrain\nUSD\n$\nBangladesh\nBDT\n৳\nBarbados\nBBD\n$\nBelarus\nUSD\n$\nBelgium\nEUR\n€\nBelize\nBZD\n$\nBenin\nXOF\nFr\nBermuda\nUSD\n$\nBhutan\nUSD\n$\nBolivia\nBOB\nBs.\nBosnia & Herzegovina\nBAM\nКМ\nBotswana\nBWP\nP\nBrazil\nUSD\n$\nBritish Indian Ocean Territory\nUSD\n$\nBritish Virgin Islands\nUSD\n$\nBrunei\nBND\n$\nBulgaria\nEUR\n€\nBurkina Faso\nXOF\nFr\nBurundi\nBIF\nFr\nCambodia\nKHR\n៛\nCameroon\nXAF\nCFA\nCanada\nCAD\n$\nCape Verde\nCVE\n$\nCaribbean Netherlands\nUSD\n$\nCayman Islands\nKYD\n$\nCentral African Republic\nXAF\nCFA\nChad\nXAF\nCFA\nChile\nUSD\n$\nChina\nCNY\n¥\nChristmas Island\nAUD\n$\nCocos (Keeling) Islands\nAUD\n$\nColombia\nUSD\n$\nComoros\nKMF\nFr\nCongo - Brazzaville\nXAF\nCFA\nCongo - Kinshasa\nCDF\nFr\nCook Islands\nNZD\n$\nCosta Rica\nCRC\n₡\nCôte d’Ivoire\nXOF\nFr\nCroatia\nEUR\n€\nCuraçao\nANG\nƒ\nCyprus\nEUR\n€\nCzechia\nCZK\nKč\nDenmark\nDKK\nkr.\nDjibouti\nDJF\nFdj\nDominica\nXCD\n$\nDominican Republic\nDOP\n$\nEcuador\nUSD\n$\nEgypt\nEGP\nج.م\nEl Salvador\nUSD\n$\nEquatorial Guinea\nXAF\nCFA\nEritrea\nUSD\n$\nEstonia\nEUR\n€\nEswatini\nUSD\n$\nEthiopia\nETB\nBr\nFalkland Islands\nFKP\n£\nFaroe Islands\nDKK\nkr.\nFiji\nFJD\n$\nFinland\nEUR\n€\nFrance\nEUR\n€\nFrench Guiana\nEUR\n€\nFrench Polynesia\nXPF\nFr\nFrench Southern Territories\nEUR\n€\nGabon\nXOF\nFr\nGambia\nGMD\nD\nGeorgia\nUSD\n$\nGermany\nEUR\n€\nGhana\nUSD\n$\nGibraltar\nGBP\n£\nGreece\nEUR\n€\nGreenland\nDKK\nkr.\nGrenada\nXCD\n$\nGuadeloupe\nEUR\n€\nGuatemala\nGTQ\nQ\nGuernsey\nGBP\n£\nGuinea\nGNF\nFr\nGuinea-Bissau\nXOF\nFr\nGuyana\nGYD\n$\nHaiti\nUSD\n$\nHonduras\nHNL\nL\nHong Kong SAR\nHKD\n$\nHungary\nHUF\nFt\nIceland\nISK\nkr\nIndia\nINR\n₹\nIndonesia\nIDR\nRp\nIraq\nUSD\n$\nIreland\nEUR\n€\nIsle of Man\nGBP\n£\nIsrael\nILS\n₪\nItaly\nEUR\n€\nJamaica\nJMD\n$\nJapan\nJPY\n¥\nJersey\nUSD\n$\nJordan\nUSD\n$\nKazakhstan\nKZT\n₸\nKenya\nKES\nKSh\nKiribati\nUSD\n$\nKosovo\nEUR\n€\nKuwait\nUSD\n$\nKyrgyzstan\nKGS\nsom\nLaos\nLAK\n₭\nLatvia\nEUR\n€\nLebanon\nLBP\nل.ل\nLesotho\nUSD\n$\nLiberia\nUSD\n$\nLibya\nUSD\n$\nLiechtenstein\nCHF\nCHF\nLithuania\nEUR\n€\nLuxembourg\nEUR\n€\nMacao SAR\nMOP\nP\nMadagascar\nUSD\n$\nMalawi\nMWK\nMK\nMalaysia\nMYR\nRM\nMaldives\nMVR\nMVR\nMali\nXOF\nFr\nMalta\nEUR\n€\nMartinique\nEUR\n€\nMauritania\nUSD\n$\nMauritius\nMUR\n₨\nMayotte\nEUR\n€\nMexico\nUSD\n$\nMoldova\nMDL\nL\nMonaco\nEUR\n€\nMongolia\nMNT\n₮\nMontenegro\nEUR\n€\nMontserrat\nXCD\n$\nMorocco\nMAD\nد.م.\nMozambique\nUSD\n$\nMyanmar (Burma)\nMMK\nK\nNamibia\nUSD\n$\nNauru\nAUD\n$\nNepal\nNPR\nRs.\nNetherlands\nEUR\n€\nNew Caledonia\nXPF\nFr\nNew Zealand\nNZD\n$\nNicaragua\nNIO\nC$\nNiger\nXOF\nFr\nNigeria\nNGN\n₦\nNiue\nNZD\n$\nNorfolk Island\nAUD\n$\nNorth Macedonia\nMKD\nден\nNorway\nUSD\n$\nOman\nUSD\n$\nPakistan\nPKR\n₨\nPalestinian Territories\nILS\n₪\nPanama\nUSD\n$\nPapua New Guinea\nPGK\nK\nParaguay\nPYG\n₲\nPeru\nPEN\nS/\nPhilippines\nPHP\n₱\nPitcairn Islands\nNZD\n$\nPoland\nPLN\nzł\nPortugal\nEUR\n€\nQatar\nQAR\nر.ق\nRéunion\nEUR\n€\nRomania\nRON\nLei\nRussia\nUSD\n$\nRwanda\nRWF\nFRw\nSamoa\nWST\nT\nSan Marino\nEUR\n€\nSão Tomé & Príncipe\nSTD\nDb\nSaudi Arabia\nSAR\nر.س\nSenegal\nXOF\nFr\nSerbia\nRSD\nРСД\nSeychelles\nUSD\n$\nSierra Leone\nSLL\nLe\nSingapore\nSGD\n$\nSint Maarten\nANG\nƒ\nSlovakia\nEUR\n€\nSlovenia\nEUR\n€\nSolomon Islands\nSBD\n$\nSomalia\nUSD\n$\nSouth Africa\nUSD\n$\nSouth Georgia & South Sandwich Islands\nGBP\n£\nSouth Korea\nKRW\n₩\nSouth Sudan\nUSD\n$\nSpain\nEUR\n€\nSri Lanka\nLKR\n₨\nSt. Barthélemy\nEUR\n€\nSt. Helena\nSHP\n£\nSt. Kitts & Nevis\nXCD\n$\nSt. Lucia\nXCD\n$\nSt. Martin\nEUR\n€\nSt. Pierre & Miquelon\nEUR\n€\nSt. Vincent & Grenadines\nXCD\n$\nSudan\nUSD\n$\nSuriname\nUSD\n$\nSvalbard & Jan Mayen\nUSD\n$\nSweden\nSEK\nkr\nSwitzerland\nCHF\nCHF\nTaiwan\nTWD\n$\nTajikistan\nTJS\nЅМ\nTanzania\nTZS\nSh\nThailand\nTHB\n฿\nTimor-Leste\nUSD\n$\nTogo\nXOF\nFr\nTokelau\nNZD\n$\nTonga\nTOP\nT$\nTrinidad & Tobago\nTTD\n$\nTristan da Cunha\nGBP\n£\nTunisia\nUSD\n$\nTürkiye\nUSD\n$\nTurkmenistan\nUSD\n$\nTurks & Caicos Islands\nUSD\n$\nTuvalu\nAUD\n$\nU.S. Outlying Islands\nUSD\n$\nUganda\nUGX\nUSh\nUkraine\nUAH\n₴\nUnited Arab Emirates\nAED\nد.إ\nUnited Kingdom\nGBP\n£\nUnited States\nUSD\n$\nUruguay\nUYU\n$U\nUzbekistan\nUZS\nso'm\nVanuatu\nVUV\nVt\nVatican City\nEUR\n€\nVenezuela\nUSD\n$\nVietnam\nVND\n₫\nWallis & Futuna\nXPF\nFr\nWestern Sahara\nMAD\nد.م.\nYemen\nYER\n﷼\nZambia\nUSD\n$\nZimbabwe\nUSD\n$\nPayment methods\n&copy; 2026, Button Shy\nPowered by Shopify\nChoosing a selection results in a full page refresh.\nOpens in a new window.",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "Pixel Lincoln の作者 Jason Tagmire は、目標1,000米ドルの Kickstarter が2日目で約35%に止まると、遊びから生まれた猫の架空映画の画像を投稿した。同じ朝に約800人へ便りも送り、数時間で支援額は倍になった。",
+     "basis": [
+      "f2",
+      "f4",
+      "f5",
+      "f6",
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "Alex Strang の Movie Plotz を Kickstarter で募集し、初日は目標の約25%、2日目は約35%まで進んだ。猫の架空映画の画像投稿と約800人への便りが重なった後、数時間で支援額が倍になった。2015年1月には Pretense を財布型シリーズの2作目として予告し、1企画500個未満を手で組んでいた。その後、手組みに時間を取られ、箱がないと売りにくい販路もあったため、主力を量産の箱型へ切り替えた。海外送料の上昇と通関差し戻しで約500米ドルを失い、海外直送を絞った。財布型の基本価格は5年以上据え置いた後に15米ドルへ上げた。2026年5月28日時点で事務所は6人になり、手組みの時間をゲーム制作に回している。",
+     "basis": [
+      "f3",
+      "f5",
+      "f6",
+      "f7",
+      "f9",
+      "f10",
+      "f15",
+      "f17",
+      "f21",
+      "f22",
+      "f24",
+      "f27",
+      "f40"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "問屋を通さず、18枚前後の小型カードゲームを遊び手へ直接売る。クラウドファンディングでは発送前に予約代金を集め、自社の Shopify 店で定価販売し、月次会員には毎月ゲームを送る。海外向けには Etsy・eBay でも売る。Amazon へは、転売品が小売価格の3倍で売られていることを理由に自ら出品を決めた。",
+     "basis": [
+      "f1",
+      "f18",
+      "f19",
+      "f23",
+      "f32",
+      "f37",
+      "f38"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "小型ゲームを集めるボードゲーム愛好家が客だ。毎月ゲームが届く月次会員と、新作の募集に予約で乗るクラウドファンディングの支援者がいる。レビュー動画の推薦をきっかけに会員になった利用者もいる。",
+     "basis": [
+      "f18",
+      "f23",
+      "f33"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "主な入口は Kickstarter の募集と、約800人に届く自社の便り。BoardGameGeek での包装紹介は反応と議論を集めたが、支援の増加にはつながらなかった。新作の募集では旧作を割り引いた組合せを出し、全作品を揃えると Pretense が実質無料になる売り方をした。海外は Etsy に主要5作品を置き、eBay では箱型作品を売っている。第三者の投稿では、レビュー発信者の推薦から会員になった例がある。",
+     "basis": [
+      "f3",
+      "f7",
+      "f8",
+      "f11",
+      "f33",
+      "f37"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-cost_structure",
+     "item": "COST_STRUCTURE",
+     "text": "財布型の包装と折りたたみ説明書、カードの製造費がかかる。美術と図案は社外の担当者に頼んでいる。職員の給与と海外送料も負担で、海外送料は1企画で17,000米ドルを集めていた。通関で郵便物がまとめて戻り、約500米ドルを失ったこともある。値上げの理由には、原価の上昇と関税を挙げている。",
+     "basis": [
+      "f4",
+      "f12",
+      "f18",
+      "f22",
+      "f26",
+      "f39",
+      "f40"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-upfront_cash",
+     "item": "UPFRONT_CASH",
+     "text": "クラウドファンディングでは、製造前に予約代金が入る。目標額そのものが包装と説明書の製造費に充てられ、海外送料17,000米ドルも発送前に集めていた。予約は定価より安い10米ドルで、早く払う客を優遇している。",
+     "basis": [
+      "f4",
+      "f23",
+      "f39"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "Movie Plotz の募集目標は1,000米ドルで、使い道は包装と説明書の費用だった。2026年5月28日時点で、ニュージャージー州の事務所に6人いる。企画制作は Jason Tagmire、George Tagmire、Andrew Basile の3人が担う。告知は Elle、試遊は Long と Anthony が担当し、美術と図案は社外の Milan と Filip に任せている。",
+     "basis": [
+      "f4",
+      "f24",
+      "f25",
+      "f26"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-dependencies",
+     "item": "DEPENDENCIES",
+     "text": "新作の資金と予約は Kickstarter の募集に、店は Shopify に、海外販売は Etsy・eBay に頼っている。郵便と通関にも首を握られている。海外送料の上昇と通関差し戻しで全地域への直送が難しくなり、現地の提携先探しに追われた。関税は原価を押し上げ、値上げの理由にもなった。",
+     "basis": [
+      "f3",
+      "f17",
+      "f22",
+      "f32",
+      "f37",
+      "f40"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "月次会員は発送期限つきで毎月ゲームを受け取る仕組みで、続けて払うほど手元に作品が揃う。社内の新シリーズは部分ごとに売り、2〜3部分を組み合わせて遊ぶ構想だ。単品の買い切りでは、客を引き留める力は弱い。",
+     "basis": [
+      "f18",
+      "f42"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-incumbent_blindspot",
+     "item": "INCUMBENT_BLINDSPOT",
+     "text": "普通の出版社は問屋を通して店に並べる。Button Shy は1企画500個未満という少量を手で組み、財布型の包装に12〜20枚を収めて直接届けた。問屋経由では採算に乗りにくい少量の小型ゲームを、自分の手で回してきた。",
+     "basis": [
+      "f1",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-competition",
+     "item": "COMPETITION",
+     "text": "自社の作品が Amazon で小売価格の3倍で売られていた。これを理由に、自ら Amazon で売ることを決めた。",
+     "basis": [
+      "f38"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-pivots",
+     "item": "PIVOTS",
+     "text": "看板だった手組みの財布型は、時間を食い、箱なしでは売りにくい販路があったため、量産の箱型に切り替えた。財布型を好む客には空の財布を追加商品として売り、箱は財布が収まる寸法にした。18枚のゲームは Wallet Games から Micro Games に名前を変え、四半期ごとに募集する。手組みは小規模な実験シリーズにだけ残した。",
+     "basis": [
+      "f15",
+      "f16",
+      "f19",
+      "f20"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-timeline",
+     "item": "TIMELINE",
+     "text": "2015年1月に、財布型シリーズの2作目 Pretense を予告した。2026年5月28日時点で、ニュージャージー州の事務所に6人を抱えて営業している。",
+     "basis": [
+      "f9",
+      "f24"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "小さく送りやすい少数枚のゲームを選んだことで、1,000米ドルという低い目標でも出版できた。生産も1企画500個未満の少量で済んだ。Kickstarter の予約で包装の費用を先に集めたため、在庫を抱える前に資金が回った。",
+     "basis": [
+      "f3",
+      "f4",
+      "f10"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "特化しないと困難。小さく送りやすいゲームという利点は、海外送料の上昇、通関差し戻し、関税で削られている。創業者自身も、全地域への直送をやめて提携先を探し、5年以上据え置いた価格を上げた。",
+     "basis": [
+      "f3",
+      "f17",
+      "f22",
+      "f40"
+     ],
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lesson",
+     "item": "LESSON",
+     "text": "手作りの財布型で見つけた客を、量産の箱と追加商品の空財布で引き止めた。手間のかかる作り方は、看板でも規模が育てば手放してよい。",
+     "basis": [
+      "f15",
+      "f16",
+      "f27"
+     ],
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "f13",
+    "f14",
+    "f15",
+    "f16",
+    "f17",
+    "f18",
+    "f19",
+    "f20",
+    "f21",
+    "f22",
+    "f23",
+    "f24",
+    "f25",
+    "f26",
+    "f27",
+    "f28",
+    "f29",
+    "f30",
+    "f31",
+    "f32",
+    "f33",
+    "f34",
+    "f36",
+    "f37",
+    "f38",
+    "f39",
+    "f40",
+    "f41",
+    "f42"
+   ],
+   "identity": {
+    "id": "ent_button_shy_f1545f17d98e",
+    "name": "Button Shy",
+    "url": "https://buttonshygames.com/",
+    "publishability": "PARTIAL"
+   },
+   "media": {
+    "assets": [
+     {
+      "assetId": "ma_02a92f2cb793b4d887f334ab",
+      "entityId": "ent_button_shy_f1545f17d98e",
+      "kind": "screenshot_home",
+      "sourcePageUrl": "https://buttonshygames.com/",
+      "assetUrl": null,
+      "retrievedAt": "2026-10-07T10:38:06.205Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "02a92f2cb793b4d887f334abb037a49ccc4652e6d8266a4d2b1a35b5709fc558",
+      "bytes": 288185,
+      "contentType": "image/png",
+      "width": 1280,
+      "height": 800,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Button Shy 公式サイト (https://buttonshygames.com/)",
+       "decision": "held",
+       "reviewedAt": null,
+       "notes": "ビューポート 1280x800 で当方が描画したスクリーンショット。同意バナーが写り込むことがある。 自動取得 (media-fetch)。権利審査前のため held。許可前に目視で (1) 人物が主題でない (2) 同意バナー・個人情報・ログイン画面が写っていない (3) 識別・説明目的に限る、を確認し、review-assets で判定を追記する（この manifest は書き換えない。自動取得の既定値 subjectIsPerson=true は「未確認」の意味）。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_button_shy_f1545f17d98e/02a92f2cb793b4d887f334abb037a49ccc4652e6d8266a4d2b1a35b5709fc558.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": null
+     },
+     {
+      "assetId": "ma_4347e00a52f44540df83b2e2",
+      "entityId": "ent_button_shy_f1545f17d98e",
+      "kind": "favicon",
+      "sourcePageUrl": "https://buttonshygames.com/",
+      "assetUrl": "https://buttonshygames.com/cdn/shop/files/favicon_4088e75d-dcc8-4388-af2b-326d5c8e0161.png?crop=center&height=32&v=1743756808&width=32",
+      "retrievedAt": "2026-10-07T10:38:06.296Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "4347e00a52f44540df83b2e2eb9f8a54354e0186983d732ca7355fcb78a1a21c",
+      "bytes": 3058,
+      "contentType": "image/png",
+      "width": 32,
+      "height": 32,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Button Shy 公式サイト (https://buttonshygames.com/)",
+       "decision": "allowed",
+       "reviewedAt": "2026-10-07T10:42:29.731Z",
+       "notes": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (4347e00a52f4)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_button_shy_f1545f17d98e/4347e00a52f44540df83b2e2eb9f8a54354e0186983d732ca7355fcb78a1a21c.png",
+       "publicKey": "media/ent_button_shy_f1545f17d98e/4347e00a52f44540df83b2e2eb9f8a54354e0186983d732ca7355fcb78a1a21c.png"
+      },
+      "subjectIsPerson": false,
+      "review": {
+       "assetId": "ma_4347e00a52f44540df83b2e2",
+       "decision": "allowed",
+       "subjectIsPerson": false,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:29.731Z",
+       "note": "自動判定 auto-rule-v4: favicon。画像として読める (image/png 32x32)、SHA-256が台帳と一致 (4347e00a52f4)、macOS Vision の顔検出 (VNDetectFaceRectanglesRequest) で顔 0 件。公式素材として識別・説明目的の小さな表示に限る。画像の中身の目視確認はしていない。"
+      }
+     },
+     {
+      "assetId": "ma_ff2cacfeb281d00835d381a7",
+      "entityId": "ent_button_shy_f1545f17d98e",
+      "kind": "og_image",
+      "sourcePageUrl": "https://buttonshygames.com/",
+      "assetUrl": "http://buttonshygames.com/cdn/shop/files/bs-logo.png?height=628&pad_color=ffffff&v=1744289478&width=1200",
+      "retrievedAt": "2026-10-07T10:38:37.179Z",
+      "capturedBy": "media-fetch-20261007",
+      "sha256": "ff2cacfeb281d00835d381a79f312d66a119e37876e603a8b5a503fff39c431f",
+      "bytes": 289633,
+      "contentType": "image/png",
+      "width": 1200,
+      "height": 628,
+      "rights": {
+       "basis": "official_marketing_material",
+       "termsUrl": null,
+       "licence": null,
+       "attribution": "出典: Button Shy 公式サイト (https://buttonshygames.com/)",
+       "decision": "blocked",
+       "reviewedAt": "2026-10-07T10:42:29.312Z",
+       "notes": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      },
+      "storage": {
+       "bucket": "foundation-raw",
+       "key": "media/ent_button_shy_f1545f17d98e/ff2cacfeb281d00835d381a79f312d66a119e37876e603a8b5a503fff39c431f.png",
+       "publicKey": null
+      },
+      "subjectIsPerson": true,
+      "review": {
+       "assetId": "ma_ff2cacfeb281d00835d381a7",
+       "decision": "blocked",
+       "subjectIsPerson": true,
+       "reviewer": "auto-rule-v4",
+       "reviewedAt": "2026-10-07T10:42:29.312Z",
+       "note": "自動判定 auto-rule-v4: promo_banner_no_product。og:image は宣伝用の紹介画像で、実際に使うときの製品画面ではないため出さない。"
+      }
+     }
+    ],
+    "displayableIds": [
+     "ma_4347e00a52f44540df83b2e2"
+    ],
+    "problems": []
+   },
+   "caseHash": "17ecbb515aa93cc296b058383dbeb6ac6e11d30e39d3cc8412621cc8b0bfb132",
+   "itemHashes": {
+    "fact:f1": "7dd4b69d239be30bc9f2d931cff76b26da415693beffd277e7007fe7f323c744",
+    "fact:f2": "aa3b0e46286df68bf1855ef89a33772f4d94280069886a3c3b903f69ca6f14e1",
+    "fact:f3": "6e272d0873885a974ece527d090babf94170b33d720bcf2ea7f3b07e2d078039",
+    "fact:f4": "cc296894e673ad510a6ed2e8409b1ff45a66938b54fe8c9e05afea92c9c586c4",
+    "fact:f5": "7cb292fb4d8a49e7c1e4f016e383547b05a19373d28468905b58fc51fb3bb799",
+    "fact:f6": "f1f572f1b0fd8d5396dfbccf83c856599d95e5f7a132816266047f4e09618473",
+    "fact:f7": "d332d3b98a11b0570bc0103b80fa2db3546b4a6dd42c9d01a92cdf5698216e5f",
+    "fact:f8": "55a357347334ad3731ad4137890f874165f844e3cc9f6d7995e3e5d328d307cb",
+    "fact:f9": "c9798ef38831d966a6d6b7b8a6a6a128cd2c32cddf62c74e13f2fce25771f649",
+    "fact:f10": "636196ceab327284e99329ff3c51bbf3aad78b1e79c75215cdb0fe9fdbdda600",
+    "fact:f11": "13882a8a9f12e8fa707bddeb6156f1300c10f9f680766fc160e011e5252db006",
+    "fact:f12": "efe47fad05c108d3ed96cdf978619158d76b72e01e554ac5a8731ef9d6cd1e10",
+    "fact:f13": "ff02ac4df5972ef0aa9d916efc2320bfa387b43fdd016b953e399d2b60838d8c",
+    "fact:f14": "6b1ef9b8336cec85f57b0df0fecf26cc9fc84b9fb67c13e5d93dd788a74e9268",
+    "fact:f15": "786cfdbc976200a5eaeaf268f14817474bf9cc4adeacac8f60910b1b5a386503",
+    "fact:f16": "a2c58129cfb9946f8a9e0476316e89c889927ba42b402da0cbef6bbb48039dff",
+    "fact:f17": "5d5fbf905cc27d28543168ed81b5a738e92f3e7099041667f625210e242dee54",
+    "fact:f18": "6ba6a1128b0926dd465caa1cd28d5db12008e41f45a97d73838af7b3b9543750",
+    "fact:f19": "ca06bbc345767c18205faf0f4551231315febb36be352dc6e9d656283690661a",
+    "fact:f20": "f32946f792316db22ee690e89e1c632ebd1881039a2c65ec15b9328e77771feb",
+    "fact:f21": "b74d1f38270addf16b1da1f2c26ae71c2ec92144ea7504b8384fe55d9f7de113",
+    "fact:f22": "464250af599ca4edca34db0487b5771a75eb00e614bd4acefee97aaaa5a23b86",
+    "fact:f23": "7e3a1a2859e88fd9f6058b6341abea822ac0814f5ac8ef5dafab88a26d513d19",
+    "fact:f24": "626bdf9c0dc4811252ac81c9eee2c12ce2245f5f958afd142231e55c8ff1265b",
+    "fact:f25": "84fd10909b8f0d4831b4af92bc9c08c1a057593d7d3ef89f0ddc8b6a5f97bb03",
+    "fact:f26": "e94ffe933a261fcc5e766e206c23926d721b8f489820a893d5405db510bcfd93",
+    "fact:f27": "c4cc55734f0fae3ae829c08029c9d5aaa9c4ebd87ed64a17fefd6a668777096b",
+    "fact:f28": "e1703474996b87c7aecad03938433bb1371b607427a580b13ea126c77a347aa4",
+    "fact:f29": "b15c907ff18b5acc7d37888f92797e3934911f816c6476c5a4c7b7a235e3da22",
+    "fact:f30": "e81c8911c066810ef872e92dd5bcffb6aa47f384c03dab7f504fc040323e8d13",
+    "fact:f31": "315e42a7a7fa58fd1c84cc8792f1302baa0b582e93a8a9c677ff7577e98730ce",
+    "fact:f32": "c3dd88b7a485c336527fc1db1326080aec1f1a3369b08aaefb6d1cd881c0302f",
+    "fact:f33": "b52c9b402b6750332b6582ba6b9eeb3d1abcfe9d7f4501dae4b5a7fe8a12c972",
+    "fact:f34": "8c36b6e85b9b8804fa2fb7bfa9c44a1acdb681e6efcae5804d1d7e6d9e81b9a9",
+    "fact:f36": "f8230717e801c80100a98b9a7aa49101f787a8bac4fc95ff5ffb6b180f576de1",
+    "fact:f37": "959332ba2abfb4c10215e338e39bf4dd8420d98e4a63c576e7922d964a529898",
+    "fact:f38": "eb4af67b1a1764c6a960244e8e1763e99f0e219602892d32b2087c4ccbf17ca4",
+    "fact:f39": "810a09c92c972baa1180525204a357f9b2342e417648e3bc3079b76cd4538319",
+    "fact:f40": "4f7995ad91cb60fa571179b3034e269cd38eb6a9e8f43332d33eaee8e4abc944",
+    "fact:f41": "2896a61ae3b20dabd3cceb1cd6a2f5718eacebba990c50b1bdf167679a295fe3",
+    "fact:f42": "5862c9fda98436ef519210747b27fc7fcadca907d5638d495e8a915bcdf8bc07",
+    "analysis:a-headline": "78aac898494d058c72e704e5ad81a5b1cf5b0c49c84fde5f213d73879f5375e0",
+    "analysis:a-story": "3104d8f66e0ddf7e9ac092d9e7b77b297ee1ed3e28dba0da9c09a3f69645f1b9",
+    "analysis:a-business_model": "70ab48dd8917dd54aada7109942857d184ae49cd6e9446d6bf902e0a5ba89735",
+    "analysis:a-customer": "bd20caaf7ba946e3796e5db5b4021abe440afe9b69b081ef2ca13eb012a319d9",
+    "analysis:a-channels": "d7c449ea3d75049e7414efc18442946112400e6a9ef9aaa082b2d4c2d0390762",
+    "analysis:a-cost_structure": "6af1581ae4e9696909bebc2b8a76a3c31e1526d5dbc97171d370adcf71eabcba",
+    "analysis:a-upfront_cash": "a14a5dda961f58beebb12e48c54a53aeefe90601fd245f49f0e633fd8457e715",
+    "analysis:a-capital_and_team": "d3a8c20077068620286b91c06285567acb8ff5d27f5d4426cbd19bd1fa071249",
+    "analysis:a-dependencies": "643c4b2d6ec73ee1a8fa466109b295ca38b5f009dad14307789c8c42873765e5",
+    "analysis:a-lock_in": "fe8b830a5de726805984ef2498d325ccc159c97983b9d549d99eadf7e2839bec",
+    "analysis:a-incumbent_blindspot": "8bceadb52a1c088bba46d99fbadc2f4f68dd08fa90bf1d0ddad93c0d6c4658d9",
+    "analysis:a-competition": "1d2aec76057383fa90c6373447e15d46b6bc2f37e13378b8519d301791217488",
+    "analysis:a-pivots": "9dc7899c989570cc5b0dc79e51be55d9de4758f16ee28435a8bd5650fcab58c5",
+    "analysis:a-timeline": "8441c7289d59a70c6f9b042c006de2c6f203173c6801047509ff5f7a65665543",
+    "analysis:a-why_it_worked": "638313c0bfb978330a38a7fcd819916ea6f50dad023569f7b76f0eca3dd5f068",
+    "analysis:a-viability": "7a3069c164134ae443aaa1bb1d116be21de5da513485b4cd74c894559934fa88",
+    "analysis:a-lesson": "577ed1f2fbee7ccf9599bb18929bff64d0ae9e89ed00caebf48a578601563801"
+   },
+   "review": [
+    "fact:f1",
+    "fact:f2",
+    "fact:f3",
+    "fact:f4",
+    "fact:f5",
+    "fact:f6",
+    "fact:f7",
+    "fact:f8",
+    "fact:f9",
+    "fact:f10",
+    "fact:f11",
+    "fact:f12",
+    "fact:f13",
+    "fact:f14",
+    "fact:f15",
+    "fact:f16",
+    "fact:f17",
+    "fact:f18",
+    "fact:f19",
+    "fact:f20",
+    "fact:f21",
+    "fact:f22",
+    "fact:f23",
+    "fact:f24",
+    "fact:f25",
+    "fact:f26",
+    "fact:f27",
+    "fact:f28",
+    "fact:f29",
+    "fact:f30",
+    "fact:f31",
+    "fact:f32",
+    "fact:f33",
+    "fact:f34",
+    "fact:f36",
+    "fact:f37",
+    "fact:f38",
+    "fact:f39",
+    "fact:f40",
+    "fact:f41",
+    "fact:f42",
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-business_model",
+    "analysis:a-customer",
+    "analysis:a-channels",
+    "analysis:a-cost_structure",
+    "analysis:a-upfront_cash",
+    "analysis:a-capital_and_team",
+    "analysis:a-dependencies",
+    "analysis:a-lock_in",
+    "analysis:a-incumbent_blindspot",
+    "analysis:a-competition",
+    "analysis:a-pivots",
+    "analysis:a-timeline",
+    "analysis:a-why_it_worked",
+    "analysis:a-viability",
+    "analysis:a-lesson"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "url": "https://buttonshygames.com/pages/about-us",
+      "publisher": "公式の会社紹介",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+      "publisher": "公式の初期企画の振り返り",
+      "publishedAt": "2014-09-08",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s6",
+      "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+      "publisher": "公式の Pretense 発売予告",
+      "publishedAt": "2015-01-26",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s9",
+      "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+      "publisher": "公式の生産方式変更の説明",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s10",
+      "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+      "publisher": "公式の値上げ説明",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s11",
+      "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+      "publisher": "公式のチーム紹介",
+      "publishedAt": "2026-05-28",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s12",
+      "url": "https://buttonshygames.com/products/sprawlopolis",
+      "publisher": "公式の Sprawlopolis 商品ページ",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s14",
+      "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+      "publisher": "Reddit の利用者投稿",
+      "publishedAt": "2025-03-22",
+      "checkedAt": "2026-10-07",
+      "kind": "THIRD_PARTY"
+     },
+     {
+      "id": "s16",
+      "url": "https://buttonshygames.com/pages/international-orders",
+      "publisher": "公式の海外販売案内",
+      "checkedAt": "2026-10-07",
+      "kind": "OFFICIAL"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "Jason Tagmire と仲間による出版事業で、問屋を通さず客へ直接ゲームを届ける DIY／インディーの方式と紹介する。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "FOUNDING",
+      "text": "Jason Tagmire は Pixel Lincoln や Maximum Throwdown などのゲーム制作者として紹介される。",
+      "sourceId": "s1",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "DESCRIPTION",
+      "text": "Alex Strang の Movie Plotz を、小さく送りやすいゲームとして Kickstarter で募集した。",
+      "sourceId": "s4",
+      "statedAt": "2014-09-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "OTHER",
+      "text": "目標1,000米ドルは財布型の包装と折りたたみ説明書の費用のためと本人は説明する。",
+      "sourceId": "s4",
+      "statedAt": "2014-09-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f5",
+      "kind": "CHANNEL",
+      "text": "初日は目標の約25％、2日目は約35％まで進んだと本人は記録する。",
+      "sourceId": "s4",
+      "statedAt": "2014-09-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f6",
+      "kind": "CHANNEL",
+      "text": "その後、遊んだ内容から猫を使った架空映画の画像を投稿し、数時間で支援額が倍になったと記録する。",
+      "sourceId": "s4",
+      "statedAt": "2014-09-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f7",
+      "kind": "CHANNEL",
+      "text": "同じ朝に約800人へ便りも送っており、画像と便りのどちらが効いたかは判定できないと明記する。",
+      "sourceId": "s4",
+      "statedAt": "2014-09-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f8",
+      "kind": "CHANNEL",
+      "text": "BoardGameGeek の包装紹介は反応と議論を得たが、支援の増加には結び付かなかったと振り返る。",
+      "sourceId": "s4",
+      "statedAt": "2014-09-08",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f9",
+      "kind": "EVENT",
+      "text": "2015年1月の Pretense 予告では、小型の財布型シリーズの2作目と紹介している。",
+      "sourceId": "s6",
+      "statedAt": "2015-01-26",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f10",
+      "kind": "OTHER",
+      "text": "当時は1企画500個未満を作り、財布型包装に12〜20枚と説明書を収める設計と説明した。",
+      "sourceId": "s6",
+      "statedAt": "2015-01-26",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f11",
+      "kind": "CHANNEL",
+      "text": "新作の募集で旧作も割引して合わせて提供し、全作品の組合せでは Pretense を実質無料にすると案内した。",
+      "sourceId": "s6",
+      "statedAt": "2015-01-26",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f12",
+      "kind": "OTHER",
+      "text": "Pretense の絵は、以前 Seven7s で組んだ Fabrice Weiss に頼んだと説明した。",
+      "sourceId": "s6",
+      "statedAt": "2015-01-26",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f13",
+      "kind": "EVENT",
+      "text": "春企画の4作を Astro ROVE、The Rise Of A Jarl、Everything Machine、Shaper と説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f14",
+      "kind": "OTHER",
+      "text": "複数作を一緒に募集すると、それぞれの魅力を短い告知枠で伝えにくいと創業者は述べる。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f15",
+      "kind": "EVENT",
+      "text": "手組みが時間を取り、箱なしでは売りにくい販路があるため、主力を量産の箱型へ変えると説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f16",
+      "kind": "DESCRIPTION",
+      "text": "財布型を望む客には空の財布を追加商品として売り、箱は財布を中に収められる寸法にすると説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f17",
+      "kind": "OTHER",
+      "text": "海外送料の上昇と通関差戻しで、全地域への直送が難しくなり、提携先を探していると説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f18",
+      "kind": "OTHER",
+      "text": "月次会員向けの発送期限と職員の給与があるため、海外の提携成立を待って米国での販売を止められないと述べる。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f19",
+      "kind": "EVENT",
+      "text": "18枚のゲーム（旧 Wallet Games、現 Micro Games）は四半期ごとに募集すると説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f20",
+      "kind": "OTHER",
+      "text": "少量の実験的な社内制作シリーズでは、手組みを小規模に行う方針と説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f21",
+      "kind": "PRICING",
+      "text": "公式は財布型の基本価格を15米ドルへ上げ、拡張も1米ドル値上げしたと説明する。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f22",
+      "kind": "OTHER",
+      "text": "5年以上値上げしておらず、原価上昇と関税を理由に挙げる。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f23",
+      "kind": "PRICING",
+      "text": "クラウドファンディングの予約価格は基本10米ドル、拡張込み最大14米ドルと案内する。",
+      "sourceId": "s10",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f24",
+      "kind": "TEAM",
+      "text": "2026年5月28日の紹介は、ニュージャージー州の事務所に6人いるとする。",
+      "sourceId": "s11",
+      "statedAt": "2026-05-28",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f25",
+      "kind": "TEAM",
+      "text": "社内の企画制作担当は Jason Tagmire、George Tagmire、Andrew Basile の3人と紹介する。",
+      "sourceId": "s11",
+      "statedAt": "2026-05-28",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f26",
+      "kind": "OTHER",
+      "text": "Elle は告知、Long と Anthony は試遊、社外の Milan と Filip は美術と図案を担当すると紹介する。",
+      "sourceId": "s11",
+      "statedAt": "2026-05-28",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f27",
+      "kind": "EVENT",
+      "text": "手組みに使っていた時間をゲーム制作へ移したことを喜び、もっと早く変えてもよかったと述べる。",
+      "sourceId": "s11",
+      "statedAt": "2026-05-28",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f28",
+      "kind": "DESCRIPTION",
+      "text": "Sprawlopolis は18枚で都市を作る1〜4人の協力型ゲームとして売られている。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f29",
+      "kind": "PRICING",
+      "text": "Sprawlopolis の基本商品の表示価格は2,500円。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f30",
+      "kind": "OTHER",
+      "text": "制作者は Steven Aramini、Danny Devine、Paul Kluka、絵は Danny Devine と明示する。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f31",
+      "kind": "DESCRIPTION",
+      "text": "Sprawlopolis には複数の拡張があり、全拡張をまとめた Expansion Collection も扱われている。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f32",
+      "kind": "TOOL",
+      "text": "公式店のページは Shopify を使用しているとフッターに表示する。",
+      "sourceId": "s12",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f33",
+      "kind": "OTHER",
+      "text": "投稿者は Foster the Meeple の推薦をきっかけに会員となったが、12月と1月の2か月分を払っても届かず、3月22日時点でも未着だと訴える。",
+      "sourceId": "s14",
+      "statedAt": "2025-03-22",
+      "attribution": "THIRD_PARTY"
+     },
+     {
+      "id": "f34",
+      "kind": "OTHER",
+      "text": "別の利用者は、発送が遅れたことはあるが常に埋め合わせてもらえたと述べる。",
+      "sourceId": "s14",
+      "statedAt": "2025-03-23",
+      "attribution": "THIRD_PARTY"
+     },
+     {
+      "id": "f36",
+      "kind": "CHANNEL",
+      "text": "海外向け案内はまとめ注文で1個あたり送料を下げる方法、現地の販売提携、印刷用データを挙げる。",
+      "sourceId": "s16",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f37",
+      "kind": "CHANNEL",
+      "text": "海外販売は Etsy で主要5作品を扱うと案内する。eBay では箱型作品を既に売り、店の拡充は準備中と記載する。",
+      "sourceId": "s16",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f38",
+      "kind": "OTHER",
+      "text": "Amazon で販売することにした理由に、そこで既に小売価格の3倍で売られていることを挙げる。",
+      "sourceId": "s16",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f39",
+      "kind": "OTHER",
+      "text": "海外送料が翌週8％上がると説明し、その前に企画の送料17,000米ドルを集めていたと述べる。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f40",
+      "kind": "OTHER",
+      "text": "通関で郵便物がまとめて戻り、約500米ドルの損失になったと本人は説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f41",
+      "kind": "DESCRIPTION",
+      "text": "社内の新シリーズは、客がサイコロ等を用意し、説明書はオンラインに置く構想と説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f42",
+      "kind": "DESCRIPTION",
+      "text": "同じ新シリーズは部分ごとに売り、遊ぶには2〜3部分を組み合わせる構想と説明する。",
+      "sourceId": "s9",
+      "attribution": "OFFICIAL"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "Pixel Lincoln の作者 Jason Tagmire は、目標1,000米ドルの Kickstarter が2日目で約35%に止まると、遊びから生まれた猫の架空映画の画像を投稿した。同じ朝に約800人へ便りも送り、数時間で支援額は倍になった。",
+      "basis": [
+       "f2",
+       "f4",
+       "f5",
+       "f6",
+       "f7"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "Alex Strang の Movie Plotz を Kickstarter で募集し、初日は目標の約25%、2日目は約35%まで進んだ。猫の架空映画の画像投稿と約800人への便りが重なった後、数時間で支援額が倍になった。2015年1月には Pretense を財布型シリーズの2作目として予告し、1企画500個未満を手で組んでいた。その後、手組みに時間を取られ、箱がないと売りにくい販路もあったため、主力を量産の箱型へ切り替えた。海外送料の上昇と通関差し戻しで約500米ドルを失い、海外直送を絞った。財布型の基本価格は5年以上据え置いた後に15米ドルへ上げた。2026年5月28日時点で事務所は6人になり、手組みの時間をゲーム制作に回している。",
+      "basis": [
+       "f3",
+       "f5",
+       "f6",
+       "f7",
+       "f9",
+       "f10",
+       "f15",
+       "f17",
+       "f21",
+       "f22",
+       "f24",
+       "f27",
+       "f40"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-business_model",
+      "item": "BUSINESS_MODEL",
+      "text": "問屋を通さず、18枚前後の小型カードゲームを遊び手へ直接売る。クラウドファンディングでは発送前に予約代金を集め、自社の Shopify 店で定価販売し、月次会員には毎月ゲームを送る。海外向けには Etsy・eBay でも売る。Amazon へは、転売品が小売価格の3倍で売られていることを理由に自ら出品を決めた。",
+      "basis": [
+       "f1",
+       "f18",
+       "f19",
+       "f23",
+       "f32",
+       "f37",
+       "f38"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-customer",
+      "item": "CUSTOMER",
+      "text": "小型ゲームを集めるボードゲーム愛好家が客だ。毎月ゲームが届く月次会員と、新作の募集に予約で乗るクラウドファンディングの支援者がいる。レビュー動画の推薦をきっかけに会員になった利用者もいる。",
+      "basis": [
+       "f18",
+       "f23",
+       "f33"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-channels",
+      "item": "CHANNELS",
+      "text": "主な入口は Kickstarter の募集と、約800人に届く自社の便り。BoardGameGeek での包装紹介は反応と議論を集めたが、支援の増加にはつながらなかった。新作の募集では旧作を割り引いた組合せを出し、全作品を揃えると Pretense が実質無料になる売り方をした。海外は Etsy に主要5作品を置き、eBay では箱型作品を売っている。第三者の投稿では、レビュー発信者の推薦から会員になった例がある。",
+      "basis": [
+       "f3",
+       "f7",
+       "f8",
+       "f11",
+       "f33",
+       "f37"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-cost_structure",
+      "item": "COST_STRUCTURE",
+      "text": "財布型の包装と折りたたみ説明書、カードの製造費がかかる。美術と図案は社外の担当者に頼んでいる。職員の給与と海外送料も負担で、海外送料は1企画で17,000米ドルを集めていた。通関で郵便物がまとめて戻り、約500米ドルを失ったこともある。値上げの理由には、原価の上昇と関税を挙げている。",
+      "basis": [
+       "f4",
+       "f12",
+       "f18",
+       "f22",
+       "f26",
+       "f39",
+       "f40"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-upfront_cash",
+      "item": "UPFRONT_CASH",
+      "text": "クラウドファンディングでは、製造前に予約代金が入る。目標額そのものが包装と説明書の製造費に充てられ、海外送料17,000米ドルも発送前に集めていた。予約は定価より安い10米ドルで、早く払う客を優遇している。",
+      "basis": [
+       "f4",
+       "f23",
+       "f39"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-capital_and_team",
+      "item": "CAPITAL_AND_TEAM",
+      "text": "Movie Plotz の募集目標は1,000米ドルで、使い道は包装と説明書の費用だった。2026年5月28日時点で、ニュージャージー州の事務所に6人いる。企画制作は Jason Tagmire、George Tagmire、Andrew Basile の3人が担う。告知は Elle、試遊は Long と Anthony が担当し、美術と図案は社外の Milan と Filip に任せている。",
+      "basis": [
+       "f4",
+       "f24",
+       "f25",
+       "f26"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-dependencies",
+      "item": "DEPENDENCIES",
+      "text": "新作の資金と予約は Kickstarter の募集に、店は Shopify に、海外販売は Etsy・eBay に頼っている。郵便と通関にも首を握られている。海外送料の上昇と通関差し戻しで全地域への直送が難しくなり、現地の提携先探しに追われた。関税は原価を押し上げ、値上げの理由にもなった。",
+      "basis": [
+       "f3",
+       "f17",
+       "f22",
+       "f32",
+       "f37",
+       "f40"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lock_in",
+      "item": "LOCK_IN",
+      "text": "月次会員は発送期限つきで毎月ゲームを受け取る仕組みで、続けて払うほど手元に作品が揃う。社内の新シリーズは部分ごとに売り、2〜3部分を組み合わせて遊ぶ構想だ。単品の買い切りでは、客を引き留める力は弱い。",
+      "basis": [
+       "f18",
+       "f42"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-incumbent_blindspot",
+      "item": "INCUMBENT_BLINDSPOT",
+      "text": "普通の出版社は問屋を通して店に並べる。Button Shy は1企画500個未満という少量を手で組み、財布型の包装に12〜20枚を収めて直接届けた。問屋経由では採算に乗りにくい少量の小型ゲームを、自分の手で回してきた。",
+      "basis": [
+       "f1",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-competition",
+      "item": "COMPETITION",
+      "text": "自社の作品が Amazon で小売価格の3倍で売られていた。これを理由に、自ら Amazon で売ることを決めた。",
+      "basis": [
+       "f38"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-pivots",
+      "item": "PIVOTS",
+      "text": "看板だった手組みの財布型は、時間を食い、箱なしでは売りにくい販路があったため、量産の箱型に切り替えた。財布型を好む客には空の財布を追加商品として売り、箱は財布が収まる寸法にした。18枚のゲームは Wallet Games から Micro Games に名前を変え、四半期ごとに募集する。手組みは小規模な実験シリーズにだけ残した。",
+      "basis": [
+       "f15",
+       "f16",
+       "f19",
+       "f20"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-timeline",
+      "item": "TIMELINE",
+      "text": "2015年1月に、財布型シリーズの2作目 Pretense を予告した。2026年5月28日時点で、ニュージャージー州の事務所に6人を抱えて営業している。",
+      "basis": [
+       "f9",
+       "f24"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "小さく送りやすい少数枚のゲームを選んだことで、1,000米ドルという低い目標でも出版できた。生産も1企画500個未満の少量で済んだ。Kickstarter の予約で包装の費用を先に集めたため、在庫を抱える前に資金が回った。",
+      "basis": [
+       "f3",
+       "f4",
+       "f10"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-viability",
+      "item": "VIABILITY",
+      "text": "特化しないと困難。小さく送りやすいゲームという利点は、海外送料の上昇、通関差し戻し、関税で削られている。創業者自身も、全地域への直送をやめて提携先を探し、5年以上据え置いた価格を上げた。",
+      "basis": [
+       "f3",
+       "f17",
+       "f22",
+       "f40"
+      ],
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-lesson",
+      "item": "LESSON",
+      "text": "手作りの財布型で見つけた客を、量産の箱と追加商品の空財布で引き止めた。手間のかかる作り方は、看板でも規模が育てば手放してよい。",
+      "basis": [
+       "f15",
+       "f16",
+       "f27"
+      ],
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}

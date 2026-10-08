@@ -1,0 +1,1 @@
+{"cases":[{"entityId":"ent_revue_4fbfee0d2036","items":[{"analysisId":"a-dependencies","kind":"FACT_DISGUISED","severity":"LOW","why":"購読ボタンの仕様は一人の利用者の報告にすぎず、「終了日と決めると、ログインできなくなった」という時系列も資料では確かめられないため、言い切りを弱める。","fix":"買収後のRevueは、Twitter（現X）の傘の下にあった。ある利用者によると、購読ボタンもTwitterのプロフィールに組み込まれていた。Xの公式案内は提供終了日を2023年1月18日としており、現在はRevueにログインできない。配信の土台も読者の入口も、一社の判断で止まった。"}]}]}

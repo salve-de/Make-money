@@ -58,5 +58,119 @@
     "factId": "f1",
     "factHash": "cecd9426",
     "text": "開発会社・デザイン会社向けに、案件管理と請求の機能を提供する。"
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "factId": "f9",
+    "factHash": "77a54a68",
+    "text": "無料の音楽アプリPoolsuite FMを配り、日焼け止めVacationを売る会社"
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "factId": "f1",
+    "factHash": "e6941e7a",
+    "text": "Ubiquitiの通信機器を管理するサーバーを、管理台数に応じた月額・年額で事業者に売る"
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "factId": "f25",
+    "factHash": "04a8d6b7",
+    "text": "創業者への取材600件超を含む事例集などを、有料会員に年額で売る"
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "factId": "f3",
+    "factHash": "76f1a14a",
+    "text": "クリエイターや出版社が自分のサイトで会員から料金を受け取る道具。月額と取引手数料で稼ぐ"
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "factId": "f23",
+    "factHash": "ba98376c",
+    "text": "定額課金の会社に、失敗した決済の回収と解約の引き留めを固定料金で売る"
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "factId": "f2",
+    "factHash": "805eab45",
+    "text": "製品を作る人が目標達成を助け合う招待制の集まり。会費は月29ドル（約4,350円）"
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "factId": "f3",
+    "factHash": "6d3adbf8",
+    "text": "離れた開発者同士が一緒にコードを書くソフトを、開発チームに1人単位の月額で売る"
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "factId": "f1",
+    "factHash": "edd1af67",
+    "text": "ネット経由で使うソフトの会社に、利用者の行動に合わせたメールの自動配信を月額で売る"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "factId": "f1",
+    "factHash": "e8496dcc",
+    "text": "財布ほどの小さなカードゲームを、問屋を通さず客へ直接売る出版社"
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "factId": "f1",
+    "factHash": "150be182",
+    "text": "Airtableに外部のデータを取り込む拡張機能を、実行回数で段階を分けた有料プランで売る"
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "factId": "f1",
+    "factHash": "daf4e39e",
+    "text": "海外の購読者に日本の菓子を月2回郵送し、月額で代金を受け取る定期便"
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "factId": "f14",
+    "factHash": "180d737b",
+    "text": "ネットで売る事業者に、税の計算と請求書作りを月額で売るサービス"
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "factId": "f1",
+    "factHash": "89000904",
+    "text": "Notionを使う人に、回答をNotionのデータベースに保存するフォームを月額で売る"
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "factId": "f9",
+    "factHash": "d83eb04f",
+    "text": "開発者や企業向けに、住所と位置の変換を処理した量に応じて売るサービス"
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "factId": "f1",
+    "factHash": "94e288de",
+    "text": "個人向けの家計管理・予算アプリを、月額か年額の購読料で売る"
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "factId": "f13",
+    "factHash": "9ace0ebc",
+    "text": "他社サービスの障害をまとめて知らせる監視ツールを、企業や学校に有料プランで売る"
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "factId": "f3",
+    "factHash": "0993d387",
+    "text": "問い合わせの管理から報告までを、自社に合わせて組み立てられる顧客対応ツール"
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "factId": "f23",
+    "factHash": "6c94e83c",
+    "text": "個人や企業に、ドメインの登録・更新と、月額制の向け先の管理を売るサービス"
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "factId": "f1",
+    "factHash": "c6eeb229",
+    "text": "既存サイトに買物カートを後付けする、開発者・制作会社向けの製品。店の取引額に応じて課金"
   }
 ]

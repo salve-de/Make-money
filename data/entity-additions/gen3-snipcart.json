@@ -1,0 +1,1302 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen3/snipcart-record.json",
+  "manifestSha256": "4a51cd5929d7bb252c0e02fd57eeebf3dc76374f83aa5090768ae9328f0e3da7",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:27.020Z"
+ },
+ "records": [
+  {
+   "id": "ent_snipcart_9a1012111695",
+   "provenance": {
+    "detailsHash": "39ada56dcfc16b06d0f0837449fd2c1368d92a4ba3298e64a03169a4f506e693",
+    "artifactSha256": "4a51cd5929d7bb252c0e02fd57eeebf3dc76374f83aa5090768ae9328f0e3da7"
+   },
+   "record": {
+    "id": "ent_snipcart_9a1012111695",
+    "ticker": "SNIPCART",
+    "name": "Snipcart",
+    "legalEntity": "Snipcart inc.",
+    "tagline": "",
+    "description": "",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Charles Ouellet（共同創業者）",
+    "country": "カナダ",
+    "url": "https://snipcart.com",
+    "officialUrl": "https://snipcart.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2026-10-07の現況の損益は未確認。過去の申告値は日付付きの個別事実へ保存。",
+     "revenueLabel": "",
+     "sourceDoc": "https://snipcart.com/about"
+    },
+    "facts": [
+     {
+      "id": "ent_snipcart_9a1012111695_fact_1",
+      "kind": "DESCRIPTION",
+      "text": "既存サイトに買物カートを追加する、開発者・制作会社向けの製品。",
+      "sourceUrl": "https://snipcart.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の製品説明",
+      "sourceId": "snip-about",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_2",
+      "kind": "TOOL",
+      "text": "サイトへJavaScriptを追加し、商品ボタンへHTML属性を付けて組み込む。",
+      "sourceUrl": "https://snipcart.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の製品説明",
+      "sourceId": "snip-about",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_3",
+      "kind": "OTHER",
+      "text": "HTMLを編集できればWordPressなど既存の仕組みと組み合わせられる。",
+      "sourceUrl": "https://snipcart.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の製品説明",
+      "sourceId": "snip-about",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_4",
+      "kind": "OTHER",
+      "text": "所在地はカナダのQuébec City。著作権表記の法人名はSnipcart inc.。",
+      "sourceUrl": "https://snipcart.com/about",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の製品説明",
+      "sourceId": "snip-about",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_5",
+      "kind": "FOUNDING",
+      "text": "Charlesは最初の版を2013年8月に公開したと説明。",
+      "sourceUrl": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2013-08",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-podcast",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_6",
+      "kind": "FOUNDING",
+      "text": "Spektrumの顧客の古いASPサイトへ販売機能を追加する仕事が発端だった。",
+      "sourceUrl": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2013年前後",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-podcast",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_7",
+      "kind": "TEAM",
+      "text": "Françoisは最初の従業員として入社し、後に共同所有者になったと説明。",
+      "sourceUrl": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "対談時点。収録年月は未確認",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-podcast",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_8",
+      "kind": "OTHER",
+      "text": "最初の2年間はJamstackを意識していなかったと説明。",
+      "sourceUrl": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2013年から最初の2年間",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-podcast",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_9",
+      "kind": "FOUNDING",
+      "text": "顧客にサイト改築の予算がなく、既存HTMLへカートを差し込む方法を製品化した。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "2013",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_10",
+      "kind": "TEAM",
+      "text": "運営は3人半。GeorgesはSpektrumと兼務だった。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "2017-03",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_11",
+      "kind": "OTHER",
+      "text": "Spektrumが初期の制作・給与・事務を支援し、受託資金も再投入した。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "創業初期",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_12",
+      "kind": "OTHER",
+      "text": "両社の所有者はほぼ共通。外部の投資提案を数回断った。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "2017-03まで",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_13",
+      "kind": "OTHER",
+      "text": "月次で収支が釣り合い、黒字事業になったと記述。金額はない。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "2017-03",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_14",
+      "kind": "OTHER",
+      "text": "収入を待って採用し、不要不急の機能・連携・有料集客を延期した。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "2017-03まで",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_15",
+      "kind": "CHANNEL",
+      "text": "連携例を作り、コードを公開して関連コミュニティへ共有した。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "2017-03まで",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_16",
+      "kind": "TEAM",
+      "text": "過去製品の集客失敗を受け、最初の採用を集客担当にした。",
+      "sourceUrl": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "statedAt": "2017-03-09",
+      "checkedAt": "2026-10-07",
+      "period": "創業初期",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-founder-2017",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_17",
+      "kind": "OTHER",
+      "text": "6月のCarbon Ads広告費は$1,575、表示は464,464回だったと記述。",
+      "sourceUrl": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014年6月。公式目録と本文の同年投稿から確認",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-carbon",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_18",
+      "kind": "CHANNEL",
+      "text": "登録19件、実取引に至った利用者5人、1人当たり広告費$315と記述。",
+      "sourceUrl": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "同じ広告実験",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-carbon",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_19",
+      "kind": "OTHER",
+      "text": "専用の着地ページを用意しなかった。次は自社の有用な記事に費用を使うと記述。",
+      "sourceUrl": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "同じ広告実験",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-carbon",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_20",
+      "kind": "EVENT",
+      "text": "Carbon Ads実験記事の初出日を2014年7月3日と掲載。",
+      "sourceUrl": "https://snipcart.com/blog/topics/ecommerce/page/7",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2014-07-03",
+      "attribution": "公式目録の表示",
+      "sourceId": "snip-carbon-index",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_21",
+      "kind": "PRICING",
+      "text": "2013年の料金は顧客の月間販売額の2%だけだった。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "2013",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_22",
+      "kind": "OTHER",
+      "text": "顧客20%が収入80%を生み、残り80%は$0支払いでも相談が多かったと記述。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "料金変更前",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_23",
+      "kind": "OTHER",
+      "text": "顧客サイトのコードまで書く対応が開発を圧迫した。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "料金変更前",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_24",
+      "kind": "PRICING",
+      "text": "2%に最低月額$10を設けた。月販$500超の顧客は影響なし。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "2016-09公表記事で振り返る実験。実施年月未確認",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_25",
+      "kind": "EVENT",
+      "text": "実施3か月前からメール・管理画面・料金・FAQで告知した。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "最低料金導入前",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_26",
+      "kind": "OTHER",
+      "text": "請求日に相談が集中。Gorgiasの返信ひな形でも数日対応し、一部例外を設けた。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "最低料金導入時",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_27",
+      "kind": "OTHER",
+      "text": "有料顧客の離脱は0、利用者はほぼ半数を失ったと申告。約2,000アカウントと併記。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "最低料金導入後",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_28",
+      "kind": "OTHER",
+      "text": "登録後の実販売開始率は約2〜3%低下と記述。割合の定義は不明。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "最低料金導入後",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_29",
+      "kind": "REVENUE",
+      "text": "その後数か月で収入が3倍になったと申告。前後の金額はない。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "最低料金導入後",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_30",
+      "kind": "TEAM",
+      "text": "収入増加で開発者を追加採用した。",
+      "sourceUrl": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "statedAt": "2016-09-28",
+      "checkedAt": "2026-10-07",
+      "period": "最低料金導入後",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-pricing-change",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_31",
+      "kind": "CHANNEL",
+      "text": "開発者へ訴求し、実際に支払う商店主や上司へ提案してもらう形だった。",
+      "sourceUrl": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "創業から約4年の時点",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-b2d",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_32",
+      "kind": "OTHER",
+      "text": "大企業の営業や個別要望を処理する余力がなく、個人の開発者へ広く訴求した。",
+      "sourceUrl": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "同記事の対象時点",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-b2d",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_33",
+      "kind": "OTHER",
+      "text": "商店主はShopify、開発者はMoltinやFoxy.ioを比較対象にしやすいと観察。",
+      "sourceUrl": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "同記事の対象時点",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-b2d",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_34",
+      "kind": "PRICING",
+      "text": "取引額の2%を課金し、決済会社の手数料は別にかかる。",
+      "sourceUrl": "https://snipcart.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式料金の表示",
+      "sourceId": "snip-current-pricing",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_35",
+      "kind": "PRICING",
+      "text": "月販$1,000 USD未満は2%に代えて月額$20 USD。請求通貨はUSD。",
+      "sourceUrl": "https://snipcart.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式料金の表示",
+      "sourceId": "snip-current-pricing",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_36",
+      "kind": "PRICING",
+      "text": "開発用の試験利用は期限なしで無料、カード登録も不要。",
+      "sourceUrl": "https://snipcart.com/pricing",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式料金の表示",
+      "sourceId": "snip-current-pricing",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_37",
+      "kind": "OTHER",
+      "text": "通常プランは処理した月間販売額をもとに請求。料金はUSDで税別、返金不可と記載。",
+      "sourceUrl": "https://snipcart.com/terms-of-service",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式条件の記載。運用実態の監査ではない",
+      "sourceId": "snip-terms",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_38",
+      "kind": "OTHER",
+      "text": "価格変更は60日前にメール通知。管理画面かメールで解約でき、最終請求がある。",
+      "sourceUrl": "https://snipcart.com/terms-of-service",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式条件の記載。運用実態の監査ではない",
+      "sourceId": "snip-terms",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_39",
+      "kind": "TOOL",
+      "text": "注文・顧客の検索、編集、返金、書き出しを管理画面で扱うと説明。",
+      "sourceUrl": "https://snipcart.com/merchant-dashboard",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式掲載情報。実機の操作検証は未実施",
+      "sourceId": "snip-dashboard",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_40",
+      "kind": "OTHER",
+      "text": "Ayo Adesinaの紹介文は導入の容易さと個別対応を評価。公式が選んだ推薦文。",
+      "sourceUrl": "https://snipcart.com/merchant-dashboard",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "推薦の年月未確認",
+      "attribution": "公式掲載情報。実機の操作検証は未実施",
+      "sourceId": "snip-dashboard",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_41",
+      "kind": "OTHER",
+      "text": "2020年の拡大期は問い合わせ・採用・新入社員対応で余力がなかった。",
+      "sourceUrl": "https://www.flanthiernadeau.com/selling-snipcart-part-one/",
+      "statedAt": "2021-09-02",
+      "checkedAt": "2026-10-07",
+      "period": "2020年夏以降",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-sale-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_42",
+      "kind": "OTHER",
+      "text": "2021年1月中旬に、共同所有者への追加配当を8年で初めて受け取ったと記述。",
+      "sourceUrl": "https://www.flanthiernadeau.com/selling-snipcart-part-one/",
+      "statedAt": "2021-09-02",
+      "checkedAt": "2026-10-07",
+      "period": "2021-01",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-sale-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_43",
+      "kind": "EVENT",
+      "text": "Dudaの自社ブランド化・深い連携の相談から買収の話に進んだ。",
+      "sourceUrl": "https://www.flanthiernadeau.com/selling-snipcart-part-one/",
+      "statedAt": "2021-09-02",
+      "checkedAt": "2026-10-07",
+      "period": "2020年夏〜2021年",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-sale-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_44",
+      "kind": "OTHER",
+      "text": "2021年1月、共同所有者4人は一度売却しないと決めた後、条件付きで協議を続けた。",
+      "sourceUrl": "https://www.flanthiernadeau.com/selling-snipcart-part-one/",
+      "statedAt": "2021-09-02",
+      "checkedAt": "2026-10-07",
+      "period": "2021-01",
+      "attribution": "当事者の申告",
+      "sourceId": "snip-sale-founder",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_45",
+      "kind": "EVENT",
+      "text": "DudaはSnipcartの買収完了を発表した。",
+      "sourceUrl": "https://blog.duda.co/snipcart-acquisition",
+      "statedAt": "2021-09-01",
+      "checkedAt": "2026-10-07",
+      "period": "2021-09-01",
+      "attribution": "買い手の公式説明",
+      "sourceId": "snip-sale-duda",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_46",
+      "kind": "OTHER",
+      "text": "Dudaは自社の販売機能の柔軟性不足を理由に挙げ、自作より買収で短縮すると説明。",
+      "sourceUrl": "https://blog.duda.co/snipcart-acquisition",
+      "statedAt": "2021-09-01",
+      "checkedAt": "2026-10-07",
+      "period": "2021-09",
+      "attribution": "買い手の公式説明",
+      "sourceId": "snip-sale-duda",
+      "dateNote": "公表日と出来事の時期を区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_47",
+      "kind": "OTHER",
+      "text": "Sebastian G.は導入と対応を評価し、複雑な用途や定期課金には不満と投稿。",
+      "sourceUrl": "https://www.g2.com/products/snipcart/reviews",
+      "statedAt": "2025-06-19",
+      "checkedAt": "2026-10-07",
+      "period": "2025-06-19",
+      "attribution": "投稿者個人の申告。独立した操作確認なし",
+      "sourceId": "snip-g2",
+      "dateNote": "個別レビューの投稿年月日を採用。集合ページの更新日と区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_48",
+      "kind": "OTHER",
+      "text": "Michael S.は既存の独自サイトを保ち、試作が2〜3時間でできたと投稿。",
+      "sourceUrl": "https://www.g2.com/products/snipcart/reviews",
+      "statedAt": "2023-01-20",
+      "checkedAt": "2026-10-07",
+      "period": "2023-01-20",
+      "attribution": "投稿者個人の申告。独立した操作確認なし",
+      "sourceId": "snip-g2",
+      "dateNote": "個別レビューの投稿年月日を採用。集合ページの更新日と区別。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_49",
+      "kind": "OTHER",
+      "text": "alp44は決済エラーと対応不満を申告し、Stripe直結で代替したと投稿。",
+      "sourceUrl": "https://www.reddit.com/r/ecommerce/comments/1rcortz/snipcart_vs_ecwid_vs_shopify_checkout/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "投稿年月日未確認。11月中旬〜1月の体験談",
+      "attribution": "利用者を名乗る投稿者の申告。障害原因と損失は未立証",
+      "sourceId": "snip-reddit",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_50",
+      "kind": "OTHER",
+      "text": "同投稿者は多数の商品・選択肢が移行を難しくし、全面改築も高いと述べた。",
+      "sourceUrl": "https://www.reddit.com/r/ecommerce/comments/1rcortz/snipcart_vs_ecwid_vs_shopify_checkout/",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "同投稿の体験談",
+      "attribution": "利用者を名乗る投稿者の申告。障害原因と損失は未立証",
+      "sourceId": "snip-reddit",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_51",
+      "kind": "TEAM",
+      "text": "柔軟な勤務と遠隔勤務を案内。閲覧時に具体的な募集中の職種は表示されなかった。",
+      "sourceUrl": "https://snipcart.com/careers",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式ページの表示。現在の社員数を示す資料ではない",
+      "sourceId": "snip-careers",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_52",
+      "kind": "OTHER",
+      "text": "最低料金$20の理由に、サポート品質と稼働しない店舗の抑制を挙げている。",
+      "sourceUrl": "https://snipcart.com/faq",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の案内。解約不能とする根拠は得られていない",
+      "sourceId": "snip-faq",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_fact_53",
+      "kind": "OTHER",
+      "text": "注文・顧客の書き出しと、個人データの写し・削除のメール依頼窓口を案内。",
+      "sourceUrl": "https://snipcart.com/faq",
+      "statedAt": null,
+      "checkedAt": "2026-10-07",
+      "period": "2026-10-07確認",
+      "attribution": "公式の案内。解約不能とする根拠は得られていない",
+      "sourceId": "snip-faq",
+      "dateNote": "公表日は未確認。確認日と対象時点を分けて記録。"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "収集担当",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "id": "snip-about",
+       "url": "https://snipcart.com/about",
+       "publisher": "Snipcart 公式紹介",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-podcast",
+       "url": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+       "publisher": "Snipcart 公式対談",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+       "updatedAt": "2022-03-21"
+      },
+      {
+       "id": "snip-founder-2017",
+       "url": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+       "publisher": "François Lanthier Nadeau の公開記事",
+       "sourceType": "founder_post",
+       "publicationDate": "2017-03-09",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-carbon",
+       "url": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+       "publisher": "Snipcart 公式広告実験記事",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "公開記事。2014-07-03という初出日は公式の記事目録で確認。本文は2022-03-21更新。数値に不整合があるため問題のクリック数は確定値に採用しない。",
+       "updatedAt": "2022-03-21"
+      },
+      {
+       "id": "snip-carbon-index",
+       "url": "https://snipcart.com/blog/topics/ecommerce/page/7",
+       "publisher": "Snipcart 公式記事目録",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-pricing-change",
+       "url": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+       "publisher": "Baremetrics 掲載の当事者記事",
+       "sourceType": "founder_post",
+       "publicationDate": "2016-09-28",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+       "updatedAt": "2026-04-23"
+      },
+      {
+       "id": "snip-b2d",
+       "url": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+       "publisher": "Snipcart 公式集客振り返り",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "公開記事。2022-03-21は更新日。本文は創業から約4年の時点の振り返り。初出日未確認。",
+       "updatedAt": "2022-03-21"
+      },
+      {
+       "id": "snip-current-pricing",
+       "url": "https://snipcart.com/pricing",
+       "publisher": "Snipcart 公式料金",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-terms",
+       "url": "https://snipcart.com/terms-of-service",
+       "publisher": "Snipcart 公式利用条件",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-dashboard",
+       "url": "https://snipcart.com/merchant-dashboard",
+       "publisher": "Snipcart 公式販売管理画面紹介",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-sale-founder",
+       "url": "https://www.flanthiernadeau.com/selling-snipcart-part-one/",
+       "publisher": "François Lanthier Nadeau の売却記録",
+       "sourceType": "founder_post",
+       "publicationDate": "2021-09-02",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-sale-duda",
+       "url": "https://blog.duda.co/snipcart-acquisition",
+       "publisher": "Duda 公式買収発表",
+       "sourceType": "official_blog",
+       "publicationDate": "2021-09-01",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-g2",
+       "url": "https://www.g2.com/products/snipcart/reviews",
+       "publisher": "G2 の公開利用者評価",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "投稿本文を公開範囲で確認。会社全体の品質や障害を立証するものではない。"
+      },
+      {
+       "id": "snip-reddit",
+       "url": "https://www.reddit.com/r/ecommerce/comments/1rcortz/snipcart_vs_ecwid_vs_shopify_checkout/",
+       "publisher": "Reddit の公開利用者投稿",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "accessNote": "投稿は7か月前という相対表示。投稿年月日・店舗・障害原因・損失額は未確認。"
+      },
+      {
+       "id": "snip-careers",
+       "url": "https://snipcart.com/careers",
+       "publisher": "Snipcart 公式採用ページ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      },
+      {
+       "id": "snip-faq",
+       "url": "https://snipcart.com/faq",
+       "publisher": "Snipcart 公式FAQ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "accessNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。"
+      }
+     ],
+     "supported": [],
+     "unknown": [
+      "月間・年間売上の確定実額と料金変更前後の実額: 閲覧できた当事者資料は収入3倍・黒字という申告。時点の明確な絶対額を確認できなかった。",
+      "売上原価、給与、インフラ・ツール・外注の費用、税引後利益、個人の手取り: 詳細損益は公表資料で確認できない。広告実験の支出だけを総費用に転用しない。",
+      "初期投入資金と最初の有料顧客: 受託会社の支援は確認したが金額・最初の契約を特定できない。",
+      "2026年の社員数・週の労働時間・自動化率: 公開採用情報から確定できない。2017年の3人半を現在値に使わない。",
+      "売却価格・個人への売却代金・追加配当額: 売却と追加配当の事実は確認、実額は不明。",
+      "最低料金$10から$20への変更年月: 旧記事と現在料金は確認したが中間の改定日を特定できない。",
+      "全期間の解約率・顧客獲得費・生涯売上・紹介報酬の実績: 料金実験・広告実験の限定数値しか確認できない。",
+      "初期魚拓と製品画像の原物・転載許諾: 取得エラー。画像所在は残したが画面用画像は未取得。",
+      "現在の再現性、大手の自社売上との衝突、独占性: 根拠不足のため分析を記入しない。"
+     ],
+     "conflicts": [
+      "Carbon Ads公式版はクリック18,114・単価$0.08・表示464,464・クリック率0.39%と併記。一方公開再掲は1,811・$0.87。相互に整合しないためクリック数、クリック単価、登録率を確定値にしない。",
+      "最低料金の旧$10と現$20は異なる時点。2%に追加する固定料金ではない。",
+      "最低料金導入後の約2,000アカウントという記述は母数と離脱数の読み方に曖昧さがある。利用者ほぼ半数の離脱と併記し、正確な離脱人数へ変換しない。",
+      "G2の定期課金に関する不満と公式の対応機能一覧は食い違う。利用条件・製品版は不明。定期課金非対応と断定しない。",
+      "公式料金の決済連携6種類と管理画面紹介の8種類超は違うため種類数を採用しない。",
+      "売却記録の17,000超の有料顧客などはDudaの数字。Snipcartの顧客数にしない。",
+      "記事更新日2022年・2026年を、料金実験や創業初期の観測年に置き換えない。"
+     ],
+     "collectionContract": [
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/OWNER_INTENT.md",
+       "ref": "main",
+       "blobSha": "9cf4d6ef2c33cba0e76f3119e0e79bc61e55eefc",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md",
+       "ref": "main",
+       "blobSha": "b6a0593809cc697ab5646614bbb55f1883d714e0",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/architecture/STORAGE.md",
+       "ref": "main",
+       "blobSha": "d972fe577be780e2c5e01fa1785dfa258466e0c8",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/DATA_COLLECTION_MASTER_GUIDE.md",
+       "ref": "main",
+       "blobSha": "3edc604ba5ac4d1931d78aa03af0417a687295a9",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/docs/COLLECTED_ENTITIES.md",
+       "ref": "main",
+       "blobSha": "eeb5a8ab2477ad76fe76dd0011df9a6796f12a78",
+       "checkedAt": "2026-10-07"
+      },
+      {
+       "url": "https://github.com/salve-de/Make-money/blob/main/data/collected-registry.json",
+       "ref": "main",
+       "blobSha": "4446291be4ed9d5aa1133a42b4b741b28038294a",
+       "checkedAt": "2026-10-07"
+      }
+     ],
+     "recordBoundary": "収集記録。記事本文・章・分析・公開判定は未作成。ユーザーの指定により円換算・リポジトリ編集・外部保存は行わない。",
+     "dateConvention": "statedAtは出典の公表日。公表日不明ならnull。periodは対象時点、checkedAtは確認日。相対日付から年月日を作らない。",
+     "currencyConvention": "原資料の金額と通貨表記を維持。USDが明記されないドル記号の通貨コードは未確認。",
+     "mediaMaterials": [
+      {
+       "sourceUrl": "https://snipcart.com/merchant-dashboard",
+       "assetUrl": null,
+       "checkedAt": "2026-10-07",
+       "statedAt": null,
+       "location": "注文・顧客管理の画像リンク",
+       "purpose": "製品の具体的な画面の所在",
+       "status": "所在のみ確認",
+       "reason": "画像リンクの取得が内部エラー。実画像・商用転載許諾は未確認。",
+       "commercialDisplayApproved": false
+      }
+     ],
+     "researchAttempts": [
+      {
+       "url": "https://web.archive.org/web/20130801000000/https://snipcart.com/",
+       "checkedAt": "2026-10-07",
+       "result": "内部エラー。初期魚拓は未取得。"
+      },
+      {
+       "url": "https://medium.com/@the_fln/advertising-for-developers-with-carbon-ads-our-detailed-experience-8ec14004d6cd",
+       "checkedAt": "2026-10-07",
+       "result": "公開再掲と公式版でクリック数・単価が違うため、その数字を確定事実に採用しない。"
+      }
+     ]
+    },
+    "observationsStream": [],
+    "observations": [],
+    "temporal": {
+     "foundedYear": 2013,
+     "initialTractionPeriod": "",
+     "dataSnapshotPeriod": "創業2013年、当事者記録2016〜2021年、現行公開ページを2026-10-07確認",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [],
+     "toolStack": [],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "secretInsight": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_snipcart_9a1012111695_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/about",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/about",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式対談",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/blog/jamstack-ecommerce-podcast",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: François Lanthier Nadeau の公開記事",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+       "確認日: 2026-10-07",
+       "公表日: 2017-03-09"
+      ],
+      "url": "https://medium.com/swlh/our-odd-startup-3-%C2%BD-guys-no-vc-profitability-and-patience-307eb1ad1b0b",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式広告実験記事",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+      "sourceNote": "公開記事。2014-07-03という初出日は公式の記事目録で確認。本文は2022-03-21更新。数値に不整合があるため問題のクリック数は確定値に採用しない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式記事目録",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/blog/topics/ecommerce/page/7",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/blog/topics/ecommerce/page/7",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Baremetrics 掲載の当事者記事",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+       "確認日: 2026-10-07",
+       "公表日: 2016-09-28"
+      ],
+      "url": "https://baremetrics.com/blog/tiny-pricing-change-tripled-revenues",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式集客振り返り",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+      "sourceNote": "公開記事。2022-03-21は更新日。本文は創業から約4年の時点の振り返り。初出日未確認。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式料金",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/pricing",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/pricing",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式利用条件",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/terms-of-service",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/terms-of-service",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式販売管理画面紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/merchant-dashboard",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/merchant-dashboard",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: François Lanthier Nadeau の売却記録",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.flanthiernadeau.com/selling-snipcart-part-one/",
+       "確認日: 2026-10-07",
+       "公表日: 2021-09-02"
+      ],
+      "url": "https://www.flanthiernadeau.com/selling-snipcart-part-one/",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Duda 公式買収発表",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://blog.duda.co/snipcart-acquisition",
+       "確認日: 2026-10-07",
+       "公表日: 2021-09-01"
+      ],
+      "url": "https://blog.duda.co/snipcart-acquisition",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: G2 の公開利用者評価",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.g2.com/products/snipcart/reviews",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://www.g2.com/products/snipcart/reviews",
+      "sourceNote": "投稿本文を公開範囲で確認。会社全体の品質や障害を立証するものではない。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Reddit の公開利用者投稿",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://www.reddit.com/r/ecommerce/comments/1rcortz/snipcart_vs_ecwid_vs_shopify_checkout/",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://www.reddit.com/r/ecommerce/comments/1rcortz/snipcart_vs_ecwid_vs_shopify_checkout/",
+      "sourceNote": "投稿は7か月前という相対表示。投稿年月日・店舗・障害原因・損失額は未確認。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式採用ページ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/careers",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/careers",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_snipcart_9a1012111695_source_16",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: Snipcart 公式FAQ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "個別事実の出典の所在。",
+      "details": [
+       "URL: https://snipcart.com/faq",
+       "確認日: 2026-10-07",
+       "公表日: 未確認"
+      ],
+      "url": "https://snipcart.com/faq",
+      "sourceNote": "ログインせず公開範囲を閲覧。原文の複製ではなく確認できた事実を記録。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen3_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "",
+    "blindspot": "",
+    "moatDescription": "",
+    "unknownsNotes": [
+     "月間・年間売上の確定実額と料金変更前後の実額: 閲覧できた当事者資料は収入3倍・黒字という申告。時点の明確な絶対額を確認できなかった。",
+     "売上原価、給与、インフラ・ツール・外注の費用、税引後利益、個人の手取り: 詳細損益は公表資料で確認できない。広告実験の支出だけを総費用に転用しない。",
+     "初期投入資金と最初の有料顧客: 受託会社の支援は確認したが金額・最初の契約を特定できない。",
+     "2026年の社員数・週の労働時間・自動化率: 公開採用情報から確定できない。2017年の3人半を現在値に使わない。",
+     "売却価格・個人への売却代金・追加配当額: 売却と追加配当の事実は確認、実額は不明。",
+     "最低料金$10から$20への変更年月: 旧記事と現在料金は確認したが中間の改定日を特定できない。",
+     "全期間の解約率・顧客獲得費・生涯売上・紹介報酬の実績: 料金実験・広告実験の限定数値しか確認できない。",
+     "初期魚拓と製品画像の原物・転載許諾: 取得エラー。画像所在は残したが画面用画像は未取得。",
+     "現在の再現性、大手の自社売上との衝突、独占性: 根拠不足のため分析を記入しない。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "publishability: null→PARTIAL",
+     "growthRateYoY: 空→0",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "pnl.sourceClass: \"\"→欄を外す",
+     "pnl.sourceDoc: 空→https://snipcart.com/about",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す",
+     "essence: 空欄あり→欄を外す"
+    ]
+   }
+  }
+ ]
+}

@@ -37,13 +37,14 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  DISPLAY_FILES, applyRepairs, blameRows, droppableNumbers, extractNumbers, lostNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, dropFlagged, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
+  DISPLAY_FILES, applyRepairs, blameRows, droppableNumbers, extractNumbers, lostNumbers, repairRows, repairSchema, unsupportedNumbers, assembleDisplay, buildMaterial, liveSuccessPoints, reviewRows, displayGaps, materialNumbers, mergeEntity, newProblems, numberProblems, outputSchema, parseCheckOutput, serialize, structuralProblems,
   type AiOutput, type DisplayFiles, type RepairRow, type DisplayNeed, type EntityDisplay, type ItemContract, type LiveReader,
 } from '../../src/shared/display-build';
 import { loadReaders, argValue } from './load-readers';
+import { dropRows, normalizeDisplay, pruneUntilClean, visibleOnly } from './display-lenient';
 import { preparePublicationReader } from './publication-evaluation';
 import { VERDICTS_FILE, type VerdictsFile } from './verify-lib';
-import { crossLayerDuplicates, dedupeTargets, duplicatesInvolving } from './cross-layer-dups';
+import { dedupeTargets, findDuplicates } from './cross-layer-dups';
 import { type AnalysisFile } from './analysis-lib';
 import { readReflectState, withReflectedAnalysis } from './case-reflect';
 import { describeHit, findNoise, findUnnatural, loadNaturalRules } from '../architecture/natural-japanese.mjs';
@@ -63,6 +64,7 @@ const DEDUPE = has('--dedupe');
 const REVIEW = !has('--no-review');
 const BRANCH = argValue('--branch') ?? 'auto/display-build';
 const FAILURES = join(ROOT, 'data/pipeline/display-build-failures.jsonl');
+const DROPPED = join(ROOT, 'data/pipeline/display-dropped.jsonl');
 // 確認役が「不自然」「要らない」と指摘した語。機械の辞書（data/natural-japanese.json）に足す候補（pnpm natural-ja:report --candidates で数える）
 const NATURAL_CANDIDATES = join(ROOT, 'data/pipeline/natural-japanese-candidates.jsonl');
 const RUN_ID = argValue('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15);
@@ -169,7 +171,10 @@ function callAgent(agent: Agent, system: string, user: string, schema: Record<st
 
 const SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-prompt.md'), 'utf8')}\n## 使わない語（左の形に当たる語は、右の言い方に直す）\n${language.map((r) => `- /${r.pattern}/ → ${r.suggest}`).join('\n')}\n\n## 使わない言い回し（話し言葉・業界のくだけた言い方。左の形に当たる言い回しは、右のどれかに直す）\n${naturalList.map((r) => `- /${r.pattern}/ → ${r.suggest.join('／')}${r.bad && r.good ? `（例: 「${r.bad}」→「${r.good}」）` : ''}`).join('\n')}\n\n${CLARITY_SKILL}`;
 const REVIEW_SYSTEM = `${readFileSync(join(ROOT, 'scripts/reader-case/display-review-prompt.md'), 'utf8')}\n\n${CLARITY_SKILL}`;
-const REVIEW_SCHEMA = { type: 'object', properties: { issues: { type: 'array', items: { type: 'object', properties: { severity: { type: 'string', enum: ['must', 'minor'] }, kind: { type: 'string', enum: ['fact', 'natural', 'noise', 'other'] }, id: { type: 'string' }, problem: { type: 'string' }, fix: { type: 'string' }, phrase: { type: 'string' } }, required: ['severity', 'kind', 'id', 'problem', 'fix', 'phrase'], additionalProperties: false } } }, required: ['issues'], additionalProperties: false };
+interface ReviewIssue { severity: string; kind: string; id: string; problem: string; fix: string; phrase?: string }
+/** 事例を止めてよい指摘の種類（嘘・作る側の言葉・違法の手順・個人情報と名誉毀損）。読みやすさの指摘は止める理由にしない */
+const BLOCKING_KINDS = ['fact', 'builder', 'legal', 'privacy'];
+const REVIEW_SCHEMA = { type: 'object', properties: { issues: { type: 'array', items: { type: 'object', properties: { severity: { type: 'string', enum: ['must', 'minor'] }, kind: { type: 'string', enum: ['fact', 'natural', 'noise', 'other', 'builder', 'legal', 'privacy'] }, id: { type: 'string' }, problem: { type: 'string' }, fix: { type: 'string' }, phrase: { type: 'string' } }, required: ['severity', 'kind', 'id', 'problem', 'fix', 'phrase'], additionalProperties: false } } }, required: ['issues'], additionalProperties: false };
 
 function isAiOutput(v: unknown): v is AiOutput {
   const o = v as AiOutput;
@@ -217,56 +222,68 @@ function entityDisplayOf(files: DisplayFiles, entityId: string): EntityDisplay {
 // ---------- 1件を作る ----------
 interface Outcome { ok: boolean; attempts: number; reasons: string[]; calls: CallResult[]; display?: EntityDisplay; minor?: unknown[]; dropped?: string[] }
 function buildOne(agent: Agent, reviewer: Agent | null, entityId: string, reader: LiveReader, need: DisplayNeed, files: DisplayFiles, name: string | undefined): Outcome {
+  // 2026-10-08 指揮の決定: 関門は軽く、嘘の数字だけ防ぐ。1行が落ちても事例ごと落とさない（必ず終わる）。
+  // 書き手には1回だけ直しを返し、残った指摘は機械の部品（display-lenient.ts）がその行だけ外す。円はコードで付ける。
   const material = buildMaterial(entityId, reader, need, { name, contract, files, exampleIds: EXAMPLE_IDS });
   const nums = materialNumbers(reader);
   const schema = outputSchema();
   const calls: CallResult[] = [];
-  const baselineRun = runCheck(files);
-  const baseline = baselineRun.problems;
-  const baselineDups = crossLayerDuplicates(entityId, files);
-  // 重なりを直す実行（--dedupe）では、作り直した行に関わる重なりが1つでも残れば通さない（元からある重なりでも見逃さない）
-  const dupGate = (merged: DisplayFiles) => (DEDUPE ? duplicatesInvolving(entityId, merged, { summary: need.summary, detail: need.detail }) : newProblems(baselineDups, crossLayerDuplicates(entityId, merged)));
+  const baseline = runCheck(files).problems;
   if (baseline.some((p) => p.startsWith(UNPARSED))) return { ok: false, attempts: 0, reasons: baseline, calls };
-  let previous: unknown; let problems: string[] = [];
+  const machine = (d: EntityDisplay): string[] => [
+    ...structuralProblems(d), ...numberProblems(visibleOnly(d), nums),
+    ...newProblems(baseline, runCheck(mergeEntity(files, entityId, d)).problems, entityId),
+  ];
   mkdirSync(WORK, { recursive: true });
   writeFileSync(join(WORK, `${entityId}.material.json`), JSON.stringify(material, null, 1));
-  for (let attempt = 1; attempt <= ATTEMPTS; attempt += 1) {
-    const user = JSON.stringify(problems.length ? { material, previous, problems } : { material });
+  const WRITER_ROUNDS = 2;
+  let previous: unknown; let feedback: string[] = [];
+  let display: EntityDisplay | undefined; let issues: ReviewIssue[] = []; let attempts = 0;
+  for (let attempt = 1; attempt <= WRITER_ROUNDS; attempt += 1) {
+    attempts = attempt;
+    const user = JSON.stringify(feedback.length ? { material, previous, problems: feedback } : { material });
     let call: CallResult;
     try { call = callAgent(agent, SYSTEM, user, schema, argValue('--model'), `${entityId} ${attempt}回目`); }
-    catch (e) { return { ok: false, attempts: attempt, reasons: [`AIの呼び出しに失敗: ${(e as Error).message}`], calls }; }
+    catch (e) { if (display) break; return { ok: false, attempts: attempt, reasons: [`AIの呼び出しに失敗: ${(e as Error).message}`], calls }; }
     calls.push(call);
     writeFileSync(join(WORK, `${entityId}.attempt${attempt}.json`), JSON.stringify(call.value, null, 1));
-    if (!isAiOutput(call.value)) { previous = call.value; problems = ['出力の形が指定と違う（list・summary・detail・success・chapters を全部返す）']; continue; }
+    if (!isAiOutput(call.value)) { previous = call.value; feedback = ['出力の形が指定と違う（list・summary・detail・success・chapters を全部返す）']; continue; }
     previous = call.value;
-    const { display, problems: assembly } = assembleDisplay(entityId, reader, need, call.value, liveSuccessPoints(entityId, reader, files));
-    const merged = mergeEntity(files, entityId, display);
-    const check = runCheck(merged);
-    problems = [...assembly, ...structuralProblems(display), ...numberProblems(display, nums), ...newProblems(baseline, check.problems), ...dupGate(merged)];
+    const assembled = assembleDisplay(entityId, reader, need, call.value, liveSuccessPoints(entityId, reader, files));
+    display = normalizeDisplay(assembled.display);
+    const dupMessages = findDuplicates(entityId, mergeEntity(files, entityId, display)).map((x) => x.message);
+    const problems = [...assembled.problems, ...machine(display), ...dupMessages];
     say(`${entityId}: ${attempt}回目 — 機械の検査の指摘 ${problems.length}件（${call.seconds.toFixed(0)}秒）`);
-    if (problems.length) { writeFileSync(join(WORK, `${entityId}.attempt${attempt}.problems.txt`), problems.join('\n')); continue; }
-    if (!REVIEW) return { ok: true, attempts: attempt, reasons: [], calls, display };
-    let review: CallResult;
-    try { review = callAgent(reviewer ?? agent, REVIEW_SYSTEM, JSON.stringify({ material, candidate: reviewRows(display) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 確認 ${attempt}回目`); }
-    catch (e) { return { ok: false, attempts: attempt, reasons: [`確認役の呼び出しに失敗: ${(e as Error).message}`], calls }; }
-    calls.push(review);
-    const issues = ((review.value as { issues?: Array<{ severity: string; kind?: string; id: string; problem: string; fix: string; phrase?: string }> }).issues ?? []);
-    recordCandidates(entityId, issues);
-    const must = issues.filter((i) => i.severity === 'must');
-    say(`${entityId}: ${attempt}回目 — 確認役の指摘 必須${must.length}件・軽微${issues.length - must.length}件（${review.seconds.toFixed(0)}秒）`);
-    if (!must.length) return { ok: true, attempts: attempt, reasons: [], calls, display, minor: issues };
-    problems = must.map((i) => `確認役: ${i.id}: ${i.problem}（直し案: ${i.fix}）`);
-    if (attempt < ATTEMPTS) continue;
-    // 最後の回: 指摘された行が章の行・成功の秘訣だけなら、その行を外して出す（残りの行は同じ確認で指摘が無かった）
-    const cut = dropFlagged(display, must.map((i) => i.id));
-    if (cut.blocked.length) return { ok: false, attempts: attempt, reasons: problems, calls };
-    const recheck = runCheck(mergeEntity(files, entityId, cut.display));
-    const left = [...structuralProblems(cut.display), ...newProblems(baseline, recheck.problems), ...dupGate(mergeEntity(files, entityId, cut.display))];
-    if (left.length) return { ok: false, attempts: attempt, reasons: [...problems, ...left], calls };
-    say(`${entityId}: 確認役が指摘した ${cut.dropped.join('、')} を外して出す`);
-    return { ok: true, attempts: attempt, reasons: [], calls, display: cut.display, minor: issues, dropped: cut.dropped };
+    issues = [];
+    if (REVIEW && reviewer) {
+      try {
+        const review = callAgent(reviewer, REVIEW_SYSTEM, JSON.stringify({ material, candidate: reviewRows(display) }), REVIEW_SCHEMA, argValue('--review-model'), `${entityId} 確認 ${attempt}回目`);
+        calls.push(review);
+        issues = ((review.value as { issues?: ReviewIssue[] }).issues ?? []);
+        recordCandidates(entityId, issues);
+        say(`${entityId}: ${attempt}回目 — 確認役の指摘 必須${issues.filter((i) => i.severity === 'must').length}件・軽微${issues.filter((i) => i.severity !== 'must').length}件（${review.seconds.toFixed(0)}秒）`);
+      } catch (e) { say(`${entityId}: 確認役の呼び出しに失敗（${(e as Error).message.slice(0, 80)}）。機械の検査だけで進める`); }
+    }
+    feedback = [...problems, ...issues.map((i) => `確認役${i.severity === 'must' ? '' : '（読みやすさの直し）'}: ${i.id}: ${i.problem}（直し案: ${i.fix}）`)];
+    if (!feedback.length) break;
   }
-  return { ok: false, attempts: ATTEMPTS, reasons: problems, calls };
+  if (!display) return { ok: false, attempts, reasons: feedback, calls };
+  // 残った指摘は、その行だけ外す。確認役の必須の指摘が残った行も外す（一覧の文を嘘と指摘された時だけ止める）
+  const reviewDrops = new Map<string, string>();
+  for (const i of issues.filter((x) => x.severity === 'must')) reviewDrops.set(i.id, `確認役（${i.kind}）: ${i.problem}`.slice(0, 160));
+  const listLie = issues.some((i) => i.severity === 'must' && i.id === 'list' && BLOCKING_KINDS.includes(i.kind));
+  const reviewIds = new Set([...reviewDrops.keys()].filter((id) => id !== 'list'));
+  let current = dropRows(display, reviewIds, reader);
+  const pruned = pruneUntilClean({ entityId, reader, files, display: current, problemsOf: machine });
+  current = pruned.display;
+  const dropped = [...[...reviewIds].map((id) => ({ id, why: reviewDrops.get(id)! })), ...pruned.dropped];
+  const reasons: string[] = [];
+  if (listLie) reasons.push('一覧の文が材料に無い事を言っていると確認役が指摘した（嘘）');
+  if (need.list && !current.list?.text) reasons.push('一覧の文（リード）が無い');
+  if (need.success && !(current.success?.points.length)) reasons.push('成功の秘訣が1つも残らない');
+  reasons.push(...pruned.leftover);
+  if (reasons.length) return { ok: false, attempts, reasons: [...reasons, ...dropped.map((x) => `外した行 ${x.id}: ${x.why}`)], calls };
+  return { ok: true, attempts, reasons: [], calls, display: current, dropped: dropped.map((x) => `${x.id}｜${x.why}`) };
 }
 
 /** 機械の辞書が見逃した不自然な語・要らない語を、辞書を育てる候補として残す（辞書へは確かめてから足す。pnpm natural-ja:report --candidates） */
@@ -410,7 +427,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
       ];
     });
     const check = runCheck(applied.files);
-    problems = [...applied.problems, ...missing, ...left, ...numbers, ...lost, ...markProblems, ...extraProblems, ...newProblems(baseline, check.problems)];
+    problems = [...applied.problems, ...missing, ...left, ...numbers, ...lost, ...markProblems, ...extraProblems, ...newProblems(baseline, check.problems, entityId)];
     say(`${entityId}: 直し ${attempt}回目 — 機械の検査の指摘 ${problems.length}件`);
     const machine = problems;
     if (machine.length) {
@@ -419,7 +436,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
       const keep = bad ? fixes.filter((f) => !bad.has(f.id)) : [];
       if (!keep.length) continue;
       const narrowed = applyRepairs(files, entityId, keep);
-      const still = [...narrowed.problems, ...newProblems(baseline, runCheck(narrowed.files).problems)];
+      const still = [...narrowed.problems, ...newProblems(baseline, runCheck(narrowed.files).problems, entityId)];
       say(`${entityId}: 直し ${attempt}回目 — 機械の検査に落ちた ${fixes.length - keep.length}行を元の文に戻すと、残り ${keep.length}行の指摘 ${still.length}件`);
       if (still.length) continue;
       fixes = keep; applied = narrowed;
@@ -444,7 +461,7 @@ function repairOne(agent: Agent, reviewer: Agent | null, entityId: string, reade
     if (ok.length) {
       const applied = applyRepairs(files, entityId, ok);
       const after = runCheck(applied.files);
-      const fresh = [...applied.problems, ...newProblems(baseline, after.problems)];
+      const fresh = [...applied.problems, ...newProblems(baseline, after.problems, entityId)];
       if (!fresh.length) return { ok: true, attempts: reviewed.attempt, reasons: reviewed.reasons, files: applied.files, adopted: ok.map((f) => f.id), held: [...ids].filter((id) => !ok.some((f) => f.id === id)) };
       problems = [...reviewed.reasons, ...fresh.map((p) => `行ごとの反映で機械の検査に落ちた: ${p}`)];
     }
@@ -524,7 +541,10 @@ function main() {
   }
   if (has('--repair-only')) return repairFailed ? 1 : 0;
   // 2. 足りない層を作る
-  const gaps = DEDUPE ? dedupeGaps(ids, files, readers) : displayGaps(ids, files, readers);
+  // --redo-list: 指定の事例の「一覧の1行」と「概要」だけを作り直す（稼ぎ方が分かる形・数字や人名だけの概算にしない、の基準を後から当てる時）
+  const gaps = has('--redo-list')
+    ? ids.filter((id) => readers.has(id)).map((entityId) => ({ entityId, need: { list: true, summary: true, success: false, chapters: false, detail: [] as string[] } }))
+    : DEDUPE ? dedupeGaps(ids, files, readers) : displayGaps(ids, files, readers);
   if (has('--list')) {
     for (const id of ids) { const rows = readers.has(id) ? repairRows(id, files, unnatural) : []; if (rows.length) say(`${id}: 言い回しの直し ${rows.map((r) => r.id).join(', ')}`); }
     for (const g of gaps) say(`${g.entityId}: ${JSON.stringify(g.need)}`); say(`対象 ${gaps.length} 件`); return 0;
@@ -554,7 +574,8 @@ function main() {
     }
     files = mergeEntity(files, entityId, out.display);
     if (!DRY) for (const f of DISPLAY_FILES) writeFileSync(join(DATA_DIR, `${f}.json`), serialize(files[f]));
-    say(`${entityId}: ${out.attempts}回目で通った。${DRY ? '書かない（--dry-run）' : `反映した（${DATA_DIR}）`}。${usage}`);
+    if (!DRY) { mkdirSync(join(ROOT, 'data/pipeline'), { recursive: true }); appendFileSync(DROPPED, `${JSON.stringify({ at: new Date().toISOString(), runId: RUN_ID, entityId, dropped: out.dropped ?? [] })}\n`); }
+    say(`${entityId}: ${out.attempts}回目で通った（外した行 ${out.dropped?.length ?? 0} 件）。${DRY ? '書かない（--dry-run）' : `反映した（${DATA_DIR}）`}。${usage}`);
     if (COMMIT) say(`${entityId}: ${BRANCH} にコミット ${commitToBranch(entityId, names.get(entityId), out.display).slice(0, 8)}（push はしない）`);
   }
   return failed || repairFailed ? 1 : 0;

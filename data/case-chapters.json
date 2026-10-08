@@ -981,5 +981,1184 @@
         }
       ]
     }
+  },
+  {
+    "entityId": "ent_poolsuite_6d5ad6895563",
+    "factId": "f9",
+    "factHash": "77a54a68",
+    "chapters": {
+      "practice": [
+        {
+          "text": "Mac向けの版2.0.0で、常に音楽が流れる新しい配信を備え、動作を安定させた（公式）",
+          "source": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2021年6月: Poolsuiteに取り組むチームは10人（取材時点）",
+          "source": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun"
+        }
+      ],
+      "start": [
+        {
+          "text": "本人は開発者を1人も知らず、友人の友人のGrant Macに案を話して、すぐに協力を得た",
+          "source": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun"
+        }
+      ],
+      "voices": [
+        {
+          "text": "「最初は見た目で入れたが、使ってから気に入り友人にも勧めた。ほかの音楽アプリの多くは使わなくなった」（App Storeのレビュー、2020年10月）",
+          "source": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_hostifi_cf9ec73a42d2",
+    "factId": "f1",
+    "factHash": "e6941e7a",
+    "chapters": {
+      "practice": [
+        {
+          "text": "台数が多い上位プランに、更新前の検査、長めのバックアップ保管、個別の支援を付けた（公式）",
+          "source": "https://www.hostifi.com/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 無料プランを新しい客にも出していた。後: 新規の受付を終え、既存の利用者だけが共有のサーバーで使い続けている（公式）",
+          "source": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_indiehackers_6548833164b0",
+    "factId": "f25",
+    "factHash": "04a8d6b7",
+    "chapters": {
+      "practice": [
+        {
+          "text": "創業者の困りごとに応える機能を作る前に、共同創業者探しなどのハッシュタグで、求める人がいるかを試した（本人）",
+          "source": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07"
+        },
+        {
+          "text": "2024年11月の記事によると、同社は文章に重点を移して執筆者を採用した。そのうち1人は、アイデア資料のために80社を調べた",
+          "source": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 表紙の売上は最高月商を丸めた値だけで、誤解を招くと利用者に指摘された。後: 最高値と平均値を両方載せる方針にした（2016年8月）",
+          "source": "https://news.ycombinator.com/item?id=12269425"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2018年11月: 創業者が質疑応答で、直前の4月の売上を記憶で約6,000ドル（約90万円）と答える（本人の回想）",
+          "source": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07"
+        },
+        {
+          "text": "2023年4月6日: 公式ニュースレターで、創業者が再び所有する独立事業になったと発表する",
+          "source": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387"
+        }
+      ],
+      "core": [
+        {
+          "text": "2022年の大部分の期間、登録に招待コードを求めた。その結果、迷惑投稿がほぼなくなった（本人）",
+          "source": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0"
+        }
+      ],
+      "start": [
+        {
+          "text": "2016年8月、Courtland AllenがIndie Hackersを作った",
+          "source": "https://www.indiehackers.com/about"
+        }
+      ],
+      "voices": [
+        {
+          "text": "Lynne Tye: 数か月読んでいたことが、自分の事業を始めた理由になった（公式ページの推薦文）",
+          "source": "https://www.indiehackers.com/plus"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_memberful_0dff1f9c00fa",
+    "factId": "f3",
+    "factHash": "76f1a14a",
+    "chapters": {
+      "practice": [
+        {
+          "text": "認定提携先の制作会社に、紹介記事・公式一覧への掲載・共同の営業資料・技術支援を用意した（公式）",
+          "source": "https://memberful.com/become-a-partner"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 誤って本番に公開し、不要な課金が起きる問題があった。後: 2021年11月24日、Stripeをつなぐ時に追加の確認を入れた（公式）",
+          "source": "https://memberful.com/blog/billing-updates"
+        },
+        {
+          "text": "前: 上位プランPremiumへの変更には、サポートへの連絡が必要だった。後: 2021年11月24日から、利用者が自分で変えられる（公式）",
+          "source": "https://memberful.com/blog/billing-updates"
+        },
+        {
+          "text": "前: 複数の契約の請求日や自動更新の変更は、スタッフが代わりに行っていた。後: 2025年5月8日、管理画面からまとめて変えられるようにした",
+          "source": "https://memberful.com/blog/edit-subscriptions"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2018年8月8日: Patreonの完全子会社になり、Memberfulは別の製品として続けると発表した（公式）",
+          "source": "https://memberful.com/blog/joining-patreon"
+        },
+        {
+          "text": "2026年10月1日: WordPressで無料記事を一定数読んだ後に課金案内を出す機能と、プログラムを書かずに課金案内を作る機能を追加した",
+          "source": "https://memberful.com/docs/changelog"
+        }
+      ],
+      "start": [
+        {
+          "text": "2018年の発表の5年前に、副業として始めた（公式）",
+          "source": "https://memberful.com/blog/joining-patreon"
+        }
+      ],
+      "price": [
+        {
+          "text": "2018年8月: Proプランは月25ドル（約3,750円）に、会員の取引額の4.9%を加えた額だった（報道）",
+          "source": "https://techcrunch.com/2018/08/08/patronage-empire/"
+        },
+        {
+          "text": "2018年: 既存客の料金は据え置き、新規客に適用する一部プランの取引手数料を上げた（公式）",
+          "source": "https://memberful.com/blog/joining-patreon"
+        },
+        {
+          "text": "現行の料金ページ: 標準プランは月49ドル（約7,350円）に取引額の4.9%を加える。大口向けは個別に見積もる",
+          "source": "https://memberful.com/pricing"
+        }
+      ],
+      "voices": [
+        {
+          "text": "Chris Gresham-Brittは、移行が円滑に進み、公開時の負担が軽くなったと評価した（公式の移行支援ページに掲載）",
+          "source": "https://memberful.com/migration"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_churnkey_8d7f2b269c21",
+    "factId": "f23",
+    "factHash": "ba98376c",
+    "chapters": {
+      "practice": [
+        {
+          "text": "解約画面を公開前に確かめられる表示と、支払いの間隔やプラン別に絞り込める分析機能を加えた",
+          "source": "https://churnkey.co/blog/churnkey-springtime-product-updates/"
+        },
+        {
+          "text": "2024年4月までの1年で、解約画面の比較試験、決済の再試行、客の気持ちに合わせた再契約の案内、客が解約する可能性を点数で示す機能を加えた",
+          "source": "https://churnkey.co/blog/churnkey-fundraise-creativeco/"
+        },
+        {
+          "text": "解約理由の自由記述をAIで分類し、月の定期売上への影響が大きい順に並べるようにした",
+          "source": "https://churnkey.co/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 不具合の修正と要望の多い機能の追加では、解約率が下がらなかった。後: 解約時の理由入力を必須にして休みたい声を見つけ、契約の休止を加えると解約率が15%下がった",
+          "source": "https://churnkey.co/blog/announcing-churnkey"
+        },
+        {
+          "text": "前: 前の事業の解約率は14%程度だった。後: 解約理由をつかんで客を引き留め、数か月で12%に下がった",
+          "source": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2020年9月1日: 他の定額課金のソフト会社に向けて、Churnkeyの先行利用を告知した",
+          "source": "https://churnkey.co/blog/announcing-churnkey"
+        },
+        {
+          "text": "2021年: 顧客企業は解約画面に入った利用者の平均40%を引き留め、Churnkey全体で定額課金の利用者3,000人超の解約を防いだと公表した",
+          "source": "https://churnkey.co/blog/churnkey-springtime-product-updates/"
+        },
+        {
+          "text": "2022年8月31日: 失敗した決済を回収する機能を公開した",
+          "source": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/"
+        },
+        {
+          "text": "2024年4月: 顧客企業が数百社に達した",
+          "source": "https://churnkey.co/blog/churnkey-fundraise-creativeco/"
+        }
+      ],
+      "core": [
+        {
+          "text": "解約する客の理由を聞き、引き留め方を直し続けた。前の事業の解約率は約1年半で一桁台になり、8%程度の月もあった",
+          "source": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/"
+        }
+      ],
+      "start": [
+        {
+          "text": "前の事業は客が1,000人近く、毎月120〜150件の新規登録があった。それでも解約のため、月の定期売上30,000ドル（約450万円）で伸びが止まる予測が出た",
+          "source": "https://churnkey.co/blog/announcing-churnkey"
+        },
+        {
+          "text": "公式のチーム紹介では、Nick Fogleが最高経営責任者、Baird Hallが営業と宣伝、Scott Hurffが製品の責任者を担う",
+          "source": "https://churnkey.co/team"
+        }
+      ],
+      "price": [
+        {
+          "text": "2022年8月の決済回収機能の公開時: 初月無料。月の定期売上25,000ドル（約375万円）未満の事業は、この機能をずっと無料で使えた",
+          "source": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/"
+        },
+        {
+          "text": "現行の入門プラン: 年払いで月あたり250ドル（約3万7,500円）。月の解約額が5,000ドル（約75万円）未満のチーム向け",
+          "source": "https://churnkey.co/pricing"
+        },
+        {
+          "text": "入門プランには解約画面・決済回収・分析が含まれ、カード登録なしで14日間試せる",
+          "source": "https://churnkey.co/pricing"
+        },
+        {
+          "text": "月の解約額10,000ドル（約150万円）以上のチーム向けのプランもあり、一部の上位プランは見積もり制",
+          "source": "https://churnkey.co/pricing"
+        }
+      ],
+      "voices": [
+        {
+          "text": "HostiFiのReilly Chase: 通常の月にChurnkeyが20,000ドル（約300万円）超の売上を回収し、200人超の解約を防いでいる（自社サイト掲載）",
+          "source": "https://churnkey.co/customers"
+        },
+        {
+          "text": "VEED（動画編集サービス）のJohn Hamilton: 客から集めたデータで、客が求める新機能を見つけられた",
+          "source": "https://churnkey.co/case-studies/veed"
+        },
+        {
+          "text": "BuildertrendのCharley Burtwistle: 解約理由のデータが、整った一貫した形で得られる点を評価",
+          "source": "https://churnkey.co/case-studies/buildertrend"
+        },
+        {
+          "text": "SuperhumanのBen Ophoven-Baldwin: 客が何を求めているかを学べることも、導入の利点",
+          "source": "https://churnkey.co/case-studies/superhuman"
+        },
+        {
+          "text": "OneUpのDavis Baer: 解約理由を集めて学べることも、料金を払う理由",
+          "source": "https://churnkey.co/customers"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_wip_5eef8a985270",
+    "factId": "f2",
+    "factHash": "805eab45",
+    "chapters": {
+      "practice": [
+        {
+          "text": "新規会員は今の会員の招待で入る形にし、料金を変えた後も招待制を続けた（公式）",
+          "source": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 新規入会には支払いが必須で、前月の新規登録は3人だけだった。後: 2022年9月22日、招待制の無料枠を設けた（本人説明）",
+          "source": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua"
+        },
+        {
+          "text": "前: サーバーを移す途中の停止で、会員の連続記録が途切れた。後: 作業のリンクと時刻を送れば日付を直すと案内した",
+          "source": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas"
+        },
+        {
+          "text": "前: 連続記録は1日の入力忘れで全部消えた。後: 2022年12月、全部は消えない計算方式をMarcが提案した",
+          "source": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2024年1月25日: サーバー会社の乗り換え作業の途中で、サイトが止まった",
+          "source": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas"
+        },
+        {
+          "text": "2024年8月29日: 新規会員の無料枠をやめ、1か月の無料試用を付けた。今の無料会員と有料会員の条件は変えなかった",
+          "source": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf"
+        }
+      ],
+      "voices": [
+        {
+          "text": "Philip Thomas: コミュニティに払うのは納得する。ただTelegramは好みでなく、同時につながらなくても参加できる形を望んだ",
+          "source": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4"
+        },
+        {
+          "text": "Rod: 厳しい連続記録が、意欲を保つ助けになっている",
+          "source": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_tuple_20261007",
+    "factId": "f3",
+    "factHash": "6d3adbf8",
+    "chapters": {
+      "practice": [
+        {
+          "text": "14日間の無料試用を用意している（公式）",
+          "source": "https://tuple.app/pricing"
+        },
+        {
+          "text": "設立2年未満で従業員50人未満の会社には、1年間90%の割引を出している（公式）",
+          "source": "https://tuple.app/pricing"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 外部サービスで接続を管理していたが、数時間ごとに再起動が必要だった。後: 別の外部サービスへ移した",
+          "source": "https://tuple.app/blog/the-realness"
+        },
+        {
+          "text": "前: 他の基本ソフトにも広げるため、別の接続管理サービスも併用した。後: 異常に接続が切れた利用者が接続中のまま残る問題があり、採用をやめた",
+          "source": "https://tuple.app/blog/the-realness"
+        },
+        {
+          "text": "前: Windows 版で、既存の版の移植を試した。後: Windows の機能を直接使う方式に変え、速度と安定性が上がった（公式）",
+          "source": "https://tuple.app/blog/windows-public-beta"
+        },
+        {
+          "text": "前: 更新の回数を減らしてほしいと複数の利用者が求めた。後: 2020年8月、月1回の更新を試していると発表した",
+          "source": "https://tuple.app/blog/august-2020-release"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2020年12月: 3人目の参加者も、キーボードとマウスの操作、画面への書き込み、相手のクリップボード（コピーした文字の一時保管場所）への文字送信ができるようにした",
+          "source": "https://tuple.app/blog/three-player-improvements"
+        },
+        {
+          "text": "2024年5月24日: Windows 版を誰でも試せるように公開した",
+          "source": "https://tuple.app/blog/windows-public-beta"
+        },
+        {
+          "text": "2026年9月29日: 端末の中で通話を文字にする Capture を、macOS と Windows の両方に公開した",
+          "source": "https://tuple.app/blog/new-in-tuple-capture"
+        }
+      ],
+      "core": [
+        {
+          "text": "書き直した接続の仕組みで負荷試験を行い、数百万の同時接続と、ミリ秒単位の往復の遅れを確かめた（公式）",
+          "source": "https://tuple.app/blog/the-realness"
+        }
+      ],
+      "start": [
+        {
+          "text": "2018年に創業し、2019年1月に招待した人だけが使える初期版を出した（公式）",
+          "source": "https://tuple.app/blog/2020-year-in-review"
+        },
+        {
+          "text": "2019年末の時点で、チームは共同創業者の3人だけだった（公式）",
+          "source": "https://tuple.app/blog/2020-year-in-review"
+        }
+      ],
+      "price": [
+        {
+          "text": "2021年9月: プログラムの中身を公開しているソフトの開発チームに、期限なしの無料提供を発表した",
+          "source": "https://tuple.app/blog/helping-with-hacktoberfest"
+        },
+        {
+          "text": "以前、一括ログインの仕組みは、通常の約2倍の料金の大企業向けプランに限られていた。2022年6月1日、全プランで追加料金なしにした",
+          "source": "https://tuple.app/blog/sso-should-be-table-stakes"
+        },
+        {
+          "text": "確認時の開発チーム向け: 1人あたり月30ドル（約4,500円）で、共同作業の回数は無制限（公式）",
+          "source": "https://tuple.app/pricing"
+        }
+      ],
+      "voices": [
+        {
+          "text": "大学で、プログラムを別の形式に変換するソフトの開発に数か月使った。長時間でも安定し、遅れが非常に小さかった（開発者向け投稿サイトHacker News、第三者）",
+          "source": "https://news.ycombinator.com/item?id=29641907"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_userlist_a288fcf9f741",
+    "factId": "f1",
+    "factHash": "edd1af67",
+    "chapters": {
+      "practice": [
+        {
+          "text": "初期の客には創業者3人で1社1時間の導入面談をした。データ連携を担い、支援が必要な客には配信内容の設計も手伝った（公式ブログ）",
+          "source": "https://userlist.com/blog/early-product-design-decisions/"
+        },
+        {
+          "text": "配信づくりの代行では、利用行動で客を分け、使い続けてもらうための10通のメールを計画・執筆・設定する",
+          "source": "https://userlist.com/services/customer-loyalty-kit/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 見栄えを整えたメールを用意する計画だった。後: 客が個人から届くような簡素なメールを好んだため、両方を選べる形を検討した",
+          "source": "https://userlist.com/blog/early-product-design-decisions/"
+        },
+        {
+          "text": "前: 試用版という表示が登録を妨げていると考えていた。後: 有料の客の利用実績と面談結果を踏まえ、正式公開を決めた",
+          "source": "https://userlist.com/blog/launch-strategy/"
+        },
+        {
+          "text": "前: 機能が増え、余白の多さや狭い入力欄、整理されていない案内が問題になった。後: 2025年9月9日、案内と情報の詰め方を改めた新版を公開した",
+          "source": "https://userlist.com/blog/how-we-redesigned-userlist/"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2017年末: Userlistの作業を始め、2018年2月には調査と設計を終えて最初の版を作っていた",
+          "source": "https://userlist.com/blog/why-another-tool-for-saas-founders/"
+        },
+        {
+          "text": "2018年10月: 非公開の試用版で、最初の有料の客の導入を始めた",
+          "source": "https://userlist.com/press-kit/"
+        },
+        {
+          "text": "2019年8月: 正式公開し、Product Huntで当日1位になった（公式）",
+          "source": "https://userlist.com/press-kit/"
+        },
+        {
+          "text": "2020年5月: アプリの中に出すメッセージの機能を足した",
+          "source": "https://userlist.com/press-kit/"
+        },
+        {
+          "text": "2021年4月: 企業ごとのアカウントを追加し、10月にはマーケティングメールも送れるようにした",
+          "source": "https://userlist.com/press-kit/"
+        },
+        {
+          "text": "2023年1月: 新しいメール編集機能を公開した",
+          "source": "https://userlist.com/press-kit/"
+        }
+      ],
+      "core": [
+        {
+          "text": "客の特定の行動をきっかけに自動で送る仕組みを用意し、客のAgentMethodsは支援対応の量を減らした（客の話）",
+          "source": "https://userlist.com/case-studies/agent-methods/"
+        }
+      ],
+      "start": [
+        {
+          "text": "2017年10月、Jane PortmanとBenedikt Deicke、Claire Suellentropの3人で共同創業した。Claireは1年後に離れた",
+          "source": "https://userlist.com/press-kit/"
+        },
+        {
+          "text": "開発前に、利用者への連絡方法について16件の面談を予約し、12件を実施した（公式ブログ）",
+          "source": "https://userlist.com/blog/customer-research-process/"
+        }
+      ],
+      "price": [
+        {
+          "text": "現行: 利用者が1,000人増えるごとに、基本プランは月10ドル（約1,500円）、上位プランは月12ドル（約1,800円）が加わる",
+          "source": "https://userlist.com/pricing/"
+        }
+      ],
+      "voices": [
+        {
+          "text": "AgentMethodsは、Userlistで設定した少数のメッセージで、3か月で解約を約25％減らした（客の話）",
+          "source": "https://userlist.com/case-studies/agent-methods/"
+        },
+        {
+          "text": "Fileinboxは、行動に応じた使い方の案内が、利用者に客になってもらううえで役立っていると述べた（客の話）",
+          "source": "https://userlist.com/case-studies/fileinbox/"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "factId": "f1",
+    "factHash": "e8496dcc",
+    "chapters": {
+      "practice": [
+        {
+          "text": "1企画で500個未満を作り、財布の形の包装にカード12〜20枚と説明書を収めた（2015年1月時点）",
+          "source": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week"
+        },
+        {
+          "text": "ボードゲームの情報サイトBoardGameGeekで包装を紹介した。反応と議論は集めたが、支援は増えなかった（本人）",
+          "source": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding"
+        },
+        {
+          "text": "18枚で都市を作る1〜4人用の協力型ゲーム『Sprawlopolis』は、遊び方を増やす追加商品も売る。追加商品をまとめたセットもある",
+          "source": "https://buttonshygames.com/products/sprawlopolis"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 手で組む財布型の包装が主力。後: 手組みに時間がかかり、箱なしでは売りにくい販路もあるため、量産の箱型を主力にした",
+          "source": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules"
+        },
+        {
+          "text": "前: 海外の客へ自社から直送。後: 海外送料の上昇と通関の差し戻しで直送が難しくなり、現地の提携先を探した",
+          "source": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2015年1月: 財布型シリーズの2作目 Pretense の募集を予告した",
+          "source": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week"
+        },
+        {
+          "text": "2026年5月28日: ニュージャージー州の事務所に6人がいると紹介した",
+          "source": "https://buttonshygames.substack.com/p/introducing-the-modular-team"
+        }
+      ],
+      "core": [
+        {
+          "text": "遊んだ内容から猫の架空映画の画像を作って投稿し、同じ朝に約800人へ便りも送った。その後、数時間で支援額が倍になった（公式）",
+          "source": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding"
+        }
+      ],
+      "start": [
+        {
+          "text": "小さく送りやすいゲーム『Movie Plotz』を、支援を募るサイトKickstarterで募集した",
+          "source": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding"
+        },
+        {
+          "text": "支援は初日に目標の約25%、2日目に約35%まで集まった（本人）",
+          "source": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding"
+        }
+      ],
+      "price": [
+        {
+          "text": "クラウドファンディングの予約価格: 1作の基本が10ドル（約1,500円）、追加商品込みで最大14ドル（約2,100円）",
+          "source": "https://buttonshygames.com/pages/wallet-games-are-now-15"
+        },
+        {
+          "text": "財布型ゲームの定価: 基本価格を15ドル（約2,250円）に上げた（公式）",
+          "source": "https://buttonshygames.com/pages/wallet-games-are-now-15"
+        },
+        {
+          "text": "Sprawlopolis の基本商品: 自社の店での表示価格は2,500円",
+          "source": "https://buttonshygames.com/products/sprawlopolis"
+        }
+      ],
+      "voices": [
+        {
+          "text": "発送の遅れを訴える会員の投稿に、別の利用者が「遅れはあったが、いつも埋め合わせてもらえた」という趣旨で返した（Reddit、第三者）",
+          "source": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_data_fetcher_8e6a5e22ce2a",
+    "factId": "f1",
+    "factHash": "150be182",
+    "chapters": {
+      "practice": [
+        {
+          "text": "求人サイトIndeedで制作を外注する2人を採用し、本人が制作に使う時間を週2〜3日から半日の確認に減らした（公式ブログ）",
+          "source": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr"
+        },
+        {
+          "text": "簡単な問い合わせ向けに管理画面を作り、予約サービスCalendlyで誰でも申し込めるサポート通話を設けた",
+          "source": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 客対応は1日3件あった。後: 説明文と商品を直し、客が増えても1日2件に減った（記事）",
+          "source": "https://www.starterstory.com/stories/data-fetcher"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2020年12月15日: 新製品の紹介サイトProduct Huntに初めて載る",
+          "source": "https://www.producthunt.com/products/data-fetcher-for-airtable"
+        }
+      ],
+      "core": [
+        {
+          "text": "起業家の交流サイトIndie Hackersの取材記事に出た後、月の定期売上が8,600ドル（約129万円）から9,400ドル（約141万円）に増えた（本人）",
+          "source": "https://news.ycombinator.com/item?id=32506627"
+        }
+      ],
+      "start": [
+        {
+          "text": "初版の開発に1か月、Airtableの審査にさらに3か月かかった。開発は本人が行った（記事）",
+          "source": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year"
+        },
+        {
+          "text": "最初の50人の客を得るまでに、約6か月かかった（本人）",
+          "source": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9"
+        }
+      ],
+      "price": [
+        {
+          "text": "開始時は月12ドル（約1,800円）。値上げしても月の定期売上は約600ドル（約9万円）で止まり、最安を月24ドル（約3,600円）へ上げた",
+          "source": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr"
+        }
+      ],
+      "voices": [
+        {
+          "text": "物流会社Fox Logisticsは導入後、人数を増やさずに週の出荷を1,800件から2,500件に増やした（公式の事例）",
+          "source": "https://datafetcher.com/customers/fox-logistics"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_candy_japan_954236d663a8",
+    "factId": "f1",
+    "factHash": "daf4e39e",
+    "chapters": {
+      "practice": [
+        {
+          "text": "毎月14日と28日にまとめて発送し、客の手元には2〜3週間で届く",
+          "source": "https://www.candyjapan.com/faq"
+        },
+        {
+          "text": "メーカーへ550セットを直接注文して仕入れ値を下げたが、ラムネが中心で品揃えを続けにくかった",
+          "source": "https://www.candyjapan.com/behind-the-scenes/candy-japan-crosses-10000-mrr"
+        },
+        {
+          "text": "2019年、菓子の動画を作る道具を新製品の紹介サイトProduct Huntに出し、約6,000件の訪問から2件売れた",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review"
+        },
+        {
+          "text": "2019年、Instagramに6か月で51回投稿したが、フォロワーは40人で、売上は生まれなかった",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: カード決済の不正で数千ドル（数十万円）を失い、一時カードを止めてPayPalだけにした。後: 確認の手順を変え、カード払いを再開した",
+          "source": "https://www.candyjapan.com/behind-the-scenes/how-i-got-credit-card-fraud-somewhat-under-control"
+        },
+        {
+          "text": "前: 配信と客対応を外注の2人に任せていた。後: 2019年に2人への外注を止め、月120ドル（約1万8,000円）を節約した",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2011年: 開始から2014年まで、購読者は約300人で横ばいだった",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2017-year-in-review"
+        },
+        {
+          "text": "2017年: 購読者が636人から385人に減った",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2017-year-in-review"
+        },
+        {
+          "text": "2018年: 購読者が323人まで減り、利益は約13,000ドル（約195万円）だった",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2018-year-in-review"
+        },
+        {
+          "text": "2019年: 購読者が1月の314人から12月には207人に減った",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review"
+        }
+      ],
+      "core": [
+        {
+          "text": "2018年、贈り物として1回だけ買う方法を説明する記事を作り、6件の申し込みにつながった。過去の配信文が検索で得た227クリックからは0件だった",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2018-year-in-review"
+        }
+      ],
+      "price": [
+        {
+          "text": "2014年時点: 月2便で月25ドル（約3,750円）",
+          "source": "https://www.candyjapan.com/behind-the-scenes/candy-japan-crosses-10000-mrr"
+        },
+        {
+          "text": "2019年: 月1便だけの料金も足した。前半便のみ月12.95ドル（約1,943円）、後半便のみ月17.95ドル（約2,693円）",
+          "source": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_quaderno_81236030d721",
+    "factId": "f14",
+    "factHash": "180d737b",
+    "chapters": {
+      "practice": [
+        {
+          "text": "料金ページで、カードの登録が要らない7日間の試用と、最初の設定の個別相談を案内している",
+          "source": "https://quaderno.io/pricing/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 決済サービスStripeとの接続が設定の5番目の手順で、見込客が障害に挙げた。後: 創業者は同じ日に、接続を登録手順の最初に移した",
+          "source": "https://news.ycombinator.com/item?id=7742719"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2014年: CarlosがQuadernoを公開した（公式）",
+          "source": "https://quaderno.io/about-quaderno/"
+        },
+        {
+          "text": "2014年5月14日: 開発者の投稿サイトHacker Newsに、Stripe向けの請求書サービスとして投稿した",
+          "source": "https://news.ycombinator.com/item?id=7742719"
+        }
+      ],
+      "core": [
+        {
+          "text": "見込客の指摘から5日後、追加の設定なしでStripeの支払いから付加価値税を計算できるようにした",
+          "source": "https://news.ycombinator.com/item?id=7742719"
+        }
+      ],
+      "start": [
+        {
+          "text": "最初の公開の前に、約1か月、夜の時間に開発した（公式）",
+          "source": "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/"
+        }
+      ],
+      "price": [
+        {
+          "text": "2014年5月: Hacker Newsの投稿者が、月24ドル（約3,600円）と月48ドル（約7,200円）の料金に触れた",
+          "source": "https://news.ycombinator.com/item?id=7742719"
+        }
+      ],
+      "voices": [
+        {
+          "text": "見込客は3社分の契約を望んだが、取引に情報を足すためにプログラムを書く必要がある点を障害に挙げた（Hacker News）",
+          "source": "https://news.ycombinator.com/item?id=7742719"
+        },
+        {
+          "text": "顧客データを外部に渡す不安と、自社で設置する版の要望が出た。創業者は当時、その版を作る予定はないと答えた",
+          "source": "https://news.ycombinator.com/item?id=7742719"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_noteforms_003fcbdd14cf",
+    "factId": "f1",
+    "factHash": "89000904",
+    "chapters": {
+      "practice": [
+        {
+          "text": "有料プランには3日間の試用を付け、個別契約や請求書払いの相談にも応じた（公式）",
+          "source": "https://noteforms.com/pricing"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 初期の利用者は、自分の全データを見られないか心配した。後: 共有するデータベースを利用者が選べると、創業者が答えた",
+          "source": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/"
+        }
+      ],
+      "start": [
+        {
+          "text": "最初の2〜3か月は、無料で提供した（記事）",
+          "source": "https://www.starterstory.com/stories/notionforms"
+        }
+      ],
+      "price": [
+        {
+          "text": "有料化した時: 月15ドル（約2,250円）の定額。競合の安いプランの約半分を目安にした（記事）",
+          "source": "https://www.starterstory.com/stories/notionforms"
+        },
+        {
+          "text": "現行: 個人向けのProが月20ドル（約3,000円）、チーム向けのTeamが月49ドル（約7,350円、公式）",
+          "source": "https://noteforms.com/pricing"
+        }
+      ],
+      "voices": [
+        {
+          "text": "Redditの告知に、入力の手軽さを評価する声が付いた",
+          "source": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/"
+        },
+        {
+          "text": "週の予定を入れるフォームを、自分のNotionのページに埋め込んで使う例を、利用者が投稿した（第三者）",
+          "source": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_geocodio_c64c0721d500",
+    "factId": "f9",
+    "factHash": "d83eb04f",
+    "chapters": {
+      "practice": [
+        {
+          "text": "2025年、Googleと同じ書き方で使える接続口と、プログラミング言語Python用の公式の部品を加えた",
+          "source": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review"
+        },
+        {
+          "text": "米国・カナダ・メキシコ・英国の住所を位置に変え、選挙区や時間帯などの情報も付けて提供する",
+          "source": "https://www.geocod.io/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 英国のデータは利用者ごとの年契約が必要で、従量プランに合わなかった。後: 数か月の交渉を経て、定額のFlexを用意した",
+          "source": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan"
+        },
+        {
+          "text": "前: 展開の中止後、2台のサーバーの防壁が無効のまま残っていた。後: 監査を前倒しし、防御を強めると公表した",
+          "source": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2025年: 主要な更新を12回出し、住所変換の処理速度を5%上げた（公式）",
+          "source": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review"
+        },
+        {
+          "text": "2026年6月: 従量プランを個人向けにし、新しい共同利用者を追加できなくした",
+          "source": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan"
+        }
+      ],
+      "start": [
+        {
+          "text": "Michele HansenとMathias Hansenの夫婦が共同で創業し、意図して小さな会社のままにしている（公式）",
+          "source": "https://www.geocod.io/about"
+        }
+      ],
+      "price": [
+        {
+          "text": "2025年12月の発表: 従量プランを1,000単位あたり0.50ドル（約75円）から1ドル（約150円）に上げた。無料枠は残した",
+          "source": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026"
+        }
+      ],
+      "voices": [
+        {
+          "text": "SimplyRETSのChristopher Reichert: 数年にわたり中核の設備として使い、問題を調べる時間が大きく減った（公式の推薦文）",
+          "source": "https://www.geocod.io/"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_lunch_money_be2eeb1f4fdf",
+    "factId": "f1",
+    "factHash": "94e288de",
+    "chapters": {
+      "practice": [
+        {
+          "text": "仕分けの決まりを登録して作業を自動化する機能と、純資産を月ごとに記録する機能を備えた（公式）",
+          "source": "https://lunchmoney.app/"
+        },
+        {
+          "text": "外部の紹介者向けの制度を設け、新しい有料利用者1人につき15ドル（約2,250円）を払う（公式）",
+          "source": "https://lunchmoney.app/affiliate-program"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 公開時、外出先で入力できるスマホのアプリが大事だという声が出た（第三者）。後: 公式のiOS・Android補助アプリを出している",
+          "source": "https://news.ycombinator.com/item?id=20811287"
+        },
+        {
+          "text": "前: 最初の5年間は創業者1人で運営した。後: 非常勤の請負者5人が加わり、会議をほぼせずDiscordで仕事を進める（公式）",
+          "source": "https://lunchmoney.app/blog/we-lowered-our-pricing"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2019年8月29日: Hacker Newsの、作った物を見せる欄に公開した（本人）",
+          "source": "https://news.ycombinator.com/item?id=20811287"
+        },
+        {
+          "text": "2024年3月22日: 取材記事が、月の定期売上34,000ドル（約510万円）への到達を紹介した（記事）",
+          "source": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ"
+        }
+      ],
+      "start": [
+        {
+          "text": "公開時のアプリは、Node.js・TypeScript・React・PostgreSQLなどで作られていた（本人）",
+          "source": "https://news.ycombinator.com/item?id=20811287"
+        }
+      ],
+      "price": [
+        {
+          "text": "2021年1月: 月額を10ドル（約1,500円）にし、年額も改めた（公式）",
+          "source": "https://lunchmoney.app/blog/we-lowered-our-pricing"
+        }
+      ],
+      "voices": [
+        {
+          "text": "「画面が簡潔で速い」。一方で、銀行口座を外部のサービスにつなぎたくないとして、自分のサーバーに置ける版を求めた（Hacker News、第三者）",
+          "source": "https://news.ycombinator.com/item?id=20811287"
+        },
+        {
+          "text": "満足度の平均は10点満点で8.4だった（公式の調査、2025年）",
+          "source": "https://lunchmoney.app/media-kit/"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_statusgator_316d3eb5edf6",
+    "factId": "f13",
+    "factHash": "9ace0ebc",
+    "chapters": {
+      "practice": [
+        {
+          "text": "iOSとAndroid向けの携帯アプリを出した。状況ページを見られる人は誰でも、QRコードを読み込めば通知を受け取れる",
+          "source": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/"
+        },
+        {
+          "text": "上位プランへの変更は、決済サービスStripeで支払い情報を入れると、確認後すぐに反映される",
+          "source": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 以前の無料版では5件または10件のサービスを監視できた。後: 無料版は3件までとし、以前からの利用者には元の件数を残した",
+          "source": "https://statusgator.com/blog/?p=76"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2014年: Colin Bartlettが考え、2015年に公開した",
+          "source": "https://statusgator.com/about"
+        },
+        {
+          "text": "2018年: Andy Libbyが加わり、運営会社Nimble Industriesを作った",
+          "source": "https://statusgator.com/about"
+        },
+        {
+          "text": "2025年: 情報管理の安全性を第三者が監査する認証を受けた。最新の監査報告は2025年10月31日付",
+          "source": "https://statusgator.com/trust"
+        }
+      ],
+      "price": [
+        {
+          "text": "2016年12月時点: 有料プランは月9.99ドル（約1,499円）と月19.99ドル（約2,998円）の2つ",
+          "source": "https://statusgator.com/blog/?p=76"
+        },
+        {
+          "text": "現在: 無料版は監視3件・管理者1人・月10通知まで。14日間は全機能をカード登録なしで試せる",
+          "source": "https://statusgator.com/plans"
+        }
+      ],
+      "voices": [
+        {
+          "text": "利用企業の共同創業者: 導入前は、取引先のサイトが止まっても状況が分からなかった（公式の事例記事）",
+          "source": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/"
+        },
+        {
+          "text": "同じ利用企業が、StatusGatorではまだ監視できないサービスの追加を頼むと、数分で追加された（公式の事例記事）",
+          "source": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_plain_f8a62d87d9cb",
+    "factId": "f3",
+    "factHash": "0993d387",
+    "chapters": {
+      "practice": [
+        {
+          "text": "2024年6月の時点で、技術職と非技術職から毎週1人ずつ計2人を顧客対応に当て、客の相談を毎日社内で共有した（公式）",
+          "source": "https://www.plain.com/blog/why-whole-company-support-works-at-plain"
+        },
+        {
+          "text": "毎週金曜にはチームで小さな改善に取り組む時間を設け、顧客対応で見つかった問題を製品の修正につなげた",
+          "source": "https://www.plain.com/blog/why-whole-company-support-works-at-plain"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: メールやチャットの送信件数で課金し、丁寧に対応するほど料金が増えた。後: 対応した客の人数で数える方式に戻し、最小の枠を小さくした",
+          "source": "https://www.plain.com/blog/redefining-pricing-for-support"
+        },
+        {
+          "text": "前: 毎週2人が通常業務と兼務で顧客対応し、担当者の開発が止まって責任の所在も曖昧になった。後: 1人が専任で解決まで受け持ち、もう1人が補助として小さな製品修正を担った",
+          "source": "https://www.plain.com/blog/how-we-re-building-support-at-plain-a-blueprint-for-controlled-chaos"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2020年末: Simon Rohrbach と Matt Vagni が Plain の開発を始めた",
+          "source": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain"
+        },
+        {
+          "text": "2022年11月: 公開試用版を出し、最初の料金を公表した",
+          "source": "https://www.plain.com/blog/redefining-pricing-for-support"
+        },
+        {
+          "text": "2026年3月: 創業者が振り返った。当初の売り込み「決済サービスStripeの顧客サポート版」では、費用に見合う価値を示せなかった",
+          "source": "https://www.plain.com/open-by-default"
+        }
+      ],
+      "core": [
+        {
+          "text": "3種類の道具を1つにまとめられる製品にした。Sourcegraph は最初の返信までの時間の中央値が2時間から40分に縮んだ（公式）",
+          "source": "https://www.plain.com/customers/sourcegraph"
+        },
+        {
+          "text": "基盤の上に客が自社のAIを載せられるようにした。n8n は導入から約1週間半で最初のAI連携を公開した（公式）",
+          "source": "https://www.plain.com/customers/n8n"
+        }
+      ],
+      "start": [
+        {
+          "text": "2021年の時点では、小さなデザイン・開発チームがプログラム言語TypeScriptで製品の土台を作っていた（公式）",
+          "source": "https://www.plain.com/blog/a-massive-distraction-or-why-we-are-building-plain"
+        }
+      ],
+      "price": [
+        {
+          "text": "2023年6月の公式記事にある検討案: 月200ドル（約3万円）に追加の顧客1人あたり0.70ドル（約105円）を足す案、顧客1人あたり1.5ドル（約225円）の案など",
+          "source": "https://www.plain.com/blog/redefining-pricing-for-support"
+        }
+      ],
+      "voices": [
+        {
+          "text": "Sourcegraph の Enrique Gonzalez: 管理者としてどの会話も開き、チームが問題をどう考えたかを確認できる。以前はそれが見えなかった",
+          "source": "https://www.plain.com/customers/sourcegraph"
+        },
+        {
+          "text": "n8n の Gualter Augusto: 導入を試す間、Plain のチームが質問に答えてくれたため、連携を素早く作れた",
+          "source": "https://www.plain.com/customers/n8n"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_dnsimple_c8560498b136",
+    "factId": "f23",
+    "factHash": "6c94e83c",
+    "chapters": {
+      "practice": [
+        {
+          "text": "導入事例の顧客は、影響の小さいドメインから移し、試験環境で業務用サービスMicrosoft 365の設定を確かめた（公式の導入事例）",
+          "source": "https://dnsimple.com/customers/always-beyond/"
+        },
+        {
+          "text": "客からの質問は外に任せず、管理ソフトGrooveを使って自社で答えた（公式、2016年）",
+          "source": "https://blog.dnsimple.com/2016/10/lessons-learned-about-running-a-small-business/"
+        },
+        {
+          "text": "他のソフトから操作できる接続口や設定のひな型、他社で登録したドメインの向け先の管理も提供する（公式）",
+          "source": "https://dnsimple.com/pricing"
+        },
+        {
+          "text": "2021年4月時点で、客の質問は通常1日33件。世界各地の時差を使い、ほぼ24時間答えている（公式）",
+          "source": "https://blog.dnsimple.com/2021/04/how-we-support-our-customers-reflection/"
+        }
+      ],
+      "turning": [
+        {
+          "text": "前: 2014年12月1日の攻撃で、自社と顧客のサイトが大きく止まった。後: 外部の防御と予備の応答、設定の控えを整える方針にした",
+          "source": "https://blog.dnsimple.com/2014/12/incident-report-ddos/"
+        },
+        {
+          "text": "前: 全員で客の質問に答え、責任があいまいで対応の遅れが出た。後: 2019年4月、顧客対応をまとめる責任者を雇った",
+          "source": "https://blog.dnsimple.com/2021/04/how-we-support-our-customers-reflection/"
+        },
+        {
+          "text": "前: 2014年の攻撃の後はCloudflareの防御サービスを使った。後: 通信の状況を十分に把握・制御できず、値上げの提案も来たため、自社管理へ移した",
+          "source": "https://blog.dnsimple.com/2026/08/building-our-fully-independent-dns-edge/"
+        },
+        {
+          "text": "前: 初期に成功した紹介制度が、後に目立たなくなった。後: 2017年に作り直して再開した",
+          "source": "https://blog.dnsimple.com/2017/06/referral-revamp/"
+        }
+      ],
+      "timeline": [
+        {
+          "text": "2012年半ば: RoboDomain Inc.を買収し、Simone Carlettiが加わった",
+          "source": "https://blog.dnsimple.com/2012/12/2012-in-review/"
+        },
+        {
+          "text": "2012年末: 顧客が年初の2,000人強から5,000人超へ増えた（公式）",
+          "source": "https://blog.dnsimple.com/2012/12/2012-in-review/"
+        },
+        {
+          "text": "2015年4月: 顧客は15,000人超、扱うドメインは130,000件超（公式）",
+          "source": "https://blog.dnsimple.com/2015/04/5-years-of-dnsimple/"
+        },
+        {
+          "text": "2025年4月7〜8日: 障害が起き、向け先を調べる通信は毎秒25,000回から260,000回に増えた",
+          "source": "https://blog.dnsimple.com/2025/04/pir2025-04-07/"
+        },
+        {
+          "text": "2026年7月末: 4つの応答用サーバーの経路をすべて自社管理へ移し、2社の16拠点で動かす",
+          "source": "https://blog.dnsimple.com/2026/08/building-our-fully-independent-dns-edge/"
+        }
+      ],
+      "core": [
+        {
+          "text": "2年かけて客の使い方を調べ、価値と運営・改善の費用が釣り合うよう料金を変えた（公式）",
+          "source": "https://blog.dnsimple.com/2023/10/pricing-updates/"
+        }
+      ],
+      "start": [
+        {
+          "text": "手元に資金が無く、サーバー代はクレジットカードで払って始めた（公式）",
+          "source": "https://blog.dnsimple.com/2016/10/lessons-learned-about-running-a-small-business/"
+        },
+        {
+          "text": "2012年11月にDarrinが専業になり、常勤は2人になった",
+          "source": "https://blog.dnsimple.com/2012/12/2012-in-review/"
+        }
+      ],
+      "price": [
+        {
+          "text": "2015年: 旧プランは月8ドル（約1,200円）。個人向けは月5ドル（約750円）で5ドメインまで、追加1件ごとに月0.50ドル（約75円）",
+          "source": "https://blog.dnsimple.com/2015/06/multiple-accounts-new-plans-and-new-features/"
+        },
+        {
+          "text": "現行: 個人向けは基本料なし、上位版は月19ドル（約2,850円）、チーム向けは月29ドル（約4,350円）",
+          "source": "https://dnsimple.com/pricing"
+        }
+      ],
+      "voices": [
+        {
+          "text": "導入事例の管理業者は、月5〜10時間以上の手間が減ったと話す（公式が選んだ事例）",
+          "source": "https://dnsimple.com/customers/always-beyond/"
+        },
+        {
+          "text": "料金改定で予告なく高いプランへ移されたとして解約した利用者がいた。創業者は伝え方が不十分だと感じた顧客に謝罪した（本人申告）",
+          "source": "https://news.ycombinator.com/item?id=42307604"
+        }
+      ]
+    }
+  },
+  {
+    "entityId": "ent_snipcart_9a1012111695",
+    "factId": "f1",
+    "factHash": "c6eeb229",
+    "chapters": {
+      "practice": [
+        {
+          "text": "注文と顧客の検索・編集・返金・書き出しを、店主が管理画面で扱えるようにした（公式）",
+          "source": "https://snipcart.com/merchant-dashboard"
+        }
+      ],
+      "start": [
+        {
+          "text": "Franckが最初の従業員として加わり、のちにパートナーになった",
+          "source": "https://snipcart.com/blog/jamstack-ecommerce-podcast"
+        }
+      ],
+      "price": [
+        {
+          "text": "現行の料金: 店の取引額の2%（公式）",
+          "source": "https://snipcart.com/pricing"
+        },
+        {
+          "text": "月の販売額が1,000ドル（約15万円）未満の店は、2%の代わりに月20ドル（約3,000円、公式）",
+          "source": "https://snipcart.com/pricing"
+        },
+        {
+          "text": "最低料金を設けた理由は、サポートの質を保つことと、動いていない店を増やさないこと（公式）",
+          "source": "https://snipcart.com/faq"
+        }
+      ],
+      "voices": [
+        {
+          "text": "公式サイトに掲載された推薦文では、導入の簡単さとサポートチームの対応の良さが評価されている",
+          "source": "https://snipcart.com/merchant-dashboard"
+        }
+      ]
+    }
   }
 ]

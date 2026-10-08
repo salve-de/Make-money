@@ -688,7 +688,7 @@ export function plainFactText(text: string): string {
  * 通貨は日本語の名前（ドル）・記号（$・€・£・₹）・ISO の略号（USD・EUR・GBP・INR）のどれでもよい。
  * 米ドル以外のドル（CA$・A$ など）は換算しない。すぐ後ろに円の額がある金額には足さない（二重にしない）。すぐ後ろに円の無い括弧の補足があれば、その括弧の頭に入れる。保存データは変えない。
  */
-const CURRENCY_YEN: Array<[RegExp, number]> = [[/^(?:ドル|US\$|\$|USD)$/, 150], [/^(?:ユーロ|€|EUR)$/, 165], [/^(?:ポンド|£|GBP)$/, 195], [/^(?:ルピー|₹|INR)$/, 1.75]];
+const CURRENCY_YEN: Array<[RegExp, number]> = [[/^(?:米ドル|ドル|US\$|\$|USD)$/, 150], [/^(?:ユーロ|€|EUR)$/, 165], [/^(?:ポンド|£|GBP)$/, 195], [/^(?:ルピー|₹|INR)$/, 1.75]];
 const NUM = '[0-9][0-9,]*(?:\\.[0-9]+)?';
 const RANGE = '\\s?[〜~～\\-–—]\\s?';
 const PRE_CUR = '(?:US\\$|\\$|€|£|₹|(?:USD|EUR|GBP|INR)\\s?)';
@@ -697,7 +697,7 @@ const PRE_SCALE = '(?:億|万|\\s?(?:million|billion|thousand)(?![A-Za-z])|(?:MM
 // 範囲（「$10–$50」「$10-50」「29〜99ドル」）は両端をまとめて1つの金額として拾い、円も範囲で添える
 const FOREIGN_AMOUNT = new RegExp(
   `(?<pc>${PRE_CUR})(?<pn>${NUM})(?<ps>${PRE_SCALE})?(?:${RANGE}(?:${PRE_CUR})?(?<pn2>${NUM})(?<ps2>${PRE_SCALE})?)?`
-  + `|(?:(?<sn0>${NUM})\\s?(?<ss0>${PRE_SCALE})?${RANGE})?(?<sn>${NUM})\\s?(?<ss>${PRE_SCALE})?\\s?(?<sc>ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
+  + `|(?:(?<sn0>${NUM})\\s?(?<ss0>${PRE_SCALE})?${RANGE})?(?<sn>${NUM})\\s?(?<ss>${PRE_SCALE})?\\s?(?<sc>米ドル|ドル|ユーロ|ポンド|ルピー|USD|EUR|GBP|INR)(?![A-Za-z])`, 'g');
 const SCALE: Record<string, number> = { 億: 1e8, 万: 1e4, k: 1e3, K: 1e3, M: 1e6, B: 1e9, m: 1e6, MM: 1e6, mn: 1e6, bn: 1e9, million: 1e6, billion: 1e9, thousand: 1e3 };
 export function yenText(yen: number): string {
   const n = Math.round(yen);

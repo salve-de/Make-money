@@ -1,0 +1,1021 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/gen2/auto/storemapper-record.json",
+  "manifestSha256": "a578d4245bd990a17ee1cc8c4d7a6154fbb68720baa22c99efe6f308f21afb69",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-07T10:48:25.413Z"
+ },
+ "records": [
+  {
+   "id": "ent_storemapper_a848df77867b",
+   "provenance": {
+    "detailsHash": "5ba775589987ca56fa3e671af8df1783674081f8e921fb404d7b9b982449b070",
+    "artifactSha256": "a578d4245bd990a17ee1cc8c4d7a6154fbb68720baa22c99efe6f308f21afb69"
+   },
+   "workNotes": [
+    "本記録は指定された一時保存先での調査成果。中央台帳への登録・R2保存・本番表示は実施していない。"
+   ],
+   "record": {
+    "id": "ent_storemapper_a848df77867b",
+    "ticker": "STOREMAP",
+    "name": "Storemapper",
+    "legalEntity": "創業期は米国の単独所有 LLC、正確な登記名は未確認。現所有者は SureSwift Capital。",
+    "tagline": "既存の通販顧客が欲しがった店舗検索を、月額の部品として売る",
+    "description": "通販サイトに店舗の位置検索を埋め込むサービス。受託顧客への初売上から継続売上の成長、部分勤務の運営チーム、売却まで創業者が公開。現所有者の事業と創業期を分けて調べた。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Tyler Tringas（創業者。2017年に売却）",
+    "country": "米国",
+    "url": "https://www.storemapper.com/",
+    "officialUrl": "https://www.storemapper.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "用途を限定した月額サービス。運営の自動化範囲は出典ごとに区別。",
+    "pipelineStack": "Ruby on Rails（2015年）、Heroku（2015年）、Postgres（2015年）、Resque（2015年）、Stripe（過去と2026年）、Shopify（現在）、PostHog（2026年）、Baremetrics（過去と2026年）",
+    "targetPainWallet": "店舗データと地図表示を自作・更新・保守する手間。",
+    "tags": [
+     "個人開発から事業化",
+     "小規模運営",
+     "継続課金",
+     "一次情報あり",
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2012年8月の初動／2014〜2017年の個人・小規模運営／2026年の製品",
+     "revenueLabel": "過去の開示値は事実欄に原通貨と期間付きで保存。現在の同一期間の損益一式は未確認。",
+     "sourceDoc": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "id": "ent_storemapper_a848df77867b_fact_1",
+      "kind": "FACT",
+      "text": "2012年8月に開始。複数の Shopify 受託顧客が求めた機能を作り、既存顧客へ連絡して初日に3人が月5ドルで購入したと本人が報告する。",
+      "sourceUrl": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+      "sourceId": "ent_storemapper_a848df77867b_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2014-08-23"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_2",
+      "kind": "FACT",
+      "text": "2014年8月は約500ブランド、継続売上の年換算は約5万4000ドル。創業者申告であり銀行入金ではない。",
+      "sourceUrl": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+      "sourceId": "ent_storemapper_a848df77867b_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2014-08-23"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_3",
+      "kind": "FACT",
+      "text": "初期の作業枠は月10〜15時間。週の作業時間ではない。",
+      "sourceUrl": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+      "sourceId": "ent_storemapper_a848df77867b_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2014-08-23"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_4",
+      "kind": "FACT",
+      "text": "年99ドルの前払いを導入し、2日で21人が選び約2000ドルの資金を得たという。先受け現金と月次売上を区別する。",
+      "sourceUrl": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+      "sourceId": "ent_storemapper_a848df77867b_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2014-08-23"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_5",
+      "kind": "FACT",
+      "text": "紹介制度から新規申込みは0だったと報告。フッターの製品リンク、自然検索、Shopify の掲載から流入を得た。",
+      "sourceUrl": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+      "sourceId": "ent_storemapper_a848df77867b_source_1",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2014-08-23"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_6",
+      "kind": "FACT",
+      "text": "2015年2月に年次継続売上10万ドル。純利益9万〜9万5000ドルという表現は創業者の概算で、確定実績や税引後受取ではない。",
+      "sourceUrl": "https://tylertringas.com/storemapper-2015-roadmap-100k-to-4hww/",
+      "sourceId": "ent_storemapper_a848df77867b_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2015-02-03"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_7",
+      "kind": "FACT",
+      "text": "2015年の採用計画は支援担当と Ruby on Rails 開発者の部分勤務。構成は Heroku、Postgres、Resque 等と説明する。",
+      "sourceUrl": "https://tylertringas.com/storemapper-2015-roadmap-100k-to-4hww/",
+      "sourceId": "ent_storemapper_a848df77867b_source_2",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2015-02-03"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_8",
+      "kind": "FACT",
+      "text": "2015年5月、月の売上が1万1000ドルに近づき、開発と支援に部分勤務2人を採用したと報告する。",
+      "sourceUrl": "https://tylertringas.com/putting-a-micro-saas-business-on-autopilot/",
+      "sourceId": "ent_storemapper_a848df77867b_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2015-05-27"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_9",
+      "kind": "FACT",
+      "text": "Asana、GitHub、Airbrake、New Relic 等で連絡・監視し、創業者へ必要時に引き継ぐ。手順を文書化して委託する。",
+      "sourceUrl": "https://tylertringas.com/putting-a-micro-saas-business-on-autopilot/",
+      "sourceId": "ent_storemapper_a848df77867b_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2015-05-27"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_10",
+      "kind": "FACT",
+      "text": "経理の Bench は当時月135ドル。総運営費や現在の価格ではない。事業は米国の単独所有 LLC と説明する。",
+      "sourceUrl": "https://tylertringas.com/putting-a-micro-saas-business-on-autopilot/",
+      "sourceId": "ent_storemapper_a848df77867b_source_3",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2015-05-27"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_11",
+      "kind": "FACT",
+      "text": "2016年5月には継続売上の年換算20万ドル超、チーム3人と報告する。",
+      "sourceUrl": "https://tylertringas.com/storemapper-update-200k-growing-team/",
+      "sourceId": "ent_storemapper_a848df77867b_source_4",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2016-05-04"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_12",
+      "kind": "FACT",
+      "text": "2017年に SureSwift Capital へ事業を売却。創業者は当時週10時間の関与を述べる。売却価格は示していない。",
+      "sourceUrl": "https://tylertringas.com/selling-my-bootstrapped-saas-business/",
+      "sourceId": "ent_storemapper_a848df77867b_source_5",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2017-10-03"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_13",
+      "kind": "FACT",
+      "text": "2014年は試用開始にカードを要求し、全試用の有料転換は40%超、同年10月の自社サイト直接申込みは43件中42件と報告。全流入の98%ではない。",
+      "sourceUrl": "https://tylertringas.com/storemapper-update-50-revenue-growth-in-3-months/",
+      "sourceId": "ent_storemapper_a848df77867b_source_6",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2014-11-06"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_14",
+      "kind": "FACT",
+      "text": "失敗した請求を Stripe と Stunning で追跡・通知した。料金の比較試験は効果を判断しにくく、単純な変更と観察に戻したという。",
+      "sourceUrl": "https://tylertringas.com/storemapper-update-50-revenue-growth-in-3-months/",
+      "sourceId": "ent_storemapper_a848df77867b_source_6",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2014-11-06"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_15",
+      "kind": "FACT",
+      "text": "Shopify の掲載は2013年2月4日開始。製品の2012年開始とは別の出来事。現在は1店舗までの無料プランと7日試用を案内する。",
+      "sourceUrl": "https://apps.shopify.com/storemapper",
+      "sourceId": "ent_storemapper_a848df77867b_source_7",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_16",
+      "kind": "FACT",
+      "text": "Shopify は米ドルで請求と明記。100店舗の Micro は月24.99・年249、1000店舗の Pro は月49.99・年499、1万店舗の Premium は月69.99・年699ドル。",
+      "sourceUrl": "https://apps.shopify.com/storemapper",
+      "sourceId": "ent_storemapper_a848df77867b_source_7",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_17",
+      "kind": "FACT",
+      "text": "取得時の評価は95件で4.9。2026年の投稿に支援への評価とアクセシビリティ修正の報告がある。契約者数や規格適合の証明にはならない。",
+      "sourceUrl": "https://apps.shopify.com/storemapper",
+      "sourceId": "ent_storemapper_a848df77867b_source_7",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_18",
+      "kind": "FACT",
+      "text": "公式料金ページでは Pro が上段49.99・年499ドル、比較表39.99・年399ドルと食い違う。購入時の適用額は未確定。",
+      "sourceUrl": "https://www.storemapper.com/pricing",
+      "sourceId": "ent_storemapper_a848df77867b_source_8",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_19",
+      "kind": "FACT",
+      "text": "支援資料の Pro は39.99・年399ドルで、Shopify 掲載の49.99・年499ドルと一致しない。",
+      "sourceUrl": "https://help.storemapper.com/article/4326-pricing-features",
+      "sourceId": "ent_storemapper_a848df77867b_source_9",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_20",
+      "kind": "FACT",
+      "text": "現所有者の公式ポートフォリオに Storemapper が掲載されている。",
+      "sourceUrl": "https://www.sureswiftcapital.com/portfolio/storemapper",
+      "sourceId": "ent_storemapper_a848df77867b_source_10",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_21",
+      "kind": "FACT",
+      "text": "利用規約は SureSwift Capital を権利主体として示す。創業者が現在も単独運営しているとは扱わない。",
+      "sourceUrl": "https://www.storemapper.com/terms",
+      "sourceId": "ent_storemapper_a848df77867b_source_11",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": null
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_22",
+      "kind": "FACT",
+      "text": "2026年の運営者報告では試用登録が減る一方、総訪問と新規有料客は維持。検索流入の購買段階の変化を診断した。",
+      "sourceUrl": "https://www.sureswiftcapital.com/blog/storemapper-signup-drop-data-diagnosis",
+      "sourceId": "ent_storemapper_a848df77867b_source_12",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2026-07-22"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_23",
+      "kind": "FACT",
+      "text": "現在の調査では PostHog、Stripe、Shopify、Baremetrics、Google Analytics、Google Search Console、Semrush を照合。Shopify の掲載と製品ページを改修したが、復旧結果は進行中。",
+      "sourceUrl": "https://www.sureswiftcapital.com/blog/storemapper-signup-drop-data-diagnosis",
+      "sourceId": "ent_storemapper_a848df77867b_source_12",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2026-07-22"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_fact_24",
+      "kind": "FACT",
+      "text": "現所有者の記事は創業年を2009年とするが、創業者の2012年開始という記述と矛盾する。2012年を採用する。",
+      "sourceUrl": "https://www.sureswiftcapital.com/blog/shopify-partnership-successes",
+      "sourceId": "ent_storemapper_a848df77867b_source_13",
+      "attribution": "事業者・創業者の申告",
+      "statedAt": "2024-01-11"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "codex-three-success-20261007",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "url": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+       "publisher": "Tyler Tringas",
+       "title": "2012年の初売上と2014年の運営",
+       "sourceType": "founder_post",
+       "publicationDate": "2014-08-23",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_1"
+      },
+      {
+       "url": "https://tylertringas.com/storemapper-2015-roadmap-100k-to-4hww/",
+       "publisher": "Tyler Tringas",
+       "title": "2015年の継続売上と採用",
+       "sourceType": "founder_post",
+       "publicationDate": "2015-02-03",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_2"
+      },
+      {
+       "url": "https://tylertringas.com/putting-a-micro-saas-business-on-autopilot/",
+       "publisher": "Tyler Tringas",
+       "title": "部分勤務への委託と監視",
+       "sourceType": "founder_post",
+       "publicationDate": "2015-05-27",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_3"
+      },
+      {
+       "url": "https://tylertringas.com/storemapper-update-200k-growing-team/",
+       "publisher": "Tyler Tringas",
+       "title": "2016年の規模",
+       "sourceType": "founder_post",
+       "publicationDate": "2016-05-04",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_4"
+      },
+      {
+       "url": "https://tylertringas.com/selling-my-bootstrapped-saas-business/",
+       "publisher": "Tyler Tringas",
+       "title": "2017年の売却",
+       "sourceType": "founder_post",
+       "publicationDate": "2017-10-03",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_5"
+      },
+      {
+       "url": "https://tylertringas.com/storemapper-update-50-revenue-growth-in-3-months/",
+       "publisher": "Tyler Tringas",
+       "title": "2014年の試用と請求失敗",
+       "sourceType": "founder_post",
+       "publicationDate": "2014-11-06",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_6"
+      },
+      {
+       "url": "https://apps.shopify.com/storemapper",
+       "publisher": "Shopify／Storemapper／投稿者",
+       "title": "現在料金・掲載日・顧客評",
+       "sourceType": "official_marketplace",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_7"
+      },
+      {
+       "url": "https://www.storemapper.com/pricing",
+       "publisher": "Storemapper",
+       "title": "現在の公式料金表",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_8"
+      },
+      {
+       "url": "https://help.storemapper.com/article/4326-pricing-features",
+       "publisher": "Storemapper",
+       "title": "料金・機能の支援資料",
+       "sourceType": "official_help",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_9"
+      },
+      {
+       "url": "https://www.sureswiftcapital.com/portfolio/storemapper",
+       "publisher": "SureSwift Capital",
+       "title": "現在の所有と製品",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_10"
+      },
+      {
+       "url": "https://www.storemapper.com/terms",
+       "publisher": "Storemapper",
+       "title": "利用規約・権利主体",
+       "sourceType": "official_terms",
+       "publicationDate": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_11"
+      },
+      {
+       "url": "https://www.sureswiftcapital.com/blog/storemapper-signup-drop-data-diagnosis",
+       "publisher": "SureSwift Capital",
+       "title": "2026年の試用減少と診断",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-07-22",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_12"
+      },
+      {
+       "url": "https://www.sureswiftcapital.com/blog/shopify-partnership-successes",
+       "publisher": "SureSwift Capital",
+       "title": "掲載・提携経路と創業年の記述",
+       "sourceType": "official_blog",
+       "publicationDate": "2024-01-11",
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "rightsNote": "出典区分は転載許諾を意味しない。独自の日本語要約と所在のみ記録し、原文・画像の公開許諾は未確認。",
+       "id": "ent_storemapper_a848df77867b_source_13"
+      }
+     ],
+     "supported": [
+      "ent_storemapper_a848df77867b_fact_1",
+      "ent_storemapper_a848df77867b_fact_2",
+      "ent_storemapper_a848df77867b_fact_3",
+      "ent_storemapper_a848df77867b_fact_4",
+      "ent_storemapper_a848df77867b_fact_5",
+      "ent_storemapper_a848df77867b_fact_6",
+      "ent_storemapper_a848df77867b_fact_7",
+      "ent_storemapper_a848df77867b_fact_8",
+      "ent_storemapper_a848df77867b_fact_9",
+      "ent_storemapper_a848df77867b_fact_10",
+      "ent_storemapper_a848df77867b_fact_11",
+      "ent_storemapper_a848df77867b_fact_12",
+      "ent_storemapper_a848df77867b_fact_13",
+      "ent_storemapper_a848df77867b_fact_14",
+      "ent_storemapper_a848df77867b_fact_15",
+      "ent_storemapper_a848df77867b_fact_16",
+      "ent_storemapper_a848df77867b_fact_17",
+      "ent_storemapper_a848df77867b_fact_18",
+      "ent_storemapper_a848df77867b_fact_19",
+      "ent_storemapper_a848df77867b_fact_20",
+      "ent_storemapper_a848df77867b_fact_21",
+      "ent_storemapper_a848df77867b_fact_22",
+      "ent_storemapper_a848df77867b_fact_23",
+      "ent_storemapper_a848df77867b_fact_24"
+     ],
+     "unknown": [
+      "現在の売上・費用・営業利益と税引後受取、創業期の確定純利益。",
+      "売却価格、契約条件の全体、創業時の資金、顧客別継続率。",
+      "現在の人数・作業時間、現行インフラと地図 API の実費。",
+      "公式と支援資料で異なる Pro の最終適用価格。",
+      "現行の紹介報酬率、過去の公開財務画面の原本。",
+      "2012年の Wayback Machine 魚拓本文、画像の公開許諾。",
+      "2026年の集客改善後の定量結果。"
+     ],
+     "conflicts": [
+      "製品開始2012年と Shopify 掲載2013年は区別。現所有者の2009年という創業年は、本人の開始記録に反するため不採用。",
+      "Pro の価格は公式上段と Shopify で49.99・年499ドル、公式比較表と支援資料で39.99・年399ドル。経路・更新時点・旧契約の違いは未解決。",
+      "週4時間の運営は2015年の目標。初期の月10〜15時間、2017年の週10時間、現在の時間は区別。",
+      "現所有者の提携記事にある別製品 Cross Sell の転換率を Storemapper の値として採用しない。",
+      "2015年の純利益概算を確定値と扱わず、売却価格を推測しない。"
+     ]
+    },
+    "observationsStream": [
+     {
+      "id": "ent_storemapper_a848df77867b_metric_1",
+      "evidenceIds": [
+       "ent_storemapper_a848df77867b_source_1"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "2014年8月の年換算継続売上。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+      "observedAt": "2026-10-07",
+      "author": "Tyler Tringas",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "amount": 54000,
+       "currency": "USD",
+       "metric": "ARR",
+       "period": "2014-08",
+       "approximate": true,
+       "selfReported": true
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_metric_2",
+      "evidenceIds": [
+       "ent_storemapper_a848df77867b_source_2"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "2015年2月の年次継続売上。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://tylertringas.com/storemapper-2015-roadmap-100k-to-4hww/",
+      "observedAt": "2026-10-07",
+      "author": "Tyler Tringas",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "amount": 100000,
+       "currency": "USD",
+       "metric": "ARR",
+       "period": "2015-02",
+       "selfReported": true
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_metric_3",
+      "evidenceIds": [
+       "ent_storemapper_a848df77867b_source_2"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "創業者自身の純利益概算。実績の税引後受取ではない。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://tylertringas.com/storemapper-2015-roadmap-100k-to-4hww/",
+      "observedAt": "2026-10-07",
+      "author": "Tyler Tringas",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "amountRange": [
+        90000,
+        95000
+       ],
+       "currency": "USD",
+       "metric": "founder_estimated_annual_net_income",
+       "period": "2015-02",
+       "estimateBy": "Tyler Tringas",
+       "actualResults": false
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_metric_4",
+      "evidenceIds": [
+       "ent_storemapper_a848df77867b_source_4"
+      ],
+      "category": "TECH_VERIFICATION",
+      "categoryLabel": "数値の期間・定義",
+      "text": "2016年5月の年換算継続売上。",
+      "originType": "reported",
+      "verificationStatus": "SUPPORTED",
+      "sourceUrl": "https://tylertringas.com/storemapper-update-200k-growing-team/",
+      "observedAt": "2026-10-07",
+      "author": "Tyler Tringas",
+      "observationType": "financial_metric",
+      "publicPayload": {
+       "amount": 200000,
+       "currency": "USD",
+       "comparison": "GT",
+       "metric": "annualized_recurring_revenue",
+       "period": "2016-05",
+       "selfReported": true
+      },
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_application",
+      "evidenceIds": [
+       "ent_storemapper_a848df77867b_source_1",
+       "ent_storemapper_a848df77867b_source_3",
+       "ent_storemapper_a848df77867b_source_6"
+      ],
+      "category": "MARKET_DISTORTION",
+      "categoryLabel": "根拠付きの転用仮説",
+      "text": "推論: 受託で繰り返し求められる機能を小さな定額部品に変え、既存の有料顧客で検証する。支援手順と監視を先に整えて委託し、年払いの現金は将来のサービス提供義務と一緒に管理する。",
+      "originType": "inferred",
+      "verificationStatus": "UNVERIFIED",
+      "observedAt": "2026-10-07",
+      "observationType": "application_hypothesis",
+      "publicPayload": {
+       "basisFactIds": [
+        "ent_storemapper_a848df77867b_fact_1",
+        "ent_storemapper_a848df77867b_fact_2",
+        "ent_storemapper_a848df77867b_fact_3",
+        "ent_storemapper_a848df77867b_fact_4",
+        "ent_storemapper_a848df77867b_fact_5",
+        "ent_storemapper_a848df77867b_fact_8",
+        "ent_storemapper_a848df77867b_fact_9",
+        "ent_storemapper_a848df77867b_fact_10",
+        "ent_storemapper_a848df77867b_fact_13",
+        "ent_storemapper_a848df77867b_fact_14"
+       ],
+       "limitation": "同じ結果が得られるとは確認していない。小さな有料検証を先に行う。"
+      }
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_media",
+      "category": "RESEARCH_LIMIT",
+      "categoryLabel": "公開画面素材の所在",
+      "text": "公式の製品画面・紹介画像の掲載ページを確認。画像ファイルは取得しておらず、転載許諾と利用者情報の除去は未審査。",
+      "originType": "observed",
+      "verificationStatus": "SUPPORTED",
+      "observedAt": "2026-10-07",
+      "observationType": "media_location",
+      "publicPayload": {
+       "locationUrls": [
+        "https://apps.shopify.com/storemapper"
+       ],
+       "downloaded": false,
+       "publicationPermissionVerified": false
+      }
+     }
+    ],
+    "observations": [
+     "公式資料同士でも同一組織内の記述であり、独立した監査証拠ではない。"
+    ],
+    "temporal": {
+     "foundedYear": 2012,
+     "initialTractionPeriod": "2012年8月の初動",
+     "dataSnapshotPeriod": "2012年8月の初動／2014〜2017年の個人・小規模運営／2026年の製品",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "創業期の集客経路と現在の購入経路を別に扱う。創業当時の競争環境が現在も同じとは認定しない。",
+     "currentViabilityAnalysis": "Shopify・地図・検索流入に依存する。現在は無料・低価格の代替があり、総訪問数だけでは購買客の減少を見逃す。2026年の対策の成果と新規参入採算は未確認。",
+     "viabilityLabel": "現在の新規参入者の採算・再現性は未確認"
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "創業期: Shopify の受託顧客",
+      "2014年: 自然検索・埋め込みリンク・掲載",
+      "現在: Shopify と製品サイト"
+     ],
+     "toolStack": [
+      {
+       "name": "Ruby on Rails",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2015年"
+      },
+      {
+       "name": "Heroku",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2015年"
+      },
+      {
+       "name": "Postgres",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2015年"
+      },
+      {
+       "name": "Resque",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2015年"
+      },
+      {
+       "name": "Stripe",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "過去と2026年"
+      },
+      {
+       "name": "Shopify",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "現在"
+      },
+      {
+       "name": "PostHog",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "2026年"
+      },
+      {
+       "name": "Baremetrics",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true,
+       "purpose": "過去と2026年"
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "受託で繰り返し求められる機能を小さな定額部品に変え、既存の有料顧客で検証する。支援手順と監視を先に整えて委託し、年払いの現金は将来のサービス提供義務と一緒に管理する。",
+     "moatDescription": "Shopify・地図・検索流入に依存する。現在は無料・低価格の代替があり、総訪問数だけでは購買客の減少を見逃す。2026年の対策の成果と新規参入採算は未確認。",
+     "secretInsight": "推論: 受託で繰り返し求められる機能を小さな定額部品に変え、既存の有料顧客で検証する。支援手順と監視を先に整えて委託し、年払いの現金は将来のサービス提供義務と一緒に管理する。",
+     "initialTraction": [
+      "ent_storemapper_a848df77867b_fact_1 の事実を参照。",
+      "ent_storemapper_a848df77867b_fact_3 の事実を参照。"
+     ],
+     "actionPlaybook": [
+      "推論: 受託で繰り返し求められる機能を小さな定額部品に変え、既存の有料顧客で検証する。支援手順と監視を先に整えて委託し、年払いの現金は将来のサービス提供義務と一緒に管理する。",
+      "未確認の採算や継続率は、実際の有料顧客と運営費の観測で確かめる。"
+     ],
+     "coldOutreachTemplate": "",
+     "incumbentDilemma": "大手の既存売上を守るための参入不能を裏付ける資料は未確認。"
+    },
+    "essence": {
+     "whatItDoes": "通販サイトに店舗位置の検索・地図を埋め込む。",
+     "targetCustomer": "商品を扱う店舗へ送客したい通販ブランドと店舗運営者。",
+     "painRelief": "店舗データと地図表示を自作・更新・保守する手間。"
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_storemapper_a848df77867b_source_1",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2012年の初売上と2014年の運営",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+       "確認日: 2026-10-07",
+       "公開日: 2014-08-23",
+       "発言主体: Tyler Tringas"
+      ],
+      "url": "https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_2",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2015年の継続売上と採用",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://tylertringas.com/storemapper-2015-roadmap-100k-to-4hww/",
+       "確認日: 2026-10-07",
+       "公開日: 2015-02-03",
+       "発言主体: Tyler Tringas"
+      ],
+      "url": "https://tylertringas.com/storemapper-2015-roadmap-100k-to-4hww/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_3",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 部分勤務への委託と監視",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://tylertringas.com/putting-a-micro-saas-business-on-autopilot/",
+       "確認日: 2026-10-07",
+       "公開日: 2015-05-27",
+       "発言主体: Tyler Tringas"
+      ],
+      "url": "https://tylertringas.com/putting-a-micro-saas-business-on-autopilot/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_4",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2016年の規模",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://tylertringas.com/storemapper-update-200k-growing-team/",
+       "確認日: 2026-10-07",
+       "公開日: 2016-05-04",
+       "発言主体: Tyler Tringas"
+      ],
+      "url": "https://tylertringas.com/storemapper-update-200k-growing-team/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_5",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2017年の売却",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://tylertringas.com/selling-my-bootstrapped-saas-business/",
+       "確認日: 2026-10-07",
+       "公開日: 2017-10-03",
+       "発言主体: Tyler Tringas"
+      ],
+      "url": "https://tylertringas.com/selling-my-bootstrapped-saas-business/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_6",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2014年の試用と請求失敗",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://tylertringas.com/storemapper-update-50-revenue-growth-in-3-months/",
+       "確認日: 2026-10-07",
+       "公開日: 2014-11-06",
+       "発言主体: Tyler Tringas"
+      ],
+      "url": "https://tylertringas.com/storemapper-update-50-revenue-growth-in-3-months/",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_7",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 現在料金・掲載日・顧客評",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://apps.shopify.com/storemapper",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Shopify／Storemapper／投稿者"
+      ],
+      "url": "https://apps.shopify.com/storemapper",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_8",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 現在の公式料金表",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.storemapper.com/pricing",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Storemapper"
+      ],
+      "url": "https://www.storemapper.com/pricing",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_9",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 料金・機能の支援資料",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://help.storemapper.com/article/4326-pricing-features",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Storemapper"
+      ],
+      "url": "https://help.storemapper.com/article/4326-pricing-features",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 現在の所有と製品",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.sureswiftcapital.com/portfolio/storemapper",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: SureSwift Capital"
+      ],
+      "url": "https://www.sureswiftcapital.com/portfolio/storemapper",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 利用規約・権利主体",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.storemapper.com/terms",
+       "確認日: 2026-10-07",
+       "公開日: 未確認",
+       "発言主体: Storemapper"
+      ],
+      "url": "https://www.storemapper.com/terms",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 2026年の試用減少と診断",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.sureswiftcapital.com/blog/storemapper-signup-drop-data-diagnosis",
+       "確認日: 2026-10-07",
+       "公開日: 2026-07-22",
+       "発言主体: SureSwift Capital"
+      ],
+      "url": "https://www.sureswiftcapital.com/blog/storemapper-signup-drop-data-diagnosis",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     },
+     {
+      "id": "ent_storemapper_a848df77867b_source_13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典: 掲載・提携経路と創業年の記述",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "出典の所在・確認日・発言主体を記録。照合対象は事実欄の出典識別子で対応。",
+      "details": [
+       "URL: https://www.sureswiftcapital.com/blog/shopify-partnership-successes",
+       "確認日: 2026-10-07",
+       "公開日: 2024-01-11",
+       "発言主体: SureSwift Capital"
+      ],
+      "url": "https://www.sureswiftcapital.com/blog/shopify-partnership-successes",
+      "sourceNote": "日本語で独自要約。元資料に記載があることの確認と、数値の独立監査・転載許諾は別。",
+      "sourceClass": "PRIMARY"
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "codex_three_success_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": "大手の既存売上を守るための参入不能を裏付ける資料は未確認。",
+    "blindspot": "受託で繰り返し求められる機能を小さな定額部品に変え、既存の有料顧客で検証する。支援手順と監視を先に整えて委託し、年払いの現金は将来のサービス提供義務と一緒に管理する。",
+    "moatDescription": "Shopify・地図・検索流入に依存する。現在は無料・低価格の代替があり、総訪問数だけでは購買客の減少を見逃す。2026年の対策の成果と新規参入採算は未確認。",
+    "unknownsNotes": [
+     "現在の売上・費用・営業利益と税引後受取、創業期の確定純利益。",
+     "売却価格、契約条件の全体、創業時の資金、顧客別継続率。",
+     "現在の人数・作業時間、現行インフラと地図 API の実費。",
+     "公式と支援資料で異なる Pro の最終適用価格。",
+     "現行の紹介報酬率、過去の公開財務画面の原本。",
+     "2012年の Wayback Machine 魚拓本文、画像の公開許諾。",
+     "2026年の集客改善後の定量結果。",
+     "同一期間の売上・費用・税・創業者受取を一続きに検算できる原資料は未取得。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "growthRateYoY: 空→0",
+     "unknownsNotes: 文字列→配列",
+     "pnl.monthlyRevenue: 空→0",
+     "pnl.cogs: 空→0",
+     "pnl.grossProfit: 空→0",
+     "pnl.grossMargin: 空→0",
+     "pnl.operatingProfit: 空→0",
+     "pnl.operatingMargin: 空→0",
+     "pnl.estimatedAnnualNetProfit: 空→0",
+     "pnl.operatingExpenses.serverAndApi: 空→0",
+     "pnl.operatingExpenses.advertising: 空→0",
+     "pnl.operatingExpenses.subcontracting: 空→0",
+     "pnl.operatingExpenses.toolsAndSaaS: 空→0",
+     "pnl.operatingExpenses.other: 空→0",
+     "operations.teamSize: 空→0",
+     "operations.weeklyHours: 空→0",
+     "operations.initialCapitalRequired: 空→0",
+     "operations.automationLevel: 空→0",
+     "operations.initialTeamSize: 空→欄を外す",
+     "operations.currentTeamSize: 空→欄を外す",
+     "operations.toolStack: 文字列→名前と用途",
+     "observations: 未取得の断り→unknownsNotes",
+     "observations: 作業メモ→workNotes"
+    ]
+   }
+  }
+ ]
+}
