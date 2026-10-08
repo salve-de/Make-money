@@ -60,7 +60,7 @@ pnpm pipeline:status                                     # 止まっている事
 2. `pnpm case:discover --count 10` → `pnpm case:research --next 5`（別の枝 feat/case-discover-research-20261008 の呼び出し。`package.json` に無い間は飛ばす）。新しい事例のIDは、標準出力の `DAILY_IDS=a,b` の行か、環境変数 `DAILY_IDS_FILE` のファイル（1行に1つ）で返してもらう。`--ids a,b` でも渡せる。
 3. 1日の上限（既定3件、`--cap`）まで `pnpm case:run --ids …` で仕上げる。通った事例だけ、公開の直前に `prepare-catalog-release --dry-run` で取り下げの判定を見る。1件でも出たら公開せず知らせる（取り下げは自動でしない）。問題が無ければ `case:run --from publish --publish`。
 3b. 公開できた日は、手元の公開データ(目録・画面の文)を `auto/daily-<日付>` に commit・push して変更の申請にする(次の日にメインを取り込んでも食い違わないため)。公開データは作ったが公開できなかった事例(`pending`)と、上限を超えた分(`deferred`)は、翌日の起動に引き継ぐ。
-4. 本番の確認（読むだけ。公開した日は本番の目印のキャッシュ(最大3分)に合わせて最大約3分半、追いつくまで待つ）: `/api/catalog` の総数・世代ごとの件数が公開した版と合うか、`/api/health` の版の目印、公開した事例の画面の文、`check-freshness`（鍵が無ければ「確認できず」と記録）。
+4. 本番の確認（読むだけ。公開した日は本番の目印のキャッシュ(最大3分)に合わせて最大約3分半、追いつくまで待つ）: `/api/catalog` の総数・世代ごとの件数が公開した版と合うか、`/api/health` の版の目印、公開した事例の画面の文、`check-freshness`（Keychain に鍵が無い(終了コード78)時だけ「確認できず」と記録して飛ばす。鍵はあるのに R2 に繋げない(2)時は異常）。
 5. `data/pipeline/daily/<日付>.json` に1日1ファイル（探した・調べた・通った・公開した・落ちた件数と理由、かかった時間、本番の確認）。公開なしの試しは `<日付>.dry-run.json`。この置き場(`data/pipeline/daily/`)は作業場所ごとの運用記録なので gitignore（コミットしない）。
 
 ## 再開・二重起動・知らせ

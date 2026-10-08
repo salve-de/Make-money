@@ -35,7 +35,7 @@ function make(root: string, s: Script = {}) {
     }
     if (line.includes('prepare-catalog-release')) return ok(`log\n${JSON.stringify({ dryRun: true, plan: { withdrawn: s.withdrawn ?? [] }, canApply: !(s.withdrawn ?? []).length })}`);
     if (line.includes('--publish')) { published = true; return { code: s.publishCode ?? 0, stdout: '', stderr: '' }; }
-    if (line.includes('check-freshness')) return { code: 2, stdout: '', stderr: '' };
+    if (line.includes('check-freshness')) return { code: 78, stdout: '', stderr: '' };
     if (line.startsWith('git diff --cached')) return { code: 1, stdout: '', stderr: '' }; // 変更あり
     if (line.startsWith('gh pr list')) return ok('[]');
     if (line.startsWith('gh issue list')) return ok(JSON.stringify(issues.map((x, i) => ({ number: i + 1, title: x.title }))));
@@ -255,4 +255,24 @@ test('前の日に記録が済まなかった公開データは、公開が無�
   const rec = await runDaily(opts(root), m.deps);
   assert.equal(rec.stages['record-data']?.status, 'ok');
   assert.ok(m.calls.some((c) => c.startsWith('gh pr create')));
+});
+
+test('仕上げの途中で落ちて結果が読めなかった事例は、目録に入っていてもやり直す。鍵はあるのに R2 に繋げない時は異常', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'n1', passed: ['n1'] });
+  const base = m.deps.exec; let crash = true;
+  m.deps.exec = async (argv, env) => {
+    const line = argv.join(' ');
+    if (crash && line.includes('case:run')) { // 目録には入ったが結果は書かれずに落ちる
+      writeFileSync(join(root, 'data/catalog-release.json'), JSON.stringify({ publishedCount: 3, details: { old0: 'h', old1: 'h', n1: 'h' }, summaries: { hash: 'abcdef123456789' } }));
+      return { code: 1, stdout: '', stderr: '落ちた' };
+    }
+    if (line.includes('check-freshness')) return { code: 2, stdout: '', stderr: '' };
+    return base(argv, env);
+  };
+  const first = await runDaily(opts(root), m.deps);
+  assert.equal(first.stages.run.status, 'failed'); assert.ok(first.abnormal.some((a) => a.key === 'verify'));
+  crash = false;
+  const second = await runDaily(opts(root), m.deps);
+  assert.ok(m.calls.filter((c) => c.includes('case:run') && c.includes('--ids n1')).length >= 2, '結果が読めなかった事例を流し直していない');
+  assert.equal(second.stages.run.status, 'ok');
 });

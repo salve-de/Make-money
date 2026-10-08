@@ -51,6 +51,8 @@ export interface DayRecord {
   ids: string[]; deferred: string[];
   /** 公開データは作ったが、まだ公開していない事例(公開なしの試しで作った分も含む)。次の起動で公開をやり直す。正本は data/pipeline/daily/pending.json */
   pending: string[];
+  /** 仕上げの途中で落ちて結果が読めなかった事例(手元の目録に入っていても、もう一度流す) */
+  retry: string[];
   /** 今日公開した事例 */
   publishedIds: string[];
   counts: { discovered: number; researched: number; passed: number; published: number; failed: number };
@@ -171,7 +173,8 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
   } catch (e) { add('版の目印', 'problem', `ヘルスを取れない: ${(e as Error).message}`); }
   const f = await d.exec(['node', 'scripts/with-r2-keychain-secrets.mjs', 'node', 'scripts/ops/check-freshness.mjs', '--site-url', o.siteUrl]);
   if (f.code === 0) add('鮮度の確認', 'ok', '正常');
-  else if (f.code === 2 || f.code === 78) add('鮮度の確認', 'skipped', '鍵が無い・接続できないため確認できず（正常とは扱わない）');
+  else if (f.code === 78) add('鮮度の確認', 'skipped', '鍵が無いため確認できず（正常とは扱わない）');
+  else if (f.code === 2) add('鮮度の確認', 'problem', '鍵はあるが R2 に接続できず確認できない');
   else add('鮮度の確認', 'problem', f.stdout.trim().split('\n').slice(-2).join(' / ').slice(0, 200));
   return { ok: !checks.some((c) => c.status === 'problem'), checks, generationCounts: gen, total };
 }
@@ -185,14 +188,14 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   // 終えた日は何もしない。止まった日は続きから。--force は段をやり直すが、今日の持ち越し・公開した記録は引き継ぐ
   const resume = prev && (o.force || prev.status !== 'DONE') ? (o.force ? { ...prev, stages: {}, abnormal: [], failures: [] } : prev) : null;
   const rec: DayRecord = resume ?? {
-    date: o.date, startedAt: new Date(t0).toISOString(), dryRun: o.dryRun, status: 'RUNNING', stages: {}, ids: [], deferred: [], pending: [], publishedIds: [],
+    date: o.date, startedAt: new Date(t0).toISOString(), dryRun: o.dryRun, status: 'RUNNING', stages: {}, ids: [], deferred: [], pending: [], retry: [], publishedIds: [],
     counts: { discovered: 0, researched: 0, passed: 0, published: 0, failed: 0 }, failures: [], abnormal: [], ok: false, seconds: 0,
   };
   if (!o.force && prev?.status === 'DONE') { log(`${o.date} は終えている。何もしない（やり直すなら --force）`); return prev; }
   // 前の日の持ち越し(上限を超えた分・公開データは作ったが公開できていない分)を引き継ぐ
   const carry = o.dryRun ? null : lastCarry(o.root, o.date);
   if (!resume && carry) { rec.ids = [...carry.deferred]; rec.deferred = [...carry.deferred]; } // 仕上げるまでは持ち越しのまま残す
-  rec.publishedIds ??= [];
+  rec.publishedIds ??= []; rec.retry ??= [];
   rec.pending = readPending(o.root); // 公開なしの試しで作った分も、ここから拾う
   if (resume) log(`今日の続きから再開（終えた段: ${Object.entries(rec.stages).filter(([, s]) => s.status === 'ok').map(([k]) => k).join(',') || 'なし'}）`);
   rec.status = 'RUNNING';
@@ -239,9 +242,9 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   await stage('run', async () => {
     const already = localRelease(o.root).ids;
     const pendingNow = rec.pending;
-    const fresh = rec.ids.filter((id) => !already.has(id) && !pendingNow.includes(id));
+    const fresh = rec.ids.filter((id) => (!already.has(id) || rec.retry.includes(id)) && !pendingNow.includes(id));
     const target = fresh.slice(0, o.cap);
-    rec.deferred = fresh; save(); // 仕上げが終わるまでは、今日扱う分も含めて持ち越しのまま残す(途中で落ちても失わない)
+    rec.retry = target; rec.deferred = fresh; save(); // 仕上げが終わるまでは、今日扱う分も含めて持ち越しのまま残す(途中で落ちても失わない)
     if (!target.length && !pendingNow.length) return { status: 'skipped', note: '新しい事例が無い' };
     const runId = `daily-${o.date}`;
     if (target.length) {
@@ -249,7 +252,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
       const r1 = await d.exec(['pnpm', 'case:run', '--ids', target.join(','), '--run-id', runId]);
       const sum = readJson<{ passed?: string[]; failures?: { id: string; reason: string }[] } | null>(join(o.root, 'data/pipeline/case-run', runId, 'summary.json'), null);
       if (!sum) return { status: 'failed', note: `case:run の結果が読めない: ${tail(r1)}` };
-      rec.deferred = fresh.slice(o.cap); // 結果が読めた分は片付いた(落ちた事例は検査の理由つきで記録済みなので持ち越さない)
+      rec.retry = []; rec.deferred = fresh.slice(o.cap); // 結果が読めた分は片付いた(落ちた事例は検査の理由つきで記録済みなので持ち越さない)
       passed = sum.passed ?? [];
       rec.counts.passed += passed.length; rec.failures.push(...(sum.failures ?? []).map((f) => ({ id: f.id, reason: f.reason })));
       rec.counts.failed = new Set(rec.failures.map((f) => f.id)).size;

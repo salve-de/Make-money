@@ -20,11 +20,9 @@ if ! git merge --no-edit origin/main; then
 fi
 pnpm install --frozen-lockfile --prefer-offline >/dev/null || { echo "pnpm install に失敗" >&2; exit 1; }
 # 監査の証拠は gitignore なので、元から足りない分と、元の方が新しい分を写す（判定の記録は追記で変わるため、新しい方を残す）
+# 判定の記録(decisions.jsonl など)は追記で変わる。元が読めない時に古い写しで公開すると、取り消した許可が残るので、必ず止める
 for d in data/source-cache data/media-staging; do
-  if [ -d "$SRC/$d" ]; then
-    mkdir -p "$d" && rsync -a --update "$SRC/$d/" "$d/" || { echo "証拠の同期に失敗: $d" >&2; exit 1; }
-  elif [ ! -d "$d" ]; then
-    echo "監査の証拠が無い: $SRC/$d も $WORK/$d も見つからない（DAILY_EVIDENCE_SRC を確認）。証拠なしでは公開中の事例が全部取り下げ扱いになるので止める" >&2; exit 2
-  fi
+  [ -d "$SRC/$d" ] || { echo "監査の証拠の元が読めない: $SRC/$d（DAILY_EVIDENCE_SRC を確認）。古い写しで公開しないよう止める" >&2; exit 2; }
+  mkdir -p "$d" && rsync -a --update "$SRC/$d/" "$d/" || { echo "証拠の同期に失敗: $d" >&2; exit 1; }
 done
 exec pnpm daily:run "$@"
