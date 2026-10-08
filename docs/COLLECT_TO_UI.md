@@ -37,9 +37,9 @@
 
 | # | 段 | 実行すること | 変わるファイル | 落ちたら |
 |---|---|---|---|---|
-| 1 | 重複判定 | `pnpm dedup:check "社名"` と `pnpm dedup:check "公式ドメイン"`。`data/CLAIMED_TARGETS.txt` を検索し、無ければ末尾に社名を1行足す（予約） | `data/CLAIMED_TARGETS.txt` | 既にあれば新規に集めない。既存の事例を直す作業に切り替える |
-| 2 | 調査記録を書く | 出典を開いて事実を書く。形は [`research-record/`](./research-record/) の見本どおり。数字には1件ずつ種類・出来事の時点・原文の引用（15語以内）・出典URL・取得日を付け、創業と転機の事実を必ず入れる（README「数字の決まり」。Codex などに任せる時は `scripts/reader-case/collect-prompt.md` を渡す） | 作業用の JSON（どこでもよい） | 下の 3 で落ちたら、表示の `#/...` を見て直す（README の「落ちた時の表示の読み方」） |
-| 3 | 一覧に入れる | `node --import tsx scripts/reader-case/add-entity-records.ts --from-research <記録.json> --name <名前>`（出力の `unconfirmedFacts` と `thinCases` が0件になるまで記録を直す。決まりを満たさない数字はその数字だけ分けられ、事例は止まらない）→ `... add-entity-records.ts --apply` → `pnpm registry:sync` | コミットするのは `data/entity-additions/<名前>.json` だけ。`--apply` が書き換える `data/entities-index.json` と、`registry:sync` が書き換える `data/collected-registry.json` は手元で後の段を動かすためのもので、**コミットしない**（索引は約99MBで、GitHub の1ファイル100MBの上限に近い） | 形の検査の表示を読んで記録を直す。同じ id・同じ公式サイトがあれば足されない（`skipped` に理由） |
+| 1 | 候補を見つける | `pnpm case:discover --count N`。AI（既定 `codex exec`、`--agent claude` で `claude -p`）が公開情報を検索して候補を探し、社名と公式サイトのドメインで重複（既存の事例・`data/CLAIMED_TARGETS.txt`・queue）を落とし、数字の出典を実際に取得して引用が本文にあるかを確かめ、優先度（数字の確かさ・新しさ・稼ぎ方の違い）を付けて `data/candidates/queue.jsonl` に足す。1件ごとに社名・公式サイト・数字の出典URLと引用・見つけた理由・優先度を残す。指示文は `scripts/reader-case/discover-prompt.md` | `data/candidates/queue.jsonl` | 足せた件数が足りなければ探し直す（`--rounds`）。1件も足せなければ終了コード3。ログインが要る所・規約で自動取得を禁じた所は使わない |
+| 2 | 調査記録を作る | `pnpm case:research --next N`（優先度順）か `--ids 候補ID,…`。予約（`CLAIMED_TARGETS.txt` に1行足す）→ 出典の取得 → 調べる役（既定 `codex exec`、web 検索あり。指示は `collect-prompt.md`）が材料を返す → 引用が出典の本文にある事実・数字だけ残す → 調査記録（[`research-record/`](./research-record/) の形）に組む → `add-entity-records.ts --from-research` の検査。数字の決まりで外れた文は文の直し役（`claude -p` の Sonnet）が1回直す。見送り（記録を作らず queue に `skipped` と理由）: 数字の出典が取れない・引用が本文に無い／数字の出典が残らない／創業も転機も確認できない薄い事例／重複 | `data/candidates/records/<名前>.research.json`、`data/entity-additions/<名前>.json`、`data/CLAIMED_TARGETS.txt`、queue の状態 | 見送りの理由は queue の `skipReason` と実行の出力に出る。世代は `--generation N`（省略時は取り込み済みの最大） |
+| 3 | 一覧に入れる | 段2の最後に自動で行う（`add-entity-records.ts --apply` → `pnpm registry:sync`。`--no-apply` で止められる）。出力の最後に `pnpm case:run --ids-file <data/pipeline/case-run/<実行ID>/research.ids.txt>` が出る。手で調べた記録を入れる時は従来どおり `add-entity-records.ts --from-research <記録.json> --name <名前>` → `--apply` → `registry:sync`（出力の `unconfirmedFacts` と `thinCases` が0件になるまで記録を直す） | コミットするのは `data/entity-additions/<名前>.json` と queue。`--apply` が書き換える `data/entities-index.json` と `registry:sync` が書き換える `data/collected-registry.json` はコミットしない（索引は約99MBで、GitHub の1ファイル100MBの上限に近い） | 同じ id・同じ公式サイトがあれば足されず、queue に `skipped`（理由つき）。形の検査の表示を読んで記録を直す |
 | 4 | 出典の本文を取る | `node --import tsx scripts/reader-case/fetch-sources.ts --ids <idsファイル>` | `data/source-cache/`（git に入らない） | 403・CAPTCHA・ログインの壁は越えない。取れない出典は照合に回らない（`data/verify/unreachable.json`） |
 | 4b | 画像を取って判定する | 4章の命令（公式サイト・App Store から取得 → 自動判定 → 保留の分は人が判定） | `data/media-staging/<事例ID>/`（git に入らない） | 段5より前に済ませる。「使ってよい」が1枚も無い事例は選別で落ちる |
 | 5 | **ここから先は1本**: 照合から公開データの作成まで | `pnpm case:run --ids <事例ID,事例ID,…>`（`--ids-file <idsファイル>` でも可。公開はしない）。画像（段4b）は先に済ませる。中の順番と、落ちた時の見方は下の「3a」 | `data/reader-verdicts.json`、`data/reader-analysis.json`、`data/publication-audits.json`、`data/catalog-finished-ids.txt`、画面の層の5ファイル、`data/catalog-release.json`、`data/case-display.json`。所要時間は `data/pipeline/case-run.jsonl` | 最後に失敗した事例と理由が一覧で出る。直して同じ命令を再実行すれば、済んだ段は飛ばす |
@@ -47,6 +47,7 @@
 | 11b | 画面の自動監査（**必須**） | `pnpm build` の後に `pnpm reader-view:audit`（3100番が使用中なら `E2E_PORT=3110 pnpm reader-view:audit`） | なし（表は `test-results/reader-view-audit/report.md`） | 6b章。新しい違反が1つでもあれば落ちる。表の「事例・画面の箇所・該当文・規則」を見て画面の層の文を直す |
 | 13 | 公開（**人の許可が要る**） | 画像を保存先へ上げる（`scripts/media/upload-media-assets.ts`）→ `pnpm catalog:publish`（R2 へ書き、読み戻して確かめ、最後に「公開中の版の目印」を進める。画面の文の直しはこれだけで3分以内に本番へ出る。デプロイは要らない。10章）→ 本番の画面で1件開いて確かめる | R2 と本番 | 5章を読む。許可が無ければ 12 までで止める |
 
+- **段1〜3の記録（2026-10-08）**: 各段の時間は `data/pipeline/case-run.jsonl`（段の名前は `discover:ai`・`discover:verify`・`research:fetch`・`research:ai`・`research:import`・`research:repair`・`research:apply`）。AI の呼び出しは `agent-call.ts` の形（標準入力を閉じる・固まりを検知して1回やり直す）。重い調べ物は `codex exec`、文の直しは `claude -p`（Sonnet）。合法な公開情報だけを使い、売買仲介サイトなど規約で自動取得を禁じた所から大量に抜き取らない。
 - **世代（2026-10-08）**: 事例の世代（第N世代）は、取り込みファイルの `source.generation` で決まる。段3の `--from-research` / `--collect` が自動で書く（`--generation N` の指定 → 名前の `gen<N>-` → 取り込み済みの最大の世代、の順）。`--apply` が事例の記録へ `generation` を写し、`catalog:prepare` が一覧の要約へ運び、トップの一覧が世代ごとに区切って（新しい世代が上、「第N世代（M件）」）表示する。第1世代は記録に書かないので、既存の公開物は変わらない。新しい世代を始める時だけ `--generation N` を付ける。手書きの一覧は無い。
 - 段5は `pnpm case:run` が1本で流します（3a）。照合・分析・監査は AI をその場で呼ぶので、終了コード75の待ち合わせはありません。
 - 毎日の自動実行（[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)）は従来の `run-pipeline.sh` のまま、選別と公開版の計画までで止まり、公開はしません。
@@ -77,7 +78,7 @@ pnpm case:run --ids a --publish          # 最後に今の catalog:publish を�
 | 9 | prepare | 公開データの作成（`pnpm catalog:prepare --changed`）。原文照合で落ちた事例は含めない | 作れなければ段ごと失敗 |
 | 10 | publish | `--publish` の時だけ `pnpm catalog:publish`（中で `catalog:screen-check` を通す。飛ばさない） | 公開データの作成と画面の検査が通っていなければ公開しない |
 
-- **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所では「画像の権利または実体が未充足」「撤回の明示が足りない」で落ちます（落とし穴の表 12）。
+- **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所でも、公開中の事例の判定は証明書（`data/publication-evidence.json`）で再現されます。証明書にも無い事例は「証拠不足」と出て止まります（取り下げにはなりません。落とし穴の表 12・24）。
 - 各段の所要時間は `data/pipeline/case-run.jsonl` に1行ずつ（`runId`・段・開始時刻・秒・対象件数・失敗件数）。実行ごとの記録は `data/pipeline/case-run/<runId>/`（`logs/` に各命令の出力、`summary.json` に最後の一覧）。
 - 束は `batch-r<runId>-NNN`（照合・分析）と監査の `in-999999…` で、1束に1事例。従来の `run-verify.sh` / `run-analyze.sh` / `run-audit.sh`（終了コード75で待つ版）は、毎日の自動実行と公開中の事例の直し（3b）がまだ使うので残してあります。
 - 実体: `scripts/reader-case/case-run.ts`（順番と失敗の扱い）、`scripts/reader-case/runner/agent-run.ts`（束ごとにAIを呼んで受理するまで）、`scripts/reader-case/agent-call.ts`（`claude -p` / `codex exec` の呼び出し）。試験: `pnpm test:runner`。
@@ -127,7 +128,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 守ること:
 - 推論の正本は `data/reader-analysis.json`。`approvedAnalysis` は反映の段が受領書と突き合わせて作る写しで、手で書かない。
 - 出典本文の保存（`data/source-cache`）を照合などで上書きすると、元の引用が消えて「根拠の不一致」になる。受領書の取り直しは、審査した時の保存で行う。
-- 手元にしかない証拠（画像台帳 `data/media-staging`、出典本文の保存）が無い作業場所では、公開の関門が通らない。持っている作業場所へつなぐ（コミットしない）。
+- 手元にしかない証拠（画像台帳 `data/media-staging`、出典本文の保存）が無い作業場所でも、公開中の事例を取り下げ扱いにはしない。判定は「証拠の証明書」（`data/publication-evidence.json`、下の「公開の手順」）で行い、証明書にも無い物は「証拠不足で判定できない」として止まり、足りない物を出す。
 
 ## 3.6 試しに集めた事例を公開してよい形にする（2026-10-07 追加）
 
@@ -238,7 +239,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 | 9 | 監査が直す前の分析で進み、増えた項目は次の回に回った | 分析を直したら、監査をもう一度回す |
 | 10 | 選別で「公開区分または根拠が無効」で落ちた（根拠カードが無い） | `--from-research` が `reaudit.sources` から根拠カードを作る。`reaudit.sources` を必ず書く |
 | 11 | トップ・料金ページの画面写真が「保留」で止まった | 同意バナーの写り込みは人が見て判定する（7章） |
-| 12 | 公開版の計画が「10 → 0（撤回10件）」で止まった | 作業用コピーに既存の公開分の作業データが無いため。新しい1件は `data/pipeline/select.json` の理由で確かめる。公開は元の作業場所で行う |
+| 12 | 公開版の計画が「10 → 0（撤回10件）」で止まった | 以前は作業用コピーに既存の公開分の証拠が無いために起きた。今は証明書（`data/publication-evidence.json`）で再現され、証明書にも無い時は取り下げず「証拠不足」で止まる（`insufficientEvidence` を読む）。新しい1件は `data/pipeline/select.json` の理由で確かめる |
 | 13 | 監査の2回目で仕上げ済みに入った | 9 と同じ。12 の止まりは作業用コピーのせい |
 | 14 | 一覧の文の `factHash` の写し元が無かった。JSON の字下げを変えて全行の差分が出た | 新しい事例は `textFingerprint`（`src/shared/list-lines.ts`）で要約の事実 f1 から計算する。JSON は元のファイルと同じ2字下げで書く |
 | 15 | 別のAIの全行確認で26行中15行が不合格（専門語、1行に答え2つ、出典より言い過ぎ、時期の食い違い） | 書いた後に必ず別のAIに出典と照らして確認させ、直した後にもう一度確認させる |
@@ -273,18 +274,27 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - 画面が読む順番: 手元の目印（開発サーバのみ）→ R2 の目印 → 同梱の `data/catalog-release.json`（目印が読めない時の最後の頼り）
 - 読み取りは成功なら3分、失敗なら30秒キャッシュする（R2 が一時的に落ちても直前の版で動く）
 
-**文を直して出す流れ（以後ずっとこれだけ）**
+**証拠の証明書（2026-10-08。どの作業場所でも同じ公開の判定にするため）**
+- 公開の関門は、出典本文（`data/source-cache`）と画像台帳（`data/media-staging`）を読む。この2つは大きく、権利上 git に入れないので、作業場所ごとに有る・無いが分かれる。
+- そこで、判定に要る最小の事実（本文の指紋・本文で確かめた引用の鍵・表示してよい画像の識別子）だけを `data/publication-evidence.json`（git に入る）に記録する。作るのは `pnpm evidence:attest`（手で書かない）。
+- 判定の優先順位: ①手元に本文・台帳があればそれを正とする ②無ければ証明書 ③どちらも無ければ「証拠不足」。③は不合格ではない。公開中の事例は取り下げずに計画へ残し（`caseStamps` が `CARRIED`、理由に足りない物）、`insufficientEvidence` に事例ごとの足りない物を出し、`canApply` は false、実際の反映（`pnpm catalog:prepare` / `pnpm catalog:publish`）は止まる。新しい事例（まだ公開していない）は `HOLD_EVIDENCE` で外れるだけで、ほかを止めない。
+- 出典本文を取り直した・引用や主張を直した・画像の判定が変わった時は、証拠の元（手元の本文・台帳）がある作業場所で `pnpm evidence:attest` を流して証明書を新しくし、一緒にコミットする。`pnpm evidence:check` は、手元に証拠がある事例について証明書が合っているかを確かめる（ずれたら終了コード1）。
+- 手元に本文・台帳が無い作業場所で、証明書にも無い事例を公開に載せたい時は、先に元の作業場所で証明書を作ってコミットする。作業場所をつなぐ（連結する）必要はもう無い。
+- 監査の入力づくり（`build-audit-input.ts` / `diff-audit.ts`）だけは出典本文そのものを監査役に読ませるので、本文が手元に無いと止まる。
+
+**公開の手順（抜け道なし。以後ずっとこれだけ）**
 1. 5つの `data/*.json` を直す（原文照合・自動検査は3.5章・3b章のとおり）
-2. `pnpm catalog:prepare`（`data/catalog-release.json` と `.catalog-release/` を更新）
-3. `pnpm catalog:screen-check`（公開中の全件の画面を描き、画面に出さない言い回しと、出どころの無い文字がないかを調べる。**飛ばさない**。落ちたら文を直して2へ戻る。手元に `.catalog-release/` が無い作業場所では、持っている場所から連結してから動かす）
-4. `pnpm catalog:publish`（中で `screen-check` → `prepare` を通してから R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない。`publish-catalog-release.ts` を直接動かして検査を迂回しない）
-5. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
+2. 証拠が変わったなら `pnpm evidence:attest`（上の「証拠の証明書」）。その後 `pnpm catalog:prepare --dry-run` で、追加・訂正・取り下げの計画と `insufficientEvidence`（空であること）を確かめる。取り下げが出たら、本物の不合格（理由は `caseStamps`）なので、直すか、明示の `--withdrawals` 一覧で承認する。
+3. `pnpm catalog:prepare`（`data/catalog-release.json` と `.catalog-release/` を更新）。**公開中の事例を引き継ぐための空の `--changed` ファイルは使わない**（審査を経ずに出ることになる。`--changed` は「直した事例だけを評価し直す」差分公開の時に、直した事例の一覧を渡すためだけに使う）。
+4. `pnpm catalog:screen-check`（公開中の全件の画面を描き、画面に出さない言い回しと、出どころの無い文字がないかを調べる。**飛ばさない**。落ちたら文を直して2へ戻る。手元に `.catalog-release/` が無い作業場所では、持っている場所から連結してから動かす）
+5. `pnpm catalog:publish`（中で `screen-check` → `evidence:check`（証明書が手元の証拠と合っているか。ずれていれば止まる）→ `prepare` を通してから R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない。`publish-catalog-release.ts` を直接動かして検査を迂回しない）
+6. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
 
 **戻す時**: `pnpm catalog:publish -- --point-to <戻したい版の manifestHash>`（記録にも残る）。目印だけ作らず確認したい時は `--skip-pointer`。
 
 **初回の切り替え（本番の読み方が変わる最初の1回だけ。指揮役の判断で行う）**
 - D1 の移行は要らない（目印は R2 に置くため）
-- 手順: ①この変更をマージ ②`pnpm catalog:prepare`（既存の公開10件は `--changed` に空ファイルを渡し、そのまま引き継ぐ）③`pnpm catalog:publish`（事例・目録・目印が R2 に入る。まだ本番の画面は変わらない）④`pnpm deploy:workers` を1回（新しい読み方のコードを本番へ）⑤本番で一覧と1件を開いて確かめる
+- 手順: ①この変更をマージ ②`pnpm catalog:prepare`（空の `--changed` で引き継ぐ抜け道は使わない。上の「公開の手順」のとおり）③`pnpm catalog:publish`（事例・目録・目印が R2 に入る。まだ本番の画面は変わらない）④`pnpm deploy:workers` を1回（新しい読み方のコードを本番へ）⑤本番で一覧と1件を開いて確かめる
 - 異常時は `--point-to` で前の版へ戻す。コードごと戻す時は前のデプロイへ
 
 **手元の開発サーバ**: `pnpm dev` の直前（predev）に、`.catalog-release/` が今の `data/catalog-release.json` と合っているか確かめ、無い・古い時だけ作り直す（`scripts/ensure-local-catalog.ts`、数十秒）。手元の画面は `.catalog-release/current.json` が指す版を読む。`CATALOG_RELEASE_DIR` を自分で指定した時はそちらを信じる。

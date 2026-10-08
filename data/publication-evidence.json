@@ -1,0 +1,4246 @@
+{
+ "version": 1,
+ "note": "公開の関門が使う手元の証拠の証明書。scripts/reader-case/attest-evidence.ts が作る（手で書かない）",
+ "cases": {
+  "ent_button_shy_f1545f17d98e": {
+   "sources": {
+    "https://buttonshygames.com/pages/about-us": {
+     "url": "https://buttonshygames.com/pages/about-us",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.923Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.com/pages/about-us",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "e0211d01f83526db166106c908d118ac33732c0afafda31d468db52022173c2a",
+     "textLength": 10487,
+     "quotes": [
+      "32543a0dd8018920f530d2cdba5ab586172dd077423550d9a94a8f1300bb0e16",
+      "69eda03f6988b4b5045fd8058b61d55494d138461a2c973557304832728a263d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding": {
+     "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.956Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "68bca14761f1cd3c2d77ad81a438026f0b7fbe629b13d3eecefbf632c8a67f18",
+     "textLength": 12768,
+     "quotes": [
+      "16fcdb066c956ccd6743b6f28e2882e22f43c54027ab4e7dc29b2a3efff08072",
+      "2951af3bb37104317d6bb847f7458f6e3daafd20943a3deb8c37ae4c44ed5c95",
+      "6fa3affc98cad73fc9d1d528c15cfeb81b56c14c9cf3bc1ba4a4f7c33bb6ecb3",
+      "9dbaa67d2708809412e9eb16b52d5463fdf7f7a8dcb1dc3594d8d760dc60d72b",
+      "9ede010d847253c53e4e60e4cbf2729801ce7cfa3d737879466d9b36832f5578",
+      "f4debd9d437fe09f110632f8267f2b4cc353db690e954ab2023c72ca5d77376e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week": {
+     "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.956Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "e4d796516117c9a90c3e9096c12840759f56bb3895f5373e1547e8c24b475d74",
+     "textLength": 12782,
+     "quotes": [
+      "0ab68938120b30c8cd15ca9deef6bce03c8219fedbc46508d010ec891d3d0769",
+      "4a0e437bc755bfbdfb78a67aafa8c9ee3c75762696c81ed79348df8771391718",
+      "5ac6b40a4616a71c1cb9147cfe1855e57bbbc0fdbb968c5927fabf8451632a2a",
+      "cb63ee2a69b1128440761d75cae01be03f903dcf2673f11292be1c8985ad4cda"
+     ],
+     "quotesAbsent": []
+    },
+    "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules": {
+     "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.956Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "180b500f10f23f6242ce714148be0bfd214a9c771e9217d74a3f1cff8cd9faf6",
+     "textLength": 17877,
+     "quotes": [
+      "007a2a60ab1d6e783807d49d3b094aa5a12f47083f57ce28143e70b1a001e413",
+      "0f1ae017c01af9b21ec6db0c184edc9b0207b471e72adedcadfe0f5dcb7b2f00",
+      "363489c7b93cc2cecc46cd837d8aecc811074eac7187b65000077f39ec592832",
+      "6786323740736051a5cd5b13a9b45112f377c4cecdb867264b494098c1fce7b3",
+      "69ef4642169ebc8861317ab28b79b0ea0ac12dc8fa89a89366b88b40663b2bdd",
+      "7f6314ed38ca80c42827120ed8b97e16994bad6e516b59573590d18db3b23016",
+      "804dc8243f6d0dc2be082d9842cd76afe6e301f28fedcb840493b98341c116c6",
+      "8cc30326448d9f2f1672bc594e3d37cf1f4afde975d004b7bf57241b4efb5f67",
+      "d270344b55410fc216dfe5eb9f072ccae26039dd0e67a27accb30f6fdba87f45",
+      "e920d7f7f25b7d575fff7d11c2689981004120525ba55c1618acacfedf967c86",
+      "f28c6636b5f8698af33534f855e5491be4bb617a444d24b0dc8f2ed3d74ee2c5",
+      "fab49412498d69c794f65464ed8a853cb9506bd3e3b3a52195f8bea903c7dc1f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://buttonshygames.com/pages/wallet-games-are-now-15": {
+     "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.956Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "be54b16245d1c9b015e643c5eead5af639aed2b37e33a2df2b034c6dc22b4457",
+     "textLength": 11921,
+     "quotes": [
+      "3edaab330be22b7ba86378b6132219302d31751467c4253160fa85b3e932acb8",
+      "7a21b29893c7848f37747c0063edd9d9952fb0df63f6b4c9d137ec7220869b6b",
+      "b83e14f589b606366bcb502f866732e5d075cb1b9857b3e8efadc8c13643346e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://buttonshygames.substack.com/p/introducing-the-modular-team": {
+     "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.956Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "88ec581425e22c3811565ead30fe4ff5b5a6a28c6719bf9cb2edfd207779b2bf",
+     "textLength": 5035,
+     "quotes": [
+      "9056bd3c47d34c9732f3532187a7d852b3d7507efd3d3e284c62c269e957ebd1",
+      "aa93c70335e700e3d0e1f46cfdb4f7ab84f1cd8edd5b6ae7ee1fbb3366f79635",
+      "cf8bcb9cbb3004e47d5a04e491eea42ace3c0e5eee7c3093a8315d4adf9e07db",
+      "ff0f93ee54fb5db8a54611896c128bbf163b3081af4a34a8e37b0e47c2ea8807"
+     ],
+     "quotesAbsent": []
+    },
+    "https://buttonshygames.com/products/sprawlopolis": {
+     "url": "https://buttonshygames.com/products/sprawlopolis",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.956Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.com/products/sprawlopolis",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "8c18927bc01215ae39631199a68a798d46119c548c72233dfafab3ad43050777",
+     "textLength": 15505,
+     "quotes": [
+      "017ffda6efe1c63e71164859de75ca2eab8b58dd80fcf92e701fcda28abce9c8",
+      "1f940648a37c4793739a8559aee1a5be8d6586da86abe70e613e2edda0fd9d42",
+      "945ff6bb3244f36dacb3d289e9572e809b18f61b598b28d4278235902cf72206",
+      "c4ac481f3ce1eea85d68b32d7872f2649086105317be7624ff68d7ab0a5895f0",
+      "f7199343ed0fcda157c18cea377bd0bc56db360b0386ccfd0e59bacdd1c378a2"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/": {
+     "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:56.956Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20250325134147/https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "9ac3048654a35d20f9d5663721276dfc4379dc1bdf5f6bcd8302685d83dc25f7",
+     "textLength": 33737,
+     "quotes": [
+      "9132a2782604309c1d1b764d3d327c93c9047431e052bd4fc279de3775a8cd3f",
+      "d9e32c1e1d6d81028911f4840b4d929dd3fd1a696e89a5fe16f2ee282d5d21a8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://buttonshygames.com/pages/international-orders": {
+     "url": "https://buttonshygames.com/pages/international-orders",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:57.646Z",
+     "via": "direct",
+     "finalUrl": "https://buttonshygames.com/pages/international-orders",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "98f43bb2afcb1b4f49861015ee21854eb4a1238b4b97bd60ec28d3d031f51acc",
+     "textLength": 12163,
+     "quotes": [
+      "21b297a0a59aa155df4b04d6423397370787a594049552b4e88e84f2e9fbaf25",
+      "e0eac200e67409276e53c6726b71f6e606cf0a676456ade37c02464b9db4fe2a",
+      "ea7aee5f036a6f6ce792b665ea959e6c5e7c273e60a3e155b196006d0eff0c8f"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_4347e00a52f44540df83b2e2"
+    ]
+   }
+  },
+  "ent_candy_japan_954236d663a8": {
+   "sources": {
+    "https://www.candyjapan.com/behind-the-scenes/april-profit-report": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/april-profit-report",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:58.301Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/april-profit-report",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "3533556e0cacbac77acbd10fee4702c6a396428f11aaaf9ab81ab5b0a0e886a5",
+     "textLength": 3585,
+     "quotes": [
+      "1a6f6b4500a68008032680a8b67b8acb764ef5496d5112a17d9bba7b1b64c410",
+      "6981b890035f7c2eab2afee7579f0550c96e1cdd09488d4bf06995f0f851fd1f",
+      "8e4f4b7e39ff6d9fcf812fe9dc88551af51226944434f8d3cf79ea174364b9f8",
+      "b50a0945d2c8a42cad71e6145c64620cad9e4441466aff6d2373f4c3b3447248"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/how-did-you-get-your-first-subscribers": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/how-did-you-get-your-first-subscribers",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:59.313Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/how-did-you-get-your-first-subscribers",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "8d96b4cc93bfdd6fa88a455033b76ec90f8936051328f67bff4a67f0b65d3355",
+     "textLength": 2792,
+     "quotes": [
+      "3bd947b8365b8b38ff80c4756bc02d4865ffaaee652e19a9ce5eac9b5ddd225b",
+      "a771c6e9093c74ea1c7df72626cd7c5415679f171b1e94451a140b7745cf9109"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/candy-japan-crosses-10000-mrr": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/candy-japan-crosses-10000-mrr",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:59.346Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/candy-japan-crosses-10000-mrr",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "7edd6f39fb46c737ca7c867b87132dc6a3c998d41f3b644aa4d678b1750f4328",
+     "textLength": 11201,
+     "quotes": [
+      "2aa08c539ad56510797a82c22c255903016955b1b7243e5310cb611b9d78a52a",
+      "577b686bc4ad94185b6f395c4698cd1c819e201830d0f1f1a05e1504db312a76",
+      "6a1917fda2ed3f6ececb687c16cf49784ada5288311b0e328f8326c71d9ef0ee",
+      "e53114d01d96719e4becd928e179801018e028feff9cae788aaefcdd8de75ec0"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/2017-year-in-review": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/2017-year-in-review",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:59.673Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/2017-year-in-review",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ec7a2100fc75f717140d4476218de08ddca873eb8a51e2a99a5c619278853595",
+     "textLength": 11541,
+     "quotes": [
+      "20ee43afa2dda2239e6a2ce6a60a8a6c2bb7a68aab14bdf432975ef3d6e807bb",
+      "3b27a42925d5bf16fd32438502f8af1a4846b73901cfaef848a2c9f59a70333b",
+      "a848f0bd4818f12e21d94740553007a72f09332fb8d59aaaa2af15cbf4d4ee86",
+      "bb69c0028414e21931861e9f8c6ad2969534aff807aec4ea407f4557a595721c",
+      "de480bd7dc3f3caf813cd97620238ee1dadb66e7fa34bfc4f2ce66d7eb4ebbdf"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/2018-year-in-review": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/2018-year-in-review",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:37:59.729Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/2018-year-in-review",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "f68d66f79dde27eed4c221b9e3f4898830587ea0b946fb0450479178d1dff97d",
+     "textLength": 10474,
+     "quotes": [
+      "491cd510bde45ec88013e6838204cee9630b7f5f12af6414f8cce91463ffa7f7",
+      "4b3b067d8d43a7221d40a60a55fd3b39fb55f6104e0a9ee38c4b6ef7cee4ec99",
+      "7d37f7444cd8b0dacf8af5da09944ff24d32af13380a525b6a415d2dcc25caa8",
+      "8056e693662c5013c3c7d11fa24683381fbfc87198097b5977b97fd53b45bc5a",
+      "997581c4c7760eb11fca247713d3b145569b3eed7213a62e4a8ee7b0c00f7165",
+      "a48ba64af6606ee32e97a77c3ce3cc1e2f5571912810e3b8d55ef9852c88a6f7",
+      "cc664792f2c9138ebd9e79c7ddc3fc1ab227044bddda709779eaa5b20729e9fa",
+      "db3689a33e76e4db87ca065a2cd2bd581906f27a72bbd20117c071d45d5fdb46",
+      "f97a0f0e2229e5244187a558af5de3ec266ea58f7903723303d8c450de248f2e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:00.443Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/2019-year-in-review",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "98f0221bc31b98d1bce589c79aafb87e2bdc5afc7e8fae6632dc54ac85b72a00",
+     "textLength": 10066,
+     "quotes": [
+      "509e6117f920fc62c3b20f238e4127b9a8cef2d9f3800ae81fa63e249fd2dd65",
+      "806839955d33fa43c76734c2f0129adbaa5f8904de6e5fdd44483c1fc790f1c6",
+      "88c5d1c2443203898cd7b6555a5b76f1ad9d2ebd1ac52b3959d97ad42ab63291",
+      "ae1afdde10c43148eef797b3c980fb01a484617969114edfe46f0dd3b31066d8",
+      "b3d633fb664020ea7d78e89bdfa9821781bf04248d58b52fb86ff23ecad82eb7",
+      "bc80a64417e6fccf02bac5f445d0e375470aa55dd3770d60c8c31a9ee72bf07b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/on-pause-due-to-covid19": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/on-pause-due-to-covid19",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:01.248Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/on-pause-due-to-covid19",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "9f0544ef666f524f45452de193b48d96550d84b9faf3ebc36222a419207f5f45",
+     "textLength": 4439,
+     "quotes": [
+      "ab8cbc2e3a86b973afa4d94e8263ce224c35ba44153a72b1f0b91aba21d644cf"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/": {
+     "url": "https://www.candyjapan.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:01.628Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "b1095a0cff0ae3edddb6c0e8b18b1f2ebdf201b9ce816c6861bd03a07adbe83a",
+     "textLength": 1622,
+     "quotes": [
+      "9090a4e3957de4d62c9de28f14d31fb42b8b96fdb551cf4d848adb3a49588ad2"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/faq": {
+     "url": "https://www.candyjapan.com/faq",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:30:50.374Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/faq",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "a8830db9824bdfb0f47a071cddb0603ef8c94cae313733c3cd669c09203bf828",
+     "textLength": 5064,
+     "quotes": [
+      "0bec676d29a04497fbeca79374c03fad72f498b2b3e0322c792d5d703b216816",
+      "e80876cb07528ecdd3108ec20620825fa80f574082b32b38f12166a62c3cb472",
+      "f6bf86aa2b68a198b259af8f60123b0a11ecc1147b90245d32dd1978ac8c128a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://news.ycombinator.com/item?id=16461187": {
+     "url": "https://news.ycombinator.com/item?id=16461187",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:01.840Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=16461187",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "f2f56d0efa3eb21426b96b3393d993bc5a4680ea057be4c9e49e953ffc273719",
+     "textLength": 93683,
+     "quotes": [
+      "e1e932110c18ea6172bb616d626c9f8eb9b5d4d3de6a035ec59e6715bdaac0cd"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/how-i-got-credit-card-fraud-somewhat-under-control": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/how-i-got-credit-card-fraud-somewhat-under-control",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:02.322Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/how-i-got-credit-card-fraud-somewhat-under-control",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "c21f48118ca6a0aba3ad0295b7d1e86b0f6720c33c559f0dc5554a62caf15cc0",
+     "textLength": 8301,
+     "quotes": [
+      "6f8b8b4e00310014cf7ef23cbe9cf50684bd870afcca2b62dd3c21feab3d5e87"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/running-costs-for-candy-japan": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/running-costs-for-candy-japan",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:02.649Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/running-costs-for-candy-japan",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "890819187aff1710d18f006f4293c38adbd0d611e122aeb4e24ea5e6a5d57033",
+     "textLength": 4558,
+     "quotes": [
+      "6808b7c72479ab347d8367aac01a0bfb0e8103c04ca2442a82f21ac032092d3b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.candyjapan.com/behind-the-scenes/sales-cross-million-dollars": {
+     "url": "https://www.candyjapan.com/behind-the-scenes/sales-cross-million-dollars",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:02.745Z",
+     "via": "direct",
+     "finalUrl": "https://www.candyjapan.com/behind-the-scenes/sales-cross-million-dollars",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "740f89bc2d04c8d6b73533c2fe19f7bceeb9a9e1928446c50e89470537acddc0",
+     "textLength": 1199,
+     "quotes": [
+      "768e5b6daea8e1184515839395ca80eb57268517bc07fbc0dc91407187176c14"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/candy-japan-total-sales-cross-1m-894xrpGu02dfGOUbHfx5": {
+     "url": "https://www.indiehackers.com/post/candy-japan-total-sales-cross-1m-894xrpGu02dfGOUbHfx5",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:03.682Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/candy-japan-total-sales-cross-1m-894xrpGu02dfGOUbHfx5",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "fece8939523969095923b16f9e3c29c435d96ca891e6208a67588d565e2994f5",
+     "textLength": 2944,
+     "quotes": [
+      "a4e9adbfbd73411e49060024bc45e1660a43867d4120ee7568d1cc993743dd39"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_137b436868280e1d1f716922"
+    ]
+   }
+  },
+  "ent_churnkey_8d7f2b269c21": {
+   "sources": {
+    "https://churnkey.co/blog/announcing-churnkey": {
+     "url": "https://churnkey.co/blog/announcing-churnkey",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.926Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/blog/announcing-churnkey",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "6b8aa801ce8a9a568dcb2bb1bc4de432cb41fff17369f2dd94ffa3201515d16d",
+     "textLength": 9678,
+     "quotes": [
+      "11f035718925135989fd65080447bcfc8fe08a60b7bfc59cde0731cf9af562a8",
+      "4345b0dfbdb1ae6ce54ab0153aff7bb849827a34026583b2ca80e372148e55c2",
+      "6da570d72a630f6e21c01ba727662cdc07885c687e66f757cf90d0884a0ae686",
+      "9f5f33d76daa715b41410e8c68be0b3e4e7af43902ce64a9a3d4dd1e2a16875b",
+      "f0cbdfcf616d62c601e0ba827d6b8a5abe1b08d0da41318c334d334c77aec47f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/blog/churnkey-springtime-product-updates/": {
+     "url": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.928Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/blog/churnkey-springtime-product-updates/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "5b4bce0c6e8183931fbe9e7d3919994f658e90bf0311d129eb17ea1cac1d1e35",
+     "textLength": 6837,
+     "quotes": [
+      "05669d2dd90f4b8e3d576473ca006e50320859860a3437e5c036d95045297fdb",
+      "e6dad4705f294df4a2cf1faacf09bc3d69850418ce74b62f5436ffefa106601c",
+      "fc6ca089ef6ff59e6f42b01a93cba851140c51a33b41d675a8a0e5585715b941"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/": {
+     "url": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.928Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "288a47adbebc3d1c7a779501db4950045044234fabf346ebf1be7ebe5a0868c6",
+     "textLength": 9520,
+     "quotes": [
+      "5f6ede3a1f143c24a07ab606d6ab06b89fac4c3504872c10cbca7a935a598b41",
+      "6d5c4f55a7a8a5d3b6b3ef3e87c9c08f4623d4b4083e7670747d082606daa583",
+      "7b542a769851d76d93102e638c98e782897fa93a3e3b2261779e8a753821461c"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/subscription-heroes/interlude-nick-fogle/": {
+     "url": "https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.928Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/subscription-heroes/interlude-nick-fogle/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "64e53360f6ca9c214c2cd727fe76d3c7a0832d5020c90368940e10fa5cc6471f",
+     "textLength": 2143,
+     "quotes": [
+      "62785d03cadeb1247fad3f7f095c5e11a0d30edf4713da76c916ba2c7232a316",
+      "f89b49ac344652ee1a0415889cd851353d1036987dd94a00367d32ac66840b14"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/blog/churnkey-fundraise-creativeco/": {
+     "url": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.928Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/blog/churnkey-fundraise-creativeco/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "8d6b61f3b7f4855b217df504e53657de8fb4e14c3caf65ab46f8210a619c82ef",
+     "textLength": 7106,
+     "quotes": [
+      "28a6b18f65bb5694e5e62adfa97c3ebd79a0083e1b23b8e66a244d20ce1eeca5",
+      "b8bc5bf40936ae97ca160dfd9971e076de5ffe0146dc536ae479e74d4498ad0b",
+      "c3c0a03036d0df45d4fd96fe345de9592e662eb0ef98323adc27ec62506bff77"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/team": {
+     "url": "https://churnkey.co/team",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.928Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/team",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "89facd5bfba8153dcb76292d1a2387fefc9ec667fe371fd1862407bb17f72b23",
+     "textLength": 4696,
+     "quotes": [
+      "e3a39c7cf1c215a7998620aeb08d4d5aec0db2721edb1ae588ea9267e0ad58f3"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/": {
+     "url": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.928Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/subscription-heroes/how-losing-customers-is-destroying-your-business/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "e0a2693c8f98ebc898a347a0646daea36b21ee18a6a8e9b480ac1371440930cd",
+     "textLength": 65559,
+     "quotes": [
+      "2cb3e23b454f3ceb55eba005509ae51981bfa6cd537fa324dca2b22e449b3a57",
+      "7796a68f31e47a07a0650ee5110f86dee2a5b9341ab765e3ed447af05683c1fa",
+      "a02c2ab4c87e385104610b843d6f21221c35d9477419773c14333f7b65385b12",
+      "ae3348e3e5883f4b7ae24651fcb7623dd9424e7d0ca849f7bbee350e57f34968"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/": {
+     "url": "https://churnkey.co/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:13.928Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "cbddfe49d6aea8d731ed206193f409a4ec020e057587da50069eebc1644a0f6e",
+     "textLength": 11637,
+     "quotes": [
+      "9216fe75167ccd2af211bc52e07a35f009c5cd89233b51c37804a99fbc10a195",
+      "95f8509b8007c4ea09658d8c7be56fe7bb2083cc2497f2d93b9bdba76c28941b",
+      "eb9666b7c6952642acd55b7f1c585db27d2d07ed5da24c380d0ea079cbafce5e",
+      "f96f135087785214e595c5bb7a85a97b6e52f195513216f23398ec72798ea321"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/feature/payment-recovery": {
+     "url": "https://churnkey.co/feature/payment-recovery",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:14.981Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/feature/payment-recovery",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "c2b6c7c5280a21f880593689197f74c40be075d71b4e73aca49bc6b0fddf7a42",
+     "textLength": 11454,
+     "quotes": [
+      "830278cd04b8b480100b61c7fdc799d5d094578627fa3b0062497cca5c0813a5",
+      "a5111111e911c3744cb6024b55d9c9b699d6ad22cc31c21d281d1c21778ec867"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/case-studies/veed": {
+     "url": "https://churnkey.co/case-studies/veed",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:15.690Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/case-studies/veed",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "608e6a865252ad3bcbfa748697f0b098cf50e5f5a1a4b443df86eae1cd9730ff",
+     "textLength": 7576,
+     "quotes": [
+      "5f67a8a0284554f6dba767321a7ec8e251d8ef44ad5654e016f3c9634c9625c6",
+      "c0b642bc5f30cf11cb6996670f5fa6c0d6e92c4a586ebcd4cd2fbbfcdef1d0fb",
+      "ef73540ab092657afb87f1c679486d81c9e885596b176ac700a459b3f5a7f0b4"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/case-studies/buildertrend": {
+     "url": "https://churnkey.co/case-studies/buildertrend",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:16.473Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/case-studies/buildertrend",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "b2fe16fc12485b8d524ff9846d441d27501b6f729e48536ab85150af996b4a19",
+     "textLength": 8014,
+     "quotes": [
+      "18d7653e2a7307174b175d684a04fb6c06a7fc14cdfdb1ad4ff4882bf623c938",
+      "55cc10a429a73d9be93ea60b331c642e4c5ed2c045b364e636ba087a4f88ac5a",
+      "db54eea83e471913ec7f1552a1dc912984694ad95b7e03fc324347d68d018be8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/case-studies/superhuman": {
+     "url": "https://churnkey.co/case-studies/superhuman",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:17.658Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/case-studies/superhuman",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "9dbd74774c7b66b696674ed5bf7b7509afd845c7868306b57152cfcd92ed42db",
+     "textLength": 7314,
+     "quotes": [
+      "0d6ee417c592b4e673efed1ce1256dd6cd0a47ff7c00316ace3cefda563bdd32",
+      "312f2c04cd4456b18ec561b3e4d4b446700be9716d16dd1c7484778b231ae769",
+      "cf72fa6ac808089868149a7eb433b812243ee9c747e36950c6ff7aecc226c4c9"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/customers": {
+     "url": "https://churnkey.co/customers",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:18.687Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/customers",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "1929608ebf648877707f2ba46ce8c6a5771a184ec32019ccbe91482c217630ff",
+     "textLength": 12043,
+     "quotes": [
+      "d3a92811362e71c8f791d1b01089d68750b1f0da0f44d4890d097801fb31e742",
+      "d63571f3c14ed6ea2739e849ef0a4864516163fe03a1ae1c530175f18c1cc54b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://docs.churnkey.co/cancel-flows/further-configuration/": {
+     "url": "https://docs.churnkey.co/cancel-flows/further-configuration/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:20.187Z",
+     "via": "direct",
+     "finalUrl": "https://docs.churnkey.co/cancel-flows/further-configuration/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "9230ca7f51007e5fa07b829dd233b57aaffb8cc9ab79d50bb0ecc0a952db6583",
+     "textLength": 21702,
+     "quotes": [
+      "c7b8f4cb8165c7d9e9023a95dcf7e64cdb6967bbed52ac848e4e8b7c3fc13704"
+     ],
+     "quotesAbsent": []
+    },
+    "https://churnkey.co/pricing": {
+     "url": "https://churnkey.co/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:20.686Z",
+     "via": "direct",
+     "finalUrl": "https://churnkey.co/pricing",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "20b45cebe9888ba7fd11174aade829b39361a6dca54969d21f3515aad39b1ba8",
+     "textLength": 6436,
+     "quotes": [
+      "2ee2125af196f7a4db7c509d76242c811d1cf91787757dfecf43717e62865268",
+      "4d548fcb78d0c861a0b0bb6af3c79956e3205b89d2c8f6d040817cca0360d8a9",
+      "d6f17fec7f4af72bc9722ac9bdd4e88bb167a28674d8b662fbdfb7bae076fb33",
+      "fd7a6047b485439ea0dfb1844393803533a9886c86a07a62834d14ec4a7a598c"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_3cc14283b3410185414215d4"
+    ]
+   }
+  },
+  "ent_codementor_ba692caa3db3": {
+   "sources": {
+    "https://www.codementor.io/": {
+     "url": "https://www.codementor.io/",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:00.221Z",
+     "via": "direct",
+     "finalUrl": "https://www.codementor.io/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "53cfbdc1dc4d8cd067cdb6309ced03522b69b2970f189224720ec79eab4051b6",
+     "textLength": 5732,
+     "quotes": [
+      "33690b2de45df19c2d8c9b5cf57692df2f68f000c673671bc5afbef74d2290e1"
+     ],
+     "quotesAbsent": []
+    },
+    "https://mixergy.com/interviews/codementor-with-weiting-liu/": {
+     "url": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:04:49.530Z",
+     "via": "direct",
+     "finalUrl": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "c86e32038c4652d9dc29484bf66f13da64cd0fb70e2675efe18ca9af3a52e844",
+     "textLength": 68297,
+     "quotes": [
+      "312cd93e5507e5e00bae5df68f73c0236abe673f7cdb945ee273b93785d2d111",
+      "4cdba08f4efbfa203e5761af0d7cc02ce33ad2b88c1cab8a30b116558064a7f3",
+      "4f015cd60e47782c55d36b351e5a9835d7cb78ad372fc341430ab70c9b71590e",
+      "8cf27ba16faa1108e8c34c64adad576b1bfb37bc8eb21f4eb46276ef7978b4d7",
+      "a72f1c670f0215598cf247098c31069c6f968eb5a6ed750260ad8be501f77ccb",
+      "be163487a45db87f792f1ac6c910f77bd30030fa3a5981421a7980b530f26533",
+      "f5e9f7a3132e157f779636b097924e6155215b969fae5abf12818315ef8c6967"
+     ],
+     "quotesAbsent": []
+    },
+    "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers": {
+     "url": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:34:20.976Z",
+     "via": "direct",
+     "finalUrl": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ede5e4c87673a92a6fa16f871ad91d82bc3ea2d6bccd50a6a1dce87ab4b40512",
+     "textLength": 5527,
+     "quotes": [
+      "149b0779fdfebdfc420fa076ddf76143feb3baf9871a53706f7f5e9530c98724",
+      "1a7b6baee4e30656d9fd3f14136b7f48b80fe7dae9fd44cb55b3f5fc5b3ffe63",
+      "4798215ca4e4fd5e1ddce1d827113c3942c05f0783070a3888bef0648f9e24a2",
+      "5b03cfd8e0c2704302f7f9356ad20caf7ac060d0122becac8e2c896663c4e3a4",
+      "bc9ba70f4624f83aa533dfa28e324e0fc03356a991f3d775b1269f8060859935",
+      "ee9645c43e2ac763e6364e8199f84376149ac2767f550b1d520ed0e4d13c5c10"
+     ],
+     "quotesAbsent": []
+    },
+    "https://support.codementor.io/en/articles/4221825": {
+     "url": "https://support.codementor.io/en/articles/4221825",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:02.112Z",
+     "via": "direct",
+     "finalUrl": "https://support.codementor.io/en/articles/4221825",
+     "contentType": "text/html",
+     "textHash": "52e208e662896781559bf7f9c18401ae53ca03d434de4244139b7b462d105c0c",
+     "textLength": 1858,
+     "quotes": [
+      "f910c0fcbb88bd49087f1785961bd538f74f550648e6a2c4f1073806968a1b2e"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_2956d41cb0875ef42698f55e"
+    ]
+   }
+  },
+  "ent_data_fetcher_8e6a5e22ce2a": {
+   "sources": {
+    "https://datafetcher.com/about": {
+     "url": "https://datafetcher.com/about",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:04.076Z",
+     "via": "direct",
+     "finalUrl": "https://datafetcher.com/about",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "80527cd221ca592697712c13d88a9562a61bb5ffe2d24fd16a8470b07bf432fe",
+     "textLength": 2319,
+     "quotes": [
+      "105692ac15d2093395c531bb224cec44a4e2d8d4278a6e7e2d57ca2189019025",
+      "1421ca8a54785423add561d33927eafc3b6f889677aa3f045fdd6d3f4136d6f2",
+      "7f69442cc36d34e64542a453c97671cdc9afa4daa29b42b8b592de98a171e60e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://datafetcher.com/pricing": {
+     "url": "https://datafetcher.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:04.573Z",
+     "via": "direct",
+     "finalUrl": "https://datafetcher.com/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "37083dafec1b2ba4a698c3502dd1bc8c750f3e5f1237ce73af608cf10f12ce6d",
+     "textLength": 6076,
+     "quotes": [
+      "36c3bddd5a19e8d5066bd22cf0c2396cc3a2c6a127b15b576875b34ec9c7f1dd",
+      "8e10310cc8e9a4cd019d72cafd111db7a162eedd82b09696f0c2be8610651de5",
+      "97b9e184d66bf4f73ad40492e0aa0b7ebc3c02d216302692d1bcaa95affbd20b",
+      "9c6f6c3ae0789315ec41f4b47a7bcc1c90093164457e381965f836c767070382",
+      "b77ed052d9032f6c4c97d8aef02d096c93e53aa85433f24b2c5d7555dc206c85",
+      "f824cbfae3fd6195c87f724116fbdca89bf508c563bc4dabc9ddb671b47d16e5"
+     ],
+     "quotesAbsent": []
+    },
+    "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr": {
+     "url": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:04.663Z",
+     "via": "direct",
+     "finalUrl": "https://datafetcher.com/blog/bootstrapping-saas-10k-mrr",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "66aec18bc3607894205a5a5dde5947172368719818f1f5694fd4adc75aaef5be",
+     "textLength": 21233,
+     "quotes": [
+      "2032f905678a3867059545c95248d8cb5df75184eca3a41fcc3355f92395233c",
+      "2e8b284e28f623d89d7cf38ebf8994c57d03f8b9ff608f76a6eb124079fd0741",
+      "3854432c0b500d2fbee034104aeea2528e4678933fab1a51e0547d533304f01c",
+      "38b568a8d373aec956e2b1cdae3d4035627299c99e10a5c297b0d7c741254eea",
+      "7144fcc30ef41f290bb9e7d2ddae5b574daab84365eed79b2da183a7c352e5f9",
+      "85cba63412598676b454cc557998479725f358c5a89da2d944f814eb65fba7d9",
+      "b1ef2e9e1a3a47eaf030c2b3b79b6bab54696b3472246f1032d0e965888ec4d6",
+      "d183d737e759c1c6d3e6654a3aa9ba5aba15cd62b2d5a6e757fc93cb77d9409f",
+      "e723ba5a14bf903a2b5be6e338c76606f5617e97fc90f2d743d0e5e4c982a719",
+      "eb6fcba9ad788b79b8b9c2c8c8233f61d69514e5ce3157e0b39b1ec8b10e064c",
+      "f4d72cc3d7f28b78e81e890538965cf1e7e58170f437c39ba2120b5adbd2a6c8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9": {
+     "url": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:05.644Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/this-founder-built-8600-mrr-business-on-airtable-776c6c49d9",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "aabe3b83c2f2ba2010fe3d40f560a393d3e34023cb63f1b4f48d70481536c638",
+     "textLength": 7433,
+     "quotes": [
+      "05d425bc66337f2306aaebde4ea47ba8b8d5588badda64dac3cc34ffe7cd2c90",
+      "07a1743385e5c4dd6dad9ca2129e13cf59cfca355422310b1d478e0764a4e811",
+      "169b2e21b35560e44824640977c8e1e4a642e2f5e13e0b36c9ad5f3be429b9a4",
+      "740a404d96015d1bf67c1517065da643445cc4c801e300b36d33607621c5e2f8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://news.ycombinator.com/item?id=32506627": {
+     "url": "https://news.ycombinator.com/item?id=32506627",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:06.364Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=32506627",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "1daac53a89c86eff4560a0c6eddff3eab6820d1e3bcbe2f8fe6e2dc8263f3e08",
+     "textLength": 24488,
+     "quotes": [
+      "dfceb7613e9caf188812daaaa37dbe211ff00d539aeb5957ddfb983646afc559"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.starterstory.com/stories/data-fetcher": {
+     "url": "https://www.starterstory.com/stories/data-fetcher",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:50:18.613Z",
+     "via": "direct",
+     "finalUrl": "https://www.starterstory.com/stories/data-fetcher",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "7af4cc2087fdf148b9f32d8c529fb1c066178f84db60a664e1aac4e96d8a5f64",
+     "textLength": 17679,
+     "quotes": [
+      "2611561aa6fa83672bc38ed99526cec29200d68be51bfbed9710c91511e875a8",
+      "55e4fe93bbac0681f1c1b68180e1a1c3fe4ae72fb28f33f5609fdbf448684b8f",
+      "575f1222cddb6f7b66f8841da00fa035e40806dd50b9501bd36933912508c224",
+      "6b2ffd9816006eb15be1dccab19f2cd0b35273e65fa538a9a5a209f6b6083b4b",
+      "74da40268e9e0827a52ee027fc1cfcf46132dd5a17c736f2f4431f292d439233",
+      "e98209920340c63acffa7afcb4ce57fec56b5c3ce066301dd8e364b935ead3b6"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year": {
+     "url": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:06.654Z",
+     "via": "direct",
+     "finalUrl": "https://www.starterstory.com/stories/how-i-built-an-airtable-plugin-will-lets-users-visualize-and-manage-their-data-better-60k-year",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "3525665f25166e1213633c8ace86e115b9bcf16813914da5c81d136fef931a45",
+     "textLength": 19019,
+     "quotes": [
+      "003815730c713bb2d58e6bcba44a6a3c6680c462f88aa583a27076072be71d27",
+      "0397c03ede3a834bebc86bb6295ca25d1fb57095472425995cc8c091fec8877d",
+      "06219ebeb0767189c3f8dc40728585e3880d1c5865bd2d9423b24edb5905923f",
+      "2b7f63cc1db0d038093f7f437232910ed33a677b09e1bcc85b468911462827d6",
+      "48d28f2a419f3e993696c8cf9a2f0473cb742d6e629ff20383077d6f28f573cf",
+      "7a06e32866f76377ecf051d86efb806180157b7e63e7058541c5f8821fa9aebf",
+      "a8ce03436cae4cab8e3cdb7c4bc064e10c13eef7a9a1f47ccc2e5106b8f292d7",
+      "a99220c40019956e5178da61b015d25c30fbc091693ab6c3845123d43083a4ff"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.producthunt.com/products/data-fetcher-for-airtable": {
+     "url": "https://www.producthunt.com/products/data-fetcher-for-airtable",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:06.967Z",
+     "via": "direct",
+     "finalUrl": "https://www.producthunt.com/products/data-fetcher-for-airtable",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "44a360f65f20fa478bb238893135ad4ecf7243ef6b211d6781df75ac099821a0",
+     "textLength": 4689,
+     "quotes": [
+      "ac3786d21b3b625adaaca43bbf5ae1a79a3375fd2ca8440d3de79cbeabbf7064"
+     ],
+     "quotesAbsent": []
+    },
+    "https://datafetcher.com/terms": {
+     "url": "https://datafetcher.com/terms",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:06.981Z",
+     "via": "direct",
+     "finalUrl": "https://datafetcher.com/terms",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "38afb7a0ffb6e0c797c824fed4fa1f97c81ffe5e170193b236e1e0de44b64159",
+     "textLength": 5695,
+     "quotes": [
+      "41ef020e3150fef69fd05b34838808969a22656e5eaba4ae9aec4e5b011ee4bb",
+      "de2b568bd51d9d2c770c5cfd667733b869c966bd4273869275d8494df579799c",
+      "e8d1b5b05f43a3ef73713a162c4860e4879a359342fd5bf8fc0f06c7b37b6781"
+     ],
+     "quotesAbsent": []
+    },
+    "https://datafetcher.com/customers/fox-logistics": {
+     "url": "https://datafetcher.com/customers/fox-logistics",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:07.285Z",
+     "via": "direct",
+     "finalUrl": "https://datafetcher.com/customers/fox-logistics",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "cacf8aeaf90e2ce99ff7897360d7ee3a98504b82cb8b9adbb4d184a032863a68",
+     "textLength": 7352,
+     "quotes": [
+      "d52aa7d2fc6bd94e84ad71903a88d1602c058209f1ffe28dc70d650db430e935"
+     ],
+     "quotesAbsent": []
+    },
+    "https://datafetcher.com/customers": {
+     "url": "https://datafetcher.com/customers",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:07.304Z",
+     "via": "direct",
+     "finalUrl": "https://datafetcher.com/customers",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "afe209e964a7a3a6e67524077fbb43399e3300c63c7c8128efd411b6d4893306",
+     "textLength": 3278,
+     "quotes": [
+      "a155d1a67f3ff5177a60028106a07b67cd2fcc28d09ac6c6c958ba1f5866fd6e"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_f87668fb120381c0f7024f9d"
+    ]
+   }
+  },
+  "ent_dnsimple_c8560498b136": {
+   "sources": {
+    "https://dnsimple.com/about": {
+     "url": "https://dnsimple.com/about",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:07.697Z",
+     "via": "direct",
+     "finalUrl": "https://dnsimple.com/about",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "f59f18c21be6ecbc5892b5daf36fcb4de07605309ebc95d95159a7aef607fcd1",
+     "textLength": 19428,
+     "quotes": [
+      "3768c99125010d30cafc4952f2a1cbe37deb82bb0a1bab26916473643c70b92d",
+      "97383018744c42f0a3ca0d6cbfc1ecc798ba7414ad4116ad3778afd7ed46ac8a",
+      "b72b9038b2dbfa106f8e472186bb5c75bd9244fd5ea0a9b226686ed8c4c59621"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2015/04/5-years-of-dnsimple/": {
+     "url": "https://blog.dnsimple.com/2015/04/5-years-of-dnsimple/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:08.276Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2015/04/5-years-of-dnsimple/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "b858b70beac523cbabbcdba9e2e219a0b6ac2121034ba293b37d7f54215ff118",
+     "textLength": 4621,
+     "quotes": [
+      "1c251ee67788da47d9da66158b620e148adc35d9c225948b20ab01286b2a29c1",
+      "baf38fbe717dfb21beb93ba6dbbdbcbc01c10d1ec4729c5f20083f420d4b4f91",
+      "de6e2f7f7635740274c360aa5b6e6d8a5145c0d06f37ce7dcc80ed438cb4fc91",
+      "f3e8919339b755738465951d0f384b2a4a67f044519f4f8861a6385a29f2f1ec"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2012/12/2012-in-review/": {
+     "url": "https://blog.dnsimple.com/2012/12/2012-in-review/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:08.285Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2012/12/2012-in-review/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "bf8916fc3eee9252272c6394f24e2731711eb8c101557bd0631b7e061a2e5f9a",
+     "textLength": 3081,
+     "quotes": [
+      "8673f734daf8aedbff3e015105555611b504e32da06fbc46f5f8cc35b668ed44",
+      "8fc6bf6778e0ed5ecad1a78560b393e51edee8090a7510c9a192fffe2dcf501b",
+      "965160ba69bddcbdedc9e6c5201b51628c3efbc3444f34e061a3b66092b96bb2",
+      "c8b6d17722bba2506684cfa0d9c3ce7263fb3ab91d09f7489f3cbc589552a610"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2016/10/lessons-learned-about-running-a-small-business/": {
+     "url": "https://blog.dnsimple.com/2016/10/lessons-learned-about-running-a-small-business/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:08.624Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2016/10/lessons-learned-about-running-a-small-business/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "9a4dea89326e129131d023d3b9df22c61067875d70bea6d019310759c8fc8f7e",
+     "textLength": 9293,
+     "quotes": [
+      "6dd9efe7be06455aa46bc32dd941d1b20ff7debde7c7cce10e687661240798b7",
+      "85de3e0024808fe99ae3b36ec0e7e877a6ce2f142d8b2789fd2c9bc74fd2b424",
+      "96a6415de32560026d0c9374dfc3286159558d961983fe461797a777b03959aa",
+      "b258a6259388c4ca8a6130909b3760e8c79de2a0ad38fab6d8367f8991f85d99",
+      "bf8bc816b5358ae73fdbbd047afcf89df7294a1b9cb2e7f8a376a499a0f3b136"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2015/06/multiple-accounts-new-plans-and-new-features/": {
+     "url": "https://blog.dnsimple.com/2015/06/multiple-accounts-new-plans-and-new-features/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:08.908Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2015/06/multiple-accounts-new-plans-and-new-features/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "d1806f8074cdadaf6ee78cb115634e9491358c8a66099018eb3d5c38e61824ef",
+     "textLength": 10290,
+     "quotes": [
+      "059025fc9dffdaa2fa52536310b6621c586c0e17cb09b77406fa7199f4fffa6a",
+      "9093eaf5e94681761b3c40e743c6e62ce70e9e038815b4160d5f4c79d72e0406",
+      "c805d1f687cfe39df6583d483a3d88303250ba59da14690d4bfb0c2d0484d91b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2023/10/pricing-updates/": {
+     "url": "https://blog.dnsimple.com/2023/10/pricing-updates/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:07:22.871Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2023/10/pricing-updates/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "df766ef33786bad121a1d6e187ba517b155290dc7697cb97241c8d2c95168710",
+     "textLength": 6751,
+     "quotes": [
+      "10cbfd1f080f9fc275113fc5c6a96adac441ecf7243dc8a51f5c0c5b9ab390c9",
+      "176714141588512fb1d45f10a0dcee3115046af992d19cbb368e2d7e847f4cdd",
+      "756c8351e63a7a27fc21f7176776a1447283418c1dfc0d097e996f4f3bc1c9fe",
+      "f0ad5ce6077cce46e0e895cf0a026b1a8c079b37274b427bfaa67591c46229d5"
+     ],
+     "quotesAbsent": []
+    },
+    "https://dnsimple.com/pricing": {
+     "url": "https://dnsimple.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:07:23.345Z",
+     "via": "direct",
+     "finalUrl": "https://dnsimple.com/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "bf5f25e614ec8e368a8e3365f44ca6332f4b809b20f76775f7d137cc0630ec0d",
+     "textLength": 11763,
+     "quotes": [
+      "3c360c272b5f615835cca2a5bc1c5b78cb3d06543ac1ea6bb4542381f7320fa7",
+      "60db5ca7172543dca6f821d782cc184e44a57e3b59bd907ae89d8db4aaebd4bf",
+      "a30e5aca57c019566b3ffc5e98d41a250257c944fefe4e59e7c93d261a56219c",
+      "c01987658ae2efe8f39381df31ff0aadecc5263e2b7aa6da82513b7fca430871",
+      "cb9b44cb01f256b0f6941fcce56fba8d9bbede49f2d148ea2f7b3643d7d52cb8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://support.dnsimple.com/articles/understanding-invoice/": {
+     "url": "https://support.dnsimple.com/articles/understanding-invoice/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:09.524Z",
+     "via": "direct",
+     "finalUrl": "https://support.dnsimple.com/articles/understanding-invoice/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "6c6a014aef05422ce1b68aaccd93fab951a64e16c2bc9ae9ff1aa286f2533be7",
+     "textLength": 6143,
+     "quotes": [
+      "09045c6067e63bbf217e2bc63c059413321b75b85d323c72f025fb9708fc3719",
+      "381fc120c5f602ab8238149615028885ff4a16e50431d7ba4b8b1da193962224"
+     ],
+     "quotesAbsent": []
+    },
+    "https://dnsimple.com/resellers": {
+     "url": "https://dnsimple.com/resellers",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:09.661Z",
+     "via": "direct",
+     "finalUrl": "https://dnsimple.com/resellers",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "cdbcbdefac9093a0d271eae1f02788f8c79d527c631cbd9447a744fe789d586c",
+     "textLength": 7850,
+     "quotes": [
+      "0b9db40b315e5387870ab28782d6931e1fd18496bedbcc66f9dcb25c8dc66178",
+      "951d5cf7e901692fd82cd11bef0c2695beaffa9b09dd83675d3c6d0f2714f9c6",
+      "b96fd281279cb2e77d700386dd7ab27551dcd2e2280d0b04af462aa65db2b30d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://dnsimple.com/customers/always-beyond/": {
+     "url": "https://dnsimple.com/customers/always-beyond/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:09.973Z",
+     "via": "direct",
+     "finalUrl": "https://dnsimple.com/customers/always-beyond/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "6679eeb696be5711d7366d1ffb984a19df7b488150f2da64db65cfeb59a5c872",
+     "textLength": 14579,
+     "quotes": [
+      "21f53b8d8b5c495a3114b17f346e262c0789416a5e76f2d411ca9e7d26a5ba03",
+      "3a1a89cece1fcaa6fedadde9540dc77bfb756b01607db7ea6e4131e8064466ba",
+      "5bc99b46e0e444742177513bfbd6d3423910ab15df69ee6dd22d4ef775ea10ca"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2014/12/incident-report-ddos/": {
+     "url": "https://blog.dnsimple.com/2014/12/incident-report-ddos/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:10.127Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2014/12/incident-report-ddos/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "9be50e80aa07d14ec472871f4b509e01be1599901bf057bddb34a08a7d1d8619",
+     "textLength": 10837,
+     "quotes": [
+      "41b64030db0e1b5929ebe452029e096b50e047be60140d35ae47db7dfab39df1",
+      "e0cd7e15f5920a0bee8fec9748319c2140af97bd395fa468f4f3006ddee97860",
+      "e0e3d7c192a5bfd334b5e8f5e7eb1189ba576bc8e0beca549d863338fc49d15f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2021/04/how-we-support-our-customers-reflection/": {
+     "url": "https://blog.dnsimple.com/2021/04/how-we-support-our-customers-reflection/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:10.551Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2021/04/how-we-support-our-customers-reflection/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ab7850a2ed7381ce86c3b585bb2f325432db2d909ddb70b128dbad0c6b526e36",
+     "textLength": 9105,
+     "quotes": [
+      "2bf6a68135c8ddf926635d0a9fb5100e3f95582809c6a828957d05ae7915c1f1",
+      "411cd1d8855e9b29c4faf4cee7fffbcb41fed87e655ebaf203622181b01867e1",
+      "703592454cb99c94fd13549c6503a47b2ca1c6d10ee5f5bfe7bef916049bcb69"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2025/04/pir2025-04-07/": {
+     "url": "https://blog.dnsimple.com/2025/04/pir2025-04-07/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:10.592Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2025/04/pir2025-04-07/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "af9e9f1bbd0a653908f4e14c4f60f9628749610e88d2e5d6ec996195373389e0",
+     "textLength": 5530,
+     "quotes": [
+      "7a08825be30fb76d7a8f6246929347c297b68112fa7bc052bff475eb94f2c790",
+      "be790df76f1474c68471be0687ded4fbe89215e48b14c9caa1e8a6516dfeed17"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2026/08/building-our-fully-independent-dns-edge/": {
+     "url": "https://blog.dnsimple.com/2026/08/building-our-fully-independent-dns-edge/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:10.620Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2026/08/building-our-fully-independent-dns-edge/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "bef0e49e131c33378af311f53f5a4ce0470864e16469491adc1b43f0bac155d6",
+     "textLength": 15948,
+     "quotes": [
+      "12f376aff345386f579ba4d8212de185edc06ff21890f7a16d91558f30524867",
+      "1fc24c201a740ab5ea8ccaf0ee1154ad399d84648d0afae7ffa7e15e38b4ad7e",
+      "212215971bcbc2a1de61a261dedf8e92214b7000be8251d6c4cff8981bb58740",
+      "61dde6f346bedbef7be5cbc7a1c7bff210dd9107a583a1072669441f0f5c7e1b",
+      "9d22d6fe35894903e6f6824dd7eeac5ee34106b33991f09107edd571c4f54663"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2017/06/referral-revamp/": {
+     "url": "https://blog.dnsimple.com/2017/06/referral-revamp/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:10.846Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2017/06/referral-revamp/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "70d3bffb47c63e628b85d45d2c7a20f450c6d7fd887baa0ce5e617d0f90b2a88",
+     "textLength": 6225,
+     "quotes": [
+      "0ddc37f98ff3085d9e285e09626d9a37a38fc2531828be554839ebfc7e25b987",
+      "c148b7a0b95e4ede3cf8282f83709c7e1a95ebafcbcdfd9d3d1e3a3d36459904"
+     ],
+     "quotesAbsent": []
+    },
+    "https://blog.dnsimple.com/2025/12/2025-year-in-review/": {
+     "url": "https://blog.dnsimple.com/2025/12/2025-year-in-review/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:11.898Z",
+     "via": "direct",
+     "finalUrl": "https://blog.dnsimple.com/2025/12/2025-year-in-review/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "f8df02fac37e961b9a7e3ae234391750de1f09930076c58feb263251d641ef77",
+     "textLength": 10022,
+     "quotes": [
+      "5359a1ee21e492c7bfaef100b194e2f19b77970c0806673008ad2758d6c61682",
+      "ba24a1bcb3fc2e4f121a62f795525207b1eb7d20ac2acde63e42789914af18f0"
+     ],
+     "quotesAbsent": []
+    },
+    "https://news.ycombinator.com/item?id=42307604": {
+     "url": "https://news.ycombinator.com/item?id=42307604",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:11.977Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=42307604",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "c204edddabf85e7226a2ab5cfdb4ae52dd8c300729627859d009b174c45f0677",
+     "textLength": 22740,
+     "quotes": [
+      "8cc043e2bd3f6017a464175c48ababc633b12ef3e1dc0598b87dc1ea7cbb7d30",
+      "f4c45d3f3ce424a64e0dafe533a76c617841e1015108191747c2e37692c6590f"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_655132b58b83af3a4823108f"
+    ]
+   }
+  },
+  "ent_ejunkie_7e9e46bd9643": {
+   "sources": {
+    "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f": {
+     "url": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:04:56.207Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20221205114704/https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "8b5164bc6c08a41ddbda0d4e64f04836e04f9236fb9f97b37ecbb0a93bf6001f",
+     "textLength": 17888,
+     "quotes": [
+      "8d0d1f7e6f7443600268a9c3dca6fc33c3d5de537f4a07804f86ee0626853c9e",
+      "d55cb443151f06fa23006679663b4bdc38449c6ae3a85883474e411c7d239723"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.e-junkie.com/": {
+     "url": "https://www.e-junkie.com/",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:55.813Z",
+     "via": "direct",
+     "finalUrl": "https://www.e-junkie.com/",
+     "contentType": "text/html;charset=UTF-8",
+     "textHash": "be424f07cda6c4365fdbbbfdbbb9f83c9bc510a6afd3d6fe5f5026b5a0d600ad",
+     "textLength": 2882,
+     "quotes": [
+      "b310b51a2b5601c9cb1cc9e967d9f18ed903e011706f83fc4f602f26cb92c546"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/product/e-junkie": {
+     "url": "https://www.indiehackers.com/product/e-junkie",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:55.961Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/product/e-junkie",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "1939b8c86637ecc71ec3ff95e141ad39f622cd6eecaade6f8c20247377f5e7a4",
+     "textLength": 3648,
+     "quotes": [
+      "1d19197a45d1c88efc7bb4370a0a30f6d5f6d9a1b1fa525819434b5345c9f033",
+      "24f7cfacf59db06fc6af1463e6bf921c20b65fcbd9c0b92be71288bada436147",
+      "a0375ab732c8da822856a8868397e26407476d19ce57e1a4e0e3f1d9a78718fd"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.e-junkie.com/wiki/about": {
+     "url": "https://www.e-junkie.com/wiki/about",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:56.699Z",
+     "via": "direct",
+     "finalUrl": "https://www.e-junkie.com/wiki/about",
+     "contentType": "text/html;charset=UTF-8",
+     "textHash": "a59beaee8b61c67d7b75f278b99882b5fe929319facf80d01e2b8d98ef544e14",
+     "textLength": 4323,
+     "quotes": [
+      "0aaa97a7b467697d067b1468a3ef5296876f7a92e62fcf2de7b839fe70c9c964"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.e-junkie.com/wiki/help-transaction-log": {
+     "url": "https://www.e-junkie.com/wiki/help-transaction-log",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:57.128Z",
+     "via": "direct",
+     "finalUrl": "https://www.e-junkie.com/wiki/help-transaction-log",
+     "contentType": "text/html;charset=UTF-8",
+     "textHash": "6bf08e7ff1d6c355f6ece434018e28a2844e58919fd7e5b6342e1af50a0ce80f",
+     "textLength": 7170,
+     "quotes": [
+      "3fffb2741b9c0452014af152dac9a831e02057ed0e2eb1bfd1e8a4163d8f96bf"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.e-junkie.com/wiki/affiliates": {
+     "url": "https://www.e-junkie.com/wiki/affiliates",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:57.136Z",
+     "via": "direct",
+     "finalUrl": "https://www.e-junkie.com/wiki/affiliates",
+     "contentType": "text/html;charset=UTF-8",
+     "textHash": "867c12cd0e5cd0b74645cdf43efea49ecb11f7c5796e46c0c37f0e57f6ed0f8d",
+     "textLength": 3199,
+     "quotes": [
+      "0771cac4b4a4cd9b1108d903ad2c7c98a47805b08e2cd90d811aca6b1a795765"
+     ],
+     "quotesAbsent": []
+    },
+    "https://gumroad.com/pricing": {
+     "url": "https://gumroad.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:57.274Z",
+     "via": "direct",
+     "finalUrl": "https://gumroad.com/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "7a490fad4f6922c5ca4b3cc681de6a69286bac3dec0771503830c096f5163903",
+     "textLength": 4552,
+     "quotes": [
+      "c013c3cfb36992433ae12594358650fd5c38b3af7b0aaa8316da4304fc05b394"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.e-junkie.com/wiki/pricing": {
+     "url": "https://www.e-junkie.com/wiki/pricing",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:40:09.202Z",
+     "via": "direct",
+     "finalUrl": "https://www.e-junkie.com/wiki/pricing",
+     "contentType": "text/html;charset=UTF-8",
+     "textHash": "c3ed1cf9f67962aaf645c4a6f5aec37b0fc3687f578e25f198b611db2c735c03",
+     "textLength": 1756,
+     "quotes": [
+      "967ac9d43c6f6aa86042b95f9f693f3e99bb28b9133735270e5d2d276ce853bc"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_8a8c3a8dbb9aa40c8b4a0395"
+    ]
+   }
+  },
+  "ent_geocodio_c64c0721d500": {
+   "sources": {
+    "https://news.ycombinator.com/item?id=7095228": {
+     "url": "https://news.ycombinator.com/item?id=7095228",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:12.454Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=7095228",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "8a7926d1fa526b1d030901727223fe4ae7b1d4b7671286cd0f34fb589cebb417",
+     "textLength": 31223,
+     "quotes": [
+      "425d52abf996626aa490fe99603607b47307938df468c9822b30dc26afbc0a6b",
+      "72c3a03ea10d616ce1b90309bb424786291d97c058120257c8490ee9104f38ce",
+      "bb226235857979af3aaa0a8d913e8f454365c45d8cdfbb4a2b1546ca83582ffc"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/about": {
+     "url": "https://www.geocod.io/about",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:12.689Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/about",
+     "contentType": "text/html",
+     "textHash": "384f1c2d746fefc9003dd78359253b29c497b17cd94611f1d5e3862a2ad88a9a",
+     "textLength": 10579,
+     "quotes": [
+      "30334ce5705b2a1df1215a5f336a97a59e785a5cc3aeb7867ffa5aea36d74230",
+      "8f56fd61ecd7a22ec62dfa458c14beb950c63293d46511e68e62492994de1c5c",
+      "b49de16258888ade48892cfe2e2261da6bff16d5afbde6edbe648a0302c04def",
+      "c2512c2c559a118fa4b440a125b13acb314dcc25141a9ec94d833f9d3f48b83f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/": {
+     "url": "https://www.geocod.io/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:13.310Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/",
+     "contentType": "text/html",
+     "textHash": "fadfd66a7f0f67e7df15d7fd0be1711f89a9d4d3cc6ae52dd6e1154829d8059a",
+     "textLength": 32654,
+     "quotes": [
+      "71000dcb2535fd3b0df6c271f779aa48bf55562d196040598c92320a60eb1f47",
+      "c983c784257777f9686daa65a9b756d21865f99085c3a3f3150aa8f9601b3beb",
+      "e095301cc37f081292d626d204035dc41575a62097902566faba1318b470d4c8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/pricing": {
+     "url": "https://www.geocod.io/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:13.645Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/pricing",
+     "contentType": "text/html",
+     "textHash": "7ba752f5abf6827156cd538998b5474fd0ac3b150cc5a8d26e09a1269f69838a",
+     "textLength": 20959,
+     "quotes": [
+      "0ec54705330b7fbc2530996bca07791cb762a9cc917b950fdf375035d097f013",
+      "1c666a2eada8bcb0d14f4f69384a03b770249a19d784cce2cd6fac5b24d9b3a0",
+      "7687fb5e015bf6efd6d74aba1d84e32f79a4b3ff64e98ff6aecaf57be2d4b058",
+      "cd45cb437dee62a27c45036cf0c97f00558cb65eda6a24e691b54738b2565603"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026": {
+     "url": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:13.814Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/updates/2025-12-01-pricing-updates-2026",
+     "contentType": "text/html",
+     "textHash": "b755b03fdaa91b09e61c83b12976c4d3e0b05d81d37694394ed4961a0d0639f7",
+     "textLength": 9035,
+     "quotes": [
+      "2995854cddfcb2155fa77c88a6b70b0f92ba76e75ede433a428c414c1086f982",
+      "47ef0be998d9f7c0293438448d6f26a9f73a2af6156fac598553e2c99c123e66",
+      "b1f59c60cc903600a3d906cead7c64663a329d3fe187df3d249a38b5af2ddf24",
+      "dab08937af389e8208fe96368822229184bfd2afe9f05fadd92f159fcbf233de"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan": {
+     "url": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:14.052Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/updates/2026-06-10-changes-to-pay-as-you-go-plan",
+     "contentType": "text/html",
+     "textHash": "3ded92ea30f147601dad9a792020682cc49bae359a346c7e5f563b9e7110cc1f",
+     "textLength": 9353,
+     "quotes": [
+      "311b2bd7c8dca367ef4e2b3243d6440b3b34a0c22cd7746f9b0b3dd184107984",
+      "8d763fe7879737b9651336cc2560ea46d895c50c348e81172d74bdb789eb56f5"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/data-sources": {
+     "url": "https://www.geocod.io/data-sources",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:14.905Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/data-sources",
+     "contentType": "text/html",
+     "textHash": "5a38266cb8a6a3fd2343e4795a2bc6612a1331c54807279d6e101367975393b1",
+     "textLength": 7720,
+     "quotes": [
+      "3a11234f3f41cdfdee5d5de48efda7d560bee87da342f7929d93da6009cc495f",
+      "64bbd885cbbdf942162593ba86256e0dbd3772d4c69d5aa31fd2adb637688013",
+      "b4a7e3a60cc6c138ee5989f16c3fdb63ec97cca0ebd9dbb17e38ed36de6b6f6c"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review": {
+     "url": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:15.120Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/updates/2025-12-17-geocodio-2025-year-in-review",
+     "contentType": "text/html",
+     "textHash": "4c83085d5d900472f4282d3d20f89d24b8172224ff047844e23180c6b73d1133",
+     "textLength": 25528,
+     "quotes": [
+      "4e0de6ba4cf9b8542e321a15245e49fd6da1b04eff75130cf9703d286e22ebb7",
+      "5aaa9f2f5083f4b749b824d803a6410efa1d6b23d6a5ee5d4133efe14052765e",
+      "64ecdeea2f15e10cbb1cab133ab5ab2244b8016209cfab0ef368d5af28b546d4"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer": {
+     "url": "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:15.739Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/code-and-coordinates/2026-07-20-were-hiring-a-software-engineer-and-a-technical-support-engineer",
+     "contentType": "text/html",
+     "textHash": "26fb7717150839b7c733fa35c0988c7f65bc6db3892cb1218aef2778b8f788fe",
+     "textLength": 7269,
+     "quotes": [
+      "2499ad4f186ce1c62648351b09bf7ee18f43526b81a60a2c37efe6b48df63cac",
+      "bb24c7252ab706b6f05250c0a37be8a191d2a296da9d567f81e52af42d6a8a9d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure": {
+     "url": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:07:05.810Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/updates/2026-09-17-self-serve-platform-security-incident-disclosure",
+     "contentType": "text/html",
+     "textHash": "4188457a9cd1c2060155e47aedab2b4cb21698c3c6747e0e16fe80e03208e20f",
+     "textLength": 9015,
+     "quotes": [
+      "41433e43a93143e990a919979761a8daf6634c4b5bf5313869f8ef7deb9cd4c0",
+      "4dde9e427fce66f447d2aa3ed628097c84068a0b4d959a14448229897581907b",
+      "64f0d2535c75874cfe133b691b3b3ff2b3e4cfde9ea36ef5ae9724c4c6619350"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.geocod.io/geocode-spreadsheets": {
+     "url": "https://www.geocod.io/geocode-spreadsheets",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:16.803Z",
+     "via": "direct",
+     "finalUrl": "https://www.geocod.io/geocode-spreadsheets",
+     "contentType": "text/html",
+     "textHash": "679ed4aabc634d11e2c4522ef6d5e54071a178a2df76f9032bf64cd3d69e3806",
+     "textLength": 18910,
+     "quotes": [
+      "dea598048b812f7832cb20c4ce5ed918468f0e397d8e3e1226185125f3afdeff"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_a11ed69a63eac2b00735d092"
+    ]
+   }
+  },
+  "ent_gorails_640d8f688451": {
+   "sources": {
+    "https://www.failory.com/interview/gorails": {
+     "url": "https://www.failory.com/interview/gorails",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:40:57.946Z",
+     "via": "direct",
+     "finalUrl": "https://www.failory.com/interview/gorails",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "44c6fa922908a3dd01ac5bee6450f47f1ace783c94f909b06646e00cde56b76d",
+     "textLength": 9823,
+     "quotes": [
+      "0281d39786f545a050f1a78d8c863a8b38de97909abbfdbb02a8e7b098fdafe8",
+      "19ce276f77f4e7598a88ea928c8558ff435bcc0595acacf79cda53d5e8e0ab3a",
+      "28604d374317bb2ac73b3915c6af72558442f7710168e0df96d56a9ce5183631",
+      "2dced17b9e6f4e4381693be2ed9ce1d2c8add1e29cedb54df1743b642acb5334",
+      "4f51579a8c5c1492f82cab3ac3dd90f39497985f396effa485d94831f803254e",
+      "5fbb115265cb0da06541cdf13e090c67bbba03f507ad1c76ab4ff2aa2992059b",
+      "7568514017920111b25902c1179415da434524445470bef5aac9d7c39cfd50d3",
+      "f106691fcc62d1c6b100cda2398293aa0c52b2b775eaaaff65c4c6f3050e2790",
+      "faca14a06dc28dda9eed319453f74a09c544100364066e6d253847e7bb3a5fd8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9": {
+     "url": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:09.500Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/product/gorails",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "3f4800e72480c8fbc22237399f48aaaf59436c37b42623f77e1743ec32bbb753",
+     "textLength": 12907,
+     "quotes": [
+      "36d3859f04dca46dd87a6f7297cf362100aaec2d1c505885e64a6a07f5f37248",
+      "e2ae42a884f1b23077c96b07769792132cc8f00d75e33684bf1a3619d2756c47"
+     ],
+     "quotesAbsent": []
+    },
+    "https://gorails.com": {
+     "url": "https://gorails.com",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:04:58.122Z",
+     "via": "direct",
+     "finalUrl": "https://gorails.com/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "b53f1e20b37606d606a40d034b4307c02872bdb55f723216856386d51b13ef41",
+     "textLength": 5631,
+     "quotes": [
+      "348ce96659372de963effb36a10f6008f3dd143ae2aa61372f30c2e4a3aa664b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://gorails.com/pricing": {
+     "url": "https://gorails.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:08.609Z",
+     "via": "direct",
+     "finalUrl": "https://gorails.com/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "6c194eae678a42d4d73be87ad734a222fe47eac58da1fb8f730a882f4781ad73",
+     "textLength": 4842,
+     "quotes": [
+      "bdb82a2161007613bd4dfc67ab03a6f53d559a26d9cb7bc0d88cfa44219f1416"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_0595fbfd1e9ff543a8386481"
+    ]
+   }
+  },
+  "ent_heygen_8f11a1": {
+   "sources": {
+    "https://www.heygen.com/blog/heygen-surpasses-200m-arr": {
+     "url": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+     "status": 200,
+     "fetchedAt": "2026-09-30T05:24:34.813Z",
+     "via": "direct",
+     "finalUrl": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "523f010897d59837f7c9ed4793a93b2938c0a07abfa76364cfa4d09218bacdaf",
+     "textLength": 8157,
+     "quotes": [
+      "10158c120af5cf09096d82db6a5de71b3ae9be6da16f83818e1554038b1269b7",
+      "766a9f549db5db12c0c46ec3c69994d9ebda898a934b36efc2bc4dd42204e6a1",
+      "c2fc5959552df003ec6608df1bc0b1c03ba847cb19fa95ace2b6717a1f321bcb",
+      "ca14bc1155662abeb2b6a846393fa8aec8ee6b2344b3ff56f891fb1eb434dbd5",
+      "d1d9c45286d78dce429d7b9619a13e2476494de683a9b8d043dabb8353d0e7c3",
+      "ecc0ae4b0a21a177f2de18b6dadd5c136bd0fb911f660424b72082a8f2c70f6a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.heygen.com/": {
+     "url": "https://www.heygen.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:42.112Z",
+     "via": "direct",
+     "finalUrl": "https://www.heygen.com/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "dd6fa97ab413dd3bf6cc609a66fa7a682d096e45d8b6659bee7130e86732603c",
+     "textLength": 14092,
+     "quotes": [
+      "0c8dc25bd466e4837c90822d292d95f7cf63d5d7280a05bf8d820946522ffbb0"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.heygen.com/about": {
+     "url": "https://www.heygen.com/about",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:42.247Z",
+     "via": "direct",
+     "finalUrl": "https://www.heygen.com/about",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "fd95dbb73dcc9554dd396a262c9280c3d29c2c30405a48ba571450c483ee4366",
+     "textLength": 7502,
+     "quotes": [
+      "249f73e8eaebe7550693b86ea719a9631335ca9ab724b8d0ddae7f17942bd371",
+      "e75d017aff47c46b3391a60fca33b54d8059871ee604e6888ff1c8d04294e5b7",
+      "e9bd8832803b239bd9662726041ff75e43fb958fa262cc3b7de730c0471e06f4"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.heygen.com/careers": {
+     "url": "https://www.heygen.com/careers",
+     "status": 200,
+     "fetchedAt": "2026-09-30T05:24:35.318Z",
+     "via": "direct",
+     "finalUrl": "https://www.heygen.com/careers",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "3c6ceffe409d0c8692229b95a2e5023503cca2bc10fdf7b71cc73f81943db536",
+     "textLength": 2605,
+     "quotes": [
+      "64342231b5331c9b479c7f5cadce44a4190399d86225a5f6e3f9293550ea7000"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.heygen.com/pricing": {
+     "url": "https://www.heygen.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-09-30T05:24:35.573Z",
+     "via": "direct",
+     "finalUrl": "https://www.heygen.com/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "989d61d9a915b6f7ee73e57467411076a17bb5aa740b61814d34f887ec876eda",
+     "textLength": 14139,
+     "quotes": [
+      "90ac4c5d1f3771cd47580c55c434352c31a4bfac02619d82cde230b602f23c8e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://en.wikipedia.org/wiki/HeyGen": {
+     "url": "https://en.wikipedia.org/wiki/HeyGen",
+     "status": 200,
+     "fetchedAt": "2026-09-30T05:24:35.988Z",
+     "via": "direct",
+     "finalUrl": "https://en.wikipedia.org/wiki/HeyGen",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "4a82c0f776a72e63ac8e005be463efab0e83a506e3c2102f22daab920748129a",
+     "textLength": 10178,
+     "quotes": [
+      "92b5330804357026ed2080e6a4737e3aa066cd39b05590e707c0db7a7c2b498c"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_88129ff619e6caffc7e6082f"
+    ]
+   }
+  },
+  "ent_hostifi_cf9ec73a42d2": {
+   "sources": {
+    "https://www.hostifi.com/": {
+     "url": "https://www.hostifi.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:27.125Z",
+     "via": "direct",
+     "finalUrl": "https://www.hostifi.com/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "fc8e88f77d62b7a930d0313a8ed7df49d096479b8ce361da832b6ec844abfa61",
+     "textLength": 12279,
+     "quotes": [
+      "2d9b7eff2b116bc2fa474be25352c70763145908b4ea555584743f6796589408",
+      "997d6767728e54acb1fc203f8160b12ac01659554083503c514723fd968116d0",
+      "afccaea9a97469e61fc599216b6beb08c6c0fe037e492b2f66331c09c4527d7b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://support.hostifi.com/en/articles/3446785-white-label": {
+     "url": "https://support.hostifi.com/en/articles/3446785-white-label",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:29.574Z",
+     "via": "direct",
+     "finalUrl": "https://www.hostifi.com/support/hostifi-white-labeling",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "9689a5f72648978b5194db469832a97896e3baaf89fab84b7ba04ba694221347",
+     "textLength": 3177,
+     "quotes": [
+      "15623a79ac5e9fb8e2a7e33a19e06bb3a144c908143e4d96f281f620e86663b9"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan": {
+     "url": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:30.000Z",
+     "via": "direct",
+     "finalUrl": "https://www.hostifi.com/support/hostifi-using-the-hostifi-free-plan",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "34dec11e1a197ffe91cc065ac3563fd33b8140bbb92b367d160ef8b1f974c08a",
+     "textLength": 2800,
+     "quotes": [
+      "b379b6d83b4158ea548a78fc05953d613b45611ee6e381014b493ba0fc34d6fa"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.hostifi.com/support/what-is-hostifi-export": {
+     "url": "https://www.hostifi.com/support/what-is-hostifi-export",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:30.107Z",
+     "via": "direct",
+     "finalUrl": "https://www.hostifi.com/support/what-is-hostifi-export",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "80b747eda31b820868fd25d181d08ce9c9c0debe12a14510f53185b2a16d1540",
+     "textLength": 2417,
+     "quotes": [
+      "819d71a15c784ad64ad7a3f51cde10e6846773fbcf95b3b4375f917056283710"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool": {
+     "url": "https://www.hostifi.com/support/what-is-the-hostifi-device-discovery-tool",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:30.183Z",
+     "via": "direct",
+     "finalUrl": "https://www.hostifi.com/support/hostifi-what-is-the-device-discovery-tool",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "f9bda959be1f3477c35e8d56bb5bd08cd25eb15718c582fa348125dddb11507f",
+     "textLength": 2756,
+     "quotes": [
+      "7586e10c829d201ec9f98a3a92cdec51f22d0964c642a1c4dacb75ce12f330e9"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_1779bf5a57acf7eded21250b"
+    ]
+   }
+  },
+  "ent_indiehackers_6548833164b0": {
+   "sources": {
+    "https://www.indiehackers.com/about": {
+     "url": "https://www.indiehackers.com/about",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:31.965Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/about",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "93ec8809be97997904058bd410b4f8b7fbb12afef4a88f86037c3a06771d743b",
+     "textLength": 3359,
+     "quotes": [
+      "8f03f528f695c55debb2490fad08374afa40c06b0b88cf5846e48c731fed0a82",
+      "b62040c08131ead347421205013e0c49a5fbe0240aa1a2f53abad631e119960d",
+      "c9957cfc7fb33acb2bb1c9c5c40170cfc25e2d28d20394023c8ec196716e465a",
+      "e26ca63f07f909bf913f38be39c3b4191839fc28cc9cafa42e2d7c2dcf25e48b",
+      "fbbeb336ebf4c1fb97895ef5f72009b4a49bcbfbf36fc5fb067752756d41ad3b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://news.ycombinator.com/item?id=12269425": {
+     "url": "https://news.ycombinator.com/item?id=12269425",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:32.118Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=12269425",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "4f6183ebc0719e00722a07a32990d58071a41d8a2d28ef8e9abf8c041ecc7a85",
+     "textLength": 61873,
+     "quotes": [
+      "0ac3734f4237c6ec5b2d16e2133bc6c0ef952f5e49fe72a1cd915251d6267b9e",
+      "550d4b2af4118dcad6a41e2c563276cd8f74a86bd2392e99740633296037fc69",
+      "a3a63cd1df5880fb1763f68376efa9b8699008d5bc778ed82c44ac1d974e1070",
+      "eb6f66bd1320c21f3c4d5cf372ff6dd237e5ad8b8d20cc53b6c9bc117dbbe7d8",
+      "ef5802b6b96509a8a87fa8ab7cc5aa1e481ccfc56c38af0c1ea6a48bd9117b21"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07": {
+     "url": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:32.447Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/i-created-and-run-indie-hackers-ama-2e6643ba07",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "3b9b41e441b4e2109f95fc359de635beae5ad6bc8909ee4c689c38809a5a43bc",
+     "textLength": 29348,
+     "quotes": [
+      "0f2ead00fb7e54d9a6b82b161e66da422c1f5f4ada2e3665905fe76bf2c87689",
+      "a6f6afb0f0ac1f0c5489dd0bc5137be7bf27cf665bc9dea8b3beb23ee5b880f2",
+      "d5f86a6ba7eecd31c4863c1cf06037958cf8a2d89d2053739f9f9decfb9e5c66"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387": {
+     "url": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:32.576Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/whats-new-indie-hackers-is-indie-again-1d228c6387",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "df8f54ee31c94c48e74a664156ad98808a77b35c4e608f00ae615fd3b558c21d",
+     "textLength": 9672,
+     "quotes": [
+      "87bf12c5186ec90f3ae3485a986efbe3c807e62a3947a3258230d9e8b7e95536",
+      "d6534c7164c0ae3c205cf6c47243f1e4a884b4144f98d0aa02eccb63299efabd"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0": {
+     "url": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:32.720Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/courtland-allen-on-ai-spam-bots-and-the-future-of-social-platforms-like-ih-2b979782b0",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "da2090a2210c0da9d6b2af82a9c7bee973baa24a19545315def9d98b93f13149",
+     "textLength": 12651,
+     "quotes": [
+      "f9cea9cdf4aba9ebc7890e5959298e7e9457ca77d0339d8a05c58b93793c5e77",
+      "fdf900ab301252127fdd0cf19fa7c6bff5e1ba9b5f412216ad986aafc12929a5"
+     ],
+     "quotesAbsent": []
+    },
+    "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie": {
+     "url": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:32.818Z",
+     "via": "direct",
+     "finalUrl": "https://foundersconfidential418.substack.com/p/i-profiled-80-companies-for-indie",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "103af9f582c25eab6bfa5306cf15987745aeb83d6e941317c2379a38f4266ca1",
+     "textLength": 13795,
+     "quotes": [
+      "599780aac240d0910be54fcb0330a4927bd8eef8514973411a3deb8f0fe10610"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/plus": {
+     "url": "https://www.indiehackers.com/plus",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:32.910Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/plus",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "b86caf419f6b1ed5da2138732c4c3d9bb5e77f924574e3979a196bae2e725eb2",
+     "textLength": 15455,
+     "quotes": [
+      "2c5734d52a7240bd877d09579f16e39e005814afee709e9d53c64c970a4e3fb3",
+      "3fb7d51243d235d57ca6ae7c6a2eb2ed4a32fa0f6f628de77d41d93295f292f9",
+      "c3b9b603c9a2c1ae17a72bb33ec2d99442000e0c363a551163884f9c4eac1086",
+      "df8a6f298fb074825cec32cbd8631708b755ef894f2285d19c81fab9e0055fed"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_be0aae3f8fa4c8ebc7277eb7"
+    ]
+   }
+  },
+  "ent_lunch_money_be2eeb1f4fdf": {
+   "sources": {
+    "https://lunchmoney.app/": {
+     "url": "https://lunchmoney.app/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:17.054Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20260923202043/https://lunchmoney.app/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ca54184c9655f841e63927f3d98b31bf5d43f6e6dc3cadbd101cd21884eb40f9",
+     "textLength": 6356,
+     "quotes": [
+      "60ae892ceda9998e01041620ef6f4247e8304aee7d5f50f94fe7662723f3807e",
+      "65183dd7f88f9c673519f1a871ac08f071b40c337df71f74b06673779044098c"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/about/": {
+     "url": "https://lunchmoney.app/about/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:17.718Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/about/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "b5d4e11f1acc404c1bfe96e74ec42fe745a79fab860ccfafed84e4611f46c6cd",
+     "textLength": 5859,
+     "quotes": [
+      "1c0fd39b45ea6a065e419944681fecf8b6fe82e560935d22f60a98b3748e6de2",
+      "2cd0aecbcb472bc3c59dd99c644346d31b6fbab1f95b696b6a01e8f02e710467",
+      "88d0e08bdc10417d098d88ba85893225943d8b319033fc91946bedd0e28ab379",
+      "a792485123f02a9298e9f41068e3eaa0c2c3b5ae50577bf8df904fc4dbc86e1d",
+      "bc9822d87a0cccb13bc509e1b7bfeb95e7a6841fb3ed85dd48f72c08706212e6",
+      "f61a12f8e3262ca6d52c86751bd95820a8a4cc36e2cd5b9aee7c332dbcdf885e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/media-kit/": {
+     "url": "https://lunchmoney.app/media-kit/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:18.046Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/media-kit/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "5c520626124f6e860f0ecd4fc58c814dd275e552d5b93a37e76ef3befc6bd54e",
+     "textLength": 8621,
+     "quotes": [
+      "aa753761318e070a28f74a3891ff0904e0eb1d7e16b5d56ecd586f18592b61a5",
+      "d088975e23e8d46cea63e468283359f4ea27cc88b767536404c817f6168eda1d",
+      "dab4e3bb9748b5987f10ffeb46b6d4e377c8e920c054f717f543755f04a77372",
+      "eb29f7084169eae7378b2c54b7e6e130e3d1ac2283a04ee95c7a6846af14919e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://news.ycombinator.com/item?id=20811287": {
+     "url": "https://news.ycombinator.com/item?id=20811287",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:50:20.267Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=20811287",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "7fad04e8320dcbbf1a79dfb96d53b0d0e172d5ff85bcf11a19d1e00f9ed89190",
+     "textLength": 58173,
+     "quotes": [
+      "147000817e5e28c02de86d3fe63968ea50df659f4aa0ee470603dd6e2a801e14",
+      "4b46719a6db10fee7ab408cb328d3beb7be2f697e631b1d664454c3c1da60e88",
+      "8cd5f6acab369599ba722b677f15a325a03e27e2aafc5014c7a074f456abedb8",
+      "b1392b35664316dac2139b88025e0b5d659ef08ca139a4cc91f5ab8988047841"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ": {
+     "url": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:19.065Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/chasing-passion-over-profit-to-34k-mrr-AgfQzkX9TM3p6n8QvTJQ",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "42ded7c051f7d580b7832d337bacd6d1e73bebb6864a6b383d645cc748ec927a",
+     "textLength": 9572,
+     "quotes": [
+      "3fd3170e3108f952673684fff2535cf771ceba32f61fc3aa4872e54ddf35a55e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/blog/we-lowered-our-pricing": {
+     "url": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:19.084Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/blog/we-lowered-our-pricing",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "4f278deaafe34d50c3faf2663ac83f2c647f97975eacd37fd76d542de7ddbba8",
+     "textLength": 14607,
+     "quotes": [
+      "0dd8ca1bfba51bb0987fac3342c3231665fb82f59dd370ae9a26f8cbb7a02247",
+      "33006aede04ba92981def42cdafcc111a79e636c7ab99e050b1c628ab9210f00",
+      "442fd54fadf6d1fedf01cfa254aa43fc99ac8ef1442940344b32d3f66cc560b4",
+      "53da1657968de945b2c7c40c94fef8d2a7d106ac05430840bdd315d0ebed67b4",
+      "7b84429ae50a1fed3cbad0d0a692a859621e7aaa0d8d4369065dc29177e0269e",
+      "cf5e9284f5386a7e881a267642771f5dbb9c7f2aea2e896399e404076721824a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/pricing": {
+     "url": "https://lunchmoney.app/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:19.416Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/pricing",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "641831a6d69175ea015a9b6b009c7ea2c30a776ef92f36f13e7c86dc29604cca",
+     "textLength": 5661,
+     "quotes": [
+      "3522dc11c4c7ab2c7861b2cd3db84dbdd51d131c4a7c20abddf3804f8a147433",
+      "3a66b7945bce1fee75494c80ed041b8f7f60aede40127ef7211543a78d2b7d94",
+      "fb2b1b52e18e96765c9187f96b055fb31992076f1e4bc4bb3c29c4d2056961c7"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026": {
+     "url": "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:19.495Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/blog/an-update-to-our-annual-plan-minimum-effective-march-15-2026",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "b5b012cf0409c10a9839585cd44a2804c661abb18dbe1e83ddce6aebee00c392",
+     "textLength": 4421,
+     "quotes": [
+      "1943f09c3e55b1a17b7af8e0ea2343be73c22dfaf238e85f2d6edc56d63382b3",
+      "8c8c4f771bcf5ef838abf54238e767198931a7d92d3222955ce402976e894941"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/stack": {
+     "url": "https://lunchmoney.app/stack",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:19.642Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/stack",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "a505e9ee228484205017bc7b60d93b27ca1570a3a174dd3c241c1fe58fc689b6",
+     "textLength": 5815,
+     "quotes": [
+      "7997d88bcd918b55ca767b4e1510f8f112a0f3baa22c9b1b9f67e09caaeb2023",
+      "d1c713bc442cbbeffcfb383fb1bf2912a5ff2fd64f602f5165eb2475e0bf5c35",
+      "eb0a74420e856dd2e263aa949b2884ab5c77a033226dcc2813477d311e33e8e0"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/referral": {
+     "url": "https://lunchmoney.app/referral",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:19.651Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/referral",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "d3b9204c2dc05b84949f45291ec1663148617666aad0bbeb73148e5a7d51e50c",
+     "textLength": 2651,
+     "quotes": [
+      "b82e8b6b94fb5402dcf580179c76ed2f5e6a34e1b74c28213ef0375ba4135293"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/affiliate-program": {
+     "url": "https://lunchmoney.app/affiliate-program",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:20.135Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/affiliate-program",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "5d3d6210ae2a2ce266fab17dca57c0e89306c0c578590b35ace5ce8f576f6624",
+     "textLength": 4718,
+     "quotes": [
+      "e588772be179e6d90e6a0b61709ec4d08c3cf29845d3eae050379a4ca9344d2f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/download": {
+     "url": "https://lunchmoney.app/download",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:20.991Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/download",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "555357170203104087576ced44d5eb2c2b25fe20887749a42994e739e4ae752d",
+     "textLength": 2606,
+     "quotes": [
+      "5f1abd31d7e1d3e3252ee92206dd9e260fa5ae4129b8136f5f8f4f54e26fe787"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/hiring": {
+     "url": "https://lunchmoney.app/hiring",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:30:58.798Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20260813220616/https://lunchmoney.app/hiring",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "0c9e7f2f9325c36890ac86fce6c1c1974e3575258b4c26ce0d3df1026b47a477",
+     "textLength": 3064,
+     "quotes": [
+      "53c377db740439fbf31b7cc1c80fbe0bdbaee2c588c1f7a62e2ee4b28cdea764"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/": {
+     "url": "https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:22.002Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20250408121056/https://www.reddit.com/r/mintuit/comments/1bf5vtw/my_switch_to_lunch_money_from_mint_a_review/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "21521bb28c4ebd2980dacbaa34cc92a2e20e196e70c4d8f84c9b2c541f1571b2",
+     "textLength": 30443,
+     "quotes": [
+      "62231e5ecf0f22c7d5c912f7d24daa4f77e7cf6682d5df181e5f0277d0e327df",
+      "cb10b8edd9718d4a82267800c4c911c6fa3dca0c07f3c1eb298852f5ea99535f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://lunchmoney.app/terms/consumer/": {
+     "url": "https://lunchmoney.app/terms/consumer/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:22.217Z",
+     "via": "direct",
+     "finalUrl": "https://lunchmoney.app/terms/consumer/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "e4cfcb90f964e16612620f15f5b97ecade92af2f4e442bea8d3a2d0a6e411b9c",
+     "textLength": 31246,
+     "quotes": [
+      "20affe6ebc4c09ea2e54fef12d7cf58a9e893166b7c53350e0e6e3f29cbfd0cd",
+      "9441c457f694d89070e17d811b460dd5acf4ffdd97990aaa28acae68618895a1",
+      "ff9ae4dc57563b6accb11dd327e3329732be7b0d44785a5a4a73d7d1ee023f26"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_2f9d2bca719a3106def44103"
+    ]
+   }
+  },
+  "ent_memberful_0dff1f9c00fa": {
+   "sources": {
+    "https://memberful.com/blog/joining-patreon": {
+     "url": "https://memberful.com/blog/joining-patreon",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:33.304Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/blog/joining-patreon",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "23f599d3851a0a95074b590d0da65e4fc522e93a91ade00a8a6540b4fed35a25",
+     "textLength": 5390,
+     "quotes": [
+      "0c0622732c7b56612e9f60aaa4da1d7812f23b62d90009a08e1562b7ebd4cd7f",
+      "2fce9310c75f4510c43b3eb13a1582d3611013831b1ebe6aaa170aff9f8ff9ca",
+      "c0ef39a2f4ef8d292661cb47046b136b6707ceba92957b7d486124be2d8f6f19",
+      "d7401b7d4e32247231c0b316e32afd04e0a9d7b54a364ab6c7e26ae1658bb1b9"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/": {
+     "url": "https://memberful.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:34.136Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "2d66d77351cebd3401f283d7e8a0929f4a7b658b9a73763c4b4542e4fdafb69f",
+     "textLength": 4994,
+     "quotes": [
+      "5ab24f78b39ed7e5cde5343c2366a74811f76213539c00712c1153b70cad6878",
+      "ce92e9de781868b69482cb2ead94e119f204299227870882d88c8a2f032950e0"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/pricing": {
+     "url": "https://memberful.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:34.400Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "62ee1fdc7b76f37911cf917ea133ffc7cd4d175717765f81c6e4600822a515a5",
+     "textLength": 3377,
+     "quotes": [
+      "d1a0b2777e8ed1377aba8992e1fa1575e7946f50eba49847335773b78add02cf",
+      "e4b48faac5e28c79c7114a67d1c5c0879ec21771806980dedd21b9428e7124e2"
+     ],
+     "quotesAbsent": []
+    },
+    "https://techcrunch.com/2018/08/08/patronage-empire/": {
+     "url": "https://techcrunch.com/2018/08/08/patronage-empire/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:34.442Z",
+     "via": "direct",
+     "finalUrl": "https://techcrunch.com/2018/08/08/patronage-empire/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "9e1de42693b639a2da8c07e1200eca769670cccb0e95a28d102c456fcc47fee9",
+     "textLength": 9135,
+     "quotes": [
+      "c7cc4fbf274697dc7c1503e061167b9650f944b3d971194ea8a635b6ee23293a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/about": {
+     "url": "https://memberful.com/about",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:07:20.049Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/about",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "7a6f59f8b8e6d328367705326a8eef26e857ab2932202aa52a4b93c21863d30d",
+     "textLength": 3891,
+     "quotes": [
+      "eabc930f6944f0cbe0284044cd3a4e8e821de21ed872985fbb144a06ab8e8a49"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/customers/workweek-lunch": {
+     "url": "https://memberful.com/customers/workweek-lunch",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:50:17.567Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/customers/workweek-lunch",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "11e8ae347fa868e755fcf104ea406f91f3ad6721cbbbb642b1a4984a6a51e52d",
+     "textLength": 6107,
+     "quotes": [
+      "364a9faebb3e16da9497567806a43ceb712204e0626d8539acf4799f4d740ad2"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/blog/billing-updates": {
+     "url": "https://memberful.com/blog/billing-updates",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:35.038Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/blog/billing-updates",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "12c26f9149ad12e4c455c2e2569f03c2222713b1e8910f133309166e9d2a59f5",
+     "textLength": 5283,
+     "quotes": [
+      "14187e75e7d9943b408794d04c321917ad471d459ca1383b0913433b23df3589",
+      "94b54de152ba52df9194bbafe8583b2bb37756dee71e803c51d589955456e86f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/blog/edit-subscriptions": {
+     "url": "https://memberful.com/blog/edit-subscriptions",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:35.348Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/blog/edit-subscriptions",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "2fa93e3e970430adef77183eea845a2b172abeb377a991c4a1e4b9fb6fd92dd8",
+     "textLength": 3003,
+     "quotes": [
+      "44c6999fb98651f35d8426cece3c24551759ce187abbe294aaa3539ce89cd621"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/docs/changelog": {
+     "url": "https://memberful.com/docs/changelog",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:35.387Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/docs/changelog",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "8f64c67ae4943477fbf6c9420da27af477a241498d825ee92977dcd61ec59aae",
+     "textLength": 14230,
+     "quotes": [
+      "b7cd538c16ec189160b8b023bbb938f7c9dcdb4cf38a5990f0082ed599e8e1e9"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/integrations": {
+     "url": "https://memberful.com/integrations",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:35.613Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/integrations",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "a16abdab12f10a83e45f6b879631756327224df6f61fafaca438b0bbe2b510ae",
+     "textLength": 4982,
+     "quotes": [
+      "40f525cbb5efd3f3127e8ae902699007fb34481a618b67ff8890e001c16c1d41",
+      "f0ea79f1e285b840f89030ab1fd8a910d35141c7efcfa60ed3d37a1efa4ee5a6"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/become-a-partner": {
+     "url": "https://memberful.com/become-a-partner",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:36.286Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/become-a-partner",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "be48b8275e788a7553ebad54d3051ff2b02b155be7906ebb495a588d8387dafb",
+     "textLength": 2846,
+     "quotes": [
+      "8bbcc844c280684c7e8e16c2d628036b9337a53ee9c94bf812fc5567d6c448ed"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/preferred-partners": {
+     "url": "https://memberful.com/preferred-partners",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:37.154Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/preferred-partners",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "4fb44b4fff507d129b8c645ad21e222a4293faa10bebf6eaa45e5ee3ddf7fbb7",
+     "textLength": 8740,
+     "quotes": [
+      "b28703fbb52379af60d389ec32619e8292fa1e2be14e822bfd725a717b3911e9"
+     ],
+     "quotesAbsent": []
+    },
+    "https://memberful.com/migration": {
+     "url": "https://memberful.com/migration",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:37.704Z",
+     "via": "direct",
+     "finalUrl": "https://memberful.com/migration",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "874132b06c6cb3da3b4897a4c1e6765bf0101c3cbf59983858cab9aec1677bcc",
+     "textLength": 2810,
+     "quotes": [
+      "e239fa8f75c542b9a492f800a6956def167b9db60ec342f20343cc90e59ea979",
+      "fcc12a9fec1e9a59327a59dd9a0eb6de0c18f2d541285645826cb7f113a29fe4"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_248f8884623a5486de0d2edd",
+     "ma_4560ffe8a7f2a83aea42ee72",
+     "ma_75b9c163ab063e84c435b4bf",
+     "ma_d6c7c52f76a9a5ee6eadc2d7"
+    ]
+   }
+  },
+  "ent_myoperator_49c393230a2d": {
+   "sources": {
+    "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors": {
+     "url": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:35:57.121Z",
+     "via": "direct",
+     "finalUrl": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "1317f48214f1f7c5101a4c4646d1df2ac23c8e62882456d3156b5fc710c7f2c0",
+     "textLength": 12920,
+     "quotes": [
+      "020ae461fe7e4645aa0c7ef1df6cffda4eacfd2f75b97eae8874ecb63d759de2",
+      "0b408024822cd60ba67bfa85b8aa1b5b7a65efebee44f0720a559f6fd3846e6b",
+      "69ba55c40270f4f02c0ac07ab21e9b16b31cfa4be5c0b0cf8fd45384f62bb38c",
+      "94211e00107c7ad017ad531d75599e0bf4ec294a597c49cc5fae75ec743bb759",
+      "9a091cc4b4f4bed094346f1cf134a3d91c8dc6e5de50b0d4c6d38c3cc0dc8792",
+      "c4b07cb86e33507bf505beceff0908ad05cd2806776c4aa906d6f6a7a3900106",
+      "d153893b081cb47f4d993c10261ad26159a6ed436acafc617c3ad0b0360057b7",
+      "d9aeeafba85a1bd2bfb33fbfa1cac7ba6ad22f4e209239daac8a449002828f4d",
+      "ec9c3af4cabf10da0cb89cfe3f2e3ea125d098869c67cda317529ef296e61a87",
+      "ef2ca6abdd40f91cd02c5579c4292bbb986a7a8cddee45b3b6060635e733a193"
+     ],
+     "quotesAbsent": []
+    },
+    "https://myoperator.com": {
+     "url": "https://myoperator.com",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:38:53.228Z",
+     "via": "direct",
+     "finalUrl": "https://myoperator.com/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "e2685492584025876517220c545959d782adef0b2d658d62abd0b0f102f12fdd",
+     "textLength": 11578,
+     "quotes": [
+      "65515fc8c2e88ca77fe48dc97b5fce8b2bcabe4a69411015bdd31d28f9b41c74"
+     ],
+     "quotesAbsent": []
+    },
+    "https://myoperator.com/pricing": {
+     "url": "https://myoperator.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:38:54.249Z",
+     "via": "direct",
+     "finalUrl": "https://myoperator.com/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "e787a0fb33754a6eb2c3854611e9039b3d9528904270b31460ea9976122a4ec3",
+     "textLength": 13911,
+     "quotes": [
+      "8e9c147dcbe9f9803f7aa16411c8a9c32cb7d0d46714b0b6ccf342eb24d6aa4d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://myoperator.com/partnership-program": {
+     "url": "https://myoperator.com/partnership-program",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:38:53.976Z",
+     "via": "direct",
+     "finalUrl": "https://myoperator.com/partnership-program",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "d807fc7126d32e4bd247aa8f4e5bb4744928e5a5f3b2875ea49d247491ebd255",
+     "textLength": 11234,
+     "quotes": [
+      "1e4f78a57b71d26d6fac965b9fa35eb2a48bd1988ef07af91229935be5966267"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_107ea6f44456e8fd7df54734",
+     "ma_8070488eaf9690504fde547d",
+     "ma_e306d9ec70e3d7e47067293a",
+     "ma_f7e813673e43ba364a9075cf"
+    ]
+   }
+  },
+  "ent_noteforms_003fcbdd14cf": {
+   "sources": {
+    "https://noteforms.com/": {
+     "url": "https://noteforms.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:50:20.872Z",
+     "via": "direct",
+     "finalUrl": "https://noteforms.com/",
+     "contentType": "text/html;charset=utf-8",
+     "textHash": "3af425014f394e21e98b0b74536d39900ef4aba99bfa25b7527833dbbce1ebc2",
+     "textLength": 5642,
+     "quotes": [
+      "c019e7c6ea1e7c5842c6913b82cd5edcefc9d6b49430a7cd7ca49e1e24c73901",
+      "c2a0e40442917cebcb5dcbe8f9ced2286f387bec28ef1050480121533323cb6b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.starterstory.com/stories/notionforms": {
+     "url": "https://www.starterstory.com/stories/notionforms",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:22.923Z",
+     "via": "direct",
+     "finalUrl": "https://www.starterstory.com/stories/notionforms",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "d6bd328fba2971ea3edfe8bdc1ac0bdf5e45907baafcb5ca48d108259546d559",
+     "textLength": 20239,
+     "quotes": [
+      "21d6d1e90f1ef7f93b048fc108ba6b8d2185649bfa4aa7f5ee51fbae90d4cec0",
+      "3172923eb5f104c5624657835915646a22eff63805e7b7be7c3f62230bd139d1",
+      "4c5abfc515560ea83fa928345c51194dc6396c2e8920d924fb3bcb3dec909ef7",
+      "51d57beadd67989f8ff839bf55bc2e200f531c759f279e643b1db244f2e17dc3",
+      "60b80a6f8936a4d9826ce0af9b04aa8de4a7238dd8bb85c041654ee383eea0c3",
+      "756c2916c9dc3b36d7137249c92702f7e04957848ea0b63913004679d6ec0f4d",
+      "94693de9a9141d72743efa6862738a7ac48cc605a1cf063393045b8899b92e82",
+      "a4a6e5d4020f46b25cbd05641726b6d4c04c978e79b476b3c834cb31c68a73b1",
+      "a8386d6107a5aa357f44cb0acdc71989a68c4378791d1e60970117d189ad476f",
+      "cbb41814e858d022ff5d964b70299acfda3deb9f941898862fb1089dd70151d1"
+     ],
+     "quotesAbsent": []
+    },
+    "https://noteforms.com/pricing": {
+     "url": "https://noteforms.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:23.575Z",
+     "via": "direct",
+     "finalUrl": "https://noteforms.com/pricing",
+     "contentType": "text/html;charset=utf-8",
+     "textHash": "dd7852bc71aae960c42a7e8540420d7836e1528d7eb30dc87ede790ea241492a",
+     "textLength": 5036,
+     "quotes": [
+      "559147f9552adc40f4dd7fb22aa30c3f51fc864d2b28cd04e7b3df46b15ac91b",
+      "568c0bf79b374333c896e18d43f858ff1151f4d294bb4b73fd4f5d936923baa9",
+      "b54a7290fba23b5ad0080f62ee589f2d0e930f36a6376a7902f2c4577f3406d9",
+      "d5cb3d88ac193122f454552eeb422542337b55718b1a6a5f89e62d5acdd24d75"
+     ],
+     "quotesAbsent": []
+    },
+    "https://noteforms.com/affiliates": {
+     "url": "https://noteforms.com/affiliates",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:23.974Z",
+     "via": "direct",
+     "finalUrl": "https://noteforms.com/affiliates",
+     "contentType": "text/html;charset=utf-8",
+     "textHash": "d6c8fc562c34cfdc2ce96cb19418588a4207c9a535dfaeeaf39076cccce38ff2",
+     "textLength": 1712,
+     "quotes": [
+      "5b31a9a1f65dd2f430bafa74d2e1af7f2965b8bdead32fa67fd2552300e08590",
+      "c9a7762703c2c1a1eb81cede78e08149e533f5d08373cbf764980e0dfea14158"
+     ],
+     "quotesAbsent": []
+    },
+    "https://noteforms.com/terms-conditions": {
+     "url": "https://noteforms.com/terms-conditions",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:24.162Z",
+     "via": "direct",
+     "finalUrl": "https://noteforms.com/terms-conditions",
+     "contentType": "text/html;charset=utf-8",
+     "textHash": "dcf1d54fc0b334e22644b1f7ef2e9108b89b3a429fb72b6530fd1c5eacd506f4",
+     "textLength": 28180,
+     "quotes": [
+      "2a84a37073d83f673a4d5e1bf9819e36d1f47973cda2350d7471de81f094535a",
+      "38d69a97395079b1363b84d6f01cd3d8de866a21c16cb17aa971c8574a52be6e",
+      "994f9c2031468c05c65af0d6cfe9088340d2943fadaa571021dee9de7b82cb63"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/": {
+     "url": "https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:24.178Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20250731063417/https://www.reddit.com/r/Notion/comments/nhwre0/i_created_a_tool_to_create_notion_forms_in_1_min/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "3226b7a4fc474de7f827c253e2f5118ef1326021954c6fa5844262408cfc7bb5",
+     "textLength": 25565,
+     "quotes": [
+      "2b165cb8e54784eafcf4865268c574343b65512f6ebc45b6bbfa4de3d42c1d9d",
+      "316de3a25e917bef130c865d24e3f9b5217024fa485597fefe6f0595a3113c33",
+      "a1e889c4fbe2a8d418d9bf22b4a94b69c3621801c0154ee73be6fcea0c3b3b00",
+      "d27f482369a800ceed0e55434c70a57aabbfda95643f0c995fcde35cc8dd396b"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/": {
+     "url": "https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:24.205Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20250207124557/https://www.reddit.com/r/Notion/comments/ogg5my/quick_entries_for_my_notion_weekly_todo_list/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "84ff888c61e9c5efde0c559f36172d462622c57c268203bcdc05d89150c0e0fb",
+     "textLength": 13710,
+     "quotes": [
+      "e6e5dc5dd7fbd2d2f4626afcb05305b5ad8f75bd909072e79ad660c8d11aeb85"
+     ],
+     "quotesAbsent": []
+    },
+    "https://feedback.noteforms.com/": {
+     "url": "https://feedback.noteforms.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:25.011Z",
+     "via": "direct",
+     "finalUrl": "https://feedback.noteforms.com/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "2f24f6f32626d99497fe624cb719f32ef8dedb411c512199dbccf699c6b03f30",
+     "textLength": 8165,
+     "quotes": [
+      "32fd8c1d589e4301e2ee808b952a2f0269ea956bce20ba34d3f5008e2c68b6e8",
+      "db67647f84a208ac58ee84eac865edd1f9a9633ba73c4c666f3cc99382489750",
+      "fab72c5260388a65cc44336de1fd4fe1531966f11433fc2ba00bbbe60d01a68e"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_ad30dc46521b515714e4ea61"
+    ]
+   }
+  },
+  "ent_poolsuite_6d5ad6895563": {
+   "sources": {
+    "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun": {
+     "url": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:50:17.886Z",
+     "via": "direct",
+     "finalUrl": "https://www.producthunt.com/stories/what-marty-bell-founder-of-poolsuite-has-to-say-about-building-for-fun",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "6ef3af7020436e17eb7e4f3d5120e8ced88c8fb9f44dcca26eed292b021cfa3b",
+     "textLength": 12463,
+     "quotes": [
+      "0f8900f1093ba13e1fb00f4391722289939a9fef538e450e8f05cc526a27aca3",
+      "543388f549aa8490c99fbb14f4a7e9f168ae3a02f412393f191768d03add8c1e",
+      "87d0af1d1d7ca590b2cbdd08b703f39761a9684f3af0d44efbad19a1af0d492f",
+      "ccb207523e89690e05943493cbfa2e0e955f188ffb5481c25e567d77617d1f80"
+     ],
+     "quotesAbsent": []
+    },
+    "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty": {
+     "url": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:46.995Z",
+     "via": "direct",
+     "finalUrl": "https://hannahslist.substack.com/p/q-and-a-poolsuite-and-vacations-marty",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "77bb52fcba97e29c19eb82d610d32827dbbe758465ad45f695a75b6e3da0f6dc",
+     "textLength": 9938,
+     "quotes": [
+      "0518857141694c5c84986586e0d5e0c073be559ac0406004f415bf1fa6fe9ab2",
+      "0bafdaceeccdec66004a9dc8b04421aacf0c3aa548802cdcaae0cdc6f121d68f",
+      "f6873b635827dd897075e456f9cce9d3f27252cdb10e2f4e02241883d6e3b14d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac": {
+     "url": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:48.450Z",
+     "via": "direct",
+     "finalUrl": "https://apps.apple.com/us/app/poolsuite-fm/id1514817810?platform=mac",
+     "contentType": "text/html",
+     "textHash": "38473cbf0f65a19930086384eb7c0890b14ee5929e31186a25de37c1fdee711c",
+     "textLength": 16594,
+     "quotes": [
+      "1ef4325b62aefaf835a7ca13ed4cdb09bf20861ef52c094dd99465b141676478",
+      "3a5d80111445b8e23671c5bbeee437ab6803a32c71d4c492c2eeb4e1c0b6eb9b",
+      "c7d3bcf50bb35af27e34907a418d32d41fa64987167cea2d07bf0c943dbc1318",
+      "ec29c10992d3e2abaaa5f7f0346d63272d325d6e82bbee859ce9099e533d9428"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_1dfc62adcd84fca9af603eb2",
+     "ma_2494f229a0dd2f89df28aba5",
+     "ma_3853f75887b0366a0ccf7149",
+     "ma_9b006f1b1f7d724bdc2c6e32",
+     "ma_d7bc898b4b4ba3e0c78f385f"
+    ]
+   }
+  },
+  "ent_practicaltypographycom_e9aa6bc94ccf": {
+   "sources": {
+    "https://practicaltypography.com/economics-year-one.html": {
+     "url": "https://practicaltypography.com/economics-year-one.html",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:05:06.556Z",
+     "via": "direct",
+     "finalUrl": "https://practicaltypography.com/economics-year-one.html",
+     "contentType": "text/html",
+     "textHash": "8e420f3480a653d3257049b431ff29c1a0394a22cc32f3d4ac6aa63978594ca1",
+     "textLength": 12049,
+     "quotes": [
+      "2207958116bb65dd878e2065ece77cd650b09e3f3524330e173102a76752f928",
+      "2884a3b9d5916fd17a128e6eda4cd8745623492fd1d5e57419ca3da4846e4df9",
+      "3d31569082e54f22dd712cb08ffaa34bd178e6932d22015ee96ce75ed0811917",
+      "464a651ec6c333e6a39726426c77b0b8b2259a691faadef157c46e01e426fe18",
+      "7e662ec9bd72e6e62625a1195802e5c92b665887b954046c8ba5e62b064e7282",
+      "cec233df1b57dbf06566a0b7ca2f7f5c91a8e9b6deb49c19feff37647fad18b7",
+      "d1abfd8ea7e1d19e1d329fd173366d7ba1eb4bf710962062f455be85dd7d761a",
+      "ef043547238e1427f4175f92a905eb4839f08af672240057f184a970321f5bee"
+     ],
+     "quotesAbsent": []
+    },
+    "https://practicaltypography.com/effluents-influence-affluence.html": {
+     "url": "https://practicaltypography.com/effluents-influence-affluence.html",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:05:06.948Z",
+     "via": "direct",
+     "finalUrl": "https://practicaltypography.com/effluents-influence-affluence.html",
+     "contentType": "text/html",
+     "textHash": "0ddc8020146b51376e33fb79ff0cea00fc255b3410489bf076e740154b9232c8",
+     "textLength": 16099,
+     "quotes": [
+      "1925ded48ae0216b8392d0df26cc52a74be539007823148299e027d71face670",
+      "6f623b3e1b24ae4e0d2b28ad24a70bd77a328ec9d6de1af8ecb605eda6e7f7a3",
+      "755cc1548994061d25697a62814e00893746cd9ed8ad5c9716040fe2892ec0d0",
+      "a799d7750327faed8a5fff10f1ebdedfa88f9cdfaec7c228767a745c54132c46"
+     ],
+     "quotesAbsent": []
+    },
+    "https://practicaltypography.com/to-pay-or-not-to-pay.html": {
+     "url": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:05:08.087Z",
+     "via": "direct",
+     "finalUrl": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
+     "contentType": "text/html",
+     "textHash": "e44e9e7312c2d9c591172959fc30a63705a5b8772038b793fae1041e56853279",
+     "textLength": 8780,
+     "quotes": [
+      "0ea2e0e184041bb5e37926d3b210fbf390ded3d37d82cf3dcc8689c640b65414",
+      "3a7043b27a0e6cc3a46c1dc3424528a7dd2fd6bbca8c3df02cefc8d2608aa5a4",
+      "a1828029f642a5e16f0abd9ddeb2b8e2a58b276e0798b7fd117220a957f47faa",
+      "f1f52b29298b49cf13fead5163c31ce5ca8b4ce2e144463701ea8a35a7d201f9"
+     ],
+     "quotesAbsent": []
+    },
+    "https://practicaltypography.com/how-to-pay-for-this-book.html": {
+     "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:54.655Z",
+     "via": "direct",
+     "finalUrl": "https://practicaltypography.com/how-to-pay-for-this-book.html",
+     "contentType": "text/html",
+     "textHash": "543b8a502f33cac062d2ed2da191f7a57fc63e3b2d382c25989550fca1592d11",
+     "textLength": 2066,
+     "quotes": [
+      "ad532e5e037a905661b4c6c39cf644c293dfa79b234d9dd56cea785764428e51",
+      "f38b51a2500dda8973c484f2148f7e5ab0470722653e575d41ef9b8e52d5fdb7"
+     ],
+     "quotesAbsent": []
+    },
+    "https://practicaltypography.com/why-you-should-pay.html": {
+     "url": "https://practicaltypography.com/why-you-should-pay.html",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:55.329Z",
+     "via": "direct",
+     "finalUrl": "https://practicaltypography.com/why-you-should-pay.html",
+     "contentType": "text/html",
+     "textHash": "768feade9db65aca1fe3a6a6e3efd9c31362b01c73940a3c2687a17a3835cde1",
+     "textLength": 3059,
+     "quotes": [
+      "081fc2e3588f4d6aa51f3a6bcc58883820bbcb2293ed304c7cbb4d59d716582a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://practicaltypography.com/legal.html": {
+     "url": "https://practicaltypography.com/legal.html",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:58.816Z",
+     "via": "direct",
+     "finalUrl": "https://practicaltypography.com/legal.html",
+     "contentType": "text/html",
+     "textHash": "08dbdc22d86df23e3377c7375844c9fc09650a65aa883bb9f62f303daec03071",
+     "textLength": 2317,
+     "quotes": [
+      "4cdad88b9239ed8b56ab4e49d67e63c7d8069a9e2cb207b3fb15a0b40ebe09d7"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_11bb916c17bb1a3982275785"
+    ]
+   }
+  },
+  "ent_quaderno_81236030d721": {
+   "sources": {
+    "https://quaderno.io/about-quaderno/": {
+     "url": "https://quaderno.io/about-quaderno/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:25.161Z",
+     "via": "direct",
+     "finalUrl": "https://quaderno.io/about-quaderno/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "d1e9fcee6c3fa74e388aaa70e7107be555b101f299ed34e982b87f4a750bc9a5",
+     "textLength": 7081,
+     "quotes": [
+      "7b42e7529e5264ec92786c5a7bbbd0134e082b23a3e0057461f0b5e0c5c7bd58"
+     ],
+     "quotesAbsent": []
+    },
+    "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/": {
+     "url": "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:25.538Z",
+     "via": "wayback",
+     "finalUrl": "https://web.archive.org/web/20251122102535/https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "34a78c2ef1c286af71b1e0ed9317733323528395df7c1bd8d3408e32ed765776",
+     "textLength": 7438,
+     "quotes": [
+      "4b0128a621058d45967900be8bab6ed7d5cb7ba65fb806fc99022c1ea3b8c97d",
+      "bd70217e1add8e28cd534a24f29a7b4a48078c4237a2d653c2f6b61ed445ecea",
+      "c42a42d71c37bb69391db5bdea63c9906939c923855fde9f5c3fe02eeb621a17",
+      "ddb1e1a8b1037f7301908f54863dba08d05564452ad61b52b0c5a629ee2a1097",
+      "f79801c98f2e91d77eff4718044d67db18e613eb0bca0d67d040b5cb5df57184"
+     ],
+     "quotesAbsent": []
+    },
+    "https://news.ycombinator.com/item?id=7742719": {
+     "url": "https://news.ycombinator.com/item?id=7742719",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:26.901Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=7742719",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "d29abea29da8528a72caeb34b8a31960d96b0351cf9e8b4a38acb85819f46e4e",
+     "textLength": 14959,
+     "quotes": [
+      "250750b2c12da9d93f05668b7fcd3e6a1672e1a4dab286c23b2039ff72d9e44c",
+      "343cfc934af2403f03a2b1f6af424f7255b06041a7b8a661913a0292c1622b8f",
+      "92ffa03dc155740a63b0bef73da6b876932581fc2ac5e46199bcf62ab7697030",
+      "a605d4470854dfc1547a53085272f97f264eb59f2d173e207c6f16b11caf6a93",
+      "c7910cbf2300e7b93ae21044200b4841fd3dc62cfb272ab34c37352b55244734",
+      "d490d8dcd1a86799c6db2b71d04402ebec9015ccb5e1ada2f938e153d0d3d6a2"
+     ],
+     "quotesAbsent": []
+    },
+    "https://quaderno.io/": {
+     "url": "https://quaderno.io/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:27.061Z",
+     "via": "direct",
+     "finalUrl": "https://quaderno.io/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "3cff6c3a3006279978be8faa5a41e9c0dd411c47a70d0dff684e093634b5bdbc",
+     "textLength": 9305,
+     "quotes": [
+      "607767a8a5ba462ca37164b9162def3be211d2e84dd84ddf6ffe09c50fa0ae65",
+      "89c4465407fc7171934685119ada01543c1419620e27592d1088462742236ca6",
+      "9bbe3059a653967250a1ec227276ba730e92297dbfd48dd192a5bdb07cf87a1c",
+      "cd6586d6ee9c4c462c8ce4e452de359e88211165fb43f04f65e9d1b4795aa775"
+     ],
+     "quotesAbsent": []
+    },
+    "https://support.quaderno.io/article/492-plans-pricing": {
+     "url": "https://support.quaderno.io/article/492-plans-pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:27.250Z",
+     "via": "direct",
+     "finalUrl": "https://support.quaderno.io/article/492-plans-pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "f52e803ed5e182e2a684de4e794ca348405ff21dd6e0f02f3245ea4d4270d72a",
+     "textLength": 2515,
+     "quotes": [
+      "1564e097a4a6633df23d5ac043aaedaecf389d3b726fa4f56ae452f93fb7e3b3",
+      "317f27a752b599f6fc729044f5fc2ccd34c3e51764ebd90077b3fd42fd74de62",
+      "3e95dab4a310070c10d68ade78e803149b3688a80e382efe5a9a862b9d4178d3",
+      "a5fd73f1f67386acd1ef5e896a5d79866f24ba738574005c4c80d5c5a7c0cfe2",
+      "b5e2e8457a01e0d8fd8945720bbc29e5932c04f8f68a508df6aee2be02c5a2a7",
+      "ddcf52db667dc376b117d96e74239a8847161f60d13f66249b8faf92d8d8344d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://quaderno.io/pricing/": {
+     "url": "https://quaderno.io/pricing/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:27.281Z",
+     "via": "direct",
+     "finalUrl": "https://quaderno.io/pricing/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "2009463bf7f59eab7f6549af9a51a712caffcf23d54ced4df790bf9ea573dc67",
+     "textLength": 8561,
+     "quotes": [
+      "5debef85c95a932005465812a9d33fb459354669ff06cdb1843f000b09c65444",
+      "76036ea86c08dba790dede02e8f7d90012145801f77406bee7f48f3bc05e99b8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://quaderno.io/affiliates/": {
+     "url": "https://quaderno.io/affiliates/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:27.384Z",
+     "via": "direct",
+     "finalUrl": "https://quaderno.io/affiliates/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "0f04155a9cc54618c260e64c710aa28cfb62e894d9fe8cc4b54785a0e63f0d14",
+     "textLength": 6604,
+     "quotes": [
+      "12d7e79f728530528646fd6c8e929427069b6fd5e0e1ab6d9c2a3bd9d154538d",
+      "740f005f3b675f2a7a3cb2fa75aa7486656e6e384e35cf0cce903021a53bb92e",
+      "c495806cb13331ae9c3d672c93481158e5454df97af31a8bb230f768e9c69690"
+     ],
+     "quotesAbsent": []
+    },
+    "https://support.quaderno.io/article/544-quaderno-affiliate-program": {
+     "url": "https://support.quaderno.io/article/544-quaderno-affiliate-program",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:24:48.549Z",
+     "via": "direct",
+     "finalUrl": "https://support.quaderno.io/article/544-quaderno-affiliate-program",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "e9dad87958b44cd1e7fce1438196d96d3b53ba1227cb0bf69e8d7ec0531203fa",
+     "textLength": 2984,
+     "quotes": [
+      "8f730203f2032f02aed6252ab38f594fbd5c78304e637441990950cb6a2f45c2"
+     ],
+     "quotesAbsent": []
+    },
+    "https://quaderno.io/legal/terms/": {
+     "url": "https://quaderno.io/legal/terms/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:27.743Z",
+     "via": "direct",
+     "finalUrl": "https://quaderno.io/legal/terms/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "d014a07a62ca2819edb9b6877a28145f73afa3923eaa5d2fc8ff2e6902c58a80",
+     "textLength": 22366,
+     "quotes": [
+      "221de6f9ca2a756b7c5ad5a8f88e1550ba0045ece3e23f10dc23d2368f8004ff",
+      "4fc1a6aa850259971f51961afdd5d2dca3e534673e4473f2a974348833291ec8",
+      "bc0e9495dc8135c5e4997d3c4fcfc41571099978d9184c1680f2180c248355d2",
+      "ec3a38cb5d953cf0ef9cf5684c5fe682fb36f03c798e7dba671a0f517b6fffad",
+      "fe70ca816c450ce18765a30c0ab99c7a9a0355e6b094ccb83c08e0c53faff260"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_3f98ec9a35e6596cbecbf3a0"
+    ]
+   }
+  },
+  "ent_referralrock_8c13d5ee4cfc": {
+   "sources": {
+    "https://referralrock.com/blog/full-referral-rock-story/": {
+     "url": "https://referralrock.com/blog/full-referral-rock-story/",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:55.238Z",
+     "via": "direct",
+     "finalUrl": "https://referralrock.com/blog/full-referral-rock-story/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "5ddd12688f0f4b94472ceb8210c485aabccf15234fb8dca12d69f5daa303dd9b",
+     "textLength": 18446,
+     "quotes": [
+      "11f2b275451ea4520a5e7a6eba47f4e2a1f040c6b9ddfe23eccadbec7c8da173",
+      "1c81bd9cb271f8692a5f5be9a62e8e4c516e669dc9cda1ed58798b2347ee5398",
+      "7b9a4a0f4f3c25bc00bdc06632c36d26b322d8b3f481cea7a18594df66a2a705",
+      "92d47f9f9394a0e5b4b1a3fb4ba4dbf7d7272e99079e22156331683d5ad4a7ad",
+      "bb306766c6b6442144a4c54cbfb4895cb2c1206a692361b21c8b80eec2b0bea4",
+      "d9292650f6485a4024c9fbcd77be2b836e1e1185bea66b5dee6ddc2db13b0aa1",
+      "f89d8f3eb5a21531d9e4e9cb432bca42be4e3970a17865e8f06445852c142aac"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/product/referral-rock": {
+     "url": "https://www.indiehackers.com/product/referral-rock",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:55.227Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/product/referral-rock",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "b6afd5269afa4f60b6b7821a3055fe9aac2a57f3bdd6775516c22bfaecebfba2",
+     "textLength": 9505,
+     "quotes": [
+      "3567c5fb1be12e86ef2974c594178ee20a55daf1826e9a2969332a8ffdec2f9f",
+      "b748c5ef5c28ee83fa146a9de9db3b94ba25eea489d1f0e6455ce4ce0275b5b2",
+      "dde8b155779ed9d281450e30078436a591da26677589474b58e93e1fab66b323"
+     ],
+     "quotesAbsent": []
+    },
+    "https://referralrock.com": {
+     "url": "https://referralrock.com",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:55.233Z",
+     "via": "direct",
+     "finalUrl": "https://referralrock.com/",
+     "contentType": "text/html",
+     "textHash": "c704fb3754a54113f144ed3eb601a4a88d36084b41decf66dce54abd08a408da",
+     "textLength": 18215,
+     "quotes": [
+      "db0b90d4d578ad06b66cfc597dd4ba3310818baacb3e8f8e7fbfebaf3f2a755c"
+     ],
+     "quotesAbsent": []
+    },
+    "https://referralrock.com/pricing/": {
+     "url": "https://referralrock.com/pricing/",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:55.288Z",
+     "via": "direct",
+     "finalUrl": "https://referralrock.com/pricing/",
+     "contentType": "text/html",
+     "textHash": "21ec12473d65b5490d780b233ad622fc2b2bbd1a173789b43ce087cb87c29101",
+     "textLength": 7045,
+     "quotes": [
+      "2355faa5782122e94e16094a14a3c1a3d474512806946803596206caf21ff4ea"
+     ],
+     "quotesAbsent": []
+    },
+    "https://product.referralrock.com/p/october-2025-exports": {
+     "url": "https://product.referralrock.com/p/october-2025-exports",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:55.241Z",
+     "via": "direct",
+     "finalUrl": "https://product.referralrock.com/p/october-2025-exports",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "7954cd893cca9596182722ade8b74d368477a37b864db6cce70e933b45527853",
+     "textLength": 4201,
+     "quotes": [
+      "01d95328f5fb058413ab8449ff90402c89da958448a661817dcea2192d626a54"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_01928cd7b6098a6fa9188efe",
+     "ma_7ebe373632a8ba559ce12084",
+     "ma_da56b2874f240a4f70fa8d1f"
+    ]
+   }
+  },
+  "ent_requestly_28e9f2": {
+   "sources": {
+    "https://requestly.com/products/": {
+     "url": "https://requestly.com/products/",
+     "status": 200,
+     "fetchedAt": "2026-09-30T05:32:29.740Z",
+     "via": "direct",
+     "finalUrl": "https://requestly.com/products/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "0f2394e0c80741f4599969d33662a1ebf33543c5b93507b9de2703fc271d2b62",
+     "textLength": 6372,
+     "quotes": [
+      "6adcbc0433f8563096f66cb3660270e4d024e7ae4c33a4dd8a4a017702ee5ced"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests": {
+     "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:50.699Z",
+     "via": "direct",
+     "finalUrl": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "e13cbdc935f7ec20406ba7285d0a1690e846f77dcbe89d408c77724cdeaa9bda",
+     "textLength": 13431,
+     "quotes": [
+      "07c91e269cf34ff3d5da040aa4d0c5110d7feed877f6842cd3149038fdef6287",
+      "0a4f7e5d158f507010dbda1cea437ee2955f28d27ded022427640a0d9294b9f8",
+      "1b9f0d2c221f54868ca6db95f151071b283c95dccb0835b253303666e8eb3641",
+      "2c282825105d9e0c5eb0a7f584ab92ed2ab1976ff408c8d2cdfbbc0440b6fa82",
+      "cfb2b1d7b71f152fa323a3de38a8d0ea3af6f2be56f02efdbc924c53c7a10829",
+      "daacf225a12057bb650248f97ba15e07647d75a1b6ae9b4b98ac266a21799072",
+      "f837620ca88a72bb8a3ff25909d8e5a479539ba3a3f7b86e23e122246c8b4c0a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://baremetrics.com/founder-chats/sachin-jain": {
+     "url": "https://baremetrics.com/founder-chats/sachin-jain",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:50.913Z",
+     "via": "direct",
+     "finalUrl": "https://baremetrics.com/founder-chats/sachin-jain",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "1f0dc780d61633d2029130c443c6408161168b3e13a1c27e60db5f9380485041",
+     "textLength": 8145,
+     "quotes": [
+      "0626ec915a2718d400ab2d7894c79e7e6b0482d5a8ae7e620476b8045c896f41",
+      "2d33291f7c634a2fafd09742d789fad025719b288412a35cfe6e67d4c53a668c",
+      "3baec086a6d7f0321f15be524bd6ffaec48aaf848cbb23cdfd202abbf0780df9",
+      "46bfa3c76c6e182a1e79bb4f8488807aa9e53907b8c1fd624e3dd8d31f2f4d5d",
+      "4a52dad83b4426d88dcf2305f38edd31822bb6d58f1c3727f7b11337a7e7eebe",
+      "7b245128be2cbef49489f4e65f282411c0d63ac2c07b1f80d2a26e03f0757e06"
+     ],
+     "quotesAbsent": []
+    },
+    "https://requestly.com/pricing/": {
+     "url": "https://requestly.com/pricing/",
+     "status": 200,
+     "fetchedAt": "2026-09-30T05:32:30.510Z",
+     "via": "direct",
+     "finalUrl": "https://requestly.com/pricing/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "9f4f9c51036c558524dd1020626d28c416ae2753325a5d9c91569d4c311c1894",
+     "textLength": 12966,
+     "quotes": [
+      "549a989dcc65d7e4ae6bc419cc9cf8c32d2603af7ac244526dd5ec858ef2755d"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_dfaaa1671548242e09d1a118"
+    ]
+   }
+  },
+  "ent_rfrcui_64e924ac": {
+   "sources": {
+    "https://refactoringui.com/": {
+     "url": "https://refactoringui.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:26.524Z",
+     "via": "direct",
+     "finalUrl": "https://refactoringui.com/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "09ff6fa2d8501ea8d7b15c767bf3c24d458e173e49d8161abb7af493f16a55a0",
+     "textLength": 14777,
+     "quotes": [
+      "1c9421ed7da5c3ba2b63290893615a3066bd0eb70201a1995ffcee594eba185f",
+      "329e0c1c04b683e9fbec484b636d363e5fa0aed74dfd06dd259374f81a4113f8",
+      "56529e4226b3448acf9fa9fdc2f1da72ef616188e2afcc0f7716b5af3e81122d",
+      "a3767576c9d2bdd05d123c6bbee1a2683ca000126124e92289f0815e7cdac504",
+      "d37b4328ee3c8fdf7e888e2bfa6782fd06abdbaf85447588bd8d0d3ecf01b0dc",
+      "f9b14b202b58a7a4d0ff34453e2817033a7a63b6ba0e765436f29481283dbced"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724": {
+     "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+     "status": 200,
+     "fetchedAt": "2026-09-30T05:23:44.905Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "9dd12286632e89e148e0830ee6864f3d2d903ef481971dddbb87ce68a9e9c1fb",
+     "textLength": 47805,
+     "quotes": [
+      "90f4860890ffd8ecde1d8a35e755b603da3a2cdc162ba61ca40f5d900d2cfd1a",
+      "a82c59ef0307c8dec27d350f8c34b5f724a09660dc7cf1e85374de271bd6d9dd",
+      "c9310d7f66b252d439f0e8244a82a7ab891cd73b9e22e39f9fbb50fd9d8b9090",
+      "ec04eb422faaab49c0e18e990405af4fddd301670be31999b158c9e839877de7",
+      "fbba109ec60b01e93a4e7302817beabace9100909d24fe49d5e3c6e8832b47ec"
+     ],
+     "quotesAbsent": []
+    },
+    "https://marketingexamples.com/landing-page/pricing": {
+     "url": "https://marketingexamples.com/landing-page/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:35:27.665Z",
+     "via": "direct",
+     "finalUrl": "https://marketingexamples.com/landing-page/pricing",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "18c233af655d1f880384786bf8725da7a590ea75ffbff591d4a32c89f0b91104",
+     "textLength": 11767,
+     "quotes": [
+      "0614d0a8831774b1151fe93815f5e32046d5dc1402395f2c66a445c39b7d2e37",
+      "91631e25ce5efd3f38b4fa78ec0c041ccabebdb05f774ed124ca25e476aa4e78"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_0d08a876319fde0f36750dad",
+     "ma_32946476ba414bdfcd765d2a",
+     "ma_6d3b876c8c95e4a50f501bb9"
+    ]
+   }
+  },
+  "ent_snipcart_9a1012111695": {
+   "sources": {
+    "https://snipcart.com/about": {
+     "url": "https://snipcart.com/about",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:27.912Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/about",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "f3c615e3b77b456ce6497611d3e65bb88144f3d0c6688360f71b8d864445ccb8",
+     "textLength": 3630,
+     "quotes": [
+      "04d02d2451f1ccbb6fd49909f7c776ab2056d9509cd6b9ae3c62c65f471773f9",
+      "745c8e89c6df840e50e414e6f0c3198070434675723dfff066f3e65ec47e4ef9",
+      "aabf1f17b8b515e337707b6387c4086b7bbcdf221fc87b6ca3d326029f82f69e",
+      "ae421ebb05ac8fe2224949b98ee3ff168da5cb2fbc1a67b72bb6ffa934108696"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/blog/jamstack-ecommerce-podcast": {
+     "url": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:28.291Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/blog/jamstack-ecommerce-podcast",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "d696162a9b7f1d846590930ba10dfb7bc8feae5cc4c7018e6cf1a4cfbe45657a",
+     "textLength": 49940,
+     "quotes": [
+      "01ecea104f4c7f7409073d20e2f5f677cfc49384ce1f6d3e548701c1ea90b2a2",
+      "69fc47a89154d9a1cc1efb50954a4ae842b4c1523d7f0bd86325baa1f41006fc",
+      "7140354e0c1946cd1aeb63f31dc98724496b6100a7ca866474e8e7100beb4dad",
+      "9c5f73b45513ac1c4420d37111c7b9c4087325fe2a9f7d299673f5a54b443e5d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience": {
+     "url": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:31:02.307Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/blog/advertising-with-carbon-ads-our-detailed-experience",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ccd4424b9e5d562c193a5ab1a0f46f27713c5afc229e9deb99ae7967f3bda07a",
+     "textLength": 9858,
+     "quotes": [
+      "3fa0fd1e6612e3b6ff1bb737ecb71aacac652d9801859fc2b8282c689864a2f7",
+      "542fe0b9e57bcbb9b96b5294b3431138a2c8cee182326bb90527f3981ecf89f4",
+      "8aacaf84ea9e900693d0e1b7b7d28564280fc9850b66cc792e9817969a0bddcc"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/blog/topics/ecommerce/page/7": {
+     "url": "https://snipcart.com/blog/topics/ecommerce/page/7",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:28.787Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/blog/topics/ecommerce/page/7",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ac58203821bf0b435bab45df5da274ebf5fdbac0e64bf081881ec99324a1fd5c",
+     "textLength": 2465,
+     "quotes": [
+      "1b2fc542ecc49d939e0d4c63896d7a9ae2d4a1391fee84e0b2ac8decf1ff88be"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/blog/b2d-marketing-selling-to-developers": {
+     "url": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:28.800Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/blog/b2d-marketing-selling-to-developers",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "6e9f5c8f2991c42072ef9b990ed96302864e950a6b1d9a8c7c0138eb81da9beb",
+     "textLength": 15736,
+     "quotes": [
+      "304bd3739ba20da2a69f7722300051277e43afb70bf35542b3b0c93f34ade732",
+      "a8fc4832d19785a521f9413fce66fc5acc7607b84e14ceff5431ab6cf3c99554",
+      "debd2ac51b5133f5c9ae3f316fd5486c07aa3c2df037cc4a3468b315522a4520"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/pricing": {
+     "url": "https://snipcart.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:29.049Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/pricing",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "41a68c81413d5c51f1eb53566f80cf77c214e0080acfb192e37ae936a386f547",
+     "textLength": 1932,
+     "quotes": [
+      "62c745d1dd9b0066a704b2cf384fcd7ca7060b2c2f85a36caaf87829ada69799",
+      "72652c0ea8fbe9c21fc4452eb818cc3ffbd4123ae86b6941989282d4f1b988ef",
+      "c0ef3045b08cc92545f35d0a06c039fb5c2f298d9ce3a5e321c70e2d7459b760"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/terms-of-service": {
+     "url": "https://snipcart.com/terms-of-service",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:29.494Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/terms-of-service",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "2d4e8b935cc80294a177c4a26df6abfd12d699d01b8e92c612b88b02e854c761",
+     "textLength": 3694,
+     "quotes": [
+      "7bb522bc0296568f5fb1494b9f3146fc491845e1f1c7b476086e37fedf30bd69",
+      "85b49000f4bd9a0729051140abccd992712564499cbb4894618a534fc9a46f97"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/merchant-dashboard": {
+     "url": "https://snipcart.com/merchant-dashboard",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:29.616Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/merchant-dashboard",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "911d56f7bde9c2b44a06d160fd3e4e9a579249070e83b56fac8117399452a9fa",
+     "textLength": 4139,
+     "quotes": [
+      "146764333911a57abb94331bda0948f72a79a03427a83de6e465a7eaa0c08837",
+      "34781aff1a1921d53d0edb9d7397327e2d9e99387cb03bebd3515dc781c911cf"
+     ],
+     "quotesAbsent": []
+    },
+    "https://snipcart.com/faq": {
+     "url": "https://snipcart.com/faq",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:31.412Z",
+     "via": "direct",
+     "finalUrl": "https://snipcart.com/faq",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "92e0df5f152dc4ecf7b8b9164ed8a8fac29c1bb890405eb1aaa9553062a3da47",
+     "textLength": 21259,
+     "quotes": [
+      "b3906d5393aa31b9591d6f8de5dd91f5721c745cb3a98e77dc4db12302dfbab0",
+      "b786668339e5f153aaa18de7ea38d2bcd6ed2625fa44009d2eb7d1fc12747ee5"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_fdac7cf75dec28a3d7d29b72"
+    ]
+   }
+  },
+  "ent_statusgator_316d3eb5edf6": {
+   "sources": {
+    "https://statusgator.com/blog/?p=76": {
+     "url": "https://statusgator.com/blog/?p=76",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:31.516Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/blog/?p=76",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "27be296690ae6ee0318b580b0c43d2d1935e208383bf2242ea4c231c7caeae5f",
+     "textLength": 13216,
+     "quotes": [
+      "2017f0ba62acab9e5ae0f9685b5a2904c7f1329bcee850f5f9d3b36341dfd799",
+      "34a695db37004d7c8be58dc7b843d2d80a327b5d27f464b8414d3b3b4ed777ad",
+      "3bd852dfe806095c2398223805d7b2f6dfb88c48c14038dedaa4009eabf855fd",
+      "631e4ab46b83035906aa61344ccdadbc35984cf9d5be21468893fade73ce0510",
+      "989e521e02ffcebb1f6455249754d4cde212e658724c9847ff5880b1b8271687",
+      "ce173668f7db769858e9d0c553fac2193ddc7a18b581e91d70d663126821b693",
+      "deb0fa178d0c3bf1c8b322dd2c88d0a7986c113318041ea3aa2521718b00655f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://statusgator.com/about": {
+     "url": "https://statusgator.com/about",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:32.071Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/about",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "66e0fa79635bcdad0e81d7ebc4fb88be75ff08de4114d15381ea3f1bc27e6acd",
+     "textLength": 8067,
+     "quotes": [
+      "01828a3cbed4a681a9cd7a8fe92dccef791f66fb81e32f59f678dfd48284ff0b",
+      "2492c1e6aa127878d5031d1070f15d0be38cf130a4b8fb92dea048305ca73708",
+      "36854e67f0cf3fe5a79b06fb6ecc60bda1ec20317282f3dee4436a96f127629a",
+      "8b48b8d4b8df59c74f3a8449325816a5784b1d286eeb3486980e336388a6cd48",
+      "d0894d88dc4cc657372f91f1a9566db12a0f42bc2fd54c80e80f6bd9e92bb19b",
+      "d69ac143704fa2c35a0654c3a80dc580456ce6635eb690f823a2784b9d8d7543"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W": {
+     "url": "https://www.indiehackers.com/product/statusgator/big-losses-but-bigger-gains--M6KKZqsWlKNTegZKy8W",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:32.370Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/product/statusgator",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "dd206f4108c5f9536f420c6d0caf2f3926a2c4b25b0d1cbb3bd5ad7bd4bf6fbe",
+     "textLength": 30841,
+     "quotes": [
+      "078df91e24569367c9ae78597d1d048f82a3b2107df727dbba88d339db001663",
+      "640d1fc5980b2180c42487ab7a88860622872166193edc14c81c82006cb7062a",
+      "f50e2ca34f6c343315f9bb117f6100f183947adc3c239c72df6cd674a6ceb184"
+     ],
+     "quotesAbsent": []
+    },
+    "https://statusgator.com/plans": {
+     "url": "https://statusgator.com/plans",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:33.440Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/plans",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "ccabda01c5ca24dff80163b97c58acc2d0cca1d6eebde70b76a71f5ae3c3bac6",
+     "textLength": 14630,
+     "quotes": [
+      "2c822f2a854a644930ede0749d0fd64e9c824301b2ec195ec1389f3f9d08a4d1",
+      "507bbf8efa49c7748eb12c47dea2903c71de0c6bb48f535892daed4ff3d98063",
+      "76692cdbfe2fad15d660b4b4e8c9a7c1693ca403184859f5ffc25e92d1378507",
+      "fdd40ddac819169371cb4dfd4e52c787035a9341a9d795a052322b9c8c626a53"
+     ],
+     "quotesAbsent": []
+    },
+    "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan": {
+     "url": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:33.764Z",
+     "via": "direct",
+     "finalUrl": "https://support.statusgator.com/support/solutions/articles/47001281501-upgrade-your-statusgator-plan",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "d8619f9b6d3eb73ef845338b572db4d8a731e18d4498b5df8360dc25720891fc",
+     "textLength": 7741,
+     "quotes": [
+      "6be7029d03bf86831f09029d54b629c1392272aadd5b60c3585d8f05f7e932c9",
+      "dd8b9041cdb3c2d5a62be21667ecd0eb58c3d0c487d636a823a8bbbbb22f5b3e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://statusgator.com/trust": {
+     "url": "https://statusgator.com/trust",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:33.773Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/trust",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "a074b045d14473520d270a0187821489f37ee55cd0313ffa211908af370e251e",
+     "textLength": 8938,
+     "quotes": [
+      "1e1d5e15ef35a3da637d0cd6b52f2d18c4a66d97412f12253d4d3f64c08c6000",
+      "57aa050af7b554a2c3eb8a5f0dc139e864db0f08f41eaf7c00052e07c5f1a281",
+      "b7a32a3506c5dbb92596910e539706a447b7e5b87b91dd1be21325f4275e2ebb"
+     ],
+     "quotesAbsent": []
+    },
+    "https://statusgator.com/blog/tinyseed-perk/": {
+     "url": "https://statusgator.com/blog/tinyseed-perk/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:34.303Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/blog/tinyseed-perk/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "85df9d6648d35a29421e49052614aa03d62542837d543d81bcf615fca8a6b585",
+     "textLength": 12778,
+     "quotes": [
+      "fef280c383072246d39a462075cbb299dc69efc91b8393c7c15dfae67193e69e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/": {
+     "url": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:34.645Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/blog/case-study-how-event-planning-saas-rock-paper-coin-monitors-integrations-with-statusgator/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "a18175c6b5660e53d3ddefaa95353c2a8b964d0d4d8471609e403b8b42b9fe76",
+     "textLength": 14240,
+     "quotes": [
+      "a2beedfc11d7d7f4ec65473198eae13f9c42a94dbb95479a2e701a3be751530d",
+      "e784b9cc3959c7279c37ac1c44f322a6d3fc17781ee8125c4adc2e50c36d2103"
+     ],
+     "quotesAbsent": []
+    },
+    "https://statusgator.com/blog/top-tools-for-educational-orgs/": {
+     "url": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:34.974Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/blog/top-tools-for-educational-orgs/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "fa603014ad818370a35a5a481b2650739e755fefb085b27c465f1627429fa0bb",
+     "textLength": 18876,
+     "quotes": [
+      "e90d59db93e3dbe6c278246982214145ea8980e19a544efa5896655093d635ef"
+     ],
+     "quotesAbsent": []
+    },
+    "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/": {
+     "url": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T10:38:35.017Z",
+     "via": "direct",
+     "finalUrl": "https://statusgator.com/blog/the-statusgator-mobile-app-is-here/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "d8568fab4b7cd7c68657f7d3891bde3c2ed784c89d53830f39f5ae861fddf141",
+     "textLength": 12886,
+     "quotes": [
+      "d0ca6cbcb27f4cefcfe5dd71aed26636cf5e746234b876bf89df61d65c98ba49"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_6ba6dcb496f326d8f782ef34"
+    ]
+   }
+  },
+  "ent_teamcamp_ae0c21986c4d": {
+   "sources": {
+    "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68": {
+     "url": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:48.541Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "a1b12d014b84b78cd3743a79bd2f7d5272a56a0a649751e2e38cd6d37c2afce1",
+     "textLength": 3139,
+     "quotes": [
+      "6698bdf85b77584e1e4eedd4b16a021a4025cec05a387af0f403ff72f70678c5",
+      "e91b1a6e0081e8469f06123152ecd01894663b5852f4c47f2b1ee161a4b4b080"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.teamcamp.app/": {
+     "url": "https://www.teamcamp.app/",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:49.041Z",
+     "via": "direct",
+     "finalUrl": "https://www.teamcamp.app/",
+     "contentType": "text/html",
+     "textHash": "594209a2bfcdc7ed26d5335dc1850b823c01bead9e333f288e5852a769cdd167",
+     "textLength": 7278,
+     "quotes": [
+      "6c87d098be9d3b2524e282ac5be40cef8f357822ac34be47e9611ef6437442d4"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.teamcamp.app/affiliate": {
+     "url": "https://www.teamcamp.app/affiliate",
+     "status": 200,
+     "fetchedAt": "2026-09-30T04:39:49.306Z",
+     "via": "direct",
+     "finalUrl": "https://www.teamcamp.app/affiliate",
+     "contentType": "text/html",
+     "textHash": "c62013a10f0ed41407d38e7e7bc60aa544fe7487ade93083654f5978cc277cac",
+     "textLength": 9323,
+     "quotes": [
+      "d13a3df7ef95f287e2b6cec9e21681dbc2db5c84ec6458c53eac682b7150ce12"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.teamcamp.app/pricing": {
+     "url": "https://www.teamcamp.app/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-08T00:04:51.779Z",
+     "via": "direct",
+     "finalUrl": "https://www.teamcamp.app/pricing",
+     "contentType": "text/html",
+     "textHash": "3b7d42f3eb47ee5c0c6c1498699d44dbe7d1e509758fbde3a61f6526ea76f1f4",
+     "textLength": 7600,
+     "quotes": [
+      "c42a633ed275ce8b511adf468f627e5b9924480fea3ef46aa2765c43c737064e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab": {
+     "url": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:34:32.937Z",
+     "via": "direct",
+     "finalUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "7eefedb899b7320753a48a493f2880ea07a430214ec9942a94294f6ead2d7f61",
+     "textLength": 2848,
+     "quotes": [
+      "7cd6453f9cca691ffd326febf57dc1fad30cb6b9d5cd19e9dbba02fda2c46e68"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_15580921ca62c8f0e971294b",
+     "ma_1ff804bb7be5769642cd91bd",
+     "ma_780fe2fb656c6dc6a1fd4fc6",
+     "ma_9d175efa206c33c39367f037"
+    ]
+   }
+  },
+  "ent_tuple_20261007": {
+   "sources": {
+    "https://tuple.app/": {
+     "url": "https://tuple.app/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:55.728Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "4749617828582e576984f6b6fed164c19afc9675ca808bdf5f714db8e2840ac4",
+     "textLength": 7982,
+     "quotes": [
+      "34269984d1ce32adf88b89cb5977d7c57a3f536fc3d0950108ea0f554454fe69",
+      "805664b900e7ccedcdf5f3a45b86f4b2d784691ecc87f02ce1ef6d23c30a1737",
+      "e8cdb2c826104aa8e6a8787876d181610a589f40fb96ffcac9612ef8c2108df5"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/pricing": {
+     "url": "https://tuple.app/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:55.735Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/pricing",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "bab5c5ce4c99645a23976abd35e7d0e153483a501aed4650c685da808e85a98c",
+     "textLength": 3997,
+     "quotes": [
+      "096566184cca6333d6d3795916e0978e57392f13d11fe7611a74fa8e6b725a5a",
+      "5e47ac75dda9366eb4a212e214323c7ebedb97fa210b27c2867fb58a22d53136",
+      "7ae9f69ba1d7242944533b8992110bc3bb5f3e04ae1367083f2a69036f51d9f1",
+      "c94e9eea8dd6268429ab6710577ada4035d9b74f29fabb346a5ddf41b6f06089",
+      "f29f2ddfff5d2179666bc6da8ce821705316b4d19247efcea52e401badfa02c7"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/2020-year-in-review": {
+     "url": "https://tuple.app/blog/2020-year-in-review",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:55.739Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/2020-year-in-review",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "4fec6c30eebd208a6271ba7a9e2d4648abbf0c869176b045fa8d57d71953ded5",
+     "textLength": 7497,
+     "quotes": [
+      "0290ed5e599cad9cbd7729e26d71761dda961d616dd6ccf0c96f9e70461c3b37",
+      "5f94d9c31810fdceb21a9a1721c215e053063d3bf32cd18443f71704f31aa31b",
+      "87114f963fa5fd08c5e88cf66183a4e0eb1b7f938ebfa20f75332912b66fec0a",
+      "ad3989c8757b18faaf373e26839bd4841e5790ce2d8f2dcda6d8c6b6a4916bf3",
+      "c37d8c9d1b90ee06adb21e5d63684cc9a87c507d055dd99dd0b24a9be2c27d86",
+      "edb2926e7ed5865b1f5efb341dfdd6cde27fd69f4e1123258c251c65ea28626e"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/the-realness": {
+     "url": "https://tuple.app/blog/the-realness",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:56.534Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/the-realness",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ecfbfad8cccf340dfff511ddc539401553b038d207e84c812c9dd4a06fa565de",
+     "textLength": 10985,
+     "quotes": [
+      "42798415f2132c2e5aac8cbc98aa3f072f95dd5087c66e3b164bf79f3d13ee4c",
+      "7abc2a29c83f79c66af8dd8ef7beb4895b5056b3d741da313a7940cf50eac26d",
+      "7dc9b537b5bdcfae38b6be863d0bbd6e8bc9cf8aa1953ccf69402f120d71affd",
+      "f3bfe7c77dc3b104187e1bc9369e65010cdb265c9e30890495b459d25bf853e5"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/helping-with-hacktoberfest": {
+     "url": "https://tuple.app/blog/helping-with-hacktoberfest",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:56.655Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/helping-with-hacktoberfest",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "8e8d48b6821aafa032917e98d1ad1312ed6d232ea24605704ccac0db2e5ada2e",
+     "textLength": 3102,
+     "quotes": [
+      "864199ef746c1ec8cc36b0ce3400c59ff738f3fb1b218a2b6225e247e536f0b8"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/august-2020-release": {
+     "url": "https://tuple.app/blog/august-2020-release",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:56.720Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/august-2020-release",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "d7e20f2f7a8b27d072bb05d4007a01703baa2a601f7cdd3873bb976a00fa1fb1",
+     "textLength": 6880,
+     "quotes": [
+      "459aba9f947f2131b963ccbda319982f7d8a6305e1bfc4ae103ebfda361b5826"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/three-player-improvements": {
+     "url": "https://tuple.app/blog/three-player-improvements",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:57.189Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/three-player-improvements",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "129915d40cd0759bdbb905597e455b88faa92345b21123e83e10cd31f7107a6c",
+     "textLength": 2741,
+     "quotes": [
+      "36310127d72fa5f1d1efa5eaba6b043095f8b4de4f7fa56d69f21dd8f6212d96"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/windows-public-beta": {
+     "url": "https://tuple.app/blog/windows-public-beta",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:58.169Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/windows-public-beta",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "068910049f975688672b414191253585017533d5ecdd1b3a06045615f051794f",
+     "textLength": 3619,
+     "quotes": [
+      "4d9a378fb69a35e5a7910c8466241554cfa6d79ea57f8d2eb3937e098f6be7cb",
+      "d4b4a4926b9fa0df3b86ee19d5fd4696c927334e2b10218ce83a23e9755aac36"
+     ],
+     "quotesAbsent": []
+    },
+    "https://news.ycombinator.com/item?id=29641907": {
+     "url": "https://news.ycombinator.com/item?id=29641907",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:58.258Z",
+     "via": "direct",
+     "finalUrl": "https://news.ycombinator.com/item?id=29641907",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "c693cd50efb7dc3838c8537cc826df4aa92357c6c784f4d49ea83f847bb536ca",
+     "textLength": 47423,
+     "quotes": [
+      "1aa3329a4f0d8aae88f44bd38c518e1c8dea7552773f517795a2139d48f79299",
+      "5dba9227e16cde315fc72bc9e8e262ef8366f99712acddc8444489bf8459122d",
+      "d03e0ec2ef0123d96870d5325e5feae7a252461355636b7ce66e5a5383ff9516"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/sso-should-be-table-stakes": {
+     "url": "https://tuple.app/blog/sso-should-be-table-stakes",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:58.614Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/sso-should-be-table-stakes",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "694eefc58019cdfbc8d0ffda8eeab4b95385b1be668a46c8ca4249d014d0e6de",
+     "textLength": 3869,
+     "quotes": [
+      "3598f1fcadbaa4fb2132a01ead3083d8c6f90fdd9590c524c715eda38c20622b",
+      "7a5791a54357a4ccd934e46c9550a104787b7ffc09811500576eba1dfff2d34f"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/suppli-case-study": {
+     "url": "https://tuple.app/blog/suppli-case-study",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:58.823Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/suppli-case-study",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "8127338ed0abf8053b08aac9a45b845c79c07ea7f670b89715c0d8ab614c0a32",
+     "textLength": 5347,
+     "quotes": [
+      "290854e55a0b6878eba054c47f6002123dd7840e434d5c909cb68633eadc6f9b",
+      "44f8456845811c8b6e8307ac10a8cdf13c1ee051ab8315466eeb3ed6cbbeca07"
+     ],
+     "quotesAbsent": []
+    },
+    "https://tuple.app/blog/new-in-tuple-capture": {
+     "url": "https://tuple.app/blog/new-in-tuple-capture",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:58.942Z",
+     "via": "direct",
+     "finalUrl": "https://tuple.app/blog/new-in-tuple-capture",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "368fd9a5bc684b377464a0ad061ee078c15ba5b2d4a71a0a78983e2b970d324f",
+     "textLength": 2217,
+     "quotes": [
+      "5af9a705260270c86438dfc11330a29be897bfd649aef080ca20f7fdaa81e5ad",
+      "869b1e538a969019b39565ea67e845a893badb28034bb50b289c187367ff083c"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_0eb9a795aceb68d370bf3b8e"
+    ]
+   }
+  },
+  "ent_typedream_c02cf9d5426e": {
+   "sources": {
+    "https://typedream.com/": {
+     "url": "https://typedream.com/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T23:30:49.292Z",
+     "via": "direct",
+     "textHash": "3e88817ff8fd2aaca34c48632c87b098bf783b721515dd53f80471d244bc202e",
+     "textLength": 4709,
+     "quotes": [
+      "0e50b95f8ab60799cff370921d6312ff242693c79df992327a1d3ff8f830ad0f",
+      "81bb3436a34867b6589d081a62c8759fc5d24adc395b420c577da1057f2aa8d5"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://typedream.com/pricing": {
+     "url": "https://typedream.com/pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:51:59.998Z",
+     "via": "direct",
+     "textHash": "3f1b793a84b7d488e87f9bca43470ad9c41b4f241781ee43970a5cb48d166921",
+     "textLength": 3687,
+     "quotes": [
+      "203fc01e2f3990569cf83b48a2503bf17432982104591ef6402abf1abdc430a3",
+      "4078c7844432623e292badb1c3a3963519f8d4a3e45ece5cd04c2ab472e03240",
+      "b7f50866452350d0331c49b9d56d721de3395abc991d9273872ba1ff611c1838"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/pricing",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024": {
+     "url": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:00.112Z",
+     "via": "direct",
+     "textHash": "75981592fcec1c352c3d44706850d385deb671b500c67d8279f7dece7a0e2d82",
+     "textLength": 2473,
+     "quotes": [
+      "47684020054e7eb1f9053601bd0a579d0f0ecefc10f6870a2cc0b037782a47ed",
+      "5aa5204f5b0a480807a31d2e73014e5049629b6f611add3811f0b4223e6abf95"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream": {
+     "url": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:01.101Z",
+     "via": "direct",
+     "textHash": "45f3fb31eec1c09dc921d728b28d07a0236c6c285332c460a241082b30d0e4d7",
+     "textLength": 5685,
+     "quotes": [
+      "34aa5a0b1f899fc758a2cbd8500059a77929c8a193ac5eb4592e8426108b7892",
+      "3e13b8e5c9af785a2e53cc966b09a9be831d1815de25d7ba718793f66ec121dc",
+      "a0965eba49e27c620c60c80ffad6629ccc059772a101bed77ead1ce8cc5b87fb"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://news.ycombinator.com/item?id=29084309": {
+     "url": "https://news.ycombinator.com/item?id=29084309",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:01.256Z",
+     "via": "direct",
+     "textHash": "7363dcf977f8a26f1614565c10d5a7e9cff790721a5b55436d82b62e138e7294",
+     "textLength": 34127,
+     "quotes": [
+      "1db76576e970a843fb6dda162c003171034e56d05678e5cba0138e52f99d6032",
+      "5314f384a6717647e78d0799b3909325a7254f6b576338872d5a6127bfb5ec23",
+      "74aad655a32bede33ec0009212940b40765b841030c822096ec441a3a361dfdb",
+      "ccf3a847f798c6abb4fdbb5b659f196833c679b35cd012bd6169dc5e956401ca",
+      "d70dfddb837085d56683f911861e5b95a647a000fd24783520ec1916e0a1474d"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://news.ycombinator.com/item?id=29084309",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://typedream.com/old-pricing": {
+     "url": "https://typedream.com/old-pricing",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:01.562Z",
+     "via": "direct",
+     "textHash": "a8fb3abe17aa08631aa9c6d80f546c280d82af4813f0a51c586a5a7d93c0108e",
+     "textLength": 4369,
+     "quotes": [
+      "0e814db6f7e3e85e9197e40e54c08e45df4f62187b6fd770d8c8484baffd5841",
+      "3ec536fafe4916fa65b6a0ca7d1ea2c9168e698df5064b622b4118e8f481c2bf",
+      "5af7bfc3f71179b122e1205cf8499140f3a09ecabae30f99a19590ab323331c9"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/old-pricing",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://typedream.com/blog/kyleigh-smith": {
+     "url": "https://typedream.com/blog/kyleigh-smith",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:01.709Z",
+     "via": "direct",
+     "textHash": "7ea9d5b0aadbbbf9d0f32a789fdedef20bfa622a97f1118779d9e678cb200677",
+     "textLength": 14845,
+     "quotes": [
+      "3d43b6a2abd1b66efd6eec22f07e77f53bf2b3280ff191f60e9ddd450957d56b",
+      "5fc3677a50fbb7262b92c7c23b25bcd2da3c6a1ff47046ae3c101160d7ec675e",
+      "bef6410363b8d55e2834a0c0b1e3d72ff2ebd7400b427d8426ca7d3287c9b0a4",
+      "d0461f3ea27ffe9ce540cf2e1f2a5dbf23a35c838c22029e44ffee5230838207"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/blog/kyleigh-smith",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://typedream.com/affiliate": {
+     "url": "https://typedream.com/affiliate",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:01.982Z",
+     "via": "direct",
+     "textHash": "4102aa9673dfee78ec8dd7f7a3ab39b80ae2cd0663f11a8c3a2767d87984123d",
+     "textLength": 3412,
+     "quotes": [
+      "4e76f713be4cc9e6fb26bbdd3b175008d5bb21b2f18bddaca3bfbefb07ccff4b",
+      "6e9373357e4fa11a98f9cd6e158a5edf2ea45f006c06616e9e64a197cd0d75c4"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/affiliate",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://typedream.com/refund-policy": {
+     "url": "https://typedream.com/refund-policy",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:02.230Z",
+     "via": "direct",
+     "textHash": "607c173619795fa83a334bd031b65ebd11466fbcdb9e7d70670c931b47914bf3",
+     "textLength": 3652,
+     "quotes": [
+      "eacbd3c8eec49f65a71294dec7719a6306053415e1aad0de719c7cf5b118541c"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/refund-policy",
+     "contentType": "text/html; charset=utf-8"
+    },
+    "https://typedream.com/blog": {
+     "url": "https://typedream.com/blog",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:02.725Z",
+     "via": "direct",
+     "textHash": "90c0a11cad2ff27173bc53df1516f3fb755d511eca9b896070d05a532b1a2cbd",
+     "textLength": 12120,
+     "quotes": [
+      "333f947ef3339eb2e2bc83e4e4224f5350e958ed31307d3c462ed1e566247f61",
+      "3b3b3fd07e3d824bc2b6efd3277664e656087e0d775ec8e0bc4aa5541f52c7c9"
+     ],
+     "quotesAbsent": [],
+     "finalUrl": "https://typedream.com/blog",
+     "contentType": "text/html; charset=utf-8"
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_249a8d1f04fbb9d309959712"
+    ]
+   }
+  },
+  "ent_userlist_a288fcf9f741": {
+   "sources": {
+    "https://userlist.com/press-kit/": {
+     "url": "https://userlist.com/press-kit/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:02.898Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/press-kit/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "f54ccdc89746e87848778eac8bed02791fa3c283d4ce030c0b549358f2f1a1fc",
+     "textLength": 5994,
+     "quotes": [
+      "0fdae367a709719a3f643fd7dc86643eece208cd4d36118de4fa25e04e607876",
+      "415ea92be3b281b2acbe83686813007915fcc5510debf7aeaa749d0fd6600288",
+      "6d779b4a6bdc637aeaa6e2e38c684115b3e97e160aa6f596d036c86e5d9af070",
+      "a9f79b535f626f6669f61469394b6379968e54f862f4bc7ffb4fbd62d7bd2484",
+      "c61797821c75d1130963e159478bd6cd712d5e66d4df261a2abc75390a4dafab",
+      "cb8a9882307d87f21d6bf3eb11caa3ed0f58b1dfd1c5a7e2e67b163e1ab5b815",
+      "d618102b0cb85837cf05ddf4613c5c2b1cee3f9b96b2cad5adcdc67406adceaa",
+      "db661252608d3427d7fd1a7a2532a6af9cb603e73feb7587834c7957fc3f895d"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/why-another-tool-for-saas-founders/": {
+     "url": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:03.743Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/why-another-tool-for-saas-founders/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "27803455495c655163cec043145c3d19c5428d564133badd7ee0fb6f6a192889",
+     "textLength": 17487,
+     "quotes": [
+      "2935e33a89d6f71c8aee25eddfd3404823a03c0c208a4ee6b64ffc0889edc9f0",
+      "76054ee1257562d3303a0f3d84f6ec1bf79d10bc23ab09798e226c575d010d5f",
+      "b135d5c30ff31b429606ef8b3986551a7ab8e9b3cc400126fc6c07a86b5ef688"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/customer-research-process/": {
+     "url": "https://userlist.com/blog/customer-research-process/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:04.053Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/customer-research-process/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "a126d68dc287dbf379699d42d6dba741febfdc417c7e2cfdde3be693ce849104",
+     "textLength": 22111,
+     "quotes": [
+      "59c3dfcecd6490eee671c017a0f515d656cb2b952c31f2ee5a38d99c90737a6e",
+      "706526ba7b251e7daff4896cb4ea1269aa3cf3d3561c363eea6dafd33625320e",
+      "d777b5e0faa03a0f9bc378b77f292f00dd33872e7cfa096abe99817fa91a529a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/pre-orders/": {
+     "url": "https://userlist.com/blog/pre-orders/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:04.280Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/pre-orders/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "de15b22c4d6ff86eb229d2f9b0bfa62afd99d052c63e246f8a8a4371ce18ef80",
+     "textLength": 7963,
+     "quotes": [
+      "038270e6024c52f1867e611f9834fd68d97f8ec9ef2de4ebd4e1bfdc66f5eb27",
+      "552e2d95be4e5b11e626f27dd11fdfabfa1f7f6dce8398de80a229f03fe86609",
+      "a1e64d68d99155de6a2384292b28becd67bb661535db00feb56d22192b16024c",
+      "c3aa7c02411025ed09d694607a69a2c00e973a5dd9526f9071b67eddefd61407"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/early-product-design-decisions/": {
+     "url": "https://userlist.com/blog/early-product-design-decisions/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:04.707Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/early-product-design-decisions/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "2d7c53e79d33941e67671aab66891622d5b2db91a1868f51e57b0f9e34d8b66a",
+     "textLength": 17396,
+     "quotes": [
+      "5366efa68971807d386abc5b04fd62c37c513b17d8b1d522189cdf1c82448e7d",
+      "bf9329b8bd1541dbe1f939f56e1c55844f03fd54533b39acc999ee148b9a59bc",
+      "d004ecccbf03e15b6377a56eee67a597f3051e94301ab17fab406597a6bb95db"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/launch-strategy/": {
+     "url": "https://userlist.com/blog/launch-strategy/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:04.906Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/launch-strategy/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "bf8eb24ac22310ba806834565d5f9a288cf80cf4aeda17bf2b702816d5566aab",
+     "textLength": 16587,
+     "quotes": [
+      "0ddb2e049ff28db324cfd98caf0accca2468710691a247f54ff62473022d7a8f",
+      "5c0f19ce4d70a4128929defd0f1b50098aee4c16d9075f9bbdb4475c650c8d76",
+      "d3c8b860a5344095afe79cccbb1ef7b8582e78137eafce292310e87b18ed4e5a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/userlist-officially-live/": {
+     "url": "https://userlist.com/blog/userlist-officially-live/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:05.108Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/userlist-officially-live/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "c7cef77a446fcca82bfa5f2259ae7629ab34dbfbb89cfa63a8a6d1027698de1d",
+     "textLength": 6843,
+     "quotes": [
+      "c20d88653cdb7361db13b1a93708d398b67a946bb547420c539976df75dd2607",
+      "d75a4d24990aec46b625491f2e1aa49c2825f8a9088d2fc2d5c28c27b07399b4"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/positioning-overhaul/": {
+     "url": "https://userlist.com/blog/positioning-overhaul/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:05.512Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/positioning-overhaul/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "cafcd44ead38d88d334b5474e930a3d8b3fbf79b6159113aa448e3c8d4fabcc7",
+     "textLength": 20830,
+     "quotes": [
+      "15836c9a69f79fe015e6d3ee7f8e0ef5cab0941eab2130b86c29cb58401e8fc9",
+      "25e70bc2650efb09512d00c0dea4376e747c98e856f6d7dd10b48f29cd7e4145",
+      "e6d78ba439fb328a309a620ceb796bcb8e59fd93410f1c02a6485d7bde2f92cd"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/pricing/": {
+     "url": "https://userlist.com/pricing/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:05.623Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/pricing/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "cb6ca77e06d7cdfff1536b6159cb7380a5b3d8f9d738641c07cf0ee164c1da44",
+     "textLength": 12392,
+     "quotes": [
+      "2946e374149b510d263c924463fac48b7d4d9d06915e9a6f0deede44120fa066",
+      "444ebde0d5e08f62c207d321e783e11f6a1c1095cb11b8edc6b3065d56eb87de",
+      "e29146113c351962be214506cbe6c9f843f7062aa6a812373a35cb9346eaf4cb"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/services/customer-loyalty-kit/": {
+     "url": "https://userlist.com/services/customer-loyalty-kit/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:05.924Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/services/customer-loyalty-kit/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "6c0f9666bad24cf68fbda4ed4cffecfbf23230b814e18ce1aa4c10ddece0ed90",
+     "textLength": 9029,
+     "quotes": [
+      "4375d408149298702748a4d946a9e23be1bd6b6facc6daf68d6c40ba759eadb5",
+      "449e8259bc2f5ef8ab91eeb2072a210da8227df1171f6963bb10a908cf7a927a"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/case-studies/agent-methods/": {
+     "url": "https://userlist.com/case-studies/agent-methods/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:06.477Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/case-studies/agent-methods/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "ed38961eb88f3baa9c34ad4fd42fc926ed9cd5b7ee71730c27fa28554833cf52",
+     "textLength": 13349,
+     "quotes": [
+      "68d76c1a680b28fefa392e1a322432752e2dcea3c608a81ba572c15400b8a373",
+      "cd95ed8e4993afbdcffe36fdb75707c2d765eb810b40403bf64b6822dc2c6304"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/case-studies/fileinbox/": {
+     "url": "https://userlist.com/case-studies/fileinbox/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:06.662Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/case-studies/fileinbox/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "917995a7f39738e4cee892aed57f012d7bb9d20272830565301fcb58c87b9aac",
+     "textLength": 12120,
+     "quotes": [
+      "8e57e75b3aa776a6a38d65976ccae60ff4d294d019ad601b183171d7d5d204cb",
+      "f3bc5f463b598ec5b45cbe8138b149ec786ec8dd814325b561d24359cc429681"
+     ],
+     "quotesAbsent": []
+    },
+    "https://userlist.com/blog/how-we-redesigned-userlist/": {
+     "url": "https://userlist.com/blog/how-we-redesigned-userlist/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:08.433Z",
+     "via": "direct",
+     "finalUrl": "https://userlist.com/blog/how-we-redesigned-userlist/",
+     "contentType": "text/html; charset=UTF-8",
+     "textHash": "55e0975bbc9cf629a67952c1784e06e9c0fcfe653a0966d21082478529a2cfff",
+     "textLength": 16463,
+     "quotes": [
+      "ed9439c33a084c8b2c70a0dfd0fdb7318b6458534b7b832ac934045158c95bb9"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_14fd3571b25d6679faeac0a2"
+    ]
+   }
+  },
+  "ent_wip_5eef8a985270": {
+   "sources": {
+    "https://wip.co/": {
+     "url": "https://wip.co/",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:09.445Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "8f5c3822d6dcf44fee5e5166dbe48f65c63c2ad0620febd1be4c87dc179c9060",
+     "textLength": 5976,
+     "quotes": [
+      "528ad8b96e640594df44880d2739eb7329f83ee647715ff972f2a1e5583d5413",
+      "d803535539d6dd5236c4bfb3596f58cc569b24cde8947dd72ca19a6aefafc615"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4": {
+     "url": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:10.393Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/posts/proposal-make-wip-free-and-invite-only-q27re4",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "8d6c809fee9c17afc5f6543ff8ef95592acc0e58cd717cbebcd5744bf40881f9",
+     "textLength": 21989,
+     "quotes": [
+      "3e6b8a066eafa61ba679717481c827ac8b25b41aad736b0b2ce35482ba6866dc",
+      "75c32ff6ea72af7447254e205368d20ce6c4ebf9d67d73ddfedb00d2917d8bc0",
+      "b2240d997672c56ba83ce0f35a2f8e267b41661e493b2026765554b419b5ad19"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua": {
+     "url": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:11.116Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/posts/wip-is-now-invite-only-and-free-c9wkua",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "2669dfecd4e05ddacf12e385914f88aa999b2beebf0fa2fd285e10a3f066c383",
+     "textLength": 6509,
+     "quotes": [
+      "4ad7e100ed48cbe16a51755bb32bf748842df153f96f6e4d4c79fb179bc913ff",
+      "57d52ec526dabc44d300ba04242ca1be874fba802506d523ee252b35d3ec8915",
+      "7c4589a137d17d5d61783d01264d7e47629357a0388bab4315b96227ad487621",
+      "bd2ec6af437d23d5e210e1b87c96f3efb2580fca1e535c1ffb655a6da49a6817"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z": {
+     "url": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:11.226Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/posts/proposal-for-alternative-streak-model-that-doesn-t-reset-ybma5z",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "68c4fb5b8479350571d7667e9b0d9c29cbec72fcc5f2b9384f6c9bf0431ef46e",
+     "textLength": 25892,
+     "quotes": [
+      "125bfd2fdac3838ed36dfc4ba09d83281b604d32855d9068c5a2e5fadbd50538",
+      "709fe5a6fc58b4c62a5f18c7d9c98630b5dd892d8ec8330813e24a2e527cb74b",
+      "c6f32dd611ec4077c2468f82effadb32dde9386b1f9f9b9b131a2e34dc3d3087"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas": {
+     "url": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:11.325Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/posts/about-wip-s-recent-downtime-6r6qas",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "29e06934da53bbf40bdf79c1a4644a96264a20dca3a877fbc6d6f169827f335e",
+     "textLength": 9790,
+     "quotes": [
+      "b625303d681320c0eed8e9adafad2ae6fd2ad917f0ad3a06d8e7d63393515946",
+      "bc8c759180ee2e087048cd154da13547f17d96546eb8fc468aec39277657cee9"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf": {
+     "url": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:11.704Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/posts/discontinuing-free-plans-for-new-wip-members-tbahrf",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "dd3a751c69fcd5e6755ff4cd6d859634afb7256e4c04e787603cd9461d7c16a1",
+     "textLength": 8124,
+     "quotes": [
+      "bb6c3c3a59f1344a05751e22cb570f4ba16b0ce03183b121a2374b559e51aec7",
+      "c9bed6bb0281dd2c6db48d3c0adeafb8b21626df312521165b9fc7e43f9acfb0",
+      "cb1889ef7d8b5ea6a2722c282a9839aada068ddb641bc1c2c5f2cd4b451d95b1"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/posts/getting-invites-t8wnyy": {
+     "url": "https://wip.co/posts/getting-invites-t8wnyy",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:11.797Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/posts/getting-invites-t8wnyy",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "33f39fa2fcc5117a10c56e62c646ffccbcb85b9498ab9a74d0b163efd010e8bc",
+     "textLength": 3427,
+     "quotes": [
+      "dfe1dae8bdadd51151bf227124a6b3647cca6529f48469c0e88570c338bf46f6",
+      "e5dda304bc07b442e264da7a96a857cddc77d6f156748ce89352363840e03c44"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/join": {
+     "url": "https://wip.co/join",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:12.480Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/join",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "b2073ee12b213e5dce8e6a62e237c3823a9f5f6026de76e478c361fcdbd21d41",
+     "textLength": 1768,
+     "quotes": [
+      "bfd72bed592a0655bd1ae595b93ad03ce1ae26c0ce95f2f245be9b79274dc9fe",
+      "d5acc0afb2d70396f7d99966a720e7bd351f2d4d47d25bedf27c61fd0a7325b0"
+     ],
+     "quotesAbsent": []
+    },
+    "https://wip.co/pro": {
+     "url": "https://wip.co/pro",
+     "status": 200,
+     "fetchedAt": "2026-10-07T09:52:12.991Z",
+     "via": "direct",
+     "finalUrl": "https://wip.co/pro",
+     "contentType": "text/html; charset=utf-8",
+     "textHash": "a4260a7f34aee747c518d28f68b57fab694f91dedebad69198766d92f617a63f",
+     "textLength": 1313,
+     "quotes": [
+      "c762b0f6f31889b388fa2602c6ad2ea68fe4eaa56ee26b5c48be7803a8cb8eb8"
+     ],
+     "quotesAbsent": []
+    }
+   },
+   "media": {
+    "displayableIds": [
+     "ma_c694cf9f6b0438998325d31a"
+    ]
+   }
+  }
+ }
+}

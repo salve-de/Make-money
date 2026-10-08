@@ -2698,5 +2698,123 @@
     "analysisId": "a-lesson",
     "textHash": "8ace5e65",
     "answer": "お金を払うのは商店主でも、カートを選ぶのは開発者。そこで開発者に売り、提案は開発者に任せた"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-business_model",
+    "textHash": "cc7e4cf5",
+    "answer": "サイト作成の道具を1サイトごとの月払い・年払いで売り、商品販売の手数料も取る"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-customer",
+    "textHash": "3268b9f0",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-customer_pain",
+    "textHash": "ef6ca988",
+    "answer": "思いついた企画の受付ページを、すぐに作って公開できない",
+    "note": "メモを作る道具Notionでサイトを作っていた人は、ボタンやページを移動するメニューが足りずに困っていた。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-channels",
+    "textHash": "0ccee299",
+    "answer": "TwitterとProduct Huntで知られ、紹介制度でも客を集めている"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-cost_structure",
+    "textHash": "3d20085c",
+    "answer": "紹介者に払う継続報酬が費用になる"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-capital_and_team",
+    "textHash": "f4526a9f",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-dependencies",
+    "textHash": "6a0871c4",
+    "answer": "利用者の商品販売の決済は、カードとPayPalに頼っている"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-lock_in",
+    "textHash": "176a5a57",
+    "answer": "抜けにくい仕掛けは弱く、解約しても支払った期間の終わりまで使える",
+    "note": "販売やメールアドレス集めを使い込んだ客ほど、他の道具へ移る手間が増える（推測）。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-upfront_cash",
+    "textHash": "c6d5ccc5",
+    "answer": "年払いを選んだ客の1年分の料金が先に入る",
+    "note": "年払いは月払いより安い（公式）。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-referral",
+    "textHash": "81815526",
+    "answer": "客を紹介した人に、20%の継続報酬を払い続ける",
+    "note": "報酬は毎月PayPalで支払う（公式）。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-competition",
+    "textHash": "68f9e52a",
+    "answer": "競合は他のサイト作成サービスで、料金はそれらと比べて決めた"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-timeline",
+    "textHash": "ea410e20",
+    "answer": "出さない",
+    "hidden": true
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-why_it_worked",
+    "textHash": "1b238cac",
+    "answer": "メモの道具Notionで文章を打つ感覚のまま、サイトを作れるようにした"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-pivots",
+    "textHash": "8dc92d2a",
+    "answer": "ログインの仕組みを売るサービスから、サイト作成の道具に切り替えた"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-lesson",
+    "textHash": "e5dfea8e",
+    "answer": "別の用途で道具を無理に使う客に、足りない物を直接聞いた",
+    "note": "欠けている部品だけを足し、客が慣れた操作はそのまま残した。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-story",
+    "textHash": "7f62f4ef",
+    "answer": "ログインの仕組みの利用者にNotionとの連携を求められ、理由を聞いたのがきっかけ",
+    "note": "利用者は、文章をその場で直接編集できる操作を好んでいた。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-tools",
+    "textHash": "d69c6c3e",
+    "answer": "編集画面を作る道具はSlateJSとReact、公開ページを作る道具はNext.js",
+    "note": "ページの保存先はVercelとDigitalOcean。解析機能は、Plausibleを自前で動かして提供している（本人申告）。"
+  },
+  {
+    "entityId": "ent_typedream_c02cf9d5426e",
+    "analysisId": "a-incumbent_blindspot",
+    "textHash": "ce32519f",
+    "answer": "メモの道具Notionは、サイトとして使う人向けの部品を備えていなかった"
   }
 ]
