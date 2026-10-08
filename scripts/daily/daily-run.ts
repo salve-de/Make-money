@@ -240,6 +240,13 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     // 調べた件数は、この命令が返したIDだけ(候補探しが同じファイルに書いた分は数えない)
     rec.counts.researched = parseIds(r.stdout).length || fileIds().filter((id) => !beforeFile.has(id)).length; return { status: 'ok' };
   });
+  // 出典の権利の見直し(判断から180日・規約ページの指紋の変化・個別審査の期限)。一覧を出すだけで、公開は止めない・失敗にもしない(docs/architecture/RIGHTS_LEDGER.md)
+  await stage('rights-review', async () => {
+    if (!d.hasScript('rights:review')) return { status: 'skipped', note: 'rights:review がまだ無い' };
+    const r = await d.exec(['pnpm', 'rights:review', '--fetch']);
+    const head = r.stdout.split('\n').find((l) => l.startsWith('[rights:review]')) ?? '';
+    return { status: 'ok', note: r.code === 0 ? head.replace('[rights:review] ', '').slice(0, 200) : `実行に失敗(続行): ${tail(r)}` };
+  });
   rec.ids = uniq([...o.ids, ...rec.ids]);
 
     let passed: string[] = [];
@@ -273,7 +280,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     const plan = w.code === 0 ? parseWithdrawals(w.stdout) : null;
     if (!plan) return { status: 'failed', note: `取り下げの事前確認が読めない: ${tail(w)}` };
     if (plan.withdrawn.length || !plan.canApply) { flag('withdraw', `公開中の事例の取り下げの判定が出た（${plan.withdrawn.length} 件。公開を止めた。取り下げは自動でしない）`); return { status: 'failed', note: `取り下げの判定 ${plan.withdrawn.length} 件で公開を止めた` }; }
-    const r2 = await d.exec(['pnpm', 'case:run', '--ids', toPublish.join(','), '--run-id', `${runId}-pub`, '--from', 'publish', '--publish']);
+    const r2 = await d.exec(['pnpm', 'case:run', '--ids', toPublish.join(','), '--run-id', `${runId}-pub`, '--from', 'publish', '--publish', '--allow-non-main']);
     if (r2.code !== 0) return { status: 'failed', note: `公開が失敗(次の起動でやり直す): ${tail(r2)}` };
     rec.publishedIds = uniq([...rec.publishedIds, ...toPublish]); rec.counts.published += toPublish.length; rec.pending = rec.pending.filter((x) => !toPublish.includes(x)); writePending(o.root, rec.pending); save();
     return { status: 'ok', note: `${toPublish.length} 件を公開` };

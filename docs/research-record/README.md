@@ -144,7 +144,7 @@
 
 | 項目 | 印 | 型・決まり |
 |---|---|---|
-| `sources` | 必須（道具） | 配列。1つずつ `url`（必須）`publisher` `sourceType` `publicationDate`（`YYYY-MM-DD` か `null`）`checkedAt`（`YYYY-MM-DD`）`rightsTier` |
+| `sources` | 必須（道具） | 配列。1つずつ `url`（必須）`publisher` `sourceType` `publicationDate`（`YYYY-MM-DD` か `null`）`checkedAt`（`YYYY-MM-DD`）`rightsTier` `rights`（任意。出典サイトの権利の判断: `loginFree` `noPaywall` `quoteTerms` `termsUrl` `note`。台帳 `data/source-rights-ledger.json` に写る。書かなければ未確認で記録） |
 | `auditDate` | 任意 | `YYYY-MM-DD` |
 | `unknown` `conflicts` | 任意 | 文字列の配列。取れなかったこと、出典どうしの食い違いと採った方を書く |
 | `status` `timezone` `auditOwner` `method` `family` `supported` | 任意 | 見本どおり |

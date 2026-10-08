@@ -24,6 +24,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DISPLAY_FILES, mergeEntity, serialize, type DisplayFiles, type EntityDisplay } from '../../src/shared/display-build';
 import { makeCaller, pickAgent, type Agent, type Caller } from './agent-call';
+import { checkRunSlow } from '../daily/slow-alert';
 import { runStageWithAgent, type AgentStageOptions, type BundleOutcome } from './runner/agent-run';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -41,6 +42,8 @@ export interface CaseRunOptions {
   runId: string;
   concurrency: number;
   publish: boolean;
+  /** catalog:publish に --allow-non-main を渡す（毎日の自動実行の専用作業場所用） */
+  allowNonMain?: boolean;
   maxAttempts?: number;
   /** この段から始める（それより前の段は飛ばす）。止まった所から続きを流す時や、前の段の結果が手元に既にある時に使う */
   from?: string;
@@ -55,7 +58,8 @@ export interface CaseRunDeps {
   now?: () => number;
 }
 
-export interface StageRecord { runId: string; stage: string; startedAt: string; seconds: number; ids: number; failed: number; ok: boolean; detail?: Record<string, unknown> }
+/** invocation: この起動の開始時刻。同じ回の名前で再開・やり直した時に、起動ごとの所要時間を混ぜないための印 */
+export interface StageRecord { runId: string; invocation?: string; stage: string; startedAt: string; seconds: number; ids: number; failed: number; ok: boolean; detail?: Record<string, unknown> }
 export interface Failure { id: string; stage: string; reason: string; soft?: boolean }
 export interface CaseRunSummary { runId: string; stages: StageRecord[]; failures: Failure[]; passed: string[]; blockedFromPublish: string[]; ok: boolean; seconds: number }
 
@@ -107,7 +111,7 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
     let detail: Record<string, unknown> | void;
     let ok = true;
     try { detail = await body(); } catch (e) { ok = false; detail = { error: (e as Error).message }; failAll(name, (e as Error).message); }
-    const rec: StageRecord = { runId, stage: name, startedAt: new Date(t0).toISOString(), seconds: Number(((now() - t0) / 1000).toFixed(1)), ids: n, failed: failures.length - failedBefore, ok: ok && failures.length === failedBefore, ...(detail ? { detail } : {}) };
+    const rec: StageRecord = { runId, invocation: new Date(started).toISOString(), stage: name, startedAt: new Date(t0).toISOString(), seconds: Number(((now() - t0) / 1000).toFixed(1)), ids: n, failed: failures.length - failedBefore, ok: ok && failures.length === failedBefore, ...(detail ? { detail } : {}) };
     stages.push(rec);
     try { mkdirSync(dirname(timingFile), { recursive: true }); appendFileSync(timingFile, `${JSON.stringify(rec)}\n`); } catch { /* 記録できなくても流れは止めない */ }
     log(`${name}: ${rec.seconds} 秒、失敗 ${rec.failed} 件`);
@@ -289,7 +293,7 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
       // 途中から再開した時（--from publish）は、前の実行で作った公開データをそのまま使う
       const prepared = stages.find((s) => s.stage === 'prepare');
       if (prepared ? !prepared.ok : opt.from !== 'publish') throw new Error('公開データの作成が通っていないので公開しない');
-      const r = await deps.exec('publish', ['pnpm', 'catalog:publish']);
+      const r = await deps.exec('publish', ['pnpm', 'catalog:publish', ...(opt.allowNonMain ? ['--allow-non-main'] : [])]);
       if (r.code !== 0) throw new Error(`catalog:publish が失敗（終了コード ${r.code}）: ${(r.stderr || r.stdout).trim().split('\n').slice(-3).join(' / ').slice(0, 300)}`);
       return { published: publishable().length, otherCasesFailed: !cleanly };
     });
@@ -328,7 +332,7 @@ function parseArgs(argv: string[]): CaseRunOptions & { agent?: string; model?: s
   if (!(stall > 0)) { console.error('--stall-minutes は0より大きい数'); process.exit(2); }
   const agent = val('--agent'); const model = val('--model'); const effort = val('--codex-effort');
   return {
-    root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'),
+    root: ROOT, ids, concurrency: conc, publish: argv.includes('--publish'), allowNonMain: argv.includes('--allow-non-main'),
     from: val('--from'),
     stallMinutes: Number(val('--stall-minutes') ?? 10),
     runId: val('--run-id') ?? new Date().toISOString().replace(/[-:]/g, '').slice(0, 15),
@@ -345,6 +349,8 @@ async function main(): Promise<number> {
   const summary = await runCases(o, { exec, caller: makeCaller(agent, { model: o.model, codexEffort: o.effort, idleMs: o.stallMinutes * 60_000 }) });
   console.log(formatSummary(summary));
   writeFileSync(join(ROOT, 'data/pipeline/case-run', o.runId, 'summary.json'), JSON.stringify(summary, null, 1));
+  // 遅れの見張り（1件の1段で15分、実行全体で1件あたり30分を超えたら Mac の通知と GitHub の issue）。知らせに失敗しても結果は変えない
+  await checkRunSlow(ROOT, o.runId, { stallMinutes: o.stallMinutes, concurrency: o.concurrency }).catch((e) => console.log(`[case:run] 遅れの見張りに失敗: ${(e as Error).message}`));
   return summary.ok ? 0 : 1;
 }
 

@@ -260,6 +260,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 
 - [`OWNER_INTENT.md`](./OWNER_INTENT.md): 何を・なぜ・どこまで（いちばん上の正本）
 - [`DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md): 収集の決まりと過去の失敗
+- [`architecture/RIGHTS_LEDGER.md`](./architecture/RIGHTS_LEDGER.md): 出典ごとの権利の台帳。**集める時は出典ごとに権利の根拠（ログイン不要・有料の壁なし・引用を禁じていない）を記録する**。苦情・規約変更の手順もここ
 - [`research-record/README.md`](./research-record/README.md): 調査記録の必須項目と見本
 - [`pipeline/CLAUDE_RUNNER.md`](./pipeline/CLAUDE_RUNNER.md)、[`pipeline/DAILY_RUN.md`](./pipeline/DAILY_RUN.md)、[`pipeline/DISPLAY_CONTRACT.md`](./pipeline/DISPLAY_CONTRACT.md): 照合・分析・監査の流れと画面に出す項目
 - [`CASE_TEXT_STANDARD.md`](./CASE_TEXT_STANDARD.md)、[`CASE_CHAPTER_PROCESS.md`](./CASE_CHAPTER_PROCESS.md): 画面の層の文の書き方
@@ -284,6 +285,8 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - 出典本文を取り直した・引用や主張を直した・画像の判定が変わった時は、証拠の元（手元の本文・台帳）がある作業場所で `pnpm evidence:attest` を流して証明書を新しくし、一緒にコミットする。`pnpm evidence:check` は、手元に証拠がある事例について証明書が合っているかを確かめる（ずれたら終了コード1）。
 - 手元に本文・台帳が無い作業場所で、証明書にも無い事例を公開に載せたい時は、先に元の作業場所で証明書を作ってコミットする。作業場所をつなぐ（連結する）必要はもう無い。
 - 監査の入力づくり（`build-audit-input.ts` / `diff-audit.ts`）だけは出典本文そのものを監査役に読ませるので、本文が手元に無いと止まる。
+
+**公開の位置（2026-10-08）**: `pnpm catalog:publish` は、手元の位置が `origin/main` と同じ時だけ動く（公開の直前に `git fetch` して比べ、違えば「本流に統合してから、本流の位置で公開する」と出して終了コード1）。別の作業場所の公開を後から上書きして文が消えるのを防ぐ。例外は `--allow-non-main`（毎日の自動実行は専用の作業場所が本流を取り込んで出すので自動で付く）。
 
 **公開の手順（抜け道なし。以後ずっとこれだけ）**
 1. 5つの `data/*.json` を直す（原文照合・自動検査は3.5章・3b章のとおり）
