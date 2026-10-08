@@ -94,6 +94,7 @@ __pycache__/
 # 画面の層の自動作成（pnpm display:build）の作業記録と、通らなかった事例の理由。ローカルのみ
 /data/pipeline/display-build/
 /data/pipeline/display-build-failures.jsonl
+/data/pipeline/display-dropped.jsonl
 /data/pipeline/natural-japanese-candidates.jsonl
 
 # pnpm case:run の実行記録（所要時間・各命令の出力・画面の文の作業場所）

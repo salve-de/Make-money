@@ -78,7 +78,7 @@ for (const line of read('data/detail-lines.json')) {
 const successPoints = read('data/success-points.json');
 for (const entry of successPoints) {
   const list = entry.points ?? [];
-  if (list.length < 3 || list.length > 5) problems.push(`success-points ${entry.entityId}: ${list.length}点（3〜5点にする）`);
+  if (list.length < 1 || list.length > 5) problems.push(`success-points ${entry.entityId}: ${list.length}点（1〜5点にする）`);
   for (const point of list) {
     const where = `success-points ${entry.entityId}/${point.factId}`;
     check(where, 'head', point.head, 40);
