@@ -204,3 +204,13 @@ test('case:run が結果を書けずに落ちた時、前回の結果を使っ�
   assert.equal(rec.stages.run.status, 'failed');
   assert.ok(!m.calls.some((c) => c.includes('--publish')));
 });
+
+test('公開した全件の画面の文を確かめる。鍵が無い(終了コード78)時は鮮度の確認だけ飛ばす', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'n1,n2', passed: ['n1', 'n2'], catalogTotal: () => 2 });
+  const base = m.deps.fetchJson; const baseExec = m.deps.exec;
+  m.deps.fetchJson = async (url) => { const r = await base(url) as { data?: { id: string }[] }; if (r.data) r.data = r.data.filter((e) => e.id !== 'n2'); return r; };
+  m.deps.exec = async (argv, env) => (argv.join(' ').includes('check-freshness') ? { code: 78, stdout: '', stderr: '' } : baseExec(argv, env));
+  const rec = await runDaily(opts(root), m.deps);
+  assert.equal(rec.verify?.checks.find((c) => c.name === '新しい事例の詳細')?.status, 'problem');
+  assert.equal(rec.verify?.checks.find((c) => c.name === '鮮度の確認')?.status, 'skipped');
+});

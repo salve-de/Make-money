@@ -16,5 +16,11 @@ if ! git merge --no-edit origin/main; then
 fi
 pnpm install --frozen-lockfile --prefer-offline >/dev/null || { echo "pnpm install に失敗" >&2; exit 1; }
 # 監査の証拠は gitignore なので、元から足りない分だけ写す（既にあるものは上書きしない）
-for d in data/source-cache data/media-staging; do [ -d "$SRC/$d" ] && mkdir -p "$d" && rsync -a --ignore-existing "$SRC/$d/" "$d/"; done
+for d in data/source-cache data/media-staging; do
+  if [ -d "$SRC/$d" ]; then
+    mkdir -p "$d" && rsync -a --ignore-existing "$SRC/$d/" "$d/" || { echo "証拠の同期に失敗: $d" >&2; exit 1; }
+  elif [ ! -d "$d" ]; then
+    echo "監査の証拠が無い: $SRC/$d も $WORK/$d も見つからない（DAILY_EVIDENCE_SRC を確認）。証拠なしでは公開中の事例が全部取り下げ扱いになるので止める" >&2; exit 2
+  fi
+done
 exec pnpm daily:run "$@"

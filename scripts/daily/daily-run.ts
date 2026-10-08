@@ -136,10 +136,11 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
   try {
     const rows: CatalogPage['data'] = [];
     let offset: number | null = 0; let first: CatalogPage | null = null;
-    let pages = 0;
-    while (offset !== null && pages++ < 300) {
+    const have = new Set<string>();
+    // 今日公開した事例がすべて見つかるまで読み進める(見つからなければ最後まで。件数の上限は置かない)
+    while (offset !== null && (first === null || publishedIds.some((id) => !have.has(id)))) {
       const page = await d.fetchJson(`${o.siteUrl}/api/catalog?pageSize=100&offset=${offset}`) as CatalogPage;
-      first ??= page; rows.push(...page.data); offset = page.nextOffset;
+      first ??= page; rows.push(...page.data); for (const r of page.data) have.add(r.id); offset = page.nextOffset;
     }
     total = first!.total; gen = first!.generationCounts;
     const sum = Object.values(gen).reduce((a, b) => a + b, 0);
@@ -156,12 +157,10 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
     } else add('世代ごとの件数', 'skipped', '比べる相手が無い');
     // 新しい事例の詳細
     const byId = new Map(rows.map((r) => [r.id, r]));
-    const probe = publishedIds[0];
-    if (!probe) add('新しい事例の詳細', 'skipped', '今日公開した事例が無い');
-    else if (!byId.has(probe) && offset !== null) add('新しい事例の詳細', 'skipped', '一覧が長すぎて最後まで読めなかった');
+    if (!publishedIds.length) add('新しい事例の詳細', 'skipped', '今日公開した事例が無い');
     else {
-      const t = byId.get(probe)?.reader?.display?.listLine?.text;
-      add('新しい事例の詳細', t ? 'ok' : 'problem', t ? `${probe} の文が出ている` : `${probe} が本番に無い、または画面の文が空`);
+      const bad = publishedIds.filter((id) => !byId.get(id)?.reader?.display?.listLine?.text);
+      add('新しい事例の詳細', bad.length ? 'problem' : 'ok', bad.length ? `本番に無い、または画面の文が空: ${bad.join(', ')}` : `公開した ${publishedIds.length} 件すべてで画面の文が出ている`);
     }
   } catch (e) { add('本番の取得', 'problem', `本番の一覧を取れない: ${(e as Error).message}`); }
   try {
@@ -171,7 +170,7 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
   } catch (e) { add('版の目印', 'problem', `ヘルスを取れない: ${(e as Error).message}`); }
   const f = await d.exec(['node', 'scripts/with-r2-keychain-secrets.mjs', 'node', 'scripts/ops/check-freshness.mjs', '--site-url', o.siteUrl]);
   if (f.code === 0) add('鮮度の確認', 'ok', '正常');
-  else if (f.code === 2) add('鮮度の確認', 'skipped', '鍵が無い・接続できないため確認できず（正常とは扱わない）');
+  else if (f.code === 2 || f.code === 78) add('鮮度の確認', 'skipped', '鍵が無い・接続できないため確認できず（正常とは扱わない）');
   else add('鮮度の確認', 'problem', f.stdout.trim().split('\n').slice(-2).join(' / ').slice(0, 200));
   return { ok: !checks.some((c) => c.status === 'problem'), checks, generationCounts: gen, total };
 }
@@ -194,7 +193,9 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   rec.publishedIds ??= [];
   rec.pending = readPending(o.root); // 公開なしの試しで作った分も、ここから拾う
   if (resume) log(`今日の続きから再開（終えた段: ${Object.entries(rec.stages).filter(([, s]) => s.status === 'ok').map(([k]) => k).join(',') || 'なし'}）`);
-  rec.status = 'RUNNING'; rec.abnormal = rec.abnormal.filter((a) => a.key === 'stall');
+  rec.status = 'RUNNING';
+  // 再開では、終えた段の異常(一部の事例が落ちた記録)は残し、やり直す段の異常は付け直す
+  rec.abnormal = rec.abnormal.filter((a) => a.key === 'stall' || (a.key === 'case-failed' && rec.stages.run?.status === 'ok'));
   const save = (): void => writeAtomic(file, rec);
   const flag = (key: string, text: string, soft = false): void => { if (!rec.abnormal.some((a) => a.key === key)) rec.abnormal.push({ key, text, ...(soft ? { soft: true } : {}) }); };
 
@@ -222,7 +223,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     if (!d.hasScript('case:discover')) return { status: 'skipped', note: 'case:discover がまだ無い' };
     const r = await d.exec(['pnpm', 'case:discover', '--count', String(o.count)], env);
     if (r.code !== 0) return { status: 'failed', note: tail(r) };
-    rec.counts.discovered = o.count; rec.ids = uniq([...rec.ids, ...collect(r)]); return { status: 'ok' };
+    const got = collect(r).filter((id) => !rec.ids.includes(id)); rec.counts.discovered = got.length; rec.ids = uniq([...rec.ids, ...got]); return { status: 'ok' };
   });
   await stage('research', async () => {
     if (!d.hasScript('case:research')) return { status: 'skipped', note: 'case:research がまだ無い' };
