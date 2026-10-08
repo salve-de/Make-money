@@ -178,8 +178,9 @@ const artifactsOnly = process.argv.includes('--artifacts-only');
 const withdrawnIds = Object.keys(previous.details).filter((id) => !entities.some((e) => e.id === id));
 const withdrawalApproval = checkWithdrawals(withdrawnIds, authorizedWithdrawals);
 // 証拠不足は不合格ではない。公開中の事例を取り下げずに計画へ残すが、判定していない版は反映しない（足りない物を揃えて再実行する）
-const evidenceBlocked = Object.keys(insufficientEvidence).length > 0;
-if (!dryRun && !verifyOnly && evidenceBlocked) throw new Error(`Catalog release blocked: ${Object.keys(insufficientEvidence).length} cases lack the evidence needed to judge (not a failure; nothing was withdrawn or changed). Provide the missing evidence and rerun: ${JSON.stringify(insufficientEvidence)}`);
+// 止めるのは、公開中の事例の判定ができない時だけ。まだ公開していない新しい事例は HOLD_EVIDENCE で外れるだけで、ほかの事例の反映を止めない
+const evidenceBlocked = evidenceCarried.size > 0;
+if (!dryRun && !verifyOnly && evidenceBlocked) throw new Error(`Catalog release blocked: ${evidenceCarried.size} published cases lack the evidence needed to judge (not a failure; nothing was withdrawn or changed). Provide the missing evidence and rerun: ${JSON.stringify(Object.fromEntries([...evidenceCarried].map((id) => [id, insufficientEvidence[id]])))}`);
 if (!dryRun && !verifyOnly && !withdrawalApproval.allowed) throw new Error(`Catalog release needs explicit --withdrawals approval: ${JSON.stringify(withdrawalApproval)}. Inspect --dry-run first; no manifest was changed.`);
 if (!checkOnly && !dryRun) await mkdir(directory, { recursive: true });
 const objects: { key: string; file: string }[] = [];

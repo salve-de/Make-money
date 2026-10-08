@@ -289,10 +289,11 @@ test('CLI select → prepare dry-run shares gate; fresh audit passes, cache chan
     assert.equal(dry.status, 0, dry.stderr); assert.deepEqual(JSON.parse(dry.stdout).plan.added, ['ent_fixture']);
     assert.equal(readFileSync('data/catalog-release.json', 'utf8'), before); assert.equal(existsSync('.catalog-release'), false);
     // 証拠の証明書: 手元に本文・台帳が無い作業場所でも、公開中の事例を取り下げ扱いにしない（不合格ではなく「証拠不足」）
-    writeFileSync('data/catalog-release.json', JSON.stringify({ details: { ent_fixture: hash('a') } }));
+    // まだ公開していない（catalog-release.json に無い）新しい事例でも、仕上げ済みなら既定の対象に入る
     const attested = run(dir, 'scripts/reader-case/attest-evidence.ts');
     assert.equal(attested.status, 0, attested.stderr); assert.ok(existsSync('data/publication-evidence.json'));
     const off = (path: string) => renameSync(path, `${path}.off`); const on = (path: string) => renameSync(`${path}.off`, path);
+    writeFileSync('data/catalog-release.json', JSON.stringify({ details: { ent_fixture: hash('a') } }));
     off('data/source-cache'); off('data/media-staging');
     const viaProof = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
     assert.equal(viaProof.status, 0, viaProof.stderr);
@@ -307,8 +308,12 @@ test('CLI select → prepare dry-run shares gate; fresh audit passes, cache chan
     const blockedByEvidence = run(dir, 'scripts/prepare-catalog-release.ts');
     assert.notEqual(blockedByEvidence.status, 0); assert.match(blockedByEvidence.stderr, /lack the evidence/);
     assert.equal(existsSync('.catalog-release'), false);
-    on('data/publication-evidence.json'); on('data/source-cache'); on('data/media-staging');
+    // まだ公開していない新しい事例は、証拠が無くても HOLD_EVIDENCE で外れるだけ（ほかの反映を止めない）
     writeFileSync('data/catalog-release.json', JSON.stringify({ details: {} }));
+    const newNoProof = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
+    assert.equal(newNoProof.status, 0, newNoProof.stderr);
+    assert.equal(JSON.parse(newNoProof.stdout).caseStamps.ent_fixture.display, 'HOLD_EVIDENCE'); assert.equal(JSON.parse(newNoProof.stdout).canApply, true);
+    on('data/publication-evidence.json'); on('data/source-cache'); on('data/media-staging');
     // Retain the selection, mutate source text beyond an unchanged quote: publication must still recheck audit.
     writeFileSync(cachePath(cache.url), JSON.stringify({ ...cache, text: cache.text + ' update' }));
     const changed = run(dir, 'scripts/prepare-catalog-release.ts', ['--dry-run']);
