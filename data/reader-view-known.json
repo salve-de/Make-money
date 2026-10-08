@@ -838,5 +838,12 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「DaringFireball」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_teamcamp_ae0c21986c4d",
+  "where": "数字の帯「料金」 / section-chapter-practice / section-chapter-core / section-chapter-price",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "99ドル（4か所）",
+  "reason": "事例の文の担当が、料金の99ドルを章の1か所だけに寄せる"
  }
 ]
