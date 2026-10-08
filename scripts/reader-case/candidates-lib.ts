@@ -9,7 +9,7 @@
  *   既存の事例（entities-index.json・collected-registry.json・seed-targets.json・entity-additions/）、
  *   予約の一覧（CLAIMED_TARGETS.txt）、queue 自身。
  */
-import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { entityDomain, normalizeEntityName } from '../pipeline/entity-identity.mjs';
@@ -22,7 +22,7 @@ export interface CandidateSource { url: string; quote: string; what?: string; /*
 export interface Candidate {
   id: string;
   name: string;
-  /** 公式サイト（https://...） */
+  /** 公式サイト（https://...）。公式サイトが無い事業（実店舗・廃業・匿名など）は空文字 */
   url: string;
   domain: string;
   /** 数字の出典（1つ以上）。quote は数字を含む原文の引用 */
@@ -36,7 +36,9 @@ export interface Candidate {
   /** 0〜100。数字の確かさ・新しさ・稼ぎ方の違いで付ける */
   priority: number;
   scores: { certainty: number; recency: number; novelty: number };
-  status: 'queued' | 'done' | 'skipped';
+  status: 'queued' | 'researching' | 'done' | 'skipped';
+  /** 調査を始めた時刻（researching のまま止まった候補を後で選び直すため） */
+  researchStartedAt?: string;
   skipReason?: string;
   discoveredAt: string;
   discoverRunId: string;
@@ -68,15 +70,40 @@ export function readQueue(root: string): Candidate[] {
 export function writeQueue(root: string, rows: readonly Candidate[]): void {
   const f = join(root, QUEUE_REL);
   mkdirSync(dirname(f), { recursive: true });
-  writeFileSync(`${f}.tmp`, rows.map((r) => JSON.stringify(r)).join('\n') + (rows.length ? '\n' : ''));
-  renameSync(`${f}.tmp`, f);
+  const tmp = `${f}.${process.pid}.${Date.now()}.tmp`; // 命令ごとに別名（同じ名前を取り合わない）
+  writeFileSync(tmp, rows.map((r) => JSON.stringify(r)).join('\n') + (rows.length ? '\n' : ''));
+  renameSync(tmp, f);
 }
 
-/** 並行して動く別の命令の更新を失わないよう、読み直して該当の候補だけを書き換える */
-export function updateCandidates(root: string, patch: (rows: Candidate[]) => void): void {
-  const rows = readQueue(root);
-  patch(rows);
-  writeQueue(root, rows);
+const sleepSync = (ms: number): void => { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); };
+
+/**
+ * ファイルの読み直し→書き換えを、別の命令（別のチャット・別の作業場所からの同時実行）と重ならないよう1本ずつにする。
+ * ロックは「<対象>.lock」というディレクトリを作れた者だけが持つ（作成は原子的）。60秒を過ぎた古いロックは落ちた命令の物として外す。
+ */
+export function withFileLock<T>(file: string, fn: () => T, timeoutMs = 60_000): T {
+  const lock = `${file}.lock`;
+  mkdirSync(dirname(file), { recursive: true });
+  const start = Date.now();
+  for (;;) {
+    try { mkdirSync(lock); break; } catch (e) {
+      if ((e as NodeJS.ErrnoException).code !== 'EEXIST') throw e;
+      try { if (Date.now() - statSync(lock).mtimeMs > 60_000) { rmSync(lock, { recursive: true, force: true }); continue; } } catch { /* 消えた */ }
+      if (Date.now() - start > timeoutMs) throw new Error(`ロックを取れない: ${lock}`);
+      sleepSync(50 + Math.floor(Math.random() * 100));
+    }
+  }
+  try { return fn(); } finally { rmSync(lock, { recursive: true, force: true }); }
+}
+
+/** 並行して動く別の命令の更新を失わないよう、ロックを取って読み直し、該当の候補だけを書き換える */
+export function updateCandidates<T = void>(root: string, patch: (rows: Candidate[]) => T): T {
+  return withFileLock(join(root, QUEUE_REL), () => {
+    const rows = readQueue(root);
+    const r = patch(rows);
+    writeQueue(root, rows);
+    return r;
+  });
 }
 
 // ---- 重複の判定 --------------------------------------------------------------------------
@@ -177,7 +204,8 @@ export function toCandidate(raw: RawCandidate, runId: string, now = nowIso(), no
   if (!name) return { ok: false, reason: '社名が無い' };
   const url = typeof raw.officialUrl === 'string' ? raw.officialUrl.trim() : '';
   const domain = entityDomain(url);
-  if (!/^https?:\/\//i.test(url) || !domain) return { ok: false, reason: `公式サイトの URL が不正（${name}）` };
+  // 公式サイトが無い事業（実店舗・廃業・匿名など）も候補にできる。書いてあるのに URL として読めない時だけ落とす
+  if (url && (!/^https?:\/\//i.test(url) || !domain)) return { ok: false, reason: `公式サイトの URL が不正（${name}）` };
   const sources: CandidateSource[] = [];
   for (const s of Array.isArray(raw.sources) ? raw.sources : []) {
     const o = s as { url?: unknown; quote?: unknown; what?: unknown };
@@ -241,10 +269,29 @@ export async function timed<T>(root: string, runId: string, stage: string, ids: 
   }
 }
 
-/** 予約の一覧（CLAIMED_TARGETS.txt）に社名を1行足す。idx（既存・予約・取り込み待ちを照らした索引）にまだ無い時だけ足す。足したら true */
+/** 予約の一覧の中身（行）に、社名か公式サイトのドメインが既にあるか */
+function claimedHas(file: string, name: string, url: string): boolean {
+  if (!existsSync(file)) return false;
+  const nk = normalizeEntityName(name); const d = entityDomain(url);
+  for (const line of readFileSync(file, 'utf8').split('\n')) {
+    const p = parseClaimedLine(line);
+    if ((d && p.domains.includes(d)) || (nk && p.names.some((n) => normalizeEntityName(n) === nk))) return true;
+  }
+  return false;
+}
+
+/**
+ * 予約の一覧（CLAIMED_TARGETS.txt）に社名を1行足す。idx（既存の事例・取り込み待ちを照らした索引）に無く、
+ * かつロックを取った上で読み直した一覧にも無い時だけ足す（同時に動く別の命令と二重に予約しない）。足したら true
+ */
 export function claimTarget(root: string, name: string, url: string, tag: string, today: string, idx: DedupIndex): boolean {
-  if (idx.check(name, url)) return false;
-  appendFileSync(join(root, CLAIMED_REL), `${name} — ${entityDomain(url)} [CLAIMED:${tag} @ ${today}]\n`);
-  idx.add(name, url, '予約の一覧（CLAIMED_TARGETS）');
-  return true;
+  const dup = idx.check(name, url);
+  if (dup && !/予約の一覧/.test(dup)) return false;
+  const file = join(root, CLAIMED_REL);
+  return withFileLock(file, () => {
+    if (claimedHas(file, name, url)) return false;
+    appendFileSync(file, `${name}${entityDomain(url) ? ` — ${entityDomain(url)}` : ''} [CLAIMED:${tag} @ ${today}]\n`);
+    idx.add(name, url, '予約の一覧（CLAIMED_TARGETS）');
+    return true;
+  });
 }

@@ -20,7 +20,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { entityDomain } from '../pipeline/entity-identity.mjs';
 import { makeCaller, mapPool, pickAgent, type Agent, type Caller } from './agent-call';
-import { buildDedupIndex, claimTarget, extractJson, readQueue, slugify, timed, updateCandidates, type Candidate } from './candidates-lib';
+import { buildDedupIndex, claimTarget, extractJson, slugify, timed, updateCandidates, type Candidate } from './candidates-lib';
 import { fetchOne } from './fetch-sources';
 import { cachePath, MIN_TEXT, quoteInText } from './verify-lib';
 import { makeExec, type Exec } from './case-run';
@@ -109,7 +109,7 @@ function sourceBlock(texts: Map<string, string>): string {
 }
 
 export function collectUser(c: Candidate, texts: Map<string, string>, today: string): string {
-  return `## 対象の候補\n${JSON.stringify({ name: c.name, officialUrl: c.url, 見つけた理由: c.reason, 数字の出典: c.sources.map((s) => ({ url: s.url, quote: s.quote, what: s.what })) }, null, 1)}\n\n今日は ${today}。\n\n## 取得済みの出典の本文\n${sourceBlock(texts)}\n\n上の指示のとおり調査記録の材料を JSON で返す。`;
+  return `## 対象の候補\n${JSON.stringify({ name: c.name, officialUrl: c.url || '（公式サイトなし）', 見つけた理由: c.reason, 数字の出典: c.sources.map((s) => ({ url: s.url, quote: s.quote, what: s.what })) }, null, 1)}\n\n今日は ${today}。\n\n## 取得済みの出典の本文\n${sourceBlock(texts)}\n\n上の指示のとおり調査記録の材料を JSON で返す。`;
 }
 
 // ---- 材料の検査と記録への組み立て --------------------------------------------------------------
@@ -166,7 +166,7 @@ export function buildRecord(c: Candidate, m: Compact, today: string, dropped: st
   const srcMap = new Map<string, Record<string, unknown>>();
   const addSrc = (url: string, extra: Record<string, unknown> = {}): void => {
     if (srcMap.has(url) || !isUrl(url) || BANNED_HOST.test(url)) return;
-    const own = entityDomain(url) === officialDomain || entityDomain(url).endsWith(`.${officialDomain}`);
+    const own = !!officialDomain && (entityDomain(url) === officialDomain || entityDomain(url).endsWith(`.${officialDomain}`));
     srcMap.set(url, { url, publisher: own ? '公式サイト' : entityDomain(url), sourceType: own ? 'official_website' : 'article', publicationDate: null, checkedAt: today, rightsTier: own ? 'TIER1_OFFICIAL' : 'TIER2_FACTS_ONLY', ...extra });
   };
   for (const s of m.sources ?? []) if (isUrl(s.url)) addSrc(s.url, { ...(s.publisher ? { publisher: s.publisher } : {}), ...(s.sourceType ? { sourceType: s.sourceType } : {}), publicationDate: s.publicationDate ?? null });
@@ -180,7 +180,7 @@ export function buildRecord(c: Candidate, m: Compact, today: string, dropped: st
     tagline: m.tagline?.trim() || c.reason, description: m.description?.trim() || m.tagline?.trim() || c.reason,
     sector: SECTORS.includes(String(m.sector)) ? m.sector : 'UNKNOWN', scale: SCALES.includes(String(m.scale)) ? m.scale : 'UNKNOWN',
     founder: m.founder?.trim() || '未確認', country: m.country?.trim() || '未確認',
-    url: c.url, officialUrl: c.url, verifiedBadge: false, growthRateYoY: 0, isGrowthUnconfirmed: true,
+    url: c.url, ...(c.url ? { officialUrl: c.url } : {}), verifiedBadge: false, growthRateYoY: 0, isGrowthUnconfirmed: true,
     architecturePattern: m.architecturePattern?.trim() || '未確認', pipelineStack: '未確認', targetPainWallet: '未確認',
     tags: Array.isArray(m.tags) ? m.tags.filter((t) => typeof t === 'string' && t) : [],
     pnl: {
@@ -189,7 +189,7 @@ export function buildRecord(c: Candidate, m: Compact, today: string, dropped: st
       operatingProfit: 0, operatingMargin: 0, estimatedAnnualNetProfit: 0,
       isRevenueUnconfirmed: true, isOperatingProfitUnconfirmed: true, isMarginUnconfirmed: true, isGrossProfitUnconfirmed: true,
       isGrossMarginUnconfirmed: true, isCogsUnconfirmed: true, isCostsUnconfirmed: true, isNetProfitUnconfirmed: true,
-      financialStatus: 'UNAVAILABLE', sourceClass: 'PRIMARY', sourceDoc: c.sources[0]?.url ?? c.url,
+      financialStatus: 'UNAVAILABLE', sourceClass: 'PRIMARY', sourceDoc: c.sources[0]?.url || c.url || undefined,
     },
     operations: unconfirmedOps,
     strategy: { moatType: 'UNKNOWN', blindspot: '未確認', moatDescription: '未確認', initialTraction: [], actionPlaybook: [] },
@@ -217,11 +217,15 @@ function repairUser(c: Candidate, compact: Compact, problems: string, texts: Map
 
 interface State { c: Candidate; texts: Map<string, string>; compact?: Compact; dropped: string[]; outcome?: ResearchOutcome; slug: string; t0: number; recordFile?: string; repairs: number; additionFile?: string; unconfirmedText?: string }
 
+/** 調査待ち。researching のまま3時間を過ぎた候補（落ちた命令の物）も選び直せる */
+const STALE_MS = 3 * 3600_000;
+export const pickable = (r: Candidate, nowMs = Date.now()): boolean => r.status === 'queued' || (r.status === 'researching' && nowMs - Date.parse(r.researchStartedAt ?? '') > STALE_MS);
+
 export function selectCandidates(rows: readonly Candidate[], ids: string[], next?: number): Candidate[] {
   if (ids.length) {
-    return ids.map((i) => rows.find((r) => r.id === i || r.name === i || r.id.startsWith(`cand_${slugify(i)}_`))).filter((r): r is Candidate => !!r && r.status === 'queued');
+    return ids.map((i) => rows.find((r) => r.id === i || r.name === i || r.id.startsWith(`cand_${slugify(i)}_`))).filter((r): r is Candidate => !!r && pickable(r));
   }
-  return rows.filter((r) => r.status === 'queued').sort((a, b) => b.priority - a.priority || a.discoveredAt.localeCompare(b.discoveredAt)).slice(0, next ?? 1);
+  return rows.filter((r) => pickable(r)).sort((a, b) => b.priority - a.priority || a.discoveredAt.localeCompare(b.discoveredAt)).slice(0, next ?? 1);
 }
 
 export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Promise<ResearchSummary> {
@@ -232,8 +236,12 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
   const today = opt.today ?? new Date().toISOString().slice(0, 10);
   const maxRepairs = opt.maxRepairs ?? 1;
   const T0 = now();
-  const rows = readQueue(opt.root);
-  const picked = selectCandidates(rows, opt.ids, opt.next);
+  // 別の命令が同じ候補を同時に選ばないよう、ロックの下で researching にして自分の物にする
+  const picked = updateCandidates(opt.root, (fresh) => {
+    const mine = selectCandidates(fresh, opt.ids, opt.next);
+    for (const m of mine) { const row = fresh.find((r) => r.id === m.id)!; row.status = 'researching'; row.researchStartedAt = new Date().toISOString(); }
+    return mine;
+  });
   const missing = opt.ids.filter((i) => !picked.some((p) => p.id === i || p.name === i || p.id.startsWith(`cand_${slugify(i)}_`)));
   for (const m of missing) log(`候補に無い、または調査待ちでない: ${m}`);
   const states: State[] = picked.map((c) => ({ c, texts: new Map(), dropped: [], slug: slugify(c.name), t0: now(), repairs: 0 }));
@@ -248,15 +256,15 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
   const idx = buildDedupIndex(opt.root, []);
   for (const s of states) {
     const dup = idx.check(s.c.name, s.c.url);
-    // 予約の一覧に自分の名前がある場合（探した時に足した等）も見送らない: 照合先に「既存の事例」か「取り込み待ち」がある時だけ重複
+    // 予約の一覧に自分の名前がある場合（前の実行で予約した等）は見送らない: 既存の事例か取り込み待ちにある時だけ重複
     if (dup && !/予約の一覧/.test(dup)) { skip(s, `重複: ${dup}`); continue; }
-    claimTarget(opt.root, s.c.name, s.c.url, `case-research-${opt.runId}`, today, idx);
+    claimTarget(opt.root, s.c.name, s.c.url, `case-research-${opt.runId}`, today, idx); // ロックを取って一覧を読み直し、無い時だけ足す
   }
 
   // 2. 出典の取得
   await timed(opt.root, opt.runId, 'research:fetch', live().length, async () => {
     await mapPool(live(), opt.concurrency * 2, async (s) => {
-      const urls = [...new Set([...s.c.sources.map((x) => x.url), s.c.url])];
+      const urls = [...new Set([...s.c.sources.map((x) => x.url), ...(s.c.url ? [s.c.url] : [])])];
       await mapPool(urls, 4, async (u) => { s.texts.set(u, await fetchText(u).catch(() => '')); });
       const good = s.c.sources.some((x) => quoteInText(x.quote, s.texts.get(x.url) ?? ''));
       if (!good) skip(s, s.c.sources.some((x) => (s.texts.get(x.url) ?? '').length) ? '数字の引用が出典の本文に無い' : '数字の出典を取得できない');
@@ -316,9 +324,17 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
       await mapPool(need, opt.concurrency, async (s) => {
         s.repairs = round;
         const before = s.outcome; s.outcome = undefined;
-        if (!(await ask(repairCaller, s, system, repairUser(s.c, s.compact!, s.unconfirmedText!, s.texts), `repair:${s.slug}`))) { s.outcome = before; return; }
+        // 直しの結果が使えなかった時に、直す前の記録と取り込み待ちのファイルへ戻せるよう、中身を控える
+        const keep = (f?: string): string | undefined => (f && existsSync(f) ? readFileSync(f, 'utf8') : undefined);
+        const snap = { record: keep(s.recordFile), addition: keep(s.additionFile), compact: s.compact, text: s.unconfirmedText };
+        if (!(await ask(repairCaller, s, system, repairUser(s.c, s.compact!, s.unconfirmedText!, s.texts), `repair:${s.slug}`))) { s.outcome = before; s.compact = snap.compact; return; }
         await importOne(s);
-        if ((s.outcome as ResearchOutcome | undefined)?.status === 'skipped') { /* 直した結果が悪化したら元の記録に戻す */ s.outcome = before; s.compact = undefined; log(`${s.c.name}: 直しの結果が使えず、直す前の記録のまま`); }
+        if ((s.outcome as ResearchOutcome | undefined)?.status === 'skipped') {
+          s.outcome = before; s.compact = snap.compact; s.unconfirmedText = snap.text;
+          if (snap.record !== undefined && s.recordFile) writeFileSync(s.recordFile, snap.record);
+          if (snap.addition !== undefined && s.additionFile) { mkdirSync(dirname(s.additionFile), { recursive: true }); writeFileSync(s.additionFile, snap.addition); }
+          log(`${s.c.name}: 直しの結果が使えず、直す前の記録のまま`);
+        }
       });
       return { value: undefined };
     }, now);
@@ -351,13 +367,17 @@ export async function runResearch(opt: ResearchOptions, deps: ResearchDeps): Pro
       const row = all.find((r) => r.id === s.c.id); const o = s.outcome;
       if (!row || !o) continue;
       row.researchedAt = new Date().toISOString(); row.researchRunId = opt.runId;
-      if (o.status === 'recorded' && (applied.includes(o.entityId!) || !opt.apply)) { row.status = 'done'; row.entityId = o.entityId; }
-      else { row.status = 'skipped'; row.skipReason = o.reason ?? '取り込まれなかった'; }
+      if (o.status === 'recorded' && applied.includes(o.entityId!)) { row.status = 'done'; row.entityId = o.entityId; delete row.researchStartedAt; }
+      else if (o.status === 'recorded') { row.status = 'queued'; delete row.researchStartedAt; } // --no-apply: 一覧に入れていない。調査待ちのまま（記録は残る）
+      else { row.status = 'skipped'; row.skipReason = o.reason ?? '取り込まれなかった'; delete row.researchStartedAt; }
     }
+    // 結果が出なかった（途中で例外など）候補を researching のまま残さない
+    for (const s of states) { const row = all.find((r) => r.id === s.c.id); if (row && row.status === 'researching' && !s.outcome) { row.status = 'queued'; delete row.researchStartedAt; } }
   });
   const workDir = join(opt.root, 'data/pipeline/case-run', opt.runId);
   mkdirSync(workDir, { recursive: true });
-  const ids = states.filter((s) => s.outcome?.status === 'recorded').map((s) => s.outcome!.entityId!);
+  // case:run が読めるのは一覧に入った事例だけ。--no-apply の時は ids ファイルを出さない
+  const ids = applied;
   const idsFile = ids.length ? join(workDir, 'research.ids.txt') : undefined;
   if (idsFile) writeFileSync(idsFile, `${ids.join('\n')}\n`);
   const summary: ResearchSummary = { runId: opt.runId, outcomes: states.map((s) => s.outcome!).filter(Boolean), applied, idsFile, seconds: Math.round((now() - T0) / 100) / 10 };

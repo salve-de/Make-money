@@ -7,7 +7,7 @@ import { dirname, join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import type { Caller } from '../agent-call';
-import { buildDedupIndex, extractJson, parseClaimedLine, priorityOf, readQueue, recencyScore, toCandidate, writeQueue } from '../candidates-lib';
+import { buildDedupIndex, claimTarget, extractJson, parseClaimedLine, priorityOf, readQueue, recencyScore, toCandidate, updateCandidates, writeQueue } from '../candidates-lib';
 import { runDiscover } from '../case-discover';
 import { runResearch, type Compact } from '../case-research';
 import type { Exec } from '../case-run';
@@ -199,4 +199,54 @@ test('case:research --next: 優先度の高い順に選ぶ', async () => {
   writeQueue(root, rows);
   const { selectCandidates } = await import('../case-research');
   assert.deepEqual(selectCandidates(readQueue(root), [], 2).map((c) => c.name), ['Hi', 'Mid']);
+});
+
+test('公式サイトが無い事業も候補にできる（URL が書いてあって不正な時だけ落とす）', () => {
+  const ok = toCandidate({ ...raw('Corner Shop', 'https://press.example.com'), officialUrl: '' }, 'r');
+  assert.ok(ok.ok && (ok as any).candidate.url === '');
+  assert.equal(toCandidate({ ...raw('Bad', 'https://press.example.com'), officialUrl: 'not a url' }, 'r').ok, false);
+});
+
+test('queue の更新は同時に動く別の命令と重ならず、どちらの追加も残る', async () => {
+  const root = setupRoot();
+  const worker = join(root, 'worker.ts');
+  writeFileSync(worker, `import { updateCandidates, toCandidate } from ${JSON.stringify(join(repo, 'scripts/reader-case/candidates-lib.ts'))};
+const [root, name] = process.argv.slice(2);
+for (let i = 0; i < 5; i++) {
+  const t = toCandidate({ name: name + i, officialUrl: 'https://' + name + i + '.dev', sources: [{ url: 'https://' + name + i + '.dev/a', quote: 'q' }], reason: 'r' }, 'r');
+  if (t.ok) updateCandidates(root, (rows) => { rows.push(t.candidate); });
+}`);
+  const runOne = (name: string) => new Promise<number>((res) => { const c = spawn(process.execPath, ['--import', 'tsx', worker, root, name], { cwd: root, stdio: 'ignore' }); c.on('close', (code) => res(code ?? 1)); });
+  const codes = await Promise.all(['alpha', 'beta', 'gamma', 'delta'].map(runOne));
+  assert.deepEqual(codes, [0, 0, 0, 0]);
+  assert.equal(readQueue(root).length, 20);
+});
+
+test('予約の一覧への追記は、読み直して無い時だけ（二重に予約しない）', () => {
+  const root = setupRoot();
+  const idx1 = buildDedupIndex(root, []); const idx2 = buildDedupIndex(root, []); // 別々の命令が同じ古い索引を持っている状況
+  assert.equal(claimTarget(root, 'Twice', 'https://twice.dev', 'a', '2026-10-08', idx1), true);
+  assert.equal(claimTarget(root, 'Twice', 'https://twice.dev', 'b', '2026-10-08', idx2), false);
+  assert.equal(readFileSync(join(root, 'data/CLAIMED_TARGETS.txt'), 'utf8').split('\n').filter((l) => l.startsWith('Twice')).length, 1);
+});
+
+test('case:research: 同じ候補は同時に2つの命令で調べない（researching にして取る）', async () => {
+  const root = setupRoot(); writeFileSync(join(root, 'data/entities-index.json'), '[]');
+  const [id] = queued(root, ['Keygen']);
+  updateCandidates(root, (rows) => { rows[0]!.status = 'researching'; rows[0]!.researchStartedAt = new Date().toISOString(); });
+  let calls = 0;
+  const s = await runResearch({ root, ids: [id!], runId: 'r6', concurrency: 1, apply: true, today: '2026-10-08', log: () => {} }, { caller: async () => { calls++; return { text: '{}', seconds: 0 }; }, exec: realExec(root), fetchText: async () => 'x' });
+  assert.equal(s.outcomes.length, 0);
+  assert.equal(calls, 0);
+  assert.equal(readQueue(root)[0]!.status, 'researching');
+});
+
+test('case:research --no-apply: 一覧に入れない時は調査待ちのまま、ids ファイルも出さない', async () => {
+  const root = setupRoot(); writeFileSync(join(root, 'data/entities-index.json'), '[]');
+  const [id] = queued(root, ['Keygen']);
+  const compact = compactFromKeygen();
+  const s = await runResearch({ root, ids: [id!], runId: 'r7', concurrency: 1, apply: false, today: '2026-10-08', log: () => {} }, { caller: async () => ({ text: JSON.stringify(compact), seconds: 0 }), exec: realExec(root), fetchText: async () => bodyOf(compact) });
+  assert.equal(s.outcomes[0]!.status, 'recorded');
+  assert.equal(s.idsFile, undefined);
+  assert.equal(readQueue(root)[0]!.status, 'queued');
 });

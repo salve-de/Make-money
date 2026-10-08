@@ -141,7 +141,17 @@ export async function runDiscover(opt: DiscoverOptions, deps: DiscoverDeps): Pro
     const take = verified.slice(0, need);
     for (const c of verified.slice(need)) rejected.push({ name: c.name, reason: '件数の上限（優先度が低い順に見送り）' });
     added.push(...take);
-    if (take.length) updateCandidates(opt.root, (rows) => { rows.push(...take); });
+    // 別の命令が先に足した候補と重ならないよう、ロックの下で読み直した queue と照らし直してから足す
+    let pushed = take;
+    if (take.length) {
+      pushed = updateCandidates(opt.root, (rows) => {
+        const live = buildDedupIndex(opt.root, rows);
+        const ok = take.filter((c) => { const d = live.check(c.name, c.url); if (d) { rejected.push({ name: c.name, reason: `重複: ${d}` }); return false; } live.add(c.name, c.url, '今回の候補'); return true; });
+        rows.push(...ok);
+        return ok;
+      });
+      if (pushed.length < take.length) { for (const c of take) if (!pushed.includes(c)) added.splice(added.indexOf(c), 1); }
+    }
     log(`第${rounds}回の結果: 提案${raws.length} → 新規で出典確認済み${verified.length} → 足した${take.length}（累計${added.length}/${opt.count}）`);
   }
 
