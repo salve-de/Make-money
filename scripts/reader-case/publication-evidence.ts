@@ -8,6 +8,7 @@
  * 証明書は `pnpm evidence:attest` が、手元の本文・台帳から作る。
  */
 import { existsSync, readFileSync } from 'node:fs';
+import { z } from 'zod';
 import { contentHash, quoteKey, type PublicationInput } from './publication-evaluation';
 import { quoteInText, type SourceCacheRecord } from './verify-lib';
 
@@ -34,12 +35,27 @@ export interface CaseAttestation {
 }
 export type EvidenceAttestations = Record<string, CaseAttestation>;
 
+const hash64 = z.string().regex(/^[a-f0-9]{64}$/);
+const SourceAttestationSchema = z.object({
+  status: z.number().int(), fetchedAt: z.string(), via: z.enum(['direct', 'wayback']), finalUrl: z.string().optional(), contentType: z.string().optional(), error: z.string().optional(),
+  textHash: hash64, textLength: z.number().int().min(0), quotes: z.array(hash64), quotesAbsent: z.array(hash64),
+}).strict();
+const CaseAttestationSchema = z.object({
+  sources: z.record(z.string(), SourceAttestationSchema),
+  media: z.object({ displayableIds: z.array(z.string()) }).strict(),
+}).strict();
+export const EvidenceEnvelopeSchema = z.object({ version: z.literal(1), note: z.string().optional(), cases: z.record(z.string(), CaseAttestationSchema) }).strict();
+
+/**
+ * 証明書を読む。ファイルが無ければ「証明書なし」。有るのに形式・版が合わない（マージ事故・生成器の変更）時は、信用せず止まる（fail closed）。
+ */
 export function readAttestations(path = PUBLICATION_EVIDENCE_FILE): EvidenceAttestations {
   if (!existsSync(path)) return {};
-  try {
-    const parsed = JSON.parse(readFileSync(path, 'utf8')) as { cases?: EvidenceAttestations };
-    return parsed?.cases && typeof parsed.cases === 'object' ? parsed.cases : {};
-  } catch { return {}; }
+  let raw: unknown;
+  try { raw = JSON.parse(readFileSync(path, 'utf8')); } catch (error) { throw new Error(`${path} を読めない（壊れている）。pnpm evidence:attest で作り直す: ${error instanceof Error ? error.message : String(error)}`); }
+  const parsed = EvidenceEnvelopeSchema.safeParse(raw);
+  if (!parsed.success) throw new Error(`${path} の形式が合わない（版または中身が不正）。信用しない。pnpm evidence:attest で作り直す: ${parsed.error.issues.slice(0, 3).map((i) => `${i.path.join('.')}: ${i.message}`).join(' / ')}`);
+  return parsed.data.cases as EvidenceAttestations;
 }
 
 /** 手元の完全な証拠（本文・台帳）から証明書を作る。証拠が欠けていれば作れないので、足りない物を返す */

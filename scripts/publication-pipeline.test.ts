@@ -13,7 +13,7 @@ import { identifyEntity, normalizeEntityName } from './pipeline/entity-identity.
 import { cachePath, type SourceCacheRecord } from './reader-case/verify-lib';
 import { sourcePolicy } from './reader-case/source-policy';
 import { readPublicationAudits } from './reader-case/publication-inputs';
-import { attestCase, attestedSnapshot, type CaseAttestation } from './reader-case/publication-evidence';
+import { attestCase, attestedSnapshot, readAttestations, type CaseAttestation } from './reader-case/publication-evidence';
 import { projectReaderCase } from '../src/lib/company-access/reader-case-projection';
 import { stageEntity, review } from '../src/lib/media/media-test-fixtures';
 import { parseFinancialEntity } from '../src/shared/financial-entity-schema';
@@ -377,4 +377,15 @@ test('evidence attestation: judging from the certificate equals judging from the
   assert.ok('missing' in attestCase({ ...full, missingEvidence: ['出典本文:s1'] }));
   // 本文が無い（証明書だけの）入力では、監査の入力を作らない
   assert.throws(() => auditCaseEntry(attestedInput, 'full', Object.keys(publicationItemHashes(attestedInput))), /出典本文が手元に無く/);
+});
+
+test('evidence attestation file: a malformed or unsupported envelope stops the gate instead of being trusted', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'mm-evidence-envelope-'));
+  const file = join(dir, 'e.json');
+  assert.deepEqual(readAttestations(file), {});
+  writeFileSync(file, JSON.stringify({ version: 2, cases: {} })); assert.throws(() => readAttestations(file), /形式が合わない/);
+  writeFileSync(file, JSON.stringify({ version: 1, cases: { ent_x: { sources: { 'https://a/': { status: 200, fetchedAt: 'x', via: 'direct', textHash: 'zz', textLength: 300, quotes: [], quotesAbsent: [] } }, media: { displayableIds: [] } } } }));
+  assert.throws(() => readAttestations(file), /形式が合わない/);
+  writeFileSync(file, '{ broken'); assert.throws(() => readAttestations(file), /壊れている/);
+  writeFileSync(file, JSON.stringify({ version: 1, cases: {} })); assert.deepEqual(readAttestations(file), {});
 });
