@@ -74,15 +74,15 @@ test('偽のAIで、待ち合わせ（終了コード75）なしに最後まで�
   const root = setupRoot(); const calls: string[] = []; const ai: { label: string }[] = [];
   const s = await runCases(opts(root), { exec: fakeExec(root, calls), caller: fakeCaller(root, ai) });
   assert.equal(s.ok, true, JSON.stringify(s.failures));
-  assert.deepEqual(s.stages.map((x) => x.stage), ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'case-text', 'prepare']);
+  assert.deepEqual(s.stages.map((x) => x.stage), ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'case-text', 'prepare']);
   assert.equal(ai.length, 9, '3段 x 3事例 = 事例ごとに1回ずつ');
   assert.deepEqual(s.passed.sort(), IDS);
   for (const st of ['verify', 'analyze', 'audit'] as const) assert.equal(readdirSync(join(root, STAGES[st].outDir)).filter((f) => /^(out-|batch-).*\.json$/.test(f)).length, 3, `${st} の出力が事例ごとに確定している`);
   // 呼ぶ順
-  assert.deepEqual(calls.filter((c) => !c.startsWith('display-')), ['fetch', 'verify-build', 'verify-merge', 'source-check', 'analyze-build', 'analyze-merge', 'audit-build', 'audit-merge', 'select', 'case-text', 'prepare']);
+  assert.deepEqual(calls.filter((c) => !c.startsWith('display-')), ['fetch', 'verify-build', 'verify-merge', 'source-check', 'analyze-build', 'analyze-merge', 'audit-build', 'audit-merge', 'select', 'fact-lines', 'case-text', 'prepare']);
   // 所要時間の記録（1段1行）
   const lines = readFileSync(join(root, 'data/pipeline/case-run.jsonl'), 'utf8').trim().split('\n').map((l) => JSON.parse(l));
-  assert.equal(lines.length, 9);
+  assert.equal(lines.length, 10);
   assert.ok(lines.every((l) => l.runId === 't1' && typeof l.seconds === 'number' && l.startedAt));
 });
 

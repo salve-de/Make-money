@@ -39,6 +39,6 @@ test('作る側の言葉: 章の見出し・列名・注記を落とし、中身
   ] }));
   const rules = hits.map((h) => h.rule);
   assert.equal(rules.filter((r) => r === STRUCTURE_RULES.MAKER_WORDS).length, 3);
-  assert.deepEqual(auditStructure(screen({ sections: [section('section-details', '数字と出典', '年商は約4,500万円\n今までの歩み')] })), []);
+  assert.deepEqual(auditStructure(screen({ sections: [section('section-details', '出典を見る', '年商は約4,500万円\n今までの歩み')] })), []);
   assert.ok(MAKER_HEADINGS.has('その他'));
 });

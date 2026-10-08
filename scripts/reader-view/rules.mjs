@@ -82,7 +82,7 @@ const FOREIGN = /(\$\s?[0-9]|[0-9][0-9,.]*\s*(?:億|万|千|[kKMB])?\s*(?:米ド
 /** 外貨の金額があるのに、同じ文（句点まで）に円が無い文 @param {string} text @returns {string[]} */
 export function missingYen(text) {
   // 0ドルは換算しても0円なので、円を添えなくてよい
-  const ZERO = /(?<![0-9.,])0(?:\.0+)?\s*(?:米ドル|ドル|ルピー|ユーロ|ポンド)/g;
+  const ZERO = /(?<![0-9.,])0(?:\.0+)?\s*(?:米ドル|ドル|ルピー|ユーロ|ポンド)|\$\s?0(?![0-9.,])/g;
   return text.split(/(?<=[。\n])/).map((s) => s.trim()).filter((s) => FOREIGN.test(s.replace(ZERO, '')) && !/円/.test(s));
 }
 
@@ -184,7 +184,7 @@ export function auditScreen(screen, { checkImages = true } = {}) {
   const priceLines = screen.overview.flatMap((line) => line.split(/(?<=。)/)).filter((s) => PRICE_WORD.test(s));
   if (priceLines.length > 1) add('概要', RULES.OVERVIEW_PRICE, priceLines.join(' / '));
 
-  // e. 同じ数字: 同じ事例の画面の、別の場所に同じ値が2回以上（表記ゆれ「65万人」「650,000人」も同じ）。一覧と、畳んだ「出典つきの事実」は除く。
+  // e. 同じ数字: 同じ事例の画面の、別の場所に同じ値が2回以上（表記ゆれ「65万人」「650,000人」も同じ）。一覧と、畳んだ「出典を見る」（section-details と中の事実・数値・計算の前提）は除く。
   /** @type {Map<string, { first: string; raw: string; places: Set<string> }>} */
   const seen = new Map();
   for (const [where, text] of places) {
