@@ -1,0 +1,359 @@
+{
+ "cases": [
+  {
+   "entityId": "ent_teamcamp_ae0c21986c4d",
+   "scope": "diff",
+   "auditScope": "差分監査: analysis にあるのは前の監査の後に変わった推論だけ。changedClaims は前の監査の後に変わった事実・数字。これらだけを確かめる（他は監査済み）",
+   "facts": [
+    {
+     "id": "f1",
+     "kind": "DESCRIPTION",
+     "text": "開発会社、デザイン会社、マーケティング代理店、フリーランス向けのプロジェクト管理ツール。タスク管理、時間記録、請求書、顧客に見せる専用画面、GitHub・GitLab連携をまとめている。コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearからデータを取り込める。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f2",
+     "kind": "PRICING",
+     "text": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f3",
+     "kind": "CHANNEL",
+     "text": "紹介プログラムは、紹介した客1人ごとに生涯続く継続コミッションを払う。募集先はブログ運営者、比較サイト、インフルエンサー、既存の客。",
+     "attribution": "OFFICIAL"
+    },
+    {
+     "id": "f4",
+     "kind": "FOUNDING",
+     "text": "創業者Pratham Naikは、SEO担当として複数の顧客案件を抱え、複雑な管理ツールにうんざりして作り始めたと書く。Asanaは簡単なタスクを作るだけで宇宙船の操縦のようで、Mondayは使わない機能にも払っており、Trelloは単純すぎたという。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f5",
+     "kind": "OTHER",
+     "text": "2025年8月19日の本人投稿は、開始から6か月で稼働847チーム、MRR 4,200ドル（年末に10,000ドルが目標）、月の解約率8%、NPS 67と申告。新規登録の約4割は口コミ・紹介で、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。",
+     "attribution": "SELF_REPORTED"
+    },
+    {
+     "id": "f8",
+     "kind": "PRICING",
+     "text": "2025年10月7日の本人投稿は、買い切り999ドル（ユーザーも案件も無制限）を、月額の選択肢と並べて4か月試した結果として、売上の約4割が買い切り、買い切りの客は月額の客の3.2倍を紹介、買い切り客の解約はゼロだが問い合わせは多いと書く。懸念として、サーバー費は利用に比例するので、買い切りの客が50人規模のチームを入れると利益が崩れると自分で書いている。",
+     "attribution": "SELF_REPORTED"
+    }
+   ],
+   "metrics": [],
+   "sources": [
+    {
+     "sourceId": "s1",
+     "url": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+     "publisher": "Indie Hackers（創業者の投稿）",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+      "finalUrl": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:48.541Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "a1b12d014b84b78cd3743a79bd2f7d5272a56a0a649751e2e38cd6d37c2afce1"
+     },
+     "text": "From Frustration to $4.2k MRR: The Teamcamp Project Management Story - Indie Hackers\nHey IndieHackers! 👋 I\nHey IndieHackers! 👋 I\nFrom Frustration to $4.2k MRR: The Teamcamp Project Management Story\nFrom Frustration to $4.2k MRR: The Teamcamp Project Management Story - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n1\nLike\n0 Comments\nFrom Frustration to $4.2k MRR: The Teamcamp Project Management Story\nby Pratham Naik\nHey IndieHackers! 👋\nI'm sharing our journey building Teamcamp, a project management tool born out of pure frustration with bloated PM software.\nThe Problem That Started Everything\nAs an SEO executive managing multiple client projects, I was drowning in overly complex PM tools. Asana felt like piloting a spaceship just to create a simple task. Monday.com had so many features I never used but paid for. Trello was too basic for our needs.\nThe breaking point? My team spent more time managing the management tool than actually managing projects.\nHow Teamcamp Fixes This\nWe built Teamcamp around the principle of \"All Together, All Aligned\" - bringing projects, teams, and clients into one unified space without the complexity.\nCore features that actually matter:\n✅ Unified Project Dashboard - Real-time view of all projects and resources\n✅ Milestone & Deadline Tracking - Never miss another deadline\n✅ Task Prioritization - Smart priority management without overwhelming notifications\n✅ Total Transparency - Keep clients in the loop automatically\n✅ Seamless Collaboration - Team communication that doesn't feel like noise\nOur Transparent Progress (6 months in)\nUsers: 847 active teams\nMRR: $4,200 (target: $10k by end of year)\nChurn: 8% monthly (industry avg: 12-15%)\nNPS Score: 67 (we're proud of this!)\nWhat's working:\nWord-of-mouth referrals (40% of new signups)\nFocus on aesthetic UI with top-tier functionality\nFree tier that provides genuine value\nWhat's challenging:\nBalancing feature requests with our \"simplicity first\" philosophy\nEducating users that fewer features can mean better productivity\nKey Lessons Learned\n\"All in one\" doesn't mean \"everything in one\" - We focused on essential features that teams actually use daily\nClient transparency builds trust - Our client portal feature became our biggest differentiator\nBeautiful UI isn't vanity - Teams are 3x more likely to adopt tools that look and feel premium\nif you find really intresting i just drop link here: https://www.teamcamp.app/\nPratham Naik\non August 19, 2025\n1\nShare\nSay something nice to Prathamnaik…\nPost Comment\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s2",
+     "url": "https://www.teamcamp.app/",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.teamcamp.app/",
+      "finalUrl": "https://www.teamcamp.app/",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:49.041Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "594209a2bfcdc7ed26d5335dc1850b823c01bead9e333f288e5852a769cdd167"
+     },
+     "text": "Teamcamp - All in One Project Management Application\nDiscover Teamcamp: the project management tool for IT, marketing, freelancers, and agencies. Manage tasks, collaborate, track time, and simplify billing easily.\nTeamcamp - All in One Project Management Application\nDiscover Teamcamp: the project management tool for IT, marketing, freelancers, and agencies. Manage tasks, collaborate, track time, and simplify billing easily.\nTeamcamp - All in One Project Management Application\nThe Operating System for\nWeb Studios\nDev Shops\nMarketing Teams\nWeb Studios\nManage Code, No-Code, Marketing and Design Projects with high-speed task management, integrated billing, and client portals.\nGet Started for Free\nGet Started for Free\nTrusted by leading teams worldwide\nTrusted by leading teams worldwide\nTrusted by leading teams worldwide\nOne OS for your entire creative stack.\nWhether you ship code, pixels, or campaigns, Teamcamp adapts to your workflow.\nDevelopment\nDesign & No-Code\nMarketing\nSync tasks with Git. Automate the busy work.\nStop manually moving cards. Teamcamp listens to your repo. When a PR opens, the task moves to \"Review\". When code merges, it moves to \"Done\" and logs the timestamp for billing.\nTwo-way GitHub/GitLab sync\nAutomated entry/run tracking\nCI/CD build status in tasks\nDevelopment\nDesign & No-Code\nMarketing\nSync tasks with Git. Automate the busy work.\nStop manually moving cards. Teamcamp listens to your repo. When a PR opens, the task moves to \"Review\". When code merges, it moves to \"Done\" and logs the timestamp for billing.\nTwo-way GitHub/GitLab sync\nAutomated entry/run tracking\nCI/CD build status in tasks\nDevelopment\nDesign & No-Code\nMarketing\nSync tasks with Git. Automate the busy work.\nStop manually moving cards. Teamcamp listens to your repo. When a PR opens, the task moves to \"Review\". When code merges, it moves to \"Done\" and logs the timestamp for billing.\nTwo-way GitHub/GitLab sync\nAutomated entry/run tracking\nCI/CD build status in tasks\nDevelopment\nDesign & No-Code\nMarketing\nSync tasks with Git. Automate the busy work.\nStop manually moving cards. Teamcamp listens to your repo. When a PR opens, the task moves to \"Review\". When code merges, it moves to \"Done\" and logs the timestamp for billing.\nTwo-way GitHub/GitLab sync\nAutomated entry/run tracking\nCI/CD build status in tasks\nNo more emails!\nNo more emails!\nNo more emails!\nClient Portal\nThe \"Can you email me that?\" era is over.\nWhether you are shipping code or ad creatives, clients break your flow with constant requests. Give them a branded dashboard instead.\nThey see:\nThey see:\nProject Status, Deliverables (Files/Links), and Invoices.\nThey don't see:\nThey don't see:\nYour messy internal comments, drafts, or tech debt debates.\nThey see:\nProject Status, Deliverables (Files/Links), and Invoices.\nThey don't see:\nYour messy internal comments, drafts, or tech debt debates.\nIf you worked on it, you get paid for it.\nTime tracking shouldn't be a chore. It should be a byproduct of working.\nTASK-104\n01:24:30\nHomepage Animation\nHomepage Animation\nStarted by Alex\nDRAFT INVOICE\nHomepage Animation\n$210.00\nWebflow Setup\n$450.00\nTotal:\n$660.00\nTASK-104\n01:24:30\nHomepage Animation\nStarted by Alex\nDRAFT INVOICE\nHomepage Animation\n$210.00\nWebflow Setup\n$450.00\nTotal:\n$660.00\nStop undercharging. Catch every revision, every meeting, and every bug fix.\nStop undercharging. Catch every revision, every meeting, and every bug fix.\nEverything a Project needs. In one place.\nDon't scatter your project brain across Slack, Drive, and Notion.\nAsync Messages\n\"Decision records\" for Devs. \"Creative Briefs\" for Designers.\nFiles Tab\n\"API Docs\" for Devs. \"Brand Assets\" for Designers.\nSmart Cards\nGitHub & Loom Links. Figma & YouTube Embeds.\nWhiteboard\nSystem Architecture. Moodboards & Wireframes.\nTrusted by Teams Everywhere\nSee how Teamcamp empowers teams to achieve more with less effort.\n3.2x\nIncrease in Client Satisfaction\n3.2x\nIncrease in Client Satisfaction\n28%\nFaster Project Delivery\n28%\nFaster Project Delivery\n“Teamcamp has streamlined our projects like never before! With all our workflows, timelines, and client communications in one place.”\nAngelo Austin\nCEO, Austin Media Group\n“Teamcamp has streamlined our projects like never before! With all our workflows, timelines, and client communications in one place.”\nAngelo Austin\nCEO, Austin Media Group\n“Teamcamp has streamlined our projects like never before! With all our workflows, timelines, and client communications in one place.”\nAngelo Austin\nCEO, Austin Media Group\n“Teamcamp transformed our project management, boosting our efficiency by 28% and enabling us to execute projects exceeding €10M+”\nMaitrik Katariya\nCEO, Armakuni\n“Teamcamp transformed our project management, boosting our efficiency by 28% and enabling us to execute projects exceeding €10M+”\nMaitrik Katariya\nCEO, Armakuni\n“Teamcamp transformed our project management, boosting our efficiency by 28% and enabling us to execute projects exceeding €10M+”\nMaitrik Katariya\nCEO, Armakuni\n32%\nReduction in Administrative Work\n32%\nReduction in Administrative Work\n42%\nLower Overhead Costs\n42%\nLower Overhead Costs\nMeet our customers\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & Files\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nSolution\nResources\nCompany\nGuide\n© 2026 Teamcamp\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & Files\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & File\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nSolution\nResources\nSupport\nPricing\nLog In\nSign Up",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s4",
+     "url": "https://www.teamcamp.app/affiliate",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.teamcamp.app/affiliate",
+      "finalUrl": "https://www.teamcamp.app/affiliate",
+      "status": 200,
+      "fetchedAt": "2026-09-30T04:39:49.306Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "c62013a10f0ed41407d38e7e7bc60aa544fe7487ade93083654f5978cc277cac"
+     },
+     "text": "Join Teamcamp's Affiliate Program: Boost Earnings with Project Tools\nJoin the Teamcamp affiliate program to earn rewards by promoting our project management tools. Learn how partnering with us can benefit you.\nJoin Teamcamp\nJoin the Teamcamp affiliate program to earn rewards by promoting our project management tools. Learn how partnering with us can benefit you.\nJoin Teamcamp's Affiliate Program: Boost Earnings with Project Tools\nTeamcamp’s Affiliate Program\nJoin the Teamcamp Affiliate Program today and earn lifetime recurring revenue for every referral.\nJoin Program\nJoin Program\nWho is the right fit for our affiliate program?\nOur Ideal Partner\nWe're looking for passionate affiliates who understand the value of our platform. Our partners include bloggers, comparison websites, and content creators with a strong online presence. We value committed partners who share our vision for exceptional service and innovative solutions. Our program is open to anyone who wants to promote our software and help others succeed.\nOur Ideal Partner\nWe're looking for passionate affiliates who understand the value of our platform. Our partners include bloggers, comparison websites, and content creators with a strong online presence. We value committed partners who share our vision for exceptional service and innovative solutions. Our program is open to anyone who wants to promote our software and help others succeed.\nSocial Media Influencers\nIf you work with influencers or are an influencer yourself, you have the power to reach a wide audience and drive sales for our software. Join our affiliate program and earn recurring commissions on every sale you refer.\nSocial Media Influencers\nIf you work with influencers or are an influencer yourself, you have the power to reach a wide audience and drive sales for our software. Join our affiliate program and earn recurring commissions on every sale you refer.\nCurrent Teamcamp Customers\nIf you're already a satisfied customer of our software, you can earn extra income by promoting our affiliate program to your network. Share your enthusiasm for our software and earn recurring commissions on every sale you refer.\nCurrent Teamcamp Customers\nIf you're already a satisfied customer of our software, you can earn extra income by promoting our affiliate program to your network. Share your enthusiasm for our software and earn recurring commissions on every sale you refer.\nLifetime commission\nWe value our affiliates and offer lifetime commission for their hard work. Earn commissions for life on every customer you refer to us. Join our program today and start earning confidently, knowing your efforts will pay off in the long run.\nJoin Program\nLifetime commission\nWe value our affiliates and offer lifetime commission for their hard work. Earn commissions for life on every customer you refer to us. Join our program today and start earning confidently, knowing your efforts will pay off in the long run.\nJoin Program\nLifetime commission\nWe value our affiliates and offer lifetime commission for their hard work. Earn commissions for life on every customer you refer to us. Join our program today and start earning confidently, knowing your efforts will pay off in the long run.\nJoin Program\nLifetime commission\nWe value our affiliates and offer lifetime commission for their hard work. Earn commissions for life on every customer you refer to us. Join our program today and start earning confidently, knowing your efforts will pay off in the long run.\nJoin Program\nA Fast-growing product that sells itself\nLooking for a product that practically sells itself? Our innovative affiliate software platform is one of the fastest-growing in the world, and our affiliates are already seeing great success. Join our program today and start earning with ease!\nJoin Program\nA Fast-growing product that sells itself\nLooking for a product that practically sells itself? Our innovative affiliate software platform is one of the fastest-growing in the world, and our affiliates are already seeing great success. Join our program today and start earning with ease!\nJoin Program\nA Fast-growing product that sells itself\nLooking for a product that practically sells itself? Our innovative affiliate software platform is one of the fastest-growing in the world, and our affiliates are already seeing great success. Join our program today and start earning with ease!\nJoin Program\nA Fast-growing product that sells itself\nLooking for a product that practically sells itself? Our innovative affiliate software platform is one of the fastest-growing in the world, and our affiliates are already seeing great success. Join our program today and start earning with ease!\nJoin Program\nHighly competitive commissions with motivational tiered structure\nThe more new customers you bring in each month, the more you’ll earn per sale. So why wait? Don’t wait any longer. Join us and start earning today!\nJoin Program\nHighly competitive commissions with motivational tiered structure\nThe more new customers you bring in each month, the more you’ll earn per sale. So why wait? Don’t wait any longer. Join us and start earning today!\nJoin Program\nHighly competitive commissions with motivational tiered structure\nThe more new customers you bring in each month, the more you’ll earn per sale. So why wait? Don’t wait any longer. Join us and start earning today!\nJoin Program\nHighly competitive commissions with motivational tiered structure\nThe more new customers you bring in each month, the more you’ll earn per sale. So why wait? Don’t wait any longer. Join us and start earning today!\nJoin Program\nDedicated in-house support\nWe’re here to help you succeed as an affiliate. You can rely on our fast and competent communication. Plus, we can give you expert advice on how to optimize your performance and earn more. Join now!\nJoin Program\nDedicated in-house support\nWe’re here to help you succeed as an affiliate. You can rely on our fast and competent communication. Plus, we can give you expert advice on how to optimize your performance and earn more. Join now!\nJoin Program\nDedicated in-house support\nWe’re here to help you succeed as an affiliate. You can rely on our fast and competent communication. Plus, we can give you expert advice on how to optimize your performance and earn more. Join now!\nJoin Program\nDedicated in-house support\nWe’re here to help you succeed as an affiliate. You can rely on our fast and competent communication. Plus, we can give you expert advice on how to optimize your performance and earn more. Join now!\nJoin Program\nFrequently asked questions\nHave questions? We’re here to help.\nWhat is Teamcamp?\nWho is eligible to participate in the Teamcamp Affiliate Program?\nHow can I start to promote Teamcamp?\nWhat is the commission structure?\nHow are my referrals tracked?\nWhat is Teamcamp?\nWho is eligible to participate in the Teamcamp Affiliate Program?\nHow can I start to promote Teamcamp?\nWhat is the commission structure?\nHow are my referrals tracked?\nWhat is Teamcamp?\nWho is eligible to participate in the Teamcamp Affiliate Program?\nHow can I start to promote Teamcamp?\nWhat is the commission structure?\nHow are my referrals tracked?\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & Files\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & Files\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & File\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nSolution\nResources\nCompany\nGuide\n© 2026 Teamcamp\nProduct\nSolution\nResources\nSupport\nPricing\nLog In\nSign Up",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s5",
+     "url": "https://www.teamcamp.app/pricing",
+     "publisher": "公式サイト",
+     "snapshot": {
+      "url": "https://www.teamcamp.app/pricing",
+      "finalUrl": "https://www.teamcamp.app/pricing",
+      "status": 200,
+      "fetchedAt": "2026-10-08T00:04:51.779Z",
+      "via": "direct",
+      "contentType": "text/html",
+      "textHash": "3b7d42f3eb47ee5c0c6c1498699d44dbe7d1e509758fbde3a61f6526ea76f1f4"
+     },
+     "text": "Teamcamp Pricing | Affordable Project Management Plans\nExplore Teamcamp’s pricing plans and find the perfect solution for your team\nTeamcamp Pricing | Affordable Project Management Plans\nExplore Teamcamp’s pricing plans and find the perfect solution for your team\nTeamcamp Pricing | Affordable Project Management Plans\nYour Agency Grows. Your Pricing Stays Simple.\nWhether you’re launching your first agency project or managing dozens across clients, Teamcamp gives you the clarity, structure, and tools you need.\nFree\nFree\nFor early-stage agencies\nFor early-stage agencies\nFree\nFree\nper user / per month, billed annually\nper user / per month, billed annually\n$8 when billed monthly\n$8 when billed monthly\nGet Started\nGet Started\nEssential\nEssential\nUpto 10 Users\nUpto 10 Users\nUnlimited Projects\nUnlimited Projects\n250 Tasks\n250 Tasks\n1 GB Storage\n1 GB Storage\nFeatures\nFeatures\nTime Tracking\nTime Tracking\nDocs & Whiteboard\nDocs & Whiteboard\nInvoicing and Payment\nInvoicing and Payment\nIntegrations\nIntegrations\nSupport\nSupport\nFree Support\nFree Support\nFree\nAll the basics\nFree\nper user / per month, billed annually\n$8 when billed monthly\nGet Started\nEssential\nUpto 10 Users\nUnlimited Projects\n1 GB Storage\nSee All Features\nPlus\nOur most popular plan\n$6\nper user / per month, billed annually\n$8 when billed monthly\nGet Started\nEssential\nUnlimited Users\nUnlimited Projects\nUnlimited Clients\nClient Portal Access\n100 GB Storage\nSee All Features\nPro Unlimited\nFor scaling businesses\n$99\nper month, unlimited user, billed annually\n$129 when billed monthly\nGet Started\nEssential\nUnlimited Users\nUnlimited Projects\nUnlimited Clients\nClient Portal Access\n100 GB Storage\nSee All Features\nPlus\nFor growing agencies\n$6\nper user / per month, billed annually\n$8 when billed monthly\nGet Started\nEssential\nUnlimited User\nUnlimited Projects\nUnlimited Tasks\n100 GB Storage\nEverything in Free, plus\nMilestone\nTask and Project templates\nAutomated Billing\nFinancial Reports\nSupport\nPriority Support\nPlus\nFor growing agencies\n$6\nper user / per month, billed annually\n$8 when billed monthly\nGet Started\nEssential\nUnlimited User\nUnlimited Projects\nUnlimited Tasks\n100 GB Storage\nEverything in Free, plus\nMilestone\nTask and Project templates\nAutomated Billing\nFinancial Reports\nSupport\nPriority Support\nPlus\nFor growing agencies\n$6\nper user / per month, billed annually\n$8 when billed monthly\nGet Started\nEssential\nUnlimited User\nUnlimited Projects\nUnlimited Tasks\n100 GB Storage\nEverything in Free, plus\nMilestone\nTask and Project templates\nAutomated Billing\nFinancial Reports\nSupport\nPriority Support\nPro Unlimited\nPro Unlimited\nFor established agencies\nFor established agencies\n$99\n$99\nper month, unlimited user, billed annually\nper month, unlimited user, billed annually\n$129 when billed monthly\n$129 when billed monthly\nGet Started\nGet Started\nEssential\nEssential\nUnlimited User\nUnlimited User\nUnlimited Projects\nUnlimited Projects\nUnlimited Tasks\nUnlimited Tasks\n500 GB Storage\n500 GB Storage\nAll features\nAll features\nCustom onboarding\nCustom onboarding\nClient Portal Access\nClient Portal Access\nData Migration\nData Migration\nExtensive Time-log Report\nExtensive Time-log Report\nSupport\nSupport\nPriority Support\nPriority Support\nSee plan details\nTrusted by leading teams worldwide\nTrusted by leading teams worldwide\nTrusted by leading teams worldwide\nTrusted by Teams Everywhere\nSee how Teamcamp empowers teams to achieve more with less effort.\n3.2x\nIncrease in Client Satisfaction\n3.2x\nIncrease in Client Satisfaction\n28%\nFaster Project Delivery\n28%\nFaster Project Delivery\n“Teamcamp has streamlined our projects like never before! With all our workflows, timelines, and client communications in one place.”\nAngelo Austin\nCEO, Austin Media Group\n“Teamcamp has streamlined our projects like never before! With all our workflows, timelines, and client communications in one place.”\nAngelo Austin\nCEO, Austin Media Group\n“Teamcamp has streamlined our projects like never before! With all our workflows, timelines, and client communications in one place.”\nAngelo Austin\nCEO, Austin Media Group\n“Teamcamp transformed our project management, boosting our efficiency by 28% and enabling us to execute projects exceeding €10M+”\nMaitrik Katariya\nCEO, Armakuni\n“Teamcamp transformed our project management, boosting our efficiency by 28% and enabling us to execute projects exceeding €10M+”\nMaitrik Katariya\nCEO, Armakuni\n“Teamcamp transformed our project management, boosting our efficiency by 28% and enabling us to execute projects exceeding €10M+”\nMaitrik Katariya\nCEO, Armakuni\n32%\nReduction in Administrative Work\n32%\nReduction in Administrative Work\n42%\nLower Overhead Costs\n42%\nLower Overhead Costs\nMeet our customers\nFrequently asked questions\nHave questions? We’re here to help.\nHow much does Teamcamp cost per user?\nIs there a free trial available for Teamcamp?\nDo you offer any discounts for non-profit organizations or startups?\nWhat happens if I outgrow my current plan?\nDo you offer any pay-as-you-go options?\nHow much does Teamcamp cost per user?\nIs there a free trial available for Teamcamp?\nDo you offer any discounts for non-profit organizations or startups?\nWhat happens if I outgrow my current plan?\nDo you offer any pay-as-you-go options?\nHow much does Teamcamp cost per user?\nIs there a free trial available for Teamcamp?\nDo you offer any discounts for non-profit organizations or startups?\nWhat happens if I outgrow my current plan?\nDo you offer any pay-as-you-go options?\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nReady to run a better agency?\nImport your data from Asana, ClickUp, or Linear in minutes.\nGet Started for Free\nSee Demo\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & Files\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nSolution\nResources\nCompany\nGuide\n© 2026 Teamcamp\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & Files\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nBoard & Task\nInvoicing\nMessages\nTime Tracking\nDocument & File\nTeam Collaboration\nIntegrations\nAll Features\nSolution\nRemote Teams\nMarketing Teams\nAgencies & Studios\nIT & Software\nResources\nBlogs\nUpdates\nFeedback & Roadmap\nComparison\nAPI Docs\nResources\nHelp Center\nVideo Guides\nCompany\nPricing\nContact Us\nDownload\nAffiliate\nCustomers\nTerms of Use\nPrivacy Policy\nGuide\nProject Management Guides\nProject Management Terms\nBest Project Management App for Remote Team\nBurndown Chart Generator\n© 2026 Teamcamp\nProduct\nSolution\nResources\nSupport\nPricing\nLog In\nSign Up",
+     "policy": {
+      "policyId": "rights.official-company-website.v1",
+      "sourceId": "src.official-company-website",
+      "providerName": "Official company or product website (entity-bound)",
+      "displayTier": "automatic",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    },
+    {
+     "sourceId": "s8",
+     "url": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+     "publisher": "Indie Hackers（創業者の投稿）",
+     "snapshot": {
+      "url": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+      "finalUrl": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+      "status": 200,
+      "fetchedAt": "2026-10-07T23:34:32.937Z",
+      "via": "direct",
+      "contentType": "text/html; charset=utf-8",
+      "textHash": "7eefedb899b7320753a48a493f2880ea07a430214ec9942a94294f6ead2d7f61"
+     },
+     "text": "Validating a \"Lifetime Deal\" Model for Project Management Software Am I Crazy? - Indie Hackers\nTesting a pricing hypothesis with Teamcamp that most SaaS experts say is financial suicide: $999 one-time payment for unlimited everything, forever. The...\nTesting a pricing hypothesis with Teamcamp that most SaaS experts say is financial suicide: $999 one-time payment for unlimited everything, forever. The...\nValidating a \"Lifetime Deal\" Model for Project Management Software Am I Crazy?\nValidating a \"Lifetime Deal\" Model for Project Management Software Am I Crazy? - Indie Hackers Home Starting Up Case Studies DB Products Ideas DB Vibe Coding Tools Subscribe to IH+\nStarting Up Case Studies\nIdeas DB Products DB Sign in Join\n1\nUpvote\n0 Comments\nValidating a \"Lifetime Deal\" Model for Project Management Software Am I Crazy?\nby Pratham Naik\nTesting a pricing hypothesis with Teamcamp that most SaaS experts say is financial suicide: $999 one-time payment for unlimited everything, forever.\nThe conventional wisdom:\nLifetime deals cannibalize recurring revenue. Customers expect perpetual support for zero ongoing income. You're leaving money on the table.\nMy contrarian bet:\nLifetime buyers become your most vocal advocates because they feel like they \"beat the system\". They have skin in the game, so they actually use the product instead of letting subscriptions ghost them.\nEarly validation data:\nLaunched 4 months ago with both $49/month and $999 lifetime options\n40% of revenue comes from lifetime deals\nLifetime customers refer 3.2x more users than monthly subscribers\nSupport load is higher, but churn is obviously zero\nThe risks I am monitoring:\nServer costs scale with usage, not revenue. If one lifetime customer brings on a 50-person team, my margins collapse. Feature requests from lifetime users feel more demanding because they paid upfront.\nMy validation question:\nHas anyone here successfully run a lifetime deal model long-term? Did it work, or did it eventually break your business economics?\nI am specifically worried about the 3-5 year horizon when early lifetime customers expect major feature updates.\nLooking for honest experiences, not generic advice. If you tried lifetime pricing and it failed, I want to hear why.\nPratham Naik\non October 7, 2025\n1\nUpvote\nShare\nSay something nice to Prathamnaik…\nPost Comment\nStay informed as an indie hacker.\nMarket insights that help you start and grow your business.\nSubscribe\nFollow @IndieHackers on X for stories and insights about founders building profitable online businesses, and to connect with others in the Indie Hackers community.\n© Indie Hackers, Inc. &middot; FAQ &middot; Terms &middot; Privacy &middot; Cookie Settings / Policy &middot;\nCommunity\nTop Today Top This Week Top This Month Join\nProducts\nAll Products Highest Revenue Add Yours\nDatabases\nIdeas Products Stories",
+     "policy": {
+      "policyId": "rights.indiehackers.v2",
+      "sourceId": "src.indiehackers",
+      "providerName": "Indie Hackers",
+      "displayTier": "facts_only",
+      "registryHash": "30d893f5b810c363886fbef8bc35e9535700abdcb83e6a517b66018b3993cacc"
+     }
+    }
+   ],
+   "analysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "複数の顧客案件を抱えるSEO担当のPratham Naikは、複雑な管理ツールにうんざりしてTeamcampを作り始めた。",
+     "basis": [
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "創業者のPratham Naikは、SEO担当として複数の顧客案件を管理する中で、複雑な管理ツールにうんざりしてTeamcampを作り始めたと書く。Asanaは簡単なタスク作成にも操作が複雑で、Mondayは使わない機能にも料金を払い、Trelloは必要な用途には単純すぎたという。",
+     "basis": [
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "創業者は、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。",
+     "basis": [
+      "f5"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
+   "changedClaims": [],
+   "identity": {
+    "id": "ent_teamcamp_ae0c21986c4d",
+    "name": "Teamcamp",
+    "url": "https://www.teamcamp.app/",
+    "publishability": "PARTIAL"
+   },
+   "caseHash": "692901739b416a6f3c5a51afc984b8bbfa9e1fb8eeca68797bee19203c110a89",
+   "itemHashes": {
+    "fact:f1": "120f51602dda46cd47c2cdc27ed486f5b542201033be63ad890c0559d609e40c",
+    "fact:f2": "a29a9943fd5c01eac5c1cd8e0ffed61b6f6101c364749549a10d0b18629f576b",
+    "fact:f3": "ca5c22eda34c482b00f97b1b0f1f11f5eaf35b045f5f96e5f7d127be948654ff",
+    "fact:f4": "2214d37a648bcfc18e1bf4f1ecdd30a4eb1cef6dac50a1b735ba9269df611f7b",
+    "fact:f5": "55cb7f39dc09c41b9a68ebfd7ba0f1facf9ed2247a5269d85ecff4faa3159742",
+    "fact:f8": "cf522ba65f307cfe59b1c3536d58356f0a91d5159f896ba168f1bf57158f3aaf",
+    "analysis:a-headline": "919868c814c44029d932ba48bc072cbf04be24e26f58ca21edca9ed9f4d263c6",
+    "analysis:a-story": "d8a1377547c1ec12d2899b32292a2beb402db96f0b24d7b967f741b4b827e7eb",
+    "analysis:a-business_model": "763ca228ef09a2825b688f24565cd3f0c1baa604f89430263eb0556a0e878db3",
+    "analysis:a-customer": "42772f3a7a5b0aa279b809dc5eb5a84c705d7952b6f26020216424926c744405",
+    "analysis:a-channels": "25c51d96c6385fde693548c49d088949a6c7858a26536db8d19046a2bece5da8",
+    "analysis:a-referral": "5526f5438c8608a011d7dff75e5001c64af526a667406e3071899b9cc23ad0da",
+    "analysis:a-cost_structure": "69cac9beb069b03f5184d5cc92d4c51b526db7bcd0f8b9e4f84871da28fbdaf5",
+    "analysis:a-tools": "ea881fa3f2adaf50d5ffa14565b7eadcff5d8b573c9fff5525662e18ffb2932e",
+    "analysis:a-dependencies": "e215c13955cacf561568d647a45630a537af3954f2140e22bdc961f21a299293",
+    "analysis:a-lock_in": "79b966e9e5f8ce0847d34e9800a97757b97383ad08259e6d3e4aff70dd1f3e6e",
+    "analysis:a-competition": "4439f50139f4ec609f40f579751445614f98b843a57d2afea90bf53ade94627d",
+    "analysis:a-why_it_worked": "02afaf2146473f51930123992f2fb58b91059d9d2a6afa3ac262882c3caf7522"
+   },
+   "review": [
+    "analysis:a-headline",
+    "analysis:a-story",
+    "analysis:a-why_it_worked"
+   ],
+   "reader": {
+    "sources": [
+     {
+      "id": "s1",
+      "publisher": "Indie Hackers（創業者の投稿）",
+      "url": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
+      "title": "From Frustration to $4.2k MRR: The Teamcamp Project Management Story",
+      "publishedAt": "2025-08-19",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     },
+     {
+      "id": "s2",
+      "publisher": "公式サイト",
+      "url": "https://www.teamcamp.app/",
+      "title": "Teamcamp",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s4",
+      "publisher": "公式サイト",
+      "url": "https://www.teamcamp.app/affiliate",
+      "title": "Affiliate Program",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s5",
+      "publisher": "公式サイト",
+      "url": "https://www.teamcamp.app/pricing",
+      "title": "Pricing",
+      "checkedAt": "2026-10-06",
+      "kind": "OFFICIAL"
+     },
+     {
+      "id": "s8",
+      "publisher": "Indie Hackers（創業者の投稿）",
+      "url": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
+      "title": "Validating a Lifetime Deal Model for Project Management Software",
+      "publishedAt": "2025-10-07",
+      "checkedAt": "2026-10-06",
+      "kind": "SELF_REPORTED"
+     }
+    ],
+    "facts": [
+     {
+      "id": "f1",
+      "kind": "DESCRIPTION",
+      "text": "開発会社、デザイン会社、マーケティング代理店、フリーランス向けのプロジェクト管理ツール。タスク管理、時間記録、請求書、顧客に見せる専用画面、GitHub・GitLab連携をまとめている。コードのPRが開くとタスクが「レビュー」へ、マージされると「完了」へ動き、請求用に時刻を記録する。Asana・ClickUp・Linearからデータを取り込める。",
+      "sourceId": "s2",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f2",
+      "kind": "PRICING",
+      "text": "無料プランは10ユーザーまで・プロジェクト無制限・250タスク・保存1GB。Plusは1ユーザー月6ドル（年払い、月払いは8ドル）。Pro Unlimitedはユーザー無制限で月99ドル（年払い、月払いは129ドル）。",
+      "sourceId": "s5",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f3",
+      "kind": "CHANNEL",
+      "text": "紹介プログラムは、紹介した客1人ごとに生涯続く継続コミッションを払う。募集先はブログ運営者、比較サイト、インフルエンサー、既存の客。",
+      "sourceId": "s4",
+      "attribution": "OFFICIAL"
+     },
+     {
+      "id": "f4",
+      "kind": "FOUNDING",
+      "text": "創業者Pratham Naikは、SEO担当として複数の顧客案件を抱え、複雑な管理ツールにうんざりして作り始めたと書く。Asanaは簡単なタスクを作るだけで宇宙船の操縦のようで、Mondayは使わない機能にも払っており、Trelloは単純すぎたという。",
+      "sourceId": "s1",
+      "statedAt": "2025-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f5",
+      "kind": "OTHER",
+      "text": "2025年8月19日の本人投稿は、開始から6か月で稼働847チーム、MRR 4,200ドル（年末に10,000ドルが目標）、月の解約率8%、NPS 67と申告。新規登録の約4割は口コミ・紹介で、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。",
+      "sourceId": "s1",
+      "statedAt": "2025-08",
+      "attribution": "SELF_REPORTED"
+     },
+     {
+      "id": "f8",
+      "kind": "PRICING",
+      "text": "2025年10月7日の本人投稿は、買い切り999ドル（ユーザーも案件も無制限）を、月額の選択肢と並べて4か月試した結果として、売上の約4割が買い切り、買い切りの客は月額の客の3.2倍を紹介、買い切り客の解約はゼロだが問い合わせは多いと書く。懸念として、サーバー費は利用に比例するので、買い切りの客が50人規模のチームを入れると利益が崩れると自分で書いている。",
+      "sourceId": "s8",
+      "statedAt": "2025-10",
+      "attribution": "SELF_REPORTED"
+     }
+    ],
+    "metrics": [],
+    "unknowns": [
+     "REVENUE",
+     "PROFIT",
+     "COST",
+     "TEAM",
+     "TOOLS"
+    ],
+    "analysis": [
+     {
+      "id": "a-headline",
+      "item": "HEADLINE",
+      "text": "複数の顧客案件を抱えるSEO担当のPratham Naikは、複雑な管理ツールにうんざりしてTeamcampを作り始めた。",
+      "basis": [
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-story",
+      "item": "STORY",
+      "text": "創業者のPratham Naikは、SEO担当として複数の顧客案件を管理する中で、複雑な管理ツールにうんざりしてTeamcampを作り始めたと書く。Asanaは簡単なタスク作成にも操作が複雑で、Mondayは使わない機能にも料金を払い、Trelloは必要な用途には単純すぎたという。",
+      "basis": [
+       "f4"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     },
+     {
+      "id": "a-why_it_worked",
+      "item": "WHY_IT_WORKED",
+      "text": "創業者は、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。",
+      "basis": [
+       "f5"
+      ],
+      "formula": "数字は出典に載っている値",
+      "presentation": "FACT_SUMMARY"
+     }
+    ],
+    "summaryFactId": "f1"
+   }
+  }
+ ]
+}
