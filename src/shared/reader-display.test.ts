@@ -25,7 +25,7 @@ describe('画面用の編集文を事例ごとにまとめる', () => {
     expect(listLineFor(display, fact)).toBe('一覧の1行');
     expect(summaryRestFor(display, fact)).toBe('続きの編集文');
     expect(detailLineFor(display, { id: 'a1', text: '推論1' })).toEqual({ answer: '答え1', note: '補足', hidden: undefined });
-    expect(successPointsFor(display, [fact])).toEqual([{ head: '見出し', body: '根拠' }]);
+    expect(successPointsFor(display, [fact])).toEqual([{ head: '見出し', body: '根拠', factId: fact.id }]);
     expect(caseChaptersFor(display, [fact]).map((c) => c.id)).toEqual(['practice']);
   });
   it('元の文が変わったら（指紋が合わなければ）使わず、元の文に戻る', () => {

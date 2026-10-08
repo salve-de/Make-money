@@ -75,7 +75,7 @@ pnpm case:run --ids a --publish          # 最後に今の catalog:publish を�
 | 7 | display | 画面の文（`build-display.ts`）。事例ごとに別の作業場所で並列に作り、できた分を1つずつ実ファイルに反映する | 作れなかった事例は外れる。理由は `data/pipeline/display-build-failures.jsonl` |
 | 8 | case-text | 文の検査（`pnpm case-text:verify`） | 落ちた行の事例が外れる（事例を特定できなければ全件） |
 | 9 | prepare | 公開データの作成（`pnpm catalog:prepare --changed`）。原文照合で落ちた事例は含めない | 作れなければ段ごと失敗 |
-| 10 | publish | `--publish` の時だけ `pnpm catalog:publish` | 公開データの作成が通っていなければ公開しない |
+| 10 | publish | `--publish` の時だけ `pnpm catalog:publish`（中で `catalog:screen-check` を通す。飛ばさない） | 公開データの作成と画面の検査が通っていなければ公開しない |
 
 - **手元の証拠が要る段**: 選別（select）と公開データの作成（prepare）は、出典本文の保存（`data/source-cache/`）と画像台帳（`data/media-staging/`）を読みます。どちらもバージョン管理に入らないので、持っている作業場所で動かすか、持っている場所から連結してください。無い場所では「画像の権利または実体が未充足」「撤回の明示が足りない」で落ちます（落とし穴の表 12）。
 - 各段の所要時間は `data/pipeline/case-run.jsonl` に1行ずつ（`runId`・段・開始時刻・秒・対象件数・失敗件数）。実行ごとの記録は `data/pipeline/case-run/<runId>/`（`logs/` に各命令の出力、`summary.json` に最後の一覧）。
@@ -275,8 +275,9 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 **文を直して出す流れ（以後ずっとこれだけ）**
 1. 5つの `data/*.json` を直す（原文照合・自動検査は3.5章・3b章のとおり）
 2. `pnpm catalog:prepare`（`data/catalog-release.json` と `.catalog-release/` を更新）
-3. `pnpm catalog:publish`（R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない）
-4. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
+3. `pnpm catalog:screen-check`（公開中の全件の画面を描き、画面に出さない言い回しと、出どころの無い文字がないかを調べる。**飛ばさない**。落ちたら文を直して2へ戻る。手元に `.catalog-release/` が無い作業場所では、持っている場所から連結してから動かす）
+4. `pnpm catalog:publish`（中で `screen-check` → `prepare` を通してから R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない。`publish-catalog-release.ts` を直接動かして検査を迂回しない）
+5. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
 
 **戻す時**: `pnpm catalog:publish -- --point-to <戻したい版の manifestHash>`（記録にも残る）。目印だけ作らず確認したい時は `--skip-pointer`。
 
@@ -286,5 +287,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 - 異常時は `--point-to` で前の版へ戻す。コードごと戻す時は前のデプロイへ
 
 **手元の開発サーバ**: `pnpm dev` の直前（predev）に、`.catalog-release/` が今の `data/catalog-release.json` と合っているか確かめ、無い・古い時だけ作り直す（`scripts/ensure-local-catalog.ts`、数十秒）。手元の画面は `.catalog-release/current.json` が指す版を読む。`CATALOG_RELEASE_DIR` を自分で指定した時はそちらを信じる。
+
+**画面の検査（`catalog:screen-check`）が見ること**: 画面の文字は、事実（`data-fact`）・数字・出典・分析・成功の秘訣（`data-success`）・章（`data-chapter`）のどれかの中にあるか、`ui-strings` の許可リストにある画面の飾り（世代の見出し「第1世代（N件）」を含む）でなければならない。成功の秘訣・章は、根拠にした事実が事例に実在しなければ不合格。データに無い作文が画面に出ると不合格になる。
 
 **注意**: 監査の証拠（`data/source-cache` `data/media-staging`）はコミットされない作業データ。別の作業場所にある時は、そこからリンクして使う。
