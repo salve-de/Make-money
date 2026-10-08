@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "catalog:prepare": "node --import tsx scripts/prepare-catalog-release.ts",
+    "evidence:attest": "node --import tsx scripts/reader-case/attest-evidence.ts",
+    "evidence:check": "node --import tsx scripts/reader-case/attest-evidence.ts --check",
     "catalog:check": "node --import tsx scripts/prepare-catalog-release.ts --check",
     "catalog:screen-check": "tsx scripts/architecture/screen-text.tsx --check",
     "catalog:audit": "node --import tsx scripts/audit-catalog-coverage.ts",
-    "catalog:publish": "pnpm catalog:screen-check && pnpm catalog:prepare && node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/publish-catalog-release.ts",
+    "catalog:publish": "pnpm catalog:screen-check && pnpm evidence:check && pnpm catalog:prepare && node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/publish-catalog-release.ts",
     "foundation:snapshots": "node scripts/foundation/build-foundation-snapshots.mjs",
     "foundation:snapshots:check": "node scripts/foundation/build-foundation-snapshots.mjs --check",
     "predev": "node --import tsx scripts/ensure-local-catalog.ts",

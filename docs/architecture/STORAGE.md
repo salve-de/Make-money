@@ -48,6 +48,7 @@
 | アプリ添付・大きな生成物 | プロジェクト専用の非公開R2 | サーバー経由。D1には所有者、object key、schema version、hash等の参照 | バイナリをDBへ詰め込まず、認可と内容を分離 |
 | D1エクスポート・移行原本 | プロジェクト専用の非公開R2 | 世代別objectとmanifest。読み戻し・hash照合 | 障害復旧と他DBへの移行に備える |
 | 外部調査の事実・出典 | Foundationの登録済みR2契約 | 既存収集CLI、schema検証、create-only | 事実を不変に保ち、解釈・表示と分離 |
+| 公開の関門が使う手元の証拠の証明書 | Git上の `data/publication-evidence.json`（version 1） | 書き手は `pnpm evidence:attest`（`scripts/reader-case/attest-evidence.ts`）だけ。手で書かない。出典本文(`data/source-cache`)と画像台帳(`data/media-staging`)は git に入れず、判定に要る最小の事実（本文の指紋・本文で確かめた引用の鍵・表示してよい画像の識別子）だけをここへ残す。読む側は runtime schema で検証し、壊れていれば止まる（fail closed）。手元に本文・台帳があればそちらを正とする | 作業場所ごとに証拠の有る・無いが分かれても、同じ公開の判定にする。再生成可能（元の本文・台帳から作り直せる）。変更・復旧は `pnpm evidence:check` で差を見て `pnpm evidence:attest` で作り直し、コミットする |
 | 表示用の企業一覧・詳細 | 上記正本からのprojection | 読み取り時の変換、公開DTO | UI都合で第二の正本を作らない |
 | 秘密鍵・APIトークン | ホストのsecret管理 | 環境ごとのsecret注入 | Git、R2本文、ブラウザへ入れない |
 | 一時キャッシュ | 再生成可能なキャッシュ | 消えても正本から再作成 | 権利やユーザー記録の正本にしない |
