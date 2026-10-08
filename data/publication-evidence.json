@@ -5,6 +5,7 @@
   "ent_codementor_ba692caa3db3": {
    "sources": {
     "https://www.codementor.io/": {
+     "url": "https://www.codementor.io/",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:00.221Z",
      "via": "direct",
@@ -18,6 +19,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://mixergy.com/interviews/codementor-with-weiting-liu/": {
+     "url": "https://mixergy.com/interviews/codementor-with-weiting-liu/",
      "status": 200,
      "fetchedAt": "2026-10-08T00:04:49.530Z",
      "via": "direct",
@@ -37,6 +39,7 @@
      "contentType": "text/html; charset=UTF-8"
     },
     "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers": {
+     "url": "https://techcrunch.com/2016/12/14/codementor-raises-1-6-million-to-become-elite-marketplace-for-freelance-developers",
      "status": 200,
      "fetchedAt": "2026-10-07T23:34:20.976Z",
      "via": "direct",
@@ -55,6 +58,7 @@
      "contentType": "text/html; charset=UTF-8"
     },
     "https://support.codementor.io/en/articles/4221825": {
+     "url": "https://support.codementor.io/en/articles/4221825",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:02.112Z",
      "via": "direct",
@@ -77,6 +81,7 @@
   "ent_ejunkie_7e9e46bd9643": {
    "sources": {
     "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f": {
+     "url": "https://www.indiehackers.com/interview/overcoming-technical-roadblocks-to-achieve-1-million-arr-3df1ac487f",
      "status": 200,
      "fetchedAt": "2026-10-08T00:04:56.207Z",
      "via": "wayback",
@@ -91,6 +96,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.e-junkie.com/": {
+     "url": "https://www.e-junkie.com/",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:55.813Z",
      "via": "direct",
@@ -104,6 +110,7 @@
      "contentType": "text/html;charset=UTF-8"
     },
     "https://www.indiehackers.com/product/e-junkie": {
+     "url": "https://www.indiehackers.com/product/e-junkie",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:55.961Z",
      "via": "direct",
@@ -119,6 +126,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.e-junkie.com/wiki/about": {
+     "url": "https://www.e-junkie.com/wiki/about",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:56.699Z",
      "via": "direct",
@@ -132,6 +140,7 @@
      "contentType": "text/html;charset=UTF-8"
     },
     "https://www.e-junkie.com/wiki/help-transaction-log": {
+     "url": "https://www.e-junkie.com/wiki/help-transaction-log",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:57.128Z",
      "via": "direct",
@@ -145,6 +154,7 @@
      "contentType": "text/html;charset=UTF-8"
     },
     "https://www.e-junkie.com/wiki/affiliates": {
+     "url": "https://www.e-junkie.com/wiki/affiliates",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:57.136Z",
      "via": "direct",
@@ -158,6 +168,7 @@
      "contentType": "text/html;charset=UTF-8"
     },
     "https://gumroad.com/pricing": {
+     "url": "https://gumroad.com/pricing",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:57.274Z",
      "via": "direct",
@@ -171,6 +182,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.e-junkie.com/wiki/pricing": {
+     "url": "https://www.e-junkie.com/wiki/pricing",
      "status": 200,
      "fetchedAt": "2026-09-30T04:40:09.202Z",
      "via": "direct",
@@ -193,6 +205,7 @@
   "ent_gorails_640d8f688451": {
    "sources": {
     "https://www.failory.com/interview/gorails": {
+     "url": "https://www.failory.com/interview/gorails",
      "status": 200,
      "fetchedAt": "2026-09-30T04:40:57.946Z",
      "via": "direct",
@@ -214,6 +227,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9": {
+     "url": "https://www.indiehackers.com/product/gorails/1m-in-revenue--MF6J-IzP0vWNyo5MGm9",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:09.500Z",
      "via": "direct",
@@ -228,6 +242,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://gorails.com": {
+     "url": "https://gorails.com",
      "status": 200,
      "fetchedAt": "2026-10-08T00:04:58.122Z",
      "via": "direct",
@@ -243,6 +258,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://gorails.com/pricing": {
+     "url": "https://gorails.com/pricing",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:08.609Z",
      "via": "direct",
@@ -265,6 +281,7 @@
   "ent_heygen_8f11a1": {
    "sources": {
     "https://www.heygen.com/blog/heygen-surpasses-200m-arr": {
+     "url": "https://www.heygen.com/blog/heygen-surpasses-200m-arr",
      "status": 200,
      "fetchedAt": "2026-09-30T05:24:34.813Z",
      "via": "direct",
@@ -283,6 +300,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/": {
+     "url": "https://www.heygen.com/",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:42.112Z",
      "via": "direct",
@@ -296,6 +314,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/about": {
+     "url": "https://www.heygen.com/about",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:42.247Z",
      "via": "direct",
@@ -311,6 +330,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/careers": {
+     "url": "https://www.heygen.com/careers",
      "status": 200,
      "fetchedAt": "2026-09-30T05:24:35.318Z",
      "via": "direct",
@@ -324,6 +344,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.heygen.com/pricing": {
+     "url": "https://www.heygen.com/pricing",
      "status": 200,
      "fetchedAt": "2026-09-30T05:24:35.573Z",
      "via": "direct",
@@ -337,6 +358,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://en.wikipedia.org/wiki/HeyGen": {
+     "url": "https://en.wikipedia.org/wiki/HeyGen",
      "status": 200,
      "fetchedAt": "2026-09-30T05:24:35.988Z",
      "via": "direct",
@@ -359,6 +381,7 @@
   "ent_myoperator_49c393230a2d": {
    "sources": {
     "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors": {
+     "url": "https://myoperator.com/blog/cloud-telephony-platform-thriving-without-single-penny-investors",
      "status": 200,
      "fetchedAt": "2026-10-08T00:35:57.121Z",
      "via": "direct",
@@ -382,6 +405,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://myoperator.com": {
+     "url": "https://myoperator.com",
      "status": 200,
      "fetchedAt": "2026-09-30T04:38:53.228Z",
      "via": "direct",
@@ -395,6 +419,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://myoperator.com/pricing": {
+     "url": "https://myoperator.com/pricing",
      "status": 200,
      "fetchedAt": "2026-09-30T04:38:54.249Z",
      "via": "direct",
@@ -408,6 +433,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://myoperator.com/partnership-program": {
+     "url": "https://myoperator.com/partnership-program",
      "status": 200,
      "fetchedAt": "2026-09-30T04:38:53.976Z",
      "via": "direct",
@@ -433,6 +459,7 @@
   "ent_practicaltypographycom_e9aa6bc94ccf": {
    "sources": {
     "https://practicaltypography.com/economics-year-one.html": {
+     "url": "https://practicaltypography.com/economics-year-one.html",
      "status": 200,
      "fetchedAt": "2026-10-08T00:05:06.556Z",
      "via": "direct",
@@ -453,6 +480,7 @@
      "contentType": "text/html"
     },
     "https://practicaltypography.com/effluents-influence-affluence.html": {
+     "url": "https://practicaltypography.com/effluents-influence-affluence.html",
      "status": 200,
      "fetchedAt": "2026-10-08T00:05:06.948Z",
      "via": "direct",
@@ -470,6 +498,7 @@
      "contentType": "text/html"
     },
     "https://practicaltypography.com/to-pay-or-not-to-pay.html": {
+     "url": "https://practicaltypography.com/to-pay-or-not-to-pay.html",
      "status": 200,
      "fetchedAt": "2026-10-08T00:05:08.087Z",
      "via": "direct",
@@ -486,6 +515,7 @@
      "contentType": "text/html"
     },
     "https://practicaltypography.com/how-to-pay-for-this-book.html": {
+     "url": "https://practicaltypography.com/how-to-pay-for-this-book.html",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:54.655Z",
      "via": "direct",
@@ -500,6 +530,7 @@
      "contentType": "text/html"
     },
     "https://practicaltypography.com/why-you-should-pay.html": {
+     "url": "https://practicaltypography.com/why-you-should-pay.html",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:55.329Z",
      "via": "direct",
@@ -513,6 +544,7 @@
      "contentType": "text/html"
     },
     "https://practicaltypography.com/legal.html": {
+     "url": "https://practicaltypography.com/legal.html",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:58.816Z",
      "via": "direct",
@@ -535,6 +567,7 @@
   "ent_referralrock_8c13d5ee4cfc": {
    "sources": {
     "https://referralrock.com/blog/full-referral-rock-story/": {
+     "url": "https://referralrock.com/blog/full-referral-rock-story/",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:55.238Z",
      "via": "direct",
@@ -554,6 +587,7 @@
      "contentType": "text/html; charset=UTF-8"
     },
     "https://www.indiehackers.com/product/referral-rock": {
+     "url": "https://www.indiehackers.com/product/referral-rock",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:55.227Z",
      "via": "direct",
@@ -568,6 +602,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://referralrock.com": {
+     "url": "https://referralrock.com",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:55.233Z",
      "via": "direct",
@@ -581,6 +616,7 @@
      "contentType": "text/html"
     },
     "https://referralrock.com/pricing/": {
+     "url": "https://referralrock.com/pricing/",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:55.288Z",
      "via": "direct",
@@ -594,6 +630,7 @@
      "contentType": "text/html"
     },
     "https://product.referralrock.com/p/october-2025-exports": {
+     "url": "https://product.referralrock.com/p/october-2025-exports",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:55.241Z",
      "via": "direct",
@@ -618,6 +655,7 @@
   "ent_requestly_28e9f2": {
    "sources": {
     "https://requestly.com/products/": {
+     "url": "https://requestly.com/products/",
      "status": 200,
      "fetchedAt": "2026-09-30T05:32:29.740Z",
      "via": "direct",
@@ -631,6 +669,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests": {
+     "url": "https://www.browserstack.com/press/browserstack-acquires-requestly-a-ycombinator-startup-for-http-interception-mocking-debugging-network-requests",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:50.699Z",
      "via": "direct",
@@ -650,6 +689,7 @@
      "contentType": "text/html; charset=UTF-8"
     },
     "https://baremetrics.com/founder-chats/sachin-jain": {
+     "url": "https://baremetrics.com/founder-chats/sachin-jain",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:50.913Z",
      "via": "direct",
@@ -668,6 +708,7 @@
      "contentType": "text/html; charset=UTF-8"
     },
     "https://requestly.com/pricing/": {
+     "url": "https://requestly.com/pricing/",
      "status": 200,
      "fetchedAt": "2026-09-30T05:32:30.510Z",
      "via": "direct",
@@ -690,6 +731,7 @@
   "ent_rfrcui_64e924ac": {
    "sources": {
     "https://refactoringui.com/": {
+     "url": "https://refactoringui.com/",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:26.524Z",
      "via": "direct",
@@ -708,6 +750,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724": {
+     "url": "https://www.indiehackers.com/post/im-adam-wathan-i-created-tailwind-css-and-built-a-multi-million-dollar-business-around-it-ama-3c0732f724",
      "status": 200,
      "fetchedAt": "2026-09-30T05:23:44.905Z",
      "via": "direct",
@@ -725,6 +768,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://marketingexamples.com/landing-page/pricing": {
+     "url": "https://marketingexamples.com/landing-page/pricing",
      "status": 200,
      "fetchedAt": "2026-10-07T23:35:27.665Z",
      "via": "direct",
@@ -750,6 +794,7 @@
   "ent_teamcamp_ae0c21986c4d": {
    "sources": {
     "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68": {
+     "url": "https://www.indiehackers.com/post/from-frustration-to-4-2k-mrr-the-teamcamp-project-management-story-378accee68",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:48.541Z",
      "via": "direct",
@@ -764,6 +809,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.teamcamp.app/": {
+     "url": "https://www.teamcamp.app/",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:49.041Z",
      "via": "direct",
@@ -777,6 +823,7 @@
      "contentType": "text/html"
     },
     "https://www.teamcamp.app/affiliate": {
+     "url": "https://www.teamcamp.app/affiliate",
      "status": 200,
      "fetchedAt": "2026-09-30T04:39:49.306Z",
      "via": "direct",
@@ -790,6 +837,7 @@
      "contentType": "text/html"
     },
     "https://www.teamcamp.app/pricing": {
+     "url": "https://www.teamcamp.app/pricing",
      "status": 200,
      "fetchedAt": "2026-10-08T00:04:51.779Z",
      "via": "direct",
@@ -803,6 +851,7 @@
      "contentType": "text/html"
     },
     "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc": {
+     "url": "https://www.indiehackers.com/post/i-spent-6-months-building-for-indie-hackers-my-first-real-customer-taught-me-i-was-wrong-c4c6ac27fc",
      "status": 200,
      "fetchedAt": "2026-10-07T23:34:31.698Z",
      "via": "direct",
@@ -816,6 +865,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034": {
+     "url": "https://www.indiehackers.com/post/i-validated-my-idea-with-almost-80-people-built-in-public-for-6-months-and-still-failed-spectacularly-6382ec2034",
      "status": 200,
      "fetchedAt": "2026-10-07T23:34:32.001Z",
      "via": "direct",
@@ -829,6 +879,7 @@
      "contentType": "text/html; charset=utf-8"
     },
     "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab": {
+     "url": "https://www.indiehackers.com/post/validating-a-lifetime-deal-model-for-project-management-software-am-i-crazy-37ad2b08ab",
      "status": 200,
      "fetchedAt": "2026-10-07T23:34:32.937Z",
      "via": "direct",

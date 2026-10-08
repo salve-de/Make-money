@@ -55,7 +55,7 @@ export async function loadPublicationInput(entity: FinancialEntity, reader: Read
       if (verdict && ['SUPPORTED', 'PARTIAL'].includes(verdict.verdict) && verdict.sourceUrl === source.url && ![...attestedQuotes, ...(proof.quotesAbsent ?? [])].includes(quoteKey(claim.id, verdict.quote, proof.textHash)))
         missingEvidence.push(`出典本文の照合記録:${claim.id}(${cachePath(source.url)})`);
     }
-    return { sourceId: source.id, url: source.url, publisher: source.publisher, snapshot: attestedSnapshot(source.url, proof), text: '', policy, evidence: 'attested', attestedQuotes };
+    return { sourceId: source.id, url: source.url, publisher: source.publisher, snapshot: attestedSnapshot(proof), text: '', policy, evidence: 'attested', attestedQuotes };
   });
   return {
     identity: { id: entity.id, name: entity.name, url: entity.url, publishability: entity.publishability },

@@ -361,7 +361,7 @@ test('evidence attestation: judging from the certificate equals judging from the
   const proof = (made as { attestation: CaseAttestation }).attestation;
   const url = full.sources[0].url;
   const fromProof = (p: CaseAttestation): PublicationInput => ({ ...full,
-    sources: [{ ...full.sources[0], text: '', snapshot: attestedSnapshot(url, p.sources[url]), evidence: 'attested', attestedQuotes: p.sources[url].quotes }],
+    sources: [{ ...full.sources[0], text: '', snapshot: attestedSnapshot(p.sources[url]), evidence: 'attested', attestedQuotes: p.sources[url].quotes }],
     media: { assets: [], displayableIds: p.media.displayableIds, problems: [], evidence: 'attested' } });
   const attestedInput = fromProof(proof);
   assert.deepEqual(publicationItemHashes(attestedInput), publicationItemHashes(full));

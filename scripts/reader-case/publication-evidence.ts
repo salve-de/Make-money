@@ -7,7 +7,7 @@
  * - 無い時だけ証明書で判定する。証明書も無い時は「証拠不足」として、不合格とは別に扱う（取り下げにしない）。
  * 証明書は `pnpm evidence:attest` が、手元の本文・台帳から作る。
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { z } from 'zod';
 import { MEDIA_ASSET_ID_PATTERN } from '../../src/shared/media-asset-schema';
 import { contentHash, quoteKey, type PublicationInput } from './publication-evaluation';
@@ -16,6 +16,7 @@ import { quoteInText, type SourceCacheRecord } from './verify-lib';
 export const PUBLICATION_EVIDENCE_FILE = 'data/publication-evidence.json';
 
 export interface SourceAttestation {
+  url: string;
   status: number;
   fetchedAt: string;
   via: 'direct' | 'wayback';
@@ -38,6 +39,8 @@ export type EvidenceAttestations = Record<string, CaseAttestation>;
 
 const hash64 = z.string().regex(/^[a-f0-9]{64}$/);
 const SourceAttestationSchema = z.object({
+  /** 取得記録が自分で名乗っていた URL（出典の URL と違えば本文ありの判定でも不合格なので、ここにも残す） */
+  url: z.string(),
   status: z.number().int(), fetchedAt: z.string(), via: z.enum(['direct', 'wayback']), finalUrl: z.string().optional(), contentType: z.string().optional(), error: z.string().optional(),
   textHash: hash64, textLength: z.number().int().min(0), quotes: z.array(hash64), quotesAbsent: z.array(hash64),
 }).strict();
@@ -50,13 +53,19 @@ export const EvidenceEnvelopeSchema = z.object({ version: z.literal(1), note: z.
 /**
  * 証明書を読む。ファイルが無ければ「証明書なし」。有るのに形式・版が合わない（マージ事故・生成器の変更）時は、信用せず止まる（fail closed）。
  */
+let memo: { path: string; stamp: string; value: EvidenceAttestations } | null = null;
 export function readAttestations(path = PUBLICATION_EVIDENCE_FILE): EvidenceAttestations {
   if (!existsSync(path)) return {};
+  // 事例ごとに呼ばれるので、ファイルが変わらない間は読み直さない
+  const st = statSync(path);
+  const stamp = `${st.mtimeMs}:${st.size}`;
+  if (memo && memo.path === path && memo.stamp === stamp) return memo.value;
   let raw: unknown;
   try { raw = JSON.parse(readFileSync(path, 'utf8')); } catch (error) { throw new Error(`${path} を読めない（壊れている）。pnpm evidence:attest で作り直す: ${error instanceof Error ? error.message : String(error)}`); }
   const parsed = EvidenceEnvelopeSchema.safeParse(raw);
   if (!parsed.success) throw new Error(`${path} の形式が合わない（版または中身が不正）。信用しない。pnpm evidence:attest で作り直す: ${parsed.error.issues.slice(0, 3).map((i) => `${i.path.join('.')}: ${i.message}`).join(' / ')}`);
-  return parsed.data.cases as EvidenceAttestations;
+  memo = { path, stamp, value: parsed.data.cases as EvidenceAttestations };
+  return memo.value;
 }
 
 /** 手元の完全な証拠（本文・台帳）から証明書を作る。証拠が欠けていれば作れないので、足りない物を返す */
@@ -75,8 +84,10 @@ export function attestCase(input: PublicationInput): { attestation: CaseAttestat
       if (!verdict || verdict.sourceUrl !== source.url) continue;
       (quoteInText(verdict.quote, snap.text) ? quotes : quotesAbsent).push(quoteKey(claim.id, verdict.quote, textHash));
     }
+    // 同じ URL を指す出典が2つ以上ある時は、引用の鍵を足し合わせる（主張ごとに鍵が違うので混ざらない）
+    const prior = sources[source.url];
     sources[source.url] = {
-      status: snap.status, fetchedAt: snap.fetchedAt, via: snap.via, textHash, textLength: snap.text.length, quotes: quotes.sort(), quotesAbsent: quotesAbsent.sort(),
+      url: snap.url, status: snap.status, fetchedAt: snap.fetchedAt, via: snap.via, textHash, textLength: snap.text.length, quotes: [...new Set([...(prior?.quotes ?? []), ...quotes])].sort(), quotesAbsent: [...new Set([...(prior?.quotesAbsent ?? []), ...quotesAbsent])].sort(),
       ...(snap.finalUrl ? { finalUrl: snap.finalUrl } : {}), ...(snap.contentType ? { contentType: snap.contentType } : {}), ...(snap.error ? { error: snap.error } : {}),
     };
   }
@@ -85,8 +96,8 @@ export function attestCase(input: PublicationInput): { attestation: CaseAttestat
 }
 
 /** 証明書から、手元に本文が無い出典の「本文なしの取得記録」を作る */
-export function attestedSnapshot(url: string, a: SourceAttestation): NonNullable<PublicationInput['sources'][number]['snapshot']> {
-  return { url, status: a.status, fetchedAt: a.fetchedAt, via: a.via, textHash: a.textHash, textLength: a.textLength,
+export function attestedSnapshot(a: SourceAttestation): NonNullable<PublicationInput['sources'][number]['snapshot']> {
+  return { url: a.url, status: a.status, fetchedAt: a.fetchedAt, via: a.via, textHash: a.textHash, textLength: a.textLength,
     ...(a.finalUrl ? { finalUrl: a.finalUrl } : {}), ...(a.contentType ? { contentType: a.contentType } : {}), ...(a.error ? { error: a.error } : {}) };
 }
 
