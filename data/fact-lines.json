@@ -3353,6 +3353,139 @@
   "text": "2026年9月29日、端末内の文字起こし機能を強化し、Captureという名前でmacOSとWindowsの両方へ公開した。"
  },
  {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f1",
+  "hash": "6cd5c352",
+  "text": "コードを書かずにサイトを作れる。電子書籍・講座・テンプレート・サービスを販売でき、フォームでメールアドレスも集められる。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f5",
+  "hash": "b357451d",
+  "text": "無料枠は1ページを公開できる。商品販売の手数料は無料枠で5%、Launch・Growの有料プランは2%。カード・PayPalの手数料は別。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f8",
+  "hash": "7252aa8f",
+  "text": "beehiivの発表によると、新製品の紹介サイトProduct Huntで、2021年7月に月間1位になった。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f9",
+  "hash": "b7138fce",
+  "text": "2024年6月のbeehiivの公式発表では、Typedream上で企業・出版社・クリエイター向けの数万件のサイトが動いている。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f11",
+  "hash": "c295855f",
+  "text": "認証サービスを作っていた時、利用者からメモの道具Notionとの連携を求められた。聞くと、文章を直接編集する操作が好まれる一方、ボタンやナビゲーションが足りなかった。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "abfa4610",
+  "text": "その聞き取りをもとに、文章編集の操作にサイト用の部品と標準デザインを足した。画面の大きさへの対応も、製品側で行う形にした。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f13",
+  "hash": "2b06f60c",
+  "text": "Putri Karuniaは2021年11月3日、以前は利用者を十分に定められなかったため、今回は作る前に、利用者になりそうな人たちから徹底して話を聞いたと答えた。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f14",
+  "hash": "e424a79d",
+  "text": "2021年11月2日の投稿でコメント投稿者が年$144の価格を挙げ、創業者は他のサイト作成サービスの価格を参考にしたと返答した。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f15",
+  "hash": "1b08176f",
+  "text": "試用者yutersは、文章などを編集するツールNotionの利用者ならなじみやすいと評価した。一方、背景色の変更と、画面外に隠れる操作メニューを指摘した。創業者は改善点と障害を認めた。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f17",
+  "hash": "6bf2fb8d",
+  "text": "旧料金ページのProは月払い$25、年払いは月額換算$20。保護ページとNotionのデータ表示などを含む。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f18",
+  "hash": "cbdc3b77",
+  "text": "旧料金ページには、月ごとまたは年ごとに自動更新されること、解約しても支払った期間の終わりまで使えることが書かれている。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f19",
+  "hash": "071ae8e7",
+  "text": "Kyleigh Smithは、「Dry January Challenge」という企画の募集ページを約1日で用意できたことが最大の利点だったと述べた。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f20",
+  "hash": "7b29f9da",
+  "text": "Kyleigh Smithによると、約1年前の試用ではドラッグ操作に困り、別のサイト作成サービスUnicorn Platformを使い続けた。再び試すと問題が解消されていたため、Typedreamを採用した。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f21",
+  "hash": "32e7280d",
+  "text": "Kyleigh Smithは、TwitterとProduct HuntでTypedreamのチームを見かけて知ったと述べた。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f22",
+  "hash": "3955bb34",
+  "text": "Kyleigh Smithは、整った部品を動かして自分の意図に合わせられることと、公開や修正が簡単なことを評価した。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f23",
+  "hash": "8b0bb462",
+  "text": "紹介報酬の案内では、20%の継続報酬をPayPalで毎月支払う。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f24",
+  "hash": "851f3d64",
+  "text": "紹介報酬ページには、2022年4月19日のEasloの投稿が載っている。コードを書かずに5分で、訪問者に商品やサービスを紹介するページを作ったという本人の利用談である。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f26",
+  "hash": "2fd06a26",
+  "text": "公式記事目録に、2023年4月28日に無料枠でブログとフォームを使えるようにした記事が載っている。"
+ },
+ {
+  "entityId": "ent_typedream_c02cf9d5426e",
+  "kind": "fact",
+  "targetId": "f27",
+  "hash": "74270ddd",
+  "text": "公式記事目録には、2023年5月15日付でKyleigh Smithへの利用者インタビューが掲載されている。"
+ },
+ {
   "entityId": "ent_userlist_a288fcf9f741",
   "kind": "fact",
   "targetId": "f2",

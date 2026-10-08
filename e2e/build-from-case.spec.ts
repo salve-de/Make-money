@@ -1,5 +1,9 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 import { PRIMARY } from './reader-fixture';
+
+// 公開件数は目録から読む（事例が増えるたびに直さなくて済むように）
+const PUBLISHED_COUNT = (JSON.parse(readFileSync('data/catalog-release.json', 'utf8')) as { publishedCount: number }).publishedCount;
 
 // 手元で起動済みのサーバー向け（BASE_URL）。事例 → 「これで作る」→ 材料として表示 → 事業検討の開始、と一覧の見出し。
 
@@ -49,7 +53,7 @@ test('一覧の見出しが検索・絞り込みに合わせて更新され、�
 
   await search.fill('');
   await expect(title).toContainText('条件なし');
-  await expect(title).toContainText('28件');
+  await expect(title).toContainText(`${PUBLISHED_COUNT}件`);
 
   await page.goto('/?filter=SOLO');
   await expect(title).toContainText('一人で運営');
