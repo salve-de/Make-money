@@ -49,8 +49,10 @@ export interface DayRecord {
   date: string; startedAt: string; finishedAt?: string; dryRun: boolean; status: 'RUNNING' | 'DONE' | 'FAILED';
   stages: Record<string, StageResult>;
   ids: string[]; deferred: string[];
-  /** 公開データは作ったが、まだ公開していない事例。次の起動で公開をやり直す */
+  /** 公開データは作ったが、まだ公開していない事例(公開なしの試しで作った分も含む)。次の起動で公開をやり直す。正本は data/pipeline/daily/pending.json */
   pending: string[];
+  /** 今日公開した事例 */
+  publishedIds: string[];
   counts: { discovered: number; researched: number; passed: number; published: number; failed: number };
   failures: { id: string; reason: string }[];
   verify?: { ok: boolean; checks: { name: string; status: 'ok' | 'problem' | 'skipped'; note: string }[]; generationCounts?: Record<string, number>; total?: number };
@@ -134,7 +136,8 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
   try {
     const rows: CatalogPage['data'] = [];
     let offset: number | null = 0; let first: CatalogPage | null = null;
-    while (offset !== null && rows.length < 2000) {
+    let pages = 0;
+    while (offset !== null && pages++ < 300) {
       const page = await d.fetchJson(`${o.siteUrl}/api/catalog?pageSize=100&offset=${offset}`) as CatalogPage;
       first ??= page; rows.push(...page.data); offset = page.nextOffset;
     }
@@ -155,6 +158,7 @@ export async function verifyProduction(o: Options, d: Deps, publishedIds: string
     const byId = new Map(rows.map((r) => [r.id, r]));
     const probe = publishedIds[0];
     if (!probe) add('新しい事例の詳細', 'skipped', '今日公開した事例が無い');
+    else if (!byId.has(probe) && offset !== null) add('新しい事例の詳細', 'skipped', '一覧が長すぎて最後まで読めなかった');
     else {
       const t = byId.get(probe)?.reader?.display?.listLine?.text;
       add('新しい事例の詳細', t ? 'ok' : 'problem', t ? `${probe} の文が出ている` : `${probe} が本番に無い、または画面の文が空`);
@@ -180,14 +184,15 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   const prev = readJson<DayRecord | null>(file, null);
   const resume = !o.force && prev && prev.status !== 'DONE' ? prev : null; // 終えた日は何もしない。止まった日だけ続きから
   const rec: DayRecord = resume ?? {
-    date: o.date, startedAt: new Date(t0).toISOString(), dryRun: o.dryRun, status: 'RUNNING', stages: {}, ids: [], deferred: [], pending: [],
+    date: o.date, startedAt: new Date(t0).toISOString(), dryRun: o.dryRun, status: 'RUNNING', stages: {}, ids: [], deferred: [], pending: [], publishedIds: [],
     counts: { discovered: 0, researched: 0, passed: 0, published: 0, failed: 0 }, failures: [], abnormal: [], ok: false, seconds: 0,
   };
   if (!o.force && prev?.status === 'DONE') { log(`${o.date} は終えている。何もしない（やり直すなら --force）`); return prev; }
   // 前の日の持ち越し(上限を超えた分・公開データは作ったが公開できていない分)を引き継ぐ
   const carry = o.dryRun ? null : lastCarry(o.root, o.date);
-  if (!resume && carry) { rec.pending = carry.pending; rec.ids = carry.deferred; }
-  rec.pending ??= [];
+  if (!resume && carry) rec.ids = carry.deferred;
+  rec.publishedIds ??= [];
+  rec.pending = readPending(o.root); // 公開なしの試しで作った分も、ここから拾う
   if (resume) log(`今日の続きから再開（終えた段: ${Object.entries(rec.stages).filter(([, s]) => s.status === 'ok').map(([k]) => k).join(',') || 'なし'}）`);
   rec.status = 'RUNNING'; rec.abnormal = rec.abnormal.filter((a) => a.key === 'stall');
   const save = (): void => writeAtomic(file, rec);
@@ -227,16 +232,16 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   });
   rec.ids = uniq([...o.ids, ...rec.ids]);
 
-  const published: string[] = [];
-  let passed: string[] = [];
+    let passed: string[] = [];
   await stage('run', async () => {
     const already = localRelease(o.root).ids;
-    const pendingNow = o.dryRun ? [] : rec.pending;
+    const pendingNow = rec.pending;
     const fresh = rec.ids.filter((id) => !already.has(id) && !pendingNow.includes(id));
     rec.deferred = fresh.slice(o.cap); const target = fresh.slice(0, o.cap);
     if (!target.length && !pendingNow.length) return { status: 'skipped', note: '新しい事例が無い' };
     const runId = `daily-${o.date}`;
     if (target.length) {
+      rmSync(join(o.root, 'data/pipeline/case-run', runId, 'summary.json'), { force: true }); // 前の結果を誤って読まない
       const r1 = await d.exec(['pnpm', 'case:run', '--ids', target.join(','), '--run-id', runId]);
       const sum = readJson<{ passed?: string[]; failures?: { id: string; reason: string }[] } | null>(join(o.root, 'data/pipeline/case-run', runId, 'summary.json'), null);
       if (!sum) return { status: 'failed', note: `case:run の結果が読めない: ${tail(r1)}` };
@@ -245,9 +250,9 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
       rec.counts.failed = new Set(rec.failures.map((f) => f.id)).size;
       if (rec.failures.some((f) => /withdrawals|撤回/.test(f.reason))) { flag('withdraw', '公開中の事例の取り下げの判定が出た（公開を止めた。取り下げは自動でしない）'); return { status: 'failed', note: '取り下げの判定で公開を止めた' }; }
       if (rec.counts.failed) flag('case-failed', `${rec.counts.failed} 件が検査に通らず落ちた（${rec.failures.slice(0, 3).map((f) => `${f.id}: ${f.reason}`).join(' / ').slice(0, 300)}）`);
+      // 公開データは手元の目録に入った(公開なしの試しでも)。公開できなくても、次の起動で公開だけやり直せるよう残す
+      rec.pending = uniq([...rec.pending, ...passed]); writePending(o.root, rec.pending); save();
       if (o.dryRun) return { status: 'ok', note: `公開なし。通った ${passed.length} 件` };
-      // 公開データは手元の目録に入った。公開できなくても、次の起動で公開だけやり直せるよう残す
-      rec.pending = uniq([...rec.pending, ...passed]); save();
     }
     const toPublish = o.dryRun ? [] : rec.pending;
     if (!toPublish.length) return { status: 'ok', note: '通った事例が無いので公開しない' };
@@ -258,18 +263,18 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
     if (plan.withdrawn.length || !plan.canApply) { flag('withdraw', `公開中の事例の取り下げの判定が出た（${plan.withdrawn.length} 件。公開を止めた。取り下げは自動でしない）`); return { status: 'failed', note: `取り下げの判定 ${plan.withdrawn.length} 件で公開を止めた` }; }
     const r2 = await d.exec(['pnpm', 'case:run', '--ids', toPublish.join(','), '--run-id', `${runId}-pub`, '--from', 'publish', '--publish']);
     if (r2.code !== 0) return { status: 'failed', note: `公開が失敗(次の起動でやり直す): ${tail(r2)}` };
-    published.push(...toPublish); rec.counts.published += toPublish.length; rec.pending = []; save();
+    rec.publishedIds = uniq([...rec.publishedIds, ...toPublish]); rec.counts.published += toPublish.length; rec.pending = rec.pending.filter((x) => !toPublish.includes(x)); writePending(o.root, rec.pending); save();
     return { status: 'ok', note: `${toPublish.length} 件を公開` };
   });
 
   // 公開で変わった手元のデータ(目録・画面の文)を、変更の申請として残す。次の日にメインへ取り込んでも食い違わないようにする
-  if (published.length) await stage('record-data', async () => {
+  if (rec.publishedIds.length) await stage('record-data', async () => {
     const br = `auto/daily-${o.date}`;
     const steps: string[][] = [
       ['git', 'add', 'data'],
-      ['git', 'commit', '-m', `毎日の自動実行: ${o.date} に公開した ${published.length} 件の公開データ\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`],
+      ['git', 'commit', '-m', `毎日の自動実行: ${o.date} に公開した ${rec.publishedIds.length} 件の公開データ\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`],
       ['git', 'push', 'origin', `HEAD:refs/heads/${br}`],
-      ['gh', 'pr', 'create', '--base', 'main', '--head', br, '--title', `毎日の自動実行: ${o.date} の公開データ(${published.length}件)`, '--body', `公開した事例: ${published.join(', ')}\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)`],
+      ['gh', 'pr', 'create', '--base', 'main', '--head', br, '--title', `毎日の自動実行: ${o.date} の公開データ(${rec.publishedIds.length}件)`, '--body', `公開した事例: ${rec.publishedIds.join(', ')}\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)`],
     ];
     for (const st of steps) { const r = await d.exec(st); if (r.code !== 0) return { status: 'failed', note: `${st.slice(0, 2).join(' ')} が失敗: ${tail(r)}` }; }
     return { status: 'ok', note: `${br} に残した` };
@@ -278,10 +283,10 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   // 本番の確認は毎回やり直す（読むだけ）
   const prevGen = lastVerified(o.root, o.date)?.generationCounts;
   const s0 = d.now();
-  rec.verify = await verifyProduction(o, d, published, prevGen);
+  rec.verify = await verifyProduction(o, d, rec.publishedIds, prevGen);
   // 公開した直後は、本番の目印のキャッシュ(最大3分)で古い版が返ることがある。追いつくまで待ってから不一致と決める
-  const waitUntil = d.now() + (published.length ? (o.verifyWaitMs ?? 200_000) : 0);
-  while (!rec.verify.ok && d.now() < waitUntil) { await d.sleep(20_000); rec.verify = await verifyProduction(o, d, published, prevGen); }
+  const waitUntil = d.now() + (rec.publishedIds.length ? (o.verifyWaitMs ?? 200_000) : 0);
+  while (!rec.verify.ok && d.now() < waitUntil) { await d.sleep(20_000); rec.verify = await verifyProduction(o, d, rec.publishedIds, prevGen); }
   rec.stages.verify = { status: rec.verify.ok ? 'ok' : 'failed', seconds: Number(((d.now() - s0) / 1000).toFixed(1)) };
   if (!rec.verify.ok) flag('verify', `本番の確認で不一致: ${rec.verify.checks.filter((c) => c.status === 'problem').map((c) => `${c.name}: ${c.note}`).join(' / ').slice(0, 400)}`);
 
@@ -290,14 +295,18 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   return rec;
 }
 
+const pendingFile = (root: string): string => join(root, DAILY_DIR, 'pending.json');
+function readPending(root: string): string[] { return readJson<string[]>(pendingFile(root), []); }
+function writePending(root: string, ids: string[]): void { writeAtomic(pendingFile(root), ids); }
+
 /** 一番新しい前の日の記録から、引き継ぐもの(公開待ち・上限を超えた分) */
-function lastCarry(root: string, before: string): { pending: string[]; deferred: string[] } | null {
+function lastCarry(root: string, before: string): { deferred: string[] } | null {
   const dir = join(root, DAILY_DIR);
   if (!existsSync(dir)) return null;
   for (const f of readdirSync(dir).filter((x) => /^\d{4}-\d{2}-\d{2}\.json$/.test(x)).sort().reverse()) {
     if (f.slice(0, 10) >= before) continue;
     const r = readJson<Partial<DayRecord>>(join(dir, f), {});
-    return { pending: r.pending ?? [], deferred: r.deferred ?? [] };
+    return { deferred: r.deferred ?? [] };
   }
   return null;
 }

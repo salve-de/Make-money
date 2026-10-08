@@ -172,3 +172,35 @@ test('公開の直後に本番の版が遅れて追いつく場合は、待っ�
   const rec = await runDaily(opts(root), m.deps);
   assert.equal(rec.verify?.ok, true, JSON.stringify(rec.verify?.checks));
 });
+
+test('公開なしの試しで作った公開データも、次の本番の実行で公開される', async () => {
+  const root = fixture(); const m = make(root, { passed: ['n1'], catalogTotal: () => 2 });
+  await runDaily(opts(root, { dryRun: true, ids: ['n1'], date: '2026-10-07' }), m.deps);
+  assert.ok(!m.calls.some((c) => c.includes('--publish')));
+  const m2 = make(root, { passed: [], catalogTotal: () => 2 });
+  const rec = await runDaily(opts(root, { date: '2026-10-08' }), m2.deps);
+  assert.ok(m2.calls.some((c) => c.includes('--ids n1') && c.includes('--publish')));
+  assert.deepEqual(rec.publishedIds, ['n1']);
+});
+
+test('公開のあとの記録(commit/申請)が失敗しても、同じ日の再開でやり直す', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => 2 });
+  const base = m.deps.exec; let failGit = true;
+  m.deps.exec = async (argv, env) => (argv[0] === 'git' && argv[1] === 'commit' && failGit ? { code: 1, stdout: '', stderr: 'x' } : base(argv, env));
+  const first = await runDaily(opts(root), m.deps);
+  assert.equal(first.stages['record-data'].status, 'failed');
+  failGit = false;
+  const second = await runDaily(opts(root), m.deps);
+  assert.equal(second.stages['record-data'].status, 'ok'); assert.equal(second.ok, true);
+});
+
+test('case:run が結果を書けずに落ちた時、前回の結果を使って公開しない', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'n1' });
+  mkdirSync(join(root, 'data/pipeline/case-run/daily-2026-10-08'), { recursive: true });
+  writeFileSync(join(root, 'data/pipeline/case-run/daily-2026-10-08/summary.json'), JSON.stringify({ passed: ['n1'], failures: [] })); // 前回の結果
+  const base = m.deps.exec;
+  m.deps.exec = async (argv, env) => (argv.join(' ').includes('case:run') ? { code: 1, stdout: '', stderr: '落ちた' } : base(argv, env));
+  const rec = await runDaily(opts(root), m.deps);
+  assert.equal(rec.stages.run.status, 'failed');
+  assert.ok(!m.calls.some((c) => c.includes('--publish')));
+});
