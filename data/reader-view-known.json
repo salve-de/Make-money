@@ -183,13 +183,6 @@
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "数字の帯「料金」 / section-group-secret / section-chapter-practice / section-chapter-core / section-chapter-start / section-chapter-price / section-group-first",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "99ドル（7か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
   "where": "数字の帯「料金」 / section-chapter-price",
   "rule": "e.同じ数字が2か所以上",
   "text": "129ドル（2か所）",
@@ -225,20 +218,6 @@
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-group-secret / section-chapter-start / section-group-first",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "12人（3か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-group-secret / section-chapter-start",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "43件（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
   "where": "section-group-secret / section-chapter-price / section-group-money",
   "rule": "e.同じ数字が2か所以上",
   "text": "999ドル（3か所）",
@@ -253,37 +232,9 @@
  },
  {
   "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-chapter-start / section-group-now",
-  "rule": "e.同じ数字が2か所以上",
-  "text": "227ドル（2か所）",
-  "reason": "事例の文の担当が、同じ数字を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
   "where": "概要 / section-group-edge",
   "rule": "e.同じ話が2か所以上",
   "text": "「るコードの変更を申請すると作」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-group-secret / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「先払いしてもよいと答えた12」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-group-secret / section-chapter-start / section-group-first",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「12人を見つけてから作り始め」",
-  "reason": "事例の文の担当が、同じ話を1か所だけにする"
- },
- {
-  "id": "ent_teamcamp_ae0c21986c4d",
-  "where": "section-group-secret / section-chapter-start",
-  "rule": "e.同じ話が2か所以上",
-  "text": "「人を見つけてから作り始めた2」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
  },
  {
@@ -838,5 +789,12 @@
   "rule": "e.同じ話が2か所以上",
   "text": "「DaringFireball」",
   "reason": "事例の文の担当が、同じ話を1か所だけにする"
+ },
+ {
+  "id": "ent_teamcamp_ae0c21986c4d",
+  "where": "数字の帯「料金」 / section-chapter-practice / section-chapter-core / section-chapter-price",
+  "rule": "e.同じ数字が2か所以上",
+  "text": "99ドル（4か所）",
+  "reason": "事例の文の担当が、料金の99ドルを章の1か所だけに寄せる"
  }
 ]

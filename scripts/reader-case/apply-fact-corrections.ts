@@ -61,12 +61,15 @@ export function applyCorrections(
         else if ('remove' in a && a.remove) skipped += 1;
         else fail(c, `章の行「${a.match}」が無い`);
       } else if (a.target === 'success') {
-        const p = files.success.find((e) => e.entityId === c.entityId)?.points.find((x) => x.factId === a.factId && (x.head.includes(a.match) || x.body.includes(a.match)));
+        const pts = files.success.find((e) => e.entityId === c.entityId)?.points;
+        const p = pts?.find((x) => x.factId === a.factId && (x.head.includes(a.match) || x.body.includes(a.match)));
+        if (!p && a.remove) { skipped += 1; continue; }
         if (!p) {
           const done = files.success.find((e) => e.entityId === c.entityId)?.points.some((x) => x.factId === a.factId && ((a.head && x.head === a.head) || (a.body && x.body === a.body)));
           if (done) { skipped += 1; continue; }
           fail(c, `成功の秘訣「${a.match}」が無い`);
         }
+        if (a.remove) pts!.splice(pts!.indexOf(p!), 1);
         if (a.head) p!.head = a.head;
         if (a.body) p!.body = a.body;
         applied += 1;
