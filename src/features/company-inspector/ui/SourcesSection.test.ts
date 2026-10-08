@@ -19,8 +19,6 @@ describe('auditedSources', () => {
       publicationDate: '2021-04-01',
       checkedAt: '2026-09-29',
       tierLabel: '事実のみ・出典表示必須',
-      selfReported: true,
-      articleEstimate: false,
       unreachable: false,
     });
   });
@@ -28,17 +26,17 @@ describe('auditedSources', () => {
   it('treats missing tiers as unregistered and drops non-http urls', () => {
     const sources = auditedSources({ sources: [{ url: 'https://foo.com', claimStatus: 'UNREACHABLE' }, { url: 'javascript:alert(1)' }, null] });
     expect(sources).toHaveLength(1);
-    expect(sources[0]).toMatchObject({ tierLabel: null, unreachable: true, selfReported: false, publisher: null });
+    expect(sources[0]).toMatchObject({ tierLabel: null, unreachable: true, publisher: null });
   });
 
   it('returns nothing when the record has no re-audit block', () => {
     expect(auditedSources(undefined)).toEqual([]);
   });
 
-  it('labels article estimates separately from self-reported figures', () => {
+  it('does not carry origin marks (self-reported / article estimate) into the source record', () => {
     const [source] = auditedSources({ sources: [{ url: 'https://ebizfacts.com/x', claimStatus: 'REPORTED_ESTIMATE_BY_ARTICLE' }] });
-    expect(source.articleEstimate).toBe(true);
-    expect(source.selfReported).toBe(false);
+    expect(source).not.toHaveProperty('selfReported');
+    expect(source).not.toHaveProperty('articleEstimate');
   });
 });
 

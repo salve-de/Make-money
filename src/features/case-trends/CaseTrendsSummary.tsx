@@ -11,7 +11,6 @@ export interface CaseTrendsSummaryProps {
 }
 
 const ACTION = 'inline-flex min-h-11 min-w-0 max-w-full items-center [overflow-wrap:anywhere] text-sm underline underline-offset-2 hover:text-term-fg-strong lg:min-h-6 lg:text-[13px]';
-const ATTRIBUTION = { OFFICIAL: '公式発表', FILING: '届出資料', SELF_REPORTED: '本人申告', ARTICLE: '記事', THIRD_PARTY: '第三者による記録', LISTING: '掲載情報' };
 
 function amount(series: MetricTrendSeries, point: TrendPoint) {
   return formatMetricAmount({ amount: point.amount, currency: series.scope.currency ?? undefined, unit: series.scope.unit ?? undefined });
@@ -57,7 +56,6 @@ function Example({ item }: { item: CaseTrends }) {
     </> : record ? <>
       <p className="break-words text-sm lg:text-[13px]">{cleanDisplayText(record.text)}</p>
       <div className="flex max-w-full flex-wrap items-center gap-x-3 text-sm text-term-label">
-        <span>{ATTRIBUTION[record.attribution]}</span>
         {record.statedAt && <span>公表日 {formatDisplayDate(record.statedAt)}</span>}
         <SourceLink source={record.source} className={ACTION} />
       </div>

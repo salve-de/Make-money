@@ -92,7 +92,7 @@ describe('CaseTrendsSummary', () => {
   it('shows a sourced statement when there are no numerical records', () => {
     const output = html([item('ent_statement', [], [fact({ statedAt: '2025-09-01', attribution: 'SELF_REPORTED' })])]);
     expect(output).toContain('予約の受付と顧客メモをまとめるサービス。');
-    expect(output).toContain('本人申告');
+    expect(output).not.toContain('本人申告');
     expect(output).toContain('公表日 2025-09-01');
     expect(output).toContain('公開書類');
     expect(output).not.toContain('対象期間未記録');
