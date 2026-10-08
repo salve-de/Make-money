@@ -16,6 +16,8 @@ export const CHAPTER_HEADS = {
   sources: '数字と出典',
 } as const;
 const RIGHTS_HEAD = '権利の記録';
+/** 任意の章。1行1本「- 払う側 → 受け取る側：何の代金・いくら」 */
+export const FLOW_HEAD = 'お金の流れ';
 
 /** 作業メモの行（「メモ：」「作業メモ」「※」「TODO」で始まる行、引用、コメント） */
 const MEMO_LINE = /^\s*(?:>|<!--|※|(?:作業)?メモ[:：]|TODO|（作業メモ)/;
@@ -91,6 +93,14 @@ function parseSources(lines: string[]): { sources: CasePage['sources']; notes: s
   return { sources, notes };
 }
 
+/** お金の流れの章。形に合わない行は from が空のまま返し、検査で見つける */
+export function parseFlows(lines: string[]): NonNullable<CasePage['flows']> {
+  return bullets(lines).map((b) => {
+    const m = b.match(/^(.+?)\s*→\s*(.+?)\s*[:：]\s*(.+)$/);
+    return m ? { from: m[1].trim(), to: m[2].trim(), label: m[3].trim() } : { from: '', to: '', label: b };
+  });
+}
+
 export function parseCasePage(md: string): CasePage {
   const s = sections(md);
   const get = (name: string) => s.get(name) ?? [];
@@ -105,6 +115,7 @@ export function parseCasePage(md: string): CasePage {
     timeline: parseTimeline(get(CHAPTER_HEADS.timeline)),
     sources,
     notes,
+    ...(get(FLOW_HEAD).some((l) => l.trim()) ? { flows: parseFlows(get(FLOW_HEAD)) } : {}),
   };
   return CasePageSchema.parse(page);
 }
@@ -123,7 +134,7 @@ export function parseRights(md: string): CasePageRight[] {
 
 // ---- 軽い検査（4つだけ） ----
 
-export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate' | 'maker-memo'; where: string; detail: string }
+export interface Violation { rule: 'polite' | 'yen-after-foreign' | 'missing-chapter' | 'held-source' | 'list-line-estimate' | 'maker-memo' | 'flow-format' | 'flow-amount'; where: string; detail: string }
 
 /** 一覧の1行に出さない語（推定の数字は嘘になりうるので出さない。文の良し悪しは機械で決めない） */
 const LIST_LINE_ESTIMATE = /推定|推測/g;
@@ -143,6 +154,7 @@ export function bodyLines(page: CasePage): Array<{ where: string; text: string }
   page.did.forEach((x, i) => out.push({ where: `実際にやったこと${i + 1}`, text: x }));
   page.setbacks.forEach((x, i) => out.push({ where: `つまずきと立て直し${i + 1}`, text: x }));
   page.pricing.forEach((x, i) => out.push({ where: `料金${i + 1}`, text: x }));
+  (page.flows ?? []).forEach((x, i) => out.push({ where: `お金の流れ${i + 1}`, text: x.label }));
   page.timeline.forEach((x, i) => out.push({ where: `時間順の流れ${i + 1}`, text: `${x.when}${x.when ? '：' : ''}${x.what}` }));
   return out;
 }
@@ -164,8 +176,34 @@ export function foreignWithoutYen(line: string): string[] {
   return misses;
 }
 
-export function checkCasePage(page: CasePage): Violation[] {
+/** お金の流れに出てくる金額（数字＋ドル・円・％）。お金の流れ以外の本文に同じ金額が無ければ、作った数字とみなす */
+const FLOW_AMOUNT = /[0-9][0-9,]*(?:\.[0-9]+)?(?:万|億|千)?\s*(?:ドル|円|％|%)/g;
+const normAmount = (t: string) => t.replace(/\s/g, '').replace('%', '％');
+
+export function checkFlows(page: CasePage): Violation[] {
   const v: Violation[] = [];
+  const flows = page.flows ?? [];
+  flows.forEach((f, i) => {
+    if (!f.from || !f.to) v.push({ rule: 'flow-format', where: `お金の流れ${i + 1}`, detail: `「- 払う側 → 受け取る側：何の代金・いくら」の形にする（${f.label.slice(0, 30)}）` });
+  });
+  if (flows.length === 0) return v;
+  const rest = [
+    page.listLine, page.overview,
+    ...page.secrets.flatMap((x) => [x.head, x.body]),
+    ...page.did, ...page.setbacks, ...page.pricing,
+    ...page.timeline.map((x) => x.what),
+    ...page.notes,
+  ].map(normAmount).join('\n');
+  flows.forEach((f, i) => {
+    for (const m of f.label.matchAll(FLOW_AMOUNT)) {
+      if (!rest.includes(normAmount(m[0]))) v.push({ rule: 'flow-amount', where: `お金の流れ${i + 1}`, detail: `「${m[0].trim()}」が同じページの本文に無い。本文にある金額だけ使う` });
+    }
+  });
+  return v;
+}
+
+export function checkCasePage(page: CasePage): Violation[] {
+  const v: Violation[] = [...checkFlows(page)];
   for (const { where, text } of bodyLines(page)) {
     for (const m of text.matchAll(POLITE)) v.push({ rule: 'polite', where, detail: `「${m[0]}」は常体に直す` });
     for (const miss of foreignWithoutYen(text)) v.push({ rule: 'yen-after-foreign', where, detail: `「${miss}」の直後に円の概算（約…円）が要る` });
@@ -200,7 +238,7 @@ export function missingChapters(md: string, optional: readonly string[] = []): V
 export const OPTIONAL_CHAPTERS: readonly string[] = [CHAPTER_HEADS.setbacks];
 
 /** 調べた側のメモの言葉（読む人には要らない。権利・読めたか・未確認・作る側のやりとり）。画面の文に出さず、docs/owner/research-notes/<事例ID>.md へ置く */
-const MAKER_MEMO = /未確認|利用規約|ログインなし|有料の壁|本文に使っていない|読めなかった|集められなかった|見つからなかった|照合はまだ|指示を受けた|直した点|の目安|計算した|数字の範囲[:：]|書き手不明|筆者の|計算値|照合は|要再確認|出所の明記/g;
+const MAKER_MEMO = /未確認|本文に無い|本文にない|額は本文|利用規約|ログインなし|有料の壁|本文に使っていない|読めなかった|集められなかった|見つからなかった|照合はまだ|指示を受けた|直した点|の目安|計算した|数字の範囲[:：]|書き手不明|筆者の|計算値|照合は|要再確認|出所の明記/g;
 
 /** 言い回しと印の二重（「と推定される（推定）」「とみられる（推測）」）。印は1か所に1つだけ */
 const DOUBLE_HEDGE = /(?:と推定される|と推測される|と(?:み|見)られる|と思われる|とされる|と表示される)。?[（(](?:推定|推測)[）)]/g;

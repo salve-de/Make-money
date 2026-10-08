@@ -40,6 +40,13 @@ Button Shy は、米国の小さなカードゲームの出版社。出すのは
 - 2026年4〜5月：4本のミニゲーム集が、19日間で86,888ドル（約1,303万円）を集めた。
 - 2026年：ウォレットだけでなく、小売店の売り場に合わせた箱入りの新作も出し始めた。
 
+## お金の流れ
+- 支援者 → Kickstarter：新作の先払い。例：134,553ドル（約2,018万円）
+- Kickstarter → Button Shy：集まった製造費
+- 有料会員 → Patreon：月1ドル（約150円）〜20ドル（約3,000円）の会費
+- Patreon → Button Shy：月18,160ドル（約272万円）
+- 展示会の客 → Button Shy：その場で買う。1本15ドル（約2,300円）
+
 ## 7. 数字と出典
 - 134,553ドル、目標2,000ドル、4,756人（Unsurmountable）：https://www.kicktraq.com/projects/239309591/unsurmountable/
 - 50,385ドル、1,317人、2019年11月19〜30日（復刻）：https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/

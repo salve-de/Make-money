@@ -10,6 +10,8 @@ import { listLineFor, trimLineEnd } from '@/shared/list-lines';
 import { summaryRestFor } from '@/shared/summary-lines';
 import { formatMetricAmount, yenText, metricListLabel, metricEstimateLabel, pickListMetric, plainAnalysisText, metricPeriodText, plainFactText, screenText } from '@/shared/display-text';
 import type { CasePage } from '@/shared/case-page';
+import { seriesFor as earningsSeriesFor } from '@/shared/case-page-series';
+import { EarningsCharts, MoneyFlow } from './CasePageCharts';
 import { ANALYSIS_LABELS, UI } from '@/shared/ui-strings';
 
 /**
@@ -479,6 +481,7 @@ export function SectionGap() {
  * 古い章（誰に売っているか・金はどう回っているか など）は出さない。文は書いたとおりに出す（円の概算も文に入っている）。
  */
 export function CasePageView({ page, media }: { page: CasePage; media?: React.ReactNode }) {
+  const hasEarnings = earningsSeriesFor(page.timeline).length > 0;
   const list = (items: string[]) => (
     <ul className="grid grid-cols-1 gap-2">
       {items.map((t) => (
@@ -511,6 +514,8 @@ export function CasePageView({ page, media }: { page: CasePage; media?: React.Re
       <Fold id="section-chapter-practice" title={UI.CHAPTER_PRACTICE} defaultOpen>{list(page.did)}</Fold>
       {page.setbacks.length > 0 && <Fold id="section-chapter-turning" title={UI.CHAPTER_TURNING} defaultOpen>{list(page.setbacks)}</Fold>}
       <Fold id="section-chapter-price" title={UI.CASE_PAGE_PRICE} defaultOpen>{list(page.pricing)}</Fold>
+      {page.flows && page.flows.length > 0 && <Fold id="section-chapter-money-flow" title={UI.CASE_PAGE_MONEY_FLOW} defaultOpen><MoneyFlow flows={page.flows} /></Fold>}
+      {hasEarnings && <Fold id="section-chapter-earnings" title={UI.CASE_PAGE_EARNINGS} defaultOpen><EarningsCharts timeline={page.timeline} /></Fold>}
       <Fold id="section-chapter-timeline" title={UI.CHAPTER_TIMELINE} defaultOpen>
         <ul className="grid grid-cols-1 gap-2">
           {page.timeline.map(({ when, what }) => (

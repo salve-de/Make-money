@@ -40,6 +40,11 @@ Codementor は、プログラムが動かずに行き詰まった開発者が、
 - 2019年9月：同じチームが、長期の人材紹介サービス Arc を始める。
 - 2024年：売上は推定で年約2,020万ドル（約30億円）、従業員は推定245人前後。
 
+## お金の流れ
+- 相談したい会員 → Codementor：相談の代金
+- Codementor → 教える開発者：時間あたりの報酬
+- 開発者を雇いたい会社 → Codementor：人材紹介の代金
+
 ## 数字と出典
 1. 公式サイト（相談・案件紹介・Arc の3サービス、開発者1万2,000人超の表示）：https://www.codementor.io/
 2. Mixergy の取材（2018年6月11日公開。創業者本人の話。Amazon のサーバー設定で2日詰まった着想、2013年6月1日の Hacker News 投稿、順番待ち数千人、約9か月後に正式公開、WebRTC を自作、Techstars への参加、シアトルで使われなかった話、TMI と Techstars の出資、問い合わせから人材紹介へ広げた経緯）：https://mixergy.com/interviews/codementor-with-weiting-liu/

@@ -19,6 +19,8 @@ export const CasePageSchema = z.object({
   sources: z.array(z.object({ no: z.number().int().positive(), label: z.string().min(1), url: z.url() })).min(1),
   /** 出典の下に出す注記（円の目安・数字の範囲・未確認） */
   notes: z.array(z.string().min(1)),
+  /** お金の流れ（払う側→受け取る側・何の代金かといくら）。本文にある事実だけ。章が無い事例では付けない */
+  flows: z.array(z.object({ from: z.string().min(1), to: z.string().min(1), label: z.string().min(1) })).optional(),
 });
 export type CasePage = z.infer<typeof CasePageSchema>;
 
@@ -35,5 +37,6 @@ export function casePageTexts(page: CasePage): string[] {
     ...page.timeline.flatMap((x) => [x.when, x.what]),
     ...page.sources.flatMap((x) => [String(x.no), x.label, host(x.url)]),
     ...page.notes,
+    ...(page.flows ?? []).flatMap((x) => [x.from, x.to, x.label]),
   ].map((t) => t.trim()).filter(Boolean);
 }
