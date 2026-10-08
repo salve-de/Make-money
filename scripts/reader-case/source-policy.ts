@@ -4,6 +4,8 @@ import { z } from 'zod';
 import { resolveCatalogSourcePolicy } from '../../src/lib/foundation/publication-rights';
 import rightsSnapshot from '../../data/foundation-public-rights-snapshot.json';
 import { contentHash } from './publication-evaluation';
+import { withoutItems } from './case-reflect';
+import type { ReaderCase } from '../../src/shared/reader-case';
 import { entryFor, hostOf, readLedgerCached, suspendedEntryFor } from '../rights/ledger-lib';
 
 export const SOURCE_RIGHTS_FILE = 'data/catalog-source-rights.json';
@@ -17,6 +19,15 @@ export function sourcePolicy(url: string, officialUrl?: string | null): unknown 
   // 権利台帳（data/source-rights-ledger.json）で使用停止にしたドメインは、個別審査・標準の規則より先に不許可にする（pnpm rights:suspend）
   if (suspendedEntryFor(readLedgerCached(), url)) return null;
   return sourcePolicyIgnoringLedger(url, officialUrl);
+}
+
+/** 権利台帳で使用停止のドメインの出典か */
+export const isSuspendedSource = (url: string): boolean => !!suspendedEntryFor(readLedgerCached(), url);
+
+/** 反映済みの読み手（case-reflect）は出典の権利判定の外で作られるので、使用停止のドメインの出典と、それに頼る事実・数字・分析だけをここで外す */
+export function withoutSuspendedSources(reader: ReaderCase): ReaderCase {
+  const ids = reader.sources.filter((s) => isSuspendedSource(s.url)).map((s) => s.id);
+  return ids.length ? withoutItems(reader, { sources: ids }).reader : reader;
 }
 
 /** 台帳の使用停止を見ない判定（rights:where などが「停止前に許可されていたか」を知るため） */

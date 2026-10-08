@@ -4,7 +4,7 @@
  * 3基準（ログイン不要・有料の壁なし・引用を禁じていない）を満たさないと判断された新しいドメインは、使用停止で記録する（記録は残り、事実は画面に出ない）。
  * 失敗しても取り込みは止めない（警告だけ）。
  */
-import { nowIso, readLedger, writeLedger } from './ledger-lib';
+import { LEDGER_FILE, nowIso, readLedger, writeLedger } from './ledger-lib';
 import type { AiRights, SourceRef } from './seed';
 
 type Rec = Record<string, unknown>;
@@ -29,16 +29,16 @@ export function sourceRefsOfRecord(record: Rec): SourceRef[] {
 }
 
 /** seed.ts は標準の規則(@/ の別名を使う)を読むので、使う時にだけ読み込む。読めない環境（別の作業場所など）でも取り込みは止めず、警告にする */
-export async function recordSourcesToLedger(refs: SourceRef[], by: string): Promise<{ added: string[]; error?: string }> {
+export async function recordSourcesToLedger(refs: SourceRef[], by: string, file = LEDGER_FILE): Promise<{ added: string[]; error?: string }> {
   try {
     const { ensureDomainEntries } = await import('./seed');
-    const ledger = readLedger();
+    const ledger = readLedger(file);
     const added = ensureDomainEntries(ledger, refs, by, nowIso());
-    if (added.length) writeLedger(ledger);
+    if (added.length) writeLedger(ledger, file);
     return { added };
   } catch (e) { return { added: [], error: e instanceof Error ? e.message : String(e) }; }
 }
 
-export function recordRecordsToLedger(records: Rec[], by: string): Promise<{ added: string[]; error?: string }> {
-  return recordSourcesToLedger(records.flatMap(sourceRefsOfRecord), by);
+export function recordRecordsToLedger(records: Rec[], by: string, file = LEDGER_FILE): Promise<{ added: string[]; error?: string }> {
+  return recordSourcesToLedger(records.flatMap(sourceRefsOfRecord), by, file);
 }

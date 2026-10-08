@@ -7,7 +7,8 @@ import { domainCovers, emptyLedger, entryFor, readLedger, reviewOverdue, suspend
 import { ensureDomainEntries, groupDomains } from './rights/seed';
 import { sourceRefsOfRecord } from './rights/record-sources';
 import { findUsage, loadUnfilteredReaders, publishedIds } from './rights/usage-lib';
-import { sourcePolicy } from './reader-case/source-policy';
+import { sourcePolicy, withoutSuspendedSources } from './reader-case/source-policy';
+import { normalizeRights } from './reader-case/case-research';
 
 const ROOT = process.cwd();
 // 公開中の事例の実データで確かめるものは、cwd を変える前に読んでおく
@@ -86,19 +87,47 @@ test('台帳の自動記録と使用停止（作業用ディレクトリで確�
     assert.deepEqual(ensureDomainEntries(ledger, refs, 'test'), []); // 2回目は何も足さない
     writeFileSync('data/source-rights-ledger.json', JSON.stringify(ledger));
 
+    // 後からAIの判断が付いた未確認の項目は更新される。人が手を入れた項目は更新しない
+    const later = [{ caseId: 'c2', url: 'https://unknown-a.example/other', publisher: 'A', entityUrl: 'https://c2.example/', rights: { loginFree: 'yes' as const, noPaywall: 'yes' as const, quoteTerms: 'permits' as const } }];
+    assert.deepEqual(ensureDomainEntries(ledger, later, 'test'), ['unknown-a.example']);
+    assert.equal(ledger.domains['unknown-a.example']!.decision.basis, 'ai_judgment');
+    assert.equal(ledger.domains['unknown-a.example']!.history.length, 2);
+    const fix = [{ caseId: 'c3', url: 'https://bad-c.example/x', publisher: 'C', entityUrl: 'https://c3.example/', rights: { loginFree: 'yes' as const, noPaywall: 'yes' as const, quoteTerms: 'silent' as const } }];
+    assert.deepEqual(ensureDomainEntries(ledger, fix, 'test'), ['bad-c.example']); // 誤った停止の訂正
+    assert.equal(ledger.domains['bad-c.example']!.status, 'active');
+    ledger.domains['bad-c.example']!.history.push({ at: ledger.domains['bad-c.example']!.statusChangedAt, by: '人', action: 'suspend', reason: '苦情' });
+    ledger.domains['bad-c.example']!.status = 'suspended';
+    assert.deepEqual(ensureDomainEntries(ledger, fix, 'test'), []); // 人の操作は上書きしない
+    writeFileSync('data/source-rights-ledger.json', JSON.stringify(ledger));
+    assert.ok(sourcePolicy('https://unknown-a.example/post'));
+    assert.equal(sourcePolicy('https://bad-c.example/post'), null);
+    ledger.domains['unknown-a.example']!.decision.checks.quoteTerms = 'unconfirmed';
+    writeFileSync('data/source-rights-ledger.json', JSON.stringify(ledger));
+    assert.equal(sourcePolicy('https://unknown-a.example/post'), null);
+    ledger.domains['unknown-a.example']!.decision.checks.quoteTerms = 'permits';
     // AIが3基準を満たすと判断したドメインは許可。未確認・不許可は許可しない
     assert.ok(sourcePolicy('https://ok-b.example/post'));
-    assert.equal(sourcePolicy('https://unknown-a.example/post'), null);
-    assert.equal(sourcePolicy('https://bad-c.example/post'), null);
     assert.ok(sourcePolicy('https://news.ycombinator.com/item?id=1'));
 
     // 使用停止にすると、標準の規則で許可されているサイトも不許可になり、サブドメインも含む
     ledger.domains['news.ycombinator.com']!.status = 'suspended';
     writeFileSync('data/source-rights-ledger.json', JSON.stringify(ledger));
     assert.equal(sourcePolicy('https://news.ycombinator.com/item?id=1'), null);
+    // 反映済みの読み手にも使用停止が効く（事実・数字・それに頼る分析が外れ、他の出典の事実は残る）
+    const hit = findUsage('news.ycombinator.com', realReaders).find((h) => h.facts.length > 0)!;
+    const original = realReaders.get(hit.caseId)!.reader;
+    const stripped = withoutSuspendedSources(original);
+    assert.ok(stripped.facts.length < original.facts.length);
+    assert.ok(stripped.sources.every((src) => !src.url.includes('news.ycombinator.com')));
     assert.ok(suspendedEntryFor(ledger, 'https://news.ycombinator.com/item?id=1'));
     ledger.domains['news.ycombinator.com']!.status = 'active';
     writeFileSync('data/source-rights-ledger.json', JSON.stringify(ledger));
     assert.ok(sourcePolicy('https://news.ycombinator.com/item?id=1'));
   } finally { process.chdir(ROOT); }
+});
+
+test('normalizeRights: AIの書いた権利の判断を台帳に入る形に整える', () => {
+  assert.deepEqual(normalizeRights({ loginFree: 'maybe', noPaywall: 'yes', quoteTerms: 'x', termsUrl: 'javascript:alert(1)', note: '  根拠  ' }), { loginFree: 'unconfirmed', noPaywall: 'yes', quoteTerms: 'unconfirmed', termsUrl: null, note: '根拠' });
+  assert.equal(normalizeRights('x'), undefined);
+  assert.equal(normalizeRights({ termsUrl: 'https://a.example/terms' })!.termsUrl, 'https://a.example/terms');
 });

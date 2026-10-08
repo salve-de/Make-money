@@ -8,7 +8,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolveCatalogSourcePolicy } from '../../src/lib/foundation/publication-rights';
 import rightsSnapshot from '../../data/foundation-public-rights-snapshot.json';
 import { SOURCE_RIGHTS_FILE, sourcePolicyIgnoringLedger } from '../reader-case/source-policy';
-import { domainCovers, hostOf, nowIso, readLedger, writeLedger, type DomainEntry, type Ledger } from './ledger-lib';
+import { domainCovers, entryFor, hostOf, nowIso, readLedger, writeLedger, type DomainEntry, type Ledger } from './ledger-lib';
 import { loadUnfilteredReaders } from './usage-lib';
 
 /** サブドメインを親にまとめない（別の書き手の場所）プラットフォーム */
@@ -102,24 +102,43 @@ function buildEntry(domain: string, refs: SourceRef[], reviews: Record<string, R
   };
 }
 
+/** 人が台帳に手を入れた（使用停止・再開・メモ・見直し）か。そうなら、AIの自動判断では上書きしない */
+const touchedByHuman = (e: DomainEntry): boolean => e.history.some((h) => h.action !== 'seed' && h.action !== 'terms-snapshot');
+
 /**
- * refs の出典を担当するドメインが台帳に無ければ、未確認の項目を足して返す（既存の項目は変えない）。取り込みの検査・調査の記録から呼ぶ。
- * 戻り値は足した domain の一覧。
+ * refs の出典を担当するドメインが台帳に無ければ、項目を足す（根拠が無ければ未確認）。取り込みの検査・調査の記録から呼ぶ。
+ * 既にある項目でも、根拠が「未確認」か「AIの判断」のままで人が手を入れていなければ、今回の出典にAIの権利判断があれば、それで判断を更新する
+ * （後から確かめられた判断・誤った使用停止の訂正を取り込める。標準の規則・個別審査・人の操作が入った項目は変えない）。
+ * 戻り値は足した・更新した domain の一覧。
  */
 export function ensureDomainEntries(ledger: Ledger, refs: SourceRef[], by: string, at = nowIso()): string[] {
   const reviews = readJson<Record<string, Review>>(SOURCE_RIGHTS_FILE, {});
   const evidence = readJson<EvidenceFile>('data/publication-evidence.json', { cases: {} });
   const hosts = [...new Set(refs.map((r) => hostOf(r.url)).filter((h): h is string => !!h))];
   const grouped = groupDomains([...hosts, ...Object.keys(ledger.domains)]);
-  const added: string[] = [];
+  const changed: string[] = [];
   for (const h of hosts) {
-    const covered = Object.keys(ledger.domains).some((d) => domainCovers(d, h));
-    if (covered) continue;
+    const found = entryFor(ledger, h);
+    if (found) {
+      const { domain, entry } = found;
+      const hasAi = refs.some((r) => r.rights && (r.rights.loginFree || r.rights.noPaywall || r.rights.quoteTerms) && (() => { const rh = hostOf(r.url); return !!rh && domainCovers(domain, rh); })());
+      if (!hasAi || !['unconfirmed', 'ai_judgment'].includes(entry.decision.basis) || touchedByHuman(entry) || changed.includes(domain)) continue;
+      const next = buildEntry(domain, refs, reviews, evidence, by, at);
+      if (next.decision.basis !== 'ai_judgment') continue;
+      const same = next.status === entry.status && JSON.stringify(next.decision.checks) === JSON.stringify(entry.decision.checks);
+      if (same) continue;
+      ledger.domains[domain] = {
+        ...next, evidence: { ...next.evidence, terms: entry.evidence.terms },
+        history: [...entry.history, { at, by, action: 'seed', reason: `AIの権利判断で更新（${entry.status}→${next.status}。確認: ログイン不要=${next.decision.checks.loginFree} 有料の壁なし=${next.decision.checks.noPaywall} 引用=${next.decision.checks.quoteTerms}）` }],
+      };
+      changed.push(domain);
+      continue;
+    }
     const domain = grouped.get(h) ?? h;
     ledger.domains[domain] = buildEntry(domain, refs, reviews, evidence, by, at);
-    added.push(domain);
+    changed.push(domain);
   }
-  return added;
+  return changed;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

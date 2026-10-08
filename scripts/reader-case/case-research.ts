@@ -122,6 +122,18 @@ export interface Compact {
   unknown?: string[]; conflicts?: string[];
 }
 
+/** AI が書いた権利の判断を、台帳に入る形に整える（列挙外は unconfirmed、規約の URL は http(s) だけ、根拠は400字まで） */
+export function normalizeRights(x: unknown): { loginFree: string; noPaywall: string; quoteTerms: string; termsUrl: string | null; note?: string } | undefined {
+  if (!x || typeof x !== 'object') return undefined;
+  const r = x as Record<string, unknown>;
+  const tri = (v: unknown): string => (v === 'yes' || v === 'no' ? v : 'unconfirmed');
+  const quote = ['permits', 'prohibits', 'silent'].includes(String(r.quoteTerms)) ? String(r.quoteTerms) : 'unconfirmed';
+  let termsUrl: string | null = null;
+  try { const u = new URL(String(r.termsUrl)); if (/^https?:$/.test(u.protocol)) termsUrl = u.href; } catch { /* null のまま */ }
+  const note = typeof r.note === 'string' && r.note.trim() ? r.note.trim().slice(0, 400) : undefined;
+  return { loginFree: tri(r.loginFree), noPaywall: tri(r.noPaywall), quoteTerms: quote, termsUrl, ...(note ? { note } : {}) };
+}
+
 const isUrl = (u: unknown): u is string => typeof u === 'string' && /^https?:\/\//i.test(u) && !!entityDomain(u);
 const BANNED_HOST = /ebiz/i;
 
@@ -169,7 +181,7 @@ export function buildRecord(c: Candidate, m: Compact, today: string, dropped: st
     const own = !!officialDomain && (entityDomain(url) === officialDomain || entityDomain(url).endsWith(`.${officialDomain}`));
     srcMap.set(url, { url, publisher: own ? '公式サイト' : entityDomain(url), sourceType: own ? 'official_website' : 'article', publicationDate: null, checkedAt: today, rightsTier: own ? 'TIER1_OFFICIAL' : 'TIER2_FACTS_ONLY', ...extra });
   };
-  for (const s of m.sources ?? []) if (isUrl(s.url)) addSrc(s.url, { ...(s.publisher ? { publisher: s.publisher } : {}), ...(s.sourceType ? { sourceType: s.sourceType } : {}), publicationDate: s.publicationDate ?? null, ...(s.rights && typeof s.rights === 'object' ? { rights: s.rights } : {}) });
+  for (const s of m.sources ?? []) if (isUrl(s.url)) addSrc(s.url, { ...(s.publisher ? { publisher: s.publisher } : {}), ...(s.sourceType ? { sourceType: s.sourceType } : {}), publicationDate: s.publicationDate ?? null, ...(normalizeRights(s.rights) ? { rights: normalizeRights(s.rights) } : {}) });
   for (const x of [...facts, ...metrics]) if (isUrl(x.sourceUrl)) addSrc(x.sourceUrl);
   const unknown = [...(m.unknown ?? []), ...dropped.map((d) => `出典で確かめられず外した: ${d}`)];
   const slug = slugify(name);
