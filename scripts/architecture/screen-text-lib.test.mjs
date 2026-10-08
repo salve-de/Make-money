@@ -54,4 +54,7 @@ test('調査の記録の言い方「検索結果に該当なし」は拾い、�
   assert.equal(hit('検索結果に該当なし'), true);
   assert.equal(hit('検索結果に出やすくする仕事をしていた'), false);
   assert.equal(hit('検索結果に出る未回答の質問に答えた'), false);
+  assert.equal(hit('検索結果に出なかった'), true);
+  assert.equal(hit('検索結果に出ない'), true);
+  assert.equal(hit('検索結果に出たものだけを採った'), true);
 });
