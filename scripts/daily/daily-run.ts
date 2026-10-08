@@ -191,7 +191,7 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   if (!o.force && prev?.status === 'DONE') { log(`${o.date} は終えている。何もしない（やり直すなら --force）`); return prev; }
   // 前の日の持ち越し(上限を超えた分・公開データは作ったが公開できていない分)を引き継ぐ
   const carry = o.dryRun ? null : lastCarry(o.root, o.date);
-  if (!resume && carry) rec.ids = carry.deferred;
+  if (!resume && carry) { rec.ids = [...carry.deferred]; rec.deferred = [...carry.deferred]; } // 仕上げるまでは持ち越しのまま残す
   rec.publishedIds ??= [];
   rec.pending = readPending(o.root); // 公開なしの試しで作った分も、ここから拾う
   if (resume) log(`今日の続きから再開（終えた段: ${Object.entries(rec.stages).filter(([, s]) => s.status === 'ok').map(([k]) => k).join(',') || 'なし'}）`);
