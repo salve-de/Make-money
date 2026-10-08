@@ -143,7 +143,7 @@
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-channels",
-    "textHash": "ba575442",
+    "textHash": "abee0741",
     "answer": "Railsのメモと無料動画を載せたサイトGoRails.comが開発者の投稿サイトHacker Newsに載った。",
     "note": "Hacker News掲載の1日にメール登録が600件超。その登録者へのメルマガが事業の重要な柱になった（記事、2021年11月）。"
   },
@@ -176,14 +176,14 @@
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-story",
-    "textHash": "06c82327",
+    "textHash": "2f867aa2",
     "answer": "依頼主のために数か月かけて作ったソフトが使われず、燃え尽きた。そこで、依頼を受けてソフトを作る仕事をやめた",
     "note": "2014年1月1日に、依頼を受けてソフトを作る仕事をやめた。自分のRailsのメモを公開するため、GoRails.comのドメインを買った。サイトを訪れる人に何かを売ろうと考えた。"
   },
   {
     "entityId": "ent_gorails_640d8f688451",
     "analysisId": "a-first_customers",
-    "textHash": "047e1859",
+    "textHash": "4d80294c",
     "answer": "最初の客は、以前からメモを読みにサイトへ来ていたRails開発者",
     "note": "最初の2コースは、作者が知られていなかったため売れなかった。無料動画で集めたメールの読者が、後に客になった。"
   },
