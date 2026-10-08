@@ -305,12 +305,12 @@ function splitBeforeAfter(text: string): { before: string; after: string } | nul
   return m ? { before: m[1], after: m[2] } : null;
 }
 
-function ChapterRowView({ id, row, no }: { id: ChapterId; row: ChapterRow; no: number }) {
+function ChapterRowView({ id, row, no, factId }: { id: ChapterId; row: ChapterRow; no: number; factId: string }) {
   if (id === 'timeline') {
     const parts = splitWhen(row.text);
     if (parts) {
       return (
-        <li className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-2 text-sm">
+        <li data-chapter={factId} className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-x-2 text-sm">
           <span className="term-num text-xs text-term-label">{parts.when}</span>
           <span className="min-w-0 text-term-fg [overflow-wrap:anywhere]">
             {parts.what}
@@ -324,7 +324,7 @@ function ChapterRowView({ id, row, no }: { id: ChapterId; row: ChapterRow; no: n
     const parts = splitBeforeAfter(row.text);
     if (parts) {
       return (
-        <li className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-2 gap-y-0.5 text-sm [overflow-wrap:anywhere]">
+        <li data-chapter={factId} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-x-2 gap-y-0.5 text-sm [overflow-wrap:anywhere]">
           <span className="text-xs text-term-label">前</span>
           <span className="text-term-sub">{parts.before}</span>
           <span className="text-xs font-semibold text-term-accent">後</span>
@@ -336,7 +336,7 @@ function ChapterRowView({ id, row, no }: { id: ChapterId; row: ChapterRow; no: n
       );
     }
   }
-  return <li className="text-sm text-term-fg [overflow-wrap:anywhere]">
+  return <li data-chapter={factId} className="text-sm text-term-fg [overflow-wrap:anywhere]">
       {row.text}
       <SourceMark no={no} />
     </li>;
@@ -376,7 +376,7 @@ function SourceList({ sources }: { sources: ReadonlyArray<{ url: string; no: num
   return (
     <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1 border-t border-term-line-soft pt-1.5 text-xs text-term-label">
       {sources.map(({ url, no }) => (
-        <li key={url}>
+        <li key={url} data-source={url}>
           <a href={url} target="_blank" rel="noopener noreferrer" className="underline decoration-dotted">
             {UI.CHAPTER_SOURCE}
             {no}
@@ -395,11 +395,11 @@ export function CaseChapters({ display, facts }: { display?: ReaderDisplay; fact
   const { introduced, noOf } = numberSourcesAcross(chapters);
   return (
     <>
-      {chapters.map(({ id, rows }) => (
+      {chapters.map(({ id, rows, factId }) => (
         <Fold key={id} id={`section-chapter-${id}`} title={CHAPTER_TITLES[id]} defaultOpen>
           <ul className="grid grid-cols-1 gap-2">
             {rows.map((row) => (
-              <ChapterRowView key={row.text} id={id} row={row} no={noOf(row)} />
+              <ChapterRowView key={row.text} id={id} row={row} no={noOf(row)} factId={factId} />
             ))}
           </ul>
           <SourceList sources={introduced.get(id) ?? []} />
@@ -430,8 +430,8 @@ export function AnalysisGroups({ reader, usage }: { reader: ReaderCase; usage: O
             <React.Fragment key={title}>
             <Fold id={GROUP_IDS[index]} title={title} defaultOpen>
               <ol className="grid grid-cols-1 gap-3">
-                {secrets.map(({ head, body }, i) => (
-                  <li key={head} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
+                {secrets.map(({ head, body, factId }, i) => (
+                  <li key={head} data-success={factId} className="grid grid-cols-[1.5rem_minmax(0,1fr)] gap-x-1.5">
                     <span className="term-num text-sm text-term-accent">{i + 1}</span>
                     <div className="min-w-0 [overflow-wrap:anywhere]">
                       <p className="text-sm font-semibold leading-snug text-term-fg-strong">{head}</p>

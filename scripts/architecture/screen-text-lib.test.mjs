@@ -33,3 +33,28 @@ test('data-variant が違う（幅違いの同じ行）なら同じ fact ID で�
   const r = analyzeScreen('<div data-variant="a"><p data-fact="f1">x</p></div><div data-variant="b"><p data-fact="f1">x</p></div>', ok);
   assert.deepEqual(r.dupFacts, []);
 });
+
+test('成功の秘訣は data-success の中なら通り、外に置いた作文は出どころ無しで失敗にする', () => {
+  const html = '<ol><li data-success="f3"><span>1</span><p>見出し</p><p>根拠の文</p></li></ol><p>データに無い作文</p>';
+  const r = analyzeScreen(html, ok);
+  assert.deepEqual(r.unowned, ['データに無い作文']);
+  assert.deepEqual(r.successIds, ['f3']);
+});
+
+test('章の行は data-chapter の中なら通り、根拠の fact ID を取り出せる', () => {
+  const r = analyzeScreen('<ul><li data-chapter="f9">章の文<sup>1</sup></li></ul><p>外の文</p>', ok);
+  assert.deepEqual(r.unowned, ['外の文']);
+  assert.deepEqual(r.chapterIds, ['f9']);
+});
+
+test('調査の記録の言い方「検索結果に該当なし」は拾い、普通の「検索結果に出る」は拾わない', async () => {
+  const { PROCESS_RES, SCREEN_ONLY_RES, LIST_ONLY_RES } = await import('./screen-text-lib.mjs');
+  const rules = [...PROCESS_RES, ...SCREEN_ONLY_RES, ...LIST_ONLY_RES];
+  const hit = (t) => rules.some(([re]) => re.test(t));
+  assert.equal(hit('検索結果に該当なし'), true);
+  assert.equal(hit('検索結果に出やすくする仕事をしていた'), false);
+  assert.equal(hit('検索結果に出る未回答の質問に答えた'), false);
+  assert.equal(hit('検索結果に出なかった'), true);
+  assert.equal(hit('検索結果に出ない'), true);
+  assert.equal(hit('検索結果に出たものだけを採った'), true);
+});

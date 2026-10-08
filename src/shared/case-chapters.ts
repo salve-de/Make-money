@@ -20,7 +20,7 @@ export interface ChapterRow {
  * 事例の章を、決まった並びで返す。行の無い章は含めない。
  * 元の事例の要約の事実（factId）と文が一致する時だけ返す。事例が直された・取り下げられた時は、古い章を出さない。
  */
-export function caseChaptersFor(display: ReaderDisplay | undefined, facts: ReadonlyArray<{ id: string; text: string }>): Array<{ id: ChapterId; rows: ChapterRow[] }> {
+export function caseChaptersFor(display: ReaderDisplay | undefined, facts: ReadonlyArray<{ id: string; text: string }>): Array<{ id: ChapterId; rows: ChapterRow[]; factId: string }> {
   const entry = display?.chapters;
   if (!entry) return [];
   const anchor = facts.find((fact) => fact.id === entry.factId);
@@ -28,6 +28,6 @@ export function caseChaptersFor(display: ReaderDisplay | undefined, facts: Reado
   const found: Record<string, ChapterRow[] | undefined> = entry.chapters;
   return CHAPTER_IDS.flatMap((id) => {
     const rows = found[id];
-    return rows && rows.length > 0 ? [{ id, rows: rows.map((row) => ({ ...row, text: screenText(row.text) })) }] : [];
+    return rows && rows.length > 0 ? [{ id, factId: entry.factId, rows: rows.map((row) => ({ ...row, text: screenText(row.text) })) }] : [];
   });
 }

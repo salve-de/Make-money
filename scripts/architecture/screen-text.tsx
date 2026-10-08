@@ -32,6 +32,7 @@ import { AnalystNotes } from '@/features/company-inspector/ui/AnalystNotes';
 import { CompanyHeader } from '@/features/company-inspector/ui/CompanyHeader';
 import { EntityMediaGallery } from '@/features/company-inspector/ui/EntityMediaGallery';
 import { ReaderLedger } from '@/features/company-inspector/ui/ReaderDetail';
+import { isGenerationHeading } from '@/platform/components/grid/generation';
 import { allowedUiTexts, isUnknownsLine } from '@/shared/ui-strings';
 import { parseFinancialEntitiesResiliently, parseFinancialEntity } from '@/shared/financial-entity-schema';
 import type { FinancialEntity } from '@/shared/terminal';
@@ -213,12 +214,15 @@ for (const id of ids) {
   const allowed = allowedUiTexts(entity.name);
   // 事例が持つ札（一覧の行と詳細の見出しに出る。caseLabels）は事例のデータから来る文字
   for (const tag of entity.tags ?? []) allowed.add(tag);
-  const isAllowed = (t: string) => allowed.has(t) || isUnknownsLine(t);
+  const isAllowed = (t: string) => allowed.has(t) || isUnknownsLine(t) || isGenerationHeading(t);
+  const factIds = new Set((entity.reader?.facts ?? []).map((f) => f.id));
   for (const [screen, html] of screens) {
     const a = analyzeScreen(html, isAllowed);
     counts.facts += a.factCount; counts.metrics += a.metricCount; counts.sources += a.sourceCount;
     if (a.unowned.length) hits.push({ label: `出どころの無い文字(${screen})`, example: [...new Set(a.unowned)].slice(0, 3).join(' | ') });
     if (a.emptyHeadings.length) hits.push({ label: `中身の無い見出し(${screen})`, example: a.emptyHeadings.join(' | ') });
+    const strayIds = [...a.successIds, ...a.chapterIds].filter((sid) => !factIds.has(sid));
+    if (strayIds.length) hits.push({ label: `成功の秘訣・章の根拠が事実に無い(${screen})`, example: strayIds.join(' | ') });
     if (a.dupFacts.length) hits.push({ label: `同じfactの2回目(${screen})`, example: a.dupFacts.join(' | ') });
   }
   if (hits.length) recordsWithHits += 1;
