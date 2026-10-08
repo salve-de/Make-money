@@ -286,7 +286,7 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 2. 証拠が変わったなら `pnpm evidence:attest`（上の「証拠の証明書」）。その後 `pnpm catalog:prepare --dry-run` で、追加・訂正・取り下げの計画と `insufficientEvidence`（空であること）を確かめる。取り下げが出たら、本物の不合格（理由は `caseStamps`）なので、直すか、明示の `--withdrawals` 一覧で承認する。
 3. `pnpm catalog:prepare`（`data/catalog-release.json` と `.catalog-release/` を更新）。**公開中の事例を引き継ぐための空の `--changed` ファイルは使わない**（審査を経ずに出ることになる。`--changed` は「直した事例だけを評価し直す」差分公開の時に、直した事例の一覧を渡すためだけに使う）。
 4. `pnpm catalog:screen-check`（公開中の全件の画面を描き、画面に出さない言い回しと、出どころの無い文字がないかを調べる。**飛ばさない**。落ちたら文を直して2へ戻る。手元に `.catalog-release/` が無い作業場所では、持っている場所から連結してから動かす）
-5. `pnpm catalog:publish`（中で `screen-check` → `prepare` を通してから R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない。`publish-catalog-release.ts` を直接動かして検査を迂回しない）
+5. `pnpm catalog:publish`（中で `screen-check` → `evidence:check`（証明書が手元の証拠と合っているか。ずれていれば止まる）→ `prepare` を通してから R2 へ新規作成 → 読み戻して確認 → 目印を進める。確認が通らなければ目印は動かない。`publish-catalog-release.ts` を直接動かして検査を迂回しない）
 6. 3分以内に本番へ反映。`data/catalog-release.json` はコミットしておく（目印が読めない時の同梱版になる）
 
 **戻す時**: `pnpm catalog:publish -- --point-to <戻したい版の manifestHash>`（記録にも残る）。目印だけ作らず確認したい時は `--skip-pointer`。

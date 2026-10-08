@@ -40,7 +40,7 @@ async function main() {
   for (const id of ids) {
     const reader = readers.get(id);
     const entity = entities.get(id);
-    if (!reader || !entity) { missing[id] = ['元の記録が無い']; continue; }
+    if (!reader || !entity) { if (check) mismatched.push(id); else missing[id] = ['元の記録が無い']; continue; }
     const prepared = preparePublicationReader(reader, verdicts[id], analysis[id]);
     // 証明書は使わず、手元の本文・台帳だけから作る
     const input = await loadPublicationInput(normalizeFinancialEntity(reconcileFinancialEntity(entity)), prepared.reader, verdicts[id], { attestations: {} });
