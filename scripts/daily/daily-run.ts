@@ -271,13 +271,22 @@ export async function runDaily(o: Options, d: Deps): Promise<DayRecord> {
   // 公開で変わった手元のデータ(目録・画面の文)を、変更の申請として残す。次の日にメインへ取り込んでも食い違わないようにする
   if (rec.publishedIds.length) await stage('record-data', async () => {
     const br = `auto/daily-${o.date}`;
-    const steps: string[][] = [
-      ['git', 'add', 'data'],
-      ['git', 'commit', '-m', `毎日の自動実行: ${o.date} に公開した ${rec.publishedIds.length} 件の公開データ\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`],
-      ['git', 'push', 'origin', `HEAD:refs/heads/${br}`],
-      ['gh', 'pr', 'create', '--base', 'main', '--head', br, '--title', `毎日の自動実行: ${o.date} の公開データ(${rec.publishedIds.length}件)`, '--body', `公開した事例: ${rec.publishedIds.join(', ')}\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)`],
-    ];
-    for (const st of steps) { const r = await d.exec(st); if (r.code !== 0) return { status: 'failed', note: `${st.slice(0, 2).join(' ')} が失敗: ${tail(r)}` }; }
+    // どの段で止まっても、次の起動で続きからやり直せるようにする(変更が無ければ commit を飛ばす、申請が既にあれば作らない)
+    const run = async (argv: string[]): Promise<ExecResult> => d.exec(argv);
+    const fails = (r: ExecResult, what: string): { status: 'failed'; note: string } => ({ status: 'failed', note: `${what} が失敗: ${tail(r)}` });
+    let r = await run(['git', 'add', 'data']); if (r.code !== 0) return fails(r, 'git add');
+    const staged = await run(['git', 'diff', '--cached', '--quiet']);
+    if (staged.code === 1) {
+      r = await run(['git', 'commit', '-m', `毎日の自動実行: ${o.date} に公開した ${rec.publishedIds.length} 件の公開データ\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`]);
+      if (r.code !== 0) return fails(r, 'git commit');
+    } else if (staged.code !== 0) return fails(staged, 'git diff');
+    r = await run(['git', 'push', 'origin', `HEAD:refs/heads/${br}`]); if (r.code !== 0) return fails(r, 'git push');
+    const prs = await run(['gh', 'pr', 'list', '--head', br, '--state', 'open', '--json', 'number']);
+    let has = false; try { has = (JSON.parse(prs.stdout || '[]') as unknown[]).length > 0; } catch { has = false; }
+    if (!has) {
+      r = await run(['gh', 'pr', 'create', '--base', 'main', '--head', br, '--title', `毎日の自動実行: ${o.date} の公開データ(${rec.publishedIds.length}件)`, '--body', `公開した事例: ${rec.publishedIds.join(', ')}\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)`]);
+      if (r.code !== 0) return fails(r, 'gh pr create');
+    }
     return { status: 'ok', note: `${br} に残した` };
   });
 

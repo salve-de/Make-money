@@ -100,3 +100,6 @@ __pycache__/
 # pnpm case:run の実行記録（所要時間・各命令の出力・画面の文の作業場所）
 /data/pipeline/case-run/
 /data/pipeline/case-run.jsonl
+
+# 毎日の自動実行の結果・ロック・持ち越し(作業場所ごとの運用記録。コミットしない)
+/data/pipeline/daily/

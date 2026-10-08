@@ -36,6 +36,8 @@ function make(root: string, s: Script = {}) {
     if (line.includes('prepare-catalog-release')) return ok(`log\n${JSON.stringify({ dryRun: true, plan: { withdrawn: s.withdrawn ?? [] }, canApply: !(s.withdrawn ?? []).length })}`);
     if (line.includes('--publish')) { published = true; return { code: s.publishCode ?? 0, stdout: '', stderr: '' }; }
     if (line.includes('check-freshness')) return { code: 2, stdout: '', stderr: '' };
+    if (line.startsWith('git diff --cached')) return { code: 1, stdout: '', stderr: '' }; // 変更あり
+    if (line.startsWith('gh pr list')) return ok('[]');
     if (line.startsWith('gh issue list')) return ok(JSON.stringify(issues.map((x, i) => ({ number: i + 1, title: x.title }))));
     if (line.startsWith('gh issue create')) { issues.push({ title: argv[argv.indexOf('--title') + 1] }); return ok(); }
     if (line.startsWith('gh issue comment')) { comments.push(Number(argv[3])); return ok(); }
@@ -213,4 +215,20 @@ test('公開した全件の画面の文を確かめる。鍵が無い(終了コ�
   const rec = await runDaily(opts(root), m.deps);
   assert.equal(rec.verify?.checks.find((c) => c.name === '新しい事例の詳細')?.status, 'problem');
   assert.equal(rec.verify?.checks.find((c) => c.name === '鮮度の確認')?.status, 'skipped');
+});
+
+test('記録の途中(commit済みで push が失敗)から再開しても、続きの段から進む', async () => {
+  const root = fixture(); const m = make(root, { researchIds: 'n1', passed: ['n1'], catalogTotal: () => 2 });
+  const base = m.deps.exec; let failPush = true; let committed = false;
+  m.deps.exec = async (argv, env) => {
+    const line = argv.join(' ');
+    if (line.startsWith('git commit')) committed = true;
+    if (line.startsWith('git diff --cached')) return { code: committed ? 0 : 1, stdout: '', stderr: '' }; // commit 済みなら変更なし
+    if (line.startsWith('git push') && failPush) return { code: 1, stdout: '', stderr: 'x' };
+    return base(argv, env);
+  };
+  assert.equal((await runDaily(opts(root), m.deps)).stages['record-data'].status, 'failed');
+  failPush = false;
+  const second = await runDaily(opts(root), m.deps);
+  assert.equal(second.stages['record-data'].status, 'ok'); assert.ok(m.calls.some((c) => c.startsWith('gh pr create')));
 });
