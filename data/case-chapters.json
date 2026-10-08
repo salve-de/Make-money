@@ -1126,16 +1126,12 @@
       ],
       "price": [
         {
-          "text": "2018年8月: Proプランは月25ドル（約3,750円）に、会員の取引額の4.9%を加えた額だった（報道）",
+          "text": "2018年8月: Proプランは月25ドル（約3,750円）に、会員の取引額に応じた手数料を加えた額だった（報道）",
           "source": "https://techcrunch.com/2018/08/08/patronage-empire/"
         },
         {
           "text": "2018年: 既存客の料金は据え置き、新規客に適用する一部プランの取引手数料を上げた（公式）",
           "source": "https://memberful.com/blog/joining-patreon"
-        },
-        {
-          "text": "現行の料金ページ: 標準プランは月49ドル（約7,350円）に取引額の4.9%を加える。大口向けは個別に見積もる",
-          "source": "https://memberful.com/pricing"
         }
       ],
       "voices": [
@@ -1210,10 +1206,6 @@
         }
       ],
       "price": [
-        {
-          "text": "2022年8月の決済回収機能の公開時: 初月無料。月の定期売上25,000ドル（約375万円）未満の事業は、この機能をずっと無料で使えた",
-          "source": "https://churnkey.co/blog/launch-modern-dunning-for-modern-companies/"
-        },
         {
           "text": "現行の入門プラン: 年払いで月あたり250ドル（約3万7,500円）。月の解約額が5,000ドル（約75万円）未満のチーム向け",
           "source": "https://churnkey.co/pricing"
@@ -1369,10 +1361,6 @@
         {
           "text": "以前、一括ログインの仕組みは、通常の約2倍の料金の大企業向けプランに限られていた。2022年6月1日、全プランで追加料金なしにした",
           "source": "https://tuple.app/blog/sso-should-be-table-stakes"
-        },
-        {
-          "text": "確認時の開発チーム向け: 1人あたり月30ドル（約4,500円）で、共同作業の回数は無制限（公式）",
-          "source": "https://tuple.app/pricing"
         }
       ],
       "voices": [
@@ -1456,7 +1444,7 @@
       ],
       "price": [
         {
-          "text": "現行: 利用者が1,000人増えるごとに、基本プランは月10ドル（約1,500円）、上位プランは月12ドル（約1,800円）が加わる",
+          "text": "現行: 利用者数が一定の区切りで増えるごとに、基本プランは月10ドル（約1,500円）、上位プランは月12ドル（約1,800円）が加わる",
           "source": "https://userlist.com/pricing/"
         }
       ],
@@ -1530,10 +1518,6 @@
       "price": [
         {
           "text": "クラウドファンディングの予約価格: 1作の基本が10ドル（約1,500円）、追加商品込みで最大14ドル（約2,100円）",
-          "source": "https://buttonshygames.com/pages/wallet-games-are-now-15"
-        },
-        {
-          "text": "財布型ゲームの定価: 基本価格を15ドル（約2,250円）に上げた（公式）",
           "source": "https://buttonshygames.com/pages/wallet-games-are-now-15"
         },
         {
@@ -1714,12 +1698,7 @@
           "source": "https://quaderno.io/blog/is-hacker-news-a-good-platform-to-launch-your-product/"
         }
       ],
-      "price": [
-        {
-          "text": "2014年5月: Hacker Newsの投稿者が、月24ドル（約3,600円）と月48ドル（約7,200円）の料金に触れた",
-          "source": "https://news.ycombinator.com/item?id=7742719"
-        }
-      ],
+      "price": [],
       "voices": [
         {
           "text": "見込客は3社分の契約を望んだが、取引に情報を足すためにプログラムを書く必要がある点を障害に挙げた（Hacker News）",
@@ -1756,10 +1735,6 @@
         }
       ],
       "price": [
-        {
-          "text": "有料化した時: 月15ドル（約2,250円）の定額。競合の安いプランの約半分を目安にした（記事）",
-          "source": "https://www.starterstory.com/stories/notionforms"
-        },
         {
           "text": "現行: 個人向けのProが月20ドル（約3,000円）、チーム向けのTeamが月49ドル（約7,350円、公式）",
           "source": "https://noteforms.com/pricing"
@@ -1873,12 +1848,7 @@
           "source": "https://news.ycombinator.com/item?id=20811287"
         }
       ],
-      "price": [
-        {
-          "text": "2021年1月: 月額を10ドル（約1,500円）にし、年額も改めた（公式）",
-          "source": "https://lunchmoney.app/blog/we-lowered-our-pricing"
-        }
-      ],
+      "price": [],
       "voices": [
         {
           "text": "「画面が簡潔で速い」。一方で、銀行口座を外部のサービスにつなぎたくないとして、自分のサーバーに置ける版を求めた（Hacker News、第三者）",
@@ -1927,10 +1897,6 @@
         }
       ],
       "price": [
-        {
-          "text": "2016年12月時点: 有料プランは月9.99ドル（約1,499円）と月19.99ドル（約2,998円）の2つ",
-          "source": "https://statusgator.com/blog/?p=76"
-        },
         {
           "text": "現在: 無料版は監視3件・管理者1人・月10通知まで。14日間は全機能をカード登録なしで試せる",
           "source": "https://statusgator.com/plans"
@@ -2141,14 +2107,6 @@
       ],
       "price": [
         {
-          "text": "現行の料金: 店の取引額の2%（公式）",
-          "source": "https://snipcart.com/pricing"
-        },
-        {
-          "text": "月の販売額が1,000ドル（約15万円）未満の店は、2%の代わりに月20ドル（約3,000円、公式）",
-          "source": "https://snipcart.com/pricing"
-        },
-        {
           "text": "最低料金を設けた理由は、サポートの質を保つことと、動いていない店を増やさないこと（公式）",
           "source": "https://snipcart.com/faq"
         }
@@ -2184,7 +2142,7 @@
       ],
       "timeline": [
         {
-          "text": "2021年: Kevin Chandraが事業を立ち上げた",
+          "text": "2021年: 創業チームがTypedreamを立ち上げた",
           "source": "https://typedream.com/blogs/typedream-joins-beehiiv-june-2024"
         },
         {
@@ -2208,7 +2166,7 @@
       ],
       "start": [
         {
-          "text": "5人の技術者で創業した（beehiivの発表）",
+          "text": "5人の技術者で創業した",
           "source": "https://www.beehiiv.com/blog/beehiiv-acquires-ai-based-website-builder-typedream"
         }
       ],
@@ -2220,14 +2178,6 @@
         {
           "text": "旧料金: 上位プランは月25ドル（約3,750円）、年払いなら月20ドル（約3,000円）。閲覧を制限できるページなどが付いた",
           "source": "https://typedream.com/old-pricing"
-        },
-        {
-          "text": "現在: 基本プランは1サイト月20ドル（約3,000円）、年払いなら月15ドル（約2,250円）",
-          "source": "https://typedream.com/pricing"
-        },
-        {
-          "text": "現在: 上位プランは1サイト月49ドル（約7,350円）、年払いなら月42ドル（約6,300円）。ブログとフォーム送信の上限が無い",
-          "source": "https://typedream.com/pricing"
         },
         {
           "text": "無料枠は1ページを公開できる。商品が売れると、無料枠は売上の5%、有料プランは2%の手数料がかかる",
