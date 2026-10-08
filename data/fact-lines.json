@@ -2,198 +2,331 @@
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
+  "targetId": "f1",
+  "hash": "ba5456d7",
+  "text": "Jason Tagmire と仲間による出版事業。多くの出版社のように問屋を通さず、客へ直接ゲームを届ける自主運営・独立系のやり方だと紹介されている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
   "targetId": "f2",
-  "hash": "03e4d6e2",
-  "text": "Jason Tagmire は Pixel Lincoln や Maximum Throwdown などのゲーム制作者として紹介される。"
+  "hash": "5b3814ae",
+  "text": "Jason Tagmire は、Pixel Lincoln や Maximum Throwdown などのゲームを作った人物として紹介されている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f3",
-  "hash": "62f19b4f",
-  "text": "Alex Strang の Movie Plotz というゲームを、小さく送りやすいゲームとして、資金を募るサイト Kickstarter で募集した。"
+  "hash": "34642965",
+  "text": "Alex Strang のゲーム Movie Plotz を、旅行に持ち出せる財布型の包装で売る企画を、買い手を募るサイト Kickstarter で行った。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f4",
-  "hash": "0cf4a5b7",
-  "text": "本人の説明では、募集の目標1,000米ドルは、財布型の包装と折りたたみ式の説明書の費用にあてるためだった。"
+  "hash": "b8f4cd99",
+  "text": "目標の1,000米ドルは、旅行用の財布型包装と折りたたみ式の説明書の費用にあてると、本人は説明している。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f5",
   "hash": "7d4cffa0",
-  "text": "本人の記録では、募集の初日に目標の約25％、2日目に約35％まで集まった。"
- },
- {
-  "entityId": "ent_button_shy_f1545f17d98e",
-  "kind": "fact",
-  "targetId": "f6",
-  "hash": "ff1ce487",
-  "text": "本人の記録では、その後、遊んだ内容をもとに猫を使った架空映画の画像を投稿すると、数時間で支援額が倍になった。"
+  "text": "本人の記録によると、支援額は初日に目標の約25％、2日目に約35％まで進んだ。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f7",
   "hash": "267ba62f",
-  "text": "本人の記録では、同じ朝に約800人へ便りも送っており、画像と便りのどちらが効いたかは区別できない。"
+  "text": "同じ朝に約800人へ便りも送っていて、画像と便りのどちらが効いたかは判定できないと記されている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f8",
   "hash": "ecb81cf3",
-  "text": "本人の振り返りでは、ゲーム好きが集まるサイト BoardGameGeek で包装を紹介すると、反応と議論は得られたが、支援の増加にはつながらなかった。"
+  "text": "情報サイトの BoardGameGeek で包装を紹介したところ、反応と議論は得られたが、支援の増加にはつながらなかったと振り返っている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
-  "targetId": "f9",
-  "hash": "1416d965",
-  "text": "2015年1月の予告で、Pretense を小型の財布型シリーズの2作目として紹介した。"
+  "targetId": "f10",
+  "hash": "0e4bb53f",
+  "text": "当時は1企画で500個未満を作り、財布型の包装に12〜20枚のカードと説明書を収める設計だと説明した。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f11",
   "hash": "3679c2be",
-  "text": "新作の募集で旧作も割引で合わせて売り、全作品をそろえる組合せでは Pretense が実質無料になると案内した。"
+  "text": "新作の募集では、旧作も割引して一緒に買える。全作品を組み合わせて買うと、Pretense が実質無料になると案内した。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f12",
+  "hash": "5cd6b5be",
+  "text": "Pretense の絵は、以前 Seven7s の制作で組んだ Fabrice Weiss が描いたと説明した。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f14",
   "hash": "d2f17f48",
-  "text": "創業者によると、複数作を一緒に募集すると、短い告知の枠ではそれぞれの魅力を伝えにくい。"
+  "text": "創業者によると、複数の作品を一緒に募集すると、短い告知の枠ではそれぞれの魅力を伝えにくい。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f18",
   "hash": "4dcd58cb",
-  "text": "毎月の会員向け発送の期限と職員の給与があるため、海外の提携が決まるまで米国での販売を止めて待つことはできないと述べている。"
+  "text": "毎月の会員向け発送の期限と職員の給与があるため、海外の提携が決まるまで米国での販売を止めることはできないと述べている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f21",
   "hash": "019bcb6b",
-  "text": "公式発表では、財布型の基本価格を15米ドルに上げ、拡張も1米ドル値上げした。"
+  "text": "公式発表では、財布型ゲームの基本価格を15米ドルに上げ、追加して遊ぶ拡張商品も1米ドル値上げした。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f22",
-  "hash": "04daa7ef",
-  "text": "5年以上値上げしていなかったが、原価の上昇と関税を理由に値上げした。"
+  "hash": "f4edd2c8",
+  "text": "5年以上値上げしておらず、30％の関税と全般的な原価高を値上げの理由に挙げている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f23",
-  "hash": "0335fb60",
-  "text": "クラウドファンディングの予約価格は基本10米ドル、拡張込みで最大14米ドル。"
+  "hash": "7a476fac",
+  "text": "クラウドファンディングでは、ゲーム1作の予約価格は10米ドル、拡張商品込みで最大14米ドルと案内している。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f24",
   "hash": "5d3f2c84",
-  "text": "2026年5月28日の紹介によると、ニュージャージー州の事務所に6人いる。"
+  "text": "2026年5月28日の紹介では、ニュージャージー州の事務所に6人いる。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f25",
   "hash": "e58eb2e3",
-  "text": "社内で企画と制作を担当するのは、Jason Tagmire、George Tagmire、Andrew Basile の3人と紹介している。"
- },
- {
-  "entityId": "ent_button_shy_f1545f17d98e",
-  "kind": "fact",
-  "targetId": "f26",
-  "hash": "5cc00927",
-  "text": "Elle は告知、Long と Anthony は試遊を担当し、社外の Milan と Filip は美術と図案を担当すると紹介している。"
+  "text": "社内でゲームの企画と制作を担当するのは、Jason Tagmire、George Tagmire、Andrew Basile の3人だと紹介している。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f27",
   "hash": "2210bc29",
-  "text": "手作業での組み立てに使っていた時間をゲーム制作に回せるようになったことを喜び、もっと早く変えてもよかったと述べている。"
+  "text": "手で組む作業に使っていた時間をゲーム制作に回せたことを喜び、もっと早く変えてもよかったと述べている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f28",
   "hash": "49dd7a8d",
-  "text": "Sprawlopolis は18枚で都市を作る1〜4人の協力型ゲームとして売られている。"
- },
- {
-  "entityId": "ent_button_shy_f1545f17d98e",
-  "kind": "fact",
-  "targetId": "f29",
-  "hash": "abfe8e98",
-  "text": "Button Shyのゲーム「Sprawlopolis」の基本商品は、表示価格が2,500円。"
+  "text": "Sprawlopolis は、18枚のカードで都市を作る、1〜4人で遊ぶ協力型ゲームとして売られている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f30",
   "hash": "f6f089a4",
-  "text": "制作者は Steven Aramini、Danny Devine、Paul Kluka で、絵の担当は Danny Devine と明示している。"
+  "text": "制作者は Steven Aramini、Danny Devine、Paul Kluka で、絵は Danny Devine と明示されている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f31",
-  "hash": "23b86abe",
-  "text": "Sprawlopolis には複数の拡張があり、全拡張をまとめた Expansion Collection も売られている。"
+  "hash": "1e603fc0",
+  "text": "Sprawlopolis には Wrecktar、Beaches、Interstate、Roadwork などの拡張（追加の遊び方）があり、全拡張をまとめた Expansion Collection も売られている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f32",
-  "hash": "0777a833",
-  "text": "公式店のページは、ネット店舗を作るサービス Shopify を使っていると、ページ下部に表示している。"
+  "hash": "df55ae3a",
+  "text": "公式店のページの下部に、Shopify を使っていることを示す「Powered by Shopify」の表示がある。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f33",
-  "hash": "90db5338",
-  "text": "ある投稿者は、Foster the Meeple の推薦をきっかけに会員となったが、12月と1月の2か月分を払っても届かず、3月22日時点でも届いていないと訴えている。"
+  "hash": "addd15a7",
+  "text": "投稿者は、Foster the Meeple による絶賛を見て、会員制サービス Patreon の最上位の会員になったという。12月も1月も何も届かず解約し、3月22日時点でも発送ラベルの作成から進んでいないと訴えている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f34",
-  "hash": "c6789f81",
-  "text": "別の利用者は、発送が遅れたことはあるが、いつも埋め合わせてもらえたと述べている。"
+  "hash": "37bca736",
+  "text": "別の利用者は、月ごとの発売予定の都合で遅れることはあるが、最終的に受け取れなかったことはないと述べている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f36",
   "hash": "d7decd34",
-  "text": "海外向けの案内では、まとめて注文して1個あたりの送料を下げる方法、現地での販売提携、印刷用データを挙げている。"
+  "text": "海外向けの案内は、まとめて注文して1個あたりの送料を下げる方法、現地の販売提携、印刷用データを挙げている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f37",
   "hash": "745aa3eb",
-  "text": "海外向けには、手作り品などの売買サイト Etsy で主要5作品を販売すると案内している。ネットの売買サイト eBay では箱型作品をすでに販売しており、店の拡充は準備中と記載している。"
+  "text": "海外向けには、通販サイト Etsy で主要5作品を扱うと案内している。eBay では箱入りの作品をすでに売っており、店の拡充は準備中と記載している。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f38",
+  "hash": "2a15c136",
+  "text": "Amazon で売ることにした理由として、そこですでに自社のゲームが小売価格の3倍で売られていたことを挙げている。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",
   "kind": "fact",
   "targetId": "f40",
-  "hash": "fedb31d6",
-  "text": "通関で郵便物がまとめて戻され、約500米ドルの損失になったと本人は説明する。"
+  "hash": "5880b31a",
+  "text": "本人の説明によると、通関で郵便物がまとめて差し戻され、約500米ドルの損失になった。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f43",
+  "hash": "071da6bb",
+  "text": "2024年4月、ゲーム『Aqua ROVE』をKickstarterに出し、12日間で79,243ドルの支援を集めた。目標は2,000ドル。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f44",
+  "hash": "baf56353",
+  "text": "2021年9月、ゲーム『Unsurmountable』をKickstarterに出し、12日間で134,553ドルの支援を集めた。目標は2,000ドル。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f45",
+  "hash": "fee1b866",
+  "text": "2025年5月、ゲーム『Shallow Regrets』をKickstarterに出し、12日間で119,012ドルの支援を集めた。目標は2,000ドル。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f46",
+  "hash": "d6ecffc5",
+  "text": "2026年4〜5月、春の4本のミニゲーム集をKickstarterに出し、19日間で86,888ドルの支援を集めた。目標は10,000ドル。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f47",
+  "hash": "5064c48f",
+  "text": "2019年11月、絶版の旧作の復刻キャンペーンをKickstarterに出し、12日間で50,385ドルの支援を集めた。目標は3,500ドル。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f48",
+  "hash": "c41ae5cf",
+  "text": "復刻キャンペーンでは、再び作る旧作を支援者が選んだ。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f50",
+  "hash": "27814496",
+  "text": "Patreonの会員は、無料の会員を含めて合計4,390人。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f51",
+  "hash": "9fce2829",
+  "text": "Patreonの月の収入は、18,160ドルと表示されている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f52",
+  "hash": "1a2ee5a3",
+  "text": "月額の会員制は、1ドル、5ドル、10ドル、20ドルの4段階の料金がある。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f53",
+  "hash": "35bf3d7b",
+  "text": "10ドルの段階の会員は、財布型のゲームを半額で買える。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f55",
+  "hash": "ec275b5d",
+  "text": "2018年5月の紹介記事は、1本の価格をおよそ12ドルと書いている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f56",
+  "hash": "cc2ba0b3",
+  "text": "2021年9月の『Unsurmountable』の募集は、1本10ドルだった。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f57",
+  "hash": "699c3231",
+  "text": "2024年4月の『Aqua ROVE』の募集は、1本12ドルだった。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f58",
+  "hash": "c29e256b",
+  "text": "Button Shyのゲームは、18枚以内のカードを、ポケットに入る財布型のケースに入れて売る形が基本。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f59",
+  "hash": "fedf13e2",
+  "text": "会員制のPatreonでは、毎月その月の新作を受け取れる。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f60",
+  "hash": "1c1ee6da",
+  "text": "紹介記事は、会社をジェイソン・タグマイア1人と、数人の友人・家族の小さな体制と書いている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f61",
+  "hash": "d7b6c5ef",
+  "text": "2018年5月の紹介記事は、ゲームを財布に入れる組み立てを手作業でしていると書いている。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f62",
+  "hash": "285d6cbe",
+  "text": "ファン向けに、テーマごとのデザインコンテストを開き、そこから商品になった作品がある。"
+ },
+ {
+  "entityId": "ent_button_shy_f1545f17d98e",
+  "kind": "fact",
+  "targetId": "f64",
+  "hash": "fa0a455d",
+  "text": "会員の区分に応じて、発売予定のゲームを印刷して遊べる版や、Kickstarterで毎月募集する財布型ゲームの割引が付く。"
  },
  {
   "entityId": "ent_button_shy_f1545f17d98e",

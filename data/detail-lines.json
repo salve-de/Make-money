@@ -1572,37 +1572,37 @@
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-business_model",
-    "textHash": "ef35e194",
-    "answer": "問屋を通さず、小型のカードゲームを遊び手へ直接売る",
-    "note": "新作はクラウドファンディングで予約を募る。自社のネット店舗では定価で売り、毎月ゲームが届く会員制もある。"
+    "textHash": "cf31a4ba",
+    "answer": "18枚以内の小型ゲームを、問屋を通さず客へ直接届ける",
+    "note": "予約はKickstarter、自社の公式店、毎月新作が届くPatreonの会員制で売る。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-customer",
-    "textHash": "15e35031",
-    "answer": "小型のゲームを集めるボードゲームの愛好家",
-    "note": "毎月ゲームが届く会員と、新作の募集に予約で申し込む支援者がいる。"
+    "textHash": "42ff0b5e",
+    "answer": "Kickstarterで予約する支援者と、Patreonの有料会員",
+    "note": "無料会員を含めた会員は4,390人。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-channels",
-    "textHash": "192bbaa8",
-    "answer": "Kickstarterでの新作の募集と、自社から客へ送る便り",
-    "note": "海外向けには、手作り品などの通販サイトEtsyとeBayでも売る。レビューを発信する人の推薦で会員になった客もいる（第三者）。"
+    "textHash": "eb5b3b9d",
+    "answer": "募集サイトのKickstarterと、会員制のPatreon",
+    "note": "自社の公式店と、海外向けのEtsyとeBayでも売る。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-cost_structure",
-    "textHash": "edccc1e0",
-    "answer": "出さない",
+    "textHash": "8258b024",
+    "answer": "-",
     "hidden": true
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-upfront_cash",
-    "textHash": "4bbe9f81",
-    "answer": "クラウドファンディングで、製造の前に予約代金を先に集める",
-    "note": "ある企画では、送料の17,000ドル（約255万円）も発送前に集めていた。"
+    "textHash": "22a69c79",
+    "answer": "作る前に、Kickstarterの予約で資金を集める",
+    "note": "ある企画では、送料の17,000ドル（約255万円）も先に集めていた。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
@@ -1614,16 +1614,16 @@
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-dependencies",
-    "textHash": "02a4a2f1",
-    "answer": "予約はKickstarter、自社の店はネット店舗を作るサービスShopifyに頼る",
-    "note": "海外販売はEtsyとeBayに、発送は郵便と通関に頼っている。"
+    "textHash": "71b172a2",
+    "answer": "予約はKickstarter、会員制はPatreon、店はShopifyに頼る",
+    "note": "海外直送は、送料の上昇と通関の差し戻しで難しくなり、現地の提携先を探している。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-lock_in",
-    "textHash": "089c53ed",
-    "answer": "毎月ゲームが届く会員制で、続けるほど作品を集められる",
-    "note": "社内の新シリーズは部分ごとに売り、2〜3部分を組み合わせて遊ぶ構想だ（公式）。"
+    "textHash": "5553e4d0",
+    "answer": "毎月の新作を届ける会員制で、作品を集め続けられる",
+    "note": "Sprawlopolisには複数の拡張があり、基本作の後も追加で買える。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
@@ -1640,15 +1640,15 @@
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-pivots",
-    "textHash": "ecac8209",
-    "answer": "主力商品の包装を、手で組む財布型から量産の箱型へ切り替えた",
-    "note": "手組みは、少量の実験的な社内シリーズにだけ残す。"
+    "textHash": "18171b0b",
+    "answer": "主力を、手で組む財布型から量産の箱型へ切り替えた",
+    "note": "手組みは時間がかかり、箱なしでは売りにくい販路もあった。財布型を望む客には空の財布を追加商品で売る。"
   },
   {
     "entityId": "ent_button_shy_f1545f17d98e",
     "analysisId": "a-timeline",
-    "textHash": "a1371e6f",
-    "answer": "2015年1月: 財布型シリーズの2作目を予告した。",
+    "textHash": "f2e66552",
+    "answer": "-",
     "hidden": true
   },
   {
@@ -2815,5 +2815,19 @@
     "analysisId": "a-incumbent_blindspot",
     "textHash": "ce32519f",
     "answer": "メモの道具Notionは、サイトとして使う人向けの部品を備えていなかった"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-customer_pain",
+    "textHash": "f7c4bce0",
+    "answer": "転売で値上がりして、定価では手に入りにくいことに困る",
+    "note": "Amazonでは小売価格の約3倍で売られていた。公式の予約価格は1作10ドル（約1,500円）。"
+  },
+  {
+    "entityId": "ent_button_shy_f1545f17d98e",
+    "analysisId": "a-first_customers",
+    "textHash": "86af1dca",
+    "answer": "最初の企画は、初日に目標の約25%しか集まらなかった",
+    "note": "猫の架空映画の画像を投稿し、同じ朝に約800人へ便りも送ると、数時間で支援額が倍になった。どちらが効いたかは本人も判定できないとしている。"
   }
 ]

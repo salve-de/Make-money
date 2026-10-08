@@ -1,0 +1,1196 @@
+{
+ "version": 1,
+ "source": {
+  "manifest": "/private/tmp/claude-501/-Users-satoushinya-project-Make-Money/2be145c1-d0c7-4f02-9457-3c8f190a0980/scratchpad/bs-research.json",
+  "manifestSha256": "f4da5aa4803804c911385be52520b3a32f1b458a7e26fd9a734fcc7dedb301b8",
+  "artifactsDir": "",
+  "collectedAt": "2026-10-08T05:34:22.004Z",
+  "generation": 3
+ },
+ "records": [
+  {
+   "id": "ent_button_shy_f1545f17d98e",
+   "provenance": {
+    "detailsHash": "56d5b3c0bfc8a7a51879cd4c590f11a89172b09fba9f0ae8f0e6cffc92698384",
+    "artifactSha256": "f4da5aa4803804c911385be52520b3a32f1b458a7e26fd9a734fcc7dedb301b8"
+   },
+   "workNotes": [
+    "この収集記録とメモだけを指定フォルダへ保存。リポジトリ、R2、データベース、本番画面には書き込んでいない。ログイン・有料壁の回避なし。"
+   ],
+   "record": {
+    "id": "ent_button_shy_f1545f17d98e",
+    "ticker": "BUTTON.SHY",
+    "name": "Button Shy",
+    "tagline": "",
+    "description": "",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "SMALL_TEAM",
+    "founder": "Jason Tagmire",
+    "country": "米国",
+    "url": "https://buttonshygames.com/",
+    "officialUrl": "https://buttonshygames.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "",
+    "pipelineStack": "",
+    "targetPainWallet": "",
+    "tags": [
+     "収集事例"
+    ],
+    "pnl": {
+     "monthlyRevenue": 0,
+     "cogs": 0,
+     "grossProfit": 0,
+     "grossMargin": 0,
+     "operatingExpenses": {
+      "serverAndApi": 0,
+      "advertising": 0,
+      "subcontracting": 0,
+      "toolsAndSaaS": 0,
+      "other": 0
+     },
+     "operatingProfit": 0,
+     "operatingMargin": 0,
+     "estimatedAnnualNetProfit": 0,
+     "isRevenueUnconfirmed": true,
+     "isOperatingProfitUnconfirmed": true,
+     "isMarginUnconfirmed": true,
+     "isGrossProfitUnconfirmed": true,
+     "isGrossMarginUnconfirmed": true,
+     "isCogsUnconfirmed": true,
+     "isCostsUnconfirmed": true,
+     "isNetProfitUnconfirmed": true,
+     "financialStatus": "UNAVAILABLE",
+     "dataSnapshotPeriod": "2014・2019・2026年の企画別支援額を確認。会社全体の損益は未確認。",
+     "revenueLabel": "全社の売上・利益は未確認。部分的な実績は事実の配列に定義と期間を付けて記録。",
+     "sourceDoc": "https://www.kickstarter.com/projects/239309591/button-shy-wallet-games-spring-2026-collection",
+     "sourceClass": "PRIMARY"
+    },
+    "facts": [
+     {
+      "kind": "EVENT",
+      "text": "2024年4月、ゲーム『Aqua ROVE』をKickstarterに出し、12日間で79,243ドルの支援を集めた。目標は2,000ドル。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+      "quote": "Funded: $79,243 of $2,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2024-04"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2021年9月、ゲーム『Unsurmountable』をKickstarterに出し、12日間で134,553ドルの支援を集めた。目標は2,000ドル。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+      "quote": "Funded: $134,553 of $2,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2021-09"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2025年5月、ゲーム『Shallow Regrets』をKickstarterに出し、12日間で119,012ドルの支援を集めた。目標は2,000ドル。",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+      "quote": "Funded: $119,012 of $2,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2025-05"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2026年4〜5月、春の4本のミニゲーム集をKickstarterに出し、19日間で86,888ドルの支援を集めた。目標は10,000ドル。",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+      "quote": "Funded: $86,888 of $10,000",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2026-04"
+     },
+     {
+      "kind": "EVENT",
+      "text": "2019年11月、絶版の旧作の復刻キャンペーンをKickstarterに出し、12日間で50,385ドルの支援を集めた。目標は3,500ドル。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+      "quote": "Funded: $50,385 of $3,500",
+      "checkedAt": "2026-10-08",
+      "numberKind": "FUNDING",
+      "asOf": "2019-11"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "復刻キャンペーンでは、再び作る旧作を支援者が選んだ。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+      "quote": "All games chosen by the backers!",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Patreonで「Board Game of the Month Club」という月額の会員制を運営している。有料会員は1,313人。",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "quote": "1,313 Paid members",
+      "checkedAt": "2026-10-08",
+      "numberKind": "USERS",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Patreonの会員は、無料の会員を含めて合計4,390人。",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "quote": "4,390 Total members",
+      "checkedAt": "2026-10-08",
+      "numberKind": "USERS",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "Patreonの月の収入は、18,160ドルと表示されている。",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "quote": "$18,160 / month",
+      "checkedAt": "2026-10-08",
+      "numberKind": "DIRECT_PAYMENT",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "月額の会員制は、1ドル、5ドル、10ドル、20ドルの4段階の料金がある。",
+      "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+      "quote": "start at $1, $5, $10, or $20",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "10ドルの段階の会員は、財布型のゲームを半額で買える。",
+      "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+      "quote": "half-off their wallet games",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "箱入りの新作の公式サイトの価格は定価18ドルで、セール中は15ドル。",
+      "sourceUrl": "https://buttonshygames.com/",
+      "quote": "Regular price $ 18.00 USD Sale price $ 15.00 USD",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2018年5月の紹介記事は、1本の価格をおよそ12ドルと書いている。",
+      "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+      "quote": "usually around $12 apiece",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2018-05"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2021年9月の『Unsurmountable』の募集は、1本10ドルだった。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+      "quote": "Scott Almes and Button Shy. Only $10!",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2021-09"
+     },
+     {
+      "kind": "PRICING",
+      "text": "2024年4月の『Aqua ROVE』の募集は、1本12ドルだった。",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+      "quote": "ROVE Jr. $12 each, both $20.",
+      "checkedAt": "2026-10-08",
+      "numberKind": "PRICE",
+      "asOf": "2024-04"
+     },
+     {
+      "kind": "DESCRIPTION",
+      "text": "Button Shyのゲームは、18枚以内のカードを、ポケットに入る財布型のケースに入れて売る形が基本。",
+      "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+      "quote": "no more than 18 cards",
+      "checkedAt": "2026-10-08",
+      "numberKind": "OTHER",
+      "label": "カードの枚数の上限",
+      "asOf": "2026-10"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "会員制のPatreonでは、毎月その月の新作を受け取れる。",
+      "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+      "quote": "receive the newest release each month",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "TEAM",
+      "text": "紹介記事は、会社を創業者のジェイソン・タグマイアと、数人の友人・家族の小さな体制と書いている。",
+      "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+      "quote": "literally one dude, Jason Tagmire",
+      "checkedAt": "2026-10-08",
+      "statedAt": "2018-05-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "ゲームを財布に入れる組み立ては、手作業でしている。",
+      "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+      "quote": "quite literally put them together",
+      "checkedAt": "2026-10-08",
+      "statedAt": "2018-05-08"
+     },
+     {
+      "kind": "OTHER",
+      "text": "ファン向けに、テーマごとのデザインコンテストを開き、そこから商品になった作品がある。",
+      "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+      "quote": "came out of those 18 Card Challenges",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "CHANNEL",
+      "text": "公式サイトで、新作の経過を載せるブログをSubstackで更新している。",
+      "sourceUrl": "https://buttonshygames.com/",
+      "quote": "Our semi-daily blog at Substack",
+      "checkedAt": "2026-10-08"
+     },
+     {
+      "kind": "PRICING",
+      "text": "Patreonの会員には、印刷して遊べるファイルと、毎月の新作の割引が付く。",
+      "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+      "quote": "print-and-play copies of upcoming games",
+      "checkedAt": "2026-10-08"
+     }
+    ],
+    "reaudit": {
+     "status": "PARTIAL",
+     "auditDate": "2026-10-07",
+     "timezone": "Asia/Tokyo",
+     "auditOwner": "収集担当",
+     "method": "MANUAL_REAUDIT",
+     "family": "new-collection",
+     "sources": [
+      {
+       "id": "b01",
+       "url": "https://buttonshygames.com/pages/about-us",
+       "publisher": "公式の会社紹介",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b02",
+       "url": "https://buttonshy.blogspot.com/2013/10/my-metatopia-2013-panel-schedule.html",
+       "publisher": "創業者の過去ブログ",
+       "sourceType": "founder_post",
+       "publicationDate": "2013-10-07",
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b03",
+       "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+       "publisher": "公式の初期企画の振り返り",
+       "sourceType": "official_blog",
+       "publicationDate": "2014-09-08",
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b04",
+       "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+       "publisher": "公式の Pretense 発売予告",
+       "sourceType": "official_blog",
+       "publicationDate": "2015-01-26",
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b05",
+       "url": "https://www.kickstarter.com/projects/239309591/movie-plotz-a-blockbuster-storytelling-microgame",
+       "publisher": "Kickstarter の Movie Plotz 募集結果",
+       "sourceType": "crowdfunding_record",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": "募集期間2014年9月3〜19日。最終更新表示2016年6月15日。",
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b06",
+       "url": "https://www.kickstarter.com/projects/239309591/button-shy-wallet-games-reprint-campaign",
+       "publisher": "Kickstarter の2019年再版募集結果",
+       "sourceType": "crowdfunding_record",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": "募集期間2019年11月19〜30日。最終更新表示2021年1月27日。",
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b07",
+       "url": "https://www.kickstarter.com/projects/239309591/button-shy-wallet-games-spring-2026-collection",
+       "publisher": "Kickstarter の2026年春の募集結果",
+       "sourceType": "crowdfunding_record",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b08",
+       "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+       "publisher": "公式の生産方式変更の説明",
+       "sourceType": "official_blog",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b09",
+       "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+       "publisher": "公式の値上げ説明",
+       "sourceType": "official_pricing",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b10",
+       "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+       "publisher": "公式のチーム紹介",
+       "sourceType": "official_blog",
+       "publicationDate": "2026-05-28",
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b11",
+       "url": "https://buttonshygames.com/products/sprawlopolis",
+       "publisher": "公式の Sprawlopolis 商品ページ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b12",
+       "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+       "publisher": "Reddit の利用者投稿",
+       "sourceType": "customer_review",
+       "publicationDate": "2025-03-22",
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "利用者と運営者自身の発言を記録。独立した客観的裏付けではない。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b13",
+       "url": "https://www.reddit.com/r/boardgames/comments/1stofa1/button_shy_has_moved_from_wallet_to_boxes_does/",
+       "publisher": "Reddit の包装変更への反応",
+       "sourceType": "customer_review",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "利用者と運営者自身の発言を記録。独立した客観的裏付けではない。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b14",
+       "url": "https://buttonshygames.com/pages/international-orders",
+       "publisher": "公式の海外販売案内",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b15",
+       "url": "https://www.patreon.com/buttonshy/overview?l=en-GB",
+       "publisher": "Patreon の公開紹介ページ",
+       "sourceType": "official_membership",
+       "publicationDate": null,
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY",
+       "accessStatus": "本文確認",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "id": "b16",
+       "url": "https://boardgamebinge.com/2024/01/09/episode-276-jason-tagmire-button-shy-games/",
+       "publisher": "Board Game Binge の出演紹介",
+       "sourceType": "founder_interview",
+       "publicationDate": "2024-01-09",
+       "updatedAt": null,
+       "checkedAt": "2026-10-07",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "INDEPENDENT_SECONDARY",
+       "accessStatus": "公開された紹介文を確認。音声の全編と逐語記録は未取得。",
+       "sourceLocator": null,
+       "rightsNote": "短い日本語の事実要約と所在を記録。原文全文・画像の商用転載許諾は取得していない。"
+      },
+      {
+       "url": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+       "publisher": "Kicktraq（Kickstarterの集計）",
+       "sourceType": "crowdfunding_tracker",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.patreon.com/buttonshy/about",
+       "publisher": "Patreonの公式ページ",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://buttonshygames.com/",
+       "publisher": "公式サイト",
+       "sourceType": "official_website",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER1_OFFICIAL",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+       "publisher": "ボードゲーム紹介サイト",
+       "sourceType": "media",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+       "publisher": "ボードゲーム紹介サイト",
+       "sourceType": "media",
+       "publicationDate": "2018-05-08",
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      },
+      {
+       "url": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+       "publisher": "ボードゲーム紹介サイト",
+       "sourceType": "media",
+       "publicationDate": null,
+       "checkedAt": "2026-10-08",
+       "rightsTier": "TIER2_FACTS_ONLY",
+       "sourceClass": "PRIMARY"
+      }
+     ],
+     "supported": [
+      "ent_button_shy_f1545f17d98e_fact_001",
+      "ent_button_shy_f1545f17d98e_fact_002",
+      "ent_button_shy_f1545f17d98e_fact_003",
+      "ent_button_shy_f1545f17d98e_fact_004",
+      "ent_button_shy_f1545f17d98e_fact_005",
+      "ent_button_shy_f1545f17d98e_fact_006",
+      "ent_button_shy_f1545f17d98e_fact_007",
+      "ent_button_shy_f1545f17d98e_fact_008",
+      "ent_button_shy_f1545f17d98e_fact_009",
+      "ent_button_shy_f1545f17d98e_fact_010",
+      "ent_button_shy_f1545f17d98e_fact_011",
+      "ent_button_shy_f1545f17d98e_fact_012",
+      "ent_button_shy_f1545f17d98e_fact_013",
+      "ent_button_shy_f1545f17d98e_fact_014",
+      "ent_button_shy_f1545f17d98e_fact_015",
+      "ent_button_shy_f1545f17d98e_fact_016",
+      "ent_button_shy_f1545f17d98e_fact_017",
+      "ent_button_shy_f1545f17d98e_fact_018",
+      "ent_button_shy_f1545f17d98e_fact_019",
+      "ent_button_shy_f1545f17d98e_fact_020",
+      "ent_button_shy_f1545f17d98e_fact_021",
+      "ent_button_shy_f1545f17d98e_fact_022",
+      "ent_button_shy_f1545f17d98e_fact_023",
+      "ent_button_shy_f1545f17d98e_fact_024",
+      "ent_button_shy_f1545f17d98e_fact_025",
+      "ent_button_shy_f1545f17d98e_fact_026",
+      "ent_button_shy_f1545f17d98e_fact_027",
+      "ent_button_shy_f1545f17d98e_fact_028",
+      "ent_button_shy_f1545f17d98e_fact_029",
+      "ent_button_shy_f1545f17d98e_fact_030",
+      "ent_button_shy_f1545f17d98e_fact_031",
+      "ent_button_shy_f1545f17d98e_fact_032",
+      "ent_button_shy_f1545f17d98e_fact_033",
+      "ent_button_shy_f1545f17d98e_fact_034",
+      "ent_button_shy_f1545f17d98e_fact_035",
+      "ent_button_shy_f1545f17d98e_fact_036",
+      "ent_button_shy_f1545f17d98e_fact_037",
+      "ent_button_shy_f1545f17d98e_fact_038",
+      "ent_button_shy_f1545f17d98e_fact_039",
+      "ent_button_shy_f1545f17d98e_fact_040",
+      "ent_button_shy_f1545f17d98e_fact_041",
+      "ent_button_shy_f1545f17d98e_fact_042",
+      "ent_button_shy_f1545f17d98e_fact_043",
+      "ent_button_shy_f1545f17d98e_fact_044",
+      "ent_button_shy_f1545f17d98e_fact_045",
+      "ent_button_shy_f1545f17d98e_fact_046",
+      "ent_button_shy_f1545f17d98e_fact_047",
+      "ent_button_shy_f1545f17d98e_fact_048",
+      "ent_button_shy_f1545f17d98e_fact_049",
+      "ent_button_shy_f1545f17d98e_fact_050",
+      "ent_button_shy_f1545f17d98e_fact_051"
+     ],
+     "unknown": [
+      "全社の年商・粗利・営業利益・純利益・創業者の手取り：企画別の支援約束額だけを確認。送料、取消、手数料、製造費が控除されていないため代用しない。",
+      "最初の事業元手・初期人数・開発所要期間・初回支援者の具体名：包装費1,000米ドルの目標と初期の経緯はあるが事業全体の記録なし。",
+      "法人の正式名称と設立年：本人の自主出版開始と財布型シリーズ開始が別で、登記原票は未取得。",
+      "現在の全従業員数・雇用形態・職種別給与・週の労働時間：事務所6人と社外協力者の紹介だけを確認。",
+      "印刷工場・部材調達先・単位原価・倉庫費・輸送契約・量産移行前後の費用：理由の申告はあるが実額なし。",
+      "広告費・経路別獲得件数・会員継続率・客の重複を除いた人数：便り約800人と企画別支援者のみ。動画や猫の投稿の効果は独立に切り分けられない。",
+      "現在の会員料金の原通貨・有料会員数・会員売上：Patreon は取得表示がブラジルレアル、検索表示がドルで人数も違う。換算表示を原通貨の売上として採用しない。",
+      "初期の利益と量産移行後の利益改善：支援達成・出荷継続は確認できるが黒字額を示す原票なし。",
+      "値上げ説明と生産移行ページの公開年月日：ページに日付がない。春企画へのリンクで対応関係は分かるが公開日を推定しない。",
+      "初期サイトの確定した保存画像：Wayback Machine の取得試行に失敗。",
+      "商品使用画像の原物・実画像の視認・商用転載許諾：商品写真の所在と表紙の画像URLだけを確認。使用写真の取得に失敗し原物は保存していない。",
+      "遅配・欠品の発生割合と原因の独立確認、返品率、返金実額：利用者の声はあるが全体集計なし。"
+     ],
+     "conflicts": [
+      "年の定義：出演紹介の2007年は自主出版開始で、2014年の財布型初期企画とは対象が異なる。法人設立年をいずれにも寄せない。",
+      "画像の集客効果：猫の画像後に支援額が倍増したが同じ朝の約800人への便りがあり、本人も原因を特定していない。",
+      "生産方式：主力は量産へ変更するが、社内の小規模シリーズでは手組みを残す。手組み全廃・全製品量産と書かない。",
+      "募集頻度：日付のない海外案内はほぼ月次、春企画の説明は主力を四半期募集とする。対象シリーズと更新時点が異なるため単一の現在値にしない。",
+      "Patreon の表示：同じ公開URLの検索結果は4,385人・月18,550ドル、開いた表示は4,347人・月93,810ブラジルレアル。無料会員を含む可能性と表示換算・キャッシュ時点があり、原通貨売上と有料客数へ転用しない。"
+     ]
+    },
+    "observationsStream": [],
+    "observations": [
+     "初期魚拓の取得試行に失敗。見えていない初期画面を創作しない。",
+     "創業者名義の複数企画の合計は重複支援者や別企画が混ざるため、会社年商・顧客数へ転用しない。"
+    ],
+    "temporal": {
+     "foundedYear": 0,
+     "initialTractionPeriod": "財布型の初期企画は2014年9月。2015年1月には2作目を案内。ブランド名義の自主出版開始と法人設立は分けて扱う。",
+     "dataSnapshotPeriod": "2013〜2026年の公開資料。取得日は2026年10月7日。",
+     "viabilityStatus": "UNKNOWN",
+     "eraContext": "",
+     "currentViabilityAnalysis": "",
+     "viabilityLabel": ""
+    },
+    "operations": {
+     "teamSize": 0,
+     "weeklyHours": 0,
+     "initialCapitalRequired": 0,
+     "automationLevel": 0,
+     "primaryChannels": [
+      "Kickstarter",
+      "自社の通販店",
+      "Patreon",
+      "メールの便り",
+      "BoardGameGeek",
+      "Etsy",
+      "海外の販売提携"
+     ],
+     "toolStack": [
+      {
+       "name": "自社店：Shopify",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "有料の月次会員：Patreon",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "予約企画：Kickstarter",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      },
+      {
+       "name": "製造：初期の手組みから主力の量産へ変更。工場名は不明。",
+       "category": "UNKNOWN",
+       "monthlyCost": 0,
+       "isCostUnconfirmed": true
+      }
+     ],
+     "isTeamSizeUnconfirmed": true,
+     "isWeeklyHoursUnconfirmed": true,
+     "isCapitalUnconfirmed": true,
+     "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+     "moatType": "UNKNOWN",
+     "blindspot": "",
+     "moatDescription": "",
+     "initialTraction": [],
+     "actionPlaybook": [],
+     "coldOutreachTemplate": ""
+    },
+    "evidenceCards": [
+     {
+      "id": "ent_button_shy_f1545f17d98e_b01",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式の会社紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.com/pages/about-us",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_001",
+       "ent_button_shy_f1545f17d98e_fact_002"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b02",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：創業者の過去ブログ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：2013-10-07",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshy.blogspot.com/2013/10/my-metatopia-2013-panel-schedule.html",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_004",
+       "ent_button_shy_f1545f17d98e_fact_005"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b03",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式の初期企画の振り返り",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：2014-09-08",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_006",
+       "ent_button_shy_f1545f17d98e_fact_007",
+       "ent_button_shy_f1545f17d98e_fact_008",
+       "ent_button_shy_f1545f17d98e_fact_009",
+       "ent_button_shy_f1545f17d98e_fact_010",
+       "ent_button_shy_f1545f17d98e_fact_011"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b04",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式の Pretense 発売予告",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：2015-01-26",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_014",
+       "ent_button_shy_f1545f17d98e_fact_015",
+       "ent_button_shy_f1545f17d98e_fact_016",
+       "ent_button_shy_f1545f17d98e_fact_017"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b05",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：Kickstarter の Movie Plotz 募集結果",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://www.kickstarter.com/projects/239309591/movie-plotz-a-blockbuster-storytelling-microgame",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_012",
+       "ent_button_shy_f1545f17d98e_fact_013"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b06",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：Kickstarter の2019年再版募集結果",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://www.kickstarter.com/projects/239309591/button-shy-wallet-games-reprint-campaign",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_018",
+       "ent_button_shy_f1545f17d98e_fact_019"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b07",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：Kickstarter の2026年春の募集結果",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://www.kickstarter.com/projects/239309591/button-shy-wallet-games-spring-2026-collection",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_020"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b08",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式の生産方式変更の説明",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_021",
+       "ent_button_shy_f1545f17d98e_fact_022",
+       "ent_button_shy_f1545f17d98e_fact_023",
+       "ent_button_shy_f1545f17d98e_fact_024",
+       "ent_button_shy_f1545f17d98e_fact_025",
+       "ent_button_shy_f1545f17d98e_fact_026",
+       "ent_button_shy_f1545f17d98e_fact_027",
+       "ent_button_shy_f1545f17d98e_fact_028",
+       "ent_button_shy_f1545f17d98e_fact_048",
+       "ent_button_shy_f1545f17d98e_fact_049",
+       "ent_button_shy_f1545f17d98e_fact_050",
+       "ent_button_shy_f1545f17d98e_fact_051"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b09",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式の値上げ説明",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.com/pages/wallet-games-are-now-15",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_029",
+       "ent_button_shy_f1545f17d98e_fact_030",
+       "ent_button_shy_f1545f17d98e_fact_031"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b10",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式のチーム紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：2026-05-28",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_032",
+       "ent_button_shy_f1545f17d98e_fact_033",
+       "ent_button_shy_f1545f17d98e_fact_034",
+       "ent_button_shy_f1545f17d98e_fact_035"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b11",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式の Sprawlopolis 商品ページ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.com/products/sprawlopolis",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_036",
+       "ent_button_shy_f1545f17d98e_fact_037",
+       "ent_button_shy_f1545f17d98e_fact_038",
+       "ent_button_shy_f1545f17d98e_fact_039",
+       "ent_button_shy_f1545f17d98e_fact_040"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b12",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：Reddit の利用者投稿",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：2025-03-22",
+       "取得状況：本文確認"
+      ],
+      "url": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_042",
+       "ent_button_shy_f1545f17d98e_fact_043"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b13",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：Reddit の包装変更への反応",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://www.reddit.com/r/boardgames/comments/1stofa1/button_shy_has_moved_from_wallet_to_boxes_does/",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_044"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b14",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：公式の海外販売案内",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://buttonshygames.com/pages/international-orders",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_045",
+       "ent_button_shy_f1545f17d98e_fact_046",
+       "ent_button_shy_f1545f17d98e_fact_047"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b15",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：Patreon の公開紹介ページ",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：未記載",
+       "取得状況：本文確認"
+      ],
+      "url": "https://www.patreon.com/buttonshy/overview?l=en-GB",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "PRIMARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_041"
+      ]
+     },
+     {
+      "id": "ent_button_shy_f1545f17d98e_b16",
+      "type": "UNKNOWN_AUDIT",
+      "title": "出典：Board Game Binge の出演紹介",
+      "badge": "出典",
+      "evidenceStatus": "REPORTED",
+      "punchline": "収集した事実の出典所在。画面用の章や分析文は制作していない。",
+      "details": [
+       "確認日：2026-10-07",
+       "公開日：2024-01-09",
+       "取得状況：公開された紹介文を確認。音声の全編と逐語記録は未取得。"
+      ],
+      "url": "https://boardgamebinge.com/2024/01/09/episode-276-jason-tagmire-button-shy-games/",
+      "sourceNote": "事実の配列から個別の箇所・時点・申告区分を参照。",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "factIds": [
+       "ent_button_shy_f1545f17d98e_fact_003"
+      ]
+     }
+    ],
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "batchId": "gen3_20261007",
+    "financialStatus": "UNAVAILABLE",
+    "incumbentDilemma": null,
+    "blindspot": null,
+    "moatDescription": null,
+    "unknownsNotes": [
+     "全社の年商・粗利・営業利益・純利益・創業者の手取り：企画別の支援約束額だけを確認。送料、取消、手数料、製造費が控除されていないため代用しない。",
+     "最初の事業元手・初期人数・開発所要期間・初回支援者の具体名：包装費1,000米ドルの目標と初期の経緯はあるが事業全体の記録なし。",
+     "法人の正式名称と設立年：本人の自主出版開始と財布型シリーズ開始が別で、登記原票は未取得。",
+     "現在の全従業員数・雇用形態・職種別給与・週の労働時間：事務所6人と社外協力者の紹介だけを確認。",
+     "印刷工場・部材調達先・単位原価・倉庫費・輸送契約・量産移行前後の費用：理由の申告はあるが実額なし。",
+     "広告費・経路別獲得件数・会員継続率・客の重複を除いた人数：便り約800人と企画別支援者のみ。動画や猫の投稿の効果は独立に切り分けられない。",
+     "現在の会員料金の原通貨・有料会員数・会員売上：Patreon は取得表示がブラジルレアル、検索表示がドルで人数も違う。換算表示を原通貨の売上として採用しない。",
+     "初期の利益と量産移行後の利益改善：支援達成・出荷継続は確認できるが黒字額を示す原票なし。",
+     "値上げ説明と生産移行ページの公開年月日：ページに日付がない。春企画へのリンクで対応関係は分かるが公開日を推定しない。",
+     "初期サイトの確定した保存画像：Wayback Machine の取得試行に失敗。",
+     "商品使用画像の原物・実画像の視認・商用転載許諾：商品写真の所在と表紙の画像URLだけを確認。使用写真の取得に失敗し原物は保存していない。",
+     "遅配・欠品の発生割合と原因の独立確認、返品率、返金実額：利用者の声はあるが全体集計なし。",
+     "客と困り事: 買う理由は説明と利用者の声。市場全体の定量調査なし。",
+     "商品と使い方: カードの遊び方・枚数・価格・拡張は取得。画像原物は未保存。",
+     "売れた実績: 企画別の支援約束額と人数。全社売上・純入金・利益は不明。",
+     "費用と手残り: 費用の理由と初期募集用途のみ。単位原価・手取りは不明。",
+     "最初の客までの順序: 投稿と便りと募集の順序は取得。最初の支援者名は未確認。",
+     "その後の流入と継続: 再版・会員・海外販路は取得。継続率と経路別件数は不明。",
+     "日々の仕事と道具: 担当と生産変更を取得。全雇用者数と勤務時間は不明。",
+     "始める資源: 以前の制作経験・協力者・小部数方式は取得。事業元手と初期人数は不明。",
+     "変更と外部依存: 価格・包装・生産・海外配送の変更。公開日不明の資料を日付付きと偽らない。",
+     "応用を考える根拠: 先行募集と反復購入の素材のみ。利益と再現性の判定は未作成。",
+     "小部数の物理商品、先行募集、旧作との組合せ、月次会員、直接販売、手組みの限界、海外配送の制約を収集。仕入単価・余剰資金・利益・大手の自爆は未確認。"
+    ],
+    "isGrowthUnconfirmed": true,
+    "normalizedFromResearch": [
+     "observations: 作業メモ→workNotes",
+     "observations: 未取得の断り→unknownsNotes"
+    ],
+    "metrics": [
+     {
+      "numberKind": "FUNDING",
+      "amount": 79243,
+      "currency": "USD",
+      "label": "Aqua ROVEの支援額（目標2,000ドル）",
+      "asOf": "2024-04",
+      "quote": "Funded: $79,243 of $2,000",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2024-04",
+      "period": "2024-04"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 134553,
+      "currency": "USD",
+      "label": "Unsurmountableの支援額（目標2,000ドル）",
+      "asOf": "2021-09",
+      "quote": "Funded: $134,553 of $2,000",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2021-09",
+      "period": "2021-09"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 119012,
+      "currency": "USD",
+      "label": "Shallow Regretsの支援額（目標2,000ドル）",
+      "asOf": "2025-05",
+      "quote": "Funded: $119,012 of $2,000",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2025-05",
+      "period": "2025-05"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 86888,
+      "currency": "USD",
+      "label": "春の4本のミニゲーム集の支援額（目標10,000ドル）",
+      "asOf": "2026-04",
+      "quote": "Funded: $86,888 of $10,000",
+      "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2026-04",
+      "period": "2026-04"
+     },
+     {
+      "numberKind": "FUNDING",
+      "amount": 50385,
+      "currency": "USD",
+      "label": "復刻キャンペーンの支援額（目標3,500ドル）",
+      "asOf": "2019-11",
+      "quote": "Funded: $50,385 of $3,500",
+      "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+      "checkedAt": "2026-10-08",
+      "origin": "THIRD_PARTY",
+      "periodKind": "POINT",
+      "measure": "FUNDING",
+      "statedAt": "2019-11",
+      "period": "2019-11"
+     },
+     {
+      "numberKind": "DIRECT_PAYMENT",
+      "amount": 18160,
+      "currency": "USD",
+      "label": "Patreonの月の収入（表示）",
+      "asOf": "2026-10",
+      "quote": "$18,160 / month",
+      "sourceUrl": "https://www.patreon.com/buttonshy/about",
+      "checkedAt": "2026-10-08",
+      "origin": "SELF_REPORTED",
+      "periodKind": "MONTH",
+      "period": "2026年10月",
+      "measure": "OTHER",
+      "statedAt": "2026-10"
+     }
+    ]
+   }
+  }
+ ]
+}

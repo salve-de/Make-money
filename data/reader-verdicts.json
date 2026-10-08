@@ -184562,206 +184562,190 @@
  "ent_button_shy_f1545f17d98e": {
   "f1": {
    "verdict": "PARTIAL",
-   "quote": "Here at Button Shy, he is taking the role of the publisher and getting some unique games directly to the customers. It's a very DIY / indie approach, as most publishers would work with a distributor in getting games into stores.",
+   "quote": "he is taking the role of the publisher and getting some unique games directly to the customers.",
    "fix": {
-    "text": "Jason Tagmire と仲間による出版事業で、問屋を通さず客へ直接ゲームを届ける DIY／インディーの方式と紹介する。"
+    "text": "Jason Tagmire と仲間による出版事業で、多くの出版社のように問屋を通さず、客へ直接ゲームを届けるDIY・インディーのやり方をとると紹介する。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/about-us",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Jason Tagmire が始めた小規模なゲーム出版事業で、問屋任せでなく客への直接販売を重視すると紹介する。"
   },
   "f2": {
    "verdict": "PARTIAL",
    "quote": "Jason is the designer of Pixel Lincoln, Maximum Throwdown and more.",
    "fix": {
-    "text": "Jason Tagmire は Pixel Lincoln や Maximum Throwdown などのゲーム制作者として紹介される。"
+    "text": "Jason Tagmire は Pixel Lincoln と Maximum Throwdown などのゲーム制作者として紹介される。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/about-us",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "創業者は Pixel Lincoln と Maximum Throwdown のゲーム制作者として紹介される。"
   },
   "f3": {
    "verdict": "PARTIAL",
-   "quote": "My campaign for Alex Strang's Movie Plotz opened to about 25% on its first day",
+   "quote": "With it being small and easy to ship, it balances out once again.",
    "fix": {
-    "text": "Alex Strang の Movie Plotz を、小さく送りやすいゲームとして Kickstarter で募集した。"
+    "text": "Alex Strang の Movie Plotz を、旅行用の財布型包装で出す Kickstarter 企画を行った。"
    },
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Alex Strang の Movie Plotz を、持ち運べる小型カードゲームとして出版する企画を始めた。"
   },
   "f4": {
    "verdict": "PARTIAL",
    "quote": "Our goal was just $1000 (to cover costs for our travel wallet packaging and fancy bulk folded rules)",
    "fix": {
-    "text": "目標1,000米ドルは財布型の包装と折りたたみ説明書の費用のためと本人は説明する。"
+    "text": "目標1,000米ドルは旅行用の財布型包装と折りたたみ説明書の費用をまかなうためと本人は説明する。"
    },
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "目標1,000米ドルは財布型の包装と折りたたみ説明書の量産費用のためと本人は説明する。事業全体の元手ではない。"
   },
   "f5": {
    "verdict": "SUPPORTED",
-   "quote": "opened to about 25% on its first day and had a few pledges bringing it up to about 35% by the end of day two",
-   "fix": {},
+   "quote": "opened to about 25% on its first day and had a few pledges bringing it up to about 35% by the end of day two.",
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "初日は目標の約25％、2日目は約35％まで進んだと本人は記録する。"
   },
   "f6": {
    "verdict": "SUPPORTED",
    "quote": "Within a few hours we had doubled our funding",
-   "fix": {},
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "その後、遊んだ内容から猫を使った架空映画の画像を投稿し、数時間で支援額が倍になったと記録する。"
   },
   "f7": {
    "verdict": "SUPPORTED",
-   "quote": "I also sent out the Button Shy newsletter the same morning to about 800 of our followers, but I cannot conclude whether our surge was due to the newsletter or the cat photo.",
-   "fix": {},
+   "quote": "I should note that I also sent out the Button Shy newsletter the same morning to about 800 of our followers",
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "同じ朝に約800人へ便りも送っており、画像と便りのどちらが効いたかは判定できないと明記する。"
   },
   "f8": {
    "verdict": "SUPPORTED",
-   "quote": "Lots of thumbs, favorites and retweets. Some people even jumped in on the discussion, which is near impossible when you post directly about your game. This didn't translate to funding",
-   "fix": {},
+   "quote": "This didn't translate to funding, but that wasn't the point.",
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16376292-how-a-cat-photo-doubled-our-funding",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "BoardGameGeek の包装紹介は反応と議論を得たが、支援の増加には結び付かなかったと振り返る。"
   },
   "f9": {
    "verdict": "SUPPORTED",
-   "quote": "And finally, Pretense is packaged in a wallet. It's the second in our line of wallet games",
-   "fix": {},
+   "quote": "the second in our line of wallet games",
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "2015年1月の Pretense 予告では、小型の財布型シリーズの2作目と紹介している。"
   },
   "f10": {
    "verdict": "SUPPORTED",
-   "quote": "They have custom logos on top, room for rules and about 12-20 cards (or card like things). I do these on short run production (<500 units)",
-   "fix": {},
+   "quote": "room for rules and about 12-20 cards (or card like things). I do these on short run production (<500 units)",
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "当時は1企画500個未満を作り、財布型包装に12〜20枚と説明書を収める設計と説明した。"
   },
   "f11": {
    "verdict": "SUPPORTED",
-   "quote": "You'll save a few dollars on the package deals and if you go for all of them you'll actually end up getting Pretense for free.",
-   "fix": {},
+   "quote": "actually end up getting Pretense for free.",
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "新作の募集で旧作も割引して合わせて提供し、全作品の組合せでは Pretense を実質無料にすると案内した。"
   },
   "f12": {
    "verdict": "PARTIAL",
    "quote": "The art on Pretense was done by French illustrator Fabrice Weiss, who I previously worked with on Seven7s with Eagle Gryphon.",
    "fix": {
-    "text": "Pretense の絵は、以前 Seven7s で組んだ Fabrice Weiss に頼んだと説明した。"
+    "text": "Pretense の絵は、以前 Seven7s で組んだ Fabrice Weiss が描いたと説明した。"
    },
    "sourceUrl": "https://buttonshygames.com/blogs/news-1/16860604-pretense-will-be-launching-on-kickstarter-this-week",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Pretense の絵は、以前 Seven7s で組んだ Fabrice Weiss に頼んだと説明した。外注額は非記載。"
   },
   "f13": {
    "verdict": "SUPPORTED",
    "quote": "And includes four games (Astro ROVE, The Rise Of A Jarl, Everything Machine, and Shaper)",
-   "fix": {},
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "春企画の4作を Astro ROVE、The Rise Of A Jarl、Everything Machine、Shaper と説明する。"
   },
   "f14": {
    "verdict": "SUPPORTED",
    "quote": "It’s also tough to really say something interesting about any of games in most social spaces where there’s only enough space to mention the group of games.",
-   "fix": {},
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "複数作を一緒に募集すると、それぞれの魅力を短い告知枠で伝えにくいと創業者は述べる。"
   },
   "f15": {
    "verdict": "SUPPORTED",
-   "quote": "It was getting very time consuming and at our size we are struggling to sell in certain markets without boxes. Unfortunately there’s no affordable way to hand assemble a box. Our wallet line has just grown to the point where it needs to be mass produced",
-   "fix": {},
+   "quote": "It was getting very time consuming and at our size we are struggling to sell in certain markets without boxes.",
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "手組みが時間を取り、箱なしでは売りにくい販路があるため、主力を量産の箱型へ変えると説明する。"
   },
   "f16": {
    "verdict": "SUPPORTED",
    "quote": "Put the games in boxes, but offer empty wallets as a sort of deluxe add-on item for the people who want them. And also make the boxes big enough to fit the wallets inside.",
-   "fix": {},
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "財布型を望む客には空の財布を追加商品として売り、箱は財布を中に収められる寸法にすると説明する。"
   },
   "f17": {
    "verdict": "SUPPORTED",
    "quote": "So with that in mind, we had to kind of limit our direct to consumer international shipping and start looking for partners.",
-   "fix": {},
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "海外送料の上昇と通関差戻しで、全地域への直送が難しくなり、提携先を探していると説明する。"
   },
   "f18": {
    "verdict": "PARTIAL",
-   "quote": "Those deals take a long time and we couldn’t really hold off on US sales",
+   "quote": "With the Board Game of the Month Club we have deadlines for monthly games. But we also have staff that needs to be paid, so we need to make sure the process is moving forward for our new games.",
    "fix": {
     "text": "月次会員向けの発送期限と職員の給与があるため、海外の提携成立を待って米国での販売を止められないと述べる。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "月次会員向けの発送期限と職員の給与があるため、海外の提携成立を待って販売全体を止められないと述べる。"
   },
   "f19": {
-   "verdict": "PARTIAL",
+   "verdict": "SUPPORTED",
    "quote": "The new 18 card games (formerly known as Wallet Games and now known as Micro Games) will have quarterly campaigns.",
-   "fix": {
-    "text": "18枚のゲーム（旧 Wallet Games、現 Micro Games）は四半期ごとに募集すると説明する。"
-   },
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "主力18枚のシリーズは四半期ごとの募集に変えると説明する。"
   },
   "f20": {
    "verdict": "PARTIAL",
-   "quote": "While we said we’re finished with assembly, we plan to do this on a much smaller level that is reasonable for our team to handle.",
+   "quote": "they are more in line with our early wallet games - with hand assembly and more experimental concepts.",
    "fix": {
-    "text": "少量の実験的な社内制作シリーズでは、手組みを小規模に行う方針と説明する。"
+    "text": "少量の実験的な社内制作シリーズでは、チームで扱える小さな規模で手組みを続ける方針と説明する。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "少量の実験的な社内制作シリーズでは手組みを続ける方針。主力量産化と手組み全廃は同じではない。"
   },
   "f21": {
    "verdict": "SUPPORTED",
    "quote": "Wallet games are going up to $15, and expansions are all going up by $1.",
-   "fix": {},
    "sourceUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "公式は財布型の基本価格を15米ドルへ上げ、拡張も1米ドル値上げしたと説明する。"
   },
   "f22": {
    "verdict": "PARTIAL",
-   "quote": "It’s been over 5 years since we’ve raised prices and it’s been a tough 5. The 30% tariffs are painful.",
+   "quote": "The 30% tariffs are painful.",
    "fix": {
-    "text": "5年以上値上げしておらず、原価上昇と関税を理由に挙げる。"
+    "text": "5年以上値上げしておらず、30％の関税と全般的な原価高を理由に挙げる。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "5年以上値上げしておらず、原価上昇と関税を理由に挙げる。実際の原価や関税の適用は未検証。"
   },
   "f23": {
    "verdict": "PARTIAL",
    "quote": "Kickstarter/Crowdfunding preorders are going to be $10 for a game, and max out at $14 for a game and expansion.",
    "fix": {
-    "text": "クラウドファンディングの予約価格は基本10米ドル、拡張込み最大14米ドルと案内する。"
+    "text": "クラウドファンディングの予約価格は1作10米ドル、拡張込みで最大14米ドルと案内する。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/wallet-games-are-now-15",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "予約価格は基本10米ドル、拡張込み最大14米ドルと案内する。取得時の商品在庫と全作品への適用は未確認。"
   },
   "f24": {
@@ -184771,153 +184755,136 @@
     "text": "2026年5月28日の紹介は、ニュージャージー州の事務所に6人いるとする。"
    },
    "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "2026年5月28日の紹介は、ニュージャージー州の事務所に6人いるとする。全社の雇用者数ではない。"
   },
   "f25": {
    "verdict": "SUPPORTED",
    "quote": "That team is me (Jason Tagmire), George Tagmire, and Andrew Basile.",
-   "fix": {},
    "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "社内の企画制作担当は Jason Tagmire、George Tagmire、Andrew Basile の3人と紹介する。"
   },
   "f26": {
    "verdict": "SUPPORTED",
-   "quote": "Elle’s been working on social media (and making props with George). Long and Anthony have been doing some in-house testing. And off-site are Milan and Filip who handle art and graphic design",
-   "fix": {},
+   "quote": "Long and Anthony have been doing some in-house testing. And off-site are Milan and Filip who handle art and graphic design for the main line of wallet/boxed games",
    "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Elle は告知、Long と Anthony は試遊、社外の Milan と Filip は美術と図案を担当すると紹介する。"
   },
   "f27": {
    "verdict": "SUPPORTED",
-   "quote": "it’s been exciting to make this little switch in our office from spending our time hand assembling games to instead spending our time making games. I kind of wish we’d started on this sooner.",
-   "fix": {},
+   "quote": "from spending our time hand assembling games to instead spending our time making games.",
    "sourceUrl": "https://buttonshygames.substack.com/p/introducing-the-modular-team",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "手組みに使っていた時間をゲーム制作へ移したことを喜び、もっと早く変えてもよかったと述べる。"
   },
   "f28": {
    "verdict": "SUPPORTED",
-   "quote": "In Sprawlopolis , 1-4 players work together to build a new city from the ground up. Using only 18 cards and a variable scoring system",
-   "fix": {},
+   "quote": "1-4 players work together to build a new city from the ground up. Using only 18 cards",
    "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Sprawlopolis は18枚で都市を作る1〜4人の協力型ゲームとして売られている。"
-  },
-  "f29": {
-   "verdict": "PARTIAL",
-   "quote": "Regular price\n¥2,500 JPY",
-   "fix": {
-    "text": "Sprawlopolis の基本商品の表示価格は2,500円。"
-   },
-   "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-   "checkedAt": "2026-10-07",
-   "claimText": "Sprawlopolis の基本商品の表示価格は15米ドル。追加品や送料とは区別する。"
   },
   "f30": {
    "verdict": "SUPPORTED",
-   "quote": "Designed by Steven Aramini, Danny Devine, Paul Kluka\nArt by Danny Devine",
-   "fix": {},
+   "quote": "Designed by Steven Aramini, Danny Devine, Paul Kluka",
    "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "制作者は Steven Aramini、Danny Devine、Paul Kluka、絵は Danny Devine と明示する。"
   },
   "f31": {
    "verdict": "PARTIAL",
    "quote": "A compilation of all expansions for Sprawlopolis (Points of Interest, Construction Zones, Wrecktar, Beaches, Interstate, Roadwork) packed in a wallet.",
    "fix": {
-    "text": "Sprawlopolis には複数の拡張があり、全拡張をまとめた Expansion Collection も扱われている。"
+    "text": "Sprawlopolis には Wrecktar、Beaches、Interstate、Roadwork などの拡張があり、全拡張をまとめた Expansion Collection も売られている。"
    },
    "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Sprawlopolis に複数の拡張商品があり、基本作の後にも追加商品を購入できる。"
   },
   "f32": {
    "verdict": "PARTIAL",
-   "quote": "&copy; 2026, Button Shy\nPowered by Shopify",
+   "quote": "Powered by Shopify",
    "fix": {
-    "text": "公式店のページは Shopify を使用しているとフッターに表示する。"
+    "text": "公式店のページは、フッターに Powered by Shopify と表示する。"
    },
    "sourceUrl": "https://buttonshygames.com/products/sprawlopolis",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "公式店のページは Shopify を使用しているとフッターに表示する。社内の全運営道具は不明。"
   },
   "f33": {
    "verdict": "PARTIAL",
-   "quote": "After seeing Foster the Meeple rave about them so much I decided to take a plunge and join the Patreon at the highest level to get the game of the month. December went by I received nothing. January went by I still received nothing.",
+   "quote": "December went by I received nothing. January went by I still received nothing. So I canceled.",
    "fix": {
-    "text": "投稿者は Foster the Meeple の推薦をきっかけに会員となったが、12月と1月の2か月分を払っても届かず、3月22日時点でも未着だと訴える。"
+    "text": "投稿者は Foster the Meeple の絶賛を見て Patreon の最上位の会員になったが、12月も1月も何も届かずに解約し、3月22日時点でも発送ラベル作成のままだと訴える。"
    },
    "sourceUrl": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "投稿者は紹介動画をきっかけに会員となったが、12月と1月に支払い、3月時点で届いていないと訴える。"
   },
   "f34": {
    "verdict": "PARTIAL",
-   "quote": "I've had a few late shipments and sometimes they'll bundle multiple months together if they get behind, but they've always made me whole.",
+   "quote": "Sometimes things are slower or because of their monthly release schedule, things get delayed, but personally,",
    "fix": {
-    "text": "別の利用者は、発送が遅れたことはあるが常に埋め合わせてもらえたと述べる。"
+    "text": "別の利用者は、月次の発売予定のために遅れることはあるが、最終的に受け取れなかったことはないと述べる。"
    },
    "sourceUrl": "https://www.reddit.com/r/soloboardgaming/comments/1jhheu0/button_shy_woes/",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "別の利用者は過去の購入に満足している一方、発送は遅いと述べる。未着全体の割合は不明。"
   },
   "f36": {
    "verdict": "SUPPORTED",
-   "quote": "to do a group order (either multiple games for yourself or people in your region) to bring down the shipping cost per unit as the price starts to settle as you order more games, or to order PNPs, or look for local licensors that localize our games in your region.",
-   "fix": {},
+   "quote": "or to order PNPs, or look for local licensors that localize our games in your region.",
    "sourceUrl": "https://buttonshygames.com/pages/international-orders",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "海外向け案内はまとめ注文で1個あたり送料を下げる方法、現地の販売提携、印刷用データを挙げる。"
   },
   "f37": {
    "verdict": "SUPPORTED",
-   "quote": "We’ve been selling our boxed titles here briefly over the last year or so, and plan to build a full store there. This will be coming shortly.",
-   "fix": {},
+   "quote": "As of right now our top 5 best sellers are there.",
    "sourceUrl": "https://buttonshygames.com/pages/international-orders",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "海外販売は Etsy で主要5作品を扱うと案内する。eBay では箱型作品を既に売り、店の拡充は準備中と記載する。"
   },
   "f38": {
    "verdict": "PARTIAL",
-   "quote": "We’ve avoided Amazon forever, but decided to sell there since our games are already being sold there for 3X the retail price.",
+   "quote": "but decided to sell there since our games are already being sold there for 3X the retail price.",
    "fix": {
-    "text": "Amazon で販売することにした理由に、そこで既に小売価格の3倍で売られていることを挙げる。"
+    "text": "Amazon で販売することにした理由に、そこで既に自社のゲームが小売価格の3倍で売られていることを挙げる。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/international-orders",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "Amazon の販売先を探す理由に、そこで小売価格の約3倍で転売されていることを挙げる。転売者の取引実績は未検証。"
   },
   "f39": {
    "verdict": "PARTIAL",
    "quote": "will jump 8% (as of next week (which causes its own issues after we just collected $17,000 for shipping a Kickstarter campaign)",
    "fix": {
-    "text": "海外送料が翌週8％上がると説明し、その前に企画の送料17,000米ドルを集めていたと述べる。"
+    "text": "海外送料が翌週から8％上がると説明し、直前に Kickstarter 企画の送料として17,000米ドルを集めたばかりだったと述べる。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "海外送料が翌週8％上がると説明し、その前に企画の送料17,000米ドルを集めていたと述べる。送料収受は会社利益ではない。"
   },
   "f40": {
    "verdict": "PARTIAL",
-   "quote": "we received a whole mail bin of packages back recently, marked as “Denied at border” with no other details. That’s an easy $500 out the door",
+   "quote": "we received a whole mail bin of packages back recently",
    "fix": {
-    "text": "通関で郵便物がまとめて戻り、約500米ドルの損失になったと本人は説明する。"
+    "text": "通関で郵便物がまとめて差し戻され、約500米ドルの損失になったと本人は説明する。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "通関で郵便物がまとめて戻り、約500米ドルの損失になったと本人は説明する。原票と対象便は未確認。"
   },
   "f41": {
    "verdict": "PARTIAL",
    "quote": "players will provide their own dice and cubes",
    "fix": {
-    "text": "社内の新シリーズは、客がサイコロ等を用意し、説明書はオンラインに置く構想と説明する。"
+    "text": "社内の新シリーズは、客がサイコロやキューブを用意し、説明書はオンラインに置く構想と説明する。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "社内の新シリーズは、客がサイコロ等を用意し、説明書はオンラインに置く構想と説明する。主力全作品の仕様ではない。"
   },
   "f42": {
@@ -184927,8 +184894,218 @@
     "text": "同じ新シリーズは部分ごとに売り、遊ぶには2〜3部分を組み合わせる構想と説明する。"
    },
    "sourceUrl": "https://buttonshygames.com/pages/working-out-some-games-a-challenging-day-that-ends-with-us-breaking-all-of-our-rules",
-   "checkedAt": "2026-10-07",
+   "checkedAt": "2026-10-08",
    "claimText": "同じ新シリーズは部分ごとに売り、遊ぶには2〜3部分を組み合わせる構想と説明する。販売実績は未確認。"
+  },
+  "f43": {
+   "verdict": "SUPPORTED",
+   "quote": "Dates: Tuesday 9th of April 2024 @ 08:30:00 AM (CST) Apr 9th -> Saturday 20th of April 2024 @ 10:30:00 AM (CST) Apr 20th (12 days)",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2024年4月、ゲーム『Aqua ROVE』をKickstarterに出し、12日間で79,243ドルの支援を集めた。目標は2,000ドル。"
+  },
+  "f44": {
+   "verdict": "SUPPORTED",
+   "quote": "Dates: Tuesday 14th of September 2021 @ 08:30:16 AM (CST) Sep 14th -> Saturday 25th of September 2021 @ 10:30:00 AM (CST) Sep 25th (12 days)",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2021年9月、ゲーム『Unsurmountable』をKickstarterに出し、12日間で134,553ドルの支援を集めた。目標は2,000ドル。"
+  },
+  "f45": {
+   "verdict": "SUPPORTED",
+   "quote": "Dates: Tuesday 6th of May 2025 @ 08:30:18 AM (CST) May 6th -> Saturday 17th of May 2025 @ 10:30:00 AM (CST) May 17th (12 days)",
+   "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2025年5月、ゲーム『Shallow Regrets』をKickstarterに出し、12日間で119,012ドルの支援を集めた。目標は2,000ドル。"
+  },
+  "f46": {
+   "verdict": "SUPPORTED",
+   "quote": "Dates: Tuesday 21st of April 2026 @ 08:31:46 AM (CST) Apr 21st -> Saturday 9th of May 2026 @ 10:30:00 AM (CST) May 9th (19 days)",
+   "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2026年4〜5月、春の4本のミニゲーム集をKickstarterに出し、19日間で86,888ドルの支援を集めた。目標は10,000ドル。"
+  },
+  "f47": {
+   "verdict": "SUPPORTED",
+   "quote": "Dates: Tuesday 19th of November 2019 @ 08:39:07 AM (CST) Nov 19th -> Saturday 30th of November 2019 @ 10:30:00 AM (CST) Nov 30th (12 days)",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2019年11月、絶版の旧作の復刻キャンペーンをKickstarterに出し、12日間で50,385ドルの支援を集めた。目標は3,500ドル。"
+  },
+  "f48": {
+   "verdict": "SUPPORTED",
+   "quote": "A reprint campaign for some of the long lost Button Shy titles. All games chosen by the backers!",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+   "checkedAt": "2026-10-08",
+   "claimText": "復刻キャンペーンでは、再び作る旧作を支援者が選んだ。"
+  },
+  "f49": {
+   "verdict": "SUPPORTED",
+   "quote": "1,313\nPaid members",
+   "sourceUrl": "https://www.patreon.com/buttonshy/about",
+   "checkedAt": "2026-10-08",
+   "claimText": "Patreonで「Board Game of the Month Club」という月額の会員制を運営している。有料会員は1,313人。"
+  },
+  "f50": {
+   "verdict": "SUPPORTED",
+   "quote": "4,390 members",
+   "sourceUrl": "https://www.patreon.com/buttonshy/about",
+   "checkedAt": "2026-10-08",
+   "claimText": "Patreonの会員は、無料の会員を含めて合計4,390人。"
+  },
+  "f51": {
+   "verdict": "SUPPORTED",
+   "quote": "$18,160 / month",
+   "sourceUrl": "https://www.patreon.com/buttonshy/about",
+   "checkedAt": "2026-10-08",
+   "claimText": "Patreonの月の収入は、18,160ドルと表示されている。"
+  },
+  "f52": {
+   "verdict": "SUPPORTED",
+   "quote": "Membership levels start at $1, $5, $10, or $20 and offering increasingly better rewards.",
+   "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+   "checkedAt": "2026-10-08",
+   "claimText": "月額の会員制は、1ドル、5ドル、10ドル、20ドルの4段階の料金がある。"
+  },
+  "f53": {
+   "verdict": "SUPPORTED",
+   "quote": "At that level, you get getting most of the good stuff and half-off their wallet games.",
+   "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+   "checkedAt": "2026-10-08",
+   "claimText": "10ドルの段階の会員は、財布型のゲームを半額で買える。"
+  },
+  "f55": {
+   "verdict": "SUPPORTED",
+   "quote": "These games are cheap (usually around $12 apiece)",
+   "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+   "checkedAt": "2026-10-08",
+   "claimText": "2018年5月の紹介記事は、1本の価格をおよそ12ドルと書いている。"
+  },
+  "f56": {
+   "verdict": "SUPPORTED",
+   "quote": "Puzzle your way to the top of the mountain in a solo game from Scott Almes and Button Shy. Only $10!",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2021年9月の『Unsurmountable』の募集は、1本10ドルだった。"
+  },
+  "f57": {
+   "verdict": "SUPPORTED",
+   "quote": "Go underwater with Aqua ROVE or learn the basics with ROVE Jr. $12 each, both $20.",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+   "checkedAt": "2026-10-08",
+   "claimText": "2024年4月の『Aqua ROVE』の募集は、1本12ドルだった。"
+  },
+  "f58": {
+   "verdict": "SUPPORTED",
+   "quote": "The game will (almost certainly) consist of no more than 18 cards.",
+   "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+   "checkedAt": "2026-10-08",
+   "claimText": "Button Shyのゲームは、18枚以内のカードを、ポケットに入る財布型のケースに入れて売る形が基本。"
+  },
+  "f59": {
+   "verdict": "SUPPORTED",
+   "quote": "you can sign up via Patreon to receive the newest release each month",
+   "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+   "checkedAt": "2026-10-08",
+   "claimText": "会員制のPatreonでは、毎月その月の新作を受け取れる。"
+  },
+  "f60": {
+   "verdict": "PARTIAL",
+   "quote": "Button Shy Games is literally one dude, Jason Tagmire, along with a handful of friends and family.",
+   "fix": {
+    "text": "紹介記事は、会社をジェイソン・タグマイア1人と、数人の友人・家族の小さな体制と書いている。"
+   },
+   "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+   "checkedAt": "2026-10-08",
+   "claimText": "紹介記事は、会社を創業者のジェイソン・タグマイアと、数人の友人・家族の小さな体制と書いている。"
+  },
+  "f61": {
+   "verdict": "PARTIAL",
+   "quote": "These games get printed and shipped to Jason & Crew where they quite literally put them together, into their wallets, by hand.",
+   "fix": {
+    "text": "2018年5月の紹介記事は、ゲームを財布に入れる組み立てを手作業でしていると書いている。"
+   },
+   "sourceUrl": "https://www.spritesanddice.com/posts/spotlight-button-shy-games",
+   "checkedAt": "2026-10-08",
+   "claimText": "ゲームを財布に入れる組み立ては、手作業でしている。"
+  },
+  "f62": {
+   "verdict": "SUPPORTED",
+   "quote": "hosting regular design contests based around different themes. More than a few of their titles have come out of those 18 Card Challenges.",
+   "sourceUrl": "https://www.meeplemountain.com/articles/publisher-profiles-button-shy-games/",
+   "checkedAt": "2026-10-08",
+   "claimText": "ファン向けに、テーマごとのデザインコンテストを開き、そこから商品になった作品がある。"
+  },
+  "f63": {
+   "verdict": "SUPPORTED",
+   "quote": "Our semi-daily blog at Substack",
+   "sourceUrl": "https://buttonshygames.com/",
+   "checkedAt": "2026-10-08",
+   "claimText": "公式サイトで、新作の経過を載せるブログをSubstackで更新している。"
+  },
+  "f64": {
+   "verdict": "PARTIAL",
+   "quote": "print-and-play copies of upcoming games, a newsletter with interviews and comics, and discounts off their monthly Kickstarter wallet games.",
+   "fix": {
+    "text": "会員の段階に応じて、近く出るゲームの印刷して遊べる版や、毎月の Kickstarter の財布型ゲームの割引が付く。"
+   },
+   "sourceUrl": "https://boardgamequest.com/button-shy-game-of-the-month-club",
+   "checkedAt": "2026-10-08",
+   "claimText": "Patreonの会員には、印刷して遊べるファイルと、毎月の新作の割引が付く。"
+  },
+  "m1": {
+   "verdict": "SUPPORTED",
+   "quote": "Funded: $79,243 of $2,000",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/aqua-rove/",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=FUNDING / 名前=Aqua ROVEの支援額（目標2,000ドル） / 期間=2024-04(POINT) / 金額=79243 USD / 由来=THIRD_PARTY / 記載日=2024-04"
+  },
+  "m2": {
+   "verdict": "SUPPORTED",
+   "quote": "Funded: $134,553 of $2,000",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/unsurmountable/",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=FUNDING / 名前=Unsurmountableの支援額（目標2,000ドル） / 期間=2021-09(POINT) / 金額=134553 USD / 由来=THIRD_PARTY / 記載日=2021-09"
+  },
+  "m3": {
+   "verdict": "SUPPORTED",
+   "quote": "Funded: $119,012 of $2,000",
+   "sourceUrl": "https://kicktraq.com/projects/239309591/shallow-regrets/",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=FUNDING / 名前=Shallow Regretsの支援額（目標2,000ドル） / 期間=2025-05(POINT) / 金額=119012 USD / 由来=THIRD_PARTY / 記載日=2025-05"
+  },
+  "m4": {
+   "verdict": "HELD",
+   "quote": "Dates: Tuesday 21st of April 2026 @ 08:31:46 AM (CST) Apr 21st -> Saturday 9th of May 2026 @ 10:30:00 AM (CST) May 9th (19 days)",
+   "fix": {
+    "metric": {
+     "period": "2026-04-21〜2026-05-09"
+    }
+   },
+   "sourceUrl": "https://kicktraq.com/projects/239309591/button-shy-wallet-games-spring-2026-collection/",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=FUNDING / 名前=春の4本のミニゲーム集の支援額（目標10,000ドル） / 期間=2026-04(POINT) / 金額=86888 USD / 由来=THIRD_PARTY / 記載日=2026-04",
+   "reason": "原文照合で1回不合格: 数字が引用に無い"
+  },
+  "m5": {
+   "verdict": "SUPPORTED",
+   "quote": "Funded: $50,385 of $3,500",
+   "sourceUrl": "https://www.kicktraq.com/projects/239309591/button-shy-wallet-games-reprint-campaign/",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=FUNDING / 名前=復刻キャンペーンの支援額（目標3,500ドル） / 期間=2019-11(POINT) / 金額=50385 USD / 由来=THIRD_PARTY / 記載日=2019-11"
+  },
+  "m6": {
+   "verdict": "HELD",
+   "quote": "$18,160 / month",
+   "fix": {
+    "metric": {
+     "period": "Per month（時点の記載なし）"
+    }
+   },
+   "sourceUrl": "https://www.patreon.com/buttonshy/about",
+   "checkedAt": "2026-10-08",
+   "claimText": "項目=OTHER / 名前=Patreonの月の収入（表示） / 期間=2026年10月(MONTH) / 金額=18160 USD / 由来=SELF_REPORTED / 記載日=2026-10",
+   "reason": "原文照合で1回不合格: 数字の時点（年・月）が原文で裏づけられない"
   }
  },
  "ent_candy_japan_954236d663a8": {
