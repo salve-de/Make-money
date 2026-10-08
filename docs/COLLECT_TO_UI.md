@@ -73,6 +73,7 @@ pnpm case:run --ids a --publish          # 最後に今の catalog:publish を�
 | 5 | audit | 監査（`build-audit-input.ts` → AI → `merge-analysis.ts`）。監査済みの事例は飛ばす | 同上 |
 | 6 | select | 仕上げ済みの選別（`select-finished.ts --keep-published`）。画像が「使ってよい」1枚も無い事例などはここで落ちる | 理由つきで外れる |
 | 7 | display | 画面の文（`build-display.ts`）。事例ごとに別の作業場所で並列に作り、できた分を1つずつ実ファイルに反映する | 作れなかった事例は外れる。理由は `data/pipeline/display-build-failures.jsonl` |
+| 7b | fact-lines | 「出典を見る」の中の事実・数値の注記と期間・計算の前提・冒頭の数字の帯の推論を、読む人向けに言い直す（`build-fact-lines.ts`、`data/fact-lines.json`）。事業の札が2つに満たない事例は札も補う。作る側と確認する側は別のAI。元の文が変わると指紋が合わなくなり、元の文のまま出る | 言い直せない行は元の文のまま出す。元の文が `case-text:verify` の規則に落ちれば、その事例が外れる。理由は `data/pipeline/fact-lines-failures.jsonl` |
 | 8 | case-text | 文の検査（`pnpm case-text:verify`） | 落ちた行の事例が外れる（事例を特定できなければ全件） |
 | 9 | prepare | 公開データの作成（`pnpm catalog:prepare --changed`）。原文照合で落ちた事例は含めない | 作れなければ段ごと失敗 |
 | 10 | publish | `--publish` の時だけ `pnpm catalog:publish`（中で `catalog:screen-check` を通す。飛ばさない） | 公開データの作成と画面の検査が通っていなければ公開しない |
@@ -267,6 +268,8 @@ bash scripts/reader-case/run-diff-audit.sh <直した事例IDを1行ずつ書い
 ## 10. 画面の文を、ビルドとデプロイ無しで本番へ出す（2026-10-08 追加）
 
 **何が変わったか**: 一覧の1行・概要・分析欄・成功の秘訣・章（`data/list-lines.json` `summary-lines.json` `detail-lines.json` `success-points.json` `case-chapters.json`）は、事例ごとの公開データ（R2 の事例ファイル、`reader.display`）に入る。本番は「いま公開している版の目印」を実行時に読むので、文を直すのに本番のビルドもデプロイも要らない。
+
+**記録の文の言い直し（`data/fact-lines.json`）も同じ仕組みで `reader.display.factLines` / `display.labels` に入る**。画面の読み取り側（出典を見る・数値の表・計算の前提・数字の帯・札）はコードの変更なので、最初の1回だけ `pnpm deploy:workers` が要る。以降は文だけなら不要。一部の事例を直す時は `pnpm fact-lines:build --ids <事例ID,…>`。
 
 - 目印の置き場: R2 の `views/make-money/catalog-v1/current.json`（1か所だけ上書きしてよい。事例データ・目録は新規作成のみで書き換えない）
 - 書き換えの記録: `views/make-money/catalog-v1/pointer-log/` に1回1件（いつ・どの版から・どの版へ）。消さない

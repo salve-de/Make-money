@@ -3,6 +3,7 @@
  * 集める層（事実・出典・数値の注記・計算の前提）には触らない。画面は data/fact-lines.json を優先して出し、無い・元の文が変わった時は元の文のまま出す。
  *
  *   pnpm fact-lines:build --id <entityId>   1件だけ
+ *   pnpm fact-lines:build --ids a,b,c       複数件（case:run の fact-lines 段が使う）
  *   pnpm fact-lines:build --all             仕上げ済み（data/catalog-finished-ids.txt）の全件
  *   pnpm fact-lines:build --list            AIを呼ばず、対象の欄を事例ごとに数えて出す
  *   pnpm fact-lines:build --dry-run         作って検査するが、書かない
@@ -131,9 +132,10 @@ async function buildOne(id: string, reader: ReaderCase, gen: Caller, review: Cal
     for (const t of pending) {
       const text = byKey.get(t.key);
       if (text === undefined) { problemsByKey.set(t.key, ['返っていない']); next.push(t); continue; }
-      if (text === t.original.trim()) { accepted.set(t.key, ''); continue; } // 元のままで良い（保存しない）
       const problems = checkLine(t, text, haystack, languageProblems);
-      if (problems.length > 0) { problemsByKey.set(t.key, problems); previous.set(t.key, text); next.push(t); } else candidates.push({ target: t, text });
+      if (problems.length > 0) { problemsByKey.set(t.key, problems); previous.set(t.key, text); next.push(t); continue; }
+      // 元のままで良い行は、別のAIの確認を省いて採用する（元の文が規則を通る事を、保存して検査側に示す）
+      if (text === t.original.trim()) accepted.set(t.key, text); else candidates.push({ target: t, text });
     }
     let labelsOk = labelsDone;
     if (!labelsDone) {
@@ -158,7 +160,7 @@ async function buildOne(id: string, reader: ReaderCase, gen: Caller, review: Cal
     } else for (const c of candidates) accepted.set(c.target.key, c.text);
     if (!labelsDone && labelsOk) labelsDone = true;
     pending = next;
-    log(`${id}: ${attempt}回目 採用${[...accepted.values()].filter(Boolean).length}／対象${targets.length}、残り${pending.length}${labelsNeeded ? `、札${labelsDone ? '済' : '未'}` : ''}`);
+    log(`${id}: ${attempt}回目 採用${accepted.size}／対象${targets.length}、残り${pending.length}${labelsNeeded ? `、札${labelsDone ? '済' : '未'}` : ''}`);
   }
 
   const entries: FactLineEntry[] = [];
@@ -172,7 +174,8 @@ async function buildOne(id: string, reader: ReaderCase, gen: Caller, review: Cal
 async function main(): Promise<void> {
   const only = argValue('--id');
   const current = existsSync(OUT) ? read<FactLineEntry[]>(OUT) : [];
-  let ids = only ? [only] : has('--all') || has('--list') ? finished : [];
+  const many = argValue('--ids');
+  let ids = only ? [only] : many ? many.split(',').map((s) => s.trim()).filter(Boolean) : has('--all') || has('--list') ? finished : [];
   if (has('--only-missing')) ids = ids.filter((id) => !current.some((x) => x.entityId === id));
   if (ids.length === 0) { console.error('対象が無い。--id <entityId> か --all を付ける'); process.exit(2); }
   const readers = liveReaders(ids);
@@ -206,7 +209,7 @@ async function main(): Promise<void> {
     }
   };
   await Promise.all(Array.from({ length: Math.max(1, CONCURRENCY) }, worker));
-  say(`完了: 対象${totalTargets}欄のうち採用${totalAccepted}（元のままで良い物と通らなかった物は元の文を出す）、通らず${totalFailed}`);
+  say(`完了: 対象${totalTargets}欄のうち採用${totalAccepted}（通らなかった物は元の文を出す）、通らず${totalFailed}`);
 }
 
 void main();

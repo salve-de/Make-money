@@ -29,7 +29,7 @@ import { runStageWithAgent, type AgentStageOptions, type BundleOutcome } from '.
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const ROOT = resolve(HERE, '../..');
 
-export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'case-text', 'prepare', 'publish'] as const;
+export const STAGE_ORDER = ['fetch', 'verify', 'source-check', 'analyze', 'audit', 'select', 'display', 'fact-lines', 'case-text', 'prepare', 'publish'] as const;
 
 export interface ExecResult { code: number; stdout: string; stderr: string }
 /** 外の命令（node スクリプト・pnpm）を流す。試験では偽物に差し替える */
@@ -236,6 +236,15 @@ export async function runCases(opt: CaseRunOptions, deps: CaseRunDeps): Promise<
       }
     }
     return { builtCases: dirs.size, changedFiles: merged, concurrency: opt.concurrency };
+  });
+
+  // 7b. 事実の記録の文の言い直しと札の補い（画面の層。data/fact-lines.json）。1つのプロセスで順に書く（並列の書き込みで取りこぼさない）
+  await stage('fact-lines', async () => {
+    const ids = [...alive];
+    if (!ids.length) return { skipped: '対象が無い' };
+    const r = await deps.exec('fact-lines', node('scripts/reader-case/build-fact-lines.ts', '--ids', ids.join(','), '--concurrency', String(Math.max(1, Math.min(opt.concurrency, 4))), ...(opt.agentArgs ?? [])));
+    if (r.code !== 0) for (const id of ids) fail(id, 'fact-lines', `記録の文の言い直しを作れなかった（終了コード ${r.code}）。理由: data/pipeline/fact-lines-failures.jsonl`);
+    return { cases: ids.length };
   });
 
   // 8. 文の検査（全件を対象にする検査なので、落ちたら理由を出して公開データの作成へ進まない）

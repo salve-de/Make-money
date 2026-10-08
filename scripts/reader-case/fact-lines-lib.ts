@@ -6,7 +6,7 @@
 import { textFingerprint } from '../../src/shared/text-fingerprint';
 import { FACT_SECTIONS } from '../../src/shared/ui-strings';
 import type { ReaderCase } from '../../src/shared/reader-case';
-import { factTokens, formulaSkeleton } from './paraphrase-check';
+import { factTokens } from './paraphrase-check';
 
 export type FactLineKind = 'fact' | 'basis' | 'period' | 'formula' | 'analysis';
 export type StoredKind = FactLineKind | 'labels';
@@ -29,7 +29,7 @@ export function collectTargets(reader: ReaderCase): FactTarget[] {
   const out: FactTarget[] = [];
   for (const f of reader.facts) {
     if (f.id === reader.summaryFactId) continue; // 概要は list-lines・summary-lines が受け持つ
-    out.push({ key: `fact:${f.id}`, kind: 'fact', targetId: f.id, where: `数字と出典 > ${sectionTitle(f.kind)}${f.kind === 'PRICING' ? '（料金の帯にも出る）' : ''}`, original: f.text, max: MAX_LEN.fact });
+    out.push({ key: `fact:${f.id}`, kind: 'fact', targetId: f.id, where: `出典を見る > ${sectionTitle(f.kind)}${f.kind === 'PRICING' ? '（料金の帯にも出る）' : ''}`, original: f.text, max: MAX_LEN.fact });
   }
   for (const m of reader.metrics) {
     // 期間の列は「2019年5月1日の投稿（月の売上70K）」のように記録の言い方が混ざる事がある。日付・年・年度だけの期間は直さない
@@ -60,12 +60,26 @@ function dateTokens(text: string): string[] {
  */
 export function newTokens(edited: string, original: string, haystack: string): string[] {
   const known = new Set([...factTokens(original), ...dateTokens(original)]);
+  // 数え方の単位（社・人・件…）は、同じ数が元の文に（英語の「44 of the …」のように単位なしでも）あれば、日本語の単位を付けてよい
+  const knownDigits = new Set([...known].map((t) => /^(\d+(?:\.\d+)?)/.exec(t)?.[1]).filter((d): d is string => Boolean(d)));
   const hay = haystack.normalize('NFKC').toLowerCase();
   return factTokens(edited).filter((tok) => {
     if (known.has(tok)) return false;
+    const count = /^(\d+(?:\.\d+)?)(?:社|件|人|個|本|回|店|国|校|台|曲|つ)$/.exec(tok);
+    if (count && knownDigits.has(count[1])) return false;
     if (/^[$¥€£₹]?\d/.test(tok)) return true;
+    // 日本語の普通の外来語は、名前ではないので照合しない（名前の取り違えは確認役が見る）
+    if (COMMON_KATAKANA.has(tok)) return false;
     return !hay.includes(tok.toLowerCase());
   });
+}
+
+const COMMON_KATAKANA = new Set(['プラン', 'ベンチャー', 'ソフト', 'ツール', 'サービス', 'サイト', 'ページ', 'データ', 'アプリ', 'ユーザー', 'ブランド', 'コンテンツ', 'チーム', 'ビジネス', 'ネット', 'ネットワーク', 'システム', 'ソフトウェア', 'クラウド', 'メール', 'ファイル', 'テーマ', 'フォント', 'デザイン', 'ライセンス', 'パートナー', 'ブログ', 'ニュース', 'コミュニティ', 'マーケティング', 'ビデオ', 'アカウント', 'メンバー', 'キャンペーン', 'レビュー', 'サポート', 'オンライン', 'デジタル', 'リスト', 'クレジット', 'モデル', 'ロゴ', 'テンプレート', 'ひな形']);
+
+/** 式の中の数字（順番は問わない）と記号の種類。言葉を直す時に並びが変わっても、数字と演算が同じなら通す */
+export function formulaParts(formula: string): { nums: string[]; ops: string[] } {
+  const t = formula.normalize('NFKC').replace(/(\d),(?=\d{3}\b)/g, '$1');
+  return { nums: (t.match(/\d+(?:\.\d+)?/g) ?? []).sort(), ops: [...new Set(t.match(/[+\-*/=×÷≒≈−]/g) ?? [])].sort() };
 }
 
 export interface LineProblem { key: string; problem: string }
@@ -78,7 +92,10 @@ export function checkLine(target: FactTarget, text: string, haystack: string, ex
   if (t.length > target.max) problems.push(`${t.length}字（上限${target.max}）`);
   const fresh = newTokens(t, target.original, haystack);
   if (fresh.length > 0) problems.push(`元の文に無い数字・年・名前が入っている: ${fresh.join('、')}（円はコードが付けるので書かない。数字は元のままの形で書く）`);
-  if (target.kind === 'formula' && formulaSkeleton(t) !== formulaSkeleton(target.original)) problems.push('計算式の数字・記号が元と違う（式は変えず、言葉だけを直す）');
+  if (target.kind === 'formula') {
+    const a = formulaParts(t); const b = formulaParts(target.original);
+    if (a.nums.join(' ') !== b.nums.join(' ') || a.ops.join('') !== b.ops.join('')) problems.push('計算式の数字・記号が元と違う（式は変えず、言葉だけを直す。数字は元の書き方のまま。円は書かない）');
+  }
   problems.push(...extra(t, target));
   return problems;
 }
@@ -91,14 +108,14 @@ export function replaceEntity(all: FactLineEntry[], entityId: string, mine: Fact
 
 export const entryFor = (entityId: string, target: FactTarget, text: string): FactLineEntry => ({ entityId, kind: target.kind, targetId: target.targetId, hash: textFingerprint(target.original), text });
 
-/** 札の検査。短い日本語の名詞で、運営の印・重複・長すぎを落とす。 */
+/** 札の検査。短い名詞（日本語か、SaaS・API のような既存の言い方）で、運営の印・重複・長すぎを落とす。 */
 export function checkLabels(labels: string[], existing: string[], operator: ReadonlySet<string>): string[] {
   const problems: string[] = [];
   for (const l of labels) {
     if (l.length > 14) problems.push(`札「${l}」が長い（14字以内）`);
     if (operator.has(l)) problems.push(`札「${l}」は運営の印`);
     if (existing.includes(l)) problems.push(`札「${l}」は既にある`);
-    if (!/[ぁ-んァ-ヶ一-龠]/.test(l)) problems.push(`札「${l}」に日本語が無い`);
+    if (!/[ぁ-んァ-ヶ一-龠A-Za-z]/.test(l)) problems.push(`札「${l}」が文字でない`);
   }
   if (new Set(labels).size !== labels.length) problems.push('札が重複している');
   return problems;
