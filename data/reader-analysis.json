@@ -43172,17 +43172,6 @@
    "presentation": "FACT_SUMMARY"
   },
   {
-   "id": "a-customer_pain",
-   "item": "CUSTOMER_PAIN",
-   "text": "創業者が挙げる客の困りごとは、複雑すぎるツールの管理に時間を取られること。代理店の経営者が最初に求めたのは、顧客に見せる画面と白ラベルだった。",
-   "basis": [
-    "f4",
-    "f6"
-   ],
-   "formula": "数字は出典に載っている値",
-   "presentation": "FACT_SUMMARY"
-  },
-  {
    "id": "a-first_customers",
    "item": "FIRST_CUSTOMERS",
    "text": "最初の手応えは、インディー開発者の仲間ではなく、初めて話した代理店の経営者から出た。別の投稿では、作る前に99ドルを先払いしてもよいという12人を見つけてから作り始めたと書く。",

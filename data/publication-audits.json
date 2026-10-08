@@ -196,7 +196,7 @@
     "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008094125001.json",
+  "lastAudit": "data/audit/in-999999261008095734001.json",
   "baseAnalysisHash": "c5d1493d4b96f43ae0d59fa67df4f38ca6a9d0e87004f4cbca58330ccbaf0ff6"
  },
  "ent_codementor_ba692caa3db3": {
@@ -378,24 +378,24 @@
     "by": "data/audit/in-99999926100723204200175001.json"
    },
    "fact:f2": {
-    "hash": "2277e3ddd7989458cf81d076e7960b0f7edc9d4cf8a3ca7cb5a9cb8bc8bb0056",
-    "by": "data/audit/in-99999926100723204200175001.json"
+    "hash": "a29a9943fd5c01eac5c1cd8e0ffed61b6f6101c364749549a10d0b18629f576b",
+    "by": "data/audit/in-999999261008095734002.json"
    },
    "fact:f3": {
     "hash": "ca5c22eda34c482b00f97b1b0f1f11f5eaf35b045f5f96e5f7d127be948654ff",
     "by": "data/audit/in-99999926100723204200175001.json"
    },
    "fact:f4": {
-    "hash": "09f2e8182af9169a8b64d5d9017d5ce0f6ceaf344b2d1521cdaf4a92531dafa0",
-    "by": "data/audit/in-99999926100723204200175001.json"
+    "hash": "2214d37a648bcfc18e1bf4f1ecdd30a4eb1cef6dac50a1b735ba9269df611f7b",
+    "by": "data/audit/in-999999261008095734002.json"
    },
    "fact:f5": {
-    "hash": "27246f025cb9b0e21148b7462370b3783a50bb6a580356acd9b214bdc4510e0f",
-    "by": "data/audit/in-99999926100723204200175001.json"
+    "hash": "55cb7f39dc09c41b9a68ebfd7ba0f1facf9ed2247a5269d85ecff4faa3159742",
+    "by": "data/audit/in-999999261008095734002.json"
    },
    "fact:f6": {
-    "hash": "e892adc53901d374c2df8b0228cef1f6019c64314c375214c8d78d055a783bdd",
-    "by": "data/audit/in-99999926100723204200175001.json"
+    "hash": "b37869ddd5ee3b16ab3b85d6f063f1585d40916c27cdac98c2563ca8ce1cbbd5",
+    "by": "data/audit/in-999999261008095734002.json"
    },
    "fact:f7": {
     "hash": "505020606a2db43e7e5046f1ce860fa5999117fecc4fa963ce20629d14f6c85c",
@@ -405,25 +405,9 @@
     "hash": "cf522ba65f307cfe59b1c3536d58356f0a91d5159f896ba168f1bf57158f3aaf",
     "by": "data/audit/in-99999926100723204200175001.json"
    },
-   "analysis:a-headline": {
-    "hash": "3dfc287dc104dad75566f39e3a19661821cd0953ee3fd74edcb85d6853def5a0",
-    "by": "data/audit/in-99999926100723204200175001.json",
-    "body": {
-     "text": "複数の顧客案件を抱えるSEO担当のPratham Naikは、複雑な管理ツールにうんざりしてTeamcampを作り始めた。",
-     "formula": "数字は出典に載っている値"
-    }
-   },
-   "analysis:a-story": {
-    "hash": "d9d911df9ad4bc4e31b44775f351d11a6b603d80b3ff0b2f610d9ed688a67836",
-    "by": "data/audit/in-99999926100723204200175001.json",
-    "body": {
-     "text": "創業者は、SEO担当として複数の顧客案件を回す中で、複雑な管理ツールにうんざりして自作した。本人の別の投稿では、インディー開発者の仲間の要望（ダークモード、API、Notion風ブロック）で6か月作ったが、Product Huntは23票、初月の売上は227ドルだった。初めて話した代理店の経営者に顧客用ポータルと白ラベルを聞かれ、見た目より客とのやり取りの機能が要ると気づき、事業主との直接の会話に切り替えたという。この投稿は製品名を出しておらず、同じ創業者の他の投稿とは時期も数字も合わない。",
-     "formula": "数字は出典に載っている値"
-    }
-   },
    "analysis:a-business_model": {
-    "hash": "c29e853842f7fa3ab7edfa161a96627f39e54ebdd346360ffb6e0cfe5853a0f2",
-    "by": "data/audit/in-99999926100723204200175001.json",
+    "hash": "763ca228ef09a2825b688f24565cd3f0c1baa604f89430263eb0556a0e878db3",
+    "by": "data/audit/in-999999261008095734002.json",
     "body": {
      "text": "代理店が、プロジェクト管理、時間記録、請求書、顧客に見せる画面を1つで使う代わりに、ユーザー数に応じた月額（または無制限プラン）を払う。工数の記録からそのまま請求書を作れる。",
      "formula": "数字は出典に載っている値"
@@ -437,14 +421,6 @@
      "formula": "数字は出典に載っている値"
     }
    },
-   "analysis:a-customer_pain": {
-    "hash": "2ee192f03f97d41e17a016c82c8aeec21cc3c52ca6c77374592b91b9ff595675",
-    "by": "data/audit/in-99999926100723204200175001.json",
-    "body": {
-     "text": "創業者が挙げる客の困りごとは、複雑すぎるツールの管理に時間を取られること。代理店の経営者が最初に求めたのは、顧客に見せる画面と白ラベルだった。",
-     "formula": "数字は出典に載っている値"
-    }
-   },
    "analysis:a-first_customers": {
     "hash": "b5857a68ab04a43081823d70a2bea6413903c1e0aa0a769cf2536c5e90095555",
     "by": "data/audit/in-99999926100723204200175001.json",
@@ -454,8 +430,8 @@
     }
    },
    "analysis:a-channels": {
-    "hash": "780fb8f4257229e915ba69fa2b13322d8841ebc99486ba60acd3dc567e281faf",
-    "by": "data/audit/in-99999926100723204200175001.json",
+    "hash": "25c51d96c6385fde693548c49d088949a6c7858a26536db8d19046a2bece5da8",
+    "by": "data/audit/in-999999261008095734002.json",
     "body": {
      "text": "新規登録の約4割は口コミ・紹介と本人が書く。公式は、生涯続くコミッションの紹介プログラムで、ブロガーや比較サイト、インフルエンサーに紹介を促す。",
      "formula": "数字は出典に載っている値"
@@ -518,18 +494,10 @@
     }
    },
    "analysis:a-competition": {
-    "hash": "6e3bf49f3033847ff0a72c764de7a41de0dacba0c5e41de2e637843518902ccb",
-    "by": "data/audit/in-99999926100723204200175001.json",
+    "hash": "4439f50139f4ec609f40f579751445614f98b843a57d2afea90bf53ade94627d",
+    "by": "data/audit/in-999999261008095734002.json",
     "body": {
      "text": "競合はAsana、Monday、Trello。Asanaは操作が重く、Mondayは使わない機能にも払い、Trelloは単純すぎるという不満を出発点にした。Asana・ClickUp・Linearから乗り換える客のデータを取り込める。",
-     "formula": "数字は出典に載っている値"
-    }
-   },
-   "analysis:a-why_it_worked": {
-    "hash": "515f8e271fa2e60f3eb99be3dbaf9d7fbc59105448ba677ddf7f5c3a2a858fb1",
-    "by": "data/audit/in-99999926100723204200175001.json",
-    "body": {
-     "text": "創業者は、見た目と実際に使える無料枠が効き、顧客用の画面が最大の差になったと書く。別の投稿では、代理店の経営者に「顧客用ポータルは？白ラベルにできる？」と聞かれて事業主との直接の会話に切り替え、2か月で継続率が12%から41%に上がったと書くが、この投稿は製品名を出しておらず、同じ創業者の他の投稿とは時期も数字も合わない。",
      "formula": "数字は出典に載っている値"
     }
    },
@@ -564,9 +532,15 @@
     "outputFile": "data/audit/out-99999926100723204200175001.json",
     "inputFileHash": "4867f99939a32ec766eb1067f786e01d900579f3d309e97722bf498d39539828",
     "outputFileHash": "cdd4e705cfd6267eb0a74c5a1b2f308cbd06031588047e02b386dd4b8c2cda5b"
+   },
+   {
+    "inputFile": "data/audit/in-999999261008095734002.json",
+    "outputFile": "data/audit/out-999999261008095734002.json",
+    "inputFileHash": "04904a8751be9397bfa7695238156d564d57c551e6df759b0fdfe21cd5349182",
+    "outputFileHash": "4fe1ebad991ba17d2aa67960757f8eaf9d9c9efa1309a48d1f775692779e4292"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008094125002.json",
+  "lastAudit": "data/audit/in-999999261008095734002.json",
   "baseAnalysisHash": "ad8ddc717b98291f6fbcfe9a7fe8fe36560e6bd9fca3470137035d1475b3efb7"
  },
  "ent_referralrock_8c13d5ee4cfc": {
@@ -718,7 +692,7 @@
     "outputFileHash": "85c04246d11099ecb2ef38cd2895d902c1547e6ca29f8f3bf9703f7da91d5761"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008094125003.json",
+  "lastAudit": "data/audit/in-999999261008095734003.json",
   "baseAnalysisHash": "7294e939860f3c915454806de93d6b01ae84d040d703a274e07bc34bc0813698"
  },
  "ent_ejunkie_7e9e46bd9643": {
@@ -1680,7 +1654,7 @@
     "outputFileHash": "262e1d5c5ba00e8739fcd84ce4571d77be1eeb16fd314e9f4be5449e024aa656"
    }
   ],
-  "lastAudit": "data/audit/in-999999261008094125004.json",
+  "lastAudit": "data/audit/in-999999261008095734004.json",
   "baseAnalysisHash": "119476d7bb322a65c3b689009d95c55b5702e5b2a3289c4f5ed5efa172a1eb09"
  }
 }

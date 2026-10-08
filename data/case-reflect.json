@@ -2570,7 +2570,6 @@
    "state": "HOLD",
    "stage": "RELEASE",
    "reasons": [
-    "推論:HEADLINE:basis-missing-id",
     "全体が薄い:事実2件以下で数字なし",
     "リードを書き直す:リード（HEADLINE）が無い",
     "全体が薄い:本文の節が2個（3個以上必要）"
@@ -2862,9 +2861,129 @@
      }
     ]
    },
+   "approvedAnalysis": [
+    {
+     "id": "a-headline",
+     "item": "HEADLINE",
+     "text": "月59ドルの有料版に2日で最初の客が付き、外部資金なしで営業を雇い直して、2016年末に顧客170社まで伸ばした技術者の創業者",
+     "basis": [
+      "f4",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-story",
+     "item": "STORY",
+     "text": "2013年12月にドメインを取り、受託で食べながら2014年に無料のベータを回した。最初の管理画面はSurvey Monkeyの回答フォーム。2015年6月に月59ドルで有料化すると2日で最初の客が付き、数か月で月約2,000ドルになって専業に移った。2016年2月に月250ドル・6か月契約を出して1社から1,500ドルが一度に入り、営業を雇い始めた。1人目は失敗、2人目で2016年末にMRR約15,000ドルへ。",
+     "basis": [
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-business_model",
+     "item": "BUSINESS_MODEL",
+     "text": "事業者が月額を払い、紹介リンク・追跡・報酬の払い出しをソフトで回す。専任アドバイザーが制度の設定を手伝う。",
+     "basis": [
+      "f1",
+      "f10"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-customer",
+     "item": "CUSTOMER",
+     "text": "紹介で客を増やしたい事業者。住宅・専門サービス、医療、金融、フランチャイズ、複数店舗、SaaS、EC。",
+     "basis": [
+      "f1"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-first_customers",
+     "item": "FIRST_CUSTOMERS",
+     "text": "旧製品UberNoteの利用者リスト、Betalist、知人に告知して、2014年前半に200超の接点、最初の1年半で500社超がベータに登録した。有料化の2日後に最初の有料客、月末に4社。",
+     "basis": [
+      "f2",
+      "f4"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-channels",
+     "item": "CHANNELS",
+     "text": "2019年5月に月売上が70,000ドルに達した要因は、2人目の営業の採用だったと本人は書く。営業の増員後は、サイトの文面・LP・申込ボタンを直してリードを増やした。",
+     "basis": [
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-capital_and_team",
+     "item": "CAPITAL_AND_TEAM",
+     "text": "外部資金なし。2016年末は3.5人、2019年は営業2人体制。創業者は製品と営業・サポートも兼ねた。",
+     "basis": [
+      "f6",
+      "f7"
+     ],
+     "formula": "本人の記述を要約した。計算はない。",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-failure_cause",
+     "item": "FAILURE_CAUSE",
+     "text": "2016年7月に雇った最初の営業は、研修と顧客理解が足りずにうまくいかず、2か月分の売上を失った。10月に2人目の営業を雇って再挑戦し、そこから営業が回り出した。",
+     "basis": [
+      "f6"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-lock_in",
+     "item": "LOCK_IN",
+     "text": "導入時の立ち上げ会議と客ごとの専任担当を付けて、解約を半分にした。",
+     "basis": [
+      "f8"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-why_it_worked",
+     "item": "WHY_IT_WORKED",
+     "text": "2019年5月の月売上70,000ドルは、本人が2人目の営業の採用が要因と書く。リードが足りるか迷って先延ばしにしたが、採用が先になったことでサイト改善に動いたと振り返る。",
+     "basis": [
+      "f7"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    },
+    {
+     "id": "a-viability",
+     "item": "VIABILITY",
+     "text": "公式は1,000社超が使うと掲げ、2025年10月も製品更新が続く。現在の売上や顧客数の内訳は公開されていない。",
+     "basis": [
+      "f11"
+     ],
+     "formula": "数字は出典に載っている値",
+     "presentation": "FACT_SUMMARY"
+    }
+   ],
    "ruleVersion": "case-reflect-v1",
-   "hash": "3366e6f76a06b7e538035e68b64137d61e8cd7381f5362663c17bd471e704b83",
-   "reflectedAt": "2026-10-08T00:39:22.783Z"
+   "hash": "a260ba1a126f116791e417a6a5ef06b009aa1e00030233108d6a586bb5b1b969",
+   "reflectedAt": "2026-10-08T00:56:38.166Z"
   },
   "ent_requestly_28e9f2": {
    "id": "ent_requestly_28e9f2",
